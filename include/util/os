@@ -1,9 +1,11 @@
 #pragma once
 
+namespace util {
 #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__WINDOWS__)
-#	define OS_WINDOWS true
+	constexpr std::string_view OS = "windows";
 #elif defined(__APPLE__) || defined(__MACH__)
-#	define OS_MAC true
+	constexpr std::string_view OS = "mac";
 #elif defined(__unix__) || defined(__unix) || defined(unix)
-#	define OS_UNIX true
+	constexpr std::string_view OS = "unix";
 #endif
+}
