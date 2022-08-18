@@ -24,6 +24,16 @@ append("data.txt", 'd');
 read("data.txt") // "4d"
 ```
 
+#### geom
+```cpp
+// todo
+```
+
+#### io
+```cpp
+// todo
+```
+
 #### macro
 ```cpp
 #include <util/macro>
