@@ -26,35 +26,35 @@ util::io::NonBlockLock::~NonBlockLock() {
 }
 
 void util::io::ignore(const char until) noexcept {
-	util::io::NonBlock nonblockLock;
+	util::io::NonBlockLock nonblockLock;
 	char input;
 	while (input != until && read(STDIN_FILENO, &input, 1) == 1);
 }
 
 void util::io::ignore(std::streamsize characters) noexcept {
-	util::io::NonBlock nonblockLock;
+	util::io::NonBlockLock nonblockLock;
 	char input;
 	while (characters-- > 0 && read(STDIN_FILENO, &input, 1) == 1);
 }
 
 char util::io::waitChar(const bool echo) noexcept {
-	util::io::Raw rawLock(echo);
+	util::io::RawLock rawLock(echo);
 	char input;
 	read(STDIN_FILENO, &input, 1);
 	return input;
 }
 
 char util::io::readChar(const char defaultChar) noexcept {
-	util::io::Raw rawLock;
-	util::io::NonBlock nonblockLock;
+	util::io::RawLock rawLock;
+	util::io::NonBlockLock nonblockLock;
 	char input = defaultChar;
 	read(STDIN_FILENO, &input, 1);
 	return input;
 }
 
 std::string util::io::readString() noexcept {
-	util::io::Raw rawLock;
-	util::io::NonBlock nonblockLock;
+	util::io::RawLock rawLock;
+	util::io::NonBlockLock nonblockLock;
 	std::string result;
 	char input;
 	while (read(STDIN_FILENO, &input, 1) == 1)
@@ -69,7 +69,7 @@ util::io::Position util::io::getWindowSize() noexcept {
 }
 
 util::io::Position util::io::cursor::getPos() noexcept {
-	util::io::Raw rawLock;
+	util::io::RawLock rawLock;
 	write(STDOUT_FILENO, "\033[6n", 4);
 	std::string buffer;
 	char input;
