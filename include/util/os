@@ -1,11 +1,17 @@
 #pragma once
 
 namespace util {
+	enum class OS {
+		Windows,
+		Mac,
+		Unix
+	};
+
 #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__WINDOWS__)
-	constexpr std::string_view OS = "windows";
+	constexpr auto thisOS = util::OS::Windows;
 #elif defined(__APPLE__) || defined(__MACH__)
-	constexpr std::string_view OS = "mac";
+	constexpr auto thisOS = util::OS::Mac;
 #elif defined(__unix__) || defined(__unix) || defined(unix)
-	constexpr std::string_view OS = "unix";
+	constexpr auto thisOS = util::OS::Unix;
 #endif
 }
