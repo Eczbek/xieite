@@ -122,7 +122,7 @@ std::vector<std::vector<int>> {
 ```cpp
 #include <util/os>
 
-util::OS // "unix"
+util::thisOS == util::OS::Unix // true
 ```
 ```cpp
 #include <util/macro>
