@@ -1,17 +1,17 @@
 #pragma once
 
 namespace util {
-	enum class OS {
-		Windows,
-		Mac,
-		Unix
+	enum class os {
+		windows,
+		mac,
+		unix
 	};
 
 #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__WINDOWS__)
-	constexpr auto thisOS = util::OS::Windows;
+	constexpr auto thisOS = util::os::windows;
 #elif defined(__APPLE__) || defined(__MACH__)
-	constexpr auto thisOS = util::OS::Mac;
+	constexpr auto thisOS = util::os::mac;
 #elif defined(__unix__) || defined(__unix) || defined(unix)
-	constexpr auto thisOS = util::OS::Unix;
+	constexpr auto thisOS = util::os::unix;
 #endif
 }
