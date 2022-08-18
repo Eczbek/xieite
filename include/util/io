@@ -10,24 +10,24 @@
 
 namespace util {
 	namespace io {
-		class Raw {
+		class RawLock {
 		private:
 			termios cooked;
 
 		public:
-			Raw(const bool echo = false) noexcept;
+			RawLock(const bool echo = false) noexcept;
 
-			~Raw();
+			~RawLock();
 		};
 
-		class NonBlock {
+		class NonBlockLock {
 		private:
 			const int blocking = fcntl(STDIN_FILENO, F_GETFL);
 
 		public:
-			NonBlock() noexcept;
+			NonBlockLock() noexcept;
 
-			~NonBlock();
+			~NonBlockLock();
 		};
 
 		void ignore(const char until = 0) noexcept;

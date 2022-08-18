@@ -4,7 +4,7 @@
 #include <util/io>
 
 
-util::io::Raw::Raw(const bool echo) noexcept {
+util::io::RawLock::RawLock(const bool echo) noexcept {
 	tcgetattr(STDIN_FILENO, &cooked);
 	termios raw = cooked;
 	cfmakeraw(&raw);
@@ -13,15 +13,15 @@ util::io::Raw::Raw(const bool echo) noexcept {
 	tcsetattr(STDIN_FILENO, TCSANOW, &raw);
 }
 
-util::io::Raw::~Raw() {
+util::io::RawLock::~RawLock() {
 	tcsetattr(STDIN_FILENO, TCSANOW, &cooked);
 }
 
-util::io::NonBlock::NonBlock() noexcept {
+util::io::NonBlockLock::NonBlockLock() noexcept {
 	fcntl(STDIN_FILENO, F_SETFL, blocking | O_NONBLOCK);
 }
 
-util::io::NonBlock::~NonBlock() {
+util::io::NonBlockLock::~NonBlockLock() {
 	fcntl(STDIN_FILENO, F_SETFL, blocking);
 }
 
