@@ -24,6 +24,18 @@ append("data.txt", 'd');
 read("data.txt") // "4d"
 ```
 
+#### macro
+```cpp
+#include <util/macro>
+
+class Singleton {
+	MAKE_SINGLETON(Singleton);
+public:
+	int value = 4;
+};
+Singleton::getInstance().value // 4
+```
+
 #### map
 ```cpp
 #include <util/map>
@@ -60,6 +72,13 @@ baseFrom("d", 16) // 16
 #include <util/num>
 
 util::num::tau // 6.28318
+```
+
+#### os
+```cpp
+#include <util/os>
+
+util::thisOS == util::OS::Unix // true
 ```
 
 #### str
@@ -124,23 +143,4 @@ std::vector<std::vector<int>> {
 	{ 1, 4 }
 }
 */
-```
-
-#### os
-```cpp
-#include <util/os>
-
-util::thisOS == util::OS::Unix // true
-```
-
-#### macro
-```cpp
-#include <util/macro>
-
-class Singleton {
-	MAKE_SINGLETON(Singleton);
-public:
-	int value = 4;
-};
-Singleton::getInstance().value // 4
 ```
