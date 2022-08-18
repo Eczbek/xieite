@@ -70,11 +70,11 @@ split("a b c", ' ') // std::vector<std::string> { "a", "b", "c" }
 
 trunc("0123456789", 8, "...") // "01234..."
 
-trimLeft("aaaBaaa", '.') // "Baaa"
-trimRight("aaaBaaa", '.') // "aaaB"
+trimLeft("--l--", '-') // "l--"
+trimRight("--l--", '-') // "--l"
 
-trimLeft("abaCbab", "ab") // "Cbab"
-trimRight("abaCbab", "ab") // "abaC"
+trimLeft("-=l-=", "=-") // "l-="
+trimRight("-=l-=", "=-") // "-=l"
 ```
 ```cpp
 #include <util/time>
@@ -118,4 +118,21 @@ std::vector<std::vector<int>> {
 	{ 1, 4 }
 }
 */
+```
+```cpp
+#include <util/os>
+
+util::OS // "unix"
+```
+```cpp
+#include <util/macro>
+
+class Singleton {
+	MAKE_SINGLETON(Singleton);
+
+public:
+	int value = 4;
+};
+
+Singleton::getInstance().value // 4
 ```
