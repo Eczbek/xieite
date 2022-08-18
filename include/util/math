@@ -44,7 +44,7 @@ namespace util {
 		template <typename Number>
 		std::string baseTo(Number value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") {
 			if (value != std::floor(value))
-				throw std::runtime_error("Value is not integer");
+				throw std::runtime_error("Value is not an integer");
 			std::string result;
 			while (value) {
 				result = digits[value % base] + result;
