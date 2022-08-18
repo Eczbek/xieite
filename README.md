@@ -1,27 +1,30 @@
 # C++ utility library
 
 ### Examples
+
+#### alg
 ```cpp
 #include <util/alg>
 using namespace util::alg;
 
 std::array<int, 3> a { 1, 2, 3 };
 std::array<int, 3> b { 3, 1, 2 };
-std::array<int, 3> c { 1, 3, 2 };
 
 rotatedMatch(a.begin(), a.end(), b.begin(), b.end()) // true
-rotatedMatch(a.begin(), a.end(), c.begin(), c.end()) // false
-rotatedMatch(a.begin(), a.end(), c.end(), c.begin()) // true
 ```
+
+#### fs
 ```cpp
 #include <util/fs>
 using namespace util::fs;
 
-write("something.txt", 4);
-append("something.txt", 'd');
+write("data.txt", 4);
+append("data.txt", 'd');
 
-read("something.txt") // "4d"
+read("data.txt") // "4d"
 ```
+
+#### map
 ```cpp
 #include <util/map>
 
@@ -31,13 +34,8 @@ map['a'] = true;
 map['a'] // true
 map['b'] // false
 ```
-```cpp
-#include <util/mat>
 
-util::Matrix<int> matrix({ 2, 2 }, { 1, 2, 3, 4 });
-
-matrix[{ 1, 0 }] // 3
-```
+#### math
 ```cpp
 #include <util/math>
 using namespace util::math;
@@ -56,11 +54,15 @@ radToDeg(3.14159) // 180
 baseTo(13, 16) // "d"
 baseFrom("d", 16) // 16
 ```
+
+#### num
 ```cpp
 #include <util/num>
 
 util::num::tau // 6.28318
 ```
+
+#### str
 ```cpp
 #include <util/str>
 using namespace util::str;
@@ -76,6 +78,8 @@ trimRight("--l--", '-') // "--l"
 trimLeft("-=l-=", "=-") // "l-="
 trimRight("-=l-=", "=-") // "-=l"
 ```
+
+#### time
 ```cpp
 #include <util/time>
 using namespace util::time;
@@ -86,6 +90,8 @@ week_days[2] // "Tuesday"
 
 now<std::chrono::milliseconds>() // 1657814519827
 ```
+
+#### vect
 ```cpp
 #include <util/vect>
 using namespace util::vect;
@@ -119,20 +125,22 @@ std::vector<std::vector<int>> {
 }
 */
 ```
+
+#### os
 ```cpp
 #include <util/os>
 
 util::thisOS == util::OS::Unix // true
 ```
+
+#### macro
 ```cpp
 #include <util/macro>
 
 class Singleton {
 	MAKE_SINGLETON(Singleton);
-
 public:
 	int value = 4;
 };
-
 Singleton::getInstance().value // 4
 ```
