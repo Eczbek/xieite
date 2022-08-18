@@ -1,16 +1,17 @@
-# C++ utility library
+# C++ Utility Library
 
-### Examples
+<br/>
+
+### Usage examples:
 
 #### alg
 ```cpp
 #include <util/alg>
-using namespace util::alg;
 
 std::array<int, 3> a { 1, 2, 3 };
 std::array<int, 3> b { 3, 1, 2 };
 
-rotatedMatch(a.begin(), a.end(), b.begin(), b.end()) // true
+util::alg::rotatedMatch(a.begin(), a.end(), b.begin(), b.end()); // true
 ```
 
 #### fs
@@ -21,7 +22,7 @@ using namespace util::fs;
 write("data.txt", 4);
 append("data.txt", 'd');
 
-read("data.txt") // "4d"
+read("data.txt"); // "4d"
 ```
 
 #### geom
@@ -43,7 +44,7 @@ class Singleton {
 public:
 	int value = 4;
 };
-Singleton::getInstance().value // 4
+Singleton::getInstance().value; // 4
 ```
 
 #### map
@@ -53,8 +54,8 @@ Singleton::getInstance().value // 4
 util::OrderedMap<char, bool> map;
 map['a'] = true;
 
-map['a'] // true
-map['b'] // false
+map['a']; // true
+map['b']; // false
 ```
 
 #### math
@@ -62,33 +63,31 @@ map['b'] // false
 #include <util/math>
 using namespace util::math;
 
-wrap(6, 5, -3) // -2
+wrap(6, 5, -3); // -2
 
-approxEqual(0.1 + 0.2, 0.3) // true
+approxEqual(0.1 + 0.2, 0.3); // true
 
-sign(297580) // 1
-sign(-6527395) // -1
-sign(0) // 0
+sign(-56037); // -1
 
-degToRad(180) // 3.14159
-radToDeg(3.14159) // 180
+degToRad(180); // 3.14159
+radToDeg(3.14159); // 180
 
-baseTo(13, 16) // "d"
-baseFrom("d", 16) // 16
+baseTo(13, 16); // "d"
+baseFrom("d", 16); // 16
 ```
 
 #### num
 ```cpp
 #include <util/num>
 
-util::num::tau // 6.28318
+util::num::tau; // 6.28318
 ```
 
 #### os
 ```cpp
 #include <util/os>
 
-util::thisOS == util::OS::Unix // true
+util::thisOS == util::os::unix; // true
 ```
 
 #### str
@@ -96,16 +95,16 @@ util::thisOS == util::OS::Unix // true
 #include <util/str>
 using namespace util::str;
 
-split("abc", "") // std::vector<std::string> { "a", "b", "c" }
-split("a b c", ' ') // std::vector<std::string> { "a", "b", "c" }
+split("abc", ""); // std::vector<std::string> { "a", "b", "c" }
+split("a b c", ' '); // std::vector<std::string> { "a", "b", "c" }
 
-trunc("0123456789", 8, "...") // "01234..."
+trunc("0123456789", 8, "..."); // "01234..."
 
-trimLeft("--l--", '-') // "l--"
-trimRight("--l--", '-') // "--l"
+trimLeft("--l--", '-'); // "l--"
+trimRight("--l--", '-'); // "--l"
 
-trimLeft("-=l-=", "=-") // "l-="
-trimRight("-=l-=", "=-") // "-=l"
+trimLeft("-=l-=", "=-"); // "l-="
+trimRight("-=l-=", "=-"); // "-=l"
 ```
 
 #### time
@@ -113,11 +112,11 @@ trimRight("-=l-=", "=-") // "-=l"
 #include <util/time>
 using namespace util::time;
 
-months[4] // "May"
+months[4]; // "May"
 
-week_days[2] // "Tuesday"
+week_days[2]; // "Tuesday"
 
-now<std::chrono::milliseconds>() // 1657814519827
+now<std::chrono::milliseconds>(); // 1657814519827
 ```
 
 #### vect
@@ -127,7 +126,7 @@ using namespace util::vect;
 
 group({ 1, 2, 3, 4 }, [](const int value) -> std::string {
 	return (value > 2) ? "big" : "small";
-}) /*
+}); /*
 std::unordered_map<std::string, std::vector<int>> {
 	{ "big", { 3, 4 } },
 	{ "small", { 1, 2 } }
@@ -139,14 +138,14 @@ std::vector<std::vector<int>> vector2D {
 	{ 4, 5, 6 }
 };
 
-rotateCW(vector2D) /*
+rotateCW(vector2D); /*
 std::vector<std::vector<int>> {
 	{ 4, 1 },
 	{ 5, 2 },
 	{ 6, 3 }
 }
 */
-rotateCCW(vector2D) /*
+rotateCCW(vector2D); /*
 std::vector<std::vector<int>> {
 	{ 3, 6 },
 	{ 2, 5 },
