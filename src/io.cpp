@@ -38,14 +38,19 @@ char util::io::readChar(const char defaultChar) noexcept {
 	return input;
 }
 
-std::string util::io::readString() noexcept {
+std::string util::io::readString(const std::size_t count) noexcept {
 	util::io::RawLock rawLock;
 	util::io::NonBlockLock nonblockLock;
 	std::string buffer;
 	char input;
-	while (std::cin >> input)
+	while (buffer.size() <= count && std::cin >> input)
 		buffer += input;
 	return buffer;
+}
+
+void util::io::putbackString(std::string_view string) noexcept {
+	for (std::size_t i = string.size(); i > 0; --i)
+		std::cin.putback(string[i - 1]);
 }
 
 util::io::Position util::io::getWindowSize() noexcept {

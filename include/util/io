@@ -1,6 +1,7 @@
 #pragma once
 
 #include <fcntl.h>
+#include <limits>
 #include <string>
 #include <string_view>
 #include <termios.h>
@@ -34,7 +35,9 @@ namespace util {
 
 		char readChar(const char defaultChar = 0) noexcept;
 
-		std::string readString() noexcept;
+		std::string readString(const std::size_t count = std::numeric_limits<std::streamsize>::max()) noexcept;
+
+		void putbackString(std::string_view string) noexcept;
 
 		struct Position {
 			int row;
