@@ -32,7 +32,29 @@ read("data.txt"); // "4d"
 
 #### io
 ```cpp
-// todo
+#include <util/io>
+using namespace util::io;
+
+RawLock lock1;
+lock1.~RawLock();
+
+NonBlockLock lock2;
+lock2.~NonBlockLock();
+
+waitChar(); // 
+
+putbackString("abcd");
+
+readChar(); // 'a'
+readString(2); // "bc"
+
+getWindowSize(); // Position { 24, 80 }
+
+cursor::getPos(); // Position { 0, 0 }
+cursor::setPos({ 0, 0 });
+cursor::move(direction::Down, 3);
+
+std::cout << style::fg::brightRed << "Hello, world!\n";
 ```
 
 #### macro
