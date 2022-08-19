@@ -3,16 +3,16 @@
 
 namespace util {
 	enum class os {
-		windows,
-		mac,
-		unix
+		Windows,
+		Mac,
+		Unix
 	};
 
 #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__WINDOWS__)
-	constexpr auto thisOS = util::os::windows;
+	constexpr auto thisOS = util::os::Windows;
 #elif defined(__APPLE__) || defined(__MACH__)
-	constexpr auto thisOS = util::os::mac;
+	constexpr auto thisOS = util::os::Mac;
 #elif defined(__unix__) || defined(__unix) || defined(unix)
-	constexpr auto thisOS = util::os::unix;
+	constexpr auto thisOS = util::os::Unix;
 #endif
 }

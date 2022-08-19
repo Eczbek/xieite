@@ -41,16 +41,16 @@ namespace util {
 			int column;
 		};
 
+		enum class direction: char {
+			Up = 'A',
+			Down,
+			Right,
+			Left
+		};
+
 		util::io::Position getWindowSize() noexcept;
 
 		namespace cursor {
-			enum: char {
-				up = 'A',
-				down,
-				right,
-				left
-			};
-
 			util::io::Position getPos() noexcept;
 
 			void setPos(const util::io::Position position) noexcept;
