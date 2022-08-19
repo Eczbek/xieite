@@ -17,12 +17,11 @@ util::alg::rotatedMatch(a.begin(), a.end(), b.begin(), b.end()); // true
 #### fs
 ```cpp
 #include <util/fs>
-using namespace util::fs;
 
-write("data.txt", 4);
-append("data.txt", 'd');
+util::fs::write("data.txt", 4);
+util::fs::append("data.txt", 'd');
 
-read("data.txt"); // "4d"
+util::fs::read("data.txt"); // "4d"
 ```
 
 #### geom
@@ -33,28 +32,27 @@ read("data.txt"); // "4d"
 #### io
 ```cpp
 #include <util/io>
-using namespace util::io;
 
-RawLock lock1;
+util::io::RawLock lock1;
 lock1.~RawLock();
 
-NonBlockLock lock2;
+util::io::NonBlockLock lock2;
 lock2.~NonBlockLock();
 
-waitChar(); // 
+util::io::waitChar(); // 
 
-putbackString("abcd");
+util::io::putbackString("abcd");
 
-readChar(); // 'a'
-readString(2); // "bc"
+util::io::readChar(); // 'a'
+util::io::readString(2); // "bc"
 
-getWindowSize(); // Position { 24, 80 }
+util::io::getWindowSize(); // Position { 24, 80 }
 
-cursor::getPos(); // Position { 0, 0 }
-cursor::setPos({ 0, 0 });
-cursor::move(direction::Down, 3);
+util::io::cursor::getPos(); // Position { 0, 0 }
+util::io::cursor::setPos({ 0, 0 });
+util::io::cursor::move(direction::Down, 3);
 
-std::cout << style::fg::brightRed << "Hello, world!\n";
+std::cout << util::io::style::fg::brightRed << "Hello, world!\n";
 ```
 
 #### macro
@@ -83,19 +81,18 @@ map['b']; // false
 #### math
 ```cpp
 #include <util/math>
-using namespace util::math;
 
-wrap(6, 5, -3); // -2
+util::math::wrap(6, 5, -3); // -2
 
-approxEqual(0.1 + 0.2, 0.3); // true
+util::math::approxEqual(0.1 + 0.2, 0.3); // true
 
-sign(-56037); // -1
+util::math::sign(-56037); // -1
 
-degToRad(180); // 3.14159
-radToDeg(3.14159); // 180
+util::math::degToRad(180); // 3.14159
+util::math::radToDeg(3.14159); // 180
 
-baseTo(13, 16); // "d"
-baseFrom("d", 16); // 16
+util::math::baseTo(13, 16); // "d"
+util::math::baseFrom("d", 16); // 16
 ```
 
 #### num
@@ -109,44 +106,41 @@ util::num::tau; // 6.28318
 ```cpp
 #include <util/os>
 
-util::thisOS == util::os::unix; // true
+util::thisOS == util::os::Unix; // true
 ```
 
 #### str
 ```cpp
 #include <util/str>
-using namespace util::str;
 
-split("abc", ""); // std::vector<std::string> { "a", "b", "c" }
-split("a b c", ' '); // std::vector<std::string> { "a", "b", "c" }
+util::str::split("abc", ""); // std::vector<std::string> { "a", "b", "c" }
+util::str::split("a b c", ' '); // std::vector<std::string> { "a", "b", "c" }
 
-trunc("0123456789", 8, "..."); // "01234..."
+util::str::trunc("0123456789", 8, "..."); // "01234..."
 
-trimLeft("--l--", '-'); // "l--"
-trimRight("--l--", '-'); // "--l"
+util::str::trimLeft("--l--", '-'); // "l--"
+util::str::trimRight("--l--", '-'); // "--l"
 
-trimLeft("-=l-=", "=-"); // "l-="
-trimRight("-=l-=", "=-"); // "-=l"
+util::str::trimLeft("-=l-=", "=-"); // "l-="
+util::str::trimRight("-=l-=", "=-"); // "-=l"
 ```
 
 #### time
 ```cpp
 #include <util/time>
-using namespace util::time;
 
-months[4]; // "May"
+util::time::months[4]; // "May"
 
-week_days[2]; // "Tuesday"
+util::time::week_days[2]; // "Tuesday"
 
-now<std::chrono::milliseconds>(); // 1657814519827
+util::time::now<std::chrono::milliseconds>(); // 1657814519827
 ```
 
 #### vect
 ```cpp
 #include <util/vect>
-using namespace util::vect;
 
-group({ 1, 2, 3, 4 }, [](const int value) -> std::string {
+util::vect::group({ 1, 2, 3, 4 }, [](const int value) -> std::string {
 	return (value > 2) ? "big" : "small";
 }); /*
 std::unordered_map<std::string, std::vector<int>> {
@@ -160,14 +154,14 @@ std::vector<std::vector<int>> vector2D {
 	{ 4, 5, 6 }
 };
 
-rotateCW(vector2D); /*
+util::vect::rotateCW(vector2D); /*
 std::vector<std::vector<int>> {
 	{ 4, 1 },
 	{ 5, 2 },
 	{ 6, 3 }
 }
 */
-rotateCCW(vector2D); /*
+util::vect::rotateCCW(vector2D); /*
 std::vector<std::vector<int>> {
 	{ 3, 6 },
 	{ 2, 5 },
