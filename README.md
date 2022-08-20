@@ -14,6 +14,11 @@ std::array<int, 3> b { 3, 1, 2 };
 util::alg::rotatedMatch(a.begin(), a.end(), b.begin(), b.end()); // true
 ```
 
+#### concept
+```cpp
+// todo
+```
+
 #### fs
 ```cpp
 #include <util/fs>
