@@ -14,11 +14,6 @@ std::array<int, 3> b { 3, 1, 2 };
 util::alg::rotatedMatch(a.begin(), a.end(), b.begin(), b.end()); // true
 ```
 
-#### concept
-```cpp
-// todo
-```
-
 #### fs
 ```cpp
 #include <util/fs>
@@ -139,6 +134,11 @@ util::time::months[4]; // "May"
 util::time::week_days[2]; // "Tuesday"
 
 util::time::now<std::chrono::milliseconds>(); // 1657814519827
+```
+
+### trait
+```cpp
+// todo
 ```
 
 #### vect

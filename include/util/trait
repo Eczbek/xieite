@@ -2,14 +2,13 @@
 
 #include <concepts>
 #include <ostream>
-#include <type_traits>
 
 
 namespace util {
-	namespace concept {
+	namespace trait {
 		template <typename Value>
 		concept Streamable = requires(std::ostream& stream, const Value& value) {
-			{ stream << value } -> std::convertible_to<std::ostream&>
+			{ stream << value } -> std::convertible_to<std::ostream&>;
   		};
 	}
 }
