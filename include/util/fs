@@ -2,20 +2,21 @@
 
 #include <fstream>
 #include <string_view>
+#include <util/concept>
 
 
 namespace util {
 	namespace fs {
 		std::string read(const std::string& path) noexcept;
 		
-		template <typename Data = std::string_view>
+		template <util::concept::Streamable Data = std::string_view>
 		void write(const std::string& path, const Data& data) noexcept {
 			std::ofstream writer(path);
 			if (writer)
 				writer << data;
 		}
 
-		template <typename Data = std::string_view>
+		template <util::concept::Streamable Data = std::string_view>
 		void append(const std::string& path, const Data& data) noexcept {
 			std::ofstream writer(path, std::ios_base::app);
 			if (writer)
