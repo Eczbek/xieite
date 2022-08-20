@@ -8,11 +8,11 @@ namespace util {
 		Unix
 	};
 
-#if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__WINDOWS__)
+#if defined(_WIN32) || defined(__WINDOWS__)
 	constexpr auto thisOS = util::os::Windows;
 #elif defined(__APPLE__) || defined(__MACH__)
 	constexpr auto thisOS = util::os::Mac;
-#elif defined(__unix__) || defined(__unix) || defined(unix)
+#elif defined(__unix__) || defined(__unix)
 	constexpr auto thisOS = util::os::Unix;
 #endif
 }
