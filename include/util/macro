@@ -10,3 +10,5 @@
         }                                          \
         Singleton(const Singleton&) = delete;      \
         Singleton& operator=(const Singleton&) = delete
+
+#define QUOTE(expression) #expression
