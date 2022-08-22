@@ -4,7 +4,7 @@
 #include <random>
 
 
-namespace util {
+namespace gcufl {
 	namespace alg {
 		template <typename Iterator1, typename Iterator2>
 		bool rotatedMatch(Iterator1 begin1, const Iterator1 end1, const Iterator2 begin2, const Iterator2 end2) noexcept {

@@ -9,7 +9,7 @@
 #include <unistd.h>
 
 
-namespace util {
+namespace gcufl {
 	namespace io {
 		class RawLock {
 		private:
@@ -51,12 +51,12 @@ namespace util {
 			Left
 		};
 
-		util::io::Position getWindowSize() noexcept;
+		gcufl::io::Position getWindowSize() noexcept;
 
 		namespace cursor {
-			util::io::Position getPos() noexcept;
+			gcufl::io::Position getPos() noexcept;
 
-			void setPos(const util::io::Position position) noexcept;
+			void setPos(const gcufl::io::Position position) noexcept;
 
 			void move(const char direction, const int count = 1) noexcept;
 		}

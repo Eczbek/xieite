@@ -6,7 +6,7 @@
 #include <vector>
 
 
-namespace util {
+namespace gcufl {
 	namespace vect {
 		template <typename Key = std::string, typename Value, typename Callback>
 		std::unordered_map<Key, std::vector<Value>> group(const std::vector<Value>& values, const Callback& getGroup) noexcept {

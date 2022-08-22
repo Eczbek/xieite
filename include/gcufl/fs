@@ -2,21 +2,21 @@
 
 #include <fstream>
 #include <string_view>
-#include <util/trait>
+#include <gcufl/trait>
 
 
-namespace util {
+namespace gcufl {
 	namespace fs {
 		std::string read(const std::string& path) noexcept;
 		
-		template <util::trait::Streamable Data = std::string_view>
+		template <gcufl::trait::Streamable Data = std::string_view>
 		void write(const std::string& path, const Data& data) noexcept {
 			std::ofstream writer(path);
 			if (writer)
 				writer << data;
 		}
 
-		template <util::trait::Streamable Data = std::string_view>
+		template <gcufl::trait::Streamable Data = std::string_view>
 		void append(const std::string& path, const Data& data) noexcept {
 			std::ofstream writer(path, std::ios_base::app);
 			if (writer)

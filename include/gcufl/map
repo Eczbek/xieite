@@ -4,7 +4,7 @@
 #include <limits>
 
 
-namespace util {
+namespace gcufl {
 	template <typename Key, typename Value>
 	struct OrderedMap {
 		std::array<Value, std::numeric_limits<Key>::max() - std::numeric_limits<Key>::min() + 1> values;

@@ -6,10 +6,10 @@
 #include <numbers>
 #include <string>
 #include <string_view>
-#include <util/map>
+#include <gcufl/map>
 
 
-namespace util {
+namespace gcufl {
 	namespace math {
 		template <typename Number>
 		Number wrap(const Number value, const Number max, const Number min = 0) noexcept {
@@ -53,7 +53,7 @@ namespace util {
 
 		template <std::integral Number = int>
 		Number baseFrom(std::string_view value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
-			util::OrderedMap<char, std::size_t> charMap;
+			gcufl::OrderedMap<char, std::size_t> charMap;
 			for (std::size_t i = 0; i < digits.size(); ++i)
 				charMap[digits[i]] = i;
 			Number result = 0;

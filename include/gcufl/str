@@ -7,7 +7,7 @@
 #include <vector>
 
 
-namespace util {
+namespace gcufl {
 	namespace str {
 		std::vector<std::string> split(const std::string& string, std::string_view delimiter) noexcept;
 

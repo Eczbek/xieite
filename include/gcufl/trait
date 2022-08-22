@@ -4,7 +4,7 @@
 #include <ostream>
 
 
-namespace util {
+namespace gcufl {
 	namespace trait {
 		template <typename Value>
 		concept Streamable = requires(std::ostream& stream, const Value& value) {
