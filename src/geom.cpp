@@ -42,7 +42,7 @@ bool gcufl::geom::Line::operator!=(const gcufl::geom::Line& other) const noexcep
 }
 
 double gcufl::geom::Line::slope() const noexcept {
-	return (start.y - end.y) / (start.x - end.x);
+	return std::fabs(start.y - end.y) / std::fabs(start.x - end.x);
 }
 
 double gcufl::geom::Line::interceptX() const noexcept {
