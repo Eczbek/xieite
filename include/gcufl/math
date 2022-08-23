@@ -18,8 +18,8 @@ namespace gcufl {
 		}
 
 		template <typename Number>
-		bool approxEqual(const Number value1, const Number value2, const int precision = 12) noexcept {
-			return std::fabs(value1 - value2) <= std::numeric_limits<Number>::epsilon() * std::fabs(value1 + value2) * precision || std::fabs(value1 - value2) < std::numeric_limits<Number>::min();
+		bool approxEqual(const Number value1, const Number value2) noexcept {
+			return std::fabs(value1 - value2) <= std::numeric_limits<Number>::epsilon();
 		}
 
 		template <typename Number>
@@ -31,13 +31,13 @@ namespace gcufl {
 					: 0;
 		}
 
-		template <typename Result = double, typename Number>
-		Result radToDeg(const Number radians) noexcept {
+		template <typename Number>
+		double radToDeg(const Number radians) noexcept {
 			return radians * 180 / std::numbers::pi;
 		}
 
-		template <typename Result = double, typename Number>
-		Result degToRad(const Number degrees) noexcept {
+		template <typename Number>
+		double degToRad(const Number degrees) noexcept {
 			return degrees * std::numbers::pi / 180;
 		}
 
