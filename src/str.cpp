@@ -34,21 +34,14 @@ std::string gcufl::str::trunc(const std::string& string, const std::size_t lengt
 		: string;
 }
 
-std::string gcufl::str::trimLeft(const std::string& string, const char character) noexcept {
+std::string gcufl::str::trimStart(const std::string& string, const char character) noexcept {
 	for (std::size_t i = 0; i < string.size(); ++i)
 		if (string[i] != character)
 			return string.substr(i);
 	return "";
 }
 
-std::string gcufl::str::trimRight(const std::string& string, const char character) noexcept {
-	for (std::size_t i = string.size(); i > 0; --i)
-		if (string[i - 1] != character)
-			return string.substr(0, i);
-	return "";
-}
-
-std::string gcufl::str::trimLeft(const std::string& string, std::string_view characters) noexcept {
+std::string gcufl::str::trimStart(const std::string& string, std::string_view characters) noexcept {
 	gcufl::OrderedMap<char, bool> charMap;
 	for (const char character: characters)
 		charMap[character] = true;
@@ -58,7 +51,14 @@ std::string gcufl::str::trimLeft(const std::string& string, std::string_view cha
 	return "";
 }
 
-std::string gcufl::str::trimRight(const std::string& string, std::string_view characters) noexcept {
+std::string gcufl::str::trimEnd(const std::string& string, const char character) noexcept {
+	for (std::size_t i = string.size(); i > 0; --i)
+		if (string[i - 1] != character)
+			return string.substr(0, i);
+	return "";
+}
+
+std::string gcufl::str::trimEnd(const std::string& string, std::string_view characters) noexcept {
 	gcufl::OrderedMap<char, bool> charMap;
 	for (const char character: characters)
 		charMap[character] = true;

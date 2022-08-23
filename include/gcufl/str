@@ -15,12 +15,12 @@ namespace gcufl {
 
 		std::string trunc(const std::string& string, const std::size_t length, const std::string& suffix = "...") noexcept;
 
-		std::string trimLeft(const std::string& string, const char character) noexcept;
+		std::string trimStart(const std::string& string, const char character) noexcept;
 
-		std::string trimRight(const std::string& string, const char character) noexcept;
+		std::string trimStart(const std::string& string, std::string_view characters) noexcept;
 
-		std::string trimLeft(const std::string& string, std::string_view characters) noexcept;
+		std::string trimEnd(const std::string& string, const char character) noexcept;
 
-		std::string trimRight(const std::string& string, std::string_view characters) noexcept;
+		std::string trimEnd(const std::string& string, std::string_view characters) noexcept;
 	}
 }
