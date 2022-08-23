@@ -42,7 +42,7 @@ namespace gcufl {
 		}
 
 		template <std::integral N>
-		std::string baseTo(N value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") {
+		std::string baseTo(N value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
 			std::string result;
 			while (value) {
 				result = digits[value % base] + result;
