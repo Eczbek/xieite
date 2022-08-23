@@ -11,19 +11,19 @@
 
 namespace gcufl {
 	namespace math {
-		template <typename Number>
-		Number wrap(const Number value, const Number max, const Number min = 0) noexcept {
-			const Number diff = max - min;
+		template <typename N>
+		N wrap(const N value, const N max, const N min = 0) noexcept {
+			const N diff = max - min;
 			return std::fmod(std::fmod(value - min, diff) + diff, diff) + min;
 		}
 
-		template <typename Number>
-		bool approxEqual(const Number value1, const Number value2) noexcept {
-			return std::fabs(value1 - value2) <= std::numeric_limits<Number>::epsilon();
+		template <typename N>
+		bool approxEqual(const N value1, const N value2) noexcept {
+			return std::fabs(value1 - value2) <= std::numeric_limits<N>::epsilon();
 		}
 
-		template <typename Number>
-		int sign(const Number value) noexcept {
+		template <typename N>
+		int sign(const N value) noexcept {
 			return value > 0
 				? 1
 				: value < 0
@@ -31,18 +31,18 @@ namespace gcufl {
 					: 0;
 		}
 
-		template <typename Number>
-		double radToDeg(const Number radians) noexcept {
+		template <typename N>
+		double radToDeg(const N radians) noexcept {
 			return radians * 180 / std::numbers::pi;
 		}
 
-		template <typename Number>
-		double degToRad(const Number degrees) noexcept {
+		template <typename N>
+		double degToRad(const N degrees) noexcept {
 			return degrees * std::numbers::pi / 180;
 		}
 
-		template <std::integral Number>
-		std::string baseTo(Number value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") {
+		template <std::integral N>
+		std::string baseTo(N value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") {
 			std::string result;
 			while (value) {
 				result = digits[value % base] + result;
@@ -51,13 +51,13 @@ namespace gcufl {
 			return result;
 		}
 
-		template <std::integral Number = int>
-		Number baseFrom(std::string_view value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
+		template <std::integral N = int>
+		N baseFrom(std::string_view value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
 			gcufl::OrderedMap<char, std::size_t> charMap;
 			for (std::size_t i = 0; i < digits.size(); ++i)
 				charMap[digits[i]] = i;
-			Number result = 0;
-			Number currentBase = 1;
+			N result = 0;
+			N currentBase = 1;
 			for (std::size_t i = value.size(); i > 0; --i) {
 				result += charMap[value[i - 1]] * currentBase;
 				currentBase *= base;

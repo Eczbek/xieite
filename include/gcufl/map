@@ -5,16 +5,16 @@
 
 
 namespace gcufl {
-	template <typename Key, typename Value>
+	template <typename K, typename V>
 	struct OrderedMap {
-		std::array<Value, std::numeric_limits<Key>::max() - std::numeric_limits<Key>::min() + 1> values;
+		std::array<V, std::numeric_limits<K>::max() - std::numeric_limits<K>::min() + 1> values;
 
-		Value& operator[](const Key key) noexcept {
-			return values[key - std::numeric_limits<Key>::min()];
+		V& operator[](const K key) noexcept {
+			return values[key - std::numeric_limits<K>::min()];
 		}
 
-		const Value& operator[](const Key key) const noexcept {
-			return values[key - std::numeric_limits<Key>::min()];
+		const V& operator[](const K key) const noexcept {
+			return values[key - std::numeric_limits<K>::min()];
 		}
 	};
 }

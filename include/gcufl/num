@@ -5,8 +5,8 @@
 
 namespace gcufl {
 	namespace num {
-		template <typename Number>
-		constexpr Number tau_v = std::numbers::pi_v<Number> * 2;
+		template <typename N>
+		constexpr N tau_v = std::numbers::pi_v<N> * 2;
 
 		constexpr double tau = gcufl::num::tau_v<double>;
 	}
