@@ -1,4 +1,4 @@
-# gculf::num::tau_v
+# gcufl::num::tau_v
 ```cpp
 template <typename N>
 constexpr N tau_v = std::numbers::pi_v<N> * 2;
@@ -9,10 +9,10 @@ A mathematical constant.
 ## Example
 ```cpp
 #include <iostream>
-#include <gculf/num>
+#include <gcufl/num>
 
 int main() {
-	std::cout << gculf::num::tau << '\n';
+	std::cout << gcufl::num::tau << '\n';
 }
 ```
 Output:
