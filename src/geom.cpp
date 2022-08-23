@@ -30,7 +30,7 @@ gcufl::geom::Line::Line(const gcufl::geom::Point start, const double angle) noex
 {
 	end = gcufl::math::approxEqual(std::fmod(angle + std::numbers::pi / 2, std::numbers::pi), 0.0)
 		? gcufl::geom::Point(start.x, start.y - 1)
-		: gcufl::geom::Point(start.x + 1, std::tan(angle));
+		: gcufl::geom::Point(start.x + 1, start.y + std::tan(angle));
 }
 
 bool gcufl::geom::Line::operator==(const gcufl::geom::Line& other) const noexcept {
