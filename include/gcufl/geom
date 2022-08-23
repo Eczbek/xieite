@@ -57,8 +57,6 @@ namespace gcufl {
 
 			bool operator!=(const gcufl::geom::Ray& other) const noexcept;
 
-			double length() const noexcept;
-
 			bool contains(const gcufl::geom::Point point) const noexcept;
 		};
 

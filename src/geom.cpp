@@ -98,10 +98,6 @@ bool gcufl::geom::Ray::operator!=(const gcufl::geom::Ray& other) const noexcept 
 	return !operator==(other);
 }
 
-double gcufl::geom::Ray::length() const noexcept {
-	return std::numeric_limits<double>::infinity();
-}
-
 bool gcufl::geom::Ray::contains(const gcufl::geom::Point other) const noexcept {
 	const double slope = this->slope();
 	return (std::isinf(slope)
