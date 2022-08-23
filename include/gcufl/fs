@@ -1,26 +1,10 @@
 #pragma once
 
-#include <fstream>
-#include <string_view>
-#include <gcufl/trait>
+#include <string>
 
 
 namespace gcufl {
 	namespace fs {
 		std::string read(const std::string& path) noexcept;
-		
-		template <gcufl::trait::Streamable Data = std::string_view>
-		void write(const std::string& path, const Data& data) noexcept {
-			std::ofstream writer(path);
-			if (writer)
-				writer << data;
-		}
-
-		template <gcufl::trait::Streamable Data = std::string_view>
-		void append(const std::string& path, const Data& data) noexcept {
-			std::ofstream writer(path, std::ios_base::app);
-			if (writer)
-				writer << data;
-		}
 	}
 }

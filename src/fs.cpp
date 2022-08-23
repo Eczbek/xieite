@@ -1,4 +1,6 @@
 #include <gcufl/fs>
+#include <fstream>
+#include <iterator>
 
 
 std::string gcufl::fs::read(const std::string& path) noexcept {
