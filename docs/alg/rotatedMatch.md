@@ -6,7 +6,7 @@ bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2) noex
 template <std::input_iterator I1, std::input_iterator I2, typename C>
 bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2, const C& compare) noexcept;
 ```
-Returns whether two iterables contain the same values in the same relative order.
+Checks whether two iterables contain the same values in the same relative order.
 ## Example
 ```cpp
 #include <iostream>
