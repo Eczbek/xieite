@@ -9,7 +9,10 @@ Checks whether the ray intersects a point.
 #include <gcufl/geom>
 
 int main() {
-	std::cout << gcufl::geom::Ray({ 0, 0 }, { 1, 1 }).contains({ 5, 5 }) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< gcufl::geom::Ray({ 0, 0 }, { 1, 1 }).contains({ 5, 5 })
+		<< '\n';
 }
 ```
 Output:

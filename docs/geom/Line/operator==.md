@@ -13,7 +13,10 @@ int main() {
 	gcufl::geom::Line line1({ 0, 0 }, { 1, 1 });
 	gcufl::geom::Line line2({ 3, 3 }, gcufl::math::degToRad(45));
 
-	std::cout << (line1 == line2) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< (line1 == line2)
+		<< '\n';
 }
 ```
 Output:
