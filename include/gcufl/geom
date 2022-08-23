@@ -89,7 +89,7 @@ namespace gcufl {
 
 			bool contains(const gcufl::geom::Point point) const noexcept;
 
-			gcufl::geom::Polygon rotate(const double angle, const gcufl::geom::Point pivot) const noexcept;
+			gcufl::geom::Polygon rotate(const double angle, const gcufl::geom::Point pivot = gcufl::geom::Point(0, 0)) const noexcept;
 		};
 
 		struct Ellipse {
