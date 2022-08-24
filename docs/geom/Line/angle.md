@@ -7,7 +7,7 @@ Calculates the angle of the line.
 ```cpp
 #include <iostream>
 #include <gcufl/geom>
-#include <gculf/math>
+#include <gcufl/math>
 
 int main() {
 	std::cout
