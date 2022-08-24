@@ -8,7 +8,7 @@ If the file does not exist, returns `""`.
 ```cpp
 #include <iostream>
 #include <fstream>
-#include <gcufl/fs>
+#include <gcufl/fs.hpp>
 
 int main() {
 	std::string path = "./test.txt";

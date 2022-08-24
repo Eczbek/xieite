@@ -6,7 +6,7 @@ Creates basic singleton code
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/macro>
+#include <gcufl/macro.hpp>
 
 class Singleton {
 	MAKE_SINGLETON(Singleton);

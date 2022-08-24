@@ -1,7 +1,7 @@
 #include <iostream>
 #include <limits>
 #include <sys/ioctl.h>
-#include <gcufl/io>
+#include <gcufl/io.hpp>
 
 
 gcufl::io::RawLock::RawLock(const bool echo) noexcept {

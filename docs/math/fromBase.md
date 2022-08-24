@@ -7,7 +7,7 @@ Converts a number from any base to base-10
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/math>
+#include <gcufl/math.hpp>
 
 int main() {
 	std::cout << gcufl::math::fromBase("egg", 20) << '\n';

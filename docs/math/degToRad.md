@@ -7,7 +7,7 @@ Converts degrees to radians.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/math>
+#include <gcufl/math.hpp>
 
 int main() {
 	std::cout << gcufl::math::degToRad(180) << '\n';

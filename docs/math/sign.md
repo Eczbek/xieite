@@ -7,7 +7,7 @@ Gets the sign of a number.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/math>
+#include <gcufl/math.hpp>
 
 int main() {
 	std::cout

@@ -7,7 +7,7 @@ Gets the current time duration.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/time>
+#include <gcufl/time.hpp>
 
 int main() {
 	std::cout << gcufl::time::now() << '\n';

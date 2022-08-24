@@ -12,7 +12,7 @@ An operating-system dependant constant.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/os>
+#include <gcufl/os.hpp>
 
 int main() {
 	switch (gcufl::thisOS) {

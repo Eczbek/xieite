@@ -6,7 +6,7 @@ A constant array of month names.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/time>
+#include <gcufl/time.hpp>
 
 int main() {
 	std::cout << gcufl::time::months[3] << '\n';

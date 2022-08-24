@@ -6,7 +6,7 @@ A constant array of week-day names.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/time>
+#include <gcufl/time.hpp>
 
 int main() {
 	std::cout << gcufl::time::weekDays[4] << '\n';

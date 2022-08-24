@@ -7,7 +7,7 @@ Checks whether two numbers are approximately equal.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/math>
+#include <gcufl/math.hpp>
 
 int main() {
 	std::cout

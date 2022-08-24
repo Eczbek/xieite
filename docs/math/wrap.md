@@ -7,7 +7,7 @@ Wraps a number between limits.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/math>
+#include <gcufl/math.hpp>
 
 int main() {
 	std::cout << gcufl::math::wrap(6, 5, -2) << '\n';

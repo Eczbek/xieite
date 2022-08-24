@@ -8,6 +8,7 @@ Converts radians to degrees.
 ```cpp
 #include <iostream>
 #include <numbers>
+#include <gcufl/math.hpp>
 
 int main() {
 	std::cout << gcufl::math::radToDeg(std::numbers::pi) << '\n';

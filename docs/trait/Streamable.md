@@ -7,7 +7,7 @@ A concept for streamable classes.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/trait>
+#include <gcufl/trait.hpp>
 
 template <gcufl::trait::Streamable V>
 void print(const V& value) {
