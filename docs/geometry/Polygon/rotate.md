@@ -18,13 +18,13 @@ int main() {
 	});
 
 	for (const gcufl::geometry::Point point: polygon.rotate(gcufl::math::degToRad(90)).points)
-		std::cout << point.x << ", " << point.y << '\n';
+		std::cout << point.x << ' ' << point.y << '\n';
 }
 ```
 Output:
 ```
-0, 0
-0, 2
--2, 2
--2, 0
+0 0
+0 2
+-2 2
+-2 0
 ```

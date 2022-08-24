@@ -16,11 +16,11 @@ int main() {
 	gcufl::geometry::Line line({ 0, 0 }, { 1, 1 });
 
 	for (const gcufl::geometry::Point point: ellipse.intersections(line))
-		std::cout << point.x << ", " << point.y << '\n';
+		std::cout << point.x << ' ' << point.y << '\n';
 }
 ```
 Output:
 ```
-0.894427, 0.894427
--0.894427, -0.894427
+0.894427 0.894427
+-0.894427 -0.894427
 ```

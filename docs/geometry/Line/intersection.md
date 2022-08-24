@@ -14,10 +14,10 @@ int main() {
 
 	gcufl::geometry::Point point = line1.intersection(line2).value_or({ 0, 0 });
 
-	std::cout << point.x << ", " << point.y << '\n';
+	std::cout << point.x << ' ' << point.y << '\n';
 }
 ```
 Output:
 ```
-1, 1
+1 1
 ```

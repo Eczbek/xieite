@@ -12,12 +12,12 @@ int main() {
 	gcufl::geometry::Segment segment({ 0, 0 }, { 2, 2 });
 
 	std::cout
-		<< segment.start.x << ", " << segment.start.y << '\n'
-		<< segment.end.x << ", " << segment.end.y << '\n';
+		<< segment.start.x << ' ' << segment.start.y << '\n'
+		<< segment.end.x << ' ' << segment.end.y << '\n';
 }
 ```
 Output:
 ```
-0, 0
-2, 2
+0 0
+2 2
 ```

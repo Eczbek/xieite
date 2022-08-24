@@ -12,13 +12,13 @@ int main() {
 	gcufl::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });
 	
 	for (const gcufl::geometry::Point point: ellipse.boundingBox().points)
-		std::cout << point.x << ", " << point.y << '\n';
+		std::cout << point.x << ' ' << point.y << '\n';
 }
 ```
 Output:
 ```
--1, -2
-1, -2
-1, 2
--1, 2
+-1 -2
+1 -2
+1 2
+-1 2
 ```

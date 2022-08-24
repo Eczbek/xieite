@@ -13,10 +13,10 @@ int main() {
 	gcufl::geometry::Circle circle1({ 1, 0 }, 1);
 	gcufl::geometry::Circle circle2 = circle1.rotate(gcufl::math::degToRad(90));
 	
-	std::cout << circle2.center.x << ", " circle2.center.y << '\n';
+	std::cout << circle2.center.x << ' ' circle2.center.y << '\n';
 }
 ```
 Output:
 ```
-0, 1
+0 1
 ```

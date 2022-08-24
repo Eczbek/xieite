@@ -14,13 +14,13 @@ int main() {
 	gcufl::geometry::Ellipse ellipse2 = ellipse1.rotate(gcufl::math::degToRad(90));
 	
 	for (const gcufl::geometry::Point point: ellipse2.boundingBox().points)
-		std::cout << point.x << ", " << point.y << '\n';
+		std::cout << point.x << ' ' << point.y << '\n';
 }
 ```
 Output:
 ```
--2, -1
-2, -1
-2, 1
--2, 1
+-2 -1
+2 -1
+2 1
+-2 1
 ```

@@ -11,10 +11,10 @@ Creates a 2D point.
 int main() {
 	gcufl::geometry::Point point(0, 0);
 
-	std::cout << point.x << ", " << point.y << '\n';
+	std::cout << point.x << ' ' << point.y << '\n';
 }
 ```
 Output:
 ```
-0, 0
+0 0
 ```
