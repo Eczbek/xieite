@@ -113,7 +113,7 @@ namespace gcufl {
 
 			std::vector<gcufl::geometry::Point> intersections(const gcufl::geometry::Ellipse& other) const noexcept;
 
-			gcufl::geometry::Ellipse rotate(const double angle, const gcufl::geometry::Point pivot) const noexcept;
+			gcufl::geometry::Ellipse rotate(const double angle, const gcufl::geometry::Point pivot = gcufl::geometry::Point(0, 0)) const noexcept;
 
 			gcufl::geometry::Polygon boundingBox() const noexcept;
 		};
@@ -127,7 +127,7 @@ namespace gcufl {
 
 			bool contains(const gcufl::geometry::Point point) const noexcept;
 
-			gcufl::geometry::Circle rotate(const double angle, const gcufl::geometry::Point pivot) const noexcept;
+			gcufl::geometry::Circle rotate(const double angle, const gcufl::geometry::Point pivot = gcufl::geometry::Point(0, 0)) const noexcept;
 		};
 	}
 }
