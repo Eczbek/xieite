@@ -1,6 +1,6 @@
-# gcufl::io::cursor::setPos
+# gcufl::io::cursor::setPosition
 ```cpp
-void setPos(const gcufl::io::Position position) noexcept;
+void setPosition(const gcufl::io::Position position) noexcept;
 ```
 Sets the terminal cursor position.
 ## Example
@@ -9,9 +9,9 @@ Sets the terminal cursor position.
 #include <gcufl/io.hpp>
 
 int main() {
-	gcufl::io::cursor::setPos({ 3, 4 });
+	gcufl::io::cursor::setPosition({ 3, 4 });
 
-	gcufl::io::Position position = gcufl::io::cursor::getPos();
+	gcufl::io::Position position = gcufl::io::cursor::getPosition();
 	std::cout << position.row << ' ' << position.column << '\n';
 }
 ```

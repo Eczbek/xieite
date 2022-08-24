@@ -54,9 +54,9 @@ namespace gcufl {
 		gcufl::io::Position getWindowSize() noexcept;
 
 		namespace cursor {
-			gcufl::io::Position getPos() noexcept;
+			gcufl::io::Position getPosition() noexcept;
 
-			void setPos(const gcufl::io::Position position) noexcept;
+			void setPosition(const gcufl::io::Position position) noexcept;
 
 			void move(const char direction, const int count = 1) noexcept;
 		}

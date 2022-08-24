@@ -59,7 +59,7 @@ gcufl::io::Position gcufl::io::getWindowSize() noexcept {
 	return gcufl::io::Position(size.ws_col, size.ws_row);
 }
 
-gcufl::io::Position gcufl::io::cursor::getPos() noexcept {
+gcufl::io::Position gcufl::io::cursor::getPosition() noexcept {
 	gcufl::io::RawLock rawLock;
 	std::cout << "\033[6n";
 	gcufl::io::Position position;
@@ -67,7 +67,7 @@ gcufl::io::Position gcufl::io::cursor::getPos() noexcept {
 	return gcufl::io::Position(position.row - 1, position.column - 1);
 }
 
-void gcufl::io::cursor::setPos(const gcufl::io::Position position) noexcept {
+void gcufl::io::cursor::setPosition(const gcufl::io::Position position) noexcept {
 	std::cout << "\033[" << (position.row + 1) << ';' << (position.column + 1) << 'H';
 }
 

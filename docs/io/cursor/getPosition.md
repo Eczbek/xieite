@@ -1,6 +1,6 @@
-# gcufl::io::cursor::getPos
+# gcufl::io::cursor::getPosition
 ```cpp
-gcufl::io::Position getPos() noexcept;
+gcufl::io::Position getPosition() noexcept;
 ```
 Gets the terminal cursor position.
 ## Example
@@ -9,7 +9,7 @@ Gets the terminal cursor position.
 #include <gcufl/io.hpp>
 
 int main() {
-	gcufl::io::Position position = gcufl::io::cursor::getPos();
+	gcufl::io::Position position = gcufl::io::cursor::getPosition();
 
 	std::cout << position.row << ' ' << position.column << '\n';
 }
