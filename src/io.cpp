@@ -38,12 +38,12 @@ char gcufl::io::readChar(const char defaultChar) noexcept {
 	return input;
 }
 
-std::string gcufl::io::readString(const std::size_t count) noexcept {
+std::string gcufl::io::readString(const std::size_t count, const char until) noexcept {
 	gcufl::io::RawLock rawLock;
 	gcufl::io::NonBlockLock nonblockLock;
 	std::string buffer;
 	char input;
-	while (buffer.size() <= count && std::cin >> input)
+	while (buffer.size() <= count && std::cin >> input && input != until)
 		buffer += input;
 	return buffer;
 }

@@ -35,7 +35,7 @@ namespace gcufl {
 
 		char readChar(const char defaultChar = 0) noexcept;
 
-		std::string readString(const std::size_t count = std::numeric_limits<std::streamsize>::max()) noexcept;
+		std::string readString(const std::size_t count = std::numeric_limits<std::streamsize>::max(), const char until = std::char_traits<char>::eof()) noexcept;
 
 		void putbackString(std::string_view string) noexcept;
 
