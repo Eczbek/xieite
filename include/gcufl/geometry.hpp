@@ -125,6 +125,10 @@ namespace gcufl {
 
 			bool operator!=(const gcufl::geometry::Circle& other) const noexcept;
 
+			double area() const noexcept;
+
+			double perimeter() const noexcept;
+
 			bool contains(const gcufl::geometry::Point point) const noexcept;
 
 			gcufl::geometry::Circle rotate(const double angle, const gcufl::geometry::Point pivot = gcufl::geometry::Point(0, 0)) const noexcept;

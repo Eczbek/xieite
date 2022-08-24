@@ -271,6 +271,14 @@ bool gcufl::geometry::Circle::operator!=(const gcufl::geometry::Circle& other) c
 	return !operator==(other);
 }
 
+double gcufl::geometry::Circle::area() const noexcept {
+	return std::numbers::pi * radius.x * radius.x;
+}
+
+double gcufl::geometry::Circle::perimeter() const noexcept {
+	return 2 * std::numbers::pi * radius.x;
+}
+
 bool gcufl::geometry::Circle::contains(const gcufl::geometry::Point point) const noexcept {
 	return std::hypot(point.x - center.x, point.y - center.y) <= radius.x;
 }
