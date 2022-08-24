@@ -105,7 +105,7 @@ namespace gcufl {
 
 			double area() const noexcept;
 
-			double perimiter() const noexcept;
+			double perimeter() const noexcept;
 
 			bool contains(const gcufl::geometry::Point point) const noexcept;
 

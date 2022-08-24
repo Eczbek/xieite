@@ -209,7 +209,7 @@ double gcufl::geometry::Ellipse::area() const noexcept {
 	return std::numbers::pi * radius.x * radius.y;
 }
 
-double gcufl::geometry::Ellipse::perimiter() const noexcept {
+double gcufl::geometry::Ellipse::perimeter() const noexcept {
 	return std::numbers::pi * std::sqrt(2 * (radius.x * radius.x + radius.y * radius.y));
 }
 
