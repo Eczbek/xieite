@@ -31,10 +31,10 @@ namespace gcufl {
 		template <typename V>
 		std::vector<std::vector<V>> rotateCCW(const std::vector<std::vector<V>>& values) noexcept {
 			std::vector<std::vector<V>> rotated;
-			for (std::size_t y = values[0].size() - 1; y >= 0; --y) {
+			for (std::size_t y = values[0].size(); y > 0; --y) {
 				std::vector<V> row;
 				for (std::size_t x = 0; x < values.size(); ++x)
-					row.push_back(values[x][y]);
+					row.push_back(values[x][y - 1]);
 				rotated.push_back(row);
 			}
 			return rotated;
