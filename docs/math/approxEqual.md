@@ -10,10 +10,7 @@ Checks whether two numbers are approximately equal.
 #include <gcufl/math.hpp>
 
 int main() {
-	std::cout
-		<< std::boolalpha
-		<< gcufl::math::approxEqual(0.3, 0.1 + 0.2)
-		<< '\n';
+	std::cout << std::boolalpha << gcufl::math::approxEqual(0.3, 0.1 + 0.2) << '\n';
 }
 ```
 Output:

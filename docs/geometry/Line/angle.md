@@ -10,12 +10,16 @@ Calculates the angle of the line.
 #include <gcufl/math.hpp>
 
 int main() {
+	gcufl::geometry::Line line1({ 0, 0 }, { 1, 1 });
+	gcufl::geometry::Line line2({ 0, 0 }, { 0, 1 });
+	gcufl::geometry::Line line3({ 0, 0 }, { 1, 0 });
+
 	std::cout
-		<< gcufl::math::radToDeg(gcufl::geometry::Line({ 0, 0 }, { 1, 1 }))
+		<< gcufl::math::radToDeg(line1)
 		<< '\n'
-		<< gcufl::math::radToDeg(gcufl::geometry::Line({ 0, 0 }, { 0, 1 }))
+		<< gcufl::math::radToDeg(line2)
 		<< '\n'
-		<< gcufl::math::radToDeg(gcufl::geometry::Line({ 0, 0 }, { 1, 0 }))
+		<< gcufl::math::radToDeg(line3)
 		<< '\n';
 }
 ```

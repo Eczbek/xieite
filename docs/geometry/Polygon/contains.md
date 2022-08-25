@@ -16,10 +16,7 @@ int main() {
 		{ 0, 2 }
 	});
 
-	std::cout
-		<< std::boolalpha
-		<< polygon.contains({ 1, 1 })
-		<< '\n';
+	std::cout << std::boolalpha << polygon.contains({ 1, 1 }) << '\n';
 }
 ```
 Output:

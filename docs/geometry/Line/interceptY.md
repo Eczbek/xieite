@@ -9,7 +9,9 @@ Calculates the y-intercept of the line.
 #include <gcufl/geometry.hpp>
 
 int main() {
-	std::cout << gcufl::geometry::Line({ 1, 2 }, { 1, -1 }).interceptY() << '\n';
+	gcufl::geometry::Line line({ 1, 2 }, { 1, -1 })
+
+	std::cout << line.interceptY() << '\n';
 }
 ```
 Output:

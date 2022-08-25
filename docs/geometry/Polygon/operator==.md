@@ -22,10 +22,7 @@ int main() {
 		{ 0, 2 }
 	});
 
-	std::cout
-		<< std::boolalpha
-		<< (polygon1 == polygon2)
-		<< '\n';
+	std::cout << std::boolalpha << (polygon1 == polygon2) << '\n';
 }
 ```
 Output:

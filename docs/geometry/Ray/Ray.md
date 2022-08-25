@@ -17,7 +17,7 @@ int main() {
 
 	std::cout
 		<< ray1.start.x << ' ' << ray1.start.y << '\n'
-		<< ray1.end.x << ' ' << ray1.end.y << '\n'
+		<< ray1.end.x << ' ' << ray1.end.y << "\n\n"
 		<< ray2.start.x << ' ' << ray2.start.y << '\n'
 		<< ray2.end.x << ' ' << ray2.end.y << '\n';
 }
@@ -26,6 +26,7 @@ Output:
 ```
 0 0
 1 1
+
 3 3
 4 4
 ```

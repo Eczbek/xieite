@@ -14,10 +14,7 @@ int main() {
 	gcufl::OrderedMap<char, bool> map;
 	map['a'] = true;
 
-	std::cout
-		<< std::boolalpha
-		<< map['a'] << '\n',
-		<< map['b'] << '\n';
+	std::cout << std::boolalpha << map['a'] << '\n';
 }
 ```
 Output:

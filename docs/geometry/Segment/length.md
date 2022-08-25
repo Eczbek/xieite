@@ -9,7 +9,9 @@ Calculates the length of the line segment.
 #include <gcufl/geometry.hpp>
 
 int main() {
-	std::cout << gcufl::geometry::Segment({ 3, 0 }, { 0, 4 }).length() << '\n';
+	gcufl::geometry::Segment segment({ 3, 0 }, { 0, 4 });
+
+	std::cout << segment.length() << '\n';
 }
 ```
 Output:

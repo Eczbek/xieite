@@ -10,12 +10,16 @@ Calculates the slope of the line.
 #include <gcufl/math.hpp>
 
 int main() {
+	gcufl::geometry::Line line1({ 0, 0 }, { 1, 1 });
+	gcufl::geometry::Line line2({ 0, 0 }, { 0, 1 });
+	gcufl::geometry::Line line3({ 0, 0 }, { 1, 0 });
+
 	std::cout
-		<< gcufl::math::radToDeg(Line({ 0, 0 }, { 1, 1 }).slope())
+		<< gcufl::math::radToDeg(line1.slope())
 		<< '\n'
-		<< gcufl::math::radToDeg(Line({ 0, 0 }, { 0, 1 }).slope())
+		<< gcufl::math::radToDeg(line2.slope())
 		<< '\n'
-		<< gcufl::math::radToDeg(Line({ 0, 0 }, { 1, 0 }).slope())
+		<< gcufl::math::radToDeg(line3.slope())
 		<< '\n';
 }
 ```

@@ -10,13 +10,13 @@ Rotates a copy of this point about a pivot.
 #include <gcufl/math.hpp>
 
 int main() {
-	gcufl::geometry::Point point1(0, 1);
-	gcufl::geometry::Point point2 = Point(1, 0).rotate(gcufl::math::degToRad(90));
+	gcufl::geometry::Point point1(1, 0);
+	gcufl::geometry::Point point2 = point1.rotate(gcufl::math::degToRad(90));
 
-	std::cout << (point1 == point2) << '\n';
+	std::cout << point2.x << ' ' << point2.y << '\n';
 }
 ```
 Output:
 ```
-true
+0 1
 ```

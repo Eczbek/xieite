@@ -9,7 +9,9 @@ Returns `std::numeric_limits<double>::infinity()`, as the line is infinite.
 #include <gcufl/geometry.hpp>
 
 int main() {
-	std::cout << gcufl::geometry::Line({ 0, 0 }, { 1, 1 }).length() << '\n';
+	gcufl::geometry::Line line({ 0, 0 }, { 1, 1 })
+
+	std::cout << line.length() << '\n';
 }
 ```
 Output:

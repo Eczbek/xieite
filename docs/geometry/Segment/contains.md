@@ -9,10 +9,9 @@ Checks whether the segment intersects a point.
 #include <gcufl/geometry.hpp>
 
 int main() {
-	std::cout
-		<< std::boolalpha
-		<< gcufl::geometry::Segment({ 0, 0 }, { 2, 2 }).contains({ 1, 1 })
-		<< '\n';
+	gcufl::geometry::Segment segment({ 0, 0 }, { 2, 2 });
+
+	std::cout << std::boolalpha << segment.contains({ 1, 1 }) << '\n';
 }
 ```
 Output:

@@ -13,11 +13,10 @@ int main() {
 	gcufl::geometry::Line line1({ 0, 0 }, { 1, 1 });
 	gcufl::geometry::Line line2 = line1.rotate(gcufl::math::degToRad(90));
 
-	std::cout << line1.slope() << '\n' << line2.slope() << '\n';
+	std::cout << line2.slope() << '\n';
 }
 ```
 Output:
 ```
-1
 -1
 ```

@@ -13,10 +13,7 @@ int main() {
 	gcufl::geometry::Ray ray1({ 0, 0 }, { 1, 1 });
 	gcufl::geometry::Ray ray2({ 3, 3 }, gcufl::math::degToRad(45));
 
-	std::cout
-		<< std::boolalpha
-		<< (ray1 == ray2)
-		<< '\n';
+	std::cout << std::boolalpha << (ray1 == ray2) << '\n';
 }
 ```
 Output:

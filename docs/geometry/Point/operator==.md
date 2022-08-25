@@ -12,7 +12,7 @@ int main() {
 	gcufl::geometry::Point point1(0.3, 0);
 	gcufl::geometry::Point point2(0.1 + 0.2, 0);
 
-	std::cout << (point1 == point2) << '\n';
+	std::cout << std::boolalpha << (point1 == point2) << '\n';
 }
 ```
 Output:

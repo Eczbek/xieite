@@ -11,10 +11,9 @@ Rotates a copy of a vector counter-clockwise.
 #include <gcufl/vector.hpp>
 
 int main() {
-	const std::vector<std::vector<bool>> tetronimo {
-		{ 0, 1, 1 },
-		{ 1, 1, 0 },
-		{ 0, 0, 0 }
+	const std::vector<std::vector<bool>> matrix {
+		{ 1, 2, 3 },
+		{ 4, 5, 6 }
 	};
 
 	for (const std::vector<bool>& row: gcufl::vector::rotateCCW(tetronimo)) {
@@ -26,7 +25,7 @@ int main() {
 ```
 Output:
 ```
-1 0 0 
-1 1 0 
-0 1 0 
+3 6
+2 5
+1 4
 ```
