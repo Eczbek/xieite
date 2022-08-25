@@ -6,7 +6,7 @@ Creates a stringified expression.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/macro.hpp>
+#include <gcufl/macros.hpp>
 
 int main() {
 	std::cout << QUOTE(2 + 2) << '\n';

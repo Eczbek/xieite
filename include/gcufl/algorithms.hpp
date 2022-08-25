@@ -5,10 +5,10 @@
 
 
 namespace gcufl {
-	namespace algorithm {
+	namespace algorithms {
 		template <std::input_iterator I1, std::input_iterator I2>
 		bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2) noexcept {
-			const typename std::iterator_traits<I1>::difference_type size = std::distance(begin1, end1);
+			const typename std::iterator_traitss<I1>::difference_type size = std::distance(begin1, end1);
 			if (size == std::distance(begin2, end2))
 				for (; begin1 != end1; ++begin1) {
 					I1 copy1 = begin1;
@@ -29,7 +29,7 @@ namespace gcufl {
 
 		template <std::input_iterator I1, std::input_iterator I2, typename C>
 		bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2, const C& compare) noexcept {
-			const typename std::iterator_traits<I1>::difference_type size = std::distance(begin1, end1);
+			const typename std::iterator_traitss<I1>::difference_type size = std::distance(begin1, end1);
 			if (size == std::distance(begin2, end2))
 				for (; begin1 != end1; ++begin1) {
 					I1 copy1 = begin1;

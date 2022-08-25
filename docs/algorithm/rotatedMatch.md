@@ -1,4 +1,4 @@
-# gcufl::algorithm::rotatedMatch
+# gcufl::algorithms::rotatedMatch
 ```cpp
 template <std::input_iterator I1, std::input_iterator I2>
 bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2) noexcept;
@@ -11,7 +11,7 @@ Checks whether two iterables contain the same values in the same relative order.
 ```cpp
 #include <iostream>
 #include <array>
-#include <gcufl/algorithm.hpp>
+#include <gcufl/algorithms.hpp>
 
 int main() {
 	std::array<int, 5> a { 1, 2, 3, 4, 5 };
@@ -20,11 +20,11 @@ int main() {
 
 	std::cout
 		<< std::boolalpha
-		<< gcufl::algorithm::rotatedMatch(a.begin(), a.end(), b.begin(), b.end())
+		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), b.begin(), b.end())
 		<< '\n'
-		<< gcufl::algorithm::rotatedMatch(a.begin(), a.end(), c.begin(), c.end())
+		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), c.begin(), c.end())
 		<< '\n'
-		<< gcufl::algorithm::rotatedMatch(a.begin(), a.end(), c.rbegin(), c.rend())
+		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), c.rbegin(), c.rend())
 		<< '\n';
 }
 ```

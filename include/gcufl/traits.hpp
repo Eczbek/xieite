@@ -5,7 +5,7 @@
 
 
 namespace gcufl {
-	namespace trait {
+	namespace traits {
 		template <typename V>
 		concept Streamable = requires(std::ostream& stream, const V& value) {
 			{ stream << value } -> std::convertible_to<std::ostream&>;

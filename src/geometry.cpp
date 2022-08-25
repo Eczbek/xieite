@@ -1,8 +1,8 @@
 #include <limits>
-#include <gcufl/algorithm.hpp>
+#include <gcufl/algorithms.hpp>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
-#include <gcufl/number.hpp>
+#include <gcufl/numbers.hpp>
 
 
 gcufl::geometry::Point::Point(const double x, const double y) noexcept
@@ -54,7 +54,7 @@ double gcufl::geometry::Line::interceptY() const noexcept {
 }
 
 double gcufl::geometry::Line::angle() const noexcept {
-	return std::fmod(std::atan2(start.y - end.y, start.x - end.x) + gcufl::number::tau, std::numbers::pi);
+	return std::fmod(std::atan2(start.y - end.y, start.x - end.x) + gcufl::numbers::tau, std::numbers::pi);
 }
 
 std::optional<gcufl::geometry::Point> gcufl::geometry::Line::intersection(const gcufl::geometry::Line& other) const noexcept {
@@ -149,8 +149,8 @@ gcufl::geometry::Polygon::Polygon(const std::vector<gcufl::geometry::Point>& poi
 {}
 
 bool gcufl::geometry::Polygon::operator==(const gcufl::geometry::Polygon& other) const noexcept {
-	return gcufl::algorithm::rotatedMatch(points.begin(), points.end(), other.points.begin(), other.points.end())
-		|| gcufl::algorithm::rotatedMatch(points.rbegin(), points.rend(), other.points.begin(), other.points.end());
+	return gcufl::algorithms::rotatedMatch(points.begin(), points.end(), other.points.begin(), other.points.end())
+		|| gcufl::algorithms::rotatedMatch(points.rbegin(), points.rend(), other.points.begin(), other.points.end());
 }
 
 bool gcufl::geometry::Polygon::operator!=(const gcufl::geometry::Polygon& other) const noexcept {
@@ -245,7 +245,7 @@ std::vector<gcufl::geometry::Point> gcufl::geometry::Ellipse::intersections(cons
 }
 
 gcufl::geometry::Ellipse gcufl::geometry::Ellipse::rotate(const double angle, const gcufl::geometry::Point pivot) const noexcept {
-	return gcufl::geometry::Ellipse(center.rotate(angle, pivot), radius, std::fmod(rotation + angle, gcufl::number::tau));
+	return gcufl::geometry::Ellipse(center.rotate(angle, pivot), radius, std::fmod(rotation + angle, gcufl::numbers::tau));
 }
 
 gcufl::geometry::Polygon gcufl::geometry::Ellipse::boundingBox() const noexcept {
