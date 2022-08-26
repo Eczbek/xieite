@@ -43,7 +43,7 @@ std::string gcufl::string::trimStart(const std::string& string, const char chara
 
 std::string gcufl::string::trimStart(const std::string& string, std::string_view characters) noexcept {
 	gcufl::OrderedMap<char, bool> charMap;
-	for (const char character: characters)
+	for (const char character : characters)
 		charMap[character] = true;
 	for (std::size_t i = 0; i < string.size(); ++i)
 		if (!charMap[string[i]])
@@ -60,7 +60,7 @@ std::string gcufl::string::trimEnd(const std::string& string, const char charact
 
 std::string gcufl::string::trimEnd(const std::string& string, std::string_view characters) noexcept {
 	gcufl::OrderedMap<char, bool> charMap;
-	for (const char character: characters)
+	for (const char character : characters)
 		charMap[character] = true;
 	for (std::size_t i = string.size(); i > 0; --i)
 		if (!charMap[string[i - 1]])

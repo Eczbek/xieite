@@ -44,7 +44,7 @@ namespace gcufl {
 			int column;
 		};
 
-		enum class direction: char {
+		enum class direction : char {
 			Up = 'A',
 			Down,
 			Right,

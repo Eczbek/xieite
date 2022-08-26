@@ -16,7 +16,7 @@ int main() {
 		{ 0, 2 }
 	});
 
-	for (const gcufl::geometry::Segment& segment: polygon.sides())
+	for (const gcufl::geometry::Segment& segment : polygon.sides())
 		std::cout
 			<< segment.start.x << ' ' << segment.start.y << '\n'
 			<< segment.end.x << ' ' << segment.end.y << "\n\n;

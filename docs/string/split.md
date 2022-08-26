@@ -12,7 +12,7 @@ Splits a string into a vector of strings.
 #include <gcufl/string.hpp>
 
 int main() {
-	for (std::string_view segment: gcufl::string::split("Hello, world!", ' '))
+	for (std::string_view segment : gcufl::string::split("Hello, world!", ' '))
 		std::cout << segment << '\n';
 }
 ```

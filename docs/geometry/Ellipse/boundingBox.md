@@ -11,7 +11,7 @@ Creates a bounding box of the ellipse.
 int main() {
 	gcufl::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });
 	
-	for (const gcufl::geometry::Point point: ellipse.boundingBox().points)
+	for (const gcufl::geometry::Point point : ellipse.boundingBox().points)
 		std::cout << point.x << ' ' << point.y << '\n';
 }
 ```

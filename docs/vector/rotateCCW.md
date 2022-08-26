@@ -16,8 +16,8 @@ int main() {
 		{ 4, 5, 6 }
 	};
 
-	for (const std::vector<bool>& row: gcufl::vector::rotateCCW(tetronimo)) {
-		for (const bool value: row)
+	for (const std::vector<bool>& row : gcufl::vector::rotateCCW(tetronimo)) {
+		for (const bool value : row)
 			std::cout << value << ' ';
 		std::cout << '\n';
 	}

@@ -16,7 +16,7 @@ int main() {
 		{ 0, 2 }
 	});
 
-	for (const gcufl::geometry::Point point: polygon.points)
+	for (const gcufl::geometry::Point point : polygon.points)
 		std::cout << point.x << ' ' << point.y << '\n';
 }
 ```

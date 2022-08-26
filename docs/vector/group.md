@@ -21,10 +21,10 @@ int main() {
 	});
 
 	std::cout << "less:";
-	for (const int value: groups["less"])
+	for (const int value : groups["less"])
 		std::cout << ' ' << value;
 	std::cout << "\nmore:";
-	for (const int value: groups["more"])
+	for (const int value : groups["more"])
 		std::cout << ' ' << value;
 	std::cout << '\n';
 }
