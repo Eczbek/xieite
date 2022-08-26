@@ -37,7 +37,7 @@ namespace gcufl {
 		}
 
 		template <typename N>
-		double degToRad(const N degrees) noexcept {
+		double radians(const N degrees) noexcept {
 			return degrees * std::numbers::pi / 180;
 		}
 

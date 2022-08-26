@@ -1,7 +1,7 @@
-# gcufl::math::degToRad
+# gcufl::math::radians
 ```cpp
 template <typename N>
-double degToRad(const N degrees) noexcept;
+double radians(const N degrees) noexcept;
 ```
 Converts degrees to radians.
 ## Example
@@ -10,7 +10,7 @@ Converts degrees to radians.
 #include <gcufl/math.hpp>
 
 int main() {
-	std::cout << gcufl::math::degToRad(180) << '\n';
+	std::cout << gcufl::math::radians(180) << '\n';
 }
 ```
 Output:

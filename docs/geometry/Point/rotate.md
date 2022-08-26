@@ -11,7 +11,7 @@ Rotates a copy of this point about a pivot.
 
 int main() {
 	gcufl::geometry::Point point1(1, 0);
-	gcufl::geometry::Point point2 = point1.rotate(gcufl::math::degToRad(90));
+	gcufl::geometry::Point point2 = point1.rotate(gcufl::math::radians(90));
 
 	std::cout << point2.x << ' ' << point2.y << '\n';
 }

@@ -11,7 +11,7 @@ Rotates a copy of the line about a pivot.
 
 int main() {
 	gcufl::geometry::Line line1({ 0, 0 }, { 1, 1 });
-	gcufl::geometry::Line line2 = line1.rotate(gcufl::math::degToRad(90));
+	gcufl::geometry::Line line2 = line1.rotate(gcufl::math::radians(90));
 
 	std::cout << line2.slope() << '\n';
 }

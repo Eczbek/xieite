@@ -13,7 +13,7 @@ Creates an infinite 2D ray, extends `gcufl::geometry::Line`.
 
 int main() {
 	gcufl::geometry::Ray ray1({ 0, 0 }, { 1, 1 });
-	gcufl::geometry::Ray ray2({ 3, 3 }, gcufl::math::degToRad(45));
+	gcufl::geometry::Ray ray2({ 3, 3 }, gcufl::math::radians(45));
 
 	std::cout
 		<< ray1.start.x << ' ' << ray1.start.y << '\n'
