@@ -1,7 +1,7 @@
-# gcufl::math::radToDeg
+# gcufl::math::degrees
 ```cpp
 template <typename N>
-double radToDeg(const N radians) noexcept;
+double degrees(const N radians) noexcept;
 ```
 Converts radians to degrees.
 ## Example
@@ -11,7 +11,7 @@ Converts radians to degrees.
 #include <gcufl/math.hpp>
 
 int main() {
-	std::cout << gcufl::math::radToDeg(std::numbers::pi) << '\n';
+	std::cout << gcufl::math::degrees(std::numbers::pi) << '\n';
 }
 ```
 Output:

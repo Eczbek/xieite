@@ -15,12 +15,9 @@ int main() {
 	gcufl::geometry::Line line3({ 0, 0 }, { 1, 0 });
 
 	std::cout
-		<< gcufl::math::radToDeg(line1)
-		<< '\n'
-		<< gcufl::math::radToDeg(line2)
-		<< '\n'
-		<< gcufl::math::radToDeg(line3)
-		<< '\n';
+		<< gcufl::math::degrees(line1) << '\n'
+		<< gcufl::math::degrees(line2) << '\n'
+		<< gcufl::math::degrees(line3) << '\n';
 }
 ```
 Output:
