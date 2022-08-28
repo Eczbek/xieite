@@ -1,9 +1,9 @@
 # gcufl::algorithms::rotatedMatch
 ```cpp
-template <std::input_iterator I1, std::input_iterator I2>
+template <std::forward_iterator I1, std::forward_iterator I2>
 bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2) noexcept;
 
-template <std::input_iterator I1, std::input_iterator I2, typename C>
+template <std::forward_iterator I1, std::forward_iterator I2, std::invocable<const I1, const I2> C>
 bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2, const C& compare) noexcept;
 ```
 Checks whether two iterables contain the same values in the same relative order.
