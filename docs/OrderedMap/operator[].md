@@ -8,7 +8,7 @@ Gets reference to value by orderable key.
 ## Example
 ```cpp
 #include <iostream>
-#include <gcufl/orderedMap.hpp>
+#include <gcufl/OrderedMap.hpp>
 
 int main() {
 	gcufl::OrderedMap<char, bool> map;
