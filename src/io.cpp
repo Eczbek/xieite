@@ -5,24 +5,28 @@
 
 
 gcufl::io::RawLock::RawLock(const bool echo) noexcept {
+	if (rawLocks++)
+		return;
 	tcgetattr(STDIN_FILENO, &cooked);
 	termios raw = cooked;
 	cfmakeraw(&raw);
-	if (echo)
-		raw.c_lflag |= ECHO;
+	raw.c_lflag |= ECHO * echo;
 	tcsetattr(STDIN_FILENO, TCSANOW, &raw);
 }
 
 gcufl::io::RawLock::~RawLock() {
-	tcsetattr(STDIN_FILENO, TCSANOW, &cooked);
+	if (!--rawLocks)
+		tcsetattr(STDIN_FILENO, TCSANOW, &cooked);
 }
 
 gcufl::io::NonBlockLock::NonBlockLock() noexcept {
-	fcntl(STDIN_FILENO, F_SETFL, blocking | O_NONBLOCK);
+	if (!nonBlockLocks++)
+		fcntl(STDIN_FILENO, F_SETFL, blocking | O_NONBLOCK);
 }
 
 gcufl::io::NonBlockLock::~NonBlockLock() {
-	fcntl(STDIN_FILENO, F_SETFL, blocking);
+	if (!--nonBlockLocks)
+		fcntl(STDIN_FILENO, F_SETFL, blocking);
 }
 
 char gcufl::io::waitChar(const bool echo) noexcept {
