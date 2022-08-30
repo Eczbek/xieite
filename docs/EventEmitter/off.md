@@ -12,7 +12,7 @@ int main() {
 	gcufl::EventEmitter eventEmitter;
 
 	eventEmitter.on<int, char>("print", [](const int a, const char b) {
-		std::cout << a << ", " << b << '\n';
+		std::cout << a << ' ' << b << '\n';
 	});
 
 	eventEmitter.emit("print", 4, 'h');

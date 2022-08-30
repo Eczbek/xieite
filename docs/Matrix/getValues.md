@@ -12,13 +12,11 @@ int main() {
 	gcufl::Matrix<int> matrix({ 2, 2 }, { 1, 2, 3, 4 });
 
 	for (const int value : matrix.getValues())
-		std::cout << value << '\n';
+		std::cout << value << ' ';
+	std::cout << '\n';
 }
 ```
 Output:
 ```
-1
-2
-3
-4
+1 2 3 4 
 ```

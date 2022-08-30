@@ -12,12 +12,11 @@ int main() {
 	gcufl::Matrix<bool> matrix({ 3, 3, 3 });
 
 	for (const std::size_t dimension : matrix.getDimensions())
-		std::cout << dimension << '\n';
+		std::cout << dimension << ' ';
+	std::cout << '\n';
 }
 ```
 Output:
 ```
-3
-3
-3
+3 3 3 
 ```
