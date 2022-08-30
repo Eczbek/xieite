@@ -38,7 +38,7 @@ namespace gcufl {
 					while (copy2 != end2) {
 						if (copy1 == end1)
 							std::advance(copy1, -size);
-						if (!compare(*copy1, *copy2))
+						if (!compare(copy1, copy2))
 							break;
 						++copy1;
 						++copy2;
