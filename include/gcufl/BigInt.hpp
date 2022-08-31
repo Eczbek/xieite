@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <concepts>
+#include <cstdint>
 #include <ostream>
 #include <vector>
 
@@ -9,7 +10,7 @@
 namespace gcufl {
 	struct BigInt {
 	private:
-		std::vector<short> digits;
+		std::vector<uint8_t> digits;
 		bool sign;
 
 	public:
@@ -38,13 +39,17 @@ namespace gcufl {
 
 		gcufl::BigInt operator+(const gcufl::BigInt& other) const noexcept;
 
+		gcufl::BigInt& operator+=(const gcufl::BigInt& other) noexcept;
+
 		gcufl::BigInt operator-(const gcufl::BigInt& other) const noexcept;
+
+		gcufl::BigInt& operator-=(const gcufl::BigInt& other) noexcept;
 
 		friend std::ostream& operator<<(std::ostream& stream, const gcufl::BigInt& self) {
 			if (!self.sign)
 				stream << '-';
 			for (std::size_t i = self.digits.size(); i > 0; --i)
-				stream << self.digits[i - 1];
+				stream << static_cast<int>(self.digits[i - 1]);
 			return stream;
 		}
 	};
