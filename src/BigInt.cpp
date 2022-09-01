@@ -53,12 +53,13 @@ gcufl::BigInt& gcufl::BigInt::operator=(const gcufl::BigInt& other) noexcept {
 	return *this;
 }
 
+gcufl::BigInt gcufl::BigInt::operator+() const noexcept {
+	return *this;
+}
+
 gcufl::BigInt gcufl::BigInt::operator+(const gcufl::BigInt& other) const noexcept {
-	if (sign != other.sign) {
-		gcufl::BigInt copy = other;
-		copy.sign = sign;
-		return *this - copy;
-	}
+	if (sign != other.sign)
+		return *this - (-other);
 	gcufl::BigInt result;
 	result.digits = {};
 	result.sign = sign;
@@ -90,17 +91,18 @@ gcufl::BigInt gcufl::BigInt::operator++(int) noexcept {
 	return old;
 }
 
+gcufl::BigInt gcufl::BigInt::operator-() const noexcept {
+	gcufl::BigInt copy = *this;
+	if (copy)
+		copy.sign ^= 1;
+	return copy;
+}
+
 gcufl::BigInt gcufl::BigInt::operator-(const gcufl::BigInt& other) const noexcept {
-	if (sign != other.sign) {
-		gcufl::BigInt copy = other;
-		copy.sign = sign;
-		return *this + copy;
-	}
-	if (sign && *this < other || !sign && *this > other) {
-		gcufl::BigInt result = other - *this;
-		result.sign = !sign;
-		return result;
-	}
+	if (sign != other.sign)
+		return *this + (-other);
+	if (sign && *this < other || !sign && *this > other)
+		return -(other - *this);
 	gcufl::BigInt result = *this;
 	bool borrow = false;
 	for (std::size_t i = 0; i < other.digits.size() || borrow; ++i) {
@@ -110,12 +112,11 @@ gcufl::BigInt gcufl::BigInt::operator-(const gcufl::BigInt& other) const noexcep
 		borrow = i < digits.size() - 1 && difference < 10;
 		result.digits[i] = difference % 10;
 	}
-	while (result.digits.size() && !result.digits.back())
+	while (result.digits.size() > 1 && !result.digits.back())
 		result.digits.pop_back();
-	if (result)
-		result.sign ^= borrow;
-	else
-		result.sign = true;
+	result.sign = result
+		? result.sign ^ borrow
+		: true;
 	return result;
 }
 
@@ -138,11 +139,8 @@ gcufl::BigInt gcufl::BigInt::operator*(gcufl::BigInt other) const noexcept {
 		return *this;
 	if (!other)
 		return gcufl::BigInt(0);
-	if (other == -1) {
-		gcufl::BigInt copy = *this;
-		copy.sign ^= 1;
-		return copy;
-	}
+	if (other == -1)
+		return -*this;
 	gcufl::BigInt result;
 	gcufl::BigInt increment = *this;
 	increment.sign ^= !other.sign;
@@ -161,18 +159,15 @@ gcufl::BigInt gcufl::BigInt::operator/(gcufl::BigInt other) const {
 		return *this;
 	if (!other)
 		throw std::runtime_error("Cannot divide by 0");
-	if (other == -1) {
-		gcufl::BigInt copy = *this;
-		copy.sign ^= 1;
-		return copy;
-	}
+	if (other == -1)
+		return -*this;
 	gcufl::BigInt result;
-	gcufl::BigInt copy = *this;
-	const bool oldSign = other.sign;
-	copy.sign = other.sign = true;
+	gcufl::BigInt copy = abs();
+	const bool otherSign = other.sign;
+	other.sign = true;
 	for (; copy >= other; copy -= other)
 		++result;
-	result.sign ^= !sign ^ !oldSign;
+	result.sign ^= !sign ^ !otherSign;
 	return result;
 }
 
@@ -181,16 +176,49 @@ gcufl::BigInt& gcufl::BigInt::operator/=(const gcufl::BigInt& other) {
 }
 
 gcufl::BigInt gcufl::BigInt::operator%(gcufl::BigInt other) const {
-	if (*this == other)
-		return gcufl::BigInt(1);
-	gcufl::BigInt copy = *this;
-	const bool oldSign = other.sign;
-	copy.sign = other.sign = true;
-	for (; copy >= other; copy -= other);
-	copy.sign ^= !sign ^ !oldSign;
-	return copy;
+	gcufl::BigInt result = *this;
+	result.sign = other.sign = true;
+	if (result == other)
+		return gcufl::BigInt(0);
+	if (!other)
+		throw std::runtime_error("Cannot divide by 0");
+	if (result < other)
+		return *this;
+	while (result >= other)
+		result -= other;
+	if (result)
+		result.sign ^= !sign;
+	return result;
 }
 
 gcufl::BigInt& gcufl::BigInt::operator%=(const gcufl::BigInt& other) {
 	return *this = *this % other;
+}
+
+gcufl::BigInt gcufl::BigInt::abs() const noexcept {
+	gcufl::BigInt copy = *this;
+	copy.sign = true;
+	return copy;
+}
+
+gcufl::BigInt gcufl::BigInt::pow(gcufl::BigInt other) const {
+	if (*this == 1 || other == 1)
+		return *this;
+	if (*this == -1)
+		return other % 2
+			? *this
+			: -*this;
+	if (!other)
+		return gcufl::BigInt(1);
+	if (other < 0) {
+		if (!*this)
+			throw std::runtime_error("Cannot divide by 0");
+		return !other;
+	}
+	if (!*this)
+		return !other;
+	gcufl::BigInt result = *this;
+	for (; other > 1; --other)
+		result *= *this;
+	return result;
 }

@@ -78,6 +78,8 @@ namespace gcufl {
 			return *this = gcufl::BigInt(value);
 		}
 
+		gcufl::BigInt operator+() const noexcept;
+
 		gcufl::BigInt operator+(const gcufl::BigInt& other) const noexcept;
 
 		template <std::integral N>
@@ -95,6 +97,8 @@ namespace gcufl {
 		gcufl::BigInt& operator++() noexcept;
 
 		gcufl::BigInt operator++(int) noexcept;
+
+		gcufl::BigInt operator-() const noexcept;
 
 		gcufl::BigInt operator-(const gcufl::BigInt& other) const noexcept;
 
@@ -162,6 +166,15 @@ namespace gcufl {
 			for (std::size_t i = self.digits.size(); i > 0; --i)
 				stream << static_cast<int>(self.digits[i - 1]);
 			return stream;
+		}
+
+		gcufl::BigInt abs() const noexcept;
+
+		gcufl::BigInt pow(gcufl::BigInt other) const;
+
+		template <std::integral N>
+		gcufl::BigInt pow(const N value) const {
+			return pow(gcufl::BigInt(value));
 		}
 	};
 }
