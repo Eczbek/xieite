@@ -1,10 +1,10 @@
-# gcufl::OrderedMap<K, V>::operator[]
+# gcufl::OrderedMap<K, V>::operator
 ```cpp
 V& operator[](const K key) noexcept;
 
 const V& operator[](const K key) const noexcept;
 ```
-Gets reference to value by orderable key.
+The operator functions of `gcufl::OrderedMap<K, V>`.
 ## Example
 ```cpp
 #include <iostream>

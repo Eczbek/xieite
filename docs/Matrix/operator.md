@@ -1,10 +1,10 @@
-# gcufl::Matrix<V>::operator[]
+# gcufl::Matrix<V>::operator
 ```cpp
 V& operator[](const std::vector<std::size_t>& indices);
 
 const V& operator[](const std::vector<std::size_t>& indices) const;
 ```
-Gets a value from the multidimensional matrix.
+The operator functions of `gcufl::Matrix<V>`.
 ## Example
 ```cpp
 #include <iostream>
