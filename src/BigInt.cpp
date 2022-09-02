@@ -98,7 +98,7 @@ gcufl::BigInt gcufl::BigInt::operator++(int) noexcept {
 gcufl::BigInt gcufl::BigInt::operator-() const noexcept {
 	gcufl::BigInt copy = *this;
 	if (copy)
-		copy.sign ^= 1;
+		copy.sign = !copy.sign;
 	return copy;
 }
 
@@ -209,7 +209,7 @@ gcufl::BigInt gcufl::BigInt::operator%(gcufl::BigInt other) const {
 	while (result >= other)
 		result -= other;
 	if (result)
-		result.sign ^= !sign;
+		result.sign = result.sign == sign;
 	return result;
 }
 
@@ -239,8 +239,17 @@ gcufl::BigInt gcufl::BigInt::pow(gcufl::BigInt other) const {
 	}
 	if (!*this)
 		return !other;
-	gcufl::BigInt result = *this;
-	for (; other > 1; --other)
-		result *= *this;
-	return result;
+	gcufl::BigInt x = *this;
+	gcufl::BigInt y = 1;
+	while (other > 1) {
+		if (other % 2) {
+			y *= x;
+			x *= x;
+			other = (other - 1) / 2;
+		} else {
+			x *= x;
+			other /= 2;
+		}
+	}
+	return x * y;
 }
