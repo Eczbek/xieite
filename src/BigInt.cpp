@@ -17,9 +17,7 @@ gcufl::BigInt::operator bool() const noexcept {
 }
 
 bool gcufl::BigInt::operator==(const gcufl::BigInt& other) const noexcept {
-	return sign != other.sign 
-		? false
-		: digits == other.digits;
+	return !(*this > other) && !(other > *this);
 }
 
 bool gcufl::BigInt::operator!=(const gcufl::BigInt& other) const noexcept {
@@ -64,7 +62,7 @@ gcufl::BigInt gcufl::BigInt::operator+(const gcufl::BigInt& other) const noexcep
 	if (sign != other.sign)
 		return *this - (-other);
 	gcufl::BigInt result;
-	result.digits = {};
+	result.digits.clear();
 	result.sign = sign;
 	bool carry = false;
 	const std::size_t maxSize = std::max(digits.size(), other.digits.size());
