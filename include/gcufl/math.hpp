@@ -11,6 +11,14 @@
 
 namespace gcufl {
 	namespace math {
+		template <std::integral N>
+		bool isPrime(const N value) noexcept {
+			for (N i = 0; i <= std::sqrt(value); ++i)
+				if (value % i == 0)
+					return false;
+			return value > 0;
+		}
+
 		template <typename N>
 		N wrap(const N value, const N max, const N min = 0) noexcept {
 			const N diff = max - min;
