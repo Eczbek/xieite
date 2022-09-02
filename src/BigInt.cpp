@@ -17,7 +17,7 @@ gcufl::BigInt::operator bool() const noexcept {
 }
 
 bool gcufl::BigInt::operator==(const gcufl::BigInt& other) const noexcept {
-	return !(*this > other) && !(other > *this);
+	return sign == other.sign && digits == other.digits;
 }
 
 bool gcufl::BigInt::operator!=(const gcufl::BigInt& other) const noexcept {
@@ -25,11 +25,14 @@ bool gcufl::BigInt::operator!=(const gcufl::BigInt& other) const noexcept {
 }
 
 bool gcufl::BigInt::operator>(const gcufl::BigInt& other) const noexcept {
-	return sign != other.sign
-		? sign
-		: sign
-			? digits > other.digits
-			: digits < other.digits;
+	if (sign != other.sign)
+		return sign;
+	if (digits.size() != other.digits.size())
+		return (digits.size() < other.digits.size()) ^ sign;
+	for (std::size_t i = digits.size(); i > 0; --i)
+		if (digits[i - 1] != other.digits[i - 1])
+			return sign && digits[i - 1] > other.digits[i - 1] || !sign && digits[i - 1] < other.digits[i - 1];
+	return false;
 }
 
 bool gcufl::BigInt::operator>=(const gcufl::BigInt& other) const noexcept {
@@ -158,7 +161,7 @@ gcufl::BigInt gcufl::BigInt::operator*(gcufl::BigInt other) const noexcept {
 			result += sum;
 		}
 	}
-	result.sign ^= !sign ^ !otherSign;
+	result.sign = sign == otherSign;
 	return result;
 }
 
@@ -173,14 +176,21 @@ gcufl::BigInt gcufl::BigInt::operator/(gcufl::BigInt other) const {
 		throw std::runtime_error("Cannot divide by 0");
 	if (other == -1)
 		return -*this;
-	gcufl::BigInt result;
-	gcufl::BigInt copy = abs();
+	std::vector<uint8_t> result;
 	const bool otherSign = other.sign;
 	other.sign = true;
-	for (; copy >= other; copy -= other)
-		++result;
-	result.sign ^= !sign ^ !otherSign;
-	return result;
+	std::size_t i = 0;
+	gcufl::BigInt difference;
+	difference.digits.clear();
+	for (std::size_t i = digits.size(); i > 0; --i) {
+		difference.digits.insert(difference.digits.begin(), digits[i - 1]);
+		int quotient = 0;
+		for (gcufl::BigInt copy = difference; copy >= other; copy -= other)
+			++quotient;
+		result.push_back(quotient);
+		difference -= other * quotient;
+	}
+	return gcufl::BigInt(result, sign == otherSign);
 }
 
 gcufl::BigInt& gcufl::BigInt::operator/=(const gcufl::BigInt& other) {
