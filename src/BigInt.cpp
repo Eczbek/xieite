@@ -17,12 +17,9 @@ gcufl::BigInt::operator bool() const noexcept {
 }
 
 bool gcufl::BigInt::operator==(const gcufl::BigInt& other) const noexcept {
-	if (sign != other.sign || digits.size() != other.digits.size())
-		return false;
-	for (std::size_t i = 0; i < digits.size(); ++i)
-		if (digits[i] != other.digits[i])
-			return false;
-	return true;
+	return sign != other.sign 
+		? false
+		: digits == other.digits;
 }
 
 bool gcufl::BigInt::operator!=(const gcufl::BigInt& other) const noexcept {
@@ -30,14 +27,11 @@ bool gcufl::BigInt::operator!=(const gcufl::BigInt& other) const noexcept {
 }
 
 bool gcufl::BigInt::operator>(const gcufl::BigInt& other) const noexcept {
-	if (sign != other.sign)
-		return sign;
-	if (digits.size() != other.digits.size())
-		return (digits.size() < other.digits.size()) ^ sign;
-	for (std::size_t i = 0; i < digits.size(); ++i)
-		if (digits[i] != other.digits[i])
-			return sign && digits[i] > other.digits[i] || !sign && digits[i] < other.digits[i];
-	return false;
+	return sign != other.sign
+		? sign
+		: sign
+			? digits > other.digits
+			: digits < other.digits;
 }
 
 bool gcufl::BigInt::operator>=(const gcufl::BigInt& other) const noexcept {
