@@ -151,11 +151,17 @@ gcufl::BigInt gcufl::BigInt::operator*(gcufl::BigInt other) const noexcept {
 	if (other == -1)
 		return -*this;
 	gcufl::BigInt result;
-	gcufl::BigInt increment = *this;
-	increment.sign ^= !other.sign;
+	const bool otherSign = other.sign;
 	other.sign = true;
-	for (; other > 0; --other)
-		result += increment;
+	std::vector<uint8_t> prefix;
+	for (std::size_t i = 0; i < digits.size(); ++i)
+		for (std::size_t j = 0; j < other.digits.size(); ++j) {
+			prefix.resize(i + j);
+			gcufl::BigInt sum = digits[i] * other.digits[j];
+			sum.digits.insert(sum.digits.begin(), prefix.begin(), prefix.end());
+			result += sum;
+		}
+	result.sign ^= !sign ^ !otherSign;
 	return result;
 }
 
