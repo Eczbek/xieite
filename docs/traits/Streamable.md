@@ -6,8 +6,8 @@ concept Streamable = requires(std::ostream& stream, const V& value);
 A concept for streamable classes.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/traits.hpp>
+#include <iostream>
 
 template <gcufl::traits::Streamable V>
 void print(const V& value) {

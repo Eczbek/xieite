@@ -5,8 +5,8 @@ std::optional<gcufl::geometry::Point> intersection(const gcufl::geometry::Line& 
 Calculates a possible intersection between two lines. Handles derived classes `gcufl::geometry::Ray` and `gcufl::geometry::Segment`.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Line line1({ 0, 0 }, { 1, 1 });

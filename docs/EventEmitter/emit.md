@@ -6,8 +6,8 @@ void emit(const std::string& event, A... arguments);
 Emits an event by key with arguments.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/EventEmitter.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::EventEmitter eventEmitter;

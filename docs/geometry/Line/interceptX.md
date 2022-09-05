@@ -5,8 +5,8 @@ double interceptX() const noexcept;
 Calculates the x-intercept of the line.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Line line({ 1, 2 }, { 1, -1 })

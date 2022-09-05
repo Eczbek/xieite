@@ -6,8 +6,8 @@ void once(const std::string& event, const C& callback) noexcept;
 Adds a one-time-use event callback by key.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/EventEmitter.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::EventEmitter eventEmitter;

@@ -5,8 +5,8 @@ bool contains(const gcufl::geometry::Point point) const noexcept;
 Checks whether the ray intersects a point.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ray ray({ 0, 0 }, { 1, 1 });

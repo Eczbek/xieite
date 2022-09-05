@@ -7,8 +7,8 @@ std::string trimStart(const std::string& string, std::string_view characters) no
 Removes characters from the beginning of a string.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/string.hpp>
+#include <iostream>
 
 int main() {
 	std::cout << gcufl::string::trimStart("...l...", '.') << '\n';

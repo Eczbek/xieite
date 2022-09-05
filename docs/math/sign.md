@@ -6,8 +6,8 @@ int sign(const N value) noexcept;
 Gets the sign of a number.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	std::cout

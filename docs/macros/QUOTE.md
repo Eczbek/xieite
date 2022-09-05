@@ -5,8 +5,8 @@
 Creates a stringified expression.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/macros.hpp>
+#include <iostream>
 
 int main() {
 	std::cout << QUOTE(2 + 2) << '\n';

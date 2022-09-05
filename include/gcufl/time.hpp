@@ -2,8 +2,8 @@
 
 #include <array>
 #include <chrono>
-#include <string_view>
 #include <gcufl/traits.hpp>
+#include <string_view>
 
 
 namespace gcufl {

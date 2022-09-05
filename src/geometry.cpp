@@ -1,8 +1,8 @@
-#include <limits>
 #include <gcufl/algorithms.hpp>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
 #include <gcufl/numbers.hpp>
+#include <limits>
 
 
 gcufl::geometry::Point::Point(const double x, const double y) noexcept

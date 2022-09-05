@@ -5,8 +5,8 @@ std::vector<gcufl::geometry::Segment> sides() const noexcept;
 Gets the sides of the polygon.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Polygon polygon({

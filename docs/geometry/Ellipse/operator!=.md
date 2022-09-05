@@ -5,8 +5,8 @@ bool operator!=(const gcufl::geometry::Ellipse& other) const noexcept;
 Compares two ellipses for inequality.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ellipse ellipse1({ 0, 0 }, { 1, 2 });

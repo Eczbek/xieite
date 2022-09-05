@@ -5,9 +5,9 @@ void putbackString(std::string_view string) noexcept;
 Adds a string to the `std::cin` buffer.
 ## Example
 ```cpp
+#include <gcufl/io.hpp>
 #include <iostream>
 #include <string>
-#include <gcufl/io.hpp>
 
 int main() {
 	gcufl::io::putbackString("Hello, world!\n");

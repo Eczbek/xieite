@@ -5,8 +5,8 @@ double area() const noexcept;
 Calculates the area of the ellipse.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });

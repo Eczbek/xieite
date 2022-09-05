@@ -5,8 +5,8 @@ void setPosition(const gcufl::io::Position position) noexcept;
 Sets the terminal cursor position.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/io.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::io::cursor::setPosition({ 3, 4 });

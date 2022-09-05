@@ -5,8 +5,8 @@ Circle(const gcufl::geometry::Point center, const double radius) noexcept;
 Creates a 2D circle, extends `gcufl::geometry::Ellipse`.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Circle circle({ 0, 0 }, 1);

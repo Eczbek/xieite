@@ -21,8 +21,8 @@ constexpr bool is<gcufl::os::type::Unix> = true;
 An operating-system dependant constant.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/os.hpp>
+#include <iostream>
 
 int main() {
 	std::cout << std::boolalpha << gcufl::os::is<gcufl::os::type::Unix> << '\n';

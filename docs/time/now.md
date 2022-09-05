@@ -6,8 +6,8 @@ long now() noexcept;
 Gets the current time duration.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/time.hpp>
+#include <iostream>
 
 int main() {
 	std::cout << gcufl::time::now() << '\n';

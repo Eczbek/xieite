@@ -8,8 +8,8 @@ constexpr double tau = gcufl::numbers::tau_v<double>;
 A mathematical constant.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/numbers.hpp>
+#include <iostream>
 
 int main() {
 	std::cout << gcufl::numbers::tau << '\n';

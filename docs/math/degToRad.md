@@ -6,8 +6,8 @@ double radians(const N degrees) noexcept;
 Converts degrees to radians.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	std::cout << gcufl::math::radians(180) << '\n';

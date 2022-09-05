@@ -7,9 +7,9 @@ Ray(const gcufl::geometry::Point start, const double angle) noexcept;
 Creates an infinite 2D ray, extends `gcufl::geometry::Line`.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ray ray1({ 0, 0 }, { 1, 1 });

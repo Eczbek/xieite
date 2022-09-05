@@ -5,8 +5,8 @@ virtual bool contains(const gcufl::geometry::Point point) const noexcept;
 Checks whether the line intersects a point.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Line line({ 0, 0 }, { 1, 1 })

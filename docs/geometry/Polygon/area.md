@@ -5,8 +5,8 @@ double area() const noexcept;
 Calculates the area of the polygon.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Polygon polygon({

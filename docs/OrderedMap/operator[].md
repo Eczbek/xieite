@@ -7,8 +7,8 @@ const V& operator[](const K key) const noexcept;
 The operator functions of `gcufl::OrderedMap<K, V>`.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/OrderedMap.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::OrderedMap<char, bool> map;

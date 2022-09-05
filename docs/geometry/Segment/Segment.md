@@ -5,8 +5,8 @@ Segment(const gcufl::geometry::Point start, const gcufl::geometry::Point end) no
 Creates a 2D line segment.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Segment segment({ 0, 0 }, { 2, 2 });

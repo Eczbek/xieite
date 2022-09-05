@@ -5,8 +5,8 @@ double perimeter() const noexcept;
 Calculates the perimeter of the circle.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Circle circle({ 0, 0 }, 1);

@@ -5,8 +5,8 @@ std::vector<V> getDimensions() const noexcept;
 Gets the dimensions of the multidimension matrix.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/Matrix.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::Matrix<bool> matrix({ 3, 3, 3 });

@@ -5,8 +5,8 @@ bool operator!=(const gcufl::geometry::Circle& other) const noexcept;
 Compares two circles for inequality.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Circle circle1({ 0, 0 }, 1);

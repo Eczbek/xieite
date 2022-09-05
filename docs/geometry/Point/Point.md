@@ -5,8 +5,8 @@ Point(const double x = 0, const double y = 0) noexcept;
 Creates a 2D point.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Point point(0, 0);

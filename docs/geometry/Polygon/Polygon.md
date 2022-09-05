@@ -5,8 +5,8 @@ Polygon(const std::vector<gcufl::geometry::Point>& points) noexcept;
 Creates a 2D polygon.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Polygon polygon({

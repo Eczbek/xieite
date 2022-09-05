@@ -6,9 +6,9 @@ Reads the content of a file into a `std::string`.
 If the file does not exist, returns `""`.
 ## Example
 ```cpp
-#include <iostream>
 #include <fstream>
 #include <gcufl/fs.hpp>
+#include <iostream>
 
 int main() {
 	std::string path = "./test.txt";

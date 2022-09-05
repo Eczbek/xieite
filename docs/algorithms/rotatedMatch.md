@@ -3,15 +3,15 @@
 template <std::forward_iterator I1, std::forward_iterator I2>
 bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2) noexcept;
 
-template <std::forward_iterator I1, std::forward_iterator I2, std::invocable<const I1, const I2> C>
+template <std::forward_iterator I1, std::forward_iterator I2, std::invocable<const typename std::iterator_traits<I1>::value_type&, const typename std::iterator_traits<I2>::value_type&> C>
 bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2, const C& compare) noexcept;
 ```
 Checks whether two iterables contain the same values in the same relative order.
 ## Example
 ```cpp
-#include <iostream>
 #include <array>
 #include <gcufl/algorithms.hpp>
+#include <iostream>
 
 int main() {
 	std::array<int, 5> a { 1, 2, 3, 4, 5 };

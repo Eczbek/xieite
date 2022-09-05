@@ -5,8 +5,8 @@ gcufl::io::Position getPosition() noexcept;
 Gets the terminal cursor position.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/io.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::io::Position position = gcufl::io::cursor::getPosition();

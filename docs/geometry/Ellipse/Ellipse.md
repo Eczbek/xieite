@@ -5,8 +5,8 @@ Ellipse(const gcufl::geometry::Point center, const gcufl::geometry::Point radius
 Creates a 2D ellipse.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });

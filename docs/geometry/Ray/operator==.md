@@ -5,9 +5,9 @@ bool operator==(const gcufl::geometry::Ray& other) const noexcept;
 Compares two rays for equality.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ray ray1({ 0, 0 }, { 1, 1 });

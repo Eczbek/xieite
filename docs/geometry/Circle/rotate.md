@@ -5,9 +5,9 @@ gcufl::geometry::Circle rotate(const double angle, const gcufl::geometry::Point 
 Rotates a copy of the circle about a pivot.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Circle circle1({ 1, 0 }, 1);

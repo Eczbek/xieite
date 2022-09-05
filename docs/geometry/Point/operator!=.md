@@ -5,8 +5,8 @@ bool operator!=(const gcufl::geometry::Point other) const noexcept;
 Compares two points for inequality. Uses `gcufl::math::approxEqual` to account for rounding errors.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Point point1(0.3, 0);

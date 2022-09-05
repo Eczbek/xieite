@@ -2,12 +2,12 @@
 
 #include <cmath>
 #include <concepts>
+#include <gcufl/OrderedMap.hpp>
+#include <gcufl/traits.hpp>
 #include <limits>
 #include <numbers>
 #include <string>
 #include <string_view>
-#include <gcufl/OrderedMap.hpp>
-#include <gcufl/traits.hpp>
 
 
 namespace gcufl {

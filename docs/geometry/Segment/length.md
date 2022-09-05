@@ -5,8 +5,8 @@ double length() const noexcept;
 Calculates the length of the line segment.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Segment segment({ 3, 0 }, { 0, 4 });

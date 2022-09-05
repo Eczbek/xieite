@@ -5,9 +5,9 @@ bool operator!=(const gcufl::geometry::Line& other) const noexcept;
 Compares two lines for inequality.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Line line1({ 0, 0 }, { 1, 1 });

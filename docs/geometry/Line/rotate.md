@@ -5,9 +5,9 @@ gcufl::geometry::Line rotate(const double angle, const gcufl::geometry::Point pi
 Rotates a copy of the line about a pivot.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Line line1({ 0, 0 }, { 1, 1 });

@@ -5,9 +5,9 @@ gcufl::geometry::Ellipse rotate(const double angle, const gcufl::geometry::Point
 Rotates a copy of the ellipse about a pivot.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ellipse ellipse1({ 0, 0 }, { 1, 2 });

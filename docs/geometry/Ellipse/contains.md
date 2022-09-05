@@ -5,8 +5,8 @@ bool contains(const gcufl::geometry::Point point) const noexcept;
 Checks whether the ellipse contains a point
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });

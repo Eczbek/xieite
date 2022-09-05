@@ -5,8 +5,8 @@ bool operator==(const gcufl::geometry::Segment& other) const noexcept;
 Compares two line segments for equality.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Segment segment1({ 0, 0 }, { 2, 2 });

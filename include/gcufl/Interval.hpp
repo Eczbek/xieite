@@ -1,7 +1,8 @@
-#include <thread>
-#include <concepts>
 #include <atomic>
+#include <concepts>
 #include <gcufl/traits.hpp>
+#include <thread>
+
 
 namespace gcufl {
 	class Interval {

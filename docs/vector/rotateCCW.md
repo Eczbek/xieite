@@ -6,9 +6,9 @@ std::vector<std::vector<V>> rotateCCW(const std::vector<std::vector<V>>& values)
 Rotates a copy of a vector counter-clockwise.
 ## Example
 ```cpp
+#include <gcufl/vector.hpp>
 #include <iostream>
 #include <vector>
-#include <gcufl/vector.hpp>
 
 int main() {
 	const std::vector<std::vector<bool>> matrix {

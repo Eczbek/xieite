@@ -5,8 +5,8 @@ void off(const std::string& event) noexcept;
 Removes an event by key.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/EventEmitter.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::EventEmitter eventEmitter;

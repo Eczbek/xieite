@@ -5,8 +5,8 @@ gcufl::BigInt abs() const noexcept;
 Gets the absolute value of the BigInt.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/BigInt.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::BigInt bigInt(-12);

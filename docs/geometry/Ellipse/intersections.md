@@ -8,8 +8,8 @@ Calculates intersections between the ellipse and a line.
 The second version of this function is currently incomplete.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });

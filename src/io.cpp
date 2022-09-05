@@ -1,7 +1,7 @@
+#include <gcufl/io.hpp>
 #include <iostream>
 #include <limits>
 #include <sys/ioctl.h>
-#include <gcufl/io.hpp>
 
 
 gcufl::io::Raw::Raw(const bool echo) noexcept {

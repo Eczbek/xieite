@@ -7,9 +7,9 @@ Line(const gcufl::geometry::Point intersection, const double angle) noexcept;
 Creates an infinite 2D line.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Line line1({ 0, 0 }, { 1, 1 });

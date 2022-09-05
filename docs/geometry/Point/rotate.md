@@ -5,9 +5,9 @@ gcufl::geometry::Point rotate(const double angle, const gcufl::geometry::Point p
 Rotates a copy of this point about a pivot.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
 #include <gcufl/math.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Point point1(1, 0);

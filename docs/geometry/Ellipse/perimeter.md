@@ -5,8 +5,8 @@ double perimiter() const noexcept;
 Calculates the perimeter of the ellipse.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });

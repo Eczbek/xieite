@@ -3,8 +3,8 @@ A namespace of constant ANSI styles.
 Some styles may be stacked.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/io.hpp>
+#include <iostream>
 
 int main() {
 	std::cout << gcufl::io::style::fg::brightRed << "Hello, world!\n";

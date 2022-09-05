@@ -5,8 +5,8 @@ bool operator!=(const gcufl::geometry::Polygon& other) const noexcept;
 Compares two polygons for inequality.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/geometry.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::geometry::Polygon polygon1({

@@ -6,11 +6,11 @@ std::unordered_map<K, std::vector<V>> group(const std::vector<V>& values, const 
 Groups values into an unsorted map.
 ## Example
 ```cpp
+#include <gcufl/vector.hpp>
 #include <iostream>
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <gcufl/vector.hpp>
 
 int main() {
 	std::vector<int> values { 1, 2, 3, 4, 5 };

@@ -5,8 +5,8 @@ constexpr std::array<std::string_view, 12> months { "January", "February", "Marc
 A constant array of month names.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/time.hpp>
+#include <iostream>
 
 int main() {
 	std::cout << gcufl::time::months[3] << '\n';

@@ -8,8 +8,8 @@ gcufl::BigInt pow(const N value) const;
 Calculates the BigInt to a power.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/BigInt.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::BigInt bigInt(2);

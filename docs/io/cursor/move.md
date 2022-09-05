@@ -5,8 +5,8 @@ void move(const char direction, const int count = 1) noexcept;
 Moves the terminal cursor in some direction.
 ## Example
 ```cpp
-#include <iostream>
 #include <gcufl/io.hpp>
+#include <iostream>
 
 int main() {
 	gcufl::io::Position position1 = gcufl::io::cursor::getPos();
