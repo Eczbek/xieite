@@ -7,6 +7,7 @@
 #include <string>
 #include <string_view>
 #include <gcufl/OrderedMap.hpp>
+#include <gcufl/traits.hpp>
 
 
 namespace gcufl {
@@ -19,18 +20,18 @@ namespace gcufl {
 			return value > 0;
 		}
 
-		template <typename N>
+		template <gcufl::traits::Arithmetic N>
 		constexpr N wrap(const N value, const N max, const N min = 0) noexcept {
 			const N diff = max - min;
 			return std::fmod(std::fmod(value - min, diff) + diff, diff) + min;
 		}
 
-		template <typename N>
+		template <gcufl::traits::Arithmetic N>
 		constexpr bool approxEqual(const N value1, const N value2) noexcept {
 			return std::fabs(value1 - value2) <= std::numeric_limits<N>::epsilon();
 		}
 
-		template <typename N>
+		template <gcufl::traits::Arithmetic N>
 		constexpr int sign(const N value) noexcept {
 			return value > 0
 				? 1
@@ -39,12 +40,12 @@ namespace gcufl {
 					: 0;
 		}
 
-		template <typename N>
+		template <gcufl::traits::Arithmetic N>
 		constexpr double degrees(const N radians) noexcept {
 			return radians * 180 / std::numbers::pi;
 		}
 
-		template <typename N>
+		template <gcufl::traits::Arithmetic N>
 		constexpr double radians(const N degrees) noexcept {
 			return degrees * std::numbers::pi / 180;
 		}
