@@ -2,27 +2,29 @@
 
 
 namespace gcufl {
-	enum class os {
-		Windows,
-		Mac,
-		Unix
-	};
+	namespace os {
+		enum class type {
+			Windows,
+			Mac,
+			Unix
+		};
 
-	template <gcufl::os>
-	constexpr bool isOS = false;
+		template <gcufl::os::type>
+		constexpr bool is = false;
 
 #if defined(_WIN32) || defined(__WINDOWS__)
-	template <>
-	constexpr bool isOS<gcufl::os::Windows> = true;
+		template <>
+		constexpr bool is<gcufl::os::type::Windows> = true;
 #endif
 
 #if defined(__APPLE__) || defined(__MACH__)
-	template <>
-	constexpr bool isOS<gcufl::os::Mac> = true;
+		template <>
+		constexpr bool is<gcufl::os::type::Mac> = true;
 #endif
 
 #if defined(__unix__) || defined(__unix)
-	template <>
-	constexpr bool isOS<gcufl::os::Unix> = true;
+		template <>
+		constexpr bool is<gcufl::os::type::Unix> = true;
 #endif
+	}
 }

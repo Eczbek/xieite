@@ -1,21 +1,21 @@
-# gcufl::isOS
+# gcufl::is
 ```cpp
-template <gcufl::os>
-constexpr bool isOS = false;
+template <gcufl::os::type>
+constexpr bool is = false;
 
 #if defined(_WIN32) || defined(__WINDOWS__)
 template <>
-constexpr bool isOS<gcufl::os::Windows> = true;
+constexpr bool is<gcufl::os::type::Windows> = true;
 #endif
 
 #if defined(__APPLE__) || defined(__MACH__)
 template <>
-constexpr bool isOS<gcufl::os::Mac> = true;
+constexpr bool is<gcufl::os::type::Mac> = true;
 #endif
 
 #if defined(__unix__) || defined(__unix)
 template <>
-constexpr bool isOS<gcufl::os::Unix> = true;
+constexpr bool is<gcufl::os::type::Unix> = true;
 #endif
 ```
 An operating-system dependant constant.
@@ -25,7 +25,7 @@ An operating-system dependant constant.
 #include <gcufl/os.hpp>
 
 int main() {
-	std::cout << std::boolalpha << gcufl::isOS<gcufl::os::Unix> << '\n';
+	std::cout << std::boolalpha << gcufl::os::is<gcufl::os::type::Unix> << '\n';
 }
 ```
 Possible output:
