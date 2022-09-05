@@ -17,7 +17,7 @@ stty -echo
 for (( i=0 ; i<$SOURCE_FILES_COUNT ; i++ )); do
 	SOURCE_FILE=$(realpath ${SOURCE_FILES[i]})
 	printf "\033[2K  Compiling file $(( $i+1 ))/$SOURCE_FILES_COUNT: $SOURCE_FILE\r"
-	g++ $SOURCE_FILE -I $HEADER_DIRECTORY -o "$TEMPORARY_DIRECTORY/$(basename $SOURCE_FILE)" -c -std=c++20
+	g++ $SOURCE_FILE -I $HEADER_DIRECTORY -o "$TEMPORARY_DIRECTORY/$(basename $SOURCE_FILE)" -c -std=c++20 -pthread
 done
 read -N 9999999 -t 0.001
 stty echo
