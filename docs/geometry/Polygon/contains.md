@@ -2,21 +2,19 @@
 ```cpp
 bool contains(const gcufl::geometry::Point point) const noexcept;
 ```
-Checks whether the polygon contains a point.
+Checks whether a polygon contains a point.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Polygon polygon({
+	std::cout << std::boolalpha << gcufl::geometry::Polygon({
 		{ 0, 0 },
 		{ 2, 0 },
 		{ 2, 2 },
 		{ 0, 2 }
-	});
-
-	std::cout << std::boolalpha << polygon.contains({ 1, 1 }) << '\n';
+	}).contains({ 1, 1 }) << '\n';
 }
 ```
 Output:

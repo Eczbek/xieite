@@ -2,21 +2,19 @@
 ```cpp
 double perimeter() const noexcept;
 ```
-Calculates the perimeter of the polygon.
+Calculates the perimeter of a polygon.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Polygon polygon({
+	std::cout << gcufl::geometry::Polygon({
 		{ 0, 0 },
 		{ 2, 0 },
 		{ 2, 2 },
 		{ 0, 2 }
-	});
-
-	std::cout << polygon.perimeter() << '\n';
+	}).perimeter() << '\n';
 }
 ```
 Output:

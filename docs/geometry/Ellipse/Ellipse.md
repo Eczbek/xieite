@@ -11,8 +11,7 @@ Creates a 2D ellipse.
 int main() {
 	gcufl::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });
 
-	std::cout
-		<< ellipse.center.x << ' ' << ellipse.center.y << '\n'
+	std::cout << ellipse.center.x << ' ' << ellipse.center.y << '\n'
 		<< ellipse.radius.x << ' ' << ellipse.radius.y << '\n';
 }
 ```

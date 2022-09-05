@@ -1,6 +1,6 @@
 # gcufl::math::wrap
 ```cpp
-template <typename N>
+template <gcufl::traits::Arithmetic N>
 N wrap(const N value, const N max, const N min = 0) noexcept;
 ```
 Wraps a number between limits.

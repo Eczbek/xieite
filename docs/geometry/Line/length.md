@@ -2,16 +2,14 @@
 ```cpp
 double length() const noexcept;
 ```
-Returns `std::numeric_limits<double>::infinity()`, as the line is infinite.
+Returns `std::numeric_limits<double>::infinity()`, as all lines are infinite.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Line line({ 0, 0 }, { 1, 1 })
-
-	std::cout << line.length() << '\n';
+	std::cout << gcufl::geometry::Line({ 0, 0 }, { 1, 1 }).length() << '\n';
 }
 ```
 Output:

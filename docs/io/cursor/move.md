@@ -13,8 +13,7 @@ int main() {
 	gcufl::io::cursor::move(gcufl::io::direction::Down, 3);
 	gcufl::io::Position position2 = gcufl::io::cursor::getPos();
 
-	std::cout
-		<< position1.row << ' ' << position1.column << '\n'
+	std::cout << position1.row << ' ' << position1.column << '\n'
 		<< position2.row << ' ' << position2.column << '\n';
 }
 ```

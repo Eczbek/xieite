@@ -15,8 +15,7 @@ int main() {
 	gcufl::geometry::Line line1({ 0, 0 }, { 1, 1 });
 	gcufl::geometry::Line line2({ 3, 3 }, gcufl::math::radians(45));
 
-	std::cout
-		<< line1.start.x << ' ' << line1.start.y << '\n'
+	std::cout << line1.start.x << ' ' << line1.start.y << '\n'
 		<< line1.end.x << ' ' << line1.end.y << '\n'
 		<< line2.start.x << ' ' << line2.start.y << '\n'
 		<< line2.end.x << ' ' << line2.end.y << '\n';

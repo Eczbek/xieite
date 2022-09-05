@@ -12,10 +12,7 @@ int main() {
 	gcufl::geometry::Ellipse ellipse1({ 0, 0 }, { 1, 2 });
 	gcufl::geometry::Ellipse ellipse2({ 0, 0 }, { 1, 2 });
 
-	std::cout
-		<< std::boolalpha
-		<< (ellipse1 != ellipse2)
-		<< '\n';
+	std::cout << std::boolalpha << (ellipse1 != ellipse2) << '\n';
 }
 ```
 Output:

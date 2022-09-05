@@ -2,16 +2,14 @@
 ```cpp
 double perimiter() const noexcept;
 ```
-Calculates the perimeter of the ellipse.
+Calculates the perimeter of an ellipse.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });
-
-	std::cout << ellipse.perimeter() << '\n';
+	std::cout << gcufl::geometry::Ellipse({ 0, 0 }, { 1, 2 }).perimeter() << '\n';
 }
 ```
 Output:

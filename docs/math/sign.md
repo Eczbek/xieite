@@ -1,6 +1,6 @@
 # gcufl::math::sign
 ```cpp
-template <typename N>
+template <gcufl::traits::Arithmetic N>
 int sign(const N value) noexcept;
 ```
 Gets the sign of a number.

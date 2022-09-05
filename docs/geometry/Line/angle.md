@@ -2,7 +2,7 @@
 ```cpp
 double angle() const noexcept;
 ```
-Calculates the angle of the line.
+Calculates the angle of a line.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
@@ -14,8 +14,7 @@ int main() {
 	gcufl::geometry::Line line2({ 0, 0 }, { 0, 1 });
 	gcufl::geometry::Line line3({ 0, 0 }, { 1, 0 });
 
-	std::cout
-		<< gcufl::math::degrees(line1) << '\n'
+	std::cout << gcufl::math::degrees(line1) << '\n'
 		<< gcufl::math::degrees(line2) << '\n'
 		<< gcufl::math::degrees(line3) << '\n';
 }

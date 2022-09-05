@@ -1,7 +1,7 @@
 # gcufl::time::now
 ```cpp
-template <typename D = std::chrono::nanoseconds>
-long now() noexcept;
+template <gcufl::traits::Duration D = std::chrono::nanoseconds>
+D::rep now() noexcept;
 ```
 Gets the current time duration.
 ## Example

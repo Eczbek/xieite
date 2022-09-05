@@ -18,14 +18,10 @@ int main() {
 	std::array<int, 5> b { 3, 4, 5, 1, 2 };
 	std::array<int, 5> c { 2, 1, 5, 4, 3 };
 
-	std::cout
-		<< std::boolalpha
-		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), b.begin(), b.end())
-		<< '\n'
-		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), c.begin(), c.end())
-		<< '\n'
-		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), c.rbegin(), c.rend())
-		<< '\n';
+	std::cout << std::boolalpha
+		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), b.begin(), b.end()) << '\n'
+		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), c.begin(), c.end()) << '\n'
+		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), c.rbegin(), c.rend()) << '\n';
 }
 ```
 Output:

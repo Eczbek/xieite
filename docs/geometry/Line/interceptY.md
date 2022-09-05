@@ -2,16 +2,14 @@
 ```cpp
 double interceptY() const noexcept;
 ```
-Calculates the y-intercept of the line.
+Calculates the y-intercept of a line.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Line line({ 1, 2 }, { 1, -1 })
-
-	std::cout << line.interceptY() << '\n';
+	std::cout << gcufl::geometry::Line({ 1, 2 }, { 1, -1 }).interceptY() << '\n';
 }
 ```
 Output:

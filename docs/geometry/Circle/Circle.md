@@ -11,8 +11,7 @@ Creates a 2D circle, extends `gcufl::geometry::Ellipse`.
 int main() {
 	gcufl::geometry::Circle circle({ 0, 0 }, 1);
 
-	std::cout
-		<< circle.center.x << ' ' << circle.center.y << '\n'
+	std::cout << circle.center.x << ' ' << circle.center.y << '\n'
 		<< circle.radius.x << '\n';
 }
 ```

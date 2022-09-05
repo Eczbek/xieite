@@ -1,6 +1,6 @@
 # gcufl::math::degrees
 ```cpp
-template <typename N>
+template <gcufl::traits::Arithmetic N>
 double degrees(const N radians) noexcept;
 ```
 Converts radians to degrees.

@@ -1,6 +1,6 @@
 # gcufl::math::approxEqual
 ```cpp
-template <typename N>
+template <gcufl::traits::Arithmetic N>
 bool approxEqual(const N value1, const N value2) noexcept;
 ```
 Checks whether two numbers are approximately equal.

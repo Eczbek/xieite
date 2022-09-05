@@ -9,8 +9,7 @@ Gets the absolute value of the BigInt.
 #include <iostream>
 
 int main() {
-	gcufl::BigInt bigInt(-12);
-	std::cout << bigInt.abs() << '\n';
+	std::cout << gcufl::BigInt(-12).abs() << '\n';
 }
 ```
 Output:

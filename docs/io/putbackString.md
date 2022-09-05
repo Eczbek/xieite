@@ -12,9 +12,9 @@ Adds a string to the `std::cin` buffer.
 int main() {
 	gcufl::io::putbackString("Hello, world!\n");
 
-	std::string buffer;
-	std::getline(std::cin, buffer);
-	std::cout << buffer << '\n';
+	std::string input;
+	std::getline(std::cin, input);
+	std::cout << input << '\n';
 }
 ```
 Output:

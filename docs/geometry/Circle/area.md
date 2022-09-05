@@ -2,16 +2,14 @@
 ```cpp
 double area() const noexcept;
 ```
-Calculates the area of the circle.
+Calculates the area of a circle.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Circle circle({ 0, 0 }, 1);
-
-	std::cout << circle.area() << '\n';
+	std::cout << gcufl::geometry::Circle({ 0, 0 }, 1).area() << '\n';
 }
 ```
 Output:

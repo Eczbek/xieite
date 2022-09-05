@@ -2,7 +2,7 @@
 ```cpp
 char waitChar(const bool echo = false) noexcept;
 ```
-Waits for an input and then reads it. Doesn't wait for the next key, like Enter, to be pressed.
+Waits for an input and then reads it. Doesn't wait for the next key, like `Enter`, to be pressed.
 ## Example
 ```cpp
 #include <gcufl/io.hpp>

@@ -2,7 +2,7 @@
 ```cpp
 gcufl::geometry::Ellipse rotate(const double angle, const gcufl::geometry::Point pivot = gcufl::geometry::Point(0, 0)) const noexcept;
 ```
-Rotates a copy of the ellipse about a pivot.
+Rotates a copy of an ellipse about a pivot.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>

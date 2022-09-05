@@ -2,21 +2,19 @@
 ```cpp
 double area() const noexcept;
 ```
-Calculates the area of the polygon.
+Calculates the area of a polygon.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Polygon polygon({
+	std::cout << gcufl::geometry::Polygon({
 		{ 0, 0 },
 		{ 2, 0 },
 		{ 2, 2 },
 		{ 0, 2 }
-	});
-
-	std::cout << polygon.area() << '\n';
+	}).area() << '\n';
 }
 ```
 Output:

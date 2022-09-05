@@ -4,7 +4,7 @@ V& operator[](const K key) noexcept;
 
 const V& operator[](const K key) const noexcept;
 ```
-The operator functions of `gcufl::OrderedMap<K, V>`.
+Gets a value by key.
 ## Example
 ```cpp
 #include <gcufl/OrderedMap.hpp>

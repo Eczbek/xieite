@@ -11,7 +11,7 @@ If the file does not exist, returns `""`.
 #include <iostream>
 
 int main() {
-	std::string path = "./test.txt";
+	std::string path = "test.txt";
 
 	std::ofstream writer(path);
 	if (writer)

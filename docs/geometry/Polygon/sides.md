@@ -2,23 +2,20 @@
 ```cpp
 std::vector<gcufl::geometry::Segment> sides() const noexcept;
 ```
-Gets the sides of the polygon.
+Gets the sides of a polygon.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Polygon polygon({
+	for (const gcufl::geometry::Segment& segment : gcufl::geometry::Polygon({
 		{ 0, 0 },
 		{ 2, 0 },
 		{ 2, 2 },
 		{ 0, 2 }
-	});
-
-	for (const gcufl::geometry::Segment& segment : polygon.sides())
-		std::cout
-			<< segment.start.x << ' ' << segment.start.y << '\n'
+	}).sides())
+		std::cout << segment.start.x << ' ' << segment.start.y << '\n'
 			<< segment.end.x << ' ' << segment.end.y << "\n\n;
 }
 ```

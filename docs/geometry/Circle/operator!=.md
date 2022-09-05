@@ -12,10 +12,7 @@ int main() {
 	gcufl::geometry::Circle circle1({ 0, 0 }, 1);
 	gcufl::geometry::Circle circle2({ 0, 0 }, 1);
 
-	std::cout
-		<< std::boolalpha
-		<< (circle1 != circle2)
-		<< '\n';
+	std::cout << std::boolalpha << (circle1 != circle2) << '\n';
 }
 ```
 Output:

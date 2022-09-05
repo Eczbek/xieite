@@ -4,7 +4,7 @@ std::vector<gcufl::geometry::Point> intersections(const gcufl::geometry::Line& l
 
 std::vector<gcufl::geometry::Point> intersections(const gcufl::geometry::Ellipse& other) const noexcept;
 ```
-Calculates intersections between the ellipse and a line.
+Calculates intersections between an ellipse and a line.
 The second version of this function is currently incomplete.
 ## Example
 ```cpp

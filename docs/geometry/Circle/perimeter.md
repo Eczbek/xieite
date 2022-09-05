@@ -2,16 +2,14 @@
 ```cpp
 double perimeter() const noexcept;
 ```
-Calculates the perimeter of the circle.
+Calculates the perimeter of a circle.
 ## Example
 ```cpp
 #include <gcufl/geometry.hpp>
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Circle circle({ 0, 0 }, 1);
-
-	std::cout << circle.perimeter() << '\n';
+	std::cout << gcufl::geometry::Circle({ 0, 0 }, 1).perimeter() << '\n';
 }
 ```
 Output:

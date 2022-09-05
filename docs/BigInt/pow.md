@@ -12,8 +12,7 @@ Calculates the BigInt to a power.
 #include <iostream>
 
 int main() {
-	gcufl::BigInt bigInt(2);
-	std::cout << bigInt.pow(8) << '\n';
+	std::cout << gcufl::BigInt(2).pow(8) << '\n';
 }
 ```
 256

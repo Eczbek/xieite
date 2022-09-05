@@ -15,8 +15,7 @@ int main() {
 	gcufl::geometry::Ray ray1({ 0, 0 }, { 1, 1 });
 	gcufl::geometry::Ray ray2({ 3, 3 }, gcufl::math::radians(45));
 
-	std::cout
-		<< ray1.start.x << ' ' << ray1.start.y << '\n'
+	std::cout << ray1.start.x << ' ' << ray1.start.y << '\n'
 		<< ray1.end.x << ' ' << ray1.end.y << "\n\n"
 		<< ray2.start.x << ' ' << ray2.start.y << '\n'
 		<< ray2.end.x << ' ' << ray2.end.y << '\n';

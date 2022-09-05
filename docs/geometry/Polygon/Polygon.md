@@ -9,14 +9,12 @@ Creates a 2D polygon.
 #include <iostream>
 
 int main() {
-	gcufl::geometry::Polygon polygon({
+	for (const gcufl::geometry::Point point : gcufl::geometry::Polygon({
 		{ 0, 0 },
 		{ 2, 0 },
 		{ 2, 2 },
 		{ 0, 2 }
-	});
-
-	for (const gcufl::geometry::Point point : polygon.points)
+	}).points)
 		std::cout << point.x << ' ' << point.y << '\n';
 }
 ```

@@ -10,8 +10,8 @@ Sets the terminal cursor position.
 
 int main() {
 	gcufl::io::cursor::setPosition({ 3, 4 });
-
 	gcufl::io::Position position = gcufl::io::cursor::getPosition();
+	
 	std::cout << position.row << ' ' << position.column << '\n';
 }
 ```
