@@ -13,7 +13,7 @@ namespace gcufl {
 	namespace io {
 		class Raw {
 		private:
-			static int rawLocks;
+			static int rawLocksCount;
 
 			termios cooked;
 
@@ -25,7 +25,7 @@ namespace gcufl {
 
 		class NonBlock {
 		private:
-			static int nonBlockLocks;
+			static int nonBlockLocksCount;
 
 			const int blocking = fcntl(STDIN_FILENO, F_GETFL);
 

@@ -5,7 +5,7 @@
 
 
 gcufl::io::Raw::Raw(const bool echo) noexcept {
-	if (rawLocks++)
+	if (rawLocksCount++)
 		return;
 	tcgetattr(STDIN_FILENO, &cooked);
 	termios raw = cooked;
@@ -15,17 +15,17 @@ gcufl::io::Raw::Raw(const bool echo) noexcept {
 }
 
 gcufl::io::Raw::~Raw() {
-	if (!--rawLocks)
+	if (!--rawLocksCount)
 		tcsetattr(STDIN_FILENO, TCSANOW, &cooked);
 }
 
 gcufl::io::NonBlock::NonBlock() noexcept {
-	if (!nonBlockLocks++)
+	if (!nonBlockLocksCount++)
 		fcntl(STDIN_FILENO, F_SETFL, blocking | O_NONBLOCK);
 }
 
 gcufl::io::NonBlock::~NonBlock() {
-	if (!--nonBlockLocks)
+	if (!--nonBlockLocksCount)
 		fcntl(STDIN_FILENO, F_SETFL, blocking);
 }
 
