@@ -11,28 +11,28 @@
 
 namespace gcufl {
 	namespace io {
-		class RawLock {
+		class Raw {
 		private:
 			static int rawLocks;
 
 			termios cooked;
 
 		public:
-			RawLock(const bool echo = false) noexcept;
+			Raw(const bool echo = false) noexcept;
 
-			~RawLock();
+			~Raw();
 		};
 
-		class NonBlockLock {
+		class NonBlock {
 		private:
 			static int nonBlockLocks;
 
 			const int blocking = fcntl(STDIN_FILENO, F_GETFL);
 
 		public:
-			NonBlockLock() noexcept;
+			NonBlock() noexcept;
 
-			~NonBlockLock();
+			~NonBlock();
 		};
 
 		char waitChar(const bool echo = false) noexcept;

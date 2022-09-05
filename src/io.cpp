@@ -4,7 +4,7 @@
 #include <gcufl/io.hpp>
 
 
-gcufl::io::RawLock::RawLock(const bool echo) noexcept {
+gcufl::io::Raw::Raw(const bool echo) noexcept {
 	if (rawLocks++)
 		return;
 	tcgetattr(STDIN_FILENO, &cooked);
@@ -14,37 +14,37 @@ gcufl::io::RawLock::RawLock(const bool echo) noexcept {
 	tcsetattr(STDIN_FILENO, TCSANOW, &raw);
 }
 
-gcufl::io::RawLock::~RawLock() {
+gcufl::io::Raw::~Raw() {
 	if (!--rawLocks)
 		tcsetattr(STDIN_FILENO, TCSANOW, &cooked);
 }
 
-gcufl::io::NonBlockLock::NonBlockLock() noexcept {
+gcufl::io::NonBlock::NonBlock() noexcept {
 	if (!nonBlockLocks++)
 		fcntl(STDIN_FILENO, F_SETFL, blocking | O_NONBLOCK);
 }
 
-gcufl::io::NonBlockLock::~NonBlockLock() {
+gcufl::io::NonBlock::~NonBlock() {
 	if (!--nonBlockLocks)
 		fcntl(STDIN_FILENO, F_SETFL, blocking);
 }
 
 char gcufl::io::waitChar(const bool echo) noexcept {
-	gcufl::io::RawLock rawLock(echo);
+	gcufl::io::Raw rawLock(echo);
 	return std::cin.get();
 }
 
 char gcufl::io::readChar(const char defaultChar) noexcept {
-	gcufl::io::RawLock rawLock;
-	gcufl::io::NonBlockLock nonblockLock;
+	gcufl::io::Raw rawLock;
+	gcufl::io::NonBlock nonblockLock;
 	char input = defaultChar;
 	std::cin >> input;
 	return input;
 }
 
 std::string gcufl::io::readString(const std::size_t count, const char until) noexcept {
-	gcufl::io::RawLock rawLock;
-	gcufl::io::NonBlockLock nonblockLock;
+	gcufl::io::Raw rawLock;
+	gcufl::io::NonBlock nonblockLock;
 	std::string buffer;
 	char input;
 	while (buffer.size() <= count && std::cin >> input && input != until)
@@ -64,7 +64,7 @@ gcufl::io::Position gcufl::io::getWindowSize() noexcept {
 }
 
 gcufl::io::Position gcufl::io::cursor::getPosition() noexcept {
-	gcufl::io::RawLock rawLock;
+	gcufl::io::Raw rawLock;
 	std::cout << "\033[6n";
 	gcufl::io::Position position;
 	std::scanf("\033[%d;%dR", &position.row, &position.column);
