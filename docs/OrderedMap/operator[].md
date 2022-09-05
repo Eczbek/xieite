@@ -1,4 +1,4 @@
-# gcufl::OrderedMap<K, V>::operator
+# gcufl::OrderedMap<K, V>::operator[]
 ```cpp
 V& operator[](const K key) noexcept;
 

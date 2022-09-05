@@ -1,10 +1,10 @@
-# gcufl::Matrix<V>::operator
+# gcufl::Matrix<V>::operator[]
 ```cpp
 V& operator[](const std::vector<std::size_t>& indices);
 
 const V& operator[](const std::vector<std::size_t>& indices) const;
 ```
-The operator functions of `gcufl::Matrix<V>`.
+Gets a value by multiple keys.
 ## Example
 ```cpp
 #include <gcufl/Matrix.hpp>
