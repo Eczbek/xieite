@@ -12,14 +12,16 @@ namespace gcufl {
 		std::vector<V> values;
 
 	public:
-		Matrix(const std::vector<std::size_t>& dimensions) noexcept : dimensions(dimensions.begin(), dimensions.end()) {
+		Matrix(const std::vector<std::size_t>& dimensions) noexcept
+		: dimensions(dimensions.begin(), dimensions.end()) {
 			std::size_t size = 1;
 			for (const std::size_t dimension : dimensions)
 				size *= dimension;
 			values.resize(size);
 		}
 
-		Matrix(const std::vector<std::size_t>& dimensions, const std::vector<V>& values) : dimensions(dimensions.begin(), dimensions.end()), values(values.begin(), values.end()) {
+		Matrix(const std::vector<std::size_t>& dimensions, const std::vector<V>& values)
+		: dimensions(dimensions.begin(), dimensions.end()), values(values.begin(), values.end()) {
 			std::size_t size = 1;
 			for (const std::size_t dimension : dimensions)
 				size *= dimension;

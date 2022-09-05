@@ -48,7 +48,8 @@ namespace gcufl {
 			gcufl::geometry::Line rotate(const double angle, const gcufl::geometry::Point pivot = gcufl::geometry::Point(0, 0));
 		};
 
-		struct Ray : gcufl::geometry::Line {
+		struct Ray
+		: gcufl::geometry::Line {
 			Ray(const gcufl::geometry::Point start, const gcufl::geometry::Point intersection) noexcept;
 
 			Ray(const gcufl::geometry::Point start, const double angle) noexcept;
@@ -60,7 +61,8 @@ namespace gcufl {
 			bool contains(const gcufl::geometry::Point point) const noexcept;
 		};
 
-		struct Segment : gcufl::geometry::Line {
+		struct Segment
+		: gcufl::geometry::Line {
 			Segment(const gcufl::geometry::Point start, const gcufl::geometry::Point end) noexcept;
 
 			bool operator==(const gcufl::geometry::Segment& other) const noexcept;
@@ -118,7 +120,8 @@ namespace gcufl {
 			gcufl::geometry::Polygon boundingBox() const noexcept;
 		};
 
-		struct Circle : gcufl::geometry::Ellipse {
+		struct Circle
+		: gcufl::geometry::Ellipse {
 			Circle(const gcufl::geometry::Point center, const double radius) noexcept;
 
 			bool operator==(const gcufl::geometry::Circle& other) const noexcept;

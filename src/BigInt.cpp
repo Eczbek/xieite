@@ -1,9 +1,11 @@
 #include <gcufl/BigInt.hpp>
 
 
-gcufl::BigInt::BigInt(const gcufl::BigInt& other) noexcept : digits(other.digits.begin(), other.digits.end()), sign(other.sign) {}
+gcufl::BigInt::BigInt(const gcufl::BigInt& other) noexcept
+: digits(other.digits.begin(), other.digits.end()), sign(other.sign) {}
 
-gcufl::BigInt::BigInt(std::span<const uint8_t> digits, const bool sign) noexcept : digits(digits.rbegin(), digits.rend()), sign(sign) {
+gcufl::BigInt::BigInt(std::span<const uint8_t> digits, const bool sign) noexcept
+: digits(digits.rbegin(), digits.rend()), sign(sign) {
 	while (this->digits.size() > 1 && !this->digits.back())
 		this->digits.pop_back();
 	if (!this->digits.size()) {

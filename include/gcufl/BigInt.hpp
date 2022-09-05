@@ -20,7 +20,8 @@ namespace gcufl {
 		BigInt(std::span<const uint8_t> digits, const bool sign = true) noexcept;
 
 		template <std::integral N = int>
-		BigInt(N value = 0) noexcept : sign(value >= 0) {
+		BigInt(N value = 0) noexcept
+		: sign(value >= 0) {
 			value = std::abs(value);
 			do {
 				digits.push_back(value % 10);

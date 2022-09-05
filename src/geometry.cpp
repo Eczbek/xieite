@@ -5,7 +5,8 @@
 #include <gcufl/numbers.hpp>
 
 
-gcufl::geometry::Point::Point(const double x, const double y) noexcept : x(x), y(y) {}
+gcufl::geometry::Point::Point(const double x, const double y) noexcept
+: x(x), y(y) {}
 
 bool gcufl::geometry::Point::operator==(const gcufl::geometry::Point other) const noexcept {
 	return gcufl::math::approxEqual(x, other.x) && gcufl::math::approxEqual(y, other.y);
@@ -19,9 +20,11 @@ gcufl::geometry::Point gcufl::geometry::Point::rotate(const double angle, const 
 	return gcufl::geometry::Point(pivot.x + std::cos(angle) * (x - pivot.x) - std::sin(angle) * (y - pivot.y), pivot.y + std::cos(angle) * (y - pivot.y) + std::sin(angle) * (x - pivot.x));
 }
 
-gcufl::geometry::Line::Line(const gcufl::geometry::Point start, const gcufl::geometry::Point end) noexcept : start(start), end(end) {}
+gcufl::geometry::Line::Line(const gcufl::geometry::Point start, const gcufl::geometry::Point end) noexcept
+: start(start), end(end) {}
 
-gcufl::geometry::Line::Line(const gcufl::geometry::Point start, const double angle) noexcept : start(start) {
+gcufl::geometry::Line::Line(const gcufl::geometry::Point start, const double angle) noexcept
+: start(start) {
 	end = gcufl::math::approxEqual(std::fmod(angle + std::numbers::pi / 2, std::numbers::pi), 0.0)
 		? gcufl::geometry::Point(start.x, start.y - 1)
 		: gcufl::geometry::Point(start.x + 1, start.y + std::tan(angle));
@@ -76,9 +79,11 @@ gcufl::geometry::Line gcufl::geometry::Line::rotate(const double angle, const gc
 	return gcufl::geometry::Line(start.rotate(angle, pivot), end.rotate(angle, pivot));
 }
 
-gcufl::geometry::Ray::Ray(const gcufl::geometry::Point start, const gcufl::geometry::Point end) noexcept : gcufl::geometry::Line(start, end) {}
+gcufl::geometry::Ray::Ray(const gcufl::geometry::Point start, const gcufl::geometry::Point end) noexcept
+: gcufl::geometry::Line(start, end) {}
 
-gcufl::geometry::Ray::Ray(const gcufl::geometry::Point start, const double angle) noexcept : gcufl::geometry::Line(start, angle) {}
+gcufl::geometry::Ray::Ray(const gcufl::geometry::Point start, const double angle) noexcept
+: gcufl::geometry::Line(start, angle) {}
 
 bool gcufl::geometry::Ray::operator==(const gcufl::geometry::Ray& other) const noexcept {
 	return start == other.start && contains(other.end);
@@ -104,7 +109,8 @@ bool gcufl::geometry::Ray::contains(const gcufl::geometry::Point other) const no
 				: other.y <= start.y);
 }
 
-gcufl::geometry::Segment::Segment(const gcufl::geometry::Point start, const gcufl::geometry::Point end) noexcept : gcufl::geometry::Line(start, end) {}
+gcufl::geometry::Segment::Segment(const gcufl::geometry::Point start, const gcufl::geometry::Point end) noexcept
+: gcufl::geometry::Line(start, end) {}
 
 bool gcufl::geometry::Segment::operator==(const gcufl::geometry::Segment& other) const noexcept {
 	return start == other.start && end == other.end || start == other.end && end == other.start;
@@ -132,7 +138,8 @@ bool gcufl::geometry::Segment::contains(const gcufl::geometry::Point other) cons
 				: other.y <= start.y && other.y >= end.y);
 }
 
-gcufl::geometry::Polygon::Polygon(const std::vector<gcufl::geometry::Point>& points) noexcept : points(points) {}
+gcufl::geometry::Polygon::Polygon(const std::vector<gcufl::geometry::Point>& points) noexcept
+: points(points) {}
 
 bool gcufl::geometry::Polygon::operator==(const gcufl::geometry::Polygon& other) const noexcept {
 	return gcufl::algorithms::rotatedMatch(points.begin(), points.end(), other.points.begin(), other.points.end())
@@ -179,7 +186,8 @@ gcufl::geometry::Polygon gcufl::geometry::Polygon::rotate(const double angle, co
 	return gcufl::geometry::Polygon(rotatedPoints);
 }
 
-gcufl::geometry::Ellipse::Ellipse(const gcufl::geometry::Point center, const gcufl::geometry::Point radius, const double rotation) noexcept : center(center), radius(radius), rotation(rotation) {}
+gcufl::geometry::Ellipse::Ellipse(const gcufl::geometry::Point center, const gcufl::geometry::Point radius, const double rotation) noexcept
+: center(center), radius(radius), rotation(rotation) {}
 
 bool gcufl::geometry::Ellipse::operator==(const gcufl::geometry::Ellipse& other) const noexcept {
 	return center == other.center && radius == other.radius && gcufl::math::approxEqual(std::fmod(rotation, std::numbers::pi), std::fmod(other.rotation, std::numbers::pi));
@@ -243,7 +251,8 @@ gcufl::geometry::Polygon gcufl::geometry::Ellipse::boundingBox() const noexcept 
 	});
 }
 
-gcufl::geometry::Circle::Circle(const gcufl::geometry::Point center, const double radius) noexcept : gcufl::geometry::Ellipse(center, gcufl::geometry::Point(radius, radius)) {}
+gcufl::geometry::Circle::Circle(const gcufl::geometry::Point center, const double radius) noexcept
+: gcufl::geometry::Ellipse(center, gcufl::geometry::Point(radius, radius)) {}
 
 bool gcufl::geometry::Circle::operator==(const gcufl::geometry::Circle& other) const noexcept {
 	return center == other.center && gcufl::math::approxEqual(radius.x, other.radius.x);
