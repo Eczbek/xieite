@@ -1,4 +1,4 @@
-# gcufl::numbers::tau_v
+# gcufl::numbers::tau
 ```cpp
 template <typename N>
 constexpr N tau_v = std::numbers::pi_v<N> * 2;
