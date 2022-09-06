@@ -3,11 +3,9 @@
 #include <numbers>
 
 
-namespace gcufl {
-	namespace numbers {
-		template <typename N>
-		constexpr N tau_v = std::numbers::pi_v<N> * 2;
+namespace gcufl::numbers {
+	template <typename N>
+	constexpr N tau_v = std::numbers::pi_v<N> * 2;
 
-		constexpr double tau = gcufl::numbers::tau_v<double>;
-	}
+	constexpr double tau = gcufl::numbers::tau_v<double>;
 }

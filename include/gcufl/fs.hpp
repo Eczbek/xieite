@@ -3,8 +3,6 @@
 #include <string>
 
 
-namespace gcufl {
-	namespace fs {
-		std::string read(const std::string& path) noexcept;
-	}
+namespace gcufl::fs {
+	std::string read(const std::string& path) noexcept;
 }
