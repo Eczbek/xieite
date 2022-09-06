@@ -28,7 +28,7 @@ std::vector<std::string> gcufl::string::split(const std::string& string, const c
 	return segments;
 }
 
-std::string gcufl::string::trunc(const std::string& string, const std::size_t length, const std::string& suffix) noexcept {
+std::string gcufl::string::truncate(const std::string& string, const std::size_t length, const std::string& suffix) noexcept {
 	return string.size() > length		
 		? string.substr(0, length - suffix.size()) + suffix
 		: string;
