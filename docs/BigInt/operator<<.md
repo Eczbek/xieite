@@ -1,18 +1,7 @@
-# gcufl::BigInt::operator<<
+# `operator<<`
+Declared in `<gcufl/BigInt.hpp>`
+<br/><br/>
 ```cpp
-friend std::ostream& operator<<(std::ostream& stream, const gcufl::BigInt& self)
+friend std::ostream& operator<<(std::ostream& stream, const gcufl::BigInt& self);
 ```
-Prints a BigInt to `std::cout`.
-## Example
-```cpp
-#include <gcufl/BigInt.hpp>
-#include <iostream>
-
-int main() {
-	std::cout << gcufl::BigInt(-903557777) << '\n';
-}
-```
-Output:
-```
--903557777
-```
+Prints a `BigInt` into a `std::ostream`.

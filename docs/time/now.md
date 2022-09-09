@@ -1,12 +1,14 @@
-# gcufl::time::now
+# `gcufl::time::now`
+Defined in `<gcufl/time/now.hpp>`
+<br/><br/>
 ```cpp
-template <gcufl::traits::Duration D = std::chrono::nanoseconds>
+template <gcufl::concepts::Duration D = std::chrono::nanoseconds>
 D::rep now() noexcept;
 ```
-Gets the current time duration.
+Returns the current time since epoch.
 ## Example
 ```cpp
-#include <gcufl/time.hpp>
+#include <gcufl/time/now.hpp>
 #include <iostream>
 
 int main() {

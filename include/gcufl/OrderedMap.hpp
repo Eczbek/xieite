@@ -1,11 +1,12 @@
 #pragma once
 
 #include <array>
+#include <concepts>
 #include <limits>
 
 
 namespace gcufl {
-	template <typename K, typename V>
+	template <std::convertible_to<int> K, typename V>
 	struct OrderedMap {
 		std::array<V, std::numeric_limits<K>::max() - std::numeric_limits<K>::min() + 1> values;
 

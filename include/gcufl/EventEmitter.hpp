@@ -8,30 +8,33 @@
 
 
 namespace gcufl {
+	template <typename K>
 	class EventEmitter {
 	private:
-		std::unordered_map<std::string, std::any> events;
+		std::unordered_map<K, std::any> events;
 
 	public:
+		template <typename... A>
+		void emit(const K& event, A... arguments) {
+			if (events.contains(event))
+				std::any_cast<std::function<void(A...)>>(events[event])(arguments...);
+		}
+
+		void off(const K& event) noexcept {
+			events.erase(event);
+		}
+
 		template <typename... P, std::invocable<P...> C>
-		void on(const std::string& event, const C& callback) noexcept {
+		void on(const K& event, const C& callback) noexcept {
 			events[event] = std::any(std::function<void(P...)>(callback));
 		}
 
 		template <typename... P, std::invocable<P...> C>
-		void once(const std::string& event, const C& callback) noexcept {
+		void once(const K& event, const C& callback) noexcept {
 			events[event] = std::any(std::function<void(P...)>([&](P... arguments) {
 				events.erase(event);
 				callback(arguments...);
 			}));
-		}
-
-		void off(const std::string& event) noexcept;
-
-		template <typename... A>
-		void emit(const std::string& event, A... arguments) {
-			if (events.contains(event))
-				std::any_cast<std::function<void(A...)>>(events[event])(arguments...);
 		}
 	};
 }

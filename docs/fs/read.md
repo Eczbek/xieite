@@ -1,26 +1,25 @@
-# gcufl::fs::read
+# `gcufl::fs::read`
+Declared in `<gcufl/fs/read.hpp>`
+<br/><br/>
 ```cpp
 std::string read(const std::string& path) noexcept;
 ```
 Reads the content of a file into a `std::string`.
-If the file does not exist, returns `""`.
 ## Example
 ```cpp
-#include <fstream>
-#include <gcufl/fs.hpp>
+#include <gcufl/fs/read.hpp>
 #include <iostream>
 
 int main() {
-	std::string path = "test.txt";
-
-	std::ofstream writer(path);
-	if (writer)
-		writer << "Hello, world!\n";
-
-	std::cout << gcufl::fs::read(path);
+	std::cout << gcufl::fs::read("./main.cpp") << '\n';
 }
 ```
-Output:
+Possible output:
 ```
-Hello, world!
+#include <gcufl/fs/read.hpp>
+#include <iostream>
+
+int main() {
+	std::cout << gcufl::fs::read("./main.cpp") << '\n';
+}
 ```

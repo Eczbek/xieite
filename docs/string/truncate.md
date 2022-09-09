@@ -1,15 +1,17 @@
-# gcufl::string::truncate
+# `gcufl::string::truncate`
+Declared in `<gcufl/string/truncate.hpp>`
+<br/><br/>
 ```cpp
-std::string truncate(const std::string& string, const std::size_t length, const std::string& suffix = "...") noexcept;
+std::string truncate(const std::string& string, const std::size_t length, const std::string& suffix = "") noexcept;
 ```
-Truncates a string to set length.
+Replaces the end of a string.
 ## Example
 ```cpp
-#include <gcufl/string.hpp>
+#include <gcufl/string/truncate.hpp>
 #include <iostream>
 
 int main() {
-	std::cout << gcufl::string::truncate("Hello, world!", 8) << '\n';
+	std::cout << gcufl::string::truncate("Hello, world!", 8, "...") << '\n';
 }
 ```
 Output:

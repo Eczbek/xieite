@@ -1,21 +1,8 @@
-# gcufl::numbers::tau
+# `gcufl::numbers::tau`
+Defined in `gcufl/numbers/tau.hpp`
+<br/><br/>
 ```cpp
-template <typename N>
-constexpr N tau_v = std::numbers::pi_v<N> * 2;
-
-constexpr double tau = gcufl::numbers::tau_v<double>;
+template <typename N = double>
+constexpr N tau = std::numbers::pi_v<N> * 2;
 ```
-A mathematical constant.
-## Example
-```cpp
-#include <gcufl/numbers.hpp>
-#include <iostream>
-
-int main() {
-	std::cout << gcufl::numbers::tau << '\n';
-}
-```
-Output:
-```
-6.28318
-```
+Is equal to `std::numbers::pi` twice.

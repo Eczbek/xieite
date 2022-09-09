@@ -1,8 +1,10 @@
-# gcufl::BigInt::operator/=
+# `gcufl::BigInt::operator/=`
+Declared in `<gcufl/BigInt.hpp>`
+<br/><br/>
 ```cpp
-cufl::BigInt& operator/=(const gcufl::BigInt& other);
+gcufl::BigInt operator/=(gcufl::BigInt other) const;
 
 template <std::integral N>
-gcufl::BigInt& operator/=(const N value);
+gcufl::BigInt operator/=(const N value) const;
 ```
-Documentation file named incorrectly due to naming limitations.
+This file is named incorrectly due to naming limitations.

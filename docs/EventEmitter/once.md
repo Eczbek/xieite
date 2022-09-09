@@ -1,27 +1,10 @@
-# gcufl::EventEmitter:once
+# `gcufl::EventEmitter<K>::once`
+Defined in `<gcufl/EventEmitter.hpp>`
+<br/><br/>
 ```cpp
 template <typename... P, std::invocable<P...> C>
-void once(const std::string& event, const C& callback) noexcept;
+void once(const K& event, const C& callback) noexcept;
 ```
-Adds a one-time-use event callback by key.
-## Example
-```cpp
-#include <gcufl/EventEmitter.hpp>
-#include <iostream>
-
-int main() {
-	gcufl::EventEmitter eventEmitter;
-
-	eventEmitter.once<int, char>("print", [](const int a, const char b) {
-		std::cout << a << ' ' << b << '\n';
-	});
-
-	eventEmitter.emit("print", 4, 'h');
-
-	eventEmitter.emit("print", 7, 'm');
-}
-```
-Output:
-```
-4, h
-```
+Creates an temporary event by key with parameters.
+<br/>
+The created event can only be used once.

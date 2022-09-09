@@ -1,19 +1,21 @@
-# gcufl::math::toBase
+# `gcufl::math::toBase`
+Defined in `<gcufl/math/toBase.hpp>`
+<br/><br/>
 ```cpp
 template <std::integral N>
-std::string toBase(N value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
+constexpr std::string toBase(N value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
 ```
-Converts a base-10 number to any base.
+Converts a base-10 integral to any base.
 ## Example
 ```cpp
-#include <gcufl/math.hpp>
+#include <gcufl/math/toBase.hpp>
 #include <iostream>
 
 int main() {
-	std::cout << gcufl::math::toBase(16, 17) << '\n';
+	std::cout << gcufl::math::toBase(12, 2) << '\n';
 }
 ```
 Output:
 ```
-g
+1100
 ```

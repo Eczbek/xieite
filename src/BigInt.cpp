@@ -150,16 +150,16 @@ gcufl::BigInt gcufl::BigInt::operator*(gcufl::BigInt other) const noexcept {
 	gcufl::BigInt result;
 	const bool otherSign = other.sign;
 	other.sign = true;
-	std::vector<uint8_t> prefix;
+	std::vector<uint8_t> Prefix;
 	for (std::size_t i = 0; i < digits.size(); ++i) {
 		if (!digits[i])
 			continue;
 		for (std::size_t j = 0; j < other.digits.size(); ++j) {
 			if (!other.digits[j])
 				continue;
-			prefix.resize(i + j);
+			Prefix.resize(i + j);
 			gcufl::BigInt sum = digits[i] * other.digits[j];
-			sum.digits.insert(sum.digits.begin(), prefix.begin(), prefix.end());
+			sum.digits.insert(sum.digits.begin(), Prefix.begin(), Prefix.end());
 			result += sum;
 		}
 	}

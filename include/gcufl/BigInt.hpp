@@ -31,76 +31,23 @@ namespace gcufl {
 
 		operator bool() const noexcept;
 
-		bool operator==(const gcufl::BigInt& other) const noexcept;
+		gcufl::BigInt operator/(gcufl::BigInt other) const;
 
 		template <std::integral N>
-		bool operator==(const N value) const noexcept {
-			return *this == gcufl::BigInt(value);
+		gcufl::BigInt operator/(const N value) const {
+			return *this / gcufl::BigInt(value);
 		}
 
-		bool operator!=(const gcufl::BigInt& other) const noexcept;
+		gcufl::BigInt& operator/=(const gcufl::BigInt& other);
 
 		template <std::integral N>
-		bool operator!=(const N value) const noexcept {
-			return *this != gcufl::BigInt(value);
+		gcufl::BigInt& operator/=(const N value) {
+			return *this /= gcufl::BigInt(value);
 		}
 
-		bool operator>(const gcufl::BigInt& other) const noexcept;
+		gcufl::BigInt& operator--() noexcept;
 
-		template <std::integral N>
-		bool operator>(const N value) const noexcept {
-			return *this > gcufl::BigInt(value);
-		}
-		
-		bool operator>=(const gcufl::BigInt& other) const noexcept;
-
-		template <std::integral N>
-		bool operator>=(const N value) const noexcept {
-			return *this >= gcufl::BigInt(value);
-		}
-
-		bool operator<(const gcufl::BigInt& other) const noexcept;
-
-		template <std::integral N>
-		bool operator<(const N value) const noexcept {
-			return *this < gcufl::BigInt(value);
-		}
-
-		bool operator<=(const gcufl::BigInt& other) const noexcept;
-
-		template <std::integral N>
-		bool operator<=(const N value) const noexcept {
-			return *this <= gcufl::BigInt(value);
-		}
-
-		bool operator!() const noexcept;
-
-		gcufl::BigInt& operator=(const gcufl::BigInt& other) noexcept;
-
-		template <std::integral N>
-		gcufl::BigInt& operator=(const N value) noexcept {
-			return *this = gcufl::BigInt(value);
-		}
-
-		gcufl::BigInt operator+() const noexcept;
-
-		gcufl::BigInt operator+(const gcufl::BigInt& other) const noexcept;
-
-		template <std::integral N>
-		gcufl::BigInt operator+(const N value) const noexcept {
-			return *this + gcufl::BigInt(value);
-		}
-
-		gcufl::BigInt& operator+=(const gcufl::BigInt& other) noexcept;
-
-		template <std::integral N>
-		gcufl::BigInt& operator+=(const N value) noexcept {
-			return *this += gcufl::BigInt(value);
-		}
-
-		gcufl::BigInt& operator++() noexcept;
-
-		gcufl::BigInt operator++(int) noexcept;
+		gcufl::BigInt operator--(int) noexcept;
 
 		gcufl::BigInt operator-() const noexcept;
 
@@ -118,9 +65,14 @@ namespace gcufl {
 			return *this -= gcufl::BigInt(value);
 		}
 
-		gcufl::BigInt& operator--() noexcept;
+		bool operator!() const noexcept;
 
-		gcufl::BigInt operator--(int) noexcept;
+		bool operator!=(const gcufl::BigInt& other) const noexcept;
+
+		template <std::integral N>
+		bool operator!=(const N value) const noexcept {
+			return *this != gcufl::BigInt(value);
+		}
 
 		gcufl::BigInt operator*(gcufl::BigInt other) const noexcept;
 
@@ -134,20 +86,6 @@ namespace gcufl {
 		template <std::integral N>
 		gcufl::BigInt& operator*=(const N value) noexcept {
 			return *this *= gcufl::BigInt(value);
-		}
-
-		gcufl::BigInt operator/(gcufl::BigInt other) const;
-
-		template <std::integral N>
-		gcufl::BigInt operator/(const N value) const {
-			return *this / gcufl::BigInt(value);
-		}
-
-		gcufl::BigInt& operator/=(const gcufl::BigInt& other);
-
-		template <std::integral N>
-		gcufl::BigInt& operator/=(const N value) {
-			return *this /= gcufl::BigInt(value);
 		}
 
 		gcufl::BigInt operator%(gcufl::BigInt other) const;
@@ -164,12 +102,74 @@ namespace gcufl {
 			return *this %= gcufl::BigInt(value);
 		}
 
+		gcufl::BigInt operator+() const noexcept;
+
+		gcufl::BigInt operator+(const gcufl::BigInt& other) const noexcept;
+
+		template <std::integral N>
+		gcufl::BigInt operator+(const N value) const noexcept {
+			return *this + gcufl::BigInt(value);
+		}
+
+		gcufl::BigInt& operator++() noexcept;
+
+		gcufl::BigInt operator++(int) noexcept;
+
+		gcufl::BigInt& operator+=(const gcufl::BigInt& other) noexcept;
+
+		template <std::integral N>
+		gcufl::BigInt& operator+=(const N value) noexcept {
+			return *this += gcufl::BigInt(value);
+		}
+
+		bool operator<(const gcufl::BigInt& other) const noexcept;
+
+		template <std::integral N>
+		bool operator<(const N value) const noexcept {
+			return *this < gcufl::BigInt(value);
+		}
+
 		friend std::ostream& operator<<(std::ostream& stream, const gcufl::BigInt& self) {
 			if (!self.sign)
 				stream << '-';
 			for (std::size_t i = self.digits.size(); i > 0; --i)
 				stream << static_cast<int>(self.digits[i - 1]);
 			return stream;
+		}
+
+		bool operator<=(const gcufl::BigInt& other) const noexcept;
+
+		template <std::integral N>
+		bool operator<=(const N value) const noexcept {
+			return *this <= gcufl::BigInt(value);
+		}
+
+		gcufl::BigInt& operator=(const gcufl::BigInt& other) noexcept;
+
+		template <std::integral N>
+		gcufl::BigInt& operator=(const N value) noexcept {
+			return *this = gcufl::BigInt(value);
+		}
+
+		bool operator==(const gcufl::BigInt& other) const noexcept;
+
+		template <std::integral N>
+		bool operator==(const N value) const noexcept {
+			return *this == gcufl::BigInt(value);
+		}
+
+		bool operator>(const gcufl::BigInt& other) const noexcept;
+
+		template <std::integral N>
+		bool operator>(const N value) const noexcept {
+			return *this > gcufl::BigInt(value);
+		}
+		
+		bool operator>=(const gcufl::BigInt& other) const noexcept;
+
+		template <std::integral N>
+		bool operator>=(const N value) const noexcept {
+			return *this >= gcufl::BigInt(value);
 		}
 
 		gcufl::BigInt abs() const noexcept;

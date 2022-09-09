@@ -1,14 +1,4 @@
 #pragma once
 
-#define MAKE_SINGLETON(Singleton)                  \
-    private:                                       \
-        Singleton() {}                             \
-    public:                                        \
-        static Singleton& getInstance() noexcept { \
-            static Singleton instance;             \
-            return instance;                       \
-        }                                          \
-        Singleton(const Singleton&) = delete;      \
-        Singleton& operator=(const Singleton&) = delete
-
-#define QUOTE(expression) #expression
+#include <gcufl/macros/MAKE_SINGLETON.hpp>
+#include <gcufl/macros/QUOTE.hpp>

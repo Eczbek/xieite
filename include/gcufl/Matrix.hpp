@@ -6,12 +6,10 @@
 
 namespace gcufl {
 	template <typename V>
-	class Matrix {
-	private:
+	struct Matrix {
 		std::vector<std::size_t> dimensions;
 		std::vector<V> values;
 
-	public:
 		Matrix(const std::vector<std::size_t>& dimensions) noexcept
 		: dimensions(dimensions.begin(), dimensions.end()) {
 			std::size_t size = 1;
@@ -51,14 +49,6 @@ namespace gcufl {
 				index = index * dimensions[i] + indices[i];
 			}
 			return values[index];
-		}
-
-		std::vector<V> getValues() const noexcept {
-			return values;
-		}
-
-		std::vector<std::size_t> getDimensions() const noexcept {
-			return dimensions;
 		}
 	};
 }

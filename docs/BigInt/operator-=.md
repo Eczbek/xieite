@@ -1,4 +1,6 @@
-# gcufl::BigInt::operator-=
+# `gcufl::BigInt::operator-=`
+Declared in `<gcufl/BigInt.hpp>`
+<br/><br/>
 ```cpp
 gcufl::BigInt& operator-=(const gcufl::BigInt& other) noexcept;
 

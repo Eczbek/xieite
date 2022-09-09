@@ -1,11 +1,13 @@
-# QUOTE
+# `QUOTE`
+Defined in `<gcufl/macros/QUOTE.hpp>`
+<br/><br/>
 ```cpp
-#define QUOTE(expression)
+#define QUOTE(expression) #expression
 ```
-Creates a stringified expression.
+Converts an expression to a string literally.
 ## Example
 ```cpp
-#include <gcufl/macros.hpp>
+#include <gcufl/macros/QUOTE.hpp>
 #include <iostream>
 
 int main() {

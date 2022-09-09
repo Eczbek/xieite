@@ -1,7 +1,9 @@
-# gcufl::BigInt::operator+=
+# `gcufl::BigInt::operator+=`
+Declared in `<gcufl/BigInt.hpp>`
+<br/><br/>
 ```cpp
-gcufl::BigInt& operator+=(const gcufl::BigInt& other) noexcept;
+gcufl::BigInt operator+=(gcufl::BigInt other) const noexcept;
 
 template <std::integral N>
-gcufl::BigInt& operator+=(const N value) noexcept
+gcufl::BigInt operator+=(const N value) const noexcept;
 ```

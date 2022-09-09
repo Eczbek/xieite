@@ -1,36 +1,40 @@
-# gcufl::vector::group
+# `gcufl/vector/group.hpp`
 ```cpp
-template <typename K = std::string, typename V, typename C>
-std::unordered_map<K, std::vector<V>> group(const std::vector<V>& values, const C& getGroup) noexcept;
+template <typename V, std::invocable<V> C>
+std::unordered_map<std::invoke_result_t<C(V)>, std::vector<V>> group(const std::vector<V>& values, const C& callback) noexcept;
 ```
-Groups values into an unsorted map.
+```cpp
+template <typename V, std::invocable<V, std::size_t> C>
+std::unordered_map<std::invoke_result_t<C(V, std::size_t)>, std::vector<V>> group(const std::vector<V>& values, const C& callback) noexcept;
+```
+The function `gcufl::vector::group` groups elements of a vector into a `std::unordered_map`.
+<br/>
+The resulting unordered-map's keys depend on the return value of the callback.
 ## Example
 ```cpp
-#include <gcufl/vector.hpp>
+#include <gcufl/vector/group.hpp>
 #include <iostream>
-#include <string>
 #include <unordered_map>
 #include <vector>
 
 int main() {
-	std::vector<int> values { 1, 2, 3, 4, 5 };
-	std::unordered_map<std::string, std::vector<int>> groups = gcufl::vector::group(values, [](const int value, const int) {
-		return value < 3
-			? "less"
-			: "more";
-	});
+	const std::vector<int> values { 1, 2, 3, 4, 5 };
+	const auto callback = [](const int value) -> bool {
+		return value % 2;
+	};
+	const std::unordered_map<bool, std::vector<int>> groups = gcufl::vector::group(values, callback);
 
-	std::cout << "less:";
-	for (const int value : groups["less"])
-		std::cout << ' ' << value;
-	std::cout << "\nmore:";
-	for (const int value : groups["more"])
-		std::cout << ' ' << value;
+	std::cout << "true: ";
+	for (const int value : groups[true])
+		std::cout << value << ' ';
+	std::cout << "\nfalse: ";
+	for (const int value : groups[false])
+		std::cout << value << ' ';
 	std::cout << '\n';
 }
 ```
 Output:
 ```
-less: 1 2
-more: 3 4 5
+true: 1 3 5
+false: 2 4
 ```
