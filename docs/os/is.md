@@ -1,4 +1,4 @@
-# `gcufl::os::is`
+# gcufl::os::is
 Defined in `<gcufl/os/is.hpp>`
 <br/><br/>
 ```cpp

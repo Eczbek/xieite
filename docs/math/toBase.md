@@ -1,4 +1,4 @@
-# `gcufl::math::toBase`
+# gcufl::math::toBase
 Defined in `<gcufl/math/toBase.hpp>`
 <br/><br/>
 ```cpp

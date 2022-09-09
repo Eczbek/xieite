@@ -1,4 +1,4 @@
-# `gcufl::time::weekDays`
+# gcufl::time::weekDays
 Defined in `<gcufl/time/weekDays.hpp>`
 <br/><br/>
 ```cpp

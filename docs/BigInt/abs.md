@@ -1,4 +1,4 @@
-# `gcufl::BigInt::abs`
+# gcufl::BigInt::abs
 Declared in `<gcufl/BigInt.hpp>`
 <br/><br/>
 ```cpp

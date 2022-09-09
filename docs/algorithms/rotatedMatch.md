@@ -1,4 +1,4 @@
-# `gcufl::algorithms::rotatedMatch`
+# gcufl::algorithms::rotatedMatch
 Declared in `<gcufl/algorithms/rotatedMatch.hpp>`
 <br/><br/>
 ```cpp

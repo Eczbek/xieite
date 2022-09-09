@@ -1,4 +1,4 @@
-# `gcufl::concepts::Streamable`
+# gcufl::concepts::Streamable
 Defined in `<gcufl/concepts/Streamable.hpp>`
 <br/><br/>
 ```cpp
@@ -7,7 +7,7 @@ concept Streamable = requires(std::ostream& ostream, const T& value) {
 	{ ostream << value } -> std::convertible_to<std::ostream&>;
 };
 ```
-Specifies that a type `T` is streamable by testing it's method `operator<<`.
+Specifies that a type `T` is streamable.
 ## Example
 ```cpp
 #include <gcufl/concepts/Streamable>

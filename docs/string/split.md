@@ -1,4 +1,4 @@
-# `gcufl::string::split`
+# gcufl::string::split
 Declared in `<gcufl/string/split.hpp>`
 <br/><br/>
 ```cpp

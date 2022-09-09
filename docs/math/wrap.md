@@ -1,4 +1,4 @@
-# `gcufl::math::wrap`
+# gcufl::math::wrap
 Defined in `<gcufl/math/wrap.hpp>`
 <br/><br/>
 ```cpp

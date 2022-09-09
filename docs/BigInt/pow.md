@@ -1,4 +1,4 @@
-# `gcufl::BigInt::pow`
+# gcufl::BigInt::pow
 Declared in `<gcufl/BigInt.hpp>`
 <br/><br/>
 ```cpp

@@ -1,11 +1,11 @@
-# `gcufl::concepts::Arithmetic`
+# gcufl::concepts::Arithmetic
 Defined in `<gcufl/concepts/Arithmetic.hpp>`
 <br/><br/>
 ```cpp
 template <typename T>
 concept Arithmetic = std::is_arithmetic_v<T>;
 ```
-Specifies that a type `T` is arithmetic using `std::is_arithmetic_v`.
+Specifies that a type `T` is arithmetic.
 ## Example
 ```cpp
 #include <gcufl/concepts/Arithmetic.hpp>

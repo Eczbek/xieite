@@ -1,4 +1,4 @@
-# `gcufl::os::Type`
+# gcufl::os::Type
 Defined in `<gcufl/os/Type.hpp>`
 <br/><br/>
 ```cpp

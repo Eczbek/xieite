@@ -1,4 +1,4 @@
-# `QUOTE`
+# QUOTE
 Defined in `<gcufl/macros/QUOTE.hpp>`
 <br/><br/>
 ```cpp

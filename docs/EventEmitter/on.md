@@ -1,4 +1,4 @@
-# `gcufl::EventEmitter<K>::on`
+# gcufl::EventEmitter<K>::on
 Defined in `<gcufl/EventEmitter.hpp>`
 <br/><br/>
 ```cpp

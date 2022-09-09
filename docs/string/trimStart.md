@@ -1,4 +1,4 @@
-# `gcufl::string::trimStart`
+# gcufl::string::trimStart
 Declared in `<gcufl/string/trimStart.hpp>`
 <br/><br/>
 ```cpp

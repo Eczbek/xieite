@@ -1,4 +1,4 @@
-# `gcufl::time::months`
+# gcufl::time::months
 Defined in `<gcufl/time/months.hpp>`
 <br/><br/>
 ```cpp

@@ -1,4 +1,4 @@
-# `gcufl::math::approxEqual`
+# gcufl::math::approxEqual
 Defined in `<gcufl/math/approxEqual.hpp>`
 <br/><br/>
 ```cpp

@@ -1,4 +1,4 @@
-# `gcufl::fs::read`
+# gcufl::fs::read
 Declared in `<gcufl/fs/read.hpp>`
 <br/><br/>
 ```cpp

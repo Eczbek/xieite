@@ -1,4 +1,4 @@
-# `gcufl::traits::isStreamable`
+# gcufl::traits::isStreamable
 Defined in `<gcufl/traits/isStreamable.hpp>`
 <br/><br/>
 ```cpp

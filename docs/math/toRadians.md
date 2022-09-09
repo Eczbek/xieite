@@ -1,4 +1,4 @@
-# `gcufl::math::toRadians`
+# gcufl::math::toRadians
 Defined in `<gcufl/math/toRadians.hpp>`
 <br/><br/>
 ```cpp

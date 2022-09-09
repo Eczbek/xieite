@@ -1,4 +1,4 @@
-# `gcufl::vector::rotateMatrix`
+# gcufl::vector::rotateMatrix
 Defined in `<gcufl/vector/rotateMatrix.hpp>`
 <br/><br/>
 ```cpp

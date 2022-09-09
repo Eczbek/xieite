@@ -1,4 +1,4 @@
-# `operator<<`
+# operator<<
 Declared in `<gcufl/BigInt.hpp>`
 <br/><br/>
 ```cpp

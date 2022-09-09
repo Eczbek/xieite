@@ -1,4 +1,4 @@
-# `gcufl/vector/group.hpp`
+# gcufl/vector/group.hpp`
 ```cpp
 template <typename V, std::invocable<V> C>
 std::unordered_map<std::invoke_result_t<C(V)>, std::vector<V>> group(const std::vector<V>& values, const C& callback) noexcept;

@@ -1,4 +1,4 @@
-# `MAKE_SINGLETON`
+# MAKE_SINGLETON
 Defined in `<gcufl/macros/MAKE_SINGLETON.hpp>`
 <br/><br/>
 ```cpp

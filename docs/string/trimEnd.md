@@ -1,4 +1,4 @@
-# `gcufl::string::trimEnd`
+# gcufl::string::trimEnd
 Declared in `<gcufl/string/trimEnd.hpp>`
 <br/><br/>
 ```cpp

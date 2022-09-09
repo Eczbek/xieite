@@ -1,4 +1,4 @@
-# `gcufl::string::truncate`
+# gcufl::string::truncate
 Declared in `<gcufl/string/truncate.hpp>`
 <br/><br/>
 ```cpp

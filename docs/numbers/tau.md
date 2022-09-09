@@ -1,4 +1,4 @@
-# `gcufl::numbers::tau`
+# gcufl::numbers::tau
 Defined in `gcufl/numbers/tau.hpp`
 <br/><br/>
 ```cpp

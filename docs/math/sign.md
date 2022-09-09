@@ -1,4 +1,4 @@
-# `gcufl::math::sign`
+# gcufl::math::sign
 Defined in `<gcufl/math/sign.hpp>`
 <br/><br/>
 ```cpp

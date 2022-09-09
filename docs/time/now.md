@@ -1,4 +1,4 @@
-# `gcufl::time::now`
+# gcufl::time::now
 Defined in `<gcufl/time/now.hpp>`
 <br/><br/>
 ```cpp

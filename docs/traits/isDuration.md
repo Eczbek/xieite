@@ -1,4 +1,4 @@
-# `gcufl::traits::isDuration`
+# gcufl::traits::isDuration
 Defined in `<gcufl/traits/isDuration.hpp>`
 <br/><br/>
 ```cpp

@@ -1,4 +1,4 @@
-# `gcufl::BigInt::operator bool`
+# gcufl::BigInt::operator bool
 Declared in `<gcufl/BigInt.hpp>`
 <br/><br/>
 ```cpp

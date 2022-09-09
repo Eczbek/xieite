@@ -1,4 +1,4 @@
-# `gcufl::math::isPrime`
+# gcufl::math::isPrime
 Defined in `<gcufl/math/isPrime.hpp>`
 <br/><br/>
 ```cpp
