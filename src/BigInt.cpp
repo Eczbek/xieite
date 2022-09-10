@@ -14,8 +14,18 @@ gcufl::BigInt::BigInt(std::span<const uint8_t> digits, const bool sign) noexcept
 	}
 }
 
+gcufl::BigInt& gcufl::BigInt::operator=(const gcufl::BigInt& other) noexcept {
+	digits = other.digits;
+	sign = other.sign;
+	return *this;
+}
+
 gcufl::BigInt::operator bool() const noexcept {
 	return *this != 0;
+}
+
+bool gcufl::BigInt::operator!() const noexcept {
+	return !static_cast<bool>(*this);
 }
 
 bool gcufl::BigInt::operator==(const gcufl::BigInt& other) const noexcept {
@@ -47,16 +57,6 @@ bool gcufl::BigInt::operator<(const gcufl::BigInt& other) const noexcept {
 
 bool gcufl::BigInt::operator<=(const gcufl::BigInt& other) const noexcept {
 	return *this < other || *this == other;
-}
-
-bool gcufl::BigInt::operator!() const noexcept {
-	return !static_cast<bool>(*this);
-}
-
-gcufl::BigInt& gcufl::BigInt::operator=(const gcufl::BigInt& other) noexcept {
-	digits = other.digits;
-	sign = other.sign;
-	return *this;
 }
 
 gcufl::BigInt gcufl::BigInt::operator+() const noexcept {
