@@ -1,5 +1,6 @@
 #! /bin/bash
 
+
 HEADER_DIRECTORY="$PWD/include/"
 
 SOURCE_DIRECTORY="$PWD/src/"
