@@ -6,7 +6,7 @@ namespace gcufl::io::cursor {
 		int row;
 		int column;
 
-		Position(const int row, const int column)
+		Position(const int row, const int column) noexcept
 		: row(row), column(column) {}
 	};
 }
