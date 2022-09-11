@@ -1,34 +1,12 @@
 #pragma once
 
-#include <gcufl/io/escapeCodes/Background.hpp>
-#include <gcufl/io/escapeCodes/Effect.hpp>
-#include <gcufl/io/escapeCodes/Foreground.hpp>
-#include <gcufl/io/escapeCodes/Prefix.hpp>
+#include <gcufl/io/escapeCodes/prefixes.hpp>
 
 
 namespace gcufl::io {
-	template <gcufl::io::escapeCodes::Background B, gcufl::io::escapeCodes::Prefix P = gcufl::io::escapeCodes::Prefix::Hexadecimal>
-	void setStyle() noexcept {
-		std::cout << static_cast<char>(P) << '[' << static_cast<int>(B) << 'm';
-	}
+	void setStyle(const int style, const char prefix = gcufl::io::escapeCodes::prefixes::hexadecimal) noexcept;
 
-	template <gcufl::io::escapeCodes::Effect E, gcufl::io::escapeCodes::Prefix P = gcufl::io::escapeCodes::Prefix::Hexadecimal>
-	void setStyle() noexcept {
-		std::cout << static_cast<char>(P) << '[' << static_cast<int>(E) << 'm';
-	}
+	void setStyle(const int effect, const int foreground, const char prefix = gcufl::io::escapeCodes::prefixes::hexadecimal) noexcept;
 
-	template <gcufl::io::escapeCodes::Foreground F, gcufl::io::escapeCodes::Prefix P = gcufl::io::escapeCodes::Prefix::Hexadecimal>
-	void setStyle() noexcept {
-		std::cout << static_cast<char>(P) << '[' << static_cast<int>(F) << 'm';
-	}
-
-	template <gcufl::io::escapeCodes::Effect E, gcufl::io::escapeCodes::Foreground F, gcufl::io::escapeCodes::Prefix P = gcufl::io::escapeCodes::Prefix::Hexadecimal>
-	void setStyle() noexcept {
-		std::cout << static_cast<char>(P) << '[' << static_cast<int>(E) << ';' << static_cast<int>(F) << 'm';
-	}
-
-	template <gcufl::io::escapeCodes::Effect E, gcufl::io::escapeCodes::Foreground F, gcufl::io::escapeCodes::Background B, gcufl::io::escapeCodes::Prefix P = gcufl::io::escapeCodes::Prefix::Hexadecimal>
-	void setStyle() noexcept {
-		std::cout << static_cast<char>(P) << '[' << static_cast<int>(E) << ';' << static_cast<int>(F) << ';' << static_cast<int>(B) << 'm';
-	}
+	void setStyle(const int effect, const int foreground, const int background, const char prefix = gcufl::io::escapeCodes::prefixes::hexadecimal) noexcept;
 }
