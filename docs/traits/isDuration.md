@@ -1,6 +1,5 @@
 # gcufl::traits::isDuration
-Defined in `<gcufl/traits/isDuration.hpp>`
-<br/><br/>
+Declared in `<gcufl/traits/isDuration.hpp>`
 ```cpp
 template <typename>
 constexpr bool isDuration = false;

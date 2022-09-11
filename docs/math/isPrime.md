@@ -1,6 +1,5 @@
 # gcufl::math::isPrime
-Defined in `<gcufl/math/isPrime.hpp>`
-<br/><br/>
+Declared in `<gcufl/math/isPrime.hpp>`
 ```cpp
 template <std::integral N>
 constexpr bool isPrime(const N value) noexcept;

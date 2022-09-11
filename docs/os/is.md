@@ -1,6 +1,5 @@
 # gcufl::os::is
-Defined in `<gcufl/os/is.hpp>`
-<br/><br/>
+Declared in `<gcufl/os/is.hpp>`
 ```cpp
 template <gcufl::os::Type>
 constexpr bool is = false;
@@ -22,7 +21,7 @@ constexpr bool is<gcufl::os::Type::Unix> = true;
 ```
 Specifies the operating system on which it is compiled.
 <br/>
-It depends on the macros provided by the compiler.
+It depends on macros provided by the compiler.
 ## Example
 ```cpp
 #include <gcufl/os/is.hpp>

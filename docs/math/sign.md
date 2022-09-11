@@ -1,6 +1,5 @@
 # gcufl::math::sign
-Defined in `<gcufl/math/sign.hpp>`
-<br/><br/>
+Declared in `<gcufl/math/sign.hpp>`
 ```cpp
 template <gcufl::concepts::Arithmetic N>
 constexpr int sign(const N value) noexcept;

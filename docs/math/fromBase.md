@@ -1,6 +1,5 @@
 # gcufl::math::fromBase
-Defined in `<gcufl/math/fromBase.hpp>`
-<br/><br/>
+Declared in `<gcufl/math/fromBase.hpp>`
 ```cpp
 template <std::integral N = int>
 constexpr N fromBase(std::string_view value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;

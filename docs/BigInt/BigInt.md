@@ -1,6 +1,5 @@
 # gcufl::BigInt::BigInt
 Declared in `<gcufl/BigInt.hpp>`
-<br/><br/>
 ```cpp
 BigInt(const gcufl::BigInt& other) noexcept;
 

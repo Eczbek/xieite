@@ -1,6 +1,5 @@
 # gcufl::string::truncate
 Declared in `<gcufl/string/truncate.hpp>`
-<br/><br/>
 ```cpp
 std::string truncate(const std::string& string, const std::size_t length, const std::string& suffix = "") noexcept;
 ```

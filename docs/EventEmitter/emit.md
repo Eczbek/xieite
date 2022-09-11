@@ -1,6 +1,5 @@
 # gcufl::EventEmitter<K>::emit
-Defined in `<gcufl/EventEmitter.hpp>`
-<br/><br/>
+Declared in `<gcufl/EventEmitter.hpp>`
 ```cpp
 template <typename... A>
 void emit(const K& event, A... arguments);

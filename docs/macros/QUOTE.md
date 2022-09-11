@@ -1,6 +1,5 @@
 # QUOTE
-Defined in `<gcufl/macros/QUOTE.hpp>`
-<br/><br/>
+Declared in `<gcufl/macros/QUOTE.hpp>`
 ```cpp
 #define QUOTE(expression) #expression
 ```

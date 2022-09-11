@@ -1,6 +1,5 @@
 # gcufl::time::now
-Defined in `<gcufl/time/now.hpp>`
-<br/><br/>
+Declared in `<gcufl/time/now.hpp>`
 ```cpp
 template <gcufl::concepts::Duration D = std::chrono::nanoseconds>
 D::rep now() noexcept;

@@ -1,6 +1,5 @@
 # gcufl::concepts::Arithmetic
-Defined in `<gcufl/concepts/Arithmetic.hpp>`
-<br/><br/>
+Declared in `<gcufl/concepts/Arithmetic.hpp>`
 ```cpp
 template <typename T>
 concept Arithmetic = std::is_arithmetic_v<T>;

@@ -1,17 +1,16 @@
 # MAKE_SINGLETON
-Defined in `<gcufl/macros/MAKE_SINGLETON.hpp>`
-<br/><br/>
+Declared in `<gcufl/macros/MAKE_SINGLETON.hpp>`
 ```cpp
-#define MAKE_SINGLETON(Singleton)                  \
-    private:                                       \
-        Singleton() {}                             \
-    public:                                        \
-        static Singleton& getInstance() noexcept { \
-            static Singleton instance;             \
-            return instance;                       \
-        }                                          \
-        Singleton(const Singleton&) = delete;      \
-        Singleton& operator=(const Singleton&) = delete;
+#define MAKE_SINGLETON(Class)                  \
+    private:                                   \
+        Class() {}                             \
+    public:                                    \
+        static Class& getInstance() noexcept { \
+            static Class instance;             \
+            return instance;                   \
+        }                                      \
+        Class(const Class&) = delete;          \
+        Class& operator=(const Class&) = delete;
 ```
 Inserts methods into a class, which include basic singleton constructors, `operator=`, and `getInstance`.
 ## Example

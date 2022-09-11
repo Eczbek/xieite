@@ -1,6 +1,5 @@
 # gcufl::math::approxEqual
-Defined in `<gcufl/math/approxEqual.hpp>`
-<br/><br/>
+Declared in `<gcufl/math/approxEqual.hpp>`
 ```cpp
 template <gcufl::concepts::Arithmetic N>
 constexpr bool approxEqual(const N value1, const N value2) noexcept;

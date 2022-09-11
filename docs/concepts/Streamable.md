@@ -1,6 +1,5 @@
 # gcufl::concepts::Streamable
-Defined in `<gcufl/concepts/Streamable.hpp>`
-<br/><br/>
+Declared in `<gcufl/concepts/Streamable.hpp>`
 ```cpp
 template <typename T>
 concept Streamable = requires(std::ostream& ostream, const T& value) {

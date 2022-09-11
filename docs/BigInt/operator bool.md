@@ -1,6 +1,5 @@
 # gcufl::BigInt::operator bool
 Declared in `<gcufl/BigInt.hpp>`
-<br/><br/>
 ```cpp
 operator bool() const noexcept;
 ```

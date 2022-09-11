@@ -1,6 +1,5 @@
 # gcufl::traits::isStreamable
-Defined in `<gcufl/traits/isStreamable.hpp>`
-<br/><br/>
+Declared in `<gcufl/traits/isStreamable.hpp>`
 ```cpp
 template <typename T>
 constexpr bool isStreamable = gcufl::concepts::Streamable<T>;

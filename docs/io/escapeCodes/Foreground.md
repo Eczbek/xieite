@@ -1,0 +1,24 @@
+# gcufl::io::escapeCodes::Foreground
+Declared in `<gcufl/io/escapeCodes/Foreground.hpp>`
+```cpp
+enum struct Foreground
+: int {
+	Black = 30,
+	Red,
+	Green,
+	Yellow,
+	Blue,
+	Magenta,
+	Cyan,
+	White,
+	Default = 39,
+	BrightBlack = 90,
+	BrightRed,
+	BrightGreen,
+	BrightYellow,
+	BrightBlue,
+	BrightMagenta,
+	BrightCyan,
+	BrightWhite
+};
+```

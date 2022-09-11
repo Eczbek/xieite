@@ -1,6 +1,5 @@
 # gcufl::algorithms::rotatedMatch
 Declared in `<gcufl/algorithms/rotatedMatch.hpp>`
-<br/><br/>
 ```cpp
 template <std::forward_iterator I1, std::forward_iterator I2>
 bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2) noexcept;

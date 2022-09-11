@@ -1,6 +1,5 @@
 # gcufl::fs::read
 Declared in `<gcufl/fs/read.hpp>`
-<br/><br/>
 ```cpp
 std::string read(const std::string& path) noexcept;
 ```

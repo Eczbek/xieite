@@ -1,6 +1,5 @@
 # gcufl::os::Type
-Defined in `<gcufl/os/Type.hpp>`
-<br/><br/>
+Declared in `<gcufl/os/Type.hpp>`
 ```cpp
 enum struct Type {
 	Windows,

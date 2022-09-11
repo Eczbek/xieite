@@ -1,6 +1,5 @@
 # gcufl::EventEmitter<K>::off
-Defined in `<gcufl/EventEmitter.hpp>`
-<br/><br/>
+Declared in `<gcufl/EventEmitter.hpp>`
 ```cpp
 void off(const K& event);
 ```

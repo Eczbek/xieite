@@ -1,6 +1,5 @@
 # gcufl::vector::rotateMatrix
-Defined in `<gcufl/vector/rotateMatrix.hpp>`
-<br/><br/>
+Declared in `<gcufl/vector/rotateMatrix.hpp>`
 ```cpp
 template <typename V>
 std::vector<std::vector<V>> rotateMatrix(const std::vector<std::vector<V>>& matrix, int rotations) noexcept;

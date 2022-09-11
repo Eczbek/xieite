@@ -1,6 +1,5 @@
 # gcufl::string::trimEnd
 Declared in `<gcufl/string/trimEnd.hpp>`
-<br/><br/>
 ```cpp
 std::string trimEnd(const std::string& string, const char character) noexcept;
 

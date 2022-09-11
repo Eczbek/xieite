@@ -1,6 +1,5 @@
 # gcufl::math::toBase
-Defined in `<gcufl/math/toBase.hpp>`
-<br/><br/>
+Declared in `<gcufl/math/toBase.hpp>`
 ```cpp
 template <std::integral N>
 constexpr std::string toBase(N value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;

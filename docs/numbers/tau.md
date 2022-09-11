@@ -1,6 +1,5 @@
 # gcufl::numbers::tau
-Defined in `gcufl/numbers/tau.hpp`
-<br/><br/>
+Declared in `<gcufl/numbers/tau.hpp>`
 ```cpp
 template <typename N = double>
 constexpr N tau = std::numbers::pi_v<N> * 2;

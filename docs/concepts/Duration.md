@@ -1,6 +1,5 @@
 # gcufl::concepts::Duration
-Defined in `<gcufl/concepts/Duration.hpp>`
-<br/><br/>
+Declared in `<gcufl/concepts/Duration.hpp>`
 ```cpp
 template <typename T>
 concept Duration = gcufl::concepts::isDuration<std::remove_cv_t<T>>;

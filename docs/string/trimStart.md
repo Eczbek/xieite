@@ -1,6 +1,5 @@
 # gcufl::string::trimStart
 Declared in `<gcufl/string/trimStart.hpp>`
-<br/><br/>
 ```cpp
 std::string trimStart(const std::string& string, const char character) noexcept;
 
