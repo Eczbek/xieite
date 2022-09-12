@@ -4,6 +4,8 @@ Declared in `<gcufl/string/split.hpp>`
 std::vector<std::string> split(const std::string& string, const char delimiter) noexcept;
 
 std::vector<std::string> split(const std::string& string, std::string_view delimiter = "") noexcept;
+
+std::vector<std::string> split(const std::string& string, const std::regex& delimiter) noexcept;
 ```
 Splits a string into a vector of strings.
 ## Example

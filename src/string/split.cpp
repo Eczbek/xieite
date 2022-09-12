@@ -1,6 +1,7 @@
 
 #include <cstddef>
 #include <gcufl/string/split.hpp>
+#include <regex>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -28,4 +29,11 @@ std::vector<std::string> gcufl::string::split(const std::string& string, std::st
 		}
 	segments.push_back(string.substr(i));
 	return segments;
+}
+
+std::vector<std::string> gcufl::string::split(const std::string& string, const std::regex& delimiter) noexcept {
+	return std::vector<std::string> {
+		std::sregex_token_iterator(string.begin(), string.end(), delimiter, -1),
+		std::sregex_token_iterator()
+	};
 }
