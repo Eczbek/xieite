@@ -7,8 +7,8 @@
 
 
 std::string gcufl::string::trimEnd(const std::string& string, const char character) noexcept {
-	for (std::size_t i = string.size(); i > 0; --i)
-		if (string[i - 1] != character)
+	for (std::size_t i = string.size(); i--;)
+		if (string[i] != character)
 			return string.substr(0, i);
 	return "";
 }
@@ -17,8 +17,8 @@ std::string gcufl::string::trimEnd(const std::string& string, std::string_view c
 	gcufl::OrderedMap<char, bool> charMap;
 	for (const char character : characters)
 		charMap[character] = true;
-	for (std::size_t i = string.size(); i > 0; --i)
-		if (!charMap[string[i - 1]])
+	for (std::size_t i = string.size(); i--;)
+		if (!charMap[string[i]])
 			return string.substr(0, i);
 	return "";
 }

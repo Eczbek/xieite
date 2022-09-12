@@ -14,8 +14,8 @@ namespace gcufl::math {
 			charMap[digits[i]] = i;
 		N result = 0;
 		N currentBase = 1;
-		for (std::size_t i = value.size(); i > 0; --i) {
-			result += charMap[value[i - 1]] * currentBase;
+		for (std::size_t i = value.size(); i--;) {
+			result += charMap[value[i]] * currentBase;
 			currentBase *= base;
 		}
 		return result;

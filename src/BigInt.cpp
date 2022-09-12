@@ -41,9 +41,9 @@ bool gcufl::BigInt::operator>(const gcufl::BigInt& other) const noexcept {
 		return sign;
 	if (digits.size() != other.digits.size())
 		return (digits.size() < other.digits.size()) ^ sign;
-	for (std::size_t i = digits.size(); i > 0; --i)
-		if (digits[i - 1] != other.digits[i - 1])
-			return sign && digits[i - 1] > other.digits[i - 1] || !sign && digits[i - 1] < other.digits[i - 1];
+	for (std::size_t i = digits.size(); i--;)
+		if (digits[i] != other.digits[i])
+			return sign && digits[i] > other.digits[i] || !sign && digits[i] < other.digits[i];
 	return false;
 }
 
@@ -184,8 +184,8 @@ gcufl::BigInt gcufl::BigInt::operator/(gcufl::BigInt other) const {
 	std::size_t i = 0;
 	gcufl::BigInt difference;
 	difference.digits.clear();
-	for (std::size_t i = digits.size(); i > 0; --i) {
-		difference.digits.insert(difference.digits.begin(), digits[i - 1]);
+	for (std::size_t i = digits.size(); i--;) {
+		difference.digits.insert(difference.digits.begin(), digits[i]);
 		int quotient = 0;
 		for (gcufl::BigInt copy = difference; copy >= other; copy -= other)
 			++quotient;

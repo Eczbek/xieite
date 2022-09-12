@@ -6,6 +6,6 @@
 
 
 void gcufl::io::putBackString(std::string_view string) noexcept {
-	for (std::size_t i = string.size(); i > 0; --i)
-		std::cin.putback(string[i - 1]);
+	for (std::size_t i = string.size(); i--;)
+		std::cin.putback(string[i]);
 }

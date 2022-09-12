@@ -167,8 +167,8 @@ namespace gcufl {
 		friend std::ostream& operator<<(std::ostream& stream, const gcufl::BigInt& self) {
 			if (!self.sign)
 				stream << '-';
-			for (std::size_t i = self.digits.size(); i > 0; --i)
-				stream << static_cast<int>(self.digits[i - 1]);
+			for (std::size_t i = self.digits.size(); i--;)
+				stream << static_cast<int>(self.digits[i]);
 			return stream;
 		}
 

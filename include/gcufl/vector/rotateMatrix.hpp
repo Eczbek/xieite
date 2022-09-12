@@ -14,16 +14,16 @@ namespace gcufl::vector {
 		if (rotations > 0) {
 			for (std::size_t x = 0; x < matrix.size(); ++x) {
 				std::vector<V> column;
-				for (std::size_t y = matrix[0].size(); y > 0; --y)
-					column.push_back(matrix[y - 1][x]);
+				for (std::size_t y = matrix[0].size(); y--;)
+					column.push_back(matrix[y][x]);
 				result.push_back(column);
 			}
 			return gcufl::vector::rotateMatrix(result, --rotations);
 		}
-		for (std::size_t x = matrix.size(); x > 0; --x) {
+		for (std::size_t x = matrix.size(); x--;) {
 			std::vector<V> column;
 			for (std::size_t y = 0; y < matrix[0].size(); ++y)
-				column.push_back(matrix[y][x - 1]);
+				column.push_back(matrix[y][x]);
 			result.push_back(column);
 		}
 		return gcufl::vector::rotateMatrix(result, ++rotations);
