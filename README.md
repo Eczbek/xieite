@@ -1,6 +1,5 @@
 # GCUFL
-My personal C++ utility library
-
+C++ utility library
 <br/>
-
+<br/>
 Build with `./build.sh <library.a>`
