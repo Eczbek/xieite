@@ -28,10 +28,11 @@ namespace gcufl {
 		}
 
 		V& operator[](const std::vector<std::size_t>& indices) {
-			if (indices.size() != dimensions.size())
+			const std::size_t size = indices.size();
+			if (size != dimensions.size())
 				throw std::runtime_error("Indices do not match dimensions");
 			std::size_t index = 0;
-			for (std::size_t i = 0; i < indices.size(); ++i) {
+			for (std::size_t i = 0; i < size; ++i) {
 				if (indices[i] >= dimensions[i])
 					throw std::runtime_error("Index out of bounds");
 				index = index * dimensions[i] + indices[i];
@@ -40,10 +41,11 @@ namespace gcufl {
 		}
 
 		const V& operator[](const std::vector<std::size_t>& indices) const {
-			if (indices.size() != dimensions.size())
+			const std::size_t size = indices.size();
+			if (size != dimensions.size())
 				throw std::runtime_error("Indices do not match dimensions");
 			std::size_t index = 0;
-			for (std::size_t i = 0; i < indices.size(); ++i) {
+			for (std::size_t i = 0; i < size; ++i) {
 				if (indices[i] >= dimensions[i])
 					throw std::runtime_error("Index out of bounds");
 				index = index * dimensions[i] + indices[i];

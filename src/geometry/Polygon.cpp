@@ -43,14 +43,16 @@ double gcufl::geometry::Polygon::perimeter() const noexcept {
 
 gcufl::geometry::Polygon gcufl::geometry::Polygon::rotate(const double angle, const gcufl::geometry::Point pivot) const noexcept {
 	std::vector<gcufl::geometry::Point> rotatedPoints = points;
-	for (std::size_t i = 0; i < points.size(); ++i)
+	const std::size_t pointsSize = points.size();
+	for (std::size_t i = 0; i < pointsSize; ++i)
 		rotatedPoints[i] = points[i].rotate(angle, pivot);
 	return gcufl::geometry::Polygon(rotatedPoints);
 }
 
 std::vector<gcufl::geometry::Segment> gcufl::geometry::Polygon::sides() const noexcept {
 	std::vector<gcufl::geometry::Segment> sides;
-	for (std::size_t i = 0; i < points.size(); ++i)
-		sides.push_back(gcufl::geometry::Segment(points[i], points[(i + 1) % points.size()]));
+	const std::size_t pointsSize = points.size();
+	for (std::size_t i = 0; i < pointsSize; ++i)
+		sides.push_back(gcufl::geometry::Segment(points[i], points[(i + 1) % pointsSize]));
 	return sides;
 }

@@ -40,7 +40,7 @@ bool gcufl::BigInt::operator>(const gcufl::BigInt& other) const noexcept {
 	if (sign != other.sign)
 		return sign;
 	if (digits.size() != other.digits.size())
-		return (digits.size() < other.digits.size()) ^ sign;
+		return digits.size() < other.digits.size() != sign;
 	for (std::size_t i = digits.size(); i--;)
 		if (digits[i] != other.digits[i])
 			return sign && digits[i] > other.digits[i] || !sign && digits[i] < other.digits[i];
@@ -70,12 +70,14 @@ gcufl::BigInt gcufl::BigInt::operator+(const gcufl::BigInt& other) const noexcep
 	result.digits.clear();
 	result.sign = sign;
 	bool carry = false;
-	const std::size_t maxSize = std::max(digits.size(), other.digits.size());
+	const std::size_t digitsSize = digits.size();
+	const std::size_t otherDigitsSize = other.digits.size();
+	const std::size_t maxSize = std::max(digitsSize, otherDigitsSize);
 	for (std::size_t i = 0; i < maxSize || carry; ++i) {
 		int sum = carry;
-		if (i < digits.size())
+		if (i < digitsSize)
 			sum += digits[i];
-		if (i < other.digits.size())
+		if (i < otherDigitsSize)
 			sum += other.digits[i];
 		carry = sum > 9;
 		result.digits.push_back(sum % 10);
@@ -111,17 +113,19 @@ gcufl::BigInt gcufl::BigInt::operator-(const gcufl::BigInt& other) const noexcep
 		return -(other - *this);
 	gcufl::BigInt result = *this;
 	bool borrow = false;
-	for (std::size_t i = 0; i < other.digits.size() || borrow; ++i) {
+	const std::size_t digitsSize = digits.size();
+	const std::size_t otherDigitsSize = other.digits.size();
+	for (std::size_t i = 0; i < otherDigitsSize || borrow; ++i) {
 		int difference = 10 + digits[i] - borrow;
-		if (i < other.digits.size())
+		if (i < otherDigitsSize)
 			difference -= other.digits[i];
-		borrow = i < digits.size() - 1 && difference < 10;
+		borrow = i < digitsSize - 1 && difference < 10;
 		result.digits[i] = difference % 10;
 	}
 	while (result.digits.size() > 1 && !result.digits.back())
 		result.digits.pop_back();
 	result.sign = result
-		? result.sign ^ borrow
+		? result.sign != borrow
 		: true;
 	return result;
 }
@@ -151,10 +155,12 @@ gcufl::BigInt gcufl::BigInt::operator*(gcufl::BigInt other) const noexcept {
 	const bool otherSign = other.sign;
 	other.sign = true;
 	std::vector<uint8_t> Prefix;
-	for (std::size_t i = 0; i < digits.size(); ++i) {
+	const std::size_t digitsSize = digits.size();
+	const std::size_t otherDigitsSize = other.digits.size();
+	for (std::size_t i = 0; i < digitsSize; ++i) {
 		if (!digits[i])
 			continue;
-		for (std::size_t j = 0; j < other.digits.size(); ++j) {
+		for (std::size_t j = 0; j < otherDigitsSize; ++j) {
 			if (!other.digits[j])
 				continue;
 			Prefix.resize(i + j);
