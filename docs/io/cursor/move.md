@@ -1,7 +1,6 @@
 # gcufl::io::cursor::move
 Declared in `<gcufl/io/cursor/move.hpp>`
 ```cpp
-template<gcufl::io::cursor::Direction D, gcufl::io::escapeCodes::Prefix P = gcufl::io::escapeCodes::Prefix::Hexadecimal> 
-void move(const int distance = 1) noexcept;
+void move(const char direction, const int distance = 1, const char prefix = gcufl::io::escapeCodes::prefixes::hexadecimal) noexcept;
 ```
-See `gcufl::io::cursor::Direction`.
+See `gcufl::io::cursor::directions`.
