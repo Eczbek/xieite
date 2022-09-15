@@ -5,7 +5,7 @@
 
 
 namespace gcufl {
-	template <typename V>
+	template<typename V>
 	struct Matrix {
 		std::vector<std::size_t> dimensions;
 		std::vector<V> values;

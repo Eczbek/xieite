@@ -1,7 +1,7 @@
 # gcufl::concepts::Arithmetic
 Declared in `<gcufl/concepts/Arithmetic.hpp>`
 ```cpp
-template <typename T>
+template<typename T>
 concept Arithmetic = std::is_arithmetic_v<T>;
 ```
 Specifies that a type `T` is arithmetic.
@@ -10,7 +10,7 @@ Specifies that a type `T` is arithmetic.
 #include <gcufl/concepts/Arithmetic.hpp>
 #include <iostream>
 
-template <gcufl::concepts::Arithmetic N>
+template<gcufl::concepts::Arithmetic N>
 N add(const N a, const N b) {
 	return a + b;
 }

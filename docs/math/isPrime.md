@@ -1,7 +1,7 @@
 # gcufl::math::isPrime
 Declared in `<gcufl/math/isPrime.hpp>`
 ```cpp
-template <std::integral N>
+template<std::integral N>
 constexpr bool isPrime(const N value) noexcept;
 ```
 Checks whether an integral is prime.

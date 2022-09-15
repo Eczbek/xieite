@@ -1,12 +1,8 @@
 #pragma once
 
-#include <gcufl/io/cursor/Direction.hpp>
-#include <gcufl/io/escapeCodes/Prefix.hpp>
+#include <gcufl/io/escapeCodes/prefixes.hpp>
 
 
 namespace gcufl::io::cursor {
-	template <gcufl::io::cursor::Direction D, gcufl::io::escapeCodes::Prefix P = gcufl::io::escapeCodes::Prefix::Hexadecimal> 
-	void move(const int distance = 1) noexcept {
-		std::cout << static_cast<char>(P) << '[' << distance << static_cast<char>(D);
-	}
+	void move(const char direction, const int distance = 1, const char prefix = gcufl::io::escapeCodes::prefixes::hexadecimal) noexcept;
 }

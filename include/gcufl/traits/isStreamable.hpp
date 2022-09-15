@@ -4,6 +4,6 @@
 
 
 namespace gcufl::traits {
-	template <typename T>
+	template<typename T>
 	constexpr bool isStreamable = gcufl::concepts::Streamable<T>;
 }

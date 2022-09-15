@@ -1,7 +1,7 @@
 # gcufl::math::wrap
 Declared in `<gcufl/math/wrap.hpp>`
 ```cpp
-template <gcufl::concepts::Arithmetic N>
+template<gcufl::concepts::Arithmetic N>
 constexpr N wrap(const N value, const N max, const N min = 0) noexcept;
 ```
 Wraps a number between two others.

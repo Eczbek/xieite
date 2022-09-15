@@ -1,7 +1,7 @@
 # gcufl::concepts::Streamable
 Declared in `<gcufl/concepts/Streamable.hpp>`
 ```cpp
-template <typename T>
+template<typename T>
 concept Streamable = requires(std::ostream& ostream, const T& value) {
 	{ ostream << value } -> std::convertible_to<std::ostream&>;
 };
@@ -12,7 +12,7 @@ Specifies that a type `T` is streamable.
 #include <gcufl/concepts/Streamable>
 #include <iostream>
 
-template <gcufl::concepts::Streamable V>
+template<gcufl::concepts::Streamable V>
 void printLine(const V& value) {
 	std::cout << value << '\n';
 }

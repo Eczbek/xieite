@@ -5,6 +5,6 @@
 
 
 namespace gcufl::concepts {
-	template <typename T>
+	template<typename T>
 	concept Duration = gcufl::traits::isDuration<std::remove_cv_t<T>>;
 }

@@ -7,7 +7,7 @@
 
 
 namespace gcufl {
-	template <std::convertible_to<std::size_t> K, typename V>
+	template<std::convertible_to<std::size_t> K, typename V>
 	struct OrderedMap {
 		std::array<V, std::numeric_limits<K>::max() - std::numeric_limits<K>::min() + 1> values;
 

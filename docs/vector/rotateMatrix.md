@@ -1,7 +1,7 @@
 # gcufl::vector::rotateMatrix
 Declared in `<gcufl/vector/rotateMatrix.hpp>`
 ```cpp
-template <typename V>
+template<typename V>
 std::vector<std::vector<V>> rotateMatrix(const std::vector<std::vector<V>>& matrix, int rotations) noexcept;
 ```
 Rotates a 2D vector matrix by 90*.

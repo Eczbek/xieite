@@ -4,6 +4,6 @@
 
 
 namespace gcufl::concepts {
-	template <typename T>
+	template<typename T>
 	concept Arithmetic = std::is_arithmetic_v<T>;
 }

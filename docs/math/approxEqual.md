@@ -1,7 +1,7 @@
 # gcufl::math::approxEqual
 Declared in `<gcufl/math/approxEqual.hpp>`
 ```cpp
-template <gcufl::concepts::Arithmetic N>
+template<gcufl::concepts::Arithmetic N>
 constexpr bool approxEqual(const N value1, const N value2) noexcept;
 ```
 Checks whether two numbers are almost the same.

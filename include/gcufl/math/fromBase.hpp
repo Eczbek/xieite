@@ -7,7 +7,7 @@
 
 
 namespace gcufl::math {
-	template <std::integral N = int>
+	template<std::integral N = int>
 	constexpr N fromBase(std::string_view value, const int base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
 		gcufl::OrderedMap<char, std::size_t> charMap;
 		for (std::size_t i = 0; i < digits.size(); ++i)

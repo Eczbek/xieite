@@ -1,7 +1,7 @@
 # gcufl::time::now
 Declared in `<gcufl/time/now.hpp>`
 ```cpp
-template <gcufl::concepts::Duration D = std::chrono::nanoseconds>
+template<gcufl::concepts::Duration D = std::chrono::nanoseconds>
 D::rep now() noexcept;
 ```
 Returns the current time since epoch.

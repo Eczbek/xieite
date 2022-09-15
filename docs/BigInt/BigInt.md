@@ -5,7 +5,7 @@ BigInt(const gcufl::BigInt& other) noexcept;
 
 BigInt(std::span<const uint8_t> digits, const bool sign = true) noexcept;
 
-template <std::integral N = int>
+template<std::integral N = int>
 BigInt(N value = 0) noexcept
 : sign(value >= 0) {
 	value = std::abs(value);

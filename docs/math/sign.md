@@ -1,7 +1,7 @@
 # gcufl::math::sign
 Declared in `<gcufl/math/sign.hpp>`
 ```cpp
-template <gcufl::concepts::Arithmetic N>
+template<gcufl::concepts::Arithmetic N>
 constexpr int sign(const N value) noexcept;
 ```
 Gets the sign of a number.
