@@ -3,6 +3,6 @@
 #include <iostream>
 
 
-void gcufl::io::eraseScreen(const int erasor, const char prefix) noexcept {
-	std::cout << prefix << '[' << erasor << 'J';
+void gcufl::io::eraseScreen(const int erasor) noexcept {
+	std::cout << "\u001b[" << erasor << 'J';
 }

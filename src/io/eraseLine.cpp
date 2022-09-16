@@ -3,6 +3,6 @@
 #include <iostream>
 
 
-void gcufl::io::eraseLine(const int erasor, const char prefix) noexcept {
-	std::cout << prefix << '[' << erasor << 'K';
+void gcufl::io::eraseLine(const int erasor) noexcept {
+	std::cout << "\u001b[" << erasor << 'K';
 }

@@ -7,10 +7,10 @@
 #include <string>
 
 
-gcufl::io::cursor::Position gcufl::io::cursor::getPosition(const char prefix) noexcept {
+gcufl::io::cursor::Position gcufl::io::cursor::getPosition() noexcept {
 	gcufl::io::locks::Raw rawLock;
-	std::cout << prefix << "[6n";
+	std::cout << "\u001b[6n";
 	gcufl::io::cursor::Position position;
-	std::scanf((std::string(1, prefix) + "[%d;%dR").c_str(), &position.row, &position.column);
+	std::scanf("\u001b[%d;%dR", &position.row, &position.column);
 	return gcufl::io::cursor::Position(position.row - 1, position.column - 1);
 }
