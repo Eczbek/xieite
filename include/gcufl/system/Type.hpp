@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace gcufl::os {
+namespace gcufl::system {
 	enum struct Type {
 		Windows,
 		Mac,

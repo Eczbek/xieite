@@ -1,5 +1,5 @@
-# gcufl::os::Type
-Declared in `<gcufl/os/Type.hpp>`
+# gcufl::system::Type
+Declared in `<gcufl/system/Type.hpp>`
 ```cpp
 enum struct Type {
 	Windows,
@@ -9,4 +9,4 @@ enum struct Type {
 ```
 A list of operating-systems.
 ## Example
-See `gcufl::os::is`.
+See `gcufl::system::is`.

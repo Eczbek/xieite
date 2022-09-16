@@ -1,22 +1,22 @@
-# gcufl::os::is
-Declared in `<gcufl/os/is.hpp>`
+# gcufl::system::is
+Declared in `<gcufl/system/is.hpp>`
 ```cpp
-template<gcufl::os::Type>
+template<gcufl::system::Type>
 constexpr bool is = false;
 
 #if defined(_WIN32) || defined(__WINDOWS__)
 template<>
-constexpr bool is<gcufl::os::Type::Windows> = true;
+constexpr bool is<gcufl::system::Type::Windows> = true;
 #endif
 
 #if defined(__APPLE__) || defined(__MACH__)
 template<>
-constexpr bool is<gcufl::os::Type::Mac> = true;
+constexpr bool is<gcufl::system::Type::Mac> = true;
 #endif
 
 #if defined(__unix__) || defined(__unix)
 template<>
-constexpr bool is<gcufl::os::Type::Unix> = true;
+constexpr bool is<gcufl::system::Type::Unix> = true;
 #endif
 ```
 Specifies the operating system on which it is compiled.
@@ -24,16 +24,16 @@ Specifies the operating system on which it is compiled.
 It depends on macros provided by the compiler.
 ## Example
 ```cpp
-#include <gcufl/os/is.hpp>
-#include <gcufl/os/Type.hpp>
+#include <gcufl/system/is.hpp>
+#include <gcufl/system/Type.hpp>
 #include <iostream>
 
 int main() {
-	if (gcufl::os::is<gcufl::os::Type::Windows>)
+	if (gcufl::system::is<gcufl::system::Type::Windows>)
 		std::cout << "Windows\n";
-	else if (gcufl::os::is<gcufl::os::Type::Mac>)
+	else if (gcufl::system::is<gcufl::system::Type::Mac>)
 		std::cout << "Mac\n";
-	else if (gcufl::os::is<gcufl::os::Type::Unix>)
+	else if (gcufl::system::is<gcufl::system::Type::Unix>)
 		std::cout << "Unix\n";
 }
 ```
