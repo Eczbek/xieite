@@ -11,13 +11,13 @@
 namespace gcufl {
 	class BigInt {
 	private:
-		std::vector<uint8_t> digits;
+		std::vector<std::uint8_t> digits;
 		bool sign;
 
 	public:
 		BigInt(const gcufl::BigInt& other) noexcept;
 
-		BigInt(std::span<const uint8_t> digits, const bool sign = true) noexcept;
+		BigInt(std::span<const std::uint8_t> digits, const bool sign = true) noexcept;
 
 		template<std::integral N = int>
 		BigInt(N value = 0) noexcept

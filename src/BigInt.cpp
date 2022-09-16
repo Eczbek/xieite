@@ -4,7 +4,7 @@
 gcufl::BigInt::BigInt(const gcufl::BigInt& other) noexcept
 : digits(other.digits.begin(), other.digits.end()), sign(other.sign) {}
 
-gcufl::BigInt::BigInt(std::span<const uint8_t> digits, const bool sign) noexcept
+gcufl::BigInt::BigInt(std::span<const std::uint8_t> digits, const bool sign) noexcept
 : digits(digits.rbegin(), digits.rend()), sign(sign) {
 	while (this->digits.size() > 1 && !this->digits.back())
 		this->digits.pop_back();
@@ -154,7 +154,7 @@ gcufl::BigInt gcufl::BigInt::operator*(gcufl::BigInt other) const noexcept {
 	gcufl::BigInt result;
 	const bool otherSign = other.sign;
 	other.sign = true;
-	std::vector<uint8_t> Prefix;
+	std::vector<std::uint8_t> Prefix;
 	const std::size_t digitsSize = digits.size();
 	const std::size_t otherDigitsSize = other.digits.size();
 	for (std::size_t i = 0; i < digitsSize; ++i) {
@@ -184,7 +184,7 @@ gcufl::BigInt gcufl::BigInt::operator/(gcufl::BigInt other) const {
 		throw std::runtime_error("Cannot divide by 0");
 	if (other == -1)
 		return -*this;
-	std::vector<uint8_t> result;
+	std::vector<std::uint8_t> result;
 	const bool otherSign = other.sign;
 	other.sign = true;
 	std::size_t i = 0;
