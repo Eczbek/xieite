@@ -1,11 +1,11 @@
 #! /bin/bash
 
 
-HEADER_DIRECTORY="$PWD/include/"
+HEADER_DIRECTORY="include/"
 
-SOURCE_DIRECTORY="$PWD/src/"
+SOURCE_DIRECTORY="src/"
 
-DESTINATION=${1:-"$PWD/.a"}
+DESTINATION=${1:-".a"}
 
 COMPILER_FLAGS="-c -std=c++20 -pthread"
 
