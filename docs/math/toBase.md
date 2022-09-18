@@ -1,7 +1,7 @@
 # gcufl::math::toBase
 Declared in `<gcufl/math/toBase.hpp>`
 ```cpp
-template<std::integral N>
+template<std::unsigned_integral N = std::size_t>
 constexpr std::string toBase(N value, const std::size_t base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
 ```
 Converts a base-10 integral to any base.
