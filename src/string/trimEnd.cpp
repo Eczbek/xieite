@@ -1,7 +1,7 @@
 
 #include <cstddef>
 #include <gcufl/string/trimEnd.hpp>
-#include <gcufl/OrderedMap.hpp>
+#include <map>
 #include <string>
 #include <string_view>
 
@@ -14,7 +14,7 @@ std::string gcufl::string::trimEnd(const std::string& string, const char charact
 }
 
 std::string gcufl::string::trimEnd(const std::string& string, std::string_view characters) noexcept {
-	gcufl::OrderedMap<char, bool> charMap;
+	std::map<char, bool> charMap;
 	for (const char character : characters)
 		charMap[character] = true;
 	for (std::size_t i = string.size(); i--;)

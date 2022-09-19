@@ -2,14 +2,14 @@
 
 #include <concepts>
 #include <cstddef>
-#include <gcufl/OrderedMap.hpp>
+#include <map>
 #include <string_view>
 
 
 namespace gcufl::math {
 	template<std::unsigned_integral N = std::size_t>
 	constexpr N fromBase(std::string_view value, const std::size_t base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
-		gcufl::OrderedMap<char, std::size_t> charMap;
+		std::map<char, std::size_t> charMap;
 		const std::size_t digitsSize = digits.size();
 		for (std::size_t i = 0; i < digitsSize; ++i)
 			charMap[digits[i]] = i;
