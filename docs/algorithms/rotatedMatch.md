@@ -19,11 +19,11 @@ Checks whether one iterable contains elements in the same relative order as in a
 
 int main() {
 	const std::vector<int> a { 1, 2, 3, 4, 5 };
-	//					      |>  >  >  >  >|
+	//                        |>  >  >  >  >|
 	const std::vector<int> b { 4, 5, 1, 2, 3 };
-	//					       >  >||>  >  >
+	//                         >  >||>  >  >
 	const std::vector<int> c { 3, 2, 1, 5, 4 };
-	//		     			   <  <  <||<  <
+	//                         <  <  <||<  <
 
 	std::cout << std::boolalpha
 		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), b.begin(), b.end()) << '\n'
