@@ -4,9 +4,9 @@
 
 
 namespace gcufl::numbers {
-	template<std::size_t N>
-	constexpr std::size_t factorial = N * gcufl::numbers::factorial<N - 1>;
+	template<unsigned long long N>
+	constexpr unsigned long long factorial = N * gcufl::numbers::factorial<N - 1>;
 
 	template<>
-	constexpr std::size_t factorial<0> = 1;
+	constexpr unsigned long long factorial<0> = 1;
 }

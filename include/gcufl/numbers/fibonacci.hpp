@@ -4,12 +4,12 @@
 
 
 namespace gcufl::numbers {
-	template<std::size_t N>
-	constexpr std::size_t fibonacci = gcufl::numbers::fibonacci<N - 1> + gcufl::numbers::fibonacci<N - 2>;
+	template<unsigned long long N>
+	constexpr unsigned long long fibonacci = gcufl::numbers::fibonacci<N - 1> + gcufl::numbers::fibonacci<N - 2>;
 
 	template<>
-	constexpr std::size_t fibonacci<1> = 1;
+	constexpr unsigned long long fibonacci<1> = 1;
 
 	template<>
-	constexpr std::size_t fibonacci<0> = 0;
+	constexpr unsigned long long fibonacci<0> = 0;
 }
