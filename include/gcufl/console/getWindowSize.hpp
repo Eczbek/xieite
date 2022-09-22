@@ -3,6 +3,6 @@
 #include <gcufl/console/cursor/Position.hpp>
 
 
-namespace gcufl::io {
+namespace gcufl::console {
 	gcufl::console::cursor::Position getWindowSize() noexcept;
 }

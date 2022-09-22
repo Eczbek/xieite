@@ -1,6 +1,6 @@
 #pragma once
 
 
-namespace gcufl::io {
+namespace gcufl::console {
 	char readChar(const char defaultChar = 0) noexcept;
 }

@@ -3,6 +3,6 @@
 #include <string>
 
 
-namespace gcufl::fs {
+namespace gcufl::files {
 	std::string read(const std::string& path) noexcept;
 }

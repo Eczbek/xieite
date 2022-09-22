@@ -1,6 +1,6 @@
 #pragma once
 
 
-namespace gcufl::io {
+namespace gcufl::console {
 	void eraseLine(const int erasor) noexcept;
 }

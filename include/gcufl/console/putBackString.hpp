@@ -3,6 +3,6 @@
 #include <string_view>
 
 
-namespace gcufl::io {
+namespace gcufl::console {
 	void putBackString(std::string_view string) noexcept;
 }
