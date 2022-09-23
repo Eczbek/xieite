@@ -1,7 +1,8 @@
-# QUOTE
+# GCUFL_QUOTE
 Declared in `<gcufl/macros/QUOTE.hpp>`
 ```cpp
-#define QUOTE(expression) #expression
+#define GCUFL_QUOTE(expression) \
+	#expression
 ```
 Converts an expression to a string literally.
 ## Example
@@ -10,7 +11,7 @@ Converts an expression to a string literally.
 #include <iostream>
 
 int main() {
-	std::cout << QUOTE(2 + 2) << '\n';
+	std::cout << GCUFL_QUOTE(2 + 2) << '\n';
 }
 ```
 Output:

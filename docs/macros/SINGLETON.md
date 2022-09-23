@@ -1,7 +1,7 @@
-# MAKE_SINGLETON
-Declared in `<gcufl/macros/MAKE_SINGLETON.hpp>`
+# GCUFL_SINGLETON
+Declared in `<gcufl/macros/SINGLETON.hpp>`
 ```cpp
-#define MAKE_SINGLETON(Class)                  \
+#define GCUFL_SINGLETON(Class)                  \
     private:                                   \
         Class() {}                             \
     public:                                    \
@@ -15,11 +15,11 @@ Declared in `<gcufl/macros/MAKE_SINGLETON.hpp>`
 Inserts methods into a class, which include basic singleton constructors, `operator=`, and `getInstance`.
 ## Example
 ```cpp
-#include <gcufl/macros/MAKE_SINGLETON.hpp>
+#include <gcufl/macros/SINGLETON.hpp>
 #include <iostream>
 
 class Singleton {
-	MAKE_SINGLETON(Singleton);
+	GCUFL_SINGLETON(Singleton);
 public:
 	int a = 4;
 };

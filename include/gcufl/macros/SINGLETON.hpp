@@ -1,6 +1,6 @@
 #pragma once
 
-#define MAKE_SINGLETON(Class)                  \
+#define GCUFL_SINGLETON(Class)                 \
     private:                                   \
         Class() {}                             \
     public:                                    \

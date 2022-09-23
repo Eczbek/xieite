@@ -1,3 +1,4 @@
 #pragma once
 
-#define QUOTE(expression) #expression
+#define GCUFL_QUOTE(expression) \
+	#expression
