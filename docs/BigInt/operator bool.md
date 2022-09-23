@@ -4,5 +4,19 @@ Declared in `<gcufl/BigInt.hpp>`
 operator bool() const noexcept;
 ```
 Converts a `BigInt` to a boolean.
-<br/>
-If it's 0, returns `false`; Otherwise, returns `true`.
+## Example
+```cpp
+#include <gcufl/BigInt.hpp>
+#include <iostream>
+
+int main() {
+	std::cout << std::boolalpha
+		<< static_cast<bool>(gcufl::BigInt(-17)) << '\n'
+		<< static_cast<bool>(gcufl::BigInt(0)) << '\n';
+}
+```
+Output:
+```
+true
+false
+```

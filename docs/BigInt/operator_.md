@@ -7,3 +7,16 @@ template<std::integral N>
 gcufl::BigInt operator/(const N value) const;
 ```
 This file is named incorrectly due to naming limitations.
+## Example
+```cpp
+#include <gcufl/BigInt.hpp>
+#include <iostream>
+
+int main() {
+	std::cout << (gcufl::BigInt(10) / gcufl::BigInt(3)) << '\n';
+}
+```
+Output:
+```
+3
+```

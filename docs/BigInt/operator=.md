@@ -6,3 +6,17 @@ gcufl::BigInt operator=(gcufl::BigInt other) const noexcept;
 template<std::integral N>
 gcufl::BigInt operator=(const N value) const noexcept;
 ```
+## Example
+```cpp
+#include <gcufl/BigInt.hpp>
+#include <iostream>
+
+int main() {
+	gcufl::BigInt value = 44;
+	std::cout << value << '\n';
+}
+```
+Output:
+```
+44
+```
