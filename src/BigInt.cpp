@@ -214,8 +214,7 @@ gcufl::BigInt gcufl::BigInt::operator%(gcufl::BigInt other) const {
 		throw std::runtime_error("Cannot divide by 0");
 	if (result < other)
 		return *this;
-	while (result >= other)
-		result -= other;
+	result -= result / other * other;
 	if (result)
 		result.sign = result.sign == sign;
 	return result;
