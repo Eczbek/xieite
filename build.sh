@@ -5,7 +5,7 @@ HEADER_DIRECTORY="include/"
 
 SOURCE_DIRECTORY="src/"
 
-DESTINATION=${1:-".a"}
+ARCHIVE_DESTINATION=${1:-".a"}
 
 COMPILER_FLAGS="-c -std=c++20 -pthread"
 
@@ -18,5 +18,6 @@ for (( i=0 ; i<$SOURCE_FILES_COUNT ; i++ )); do
 	g++ ${SOURCE_FILES[i]} -I $HEADER_DIRECTORY -o "$TEMPORARY_DIRECTORY/$(basename $(mktemp))" $COMPILER_FLAGS &
 done
 wait
-ar crs $DESTINATION $(ls -d $TEMPORARY_DIRECTORY/*)
+rm -f $ARCHIVE_DESTINATION
+ar crs $ARCHIVE_DESTINATION $(ls -d $TEMPORARY_DIRECTORY/*)
 rm -rf $TEMPORARY_DIRECTORY
