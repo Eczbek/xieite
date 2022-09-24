@@ -5,16 +5,21 @@ HEADER_DIRECTORY="include/"
 
 SOURCE_DIRECTORY="src/"
 
-ARCHIVE_DESTINATION=${1:-".a"}
+ARCHIVE_DESTINATION=$1
 
 COMPILER_FLAGS="-c -std=c++20 -pthread"
 
 
+if [ -z $ARCHIVE_DESTINATION ]
+then
+	exit 1
+fi
 SOURCE_FILES=()
 mapfile -d '' SOURCE_FILES < <(find $SOURCE_DIRECTORY -type f -print0)
 SOURCE_FILES_COUNT=${#SOURCE_FILES[@]}
 TEMPORARY_DIRECTORY=$(mktemp -d)
-for (( i=0 ; i<$SOURCE_FILES_COUNT ; i++ )); do
+for (( i=0 ; i<$SOURCE_FILES_COUNT ; i++ ))
+do
 	g++ ${SOURCE_FILES[i]} -I $HEADER_DIRECTORY -o "$TEMPORARY_DIRECTORY/$(basename $(mktemp))" $COMPILER_FLAGS &
 done
 wait
