@@ -3,7 +3,7 @@ Declared in `<gcufl/string/trimStart.hpp>`
 ```cpp
 std::string trimStart(const std::string& string, const char character) noexcept;
 
-std::string trimStart(const std::string& string, std::string_view characters) noexcept;
+std::string trimStart(const std::string& string, const std::string_view characters) noexcept;
 ```
 Trims the start of a string.
 <br/>

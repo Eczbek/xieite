@@ -14,7 +14,7 @@ std::string gcufl::string::trimStart(const std::string& string, const char chara
 	return "";
 }
 
-std::string gcufl::string::trimStart(const std::string& string, std::string_view characters) noexcept {
+std::string gcufl::string::trimStart(const std::string& string, const std::string_view characters) noexcept {
 	std::map<char, bool> charMap;
 	for (const char character : characters)
 		charMap[character] = true;

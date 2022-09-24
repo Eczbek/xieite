@@ -6,7 +6,7 @@
 #include <string_view>
 
 
-std::string gcufl::system::execute(std::string_view command) noexcept {
+std::string gcufl::system::execute(const std::string_view command) noexcept {
 	std::shared_ptr<FILE> pipe(popen(command.data(), "r"), pclose);
 	std::string result;
 	if (pipe) {

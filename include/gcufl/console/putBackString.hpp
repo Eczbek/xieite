@@ -4,5 +4,5 @@
 
 
 namespace gcufl::console {
-	void putBackString(std::string_view string) noexcept;
+	void putBackString(const std::string_view string) noexcept;
 }

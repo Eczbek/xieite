@@ -1,7 +1,7 @@
 # gcufl::system::execute
 Declared in `<gcufl/system/execute.hpp>`
 ```cpp
-std::string execute(std::string_view command) noexcept;
+std::string execute(const std::string_view command) noexcept;
 ```
 Executes a command and returns it's output.
 ## Example
