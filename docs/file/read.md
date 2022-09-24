@@ -1,7 +1,7 @@
 # gcufl::file::read
 Declared in `<gcufl/file/read.hpp>`
 ```cpp
-std::string read(const std::string& path) noexcept;
+std::string read(const std::string_view path) noexcept;
 ```
 Reads the content of a file into a `std::string`.
 ## Example
