@@ -1,4 +1,5 @@
 
+#include <array>
 #include <cstdio>
 #include <gcufl/system/execute.hpp>
 #include <memory>
@@ -10,10 +11,9 @@ std::string gcufl::system::execute(const std::string_view command) noexcept {
 	std::shared_ptr<FILE> pipe(popen(command.data(), "r"), pclose);
 	std::string result;
 	if (pipe) {
-		char buffer[1024];
-		while (!feof(pipe.get()))
-			if (fgets(buffer, 1024, pipe.get()) != NULL)
-				result += buffer;
+		std::array<char, 1024> buffer;
+		while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr)
+			result += buffer.data();
 	}
 	return result;
 }
