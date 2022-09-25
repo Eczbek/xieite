@@ -8,5 +8,5 @@
 namespace gcufl::stream {
 	std::string read(std::istream& inputStream) noexcept;
 
-	std::string read(std::FILE* file) noexcept;
+	std::string read(std::FILE* const file) noexcept;
 }
