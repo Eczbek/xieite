@@ -5,8 +5,6 @@
 
 
 gcufl::console::locks::Raw::Raw(const bool echo) noexcept {
-	if (instancesCount++)
-		return;
 	tcgetattr(STDIN_FILENO, &cookedMode);
 	termios rawMode = cookedMode;
 	cfmakeraw(&rawMode);
@@ -15,6 +13,5 @@ gcufl::console::locks::Raw::Raw(const bool echo) noexcept {
 }
 
 gcufl::console::locks::Raw::~Raw() {
-	if (!--instancesCount)
-		tcsetattr(STDIN_FILENO, TCSANOW, &cookedMode);
+	tcsetattr(STDIN_FILENO, TCSANOW, &cookedMode);
 }

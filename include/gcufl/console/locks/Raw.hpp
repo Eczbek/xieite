@@ -7,7 +7,6 @@
 namespace gcufl::console::locks {
 	class Raw {
 	private:
-		static std::size_t instancesCount;
 		termios cookedMode;
 
 	public:
