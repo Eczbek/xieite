@@ -5,7 +5,7 @@ template<std::forward_iterator I1, std::forward_iterator I2>
 bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2) noexcept;
 
 template<std::forward_iterator I1, std::forward_iterator I2>
-bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2, const std::function<bool(const typename std::iterator_traits<I1>::value_type&, const typename std::iterator_traits<I2>::value_type&)>& callback) noexcept;
+bool rotatedMatch(I1 begin1, const I1 end1, const I2 begin2, const I2 end2, const std::function<bool(const typename std::iterator_traits<I1>::value_type, const typename std::iterator_traits<I2>::value_type)>& callback) noexcept;
 ```
 Checks whether one iterable contains elements in the same relative order as in another iterable.
 <br/>
