@@ -2,5 +2,5 @@
 
 
 namespace gcufl::console {
-	char readChar(const char defaultChar = 0) noexcept;
+	char readChar() noexcept;
 }

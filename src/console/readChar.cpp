@@ -5,10 +5,10 @@
 #include <unistd.h>
 
 
-char gcufl::console::readChar(const char defaultChar) noexcept {
+char gcufl::console::readChar() noexcept {
 	gcufl::console::locks::Raw rawLock;
 	gcufl::console::locks::NonBlock nonblockLock;
-	char input = defaultChar;
+	char input = 0;
 	read(STDIN_FILENO, &input, 1);
 	return input;
 }
