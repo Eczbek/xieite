@@ -3,7 +3,7 @@ Declared in `<gcufl/system/execute.hpp>`
 ```cpp
 std::string execute(const std::string_view command) noexcept;
 ```
-Executes a command and returns it's output.
+Executes a command and returns its output.
 ## Example
 ```cpp
 #include <gcufl/system/execute.hpp>
