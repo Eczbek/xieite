@@ -1,5 +1,5 @@
 # gcufl::geometry::Ellipse::area
 Declared in `<gcufl/geometry/Ellipse.hpp>`
 ```cpp
-virtual double area() const noexcept;
+virtual constexpr double area() const noexcept;
 ```
