@@ -1,9 +1,9 @@
 # gcufl::string::trimEnd
 Declared in `<gcufl/string/trimEnd.hpp>`
 ```cpp
-std::string trimEnd(const std::string& string, const char character) noexcept;
-
 std::string trimEnd(const std::string& string, const std::string_view characters) noexcept;
+
+std::string trimEnd(const std::string& string, const char character) noexcept;
 ```
 Trims the end of a string.
 <br/>
