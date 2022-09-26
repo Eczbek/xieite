@@ -2,7 +2,7 @@
 Declared in `<gcufl/algorithms/partialReverse.hpp>`
 ```cpp
 template<std::forward_iterator I>
-void partialReverse(I begin, const I end, const std::function<bool(const typename std::iterator_traits<I>::value_type)>& selector) noexcept;
+constexpr void partialReverse(I begin, const I end, const std::function<bool(const typename std::iterator_traits<I>::value_type)>& selector) noexcept;
 ```
 Partially reverses an iterable's elements.
 ## Example

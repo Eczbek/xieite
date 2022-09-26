@@ -8,7 +8,7 @@
 
 namespace gcufl::algorithms {
 	template<std::forward_iterator I>
-	void partialReverse(I begin, const I end, const std::function<bool(const typename std::iterator_traits<I>::value_type)>& selector) noexcept {
+	constexpr void partialReverse(I begin, const I end, const std::function<bool(const typename std::iterator_traits<I>::value_type)>& selector) noexcept {
 		std::vector<I> iterators;
 		for (; begin != end; ++begin)
 			if (selector(*begin))
