@@ -12,16 +12,16 @@ Specifies that a type `T` is streamable.
 #include <gcufl/concepts/Streamable>
 #include <iostream>
 
-template<gcufl::concepts::Streamable V>
-void printLine(const V& value) {
-	std::cout << value << '\n';
-}
+struct UnstreamableType {};
 
 int main() {
-	printLine("Hello, world!");
+	std::cout << std::boolalpha
+		<< gcufl::concepts::Streamable<char> << '\n'
+		<< gcufl::concepts::Streamable<UnstreamableType> << '\n';
 }
 ```
 Output:
 ```
-Hello, world!
+true
+false
 ```
