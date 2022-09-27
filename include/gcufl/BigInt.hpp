@@ -180,5 +180,12 @@ namespace gcufl {
 		gcufl::BigInt pow(const N value) const {
 			return pow(gcufl::BigInt(value));
 		}
+
+		gcufl::BigInt root(const gcufl::BigInt& other) const;
+
+		template<std::integral N>
+		gcufl::BigInt root(const N value) const {
+			return root(gcufl::BigInt(value));
+		}
 	};
 }

@@ -269,3 +269,16 @@ gcufl::BigInt gcufl::BigInt::pow(gcufl::BigInt other) const {
 	}
 	return x * y;
 }
+
+gcufl::BigInt gcufl::BigInt::root(const gcufl::BigInt& other) const {
+	if (*this < 0)
+		throw std::runtime_error("Cannot find root of negative");
+	gcufl::BigInt k1 = other - 1;
+	gcufl::BigInt u = *this;
+	gcufl::BigInt s = u + 1;
+	while (u < s)  {
+		s = u;
+		u = (u * k1 + *this / u.pow(k1)) / other;
+	}
+	return s;
+}
