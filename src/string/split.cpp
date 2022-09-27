@@ -22,7 +22,7 @@ std::vector<std::string> gcufl::string::split(const std::string& string, const s
 }
 
 std::vector<std::string> gcufl::string::split(const std::string& string, const char delimiter) noexcept {
-	return gcufl::string::split(string, std::string(delimiter));
+	return gcufl::string::split(string, std::string(1, delimiter));
 }
 
 std::vector<std::string> gcufl::string::split(const std::string& string, const std::regex& delimiter) noexcept {

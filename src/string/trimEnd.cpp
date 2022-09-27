@@ -15,5 +15,5 @@ std::string gcufl::string::trimEnd(const std::string& string, const std::string_
 }
 
 std::string gcufl::string::trimEnd(const std::string& string, const char character) noexcept {
-	return gcufl::string::trimEnd(string, std::string(character));
+	return gcufl::string::trimEnd(string, std::string(1, character));
 }

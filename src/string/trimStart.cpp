@@ -16,5 +16,5 @@ std::string gcufl::string::trimStart(const std::string& string, const std::strin
 }
 
 std::string gcufl::string::trimStart(const std::string& string, const char character) noexcept {
-	return gcufl::string::trimStart(string, std::string(character));
+	return gcufl::string::trimStart(string, std::string(1, character));
 }
