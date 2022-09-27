@@ -1,7 +1,8 @@
 # gcufl::algorithms::any
 Declared in `<gcufl/algorithms/any.hpp>`
 ```cpp
-template<typename... T> requires(requires(const T&... values) {
+template<typename... T>
+requires(requires(const T&... values) {
 	{ (values || ...) } -> std::convertible_to<bool>;
 }) constexpr bool any(const T&... values) noexcept;
 
