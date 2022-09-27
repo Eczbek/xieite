@@ -184,18 +184,20 @@ gcufl::BigInt gcufl::BigInt::operator/(gcufl::BigInt other) const {
 		throw std::runtime_error("Cannot divide by 0");
 	if (other == -1)
 		return -*this;
-	std::vector<std::uint8_t> result;
 	const bool otherSign = other.sign;
 	other.sign = true;
+	if (abs() < other)
+		return gcufl::BigInt(0);
 	gcufl::BigInt difference;
-	difference.digits.clear();
+	std::vector<std::uint8_t> result;
 	for (std::size_t i = digits.size(); i--;) {
+		if (!difference)
+			difference.digits.clear();
 		difference.digits.insert(difference.digits.begin(), digits[i]);
 		int quotient = 0;
-		for (gcufl::BigInt copy = difference; copy >= other; copy -= other)
+		for (; difference >= other; difference -= other)
 			++quotient;
 		result.push_back(quotient);
-		difference -= other * quotient;
 	}
 	return gcufl::BigInt(result, sign == otherSign);
 }
@@ -205,8 +207,8 @@ gcufl::BigInt& gcufl::BigInt::operator/=(const gcufl::BigInt& other) {
 }
 
 gcufl::BigInt gcufl::BigInt::operator%(gcufl::BigInt other) const {
-	gcufl::BigInt result = *this;
 	const bool otherSign = other.sign;
+	gcufl::BigInt result = *this;
 	result.sign = other.sign = true;
 	if (result == other)
 		return gcufl::BigInt(0);
@@ -214,13 +216,9 @@ gcufl::BigInt gcufl::BigInt::operator%(gcufl::BigInt other) const {
 		throw std::runtime_error("Cannot divide by 0");
 	if (result < other)
 		return *this;
-	result.digits.clear();
 	for (std::size_t i = digits.size(); i--;) {
 		result.digits.insert(result.digits.begin(), digits[i]);
-		int quotient = 0;
-		for (gcufl::BigInt copy = result; copy >= other; copy -= other)
-			++quotient;
-		result -= other * quotient;
+		for (; result >= other; result -= other);
 	}
 	if (otherSign != sign)
 		++result;
