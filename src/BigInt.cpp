@@ -1,15 +1,22 @@
+
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
 #include <gcufl/BigInt.hpp>
+#include <span>
+#include <stdexcept>
+#include <vector>
 
 
 gcufl::BigInt::BigInt(const gcufl::BigInt& other) noexcept
 : digits(other.digits.begin(), other.digits.end()), sign(other.sign) {}
 
-gcufl::BigInt::BigInt(std::span<const std::uint8_t> digits, const bool sign) noexcept
-: digits(digits.rbegin(), digits.rend()), sign(sign) {
-	while (this->digits.size() > 1 && !this->digits.back())
-		this->digits.pop_back();
-	if (!this->digits.size()) {
-		this->digits.push_back(0);
+gcufl::BigInt::BigInt(std::span<const std::uint8_t> span, const bool sign) noexcept
+: digits(span.rbegin(), span.rend()), sign(sign) {
+	while (digits.size() > 1 && !digits.back())
+		digits.pop_back();
+	if (!digits.size()) {
+		digits.push_back(0);
 		this->sign = true;
 	}
 }
@@ -154,7 +161,7 @@ gcufl::BigInt gcufl::BigInt::operator*(gcufl::BigInt other) const noexcept {
 	gcufl::BigInt result;
 	const bool otherSign = other.sign;
 	other.sign = true;
-	std::vector<std::uint8_t> Prefix;
+	std::vector<std::uint8_t> prefix;
 	const std::size_t digitsSize = digits.size();
 	const std::size_t otherDigitsSize = other.digits.size();
 	for (std::size_t i = 0; i < digitsSize; ++i) {
@@ -163,9 +170,9 @@ gcufl::BigInt gcufl::BigInt::operator*(gcufl::BigInt other) const noexcept {
 		for (std::size_t j = 0; j < otherDigitsSize; ++j) {
 			if (!other.digits[j])
 				continue;
-			Prefix.resize(i + j);
+			prefix.resize(i + j);
 			gcufl::BigInt sum = digits[i] * other.digits[j];
-			sum.digits.insert(sum.digits.begin(), Prefix.begin(), Prefix.end());
+			sum.digits.insert(sum.digits.begin(), prefix.begin(), prefix.end());
 			result += sum;
 		}
 	}
