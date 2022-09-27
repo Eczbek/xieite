@@ -1,14 +1,15 @@
 #pragma once
 
-#include <algorithm>
+#include <cstddef>
 #include <functional>
+#include <gcufl/concepts/Comparator.hpp>
 #include <iterator>
 #include <vector>
 
 
 namespace gcufl::algorithms {
-	template<std::forward_iterator I>
-	constexpr void partialReverse(I begin, const I end, const std::function<bool(const typename std::iterator_traits<I>::value_type)>& selector) noexcept {
+	template<std::forward_iterator I, gcufl::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
+	constexpr void partialReverse(I begin, const I end, const F& selector) noexcept {
 		std::vector<I> iterators;
 		for (; begin != end; ++begin)
 			if (selector(*begin))

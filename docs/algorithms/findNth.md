@@ -1,8 +1,11 @@
 # gcufl::algorithms::findNth
 Declared in `<gcufl/algorithms/findNth.hpp>`
 ```cpp
+template<std::forward_iterator I, gcufl::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
+constexpr I findNth(I begin, const I end, std::size_t count, const typename std::iterator_traits<I>::value_type& value, const F& comparator) noexcept;
+
 template<std::forward_iterator I>
-constexpr I findNth(I begin, const I end, std::size_t count, const typename std::iterator_traits<I>::value_type& value, const std::function<bool(const typename std::iterator_traits<I>::value_type, const typename std::iterator_traits<I>::value_type)>& comparator = std::equal_to<const typename std::iterator_traits<I>::value_type>()) noexcept;
+constexpr I findNth(const I begin, const I end, const std::size_t count, const typename std::iterator_traits<I>::value_type& value) noexcept;
 ```
 Finds the Nth occurence of a value, starting at 0.
 ## Example

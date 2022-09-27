@@ -1,8 +1,8 @@
 # gcufl::algorithms::partialReverse
 Declared in `<gcufl/algorithms/partialReverse.hpp>`
 ```cpp
-template<std::forward_iterator I>
-constexpr void partialReverse(I begin, const I end, const std::function<bool(const typename std::iterator_traits<I>::value_type)>& selector) noexcept;
+template<std::forward_iterator I, gcufl::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
+constexpr void partialReverse(I begin, const I end, const F& selector) noexcept;
 ```
 Partially reverses an iterable's elements.
 ## Example
