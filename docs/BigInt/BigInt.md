@@ -5,7 +5,10 @@ BigInt(const gcufl::BigInt& other) noexcept;
 
 BigInt(std::span<const std::uint8_t> span, const bool sign = true) noexcept;
 
-template<std::integral N = int>
+template<std::signed_integral N>
+BigInt(N value = 0) noexcept;
+
+template<std::unsigned_integral N>
 BigInt(N value = 0) noexcept;
 ```
 Creates a `BigInt` instance.
