@@ -6,7 +6,7 @@
 
 namespace gcufl::concepts {
 	template<typename T>
-	concept StreamableOut = requires(std::ostream& outStream, const T& value) {
+	concept StreamableOut = requires(std::ostream& outStream, T value) {
 		{ outStream << value } -> std::convertible_to<std::ostream&>;
 	};
 }

@@ -2,7 +2,7 @@
 Declared in `<gcufl/algorithms/all.hpp>`
 ```cpp
 template<typename... T>
-requires(requires(const T&... values) {
+requires(requires(T... values) {
 	{ (values && ...) } -> std::convertible_to<bool>;
 }) constexpr bool all(const T&... values) noexcept;
 
