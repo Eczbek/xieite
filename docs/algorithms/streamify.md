@@ -2,7 +2,7 @@
 Declared in `<gcufl/algorithms/streamify.hpp>`
 ```cpp
 template<std::forward_iterator I>
-requires(gcufl::traits::isStreamable<typename std::iterator_traits<I>::value_type>)
+requires(gcufl::concepts::StreamableOut<typename std::iterator_traits<I>::value_type>)
 constexpr std::stringstream streamify(I begin, const I end, const std::string_view delimiter = " ") noexcept;
 ```
 Streams an iterable.
