@@ -20,7 +20,7 @@ namespace gcufl {
 
 		BigInt(std::span<const std::uint8_t> span, const bool sign = true) noexcept;
 
-		template<std::signed_integral N>
+		template<std::signed_integral N = int>
 		BigInt(N value = 0) noexcept
 		: sign(value >= 0) {
 			value = std::abs(value);
