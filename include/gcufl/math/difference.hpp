@@ -8,7 +8,7 @@
 namespace gcufl::math {
 	template<std::integral N>
 	constexpr auto difference(const N a, const N b) noexcept -> std::make_unsigned_t<N> {
-		return (static_cast<std::make_unsigned_t<N>>(a) < static_cast<std::make_unsigned_t<N>>(b))
+		return (a > b)
 			? static_cast<std::make_unsigned_t<N>>(a) - static_cast<std::make_unsigned_t<N>>(b)
 			: static_cast<std::make_unsigned_t<N>>(b) - static_cast<std::make_unsigned_t<N>>(a);
 	}
