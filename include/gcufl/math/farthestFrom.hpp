@@ -12,14 +12,14 @@ namespace gcufl::math {
 				? (a > b)
 					? a
 					: b
-				: (gcufl::math::difference(target, a) > gcufl::math::difference(target, b))
+				: (gcufl::math::difference(target, a) < gcufl::math::difference(target, b))
 					? a
 					: b
 			: (b < target)
 				? (a < b)
 					? a
 					: b
-				: (gcufl::math::difference(target, a) < gcufl::math::difference(target, b))
+				: (gcufl::math::difference(target, a) > gcufl::math::difference(target, b))
 					? a
 					: b;
 	}
