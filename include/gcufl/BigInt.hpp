@@ -174,6 +174,8 @@ namespace gcufl {
 			return *this %= gcufl::BigInt(value);
 		}
 
+		gcufl::BigInt operator~() const noexcept;
+
 		friend std::ostream& operator<<(std::ostream& stream, const gcufl::BigInt& self) {
 			if (!self.sign)
 				stream << '-';

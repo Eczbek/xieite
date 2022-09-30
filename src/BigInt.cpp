@@ -238,6 +238,13 @@ gcufl::BigInt& gcufl::BigInt::operator%=(const gcufl::BigInt& other) {
 	return *this = *this % other;
 }
 
+gcufl::BigInt gcufl::BigInt::operator~() const noexcept {
+	gcufl::BigInt result = *this + 1;
+	if (result)
+		result.sign = !sign;
+	return result;
+}
+
 gcufl::BigInt gcufl::BigInt::abs() const noexcept {
 	gcufl::BigInt copy = *this;
 	copy.sign = true;
