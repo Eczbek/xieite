@@ -12,7 +12,7 @@ constexpr N operator()(G& generator) noexcept;
 
 int main() {
 	std::mt19937 rng(std::random_device {}());
-	gcufl::random::InterruptableUniformDistribution dist(0, 3, { { 1, 2 } });
+	gcufl::random::InterruptableUniformDistribution<int> dist(0, 3, { { 1, 2 } });
 
 	for (int i = 0; i < 10; ++i)
 		std::cout << dist(rng) << '\n';
