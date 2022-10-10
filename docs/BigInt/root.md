@@ -1,10 +1,12 @@
 # gcufl::BigInt::root
 Declared in `<gcufl/BigInt.hpp>`
 ```cpp
-gcufl::BigInt root(const gcufl::BigInt& other) const;
+[[nodiscard]]
+constexpr gcufl::BigInt root(const gcufl::BigInt& other) const;
 
 template<std::integral N>
-gcufl::BigInt root(const N value) const;
+[[nodiscard]]
+constexpr gcufl::BigInt root(const N value) const;
 ```
 Calculates the root of a `BigInt`.
 ## Example

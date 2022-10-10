@@ -1,7 +1,8 @@
 # gcufl::BigInt::operator!
 Declared in `<gcufl/BigInt.hpp>`
 ```cpp
-bool operator!() const noexcept;
+[[nodiscard]]
+constexpr bool operator!() const noexcept;
 ```
 ## Example
 ```cpp

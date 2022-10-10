@@ -1,15 +1,21 @@
 # gcufl::BigInt::BigInt
 Declared in `<gcufl/BigInt.hpp>`
 ```cpp
-BigInt(const gcufl::BigInt& other) noexcept;
-
-BigInt(std::span<const std::uint8_t> span, const bool sign = true) noexcept;
+[[nodiscard]]
+constexpr BigInt(const gcufl::BigInt& other) noexcept;
 
 template<std::signed_integral N = int>
-BigInt(N value = 0) noexcept;
+[[nodiscard]]
+constexpr BigInt(N value = 0) noexcept;
 
 template<std::unsigned_integral N>
-BigInt(N value = 0) noexcept;
+[[nodiscard]]
+constexpr BigInt(N value) noexcept;
+
+template<std::forward_iterator I>
+requires(std::convertible_to<typename I::value_type, bool>)
+[[nodiscard]]
+constexpr BigInt(const I begin, const I end, const bool sign = false) noexcept;
 ```
 Creates a `BigInt` instance.
 ## Example

@@ -1,9 +1,9 @@
 # gcufl::BigInt::operator--
 Declared in `<gcufl/BigInt.hpp>`
 ```cpp
-gcufl::BigInt& operator--() noexcept;
+constexpr gcufl::BigInt& operator--() noexcept;
 
-gcufl::BigInt operator--(int) noexcept;
+constexpr gcufl::BigInt operator--(int) noexcept;
 ```
 Decrements the value of a `BigInt` by 1.
 ## Example

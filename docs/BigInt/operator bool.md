@@ -1,7 +1,8 @@
 # gcufl::BigInt::operator bool
 Declared in `<gcufl/BigInt.hpp>`
 ```cpp
-operator bool() const noexcept;
+[[nodiscard]]
+constexpr operator bool() const noexcept;
 ```
 Converts a `BigInt` to a boolean.
 ## Example
