@@ -54,7 +54,9 @@ namespace gcufl {
 		requires(std::convertible_to<typename I::value_type, bool>)
 		[[nodiscard]]
 		constexpr BigInt(const I begin, const I end, const bool sign = false) noexcept
-		: sign(sign), bits(begin, end) {}
+		: sign(sign), bits(begin, end) {
+			clean();
+		}
 
 		constexpr gcufl::BigInt& operator=(const gcufl::BigInt& other) noexcept {
 			sign = other.sign;
@@ -287,7 +289,7 @@ namespace gcufl {
 					difference -= other;
 				result.insert(result.begin(), quotient);
 			}
-			return gcufl::BigInt(result.begin(), result.end(), sign != otherSign).clean();
+			return gcufl::BigInt(result.begin(), result.end(), sign != otherSign);
 		}
 
 		template<std::integral N>
