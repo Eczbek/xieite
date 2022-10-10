@@ -5,6 +5,7 @@
 #include <concepts>
 #include <ostream>
 #include <stdexcept>
+#include <string>
 #include <vector>
 
 
@@ -15,9 +16,10 @@ namespace gcufl {
 		std::vector<bool> bits;
 
 		constexpr gcufl::BigInt& clean() noexcept {
-			while (bits.size() > 1 && !bits.back())
+			std::size_t i = bits.size();
+			while (--i && !bits.back())
 				bits.pop_back();
-			if (bits.size() == 1 && !bits[0])
+			if (i < 2 && !bits[0])
 				sign = false;
 			return *this;
 		}
@@ -305,26 +307,7 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator%(gcufl::BigInt other) const {
-			const bool otherSign = other.sign;
-			other.sign = false;
-			if (!other)
-				throw std::domain_error("Cannot divide by 0");
-			gcufl::BigInt result = abs();
-			if (result == 1 || result == other)
-				return gcufl::BigInt(0);
-			if (result < other)
-				return *this;
-			result.bits.clear();
-			for (std::size_t i = bits.size(); i--;) {
-				result.bits.insert(result.bits.begin(), bits[i]);
-				if (result >= other)
-					result -= other;
-			}
-			if (sign != otherSign)
-				++result;
-			if (result.clean())
-				result.sign = otherSign;
-			return result;
+			return *this - *this / other * other;
 		}
 
 		template<std::integral N>
@@ -349,11 +332,20 @@ namespace gcufl {
 			return result;
 		}
 
-		friend constexpr std::ostream& operator<<(std::ostream& outStream, const gcufl::BigInt& self) noexcept {
-			if (self.sign)
+		friend std::ostream& operator<<(std::ostream& outStream, gcufl::BigInt bigInt) noexcept {
+			if (bigInt.sign)
 				outStream << '-';
-			for (std::size_t i = self.bits.size(); i--;)
-				outStream << "01"[self.bits[i]];
+			std::string result;
+			do {
+				const std::vector<bool>& bits = (bigInt % 10).bits;
+				const std::size_t bitsSize = bits.size();
+				char digit = '0' + bits[0];
+				for (std::size_t i = 1; i < bitsSize; ++i)
+					digit += bits[i] * std::pow(2, i);
+				result = digit + result;
+				bigInt /= 10;
+			} while (bigInt);
+			outStream << result;
 			return outStream;
 		}
 
