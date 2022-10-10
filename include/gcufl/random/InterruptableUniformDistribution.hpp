@@ -25,7 +25,7 @@ namespace gcufl::random {
 		std::uniform_int_distribution<N> distribution;
 	
 	public:
-		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions = std::vector<gcufl::math::NumberRange<N>>()) {
+		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;
 			N& farthest = (gcufl::math::farthestFrom(0, begin, end) == begin)
@@ -66,7 +66,7 @@ namespace gcufl::random {
 		std::uniform_real_distribution<N> distribution;
 
 	public:
-		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions = std::vector<gcufl::math::NumberRange<N>>()) {
+		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;
 			N& farthest = (gcufl::math::farthestFrom(0.0, begin, end) == begin)
