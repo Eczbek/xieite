@@ -2,7 +2,7 @@
 Declared in `<gcufl/concepts/StreamableIn.hpp>`
 ```cpp
 template<typename T>
-concept StreamableOut = requires(std::istream& inStream, T value) {
+concept StreamableIn = requires(std::istream& inStream, T value) {
 	{ inStream >> value } -> std::convertible_to<std::istream&>;
 };
 ```
