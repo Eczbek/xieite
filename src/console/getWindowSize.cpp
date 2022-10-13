@@ -4,7 +4,6 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 
-
 gcufl::console::cursor::Position gcufl::console::getWindowSize() noexcept {
 	winsize size;
 	ioctl(STDIN_FILENO, TIOCGWINSZ, &size);

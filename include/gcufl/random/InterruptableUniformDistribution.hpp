@@ -1,5 +1,4 @@
 #pragma once
-
 #include <algorithm>
 #include <concepts>
 #include <cmath>
@@ -11,7 +10,6 @@
 #include <random>
 #include <stdexcept>
 #include <vector>
-
 
 namespace gcufl::random {
 	template<typename>

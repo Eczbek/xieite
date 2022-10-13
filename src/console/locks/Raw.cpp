@@ -3,7 +3,6 @@
 #include <termios.h>
 #include <unistd.h>
 
-
 gcufl::console::locks::Raw::Raw(const bool echo) noexcept {
 	tcgetattr(STDIN_FILENO, &cookedMode);
 	termios rawMode = cookedMode;

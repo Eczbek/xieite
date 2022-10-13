@@ -1,10 +1,8 @@
 #pragma once
-
 #include <gcufl/concepts/StreamableOut.hpp>
 #include <iterator>
 #include <sstream>
 #include <string_view>
-
 
 namespace gcufl::algorithms {
 	template<std::forward_iterator I>

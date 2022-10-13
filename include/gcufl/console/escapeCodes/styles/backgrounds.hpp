@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace gcufl::console::escapeCodes::styles::backgrounds {
 	constexpr int black = 40;
 	constexpr int red = 41;

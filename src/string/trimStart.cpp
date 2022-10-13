@@ -5,7 +5,6 @@
 #include <string>
 #include <string_view>
 
-
 std::string gcufl::string::trimStart(const std::string& string, const std::string_view characters) noexcept {
 	std::set<char> charSet(characters.begin(), characters.end());
 	const std::size_t stringSize = string.size();

@@ -1,10 +1,8 @@
 #pragma once
-
 #include <chrono>
 #include <cstdint>
 #include <gcufl/concepts/Arithmetic.hpp>
 #include <ratio>
-
 
 namespace gcufl::traits {
 	template<typename>

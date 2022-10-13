@@ -1,8 +1,6 @@
 #pragma once
-
 #include <gcufl/traits/isDuration.hpp>
 #include <type_traits>
-
 
 namespace gcufl::concepts {
 	template<typename T>

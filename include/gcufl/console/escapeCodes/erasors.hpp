@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace gcufl::console::escapeCodes::erasors {
 	constexpr int lineFromCursor = 0;
 	constexpr int lineUntilCursor = 1;

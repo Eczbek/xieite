@@ -1,8 +1,6 @@
 #pragma once
-
 #include <gcufl/math/wrap.hpp>
 #include <vector>
-
 
 namespace gcufl::vector {
 	template<typename V>

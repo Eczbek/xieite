@@ -1,8 +1,6 @@
 #pragma once
-
 #include <random>
 #include <type_traits>
-
 
 namespace gcufl::concepts {
 	template<typename T>

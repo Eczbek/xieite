@@ -1,8 +1,6 @@
 #pragma once
-
 #include <cmath>
 #include <concepts>
-
 
 namespace gcufl::math {
 	template<std::integral N>

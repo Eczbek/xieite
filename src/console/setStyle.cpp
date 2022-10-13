@@ -2,7 +2,6 @@
 #include <gcufl/console/setStyle.hpp>
 #include <iostream>
 
-
 void gcufl::console::setStyle(const int style) noexcept {
 	std::cout << "\u001b[" << style << 'm';
 }

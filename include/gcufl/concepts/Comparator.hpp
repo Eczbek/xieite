@@ -1,8 +1,6 @@
 #pragma once
-
 #include <concepts>
 #include <type_traits>
-
 
 namespace gcufl::concepts {
 	template<typename T, typename U>

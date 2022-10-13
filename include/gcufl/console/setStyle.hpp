@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace gcufl::console {
 	void setStyle(const int style) noexcept;
 

@@ -6,7 +6,6 @@
 #include <string_view>
 #include <vector>
 
-
 std::vector<std::string> gcufl::string::split(const std::string& string, const std::string_view delimiter) noexcept {
 	std::vector<std::string> segments;
 	const std::size_t stringSize = string.size();

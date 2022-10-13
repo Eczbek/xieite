@@ -1,8 +1,6 @@
 #pragma once
-
 #include <cmath>
 #include <gcufl/math/approxEqual.hpp>
-
 
 namespace gcufl::geometry {
 	struct Point final {

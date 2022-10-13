@@ -1,8 +1,6 @@
 #pragma once
-
 #include <cmath>
 #include <gcufl/concepts/Arithmetic.hpp>
-
 
 namespace gcufl::math {
 	template<gcufl::concepts::Arithmetic N>

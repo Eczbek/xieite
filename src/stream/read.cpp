@@ -8,7 +8,6 @@
 #include <string_view>
 #include <type_traits>
 
-
 std::string gcufl::stream::read(std::istream& reader) noexcept {
 	return std::string(std::istreambuf_iterator<char>(reader), std::istreambuf_iterator<char>());
 }

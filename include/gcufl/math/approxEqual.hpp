@@ -1,9 +1,7 @@
 #pragma once
-
 #include <cmath>
 #include <gcufl/concepts/Arithmetic.hpp>
 #include <limits>
-
 
 namespace gcufl::math {
 	template<gcufl::concepts::Arithmetic N>

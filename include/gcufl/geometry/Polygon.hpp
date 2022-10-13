@@ -1,11 +1,9 @@
 #pragma once
-
 #include <gcufl/algorithms/rotatedMatch.hpp>
 #include <gcufl/geometry/Point.hpp>
 #include <gcufl/geometry/Ray.hpp>
 #include <gcufl/geometry/Segment.hpp>
 #include <vector>
-
 
 namespace gcufl::geometry {
 	struct Polygon {

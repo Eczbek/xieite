@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace gcufl::console::cursor {
 	struct Position {
 		int row;

@@ -1,8 +1,6 @@
 #pragma once
-
 #include <chrono>
 #include <gcufl/concepts/Duration.hpp>
-
 
 namespace gcufl {
 	class Timer {

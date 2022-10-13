@@ -1,7 +1,5 @@
 #pragma once
-
 #include <string_view>
-
 
 namespace gcufl::string {
 	constexpr unsigned long long hash(const std::string_view string) noexcept {

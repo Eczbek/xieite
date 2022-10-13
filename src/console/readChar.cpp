@@ -4,7 +4,6 @@
 #include <gcufl/console/readChar.hpp>
 #include <unistd.h>
 
-
 char gcufl::console::readChar() noexcept {
 	gcufl::console::locks::Raw rawLock;
 	gcufl::console::locks::NonBlock nonblockLock;

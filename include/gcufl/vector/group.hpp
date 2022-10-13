@@ -1,11 +1,9 @@
 #pragma once
-
 #include <concepts>
 #include <cstddef>
 #include <type_traits>
 #include <unordered_map>
 #include <vector>
-
 
 namespace gcufl::vector {
 	template<typename V, std::invocable<V> C>

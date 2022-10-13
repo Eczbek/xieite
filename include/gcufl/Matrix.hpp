@@ -1,8 +1,6 @@
 #pragma once
-
 #include <stdexcept>
 #include <vector>
-
 
 namespace gcufl {
 	template<typename V>

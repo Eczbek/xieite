@@ -1,5 +1,4 @@
 #pragma once
-
 #include <cmath>
 #include <gcufl/geometry/Ellipse.hpp>
 #include <gcufl/geometry/Point.hpp>
@@ -8,7 +7,6 @@
 #include <gcufl/numbers/tau.hpp>
 #include <numbers>
 #include <vector>
-
 
 namespace gcufl::geometry {
 	struct Circle final

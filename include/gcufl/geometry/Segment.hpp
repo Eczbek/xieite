@@ -1,10 +1,8 @@
 #pragma once
-
 #include <cmath>
 #include <gcufl/geometry/Line.hpp>
 #include <gcufl/geometry/Point.hpp>
 #include <gcufl/math/approxEqual.hpp>
-
 
 namespace gcufl::geometry {
 	struct Segment final

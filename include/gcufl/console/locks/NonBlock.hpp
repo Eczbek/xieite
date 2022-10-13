@@ -1,9 +1,7 @@
 #pragma once
-
 #include <cstddef>
 #include <fcntl.h>
 #include <unistd.h>
-
 
 namespace gcufl::console::locks {
 	class NonBlock {

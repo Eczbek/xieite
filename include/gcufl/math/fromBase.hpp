@@ -1,10 +1,8 @@
 #pragma once
-
 #include <concepts>
 #include <cstddef>
 #include <map>
 #include <string_view>
-
 
 namespace gcufl::math {
 	template<std::unsigned_integral N = std::size_t>

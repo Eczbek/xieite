@@ -6,7 +6,6 @@
 #include <iostream>
 #include <string>
 
-
 gcufl::console::cursor::Position gcufl::console::cursor::getPosition() noexcept {
 	gcufl::console::locks::Raw rawLock;
 	std::cout << "\u001b[6n";

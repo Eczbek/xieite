@@ -1,7 +1,5 @@
 #pragma once
-
 #include <concepts>
-
 
 namespace gcufl::algorithms {
 	template<typename... T>

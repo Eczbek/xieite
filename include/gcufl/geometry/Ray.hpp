@@ -1,11 +1,9 @@
 #pragma once
-
 #include <cmath>
 #include <gcufl/geometry/Line.hpp>
 #include <gcufl/geometry/Point.hpp>
 #include <gcufl/math/approxEqual.hpp>
 #include <limits>
-
 
 namespace gcufl::geometry {
 	struct Ray final

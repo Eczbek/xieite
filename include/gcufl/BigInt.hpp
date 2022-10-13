@@ -1,5 +1,4 @@
 #pragma once
-
 #include <cmath>
 #include <compare>
 #include <concepts>
@@ -7,7 +6,6 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-
 
 namespace gcufl {
 	class BigInt {

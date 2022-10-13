@@ -1,10 +1,8 @@
 #pragma once
-
 #include <concepts>
 #include <functional>
 #include <gcufl/concepts/Comparator.hpp>
 #include <iterator>
-
 
 namespace gcufl::algorithms {
 	template<std::forward_iterator I1, std::forward_iterator I2, gcufl::concepts::Comparator<const typename std::iterator_traits<I1>::value_type> F>

@@ -1,5 +1,4 @@
 #pragma once
-
 #include <cmath>
 #include <gcufl/geometry/Point.hpp>
 #include <gcufl/math/approxEqual.hpp>
@@ -7,7 +6,6 @@
 #include <limits>
 #include <numbers>
 #include <optional>
-
 
 namespace gcufl::geometry {
 	struct Line {

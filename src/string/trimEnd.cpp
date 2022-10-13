@@ -5,7 +5,6 @@
 #include <string>
 #include <string_view>
 
-
 std::string gcufl::string::trimEnd(const std::string& string, const std::string_view characters) noexcept {
 	const std::set<char> charSet(characters.begin(), characters.end());
 	for (std::size_t i = string.size(); i--;)
