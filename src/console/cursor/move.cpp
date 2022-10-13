@@ -3,5 +3,5 @@
 #include <iostream>
 
 void gcufl::console::cursor::move(const char direction, const int distance) noexcept {
-	std::cout << "\u001b[" << distance << direction;
+	std::cout << "\x1b[" << distance << direction;
 }

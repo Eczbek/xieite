@@ -8,8 +8,8 @@
 
 gcufl::console::cursor::Position gcufl::console::cursor::getPosition() noexcept {
 	gcufl::console::locks::Raw rawLock;
-	std::cout << "\u001b[6n";
+	std::cout << "\x1b[6n";
 	gcufl::console::cursor::Position position;
-	std::scanf("\u001b[%d;%dR", &position.row, &position.column);
+	std::scanf("\x1b[%d;%dR", &position.row, &position.column);
 	return gcufl::console::cursor::Position(position.row - 1, position.column - 1);
 }

@@ -3,13 +3,13 @@
 #include <iostream>
 
 void gcufl::console::setStyle(const int style) noexcept {
-	std::cout << "\u001b[" << style << 'm';
+	std::cout << "\x1b[" << style << 'm';
 }
 
 void gcufl::console::setStyle(const int effect, const int foreground) noexcept {
-	std::cout << "\u001b[" << effect << ';' << foreground << 'm';
+	std::cout << "\x1b[" << effect << ';' << foreground << 'm';
 }
 
 void gcufl::console::setStyle(const int effect, const int foreground, const int background) noexcept {
-	std::cout << "\u001b[" << effect << ';' << foreground << ';' << background << 'm';
+	std::cout << "\x1b[" << effect << ';' << foreground << ';' << background << 'm';
 }

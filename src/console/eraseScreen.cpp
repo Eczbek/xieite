@@ -3,5 +3,5 @@
 #include <iostream>
 
 void gcufl::console::eraseScreen(const int erasor) noexcept {
-	std::cout << "\u001b[" << erasor << 'J';
+	std::cout << "\x1b[" << erasor << 'J';
 }
