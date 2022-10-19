@@ -1,5 +1,5 @@
-# gcufl::console::escapeCodes::styles::effects
-Declared in `<gcufl/console/escapeCodes/styles/effects.hpp>`
+# gcufl::console::escapeCodes::effects
+Declared in `<gcufl/console/escapeCodes/effects.hpp>`
 ```cpp
 constexpr int none = 0;
 constexpr int bold = 1;

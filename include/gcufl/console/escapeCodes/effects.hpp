@@ -1,6 +1,6 @@
 #pragma once
 
-namespace gcufl::console::escapeCodes::styles::effects {
+namespace gcufl::console::escapeCodes::effects {
 	constexpr int none = 0;
 	constexpr int bold = 1;
 	constexpr int dim = 2;
