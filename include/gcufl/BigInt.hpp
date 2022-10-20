@@ -2,6 +2,7 @@
 #include <cmath>
 #include <compare>
 #include <concepts>
+#include <gcufl/concepts/Arithmetic.hpp>
 #include <ostream>
 #include <stdexcept>
 #include <string>
@@ -51,7 +52,7 @@ namespace gcufl {
 			else
 				bits.push_back(false);
 			if (i < 2 && !bits[0])
-				sign = false;
+				this->sign = false;
 		}
 
 		constexpr gcufl::BigInt& operator=(const gcufl::BigInt& other) noexcept {
@@ -63,6 +64,17 @@ namespace gcufl {
 		template<std::integral N>
 		constexpr gcufl::BigInt& operator=(const N value) noexcept {
 			return *this = gcufl::BigInt(value);
+		}
+
+		template<gcufl::concepts::Arithmetic N>
+		constexpr operator N() const noexcept {
+			N result = 0;
+			N power = 1;
+			for (const bool bit : bits) {
+				result += bit * power;
+				power *= 2;
+			}
+			return result;
 		}
 
 		[[nodiscard]]
@@ -186,7 +198,7 @@ namespace gcufl {
 				borrow = i < bitsSize - 1 && difference < 2;
 				resultBits[i] = difference % 2;
 			}
-			return gcufl::BigInt(result.begin(), result.end(), sign != borrow);
+			return gcufl::BigInt(resultBits.begin(), resultBits.end(), sign != borrow);
 		}
 
 		template<std::integral N>
@@ -335,9 +347,12 @@ namespace gcufl {
 			do {
 				const std::vector<bool>& bits = (bigInt % 10).bits;
 				const std::size_t bitsSize = bits.size();
-				char digit = '0' + bits[0];
-				for (std::size_t i = 1; i < bitsSize; ++i)
-					digit += bits[i] * std::pow(2, i);
+				char digit = '0';
+				int power = 1;
+				for (const bool bit : bits) {
+					digit += bit * power;
+					power *= 2;
+				}
 				result = digit + result;
 				bigInt /= 10;
 			} while (bigInt);
