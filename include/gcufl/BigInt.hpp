@@ -13,18 +13,6 @@ namespace gcufl {
 		bool sign;
 		std::vector<bool> bits;
 
-		constexpr gcufl::BigInt& clean() noexcept {
-			std::size_t i = bits.size();
-			if (i)
-				while (--i && !bits.back())
-					bits.pop_back();
-			else
-				bits.push_back(false);
-			if (i < 2 && !bits[0])
-				sign = false;
-			return *this;
-		}
-
 	public:
 		[[nodiscard]]
 		constexpr BigInt(const gcufl::BigInt& other) noexcept
@@ -56,7 +44,14 @@ namespace gcufl {
 		[[nodiscard]]
 		constexpr BigInt(const I begin, const I end, const bool sign = false) noexcept
 		: sign(sign), bits(begin, end) {
-			clean();
+			std::size_t i = bits.size();
+			if (i)
+				while (--i && !bits.back())
+					bits.pop_back();
+			else
+				bits.push_back(false);
+			if (i < 2 && !bits[0])
+				sign = false;
 		}
 
 		constexpr gcufl::BigInt& operator=(const gcufl::BigInt& other) noexcept {
@@ -180,7 +175,7 @@ namespace gcufl {
 				return *this + (-other);
 			if (sign && *this > other || !sign && *this < other)
 				return -(other - *this);
-			gcufl::BigInt result = *this;
+			std::vector<bool> resultBits = bits;
 			bool borrow = false;
 			const std::size_t bitsSize = bits.size();
 			const std::size_t otherBitsSize = other.bits.size();
@@ -189,10 +184,9 @@ namespace gcufl {
 				if (i < otherBitsSize)
 					difference -= other.bits[i];
 				borrow = i < bitsSize - 1 && difference < 2;
-				result.bits[i] = difference % 2;
+				resultBits[i] = difference % 2;
 			}
-			result.sign = result.clean() && sign != borrow;
-			return result;
+			return gcufl::BigInt(result.begin(), result.end(), sign != borrow);
 		}
 
 		template<std::integral N>
@@ -331,41 +325,6 @@ namespace gcufl {
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator~() const noexcept {
 			return -(*this + 1);
-		}
-
-		[[nodiscard]]
-		constexpr gcufl::BigInt operator&(const gcufl::BigInt& other) const noexcept {
-			if (*this == other || other == -1)
-				return *this;
-			gcufl::BigInt copy = *this;
-			gcufl::BigInt otherCopy = other;
-			const std::size_t bitsSize = bits.size();
-			const std::size_t otherBitsSize = other.bits.size();
-			if (sign) {
-				++copy;
-				for (std::size_t i = 0; i < bitsSize; ++i)
-					copy.bits[i] = !copy.bits[i];
-			}
-			if (other.sign) {
-				++otherCopy;
-				for (std::size_t i = 0; i < otherBitsSize; ++i)
-					otherCopy.bits[i] = !otherCopy.bits[i];
-			}
-			std::vector<bool> result;
-			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-				result.push_back((i < bitsSize
-					? copy.bits[i]
-					: sign)
-						&& (i < otherBitsSize
-							? otherCopy.bits[i]
-							: other.sign));
-			return gcufl::BigInt(result.begin(), result.end(), std::max(*this, other).sign);
-		}
-
-		template<std::integral N>
-		[[nodiscard]]
-		constexpr gcufl::BigInt operator&(const N value) const noexcept {
-			return *this & gcufl::BigInt(value);
 		}
 
 		friend std::ostream& operator<<(std::ostream& outStream, gcufl::BigInt bigInt) noexcept {
