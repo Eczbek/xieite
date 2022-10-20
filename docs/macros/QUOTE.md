@@ -1,8 +1,7 @@
 # GCUFL_QUOTE
 Declared in `<gcufl/macros/QUOTE.hpp>`
 ```cpp
-#define GCUFL_QUOTE(expression) \
-	#expression
+#define GCUFL_QUOTE(x) #x
 ```
 Converts an expression to a string literally.
 ## Example
