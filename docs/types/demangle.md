@@ -1,6 +1,7 @@
 # gcufl::types::demangle
 Declared in `<gcufl/types/demangle.hpp>`
 ```cpp
+[[nodiscard]]
 std::string demangle(const std::string_view mangled) noexcept;
 ```
 Demangles a `typeid` name.

@@ -2,6 +2,7 @@
 Declared in `<gcufl/math/approxEqual.hpp>`
 ```cpp
 template<gcufl::concepts::Arithmetic N>
+[[nodiscard]]
 constexpr bool approxEqual(const N value1, const N value2) noexcept;
 ```
 Checks whether two numbers are almost the same.

@@ -2,6 +2,7 @@
 Declared in `<gcufl/vector/uniques.hpp>`
 ```cpp
 template<typename V>
+[[nodiscard]]
 std::vector<V> uniques(const std::vector<V>& values) noexcept;
 ```
 Removes duplicate values.

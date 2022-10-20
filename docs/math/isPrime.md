@@ -2,6 +2,7 @@
 Declared in `<gcufl/math/isPrime.hpp>`
 ```cpp
 template<std::integral N>
+[[nodiscard]]
 constexpr bool isPrime(const N value) noexcept;
 ```
 Checks whether an integral is prime.

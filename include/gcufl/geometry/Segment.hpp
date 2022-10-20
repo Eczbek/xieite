@@ -7,17 +7,21 @@
 namespace gcufl::geometry {
 	struct Segment final
 	: gcufl::geometry::Line {
+		[[nodiscard]]
 		constexpr Segment(const gcufl::geometry::Point start, const gcufl::geometry::Point end) noexcept
 		: gcufl::geometry::Line(start, end) {}
 
+		[[nodiscard]]
 		constexpr bool operator==(const gcufl::geometry::Segment& other) const noexcept {
 			return start == other.start && end == other.end || start == other.end && end == other.start;
 		}
 
+		[[nodiscard]]
 		constexpr bool operator!=(const gcufl::geometry::Segment& other) const noexcept {
 			return !(*this == other);
 		}
 
+		[[nodiscard]]
 		constexpr bool contains(const gcufl::geometry::Point point) const noexcept {
 			const double slope = this->slope();
 			return (std::isinf(slope)
@@ -32,6 +36,7 @@ namespace gcufl::geometry {
 						: other.y <= start.y && other.y >= end.y);
 		}
 
+		[[nodiscard]]
 		constexpr double length() const noexcept {
 			return std::hypot(start.x - end.x, start.y - end.y);
 		}

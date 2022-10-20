@@ -2,11 +2,13 @@
 Declared in `<gcufl/algorithms/all.hpp>`
 ```cpp
 template<typename... T>
+[[nodiscard]]
 requires(requires(T... values) {
 	{ (values && ...) } -> std::convertible_to<bool>;
 }) constexpr bool all(const T&... values) noexcept;
 
 template<typename... T>
+[[nodiscard]]
 constexpr bool all(const T&...) noexcept;
 ```
 Checks whether all arguments can be converted to a `true` boolean.

@@ -8,20 +8,25 @@
 namespace gcufl::geometry {
 	struct Ray final
 	: gcufl::geometry::Line {
+		[[nodiscard]]
 		constexpr Ray(const gcufl::geometry::Point start, const gcufl::geometry::Point intersection) noexcept
 		: gcufl::geometry::Line(start, end) {}
 
+		[[nodiscard]]
 		constexpr Ray(const gcufl::geometry::Point start, const double angle) noexcept
 		: gcufl::geometry::Line(start, angle) {}
 
+		[[nodiscard]]
 		constexpr bool operator==(const gcufl::geometry::Ray& other) const noexcept {
 			return start == other.start && contains(other.end);
 		}
 
+		[[nodiscard]]
 		constexpr bool operator!=(const gcufl::geometry::Ray& other) const noexcept {
 			return !(*this == other);
 		}
 
+		[[nodiscard]]
 		constexpr bool contains(const gcufl::geometry::Point point) const noexcept {
 			const double slope = this->slope();
 			return (std::isinf(slope)

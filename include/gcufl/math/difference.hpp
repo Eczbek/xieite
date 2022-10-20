@@ -5,6 +5,7 @@
 
 namespace gcufl::math {
 	template<std::integral N>
+	[[nodiscard]]
 	constexpr auto difference(const N a, const N b) noexcept -> std::make_unsigned_t<N> {
 		return (a > b)
 			? static_cast<std::make_unsigned_t<N>>(a) - static_cast<std::make_unsigned_t<N>>(b)
@@ -12,6 +13,7 @@ namespace gcufl::math {
 	}
 
 	template<std::floating_point N>
+	[[nodiscard]]
 	constexpr N difference(const N a, const N b) noexcept {
 		return std::abs(a - b);
 	}

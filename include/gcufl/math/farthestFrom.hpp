@@ -4,6 +4,7 @@
 
 namespace gcufl::math {
 	template<gcufl::concepts::Arithmetic N>
+	[[nodiscard]]
 	constexpr N farthestFrom(const N target, const N a, const N b) noexcept {
 		return (a >= target)
 			? (b >= target)

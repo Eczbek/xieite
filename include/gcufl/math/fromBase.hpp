@@ -6,6 +6,7 @@
 
 namespace gcufl::math {
 	template<std::unsigned_integral N = std::size_t>
+	[[nodiscard]]
 	constexpr N fromBase(const std::string_view value, const std::size_t base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
 		std::map<char, std::size_t> charMap;
 		const std::size_t digitsSize = digits.size();

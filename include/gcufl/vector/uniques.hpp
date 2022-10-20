@@ -4,6 +4,7 @@
 
 namespace gcufl::vector {
 	template<typename V>
+	[[nodiscard]]
 	std::vector<V> uniques(const std::vector<V>& values) noexcept {
 		std::unordered_set<V> uniques;
 		std::vector<V> result;

@@ -4,6 +4,7 @@
 
 namespace gcufl::vector {
 	template<typename V>
+	[[nodiscard]]
 	std::vector<std::vector<V>> rotateMatrix(const std::vector<std::vector<V>>& matrix, int rotations) noexcept {
 		rotations = gcufl::math::wrap(rotations, 2, -1);
 		if (!rotations)

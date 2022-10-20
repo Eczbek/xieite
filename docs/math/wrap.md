@@ -2,6 +2,7 @@
 Declared in `<gcufl/math/wrap.hpp>`
 ```cpp
 template<gcufl::concepts::Arithmetic N>
+[[nodiscard]]
 constexpr N wrap(const N value, const N max, const N min = 0) noexcept;
 ```
 Wraps a number between two others.

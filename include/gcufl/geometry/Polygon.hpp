@@ -9,18 +9,22 @@ namespace gcufl::geometry {
 	struct Polygon {
 		std::vector<gcufl::geometry::Point> points;
 
+		[[nodiscard]]
 		constexpr Polygon(const std::vector<gcufl::geometry::Point>& points) noexcept
 		: points(points) {}
 
+		[[nodiscard]]
 		virtual constexpr bool operator==(const gcufl::geometry::Polygon& other) const noexcept {
 			return gcufl::algorithms::rotatedMatch(points.begin(), points.end(), other.points.begin(), other.points.end())
 				|| gcufl::algorithms::rotatedMatch(points.rbegin(), points.rend(), other.points.begin(), other.points.end());
 		}
 
+		[[nodiscard]]
 		virtual constexpr bool operator!=(const gcufl::geometry::Polygon& other) const noexcept {
-		return !(*this == other);
-	}
+			return !(*this == other);
+		}
 
+		[[nodiscard]]
 		virtual constexpr double area() const noexcept {
 			double area = 0;
 			for (const gcufl::geometry::Segment& side : sides())
@@ -28,6 +32,7 @@ namespace gcufl::geometry {
 			return area / 2;
 		}
 
+		[[nodiscard]]
 		virtual constexpr bool contains(const gcufl::geometry::Point point) const noexcept {
 			std::size_t intersections = 0;
 			gcufl::geometry::Ray ray(point, 0);
@@ -36,6 +41,7 @@ namespace gcufl::geometry {
 			return intersections % 2;
 		}
 
+		[[nodiscard]]
 		virtual constexpr double perimeter() const noexcept {
 			double perimeter = 0;
 			for (const gcufl::geometry::Segment& side : sides())
@@ -43,6 +49,7 @@ namespace gcufl::geometry {
 			return perimeter;
 		}
 
+		[[nodiscard]]
 		constexpr gcufl::geometry::Polygon rotate(const double angle, const gcufl::geometry::Point pivot = gcufl::geometry::Point(0, 0)) const noexcept {
 			std::vector<gcufl::geometry::Point> rotatedPoints = points;
 			const std::size_t pointsSize = points.size();
@@ -51,6 +58,7 @@ namespace gcufl::geometry {
 			return gcufl::geometry::Polygon(rotatedPoints);
 		}
 
+		[[nodiscard]]
 		virtual constexpr std::vector<gcufl::geometry::Segment> sides() const noexcept {
 			std::vector<gcufl::geometry::Segment> sides;
 			const std::size_t pointsSize = points.size();

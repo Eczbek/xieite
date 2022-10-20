@@ -23,6 +23,7 @@ namespace gcufl::random {
 		std::uniform_int_distribution<N> distribution;
 	
 	public:
+		[[nodiscard]]
 		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;
@@ -44,6 +45,7 @@ namespace gcufl::random {
 			distribution = std::uniform_int_distribution<N>(std::min(begin2, end2), std::max(begin2, end2));
 		}
 
+		[[nodiscard]]
 		template<gcufl::concepts::UniformRandomGenerator G>
 		constexpr N operator()(G& generator) noexcept {
 			N result = distribution(generator);
@@ -64,6 +66,7 @@ namespace gcufl::random {
 		std::uniform_real_distribution<N> distribution;
 
 	public:
+		[[nodiscard]]
 		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;
@@ -85,6 +88,7 @@ namespace gcufl::random {
 			distribution = std::uniform_real_distribution<N>(std::min(begin2, end2), std::max(begin2, end2));
 		}
 
+		[[nodiscard]]
 		template<gcufl::concepts::UniformRandomGenerator G>
 		constexpr N operator()(G& generator) noexcept {
 			N result = distribution(generator);

@@ -3,6 +3,7 @@ Declared in `<gcufl/stream/read.hpp>`
 ```cpp
 std::string read(std::istream& inputStream) noexcept;
 
+[[nodiscard]]
 std::string read(std::FILE* file) noexcept;
 ```
 1. Reads entire contents of `std::ifstream`.

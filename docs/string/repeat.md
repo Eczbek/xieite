@@ -1,6 +1,7 @@
 # gcufl::string::repeat
 Declared in `<gcufl/string/repeat.hpp>`
 ```cpp
+[[nodiscard]]
 std::string repeat(const std::string_view string, std::size_t count) noexcept;
 ```
 Repeats a string.

@@ -8,6 +8,7 @@ namespace gcufl {
 		std::vector<std::size_t> dimensions;
 		std::vector<V> values;
 
+		[[nodiscard]]
 		Matrix(const std::vector<std::size_t>& dimensions) noexcept
 		: dimensions(dimensions.begin(), dimensions.end()) {
 			std::size_t size = 1;
@@ -16,6 +17,7 @@ namespace gcufl {
 			values.resize(size);
 		}
 
+		[[nodiscard]]
 		Matrix(const std::vector<std::size_t>& dimensions, const std::vector<V>& values)
 		: dimensions(dimensions.begin(), dimensions.end()), values(values.begin(), values.end()) {
 			std::size_t size = 1;
@@ -25,6 +27,7 @@ namespace gcufl {
 				throw std::runtime_error("Values do not match dimensions");
 		}
 
+		[[nodiscard]]
 		V& operator[](const std::vector<std::size_t>& indices) {
 			const std::size_t size = indices.size();
 			if (size != dimensions.size())
@@ -38,6 +41,7 @@ namespace gcufl {
 			return values[index];
 		}
 
+		[[nodiscard]]
 		const V& operator[](const std::vector<std::size_t>& indices) const {
 			const std::size_t size = indices.size();
 			if (size != dimensions.size())

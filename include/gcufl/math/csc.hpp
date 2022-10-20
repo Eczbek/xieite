@@ -4,6 +4,7 @@
 
 namespace gcufl::math {
 	template<std::floating_point N>
+	[[nodiscard]]
 	constexpr N csc(const N value) noexcept {
 		return 1 / std::sin(value);
 	}

@@ -1,8 +1,10 @@
 # gcufl::string::trimStart
 Declared in `<gcufl/string/trimStart.hpp>`
 ```cpp
+[[nodiscard]]
 std::string trimStart(const std::string& string, const std::string_view characters) noexcept;
 
+[[nodiscard]]
 std::string trimStart(const std::string& string, const char character) noexcept;
 ```
 Trims the start of a string.

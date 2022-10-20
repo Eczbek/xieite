@@ -1,6 +1,7 @@
 # gcufl::string::hash
 Declared in `<gcufl/string/hash.hpp>`
 ```cpp
+[[nodiscard]]
 constexpr unsigned long long hash(const std::string_view string) noexcept;
 ```
 Hashes a string.

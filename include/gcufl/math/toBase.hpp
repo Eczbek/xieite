@@ -6,6 +6,7 @@
 
 namespace gcufl::math {
 	template<std::unsigned_integral N = std::size_t>
+	[[nodiscard]]
 	constexpr std::string toBase(N value, const std::size_t base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
 		std::string result;
 		while (value) {

@@ -2,9 +2,11 @@
 Declared in `<gcufl/algorithms/isPalindrome.hpp>`
 ```cpp
 template<std::forward_iterator I, gcufl::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
+[[nodiscard]]
 constexpr bool isPalindrome(I begin, I end, const F& comparator) noexcept;
 
 template<std::forward_iterator I>
+[[nodiscard]]
 constexpr bool isPalindrome(const I begin, const I end) noexcept;
 ```
 Checks if an iterable is the same backwards as it is forwards.

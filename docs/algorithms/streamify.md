@@ -3,6 +3,7 @@ Declared in `<gcufl/algorithms/streamify.hpp>`
 ```cpp
 template<std::forward_iterator I>
 requires(gcufl::concepts::StreamableOut<typename std::iterator_traits<I>::value_type>)
+[[nodiscard]]
 constexpr std::stringstream streamify(I begin, const I end, const std::string_view delimiter = " ") noexcept;
 ```
 Streams an iterable.

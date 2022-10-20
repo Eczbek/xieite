@@ -7,6 +7,7 @@
 namespace gcufl::algorithms {
 	template<std::forward_iterator I1, std::forward_iterator I2, gcufl::concepts::Comparator<const typename std::iterator_traits<I1>::value_type> F>
 	requires(std::convertible_to<typename std::iterator_traits<I2>::value_type, typename std::iterator_traits<I1>::value_type>)
+	[[nodiscard]]
 	constexpr bool rotatedMatch(const I1 begin1, const I1 end1, const I2 begin2, const I2 end2, const F& comparator) noexcept {
 		if (std::distance(begin1, end1) == std::distance(begin2, end2))
 			for (I1 i = begin1; i != end1; ++i) {
@@ -27,6 +28,7 @@ namespace gcufl::algorithms {
 	}
 
 	template<std::forward_iterator I1, std::forward_iterator I2>
+	[[nodiscard]]
 	constexpr bool rotatedMatch(const I1 begin1, const I1 end1, const I2 begin2, const I2 end2) noexcept {
 		return gcufl::algorithms::rotatedMatch(begin1, end1, begin2, end2, std::equal_to<typename std::iterator_traits<I1>::value_type>());
 	}
