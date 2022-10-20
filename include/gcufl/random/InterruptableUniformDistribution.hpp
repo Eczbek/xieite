@@ -27,9 +27,7 @@ namespace gcufl::random {
 		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;
-			N& farthest = (gcufl::math::farthestFrom(0, begin, end) == begin)
-				? begin2
-				: end2;
+			N& farthest = gcufl::math::farthestFrom(0, begin2, end2);
 			sign = (farthest >= 0) * 2 - 1;
 			for (gcufl::math::NumberRange<N> interruption : interruptions) {
 				if ((interruption.begin < begin || interruption.begin > end) && (interruption.begin > begin || interruption.begin < end) && (interruption.end < begin || interruption.end > end) && (interruption.end > begin || interruption.end < end))
@@ -70,9 +68,7 @@ namespace gcufl::random {
 		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;
-			N& farthest = (gcufl::math::farthestFrom(0.0, begin, end) == begin)
-				? begin2
-				: end2;
+			N& farthest = gcufl::math::farthestFrom(0.0, begin2, end2);
 			sign = (farthest >= 0) * 2 - 1;
 			for (gcufl::math::NumberRange<N> interruption : interruptions) {
 				if ((interruption.begin < begin || interruption.begin > end) && (interruption.begin > begin || interruption.begin < end) && (interruption.end < begin || interruption.end > end) && (interruption.end > begin || interruption.end < end))
