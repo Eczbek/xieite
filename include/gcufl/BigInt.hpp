@@ -67,6 +67,7 @@ namespace gcufl {
 		}
 
 		template<gcufl::concepts::Arithmetic N>
+		[[nodiscard]]
 		constexpr operator N() const noexcept {
 			N result = 0;
 			N power = 1;
@@ -74,6 +75,27 @@ namespace gcufl {
 				result += bit * power;
 				power *= 2;
 			}
+			return result;
+		}
+
+		[[nodiscard]]
+		constexpr operator std::string() const noexcept {
+			BigInt copy = abs();
+			std::string result;
+			do {
+				const std::vector<bool>& bits = (copy % 10).bits;
+				const std::size_t bitsSize = bits.size();
+				char digit = '0';
+				int power = 1;
+				for (const bool bit : bits) {
+					digit += bit * power;
+					power *= 2;
+				}
+				result = digit + result;
+				copy /= 10;
+			} while (copy);
+			if (sign)
+				result = '-' + result;
 			return result;
 		}
 
@@ -544,24 +566,7 @@ namespace gcufl {
 		}
 
 		friend std::ostream& operator<<(std::ostream& outStream, gcufl::BigInt bigInt) noexcept {
-			if (bigInt.sign)
-				outStream << '-';
-			bigInt.sign = false;
-			std::string result;
-			do {
-				const std::vector<bool>& bits = (bigInt % 10).bits;
-				const std::size_t bitsSize = bits.size();
-				char digit = '0';
-				int power = 1;
-				for (const bool bit : bits) {
-					digit += bit * power;
-					power *= 2;
-				}
-				result = digit + result;
-				bigInt /= 10;
-			} while (bigInt);
-			outStream << result;
-			return outStream;
+			return outStream << static_cast<std::string>(bigInt);
 		}
 
 		[[nodiscard]]
