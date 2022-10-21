@@ -635,5 +635,9 @@ namespace gcufl {
 		gcufl::BigInt root(const N value) const {
 			return root(gcufl::BigInt(value));
 		}
+
+		const std::vector<bool>& data() const noexcept {
+			return bits;
+		}
 	};
 }
