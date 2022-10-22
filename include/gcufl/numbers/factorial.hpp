@@ -1,5 +1,4 @@
 #pragma once
-#include <cstddef>
 
 namespace gcufl::numbers {
 	template<unsigned long long N>
