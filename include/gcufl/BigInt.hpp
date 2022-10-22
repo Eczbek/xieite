@@ -79,27 +79,6 @@ namespace gcufl {
 		}
 
 		[[nodiscard]]
-		constexpr operator std::string() const noexcept {
-			BigInt copy = abs();
-			std::string result;
-			do {
-				const std::vector<bool>& bits = (copy % 10).bits;
-				const std::size_t bitsSize = bits.size();
-				char digit = '0';
-				int power = 1;
-				for (const bool bit : bits) {
-					digit += bit * power;
-					power *= 2;
-				}
-				result = digit + result;
-				copy /= 10;
-			} while (copy);
-			if (sign)
-				result = '-' + result;
-			return result;
-		}
-
-		[[nodiscard]]
 		constexpr operator bool() const noexcept {
 			return *this != 0;
 		}
@@ -592,10 +571,6 @@ namespace gcufl {
 			return *this >>= BigInt(value);
 		}
 
-		friend std::ostream& operator<<(std::ostream& outStream, gcufl::BigInt bigInt) noexcept {
-			return outStream << static_cast<std::string>(bigInt);
-		}
-
 		[[nodiscard]]
 		constexpr gcufl::BigInt abs() const noexcept {
 			gcufl::BigInt copy = *this;
@@ -666,6 +641,27 @@ namespace gcufl {
 		[[nodiscard]]
 		const std::vector<bool>& data() const noexcept {
 			return bits;
+		}
+
+		[[nodiscard]]
+		constexpr std::string string() const noexcept {
+			BigInt copy = abs();
+			std::string result;
+			do {
+				const std::vector<bool>& bits = (copy % 10).bits;
+				const std::size_t bitsSize = bits.size();
+				char digit = '0';
+				int power = 1;
+				for (const bool bit : bits) {
+					digit += bit * power;
+					power *= 2;
+				}
+				result = digit + result;
+				copy /= 10;
+			} while (copy);
+			if (sign)
+				result = '-' + result;
+			return result;
 		}
 	};
 }
