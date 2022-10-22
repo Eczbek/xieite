@@ -79,7 +79,7 @@ namespace gcufl {
 		}
 
 		[[nodiscard]]
-		constexpr operator std::string() const noexcept {
+        constexpr operator std::string() const noexcept {
 			BigInt copy = abs();
 			std::string result;
 			do {
@@ -148,7 +148,7 @@ namespace gcufl {
 		constexpr gcufl::BigInt operator+(const gcufl::BigInt& other) const noexcept {
 			if (sign != other.sign)
 				return *this - (-other);
-			if (!*this)
+            if (!*this)
 				return other;
 			if (!other)
 				return *this;
@@ -250,12 +250,12 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator*(const gcufl::BigInt& other) const noexcept {
+            if (!*this || !other)
+				return gcufl::BigInt(0);
 			if (*this == 1)
 				return other;
 			if (other == 1)
 				return *this;
-			if (!*this || !other)
-				return gcufl::BigInt(0);
 			if (*this == -1)
 				return -other;
 			if (other == -1)
@@ -297,17 +297,17 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator/(gcufl::BigInt other) const {
-			if (other == 1)
-				return *this;
 			if (!other)
 				throw std::domain_error("Cannot divide by 0");
+            if (other == 1)
+				return *this;
 			if (other == -1)
 				return -*this;
 			const bool otherSign = other.sign;
 			other.sign = false;
 			if (abs() < other)
 				return gcufl::BigInt(0);
-			std::vector<bool> result;
+			std::vector<bool> resultBits;
 			gcufl::BigInt difference;
 			for (std::size_t i = bits.size(); i--;) {
 				if (!difference)
@@ -316,9 +316,9 @@ namespace gcufl {
 				bool quotient = difference >= other;
 				if (quotient)
 					difference -= other;
-				result.insert(result.begin(), quotient);
+				resultBits.insert(resultBits.begin(), quotient);
 			}
-			return gcufl::BigInt(result.begin(), result.end(), sign != otherSign);
+			return gcufl::BigInt(resultBits.begin(), resultBits.end(), sign != otherSign);
 		}
 
 		template<std::integral N>
@@ -338,7 +338,24 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator%(gcufl::BigInt other) const {
-			return *this - *this / other * other;
+			if (!other)
+                throw std::domain_error("Cannot divide by 0");
+            const gcufl::BigInt copy = abs();
+            other.sign = false;
+            if (!*this || other == 1 || copy == other)
+				return gcufl::BigInt(0);
+            if (copy < other)
+                return *this;
+			gcufl::BigInt difference;
+			for (std::size_t i = bits.size(); i--;) {
+				if (!difference)
+					difference.bits.clear();
+				difference.bits.insert(difference.bits.begin(), bits[i]);
+				if (difference >= other)
+					difference -= other;
+			}
+            difference.sign = sign;
+			return difference;
 		}
 
 		template<std::integral N>
@@ -363,6 +380,8 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator&(const gcufl::BigInt& other) const noexcept {
+            if (!*this || !other)
+                return gcufl::BigInt(0);
 			gcufl::BigInt copy = *this;
 			const std::size_t bitsSize = bits.size();
 			if (sign) {
@@ -412,6 +431,10 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator|(const gcufl::BigInt& other) const noexcept {
+            if (!*this)
+                return other;
+            if (!other)
+                return *this;
 			gcufl::BigInt copy = *this;
 			const std::size_t bitsSize = bits.size();
 			if (sign) {
@@ -461,6 +484,10 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator^(const gcufl::BigInt& other) const noexcept {
+            if (!*this)
+                return other;
+            if (!other)
+                return *this;
 			gcufl::BigInt copy = *this;
 			const std::size_t bitsSize = bits.size();
 			if (sign) {
@@ -636,6 +663,7 @@ namespace gcufl {
 			return root(gcufl::BigInt(value));
 		}
 
+		[[nodiscard]]
 		const std::vector<bool>& data() const noexcept {
 			return bits;
 		}
