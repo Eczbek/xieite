@@ -79,7 +79,7 @@ namespace gcufl {
 		}
 
 		[[nodiscard]]
-        constexpr operator std::string() const noexcept {
+		constexpr operator std::string() const noexcept {
 			BigInt copy = abs();
 			std::string result;
 			do {
@@ -148,7 +148,7 @@ namespace gcufl {
 		constexpr gcufl::BigInt operator+(const gcufl::BigInt& other) const noexcept {
 			if (sign != other.sign)
 				return *this - (-other);
-            if (!*this)
+			if (!*this)
 				return other;
 			if (!other)
 				return *this;
@@ -250,7 +250,7 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator*(const gcufl::BigInt& other) const noexcept {
-            if (!*this || !other)
+			if (!*this || !other)
 				return gcufl::BigInt(0);
 			if (*this == 1)
 				return other;
@@ -299,7 +299,7 @@ namespace gcufl {
 		constexpr gcufl::BigInt operator/(gcufl::BigInt other) const {
 			if (!other)
 				throw std::domain_error("Cannot divide by 0");
-            if (other == 1)
+			if (other == 1)
 				return *this;
 			if (other == -1)
 				return -*this;
@@ -339,13 +339,13 @@ namespace gcufl {
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator%(gcufl::BigInt other) const {
 			if (!other)
-                throw std::domain_error("Cannot divide by 0");
-            const gcufl::BigInt copy = abs();
-            other.sign = false;
-            if (!*this || other == 1 || copy == other)
+				throw std::domain_error("Cannot divide by 0");
+			const gcufl::BigInt copy = abs();
+			other.sign = false;
+			if (!*this || other == 1 || copy == other)
 				return gcufl::BigInt(0);
-            if (copy < other)
-                return *this;
+			if (copy < other)
+				return *this;
 			gcufl::BigInt difference;
 			for (std::size_t i = bits.size(); i--;) {
 				if (!difference)
@@ -354,7 +354,7 @@ namespace gcufl {
 				if (difference >= other)
 					difference -= other;
 			}
-            difference.sign = sign;
+			difference.sign = sign;
 			return difference;
 		}
 
@@ -380,8 +380,8 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator&(const gcufl::BigInt& other) const noexcept {
-            if (!*this || !other)
-                return gcufl::BigInt(0);
+			if (!*this || !other)
+				return gcufl::BigInt(0);
 			gcufl::BigInt copy = *this;
 			const std::size_t bitsSize = bits.size();
 			if (sign) {
@@ -431,10 +431,10 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator|(const gcufl::BigInt& other) const noexcept {
-            if (!*this)
-                return other;
-            if (!other)
-                return *this;
+			if (!*this)
+				return other;
+			if (!other)
+				return *this;
 			gcufl::BigInt copy = *this;
 			const std::size_t bitsSize = bits.size();
 			if (sign) {
@@ -484,10 +484,10 @@ namespace gcufl {
 
 		[[nodiscard]]
 		constexpr gcufl::BigInt operator^(const gcufl::BigInt& other) const noexcept {
-            if (!*this)
-                return other;
-            if (!other)
-                return *this;
+			if (!*this)
+				return other;
+			if (!other)
+				return *this;
 			gcufl::BigInt copy = *this;
 			const std::size_t bitsSize = bits.size();
 			if (sign) {
@@ -561,27 +561,27 @@ namespace gcufl {
 			return *this <<= gcufl::BigInt(value);
 		}
 
-        [[nodiscard]]
-        constexpr gcufl::BigInt operator>>(const gcufl::BigInt& other) const noexcept {
-            if (!sign && other.sign || !*this)
-                return BigInt(0);
-            if (!other)
-                return *this;
-            std::vector<bool> resultBits = bits;
-            std::vector<bool>::iterator end = resultBits.begin();
-            std::advance(end, static_cast<std::size_t>(other));
-            resultBits.erase(resultBits.begin(), end);
-            BigInt result(resultBits.begin(), resultBits.end(), sign);
-            return result
-                ? result
-                : -gcufl::BigInt(sign);
-        }
+		[[nodiscard]]
+		constexpr gcufl::BigInt operator>>(const gcufl::BigInt& other) const noexcept {
+			if (!sign && other.sign || !*this)
+				return BigInt(0);
+			if (!other)
+				return *this;
+			std::vector<bool> resultBits = bits;
+			std::vector<bool>::iterator end = resultBits.begin();
+			std::advance(end, static_cast<std::size_t>(other));
+			resultBits.erase(resultBits.begin(), end);
+			BigInt result(resultBits.begin(), resultBits.end(), sign);
+			return result
+				? result
+				: -gcufl::BigInt(sign);
+		}
 
-        template<std::integral N>
-        [[nodiscard]]
-        constexpr gcufl::BigInt operator>>(const N value) const noexcept {
-            return *this >> BigInt(value);
-        }
+		template<std::integral N>
+		[[nodiscard]]
+		constexpr gcufl::BigInt operator>>(const N value) const noexcept {
+			return *this >> BigInt(value);
+		}
 
 		constexpr gcufl::BigInt operator>>=(const gcufl::BigInt& other) noexcept {
 			return *this = *this >> other;
