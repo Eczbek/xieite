@@ -3,10 +3,11 @@
 
 namespace gcufl::algorithms {
 	template<typename... T>
-	[[nodiscard]]
 	requires(requires(T... values) {
 		{ (values && ...) } -> std::convertible_to<bool>;
-	}) constexpr bool all(const T&... values) noexcept {
+	})
+	[[nodiscard]]
+	constexpr bool all(const T&... values) noexcept {
 		return (values && ...);
 	}
 
