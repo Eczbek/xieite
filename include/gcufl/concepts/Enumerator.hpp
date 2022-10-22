@@ -3,5 +3,5 @@
 
 namespace gcufl::concepts {
 	template<typename T>
-	concept Enum = std::is_enum_v<T>;
+	concept Enumerator = std::is_enum_v<T>;
 }
