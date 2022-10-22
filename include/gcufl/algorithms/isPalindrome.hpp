@@ -8,9 +8,9 @@ namespace gcufl::algorithms {
 	template<std::forward_iterator I, gcufl::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
 	[[nodiscard]]
 	constexpr bool isPalindrome(I begin, I end, const F& comparator) noexcept {
-		const typename std::iterator_traits<I>::difference_type size = std::distance(begin, end);
+		const typename std::iterator_traits<I>::difference_type size = std::distance(begin, end) / 2;
 		--end;
-		for (typename std::iterator_traits<I>::difference_type i = 0; i < size / 2; ++i) {
+		for (typename std::iterator_traits<I>::difference_type i = 0; i < size; ++i) {
 			if (!comparator(*begin, *end))
 				return false;
 			++begin;
