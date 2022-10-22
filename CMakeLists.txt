@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.24)
+project(gcufl VERSION 0.0.0 LANGUAGES CXX)
+file(GLOB_RECURSE SOURCES src/*)
+add_library(${PROJECT_NAME} ${SOURCES})
+target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_20)
+# set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
