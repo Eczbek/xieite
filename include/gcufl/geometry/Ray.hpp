@@ -8,11 +8,9 @@
 namespace gcufl::geometry {
 	struct Ray final
 	: gcufl::geometry::Line {
-		[[nodiscard]]
 		constexpr Ray(const gcufl::geometry::Point start, const gcufl::geometry::Point intersection) noexcept
 		: gcufl::geometry::Line(start, end) {}
 
-		[[nodiscard]]
 		constexpr Ray(const gcufl::geometry::Point start, const double angle) noexcept
 		: gcufl::geometry::Line(start, angle) {}
 

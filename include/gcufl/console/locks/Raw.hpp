@@ -8,7 +8,6 @@ namespace gcufl::console::locks {
 		termios cookedMode;
 
 	public:
-		[[nodiscard]]
 		Raw(const bool echo = false) noexcept;
 
 		~Raw();

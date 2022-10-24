@@ -9,7 +9,6 @@ namespace gcufl::console::locks {
 		const int blockingMode = fcntl(STDIN_FILENO, F_GETFL);
 
 	public:
-		[[nodiscard]]
 		NonBlock() noexcept;
 
 		~NonBlock();

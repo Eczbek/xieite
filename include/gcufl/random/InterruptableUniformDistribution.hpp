@@ -23,7 +23,6 @@ namespace gcufl::random {
 		std::uniform_int_distribution<N> distribution;
 	
 	public:
-		[[nodiscard]]
 		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;
@@ -64,7 +63,6 @@ namespace gcufl::random {
 		std::uniform_real_distribution<N> distribution;
 
 	public:
-		[[nodiscard]]
 		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<gcufl::math::NumberRange<N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;

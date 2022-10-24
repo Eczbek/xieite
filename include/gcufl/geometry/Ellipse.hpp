@@ -14,7 +14,6 @@ namespace gcufl::geometry {
 		gcufl::geometry::Point radius;
 		double rotation;
 
-		[[nodiscard]]
 		constexpr Ellipse(const gcufl::geometry::Point center, const gcufl::geometry::Point radius, const double rotation = 0) noexcept
 		: center(center), radius(radius), rotation(rotation) {}
 

@@ -12,11 +12,9 @@ namespace gcufl::geometry {
 		gcufl::geometry::Point start;
 		gcufl::geometry::Point end;
 
-		[[nodiscard]]
 		constexpr Line(const gcufl::geometry::Point intersection1, const gcufl::geometry::Point intersection2) noexcept
 		: start(start), end(end) {}
 
-		[[nodiscard]]
 		constexpr Line(const gcufl::geometry::Point intersection, const double angle) noexcept
 		: start(start), end(gcufl::geometry::Point(std::cos(angle), std::sin(angle))) {}
 

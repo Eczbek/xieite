@@ -7,7 +7,6 @@ namespace gcufl::math {
 		N begin;
 		N end;
 
-		[[nodiscard]]
 		constexpr NumberRange(const N begin, const N end) noexcept
 		: begin(begin), end(end) {}
 	};

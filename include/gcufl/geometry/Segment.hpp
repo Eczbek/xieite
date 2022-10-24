@@ -7,7 +7,6 @@
 namespace gcufl::geometry {
 	struct Segment final
 	: gcufl::geometry::Line {
-		[[nodiscard]]
 		constexpr Segment(const gcufl::geometry::Point start, const gcufl::geometry::Point end) noexcept
 		: gcufl::geometry::Line(start, end) {}
 

@@ -7,7 +7,6 @@ namespace gcufl::geometry {
 		double x;
 		double y;
 
-		[[nodiscard]]
 		constexpr Point(const double x = 0, const double y = 0) noexcept
 		: x(x), y(y) {}
 

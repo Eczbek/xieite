@@ -11,7 +11,6 @@
 namespace gcufl::geometry {
 	struct Circle final
 	: gcufl::geometry::Ellipse {
-		[[nodiscard]]
 		constexpr Circle(const gcufl::geometry::Point center, const double radius) noexcept
 		: gcufl::geometry::Ellipse(center, gcufl::geometry::Point(radius, radius)) {}
 

@@ -9,7 +9,6 @@ namespace gcufl::geometry {
 	struct Polygon {
 		std::vector<gcufl::geometry::Point> points;
 
-		[[nodiscard]]
 		constexpr Polygon(const std::vector<gcufl::geometry::Point>& points) noexcept
 		: points(points) {}
 

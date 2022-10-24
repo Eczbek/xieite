@@ -8,7 +8,6 @@ namespace gcufl {
 		std::chrono::time_point<std::chrono::high_resolution_clock> start;
 
 	public:
-		[[nodiscard]]
 		Timer() noexcept;
 
 		template<gcufl::concepts::Duration D = std::chrono::nanoseconds>

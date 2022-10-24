@@ -15,12 +15,10 @@ namespace gcufl {
 		std::vector<bool> bits;
 
 	public:
-		[[nodiscard]]
 		constexpr BigInt(const gcufl::BigInt& other) noexcept
 		: sign(other.sign), bits(other.bits) {}
 
 		template<std::signed_integral N = int>
-		[[nodiscard]]
 		constexpr BigInt(N value = 0) noexcept
 		: sign(value < 0) {
 			value = std::abs(value);
@@ -31,7 +29,6 @@ namespace gcufl {
 		}
 
 		template<std::unsigned_integral N>
-		[[nodiscard]]
 		constexpr BigInt(N value) noexcept
 		: sign(false) {
 			do {
@@ -42,7 +39,6 @@ namespace gcufl {
 
 		template<std::forward_iterator I>
 		requires(std::convertible_to<typename I::value_type, bool>)
-		[[nodiscard]]
 		constexpr BigInt(const I begin, const I end, const bool sign = false) noexcept
 		: sign(sign), bits(begin, end) {
 			std::size_t i = bits.size();
