@@ -1,4 +1,3 @@
-
 #include <xieite/string/repeat.hpp>
 #include <string>
 #include <string_view>

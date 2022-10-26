@@ -1,4 +1,3 @@
-
 #include <xieite/console/eraseLine.hpp>
 #include <iostream>
 

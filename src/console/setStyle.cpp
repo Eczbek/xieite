@@ -1,4 +1,3 @@
-
 #include <xieite/console/setStyle.hpp>
 #include <iostream>
 

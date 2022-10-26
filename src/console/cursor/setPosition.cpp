@@ -1,4 +1,3 @@
-
 #include <xieite/console/cursor/setPosition.hpp>
 #include <xieite/console/cursor/Position.hpp>
 #include <iostream>

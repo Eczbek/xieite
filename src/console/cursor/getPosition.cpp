@@ -1,4 +1,3 @@
-
 #include <cstdio>
 #include <xieite/console/cursor/getPosition.hpp>
 #include <xieite/console/cursor/Position.hpp>

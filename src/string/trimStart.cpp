@@ -1,4 +1,3 @@
-
 #include <cstddef>
 #include <xieite/string/trimStart.hpp>
 #include <set>

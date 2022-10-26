@@ -1,4 +1,3 @@
-
 #include <xieite/console/eraseScreen.hpp>
 #include <iostream>
 

@@ -1,4 +1,3 @@
-
 #include <xieite/console/locks/Raw.hpp>
 #include <termios.h>
 #include <unistd.h>

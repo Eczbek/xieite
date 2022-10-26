@@ -1,4 +1,3 @@
-
 #include <cstdio>
 #include <xieite/stream/readFile.hpp>
 #include <xieite/system/execute.hpp>

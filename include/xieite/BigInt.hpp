@@ -127,7 +127,7 @@ namespace xieite {
 				return other;
 			if (!other)
 				return *this;
-			std::vector<bool> result;
+			std::vector<bool> resultBits;
 			bool carry = false;
 			const std::size_t bitsSize = bits.size();
 			const std::size_t otherBitsSize = other.bits.size();
@@ -138,9 +138,9 @@ namespace xieite {
 				if (i < otherBitsSize)
 					sum += other.bits[i];
 				carry = sum > 1;
-				result.push_back(sum % 2);
+				resultBits.push_back(sum % 2);
 			}
-			return xieite::BigInt(result.begin(), result.end(), sign);
+			return xieite::BigInt(resultBits.begin(), resultBits.end(), sign);
 		}
 
 		template<std::integral N>

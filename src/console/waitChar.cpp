@@ -1,4 +1,3 @@
-
 #include <xieite/console/locks/Raw.hpp>
 #include <xieite/console/waitChar.hpp>
 #include <iostream>

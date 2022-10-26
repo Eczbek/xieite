@@ -1,4 +1,3 @@
-
 #include <xieite/console/cursor/Position.hpp>
 #include <xieite/console/getWindowSize.hpp>
 #include <sys/ioctl.h>

@@ -1,4 +1,3 @@
-
 #include <xieite/console/locks/NonBlock.hpp>
 #include <fcntl.h>
 

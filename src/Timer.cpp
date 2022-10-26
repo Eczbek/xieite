@@ -1,4 +1,3 @@
-
 #include <chrono>
 #include <xieite/Timer.hpp>
 

@@ -1,4 +1,3 @@
-
 #include <xieite/console/cursor/move.hpp>
 #include <iostream>
 

@@ -1,4 +1,3 @@
-
 #include <cstddef>
 #include <xieite/string/truncate.hpp>
 #include <string>
