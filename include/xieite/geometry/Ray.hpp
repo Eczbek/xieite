@@ -1,9 +1,9 @@
 #pragma once
 #include <cmath>
+#include <limits>
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/math/approxEqual.hpp>
-#include <limits>
 
 namespace xieite::geometry {
 	struct Ray final

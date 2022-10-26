@@ -1,8 +1,8 @@
 #pragma once
 #include <concepts>
 #include <functional>
-#include <xieite/concepts/Comparator.hpp>
 #include <iterator>
+#include <xieite/concepts/Comparator.hpp>
 
 namespace xieite::algorithms {
 	template<std::forward_iterator I1, std::forward_iterator I2, xieite::concepts::Comparator<const typename std::iterator_traits<I1>::value_type> F>

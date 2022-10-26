@@ -1,6 +1,6 @@
-#include <xieite/console/locks/Raw.hpp>
 #include <termios.h>
 #include <unistd.h>
+#include <xieite/console/locks/Raw.hpp>
 
 xieite::console::locks::Raw::Raw(const bool echo) noexcept {
 	tcgetattr(STDIN_FILENO, &cookedMode);

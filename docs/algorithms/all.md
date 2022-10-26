@@ -15,8 +15,8 @@ constexpr bool all(const T&...) noexcept;
 Checks whether all arguments can be converted to a `true` boolean.
 ## Example
 ```cpp
-#include <xieite/algorithms/all.hpp>
 #include <iostream>
+#include <xieite/algorithms/all.hpp>
 
 int main() {
 	std::cout << std::boolalpha << xieite::algorithms::all("h", 4, true, '$') << '\n';

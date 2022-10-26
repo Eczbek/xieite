@@ -8,8 +8,8 @@ Partially reverses an iterable's elements.
 ## Example
 ```cpp
 #include <array>
-#include <xieite/algorithms/partialReverse.hpp>
 #include <iostream>
+#include <xieite/algorithms/partialReverse.hpp>
 
 int main() {
 	std::array<int, 5> values { 1, 2, 3, 4, 5 };

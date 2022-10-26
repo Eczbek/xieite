@@ -8,8 +8,8 @@ constexpr std::string toBase(N value, const unsigned int base, const std::string
 Converts a base-10 integral to any base.
 ## Example
 ```cpp
-#include <xieite/math/toBase.hpp>
 #include <iostream>
+#include <xieite/math/toBase.hpp>
 
 int main() {
 	std::cout << xieite::math::toBase(12, 2) << '\n';

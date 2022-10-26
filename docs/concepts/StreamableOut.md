@@ -9,8 +9,8 @@ concept StreamableOut = requires(std::ostream& outStream, T value) {
 Specifies that a type `T` is ostream-able.
 ## Example
 ```cpp
-#include <xieite/concepts/StreamableOut.hpp>
 #include <iostream>
+#include <xieite/concepts/StreamableOut.hpp>
 
 struct UnstreamableType {};
 

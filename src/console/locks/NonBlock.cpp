@@ -1,5 +1,5 @@
-#include <xieite/console/locks/NonBlock.hpp>
 #include <fcntl.h>
+#include <xieite/console/locks/NonBlock.hpp>
 
 xieite::console::locks::NonBlock::NonBlock() noexcept {
 	fcntl(STDIN_FILENO, F_SETFL, blockingMode | O_NONBLOCK);

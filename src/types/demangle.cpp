@@ -1,7 +1,7 @@
 #include <cxxabi.h>
-#include <xieite/types/demangle.hpp>
 #include <string>
 #include <string_view>
+#include <xieite/types/demangle.hpp>
 
 std::string xieite::types::demangle(const std::string_view mangled) noexcept {
 	int status;

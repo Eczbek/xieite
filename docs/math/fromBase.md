@@ -8,8 +8,8 @@ constexpr N fromBase(const std::string_view value, const unsigned int base, cons
 Converts an integral from any base to base-10.
 ## Example
 ```cpp
-#include <xieite/math/fromBase.hpp>
 #include <iostream>
+#include <xieite/math/fromBase.hpp>
 
 int main() {
 	std::cout << xieite::math::fromBase("g4h3", 21) << '\n';

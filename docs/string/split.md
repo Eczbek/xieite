@@ -13,8 +13,8 @@ std::vector<std::string> split(const std::string& string, const std::regex& deli
 Splits a string into a vector of strings.
 ## Example
 ```cpp
-#include <xieite/string/split.hpp>
 #include <string>
+#include <xieite/string/split.hpp>
 
 int main() {
 	for (const std::string_view segment : xieite::string::split("Hello, world!", ' '))

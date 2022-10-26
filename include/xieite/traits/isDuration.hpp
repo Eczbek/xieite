@@ -1,8 +1,8 @@
 #pragma once
 #include <chrono>
 #include <cstdint>
-#include <xieite/concepts/Arithmetic.hpp>
 #include <ratio>
+#include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::traits {
 	template<typename>

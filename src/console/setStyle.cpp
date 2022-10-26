@@ -1,5 +1,5 @@
-#include <xieite/console/setStyle.hpp>
 #include <iostream>
+#include <xieite/console/setStyle.hpp>
 
 void xieite::console::setStyle(const int style) noexcept {
 	std::cout << "\x1b[" << style << 'm';

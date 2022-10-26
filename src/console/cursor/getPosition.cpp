@@ -1,9 +1,9 @@
 #include <cstdio>
+#include <iostream>
+#include <string>
 #include <xieite/console/cursor/getPosition.hpp>
 #include <xieite/console/cursor/Position.hpp>
 #include <xieite/console/locks/Raw.hpp>
-#include <iostream>
-#include <string>
 
 xieite::console::cursor::Position xieite::console::cursor::getPosition() noexcept {
 	xieite::console::locks::Raw rawLock;

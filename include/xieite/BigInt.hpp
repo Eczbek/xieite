@@ -2,11 +2,11 @@
 #include <cmath>
 #include <compare>
 #include <concepts>
-#include <xieite/concepts/Arithmetic.hpp>
 #include <ostream>
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite {
 	class BigInt {

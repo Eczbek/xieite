@@ -1,7 +1,7 @@
-#include <xieite/console/cursor/Position.hpp>
-#include <xieite/console/getWindowSize.hpp>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include <xieite/console/cursor/Position.hpp>
+#include <xieite/console/getWindowSize.hpp>
 
 xieite::console::cursor::Position xieite::console::getWindowSize() noexcept {
 	winsize size;

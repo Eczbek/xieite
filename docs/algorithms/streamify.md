@@ -10,8 +10,8 @@ Streams an iterable.
 ## Example
 ```cpp
 #include <array>
-#include <xieite/algorithms/streamify.hpp>
 #include <iostream>
+#include <xieite/algorithms/streamify.hpp>
 
 int main() {
 	std::array<int, 5> values { 1, 2, 3, 4, 5 };

@@ -6,8 +6,8 @@ Declared in `<xieite/macros/QUOTE.hpp>`
 Converts an expression to a string literally.
 ## Example
 ```cpp
-#include <xieite/macros/QUOTE.hpp>
 #include <iostream>
+#include <xieite/macros/QUOTE.hpp>
 
 int main() {
 	std::cout << GCUFL_QUOTE(2 + 2) << '\n';

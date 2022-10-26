@@ -8,8 +8,8 @@ constexpr N& closestTo(const N target, const N a, const N b) noexcept;
 Gets the value closest to a target.
 ## Example
 ```cpp
-#include <xieite/math/closestTo.hpp>
 #include <iostream>
+#include <xieite/math/closestTo.hpp>
 
 int main() {
 	std::cout << xieite::math::closestTo(0, 5, -1) << '\n';

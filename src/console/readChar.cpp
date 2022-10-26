@@ -1,7 +1,7 @@
+#include <unistd.h>
 #include <xieite/console/locks/NonBlock.hpp>
 #include <xieite/console/locks/Raw.hpp>
 #include <xieite/console/readChar.hpp>
-#include <unistd.h>
 
 char xieite::console::readChar() noexcept {
 	xieite::console::locks::Raw rawLock;

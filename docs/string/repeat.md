@@ -7,8 +7,8 @@ std::string repeat(const std::string_view string, std::size_t count) noexcept;
 Repeats a string.
 ## Example
 ```cpp
-#include <xieite/string/repeat.hpp>
 #include <iostream>
+#include <xieite/string/repeat.hpp>
 
 int main() {
 	std::cout << xieite::string::repeat("Hello, world!\n", 3);

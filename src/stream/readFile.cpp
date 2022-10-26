@@ -1,7 +1,7 @@
 #include <cstdio>
-#include <xieite/stream/readFile.hpp>
 #include <memory>
 #include <string>
+#include <xieite/stream/readFile.hpp>
 
 std::string xieite::stream::readFile(std::FILE* const file) noexcept {
 	std::unique_ptr<std::FILE, decltype(&pclose)> pipe(file, pclose);

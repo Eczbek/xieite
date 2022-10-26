@@ -8,8 +8,8 @@ Declared in `<xieite/macros/CONCAT.hpp>`
 Concatenates two values.
 ## Example
 ```cpp
-#include <xieite/macros/CONCAT.hpp>
 #include <iostream>
+#include <xieite/macros/CONCAT.hpp>
 
 int main() {
 	std::cout << GCUFL_CONCAT(4, 'h') << '\n';

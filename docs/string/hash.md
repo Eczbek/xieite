@@ -7,8 +7,9 @@ constexpr unsigned long long hash(const std::string_view string) noexcept;
 Hashes a string.
 ## Example
 ```cpp
-#include <xieite/string/hash.hpp>
 #include <iostream>
+#include <xieite/string/hash.hpp>
+
 int main() {
 	switch (xieite::string::hash("banana")) {
 		case xieite::string::hash("apple"):

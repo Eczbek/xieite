@@ -1,8 +1,8 @@
 #include <cstddef>
-#include <xieite/string/trimStart.hpp>
 #include <set>
 #include <string>
 #include <string_view>
+#include <xieite/string/trimStart.hpp>
 
 std::string xieite::string::trimStart(const std::string& string, const std::string_view characters) noexcept {
 	std::set<char> charSet(characters.begin(), characters.end());

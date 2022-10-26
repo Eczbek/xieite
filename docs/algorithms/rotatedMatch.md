@@ -13,9 +13,9 @@ constexpr bool rotatedMatch(const I1 begin1, const I1 end1, const I2 begin2, con
 Checks whether one iterable contains elements in the same relative order as in another iterable.
 ## Example
 ```cpp
-#include <xieite/algorithms/rotatedMatch.hpp>
 #include <iostream>
 #include <vector>
+#include <xieite/algorithms/rotatedMatch.hpp>
 
 int main() {
 	const std::vector<int> a { 1, 2, 3, 4, 5 };

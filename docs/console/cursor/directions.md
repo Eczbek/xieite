@@ -6,4 +6,3 @@ constexpr char down = 'B';
 constexpr char right = 'C';
 constexpr char left = 'D';
 ```
-See `xieite::console::cursor::move`.

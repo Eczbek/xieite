@@ -7,8 +7,8 @@ std::string truncate(const std::string& string, const std::size_t length, const 
 Replaces the end of a string.
 ## Example
 ```cpp
-#include <xieite/string/truncate.hpp>
 #include <iostream>
+#include <xieite/string/truncate.hpp>
 
 int main() {
 	std::cout << xieite::string::truncate("Hello, world!", 8, "...") << '\n';

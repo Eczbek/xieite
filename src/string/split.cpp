@@ -1,9 +1,9 @@
 #include <cstddef>
-#include <xieite/string/split.hpp>
 #include <regex>
 #include <string>
 #include <string_view>
 #include <vector>
+#include <xieite/string/split.hpp>
 
 std::vector<std::string> xieite::string::split(const std::string& string, const std::string_view delimiter) noexcept {
 	std::vector<std::string> segments;

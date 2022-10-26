@@ -7,8 +7,8 @@ std::string demangle(const std::string_view mangled) noexcept;
 Demangles a `typeid` name.
 ## Example
 ```cpp
-#include <xieite/types/demangle.hpp>
 #include <iostream>
+#include <xieite/types/demangle.hpp>
 
 template<typename T>
 struct Type {};

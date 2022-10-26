@@ -12,9 +12,9 @@ constexpr N difference(const N a, const N b) noexcept;
 Calculates the absolute difference between values.
 ## Example
 ```cpp
-#include <xieite/math/difference.hpp>
 #include <iostream>
 #include <limits>
+#include <xieite/math/difference.hpp>
 
 int main() {
 	std::cout << std::numeric_limits<short>::max() << '\n'

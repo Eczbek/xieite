@@ -8,9 +8,9 @@ std::vector<V> uniques(const std::vector<V>& values) noexcept;
 Removes duplicate values.
 ## Example
 ```cpp
-#include <xieite/vector/uniques.hpp>
 #include <iostream>
 #include <vector>
+#include <xieite/vector/uniques.hpp>
 
 int main() {
 	for (const int value : xieite::vector::uniques<int>({ 1, 2, 3, 2, 1 }))

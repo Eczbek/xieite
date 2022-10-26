@@ -1,9 +1,9 @@
 #pragma once
+#include <vector>
 #include <xieite/algorithms/rotatedMatch.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/Ray.hpp>
 #include <xieite/geometry/Segment.hpp>
-#include <vector>
 
 namespace xieite::geometry {
 	struct Polygon {

@@ -1,12 +1,12 @@
 #pragma once
 #include <cmath>
+#include <numbers>
+#include <vector>
 #include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/math/approxEqual.hpp>
 #include <xieite/numbers/tau.hpp>
-#include <numbers>
-#include <vector>
 
 namespace xieite::geometry {
 	struct Circle final

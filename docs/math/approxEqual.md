@@ -6,12 +6,10 @@ template<xieite::concepts::Arithmetic N>
 constexpr bool approxEqual(const N value1, const N value2) noexcept;
 ```
 Checks whether two numbers are almost the same.
-<br/>
-This can be used to ignore rounding errors.
 ## Example
 ```cpp
-#include <xieite/math/approxEqual.hpp>
 #include <iostream>
+#include <xieite/math/approxEqual.hpp>
 
 int main() {
 	const double a = 0.3;

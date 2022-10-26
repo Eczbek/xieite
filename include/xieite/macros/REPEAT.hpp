@@ -1,4 +1,4 @@
-
+#pragma once
 #include <xieite/macros/CONCAT.hpp>
 
 #define GCUFL_REPEAT(x, n) GCUFL_CONCAT(GCUFL_REPEAT_, n)(x)

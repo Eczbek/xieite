@@ -15,8 +15,8 @@ constexpr bool any(const T&...) noexcept;
 Checks whether at least one argument can be converted to a `true` boolean.
 ## Example
 ```cpp
-#include <xieite/algorithms/any.hpp>
 #include <iostream>
+#include <xieite/algorithms/any.hpp>
 
 int main() {
 	std::cout << std::boolalpha << xieite::algorithms::any(false, 0, '\0', "m") << '\n';

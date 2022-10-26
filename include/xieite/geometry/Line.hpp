@@ -1,11 +1,11 @@
 #pragma once
 #include <cmath>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/math/approxEqual.hpp>
-#include <xieite/numbers/tau.hpp>
 #include <limits>
 #include <numbers>
 #include <optional>
+#include <xieite/geometry/Point.hpp>
+#include <xieite/math/approxEqual.hpp>
+#include <xieite/numbers/tau.hpp>
 
 namespace xieite::geometry {
 	struct Line {

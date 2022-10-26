@@ -13,9 +13,9 @@ Finds the Nth occurence of a value, starting at 0.
 ## Example
 ```cpp
 #include <array>
-#include <xieite/algorithms/findNth.hpp>
 #include <iostream>
 #include <iterator>
+#include <xieite/algorithms/findNth.hpp>
 
 int main() {
 	std::array<int, 7> values { 1, 2, 1, 3, 1, 4, 1 };

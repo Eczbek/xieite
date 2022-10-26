@@ -1,8 +1,8 @@
 #pragma once
-#include <xieite/concepts/StreamableOut.hpp>
 #include <iterator>
 #include <sstream>
 #include <string_view>
+#include <xieite/concepts/StreamableOut.hpp>
 
 namespace xieite::algorithms {
 	template<std::forward_iterator I>

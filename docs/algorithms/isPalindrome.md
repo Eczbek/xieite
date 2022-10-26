@@ -12,9 +12,9 @@ constexpr bool isPalindrome(const I begin, const I end) noexcept;
 Checks if an iterable is the same backwards as it is forwards.
 ## Example
 ```cpp
-#include <xieite/algorithms/isPalindrome.hpp>
 #include <iostream>
 #include <string>
+#include <xieite/algorithms/isPalindrome.hpp>
 
 int main() {
 	std::string value = "racecar";

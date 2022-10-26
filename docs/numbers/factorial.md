@@ -10,8 +10,8 @@ constexpr unsigned long long factorial<0> = 1;
 Recursive factorial template.
 ## Example
 ```cpp
-#include <xieite/numbers/factorial.hpp>
 #include <iostream>
+#include <xieite/numbers/factorial.hpp>
 
 int main() {
 	std::cout << xieite::numbers::factorial<5> << '\n';

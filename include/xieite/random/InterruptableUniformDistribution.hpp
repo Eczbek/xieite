@@ -2,14 +2,14 @@
 #include <algorithm>
 #include <concepts>
 #include <cmath>
+#include <random>
+#include <stdexcept>
+#include <vector>
 #include <xieite/concepts/UniformRandomGenerator.hpp>
 #include <xieite/math/closestTo.hpp>
 #include <xieite/math/difference.hpp>
 #include <xieite/math/farthestFrom.hpp>
 #include <xieite/math/NumberRange.hpp>
-#include <random>
-#include <stdexcept>
-#include <vector>
 
 namespace xieite::random {
 	template<typename>

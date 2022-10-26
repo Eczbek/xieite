@@ -5,14 +5,12 @@ template<typename V>
 [[nodiscard]]
 std::vector<std::vector<V>> rotateMatrix(const std::vector<std::vector<V>>& matrix, int rotations) noexcept;
 ```
-Rotates a 2D vector matrix by 90*.
-<br/>
-Positive rotations go clockwise, negative rotations go counter-clockwise.
+Rotates a 2D vector matrix by 90*. Positive rotations go clockwise, negative rotations go counter-clockwise.
 ## Example
 ```cpp
-#include <xieite/vector/rotateMatrix.hpp>
 #include <iostream>
 #include <vector>
+#include <xieite/vector/rotateMatrix.hpp>
 
 int main() {
 	const std::vector<std::vector<int>> matrix {

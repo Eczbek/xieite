@@ -13,8 +13,8 @@ constexpr unsigned long long fibonacci<0> = 0;
 Recursive fibonacci template.
 ## Example
 ```cpp
-#include <xieite/numbers/fibonacci.hpp>
 #include <iostream>
+#include <xieite/numbers/fibonacci.hpp>
 
 int main() {
 	std::cout << xieite::numbers::fibonacci<11> << '\n';

@@ -7,8 +7,8 @@ concept Arithmetic = std::is_arithmetic_v<T>;
 Specifies that a type `T` is arithmetic.
 ## Example
 ```cpp
-#include <xieite/concepts/Arithmetic.hpp>
 #include <iostream>
+#include <xieite/concepts/Arithmetic.hpp>
 
 template<xieite::concepts::Arithmetic N>
 N add(const N a, const N b) {

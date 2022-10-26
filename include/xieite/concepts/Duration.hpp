@@ -1,6 +1,6 @@
 #pragma once
-#include <xieite/traits/isDuration.hpp>
 #include <type_traits>
+#include <xieite/traits/isDuration.hpp>
 
 namespace xieite::concepts {
 	template<typename T>

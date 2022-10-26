@@ -6,8 +6,8 @@ std::string execute(const std::string_view command) noexcept;
 Executes a command and returns its output.
 ## Example
 ```cpp
-#include <xieite/system/execute.hpp>
 #include <iostream>
+#include <xieite/system/execute.hpp>
 
 int main() {
 	std::cout << xieite::system::execute("uuidgen");

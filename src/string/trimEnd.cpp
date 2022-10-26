@@ -1,8 +1,8 @@
 #include <cstddef>
-#include <xieite/string/trimEnd.hpp>
 #include <set>
 #include <string>
 #include <string_view>
+#include <xieite/string/trimEnd.hpp>
 
 std::string xieite::string::trimEnd(const std::string& string, const std::string_view characters) noexcept {
 	const std::set<char> charSet(characters.begin(), characters.end());
