@@ -611,7 +611,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]]
-		xieite::BigInt root(const xieite::BigInt& other) const {
+		constexpr xieite::BigInt root(const xieite::BigInt& other) const {
 			if (sign)
 				throw std::domain_error("Cannot find root of negative");
 			if (*this == 1)
@@ -630,12 +630,12 @@ namespace xieite {
 
 		template<std::integral N>
 		[[nodiscard]]
-		xieite::BigInt root(const N value) const {
+		constexpr xieite::BigInt root(const N value) const {
 			return root(xieite::BigInt(value));
 		}
 
 		[[nodiscard]]
-		const std::vector<bool>& data() const noexcept {
+		constexpr const std::vector<bool>& data() const noexcept {
 			return bits;
 		}
 
