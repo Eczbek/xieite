@@ -1,18 +1,10 @@
 
 #include <cstdio>
-#include <fstream>
-#include <gcufl/stream/read.hpp>
-#include <iterator>
+#include <gcufl/stream/readFile.hpp>
 #include <memory>
 #include <string>
-#include <string_view>
-#include <type_traits>
 
-std::string gcufl::stream::read(std::istream& reader) noexcept {
-	return std::string(std::istreambuf_iterator<char>(reader), std::istreambuf_iterator<char>());
-}
-
-std::string gcufl::stream::read(std::FILE* const file) noexcept {
+std::string gcufl::stream::readFile(std::FILE* const file) noexcept {
 	std::unique_ptr<std::FILE, decltype(&pclose)> pipe(file, pclose);
 	std::string result;
 	if (pipe) {
