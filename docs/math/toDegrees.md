@@ -1,7 +1,7 @@
-# gcufl::math::toDegrees
-Declared in `<gcufl/math/toDegrees.hpp>`
+# xieite::math::toDegrees
+Declared in `<xieite/math/toDegrees.hpp>`
 ```cpp
-template<gcufl::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic N>
 [[nodiscard]]
 constexpr double toDegrees(const N radians) noexcept;
 ```

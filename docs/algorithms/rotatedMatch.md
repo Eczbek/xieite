@@ -1,7 +1,7 @@
-# gcufl::algorithms::rotatedMatch
-Declared in `<gcufl/algorithms/rotatedMatch.hpp>`
+# xieite::algorithms::rotatedMatch
+Declared in `<xieite/algorithms/rotatedMatch.hpp>`
 ```cpp
-template<std::forward_iterator I1, std::forward_iterator I2, gcufl::concepts::Comparator<const typename std::iterator_traits<I1>::value_type> F>
+template<std::forward_iterator I1, std::forward_iterator I2, xieite::concepts::Comparator<const typename std::iterator_traits<I1>::value_type> F>
 [[nodiscard]]
 requires(std::convertible_to<typename std::iterator_traits<I2>::value_type, typename std::iterator_traits<I1>::value_type>)
 constexpr bool rotatedMatch(const I1 begin1, const I1 end1, const I2 begin2, const I2 end2, const F& comparator) noexcept;
@@ -13,7 +13,7 @@ constexpr bool rotatedMatch(const I1 begin1, const I1 end1, const I2 begin2, con
 Checks whether one iterable contains elements in the same relative order as in another iterable.
 ## Example
 ```cpp
-#include <gcufl/algorithms/rotatedMatch.hpp>
+#include <xieite/algorithms/rotatedMatch.hpp>
 #include <iostream>
 #include <vector>
 
@@ -26,9 +26,9 @@ int main() {
 	//                         <  <  <||<  <
 
 	std::cout << std::boolalpha
-		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), b.begin(), b.end()) << '\n'
-		<< gcufl::algorithms::rotatedMatch(a.begin(), a.end(), c.begin(), c.end()) << '\n'
-		<< gcufl::algorithms::rotatedMatch(a.rbegin(), a.rend(), c.begin(), c.end()) << '\n';
+		<< xieite::algorithms::rotatedMatch(a.begin(), a.end(), b.begin(), b.end()) << '\n'
+		<< xieite::algorithms::rotatedMatch(a.begin(), a.end(), c.begin(), c.end()) << '\n'
+		<< xieite::algorithms::rotatedMatch(a.rbegin(), a.rend(), c.begin(), c.end()) << '\n';
 }
 ```
 Output:

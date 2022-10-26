@@ -1,5 +1,5 @@
-# gcufl::concepts::Arithmetic
-Declared in `<gcufl/concepts/Arithmetic.hpp>`
+# xieite::concepts::Arithmetic
+Declared in `<xieite/concepts/Arithmetic.hpp>`
 ```cpp
 template<typename T>
 concept Arithmetic = std::is_arithmetic_v<T>;
@@ -7,10 +7,10 @@ concept Arithmetic = std::is_arithmetic_v<T>;
 Specifies that a type `T` is arithmetic.
 ## Example
 ```cpp
-#include <gcufl/concepts/Arithmetic.hpp>
+#include <xieite/concepts/Arithmetic.hpp>
 #include <iostream>
 
-template<gcufl::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic N>
 N add(const N a, const N b) {
 	return a + b;
 }

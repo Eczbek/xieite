@@ -1,10 +1,10 @@
 
 #include <chrono>
-#include <gcufl/Timer.hpp>
+#include <xieite/Timer.hpp>
 
-gcufl::Timer::Timer() noexcept
+xieite::Timer::Timer() noexcept
 : start(std::chrono::high_resolution_clock::now()) {}
 
-void gcufl::Timer::reset() noexcept {
+void xieite::Timer::reset() noexcept {
 	start = std::chrono::high_resolution_clock::now();
 }

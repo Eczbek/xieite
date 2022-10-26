@@ -1,16 +1,16 @@
-# gcufl::system::execute
-Declared in `<gcufl/system/execute.hpp>`
+# xieite::system::execute
+Declared in `<xieite/system/execute.hpp>`
 ```cpp
 std::string execute(const std::string_view command) noexcept;
 ```
 Executes a command and returns its output.
 ## Example
 ```cpp
-#include <gcufl/system/execute.hpp>
+#include <xieite/system/execute.hpp>
 #include <iostream>
 
 int main() {
-	std::cout << gcufl::system::execute("uuidgen");
+	std::cout << xieite::system::execute("uuidgen");
 }
 ```
 Possible output:

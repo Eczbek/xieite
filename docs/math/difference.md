@@ -1,5 +1,5 @@
-# gcufl::math::difference
-Declared in `<gcufl/math/difference.hpp>`
+# xieite::math::difference
+Declared in `<xieite/math/difference.hpp>`
 ```cpp
 template<std::integral N>
 [[nodiscard]]
@@ -12,14 +12,14 @@ constexpr N difference(const N a, const N b) noexcept;
 Calculates the absolute difference between values.
 ## Example
 ```cpp
-#include <gcufl/math/difference.hpp>
+#include <xieite/math/difference.hpp>
 #include <iostream>
 #include <limits>
 
 int main() {
 	std::cout << std::numeric_limits<short>::max() << '\n'
 		<< std::numeric_limits<short>::min() << '\n'
-		<< gcufl::math::difference(std::numeric_limits<short>::max(), std::numeric_limits<short>::min()) << '\n';
+		<< xieite::math::difference(std::numeric_limits<short>::max(), std::numeric_limits<short>::min()) << '\n';
 }
 ```
 Output:

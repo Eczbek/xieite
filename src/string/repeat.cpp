@@ -1,9 +1,9 @@
 
-#include <gcufl/string/repeat.hpp>
+#include <xieite/string/repeat.hpp>
 #include <string>
 #include <string_view>
 
-std::string gcufl::string::repeat(const std::string_view string, std::size_t count) noexcept {
+std::string xieite::string::repeat(const std::string_view string, std::size_t count) noexcept {
 	std::string result;
 	while (count--)
 		result += string;

@@ -1,5 +1,5 @@
-# gcufl::types::demangle
-Declared in `<gcufl/types/demangle.hpp>`
+# xieite::types::demangle
+Declared in `<xieite/types/demangle.hpp>`
 ```cpp
 [[nodiscard]]
 std::string demangle(const std::string_view mangled) noexcept;
@@ -7,7 +7,7 @@ std::string demangle(const std::string_view mangled) noexcept;
 Demangles a `typeid` name.
 ## Example
 ```cpp
-#include <gcufl/types/demangle.hpp>
+#include <xieite/types/demangle.hpp>
 #include <iostream>
 
 template<typename T>
@@ -17,7 +17,7 @@ int main() {
 	Type<int> value;
 
 	std::cout << typeid(value).name() << '\n'
-		<< gcufl::types::demangle(typeid(value).name()) << '\n';
+		<< xieite::types::demangle(typeid(value).name()) << '\n';
 }
 ```
 Output:

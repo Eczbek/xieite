@@ -1,10 +1,10 @@
 
 #include <cstdio>
-#include <gcufl/stream/readFile.hpp>
+#include <xieite/stream/readFile.hpp>
 #include <memory>
 #include <string>
 
-std::string gcufl::stream::readFile(std::FILE* const file) noexcept {
+std::string xieite::stream::readFile(std::FILE* const file) noexcept {
 	std::unique_ptr<std::FILE, decltype(&pclose)> pipe(file, pclose);
 	std::string result;
 	if (pipe) {

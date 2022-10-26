@@ -1,5 +1,5 @@
-# gcufl::concepts::Aggregate
-Declared in `<gcufl/concepts/Aggregate.hpp>`
+# xieite::concepts::Aggregate
+Declared in `<xieite/concepts/Aggregate.hpp>`
 ```cpp
 template<typename T>
 concept Aggregate = std::is_aggregate_v<T>;

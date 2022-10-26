@@ -1,7 +1,7 @@
-# gcufl::math::wrap
-Declared in `<gcufl/math/wrap.hpp>`
+# xieite::math::wrap
+Declared in `<xieite/math/wrap.hpp>`
 ```cpp
-template<gcufl::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic N>
 [[nodiscard]]
 constexpr N wrap(const N value, const N max, const N min = 0) noexcept;
 ```
@@ -10,11 +10,11 @@ Wraps a number between two others.
 The limit `max` is exclusive.
 ## Example
 ```cpp
-#include <gcufl/math/wrap.hpp>
+#include <xieite/math/wrap.hpp>
 #include <iostream>
 
 int main() {
-	std::cout << gcufl::math::wrap(23, 4, -2) << '\n';
+	std::cout << xieite::math::wrap(23, 4, -2) << '\n';
 }
 ```
 Output:

@@ -1,12 +1,12 @@
 
-#include <gcufl/console/locks/NonBlock.hpp>
-#include <gcufl/console/locks/Raw.hpp>
-#include <gcufl/console/readChar.hpp>
+#include <xieite/console/locks/NonBlock.hpp>
+#include <xieite/console/locks/Raw.hpp>
+#include <xieite/console/readChar.hpp>
 #include <unistd.h>
 
-char gcufl::console::readChar() noexcept {
-	gcufl::console::locks::Raw rawLock;
-	gcufl::console::locks::NonBlock nonblockLock;
+char xieite::console::readChar() noexcept {
+	xieite::console::locks::Raw rawLock;
+	xieite::console::locks::NonBlock nonblockLock;
 	char input = 0;
 	read(STDIN_FILENO, &input, 1);
 	return input;

@@ -1,5 +1,5 @@
-# gcufl::console::setStyle
-Declared in `<gcufl/console/setStyle.hpp>`
+# xieite::console::setStyle
+Declared in `<xieite/console/setStyle.hpp>`
 ```cpp
 void setStyle(const char style) noexcept;
 

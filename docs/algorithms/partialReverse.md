@@ -1,20 +1,20 @@
-# gcufl::algorithms::partialReverse
-Declared in `<gcufl/algorithms/partialReverse.hpp>`
+# xieite::algorithms::partialReverse
+Declared in `<xieite/algorithms/partialReverse.hpp>`
 ```cpp
-template<std::forward_iterator I, gcufl::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
+template<std::forward_iterator I, xieite::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
 constexpr void partialReverse(I begin, const I end, const F& selector) noexcept;
 ```
 Partially reverses an iterable's elements.
 ## Example
 ```cpp
 #include <array>
-#include <gcufl/algorithms/partialReverse.hpp>
+#include <xieite/algorithms/partialReverse.hpp>
 #include <iostream>
 
 int main() {
 	std::array<int, 5> values { 1, 2, 3, 4, 5 };
 	
-	gcufl::algorithms::partialReverse(values.begin(), values.end(), [](const int value) -> bool {
+	xieite::algorithms::partialReverse(values.begin(), values.end(), [](const int value) -> bool {
 		return value <= 3;
 	});
 

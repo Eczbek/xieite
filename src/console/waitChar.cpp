@@ -1,9 +1,9 @@
 
-#include <gcufl/console/locks/Raw.hpp>
-#include <gcufl/console/waitChar.hpp>
+#include <xieite/console/locks/Raw.hpp>
+#include <xieite/console/waitChar.hpp>
 #include <iostream>
 
-char gcufl::console::waitChar(const bool echo) noexcept {
-	gcufl::console::locks::Raw rawLock(echo);
+char xieite::console::waitChar(const bool echo) noexcept {
+	xieite::console::locks::Raw rawLock(echo);
 	return std::cin.get();
 }

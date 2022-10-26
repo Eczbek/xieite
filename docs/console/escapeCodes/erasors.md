@@ -1,5 +1,5 @@
-# gcufl::console::escapeCodes::erasors
-Declared in `<gcufl/console/escapeCodes/erasors.hpp>`
+# xieite::console::escapeCodes::erasors
+Declared in `<xieite/console/escapeCodes/erasors.hpp>`
 ```cpp
 constexpr int lineFromCursor = 0;
 constexpr int lineUntilCursor = 1;

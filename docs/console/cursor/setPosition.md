@@ -1,6 +1,6 @@
-# gcufl::console::cursor::setPosition
-Declared in `<gcufl/console/cursor/setPosition.hpp>`
+# xieite::console::cursor::setPosition
+Declared in `<xieite/console/cursor/setPosition.hpp>`
 ```cpp
-void setPosition(const gcufl::console::cursor::Position position) noexcept;
+void setPosition(const xieite::console::cursor::Position position) noexcept;
 ```
 Sets the cursor's position.

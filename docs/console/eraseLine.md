@@ -1,5 +1,5 @@
-# gcufl::console::eraseLine
-Declared in `<gcufl/console/eraseLine.hpp>`
+# xieite::console::eraseLine
+Declared in `<xieite/console/eraseLine.hpp>`
 ```cpp
 void eraseLine(const char erasor) noexcept;
 ```

@@ -1,5 +1,5 @@
-# gcufl::vector::rotateMatrix
-Declared in `<gcufl/vector/rotateMatrix.hpp>`
+# xieite::vector::rotateMatrix
+Declared in `<xieite/vector/rotateMatrix.hpp>`
 ```cpp
 template<typename V>
 [[nodiscard]]
@@ -10,7 +10,7 @@ Rotates a 2D vector matrix by 90*.
 Positive rotations go clockwise, negative rotations go counter-clockwise.
 ## Example
 ```cpp
-#include <gcufl/vector/rotateMatrix.hpp>
+#include <xieite/vector/rotateMatrix.hpp>
 #include <iostream>
 #include <vector>
 
@@ -20,7 +20,7 @@ int main() {
 		{ 4, 5, 6 }
 	};
 
-	for (const std::vector<int>& row : gcufl::vector::rotateMatrix(matrix, 1)) {
+	for (const std::vector<int>& row : xieite::vector::rotateMatrix(matrix, 1)) {
 		for (const int value : row)
 			std::cout << value << ' ';
 		std::cout << '\n';

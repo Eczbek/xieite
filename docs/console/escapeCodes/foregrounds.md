@@ -1,5 +1,5 @@
-# gcufl::console::escapeCodes::foregrounds
-Declared in `<gcufl/console/escapeCodes/foregrounds.hpp>`
+# xieite::console::escapeCodes::foregrounds
+Declared in `<xieite/console/escapeCodes/foregrounds.hpp>`
 ```cpp
 constexpr int black = 30;
 constexpr int red = 31;

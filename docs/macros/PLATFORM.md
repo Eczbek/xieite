@@ -1,5 +1,5 @@
 # GCUFL_PLATFORM
-Declared in `<gcufl/macros/PLATFORM.hpp>`
+Declared in `<xieite/macros/PLATFORM.hpp>`
 ```cpp
 #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__WINDOWS__)
 #	define GCUFL_PLATFORM_WINDOWS

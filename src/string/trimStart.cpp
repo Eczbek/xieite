@@ -1,11 +1,11 @@
 
 #include <cstddef>
-#include <gcufl/string/trimStart.hpp>
+#include <xieite/string/trimStart.hpp>
 #include <set>
 #include <string>
 #include <string_view>
 
-std::string gcufl::string::trimStart(const std::string& string, const std::string_view characters) noexcept {
+std::string xieite::string::trimStart(const std::string& string, const std::string_view characters) noexcept {
 	std::set<char> charSet(characters.begin(), characters.end());
 	const std::size_t stringSize = string.size();
 	for (std::size_t i = 0; i < stringSize; ++i)
@@ -14,6 +14,6 @@ std::string gcufl::string::trimStart(const std::string& string, const std::strin
 	return "";
 }
 
-std::string gcufl::string::trimStart(const std::string& string, const char character) noexcept {
-	return gcufl::string::trimStart(string, std::string(1, character));
+std::string xieite::string::trimStart(const std::string& string, const char character) noexcept {
+	return xieite::string::trimStart(string, std::string(1, character));
 }

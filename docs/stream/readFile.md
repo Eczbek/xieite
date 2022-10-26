@@ -1,5 +1,5 @@
-# gcufl::stream::readFile
-Declared in `<gcufl/stream/readFile.hpp>`
+# xieite::stream::readFile
+Declared in `<xieite/stream/readFile.hpp>`
 ```cpp
 [[nodiscard]]
 std::string readFile(std::FILE* file) noexcept;

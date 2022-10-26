@@ -1,5 +1,5 @@
-# gcufl::console::waitChar
-Declared in `<gcufl/console/waitChar.hpp>`
+# xieite::console::waitChar
+Declared in `<xieite/console/waitChar.hpp>`
 ```cpp
 char waitChar(const bool echo = false) noexcept;
 ```

@@ -1,5 +1,5 @@
-# gcufl::console::readChar
-Declared in `<gcufl/console/readChar.hpp>`
+# xieite::console::readChar
+Declared in `<xieite/console/readChar.hpp>`
 ```cpp
 char readChar() noexcept;
 ```

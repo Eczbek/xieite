@@ -1,5 +1,5 @@
-# gcufl::string::hash
-Declared in `<gcufl/string/hash.hpp>`
+# xieite::string::hash
+Declared in `<xieite/string/hash.hpp>`
 ```cpp
 [[nodiscard]]
 constexpr unsigned long long hash(const std::string_view string) noexcept;
@@ -7,14 +7,14 @@ constexpr unsigned long long hash(const std::string_view string) noexcept;
 Hashes a string.
 ## Example
 ```cpp
-#include <gcufl/string/hash.hpp>
+#include <xieite/string/hash.hpp>
 #include <iostream>
 int main() {
-	switch (gcufl::string::hash("banana")) {
-		case gcufl::string::hash("apple"):
+	switch (xieite::string::hash("banana")) {
+		case xieite::string::hash("apple"):
 			std::cout << "1\n";
 			break;
-		case gcufl::string::hash("banana"):
+		case xieite::string::hash("banana"):
 			std::cout << "2\n";
 			break;
 		default:

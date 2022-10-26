@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(gcufl VERSION 0.0.0 LANGUAGES CXX)
+project(xieite VERSION 0.0.0 LANGUAGES CXX)
 file(GLOB_RECURSE SOURCES src/*)
 add_library(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC include)

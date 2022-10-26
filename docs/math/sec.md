@@ -1,5 +1,5 @@
-# gcufl::math::sec
-Declared in `<gcufl/math/sec.hpp>`
+# xieite::math::sec
+Declared in `<xieite/math/sec.hpp>`
 ```cpp
 template<std::floating_point N>
 [[nodiscard]]

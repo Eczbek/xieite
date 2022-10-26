@@ -1,5 +1,5 @@
-# gcufl::console::eraseScreen
-Declared in `<gcufl/console/eraseScreen.hpp>`
+# xieite::console::eraseScreen
+Declared in `<xieite/console/eraseScreen.hpp>`
 ```cpp
 void eraseScreen(const char erasor) noexcept;
 ```

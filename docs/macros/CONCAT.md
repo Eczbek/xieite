@@ -1,5 +1,5 @@
 # GCUFL_CONCAT
-Declared in `<gcufl/macros/CONCAT.hpp>`
+Declared in `<xieite/macros/CONCAT.hpp>`
 ```cpp
 #define GCUFL_CONCAT(x, y) GCUFL_CONCAT_PRIMITIVE(x, y)
 
@@ -8,7 +8,7 @@ Declared in `<gcufl/macros/CONCAT.hpp>`
 Concatenates two values.
 ## Example
 ```cpp
-#include <gcufl/macros/CONCAT.hpp>
+#include <xieite/macros/CONCAT.hpp>
 #include <iostream>
 
 int main() {

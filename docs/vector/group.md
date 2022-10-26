@@ -1,4 +1,4 @@
-# gcufl/vector/group.hpp`
+# xieite/vector/group.hpp`
 ```cpp
 template<typename V, std::invocable<V> C>
 [[nodiscard]]
@@ -9,12 +9,12 @@ template<typename V, std::invocable<V, std::size_t> C>
 [[nodiscard]]
 std::unordered_map<std::invoke_result_t<C(V, std::size_t)>, std::vector<V>> group(const std::vector<V>& values, const C& callback) noexcept;
 ```
-The function `gcufl::vector::group` groups elements of a vector into a `std::unordered_map`.
+The function `xieite::vector::group` groups elements of a vector into a `std::unordered_map`.
 <br/>
 The resulting unordered-map's keys depend on the return value of the callback.
 ## Example
 ```cpp
-#include <gcufl/vector/group.hpp>
+#include <xieite/vector/group.hpp>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -24,7 +24,7 @@ int main() {
 	const auto callback = [](const int value) -> bool {
 		return value % 2;
 	};
-	const std::unordered_map<bool, std::vector<int>> groups = gcufl::vector::group(values, callback);
+	const std::unordered_map<bool, std::vector<int>> groups = xieite::vector::group(values, callback);
 
 	std::cout << "true: ";
 	for (const int value : groups[true])

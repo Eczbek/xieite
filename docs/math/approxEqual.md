@@ -1,7 +1,7 @@
-# gcufl::math::approxEqual
-Declared in `<gcufl/math/approxEqual.hpp>`
+# xieite::math::approxEqual
+Declared in `<xieite/math/approxEqual.hpp>`
 ```cpp
-template<gcufl::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic N>
 [[nodiscard]]
 constexpr bool approxEqual(const N value1, const N value2) noexcept;
 ```
@@ -10,7 +10,7 @@ Checks whether two numbers are almost the same.
 This can be used to ignore rounding errors.
 ## Example
 ```cpp
-#include <gcufl/math/approxEqual.hpp>
+#include <xieite/math/approxEqual.hpp>
 #include <iostream>
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
 	std::cout.precision(17);
 	std::cout << a << '\n'
 		<< b << '\n'
-		<< std::boolalpha << gcufl::math::approxEqual(a, b) << '\n';
+		<< std::boolalpha << xieite::math::approxEqual(a, b) << '\n';
 }
 ```
 Output:

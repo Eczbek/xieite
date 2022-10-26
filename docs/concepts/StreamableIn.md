@@ -1,5 +1,5 @@
-# gcufl::concepts::StreamableIn
-Declared in `<gcufl/concepts/StreamableIn.hpp>`
+# xieite::concepts::StreamableIn
+Declared in `<xieite/concepts/StreamableIn.hpp>`
 ```cpp
 template<typename T>
 concept StreamableIn = requires(std::istream& inStream, T value) {

@@ -1,5 +1,5 @@
-# gcufl::algorithms::any
-Declared in `<gcufl/algorithms/any.hpp>`
+# xieite::algorithms::any
+Declared in `<xieite/algorithms/any.hpp>`
 ```cpp
 template<typename... T>
 requires(requires(T... values) {
@@ -15,11 +15,11 @@ constexpr bool any(const T&...) noexcept;
 Checks whether at least one argument can be converted to a `true` boolean.
 ## Example
 ```cpp
-#include <gcufl/algorithms/any.hpp>
+#include <xieite/algorithms/any.hpp>
 #include <iostream>
 
 int main() {
-	std::cout << std::boolalpha << gcufl::algorithms::any(false, 0, '\0', "m") << '\n';
+	std::cout << std::boolalpha << xieite::algorithms::any(false, 0, '\0', "m") << '\n';
 }
 ```
 Output:

@@ -1,4 +1,4 @@
-# gcufl/units/lengths.hpp
+# xieite/units/lengths.hpp
 ```cpp
 constexpr std::ratio<176389, 10000000000> twip;
 constexpr std::ratio<254, 10000000> thou;
@@ -16,4 +16,4 @@ constexpr std::ratio<1852, 1> nauticalMile;
 constexpr std::ratio<201168, 1000000> link;
 constexpr std::ratio<50292, 10000> rod;
 ```
-The namespace `gcufl::units::lengths` is a colletion of ratios of metric to imperial lengths.
+The namespace `xieite::units::lengths` is a colletion of ratios of metric to imperial lengths.

@@ -1,5 +1,5 @@
-# gcufl::math::toBase
-Declared in `<gcufl/math/toBase.hpp>`
+# xieite::math::toBase
+Declared in `<xieite/math/toBase.hpp>`
 ```cpp
 template<std::integral N = int>
 [[nodiscard]]
@@ -8,11 +8,11 @@ constexpr std::string toBase(N value, const unsigned int base, const std::string
 Converts a base-10 integral to any base.
 ## Example
 ```cpp
-#include <gcufl/math/toBase.hpp>
+#include <xieite/math/toBase.hpp>
 #include <iostream>
 
 int main() {
-	std::cout << gcufl::math::toBase(12, 2) << '\n';
+	std::cout << xieite::math::toBase(12, 2) << '\n';
 }
 ```
 Output:

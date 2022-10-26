@@ -1,5 +1,5 @@
-# gcufl::concepts::Enumerator
-Declared in `<gcufl/concepts/Enumerator.hpp>`
+# xieite::concepts::Enumerator
+Declared in `<xieite/concepts/Enumerator.hpp>`
 ```cpp
 template<typename T>
 concept Enumerator = std::is_enum_v<T>;

@@ -1,5 +1,5 @@
-# gcufl::string::truncate
-Declared in `<gcufl/string/truncate.hpp>`
+# xieite::string::truncate
+Declared in `<xieite/string/truncate.hpp>`
 ```cpp
 [[nodiscard]]
 std::string truncate(const std::string& string, const std::size_t length, const std::string& suffix = "") noexcept;
@@ -7,11 +7,11 @@ std::string truncate(const std::string& string, const std::size_t length, const 
 Replaces the end of a string.
 ## Example
 ```cpp
-#include <gcufl/string/truncate.hpp>
+#include <xieite/string/truncate.hpp>
 #include <iostream>
 
 int main() {
-	std::cout << gcufl::string::truncate("Hello, world!", 8, "...") << '\n';
+	std::cout << xieite::string::truncate("Hello, world!", 8, "...") << '\n';
 }
 ```
 Output:

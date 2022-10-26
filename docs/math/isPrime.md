@@ -1,5 +1,5 @@
-# gcufl::math::isPrime
-Declared in `<gcufl/math/isPrime.hpp>`
+# xieite::math::isPrime
+Declared in `<xieite/math/isPrime.hpp>`
 ```cpp
 template<std::integral N>
 [[nodiscard]]
@@ -8,11 +8,11 @@ constexpr bool isPrime(const N value) noexcept;
 Checks whether an integral is prime.
 ## Example
 ```cpp
-#include <gcufl/math/isPrime.hpp>
+#include <xieite/math/isPrime.hpp>
 #include <iostream>
 
 int main() {
-	std::cout << std::boolalpha << gcufl::math::isPrime(17) << '\n';
+	std::cout << std::boolalpha << xieite::math::isPrime(17) << '\n';
 }
 ```
 Output:

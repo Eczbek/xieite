@@ -1,5 +1,5 @@
-# gcufl::string::split
-Declared in `<gcufl/string/split.hpp>`
+# xieite::string::split
+Declared in `<xieite/string/split.hpp>`
 ```cpp
 [[nodiscard]]
 std::vector<std::string> split(const std::string& string, const std::string_view delimiter = "") noexcept;
@@ -13,11 +13,11 @@ std::vector<std::string> split(const std::string& string, const std::regex& deli
 Splits a string into a vector of strings.
 ## Example
 ```cpp
-#include <gcufl/string/split.hpp>
+#include <xieite/string/split.hpp>
 #include <string>
 
 int main() {
-	for (const std::string_view segment : gcufl::string::split("Hello, world!", ' '))
+	for (const std::string_view segment : xieite::string::split("Hello, world!", ' '))
 		std::cout << segment << '\n';
 }
 ```

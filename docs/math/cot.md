@@ -1,5 +1,5 @@
-# gcufl::math::cot
-Declared in `<gcufl/math/cot.hpp>`
+# xieite::math::cot
+Declared in `<xieite/math/cot.hpp>`
 ```cpp
 template<std::floating_point N>
 [[nodiscard]]

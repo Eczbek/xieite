@@ -1,7 +1,7 @@
-# gcufl::console::getWindowSize
-Declared in `<gcufl/console/getWindowSize.hpp>`
+# xieite::console::getWindowSize
+Declared in `<xieite/console/getWindowSize.hpp>`
 ```cpp
 [[nodiscard]]
-gcufl::console::cursor::Position getWindowSize() noexcept;
+xieite::console::cursor::Position getWindowSize() noexcept;
 ```
 Gets the console window size.
