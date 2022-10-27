@@ -1,11 +1,11 @@
 # xieite::numbers::factorial
 Declared in `<xieite/numbers/factorial.hpp>`
 ```cpp
-template<unsigned long long N>
-constexpr unsigned long long factorial = N * xieite::numbers::factorial<N - 1>;
+template<std::integral auto N, template T = decltype(N)>
+constexpr T factorial = N * xieite::numbers::factorial<N - 1, T>;
 
-template<>
-constexpr unsigned long long factorial<0> = 1;
+template<template T>
+constexpr T factorial<static_cast<T>(0), T> = static_cast<T>(1);
 ```
 Recursive factorial template.
 ## Example
