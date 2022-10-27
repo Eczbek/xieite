@@ -20,10 +20,10 @@ constexpr N next() noexcept;
 #include <xieite/math/PiGenerator.hpp>
 
 int main() {
-    xieite::math::PiGenerator pi;
-    for (int i = 0; i < 50; ++i)
-        std::cout << pi.next();
-    std::cout << '\n';
+	xieite::math::PiGenerator pi;
+	for (int i = 0; i < 50; ++i)
+		std::cout << pi.next();
+	std::cout << '\n';
 }
 ```
 Output:

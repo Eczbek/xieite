@@ -219,7 +219,7 @@ constexpr std::string string() const noexcept;
 #include <xieite/BigInt.hpp>
 
 int main() {
-    std::cout << xieite::BigInt(99).pow(99).string() << '\n';
+	std::cout << xieite::BigInt(99).pow(99).string() << '\n';
 }
 ```
 Output:
