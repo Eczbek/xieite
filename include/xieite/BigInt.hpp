@@ -236,7 +236,6 @@ namespace xieite {
 			if (other == -1)
 				return -*this;
 			xieite::BigInt result;
-			std::vector<bool> prefixBits;
 			const std::size_t bitsSize = bits.size();
 			const std::size_t otherBitsSize = other.bits.size();
 			for (std::size_t i = 0; i < bitsSize; ++i) {
@@ -245,10 +244,7 @@ namespace xieite {
 				for (std::size_t j = 0; j < otherBitsSize; ++j) {
 					if (!other.bits[j])
 						continue;
-					xieite::BigInt sum = bits[i] * other.bits[j];
-					prefixBits.resize(i + j);
-					sum.bits.insert(sum.bits.begin(), prefixBits.begin(), prefixBits.end());
-					result += sum;
+					result += xieite::BigInt(bits[i] * other.bits[j]) << (i + j);
 				}
 			}
 			result.sign = sign != other.sign;
