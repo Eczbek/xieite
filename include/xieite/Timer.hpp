@@ -8,7 +8,7 @@ namespace xieite {
 		std::chrono::time_point<std::chrono::high_resolution_clock> start;
 
 	public:
-		Timer() noexcept;
+		Timer() noexcept = default;
 
 		template<xieite::concepts::Duration D = std::chrono::nanoseconds>
 		[[nodiscard]]

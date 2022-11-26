@@ -5,7 +5,7 @@ A simple timer.
 
 ## Constructor
 ```cpp
-Timer() noexcept;
+Timer() noexcept = default;
 ```
 
 ## Methods
