@@ -1,4 +1,5 @@
-# xieite/vector/group.hpp`
+# xieite::vector::group
+Declared in `<xieite/vector/group.hpp>`
 ```cpp
 template<typename V, std::invocable<V> C>
 [[nodiscard]]
