@@ -4,12 +4,12 @@
 #include <cmath>
 #include <random>
 #include <stdexcept>
+#include <utility>
 #include <vector>
 #include <xieite/concepts/UniformRandomGenerator.hpp>
 #include <xieite/math/closestTo.hpp>
 #include <xieite/math/difference.hpp>
 #include <xieite/math/farthestFrom.hpp>
-#include <xieite/math/NumberRange.hpp>
 
 namespace xieite::random {
 	template<typename>
@@ -19,21 +19,21 @@ namespace xieite::random {
 	class InterruptableUniformDistribution<N> {
 	private:
 		int sign;
-		std::vector<xieite::math::NumberRange<N>> interruptions;
+		std::vector<std::pair<N, N>> interruptions;
 		std::uniform_int_distribution<N> distribution;
 	
 	public:
-		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<xieite::math::NumberRange<N>>& interruptions) {
+		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<std::pair<N, N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;
 			N& farthest = xieite::math::farthestFrom(0, begin2, end2);
 			sign = (farthest >= 0) * 2 - 1;
-			for (xieite::math::NumberRange<N> interruption : interruptions) {
-				if ((interruption.begin < begin || interruption.begin > end) && (interruption.begin > begin || interruption.begin < end) && (interruption.end < begin || interruption.end > end) && (interruption.end > begin || interruption.end < end))
+			for (std::pair<N, N> interruption : interruptions) {
+				if ((interruption.first < begin || interruption.first > end) && (interruption.first > begin || interruption.first < end) && (interruption.second < begin || interruption.second > end) && (interruption.second > begin || interruption.second < end))
 					continue;
-				interruption.begin = std::clamp(interruption.begin, begin, end);
-				interruption.end = std::clamp(interruption.end, begin, end);
-				const N difference = (static_cast<N>(xieite::math::difference(interruption.begin, interruption.end)) + 1) * sign;
+				interruption.first = std::clamp(interruption.first, begin, end);
+				interruption.second = std::clamp(interruption.second, begin, end);
+				const N difference = (static_cast<N>(xieite::math::difference(interruption.first, interruption.second)) + 1) * sign;
 				if (difference >= farthest)
 					throw std::domain_error("Cannot exclude entire range");
 				farthest -= difference;
@@ -46,10 +46,10 @@ namespace xieite::random {
 		template<xieite::concepts::UniformRandomGenerator G>
 		constexpr N operator()(G& generator) noexcept {
 			N result = distribution(generator);
-			for (const xieite::math::NumberRange<N> interruption : interruptions) {
-				const N closest = xieite::math::closestTo(0, interruption.begin, interruption.end);
+			for (const std::pair<N, N> interruption : interruptions) {
+				const N closest = xieite::math::closestTo(0, interruption.first, interruption.second);
 				if (sign > 0 && result >= closest || sign < 0 && result <= closest)
-					result += (static_cast<N>(xieite::math::difference(interruption.begin, interruption.end)) + 1) * sign;
+					result += (static_cast<N>(xieite::math::difference(interruption.first, interruption.second)) + 1) * sign;
 			}
 			return result;
 		}
@@ -59,21 +59,21 @@ namespace xieite::random {
 	class InterruptableUniformDistribution<N> {
 	private:
 		int sign;
-		std::vector<xieite::math::NumberRange<N>> interruptions;
+		std::vector<std::pair<N, N>> interruptions;
 		std::uniform_real_distribution<N> distribution;
 
 	public:
-		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<xieite::math::NumberRange<N>>& interruptions) {
+		constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<std::pair<N, N>>& interruptions) {
 			N begin2 = begin;
 			N end2 = end;
 			N& farthest = xieite::math::farthestFrom(0.0, begin2, end2);
 			sign = (farthest >= 0) * 2 - 1;
-			for (xieite::math::NumberRange<N> interruption : interruptions) {
-				if ((interruption.begin < begin || interruption.begin > end) && (interruption.begin > begin || interruption.begin < end) && (interruption.end < begin || interruption.end > end) && (interruption.end > begin || interruption.end < end))
+			for (std::pair<N, N> interruption : interruptions) {
+				if ((interruption.first < begin || interruption.first > end) && (interruption.first > begin || interruption.first < end) && (interruption.second < begin || interruption.second > end) && (interruption.second > begin || interruption.second < end))
 					continue;
-				interruption.begin = std::clamp(interruption.begin, begin, end);
-				interruption.end = std::clamp(interruption.end, begin, end);
-				const N difference = (static_cast<N>(xieite::math::difference(interruption.begin, interruption.end)) + 1) * sign;
+				interruption.first = std::clamp(interruption.first, begin, end);
+				interruption.second = std::clamp(interruption.second, begin, end);
+				const N difference = (static_cast<N>(xieite::math::difference(interruption.first, interruption.second)) + 1) * sign;
 				if (difference >= farthest)
 					throw std::domain_error("Cannot exclude entire range");
 				farthest -= difference;
@@ -86,10 +86,10 @@ namespace xieite::random {
 		template<xieite::concepts::UniformRandomGenerator G>
 		constexpr N operator()(G& generator) noexcept {
 			N result = distribution(generator);
-			for (const xieite::math::NumberRange<N> interruption : interruptions) {
-				const N closest = xieite::math::closestTo(0.0, interruption.begin, interruption.end);
+			for (const std::pair<N, N> interruption : interruptions) {
+				const N closest = xieite::math::closestTo(0.0, interruption.first, interruption.second);
 				if (sign > 0 && result >= closest || sign < 0 && result <= closest)
-					result += (static_cast<N>(xieite::math::difference(interruption.begin, interruption.end)) + 1) * sign;
+					result += (static_cast<N>(xieite::math::difference(interruption.first, interruption.second)) + 1) * sign;
 			}
 			return result;
 		}
