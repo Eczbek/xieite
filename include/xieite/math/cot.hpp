@@ -1,9 +1,9 @@
 #pragma once
 #include <cmath>
-#include <concepts>
+#include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
-	template<std::floating_point N>
+	template<xieite::concepts::Arithmetic N>
 	[[nodiscard]]
 	constexpr N cot(const N value) noexcept {
 		return std::cos(value) / std::sin(value);
