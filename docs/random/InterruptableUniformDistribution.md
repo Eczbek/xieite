@@ -24,8 +24,10 @@ constexpr N operator()(G& generator) noexcept;
 #include <xieite/random/InterruptableUniformDistribution.hpp>
 
 int main() {
-    std::mt19937 rng(std::random_device {}());
-    xieite::random::InterruptableUniformDistribution<int> dist(0, 5, { { 1, 4 } });
+	std::mt19937 rng(std::random_device {}());
+
+	xieite::random::InterruptableUniformDistribution<int> dist(0, 5, { { 1, 4 } });
+
 	for (int i = 0; i < 10; ++i)
 		std::cout << dist(rng) << '\n';
 }
