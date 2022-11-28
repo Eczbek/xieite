@@ -20,9 +20,9 @@ The function `xieite::vector::group` groups elements of a vector into a `std::un
 
 int main() {
 	const std::vector<int> values { 1, 2, 3, 4, 5 };
-	const auto callback = [](const int value) -> bool {
+	const decltype([](const int value) -> bool {
 		return value % 2;
-	};
+	}) callback;
 	const std::unordered_map<bool, std::vector<int>> groups = xieite::vector::group(values, callback);
 
 	std::cout << "true: ";
