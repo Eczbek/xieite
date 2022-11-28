@@ -1,5 +1,5 @@
-# xieite::console::escapeCodes::effects
-Declared in `<xieite/console/escapeCodes/effects.hpp>`
+# xieite::console::codes::effects
+Declared in `<xieite/console/codes/effects.hpp>`
 ```cpp
 constexpr int none = 0;
 constexpr int bold = 1;

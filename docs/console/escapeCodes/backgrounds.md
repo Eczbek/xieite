@@ -1,5 +1,5 @@
-# xieite::console::escapeCodes::backgrounds
-Declared in `<xieite/console/escapeCodes/backgrounds.hpp>`
+# xieite::console::codes::backgrounds
+Declared in `<xieite/console/codes/backgrounds.hpp>`
 ```cpp
 constexpr int black = 40;
 constexpr int red = 41;

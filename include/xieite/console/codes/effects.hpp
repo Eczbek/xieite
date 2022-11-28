@@ -1,6 +1,6 @@
 #pragma once
 
-namespace xieite::console::escapeCodes::effects {
+namespace xieite::console::codes::effects {
 	constexpr int none = 0;
 	constexpr int bold = 1;
 	constexpr int dim = 2;

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace xieite::console::escapeCodes::erasors {
+namespace xieite::console::codes::erasors {
 	constexpr int lineFromCursor = 0;
 	constexpr int lineUntilCursor = 1;
 	constexpr int line = 2;
