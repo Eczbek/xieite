@@ -1,7 +1,7 @@
 # xieite::system::execute
 Declared in `<xieite/system/execute.hpp>`
 ```cpp
-std::string execute(const std::string_view command) noexcept;
+std::string execute(const std::string_view command, const std::size_t bufferSize = 1024) noexcept;
 ```
 Executes a command and returns its output.
 ## Example
