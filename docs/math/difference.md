@@ -3,7 +3,7 @@ Declared in `<xieite/math/difference.hpp>`
 ```cpp
 template<std::integral N>
 [[nodiscard]]
-constexpr auto difference(const N a, const N b) noexcept -> std::make_unsigned_t<N>;
+constexpr std::make_unsigned_t<N> difference(const N a, const N b) noexcept;
 
 template<std::floating_point N>
 [[nodiscard]]
