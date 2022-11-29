@@ -5,8 +5,7 @@
 #include <xieite/math/approxEqual.hpp>
 
 namespace xieite::geometry {
-	struct Segment final
-	: xieite::geometry::Line {
+	struct Segment: public xieite::geometry::Line {
 		constexpr Segment(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept
 		: xieite::geometry::Line(start, end) {}
 

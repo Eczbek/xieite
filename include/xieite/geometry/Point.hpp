@@ -3,7 +3,7 @@
 #include <xieite/math/approxEqual.hpp>
 
 namespace xieite::geometry {
-	struct Point final {
+	struct Point {
 		double x;
 		double y;
 
