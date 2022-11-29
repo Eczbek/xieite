@@ -10,7 +10,7 @@ Generates a UUID using `libuuid`.
 #include <xieite/random/getUUID.hpp>
 
 int main() {
-    std::cout << xieite::random::getUUID() << '\n';
+	std::cout << xieite::random::getUUID() << '\n';
 }
 ```
 Possible output:
