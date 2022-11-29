@@ -19,11 +19,6 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		virtual constexpr bool operator!=(const xieite::geometry::Polygon& other) const noexcept {
-			return !(*this == other);
-		}
-
-		[[nodiscard]]
 		virtual constexpr double area() const noexcept {
 			double area = 0;
 			for (const xieite::geometry::Segment& side : sides())

@@ -19,11 +19,6 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr bool operator!=(const xieite::geometry::Ray& other) const noexcept {
-			return !(*this == other);
-		}
-
-		[[nodiscard]]
 		constexpr bool contains(const xieite::geometry::Point point) const noexcept {
 			const double slope = this->slope();
 			return (std::isinf(slope)

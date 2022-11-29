@@ -23,11 +23,6 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		virtual constexpr bool operator!=(const xieite::geometry::Ellipse& other) const noexcept {
-			return !(*this == other);
-		}
-
-		[[nodiscard]]
 		virtual constexpr double area() const noexcept {
 			return std::numbers::pi_v<double> * radius.x * radius.y;
 		}

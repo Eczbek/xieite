@@ -19,11 +19,6 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr bool operator!=(const xieite::geometry::Circle& other) const noexcept {
-			return !(*this == other);
-		}
-
-		[[nodiscard]]
 		constexpr double area() const noexcept {
 			return std::numbers::pi * radius.x * radius.x;
 		}

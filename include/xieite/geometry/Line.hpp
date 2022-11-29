@@ -24,11 +24,6 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		virtual constexpr bool operator!=(const xieite::geometry::Line& other) const noexcept {
-			return !(*this == other);
-		}
-
-		[[nodiscard]]
 		constexpr double angle() const noexcept {
 			return std::fmod(std::atan2(start.y - end.y, start.x - end.x) + xieite::numbers::tau<double>, std::numbers::pi_v<double>);
 		}
