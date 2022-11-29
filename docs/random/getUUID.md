@@ -1,9 +1,12 @@
 # xieite::random::getUUID
 Declared in `<xieite/random/getUUID.hpp>`
+
 ```cpp
 std::string getUUID() noexcept;
 ```
-Generates a UUID using `libuuid`.
+
+Generates a UUID using `libuuid`. (Compile with `-l uuid`)
+
 ## Example
 ```cpp
 #include <iostream>
