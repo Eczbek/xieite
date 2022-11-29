@@ -10,10 +10,10 @@ Executes a command and returns its output.
 #include <xieite/system/execute.hpp>
 
 int main() {
-	std::cout << xieite::system::execute("uuidgen");
+	std::cout << xieite::system::execute("echo Hello, world!");
 }
 ```
 Possible output:
 ```
-55634ceb-cda3-4357-a5b6-4377ac3be926
+Hello, world!
 ```
