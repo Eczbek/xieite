@@ -1,5 +1,6 @@
 # xieite::algorithms::findNth
 Declared in `<xieite/algorithms/findNth.hpp>`
+
 ```cpp
 template<std::forward_iterator I, xieite::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
 [[nodiscard]]
@@ -9,7 +10,9 @@ template<std::forward_iterator I>
 [[nodiscard]]
 constexpr I findNth(const I begin, const I end, const typename std::iterator_traits<I>::value_type& value, const typename std::iterator_traits<I>::difference_type count) noexcept;
 ```
-Finds the Nth occurence of a value, starting at 0.
+
+Finds the Nth occurence of a value.
+
 ## Example
 ```cpp
 #include <array>

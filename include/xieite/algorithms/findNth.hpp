@@ -9,7 +9,7 @@ namespace xieite::algorithms {
 	[[nodiscard]]
 	constexpr I findNth(I begin, const I end, typename std::iterator_traits<I>::difference_type count, const typename std::iterator_traits<I>::value_type& value, const F& comparator) noexcept {
 		for (; begin != end; ++begin)
-			if (comparator(*begin, value) && !count--)
+			if (comparator(*begin, value) && !--count)
 				return begin;
 		return end;
 	}
