@@ -9,7 +9,7 @@ A 2D circle, derived from `xieite::geometry::Ellipse`.
 
 ## Constructor
 ```cpp
-constexpr Circle(const xieite::geometry::Point center, const double radius) noexcept;
+constexpr Circle(const xieite::geometry::Point center, const long double radius) noexcept;
 ```
 
 ## Operators
@@ -22,7 +22,7 @@ constexpr bool operator==(const xieite::geometry::Circle& other) const noexcept 
 ## Other methods
 ```cpp
 [[nodiscard]]
-constexpr double area() const noexcept override;
+constexpr long double area() const noexcept override;
 ```
 ```cpp
 [[nodiscard]]
@@ -34,7 +34,7 @@ constexpr bool contains(const xieite::geometry::Point point) const noexcept over
 ```
 ```cpp
 [[nodiscard]]
-constexpr double perimeter() const noexcept override;
+constexpr long double perimeter() const noexcept override;
 ```
 
 <br/><br/>

@@ -10,7 +10,7 @@
 
 namespace xieite::geometry {
 	struct Circle: public xieite::geometry::Ellipse {
-		constexpr Circle(const xieite::geometry::Point center, const double radius) noexcept
+		constexpr Circle(const xieite::geometry::Point center, const long double radius) noexcept
 		: xieite::geometry::Ellipse(center, xieite::geometry::Point(radius, radius)) {}
 
 		[[nodiscard]]
@@ -19,7 +19,7 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr double area() const noexcept override {
+		constexpr long double area() const noexcept override {
 			return std::numbers::pi * radius.x * radius.x;
 		}
 
@@ -39,8 +39,8 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr double perimeter() const noexcept override {
-			return xieite::numbers::tau<double> * radius.x;
+		constexpr long double perimeter() const noexcept override {
+			return xieite::numbers::tau<long double> * radius.x;
 		}
 	};
 }

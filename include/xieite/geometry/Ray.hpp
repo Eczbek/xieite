@@ -10,7 +10,7 @@ namespace xieite::geometry {
 		constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point intersection) noexcept
 		: xieite::geometry::Line(start, end) {}
 
-		constexpr Ray(const xieite::geometry::Point start, const double angle) noexcept
+		constexpr Ray(const xieite::geometry::Point start, const long double angle) noexcept
 		: xieite::geometry::Line(start, angle) {}
 
 		[[nodiscard]]
@@ -20,10 +20,10 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool contains(const xieite::geometry::Point point) const noexcept override {
-			const double slope = this->slope();
+			const long double slope = this->slope();
 			return (std::isinf(slope)
 				? xieite::math::approxEqual(point.x, start.x)
-					&& slope < std::numeric_limits<double>::lowest()
+					&& slope < std::numeric_limits<long double>::lowest()
 						? point.y >= start.y
 						: point.y <= start.y
 				: xieite::math::approxEqual(point.y, point.x * slope - start.x * slope + start.y))

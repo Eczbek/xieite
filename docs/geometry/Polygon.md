@@ -27,7 +27,7 @@ constexpr bool operator==(const xieite::geometry::Polygon& other) const noexcept
 ## Other methods
 ```cpp
 [[nodiscard]]
-constexpr double area() const noexcept;
+constexpr long double area() const noexcept;
 ```
 ```cpp
 [[nodiscard]]
@@ -35,11 +35,11 @@ constexpr bool contains(const xieite::geometry::Point point) const noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr double perimeter() const noexcept;
+constexpr long double perimeter() const noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Polygon rotate(const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
+constexpr xieite::geometry::Polygon rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
 ```
 ```cpp
 [[nodiscard]]

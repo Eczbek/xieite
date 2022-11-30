@@ -26,7 +26,7 @@ constexpr bool contains(const xieite::geometry::Point point) const noexcept over
 ```
 ```cpp
 [[nodiscard]]
-constexpr double length() const noexcept override;
+constexpr long double length() const noexcept override;
 ```
 
 <br/><br/>

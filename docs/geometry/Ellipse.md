@@ -15,12 +15,12 @@ xieite::geometry::Point center;
 xieite::geometry::Point radius;
 ```
 ```cpp
-double rotation;
+long double rotation;
 ```
 
 ## Constructor
 ```cpp
-constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radius, const double rotation = 0) noexcept;
+constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radius, const long double rotation = 0) noexcept;
 ```
 
 ## Operators
@@ -33,7 +33,7 @@ constexpr bool operator==(const xieite::geometry::Ellipse& other) const noexcept
 ## Other methods
 ```cpp
 [[nodiscard]]
-virtual constexpr double area() const noexcept;
+virtual constexpr long double area() const noexcept;
 ```
 ```cpp
 [[nodiscard]]
@@ -49,11 +49,11 @@ constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geome
 ```
 ```cpp
 [[nodiscard]]
-virtual constexpr double perimeter() const noexcept;
+virtual constexpr long double perimeter() const noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Ellipse rotate(const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
+constexpr xieite::geometry::Ellipse rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
 ```
 
 <br/><br/>

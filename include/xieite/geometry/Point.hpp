@@ -4,10 +4,10 @@
 
 namespace xieite::geometry {
 	struct Point {
-		double x;
-		double y;
+		long double x;
+		long double y;
 
-		constexpr Point(const double x = 0, const double y = 0) noexcept
+		constexpr Point(const long double x = 0, const long double y = 0) noexcept
 		: x(x), y(y) {}
 
 		[[nodiscard]]
@@ -16,7 +16,7 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr xieite::geometry::Point rotate(const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept {
+		constexpr xieite::geometry::Point rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept {
 			return xieite::geometry::Point(pivot.x + std::cos(angle) * (x - pivot.x) + std::sin(angle) * (y - pivot.y), pivot.y + std::cos(angle) * (y - pivot.y) - std::sin(angle) * (x - pivot.x));
 		}
 	};

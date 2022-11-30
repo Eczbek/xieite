@@ -16,7 +16,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool contains(const xieite::geometry::Point point) const noexcept override {
-			const double slope = this->slope();
+			const long double slope = this->slope();
 			return (std::isinf(slope)
 				? xieite::math::approxEqual(point.x, start.x)
 					&& (point.y >= start.y && point.y <= end.y || point.y <= start.y && point.y >= end.y)
@@ -30,7 +30,7 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr double length() const noexcept override {
+		constexpr long double length() const noexcept override {
 			return std::hypot(start.x - end.x, start.y - end.y);
 		}
 	};

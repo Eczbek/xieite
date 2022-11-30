@@ -20,8 +20,8 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr double area() const noexcept {
-			double area = 0;
+		constexpr long double area() const noexcept {
+			long double area = 0;
 			for (const xieite::geometry::Segment& side : sides())
 				area += side.start.x * side.end.y - side.start.y * side.start.x;
 			return std::abs(area / 2);
@@ -37,15 +37,15 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr double perimeter() const noexcept {
-			double perimeter = 0;
+		constexpr long double perimeter() const noexcept {
+			long double perimeter = 0;
 			for (const xieite::geometry::Segment& side : sides())
 				perimeter += side.length();
 			return perimeter;
 		}
 
 		[[nodiscard]]
-		constexpr xieite::geometry::Polygon rotate(const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept {
+		constexpr xieite::geometry::Polygon rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept {
 			std::vector<xieite::geometry::Point> rotatedPoints = points;
 			const std::size_t pointsSize = points.size();
 			for (std::size_t i = 0; i < pointsSize; ++i)

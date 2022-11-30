@@ -9,15 +9,15 @@ A 2D point.
 
 ## Member objects
 ```cpp
-double x;
+long double x;
 ```
 ```cpp
-double y;
+long double y;
 ```
 
 ## Constructor
 ```cpp
-constexpr Point(const double x = 0, const double y = 0) noexcept;
+constexpr Point(const long double x = 0, const long double y = 0) noexcept;
 ```
 
 ## Operators
@@ -30,7 +30,7 @@ constexpr bool operator==(const xieite::geometry::Point other) const noexcept;
 ## Other methods
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Point rotate(const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
+constexpr xieite::geometry::Point rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
 ```
 
 <br/><br/>

@@ -20,7 +20,7 @@ xieite::geometry::Point end
 constexpr Line(const xieite::geometry::Point intersection1, const xieite::geometry::Point intersection2) noexcept;
 ```
 ```cpp
-constexpr Line(const xieite::geometry::Point intersection, const double angle) noexcept;
+constexpr Line(const xieite::geometry::Point intersection, const long double angle) noexcept;
 ```
 
 ## Operators
@@ -33,7 +33,7 @@ constexpr bool operator==(const xieite::geometry::Line& other) const noexcept;
 ## Other methods
 ```cpp
 [[nodiscard]]
-constexpr double angle() const noexcept;
+constexpr long double angle() const noexcept;
 ```
 ```cpp
 [[nodiscard]]
@@ -45,15 +45,15 @@ constexpr std::optional<xieite::geometry::Point> intersection(const xieite::geom
 ```
 ```cpp
 [[nodiscard]]
-virtual constexpr double length() const noexcept;
+virtual constexpr long double length() const noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Line rotate(const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
+constexpr xieite::geometry::Line rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr double slope() const noexcept;
+constexpr long double slope() const noexcept;
 ```
 
 <br/><br/>

@@ -12,7 +12,7 @@ A 2D infinite ray, derived from `xieite::geometry::Line`.
 constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point intersection) noexcept;
 ```
 ```cpp
-constexpr Ray(const xieite::geometry::Point start, const double angle) noexcept;
+constexpr Ray(const xieite::geometry::Point start, const long double angle) noexcept;
 ```
 
 ## Operators
