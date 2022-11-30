@@ -9,5 +9,5 @@ All english vowels, excluding semivowels.
 
 ## Definition
 ```cpp
-constexpr std::set<char> vowels { 'a', 'e', 'i', 'o', 'u' };
+constexpr std::unordered_set<char> vowels { 'a', 'e', 'i', 'o', 'u' };
 ```

@@ -1,6 +1,6 @@
 #include <cstddef>
-#include <set>
 #include <string>
+#include <unordered_set>
 #include <xieite/string/trimEnd.hpp>
 
 std::string xieite::string::trimEnd(const std::string& string, const char character) noexcept {
@@ -10,7 +10,7 @@ std::string xieite::string::trimEnd(const std::string& string, const char charac
 	return "";
 }
 
-std::string xieite::string::trimEnd(const std::string& string, const std::set<char>& characters) noexcept {
+std::string xieite::string::trimEnd(const std::string& string, const std::unordered_set<char>& characters) noexcept {
 	for (std::size_t i = string.size(); i--;)
 		if (!characters.contains(string[i]))
 			return string.substr(0, i);

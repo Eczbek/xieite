@@ -14,7 +14,7 @@ std::string trimEnd(const std::string& string, const char character) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-std::string trimEnd(const std::string& string, const std::set<char>& characters) noexcept;
+std::string trimEnd(const std::string& string, const std::unordered_set<char>& characters) noexcept;
 ```
 
 <br/><br/>

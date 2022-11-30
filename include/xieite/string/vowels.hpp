@@ -1,6 +1,6 @@
 #pragma once
-#include <set>
+#include <unordered_set>
 
 namespace xieite::string {
-	constexpr std::set<char> vowels { 'a', 'e', 'i', 'o', 'u' };
+	constexpr std::unordered_set<char> vowels { 'a', 'e', 'i', 'o', 'u' };
 }
