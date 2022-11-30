@@ -1,5 +1,13 @@
 # xieite::vector::group
 Declared in `<xieite/vector/group.hpp>`
+
+<br/>
+
+Groups elements of a vector into a `std::unordered_map`. The resulting map's keys depend on the return value of the callback.
+
+<br/><br/>
+
+## Declarations
 ```cpp
 template<typename V, std::invocable<V> C>
 [[nodiscard]]
@@ -10,7 +18,9 @@ template<typename V, std::invocable<V, std::size_t> C>
 [[nodiscard]]
 std::unordered_map<std::invoke_result_t<C(V, std::size_t)>, std::vector<V>> group(const std::vector<V>& values, const C& callback) noexcept;
 ```
-The function `xieite::vector::group` groups elements of a vector into a `std::unordered_map`. The resulting map's keys depend on the return value of the callback.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

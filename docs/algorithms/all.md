@@ -1,5 +1,13 @@
 # xieite::algorithms::all
 Declared in `<xieite/algorithms/all.hpp>`
+
+<br/>
+
+Checks whether all arguments can be converted to a true boolean.
+
+<br/><br/>
+
+## Declarations
 ```cpp
 template<typename... T>
 requires(requires(T... values) {
@@ -7,12 +15,15 @@ requires(requires(T... values) {
 })
 [[nodiscard]]
 constexpr bool all(const T&... values) noexcept;
-
+```
+```cpp
 template<typename... T>
 [[nodiscard]]
 constexpr bool all(const T&...) noexcept;
 ```
-Checks whether all arguments can be converted to a `true` boolean.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

@@ -1,11 +1,21 @@
 # xieite::math::isPrime
 Declared in `<xieite/math/isPrime.hpp>`
+
+<br/>
+
+Checks whether an integral is prime.
+
+<br/><br/>
+
+## Declaration
 ```cpp
 template<std::integral N>
 [[nodiscard]]
 constexpr bool isPrime(const N value) noexcept;
 ```
-Checks whether an integral is prime.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

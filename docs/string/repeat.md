@@ -1,10 +1,20 @@
 # xieite::string::repeat
 Declared in `<xieite/string/repeat.hpp>`
+
+<br/>
+
+Repeats a string.
+
+<br/><br/>
+
+## Declaration
 ```cpp
 [[nodiscard]]
 std::string repeat(const std::string_view string, std::size_t count) noexcept;
 ```
-Repeats a string.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

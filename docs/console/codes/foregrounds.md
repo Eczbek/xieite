@@ -1,5 +1,9 @@
 # xieite::console::codes::foregrounds
 Declared in `<xieite/console/codes/foregrounds.hpp>`
+
+<br/><br/>
+
+## Definitions
 ```cpp
 constexpr int black = 30;
 constexpr int red = 31;

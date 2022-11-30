@@ -1,7 +1,11 @@
 # xieite::Timer
 Declared in `<xieite/Timer.hpp>`
 
+<br/>
+
 A simple timer.
+
+<br/><br/>
 
 ## Constructor
 ```cpp
@@ -13,9 +17,12 @@ Timer() noexcept;
 template<xieite::concepts::Duration D = std::chrono::nanoseconds>
 [[nodiscard]]
 D::rep get() noexcept;
-		
+```
+```cpp
 void reset() noexcept;
 ```
+
+<br/><br/>
 
 ## Example
 ```cpp

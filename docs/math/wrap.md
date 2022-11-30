@@ -1,11 +1,21 @@
 # xieite::math::wrap
 Declared in `<xieite/math/wrap.hpp>`
+
+<br/>
+
+"Wraps" a number between two limits, like modulo but can have any bottom limit.
+
+<br/><br/>
+
+## Declaration
 ```cpp
 template<xieite::concepts::Arithmetic N>
 [[nodiscard]]
 constexpr N wrap(const N value, const N max, const N min = 0) noexcept;
 ```
-Wraps a number between two others. The limit `max` is exclusive.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

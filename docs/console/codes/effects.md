@@ -1,5 +1,9 @@
 # xieite::console::codes::effects
 Declared in `<xieite/console/codes/effects.hpp>`
+
+<br/><br/>
+
+## Definitions
 ```cpp
 constexpr int none = 0;
 constexpr int bold = 1;

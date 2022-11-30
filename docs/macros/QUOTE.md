@@ -1,9 +1,19 @@
 # GCUFL_QUOTE
 Declared in `<xieite/macros/QUOTE.hpp>`
+
+<br/>
+
+Converts an expression to a string literally.
+
+<br/><br/>
+
+## Definition
 ```cpp
 #define GCUFL_QUOTE(x) #x
 ```
-Converts an expression to a string literally.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

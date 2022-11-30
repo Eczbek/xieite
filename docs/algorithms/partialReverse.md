@@ -1,10 +1,20 @@
 # xieite::algorithms::partialReverse
 Declared in `<xieite/algorithms/partialReverse.hpp>`
+
+<br/>
+
+Partially reverses an iterable's elements.
+
+<br/><br/>
+
+## Declaration
 ```cpp
 template<std::forward_iterator I, xieite::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
 constexpr void partialReverse(I begin, const I end, const F& selector) noexcept;
 ```
-Partially reverses an iterable's elements.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <array>

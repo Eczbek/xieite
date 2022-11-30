@@ -1,5 +1,9 @@
 # xieite::console::codes::erasors
 Declared in `<xieite/console/codes/erasors.hpp>`
+
+<br/><br/>
+
+## Definitions
 ```cpp
 constexpr int lineFromCursor = 0;
 constexpr int lineUntilCursor = 1;

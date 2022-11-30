@@ -1,5 +1,13 @@
 # xieite::algorithms::any
 Declared in `<xieite/algorithms/any.hpp>`
+
+<br/>
+
+Checks whether at least one argument can be converted to a `true` boolean.
+
+<br/><br/>
+
+## Declarations
 ```cpp
 template<typename... T>
 requires(requires(T... values) {
@@ -7,12 +15,15 @@ requires(requires(T... values) {
 })
 [[nodiscard]]
 constexpr bool any(const T&... values) noexcept;
-
+```
+```cpp
 template<typename... T>
 [[nodiscard]]
 constexpr bool any(const T&...) noexcept;
 ```
-Checks whether at least one argument can be converted to a `true` boolean.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

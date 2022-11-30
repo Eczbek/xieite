@@ -1,7 +1,11 @@
 # xieite::math::PiGenerator
 Declared in `<xieite/math/PiGenerator.hpp>`
 
-Generates digits of PI.
+<br/>
+
+Calculates digits of PI.
+
+<br/><br/>
 
 ## Constructor
 ```cpp
@@ -14,6 +18,8 @@ template<std::integral N = int>
 constexpr N next() noexcept;
 ```
 
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>
@@ -21,6 +27,7 @@ constexpr N next() noexcept;
 
 int main() {
 	xieite::math::PiGenerator pi;
+	
 	for (int i = 0; i < 50; ++i)
 		std::cout << pi.next();
 	std::cout << '\n';

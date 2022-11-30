@@ -1,11 +1,21 @@
 # xieite::vector::rotateMatrix
 Declared in `<xieite/vector/rotateMatrix.hpp>`
+
+<br/>
+
+Rotates a 2D vector matrix by 90*. Positive rotations go clockwise, negative rotations go counter-clockwise.
+
+<br/><br/>
+
+## Declaration
 ```cpp
 template<typename V>
 [[nodiscard]]
 std::vector<std::vector<V>> rotateMatrix(const std::vector<std::vector<V>>& matrix, int rotations) noexcept;
 ```
-Rotates a 2D vector matrix by 90*. Positive rotations go clockwise, negative rotations go counter-clockwise.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

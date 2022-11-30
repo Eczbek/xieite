@@ -1,16 +1,28 @@
 # xieite::string::split
 Declared in `<xieite/string/split.hpp>`
+
+<br/>
+
+Splits a string into a vector of segments.
+
+<br/><br/>
+
+## Declarations
 ```cpp
 [[nodiscard]]
 std::vector<std::string> split(const std::string& string, const std::string_view delimiter = "") noexcept;
-
+```
+```cpp
 [[nodiscard]]
 std::vector<std::string> split(const std::string& string, const char delimiter) noexcept;
-
+```
+```cpp
 [[nodiscard]]
 std::vector<std::string> split(const std::string& string, const std::regex& delimiter) noexcept;
 ```
-Splits a string into a vector of strings.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <string>

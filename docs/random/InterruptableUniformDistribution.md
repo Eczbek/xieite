@@ -1,10 +1,14 @@
 # xieite::random::InterruptableUniformDistribution
 Declared in `<xieite/random/InterruptableUniformDistribution.hpp>`
 
+<br/>
+
 A uniform random number distribution which allows for "interruptions".
 
+<br/><br/>
+
 ## Template parameters
-`std::integral N` or `std::floating_point N`.
+`N` - either `std::integral` or `std::floating_point`.
 
 ## Constructor
 ```cpp
@@ -16,6 +20,8 @@ constexpr InterruptableUniformDistribution(const N begin, const N end, const std
 template<xieite::concepts::UniformRandomGenerator G>
 constexpr N operator()(G& generator) noexcept;
 ```
+
+<br/><br/>
 
 ## Example
 ```cpp

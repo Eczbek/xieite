@@ -1,10 +1,20 @@
 # xieite::string::hash
 Declared in `<xieite/string/hash.hpp>`
+
+<br/>
+
+"Hashes" a string for use in a `switch`. Collisions may occur.
+
+<br/><br/>
+
+## Declaration
 ```cpp
 [[nodiscard]]
 constexpr unsigned long long hash(const std::string_view string) noexcept;
 ```
-Hashes a string.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

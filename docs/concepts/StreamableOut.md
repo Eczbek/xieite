@@ -1,12 +1,22 @@
 # xieite::concepts::StreamableOut
 Declared in `<xieite/concepts/StreamableOut.hpp>`
+
+<br/>
+
+Specifies that a type `T` is ostream-able.
+
+<br/><br/>
+
+## Declaration
 ```cpp
 template<typename T>
 concept StreamableOut = requires(std::ostream& outStream, T value) {
 	{ outStream << value } -> std::convertible_to<std::ostream&>;
 };
 ```
-Specifies that a type `T` is ostream-able.
+
+<br/><br/>
+
 ## Example
 ```cpp
 #include <iostream>

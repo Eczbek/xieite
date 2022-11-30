@@ -1,30 +1,46 @@
 # xieite::math::difference
 Declared in `<xieite/math/difference.hpp>`
+
+<br/>
+
+Calculates the absolute difference between values.
+
+<br/><br/>
+
+## Declarations
 ```cpp
 template<std::integral N>
 [[nodiscard]]
 constexpr std::make_unsigned_t<N> difference(const N a, const N b) noexcept;
-
+```
+```cpp
 template<std::floating_point N>
 [[nodiscard]]
 constexpr N difference(const N a, const N b) noexcept;
 ```
-Calculates the absolute difference between values.
+
+<br/><br/>
+
 ## Example
 ```cpp
+#include <cstdint>
 #include <iostream>
 #include <limits>
 #include <xieite/math/difference.hpp>
 
 int main() {
-	std::cout << std::numeric_limits<short>::max() << '\n'
-		<< std::numeric_limits<short>::min() << '\n'
-		<< xieite::math::difference(std::numeric_limits<short>::max(), std::numeric_limits<short>::min()) << '\n';
+	const std::int8_t min = std::numeric_limits<std::int8_t>::min();
+	const std::int8_t max = std::numeric_limits<std::int8_t>::max();
+
+	std::cout
+		<< min << '\n'
+		<< max << '\n'
+		<< xieite::math::difference(min, max) << '\n';
 }
 ```
 Output:
 ```
-32767
--32768
-65535
+-128
+127
+255
 ```
