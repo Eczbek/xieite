@@ -3,7 +3,7 @@ Declared in `<xieite/math/wrap.hpp>`
 
 <br/>
 
-"Wraps" a number between two limits, like modulo but can have any bottom limit.
+"Wraps" a number between two limits, inclusively.
 
 <br/><br/>
 
