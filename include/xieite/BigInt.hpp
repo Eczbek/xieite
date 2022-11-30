@@ -235,18 +235,19 @@ namespace xieite {
 				return -other;
 			if (other == -1)
 				return -*this;
-			xieite::BigInt result;
-			const std::size_t bitsSize = bits.size();
-			const std::size_t otherBitsSize = other.bits.size();
-			for (std::size_t i = 0; i < bitsSize; ++i) {
-				if (!bits[i])
-					continue;
-				for (std::size_t j = 0; j < otherBitsSize; ++j) {
-					if (!other.bits[j])
-						continue;
-					result += xieite::BigInt(bits[i] * other.bits[j]) << (i + j);
-				}
-			}
+			const std::size_t halfSize = std::min(bits.size(), other.bits.size()) / 2;
+			std::vector<bool>::const_iterator i = bits.begin();
+			std::advance(i, halfSize);
+			const xieite::BigInt a(bits.begin(), i);
+			const xieite::BigInt b(i, bits.end());
+			std::vector<bool>::const_iterator j = other.bits.begin();
+			std::advance(j, halfSize);
+			const xieite::BigInt c(other.bits.begin(), j);
+			const xieite::BigInt d(j, other.bits.end());
+			const xieite::BigInt e = a * c;
+			const xieite::BigInt f = (a + b) * (c + d);
+			const xieite::BigInt g = b * d;
+			xieite::BigInt result = (g << (halfSize * 2)) + ((f - g - e) << halfSize) + e;
 			result.sign = sign != other.sign;
 			return result;
 		}
