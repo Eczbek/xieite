@@ -11,5 +11,5 @@ Converts radians to degrees.
 ```cpp
 template<xieite::concepts::Arithmetic N>
 [[nodiscard]]
-constexpr double toDegrees(const N radians) noexcept;
+constexpr N toDegrees(const N radians) noexcept;
 ```
