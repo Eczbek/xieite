@@ -5,7 +5,7 @@
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic N>
 	[[nodiscard]]
-	constexpr N sec(const N value) noexcept {
-		return 1 / std::cos(value);
+	constexpr N cotangent(const N value) noexcept {
+		return std::cos(value) / std::sin(value);
 	}
 }
