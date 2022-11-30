@@ -13,13 +13,13 @@ namespace xieite::geometry {
 		xieite::geometry::Point end;
 
 		constexpr Line(const xieite::geometry::Point intersection1, const xieite::geometry::Point intersection2) noexcept
-		: start(start), end(end) {}
+		: start(intersection1), end(intersection2) {}
 
 		constexpr Line(const xieite::geometry::Point intersection, const double angle) noexcept
-		: start(start), end(xieite::geometry::Point(std::cos(angle), std::sin(angle))) {}
+		: start(intersection), end(xieite::geometry::Point(std::cos(angle), std::sin(angle))) {}
 
 		[[nodiscard]]
-		virtual constexpr bool operator==(const xieite::geometry::Line& other) const noexcept {
+		constexpr bool operator==(const xieite::geometry::Line& other) const noexcept {
 			return slope() == other.slope() && contains(other.start);
 		}
 
@@ -32,8 +32,8 @@ namespace xieite::geometry {
 		virtual constexpr bool contains(const xieite::geometry::Point point) const noexcept {
 			const double slope = this->slope();
 			return std::isinf(slope)
-				? xieite::math::approxEqual(other.x, start.x)
-				: xieite::math::approxEqual(other.y, other.x * slope - start.x * slope + start.y);
+				? xieite::math::approxEqual(point.x, start.x)
+				: xieite::math::approxEqual(point.y, point.x * slope - start.x * slope + start.y);
 		}
 
 		[[nodiscard]]
@@ -53,7 +53,7 @@ namespace xieite::geometry {
 		}
 		
 		[[nodiscard]]
-		constexpr xieite::geometry::Line rotate(const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) {
+		constexpr xieite::geometry::Line rotate(const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept {
 			return xieite::geometry::Line(start.rotate(angle, pivot), end.rotate(angle, pivot));
 		}
 

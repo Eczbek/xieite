@@ -15,22 +15,22 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr bool contains(const xieite::geometry::Point point) const noexcept {
+		constexpr bool contains(const xieite::geometry::Point point) const noexcept override {
 			const double slope = this->slope();
 			return (std::isinf(slope)
-				? xieite::math::approxEqual(other.x, start.x)
-					&& (other.y >= start.y && other.y <= end.y || other.y <= start.y && other.y >= end.y)
-				: xieite::math::approxEqual(other.y, other.x * slope - start.x * slope + start.y))
+				? xieite::math::approxEqual(point.x, start.x)
+					&& (point.y >= start.y && point.y <= end.y || point.y <= start.y && point.y >= end.y)
+				: xieite::math::approxEqual(point.y, point.x * slope - start.x * slope + start.y))
 					&& (start.x < end.x
-						? other.x >= start.x && other.x <= end.x
-						: other.x <= start.x && other.x >= end.x)
+						? point.x >= start.x && point.x <= end.x
+						: point.x <= start.x && point.x >= end.x)
 					&& (start.y < end.y
-						? other.y >= start.y && other.y <= end.y
-						: other.y <= start.y && other.y >= end.y);
+						? point.y >= start.y && point.y <= end.y
+						: point.y <= start.y && point.y >= end.y);
 		}
 
 		[[nodiscard]]
-		constexpr double length() const noexcept {
+		constexpr double length() const noexcept override {
 			return std::hypot(start.x - end.x, start.y - end.y);
 		}
 	};

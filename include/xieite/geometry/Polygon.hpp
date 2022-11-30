@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 #include <vector>
 #include <xieite/algorithms/rotatedMatch.hpp>
 #include <xieite/geometry/Point.hpp>
@@ -13,21 +14,21 @@ namespace xieite::geometry {
 		: points(points) {}
 
 		[[nodiscard]]
-		virtual constexpr bool operator==(const xieite::geometry::Polygon& other) const noexcept {
+		constexpr bool operator==(const xieite::geometry::Polygon& other) const noexcept {
 			return xieite::algorithms::rotatedMatch(points.begin(), points.end(), other.points.begin(), other.points.end())
 				|| xieite::algorithms::rotatedMatch(points.rbegin(), points.rend(), other.points.begin(), other.points.end());
 		}
 
 		[[nodiscard]]
-		virtual constexpr double area() const noexcept {
+		constexpr double area() const noexcept {
 			double area = 0;
 			for (const xieite::geometry::Segment& side : sides())
 				area += side.start.x * side.end.y - side.start.y * side.start.x;
-			return area / 2;
+			return std::abs(area / 2);
 		}
 
 		[[nodiscard]]
-		virtual constexpr bool contains(const xieite::geometry::Point point) const noexcept {
+		constexpr bool contains(const xieite::geometry::Point point) const noexcept {
 			std::size_t intersections = 0;
 			xieite::geometry::Ray ray(point, 0);
 			for (const xieite::geometry::Segment& side : sides())
@@ -36,7 +37,7 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		virtual constexpr double perimeter() const noexcept {
+		constexpr double perimeter() const noexcept {
 			double perimeter = 0;
 			for (const xieite::geometry::Segment& side : sides())
 				perimeter += side.length();
@@ -53,7 +54,7 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		virtual constexpr std::vector<xieite::geometry::Segment> sides() const noexcept {
+		constexpr std::vector<xieite::geometry::Segment> sides() const noexcept {
 			std::vector<xieite::geometry::Segment> sides;
 			const std::size_t pointsSize = points.size();
 			for (std::size_t i = 0; i < pointsSize; ++i)

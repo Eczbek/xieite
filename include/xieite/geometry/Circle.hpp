@@ -19,12 +19,12 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr double area() const noexcept {
+		constexpr double area() const noexcept override {
 			return std::numbers::pi * radius.x * radius.x;
 		}
 
 		[[nodiscard]]
-		constexpr xieite::geometry::Polygon boundingBox() const noexcept {
+		constexpr xieite::geometry::Polygon boundingBox() const noexcept override {
 			return xieite::geometry::Polygon(std::vector<xieite::geometry::Point> {
 				xieite::geometry::Point(center.x - radius.x, center.y - radius.y),
 				xieite::geometry::Point(center.x + radius.x, center.y - radius.y),
@@ -34,12 +34,12 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr bool contains(const xieite::geometry::Point point) const noexcept {
+		constexpr bool contains(const xieite::geometry::Point point) const noexcept override {
 			return std::hypot(point.x - center.x, point.y - center.y) <= radius.x;
 		}
 
 		[[nodiscard]]
-		constexpr double perimeter() const noexcept {
+		constexpr double perimeter() const noexcept override {
 			return xieite::numbers::tau<double> * radius.x;
 		}
 	};

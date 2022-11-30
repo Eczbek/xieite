@@ -19,20 +19,20 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		constexpr bool contains(const xieite::geometry::Point point) const noexcept {
+		constexpr bool contains(const xieite::geometry::Point point) const noexcept override {
 			const double slope = this->slope();
 			return (std::isinf(slope)
-				? xieite::math::approxEqual(other.x, start.x)
+				? xieite::math::approxEqual(point.x, start.x)
 					&& slope < std::numeric_limits<double>::lowest()
-						? other.y >= start.y
-						: other.y <= start.y
-				: xieite::math::approxEqual(other.y, other.x * slope - start.x * slope + start.y))
+						? point.y >= start.y
+						: point.y <= start.y
+				: xieite::math::approxEqual(point.y, point.x * slope - start.x * slope + start.y))
 					&& (start.x <= end.x
-						? other.x >= start.x
-						: other.x <= start.x)
+						? point.x >= start.x
+						: point.x <= start.x)
 					&& (start.y <= end.y
-						? other.y >= start.y
-						: other.y <= start.y);
+						? point.y >= start.y
+						: point.y <= start.y);
 		}
 	};
 }

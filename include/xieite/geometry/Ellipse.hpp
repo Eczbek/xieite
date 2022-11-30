@@ -18,7 +18,7 @@ namespace xieite::geometry {
 		: center(center), radius(radius), rotation(rotation) {}
 
 		[[nodiscard]]
-		virtual constexpr bool operator==(const xieite::geometry::Ellipse& other) const noexcept {
+		constexpr bool operator==(const xieite::geometry::Ellipse& other) const noexcept {
 			return center == other.center && radius == other.radius && xieite::math::approxEqual(std::fmod(rotation, std::numbers::pi_v<double>), std::fmod(other.rotation, std::numbers::pi_v<double>));
 		}
 
@@ -47,7 +47,7 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]]
-		virtual constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Line& line) const noexcept {
+		constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Line& line) const noexcept {
 			std::vector<xieite::geometry::Point> intersections;
 			const double a = radius.y * radius.y * line.end.x * line.end.x + radius.x * radius.x * line.end.y * line.end.y;
 			const double b = radius.y * radius.y * line.start.x * line.end.x * 2 + radius.x * radius.x * line.start.y * line.end.y * 2;
