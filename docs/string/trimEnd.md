@@ -3,18 +3,18 @@ Declared in `<xieite/string/trimEnd.hpp>`
 
 <br/>
 
-Trims the end of a string. The first variation accepts multiple characters in a `std::string_view`, of which all characters are used to trim a string.
+Trims the end of a string.
 
 <br/><br/>
 
 ## Declarations
 ```cpp
 [[nodiscard]]
-std::string trimEnd(const std::string& string, const std::string_view characters) noexcept;
+std::string trimEnd(const std::string& string, const char character) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-std::string trimEnd(const std::string& string, const char character) noexcept;
+std::string trimEnd(const std::string& string, const std::set<char>& characters) noexcept;
 ```
 
 <br/><br/>
@@ -25,7 +25,7 @@ std::string trimEnd(const std::string& string, const char character) noexcept;
 #include <xieite/string/trimEnd.hpp>
 
 int main() {
-	std::cout << xieite::string::trimEnd("bababananana", "an") << '\n';
+	std::cout << xieite::string::trimEnd("bababananana", { 'a', 'n' }) << '\n';
 }
 ```
 Output:

@@ -3,18 +3,18 @@ Declared in `<xieite/string/trimStart.hpp>`
 
 <br/>
 
-Trims the start of a string. The first variation accepts multiple characters in a `std::string_view`, of which all characters are used to trim a string.
+Trims the start of a string.
 
 <br/><br/>
 
 ## Declarations
 ```cpp
 [[nodiscard]]
-std::string trimStart(const std::string& string, const std::string_view characters) noexcept;
+std::string trimStart(const std::string& string, const char character) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-std::string trimStart(const std::string& string, const char character) noexcept;
+std::string trimStart(const std::string& string, const std::set<char>& characters) noexcept;
 ```
 
 <br/><br/>
@@ -25,7 +25,7 @@ std::string trimStart(const std::string& string, const char character) noexcept;
 #include <xieite/string/trimStart.hpp>
 
 int main() {
-	std::cout << xieite::string::trimStart("bababananana", "ab") << '\n';
+	std::cout << xieite::string::trimStart("bababananana", { 'a', 'b' }) << '\n';
 }
 ```
 Output:
