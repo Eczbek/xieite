@@ -9,6 +9,6 @@ Is equal to `std::numbers::pi` twice.
 
 ## Definition
 ```cpp
-template<typename N = double>
+template<xieite::concepts::Arithmetic N>
 constexpr N tau = std::numbers::pi_v<N> * 2;
 ```
