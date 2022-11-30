@@ -1,4 +1,4 @@
-# GCUFL_QUOTE
+# XIEITE_QUOTE
 Declared in `<xieite/macros/QUOTE.hpp>`
 
 <br/>
@@ -9,7 +9,7 @@ Converts an expression to a string literally.
 
 ## Definition
 ```cpp
-#define GCUFL_QUOTE(x) #x
+#define XIEITE_QUOTE(x) #x
 ```
 
 <br/><br/>
@@ -20,7 +20,7 @@ Converts an expression to a string literally.
 #include <xieite/macros/QUOTE.hpp>
 
 int main() {
-	std::cout << GCUFL_QUOTE(2 + 2) << '\n';
+	std::cout << XIEITE_QUOTE(2 + 2) << '\n';
 }
 ```
 Output:

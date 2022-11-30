@@ -1,3 +1,3 @@
 #pragma once
 
-#define GCUFL_QUOTE(x) #x
+#define XIEITE_QUOTE(x) #x

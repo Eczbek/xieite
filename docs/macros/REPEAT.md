@@ -1,4 +1,4 @@
-# GCUFL_REPEAT
+# XIEITE_REPEAT
 Declared in `<xieite/macros/REPEAT.hpp>`
 
 <br/>
@@ -8,10 +8,10 @@ Repeats an expression literally.
 <br/><br/>
 
 ```cpp
-#define GCUFL_REPEAT(x, n) GCUFL_CONCAT(GCUFL_REPEAT_, n)(x)
+#define XIEITE_REPEAT(x, n) XIEITE_CONCAT(XIEITE_REPEAT_, n)(x)
 ```
 
 <br/><br/>
 
 ## Example
-See `GCUFL_MATRIX`.
+See `XIEITE_MATRIX`.
