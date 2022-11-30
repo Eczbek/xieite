@@ -30,7 +30,7 @@ constexpr I findNth(const I begin, const I end, const typename std::iterator_tra
 
 int main() {
 	std::array<int, 7> values { 1, 2, 1, 3, 1, 4, 1 };
-	std::cout << std::distance(values.begin(), xieite::algorithms::findNth(values.begin(), values.end(), 2, 1)) << '\n';
+	std::cout << std::distance(values.begin(), xieite::algorithms::findNth(values.begin(), values.end(), 1, 3)) << '\n';
 }
 ```
 Output:
