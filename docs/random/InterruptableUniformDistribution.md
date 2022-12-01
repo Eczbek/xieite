@@ -3,7 +3,7 @@ Declared in `<xieite/random/InterruptableUniformDistribution.hpp>`
 
 <br/>
 
-A uniform random number distribution which allows for "interruptions".
+A uniform random number distribution which allows excluding subintervals from the main interval.
 
 <br/><br/>
 
