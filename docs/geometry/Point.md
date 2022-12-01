@@ -43,7 +43,7 @@ constexpr xieite::geometry::Point rotate(const long double angle, const xieite::
 
 int main() {
 	xieite::geometry::Point original(0, 1);
-	xieite::geometry::Point rotated = original.rotate(xieite::math::toRadians(90));
+	xieite::geometry::Point rotated = original.rotate(xieite::math::toRadians<long double>(90));
 	std::cout << rotated.x << ' ' << rotated.y << '\n';
 }
 ```

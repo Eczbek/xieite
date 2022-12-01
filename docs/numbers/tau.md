@@ -3,12 +3,12 @@ Declared in `<xieite/numbers/tau.hpp>`
 
 <br/>
 
-Is equal to `std::numbers::pi` twice.
+Equal to `std::numbers::pi` twice.
 
 <br/><br/>
 
 ## Definition
 ```cpp
 template<xieite::concepts::Arithmetic N>
-constexpr N tau = std::numbers::pi_v<N> * 2;
+constexpr N tau = xieite::numbers::pi<N> * 2;
 ```

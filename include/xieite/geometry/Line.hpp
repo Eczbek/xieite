@@ -5,6 +5,7 @@
 #include <optional>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/math/approxEqual.hpp>
+#include <xieite/numbers/pi.hpp>
 #include <xieite/numbers/tau.hpp>
 
 namespace xieite::geometry {
@@ -25,7 +26,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr long double angle() const noexcept {
-			return std::fmod(std::atan2(start.y - end.y, start.x - end.x) + xieite::numbers::tau<long double>, std::numbers::pi_v<long double>);
+			return std::fmod(std::atan2(start.y - end.y, start.x - end.x) + xieite::numbers::tau<long double>, xieite::numbers::pi<long double>);
 		}
 
 		[[nodiscard]]
@@ -39,7 +40,7 @@ namespace xieite::geometry {
 		[[nodiscard]]
 		constexpr std::optional<xieite::geometry::Point> intersection(const xieite::geometry::Line& other) const noexcept {
 			const long double a = (start.x - end.x) * (other.start.y - other.end.y) - (start.y - end.y) * (other.start.x - other.end.x);
-			if (!xieite::math::approxEqual(a, 0.0)) {
+			if (!xieite::math::approxEqual(a, static_cast<long double>(0))) {
 				const xieite::geometry::Point intersection(((other.start.x - other.end.x) * (start.x * end.y - start.y * end.x) - (start.x - end.x) * (other.start.x * other.end.y - other.start.y * other.end.x)) / a, ((other.start.y - other.end.y) * (start.x * end.y - start.y * end.x) - (start.y - end.y) * (other.start.x * other.end.y - other.start.y * other.end.x)) / a);
 				if (contains(intersection) && other.contains(intersection))
 					return intersection;
