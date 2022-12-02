@@ -1,10 +1,12 @@
 #pragma once
+#include <cctype>
 #include <cmath>
 #include <compare>
 #include <concepts>
 #include <ostream>
 #include <stdexcept>
 #include <string>
+#include <string_view>
 #include <vector>
 #include <xieite/concepts/Arithmetic.hpp>
 
@@ -49,6 +51,15 @@ namespace xieite {
 				bits.push_back(false);
 			if (i < 2 && !bits[0])
 				this->sign = false;
+		}
+
+		constexpr BigInt(std::string_view value) noexcept {
+			const bool isNegative = value[0] == '-';
+			value.remove_prefix(isNegative || value[0] == '+');
+			const std::size_t valueSize = value.size();
+			for (std::size_t i = 0; i < valueSize && std::isdigit(static_cast<unsigned char>(value[i])); ++i)
+				*this += xieite::BigInt(10).pow(valueSize - i - 1) * (value[i] - '0');
+			*this *= -isNegative;
 		}
 
 		constexpr xieite::BigInt& operator=(const xieite::BigInt& other) noexcept {
