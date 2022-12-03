@@ -1,5 +1,5 @@
-# xieite::numbers::tau
-Declared in `<xieite/numbers/tau.hpp>`
+# xieite::math::tau
+Declared in `<xieite/math/tau.hpp>`
 
 <br/>
 
@@ -10,5 +10,5 @@ Equal to `std::numbers::pi` twice.
 ## Definition
 ```cpp
 template<xieite::concepts::Arithmetic N>
-constexpr N tau = xieite::numbers::pi<N> * 2;
+constexpr N tau = xieite::math::pi<N> * 2;
 ```

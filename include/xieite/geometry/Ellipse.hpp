@@ -6,8 +6,8 @@
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/math/approxEqual.hpp>
-#include <xieite/numbers/pi.hpp>
-#include <xieite/numbers/tau.hpp>
+#include <xieite/math/pi.hpp>
+#include <xieite/math/tau.hpp>
 
 namespace xieite::geometry {
 	struct Ellipse {
@@ -20,18 +20,18 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Ellipse& other) const noexcept {
-			return center == other.center && radius == other.radius && xieite::math::approxEqual(std::fmod(rotation, xieite::numbers::pi<long double>), std::fmod(other.rotation, xieite::numbers::pi<long double>));
+			return center == other.center && radius == other.radius && xieite::math::approxEqual(std::fmod(rotation, xieite::math::pi<long double>), std::fmod(other.rotation, xieite::math::pi<long double>));
 		}
 
 		[[nodiscard]]
 		virtual constexpr long double area() const noexcept {
-			return xieite::numbers::pi<long double> * radius.x * radius.y;
+			return xieite::math::pi<long double> * radius.x * radius.y;
 		}
 
 		[[nodiscard]]
 		virtual constexpr xieite::geometry::Polygon boundingBox() const noexcept {
-			const long double a = std::sqrt(radius.x * radius.x * std::cos(rotation) * std::cos(rotation) + radius.y * radius.y * std::cos(rotation + xieite::numbers::pi<long double> / 2) * std::cos(rotation + xieite::numbers::pi<long double> / 2));
-			const long double b = std::sqrt(radius.x * radius.x * std::sin(rotation) * std::sin(rotation) + radius.y * radius.y * std::sin(rotation + xieite::numbers::pi<long double> / 2) * std::sin(rotation + xieite::numbers::pi<long double> / 2));
+			const long double a = std::sqrt(radius.x * radius.x * std::cos(rotation) * std::cos(rotation) + radius.y * radius.y * std::cos(rotation + xieite::math::pi<long double> / 2) * std::cos(rotation + xieite::math::pi<long double> / 2));
+			const long double b = std::sqrt(radius.x * radius.x * std::sin(rotation) * std::sin(rotation) + radius.y * radius.y * std::sin(rotation + xieite::math::pi<long double> / 2) * std::sin(rotation + xieite::math::pi<long double> / 2));
 			return xieite::geometry::Polygon(std::vector<xieite::geometry::Point> {
 				xieite::geometry::Point(center.x - a, center.y - b),
 				xieite::geometry::Point(center.x + a, center.y - b),
@@ -71,12 +71,12 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		virtual constexpr long double perimeter() const noexcept {
-			return xieite::numbers::pi<long double> * std::sqrt(2 * (radius.x * radius.x + radius.y * radius.y));
+			return xieite::math::pi<long double> * std::sqrt(2 * (radius.x * radius.x + radius.y * radius.y));
 		}
 
 		[[nodiscard]]
 		constexpr xieite::geometry::Ellipse rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept {
-			return xieite::geometry::Ellipse(center.rotate(angle, pivot), radius, std::fmod(rotation + angle, xieite::numbers::tau<long double>));
+			return xieite::geometry::Ellipse(center.rotate(angle, pivot), radius, std::fmod(rotation + angle, xieite::math::tau<long double>));
 		}
 	};
 }

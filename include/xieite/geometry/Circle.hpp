@@ -6,7 +6,7 @@
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/math/approxEqual.hpp>
-#include <xieite/numbers/tau.hpp>
+#include <xieite/math/tau.hpp>
 
 namespace xieite::geometry {
 	struct Circle: public xieite::geometry::Ellipse {
@@ -40,7 +40,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr long double perimeter() const noexcept override {
-			return xieite::numbers::tau<long double> * radius.x;
+			return xieite::math::tau<long double> * radius.x;
 		}
 	};
 }

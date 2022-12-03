@@ -1,14 +1,14 @@
 #pragma once
 #include <concepts>
-#include <xieite/BigInt.hpp>
+#include <xieite/math/BigInt.hpp>
 
 namespace xieite::math {
 	class PiGenerator {
 	private:
-		xieite::BigInt a;
-		xieite::BigInt b;
-		xieite::BigInt c;
-		xieite::BigInt d;
+		xieite::math::BigInt a;
+		xieite::math::BigInt b;
+		xieite::math::BigInt c;
+		xieite::math::BigInt d;
 
 	public:
 		constexpr PiGenerator() noexcept
@@ -16,8 +16,8 @@ namespace xieite::math {
 
 		template<std::integral N = int>
 		constexpr N next() noexcept {
-			const xieite::BigInt e = (b * (d * 27 - 12) + a * 5) / c / 5;
-			const xieite::BigInt f = (d * 3 + 1) * (d * 3 + 2) * 3;
+			const xieite::math::BigInt e = (b * (d * 27 - 12) + a * 5) / c / 5;
+			const xieite::math::BigInt f = (d * 3 + 1) * (d * 3 + 2) * 3;
 			a = (a + b * (d * 5 - 2) - c * e) * f * 10;
 			b *= d * (d * 2 - 1) * 10;
 			c *= f;

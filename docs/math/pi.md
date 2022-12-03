@@ -1,5 +1,5 @@
-# xieite::numbers::pi
-Declared in `<xieite/numbers/pi.hpp>`
+# xieite::math::pi
+Declared in `<xieite/math/pi.hpp>`
 
 <br/>
 
@@ -22,10 +22,10 @@ constexpr N pi = 3;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/numbers/pi.hpp>
+#include <xieite/math/pi.hpp>
 
 int main() {
 	std::cout
-		<< xieite::numbers::pi<double> << '\n'
-		<< xieite::numbers::pi<int> << '\n';
+		<< xieite::math::pi<double> << '\n'
+		<< xieite::math::pi<int> << '\n';
 }

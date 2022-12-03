@@ -5,8 +5,8 @@
 #include <optional>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/math/approxEqual.hpp>
-#include <xieite/numbers/pi.hpp>
-#include <xieite/numbers/tau.hpp>
+#include <xieite/math/pi.hpp>
+#include <xieite/math/tau.hpp>
 
 namespace xieite::geometry {
 	struct Line {
@@ -26,7 +26,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr long double angle() const noexcept {
-			return std::fmod(std::atan2(start.y - end.y, start.x - end.x) + xieite::numbers::tau<long double>, xieite::numbers::pi<long double>);
+			return std::fmod(std::atan2(start.y - end.y, start.x - end.x) + xieite::math::tau<long double>, xieite::math::pi<long double>);
 		}
 
 		[[nodiscard]]

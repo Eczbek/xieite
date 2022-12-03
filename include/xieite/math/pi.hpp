@@ -2,7 +2,7 @@
 #include <concepts>
 #include <numbers>
 
-namespace xieite::numbers {
+namespace xieite::math {
 	template<typename>
 	constexpr double pi = std::numbers::pi;
 
