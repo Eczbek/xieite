@@ -9,7 +9,7 @@ An enumerator of console effects.
 
 ## Definition
 ```cpp
-enum styles: int {
+enum effects: int {
 	bold = 1,
 	dim,
 	italic,

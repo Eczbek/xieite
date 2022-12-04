@@ -1,7 +1,7 @@
 #pragma once
 
 namespace xieite::console {
-	enum styles: int {
+	enum effects: int {
 		bold = 1,
 		dim,
 		italic,
