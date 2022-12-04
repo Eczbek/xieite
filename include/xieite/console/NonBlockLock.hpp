@@ -3,14 +3,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-namespace xieite::console::locks {
-	class NonBlock {
+namespace xieite::console {
+	class NonBlockLock {
 	private:
 		const int blockingMode = fcntl(STDIN_FILENO, F_GETFL);
 
 	public:
-		NonBlock() noexcept;
+		NonBlockLock() noexcept;
 
-		~NonBlock();
+		~NonBlockLock();
 	};
 }

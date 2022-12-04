@@ -1,5 +1,5 @@
-# xieite::console::cursor::move
-Declared in `<xieite/console/cursor/move.hpp>`
+# xieite::console::move
+Declared in `<xieite/console/moveCursor.hpp>`
 
 <br/>
 
@@ -17,11 +17,11 @@ void move(const char direction, const int distance = 1) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/console/cursor/directions.hpp>
-#include <xieite/console/cursor/move.hpp>
+#include <xieite/console/directions.hpp>
+#include <xieite/console/moveCursor.hpp>
 
 int main() {
-	xieite::console::cursor::move(xieite::console::cursor::directions::right, 8);
+	xieite::console::move(xieite::console::directions::right, 8);
 	std::cout << "Hello, world!\n";
 }
 ```

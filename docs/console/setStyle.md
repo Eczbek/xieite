@@ -10,9 +10,11 @@ Sets the text style.
 ## Declarations
 ```cpp
 void setStyle(const char style) noexcept;
-
+```
+```cpp
 void setStyle(const char effect, const char foreground) noexcept;
-
+```
+```cpp
 void setStyle(const char effect, const char foreground, const char background) noexcept;
 ```
 
@@ -21,11 +23,11 @@ void setStyle(const char effect, const char foreground, const char background) n
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/console/codes/foregrounds.hpp>
+#include <xieite/console/styleForegrounds.hpp>
 #include <xieite/console/setStyle.hpp>
 
 int main() {
-	xieite::console::setStyle(xieite::console::codes::foregrounds::brightRed);
+	xieite::console::setStyle(xieite::console::styleForegrounds::brightRed);
 	std::cout << "Hello, world!\n";
 }
 ```

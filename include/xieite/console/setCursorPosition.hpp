@@ -2,6 +2,5 @@
 #include <xieite/console/CursorPosition.hpp>
 
 namespace xieite::console {
-	[[nodiscard]]
-	xieite::console::CursorPosition getWindowSize() noexcept;
+	void setCursorPosition(const xieite::console::CursorPosition position) noexcept;
 }

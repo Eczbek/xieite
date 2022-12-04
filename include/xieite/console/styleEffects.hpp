@@ -1,6 +1,6 @@
 #pragma once
 
-namespace xieite::console::codes::effects {
+namespace xieite::console::styleEffects {
 	constexpr int none = 0;
 	constexpr int bold = 1;
 	constexpr int dim = 2;

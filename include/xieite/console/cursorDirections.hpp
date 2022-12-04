@@ -1,6 +1,6 @@
 #pragma once
 
-namespace xieite::console::cursor::directions {
+namespace xieite::console::directions {
 	constexpr char up = 'A';
 	constexpr char down = 'B';
 	constexpr char right = 'C';

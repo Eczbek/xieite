@@ -1,6 +1,6 @@
 #pragma once
 
-namespace xieite::console::codes::backgrounds {
+namespace xieite::console::styleBackgrounds {
 	constexpr int black = 40;
 	constexpr int red = 41;
 	constexpr int green = 42;

@@ -3,5 +3,5 @@
 
 namespace xieite::console {
 	[[nodiscard]]
-	xieite::console::CursorPosition getWindowSize() noexcept;
+	xieite::console::CursorPosition getCursorPosition() noexcept;
 }
