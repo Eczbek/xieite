@@ -9,5 +9,5 @@ Erases the line on which the cursor is.
 
 ## Declaration
 ```cpp
-void eraseLine(const char erasor) noexcept;
+void eraseLine() noexcept;
 ```

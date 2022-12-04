@@ -9,5 +9,5 @@ Erases the entire screen.
 
 ## Declaration
 ```cpp
-void eraseScreen(const char erasor) noexcept;
+void eraseScreen() noexcept;
 ```
