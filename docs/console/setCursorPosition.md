@@ -11,3 +11,22 @@ Sets the cursor's position.
 ```cpp
 void setCursorPosition(const xieite::console::CursorPosition position) noexcept;
 ```
+
+<br/><br/>
+
+## Example
+```cpp
+#include <iostream>
+#include <xieite/console/setCursorPosition.hpp>
+
+int main() {
+	xieite::console::setCursorPosition({ 2, 5 });
+	std::cout << "Hello, world!\n";
+}
+```
+Output:
+```
+
+
+     Hello, world!
+```

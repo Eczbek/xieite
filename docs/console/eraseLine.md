@@ -11,3 +11,21 @@ Erases the line on which the cursor is.
 ```cpp
 void eraseLine() noexcept;
 ```
+
+<br/><br/>
+
+## Example
+```cpp
+#include <iostream>
+#include <xieite/console/eraseLine.hpp>
+
+int main() {
+	std::cout << "Hello,";
+	xieite::console::eraseLine();
+	std::cout << "world!\n";
+}
+```
+Output:
+```
+world!
+```

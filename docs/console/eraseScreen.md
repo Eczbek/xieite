@@ -11,3 +11,19 @@ Erases the entire screen.
 ```cpp
 void eraseScreen() noexcept;
 ```
+
+<br/><br/>
+
+## Example
+```cpp
+#include <iostream>
+#include <xieite/console/eraseScreen.hpp>
+
+int main() {
+	std::cout << "Lots\nof\ntext!\n";
+	xieite::console::eraseScreen();
+}
+```
+Output:
+```
+```
