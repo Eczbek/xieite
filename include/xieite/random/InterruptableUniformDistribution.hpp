@@ -42,8 +42,8 @@ namespace xieite::random {
 			distribution = std::uniform_int_distribution<N>(std::min(begin2, end2), std::max(begin2, end2));
 		}
 
-		[[nodiscard]]
 		template<xieite::concepts::UniformRandomGenerator G>
+		[[nodiscard]]
 		constexpr N operator()(G& generator) noexcept {
 			N result = distribution(generator);
 			for (const std::pair<N, N> interruption : interruptions) {
@@ -82,8 +82,8 @@ namespace xieite::random {
 			distribution = std::uniform_real_distribution<N>(std::min(begin2, end2), std::max(begin2, end2));
 		}
 
-		[[nodiscard]]
 		template<xieite::concepts::UniformRandomGenerator G>
+		[[nodiscard]]
 		constexpr N operator()(G& generator) noexcept {
 			N result = distribution(generator);
 			for (const std::pair<N, N> interruption : interruptions) {
