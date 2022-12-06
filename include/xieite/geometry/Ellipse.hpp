@@ -10,7 +10,8 @@
 #include <xieite/math/tau.hpp>
 
 namespace xieite::geometry {
-	struct Ellipse {
+	class Ellipse {
+	public:
 		xieite::geometry::Point center;
 		xieite::geometry::Point radius;
 		long double rotation;

@@ -42,12 +42,12 @@ constexpr xieite::geometry::Point rotate(const long double angle, const xieite::
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-	xieite::geometry::Point original(0, 1);
+	xieite::geometry::Point original(1, 0);
 	xieite::geometry::Point rotated = original.rotate(xieite::math::toRadians<long double>(90));
 	std::cout << rotated.x << ' ' << rotated.y << '\n';
 }
 ```
 Output: (rounded slightly)
 ```
-1 0
+0 1
 ```

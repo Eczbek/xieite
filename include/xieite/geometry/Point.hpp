@@ -3,7 +3,8 @@
 #include <xieite/math/approxEqual.hpp>
 
 namespace xieite::geometry {
-	struct Point {
+	class Point {
+	public:
 		long double x;
 		long double y;
 
@@ -17,7 +18,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr xieite::geometry::Point rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept {
-			return xieite::geometry::Point(pivot.x + std::cos(angle) * (x - pivot.x) + std::sin(angle) * (y - pivot.y), pivot.y + std::cos(angle) * (y - pivot.y) - std::sin(angle) * (x - pivot.x));
+			return xieite::geometry::Point(pivot.x + std::cos(angle) * (x - pivot.x) - std::sin(angle) * (y - pivot.y), pivot.y + std::cos(angle) * (y - pivot.y) + std::sin(angle) * (x - pivot.x));
 		}
 	};
 }

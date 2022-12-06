@@ -9,7 +9,8 @@
 #include <xieite/math/tau.hpp>
 
 namespace xieite::geometry {
-	struct Line {
+	class Line {
+	public:
 		xieite::geometry::Point start;
 		xieite::geometry::Point end;
 

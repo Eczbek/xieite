@@ -7,7 +7,8 @@
 #include <xieite/geometry/Segment.hpp>
 
 namespace xieite::geometry {
-	struct Polygon {
+	class Polygon {
+	public:
 		std::vector<xieite::geometry::Point> points;
 
 		constexpr Polygon(const std::vector<xieite::geometry::Point>& points) noexcept

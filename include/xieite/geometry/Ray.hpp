@@ -6,9 +6,10 @@
 #include <xieite/math/approxEqual.hpp>
 
 namespace xieite::geometry {
-	struct Ray: public xieite::geometry::Line {
+	class Ray: public xieite::geometry::Line {
+	public:
 		constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point intersection) noexcept
-		: xieite::geometry::Line(start, end) {}
+		: xieite::geometry::Line(start, intersection) {}
 
 		constexpr Ray(const xieite::geometry::Point start, const long double angle) noexcept
 		: xieite::geometry::Line(start, angle) {}

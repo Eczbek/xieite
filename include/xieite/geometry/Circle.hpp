@@ -9,7 +9,8 @@
 #include <xieite/math/tau.hpp>
 
 namespace xieite::geometry {
-	struct Circle: public xieite::geometry::Ellipse {
+	class Circle: public xieite::geometry::Ellipse {
+	public:
 		constexpr Circle(const xieite::geometry::Point center, const long double radius) noexcept
 		: xieite::geometry::Ellipse(center, xieite::geometry::Point(radius, radius)) {}
 
