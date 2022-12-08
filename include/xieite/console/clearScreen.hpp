@@ -1,5 +1,5 @@
 #pragma once
 
 namespace xieite::console {
-	void eraseScreen() noexcept;
+	void clearScreen() noexcept;
 }
