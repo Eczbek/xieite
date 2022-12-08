@@ -3,11 +3,14 @@ Declared in `<xieite/console/setForeground.hpp>`
 
 <br/>
 
-Sets the text foreground color in console. Possible colors are enumerated in `xieite::console::colors`.
+Sets the text foreground color in console. Providing no color resets the foreground.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
-void setForeground(const int foreground) noexcept;
+void setForeground() noexcept;
+```
+```cpp
+void setForeground(const xieite::graphics::Color color) noexcept;
 ```

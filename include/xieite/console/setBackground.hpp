@@ -1,5 +1,8 @@
 #pragma once
+#include <xieite/graphics/Color.hpp>
 
 namespace xieite::console {
-	void setBackground(const int background) noexcept;
+	void setBackground() noexcept;
+	
+	void setBackground(const xieite::graphics::Color color) noexcept;
 }

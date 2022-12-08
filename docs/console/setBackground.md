@@ -3,11 +3,14 @@ Declared in `<xieite/console/setBackground.hpp>`
 
 <br/>
 
-Sets the text background color in console. Possible colors are enumerated in `xieite::console::colors`.
+Sets the text background color in console. Providing no color resets the background.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
-void setBackground(const int background) noexcept;
+void setBackground() noexcept;
+```
+```cpp
+void setBackground(const xieite::graphics::Color color) noexcept;
 ```

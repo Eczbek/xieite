@@ -1,8 +1,9 @@
 #include <iostream>
+#include <cstdlib>
+#include <xieite/console/resetStyle.hpp>
 #include <xieite/console/setEffect.hpp>
-#include <xieite/console/StyleResetLock.hpp>
 
-void xieite::console::setEffect(const int effect) noexcept {
-	static const xieite::console::StyleResetLock styleResetLock;
-	std::cout << "\x1b[" << effect << 'm';
+void xieite::console::setEffect(const int effect, const bool value) noexcept {
+	static const int resetStyleAtExit = std::atexit(xieite::console::resetStyle);
+	std::cout << "\x1b[" << (effect + !value * 20) << 'm';
 }
