@@ -2,6 +2,11 @@
 #include <xieite/graphics/Color.hpp>
 
 namespace xieite::graphics::colors {
+	constexpr xieite::graphics::Color black(0, 0, 0);
+	constexpr xieite::graphics::Color darkGray(63, 63, 63);
+	constexpr xieite::graphics::Color gray(127, 127, 127);
+	constexpr xieite::graphics::Color lightGray(191, 191, 191);
+	constexpr xieite::graphics::Color white(255, 255, 255);
 	constexpr xieite::graphics::Color red(255, 0, 0);
 	constexpr xieite::graphics::Color orange(255, 127, 0);
 	constexpr xieite::graphics::Color yellow(255, 255, 0);

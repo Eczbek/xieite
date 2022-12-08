@@ -9,6 +9,18 @@ A namespace of common colors.
 
 ## Definitions
 ```cpp
+constexpr xieite::graphics::Color black(0, 0, 0);
+```
+```cpp
+constexpr xieite::graphics::Color darkGray(63, 63, 63);
+```
+```cpp
+constexpr xieite::graphics::Color gray(127, 127, 127);
+```
+```cpp
+constexpr xieite::graphics::Color lightGray(191, 191, 191);
+```
+```cpp
 constexpr xieite::graphics::Color red(255, 0, 0);
 ```
 ```cpp
