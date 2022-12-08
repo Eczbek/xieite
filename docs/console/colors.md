@@ -10,13 +10,21 @@ An enumerator of console colors.
 ## Definition
 ```cpp
 enum colors: int {
-	black = 0,
+	black = 30,
 	red,
 	green,
 	yellow,
 	blue,
 	magenta,
 	cyan,
-	white
+	white,
+	lightBlack = 90,
+	lightRed,
+	lightGreen,
+	lightYellow,
+	lightBlue,
+	lightMagenta,
+	lightCyan,
+	lightWhite
 };
 ```

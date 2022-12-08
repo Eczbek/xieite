@@ -9,5 +9,5 @@ Sets the text foreground color in console. Possible colors are enumerated in `xi
 
 ## Declaration
 ```cpp
-void setForeground(const int foreground, const bool light = false) noexcept;
+void setForeground(const int foreground) noexcept;
 ```

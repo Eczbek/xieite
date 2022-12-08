@@ -9,5 +9,5 @@ Sets the text background color in console. Possible colors are enumerated in `xi
 
 ## Declaration
 ```cpp
-void setBackground(const int background, const bool light = false) noexcept;
+void setBackground(const int background) noexcept;
 ```

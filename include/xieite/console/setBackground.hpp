@@ -1,5 +1,5 @@
 #pragma once
 
 namespace xieite::console {
-	void setBackground(const int background, const bool light = false) noexcept;
+	void setBackground(const int background) noexcept;
 }
