@@ -1,6 +1,6 @@
 #pragma once
 #include <vector> // std::vector
-#include <xieite/math/wrap.hpp> // xieite::math::wrap
+#include <xieite/math/wrap.hpp>
 
 namespace xieite::vector {
 	template<typename V>

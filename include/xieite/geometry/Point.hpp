@@ -1,6 +1,6 @@
 #pragma once
 #include <cmath> // std::cos, std::sin
-#include <xieite/math/approxEqual.hpp> // xieite::math::approxEqual
+#include <xieite/math/approxEqual.hpp>
 
 namespace xieite::geometry {
 	class Point {

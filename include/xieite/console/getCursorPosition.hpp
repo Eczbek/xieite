@@ -1,5 +1,5 @@
 #pragma once
-#include <xieite/console/CursorPosition.hpp> // xieite::console::CursorPosition
+#include <xieite/console/CursorPosition.hpp>
 
 namespace xieite::console {
 	[[nodiscard]]

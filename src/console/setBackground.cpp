@@ -1,8 +1,8 @@
 #include <iostream> // std::cout
 #include <cstdlib> // std::atexit
-#include <xieite/console/resetStyle.hpp> // xieite::console::resetStyle
-#include <xieite/console/setBackground.hpp> // xieite::console::setBackground
-#include <xieite/graphics/Color.hpp> // xieite::graphics::Color
+#include <xieite/console/resetStyle.hpp>
+#include <xieite/console/setBackground.hpp>
+#include <xieite/graphics/Color.hpp>
 
 void xieite::console::setBackground() noexcept {
 	std::cout << "\x1b[48m";

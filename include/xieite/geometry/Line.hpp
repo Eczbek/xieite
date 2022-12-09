@@ -2,10 +2,10 @@
 #include <cmath> // std::atan2, std::cos, std::fabs, std::fmod, std::isinf, std::sin
 #include <limits> // std::numeric_limits
 #include <optional> // std::optional
-#include <xieite/geometry/Point.hpp> // xieite::geometry::Point
-#include <xieite/math/approxEqual.hpp> // xieite::math::approxEqual
-#include <xieite/math/pi.hpp> // xieite::math::pi
-#include <xieite/math/tau.hpp> // xieite::math::tau
+#include <xieite/geometry/Point.hpp>
+#include <xieite/math/approxEqual.hpp>
+#include <xieite/math/pi.hpp>
+#include <xieite/math/tau.hpp>
 
 namespace xieite::geometry {
 	class Line {

@@ -3,7 +3,7 @@
 #include <memory> // std::unique_ptr
 #include <string> // std::string
 #include <string_view> // std::string_view
-#include <xieite/system/execute.hpp> // xieite::system::execute
+#include <xieite/system/execute.hpp>
 
 std::string xieite::system::execute(const std::string_view command, const std::size_t chunkSize) noexcept {
 	decltype([](std::FILE* const file) {

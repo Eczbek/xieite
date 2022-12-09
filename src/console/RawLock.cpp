@@ -1,6 +1,6 @@
 #include <termios.h> // ECHO, TCSANOW, cfmakeraw, tcgetattr, termios
 #include <unistd.h> // STDIN_FILENO
-#include <xieite/console/RawLock.hpp> // xieite::console::RawLock
+#include <xieite/console/RawLock.hpp>
 
 xieite::console::RawLock::RawLock(const bool echo) noexcept {
 	tcgetattr(STDIN_FILENO, &cookedMode);

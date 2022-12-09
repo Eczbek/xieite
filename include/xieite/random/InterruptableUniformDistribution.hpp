@@ -1,15 +1,15 @@
 #pragma once
 #include <algorithm> // std::clamp
-#include <concepts> // std::floating_point, std::integral
 #include <cmath> // std::max, std::min
+#include <concepts> // std::floating_point, std::integral
 #include <random> // std::uniform_int_distribution, std::uniform_real_distribution
 #include <stdexcept> // std::domain_error
 #include <utility> // std::pair
 #include <vector> // std::vector
-#include <xieite/concepts/UniformRandomGenerator.hpp> // xieite::concepts::UniformRandomGenerator
-#include <xieite/math/closestTo.hpp> // xieite::math::closestTo
-#include <xieite/math/difference.hpp> // xieite::math::difference
-#include <xieite/math/farthestFrom.hpp> // xieite::math::farthestFrom
+#include <xieite/concepts/UniformRandomGenerator.hpp>
+#include <xieite/math/closestTo.hpp>
+#include <xieite/math/difference.hpp>
+#include <xieite/math/farthestFrom.hpp>
 
 namespace xieite::random {
 	template<typename>

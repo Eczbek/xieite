@@ -1,6 +1,6 @@
 #pragma once
 #include <cmath> // std::cos, std::sin
-#include <xieite/concepts/Arithmetic.hpp> // xieite::concepts::Arithmetic
+#include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic N>

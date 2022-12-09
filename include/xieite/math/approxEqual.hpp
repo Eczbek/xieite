@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath> // std::fabs
 #include <limits> // std::numeric_limits
-#include <xieite/concepts/Arithmetic.hpp> // xieite::concepts::Arithmetic
+#include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic N>

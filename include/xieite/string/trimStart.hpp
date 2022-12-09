@@ -1,7 +1,7 @@
 #pragma once
 #include <string> // std::string
 #include <vector> // std::vector
-#include <xieite/containers/OrderedMap.hpp> // xieite::containers::OrderedMap
+#include <xieite/containers/OrderedMap.hpp>
 
 namespace xieite::string {
 	[[nodiscard]]

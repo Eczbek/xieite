@@ -1,15 +1,15 @@
 #pragma once
 #include <cctype> // std::isdigit
 #include <cmath> // std::abs, std::min
-#include <cstddef> // std::size_t
 #include <compare> // std::strong_ordering
 #include <concepts> // std::convertible_to, std::integral, std::signed_integral, std::unsigned_integral
+#include <cstddef> // std::size_t
 #include <iterator> // std::advance, std::forward_iterator
 #include <stdexcept> // std::domain_error
 #include <string> // std::string
 #include <string_view> // std::string_view
 #include <vector> // std::vector
-#include <xieite/concepts/Arithmetic.hpp> // xieite::concepts::Arithmetic
+#include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
 	class BigInt {

@@ -1,5 +1,5 @@
 #pragma once
-#include <xieite/graphics/Color.hpp> // xieite::graphics::Color
+#include <xieite/graphics/Color.hpp>
 
 namespace xieite::graphics::colors {
 	constexpr xieite::graphics::Color black(0, 0, 0);

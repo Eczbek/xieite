@@ -1,7 +1,7 @@
 #pragma once
 #include <functional> // std::equal_to
 #include <iterator> // std::forward_iterator, std::iterator_traits
-#include <xieite/concepts/Comparator.hpp> // xieite::concepts::Comparator
+#include <xieite/concepts/Comparator.hpp>
 
 namespace xieite::algorithms {
 	template<std::forward_iterator I, xieite::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>

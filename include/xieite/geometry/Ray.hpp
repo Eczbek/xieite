@@ -1,9 +1,9 @@
 #pragma once
 #include <cmath> // std::isinf
 #include <limits> // std::numeric_limits
-#include <xieite/geometry/Line.hpp> // xieite::geometry::Line
-#include <xieite/geometry/Point.hpp> // xieite::geometry::Point
-#include <xieite/math/approxEqual.hpp> // xieite::math::approxEqual
+#include <xieite/geometry/Line.hpp>
+#include <xieite/geometry/Point.hpp>
+#include <xieite/math/approxEqual.hpp>
 
 namespace xieite::geometry {
 	class Ray: public xieite::geometry::Line {

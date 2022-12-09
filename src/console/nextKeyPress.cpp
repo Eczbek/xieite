@@ -1,6 +1,6 @@
 #include <iostream> // std::cin
-#include <xieite/console/RawLock.hpp> // xieite::console::RawLock
-#include <xieite/console/nextKeyPress.hpp> // xieite::console::nextKeyPress
+#include <xieite/console/RawLock.hpp>
+#include <xieite/console/nextKeyPress.hpp>
 
 char xieite::console::nextKeyPress(const bool echo) noexcept {
 	xieite::console::RawLock RawLock(echo);

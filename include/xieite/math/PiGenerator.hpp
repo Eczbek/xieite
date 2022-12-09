@@ -1,6 +1,6 @@
 #pragma once
 #include <concepts> // std::integral
-#include <xieite/math/BigInt.hpp> // xieite::math::BigInt
+#include <xieite/math/BigInt.hpp>
 
 namespace xieite::math {
 	class PiGenerator {
