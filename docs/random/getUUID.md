@@ -23,7 +23,7 @@ int main() {
 	std::cout << xieite::random::getUUID() << '\n';
 }
 ```
-(Not very) possible output:
+Very unlikely output:
 ```
 bf59be9f-2e6d-4236-b456-e64161efd709
 ```

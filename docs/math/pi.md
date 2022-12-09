@@ -29,3 +29,9 @@ int main() {
 		<< xieite::math::pi<double> << '\n'
 		<< xieite::math::pi<int> << '\n';
 }
+```
+Output:
+```
+3.14159
+3
+```
