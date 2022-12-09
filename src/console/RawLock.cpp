@@ -1,13 +1,13 @@
-#include <termios.h>
-#include <unistd.h>
-#include <xieite/console/RawLock.hpp>
+#include <termios.h> // ECHO, TCSANOW, cfmakeraw, tcgetattr, termios
+#include <unistd.h> // STDIN_FILENO
+#include <xieite/console/RawLock.hpp> // xieite::console::RawLock
 
 xieite::console::RawLock::RawLock(const bool echo) noexcept {
 	tcgetattr(STDIN_FILENO, &cookedMode);
-	termios RawLockMode = cookedMode;
-	cfmakeraw(&RawLockMode);
-	RawLockMode.c_lflag |= ECHO * echo;
-	tcsetattr(STDIN_FILENO, TCSANOW, &RawLockMode);
+	termios rawMode = cookedMode;
+	cfmakeraw(&rawMode);
+	rawMode.c_lflag |= ECHO * echo;
+	tcsetattr(STDIN_FILENO, TCSANOW, &rawMode);
 }
 
 xieite::console::RawLock::~RawLock() {

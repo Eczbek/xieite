@@ -1,10 +1,10 @@
 #pragma once
-#include <cmath>
-#include <vector>
-#include <xieite/algorithms/rotatedMatch.hpp>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/geometry/Ray.hpp>
-#include <xieite/geometry/Segment.hpp>
+#include <cmath> // std::fabs
+#include <vector> // std::vector
+#include <xieite/algorithms/rotatedMatch.hpp> // xieite::algorithms::rotatedMatch
+#include <xieite/geometry/Point.hpp> // xieite::geometry::Point
+#include <xieite/geometry/Ray.hpp> // xieite::geometry::Ray
+#include <xieite/geometry/Segment.hpp> // xieite::geometry::Segment
 
 namespace xieite::geometry {
 	class Polygon {
@@ -25,7 +25,7 @@ namespace xieite::geometry {
 			long double area = 0;
 			for (const xieite::geometry::Segment& side : sides())
 				area += side.start.x * side.end.y - side.start.y * side.start.x;
-			return std::abs(area / 2);
+			return std::fabs(area / 2);
 		}
 
 		[[nodiscard]]

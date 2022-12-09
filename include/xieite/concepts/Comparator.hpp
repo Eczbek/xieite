@@ -1,6 +1,6 @@
 #pragma once
-#include <concepts>
-#include <type_traits>
+#include <concepts> // std::convertible_to
+#include <type_traits> // std::invoke_result_t
 
 namespace xieite::concepts {
 	template<typename T, typename U>

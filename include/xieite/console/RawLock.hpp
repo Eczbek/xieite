@@ -1,6 +1,5 @@
 #pragma once
-#include <cstddef>
-#include <termios.h>
+#include <termios.h> // termios
 
 namespace xieite::console {
 	class RawLock {

@@ -1,6 +1,6 @@
 #pragma once
-#include <cmath>
-#include <xieite/concepts/Arithmetic.hpp>
+#include <cmath> // std::fmod
+#include <xieite/concepts/Arithmetic.hpp> // xieite::concepts::Arithmetic
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic N>

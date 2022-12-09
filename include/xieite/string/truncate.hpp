@@ -1,6 +1,6 @@
 #pragma once
-#include <cstddef>
-#include <string>
+#include <cstddef> // std::size_t
+#include <string> // std::string
 
 namespace xieite::string {
 	[[nodiscard]]

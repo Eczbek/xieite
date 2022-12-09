@@ -1,12 +1,12 @@
 #pragma once
-#include <cmath>
-#include <numbers>
-#include <vector>
-#include <xieite/geometry/Ellipse.hpp>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/geometry/Polygon.hpp>
-#include <xieite/math/approxEqual.hpp>
-#include <xieite/math/tau.hpp>
+#include <cmath> // std::hypot
+#include <vector> // std::vector
+#include <xieite/geometry/Ellipse.hpp> // xieite::geometry::Ellipse
+#include <xieite/geometry/Point.hpp> // xieite::geometry::Point
+#include <xieite/geometry/Polygon.hpp> // xieite::geometry::Polygon
+#include <xieite/math/approxEqual.hpp> // xieite::math::approxEqual
+#include <xieite/math/pi.hpp> // xieite::math::pi
+#include <xieite/math/tau.hpp> // xieite::math::tau
 
 namespace xieite::geometry {
 	class Circle: public xieite::geometry::Ellipse {
@@ -21,7 +21,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr long double area() const noexcept override {
-			return std::numbers::pi * radius.x * radius.x;
+			return xieite::math::pi<long double> * radius.x * radius.x;
 		}
 
 		[[nodiscard]]

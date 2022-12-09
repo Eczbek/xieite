@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
-#include <string_view>
+#include <string> // std::string
+#include <string_view> // std::string_view
 
 namespace xieite::types {
 	[[nodiscard]]

@@ -1,6 +1,6 @@
 #pragma once
-#include <random>
-#include <type_traits>
+#include <random> // std::uniform_random_bit_generator
+#include <type_traits> // std::remove_reference_t
 
 namespace xieite::concepts {
 	template<typename T>

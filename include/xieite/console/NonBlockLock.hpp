@@ -1,7 +1,6 @@
 #pragma once
-#include <cstddef>
-#include <fcntl.h>
-#include <unistd.h>
+#include <fcntl.h> // fcntl, F_GETFL
+#include <unistd.h> // STDIN_FILENO
 
 namespace xieite::console {
 	class NonBlockLock {

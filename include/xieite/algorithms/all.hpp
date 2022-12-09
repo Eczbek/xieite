@@ -1,5 +1,5 @@
 #pragma once
-#include <concepts>
+#include <concepts> // std::convertible_to
 
 namespace xieite::algorithms {
 	template<typename... T>

@@ -1,5 +1,5 @@
 #pragma once
-#include <ratio>
+#include <ratio> // std::ratio
 
 namespace xieite::units::lengths {
 	constexpr std::ratio<176389, 10000000000> twip;

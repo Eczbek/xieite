@@ -1,5 +1,5 @@
 #pragma once
-#include <type_traits>
+#include <type_traits> // std::is_enum_v
 
 namespace xieite::concepts {
 	template<typename T>

@@ -1,13 +1,12 @@
 #pragma once
-#include <cmath>
-#include <numbers>
-#include <vector>
-#include <xieite/geometry/Line.hpp>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/geometry/Polygon.hpp>
-#include <xieite/math/approxEqual.hpp>
-#include <xieite/math/pi.hpp>
-#include <xieite/math/tau.hpp>
+#include <cmath> // std::cos, std::fmod, std::sin, std::sqrt
+#include <vector> // std::vector
+#include <xieite/geometry/Line.hpp> // xieite::geometry::Line
+#include <xieite/geometry/Point.hpp> // xieite::geometry::Point
+#include <xieite/geometry/Polygon.hpp> // xieite::geometry::Polygon
+#include <xieite/math/approxEqual.hpp> // xieite::math::approxEqual
+#include <xieite/math/pi.hpp> // xieite::math::pi
+#include <xieite/math/tau.hpp> // xieite::math::tau
 
 namespace xieite::geometry {
 	class Ellipse {

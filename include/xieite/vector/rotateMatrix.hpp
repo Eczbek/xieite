@@ -1,11 +1,11 @@
 #pragma once
-#include <vector>
-#include <xieite/math/wrap.hpp>
+#include <vector> // std::vector
+#include <xieite/math/wrap.hpp> // xieite::math::wrap
 
 namespace xieite::vector {
 	template<typename V>
 	[[nodiscard]]
-	std::vector<std::vector<V>> rotateMatrix(const std::vector<std::vector<V>>& matrix, int rotations) noexcept {
+	constexpr std::vector<std::vector<V>> rotateMatrix(const std::vector<std::vector<V>>& matrix, int rotations) noexcept {
 		rotations = xieite::math::wrap(rotations, 2, -1);
 		if (!rotations)
 			return matrix;

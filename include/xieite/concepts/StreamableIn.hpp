@@ -1,6 +1,6 @@
 #pragma once
-#include <istream>
-#include <type_traits>
+#include <concepts> // std::convertible_to
+#include <istream> // std::istream
 
 namespace xieite::concepts {
 	template<typename T>

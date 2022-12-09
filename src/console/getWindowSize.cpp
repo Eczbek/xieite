@@ -1,7 +1,7 @@
-#include <sys/ioctl.h>
-#include <unistd.h>
-#include <xieite/console/CursorPosition.hpp>
-#include <xieite/console/getWindowSize.hpp>
+#include <sys/ioctl.h> // TIOCGWINSZ, ioctl, winsize
+#include <unistd.h> // STDIN_FILENO
+#include <xieite/console/CursorPosition.hpp> // xieite::console::CursorPosition
+#include <xieite/console/getWindowSize.hpp> // xieite::console::getWindowSize
 
 xieite::console::CursorPosition xieite::console::getWindowSize() noexcept {
 	winsize size;

@@ -1,7 +1,7 @@
 #pragma once
-#include <cmath>
-#include <concepts>
-#include <type_traits>
+#include <cmath> // std::abs
+#include <concepts> // std::floating_point, std::integral
+#include <type_traits> // std::make_unsigned_t
 
 namespace xieite::math {
 	template<std::integral N>

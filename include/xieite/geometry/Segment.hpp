@@ -1,8 +1,8 @@
 #pragma once
-#include <cmath>
-#include <xieite/geometry/Line.hpp>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/math/approxEqual.hpp>
+#include <cmath> // std::hypot, std::isinf
+#include <xieite/geometry/Line.hpp> // xieite::geometry::Line
+#include <xieite/geometry/Point.hpp> // xieite::geometry::Point
+#include <xieite/math/approxEqual.hpp> // xieite::math::approxEqual
 
 namespace xieite::geometry {
 	class Segment: public xieite::geometry::Line {

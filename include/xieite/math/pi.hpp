@@ -1,6 +1,6 @@
 #pragma once
-#include <concepts>
-#include <numbers>
+#include <concepts> // std::floating_point, std::integral
+#include <numbers> // std::numbers::pi, std::numbers::pi_v
 
 namespace xieite::math {
 	template<typename>

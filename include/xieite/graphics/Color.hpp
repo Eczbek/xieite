@@ -1,5 +1,5 @@
 #pragma once
-#include <cstdint>
+#include <cstdint> // std::uint8_t
 
 namespace xieite::graphics {
 	struct Color {

@@ -1,7 +1,6 @@
 #pragma once
-#include <numbers>
-#include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/math/pi.hpp>
+#include <xieite/concepts/Arithmetic.hpp> // xieite::concepts::Arithmetic
+#include <xieite/math/pi.hpp> // xieite::math::pi
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic N>

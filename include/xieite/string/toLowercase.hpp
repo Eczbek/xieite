@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include <string> // std::string
 
 namespace xieite::string {
 	constexpr char toLowercase(char character) noexcept {

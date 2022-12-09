@@ -1,9 +1,8 @@
-#include <cstdio>
-#include <iostream>
-#include <string>
-#include <xieite/console/getCursorPosition.hpp>
-#include <xieite/console/CursorPosition.hpp>
-#include <xieite/console/RawLock.hpp>
+#include <cstdio> // std::scanf
+#include <iostream> // std::cout
+#include <xieite/console/getCursorPosition.hpp> // xieite::console::getCursorPosition
+#include <xieite/console/CursorPosition.hpp> // xieite::console::CursorPosition
+#include <xieite/console/RawLock.hpp> // xieite::console::RawLock
 
 xieite::console::CursorPosition xieite::console::getCursorPosition() noexcept {
 	xieite::console::RawLock RawLock;
