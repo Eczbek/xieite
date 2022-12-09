@@ -10,11 +10,11 @@ Trims the end of a string.
 ## Declarations
 ```cpp
 [[nodiscard]]
-std::string trimEnd(const std::string& string, const char character) noexcept;
+constexpr std::string trimEnd(const std::string& string, const char character) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-std::string trimEnd(const std::string& string, const std::unordered_set<char>& characters) noexcept;
+constexpr std::string trimEnd(const std::string& string, const std::vector<char>& characters) noexcept;
 ```
 
 <br/><br/>

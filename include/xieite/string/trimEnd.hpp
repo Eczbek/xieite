@@ -1,11 +1,25 @@
 #pragma once
 #include <string> // std::string
-#include <unordered_set> // std::unordered_set
+#include <vector> // std::vector
+#include <xieite/containers/OrderedMap.hpp> // xieite::containers::OrderedMap
 
 namespace xieite::string {
 	[[nodiscard]]
-	std::string trimEnd(const std::string& string, const char character) noexcept;
+	constexpr std::string trimEnd(const std::string& string, const char character) noexcept {
+		for (std::size_t i = string.size(); i--;)
+			if (string[i] != character)
+				return string.substr(0, i);
+		return "";
+	}
 
 	[[nodiscard]]
-	std::string trimEnd(const std::string& string, const std::unordered_set<char>& characters) noexcept;
+	constexpr std::string trimEnd(const std::string& string, const std::vector<char>& characters) noexcept {
+		xieite::containers::OrderedMap<char, bool> characterMap;
+		for (const char character : characters)
+			characterMap[character] = true;
+		for (std::size_t i = string.size(); i--;)
+			if (!characterMap[string[i]])
+				return string.substr(0, i);
+		return "";
+	}
 }
