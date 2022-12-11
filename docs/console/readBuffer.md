@@ -9,5 +9,5 @@ Reads the input buffer.
 
 ## Declaration
 ```cpp
-std::string readBuffer(const std::size_t chunkSize = 1024) noexcept;
+std::string readBuffer() noexcept;
 ```
