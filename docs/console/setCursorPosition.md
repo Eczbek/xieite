@@ -9,7 +9,7 @@ Sets the cursor's position.
 
 ## Declaration
 ```cpp
-void setCursorPosition(const xieite::console::CursorPosition position) noexcept;
+constexpr std::string setCursorPosition(const xieite::console::CursorPosition position) noexcept;
 ```
 
 <br/><br/>
@@ -20,8 +20,9 @@ void setCursorPosition(const xieite::console::CursorPosition position) noexcept;
 #include <xieite/console/setCursorPosition.hpp>
 
 int main() {
-	xieite::console::setCursorPosition({ 2, 5 });
-	std::cout << "Hello, world!\n";
+	std::cout
+		<< xieite::console::setCursorPosition({ 2, 5 })
+		<< "Hello, world!\n";
 }
 ```
 Output:

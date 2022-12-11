@@ -9,7 +9,7 @@ Moves the cursor.
 
 ## Declaration
 ```cpp
-void move(const char direction, const int distance = 1) noexcept;
+constexpr std::string moveCursor(const char control, const int value) noexcept;
 ```
 
 <br/><br/>
@@ -17,12 +17,13 @@ void move(const char direction, const int distance = 1) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/console/directions.hpp>
+#include <xieite/console/cursorControls.hpp>
 #include <xieite/console/moveCursor.hpp>
 
 int main() {
-	xieite::console::move(xieite::console::directions::right, 8);
-	std::cout << "Hello, world!\n";
+	std::cout
+		<< xieite::console::moveCursor(xieite::console::cursorControls::right, 8)
+		<< "Hello, world!\n";
 }
 ```
 Output:

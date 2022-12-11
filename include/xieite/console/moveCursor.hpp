@@ -1,5 +1,8 @@
 #pragma once
+#include <string> // std::string
 
 namespace xieite::console {
-	void move(const char direction, const int distance = 1) noexcept;
+	constexpr std::string moveCursor(const char control, const int value) noexcept {
+		return "\x1b[" + value + control;
+	}
 }
