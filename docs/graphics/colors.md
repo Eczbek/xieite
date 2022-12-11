@@ -24,6 +24,9 @@ constexpr xieite::graphics::Color lightGray(191, 191, 191);
 constexpr xieite::graphics::Color red(255, 0, 0);
 ```
 ```cpp
+constexpr xieite::graphics::Color darkRed(127, 0, 0);
+```
+```cpp
 constexpr xieite::graphics::Color orange(255, 127, 0);
 ```
 ```cpp
@@ -36,6 +39,9 @@ constexpr xieite::graphics::Color lime(125, 225, 0);
 constexpr xieite::graphics::Color green(0, 225, 0);
 ```
 ```cpp
+constexpr xieite::graphics::Color darkGreen(0, 127, 0);
+```
+```cpp
 constexpr xieite::graphics::Color mint(0, 225, 127);
 ```
 ```cpp
@@ -46,6 +52,9 @@ constexpr xieite::graphics::Color azure(0, 127, 225);
 ```
 ```cpp
 constexpr xieite::graphics::Color blue(0, 0, 225);
+```
+```cpp
+constexpr xieite::graphics::Color darkBlue(0, 0, 127);
 ```
 ```cpp
 constexpr xieite::graphics::Color violet(127, 0, 225);
