@@ -28,14 +28,14 @@ Macros for identifying the version of the current compiler.
 #endif
 ```
 ```cpp
-#if defined(XIEITE_COMPILER_TYPE_MINGW32)
+#if defined(XIEITE_COMPILER_TYPE_MINGW_32)
 #	include <windef.h>
 #	define XIEITE_COMPILER_VERSION_MAJOR __MINGW32_MAJOR_VERSION
 #	define XIEITE_COMPILER_VERSION_MINOR __MINGW32_MINOR_VERSION
 #endif
 ```
 ```cpp
-#if defined(XIEITE_COMPILER_TYPE_MINGW64)
+#if defined(XIEITE_COMPILER_TYPE_MINGW_64)
 #	include <windef.h>
 #	define XIEITE_COMPILER_VERSION_MAJOR __MINGW64_VERSION_MAJOR
 #	define XIEITE_COMPILER_VERSION_MINOR __MINGW64_VERSION_MINOR

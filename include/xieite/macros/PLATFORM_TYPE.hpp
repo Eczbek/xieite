@@ -1,7 +1,12 @@
 #pragma once
 
-#if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__WINDOWS__)
-#	define XIEITE_PLATFORM_TYPE_WINDOWS
+#if defined(_WIN32) || defined(__WIN32__)
+#	define XIEITE_PLATFORM_TYPE_WINDOWS_32
+#endif
+
+#if defined(_WIN64)
+#	undef XIEITE_PLATFORM_TYPE_WINDOWS_32
+#	define XIEITE_PLATFORM_TYPE_WINDOWS_64
 #endif
 
 #if defined(__APPLE_) && defined(__MACH__)

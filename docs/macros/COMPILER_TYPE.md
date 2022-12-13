@@ -20,12 +20,12 @@ Macros for identifying the current compiler type.
 ```
 ```cpp
 #if defined(__MINGW32__)
-#	define XIEITE_COMPILER_TYPE_MINGW32
+#	define XIEITE_COMPILER_TYPE_MINGW_32
 #endif
 ```
 ```cpp
 #if defined(__MINGW64__)
-#	define XIEITE_COMPILER_TYPE_MINGW64
+#	define XIEITE_COMPILER_TYPE_MINGW_64
 #endif
 ```cpp
 #if defined(_MSC_VER)

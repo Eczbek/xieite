@@ -1,5 +1,5 @@
 # XIEITE_PLATFORM_TYPE
-Declared in `<xieite/macros/PLATFORM.hpp>`
+Declared in `<xieite/macros/PLATFORM_TYPE.hpp>`
 
 <br/>
 
@@ -9,8 +9,14 @@ Macros for identifying the current platform type.
 
 ## Definitions
 ```cpp
-#if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__WINDOWS__)
-#	define XIEITE_PLATFORM_TYPE_WINDOWS
+#if defined(_WIN32) || defined(__WIN32__)
+#	define XIEITE_PLATFORM_TYPE_WINDOWS_32
+#endif
+```
+```cpp
+#if defined(_WIN64)
+#	undef XIEITE_PLATFORM_TYPE_WINDOWS_32
+#	define XIEITE_PLATFORM_TYPE_WINDOWS_64
 #endif
 ```
 ```cpp
