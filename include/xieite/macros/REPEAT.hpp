@@ -1,5 +1,5 @@
 #pragma once
-#include <xieite/macros/CONCAT.hpp> // XIEITE_CONCAT
+#include <xieite/macros/CONCAT.hpp>
 
 #define XIEITE_REPEAT(x, n) XIEITE_CONCAT(XIEITE_REPEAT_, n)(x)
 
