@@ -22,3 +22,12 @@ std::uint8_t blue;
 ```cpp
 constexpr Color(const std::uint8_t red = 0, const std::uint8_t green = 0, const std::uint8_t blue = 0) noexcept;
 ```
+
+## Operators
+```cpp
+constexpr bool operator==(const xieite::graphics::Color other) const noexcept;
+```
+```cpp
+constexpr bool operator!() const noexcept;
+```
+(`operator!=` is defined implicitly)
