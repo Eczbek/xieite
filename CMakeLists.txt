@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(xieite VERSION 0.0.0 LANGUAGES CXX)
+project(xieite VERSION 1.0.0 LANGUAGES CXX)
 file(GLOB_RECURSE SOURCE_FILES src/*)
 add_library(${PROJECT_NAME} ${SOURCE_FILES})
 target_include_directories(${PROJECT_NAME} PUBLIC include)
