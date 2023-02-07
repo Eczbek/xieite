@@ -6,10 +6,9 @@
 #include <xieite/system/execute.hpp>
 
 std::string xieite::system::execute(const std::string_view command, const std::size_t chunkSize) noexcept {
-	decltype([](std::FILE* const file) {
+	const std::unique_ptr<std::FILE, decltype([](std::FILE* const file) -> void {
 		pclose(file);
-	}) closer;
-	std::unique_ptr<std::FILE, decltype(closer)> pipe(popen(command.data(), "r"), closer);
+	})> pipe(popen(command.data(), "r"));
 	std::string buffer;
 	std::size_t status;
 	do {
