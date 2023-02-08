@@ -6,5 +6,5 @@ Declared in `<xieite/concepts/Decayed.hpp>`
 ## Declaration
 ```cpp
 template<typename T>
-concept Decayed = std::is_same_v<T, std::decay_t<T>>;
+concept Decayed = std::same_as<T, std::decay_t<T>>;
 ```
