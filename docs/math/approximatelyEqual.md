@@ -1,5 +1,5 @@
-# xieite::math::approxEqual
-Declared in `<xieite/math/approxEqual.hpp>`
+# xieite::math::approximatelyEqual
+Declared in `<xieite/math/approximatelyEqual.hpp>`
 
 <br/>
 
@@ -11,7 +11,7 @@ Checks whether two numbers are almost the same.
 ```cpp
 template<xieite::concepts::Arithmetic N>
 [[nodiscard]]
-constexpr bool approxEqual(const N value1, const N value2) noexcept;
+constexpr bool approximatelyEqual(const N value1, const N value2) noexcept;
 ```
 
 <br/><br/>
@@ -19,7 +19,7 @@ constexpr bool approxEqual(const N value1, const N value2) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/approxEqual.hpp>
+#include <xieite/math/approximatelyEqual.hpp>
 
 int main() {
 	const double a = 0.3;
@@ -27,7 +27,7 @@ int main() {
 	
 	std::cout << std::boolalpha
 		<< (a == b) << '\n'
-		<< xieite::math::approxEqual(a, b) << '\n';
+		<< xieite::math::approximatelyEqual(a, b) << '\n';
 }
 ```
 Output:
