@@ -10,11 +10,11 @@ Splits a string into a vector of segments.
 ## Declarations
 ```cpp
 [[nodiscard]]
-std::vector<std::string> split(const std::string& string, const std::string_view delimiter = "") noexcept;
+constexpr std::vector<std::string> split(const std::string& string, const std::string_view delimiter = "") noexcept;
 ```
 ```cpp
 [[nodiscard]]
-std::vector<std::string> split(const std::string& string, const char delimiter) noexcept;
+constexpr std::vector<std::string> split(const std::string& string, const char delimiter) noexcept;
 ```
 ```cpp
 [[nodiscard]]
