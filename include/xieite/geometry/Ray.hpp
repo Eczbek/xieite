@@ -1,39 +1,22 @@
 #pragma once
-#include <cmath> // std::isinf
-#include <limits> // std::numeric_limits
-#include <xieite/geometry/Line.hpp>
+#include <cmath> // std::cos, std::sin
+#include <xieite/geometry/AbstractLine.hpp>
 #include <xieite/geometry/Point.hpp>
-#include <xieite/math/approxEqual.hpp>
+#include <xieite/geometry/getSlope.hpp>
+#include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {
-	class Ray: public xieite::geometry::Line {
-	public:
-		constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point intersection) noexcept
-		: xieite::geometry::Line(start, intersection) {}
+	struct Ray
+	: xieite::geometry::AbstractLine {
+		constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept
+		: xieite::geometry::AbstractLine(start, end) {}
 
 		constexpr Ray(const xieite::geometry::Point start, const long double angle) noexcept
-		: xieite::geometry::Line(start, angle) {}
+		: xieite::geometry::AbstractLine(start, xieite::geometry::Point(std::cos(angle), std::sin(angle))) {}
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Ray& other) const noexcept {
-			return start == other.start && contains(other.end);
-		}
-
-		[[nodiscard]]
-		constexpr bool contains(const xieite::geometry::Point point) const noexcept override {
-			const long double slope = this->slope();
-			return (std::isinf(slope)
-				? xieite::math::approxEqual(point.x, start.x)
-					&& slope < std::numeric_limits<long double>::lowest()
-						? point.y >= start.y
-						: point.y <= start.y
-				: xieite::math::approxEqual(point.y, point.x * slope - start.x * slope + start.y))
-					&& (start.x <= end.x
-						? point.x >= start.x
-						: point.x <= start.x)
-					&& (start.y <= end.y
-						? point.y >= start.y
-						: point.y <= start.y);
+			return (start == other.start) && xieite::math::approximatelyEqual(xieite::geometry::getSlope(*this), xieite::geometry::getSlope(other));
 		}
 	};
 }

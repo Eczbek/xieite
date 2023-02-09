@@ -3,9 +3,17 @@ Declared in `<xieite/geometry/Circle.hpp>`
 
 <br/>
 
-A 2D circle, derived from `xieite::geometry::Ellipse`.
+A basic circle.
 
 <br/><br/>
+
+## Member objects
+```cpp
+xieite::geometry::Point center;
+```
+```cpp
+long double radius;
+```
 
 ## Constructor
 ```cpp
@@ -15,38 +23,21 @@ constexpr Circle(const xieite::geometry::Point center, const long double radius)
 ## Operators
 ```cpp
 [[nodiscard]]
-constexpr bool operator==(const xieite::geometry::Circle& other) const noexcept override;
+constexpr bool operator==(const xieite::geometry::Circle& other) const noexcept;
 ```
 (`operator!=` is defined implicitly)
 
-## Other methods
-```cpp
-[[nodiscard]]
-constexpr long double area() const noexcept override;
-```
-```cpp
-[[nodiscard]]
-constexpr xieite::geometry::Polygon boundingBox() const noexcept override;
-```
-```cpp
-[[nodiscard]]
-constexpr bool contains(const xieite::geometry::Point point) const noexcept override;
-```
-```cpp
-[[nodiscard]]
-constexpr long double perimeter() const noexcept override;
-```
-
 <br/><br/>
-
 
 ## Example
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Circle.hpp>
+#include <xieite/geometry/getArea.hpp>
 
 int main() {
-	std::cout << xieite::geometry::Circle({ 0, 0 }, 3).area() << '\n';
+	const xieite::geometry::Circle circle({ 0, 0 }, 3);
+	std::cout << xieite::geometry::getArea(circle) << '\n';
 }
 ```
 Output:

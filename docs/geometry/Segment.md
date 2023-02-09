@@ -3,9 +3,17 @@ Declared in `<xieite/geometry/Segment.hpp>`
 
 <br/>
 
-A 2D line segment, derived from `xieite::geometry::Line`.
+A line segment.
 
 <br/><br/>
+
+## Member objects inherited from `xieite::geometry::AbstractLine`
+```cpp
+xieite::geometry::Point start;
+```
+```cpp
+xieite::geometry::Point end;
+```
 
 ## Constructor
 ```cpp
@@ -19,15 +27,6 @@ constexpr bool operator==(const xieite::geometry::Segment& other) const noexcept
 ```
 (`operator!=` is defined implicitly)
 
-## Other methods
-```cpp
-[[nodiscard]]
-constexpr bool contains(const xieite::geometry::Point point) const noexcept override;
-```
-```cpp
-[[nodiscard]]
-constexpr long double length() const noexcept override;
-```
 
 <br/><br/>
 
@@ -35,9 +34,12 @@ constexpr long double length() const noexcept override;
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Segment.hpp>
+#include <xieite/geometry/getLength.hpp>
 
 int main() {
-	std::cout << xieite::geometry::Segment({ 0, 0 }, { 3, 4 }).length() << '\n';
+	xieite::geometry::Segment segment({ 0, 0 }, { 3, 4 });
+
+	std::cout << xieite::geometry::getLength(segment) << '\n';
 }
 ```
 Output:

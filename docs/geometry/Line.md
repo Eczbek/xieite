@@ -3,24 +3,24 @@ Declared in `<xieite/geometry/Line.hpp>`
 
 <br/>
 
-A 2D infinite line.
+An infinite line.
 
 <br/><br/>
 
-## Member objects
+## Member objects inherited from `xieite::geometry::AbstractLine`
 ```cpp
-xieite::geometry::Point start
+xieite::geometry::Point start;
 ```
 ```cpp
-xieite::geometry::Point end
+xieite::geometry::Point end;
 ```
 
 ## Constructors
 ```cpp
-constexpr Line(const xieite::geometry::Point intersection1, const xieite::geometry::Point intersection2) noexcept;
+constexpr Line(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept;
 ```
 ```cpp
-constexpr Line(const xieite::geometry::Point intersection, const long double angle) noexcept;
+constexpr Line(const xieite::geometry::Point start, const long double angle) noexcept;
 ```
 
 ## Operators
@@ -30,41 +30,18 @@ constexpr bool operator==(const xieite::geometry::Line& other) const noexcept;
 ```
 (`operator!=` is defined implicitly)
 
-## Other methods
-```cpp
-[[nodiscard]]
-constexpr long double angle() const noexcept;
-```
-```cpp
-[[nodiscard]]
-virtual constexpr bool contains(const xieite::geometry::Point point) const noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr std::optional<xieite::geometry::Point> intersection(const xieite::geometry::Line& other) const noexcept;
-```
-```cpp
-[[nodiscard]]
-virtual constexpr long double length() const noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr xieite::geometry::Line rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr long double slope() const noexcept;
-```
-
 <br/><br/>
 
 ## Example
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Line.hpp>
+#include <xieite/geometry/getAngle.hpp>
 
 int main() {
-	std::cout << xieite::geometry::Line({ 0, 0 }, { 1, 1 }).angle() << '\n';
+	const xieite::geometry::Line line({ 0, 0 }, { 1, 1 });
+
+	std::cout << xieite::geometry::getAngle(line) << '\n';
 }
 ```
 Output:

@@ -24,42 +24,23 @@ constexpr bool operator==(const xieite::geometry::Polygon& other) const noexcept
 ```
 (`operator!=` is defined implicitly)
 
-## Other methods
-```cpp
-[[nodiscard]]
-constexpr long double area() const noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr bool contains(const xieite::geometry::Point point) const noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr long double perimeter() const noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr xieite::geometry::Polygon rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr std::vector<xieite::geometry::Segment> sides() const noexcept;
-```
-
 <br/><br/>
 
 ## Example
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Polygon.hpp>
+#include <xieite/geometry/getArea.hpp>
 
 int main() {
-	std::cout << xieite::geometry::Polygon({
-		{ 1, 0 }, // (Diamond shape)
-		{ 2, 1 }, //    x
-		{ 1, 2 }, //  x   x
-		{ 0, 1 }  //    x
-	}).area() << '\n';
+	const xieite::geometry::Polygon diamond({
+		{ 1, 0 },
+		{ 2, 1 },
+		{ 1, 2 },
+		{ 0, 1 }
+	});
+
+	std::cout << xieite::geometry::getArea(diamond) << '\n';
 }
 ```
 Output:

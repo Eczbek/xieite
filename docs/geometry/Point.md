@@ -27,27 +27,23 @@ constexpr bool operator==(const xieite::geometry::Point other) const noexcept;
 ```
 (`operator!=` is defined implicitly)
 
-## Other methods
-```cpp
-[[nodiscard]]
-constexpr xieite::geometry::Point rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
-```
-
 <br/><br/>
 
 ## Example
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Point.hpp>
+#include <xieite/geometry/rotate.hpp>
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-	xieite::geometry::Point original(1, 0);
-	xieite::geometry::Point rotated = original.rotate(xieite::math::toRadians<long double>(90));
+	const xieite::geometry::Point original(1, 0);
+	const long double angle = xieite::math::toRadians<long double>(90);
+	const xieite::geometry::Point rotated = xieite::geometry::rotate(original, angle);
 	std::cout << rotated.x << ' ' << rotated.y << '\n';
 }
 ```
-Output: (rounded slightly)
+Output (rounded):
 ```
 0 1
 ```

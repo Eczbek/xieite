@@ -3,13 +3,21 @@ Declared in `<xieite/geometry/Ray.hpp>`
 
 <br/>
 
-A 2D infinite ray, derived from `xieite::geometry::Line`.
+An infinite ray with one end.
 
 <br/><br/>
 
+## Member objects inherited from `xieite::geometry::AbstractLine`
+```cpp
+xieite::geometry::Point start;
+```
+```cpp
+xieite::geometry::Point end;
+```
+
 ## Constructors
 ```cpp
-constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point intersection) noexcept;
+constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept;
 ```
 ```cpp
 constexpr Ray(const xieite::geometry::Point start, const long double angle) noexcept;
@@ -22,12 +30,6 @@ constexpr bool operator==(const xieite::geometry::Ray& other) const noexcept;
 ```
 (`operator!=` is defined implicitly)
 
-## Other methods
-```cpp
-[[nodiscard]]
-constexpr bool contains(const xieite::geometry::Point point) const noexcept override;
-```
-
 <br/><br/>
 
 ## Example
@@ -36,8 +38,12 @@ constexpr bool contains(const xieite::geometry::Point point) const noexcept over
 #include <xieite/geometry/Ray.hpp>
 
 int main() {
-	std::cout << std::boolalpha
-		<< xieite::geometry::Ray({ 0, 0 }, { 1, 1 }).contains({ -1, -1 }) << '\n';
+	xieite::geometry::Ray ray({ 0, 0 }, { 1, 1 });
+
+	std::cout
+		<< std::boolalpha
+		<< xieite::geometry::containsPoint(ray, { -1, -1 })
+		<< '\n';
 }
 ```
 Output:
