@@ -3,7 +3,7 @@ Declared in `<xieite/geometry/Ellipse.hpp>`
 
 <br/>
 
-A 2D ellipse.
+An ellipse.
 
 <br/><br/>
 
@@ -12,7 +12,7 @@ A 2D ellipse.
 xieite::geometry::Point center;
 ```
 ```cpp
-xieite::geometry::Point radius;
+xieite::geometry::Point radii;
 ```
 ```cpp
 long double rotation;
@@ -20,7 +20,7 @@ long double rotation;
 
 ## Constructor
 ```cpp
-constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radius, const long double rotation = 0) noexcept;
+constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radii, const long double rotation = 0) noexcept;
 ```
 
 ## Operators
@@ -30,41 +30,17 @@ constexpr bool operator==(const xieite::geometry::Ellipse& other) const noexcept
 ```
 (`operator!=` is defined implicitly)
 
-## Other methods
-```cpp
-[[nodiscard]]
-virtual constexpr long double area() const noexcept;
-```
-```cpp
-[[nodiscard]]
-virtual constexpr xieite::geometry::Polygon boundingBox() const noexcept;
-```
-```cpp
-[[nodiscard]]
-virtual constexpr bool contains(const xieite::geometry::Point point) const noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Line& line) const noexcept;
-```
-```cpp
-[[nodiscard]]
-virtual constexpr long double perimeter() const noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr xieite::geometry::Ellipse rotate(const long double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) const noexcept;
-```
-
 <br/><br/>
 
 ## Example
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Ellipse.hpp>
+#include <xieite/geometry/getArea.hpp>
 
 int main() {
-	std::cout << xieite::geometry::Ellipse({ 0, 0 }, { 1, 2 }).area() << '\n';
+	const xieite::geometry::Ellipse ellipse({ 0, 0 }, { 1, 2 });
+	std::cout << xieite::geometry::getArea(ellipse) << '\n';
 }
 ```
 Output:
