@@ -5,5 +5,10 @@
 
 namespace xieite::string {
 	[[nodiscard]]
-	std::string repeat(const std::string_view string, std::size_t count) noexcept;
+	constexpr std::string repeat(const std::string_view string, std::size_t count) noexcept {
+		std::string result;
+		while (count--)
+			result += string;
+		return result;
+	}
 }
