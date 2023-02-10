@@ -106,7 +106,7 @@ constexpr std::string_view resetBackground = "\x1b[48m";
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/console/codes.hpp>
 
 int main() {

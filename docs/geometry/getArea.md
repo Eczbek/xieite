@@ -25,7 +25,7 @@ constexpr long double getArea(const xieite::geometry::Circle& circle) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/getArea.hpp>
 

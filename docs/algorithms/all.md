@@ -26,7 +26,7 @@ constexpr bool all(const T&...) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::boolalpha, std::cout
 #include <xieite/algorithms/all.hpp>
 
 int main() {

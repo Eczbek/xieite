@@ -18,7 +18,7 @@ constexpr N fromBase(const std::string_view value, const unsigned int base, cons
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/math/fromBase.hpp>
 
 int main() {

@@ -31,7 +31,7 @@ constexpr bool operator==(const xieite::geometry::Point other) const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/rotate.hpp>
 #include <xieite/math/toRadians.hpp>

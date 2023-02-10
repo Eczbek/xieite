@@ -19,7 +19,7 @@ constexpr std::string toUppercase(std::string string) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/string/toUppercase.hpp>
 
 int main() {

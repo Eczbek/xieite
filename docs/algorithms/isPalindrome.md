@@ -23,8 +23,8 @@ constexpr bool isPalindrome(const I begin, const I end) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
-#include <string>
+#include <iostream> // std::boolalpha, std::cout
+#include <string> // std::string
 #include <xieite/algorithms/isPalindrome.hpp>
 
 int main() {

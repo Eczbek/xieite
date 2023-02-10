@@ -34,13 +34,12 @@ constexpr bool operator==(const xieite::geometry::Line& other) const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/getAngle.hpp>
 
 int main() {
 	const xieite::geometry::Line line({ 0, 0 }, { 1, 1 });
-
 	std::cout << xieite::geometry::getAngle(line) << '\n';
 }
 ```

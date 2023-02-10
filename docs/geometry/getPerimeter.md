@@ -17,7 +17,7 @@ constexpr long double getPerimeter(const xieite::geometry::Polygon& polygon) noe
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/geometry/getPerimeter.hpp>
 

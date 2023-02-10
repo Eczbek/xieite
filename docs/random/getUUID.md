@@ -16,7 +16,7 @@ std::string getUUID() noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/random/getUUID.hpp>
 
 int main() {

@@ -18,7 +18,7 @@ constexpr std::string toBase(N value, const unsigned int base, const std::string
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/math/toBase.hpp>
 
 int main() {

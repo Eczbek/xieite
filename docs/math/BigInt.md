@@ -289,7 +289,7 @@ constexpr std::string string() const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/math/BigInt.hpp>
 
 int main() {
@@ -300,3 +300,4 @@ Output:
 ```
 369729637649726772657187905628805440595668764281741102430259972423552570455277523421410650010128232727940978889548326540119429996769494359451621570193644014418071060667659301384999779999159200499899
 ```
+([Checked with WolframAlpha](https://www.wolframalpha.com/input?i=99^99))

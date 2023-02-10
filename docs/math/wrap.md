@@ -18,7 +18,7 @@ constexpr N wrap(const N value, const N max, const N min = 0) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/math/wrap.hpp>
 
 int main() {

@@ -19,7 +19,7 @@ concept StreamableOut = requires(std::ostream& outStream, T value) {
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::boolalpha, std::cout
 #include <xieite/concepts/StreamableOut.hpp>
 
 struct UnstreamableType {};

@@ -18,8 +18,8 @@ std::vector<std::vector<V>> rotateMatrix(const std::vector<std::vector<V>>& matr
 
 ## Example
 ```cpp
-#include <iostream>
-#include <vector>
+#include <iostream> // std::cout
+#include <vector> // std::vector
 #include <xieite/vector/rotateMatrix.hpp>
 
 int main() {

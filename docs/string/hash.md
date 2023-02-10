@@ -17,7 +17,7 @@ constexpr unsigned long long hash(const std::string_view string) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/string/hash.hpp>
 
 int main() {

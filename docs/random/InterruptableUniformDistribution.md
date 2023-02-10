@@ -25,8 +25,8 @@ constexpr N operator()(G& generator) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
-#include <random>
+#include <iostream> // std::cout
+#include <random> // std::mt19937, std::random_device
 #include <xieite/random/InterruptableUniformDistribution.hpp>
 
 int main() {

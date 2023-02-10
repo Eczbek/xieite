@@ -23,9 +23,9 @@ std::unordered_map<std::invoke_result_t<C(V, std::size_t)>, std::vector<V>> grou
 
 ## Example
 ```cpp
-#include <iostream>
-#include <unordered_map>
-#include <vector>
+#include <iostream> // std::cout
+#include <unordered_map> // std::unordered_map
+#include <vector> // std::vector
 #include <xieite/vector/group.hpp>
 
 int main() {

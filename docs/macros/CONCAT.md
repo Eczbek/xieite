@@ -16,7 +16,7 @@ Combines two values.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/macros/CONCAT.hpp>
 
 int main() {
