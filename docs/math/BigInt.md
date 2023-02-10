@@ -25,7 +25,7 @@ requires(std::convertible_to<typename I::value_type, bool>)
 constexpr BigInt(const I begin, const I end, const bool sign = false) noexcept;
 ```
 ```cpp
-constexpr BigInt(std::string_view value) noexcept;
+constexpr BigInt(const std::string_view value);
 ```
 
 ## Operators
