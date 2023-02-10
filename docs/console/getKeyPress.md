@@ -16,8 +16,8 @@ char getKeyPress(const bool echo = false) noexcept;
 
 ## Example
 ```cpp
-#include <chrono>
-#include <iostream>
+#include <chrono> // std::chrono::duration_cast, std::chrono::milliseconds, std::chrono::steady_clock, std::chrono::time_point
+#include <iostream> // std::cout
 #include <xieite/console/getKeyPress.hpp>
 
 int main() {
@@ -33,3 +33,4 @@ Possible interaction:
 Press a key: h
 Elapsed milliseconds: 445
 ```
+(Fun fact: I got 445 milliseconds twice in a row while testing this)

@@ -17,8 +17,8 @@ constexpr void partialReverse(I begin, const I end, const F& selector) noexcept;
 
 ## Example
 ```cpp
-#include <array>
-#include <iostream>
+#include <array> // std::array
+#include <iostream> // std::cout
 #include <xieite/algorithms/partialReverse.hpp>
 
 int main() {

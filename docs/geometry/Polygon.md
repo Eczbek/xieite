@@ -28,7 +28,7 @@ constexpr bool operator==(const xieite::geometry::Polygon& other) const noexcept
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/geometry/getArea.hpp>
 
@@ -39,7 +39,6 @@ int main() {
 		{ 1, 2 },
 		{ 0, 1 }
 	});
-
 	std::cout << xieite::geometry::getArea(diamond) << '\n';
 }
 ```

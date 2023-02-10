@@ -24,8 +24,8 @@ constexpr bool rotatedMatch(const I1 begin1, const I1 end1, const I2 begin2, con
 
 ## Example
 ```cpp
-#include <iostream>
-#include <vector>
+#include <iostream> // std::boolalpha, std::cout
+#include <vector> // std::vector
 #include <xieite/algorithms/rotatedMatch.hpp>
 
 int main() {

@@ -22,7 +22,7 @@ constexpr N next() noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/math/PiGenerator.hpp>
 
 int main() {

@@ -17,7 +17,7 @@ constexpr std::string truncate(const std::string& string, const std::size_t leng
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/string/truncate.hpp>
 
 int main() {

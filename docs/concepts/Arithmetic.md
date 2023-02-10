@@ -13,7 +13,7 @@ concept Arithmetic = std::is_arithmetic_v<T>;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/concepts/Arithmetic.hpp>
 
 template<xieite::concepts::Arithmetic N>

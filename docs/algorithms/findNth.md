@@ -23,9 +23,9 @@ constexpr I findNth(const I begin, const I end, const typename std::iterator_tra
 
 ## Example
 ```cpp
-#include <array>
-#include <iostream>
-#include <iterator>
+#include <array> // std::array
+#include <iostream> // std::cout
+#include <iterator> // std::distance
 #include <xieite/algorithms/findNth.hpp>
 
 int main() {

@@ -22,7 +22,7 @@ constexpr const N& closestTo(const N target, const N& a, const N& b) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/math/closestTo.hpp>
 
 int main() {

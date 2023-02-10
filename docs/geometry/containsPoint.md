@@ -41,7 +41,7 @@ constexpr bool containsPoint(const xieite::geometry::Circle& circle, const xieit
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::boolalpha, std::cout
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/geometry/containsPoint.hpp>
 

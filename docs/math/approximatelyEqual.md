@@ -18,7 +18,7 @@ constexpr bool approximatelyEqual(const N value1, const N value2) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::boolalpha, std::cout
 #include <xieite/math/approximatelyEqual.hpp>
 
 int main() {

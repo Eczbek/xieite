@@ -17,7 +17,7 @@ constexpr long double getDistance(const xieite::geometry::Point point1, const xi
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/getDistance.hpp>
 
 int main() {

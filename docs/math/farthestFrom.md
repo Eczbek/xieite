@@ -22,7 +22,7 @@ constexpr const N& farthestFrom(const N target, const N& a, const N& b) noexcept
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/math/farthestFrom.hpp>
 
 int main() {

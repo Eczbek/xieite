@@ -16,7 +16,7 @@ std::string execute(const std::string_view command, const std::size_t chunkSize 
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/system/execute.hpp>
 
 int main() {

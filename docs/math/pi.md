@@ -21,7 +21,7 @@ constexpr N pi = 3;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/math/pi.hpp>
 
 int main() {

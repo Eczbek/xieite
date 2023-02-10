@@ -11,8 +11,3 @@ Repeats an expression literally.
 ```cpp
 #define XIEITE_REPEAT(x, n) XIEITE_CONCAT(XIEITE_REPEAT_, n)(x)
 ```
-
-<br/><br/>
-
-## Example
-See `XIEITE_MATRIX`.

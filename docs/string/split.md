@@ -25,7 +25,8 @@ std::vector<std::string> split(const std::string& string, const std::regex& deli
 
 ## Example
 ```cpp
-#include <string>
+#include <iostream> // std::cout
+#include <string_view> // std::string_view
 #include <xieite/string/split.hpp>
 
 int main() {

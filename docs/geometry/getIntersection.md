@@ -18,7 +18,7 @@ constexpr std::optional<xieite::geometry::Point> getIntersection(const LineLike1
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getIntersection.hpp>

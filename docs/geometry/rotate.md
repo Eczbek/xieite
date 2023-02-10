@@ -30,7 +30,7 @@ constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& elli
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/getSlope.hpp>
 #include <xieite/geometry/rotate.hpp>

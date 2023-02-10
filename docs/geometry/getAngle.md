@@ -22,7 +22,7 @@ constexpr long double getAngle(const LineLike& lineLike) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/getAngle.hpp>
 

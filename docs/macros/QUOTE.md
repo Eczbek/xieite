@@ -16,7 +16,7 @@ Converts an expression to a string literally.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/macros/QUOTE.hpp>
 
 int main() {

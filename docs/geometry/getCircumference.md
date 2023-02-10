@@ -21,7 +21,7 @@ constexpr long double getCircumference(const xieite::geometry::Circle& circle) n
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/getCircumference.hpp>
 

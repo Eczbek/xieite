@@ -18,7 +18,7 @@ constexpr bool isPrime(const N value) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::boolalpha, std::cout
 #include <xieite/math/isPrime.hpp>
 
 int main() {

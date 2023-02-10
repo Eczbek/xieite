@@ -16,7 +16,7 @@ constexpr std::string moveCursor(const char control, const int value) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <iostream> // std::cout
 #include <xieite/console/cursorControls.hpp>
 #include <xieite/console/moveCursor.hpp>
 
