@@ -1,7 +1,7 @@
 #pragma once
 #include <concepts> // std::derived_from
 #include <cmath> // std::abs
-#include <xieite/geometry/AbstractLine.hpp>
+#include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
@@ -10,7 +10,7 @@ namespace xieite::geometry {
 		return (point2.y - point1.y) / (point2.x - point1.x);
 	}
 
-	template<std::derived_from<xieite::geometry::AbstractLine> LineLike>
+	template<std::derived_from<xieite::geometry::LineLike> LineLike>
 	[[nodiscard]]
 	constexpr long double getSlope(const LineLike& lineLike) noexcept {
 		return xieite::geometry::getSlope(lineLike.start, lineLike.end);
