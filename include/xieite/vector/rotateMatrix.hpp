@@ -9,24 +9,18 @@ namespace xieite::vector {
 		rotations = xieite::math::wrap(rotations, 2, -1);
 		if (!rotations)
 			return matrix;
-		std::vector<std::vector<V>> result;
+		const std::size_t matrixWidth = matrix.size();
+		const std::size_t matrixHeight = matrix[0].size();
+		std::vector<std::vector<V>> result(matrixHeight);
 		if (rotations > 0) {
-			const std::size_t matrixXSize = matrix.size();
-			for (std::size_t x = 0; x < matrixXSize; ++x) {
-				std::vector<V> column;
-				for (std::size_t y = matrix[0].size(); y--;)
-					column.push_back(matrix[y][x]);
-				result.push_back(column);
-			}
+			for (std::size_t x = matrixWidth; x--;)
+				for (std::size_t y = 0; y < matrixHeight; ++y)
+					result[y].push_back(matrix[x][y]);
 			return xieite::vector::rotateMatrix(result, --rotations);
 		}
-		const std::size_t matrixYSize = matrix[0].size();
-		for (std::size_t x = matrix.size(); x--;) {
-			std::vector<V> column;
-			for (std::size_t y = 0; y < matrixYSize; ++y)
-				column.push_back(matrix[y][x]);
-			result.push_back(column);
-		}
+		for (std::size_t x = 0; x < matrixWidth; ++x)
+			for (std::size_t y = matrixHeight; y--;)
+				result[y].push_back(matrix[x][y]);
 		return xieite::vector::rotateMatrix(result, ++rotations);
 	}
 }
