@@ -22,7 +22,7 @@ int main() {
 	xieite::errors::segmentationFault();
 }
 ```
-Output:
+Possible output:
 ```
 Segmentation fault (core dumped)
 ```
