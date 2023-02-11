@@ -13,7 +13,7 @@ Calculates the angle (in radians) of a line or between two points.
 constexpr long double getAngle(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept;
 ```
 ```cpp
-template<std::derived_from<xieite::geometry::AbstractLine> LineLike>
+template<std::derived_from<xieite::geometry::LineLike> LineLike>
 [[nodiscard]]
 constexpr long double getAngle(const LineLike& lineLike) noexcept;
 ```

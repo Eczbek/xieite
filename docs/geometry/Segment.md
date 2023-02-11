@@ -7,7 +7,7 @@ A line segment.
 
 <br/><br/>
 
-## Member objects inherited from `xieite::geometry::AbstractLine`
+## Member objects inherited from `xieite::geometry::LineLike`
 ```cpp
 xieite::geometry::Point start;
 ```

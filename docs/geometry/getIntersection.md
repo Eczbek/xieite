@@ -9,7 +9,7 @@ Finds a possible intersection between two lines.
 
 ## Declaration
 ```cpp
-template<std::derived_from<xieite::geometry::AbstractLine> LineLike1, std::derived_from<xieite::geometry::AbstractLine> LineLike2>
+template<std::derived_from<xieite::geometry::LineLike> LineLike1, std::derived_from<xieite::geometry::LineLike> LineLike2>
 [[nodiscard]]
 constexpr std::optional<xieite::geometry::Point> getIntersection(const LineLike1& lineLike1, const LineLike2& lineLike2) noexcept;
 ```

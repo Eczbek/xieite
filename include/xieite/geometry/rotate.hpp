@@ -2,7 +2,7 @@
 #include <concepts> // std::derived_from
 #include <cmath> // std::cos, std::sin
 #include <vector> // std::vector
-#include <xieite/geometry/AbstractLine.hpp>
+#include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/Point.hpp>
@@ -15,7 +15,7 @@ namespace xieite::geometry {
 		return xieite::geometry::Point(pivot.x + std::cos(angle) * (point.x - pivot.x) - std::sin(angle) * (point.y - pivot.y), pivot.y + std::cos(angle) * (point.y - pivot.y) + std::sin(angle) * (point.x - pivot.x));
 	}
 
-	template<std::derived_from<xieite::geometry::AbstractLine> LineLike>
+	template<std::derived_from<xieite::geometry::LineLike> LineLike>
 	[[nodiscard]]
 	constexpr LineLike rotate(const LineLike& lineLike, const long double angle, const xieite::geometry::Point& pivot = xieite::geometry::Point(0, 0)) noexcept {
 		return LineLike(xieite::geometry::rotate(lineLike.start, angle, pivot), xieite::geometry::rotate(lineLike.end, angle, pivot));

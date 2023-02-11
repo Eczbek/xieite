@@ -13,7 +13,7 @@ Rotates shapes.
 constexpr xieite::geometry::Point rotate(const xieite::geometry::Point& point, const long double angle, const xieite::geometry::Point& pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 ```cpp
-template<std::derived_from<xieite::geometry::AbstractLine> LineLike>
+template<std::derived_from<xieite::geometry::LineLike> LineLike>
 [[nodiscard]]
 constexpr LineLike rotate(const LineLike& lineLike, const long double angle, const xieite::geometry::Point& pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
