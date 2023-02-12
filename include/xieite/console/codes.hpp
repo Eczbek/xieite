@@ -1,7 +1,7 @@
 #pragma once
 #include <string_view>
 
-namespace xieite::console {
+namespace xieite::console::codes {
 	constexpr std::string_view enableBold = "\x1b[1m";
 	constexpr std::string_view enableDim = "\x1b[2m";
 	constexpr std::string_view enableItalic = "\x1b[3m";

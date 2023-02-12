@@ -1,9 +1,9 @@
-# xieite::console::?
+# xieite::console::codes
 Declared in `<xieite/console/codes.hpp>`
 
 <br/>
 
-Completed ANSI codes.
+A namespace of ANSI codes.
 
 <br/><br/>
 
@@ -112,7 +112,7 @@ constexpr std::string_view resetBackground = "\x1b[48m";
 int main() {
 	std::cout
 		<< "Hello, "
-		<< xieite::console::eraseLine
+		<< xieite::console::codes::eraseLine
 		<< "world!\n";
 }
 ```
