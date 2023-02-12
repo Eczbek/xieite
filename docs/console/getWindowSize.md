@@ -10,5 +10,5 @@ Gets the console window size.
 ## Declaration
 ```cpp
 [[nodiscard]]
-xieite::console::CursorPosition getWindowSize() noexcept;
+inline xieite::console::CursorPosition getWindowSize() noexcept;
 ```

@@ -10,7 +10,7 @@ Creates a segmentation fault. Why would you do this?
 ## Declaration
 ```cpp
 [[noreturn]]
-void segmentationFault() noexcept;
+inline void segmentationFault() noexcept;
 ```
 
 <br/><br/>

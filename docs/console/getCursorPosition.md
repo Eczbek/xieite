@@ -10,5 +10,5 @@ Gets the cursor's position.
 ## Declaration
 ```cpp
 [[nodiscard]]
-xieite::console::CursorPosition getCursorPosition() noexcept;
+inline xieite::console::CursorPosition getCursorPosition() noexcept;
 ```

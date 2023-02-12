@@ -3,14 +3,14 @@ Declared in `<xieite/types/demangle.hpp>`
 
 <br/>
 
-Demangles a `typeid` name. Returns mangled if cannot demangle.
+Demangles a `typeid` name. Returns original if cannot demangle.
 
 <br/><br/>
 
 ## Declaration
 ```cpp
 [[nodiscard]]
-std::string demangle(const std::string_view mangled) noexcept;
+inline std::string demangle(const std::string_view mangled) noexcept;
 ```
 
 <br/><br/>

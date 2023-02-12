@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.25)
-project(xieite VERSION 1.1.0 LANGUAGES CXX)
-file(GLOB_RECURSE SOURCE_FILES src/*)
-add_library(${PROJECT_NAME} ${SOURCE_FILES})
-target_include_directories(${PROJECT_NAME} PUBLIC include)
-target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
-# set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")

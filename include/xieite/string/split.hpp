@@ -1,6 +1,5 @@
 #pragma once
 #include <cstddef> // std::size_t
-#include <regex> // std::regex
 #include <string> // std::string
 #include <string_view> // std::string_view
 #include <vector> // std::vector
@@ -25,7 +24,4 @@ namespace xieite::string {
 	constexpr std::vector<std::string> split(const std::string& string, const char delimiter) noexcept {
 		return xieite::string::split(string, std::string(1, delimiter));
 	}
-
-	[[nodiscard]]
-	std::vector<std::string> split(const std::string& string, const std::regex& delimiter) noexcept;
 }
