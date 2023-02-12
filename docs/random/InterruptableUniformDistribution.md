@@ -17,7 +17,7 @@ constexpr InterruptableUniformDistribution(const N begin, const N end, const std
 
 ## Operators
 ```cpp
-template<xieite::concepts::UniformRandomGenerator G>
+template<xieite::concepts::UniformRandomBitGenerator G>
 constexpr N operator()(G& generator) noexcept;
 ```
 
