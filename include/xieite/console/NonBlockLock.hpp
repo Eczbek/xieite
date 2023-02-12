@@ -1,5 +1,5 @@
 #pragma once
-#include <fcntl.h> // fcntl, F_GETFL
+#include <fcntl.h> // F_SETFL, O_NONBLOCK, fcntl
 #include <unistd.h> // STDIN_FILENO
 
 namespace xieite::console {
@@ -8,8 +8,12 @@ namespace xieite::console {
 		const int blockingMode = fcntl(STDIN_FILENO, F_GETFL);
 
 	public:
-		NonBlockLock() noexcept;
+		inline NonBlockLock() noexcept {
+			fcntl(STDIN_FILENO, F_SETFL, blockingMode | O_NONBLOCK);
+		}
 
-		~NonBlockLock();
+		inline ~NonBlockLock() {
+			fcntl(STDIN_FILENO, F_SETFL, blockingMode);
+		}
 	};
 }

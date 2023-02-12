@@ -9,7 +9,7 @@ Waits for and returns the next keypress input.
 
 ## Declaration
 ```cpp
-char getKeyPress(const bool echo = false) noexcept;
+inline char getKeyPress(const bool echo = false) noexcept;
 ```
 
 <br/><br/>

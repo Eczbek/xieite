@@ -9,5 +9,5 @@ Reads the input buffer.
 
 ## Declaration
 ```cpp
-std::string readBuffer() noexcept;
+inline std::string readBuffer() noexcept;
 ```

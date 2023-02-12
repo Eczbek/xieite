@@ -1,15 +1,10 @@
 # XIEITE
-C++ Utility Library
+Header-Only C++ Utility Library
 
 <br/>
 
-## Building
-```
-mkdir build
-cd build
-cmake ..
-make
-```
+## Usage
+Add the `include` directory to your project.
 
 <br/>
 

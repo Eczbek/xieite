@@ -16,10 +16,6 @@ constexpr std::vector<std::string> split(const std::string& string, const std::s
 [[nodiscard]]
 constexpr std::vector<std::string> split(const std::string& string, const char delimiter) noexcept;
 ```
-```cpp
-[[nodiscard]]
-std::vector<std::string> split(const std::string& string, const std::regex& delimiter) noexcept;
-```
 
 <br/><br/>
 

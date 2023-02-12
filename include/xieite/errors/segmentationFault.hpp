@@ -2,5 +2,7 @@
 
 namespace xieite::errors {
 	[[noreturn]]
-	void segmentationFault() noexcept;
+	inline void segmentationFault() noexcept {
+		*(volatile int*)(nullptr);
+	}
 }
