@@ -4,5 +4,5 @@
 
 namespace xieite::concepts {
 	template<typename T>
-	concept UniformRandomGenerator = std::uniform_random_bit_generator<std::remove_reference_t<T>>;
+	concept UniformRandomBitGenerator = std::uniform_random_bit_generator<std::remove_reference_t<T>>;
 }
