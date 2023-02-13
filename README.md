@@ -8,6 +8,12 @@ Add the `include` directory to your project.
 
 <br/>
 
+## Requirements
+- Linux
+- C++ 23
+
+<br/>
+
 ## Coolest Features
 - Algorithms for iterables
 - Common concepts
