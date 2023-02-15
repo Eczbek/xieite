@@ -16,6 +16,7 @@ Add the `include` directory to your project.
 
 ## Coolest Features
 - Algorithms for iterables
+- Asynchronous Timeout and Interval classes
 - Common concepts
 - Terminal manipulation tools
 - Basic 2D geometrical shapes and functions
