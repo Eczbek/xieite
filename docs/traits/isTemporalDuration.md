@@ -1,5 +1,5 @@
-# xieite::traits::isDuration
-Declared in `<xieite/traits/isDuration.hpp>`
+# xieite::traits::isTemporalDuration
+Declared in `<xieite/traits/isTemporalDuration.hpp>`
 
 <br/>
 
@@ -10,9 +10,9 @@ A boolean representing whether types `R`, `N`, and `D` create a valid `std::chro
 ## Definitions
 ```cpp
 template<typename>
-constexpr bool isDuration = false;
+constexpr bool isTemporalDuration = false;
 ```
 ```cpp
 template<xieite::concepts::Arithmetic R, std::intmax_t N, std::intmax_t D>
-constexpr bool isDuration<std::chrono::duration<R, std::ratio<N, D>>> = true;
+constexpr bool isTemporalDuration<std::chrono::duration<R, std::ratio<N, D>>> = true;
 ```

@@ -9,7 +9,7 @@ Runs a callback after a set amount of time. Compile with `-pthread`.
 
 ## Constructor
 ```cpp
-template<std::invocable<> C, xieite::concepts::Duration D>
+template<std::invocable<> C, xieite::concepts::TemporalDuration D>
 inline Timeout(C&& callback, const D duration) noexcept;
 ```
 
