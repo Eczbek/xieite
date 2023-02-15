@@ -6,8 +6,8 @@
 
 namespace xieite::traits {
 	template<typename>
-	constexpr bool isDuration = false;
+	constexpr bool isTemporalDuration = false;
 
 	template<xieite::concepts::Arithmetic R, std::intmax_t N, std::intmax_t D>
-	constexpr bool isDuration<std::chrono::duration<R, std::ratio<N, D>>> = true;
+	constexpr bool isTemporalDuration<std::chrono::duration<R, std::ratio<N, D>>> = true;
 }
