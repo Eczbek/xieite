@@ -9,9 +9,9 @@ Finds the Nth occurence of a value.
 
 ## Declarations
 ```cpp
-template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> F>
+template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C>
 [[nodiscard]]
-constexpr I findNth(I begin, const I end, typename std::iterator_traits<I>::value_type&& value, std::size_t count, F&& comparator) noexcept;
+constexpr I findNth(I begin, const I end, typename std::iterator_traits<I>::value_type&& value, std::size_t count, C&& comparator) noexcept;
 ```
 ```cpp
 template<std::forward_iterator I>

@@ -9,14 +9,14 @@ Groups elements of a vector into a `std::unordered_map`. The resulting map's key
 
 ## Declarations
 ```cpp
-template<typename V, std::invocable<V> C>
+template<typename T, std::invocable<T> C>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<C(V)>, std::vector<V>> group(const std::vector<V>& values, const C& callback) noexcept;
+std::unordered_map<std::invoke_result_t<C(T)>, std::vector<T>> group(const std::vector<T>& values, C&& callback) noexcept;
 ```
 ```cpp
-template<typename V, std::invocable<V, std::size_t> C>
+template<typename T, std::invocable<T, std::size_t> C>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<C(V, std::size_t)>, std::vector<V>> group(const std::vector<V>& values, const C& callback) noexcept;
+std::unordered_map<std::invoke_result_t<C(T, std::size_t)>, std::vector<T>> group(const std::vector<T>& values, C&& callback) noexcept;
 ```
 
 <br/><br/>

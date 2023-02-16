@@ -7,8 +7,10 @@ A uniform random number distribution which allows excluding subintervals from th
 
 <br/><br/>
 
-## Template parameters
-`N` - either `std::integral` or `std::floating_point`.
+## Template Parameters
+```cpp
+template<xieite::concepts::Arithmetic N>
+```
 
 ## Constructor
 ```cpp

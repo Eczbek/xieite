@@ -1,7 +1,8 @@
 #pragma once
 
 namespace xieite::console {
-	enum cursorControls: char {
+	enum cursorControls
+	: char {
 		up = 'A',
 		down,
 		right,

@@ -9,9 +9,9 @@ Removes duplicate values.
 
 ## Declaration
 ```cpp
-template<typename V>
+template<typename T>
 [[nodiscard]]
-std::vector<V> uniques(const std::vector<V>& values) noexcept;
+std::vector<T> uniques(const std::vector<T>& values) noexcept;
 ```
 
 <br/><br/>

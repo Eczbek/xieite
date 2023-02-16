@@ -3,9 +3,14 @@ Declared in `<xieite/containers/OrderedMap.hpp>`
 
 <br/>
 
-An map for storing values under orderable keys.
+An map for storing values by orderable keys.
 
 <br/><br/>
+
+## Template Parameters
+```cpp
+template<std::convertible_to<std::size_t> K, typename V>
+```
 
 ## Constructor
 ```cpp

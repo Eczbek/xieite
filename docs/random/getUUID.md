@@ -3,13 +3,13 @@ Declared in `<xieite/random/getUUID.hpp>`
 
 <br/>
 
-Generates a UUID. (Compile with `-luuid`)
+Generates a UUID. Compile with `-luuid`.
 
 <br/><br/>
 
 ## Declaration
 ```cpp
-std::string getUUID() noexcept;
+inline std::string getUUID() noexcept;
 ```
 
 <br/><br/>

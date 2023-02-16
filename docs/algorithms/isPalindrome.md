@@ -9,9 +9,9 @@ Checks if an iterable is the same backwards as it is forwards.
 
 ## Declarations
 ```cpp
-template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> F>
+template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C>
 [[nodiscard]]
-constexpr bool isPalindrome(I begin, I end, F&& comparator) noexcept;
+constexpr bool isPalindrome(I begin, I end, C&& comparator) noexcept;
 ```
 ```cpp
 template<std::forward_iterator I>
