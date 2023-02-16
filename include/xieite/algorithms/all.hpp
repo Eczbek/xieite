@@ -4,7 +4,7 @@
 namespace xieite::algorithms {
 	template<std::convertible_to<bool>... T>
 	[[nodiscard]]
-	constexpr bool all(const T&... values) noexcept {
+	constexpr bool all(T&&... values) noexcept {
 		return (static_cast<bool>(values) && ...);
 	}
 }
