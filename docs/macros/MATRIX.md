@@ -22,8 +22,8 @@ int main() {
 	XIEITE_MATRIX(3, int)
 }
 ```
-Preprocessor output (without headers):
-```
+Preprocessor output:
+```cpp
 int main() {
 	std::vector< std::vector< std::vector< int > > >
 }

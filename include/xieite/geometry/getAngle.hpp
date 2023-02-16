@@ -12,9 +12,9 @@ namespace xieite::geometry {
 		return std::fmod(std::atan2(point1.y - point2.y, point1.x - point2.x) + xieite::math::tau<long double>, xieite::math::pi<long double>);
 	}
 
-	template<std::derived_from<xieite::geometry::LineLike> LineLike>
+	template<std::derived_from<xieite::geometry::LineLike> L>
 	[[nodiscard]]
-	constexpr long double getAngle(const LineLike& lineLike) noexcept {
+	constexpr long double getAngle(const L& lineLike) noexcept {
 		return xieite::geometry::getAngle(lineLike.start, lineLike.end);
 	}
 }

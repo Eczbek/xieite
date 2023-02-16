@@ -5,7 +5,8 @@ Declared in `<xieite/console/cursorControls.hpp>`
 
 ## Definition
 ```cpp
-enum cursorControls: char {
+enum cursorControls
+: char {
 	up = 'A',
 	down,
 	right,

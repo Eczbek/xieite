@@ -15,10 +15,10 @@ namespace xieite::geometry {
 		return xieite::geometry::Point(pivot.x + std::cos(angle) * (point.x - pivot.x) - std::sin(angle) * (point.y - pivot.y), pivot.y + std::cos(angle) * (point.y - pivot.y) + std::sin(angle) * (point.x - pivot.x));
 	}
 
-	template<std::derived_from<xieite::geometry::LineLike> LineLike>
+	template<std::derived_from<xieite::geometry::LineLike> L>
 	[[nodiscard]]
-	constexpr LineLike rotate(const LineLike& lineLike, const long double angle, const xieite::geometry::Point& pivot = xieite::geometry::Point(0, 0)) noexcept {
-		return LineLike(xieite::geometry::rotate(lineLike.start, angle, pivot), xieite::geometry::rotate(lineLike.end, angle, pivot));
+	constexpr L rotate(const L& lineLike, const long double angle, const xieite::geometry::Point& pivot = xieite::geometry::Point(0, 0)) noexcept {
+		return L(xieite::geometry::rotate(lineLike.start, angle, pivot), xieite::geometry::rotate(lineLike.end, angle, pivot));
 	}
 
 	[[nodiscard]]

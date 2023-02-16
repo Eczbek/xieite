@@ -7,9 +7,9 @@
 #include <xieite/geometry/containsPoint.hpp>
 
 namespace xieite::geometry {
-	template<std::derived_from<xieite::geometry::LineLike> LineLike1, std::derived_from<xieite::geometry::LineLike> LineLike2>
+	template<std::derived_from<xieite::geometry::LineLike> L, std::derived_from<xieite::geometry::LineLike> M>
 	[[nodiscard]]
-	constexpr std::optional<xieite::geometry::Point> getIntersection(const LineLike1& lineLike1, const LineLike2& lineLike2) noexcept {
+	constexpr std::optional<xieite::geometry::Point> getIntersection(const L& lineLike1, const M& lineLike2) noexcept {
 		const long double a = (lineLike1.start.x - lineLike1.end.x) * (lineLike2.start.y - lineLike2.end.y) - (lineLike1.start.y - lineLike1.end.y) * (lineLike2.start.x - lineLike2.end.x);
 		if (!xieite::math::approximatelyEqual(a, static_cast<long double>(0))) {
 			const xieite::geometry::Point intersection(((lineLike2.start.x - lineLike2.end.x) * (lineLike1.start.x * lineLike1.end.y - lineLike1.start.y * lineLike1.end.x) - (lineLike1.start.x - lineLike1.end.x) * (lineLike2.start.x * lineLike2.end.y - lineLike2.start.y * lineLike2.end.x)) / a, ((lineLike2.start.y - lineLike2.end.y) * (lineLike1.start.x * lineLike1.end.y - lineLike1.start.y * lineLike1.end.x) - (lineLike1.start.y - lineLike1.end.y) * (lineLike2.start.x * lineLike2.end.y - lineLike2.start.y * lineLike2.end.x)) / a);
