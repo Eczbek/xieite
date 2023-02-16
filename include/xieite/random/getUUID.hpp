@@ -3,7 +3,7 @@
 #include <uuid/uuid.h> // uuid_generate, uuid_t, uuid_unparse
 
 namespace xieite::random {
-	std::string getUUID() noexcept {
+	inline std::string getUUID() noexcept {
 		uuid_t uuid;
 		uuid_generate(uuid);
 		std::string result(37, '\0');
