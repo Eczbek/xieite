@@ -10,5 +10,5 @@ Specifies that a type `T` is a comparator callback.
 ## Declaration
 ```cpp
 template<typename T, typename U>
-concept Comparator = std::convertible_to<std::invoke_result_t<T, const U&, const U&>, bool>;
+concept Comparator = std::convertible_to<std::invoke_result_t<T, U&&, U&&>, bool>;
 ```

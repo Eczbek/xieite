@@ -11,7 +11,7 @@ Checks whether all arguments are `true`.
 ```cpp
 template<std::convertible_to<bool>... T>
 [[nodiscard]]
-constexpr bool all(const T&... values) noexcept;
+constexpr bool all(T&&... values) noexcept;
 ```
 
 <br/><br/>

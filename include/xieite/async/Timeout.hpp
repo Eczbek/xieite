@@ -14,7 +14,7 @@ namespace xieite::async {
 
 	public:
 		template<std::invocable<> C, xieite::concepts::TemporalDuration D>
-		inline Timeout(C&& callback, const D duration) noexcept
+		Timeout(C&& callback, const D duration) noexcept
 		: cancelled(std::make_shared<std::atomic<bool>>(false)), thread([this, callback = std::forward<C>(callback), duration]() -> void {
 			std::this_thread::sleep_for(duration);
 			if (this)

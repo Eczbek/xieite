@@ -9,8 +9,9 @@ Partially reverses an iterable's elements.
 
 ## Declaration
 ```cpp
-template<std::forward_iterator I, xieite::concepts::Comparator<const typename std::iterator_traits<I>::value_type> F>
-constexpr void partialReverse(I begin, const I end, const F& selector) noexcept;
+template<std::forward_iterator I, std::invocable<typename std::iterator_traits<I>::value_type> F>
+requires(std::convertible_to<std::invoke_result_t<F, typename std::iterator_traits<I>::value_type&&>, bool>)
+constexpr void partialReverse(I begin, const I end, F&& selector) noexcept;
 ```
 
 <br/><br/>
