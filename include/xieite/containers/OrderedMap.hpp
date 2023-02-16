@@ -13,10 +13,12 @@ namespace xieite::containers {
 	public:
 		constexpr OrderedMap() noexcept = default;
 
+		[[nodiscard]]
 		constexpr V& operator[](const K key) noexcept {
 			return values[key - minLimit];
 		}
 
+		[[nodiscard]]
 		constexpr const V& operator[](const K key) const noexcept {
 			return values[key - minLimit];
 		}

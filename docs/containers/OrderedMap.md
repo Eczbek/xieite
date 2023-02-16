@@ -14,8 +14,10 @@ constexpr OrderedMap() noexcept = default;
 
 ## Operators
 ```cpp
+[[nodiscard]]
 constexpr V& operator[](const K key) noexcept;
 ```
 ```cpp
+[[nodiscard]]
 constexpr const V& operator[](const K key) const noexcept;
 ```
