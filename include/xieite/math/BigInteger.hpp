@@ -1,5 +1,4 @@
 #pragma once
-#include <cctype> // std::isdigit
 #include <cmath> // std::abs, std::min
 #include <compare> // std::strong_ordering
 #include <concepts> // std::convertible_to, std::integral, std::signed_integral, std::unsigned_integral
@@ -58,7 +57,7 @@ namespace xieite::math {
 			const bool isNegative = value[0] == '-';
 			const std::size_t valueSize = value.size();
 			for (std::size_t i = isNegative; i < valueSize; ++i) {
-				if (!std::isdigit(static_cast<unsigned char>(value[i])))
+				if (value[i] < '0' || value[i] > '9')
 					throw std::invalid_argument("Cannot construct with non-digit character");
 				*this += xieite::math::BigInteger(10).pow(valueSize - i - 1) * (value[i] - '0');
 			}
