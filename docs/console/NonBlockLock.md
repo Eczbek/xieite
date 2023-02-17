@@ -9,10 +9,10 @@ Enables terminal "non-blocking" mode.
 
 ## Constructor
 ```cpp
-inline NonBlockLock() noexcept;
+NonBlockLock() noexcept;
 ```
 
 ## Destructor
 ```cpp
-inline ~NonBlockLock();
+~NonBlockLock();
 ```

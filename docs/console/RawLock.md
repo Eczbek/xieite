@@ -9,10 +9,10 @@ Enables terminal "raw" mode.
 
 ## Constructor
 ```cpp
-inline RawLock(const bool echo = false) noexcept;
+RawLock(const bool echo = false) noexcept;
 ```
 
 ## Destructor
 ```cpp
-inline ~RawLock();
+~RawLock();
 ```

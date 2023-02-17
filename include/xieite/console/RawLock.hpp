@@ -8,7 +8,7 @@ namespace xieite::console {
 		termios cookedMode;
 
 	public:
-		inline RawLock(const bool echo = false) noexcept {
+		RawLock(const bool echo = false) noexcept {
 			tcgetattr(STDIN_FILENO, &cookedMode);
 			termios rawMode = cookedMode;
 			cfmakeraw(&rawMode);
@@ -16,7 +16,7 @@ namespace xieite::console {
 			tcsetattr(STDIN_FILENO, TCSANOW, &rawMode);
 		}
 
-		inline ~RawLock() {
+		~RawLock() {
 			tcsetattr(STDIN_FILENO, TCSANOW, &cookedMode);
 		}
 	};

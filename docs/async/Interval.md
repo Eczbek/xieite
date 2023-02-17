@@ -15,18 +15,18 @@ Interval(C&& callback, const D duration) noexcept;
 
 ## Destructor
 ```cpp
-inline ~Interval();
+~Interval();
 ```
 
 ## Operators
 ```cpp
-inline operator bool() const noexcept;
+operator bool() const noexcept;
 ```
 (`operator!` is defined implicitly)
 
 ## Other Methods
 ```cpp
-inline void cancel() noexcept;
+void cancel() noexcept;
 ```
 
 <br/><br/>
