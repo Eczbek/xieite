@@ -2,4 +2,4 @@
 #include <vector> // std::vector
 #include <xieite/macros/REPEAT.hpp>
 
-#define XIEITE_MATRIX(d, t) XIEITE_REPEAT(std::vector<, d) t XIEITE_REPEAT(>, d)
+#define XIEITE_MATRIX(unsignedInteger, type) XIEITE_REPEAT(std::vector<, unsignedInteger) type XIEITE_REPEAT(>, unsignedInteger)

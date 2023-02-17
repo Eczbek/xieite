@@ -9,7 +9,7 @@ Converts an expression to a string literally.
 
 ## Definition
 ```cpp
-#define XIEITE_QUOTE(x) #x
+#define XIEITE_QUOTE(expression) #expression
 ```
 
 <br/><br/>
