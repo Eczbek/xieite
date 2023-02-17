@@ -9,5 +9,5 @@ Repeats an expression literally.
 
 ## Definition
 ```cpp
-#define XIEITE_REPEAT(x, n) XIEITE_CONCATENATE(XIEITE_REPEAT_, n)(x)
+#define XIEITE_REPEAT(expression, unsignedInteger) XIEITE_CONCATENATE(XIEITE_REPEAT_, unsignedInteger)(expression)
 ```

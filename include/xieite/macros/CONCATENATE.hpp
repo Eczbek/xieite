@@ -1,6 +1,6 @@
 #pragma once
 
-#define XIEITE_CONCATENATE(x, y) XIEITE_CONCATENATE_PRIMITIVE(x, y)
+#define XIEITE_CONCATENATE(expression1, expression2) XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2)
 
-#define XIEITE_CONCATENATE_PRIMITIVE(x, y) x ## y
+#define XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2) expression1 ## expression2
 
