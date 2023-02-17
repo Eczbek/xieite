@@ -8,11 +8,11 @@ namespace xieite::console {
 		const int blockingMode = fcntl(STDIN_FILENO, F_GETFL);
 
 	public:
-		inline NonBlockLock() noexcept {
+		NonBlockLock() noexcept {
 			fcntl(STDIN_FILENO, F_SETFL, blockingMode | O_NONBLOCK);
 		}
 
-		inline ~NonBlockLock() {
+		~NonBlockLock() {
 			fcntl(STDIN_FILENO, F_SETFL, blockingMode);
 		}
 	};

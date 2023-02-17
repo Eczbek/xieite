@@ -15,25 +15,25 @@ namespace xieite::async {
 	public:
 		template<std::invocable<> C, xieite::concepts::TemporalDuration D>
 		Interval(C&& callback, const D duration) noexcept
-		: cancelled(std::make_shared<std::atomic<bool>>(false)), thread([this, callback = std::forward<C>(callback), duration]() -> void {
+		: cancelled(std::make_shared<std::atomic<bool>>(false)), thread([cancelled = cancelled, callback = std::forward<C>(callback), duration]() -> void {
 			while (true) {
 				std::this_thread::sleep_for(duration);
-				if (!this)
+				if (*cancelled)
 					break;
 				callback();
 			}
 		}) {}
 
-		inline ~Interval() {
+		~Interval() {
 			if (thread.joinable())
 				cancel();
 		}
 
-		inline operator bool() const noexcept {
+		operator bool() const noexcept {
 			return !*cancelled;
 		}
 
-		inline void cancel() noexcept {
+		void cancel() noexcept {
 			*cancelled = true;
 			thread.detach();
 		}
