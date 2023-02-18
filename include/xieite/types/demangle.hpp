@@ -9,9 +9,12 @@ namespace xieite::types {
 	[[nodiscard]]
 	inline std::string demangle(const std::string_view mangled) noexcept {
 		int status;
-		const char* demangled = abi::__cxa_demangle(mangled.data(), 0, 0, &status);
-		return std::string(status
-			? mangled
-			: demangled);
+		char* buffer = abi::__cxa_demangle(mangled.data(), 0, 0, &status);
+		std::string demangled(mangled);
+		if (!status) {
+			demangled = std::string(buffer);
+			free(buffer);
+		}
+		return demangled;
 	}
 }
