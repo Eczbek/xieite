@@ -6,6 +6,8 @@
 #include <utility> // std::forward
 #include <xieite/concepts/TemporalDuration.hpp>
 
+// Thanks to uno20001 for help
+
 namespace xieite::async {
 	class Timeout {
 	private:
