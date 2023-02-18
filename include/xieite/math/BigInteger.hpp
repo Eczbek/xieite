@@ -4,11 +4,11 @@
 #include <concepts> // std::convertible_to, std::integral, std::signed_integral, std::unsigned_integral
 #include <cstddef> // std::size_t
 #include <iterator> // std::advance, std::forward_iterator
-#include <stdexcept> // std::domain_error, std::invalid_argument
 #include <string> // std::string
 #include <string_view> // std::string_view
 #include <vector> // std::vector
 #include <xieite/concepts/Arithmetic.hpp>
+#include <xieite/macros/ASSERT.hpp>
 
 namespace xieite::math {
 	class BigInteger {
@@ -57,8 +57,7 @@ namespace xieite::math {
 			const bool isNegative = value[0] == '-';
 			const std::size_t valueSize = value.size();
 			for (std::size_t i = isNegative; i < valueSize; ++i) {
-				if (value[i] < '0' || value[i] > '9')
-					throw std::invalid_argument("Cannot construct with non-digit character");
+				XIEITE_ASSERT(value[i] >= '0' && value[i] <= '9', "Cannot construct with non-digit character");
 				*this += xieite::math::BigInteger(10).pow(valueSize - i - 1) * (value[i] - '0');
 			}
 			sign = isNegative;
@@ -282,8 +281,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator/(xieite::math::BigInteger other) const {
-			if (!other)
-				throw std::domain_error("Cannot divide by zero");
+			XIEITE_ASSERT(other, "Cannot divide by zero");
 			if (other == 1)
 				return *this;
 			if (other == -1)
@@ -323,8 +321,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator%(xieite::math::BigInteger other) const {
-			if (!other)
-				throw std::domain_error("Cannot find remainder of division by zero");
+			XIEITE_ASSERT(other, "Cannot find remainder of division by zero");
 			const xieite::math::BigInteger copy = abs();
 			other.sign = false;
 			if (!*this || other == 1 || copy == other)
@@ -595,8 +592,7 @@ namespace xieite::math {
 			if (!other)
 				return xieite::math::BigInteger(1);
 			if (other.sign) {
-				if (!*this)
-					throw std::domain_error("Cannot find power of zero to negative exponent");
+				XIEITE_ASSERT(*this, "Cannot find power of zero to negative exponent");
 				return !other;
 			}
 			if (!*this)
@@ -622,8 +618,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& other) const {
-			if (sign)
-				throw std::domain_error("Cannot find root of negative value");
+			XIEITE_ASSERT(!sign, "Cannot find root of negative value");
 			if (*this == 1)
 				return xieite::math::BigInteger(1);
 			if (other.sign)
