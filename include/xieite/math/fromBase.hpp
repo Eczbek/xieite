@@ -6,9 +6,9 @@
 #include <string_view> // std::string_view
 
 namespace xieite::math {
-	template<std::integral N = int>
+	template<std::integral N = int, std::integral O>
 	[[nodiscard]]
-	constexpr N fromBase(const std::string_view value, const unsigned int base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
+	constexpr N fromBase(const std::string_view value, const O base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
 		const char min = std::numeric_limits<char>::min();
 		std::array<std::size_t, std::numeric_limits<char>::max() - min> characterMap;
 		const std::size_t digitsSize = digits.size();
