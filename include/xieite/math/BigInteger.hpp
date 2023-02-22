@@ -1,9 +1,9 @@
 #pragma once
-#include <cmath> // std::abs, std::min
+#include <cmath> // std::min
 #include <compare> // std::strong_ordering
-#include <concepts> // std::convertible_to, std::integral, std::signed_integral, std::unsigned_integral
+#include <concepts> // std::convertible_to, std::integral
 #include <cstddef> // std::size_t
-#include <iterator> // std::advance, std::forward_iterator
+#include <iterator> // std::advance, std::forward_iterator, std::iterator_traits
 #include <string> // std::string
 #include <string_view> // std::string_view
 #include <vector> // std::vector
@@ -20,19 +20,10 @@ namespace xieite::math {
 		BigInteger(const xieite::math::BigInteger& other) noexcept
 		: sign(other.sign), bits(other.bits) {}
 
-		template<std::signed_integral N = int>
+		template<std::integral N = int>
 		BigInteger(N value = 0) noexcept
 		: sign(value < 0) {
-			value = std::abs(value);
-			do {
-				bits.push_back(value % 2);
-				value /= 2;
-			} while (value);
-		}
-
-		template<std::unsigned_integral N>
-		BigInteger(N value) noexcept
-		: sign(false) {
+			value *= sign * -2 + 1;
 			do {
 				bits.push_back(value % 2);
 				value /= 2;
@@ -40,9 +31,9 @@ namespace xieite::math {
 		}
 
 		template<std::forward_iterator I>
-		requires(std::convertible_to<typename I::value_type, bool>)
+		requires(std::convertible_to<typename std::iterator_traits<I>::value_type, bool>)
 		BigInteger(const I begin, const I end, const bool sign = false) noexcept
-		: sign(sign), bits(begin, end) {
+		: bits(begin, end) {
 			std::size_t i = bits.size();
 			if (i)
 				while (!bits.back() && --i)

@@ -10,7 +10,7 @@ Add the `include` directory to your project.
 
 ## Requirements
 - Linux
-- C++ 20
+- C++ 23
 
 <br/>
 

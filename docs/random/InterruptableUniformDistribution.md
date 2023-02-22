@@ -14,13 +14,13 @@ template<xieite::concepts::Arithmetic N>
 
 ## Constructor
 ```cpp
-constexpr InterruptableUniformDistribution(const N begin, const N end, const std::vector<std::pair<N, N>>& interruptions);
+InterruptableUniformDistribution(const N begin, const N end, const std::vector<std::pair<N, N>>& interruptions);
 ```
 
 ## Operators
 ```cpp
 template<xieite::concepts::UniformRandomBitGenerator G>
-constexpr N operator()(G& generator) noexcept;
+N operator()(G& generator) noexcept;
 ```
 
 <br/><br/>
