@@ -1,5 +1,5 @@
 # xieite::vector::rotateMatrix
-Declared in `<xieite/vector/rotateMatrix.hpp>`
+Defined in header `<xieite/vector/rotateMatrix.hpp>`
 
 <br/>
 

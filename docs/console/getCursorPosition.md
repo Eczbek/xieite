@@ -1,9 +1,9 @@
 # xieite::console::getCursorPosition
-Declared in `<xieite/console/getCursorPosition.hpp>`
+Defined in header `<xieite/console/getCursorPosition.hpp>`
 
 <br/>
 
-Gets the cursor's position.
+Gets the cursor's position in the terminal. The top-most row is 0.
 
 <br/><br/>
 

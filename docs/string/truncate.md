@@ -1,5 +1,5 @@
 # xieite::string::truncate
-Declared in `<xieite/string/truncate.hpp>`
+Defined in header `<xieite/string/truncate.hpp>`
 
 <br/>
 

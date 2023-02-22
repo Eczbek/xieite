@@ -1,9 +1,9 @@
 # xieite::geometry::Segment
-Declared in `<xieite/geometry/Segment.hpp>`
+Defined in header `<xieite/geometry/Segment.hpp>`
 
 <br/>
 
-A line segment.
+A struct representing a finite line segment.
 
 <br/><br/>
 

@@ -1,9 +1,9 @@
 # xieite::math::farthestFrom
-Declared in `<xieite/math/farthestFrom.hpp>`
+Defined in header `<xieite/math/farthestFrom.hpp>`
 
 <br/>
 
-Gets the value farthest from a target.
+Selects the value farthest from a target.
 
 <br/><br/>
 

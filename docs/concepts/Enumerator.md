@@ -1,5 +1,5 @@
 # xieite::concepts::Enumerator
-Declared in `<xieite/concepts/Enumerator.hpp>`
+Defined in header `<xieite/concepts/Enumerator.hpp>`
 
 <br/><br/>
 

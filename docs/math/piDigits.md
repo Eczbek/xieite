@@ -1,9 +1,9 @@
 # xieite::math::piDigits
-Declared in `<xieite/math/piDigits.hpp>`
+Defined in header `<xieite/math/piDigits.hpp>`
 
 <br/>
 
-Calculates digits of PI.
+Calculates digits of Pi.
 
 <br/><br/>
 

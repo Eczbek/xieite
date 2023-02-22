@@ -1,5 +1,5 @@
 # XIEITE_PLATFORM_TYPE
-Declared in `<xieite/macros/PLATFORM_TYPE.hpp>`
+Defined in header `<xieite/macros/PLATFORM_TYPE.hpp>`
 
 <br/>
 

@@ -1,5 +1,5 @@
 # xieite::random::getUUID
-Declared in `<xieite/random/getUUID.hpp>`
+Defined in header `<xieite/random/getUUID.hpp>`
 
 <br/>
 

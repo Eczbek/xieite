@@ -1,9 +1,9 @@
 # xieite::geometry::Line
-Declared in `<xieite/geometry/Line.hpp>`
+Defined in header `<xieite/geometry/Line.hpp>`
 
 <br/>
 
-An infinite line.
+An struct representing an infinite line.
 
 <br/><br/>
 

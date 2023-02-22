@@ -1,5 +1,9 @@
 # xieite::concepts::Arithmetic
-Declared in `<xieite/concepts/Arithmetic.hpp>`
+Defined in header `<xieite/concepts/Arithmetic.hpp>`
+
+<br/>
+
+Specifies that type `T` is an integral or a floating point.
 
 <br/><br/>
 

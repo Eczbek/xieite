@@ -1,9 +1,9 @@
 # xieite::concepts::Comparator
-Declared in `<xieite/concepts/Comparator.hpp>`
+Defined in header `<xieite/concepts/Comparator.hpp>`
 
 <br/>
 
-Specifies that a type `T` is a comparator callback.
+Specifies that type `T` is a comparator callback.
 
 <br/><br/>
 

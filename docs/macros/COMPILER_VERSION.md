@@ -1,5 +1,5 @@
 # XIEITE_COMPILER_VERSION
-Declared in `<xieite/macros/COMPILER_VERSION.hpp>`
+Defined in header `<xieite/macros/COMPILER_VERSION.hpp>`
 
 <br/>
 

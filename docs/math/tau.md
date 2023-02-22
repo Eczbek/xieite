@@ -1,9 +1,5 @@
 # xieite::math::tau
-Declared in `<xieite/math/tau.hpp>`
-
-<br/>
-
-Equal to `std::numbers::pi` twice.
+Defined in header `<xieite/math/tau.hpp>`
 
 <br/><br/>
 

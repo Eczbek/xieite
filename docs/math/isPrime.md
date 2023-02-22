@@ -1,9 +1,9 @@
 # xieite::math::isPrime
-Declared in `<xieite/math/isPrime.hpp>`
+Defined in header `<xieite/math/isPrime.hpp>`
 
 <br/>
 
-Checks whether an integral is prime.
+Checks whether an integral is prime, or only divisible by itself and 1.
 
 <br/><br/>
 

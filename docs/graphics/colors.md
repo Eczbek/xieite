@@ -1,9 +1,9 @@
 # xieite::graphics::colors
-Declared in `<xieite/graphics/colors.hpp>`
+Defined in header `<xieite/graphics/colors.hpp>`
 
 <br/>
 
-A namespace of common colors.
+A namespace of some common colors.
 
 <br/><br/>
 

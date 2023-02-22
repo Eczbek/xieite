@@ -1,5 +1,5 @@
 # xieite::algorithms::count
-Declared in `<xieite/algorithms/count.hpp>`
+Defined in header `<xieite/algorithms/count.hpp>`
 
 <br/>
 

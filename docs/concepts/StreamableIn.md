@@ -1,9 +1,9 @@
 # xieite::concepts::StreamableIn
-Declared in `<xieite/concepts/StreamableIn.hpp>`
+Defined in header `<xieite/concepts/StreamableIn.hpp>`
 
 <br/>
 
-Specifies that a type `T` is istream-able.
+Specifies that type `T` is able to be streamed into.
 
 <br/><br/>
 

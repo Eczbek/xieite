@@ -1,9 +1,9 @@
 # xieite::concepts::StreamableOut
-Declared in `<xieite/concepts/StreamableOut.hpp>`
+Defined in header `<xieite/concepts/StreamableOut.hpp>`
 
 <br/>
 
-Specifies that a type `T` is ostream-able.
+Specifies that type `T` is able to be streamed out.
 
 <br/><br/>
 

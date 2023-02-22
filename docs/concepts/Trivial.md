@@ -1,5 +1,5 @@
 # xieite::concepts::Trivial
-Declared in `<xieite/concepts/Trivial.hpp>`
+Defined in header `<xieite/concepts/Trivial.hpp>`
 
 <br/><br/>
 

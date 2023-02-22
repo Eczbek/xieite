@@ -1,5 +1,5 @@
 # xieite::geometry::LineLike
-Declared in `<xieite/geometry/LineLike.hpp>`
+Defined in header `<xieite/geometry/LineLike.hpp>`
 
 <br/>
 

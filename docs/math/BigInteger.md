@@ -1,5 +1,5 @@
 # xieite::math::BigInteger
-Declared in `<xieite/math/BigInteger.hpp>`
+Defined in header `<xieite/math/BigInteger.hpp>`
 
 <br/>
 

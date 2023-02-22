@@ -1,9 +1,9 @@
 # xieite::geometry::Point
-Declared in `<xieite/geometry/Point.hpp>`
+Defined in header `<xieite/geometry/Point.hpp>`
 
 <br/>
 
-A 2D point.
+A struct representing a point.
 
 <br/><br/>
 

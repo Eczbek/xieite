@@ -1,5 +1,5 @@
 # xieite::units::lengths
-Declared in `<xieite/units/lengths.hpp>`
+Defined in header `<xieite/units/lengths.hpp>`
 
 <br/>
 

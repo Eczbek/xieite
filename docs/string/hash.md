@@ -1,5 +1,5 @@
 # xieite::string::hash
-Declared in `<xieite/string/hash.hpp>`
+Defined in header `<xieite/string/hash.hpp>`
 
 <br/>
 

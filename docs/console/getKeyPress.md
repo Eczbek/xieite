@@ -1,5 +1,5 @@
 # xieite::console::getKeyPress
-Declared in `<xieite/console/getKeyPress.hpp>`
+Defined in header `<xieite/console/getKeyPress.hpp>`
 
 <br/>
 

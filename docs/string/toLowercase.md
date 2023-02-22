@@ -1,9 +1,9 @@
 # xieite::string::toLowercase
-Declared in `<xieite/string/toLowercase.hpp>`
+Defined in header `<xieite/string/toLowercase.hpp>`
 
 <br/>
 
-Converts a string or character to lower case. Only handles characters `A` to `Z`.
+Converts a string or character to lowercase. Only handles characters `A` to `Z`.
 
 <br/><br/>
 

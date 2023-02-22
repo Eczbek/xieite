@@ -1,5 +1,5 @@
 # xieite::geometry::getIntersection
-Declared in `<xieite/geometry/getIntersection.hpp>`
+Defined in header `<xieite/geometry/getIntersection.hpp>`
 
 <br/>
 

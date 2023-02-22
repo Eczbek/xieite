@@ -1,9 +1,9 @@
 # xieite::async::Interval
-Declared in `<xieite/async/Interval.hpp>`
+Defined in header `<xieite/async/Interval.hpp>`
 
 <br/>
 
-Runs a callback every set amount of time. Compile with `-pthread`.
+Runs a callback every set amount of time. The `operator bool` checks whether the interval loop has been cancelled, and the `cancel` method will immediately return to the caller thread, without waiting for the interval loop to complete. Compile with `-pthread`.
 
 <br/><br/>
 

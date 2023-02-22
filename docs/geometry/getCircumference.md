@@ -1,9 +1,9 @@
 # xieite::geometry::getCircumference
-Declared in `<xieite/geometry/getCircumference.hpp>`
+Defined in header `<xieite/geometry/getCircumference.hpp>`
 
 <br/>
 
-Calculates the circumference of an ellipse or circle.
+Calculates the circumference of a circle, estimates the circumference of an ellipse.
 
 <br/><br/>
 

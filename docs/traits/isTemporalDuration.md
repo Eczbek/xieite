@@ -1,5 +1,5 @@
 # xieite::traits::isTemporalDuration
-Declared in `<xieite/traits/isTemporalDuration.hpp>`
+Defined in header `<xieite/traits/isTemporalDuration.hpp>`
 
 <br/>
 

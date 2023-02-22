@@ -1,13 +1,13 @@
 # xieite::algorithms::all
-Declared in `<xieite/algorithms/all.hpp>`
+Defined in header `<xieite/algorithms/all.hpp>`
 
 <br/>
 
-Checks whether all arguments are `true`.
+Checks whether all arguments are true. Expects all arguments to be converible to a boolean value.
 
 <br/><br/>
 
-## Declarations
+## Declaration
 ```cpp
 template<std::convertible_to<bool>... T>
 [[nodiscard]]

@@ -1,5 +1,5 @@
 # xieite::geometry::getAngle
-Declared in `<xieite/geometry/getAngle.hpp>`
+Defined in header `<xieite/geometry/getAngle.hpp>`
 
 <br/>
 

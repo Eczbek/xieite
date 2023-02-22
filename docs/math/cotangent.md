@@ -1,5 +1,9 @@
 # xieite::math::cotangent
-Declared in `<xieite/math/cotangent.hpp>`
+Defined in header `<xieite/math/cotangent.hpp>`
+
+<br/>
+
+A trigonometric function which wasn't included in the standard library.
 
 <br/><br/>
 

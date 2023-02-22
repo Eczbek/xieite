@@ -1,13 +1,13 @@
 # xieite::algorithms::any
-Declared in `<xieite/algorithms/any.hpp>`
+Defined in header `<xieite/algorithms/any.hpp>`
 
 <br/>
 
-Checks whether at least one argument is `true`.
+Checks whether at least one argument is true. Expects all arguments to be converible to a boolean value.
 
 <br/><br/>
 
-## Declarations
+## Declaration
 ```cpp
 template<std::convertible_to<bool>... T>
 [[nodiscard]]

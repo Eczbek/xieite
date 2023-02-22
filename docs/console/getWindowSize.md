@@ -1,9 +1,9 @@
 # xieite::console::getWindowSize
-Declared in `<xieite/console/getWindowSize.hpp>`
+Defined in header `<xieite/console/getWindowSize.hpp>`
 
 <br/>
 
-Gets the console window size.
+Gets the console window size, in rows and columns.
 
 <br/><br/>
 

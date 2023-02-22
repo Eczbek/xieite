@@ -1,9 +1,9 @@
 # xieite::console::readBuffer
-Declared in `<xieite/console/readBuffer.hpp>`
+Defined in header `<xieite/console/readBuffer.hpp>`
 
 <br/>
 
-Reads the input buffer.
+Reads and clears the entire input buffer.
 
 <br/><br/>
 

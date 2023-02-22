@@ -1,9 +1,9 @@
 # xieite::console::CursorPosition
-Declared in `<xieite/console/CursorPosition.hpp>`
+Defined in header `<xieite/console/CursorPosition.hpp>`
 
 <br/>
 
-A simple class for storing the row and column positions of the console cursor.
+A simple struct for storing the row and column positions of the console cursor.
 
 <br/><br/>
 

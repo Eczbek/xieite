@@ -1,22 +1,17 @@
 # xieite::algorithms::isPalindrome
-Declared in `<xieite/algorithms/isPalindrome.hpp>`
+Defined in header `<xieite/algorithms/isPalindrome.hpp>`
 
 <br/>
 
-Checks if an iterable is the same backwards as it is forwards.
+Checks if an iterable is the same backwards as it is forwards. Uses `std::equal_to` as the default comparator.
 
 <br/><br/>
 
-## Declarations
+## Declaration
 ```cpp
-template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C>
+template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C = std::equal_to<typename std::iterator_traits<I>::value_type>>
 [[nodiscard]]
-constexpr bool isPalindrome(I begin, I end, C&& comparator) noexcept;
-```
-```cpp
-template<std::forward_iterator I>
-[[nodiscard]]
-constexpr bool isPalindrome(const I begin, const I end) noexcept;
+constexpr bool isPalindrome(I begin, I end, F&& comparator = C()) noexcept;
 ```
 
 <br/><br/>

@@ -1,5 +1,5 @@
 # xieite::math::closestTo
-Declared in `<xieite/math/closestTo.hpp>`
+Defined in header `<xieite/math/closestTo.hpp>`
 
 <br/>
 

@@ -1,9 +1,9 @@
 # xieite::geometry::getBoundingBox
-Declared in `<xieite/geometry/getBoundingBox.hpp>`
+Defined in header `<xieite/geometry/getBoundingBox.hpp>`
 
 <br/>
 
-Creates a minimal rectangle to contain an ellipse or circle.
+Creates a minimal rectangle to contain an ellipse or circle. The rotation of the ellipse will not affect the rotation of the bounding box.
 
 <br/><br/>
 

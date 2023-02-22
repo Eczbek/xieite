@@ -1,9 +1,9 @@
 # xieite::algorithms::partialReverse
-Declared in `<xieite/algorithms/partialReverse.hpp>`
+Defined in header `<xieite/algorithms/partialReverse.hpp>`
 
 <br/>
 
-Partially reverses an iterable's elements.
+Selects iterators and then reverses them in their same overall positions.
 
 <br/><br/>
 

@@ -1,5 +1,5 @@
 # xieite::vector::uniques
-Declared in `<xieite/vector/uniques.hpp>`
+Defined in header `<xieite/vector/uniques.hpp>`
 
 <br/>
 
