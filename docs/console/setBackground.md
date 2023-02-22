@@ -1,9 +1,9 @@
 # xieite::console::setBackground
-Declared in `<xieite/console/setBackground.hpp>`
+Defined in header `<xieite/console/setBackground.hpp>`
 
 <br/>
 
-Sets the text background color in console.
+Sets the text background color.
 
 <br/><br/>
 

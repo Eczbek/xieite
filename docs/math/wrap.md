@@ -1,5 +1,5 @@
 # xieite::math::wrap
-Declared in `<xieite/math/wrap.hpp>`
+Defined in header `<xieite/math/wrap.hpp>`
 
 <br/>
 

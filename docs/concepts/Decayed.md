@@ -1,5 +1,5 @@
 # xieite::concepts::Decayed
-Declared in `<xieite/concepts/Decayed.hpp>`
+Defined in header `<xieite/concepts/Decayed.hpp>`
 
 <br/><br/>
 

@@ -1,9 +1,9 @@
 # xieite::console::codes
-Declared in `<xieite/console/codes.hpp>`
+Defined in header `<xieite/console/codes.hpp>`
 
 <br/>
 
-A namespace of ANSI codes.
+A namespace of preset ANSI codes for terminal manipulation, to be printed directly. These should work in most terminals but not all are guaranteed to provide support.
 
 <br/><br/>
 

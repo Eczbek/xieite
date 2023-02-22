@@ -1,5 +1,9 @@
 # xieite::console::cursorControls
-Declared in `<xieite/console/cursorControls.hpp>`
+Defined in header `<xieite/console/cursorControls.hpp>`
+
+<br/>
+
+A namespace of characters representing cursor controls, for use with `xieite::console::moveCursor`.
 
 <br/><br/>
 

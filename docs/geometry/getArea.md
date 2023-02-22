@@ -1,5 +1,5 @@
 # xieite::geometry::getArea
-Declared in `<xieite/geometry/getArea.hpp>`
+Defined in header `<xieite/geometry/getArea.hpp>`
 
 <br/>
 

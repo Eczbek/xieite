@@ -1,9 +1,9 @@
 # xieite::geometry::Ellipse
-Declared in `<xieite/geometry/Ellipse.hpp>`
+Defined in header `<xieite/geometry/Ellipse.hpp>`
 
 <br/>
 
-An ellipse.
+An struct representing an ellipse.
 
 <br/><br/>
 

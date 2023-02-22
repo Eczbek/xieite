@@ -1,9 +1,9 @@
 # xieite::geometry::getLength
-Declared in `<xieite/geometry/getLength.hpp>`
+Defined in header `<xieite/geometry/getLength.hpp>`
 
 <br/>
 
-Calculates the length of a line.
+Calculates the length of a line-like.
 
 <br/><br/>
 

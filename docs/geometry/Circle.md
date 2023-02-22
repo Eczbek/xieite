@@ -1,9 +1,9 @@
 # xieite::geometry::Circle
-Declared in `<xieite/geometry/Circle.hpp>`
+Defined in header `<xieite/geometry/Circle.hpp>`
 
 <br/>
 
-A basic circle.
+A struct representing a circle. The circle has no angle of rotation.
 
 <br/><br/>
 

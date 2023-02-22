@@ -1,5 +1,5 @@
 # xieite::math::toDegrees
-Declared in `<xieite/math/toDegrees.hpp>`
+Defined in header `<xieite/math/toDegrees.hpp>`
 
 <br/>
 

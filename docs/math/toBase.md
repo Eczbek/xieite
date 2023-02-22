@@ -1,9 +1,9 @@
 # xieite::math::toBase
-Declared in `<xieite/math/toBase.hpp>`
+Defined in header `<xieite/math/toBase.hpp>`
 
 <br/>
 
-Converts an integer to any base.
+Converts an integer to a string in any base. Can be used as a compile-time method of stringifying integers.
 
 <br/><br/>
 

@@ -1,5 +1,5 @@
 # xieite::console::NonBlockLock
-Declared in `<xieite/console/NonBlockLock.hpp>`
+Defined in header `<xieite/console/NonBlockLock.hpp>`
 
 <br/>
 

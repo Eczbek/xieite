@@ -1,9 +1,9 @@
 # xieite::graphics::Color
-Declared in `<xieite/graphics/Color.hpp>`
+Defined in header `<xieite/graphics/Color.hpp>`
 
 <br/>
 
-A simple class for storing an RGB value.
+A simple struct for storing an RGB value.
 
 <br/><br/>
 

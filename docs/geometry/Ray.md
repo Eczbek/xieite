@@ -1,9 +1,9 @@
 # xieite::geometry::Ray
-Declared in `<xieite/geometry/Ray.hpp>`
+Defined in header `<xieite/geometry/Ray.hpp>`
 
 <br/>
 
-An infinite ray with one end.
+A struct representing an infinite ray with one end, which is the member object `start`.
 
 <br/><br/>
 

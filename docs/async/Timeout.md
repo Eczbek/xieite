@@ -1,9 +1,9 @@
 # xieite::async::Timeout
-Declared in `<xieite/async/Timeout.hpp>`
+Defined in header `<xieite/async/Timeout.hpp>`
 
 <br/>
 
-Runs a callback after a set amount of time. Compile with `-pthread`.
+Runs a callback once after a set amount of time. The `operator bool` checks whether the callback has been cancelled, and the `cancel` method will immediately return to the caller thread, without waiting for the timeout to complete. Compile with `-pthread`.
 
 <br/><br/>
 

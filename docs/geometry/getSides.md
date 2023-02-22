@@ -1,5 +1,5 @@
 # xieite::geometry::getSides
-Declared in `<xieite/geometry/getSides.hpp>`
+Defined in header `<xieite/geometry/getSides.hpp>`
 
 <br/>
 

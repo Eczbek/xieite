@@ -1,9 +1,9 @@
 # xieite::string::toUppercase
-Declared in `<xieite/string/toUppercase.hpp>`
+Defined in header `<xieite/string/toUppercase.hpp>`
 
 <br/>
 
-Converts a string or character to upper case. Only handles characters `a` to `z`.
+Converts a string or character to uppercase. Only handles characters `a` to `z`.
 
 <br/><br/>
 

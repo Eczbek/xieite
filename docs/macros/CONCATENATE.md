@@ -1,9 +1,9 @@
 # XIEITE_CONCATENATE
-Declared in `<xieite/macros/CONCATENATE.hpp>`
+Defined in header `<xieite/macros/CONCATENATE.hpp>`
 
 <br/>
 
-Combines two values.
+Concatenates two values literally.
 
 <br/><br/>
 

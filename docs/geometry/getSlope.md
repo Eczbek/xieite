@@ -1,5 +1,5 @@
 # xieite::geometry::getSlope
-Declared in `<xieite/geometry/getSlope.hpp>`
+Defined in header `<xieite/geometry/getSlope.hpp>`
 
 <br/>
 

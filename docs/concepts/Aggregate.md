@@ -1,5 +1,5 @@
 # xieite::concepts::Aggregate
-Declared in `<xieite/concepts/Aggregate.hpp>`
+Defined in header `<xieite/concepts/Aggregate.hpp>`
 
 <br/><br/>
 

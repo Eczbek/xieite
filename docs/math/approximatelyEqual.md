@@ -1,9 +1,9 @@
 # xieite::math::approximatelyEqual
-Declared in `<xieite/math/approximatelyEqual.hpp>`
+Defined in header `<xieite/math/approximatelyEqual.hpp>`
 
 <br/>
 
-Checks whether two numbers are almost the same.
+Checks whether two numbers are almost the same, or their difference is less than their type's epsilon.
 
 <br/><br/>
 

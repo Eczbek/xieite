@@ -1,5 +1,5 @@
 # xieite::geometry::getDistance
-Declared in `<xieite/geometry/getDistance.hpp>`
+Defined in header `<xieite/geometry/getDistance.hpp>`
 
 <br/>
 

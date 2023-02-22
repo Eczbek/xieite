@@ -1,9 +1,9 @@
 # xieite::console::setCursorPosition
-Declared in `<xieite/console/setCursorPosition.hpp>`
+Defined in header `<xieite/console/setCursorPosition.hpp>`
 
 <br/>
 
-Sets the cursor's position.
+Sets the terminal cursor's absolute position.
 
 <br/><br/>
 

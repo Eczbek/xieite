@@ -1,5 +1,5 @@
 # xieite::string::repeat
-Declared in `<xieite/string/repeat.hpp>`
+Defined in header `<xieite/string/repeat.hpp>`
 
 <br/>
 

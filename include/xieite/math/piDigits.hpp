@@ -5,7 +5,7 @@
 
 namespace xieite::math {
 	template<std::integral N>
-	std::vector<N> piDigits(const std::size_t digits) noexcept {
+	inline std::vector<N> piDigits(const std::size_t digits) noexcept {
 		xieite::math::BigInteger a;
 		xieite::math::BigInteger b;
 		xieite::math::BigInteger c;

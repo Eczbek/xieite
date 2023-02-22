@@ -1,5 +1,5 @@
 # xieite::errors::segmentationFault
-Declared in `<xieite/errors/segmentationFault.hpp>`
+Defined in header `<xieite/errors/segmentationFault.hpp>`
 
 <br/>
 

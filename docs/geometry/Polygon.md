@@ -1,9 +1,9 @@
 # xieite::geometry::Polygon
-Declared in `<xieite/geometry/Polygon.hpp>`
+Defined in header `<xieite/geometry/Polygon.hpp>`
 
 <br/>
 
-A 2D polygon.
+A struct representing a polygon.
 
 <br/><br/>
 

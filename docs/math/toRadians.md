@@ -1,5 +1,5 @@
 # xieite::math::toRadians
-Declared in `<xieite/math/toRadians.hpp>`
+Defined in header `<xieite/math/toRadians.hpp>`
 
 <br/>
 

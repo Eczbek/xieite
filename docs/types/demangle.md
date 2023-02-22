@@ -1,9 +1,9 @@
 # xieite::types::demangle
-Declared in `<xieite/types/demangle.hpp>`
+Defined in header `<xieite/types/demangle.hpp>`
 
 <br/>
 
-Demangles a `typeid` name. Returns original if cannot demangle.
+Demangles a `typeid` name. Returns original string if demangling fails.
 
 <br/><br/>
 

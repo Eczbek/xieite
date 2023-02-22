@@ -1,5 +1,5 @@
 # xieite::console::RawLock
-Declared in `<xieite/console/RawLock.hpp>`
+Defined in header `<xieite/console/RawLock.hpp>`
 
 <br/>
 

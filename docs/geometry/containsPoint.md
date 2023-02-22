@@ -1,5 +1,5 @@
 # xieite::geometry::containsPoint
-Declared in `<xieite/geometry/containsPoint.hpp>`
+Defined in header `<xieite/geometry/containsPoint.hpp>`
 
 <br/>
 

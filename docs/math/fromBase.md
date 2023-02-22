@@ -1,9 +1,9 @@
 # xieite::math::fromBase
-Declared in `<xieite/math/fromBase.hpp>`
+Defined in header `<xieite/math/fromBase.hpp>`
 
 <br/>
 
-Converts an integer from any base to base 10.
+Converts an integer string to base 10.
 
 <br/><br/>
 

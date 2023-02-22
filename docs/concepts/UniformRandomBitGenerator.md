@@ -1,5 +1,5 @@
 # xieite::concepts::UniformRandomBitGenerator
-Declared in `<xieite/concepts/UniformRandomBitGenerator.hpp>`
+Defined in header `<xieite/concepts/UniformRandomBitGenerator.hpp>`
 
 <br/><br/>
 

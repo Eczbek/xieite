@@ -1,9 +1,9 @@
 # XIEITE_REPEAT
-Declared in `<xieite/macros/REPEAT.hpp>`
+Defined in header `<xieite/macros/REPEAT.hpp>`
 
 <br/>
 
-Repeats an expression literally.
+Repeats an expression literally. Used in `XIEITE_MATRIX`.
 
 <br/><br/>
 

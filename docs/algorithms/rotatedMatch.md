@@ -1,23 +1,18 @@
 # xieite::algorithms::rotatedMatch
-Declared in `<xieite/algorithms/rotatedMatch.hpp>`
+Defined in header `<xieite/algorithms/rotatedMatch.hpp>`
 
 <br/>
 
-Checks whether one iterable contains elements in the same relative order as in another iterable.
+Checks whether one iterable contains elements in the same relative order as in another iterable. If the end of the second iterable is encountered, the algorithm will "wrap" around and continue from its beginning.
 
 <br/><br/>
 
 ## Declarations
 ```cpp
-template<std::forward_iterator I, std::forward_iterator J, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C>
+template<std::forward_iterator I, std::forward_iterator J, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C = std::equal_to<typename std::iterator_traits<I>::value_type>>
 requires(std::same_as<typename std::iterator_traits<I>::value_type, typename std::iterator_traits<J>::value_type>)
 [[nodiscard]]
-constexpr bool rotatedMatch(const I begin1, const I end1, const J begin2, const J end2, C&& comparator) noexcept;
-```
-```cpp
-template<std::forward_iterator I, std::forward_iterator J>
-[[nodiscard]]
-constexpr bool rotatedMatch(const I begin1, const I end1, const J begin2, const J end2) noexcept;
+constexpr bool rotatedMatch(const I begin1, const I end1, const J begin2, const J end2, C&& comparator = C()) noexcept;
 ```
 
 <br/><br/>

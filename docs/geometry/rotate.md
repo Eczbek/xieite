@@ -1,9 +1,9 @@
 # xieite::geometry::rotate
-Declared in `<xieite/geometry/rotate.hpp>`
+Defined in header `<xieite/geometry/rotate.hpp>`
 
 <br/>
 
-Rotates shapes.
+Rotates shapes a specific angle around any pivot.
 
 <br/><br/>
 

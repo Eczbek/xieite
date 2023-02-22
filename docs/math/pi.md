@@ -1,9 +1,9 @@
 # xieite::math::pi
-Declared in `<xieite/math/pi.hpp>`
+Defined in header `<xieite/math/pi.hpp>`
 
 <br/>
 
-Defines integer varations of PI.
+Defines integer values of Pi.
 
 <br/><br/>
 

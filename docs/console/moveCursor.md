@@ -1,9 +1,9 @@
 # xieite::console::move
-Declared in `<xieite/console/moveCursor.hpp>`
+Defined in header `<xieite/console/moveCursor.hpp>`
 
 <br/>
 
-Moves the cursor.
+Moves the cursor relatively. Use with `xieite::console::cursorControls`.
 
 <br/><br/>
 

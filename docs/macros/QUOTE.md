@@ -1,5 +1,5 @@
 # XIEITE_QUOTE
-Declared in `<xieite/macros/QUOTE.hpp>`
+Defined in header `<xieite/macros/QUOTE.hpp>`
 
 <br/>
 

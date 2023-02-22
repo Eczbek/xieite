@@ -1,5 +1,5 @@
 # xieite::vector::group
-Declared in `<xieite/vector/group.hpp>`
+Defined in header `<xieite/vector/group.hpp>`
 
 <br/>
 

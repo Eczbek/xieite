@@ -1,9 +1,9 @@
 # xieite::string::split
-Declared in `<xieite/string/split.hpp>`
+Defined in header `<xieite/string/split.hpp>`
 
 <br/>
 
-Splits a string into a vector of segments.
+Splits a string into a vector of substrings.
 
 <br/><br/>
 

@@ -1,5 +1,5 @@
 # xieite::system::execute
-Declared in `<xieite/system/execute.hpp>`
+Defined in header `<xieite/system/execute.hpp>`
 
 <br/>
 

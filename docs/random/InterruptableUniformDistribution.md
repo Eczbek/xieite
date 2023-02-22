@@ -1,5 +1,5 @@
 # xieite::random::InterruptableUniformDistribution
-Declared in `<xieite/random/InterruptableUniformDistribution.hpp>`
+Defined in header `<xieite/random/InterruptableUniformDistribution.hpp>`
 
 <br/>
 

@@ -1,9 +1,9 @@
 # xieite::geometry::getPerimeter
-Declared in `<xieite/geometry/getPerimeter.hpp>`
+Defined in header `<xieite/geometry/getPerimeter.hpp>`
 
 <br/>
 
-Calculates the perimeter of a polygon.
+Calculates the perimeter of a polygon, or the sum of all its sides' lengths.
 
 <br/><br/>
 

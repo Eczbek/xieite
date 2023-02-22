@@ -1,9 +1,9 @@
 # xieite::math::difference
-Declared in `<xieite/math/difference.hpp>`
+Defined in header `<xieite/math/difference.hpp>`
 
 <br/>
 
-Calculates the absolute difference between values.
+Calculates the absolute difference between two values. Handles some edge cases.
 
 <br/><br/>
 

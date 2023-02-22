@@ -1,5 +1,9 @@
 # xieite::math::secant
-Declared in `<xieite/math/secant.hpp>`
+Defined in header `<xieite/math/secant.hpp>`
+
+<br/>
+
+A trigonometric function which wasn't included in the standard library.
 
 <br/><br/>
 

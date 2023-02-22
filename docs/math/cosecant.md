@@ -1,5 +1,9 @@
 # xieite::math::cosecant
-Declared in `<xieite/math/cosecant.hpp>`
+Defined in header `<xieite/math/cosecant.hpp>`
+
+<br/>
+
+A trigonometric function which wasn't included in the standard library.
 
 <br/><br/>
 

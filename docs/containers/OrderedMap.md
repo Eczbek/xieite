@@ -1,9 +1,9 @@
 # xieite::containers::OrderedMap
-Declared in `<xieite/containers/OrderedMap.hpp>`
+Defined in header `<xieite/containers/OrderedMap.hpp>`
 
 <br/>
 
-An map for storing values by orderable keys.
+An map for storing values by orderable keys. Expects keys type to be convertible to `std::size_t`.
 
 <br/><br/>
 
