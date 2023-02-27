@@ -1,4 +1,4 @@
-# XIEITE_COMPILER_TYPE
+# XIEITE_COMPILER_TYPE...
 Defined in header `<xieite/macros/COMPILER_TYPE.hpp>`
 
 <br/>

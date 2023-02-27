@@ -1,4 +1,4 @@
-# XIEITE_COMPILER_VERSION
+# XIEITE_COMPILER_VERSION...
 Defined in header `<xieite/macros/COMPILER_VERSION.hpp>`
 
 <br/>
