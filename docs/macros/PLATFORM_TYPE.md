@@ -1,4 +1,4 @@
-# XIEITE_PLATFORM_TYPE
+# XIEITE_PLATFORM_TYPE...
 Defined in header `<xieite/macros/PLATFORM_TYPE.hpp>`
 
 <br/>
