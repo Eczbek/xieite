@@ -3,7 +3,7 @@ Defined in header `<xieite/macros/REPEAT.hpp>`
 
 <br/>
 
-Repeats an expression literally. Used in `XIEITE_MATRIX`.
+Repeats an expression literally. Maximum count is 2047.
 
 <br/><br/>
 
