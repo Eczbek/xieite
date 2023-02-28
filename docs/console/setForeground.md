@@ -3,7 +3,7 @@ Defined in header `<xieite/console/setForeground.hpp>`
 
 <br/>
 
-Sets the text foreground color.
+Sets the text foreground color. Disregards alpha value.
 
 <br/><br/>
 
