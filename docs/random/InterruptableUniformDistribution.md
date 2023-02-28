@@ -12,7 +12,7 @@ A uniform random number distribution which allows excluding subintervals from th
 template<xieite::concepts::Arithmetic N>
 ```
 
-## Constructor
+## Constructors
 ```cpp
 InterruptableUniformDistribution(const N begin, const N end, const std::vector<std::pair<N, N>>& interruptions);
 ```

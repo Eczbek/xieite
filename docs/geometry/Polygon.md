@@ -12,7 +12,7 @@ A struct representing a polygon.
 std::vector<xieite::geometry::Point> points;
 ```
 
-## Constructor
+## Constructors
 ```cpp
 constexpr Polygon(const std::vector<xieite::geometry::Point>& points) noexcept;
 ```

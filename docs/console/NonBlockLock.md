@@ -7,12 +7,12 @@ Enables terminal "non-blocking" mode.
 
 <br/><br/>
 
-## Constructor
+## Constructors
 ```cpp
 NonBlockLock() noexcept;
 ```
 
-## Destructor
+## Destructors
 ```cpp
 ~NonBlockLock();
 ```

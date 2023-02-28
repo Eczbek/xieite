@@ -253,7 +253,7 @@ xieite::math::BigInteger operator>>=(const N value) noexcept;
 ```
 (`operator<`, `operator>`, `operator!=`, `operator<=`, and `operator>=` are defined implicitly)
 
-## Other Methods
+## Other methods
 ```cpp
 [[nodiscard]]
 xieite::math::BigInteger abs() const noexcept;

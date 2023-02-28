@@ -15,7 +15,7 @@ long double x;
 long double y;
 ```
 
-## Constructor
+## Constructors
 ```cpp
 constexpr Point(const long double x = 0, const long double y = 0) noexcept;
 ```

@@ -7,13 +7,13 @@ Runs a callback every set amount of time. The `operator bool` checks whether the
 
 <br/><br/>
 
-## Constructor
+## Constructors
 ```cpp
 template<std::invocable<> C, xieite::concepts::TemporalDuration D>
 Interval(C&& callback, const D duration) noexcept;
 ```
 
-## Destructor
+## Destructors
 ```cpp
 ~Interval();
 ```
@@ -24,7 +24,7 @@ operator bool() const noexcept;
 ```
 (`operator!` is defined implicitly)
 
-## Other Methods
+## Other methods
 ```cpp
 void cancel() noexcept;
 ```

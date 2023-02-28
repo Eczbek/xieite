@@ -15,7 +15,7 @@ xieite::geometry::Point center;
 long double radius;
 ```
 
-## Constructor
+## Constructors
 ```cpp
 constexpr Circle(const xieite::geometry::Point center, const long double radius) noexcept;
 ```
