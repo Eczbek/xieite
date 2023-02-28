@@ -7,12 +7,12 @@ Enables terminal "raw" mode.
 
 <br/><br/>
 
-## Constructor
+## Constructors
 ```cpp
 RawLock(const bool echo = false) noexcept;
 ```
 
-## Destructor
+## Destructors
 ```cpp
 ~RawLock();
 ```

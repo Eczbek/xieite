@@ -12,7 +12,7 @@ An map for storing values by orderable keys. Expects keys type to be convertible
 template<std::convertible_to<std::size_t> K, typename V>
 ```
 
-## Constructor
+## Constructors
 ```cpp
 constexpr OrderedMap() noexcept = default;
 ```

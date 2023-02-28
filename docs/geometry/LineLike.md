@@ -15,7 +15,7 @@ xieite::geometry::Point start;
 xieite::geometry::Point end;
 ```
 
-## Constructor
+## Constructors
 ```cpp
 constexpr LineLike(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept;
 ```

@@ -18,7 +18,7 @@ xieite::geometry::Point radii;
 long double rotation;
 ```
 
-## Constructor
+## Constructors
 ```cpp
 constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radii, const long double rotation = 0) noexcept;
 ```

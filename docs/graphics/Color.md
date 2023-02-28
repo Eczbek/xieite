@@ -18,7 +18,7 @@ std::uint8_t green;
 std::uint8_t blue;
 ```
 
-## Constructor
+## Constructors
 ```cpp
 constexpr Color(const std::uint8_t red = 0, const std::uint8_t green = 0, const std::uint8_t blue = 0) noexcept;
 ```
