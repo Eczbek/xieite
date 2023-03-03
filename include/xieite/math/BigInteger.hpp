@@ -51,9 +51,7 @@ namespace xieite::math {
 				XIEITE_ASSERT(value[i] >= '0' && value[i] <= '9', "Cannot construct with non-digit character");
 				*this += xieite::math::BigInteger(10).pow(valueSize - i - 1) * (value[i] - '0');
 			}
-			sign = (bits.size() < 2 && !bits[0])
-				? false
-				: isNegative;
+			sign = (bits.size() < 2 && !bits[0]) ? false : isNegative;
 		}
 
 		xieite::math::BigInteger& operator=(const xieite::math::BigInteger& other) noexcept {
@@ -102,15 +100,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		std::strong_ordering operator<=>(const xieite::math::BigInteger& other) const noexcept {
-			return (sign != other.sign)
-				? (other.sign <=> sign)
-				: sign
-					? (bits.size() != other.bits.size())
-						? (other.bits.size() <=> bits.size())
-						: (std::vector<bool>(other.bits.rbegin(), other.bits.rend()) <=> std::vector<bool>(bits.rbegin(), bits.rend()))
-					: (bits.size() != other.bits.size())
-						? (bits.size() <=> other.bits.size())
-						: (std::vector<bool>(bits.rbegin(), bits.rend()) <=> std::vector<bool>(other.bits.rbegin(), other.bits.rend()));
+			return (sign != other.sign) ? (other.sign <=> sign) : sign ? (bits.size() != other.bits.size()) ? (other.bits.size() <=> bits.size()) : (std::vector<bool>(other.bits.rbegin(), other.bits.rend()) <=> std::vector<bool>(bits.rbegin(), bits.rend())) : (bits.size() != other.bits.size()) ? (bits.size() <=> other.bits.size()) : (std::vector<bool>(bits.rbegin(), bits.rend()) <=> std::vector<bool>(other.bits.rbegin(), other.bits.rend()));
 		}
 
 		template<std::integral N>
@@ -375,12 +365,7 @@ namespace xieite::math {
 			result.bits.clear();
 			result.sign = sign && other.sign;
 			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-				result.bits.push_back(((i < bitsSize)
-					? copy.bits[i]
-					: sign)
-						&& ((i < otherBitsSize)
-							? otherCopy.bits[i]
-							: other.sign));
+				result.bits.push_back(((i < bitsSize) ? copy.bits[i] : sign) && ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign));
 			if (result.sign) {
 				for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
 					result.bits[i] = !result.bits[i];
@@ -428,12 +413,7 @@ namespace xieite::math {
 			result.bits.clear();
 			result.sign = sign || other.sign;
 			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-				result.bits.push_back(((i < bitsSize)
-					? copy.bits[i]
-					: sign)
-						|| ((i < otherBitsSize)
-							? otherCopy.bits[i]
-							: other.sign));
+				result.bits.push_back(((i < bitsSize) ? copy.bits[i] : sign) || ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign));
 			if (result.sign) {
 				for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
 					result.bits[i] = !result.bits[i];
@@ -481,12 +461,7 @@ namespace xieite::math {
 			result.bits.clear();
 			result.sign = sign != other.sign;
 			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-				result.bits.push_back(((i < bitsSize)
-					? copy.bits[i]
-					: sign)
-						!= ((i < otherBitsSize)
-							? otherCopy.bits[i]
-							: other.sign));
+				result.bits.push_back(((i < bitsSize) ? copy.bits[i] : sign) != ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign));
 			if (result.sign) {
 				for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
 					result.bits[i] = !result.bits[i];
@@ -547,9 +522,7 @@ namespace xieite::math {
 			std::advance(end, static_cast<std::size_t>(other));
 			resultBits.erase(resultBits.begin(), end);
 			BigInteger result(resultBits.begin(), resultBits.end(), sign);
-			return result
-				? result
-				: -xieite::math::BigInteger(sign);
+			return result ? result : -xieite::math::BigInteger(sign);
 		}
 
 		template<std::integral N>
@@ -579,9 +552,7 @@ namespace xieite::math {
 			if (*this == 1 || other == 1)
 				return *this;
 			if (*this == -1)
-				return other % 2
-					? *this
-					: -*this;
+				return (other % 2) ? *this : -*this;
 			if (!other)
 				return xieite::math::BigInteger(1);
 			if (other.sign) {
