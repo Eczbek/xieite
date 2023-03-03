@@ -14,7 +14,7 @@ Add the `include` directory to your project.
 
 <br/>
 
-## Coolest Features
+## Coolest features
 - Algorithms for iterables
 - Asynchronous Timeout and Interval classes
 - Common concepts
@@ -26,3 +26,10 @@ Add the `include` directory to your project.
 - Compile-time string operations
 - A few unit conversion ratios
 - [Documentation for everything](https://github.com/Eczbek/xieite/tree/main/docs)
+
+<br/>
+
+## To-do list
+- Optimize `xieite::math::BigInteger::string`
+- Handle edge-case in `xieite::string::truncate`
+- Add namespace `network`
