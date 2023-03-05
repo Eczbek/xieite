@@ -3,7 +3,7 @@ Defined in header `<xieite/threads/Timeout.hpp>`
 
 <br/>
 
-Runs a callback once after a set amount of time. The `operator bool` checks whether the callback has been cancelled, and the `cancel` method will immediately return to the caller thread, without waiting for the timeout to complete. Compile with `-pthread`.
+Runs a callback once after a set amount of time. The `operator bool` checks whether the callback has been cancelled, and the `cancel` method will immediately return to the caller thread, without waiting for the timeout to complete. Extends `xieite::threads::Interval`. Compile with `-pthread`.
 
 <br/><br/>
 
@@ -13,18 +13,13 @@ template<std::invocable<> C, xieite::concepts::TemporalDuration D>
 Timeout(C&& callback, const D duration) noexcept;
 ```
 
-## Destructors
-```cpp
-~Timeout();
-```
-
-## Operators
+## Operators inherited from `xieite::threads::Interval`
 ```cpp
 operator bool() const noexcept;
 ```
 (`operator!` is defined implicitly)
 
-## Other methods
+## Other methods inherited from `xieite::threads::Interval`
 ```cpp
 void cancel() noexcept;
 ```

@@ -3,7 +3,7 @@ Defined in header `<xieite/threads/Interval.hpp>`
 
 <br/>
 
-Runs a callback every set amount of time. The `operator bool` checks whether the interval loop has been cancelled, and the `cancel` method will immediately return to the caller thread, without waiting for the interval loop to complete. Compile with `-pthread`.
+Runs a callback every set amount of time. The `operator bool` checks whether the interval loop has been cancelled, and the `cancel` method will immediately return to the caller thread, without waiting for the interval loop to complete. Extends `xieite::threads::Loop`. Compile with `-pthread`.
 
 <br/><br/>
 
@@ -13,18 +13,13 @@ template<std::invocable<> C, xieite::concepts::TemporalDuration D>
 Interval(C&& callback, const D duration) noexcept;
 ```
 
-## Destructors
-```cpp
-~Interval();
-```
-
-## Operators
+## Operators inherited from `xieite::threads::Loop`
 ```cpp
 operator bool() const noexcept;
 ```
 (`operator!` is defined implicitly)
 
-## Other methods
+## Other methods inherited from `xieite::threads::Loop`
 ```cpp
 void cancel() noexcept;
 ```
@@ -49,7 +44,7 @@ int main() {
 	std::this_thread::sleep_for(std::chrono::seconds(5));
 }
 ```
-Output:
+Possible output:
 ```
 1
 2
