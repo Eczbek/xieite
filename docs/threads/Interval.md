@@ -1,5 +1,5 @@
-# xieite::async::Interval
-Defined in header `<xieite/async/Interval.hpp>`
+# xieite::threads::Interval
+Defined in header `<xieite/threads/Interval.hpp>`
 
 <br/>
 
@@ -37,12 +37,12 @@ void cancel() noexcept;
 #include <chrono> // std::chrono::seconds
 #include <iostream> // std::cout
 #include <thread> // std::this_thread::sleep_for
-#include <xieite/async/Interval.hpp>
+#include <xieite/threads/Interval.hpp>
 
 int main() {
 	std::atomic<int> i = 0;
 
-	xieite::async::Interval interval([&i]() -> void {
+	xieite::threads::Interval interval([&i]() -> void {
 		std::cout << ++i << '\n';
 	}, std::chrono::seconds(1));
 
