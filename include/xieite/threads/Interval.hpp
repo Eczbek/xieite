@@ -1,41 +1,22 @@
 #pragma once
-#include <atomic> // std::atomic
 #include <concepts> // std::invocable
-#include <memory> // std::make_shared, std::shared_ptr
-#include <thread> // std::this_thread::sleep_for, std::thread
+#include <thread> // std::this_thread::sleep_for
 #include <utility> // std::forward
 #include <xieite/concepts/TemporalDuration.hpp>
+#include <xieite/threads/Loop.hpp>
 
 namespace xieite::threads {
-	class Interval {
-	private:
-		std::shared_ptr<std::atomic<bool>> cancelled;
-		std::thread thread;
-
-	public:
+	struct Interval
+	: xieite::threads::Loop {
 		template<std::invocable<> C, xieite::concepts::TemporalDuration D>
 		Interval(C&& callback, const D duration) noexcept
-		: cancelled(std::make_shared<std::atomic<bool>>(false)), thread([cancelled = cancelled, callback = std::forward<C>(callback), duration]() -> void {
-			while (true) {
-				std::this_thread::sleep_for(duration);
-				if (*cancelled)
-					break;
+		: xieite::threads::Loop([callback = std::forward<C>(callback), duration]() -> void {
+			static bool first = true;
+			if (first)
+				first = false;
+			else
 				callback();
-			}
+			std::this_thread::sleep_for(duration);
 		}) {}
-
-		~Interval() {
-			if (thread.joinable())
-				cancel();
-		}
-
-		operator bool() const noexcept {
-			return !*cancelled;
-		}
-
-		void cancel() noexcept {
-			*cancelled = true;
-			thread.detach();
-		}
 	};
 }
