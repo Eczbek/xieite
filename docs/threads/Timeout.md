@@ -1,5 +1,5 @@
-# xieite::async::Timeout
-Defined in header `<xieite/async/Timeout.hpp>`
+# xieite::threads::Timeout
+Defined in header `<xieite/threads/Timeout.hpp>`
 
 <br/>
 
@@ -36,10 +36,10 @@ void cancel() noexcept;
 #include <chrono> // std::chrono::seconds
 #include <iostream> // std::cout
 #include <thread> // std::this_thread::sleep_for
-#include <xieite/async/Timeout.hpp>
+#include <xieite/threads/Timeout.hpp>
 
 int main() {
-	xieite::async::Timeout timeout([]() -> void {
+	xieite::threads::Timeout timeout([]() -> void {
 		std::cout << "Hello, world!\n";
 	}, std::chrono::seconds(3));
 

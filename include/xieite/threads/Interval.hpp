@@ -6,26 +6,27 @@
 #include <utility> // std::forward
 #include <xieite/concepts/TemporalDuration.hpp>
 
-// Thanks to uno20001 for help
-
-namespace xieite::async {
-	class Timeout {
+namespace xieite::threads {
+	class Interval {
 	private:
 		std::shared_ptr<std::atomic<bool>> cancelled;
 		std::thread thread;
 
 	public:
 		template<std::invocable<> C, xieite::concepts::TemporalDuration D>
-		Timeout(C&& callback, const D duration) noexcept
+		Interval(C&& callback, const D duration) noexcept
 		: cancelled(std::make_shared<std::atomic<bool>>(false)), thread([cancelled = cancelled, callback = std::forward<C>(callback), duration]() -> void {
-			std::this_thread::sleep_for(duration);
-			if (!*cancelled)
+			while (true) {
+				std::this_thread::sleep_for(duration);
+				if (*cancelled)
+					break;
 				callback();
+			}
 		}) {}
 
-		~Timeout() {
+		~Interval() {
 			if (thread.joinable())
-				thread.detach();
+				cancel();
 		}
 
 		operator bool() const noexcept {
