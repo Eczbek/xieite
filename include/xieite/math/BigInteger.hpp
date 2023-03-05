@@ -33,7 +33,7 @@ namespace xieite::math {
 		template<std::forward_iterator I>
 		requires(std::convertible_to<typename std::iterator_traits<I>::value_type, bool>)
 		BigInteger(const I begin, const I end, const bool sign = false) noexcept
-		: bits(begin, end) {
+		: sign(sign), bits(begin, end) {
 			std::size_t i = bits.size();
 			if (i)
 				while (!bits.back() && --i)
@@ -100,7 +100,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		std::strong_ordering operator<=>(const xieite::math::BigInteger& other) const noexcept {
-			return (sign != other.sign) ? (other.sign <=> sign) : sign ? (bits.size() != other.bits.size()) ? (other.bits.size() <=> bits.size()) : (std::vector<bool>(other.bits.rbegin(), other.bits.rend()) <=> std::vector<bool>(bits.rbegin(), bits.rend())) : (bits.size() != other.bits.size()) ? (bits.size() <=> other.bits.size()) : (std::vector<bool>(bits.rbegin(), bits.rend()) <=> std::vector<bool>(other.bits.rbegin(), other.bits.rend()));
+			return (sign != other.sign) ? (other.sign <=> sign) : (sign ? ((bits.size() != other.bits.size()) ? (other.bits.size() <=> bits.size()) : (std::vector<bool>(other.bits.rbegin(), other.bits.rend()) <=> std::vector<bool>(bits.rbegin(), bits.rend()))) : ((bits.size() != other.bits.size()) ? (bits.size() <=> other.bits.size()) : (std::vector<bool>(bits.rbegin(), bits.rend()) <=> std::vector<bool>(other.bits.rbegin(), other.bits.rend()))));
 		}
 
 		template<std::integral N>
