@@ -4,12 +4,12 @@
 #include <xieite/math/BigInteger.hpp>
 
 namespace xieite::math {
-	template<std::integral N>
-	inline std::vector<N> piDigits(const std::size_t digits) noexcept {
-		xieite::math::BigInteger a;
-		xieite::math::BigInteger b;
-		xieite::math::BigInteger c;
-		xieite::math::BigInteger d;
+	template<std::integral N = int>
+	inline std::vector<N> piDigits(std::size_t digits) noexcept {
+		xieite::math::BigInteger a = 180;
+		xieite::math::BigInteger b = 1;
+		xieite::math::BigInteger c = 60;
+		xieite::math::BigInteger d = 2;
 		std::vector<N> result;
 		while (digits--) {
 			const xieite::math::BigInteger e = (b * (d * 27 - 12) + a * 5) / c / 5;
