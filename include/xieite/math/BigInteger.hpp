@@ -8,6 +8,7 @@
 #include <string_view> // std::string_view
 #include <vector> // std::vector
 #include <xieite/concepts/Arithmetic.hpp>
+#include <xieite/concepts/Comparator.hpp>
 #include <xieite/macros/ASSERT.hpp>
 
 namespace xieite::math {
@@ -16,9 +17,8 @@ namespace xieite::math {
 		bool sign;
 		std::vector<bool> bits;
 
-		template<int O>
-		requires(O >= 0 && O < 3)
-		xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& other) noexcept {
+		template<xieite::concepts::Comparator<bool> C>
+		xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& other, C&& callback) const noexcept {
 			xieite::math::BigInteger copy = *this;
 			const std::size_t bitsSize = bits.size();
 			if (sign) {
@@ -36,11 +36,8 @@ namespace xieite::math {
 			xieite::math::BigInteger result;
 			result.bits.clear();
 			result.sign = sign && other.sign;
-			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i) {
-				const bool left = ((i < bitsSize) ? copy.bits[i] : sign);
-				const bool right = ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign);
-				result.bits.push_back((bool[] { left && right, left || right, left != right })[O]);
-			}
+			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
+				result.bits.push_back(callback(((i < bitsSize) ? copy.bits[i] : sign), ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign)));
 			if (result.sign) {
 				for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
 					result.bits[i] = !result.bits[i];
@@ -378,7 +375,9 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator&(const xieite::math::BigInteger& other) const noexcept {
-			return ((!*this || !other) ? xieite::math::BigInteger(0) : commonBitwiseOperation<0>(other));
+			return ((!*this || !other) ? xieite::math::BigInteger(0) : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+				return (left && right);
+			}));
 		}
 
 		template<std::integral N>
@@ -398,7 +397,9 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator|(const xieite::math::BigInteger& other) const noexcept {
-			return (!*this ? other : (!other ? *this : commonBitwiseOperation<1>(other)));
+			return (!*this ? other : (!other ? *this : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+				return (left || right);
+			})));
 		}
 
 		template<std::integral N>
@@ -418,7 +419,9 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator^(const xieite::math::BigInteger& other) const noexcept {
-			return (!*this ? other : (!other ? *this : commonBitwiseOperation<2>(other)));
+			return (!*this ? other : (!other ? *this : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+				return (left != right);
+			})));
 		}
 
 		template<std::integral N>
