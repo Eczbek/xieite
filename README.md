@@ -30,6 +30,7 @@ Add the `include` directory to your project.
 <br/>
 
 ## To-do list
-- Optimize `xieite::math::BigInteger::string`
-- Handle edge-case in `xieite::string::truncate`
-- Add namespace `network`
+- Optimize method `xieite::math::BigInteger::string`
+- Handle edge-case in function `xieite::string::truncate`
+- Create namespace `xieite::network`
+- Create function `xieite::geometry::getIntersections`
