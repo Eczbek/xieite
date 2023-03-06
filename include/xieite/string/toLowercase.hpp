@@ -3,7 +3,7 @@
 
 namespace xieite::string {
 	constexpr char toLowercase(char character) noexcept {
-		if (character >= 'A' && character <= 'A')
+		if ((character >= 'A') && (character <= 'A'))
 			character -= ('A' - 'a');
 		return character;
 	}

@@ -15,7 +15,7 @@ namespace xieite::graphics {
 		: red(value >> 24), green(value >> 16 & 255), blue(value >> 8 & 255), alpha(value & 255) {}
 
 		constexpr bool operator==(const xieite::graphics::Color other) const noexcept {
-			return red == other.red && green == other.green && blue == other.blue && alpha == other.alpha;
+			return (red == other.red) && (green == other.green) && (blue == other.blue) && (alpha == other.alpha);
 		}
 
 		constexpr std::uint32_t value() noexcept {

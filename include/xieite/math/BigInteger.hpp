@@ -36,10 +36,10 @@ namespace xieite::math {
 			xieite::math::BigInteger result;
 			result.bits.clear();
 			result.sign = sign && other.sign;
-			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-				result.bits.push_back(callback(((i < bitsSize) ? copy.bits[i] : sign), ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign)));
+			for (std::size_t i = 0; (i < bitsSize) || (i < otherBitsSize); ++i)
+				result.bits.push_back(callback((i < bitsSize) ? copy.bits[i] : sign, (i < otherBitsSize) ? otherCopy.bits[i] : other.sign));
 			if (result.sign) {
-				for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
+				for (std::size_t i = 0; (i < bitsSize) || (i < otherBitsSize); ++i)
 					result.bits[i] = !result.bits[i];
 				--result;
 			}
@@ -70,7 +70,7 @@ namespace xieite::math {
 					bits.pop_back();
 			else
 				bits.push_back(false);
-			if (i < 2 && !bits[0])
+			if ((i < 2) && !bits[0])
 				this->sign = false;
 		}
 
@@ -78,10 +78,10 @@ namespace xieite::math {
 			const bool isNegative = value[0] == '-';
 			const std::size_t valueSize = value.size();
 			for (std::size_t i = isNegative; i < valueSize; ++i) {
-				XIEITE_ASSERT(value[i] >= '0' && value[i] <= '9', "Cannot construct with non-digit character");
+				XIEITE_ASSERT((value[i] >= '0') && (value[i] <= '9'), "Cannot construct with non-digit character");
 				*this += xieite::math::BigInteger(10).pow(valueSize - i - 1) * (value[i] - '0');
 			}
-			sign = (bits.size() < 2 && !bits[0]) ? false : isNegative;
+			sign = ((bits.size() < 2) && !bits[0]) ? false : isNegative;
 		}
 
 		xieite::math::BigInteger& operator=(const xieite::math::BigInteger& other) noexcept {
@@ -119,7 +119,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		bool operator==(const xieite::math::BigInteger& other) const noexcept {
-			return sign == other.sign && bits == other.bits;
+			return (sign == other.sign) && (bits == other.bits);
 		}
 
 		template<std::integral N>
@@ -156,7 +156,7 @@ namespace xieite::math {
 			bool carry = false;
 			const std::size_t bitsSize = bits.size();
 			const std::size_t otherBitsSize = other.bits.size();
-			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize || carry; ++i) {
+			for (std::size_t i = 0; (i < bitsSize) || (i < otherBitsSize) || carry; ++i) {
 				int sum = carry;
 				if (i < bitsSize)
 					sum += bits[i];
@@ -207,17 +207,17 @@ namespace xieite::math {
 				return *this;
 			if (sign != other.sign)
 				return *this + (-other);
-			if (sign && *this > other || !sign && *this < other)
+			if (sign && (*this > other) || !sign && (*this < other))
 				return -(other - *this);
 			std::vector<bool> resultBits = bits;
 			bool borrow = false;
 			const std::size_t bitsSize = bits.size();
 			const std::size_t otherBitsSize = other.bits.size();
-			for (std::size_t i = 0; i < otherBitsSize || borrow; ++i) {
+			for (std::size_t i = 0; (i < otherBitsSize) || borrow; ++i) {
 				int difference = 2 - borrow + bits[i];
 				if (i < otherBitsSize)
 					difference -= other.bits[i];
-				borrow = i < bitsSize - 1 && difference < 2;
+				borrow = (i < bitsSize - 1) && (difference < 2);
 				resultBits[i] = difference % 2;
 			}
 			return xieite::math::BigInteger(resultBits.begin(), resultBits.end(), sign != borrow);
@@ -337,7 +337,7 @@ namespace xieite::math {
 			XIEITE_ASSERT(static_cast<bool>(other), "Cannot find remainder of division by zero");
 			const xieite::math::BigInteger copy = abs();
 			const xieite::math::BigInteger otherCopy = other.abs();
-			if (!*this || otherCopy == 1 || copy == otherCopy)
+			if (!*this || (otherCopy == 1) || (copy == otherCopy))
 				return xieite::math::BigInteger(0);
 			if (copy < otherCopy)
 				return *this;
@@ -375,9 +375,9 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator&(const xieite::math::BigInteger& other) const noexcept {
-			return ((!*this || !other) ? xieite::math::BigInteger(0) : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
-				return (left && right);
-			}));
+			return (!*this || !other) ? xieite::math::BigInteger(0) : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+				return left && right;
+			});
 		}
 
 		template<std::integral N>
@@ -397,9 +397,9 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator|(const xieite::math::BigInteger& other) const noexcept {
-			return (!*this ? other : (!other ? *this : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
-				return (left || right);
-			})));
+			return !*this ? other : (!other ? *this : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+				return left || right;
+			}));
 		}
 
 		template<std::integral N>
@@ -419,9 +419,9 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator^(const xieite::math::BigInteger& other) const noexcept {
-			return (!*this ? other : (!other ? *this : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
-				return (left != right);
-			})));
+			return !*this ? other : (!other ? *this : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+				return left != right;
+			}));
 		}
 
 		template<std::integral N>
@@ -503,10 +503,10 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger pow(xieite::math::BigInteger other) const {
-			if (*this == 1 || other == 1)
+			if ((*this == 1) || (other == 1))
 				return *this;
 			if (*this == -1)
-				return (other % 2) ? *this : -*this;
+				return *this * (other % 2) * 2 - 1;
 			if (!other)
 				return xieite::math::BigInteger(1);
 			if (other.sign) {
