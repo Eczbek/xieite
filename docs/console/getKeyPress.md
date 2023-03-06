@@ -7,7 +7,7 @@ Waits for and returns the next keypress input.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 inline char getKeyPress(const bool echo = false) noexcept;
 ```

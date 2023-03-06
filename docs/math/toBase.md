@@ -7,7 +7,7 @@ Converts an integer to a string in any base. Can be used as a compile-time metho
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<std::integral N = int>
 [[nodiscard]]

@@ -7,7 +7,7 @@ A trigonometric function which wasn't included in the standard library.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<xieite::concepts::Arithmetic N>
 [[nodiscard]]

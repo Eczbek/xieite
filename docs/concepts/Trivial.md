@@ -3,7 +3,7 @@ Defined in header `<xieite/concepts/Trivial.hpp>`
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<typename T>
 concept Trivial = std::is_trivial_v<T>;

@@ -7,7 +7,7 @@ Checks whether an integral is prime, or only divisible by itself and 1.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<std::integral N>
 [[nodiscard]]

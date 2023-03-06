@@ -7,7 +7,7 @@ Specifies that type `T` is an integral or a floating point.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<typename T>
 concept Arithmetic = std::is_arithmetic_v<T>;

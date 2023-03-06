@@ -7,7 +7,7 @@ Shortens the end of a string.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 [[nodiscard]]
 constexpr std::string truncate(const std::string& string, const std::size_t length, const std::string& suffix = "") noexcept;

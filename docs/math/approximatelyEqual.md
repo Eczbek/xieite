@@ -7,7 +7,7 @@ Checks whether two numbers are almost the same, or their difference is less than
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<xieite::concepts::Arithmetic N>
 [[nodiscard]]

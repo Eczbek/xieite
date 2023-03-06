@@ -7,7 +7,7 @@ Gets the console window size, in rows and columns.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 [[nodiscard]]
 inline xieite::console::CursorPosition getWindowSize() noexcept;

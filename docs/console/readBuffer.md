@@ -7,7 +7,7 @@ Reads and clears the entire input buffer.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 inline std::string readBuffer() noexcept;
 ```

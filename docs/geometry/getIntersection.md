@@ -7,7 +7,7 @@ Finds a possible intersection between two lines.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<std::derived_from<xieite::geometry::LineLike> L, std::derived_from<xieite::geometry::LineLike> M>
 [[nodiscard]]

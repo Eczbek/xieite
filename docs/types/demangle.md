@@ -7,7 +7,7 @@ Demangles a `typeid` name. Returns original string if demangling fails.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 [[nodiscard]]
 inline std::string demangle(const std::string_view mangled) noexcept;

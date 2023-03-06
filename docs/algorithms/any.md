@@ -7,7 +7,7 @@ Checks whether at least one argument is true. Expects all arguments to be conver
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<std::convertible_to<bool>... T>
 [[nodiscard]]

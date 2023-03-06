@@ -7,7 +7,7 @@ Checks if an iterable is the same backwards as it is forwards. Uses `std::equal_
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C = std::equal_to<typename std::iterator_traits<I>::value_type>>
 [[nodiscard]]

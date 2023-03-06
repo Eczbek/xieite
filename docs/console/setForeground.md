@@ -7,7 +7,7 @@ Sets the text foreground color. Disregards alpha value.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 constexpr std::string setForeground(const xieite::graphics::Color color) noexcept;
 ```

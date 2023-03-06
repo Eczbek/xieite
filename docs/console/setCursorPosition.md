@@ -7,7 +7,7 @@ Sets the terminal cursor's absolute position.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 constexpr std::string setCursorPosition(const xieite::console::CursorPosition position) noexcept;
 ```

@@ -7,7 +7,7 @@ Selects the value farthest from a target.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<xieite::concepts::Arithmetic N>
 [[nodiscard]]

@@ -7,7 +7,7 @@ Calculates the perimeter of a polygon, or the sum of all its sides' lengths.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 [[nodiscard]]
 constexpr long double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept;

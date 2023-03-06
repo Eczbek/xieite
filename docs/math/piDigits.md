@@ -7,7 +7,7 @@ Calculates digits of Pi.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<std::integral N>
 std::vector<N> piDigits(const std::size_t digits) noexcept;

@@ -7,7 +7,7 @@ Creates a segmentation fault. Why would you do this?
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 [[noreturn]]
 inline void segmentationFault() noexcept;

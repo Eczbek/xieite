@@ -7,7 +7,7 @@ Moves the cursor relatively. Use with `xieite::console::cursorControls`.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 constexpr std::string moveCursor(const char control, const int value) noexcept;
 ```
