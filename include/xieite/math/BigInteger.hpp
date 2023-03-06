@@ -16,6 +16,39 @@ namespace xieite::math {
 		bool sign;
 		std::vector<bool> bits;
 
+		template<int O>
+		requires(O >= 0 && O < 3)
+		xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& other) noexcept {
+			xieite::math::BigInteger copy = *this;
+			const std::size_t bitsSize = bits.size();
+			if (sign) {
+				++copy;
+				for (std::size_t i = 0; i < bitsSize; ++i)
+					copy.bits[i] = !copy.bits[i];
+			}
+			xieite::math::BigInteger otherCopy = other;
+			const std::size_t otherBitsSize = other.bits.size();
+			if (other.sign) {
+				++otherCopy;
+				for (std::size_t i = 0; i < otherBitsSize; ++i)
+					otherCopy.bits[i] = !otherCopy.bits[i];
+			}
+			xieite::math::BigInteger result;
+			result.bits.clear();
+			result.sign = sign && other.sign;
+			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i) {
+				const bool left = ((i < bitsSize) ? copy.bits[i] : sign);
+				const bool right = ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign);
+				result.bits.push_back((bool[] { left && right, left || right, left != right })[O]);
+			}
+			if (result.sign) {
+				for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
+					result.bits[i] = !result.bits[i];
+				--result;
+			}
+			return result;
+		}
+
 	public:
 		BigInteger(const xieite::math::BigInteger& other) noexcept
 		: sign(other.sign), bits(other.bits) {}
@@ -345,33 +378,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator&(const xieite::math::BigInteger& other) const noexcept {
-			if (!*this || !other)
-				return xieite::math::BigInteger(0);
-			xieite::math::BigInteger copy = *this;
-			const std::size_t bitsSize = bits.size();
-			if (sign) {
-				++copy;
-				for (std::size_t i = 0; i < bitsSize; ++i)
-					copy.bits[i] = !copy.bits[i];
-			}
-			xieite::math::BigInteger otherCopy = other;
-			const std::size_t otherBitsSize = other.bits.size();
-			if (other.sign) {
-				++otherCopy;
-				for (std::size_t i = 0; i < otherBitsSize; ++i)
-					otherCopy.bits[i] = !otherCopy.bits[i];
-			}
-			xieite::math::BigInteger result;
-			result.bits.clear();
-			result.sign = sign && other.sign;
-			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-				result.bits.push_back(((i < bitsSize) ? copy.bits[i] : sign) && ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign));
-			if (result.sign) {
-				for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-					result.bits[i] = !result.bits[i];
-				--result;
-			}
-			return result;
+			return ((!*this || !other) ? xieite::math::BigInteger(0) : commonBitwiseOperation<0>(other));
 		}
 
 		template<std::integral N>
@@ -391,35 +398,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator|(const xieite::math::BigInteger& other) const noexcept {
-			if (!*this)
-				return other;
-			if (!other)
-				return *this;
-			xieite::math::BigInteger copy = *this;
-			const std::size_t bitsSize = bits.size();
-			if (sign) {
-				++copy;
-				for (std::size_t i = 0; i < bitsSize; ++i)
-					copy.bits[i] = !copy.bits[i];
-			}
-			xieite::math::BigInteger otherCopy = other;
-			const std::size_t otherBitsSize = other.bits.size();
-			if (other.sign) {
-				++otherCopy;
-				for (std::size_t i = 0; i < otherBitsSize; ++i)
-					otherCopy.bits[i] = !otherCopy.bits[i];
-			}
-			xieite::math::BigInteger result;
-			result.bits.clear();
-			result.sign = sign || other.sign;
-			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-				result.bits.push_back(((i < bitsSize) ? copy.bits[i] : sign) || ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign));
-			if (result.sign) {
-				for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-					result.bits[i] = !result.bits[i];
-				--result;
-			}
-			return result;
+			return (!*this ? other : (!other ? *this : commonBitwiseOperation<1>(other)));
 		}
 
 		template<std::integral N>
@@ -439,35 +418,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator^(const xieite::math::BigInteger& other) const noexcept {
-			if (!*this)
-				return other;
-			if (!other)
-				return *this;
-			xieite::math::BigInteger copy = *this;
-			const std::size_t bitsSize = bits.size();
-			if (sign) {
-				++copy;
-				for (std::size_t i = 0; i < bitsSize; ++i)
-					copy.bits[i] = !copy.bits[i];
-			}
-			xieite::math::BigInteger otherCopy = other;
-			const std::size_t otherBitsSize = other.bits.size();
-			if (other.sign) {
-				++otherCopy;
-				for (std::size_t i = 0; i < otherBitsSize; ++i)
-					otherCopy.bits[i] = !otherCopy.bits[i];
-			}
-			xieite::math::BigInteger result;
-			result.bits.clear();
-			result.sign = sign != other.sign;
-			for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-				result.bits.push_back(((i < bitsSize) ? copy.bits[i] : sign) != ((i < otherBitsSize) ? otherCopy.bits[i] : other.sign));
-			if (result.sign) {
-				for (std::size_t i = 0; i < bitsSize || i < otherBitsSize; ++i)
-					result.bits[i] = !result.bits[i];
-				--result;
-			}
-			return result;
+			return (!*this ? other : (!other ? *this : commonBitwiseOperation<2>(other)));
 		}
 
 		template<std::integral N>
