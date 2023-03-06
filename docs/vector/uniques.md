@@ -7,7 +7,7 @@ Removes duplicate values.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<typename T>
 [[nodiscard]]

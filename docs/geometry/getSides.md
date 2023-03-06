@@ -7,7 +7,7 @@ Creates line segments between the points of a polygon.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 [[nodiscard]]
 constexpr std::vector<xieite::geometry::Segment> getSides(const xieite::geometry::Polygon& polygon) noexcept;

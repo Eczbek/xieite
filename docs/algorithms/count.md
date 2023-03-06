@@ -7,7 +7,7 @@ Counts the number of arguments provided.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<typename... T>
 constexpr std::size_t count(T&&...) noexcept;

@@ -7,7 +7,7 @@ Specifies that type `T` is able to be streamed into.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<typename T>
 concept StreamableIn = requires(std::istream& inStream, T value) {

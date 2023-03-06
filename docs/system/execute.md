@@ -7,7 +7,7 @@ Executes a command and returns its output.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 inline std::string execute(const std::string_view command, const std::size_t chunkSize = 1024) noexcept;
 ```

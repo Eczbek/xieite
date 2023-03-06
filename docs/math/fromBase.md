@@ -7,7 +7,7 @@ Converts an integer string to base 10.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<std::integral N = int>
 [[nodiscard]]

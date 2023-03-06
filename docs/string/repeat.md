@@ -7,7 +7,7 @@ Repeats a string.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 [[nodiscard]]
 constexpr std::string repeat(const std::string_view string, std::size_t count) noexcept;

@@ -7,7 +7,7 @@ Rotates a 2D vector matrix by 90*. Positive rotations go clockwise, negative rot
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<typename T>
 [[nodiscard]]

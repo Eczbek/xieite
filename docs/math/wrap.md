@@ -7,7 +7,7 @@ Defined in header `<xieite/math/wrap.hpp>`
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<xieite::concepts::Arithmetic N>
 [[nodiscard]]

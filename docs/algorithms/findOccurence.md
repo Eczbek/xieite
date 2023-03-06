@@ -7,7 +7,7 @@ Finds the pointer to a specific occurence of a value in an iterable. If the valu
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C = std::equal_to<typename std::iterator_traits<I>::value_type>>
 [[nodiscard]]

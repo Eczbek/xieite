@@ -7,7 +7,7 @@ Defined in header `<xieite/string/hash.hpp>`
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 [[nodiscard]]
 constexpr unsigned long long hash(const std::string_view string) noexcept;

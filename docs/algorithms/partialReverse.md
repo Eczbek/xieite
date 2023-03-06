@@ -7,7 +7,7 @@ Selects iterators and then reverses them in their same overall positions.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<std::forward_iterator I, std::invocable<typename std::iterator_traits<I>::value_type> C>
 requires(std::convertible_to<std::invoke_result_t<C, typename std::iterator_traits<I>::value_type&&>, bool>)

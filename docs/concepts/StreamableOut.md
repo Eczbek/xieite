@@ -7,7 +7,7 @@ Specifies that type `T` is able to be streamed out.
 
 <br/><br/>
 
-## Declaration
+## Declarations
 ```cpp
 template<typename T>
 concept StreamableOut = requires(std::ostream& outStream, T value) {
