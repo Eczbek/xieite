@@ -6,6 +6,7 @@
 #include <iterator> // std::advance, std::forward_iterator, std::iterator_traits
 #include <string> // std::string
 #include <string_view> // std::string_view
+#include <utility> // std::move
 #include <vector> // std::vector
 #include <xieite/concepts/Arithmetic.hpp>
 #include <xieite/concepts/Comparator.hpp>
@@ -50,6 +51,9 @@ namespace xieite::math {
 		BigInteger(const xieite::math::BigInteger& other) noexcept
 		: sign(other.sign), bits(other.bits) {}
 
+		BigInteger(xieite::math::BigInteger&& other) noexcept
+		: sign(other.sign), bits(std::move(other.bits)) {}
+
 		template<std::integral N = int>
 		BigInteger(N value = 0) noexcept
 		: sign(value < 0) {
@@ -79,7 +83,7 @@ namespace xieite::math {
 			const std::size_t valueSize = value.size();
 			for (std::size_t i = isNegative; i < valueSize; ++i) {
 				XIEITE_ASSERT((value[i] >= '0') && (value[i] <= '9'), "Cannot construct with non-digit character");
-				*this += xieite::math::BigInteger(10).pow(valueSize - i - 1) * (value[i] - '0');
+				*this += xieite::math::BigInteger(10).power(valueSize - i - 1) * (value[i] - '0');
 			}
 			sign = ((bits.size() < 2) && !bits[0]) ? false : isNegative;
 		}
@@ -87,6 +91,14 @@ namespace xieite::math {
 		xieite::math::BigInteger& operator=(const xieite::math::BigInteger& other) noexcept {
 			sign = other.sign;
 			bits = other.bits;
+			return *this;
+		}
+
+		xieite::math::BigInteger& operator=(xieite::math::BigInteger&& other) noexcept {
+			if (this != &other) {
+				sign = other.sign;
+				bits = std::move(other.bits);
+			}
 			return *this;
 		}
 
@@ -99,10 +111,10 @@ namespace xieite::math {
 		[[nodiscard]]
 		operator N() const noexcept {
 			N result = 0;
-			N power = 1;
+			N exponent = 1;
 			for (const bool bit : bits) {
-				result += bit * power;
-				power *= 2;
+				result += bit * exponent;
+				exponent *= 2;
 			}
 			return result;
 		}
@@ -300,8 +312,8 @@ namespace xieite::math {
 			if (other == -1)
 				return -*this;
 			const bool otherSign = other.sign;
-            const xieite::math::BigInteger otherCopy = other.abs();
-			if (abs() < otherCopy)
+            const xieite::math::BigInteger otherCopy = other.absolute();
+			if (absolute() < otherCopy)
 				return xieite::math::BigInteger(0);
 			std::vector<bool> resultBits;
 			xieite::math::BigInteger difference;
@@ -335,8 +347,8 @@ namespace xieite::math {
 		[[nodiscard]]
 		xieite::math::BigInteger operator%(const xieite::math::BigInteger& other) const {
 			XIEITE_ASSERT(static_cast<bool>(other), "Cannot find remainder of division by zero");
-			const xieite::math::BigInteger copy = abs();
-			const xieite::math::BigInteger otherCopy = other.abs();
+			const xieite::math::BigInteger copy = absolute();
+			const xieite::math::BigInteger otherCopy = other.absolute();
 			if (!*this || (otherCopy == 1) || (copy == otherCopy))
 				return xieite::math::BigInteger(0);
 			if (copy < otherCopy)
@@ -495,14 +507,14 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger abs() const noexcept {
+		xieite::math::BigInteger absolute() const noexcept {
 			xieite::math::BigInteger copy = *this;
 			copy.sign = false;
 			return copy;
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger pow(xieite::math::BigInteger other) const {
+		xieite::math::BigInteger power(xieite::math::BigInteger other) const {
 			if ((*this == 1) || (other == 1))
 				return *this;
 			if (*this == -1)
@@ -530,8 +542,8 @@ namespace xieite::math {
 
 		template<std::integral N>
 		[[nodiscard]]
-		xieite::math::BigInteger pow(const N value) const {
-			return pow(xieite::math::BigInteger(value));
+		xieite::math::BigInteger power(const N value) const {
+			return power(xieite::math::BigInteger(value));
 		}
 
 		[[nodiscard]]
@@ -546,7 +558,7 @@ namespace xieite::math {
 			xieite::math::BigInteger z = y + 1;
 			while (y < z) {
 				z = y;
-				y = (x * y + *this / y.pow(x)) / other;
+				y = (x * y + *this / y.power(x)) / other;
 			}
 			return z;
 		}
@@ -564,18 +576,12 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		std::string string() const noexcept {
-			xieite::math::BigInteger copy = abs();
+			if (!*this)
+				return "0";
+			xieite::math::BigInteger copy = absolute();
 			std::string result;
 			do {
-				const std::vector<bool>& bits = (copy % 10).bits;
-				const std::size_t bitsSize = bits.size();
-				char digit = '0';
-				int power = 1;
-				for (const bool bit : bits) {
-					digit += bit * power;
-					power *= 2;
-				}
-				result = digit + result;
+				result = static_cast<char>('0' + copy % 10) + result;
 				copy /= 10;
 			} while (copy);
 			if (sign)
