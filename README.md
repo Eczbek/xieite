@@ -30,6 +30,5 @@ Add the `include` directory to your project.
 <br/>
 
 ## To-do list
-- Optimize method `xieite::math::BigInteger::string`
 - Create namespace `xieite::network`
 - Create function `xieite::geometry::getIntersections`
