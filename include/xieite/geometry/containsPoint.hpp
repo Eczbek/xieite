@@ -16,7 +16,7 @@
 namespace xieite::geometry {
 	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept {
-		return (point1 == point2);
+		return point1 == point2;
 	}
 
 	[[nodiscard]]
@@ -34,7 +34,7 @@ namespace xieite::geometry {
 	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Segment& segment, const xieite::geometry::Point point) noexcept {
 		const long double slope = xieite::geometry::getSlope(segment);
-		return (std::isinf(slope) ? (xieite::math::approximatelyEqual(point.x, segment.start.x) && ((point.y >= segment.start.y) && (point.y <= segment.end.y) || (point.y <= segment.start.y) && (point.y >= segment.end.y))) : (xieite::math::approximatelyEqual(point.x * slope - segment.start.x * slope + segment.start.y, point.y) && ((segment.start.x < segment.end.x) ? (point.x >= segment.start.x) && (point.x <= segment.end.x) : (point.x <= segment.start.x) && (point.x >= segment.end.x)) && ((segment.start.y < segment.end.y) ? (point.y >= segment.start.y) && (point.y <= segment.end.y) : (point.y <= segment.start.y) && (point.y >= segment.end.y))));
+		return std::isinf(slope) ? (xieite::math::approximatelyEqual(point.x, segment.start.x) && ((point.y >= segment.start.y) && (point.y <= segment.end.y) || (point.y <= segment.start.y) && (point.y >= segment.end.y))) : (xieite::math::approximatelyEqual(point.x * slope - segment.start.x * slope + segment.start.y, point.y) && ((segment.start.x < segment.end.x) ? (point.x >= segment.start.x) && (point.x <= segment.end.x) : (point.x <= segment.start.x) && (point.x >= segment.end.x)) && ((segment.start.y < segment.end.y) ? (point.y >= segment.start.y) && (point.y <= segment.end.y) : (point.y <= segment.start.y) && (point.y >= segment.end.y)));
 	}
 
 	[[nodiscard]]
@@ -55,7 +55,7 @@ namespace xieite::geometry {
 	constexpr bool containsPoint(const xieite::geometry::Ellipse& ellipse, const xieite::geometry::Point point) noexcept {
 		const long double a = std::cos(ellipse.rotation) * (point.x - ellipse.center.x) + std::sin(ellipse.rotation) * (point.y - ellipse.center.y);
 		const long double b = std::sin(ellipse.rotation) * (point.x - ellipse.center.x) - std::cos(ellipse.rotation) * (point.y - ellipse.center.y);
-		return ((a * a / ellipse.radii.x / ellipse.radii.x + b * b / ellipse.radii.y / ellipse.radii.y) <= 1);
+		return (a * a / ellipse.radii.x / ellipse.radii.x + b * b / ellipse.radii.y / ellipse.radii.y) <= 1;
 	}
 
 	[[nodiscard]]

@@ -28,7 +28,7 @@ namespace xieite::random {
 			N& farthest = xieite::math::farthestFrom(0, begin2, end2);
 			sign = (farthest >= 0) * 2 - 1;
 			for (std::pair<N, N> interruption : interruptions) {
-				if ((interruption.first < begin || interruption.first > end) && (interruption.first > begin || interruption.first < end) && (interruption.second < begin || interruption.second > end) && (interruption.second > begin || interruption.second < end))
+				if (((interruption.first < begin) || (interruption.first > end)) && ((interruption.first > begin) || (interruption.first < end)) && ((interruption.second < begin) || (interruption.second > end)) && ((interruption.second > begin) || (interruption.second < end)))
 					continue;
 				interruption.first = std::clamp(interruption.first, begin, end);
 				interruption.second = std::clamp(interruption.second, begin, end);
@@ -46,7 +46,7 @@ namespace xieite::random {
 			N result = distribution(generator);
 			for (const std::pair<N, N> interruption : interruptions) {
 				const N closest = xieite::math::closestTo(0, interruption.first, interruption.second);
-				if (sign > 0 && result >= closest || sign < 0 && result <= closest)
+				if ((sign > 0) && (result >= closest) || (sign < 0) && (result <= closest))
 					result += (static_cast<N>(xieite::math::difference(interruption.first, interruption.second)) + 1) * sign;
 			}
 			return result;
