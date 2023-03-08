@@ -33,4 +33,9 @@ namespace xieite::geometry {
 	constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, const long double angle, const xieite::geometry::Point& pivot = xieite::geometry::Point(0, 0)) noexcept {
 		return xieite::geometry::Ellipse(xieite::geometry::rotate(ellipse.center, angle, pivot), ellipse.radii, std::fmod(ellipse.rotation + angle, xieite::math::tau<long double>));
 	}
+
+	[[nodiscard]]
+	constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, const long double angle, const xieite::geometry::Point& pivot = xieite::geometry::Point(0, 0)) noexcept {
+		return xieite::geometry::Circle(xieite::geometry::rotate(circle.center, angle, pivot), circle.radius);
+	}
 }
