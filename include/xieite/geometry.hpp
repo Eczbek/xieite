@@ -12,7 +12,10 @@
 #include <xieite/geometry/getBoundingBox.hpp>
 #include <xieite/geometry/getCircumference.hpp>
 #include <xieite/geometry/getDistance.hpp>
+#include <xieite/geometry/getInterceptX.hpp>
+#include <xieite/geometry/getInterceptY.hpp>
 #include <xieite/geometry/getIntersection.hpp>
+#include <xieite/geometry/getIntersections.hpp>
 #include <xieite/geometry/getLength.hpp>
 #include <xieite/geometry/getPerimeter.hpp>
 #include <xieite/geometry/getSides.hpp>
