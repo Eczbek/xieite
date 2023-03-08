@@ -43,7 +43,7 @@ namespace xieite::geometry {
 		xieite::geometry::Ray ray(point, 0);
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {
 			const long double a = (ray.start.x - ray.end.x) * (side.start.y - side.end.y) - (ray.start.y - ray.end.y) * (side.start.x - side.end.x);
-			if (!xieite::math::approximatelyEqual(a, static_cast<long double>(0))) {
+			if (!xieite::math::approximatelyEqual(a, 0)) {
 				const xieite::geometry::Point intersection(((side.start.x - side.end.x) * (ray.start.x * ray.end.y - ray.start.y * ray.end.x) - (ray.start.x - ray.end.x) * (side.start.x * side.end.y - side.start.y * side.end.x)) / a, ((side.start.y - side.end.y) * (ray.start.x * ray.end.y - ray.start.y * ray.end.x) - (ray.start.y - ray.end.y) * (side.start.x * side.end.y - side.start.y * side.end.x)) / a);
 				intersections += (xieite::geometry::containsPoint(ray, intersection) && xieite::geometry::containsPoint(side, intersection));
 			}
