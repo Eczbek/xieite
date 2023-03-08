@@ -25,6 +25,10 @@ constexpr xieite::geometry::Polygon rotate(const xieite::geometry::Polygon& poly
 [[nodiscard]]
 constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, const long double angle, const xieite::geometry::Point& pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
+```cpp
+[[nodiscard]]
+constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, const long double angle, const xieite::geometry::Point& pivot = xieite::geometry::Point(0, 0)) noexcept;
+```
 
 <br/><br/>
 
