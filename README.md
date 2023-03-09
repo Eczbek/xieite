@@ -30,4 +30,5 @@ Add the `include` directory to your project.
 <br/>
 
 ## To-do list
-- Create namespace `xieite::network`
+- Ellipse-ellipse intersections
+- Network namespace
