@@ -11,6 +11,7 @@
 #include <xieite/concepts/Arithmetic.hpp>
 #include <xieite/concepts/Comparator.hpp>
 #include <xieite/macros/ASSERT.hpp>
+#include <xieite/math/absolute.hpp>
 
 namespace xieite::math {
 	class BigInteger {
@@ -57,7 +58,7 @@ namespace xieite::math {
 		template<std::integral N = int>
 		BigInteger(N value = 0) noexcept
 		: sign(value < 0) {
-			value *= sign * -2 + 1;
+			value = xieite::math::absolute(value);
 			do {
 				bits.push_back(value % 2);
 				value /= 2;
