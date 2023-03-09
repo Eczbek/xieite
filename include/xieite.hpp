@@ -65,6 +65,7 @@
 #include <xieite/macros/QUOTE.hpp>
 #include <xieite/macros/REPEAT.hpp>
 #include <xieite/math/BigInteger.hpp>
+#include <xieite/math/absolute.hpp>
 #include <xieite/math/approximatelyEqual.hpp>
 #include <xieite/math/closestTo.hpp>
 #include <xieite/math/cosecant.hpp>
@@ -72,10 +73,12 @@
 #include <xieite/math/difference.hpp>
 #include <xieite/math/farthestFrom.hpp>
 #include <xieite/math/fromBase.hpp>
+#include <xieite/math/isNaN.hpp>
 #include <xieite/math/isPrime.hpp>
 #include <xieite/math/pi.hpp>
 #include <xieite/math/piDigits.hpp>
 #include <xieite/math/secant.hpp>
+#include <xieite/math/squareRoot.hpp>
 #include <xieite/math/tau.hpp>
 #include <xieite/math/toBase.hpp>
 #include <xieite/math/toDegrees.hpp>
