@@ -31,4 +31,3 @@ Add the `include` directory to your project.
 
 ## To-do list
 - Create namespace `xieite::network`
-- Create function `xieite::geometry::getIntersections`
