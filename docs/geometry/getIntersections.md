@@ -32,3 +32,13 @@ template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
 constexpr std::vector<xieite::geometry::Point> getIntersections(const L& lineLike, const xieite::geometry::Ellipse& ellipse) noexcept;
 ```
+```cpp
+template<std::derived_from<xieite::geometry::LineLike> L>
+[[nodiscard]]
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const L& lineLike) noexcept;
+```
+```cpp
+template<std::derived_from<xieite::geometry::LineLike> L>
+[[nodiscard]]
+constexpr std::vector<xieite::geometry::Point> getIntersections(const L& lineLike, const xieite::geometry::Circle& circle) noexcept;
+```

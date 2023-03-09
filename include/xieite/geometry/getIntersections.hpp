@@ -69,4 +69,16 @@ namespace xieite::geometry {
 	constexpr std::vector<xieite::geometry::Point> getIntersections(const L& lineLike, const xieite::geometry::Ellipse& ellipse) noexcept {
 		return xieite::geometry::getIntersections(ellipse, lineLike);
 	}
+
+	template<std::derived_from<xieite::geometry::LineLike> L>
+	[[nodiscard]]
+	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const L& lineLike) noexcept {
+		return xieite::geometry::getIntersections(xieite::geometry::Ellipse(circle.center, xieite::geometry::Point(circle.radius, circle.radius)), lineLike);
+	}
+
+	template<std::derived_from<xieite::geometry::LineLike> L>
+	[[nodiscard]]
+	constexpr std::vector<xieite::geometry::Point> getIntersections(const L& lineLike, const xieite::geometry::Circle& circle) noexcept {
+		return xieite::geometry::getIntersections(circle, lineLike);
+	}
 }
