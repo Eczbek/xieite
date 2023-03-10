@@ -10,12 +10,12 @@ Calculates the slope of a line or between two points.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr long double getSlope(const xieite::geometry::Point& point1, const xieite::geometry::Point& point2) noexcept;
+constexpr double getSlope(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept;
 ```
 ```cpp
 template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
-constexpr long double getSlope(const L& lineLike) noexcept;
+constexpr double getSlope(const L& lineLike) noexcept;
 ```
 
 <br/><br/>

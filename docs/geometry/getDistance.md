@@ -10,7 +10,7 @@ Calculates the distance between two points.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr long double getDistance(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept;
+constexpr double getDistance(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept;
 ```
 
 <br/><br/>

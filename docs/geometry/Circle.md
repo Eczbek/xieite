@@ -12,12 +12,12 @@ A struct representing a circle. The circle has no angle of rotation.
 xieite::geometry::Point center;
 ```
 ```cpp
-long double radius;
+double radius;
 ```
 
 ## Constructors
 ```cpp
-constexpr Circle(const xieite::geometry::Point center, const long double radius) noexcept;
+constexpr Circle(const xieite::geometry::Point center, const double radius) noexcept;
 ```
 
 ## Operators

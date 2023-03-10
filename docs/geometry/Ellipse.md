@@ -15,12 +15,12 @@ xieite::geometry::Point center;
 xieite::geometry::Point radii;
 ```
 ```cpp
-long double rotation;
+double rotation;
 ```
 
 ## Constructors
 ```cpp
-constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radii, const long double rotation = 0) noexcept;
+constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radii, const double rotation = 0) noexcept;
 ```
 
 ## Operators

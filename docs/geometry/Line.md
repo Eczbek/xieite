@@ -3,7 +3,7 @@ Defined in header `<xieite/geometry/Line.hpp>`
 
 <br/>
 
-An struct representing an infinite line.
+An struct representing an infinite line. Extends `xieite::geometry::LineLike`.
 
 <br/><br/>
 
@@ -20,7 +20,7 @@ xieite::geometry::Point end;
 constexpr Line(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept;
 ```
 ```cpp
-constexpr Line(const xieite::geometry::Point start, const long double angle) noexcept;
+constexpr Line(const xieite::geometry::Point start, const double angle) noexcept;
 ```
 
 ## Operators

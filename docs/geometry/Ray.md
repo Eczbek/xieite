@@ -3,7 +3,7 @@ Defined in header `<xieite/geometry/Ray.hpp>`
 
 <br/>
 
-A struct representing an infinite ray with one end, which is the member object `start`.
+A struct representing an infinite ray with one end, which is the member object `start`. Extends `xieite::geometry::LineLike`.
 
 <br/><br/>
 
@@ -20,7 +20,7 @@ xieite::geometry::Point end;
 constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept;
 ```
 ```cpp
-constexpr Ray(const xieite::geometry::Point start, const long double angle) noexcept;
+constexpr Ray(const xieite::geometry::Point start, const double angle) noexcept;
 ```
 
 ## Operators

@@ -9,20 +9,20 @@
 
 namespace xieite::geometry {
 	[[nodiscard]]
-	constexpr long double getArea(const xieite::geometry::Polygon& polygon) noexcept {
-		long double area = 0;
+	constexpr double getArea(const xieite::geometry::Polygon& polygon) noexcept {
+		double area = 0;
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon))
 			area += side.start.x * side.start.y - side.start.x * side.end.y;
 		return std::abs(area) / 2;
 	}
 
 	[[nodiscard]]
-	constexpr long double getArea(const xieite::geometry::Ellipse& ellipse) noexcept {
-		return xieite::math::pi<long double> * ellipse.radii.x * ellipse.radii.y;
+	constexpr double getArea(const xieite::geometry::Ellipse& ellipse) noexcept {
+		return xieite::math::pi<double> * ellipse.radii.x * ellipse.radii.y;
 	}
 
 	[[nodiscard]]
-	constexpr long double getArea(const xieite::geometry::Circle& circle) noexcept {
-		return xieite::math::pi<long double> * circle.radius * circle.radius;
+	constexpr double getArea(const xieite::geometry::Circle& circle) noexcept {
+		return xieite::math::pi<double> * circle.radius * circle.radius;
 	}
 }

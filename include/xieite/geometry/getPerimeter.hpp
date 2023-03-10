@@ -6,8 +6,8 @@
 
 namespace xieite::geometry {
 	[[nodiscard]]
-	constexpr long double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept {
-		long double perimeter = 0;
+	constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept {
+		double perimeter = 0;
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon))
 			perimeter += xieite::geometry::getLength(side);
 		return perimeter;

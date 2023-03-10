@@ -3,7 +3,7 @@ Defined in header `<xieite/geometry/Segment.hpp>`
 
 <br/>
 
-A struct representing a finite line segment.
+A struct representing a finite line segment. Extends `xieite::geometry::LineLike`.
 
 <br/><br/>
 

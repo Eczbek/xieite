@@ -10,11 +10,11 @@ Calculates the circumference of a circle, estimates the circumference of an elli
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr long double getCircumference(const xieite::geometry::Ellipse& ellipse) noexcept;
+constexpr double getCircumference(const xieite::geometry::Ellipse& ellipse) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr long double getCircumference(const xieite::geometry::Circle& circle) noexcept;
+constexpr double getCircumference(const xieite::geometry::Circle& circle) noexcept;
 ```
 
 <br/><br/>

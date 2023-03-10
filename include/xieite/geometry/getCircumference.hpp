@@ -7,12 +7,12 @@
 
 namespace xieite::geometry {
 	[[nodiscard]]
-	constexpr long double getCircumference(const xieite::geometry::Ellipse& ellipse) noexcept {
-		return xieite::math::pi<long double> * xieite::math::squareRoot((ellipse.radii.x * ellipse.radii.x + ellipse.radii.y * ellipse.radii.y) * 2);
+	constexpr double getCircumference(const xieite::geometry::Ellipse& ellipse) noexcept {
+		return xieite::math::pi<double> * xieite::math::squareRoot((ellipse.radii.x * ellipse.radii.x + ellipse.radii.y * ellipse.radii.y) * 2);
 	}
 
 	[[nodiscard]]
-	constexpr long double getCircumference(const xieite::geometry::Circle& circle) noexcept {
-		return xieite::math::tau<long double> * circle.radius;
+	constexpr double getCircumference(const xieite::geometry::Circle& circle) noexcept {
+		return xieite::math::tau<double> * circle.radius;
 	}
 }
