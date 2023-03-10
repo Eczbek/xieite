@@ -6,9 +6,9 @@ namespace xieite::geometry {
 	struct Ellipse {
 		xieite::geometry::Point center;
 		xieite::geometry::Point radii;
-		long double rotation;
+		double rotation;
 
-		constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radii, const long double rotation = 0) noexcept
+		constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radii, const double rotation = 0) noexcept
 		: center(center), radii(radii), rotation(rotation) {}
 
 		[[nodiscard]]

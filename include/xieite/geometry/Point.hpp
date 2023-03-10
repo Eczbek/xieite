@@ -3,10 +3,10 @@
 
 namespace xieite::geometry {
 	struct Point {
-		long double x;
-		long double y;
+		double x;
+		double y;
 
-		constexpr Point(const long double x = 0, const long double y = 0) noexcept
+		constexpr Point(const double x = 0, const double y = 0) noexcept
 		: x(x), y(y) {}
 
 		[[nodiscard]]

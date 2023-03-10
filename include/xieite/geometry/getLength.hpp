@@ -7,17 +7,17 @@
 
 namespace xieite::geometry {
 	[[nodiscard]]
-	constexpr long double getLength(const xieite::geometry::Line&) noexcept {
-		return std::numeric_limits<long double>::infinity();
+	constexpr double getLength(const xieite::geometry::Line&) noexcept {
+		return std::numeric_limits<double>::infinity();
 	}
 
 	[[nodiscard]]
-	constexpr long double getLength(const xieite::geometry::Ray&) noexcept {
-		return std::numeric_limits<long double>::infinity();
+	constexpr double getLength(const xieite::geometry::Ray&) noexcept {
+		return std::numeric_limits<double>::infinity();
 	}
 
 	[[nodiscard]]
-	constexpr long double getLength(const xieite::geometry::Segment& segment) noexcept {
+	constexpr double getLength(const xieite::geometry::Segment& segment) noexcept {
 		return xieite::geometry::getDistance(segment.start, segment.end);
 	}
 }

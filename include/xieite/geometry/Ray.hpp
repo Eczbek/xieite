@@ -11,7 +11,7 @@ namespace xieite::geometry {
 		constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept
 		: xieite::geometry::LineLike(start, end) {}
 
-		constexpr Ray(const xieite::geometry::Point start, const long double angle) noexcept
+		constexpr Ray(const xieite::geometry::Point start, const double angle) noexcept
 		: xieite::geometry::LineLike(start, xieite::geometry::Point(std::cos(angle), std::sin(angle))) {}
 
 		[[nodiscard]]

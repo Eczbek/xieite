@@ -10,15 +10,15 @@ Calculates the length of a line-like.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr long double getLength(const xieite::geometry::Line&) noexcept;
+constexpr double getLength(const xieite::geometry::Line&) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr long double getLength(const xieite::geometry::Ray&) noexcept;
+constexpr double getLength(const xieite::geometry::Ray&) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr long double getLength(const xieite::geometry::Segment& segment) noexcept;
+constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 ```
 
 <br/><br/>

@@ -10,15 +10,15 @@ Calculates the area of a shape.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr long double getArea(const xieite::geometry::Polygon& polygon) noexcept;
+constexpr double getArea(const xieite::geometry::Polygon& polygon) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr long double getArea(const xieite::geometry::Ellipse& ellipse) noexcept;
+constexpr double getArea(const xieite::geometry::Ellipse& ellipse) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr long double getArea(const xieite::geometry::Circle& circle) noexcept;
+constexpr double getArea(const xieite::geometry::Circle& circle) noexcept;
 ```
 
 <br/><br/>

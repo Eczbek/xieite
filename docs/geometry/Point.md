@@ -9,15 +9,15 @@ A struct representing a point.
 
 ## Member objects
 ```cpp
-long double x;
+double x;
 ```
 ```cpp
-long double y;
+double y;
 ```
 
 ## Constructors
 ```cpp
-constexpr Point(const long double x = 0, const long double y = 0) noexcept;
+constexpr Point(const double x = 0, const double y = 0) noexcept;
 ```
 
 ## Operators
@@ -38,7 +38,7 @@ constexpr bool operator==(const xieite::geometry::Point other) const noexcept;
 
 int main() {
 	const xieite::geometry::Point original(1, 0);
-	const long double angle = xieite::math::toRadians<long double>(90);
+	const double angle = xieite::math::toRadians<double>(90);
 	const xieite::geometry::Point rotated = xieite::geometry::rotate(original, angle);
 	std::cout << rotated.x << ' ' << rotated.y << '\n';
 }

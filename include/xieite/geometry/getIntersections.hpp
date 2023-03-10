@@ -47,13 +47,13 @@ namespace xieite::geometry {
 	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Ellipse& ellipse, const L& lineLike) noexcept {
 		const xieite::geometry::Point start = xieite::geometry::rotate(xieite::geometry::Point(lineLike.start.x - ellipse.center.x, lineLike.start.y - ellipse.center.y), ellipse.rotation);
 		const xieite::geometry::Point end = xieite::geometry::rotate(xieite::geometry::Point(lineLike.end.x - ellipse.center.x, lineLike.end.y - ellipse.center.y), ellipse.rotation);
-		const long double a = ellipse.radii.y * ellipse.radii.y * (end.x - start.x) * (end.x - start.x) + ellipse.radii.x * ellipse.radii.x * (end.y - start.y) * (end.y - start.y);
-		const long double b = 2 * ellipse.radii.y * ellipse.radii.y * start.x * (end.x - start.x) + 2 * ellipse.radii.x * ellipse.radii.x * start.y * (end.y - start.y);
-		const long double c = ellipse.radii.y * ellipse.radii.y * start.x * start.x + ellipse.radii.x * ellipse.radii.x * start.y * start.y - ellipse.radii.y * ellipse.radii.y * ellipse.radii.x * ellipse.radii.x;
-		const long double d = b * b - 4 * a * c;
+		const double a = ellipse.radii.y * ellipse.radii.y * (end.x - start.x) * (end.x - start.x) + ellipse.radii.x * ellipse.radii.x * (end.y - start.y) * (end.y - start.y);
+		const double b = 2 * ellipse.radii.y * ellipse.radii.y * start.x * (end.x - start.x) + 2 * ellipse.radii.x * ellipse.radii.x * start.y * (end.y - start.y);
+		const double c = ellipse.radii.y * ellipse.radii.y * start.x * start.x + ellipse.radii.x * ellipse.radii.x * start.y * start.y - ellipse.radii.y * ellipse.radii.y * ellipse.radii.x * ellipse.radii.x;
+		const double d = b * b - 4 * a * c;
 		if (d >= 0) {
-			const long double e = (-b + xieite::math::squareRoot(d)) / 2 / a;
-			const long double f = (-b - xieite::math::squareRoot(d)) / 2 / a;
+			const double e = (-b + xieite::math::squareRoot(d)) / 2 / a;
+			const double f = (-b - xieite::math::squareRoot(d)) / 2 / a;
 			const xieite::geometry::Point g = xieite::geometry::rotate(xieite::geometry::Point(start.x + e * (end.x - start.x), start.y + e * (end.y - start.y)), -ellipse.rotation);
 			const xieite::geometry::Point h = xieite::geometry::rotate(xieite::geometry::Point(start.x + f * (end.x - start.x), start.y + f * (end.y - start.y)), -ellipse.rotation);
 			return std::vector<xieite::geometry::Point>({

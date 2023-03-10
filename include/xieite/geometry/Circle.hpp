@@ -5,9 +5,9 @@
 namespace xieite::geometry {
 	struct Circle {
 		xieite::geometry::Point center;
-		long double radius;
+		double radius;
 
-		constexpr Circle(const xieite::geometry::Point center, const long double radius) noexcept
+		constexpr Circle(const xieite::geometry::Point center, const double radius) noexcept
 		: center(center), radius(radius) {}
 
 		[[nodiscard]]
