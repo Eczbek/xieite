@@ -11,7 +11,7 @@ Checks if an iterable is the same backwards as it is forwards. Uses `std::equal_
 ```cpp
 template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C = std::equal_to<typename std::iterator_traits<I>::value_type>>
 [[nodiscard]]
-constexpr bool isPalindrome(I begin, I end, F&& comparator = C()) noexcept;
+constexpr bool isPalindrome(I begin, I end, C&& comparator = C()) noexcept;
 ```
 
 <br/><br/>

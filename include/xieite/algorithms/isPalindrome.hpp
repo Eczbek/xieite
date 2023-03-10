@@ -7,7 +7,7 @@
 namespace xieite::algorithms {
 	template<std::forward_iterator I, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C = std::equal_to<typename std::iterator_traits<I>::value_type>>
 	[[nodiscard]]
-	constexpr bool isPalindrome(I begin, I end, F&& comparator = C()) noexcept {
+	constexpr bool isPalindrome(I begin, I end, C&& comparator = C()) noexcept {
 		const std::size_t size = std::distance(begin, end) / 2;
 		--end;
 		for (std::size_t i = 0; i < size; ++i) {
