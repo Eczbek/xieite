@@ -9,7 +9,7 @@ Checks whether one iterable contains elements in the same relative order as in a
 
 ## Declarations
 ```cpp
-template<std::forward_iterator I, std::forward_iterator J, xieite::concepts::Comparator<typename std::iterator_traits<I>::value_type> C = std::equal_to<typename std::iterator_traits<I>::value_type>>
+template<std::forward_iterator I, std::forward_iterator J, xieite::concepts::ComparatorCallback<typename std::iterator_traits<I>::value_type> C = std::equal_to<typename std::iterator_traits<I>::value_type>>
 requires(std::same_as<typename std::iterator_traits<I>::value_type, typename std::iterator_traits<J>::value_type>)
 [[nodiscard]]
 constexpr bool rotatedMatch(const I begin1, const I end1, const J begin2, const J end2, C&& comparator = C()) noexcept;

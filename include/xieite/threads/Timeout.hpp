@@ -10,7 +10,7 @@ namespace xieite::threads {
 		template<std::invocable<> C, xieite::concepts::TemporalDuration D>
 		Timeout(C&& callback, const D duration) noexcept
 		: xieite::threads::Interval([this, callback = std::forward<C>(callback)]() -> void {
-			cancel();
+			this->cancel();
 			callback();
 		}, duration) {}
 	};

@@ -29,6 +29,6 @@ Add the `include` directory to your project.
 
 <br/>
 
-## To-do list
-- Ellipse-ellipse intersections
+## To-do
 - Network namespace
+- Ellipse-ellipse intersections

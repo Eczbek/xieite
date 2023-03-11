@@ -12,7 +12,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Polygon& other) const noexcept {
-			return xieite::algorithms::rotatedMatch(points.begin(), points.end(), other.points.begin(), other.points.end()) || xieite::algorithms::rotatedMatch(points.rbegin(), points.rend(), other.points.begin(), other.points.end());
+			return xieite::algorithms::rotatedMatch(this->points.begin(), this->points.end(), other.points.begin(), other.points.end()) || xieite::algorithms::rotatedMatch(this->points.rbegin(), this->points.rend(), other.points.begin(), other.points.end());
 		}
 	};
 }

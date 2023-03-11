@@ -9,15 +9,15 @@ namespace xieite::console {
 
 	public:
 		RawLock(const bool echo = false) noexcept {
-			tcgetattr(STDIN_FILENO, &cookedMode);
-			termios rawMode = cookedMode;
+			tcgetattr(STDIN_FILENO, &this->cookedMode);
+			termios rawMode = this->cookedMode;
 			cfmakeraw(&rawMode);
 			rawMode.c_lflag |= ECHO * echo;
 			tcsetattr(STDIN_FILENO, TCSANOW, &rawMode);
 		}
 
 		~RawLock() {
-			tcsetattr(STDIN_FILENO, TCSANOW, &cookedMode);
+			tcsetattr(STDIN_FILENO, TCSANOW, &this->cookedMode);
 		}
 	};
 }

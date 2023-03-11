@@ -12,7 +12,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Circle& other) const noexcept {
-			return (center == other.center) && xieite::math::approximatelyEqual(radius, other.radius);
+			return (this->center == other.center) && xieite::math::approximatelyEqual(this->radius, other.radius);
 		}
 	};
 }

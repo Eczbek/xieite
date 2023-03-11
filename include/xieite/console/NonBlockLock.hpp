@@ -10,11 +10,11 @@ namespace xieite::console {
 	public:
 		NonBlockLock() noexcept
 		: blockingMode(fcntl(STDIN_FILENO, F_GETFL)) {
-			fcntl(STDIN_FILENO, F_SETFL, blockingMode | O_NONBLOCK);
+			fcntl(STDIN_FILENO, F_SETFL, this->blockingMode | O_NONBLOCK);
 		}
 
 		~NonBlockLock() {
-			fcntl(STDIN_FILENO, F_SETFL, blockingMode);
+			fcntl(STDIN_FILENO, F_SETFL, this->blockingMode);
 		}
 	};
 }
