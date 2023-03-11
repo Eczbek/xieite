@@ -13,7 +13,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Ellipse& other) const noexcept {
-			return (center == other.center) && (radii == other.radii) && xieite::math::approximatelyEqual(rotation, other.rotation);
+			return (this->center == other.center) && (this->radii == other.radii) && xieite::math::approximatelyEqual(this->rotation, other.rotation);
 		}
 	};
 }

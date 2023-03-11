@@ -8,11 +8,11 @@
 #include <xieite/algorithms/rotatedMatch.hpp>
 #include <xieite/concepts/Aggregate.hpp>
 #include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/concepts/Comparator.hpp>
+#include <xieite/concepts/ComparatorCallback.hpp>
 #include <xieite/concepts/Decayed.hpp>
 #include <xieite/concepts/Enumerator.hpp>
-#include <xieite/concepts/StreamableIn.hpp>
-#include <xieite/concepts/StreamableOut.hpp>
+#include <xieite/concepts/StreamableInto.hpp>
+#include <xieite/concepts/StreamableOutOf.hpp>
 #include <xieite/concepts/TemporalDuration.hpp>
 #include <xieite/concepts/Trivial.hpp>
 #include <xieite/concepts/UniformRandomBitGenerator.hpp>

@@ -27,13 +27,13 @@ namespace xieite::threads {
 		}
 
 		operator bool() const noexcept {
-			return !*cancelled;
+			return !*this->cancelled;
 		}
 
 		void cancel() noexcept {
-			*cancelled = true;
-			if (thread.joinable())
-				thread.detach();
+			*this->cancelled = true;
+			if (this->thread.joinable())
+				this->thread.detach();
 		}
 	};
 }

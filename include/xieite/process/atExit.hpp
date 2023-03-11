@@ -1,6 +1,5 @@
 #pragma once
 #include <concepts> // std::invocable
-#include <csignal> // SIGABRT, SIGFPE, SIGILL, SIGINT, SIGSEGV, SIGTERM, std::signal
 #include <cstdlib> // std::exit
 #include <functional> // std::function
 #include <mutex> // std::lock_guard, std::mutex

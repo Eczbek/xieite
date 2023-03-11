@@ -10,7 +10,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Segment& other) const noexcept {
-			return (start == other.start) && (end == other.end) || (start == other.end) && (end == other.start);
+			return (this->start == other.start) && (this->end == other.end) || (this->start == other.end) && (this->end == other.start);
 		}
 	};
 }
