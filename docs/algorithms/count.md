@@ -9,8 +9,8 @@ Counts the number of arguments provided.
 
 ## Declarations
 ```cpp
-template<typename... T>
-constexpr std::size_t count(T&&...) noexcept;
+template<typename... TT>
+constexpr std::size_t count(TT&&...) noexcept;
 ```
 
 <br/><br/>

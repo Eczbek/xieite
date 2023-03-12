@@ -2,9 +2,9 @@
 #include <concepts> // std::convertible_to
 
 namespace xieite::algorithms {
-	template<std::convertible_to<bool>... T>
+	template<std::convertible_to<bool>... TT>
 	[[nodiscard]]
-	constexpr bool any(T&&... values) noexcept {
+	constexpr bool any(TT&&... values) noexcept {
 		return (static_cast<bool>(values) || ...);
 	}
 }
