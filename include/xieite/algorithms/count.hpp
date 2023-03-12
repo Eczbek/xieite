@@ -2,9 +2,9 @@
 #include <cstddef> // std::size_t
 
 namespace xieite::algorithms {
-	template<typename... T>
+	template<typename... TT>
 	[[nodiscard]]
-	constexpr std::size_t count(T&&...) noexcept {
-		return sizeof...(T);
+	constexpr std::size_t count(TT&&...) noexcept {
+		return sizeof...(TT);
 	}
 }
