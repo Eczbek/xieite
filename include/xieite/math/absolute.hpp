@@ -5,6 +5,6 @@ namespace xieite::math {
 	template<xieite::concepts::Arithmetic N>
 	[[nodiscard]]
 	constexpr N absolute(const N value) noexcept {
-		return value * (value >= 0) * 2 - 1;
+		return ((value >= 0) * 2 - 1) * value;
 	}
 }
