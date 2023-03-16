@@ -7,7 +7,7 @@ Concatenates two values literally.
 
 <br/><br/>
 
-## Definition
+## Declarations
 ```cpp
 #define XIEITE_CONCATENATE(expression1, expression2) XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2)
 ```

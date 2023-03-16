@@ -21,7 +21,7 @@ constexpr double getDistance(const xieite::geometry::Point point1, const xieite:
 #include <xieite/geometry/getDistance.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getDistance({ 0, 0 }, { 3, 4 }) << '\n';
+	std::cout << xieite::geometry::getDistance({ 0.0, 0.0 }, { 3.0, 4.0 }) << '\n';
 }
 ```
 Output:

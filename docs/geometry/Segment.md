@@ -37,7 +37,7 @@ constexpr bool operator==(const xieite::geometry::Segment& other) const noexcept
 #include <xieite/geometry/getLength.hpp>
 
 int main() {
-	xieite::geometry::Segment segment({ 0, 0 }, { 3, 4 });
+	xieite::geometry::Segment segment({ 0.0, 0.0 }, { 3.0, 4.0 });
 	std::cout << xieite::geometry::getLength(segment) << '\n';
 }
 ```

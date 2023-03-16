@@ -8,9 +8,9 @@
 namespace xieite::threads {
 	struct Interval
 	: xieite::threads::Loop {
-		template<std::invocable<> C, xieite::concepts::TemporalDuration D>
-		Interval(C&& callback, const D duration) noexcept
-		: xieite::threads::Loop([callback = std::forward<C>(callback), duration]() -> void {
+		template<std::invocable<> Invocable>
+		Interval(Invocable&& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
+		: xieite::threads::Loop([callback = std::forward<Invocable>(callback), duration]() noexcept -> void {
 			static bool first = true;
 			if (first)
 				first = false;

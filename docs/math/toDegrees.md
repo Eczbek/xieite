@@ -9,7 +9,7 @@ Converts radians to degrees.
 
 ## Declarations
 ```cpp
-template<xieite::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr N toDegrees(const N radians) noexcept;
+constexpr Number toDegrees(const Number radians) noexcept;
 ```

@@ -9,9 +9,8 @@ Finds a possible intersection between two lines.
 
 ## Declarations
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L, std::derived_from<xieite::geometry::LineLike> M>
 [[nodiscard]]
-constexpr std::optional<xieite::geometry::Point> getIntersection(const L& lineLike1, const M& lineLike2) noexcept;
+constexpr std::optional<xieite::geometry::Point> getIntersection(const std::derived_from<xieite::geometry::LineLike> auto& lineLike1, const std::derived_from<xieite::geometry::LineLike> auto& lineLike2) noexcept;
 ```
 
 <br/><br/>
@@ -24,9 +23,9 @@ constexpr std::optional<xieite::geometry::Point> getIntersection(const L& lineLi
 #include <xieite/geometry/getIntersection.hpp>
 
 int main() {
-	const xieite::geometry::Line line1({ 1, 0 }, { 1, 1 });
-	const xieite::geometry::Line line2({ 0, 1 }, { 1, 1 });
-	const xieite::geometry::Point intersection = xieite::geometry::getIntersection(line1, line2).value_or(xieite::geometry::Point(0, 0));
+	const xieite::geometry::Line line1({ 1.0, 0.0 }, { 1.0, 1.0 });
+	const xieite::geometry::Line line2({ 0.0, 1.0 }, { 1.0, 1.0 });
+	const xieite::geometry::Point intersection = xieite::geometry::getIntersection(line1, line2).value_or(xieite::geometry::Point());
 	std::cout << intersection.x << ' ' << intersection.y << '\n';
 }
 ```

@@ -7,7 +7,7 @@ A namespace of preset ANSI codes for terminal manipulation, to be printed direct
 
 <br/><br/>
 
-## Definitions
+## Declarations
 ```cpp
 constexpr std::string_view enableBold = "\x1b[1m";
 ```

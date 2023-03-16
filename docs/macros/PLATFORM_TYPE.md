@@ -7,7 +7,7 @@ Macros for identifying the current platform type.
 
 <br/><br/>
 
-## Definitions
+## Declarations
 ```cpp
 #if defined(_WIN32) || defined(__WIN32__)
 #	define XIEITE_PLATFORM_TYPE_WINDOWS_32

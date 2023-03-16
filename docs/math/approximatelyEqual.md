@@ -9,9 +9,9 @@ Checks whether two numbers are almost the same, or their difference is less than
 
 ## Declarations
 ```cpp
-template<xieite::concepts::Arithmetic N, xieite::concepts::Arithmetic O>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr bool approximatelyEqual(const N value1, const O value2) noexcept;
+constexpr bool approximatelyEqual(const Number value1, const Number value2) noexcept;
 ```
 
 <br/><br/>

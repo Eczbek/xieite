@@ -1,18 +1,13 @@
 #pragma once
+#include <concepts> // std::derived_from
 #include <limits> // std::numeric_limits
-#include <xieite/geometry/Line.hpp>
-#include <xieite/geometry/Ray.hpp>
+#include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Segment.hpp>
 #include <xieite/geometry/getDistance.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
-	constexpr double getLength(const xieite::geometry::Line&) noexcept {
-		return std::numeric_limits<double>::infinity();
-	}
-
-	[[nodiscard]]
-	constexpr double getLength(const xieite::geometry::Ray&) noexcept {
+	constexpr double getLength(const std::derived_from<xieite::geometry::LineLike> auto&) noexcept {
 		return std::numeric_limits<double>::infinity();
 	}
 

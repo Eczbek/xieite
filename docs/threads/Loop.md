@@ -9,8 +9,8 @@ Runs a thread-blocking callback constantly. The `operator bool` checks whether t
 
 ## Constructors
 ```cpp
-template<std::invocable<> C>
-Loop(C&& callback) noexcept;
+template<std::invocable<> Invocable>
+Loop(Invocable&& callback) noexcept;
 ```
 
 ## Destructor

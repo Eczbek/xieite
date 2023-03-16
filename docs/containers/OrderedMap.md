@@ -9,7 +9,7 @@ An map for storing values by orderable keys. Expects keys type to be convertible
 
 ## Template Parameters
 ```cpp
-template<std::convertible_to<std::size_t> K, typename V>
+template<std::convertible_to<std::size_t> Key, typename Value>
 ```
 
 ## Constructors
@@ -20,9 +20,9 @@ constexpr OrderedMap() noexcept = default;
 ## Operators
 ```cpp
 [[nodiscard]]
-constexpr V& operator[](const K key) noexcept;
+constexpr Value& operator[](const Key key) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr const V& operator[](const K key) const noexcept;
+constexpr const Value& operator[](const Key key) const noexcept;
 ```

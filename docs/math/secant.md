@@ -3,13 +3,13 @@ Defined in header `<xieite/math/secant.hpp>`
 
 <br/>
 
-A trigonometric function which wasn't included in the standard library.
+A trigonometric function which wasn't included in the standard math library.
 
 <br/><br/>
 
 ## Declarations
 ```cpp
-template<xieite::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr N secant(const N value) noexcept;
+constexpr Number secant(const Number value) noexcept;
 ```

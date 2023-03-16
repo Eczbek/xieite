@@ -30,7 +30,7 @@ constexpr double getArea(const xieite::geometry::Circle& circle) noexcept;
 #include <xieite/geometry/getArea.hpp>
 
 int main() {
-	xieite::geometry::Circle circle({ 0, 0 }, 1);
+	xieite::geometry::Circle circle({ 0.0, 0.0 }, 1.0);
 	std::cout << xieite::geometry::getArea(circle) << '\n';
 }
 ```

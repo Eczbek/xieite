@@ -7,12 +7,12 @@ A boolean representing whether types `R`, `N`, and `D` create a valid `std::chro
 
 <br/><br/>
 
-## Definitions
+## Declarations
 ```cpp
 template<typename>
 constexpr bool isTemporalDuration = false;
 ```
 ```cpp
-template<xieite::concepts::Arithmetic R, std::intmax_t N, std::intmax_t D>
-constexpr bool isTemporalDuration<std::chrono::duration<R, std::ratio<N, D>>> = true;
+template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intmax_t denominator>
+constexpr bool isTemporalDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>> = true;
 ```

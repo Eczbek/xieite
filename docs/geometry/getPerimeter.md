@@ -23,10 +23,10 @@ constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept
 
 int main() {
 	const xieite::geometry::Polygon square({
-		{ -1, -1 },
-		{ 1, -1 },
-		{ 1, 1 },
-		{ -1, 1 }
+		{ -1.0, -1.0 },
+		{ 1.0, -1.0 },
+		{ 1.0, 1.0 },
+		{ -1.0, 1.0 }
 	});
 	std::cout << xieite::geometry::getPerimeter(square) << '\n';
 }

@@ -9,8 +9,8 @@ Runs a callback every set amount of time. The `operator bool` checks whether the
 
 ## Constructors
 ```cpp
-template<std::invocable<> C, xieite::concepts::TemporalDuration D>
-Interval(C&& callback, const D duration) noexcept;
+template<std::invocable<> Invocable>
+Interval(Invocable&& callback, const xieite::concepts::TemporalDuration auto duration) noexcept;
 ```
 
 ## Operators inherited from `xieite::threads::Loop`

@@ -3,8 +3,8 @@ Defined in header `<xieite/math/tau.hpp>`
 
 <br/><br/>
 
-## Definition
+## Declarations
 ```cpp
-template<xieite::concepts::Arithmetic N>
-constexpr N tau = xieite::math::pi<N> * 2;
+template<xieite::concepts::Arithmetic Number>
+constexpr Number tau = xieite::math::pi<Number> * 2.0;
 ```

@@ -47,14 +47,14 @@ constexpr bool containsPoint(const xieite::geometry::Circle& circle, const xieit
 
 int main() {
 	const xieite::geometry::Polygon square({
-		{ -1, -1 },
-		{ 1, -1 },
-		{ 1, 1 },
-		{ -1, 1 }
+		{ -1.0, -1.0 },
+		{ 1.0, -1.0 },
+		{ 1.0, 1.0 },
+		{ -1.0, 1.0 }
 	});
 
 	std::cout << std::boolalpha
-		<< xieite::geometry::containsPoint(square, { 0, 0 }) << '\n';
+		<< xieite::geometry::containsPoint(square, { 0.0, 0.0 }) << '\n';
 }
 ```
 Output:

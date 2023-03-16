@@ -7,14 +7,14 @@ Defines integer values of Pi.
 
 <br/><br/>
 
-## Definitions
+## Declarations
 ```cpp
-template<std::floating_point N>
-constexpr N pi = std::numbers::pi_v<N>;
+template<std::floating_point FloatingPoint>
+constexpr FloatingPoint pi<FloatingPoint> = std::numbers::pi_v<FloatingPoint>;
 ```
 ```cpp
-template<std::integral N>
-constexpr N pi = 3;
+template<std::integral Integral>
+constexpr Integral pi<Integral> = 3;
 ```
 
 <br/><br/>

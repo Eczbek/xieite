@@ -14,9 +14,9 @@ namespace xieite::threads {
 		std::thread thread;
 
 	public:
-		template<std::invocable<> C>
-		Loop(C&& callback) noexcept
-		: cancelled(std::make_shared<std::atomic<bool>>(false)), thread([this, callback = std::forward<C>(callback)]() -> void {
+		template<std::invocable<> Invocable>
+		Loop(Invocable&& callback) noexcept
+		: cancelled(std::make_shared<std::atomic<bool>>(false)), thread([this, callback = std::forward<Invocable>(callback)]() -> void {
 			do
 				callback();
 			while (*this);

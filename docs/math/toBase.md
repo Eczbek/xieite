@@ -9,9 +9,9 @@ Converts an integer to a string in any base. Can be used as a compile-time metho
 
 ## Declarations
 ```cpp
-template<std::integral N = int>
+template<std::integral Integral = int>
 [[nodiscard]]
-constexpr std::string toBase(N value, const unsigned int base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
+constexpr std::string toBase(Integral value, const std::size_t base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
 ```
 
 <br/><br/>

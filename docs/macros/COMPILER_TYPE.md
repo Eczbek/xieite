@@ -7,7 +7,7 @@ Macros for identifying the current compiler type.
 
 <br/><br/>
 
-## Definitions
+## Declarations
 ```cpp
 #if defined(__GNUC__)
 #	define XIEITE_COMPILER_TYPE_GCC

@@ -34,10 +34,10 @@ constexpr bool operator==(const xieite::geometry::Polygon& other) const noexcept
 
 int main() {
 	const xieite::geometry::Polygon diamond({
-		{ 1, 0 },
-		{ 2, 1 },
-		{ 1, 2 },
-		{ 0, 1 }
+		{ 1.0, 0.0 },
+		{ 2.0, 1.0 },
+		{ 1.0, 2.0 },
+		{ 0.0, 1.0 }
 	});
 	std::cout << xieite::geometry::getArea(diamond) << '\n';
 }

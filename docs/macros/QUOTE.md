@@ -7,7 +7,7 @@ Converts an expression to a string literally.
 
 <br/><br/>
 
-## Definition
+## Declarations
 ```cpp
 #define XIEITE_QUOTE(expression) #expression
 ```

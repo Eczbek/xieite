@@ -40,10 +40,10 @@ namespace xieite::geometry {
 	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, const xieite::geometry::Point point) noexcept {
 		std::size_t intersections = 0;
-		xieite::geometry::Ray ray(point, 0);
+		xieite::geometry::Ray ray(point, 0.0);
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {
 			const double a = (ray.start.x - ray.end.x) * (side.start.y - side.end.y) - (ray.start.y - ray.end.y) * (side.start.x - side.end.x);
-			if (!xieite::math::approximatelyEqual(a, 0)) {
+			if (!xieite::math::approximatelyEqual(a, 0.0)) {
 				const xieite::geometry::Point intersection(((side.start.x - side.end.x) * (ray.start.x * ray.end.y - ray.start.y * ray.end.x) - (ray.start.x - ray.end.x) * (side.start.x * side.end.y - side.start.y * side.end.x)) / a, ((side.start.y - side.end.y) * (ray.start.x * ray.end.y - ray.start.y * ray.end.x) - (ray.start.y - ray.end.y) * (side.start.x * side.end.y - side.start.y * side.end.x)) / a);
 				intersections += (xieite::geometry::containsPoint(ray, intersection) && xieite::geometry::containsPoint(side, intersection));
 			}
@@ -55,7 +55,7 @@ namespace xieite::geometry {
 	constexpr bool containsPoint(const xieite::geometry::Ellipse& ellipse, const xieite::geometry::Point point) noexcept {
 		const double a = std::cos(ellipse.rotation) * (point.x - ellipse.center.x) + std::sin(ellipse.rotation) * (point.y - ellipse.center.y);
 		const double b = std::sin(ellipse.rotation) * (point.x - ellipse.center.x) - std::cos(ellipse.rotation) * (point.y - ellipse.center.y);
-		return (a * a / ellipse.radii.x / ellipse.radii.x + b * b / ellipse.radii.y / ellipse.radii.y) <= 1;
+		return (a * a / ellipse.radii.x / ellipse.radii.x + b * b / ellipse.radii.y / ellipse.radii.y) <= 1.0;
 	}
 
 	[[nodiscard]]

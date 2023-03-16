@@ -3,15 +3,15 @@
 #include <xieite/math/wrap.hpp>
 
 namespace xieite::vector {
-	template<typename T>
+	template<typename Value>
 	[[nodiscard]]
-	constexpr std::vector<std::vector<T>> rotateMatrix(const std::vector<std::vector<T>>& matrix, int rotations) noexcept {
+	constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::vector<Value>>& matrix, int rotations) noexcept {
 		rotations = xieite::math::wrap(rotations, 2, -1);
 		if (!rotations)
 			return matrix;
 		const std::size_t matrixWidth = matrix.size();
 		const std::size_t matrixHeight = matrix[0].size();
-		std::vector<std::vector<T>> result(matrixHeight);
+		std::vector<std::vector<Value>> result(matrixHeight);
 		if (rotations > 0) {
 			for (std::size_t x = matrixWidth; x--;)
 				for (std::size_t y = 0; y < matrixHeight; ++y)

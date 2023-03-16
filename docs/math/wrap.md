@@ -9,9 +9,9 @@ Defined in header `<xieite/math/wrap.hpp>`
 
 ## Declarations
 ```cpp
-template<xieite::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr N wrap(const N value, const N max, const N min = 0) noexcept;
+constexpr Number wrap(const Number value, const Number max, const Number min = 0.0) noexcept;
 ```
 
 <br/><br/>

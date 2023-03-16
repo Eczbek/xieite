@@ -10,11 +10,7 @@ Calculates the length of a line-like.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr double getLength(const xieite::geometry::Line&) noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr double getLength(const xieite::geometry::Ray&) noexcept;
+constexpr double getLength(const std::derived_from<xieite::geometry::LineLike> auto&) noexcept;
 ```
 ```cpp
 [[nodiscard]]
@@ -30,7 +26,7 @@ constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 #include <xieite/geometry/getLength.hpp>
 
 int main() {
-	const xieite::geometry::Segment segment({ 0, 0 }, { 3, 4 });
+	const xieite::geometry::Segment segment({ 0.0, 0.0 }, { 3.0, 4.0 });
 	std::cout << xieite::geometry::getLength(segment) << '\n';
 }
 ```

@@ -7,7 +7,7 @@ A colletion of ratios of metric to imperial lengths.
 
 <br/><br/>
 
-## Definitions
+## Declarations
 ```cpp
 constexpr std::ratio<176389, 10000000000> twip;
 ```

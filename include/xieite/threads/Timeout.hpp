@@ -7,9 +7,9 @@
 namespace xieite::threads {
 	struct Timeout
 	: xieite::threads::Interval {
-		template<std::invocable<> C, xieite::concepts::TemporalDuration D>
-		Timeout(C&& callback, const D duration) noexcept
-		: xieite::threads::Interval([this, callback = std::forward<C>(callback)]() -> void {
+		template<std::invocable<> Invocable>
+		Timeout(Invocable&& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
+		: xieite::threads::Interval([this, callback = std::forward<Invocable>(callback)]() -> void {
 			this->cancel();
 			callback();
 		}, duration) {}
