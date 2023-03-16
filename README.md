@@ -11,6 +11,7 @@ Add the `include` directory to your project.
 ## Requirements
 - Linux
 - C++ 23
+- GCC (for [P0533R9](https://wg21.link/P0533R9))
 
 <br/>
 
@@ -30,5 +31,6 @@ Add the `include` directory to your project.
 <br/>
 
 ## To-do
+- Handle special key inputs
 - Network namespace
 - Ellipse-ellipse intersections
