@@ -9,13 +9,14 @@ Selects the value closest to a target.
 
 ## Declarations
 ```cpp
-template<xieite::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr N& closestTo(const N target, N& a, N& b) noexcept;
-
-template<xieite::concepts::Arithmetic N>
+constexpr Number& closestTo(const Number target, Number& a, Number& b) noexcept;
+```
+```cpp
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr const N& closestTo(const N target, const N& a, const N& b) noexcept;
+constexpr Number closestTo(const Number target, const Number& a, const Number& b) noexcept;
 ```
 
 <br/><br/>

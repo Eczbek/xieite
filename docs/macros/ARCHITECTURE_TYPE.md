@@ -7,7 +7,7 @@ Macros for identifying the current architecture type.
 
 <br/><br/>
 
-## Definitions
+## Declarations
 ```cpp
 #if defined(i386) || defined(__i386) || defined(__i386__)
 #	define XIEITE_ARCHITECTURE_TYPE_X86_32

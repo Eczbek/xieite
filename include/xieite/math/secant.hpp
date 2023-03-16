@@ -3,9 +3,9 @@
 #include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic N>
+	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]]
-	constexpr N secant(const N value) noexcept {
-		return 1 / std::cos(value);
+	constexpr Number secant(const Number value) noexcept {
+		return 1.0 / std::cos(value);
 	}
 }

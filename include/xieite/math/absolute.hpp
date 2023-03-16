@@ -2,9 +2,9 @@
 #include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic N>
+	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]]
-	constexpr N absolute(const N value) noexcept {
-		return ((value >= 0) * 2 - 1) * value;
+	constexpr Number absolute(const Number value) noexcept {
+		return ((value >= 0.0) * 2 - 1) * value;
 	}
 }

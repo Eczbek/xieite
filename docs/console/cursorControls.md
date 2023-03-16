@@ -7,7 +7,7 @@ A namespace of characters representing cursor controls, for use with `xieite::co
 
 <br/><br/>
 
-## Definitions
+## Declarations
 ```cpp
 constexpr char up = 'A';
 ```

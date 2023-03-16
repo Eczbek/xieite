@@ -3,12 +3,12 @@
 #include <vector> // std::vector
 
 namespace xieite::vector {
-	template<typename T>
+	template<typename Value>
 	[[nodiscard]]
-	std::vector<T> uniques(const std::vector<T>& values) noexcept {
-		std::unordered_set<T> uniques;
-		std::vector<T> result;
-		for (const T& value : values)
+	std::vector<Value> uniques(const std::vector<Value>& values) noexcept {
+		std::unordered_set<Value> uniques;
+		std::vector<Value> result;
+		for (const Value& value : values)
 			if (!uniques.contains(value)) {
 				uniques.insert(value);
 				result.push_back(value);

@@ -3,8 +3,8 @@
 #include <istream> // std::istream
 
 namespace xieite::concepts {
-	template<typename T>
-	concept StreamableInto = requires(std::istream& inputStream, T value) {
+	template<typename Any>
+	concept StreamableInto = requires(std::istream& inputStream, Any value) {
 		{ inputStream >> value } -> std::convertible_to<std::istream&>;
 	};
 }

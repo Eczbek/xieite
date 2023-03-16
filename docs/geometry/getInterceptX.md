@@ -9,9 +9,8 @@ Finds an optional point where a line intercepts the X axis.
 
 ## Declarations
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
-constexpr std::optional<xieite::geometry::Point> getInterceptX(const L& lineLike) noexcept;
+constexpr std::optional<xieite::geometry::Point> getInterceptX(const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept;
 ```
 
 <br/><br/>
@@ -25,7 +24,7 @@ constexpr std::optional<xieite::geometry::Point> getInterceptX(const L& lineLike
 #include <xieite/geometry/getInterceptX.hpp>
 
 int main() {
-	const xieite::geometry::Line line({ 1, 2 }, { 2, 1 });
+	const xieite::geometry::Line line({ 1.0, 2.0 }, { 2.0, 1.0 });
 	const std::optional<xieite::geometry::Point> point = xieite::geometry::getInterceptX(line);
 	if (point.has_value())
 		std::cout << '(' << point.value().x << ", " << point.value().y << ")\n";

@@ -9,8 +9,8 @@ Counts the number of arguments provided.
 
 ## Declarations
 ```cpp
-template<typename... TT>
-constexpr std::size_t count(TT&&...) noexcept;
+[[nodiscard]]
+constexpr std::size_t count(auto&&... arguments) noexcept;
 ```
 
 <br/><br/>
@@ -21,7 +21,7 @@ constexpr std::size_t count(TT&&...) noexcept;
 #include <xieite/algorithms/count.hpp>
 
 int main() {
-	std::cout << xieite::algorithms::count(1, 4, 'e', "aaaaaaaaaaaa") << '\n';
+	std::cout << xieite::algorithms::count(1, 0.4, 'e', "aaaaaaaaaaaa") << '\n';
 }
 ```
 Output:

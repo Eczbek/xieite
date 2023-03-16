@@ -26,7 +26,7 @@ constexpr double getCircumference(const xieite::geometry::Circle& circle) noexce
 #include <xieite/geometry/getCircumference.hpp>
 
 int main() {
-	const xieite::geometry::Circle circle({ 0, 0 }, 1);
+	const xieite::geometry::Circle circle({ 0.0, 0.0 }, 1.0);
 	std::cout << xieite::geometry::getCircumference(circle) << '\n';
 }
 ```

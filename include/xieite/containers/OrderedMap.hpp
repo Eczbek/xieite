@@ -4,22 +4,22 @@
 #include <limits> // std::numeric_limits
 
 namespace xieite::containers {
-	template<std::convertible_to<std::size_t> K, typename V>
+	template<std::convertible_to<std::size_t> Key, typename Value>
 	class OrderedMap {
 	private:
-		static const K minLimit = std::numeric_limits<K>::min();
-		std::array<V, std::numeric_limits<K>::max() - minLimit + 1> values;
+		static const Key minLimit = std::numeric_limits<Key>::min();
+		std::array<Value, std::numeric_limits<Key>::max() - minLimit + 1> values;
 
 	public:
 		constexpr OrderedMap() noexcept = default;
 
 		[[nodiscard]]
-		constexpr V& operator[](const K key) noexcept {
+		constexpr Value& operator[](const Key key) noexcept {
 			return this->values[key - this->minLimit];
 		}
 
 		[[nodiscard]]
-		constexpr const V& operator[](const K key) const noexcept {
+		constexpr const Value& operator[](const Key key) const noexcept {
 			return this->values[key - this->minLimit];
 		}
 	};

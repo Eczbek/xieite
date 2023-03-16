@@ -3,14 +3,14 @@ Defined in header `<xieite/concepts/OneOf.hpp>`
 
 <br/>
 
-Specifies that type `T` is one of `VV`.
+Specifies that type `Any1` is one of `Any2`.
 
 <br/><br/>
 
 ## Declarations
 ```cpp
-template<typename T, typename... VV>
-concept OneOf = (std::same_as<T, VV> || ...);
+template<typename Any1, typename... Any2>
+concept OneOf = (std::same_as<Any1, Any2> || ...);
 ```
 
 <br/><br/>

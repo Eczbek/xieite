@@ -9,9 +9,9 @@ Converts an integer string to base 10.
 
 ## Declarations
 ```cpp
-template<std::integral N = int>
+template<std::integral Integral = int>
 [[nodiscard]]
-constexpr N fromBase(const std::string_view value, const unsigned int base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
+constexpr Integral fromBase(const std::string_view value, const std::size_t base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
 ```
 
 <br/><br/>

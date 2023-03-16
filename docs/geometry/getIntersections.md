@@ -9,36 +9,30 @@ Calculates all intersections between two geometrical elements.
 
 ## Declarations
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Polygon& polygon, const L& lineLike) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Polygon& polygon, const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept;
 ```
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const L& lineLike, const xieite::geometry::Polygon& polygon) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const std::derived_from<xieite::geometry::LineLike> auto& lineLike, const xieite::geometry::Polygon& polygon) noexcept;
 ```
 ```cpp
 [[nodiscard]]
 constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Polygon& polygon1, const xieite::geometry::Polygon& polygon2) noexcept;
 ```
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Ellipse& ellipse, const L& lineLike) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Ellipse& ellipse, const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept;
 ```
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const L& lineLike, const xieite::geometry::Ellipse& ellipse) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const std::derived_from<xieite::geometry::LineLike> auto& lineLike, const xieite::geometry::Ellipse& ellipse) noexcept;
 ```
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const L& lineLike) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept;
 ```
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const L& lineLike, const xieite::geometry::Circle& circle) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const std::derived_from<xieite::geometry::LineLike> auto& lineLike, const xieite::geometry::Circle& circle) noexcept;
 ```

@@ -17,7 +17,7 @@ double y;
 
 ## Constructors
 ```cpp
-constexpr Point(const double x = 0, const double y = 0) noexcept;
+constexpr Point(const double x = 0.0, const double y = 0.0) noexcept;
 ```
 
 ## Operators
@@ -37,8 +37,8 @@ constexpr bool operator==(const xieite::geometry::Point other) const noexcept;
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-	const xieite::geometry::Point original(1, 0);
-	const double angle = xieite::math::toRadians<double>(90);
+	const xieite::geometry::Point original(1.0, 0.0);
+	const double angle = xieite::math::toRadians(90.0);
 	const xieite::geometry::Point rotated = xieite::geometry::rotate(original, angle);
 	std::cout << rotated.x << ' ' << rotated.y << '\n';
 }

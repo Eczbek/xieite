@@ -9,18 +9,18 @@ A uniform random number distribution which allows excluding subintervals from th
 
 ## Template Parameters
 ```cpp
-template<xieite::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic Number>
 ```
 
 ## Constructors
 ```cpp
-InterruptableUniformDistribution(const N begin, const N end, const std::vector<std::pair<N, N>>& interruptions);
+InterruptableUniformDistribution(const Number begin, const Number end, const std::vector<std::pair<Number, Number>>& interruptions);
 ```
 
 ## Operators
 ```cpp
-template<xieite::concepts::UniformRandomBitGenerator G>
-N operator()(G& generator) noexcept;
+[[nodiscard]]
+Number operator()(xieite::concepts::UniformRandomBitGenerator auto&& generator) noexcept;
 ```
 
 <br/><br/>

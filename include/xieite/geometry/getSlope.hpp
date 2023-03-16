@@ -10,9 +10,8 @@ namespace xieite::geometry {
 		return (point2.y - point1.y) / (point2.x - point1.x);
 	}
 
-	template<std::derived_from<xieite::geometry::LineLike> L>
 	[[nodiscard]]
-	constexpr double getSlope(const L& lineLike) noexcept {
+	constexpr double getSlope(const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept {
 		return xieite::geometry::getSlope(lineLike.start, lineLike.end);
 	}
 }

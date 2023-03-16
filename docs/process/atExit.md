@@ -9,9 +9,7 @@ Executes given callbacks when the program ends. Is thread-safe.
 
 ## Declarations
 ```cpp
-template<std::invocable<> C>
-requires(std::same_as<std::invoke_result_t<C>, void>)
-void atExit(C&& callback) noexcept;
+void atExit(const std::function<void()>& callback) noexcept;
 ```
 
 <br/><br/>

@@ -9,14 +9,14 @@ Groups elements of a vector into a `std::unordered_map`. The resulting map's key
 
 ## Declarations
 ```cpp
-template<typename T, std::invocable<T> C>
+template<typename Value, std::invocable<Value> Invocable>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<C(T)>, std::vector<T>> group(const std::vector<T>& values, C&& callback) noexcept;
+std::unordered_map<std::invoke_result_t<Invocable(Value)>, std::vector<Value>> group(const std::vector<Value>& values, Invocable&& callback) noexcept;
 ```
 ```cpp
-template<typename T, std::invocable<T, std::size_t> C>
+template<typename Value, std::invocable<Value, std::size_t> Invocable>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<C(T, std::size_t)>, std::vector<T>> group(const std::vector<T>& values, C&& callback) noexcept;
+std::unordered_map<std::invoke_result_t<Invocable(Value, std::size_t)>, std::vector<Value>> group(const std::vector<Value>& values, Invocable&& callback) noexcept;
 ```
 
 <br/><br/>
@@ -30,9 +30,9 @@ std::unordered_map<std::invoke_result_t<C(T, std::size_t)>, std::vector<T>> grou
 
 int main() {
 	const std::vector<int> values { 1, 2, 3, 4, 5 };
-	const decltype([](const int value) -> bool {
+	const auto callback = [](const int value) -> bool {
 		return value % 2;
-	}) callback;
+	};
 	const std::unordered_map<bool, std::vector<int>> groups = xieite::vector::group(values, callback);
 
 	std::cout << "true: ";

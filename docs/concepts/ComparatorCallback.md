@@ -3,12 +3,12 @@ Defined in header `<xieite/concepts/ComparatorCallback.hpp>`
 
 <br/>
 
-Specifies that type `T` is a comparator callback which accepts two `U`s.
+Specifies that type `Invocable` is a comparator callback which accepts two `Argument`s and returns a `bool`-like.
 
 <br/><br/>
 
 ## Declarations
 ```cpp
-template<typename T, typename U>
-concept ComparatorCallback = std::convertible_to<std::invoke_result_t<T, U, U>, bool>;
+template<typename Invocable, typename Argument>
+concept ComparatorCallback = std::convertible_to<std::invoke_result_t<Invocable, Argument, Argument>, bool>;
 ```

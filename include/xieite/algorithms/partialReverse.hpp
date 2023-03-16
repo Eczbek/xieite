@@ -1,16 +1,14 @@
 #pragma once
 #include <algorithm> // std::iter_swap
-#include <concepts> // std::convertible_to, std::invocable
 #include <cstddef> // std::size_t
 #include <iterator> // std::forward_iterator, std::iterator_traits
-#include <type_traits> // std::invoke_result_t
 #include <vector> // std::vector
+#include <xieite/concepts/SelectorCallback.hpp>
 
 namespace xieite::algorithms {
-	template<std::forward_iterator I, std::invocable<typename std::iterator_traits<I>::value_type> C>
-	requires(std::convertible_to<std::invoke_result_t<C, typename std::iterator_traits<I>::value_type>, bool>)
-	constexpr void partialReverse(I begin, const I end, C&& selector) noexcept {
-		std::vector<I> iterators;
+	template<std::forward_iterator Iterator>
+	constexpr void partialReverse(Iterator begin, const Iterator end, xieite::concepts::SelectorCallback<typename std::iterator_traits<Iterator>::value_type> auto&& selector) noexcept {
+		std::vector<Iterator> iterators;
 		for (; begin != end; ++begin)
 			if (selector(*begin))
 				iterators.push_back(begin);

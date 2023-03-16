@@ -27,7 +27,7 @@ constexpr double getAngle(const L& lineLike) noexcept;
 #include <xieite/geometry/getAngle.hpp>
 
 int main() {
-	const xieite::geometry::Line line({ 0, 0 }, { 1, 0 });
+	const xieite::geometry::Line line({ 0.0, 0.0 }, { 1.0, 0.0 });
 	std::cout << xieite::geometry::getAngle(line) << '\n';
 }
 ```

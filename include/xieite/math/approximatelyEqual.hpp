@@ -1,12 +1,12 @@
 #pragma once
-#include <cmath> // std::abs
 #include <limits> // std::numeric_limits
 #include <xieite/concepts/Arithmetic.hpp>
+#include <xieite/math/absolute.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic N, xieite::concepts::Arithmetic O>
+	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]]
-	constexpr bool approximatelyEqual(const N value1, const O value2) noexcept {
-		return (std::abs(value1 - static_cast<N>(value2)) <= std::numeric_limits<N>::epsilon()) && (std::abs(static_cast<O>(value1) - value2) <= std::numeric_limits<O>::epsilon());
+	constexpr bool approximatelyEqual(const Number value1, const Number value2) noexcept {
+		return xieite::math::absolute(value1 - value2) <= std::numeric_limits<Number>::epsilon();
 	}
 }

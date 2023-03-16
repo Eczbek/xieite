@@ -38,9 +38,9 @@ constexpr bool operator==(const xieite::geometry::Ray& other) const noexcept;
 #include <xieite/geometry/Ray.hpp>
 
 int main() {
-	xieite::geometry::Ray ray({ 0, 0 }, { 1, 1 });
+	xieite::geometry::Ray ray({ 0.0, 0.0 }, { 1.0, 1.0 });
 	std::cout << std::boolalpha
-		<< xieite::geometry::containsPoint(ray, { -1, -1 }) << '\n';
+		<< xieite::geometry::containsPoint(ray, { -1.0, -1.0 }) << '\n';
 }
 ```
 Output:

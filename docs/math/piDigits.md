@@ -9,8 +9,8 @@ Calculates digits of Pi.
 
 ## Declarations
 ```cpp
-template<std::integral N>
-std::vector<N> piDigits(const std::size_t digits) noexcept;
+template<std::integral Integral = int>
+std::vector<Integral> piDigits(const std::size_t digits) noexcept;
 ```
 
 <br/><br/>

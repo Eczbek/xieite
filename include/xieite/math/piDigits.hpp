@@ -3,14 +3,16 @@
 #include <vector> // std::vector
 #include <xieite/math/BigInteger.hpp>
 
+// I do not remember where I found this, but it seems to be a slight variation of the Gauss-Legendre algorithm
+
 namespace xieite::math {
-	template<std::integral N = int>
-	inline std::vector<N> piDigits(std::size_t digits) noexcept {
+	template<std::integral Integral = int>
+	inline std::vector<Integral> piDigits(std::size_t digits) noexcept {
 		xieite::math::BigInteger a = 180;
 		xieite::math::BigInteger b = 1;
 		xieite::math::BigInteger c = 60;
 		xieite::math::BigInteger d = 2;
-		std::vector<N> result;
+		std::vector<Integral> result;
 		while (digits--) {
 			const xieite::math::BigInteger e = (b * (d * 27 - 12) + a * 5) / c / 5;
 			const xieite::math::BigInteger f = (d * 3 + 1) * (d * 3 + 2) * 3;
@@ -18,7 +20,7 @@ namespace xieite::math {
 			b *= d * (d * 2 - 1) * 10;
 			c *= f;
 			++d;
-			result.push_back(static_cast<N>(e));
+			result.push_back(static_cast<Integral>(e));
 		}
 		return result;
 	}

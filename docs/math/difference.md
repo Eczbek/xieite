@@ -9,14 +9,14 @@ Calculates the absolute difference between two values. Handles some edge cases.
 
 ## Declarations
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-constexpr std::make_unsigned_t<N> difference(const N a, const N b) noexcept;
+constexpr std::make_unsigned<Integral> difference(const Integral a, const Integral b) noexcept;
 ```
 ```cpp
-template<std::floating_point N>
+template<std::floating_point FloatingPoint>
 [[nodiscard]]
-constexpr N difference(const N a, const N b) noexcept;
+constexpr FloatingPoint difference(const FloatingPoint a, const FloatingPoint b) noexcept;
 ```
 
 <br/><br/>

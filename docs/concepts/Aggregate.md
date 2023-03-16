@@ -5,6 +5,6 @@ Defined in header `<xieite/concepts/Aggregate.hpp>`
 
 ## Declarations
 ```cpp
-template<typename T>
-concept Aggregate = std::is_aggregate_v<T>;
+template<typename Any>
+concept Aggregate = std::is_aggregate_v<Any>;
 ```

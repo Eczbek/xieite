@@ -3,9 +3,9 @@
 #include <xieite/math/pi.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic N>
+	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]]
-	constexpr N toRadians(const N degrees) noexcept {
-		return degrees * xieite::math::pi<N> / 180;
+	constexpr Number toRadians(const Number degrees) noexcept {
+		return degrees * xieite::math::pi<Number> / 180.0;
 	}
 }

@@ -8,7 +8,7 @@ namespace xieite::geometry {
 		xieite::geometry::Point radii;
 		double rotation;
 
-		constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radii, const double rotation = 0) noexcept
+		constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radii, const double rotation = 0.0) noexcept
 		: center(center), radii(radii), rotation(rotation) {}
 
 		[[nodiscard]]

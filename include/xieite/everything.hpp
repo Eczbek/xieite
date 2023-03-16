@@ -11,6 +11,8 @@
 #include <xieite/concepts/ComparatorCallback.hpp>
 #include <xieite/concepts/Decayed.hpp>
 #include <xieite/concepts/Enumerator.hpp>
+#include <xieite/concepts/OneOf.hpp>
+#include <xieite/concepts/SelectorCallback.hpp>
 #include <xieite/concepts/StreamableInto.hpp>
 #include <xieite/concepts/StreamableOutOf.hpp>
 #include <xieite/concepts/TemporalDuration.hpp>
@@ -73,12 +75,10 @@
 #include <xieite/math/difference.hpp>
 #include <xieite/math/farthestFrom.hpp>
 #include <xieite/math/fromBase.hpp>
-#include <xieite/math/isNaN.hpp>
 #include <xieite/math/isPrime.hpp>
 #include <xieite/math/pi.hpp>
 #include <xieite/math/piDigits.hpp>
 #include <xieite/math/secant.hpp>
-#include <xieite/math/squareRoot.hpp>
 #include <xieite/math/tau.hpp>
 #include <xieite/math/toBase.hpp>
 #include <xieite/math/toDegrees.hpp>

@@ -7,7 +7,7 @@ Macros for identifying the version of the current compiler.
 
 <br/><br/>
 
-## Definitions
+## Declarations
 ```cpp
 #define XIEITE_COMPILER_VERSION_MAJOR 0
 #define XIEITE_COMPILER_VERSION_MINOR 0

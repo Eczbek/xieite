@@ -9,9 +9,9 @@ Checks whether an integral is prime, or only divisible by itself and 1.
 
 ## Declarations
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-constexpr bool isPrime(const N value) noexcept;
+constexpr bool isPrime(const Integral value) noexcept;
 ```
 
 <br/><br/>

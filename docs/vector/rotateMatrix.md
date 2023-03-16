@@ -9,9 +9,9 @@ Rotates a 2D vector matrix by 90*. Positive rotations go clockwise, negative rot
 
 ## Declarations
 ```cpp
-template<typename T>
+template<typename Value>
 [[nodiscard]]
-std::vector<std::vector<T>> rotateMatrix(const std::vector<std::vector<T>>& matrix, int rotations) noexcept;
+constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::vector<Value>>& matrix, int rotations) noexcept;
 ```
 
 <br/><br/>

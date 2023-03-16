@@ -3,6 +3,6 @@
 #include <xieite/traits/isTemporalDuration.hpp>
 
 namespace xieite::concepts {
-	template<typename T>
-	concept TemporalDuration = xieite::traits::isTemporalDuration<std::remove_cv_t<T>>;
+	template<typename Any>
+	concept TemporalDuration = xieite::traits::isTemporalDuration<std::remove_cv_t<Any>>;
 }

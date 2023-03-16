@@ -3,14 +3,14 @@ Defined in header `<xieite/concepts/Arithmetic.hpp>`
 
 <br/>
 
-Specifies that type `T` is an integral or a floating point.
+Specifies that type `Any` is an integral or a floating point.
 
 <br/><br/>
 
 ## Declarations
 ```cpp
-template<typename T>
-concept Arithmetic = std::is_arithmetic_v<T>;
+template<typename Any>
+concept Arithmetic = std::is_arithmetic_v<Any>;
 ```
 
 <br/><br/>

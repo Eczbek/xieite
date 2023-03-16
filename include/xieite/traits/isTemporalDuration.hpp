@@ -8,6 +8,6 @@ namespace xieite::traits {
 	template<typename>
 	constexpr bool isTemporalDuration = false;
 
-	template<xieite::concepts::Arithmetic R, std::intmax_t N, std::intmax_t D>
-	constexpr bool isTemporalDuration<std::chrono::duration<R, std::ratio<N, D>>> = true;
+	template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intmax_t denominator>
+	constexpr bool isTemporalDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>> = true;
 }

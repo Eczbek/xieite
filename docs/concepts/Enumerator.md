@@ -5,6 +5,6 @@ Defined in header `<xieite/concepts/Enumerator.hpp>`
 
 ## Declarations
 ```cpp
-template<typename T>
-concept Enumerator = std::is_enum_v<T>;
+template<typename Any>
+concept Enumerator = std::is_enum_v<Any>;
 ```

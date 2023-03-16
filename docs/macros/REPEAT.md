@@ -7,7 +7,7 @@ Repeats an expression literally. Maximum count is 2047.
 
 <br/><br/>
 
-## Definition
+## Declarations
 ```cpp
 #define XIEITE_REPEAT(expression, unsignedInteger) XIEITE_CONCATENATE(XIEITE_REPEAT_, unsignedInteger)(expression)
 ```

@@ -5,6 +5,6 @@ Defined in header `<xieite/concepts/UniformRandomBitGenerator.hpp>`
 
 ## Declarations
 ```cpp
-template<typename T>
-concept UniformRandomBitGenerator = std::uniform_random_bit_generator<std::remove_reference_t<T>>;
+template<typename Any>
+concept UniformRandomBitGenerator = std::uniform_random_bit_generator<std::remove_reference_t<Any>>;
 ```

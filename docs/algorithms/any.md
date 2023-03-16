@@ -9,9 +9,8 @@ Checks whether at least one argument is true. Expects all arguments to be conver
 
 ## Declarations
 ```cpp
-template<std::convertible_to<bool>... TT>
 [[nodiscard]]
-constexpr bool any(TT&&... values) noexcept;
+constexpr bool any(std::convertible_to<bool> auto&&... values) noexcept;
 ```
 
 <br/><br/>

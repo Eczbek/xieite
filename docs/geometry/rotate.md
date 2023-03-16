@@ -10,24 +10,24 @@ Rotates shapes a specific angle around any pivot.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Point rotate(const xieite::geometry::Point point, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
+constexpr xieite::geometry::Point rotate(const xieite::geometry::Point point, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
 ```
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L>
+template<std::derived_from<xieite::geometry::LineLike> LineLike>
 [[nodiscard]]
-constexpr L rotate(const L& lineLike, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
-```
-```cpp
-[[nodiscard]]
-constexpr xieite::geometry::Polygon rotate(const xieite::geometry::Polygon& polygon, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
+constexpr LineLike rotate(const LineLike& lineLike, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
+constexpr xieite::geometry::Polygon rotate(const xieite::geometry::Polygon& polygon, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
+constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+```
+```cpp
+[[nodiscard]]
+constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
 ```
 
 <br/><br/>

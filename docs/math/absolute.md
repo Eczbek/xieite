@@ -3,15 +3,15 @@ Defined in header `<xieite/math/absolute.hpp>`
 
 <br/>
 
-Returns the absolute of a value. Unlike `std::abs`, this is `constexpr` and works for both signed and unsigned arithmetic types.
+Returns the absolute of a value. Unlike `std::abs`, this works for both signed and unsigned arithmetic types.
 
 <br/><br/>
 
 ## Declarations
 ```cpp
-template<xieite::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr N absolute(const N value) noexcept;
+constexpr Number absolute(const Number value) noexcept;
 ```
 
 <br/><br/>

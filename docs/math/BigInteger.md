@@ -12,17 +12,13 @@ A class for storing and operating on very large numbers.
 BigInteger(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::signed_integral N = int>
-BigInteger(N value = 0) noexcept;
+BigInteger(xieite::math::BigInteger&& other) noexcept;
+```cpp
+template<std::integral Integral>
+BigInteger(Integral value = 0) noexcept;
 ```
 ```cpp
-template<std::unsigned_integral N>
-BigInteger(N value) noexcept;
-```
-```cpp
-template<std::forward_iterator I>
-requires(std::convertible_to<typename I::value_type, bool>)
-BigInteger(const I begin, const I end, const bool sign = false) noexcept;
+BigInteger(const std::vector<bool>& bits, const bool sign = false) noexcept;
 ```
 ```cpp
 BigInteger(const std::string_view value);
@@ -33,13 +29,15 @@ BigInteger(const std::string_view value);
 xieite::math::BigInteger& operator=(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator=(const N value) noexcept;
+xieite::math::BigInteger& operator=(xieite::math::BigInteger&& other) noexcept;
+```cpp
+template<std::integral Integral>
+xieite::math::BigInteger& operator=(const Integral value) noexcept;
 ```
 ```cpp
-template<xieite::concepts::Arithmetic N>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-operator N() const noexcept;
+operator Number() const noexcept;
 ```
 ```cpp
 [[nodiscard]]
@@ -54,18 +52,18 @@ bool operator!() const noexcept;
 bool operator==(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-bool operator==(const N value) const noexcept;
+bool operator==(const Integral value) const noexcept;
 ```
 ```cpp
 [[nodiscard]]
 std::strong_ordering operator<=>(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-std::strong_ordering operator<=>(const N value) const noexcept;
+std::strong_ordering operator<=>(const Integral value) const noexcept;
 ```
 ```cpp
 [[nodiscard]]
@@ -76,16 +74,16 @@ xieite::math::BigInteger operator+() const noexcept;
 xieite::math::BigInteger operator+(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator+(const N value) const noexcept;
+xieite::math::BigInteger operator+(const Integral value) const noexcept;
 ```
 ```cpp
 xieite::math::BigInteger& operator+=(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator+=(const N value) noexcept;
+template<std::integral Integral>
+xieite::math::BigInteger& operator+=(const Integral value) noexcept;
 ```
 ```cpp
 xieite::math::BigInteger& operator++() noexcept;
@@ -102,16 +100,16 @@ xieite::math::BigInteger operator-() const noexcept;
 xieite::math::BigInteger operator-(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator-(const N value) const noexcept;
+xieite::math::BigInteger operator-(const Integral value) const noexcept;
 ```
 ```cpp
 xieite::math::BigInteger& operator-=(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator-=(const N value) noexcept;
+template<std::integral Integral>
+xieite::math::BigInteger& operator-=(const Integral value) noexcept;
 ```
 ```cpp
 xieite::math::BigInteger& operator--() noexcept;
@@ -124,48 +122,48 @@ xieite::math::BigInteger operator--(int) noexcept;
 xieite::math::BigInteger operator*(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator*(const N value) const noexcept;
+xieite::math::BigInteger operator*(const Integral value) const noexcept;
 ```
 ```cpp
 xieite::math::BigInteger& operator*=(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator*=(const N value) noexcept;
+template<std::integral Integral>
+xieite::math::BigInteger& operator*=(const Integral value) noexcept;
 ```
 ```cpp
 [[nodiscard]]
 xieite::math::BigInteger operator/(xieite::math::BigInteger other) const;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator/(const N value) const;
+xieite::math::BigInteger operator/(const Integral value) const;
 ```
 ```cpp
 xieite::math::BigInteger& operator/=(const xieite::math::BigInteger& other);
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator/=(const N value);
+template<std::integral Integral>
+xieite::math::BigInteger& operator/=(const Integral value);
 ```
 ```cpp
 [[nodiscard]]
 xieite::math::BigInteger operator%(xieite::math::BigInteger other) const;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator%(const N value) const;
+xieite::math::BigInteger operator%(const Integral value) const;
 ```
 ```cpp
 xieite::math::BigInteger& operator%=(const xieite::math::BigInteger& other);
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator%=(const N value);
+template<std::integral Integral>
+xieite::math::BigInteger& operator%=(const Integral value);
 ```
 ```cpp
 [[nodiscard]]
@@ -176,80 +174,80 @@ xieite::math::BigInteger operator~() const noexcept;
 xieite::math::BigInteger operator&(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator&(const N value) const noexcept;
+xieite::math::BigInteger operator&(const Integral value) const noexcept;
 ```
 ```cpp
 xieite::math::BigInteger& operator&=(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator&=(const N value) noexcept;
+template<std::integral Integral>
+xieite::math::BigInteger& operator&=(const Integral value) noexcept;
 ```
 ```cpp
 [[nodiscard]]
 xieite::math::BigInteger operator|(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator|(const N value) const noexcept;
+xieite::math::BigInteger operator|(const Integral value) const noexcept;
 ```
 ```cpp
 xieite::math::BigInteger& operator|=(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator|=(const N value) noexcept;
+template<std::integral Integral>
+xieite::math::BigInteger& operator|=(const Integral value) noexcept;
 ```
 ```cpp
 [[nodiscard]]
 xieite::math::BigInteger operator^(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator^(const N value) const noexcept;
+xieite::math::BigInteger operator^(const Integral value) const noexcept;
 ```
 ```cpp
 xieite::math::BigInteger& operator^=(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator^=(const N value) noexcept;
+template<std::integral Integral>
+xieite::math::BigInteger& operator^=(const Integral value) noexcept;
 ```
 ```cpp
 [[nodiscard]]
 xieite::math::BigInteger operator<<(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator<<(const N value) const noexcept;
+xieite::math::BigInteger operator<<(const Integral value) const noexcept;
 ```
 ```cpp
 xieite::math::BigInteger& operator<<=(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger& operator<<=(const N value) noexcept;
+template<std::integral Integral>
+xieite::math::BigInteger& operator<<=(const Integral value) noexcept;
 ```
 ```cpp
 [[nodiscard]]
 xieite::math::BigInteger operator>>(const xieite::math::BigInteger& other) const noexcept;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger operator>>(const N value) const noexcept;
+xieite::math::BigInteger operator>>(const Integral value) const noexcept;
 ```
 ```cpp
 xieite::math::BigInteger operator>>=(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
-template<std::integral N>
-xieite::math::BigInteger operator>>=(const N value) noexcept;
+template<std::integral Integral>
+xieite::math::BigInteger operator>>=(const Integral value) noexcept;
 ```
 (`operator<`, `operator>`, `operator!=`, `operator<=`, and `operator>=` are defined implicitly)
 
@@ -263,18 +261,18 @@ xieite::math::BigInteger abs() const noexcept;
 xieite::math::BigInteger pow(xieite::math::BigInteger other) const;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger pow(const N value) const;
+xieite::math::BigInteger pow(const Integral value) const;
 ```
 ```cpp
 [[nodiscard]]
 xieite::math::BigInteger root(const xieite::math::BigInteger& other) const;
 ```
 ```cpp
-template<std::integral N>
+template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger root(const N value) const;
+xieite::math::BigInteger root(const Integral value) const;
 ```
 ```cpp
 [[nodiscard]]

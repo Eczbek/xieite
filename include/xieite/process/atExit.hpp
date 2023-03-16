@@ -1,5 +1,4 @@
 #pragma once
-#include <concepts> // std::invocable
 #include <cstdlib> // std::exit
 #include <functional> // std::function
 #include <mutex> // std::lock_guard, std::mutex
@@ -7,9 +6,7 @@
 #include <vector> // std::vector
 
 namespace xieite::process {
-	template<std::invocable<> C>
-	requires(std::same_as<std::invoke_result_t<C>, void>)
-	void atExit(C&& callback) noexcept {
+	void atExit(const std::function<void()>& callback) noexcept {
 		static std::vector<std::function<void()>> callbacks;
 		static std::mutex callbacksMutex;
 		static struct Lock {
@@ -21,6 +18,6 @@ namespace xieite::process {
 		} lock;
 
 		const std::lock_guard<std::mutex> callbacksLock(callbacksMutex);
-		callbacks.push_back(std::function(callback));
+		callbacks.push_back(callback);
 	}
 }

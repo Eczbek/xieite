@@ -3,6 +3,6 @@
 #include <xieite/math/pi.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic N>
-	constexpr N tau = xieite::math::pi<N> * 2;
+	template<xieite::concepts::Arithmetic Number>
+	constexpr Number tau = xieite::math::pi<Number> * 2.0;
 }

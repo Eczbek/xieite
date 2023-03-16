@@ -3,6 +3,6 @@
 #include <type_traits> // std::remove_reference_t
 
 namespace xieite::concepts {
-	template<typename T>
-	concept UniformRandomBitGenerator = std::uniform_random_bit_generator<std::remove_reference_t<T>>;
+	template<typename Any>
+	concept UniformRandomBitGenerator = std::uniform_random_bit_generator<std::remove_reference_t<Any>>;
 }
