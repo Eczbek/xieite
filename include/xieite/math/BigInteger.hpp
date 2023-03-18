@@ -3,7 +3,7 @@
 #include <compare> // std::strong_ordering
 #include <concepts> // std::convertible_to, std::integral
 #include <cstddef> // std::size_t
-#include <iterator> // std::advance, std::forward_iterator, std::iterator_traits
+#include <iterator> // std::forward_iterator, std::iterator_traits, std::next
 #include <string> // std::string
 #include <string_view> // std::string_view
 #include <utility> // std::move
@@ -237,12 +237,10 @@ namespace xieite::math {
 			if (other == -1)
 				return -*this;
 			const std::size_t halfSize = std::min(this->bits.size(), other.bits.size()) / 2;
-			std::vector<bool>::const_iterator i = this->bits.begin();
-			std::advance(i, halfSize);
+			const std::vector<bool>::const_iterator i = std::next(this->bits.begin(), halfSize);
 			const xieite::math::BigInteger a(std::vector<bool>(this->bits.begin(), i));
 			const xieite::math::BigInteger b(std::vector<bool>(i, this->bits.end()));
-			std::vector<bool>::const_iterator j = other.bits.begin();
-			std::advance(j, halfSize);
+			const std::vector<bool>::const_iterator j = std::next(other.bits.begin(), halfSize);
 			const xieite::math::BigInteger c(std::vector<bool>(other.bits.begin(), j));
 			const xieite::math::BigInteger d(std::vector<bool>(j, other.bits.end()));
 			const xieite::math::BigInteger e = a * c;
@@ -435,8 +433,7 @@ namespace xieite::math {
 				return *this;
 			std::vector<bool> resultBits = this->bits;
 			std::vector<bool>::iterator end = resultBits.begin();
-			std::advance(end, static_cast<std::size_t>(other));
-			resultBits.erase(resultBits.begin(), end);
+			resultBits.erase(resultBits.begin(), std::next(resultBits.begin(), static_cast<std::size_t>(other)));
 			BigInteger result(resultBits, this->sign);
 			return result ? result : -xieite::math::BigInteger(this->sign);
 		}
