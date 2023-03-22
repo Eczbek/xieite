@@ -16,7 +16,7 @@ inline std::string execute(const std::string_view command, const std::size_t chu
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/system/execute.hpp>
 
 int main() {

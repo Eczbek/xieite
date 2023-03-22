@@ -1,7 +1,8 @@
 #pragma once
-#include <cstddef> // std::size_t
-#include <string> // std::string
-#include <string_view> // std::string_view
+
+#include <cstddef>
+#include <string>
+#include <string_view>
 
 namespace xieite::string {
 	[[nodiscard]]

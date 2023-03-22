@@ -1,5 +1,6 @@
 #pragma once
-#include <string> // std::string
+
+#include <string>
 #include <xieite/console/CursorPosition.hpp>
 #include <xieite/math/toBase.hpp>
 

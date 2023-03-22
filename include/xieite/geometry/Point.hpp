@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {

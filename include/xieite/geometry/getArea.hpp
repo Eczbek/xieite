@@ -1,5 +1,6 @@
 #pragma once
-#include <cmath> // std::abs
+
+#include <cmath>
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/Polygon.hpp>

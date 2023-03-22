@@ -16,7 +16,7 @@ Concatenates two values literally.
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/macros/CONCATENATE.hpp>
 
 int main() {

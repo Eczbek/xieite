@@ -18,9 +18,9 @@ constexpr Iterator findOccurence(Iterator begin, const Iterator end, typename st
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
-#include <iterator> // std::distance
-#include <vector> // std::vector
+#include <iostream>
+#include <iterator>
+#include <vector>
 #include <xieite/algorithms/findOccurence.hpp>
 
 int main() {

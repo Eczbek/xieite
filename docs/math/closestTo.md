@@ -23,7 +23,7 @@ constexpr Number closestTo(const Number target, const Number& a, const Number& b
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/math/closestTo.hpp>
 
 int main() {

@@ -17,7 +17,7 @@ constexpr std::string repeat(const std::string_view string, std::size_t count) n
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/string/repeat.hpp>
 
 int main() {

@@ -1,5 +1,6 @@
 #pragma once
-#include <vector> // std::vector
+
+#include <vector>
 #include <xieite/math/wrap.hpp>
 
 namespace xieite::vector {

@@ -17,7 +17,7 @@ std::vector<Integral> piDigits(const std::size_t digits) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/math/piDigits.hpp>
 
 int main() {

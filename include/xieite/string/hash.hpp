@@ -1,5 +1,6 @@
 #pragma once
-#include <string_view> // std::string_view
+
+#include <string_view>
 
 namespace xieite::string {
 	[[nodiscard]]

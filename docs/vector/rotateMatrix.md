@@ -18,8 +18,8 @@ constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::ve
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
-#include <vector> // std::vector
+#include <iostream>
+#include <vector>
 #include <xieite/vector/rotateMatrix.hpp>
 
 int main() {

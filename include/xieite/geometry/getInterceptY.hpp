@@ -1,7 +1,8 @@
 #pragma once
-#include <cmath> // std::isinf
-#include <concepts> // std::derived_from
-#include <optional> // std::nullopt, std::optional
+
+#include <cmath>
+#include <concepts>
+#include <optional>
 #include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getSlope.hpp>

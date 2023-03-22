@@ -17,7 +17,7 @@ inline std::string demangle(const std::string_view mangled) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/types/demangle.hpp>
 
 template<typename T>

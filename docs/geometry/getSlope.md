@@ -21,7 +21,7 @@ constexpr double getSlope(const std::derived_from<xieite::geometry::LineLike> au
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/getSlope.hpp>
 

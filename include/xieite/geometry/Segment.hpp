@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
 

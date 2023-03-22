@@ -1,9 +1,10 @@
 #pragma once
-#include <atomic> // std::atomic
-#include <concepts> // std::invocable
-#include <memory> // std::make_shared, std::shared_ptr
-#include <thread> // std::thread
-#include <utility> // std::forward
+
+#include <atomic>
+#include <concepts>
+#include <memory>
+#include <thread>
+#include <utility>
 
 // Thanks to uno20001 for help
 

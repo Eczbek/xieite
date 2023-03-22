@@ -1,6 +1,7 @@
 #pragma once
-#include <concepts> // std::derived_from
-#include <optional> // std::nullopt, std::optional
+
+#include <concepts>
+#include <optional>
 #include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getSlope.hpp>

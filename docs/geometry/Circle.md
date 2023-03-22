@@ -31,7 +31,7 @@ constexpr bool operator==(const xieite::geometry::Circle& other) const noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/getArea.hpp>
 

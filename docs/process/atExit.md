@@ -16,7 +16,7 @@ void atExit(const std::function<void()>& callback) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/process/atExit.hpp>
 
 int main() {

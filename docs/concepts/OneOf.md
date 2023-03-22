@@ -17,7 +17,7 @@ concept OneOf = (std::same_as<Any1, Any2> || ...);
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/concepts/OneOf.hpp>
 
 template<xieite::concepts::OneOf<bool, char, int> T>

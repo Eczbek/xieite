@@ -1,7 +1,8 @@
 #pragma once
-#include <concepts> // std::derived_from
-#include <cmath> // std::cos, std::sin
-#include <vector> // std::vector
+
+#include <concepts>
+#include <cmath>
+#include <vector>
 #include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/Ellipse.hpp>

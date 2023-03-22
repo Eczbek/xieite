@@ -1,6 +1,7 @@
 #pragma once
-#include <cstddef> // std::size_t
-#include <functional> // std::hash
+
+#include <cstddef>
+#include <functional>
 
 namespace xieite::concepts {
 	template<typename Any>

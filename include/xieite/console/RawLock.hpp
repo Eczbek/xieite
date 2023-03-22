@@ -1,6 +1,7 @@
 #pragma once
-#include <termios.h> // ECHO, TCSANOW, cfmakeraw, tcgetattr, termios
-#include <unistd.h> // STDIN_FILENO
+
+#include <termios.h>
+#include <unistd.h>
 
 namespace xieite::console {
 	class RawLock {

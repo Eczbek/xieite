@@ -21,7 +21,7 @@ constexpr xieite::geometry::Polygon getBoundingBox(const xieite::geometry::Circl
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getBoundingBox.hpp>

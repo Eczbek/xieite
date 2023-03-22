@@ -18,7 +18,7 @@ constexpr bool approximatelyEqual(const Number value1, const Number value2) noex
 
 ## Example
 ```cpp
-#include <iostream> // std::boolalpha, std::cout
+#include <iostream>
 #include <xieite/math/approximatelyEqual.hpp>
 
 int main() {

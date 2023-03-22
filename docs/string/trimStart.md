@@ -21,7 +21,7 @@ constexpr std::string trimStart(const std::string& string, const std::vector<cha
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/string/trimStart.hpp>
 
 int main() {

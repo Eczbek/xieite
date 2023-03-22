@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/macros/CONCATENATE.hpp>
 
 #define XIEITE_REPEAT(expression, unsignedInteger) XIEITE_CONCATENATE(XIEITE_REPEAT_, unsignedInteger)(expression)

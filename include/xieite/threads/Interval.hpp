@@ -1,7 +1,8 @@
 #pragma once
-#include <concepts> // std::invocable
-#include <thread> // std::this_thread::sleep_for
-#include <utility> // std::forward
+
+#include <concepts>
+#include <thread>
+#include <utility>
 #include <xieite/concepts/TemporalDuration.hpp>
 #include <xieite/threads/Loop.hpp>
 

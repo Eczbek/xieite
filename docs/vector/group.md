@@ -23,9 +23,9 @@ std::unordered_map<std::invoke_result_t<Invocable(Value, std::size_t)>, std::vec
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
-#include <unordered_map> // std::unordered_map
-#include <vector> // std::vector
+#include <iostream>
+#include <unordered_map>
+#include <vector>
 #include <xieite/vector/group.hpp>
 
 int main() {

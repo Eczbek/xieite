@@ -18,7 +18,7 @@ constexpr Integral fromBase(const std::string_view value, const std::size_t base
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/math/fromBase.hpp>
 
 int main() {

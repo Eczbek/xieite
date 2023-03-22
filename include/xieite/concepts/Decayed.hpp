@@ -1,6 +1,7 @@
 #pragma once
-#include <concepts> // std::same_as
-#include <type_traits> // std::decay_t
+
+#include <concepts>
+#include <type_traits>
 
 namespace xieite::concepts {
 	template<typename Any>

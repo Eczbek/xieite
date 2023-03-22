@@ -1,9 +1,10 @@
 #pragma once
-#include <array> // std::array
-#include <concepts> // std::integral
-#include <cstddef> // std::size_t
-#include <limits> // std::numeric_limits
-#include <string_view> // std::string_view
+
+#include <array>
+#include <concepts>
+#include <cstddef>
+#include <limits>
+#include <string_view>
 
 namespace xieite::math {
 	template<std::integral Integral = int>

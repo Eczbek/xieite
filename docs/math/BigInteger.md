@@ -287,7 +287,7 @@ std::string string() const noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/math/BigInteger.hpp>
 
 int main() {

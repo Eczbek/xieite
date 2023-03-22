@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/geometry/Segment.hpp>
 #include <xieite/geometry/getLength.hpp>

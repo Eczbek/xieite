@@ -1,5 +1,6 @@
 #pragma once
-#include <iostream> // std::cin
+
+#include <iostream>
 #include <xieite/console/RawLock.hpp>
 
 namespace xieite::console {

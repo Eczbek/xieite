@@ -1,7 +1,8 @@
 #pragma once
-#include <chrono> // std::chrono::duration
-#include <cstdint> // std::intmax_t
-#include <ratio> // std::ratio
+
+#include <chrono>
+#include <cstdint>
+#include <ratio>
 #include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::traits {

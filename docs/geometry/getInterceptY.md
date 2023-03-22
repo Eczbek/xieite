@@ -17,8 +17,8 @@ constexpr std::optional<xieite::geometry::Point> getInterceptY(const std::derive
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
-#include <optional> // std::optional
+#include <iostream>
+#include <optional>
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getInterceptY.hpp>

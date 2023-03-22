@@ -1,8 +1,7 @@
 #pragma once
-#include <concepts> // std::convertible_to
-#include <ostream> // std::ostream
 
-// Thanks to fux for concept
+#include <concepts>
+#include <ostream>
 
 namespace xieite::concepts {
 	template<typename Any>
@@ -10,3 +9,5 @@ namespace xieite::concepts {
 		{ outputStream << value } -> std::convertible_to<std::ostream&>;
 	};
 }
+
+// Thanks to fux for concept

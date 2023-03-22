@@ -1,5 +1,6 @@
 #pragma once
-#include <cstddef> // std::size_t
+
+#include <cstddef>
 
 namespace xieite::algorithms {
 	[[nodiscard]]

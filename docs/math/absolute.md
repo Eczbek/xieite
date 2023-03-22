@@ -18,7 +18,7 @@ constexpr Number absolute(const Number value) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/math/absolute.hpp>
 
 int main() {

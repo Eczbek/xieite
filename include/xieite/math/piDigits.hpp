@@ -1,9 +1,8 @@
 #pragma once
-#include <concepts> // std::integral
-#include <vector> // std::vector
-#include <xieite/math/BigInteger.hpp>
 
-// I do not remember where I found this, but it seems to be a slight variation of the Gauss-Legendre algorithm
+#include <concepts>
+#include <vector>
+#include <xieite/math/BigInteger.hpp>
 
 namespace xieite::math {
 	template<std::integral Integral = int>
@@ -25,3 +24,5 @@ namespace xieite::math {
 		return result;
 	}
 }
+
+// I do not remember where I found this, but it seems to be a slight variation of the Gauss-Legendre algorithm

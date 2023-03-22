@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/Line.hpp>

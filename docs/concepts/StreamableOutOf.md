@@ -19,7 +19,7 @@ concept StreamableOutOf = requires(std::ostream& outStream, Any value) {
 
 ## Example
 ```cpp
-#include <iostream> // std::boolalpha, std::cout
+#include <iostream>
 #include <xieite/concepts/StreamableOutOf.hpp>
 
 struct UnstreamableType {};

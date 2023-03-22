@@ -1,6 +1,7 @@
 #pragma once
-#include <cstddef> // std::size_t
-#include <vector> // std::vector
+
+#include <cstddef>
+#include <vector>
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/geometry/Segment.hpp>
 

@@ -1,5 +1,6 @@
 #pragma once
-#include <concepts> // std::convertible_to
+
+#include <concepts>
 
 namespace xieite::algorithms {
 	[[nodiscard]]

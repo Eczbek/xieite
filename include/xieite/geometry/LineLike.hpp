@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {

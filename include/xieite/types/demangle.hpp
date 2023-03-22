@@ -1,9 +1,8 @@
 #pragma once
-#include <cxxabi.h> // abi::__cxa_demangle
-#include <string> // std::string
-#include <string_view> // std::string_view
 
-// Thanks to eightfold for idea
+#include <cxxabi.h>
+#include <string>
+#include <string_view>
 
 namespace xieite::types {
 	[[nodiscard]]
@@ -18,3 +17,5 @@ namespace xieite::types {
 		return demangled;
 	}
 }
+
+// Thanks to eightfold for idea

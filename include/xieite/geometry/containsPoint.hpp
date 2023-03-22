@@ -1,6 +1,7 @@
 #pragma once
-#include <cmath> // std::cos, std::isinf, std::sin
-#include <cstddef> // std::size_t
+
+#include <cmath>
+#include <cstddef>
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/Line.hpp>

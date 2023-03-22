@@ -1,5 +1,6 @@
 #pragma once
-#include <cmath> // std::hypot
+
+#include <cmath>
 #include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {

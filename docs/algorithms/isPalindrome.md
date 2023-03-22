@@ -18,8 +18,8 @@ constexpr bool isPalindrome(Iterator begin, Iterator end, Callback&& comparator 
 
 ## Example
 ```cpp
-#include <iostream> // std::boolalpha, std::cout
-#include <string> // std::string
+#include <iostream>
+#include <string>
 #include <xieite/algorithms/isPalindrome.hpp>
 
 int main() {

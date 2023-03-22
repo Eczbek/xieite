@@ -1,6 +1,7 @@
 #pragma once
-#include <concepts> // std::convertible_to
-#include <type_traits> // std::invoke_result_t
+
+#include <concepts>
+#include <type_traits>
 
 namespace xieite::concepts {
 	template<typename Invocable, typename Argument>

@@ -1,6 +1,7 @@
 #pragma once
-#include <cstdio> // std::scanf
-#include <iostream> // std::cout
+
+#include <cstdio>
+#include <iostream>
 #include <xieite/console/CursorPosition.hpp>
 #include <xieite/console/RawLock.hpp>
 

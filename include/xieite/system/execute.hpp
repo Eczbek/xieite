@@ -1,9 +1,10 @@
 #pragma once
-#include <cstddef> // std::size_t
-#include <cstdio> // pclose, popen, std::FILE, std::fread
-#include <memory> // std::unique_ptr
-#include <string> // std::string
-#include <string_view> // std::string_view
+
+#include <cstddef>
+#include <cstdio>
+#include <memory>
+#include <string>
+#include <string_view>
 
 namespace xieite::system {
 	inline std::string execute(const std::string_view command, const std::size_t chunkSize = 1024) noexcept {

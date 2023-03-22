@@ -16,8 +16,8 @@ inline char getCharacter(const bool echo = false) noexcept;
 
 ## Example
 ```cpp
-#include <chrono> // std::chrono::duration_cast, std::chrono::milliseconds, std::chrono::steady_clock, std::chrono::time_point
-#include <iostream> // std::cout
+#include <chrono>
+#include <iostream>
 #include <xieite/console/getCharacter.hpp>
 
 int main() {

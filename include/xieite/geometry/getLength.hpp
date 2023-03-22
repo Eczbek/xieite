@@ -1,6 +1,7 @@
 #pragma once
-#include <concepts> // std::derived_from
-#include <limits> // std::numeric_limits
+
+#include <concepts>
+#include <limits>
 #include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Segment.hpp>
 #include <xieite/geometry/getDistance.hpp>

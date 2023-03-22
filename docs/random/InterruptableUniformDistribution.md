@@ -27,8 +27,8 @@ Number operator()(xieite::concepts::UniformRandomBitGenerator auto&& generator) 
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
-#include <random> // std::mt19937, std::random_device
+#include <iostream>
+#include <random>
 #include <xieite/random/InterruptableUniformDistribution.hpp>
 
 int main() {

@@ -19,7 +19,7 @@ constexpr std::string toLowercase(std::string string) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/string/toLowercase.hpp>
 
 int main() {

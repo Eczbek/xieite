@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/algorithms/all.hpp>
 #include <xieite/algorithms/any.hpp>
 #include <xieite/algorithms/count.hpp>

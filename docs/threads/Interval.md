@@ -28,10 +28,10 @@ void cancel() noexcept;
 
 ## Example
 ```cpp
-#include <atomic> // std::atomic
-#include <chrono> // std::chrono::seconds
-#include <iostream> // std::cout
-#include <thread> // std::this_thread::sleep_for
+#include <atomic>
+#include <chrono>
+#include <iostream>
+#include <thread>
 #include <xieite/threads/Interval.hpp>
 
 int main() {
