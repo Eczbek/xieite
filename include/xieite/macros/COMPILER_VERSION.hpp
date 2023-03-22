@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/macros/COMPILER_TYPE.hpp>
 
 #define XIEITE_COMPILER_VERSION_MAJOR 0

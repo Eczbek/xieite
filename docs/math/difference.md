@@ -23,9 +23,9 @@ constexpr FloatingPoint difference(const FloatingPoint a, const FloatingPoint b)
 
 ## Example
 ```cpp
-#include <cstdint> // std::int8_t
-#include <iostream> // std::cout
-#include <limits> // std::numeric_limits
+#include <cstdint>
+#include <iostream>
+#include <limits>
 #include <xieite/math/difference.hpp>
 
 int main() {

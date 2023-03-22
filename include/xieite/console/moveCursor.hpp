@@ -1,5 +1,6 @@
 #pragma once
-#include <string> // std::string
+
+#include <string>
 #include <xieite/math/toBase.hpp>
 
 namespace xieite::console {

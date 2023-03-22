@@ -33,9 +33,9 @@ void cancel() noexcept;
 
 ## Example
 ```cpp
-#include <chrono> // std::chrono::seconds
-#include <iostream> // std::cout
-#include <thread> // std::this_thread::sleep_for
+#include <chrono>
+#include <iostream>
+#include <thread>
 #include <xieite/threads/Loop.hpp>
 
 int main() {

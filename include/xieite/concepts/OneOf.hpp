@@ -1,5 +1,6 @@
 #pragma once
-#include <concepts> // std::same_as
+
+#include <concepts>
 
 namespace xieite::concepts {
 	template<typename Any1, typename... Any2>

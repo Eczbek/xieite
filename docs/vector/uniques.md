@@ -18,7 +18,7 @@ std::vector<Value> uniques(const std::vector<Value>& values) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/vector/uniques.hpp>
 
 int main() {

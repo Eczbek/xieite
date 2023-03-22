@@ -1,5 +1,6 @@
 #pragma once
-#include <type_traits> // std::is_enum_v
+
+#include <type_traits>
 
 namespace xieite::concepts {
 	template<typename Any>

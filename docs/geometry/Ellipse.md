@@ -34,7 +34,7 @@ constexpr bool operator==(const xieite::geometry::Ellipse& other) const noexcept
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/getArea.hpp>
 

@@ -17,7 +17,7 @@ constexpr bool any(std::convertible_to<bool> auto&&... values) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::boolalpha, std::cout
+#include <iostream>
 #include <xieite/algorithms/any.hpp>
 
 int main() {

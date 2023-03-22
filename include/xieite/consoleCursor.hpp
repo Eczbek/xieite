@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/console/CursorPosition.hpp>
 #include <xieite/console/cursorControls.hpp>
 #include <xieite/console/getCursorPosition.hpp>

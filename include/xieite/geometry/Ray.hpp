@@ -1,5 +1,6 @@
 #pragma once
-#include <cmath> // std::cos, std::sin
+
+#include <cmath>
 #include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getSlope.hpp>

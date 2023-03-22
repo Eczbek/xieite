@@ -1,5 +1,6 @@
 #pragma once
-#include <cmath> // std::sin
+
+#include <cmath>
 #include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {

@@ -1,6 +1,7 @@
 #pragma once
-#include <concepts> // std::convertible_to
-#include <istream> // std::istream
+
+#include <concepts>
+#include <istream>
 
 namespace xieite::concepts {
 	template<typename Any>

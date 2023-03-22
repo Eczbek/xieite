@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/math/cosecant.hpp>
 #include <xieite/math/cotangent.hpp>
 #include <xieite/math/pi.hpp>

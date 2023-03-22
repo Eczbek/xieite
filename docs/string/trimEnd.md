@@ -21,7 +21,7 @@ constexpr std::string trimEnd(const std::string& string, const std::vector<char>
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/string/trimEnd.hpp>
 
 int main() {

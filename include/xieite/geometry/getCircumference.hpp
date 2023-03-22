@@ -1,5 +1,6 @@
 #pragma once
-#include <cmath> // std::sqrt
+
+#include <cmath>
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/Ellipse.hpp>
 #include <xieite/math/pi.hpp>

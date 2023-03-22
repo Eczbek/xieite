@@ -1,5 +1,6 @@
 #pragma once
 
+
 // Thanks to eightfold for idea
 
 namespace xieite::errors {

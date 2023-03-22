@@ -1,6 +1,7 @@
 #pragma once
-#include <cmath> // std::cos, std::sin, std::sqrt
-#include <vector> // std::vector
+
+#include <cmath>
+#include <vector>
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/Point.hpp>

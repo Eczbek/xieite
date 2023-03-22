@@ -34,7 +34,7 @@ constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/getSlope.hpp>
 #include <xieite/geometry/rotate.hpp>

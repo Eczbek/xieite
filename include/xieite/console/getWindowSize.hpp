@@ -1,6 +1,7 @@
 #pragma once
-#include <sys/ioctl.h> // TIOCGWINSZ, ioctl, winsize
-#include <unistd.h> // STDIN_FILENO
+
+#include <sys/ioctl.h>
+#include <unistd.h>
 #include <xieite/console/CursorPosition.hpp>
 
 namespace xieite::console {

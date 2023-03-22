@@ -1,4 +1,5 @@
 #pragma once
+
 #include <xieite/concepts/Arithmetic.hpp>
 #include <xieite/math/difference.hpp>
 

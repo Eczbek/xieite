@@ -34,7 +34,7 @@ constexpr bool operator==(const xieite::geometry::Ray& other) const noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::boolalpha, std::cout
+#include <iostream>
 #include <xieite/geometry/Ray.hpp>
 
 int main() {

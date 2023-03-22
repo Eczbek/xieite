@@ -1,6 +1,7 @@
 #pragma once
-#include <concepts> // std::invocable
-#include <utility> // std::forward
+
+#include <concepts>
+#include <utility>
 #include <xieite/concepts/TemporalDuration.hpp>
 #include <xieite/threads/Interval.hpp>
 

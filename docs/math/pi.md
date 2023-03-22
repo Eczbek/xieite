@@ -21,7 +21,7 @@ constexpr Integral pi<Integral> = 3;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/math/pi.hpp>
 
 int main() {

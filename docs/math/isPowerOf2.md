@@ -16,7 +16,7 @@ constexpr bool isPowerOf2(const std::unsigned_integral auto value) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::boolalpha, std::cout
+#include <iostream>
 #include <xieite/math/isPowerOf2.hpp>
 
 int main() {

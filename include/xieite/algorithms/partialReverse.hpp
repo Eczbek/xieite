@@ -1,8 +1,9 @@
 #pragma once
-#include <algorithm> // std::iter_swap
-#include <cstddef> // std::size_t
-#include <iterator> // std::forward_iterator, std::iterator_traits
-#include <vector> // std::vector
+
+#include <algorithm>
+#include <cstddef>
+#include <iterator>
+#include <vector>
 #include <xieite/concepts/SelectorCallback.hpp>
 
 namespace xieite::algorithms {

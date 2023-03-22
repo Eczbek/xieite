@@ -1,5 +1,6 @@
 #pragma once
-#include <concepts> // std::integral
+
+#include <concepts>
 
 namespace xieite::math {
 	template<std::integral Integral>

@@ -17,8 +17,8 @@ constexpr void partialReverse(Iterator begin, const Iterator end, xieite::concep
 
 ## Example
 ```cpp
-#include <array> // std::array
-#include <iostream> // std::cout
+#include <array>
+#include <iostream>
 #include <xieite/algorithms/partialReverse.hpp>
 
 int main() {

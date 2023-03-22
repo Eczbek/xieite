@@ -1,6 +1,7 @@
 #pragma once
-#include <string> // std::string
-#include <unistd.h> // STDIN_FILENO, read
+
+#include <string>
+#include <unistd.h>
 #include <xieite/console/NonBlockLock.hpp>
 #include <xieite/console/RawLock.hpp>
 

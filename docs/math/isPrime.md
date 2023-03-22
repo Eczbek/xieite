@@ -18,7 +18,7 @@ constexpr bool isPrime(const Integral value) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::boolalpha, std::cout
+#include <iostream>
 #include <xieite/math/isPrime.hpp>
 
 int main() {

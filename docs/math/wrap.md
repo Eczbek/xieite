@@ -18,7 +18,7 @@ constexpr Number wrap(const Number value, const Number max, const Number min = 0
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/math/wrap.hpp>
 
 int main() {

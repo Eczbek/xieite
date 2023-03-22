@@ -1,9 +1,10 @@
 #pragma once
-#include <concepts> // std::invocable
-#include <cstddef> // std::size_t
-#include <type_traits> // std::invoke_result_t
-#include <unordered_map> // std::unordered_map
-#include <vector> // std::vector
+
+#include <concepts>
+#include <cstddef>
+#include <type_traits>
+#include <unordered_map>
+#include <vector>
 
 namespace xieite::vector {
 	template<typename Value, std::invocable<Value> Invocable>

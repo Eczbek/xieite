@@ -32,7 +32,7 @@ constexpr bool operator==(const xieite::geometry::Segment& other) const noexcept
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/geometry/Segment.hpp>
 #include <xieite/geometry/getLength.hpp>
 

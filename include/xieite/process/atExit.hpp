@@ -1,9 +1,10 @@
 #pragma once
-#include <cstdlib> // std::exit
-#include <functional> // std::function
-#include <mutex> // std::lock_guard, std::mutex
-#include <type_traits> // std::invoke_result_t
-#include <vector> // std::vector
+
+#include <cstdlib>
+#include <functional>
+#include <mutex>
+#include <type_traits>
+#include <vector>
 
 namespace xieite::process {
 	void atExit(const std::function<void()>& callback) noexcept {

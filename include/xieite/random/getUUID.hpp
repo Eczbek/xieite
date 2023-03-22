@@ -1,6 +1,7 @@
 #pragma once
-#include <string> // std::string
-#include <uuid/uuid.h> // uuid_generate, uuid_t, uuid_unparse
+
+#include <string>
+#include <uuid/uuid.h>
 
 namespace xieite::random {
 	inline std::string getUUID() noexcept {

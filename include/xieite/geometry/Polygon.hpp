@@ -1,5 +1,6 @@
 #pragma once
-#include <vector> // std::vector
+
+#include <vector>
 #include <xieite/algorithms/rotatedMatch.hpp>
 #include <xieite/geometry/Point.hpp>
 

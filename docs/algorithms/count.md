@@ -17,7 +17,7 @@ constexpr std::size_t count(auto&&... arguments) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/algorithms/count.hpp>
 
 int main() {

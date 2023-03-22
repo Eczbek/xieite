@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace xieite::console {
 	struct CursorPosition {
 		int row;

@@ -1,5 +1,6 @@
 #pragma once
-#include <string> // std::string
+
+#include <string>
 
 namespace xieite::string {
 	constexpr char toUppercase(char character) noexcept {

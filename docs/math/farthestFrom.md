@@ -22,7 +22,7 @@ constexpr Number farthestFrom(const Number target, const Number& a, const Number
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/math/farthestFrom.hpp>
 
 int main() {

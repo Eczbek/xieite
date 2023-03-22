@@ -21,7 +21,7 @@ constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/geometry/Segment.hpp>
 #include <xieite/geometry/getLength.hpp>
 

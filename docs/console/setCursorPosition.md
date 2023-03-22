@@ -16,7 +16,7 @@ constexpr std::string setCursorPosition(const xieite::console::CursorPosition po
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/console/setCursorPosition.hpp>
 
 int main() {

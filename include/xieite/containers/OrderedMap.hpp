@@ -1,7 +1,8 @@
 #pragma once
-#include <array> // std::array
-#include <concepts> // std::convertible_to
-#include <limits> // std::numeric_limits
+
+#include <array>
+#include <concepts>
+#include <limits>
 
 namespace xieite::containers {
 	template<std::convertible_to<std::size_t> Key, typename Value>

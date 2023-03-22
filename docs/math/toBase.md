@@ -18,7 +18,7 @@ constexpr std::string toBase(Integral value, const std::size_t base, const std::
 
 ## Example
 ```cpp
-#include <iostream> // std::cout
+#include <iostream>
 #include <xieite/math/toBase.hpp>
 
 int main() {

@@ -1,7 +1,8 @@
 #pragma once
-#include <cstddef> // std::size_t
-#include <functional> // std::equal_to
-#include <iterator> // std::forward_iterator, std::iterator_traits
+
+#include <cstddef>
+#include <functional>
+#include <iterator>
 #include <xieite/concepts/ComparatorCallback.hpp>
 
 namespace xieite::algorithms {

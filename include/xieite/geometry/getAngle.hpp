@@ -1,6 +1,7 @@
 #pragma once
-#include <concepts> // std::derived_from
-#include <cmath> // std::atan2, std::fmod
+
+#include <concepts>
+#include <cmath>
 #include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/math/pi.hpp>

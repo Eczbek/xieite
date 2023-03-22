@@ -1,13 +1,14 @@
 #pragma once
-#include <cmath> // std::min
-#include <compare> // std::strong_ordering
-#include <concepts> // std::convertible_to, std::integral
-#include <cstddef> // std::size_t
-#include <iterator> // std::forward_iterator, std::iterator_traits, std::next
-#include <string> // std::string
-#include <string_view> // std::string_view
-#include <utility> // std::move
-#include <vector> // std::vector
+
+#include <cmath>
+#include <compare>
+#include <concepts>
+#include <cstddef>
+#include <iterator>
+#include <string>
+#include <string_view>
+#include <utility>
+#include <vector>
 #include <xieite/concepts/Arithmetic.hpp>
 #include <xieite/concepts/ComparatorCallback.hpp>
 #include <xieite/macros/ASSERT.hpp>
@@ -82,10 +83,10 @@ namespace xieite::math {
 			Number result = 0;
 			Number exponent = 1;
 			for (const bool bit : this->bits) {
-				result += bit * exponent;
+				result += exponent * bit;
 				exponent *= 2;
 			}
-			result *= !this->sign * 2 + 1;
+			result *= !this->sign * 2 - 1;
 			return result;
 		}
 
@@ -524,7 +525,7 @@ namespace xieite::math {
 			xieite::math::BigInteger copy = absolute();
 			std::string result;
 			do {
-				result = static_cast<char>('0' + copy % 10) + result;
+				result = static_cast<char>(copy % 10 + '0') + result;
 				copy /= 10;
 			} while (copy);
 			if (this->sign)

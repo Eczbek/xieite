@@ -1,6 +1,7 @@
 #pragma once
-#include <string> // std::string
-#include <vector> // std::vector
+
+#include <string>
+#include <vector>
 #include <xieite/containers/OrderedMap.hpp>
 
 namespace xieite::string {

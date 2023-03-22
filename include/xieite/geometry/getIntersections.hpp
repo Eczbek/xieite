@@ -1,8 +1,9 @@
 #pragma once
-#include <cmath> // std::sqrt
-#include <concepts> // std::derived_from
-#include <optional> // std::optional
-#include <vector> // std::vector
+
+#include <cmath>
+#include <concepts>
+#include <optional>
+#include <vector>
 #include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
