@@ -24,10 +24,10 @@
 #include <xieite/console/codes.hpp>
 #include <xieite/console/cursorControls.hpp>
 #include <xieite/console/getCursorPosition.hpp>
-#include <xieite/console/getKeyPress.hpp>
+#include <xieite/console/getCharacter.hpp>
 #include <xieite/console/getWindowSize.hpp>
 #include <xieite/console/moveCursor.hpp>
-#include <xieite/console/readBuffer.hpp>
+#include <xieite/console/getString.hpp>
 #include <xieite/console/setBackground.hpp>
 #include <xieite/console/setCursorPosition.hpp>
 #include <xieite/console/setForeground.hpp>
@@ -75,6 +75,7 @@
 #include <xieite/math/difference.hpp>
 #include <xieite/math/farthestFrom.hpp>
 #include <xieite/math/fromBase.hpp>
+#include <xieite/math/isPowerOf2.hpp>
 #include <xieite/math/isPrime.hpp>
 #include <xieite/math/pi.hpp>
 #include <xieite/math/piDigits.hpp>
