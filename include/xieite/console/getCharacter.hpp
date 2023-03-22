@@ -3,8 +3,8 @@
 #include <xieite/console/RawLock.hpp>
 
 namespace xieite::console {
-	inline char getKeyPress(const bool echo = false) noexcept {
-		xieite::console::RawLock RawLock(echo);
+	inline char getCharacter(const bool echo = false) noexcept {
+		xieite::console::RawLock rawLock(echo);
 		return std::cin.get();
 	}
 }

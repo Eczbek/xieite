@@ -5,9 +5,9 @@
 #include <xieite/console/RawLock.hpp>
 
 namespace xieite::console {
-	inline std::string readBuffer() noexcept {
-		xieite::console::RawLock RawLock;
-		xieite::console::NonBlockLock NonBlockLock;
+	inline std::string getString() noexcept {
+		xieite::console::RawLock rawLock;
+		xieite::console::NonBlockLock nonBlockLock;
 		std::string buffer;
 		while (true) {
 			char input = 0;

@@ -1,5 +1,5 @@
-# xieite::console::getKeyPress
-Defined in header `<xieite/console/getKeyPress.hpp>`
+# xieite::console::getCharacter
+Defined in header `<xieite/console/getCharacter.hpp>`
 
 <br/>
 
@@ -9,7 +9,7 @@ Waits for and returns the next keypress input.
 
 ## Declarations
 ```cpp
-inline char getKeyPress(const bool echo = false) noexcept;
+inline char getCharacter(const bool echo = false) noexcept;
 ```
 
 <br/><br/>
@@ -18,12 +18,12 @@ inline char getKeyPress(const bool echo = false) noexcept;
 ```cpp
 #include <chrono> // std::chrono::duration_cast, std::chrono::milliseconds, std::chrono::steady_clock, std::chrono::time_point
 #include <iostream> // std::cout
-#include <xieite/console/getKeyPress.hpp>
+#include <xieite/console/getCharacter.hpp>
 
 int main() {
 	std::cout << "Press a key: ";
 	const std::chrono::time_point start = std::chrono::steady_clock::now();
-	const char input = xieite::console::getKeyPress(true);
+	const char input = xieite::console::getCharacter(true);
 	const std::chrono::time_point end = std::chrono::steady_clock::now();
 	std::cout << "\nElapsed milliseconds: " << std::chrono::duration_cast<std::chrono::milliseconds>(start - end).count() << '\n';
 }
