@@ -7,7 +7,7 @@
 #include <vector>
 
 namespace xieite::process {
-	void atExit(const std::function<void()>& callback) noexcept {
+	inline void atExit(const std::function<void()>& callback) noexcept {
 		static std::vector<std::function<void()>> callbacks;
 		static std::mutex callbacksMutex;
 		static struct Lock {
