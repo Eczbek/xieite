@@ -26,7 +26,7 @@ constexpr Iterator findOccurence(Iterator begin, Iterator end, typename std::ite
 int main() {
 	std::vector<int> values { 1, 2, 1, 3, 1, 4, 1 };
 	
-	std::cout << std::distance(values.begin(), xieite::algorithms::findOccurence(values.begin(), values.end(), 1, 3)) << '\n';
+	std::cout << std::distance(std::begin(values), xieite::algorithms::findOccurence(std::begin(values), std::end(values), 1, 3)) << '\n';
 }
 ```
 Output:

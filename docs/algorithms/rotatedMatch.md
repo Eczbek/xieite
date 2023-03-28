@@ -26,15 +26,17 @@ constexpr bool rotatedMatch(Iterator1 begin1, Iterator1 end1, Iterator2 begin2, 
 int main() {
 	std::vector<int> a { 1, 2, 3, 4, 5 };
 	//                  |>  >  >  >  >|
+
 	std::vector<int> b { 4, 5, 1, 2, 3 };
 	//                   >  >||>  >  >
+
 	std::vector<int> c { 3, 2, 1, 5, 4 };
 	//                   <  <  <||<  <
 
 	std::cout << std::boolalpha
-		<< xieite::algorithms::rotatedMatch(a.begin(), a.end(), b.begin(), b.end()) << '\n'
-		<< xieite::algorithms::rotatedMatch(a.begin(), a.end(), c.begin(), c.end()) << '\n'
-		<< xieite::algorithms::rotatedMatch(a.rbegin(), a.rend(), c.begin(), c.end()) << '\n';
+		<< xieite::algorithms::rotatedMatch(std::begin(a), std::end(a), std::begin(b), std::end(b)) << '\n'
+		<< xieite::algorithms::rotatedMatch(std::begin(a), std::end(a), std::begin(c), std::end(c)) << '\n'
+		<< xieite::algorithms::rotatedMatch(std::rbegin(a), std::rend(a), std::begin(c), std::end(c)) << '\n';
 }
 ```
 Output:
