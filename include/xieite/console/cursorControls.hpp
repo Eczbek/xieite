@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace xieite::console::cursorControls {
 	constexpr char up = 'A';
 	constexpr char down = 'B';

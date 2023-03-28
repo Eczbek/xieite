@@ -6,8 +6,6 @@
 #include <thread>
 #include <utility>
 
-// Thanks to uno20001 for help
-
 namespace xieite::threads {
 	class Loop {
 	private:
@@ -38,3 +36,5 @@ namespace xieite::threads {
 		}
 	};
 }
+
+// Thanks to uno20001 for help

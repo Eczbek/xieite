@@ -81,16 +81,22 @@ constexpr std::string_view showCursor = "\x1b[?25h";
 constexpr std::string_view hideCursor = "\x1b[?25l";
 ```
 ```cpp
+constexpr std::string_view saveCursor = "\x1b[s";
+```
+```cpp
+constexpr std::string_view restoreCursor = "\x1b[u";
+```
+```cpp
 constexpr std::string_view saveScreen = "\x1b[?47h";
 ```
 ```cpp
 constexpr std::string_view restoreScreen = "\x1b[?47l";
 ```
 ```cpp
-constexpr std::string_view enableAlternativeBuffer = "\x1b[?1049h";
+constexpr std::string_view enableAlternative = "\x1b[?1049h";
 ```
 ```cpp
-constexpr std::string_view disableAlternativeBuffer = "\x1b[?1049l";
+constexpr std::string_view disableAlternative = "\x1b[?1049l";
 ```
 ```cpp
 constexpr std::string_view resetColors = "\x1b[0m";
