@@ -17,5 +17,5 @@ int column;
 
 ## Constructors
 ```cpp
-constexpr CursorPosition(const int row = 0, const int column = 0) noexcept;
+constexpr CursorPosition(int row = 0, int column = 0) noexcept;
 ```

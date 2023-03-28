@@ -11,11 +11,11 @@ Selects the value farthest from a target.
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number& farthestFrom(const Number target, Number& a, Number& b) noexcept;
+constexpr Number& farthestFrom(Number target, Number& a, Number& b) noexcept;
 
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number farthestFrom(const Number target, const Number& a, const Number& b) noexcept;
+constexpr Number farthestFrom(Number target, const Number& a, const Number& b) noexcept;
 ```
 
 <br/><br/>

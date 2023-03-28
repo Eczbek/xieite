@@ -20,7 +20,7 @@ double rotation;
 
 ## Constructors
 ```cpp
-constexpr Ellipse(const xieite::geometry::Point center, const xieite::geometry::Point radii, const double rotation = 0.0) noexcept;
+constexpr Ellipse(xieite::geometry::Point center, xieite::geometry::Point radii, double rotation = 0.0) noexcept;
 ```
 
 ## Operators
@@ -39,8 +39,7 @@ constexpr bool operator==(const xieite::geometry::Ellipse& other) const noexcept
 #include <xieite/geometry/getArea.hpp>
 
 int main() {
-	const xieite::geometry::Ellipse ellipse({ 0.0, 0.0 }, { 1.0, 2.0 });
-	std::cout << xieite::geometry::getArea(ellipse) << '\n';
+	std::cout << xieite::geometry::getArea(xieite::geometry::Ellipse({ 0.0, 0.0 }, { 1.0, 2.0 })) << '\n';
 }
 ```
 Output:

@@ -17,10 +17,10 @@ xieite::geometry::Point end;
 
 ## Constructors
 ```cpp
-constexpr Line(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept;
+constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
 ```cpp
-constexpr Line(const xieite::geometry::Point start, const double angle) noexcept;
+constexpr Line(xieite::geometry::Point start, double angle) noexcept;
 ```
 
 ## Operators
@@ -39,8 +39,7 @@ constexpr bool operator==(const xieite::geometry::Line& other) const noexcept;
 #include <xieite/geometry/getAngle.hpp>
 
 int main() {
-	const xieite::geometry::Line line({ 0.0, 0.0 }, { 1.0, 1.0 });
-	std::cout << xieite::geometry::getAngle(line) << '\n';
+	std::cout << xieite::geometry::getAngle(xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 })) << '\n';
 }
 ```
 Output:

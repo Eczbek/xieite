@@ -10,7 +10,7 @@ Demangles a `typeid` name. Returns original string if demangling fails.
 ## Declarations
 ```cpp
 [[nodiscard]]
-inline std::string demangle(const std::string_view mangled) noexcept;
+inline std::string demangle(std::string_view mangled) noexcept;
 ```
 
 <br/><br/>
@@ -18,19 +18,22 @@ inline std::string demangle(const std::string_view mangled) noexcept;
 ## Example
 ```cpp
 #include <iostream>
+#include <typeinfo>
+#include <string_view>
 #include <xieite/types/demangle.hpp>
 
-template<typename T>
+template<typename>
 struct Type {};
 
 int main() {
-	Type<int> value;
+	std::string_view typeName = typeid(Type<int>).name();
 
-	std::cout << typeid(value).name() << '\n'
-		<< xieite::types::demangle(typeid(value).name()) << '\n';
+	std::cout
+		<< typeName << '\n'
+		<< xieite::types::demangle(typeName) << '\n';
 }
 ```
-Output:
+Possible output:
 ```
 4TypeIiE
 Type<int>

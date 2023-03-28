@@ -11,5 +11,5 @@ A trigonometric function which wasn't included in the standard math library.
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number cosecant(const Number value) noexcept;
+constexpr Number cosecant(Number value) noexcept;
 ```

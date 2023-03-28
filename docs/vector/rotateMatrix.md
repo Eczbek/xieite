@@ -23,13 +23,13 @@ constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::ve
 #include <xieite/vector/rotateMatrix.hpp>
 
 int main() {
-	const std::vector<std::vector<int>> matrix {
+	std::vector<std::vector<int>> matrix {
 		{ 1, 2, 3 },
 		{ 4, 5, 6 }
 	};
 
-	for (const std::vector<int>& row : xieite::vector::rotateMatrix(matrix, 1)) {
-		for (const int value : row)
+	for (std::vector<int>& row : xieite::vector::rotateMatrix(matrix, 1)) {
+		for (int value : row)
 			std::cout << value << ' ';
 		std::cout << '\n';
 	}

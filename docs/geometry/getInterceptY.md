@@ -24,8 +24,8 @@ constexpr std::optional<xieite::geometry::Point> getInterceptY(const std::derive
 #include <xieite/geometry/getInterceptY.hpp>
 
 int main() {
-	const xieite::geometry::Line line({ 1.0, 2.0 }, { 2.0, 1.0 });
-	const std::optional<xieite::geometry::Point> point = xieite::geometry::getInterceptY(line);
+	std::optional<xieite::geometry::Point> point = xieite::geometry::getInterceptY(xieite::geometry::Line({ 1.0, 2.0 }, { 2.0, 1.0 }));
+
 	if (point.has_value())
 		std::cout << '(' << point.value().x << ", " << point.value().y << ")\n";
 }

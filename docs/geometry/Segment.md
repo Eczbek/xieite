@@ -17,7 +17,7 @@ xieite::geometry::Point end;
 
 ## Constructors
 ```cpp
-constexpr Segment(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept;
+constexpr Segment(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
 
 ## Operators
@@ -37,8 +37,7 @@ constexpr bool operator==(const xieite::geometry::Segment& other) const noexcept
 #include <xieite/geometry/getLength.hpp>
 
 int main() {
-	xieite::geometry::Segment segment({ 0.0, 0.0 }, { 3.0, 4.0 });
-	std::cout << xieite::geometry::getLength(segment) << '\n';
+	std::cout << xieite::geometry::getLength(xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 })) << '\n';
 }
 ```
 Output:

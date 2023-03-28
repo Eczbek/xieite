@@ -11,7 +11,7 @@ Checks whether an integral is prime, or only divisible by itself and 1.
 ```cpp
 template<std::integral Integral>
 [[nodiscard]]
-constexpr bool isPrime(const Integral value) noexcept;
+constexpr bool isPrime(Integral value) noexcept;
 ```
 
 <br/><br/>
@@ -22,7 +22,8 @@ constexpr bool isPrime(const Integral value) noexcept;
 #include <xieite/math/isPrime.hpp>
 
 int main() {
-	std::cout << std::boolalpha << xieite::math::isPrime(17) << '\n';
+	std::cout << std::boolalpha
+		<< xieite::math::isPrime(17) << '\n';
 }
 ```
 Output:

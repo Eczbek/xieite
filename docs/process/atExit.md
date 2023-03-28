@@ -25,3 +25,7 @@ int main() {
 	});
 }
 ```
+Output:
+```cpp
+Hello, world!
+```

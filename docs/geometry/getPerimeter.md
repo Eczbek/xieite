@@ -22,13 +22,12 @@ constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept
 #include <xieite/geometry/getPerimeter.hpp>
 
 int main() {
-	const xieite::geometry::Polygon square({
+	std::cout << xieite::geometry::getPerimeter(xieite::geometry::Polygon({
 		{ -1.0, -1.0 },
 		{ 1.0, -1.0 },
 		{ 1.0, 1.0 },
 		{ -1.0, 1.0 }
-	});
-	std::cout << xieite::geometry::getPerimeter(square) << '\n';
+	})) << '\n';
 }
 ```
 Output:

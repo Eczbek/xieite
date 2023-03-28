@@ -10,11 +10,11 @@ Splits a string into a vector of substrings.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr std::vector<std::string> split(const std::string& string, const std::string_view delimiter = "") noexcept;
+constexpr std::vector<std::string> split(const std::string& string, std::string_view delimiter = "") noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr std::vector<std::string> split(const std::string& string, const char delimiter) noexcept;
+constexpr std::vector<std::string> split(const std::string& string, char delimiter) noexcept;
 ```
 
 <br/><br/>
@@ -26,7 +26,7 @@ constexpr std::vector<std::string> split(const std::string& string, const char d
 #include <xieite/string/split.hpp>
 
 int main() {
-	for (const std::string_view segment : xieite::string::split("Hello, world!", ' '))
+	for (std::string_view segment : xieite::string::split("Hello, world!", ' '))
 		std::cout << segment << '\n';
 }
 ```

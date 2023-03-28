@@ -23,15 +23,15 @@ std::uint8_t alpha;
 
 ## Constructors
 ```cpp
-constexpr Color(const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue, const std::uint8_t alpha = 255) noexcept;
+constexpr Color(std::uint8_t red, std::uint8_t green, std::uint8_t blue, std::uint8_t alpha = 255) noexcept;
 ```
 ```cpp
-constexpr Color(const std::uint32_t value) noexcept;
+constexpr Color(std::uint32_t value) noexcept;
 ```
 
 ## Operators
 ```cpp
-constexpr bool operator==(const xieite::graphics::Color other) const noexcept;
+constexpr bool operator==(xieite::graphics::Color other) const noexcept;
 ```
 (`operator!=` is defined implicitly)
 

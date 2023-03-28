@@ -11,12 +11,12 @@ Calculates the absolute difference between two values. Handles some edge cases.
 ```cpp
 template<std::integral Integral>
 [[nodiscard]]
-constexpr std::make_unsigned<Integral> difference(const Integral a, const Integral b) noexcept;
+constexpr std::make_unsigned<Integral> difference(Integral a, Integral b) noexcept;
 ```
 ```cpp
 template<std::floating_point FloatingPoint>
 [[nodiscard]]
-constexpr FloatingPoint difference(const FloatingPoint a, const FloatingPoint b) noexcept;
+constexpr FloatingPoint difference(FloatingPoint a, FloatingPoint b) noexcept;
 ```
 
 <br/><br/>
@@ -29,8 +29,8 @@ constexpr FloatingPoint difference(const FloatingPoint a, const FloatingPoint b)
 #include <xieite/math/difference.hpp>
 
 int main() {
-	const std::int8_t min = std::numeric_limits<std::int8_t>::min();
-	const std::int8_t max = std::numeric_limits<std::int8_t>::max();
+	std::int8_t min = std::numeric_limits<std::int8_t>::min();
+	std::int8_t max = std::numeric_limits<std::int8_t>::max();
 
 	std::cout
 		<< min << '\n'

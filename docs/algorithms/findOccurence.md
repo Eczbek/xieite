@@ -11,7 +11,7 @@ Finds the pointer to a specific occurence of a value in an iterable. If the valu
 ```cpp
 template<std::forward_iterator Iterator, xieite::concepts::ComparatorCallback<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
 [[nodiscard]]
-constexpr Iterator findOccurence(Iterator begin, const Iterator end, typename std::iterator_traits<Iterator>::value_type&& value, std::size_t count, Callback&& comparator = Callback()) noexcept;
+constexpr Iterator findOccurence(Iterator begin, Iterator end, typename std::iterator_traits<Iterator>::value_type&& value, std::size_t count, Callback&& comparator = Callback()) noexcept;
 ```
 
 <br/><br/>
@@ -25,6 +25,7 @@ constexpr Iterator findOccurence(Iterator begin, const Iterator end, typename st
 
 int main() {
 	std::vector<int> values { 1, 2, 1, 3, 1, 4, 1 };
+	
 	std::cout << std::distance(values.begin(), xieite::algorithms::findOccurence(values.begin(), values.end(), 1, 3)) << '\n';
 }
 ```

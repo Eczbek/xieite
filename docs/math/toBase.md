@@ -11,7 +11,7 @@ Converts an integer to a string in any base. Can be used as a compile-time metho
 ```cpp
 template<std::integral Integral = int>
 [[nodiscard]]
-constexpr std::string toBase(Integral value, const std::size_t base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
+constexpr std::string toBase(Integral value, std::size_t base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
 ```
 
 <br/><br/>

@@ -11,7 +11,7 @@ Defined in header `<xieite/math/wrap.hpp>`
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number wrap(const Number value, const Number max, const Number min = 0.0) noexcept;
+constexpr Number wrap(Number value, Number max, Number min = 0.0) noexcept;
 ```
 
 <br/><br/>

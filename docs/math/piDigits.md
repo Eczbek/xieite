@@ -10,7 +10,7 @@ Calculates digits of Pi.
 ## Declarations
 ```cpp
 template<std::integral Integral = int>
-std::vector<Integral> piDigits(const std::size_t digits) noexcept;
+std::vector<Integral> piDigits(std::size_t digits) noexcept;
 ```
 
 <br/><br/>
@@ -21,7 +21,7 @@ std::vector<Integral> piDigits(const std::size_t digits) noexcept;
 #include <xieite/math/piDigits.hpp>
 
 int main() {
-	for (const int digit : xieite::math::piDigits(50))
+	for (int digit : xieite::math::piDigits(50))
 		std::cout << digit;
 	std::cout << '\n';
 }

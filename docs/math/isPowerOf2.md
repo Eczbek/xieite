@@ -9,7 +9,7 @@ Checks that a value is a power of 2.
 
 ## Declarations
 ```cpp
-constexpr bool isPowerOf2(const std::unsigned_integral auto value) noexcept;
+constexpr bool isPowerOf2(std::unsigned_integral auto value) noexcept;
 ```
 
 <br/><br/>

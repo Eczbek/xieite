@@ -24,13 +24,12 @@ constexpr std::vector<xieite::geometry::Segment> getSides(const xieite::geometry
 #include <xieite/geometry/getSides.hpp>
 
 int main() {
-	const xieite::geometry::Polygon rectangle({
+	for (xieite::geometry::Segment& side : xieite::geometry::getSides(xieite::geometry::Polygon rectangle({
 		{ 0.0, 0.0 },
 		{ 3.0, 0.0 },
 		{ 3.0, 2.0 },
 		{ 0.0, 2.0 }
-	});
-	for (const xieite::geometry::Segment& side : xieite::geometry::getSides(rectangle))
+	})))
 		std::cout << xieite::geometry::getLength(side) << '\n';
 }
 ```
