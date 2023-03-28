@@ -20,7 +20,7 @@ Add the `include` directory to your project.
 - Asynchronous Timeout and Interval classes
 - Common concepts
 - Terminal manipulation tools
-- Basic 2D geometrical shapes and functions
+- 2D geometrical shapes and functions
 - Macros for indentifying platform and compiler
 - BigInteger class, complete with bitwise operators
 - robert
@@ -32,6 +32,5 @@ Add the `include` directory to your project.
 <br/>
 
 ## To-do
-- Handle special key inputs
 - Network namespace
 - Ellipse-ellipse intersections
