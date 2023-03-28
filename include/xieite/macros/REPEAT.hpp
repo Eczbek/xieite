@@ -2,11 +2,12 @@
 
 #include <xieite/macros/CONCATENATE.hpp>
 
-#define XIEITE_REPEAT(expression, unsignedInteger) XIEITE_CONCATENATE(XIEITE_REPEAT_, unsignedInteger)(expression)
+#define XIEITE_REPEAT(expression, unsignedInteger) \
+	XIEITE_CONCATENATE(XIEITE_REPEAT_, unsignedInteger)(expression)
 
 #define XIEITE_REPEAT_0(expression)
 #define XIEITE_REPEAT_1(expression) expression
-#define XIEITE_REPEAT_2(expression) expression XIEITE_REPEAT_1(expression)
+#define XIEITE_REPEAT_2(expression) expression expression
 #define XIEITE_REPEAT_3(expression) expression XIEITE_REPEAT_2(expression)
 #define XIEITE_REPEAT_4(expression) expression XIEITE_REPEAT_3(expression)
 #define XIEITE_REPEAT_5(expression) expression XIEITE_REPEAT_4(expression)
