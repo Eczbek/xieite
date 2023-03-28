@@ -24,7 +24,7 @@ constexpr void partialReverse(Iterator begin, Iterator end, xieite::concepts::Se
 int main() {
 	std::array<int, 5> values { 1, 2, 3, 4, 5 };
 	
-	xieite::algorithms::partialReverse(values.begin(), values.end(), [](int value) -> bool {
+	xieite::algorithms::partialReverse(std::begin(values), std::end(values), [](int value) -> bool {
 		return value <= 3;
 	});
 

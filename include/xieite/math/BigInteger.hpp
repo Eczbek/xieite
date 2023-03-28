@@ -112,7 +112,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		std::strong_ordering operator<=>(const xieite::math::BigInteger& other) const noexcept {
-			return (this->sign != other.sign) ? (other.sign <=> this->sign) : (this->sign ? ((this->bits.size() != other.bits.size()) ? (other.bits.size() <=> this->bits.size()) : (std::vector<bool>(other.bits.rbegin(), other.bits.rend()) <=> std::vector<bool>(this->bits.rbegin(), this->bits.rend()))) : ((this->bits.size() != other.bits.size()) ? (this->bits.size() <=> other.bits.size()) : (std::vector<bool>(this->bits.rbegin(), this->bits.rend()) <=> std::vector<bool>(other.bits.rbegin(), other.bits.rend()))));
+			return (this->sign != other.sign) ? (other.sign <=> this->sign) : (this->sign ? ((this->bits.size() != other.bits.size()) ? (other.bits.size() <=> this->bits.size()) : (std::vector<bool>(std::rbegin(other.bits), std::rend(other.bits)) <=> std::vector<bool>(std::rbegin(this->bits), std::rend(this->bits)))) : ((this->bits.size() != other.bits.size()) ? (this->bits.size() <=> other.bits.size()) : (std::vector<bool>(std::rbegin(this->bits), std::rend(this->bits)) <=> std::vector<bool>(std::rbegin(other.bits), std::rend(other.bits)))));
 		}
 
 		[[nodiscard]]
@@ -238,12 +238,12 @@ namespace xieite::math {
 			if (other == -1)
 				return -*this;
 			const std::size_t halfSize = std::min(this->bits.size(), other.bits.size()) / 2;
-			const std::vector<bool>::const_iterator i = std::next(this->bits.begin(), halfSize);
-			const xieite::math::BigInteger a(std::vector<bool>(this->bits.begin(), i));
-			const xieite::math::BigInteger b(std::vector<bool>(i, this->bits.end()));
-			const std::vector<bool>::const_iterator j = std::next(other.bits.begin(), halfSize);
-			const xieite::math::BigInteger c(std::vector<bool>(other.bits.begin(), j));
-			const xieite::math::BigInteger d(std::vector<bool>(j, other.bits.end()));
+			const std::vector<bool>::const_iterator i = std::next(std::begin(this->bits), halfSize);
+			const xieite::math::BigInteger a(std::vector<bool>(std::begin(this->bits), i));
+			const xieite::math::BigInteger b(std::vector<bool>(i, std::end(this->bits)));
+			const std::vector<bool>::const_iterator j = std::next(std::begin(other.bits), halfSize);
+			const xieite::math::BigInteger c(std::vector<bool>(std::begin(other.bits), j));
+			const xieite::math::BigInteger d(std::vector<bool>(j, std::end(other.bits)));
 			const xieite::math::BigInteger e = a * c;
 			const xieite::math::BigInteger f = (a + b) * (c + d);
 			const xieite::math::BigInteger g = b * d;
@@ -281,11 +281,11 @@ namespace xieite::math {
 			for (std::size_t i = this->bits.size(); i--;) {
 				if (!difference)
 					difference.bits.clear();
-				difference.bits.insert(difference.bits.begin(), this->bits[i]);
+				difference.bits.insert(std::begin(difference.bits), this->bits[i]);
 				bool quotient = difference >= otherCopy;
 				if (quotient)
 					difference -= otherCopy;
-				resultBits.insert(resultBits.begin(), quotient);
+				resultBits.insert(std::begin(resultBits), quotient);
 			}
 			return xieite::math::BigInteger(resultBits, this->sign != otherSign);
 		}
@@ -316,7 +316,7 @@ namespace xieite::math {
 			for (std::size_t i = this->bits.size(); i--;) {
 				if (!difference)
 					difference.bits.clear();
-				difference.bits.insert(difference.bits.begin(), this->bits[i]);
+				difference.bits.insert(std::begin(difference.bits), this->bits[i]);
 				if (difference >= otherCopy)
 					difference -= otherCopy;
 			}
@@ -409,7 +409,7 @@ namespace xieite::math {
 			if (!other)
 				return *this;
 			std::vector<bool> resultBits(static_cast<std::size_t>(other));
-			resultBits.insert(resultBits.end(), this->bits.begin(), this->bits.end());
+			resultBits.insert(std::end(resultBits), std::begin(this->bits), std::end(this->bits));
 			return xieite::math::BigInteger(resultBits, this->sign);
 		}
 
@@ -433,8 +433,8 @@ namespace xieite::math {
 			if (!other)
 				return *this;
 			std::vector<bool> resultBits = this->bits;
-			std::vector<bool>::iterator end = resultBits.begin();
-			resultBits.erase(resultBits.begin(), std::next(resultBits.begin(), static_cast<std::size_t>(other)));
+			std::vector<bool>::iterator end = std::begin(resultBits);
+			resultBits.erase(std::begin(resultBits), std::next(std::begin(resultBits), static_cast<std::size_t>(other)));
 			BigInteger result(resultBits, this->sign);
 			return result ? result : -xieite::math::BigInteger(this->sign);
 		}
