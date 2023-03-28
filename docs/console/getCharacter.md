@@ -9,7 +9,7 @@ Waits for and returns the next keypress input.
 
 ## Declarations
 ```cpp
-inline char getCharacter(bool echo = false) noexcept;
+inline char getCharacter(bool echo = true) noexcept;
 ```
 
 <br/><br/>
@@ -25,7 +25,7 @@ int main() {
 
 	std::chrono::time_point start = std::chrono::steady_clock::now();
 
-	char input = xieite::console::getCharacter(true);
+	char input = xieite::console::getCharacter();
 
 	std::chrono::time_point end = std::chrono::steady_clock::now();
 

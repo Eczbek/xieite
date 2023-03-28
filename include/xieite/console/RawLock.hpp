@@ -9,11 +9,11 @@ namespace xieite::console {
 		termios cookedMode;
 
 	public:
-		RawLock(const bool echo = false) noexcept {
+		RawLock(const bool echo = true) noexcept {
 			tcgetattr(STDIN_FILENO, &this->cookedMode);
 			termios rawMode = this->cookedMode;
 			cfmakeraw(&rawMode);
-			rawMode.c_lflag |= ECHO * echo;
+			rawMode.c_lflag &= ~(ICANON | (ECHO * echo));
 			tcsetattr(STDIN_FILENO, TCSANOW, &rawMode);
 		}
 
