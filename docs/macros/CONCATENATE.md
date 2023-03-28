@@ -9,7 +9,8 @@ Concatenates two values literally.
 
 ## Declarations
 ```cpp
-#define XIEITE_CONCATENATE(expression1, expression2) XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2)
+#define XIEITE_CONCATENATE(expression1, expression2) \
+	XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2)
 ```
 
 <br/><br/>

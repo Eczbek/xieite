@@ -9,7 +9,8 @@ Creates a multidimensional vector matrix.
 
 ## Declarations
 ```cpp
-#define XIEITE_MATRIX(unsignedInteger, type) XIEITE_REPEAT(std::vector<, unsignedInteger) type XIEITE_REPEAT(>, unsignedInteger)
+#define XIEITE_MATRIX(unsignedInteger, type) \
+	XIEITE_REPEAT(std::vector<, unsignedInteger) type XIEITE_REPEAT(>, unsignedInteger)
 ```
 
 <br/><br/>
