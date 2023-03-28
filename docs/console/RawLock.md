@@ -9,7 +9,7 @@ Enables terminal "raw" mode.
 
 ## Constructors
 ```cpp
-RawLock(bool echo = false) noexcept;
+RawLock(bool echo = true) noexcept;
 ```
 
 ## Destructors
