@@ -17,7 +17,7 @@ double radius;
 
 ## Constructors
 ```cpp
-constexpr Circle(const xieite::geometry::Point center, const double radius) noexcept;
+constexpr Circle(xieite::geometry::Point center, double radius) noexcept;
 ```
 
 ## Operators
@@ -36,8 +36,7 @@ constexpr bool operator==(const xieite::geometry::Circle& other) const noexcept;
 #include <xieite/geometry/getArea.hpp>
 
 int main() {
-	const xieite::geometry::Circle circle({ 0.0, 0.0 }, 3.0);
-	std::cout << xieite::geometry::getArea(circle) << '\n';
+	std::cout << xieite::geometry::getArea(xieite::geometry::Circle({ 0.0, 0.0 }, 3.0)) << '\n';
 }
 ```
 Output:

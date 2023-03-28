@@ -9,7 +9,7 @@ Executes a command and returns its output.
 
 ## Declarations
 ```cpp
-inline std::string execute(const std::string_view command, const std::size_t chunkSize = 1024) noexcept;
+inline std::string execute(std::string_view command, std::size_t chunkSize = 1024) noexcept;
 ```
 
 <br/><br/>

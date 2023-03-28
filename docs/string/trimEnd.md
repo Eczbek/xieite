@@ -10,7 +10,7 @@ Trims the end of a string.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr std::string trimEnd(const std::string& string, const char character) noexcept;
+constexpr std::string trimEnd(const std::string& string, char character) noexcept;
 ```
 ```cpp
 [[nodiscard]]

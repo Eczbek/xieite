@@ -10,31 +10,31 @@ Checks whether a shape or line contains a point.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr bool containsPoint(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept;
+constexpr bool containsPoint(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr bool containsPoint(const xieite::geometry::Line& line, const xieite::geometry::Point point) noexcept;
+constexpr bool containsPoint(const xieite::geometry::Line& line, xieite::geometry::Point point) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr bool containsPoint(const xieite::geometry::Ray& ray, const xieite::geometry::Point point) noexcept;
+constexpr bool containsPoint(const xieite::geometry::Ray& ray, xieite::geometry::Point point) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr bool containsPoint(const xieite::geometry::Segment& segment, const xieite::geometry::Point point) noexcept;
+constexpr bool containsPoint(const xieite::geometry::Segment& segment, xieite::geometry::Point point) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, const xieite::geometry::Point point) noexcept;
+constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, xieite::geometry::Point point) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr bool containsPoint(const xieite::geometry::Ellipse& ellipse, const xieite::geometry::Point point) noexcept;
+constexpr bool containsPoint(const xieite::geometry::Ellipse& ellipse, xieite::geometry::Point point) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr bool containsPoint(const xieite::geometry::Circle& circle, const xieite::geometry::Point point) noexcept;
+constexpr bool containsPoint(const xieite::geometry::Circle& circle, xieite::geometry::Point point) noexcept;
 ```
 
 <br/><br/>
@@ -46,7 +46,7 @@ constexpr bool containsPoint(const xieite::geometry::Circle& circle, const xieit
 #include <xieite/geometry/containsPoint.hpp>
 
 int main() {
-	const xieite::geometry::Polygon square({
+	xieite::geometry::Polygon square({
 		{ -1.0, -1.0 },
 		{ 1.0, -1.0 },
 		{ 1.0, 1.0 },

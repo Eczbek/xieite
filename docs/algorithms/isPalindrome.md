@@ -24,7 +24,8 @@ constexpr bool isPalindrome(Iterator begin, Iterator end, Callback&& comparator 
 
 int main() {
 	std::string value = "racecar";
-	std::cout << std::boolalpha << xieite::algorithms::isPalindrome(value.begin(), value.end()) << '\n';
+	std::cout << std::boolalpha
+		<< xieite::algorithms::isPalindrome(value.begin(), value.end()) << '\n';
 }
 ```
 Output:

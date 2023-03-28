@@ -10,7 +10,7 @@ Repeats a string.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr std::string repeat(const std::string_view string, std::size_t count) noexcept;
+constexpr std::string repeat(std::string_view string, std::size_t count) noexcept;
 ```
 
 <br/><br/>

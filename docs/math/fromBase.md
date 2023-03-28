@@ -11,7 +11,7 @@ Converts an integer string to base 10.
 ```cpp
 template<std::integral Integral = int>
 [[nodiscard]]
-constexpr Integral fromBase(const std::string_view value, const std::size_t base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
+constexpr Integral fromBase(std::string_view value, std::size_t base, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
 ```
 
 <br/><br/>

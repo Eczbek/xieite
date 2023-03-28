@@ -10,7 +10,7 @@ Shortens the end of a string.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr std::string truncate(const std::string& string, const std::size_t length, const std::string& suffix = "") noexcept;
+constexpr std::string truncate(const std::string& string, std::size_t length, const std::string& suffix = "") noexcept;
 ```
 
 <br/><br/>

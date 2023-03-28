@@ -21,7 +21,8 @@ constexpr bool all(std::convertible_to<bool> auto&&... values) noexcept;
 #include <xieite/algorithms/all.hpp>
 
 int main() {
-	std::cout << std::boolalpha << xieite::algorithms::all(4, true, '$') << '\n';
+	std::cout << std::boolalpha
+		<< xieite::algorithms::all(4, true, '$') << '\n';
 }
 ```
 Output:

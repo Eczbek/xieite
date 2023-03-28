@@ -17,10 +17,10 @@ xieite::geometry::Point end;
 
 ## Constructors
 ```cpp
-constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept;
+constexpr Ray(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
 ```cpp
-constexpr Ray(const xieite::geometry::Point start, const double angle) noexcept;
+constexpr Ray(xieite::geometry::Point start, double angle) noexcept;
 ```
 
 ## Operators
@@ -38,9 +38,8 @@ constexpr bool operator==(const xieite::geometry::Ray& other) const noexcept;
 #include <xieite/geometry/Ray.hpp>
 
 int main() {
-	xieite::geometry::Ray ray({ 0.0, 0.0 }, { 1.0, 1.0 });
 	std::cout << std::boolalpha
-		<< xieite::geometry::containsPoint(ray, { -1.0, -1.0 }) << '\n';
+		<< xieite::geometry::containsPoint(xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }), { -1.0, -1.0 }) << '\n';
 }
 ```
 Output:

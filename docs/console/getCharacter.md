@@ -9,7 +9,7 @@ Waits for and returns the next keypress input.
 
 ## Declarations
 ```cpp
-inline char getCharacter(const bool echo = false) noexcept;
+inline char getCharacter(bool echo = false) noexcept;
 ```
 
 <br/><br/>
@@ -22,10 +22,15 @@ inline char getCharacter(const bool echo = false) noexcept;
 
 int main() {
 	std::cout << "Press a key: ";
-	const std::chrono::time_point start = std::chrono::steady_clock::now();
-	const char input = xieite::console::getCharacter(true);
-	const std::chrono::time_point end = std::chrono::steady_clock::now();
-	std::cout << "\nElapsed milliseconds: " << std::chrono::duration_cast<std::chrono::milliseconds>(start - end).count() << '\n';
+
+	std::chrono::time_point start = std::chrono::steady_clock::now();
+
+	char input = xieite::console::getCharacter(true);
+
+	std::chrono::time_point end = std::chrono::steady_clock::now();
+
+	std::cout << "\nElapsed milliseconds: "
+		<< std::chrono::duration_cast<std::chrono::milliseconds>(start - end).count() << '\n';
 }
 ```
 Possible interaction:
@@ -33,4 +38,4 @@ Possible interaction:
 Press a key: h
 Elapsed milliseconds: 445
 ```
-(Fun fact: I got 445 milliseconds twice in a row while testing this)
+(I got 445 milliseconds twice while testing this)

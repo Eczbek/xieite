@@ -11,7 +11,7 @@ Returns the absolute of a value. Unlike `std::abs`, this works for both signed a
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number absolute(const Number value) noexcept;
+constexpr Number absolute(Number value) noexcept;
 ```
 
 <br/><br/>
@@ -23,9 +23,10 @@ constexpr Number absolute(const Number value) noexcept;
 
 int main() {
 	int a = -17;
-	unsigned int b = 4;
+	unsigned b = 4;
 	
-	std::cout << xieite::math::absolute(a) << '\n'
+	std::cout
+		<< xieite::math::absolute(a) << '\n'
 		<< xieite::math::absolute(b) << '\n';
 }
 ```

@@ -23,6 +23,7 @@ Add the `include` directory to your project.
 - Basic 2D geometrical shapes and functions
 - Macros for indentifying platform and compiler
 - BigInteger class, complete with bitwise operators
+- robert
 - InterruptableRandomDistribution class
 - Compile-time string operations
 - A few unit conversion ratios

@@ -22,12 +22,12 @@ concept StreamableOutOf = requires(std::ostream& outStream, Any value) {
 #include <iostream>
 #include <xieite/concepts/StreamableOutOf.hpp>
 
-struct UnstreamableType {};
+struct Unstreamable {};
 
 int main() {
 	std::cout << std::boolalpha
 		<< xieite::concepts::StreamableOutOf<char> << '\n'
-		<< xieite::concepts::StreamableOutOf<UnstreamableType> << '\n';
+		<< xieite::concepts::StreamableOutOf<Unstreamable> << '\n';
 }
 ```
 Output:

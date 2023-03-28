@@ -10,7 +10,7 @@ Selects iterators and then reverses them in their same overall positions.
 ## Declarations
 ```cpp
 template<std::forward_iterator Iterator>
-constexpr void partialReverse(Iterator begin, const Iterator end, xieite::concepts::SelectorCallback<typename std::iterator_traits<Iterator>::value_type> auto&& selector) noexcept;
+constexpr void partialReverse(Iterator begin, Iterator end, xieite::concepts::SelectorCallback<typename std::iterator_traits<Iterator>::value_type> auto&& selector) noexcept;
 ```
 
 <br/><br/>
@@ -24,11 +24,11 @@ constexpr void partialReverse(Iterator begin, const Iterator end, xieite::concep
 int main() {
 	std::array<int, 5> values { 1, 2, 3, 4, 5 };
 	
-	xieite::algorithms::partialReverse(values.begin(), values.end(), [](const int value) -> bool {
+	xieite::algorithms::partialReverse(values.begin(), values.end(), [](int value) -> bool {
 		return value <= 3;
 	});
 
-	for (const int value : values)
+	for (int value : values)
 		std::cout << value << ' ';
 	std::cout << '\n';
 }

@@ -22,7 +22,7 @@ std::vector<Value> uniques(const std::vector<Value>& values) noexcept;
 #include <xieite/vector/uniques.hpp>
 
 int main() {
-	for (const int value : xieite::vector::uniques<int>({ 1, 2, 3, 2, 1 }))
+	for (int value : xieite::vector::uniques<int>({ 1, 2, 3, 2, 1 }))
 		std::cout << value << ' ';
 	std::cout << '\n';
 }

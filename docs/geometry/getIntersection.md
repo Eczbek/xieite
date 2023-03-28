@@ -23,10 +23,10 @@ constexpr std::optional<xieite::geometry::Point> getIntersection(const std::deri
 #include <xieite/geometry/getIntersection.hpp>
 
 int main() {
-	const xieite::geometry::Line line1({ 1.0, 0.0 }, { 1.0, 1.0 });
-	const xieite::geometry::Line line2({ 0.0, 1.0 }, { 1.0, 1.0 });
-	const xieite::geometry::Point intersection = xieite::geometry::getIntersection(line1, line2).value_or(xieite::geometry::Point());
-	std::cout << intersection.x << ' ' << intersection.y << '\n';
+	std::optional<xieite::geometry::Point> point = xieite::geometry::getIntersection(xieite::geometry::Line({ 1.0, 0.0 }, { 1.0, 1.0 }), xieite::geometry::Line({ 0.0, 1.0 }, { 1.0, 1.0 }));
+
+	if (point.has_value())
+		std::cout << point.value().x << ' ' << point.value().y << '\n';
 }
 ```
 Output:

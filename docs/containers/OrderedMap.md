@@ -20,9 +20,9 @@ constexpr OrderedMap() noexcept = default;
 ## Operators
 ```cpp
 [[nodiscard]]
-constexpr Value& operator[](const Key key) noexcept;
+constexpr Value& operator[](Key key) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr const Value& operator[](const Key key) const noexcept;
+constexpr const Value& operator[](Key key) const noexcept;
 ```

@@ -9,5 +9,5 @@ Sets the text background color. Disregards alpha value.
 
 ## Declarations
 ```cpp
-constexpr std::string setBackground(const xieite::graphics::Color color) noexcept;
+constexpr std::string setBackground(xieite::graphics::Color color) noexcept;
 ```

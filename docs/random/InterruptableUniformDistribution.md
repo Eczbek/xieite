@@ -14,7 +14,7 @@ template<xieite::concepts::Arithmetic Number>
 
 ## Constructors
 ```cpp
-InterruptableUniformDistribution(const Number begin, const Number end, const std::vector<std::pair<Number, Number>>& interruptions);
+InterruptableUniformDistribution(Number begin, Number end, const std::vector<std::pair<Number, Number>>& interruptions);
 ```
 
 ## Operators

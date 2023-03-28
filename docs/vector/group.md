@@ -29,17 +29,19 @@ std::unordered_map<std::invoke_result_t<Invocable(Value, std::size_t)>, std::vec
 #include <xieite/vector/group.hpp>
 
 int main() {
-	const std::vector<int> values { 1, 2, 3, 4, 5 };
-	const auto callback = [](const int value) -> bool {
+	std::vector<int> values { 1, 2, 3, 4, 5 };
+
+	auto callback = [](int value) -> bool {
 		return value % 2;
 	};
-	const std::unordered_map<bool, std::vector<int>> groups = xieite::vector::group(values, callback);
+
+	std::unordered_map<bool, std::vector<int>> groups = xieite::vector::group(values, callback);
 
 	std::cout << "true: ";
-	for (const int value : groups[true])
+	for (int value : groups[true])
 		std::cout << value << ' ';
 	std::cout << "\nfalse: ";
-	for (const int value : groups[false])
+	for (int value : groups[false])
 		std::cout << value << ' ';
 	std::cout << '\n';
 }

@@ -10,24 +10,24 @@ Rotates shapes a specific angle around any pivot.
 ## Declarations
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Point rotate(const xieite::geometry::Point point, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
 ```
 ```cpp
 template<std::derived_from<xieite::geometry::LineLike> LineLike>
 [[nodiscard]]
-constexpr LineLike rotate(const LineLike& lineLike, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr LineLike rotate(const LineLike& lineLike, double angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Polygon rotate(const xieite::geometry::Polygon& polygon, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr xieite::geometry::Polygon rotate(const xieite::geometry::Polygon& polygon, double angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, cdouble angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
 ```
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, double angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
 ```
 
 <br/><br/>
@@ -41,9 +41,10 @@ constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-	const xieite::geometry::Line line1({ 0, 0 }, { 1, 1 });
-	const double angle = xieite::math::toRadians<double>(90);
-	const xieite::geometry::Line line2 = xieite::geometry::rotate(line1, angle);
+	xieite::geometry::Line line1({ 0, 0 }, { 1, 1 });
+
+	xieite::geometry::Line line2 = xieite::geometry::rotate(line1, xieite::math::toRadians(90.0));
+
 	std::cout
 		<< xieite::geometry::getSlope(line1) << '\n'
 		<< xieite::geometry::getSlope(line2) << '\n';
