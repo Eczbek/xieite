@@ -3,7 +3,7 @@ Defined in header `<xieite/units/lengths.hpp>`
 
 <br/>
 
-A colletion of ratios of metric to imperial lengths.
+A colletion of ratios of meters to imperial length measurement units.
 
 <br/><br/>
 
