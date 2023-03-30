@@ -6,16 +6,27 @@
 namespace xieite::console {
 	class NonBlockLock {
 	private:
-		int blockingMode;
+		static bool locked = false;
+		static int blockingMode;
 
 	public:
-		NonBlockLock() noexcept
-		: blockingMode(fcntl(STDIN_FILENO, F_GETFL)) {
-			fcntl(STDIN_FILENO, F_SETFL, this->blockingMode | O_NONBLOCK);
+		NonBlockLock() noexcept {
+			if (!this->locked) {
+				this->locked = true;
+				this->blockingMode = fcntl(STDIN_FILENO, F_GETFL);
+				fcntl(STDIN_FILENO, F_SETFL, this->blockingMode | O_NONBLOCK);
+			}
 		}
 
 		~NonBlockLock() {
-			fcntl(STDIN_FILENO, F_SETFL, this->blockingMode);
+			this->unlock();
+		}
+
+		void unlock() noexcept {
+			if (this->locked) {
+				this->locked = false;
+				fcntl(STDIN_FILENO, F_SETFL, this->blockingMode);
+			}
 		}
 	};
 }

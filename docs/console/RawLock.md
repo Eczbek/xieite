@@ -16,3 +16,8 @@ RawLock(bool echo = true) noexcept;
 ```cpp
 ~RawLock();
 ```
+
+## Other methods
+```cpp
+void unlock() noexcept;
+```
