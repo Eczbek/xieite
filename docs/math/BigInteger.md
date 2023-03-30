@@ -13,6 +13,7 @@ BigInteger(const xieite::math::BigInteger& other) noexcept;
 ```
 ```cpp
 BigInteger(xieite::math::BigInteger&& other) noexcept;
+```
 ```cpp
 template<std::integral Integral>
 BigInteger(Integral value = 0) noexcept;
@@ -30,6 +31,7 @@ xieite::math::BigInteger& operator=(const xieite::math::BigInteger& other) noexc
 ```
 ```cpp
 xieite::math::BigInteger& operator=(xieite::math::BigInteger&& other) noexcept;
+```
 ```cpp
 template<std::integral Integral>
 xieite::math::BigInteger& operator=(Integral value) noexcept;
@@ -254,16 +256,16 @@ xieite::math::BigInteger operator>>=(Integral value) noexcept;
 ## Other methods
 ```cpp
 [[nodiscard]]
-xieite::math::BigInteger abs() const noexcept;
+xieite::math::BigInteger absolute() const noexcept;
 ```
 ```cpp
 [[nodiscard]]
-xieite::math::BigInteger pow(xieite::math::BigInteger other) const;
+xieite::math::BigInteger power(xieite::math::BigInteger other) const;
 ```
 ```cpp
 template<std::integral Integral>
 [[nodiscard]]
-xieite::math::BigInteger pow(Integral value) const;
+xieite::math::BigInteger power(Integral value) const;
 ```
 ```cpp
 [[nodiscard]]
@@ -291,7 +293,7 @@ std::string string() const noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout << xieite::math::BigInteger(99).pow(99).string() << '\n';
+	std::cout << xieite::math::BigInteger(99).power(99).string() << '\n';
 }
 ```
 Output:
