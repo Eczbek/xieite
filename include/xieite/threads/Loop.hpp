@@ -22,7 +22,7 @@ namespace xieite::threads {
 		}) {}
 
 		~Loop() {
-			cancel();
+			this->cancel();
 		}
 
 		operator bool() const noexcept {

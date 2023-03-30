@@ -274,7 +274,7 @@ namespace xieite::math {
 				return -*this;
 			const bool otherSign = other.sign;
             const xieite::math::BigInteger otherCopy = other.absolute();
-			if (absolute() < otherCopy)
+			if (this->absolute() < otherCopy)
 				return xieite::math::BigInteger(0);
 			std::vector<bool> resultBits;
 			xieite::math::BigInteger difference;
@@ -306,7 +306,7 @@ namespace xieite::math {
 		[[nodiscard]]
 		xieite::math::BigInteger operator%(const xieite::math::BigInteger& other) const {
 			XIEITE_ASSERT(static_cast<bool>(other), "Cannot find remainder of division by zero");
-			const xieite::math::BigInteger copy = absolute();
+			const xieite::math::BigInteger copy = this->absolute();
 			const xieite::math::BigInteger otherCopy = other.absolute();
 			if (!*this || (otherCopy == 1) || (copy == otherCopy))
 				return xieite::math::BigInteger(0);
@@ -344,7 +344,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator&(const xieite::math::BigInteger& other) const noexcept {
-			return (!*this || !other) ? xieite::math::BigInteger(0) : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+			return (!*this || !other) ? xieite::math::BigInteger(0) : this->commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
 				return left && right;
 			});
 		}
@@ -364,7 +364,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator|(const xieite::math::BigInteger& other) const noexcept {
-			return !*this ? other : (!other ? *this : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+			return !*this ? other : (!other ? *this : this->commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
 				return left || right;
 			}));
 		}
@@ -384,7 +384,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger operator^(const xieite::math::BigInteger& other) const noexcept {
-			return !*this ? other : (!other ? *this : commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+			return !*this ? other : (!other ? *this : this->commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
 				return left != right;
 			}));
 		}
@@ -488,7 +488,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger power(const std::integral auto value) const {
-			return power(xieite::math::BigInteger(value));
+			return this->power(xieite::math::BigInteger(value));
 		}
 
 		[[nodiscard]]
@@ -510,7 +510,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		xieite::math::BigInteger root(const std::integral auto value) const {
-			return root(xieite::math::BigInteger(value));
+			return this->root(xieite::math::BigInteger(value));
 		}
 
 		[[nodiscard]]
@@ -522,7 +522,7 @@ namespace xieite::math {
 		std::string string() const noexcept {
 			if (!*this)
 				return "0";
-			xieite::math::BigInteger copy = absolute();
+			xieite::math::BigInteger copy = this->absolute();
 			std::string result;
 			do {
 				result = static_cast<char>(copy % 10 + '0') + result;
