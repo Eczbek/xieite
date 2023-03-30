@@ -16,3 +16,8 @@ NonBlockLock() noexcept;
 ```cpp
 ~NonBlockLock();
 ```
+
+## Other methods
+```cpp
+void unlock() noexcept;
+```
