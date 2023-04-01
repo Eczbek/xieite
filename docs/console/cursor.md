@@ -1,5 +1,5 @@
-# xieite::console::cursorControls
-Defined in header `<xieite/console/cursorControls.hpp>`
+# xieite::console::cursor
+Defined in header `<xieite/console/cursor.hpp>`
 
 <br/>
 

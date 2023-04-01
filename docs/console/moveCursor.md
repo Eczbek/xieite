@@ -3,7 +3,7 @@ Defined in header `<xieite/console/moveCursor.hpp>`
 
 <br/>
 
-Moves the cursor relatively. Use with `xieite::console::cursorControls`.
+Moves the cursor relatively. Use with `xieite::console::cursor`.
 
 <br/><br/>
 
@@ -17,12 +17,12 @@ constexpr std::string moveCursor(char control, int value) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/console/cursorControls.hpp>
+#include <xieite/console/cursor.hpp>
 #include <xieite/console/moveCursor.hpp>
 
 int main() {
 	std::cout
-		<< xieite::console::moveCursor(xieite::console::cursorControls::right, 8)
+		<< xieite::console::moveCursor(xieite::console::cursor::right, 8)
 		<< "Hello, world!\n";
 }
 ```
