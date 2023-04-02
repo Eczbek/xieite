@@ -18,7 +18,6 @@ inline std::string demangle(std::string_view mangled) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <typeinfo>
 #include <string_view>
 #include <xieite/types/demangle.hpp>
 
