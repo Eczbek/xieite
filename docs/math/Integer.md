@@ -30,6 +30,7 @@ constexpr operator Integral() const noexcept;
 template<std::size_t otherBits, bool otherSign>
 [[nodiscard]]
 constexpr operator xieite::math::Integer<otherBits, otherSign>() const noexcept;
+```
 ```cpp
 [[nodiscard]]
 constexpr bool operator==(const xieite::math::Integer<bits, sign> other) const noexcept;
