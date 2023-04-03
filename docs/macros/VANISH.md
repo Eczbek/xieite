@@ -10,7 +10,7 @@ Uses magic to remove any line where it is mentioned (see example).
 ## Declarations
 ```cpp
 #define XIEITE_VANISH \
-	typeid(decltype(std)).name()
+	sizeof(decltype(std))
 ```
 
 <br/><br/>
