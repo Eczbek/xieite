@@ -147,12 +147,12 @@ friend constexpr std::istream& operator>>(std::istream& inStream, xieite::math::
 #include <iostream>
 #include <xieite/math/Integer.hpp>
 
-using int3_t = xieite::math::Integer<3, true>;
-using uint17_t = xieite::math::Integer<17, false>;
+using Int3 = xieite::math::Integer<3, true>;
+using UInt17 = xieite::math::Integer<17, false>;
 
 int main() {
-	int3_t a = 5;
-	uint17_t b = 5;
+	Int3 a = 5;
+	UInt17 b = 5;
 
 	std::cout << std::boolalpha << (a == b) << '\n';
 }
