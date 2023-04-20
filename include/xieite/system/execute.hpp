@@ -1,8 +1,9 @@
 #pragma once
 
 #include <cstddef>
-#include <cstdio>
+#include <cstdio.h>
 #include <memory>
+#include <stdio.h>
 #include <string>
 #include <string_view>
 
