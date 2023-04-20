@@ -1,9 +1,9 @@
-# `xieite::threads::Interval::cancel`
+# `xieite::threads::Interval::stop`
 Defined in header [`<xieite/threads/Interval.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Interval.hpp)
 
 <br/>
 
-Cancels a `xieite::threads::Interval` and stops further callbacks. Immediately returns execution to the caller thread, without waiting for the loop to complete.
+Stops a `xieite::threads::Interval`, and further callback calls. Immediately returns execution to the caller thread, without waiting for the loop to complete.
 
 <br/><br/>
 
@@ -12,7 +12,7 @@ Cancels a `xieite::threads::Interval` and stops further callbacks. Immediately r
 <br/>
 
 ```cpp
-void cancel() noexcept;
+void stop() noexcept;
 ```
 
 <br/><br/>

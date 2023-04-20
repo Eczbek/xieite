@@ -14,14 +14,13 @@ Runs a callback every set amount of time. Compile with `-pthread`.
 ### Member functions
 - [`Interval`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/constructor.md)
 - [`~Interval`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/destructor.md)
-- [`operator bool`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/operatorCast.md)
-- [`cancel`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/cancel.md)
+- [`good`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/good.md)
+- [`stop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/stop.md)
 
 <br/><br/>
 
 ## Example
 ```cpp
-#include <atomic>
 #include <chrono>
 #include <iostream>
 #include <thread>

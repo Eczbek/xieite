@@ -1,9 +1,9 @@
-# `xieite::threads::Loop::cancel`
+# `xieite::threads::Loop::stop`
 Defined in header [`<xieite/threads/Loop.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Loop.hpp)
 
 <br/>
 
-Cancels a `xieite::threads::Loop` and stops further callbacks.
+Stops a `xieite::threads::Loop`, and further callback calls.
 
 <br/><br/>
 
@@ -12,7 +12,7 @@ Cancels a `xieite::threads::Loop` and stops further callbacks.
 <br/>
 
 ```cpp
-void cancel() noexcept;
+void stop() noexcept;
 ```
 
 <br/><br/>

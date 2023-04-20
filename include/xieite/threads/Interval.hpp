@@ -1,7 +1,6 @@
 #pragma once
 
 #include <concepts>
-#include <thread>
 #include <utility>
 #include <xieite/concepts/TemporalDuration.hpp>
 #include <xieite/threads/Loop.hpp>
@@ -15,16 +14,20 @@ namespace xieite::threads {
 		template<std::invocable<> Invocable>
 		Interval(Invocable&& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
 		: loop([callback = std::forward<Invocable>(callback), duration]() noexcept -> void {
+			static bool first = true;
+			if (first)
+				first = false;
+			else
+				callback();
 			std::this_thread::sleep_for(duration);
-			callback();
 		}) {}
 
-		operator bool() const noexcept {
-			return static_cast<bool>(this->loop);
+		bool good() const noexcept {
+			return this->loop.good();
 		}
 
-		void cancel() noexcept {
-			this->loop.cancel();
+		void stop() noexcept {
+			this->loop.stop();
 		}
 	};
 }

@@ -14,8 +14,8 @@ Runs a callback constantly. Compile with `-pthread`.
 ### Member functions
 - [`Loop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/constructor.md)
 - [`~Loop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/destructor.md)
-- [`operator bool`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/operatorCast.md)
-- [`cancel`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/cancel.md)
+- [`good`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/good.md)
+- [`stop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/stop.md)
 
 <br/><br/>
 

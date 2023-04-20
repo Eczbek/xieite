@@ -14,8 +14,8 @@ Runs a callback once after a set amount of time. Compile with `-pthread`.
 ### Member functions
 - [`Timeout`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/constructor.md)
 - [`~Timeout`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/destructor.md)
-- [`operator bool`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/operatorCast.md)
-- [`cancel`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/cancel.md)
+- [`good`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/good.md)
+- [`stop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/stop.md)
 
 <br/><br/>
 
@@ -33,7 +33,7 @@ int main() {
 
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 
-	timeout.cancel();
+	timeout.stop();
 }
 ```
 Output:
