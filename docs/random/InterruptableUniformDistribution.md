@@ -12,9 +12,7 @@ A uniform random number distribution which allows excluding subintervals from th
 <br/>
 
 ### Template Parameters
-```cpp
-template<xieite::concepts::Arithmetic Number>
-```
+- `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
 
 <br/>
 

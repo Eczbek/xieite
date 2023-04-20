@@ -12,9 +12,8 @@ Allows creation of integer types of any bit size. All mathematical operators are
 <br/>
 
 ### Template parameters
-```cpp
-template<std::size_t bits, bool sign>
-```
+- `bits` - A `std::size_t` copy, how many bits the type can use
+- `sing` - A `bool` copy, whether or not the type is signed
 
 <br/>
 
