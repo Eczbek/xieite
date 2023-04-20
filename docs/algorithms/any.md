@@ -13,10 +13,10 @@ Checks whether at least one passed argument is true. Expects all arguments to be
 
 ```cpp
 [[nodiscard]]
-constexpr bool any(std::convertible_to<bool> auto&&... values) noexcept;
+constexpr bool any(xieite::concepts::NoThrowConvertibleTo<bool> auto&&... values) noexcept;
 ```
 ### Parameters
-- `values` - `auto` right-value references, satisfying `std::convertible_to` of `bool`
+- `values` - `auto` right-value references, satisfying `xieite::concepts::NoThrowConvertibleTo` of `bool`
 ### Return value
 - A `bool` to represent whether or not all elements are true
 
