@@ -1,9 +1,9 @@
-# `xieite::types::OptimalIntegerSize`
-Defined in header [`<xieite/types/OptimalIntegerSize.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/types/OptimalIntegerSize.hpp)
+# `xieite::math::OptimalIntegerSize`
+Defined in header [`<xieite/math/OptimalIntegerSize.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/OptimalIntegerSize.hpp)
 
 <br/>
 
-Determines the optimal signed integer type for any reasonable amount of bits. Use with `xieite::types::ConditionalIntegerSign`.
+Determines the optimal signed integer type for any reasonable amount of bits. Use with `xieite::math::ConditionalIntegerSign`.
 
 <br/><br/>
 

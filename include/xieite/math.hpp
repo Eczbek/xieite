@@ -1,7 +1,10 @@
 #pragma once
 
 #include <xieite/math/BigInteger.hpp>
+#include <xieite/types/ConditionalIntegerSign.hpp>
 #include <xieite/math/Integer.hpp>
+#include <xieite/types/MinimalIntegerSize.hpp>
+#include <xieite/types/OptimalIntegerSize.hpp>
 #include <xieite/math/absolute.hpp>
 #include <xieite/math/alternatingBits.hpp>
 #include <xieite/math/approximatelyEqual.hpp>

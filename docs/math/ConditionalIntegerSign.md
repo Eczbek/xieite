@@ -1,5 +1,5 @@
-# `xieite::types::ConditionalIntegerSign`
-Defined in header [`<xieite/types/ConditionalIntegerSign.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/types/ConditionalIntegerSign.hpp)
+# `xieite::math::ConditionalIntegerSign`
+Defined in header [`<xieite/math/ConditionalIntegerSign.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/ConditionalIntegerSign.hpp)
 
 <br/><br/>
 
