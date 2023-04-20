@@ -1,9 +1,9 @@
-# `xieite::types::MinimalIntegerSize`
-Defined in header [`<xieite/types/MinimalIntegerSize.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/types/MinimalIntegerSize.hpp)
+# `xieite::math::MinimalIntegerSize`
+Defined in header [`<xieite/math/MinimalIntegerSize.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/math/MinimalIntegerSize.hpp)
 
 <br/>
 
-Determines the minimal signed integer type for any reasonable amount of bits. Use with `xieite::types::ConditionalIntegerSign`.
+Determines the minimal signed integer type for any reasonable amount of bits. Use with `xieite::math::ConditionalIntegerSign`.
 
 <br/><br/>
 
