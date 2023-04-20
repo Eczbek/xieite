@@ -4,11 +4,11 @@
 #include <cstddef>
 #include <iterator>
 #include <vector>
-#include <xieite/concepts/SelectorCallback.hpp>
+#include <xieite/concepts/CallbackSelector.hpp>
 
 namespace xieite::algorithms {
 	template<std::forward_iterator Iterator>
-	constexpr void partialReverse(Iterator begin, const Iterator end, xieite::concepts::SelectorCallback<typename std::iterator_traits<Iterator>::value_type> auto&& selector) noexcept {
+	constexpr void partialReverse(Iterator begin, const Iterator end, xieite::concepts::CallbackSelector<typename std::iterator_traits<Iterator>::value_type> auto&& selector) noexcept {
 		std::vector<Iterator> iterators;
 		for (; begin != end; ++begin)
 			if (selector(*begin))

@@ -1,5 +1,5 @@
-# xieite::string::repeat
-Defined in header `<xieite/string/repeat.hpp>`
+# `xieite::string::repeat`
+Defined in header [`<xieite/string/repeat.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/string/repeat.hpp)
 
 <br/>
 
@@ -7,11 +7,19 @@ Repeats a string.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 [[nodiscard]]
 constexpr std::string repeat(std::string_view string, std::size_t count) noexcept;
 ```
+### Parameters
+- `string` - A `std::string_view` copy, the value to repeat
+- `count` - A `std::size_t` copy, how many times to repeat `string`
+### Return value
+- A `std::string`
 
 <br/><br/>
 

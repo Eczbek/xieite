@@ -1,23 +1,24 @@
 #pragma once
 
 #include <cmath>
-#include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getSlope.hpp>
 #include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {
-	struct Ray
-	: xieite::geometry::LineLike {
+	struct Ray {
+		xieite::geometry::Point start;
+		xieite::geometry::Point end;
+
 		constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept
-		: xieite::geometry::LineLike(start, end) {}
+		: start(start), end(end) {}
 
 		constexpr Ray(const xieite::geometry::Point start, const double angle) noexcept
-		: xieite::geometry::LineLike(start, xieite::geometry::Point(std::cos(angle), std::sin(angle))) {}
+		: start(start), end(std::cos(angle), std::sin(angle)) {}
 
 		[[nodiscard]]
-		constexpr bool operator==(const xieite::geometry::Ray& other) const noexcept {
-			return (this->start == other.start) && xieite::math::approximatelyEqual(xieite::geometry::getSlope(*this), xieite::geometry::getSlope(other));
+		constexpr bool operator==(const xieite::geometry::Ray& ray) const noexcept {
+			return (this->start == ray.start) && xieite::math::approximatelyEqual(xieite::geometry::getSlope(*this), xieite::geometry::getSlope(ray));
 		}
 	};
 }

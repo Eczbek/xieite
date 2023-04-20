@@ -1,33 +1,21 @@
-# xieite::threads::Loop
-Defined in header `<xieite/threads/Loop.hpp>`
+# `xieite::threads::Loop`
+Defined in header [`<xieite/threads/Loop.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/threads/Loop.hpp)
 
 <br/>
 
-Runs a thread-blocking callback constantly. The `operator bool` checks whether the loop has been cancelled, and the `cancel` method will immediately return to the caller thread, without waiting for the loop to complete. Compile with `-pthread`.
+Runs a callback constantly. Compile with `-pthread`.
 
 <br/><br/>
 
-## Constructors
-```cpp
-template<std::invocable<> Invocable>
-Loop(Invocable&& callback) noexcept;
-```
+## Synopsis
 
-## Destructor
-```cpp
-~Loop();
-```
+<br/>
 
-## Operators
-```cpp
-operator bool() const noexcept;
-```
-(`operator!` is defined implicitly)
-
-## Other methods
-```cpp
-void cancel() noexcept;
-```
+### Member functions
+- [`Loop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/constructor.md)
+- [`~Loop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/destructor.md)
+- [`operator bool`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/operatorCast.md)
+- [`cancel`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/cancel.md)
 
 <br/><br/>
 
@@ -39,7 +27,7 @@ void cancel() noexcept;
 #include <xieite/threads/Loop.hpp>
 
 int main() {
-	xieite::threads::Loop loop([]() -> void {
+	xieite::threads::Loop loop([]() {
 		static int i = 0;
 
 		std::this_thread::sleep_for(std::chrono::seconds(1));

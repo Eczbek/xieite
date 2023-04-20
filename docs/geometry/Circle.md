@@ -1,13 +1,17 @@
-# xieite::geometry::Circle
-Defined in header `<xieite/geometry/Circle.hpp>`
+# `xieite::geometry::Circle`
+Defined in header [`<xieite/geometry/Circle.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Circle.hpp)
 
 <br/>
 
-A struct representing a circle. The circle has no angle of rotation.
+A class for representing a circle.
 
 <br/><br/>
 
-## Member objects
+## Synopsis
+
+<br/>
+
+### Member objects
 ```cpp
 xieite::geometry::Point center;
 ```
@@ -15,31 +19,13 @@ xieite::geometry::Point center;
 double radius;
 ```
 
-## Constructors
-```cpp
-constexpr Circle(xieite::geometry::Point center, double radius) noexcept;
-```
+<br/>
 
-## Operators
-```cpp
-[[nodiscard]]
-constexpr bool operator==(const xieite::geometry::Circle& other) const noexcept;
-```
-(`operator!=` is defined implicitly)
+### Member functions
+- [`Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle/constructor.md)
+- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle/operatorEquals.md)
 
 <br/><br/>
 
-## Example
-```cpp
-#include <iostream>
-#include <xieite/geometry/Circle.hpp>
-#include <xieite/geometry/getArea.hpp>
-
-int main() {
-	std::cout << xieite::geometry::getArea(xieite::geometry::Circle({ 0.0, 0.0 }, 3.0)) << '\n';
-}
-```
-Output:
-```
-28.2743
-```
+## See also
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)

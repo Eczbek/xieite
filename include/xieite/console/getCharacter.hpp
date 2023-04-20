@@ -1,11 +1,12 @@
 #pragma once
 
 #include <iostream>
-#include <xieite/console/RawLock.hpp>
+#include <xieite/console/ModeLock.hpp>
 
 namespace xieite::console {
-	inline char getCharacter(const bool echo = true) noexcept {
-		xieite::console::RawLock rawLock(echo);
+	inline char getCharacter(const bool echo = false) noexcept {
+		xieite::console::ModeLock modeLock;
+		modeLock.setEcho(echo);
 		return std::cin.get();
 	}
 }

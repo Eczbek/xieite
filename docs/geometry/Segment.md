@@ -1,13 +1,17 @@
-# xieite::geometry::Segment
-Defined in header `<xieite/geometry/Segment.hpp>`
+# `xieite::geometry::Segment`
+Defined in header [`<xieite/geometry/Segment.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Segment.hpp)
 
 <br/>
 
-A struct representing a finite line segment. Extends `xieite::geometry::LineLike`.
+A struct representing a finite line segment.
 
 <br/><br/>
 
-## Member objects inherited from `xieite::geometry::LineLike`
+## Synopsis
+
+<br/>
+
+### Member objects
 ```cpp
 xieite::geometry::Point start;
 ```
@@ -15,18 +19,11 @@ xieite::geometry::Point start;
 xieite::geometry::Point end;
 ```
 
-## Constructors
-```cpp
-constexpr Segment(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
-```
+<br/>
 
-## Operators
-```cpp
-[[nodiscard]]
-constexpr bool operator==(const xieite::geometry::Segment& other) const noexcept;
-```
-(`operator!=` is defined implicitly)
-
+### Member functions
+- [`Segment`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Segment/constructor.hpp)
+- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Segment/operatorEquals.hpp)
 
 <br/><br/>
 
@@ -44,3 +41,8 @@ Output:
 ```
 5
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)

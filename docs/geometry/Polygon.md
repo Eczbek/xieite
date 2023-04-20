@@ -1,5 +1,5 @@
-# xieite::geometry::Polygon
-Defined in header `<xieite/geometry/Polygon.hpp>`
+# `xieite::geometry::Polygon`
+Defined in header [`<xieite/geometry/Polygon.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Polygon.hpp)
 
 <br/>
 
@@ -7,22 +7,20 @@ A struct representing a polygon.
 
 <br/><br/>
 
-## Member objects
+## Synopsis
+
+<br/>
+
+### Member objects
 ```cpp
 std::vector<xieite::geometry::Point> points;
 ```
 
-## Constructors
-```cpp
-constexpr Polygon(const std::vector<xieite::geometry::Point>& points) noexcept;
-```
+<br/>
 
-## Operators
-```cpp
-[[nodiscard]]
-constexpr bool operator==(const xieite::geometry::Polygon& other) const noexcept;
-```
-(`operator!=` is defined implicitly)
+### Member functions
+- [`Polygon`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon/constructor.md)
+- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon/operatorEquals.md)
 
 <br/><br/>
 
@@ -45,3 +43,8 @@ Output:
 ```
 1
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)

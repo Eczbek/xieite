@@ -1,5 +1,5 @@
-# xieite::algorithms::findOccurence
-Defined in header `<xieite/algorithms/findOccurence.hpp>`
+# `xieite::algorithms::findOccurence`
+Defined in header [`<xieite/algorithms/findOccurence.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/findOccurence.hpp)
 
 <br/>
 
@@ -7,12 +7,24 @@ Finds the pointer to a specific occurence of a value in an iterable. If the valu
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
-template<std::forward_iterator Iterator, xieite::concepts::ComparatorCallback<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
+template<std::forward_iterator Iterator, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
 [[nodiscard]]
 constexpr Iterator findOccurence(Iterator begin, Iterator end, typename std::iterator_traits<Iterator>::value_type&& value, std::size_t count, Callback&& comparator = Callback()) noexcept;
 ```
+### Template parameters
+- `Iterator` - An iterator type, satisfying `std::forward_iterator`
+- `Callback` - A callback type, satisfying `xieite::concepts::CallbackComparator` of `Iterator`'s value type, set to `std::equal_to` of `Iterator`'s value type by default
+### Parameters
+- `begin` - An `Iterator` copy which points to the beginning of an iterable
+- `end` - An `Iterator` copy which points to the end of the same iterable
+- `comparator` - A `Callback` right-value reference, default-constructed by default
+### Return value
+- The `Iterator` pointing to the specified value occurence, or to the end if it is not found.
 
 <br/><br/>
 
@@ -33,3 +45,8 @@ Output:
 ```
 4
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::CallbackComparator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackComparator.md)

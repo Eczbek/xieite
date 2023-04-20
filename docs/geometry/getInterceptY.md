@@ -1,5 +1,5 @@
-# xieite::geometry::getInterceptX
-Defined in header `<xieite/geometry/getInterceptX.hpp>`
+# `xieite::geometry::getInterceptX`
+Defined in header [`<xieite/geometry/getInterceptX.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getInterceptX.hpp)
 
 <br/>
 
@@ -7,11 +7,18 @@ Finds an optional point where a line intercepts the Y axis.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr std::optional<xieite::geometry::Point> getInterceptY(const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept;
+constexpr std::optional<xieite::geometry::Point> getInterceptY(const xieite::concepts::LinearShape auto& linearShape) noexcept;
 ```
+### Parameters
+- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+### Return value
+- `std::optional` of `xieite::geometry::Point` - The Y-intercept, if it exists
 
 <br/><br/>
 
@@ -34,3 +41,8 @@ Output:
 ```
 (0, 3)
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)

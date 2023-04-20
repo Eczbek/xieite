@@ -1,5 +1,5 @@
-# XIEITE_QUOTE
-Defined in header `<xieite/macros/QUOTE.hpp>`
+# `XIEITE_QUOTE`
+Defined in header [`<xieite/macros/QUOTE.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/QUOTE.hpp)
 
 <br/>
 
@@ -7,11 +7,16 @@ Converts an expression to a string literally.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 #define XIEITE_QUOTE(expression) \
-	#expression
+	XIEITE_QUOTE_PRIMITIVE(expression)
 ```
+### Parameters
+- `expression` - Any expression
 
 <br/><br/>
 

@@ -1,5 +1,5 @@
-# xieite::geometry::getSlope
-Defined in header `<xieite/geometry/getSlope.hpp>`
+# `xieite::geometry::getSlope`
+Defined in header [`<xieite/geometry/getSlope.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getSlope.hpp)
 
 <br/>
 
@@ -7,15 +7,30 @@ Calculates the slope of a line or between two points.
 
 <br/><br/>
 
-## Declarations
+## Synopses
+
+<br/>
+
 ```cpp
 [[nodiscard]]
 constexpr double getSlope(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
+### Parameters
+- `point1` - A `xieite::geometry::Point` copy
+- `point2` - Also a `xieite::geometry::Point` copy
+### Return value
+- A `double`, the slope between the passed points, in radians
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr double getSlope(const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept;
+constexpr double getSlope(const xieite::concepts::LinearShape auto& linearShape) noexcept;
 ```
+### Parameters
+- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+### Return value
+- A `double`, the slope of the linear shape, in radians
 
 <br/><br/>
 

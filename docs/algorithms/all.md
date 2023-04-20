@@ -1,17 +1,24 @@
-# xieite::algorithms::all
-Defined in header `<xieite/algorithms/all.hpp>`
+# `xieite::algorithms::all`
+Defined in header [`<xieite/algorithms/all.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/all.hpp)
 
 <br/>
 
-Checks whether all arguments are true. Expects all arguments to be converible to a boolean value.
+Checks whether all passed arguments are true. Expects all arguments to be converible to a boolean value.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 [[nodiscard]]
 constexpr bool all(std::convertible_to<bool> auto&&... values) noexcept;
 ```
+### Parameters
+- `values` - `auto` right-value references, satisfying `std::convertible_to` of `bool`
+### Return value
+- A `bool` to represent whether or not all elements are true
 
 <br/><br/>
 

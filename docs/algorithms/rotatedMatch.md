@@ -1,5 +1,5 @@
-# xieite::algorithms::rotatedMatch
-Defined in header `<xieite/algorithms/rotatedMatch.hpp>`
+# `xieite::algorithms::rotatedMatch`
+Defined in header [`<xieite/algorithms/rotatedMatch.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/rotatedMatch.hpp)
 
 <br/>
 
@@ -7,13 +7,30 @@ Checks whether one iterable contains elements in the same relative order as in a
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
-template<std::forward_iterator Iterator1, std::forward_iterator Iterator2, xieite::concepts::ComparatorCallback<typename std::iterator_traits<Iterator1>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator1>::value_type>>
+template<std::forward_iterator Iterator1, std::forward_iterator Iterator2, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator1>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator1>::value_type>>
 requires(std::same_as<typename std::iterator_traits<Iterator1>::value_type, typename std::iterator_traits<Iterator2>::value_type>)
 [[nodiscard]]
 constexpr bool rotatedMatch(Iterator1 begin1, Iterator1 end1, Iterator2 begin2, Iterator2 end2, Callback&& comparator = Callback()) noexcept;
 ```
+### Template parameters
+- `Iterator1` - An iterator type, satisfying `std::forward_iterator`
+- `Iterator2` - An iterator type, satisfying `std::forward_iterator`
+- `Callback` - A callback type, satisfying `xieite::concepts::CallbackComparator` of `Iterator1`'s value type, set to `std::equal_to` of `Iterator1`'s value type by default
+### Requirements
+- `Iterator1`'s value type must be the same as `Iterator2`'s value type
+### Parameters
+- `begin1` - An `Iterator1` copy which points to the beginning of an iterable
+- `end1` - An `Iterator1` copy which points to the end of the same iterable
+- `begin2` - An `Iterator2` copy which points to the beginning of another iterable
+- `end2` - An `Iterator2` copy which points to the end of the second iterable
+- `comparator` - A `Callback` right-value reference, default-constructed by default
+### Return value
+- A `bool`, whether or not the iterables have the same relative sequence of values
 
 <br/><br/>
 
@@ -45,3 +62,8 @@ true
 false
 true
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::CallbackComparator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackComparator.md)

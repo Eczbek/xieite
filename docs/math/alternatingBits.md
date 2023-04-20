@@ -1,13 +1,18 @@
-# xieite::math::alternatingBits
-Defined in header `<xieite/math/alternatingBits.hpp>`
+# `xieite::math::alternatingBits`
+Defined in header [`<xieite/math/alternatingBits.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/alternatingBits.hpp)
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 template<std::integral Integral>
 constexpr Integral alternatingBits = std::numeric_limits<Integral>::max() / 3;
 ```
+### Template parameters
+- `Integral` - Any integer type, satisfying `std::integral`
 
 <br/><br/>
 

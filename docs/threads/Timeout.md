@@ -1,28 +1,21 @@
-# xieite::threads::Timeout
-Defined in header `<xieite/threads/Timeout.hpp>`
+# `xieite::threads::Timeout`
+Defined in header [`<xieite/threads/Timeout.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Timeout.hpp)
 
 <br/>
 
-Runs a callback once after a set amount of time. The `operator bool` checks whether the callback has been cancelled, and the `cancel` method will immediately return to the caller thread, without waiting for the timeout to complete. Extends `xieite::threads::Interval`. Compile with `-pthread`.
+Runs a callback once after a set amount of time. Compile with `-pthread`.
 
 <br/><br/>
 
-## Constructors
-```cpp
-template<std::invocable<> Invocable>
-Timeout(Invocable&& callback, xieite::concepts::TemporalDuration auto duration) noexcept;
-```
+## Synopsis
 
-## Operators inherited from `xieite::threads::Interval`
-```cpp
-operator bool() const noexcept;
-```
-(`operator!` is defined implicitly)
+<br/>
 
-## Other methods inherited from `xieite::threads::Interval`
-```cpp
-void cancel() noexcept;
-```
+### Member functions
+- [`Timeout`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/constructor.md)
+- [`~Timeout`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/destructor.md)
+- [`operator bool`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/operatorCast.md)
+- [`cancel`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/cancel.md)
 
 <br/><br/>
 
@@ -34,7 +27,7 @@ void cancel() noexcept;
 #include <xieite/threads/Timeout.hpp>
 
 int main() {
-	xieite::threads::Timeout timeout([]() -> void {
+	xieite::threads::Timeout timeout([]() {
 		std::cout << "Hello, world!\n";
 	}, std::chrono::seconds(3));
 

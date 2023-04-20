@@ -1,22 +1,36 @@
-# xieite::geometry::getAngle
-Defined in header `<xieite/geometry/getAngle.hpp>`
+# `xieite::geometry::getAngle`
+Defined in header [`<xieite/geometry/getAngle.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getAngle.hpp)
 
 <br/>
 
-Calculates the angle (in radians) of a line or between two points.
+Calculates the angle of a line or between two points, in radians.
 
 <br/><br/>
 
-## Declarations
+## Synopses
+
+<br/>
+
 ```cpp
 [[nodiscard]]
 constexpr double getAngle(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
+### Parameters
+- `point1` - A `xieite::geometry::Point` copy
+- `point2` - A `xieite::geometry::Point` copy
+### Return value
+- `double` - The angle between two points
+
+<br/>
+
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> L>
 [[nodiscard]]
-constexpr double getAngle(const L& lineLike) noexcept;
+constexpr double getAngle(const xieite::concepts::LinearShape auto& linearShape) noexcept;
 ```
+### Parameters
+- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+### Return value
+- `double` - The angle of the linear thing
 
 <br/><br/>
 
@@ -34,3 +48,9 @@ Output (rounded):
 ```
 0
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::LinearShape`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/LinearShape.md)
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)

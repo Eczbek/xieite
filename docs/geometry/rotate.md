@@ -1,5 +1,5 @@
-# xieite::geometry::rotate
-Defined in header `<xieite/geometry/rotate.hpp>`
+# `xieite::geometry::rotate`
+Defined in header [`<xieite/geometry/rotate.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/rotate.hpp)
 
 <br/>
 
@@ -7,28 +7,75 @@ Rotates shapes a specific angle around any pivot.
 
 <br/><br/>
 
-## Declarations
+## Synopses
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
+### Parameters
+- `point` - A `xieite::geometry::Point` copy
+- `angle` - A `double` copy, clockwise rotation in radians
+- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+### Return value
+- A new rotated `xieite::geometry::Point`
+
+<br/>
+
 ```cpp
-template<std::derived_from<xieite::geometry::LineLike> LineLike>
+template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
-constexpr LineLike rotate(const LineLike& lineLike, double angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr LinearShape rotate(const LinearShape& linearShape, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
+### Template parameters
+- `LinearShape` - The type of the passed linear shape, satisfying `xieite::concepts::LinearShape`
+### Parameters
+- `linearShape` - A `LinearShape` constant reference
+- `angle` - A `double` copy, clockwise rotation in radians
+- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+### Return value
+- A new rotated `LinearShape`
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Polygon rotate(const xieite::geometry::Polygon& polygon, double angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr xieite::geometry::Polygon rotate(const xieite::geometry::Polygon& polygon, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
+### Parameters
+- `linearShape` - A `xieite::geometry::Polygon` constant reference
+- `angle` - A `double` copy, clockwise rotation in radians
+- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+### Return value
+- A new rotated `xieite::geometry::Polygon`
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, cdouble angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, cdouble angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
+### Parameters
+- `linearShape` - A `xieite::geometry::Ellipse` constant reference
+- `angle` - A `double` copy, clockwise rotation in radians
+- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+### Return value
+- A new rotated `xieite::geometry::Ellipse`
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, double angle, xieite::geometry::Point pivot = xieite::geometry::Point()) noexcept;
+constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
+### Parameters
+- `linearShape` - A `xieite::geometry::Circle` constant reference
+- `angle` - A `double` copy, clockwise rotation in radians
+- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+### Return value
+- A new rotated `xieite::geometry::Circle`
 
 <br/><br/>
 
@@ -55,3 +102,12 @@ Output:
 1
 -1
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::LinearShape`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/LinearShape.md)
+- [`xieite::geometry::Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
+- [`xieite::geometry::Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse.md)
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Polygon`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon.md)

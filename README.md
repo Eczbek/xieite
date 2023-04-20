@@ -22,15 +22,15 @@ Add the `include` directory to your project.
 - Terminal manipulation tools
 - 2D geometrical shapes and functions
 - Macros for indentifying platform and compiler
-- BigInteger class, complete with bitwise operators
-- robert
+- Somewhat constexpr BigInteger class with bitwise operators
 - InterruptableRandomDistribution class
-- Compile-time string operations
 - A few unit conversion ratios
-- [Documentation for everything](https://github.com/Eczbek/xieite/tree/main/docs)
+- Compile-time string operations
+- [Documentation](https://github.com/Eczbek/xieite/tree/main/docs)
 
 <br/>
 
 ## To-do
+- More math functions for BigInteger
 - Network namespace
 - Ellipse-ellipse intersections

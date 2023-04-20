@@ -1,18 +1,27 @@
-# xieite::math::absolute
-Defined in header `<xieite/math/absolute.hpp>`
+# `xieite::math::absolute`
+Defined in header [`<xieite/math/absolute.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/absolute.hpp)
 
 <br/>
 
-Returns the absolute of a value. Unlike `std::abs`, this works for both signed and unsigned arithmetic types.
+Returns the absolute of a value. Unlike `std::abs`, this accepts both signed and unsigned arithmetic types.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
 constexpr Number absolute(Number value) noexcept;
 ```
+### Template parameters
+- `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
+### Parameters
+- `value` - A `Number` copy
+### Return value
+- A `Number`, the absolute of `value`
 
 <br/><br/>
 
@@ -35,3 +44,8 @@ Output:
 17
 4
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)

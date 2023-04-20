@@ -2,13 +2,12 @@
 
 #include <string>
 #include <unistd.h>
-#include <xieite/console/NonBlockLock.hpp>
-#include <xieite/console/RawLock.hpp>
+#include <xieite/console/ModeLock.hpp>
 
 namespace xieite::console {
 	inline std::string getString() noexcept {
-		xieite::console::RawLock rawLock;
-		xieite::console::NonBlockLock nonBlockLock;
+		xieite::console::ModeLock modeLock;
+		modeLock.setBlocking(false);
 		std::string buffer;
 		while (true) {
 			char input = 0;

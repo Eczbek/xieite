@@ -13,8 +13,8 @@ namespace xieite::geometry {
 		: points(points) {}
 
 		[[nodiscard]]
-		constexpr bool operator==(const xieite::geometry::Polygon& other) const noexcept {
-			return xieite::algorithms::rotatedMatch(std::begin(this->points), std::end(this->points), std::begin(other.points), std::end(other.points)) || xieite::algorithms::rotatedMatch(std::rbegin(this->points), std::rend(this->points), std::begin(other.points), std::end(other.points));
+		constexpr bool operator==(const xieite::geometry::Polygon& polygon) const noexcept {
+			return xieite::algorithms::rotatedMatch(std::begin(this->points), std::end(this->points), std::begin(polygon.points), std::end(polygon.points)) || xieite::algorithms::rotatedMatch(std::rbegin(this->points), std::rend(this->points), std::begin(polygon.points), std::end(polygon.points));
 		}
 	};
 }

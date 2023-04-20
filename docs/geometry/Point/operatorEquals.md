@@ -1,0 +1,26 @@
+# `xieite::geometry::Point::operator==`
+Defined in header [`<xieite/geometry/Point.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Point.hpp)
+
+<br/>
+
+Compares two points to each other.
+
+<br/><br/>
+
+## Synopsis
+
+<br/>
+
+```cpp
+[[nodiscard]]
+constexpr bool operator==(xieite::geometry::Point point) const noexcept;
+```
+### Parameters
+- `point` - A `xieite::geometry::Point` copy
+### Return value
+- `bool` - Whether or not the compared shapes are equal
+
+<br/><br/>
+
+## See also
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)

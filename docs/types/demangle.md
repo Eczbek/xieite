@@ -1,17 +1,24 @@
-# xieite::types::demangle
-Defined in header `<xieite/types/demangle.hpp>`
+# `xieite::types::demangle`
+Defined in header [`<xieite/types/demangle.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/types/demangle.hpp)
 
 <br/>
 
-Demangles a `typeid` name. Returns original string if demangling fails.
+Demangles the name of a `std::type_info::name()`. Returns original string if demangling fails.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 [[nodiscard]]
 inline std::string demangle(std::string_view mangled) noexcept;
 ```
+### Parameters
+- `mangled` - A `std::string_view` copy, the mangled type name
+### Return value
+- A `std::string`
 
 <br/><br/>
 

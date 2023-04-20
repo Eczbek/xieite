@@ -1,5 +1,5 @@
-# XIEITE_CONCATENATE
-Defined in header `<xieite/macros/CONCATENATE.hpp>`
+# `XIEITE_CONCATENATE`
+Defined in header [`<xieite/macros/CONCATENATE.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/CONCATENATE.hpp)
 
 <br/>
 
@@ -7,11 +7,17 @@ Concatenates two values literally.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 #define XIEITE_CONCATENATE(expression1, expression2) \
 	XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2)
 ```
+### Parameters
+- `expression1` - Any expression
+- `expression2` - Any expression
 
 <br/><br/>
 

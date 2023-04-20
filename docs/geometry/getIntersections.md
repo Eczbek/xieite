@@ -1,5 +1,5 @@
-# xieite::geometry::getIntersections
-Defined in header `<xieite/geometry/getIntersections.hpp>`
+# `xieite::geometry::getIntersections`
+Defined in header [`<xieite/geometry/getIntersections.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getIntersections.hpp)
 
 <br/>
 
@@ -7,32 +7,100 @@ Calculates all intersections between two geometrical elements.
 
 <br/><br/>
 
-## Declarations
+## Synopses
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Polygon& polygon, const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Polygon& polygon, const xieite::concepts::LinearShape auto& linearShape) noexcept;
 ```
+### Parameters
+- `polygon` - A `xieite::geometry::Polygon` constant reference
+- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+### Return value
+- `std::vector` of `xieite::geometry::Point` - All found intersections
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const std::derived_from<xieite::geometry::LineLike> auto& lineLike, const xieite::geometry::Polygon& polygon) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::concepts::LinearShape auto& linearShape, const xieite::geometry::Polygon& polygon) noexcept;
 ```
+### Parameters
+- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- `polygon` - A `xieite::geometry::Polygon` constant reference
+### Return value
+- `std::vector` of `xieite::geometry::Point` - All found intersections
+
+<br/>
+
 ```cpp
 [[nodiscard]]
 constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Polygon& polygon1, const xieite::geometry::Polygon& polygon2) noexcept;
 ```
+### Parameters
+- `polygon1` - A `xieite::geometry::Polygon` constant reference
+- `polygon2` - A `xieite::geometry::Polygon` constant reference
+### Return value
+- `std::vector` of `xieite::geometry::Point` - All found intersections
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Ellipse& ellipse, const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Ellipse& ellipse, const xieite::concepts::LinearShape auto& linearShape) noexcept;
 ```
+### Parameters
+- `ellipse` - A `xieite::geometry::Ellipse` constant reference
+- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+### Return value
+- `std::vector` of `xieite::geometry::Point` - All found intersections
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const std::derived_from<xieite::geometry::LineLike> auto& lineLike, const xieite::geometry::Ellipse& ellipse) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::concepts::LinearShape auto& linearShape, const xieite::geometry::Ellipse& ellipse) noexcept;
 ```
+### Parameters
+- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- `ellipse` - A `xieite::geometry::Ellipse` constant reference
+### Return value
+- `std::vector` of `xieite::geometry::Point` - All found intersections
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const xieite::concepts::LinearShape auto& linearShape) noexcept;
 ```
+### Parameters
+- `circle` - A `xieite::geometry::Circle` constant reference
+- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+### Return value
+- `std::vector` of `xieite::geometry::Point` - All found intersections
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-constexpr std::vector<xieite::geometry::Point> getIntersections(const std::derived_from<xieite::geometry::LineLike> auto& lineLike, const xieite::geometry::Circle& circle) noexcept;
+constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::concepts::LinearShape auto& linearShape, const xieite::geometry::Circle& circle) noexcept;
 ```
+### Parameters
+- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- `circle` - A `xieite::geometry::Circle` constant reference
+### Return value
+- `std::vector` of `xieite::geometry::Point` - All found intersections
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::LinearShape`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/LinearShape.md)
+- [`xieite::geometry::Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
+- [`xieite::geometry::Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse.md)
+- [`xieite::geometry::Line`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Line.md)
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Polygon`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon.md)
+- [`xieite::geometry::Ray`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ray.md)
+- [`xieite::geometry::Segment`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Segment.md)

@@ -1,5 +1,5 @@
-# xieite::math::isPowerOf2
-Defined in header `<xieite/math/isPowerOf2.hpp>`
+# `xieite::math::isPowerOf2`
+Defined in header [`<xieite/math/isPowerOf2.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/isPowerOf2.hpp)
 
 <br/>
 
@@ -7,10 +7,18 @@ Checks that a value is a power of 2.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
+[[nodiscard]]
 constexpr bool isPowerOf2(std::unsigned_integral auto value) noexcept;
 ```
+### Parameters
+- `value` - An `auto` copy, satisfying `std::unsigned_integral`
+### Return value
+- A `bool`, whether or not `value` is a power of 2
 
 <br/><br/>
 

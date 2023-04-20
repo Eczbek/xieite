@@ -1,13 +1,17 @@
-# xieite::geometry::Ray
-Defined in header `<xieite/geometry/Ray.hpp>`
+# `xieite::geometry::Ray`
+Defined in header [`<xieite/geometry/Ray.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Ray.hpp)
 
 <br/>
 
-A struct representing an infinite ray with one end, which is the member object `start`. Extends `xieite::geometry::LineLike`.
+A struct representing an infinite ray with one end.
 
 <br/><br/>
 
-## Member objects inherited from `xieite::geometry::LineLike`
+## Synopsis
+
+<br/>
+
+### Member objects
 ```cpp
 xieite::geometry::Point start;
 ```
@@ -15,20 +19,11 @@ xieite::geometry::Point start;
 xieite::geometry::Point end;
 ```
 
-## Constructors
-```cpp
-constexpr Ray(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
-```
-```cpp
-constexpr Ray(xieite::geometry::Point start, double angle) noexcept;
-```
+<br/>
 
-## Operators
-```cpp
-[[nodiscard]]
-constexpr bool operator==(const xieite::geometry::Ray& other) const noexcept;
-```
-(`operator!=` is defined implicitly)
+### Member functions
+- [`Ray`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ray/constructor.md)
+- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ray/operatorEquals.md)
 
 <br/><br/>
 
@@ -46,3 +41,8 @@ Output:
 ```
 false
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)

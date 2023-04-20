@@ -14,11 +14,12 @@ namespace xieite::math {
 		xieite::types::ConditionalIntegerSign<xieite::types::OptimalIntegerSize<bits>, sign> value: bits;
 
 	public:
-		constexpr Integer(const std::integral auto value = 0) noexcept
+		template<std::integral Integral = int>
+		constexpr Integer(const Integral value = 0) noexcept
 		: value(value) {}
 
-		constexpr Integer<bits, sign> operator=(const Integer<bits, sign> other) noexcept {
-			this->value = other.value;
+		constexpr xieite::math::Integer<bits, sign> operator=(const xieite::math::Integer<bits, sign> integer) noexcept {
+			this->value = integer.value;
 		}
 
 		template<std::integral Integral>
@@ -27,148 +28,148 @@ namespace xieite::math {
 			return this->value;
 		}
 
-		template<std::size_t otherBits, bool otherSign>
+		template<std::size_t integerBits, bool integerSign>
 		[[nodiscard]]
-		constexpr operator xieite::math::Integer<otherBits, otherSign>() const noexcept {
+		constexpr operator xieite::math::Integer<integerBits, integerSign>() const noexcept {
 			return this->value;
 		}
 
 		[[nodiscard]]
-		constexpr bool operator==(const Integer<bits, sign> other) const noexcept {
-			return this->value == other.value;
+		constexpr bool operator==(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value == integer.value;
 		}
 
 		[[nodiscard]]
-		constexpr std::strong_ordering operator<=>(const Integer<bits, sign> other) const noexcept {
-			return this->value <=> other.value;
+		constexpr std::strong_ordering operator<=>(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value <=> integer.value;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator+() const noexcept {
+		constexpr xieite::math::Integer<bits, sign> operator+() const noexcept {
 			return this->value;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator+(const Integer<bits, sign> other) const noexcept {
-			return this->value + other.value;
+		constexpr xieite::math::Integer<bits, sign> operator+(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value + integer.value;
 		}
 
-		constexpr Integer<bits, sign> operator+=(const Integer<bits, sign> other) noexcept {
-			return this->value += other.value;
+		constexpr xieite::math::Integer<bits, sign> operator+=(const xieite::math::Integer<bits, sign> integer) noexcept {
+			return this->value += integer.value;
 		}
 
-		constexpr Integer<bits, sign> operator++() noexcept {
+		constexpr xieite::math::Integer<bits, sign> operator++() noexcept {
 			return ++this->value;
 		}
 
-		constexpr Integer<bits, sign> operator++(int) noexcept {
+		constexpr xieite::math::Integer<bits, sign> operator++(int) noexcept {
 			return this->value++;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator-() const noexcept {
+		constexpr xieite::math::Integer<bits, sign> operator-() const noexcept {
 			return -this->value;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator-(const Integer<bits, sign> other) const noexcept {
-			return this->value - other.value;
+		constexpr xieite::math::Integer<bits, sign> operator-(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value - integer.value;
 		}
 
-		constexpr Integer<bits, sign> operator-=(const Integer<bits, sign> other) noexcept {
-			return this->value -= other.value;
+		constexpr xieite::math::Integer<bits, sign> operator-=(const xieite::math::Integer<bits, sign> integer) noexcept {
+			return this->value -= integer.value;
 		}
 
-		constexpr Integer<bits, sign> operator--() noexcept {
+		constexpr xieite::math::Integer<bits, sign> operator--() noexcept {
 			return --this->value;
 		}
 
-		constexpr Integer<bits, sign> operator--(int) noexcept {
+		constexpr xieite::math::Integer<bits, sign> operator--(int) noexcept {
 			return this->value--;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator*(const Integer<bits, sign> other) const noexcept {
-			return this->value * other.value;
+		constexpr xieite::math::Integer<bits, sign> operator*(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value * integer.value;
 		}
 
-		constexpr Integer<bits, sign> operator*=(const Integer<bits, sign> other) noexcept {
-			return this->value *= other.value;
-		}
-
-		[[nodiscard]]
-		constexpr Integer<bits, sign> operator/(const Integer<bits, sign> other) const noexcept {
-			return this->value / other.value;
-		}
-
-		constexpr Integer<bits, sign> operator/=(const Integer<bits, sign> other) noexcept {
-			return this->value /= other.value;
+		constexpr xieite::math::Integer<bits, sign> operator*=(const xieite::math::Integer<bits, sign> integer) noexcept {
+			return this->value *= integer.value;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator%(const Integer<bits, sign> other) const noexcept {
-			return this->value % other.value;
+		constexpr xieite::math::Integer<bits, sign> operator/(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value / integer.value;
 		}
 
-		constexpr Integer<bits, sign> operator%=(const Integer<bits, sign> other) noexcept {
-			return this->value %= other.value;
+		constexpr xieite::math::Integer<bits, sign> operator/=(const xieite::math::Integer<bits, sign> integer) noexcept {
+			return this->value /= integer.value;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator~() const noexcept {
+		constexpr xieite::math::Integer<bits, sign> operator%(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value % integer.value;
+		}
+
+		constexpr xieite::math::Integer<bits, sign> operator%=(const xieite::math::Integer<bits, sign> integer) noexcept {
+			return this->value %= integer.value;
+		}
+
+		[[nodiscard]]
+		constexpr xieite::math::Integer<bits, sign> operator~() const noexcept {
 			return ~this->value;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator|(const Integer<bits, sign> other) const noexcept {
-			return this->value | other.value;
+		constexpr xieite::math::Integer<bits, sign> operator|(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value | integer.value;
 		}
 
-		constexpr Integer<bits, sign> operator|=(const Integer<bits, sign> other) noexcept {
-			return this->value |= other.value;
-		}
-
-		[[nodiscard]]
-		constexpr Integer<bits, sign> operator&(const Integer<bits, sign> other) const noexcept {
-			return this->value & other.value;
-		}
-
-		constexpr Integer<bits, sign> operator&=(const Integer<bits, sign> other) noexcept {
-			return this->value &= other.value;
+		constexpr xieite::math::Integer<bits, sign> operator|=(const xieite::math::Integer<bits, sign> integer) noexcept {
+			return this->value |= integer.value;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator^(const Integer<bits, sign> other) const noexcept {
-			return this->value ^ other.value;
+		constexpr xieite::math::Integer<bits, sign> operator&(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value & integer.value;
 		}
 
-		constexpr Integer<bits, sign> operator^=(const Integer<bits, sign> other) noexcept {
-			return this->value ^= other.value;
-		}
-
-		[[nodiscard]]
-		constexpr Integer<bits, sign> operator<<(const std::size_t other) const noexcept {
-			return this->value << other;
-		}
-
-		constexpr Integer<bits, sign> operator<<=(const std::size_t other) noexcept {
-			return this->value <<= other;
+		constexpr xieite::math::Integer<bits, sign> operator&=(const xieite::math::Integer<bits, sign> integer) noexcept {
+			return this->value &= integer.value;
 		}
 
 		[[nodiscard]]
-		constexpr Integer<bits, sign> operator>>(const std::size_t other) const noexcept {
-			return this->value >> other;
+		constexpr xieite::math::Integer<bits, sign> operator^(const xieite::math::Integer<bits, sign> integer) const noexcept {
+			return this->value ^ integer.value;
 		}
 
-		constexpr Integer<bits, sign> operator>>=(const std::size_t other) noexcept {
-			return this->value >>= other;
+		constexpr xieite::math::Integer<bits, sign> operator^=(const xieite::math::Integer<bits, sign> integer) noexcept {
+			return this->value ^= integer.value;
 		}
 
-		friend constexpr std::ostream& operator<<(std::ostream& outStream, const Integer<bits, sign> self) noexcept {
+		[[nodiscard]]
+		constexpr xieite::math::Integer<bits, sign> operator<<(const std::size_t distance) const noexcept {
+			return this->value << integer;
+		}
+
+		constexpr xieite::math::Integer<bits, sign> operator<<=(const std::size_t distance) noexcept {
+			return this->value <<= integer;
+		}
+
+		[[nodiscard]]
+		constexpr xieite::math::Integer<bits, sign> operator>>(const std::size_t distance) const noexcept {
+			return this->value >> integer;
+		}
+
+		constexpr xieite::math::Integer<bits, sign> operator>>=(const std::size_t distance) noexcept {
+			return this->value >>= integer;
+		}
+
+		friend constexpr std::ostream& operator<<(std::ostream& outStream, const xieite::math::Integer<bits, sign> self) noexcept {
 			return outStream << self.value;
 		}
 
-		friend constexpr std::istream& operator>>(std::istream& inStream, Integer<bits, sign> self) noexcept {
+		friend constexpr std::istream& operator>>(std::istream& inStream, xieite::math::Integer<bits, sign>& self) noexcept {
 			return inStream >> self.value;
 		}
 	};

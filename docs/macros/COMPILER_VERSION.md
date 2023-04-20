@@ -1,5 +1,5 @@
-# XIEITE_COMPILER_VERSION...
-Defined in header `<xieite/macros/COMPILER_VERSION.hpp>`
+# `XIEITE_COMPILER_VERSION...`
+Defined in header [`<xieite/macros/COMPILER_VERSION.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/COMPILER_VERSION.hpp)
 
 <br/>
 
@@ -7,12 +7,18 @@ Macros for identifying the version of the current compiler.
 
 <br/><br/>
 
-## Declarations
+## Synopses
+
+<br/>
+
 ```cpp
 #define XIEITE_COMPILER_VERSION_MAJOR 0
 #define XIEITE_COMPILER_VERSION_MINOR 0
 #define XIEITE_COMPILER_VERSION_PATCH 0
 ```
+
+<br/>
+
 ```cpp
 #if defined(XIEITE_COMPILER_TYPE_GCC)
 #	define XIEITE_COMPILER_VERSION_MAJOR __GNUC__
@@ -20,6 +26,9 @@ Macros for identifying the version of the current compiler.
 #	define XIEITE_COMPILER_VERSION_PATCH __GNUC_PATCHLEVEL__
 #endif
 ```
+
+<br/>
+
 ```cpp
 #if defined(XIEITE_COMPILER_TYPE_CLANG)
 #	define XIEITE_COMPILER_VERSION_MAJOR __clang_major__
@@ -27,6 +36,9 @@ Macros for identifying the version of the current compiler.
 #	define XIEITE_COMPILER_VERSION_PATCH __clang_patchlevel__
 #endif
 ```
+
+<br/>
+
 ```cpp
 #if defined(XIEITE_COMPILER_TYPE_MINGW_32)
 #	include <windef.h>
@@ -34,6 +46,9 @@ Macros for identifying the version of the current compiler.
 #	define XIEITE_COMPILER_VERSION_MINOR __MINGW32_MINOR_VERSION
 #endif
 ```
+
+<br/>
+
 ```cpp
 #if defined(XIEITE_COMPILER_TYPE_MINGW_64)
 #	include <windef.h>
@@ -41,6 +56,9 @@ Macros for identifying the version of the current compiler.
 #	define XIEITE_COMPILER_VERSION_MINOR __MINGW64_VERSION_MINOR
 #endif
 ```
+
+<br/>
+
 ```cpp
 #if defined(XIEITE_COMPILER_TYPE_MSVC)
 #	define XIEITE_COMPILER_VERSION_MAJOR (_MSC_FULL_VER / 10000000)

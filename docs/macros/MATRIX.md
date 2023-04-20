@@ -1,5 +1,5 @@
-# XIEITE_MATRIX
-Defined in header `<xieite/macros/MATRIX.hpp>`
+# `XIEITE_MATRIX`
+Defined in header [`<xieite/macros/MATRIX.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/MATRIX.hpp)
 
 <br/>
 
@@ -7,11 +7,17 @@ Creates a multidimensional vector matrix.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
-#define XIEITE_MATRIX(unsignedInteger, type) \
-	XIEITE_REPEAT(std::vector<, unsignedInteger) type XIEITE_REPEAT(>, unsignedInteger)
+#define XIEITE_MATRIX(type, dimensions) \
+	XIEITE_REPEAT(std::vector<, dimensions) type XIEITE_REPEAT(>, dimensions)
 ```
+### Parameters
+- `type` - Any type
+- `dimensions` - An unsigned 8-bit value
 
 <br/><br/>
 
@@ -20,7 +26,7 @@ Creates a multidimensional vector matrix.
 #include <xieite/macros/MATRIX.hpp>
 
 int main() {
-	XIEITE_MATRIX(3, int) matrix;
+	XIEITE_MATRIX(int, 3) matrix;
 }
 ```
 Result:

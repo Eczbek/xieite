@@ -1,5 +1,5 @@
-# xieite::process::atExit
-Defined in header `<xieite/process/atExit.hpp>`
+# `xieite::process::atExit`
+Defined in header [`<xieite/process/atExit.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/process/atExit.hpp)
 
 <br/>
 
@@ -7,10 +7,15 @@ Executes given callbacks when the program ends. Is thread-safe.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 inline void atExit(const std::function<void()>& callback) noexcept;
 ```
+### Parameters
+- `callback` - A constant reference to a `std::function` which accepts and returns nothing
 
 <br/><br/>
 
@@ -20,12 +25,12 @@ inline void atExit(const std::function<void()>& callback) noexcept;
 #include <xieite/process/atExit.hpp>
 
 int main() {
-	xieite::process::atExit([]() -> void {
+	xieite::process::atExit([]() {
 		std::cout << "Hello, world!\n";
 	});
 }
 ```
 Output:
-```cpp
+```
 Hello, world!
 ```

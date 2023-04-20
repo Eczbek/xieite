@@ -1,5 +1,5 @@
-# xieite::random::InterruptableUniformDistribution
-Defined in header `<xieite/random/InterruptableUniformDistribution.hpp>`
+# `xieite::random::InterruptableUniformDistribution`
+Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/random/InterruptableUniformDistribution.hpp)
 
 <br/>
 
@@ -7,21 +7,20 @@ A uniform random number distribution which allows excluding subintervals from th
 
 <br/><br/>
 
-## Template Parameters
+## Synopsis
+
+<br/>
+
+### Template Parameters
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 ```
 
-## Constructors
-```cpp
-InterruptableUniformDistribution(Number begin, Number end, const std::vector<std::pair<Number, Number>>& interruptions);
-```
+<br/>
 
-## Operators
-```cpp
-[[nodiscard]]
-Number operator()(xieite::concepts::UniformRandomBitGenerator auto&& generator) noexcept;
-```
+### Member functions
+- [`InterruptableUniformDistribution`](https://github.com/Eczbek/xieite/tree/main/docs/random/InterruptableUniformDistribution/constructor.md)
+- [`operator()`](https://github.com/Eczbek/xieite/tree/main/docs/random/InterruptableUniformDistribution/operatorCall.md)
 
 <br/><br/>
 
@@ -32,7 +31,7 @@ Number operator()(xieite::concepts::UniformRandomBitGenerator auto&& generator) 
 #include <xieite/random/InterruptableUniformDistribution.hpp>
 
 int main() {
-	std::mt19937 rng(std::random_device {}());
+	std::default_random_engine rng(std::random_device {}());
 
 	xieite::random::InterruptableUniformDistribution<int> dist(0, 5, { { 1, 4 } });
 
@@ -53,3 +52,8 @@ Possible output:
 0
 5
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)

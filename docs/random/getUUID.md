@@ -1,5 +1,5 @@
-# xieite::random::getUUID
-Defined in header `<xieite/random/getUUID.hpp>`
+# `xieite::random::getUUID`
+Defined in header [`<xieite/random/getUUID.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/random/getUUID.hpp)
 
 <br/>
 
@@ -7,10 +7,15 @@ Generates a UUID. Compile with `-luuid`.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 inline std::string getUUID() noexcept;
 ```
+### Return value
+- A `std::string`
 
 <br/><br/>
 

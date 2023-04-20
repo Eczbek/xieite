@@ -1,5 +1,5 @@
-# XIEITE_VANISH
-Defined in header `<xieite/macros/VANISH.hpp>`
+# `XIEITE_VANISH`
+Defined in header [`<xieite/macros/VANISH.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/VANISH.hpp)
 
 <br/>
 
@@ -7,7 +7,10 @@ Uses magic to remove any line where it is mentioned (see example).
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 #define XIEITE_VANISH \
 	sizeof(decltype(std))

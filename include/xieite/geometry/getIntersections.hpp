@@ -1,11 +1,10 @@
 #pragma once
 
 #include <cmath>
-#include <concepts>
 #include <optional>
 #include <vector>
+#include <xieite/concepts/LinearShape.hpp>
 #include <xieite/geometry/Ellipse.hpp>
-#include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/Segment.hpp>
 #include <xieite/geometry/getIntersection.hpp>
@@ -14,10 +13,10 @@
 
 namespace xieite::geometry {
 	[[nodiscard]]
-	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Polygon& polygon, const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept {
+	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Polygon& polygon, const xieite::concepts::LinearShape auto& linearShape) noexcept {
 		std::vector<xieite::geometry::Point> intersections;
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {
-			const std::optional<xieite::geometry::Point> intersection = xieite::geometry::getIntersection(lineLike, side);
+			const std::optional<xieite::geometry::Point> intersection = xieite::geometry::getIntersection(linearShape, side);
 			if (intersection.has_value())
 				intersections.push_back(intersection.value());
 		}
@@ -25,8 +24,8 @@ namespace xieite::geometry {
 	}
 
 	[[nodiscard]]
-	constexpr std::vector<xieite::geometry::Point> getIntersections(const std::derived_from<xieite::geometry::LineLike> auto& lineLike, const xieite::geometry::Polygon& polygon) noexcept {
-		return xieite::geometry::getIntersections(polygon, lineLike);
+	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::concepts::LinearShape auto& linearShape, const xieite::geometry::Polygon& polygon) noexcept {
+		return xieite::geometry::getIntersections(polygon, linearShape);
 	}
 
 	[[nodiscard]]
@@ -42,9 +41,9 @@ namespace xieite::geometry {
 	}
 
 	[[nodiscard]]
-	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Ellipse& ellipse, const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept {
-		const xieite::geometry::Point start = xieite::geometry::rotate(xieite::geometry::Point(lineLike.start.x - ellipse.center.x, lineLike.start.y - ellipse.center.y), ellipse.rotation);
-		const xieite::geometry::Point end = xieite::geometry::rotate(xieite::geometry::Point(lineLike.end.x - ellipse.center.x, lineLike.end.y - ellipse.center.y), ellipse.rotation);
+	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Ellipse& ellipse, const xieite::concepts::LinearShape auto& linearShape) noexcept {
+		const xieite::geometry::Point start = xieite::geometry::rotate(xieite::geometry::Point(linearShape.start.x - ellipse.center.x, linearShape.start.y - ellipse.center.y), ellipse.rotation);
+		const xieite::geometry::Point end = xieite::geometry::rotate(xieite::geometry::Point(linearShape.end.x - ellipse.center.x, linearShape.end.y - ellipse.center.y), ellipse.rotation);
 		const double a = ellipse.radii.y * ellipse.radii.y * (end.x - start.x) * (end.x - start.x) + ellipse.radii.x * ellipse.radii.x * (end.y - start.y) * (end.y - start.y);
 		const double b = 2.0 * ellipse.radii.y * ellipse.radii.y * start.x * (end.x - start.x) + 2.0 * ellipse.radii.x * ellipse.radii.x * start.y * (end.y - start.y);
 		const double c = ellipse.radii.y * ellipse.radii.y * start.x * start.x + ellipse.radii.x * ellipse.radii.x * start.y * start.y - ellipse.radii.y * ellipse.radii.y * ellipse.radii.x * ellipse.radii.x;
@@ -63,17 +62,17 @@ namespace xieite::geometry {
 	}
 
 	[[nodiscard]]
-	constexpr std::vector<xieite::geometry::Point> getIntersections(const std::derived_from<xieite::geometry::LineLike> auto& lineLike, const xieite::geometry::Ellipse& ellipse) noexcept {
-		return xieite::geometry::getIntersections(ellipse, lineLike);
+	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::concepts::LinearShape auto& linearShape, const xieite::geometry::Ellipse& ellipse) noexcept {
+		return xieite::geometry::getIntersections(ellipse, linearShape);
 	}
 
 	[[nodiscard]]
-	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept {
-		return xieite::geometry::getIntersections(xieite::geometry::Ellipse(circle.center, xieite::geometry::Point(circle.radius, circle.radius)), lineLike);
+	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const xieite::concepts::LinearShape auto& linearShape) noexcept {
+		return xieite::geometry::getIntersections(xieite::geometry::Ellipse(circle.center, xieite::geometry::Point(circle.radius, circle.radius)), linearShape);
 	}
 
 	[[nodiscard]]
-	constexpr std::vector<xieite::geometry::Point> getIntersections(const std::derived_from<xieite::geometry::LineLike> auto& lineLike, const xieite::geometry::Circle& circle) noexcept {
-		return xieite::geometry::getIntersections(circle, lineLike);
+	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::concepts::LinearShape auto& linearShape, const xieite::geometry::Circle& circle) noexcept {
+		return xieite::geometry::getIntersections(circle, linearShape);
 	}
 }

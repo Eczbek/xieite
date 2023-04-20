@@ -1,5 +1,5 @@
-# xieite::geometry::Point
-Defined in header `<xieite/geometry/Point.hpp>`
+# `xieite::geometry::Point`
+Defined in header [`<xieite/geometry/Point.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Point.hpp)
 
 <br/>
 
@@ -7,7 +7,11 @@ A struct representing a point.
 
 <br/><br/>
 
-## Member objects
+## Synopsis
+
+<br/>
+
+### Member objects
 ```cpp
 double x;
 ```
@@ -15,17 +19,11 @@ double x;
 double y;
 ```
 
-## Constructors
-```cpp
-constexpr Point(double x = 0.0, double y = 0.0) noexcept;
-```
+<br/>
 
-## Operators
-```cpp
-[[nodiscard]]
-constexpr bool operator==(xieite::geometry::Point other) const noexcept;
-```
-(`operator!=` is defined implicitly)
+### Member functions
+- [`Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point/constructor.md)
+- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point/operatorEquals.md)
 
 <br/><br/>
 
@@ -39,10 +37,10 @@ constexpr bool operator==(xieite::geometry::Point other) const noexcept;
 int main() {
 	xieite::geometry::Point point = xieite::geometry::rotate({ 1.0, 0.0 }, xieite::math::toRadians(90.0));
 	
-	std::cout << point.x << ' ' << point.y << '\n';
+	std::cout << '(' << point.x << ", " << point.y << ")\n";
 }
 ```
 Output (rounded):
 ```
-0 1
+(0, 1)
 ```

@@ -1,14 +1,24 @@
-# xieite::console::getWindowSize
-Defined in header `<xieite/console/getWindowSize.hpp>`
+# `xieite::console::getWindowSize`
+Defined in header [`<xieite/console/getWindowSize.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/getWindowSize.hpp)
 
 <br/>
 
-Gets the console window size, in rows and columns.
+Gets the terminal window size, in rows and columns.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 [[nodiscard]]
-inline xieite::console::CursorPosition getWindowSize() noexcept;
+inline xieite::console::Position getWindowSize() noexcept;
 ```
+### Return value
+- `xieite::console::Position` - The window size
+
+<br/><br/>
+
+## See also
+- [`xieite::console::Position`](https://github.com/Eczbek/xieite/tree/main/docs/console/Position.md)

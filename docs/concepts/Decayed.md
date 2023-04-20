@@ -1,10 +1,19 @@
-# xieite::concepts::Decayed
-Defined in header `<xieite/concepts/Decayed.hpp>`
+# `xieite::concepts::Decayed`
+Defined in header [`<xieite/concepts/Decayed.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/Decayed.hpp)
+
+<br/>
+
+Specifies that type `Any` is decayed.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 template<typename Any>
 concept Decayed = std::same_as<Any, std::decay_t<Any>>;
 ```
+### Template parameters
+- `Any` - Any type

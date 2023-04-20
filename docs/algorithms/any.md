@@ -1,17 +1,24 @@
-# xieite::algorithms::any
-Defined in header `<xieite/algorithms/any.hpp>`
+# `xieite::algorithms::any`
+Defined in header [`<xieite/algorithms/any.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/any.hpp)
 
 <br/>
 
-Checks whether at least one argument is true. Expects all arguments to be converible to a boolean value.
+Checks whether at least one passed argument is true. Expects all arguments to be converible to a boolean value.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 [[nodiscard]]
 constexpr bool any(std::convertible_to<bool> auto&&... values) noexcept;
 ```
+### Parameters
+- `values` - `auto` right-value references, satisfying `std::convertible_to` of `bool`
+### Return value
+- A `bool` to represent whether or not all elements are true
 
 <br/><br/>
 
