@@ -31,6 +31,4 @@ Add the `include` directory to your project.
 <br/>
 
 ## To-do
-- More math functions for BigInteger
-- Network namespace
 - Ellipse-ellipse intersections
