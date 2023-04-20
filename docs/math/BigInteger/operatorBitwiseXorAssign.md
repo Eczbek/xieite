@@ -1,4 +1,4 @@
-# `xieite::math::BigInteger::operator|=`
+# `xieite::math::BigInteger::operator^=`
 Defined in header `<xieite/math/BigInteger.hpp>`
 
 <br/><br/>
@@ -8,7 +8,7 @@ Defined in header `<xieite/math/BigInteger.hpp>`
 <br/>
 
 ```cpp
-constexpr xieite::math::BigInteger& operator|=(const xieite::math::BigInteger& bigInteger) noexcept;
+constexpr xieite::math::BigInteger& operator^=(const xieite::math::BigInteger& bigInteger) noexcept;
 ```
 ### Parameters
 - `bigInteger` - A `xieite::math::BigInteger` constant reference
@@ -18,7 +18,7 @@ constexpr xieite::math::BigInteger& operator|=(const xieite::math::BigInteger& b
 <br/>
 
 ```cpp
-constexpr xieite::math::BigInteger& operator|=(std::integral auto value) noexcept;
+constexpr xieite::math::BigInteger& operator^=(std::integral auto value) noexcept;
 ```
 ### Parameters
 - `value` - An `auto` copy, satisfying `std::integral`
@@ -35,7 +35,7 @@ constexpr xieite::math::BigInteger& operator|=(std::integral auto value) noexcep
 int main() {
 	xieite::math::BigInteger bigInteger = 9;
 
-	bigInteger |= 3;
+	bigInteger ^= 3;
 
 	std::cout << bigInteger.string() << '\n';
 }
