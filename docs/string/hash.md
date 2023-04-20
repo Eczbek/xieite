@@ -1,5 +1,5 @@
-# xieite::string::hash
-Defined in header `<xieite/string/hash.hpp>`
+# `xieite::string::hash`
+Defined in header [`<xieite/string/hash.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/string/hash.hpp)
 
 <br/>
 
@@ -7,11 +7,18 @@ Defined in header `<xieite/string/hash.hpp>`
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 [[nodiscard]]
 constexpr std::size_t hash(std::string_view string) noexcept;
 ```
+### Parameters
+- `string` - A `std::string_view` copy, the value to hash
+### Return value
+- A `std::size_t`, the hashed result
 
 <br/><br/>
 

@@ -1,8 +1,7 @@
 #pragma once
 
-#include <concepts>
 #include <cmath>
-#include <xieite/geometry/LineLike.hpp>
+#include <xieite/concepts/LinearShape.hpp>
 #include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
@@ -12,7 +11,7 @@ namespace xieite::geometry {
 	}
 
 	[[nodiscard]]
-	constexpr double getSlope(const std::derived_from<xieite::geometry::LineLike> auto& lineLike) noexcept {
-		return xieite::geometry::getSlope(lineLike.start, lineLike.end);
+	constexpr double getSlope(const xieite::concepts::LinearShape auto& linearShape) noexcept {
+		return xieite::geometry::getSlope(linearShape.start, linearShape.end);
 	}
 }

@@ -1,8 +1,7 @@
 #pragma once
 
-#include <concepts>
 #include <cmath>
-#include <xieite/geometry/LineLike.hpp>
+#include <xieite/concepts/LinearShape.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/math/pi.hpp>
 #include <xieite/math/tau.hpp>
@@ -13,9 +12,8 @@ namespace xieite::geometry {
 		return std::fmod(std::atan2(point1.y - point2.y, point1.x - point2.x) + xieite::math::tau<double>, xieite::math::pi<double>);
 	}
 
-	template<std::derived_from<xieite::geometry::LineLike> L>
 	[[nodiscard]]
-	constexpr double getAngle(const L& lineLike) noexcept {
-		return xieite::geometry::getAngle(lineLike.start, lineLike.end);
+	constexpr double getAngle(const xieite::concepts::LinearShape auto& linearShape) noexcept {
+		return xieite::geometry::getAngle(linearShape.start, linearShape.end);
 	}
 }

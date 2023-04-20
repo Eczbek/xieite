@@ -1,19 +1,18 @@
 #pragma once
 
-#include <concepts>
 #include <optional>
-#include <xieite/geometry/LineLike.hpp>
+#include <xieite/concepts/LinearShape.hpp>
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/containsPoint.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
-	constexpr std::optional<xieite::geometry::Point> getIntersection(const std::derived_from<xieite::geometry::LineLike> auto& lineLike1, const std::derived_from<xieite::geometry::LineLike> auto& lineLike2) noexcept {
-		const double a = (lineLike1.start.x - lineLike1.end.x) * (lineLike2.start.y - lineLike2.end.y) - (lineLike1.start.y - lineLike1.end.y) * (lineLike2.start.x - lineLike2.end.x);
+	constexpr std::optional<xieite::geometry::Point> getIntersection(const xieite::concepts::LinearShape auto& linearShape1, const xieite::concepts::LinearShape auto& linearShape2) noexcept {
+		const double a = (linearShape1.start.x - linearShape1.end.x) * (linearShape2.start.y - linearShape2.end.y) - (linearShape1.start.y - linearShape1.end.y) * (linearShape2.start.x - linearShape2.end.x);
 		if (!xieite::math::approximatelyEqual(a, 0.0)) {
-			const xieite::geometry::Point intersection(((lineLike2.start.x - lineLike2.end.x) * (lineLike1.start.x * lineLike1.end.y - lineLike1.start.y * lineLike1.end.x) - (lineLike1.start.x - lineLike1.end.x) * (lineLike2.start.x * lineLike2.end.y - lineLike2.start.y * lineLike2.end.x)) / a, ((lineLike2.start.y - lineLike2.end.y) * (lineLike1.start.x * lineLike1.end.y - lineLike1.start.y * lineLike1.end.x) - (lineLike1.start.y - lineLike1.end.y) * (lineLike2.start.x * lineLike2.end.y - lineLike2.start.y * lineLike2.end.x)) / a);
-			if (xieite::geometry::containsPoint(lineLike1, intersection) && xieite::geometry::containsPoint(lineLike2, intersection))
+			const xieite::geometry::Point intersection(((linearShape2.start.x - linearShape2.end.x) * (linearShape1.start.x * linearShape1.end.y - linearShape1.start.y * linearShape1.end.x) - (linearShape1.start.x - linearShape1.end.x) * (linearShape2.start.x * linearShape2.end.y - linearShape2.start.y * linearShape2.end.x)) / a, ((linearShape2.start.y - linearShape2.end.y) * (linearShape1.start.x * linearShape1.end.y - linearShape1.start.y * linearShape1.end.x) - (linearShape1.start.y - linearShape1.end.y) * (linearShape2.start.x * linearShape2.end.y - linearShape2.start.y * linearShape2.end.x)) / a);
+			if (xieite::geometry::containsPoint(linearShape1, intersection) && xieite::geometry::containsPoint(linearShape2, intersection))
 				return std::optional(intersection);
 		}
 		return std::nullopt;

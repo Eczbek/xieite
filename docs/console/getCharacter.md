@@ -1,5 +1,5 @@
-# xieite::console::getCharacter
-Defined in header `<xieite/console/getCharacter.hpp>`
+# `xieite::console::getCharacter`
+Defined in header [`<xieite/console/getCharacter.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/getCharacter.hpp)
 
 <br/>
 
@@ -7,35 +7,33 @@ Waits for and returns the next keypress input.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
-inline char getCharacter(bool echo = true) noexcept;
+inline char getCharacter(bool echo = false) noexcept;
 ```
+### Parameters
+- `echo` - A `bool` copy, set to `false` by default. Determines whether to allow an echo when a character is input
+### Return value
+- `char` - The input character
 
 <br/><br/>
 
 ## Example
 ```cpp
-#include <chrono>
 #include <iostream>
 #include <xieite/console/getCharacter.hpp>
+#include <xieite/console/putBackString.hpp>
 
 int main() {
-	std::cout << "Press a key: ";
+	std::cin.putback('h');
 
-	std::chrono::time_point start = std::chrono::steady_clock::now();
-
-	char input = xieite::console::getCharacter();
-
-	std::chrono::time_point end = std::chrono::steady_clock::now();
-
-	std::cout << "\nElapsed milliseconds: "
-		<< std::chrono::duration_cast<std::chrono::milliseconds>(start - end).count() << '\n';
+	std::cout << xieite::console::getCharacter() << '\n';
 }
 ```
-Possible interaction:
+Output:
 ```
-Press a key: h
-Elapsed milliseconds: 445
+h
 ```
-(I got 445 milliseconds twice while testing this)

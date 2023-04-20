@@ -1,5 +1,5 @@
-# xieite::geometry::Ellipse
-Defined in header `<xieite/geometry/Ellipse.hpp>`
+# `xieite::geometry::Ellipse`
+Defined in header [`<xieite/geometry/Ellipse.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Ellipse.hpp)
 
 <br/>
 
@@ -7,7 +7,11 @@ An struct representing an ellipse.
 
 <br/><br/>
 
-## Member objects
+## Synopsis
+
+<br/>
+
+### Member objects
 ```cpp
 xieite::geometry::Point center;
 ```
@@ -18,17 +22,11 @@ xieite::geometry::Point radii;
 double rotation;
 ```
 
-## Constructors
-```cpp
-constexpr Ellipse(xieite::geometry::Point center, xieite::geometry::Point radii, double rotation = 0.0) noexcept;
-```
+<br/>
 
-## Operators
-```cpp
-[[nodiscard]]
-constexpr bool operator==(const xieite::geometry::Ellipse& other) const noexcept;
-```
-(`operator!=` is defined implicitly)
+### Member functions
+- [`Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse/constructor.md)
+- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse/operatorEquals.md)
 
 <br/><br/>
 
@@ -46,3 +44,8 @@ Output:
 ```
 6.28319
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)

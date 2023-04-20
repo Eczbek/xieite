@@ -2,16 +2,16 @@
 
 #include <cstdio>
 #include <iostream>
-#include <xieite/console/CursorPosition.hpp>
-#include <xieite/console/RawLock.hpp>
+#include <xieite/console/Position.hpp>
+#include <xieite/console/ModeLock.hpp>
 
 namespace xieite::console {
 	[[nodiscard]]
-	inline xieite::console::CursorPosition getCursorPosition() noexcept {
-		xieite::console::RawLock rawLock;
-		std::cout << "\x1b[6n";
-		xieite::console::CursorPosition position;
-		std::scanf("\x1b[%d;%dR", &position.row, &position.column);
-		return xieite::console::CursorPosition(position.row - 1, position.column - 1);
+	inline xieite::console::Position getCursorPosition() noexcept {
+		xieite::console::ModeLock modeLock;
+		std::cout << "\u001b[6n";
+		xieite::console::Position position;
+		std::scanf("\u001b[%i;%iR", &position.row, &position.column);
+		return xieite::console::Position(position.row - 1, position.column - 1);
 	}
 }

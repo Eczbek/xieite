@@ -1,5 +1,5 @@
-# xieite::errors::segmentationFault
-Defined in header `<xieite/errors/segmentationFault.hpp>`
+# `xieite::errors::segmentationFault`
+Defined in header [`<xieite/errors/segmentationFault.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/errors/segmentationFault.hpp)
 
 <br/>
 
@@ -7,7 +7,10 @@ Creates a segmentation fault. Why would you do this?
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 [[noreturn]]
 inline void segmentationFault() noexcept;

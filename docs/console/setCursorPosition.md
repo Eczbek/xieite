@@ -1,23 +1,30 @@
-# xieite::console::setCursorPosition
-Defined in header `<xieite/console/setCursorPosition.hpp>`
+# `xieite::console::setCursorPosition`
+Defined in header [`<xieite/console/setCursorPosition.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setCursorPosition.hpp)
 
 <br/>
 
-Sets the terminal cursor's absolute position.
+Sets the terminal cursor's position.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
-constexpr std::string setCursorPosition(xieite::console::CursorPosition position) noexcept;
+constexpr std::string setCursorPosition(xieite::console::Position position) noexcept;
 ```
+### Parameters
+- `position` - A `xieite::console::Position` copy, the new cursor coordinates
+### Return value
+- `std::string` - The resulting ANSI escape sequence to print
 
 <br/><br/>
 
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/console/setCursorPosition.hpp>
+#include <xieite/console/setPosition.hpp>
 
 int main() {
 	std::cout
@@ -25,9 +32,14 @@ int main() {
 		<< "Hello, world!\n";
 }
 ```
-Output:
+Possible output:
 ```
 
 
      Hello, world!
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::console::Position`](https://github.com/Eczbek/xieite/tree/main/docs/console/Position.md)

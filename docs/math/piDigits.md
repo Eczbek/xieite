@@ -1,5 +1,5 @@
-# xieite::math::piDigits
-Defined in header `<xieite/math/piDigits.hpp>`
+# `xieite::math::piDigits`
+Defined in header [`<xieite/math/piDigits.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/piDigits.hpp)
 
 <br/>
 
@@ -7,11 +7,20 @@ Calculates digits of Pi.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 template<std::integral Integral = int>
-std::vector<Integral> piDigits(std::size_t digits) noexcept;
+constexpr std::vector<Integral> piDigits(std::size_t digits) noexcept;
 ```
+### Template parameters
+- `Integral` - An integral type, satisfying `std::integral`
+### Parameters
+- `digits` - A `std::size_t` copy, how many digits to calculate
+### Return value
+- A `std::vector` of `Integral`s, digits of Pi in order
 
 <br/><br/>
 

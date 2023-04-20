@@ -1,5 +1,5 @@
-# XIEITE_ASSERT
-Defined in header `<xieite/macros/ASSERT.hpp>`
+# `XIEITE_ASSERT`
+Defined in header [`<xieite/macros/ASSERT.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/ASSERT.hpp)
 
 <br/>
 
@@ -7,7 +7,10 @@ Asserts an expression, either at compile-time or run-time.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 #define XIEITE_ASSERT(booleanExpression, stringLiteral) \
 	static_assert((__builtin_constant_p((booleanExpression)) ? (booleanExpression) : true), stringLiteral); \
@@ -16,3 +19,6 @@ Asserts an expression, either at compile-time or run-time.
 			throw std::runtime_error(stringLiteral); \
 	}
 ```
+### Parameters
+- `booleanExpression` - Any expression which becomes a `bool`ean value
+- `stringLiteral` - Any string literal

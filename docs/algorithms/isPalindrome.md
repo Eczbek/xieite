@@ -1,5 +1,5 @@
-# xieite::algorithms::isPalindrome
-Defined in header `<xieite/algorithms/isPalindrome.hpp>`
+# `xieite::algorithms::isPalindrome`
+Defined in header [`<xieite/algorithms/isPalindrome.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/isPalindrome.hpp)
 
 <br/>
 
@@ -7,12 +7,24 @@ Checks if an iterable is the same backwards as it is forwards. Uses `std::equal_
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
-template<std::forward_iterator Iterator, xieite::concepts::ComparatorCallback<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
+template<std::forward_iterator Iterator, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
 [[nodiscard]]
 constexpr bool isPalindrome(Iterator begin, Iterator end, Callback&& comparator = Callback()) noexcept;
 ```
+### Template parameters
+- `Iterator` - An iterator type, satisfying `std::forward_iterator`
+- `Callback` - A callback type, satisfying `xieite::concepts::CallbackComparator` of `Iterator`'s value type, set to `std::equal_to` of `Iterator`'s value type by default
+### Parameters
+- `begin` - An `Iterator` copy which points to the beginning of an iterable
+- `end` - An `Iterator` copy which points to the end of the same iterable
+- `comparator` - A `Callback` right-value reference, default-constructed by default
+### Return value
+- A `bool`, whether or not the passed iterable is a palindrome
 
 <br/><br/>
 
@@ -33,3 +45,8 @@ Output:
 ```
 true
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::CallbackComparator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackComparator.md)

@@ -1,18 +1,35 @@
-# xieite::traits::isTemporalDuration
-Defined in header `<xieite/traits/isTemporalDuration.hpp>`
+# `xieite::traits::isTemporalDuration`
+Defined in header [`<xieite/traits/isTemporalDuration.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/traits/isTemporalDuration.hpp)
 
 <br/>
 
-A boolean representing whether types `R`, `N`, and `D` create a valid `std::chrono::duration`.
+A boolean representing whether an arithmetic type and two `std::intmax_t` values can create a `std::chrono::duration`.
 
 <br/><br/>
 
-## Declarations
+## Synopses
+
+<br/>
+
 ```cpp
 template<typename>
 constexpr bool isTemporalDuration = false;
 ```
+### Template parameters
+- Unconstrained parameter
+
+<br/>
+
 ```cpp
 template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intmax_t denominator>
 constexpr bool isTemporalDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>> = true;
 ```
+### Template parameters
+- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `numerator` - A `std::intmax_t` copy
+- `denominator` - Another `std::int_max_t` copy
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)

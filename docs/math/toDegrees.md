@@ -1,5 +1,5 @@
-# xieite::math::toDegrees
-Defined in header `<xieite/math/toDegrees.hpp>`
+# `xieite::math::toDegrees`
+Defined in header [`<xieite/math/toDegrees.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/toDegrees.hpp)
 
 <br/>
 
@@ -7,9 +7,23 @@ Converts radians to degrees.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
 constexpr Number toDegrees(Number radians) noexcept;
 ```
+### Template parameters
+- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
+### Parameters
+- `radians` - A `Number` copy
+### Return value
+- A `Number`, equal to `radians` in degrees
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)

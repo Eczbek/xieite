@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 #include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/concepts/ComparatorCallback.hpp>
+#include <xieite/concepts/CallbackComparator.hpp>
 #include <xieite/macros/ASSERT.hpp>
 #include <xieite/math/absolute.hpp>
 
@@ -21,14 +21,8 @@ namespace xieite::math {
 		bool sign;
 
 	public:
-		BigInteger(const xieite::math::BigInteger& other) noexcept
-		: bits(other.bits), sign(other.sign) {}
-
-		BigInteger(xieite::math::BigInteger&& other) noexcept
-		: bits(std::move(other.bits)), sign(other.sign) {}
-
-		template<std::integral Integral = int>
-		BigInteger(Integral value = 0) noexcept
+		template<std::integral Number = int>
+		constexpr BigInteger(Number value = 0) noexcept
 		: sign(value < 0) {
 			value = xieite::math::absolute(value);
 			do {
@@ -37,7 +31,10 @@ namespace xieite::math {
 			} while (value);
 		}
 
-		BigInteger(const std::vector<bool>& bits, const bool sign = false) noexcept
+		constexpr BigInteger(const xieite::math::BigInteger& bigInteger) noexcept
+		: bits(bigInteger.bits), sign(bigInteger.sign) {}
+
+		constexpr BigInteger(const std::vector<bool>& bits, const bool sign = false) noexcept
 		: bits(bits), sign(sign) {
 			std::size_t i = this->bits.size();
 			if (i)
@@ -49,7 +46,7 @@ namespace xieite::math {
 				this->sign = false;
 		}
 
-		BigInteger(const std::string_view value) {
+		constexpr BigInteger(const std::string_view value) {
 			const bool isNegative = value[0] == '-';
 			const std::size_t valueSize = value.size();
 			for (std::size_t i = isNegative; i < valueSize; ++i) {
@@ -59,27 +56,19 @@ namespace xieite::math {
 			this->sign = ((this->bits.size() < 2) && !this->bits[0]) * isNegative;
 		}
 
-		xieite::math::BigInteger& operator=(const xieite::math::BigInteger& other) noexcept {
-			this->bits = other.bits;
-			this->sign = other.sign;
+		constexpr xieite::math::BigInteger& operator=(const xieite::math::BigInteger& bigInteger) noexcept {
+			this->bits = bigInteger.bits;
+			this->sign = bigInteger.sign;
 			return *this;
 		}
 
-		xieite::math::BigInteger& operator=(xieite::math::BigInteger&& other) noexcept {
-			if (this != &other) {
-				this->bits = std::move(other.bits);
-				this->sign = other.sign;
-			}
-			return *this;
-		}
-
-		xieite::math::BigInteger& operator=(const std::integral auto value) noexcept {
+		constexpr xieite::math::BigInteger& operator=(const std::integral auto value) noexcept {
 			return *this = xieite::math::BigInteger(value);
 		}
 
 		template<xieite::concepts::Arithmetic Number>
 		[[nodiscard]]
-		operator Number() const noexcept {
+		constexpr operator Number() const noexcept {
 			Number result = 0;
 			Number exponent = 1;
 			for (const bool bit : this->bits) {
@@ -91,58 +80,53 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]]
-		operator bool() const noexcept {
+		constexpr operator bool() const noexcept {
 			return *this != 0;
 		}
 
 		[[nodiscard]]
-		bool operator!() const noexcept {
-			return !static_cast<bool>(*this);
-		}
-
-		[[nodiscard]]
-		bool operator==(const xieite::math::BigInteger& other) const noexcept {
-			return (this->sign == other.sign) && (this->bits == other.bits);
+		constexpr bool operator==(const xieite::math::BigInteger& bigInteger) const noexcept {
+			return (this->sign == bigInteger.sign) && (this->bits == bigInteger.bits);
 		}
 		
 		[[nodiscard]]
-		bool operator==(const std::integral auto value) const noexcept {
+		constexpr bool operator==(const std::integral auto value) const noexcept {
 			return *this == xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		std::strong_ordering operator<=>(const xieite::math::BigInteger& other) const noexcept {
-			return (this->sign != other.sign) ? (other.sign <=> this->sign) : (this->sign ? ((this->bits.size() != other.bits.size()) ? (other.bits.size() <=> this->bits.size()) : (std::vector<bool>(std::rbegin(other.bits), std::rend(other.bits)) <=> std::vector<bool>(std::rbegin(this->bits), std::rend(this->bits)))) : ((this->bits.size() != other.bits.size()) ? (this->bits.size() <=> other.bits.size()) : (std::vector<bool>(std::rbegin(this->bits), std::rend(this->bits)) <=> std::vector<bool>(std::rbegin(other.bits), std::rend(other.bits)))));
+		constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& bigInteger) const noexcept {
+			return (this->sign != bigInteger.sign) ? (bigInteger.sign <=> this->sign) : (this->sign ? ((this->bits.size() != bigInteger.bits.size()) ? (bigInteger.bits.size() <=> this->bits.size()) : (std::vector<bool>(std::rbegin(bigInteger.bits), std::rend(bigInteger.bits)) <=> std::vector<bool>(std::rbegin(this->bits), std::rend(this->bits)))) : ((this->bits.size() != bigInteger.bits.size()) ? (this->bits.size() <=> bigInteger.bits.size()) : (std::vector<bool>(std::rbegin(this->bits), std::rend(this->bits)) <=> std::vector<bool>(std::rbegin(bigInteger.bits), std::rend(bigInteger.bits)))));
 		}
 
 		[[nodiscard]]
-		std::strong_ordering operator<=>(const std::integral auto value) const noexcept {
+		constexpr std::strong_ordering operator<=>(const std::integral auto value) const noexcept {
 			return *this <=> xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator+() const noexcept {
+		constexpr xieite::math::BigInteger operator+() const noexcept {
 			return *this;
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator+(const xieite::math::BigInteger& other) const noexcept {
-			if (this->sign != other.sign)
-				return *this - (-other);
+		constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger& bigInteger) const noexcept {
+			if (this->sign != bigInteger.sign)
+				return *this - (-bigInteger);
 			if (!*this)
-				return other;
-			if (!other)
+				return bigInteger;
+			if (!bigInteger)
 				return *this;
 			std::vector<bool> resultBits;
 			bool carry = false;
 			const std::size_t bitsSize = this->bits.size();
-			const std::size_t otherBitsSize = other.bits.size();
-			for (std::size_t i = 0; (i < bitsSize) || (i < otherBitsSize) || carry; ++i) {
+			const std::size_t bigIntegerBitsSize = bigInteger.bits.size();
+			for (std::size_t i = 0; (i < bitsSize) || (i < bigIntegerBitsSize) || carry; ++i) {
 				int sum = carry;
 				if (i < bitsSize)
 					sum += this->bits[i];
-				if (i < otherBitsSize)
-					sum += other.bits[i];
+				if (i < bigIntegerBitsSize)
+					sum += bigInteger.bits[i];
 				carry = sum > 1;
 				resultBits.push_back(sum % 2);
 			}
@@ -150,30 +134,30 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator+(const std::integral auto value) const noexcept {
+		constexpr xieite::math::BigInteger operator+(const std::integral auto value) const noexcept {
 			return *this + xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator+=(const xieite::math::BigInteger& other) noexcept {
-			return *this = *this + other;
+		constexpr xieite::math::BigInteger& operator+=(const xieite::math::BigInteger& bigInteger) noexcept {
+			return *this = *this + bigInteger;
 		}
 
-		xieite::math::BigInteger& operator+=(const std::integral auto value) noexcept {
+		constexpr xieite::math::BigInteger& operator+=(const std::integral auto value) noexcept {
 			return *this += xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator++() noexcept {
+		constexpr xieite::math::BigInteger& operator++() noexcept {
 			return *this += 1;
 		}
 
-		xieite::math::BigInteger operator++(int) noexcept {
+		constexpr xieite::math::BigInteger operator++(int) noexcept {
 			const xieite::math::BigInteger copy = *this;
 			++*this;
 			return copy;
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator-() const noexcept {
+		constexpr xieite::math::BigInteger operator-() const noexcept {
 			xieite::math::BigInteger copy = *this;
 			if (copy)
 				copy.sign = !copy.sign;
@@ -181,21 +165,21 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator-(const xieite::math::BigInteger& other) const noexcept {
-			if (!other)
+		constexpr xieite::math::BigInteger operator-(const xieite::math::BigInteger& bigInteger) const noexcept {
+			if (!bigInteger)
 				return *this;
-			if (this->sign != other.sign)
-				return *this + (-other);
-			if (this->sign && (*this > other) || !this->sign && (*this < other))
-				return -(other - *this);
+			if (this->sign != bigInteger.sign)
+				return *this + (-bigInteger);
+			if (this->sign && (*this > bigInteger) || !this->sign && (*this < bigInteger))
+				return -(bigInteger - *this);
 			std::vector<bool> resultBits = this->bits;
 			bool borrow = false;
 			const std::size_t bitsSize = this->bits.size();
-			const std::size_t otherBitsSize = other.bits.size();
-			for (std::size_t i = 0; (i < otherBitsSize) || borrow; ++i) {
+			const std::size_t bigIntegerBitsSize = bigInteger.bits.size();
+			for (std::size_t i = 0; (i < bigIntegerBitsSize) || borrow; ++i) {
 				int difference = 2 - borrow + this->bits[i];
-				if (i < otherBitsSize)
-					difference -= other.bits[i];
+				if (i < bigIntegerBitsSize)
+					difference -= bigInteger.bits[i];
 				borrow = (i < bitsSize - 1) && (difference < 2);
 				resultBits[i] = difference % 2;
 			}
@@ -203,78 +187,78 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator-(const std::integral auto value) const noexcept {
+		constexpr xieite::math::BigInteger operator-(const std::integral auto value) const noexcept {
 			return *this - xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator-=(const xieite::math::BigInteger& other) noexcept {
-			return *this = *this - other;
+		constexpr xieite::math::BigInteger& operator-=(const xieite::math::BigInteger& bigInteger) noexcept {
+			return *this = *this - bigInteger;
 		}
 
-		xieite::math::BigInteger& operator-=(const std::integral auto value) noexcept {
+		constexpr xieite::math::BigInteger& operator-=(const std::integral auto value) noexcept {
 			return *this -= xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator--() noexcept {
+		constexpr xieite::math::BigInteger& operator--() noexcept {
 			return *this -= 1;
 		}
 
-		xieite::math::BigInteger operator--(int) noexcept {
+		constexpr xieite::math::BigInteger operator--(int) noexcept {
 			const xieite::math::BigInteger copy = *this;
 			--*this;
 			return copy;
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator*(const xieite::math::BigInteger& other) const noexcept {
-			if (!*this || !other)
+		constexpr xieite::math::BigInteger operator*(const xieite::math::BigInteger& bigInteger) const noexcept {
+			if (!*this || !bigInteger)
 				return xieite::math::BigInteger(0);
 			if (*this == 1)
-				return other;
-			if (other == 1)
+				return bigInteger;
+			if (bigInteger == 1)
 				return *this;
 			if (*this == -1)
-				return -other;
-			if (other == -1)
+				return -bigInteger;
+			if (bigInteger == -1)
 				return -*this;
-			const std::size_t halfSize = std::min(this->bits.size(), other.bits.size()) / 2;
+			const std::size_t halfSize = std::min(this->bits.size(), bigInteger.bits.size()) / 2;
 			const std::vector<bool>::const_iterator i = std::next(std::begin(this->bits), halfSize);
 			const xieite::math::BigInteger a(std::vector<bool>(std::begin(this->bits), i));
 			const xieite::math::BigInteger b(std::vector<bool>(i, std::end(this->bits)));
-			const std::vector<bool>::const_iterator j = std::next(std::begin(other.bits), halfSize);
-			const xieite::math::BigInteger c(std::vector<bool>(std::begin(other.bits), j));
-			const xieite::math::BigInteger d(std::vector<bool>(j, std::end(other.bits)));
+			const std::vector<bool>::const_iterator j = std::next(std::begin(bigInteger.bits), halfSize);
+			const xieite::math::BigInteger c(std::vector<bool>(std::begin(bigInteger.bits), j));
+			const xieite::math::BigInteger d(std::vector<bool>(j, std::end(bigInteger.bits)));
 			const xieite::math::BigInteger e = a * c;
 			const xieite::math::BigInteger f = (a + b) * (c + d);
 			const xieite::math::BigInteger g = b * d;
 			xieite::math::BigInteger result = (g << (halfSize * 2)) + ((f - g - e) << halfSize) + e;
-			result.sign = this->sign != other.sign;
+			result.sign = this->sign != bigInteger.sign;
 			return result;
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator*(const std::integral auto value) const noexcept {
+		constexpr xieite::math::BigInteger operator*(const std::integral auto value) const noexcept {
 			return *this * xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator*=(const xieite::math::BigInteger& other) noexcept {
-			return *this = *this * other;
+		constexpr xieite::math::BigInteger& operator*=(const xieite::math::BigInteger& bigInteger) noexcept {
+			return *this = *this * bigInteger;
 		}
 
-		xieite::math::BigInteger& operator*=(const std::integral auto value) noexcept {
+		constexpr xieite::math::BigInteger& operator*=(const std::integral auto value) noexcept {
 			return *this *= xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator/(const xieite::math::BigInteger& other) const {
-			XIEITE_ASSERT(static_cast<bool>(other), "Cannot divide by zero");
-			if (other == 1)
+		constexpr xieite::math::BigInteger operator/(const xieite::math::BigInteger& bigInteger) const {
+			XIEITE_ASSERT(static_cast<bool>(bigInteger), "Cannot divide by zero");
+			if (bigInteger == 1)
 				return *this;
-			if (other == -1)
+			if (bigInteger == -1)
 				return -*this;
-			const bool otherSign = other.sign;
-            const xieite::math::BigInteger otherCopy = other.absolute();
-			if (this->absolute() < otherCopy)
+			const bool bigIntegerSign = bigInteger.sign;
+            const xieite::math::BigInteger bigIntegerCopy = bigInteger.absolute();
+			if (this->absolute() < bigIntegerCopy)
 				return xieite::math::BigInteger(0);
 			std::vector<bool> resultBits;
 			xieite::math::BigInteger difference;
@@ -282,244 +266,244 @@ namespace xieite::math {
 				if (!difference)
 					difference.bits.clear();
 				difference.bits.insert(std::begin(difference.bits), this->bits[i]);
-				bool quotient = difference >= otherCopy;
+				bool quotient = difference >= bigIntegerCopy;
 				if (quotient)
-					difference -= otherCopy;
+					difference -= bigIntegerCopy;
 				resultBits.insert(std::begin(resultBits), quotient);
 			}
-			return xieite::math::BigInteger(resultBits, this->sign != otherSign);
+			return xieite::math::BigInteger(resultBits, this->sign != bigIntegerSign);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator/(const std::integral auto value) const {
+		constexpr xieite::math::BigInteger operator/(const std::integral auto value) const {
 			return *this / xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator/=(const xieite::math::BigInteger& other) {
-			return *this = *this / other;
+		constexpr xieite::math::BigInteger& operator/=(const xieite::math::BigInteger& bigInteger) {
+			return *this = *this / bigInteger;
 		}
 
-		xieite::math::BigInteger& operator/=(const std::integral auto value) {
+		constexpr xieite::math::BigInteger& operator/=(const std::integral auto value) {
 			return *this /= xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator%(const xieite::math::BigInteger& other) const {
-			XIEITE_ASSERT(static_cast<bool>(other), "Cannot find remainder of division by zero");
+		constexpr xieite::math::BigInteger operator%(const xieite::math::BigInteger& bigInteger) const {
+			XIEITE_ASSERT(static_cast<bool>(bigInteger), "Cannot find remainder of division by zero");
 			const xieite::math::BigInteger copy = this->absolute();
-			const xieite::math::BigInteger otherCopy = other.absolute();
-			if (!*this || (otherCopy == 1) || (copy == otherCopy))
+			const xieite::math::BigInteger bigIntegerCopy = bigInteger.absolute();
+			if (!*this || (bigIntegerCopy == 1) || (copy == bigIntegerCopy))
 				return xieite::math::BigInteger(0);
-			if (copy < otherCopy)
+			if (copy < bigIntegerCopy)
 				return *this;
 			xieite::math::BigInteger difference;
 			for (std::size_t i = this->bits.size(); i--;) {
 				if (!difference)
 					difference.bits.clear();
 				difference.bits.insert(std::begin(difference.bits), this->bits[i]);
-				if (difference >= otherCopy)
-					difference -= otherCopy;
+				if (difference >= bigIntegerCopy)
+					difference -= bigIntegerCopy;
 			}
 			difference.sign = this->sign;
 			return difference;
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator%(const std::integral auto value) const {
+		constexpr xieite::math::BigInteger operator%(const std::integral auto value) const {
 			return *this % xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator%=(const xieite::math::BigInteger& other) {
-			return *this = *this % other;
+		constexpr xieite::math::BigInteger& operator%=(const xieite::math::BigInteger& bigInteger) {
+			return *this = *this % bigInteger;
 		}
 
-		xieite::math::BigInteger& operator%=(const std::integral auto value) {
+		constexpr xieite::math::BigInteger& operator%=(const std::integral auto value) {
 			return *this %= xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator~() const noexcept {
+		constexpr xieite::math::BigInteger operator~() const noexcept {
 			return -(*this + 1);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator&(const xieite::math::BigInteger& other) const noexcept {
-			return (!*this || !other) ? xieite::math::BigInteger(0) : this->commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+		constexpr xieite::math::BigInteger operator&(const xieite::math::BigInteger& bigInteger) const noexcept {
+			return (!*this || !bigInteger) ? xieite::math::BigInteger(0) : this->commonBitwiseOperation(bigInteger, [](const bool left, const bool right) noexcept -> bool {
 				return left && right;
 			});
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator&(const std::integral auto value) const noexcept {
+		constexpr xieite::math::BigInteger operator&(const std::integral auto value) const noexcept {
 			return *this & xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator&=(const xieite::math::BigInteger& other) noexcept {
-			return *this = *this & other;
+		constexpr xieite::math::BigInteger& operator&=(const xieite::math::BigInteger& bigInteger) noexcept {
+			return *this = *this & bigInteger;
 		}
 
-		xieite::math::BigInteger& operator&=(const std::integral auto value) noexcept {
+		constexpr xieite::math::BigInteger& operator&=(const std::integral auto value) noexcept {
 			return *this &= xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator|(const xieite::math::BigInteger& other) const noexcept {
-			return !*this ? other : (!other ? *this : this->commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+		constexpr xieite::math::BigInteger operator|(const xieite::math::BigInteger& bigInteger) const noexcept {
+			return !*this ? bigInteger : (!bigInteger ? *this : this->commonBitwiseOperation(bigInteger, [](const bool left, const bool right) noexcept -> bool {
 				return left || right;
 			}));
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator|(const std::integral auto value) const noexcept {
+		constexpr xieite::math::BigInteger operator|(const std::integral auto value) const noexcept {
 			return *this | xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator|=(const xieite::math::BigInteger& other) noexcept {
-			return *this = *this | other;
+		constexpr xieite::math::BigInteger& operator|=(const xieite::math::BigInteger& bigInteger) noexcept {
+			return *this = *this | bigInteger;
 		}
 
-		xieite::math::BigInteger& operator|=(const std::integral auto value) noexcept {
+		constexpr xieite::math::BigInteger& operator|=(const std::integral auto value) noexcept {
 			return *this |= xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator^(const xieite::math::BigInteger& other) const noexcept {
-			return !*this ? other : (!other ? *this : this->commonBitwiseOperation(other, [](const bool left, const bool right) -> bool {
+		constexpr xieite::math::BigInteger operator^(const xieite::math::BigInteger& bigInteger) const noexcept {
+			return !*this ? bigInteger : (!bigInteger ? *this : this->commonBitwiseOperation(bigInteger, [](const bool left, const bool right) noexcept -> bool {
 				return left != right;
 			}));
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator^(const std::integral auto value) const noexcept {
+		constexpr xieite::math::BigInteger operator^(const std::integral auto value) const noexcept {
 			return *this ^ xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator^=(const xieite::math::BigInteger& other) noexcept {
-			return *this = *this ^ other;
+		constexpr xieite::math::BigInteger& operator^=(const xieite::math::BigInteger& bigInteger) noexcept {
+			return *this = *this ^ bigInteger;
 		}
 
-		xieite::math::BigInteger& operator^=(const std::integral auto value) noexcept {
+		constexpr xieite::math::BigInteger& operator^=(const std::integral auto value) noexcept {
 			return *this ^= xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator<<(const xieite::math::BigInteger& other) const noexcept {
-			if (other.sign || !*this)
+		constexpr xieite::math::BigInteger operator<<(const xieite::math::BigInteger& bigInteger) const noexcept {
+			if (bigInteger.sign || !*this)
 				return xieite::math::BigInteger(0);
-			if (!other)
+			if (!bigInteger)
 				return *this;
-			std::vector<bool> resultBits(static_cast<std::size_t>(other));
+			std::vector<bool> resultBits(static_cast<std::size_t>(bigInteger));
 			resultBits.insert(std::end(resultBits), std::begin(this->bits), std::end(this->bits));
 			return xieite::math::BigInteger(resultBits, this->sign);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator<<(const std::integral auto value) const noexcept {
+		constexpr xieite::math::BigInteger operator<<(const std::integral auto value) const noexcept {
 			return *this << xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger& operator<<=(const xieite::math::BigInteger& other) noexcept {
-			return *this = *this << other;
+		constexpr xieite::math::BigInteger& operator<<=(const xieite::math::BigInteger& bigInteger) noexcept {
+			return *this = *this << bigInteger;
 		}
 
-		xieite::math::BigInteger& operator<<=(const std::integral auto value) noexcept {
+		constexpr xieite::math::BigInteger& operator<<=(const std::integral auto value) noexcept {
 			return *this <<= xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator>>(const xieite::math::BigInteger& other) const noexcept {
-			if (!this->sign && other.sign || !*this)
+		constexpr xieite::math::BigInteger operator>>(const xieite::math::BigInteger& bigInteger) const noexcept {
+			if (!this->sign && bigInteger.sign || !*this)
 				return xieite::math::BigInteger(0);
-			if (!other)
+			if (!bigInteger)
 				return *this;
 			std::vector<bool> resultBits = this->bits;
 			std::vector<bool>::iterator end = std::begin(resultBits);
-			resultBits.erase(std::begin(resultBits), std::next(std::begin(resultBits), static_cast<std::size_t>(other)));
+			resultBits.erase(std::begin(resultBits), std::next(std::begin(resultBits), static_cast<std::size_t>(bigInteger)));
 			BigInteger result(resultBits, this->sign);
 			return result ? result : -xieite::math::BigInteger(this->sign);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger operator>>(const std::integral auto value) const noexcept {
+		constexpr xieite::math::BigInteger operator>>(const std::integral auto value) const noexcept {
 			return *this >> xieite::math::BigInteger(value);
 		}
 
-		xieite::math::BigInteger operator>>=(const xieite::math::BigInteger& other) noexcept {
-			return *this = *this >> other;
+		constexpr xieite::math::BigInteger operator>>=(const xieite::math::BigInteger& bigInteger) noexcept {
+			return *this = *this >> bigInteger;
 		}
 
-		xieite::math::BigInteger operator>>=(const std::integral auto value) noexcept {
+		constexpr xieite::math::BigInteger operator>>=(const std::integral auto value) noexcept {
 			return *this >>= xieite::math::BigInteger(value);
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger absolute() const noexcept {
+		constexpr xieite::math::BigInteger absolute() const noexcept {
 			xieite::math::BigInteger copy = *this;
 			copy.sign = false;
 			return copy;
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger power(xieite::math::BigInteger other) const {
-			if ((*this == 1) || (other == 1))
+		constexpr xieite::math::BigInteger power(xieite::math::BigInteger bigInteger) const {
+			if ((*this == 1) || (bigInteger == 1))
 				return *this;
 			if (*this == -1)
-				return *this * (other % 2) * 2 - 1;
-			if (!other)
+				return *this * (bigInteger % 2) * 2 - 1;
+			if (!bigInteger)
 				return xieite::math::BigInteger(1);
-			if (other.sign) {
+			if (bigInteger.sign) {
 				XIEITE_ASSERT(static_cast<bool>(*this), "Cannot find power of zero to negative exponent");
-				return !other;
+				return !bigInteger;
 			}
 			if (!*this)
-				return !other;
+				return !bigInteger;
 			xieite::math::BigInteger x = *this;
 			xieite::math::BigInteger y = 1;
-			while (other > 1) {
-				if (other % 2) {
+			while (bigInteger > 1) {
+				if (bigInteger % 2) {
 					y *= x;
-					other = (other - 1) / 2;
+					bigInteger = (bigInteger - 1) / 2;
 				} else
-					other /= 2;
+					bigInteger /= 2;
 				x *= x;
 			}
 			return x * y;
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger power(const std::integral auto value) const {
+		constexpr xieite::math::BigInteger power(const std::integral auto value) const {
 			return this->power(xieite::math::BigInteger(value));
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger root(const xieite::math::BigInteger& other) const {
+		constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& bigInteger) const {
 			XIEITE_ASSERT(!this->sign, "Cannot find root of negative value");
 			if (*this == 1)
 				return xieite::math::BigInteger(1);
-			if (other.sign)
+			if (bigInteger.sign)
 				return xieite::math::BigInteger(0);
-			xieite::math::BigInteger x = other - 1;
+			xieite::math::BigInteger x = bigInteger - 1;
 			xieite::math::BigInteger y = *this;
 			xieite::math::BigInteger z = y + 1;
 			while (y < z) {
 				z = y;
-				y = (x * y + *this / y.power(x)) / other;
+				y = (x * y + *this / y.power(x)) / bigInteger;
 			}
 			return z;
 		}
 
 		[[nodiscard]]
-		xieite::math::BigInteger root(const std::integral auto value) const {
+		constexpr xieite::math::BigInteger root(const std::integral auto value) const {
 			return this->root(xieite::math::BigInteger(value));
 		}
 
 		[[nodiscard]]
-		const std::vector<bool>& data() const noexcept {
+		constexpr const std::vector<bool>& data() const noexcept {
 			return this->bits;
 		}
 
 		[[nodiscard]]
-		std::string string() const noexcept {
+		constexpr std::string string() const noexcept {
 			if (!*this)
 				return "0";
 			xieite::math::BigInteger copy = this->absolute();
@@ -534,8 +518,9 @@ namespace xieite::math {
 		}
 	
 	private:
-		template<xieite::concepts::ComparatorCallback<bool> Callback>
-		xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& other, Callback&& callback) const noexcept {
+		template<xieite::concepts::CallbackComparator<bool> Callback>
+		[[nodiscard]]
+		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& bigInteger, Callback&& callback) const noexcept {
 			xieite::math::BigInteger copy = *this;
 			const std::size_t bitsSize = this->bits.size();
 			if (this->sign) {
@@ -543,20 +528,20 @@ namespace xieite::math {
 				for (std::size_t i = 0; i < bitsSize; ++i)
 					copy.bits[i] = !copy.bits[i];
 			}
-			xieite::math::BigInteger otherCopy = other;
-			const std::size_t otherBitsSize = other.bits.size();
-			if (other.sign) {
-				++otherCopy;
-				for (std::size_t i = 0; i < otherBitsSize; ++i)
-					otherCopy.bits[i] = !otherCopy.bits[i];
+			xieite::math::BigInteger bigIntegerCopy = bigInteger;
+			const std::size_t bigIntegerBitsSize = bigInteger.bits.size();
+			if (bigInteger.sign) {
+				++bigIntegerCopy;
+				for (std::size_t i = 0; i < bigIntegerBitsSize; ++i)
+					bigIntegerCopy.bits[i] = !bigIntegerCopy.bits[i];
 			}
 			xieite::math::BigInteger result;
 			result.bits.clear();
-			result.sign = this->sign && other.sign;
-			for (std::size_t i = 0; (i < bitsSize) || (i < otherBitsSize); ++i)
-				result.bits.push_back(callback((i < bitsSize) ? copy.bits[i] : this->sign, (i < otherBitsSize) ? otherCopy.bits[i] : other.sign));
+			result.sign = this->sign && bigInteger.sign;
+			for (std::size_t i = 0; (i < bitsSize) || (i < bigIntegerBitsSize); ++i)
+				result.bits.push_back(callback((i < bitsSize) ? copy.bits[i] : this->sign, (i < bigIntegerBitsSize) ? bigIntegerCopy.bits[i] : bigInteger.sign));
 			if (result.sign) {
-				for (std::size_t i = 0; (i < bitsSize) || (i < otherBitsSize); ++i)
+				for (std::size_t i = 0; (i < bitsSize) || (i < bigIntegerBitsSize); ++i)
 					result.bits[i] = !result.bits[i];
 				--result;
 			}

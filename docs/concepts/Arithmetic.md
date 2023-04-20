@@ -1,17 +1,22 @@
-# xieite::concepts::Arithmetic
-Defined in header `<xieite/concepts/Arithmetic.hpp>`
+# `xieite::concepts::Arithmetic`
+Defined in header [`<xieite/concepts/Arithmetic.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/Arithmetic.hpp)
 
 <br/>
 
-Specifies that type `Any` is an integral or a floating point.
+Specifies that type `Any` is an integer or a floating point.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 template<typename Any>
 concept Arithmetic = std::is_arithmetic_v<Any>;
 ```
+### Template parameters
+- `Any` - Any type
 
 <br/><br/>
 

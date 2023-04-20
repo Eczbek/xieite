@@ -1,13 +1,18 @@
-# xieite::console::getString
-Defined in header `<xieite/console/getString.hpp>`
+# `xieite::console::getString`
+Defined in header [`<xieite/console/getString.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/getString.hpp)
 
 <br/>
 
-Reads the entire input buffer, especially after the thread sleeps.
+Reads the entire input buffer, clearing it in the process.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 inline std::string getString() noexcept;
 ```
+### Return value
+- `std::string` - Anything that's in the input buffer

@@ -6,7 +6,7 @@
 
 namespace xieite::math {
 	template<std::integral Integral = int>
-	inline std::vector<Integral> piDigits(std::size_t digits) noexcept {
+	constexpr std::vector<Integral> piDigits(std::size_t digits) noexcept {
 		xieite::math::BigInteger a = 180;
 		xieite::math::BigInteger b = 1;
 		xieite::math::BigInteger c = 60;
@@ -25,4 +25,4 @@ namespace xieite::math {
 	}
 }
 
-// I do not remember where I found this, but it seems to be a slight variation of the Gauss-Legendre algorithm
+// This seems to use the Gauss-Legendre algorithm

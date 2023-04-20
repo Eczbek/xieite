@@ -8,7 +8,7 @@
 
 namespace xieite::system {
 	inline std::string execute(const std::string_view command, const std::size_t chunkSize = 1024) noexcept {
-		const std::unique_ptr<std::FILE, decltype([](std::FILE* const file) -> void {
+		const std::unique_ptr<std::FILE, decltype([](std::FILE* const file) noexcept -> void {
 			pclose(file);
 		})> pipe(popen(command.data(), "r"));
 		std::string buffer;

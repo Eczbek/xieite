@@ -1,5 +1,5 @@
-# xieite::math::wrap
-Defined in header `<xieite/math/wrap.hpp>`
+# `xieite::math::wrap`
+Defined in header [`<xieite/math/wrap.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/wrap.hpp)
 
 <br/>
 
@@ -7,12 +7,23 @@ Defined in header `<xieite/math/wrap.hpp>`
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
 constexpr Number wrap(Number value, Number max, Number min = 0.0) noexcept;
 ```
+### Template parameters
+- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
+### Parameters
+- `value` - A `Number` copy, the value to wrap
+- `max` - A `Number` copy, the inclusive maximum of the result
+- `min` - A `Number` copy, the inclusive minimum of the result. Set to `0.0` by default
+### Return value
+- A `Number`, the `value` wrapped between `max` and `min`
 
 <br/><br/>
 

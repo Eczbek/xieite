@@ -3,7 +3,7 @@
 namespace xieite::errors {
 	[[noreturn]]
 	inline void segmentationFault() noexcept {
-		*(volatile int*)(nullptr);
+		*static_cast<volatile int*>(nullptr);
 	}
 }
 

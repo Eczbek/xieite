@@ -1,9 +1,7 @@
 #pragma once
 
-#include <cstdlib>
 #include <functional>
 #include <mutex>
-#include <type_traits>
 #include <vector>
 
 namespace xieite::process {

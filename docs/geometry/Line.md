@@ -1,13 +1,17 @@
-# xieite::geometry::Line
-Defined in header `<xieite/geometry/Line.hpp>`
+# `xieite::geometry::Line`
+Defined in header [`<xieite/geometry/Line.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Line.hpp)
 
 <br/>
 
-An struct representing an infinite line. Extends `xieite::geometry::LineLike`.
+An struct representing an infinite line.
 
 <br/><br/>
 
-## Member objects inherited from `xieite::geometry::LineLike`
+## Synopsis
+
+<br/>
+
+### Member objects
 ```cpp
 xieite::geometry::Point start;
 ```
@@ -15,34 +19,13 @@ xieite::geometry::Point start;
 xieite::geometry::Point end;
 ```
 
-## Constructors
-```cpp
-constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
-```
-```cpp
-constexpr Line(xieite::geometry::Point start, double angle) noexcept;
-```
+<br/>
 
-## Operators
-```cpp
-[[nodiscard]]
-constexpr bool operator==(const xieite::geometry::Line& other) const noexcept;
-```
-(`operator!=` is defined implicitly)
+### Member functions
+- [`Line`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Line/constructor.md)
+- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Line/operatorEquals.md)
 
 <br/><br/>
 
-## Example
-```cpp
-#include <iostream>
-#include <xieite/geometry/Line.hpp>
-#include <xieite/geometry/getAngle.hpp>
-
-int main() {
-	std::cout << xieite::geometry::getAngle(xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 })) << '\n';
-}
-```
-Output:
-```
-0.785398
-```
+## See also
+- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.hpp)

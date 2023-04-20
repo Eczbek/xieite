@@ -1,5 +1,5 @@
-# xieite::math::BigInteger
-Defined in header `<xieite/math/BigInteger.hpp>`
+# `xieite::math::BigInteger`
+Defined in header [`<xieite/math/BigInteger.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/BigInteger.hpp)
 
 <br/>
 
@@ -7,283 +7,45 @@ A class for storing and operating on very large numbers.
 
 <br/><br/>
 
-## Constructors
-```cpp
-BigInteger(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-BigInteger(xieite::math::BigInteger&& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-BigInteger(Integral value = 0) noexcept;
-```
-```cpp
-BigInteger(const std::vector<bool>& bits, bool sign = false) noexcept;
-```
-```cpp
-BigInteger(std::string_view value);
-```
+## Synopsis
 
-## Operators
-```cpp
-xieite::math::BigInteger& operator=(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator=(xieite::math::BigInteger&& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator=(Integral value) noexcept;
-```
-```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]]
-operator Number() const noexcept;
-```
-```cpp
-[[nodiscard]]
-operator bool() const noexcept;
-```
-```cpp
-[[nodiscard]]
-bool operator!() const noexcept;
-```
-```cpp
-[[nodiscard]]
-bool operator==(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-bool operator==(Integral value) const noexcept;
-```
-```cpp
-[[nodiscard]]
-std::strong_ordering operator<=>(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-std::strong_ordering operator<=>(Integral value) const noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator+() const noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator+(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator+(Integral value) const noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator+=(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator+=(Integral value) noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator++() noexcept;
-```
-```cpp
-xieite::math::BigInteger operator++(int) noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator-() const noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator-(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator-(Integral value) const noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator-=(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator-=(Integral value) noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator--() noexcept;
-```
-```cpp
-xieite::math::BigInteger operator--(int) noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator*(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator*(Integral value) const noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator*=(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator*=(Integral value) noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator/(xieite::math::BigInteger other) const;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator/(Integral value) const;
-```
-```cpp
-xieite::math::BigInteger& operator/=(const xieite::math::BigInteger& other);
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator/=(Integral value);
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator%(xieite::math::BigInteger other) const;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator%(Integral value) const;
-```
-```cpp
-xieite::math::BigInteger& operator%=(const xieite::math::BigInteger& other);
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator%=(Integral value);
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator~() const noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator&(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator&(Integral value) const noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator&=(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator&=(Integral value) noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator|(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator|(Integral value) const noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator|=(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator|=(Integral value) noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator^(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator^(Integral value) const noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator^=(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator^=(Integral value) noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator<<(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator<<(Integral value) const noexcept;
-```
-```cpp
-xieite::math::BigInteger& operator<<=(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger& operator<<=(Integral value) noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger operator>>(const xieite::math::BigInteger& other) const noexcept;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger operator>>(Integral value) const noexcept;
-```
-```cpp
-xieite::math::BigInteger operator>>=(const xieite::math::BigInteger& other) noexcept;
-```
-```cpp
-template<std::integral Integral>
-xieite::math::BigInteger operator>>=(Integral value) noexcept;
-```
-(`operator<`, `operator>`, `operator!=`, `operator<=`, and `operator>=` are defined implicitly)
+<br/>
 
-## Other methods
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger absolute() const noexcept;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger power(xieite::math::BigInteger other) const;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger power(Integral value) const;
-```
-```cpp
-[[nodiscard]]
-xieite::math::BigInteger root(const xieite::math::BigInteger& other) const;
-```
-```cpp
-template<std::integral Integral>
-[[nodiscard]]
-xieite::math::BigInteger root(Integral value) const;
-```
-```cpp
-[[nodiscard]]
-const std::vector<bool>& data() const noexcept;
-```
-```cpp
-[[nodiscard]]
-std::string string() const noexcept;
-```
+### Member functions
+- [`BigInteger`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/constructor.md)
+- [`operator=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorAssign.md)
+- [`operator typename`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorCast.md)
+- [`operator!`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorNot.md)
+- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorEquals.md)
+- [`operator<=>`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorSpaceship.md)
+- [`operator+`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorAdd.md)
+- [`operator+=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorAddAssign.md)
+- [`operator++`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorIncrement.md)
+- [`operator-`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorSubtract.md)
+- [`operator-=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorSubtractAssign.md)
+- [`operator--`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorDecrement.md)
+- [`operator*`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorMultiply.md)
+- [`operator*=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorMultiplyAssign.md)
+- [`operator/`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorDivide.md)
+- [`operator/=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorDivideAssign.md)
+- [`operator%`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorModulo.md)
+- [`operator%=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorModuloAssign.md)
+- [`operator~`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseNot.md)
+- [`operator&`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseAnd.md)
+- [`operator&=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseNotAssign.md)
+- [`operator|`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseOr.md)
+- [`operator|=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseOrAssign.md)
+- [`operator^`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseXor.md)
+- [`operator^=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseXorAssign.md)
+- [`operator<<`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseShiftLeft.md)
+- [`operator<<=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseShiftLeftAssign.md)
+- [`operator>>`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseShiftRight.md)
+- [`operator>>=`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/operatorBitwiseShiftRightAssign.md)
+- [`absolute`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/absolute.md)
+- [`power`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/power.md)
+- [`root`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/root.md)
+- [`data`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/data.md)
+- [`string`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger/string.md)
 
 <br/><br/>
 

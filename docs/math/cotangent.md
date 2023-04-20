@@ -1,15 +1,29 @@
-# xieite::math::cotangent
-Defined in header `<xieite/math/cotangent.hpp>`
+# `xieite::math::cotangent`
+Defined in header [`<xieite/math/cotangent.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/cotagent.hpp)
 
 <br/>
 
-A trigonometric function which wasn't included in the standard math library.
+A trigonometric function which wasn't included in the standard math library. Calculates the cotangent of a value.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
 constexpr Number cotangent(Number value) noexcept;
 ```
+### Template parameters
+- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
+### Parameters
+- `value` - A `Number` copy
+### Return value
+- A `Number`, the cotangent of `value`
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)

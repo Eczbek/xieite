@@ -1,8 +1,10 @@
 #pragma once
 
+#include <array>
+#include <cstddef>
+#include <limits>
 #include <string>
 #include <vector>
-#include <xieite/containers/OrderedMap.hpp>
 
 namespace xieite::string {
 	[[nodiscard]]
@@ -16,9 +18,9 @@ namespace xieite::string {
 
 	[[nodiscard]]
 	constexpr std::string trimStart(const std::string& string, const std::vector<char>& characters) noexcept {
-		xieite::containers::OrderedMap<char, bool> characterMap;
+		std::array<char, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> characterMap;
 		for (const char character : characters)
-			characterMap[character] = true;
+			characterMap[character - std::numeric_limits<char>::min()] = true;
 		const std::size_t stringSize = string.size();
 		for (std::size_t i = 0; i < stringSize; ++i)
 			if (!characterMap[string[i]])

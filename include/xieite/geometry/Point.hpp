@@ -11,8 +11,8 @@ namespace xieite::geometry {
 		: x(x), y(y) {}
 
 		[[nodiscard]]
-		constexpr bool operator==(const xieite::geometry::Point other) const noexcept {
-			return xieite::math::approximatelyEqual(this->x, other.x) && xieite::math::approximatelyEqual(this->y, other.y);
+		constexpr bool operator==(const xieite::geometry::Point point) const noexcept {
+			return xieite::math::approximatelyEqual(this->x, point.x) && xieite::math::approximatelyEqual(this->y, point.y);
 		}
 	};
 }

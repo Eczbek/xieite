@@ -4,5 +4,5 @@
 
 namespace xieite::concepts {
 	template<typename Any>
-	concept CopyAssignable = std::is_copy_assignable<Any>;
+	concept CopyAssignable = std::is_copy_assignable_v<Any>;
 }

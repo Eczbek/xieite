@@ -2,13 +2,13 @@
 
 #include <utility>
 #include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/concepts/SelectorCallback.hpp>
+#include <xieite/concepts/CallbackSelector.hpp>
 #include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::algorithms {
 	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]]
-	constexpr Number numberSearch(xieite::concepts::SelectorCallback<Number> auto&& selector, Number minimum, Number maximum) noexcept {
+	constexpr Number numberSearch(xieite::concepts::CallbackSelector<Number> auto&& selector, Number minimum, Number maximum) noexcept {
 		while (true) {
 			const Number middle = (minimum + maximum) / 2;
 			if (xieite::math::approximatelyEqual(middle, minimum) || xieite::math::approximatelyEqual(middle, maximum))
@@ -17,7 +17,7 @@ namespace xieite::algorithms {
 		}
 	}
 
-	template<xieite::concepts::Arithmetic Number, xieite::concepts::SelectorCallback<Number> Callback>
+	template<xieite::concepts::Arithmetic Number, xieite::concepts::CallbackSelector<Number> Callback>
 	[[nodiscard]]
 	constexpr Number numberSearch(Callback&& selector) noexcept {
 		Number minimum = -1;

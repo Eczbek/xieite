@@ -1,18 +1,28 @@
-# xieite::math::approximatelyEqual
-Defined in header `<xieite/math/approximatelyEqual.hpp>`
+# `xieite::math::approximatelyEqual`
+Defined in header [`<xieite/math/approximatelyEqual.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/approximatelyEqual.hpp)
 
 <br/>
 
-Checks whether two numbers are almost the same, or their difference is less than their type's epsilon.
+Checks whether two numbers' difference is below or equal to their type's epsilon.
 
 <br/><br/>
 
-## Declarations
+## Synopsis
+
+<br/>
+
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
 constexpr bool approximatelyEqual(Number value1, Number value2) noexcept;
 ```
+### Template parameters
+- `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
+### Parameters
+- `value1` - A `Number` copy
+- `value2` - Also a `Number` copy
+### Return value
+- A `bool`
 
 <br/><br/>
 
@@ -35,3 +45,8 @@ Output:
 false
 true
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)

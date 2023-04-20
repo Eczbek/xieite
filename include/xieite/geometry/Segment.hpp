@@ -1,17 +1,18 @@
 #pragma once
 
-#include <xieite/geometry/LineLike.hpp>
 #include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
-	struct Segment
-	: xieite::geometry::LineLike {
+	struct Segment {
+		xieite::geometry::Point start;
+		xieite::geometry::Point end;
+		
 		constexpr Segment(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept
-		: xieite::geometry::LineLike(start, end) {}
+		: start(start), end(end) {}
 
 		[[nodiscard]]
-		constexpr bool operator==(const xieite::geometry::Segment& other) const noexcept {
-			return (this->start == other.start) && (this->end == other.end) || (this->start == other.end) && (this->end == other.start);
+		constexpr bool operator==(const xieite::geometry::Segment& segment) const noexcept {
+			return (this->start == segment.start) && (this->end == segment.end) || (this->start == segment.end) && (this->end == segment.start);
 		}
 	};
 }
