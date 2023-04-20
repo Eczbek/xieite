@@ -14,16 +14,16 @@ namespace xieite::threads {
 		template<std::invocable<> Invocable>
 		Timeout(Invocable&& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
 		: interval([this, callback = std::forward<Invocable>(callback)]() -> void {
-			this->cancel();
+			this->stop();
 			callback();
 		}, duration) {}
 
-		operator bool() const noexcept {
-			return static_cast<bool>(this->interval);
+		bool good() const noexcept {
+			return this->interval.good();
 		}
 
-		void cancel() noexcept {
-			this->interval.cancel();
+		void stop() noexcept {
+			this->interval.stop();
 		}
 	};
 }

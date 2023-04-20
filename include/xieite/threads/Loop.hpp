@@ -1,38 +1,37 @@
 #pragma once
 
-#include <atomic>
 #include <concepts>
-#include <memory>
+#include <stop_token>
 #include <thread>
 #include <utility>
 
 namespace xieite::threads {
 	class Loop {
 	private:
-		std::shared_ptr<std::atomic<bool>> cancelled;
-		std::thread thread;
+		std::jthread thread;
 
 	public:
 		template<std::invocable<> Invocable>
 		Loop(Invocable&& callback) noexcept
-		: cancelled(std::make_shared<std::atomic<bool>>(false)), thread([this, callback = std::forward<Invocable>(callback)]() -> void {
+		: thread([callback = std::forward<Invocable>(callback)](const std::stop_token stopToken) -> void {
 			do
 				callback();
-			while (*this);
+			while (!stopToken.stop_requested());
 		}) {}
 
 		~Loop() {
-			this->cancel();
+			this->stop();
 		}
 
-		operator bool() const noexcept {
-			return !*this->cancelled;
+		bool good() const noexcept {
+			return this->thread.joinable();
 		}
 
-		void cancel() noexcept {
-			*this->cancelled = true;
-			if (this->thread.joinable())
+		void stop() noexcept {
+			if (this->good()) {
+				this->thread.request_stop();
 				this->thread.detach();
+			}
 		}
 	};
 }

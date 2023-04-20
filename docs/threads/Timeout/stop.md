@@ -1,9 +1,9 @@
-# `xieite::threads::Timeout::cancel`
+# `xieite::threads::Timeout::stop`
 Defined in header [`<xieite/threads/Timeout.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Timeout.hpp)
 
 <br/>
 
-Cancels a `xieite::threads::Timeout` and stops its callback. Returns execution to the caller thread, without waiting for the timout to complete.
+Stops a `xieite::threads::Timeout` and its callback call. Returns execution to the caller thread, without waiting for the timout to complete.
 
 <br/><br/>
 
@@ -12,7 +12,7 @@ Cancels a `xieite::threads::Timeout` and stops its callback. Returns execution t
 <br/>
 
 ```cpp
-void cancel() noexcept;
+void stop() noexcept;
 ```
 
 <br/><br/>

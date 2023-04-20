@@ -1,9 +1,9 @@
-# `xieite::threads::Interval::operator bool`
+# `xieite::threads::Interval::good`
 Defined in header [`<xieite/threads/Interval.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Interval.hpp)
 
 <br/>
 
-Returns `true` if the interval is still running, and `false` if it has been cancelled.
+Returns `true` if the interval is still running, and `false` if it has been stopped.
 
 <br/><br/>
 
@@ -12,7 +12,7 @@ Returns `true` if the interval is still running, and `false` if it has been canc
 <br/>
 
 ```cpp
-operator bool() const noexcept;
+bool good() const noexcept;
 ```
 
 <br/><br/>

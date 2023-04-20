@@ -1,9 +1,9 @@
-# `xieite::threads::Loop::operator bool`
+# `xieite::threads::Loop::good`
 Defined in header [`<xieite/threads/Loop.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Loop.hpp)
 
 <br/>
 
-Returns `true` if the loop is still running, and `false` if it has been cancelled.
+Returns `true` if the loop is still running, and `false` if it has been stopped.
 
 <br/><br/>
 
@@ -12,7 +12,7 @@ Returns `true` if the loop is still running, and `false` if it has been cancelle
 <br/>
 
 ```cpp
-operator bool() const noexcept;
+bool good() const noexcept;
 ```
 
 <br/><br/>
