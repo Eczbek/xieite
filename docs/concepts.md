@@ -1,5 +1,5 @@
 # `xieite::concepts`
-Aggregated in header [`<xieite/concepts.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts.hpp)
+Aggregated in header [`<xieite/concepts.hpp>`](../include/xieite/concepts.hpp)
 
 <br/>
 
@@ -8,19 +8,19 @@ A namespace of common concepts.
 <br/><br/>
 
 ## Member functions
-- [`Aggregate`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Aggregate.md)
-- [`Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
-- [`CallbackComparator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackComparator.md)
-- [`CallbackSelector`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackSelector.md)
-- [`ConvertibleToOneOf`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/ConvertibleToOneOf.md)
-- [`CopyAssignable`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CopyAssignable.md)
-- [`Decayed`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Decayed.md)
-- [`Enumerator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Enumerator.md)
-- [`Hashable`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Hashable.md)
-- [`LinearShape`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/LinearShape.md)
-- [`SameAsOneOf`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/SameAsOneOf.md)
-- [`StreamableInto`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/StreamableInto.md)
-- [`StreamableOutOf`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/StreamableOutOf.md)
-- [`TemporalDuration`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/TemporalDuration.md)
-- [`Trivial`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Trivial.md)
-- [`UniformRandomBitGenerator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/UniformRandomBitGenerator.md)
+- [`Aggregate`](../docs/concepts/Aggregate.md)
+- [`Arithmetic`](../docs/concepts/Arithmetic.md)
+- [`CallbackComparator`](../docs/concepts/CallbackComparator.md)
+- [`CallbackSelector`](../docs/concepts/CallbackSelector.md)
+- [`ConvertibleToOneOf`](../docs/concepts/ConvertibleToOneOf.md)
+- [`CopyAssignable`](../docs/concepts/CopyAssignable.md)
+- [`Decayed`](../docs/concepts/Decayed.md)
+- [`Enumerator`](../docs/concepts/Enumerator.md)
+- [`Hashable`](../docs/concepts/Hashable.md)
+- [`LinearShape`](../docs/concepts/LinearShape.md)
+- [`SameAsOneOf`](../docs/concepts/SameAsOneOf.md)
+- [`StreamableInto`](../docs/concepts/StreamableInto.md)
+- [`StreamableOutOf`](../docs/concepts/StreamableOutOf.md)
+- [`TemporalDuration`](../docs/concepts/TemporalDuration.md)
+- [`Trivial`](../docs/concepts/Trivial.md)
+- [`UniformRandomBitGenerator`](../docs/concepts/UniformRandomBitGenerator.md)

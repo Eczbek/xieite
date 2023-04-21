@@ -1,5 +1,5 @@
 # `xieite::console::clearScreen`
-Defined in header [`<xieite/console/clearScreen.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/clearScreen.hpp)
+Defined in header [`<xieite/console/clearScreen.hpp>`](../../include/xieite/console/clearScreen.hpp)
 
 <br/>
 

@@ -1,5 +1,5 @@
 # `xieite::console::clearLine`
-Defined in header [`<xieite/console/clearLine.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/clearLine.hpp)
+Defined in header [`<xieite/console/clearLine.hpp>`](../../include/xieite/console/clearLine.hpp)
 
 <br/>
 

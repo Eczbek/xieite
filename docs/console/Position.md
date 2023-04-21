@@ -1,5 +1,5 @@
 # `xieite::console::Position`
-Defined in header [`<xieite/console/Position.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/Position.hpp)
+Defined in header [`<xieite/console/Position.hpp>`](../../include/xieite/console/Position.hpp)
 
 <br/>
 
@@ -22,4 +22,4 @@ int column;
 <br/>
 
 ### Member functions
-- [`Position`](https://github.com/Eczbek/tree/main/docs/console/Position/constructor.md)
+- [`Position`](../../docs/console/Position/constructor.md)

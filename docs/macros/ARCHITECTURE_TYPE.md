@@ -1,5 +1,5 @@
 # `XIEITE_ARCHITECTURE_TYPE_...`
-Defined in header [`<xieite/macros/ARCHITECTURE_TYPE.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/ARCHITECTURE_TYPE.hpp)
+Defined in header [`<xieite/macros/ARCHITECTURE_TYPE.hpp>`](../../include/xieite/macros/ARCHITECTURE_TYPE.hpp)
 
 <br/>
 

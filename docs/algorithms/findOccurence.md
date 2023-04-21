@@ -1,5 +1,5 @@
 # `xieite::algorithms::findOccurence`
-Defined in header [`<xieite/algorithms/findOccurence.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/findOccurence.hpp)
+Defined in header [`<xieite/algorithms/findOccurence.hpp>`](../../include/xieite/algorithms/findOccurence.hpp)
 
 <br/>
 
@@ -49,4 +49,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::CallbackComparator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackComparator.md)
+- [`xieite::concepts::CallbackComparator`](../../docs/concepts/CallbackComparator.md)

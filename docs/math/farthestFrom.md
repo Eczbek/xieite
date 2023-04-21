@@ -1,5 +1,5 @@
 # `xieite::math::farthestFrom`
-Defined in header [`<xieite/math/farthestFrom.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/farthestFrom.hpp)
+Defined in header [`<xieite/math/farthestFrom.hpp>`](../../include/xieite/math/farthestFrom.hpp)
 
 <br/>
 
@@ -60,4 +60,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

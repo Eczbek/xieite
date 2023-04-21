@@ -1,5 +1,5 @@
 # `xieite::geometry::Ray`
-Defined in header [`<xieite/geometry/Ray.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Ray.hpp)
+Defined in header [`<xieite/geometry/Ray.hpp>`](../../include/xieite/geometry/Ray.hpp)
 
 <br/>
 
@@ -22,8 +22,8 @@ xieite::geometry::Point end;
 <br/>
 
 ### Member functions
-- [`Ray`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ray/constructor.md)
-- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ray/operatorEquals.md)
+- [`Ray`](../../docs/geometry/Ray/constructor.md)
+- [`operator==`](../../docs/geometry/Ray/operatorEquals.md)
 
 <br/><br/>
 
@@ -45,4 +45,4 @@ false
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

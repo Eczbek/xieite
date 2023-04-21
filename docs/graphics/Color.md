@@ -1,5 +1,5 @@
 # `xieite::graphics::Color`
-Defined in header [`<xieite/graphics/Color.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/graphics/Color.hpp)
+Defined in header [`<xieite/graphics/Color.hpp>`](../../include/xieite/graphics/Color.hpp)
 
 <br/>
 
@@ -28,6 +28,6 @@ std::uint8_t alpha;
 <br/>
 
 ### Member functions
-- [`Color`](https://github.com/Eczbek/xieite/tree/main/docs/graphics/Color/constructor.md)
-- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/graphics/Color/operatorEquals.md)
-- [`value`](https://github.com/Eczbek/xieite/tree/main/docs/graphics/Color/value.md)
+- [`Color`](../../docs/graphics/Color/constructor.md)
+- [`operator==`](../../docs/graphics/Color/operatorEquals.md)
+- [`value`](../../docs/graphics/Color/value.md)

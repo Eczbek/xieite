@@ -1,5 +1,5 @@
 # `XIEITE_COMPILER_VERSION...`
-Defined in header [`<xieite/macros/COMPILER_VERSION.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/COMPILER_VERSION.hpp)
+Defined in header [`<xieite/macros/COMPILER_VERSION.hpp>`](../../include/xieite/macros/COMPILER_VERSION.hpp)
 
 <br/>
 

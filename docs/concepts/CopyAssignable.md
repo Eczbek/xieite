@@ -1,5 +1,5 @@
 # `xieite::concepts::CopyAssignable`
-Defined in header [`<xieite/concepts/CopyAssignable.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/CopyAssignable.hpp)
+Defined in header [`<xieite/concepts/CopyAssignable.hpp>`](../../include/xieite/concepts/CopyAssignable.hpp)
 
 <br/>
 

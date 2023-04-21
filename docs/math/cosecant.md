@@ -1,5 +1,5 @@
 # `xieite::math::cosecant`
-Defined in header [`<xieite/math/cosecant.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/cosecant.hpp)
+Defined in header [`<xieite/math/cosecant.hpp>`](../../include/xieite/math/cosecant.hpp)
 
 <br/>
 
@@ -26,4 +26,4 @@ constexpr Number cosecant(Number value) noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

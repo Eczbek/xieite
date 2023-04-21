@@ -1,5 +1,5 @@
 # `xieite::string::trimStart`
-Defined in header [`<xieite/string/trimStart.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/string/trimStart.hpp)
+Defined in header [`<xieite/string/trimStart.hpp>`](../../include/xieite/string/trimStart.hpp)
 
 <br/>
 

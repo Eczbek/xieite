@@ -1,5 +1,5 @@
 # `xieite::concepts::LinearShape`
-Defined in header [`<xieite/concepts/LinearShape.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/LinearShape.hpp)
+Defined in header [`<xieite/concepts/LinearShape.hpp>`](../../include/xieite/concepts/LinearShape.hpp)
 
 <br/>
 

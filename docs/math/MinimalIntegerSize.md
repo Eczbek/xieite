@@ -1,5 +1,5 @@
 # `xieite::math::MinimalIntegerSize`
-Defined in header [`<xieite/math/MinimalIntegerSize.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/math/MinimalIntegerSize.hpp)
+Defined in header [`<xieite/math/MinimalIntegerSize.hpp>`](../../include/math/MinimalIntegerSize.hpp)
 
 <br/>
 

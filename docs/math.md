@@ -1,5 +1,5 @@
 # `xieite::math`
-Aggregated in header [`<xieite/math.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math.hpp)
+Aggregated in header [`<xieite/math.hpp>`](../include/xieite/math.hpp)
 
 <br/>
 
@@ -8,37 +8,37 @@ A namespace of mathematical types and functions.
 <br/><br/>
 
 ## Member types
-- [`BigInteger`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger.md)
-- [`ConditionalIntegerSign`](https://github.com/Eczbek/xieite/tree/main/docs/math/ConditionalIntegerSign.md)
-- [`Integer`](https://github.com/Eczbek/xieite/tree/main/docs/math/Integer.md)
-- [`MinimalIntegerSize`](https://github.com/Eczbek/xieite/tree/main/docs/math/MinimalIntegerSize.md)
-- [`OptimalIntegerSize`](https://github.com/Eczbek/xieite/tree/main/docs/math/OptimalIntegerSize.md)
+- [`BigInteger`](../docs/math/BigInteger.md)
+- [`ConditionalIntegerSign`](../docs/math/ConditionalIntegerSign.md)
+- [`Integer`](../docs/math/Integer.md)
+- [`MinimalIntegerSize`](../docs/math/MinimalIntegerSize.md)
+- [`OptimalIntegerSize`](../docs/math/OptimalIntegerSize.md)
 
 <br/>
 
 ## Member objects
-- [`alternatingBits`](https://github.com/Eczbek/xieite/tree/main/docs/math/alternatingBits.md)
-- [`pi`](https://github.com/Eczbek/xieite/tree/main/docs/math/pi.md)
-- [`robert`](https://github.com/Eczbek/xieite/tree/main/docs/math/robert.md)
-- [`tau`](https://github.com/Eczbek/xieite/tree/main/docs/math/tau.md)
+- [`alternatingBits`](../docs/math/alternatingBits.md)
+- [`pi`](../docs/math/pi.md)
+- [`robert`](../docs/math/robert.md)
+- [`tau`](../docs/math/tau.md)
 
 <br/>
 
 ## Member functions
-- [`absolute`](https://github.com/Eczbek/xieite/tree/main/docs/math/absolute.md)
-- [`approximatelyEqual`](https://github.com/Eczbek/xieite/tree/main/docs/math/approximatelyEqual.md)
-- [`closestTo`](https://github.com/Eczbek/xieite/tree/main/docs/math/closestTo.md)
-- [`cosecant`](https://github.com/Eczbek/xieite/tree/main/docs/math/cosecant.md)
-- [`cotangent`](https://github.com/Eczbek/xieite/tree/main/docs/math/cotangent.md)
-- [`difference`](https://github.com/Eczbek/xieite/tree/main/docs/math/difference.md)
-- [`farthestFrom`](https://github.com/Eczbek/xieite/tree/main/docs/math/farthestFrom.md)
-- [`fromBase`](https://github.com/Eczbek/xieite/tree/main/docs/math/fromBase.md)
-- [`isPowerOf2`](https://github.com/Eczbek/xieite/tree/main/docs/math/isPowerOf2.md)
-- [`isPrime`](https://github.com/Eczbek/xieite/tree/main/docs/math/isPrime.md)
-- [`piDigits`](https://github.com/Eczbek/xieite/tree/main/docs/math/piDigits.md)
-- [`secant`](https://github.com/Eczbek/xieite/tree/main/docs/math/secant.md)
-- [`toBase`](https://github.com/Eczbek/xieite/tree/main/docs/math/toBase.md)
-- [`toDegrees`](https://github.com/Eczbek/xieite/tree/main/docs/math/toDegrees.md)
-- [`toRadians`](https://github.com/Eczbek/xieite/tree/main/docs/math/toRadians.md)
-- [`wrap`](https://github.com/Eczbek/xieite/tree/main/docs/math/wrap.md)
-- [`xorShift`](https://github.com/Eczbek/xieite/tree/main/docs/math/xorShift.md)
+- [`absolute`](../docs/math/absolute.md)
+- [`approximatelyEqual`](../docs/math/approximatelyEqual.md)
+- [`closestTo`](../docs/math/closestTo.md)
+- [`cosecant`](../docs/math/cosecant.md)
+- [`cotangent`](../docs/math/cotangent.md)
+- [`difference`](../docs/math/difference.md)
+- [`farthestFrom`](../docs/math/farthestFrom.md)
+- [`fromBase`](../docs/math/fromBase.md)
+- [`isPowerOf2`](../docs/math/isPowerOf2.md)
+- [`isPrime`](../docs/math/isPrime.md)
+- [`piDigits`](../docs/math/piDigits.md)
+- [`secant`](../docs/math/secant.md)
+- [`toBase`](../docs/math/toBase.md)
+- [`toDegrees`](../docs/math/toDegrees.md)
+- [`toRadians`](../docs/math/toRadians.md)
+- [`wrap`](../docs/math/wrap.md)
+- [`xorShift`](../docs/math/xorShift.md)

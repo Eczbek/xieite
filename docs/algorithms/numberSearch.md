@@ -1,5 +1,5 @@
 # `xieite::algorithms::numberSearch`
-Defined in header [`<xieite/algorithms/numberSearch.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/numberSearch.hpp)
+Defined in header [`<xieite/algorithms/numberSearch.hpp>`](../../include/xieite/algorithms/numberSearch.hpp)
 
 <br/>
 
@@ -65,5 +65,5 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
-- [`xieite::concepts::CallbackSelector`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackSelector.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)
+- [`xieite::concepts::CallbackSelector`](../../docs/concepts/CallbackSelector.md)

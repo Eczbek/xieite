@@ -1,5 +1,5 @@
 # `xieite::geometry::Circle::Circle`
-Defined in header [`<xieite/geometry/Circle.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Circle.hpp)
+Defined in header [`<xieite/geometry/Circle.hpp>`](../../../include/xieite/geometry/Circle.hpp)
 
 <br/>
 
@@ -38,5 +38,5 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Circle`](../../../docs/geometry/Circle.md)
+- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

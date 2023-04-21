@@ -1,5 +1,5 @@
 # `xieite::console::setTextStrikethrough`
-Defined in header [`<xieite/console/setTextStrikethrough.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setTextStrikethrough.hpp)
+Defined in header [`<xieite/console/setTextStrikethrough.hpp>`](../../include/xieite/console/setTextStrikethrough.hpp)
 
 <br/>
 

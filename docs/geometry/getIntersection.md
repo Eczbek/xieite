@@ -1,5 +1,5 @@
 # `xieite::geometry::getIntersection`
-Defined in header [`<xieite/geometry/getIntersection.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getIntersection.hpp)
+Defined in header [`<xieite/geometry/getIntersection.hpp>`](../../include/xieite/geometry/getIntersection.hpp)
 
 <br/>
 
@@ -45,4 +45,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

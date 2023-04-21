@@ -1,5 +1,5 @@
 # `xieite::math::alternatingBits`
-Defined in header [`<xieite/math/alternatingBits.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/alternatingBits.hpp)
+Defined in header [`<xieite/math/alternatingBits.hpp>`](../../include/xieite/math/alternatingBits.hpp)
 
 <br/><br/>
 

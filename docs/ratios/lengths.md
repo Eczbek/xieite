@@ -1,5 +1,5 @@
 # `xieite::ratios::lengths`
-Defined in header [`<xieite/ratios/lengths.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/ratios/lengths.hpp)
+Defined in header [`<xieite/ratios/lengths.hpp>`](../../include/xieite/ratios/lengths.hpp)
 
 <br/>
 

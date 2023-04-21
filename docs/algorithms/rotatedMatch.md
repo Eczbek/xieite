@@ -1,5 +1,5 @@
 # `xieite::algorithms::rotatedMatch`
-Defined in header [`<xieite/algorithms/rotatedMatch.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/rotatedMatch.hpp)
+Defined in header [`<xieite/algorithms/rotatedMatch.hpp>`](../../include/xieite/algorithms/rotatedMatch.hpp)
 
 <br/>
 
@@ -66,4 +66,4 @@ true
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::CallbackComparator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackComparator.md)
+- [`xieite::concepts::CallbackComparator`](../../docs/concepts/CallbackComparator.md)

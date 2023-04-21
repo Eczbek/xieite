@@ -1,5 +1,5 @@
 # `xieite::algorithms::partialReverse`
-Defined in header [`<xieite/algorithms/partialReverse.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/partialReverse.hpp)
+Defined in header [`<xieite/algorithms/partialReverse.hpp>`](../../include/xieite/algorithms/partialReverse.hpp)
 
 <br/>
 
@@ -50,4 +50,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::CallbackSelector`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackSelector.md)
+- [`xieite::concepts::CallbackSelector`](../../docs/concepts/CallbackSelector.md)

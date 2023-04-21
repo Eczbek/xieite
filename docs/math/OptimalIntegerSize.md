@@ -1,5 +1,5 @@
 # `xieite::math::OptimalIntegerSize`
-Defined in header [`<xieite/math/OptimalIntegerSize.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/OptimalIntegerSize.hpp)
+Defined in header [`<xieite/math/OptimalIntegerSize.hpp>`](../../include/xieite/math/OptimalIntegerSize.hpp)
 
 <br/>
 

@@ -1,5 +1,5 @@
 # `xieite::math::fromBase`
-Defined in header [`<xieite/math/fromBase.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/fromBase.hpp)
+Defined in header [`<xieite/math/fromBase.hpp>`](../../include/xieite/math/fromBase.hpp)
 
 <br/>
 

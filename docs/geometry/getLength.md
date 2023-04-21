@@ -1,5 +1,5 @@
 # `xieite::geometry::getLength`
-Defined in header [`<xieite/geometry/getLength.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getLength.hpp)
+Defined in header [`<xieite/geometry/getLength.hpp>`](../../include/xieite/geometry/getLength.hpp)
 
 <br/>
 
@@ -51,5 +51,5 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::LinearShape`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/LinearShape.md)
-- [`xieite::geometry::Segment`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Segment.md)
+- [`xieite::concepts::LinearShape`](../../docs/concepts/LinearShape.md)
+- [`xieite::geometry::Segment`](../../docs/geometry/Segment.md)

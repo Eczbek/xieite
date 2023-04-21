@@ -1,5 +1,5 @@
 # `xieite::console::setTextBlink`
-Defined in header [`<xieite/console/setTextBlink.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setTextBlink.hpp)
+Defined in header [`<xieite/console/setTextBlink.hpp>`](../../include/xieite/console/setTextBlink.hpp)
 
 <br/>
 

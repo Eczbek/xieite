@@ -1,5 +1,5 @@
 # `xieite::console::setColorInversion`
-Defined in header [`<xieite/console/setColorInversion.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setColorInversion.hpp)
+Defined in header [`<xieite/console/setColorInversion.hpp>`](../../include/xieite/console/setColorInversion.hpp)
 
 <br/>
 

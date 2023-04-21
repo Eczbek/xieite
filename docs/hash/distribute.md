@@ -1,5 +1,5 @@
 # `xieite::hash::distribute`
-Defined in header [`<xieite/hash/distribute.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/hash/distribute.hpp)
+Defined in header [`<xieite/hash/distribute.hpp>`](../../include/xieite/hash/distribute.hpp)
 
 <br/><br/>
 

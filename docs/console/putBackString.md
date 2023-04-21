@@ -1,5 +1,5 @@
 # `xieite::console::putBackString`
-Defined in header [`<xieite/console/putBackString.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/putBackString.hpp)
+Defined in header [`<xieite/console/putBackString.hpp>`](../../include/xieite/console/putBackString.hpp)
 
 <br/>
 

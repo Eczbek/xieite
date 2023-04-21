@@ -1,5 +1,5 @@
 # `xieite::geometry::Circle::operator==`
-Defined in header [`<xieite/geometry/Circle.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Circle.hpp)
+Defined in header [`<xieite/geometry/Circle.hpp>`](../../../include/xieite/geometry/Circle.hpp)
 
 <br/>
 
@@ -34,5 +34,5 @@ constexpr bool operator==(const xieite::geometry::Circle& circle) const noexcept
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
-- [`xieite::geometry::Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse.md)
+- [`xieite::geometry::Circle`](../../../docs/geometry/Circle.md)
+- [`xieite::geometry::Ellipse`](../../../docs/geometry/Ellipse.md)

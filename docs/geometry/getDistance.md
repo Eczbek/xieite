@@ -1,5 +1,5 @@
 # `xieite::geometry::getDistance`
-Defined in header [`<xieite/geometry/getDistance.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getDistance.hpp)
+Defined in header [`<xieite/geometry/getDistance.hpp>`](../../include/xieite/geometry/getDistance.hpp)
 
 <br/>
 
@@ -40,4 +40,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

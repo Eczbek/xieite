@@ -1,5 +1,5 @@
 # `xieite::console::setScreenAlternative`
-Defined in header [`<xieite/console/setScreenAlternative.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setScreenAlternative.hpp)
+Defined in header [`<xieite/console/setScreenAlternative.hpp>`](../../include/xieite/console/setScreenAlternative.hpp)
 
 <br/>
 

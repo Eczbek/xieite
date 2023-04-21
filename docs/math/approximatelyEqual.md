@@ -1,5 +1,5 @@
 # `xieite::math::approximatelyEqual`
-Defined in header [`<xieite/math/approximatelyEqual.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/approximatelyEqual.hpp)
+Defined in header [`<xieite/math/approximatelyEqual.hpp>`](../../include/xieite/math/approximatelyEqual.hpp)
 
 <br/>
 
@@ -49,4 +49,4 @@ true
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

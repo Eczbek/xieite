@@ -1,5 +1,5 @@
 # `xieite::math::isPrime`
-Defined in header [`<xieite/math/isPrime.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/isPrime.hpp)
+Defined in header [`<xieite/math/isPrime.hpp>`](../../include/xieite/math/isPrime.hpp)
 
 <br/>
 

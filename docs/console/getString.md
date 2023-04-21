@@ -1,5 +1,5 @@
 # `xieite::console::getString`
-Defined in header [`<xieite/console/getString.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/getString.hpp)
+Defined in header [`<xieite/console/getString.hpp>`](../../include/xieite/console/getString.hpp)
 
 <br/>
 

@@ -1,5 +1,5 @@
 # `xieite::concepts::NoThrowConvertibleTo`
-Defined in header [`<xieite/concepts/NoThrowConvertibleTo.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/NoThrowConvertibleTo.hpp)
+Defined in header [`<xieite/concepts/NoThrowConvertibleTo.hpp>`](../../include/xieite/concepts/NoThrowConvertibleTo.hpp)
 
 <br/>
 

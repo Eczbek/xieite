@@ -1,5 +1,5 @@
 # `xieite::math::robert`
-Defined in header [`<xieite/math/robert.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/robert.hpp)
+Defined in header [`<xieite/math/robert.hpp>`](../../include/xieite/math/robert.hpp)
 
 <br/>
 

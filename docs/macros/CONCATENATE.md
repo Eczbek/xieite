@@ -1,5 +1,5 @@
 # `XIEITE_CONCATENATE`
-Defined in header [`<xieite/macros/CONCATENATE.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/CONCATENATE.hpp)
+Defined in header [`<xieite/macros/CONCATENATE.hpp>`](../../include/xieite/macros/CONCATENATE.hpp)
 
 <br/>
 

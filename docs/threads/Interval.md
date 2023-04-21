@@ -1,5 +1,5 @@
 # `xieite::threads::Interval`
-Defined in header [`<xieite/threads/Interval.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Interval.hpp)
+Defined in header [`<xieite/threads/Interval.hpp>`](../../include/xieite/threads/Interval.hpp)
 
 <br/>
 
@@ -12,10 +12,10 @@ Runs a callback every set amount of time. Compile with `-pthread`.
 <br/>
 
 ### Member functions
-- [`Interval`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/constructor.md)
-- [`~Interval`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/destructor.md)
-- [`good`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/good.md)
-- [`stop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval/stop.md)
+- [`Interval`](../../docs/threads/Interval/constructor.md)
+- [`~Interval`](../../docs/threads/Interval/destructor.md)
+- [`good`](../../docs/threads/Interval/good.md)
+- [`stop`](../../docs/threads/Interval/stop.md)
 
 <br/><br/>
 

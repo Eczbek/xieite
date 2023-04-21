@@ -1,5 +1,5 @@
 # `xieite::math::difference`
-Defined in header [`<xieite/math/difference.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/difference.hpp)
+Defined in header [`<xieite/math/difference.hpp>`](../../include/xieite/math/difference.hpp)
 
 <br/>
 
@@ -68,4 +68,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

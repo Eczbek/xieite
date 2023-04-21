@@ -1,5 +1,5 @@
 # `xieite::concepts::Trivial`
-Defined in header [`<xieite/concepts/Trivial.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/Trivial.hpp)
+Defined in header [`<xieite/concepts/Trivial.hpp>`](../../include/xieite/concepts/Trivial.hpp)
 
 <br/>
 

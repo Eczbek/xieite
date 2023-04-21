@@ -1,5 +1,5 @@
 # `xieite::geometry::Circle`
-Defined in header [`<xieite/geometry/Circle.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Circle.hpp)
+Defined in header [`<xieite/geometry/Circle.hpp>`](../../include/xieite/geometry/Circle.hpp)
 
 <br/>
 
@@ -22,10 +22,10 @@ double radius;
 <br/>
 
 ### Member functions
-- [`Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle/constructor.md)
-- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle/operatorEquals.md)
+- [`Circle`](../../docs/geometry/Circle/constructor.md)
+- [`operator==`](../../docs/geometry/Circle/operatorEquals.md)
 
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

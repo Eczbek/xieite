@@ -1,5 +1,5 @@
 # `xieite::threads::Interval::Interval`
-Defined in header [`<xieite/threads/Interval.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Interval.hpp)
+Defined in header [`<xieite/threads/Interval.hpp>`](../../../include/xieite/threads/Interval.hpp)
 
 <br/>
 
@@ -24,5 +24,5 @@ Interval(Invocable&& callback, const xieite::concepts::TemporalDuration auto dur
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::TemporalDuration`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/TemporalDuration.md)
-- [`xieite::threads::Interval`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval.md)
+- [`xieite::concepts::TemporalDuration`](../../../docs/concepts/TemporalDuration.md)
+- [`xieite::threads::Interval`](../../../docs/threads/Interval.md)

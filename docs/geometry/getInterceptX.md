@@ -1,5 +1,5 @@
 # `xieite::geometry::getInterceptX`
-Defined in header [`<xieite/geometry/getInterceptX.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getInterceptY.hpp)
+Defined in header [`<xieite/geometry/getInterceptX.hpp>`](../../include/xieite/geometry/getInterceptY.hpp)
 
 <br/>
 
@@ -45,4 +45,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

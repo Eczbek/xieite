@@ -1,5 +1,5 @@
 # `xieite::geometry::Polygon::Polygon`
-Defined in header [`<xieite/geometry/Polygon.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Polygon.hpp)
+Defined in header [`<xieite/geometry/Polygon.hpp>`](../../../include/xieite/geometry/Polygon.hpp)
 
 <br/>
 
@@ -20,5 +20,5 @@ constexpr Polygon(const std::vector<xieite::geometry::Point>& points) noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
-- [`xieite::geometry::Polygon`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon.md)
+- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)
+- [`xieite::geometry::Polygon`](../../../docs/geometry/Polygon.md)

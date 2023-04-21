@@ -1,5 +1,5 @@
 # `xieite::geometry::Ray::operator==`
-Defined in header [`<xieite/geometry/Ray.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Ray.hpp)
+Defined in header [`<xieite/geometry/Ray.hpp>`](../../../include/xieite/geometry/Ray.hpp)
 
 <br/>
 
@@ -23,4 +23,4 @@ constexpr bool operator==(const xieite::geometry::Ray& ray) const noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Ray`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ray.md)
+- [`xieite::geometry::Ray`](../../../docs/geometry/Ray.md)

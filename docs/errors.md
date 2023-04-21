@@ -1,5 +1,5 @@
 # `xieite::errors`
-Aggregated in header [`<xieite/errors.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/errors.hpp)
+Aggregated in header [`<xieite/errors.hpp>`](../include/xieite/errors.hpp)
 
 <br/>
 
@@ -8,4 +8,4 @@ A namespace of things relating to errors.
 <br/><br/>
 
 ## Member functions
-- [`segmentationFault`](https://github.com/Eczbek/xieite/tree/main/docs/errors/segmentationFault.md)
+- [`segmentationFault`](../docs/errors/segmentationFault.md)

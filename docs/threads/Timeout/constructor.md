@@ -1,5 +1,5 @@
 # `xieite::threads::Timeout::Timeout`
-Defined in header [`<xieite/threads/Timeout.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Timeout.hpp)
+Defined in header [`<xieite/threads/Timeout.hpp>`](../../../include/xieite/threads/Timeout.hpp)
 
 <br/>
 
@@ -24,4 +24,4 @@ Timeout(Invocable&& callback, const xieite::concepts::TemporalDuration auto dura
 <br/><br/>
 
 ## See also
-- [`xieite::threads::Timeout`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout.md)
+- [`xieite::threads::Timeout`](../../../docs/threads/Timeout.md)

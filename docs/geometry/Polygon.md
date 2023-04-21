@@ -1,5 +1,5 @@
 # `xieite::geometry::Polygon`
-Defined in header [`<xieite/geometry/Polygon.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Polygon.hpp)
+Defined in header [`<xieite/geometry/Polygon.hpp>`](../../include/xieite/geometry/Polygon.hpp)
 
 <br/>
 
@@ -19,8 +19,8 @@ std::vector<xieite::geometry::Point> points;
 <br/>
 
 ### Member functions
-- [`Polygon`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon/constructor.md)
-- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon/operatorEquals.md)
+- [`Polygon`](../../docs/geometry/Polygon/constructor.md)
+- [`operator==`](../../docs/geometry/Polygon/operatorEquals.md)
 
 <br/><br/>
 
@@ -47,4 +47,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

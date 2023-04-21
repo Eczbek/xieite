@@ -1,5 +1,5 @@
 # `xieite::console::setCursorAlternative`
-Defined in header [`<xieite/console/setCursorAlternative.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setCursorAlternative.hpp)
+Defined in header [`<xieite/console/setCursorAlternative.hpp>`](../../include/xieite/console/setCursorAlternative.hpp)
 
 <br/>
 

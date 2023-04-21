@@ -1,5 +1,5 @@
 # `xieite::concepts::Decayed`
-Defined in header [`<xieite/concepts/Decayed.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/Decayed.hpp)
+Defined in header [`<xieite/concepts/Decayed.hpp>`](../../include/xieite/concepts/Decayed.hpp)
 
 <br/>
 

@@ -1,5 +1,5 @@
 # `xieite::threads::Interval::~Interval`
-Defined in header [`<xieite/threads/Interval.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Interval.hpp)
+Defined in header [`<xieite/threads/Interval.hpp>`](../../../include/xieite/threads/Interval.hpp)
 
 <br/>
 
@@ -18,4 +18,4 @@ Destructs a `xieite::threads::Interval`, stops further callbacks.
 <br/><br/>
 
 ## See also
-- [`xieite::threads::Interval`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Interval.md)
+- [`xieite::threads::Interval`](../../../docs/threads/Interval.md)

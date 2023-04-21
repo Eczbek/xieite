@@ -1,5 +1,5 @@
 # `XIEITE_ASSERT`
-Defined in header [`<xieite/macros/ASSERT.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/ASSERT.hpp)
+Defined in header [`<xieite/macros/ASSERT.hpp>`](../../include/xieite/macros/ASSERT.hpp)
 
 <br/>
 

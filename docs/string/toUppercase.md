@@ -1,5 +1,5 @@
 # `xieite::string::toUppercase`
-Defined in header [`<xieite/string/toUppercase.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/string/toUppercase.hpp)
+Defined in header [`<xieite/string/toUppercase.hpp>`](../../include/xieite/string/toUppercase.hpp)
 
 <br/>
 

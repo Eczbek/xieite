@@ -1,5 +1,5 @@
 # `xieite::concepts::CallbackComparator`
-Defined in header [`<xieite/concepts/CallbackComparator.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/CallbackComparator.hpp)
+Defined in header [`<xieite/concepts/CallbackComparator.hpp>`](../../include/xieite/concepts/CallbackComparator.hpp)
 
 <br/>
 

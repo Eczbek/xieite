@@ -1,5 +1,5 @@
 # `xieite::console::setTextBold`
-Defined in header [`<xieite/console/setTextBold.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setTextBold.hpp)
+Defined in header [`<xieite/console/setTextBold.hpp>`](../../include/xieite/console/setTextBold.hpp)
 
 <br/>
 

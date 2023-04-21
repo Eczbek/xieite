@@ -1,5 +1,5 @@
 # `xieite::graphics::Color::value`
-Defined in header [`<xieite/graphics/Color.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/graphics/Color.hpp)
+Defined in header [`<xieite/graphics/Color.hpp>`](../../../include/xieite/graphics/Color.hpp)
 
 <br/>
 
@@ -33,3 +33,8 @@ Output:
 ```
 ff7f00ff
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::graphics::Color`](../../../docs/graphics/Color.md)

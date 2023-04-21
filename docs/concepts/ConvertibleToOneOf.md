@@ -1,5 +1,5 @@
 # `xieite::concepts::ConvertibleToOneOf`
-Defined in header [`<xieite/concepts/ConvertibleToOneOf.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/ConvertibleToOneOf.hpp)
+Defined in header [`<xieite/concepts/ConvertibleToOneOf.hpp>`](../../include/xieite/concepts/ConvertibleToOneOf.hpp)
 
 <br/>
 

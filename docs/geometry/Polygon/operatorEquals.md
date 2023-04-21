@@ -1,5 +1,5 @@
 # `xieite::geometry::Polygon::operator==`
-Defined in header [`<xieite/geometry/Polygon.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Polygon.hpp)
+Defined in header [`<xieite/geometry/Polygon.hpp>`](../../../include/xieite/geometry/Polygon.hpp)
 
 <br/>
 
@@ -23,4 +23,4 @@ constexpr bool operator==(const xieite::geometry::Polygon& polygon) const noexce
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Polygon`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon.md)
+- [`xieite::geometry::Polygon`](../../../docs/geometry/Polygon.md)

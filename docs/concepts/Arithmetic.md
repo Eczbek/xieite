@@ -1,5 +1,5 @@
 # `xieite::concepts::Arithmetic`
-Defined in header [`<xieite/concepts/Arithmetic.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/Arithmetic.hpp)
+Defined in header [`<xieite/concepts/Arithmetic.hpp>`](../../include/xieite/concepts/Arithmetic.hpp)
 
 <br/>
 

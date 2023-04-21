@@ -1,5 +1,5 @@
 # `xieite::concepts::StreamableInto`
-Defined in header [`<xieite/concepts/StreamableInto.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/StreamableInto.hpp)
+Defined in header [`<xieite/concepts/StreamableInto.hpp>`](../../include/xieite/concepts/StreamableInto.hpp)
 
 <br/>
 

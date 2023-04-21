@@ -1,5 +1,5 @@
 # `xieite::geometry::Segment::Segment`
-Defined in header [`<xieite/geometry/Segment.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Segment.hpp)
+Defined in header [`<xieite/geometry/Segment.hpp>`](../../../include/xieite/geometry/Segment.hpp)
 
 <br/>
 
@@ -19,5 +19,5 @@ constexpr Segment(xieite::geometry::Point start, xieite::geometry::Point end) no
 - `end` - A `xieite::geometry::Point` copy, the end of the segment
 
 ## See also
-- [`xieite::geometry::Segment`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Segment.md)
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Segment`](../../../docs/geometry/Segment.md)
+- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

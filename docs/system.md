@@ -1,5 +1,5 @@
 # `xieite::system`
-Aggregated in header [`<xieite/system.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/system.hpp)
+Aggregated in header [`<xieite/system.hpp>`](../include/xieite/system.hpp)
 
 <br/>
 
@@ -8,4 +8,4 @@ A namespace of tools for interacting with the system.
 <br/><br/>
 
 ## Member functions
-- [`execute`](https://github.com/Eczbek/xieite/tree/main/docs/system/execute.md)
+- [`execute`](../docs/system/execute.md)

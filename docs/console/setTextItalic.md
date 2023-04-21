@@ -1,5 +1,5 @@
 # `xieite::console::setTextItalic`
-Defined in header [`<xieite/console/setTextItalic.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setTextItalic.hpp)
+Defined in header [`<xieite/console/setTextItalic.hpp>`](../../include/xieite/console/setTextItalic.hpp)
 
 <br/>
 

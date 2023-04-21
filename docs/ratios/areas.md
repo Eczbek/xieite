@@ -1,5 +1,5 @@
 # `xieite::ratios::areas`
-Defined in header [`<xieite/ratios/areas.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/ratios/areas.hpp)
+Defined in header [`<xieite/ratios/areas.hpp>`](../../include/xieite/ratios/areas.hpp)
 
 <br/>
 

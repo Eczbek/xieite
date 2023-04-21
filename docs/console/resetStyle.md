@@ -1,5 +1,5 @@
 # `xieite::console::resetStyle`
-Defined in header [`<xieite/console/resetStyle.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/resetStyle.hpp)
+Defined in header [`<xieite/console/resetStyle.hpp>`](../../include/xieite/console/resetStyle.hpp)
 
 <br/>
 

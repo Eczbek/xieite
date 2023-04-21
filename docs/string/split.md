@@ -1,5 +1,5 @@
 # `xieite::string::split`
-Defined in header [`<xieite/string/split.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/string/split.hpp)
+Defined in header [`<xieite/string/split.hpp>`](../../include/xieite/string/split.hpp)
 
 <br/>
 

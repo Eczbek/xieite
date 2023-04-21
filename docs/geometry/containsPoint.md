@@ -1,5 +1,5 @@
 # `xieite::geometry::containsPoint`
-Defined in header [`<xieite/geometry/containsPoint.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/containsPoint.hpp)
+Defined in header [`<xieite/geometry/containsPoint.hpp>`](../../include/xieite/geometry/containsPoint.hpp)
 
 <br/>
 
@@ -109,10 +109,10 @@ true
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
-- [`xieite::geometry::Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse.md)
-- [`xieite::geometry::Line`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Line.md)
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
-- [`xieite::geometry::Polygon`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon.md)
-- [`xieite::geometry::Ray`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ray.md)
-- [`xieite::geometry::Segment`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Segment.md)
+- [`xieite::geometry::Circle`](../../docs/geometry/Circle.md)
+- [`xieite::geometry::Ellipse`](../../docs/geometry/Ellipse.md)
+- [`xieite::geometry::Line`](../../docs/geometry/Line.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)
+- [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)
+- [`xieite::geometry::Ray`](../../docs/geometry/Ray.md)
+- [`xieite::geometry::Segment`](../../docs/geometry/Segment.md)
