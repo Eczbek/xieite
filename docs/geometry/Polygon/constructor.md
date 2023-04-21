@@ -12,10 +12,10 @@ Constructs a `xieite::geometry::Polygon`.
 <br/>
 
 ```cpp
-constexpr Polygon(const std::vector<xieite::geometry::Point>& points) noexcept;
+constexpr Polygon(std::span<xieite::geometry::Point> points) noexcept;
 ```
 ### Parameters
-- `points` - A constant reference to a `std::vector` of `xieite::geometry::Point`s
+- `points` - A `std::span` of `xieite::geometry::Point`s
 
 <br/><br/>
 

@@ -5,6 +5,7 @@
 #include <concepts>
 #include <cstddef>
 #include <iterator>
+#include <span>
 #include <string>
 #include <string_view>
 #include <utility>
@@ -30,8 +31,8 @@ namespace xieite::math {
 		constexpr BigInteger(const xieite::math::BigInteger& bigInteger) noexcept
 		: bits(bigInteger.bits), sign(bigInteger.sign) {}
 
-		constexpr BigInteger(const std::vector<bool>& bits, const bool sign = false) noexcept
-		: bits(bits), sign(sign) {
+		constexpr BigInteger(std::span<const bool> bits, const bool sign = false) noexcept
+		: bits(std::vector<bool>(bits.begin(), bits.end()), sign(sign) {
 			std::size_t i = this->bits.size();
 			if (i)
 				while (!this->bits.back() && --i)

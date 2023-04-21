@@ -25,11 +25,11 @@ constexpr std::string trimEnd(const std::string& string, char character) noexcep
 
 ```cpp
 [[nodiscard]]
-constexpr std::string trimEnd(const std::string& string, const std::vector<char>& characters) noexcept;
+constexpr std::string trimEnd(const std::string& string, std::span<char> characters) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string` constant reference
-- `characters` - A constant reference to a `std::vector` of `char`s
+- `characters` - A `std::span` of `char`s
 ### Return value
 - A `std::string`
 
