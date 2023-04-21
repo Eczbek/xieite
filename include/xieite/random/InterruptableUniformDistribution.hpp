@@ -4,6 +4,7 @@
 #include <cmath>
 #include <concepts>
 #include <random>
+#include <span>
 #include <type_traits>
 #include <utility>
 #include <vector>
@@ -17,15 +18,8 @@
 namespace xieite::random {
 	template<xieite::concepts::Arithmetic Number>
 	class InterruptableUniformDistribution {
-	private:
-		using UniformDistribution = std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>>;
-
-		int sign;
-		std::vector<std::pair<Number, Number>> interruptions;
-		UniformDistribution distribution;
-
 	public:
-		InterruptableUniformDistribution(const Number begin, const Number end, const std::vector<std::pair<Number, Number>>& interruptions) {
+		InterruptableUniformDistribution(const Number begin, const Number end, std::span<const std::pair<Number, Number>> interruptions) {
 			Number begin2 = begin;
 			Number end2 = end;
 			Number& farthest = xieite::math::farthestFrom<Number>(0.0, begin2, end2);
@@ -53,5 +47,12 @@ namespace xieite::random {
 			}
 			return result;
 		}
+
+	private:
+		using UniformDistribution = std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>>;
+
+		int sign;
+		std::vector<std::pair<Number, Number>> interruptions;
+		UniformDistribution distribution;
 	};
 }

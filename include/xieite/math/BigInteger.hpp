@@ -16,10 +16,6 @@
 
 namespace xieite::math {
 	class BigInteger {
-	private:
-		std::vector<bool> bits;
-		bool sign;
-
 	public:
 		template<std::integral Number = int>
 		constexpr BigInteger(Number value = 0) noexcept
@@ -518,6 +514,9 @@ namespace xieite::math {
 		}
 	
 	private:
+		std::vector<bool> bits;
+		bool sign;
+
 		template<xieite::concepts::CallbackComparator<bool> Callback>
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& bigInteger, Callback&& callback) const noexcept {

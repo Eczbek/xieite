@@ -1,5 +1,5 @@
 # `xieite::random::InterruptableUniformDistribution`
-Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/random/InterruptableUniformDistribution.hpp)
+Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/random/InterruptableUniformDistribution.hpp)
 
 <br/>
 
@@ -31,7 +31,11 @@ A uniform random number distribution which allows excluding subintervals from th
 int main() {
 	std::default_random_engine rng(std::random_device {}());
 
-	xieite::random::InterruptableUniformDistribution<int> dist(0, 5, { { 1, 4 } });
+	std::vector<std::pair<int, int>> interruptions {
+		{ 1, 4 }
+	};
+
+	xieite::random::InterruptableUniformDistribution<int> dist(0, 5, interruptions);
 
 	for (int i = 0; i < 10; ++i)
 		std::cout << dist(rng) << '\n';

@@ -6,15 +6,6 @@
 
 namespace xieite::console {
 	class ModeLock {
-	private:
-		termios cookedMode;
-		int blockingMode;
-		bool echo;
-		bool canonical;
-		bool signals;
-		bool processing;
-		bool blocking;
-
 	public:
 		ModeLock() noexcept
 		: blockingMode(fcntl(STDIN_FILENO, F_GETFL)), echo(false), canonical(false), signals(false), processing(false), blocking(true) {
@@ -65,5 +56,14 @@ namespace xieite::console {
 			tcsetattr(STDIN_FILENO, TCSANOW, &this->cookedMode);
 			fcntl(STDIN_FILENO, F_SETFL, this->blockingMode);
 		}
+
+	private:
+		termios cookedMode;
+		int blockingMode;
+		bool echo;
+		bool canonical;
+		bool signals;
+		bool processing;
+		bool blocking;
 	};
 }

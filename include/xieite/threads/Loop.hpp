@@ -7,9 +7,6 @@
 
 namespace xieite::threads {
 	class Loop {
-	private:
-		std::jthread thread;
-
 	public:
 		template<std::invocable<> Invocable>
 		Loop(Invocable&& callback) noexcept
@@ -33,6 +30,9 @@ namespace xieite::threads {
 				this->thread.detach();
 			}
 		}
+
+	private:
+		std::jthread thread;
 	};
 }
 

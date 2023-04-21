@@ -10,9 +10,6 @@
 namespace xieite::math {
 	template<std::size_t bits, bool sign>
 	class Integer {
-	private:
-		xieite::types::ConditionalIntegerSign<xieite::types::OptimalIntegerSize<bits>, sign> value: bits;
-
 	public:
 		template<std::integral Integral = int>
 		constexpr Integer(const Integral value = 0) noexcept
@@ -172,5 +169,8 @@ namespace xieite::math {
 		friend constexpr std::istream& operator>>(std::istream& inStream, xieite::math::Integer<bits, sign>& self) noexcept {
 			return inStream >> self.value;
 		}
+
+	private:
+		xieite::types::ConditionalIntegerSign<xieite::types::OptimalIntegerSize<bits>, sign> value: bits;
 	};
 }
