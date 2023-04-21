@@ -1,5 +1,5 @@
 # `xieite::math::toDegrees`
-Defined in header [`<xieite/math/toDegrees.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/toDegrees.hpp)
+Defined in header [`<xieite/math/toDegrees.hpp>`](../../include/xieite/math/toDegrees.hpp)
 
 <br/>
 
@@ -26,4 +26,4 @@ constexpr Number toDegrees(Number radians) noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

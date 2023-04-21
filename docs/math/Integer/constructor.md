@@ -1,5 +1,5 @@
 # `xieite::math::Integer<bits, sign>::Integer`
-Defined in header [`<xieite/math/Integer.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/Integer.hpp)
+Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
 
 <br/><br/>
 
@@ -16,4 +16,4 @@ constexpr Integer(std::integral auto value = 0) noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::math::Integer`](https://github.com/Eczbek/xieite/tree/main/docs/math/Integer.md)
+- [`xieite::math::Integer`](../../../docs/math/Integer.md)

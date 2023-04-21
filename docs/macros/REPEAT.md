@@ -1,5 +1,5 @@
 # `XIEITE_REPEAT`
-Defined in header [`<xieite/macros/REPEAT.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/REPEAT.hpp)
+Defined in header [`<xieite/macros/REPEAT.hpp>`](../../include/xieite/macros/REPEAT.hpp)
 
 <br/>
 

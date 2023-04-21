@@ -1,5 +1,5 @@
 # `xieite::random::InterruptableUniformDistribution`
-Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/random/InterruptableUniformDistribution.hpp)
+Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](../../include/xieite/random/InterruptableUniformDistribution.hpp)
 
 <br/>
 
@@ -17,8 +17,8 @@ A uniform random number distribution which allows excluding subintervals from th
 <br/>
 
 ### Member functions
-- [`InterruptableUniformDistribution`](https://github.com/Eczbek/xieite/tree/main/docs/random/InterruptableUniformDistribution/constructor.md)
-- [`operator()`](https://github.com/Eczbek/xieite/tree/main/docs/random/InterruptableUniformDistribution/operatorCall.md)
+- [`InterruptableUniformDistribution`](../../docs/random/InterruptableUniformDistribution/constructor.md)
+- [`operator()`](../../docs/random/InterruptableUniformDistribution/operatorCall.md)
 
 <br/><br/>
 
@@ -58,4 +58,4 @@ Possible output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

@@ -1,5 +1,5 @@
 # `xieite::random::InterruptableUniformDistribution<Number>::operator()`
-Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/random/InterruptableUniformDistribution.hpp)
+Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](../../../include/random/InterruptableUniformDistribution.hpp)
 
 <br/>
 
@@ -23,5 +23,5 @@ Number operator()(xieite::concepts::UniformRandomBitGenerator auto&& generator) 
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::UniformRandomBitGenerator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/UniformRandomBitGenerator.md)
-- [`xieite::random::InterruptableUniformDistribution`](https://github.com/Eczbek/xieite/tree/main/docs/random/InterruptableUniformDistribution.md)
+- [`xieite::concepts::UniformRandomBitGenerator`](../../../docs/concepts/UniformRandomBitGenerator.md)
+- [`xieite::random::InterruptableUniformDistribution`](../../../docs/random/InterruptableUniformDistribution.md)

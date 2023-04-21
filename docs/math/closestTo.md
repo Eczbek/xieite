@@ -1,5 +1,5 @@
 # `xieite::math::closestTo`
-Defined in header [`<xieite/math/closestTo.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/closestTo.hpp)
+Defined in header [`<xieite/math/closestTo.hpp>`](../../include/xieite/math/closestTo.hpp)
 
 <br/>
 
@@ -60,4 +60,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

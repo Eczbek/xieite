@@ -1,5 +1,5 @@
 # `xieite::algorithms::any`
-Defined in header [`<xieite/algorithms/any.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/any.hpp)
+Defined in header [`<xieite/algorithms/any.hpp>`](../../include/xieite/algorithms/any.hpp)
 
 <br/>
 

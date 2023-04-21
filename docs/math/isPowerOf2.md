@@ -1,5 +1,5 @@
 # `xieite::math::isPowerOf2`
-Defined in header [`<xieite/math/isPowerOf2.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/isPowerOf2.hpp)
+Defined in header [`<xieite/math/isPowerOf2.hpp>`](../../include/xieite/math/isPowerOf2.hpp)
 
 <br/>
 

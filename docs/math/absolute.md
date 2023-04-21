@@ -1,5 +1,5 @@
 # `xieite::math::absolute`
-Defined in header [`<xieite/math/absolute.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/absolute.hpp)
+Defined in header [`<xieite/math/absolute.hpp>`](../../include/xieite/math/absolute.hpp)
 
 <br/>
 
@@ -48,4 +48,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

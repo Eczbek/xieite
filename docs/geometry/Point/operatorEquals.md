@@ -1,5 +1,5 @@
 # `xieite::geometry::Point::operator==`
-Defined in header [`<xieite/geometry/Point.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Point.hpp)
+Defined in header [`<xieite/geometry/Point.hpp>`](../../../include/xieite/geometry/Point.hpp)
 
 <br/>
 
@@ -23,4 +23,4 @@ constexpr bool operator==(xieite::geometry::Point point) const noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

@@ -1,5 +1,5 @@
 # `xieite::console::setTextUnderline`
-Defined in header [`<xieite/console/setTextUnderline.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setTextUnderline.hpp)
+Defined in header [`<xieite/console/setTextUnderline.hpp>`](../../include/xieite/console/setTextUnderline.hpp)
 
 <br/>
 

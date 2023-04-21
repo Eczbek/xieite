@@ -1,5 +1,5 @@
 # `xieite::console::setCursorVisibility`
-Defined in header [`<xieite/console/setCursorVisibility.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setCursorVisibility.hpp)
+Defined in header [`<xieite/console/setCursorVisibility.hpp>`](../../include/xieite/console/setCursorVisibility.hpp)
 
 <br/>
 

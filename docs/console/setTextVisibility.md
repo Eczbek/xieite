@@ -1,5 +1,5 @@
 # `xieite::console::setTextVisibility`
-Defined in header [`<xieite/console/setTextVisibility.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setTextVisibility.hpp)
+Defined in header [`<xieite/console/setTextVisibility.hpp>`](../../include/xieite/console/setTextVisibility.hpp)
 
 <br/>
 

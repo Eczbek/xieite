@@ -1,5 +1,5 @@
 # `xieite::algorithms::isPalindrome`
-Defined in header [`<xieite/algorithms/isPalindrome.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/isPalindrome.hpp)
+Defined in header [`<xieite/algorithms/isPalindrome.hpp>`](../../include/xieite/algorithms/isPalindrome.hpp)
 
 <br/>
 
@@ -49,4 +49,4 @@ true
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::CallbackComparator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackComparator.md)
+- [`xieite::concepts::CallbackComparator`](../../docs/concepts/CallbackComparator.md)

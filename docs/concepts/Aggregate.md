@@ -1,5 +1,5 @@
 # `xieite::concepts::Aggregate`
-Defined in header [`<xieite/concepts/Aggregate.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/Aggregate.hpp)
+Defined in header [`<xieite/concepts/Aggregate.hpp>`](../../include/xieite/concepts/Aggregate.hpp)
 
 <br/>
 

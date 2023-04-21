@@ -1,5 +1,5 @@
 # `xieite::geometry::Ellipse`
-Defined in header [`<xieite/geometry/Ellipse.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Ellipse.hpp)
+Defined in header [`<xieite/geometry/Ellipse.hpp>`](../../include/xieite/geometry/Ellipse.hpp)
 
 <br/>
 
@@ -25,8 +25,8 @@ double rotation;
 <br/>
 
 ### Member functions
-- [`Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse/constructor.md)
-- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse/operatorEquals.md)
+- [`Ellipse`](../../docs/geometry/Ellipse/constructor.md)
+- [`operator==`](../../docs/geometry/Ellipse/operatorEquals.md)
 
 <br/><br/>
 
@@ -48,4 +48,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

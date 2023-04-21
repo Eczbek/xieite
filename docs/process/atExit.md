@@ -1,5 +1,5 @@
 # `xieite::process::atExit`
-Defined in header [`<xieite/process/atExit.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/process/atExit.hpp)
+Defined in header [`<xieite/process/atExit.hpp>`](../../include/xieite/process/atExit.hpp)
 
 <br/>
 

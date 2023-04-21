@@ -1,5 +1,5 @@
 # `xieite::geometry::getAngle`
-Defined in header [`<xieite/geometry/getAngle.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getAngle.hpp)
+Defined in header [`<xieite/geometry/getAngle.hpp>`](../../include/xieite/geometry/getAngle.hpp)
 
 <br/>
 
@@ -52,5 +52,5 @@ Output (rounded):
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::LinearShape`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/LinearShape.md)
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::concepts::LinearShape`](../../docs/concepts/LinearShape.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

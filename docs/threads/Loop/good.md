@@ -1,5 +1,5 @@
 # `xieite::threads::Loop::good`
-Defined in header [`<xieite/threads/Loop.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Loop.hpp)
+Defined in header [`<xieite/threads/Loop.hpp>`](../../../include/xieite/threads/Loop.hpp)
 
 <br/>
 
@@ -18,4 +18,4 @@ bool good() const noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::threads::Loop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop.md)
+- [`xieite::threads::Loop`](../../../docs/threads/Loop.md)

@@ -1,5 +1,5 @@
 # `xieite::errors::segmentationFault`
-Defined in header [`<xieite/errors/segmentationFault.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/errors/segmentationFault.hpp)
+Defined in header [`<xieite/errors/segmentationFault.hpp>`](../../include/xieite/errors/segmentationFault.hpp)
 
 <br/>
 

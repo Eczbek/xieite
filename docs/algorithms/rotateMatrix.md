@@ -1,5 +1,5 @@
 # `xieite::algorithms::rotateMatrix`
-Defined in header [`<xieite/algorithms/rotateMatrix.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/rotateMatrix.hpp)
+Defined in header [`<xieite/algorithms/rotateMatrix.hpp>`](../../include/xieite/algorithms/rotateMatrix.hpp)
 
 <br/>
 

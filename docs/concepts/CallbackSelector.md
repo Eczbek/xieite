@@ -1,5 +1,5 @@
 # `xieite::concepts::CallbackSelector`
-Defined in header [`<xieite/concepts/CallbackSelector.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/CallbackSelector.hpp)
+Defined in header [`<xieite/concepts/CallbackSelector.hpp>`](../../include/xieite/concepts/CallbackSelector.hpp)
 
 <br/>
 

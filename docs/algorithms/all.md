@@ -1,5 +1,5 @@
 # `xieite::algorithms::all`
-Defined in header [`<xieite/algorithms/all.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/all.hpp)
+Defined in header [`<xieite/algorithms/all.hpp>`](../../include/xieite/algorithms/all.hpp)
 
 <br/>
 

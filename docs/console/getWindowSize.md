@@ -1,5 +1,5 @@
 # `xieite::console::getWindowSize`
-Defined in header [`<xieite/console/getWindowSize.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/getWindowSize.hpp)
+Defined in header [`<xieite/console/getWindowSize.hpp>`](../../include/xieite/console/getWindowSize.hpp)
 
 <br/>
 
@@ -21,4 +21,4 @@ inline xieite::console::Position getWindowSize() noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::console::Position`](https://github.com/Eczbek/xieite/tree/main/docs/console/Position.md)
+- [`xieite::console::Position`](../../docs/console/Position.md)

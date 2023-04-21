@@ -1,5 +1,5 @@
 # `xieite::geometry::Line::operator==`
-Defined in header [`<xieite/geometry/Line.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Line.hpp)
+Defined in header [`<xieite/geometry/Line.hpp>`](../../../include/xieite/geometry/Line.hpp)
 
 <br/>
 
@@ -43,4 +43,4 @@ true
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Line`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Line.md)
+- [`xieite::geometry::Line`](../../../docs/geometry/Line.md)

@@ -1,5 +1,5 @@
 # `xieite::geometry::Point::Point`
-Defined in header [`<xieite/geometry/Point.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Point.hpp)
+Defined in header [`<xieite/geometry/Point.hpp>`](../../../include/xieite/geometry/Point.hpp)
 
 <br/>
 
@@ -21,4 +21,4 @@ constexpr Point(double x = 0.0, double y = 0.0) noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

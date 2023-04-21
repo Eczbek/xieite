@@ -1,5 +1,5 @@
 # `xieite::hash::combine`
-Defined in header [`<xieite/hash/combine.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/hash/combine.hpp)
+Defined in header [`<xieite/hash/combine.hpp>`](../../include/xieite/hash/combine.hpp)
 
 <br/>
 

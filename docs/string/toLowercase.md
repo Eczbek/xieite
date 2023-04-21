@@ -1,5 +1,5 @@
 # `xieite::string::toLowercase`
-Defined in header [`<xieite/string/toLowercase.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/string/toLowercase.hpp)
+Defined in header [`<xieite/string/toLowercase.hpp>`](../../include/xieite/string/toLowercase.hpp)
 
 <br/>
 

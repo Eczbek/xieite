@@ -1,5 +1,5 @@
 # `xieite::math::piDigits`
-Defined in header [`<xieite/math/piDigits.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/piDigits.hpp)
+Defined in header [`<xieite/math/piDigits.hpp>`](../../include/xieite/math/piDigits.hpp)
 
 <br/>
 

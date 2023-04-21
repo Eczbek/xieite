@@ -1,5 +1,5 @@
 # `xieite::geometry::rotate`
-Defined in header [`<xieite/geometry/rotate.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/rotate.hpp)
+Defined in header [`<xieite/geometry/rotate.hpp>`](../../include/xieite/geometry/rotate.hpp)
 
 <br/>
 
@@ -106,8 +106,8 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::LinearShape`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/LinearShape.md)
-- [`xieite::geometry::Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
-- [`xieite::geometry::Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse.md)
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
-- [`xieite::geometry::Polygon`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon.md)
+- [`xieite::concepts::LinearShape`](../../docs/concepts/LinearShape.md)
+- [`xieite::geometry::Circle`](../../docs/geometry/Circle.md)
+- [`xieite::geometry::Ellipse`](../../docs/geometry/Ellipse.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)
+- [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)

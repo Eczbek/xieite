@@ -1,5 +1,5 @@
 # `xieite::math::BigInteger::operator typename`
-Defined in header [`<xieite/math/BigInteger.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/BigInteger.hpp)
+Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
 
 <br/>
 
@@ -46,5 +46,5 @@ true
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
-- [`xieite::math::BigInteger`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger.md)
+- [`xieite::concepts::Arithmetic`](../../../docs/concepts/Arithmetic.md)
+- [`xieite::math::BigInteger`](../../../docs/math/BigInteger.md)

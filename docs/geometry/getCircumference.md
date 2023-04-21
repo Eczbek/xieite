@@ -1,5 +1,5 @@
 # `xieite::geometry::getCircumference`
-Defined in header [`<xieite/geometry/getCircumference.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getCircumference.hpp)
+Defined in header [`<xieite/geometry/getCircumference.hpp>`](../../include/xieite/geometry/getCircumference.hpp)
 
 <br/>
 
@@ -51,5 +51,5 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
-- [`xieite::geometry::Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse.md)
+- [`xieite::geometry::Circle`](../../docs/geometry/Circle.md)
+- [`xieite::geometry::Ellipse`](../../docs/geometry/Ellipse.md)

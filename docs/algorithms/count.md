@@ -1,5 +1,5 @@
 # `xieite::algorithms::count`
-Defined in header [`<xieite/algorithms/count.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/count.hpp)
+Defined in header [`<xieite/algorithms/count.hpp>`](../../include/xieite/algorithms/count.hpp)
 
 <br/>
 

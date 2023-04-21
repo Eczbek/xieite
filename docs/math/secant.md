@@ -1,5 +1,5 @@
 # `xieite::math::secant`
-Defined in header [`<xieite/math/secant.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/secant.hpp)
+Defined in header [`<xieite/math/secant.hpp>`](../../include/xieite/math/secant.hpp)
 
 <br/>
 
@@ -26,4 +26,4 @@ constexpr Number secant(Number value) noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

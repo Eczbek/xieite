@@ -1,5 +1,5 @@
 # `xieite::math::BigInteger::operator<<=`
-Defined in header `<xieite/math/BigInteger.hpp>`
+Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
 
 <br/><br/>
 
@@ -48,4 +48,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::math::BigInteger`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger.md)
+- [`xieite::math::BigInteger`](../../../docs/math/BigInteger.md)

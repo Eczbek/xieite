@@ -1,5 +1,5 @@
 # `xieite::math::Integer<bits, sign>::operator typename`
-Defined in header [`<xieite/math/Integer.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/Integer.hpp)
+Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
 
 <br/><br/>
 
@@ -24,4 +24,4 @@ constexpr operator xieite::math::Integer<integerBits, integerSign>() const noexc
 <br/><br/>
 
 ## See also
-- [`xieite::math::Integer`](https://github.com/Eczbek/xieite/tree/main/docs/math/Integer.md)
+- [`xieite::math::Integer`](../../../docs/math/Integer.md)

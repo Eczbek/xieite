@@ -1,5 +1,5 @@
 # `xieite::console::setColorDim`
-Defined in header [`<xieite/console/setColorDim.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setColorDim.hpp)
+Defined in header [`<xieite/console/setColorDim.hpp>`](../../include/xieite/console/setColorDim.hpp)
 
 <br/>
 

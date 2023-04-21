@@ -1,5 +1,5 @@
 # `xieite::math::xorShift`
-Defined in header [`<xieite/math/xorShift.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/xorShift.hpp)
+Defined in header [`<xieite/math/xorShift.hpp>`](../../include/xieite/math/xorShift.hpp)
 
 <br/>
 
@@ -27,4 +27,4 @@ constexpr Number xorShift(Number value, int bits) noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

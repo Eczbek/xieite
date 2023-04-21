@@ -1,5 +1,5 @@
 # `xieite::types`
-Aggregated in header [`<xieite/types.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/types.hpp)
+Aggregated in header [`<xieite/types.hpp>`](../include/xieite/types.hpp)
 
 <br/>
 
@@ -8,4 +8,4 @@ A namespace of type utilities.
 <br/><br/>
 
 ## Member functions
-- [`demangle`](https://github.com/Eczbek/xieite/tree/main/docs/types/demangle.md)
+- [`demangle`](../docs/types/demangle.md)

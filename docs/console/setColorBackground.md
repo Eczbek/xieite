@@ -1,5 +1,5 @@
 # `xieite::console::setColorBackground`
-Defined in header [`<xieite/console/setColorBackground.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setColorBackground.hpp)
+Defined in header [`<xieite/console/setColorBackground.hpp>`](../../include/xieite/console/setColorBackground.hpp)
 
 <br/>
 
@@ -22,4 +22,4 @@ constexpr std::string setColorBackground(const xieite::graphics::Color& color) n
 <br/><br/>
 
 ## See also
-- [`xieite::graphics::Color`](https://github.com/Eczbek/xieite/tree/main/docs/graphics/Color.md)
+- [`xieite::graphics::Color`](../../docs/graphics/Color.md)

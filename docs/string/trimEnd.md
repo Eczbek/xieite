@@ -1,5 +1,5 @@
 # `xieite::string::trimEnd`
-Defined in header `<xieite/string/trimEnd.hpp>`
+Defined in header [`<xieite/string/trimEnd.hpp>`](../../include/xieite/string/trimEnd.hpp)
 
 <br/>
 

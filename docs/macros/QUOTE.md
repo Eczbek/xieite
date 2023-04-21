@@ -1,5 +1,5 @@
 # `XIEITE_QUOTE`
-Defined in header [`<xieite/macros/QUOTE.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/QUOTE.hpp)
+Defined in header [`<xieite/macros/QUOTE.hpp>`](../../include/xieite/macros/QUOTE.hpp)
 
 <br/>
 

@@ -1,5 +1,5 @@
 # `xieite::math::cotangent`
-Defined in header [`<xieite/math/cotangent.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/cotagent.hpp)
+Defined in header [`<xieite/math/cotangent.hpp>`](../../include/xieite/math/cotagent.hpp)
 
 <br/>
 
@@ -26,4 +26,4 @@ constexpr Number cotangent(Number value) noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

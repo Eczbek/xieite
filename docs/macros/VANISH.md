@@ -1,5 +1,5 @@
 # `XIEITE_VANISH`
-Defined in header [`<xieite/macros/VANISH.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/VANISH.hpp)
+Defined in header [`<xieite/macros/VANISH.hpp>`](../../include/xieite/macros/VANISH.hpp)
 
 <br/>
 

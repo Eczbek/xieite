@@ -1,5 +1,5 @@
 # `xieite::geometry::Segment::operator==`
-Defined in header [`<xieite/geometry/Segment.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Segment.hpp)
+Defined in header [`<xieite/geometry/Segment.hpp>`](../../../include/xieite/geometry/Segment.hpp)
 
 <br/>
 
@@ -23,4 +23,4 @@ constexpr bool operator==(const xieite::geometry::Segment& segment) const noexce
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Segment`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Segment.md)
+- [`xieite::geometry::Segment`](../../../docs/geometry/Segment.md)

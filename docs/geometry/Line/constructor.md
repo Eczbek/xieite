@@ -1,5 +1,5 @@
 # `xieite::geometry::Line::Line`
-Defined in header [`<xieite/geometry/Line.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Line.hpp)
+Defined in header [`<xieite/geometry/Line.hpp>`](../../../include/xieite/geometry/Line.hpp)
 
 <br/>
 
@@ -47,5 +47,5 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Line`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Line.md)
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Line`](../../../docs/geometry/Line.md)
+- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

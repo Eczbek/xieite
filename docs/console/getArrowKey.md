@@ -1,5 +1,5 @@
 # `xieite::console::getArrowKey`
-Defined in header [`<xieite/console/getArrowKey.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/getArrowKey.hpp)
+Defined in header [`<xieite/console/getArrowKey.hpp>`](../../include/xieite/console/getArrowKey.hpp)
 
 <br/>
 
@@ -44,4 +44,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::console::Position`](https://github.com/Eczbek/xieite/tree/main/docs/console/Position.md)
+- [`xieite::console::Position`](../../docs/console/Position.md)

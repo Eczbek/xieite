@@ -1,5 +1,5 @@
 # `xieite::concepts::SameAsOneOf`
-Defined in header [`<xieite/concepts/SameAsOneOf.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/SameAsOneOf.hpp)
+Defined in header [`<xieite/concepts/SameAsOneOf.hpp>`](../../include/xieite/concepts/SameAsOneOf.hpp)
 
 <br/>
 

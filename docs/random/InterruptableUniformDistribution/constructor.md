@@ -1,5 +1,5 @@
 # `xieite::random::InterruptableUniformDistribution<Number>::InterruptableUniformDistribution`
-Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/random/InterruptableUniformDistribution.hpp)
+Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](../../../include/random/InterruptableUniformDistribution.hpp)
 
 <br/>
 
@@ -22,4 +22,4 @@ InterruptableUniformDistribution(Number begin, Number end, const std::vector<std
 <br/><br/>
 
 ## See also
-- [`xieite::random::InterruptableUniformDistribution`](https://github.com/Eczbek/xieite/tree/main/docs/random/InterruptableUniformDistribution.md)
+- [`xieite::random::InterruptableUniformDistribution`](../../../docs/random/InterruptableUniformDistribution.md)

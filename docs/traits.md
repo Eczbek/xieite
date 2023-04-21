@@ -1,5 +1,5 @@
 # `xieite::traits`
-Aggregated in header [`<xieite/traits.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/traits.hpp)
+Aggregated in header [`<xieite/traits.hpp>`](../include/xieite/traits.hpp)
 
 <br/>
 
@@ -8,4 +8,4 @@ A namespace of type traits.
 <br/><br/>
 
 ## Member objects
-- [`isTemporalDuration`](https://github.com/Eczbek/xieite/tree/main/docs/traits/isTemporalDuration.md)
+- [`isTemporalDuration`](../docs/traits/isTemporalDuration.md)

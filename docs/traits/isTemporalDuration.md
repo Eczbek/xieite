@@ -1,5 +1,5 @@
 # `xieite::traits::isTemporalDuration`
-Defined in header [`<xieite/traits/isTemporalDuration.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/traits/isTemporalDuration.hpp)
+Defined in header [`<xieite/traits/isTemporalDuration.hpp>`](../../include/xieite/traits/isTemporalDuration.hpp)
 
 <br/>
 
@@ -32,4 +32,4 @@ constexpr bool isTemporalDuration<std::chrono::duration<Number, std::ratio<numer
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

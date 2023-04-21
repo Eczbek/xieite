@@ -1,5 +1,5 @@
 # `xieite::console::getCharacter`
-Defined in header [`<xieite/console/getCharacter.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/getCharacter.hpp)
+Defined in header [`<xieite/console/getCharacter.hpp>`](../../include/xieite/console/getCharacter.hpp)
 
 <br/>
 

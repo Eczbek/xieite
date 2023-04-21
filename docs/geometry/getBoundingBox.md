@@ -1,5 +1,5 @@
 # `xieite::geometry::getBoundingBox`
-Defined in header [`<xieite/geometry/getBoundingBox.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getBoundingBox.hpp)
+Defined in header [`<xieite/geometry/getBoundingBox.hpp>`](../../include/xieite/geometry/getBoundingBox.hpp)
 
 <br/>
 
@@ -56,5 +56,5 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
-- [`xieite::geometry::Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse.md)
+- [`xieite::geometry::Circle`](../../docs/geometry/Circle.md)
+- [`xieite::geometry::Ellipse`](../../docs/geometry/Ellipse.md)

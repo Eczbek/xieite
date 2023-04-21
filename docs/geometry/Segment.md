@@ -1,5 +1,5 @@
 # `xieite::geometry::Segment`
-Defined in header [`<xieite/geometry/Segment.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Segment.hpp)
+Defined in header [`<xieite/geometry/Segment.hpp>`](../../include/xieite/geometry/Segment.hpp)
 
 <br/>
 
@@ -22,8 +22,8 @@ xieite::geometry::Point end;
 <br/>
 
 ### Member functions
-- [`Segment`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Segment/constructor.hpp)
-- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Segment/operatorEquals.hpp)
+- [`Segment`](../../docs/geometry/Segment/constructor.hpp)
+- [`operator==`](../../docs/geometry/Segment/operatorEquals.hpp)
 
 <br/><br/>
 
@@ -45,4 +45,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point.md)
+- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

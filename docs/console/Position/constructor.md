@@ -1,5 +1,5 @@
 # `xieite::console::Position::Position`
-Defined in header [`<xieite/console/Position.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/Position.hpp)
+Defined in header [`<xieite/console/Position.hpp>`](../../../include/xieite/console/Position.hpp)
 
 <br/>
 
@@ -21,4 +21,4 @@ constexpr Position(int row = 0, int column = 0) noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::console::Position`](https://github.com/Eczbek/xieite/tree/main/docs/console/Position.md)
+- [`xieite::console::Position`](../../../docs/console/Position.md)

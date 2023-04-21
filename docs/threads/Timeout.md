@@ -1,5 +1,5 @@
 # `xieite::threads::Timeout`
-Defined in header [`<xieite/threads/Timeout.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/threads/Timeout.hpp)
+Defined in header [`<xieite/threads/Timeout.hpp>`](../../include/xieite/threads/Timeout.hpp)
 
 <br/>
 
@@ -12,10 +12,10 @@ Runs a callback once after a set amount of time. Compile with `-pthread`.
 <br/>
 
 ### Member functions
-- [`Timeout`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/constructor.md)
-- [`~Timeout`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/destructor.md)
-- [`good`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/good.md)
-- [`stop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Timeout/stop.md)
+- [`Timeout`](../../docs/threads/Timeout/constructor.md)
+- [`~Timeout`](../../docs/threads/Timeout/destructor.md)
+- [`good`](../../docs/threads/Timeout/good.md)
+- [`stop`](../../docs/threads/Timeout/stop.md)
 
 <br/><br/>
 

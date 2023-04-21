@@ -1,5 +1,5 @@
 # `xieite::geometry::getArea`
-Defined in header [`<xieite/geometry/getArea.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getArea.hpp)
+Defined in header [`<xieite/geometry/getArea.hpp>`](../../include/xieite/geometry/getArea.hpp)
 
 <br/>
 
@@ -58,6 +58,6 @@ int main() {
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
-- [`xieite::geometry::Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse.md)
-- [`xieite::geometry::Polygon`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Polygon.md)
+- [`xieite::geometry::Circle`](../../docs/geometry/Circle.md)
+- [`xieite::geometry::Ellipse`](../../docs/geometry/Ellipse.md)
+- [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)

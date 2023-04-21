@@ -1,5 +1,5 @@
 # `xieite::types::demangle`
-Defined in header [`<xieite/types/demangle.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/types/demangle.hpp)
+Defined in header [`<xieite/types/demangle.hpp>`](../../include/xieite/types/demangle.hpp)
 
 <br/>
 

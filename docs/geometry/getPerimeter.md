@@ -1,5 +1,5 @@
 # `xieite::geometry::getPerimeter`
-Defined in header [`<xieite/geometry/getPerimeter.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/getPerimeter.hpp)
+Defined in header [`<xieite/geometry/getPerimeter.hpp>`](../../include/xieite/geometry/getPerimeter.hpp)
 
 <br/>
 

@@ -1,5 +1,5 @@
 # `xieite::threads::Loop`
-Defined in header [`<xieite/threads/Loop.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/threads/Loop.hpp)
+Defined in header [`<xieite/threads/Loop.hpp>`](../../include/threads/Loop.hpp)
 
 <br/>
 
@@ -12,10 +12,10 @@ Runs a callback constantly. Compile with `-pthread`.
 <br/>
 
 ### Member functions
-- [`Loop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/constructor.md)
-- [`~Loop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/destructor.md)
-- [`good`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/good.md)
-- [`stop`](https://github.com/Eczbek/xieite/tree/main/docs/threads/Loop/stop.md)
+- [`Loop`](../../docs/threads/Loop/constructor.md)
+- [`~Loop`](../../docs/threads/Loop/destructor.md)
+- [`good`](../../docs/threads/Loop/good.md)
+- [`stop`](../../docs/threads/Loop/stop.md)
 
 <br/><br/>
 

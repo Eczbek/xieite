@@ -1,5 +1,5 @@
 # `xieite::geometry::Point`
-Defined in header [`<xieite/geometry/Point.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/geometry/Point.hpp)
+Defined in header [`<xieite/geometry/Point.hpp>`](../../include/xieite/geometry/Point.hpp)
 
 <br/>
 
@@ -22,8 +22,8 @@ double y;
 <br/>
 
 ### Member functions
-- [`Point`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point/constructor.md)
-- [`operator==`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Point/operatorEquals.md)
+- [`Point`](../../docs/geometry/Point/constructor.md)
+- [`operator==`](../../docs/geometry/Point/operatorEquals.md)
 
 <br/><br/>
 

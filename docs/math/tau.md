@@ -1,5 +1,5 @@
 # `xieite::math::tau`
-Defined in header [`<xieite/math/tau.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/tau.hpp)
+Defined in header [`<xieite/math/tau.hpp>`](../../include/xieite/math/tau.hpp)
 
 <br/><br/>
 
@@ -17,5 +17,5 @@ constexpr Number tau = xieite::math::pi<Number> * 2.0;
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
-- [`xieite::math::pi`](https://github.com/Eczbek/xieite/tree/main/docs/math/pi.md)
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)
+- [`xieite::math::pi`](../../docs/math/pi.md)

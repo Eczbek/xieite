@@ -1,5 +1,5 @@
 # `xieite::string::hash`
-Defined in header [`<xieite/string/hash.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/string/hash.hpp)
+Defined in header [`<xieite/string/hash.hpp>`](../../include/xieite/string/hash.hpp)
 
 <br/>
 

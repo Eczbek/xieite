@@ -1,5 +1,5 @@
 # `xieite::algorithms::group`
-Defined in header [`<xieite/algorithms/group.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms/group.hpp)
+Defined in header [`<xieite/algorithms/group.hpp>`](../../include/xieite/algorithms/group.hpp)
 
 <br/>
 

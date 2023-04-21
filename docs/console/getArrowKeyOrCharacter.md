@@ -1,5 +1,5 @@
 # `xieite::console::getArrowKeyOrCharacter`
-Defined in header [`<xieite/console/getArrowKeyOrCharacter.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/getArrowKeyOrCharacter.hpp)
+Defined in header [`<xieite/console/getArrowKeyOrCharacter.hpp>`](../../include/xieite/console/getArrowKeyOrCharacter.hpp)
 
 <br/>
 
@@ -49,4 +49,4 @@ e
 <br/><br/>
 
 ## See also
-- [`xieite::console::Position`](https://github.com/Eczbek/xieite/tree/main/docs/console/Position.md)
+- [`xieite::console::Position`](../../docs/console/Position.md)

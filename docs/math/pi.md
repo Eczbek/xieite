@@ -1,5 +1,5 @@
 # `xieite::math::pi`
-Defined in header [`<xieite/math/pi.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/math/pi.hpp)
+Defined in header [`<xieite/math/pi.hpp>`](../../include/xieite/math/pi.hpp)
 
 <br/>
 

@@ -1,5 +1,5 @@
 # `xieite::console::setCursorPosition`
-Defined in header [`<xieite/console/setCursorPosition.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/setCursorPosition.hpp)
+Defined in header [`<xieite/console/setCursorPosition.hpp>`](../../include/xieite/console/setCursorPosition.hpp)
 
 <br/>
 
@@ -42,4 +42,4 @@ Possible output:
 <br/><br/>
 
 ## See also
-- [`xieite::console::Position`](https://github.com/Eczbek/xieite/tree/main/docs/console/Position.md)
+- [`xieite::console::Position`](../../docs/console/Position.md)

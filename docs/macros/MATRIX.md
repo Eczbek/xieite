@@ -1,5 +1,5 @@
 # `XIEITE_MATRIX`
-Defined in header [`<xieite/macros/MATRIX.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/macros/MATRIX.hpp)
+Defined in header [`<xieite/macros/MATRIX.hpp>`](../../include/xieite/macros/MATRIX.hpp)
 
 <br/>
 

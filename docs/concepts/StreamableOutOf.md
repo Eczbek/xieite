@@ -1,5 +1,5 @@
 # `xieite::concepts::StreamableOutOf`
-Defined in header [`<xieite/concepts/StreamableOutOf.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/StreamableOutOf.hpp)
+Defined in header [`<xieite/concepts/StreamableOutOf.hpp>`](../../include/xieite/concepts/StreamableOutOf.hpp)
 
 <br/>
 

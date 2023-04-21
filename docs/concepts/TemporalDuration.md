@@ -1,5 +1,5 @@
 # `xieite::concepts::TemporalDuration`
-Defined in header [`<xieite/concepts/TemporalDuration.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/TemporalDuration.hpp)
+Defined in header [`<xieite/concepts/TemporalDuration.hpp>`](../../include/xieite/concepts/TemporalDuration.hpp)
 
 <br/>
 
@@ -21,4 +21,4 @@ concept TemporalDuration = xieite::concepts::isTemporalDuration<std::remove_cv_t
 <br/><br/>
 
 ## See also
-- [`xieite::traits::isTemporalDuration`](https://github.com/Eczbek/xieite/tree/main/docs/traits/isTemporalDuration.md)
+- [`xieite::traits::isTemporalDuration`](../../docs/traits/isTemporalDuration.md)

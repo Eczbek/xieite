@@ -1,5 +1,5 @@
 # `xieite::console::getPosition`
-Defined in header [`<xieite/console/getPosition.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/console/getPosition.hpp)
+Defined in header [`<xieite/console/getPosition.hpp>`](../../include/xieite/console/getPosition.hpp)
 
 <br/>
 
@@ -21,4 +21,4 @@ inline xieite::console::Position getPosition() noexcept;
 <br/><br/>
 
 ## See also
-- [`xieite::console::Position`](https://github.com/Eczbek/xieite/tree/main/docs/console/Position.md)
+- [`xieite::console::Position`](../../docs/console/Position.md)

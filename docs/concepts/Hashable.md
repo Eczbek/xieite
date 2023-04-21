@@ -1,5 +1,5 @@
 # `xieite::concepts::Hashable`
-Defined in header [`<xieite/concepts/Hashable.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/concepts/Hashable.hpp)
+Defined in header [`<xieite/concepts/Hashable.hpp>`](../../include/xieite/concepts/Hashable.hpp)
 
 <br/>
 

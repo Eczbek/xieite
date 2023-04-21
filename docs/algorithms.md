@@ -1,5 +1,5 @@
 # `xieite::algorithms`
-Aggregated in header [`<xieite/algorithms.hpp>`](https://github.com/Eczbek/xieite/tree/main/include/xieite/algorithms.hpp)
+Aggregated in header [`<xieite/algorithms.hpp>`](../include/xieite/algorithms.hpp)
 
 <br/>
 
@@ -8,13 +8,13 @@ A namespace of useful algorithms.
 <br/><br/>
 
 ## Member functions
-- [`all`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/all.md)
-- [`any`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/any.md)
-- [`count`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/count.md)
-- [`findOccurence`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/findOccurence.md)
-- [`group`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/group.md)
-- [`isPalindrome`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/isPalindrome.md)
-- [`numberSearch`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/numberSearch.md)
-- [`partialReverse`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/partialReverse.md)
-- [`rotatedMatch`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/rotatedMatch.md)
-- [`rotateMatrix`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/rotateMatrix.md)
+- [`all`](../docs/algorithms/all.md)
+- [`any`](../docs/algorithms/any.md)
+- [`count`](../docs/algorithms/count.md)
+- [`findOccurence`](../docs/algorithms/findOccurence.md)
+- [`group`](../docs/algorithms/group.md)
+- [`isPalindrome`](../docs/algorithms/isPalindrome.md)
+- [`numberSearch`](../docs/algorithms/numberSearch.md)
+- [`partialReverse`](../docs/algorithms/partialReverse.md)
+- [`rotatedMatch`](../docs/algorithms/rotatedMatch.md)
+- [`rotateMatrix`](../docs/algorithms/rotateMatrix.md)
