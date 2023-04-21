@@ -7,9 +7,6 @@
 
 namespace xieite::threads {
 	class Interval {
-	private:
-		xieite::threads::Loop loop;
-
 	public:
 		template<std::invocable<> Invocable>
 		Interval(Invocable&& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
@@ -29,5 +26,8 @@ namespace xieite::threads {
 		void stop() noexcept {
 			this->loop.stop();
 		}
+
+	private:
+		xieite::threads::Loop loop;
 	};
 }
