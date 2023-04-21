@@ -12,7 +12,7 @@ Constructs a `xieite::graphics::Color`.
 <br/>
 
 ```cpp
-constexpr Color(std::uint8_t red, std::uint8_t green, std::uint8_t blue, std::uint8_t alpha = 255) noexcept;
+constexpr Color(std::uint8_t red, std::uint8_t green, std::uint8_t blue, std::uint8_t alpha = std::numeric_limits<std::uint8_t>::max()) noexcept;
 ```
 ### Parameters
 - `red` - A `std::uint8_t` copy
