@@ -15,21 +15,7 @@ Add the `include` directory to your project.
 
 <br/>
 
-## Coolest features
-- Algorithms for iterables
-- Common concepts
-- Terminal manipulation tools
-- 2D geometrical shapes and functions
-- Macros for indentifying platform and compiler
-- Somewhat compile-time BigInteger class with bitwise operators
-- InterruptableRandomDistribution class
-- Unit conversion ratios
-- Compile-time string operations
-- Asynchronous Timeout and Interval classes
-
-<br/>
-
-## Namespaces
+## Contents
 - [`algorithms`](./docs/algorithms.md)
 - [`concepts`](./docs/concepts.md)
 - [`console`](./docs/console.md)
