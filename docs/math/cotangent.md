@@ -1,4 +1,4 @@
-# `xieite::math::cotangent`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::cotangent`
 Defined in header [`<xieite/math/cotangent.hpp>`](../../include/xieite/math/cotagent.hpp)
 
 <br/>

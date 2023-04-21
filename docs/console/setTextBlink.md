@@ -1,4 +1,4 @@
-# `xieite::console::setTextBlink`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setTextBlink`
 Defined in header [`<xieite/console/setTextBlink.hpp>`](../../include/xieite/console/setTextBlink.hpp)
 
 <br/>

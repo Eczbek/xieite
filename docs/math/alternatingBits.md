@@ -1,4 +1,4 @@
-# `xieite::math::alternatingBits`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::alternatingBits`
 Defined in header [`<xieite/math/alternatingBits.hpp>`](../../include/xieite/math/alternatingBits.hpp)
 
 <br/><br/>
@@ -24,7 +24,9 @@ constexpr Integral alternatingBits = std::numeric_limits<Integral>::max() / 3;
 #include <xieite/math/alternatingBits.hpp>
 
 int main() {
-	std::cout << std::bitset<32>(xieite::math::alternatingBits<std::uint32_t>) << '\n';
+	std::bitset<32> bits = xieite::math::alternatingBits<std::uint32_t>;
+
+	std::cout << bits << '\n';
 }
 ```
 Output:

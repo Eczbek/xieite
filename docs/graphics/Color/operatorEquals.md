@@ -1,4 +1,4 @@
-# `xieite::graphics::Color::operator==`
+# [`xieite`](../../../README.md)`::`[`graphics`](../../../docs/graphics.md)`::`[`Color`](../../../docs/graphics/Color.md)`::operator==`
 Defined in header [`<xieite/graphics/Color.hpp>`](../../../include/xieite/graphics/Color.hpp)
 
 <br/>
@@ -18,8 +18,3 @@ constexpr bool operator==(const xieite::graphics::Color& color) const noexcept;
 - `color` - A `xieite::graphics::Color` constant reference
 ### Return value
 - A `bool` to represent the equality
-
-<br/><br/>
-
-## See also
-- [`xieite::graphics::Color`](../../../docs/graphics/Color.md)

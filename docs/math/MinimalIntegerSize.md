@@ -1,4 +1,4 @@
-# `xieite::math::MinimalIntegerSize`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::MinimalIntegerSize`
 Defined in header [`<xieite/math/MinimalIntegerSize.hpp>`](../../include/math/MinimalIntegerSize.hpp)
 
 <br/>

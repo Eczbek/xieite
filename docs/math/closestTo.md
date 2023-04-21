@@ -1,4 +1,4 @@
-# `xieite::math::closestTo`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::closestTo`
 Defined in header [`<xieite/math/closestTo.hpp>`](../../include/xieite/math/closestTo.hpp)
 
 <br/>

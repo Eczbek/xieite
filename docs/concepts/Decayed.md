@@ -1,4 +1,4 @@
-# `xieite::concepts::Decayed`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Decayed`
 Defined in header [`<xieite/concepts/Decayed.hpp>`](../../include/xieite/concepts/Decayed.hpp)
 
 <br/>

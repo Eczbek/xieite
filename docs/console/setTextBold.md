@@ -1,4 +1,4 @@
-# `xieite::console::setTextBold`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setTextBold`
 Defined in header [`<xieite/console/setTextBold.hpp>`](../../include/xieite/console/setTextBold.hpp)
 
 <br/>

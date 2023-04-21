@@ -1,4 +1,4 @@
-# `xieite::threads::Loop::~Loop`
+# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Loop`](../../../docs/threads/Loop.md)`::~Loop`
 Defined in header [`<xieite/threads/Loop.hpp>`](../../../include/xieite/threads/Loop.hpp)
 
 <br/>
@@ -14,8 +14,3 @@ Destructs a `xieite::threads::Loop`, stops further callbacks.
 ```cpp
 ~Loop();
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::threads::Loop`](../../../docs/threads/Loop.md)

@@ -1,4 +1,4 @@
-# `xieite::console::getWindowSize`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getWindowSize`
 Defined in header [`<xieite/console/getWindowSize.hpp>`](../../include/xieite/console/getWindowSize.hpp)
 
 <br/>

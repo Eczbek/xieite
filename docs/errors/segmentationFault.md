@@ -1,4 +1,4 @@
-# `xieite::errors::segmentationFault`
+# [`xieite`](../../README.md)`::`[`errors`](../../docs/error.md)`::segmentationFault`
 Defined in header [`<xieite/errors/segmentationFault.hpp>`](../../include/xieite/errors/segmentationFault.hpp)
 
 <br/>

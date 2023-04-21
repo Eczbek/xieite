@@ -1,4 +1,4 @@
-# `xieite::console::getArrowKeyOrCharacter`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getArrowKeyOrCharacter`
 Defined in header [`<xieite/console/getArrowKeyOrCharacter.hpp>`](../../include/xieite/console/getArrowKeyOrCharacter.hpp)
 
 <br/>
@@ -31,12 +31,12 @@ inline std::variant<char, xieite::console::Position> getArrowKeyOrCharacter(bool
 int main() {
 	std::cin.putback('e');
 
-	const std::variant<char, xieite::console::Position> input = xieite::console::getArrowKeyOrCharacter();
+	std::variant<char, xieite::console::Position> input = xieite::console::getArrowKeyOrCharacter();
 
-	if (std::holds_alternative<char>(input))
+	if (std::holds_alternative<char>(input)) {
 		std::cout << std::get<char>(input) << '\n';
-	else {
-		const xieite::console::Position position = std::get<xieite::console::Position>(input);
+	} else {
+		xieite::console::Position position = std::get<xieite::console::Position>(input);
 		std::cout << '(' << position.row << ", " << position.column << ")\n";
 	}
 }

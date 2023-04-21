@@ -2,7 +2,6 @@
 
 #include <cmath>
 #include <xieite/geometry/Point.hpp>
-#include <xieite/geometry/getSlope.hpp>
 #include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {
@@ -18,7 +17,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Ray& ray) const noexcept {
-			return (this->start == ray.start) && xieite::math::approximatelyEqual(xieite::geometry::getSlope(*this), xieite::geometry::getSlope(ray));
+			return (this->start == ray.start) && xieite::math::approximatelyEqual((this->end.y - this->start.y) / (this->end.x - this->start.x), (ray.end.y - ray.start.y) / (ray.end.x - ray.start.x));
 		}
 	};
 }

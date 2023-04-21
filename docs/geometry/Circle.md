@@ -1,4 +1,4 @@
-# `xieite::geometry::Circle`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::Circle`
 Defined in header [`<xieite/geometry/Circle.hpp>`](../../include/xieite/geometry/Circle.hpp)
 
 <br/>

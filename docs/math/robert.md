@@ -1,4 +1,4 @@
-# `xieite::math::robert`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::robert`
 Defined in header [`<xieite/math/robert.hpp>`](../../include/xieite/math/robert.hpp)
 
 <br/>

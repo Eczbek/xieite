@@ -1,4 +1,4 @@
-# `xieite::math::toBase`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::toBase`
 Defined in header [`<xieite/math/toBase.hpp>`](../../include/xieite/math/toBase.hpp)
 
 <br/>

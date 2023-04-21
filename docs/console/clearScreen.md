@@ -1,4 +1,4 @@
-# `xieite::console::clearScreen`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::clearScreen`
 Defined in header [`<xieite/console/clearScreen.hpp>`](../../include/xieite/console/clearScreen.hpp)
 
 <br/>

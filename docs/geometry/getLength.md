@@ -1,4 +1,4 @@
-# `xieite::geometry::getLength`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getLength`
 Defined in header [`<xieite/geometry/getLength.hpp>`](../../include/xieite/geometry/getLength.hpp)
 
 <br/>
@@ -40,7 +40,9 @@ constexpr double getLength(const xieite::concepts::LinearShape auto&) noexcept;
 #include <xieite/geometry/getLength.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getLength(xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 })) << '\n';
+	std::cout
+		<< xieite::geometry::getLength(xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 }))
+		<< '\n';
 }
 ```
 Output:

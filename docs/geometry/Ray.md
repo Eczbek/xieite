@@ -1,4 +1,4 @@
-# `xieite::geometry::Ray`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::Ray`
 Defined in header [`<xieite/geometry/Ray.hpp>`](../../include/xieite/geometry/Ray.hpp)
 
 <br/>
@@ -33,8 +33,10 @@ xieite::geometry::Point end;
 #include <xieite/geometry/Ray.hpp>
 
 int main() {
-	std::cout << std::boolalpha
-		<< xieite::geometry::containsPoint(xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }), { -1.0, -1.0 }) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< xieite::geometry::containsPoint(xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }), { -1.0, -1.0 })
+		<< '\n';
 }
 ```
 Output:

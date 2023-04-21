@@ -1,4 +1,4 @@
-# xieite::console::ModeLock::unlock
+# [`xieite`](../../../README.md)`::`[`console`](../../../docs/console.md)`::`[`ModeLock`](../../../docs/console/ModeLock.md)`::unlock`
 Defined in header [`<xieite/console/ModeLock.hpp>`](../../../include/xieite/console/ModeLock.hpp)
 
 <br/>
@@ -14,8 +14,3 @@ Disables raw mode. Restores terminal settings which were saved in the constructo
 ```cpp
 void unlock() noexcept;
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::console::ModeLock`](../../../docs/console/ModeLock.md)

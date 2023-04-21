@@ -1,4 +1,4 @@
-# `xieite::math::ConditionalIntegerSign`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::ConditionalIntegerSign`
 Defined in header [`<xieite/math/ConditionalIntegerSign.hpp>`](../../include/xieite/math/ConditionalIntegerSign.hpp)
 
 <br/><br/>

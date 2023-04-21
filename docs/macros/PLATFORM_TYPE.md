@@ -1,4 +1,4 @@
-# `XIEITE_PLATFORM_TYPE_...`
+# [`XIEITE`](../../docs/macros.md)`_PLATFORM_TYPE_...`
 Defined in header [`<xieite/macros/PLATFORM_TYPE.hpp>`](../../include/xieite/macros/PLATFORM_TYPE.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# `xieite::string::split`
+# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::split`
 Defined in header [`<xieite/string/split.hpp>`](../../include/xieite/string/split.hpp)
 
 <br/>
@@ -42,8 +42,9 @@ constexpr std::vector<std::string> split(const std::string& string, char delimit
 #include <xieite/string/split.hpp>
 
 int main() {
-	for (std::string_view segment : xieite::string::split("Hello, world!", ' '))
+	for (std::string_view segment : xieite::string::split("Hello, world!", ' ')) {
 		std::cout << segment << '\n';
+	}
 }
 ```
 Output:

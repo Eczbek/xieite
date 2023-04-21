@@ -1,4 +1,4 @@
-# `xieite::console::getString`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getString`
 Defined in header [`<xieite/console/getString.hpp>`](../../include/xieite/console/getString.hpp)
 
 <br/>

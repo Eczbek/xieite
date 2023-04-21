@@ -1,4 +1,4 @@
-# `xieite::console::setCursorAlternative`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setCursorAlternative`
 Defined in header [`<xieite/console/setCursorAlternative.hpp>`](../../include/xieite/console/setCursorAlternative.hpp)
 
 <br/>

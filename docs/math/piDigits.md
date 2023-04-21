@@ -1,4 +1,4 @@
-# `xieite::math::piDigits`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::piDigits`
 Defined in header [`<xieite/math/piDigits.hpp>`](../../include/xieite/math/piDigits.hpp)
 
 <br/>

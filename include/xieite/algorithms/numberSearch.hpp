@@ -11,8 +11,9 @@ namespace xieite::algorithms {
 	constexpr Number numberSearch(xieite::concepts::CallbackSelector<Number> auto&& selector, Number minimum, Number maximum) noexcept {
 		while (true) {
 			const Number middle = (minimum + maximum) / 2;
-			if (xieite::math::approximatelyEqual(middle, minimum) || xieite::math::approximatelyEqual(middle, maximum))
+			if (xieite::math::approximatelyEqual(middle, minimum) || xieite::math::approximatelyEqual(middle, maximum)) {
 				return middle;
+			}
 			(selector(middle) ? maximum : minimum) = middle;
 		}
 	}
@@ -24,12 +25,14 @@ namespace xieite::algorithms {
 		Number maximum = 1;
 		if (selector(0)) {
 			maximum = 0;
-			while (selector(minimum))
+			while (selector(minimum)) {
 				minimum -= absolute(minimum);
+			}
 		} else {
 			minimum = 0;
-			while (!selector(maximum))
+			while (!selector(maximum)) {
 				maximum += absolute(maximum);
+			}
 		}
 		return numberSearch(std::forward<Callback>(selector), minimum, maximum);
 	}

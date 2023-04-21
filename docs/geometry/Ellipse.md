@@ -1,4 +1,4 @@
-# `xieite::geometry::Ellipse`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::Ellipse`
 Defined in header [`<xieite/geometry/Ellipse.hpp>`](../../include/xieite/geometry/Ellipse.hpp)
 
 <br/>
@@ -34,10 +34,18 @@ double rotation;
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Ellipse.hpp>
+#include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getArea.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getArea(xieite::geometry::Ellipse({ 0.0, 0.0 }, { 1.0, 2.0 })) << '\n';
+	xieite::geometry::Point center(0.0, 0.0);
+	xieite::geometry::Point radii(1.0, 2.0);
+
+	xieite::geometry::Ellipse ellipse(center, radii);
+
+	std::cout
+		<< xieite::geometry::getArea(ellipse)
+		<< '\n';
 }
 ```
 Output:

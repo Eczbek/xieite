@@ -1,4 +1,4 @@
-# `xieite::math::approximatelyEqual`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::approximatelyEqual`
 Defined in header [`<xieite/math/approximatelyEqual.hpp>`](../../include/xieite/math/approximatelyEqual.hpp)
 
 <br/>
@@ -35,9 +35,12 @@ int main() {
 	const double a = 0.3;
 	const double b = 0.1 + 0.2;
 	
-	std::cout << std::boolalpha
-		<< (a == b) << '\n'
-		<< xieite::math::approximatelyEqual(a, b) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< (a == b)
+		<< '\n'
+		<< xieite::math::approximatelyEqual(a, b)
+		<< '\n';
 }
 ```
 Output:

@@ -1,4 +1,4 @@
-# `xieite::algorithms::numberSearch`
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::numberSearch`
 Defined in header [`<xieite/algorithms/numberSearch.hpp>`](../../include/xieite/algorithms/numberSearch.hpp)
 
 <br/>
@@ -52,9 +52,11 @@ bool checkCollision(double x) {
 }
 
 int main() {
-	std::cout << xieite::algorithms::numberSearch([&](double x) {
+	auto callback = [](double x) -> bool {
 		return !checkCollision(x);
-	}, 5.0, 15.0) << '\n';
+	};
+
+	std::cout << xieite::algorithms::numberSearch(callback, 5.0, 15.0) << '\n';
 }
 ```
 Output:

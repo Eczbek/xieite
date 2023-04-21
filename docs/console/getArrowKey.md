@@ -1,4 +1,4 @@
-# `xieite::console::getArrowKey`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getArrowKey`
 Defined in header [`<xieite/console/getArrowKey.hpp>`](../../include/xieite/console/getArrowKey.hpp)
 
 <br/>

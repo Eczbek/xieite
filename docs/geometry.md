@@ -1,4 +1,4 @@
-# `xieite::geometry`
+# [`xieite`](../README.md)`::geometry`
 Aggregated in header [`<xieite/geometry.hpp>`](../include/xieite/geometry.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# `xieite::console::putBackString`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::putBackString`
 Defined in header [`<xieite/console/putBackString.hpp>`](../../include/xieite/console/putBackString.hpp)
 
 <br/>

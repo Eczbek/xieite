@@ -17,8 +17,9 @@ namespace xieite::geometry {
 		std::vector<xieite::geometry::Point> intersections;
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {
 			const std::optional<xieite::geometry::Point> intersection = xieite::geometry::getIntersection(linearShape, side);
-			if (intersection.has_value())
+			if (intersection.has_value()) {
 				intersections.push_back(intersection.value());
+			}
 		}
 		return intersections;
 	}
@@ -31,12 +32,14 @@ namespace xieite::geometry {
 	[[nodiscard]]
 	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Polygon& polygon1, const xieite::geometry::Polygon& polygon2) noexcept {
 		std::vector<xieite::geometry::Point> intersections;
-		for (const xieite::geometry::Segment& side1 : xieite::geometry::getSides(polygon1))
+		for (const xieite::geometry::Segment& side1 : xieite::geometry::getSides(polygon1)) {
 			for (const xieite::geometry::Segment& side2 : xieite::geometry::getSides(polygon2)) {
 				const std::optional<xieite::geometry::Point> intersection = xieite::geometry::getIntersection(side1, side2);
-				if (intersection.has_value())
+				if (intersection.has_value()) {
 					intersections.push_back(intersection.value());
+				}
 			}
+		}
 		return intersections;
 	}
 
@@ -53,10 +56,10 @@ namespace xieite::geometry {
 			const double f = (-b - std::sqrt(d)) / 2.0 / a;
 			const xieite::geometry::Point g = xieite::geometry::rotate(xieite::geometry::Point(start.x + e * (end.x - start.x), start.y + e * (end.y - start.y)), -ellipse.rotation);
 			const xieite::geometry::Point h = xieite::geometry::rotate(xieite::geometry::Point(start.x + f * (end.x - start.x), start.y + f * (end.y - start.y)), -ellipse.rotation);
-			return std::vector<xieite::geometry::Point>({
+			return std::vector<xieite::geometry::Point> {
 				xieite::geometry::Point(g.x + ellipse.center.x, g.y + ellipse.center.y),
 				xieite::geometry::Point(h.x + ellipse.center.x, h.y + ellipse.center.y)
-			});
+			};
 		}
 		return std::vector<xieite::geometry::Point>();
 	}

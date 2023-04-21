@@ -1,4 +1,4 @@
-# `xieite::math::Integer<bits, sign>::operator<<`
+# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`Integer<bits, sign>`](../../../docs/math/Integer.md)`::operator<<`
 Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
 
 <br/><br/>
@@ -35,8 +35,3 @@ Output:
 ```
 20
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::math::Integer`](../../../docs/math/Integer.md)

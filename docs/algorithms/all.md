@@ -1,4 +1,4 @@
-# `xieite::algorithms::all`
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::all`
 Defined in header [`<xieite/algorithms/all.hpp>`](../../include/xieite/algorithms/all.hpp)
 
 <br/>
@@ -28,8 +28,10 @@ constexpr bool all(xieite::concepts::NoThrowConvertibleTo<bool> auto&&... values
 #include <xieite/algorithms/all.hpp>
 
 int main() {
-	std::cout << std::boolalpha
-		<< xieite::algorithms::all(4, true, '$') << '\n';
+	std::cout
+		<< std::boolalpha
+		<< xieite::algorithms::all(4, true, '$')
+		<< '\n';
 }
 ```
 Output:

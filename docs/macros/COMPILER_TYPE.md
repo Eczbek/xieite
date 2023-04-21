@@ -1,4 +1,4 @@
-# `XIEITE_COMPILER_TYPE_...`
+# [`XIEITE`](../../docs/macros.md)`_COMPILER_TYPE_...`
 Defined in header [`<xieite/macros/COMPILER_TYPE.hpp>`](../../include/xieite/macros/COMPILER_TYPE.hpp)
 
 <br/>

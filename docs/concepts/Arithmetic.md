@@ -1,4 +1,4 @@
-# `xieite::concepts::Arithmetic`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Arithmetic`
 Defined in header [`<xieite/concepts/Arithmetic.hpp>`](../../include/xieite/concepts/Arithmetic.hpp)
 
 <br/>

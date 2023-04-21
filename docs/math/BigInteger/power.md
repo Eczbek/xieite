@@ -1,4 +1,4 @@
-# `xieite::math::BigInteger::power`
+# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::power`
 Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
 
 <br/>
@@ -46,8 +46,3 @@ Output:
 ```
 8
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::math::BigInteger`](../../../docs/math/BigInteger.md)

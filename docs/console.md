@@ -1,4 +1,4 @@
-# `xieite::console`
+# [`xieite`](../README.md)`::console`
 Aggregated in header [`<xieite/console.hpp>`](../include/xieite/console.hpp)
 
 <br/>

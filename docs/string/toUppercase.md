@@ -1,4 +1,4 @@
-# `xieite::string::toUppercase`
+# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::toUppercase`
 Defined in header [`<xieite/string/toUppercase.hpp>`](../../include/xieite/string/toUppercase.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# `xieite::geometry::getPerimeter`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getPerimeter`
 Defined in header [`<xieite/geometry/getPerimeter.hpp>`](../../include/xieite/geometry/getPerimeter.hpp)
 
 <br/>
@@ -29,12 +29,14 @@ constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept
 #include <xieite/geometry/getPerimeter.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getPerimeter(xieite::geometry::Polygon({
-		{ -1.0, -1.0 },
-		{ 1.0, -1.0 },
-		{ 1.0, 1.0 },
-		{ -1.0, 1.0 }
-	})) << '\n';
+	std::cout
+		<< xieite::geometry::getPerimeter(xieite::geometry::Polygon({
+			{ -1.0, -1.0 },
+			{ 1.0, -1.0 },
+			{ 1.0, 1.0 },
+			{ -1.0, 1.0 }
+		}))
+		<< '\n';
 }
 ```
 Output:

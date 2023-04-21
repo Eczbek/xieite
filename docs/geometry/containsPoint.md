@@ -1,4 +1,4 @@
-# `xieite::geometry::containsPoint`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::containsPoint`
 Defined in header [`<xieite/geometry/containsPoint.hpp>`](../../include/xieite/geometry/containsPoint.hpp)
 
 <br/>
@@ -86,19 +86,24 @@ constexpr bool containsPoint(const xieite::geometry::Circle& circle, xieite::geo
 ## Example
 ```cpp
 #include <iostream>
+#include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/geometry/containsPoint.hpp>
 
 int main() {
+	xieite::geometry::Point point(0.0, 0.0);
+
 	xieite::geometry::Polygon square({
-		{ -1.0, -1.0 },
-		{ 1.0, -1.0 },
-		{ 1.0, 1.0 },
-		{ -1.0, 1.0 }
+		xieite::geometry::Point(-1.0, -1.0),
+		xieite::geometry::Point(1.0, -1.0),
+		xieite::geometry::Point(1.0, 1.0),
+		xieite::geometry::Point(-1.0, 1.0)
 	});
 
-	std::cout << std::boolalpha
-		<< xieite::geometry::containsPoint(square, { 0.0, 0.0 }) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< xieite::geometry::containsPoint(square, point)
+		<< '\n';
 }
 ```
 Output:

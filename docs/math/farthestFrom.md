@@ -1,4 +1,4 @@
-# `xieite::math::farthestFrom`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::farthestFrom`
 Defined in header [`<xieite/math/farthestFrom.hpp>`](../../include/xieite/math/farthestFrom.hpp)
 
 <br/>

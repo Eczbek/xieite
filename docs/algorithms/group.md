@@ -1,4 +1,4 @@
-# `xieite::algorithms::group`
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::group`
 Defined in header [`<xieite/algorithms/group.hpp>`](../../include/xieite/algorithms/group.hpp)
 
 <br/>
@@ -62,11 +62,13 @@ int main() {
 	std::unordered_map<bool, std::vector<int>> groups = xieite::algorithms::group(values, callback);
 
 	std::cout << "true: ";
-	for (int value : groups[true])
+	for (int value : groups[true]) {
 		std::cout << value << ' ';
+	}
 	std::cout << "\nfalse: ";
-	for (int value : groups[false])
+	for (int value : groups[false]) {
 		std::cout << value << ' ';
+	}
 	std::cout << '\n';
 }
 ```

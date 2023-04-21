@@ -1,4 +1,4 @@
-# `xieite::algorithms::isPalindrome`
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::isPalindrome`
 Defined in header [`<xieite/algorithms/isPalindrome.hpp>`](../../include/xieite/algorithms/isPalindrome.hpp)
 
 <br/>
@@ -37,8 +37,10 @@ constexpr bool isPalindrome(Iterator begin, Iterator end, Callback&& comparator 
 int main() {
 	std::string value = "racecar";
 
-	std::cout << std::boolalpha
-		<< xieite::algorithms::isPalindrome(std::begin(value), std::end(value)) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< xieite::algorithms::isPalindrome(std::begin(value), std::end(value))
+		<< '\n';
 }
 ```
 Output:

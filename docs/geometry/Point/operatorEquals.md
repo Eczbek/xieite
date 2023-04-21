@@ -1,4 +1,4 @@
-# `xieite::geometry::Point::operator==`
+# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Point`](../../../docs/geoemtry/Point.md)`::operator==`
 Defined in header [`<xieite/geometry/Point.hpp>`](../../../include/xieite/geometry/Point.hpp)
 
 <br/>
@@ -19,8 +19,3 @@ constexpr bool operator==(xieite::geometry::Point point) const noexcept;
 - `point` - A `xieite::geometry::Point` copy
 ### Return value
 - `bool` - Whether or not the compared shapes are equal
-
-<br/><br/>
-
-## See also
-- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

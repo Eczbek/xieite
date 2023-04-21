@@ -1,4 +1,4 @@
-# `xieite::geometry::Segment::Segment`
+# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Segment`](../../../docs/geoemtry/Segment.md)`::Segment`
 Defined in header [`<xieite/geometry/Segment.hpp>`](../../../include/xieite/geometry/Segment.hpp)
 
 <br/>
@@ -19,5 +19,4 @@ constexpr Segment(xieite::geometry::Point start, xieite::geometry::Point end) no
 - `end` - A `xieite::geometry::Point` copy, the end of the segment
 
 ## See also
-- [`xieite::geometry::Segment`](../../../docs/geometry/Segment.md)
 - [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

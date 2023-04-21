@@ -1,4 +1,4 @@
-# `xieite::math::BigInteger::operator-`
+# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::operator-`
 Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
 
 <br/><br/>
@@ -51,8 +51,3 @@ Output:
 ```
 6
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::math::BigInteger`](../../../docs/math/BigInteger.md)

@@ -1,4 +1,4 @@
-# `xieite::threads::Timeout::Timeout`
+# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Timeout`](../../../docs/threads/Timeout.md)`::Timeout`
 Defined in header [`<xieite/threads/Timeout.hpp>`](../../../include/xieite/threads/Timeout.hpp)
 
 <br/>
@@ -20,8 +20,3 @@ Timeout(Invocable&& callback, const xieite::concepts::TemporalDuration auto dura
 ### Parameters
 - `callback` - An `Invocable` right-value reference
 - `duration` - An `auto` copy, satisfying `xieite::concepts::TemporalDuration`
-
-<br/><br/>
-
-## See also
-- [`xieite::threads::Timeout`](../../../docs/threads/Timeout.md)

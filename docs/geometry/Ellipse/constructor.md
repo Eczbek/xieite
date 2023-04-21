@@ -1,4 +1,4 @@
-# `xieite::geometry::Ellipse::Ellipse`
+# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Ellipse`](../../../docs/geoemtry/Ellipse.md)`::Ellipse`
 Defined in header [`<xieite/geometry/Ellipse.hpp>`](../../../include/xieite/geometry/Ellipse.hpp)
 
 <br/>
@@ -22,5 +22,4 @@ constexpr Ellipse(xieite::geometry::Point center, xieite::geometry::Point radii,
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Ellipse`](../../../docs/geometry/Ellipse.md)
 - [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

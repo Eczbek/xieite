@@ -1,4 +1,4 @@
-# `xieite::geometry::Polygon::operator==`
+# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Polygon`](../../../docs/geoemtry/Polygon.md)`::operator==`
 Defined in header [`<xieite/geometry/Polygon.hpp>`](../../../include/xieite/geometry/Polygon.hpp)
 
 <br/>
@@ -19,8 +19,3 @@ constexpr bool operator==(const xieite::geometry::Polygon& polygon) const noexce
 - `polygon` - A `xieite::geometry::Polygon` constant reference
 ### Return value
 - `bool` - Whether or not the compared shapes are equal
-
-<br/><br/>
-
-## See also
-- [`xieite::geometry::Polygon`](../../../docs/geometry/Polygon.md)

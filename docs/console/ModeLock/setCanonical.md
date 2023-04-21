@@ -1,4 +1,4 @@
-# `xieite::console::ModeLock::setCanonical`
+# [`xieite`](../../../README.md)`::`[`console`](../../../docs/console.md)`::`[`ModeLock`](../../../docs/console/ModeLock.md)`::setCanonical`
 Defined in header [`<xieite/console/ModeLock.hpp>`](../../../include/xieite/console/ModeLock.hpp)
 
 <br/>
@@ -16,8 +16,3 @@ void setCanonical(bool value) noexcept;
 ```
 ### Parameters
 - `value` - A `bool` copy to enable or disable canonical mode.
-
-<br/><br/>
-
-## See also
-- [`xieite::console::ModeLock`](../../../docs/console/ModeLock.md)

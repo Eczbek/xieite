@@ -12,11 +12,12 @@ namespace xieite::string {
 		const std::size_t stringSize = string.size();
 		const std::size_t delimiterSize = delimiter.size();
 		std::size_t i = 0;
-		for (std::size_t j = 0; j < stringSize - i; ++j)
+		for (std::size_t j = 0; j < stringSize - i; ++j) {
 			if (string.substr(j, delimiterSize) == delimiter) {
 				segments.push_back(string.substr(i, j - i));
 				i = j += delimiterSize;
 			}
+		}
 		segments.push_back(string.substr(i));
 		return segments;
 	}

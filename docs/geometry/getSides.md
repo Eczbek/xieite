@@ -1,4 +1,4 @@
-# `xieite::geometry::getSides`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getSides`
 Defined in header p`<xieite/geometry/getSides.hpp>`](../../include/xieite/geometry/getSides.hpp)
 
 <br/>
@@ -31,13 +31,18 @@ constexpr std::vector<xieite::geometry::Segment> getSides(const xieite::geometry
 #include <xieite/geometry/getSides.hpp>
 
 int main() {
-	for (xieite::geometry::Segment& side : xieite::geometry::getSides(xieite::geometry::Polygon rectangle({
+	xieite::geometry::Polygon rectangle {
 		{ 0.0, 0.0 },
 		{ 3.0, 0.0 },
 		{ 3.0, 2.0 },
 		{ 0.0, 2.0 }
-	})))
-		std::cout << xieite::geometry::getLength(side) << '\n';
+	};
+
+	for (xieite::geometry::Segment& side : xieite::geometry::getSides(rectangle)) {
+		std::cout
+			<< xieite::geometry::getLength(side)
+			<< '\n';
+	}
 }
 ```
 Output:

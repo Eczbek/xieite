@@ -1,4 +1,4 @@
-# `xieite::errors`
+# [`xieite`](../README.md)`::errors`
 Aggregated in header [`<xieite/errors.hpp>`](../include/xieite/errors.hpp)
 
 <br/>

@@ -34,13 +34,16 @@ namespace xieite::math {
 		constexpr BigInteger(std::span<const bool> bits, const bool sign = false) noexcept
 		: bits(std::vector<bool>(bits.begin(), bits.end()), sign(sign) {
 			std::size_t i = this->bits.size();
-			if (i)
-				while (!this->bits.back() && --i)
+			if (i) {
+				while (!this->bits.back() && --i) {
 					this->bits.pop_back();
-			else
+				}
+			} else {
 				this->bits.push_back(false);
-			if ((i < 2) && !this->bits[0])
+			}
+			if ((i < 2) && !this->bits[0]) {
 				this->sign = false;
+			}
 		}
 
 		constexpr BigInteger(const std::string_view value) {
@@ -108,22 +111,27 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger& bigInteger) const noexcept {
-			if (this->sign != bigInteger.sign)
+			if (this->sign != bigInteger.sign) {
 				return *this - (-bigInteger);
-			if (!*this)
+			}
+			if (!*this) {
 				return bigInteger;
-			if (!bigInteger)
+			}
+			if (!bigInteger) {
 				return *this;
+			}
 			std::vector<bool> resultBits;
 			bool carry = false;
 			const std::size_t bitsSize = this->bits.size();
 			const std::size_t bigIntegerBitsSize = bigInteger.bits.size();
 			for (std::size_t i = 0; (i < bitsSize) || (i < bigIntegerBitsSize) || carry; ++i) {
 				int sum = carry;
-				if (i < bitsSize)
+				if (i < bitsSize) {
 					sum += this->bits[i];
-				if (i < bigIntegerBitsSize)
+				}
+				if (i < bigIntegerBitsSize) {
 					sum += bigInteger.bits[i];
+				}
 				carry = sum > 1;
 				resultBits.push_back(sum % 2);
 			}
@@ -156,27 +164,32 @@ namespace xieite::math {
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator-() const noexcept {
 			xieite::math::BigInteger copy = *this;
-			if (copy)
+			if (copy) {
 				copy.sign = !copy.sign;
+			}
 			return copy;
 		}
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator-(const xieite::math::BigInteger& bigInteger) const noexcept {
-			if (!bigInteger)
+			if (!bigInteger) {
 				return *this;
-			if (this->sign != bigInteger.sign)
+			}
+			if (this->sign != bigInteger.sign) {
 				return *this + (-bigInteger);
-			if (this->sign && (*this > bigInteger) || !this->sign && (*this < bigInteger))
+			}
+			if (this->sign && (*this > bigInteger) || !this->sign && (*this < bigInteger)) {
 				return -(bigInteger - *this);
+			}
 			std::vector<bool> resultBits = this->bits;
 			bool borrow = false;
 			const std::size_t bitsSize = this->bits.size();
 			const std::size_t bigIntegerBitsSize = bigInteger.bits.size();
 			for (std::size_t i = 0; (i < bigIntegerBitsSize) || borrow; ++i) {
 				int difference = 2 - borrow + this->bits[i];
-				if (i < bigIntegerBitsSize)
+				if (i < bigIntegerBitsSize) {
 					difference -= bigInteger.bits[i];
+				}
 				borrow = (i < bitsSize - 1) && (difference < 2);
 				resultBits[i] = difference % 2;
 			}
@@ -208,16 +221,21 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator*(const xieite::math::BigInteger& bigInteger) const noexcept {
-			if (!*this || !bigInteger)
+			if (!*this || !bigInteger) {
 				return xieite::math::BigInteger(0);
-			if (*this == 1)
+			}
+			if (*this == 1) {
 				return bigInteger;
-			if (bigInteger == 1)
+			}
+			if (bigInteger == 1) {
 				return *this;
-			if (*this == -1)
+			}
+			if (*this == -1) {
 				return -bigInteger;
-			if (bigInteger == -1)
+			}
+			if (bigInteger == -1) {
 				return -*this;
+			}
 			const std::size_t halfSize = std::min(this->bits.size(), bigInteger.bits.size()) / 2;
 			const std::vector<bool>::const_iterator i = std::next(std::begin(this->bits), halfSize);
 			const xieite::math::BigInteger a(std::vector<bool>(std::begin(this->bits), i));
@@ -249,23 +267,28 @@ namespace xieite::math {
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator/(const xieite::math::BigInteger& bigInteger) const {
 			XIEITE_ASSERT(static_cast<bool>(bigInteger), "Cannot divide by zero");
-			if (bigInteger == 1)
+			if (bigInteger == 1) {
 				return *this;
-			if (bigInteger == -1)
+			}
+			if (bigInteger == -1) {
 				return -*this;
+			}
 			const bool bigIntegerSign = bigInteger.sign;
             const xieite::math::BigInteger bigIntegerCopy = bigInteger.absolute();
-			if (this->absolute() < bigIntegerCopy)
+			if (this->absolute() < bigIntegerCopy) {
 				return xieite::math::BigInteger(0);
+			}
 			std::vector<bool> resultBits;
 			xieite::math::BigInteger difference;
 			for (std::size_t i = this->bits.size(); i--;) {
-				if (!difference)
+				if (!difference) {
 					difference.bits.clear();
+				}
 				difference.bits.insert(std::begin(difference.bits), this->bits[i]);
 				bool quotient = difference >= bigIntegerCopy;
-				if (quotient)
+				if (quotient) {
 					difference -= bigIntegerCopy;
+				}
 				resultBits.insert(std::begin(resultBits), quotient);
 			}
 			return xieite::math::BigInteger(resultBits, this->sign != bigIntegerSign);
@@ -289,17 +312,21 @@ namespace xieite::math {
 			XIEITE_ASSERT(static_cast<bool>(bigInteger), "Cannot find remainder of division by zero");
 			const xieite::math::BigInteger copy = this->absolute();
 			const xieite::math::BigInteger bigIntegerCopy = bigInteger.absolute();
-			if (!*this || (bigIntegerCopy == 1) || (copy == bigIntegerCopy))
+			if (!*this || (bigIntegerCopy == 1) || (copy == bigIntegerCopy)) {
 				return xieite::math::BigInteger(0);
-			if (copy < bigIntegerCopy)
+			}
+			if (copy < bigIntegerCopy) {
 				return *this;
+			}
 			xieite::math::BigInteger difference;
 			for (std::size_t i = this->bits.size(); i--;) {
-				if (!difference)
+				if (!difference) {
 					difference.bits.clear();
+				}
 				difference.bits.insert(std::begin(difference.bits), this->bits[i]);
-				if (difference >= bigIntegerCopy)
+				if (difference >= bigIntegerCopy) {
 					difference -= bigIntegerCopy;
+				}
 			}
 			difference.sign = this->sign;
 			return difference;
@@ -385,10 +412,12 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator<<(const xieite::math::BigInteger& bigInteger) const noexcept {
-			if (bigInteger.sign || !*this)
+			if (bigInteger.sign || !*this) {
 				return xieite::math::BigInteger(0);
-			if (!bigInteger)
+			}
+			if (!bigInteger) {
 				return *this;
+			}
 			std::vector<bool> resultBits(static_cast<std::size_t>(bigInteger));
 			resultBits.insert(std::end(resultBits), std::begin(this->bits), std::end(this->bits));
 			return xieite::math::BigInteger(resultBits, this->sign);
@@ -409,10 +438,12 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator>>(const xieite::math::BigInteger& bigInteger) const noexcept {
-			if (!this->sign && bigInteger.sign || !*this)
+			if (!this->sign && bigInteger.sign || !*this) {
 				return xieite::math::BigInteger(0);
-			if (!bigInteger)
+			}
+			if (!bigInteger) {
 				return *this;
+			}
 			std::vector<bool> resultBits = this->bits;
 			std::vector<bool>::iterator end = std::begin(resultBits);
 			resultBits.erase(std::begin(resultBits), std::next(std::begin(resultBits), static_cast<std::size_t>(bigInteger)));
@@ -442,26 +473,31 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger power(xieite::math::BigInteger bigInteger) const {
-			if ((*this == 1) || (bigInteger == 1))
+			if ((*this == 1) || (bigInteger == 1)) {
 				return *this;
-			if (*this == -1)
+			}
+			if (*this == -1) {
 				return *this * (bigInteger % 2) * 2 - 1;
-			if (!bigInteger)
+			}
+			if (!bigInteger) {
 				return xieite::math::BigInteger(1);
+			}
 			if (bigInteger.sign) {
 				XIEITE_ASSERT(static_cast<bool>(*this), "Cannot find power of zero to negative exponent");
 				return !bigInteger;
 			}
-			if (!*this)
+			if (!*this) {
 				return !bigInteger;
+			}
 			xieite::math::BigInteger x = *this;
 			xieite::math::BigInteger y = 1;
 			while (bigInteger > 1) {
 				if (bigInteger % 2) {
 					y *= x;
 					bigInteger = (bigInteger - 1) / 2;
-				} else
+				} else {
 					bigInteger /= 2;
+				}
 				x *= x;
 			}
 			return x * y;
@@ -475,10 +511,12 @@ namespace xieite::math {
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& bigInteger) const {
 			XIEITE_ASSERT(!this->sign, "Cannot find root of negative value");
-			if (*this == 1)
+			if (*this == 1) {
 				return xieite::math::BigInteger(1);
-			if (bigInteger.sign)
+			}
+			if (bigInteger.sign) {
 				return xieite::math::BigInteger(0);
+			}
 			xieite::math::BigInteger x = bigInteger - 1;
 			xieite::math::BigInteger y = *this;
 			xieite::math::BigInteger z = y + 1;
@@ -501,16 +539,18 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr std::string string() const noexcept {
-			if (!*this)
+			if (!*this) {
 				return "0";
+			}
 			xieite::math::BigInteger copy = this->absolute();
 			std::string result;
 			do {
 				result = static_cast<char>(copy % 10 + '0') + result;
 				copy /= 10;
 			} while (copy);
-			if (this->sign)
+			if (this->sign) {
 				result = '-' + result;
+			}
 			return result;
 		}
 	
@@ -525,24 +565,28 @@ namespace xieite::math {
 			const std::size_t bitsSize = this->bits.size();
 			if (this->sign) {
 				++copy;
-				for (std::size_t i = 0; i < bitsSize; ++i)
+				for (std::size_t i = 0; i < bitsSize; ++i) {
 					copy.bits[i] = !copy.bits[i];
+				}
 			}
 			xieite::math::BigInteger bigIntegerCopy = bigInteger;
 			const std::size_t bigIntegerBitsSize = bigInteger.bits.size();
 			if (bigInteger.sign) {
 				++bigIntegerCopy;
-				for (std::size_t i = 0; i < bigIntegerBitsSize; ++i)
+				for (std::size_t i = 0; i < bigIntegerBitsSize; ++i) {
 					bigIntegerCopy.bits[i] = !bigIntegerCopy.bits[i];
+				}
 			}
 			xieite::math::BigInteger result;
 			result.bits.clear();
 			result.sign = this->sign && bigInteger.sign;
-			for (std::size_t i = 0; (i < bitsSize) || (i < bigIntegerBitsSize); ++i)
+			for (std::size_t i = 0; (i < bitsSize) || (i < bigIntegerBitsSize); ++i) {
 				result.bits.push_back(callback((i < bitsSize) ? copy.bits[i] : this->sign, (i < bigIntegerBitsSize) ? bigIntegerCopy.bits[i] : bigInteger.sign));
+			}
 			if (result.sign) {
-				for (std::size_t i = 0; (i < bitsSize) || (i < bigIntegerBitsSize); ++i)
+				for (std::size_t i = 0; (i < bitsSize) || (i < bigIntegerBitsSize); ++i) {
 					result.bits[i] = !result.bits[i];
+				}
 				--result;
 			}
 			return result;

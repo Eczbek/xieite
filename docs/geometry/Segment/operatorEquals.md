@@ -1,4 +1,4 @@
-# `xieite::geometry::Segment::operator==`
+# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Segment`](../../../docs/geoemtry/Segment.md)`::operator==`
 Defined in header [`<xieite/geometry/Segment.hpp>`](../../../include/xieite/geometry/Segment.hpp)
 
 <br/>
@@ -19,8 +19,3 @@ constexpr bool operator==(const xieite::geometry::Segment& segment) const noexce
 - `segment` - A `xieite::geometry::Segment` constant reference
 ### Return value
 - `bool` - Whether or not the compared shapes are equal
-
-<br/><br/>
-
-## See also
-- [`xieite::geometry::Segment`](../../../docs/geometry/Segment.md)

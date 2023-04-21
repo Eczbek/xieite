@@ -1,4 +1,4 @@
-# `xieite::string::trimEnd`
+# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::trimEnd`
 Defined in header [`<xieite/string/trimEnd.hpp>`](../../include/xieite/string/trimEnd.hpp)
 
 <br/>
@@ -38,10 +38,16 @@ constexpr std::string trimEnd(const std::string& string, std::span<char> charact
 ## Example
 ```cpp
 #include <iostream>
+#include <vector>
 #include <xieite/string/trimEnd.hpp>
 
 int main() {
-	std::cout << xieite::string::trimEnd("bababananana", { 'a', 'n' }) << '\n';
+	std::vector<char> characters {
+		'a',
+		'n'
+	};
+
+	std::cout << xieite::string::trimEnd("bababananana", characters) << '\n';
 }
 ```
 Output:

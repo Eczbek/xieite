@@ -12,8 +12,9 @@ namespace xieite::console {
 		while (true) {
 			char input = 0;
 			read(STDIN_FILENO, &input, 1);
-			if (!input)
+			if (!input) {
 				break;
+			}
 			buffer += input;
 		}
 		return buffer;

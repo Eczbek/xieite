@@ -1,4 +1,4 @@
-# `xieite::geometry::rotate`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::rotate`
 Defined in header [`<xieite/geometry/rotate.hpp>`](../../include/xieite/geometry/rotate.hpp)
 
 <br/>

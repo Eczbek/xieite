@@ -1,4 +1,4 @@
-# `xieite::math::toRadians`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::toRadians`
 Defined in header [`<xieite/math/toRadians.hpp>`](../../include/xieite/math/toRadians.hpp)
 
 <br/>

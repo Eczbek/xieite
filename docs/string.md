@@ -1,4 +1,4 @@
-# `xieite::string`
+# [`xieite`](../README.md)`::string`
 Aggregated in header [`<xieite/string.hpp>`](../include/xieite/string.hpp)
 
 <br/>

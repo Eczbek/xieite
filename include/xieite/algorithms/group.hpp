@@ -20,8 +20,9 @@ namespace xieite::vector {
 	[[nodiscard]]
 	std::unordered_map<std::invoke_result_t<Callback(std::iterator_traits<Iterator>::value_type, std::size_t)>, std::vector<std::iterator_traits<Iterator>::value_type>> group(Iterator begin, const Iterator end, Callback&& callback) noexcept {
 		std::unordered_map<std::invoke_result_t<Callback(std::iterator_traits<Iterator>::value_type, std::size_t)>, std::vector<std::iterator_traits<Iterator>::value_type>> groups;
-		for (std::size_t i = 0; begin != end; ++begin, ++i)
+		for (std::size_t i = 0; begin != end; ++begin, ++i) {
 			groups[callback(*begin, i)].push_back(*begin);
+		}
 		return groups;
 	}
 }

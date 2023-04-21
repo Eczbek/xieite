@@ -1,4 +1,4 @@
-# `xieite::console::setColorBackground`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setColorBackground`
 Defined in header [`<xieite/console/setColorBackground.hpp>`](../../include/xieite/console/setColorBackground.hpp)
 
 <br/>

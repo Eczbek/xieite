@@ -1,4 +1,4 @@
-# `xieite::console::setColorDim`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setColorDim`
 Defined in header [`<xieite/console/setColorDim.hpp>`](../../include/xieite/console/setColorDim.hpp)
 
 <br/>

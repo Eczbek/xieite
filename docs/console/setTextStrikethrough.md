@@ -1,4 +1,4 @@
-# `xieite::console::setTextStrikethrough`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setTextStrikethrough`
 Defined in header [`<xieite/console/setTextStrikethrough.hpp>`](../../include/xieite/console/setTextStrikethrough.hpp)
 
 <br/>

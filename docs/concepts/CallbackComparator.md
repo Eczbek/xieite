@@ -1,4 +1,4 @@
-# `xieite::concepts::CallbackComparator`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::CallbackComparator`
 Defined in header [`<xieite/concepts/CallbackComparator.hpp>`](../../include/xieite/concepts/CallbackComparator.hpp)
 
 <br/>

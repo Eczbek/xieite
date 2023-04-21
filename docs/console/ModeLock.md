@@ -1,4 +1,4 @@
-# `xieite::console::ModeLock`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::ModeLock`
 Defined in header [`<xieite/console/ModeLock.hpp>`](../../include/xieite/console/ModeLock.hpp)
 
 <br/>

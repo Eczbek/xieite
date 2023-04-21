@@ -1,4 +1,4 @@
-# `xieite::console::setCursorPosition`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setCursorPosition`
 Defined in header [`<xieite/console/setCursorPosition.hpp>`](../../include/xieite/console/setCursorPosition.hpp)
 
 <br/>

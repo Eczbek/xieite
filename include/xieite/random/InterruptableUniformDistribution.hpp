@@ -25,8 +25,9 @@ namespace xieite::random {
 			Number& farthest = xieite::math::farthestFrom<Number>(0.0, begin2, end2);
 			this->sign = (farthest >= 0.0) * 2 - 1;
 			for (std::pair<Number, Number> interruption : interruptions) {
-				if (((interruption.first < begin) || (interruption.first > end)) && ((interruption.first > begin) || (interruption.first < end)) && ((interruption.second < begin) || (interruption.second > end)) && ((interruption.second > begin) || (interruption.second < end)))
+				if (((interruption.first < begin) || (interruption.first > end)) && ((interruption.first > begin) || (interruption.first < end)) && ((interruption.second < begin) || (interruption.second > end)) && ((interruption.second > begin) || (interruption.second < end))) {
 					continue;
+				}
 				interruption.first = std::clamp(interruption.first, begin, end);
 				interruption.second = std::clamp(interruption.second, begin, end);
 				const Number difference = (xieite::math::difference(interruption.first, interruption.second) + 1.0) * this->sign;
@@ -38,12 +39,13 @@ namespace xieite::random {
 		}
 
 		[[nodiscard]]
-		Number operator()(xieite::concepts::UniformRandomBitGenerator auto&& generator) noexcept {
+		Number operator()(xieite::concepts::UniformRandomBitGenerator auto& generator) noexcept {
 			Number result = this->distribution(generator);
 			for (const std::pair<Number, Number> interruption : this->interruptions) {
 				const Number closest = xieite::math::closestTo<Number>(0.0, interruption.first, interruption.second);
-				if ((this->sign > 0) && (result >= closest) || (this->sign < 0) && (result <= closest))
+				if ((this->sign > 0) && (result >= closest) || (this->sign < 0) && (result <= closest)) {
 					result += (xieite::math::difference(interruption.first, interruption.second) + 1.0) * this->sign;
+				}
 			}
 			return result;
 		}
