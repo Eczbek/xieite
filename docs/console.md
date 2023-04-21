@@ -7,17 +7,13 @@ A namespace of console manipulation tools.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member types
+## Member types
 - [`ModeLock`](https://github.com/Eczbek/xieite/tree/main/docs/console/ModeLock.md)
 - [`Position`](https://github.com/Eczbek/xieite/tree/main/docs/console/Position.md)
 
 <br/>
 
-### Member functions
+## Member functions
 - [`clearLine`](https://github.com/Eczbek/xieite/tree/main/docs/console/clearLine.md)
 - [`clearScreen`](https://github.com/Eczbek/xieite/tree/main/docs/console/clearScreen.md)
 - [`getArrowKey`](https://github.com/Eczbek/xieite/tree/main/docs/console/getArrowKey.md)

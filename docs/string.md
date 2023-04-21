@@ -7,11 +7,7 @@ A namespace of string manipulation functions.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member functions
+## Member functions
 - [`hash`](https://github.com/Eczbek/xieite/tree/main/docs/string/hash.md)
 - [`repeat`](https://github.com/Eczbek/xieite/tree/main/docs/string/repeat.md)
 - [`split`](https://github.com/Eczbek/xieite/tree/main/docs/string/split.md)

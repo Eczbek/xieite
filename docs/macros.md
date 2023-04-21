@@ -7,18 +7,16 @@ A collection of macros.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Object macros
+## Object macros
 - [`ARCHITECTURE_TYPE_...`](https://github.com/Eczbek/xieite/tree/main/docs/macros/ARCHITECTURE_TYPE.md)
 - [`COMPILER_TYPE_...`](https://github.com/Eczbek/xieite/tree/main/docs/macros/COMPILER_TYPE.md)
 - [`COMPILER_VERSION_...`](https://github.com/Eczbek/xieite/tree/main/docs/macros/COMPILER_VERSION.md)
 - [`PLATFORM_TYPE_...`](https://github.com/Eczbek/xieite/tree/main/docs/macros/PLATFORM_TYPE.md)
 - [`VANISH`](https://github.com/Eczbek/xieite/tree/main/docs/macros/VANISH.md)
 
-### Function macros
+<br/>
+
+## Function macros
 - [`ASSERT`](https://github.com/Eczbek/xieite/tree/main/docs/macros/ASSERT.md)
 - [`CONCATENATE`](https://github.com/Eczbek/xieite/tree/main/docs/macros/CONCATENATE.md)
 - [`MATRIX`](https://github.com/Eczbek/xieite/tree/main/docs/macros/MATRIX.md)

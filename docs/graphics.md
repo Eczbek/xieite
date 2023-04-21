@@ -7,9 +7,5 @@ A namespace of graphical utilities.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member types
+## Member types
 - [`Color`](https://github.com/Eczbek/xieite/tree/main/docs/graphics/Color.md)

@@ -7,11 +7,7 @@ A namespace of common concepts.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member functions
+## Member functions
 - [`Aggregate`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Aggregate.md)
 - [`Arithmetic`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Arithmetic.md)
 - [`CallbackComparator`](https://github.com/Eczbek/xieite/tree/main/docs/concepts/CallbackComparator.md)

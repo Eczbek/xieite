@@ -7,14 +7,10 @@ A namespace of utilities focused on random value generation.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member types
+## Member types
 - [`InterruptableUniformDistribution`](https://github.com/Eczbek/xieite/tree/main/docs/random/InterruptableUniformDistribution.md)
 
 <br/>
 
-### Member functions
+## Member functions
 - [`getUUID`](https://github.com/Eczbek/xieite/tree/main/docs/random/getUUID.md)

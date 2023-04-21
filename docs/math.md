@@ -7,11 +7,7 @@ A namespace of mathematical types and functions.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member types
+## Member types
 - [`BigInteger`](https://github.com/Eczbek/xieite/tree/main/docs/math/BigInteger.md)
 - [`ConditionalIntegerSign`](https://github.com/Eczbek/xieite/tree/main/docs/math/ConditionalIntegerSign.md)
 - [`Integer`](https://github.com/Eczbek/xieite/tree/main/docs/math/Integer.md)
@@ -20,7 +16,7 @@ A namespace of mathematical types and functions.
 
 <br/>
 
-### Member objects
+## Member objects
 - [`alternatingBits`](https://github.com/Eczbek/xieite/tree/main/docs/math/alternatingBits.md)
 - [`pi`](https://github.com/Eczbek/xieite/tree/main/docs/math/pi.md)
 - [`robert`](https://github.com/Eczbek/xieite/tree/main/docs/math/robert.md)
@@ -28,7 +24,7 @@ A namespace of mathematical types and functions.
 
 <br/>
 
-### Member functions
+## Member functions
 - [`absolute`](https://github.com/Eczbek/xieite/tree/main/docs/math/absolute.md)
 - [`approximatelyEqual`](https://github.com/Eczbek/xieite/tree/main/docs/math/approximatelyEqual.md)
 - [`closestTo`](https://github.com/Eczbek/xieite/tree/main/docs/math/closestTo.md)

@@ -7,11 +7,7 @@ A namespace of useful algorithms.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member functions
+## Member functions
 - [`all`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/all.md)
 - [`any`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/any.md)
 - [`count`](https://github.com/Eczbek/xieite/tree/main/docs/algorithms/count.md)
