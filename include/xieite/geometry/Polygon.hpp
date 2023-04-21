@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iterator>
+#include <span>
 #include <vector>
 #include <xieite/algorithms/rotatedMatch.hpp>
 #include <xieite/geometry/Point.hpp>
@@ -9,8 +10,8 @@ namespace xieite::geometry {
 	struct Polygon {
 		std::vector<xieite::geometry::Point> points;
 
-		constexpr Polygon(const std::vector<xieite::geometry::Point>& points) noexcept
-		: points(points) {}
+		constexpr Polygon(std::span<const xieite::geometry::Point> points) noexcept
+		: points(std::vector<xieite::geometry::Point>(points.begin(), points.end())) {}
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Polygon& polygon) const noexcept {

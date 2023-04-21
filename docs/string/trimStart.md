@@ -25,7 +25,7 @@ constexpr std::string trimStart(const std::string& string, char character) noexc
 
 ```cpp
 [[nodiscard]]
-constexpr std::string trimStart(const std::string& string, std::vector<char>& characters) noexcept;
+constexpr std::string trimStart(const std::string& string, std::span<char> characters) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string` constant reference
