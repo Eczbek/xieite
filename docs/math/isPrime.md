@@ -1,4 +1,4 @@
-# `xieite::math::isPrime`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::isPrime`
 Defined in header [`<xieite/math/isPrime.hpp>`](../../include/xieite/math/isPrime.hpp)
 
 <br/>
@@ -31,8 +31,10 @@ constexpr bool isPrime(Integral value) noexcept;
 #include <xieite/math/isPrime.hpp>
 
 int main() {
-	std::cout << std::boolalpha
-		<< xieite::math::isPrime(17) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< xieite::math::isPrime(17)
+		<< '\n';
 }
 ```
 Output:

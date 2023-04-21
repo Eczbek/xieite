@@ -1,4 +1,4 @@
-# `xieite::random::InterruptableUniformDistribution`
+# [`xieite`](../../README.md)`::`[`random`](../../docs/random.md)`::InterruptableUniformDistribution`
 Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](../../include/xieite/random/InterruptableUniformDistribution.hpp)
 
 <br/>
@@ -37,8 +37,9 @@ int main() {
 
 	xieite::random::InterruptableUniformDistribution<int> dist(0, 5, interruptions);
 
-	for (int i = 0; i < 10; ++i)
+	for (int i = 0; i < 10; ++i) {
 		std::cout << dist(rng) << '\n';
+	}
 }
 ```
 Possible output:

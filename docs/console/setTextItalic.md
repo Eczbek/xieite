@@ -1,4 +1,4 @@
-# `xieite::console::setTextItalic`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setTextItalic`
 Defined in header [`<xieite/console/setTextItalic.hpp>`](../../include/xieite/console/setTextItalic.hpp)
 
 <br/>

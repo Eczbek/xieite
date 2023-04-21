@@ -1,4 +1,4 @@
-# `xieite::concepts::StreamableInto`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::StreamableInto`
 Defined in header [`<xieite/concepts/StreamableInto.hpp>`](../../include/xieite/concepts/StreamableInto.hpp)
 
 <br/>

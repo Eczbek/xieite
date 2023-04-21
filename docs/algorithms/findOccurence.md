@@ -1,4 +1,4 @@
-# `xieite::algorithms::findOccurence`
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::findOccurence`
 Defined in header [`<xieite/algorithms/findOccurence.hpp>`](../../include/xieite/algorithms/findOccurence.hpp)
 
 <br/>
@@ -37,8 +37,10 @@ constexpr Iterator findOccurence(Iterator begin, Iterator end, typename std::ite
 
 int main() {
 	std::vector<int> values { 1, 2, 1, 3, 1, 4, 1 };
+
+	std::vector<int>::iterator result = xieite::algorithms::findOccurence(std::begin(values), std::end(values), 1, 3);
 	
-	std::cout << std::distance(std::begin(values), xieite::algorithms::findOccurence(std::begin(values), std::end(values), 1, 3)) << '\n';
+	std::cout << std::distance(std::begin(values), result) << '\n';
 }
 ```
 Output:

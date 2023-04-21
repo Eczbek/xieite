@@ -1,4 +1,4 @@
-# `xieite::concepts::SameAsOneOf`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::SameAsOneOf`
 Defined in header [`<xieite/concepts/SameAsOneOf.hpp>`](../../include/xieite/concepts/SameAsOneOf.hpp)
 
 <br/>

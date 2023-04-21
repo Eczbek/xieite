@@ -1,4 +1,4 @@
-# `xieite::hash::combine`
+# [`xieite`](../../README.md)`::`[`hash`](../../docs/hash.md)`::combine`
 Defined in header [`<xieite/hash/combine.hpp>`](../../include/xieite/hash/combine.hpp)
 
 <br/>
@@ -31,13 +31,15 @@ constexpr std::size_t combine(std::size_t value1, std::size_t value2) noexcept;
 
 int main() {
 	std::size_t hash1 = std::hash<std::string>()("Hello, ");
-	
 	std::size_t hash2 = std::hash<std::string>()("world!");
 
 	std::cout
-		<< hash1 << '\n'
-		<< hash2 << '\n'
-		<< xieite::hash::combine(hash1, hash2) << '\n';
+		<< hash1
+		<< '\n'
+		<< hash2
+		<< '\n'
+		<< xieite::hash::combine(hash1, hash2)
+		<< '\n';
 }
 ```
 Possible output:

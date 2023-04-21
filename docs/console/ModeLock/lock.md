@@ -1,4 +1,4 @@
-# xieite::console::ModeLock::lock
+# [`xieite`](../../../README.md)`::`[`console`](../../../docs/console.md)`::`[`ModeLock`](../../../docs/console/ModeLock.md)`::lock`
 Defined in header [`<xieite/console/ModeLock.hpp>`](../../../include/xieite/console/ModeLock.hpp)
 
 <br/>
@@ -14,8 +14,3 @@ Enables raw mode.
 ```cpp
 void lock() noexcept;
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::console::ModeLock`](../../../docs/console/ModeLock.md)

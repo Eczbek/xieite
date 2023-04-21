@@ -12,10 +12,11 @@ namespace xieite::threads {
 		Interval(Invocable&& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
 		: loop([callback = std::forward<Invocable>(callback), duration]() noexcept -> void {
 			static bool first = true;
-			if (first)
+			if (first) {
 				first = false;
-			else
+			} else {
 				callback();
+			}
 			std::this_thread::sleep_for(duration);
 		}) {}
 

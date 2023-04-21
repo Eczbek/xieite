@@ -1,4 +1,4 @@
-# `xieite::threads::Interval`
+# [`xieite`](../../README.md)`::`[`threads`](../../docs/threads.md)`::Interval`
 Defined in header [`<xieite/threads/Interval.hpp>`](../../include/xieite/threads/Interval.hpp)
 
 <br/>

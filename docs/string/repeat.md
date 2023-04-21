@@ -1,4 +1,4 @@
-# `xieite::string::repeat`
+# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::repeat`
 Defined in header [`<xieite/string/repeat.hpp>`](../../include/xieite/string/repeat.hpp)
 
 <br/>

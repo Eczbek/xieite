@@ -1,4 +1,4 @@
-# `xieite::string::truncate`
+# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::truncate`
 Defined in header [`<xieite/string/truncate.hpp>`](../../include/xieite/string/truncate.hpp)
 
 <br/>

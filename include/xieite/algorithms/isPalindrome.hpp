@@ -12,8 +12,9 @@ namespace xieite::algorithms {
 		const std::size_t size = std::distance(begin, end) / 2;
 		--end;
 		for (std::size_t i = 0; i < size; ++i) {
-			if (!comparator(*begin, *end))
+			if (!comparator(*begin, *end)) {
 				return false;
+			}
 			++begin;
 			--end;
 		}

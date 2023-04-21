@@ -1,4 +1,4 @@
-# `XIEITE_QUOTE`
+# [`XIEITE`](../../docs/macros.md)`_QUOTE`
 Defined in header [`<xieite/macros/QUOTE.hpp>`](../../include/xieite/macros/QUOTE.hpp)
 
 <br/>

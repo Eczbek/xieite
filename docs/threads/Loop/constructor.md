@@ -1,4 +1,4 @@
-# `xieite::threads::Loop::Loop`
+# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Loop`](../../../docs/threads/Loop.md)`::Loop`
 Defined in header [`<xieite/threads/Loop.hpp>`](../../../include/xieite/threads/Loop.hpp)
 
 <br/>
@@ -19,8 +19,3 @@ Loop(Invocable&& callback) noexcept;
 - `Invocable` - An invocable type, satisfying `std::invocable` with no parameters
 ### Parameters
 - `callback` - An `Invocable` right-value reference
-
-<br/><br/>
-
-## See also
-- [`xieite::threads::Loop`](../../../docs/threads/Loop.md)

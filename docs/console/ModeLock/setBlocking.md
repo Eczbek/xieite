@@ -1,4 +1,4 @@
-# `xieite::console::ModeLock::setBlocking`
+# [`xieite`](../../../README.md)`::`[`console`](../../../docs/console.md)`::`[`ModeLock`](../../../docs/console/ModeLock.md)`::setBlocking`
 Defined in header [`<xieite/console/ModeLock.hpp>`](../../../include/xieite/console/ModeLock.hpp)
 
 <br/>
@@ -16,8 +16,3 @@ void setBlocking(bool value) noexcept;
 ```
 ### Parameters
 - `value` - A `bool` copy to determine whether to enable or disable blocking mode
-
-<br/><br/>
-
-## See also
-- [`xieite::console::ModeLock`](../../../docs/console/ModeLock.md)

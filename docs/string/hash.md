@@ -1,4 +1,4 @@
-# `xieite::string::hash`
+# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::hash`
 Defined in header [`<xieite/string/hash.hpp>`](../../include/xieite/string/hash.hpp)
 
 <br/>

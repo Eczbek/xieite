@@ -1,4 +1,4 @@
-# `xieite::threads::Interval::Interval`
+# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Interval`](../../../docs/threads/Interval.md)`::Interval`
 Defined in header [`<xieite/threads/Interval.hpp>`](../../../include/xieite/threads/Interval.hpp)
 
 <br/>
@@ -25,4 +25,3 @@ Interval(Invocable&& callback, const xieite::concepts::TemporalDuration auto dur
 
 ## See also
 - [`xieite::concepts::TemporalDuration`](../../../docs/concepts/TemporalDuration.md)
-- [`xieite::threads::Interval`](../../../docs/threads/Interval.md)

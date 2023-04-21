@@ -1,4 +1,4 @@
-# `xieite::algorithms::rotatedMatch`
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::rotatedMatch`
 Defined in header [`<xieite/algorithms/rotatedMatch.hpp>`](../../include/xieite/algorithms/rotatedMatch.hpp)
 
 <br/>
@@ -50,10 +50,14 @@ int main() {
 	std::vector<int> c { 3, 2, 1, 5, 4 };
 	//                   <  <  <||<  <
 
-	std::cout << std::boolalpha
-		<< xieite::algorithms::rotatedMatch(std::begin(a), std::end(a), std::begin(b), std::end(b)) << '\n'
-		<< xieite::algorithms::rotatedMatch(std::begin(a), std::end(a), std::begin(c), std::end(c)) << '\n'
-		<< xieite::algorithms::rotatedMatch(std::rbegin(a), std::rend(a), std::begin(c), std::end(c)) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< xieite::algorithms::rotatedMatch(std::begin(a), std::end(a), std::begin(b), std::end(b))
+		<< '\n'
+		<< xieite::algorithms::rotatedMatch(std::begin(a), std::end(a), std::begin(c), std::end(c))
+		<< '\n'
+		<< xieite::algorithms::rotatedMatch(std::rbegin(a), std::rend(a), std::begin(c), std::end(c))
+		<< '\n';
 }
 ```
 Output:

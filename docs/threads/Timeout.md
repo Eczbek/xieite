@@ -1,4 +1,4 @@
-# `xieite::threads::Timeout`
+# [`xieite`](../../README.md)`::`[`threads`](../../docs/threads.md)`::Timeout`
 Defined in header [`<xieite/threads/Timeout.hpp>`](../../include/xieite/threads/Timeout.hpp)
 
 <br/>

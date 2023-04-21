@@ -1,4 +1,4 @@
-# `xieite::console::setScreenAlternative`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setScreenAlternative`
 Defined in header [`<xieite/console/setScreenAlternative.hpp>`](../../include/xieite/console/setScreenAlternative.hpp)
 
 <br/>

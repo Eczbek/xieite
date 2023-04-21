@@ -1,4 +1,4 @@
-# `xieite::geometry::getCircumference`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getCircumference`
 Defined in header [`<xieite/geometry/getCircumference.hpp>`](../../include/xieite/geometry/getCircumference.hpp)
 
 <br/>
@@ -37,10 +37,15 @@ constexpr double getCircumference(const xieite::geometry::Circle& circle) noexce
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Circle.hpp>
+#include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getCircumference.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getCircumference(xieite::geometry::Circle({ 0.0, 0.0 }, 1.0)) << '\n';
+	xieite::geometry::Point center(0.0, 0.0);
+
+	xieite::geometry::Circle circle(center, 1.0);
+
+	std::cout << xieite::geometry::getCircumference(circle) << '\n';
 }
 ```
 Output:

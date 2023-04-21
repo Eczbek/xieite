@@ -1,4 +1,4 @@
-# `xieite::console::setTextUnderline`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setTextUnderline`
 Defined in header [`<xieite/console/setTextUnderline.hpp>`](../../include/xieite/console/setTextUnderline.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# `xieite::geometry::Polygon::Polygon`
+# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Polygon`](../../../docs/geoemtry/Polygon.md)`::Polygon`
 Defined in header [`<xieite/geometry/Polygon.hpp>`](../../../include/xieite/geometry/Polygon.hpp)
 
 <br/>
@@ -21,4 +21,3 @@ constexpr Polygon(std::span<xieite::geometry::Point> points) noexcept;
 
 ## See also
 - [`xieite::geometry::Point`](../../../docs/geometry/Point.md)
-- [`xieite::geometry::Polygon`](../../../docs/geometry/Polygon.md)

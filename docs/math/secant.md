@@ -1,4 +1,4 @@
-# `xieite::math::secant`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::secant`
 Defined in header [`<xieite/math/secant.hpp>`](../../include/xieite/math/secant.hpp)
 
 <br/>

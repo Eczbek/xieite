@@ -1,4 +1,4 @@
-# `xieite::console::clearLine`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::clearLine`
 Defined in header [`<xieite/console/clearLine.hpp>`](../../include/xieite/console/clearLine.hpp)
 
 <br/>

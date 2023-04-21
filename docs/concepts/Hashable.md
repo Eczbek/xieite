@@ -1,4 +1,4 @@
-# `xieite::concepts::Hashable`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Hashable`
 Defined in header [`<xieite/concepts/Hashable.hpp>`](../../include/xieite/concepts/Hashable.hpp)
 
 <br/>

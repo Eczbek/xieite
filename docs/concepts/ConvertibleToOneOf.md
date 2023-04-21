@@ -1,4 +1,4 @@
-# `xieite::concepts::ConvertibleToOneOf`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::ConvertibleToOneOf`
 Defined in header [`<xieite/concepts/ConvertibleToOneOf.hpp>`](../../include/xieite/concepts/ConvertibleToOneOf.hpp)
 
 <br/>

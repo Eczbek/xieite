@@ -1,4 +1,4 @@
-# `xieite::console::setTextVisibility`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setTextVisibility`
 Defined in header [`<xieite/console/setTextVisibility.hpp>`](../../include/xieite/console/setTextVisibility.hpp)
 
 <br/>

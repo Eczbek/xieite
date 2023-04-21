@@ -1,4 +1,4 @@
-# `xieite::math::absolute`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::absolute`
 Defined in header [`<xieite/math/absolute.hpp>`](../../include/xieite/math/absolute.hpp)
 
 <br/>
@@ -35,8 +35,10 @@ int main() {
 	unsigned b = 4;
 	
 	std::cout
-		<< xieite::math::absolute(a) << '\n'
-		<< xieite::math::absolute(b) << '\n';
+		<< xieite::math::absolute(a)
+		<< '\n'
+		<< xieite::math::absolute(b)
+		<< '\n';
 }
 ```
 Output:

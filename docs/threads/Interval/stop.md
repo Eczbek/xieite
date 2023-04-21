@@ -1,4 +1,4 @@
-# `xieite::threads::Interval::stop`
+# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Interval`](../../../docs/threads/Interval.md)`::stop`
 Defined in header [`<xieite/threads/Interval.hpp>`](../../../include/xieite/threads/Interval.hpp)
 
 <br/>
@@ -14,8 +14,3 @@ Stops a `xieite::threads::Interval`, and further callback calls. Immediately ret
 ```cpp
 void stop() noexcept;
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::threads::Interval`](../../../docs/threads/Interval.md)

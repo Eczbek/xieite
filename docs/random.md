@@ -1,4 +1,4 @@
-# `xieite::random`
+# [`xieite`](../README.md)`::random`
 Aggregated in header [`<xieite/random.hpp>`](../include/xieite/random.hpp)
 
 <br/>

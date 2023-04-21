@@ -1,4 +1,4 @@
-# `xieite::geometry::getDistance`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getDistance`
 Defined in header [`<xieite/geometry/getDistance.hpp>`](../../include/xieite/geometry/getDistance.hpp)
 
 <br/>
@@ -26,10 +26,14 @@ constexpr double getDistance(xieite::geometry::Point point1, xieite::geometry::P
 ## Example
 ```cpp
 #include <iostream>
+#include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getDistance.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getDistance({ 0.0, 0.0 }, { 3.0, 4.0 }) << '\n';
+	xieite::geometry::Point point1(0.0, 0.0);
+	xieite::geometry::Point point2(3.0, 4.0);
+
+	std::cout << xieite::geometry::getDistance(point1, point2) << '\n';
 }
 ```
 Output:

@@ -1,4 +1,4 @@
-# `xieite::string::toLowercase`
+# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::toLowercase`
 Defined in header [`<xieite/string/toLowercase.hpp>`](../../include/xieite/string/toLowercase.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# `xieite::math::OptimalIntegerSize`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::OptimalIntegerSize`
 Defined in header [`<xieite/math/OptimalIntegerSize.hpp>`](../../include/xieite/math/OptimalIntegerSize.hpp)
 
 <br/>

@@ -1,9 +1,7 @@
 #pragma once
 
 #include <cmath>
-#include <xieite/concepts/LinearShape.hpp>
 #include <xieite/geometry/Point.hpp>
-#include <xieite/geometry/getSlope.hpp>
 #include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {
@@ -19,13 +17,8 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Line& line) const noexcept {
-			const double slope = xieite::geometry::getSlope(*this);
-			return (std::isinf(slope) ? xieite::math::approximatelyEqual(this->start.x, line.start.x) : xieite::math::approximatelyEqual(line.start.x * slope - this->start.x * slope + this->start.y, line.start.y)) && xieite::math::approximatelyEqual(slope, xieite::geometry::getSlope(line));
-		}
-
-		[[nodiscard]]
-		constexpr bool operator==(const xieite::concepts::LinearShape auto&) const noexcept {
-			return false;
+			const double slope = (this->end.y - this->start.y) / (this->end.x - this->start.x);
+			return (std::isinf(slope) ? xieite::math::approximatelyEqual(this->start.x, line.start.x) : xieite::math::approximatelyEqual(line.start.x * slope - this->start.x * slope + this->start.y, line.start.y)) && xieite::math::approximatelyEqual(slope, (line.end.y - line.start.y) / (line.end.x - line.start.x));
 		}
 	};
 }

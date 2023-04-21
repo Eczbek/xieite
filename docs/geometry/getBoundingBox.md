@@ -1,4 +1,4 @@
-# `xieite::geometry::getBoundingBox`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getBoundingBox`
 Defined in header [`<xieite/geometry/getBoundingBox.hpp>`](../../include/xieite/geometry/getBoundingBox.hpp)
 
 <br/>
@@ -38,11 +38,17 @@ constexpr xieite::geometry::Polygon getBoundingBox(const xieite::geometry::Circl
 #include <iostream>
 #include <xieite/geometry/Circle.hpp>
 #include <xieite/geometry/Point.hpp>
+#include <xieite/geometry/Polygon.hpp>
 #include <xieite/geometry/getBoundingBox.hpp>
 
 int main() {
-	for (const xieite::geometry::Point point : xieite::geometry::getBoundingBox(xieite::geometry::Circle({ 0.0, 0.0 }, 1.0)).points)
+	xieite::geometry::Point center(0.0, 0.0);
+
+	xieite::geometry::Circle circle(center, 1.0);
+
+	for (xieite::geometry::Point point : xieite::geometry::getBoundingBox(circle).points) {
 		std::cout << '(' << point.x << ", " << point.y << ")\n";
+	}
 }
 ```
 Output:
@@ -58,3 +64,4 @@ Output:
 ## See also
 - [`xieite::geometry::Circle`](../../docs/geometry/Circle.md)
 - [`xieite::geometry::Ellipse`](../../docs/geometry/Ellipse.md)
+- [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)

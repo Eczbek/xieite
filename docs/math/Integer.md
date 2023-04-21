@@ -1,4 +1,4 @@
-# `xieite::math::Integer`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::Integer`
 Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
 
 <br/>
@@ -62,7 +62,10 @@ int main() {
 	Int3 a = 5;
 	UInt17 b = 5;
 
-	std::cout << std::boolalpha << (a == b) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< (a == b)
+		<< '\n';
 }
 ```
 Output:

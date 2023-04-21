@@ -1,4 +1,4 @@
-# `xieite::math::cosecant`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::cosecant`
 Defined in header [`<xieite/math/cosecant.hpp>`](../../include/xieite/math/cosecant.hpp)
 
 <br/>

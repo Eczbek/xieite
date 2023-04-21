@@ -1,4 +1,4 @@
-# `xieite::console::getPosition`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getPosition`
 Defined in header [`<xieite/console/getPosition.hpp>`](../../include/xieite/console/getPosition.hpp)
 
 <br/>

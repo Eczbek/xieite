@@ -1,4 +1,4 @@
-# `xieite::graphics`
+# [`xieite`](../README.md)`::graphics`
 Aggregated in header [`<xieite/graphics.hpp>`](../include/xieite/graphics.hpp)
 
 <br/>

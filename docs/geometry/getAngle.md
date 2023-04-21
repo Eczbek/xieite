@@ -1,4 +1,4 @@
-# `xieite::geometry::getAngle`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getAngle`
 Defined in header [`<xieite/geometry/getAngle.hpp>`](../../include/xieite/geometry/getAngle.hpp)
 
 <br/>
@@ -38,10 +38,16 @@ constexpr double getAngle(const xieite::concepts::LinearShape auto& linearShape)
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Line.hpp>
+#include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getAngle.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getAngle(xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 0.0 })) << '\n';
+	xieite::geometry::Point start(0.0, 0.0);
+	xieite::geometry::Point end(1.0, 0.0);
+
+	xieite::geometry::Line line(start, end);
+
+	std::cout << xieite::geometry::getAngle(line) << '\n';
 }
 ```
 Output (rounded):

@@ -1,4 +1,4 @@
-# `xieite::geometry::getInterceptX`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getInterceptX`
 Defined in header [`<xieite/geometry/getInterceptX.hpp>`](../../include/xieite/geometry/getInterceptY.hpp)
 
 <br/>
@@ -31,10 +31,18 @@ constexpr std::optional<xieite::geometry::Point> getInterceptX(const xieite::con
 #include <xieite/geometry/getInterceptX.hpp>
 
 int main() {
-	std::optional<xieite::geometry::Point> point = xieite::geometry::getInterceptX(xieite::geometry::Line({ 1.0, 2.0 }, { 2.0, 1.0 }));
+	xieite::geometry::Point start(1.0, 2.0);
+	xieite::geometry::Point end(2.0, 1.0);
 
-	if (point.has_value())
-		std::cout << '(' << point.value().x << ", " << point.value().y << ")\n";
+	xieite::geometry::Line line(start, end);
+
+	std::optional<xieite::geometry::Point> point = xieite::geometry::getInterceptX(line);
+
+	if (point.has_value()) {
+		xieite::geometry::Point value = point.value();
+
+		std::cout << '(' << value.x << ", " << value.y << ")\n";
+	}
 }
 ```
 Output:

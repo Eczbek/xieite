@@ -1,4 +1,4 @@
-# `xieite::random::getUUID`
+# [`xieite`](../../README.md)`::`[`random`](../../docs/random.md)`::getUUID`
 Defined in header [`<xieite/random/getUUID.hpp>`](../../include/xieite/random/getUUID.hpp)
 
 <br/>

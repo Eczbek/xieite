@@ -1,9 +1,9 @@
-# `xieite::console::ModeLock::~ModeLock`
+# [`xieite`](../../../README.md)`::`[`console`](../../../docs/console.md)`::`[`ModeLock`](../../../docs/console/ModeLock.md)`::~ModeLock`
 Defined in header [`<xieite/console/ModeLock.hpp>`](../../../include/xieite/console/ModeLock.hpp)
 
 <br/>
 
-Destructs `xieite::console::ModeLock`, calls [`xieite::console::ModeLock::unlock`](../../../docs/console/ModeLock/unlock.md).
+Destructs `xieite::console::ModeLock` and disables its effects.
 
 <br/><br/>
 
@@ -14,8 +14,3 @@ Destructs `xieite::console::ModeLock`, calls [`xieite::console::ModeLock::unlock
 ```cpp
 ~ModeLock();
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::console::ModeLock`](../../../docs/console/ModeLock.md)

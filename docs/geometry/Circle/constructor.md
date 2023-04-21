@@ -1,4 +1,4 @@
-# `xieite::geometry::Circle::Circle`
+# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Circle`](../../../docs/geometry/Circle.md)`::Circle`
 Defined in header [`<xieite/geometry/Circle.hpp>`](../../../include/xieite/geometry/Circle.hpp)
 
 <br/>
@@ -24,10 +24,15 @@ constexpr Circle(xieite::geometry::Point center, double radius) noexcept;
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Circle.hpp>
+#include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/getArea.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getArea(xieite::geometry::Circle({ 0.0, 0.0 }, 3.0)) << '\n';
+	xieite::geometry::Point center(0.0, 0.0);
+
+	xieite::geometry::Circle circle(center, 3.0);
+
+	std::cout << xieite::geometry::getArea(circle) << '\n';
 }
 ```
 Output:
@@ -38,5 +43,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Circle`](../../../docs/geometry/Circle.md)
 - [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

@@ -1,4 +1,4 @@
-# `xieite::console::ModeLock::setProcessing`
+# [`xieite`](../../../README.md)`::`[`console`](../../../docs/console.md)`::`[`ModeLock`](../../../docs/console/ModeLock.md)`::setProcessing`
 Defined in header [`<xieite/console/ModeLock.hpp>`](../../../include/xieite/console/ModeLock.hpp)
 
 <br/>
@@ -16,8 +16,3 @@ void setProcessing(bool value) noexcept;
 ```
 ### Parameters
 - `value` - A `bool` copy to enable or disable output processing.
-
-<br/><br/>
-
-## See also
-- [`xieite::console::ModeLock`](../../../docs/console/ModeLock.md)

@@ -1,4 +1,4 @@
-# `xieite::geometry::Ray::Ray`
+# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Ray`](../../../docs/geoemtry/Ray.md)`::Ray`
 Defined in header [`<xieite/geometry/Ray.hpp>`](../../../include/xieite/geometry/Ray.hpp)
 
 <br/>
@@ -33,11 +33,20 @@ constexpr Ray(xieite::geometry::Point start, double angle) noexcept;
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Ray.hpp>
+#include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/containsPoint.hpp>
 
 int main() {
-	std::cout << std::boolalpha
-		<< xieite::geometry::containsPoint(xieite::geometry::Ray({ 0, 0 }, { 1, 1 }), { -1, -1 }) << '\n';
+	xieite::geometry::Point start(0.0, 0.0);
+	xieite::geometry::Point end(1.0, 1.0);
+	xieite::geometry::Point point(-1.0, -1.0);
+
+	xieite::geometry::Ray ray(stat, end);
+
+	std::cout
+		<< std::boolalpha
+		<< xieite::geometry::containsPoint(ray, point)
+		<< '\n';
 }
 ```
 Output:
@@ -48,5 +57,4 @@ false
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Ray`](../../../docs/geometry/Ray.md)
 - [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

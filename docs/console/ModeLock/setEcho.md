@@ -1,4 +1,4 @@
-# `xieite::console::ModeLock::setEcho`
+# [`xieite`](../../../README.md)`::`[`console`](../../../docs/console.md)`::`[`ModeLock`](../../../docs/console/ModeLock.md)`::setEcho`
 Defined in header [`<xieite/console/ModeLock.hpp>`](../../../include/xieite/console/ModeLock.hpp)
 
 <br/>
@@ -16,8 +16,3 @@ void setEcho(bool value) noexcept;
 ```
 ### Parameters
 - `value` - A `bool` copy, determining whether to enable or disable echoing.
-
-<br/><br/>
-
-## See also
-- [`xieite::console::ModeLock`](../../../docs/console/ModeLock.md)

@@ -1,4 +1,4 @@
-# `xieite::types::demangle`
+# [`xieite`](../../README.md)`::`[`types`](../../docs/types.md)`::demangle`
 Defined in header [`<xieite/types/demangle.hpp>`](../../include/xieite/types/demangle.hpp)
 
 <br/>
@@ -35,8 +35,10 @@ int main() {
 	std::string_view typeName = typeid(Type<int>).name();
 
 	std::cout
-		<< typeName << '\n'
-		<< xieite::types::demangle(typeName) << '\n';
+		<< typeName
+		<< '\n'
+		<< xieite::types::demangle(typeName)
+		<< '\n';
 }
 ```
 Possible output:

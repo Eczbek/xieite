@@ -1,4 +1,4 @@
-# `xieite::algorithms::rotateMatrix`
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::rotateMatrix`
 Defined in header [`<xieite/algorithms/rotateMatrix.hpp>`](../../include/xieite/algorithms/rotateMatrix.hpp)
 
 <br/>
@@ -39,8 +39,9 @@ int main() {
 	};
 
 	for (std::vector<int>& row : xieite::algorithms::rotateMatrix(matrix, 1)) {
-		for (int value : row)
+		for (int value : row) {
 			std::cout << value << ' ';
+		}
 		std::cout << '\n';
 	}
 }

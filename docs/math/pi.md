@@ -1,4 +1,4 @@
-# `xieite::math::pi`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::pi`
 Defined in header [`<xieite/math/pi.hpp>`](../../include/xieite/math/pi.hpp)
 
 <br/>
@@ -36,8 +36,10 @@ constexpr Integral pi<Integral> = 3;
 
 int main() {
 	std::cout
-		<< xieite::math::pi<double> << '\n'
-		<< xieite::math::pi<int> << '\n';
+		<< xieite::math::pi<double>
+		<< '\n'
+		<< xieite::math::pi<int>
+		<< '\n';
 }
 ```
 Output:

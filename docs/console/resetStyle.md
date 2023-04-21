@@ -1,4 +1,4 @@
-# `xieite::console::resetStyle`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::resetStyle`
 Defined in header [`<xieite/console/resetStyle.hpp>`](../../include/xieite/console/resetStyle.hpp)
 
 <br/>

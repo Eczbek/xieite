@@ -1,4 +1,4 @@
-# `xieite::math::difference`
+# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::difference`
 Defined in header [`<xieite/math/difference.hpp>`](../../include/xieite/math/difference.hpp)
 
 <br/>
@@ -53,9 +53,12 @@ int main() {
 	std::int8_t max = std::numeric_limits<std::int8_t>::max();
 
 	std::cout
-		<< min << '\n'
-		<< max << '\n'
-		<< xieite::math::difference(min, max) << '\n';
+		<< min
+		<< '\n'
+		<< max
+		<< '\n'
+		<< xieite::math::difference(min, max)
+		<< '\n';
 }
 ```
 Output:

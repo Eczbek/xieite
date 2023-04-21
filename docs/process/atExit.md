@@ -1,4 +1,4 @@
-# `xieite::process::atExit`
+# [`xieite`](../../README.md)`::`[`process`](../../docs/process.md)`::atExit`
 Defined in header [`<xieite/process/atExit.hpp>`](../../include/xieite/process/atExit.hpp)
 
 <br/>
@@ -26,8 +26,10 @@ inline void atExit(const std::function<void()>& callback) noexcept;
 
 int main() {
 	xieite::process::atExit([]() {
-		std::cout << "Hello, world!\n";
+		std::cout << "world!\n";
 	});
+
+	std::cout << "Hello, ";
 }
 ```
 Output:

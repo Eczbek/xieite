@@ -1,4 +1,4 @@
-# `xieite::concepts::UniformRandomBitGenerator`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::UniformRandomBitGenerator`
 Defined in header [`<xieite/concepts/UniformRandomBitGenerator.hpp>`](../../include/xieite/UniformRandomBitGenerator.hpp)
 
 <br/>

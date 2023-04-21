@@ -1,4 +1,4 @@
-# `xieite::geometry::Polygon`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::Polygon`
 Defined in header [`<xieite/geometry/Polygon.hpp>`](../../include/xieite/geometry/Polygon.hpp)
 
 <br/>
@@ -31,12 +31,14 @@ std::vector<xieite::geometry::Point> points;
 #include <xieite/geometry/getArea.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getArea(xieite::geometry::Polygon({
-		{ 1.0, 0.0 },
-		{ 2.0, 1.0 },
-		{ 1.0, 2.0 },
-		{ 0.0, 1.0 }
-	})) << '\n';
+	std::cout
+		<< xieite::geometry::getArea(xieite::geometry::Polygon({
+			{ 1.0, 0.0 },
+			{ 2.0, 1.0 },
+			{ 1.0, 2.0 },
+			{ 0.0, 1.0 }
+		}))
+		<< '\n';
 }
 ```
 Output:

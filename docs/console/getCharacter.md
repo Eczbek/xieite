@@ -1,4 +1,4 @@
-# `xieite::console::getCharacter`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getCharacter`
 Defined in header [`<xieite/console/getCharacter.hpp>`](../../include/xieite/console/getCharacter.hpp)
 
 <br/>

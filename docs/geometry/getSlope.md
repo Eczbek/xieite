@@ -1,4 +1,4 @@
-# `xieite::geometry::getSlope`
+# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getSlope`
 Defined in header [`<xieite/geometry/getSlope.hpp>`](../../include/xieite/geometry/getSlope.hpp)
 
 <br/>
@@ -41,7 +41,9 @@ constexpr double getSlope(const xieite::concepts::LinearShape auto& linearShape)
 #include <xieite/geometry/getSlope.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getSlope(xieite::geometry::Line({ 0.0, 0.0 }, { 2.0, 3.0 })) << '\n';
+	std::cout
+		<< xieite::geometry::getSlope(xieite::geometry::Line({ 0.0, 0.0 }, { 2.0, 3.0 }))
+		<< '\n';
 }
 ```
 Output:

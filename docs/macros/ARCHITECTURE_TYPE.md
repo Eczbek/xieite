@@ -1,4 +1,4 @@
-# `XIEITE_ARCHITECTURE_TYPE_...`
+# [`XIEITE`](../../docs/macros.md)`_ARCHITECTURE_TYPE_...`
 Defined in header [`<xieite/macros/ARCHITECTURE_TYPE.hpp>`](../../include/xieite/macros/ARCHITECTURE_TYPE.hpp)
 
 <br/>

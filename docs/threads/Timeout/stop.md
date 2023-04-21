@@ -1,4 +1,4 @@
-# `xieite::threads::Timeout::stop`
+# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Timeout`](../../../docs/threads/Timeout.md)`::stop`
 Defined in header [`<xieite/threads/Timeout.hpp>`](../../../include/xieite/threads/Timeout.hpp)
 
 <br/>
@@ -14,8 +14,3 @@ Stops a `xieite::threads::Timeout` and its callback call. Returns execution to t
 ```cpp
 void stop() noexcept;
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::threads::Timeout`](../../../docs/threads/Timeout.md)

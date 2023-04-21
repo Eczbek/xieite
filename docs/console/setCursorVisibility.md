@@ -1,4 +1,4 @@
-# `xieite::console::setCursorVisibility`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setCursorVisibility`
 Defined in header [`<xieite/console/setCursorVisibility.hpp>`](../../include/xieite/console/setCursorVisibility.hpp)
 
 <br/>

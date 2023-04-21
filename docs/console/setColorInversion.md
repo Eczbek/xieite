@@ -1,4 +1,4 @@
-# `xieite::console::setColorInversion`
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::setColorInversion`
 Defined in header [`<xieite/console/setColorInversion.hpp>`](../../include/xieite/console/setColorInversion.hpp)
 
 <br/>

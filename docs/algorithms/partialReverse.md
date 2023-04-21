@@ -1,4 +1,4 @@
-# `xieite::algorithms::partialReverse`
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::partialReverse`
 Defined in header [`<xieite/algorithms/partialReverse.hpp>`](../../include/xieite/algorithms/partialReverse.hpp)
 
 <br/>
@@ -32,13 +32,16 @@ constexpr void partialReverse(Iterator begin, Iterator end, xieite::concepts::Ca
 
 int main() {
 	std::array<int, 5> values { 1, 2, 3, 4, 5 };
-	
-	xieite::algorithms::partialReverse(std::begin(values), std::end(values), [](int value) -> bool {
-		return value <= 3;
-	});
 
-	for (int value : values)
+	auto callback = [](int value) -> bool {
+		return value <= 3;
+	};
+	
+	xieite::algorithms::partialReverse(std::begin(values), std::end(values), callback);
+
+	for (int value : values) {
 		std::cout << value << ' ';
+	}
 	std::cout << '\n';
 }
 ```

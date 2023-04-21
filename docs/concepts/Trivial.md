@@ -1,4 +1,4 @@
-# `xieite::concepts::Trivial`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Trivial`
 Defined in header [`<xieite/concepts/Trivial.hpp>`](../../include/xieite/concepts/Trivial.hpp)
 
 <br/>

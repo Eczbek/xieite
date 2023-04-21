@@ -1,4 +1,4 @@
-# `xieite::math`
+# [`xieite`](../README.md)`::math`
 Aggregated in header [`<xieite/math.hpp>`](../include/xieite/math.hpp)
 
 <br/>

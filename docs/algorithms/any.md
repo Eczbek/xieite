@@ -1,4 +1,4 @@
-# `xieite::algorithms::any`
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::any`
 Defined in header [`<xieite/algorithms/any.hpp>`](../../include/xieite/algorithms/any.hpp)
 
 <br/>
@@ -28,8 +28,10 @@ constexpr bool any(xieite::concepts::NoThrowConvertibleTo<bool> auto&&... values
 #include <xieite/algorithms/any.hpp>
 
 int main() {
-	std::cout << std::boolalpha
-		<< xieite::algorithms::any(false, 0, '\0') << '\n';
+	std::cout
+		<< std::boolalpha
+		<< xieite::algorithms::any(false, 0, '\0')
+		<< '\n';
 }
 ```
 Output:

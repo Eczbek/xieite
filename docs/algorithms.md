@@ -1,4 +1,4 @@
-# `xieite::algorithms`
+# [`xieite`](../README.md)`::algorithms`
 Aggregated in header [`<xieite/algorithms.hpp>`](../include/xieite/algorithms.hpp)
 
 <br/>

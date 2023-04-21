@@ -1,4 +1,4 @@
-# `xieite::ratios::areas`
+# [`xieite`](../../README.md)`::`[`ratios`](../../docs/ratios.md)`::areas`
 Defined in header [`<xieite/ratios/areas.hpp>`](../../include/xieite/ratios/areas.hpp)
 
 <br/>

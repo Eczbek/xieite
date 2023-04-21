@@ -1,4 +1,4 @@
-# `xieite::threads::Loop`
+# [`xieite`](../../README.md)`::`[`threads`](../../docs/threads.md)`::Loop`
 Defined in header [`<xieite/threads/Loop.hpp>`](../../include/threads/Loop.hpp)
 
 <br/>

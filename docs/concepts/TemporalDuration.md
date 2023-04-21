@@ -1,4 +1,4 @@
-# `xieite::concepts::TemporalDuration`
+# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::TemporalDuration`
 Defined in header [`<xieite/concepts/TemporalDuration.hpp>`](../../include/xieite/concepts/TemporalDuration.hpp)
 
 <br/>
