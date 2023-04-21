@@ -7,11 +7,7 @@ A namespace of 2D geometrical classes and operations.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member types
+## Member types
 - [`Circle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Circle.md)
 - [`Ellipse`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Ellipse.md)
 - [`Line`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/Line.md)
@@ -22,7 +18,7 @@ A namespace of 2D geometrical classes and operations.
 
 <br/>
 
-### Member functions
+## Member functions
 - [`containsPoint`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/containsPoint.md)
 - [`getAngle`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/getAngle.md)
 - [`getArea`](https://github.com/Eczbek/xieite/tree/main/docs/geometry/getArea.md)

@@ -3,9 +3,5 @@ Aggregated in header [`<xieite/process.hpp>`](https://github.com/Eczbek/xieite/t
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member functions
+## Member functions
 - [`atExit`](https://github.com/Eczbek/xieite/tree/main/docs/process/atExit.md)

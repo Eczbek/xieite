@@ -7,9 +7,5 @@ A namespace of type utilities.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member functions
+## Member functions
 - [`demangle`](https://github.com/Eczbek/xieite/tree/main/docs/types/demangle.md)

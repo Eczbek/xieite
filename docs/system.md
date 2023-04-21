@@ -7,9 +7,5 @@ A namespace of tools for interacting with the system.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member functions
+## Member functions
 - [`execute`](https://github.com/Eczbek/xieite/tree/main/docs/system/execute.md)

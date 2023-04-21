@@ -7,9 +7,5 @@ A namespace of things relating to errors.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member functions
+## Member functions
 - [`segmentationFault`](https://github.com/Eczbek/xieite/tree/main/docs/errors/segmentationFault.md)

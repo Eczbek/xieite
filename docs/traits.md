@@ -7,9 +7,5 @@ A namespace of type traits.
 
 <br/><br/>
 
-## Synopsis
-
-<br/>
-
-### Member objects
+## Member objects
 - [`isTemporalDuration`](https://github.com/Eczbek/xieite/tree/main/docs/traits/isTemporalDuration.md)
