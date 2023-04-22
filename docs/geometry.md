@@ -27,7 +27,6 @@ A namespace of 2D geometrical classes and operations.
 - [`getDistance`](../docs/geometry/getDistance.md)
 - [`getInterceptX`](../docs/geometry/getInterceptX.md)
 - [`getInterceptY`](../docs/geometry/getInterceptY.md)
-- [`getIntersection`](../docs/geometry/getIntersection.md)
 - [`getIntersections`](../docs/geometry/getIntersectiond.md)
 - [`getLength`](../docs/geometry/getLength.md)
 - [`getPerimeter`](../docs/geometry/getPerimeter.md)
