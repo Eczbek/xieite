@@ -33,8 +33,3 @@ Add the `include` directory to your project.
 - [`threads`](./docs/threads.md)
 - [`traits`](./docs/traits.md)
 - [`types`](./docs/types.md)
-
-<br/>
-
-## To-do
-- Ellipse-ellipse intersections

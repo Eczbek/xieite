@@ -34,8 +34,10 @@ constexpr operator bool() const noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout << std::boolalpha
-		<< static_cast<bool>(xieite::math::BigInteger(4)) << '\n';
+	std::cout
+		<< std::boolalpha
+		<< static_cast<bool>(xieite::math::BigInteger(4))
+		<< '\n';
 }
 ```
 Output:
