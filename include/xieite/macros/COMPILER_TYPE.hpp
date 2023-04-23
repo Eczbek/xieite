@@ -2,20 +2,10 @@
 
 #if defined(__GNUC__)
 #	define XIEITE_COMPILER_TYPE_GCC
-#endif
-
-#if defined(__clang__)
+#elif defined(__clang__)
 #	define XIEITE_COMPILER_TYPE_CLANG
-#endif
-
-#if defined(__MINGW32__)
-#	define XIEITE_COMPILER_TYPE_MINGW_32
-#endif
-
-#if defined(__MINGW64__)
-#	define XIEITE_COMPILER_TYPE_MINGW_64
-#endif
-
-#if defined(_MSC_VER)
+#elif defined(__MINGW32__) || defined(__MINGW64__)
+#	define XIEITE_COMPILER_TYPE_MINGW
+#elif defined(_MSC_VER)
 #	define XIEITE_COMPILER_TYPE_MSVC
 #endif
