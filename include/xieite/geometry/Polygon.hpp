@@ -3,7 +3,7 @@
 #include <iterator>
 #include <span>
 #include <vector>
-#include <xieite/algorithms/rotatedMatch.hpp>
+#include <xieite/algorithms/sameRelativeOrder.hpp>
 #include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
@@ -15,7 +15,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Polygon& polygon) const noexcept {
-			return xieite::algorithms::rotatedMatch(std::begin(this->points), std::end(this->points), std::begin(polygon.points), std::end(polygon.points)) || xieite::algorithms::rotatedMatch(std::rbegin(this->points), std::rend(this->points), std::begin(polygon.points), std::end(polygon.points));
+			return xieite::algorithms::sameRelativeOrder(std::begin(this->points), std::end(this->points), std::begin(polygon.points), std::end(polygon.points)) || xieite::algorithms::sameRelativeOrder(std::rbegin(this->points), std::rend(this->points), std::begin(polygon.points), std::end(polygon.points));
 		}
 	};
 }

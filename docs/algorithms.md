@@ -16,5 +16,5 @@ A namespace of useful algorithms.
 - [`isPalindrome`](../docs/algorithms/isPalindrome.md)
 - [`numberSearch`](../docs/algorithms/numberSearch.md)
 - [`partialReverse`](../docs/algorithms/partialReverse.md)
-- [`rotatedMatch`](../docs/algorithms/rotatedMatch.md)
 - [`rotateMatrix`](../docs/algorithms/rotateMatrix.md)
+- [`sameRelativeOrder`](../docs/algorithms/sameRelativeOrder.md)

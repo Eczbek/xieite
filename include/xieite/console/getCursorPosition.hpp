@@ -7,7 +7,7 @@
 
 namespace xieite::console {
 	[[nodiscard]]
-	inline xieite::console::Position getCursorPosition() noexcept {
+	inline xieite::console::Position getCursorPosition() {
 		xieite::console::ModeLock modeLock;
 		std::cout << "\u001b[6n";
 		xieite::console::Position position;

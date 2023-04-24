@@ -8,7 +8,7 @@
 
 namespace xieite::algorithms {
 	template<std::forward_iterator Iterator>
-	constexpr void partialReverse(Iterator begin, const Iterator end, xieite::concepts::CallbackSelector<typename std::iterator_traits<Iterator>::value_type> auto&& selector) noexcept {
+	constexpr void partialReverse(Iterator begin, const Iterator end, const xieite::concepts::CallbackSelector<typename std::iterator_traits<Iterator>::value_type> auto& selector) {
 		std::vector<Iterator> iterators;
 		for (; begin != end; ++begin) {
 			if (selector(*begin)) {

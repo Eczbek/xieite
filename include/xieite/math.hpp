@@ -4,10 +4,10 @@
 #include <xieite/types/ConditionalIntegerSign.hpp>
 #include <xieite/math/Integer.hpp>
 #include <xieite/types/MinimalIntegerSize.hpp>
-#include <xieite/types/OptimalIntegerSize.hpp>
 #include <xieite/math/absolute.hpp>
 #include <xieite/math/alternatingBits.hpp>
 #include <xieite/math/approximatelyEqual.hpp>
+#include <xieite/math/approximatelyEqualSlope.hpp>
 #include <xieite/math/closestTo.hpp>
 #include <xieite/math/cosecant.hpp>
 #include <xieite/math/cotangent.hpp>
