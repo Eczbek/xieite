@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::rotatedMatch`
-Defined in header [`<xieite/algorithms/rotatedMatch.hpp>`](../../include/xieite/algorithms/rotatedMatch.hpp)
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::sameRelativeOrder`
+Defined in header [`<xieite/algorithms/sameRelativeOrder.hpp>`](../../include/xieite/algorithms/sameRelativeOrder.hpp)
 
 <br/>
 
@@ -15,7 +15,7 @@ Checks whether one iterable contains elements in the same relative order as in a
 template<std::forward_iterator Iterator1, std::forward_iterator Iterator2, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator1>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator1>::value_type>>
 requires(std::same_as<typename std::iterator_traits<Iterator1>::value_type, typename std::iterator_traits<Iterator2>::value_type>)
 [[nodiscard]]
-constexpr bool rotatedMatch(Iterator1 begin1, Iterator1 end1, Iterator2 begin2, Iterator2 end2, Callback&& comparator = Callback()) noexcept;
+constexpr bool sameRelativeOrder(Iterator1 begin1, Iterator1 end1, Iterator2 begin2, Iterator2 end2, Callback&& comparator = Callback()) noexcept;
 ```
 ### Template parameters
 - `Iterator1` - An iterator type, satisfying `std::forward_iterator`
@@ -38,7 +38,7 @@ constexpr bool rotatedMatch(Iterator1 begin1, Iterator1 end1, Iterator2 begin2, 
 ```cpp
 #include <iostream>
 #include <vector>
-#include <xieite/algorithms/rotatedMatch.hpp>
+#include <xieite/algorithms/sameRelativeOrder.hpp>
 
 int main() {
 	std::vector<int> a { 1, 2, 3, 4, 5 };
@@ -52,11 +52,11 @@ int main() {
 
 	std::cout
 		<< std::boolalpha
-		<< xieite::algorithms::rotatedMatch(std::begin(a), std::end(a), std::begin(b), std::end(b))
+		<< xieite::algorithms::sameRelativeOrder(std::begin(a), std::end(a), std::begin(b), std::end(b))
 		<< '\n'
-		<< xieite::algorithms::rotatedMatch(std::begin(a), std::end(a), std::begin(c), std::end(c))
+		<< xieite::algorithms::sameRelativeOrder(std::begin(a), std::end(a), std::begin(c), std::end(c))
 		<< '\n'
-		<< xieite::algorithms::rotatedMatch(std::rbegin(a), std::rend(a), std::begin(c), std::end(c))
+		<< xieite::algorithms::sameRelativeOrder(std::rbegin(a), std::rend(a), std::begin(c), std::end(c))
 		<< '\n';
 }
 ```

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <concepts>
-#include <utility>
 #include <xieite/concepts/TemporalDuration.hpp>
 #include <xieite/threads/Interval.hpp>
 
@@ -9,8 +8,8 @@ namespace xieite::threads {
 	class Timeout {
 	public:
 		template<std::invocable<> Invocable>
-		Timeout(Invocable&& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
-		: interval([this, callback = std::forward<Invocable>(callback)]() -> void {
+		Timeout(const Invocable& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
+		: interval([this, &callback]() -> void {
 			this->stop();
 			callback();
 		}, duration) {}

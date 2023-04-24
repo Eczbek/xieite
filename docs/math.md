@@ -12,7 +12,6 @@ A namespace of mathematical types and functions.
 - [`ConditionalIntegerSign`](../docs/math/ConditionalIntegerSign.md)
 - [`Integer`](../docs/math/Integer.md)
 - [`MinimalIntegerSize`](../docs/math/MinimalIntegerSize.md)
-- [`OptimalIntegerSize`](../docs/math/OptimalIntegerSize.md)
 
 <br/>
 
@@ -27,6 +26,7 @@ A namespace of mathematical types and functions.
 ## Member functions
 - [`absolute`](../docs/math/absolute.md)
 - [`approximatelyEqual`](../docs/math/approximatelyEqual.md)
+- [`approximatelyEqualSlope`](../docs/math/approximatelyEqualSlope.md)
 - [`closestTo`](../docs/math/closestTo.md)
 - [`cosecant`](../docs/math/cosecant.md)
 - [`cotangent`](../docs/math/cotangent.md)

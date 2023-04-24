@@ -8,5 +8,5 @@
 #include <xieite/algorithms/isPalindrome.hpp>
 #include <xieite/algorithms/numberSearch.hpp>
 #include <xieite/algorithms/partialReverse.hpp>
-#include <xieite/algorithms/rotatedMatch.hpp>
 #include <xieite/algorithms/rotateMatrix.hpp>
+#include <xieite/algorithms/sameRelativeOrder.hpp>

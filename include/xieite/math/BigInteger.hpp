@@ -560,7 +560,7 @@ namespace xieite::math {
 
 		template<xieite::concepts::CallbackComparator<bool> Callback>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& bigInteger, Callback&& callback) const noexcept {
+		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& bigInteger, const Callback& callback) const noexcept {
 			xieite::math::BigInteger copy = *this;
 			const std::size_t bitsSize = this->bits.size();
 			if (this->sign) {

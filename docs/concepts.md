@@ -18,6 +18,8 @@ A namespace of common concepts.
 - [`Enumerator`](../docs/concepts/Enumerator.md)
 - [`Hashable`](../docs/concepts/Hashable.md)
 - [`LinearShape`](../docs/concepts/LinearShape.md)
+- [`NoThrowConvertibleTo`](../docs/concepts/NoThrowConvertibleTo.md)
+- [`NoThrowConvertibleToOneOf`](../docs/concepts/NoThrowConvertibleToOneOf.md)
 - [`SameAsOneOf`](../docs/concepts/SameAsOneOf.md)
 - [`StreamableInto`](../docs/concepts/StreamableInto.md)
 - [`StreamableOutOf`](../docs/concepts/StreamableOutOf.md)

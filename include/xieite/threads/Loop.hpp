@@ -3,17 +3,16 @@
 #include <concepts>
 #include <stop_token>
 #include <thread>
-#include <utility>
 
 namespace xieite::threads {
 	class Loop {
 	public:
 		template<std::invocable<> Invocable>
-		Loop(Invocable&& callback) noexcept
-		: thread([callback = std::forward<Invocable>(callback)](const std::stop_token stopToken) -> void {
-			do
+		Loop(const Invocable& callback) noexcept
+		: thread([&callback](const std::stop_token stopToken) -> void {
+			while (!stopToken.stop_requested()) {
 				callback();
-			while (!stopToken.stop_requested());
+			}
 		}) {}
 
 		~Loop() {

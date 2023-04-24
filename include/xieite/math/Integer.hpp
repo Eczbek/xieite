@@ -5,7 +5,7 @@
 #include <cstddef>
 #include <ostream>
 #include <xieite/types/ConditionalIntegerSign.hpp>
-#include <xieite/types/OptimalIntegerSize.hpp>
+#include <xieite/types/MinimalIntegerSize.hpp>
 
 namespace xieite::math {
 	template<std::size_t bits, bool sign>
@@ -171,6 +171,6 @@ namespace xieite::math {
 		}
 
 	private:
-		xieite::types::ConditionalIntegerSign<xieite::types::OptimalIntegerSize<bits>, sign> value: bits;
+		xieite::types::ConditionalIntegerSign<xieite::types::MinimalIntegerSize<bits>, sign> value: bits;
 	};
 }

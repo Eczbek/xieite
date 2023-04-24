@@ -3,6 +3,6 @@
 #include <concepts>
 
 namespace xieite::concepts {
-	template<typename Any1, typename... Any2>
-	concept ConvertibleToOneOf = (std::convertible_to<Any1, Any2> || ...);
+	template<typename From, typename... Tos>
+	concept ConvertibleToOneOf = (std::convertible_to<From, Tos> || ...);
 }
