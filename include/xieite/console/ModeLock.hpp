@@ -8,13 +8,18 @@ namespace xieite::console {
 	class ModeLock {
 	public:
 		ModeLock() noexcept
-		: blockingMode(fcntl(STDIN_FILENO, F_GETFL)), echo(false), canonical(false), signals(false), processing(false), blocking(true) {
+		: blockingMode(fcntl(STDIN_FILENO, F_GETFL)), blocking(true), echo(false), canonical(false), signals(false), processing(false) {
 			tcgetattr(STDIN_FILENO, &this->cookedMode);
 			this->lock();
 		}
 
 		~ModeLock() {
 			this->unlock();
+		}
+
+		void setBlocking(const bool value) noexcept {
+			this->blocking = value;
+			this->lock();
 		}
 
 		void setEcho(const bool value) noexcept {
@@ -37,33 +42,27 @@ namespace xieite::console {
 			this->lock();
 		}
 
-		void setBlocking(const bool value) noexcept {
-			this->blocking = value;
-			this->lock();
-		}
-
 		void lock() noexcept {
+			fcntl(STDIN_FILENO, TCSANOW, this->blockingMode | (O_NONBLOCK * !this->blocking));
 			termios rawMode = this->cookedMode;
 			rawMode.c_iflag &= ~((ICRNL * !this->signals) | (IXON * !this->signals));
 			rawMode.c_lflag &= ~((ECHO * !this->echo) | (ICANON * !this->canonical) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
 			rawMode.c_oflag &= ~(OPOST * !this->processing);
 			tcsetattr(STDIN_FILENO, TCSANOW, &rawMode);
-			fcntl(STDIN_FILENO, TCSANOW, this->blockingMode | (O_NONBLOCK * !this->blocking));
 		}
 
 		void unlock() noexcept {
-			this->echo = this->canonical = this->signals = this->processing = this->blocking = false;
-			tcsetattr(STDIN_FILENO, TCSANOW, &this->cookedMode);
 			fcntl(STDIN_FILENO, F_SETFL, this->blockingMode);
+			tcsetattr(STDIN_FILENO, TCSANOW, &this->cookedMode);
 		}
 
 	private:
 		termios cookedMode;
 		int blockingMode;
+		bool blocking;
 		bool echo;
 		bool canonical;
 		bool signals;
 		bool processing;
-		bool blocking;
 	};
 }

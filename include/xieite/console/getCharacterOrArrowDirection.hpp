@@ -7,11 +7,11 @@
 #include <xieite/console/getCharacter.hpp>
 
 namespace xieite::console {
-	inline std::variant<char, xieite::console::Position> getCharacterOrArrowDirection() noexcept {
-		const char character = xieite::console::getCharacter();
+	inline std::variant<char, xieite::console::Position> getCharacterOrArrowDirection(const bool blocking = true) noexcept {
+		const char character = xieite::console::getCharacter(blocking);
 		if (character == '\u001b') {
-			if (xieite::console::getCharacter() == '[') {
-				const char direction = xieite::console::getCharacter();
+			if (xieite::console::getCharacter(blocking) == '[') {
+				const char direction = xieite::console::getCharacter(blocking);
 				switch (direction) {
 					case 'A':
 						return xieite::console::Position(-1, 0);
