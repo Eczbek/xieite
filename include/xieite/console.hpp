@@ -4,9 +4,9 @@
 #include <xieite/console/Position.hpp>
 #include <xieite/console/clearLine.hpp>
 #include <xieite/console/clearScreen.hpp>
-#include <xieite/console/getArrowKey.hpp>
-#include <xieite/console/getArrowKeyOrCharacter.hpp>
+#include <xieite/console/getArrowDirection.hpp>
 #include <xieite/console/getCharacter.hpp>
+#include <xieite/console/getCharacterOrArrowDirection.hpp>
 #include <xieite/console/getCursorPosition.hpp>
 #include <xieite/console/getString.hpp>
 #include <xieite/console/getWindowSize.hpp>

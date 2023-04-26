@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getArrowKey`
-Defined in header [`<xieite/console/getArrowKey.hpp>`](../../include/xieite/console/getArrowKey.hpp)
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getArrowDirection`
+Defined in header [`<xieite/console/getArrowDirection.hpp>`](../../include/xieite/console/getArrowDirection.hpp)
 
 <br/>
 
@@ -12,7 +12,7 @@ Waits for an arrow key input and immediately returns its direction as a relative
 <br/>
 
 ```cpp
-inline xieite::console::Position getArrowKey(bool echo = false) noexcept;
+inline xieite::console::Position getArrowDirection(bool echo = false) noexcept;
 ```
 ### Parameters
 - `echo` - A `bool` copy to specify if echoing should be enabled while waiting for input
@@ -25,13 +25,13 @@ inline xieite::console::Position getArrowKey(bool echo = false) noexcept;
 ```cpp
 #include <iostream>
 #include <xieite/console/Position.hpp>
-#include <xieite/console/getArrowKey.hpp>
+#include <xieite/console/getArrowDirection.hpp>
 #include <xieite/console/putBackString.hpp>
 
 int main() {
 	xieite::console::putBackString("\u001b[B"); // Down arrow
 
-	xieite::console::Position direction = xieite::console::getArrowKey();
+	xieite::console::Position direction = xieite::console::getArrowDirection();
 
 	std::cout << '(' << direction.row << ", " << direction.column << ")\n";
 }
