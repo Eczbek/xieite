@@ -5,7 +5,7 @@
 
 namespace xieite::console {
 	inline char getCharacter(const bool blocking = true) {
-		const xieite::console::ModeLock modeLock;
+		xieite::console::ModeLock modeLock;
 		modeLock.setBlocking(blocking);
 		return std::cin.get();
 	}
