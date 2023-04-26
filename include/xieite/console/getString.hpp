@@ -1,7 +1,7 @@
 #pragma once
 
+#include <iostream>
 #include <string>
-#include <unistd.h>
 #include <xieite/console/ModeLock.hpp>
 
 namespace xieite::console {
@@ -10,8 +10,7 @@ namespace xieite::console {
 		modeLock.setBlocking(false);
 		std::string buffer;
 		while (true) {
-			char input = 0;
-			read(STDIN_FILENO, &input, 1);
+			const char input = std::cin.get();
 			if (!input) {
 				break;
 			}

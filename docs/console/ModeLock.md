@@ -14,10 +14,10 @@ A lock-style class for toggling terminal settings.
 ### Member functions
 - [`ModeLock`](../../docs/console/ModeLock/constructor.md)
 - [`~ModeLock`](../../docs/console/ModeLock/destructor.md)
+- [`setBlocking`](../../docs/console/ModeLock/setBlocking.md)
 - [`setEcho`](../../docs/console/ModeLock/setEcho.md)
 - [`setCanonical`](../../docs/console/ModeLock/setCanonical.md)
 - [`setSignals`](../../docs/console/ModeLock/setSignals.md)
 - [`setProcessing`](../../docs/console/ModeLock/setProcessing.md)
-- [`setBlocking`](../../docs/console/ModeLock/setBlocking.md)
 - [`lock`](../../docs/console/ModeLock/lock.md)
 - [`unlock`](../../docs/console/ModeLock/unlock.md)
