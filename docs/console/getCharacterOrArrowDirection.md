@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getArrowKeyOrCharacter`
-Defined in header [`<xieite/console/getArrowKeyOrCharacter.hpp>`](../../include/xieite/console/getArrowKeyOrCharacter.hpp)
+# [`xieite`](../../README.md)`::`[`console`](../../docs/console.md)`::getCharacterOrArrowDirection`
+Defined in header [`<xieite/console/getCharacterOrArrowDirection.hpp>`](../../include/xieite/console/getCharacterOrArrowDirection.hpp)
 
 <br/>
 
@@ -12,7 +12,7 @@ Waits for a character or an arrow key input and immediately returns it.
 <br/>
 
 ```cpp
-inline std::variant<char, xieite::console::Position> getArrowKeyOrCharacter(bool echo = false) noexcept;
+inline std::variant<char, xieite::console::Position> getCharacterOrArrowDirection(bool echo = false) noexcept;
 ```
 ### Parameters
 - `echo` - A `bool` copy to specify if echoing should be enabled while waiting for input
@@ -26,12 +26,12 @@ inline std::variant<char, xieite::console::Position> getArrowKeyOrCharacter(bool
 #include <iostream>
 #include <variant>
 #include <xieite/console/Position.hpp>
-#include <xieite/console/getArrowKeyOrCharacter.hpp>
+#include <xieite/console/getCharacterOrArrowDirection.hpp>
 
 int main() {
 	std::cin.putback('e');
 
-	std::variant<char, xieite::console::Position> input = xieite::console::getArrowKeyOrCharacter();
+	std::variant<char, xieite::console::Position> input = xieite::console::getCharacterOrArrowDirection();
 
 	if (std::holds_alternative<char>(input)) {
 		std::cout << std::get<char>(input) << '\n';

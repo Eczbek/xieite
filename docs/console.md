@@ -16,9 +16,9 @@ A namespace of console manipulation tools.
 ## Member functions
 - [`clearLine`](../docs/console/clearLine.md)
 - [`clearScreen`](../docs/console/clearScreen.md)
-- [`getArrowKey`](../docs/console/getArrowKey.md)
-- [`getArrowKeyOrCharacter`](../docs/console/getArrowKeyOrCharacter.md)
+- [`getArrowDirection`](../docs/console/getArrowDirection.md)
 - [`getCharacter`](../docs/console/getCharacter.md)
+- [`getCharacterOrArrowDirection`](../docs/console/getCharacterOrArrowDirection.md)
 - [`getCursorPosition`](../docs/console/getCursorPosition.md)
 - [`getString`](../docs/console/getString.md)
 - [`getWindowSize`](../docs/console/getWindowSize.md)
