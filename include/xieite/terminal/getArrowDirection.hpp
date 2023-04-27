@@ -28,6 +28,6 @@ namespace xieite::terminal {
 	}
 
 	inline xieite::terminal::Position getArrowDirection() {
-		return xieite::terminal::Position(xieite::terminal::ModeLock());
+		return xieite::terminal::getArrowDirection(xieite::terminal::ModeLock());
 	}
 }
