@@ -183,13 +183,13 @@ namespace xieite::geometry {
 	}
 
 	[[nodiscard]]
-	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const xieite::geometry::Circle& circle) noexcept {
-		return std::vector<xieite::geometry::Point> {}; // TODO
+	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle1, const xieite::geometry::Circle& circle2) noexcept {
+		return xieite::geometry::getIntersections(xieite::geometry::Ellipse(circle1.center, xieite::geometry::Point(circle1.radius, circle1.radius)), xieite::geometry::Ellipse(circle2.center, xieite::geometry::Point(circle2.radius, circle2.radius)));
 	}
 
 	[[nodiscard]]
 	constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::geometry::Circle& circle, const xieite::geometry::Ellipse& ellipse) noexcept {
-		return std::vector<xieite::geometry::Point> {}; // TODO
+		return xieite::geometry::getIntersections(xieite::geometry::Ellipse(circle.center, xieite::geometry::Point(circle.radius, circle.radius)), ellipse);
 	}
 
 	[[nodiscard]]
