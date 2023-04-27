@@ -12,10 +12,18 @@ Waits for and returns the next keypress input.
 <br/>
 
 ```cpp
-inline char getCharacter(bool blocking = true) noexcept;
+inline char getCharacter(const xieite::console::ModeLock& modeLock);
 ```
 ### Parameters
-- `blocking` - A `bool` copy, set to `true` by default. Determines whether to block the thread while waiting for input or return immediately if there is none
+- `modeLock` - A `xieite::console::ModeLock` constant reference to apply while getting input
+### Return value
+- `char` - The input character
+
+<br/>
+
+```cpp
+inline char getCharacter();
+```
 ### Return value
 - `char` - The input character
 
