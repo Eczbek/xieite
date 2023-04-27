@@ -1,0 +1,20 @@
+# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setCursorVisibility`
+Defined in header [`<xieite/terminal/setCursorVisibility.hpp>`](../../include/xieite/terminal/setCursorVisibility.hpp)
+
+<br/>
+
+Shows or hides the cursor.
+
+<br/><br/>
+
+## Synopsis
+
+<br/>
+
+```cpp
+constexpr std::string setCursorVisibility(bool value) noexcept;
+```
+### Parameters
+- `value` - A `bool` copy to determine whether to show or hide the cursor
+### Return value
+- A `std::string`, the ANSI escape sequence to print

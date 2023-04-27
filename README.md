@@ -18,7 +18,6 @@ Add the `include` directory to your project.
 ## Contents
 - [`algorithms`](./docs/algorithms.md)
 - [`concepts`](./docs/concepts.md)
-- [`console`](./docs/console.md)
 - [`errors`](./docs/errors.md)
 - [`geometry`](./docs/geometry.md)
 - [`graphics`](./docs/graphics.md)
@@ -30,6 +29,7 @@ Add the `include` directory to your project.
 - [`ratios`](./docs/ratios.md)
 - [`string`](./docs/string.md)
 - [`system`](./docs/system.md)
+- [`terminal`](./docs/terminal.md)
 - [`threads`](./docs/threads.md)
 - [`traits`](./docs/traits.md)
 - [`types`](./docs/types.md)
