@@ -12,12 +12,20 @@ Waits for an arrow key input and immediately returns its direction as a relative
 <br/>
 
 ```cpp
-inline xieite::console::Position getArrowDirection(bool echo = false) noexcept;
+inline xieite::console::Position getArrowDirection(const xieite::console::ModeLock& modeLock);
 ```
 ### Parameters
-- `echo` - A `bool` copy to specify if echoing should be enabled while waiting for input
+- `modeLock` - A `xieite::console::ModeLock` constant reference to apply while getting input
 ### Return value
 - A `xieite::console::Position`, the arrow key's direction represented as one of four cardinal directions or `{ 0, 0 }` if the input is not a valid arrow key code
+
+<br/>
+
+```cpp
+inline xieite::console::Position getArrowDirection();
+```
+### Return value
+- A `xieite::console::Position`, the arrow key's direction
 
 <br/><br/>
 

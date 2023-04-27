@@ -43,7 +43,7 @@ namespace xieite::console {
 		}
 
 		void lock() noexcept {
-			fcntl(STDIN_FILENO, TCSANOW, this->blockingMode | (O_NONBLOCK * !this->blocking));
+			fcntl(STDIN_FILENO, F_SETFL, this->blockingMode | (O_NONBLOCK * !this->blocking));
 			termios rawMode = this->cookedMode;
 			rawMode.c_iflag &= ~((ICRNL * !this->signals) | (IXON * !this->signals));
 			rawMode.c_lflag &= ~((ECHO * !this->echo) | (ICANON * !this->canonical) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
