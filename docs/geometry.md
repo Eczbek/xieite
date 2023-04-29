@@ -8,8 +8,6 @@ A namespace of 2D geometrical classes and operations.
 <br/><br/>
 
 ## Member types
-- [`Circle`](../docs/geometry/Circle.md)
-- [`Ellipse`](../docs/geometry/Ellipse.md)
 - [`Line`](../docs/geometry/Line.md)
 - [`Point`](../docs/geometry/Point.md)
 - [`Polygon`](../docs/geometry/Polygon.md)
@@ -22,8 +20,6 @@ A namespace of 2D geometrical classes and operations.
 - [`containsPoint`](../docs/geometry/containsPoint.md)
 - [`getAngle`](../docs/geometry/getAngle.md)
 - [`getArea`](../docs/geometry/getArea.md)
-- [`getBoundingBox`](../docs/geometry/getBoundingBox.md)
-- [`getCircumference`](../docs/geometry/getCircumference.md)
 - [`getDistance`](../docs/geometry/getDistance.md)
 - [`getInterceptX`](../docs/geometry/getInterceptX.md)
 - [`getInterceptY`](../docs/geometry/getInterceptY.md)

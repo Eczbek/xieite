@@ -1,7 +1,5 @@
 #pragma once
 
-#include <xieite/geometry/Circle.hpp>
-#include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/Polygon.hpp>
@@ -9,8 +7,6 @@
 #include <xieite/geometry/Segment.hpp>
 #include <xieite/geometry/containsPoint.hpp>
 #include <xieite/geometry/getAngle.hpp>
-#include <xieite/geometry/getBoundingBox.hpp>
-#include <xieite/geometry/getCircumference.hpp>
 #include <xieite/geometry/getDistance.hpp>
 #include <xieite/geometry/getInterceptX.hpp>
 #include <xieite/geometry/getInterceptY.hpp>

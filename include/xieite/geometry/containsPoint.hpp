@@ -2,8 +2,6 @@
 
 #include <cmath>
 #include <cstddef>
-#include <xieite/geometry/Circle.hpp>
-#include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/Line.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/Polygon.hpp>
@@ -50,17 +48,5 @@ namespace xieite::geometry {
 			}
 		}
 		return intersections % 2;
-	}
-
-	[[nodiscard]]
-	constexpr bool containsPoint(const xieite::geometry::Circle& circle, const xieite::geometry::Point point) noexcept {
-		return xieite::geometry::getDistance(circle.center, point) <= circle.radius;
-	}
-
-	[[nodiscard]]
-	constexpr bool containsPoint(const xieite::geometry::Ellipse& ellipse, const xieite::geometry::Point point) noexcept {
-		const double a = std::cos(ellipse.rotation) * (point.x - ellipse.center.x) + std::sin(ellipse.rotation) * (point.y - ellipse.center.y);
-		const double b = std::sin(ellipse.rotation) * (point.x - ellipse.center.x) - std::cos(ellipse.rotation) * (point.y - ellipse.center.y);
-		return (a * a / ellipse.radii.x / ellipse.radii.x + b * b / ellipse.radii.y / ellipse.radii.y) <= 1.0;
 	}
 }
