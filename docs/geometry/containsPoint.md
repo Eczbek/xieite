@@ -57,30 +57,6 @@ constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, xieite::g
 ### Return value
 - `bool` - Whether or not the point lies within the shape
 
-<br/>
-
-```cpp
-[[nodiscard]]
-constexpr bool containsPoint(const xieite::geometry::Ellipse& ellipse, xieite::geometry::Point point) noexcept;
-```
-### Parameters
-- `ellipse` - A `xieite::geometry::Ellipse` constant reference to check for a point in
-- `point` - A `xieite::geometry::Point` copy, the point to check for
-### Return value
-- `bool` - Whether or not the point lies within the shape
-
-<br/>
-
-```cpp
-[[nodiscard]]
-constexpr bool containsPoint(const xieite::geometry::Circle& circle, xieite::geometry::Point point) noexcept;
-```
-### Parameters
-- `circle` - A `xieite::geometry::Circle` constant reference to check for a point in
-- `point` - A `xieite::geometry::Point` copy, the point to check for
-### Return value
-- `bool` - Whether or not the point lies within the shape
-
 <br/><br/>
 
 ## Example
@@ -114,8 +90,6 @@ true
 <br/><br/>
 
 ## See also
-- [`xieite::geometry::Circle`](../../docs/geometry/Circle.md)
-- [`xieite::geometry::Ellipse`](../../docs/geometry/Ellipse.md)
 - [`xieite::geometry::Line`](../../docs/geometry/Line.md)
 - [`xieite::geometry::Point`](../../docs/geometry/Point.md)
 - [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)

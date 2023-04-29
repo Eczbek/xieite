@@ -3,7 +3,7 @@ Defined in header [`<xieite/geometry/rotate.hpp>`](../../include/xieite/geometry
 
 <br/>
 
-Rotates shapes a specific angle around any pivot.
+Rotates shapes a specific angle around any pivot, clockwise.
 
 <br/><br/>
 
@@ -51,32 +51,6 @@ constexpr xieite::geometry::Polygon rotate(const xieite::geometry::Polygon& poly
 ### Return value
 - A new rotated `xieite::geometry::Polygon`
 
-<br/>
-
-```cpp
-[[nodiscard]]
-constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, cdouble angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
-```
-### Parameters
-- `linearShape` - A `xieite::geometry::Ellipse` constant reference
-- `angle` - A `double` copy, clockwise rotation in radians
-- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
-### Return value
-- A new rotated `xieite::geometry::Ellipse`
-
-<br/>
-
-```cpp
-[[nodiscard]]
-constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
-```
-### Parameters
-- `linearShape` - A `xieite::geometry::Circle` constant reference
-- `angle` - A `double` copy, clockwise rotation in radians
-- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
-### Return value
-- A new rotated `xieite::geometry::Circle`
-
 <br/><br/>
 
 ## Example
@@ -107,7 +81,5 @@ Output:
 
 ## See also
 - [`xieite::concepts::LinearShape`](../../docs/concepts/LinearShape.md)
-- [`xieite::geometry::Circle`](../../docs/geometry/Circle.md)
-- [`xieite::geometry::Ellipse`](../../docs/geometry/Ellipse.md)
 - [`xieite::geometry::Point`](../../docs/geometry/Point.md)
 - [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)

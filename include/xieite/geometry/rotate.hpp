@@ -4,8 +4,6 @@
 #include <cmath>
 #include <vector>
 #include <xieite/concepts/LinearShape.hpp>
-#include <xieite/geometry/Circle.hpp>
-#include <xieite/geometry/Ellipse.hpp>
 #include <xieite/geometry/Point.hpp>
 #include <xieite/geometry/Polygon.hpp>
 #include <xieite/math/tau.hpp>
@@ -29,15 +27,5 @@ namespace xieite::geometry {
 			rotatedPoints.push_back(xieite::geometry::rotate(point, angle, pivot));
 		}
 		return xieite::geometry::Polygon(rotatedPoints);
-	}
-
-	[[nodiscard]]
-	constexpr xieite::geometry::Ellipse rotate(const xieite::geometry::Ellipse& ellipse, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept {
-		return xieite::geometry::Ellipse(xieite::geometry::rotate(ellipse.center, angle, pivot), ellipse.radii, std::fmod(ellipse.rotation + angle, xieite::math::tau<double>));
-	}
-
-	[[nodiscard]]
-	constexpr xieite::geometry::Circle rotate(const xieite::geometry::Circle& circle, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept {
-		return xieite::geometry::Circle(xieite::geometry::rotate(circle.center, angle, pivot), circle.radius);
 	}
 }
