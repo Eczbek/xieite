@@ -11,7 +11,7 @@ A namespace of useful algorithms.
 - [`all`](../docs/algorithms/all.md)
 - [`any`](../docs/algorithms/any.md)
 - [`count`](../docs/algorithms/count.md)
-- [`findOccurence`](../docs/algorithms/findOccurence.md)
+- [`findOccurrence`](../docs/algorithms/findOccurrence.md)
 - [`group`](../docs/algorithms/group.md)
 - [`isPalindrome`](../docs/algorithms/isPalindrome.md)
 - [`numberSearch`](../docs/algorithms/numberSearch.md)
