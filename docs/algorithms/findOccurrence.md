@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::findOccurence`
-Defined in header [`<xieite/algorithms/findOccurence.hpp>`](../../include/xieite/algorithms/findOccurence.hpp)
+# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::findOccurrence`
+Defined in header [`<xieite/algorithms/findOccurrence.hpp>`](../../include/xieite/algorithms/findOccurrence.hpp)
 
 <br/>
 
-Finds the pointer to a specific occurence of a value in an iterable. If the value is not found, returns the end pointer. Uses `std::equal_to` as the default comparator.
+Finds the pointer to a specific occurrence of a value in an iterable. If the value is not found, returns the end pointer. Uses `std::equal_to` as the default comparator.
 
 <br/><br/>
 
@@ -14,7 +14,7 @@ Finds the pointer to a specific occurence of a value in an iterable. If the valu
 ```cpp
 template<std::forward_iterator Iterator, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
 [[nodiscard]]
-constexpr Iterator findOccurence(Iterator begin, Iterator end, typename std::iterator_traits<Iterator>::value_type&& value, std::size_t count, Callback&& comparator = Callback()) noexcept;
+constexpr Iterator findOccurrence(Iterator begin, Iterator end, typename std::iterator_traits<Iterator>::value_type&& value, std::size_t count, Callback&& comparator = Callback()) noexcept;
 ```
 ### Template parameters
 - `Iterator` - An iterator type, satisfying `std::forward_iterator`
@@ -24,7 +24,7 @@ constexpr Iterator findOccurence(Iterator begin, Iterator end, typename std::ite
 - `end` - An `Iterator` copy which points to the end of the same iterable
 - `comparator` - A `Callback` right-value reference, default-constructed by default
 ### Return value
-- The `Iterator` pointing to the specified value occurence, or to the end if it is not found.
+- The `Iterator` pointing to the specified value occurrence, or to the end if it is not found.
 
 <br/><br/>
 
@@ -33,12 +33,12 @@ constexpr Iterator findOccurence(Iterator begin, Iterator end, typename std::ite
 #include <iostream>
 #include <iterator>
 #include <vector>
-#include <xieite/algorithms/findOccurence.hpp>
+#include <xieite/algorithms/findOccurrence.hpp>
 
 int main() {
 	std::vector<int> values { 1, 2, 1, 3, 1, 4, 1 };
 
-	std::vector<int>::iterator result = xieite::algorithms::findOccurence(std::begin(values), std::end(values), 1, 3);
+	std::vector<int>::iterator result = xieite::algorithms::findOccurrence(std::begin(values), std::end(values), 1, 3);
 	
 	std::cout << std::distance(std::begin(values), result) << '\n';
 }

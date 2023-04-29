@@ -29,7 +29,7 @@ constexpr BigInteger(const xieite::math::BigInteger& bigInteger) noexcept;
 <br/>
 
 ```cpp
-constexpr BigInteger(std::span<bool> bits, bool sign = false) noexcept;
+constexpr BigInteger(const std::vector<bool>& bits, bool sign = false) noexcept;
 ```
 ### Parameters
 - `bits` - A `std::span` of `bool`s

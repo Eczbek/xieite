@@ -12,11 +12,10 @@ Executes a command and returns its output.
 <br/>
 
 ```cpp
-inline std::string execute(std::string_view command, std::size_t chunkSize = 1024) noexcept;
+inline std::string execute(std::string_view command) noexcept;
 ```
 ### Parameters
 - `command` - A `std::string_view` copy
-- `chunkSize` - A `std::size_t` copy, how many bytes of the output to read at a time internally
 ### Return value
 - A `std::string`
 
