@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <xieite/terminal/ModeLock.hpp>
+#include <xieite/terminal/getCharacter.hpp>
 
 namespace xieite::terminal {
 	inline std::string getString() noexcept {
@@ -10,8 +11,8 @@ namespace xieite::terminal {
 		modeLock.setBlocking(false);
 		std::string buffer;
 		while (true) {
-			const char input = std::cin.get();
-			if (!input) {
+			const char input = xieite::terminal::getCharacter(modeLock);
+			if (input < 1) {
 				break;
 			}
 			buffer += input;
