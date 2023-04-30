@@ -4,7 +4,6 @@
 #include <xieite/terminal/Position.hpp>
 #include <xieite/terminal/clearLine.hpp>
 #include <xieite/terminal/clearScreen.hpp>
-#include <xieite/terminal/getArrowDirection.hpp>
 #include <xieite/terminal/getCharacter.hpp>
 #include <xieite/terminal/getCursorPosition.hpp>
 #include <xieite/terminal/getString.hpp>

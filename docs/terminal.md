@@ -16,7 +16,6 @@ A namespace of terminal manipulation tools.
 ## Member functions
 - [`clearLine`](../docs/terminal/clearLine.md)
 - [`clearScreen`](../docs/terminal/clearScreen.md)
-- [`getArrowDirection`](../docs/terminal/getArrowDirection.md)
 - [`getCharacter`](../docs/terminal/getCharacter.md)
 - [`getCursorPosition`](../docs/terminal/getCursorPosition.md)
 - [`getString`](../docs/terminal/getString.md)

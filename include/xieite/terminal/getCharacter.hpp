@@ -1,11 +1,12 @@
 #pragma once
 
-#include <iostream>
+#include <unistd.h>
 #include <xieite/terminal/ModeLock.hpp>
 
 namespace xieite::terminal {
 	inline char getCharacter(const xieite::terminal::ModeLock& modeLock) {
-		return std::cin.get();
+		char input;
+		return (read(STDIN_FILENO, &input, 1) > 0) ? input : 0;
 	}
 
 	inline char getCharacter() {
