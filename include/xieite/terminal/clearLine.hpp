@@ -1,9 +1,9 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace xieite::terminal {
-	constexpr std::string clearLine() noexcept {
+	constexpr std::string_view clearLine() noexcept {
 		return "\u001b[2K";
 	}
 }

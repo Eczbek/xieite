@@ -1,9 +1,9 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace xieite::terminal {
-	constexpr std::string setTextStrikethrough(const bool value) noexcept {
+	constexpr std::string_view setTextStrikethrough(const bool value) noexcept {
 		return value ? "\u001b[9m" : "\u001b[29m";
 	}
 }

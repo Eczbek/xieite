@@ -1,9 +1,9 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace xieite::terminal {
-	constexpr std::string resetStyle() noexcept {
+	constexpr std::string_view resetStyle() noexcept {
 		return "\u001b[0m";
 	}
 }
