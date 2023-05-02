@@ -13,7 +13,7 @@ Repeats an expression literally. Maximum repetition count is 255.
 
 ```cpp
 #define XIEITE_REPEAT(expression, count) \
-	XIEITE_CONCATENATE(XIEITE_REPEAT_, count)(expression)
+	XIEITE_CONCATENATE(XIEITE_INTERNAL_REPEAT_, count)(expression)
 ```
 ### Parameters
 - `expression` - Any expression

@@ -12,24 +12,24 @@ Uses magic to steal private members of classes.
 <br/>
 
 ```cpp
-#define XIEITE_THIEF_EXPOSE(item, id) \
-	constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_STEAL, id)(); \
-	template<auto pointer> struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF, id) { \
-		friend constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_STEAL, id)() { \
+#define XIEITE_THIEF_EXPOSE(target, id) \
+	constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)(); \
+	template<auto pointer> struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id) { \
+		friend constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)() { \
 			return pointer; \
 		} \
 	}; \
-	template struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF, id)<item>;
+	template struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id)<&target>;
 ```
 ### Parameters
 - `item` - A reference or pointer to the member to steal
-- `id` - An ID for this operation
+- `id` - An simple ID for this operation
 
 <br/>
 
 ```cpp
 #define XIEITE_THIEF_STEAL(victim, id) \
-	((victim).*XIEITE_CONCATENATE(XIEITE_INTERNAL_STEAL, id)())
+	((victim).*XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)())
 ```
 ### Parameters
 - `victim` - An instance of the class to steal from
@@ -47,7 +47,7 @@ private:
 	int value = 42;
 };
 
-XIEITE_THIEF_EXPOSE(&Victim::value, heist);
+XIEITE_THIEF_EXPOSE(Victim::value, heist);
 
 int main() {
 	Victim victim;
