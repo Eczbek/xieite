@@ -16,8 +16,8 @@ Concatenates two expressions literally.
 	XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2)
 ```
 ### Parameters
-- `expression1` - Any expression
-- `expression2` - Any expression
+- `expression1` - Any expression to be expanded
+- `expression2` - Any expression to be expanded
 
 <br/>
 

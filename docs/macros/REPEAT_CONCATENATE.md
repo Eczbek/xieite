@@ -13,7 +13,7 @@ Repeats the concatenation of an expression with itself. Maximum repetition count
 
 ```cpp
 #define XIEITE_REPEAT_CONCATENATE(expression, count) \
-	XIEITE_CONCATENATE(XIEITE_REPEAT_CONCATENATE_, count)(expression)
+	XIEITE_CONCATENATE(XIEITE_INTERNAL_REPEAT_CONCATENATE_, count)(expression)
 ```
 ### Parameters
 - `expression` - Any expression

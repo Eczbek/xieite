@@ -1,7 +1,7 @@
 #pragma once
 
-#define XIEITE_QUOTE_PRIMITIVE(expression) \
-	#expression
+#define XIEITE_QUOTE(expressions...) \
+	XIEITE_QUOTE_PRIMITIVE(expressions)
 
-#define XIEITE_QUOTE(expression) \
-	XIEITE_QUOTE_PRIMITIVE(expression)
+#define XIEITE_QUOTE_PRIMITIVE(expressions...) \
+	#expressions
