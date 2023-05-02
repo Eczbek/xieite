@@ -9,7 +9,7 @@ Compares two rays to each other.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

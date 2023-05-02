@@ -9,7 +9,7 @@ Converts a string or character to lowercase. Only handles characters `A` to `Z`.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr char toLowercase(char character) noexcept;
@@ -19,7 +19,7 @@ constexpr char toLowercase(char character) noexcept;
 ### Return value
 - A `char`
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::string toLowercase(std::string string) noexcept;

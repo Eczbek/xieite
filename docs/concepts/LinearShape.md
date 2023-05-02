@@ -9,7 +9,7 @@ Specifies that type `Any` is a `xieite::geometry::Line`, `xieite::geometry::Ray`
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename Any>

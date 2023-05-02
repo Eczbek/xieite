@@ -9,7 +9,7 @@ Rotates shapes a specific angle around any pivot, clockwise.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -22,7 +22,7 @@ constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double a
 ### Return value
 - A new rotated `xieite::geometry::Point`
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
@@ -38,7 +38,7 @@ constexpr LinearShape rotate(const LinearShape& linearShape, double angle, xieit
 ### Return value
 - A new rotated `LinearShape`
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ Checks that a value is a power of 2.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

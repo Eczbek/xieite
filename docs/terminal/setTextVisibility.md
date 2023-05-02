@@ -9,7 +9,7 @@ Enables or disables text visibility.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::string setTextVisibility(bool value) noexcept;

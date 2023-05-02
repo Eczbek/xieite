@@ -9,7 +9,7 @@ Repeats an expression literally. Maximum repetition count is 255.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_REPEAT(expression, count) \

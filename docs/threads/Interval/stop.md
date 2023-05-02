@@ -9,7 +9,7 @@ Stops a `xieite::threads::Interval`, and further callback calls. Immediately ret
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 void stop() noexcept;

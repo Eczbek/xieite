@@ -9,7 +9,7 @@ Checks whether two numbers' difference is below or equal to their type's epsilon
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>

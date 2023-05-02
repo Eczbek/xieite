@@ -9,7 +9,7 @@ Calculates all intersections between two geometrical elements.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -21,7 +21,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(xieite::geometry
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s. In this case, only one intersection is possible
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -33,7 +33,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(xieite::geometry
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s. In this case, only one intersection is possible
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -45,7 +45,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(xieite::geometry
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s. In this case, only one intersection is possible
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -57,7 +57,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::co
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s. In this case, only one intersection is possible
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -69,7 +69,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::co
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s. In this case, only one intersection is possible
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -81,7 +81,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::co
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -93,7 +93,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::ge
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s. In this case, only one intersection is possible
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -105,7 +105,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::ge
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ Macros for identifying the current architecture type.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 #if defined(__amd64) || defined(__amd64__) || defined(__x86_64) || defined(__x86_64__)

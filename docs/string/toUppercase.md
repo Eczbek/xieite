@@ -9,7 +9,7 @@ Converts a string or character to uppercase. Only handles characters `a` to `z`.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr char toUppercase(char character) noexcept;
@@ -19,7 +19,7 @@ constexpr char toUppercase(char character) noexcept;
 ### Return value
 - A `char`
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::string toUppercase(std::string string) noexcept;

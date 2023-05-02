@@ -9,7 +9,7 @@ Calculates any root of a `xieite::math::BigInteger`.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

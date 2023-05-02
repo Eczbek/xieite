@@ -9,7 +9,7 @@ Converts an expression to a string literally.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_QUOTE(expressions...) \
@@ -18,7 +18,7 @@ Converts an expression to a string literally.
 ### Parameters
 - `expressions` - Any expressions to be expanded
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_QUOTE_PRIMITIVE(expressions...) \

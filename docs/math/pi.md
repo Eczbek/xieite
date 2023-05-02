@@ -9,7 +9,7 @@ Defines integer values of Pi.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::floating_point FloatingPoint>
@@ -18,7 +18,7 @@ constexpr FloatingPoint pi<FloatingPoint> = std::numbers::pi_v<FloatingPoint>;
 ### Template parameters
 - `FloatingPoint` - A floating point type, satisfying `std::floating_point`
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::integral Integral>

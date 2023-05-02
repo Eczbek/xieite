@@ -9,7 +9,7 @@ Rotates a 2D vector matrix by 90* up to 3 times in either direction.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename Value>

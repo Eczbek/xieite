@@ -9,7 +9,7 @@ Trims the start of a string.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -21,7 +21,7 @@ constexpr std::string trimStart(const std::string& string, char character) noexc
 ### Return value
 - A `std::string`
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

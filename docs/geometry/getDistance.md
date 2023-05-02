@@ -9,7 +9,7 @@ Calculates the distance between two points.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

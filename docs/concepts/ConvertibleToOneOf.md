@@ -9,7 +9,7 @@ Specifies that type `Any1` can be converted to at least one of `Any2...`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename Any1, typename... Any2>

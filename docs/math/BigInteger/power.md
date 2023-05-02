@@ -9,7 +9,7 @@ Raises a `xieite::math::BigInteger` to an exponent.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

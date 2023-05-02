@@ -1,11 +1,11 @@
 # [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`Integer<bits, sign>`](../../../docs/math/Integer.md)`::operator+`
 Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
 
-<br/><br/>
+<br/>
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -14,7 +14,7 @@ constexpr xieite::math::Integer<bits, sign> operator+() const noexcept;
 ### Return value
 - The unchanged `xieite::math::Integer` of `bits` and `sign`
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

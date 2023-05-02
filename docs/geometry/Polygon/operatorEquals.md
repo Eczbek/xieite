@@ -9,7 +9,7 @@ Compares two polygons to each other. Only checks that the polygons have the same
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ Constructs `xieite::terminal::Position`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr Position(int row = 0, int column = 0) noexcept;

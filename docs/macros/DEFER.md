@@ -9,7 +9,7 @@ Defers expressions to be evaluated later.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_DEFER(expressions...) \

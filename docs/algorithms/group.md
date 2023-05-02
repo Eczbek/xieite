@@ -9,7 +9,7 @@ Groups elements of a vector into a `std::unordered_map`. The resulting map's key
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::forward_iterator Iterator, std::invocable<typename std::iterator_traits<Iterator>::value_type> Callback>
@@ -26,7 +26,7 @@ std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<I
 ### Return value
 - `std::unordered_map<std::invoke_result_t<Callback(std::iterator_traits<Iterator>::value_type)>, std::vector<std::iterator_traits<Iterator>::value_type>>` - A `std::unordered_map`, of which the keys type depends on the return type of the callback, and the values type is a `std::vector` of `Iterator`'s value type
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::forward_iterator Iterator, std::invocable<typename std::iterator_traits<Iterator>::value_type, std::size_t> Callback>

@@ -9,7 +9,7 @@ Specifies that type `Any` is decayed.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename Any>

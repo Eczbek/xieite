@@ -9,7 +9,7 @@ Specifies that type `Any` is an integer or a floating point.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename Any>

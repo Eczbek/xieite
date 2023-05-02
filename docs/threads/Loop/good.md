@@ -9,7 +9,7 @@ Returns `true` if the loop is still running, and `false` if it has been stopped.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 bool good() const noexcept;

@@ -9,7 +9,7 @@ Splits a string into a vector of substrings.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -21,7 +21,7 @@ constexpr std::vector<std::string> split(const std::string& string, std::string_
 ### Return value
 - A `std::vector` of `std::string` segments
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

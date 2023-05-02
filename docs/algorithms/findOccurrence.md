@@ -9,7 +9,7 @@ Finds the pointer to a specific occurrence of a value in an iterable. If the val
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::forward_iterator Iterator, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>

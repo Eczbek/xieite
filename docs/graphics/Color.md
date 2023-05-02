@@ -9,7 +9,7 @@ A simple class for storing an RGBA value.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ### Member objects
 ```cpp
@@ -25,7 +25,7 @@ std::uint8_t blue;
 std::uint8_t alpha;
 ```
 
-<br/>
+<br/><br/>
 
 ### Member functions
 - [`Color`](../../docs/graphics/Color/constructor.md)

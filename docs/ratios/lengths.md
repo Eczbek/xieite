@@ -9,91 +9,91 @@ A colletion of ratios of meters to imperial length measurement units.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<176389, 10000000000> twip;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<254, 10000000> thou;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<84667, 10000000> barleycorn;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<254, 10000> inch;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<3048, 10000> foot;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<9144, 10000> yard;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<201168, 10000> chain;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<201168, 1000> furlong;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<1609344, 100> mile;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<4828032, 100> league;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<1852, 1000> fathom;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<1852, 10> cable;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<1852, 1> nauticalMile;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<201168, 1000000> link;
 ```
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::ratio<50292, 10000> rod;

@@ -9,7 +9,7 @@ Macros for identifying the current platform type.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__)

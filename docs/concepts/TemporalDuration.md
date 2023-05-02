@@ -9,7 +9,7 @@ Specifies that type `Any` is a `std::chrono::duration`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename Any>

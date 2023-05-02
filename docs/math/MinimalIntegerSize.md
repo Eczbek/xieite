@@ -9,7 +9,7 @@ Determines the minimal signed integer type for any reasonable amount of bits. Us
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::size_t bits>

@@ -1,11 +1,11 @@
 # [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::operator/`
 Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
 
-<br/><br/>
+<br/>
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -16,7 +16,7 @@ constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& bigIn
 ### Return value
 - A `std::strong_ordering`
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

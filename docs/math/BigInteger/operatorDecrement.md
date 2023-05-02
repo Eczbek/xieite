@@ -1,11 +1,11 @@
 # [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::operator--`
 Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
 
-<br/><br/>
+<br/>
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr xieite::math::BigInteger& operator--() noexcept;
@@ -13,7 +13,7 @@ constexpr xieite::math::BigInteger& operator--() noexcept;
 ### Return value
 - The `xieite::math::BigInteger`
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr xieite::math::BigInteger& operator--(int) noexcept;

@@ -9,7 +9,7 @@ Destructs a `xieite::threads::Interval`, stops further callbacks.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 ~Interval();

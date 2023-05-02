@@ -9,7 +9,7 @@ Asserts an expression, either at compile-time or run-time.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_ASSERT(booleanExpression, stringLiteral) \

@@ -9,7 +9,7 @@ Uses magic to steal private members of classes.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_THIEF_EXPOSE(target, id) \
@@ -25,7 +25,7 @@ Uses magic to steal private members of classes.
 - `item` - A reference or pointer to the member to steal
 - `id` - An simple ID for this operation
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_THIEF_STEAL(victim, id) \

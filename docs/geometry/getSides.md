@@ -9,7 +9,7 @@ Creates line segments between the points of a polygon.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

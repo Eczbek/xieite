@@ -9,7 +9,7 @@ Generates a UUID. Compile with `-luuid`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 inline std::string getUUID() noexcept;

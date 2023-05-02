@@ -9,7 +9,7 @@ Specifies that type `Any` is an aggregate.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename Any>

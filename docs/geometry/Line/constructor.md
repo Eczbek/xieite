@@ -9,7 +9,7 @@ Constructs a `xieite::geometry::Line`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
@@ -18,7 +18,7 @@ constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexc
 - `start` - A `xieite::geometry::Point` copy, one intersection through which the infinite line passes
 - `end` - A `xieite::geometry::Point` copy, another intersection through which the infinite line passes
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr Line(xieite::geometry::Point start, double angle) noexcept;

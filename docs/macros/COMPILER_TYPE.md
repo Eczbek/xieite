@@ -9,7 +9,7 @@ Macros for identifying the current compiler type.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 #if defined(__GNUC__)

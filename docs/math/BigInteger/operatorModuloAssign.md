@@ -1,11 +1,11 @@
 # [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::operator%=`
 Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
 
-<br/><br/>
+<br/>
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr xieite::math::BigInteger& operator%=(const xieite::math::BigInteger& bigInteger) noexcept;
@@ -15,7 +15,7 @@ constexpr xieite::math::BigInteger& operator%=(const xieite::math::BigInteger& b
 ### Return value
 - The `xieite::math::BigInteger`
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr xieite::math::BigInteger& operator%=(std::integral auto value) noexcept;

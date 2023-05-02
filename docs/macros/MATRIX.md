@@ -9,7 +9,7 @@ Creates a multidimensional vector matrix.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_MATRIX(type, dimensions) \

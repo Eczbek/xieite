@@ -9,7 +9,7 @@ Concatenates two expressions literally.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_CONCATENATE(expression1, expression2) \
@@ -19,7 +19,7 @@ Concatenates two expressions literally.
 - `expression1` - Any expression to be expanded
 - `expression2` - Any expression to be expanded
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2) \

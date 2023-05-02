@@ -9,7 +9,7 @@ Enables or disables canonical mode. When it is disabled, the input is read by by
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 void setCanonical(bool value) noexcept;

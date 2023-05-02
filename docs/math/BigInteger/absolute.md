@@ -9,7 +9,7 @@ Gets the absolute value of a `xieite::math::BigInteger`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

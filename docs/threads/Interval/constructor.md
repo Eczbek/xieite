@@ -9,7 +9,7 @@ Constructs a `xieite::threads::Interval`, starts running a callback between set 
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::invocable<> Invocable>

@@ -9,7 +9,7 @@ Selects iterators and then reverses them in their same overall positions.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::forward_iterator Iterator>

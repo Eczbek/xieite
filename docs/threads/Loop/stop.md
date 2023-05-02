@@ -9,7 +9,7 @@ Stops a `xieite::threads::Loop`, and further callback calls.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 void stop() noexcept;

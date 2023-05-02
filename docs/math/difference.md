@@ -9,7 +9,7 @@ Calculates the absolute difference between two values. Handles some edge cases.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::integral Integral>
@@ -24,7 +24,7 @@ constexpr std::make_unsigned<Integral> difference(Integral a, Integral b) noexce
 ### Return value
 - A `std::make_unsigned` of `Integral`, the absolute difference between `a` and `b`
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::floating_point FloatingPoint>

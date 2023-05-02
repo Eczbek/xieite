@@ -9,7 +9,7 @@ Returns `true` if the interval is still running, and `false` if it has been stop
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 bool good() const noexcept;

@@ -9,7 +9,7 @@ Using a variant of the binary search algorithm, finds the lowest value which, if
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>
@@ -25,7 +25,7 @@ constexpr Number numberSearch(xieite::concepts::CallbackSelector<Number> auto&& 
 ### Return value
 - A `Number`, the lowest value allowed by the callback
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number, xieite::concepts::CallbackSelector<Number> Callback>
