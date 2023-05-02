@@ -10,4 +10,5 @@
 #include <xieite/macros/QUOTE.hpp>
 #include <xieite/macros/REPEAT_CONCATENATE.hpp>
 #include <xieite/macros/REPEAT.hpp>
+#include <xieite/macros/THIEF.hpp>
 #include <xieite/macros/VANISH.hpp>
