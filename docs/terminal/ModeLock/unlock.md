@@ -9,7 +9,7 @@ Disables raw mode. Restores terminal settings which were saved in the constructo
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 void unlock() noexcept;

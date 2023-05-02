@@ -1,11 +1,11 @@
 # [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::operator/`
 Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
 
-<br/><br/>
+<br/>
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -16,7 +16,7 @@ constexpr bool operator==(const xieite::math::BigInteger& bigInteger) const noex
 ### Return value
 - A `bool`, whether or not the two values are equal
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

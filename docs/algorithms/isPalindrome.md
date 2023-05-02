@@ -9,7 +9,7 @@ Checks if an iterable is the same backwards as it is forwards. Uses `std::equal_
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::forward_iterator Iterator, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>

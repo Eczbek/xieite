@@ -9,7 +9,7 @@ Destructs `xieite::terminal::ModeLock` and disables its effects.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 ~ModeLock();

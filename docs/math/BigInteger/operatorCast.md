@@ -9,7 +9,7 @@ Casts a `xieite::math::BigInteger` to any other arithmetic type.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>
@@ -19,7 +19,7 @@ constexpr operator Number() const noexcept;
 ### Template parameters
 - `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ Calculates the length of a linear shape.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -20,7 +20,7 @@ constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 ### Return value
 - `double` - The distance between the segment's ends
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ Defined in header [`<xieite/string/hash.hpp>`](../../include/xieite/string/hash.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

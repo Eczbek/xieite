@@ -9,7 +9,7 @@ Specifies that type `Invocable` is a comparator callback which accepts two `Argu
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename Invocable, typename Argument>

@@ -9,7 +9,7 @@ Calculates the area of a shape.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

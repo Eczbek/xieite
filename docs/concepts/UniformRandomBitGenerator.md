@@ -9,7 +9,7 @@ Specifies that type `Any` is a uniform random bit generator.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename Any>

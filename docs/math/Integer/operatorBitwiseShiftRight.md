@@ -1,11 +1,11 @@
 # [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`Integer<bits, sign>`](../../../docs/math/Integer.md)`::operator>>`
 Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
 
-<br/><br/>
+<br/>
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -16,7 +16,7 @@ constexpr xieite::math::Integer<bits, sign> operator>>(std::size_t distance) con
 ### Return value
 - A `xieite::math::Integer` of `bits` and `sign`
 
-<br/>
+<br/><br/>
 
 ```cpp
 friend constexpr std::ostream& operator>>(std::ostream& inStream, xieite::math::Integer<bits, sign>& self) noexcept;

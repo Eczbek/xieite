@@ -9,7 +9,7 @@ Stops a `xieite::threads::Timeout` and its callback call. Returns execution to t
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 void stop() noexcept;

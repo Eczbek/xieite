@@ -9,7 +9,7 @@ Enables or disables text blinking.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::string setTextBlink(bool value) noexcept;

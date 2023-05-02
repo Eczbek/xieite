@@ -9,7 +9,7 @@ Macros for identifying the version of the current compiler.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_COMPILER_VERSION_MAJOR 0

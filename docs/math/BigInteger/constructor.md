@@ -9,7 +9,7 @@ Constructs a `xieite::math::BigInteger`.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::integral Number>
@@ -18,7 +18,7 @@ constexpr BigInteger(Number value = 0) noexcept;
 ### Parameters
 - `value` - An `auto` copy, satisfying `std::integral`
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr BigInteger(const xieite::math::BigInteger& bigInteger) noexcept;
@@ -26,7 +26,7 @@ constexpr BigInteger(const xieite::math::BigInteger& bigInteger) noexcept;
 ### Parameters
 - `bigInteger` - A `xieite::math::BigInteger` constant reference
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr BigInteger(const std::vector<bool>& bits, bool sign = false) noexcept;
@@ -35,7 +35,7 @@ constexpr BigInteger(const std::vector<bool>& bits, bool sign = false) noexcept;
 - `bits` - A `std::span` of `bool`s
 - `sign` - A `bool` copy, determines whether the value is negative or positive
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr BigInteger(std::string_view value);

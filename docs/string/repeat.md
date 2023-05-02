@@ -9,7 +9,7 @@ Repeats a string.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

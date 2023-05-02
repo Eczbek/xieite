@@ -9,7 +9,7 @@ Selects the value farthest from a target.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>
@@ -25,7 +25,7 @@ constexpr Number& farthestFrom(Number target, Number& a, Number& b) noexcept;
 ### Return value
 - A `Number` reference to whichever of `a` and `b` has the greatest difference from `target`
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>

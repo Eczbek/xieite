@@ -9,7 +9,7 @@ Selects the value closest to a target.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>
@@ -25,7 +25,7 @@ constexpr Number& closestTo(Number target, Number& a, Number& b) noexcept;
 ### Return value
 - A `Number` reference to whichever of `a` or `b` has the least difference from `target`
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>

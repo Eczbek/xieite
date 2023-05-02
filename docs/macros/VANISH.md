@@ -9,7 +9,7 @@ Uses magic to remove any line where it is mentioned (see example).
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 #define XIEITE_VANISH \

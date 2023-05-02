@@ -9,7 +9,7 @@ Checks whether a point lies within or on the border of a shape.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -21,7 +21,7 @@ constexpr bool containsPoint(const xieite::geometry::Line& line, xieite::geometr
 ### Return value
 - `bool` - Whether or not the point lies within the shape
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -33,7 +33,7 @@ constexpr bool containsPoint(const xieite::geometry::Ray& ray, xieite::geometry:
 ### Return value
 - `bool` - Whether or not the point lies within the shape
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -45,7 +45,7 @@ constexpr bool containsPoint(const xieite::geometry::Segment& segment, xieite::g
 ### Return value
 - `bool` - Whether or not the point lies within the shape
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

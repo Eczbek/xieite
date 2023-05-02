@@ -9,7 +9,7 @@ Sets the terminal cursor's position.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::string setCursorPosition(xieite::terminal::Position position) noexcept;

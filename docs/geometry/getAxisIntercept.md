@@ -9,7 +9,7 @@ Finds a point where a line intercepts an axis of `origin`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

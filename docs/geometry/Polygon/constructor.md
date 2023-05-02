@@ -9,7 +9,7 @@ Constructs a `xieite::geometry::Polygon`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr Polygon(std::span<xieite::geometry::Point> points) noexcept;

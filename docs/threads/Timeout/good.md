@@ -9,7 +9,7 @@ Returns `true` if the timeout is still waiting, and `false` if it has been stopp
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 bool good() const noexcept;

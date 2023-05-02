@@ -9,7 +9,7 @@ Calculates the angle of a line or between two points, in radians.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -21,7 +21,7 @@ constexpr double getAngle(xieite::geometry::Point point1, xieite::geometry::Poin
 ### Return value
 - `double` - The angle between two points
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

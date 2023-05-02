@@ -9,7 +9,7 @@ Combines two hashes.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ Runs a callback every set amount of time. Compile with `-pthread`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ### Member functions
 - [`Interval`](../../docs/threads/Interval/constructor.md)
@@ -17,7 +17,7 @@ Runs a callback every set amount of time. Compile with `-pthread`.
 - [`good`](../../docs/threads/Interval/good.md)
 - [`stop`](../../docs/threads/Interval/stop.md)
 
-<br/><br/>
+<br/>
 
 ## Example
 ```cpp

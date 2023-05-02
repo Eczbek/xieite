@@ -9,7 +9,7 @@ Enables or disables text **boldness**.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::string setTextBold(bool value) noexcept;

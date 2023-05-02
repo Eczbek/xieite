@@ -9,7 +9,7 @@ A boolean representing whether an arithmetic type and two `std::intmax_t` values
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<typename>
@@ -18,7 +18,7 @@ constexpr bool isTemporalDuration = false;
 ### Template parameters
 - Unconstrained parameter
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intmax_t denominator>

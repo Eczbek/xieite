@@ -9,7 +9,7 @@ Enables or disables input signals. Specifically, disables the special functions 
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 void setSignals(bool value) noexcept;

@@ -9,20 +9,20 @@ A struct representing a polygon.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ### Member objects
 ```cpp
 std::vector<xieite::geometry::Point> points;
 ```
 
-<br/>
+<br/><br/>
 
 ### Member functions
 - [`Polygon`](../../docs/geometry/Polygon/constructor.md)
 - [`operator==`](../../docs/geometry/Polygon/operatorEquals.md)
 
-<br/><br/>
+<br/>
 
 ## Example
 ```cpp

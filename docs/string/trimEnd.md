@@ -9,7 +9,7 @@ Trims the end of a string.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -21,7 +21,7 @@ constexpr std::string trimEnd(const std::string& string, char character) noexcep
 ### Return value
 - A `std::string`
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

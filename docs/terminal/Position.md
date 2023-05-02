@@ -9,7 +9,7 @@ A class for storing a position in the terminal.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ### Member objects
 ```cpp
@@ -19,7 +19,7 @@ int row;
 int column;
 ```
 
-<br/>
+<br/><br/>
 
 ### Member functions
 - [`Position`](../../docs/terminal/Position/constructor.md)

@@ -1,11 +1,11 @@
 # [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`Integer<bits, sign>`](../../../docs/math/Integer.md)`::operator*`
 Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
 
-<br/><br/>
+<br/>
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

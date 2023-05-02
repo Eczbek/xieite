@@ -9,7 +9,7 @@ Calculates the slope of a line or between two points.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
@@ -21,7 +21,7 @@ constexpr double getSlope(xieite::geometry::Point point1, xieite::geometry::Poin
 ### Return value
 - A `double`, the slope between the passed points, in radians
 
-<br/>
+<br/><br/>
 
 ```cpp
 [[nodiscard]]

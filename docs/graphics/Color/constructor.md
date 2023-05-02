@@ -9,7 +9,7 @@ Constructs a `xieite::graphics::Color`.
 
 ## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr Color(std::uint8_t red, std::uint8_t green, std::uint8_t blue, std::uint8_t alpha = std::numeric_limits<std::uint8_t>::max()) noexcept;
@@ -20,7 +20,7 @@ constexpr Color(std::uint8_t red, std::uint8_t green, std::uint8_t blue, std::ui
 - `blue` - A `std::uint8_t` copy
 - `alpha` - A `std::uint8_t` copy, set to `255` by default
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr Color(std::uint32_t value) noexcept;

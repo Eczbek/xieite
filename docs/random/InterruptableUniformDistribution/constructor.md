@@ -9,7 +9,7 @@ Constructs a `xieite::random::InterruptableUniformDistribution`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 InterruptableUniformDistribution(Number begin, Number end, std::span<std::pair<Number, Number>> interruptions);

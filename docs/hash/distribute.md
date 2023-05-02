@@ -1,11 +1,11 @@
 # [`xieite`](../../README.md)`::`[`hash`](../../docs/hash.md)`::distribute`
 Defined in header [`<xieite/hash/distribute.hpp>`](../../include/xieite/hash/distribute.hpp)
 
-<br/><br/>
+<br/>
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::unsigned_integral UnsignedIntegral>

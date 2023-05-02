@@ -9,7 +9,7 @@ Converts an integer to a string in any base. Doubles as a compile-time method of
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::integral Integral = int>

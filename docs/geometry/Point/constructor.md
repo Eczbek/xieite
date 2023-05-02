@@ -9,7 +9,7 @@ Constructs a `xieite::geometry::Point`.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr Point(double x = 0.0, double y = 0.0) noexcept;

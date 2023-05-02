@@ -9,7 +9,7 @@ A struct representing an infinite ray with one end.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ### Member objects
 ```cpp
@@ -19,13 +19,13 @@ xieite::geometry::Point start;
 xieite::geometry::Point end;
 ```
 
-<br/>
+<br/><br/>
 
 ### Member functions
 - [`Ray`](../../docs/geometry/Ray/constructor.md)
 - [`operator==`](../../docs/geometry/Ray/operatorEquals.md)
 
-<br/><br/>
+<br/>
 
 ## Example
 ```cpp

@@ -9,7 +9,7 @@ Enables or disables the "dimming" of foreground and background colors.
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 constexpr std::string setColorDim(bool value) noexcept;

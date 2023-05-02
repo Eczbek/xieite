@@ -9,7 +9,7 @@ Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ```cpp
 template<std::invocable<> Invocable>
