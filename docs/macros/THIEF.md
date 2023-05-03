@@ -12,14 +12,14 @@ Uses magic to steal private members of classes.
 <br/><br/>
 
 ```cpp
-#define XIEITE_THIEF_EXPOSE(target, id) \
+#define XIEITE_THIEF_EXPOSE(item, id) \
 	constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)(); \
 	template<auto pointer> struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id) { \
 		friend constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)() { \
 			return pointer; \
 		} \
 	}; \
-	template struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id)<&target>;
+	template struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id)<&item>;
 ```
 ### Parameters
 - `item` - A reference or pointer to the member to steal
