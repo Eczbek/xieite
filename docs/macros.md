@@ -21,9 +21,10 @@ A collection of macros.
 ## Function macros
 - [`ASSERT`](../docs/macros/ASSERT.md)
 - [`CONCATENATE...`](../docs/macros/CONCATENATE.md)
-- [`DEFER`](../docs/macros/DEFER.md)
+- [`LOOP`](../docs/macros/LOOP.md)
 - [`MATRIX`](../docs/macros/MATRIX.md)
 - [`QUOTE...`](../docs/macros/QUOTE.md)
 - [`REPEAT`](../docs/macros/REPEAT.md)
 - [`REPEAT_CONCATENATE`](../docs/macros/REPEAT_CONCATENATE.md)
+- [`SCAN`](../docs/macros/SCAN.md)
 - [`THIEF_...`](../docs/macros/THIEF.md)

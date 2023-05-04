@@ -3,7 +3,7 @@ Defined in header [`<xieite/macros/REPEAT.hpp>`](../../include/xieite/macros/REP
 
 <br/>
 
-Repeats an expression literally. Maximum repetition count is 255.
+Repeats an expression literally.
 
 <br/><br/>
 
@@ -12,9 +12,9 @@ Repeats an expression literally. Maximum repetition count is 255.
 <br/><br/>
 
 ```cpp
-#define XIEITE_REPEAT(expression, count) \
-	XIEITE_CONCATENATE(XIEITE_INTERNAL_REPEAT_, count)(expression)
+#define XIEITE_REPEAT(count, expression) \
+	XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT, , expression)
 ```
 ### Parameters
+- `count` - An unsigned value between 0 and 32767, inclusively
 - `expression` - Any expression
-- `count` - An unsigned 8-bit value
