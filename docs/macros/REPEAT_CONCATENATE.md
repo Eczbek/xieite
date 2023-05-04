@@ -3,7 +3,7 @@ Defined in header [`<xieite/macros/REPEAT_CONCATENATE.hpp>`](../../include/xieit
 
 <br/>
 
-Repeats the concatenation of an expression with itself. Maximum repetition count is 255.
+Repeats the concatenation of an expression with itself.
 
 <br/><br/>
 
@@ -12,12 +12,12 @@ Repeats the concatenation of an expression with itself. Maximum repetition count
 <br/><br/>
 
 ```cpp
-#define XIEITE_REPEAT_CONCATENATE(expression, count) \
-	XIEITE_CONCATENATE(XIEITE_INTERNAL_REPEAT_CONCATENATE_, count)(expression)
+#define XIEITE_REPEAT_CONCATENATE(count, expression) \
+	XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT_CONCATENATE, , expression)
 ```
 ### Parameters
+- `count` - An unsigned value between 0 and 32767, inclusively
 - `expression` - Any expression
-- `count` - An unsigned 8-bit value
 
 <br/><br/>
 
