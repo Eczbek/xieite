@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-namespace xieite::string {
+namespace xieite::strings {
 	[[nodiscard]]
 	constexpr std::string trimEnd(const std::string& string, const char character) noexcept {
 		for (std::size_t i = string.size(); i--;) {

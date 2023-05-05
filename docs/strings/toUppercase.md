@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::toUppercase`
-Defined in header [`<xieite/string/toUppercase.hpp>`](../../include/xieite/string/toUppercase.hpp)
+# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::toUppercase`
+Defined in header [`<xieite/strings/toUppercase.hpp>`](../../include/xieite/strings/toUppercase.hpp)
 
 <br/>
 
@@ -34,10 +34,10 @@ constexpr std::string toUppercase(std::string string) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/string/toUppercase.hpp>
+#include <xieite/strings/toUppercase.hpp>
 
 int main() {
-	std::cout << xieite::string::toUppercase("hello, world!\n");
+	std::cout << xieite::strings::toUppercase("hello, world!\n");
 }
 ```
 Output:

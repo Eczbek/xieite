@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`hash`](../../docs/hash.md)`::combine`
-Defined in header [`<xieite/hash/combine.hpp>`](../../include/xieite/hash/combine.hpp)
+# [`xieite`](../../README.md)`::`[`hashes`](../../docs/hashes.md)`::combine`
+Defined in header [`<xieite/hashes/combine.hpp>`](../../include/xieite/hashes/combine.hpp)
 
 <br/>
 
@@ -27,7 +27,7 @@ constexpr std::size_t combine(std::size_t value1, std::size_t value2) noexcept;
 ```cpp
 #include <functional>
 #include <iostream>
-#include <xieite/hash/combine.hpp>
+#include <xieite/hashes/combine.hpp>
 
 int main() {
 	std::size_t hash1 = std::hash<std::string>()("Hello, ");
@@ -38,7 +38,7 @@ int main() {
 		<< '\n'
 		<< hash2
 		<< '\n'
-		<< xieite::hash::combine(hash1, hash2)
+		<< xieite::hashes::combine(hash1, hash2)
 		<< '\n';
 }
 ```

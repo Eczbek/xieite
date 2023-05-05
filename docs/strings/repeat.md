@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::repeat`
-Defined in header [`<xieite/string/repeat.hpp>`](../../include/xieite/string/repeat.hpp)
+# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::repeat`
+Defined in header [`<xieite/strings/repeat.hpp>`](../../include/xieite/strings/repeat.hpp)
 
 <br/>
 
@@ -26,10 +26,10 @@ constexpr std::string repeat(std::string_view string, std::size_t count) noexcep
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/string/repeat.hpp>
+#include <xieite/strings/repeat.hpp>
 
 int main() {
-	std::cout << xieite::string::repeat("Hello, world!\n", 3);
+	std::cout << xieite::strings::repeat("Hello, world!\n", 3);
 }
 ```
 Output:

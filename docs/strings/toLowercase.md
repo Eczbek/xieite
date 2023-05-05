@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::toLowercase`
-Defined in header [`<xieite/string/toLowercase.hpp>`](../../include/xieite/string/toLowercase.hpp)
+# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::toLowercase`
+Defined in header [`<xieite/strings/toLowercase.hpp>`](../../include/xieite/strings/toLowercase.hpp)
 
 <br/>
 
@@ -34,10 +34,10 @@ constexpr std::string toLowercase(std::string string) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/string/toLowercase.hpp>
+#include <xieite/strings/toLowercase.hpp>
 
 int main() {
-	std::cout << xieite::string::toLowercase("HELLO, WORLD!\n");
+	std::cout << xieite::strings::toLowercase("HELLO, WORLD!\n");
 }
 ```
 Output:

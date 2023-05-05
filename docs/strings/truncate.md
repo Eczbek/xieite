@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::truncate`
-Defined in header [`<xieite/string/truncate.hpp>`](../../include/xieite/string/truncate.hpp)
+# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::truncate`
+Defined in header [`<xieite/strings/truncate.hpp>`](../../include/xieite/strings/truncate.hpp)
 
 <br/>
 
@@ -27,10 +27,10 @@ constexpr std::string truncate(const std::string& string, std::size_t length, co
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/string/truncate.hpp>
+#include <xieite/strings/truncate.hpp>
 
 int main() {
-	std::cout << xieite::string::truncate("Hello, world!", 8, "...") << '\n';
+	std::cout << xieite::strings::truncate("Hello, world!", 8, "...") << '\n';
 }
 ```
 Output:

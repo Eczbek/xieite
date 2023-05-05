@@ -5,7 +5,7 @@
 #include <string_view>
 #include <vector>
 
-namespace xieite::string {
+namespace xieite::strings {
 	[[nodiscard]]
 	constexpr std::vector<std::string> split(const std::string& string, const std::string_view delimiter = "") noexcept {
 		std::vector<std::string> segments;
@@ -24,6 +24,6 @@ namespace xieite::string {
 
 	[[nodiscard]]
 	constexpr std::vector<std::string> split(const std::string& string, const char delimiter) noexcept {
-		return xieite::string::split(string, std::string(1, delimiter));
+		return xieite::strings::split(string, std::string(1, delimiter));
 	}
 }
