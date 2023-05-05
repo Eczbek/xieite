@@ -19,6 +19,7 @@ Add the `include` directory to your project.
 - [`algorithms`](./docs/algorithms.md)
 - [`concepts`](./docs/concepts.md)
 - [`errors`](./docs/errors.md)
+- [`functions`](./docs/functions.md)
 - [`geometry`](./docs/geometry.md)
 - [`graphics`](./docs/graphics.md)
 - [`hashes`](./docs/hashes.md)
