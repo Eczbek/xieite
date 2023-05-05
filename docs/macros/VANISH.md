@@ -3,7 +3,7 @@ Defined in header [`<xieite/macros/VANISH.hpp>`](../../include/xieite/macros/VAN
 
 <br/>
 
-Uses magic to remove any line where it is mentioned (see example).
+Uses cursed C++ magic to remove any line where it is mentioned (see example).
 
 <br/><br/>
 

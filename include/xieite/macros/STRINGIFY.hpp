@@ -1,0 +1,7 @@
+#pragma once
+
+#define XIEITE_STRINGIFY(...) \
+	XIEITE_INTERNAL_STRINGIFY(__VA_ARGS__)
+
+#define XIEITE_INTERNAL_STRINGIFY(...) \
+	#__VA_ARGS__

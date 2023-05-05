@@ -2,772 +2,773 @@
 
 #include <xieite/macros/CONCATENATE.hpp>
 
-#define XIEITE_LOOP(count, callback, initial, arguments...) \
-	XIEITE_CONCATENATE(XIEITE_INTERNAL_LOOP_, count)(callback, initial, arguments...)
+#define XIEITE_LOOP(count, macro, initial, ...) \
+	XIEITE_CONCATENATE(XIEITE_INTERNAL_LOOP_, count)(macro, initial, ...)
 
-#define XIEITE_INTERNAL_LOOP_0(callback, previous, arguments...)
+#define XIEITE_INTERNAL_LOOP_0(macro, initial, ...) \
+	initial
 
-#define XIEITE_INTERNAL_LOOP_1(callback, previous, arguments...) \
-	callback(0, previous, arguments)
+#define XIEITE_INTERNAL_LOOP_1(macro, initial, ...) \
+	macro(1, XIEITE_INTERNAL_LOOP_0(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_2(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_1(callback, callback(1, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_2(macro, initial, ...) \
+	macro(2, XIEITE_INTERNAL_LOOP_1(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_3(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_2(callback, callback(2, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_3(macro, initial, ...) \
+	macro(3, XIEITE_INTERNAL_LOOP_2(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_4(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_3(callback, callback(3, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_4(macro, initial, ...) \
+	macro(4, XIEITE_INTERNAL_LOOP_3(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_5(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_4(callback, callback(4, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_5(macro, initial, ...) \
+	macro(5, XIEITE_INTERNAL_LOOP_4(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_6(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_5(callback, callback(5, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_6(macro, initial, ...) \
+	macro(6, XIEITE_INTERNAL_LOOP_5(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_7(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_6(callback, callback(6, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_7(macro, initial, ...) \
+	macro(7, XIEITE_INTERNAL_LOOP_6(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_8(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_7(callback, callback(7, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_8(macro, initial, ...) \
+	macro(8, XIEITE_INTERNAL_LOOP_7(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_9(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_8(callback, callback(8, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_9(macro, initial, ...) \
+	macro(9, XIEITE_INTERNAL_LOOP_8(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_10(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_9(callback, callback(9, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_10(macro, initial, ...) \
+	macro(10, XIEITE_INTERNAL_LOOP_9(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_11(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_10(callback, callback(10, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_11(macro, initial, ...) \
+	macro(11, XIEITE_INTERNAL_LOOP_10(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_12(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_11(callback, callback(11, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_12(macro, initial, ...) \
+	macro(12, XIEITE_INTERNAL_LOOP_11(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_13(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_12(callback, callback(12, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_13(macro, initial, ...) \
+	macro(13, XIEITE_INTERNAL_LOOP_12(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_14(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_13(callback, callback(13, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_14(macro, initial, ...) \
+	macro(14, XIEITE_INTERNAL_LOOP_13(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_15(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_14(callback, callback(14, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_15(macro, initial, ...) \
+	macro(15, XIEITE_INTERNAL_LOOP_14(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_16(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_15(callback, callback(15, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_16(macro, initial, ...) \
+	macro(16, XIEITE_INTERNAL_LOOP_15(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_17(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_16(callback, callback(16, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_17(macro, initial, ...) \
+	macro(17, XIEITE_INTERNAL_LOOP_16(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_18(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_17(callback, callback(17, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_18(macro, initial, ...) \
+	macro(18, XIEITE_INTERNAL_LOOP_17(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_19(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_18(callback, callback(18, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_19(macro, initial, ...) \
+	macro(19, XIEITE_INTERNAL_LOOP_18(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_20(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_19(callback, callback(19, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_20(macro, initial, ...) \
+	macro(20, XIEITE_INTERNAL_LOOP_19(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_21(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_20(callback, callback(20, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_21(macro, initial, ...) \
+	macro(21, XIEITE_INTERNAL_LOOP_20(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_22(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_21(callback, callback(21, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_22(macro, initial, ...) \
+	macro(22, XIEITE_INTERNAL_LOOP_21(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_23(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_22(callback, callback(22, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_23(macro, initial, ...) \
+	macro(23, XIEITE_INTERNAL_LOOP_22(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_24(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_23(callback, callback(23, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_24(macro, initial, ...) \
+	macro(24, XIEITE_INTERNAL_LOOP_23(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_25(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_24(callback, callback(24, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_25(macro, initial, ...) \
+	macro(25, XIEITE_INTERNAL_LOOP_24(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_26(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_25(callback, callback(25, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_26(macro, initial, ...) \
+	macro(26, XIEITE_INTERNAL_LOOP_25(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_27(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_26(callback, callback(26, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_27(macro, initial, ...) \
+	macro(27, XIEITE_INTERNAL_LOOP_26(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_28(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_27(callback, callback(27, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_28(macro, initial, ...) \
+	macro(28, XIEITE_INTERNAL_LOOP_27(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_29(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_28(callback, callback(28, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_29(macro, initial, ...) \
+	macro(29, XIEITE_INTERNAL_LOOP_28(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_30(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_29(callback, callback(29, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_30(macro, initial, ...) \
+	macro(30, XIEITE_INTERNAL_LOOP_29(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_31(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_30(callback, callback(30, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_31(macro, initial, ...) \
+	macro(31, XIEITE_INTERNAL_LOOP_30(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_32(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_31(callback, callback(31, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_32(macro, initial, ...) \
+	macro(32, XIEITE_INTERNAL_LOOP_31(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_33(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_32(callback, callback(32, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_33(macro, initial, ...) \
+	macro(33, XIEITE_INTERNAL_LOOP_32(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_34(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_33(callback, callback(33, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_34(macro, initial, ...) \
+	macro(34, XIEITE_INTERNAL_LOOP_33(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_35(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_34(callback, callback(34, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_35(macro, initial, ...) \
+	macro(35, XIEITE_INTERNAL_LOOP_34(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_36(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_35(callback, callback(35, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_36(macro, initial, ...) \
+	macro(36, XIEITE_INTERNAL_LOOP_35(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_37(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_36(callback, callback(36, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_37(macro, initial, ...) \
+	macro(37, XIEITE_INTERNAL_LOOP_36(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_38(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_37(callback, callback(37, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_38(macro, initial, ...) \
+	macro(38, XIEITE_INTERNAL_LOOP_37(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_39(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_38(callback, callback(38, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_39(macro, initial, ...) \
+	macro(39, XIEITE_INTERNAL_LOOP_38(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_40(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_39(callback, callback(39, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_40(macro, initial, ...) \
+	macro(40, XIEITE_INTERNAL_LOOP_39(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_41(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_40(callback, callback(40, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_41(macro, initial, ...) \
+	macro(41, XIEITE_INTERNAL_LOOP_40(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_42(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_41(callback, callback(41, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_42(macro, initial, ...) \
+	macro(42, XIEITE_INTERNAL_LOOP_41(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_43(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_42(callback, callback(42, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_43(macro, initial, ...) \
+	macro(43, XIEITE_INTERNAL_LOOP_42(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_44(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_43(callback, callback(43, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_44(macro, initial, ...) \
+	macro(44, XIEITE_INTERNAL_LOOP_43(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_45(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_44(callback, callback(44, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_45(macro, initial, ...) \
+	macro(45, XIEITE_INTERNAL_LOOP_44(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_46(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_45(callback, callback(45, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_46(macro, initial, ...) \
+	macro(46, XIEITE_INTERNAL_LOOP_45(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_47(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_46(callback, callback(46, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_47(macro, initial, ...) \
+	macro(47, XIEITE_INTERNAL_LOOP_46(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_48(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_47(callback, callback(47, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_48(macro, initial, ...) \
+	macro(48, XIEITE_INTERNAL_LOOP_47(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_49(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_48(callback, callback(48, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_49(macro, initial, ...) \
+	macro(49, XIEITE_INTERNAL_LOOP_48(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_50(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_49(callback, callback(49, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_50(macro, initial, ...) \
+	macro(50, XIEITE_INTERNAL_LOOP_49(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_51(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_50(callback, callback(50, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_51(macro, initial, ...) \
+	macro(51, XIEITE_INTERNAL_LOOP_50(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_52(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_51(callback, callback(51, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_52(macro, initial, ...) \
+	macro(52, XIEITE_INTERNAL_LOOP_51(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_53(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_52(callback, callback(52, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_53(macro, initial, ...) \
+	macro(53, XIEITE_INTERNAL_LOOP_52(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_54(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_53(callback, callback(53, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_54(macro, initial, ...) \
+	macro(54, XIEITE_INTERNAL_LOOP_53(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_55(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_54(callback, callback(54, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_55(macro, initial, ...) \
+	macro(55, XIEITE_INTERNAL_LOOP_54(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_56(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_55(callback, callback(55, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_56(macro, initial, ...) \
+	macro(56, XIEITE_INTERNAL_LOOP_55(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_57(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_56(callback, callback(56, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_57(macro, initial, ...) \
+	macro(57, XIEITE_INTERNAL_LOOP_56(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_58(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_57(callback, callback(57, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_58(macro, initial, ...) \
+	macro(58, XIEITE_INTERNAL_LOOP_57(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_59(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_58(callback, callback(58, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_59(macro, initial, ...) \
+	macro(59, XIEITE_INTERNAL_LOOP_58(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_60(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_59(callback, callback(59, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_60(macro, initial, ...) \
+	macro(60, XIEITE_INTERNAL_LOOP_59(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_61(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_60(callback, callback(60, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_61(macro, initial, ...) \
+	macro(61, XIEITE_INTERNAL_LOOP_60(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_62(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_61(callback, callback(61, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_62(macro, initial, ...) \
+	macro(62, XIEITE_INTERNAL_LOOP_61(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_63(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_62(callback, callback(62, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_63(macro, initial, ...) \
+	macro(63, XIEITE_INTERNAL_LOOP_62(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_64(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_63(callback, callback(63, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_64(macro, initial, ...) \
+	macro(64, XIEITE_INTERNAL_LOOP_63(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_65(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_64(callback, callback(64, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_65(macro, initial, ...) \
+	macro(65, XIEITE_INTERNAL_LOOP_64(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_66(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_65(callback, callback(65, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_66(macro, initial, ...) \
+	macro(66, XIEITE_INTERNAL_LOOP_65(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_67(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_66(callback, callback(66, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_67(macro, initial, ...) \
+	macro(67, XIEITE_INTERNAL_LOOP_66(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_68(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_67(callback, callback(67, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_68(macro, initial, ...) \
+	macro(68, XIEITE_INTERNAL_LOOP_67(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_69(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_68(callback, callback(68, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_69(macro, initial, ...) \
+	macro(69, XIEITE_INTERNAL_LOOP_68(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_70(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_69(callback, callback(69, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_70(macro, initial, ...) \
+	macro(70, XIEITE_INTERNAL_LOOP_69(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_71(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_70(callback, callback(70, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_71(macro, initial, ...) \
+	macro(71, XIEITE_INTERNAL_LOOP_70(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_72(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_71(callback, callback(71, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_72(macro, initial, ...) \
+	macro(72, XIEITE_INTERNAL_LOOP_71(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_73(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_72(callback, callback(72, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_73(macro, initial, ...) \
+	macro(73, XIEITE_INTERNAL_LOOP_72(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_74(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_73(callback, callback(73, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_74(macro, initial, ...) \
+	macro(74, XIEITE_INTERNAL_LOOP_73(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_75(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_74(callback, callback(74, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_75(macro, initial, ...) \
+	macro(75, XIEITE_INTERNAL_LOOP_74(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_76(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_75(callback, callback(75, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_76(macro, initial, ...) \
+	macro(76, XIEITE_INTERNAL_LOOP_75(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_77(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_76(callback, callback(76, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_77(macro, initial, ...) \
+	macro(77, XIEITE_INTERNAL_LOOP_76(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_78(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_77(callback, callback(77, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_78(macro, initial, ...) \
+	macro(78, XIEITE_INTERNAL_LOOP_77(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_79(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_78(callback, callback(78, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_79(macro, initial, ...) \
+	macro(79, XIEITE_INTERNAL_LOOP_78(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_80(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_79(callback, callback(79, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_80(macro, initial, ...) \
+	macro(80, XIEITE_INTERNAL_LOOP_79(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_81(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_80(callback, callback(80, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_81(macro, initial, ...) \
+	macro(81, XIEITE_INTERNAL_LOOP_80(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_82(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_81(callback, callback(81, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_82(macro, initial, ...) \
+	macro(82, XIEITE_INTERNAL_LOOP_81(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_83(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_82(callback, callback(82, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_83(macro, initial, ...) \
+	macro(83, XIEITE_INTERNAL_LOOP_82(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_84(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_83(callback, callback(83, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_84(macro, initial, ...) \
+	macro(84, XIEITE_INTERNAL_LOOP_83(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_85(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_84(callback, callback(84, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_85(macro, initial, ...) \
+	macro(85, XIEITE_INTERNAL_LOOP_84(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_86(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_85(callback, callback(85, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_86(macro, initial, ...) \
+	macro(86, XIEITE_INTERNAL_LOOP_85(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_87(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_86(callback, callback(86, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_87(macro, initial, ...) \
+	macro(87, XIEITE_INTERNAL_LOOP_86(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_88(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_87(callback, callback(87, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_88(macro, initial, ...) \
+	macro(88, XIEITE_INTERNAL_LOOP_87(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_89(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_88(callback, callback(88, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_89(macro, initial, ...) \
+	macro(89, XIEITE_INTERNAL_LOOP_88(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_90(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_89(callback, callback(89, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_90(macro, initial, ...) \
+	macro(90, XIEITE_INTERNAL_LOOP_89(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_91(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_90(callback, callback(90, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_91(macro, initial, ...) \
+	macro(91, XIEITE_INTERNAL_LOOP_90(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_92(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_91(callback, callback(91, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_92(macro, initial, ...) \
+	macro(92, XIEITE_INTERNAL_LOOP_91(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_93(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_92(callback, callback(92, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_93(macro, initial, ...) \
+	macro(93, XIEITE_INTERNAL_LOOP_92(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_94(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_93(callback, callback(93, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_94(macro, initial, ...) \
+	macro(94, XIEITE_INTERNAL_LOOP_93(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_95(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_94(callback, callback(94, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_95(macro, initial, ...) \
+	macro(95, XIEITE_INTERNAL_LOOP_94(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_96(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_95(callback, callback(95, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_96(macro, initial, ...) \
+	macro(96, XIEITE_INTERNAL_LOOP_95(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_97(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_96(callback, callback(96, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_97(macro, initial, ...) \
+	macro(97, XIEITE_INTERNAL_LOOP_96(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_98(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_97(callback, callback(97, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_98(macro, initial, ...) \
+	macro(98, XIEITE_INTERNAL_LOOP_97(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_99(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_98(callback, callback(98, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_99(macro, initial, ...) \
+	macro(99, XIEITE_INTERNAL_LOOP_98(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_100(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_99(callback, callback(99, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_100(macro, initial, ...) \
+	macro(100, XIEITE_INTERNAL_LOOP_99(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_101(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_100(callback, callback(100, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_101(macro, initial, ...) \
+	macro(101, XIEITE_INTERNAL_LOOP_100(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_102(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_101(callback, callback(101, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_102(macro, initial, ...) \
+	macro(102, XIEITE_INTERNAL_LOOP_101(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_103(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_102(callback, callback(102, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_103(macro, initial, ...) \
+	macro(103, XIEITE_INTERNAL_LOOP_102(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_104(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_103(callback, callback(103, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_104(macro, initial, ...) \
+	macro(104, XIEITE_INTERNAL_LOOP_103(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_105(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_104(callback, callback(104, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_105(macro, initial, ...) \
+	macro(105, XIEITE_INTERNAL_LOOP_104(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_106(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_105(callback, callback(105, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_106(macro, initial, ...) \
+	macro(106, XIEITE_INTERNAL_LOOP_105(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_107(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_106(callback, callback(106, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_107(macro, initial, ...) \
+	macro(107, XIEITE_INTERNAL_LOOP_106(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_108(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_107(callback, callback(107, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_108(macro, initial, ...) \
+	macro(108, XIEITE_INTERNAL_LOOP_107(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_109(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_108(callback, callback(108, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_109(macro, initial, ...) \
+	macro(109, XIEITE_INTERNAL_LOOP_108(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_110(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_109(callback, callback(109, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_110(macro, initial, ...) \
+	macro(110, XIEITE_INTERNAL_LOOP_109(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_111(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_110(callback, callback(110, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_111(macro, initial, ...) \
+	macro(111, XIEITE_INTERNAL_LOOP_110(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_112(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_111(callback, callback(111, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_112(macro, initial, ...) \
+	macro(112, XIEITE_INTERNAL_LOOP_111(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_113(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_112(callback, callback(112, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_113(macro, initial, ...) \
+	macro(113, XIEITE_INTERNAL_LOOP_112(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_114(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_113(callback, callback(113, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_114(macro, initial, ...) \
+	macro(114, XIEITE_INTERNAL_LOOP_113(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_115(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_114(callback, callback(114, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_115(macro, initial, ...) \
+	macro(115, XIEITE_INTERNAL_LOOP_114(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_116(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_115(callback, callback(115, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_116(macro, initial, ...) \
+	macro(116, XIEITE_INTERNAL_LOOP_115(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_117(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_116(callback, callback(116, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_117(macro, initial, ...) \
+	macro(117, XIEITE_INTERNAL_LOOP_116(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_118(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_117(callback, callback(117, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_118(macro, initial, ...) \
+	macro(118, XIEITE_INTERNAL_LOOP_117(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_119(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_118(callback, callback(118, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_119(macro, initial, ...) \
+	macro(119, XIEITE_INTERNAL_LOOP_118(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_120(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_119(callback, callback(119, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_120(macro, initial, ...) \
+	macro(120, XIEITE_INTERNAL_LOOP_119(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_121(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_120(callback, callback(120, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_121(macro, initial, ...) \
+	macro(121, XIEITE_INTERNAL_LOOP_120(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_122(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_121(callback, callback(121, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_122(macro, initial, ...) \
+	macro(122, XIEITE_INTERNAL_LOOP_121(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_123(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_122(callback, callback(122, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_123(macro, initial, ...) \
+	macro(123, XIEITE_INTERNAL_LOOP_122(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_124(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_123(callback, callback(123, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_124(macro, initial, ...) \
+	macro(124, XIEITE_INTERNAL_LOOP_123(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_125(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_124(callback, callback(124, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_125(macro, initial, ...) \
+	macro(125, XIEITE_INTERNAL_LOOP_124(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_126(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_125(callback, callback(125, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_126(macro, initial, ...) \
+	macro(126, XIEITE_INTERNAL_LOOP_125(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_127(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_126(callback, callback(126, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_127(macro, initial, ...) \
+	macro(127, XIEITE_INTERNAL_LOOP_126(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_128(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_127(callback, callback(127, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_128(macro, initial, ...) \
+	macro(128, XIEITE_INTERNAL_LOOP_127(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_129(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_128(callback, callback(128, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_129(macro, initial, ...) \
+	macro(129, XIEITE_INTERNAL_LOOP_128(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_130(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_129(callback, callback(129, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_130(macro, initial, ...) \
+	macro(130, XIEITE_INTERNAL_LOOP_129(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_131(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_130(callback, callback(130, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_131(macro, initial, ...) \
+	macro(131, XIEITE_INTERNAL_LOOP_130(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_132(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_131(callback, callback(131, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_132(macro, initial, ...) \
+	macro(132, XIEITE_INTERNAL_LOOP_131(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_133(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_132(callback, callback(132, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_133(macro, initial, ...) \
+	macro(133, XIEITE_INTERNAL_LOOP_132(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_134(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_133(callback, callback(133, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_134(macro, initial, ...) \
+	macro(134, XIEITE_INTERNAL_LOOP_133(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_135(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_134(callback, callback(134, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_135(macro, initial, ...) \
+	macro(135, XIEITE_INTERNAL_LOOP_134(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_136(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_135(callback, callback(135, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_136(macro, initial, ...) \
+	macro(136, XIEITE_INTERNAL_LOOP_135(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_137(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_136(callback, callback(136, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_137(macro, initial, ...) \
+	macro(137, XIEITE_INTERNAL_LOOP_136(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_138(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_137(callback, callback(137, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_138(macro, initial, ...) \
+	macro(138, XIEITE_INTERNAL_LOOP_137(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_139(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_138(callback, callback(138, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_139(macro, initial, ...) \
+	macro(139, XIEITE_INTERNAL_LOOP_138(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_140(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_139(callback, callback(139, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_140(macro, initial, ...) \
+	macro(140, XIEITE_INTERNAL_LOOP_139(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_141(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_140(callback, callback(140, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_141(macro, initial, ...) \
+	macro(141, XIEITE_INTERNAL_LOOP_140(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_142(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_141(callback, callback(141, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_142(macro, initial, ...) \
+	macro(142, XIEITE_INTERNAL_LOOP_141(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_143(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_142(callback, callback(142, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_143(macro, initial, ...) \
+	macro(143, XIEITE_INTERNAL_LOOP_142(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_144(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_143(callback, callback(143, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_144(macro, initial, ...) \
+	macro(144, XIEITE_INTERNAL_LOOP_143(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_145(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_144(callback, callback(144, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_145(macro, initial, ...) \
+	macro(145, XIEITE_INTERNAL_LOOP_144(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_146(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_145(callback, callback(145, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_146(macro, initial, ...) \
+	macro(146, XIEITE_INTERNAL_LOOP_145(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_147(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_146(callback, callback(146, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_147(macro, initial, ...) \
+	macro(147, XIEITE_INTERNAL_LOOP_146(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_148(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_147(callback, callback(147, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_148(macro, initial, ...) \
+	macro(148, XIEITE_INTERNAL_LOOP_147(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_149(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_148(callback, callback(148, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_149(macro, initial, ...) \
+	macro(149, XIEITE_INTERNAL_LOOP_148(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_150(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_149(callback, callback(149, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_150(macro, initial, ...) \
+	macro(150, XIEITE_INTERNAL_LOOP_149(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_151(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_150(callback, callback(150, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_151(macro, initial, ...) \
+	macro(151, XIEITE_INTERNAL_LOOP_150(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_152(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_151(callback, callback(151, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_152(macro, initial, ...) \
+	macro(152, XIEITE_INTERNAL_LOOP_151(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_153(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_152(callback, callback(152, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_153(macro, initial, ...) \
+	macro(153, XIEITE_INTERNAL_LOOP_152(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_154(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_153(callback, callback(153, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_154(macro, initial, ...) \
+	macro(154, XIEITE_INTERNAL_LOOP_153(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_155(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_154(callback, callback(154, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_155(macro, initial, ...) \
+	macro(155, XIEITE_INTERNAL_LOOP_154(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_156(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_155(callback, callback(155, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_156(macro, initial, ...) \
+	macro(156, XIEITE_INTERNAL_LOOP_155(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_157(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_156(callback, callback(156, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_157(macro, initial, ...) \
+	macro(157, XIEITE_INTERNAL_LOOP_156(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_158(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_157(callback, callback(157, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_158(macro, initial, ...) \
+	macro(158, XIEITE_INTERNAL_LOOP_157(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_159(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_158(callback, callback(158, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_159(macro, initial, ...) \
+	macro(159, XIEITE_INTERNAL_LOOP_158(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_160(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_159(callback, callback(159, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_160(macro, initial, ...) \
+	macro(160, XIEITE_INTERNAL_LOOP_159(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_161(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_160(callback, callback(160, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_161(macro, initial, ...) \
+	macro(161, XIEITE_INTERNAL_LOOP_160(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_162(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_161(callback, callback(161, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_162(macro, initial, ...) \
+	macro(162, XIEITE_INTERNAL_LOOP_161(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_163(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_162(callback, callback(162, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_163(macro, initial, ...) \
+	macro(163, XIEITE_INTERNAL_LOOP_162(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_164(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_163(callback, callback(163, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_164(macro, initial, ...) \
+	macro(164, XIEITE_INTERNAL_LOOP_163(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_165(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_164(callback, callback(164, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_165(macro, initial, ...) \
+	macro(165, XIEITE_INTERNAL_LOOP_164(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_166(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_165(callback, callback(165, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_166(macro, initial, ...) \
+	macro(166, XIEITE_INTERNAL_LOOP_165(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_167(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_166(callback, callback(166, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_167(macro, initial, ...) \
+	macro(167, XIEITE_INTERNAL_LOOP_166(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_168(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_167(callback, callback(167, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_168(macro, initial, ...) \
+	macro(168, XIEITE_INTERNAL_LOOP_167(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_169(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_168(callback, callback(168, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_169(macro, initial, ...) \
+	macro(169, XIEITE_INTERNAL_LOOP_168(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_170(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_169(callback, callback(169, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_170(macro, initial, ...) \
+	macro(170, XIEITE_INTERNAL_LOOP_169(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_171(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_170(callback, callback(170, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_171(macro, initial, ...) \
+	macro(171, XIEITE_INTERNAL_LOOP_170(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_172(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_171(callback, callback(171, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_172(macro, initial, ...) \
+	macro(172, XIEITE_INTERNAL_LOOP_171(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_173(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_172(callback, callback(172, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_173(macro, initial, ...) \
+	macro(173, XIEITE_INTERNAL_LOOP_172(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_174(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_173(callback, callback(173, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_174(macro, initial, ...) \
+	macro(174, XIEITE_INTERNAL_LOOP_173(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_175(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_174(callback, callback(174, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_175(macro, initial, ...) \
+	macro(175, XIEITE_INTERNAL_LOOP_174(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_176(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_175(callback, callback(175, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_176(macro, initial, ...) \
+	macro(176, XIEITE_INTERNAL_LOOP_175(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_177(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_176(callback, callback(176, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_177(macro, initial, ...) \
+	macro(177, XIEITE_INTERNAL_LOOP_176(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_178(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_177(callback, callback(177, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_178(macro, initial, ...) \
+	macro(178, XIEITE_INTERNAL_LOOP_177(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_179(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_178(callback, callback(178, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_179(macro, initial, ...) \
+	macro(179, XIEITE_INTERNAL_LOOP_178(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_180(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_179(callback, callback(179, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_180(macro, initial, ...) \
+	macro(180, XIEITE_INTERNAL_LOOP_179(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_181(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_180(callback, callback(180, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_181(macro, initial, ...) \
+	macro(181, XIEITE_INTERNAL_LOOP_180(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_182(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_181(callback, callback(181, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_182(macro, initial, ...) \
+	macro(182, XIEITE_INTERNAL_LOOP_181(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_183(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_182(callback, callback(182, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_183(macro, initial, ...) \
+	macro(183, XIEITE_INTERNAL_LOOP_182(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_184(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_183(callback, callback(183, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_184(macro, initial, ...) \
+	macro(184, XIEITE_INTERNAL_LOOP_183(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_185(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_184(callback, callback(184, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_185(macro, initial, ...) \
+	macro(185, XIEITE_INTERNAL_LOOP_184(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_186(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_185(callback, callback(185, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_186(macro, initial, ...) \
+	macro(186, XIEITE_INTERNAL_LOOP_185(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_187(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_186(callback, callback(186, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_187(macro, initial, ...) \
+	macro(187, XIEITE_INTERNAL_LOOP_186(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_188(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_187(callback, callback(187, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_188(macro, initial, ...) \
+	macro(188, XIEITE_INTERNAL_LOOP_187(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_189(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_188(callback, callback(188, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_189(macro, initial, ...) \
+	macro(189, XIEITE_INTERNAL_LOOP_188(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_190(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_189(callback, callback(189, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_190(macro, initial, ...) \
+	macro(190, XIEITE_INTERNAL_LOOP_189(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_191(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_190(callback, callback(190, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_191(macro, initial, ...) \
+	macro(191, XIEITE_INTERNAL_LOOP_190(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_192(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_191(callback, callback(191, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_192(macro, initial, ...) \
+	macro(192, XIEITE_INTERNAL_LOOP_191(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_193(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_192(callback, callback(192, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_193(macro, initial, ...) \
+	macro(193, XIEITE_INTERNAL_LOOP_192(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_194(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_193(callback, callback(193, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_194(macro, initial, ...) \
+	macro(194, XIEITE_INTERNAL_LOOP_193(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_195(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_194(callback, callback(194, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_195(macro, initial, ...) \
+	macro(195, XIEITE_INTERNAL_LOOP_194(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_196(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_195(callback, callback(195, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_196(macro, initial, ...) \
+	macro(196, XIEITE_INTERNAL_LOOP_195(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_197(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_196(callback, callback(196, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_197(macro, initial, ...) \
+	macro(197, XIEITE_INTERNAL_LOOP_196(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_198(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_197(callback, callback(197, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_198(macro, initial, ...) \
+	macro(198, XIEITE_INTERNAL_LOOP_197(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_199(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_198(callback, callback(198, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_199(macro, initial, ...) \
+	macro(199, XIEITE_INTERNAL_LOOP_198(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_200(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_199(callback, callback(199, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_200(macro, initial, ...) \
+	macro(200, XIEITE_INTERNAL_LOOP_199(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_201(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_200(callback, callback(200, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_201(macro, initial, ...) \
+	macro(201, XIEITE_INTERNAL_LOOP_200(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_202(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_201(callback, callback(201, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_202(macro, initial, ...) \
+	macro(202, XIEITE_INTERNAL_LOOP_201(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_203(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_202(callback, callback(202, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_203(macro, initial, ...) \
+	macro(203, XIEITE_INTERNAL_LOOP_202(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_204(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_203(callback, callback(203, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_204(macro, initial, ...) \
+	macro(204, XIEITE_INTERNAL_LOOP_203(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_205(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_204(callback, callback(204, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_205(macro, initial, ...) \
+	macro(205, XIEITE_INTERNAL_LOOP_204(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_206(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_205(callback, callback(205, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_206(macro, initial, ...) \
+	macro(206, XIEITE_INTERNAL_LOOP_205(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_207(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_206(callback, callback(206, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_207(macro, initial, ...) \
+	macro(207, XIEITE_INTERNAL_LOOP_206(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_208(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_207(callback, callback(207, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_208(macro, initial, ...) \
+	macro(208, XIEITE_INTERNAL_LOOP_207(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_209(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_208(callback, callback(208, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_209(macro, initial, ...) \
+	macro(209, XIEITE_INTERNAL_LOOP_208(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_210(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_209(callback, callback(209, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_210(macro, initial, ...) \
+	macro(210, XIEITE_INTERNAL_LOOP_209(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_211(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_210(callback, callback(210, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_211(macro, initial, ...) \
+	macro(211, XIEITE_INTERNAL_LOOP_210(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_212(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_211(callback, callback(211, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_212(macro, initial, ...) \
+	macro(212, XIEITE_INTERNAL_LOOP_211(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_213(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_212(callback, callback(212, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_213(macro, initial, ...) \
+	macro(213, XIEITE_INTERNAL_LOOP_212(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_214(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_213(callback, callback(213, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_214(macro, initial, ...) \
+	macro(214, XIEITE_INTERNAL_LOOP_213(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_215(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_214(callback, callback(214, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_215(macro, initial, ...) \
+	macro(215, XIEITE_INTERNAL_LOOP_214(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_216(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_215(callback, callback(215, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_216(macro, initial, ...) \
+	macro(216, XIEITE_INTERNAL_LOOP_215(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_217(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_216(callback, callback(216, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_217(macro, initial, ...) \
+	macro(217, XIEITE_INTERNAL_LOOP_216(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_218(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_217(callback, callback(217, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_218(macro, initial, ...) \
+	macro(218, XIEITE_INTERNAL_LOOP_217(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_219(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_218(callback, callback(218, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_219(macro, initial, ...) \
+	macro(219, XIEITE_INTERNAL_LOOP_218(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_220(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_219(callback, callback(219, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_220(macro, initial, ...) \
+	macro(220, XIEITE_INTERNAL_LOOP_219(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_221(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_220(callback, callback(220, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_221(macro, initial, ...) \
+	macro(221, XIEITE_INTERNAL_LOOP_220(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_222(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_221(callback, callback(221, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_222(macro, initial, ...) \
+	macro(222, XIEITE_INTERNAL_LOOP_221(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_223(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_222(callback, callback(222, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_223(macro, initial, ...) \
+	macro(223, XIEITE_INTERNAL_LOOP_222(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_224(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_223(callback, callback(223, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_224(macro, initial, ...) \
+	macro(224, XIEITE_INTERNAL_LOOP_223(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_225(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_224(callback, callback(224, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_225(macro, initial, ...) \
+	macro(225, XIEITE_INTERNAL_LOOP_224(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_226(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_225(callback, callback(225, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_226(macro, initial, ...) \
+	macro(226, XIEITE_INTERNAL_LOOP_225(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_227(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_226(callback, callback(226, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_227(macro, initial, ...) \
+	macro(227, XIEITE_INTERNAL_LOOP_226(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_228(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_227(callback, callback(227, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_228(macro, initial, ...) \
+	macro(228, XIEITE_INTERNAL_LOOP_227(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_229(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_228(callback, callback(228, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_229(macro, initial, ...) \
+	macro(229, XIEITE_INTERNAL_LOOP_228(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_230(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_229(callback, callback(229, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_230(macro, initial, ...) \
+	macro(230, XIEITE_INTERNAL_LOOP_229(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_231(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_230(callback, callback(230, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_231(macro, initial, ...) \
+	macro(231, XIEITE_INTERNAL_LOOP_230(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_232(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_231(callback, callback(231, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_232(macro, initial, ...) \
+	macro(232, XIEITE_INTERNAL_LOOP_231(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_233(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_232(callback, callback(232, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_233(macro, initial, ...) \
+	macro(233, XIEITE_INTERNAL_LOOP_232(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_234(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_233(callback, callback(233, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_234(macro, initial, ...) \
+	macro(234, XIEITE_INTERNAL_LOOP_233(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_235(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_234(callback, callback(234, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_235(macro, initial, ...) \
+	macro(235, XIEITE_INTERNAL_LOOP_234(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_236(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_235(callback, callback(235, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_236(macro, initial, ...) \
+	macro(236, XIEITE_INTERNAL_LOOP_235(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_237(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_236(callback, callback(236, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_237(macro, initial, ...) \
+	macro(237, XIEITE_INTERNAL_LOOP_236(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_238(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_237(callback, callback(237, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_238(macro, initial, ...) \
+	macro(238, XIEITE_INTERNAL_LOOP_237(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_239(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_238(callback, callback(238, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_239(macro, initial, ...) \
+	macro(239, XIEITE_INTERNAL_LOOP_238(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_240(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_239(callback, callback(239, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_240(macro, initial, ...) \
+	macro(240, XIEITE_INTERNAL_LOOP_239(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_241(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_240(callback, callback(240, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_241(macro, initial, ...) \
+	macro(241, XIEITE_INTERNAL_LOOP_240(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_242(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_241(callback, callback(241, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_242(macro, initial, ...) \
+	macro(242, XIEITE_INTERNAL_LOOP_241(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_243(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_242(callback, callback(242, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_243(macro, initial, ...) \
+	macro(243, XIEITE_INTERNAL_LOOP_242(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_244(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_243(callback, callback(243, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_244(macro, initial, ...) \
+	macro(244, XIEITE_INTERNAL_LOOP_243(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_245(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_244(callback, callback(244, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_245(macro, initial, ...) \
+	macro(245, XIEITE_INTERNAL_LOOP_244(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_246(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_245(callback, callback(245, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_246(macro, initial, ...) \
+	macro(246, XIEITE_INTERNAL_LOOP_245(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_247(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_246(callback, callback(246, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_247(macro, initial, ...) \
+	macro(247, XIEITE_INTERNAL_LOOP_246(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_248(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_247(callback, callback(247, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_248(macro, initial, ...) \
+	macro(248, XIEITE_INTERNAL_LOOP_247(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_249(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_248(callback, callback(248, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_249(macro, initial, ...) \
+	macro(249, XIEITE_INTERNAL_LOOP_248(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_250(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_249(callback, callback(249, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_250(macro, initial, ...) \
+	macro(250, XIEITE_INTERNAL_LOOP_249(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_251(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_250(callback, callback(250, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_251(macro, initial, ...) \
+	macro(251, XIEITE_INTERNAL_LOOP_250(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_252(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_251(callback, callback(251, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_252(macro, initial, ...) \
+	macro(252, XIEITE_INTERNAL_LOOP_251(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_253(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_252(callback, callback(252, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_253(macro, initial, ...) \
+	macro(253, XIEITE_INTERNAL_LOOP_252(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_254(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_253(callback, callback(253, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_254(macro, initial, ...) \
+	macro(254, XIEITE_INTERNAL_LOOP_253(macro, initial, __VA_ARGS__), __VA_ARGS__)
 
-#define XIEITE_INTERNAL_LOOP_255(callback, previous, arguments...) \
-	XIEITE_INTERNAL_LOOP_254(callback, callback(254, previous, arguments), arguments)
+#define XIEITE_INTERNAL_LOOP_255(macro, initial, ...) \
+	macro(255, XIEITE_INTERNAL_LOOP_254(macro, initial, __VA_ARGS__), __VA_ARGS__)

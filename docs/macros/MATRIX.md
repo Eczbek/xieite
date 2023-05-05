@@ -13,11 +13,11 @@ Creates a multidimensional vector matrix.
 
 ```cpp
 #define XIEITE_MATRIX(type, dimensions) \
-	XIEITE_REPEAT(std::vector<, dimensions) type XIEITE_REPEAT(>, dimensions)
+	XIEITE_REPEAT(dimensions, std::vector<) type XIEITE_REPEAT(dimensions, >)
 ```
 ### Parameters
-- `type` - Any type
-- `dimensions` - An unsigned 8-bit value
+- `type` - Any typename
+- `dimensions` - Any integer between 0 and 32767, inclusive
 
 <br/><br/>
 
@@ -35,3 +35,8 @@ int main() {
 	std::vector<std::vector<std::vector<int>>> matrix;
 }
 ```
+
+<br/><br/>
+
+## See also
+- [`XIEITE_REPEAT`](../../docs/macros/REPEAT.md)
