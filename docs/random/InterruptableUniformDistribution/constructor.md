@@ -15,6 +15,6 @@ Constructs a `xieite::random::InterruptableUniformDistribution`.
 InterruptableUniformDistribution(Number begin, Number end, std::span<std::pair<Number, Number>> interruptions);
 ```
 ### Parameters
-- `begin` - A `Number` copy, the one end of the range
+- `begin` - A `Number` copy, one end of the range
 - `end` - A `Number` copy, the other end of the range
 - `interruptions` - A `std::span` of `std::pair`s of `Number`s
