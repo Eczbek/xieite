@@ -1,4 +1,4 @@
-# [`XIEITE`](../../docs/macros.md)`_COMPILER_VERSION...`
+# [`XIEITE`](../../docs/macros.md)`_COMPILER_VERSION_...`
 Defined in header [`<xieite/macros/COMPILER_VERSION.hpp>`](../../include/xieite/macros/COMPILER_VERSION.hpp)
 
 <br/>

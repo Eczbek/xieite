@@ -12,11 +12,15 @@ Checks whether at least one passed argument is true. Expects all arguments to be
 <br/><br/>
 
 ```cpp
+template<std::convertible_to<bool>... Values>
 [[nodiscard]]
-constexpr bool any(xieite::concepts::NoThrowConvertibleTo<bool> auto&&... values) noexcept;
+constexpr bool any(const Values&... values)
+noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...)));
 ```
+### Template parameters
+- `Values...` - Types satisfying `std::convertible_to` of `bool`
 ### Parameters
-- `values` - `auto` right-value references, satisfying `xieite::concepts::NoThrowConvertibleTo` of `bool`
+- `values...` - `Values` constant references
 ### Return value
 - A `bool` to represent whether or not all elements are true
 
