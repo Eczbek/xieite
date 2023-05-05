@@ -5,7 +5,7 @@
 #include <xieite/threads/Interval.hpp>
 
 namespace xieite::threads {
-	class Timeout {
+	class Timeout final {
 	public:
 		template<std::invocable<> Invocable>
 		Timeout(const Invocable& callback, const xieite::concepts::TemporalDuration auto duration) noexcept

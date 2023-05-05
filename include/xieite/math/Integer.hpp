@@ -9,7 +9,7 @@
 
 namespace xieite::math {
 	template<std::size_t bits, bool sign>
-	class Integer {
+	class Integer final {
 	public:
 		template<std::integral Integral = int>
 		constexpr Integer(const Integral value = 0) noexcept

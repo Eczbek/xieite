@@ -7,7 +7,7 @@
 #include <xieite/math/approximatelyEqualSlope.hpp>
 
 namespace xieite::geometry {
-	struct Line {
+	struct Line final {
 		xieite::geometry::Point start;
 		xieite::geometry::Point end;
 

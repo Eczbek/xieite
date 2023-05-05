@@ -6,7 +6,7 @@
 	constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)(); \
 	\
 	template<auto pointer> \
-	struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id) { \
+	struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id) final { \
 		friend constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)() { \
 			return pointer; \
 		} \

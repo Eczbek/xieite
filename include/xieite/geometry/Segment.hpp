@@ -3,7 +3,7 @@
 #include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
-	struct Segment {
+	struct Segment final {
 		xieite::geometry::Point start;
 		xieite::geometry::Point end;
 		

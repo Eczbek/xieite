@@ -1,7 +1,7 @@
 #pragma once
 
 namespace xieite::terminal {
-	struct Position {
+	struct Position final {
 		int row;
 		int column;
 
