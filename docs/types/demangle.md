@@ -13,10 +13,10 @@ Demangles the name of a `std::type_info::name()`. Returns original string if dem
 
 ```cpp
 [[nodiscard]]
-inline std::string demangle(std::string_view mangled) noexcept;
+inline std::string demangle(std::string mangled) noexcept;
 ```
 ### Parameters
-- `mangled` - A `std::string_view` copy, the mangled type name
+- `mangled` - A `std::string` copy, the mangled type name
 ### Return value
 - A `std::string`
 
@@ -25,14 +25,14 @@ inline std::string demangle(std::string_view mangled) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <string_view>
+#include <string>
 #include <xieite/types/demangle.hpp>
 
 template<typename>
 struct Type {};
 
 int main() {
-	std::string_view typeName = typeid(Type<int>).name();
+	std::string typeName = typeid(Type<int>).name();
 
 	std::cout
 		<< typeName
