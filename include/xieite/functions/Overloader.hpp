@@ -3,7 +3,7 @@
 #include <xieite/concepts/Derivable.hpp>
 #include <xieite/functions/OptionalCallOperator.hpp>
 
-namespace xieite::types {
+namespace xieite::functions {
 	template<xieite::concepts::Derivable... Functions>
 	struct Overloader final
 	: xieite::functions::OptionalCallOperator<Functions>... {

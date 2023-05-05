@@ -19,5 +19,33 @@ Extends multiple invocable types and overloads `operator()` for each. Ignores ty
 
 <br/><br/>
 
+## Example
+```cpp
+#include <iostream>
+#include <xieite/functions/Overloader.hpp>
+
+struct nope {};
+
+int main() {
+	auto foo = [](int) -> void {
+		std::cout << "foo\n";
+	};
+	auto bar = [](double) -> void {
+		std::cout << "bar\n";
+	};
+	xieite::functions::Overloader overloader(foo, bar, nope());
+
+	overloader(999);
+	overloader(3.14159);
+}
+```
+Output:
+```
+foo
+bar
+```
+
+<br/><br/>
+
 ## See also
 - [`xieite::concepts::Derivable`](../../docs/concepts/Derivable.md)
