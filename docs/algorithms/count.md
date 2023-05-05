@@ -13,10 +13,10 @@ Counts the number of arguments provided.
 
 ```cpp
 [[nodiscard]]
-constexpr std::size_t count(auto&&... arguments) noexcept;
+constexpr std::size_t count(const auto&... arguments) noexcept;
 ```
 ### Parameters
-- `arguments` - Any right-value references
+- `arguments...` - Any `auto` right-value references
 ### Return value
 - A `std::size_t`, the number of arguments passed
 
