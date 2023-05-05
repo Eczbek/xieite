@@ -3,4 +3,4 @@ Defined in header [`<xieite/macros/COMPILER_TYPE.hpp>`](../../include/xieite/mac
 
 <br/>
 
-Macros for identifying the current compiler type.
+Macros for identifying the current compiler type. See header file for definitions.

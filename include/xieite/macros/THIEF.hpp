@@ -4,11 +4,14 @@
 
 #define XIEITE_THIEF_EXPOSE(item, id) \
 	constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)(); \
-	template<auto pointer> struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id) { \
+	\
+	template<auto pointer> \
+	struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id) { \
 		friend constexpr auto XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)() { \
 			return pointer; \
 		} \
 	}; \
+	\
 	template struct XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_EXPOSE_, id)<&item>;
 
 #define XIEITE_THIEF_STEAL(victim, id) \

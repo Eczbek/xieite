@@ -3,4 +3,4 @@ Defined in header [`<xieite/macros/COMPILER_VERSION.hpp>`](../../include/xieite/
 
 <br/>
 
-Macros for identifying the version of the current compiler.
+Macros for identifying the version of the current compiler. See header file for definitions.
