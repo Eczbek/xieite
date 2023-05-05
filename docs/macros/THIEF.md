@@ -3,7 +3,7 @@ Defined in header [`<xieite/macros/THIEF.hpp>`](../../include/xieite/macros/THIE
 
 <br/>
 
-Uses magic to steal private members of classes.
+Uses cursed C++ magic to steal private members of classes.
 
 <br/><br/>
 

@@ -12,12 +12,12 @@ Repeats the concatenation of an expression with itself.
 <br/><br/>
 
 ```cpp
-#define XIEITE_REPEAT_CONCATENATE(count, expression) \
-	XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT_CONCATENATE, , expression)
+#define XIEITE_REPEAT_CONCATENATE(count, argument) \
+	XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT_CONCATENATE, , argument)
 ```
 ### Parameters
 - `count` - An unsigned value between 0 and 32767, inclusively
-- `expression` - Any expression
+- `argument` - Any expression
 
 <br/><br/>
 
@@ -27,10 +27,15 @@ Repeats the concatenation of an expression with itself.
 #include <xieite/macros/REPEAT_CONCATENATE.hpp>
 
 int main() {
-	std::cout << XIEITE_REPEAT_CONCATENATE(5, 3) << '\n';
+	std::cout << (XIEITE_REPEAT_CONCATENATE(3, 5) + 1) << '\n';
 }
 ```
 Output:
 ```
-555
+556
 ```
+
+<br/><br/>
+
+## See also
+- [`XIEITE_LOOP`](../../docs/macros/LOOP.md)

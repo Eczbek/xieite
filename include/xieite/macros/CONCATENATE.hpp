@@ -1,8 +1,7 @@
 #pragma once
 
-#define XIEITE_CONCATENATE(expression1, expression2) \
-	XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2)
+#define XIEITE_CONCATENATE(first, second) \
+	XIEITE_INTERNAL_CONCATENATE(first, second)
 
-#define XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2) \
-	expression1 ## expression2
-
+#define XIEITE_INTERNAL_CONCATENATE(first, second) \
+	first ## second

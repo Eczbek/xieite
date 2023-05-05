@@ -12,9 +12,14 @@ Repeats an expression literally.
 <br/><br/>
 
 ```cpp
-#define XIEITE_REPEAT(count, expression) \
-	XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT, , expression)
+#define XIEITE_REPEAT(count, argument) \
+	XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT, , argument)
 ```
 ### Parameters
 - `count` - An unsigned value between 0 and 32767, inclusively
-- `expression` - Any expression
+- `argument` - Any expression
+
+<br/><br/>
+
+## See also
+- [`XIEITE_LOOP`](../../docs/macros/LOOP.md)

@@ -1,33 +1,23 @@
-# [`XIEITE`](../../docs/macros.md)`_CONCATENATE...`
+# [`XIEITE`](../../docs/macros.md)`_CONCATENATE`
 Defined in header [`<xieite/macros/CONCATENATE.hpp>`](../../include/xieite/macros/CONCATENATE.hpp)
 
 <br/>
 
-Concatenates two expressions literally.
+Concatenates expressions literally.
 
 <br/><br/>
 
-## Synopses
-
-<br/><br/>
-
-```cpp
-#define XIEITE_CONCATENATE(expression1, expression2) \
-	XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2)
-```
-### Parameters
-- `expression1` - Any expression to be expanded
-- `expression2` - Any expression to be expanded
+## Synopsis
 
 <br/><br/>
 
 ```cpp
-#define XIEITE_CONCATENATE_PRIMITIVE(expression1, expression2) \
-	expression1 ## expression2
+#define XIEITE_CONCATENATE(first, second) \
+	XIEITE_INTERNAL_CONCATENATE(first, second)
 ```
 ### Parameters
-- `expression1` - Any expression
-- `expression2` - Any expression
+- `first` - Any expression
+- `second` - Any expression
 
 <br/><br/>
 
