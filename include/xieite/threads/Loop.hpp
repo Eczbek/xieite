@@ -5,7 +5,7 @@
 #include <thread>
 
 namespace xieite::threads {
-	class Loop {
+	class Loop final {
 	public:
 		template<std::invocable<> Invocable>
 		Loop(const Invocable& callback) noexcept

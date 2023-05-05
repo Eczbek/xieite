@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 namespace xieite::terminal {
-	class ModeLock {
+	class ModeLock final {
 	public:
 		ModeLock() noexcept
 		: blockingMode(fcntl(STDIN_FILENO, F_GETFL)), blocking(true), echo(false), canonical(false), signals(false), processing(false) {

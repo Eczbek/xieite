@@ -4,7 +4,7 @@
 #include <cstdint>
 
 namespace xieite::graphics {
-	struct Color {
+	struct Color final {
 		std::uint8_t red;
 		std::uint8_t green;
 		std::uint8_t blue;

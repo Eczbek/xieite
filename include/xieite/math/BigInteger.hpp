@@ -15,7 +15,7 @@
 #include <xieite/math/absolute.hpp>
 
 namespace xieite::math {
-	class BigInteger {
+	class BigInteger final {
 	public:
 		template<std::integral Number = int>
 		constexpr BigInteger(Number value = 0) noexcept
