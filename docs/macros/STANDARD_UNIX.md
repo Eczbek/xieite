@@ -3,4 +3,4 @@ Defined in header [`<xieite/macros/STANDARD_UNIX.hpp>`](../../include/xieite/mac
 
 <br/>
 
-Macros for identifying the current UNIX standard.
+Macros for identifying the current UNIX standard. See header file for definitions.

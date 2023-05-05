@@ -3,4 +3,4 @@ Defined in header [`<xieite/macros/SYSTEM_TYPE.hpp>`](../../include/xieite/macro
 
 <br/>
 
-Macros for identifying the current platform/OS type.
+Macros for identifying the current platform/OS type. See header file for definitions.
