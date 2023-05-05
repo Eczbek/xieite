@@ -7,7 +7,7 @@ Helps construct the wrapper class.
 
 <br/><br/>
 
-## Synopses
+## Synopsis
 
 <br/><br/>
 

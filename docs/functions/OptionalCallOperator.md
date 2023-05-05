@@ -14,8 +14,8 @@ A wrapper for any type which defines `operator()` if it does not exist.
 ### Template parameters
 - `Any` - Any type satisfying `xieite::concepts::Derivable`
 ### Member functions
-- [`OptionalCallOperator`](../../docs/functions/OptionalCallOperator/constructor.md)
-- [`operator()`](../../docs/functions/OptionalCallOperator/operatorCall.md)
+- [`OptionalCallOperator`](../../docs/functions/OptionalCallOperator/constructor1.md)
+- [`operator()`](../../docs/functions/OptionalCallOperator/operatorCall1.md)
 
 <br/><br/>
 
@@ -24,8 +24,8 @@ A wrapper for any type which defines `operator()` if it does not exist.
 ### Requirements
 - `Function` must be invocable with a `xieite::types::Anything`
 ### Member functions
-- [`OptionalCallOperator`](../../docs/functions/OptionalCallOperator/constructor.md)
-- [`operator()`](../../docs/functions/OptionalCallOperator/operatorCall.md)
+- [`OptionalCallOperator`](../../docs/functions/OptionalCallOperator/constructor2.md)
+- [`operator()`](../../docs/functions/OptionalCallOperator/operatorCall2.md)
 
 <br/><br/>
 

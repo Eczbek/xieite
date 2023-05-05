@@ -7,7 +7,7 @@ The inherited `operator()` from the `Function` type.
 
 <br/><br/>
 
-## Synopses
+## Synopsis
 
 <br/><br/>
 
