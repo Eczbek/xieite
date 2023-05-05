@@ -7,7 +7,7 @@ The default `operator()` for the wrapper class.
 
 <br/><br/>
 
-## Synopses
+## Synopsis
 
 <br/><br/>
 
