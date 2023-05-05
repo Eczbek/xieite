@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-namespace xieite::string {
+namespace xieite::strings {
 	[[nodiscard]]
 	constexpr std::string trimStart(const std::string& string, const char character) noexcept {
 		const std::size_t stringSize = string.size();

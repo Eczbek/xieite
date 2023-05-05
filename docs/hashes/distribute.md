@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`hash`](../../docs/hash.md)`::distribute`
-Defined in header [`<xieite/hash/distribute.hpp>`](../../include/xieite/hash/distribute.hpp)
+# [`xieite`](../../README.md)`::`[`hashes`](../../docs/hashes.md)`::distribute`
+Defined in header [`<xieite/hashes/distribute.hpp>`](../../include/xieite/hashes/distribute.hpp)
 
 <br/>
 

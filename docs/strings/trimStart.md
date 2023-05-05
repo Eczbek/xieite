@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`string`](../../docs/string.md)`::trimStart`
-Defined in header [`<xieite/string/trimStart.hpp>`](../../include/xieite/string/trimStart.hpp)
+# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::trimStart`
+Defined in header [`<xieite/strings/trimStart.hpp>`](../../include/xieite/strings/trimStart.hpp)
 
 <br/>
 
@@ -39,7 +39,7 @@ constexpr std::string trimStart(const std::string& string, std::span<char> chara
 ```cpp
 #include <iostream>
 #include <vector>
-#include <xieite/string/trimStart.hpp>
+#include <xieite/strings/trimStart.hpp>
 
 int main() {
 	std::vector<char> characters {
@@ -47,7 +47,7 @@ int main() {
 		'b'
 	};
 
-	std::cout << xieite::string::trimStart("bababananana", characters) << '\n';
+	std::cout << xieite::strings::trimStart("bababananana", characters) << '\n';
 }
 ```
 Output:

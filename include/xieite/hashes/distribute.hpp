@@ -6,7 +6,7 @@
 #include <xieite/math/robert.hpp>
 #include <xieite/math/xorShift.hpp>
 
-namespace xieite::hash {
+namespace xieite::hashes {
 	template<std::unsigned_integral UnsignedIntegral>
 	[[nodiscard]]
 	constexpr UnsignedIntegral distribute(const UnsignedIntegral value) noexcept {
