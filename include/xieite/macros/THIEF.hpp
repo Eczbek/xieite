@@ -17,4 +17,4 @@
 #define XIEITE_THIEF_STEAL(victim, id) \
 	((victim).*XIEITE_CONCATENATE(XIEITE_INTERNAL_THIEF_STEAL_, id)())
 
-// Thanks to Halalaluyafail for idea and help
+// Thanks to Halalaluyafail for original code and help
