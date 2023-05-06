@@ -7,5 +7,12 @@ A namespace of type utilities.
 
 <br/><br/>
 
+## Member types
+- [`Anything`](../docs/types/Anything.md)
+- [`List`](../docs/types/List.md)
+- [`Set`](../docs/types/Set.md)
+
+<br/>
+
 ## Member functions
 - [`demangle`](../docs/types/demangle.md)
