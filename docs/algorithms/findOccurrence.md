@@ -14,7 +14,7 @@ Finds the pointer to a specific occurrence of a value in an iterable. If the val
 ```cpp
 template<std::forward_iterator Iterator, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
 [[nodiscard]]
-constexpr Iterator findOccurrence(Iterator begin, Iterator end, typename std::iterator_traits<Iterator>::value_type&& value, std::size_t count, Callback&& comparator = Callback()) noexcept;
+constexpr Iterator findOccurrence(Iterator begin, Iterator end, const typename std::iterator_traits<Iterator>::value_type& value, std::size_t count, const Callback& comparator = Callback()) noexcept;
 ```
 ### Template parameters
 - `Iterator` - An iterator type, satisfying `std::forward_iterator`

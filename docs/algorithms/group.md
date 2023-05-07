@@ -14,7 +14,7 @@ Groups elements of a vector into a `std::unordered_map`. The resulting map's key
 ```cpp
 template<std::forward_iterator Iterator, std::invocable<typename std::iterator_traits<Iterator>::value_type> Callback>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<Iterator>::value_type)>, std::vector<typename std::iterator_traits<Iterator>::value_type>> group(const Iterator begin, const Iterator end, const Callback& callback);
+std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<Iterator>::value_type)>, std::vector<typename std::iterator_traits<Iterator>::value_type>> group(Iterator begin, Iterator end, const Callback& callback);
 ```
 ### Template parameters
 - `Iterator` - The passed iterators' type, satisfying `std::forward_iterator`
@@ -31,7 +31,7 @@ std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<I
 ```cpp
 template<std::forward_iterator Iterator, std::invocable<typename std::iterator_traits<Iterator>::value_type, std::size_t> Callback>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<Iterator>::value_type, std::size_t)>, std::vector<typename std::iterator_traits<Iterator>::value_type>> group(Iterator begin, const Iterator end, const Callback& callback);
+std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<Iterator>::value_type, std::size_t)>, std::vector<typename std::iterator_traits<Iterator>::value_type>> group(Iterator begin, Iterator end, const Callback& callback);
 ```
 ### Template parameters
 - `Iterator` - The passed iterators' type, satisfying `std::forward_iterator`

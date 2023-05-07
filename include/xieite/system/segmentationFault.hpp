@@ -1,6 +1,6 @@
 #pragma once
 
-namespace xieite::errors {
+namespace xieite::system {
 	[[noreturn]]
 	inline void segmentationFault() noexcept {
 		*static_cast<volatile int*>(nullptr);

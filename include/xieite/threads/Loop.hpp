@@ -7,8 +7,7 @@
 namespace xieite::threads {
 	class Loop final {
 	public:
-		template<std::invocable<> Invocable>
-		Loop(const Invocable& callback) noexcept
+		Loop(const std::invocable<>& callback) noexcept
 		: thread([&callback](const std::stop_token stopToken) -> void {
 			while (!stopToken.stop_requested()) {
 				callback();

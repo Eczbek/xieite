@@ -14,7 +14,7 @@ Using a variant of the binary search algorithm, finds the lowest value which, if
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number numberSearch(xieite::concepts::CallbackSelector<Number> auto&& selector, Number minimum, Number maximum) noexcept;
+constexpr Number numberSearch(const xieite::concepts::CallbackSelector<Number> auto& selector, Number minimum, Number maximum) noexcept;
 ```
 ### Template parameters
 - `Number` - An integer or floating point type, satisfying `xieite::concepts::Arithmetic`
@@ -28,9 +28,9 @@ constexpr Number numberSearch(xieite::concepts::CallbackSelector<Number> auto&& 
 <br/><br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number, xieite::concepts::CallbackSelector<Number> Callback>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number numberSearch(Callback&& selector) noexcept;
+constexpr Number numberSearch(const xieite::concepts::CallbackSelector<Number> auto& selector) noexcept;
 ```
 ### Template parameters
 - `Number` - An integer or floating point type, satisfying `xieite::concepts::Arithmetic`
