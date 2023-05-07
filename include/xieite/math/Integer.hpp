@@ -171,6 +171,6 @@ namespace xieite::math {
 		}
 
 	private:
-		xieite::math::ConditionalIntegerSign<xieite::math::MinimalIntegerSize<bits>, sign> value: bits;
+		xieite::math::ConditionalIntegerSign<xieite::math::MinimalIntegerSize<bits>, sign> value : bits;
 	};
 }
