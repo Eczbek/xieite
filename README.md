@@ -1,10 +1,10 @@
 # XIEITE
-Header-Only C++ Utility Library
+C++ header-only utility library
 
 <br/>
 
 ## Usage
-Add the `include` directory to your project.
+Add the `include` directory to your project
 
 <br/>
 
