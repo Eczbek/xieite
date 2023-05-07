@@ -8,8 +8,7 @@
 namespace xieite::threads {
 	class Interval final {
 	public:
-		template<std::invocable<> Invocable>
-		Interval(const Invocable& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
+		Interval(const std::invocable<>& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
 		: loop([&callback, duration]() noexcept -> void {
 			static bool first = true;
 			if (first) {

@@ -12,3 +12,4 @@ A namespace of tools for interacting with the system.
 - [`execute`](../docs/system/execute.md)
 - [`getAvailableMemory`](../docs/system/getAvailableMemory.md)
 - [`getTotalMemory`](../docs/system/getTotalMemory.md)
+- [`segmentationFault`](../docs/system/segmentationFault.md)

@@ -1,17 +1,18 @@
 #pragma once
 
 #include <cstddef>
-#include <vector>
+#include <memory>
 
 namespace xieite::system {
-	inline void detectCosmicRay(const std::size_t detectionBytes) noexcept {
-		const std::vector<std::size_t> detector(detectionBytes / sizeof(std::size_t), 0);
-		bool detected = false;
-		do {
-			volatile const int undefinedBehaviorPreventionDummy = 0;
-			for (const std::size_t bits : detector) {
-				detected += bits;
+	constexpr void detectCosmicRay(const std::size_t detectionBytes) noexcept {
+		const std::size_t detectorSize = detectionBytes / sizeof(std::size_t);
+		const std::unique_ptr<volatile const std::size_t[]> detector(new volatile const std::size_t[detectorSize] {});
+		std::size_t i = 0;
+		while (true) {
+			if (detector[i]) {
+				return;
 			}
-		} while (!detected);
+			i = (i + 1) % detectorSize;
+		}
 	}
 }

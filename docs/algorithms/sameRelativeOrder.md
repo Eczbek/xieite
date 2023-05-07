@@ -15,7 +15,7 @@ Checks whether one iterable contains elements in the same relative order as in a
 template<std::forward_iterator Iterator1, std::forward_iterator Iterator2, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator1>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator1>::value_type>>
 requires(std::same_as<typename std::iterator_traits<Iterator1>::value_type, typename std::iterator_traits<Iterator2>::value_type>)
 [[nodiscard]]
-constexpr bool sameRelativeOrder(Iterator1 begin1, Iterator1 end1, Iterator2 begin2, Iterator2 end2, Callback&& comparator = Callback()) noexcept;
+constexpr bool sameRelativeOrder(Iterator1 begin1, Iterator1 end1, Iterator2 begin2, Iterator2 end2, const Callback& comparator = Callback()) noexcept;
 ```
 ### Template parameters
 - `Iterator1` - An iterator type, satisfying `std::forward_iterator`
