@@ -13,7 +13,7 @@ Gets the system's total amount of memory.
 
 ```cpp
 [[nodiscard]]
-std::size_t getTotalMemory() noexcept;
+inline std::size_t getTotalMemory() noexcept;
 ```
 ### Return value
 - The amount of memory, in bytes
