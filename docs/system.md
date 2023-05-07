@@ -9,3 +9,5 @@ A namespace of tools for interacting with the system.
 
 ## Member functions
 - [`execute`](../docs/system/execute.md)
+- [`getAvailableMemory`](../docs/system/getAvailableMemory.md)
+- [`getTotalMemory`](../docs/system/getTotalMemory.md)
