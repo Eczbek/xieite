@@ -13,7 +13,7 @@ Gets the system's currently available amount of memory.
 
 ```cpp
 [[nodiscard]]
-std::size_t getAvailableMemory() noexcept;
+inline std::size_t getAvailableMemory() noexcept;
 ```
 ### Return value
 - The amount of memory, in bytes
