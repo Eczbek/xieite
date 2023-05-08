@@ -13,7 +13,7 @@ For use in `xieite::types::Set`.
 
 ```cpp
 template<typename Type>
-constexpr auto operator->*(const xieite::types::List<Type>) -> std::conditional_t<(std::is_same_v<Types, Type> || ...), xieite::types::List<Types...>, xieite::types::List<Types..., Type>>;
+constexpr std::conditional_t<(std::is_same_v<Types, Type> || ...), xieite::types::List<Types...>, xieite::types::List<Types..., Type>> operator->*(const xieite::types::List<Type>);
 ```
 ### Template parameters
 - `Type` - Any type
