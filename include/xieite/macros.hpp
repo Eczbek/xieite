@@ -18,5 +18,6 @@
 #include <xieite/macros/STRINGIFY.hpp>
 #include <xieite/macros/SYSTEM_TYPE.hpp>
 #include <xieite/macros/THIEF.hpp>
+#include <xieite/macros/UNIQUE_TOKEN.hpp>
 #include <xieite/macros/VANISH.hpp>
 #include <xieite/macros/VERSION.hpp>
