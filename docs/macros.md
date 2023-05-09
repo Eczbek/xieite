@@ -14,6 +14,7 @@ A collection of macros.
 - [`STANDARD_LANGUAGE_...`](../docs/macros/STANDARD_LANGUAGE.md)
 - [`STANDARD_UNIX_...`](../docs/macros/STANDARD_UNIX.md)
 - [`SYSTEM_TYPE_...`](../docs/macros/SYSTEM_TYPE.md)
+- [`UNIQUE_TOKEN`](../docs/macros/UNIQUE_TOKEN.md)
 - [`VANISH`](../docs/macros/VANISH.md)
 - [`VERSION_...`](../docs/macros/VERSION.md)
 ## Function macros
