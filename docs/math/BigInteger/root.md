@@ -20,6 +20,8 @@ constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& bigInteg
 ### Return value
 - A `xieite::math::BigInteger`
 
+<br/><br/>
+
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger root(std::integral auto value) const;

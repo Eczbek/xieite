@@ -3,7 +3,7 @@ Defined in header [`<xieite/system/segmentationFault.hpp>`](../../include/xieite
 
 <br/>
 
-Creates a segmentation fault. Why would you do this?
+Creates a segmentation fault. Why would you use this?
 
 <br/><br/>
 
