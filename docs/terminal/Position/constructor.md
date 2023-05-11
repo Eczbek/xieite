@@ -12,7 +12,7 @@ Constructs `xieite::terminal::Position`.
 <br/><br/>
 
 ```cpp
-constexpr Position(int row = 0, int column = 0) noexcept;
+constexpr Position(int row, int column) noexcept;
 ```
 ### Parameters
 - `row` - An `int` copy to represent the cursor's row position

@@ -21,3 +21,4 @@ A lock-style class for toggling terminal settings.
 - [`setProcessing`](../../docs/terminal/ModeLock/setProcessing.md)
 - [`lock`](../../docs/terminal/ModeLock/lock.md)
 - [`unlock`](../../docs/terminal/ModeLock/unlock.md)
+- [`isLocked`](../../docs/terminal/ModeLock/isLocked.md)

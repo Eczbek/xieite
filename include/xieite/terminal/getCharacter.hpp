@@ -5,8 +5,9 @@
 
 namespace xieite::terminal {
 	inline char getCharacter(const xieite::terminal::ModeLock& modeLock) {
-		char input;
-		return (read(STDIN_FILENO, &input, 1) > 0) ? input : 0;
+		char input = 0;
+		read(STDIN_FILENO, &input, 1);
+		return input;
 	}
 
 	inline char getCharacter() {
