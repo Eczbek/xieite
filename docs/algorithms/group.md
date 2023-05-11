@@ -22,7 +22,7 @@ std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<I
 ### Parameters
 - `begin` - An `Iterator` copy, pointing the the beginning of an iterable
 - `end` - Also an `Iterator` copy, pointing to the end of the same iterable
-- `callback` - A `Callback` right-value reference
+- `callback` - A `Callback` constant reference
 ### Return value
 - `std::unordered_map<std::invoke_result_t<Callback(std::iterator_traits<Iterator>::value_type)>, std::vector<std::iterator_traits<Iterator>::value_type>>` - A `std::unordered_map`, of which the keys type depends on the return type of the callback, and the values type is a `std::vector` of `Iterator`'s value type
 
@@ -39,7 +39,7 @@ std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<I
 ### Parameters
 - `begin` - An `Iterator` copy, pointing the the beginning of an iterable
 - `end` - An `Iterator` copy, pointing to the end of the same iterable
-- `callback` - A `Callback` right-value reference
+- `callback` - A `Callback` constant reference
 ### Return value
 - A `std::unordered_map`, of which the keys' type depends on the return type of the callback, and the values' type is a `std::vector` of `Iterator`'s value type
 

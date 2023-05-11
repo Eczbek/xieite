@@ -12,17 +12,17 @@ Finds the pointer to a specific occurrence of a value in an iterable. If the val
 <br/><br/>
 
 ```cpp
-template<std::forward_iterator Iterator, xieite::concepts::CallbackComparator<typename std::iterator_traits<Iterator>::value_type> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
+template<std::forward_iterator Iterator, xieite::concepts::Function<bool(typename std::iterator_traits<Iterator>::value_type, typename std::iterator_traits<Iterator>::value_type)> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
 [[nodiscard]]
-constexpr Iterator findOccurrence(Iterator begin, Iterator end, const typename std::iterator_traits<Iterator>::value_type& value, std::size_t count, const Callback& comparator = Callback()) noexcept;
+constexpr Iterator findOccurrence(Iterator begin, const Iterator end, const typename std::iterator_traits<Iterator>::value_type& value, std::size_t count, const Callback& comparator = Callback());
 ```
 ### Template parameters
 - `Iterator` - An iterator type, satisfying `std::forward_iterator`
-- `Callback` - A callback type, satisfying `xieite::concepts::CallbackComparator` of `Iterator`'s value type, set to `std::equal_to` of `Iterator`'s value type by default
+- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts two `Iterator` value types and returns a `bool`. Set to `std::equal_to` of `Iterator`'s value type by default
 ### Parameters
 - `begin` - An `Iterator` copy which points to the beginning of an iterable
 - `end` - An `Iterator` copy which points to the end of the same iterable
-- `comparator` - A `Callback` right-value reference, default-constructed by default
+- `comparator` - A `Callback` constant reference, default-constructed by default
 ### Return value
 - The `Iterator` pointing to the specified value occurrence, or to the end if it is not found.
 
@@ -51,4 +51,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::CallbackComparator`](../../docs/concepts/CallbackComparator.md)
+- [`xieite::concepts::Function`](../../docs/concepts/Function.md)

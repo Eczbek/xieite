@@ -16,7 +16,7 @@ Counts the number of arguments provided.
 constexpr std::size_t count(const auto&... arguments) noexcept;
 ```
 ### Parameters
-- `arguments...` - Any `auto` right-value references
+- `arguments...` - Any `auto` constant references
 ### Return value
 - A `std::size_t`, the number of arguments passed
 
