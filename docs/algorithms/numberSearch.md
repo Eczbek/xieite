@@ -14,12 +14,12 @@ Using a variant of the binary search algorithm, finds the lowest value which, if
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number numberSearch(const xieite::concepts::CallbackSelector<Number> auto& selector, Number minimum, Number maximum) noexcept;
+constexpr Number numberSearch(const xieite::concepts::Function<bool(Number)> auto& selector, Number minimum, Number maximum);
 ```
 ### Template parameters
 - `Number` - An integer or floating point type, satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `selector` - A `Callback` right-value reference
+- `selector` - An `auto` constant reference, satisfying `xieite::concepts::Function` which `Iterator`'s value type and returns a `bool`
 - `minimum` - A `Number` copy, determining the minimum search limit for the algorithm
 - `maxumum` - A `Number` copy, determining the maxumum search limit for the algorithm
 ### Return value
@@ -30,13 +30,13 @@ constexpr Number numberSearch(const xieite::concepts::CallbackSelector<Number> a
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number numberSearch(const xieite::concepts::CallbackSelector<Number> auto& selector) noexcept;
+constexpr Number numberSearch(const xieite::concepts::Function<bool(Number)> auto& selector);
 ```
 ### Template parameters
 - `Number` - An integer or floating point type, satisfying `xieite::concepts::Arithmetic`
-- `Callback` - A callback type, satisfying `xieite::concepts::CallbackSelector` of `Number`
+- `Callback` - An `auto` constant reference, satisfying `xieite::concepts::Function` which accepts `Iterator`'s value type and returns a `bool`
 ### Parameters
-- `selector` - A `Callback` right-value reference
+- `selector` - A `Callback` constant reference
 ### Return value
 - `Number` - The lowest value allowed by the callback
 
@@ -68,4 +68,4 @@ Output:
 
 ## See also
 - [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)
-- [`xieite::concepts::CallbackSelector`](../../docs/concepts/CallbackSelector.md)
+- [`xieite::concepts::Function`](../../docs/concepts/Function.md)

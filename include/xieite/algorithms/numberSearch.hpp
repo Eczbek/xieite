@@ -1,13 +1,13 @@
 #pragma once
 
 #include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/concepts/CallbackSelector.hpp>
+#include <xieite/concepts/Function.hpp>
 #include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::algorithms {
 	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]]
-	constexpr Number numberSearch(const xieite::concepts::CallbackSelector<Number> auto& selector, Number minimum, Number maximum) {
+	constexpr Number numberSearch(const xieite::concepts::Function<bool(Number)> auto& selector, Number minimum, Number maximum) {
 		while (true) {
 			const Number middle = (minimum + maximum) / 2;
 			if (xieite::math::approximatelyEqual(middle, minimum) || xieite::math::approximatelyEqual(middle, maximum)) {
@@ -19,7 +19,7 @@ namespace xieite::algorithms {
 
 	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]]
-	constexpr Number numberSearch(const xieite::concepts::CallbackSelector<Number> auto& selector) {
+	constexpr Number numberSearch(const xieite::concepts::Function<bool(Number)> auto& selector) {
 		Number minimum = -1;
 		Number maximum = 1;
 		if (selector(0)) {

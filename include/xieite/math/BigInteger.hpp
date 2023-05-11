@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 #include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/concepts/CallbackComparator.hpp>
+#include <xieite/concepts/Function.hpp>
 #include <xieite/macros/ASSERT.hpp>
 #include <xieite/math/absolute.hpp>
 
@@ -557,9 +557,8 @@ namespace xieite::math {
 		std::vector<bool> bits;
 		bool sign;
 
-		template<xieite::concepts::CallbackComparator<bool> Callback>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& bigInteger, const Callback& callback) const noexcept {
+		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& bigInteger, const xieite::concepts::Function<bool(bool, bool)> auto& callback) const noexcept {
 			xieite::math::BigInteger copy = *this;
 			const std::size_t bitsSize = this->bits.size();
 			if (this->sign) {
