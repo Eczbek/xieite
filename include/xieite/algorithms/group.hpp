@@ -8,18 +8,18 @@
 #include <vector>
 
 namespace xieite::algorithms {
-	template<std::forward_iterator Iterator, std::invocable<std::iter_value_t<Iterator>> Callback>
+	template<std::forward_iterator ForwardIterator, std::invocable<std::iter_value_t<ForwardIterator>> Callback>
 	[[nodiscard]]
-	std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<Iterator>)>, std::vector<std::iter_value_t<Iterator>>> group(const Iterator begin, const std::sentinel_for<Iterator> auto end, const Callback& callback) {
-		return xieite::algorithms::group(begin, end, [&callback](std::iter_reference_t value, std::size_t) -> std::invoke_result_t<Callback(std::iter_value_t<Iterator>)> {
+	std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<ForwardIterator>)>, std::vector<std::iter_value_t<ForwardIterator>>> group(const ForwardIterator begin, const std::sentinel_for<ForwardIterator> auto end, const Callback& callback) {
+		return xieite::algorithms::group(begin, end, [&callback](std::iter_reference_t value, std::size_t) -> std::invoke_result_t<Callback(std::iter_value_t<ForwardIterator>)> {
 			return callback(value);
 		});
 	}
 
-	template<std::forward_iterator Iterator, std::invocable<std::iter_value_t<Iterator>, std::size_t> Callback>
+	template<std::forward_iterator ForwardIterator, std::invocable<std::iter_value_t<ForwardIterator>, std::size_t> Callback>
 	[[nodiscard]]
-	std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<Iterator>, std::size_t)>, std::vector<std::iter_value_t<Iterator>>> group(Iterator begin, const std::sentinel_for<Iterator> auto end, const Callback& callback) {
-		std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<Iterator>, std::size_t)>, std::vector<std::iter_value_t<Iterator>>> groups;
+	std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<ForwardIterator>, std::size_t)>, std::vector<std::iter_value_t<ForwardIterator>>> group(ForwardIterator begin, const std::sentinel_for<ForwardIterator> auto end, const Callback& callback) {
+		std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<ForwardIterator>, std::size_t)>, std::vector<std::iter_value_t<ForwardIterator>>> groups;
 		for (std::size_t i = 0; begin != end; ++begin, ++i) {
 			groups[callback(*begin, i)].push_back(*begin);
 		}
