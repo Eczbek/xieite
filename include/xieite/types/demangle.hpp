@@ -1,7 +1,10 @@
 #pragma once
 
-#include <cxxabi.h>
-#include <string>
+#include <xieite/macros/SYSTEM_TYPE.hpp>
+
+#if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#	include <cxxabi.h>
+#	include <string>
 
 namespace xieite::types {
 	[[nodiscard]]
@@ -15,5 +18,9 @@ namespace xieite::types {
 		return mangled;
 	}
 }
+
+#else
+#	error "System not supported"
+#endif
 
 // Thanks to eightfold for idea

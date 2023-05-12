@@ -1,7 +1,10 @@
 #pragma once
 
-#include <cstddef>
-#include <unistd.h>
+#include <xieite/macros/SYSTEM_TYPE.hpp>
+
+#if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#	include <cstddef>
+#	include <unistd.h>
 
 namespace xieite::system {
 	[[nodiscard]]
@@ -9,3 +12,7 @@ namespace xieite::system {
 		return static_cast<std::size_t>(sysconf(_SC_AVPHYS_PAGES)) * static_cast<std::size_t>(sysconf(_SC_PAGE_SIZE));
 	}
 }
+
+#else
+#	error "System not supported"
+#endif

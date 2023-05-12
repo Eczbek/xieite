@@ -1,7 +1,10 @@
 #pragma once
 
-#include <string>
-#include <uuid/uuid.h>
+#include <xieite/macros/SYSTEM_TYPE.hpp>
+
+#if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#	include <string>
+#	include <uuid/uuid.h>
 
 namespace xieite::random {
 	inline std::string getUUID() noexcept {
@@ -12,3 +15,7 @@ namespace xieite::random {
 		return result;
 	}
 }
+
+#else
+#	error "System not supported"
+#endif

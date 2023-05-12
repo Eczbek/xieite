@@ -1,9 +1,12 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <xieite/terminal/ModeLock.hpp>
-#include <xieite/terminal/getCharacter.hpp>
+#include <xieite/macros/SYSTEM_TYPE.hpp>
+
+#if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#	include <iostream>
+#	include <string>
+#	include <xieite/terminal/ModeLock.hpp>
+#	include <xieite/terminal/getCharacter.hpp>
 
 namespace xieite::terminal {
 	inline std::string getString() noexcept {
@@ -20,3 +23,7 @@ namespace xieite::terminal {
 		return buffer;
 	}
 }
+
+#else
+#	error "System not supported"
+#endif

@@ -1,7 +1,10 @@
 #pragma once
 
-#include <unistd.h>
-#include <xieite/terminal/ModeLock.hpp>
+#include <xieite/macros/SYSTEM_TYPE.hpp>
+
+#if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#	include <unistd.h>
+#	include <xieite/terminal/ModeLock.hpp>
 
 namespace xieite::terminal {
 	inline char getCharacter(const xieite::terminal::ModeLock& modeLock) {
@@ -14,3 +17,7 @@ namespace xieite::terminal {
 		return xieite::terminal::getCharacter(xieite::terminal::ModeLock());
 	}
 }
+
+#else
+#	error "System not supported"
+#endif

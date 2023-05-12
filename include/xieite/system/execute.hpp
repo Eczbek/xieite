@@ -1,11 +1,14 @@
 #pragma once
 
-#include <cstddef>
-#include <cstdio>
-#include <memory>
-#include <stdio.h>
-#include <string>
-#include <string_view>
+#include <xieite/macros/SYSTEM_TYPE.hpp>
+
+#if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#	include <cstddef>
+#	include <cstdio>
+#	include <memory>
+#	include <stdio.h>
+#	include <string>
+#	include <string_view>
 
 namespace xieite::system {
 	inline std::string execute(const std::string_view command) noexcept {
@@ -22,3 +25,7 @@ namespace xieite::system {
 		return buffer;
 	}
 }
+
+#else
+#	error "System not supported"
+#endif
