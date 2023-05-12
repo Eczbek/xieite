@@ -12,22 +12,19 @@ Checks whether one iterable contains elements in the same relative order as in a
 <br/><br/>
 
 ```cpp
-template<std::forward_iterator Iterator1, std::forward_iterator Iterator2, xieite::concepts::Function<bool(typename std::iterator_traits<Iterator1>::value_type, typename std::iterator_traits<Iterator1>::value_type)> Callback = std::equal_to<typename std::iterator_traits<Iterator1>::value_type>>
-requires(std::same_as<typename std::iterator_traits<Iterator1>::value_type, typename std::iterator_traits<Iterator2>::value_type>)
+template<std::forward_iterator Iterator1, std::forward_iterator Iterator2, xieite::concepts::Function<bool(std::iter_value_t<Iterator1>, std::iter_value_t<Iterator2>)> Callback = std::ranges::equal_to>
 [[nodiscard]]
-constexpr bool sameRelativeOrder(const Iterator1 begin1, const Iterator1 end1, const Iterator2 begin2, const Iterator2 end2, const Callback& comparator = Callback());
+constexpr bool sameRelativeOrder(const Iterator1 begin1, const std::sentinel_for<Iterator1> auto end1, const Iterator2 begin2, const std::sentinel_for<Iterator2> auto end2, const Callback& comparator = Callback());
 ```
 ### Template parameters
 - `Iterator1` - An iterator type, satisfying `std::forward_iterator`
 - `Iterator2` - An iterator type, satisfying `std::forward_iterator`
-- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts two `Iterator1` value types and returns a `bool`. Set to `std::equal_to` of `Iterator1`'s value type by default
-### Requirements
-- `Iterator1`'s value type must be the same as `Iterator2`'s value type
+- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts `Iterator1`'s value type and `Iterator2`'s value type, and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
 - `begin1` - An `Iterator1` copy which points to the beginning of an iterable
-- `end1` - An `Iterator1` copy which points to the end of the same iterable
+- `end1` - An `auto` copy, satisfying `std::iter_value_t` of `Iterator1`
 - `begin2` - An `Iterator2` copy which points to the beginning of another iterable
-- `end2` - An `Iterator2` copy which points to the end of the second iterable
+- `end2` - An `auto` copy, satisfying `std::iter_value_t` of `Iterator2`
 - `comparator` - A `Callback` constant reference, default-constructed by default
 ### Return value
 - A `bool`, whether or not the iterables have the same relative sequence of values

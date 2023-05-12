@@ -3,13 +3,13 @@
 #include <concepts>
 #include <functional>
 #include <iterator>
+#include <ranges>
 #include <xieite/concepts/Function.hpp>
 
 namespace xieite::algorithms {
-	template<std::forward_iterator Iterator1, std::forward_iterator Iterator2, xieite::concepts::Function<bool(typename std::iterator_traits<Iterator1>::value_type, typename std::iterator_traits<Iterator1>::value_type)> Callback = std::equal_to<typename std::iterator_traits<Iterator1>::value_type>>
-	requires(std::same_as<typename std::iterator_traits<Iterator1>::value_type, typename std::iterator_traits<Iterator2>::value_type>)
+	template<std::forward_iterator Iterator1, std::forward_iterator Iterator2, xieite::concepts::Function<bool(std::iter_value_t<Iterator1>, std::iter_value_t<Iterator2>)> Callback = std::ranges::equal_to>
 	[[nodiscard]]
-	constexpr bool sameRelativeOrder(const Iterator1 begin1, const Iterator1 end1, const Iterator2 begin2, const Iterator2 end2, const Callback& comparator = Callback()) {
+	constexpr bool sameRelativeOrder(const Iterator1 begin1, const std::sentinel_for<Iterator1> auto end1, const Iterator2 begin2, const std::sentinel_for<Iterator2> auto end2, const Callback& comparator = Callback()) {
 		if (std::distance(begin1, end1) == std::distance(begin2, end2)) {
 			for (Iterator1 i = begin1; i != end1; ++i) {
 				Iterator1 copy1 = i;

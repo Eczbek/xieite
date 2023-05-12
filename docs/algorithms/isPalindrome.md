@@ -12,16 +12,16 @@ Checks if an iterable is the same backwards as it is forwards. Uses `std::equal_
 <br/><br/>
 
 ```cpp
-template<std::forward_iterator Iterator, xieite::concepts::Function<bool(typename std::iterator_traits<Iterator>::value_type, typename std::iterator_traits<Iterator>::value_type)> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
+template<std::forward_iterator Iterator, xieite::concepts::Function<bool(std::iter_value_t<Iterator>, std::iter_value_t<Iterator>)> Callback = std::ranges::equal_to>
 [[nodiscard]]
-constexpr bool isPalindrome(Iterator begin, Iterator end, const Callback& comparator = Callback());
+constexpr bool isPalindrome(Iterator begin, std::sentinel_for<Iterator> auto end, const Callback& comparator = Callback());
 ```
 ### Template parameters
 - `Iterator` - An iterator type, satisfying `std::forward_iterator`
-- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts two `Iterator` value types and returns a `bool`. Set to `std::equal_to` of `Iterator`'s value type by default
+- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts two `Iterator` value types and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
 - `begin` - An `Iterator` copy which points to the beginning of an iterable
-- `end` - An `Iterator` copy which points to the end of the same iterable
+- `end` - An `auto` copy, satisfying `std::sentinel_for` of `Iterator`
 - `comparator` - A `Callback` constant reference, default-constructed by default
 ### Return value
 - A `bool`, whether or not the passed iterable is a palindrome

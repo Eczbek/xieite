@@ -3,12 +3,13 @@
 #include <cstddef>
 #include <functional>
 #include <iterator>
+#include <ranges>
 #include <xieite/concepts/Function.hpp>
 
 namespace xieite::algorithms {
-	template<std::forward_iterator Iterator, xieite::concepts::Function<bool(typename std::iterator_traits<Iterator>::value_type, typename std::iterator_traits<Iterator>::value_type)> Callback = std::equal_to<typename std::iterator_traits<Iterator>::value_type>>
+	template<std::forward_iterator Iterator, xieite::concepts::Function<bool(std::iter_value_t<Iterator>, std::iter_value_t<Iterator>)> Callback = std::ranges::equal_to>
 	[[nodiscard]]
-	constexpr bool isPalindrome(Iterator begin, Iterator end, const Callback& comparator = Callback()) {
+	constexpr bool isPalindrome(Iterator begin, std::sentinel_for<Iterator> auto end, const Callback& comparator = Callback()) {
 		const std::size_t size = std::distance(begin, end) / 2;
 		--end;
 		for (std::size_t i = 0; i < size; ++i) {
