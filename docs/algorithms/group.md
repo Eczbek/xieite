@@ -12,33 +12,33 @@ Groups elements of a vector into a `std::unordered_map`. The resulting map's key
 <br/><br/>
 
 ```cpp
-template<std::forward_iterator Iterator, std::invocable<typename std::iterator_traits<Iterator>::value_type> Callback>
+template<std::forward_iterator Iterator, std::invocable<std::iter_value_t<Iterator>> Callback>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<Iterator>::value_type)>, std::vector<typename std::iterator_traits<Iterator>::value_type>> group(Iterator begin, Iterator end, const Callback& callback);
+std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<Iterator>)>, std::vector<std::iter_value_t<Iterator>>> group(Iterator begin, std::sentinel_for<Iterator> auto end, const Callback& callback);
 ```
 ### Template parameters
 - `Iterator` - The passed iterators' type, satisfying `std::forward_iterator`
 - `Callback` - The callback type, satisfying `std::invocable` where it accepts `Iterator`'s value type
 ### Parameters
 - `begin` - An `Iterator` copy, pointing the the beginning of an iterable
-- `end` - Also an `Iterator` copy, pointing to the end of the same iterable
+- `end` - An `auto` copy, satisfying `std::sentinel_for` of `Iterator`
 - `callback` - A `Callback` constant reference
 ### Return value
-- `std::unordered_map<std::invoke_result_t<Callback(std::iterator_traits<Iterator>::value_type)>, std::vector<std::iterator_traits<Iterator>::value_type>>` - A `std::unordered_map`, of which the keys type depends on the return type of the callback, and the values type is a `std::vector` of `Iterator`'s value type
+- An `std::unordered_map`, of which the keys type depends on the return type of the callback, and the values type is a `std::vector` of `Iterator`'s value type
 
 <br/><br/>
 
 ```cpp
-template<std::forward_iterator Iterator, std::invocable<typename std::iterator_traits<Iterator>::value_type, std::size_t> Callback>
+template<std::forward_iterator Iterator, std::invocable<std::iter_value_t<Iterator>, std::size_t> Callback>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<Callback(typename std::iterator_traits<Iterator>::value_type, std::size_t)>, std::vector<typename std::iterator_traits<Iterator>::value_type>> group(Iterator begin, Iterator end, const Callback& callback);
+std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<Iterator>, std::size_t)>, std::vector<std::iter_value_t<Iterator>>> group(Iterator begin, const std::sentinel_for<Iterator> auto end, const Callback& callback);
 ```
 ### Template parameters
 - `Iterator` - The passed iterators' type, satisfying `std::forward_iterator`
 - `Callback` - The callback type, satisfying `std::invocable` where it accepts `Iterator`'s value type and a `std::size_t`
 ### Parameters
 - `begin` - An `Iterator` copy, pointing the the beginning of an iterable
-- `end` - An `Iterator` copy, pointing to the end of the same iterable
+- `end` - An `auto` copy, satisfying `std::sentinel_for` of `Iterator`
 - `callback` - A `Callback` constant reference
 ### Return value
 - A `std::unordered_map`, of which the keys' type depends on the return type of the callback, and the values' type is a `std::vector` of `Iterator`'s value type
