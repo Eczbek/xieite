@@ -7,9 +7,9 @@
 #include <xieite/concepts/Function.hpp>
 
 namespace xieite::algorithms {
-	template<std::forward_iterator Iterator>
-	constexpr void partialReverse(Iterator begin, const std::sentinel_for<Iterator> auto end, const xieite::concepts::Function<bool(std::iter_value_t<Iterator>)> auto& selector) {
-		std::vector<Iterator> iterators;
+	template<std::forward_iterator ForwardIterator>
+	constexpr void partialReverse(ForwardIterator begin, const std::sentinel_for<ForwardIterator> auto end, const xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>)> auto& selector) {
+		std::vector<ForwardIterator> iterators;
 		for (; begin != end; ++begin) {
 			if (selector(*begin)) {
 				iterators.push_back(begin);

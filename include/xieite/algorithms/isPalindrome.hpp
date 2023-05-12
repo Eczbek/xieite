@@ -7,9 +7,9 @@
 #include <xieite/concepts/Function.hpp>
 
 namespace xieite::algorithms {
-	template<std::forward_iterator Iterator, xieite::concepts::Function<bool(std::iter_value_t<Iterator>, std::iter_value_t<Iterator>)> Callback = std::ranges::equal_to>
+	template<std::forward_iterator ForwardIterator, std::reverse_iterator ReverseIterator, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ReverseIterator>)> Callback = std::ranges::equal_to>
 	[[nodiscard]]
-	constexpr bool isPalindrome(Iterator begin, std::sentinel_for<Iterator> auto end, const Callback& comparator = Callback()) {
+	constexpr bool isPalindrome(ForwardIterator begin, ReverseIterator end, const Callback& comparator = Callback()) {
 		const std::size_t size = std::distance(begin, end) / 2;
 		--end;
 		for (std::size_t i = 0; i < size; ++i) {

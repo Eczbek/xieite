@@ -12,19 +12,19 @@ Finds the pointer to a specific occurrence of a value in an iterable. If the val
 <br/><br/>
 
 ```cpp
-template<std::forward_iterator Iterator, xieite::concepts::Function<bool(std::iter_value_t<Iterator>, std::iter_value_t<Iterator>)> Callback = std::ranges::equal_to>
+template<std::forward_iterator ForwardIterator, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ForwardIterator>)> Callback = std::ranges::equal_to>
 [[nodiscard]]
-constexpr Iterator findOccurrence(Iterator begin, std::sentinel_for<Iterator> auto end, const std::convertible_to<std::iter_value_t<Iterator>> auto& value, std::size_t count, const Callback& comparator = Callback());
+constexpr ForwardIterator findOccurrence(ForwardIterator begin, std::sentinel_for<ForwardIterator> auto end, const std::convertible_to<std::iter_value_t<ForwardIterator>> auto& value, std::size_t count, const Callback& comparator = Callback());
 ```
 ### Template parameters
-- `Iterator` - An iterator type, satisfying `std::forward_iterator`
-- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts two `Iterator` value types and returns a `bool`. Set to `std::ranges::equal_to` by default
+- `ForwardIterator` - An iterator type, satisfying `std::forward_iterator`
+- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts two `ForwardIterator` value types and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
-- `begin` - An `Iterator` copy which points to the beginning of an iterable
-- `end` - An `auto` copy, satisfying `std::sentinel_for` of `Iterator`
+- `begin` - A `ForwardIterator` copy which points to the beginning of an iterable
+- `end` - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
 - `comparator` - A `Callback` constant reference, default-constructed by default
 ### Return value
-- The `Iterator` pointing to the specified value occurrence, or to the end if it is not found.
+- The `ForwardIterator` pointing to the specified value occurrence, or to the end if it is not found.
 
 <br/><br/>
 
