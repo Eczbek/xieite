@@ -1,8 +1,11 @@
 #pragma once
 
-#include <sys/ioctl.h>
-#include <unistd.h>
-#include <xieite/terminal/Position.hpp>
+#include <xieite/macros/SYSTEM_TYPE.hpp>
+
+#if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#	include <sys/ioctl.h>
+#	include <unistd.h>
+#	include <xieite/terminal/Position.hpp>
 
 namespace xieite::terminal {
 	[[nodiscard]]
@@ -12,3 +15,7 @@ namespace xieite::terminal {
 		return xieite::terminal::Position(size.ws_row, size.ws_col);
 	}
 }
+
+#else
+#	error "System not supported"
+#endif
