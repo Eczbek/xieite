@@ -39,7 +39,6 @@ int main() {
 	xieite::geometry::Point intercept = xieite::geometry::getAxisIntercept(line);
 
 	std::cout << '(' << intercept.x << ", " << intercept.y << ")\n";
-	}
 }
 ```
 Output:
