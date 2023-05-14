@@ -9,7 +9,7 @@ Defined in header [`<xieite/math/tau.hpp>`](../../include/xieite/math/tau.hpp)
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-constexpr Number tau = xieite::math::pi<Number> * 2.0;
+inline constexpr Number tau = xieite::math::pi<Number> * 2.0;
 ```
 ### Template parameters
 - `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`

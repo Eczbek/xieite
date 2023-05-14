@@ -9,7 +9,7 @@ Defined in header [`<xieite/math/alternatingBits.hpp>`](../../include/xieite/mat
 
 ```cpp
 template<std::integral Integral>
-constexpr Integral alternatingBits = std::numeric_limits<Integral>::max() / 3;
+inline constexpr Integral alternatingBits = std::numeric_limits<Integral>::max() / 3;
 ```
 ### Template parameters
 - `Integral` - Any integer type, satisfying `std::integral`

@@ -12,8 +12,17 @@ Defines integer values of Pi.
 <br/><br/>
 
 ```cpp
+template<typename>
+inline constexpr double pi = std::numbers::pi;
+```
+### Template parameters
+- An unconstrained and unnamed type
+
+<br/><br/>
+
+```cpp
 template<std::floating_point FloatingPoint>
-constexpr FloatingPoint pi<FloatingPoint> = std::numbers::pi_v<FloatingPoint>;
+inline constexpr FloatingPoint pi<FloatingPoint> = std::numbers::pi_v<FloatingPoint>;
 ```
 ### Template parameters
 - `FloatingPoint` - A floating point type, satisfying `std::floating_point`
@@ -22,7 +31,7 @@ constexpr FloatingPoint pi<FloatingPoint> = std::numbers::pi_v<FloatingPoint>;
 
 ```cpp
 template<std::integral Integral>
-constexpr Integral pi<Integral> = 3;
+inline constexpr Integral pi<Integral> = 3;
 ```
 ### Template parameters
 - `Integral` - An integral type, satisfying `std::integral`

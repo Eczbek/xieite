@@ -5,5 +5,5 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
-	constexpr Number tau = xieite::math::pi<Number> * 2.0;
+	inline constexpr Number tau = xieite::math::pi<Number> * 2.0;
 }
