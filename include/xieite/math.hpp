@@ -16,6 +16,7 @@
 #include <xieite/math/fromBase.hpp>
 #include <xieite/math/isPowerOf2.hpp>
 #include <xieite/math/isPrime.hpp>
+#include <xieite/math/minimalBits.hpp>
 #include <xieite/math/pi.hpp>
 #include <xieite/math/piDigits.hpp>
 #include <xieite/math/robert.hpp>
