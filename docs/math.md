@@ -29,6 +29,7 @@ A namespace of mathematical types and functions.
 - [`fromBase`](../docs/math/fromBase.md)
 - [`isPowerOf2`](../docs/math/isPowerOf2.md)
 - [`isPrime`](../docs/math/isPrime.md)
+- [`minimalBits`](../docs/math/minimalBits.md)
 - [`piDigits`](../docs/math/piDigits.md)
 - [`secant`](../docs/math/secant.md)
 - [`toBase`](../docs/math/toBase.md)
