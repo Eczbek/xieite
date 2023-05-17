@@ -9,7 +9,7 @@ Consumes expressions and returns nothing.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_CONSUME(...)

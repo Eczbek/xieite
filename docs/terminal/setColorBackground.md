@@ -9,7 +9,7 @@ Sets the text background color. Disregards alpha value of the passed argument.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string setColorBackground(const xieite::graphics::Color& color) noexcept;

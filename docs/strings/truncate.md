@@ -9,7 +9,7 @@ Shortens the end of a string, replacing it with a suffix.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

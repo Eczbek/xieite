@@ -9,7 +9,7 @@ The inherited `operator()` from the `Function` type.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 using Function::operator();

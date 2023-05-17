@@ -9,7 +9,7 @@ Calls one of the `xieite::functions::OptionalCallOperator`s of `Functions` the c
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 using xieite::functions::OptionalCallOperator<Functions>::operator()...;

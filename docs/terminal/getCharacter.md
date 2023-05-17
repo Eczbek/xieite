@@ -9,7 +9,7 @@ Waits for and returns the next keypress input.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 inline char getCharacter(const xieite::terminal::ModeLock& modeLock);

@@ -9,7 +9,7 @@ Repeats an expression literally.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_REPEAT(count, argument) \

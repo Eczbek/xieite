@@ -9,7 +9,7 @@ Checks whether all passed arguments are true. Expects all arguments to be conver
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::convertible_to<bool>... Values>

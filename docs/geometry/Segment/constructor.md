@@ -9,7 +9,7 @@ Constructs a `xieite::geometry::Segment`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr Segment(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;

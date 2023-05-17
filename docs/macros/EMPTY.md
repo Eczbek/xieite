@@ -9,7 +9,7 @@ Does nothing.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_EMPTY()

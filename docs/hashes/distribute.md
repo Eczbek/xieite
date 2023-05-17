@@ -5,7 +5,7 @@ Defined in header [`<xieite/hashes/distribute.hpp>`](../../include/xieite/hashes
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::unsigned_integral UnsignedIntegral>

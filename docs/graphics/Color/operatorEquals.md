@@ -9,7 +9,7 @@ Compares two `xieite::graphics::Color`s.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr bool operator==(const xieite::graphics::Color& color) const noexcept;

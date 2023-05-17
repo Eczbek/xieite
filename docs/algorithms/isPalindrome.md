@@ -9,7 +9,7 @@ Checks if an iterable is the same backwards as it is forwards. Uses `std::equal_
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::forward_iterator ForwardIterator, std::reverse_iterator ReverseIterator, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ReverseIterator>)> Callback = std::ranges::equal_to>

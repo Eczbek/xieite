@@ -9,7 +9,7 @@ Converts an integer string to base 10.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::integral Integral = int>

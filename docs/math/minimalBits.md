@@ -9,7 +9,7 @@ Calculates the minimmum amount of bits needed to store a value.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::integral Integral>

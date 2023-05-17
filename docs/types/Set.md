@@ -9,7 +9,7 @@ Creates a `xieite::types::List` using only unique types of those provided.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<typename... Types>

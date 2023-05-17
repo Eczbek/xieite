@@ -9,7 +9,7 @@ Specifies that type `Invocable` is function-like.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<typename Invocable, typename ResultOfParameters>

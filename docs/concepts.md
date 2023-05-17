@@ -7,7 +7,7 @@ A namespace of common concepts.
 
 <br/><br/>
 
-## Member functions
+## Member concepts
 - [`Aggregate`](../docs/concepts/Aggregate.md)
 - [`Arithmetic`](../docs/concepts/Arithmetic.md)
 - [`ConvertibleToOneOf`](../docs/concepts/ConvertibleToOneOf.md)

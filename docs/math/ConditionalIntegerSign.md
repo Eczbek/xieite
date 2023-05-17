@@ -5,7 +5,7 @@ Defined in header [`<xieite/math/ConditionalIntegerSign.hpp>`](../../include/xie
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::integral Integral, bool sign>

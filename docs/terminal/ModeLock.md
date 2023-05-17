@@ -9,7 +9,7 @@ A lock-style class for toggling terminal settings.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Member functions
 - [`ModeLock`](../../docs/terminal/ModeLock/constructor.md)

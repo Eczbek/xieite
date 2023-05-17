@@ -9,7 +9,7 @@ Checks if the lock is locked.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

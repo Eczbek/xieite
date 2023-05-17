@@ -9,7 +9,7 @@ Hashes a value. Currently only supports `std::string`s. Collisions may occur.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ Specifies that type `Any` has defined a `friend operator<<(std::ostream&, Any)`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<typename Any>

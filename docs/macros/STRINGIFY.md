@@ -9,7 +9,7 @@ Converts expressions to a string literally.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_STRINGIFY(...) \

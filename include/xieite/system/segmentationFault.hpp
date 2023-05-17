@@ -7,4 +7,4 @@ namespace xieite::system {
 	}
 }
 
-// Thanks to eightfold for idea
+// Thanks to eightfold for original idea

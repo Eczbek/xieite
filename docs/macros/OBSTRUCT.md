@@ -5,7 +5,7 @@ Defined in header [`<xieite/macros/OBSTRUCT.hpp>`](../../include/xieite/macros/O
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_OBSTRUCT(...) \

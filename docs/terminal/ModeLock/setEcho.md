@@ -9,7 +9,7 @@ Enables or disables the echo. When echoing is disabled, pressed keys will not be
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 void setEcho(bool value) noexcept;

@@ -9,7 +9,7 @@ A simple class for storing an RGBA value.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Member objects
 ```cpp

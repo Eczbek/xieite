@@ -9,7 +9,7 @@ Defined in header [`<xieite/math/wrap.hpp>`](../../include/xieite/math/wrap.hpp)
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>

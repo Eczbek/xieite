@@ -9,7 +9,7 @@ Runs a callback once after a set amount of time. Compile with `-pthread`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Member functions
 - [`Timeout`](../../docs/threads/Timeout/constructor.md)
@@ -17,7 +17,7 @@ Runs a callback once after a set amount of time. Compile with `-pthread`.
 - [`good`](../../docs/threads/Timeout/good.md)
 - [`stop`](../../docs/threads/Timeout/stop.md)
 
-<br/>
+<br/><br/>
 
 ## Example
 ```cpp

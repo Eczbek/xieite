@@ -12,11 +12,17 @@ A namespace of mathematical types and functions.
 - [`ConditionalIntegerSign`](../docs/math/ConditionalIntegerSign.md)
 - [`Integer`](../docs/math/Integer.md)
 - [`MinimalIntegerSize`](../docs/math/MinimalIntegerSize.md)
+
+<br/>
+
 ## Member objects
 - [`alternatingBits`](../docs/math/alternatingBits.md)
 - [`pi`](../docs/math/pi.md)
 - [`robert`](../docs/math/robert.md)
 - [`tau`](../docs/math/tau.md)
+
+<br/>
+
 ## Member functions
 - [`absolute`](../docs/math/absolute.md)
 - [`approximatelyEqual`](../docs/math/approximatelyEqual.md)

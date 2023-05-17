@@ -9,7 +9,7 @@ Counts the number of arguments provided.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

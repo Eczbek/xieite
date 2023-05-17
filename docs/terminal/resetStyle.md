@@ -9,7 +9,7 @@ Resets all text effects and colors.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string resetStyle() noexcept;

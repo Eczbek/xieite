@@ -5,7 +5,7 @@ Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Int
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::integral Integral>

@@ -9,7 +9,7 @@ Enables or disables the alternative cursor. The alternative cursor starts at the
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string setCursorAlternative(bool value) noexcept;

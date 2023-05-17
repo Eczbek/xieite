@@ -9,7 +9,7 @@ Uses cursed C++ magic to remove any line where it is mentioned.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_VANISH \

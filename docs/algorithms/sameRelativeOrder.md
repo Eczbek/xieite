@@ -9,7 +9,7 @@ Checks whether one iterable contains elements in the same relative order as in a
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::forward_iterator ForwardIterator1, std::forward_iterator ForwardIterator2, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator1>, std::iter_value_t<ForwardIterator2>)> Callback = std::ranges::equal_to>

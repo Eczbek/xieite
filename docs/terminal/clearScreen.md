@@ -9,7 +9,7 @@ Clears the entire screen.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string clearScreen() noexcept;

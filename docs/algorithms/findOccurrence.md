@@ -9,7 +9,7 @@ Finds the pointer to a specific occurrence of a value in an iterable. If the val
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::forward_iterator ForwardIterator, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ForwardIterator>)> Callback = std::ranges::equal_to>

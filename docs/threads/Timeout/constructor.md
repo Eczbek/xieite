@@ -9,7 +9,7 @@ Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 Timeout(const std::invocable<>& callback, const xieite::concepts::TemporalDuration auto duration) noexcept;

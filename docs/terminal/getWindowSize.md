@@ -9,7 +9,7 @@ Gets the terminal window size, in rows and columns.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

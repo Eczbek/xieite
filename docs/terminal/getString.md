@@ -9,7 +9,7 @@ Reads the entire input buffer, clearing it in the process.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 inline std::string getString() noexcept;

@@ -9,7 +9,7 @@ Demangles the name of a `std::type_info::name()`. Returns original string if dem
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

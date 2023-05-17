@@ -9,7 +9,7 @@ Specifies that type `Any` can be derived from.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<typename Any>

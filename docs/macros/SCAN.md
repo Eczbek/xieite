@@ -9,7 +9,7 @@ Scans and expands expressions if possible.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_SCAN(...) \

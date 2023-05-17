@@ -9,7 +9,7 @@ Enables or disables the alternative screen.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string setScreenAlternative(bool value) noexcept;

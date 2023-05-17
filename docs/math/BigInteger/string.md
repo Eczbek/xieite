@@ -9,7 +9,7 @@ Converts a `xieite::math::BigInteger` to a `std::string`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

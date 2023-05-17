@@ -9,7 +9,7 @@ Returns the absolute of a value. Unlike `std::abs`, this accepts both signed and
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>

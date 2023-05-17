@@ -9,7 +9,7 @@ Enables or disables text <u>underlining</u>.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string setTextUnderline(bool value) noexcept;

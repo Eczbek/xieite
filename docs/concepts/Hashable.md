@@ -9,7 +9,7 @@ Specifies that `Any` is hashable, or that `std::hash` has a specification for ty
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<typename Any>
