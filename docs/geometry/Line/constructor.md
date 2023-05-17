@@ -9,7 +9,7 @@ Constructs a `xieite::geometry::Line`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;

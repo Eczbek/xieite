@@ -9,7 +9,7 @@ Detects rare cosmic rays or a faulty memory. Even if you do intercept something,
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 inline void detectCosmicRay(std::size_t detectionBytes) noexcept;

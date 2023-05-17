@@ -9,7 +9,7 @@ Destructs a `xieite::threads::Timeout`, stops its callback from getting called.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 ~Timeout();

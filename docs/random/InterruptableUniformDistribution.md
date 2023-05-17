@@ -9,7 +9,7 @@ A uniform random number distribution which allows excluding subintervals from th
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Template Parameters
 - `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
@@ -20,7 +20,7 @@ A uniform random number distribution which allows excluding subintervals from th
 - [`InterruptableUniformDistribution`](../../docs/random/InterruptableUniformDistribution/constructor.md)
 - [`operator()`](../../docs/random/InterruptableUniformDistribution/operatorCall.md)
 
-<br/>
+<br/><br/>
 
 ## Example
 ```cpp

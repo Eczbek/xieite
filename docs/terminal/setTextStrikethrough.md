@@ -9,7 +9,7 @@ Enables or disables ~~strikethrough~~ text.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string setTextStrikethrough(bool value) noexcept;

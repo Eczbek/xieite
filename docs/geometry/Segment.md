@@ -9,7 +9,7 @@ A struct representing a finite line segment.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Member objects
 ```cpp
@@ -19,13 +19,13 @@ xieite::geometry::Point start;
 xieite::geometry::Point end;
 ```
 
-<br/><br/>
+<br/>
 
 ### Member functions
 - [`Segment`](../../docs/geometry/Segment/constructor.hpp)
 - [`operator==`](../../docs/geometry/Segment/operatorEquals.hpp)
 
-<br/>
+<br/><br/>
 
 ## Example
 ```cpp

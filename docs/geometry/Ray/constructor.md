@@ -9,7 +9,7 @@ Constructs a `xieite::geometry::Ray`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr Ray(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;

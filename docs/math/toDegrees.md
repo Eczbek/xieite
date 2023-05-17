@@ -9,7 +9,7 @@ Converts radians to degrees.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>

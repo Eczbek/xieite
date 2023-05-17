@@ -9,7 +9,7 @@ Puts a string back into the input buffer.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 inline void putBackString(std::string_view value) noexcept;

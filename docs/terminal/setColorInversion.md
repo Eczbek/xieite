@@ -9,7 +9,7 @@ Enables or disables the swapping of foreground and background colors.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string setColorInversion(bool value) noexcept;

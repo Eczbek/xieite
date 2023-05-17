@@ -9,7 +9,7 @@ Constructs a `xieite::threads::Loop`, starts running a callback constantly.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 Loop(const std::invocable<>& callback) noexcept;

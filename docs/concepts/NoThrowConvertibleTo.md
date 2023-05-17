@@ -9,7 +9,7 @@ Specifies that type `From` is convertible to type `To` without throwing an excep
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<typename From, typename To>

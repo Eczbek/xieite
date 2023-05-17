@@ -9,7 +9,7 @@ Extends multiple invocable types and overloads `operator()` for each. Ignores ty
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Template parameters
 - `Functions...` - Any types, satisfying `xieite::concepts::Derivable`, to be derived from

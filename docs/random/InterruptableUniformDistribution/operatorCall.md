@@ -9,7 +9,7 @@ Distributes the result of a random number generator.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

@@ -5,7 +5,7 @@ Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ Shows or hides the cursor.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string setCursorVisibility(bool value) noexcept;

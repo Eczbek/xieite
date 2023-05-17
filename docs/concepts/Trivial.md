@@ -9,7 +9,7 @@ Specifies that type `Any` is trivial.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<typename Any>

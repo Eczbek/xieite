@@ -9,7 +9,7 @@ Executes given callbacks when the program ends. Is thread-safe.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 inline void atExit(const std::function<void()>& callback) noexcept;

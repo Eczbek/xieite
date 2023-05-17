@@ -9,7 +9,7 @@ Creates a segmentation fault. Why would you use this?
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[noreturn]]

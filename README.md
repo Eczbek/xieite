@@ -24,6 +24,7 @@ Add the `include` directory to your project
 - [`hashes`](./docs/hashes.md)
 - [`macros`](./docs/macros.md)
 - [`math`](./docs/math.md)
+- [`meta`](./docs/meta.md)
 - [`process`](./docs/process.md)
 - [`random`](./docs/random.md)
 - [`ratios`](./docs/ratios.md)

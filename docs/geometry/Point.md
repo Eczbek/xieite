@@ -9,7 +9,7 @@ A struct representing a point.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Member objects
 ```cpp
@@ -19,13 +19,13 @@ double x;
 double y;
 ```
 
-<br/><br/>
+<br/>
 
 ### Member functions
 - [`Point`](../../docs/geometry/Point/constructor.md)
 - [`operator==`](../../docs/geometry/Point/operatorEquals.md)
 
-<br/>
+<br/><br/>
 
 ## Example
 ```cpp

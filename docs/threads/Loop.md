@@ -9,7 +9,7 @@ Runs a callback constantly. Compile with `-pthread`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Member functions
 - [`Loop`](../../docs/threads/Loop/constructor.md)
@@ -17,7 +17,7 @@ Runs a callback constantly. Compile with `-pthread`.
 - [`good`](../../docs/threads/Loop/good.md)
 - [`stop`](../../docs/threads/Loop/stop.md)
 
-<br/>
+<br/><br/>
 
 ## Example
 ```cpp

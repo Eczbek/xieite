@@ -9,7 +9,7 @@ The default `operator()` for the wrapper class.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr void operator()(xieite::types::Anything) const noexcept;

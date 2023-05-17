@@ -9,7 +9,7 @@ Concatenates expressions literally.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_CONCATENATE(first, second) \

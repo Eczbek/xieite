@@ -9,7 +9,7 @@ Clears the line on which the cursor currently is.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string clearLine() noexcept;

@@ -9,5 +9,8 @@ A namespace of utilities focused on random value generation.
 
 ## Member types
 - [`InterruptableUniformDistribution`](../docs/random/InterruptableUniformDistribution.md)
+
+<br/>
+
 ## Member functions
 - [`getUUID`](../docs/random/getUUID.md)

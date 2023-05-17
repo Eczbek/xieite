@@ -9,7 +9,7 @@ A class for storing and operating on very large numbers.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Member functions
 - [`BigInteger`](../../docs/math/BigInteger/constructor.md)
@@ -47,7 +47,7 @@ A class for storing and operating on very large numbers.
 - [`data`](../../docs/math/BigInteger/data.md)
 - [`string`](../../docs/math/BigInteger/string.md)
 
-<br/>
+<br/><br/>
 
 ## Example
 ```cpp

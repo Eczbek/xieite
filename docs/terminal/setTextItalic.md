@@ -9,7 +9,7 @@ Enables or disables *italic* text.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::string setTextItalic(bool value) noexcept;

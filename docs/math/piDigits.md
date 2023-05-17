@@ -9,7 +9,7 @@ Calculates digits of Pi.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::integral Integral = int>

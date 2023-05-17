@@ -5,7 +5,7 @@ Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Int
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr xieite::math::Integer<bits, sign> operator|=(xieite::math::Integer<bits, sign> integer) const noexcept;

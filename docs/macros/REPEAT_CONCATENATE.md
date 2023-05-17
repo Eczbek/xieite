@@ -9,7 +9,7 @@ Repeats the concatenation of an expression with itself.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_REPEAT_CONCATENATE(count, argument) \

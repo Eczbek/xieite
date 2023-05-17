@@ -9,7 +9,7 @@ For use in `xieite::types::Set`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<typename Type>

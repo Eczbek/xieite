@@ -9,7 +9,7 @@ Gets the data of a `xieite::math::BigInteger`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ Creates a unique token.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_UNIQUE_TOKEN \

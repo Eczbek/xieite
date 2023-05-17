@@ -9,7 +9,7 @@ Constructs `xieite::terminal::ModeLock`, saves the current terminal mode for lat
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 ModeLock() noexcept;

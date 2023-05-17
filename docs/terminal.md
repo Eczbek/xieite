@@ -10,6 +10,9 @@ A namespace of terminal manipulation tools.
 ## Member types
 - [`ModeLock`](../docs/terminal/ModeLock.md)
 - [`Position`](../docs/terminal/Position.md)
+
+<br/>
+
 ## Member functions
 - [`clearLine`](../docs/terminal/clearLine.md)
 - [`clearScreen`](../docs/terminal/clearScreen.md)

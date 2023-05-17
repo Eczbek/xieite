@@ -5,7 +5,7 @@ Defined in header [`<xieite/math/alternatingBits.hpp>`](../../include/xieite/mat
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::integral Integral>

@@ -13,6 +13,9 @@ A namespace of 2D geometrical classes and operations.
 - [`Polygon`](../docs/geometry/Polygon.md)
 - [`Ray`](../docs/geometry/Ray.md)
 - [`Segment`](../docs/geometry/Segment.md)
+
+<br/>
+
 ## Member functions
 - [`containsPoint`](../docs/geometry/containsPoint.md)
 - [`getAngle`](../docs/geometry/getAngle.md)

@@ -23,4 +23,4 @@ namespace xieite::types {
 #	error "System not supported"
 #endif
 
-// Thanks to eightfold for idea
+// Thanks to eightfold for original idea

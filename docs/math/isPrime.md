@@ -9,7 +9,7 @@ Checks whether an integer is only evenly divisible by itself and 1.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<std::integral Integral>

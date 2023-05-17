@@ -9,7 +9,7 @@ Enables or disables blocking mode. When disabled, any input reading will access 
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 void setBlocking(bool value) noexcept;

@@ -9,7 +9,7 @@ Calculates the perimeter of a polygon, or the sum of all its sides' lengths.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

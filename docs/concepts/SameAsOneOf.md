@@ -9,7 +9,7 @@ Specifies that type `Any1` is the same as at least one of `Any2...`.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<typename Any1, typename... Any2>

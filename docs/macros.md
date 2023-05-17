@@ -17,6 +17,9 @@ A collection of macros.
 - [`UNIQUE_TOKEN`](../docs/macros/UNIQUE_TOKEN.md)
 - [`VANISH`](../docs/macros/VANISH.md)
 - [`VERSION_...`](../docs/macros/VERSION.md)
+
+<br/>
+
 ## Function macros
 - [`ASSERT`](../docs/macros/ASSERT.md)
 - [`CONCATENATE`](../docs/macros/CONCATENATE.md)

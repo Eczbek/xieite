@@ -9,7 +9,7 @@ Enables raw mode.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 void lock() noexcept;

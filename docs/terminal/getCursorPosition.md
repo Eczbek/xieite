@@ -9,7 +9,7 @@ Gets the cursor's position in the terminal. The coordinates correlate to the `{ 
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

@@ -9,7 +9,7 @@ A class for storing a position in the terminal.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Member objects
 ```cpp

@@ -9,7 +9,7 @@ Destructs a `xieite::threads::Loop`, stops further callbacks.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 ~Loop();

@@ -9,7 +9,7 @@ A trigonometric function which wasn't included in the standard math library. Cal
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>

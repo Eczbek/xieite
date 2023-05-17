@@ -5,7 +5,7 @@ Defined in header [`<xieite/math/tau.hpp>`](../../include/xieite/math/tau.hpp)
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>

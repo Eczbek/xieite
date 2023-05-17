@@ -9,7 +9,7 @@ Shifts and adds RGBA values together to create a single value.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr std::uint32_t value() noexcept;

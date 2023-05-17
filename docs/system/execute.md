@@ -9,7 +9,7 @@ Executes a command and returns its output.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 inline std::string execute(std::string_view command) noexcept;

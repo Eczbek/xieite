@@ -9,7 +9,7 @@ Repeats the execution of an macro.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 #define XIEITE_LOOP(count, macro, initial, ...) \

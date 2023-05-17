@@ -9,7 +9,7 @@ A simple class which exists only to store types.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Template parameters
 - `Types...` - Any types

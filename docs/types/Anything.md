@@ -9,7 +9,7 @@ A simple structure which is declared to be convertible to anything. Useful for a
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ### Member functions
 - [`operator typename`](../../docs/types/Anything/operatorCast.md)

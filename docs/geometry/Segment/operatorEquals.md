@@ -9,7 +9,7 @@ Compares two segments to each other.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 [[nodiscard]]

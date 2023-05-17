@@ -9,7 +9,7 @@ Returns the XOR of a value and the value shifted right.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>

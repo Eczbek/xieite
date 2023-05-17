@@ -9,7 +9,7 @@ Enables or disables output processing. Disabled by default.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 void setProcessing(bool value) noexcept;

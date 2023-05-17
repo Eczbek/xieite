@@ -9,7 +9,7 @@ Helps construct the wrapper class.
 
 ## Synopsis
 
-<br/><br/>
+<br/>
 
 ```cpp
 constexpr OptionalCallOperator(const Function& function);
