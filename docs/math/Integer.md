@@ -1,5 +1,5 @@
 # [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::Integer`
-Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
+Defined in header [`<xieite/math/Integer.hpp>`](../../include/xieite/math/Integer.hpp)
 
 <br/>
 
