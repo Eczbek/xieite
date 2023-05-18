@@ -3,7 +3,7 @@ Defined in header [`<xieite/math/MinimalIntegerSize.hpp>`](../../include/math/Mi
 
 <br/>
 
-Determines the minimal signed integer type for any reasonable amount of bits. Use with `xieite::math::ConditionalIntegerSign`.
+Determines the minimal unsigned integer type for any reasonable amount of bits.
 
 <br/><br/>
 
@@ -13,9 +13,9 @@ Determines the minimal signed integer type for any reasonable amount of bits. Us
 
 ```cpp
 template<std::size_t bits>
-using MinimalIntegerSize = std::conditional_t<bits <= std::numeric_limits<std::int8_t>::digits, std::int8_t, std::conditional_t<bits <= std::numeric_limits<std::int16_t>::digits, std::int16_t, std::conditional_t<bits <= std::numeric_limits<std::int32_t>::digits, std::int32_t, std::int64_t>>>;
+using MinimalIntegerSize = std::conditional_t<bits <= std::numeric_limits<std::uint8_t>::digits, std::uint8_t, std::conditional_t<bits <= std::numeric_limits<std::uint16_t>::digits, std::uint16_t, std::conditional_t<bits <= std::numeric_limits<std::uint32_t>::digits, std::uint32_t, std::uint64_t>>>;
 ```
 ### Template parameters
 - `bits` - A `std::size_t` copy
 ### Resulting type
-- The smallest signed integer type to contain `bits` amount of bits
+- The smallest unsigned integer type to contain `bits` amount of bits

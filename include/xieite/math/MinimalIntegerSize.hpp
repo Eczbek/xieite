@@ -7,5 +7,5 @@
 
 namespace xieite::math {
 	template<std::size_t bits>
-	using MinimalIntegerSize = std::conditional_t<bits <= std::numeric_limits<std::int8_t>::digits, std::int8_t, std::conditional_t<bits <= std::numeric_limits<std::int16_t>::digits, std::int16_t, std::conditional_t<bits <= std::numeric_limits<std::int32_t>::digits, std::int32_t, std::int64_t>>>;
+	using MinimalIntegerSize = std::conditional_t<bits <= std::numeric_limits<std::uint8_t>::digits, std::uint8_t, std::conditional_t<bits <= std::numeric_limits<std::uint16_t>::digits, std::uint16_t, std::conditional_t<bits <= std::numeric_limits<std::uint32_t>::digits, std::uint32_t, std::uint64_t>>>;
 }
