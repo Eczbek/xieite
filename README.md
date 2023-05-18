@@ -9,9 +9,7 @@ Add the `include` directory to your project
 <br/>
 
 ## Requirements
-- Linux
 - C++ 23
-- GCC (for [P0533R9](https://wg21.link/P0533R9))
 
 <br/>
 
