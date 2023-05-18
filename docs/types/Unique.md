@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`types`](../../docs/types.md)`::Set`
-Defined in header [`<xieite/types/Set.hpp>`](../../include/xieite/types/Set.hpp)
+# [`xieite`](../../README.md)`::`[`types`](../../docs/types.md)`::Unique`
+Defined in header [`<xieite/types/Unique.hpp>`](../../include/xieite/types/Unique.hpp)
 
 <br/>
 
@@ -13,7 +13,7 @@ Creates a `xieite::types::List` using only unique types of those provided.
 
 ```cpp
 template<typename... Types>
-using Set = decltype((xieite::types::List<>()->*...->*xieite::types::List<Types>()));
+using Unique = decltype((xieite::types::List<>()->*...->*xieite::types::List<Types>()));
 ```
 ### Template parameters
 - `Types...` - Any types
@@ -27,14 +27,14 @@ using Set = decltype((xieite::types::List<>()->*...->*xieite::types::List<Types>
 #include <concepts>
 #include <iostream>
 #include <xieite/types/List.hpp>
-#include <xieite/types/Set.hpp>
+#include <xieite/types/Unique.hpp>
 
 int main() {
 	std::cout
 		<< std::boolalpha
 		<< std::same_as<
 			xieite::types::List<int, char>,
-			xieite::types::Set<int, int, char, int, char, char, int>
+			xieite::types::Unique<int, int, char, int, char, char, int>
 		> << '\n';
 }
 ```
