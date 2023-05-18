@@ -10,7 +10,7 @@ A namespace of type utilities.
 ## Member types
 - [`Anything`](../docs/types/Anything.md)
 - [`List`](../docs/types/List.md)
-- [`Set`](../docs/types/Set.md)
+- [`Unique`](../docs/types/Unique.md)
 
 <br/>
 

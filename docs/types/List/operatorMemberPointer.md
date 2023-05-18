@@ -3,7 +3,7 @@ Defined in header [`<xieite/types/List.hpp>`](../../../include/xieite/types/List
 
 <br/>
 
-For use in `xieite::types::Set`.
+For use in `xieite::types::Unique`.
 
 <br/><br/>
 
