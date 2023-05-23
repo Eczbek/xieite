@@ -3,16 +3,23 @@ Defined in header [`<xieite/functions/Infix.hpp>`](../../include/xieite/function
 
 <br/>
 
-An infix operator thing. Currently only works with both parameters.
+An infix operator thing.
 
 <br/><br/>
 
 ## Synopsis
 
-<br/>
+<br/><br/>
 
 ### Member functions
-- [`Infix`](../../docs/functions/Infix/constructor.md)
+- [`Infix`](../../docs/functions/Infix/constructor1.md)
+- [`operator>`](../../docs/functions/Infix/operatorMore.md)
+- [`operator<`](../../docs/functions/Infix/operatorLess.md)
+
+<br/><br/>
+
+### Member functions
+- [`Infix`](../../docs/functions/Infix/constructor2.md)
 
 <br/><br/>
 
@@ -22,14 +29,23 @@ An infix operator thing. Currently only works with both parameters.
 #include <xieite/functions/Infix.hpp>
 
 int main() {
-	xieite::functions::Infix<int, int, int> x([](int a, int b) {
-		return a * b;
+	xieite::functions::Infix<int(int, int)> multiply([](int x, int y) -> int {
+		return x * y;
 	});
 
-	std::cout << (2 |x| 2) << '\n';
+	xieite::functions::Infix<int(int)> increment([](int x) -> int {
+		return x + 1;
+	});
+
+	std::cout
+		<< (2 <multiply> 2) << '\n'
+		<< (1 <increment) << '\n'
+		<< (increment> 7) << '\n';
 }
 ```
 Output:
 ```
 4
+2
+8
 ```

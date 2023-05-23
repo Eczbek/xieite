@@ -68,4 +68,4 @@ Output:
 
 ## See also
 - [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)
-- [`xieite::concepts::Functional`](../../docs/concepts/Function.md)
+- [`xieite::concepts::Functional`](../../docs/concepts/Functional.md)

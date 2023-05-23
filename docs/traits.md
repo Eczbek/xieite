@@ -8,5 +8,5 @@ A namespace of type traits.
 <br/><br/>
 
 ## Member objects
-- [`isFunction`](../docs/traits/isFunction.md)
+- [`isFunctional`](../docs/traits/isFunctional.md)
 - [`isTemporalDuration`](../docs/traits/isTemporalDuration.md)
