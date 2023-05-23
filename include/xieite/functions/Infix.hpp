@@ -5,44 +5,53 @@
 #	include <xieite/concepts/Functional.hpp>
 
 namespace xieite::functions {
+	template<typename>
+	struct Infix;
+
+	template<typename Result, typename Parameter>
+	class Infix<Result(Parameter)> final {
+	public:
+		constexpr Infix(const xieite::concepts::Functional<Result(Parameter)> auto& callback) noexcept
+		: callback(callback) {}
+
+		constexpr Result operator>(const Parameter& argument) const noexcept {
+			return this->callback(argument);
+		}
+
+		friend constexpr Result operator<(const Parameter& argument, const xieite::functions::Infix<Result(Parameter)>& infix) noexcept {
+			return infix.callback(argument);
+		}
+
+	private:
+		const std::function<Result(Parameter)> callback;
+	};
+
 	template<typename Result, typename LeftParameter, typename RightParameter>
-	class Infix {
+	class Infix<Result(LeftParameter, RightParameter)> final {
+	private:
+		class Intermediate {
+		public:
+			constexpr Intermediate(const std::function<Result(LeftParameter, RightParameter)>& callback, const LeftParameter& leftArgument) noexcept
+			: callback(callback), leftArgument(leftArgument) {}
+
+			constexpr Result operator>(const RightParameter& rightArgument) const noexcept {
+				return this->callback(leftArgument, rightArgument);
+			}
+
+		private:
+			const std::function<Result(LeftParameter, RightParameter)> callback;
+			const LeftParameter& leftArgument;
+		};
+
 	public:
 		constexpr Infix(const xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto& callback) noexcept
 		: callback(callback) {}
 
 	private:
-		class Bind {
-		public:
-			constexpr Bind(const xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto& callback, const LeftParameter& leftParameter) noexcept
-			: callback(callback), leftParameter(leftParameter) {}
+		const std::function<Result(LeftParameter, RightParameter)> callback;
 
-			constexpr Result operator()(const RightParameter& rightParameter) const noexcept {
-				return this->callback(leftParameter, rightParameter);
-			}
-
-		private:
-			std::function<Result(LeftParameter, RightParameter)> callback;
-			const LeftParameter& leftParameter;
-		};
-
-		class Infixator {
-		public:
-			constexpr Infixator(const Bind& bind) noexcept
-			: bind(bind) {}
-
-			constexpr Result operator|(const RightParameter& rightParameter) const noexcept {
-				return this->bind(rightParameter);
-			}
-
-		private:
-			const Bind bind;
-		};
-
-		std::function<Result(LeftParameter, RightParameter)> callback;
-
-		friend constexpr Infixator operator|(const LeftParameter& leftParameter, const Infix<Result, LeftParameter, RightParameter>& infix) noexcept {
-			return Infixator(Bind(infix.callback, leftParameter));
+		friend constexpr xieite::functions::Infix<Result(LeftParameter, RightParameter)>::Intermediate operator<(const LeftParameter& leftArgument, const xieite::functions::Infix<Result(LeftParameter, RightParameter)>& infix) noexcept {
+			return xieite::functions::Infix<Result(LeftParameter, RightParameter)>::Intermediate(infix.callback, leftArgument);
 		}
 	};
 }

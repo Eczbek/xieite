@@ -53,4 +53,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Functional`](../../docs/concepts/Function.md)
+- [`xieite::concepts::Functional`](../../docs/concepts/Functional.md)

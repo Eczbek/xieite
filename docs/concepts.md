@@ -14,7 +14,7 @@ A namespace of common concepts.
 - [`CopyAssignable`](../docs/concepts/CopyAssignable.md)
 - [`Decayed`](../docs/concepts/Decayed.md)
 - [`Enumerator`](../docs/concepts/Enumerator.md)
-- [`Function`](../docs/concepts/Function.md)
+- [`Functional`](../docs/concepts/Functional.md)
 - [`Hashable`](../docs/concepts/Hashable.md)
 - [`LinearShape`](../docs/concepts/LinearShape.md)
 - [`NoThrowConvertibleTo`](../docs/concepts/NoThrowConvertibleTo.md)
