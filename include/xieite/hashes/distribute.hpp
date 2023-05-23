@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_HASHES_DISTRIBUTE
+#	define XIEITE_HEADER_HASHES_DISTRIBUTE
 
-#include <concepts>
-#include <cstdint>
-#include <xieite/math/alternatingBits.hpp>
-#include <xieite/math/robert.hpp>
-#include <xieite/math/xorShift.hpp>
+#	include <concepts>
+#	include <cstdint>
+#	include <xieite/math/alternatingBits.hpp>
+#	include <xieite/math/robert.hpp>
+#	include <xieite/math/xorShift.hpp>
 
 namespace xieite::hashes {
 	template<std::unsigned_integral UnsignedIntegral>
@@ -13,3 +14,5 @@ namespace xieite::hashes {
 		return xieite::math::robert<UnsignedIntegral> * xieite::math::xorShift(xieite::math::alternatingBits<UnsignedIntegral> * xieite::math::xorShift(value, sizeof(UnsignedIntegral) * 4), sizeof(UnsignedIntegral) * 4);
 	}
 }
+
+#endif

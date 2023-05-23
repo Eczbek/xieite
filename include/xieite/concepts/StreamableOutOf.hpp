@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_CONCEPTS_STREAMABLEOUTOF
+#	define XIEITE_HEADER_CONCEPTS_STREAMABLEOUTOF
 
-#include <concepts>
-#include <ostream>
+#	include <concepts>
+#	include <ostream>
 
 namespace xieite::concepts {
 	template<typename Any>
@@ -11,3 +12,5 @@ namespace xieite::concepts {
 }
 
 // Thanks to fux for concept
+
+#endif

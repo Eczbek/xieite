@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_TOBASE
+#	define XIEITE_HEADER_MATH_TOBASE
 
-#include <concepts>
-#include <cstddef>
-#include <string>
-#include <string_view>
-#include <type_traits>
+#	include <concepts>
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
+#	include <type_traits>
 
 namespace xieite::math {
 	template<std::integral Integral = int>
@@ -19,3 +20,5 @@ namespace xieite::math {
 		return result;
 	}
 }
+
+#endif

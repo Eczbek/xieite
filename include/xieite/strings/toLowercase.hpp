@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_TOLOWERCASE
+#	define XIEITE_HEADER_STRINGS_TOLOWERCASE
 
-#include <string>
+#	include <string>
 
 namespace xieite::strings {
 	constexpr char toLowercase(char character) noexcept {
@@ -18,3 +19,5 @@ namespace xieite::strings {
 		return string;
 	}
 }
+
+#endif

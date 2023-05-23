@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_RATIOS_LENGTHS
+#	define XIEITE_HEADER_RATIOS_LENGTHS
 
-#include <ratio>
+#	include <ratio>
 
 namespace xieite::ratios::lengths {
 	inline constexpr std::ratio<176389, 10000000000> twip;
@@ -19,3 +20,5 @@ namespace xieite::ratios::lengths {
 	inline constexpr std::ratio<201168, 1000000> link;
 	inline constexpr std::ratio<50292, 10000> rod;
 }
+
+#endif

@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_WRAP
+#	define XIEITE_HEADER_MATH_WRAP
 
-#include <cmath>
-#include <xieite/concepts/Arithmetic.hpp>
+#	include <cmath>
+#	include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
@@ -11,3 +12,5 @@ namespace xieite::math {
 		return std::fmod(std::fmod(value - min, diff) + diff, diff) + min;
 	}
 }
+
+#endif

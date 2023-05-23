@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_POLYGON
+#	define XIEITE_HEADER_GEOMETRY_POLYGON
 
-#include <iterator>
-#include <span>
-#include <vector>
-#include <xieite/algorithms/sameRelativeOrder.hpp>
-#include <xieite/geometry/Point.hpp>
+#	include <iterator>
+#	include <span>
+#	include <vector>
+#	include <xieite/algorithms/sameRelativeOrder.hpp>
+#	include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
 	struct Polygon final {
@@ -19,3 +20,5 @@ namespace xieite::geometry {
 		}
 	};
 }
+
+#endif

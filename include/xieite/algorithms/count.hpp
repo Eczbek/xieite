@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_COUNT
+#	define XIEITE_HEADER_ALGORITHMS_COUNT
 
-#include <cstddef>
+#	include <cstddef>
 
 namespace xieite::algorithms {
 	[[nodiscard]]
@@ -8,3 +9,5 @@ namespace xieite::algorithms {
 		return sizeof...(arguments);
 	}
 }
+
+#endif

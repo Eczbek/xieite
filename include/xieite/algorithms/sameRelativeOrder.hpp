@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_SAMERELATIVEORDER
+#	define XIEITE_HEADER_ALGORITHMS_SAMERELATIVEORDER
 
-#include <concepts>
-#include <functional>
-#include <iterator>
-#include <ranges>
-#include <xieite/concepts/Function.hpp>
+#	include <concepts>
+#	include <functional>
+#	include <iterator>
+#	include <ranges>
+#	include <xieite/concepts/Function.hpp>
 
 namespace xieite::algorithms {
 	template<std::forward_iterator ForwardIterator1, std::forward_iterator ForwardIterator2, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator1>, std::iter_value_t<ForwardIterator2>)> Callback = std::ranges::equal_to>
@@ -32,3 +33,5 @@ namespace xieite::algorithms {
 		return false;
 	}
 }
+
+#endif

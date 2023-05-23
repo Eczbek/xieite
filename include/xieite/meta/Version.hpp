@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_META_VERSION
+#	define XIEITE_HEADER_META_VERSION
 
-#include <compare>
-#include <cstddef>
-#include <string>
-#include <string_view>
-#include <xieite/math/toBase.hpp>
+#	include <compare>
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
+#	include <xieite/math/toBase.hpp>
 
 namespace xieite::meta {
 	struct Version final {
@@ -31,3 +32,5 @@ namespace xieite::meta {
 		}
 	};
 }
+
+#endif

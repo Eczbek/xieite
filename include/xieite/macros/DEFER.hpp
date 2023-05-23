@@ -1,6 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_MACROS_DEFER
+#	define XIEITE_HEADER_MACROS_DEFER
 
-#include <xieite/macros/EMPTY.hpp>
+#	include <xieite/macros/EMPTY.hpp>
 
-#define XIEITE_DEFER(...) \
-	__VA_ARGS__ XIEITE_EMPTY()
+#	define XIEITE_DEFER(...) \
+		__VA_ARGS__ XIEITE_EMPTY()
+
+#endif

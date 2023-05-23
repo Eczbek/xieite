@@ -1,12 +1,13 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_ROTATE
+#	define XIEITE_HEADER_GEOMETRY_ROTATE
 
-#include <concepts>
-#include <cmath>
-#include <vector>
-#include <xieite/concepts/LinearShape.hpp>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/geometry/Polygon.hpp>
-#include <xieite/math/tau.hpp>
+#	include <concepts>
+#	include <cmath>
+#	include <vector>
+#	include <xieite/concepts/LinearShape.hpp>
+#	include <xieite/geometry/Point.hpp>
+#	include <xieite/geometry/Polygon.hpp>
+#	include <xieite/math/tau.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
@@ -29,3 +30,5 @@ namespace xieite::geometry {
 		return xieite::geometry::Polygon(rotatedPoints);
 	}
 }
+
+#endif

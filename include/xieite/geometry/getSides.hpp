@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_GETSIDES
+#	define XIEITE_HEADER_GEOMETRY_GETSIDES
 
-#include <cstddef>
-#include <vector>
-#include <xieite/geometry/Polygon.hpp>
-#include <xieite/geometry/Segment.hpp>
+#	include <cstddef>
+#	include <vector>
+#	include <xieite/geometry/Polygon.hpp>
+#	include <xieite/geometry/Segment.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
@@ -16,3 +17,5 @@ namespace xieite::geometry {
 		return sides;
 	}
 }
+
+#endif

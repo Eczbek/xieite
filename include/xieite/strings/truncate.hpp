@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_TRUNCATE
+#	define XIEITE_HEADER_STRINGS_TRUNCATE
 
-#include <cstddef>
-#include <string>
+#	include <cstddef>
+#	include <string>
 
 namespace xieite::strings {
 	[[nodiscard]]
@@ -9,3 +10,5 @@ namespace xieite::strings {
 		return (string.size() > length) ? ((suffix.size() > length) ? suffix.substr(0, length) : (string.substr(0, length - suffix.size()) + suffix)) : string;
 	}
 }
+
+#endif

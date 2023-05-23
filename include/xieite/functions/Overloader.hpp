@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_FUNCTIONS_OVERLOADER
+#	define XIEITE_HEADER_FUNCTIONS_OVERLOADER
 
-#include <xieite/concepts/Derivable.hpp>
-#include <xieite/functions/OptionalCallOperator.hpp>
+#	include <xieite/concepts/Derivable.hpp>
+#	include <xieite/functions/OptionalCallOperator.hpp>
 
 namespace xieite::functions {
 	template<xieite::concepts::Derivable... Functions>
@@ -15,3 +16,5 @@ namespace xieite::functions {
 }
 
 // Thanks to melak47 for help
+
+#endif

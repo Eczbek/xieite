@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_GETSLOPE
+#	define XIEITE_HEADER_GEOMETRY_GETSLOPE
 
-#include <cmath>
-#include <limits>
-#include <xieite/concepts/LinearShape.hpp>
-#include <xieite/geometry/Point.hpp>
+#	include <cmath>
+#	include <limits>
+#	include <xieite/concepts/LinearShape.hpp>
+#	include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
@@ -16,3 +17,5 @@ namespace xieite::geometry {
 		return xieite::geometry::getSlope(linearShape.start, linearShape.end);
 	}
 }
+
+#endif

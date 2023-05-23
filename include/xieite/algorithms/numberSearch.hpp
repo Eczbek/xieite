@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_NUMBERSEARCH
+#	define XIEITE_HEADER_ALGORITHMS_NUMBERSEARCH
 
-#include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/concepts/Function.hpp>
-#include <xieite/math/approximatelyEqual.hpp>
+#	include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/concepts/Function.hpp>
+#	include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::algorithms {
 	template<xieite::concepts::Arithmetic Number>
@@ -36,3 +37,5 @@ namespace xieite::algorithms {
 		return numberSearch(selector, minimum, maximum);
 	}
 }
+
+#endif

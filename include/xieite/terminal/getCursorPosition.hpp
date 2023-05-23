@@ -1,12 +1,13 @@
-#pragma once
+#ifndef XIEITE_HEADER_TERMINAL_GETCURSORPOSITION
+#	define XIEITE_HEADER_TERMINAL_GETCURSORPOSITION
 
-#include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#if defined(XIEITE_SYSTEM_TYPE_LINUX)
-#	include <cstdio>
-#	include <iostream>
-#	include <xieite/terminal/Position.hpp>
-#	include <xieite/terminal/ModeLock.hpp>
+#	if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#		include <cstdio>
+#		include <iostream>
+#		include <xieite/terminal/Position.hpp>
+#		include <xieite/terminal/ModeLock.hpp>
 
 namespace xieite::terminal {
 	[[nodiscard]]
@@ -19,6 +20,8 @@ namespace xieite::terminal {
 	}
 }
 
-#else
-#	error "System not supported"
+#	else
+#		error "System not supported"
+#	endif
+
 #endif

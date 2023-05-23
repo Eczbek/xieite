@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_XORSHIFT
+#	define XIEITE_HEADER_MATH_XORSHIFT
 
-#include <concepts>
+#	include <concepts>
 
 namespace xieite::math {
 	template<std::integral Integral>
@@ -9,3 +10,5 @@ namespace xieite::math {
 		return value ^ (value >> bits);
 	}
 }
+
+#endif

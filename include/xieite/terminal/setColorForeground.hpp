@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_TERMINAL_SETCOLORFOREGROUND
+#	define XIEITE_HEADER_TERMINAL_SETCOLORFOREGROUND
 
-#include <string>
-#include <xieite/graphics/Color.hpp>
-#include <xieite/math/toBase.hpp>
+#	include <string>
+#	include <xieite/graphics/Color.hpp>
+#	include <xieite/math/toBase.hpp>
 
 namespace xieite::terminal {
 	constexpr std::string setColorForeground(const xieite::graphics::Color& color) noexcept {
@@ -13,3 +14,5 @@ namespace xieite::terminal {
 		return "\u001b[38m";
 	}
 }
+
+#endif

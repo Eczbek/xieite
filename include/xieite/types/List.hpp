@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_TYPES_LIST
+#	define XIEITE_HEADER_TYPES_LIST
 
-#include <concepts>
-#include <type_traits>
+#	include <concepts>
+#	include <type_traits>
 
 namespace xieite::types {
 	template<typename... Types>
@@ -12,3 +13,5 @@ namespace xieite::types {
 }
 
 // Thanks to Eisenwave for original code
+
+#endif

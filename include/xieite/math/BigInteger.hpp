@@ -1,17 +1,18 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_BIGINTEGER
+#	define XIEITE_HEADER_MATH_BIGINTEGER
 
-#include <cmath>
-#include <compare>
-#include <concepts>
-#include <cstddef>
-#include <iterator>
-#include <string>
-#include <string_view>
-#include <utility>
-#include <vector>
-#include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/concepts/Function.hpp>
-#include <xieite/math/absolute.hpp>
+#	include <cmath>
+#	include <compare>
+#	include <concepts>
+#	include <cstddef>
+#	include <iterator>
+#	include <string>
+#	include <string_view>
+#	include <utility>
+#	include <vector>
+#	include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/concepts/Function.hpp>
+#	include <xieite/math/absolute.hpp>
 
 namespace xieite::math {
 	class BigInteger final {
@@ -600,3 +601,5 @@ namespace xieite::math {
 		}
 	};
 }
+
+#endif

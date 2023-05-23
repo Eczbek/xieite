@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_CONCEPTS_HASHABLE
+#	define XIEITE_HEADER_CONCEPTS_HASHABLE
 
-#include <cstddef>
-#include <functional>
+#	include <cstddef>
+#	include <functional>
 
 namespace xieite::concepts {
 	template<typename Any>
@@ -9,3 +10,5 @@ namespace xieite::concepts {
 		{ std::hash<Any>()(value) } -> std::convertible_to<std::size_t>;
 	};
 }
+
+#endif

@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_TOUPPERCASE
+#	define XIEITE_HEADER_STRINGS_TOUPPERCASE
 
-#include <string>
+#	include <string>
 
 namespace xieite::strings {
 	constexpr char toUppercase(char character) noexcept {
@@ -18,3 +19,5 @@ namespace xieite::strings {
 		return string;
 	}
 }
+
+#endif

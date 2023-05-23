@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_HASHES_COMBINE
+#	define XIEITE_HEADER_HASHES_COMBINE
 
-#include <bit>
-#include <cstddef>
-#include <limits>
-#include <xieite/hashes/distribute.hpp>
+#	include <bit>
+#	include <cstddef>
+#	include <limits>
+#	include <xieite/hashes/distribute.hpp>
 
 namespace xieite::hashes {
 	[[nodiscard]]
@@ -11,3 +12,5 @@ namespace xieite::hashes {
 		return std::rotl(value1, std::numeric_limits<std::size_t>::digits / 3) ^ xieite::hashes::distribute(value2);
 	}
 }
+
+#endif

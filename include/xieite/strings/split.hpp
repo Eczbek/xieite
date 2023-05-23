@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_SPLIT
+#	define XIEITE_HEADER_STRINGS_SPLIT
 
-#include <cstddef>
-#include <string>
-#include <string_view>
-#include <vector>
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
+#	include <vector>
 
 namespace xieite::strings {
 	[[nodiscard]]
@@ -27,3 +28,5 @@ namespace xieite::strings {
 		return xieite::strings::split(string, std::string(1, delimiter));
 	}
 }
+
+#endif

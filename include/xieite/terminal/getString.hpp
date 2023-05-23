@@ -1,12 +1,13 @@
-#pragma once
+#ifndef XIEITE_HEADER_TERMINAL_GETSTRING
+#	define XIEITE_HEADER_TERMINAL_GETSTRING
 
-#include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#if defined(XIEITE_SYSTEM_TYPE_LINUX)
-#	include <iostream>
-#	include <string>
-#	include <xieite/terminal/ModeLock.hpp>
-#	include <xieite/terminal/getCharacter.hpp>
+#	if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#		include <iostream>
+#		include <string>
+#		include <xieite/terminal/ModeLock.hpp>
+#		include <xieite/terminal/getCharacter.hpp>
 
 namespace xieite::terminal {
 	inline std::string getString() noexcept {
@@ -24,6 +25,8 @@ namespace xieite::terminal {
 	}
 }
 
-#else
-#	error "System not supported"
+#	else
+#		error "System not supported"
+#	endif
+
 #endif

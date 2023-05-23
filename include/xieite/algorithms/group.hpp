@@ -1,11 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_GROUP
+#	define XIEITE_HEADER_ALGORITHMS_GROUP
 
-#include <concepts>
-#include <cstddef>
-#include <iterator>
-#include <type_traits>
-#include <unordered_map>
-#include <vector>
+#	include <concepts>
+#	include <cstddef>
+#	include <iterator>
+#	include <type_traits>
+#	include <unordered_map>
+#	include <vector>
 
 namespace xieite::algorithms {
 	template<std::forward_iterator ForwardIterator, std::invocable<std::iter_value_t<ForwardIterator>> Callback>
@@ -26,3 +27,5 @@ namespace xieite::algorithms {
 		return groups;
 	}
 }
+
+#endif

@@ -1,5 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_HASHES
+#	define XIEITE_HEADER_HASHES
 
-#include <xieite/hashes/combine.hpp>
-#include <xieite/hashes/create.hpp>
-#include <xieite/hashes/distribute.hpp>
+#	include <xieite/hashes/combine.hpp>
+#	include <xieite/hashes/create.hpp>
+#	include <xieite/hashes/distribute.hpp>
+
+#endif

@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_PARTIALREVERSE
+#	define XIEITE_HEADER_ALGORITHMS_PARTIALREVERSE
 
-#include <algorithm>
-#include <cstddef>
-#include <iterator>
-#include <vector>
-#include <xieite/concepts/Function.hpp>
+#	include <algorithm>
+#	include <cstddef>
+#	include <iterator>
+#	include <vector>
+#	include <xieite/concepts/Function.hpp>
 
 namespace xieite::algorithms {
 	template<std::forward_iterator ForwardIterator>
@@ -21,3 +22,5 @@ namespace xieite::algorithms {
 		}
 	}
 }
+
+#endif
