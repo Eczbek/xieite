@@ -12,14 +12,14 @@ Checks whether one iterable contains elements in the same relative order as in a
 <br/>
 
 ```cpp
-template<std::forward_iterator ForwardIterator1, std::forward_iterator ForwardIterator2, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator1>, std::iter_value_t<ForwardIterator2>)> Callback = std::ranges::equal_to>
+template<std::forward_iterator ForwardIterator1, std::forward_iterator ForwardIterator2, xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator1>, std::iter_value_t<ForwardIterator2>)> Callback = std::ranges::equal_to>
 [[nodiscard]]
 constexpr bool sameRelativeOrder(ForwardIterator1 begin1, std::sentinel_for<ForwardIterator1> auto end1, ForwardIterator2 begin2, std::sentinel_for<ForwardIterator2> auto end2, const Callback& comparator = Callback());
 ```
 ### Template parameters
 - `ForwardIterator1` - An iterator type, satisfying `std::forward_iterator`
 - `ForwardIterator2` - An iterator type, satisfying `std::forward_iterator`
-- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts `ForwardIterator1`'s value type and `ForwardIterator2`'s value type, and returns a `bool`. Set to `std::ranges::equal_to` by default
+- `Callback` - A callback type, satisfying `xieite::concepts::Functional` which accepts `ForwardIterator1`'s value type and `ForwardIterator2`'s value type, and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
 - `begin1` - A `ForwardIterator1` copy which points to the beginning of an iterable
 - `end1` - A `auto` copy, satisfying `std::iter_value_t` of `ForwardIterator1`
@@ -67,4 +67,4 @@ true
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Function`](../../docs/concepts/Function.md)
+- [`xieite::concepts::Functional`](../../docs/concepts/Function.md)

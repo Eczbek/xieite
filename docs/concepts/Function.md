@@ -1,5 +1,5 @@
 # [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Function`
-Defined in header [`<xieite/concepts/Function.hpp>`](../../include/xieite/concepts/Function.hpp)
+Defined in header [`<xieite/concepts/Functional.hpp>`](../../include/xieite/concepts/Functional.hpp)
 
 <br/>
 

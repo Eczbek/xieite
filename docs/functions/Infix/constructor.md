@@ -12,7 +12,7 @@ Constructs a `xieite::functions::Infix` thing.
 <br/>
 
 ```cpp
-constexpr Infix(Result(*)(LeftParameter, RightParameter) callback) noexcept;
+constexpr Infix(const xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto& callback) noexcept;
 ```
 ### Parameters
-- `callback` - A function-like instance
+- `callback` - An `auto` constant reference, satisfying `xieite::concepts::Functional` of `Result` of `LeftParameter` and `RightParameter`

@@ -5,10 +5,10 @@
 #	include <functional>
 #	include <iterator>
 #	include <ranges>
-#	include <xieite/concepts/Function.hpp>
+#	include <xieite/concepts/Functional.hpp>
 
 namespace xieite::algorithms {
-	template<std::forward_iterator ForwardIterator, std::reverse_iterator ReverseIterator, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ReverseIterator>)> Callback = std::ranges::equal_to>
+	template<std::forward_iterator ForwardIterator, std::reverse_iterator ReverseIterator, xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ReverseIterator>)> Callback = std::ranges::equal_to>
 	[[nodiscard]]
 	constexpr bool isPalindrome(ForwardIterator begin, ReverseIterator end, const Callback& comparator = Callback()) {
 		const std::size_t size = std::distance(begin, end) / 2;

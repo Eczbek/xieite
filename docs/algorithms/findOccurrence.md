@@ -12,13 +12,13 @@ Finds the pointer to a specific occurrence of a value in an iterable. If the val
 <br/>
 
 ```cpp
-template<std::forward_iterator ForwardIterator, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ForwardIterator>)> Callback = std::ranges::equal_to>
+template<std::forward_iterator ForwardIterator, xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ForwardIterator>)> Callback = std::ranges::equal_to>
 [[nodiscard]]
 constexpr ForwardIterator findOccurrence(ForwardIterator begin, std::sentinel_for<ForwardIterator> auto end, const std::convertible_to<std::iter_value_t<ForwardIterator>> auto& value, std::size_t count, const Callback& comparator = Callback());
 ```
 ### Template parameters
 - `ForwardIterator` - An iterator type, satisfying `std::forward_iterator`
-- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts two `ForwardIterator` value types and returns a `bool`. Set to `std::ranges::equal_to` by default
+- `Callback` - A callback type, satisfying `xieite::concepts::Functional` which accepts two `ForwardIterator` value types and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
 - `begin` - A `ForwardIterator` copy which points to the beginning of an iterable
 - `end` - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
@@ -51,4 +51,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Function`](../../docs/concepts/Function.md)
+- [`xieite::concepts::Functional`](../../docs/concepts/Function.md)

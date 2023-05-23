@@ -14,12 +14,12 @@ Using a variant of the binary search algorithm, finds the lowest value which, if
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number numberSearch(const xieite::concepts::Function<bool(Number)> auto& selector, Number minimum, Number maximum);
+constexpr Number numberSearch(const xieite::concepts::Functional<bool(Number)> auto& selector, Number minimum, Number maximum);
 ```
 ### Template parameters
 - `Number` - An integer or floating point type, satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `selector` - An `auto` constant reference, satisfying `xieite::concepts::Function` which `Iterator`'s value type and returns a `bool`
+- `selector` - An `auto` constant reference, satisfying `xieite::concepts::Functional` which `Iterator`'s value type and returns a `bool`
 - `minimum` - A `Number` copy, determining the minimum search limit for the algorithm
 - `maxumum` - A `Number` copy, determining the maxumum search limit for the algorithm
 ### Return value
@@ -30,11 +30,11 @@ constexpr Number numberSearch(const xieite::concepts::Function<bool(Number)> aut
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number numberSearch(const xieite::concepts::Function<bool(Number)> auto& selector);
+constexpr Number numberSearch(const xieite::concepts::Functional<bool(Number)> auto& selector);
 ```
 ### Template parameters
 - `Number` - An integer or floating point type, satisfying `xieite::concepts::Arithmetic`
-- `Callback` - An `auto` constant reference, satisfying `xieite::concepts::Function` which accepts `Iterator`'s value type and returns a `bool`
+- `Callback` - An `auto` constant reference, satisfying `xieite::concepts::Functional` which accepts `Iterator`'s value type and returns a `bool`
 ### Parameters
 - `selector` - A `Callback` constant reference
 ### Return value
@@ -68,4 +68,4 @@ Output:
 
 ## See also
 - [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)
-- [`xieite::concepts::Function`](../../docs/concepts/Function.md)
+- [`xieite::concepts::Functional`](../../docs/concepts/Function.md)
