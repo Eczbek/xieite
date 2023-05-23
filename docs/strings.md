@@ -10,8 +10,8 @@ A namespace of string manipulation functions.
 ## Member functions
 - [`repeat`](../docs/strings/repeat.md)
 - [`split`](../docs/strings/split.md)
-- [`toLowercase`](../docs/strings/toLowercase.md)
-- [`toUppercase`](../docs/strings/toUppercase.md)
+- [`toLowerCase`](../docs/strings/toLowerCase.md)
+- [`toUpperCase`](../docs/strings/toUpperCase.md)
 - [`trimEnd`](../docs/strings/trimEnd.md)
 - [`trimStart`](../docs/strings/trimStart.md)
 - [`truncate`](../docs/strings/truncate.md)
