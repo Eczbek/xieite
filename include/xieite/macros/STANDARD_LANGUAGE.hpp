@@ -1,12 +1,12 @@
 #ifndef XIEITE_HEADER_MACROS_STANDARD_LANGUAGE
 #	define XIEITE_HEADER_MACROS_STANDARD_LANGUAGE
 
-#	if defined(__STDC__)
+#	ifdef __STDC__
 #		define XIEITE_STANDARD_LANGUAGE_C_1989
 #		define XIEITE_STANDARD_LANGUAGE_C_1990
 #	endif
 
-#	if defined(__STDC_VERSION__)
+#	ifdef __STDC_VERSION__
 #		if __STDC_VERSION__ >= 199409
 #			define XIEITE_STANDARD_LANGUAGE_C_1994
 #		endif
@@ -24,7 +24,7 @@
 #		endif
 #	endif
 
-#	if defined(__cplusplus)
+#	ifdef __cplusplus
 #		if __cplusplus >= 199711
 #			define XIEITE_STANDARD_LANGUAGE_CPP_1998
 #		endif
@@ -54,7 +54,7 @@
 #		define XIEITE_STANDARD_LANGUAGE_CPP_CLI
 #	endif
 
-#	if defined(__embedded_cplusplus)
+#	ifdef __embedded_cplusplus
 #		define XIEITE_STANDARD_LANGUAGE_CPP_EMBEDDED
 #	endif
 

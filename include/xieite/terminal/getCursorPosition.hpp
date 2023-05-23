@@ -3,7 +3,7 @@
 
 #	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#	if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#	ifdef XIEITE_SYSTEM_TYPE_LINUX
 #		include <cstdio>
 #		include <iostream>
 #		include <xieite/terminal/Position.hpp>

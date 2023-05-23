@@ -13,7 +13,7 @@
 #		define XIEITE_ARCHITECTURE_TYPE_ARM
 #	endif
 
-#	if defined(__aarch64__)
+#	ifdef __aarch64__
 #		define XIEITE_ARCHITECTURE_TYPE_AARCH64
 #	endif
 
@@ -21,11 +21,11 @@
 #		define XIEITE_ARCHITECTURE_TYPE_BLACKFIN
 #	endif
 
-#	if defined(__convex__)
+#	ifdef __convex__
 #		define XIEITE_ARCHITECTURE_TYPE_CONVEX
 #	endif
 
-#	if defined(__epiphany__)
+#	ifdef__epiphany__
 #		define XIEITE_ARCHITECTURE_TYPE_EPIPHANY
 #	endif
 
@@ -53,7 +53,7 @@
 #		define XIEITE_ARCHITECTURE_TYPE_POWERPC
 #	endif
 
-#	if defined(pyr)
+#	ifdef pyr
 #		define XIEITE_ARCHITECTURE_TYPE_PYRAMID_9810
 #	endif
 
@@ -65,7 +65,7 @@
 #		define XIEITE_ARCHITECTURE_TYPE_SPARC
 #	endif
 
-#	if defined(__sh__)
+#	ifdef __sh__
 #		define XIEITE_ARCHITECTURE_TYPE_SUPERH
 #	endif
 
@@ -77,7 +77,7 @@
 #		define XIEITE_ARCHITECTURE_TYPE_TMS320
 #	endif
 
-#	if defined(__TMS470__)
+#	ifdef __TMS470__
 #		define XIEITE_ARCHITECTURE_TYPE_TMS470
 #	endif
 

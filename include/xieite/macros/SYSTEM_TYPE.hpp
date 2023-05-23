@@ -1,15 +1,15 @@
 #ifndef XIEITE_HEADER_MACROS_SYSTEM_TYPE
 #	define XIEITE_HEADER_MACROS_SYSTEM_TYPE
 
-#	if defined(_AIX)
+#	ifdef _AIX
 #		define XIEITE_SYSTEM_TYPE_AIX
 #	endif
 
-#	if defined(__ANDROID__)
+#	ifdef __ANDROID__
 #		define XIEITE_SYSTEM_TYPE_ANDROID
 #	endif
 
-#	if defined(UTS)
+#	ifdef UTS
 #		define XIEITE_SYSTEM_TYPE_UTS
 #	endif
 
@@ -17,15 +17,15 @@
 #		define XIEITE_SYSTEM_TYPE_AMIGAOS
 #	endif
 
-#	if defined(aegis)
+#	ifdef aegis
 #		define XIEITE_SYSTEM_TYPE_AEGIS
 #	endif
 
-#	if defined(apollo)
+#	ifdef apollo
 #		define XIEITE_SYSTEM_TYPE_DOMAIN_OS
 #	endif
 
-#	if defined(__BEOS__)
+#	ifdef __BEOS__
 #		define XIEITE_SYSTEM_TYPE_BEOS
 #	endif
 
@@ -37,15 +37,15 @@
 #		define XIEITE_SYSTEM_TYPE_BSD
 #	endif
 
-#	if defined(__bsdi__)
+#	ifdef __bsdi__
 #		define XIEITE_SYSTEM_TYPE_BSD_OS
 #	endif
 
-#	if defined(__convex__)
+#	ifdef __convex__
 #		define XIEITE_SYSTEM_TYPE_CONVEXOS
 #	endif
 
-#	if defined(__SYGWIN__)
+#	ifdef __SYGWIN__
 #		define XIEITE_SYSTEM_TYPE_SYGWIN
 #	endif
 
@@ -53,7 +53,7 @@
 #		define XIEITE_SYSTEM_TYPE_DG_UX
 #	endif
 
-#	if defined(__DragonFly__)
+#	ifdef __DragonFly__
 #		define XIEITE_SYSTEM_TYPE_DRAGONFLY
 #	endif
 
@@ -61,11 +61,11 @@
 #		define XIEITE_SYSTEM_TYPE_DYNIX
 #	endif
 
-#	if defined(__ECOS)
+#	ifdef __ECOS
 #		define XIEITE_SYSTEM_TYPE_ECOS
 #	endif
 
-#	if defined(__EMX__)
+#	ifdef __EMX__
 #		define XIEITE_SYSTEM_TYPE_EMX
 #	endif
 
@@ -81,23 +81,23 @@
 #		define XIEITE_SYSTEM_TYPE_GNU_KFREEBSD
 #	endif
 
-#	if defined(__gnu_linux__)
+#	ifdef __gnu_linux__
 #		define XIEITE_SYSTEM_TYPE_GNU_LINUX
 #	endif
 
-#	if defined(__hiuxmpp)
+#	ifdef __hiuxmpp
 #		define XIEITE_SYSTEM_TYPE_HI_UX_MPP
 #	endif
 
-#	if defined(__OS400__)
+#	ifdef __OS400__
 #		define XIEITE_SYSTEM_TYPE_OS_400
 #	endif
 
-#	if defined(__INTEGRITY)
+#	ifdef __INTEGRITY
 #		define XIEITE_SYSTEM_TYPE_INTEGRITY
 #	endif
 
-#	if defined(__INTERIX)
+#	ifdef __INTERIX
 #		define XIEITE_SYSTEM_TYPE_INTERIX
 #	endif
 
@@ -105,11 +105,11 @@
 #		define XIEITE_SYSTEM_TYPE_IRIX
 #	endif
 
-#	if defined(__linux__)
+#	ifdef __linux__
 #		define XIEITE_SYSTEM_TYPE_LINUX
 #	endif
 
-#	if defined(__Lynx__)
+#	ifdef __Lynx__
 #		define XIEITE_SYSTEM_TYPE_LYNXOS
 #	endif
 
@@ -121,11 +121,11 @@
 #		define XIEITE_SYSTEM_TYPE_OS_9
 #	endif
 
-#	if defined(__minix)
+#	ifdef __minix
 #		define XIEITE_SYSTEM_TYPE_MINIX
 #	endif
 
-#	if defined(__MORPHOS__)
+#	ifdef __MORPHOS__
 #		define XIEITE_SYSTEM_TYPE_MORPHOS
 #	endif
 
@@ -137,19 +137,19 @@
 #		define XIEITE_SYSTEM_TYPE_MS_DOS
 #	endif
 
-#	if defined(__NetBSD__)
+#	ifdef __NetBSD__
 #		define XIEITE_SYSTEM_TYPE_NETBSD
 #	endif
 
-#	if defined(__TANDEM)
+#	ifdef __TANDEM
 #		define XIEITE_SYSTEM_TYPE_NONSTOP
 #	endif
 
-#	if defined(__nucleus__)
+#	ifdef __nucleus__
 #		define XIEITE_SYSTEM_TYPE_NUCLEUS_RTOS
 #	endif
 
-#	if defined(__OpenBSD__)
+#	ifdef __OpenBSD__
 #		define XIEITE_SYSTEM_TYPE_OPENBSD
 #	endif
 
@@ -157,15 +157,15 @@
 #		define XIEITE_SYSTEM_TYPE_OS_2
 #	endif
 
-#	if defined(__palmos__)
+#	ifdef __palmos__
 #		define XIEITE_SYSTEM_TYPE_PALM_OS
 #	endif
 
-#	if defined(EPLAN9)
+#	ifdef EPLAN9
 #		define XIEITE_SYSTEM_TYPE_PLAN_9
 #	endif
 
-#	if defined(pyr)
+#	ifdef pyr
 #		define XIEITE_SYSTEM_TYPE_DC_OSX
 #	endif
 
@@ -173,7 +173,7 @@
 #		define XIEITE_SYSTEM_TYPE_QNX
 #	endif
 
-#	if defined(sinux)
+#	ifdef sinux
 #		define XIEITE_SYSTEM_TYPE_SINIX
 #	endif
 
@@ -185,7 +185,7 @@
 #		define XIEITE_SYSTEM_TYPE_SOLARIS
 #	endif
 
-#	if defined(__VOS__)
+#	ifdef __VOS__
 #		define XIEITE_SYSTEM_TYPE_VOS
 #	endif
 
@@ -193,11 +193,11 @@
 #		define XIEITE_SYSTEM_TYPE_SYSTEM_V
 #	endif
 
-#	if defined(__SYLLABLE__)
+#	ifdef __SYLLABLE__
 #		define XIEITE_SYSTEM_TYPE_SYLLABLE
 #	endif
 
-#	if defined(__SYMBIAN32__)
+#	ifdef __SYMBIAN32__
 #		define XIEITE_SYSTEM_TYPE_SYMBIAN
 #	endif
 
@@ -209,7 +209,7 @@
 #		define XIEITE_SYSTEM_TYPE_ULTRIX
 #	endif
 
-#	if defined(_UNICOS)
+#	ifdef _UNICOS
 #		define XIEITE_SYSTEM_TYPE_UNICOS
 #	endif
 
@@ -225,7 +225,7 @@
 #		define XIEITE_SYSTEM_TYPE_UNIXWARE
 #	endif
 
-#	if defined(_UWIN)
+#	ifdef _UWIN
 #		define XIEITE_SYSTEM_TYPE_UWIN
 #	endif
 
@@ -241,11 +241,11 @@
 #		define XIEITE_SYSTEM_TYPE_WINDOWS
 #	endif
 
-#	if defined(_WIN32_WCE)
+#	ifdef _WIN32_WCE
 #		define XIEITE_SYSTEM_TYPE_WINDOWS_CE
 #	endif
 
-#	if defined(_WINDU_SOURCE)
+#	ifdef _WINDU_SOURCE
 #		define XIEITE_SYSTEM_TYPE_WIND_U
 #	endif
 

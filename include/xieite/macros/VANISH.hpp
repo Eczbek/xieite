@@ -3,7 +3,7 @@
 
 #	include <xieite/macros/COMPILER_TYPE.hpp>
 
-#	if defined(XIETIE_COMPILER_TYPE_GCC)
+#	ifdef XIETIE_COMPILER_TYPE_GCC
 #		define XIEITE_VANISH \
 			sizeof(decltype(std))
 #	else
