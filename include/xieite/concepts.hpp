@@ -7,7 +7,7 @@
 #	include <xieite/concepts/CopyAssignable.hpp>
 #	include <xieite/concepts/Decayed.hpp>
 #	include <xieite/concepts/Enumerator.hpp>
-#	include <xieite/concepts/Function.hpp>
+#	include <xieite/concepts/Functional.hpp>
 #	include <xieite/concepts/Hashable.hpp>
 #	include <xieite/concepts/LinearShape.hpp>
 #	include <xieite/concepts/NoThrowConvertibleTo.hpp>

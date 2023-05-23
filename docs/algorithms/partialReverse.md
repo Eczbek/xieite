@@ -13,14 +13,14 @@ Selects iterators and then reverses them in their same overall positions.
 
 ```cpp
 template<std::forward_iterator ForwardIterator>
-constexpr void partialReverse(ForwardIterator begin, std::sentinel_for<ForwardIterator> auto end, const xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>)> auto& selector);
+constexpr void partialReverse(ForwardIterator begin, std::sentinel_for<ForwardIterator> auto end, const xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator>)> auto& selector);
 ```
 ### Template parameters
 - `ForwardIterator` - An iterator type, satisfying `std::forward_iterator`
 ### Parameters
 - `begin` - A `ForwardIterator` copy which points to the beginning of an iterable
 - `end` - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
-- `selector` - An `auto` constant reference, satisfying `xieite::concepts::Function` which accepts `ForwardIterator`'s value type and returns a `bool`
+- `selector` - An `auto` constant reference, satisfying `xieite::concepts::Functional` which accepts `ForwardIterator`'s value type and returns a `bool`
 
 <br/><br/>
 
@@ -53,4 +53,4 @@ Output:
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Function`](../../docs/concepts/Function.md)
+- [`xieite::concepts::Functional`](../../docs/concepts/Function.md)

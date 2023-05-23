@@ -5,11 +5,11 @@
 #	include <cstddef>
 #	include <iterator>
 #	include <vector>
-#	include <xieite/concepts/Function.hpp>
+#	include <xieite/concepts/Functional.hpp>
 
 namespace xieite::algorithms {
 	template<std::forward_iterator ForwardIterator>
-	constexpr void partialReverse(ForwardIterator begin, const std::sentinel_for<ForwardIterator> auto end, const xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>)> auto& selector) {
+	constexpr void partialReverse(ForwardIterator begin, const std::sentinel_for<ForwardIterator> auto end, const xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator>)> auto& selector) {
 		std::vector<ForwardIterator> iterators;
 		for (; begin != end; ++begin) {
 			if (selector(*begin)) {

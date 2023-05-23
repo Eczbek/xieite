@@ -12,14 +12,14 @@ Checks if an iterable is the same backwards as it is forwards. Uses `std::equal_
 <br/>
 
 ```cpp
-template<std::forward_iterator ForwardIterator, std::reverse_iterator ReverseIterator, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ReverseIterator>)> Callback = std::ranges::equal_to>
+template<std::forward_iterator ForwardIterator, std::reverse_iterator ReverseIterator, xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ReverseIterator>)> Callback = std::ranges::equal_to>
 [[nodiscard]]
 constexpr bool isPalindrome(ForwardIterator begin, ReverseIterator end, const Callback& comparator = Callback());
 ```
 ### Template parameters
 - `ForwardIterator` - An iterator type, satisfying `std::forward_iterator`
 - `ReverseIterator` - An iterator type, satisfying `std::reverse_iterator`
-- `Callback` - A callback type, satisfying `xieite::concepts::Function` which accepts `ForwardIterator`'s value type and `ReverseIterator`'s value type, and returns a `bool`. Set to `std::ranges::equal_to` by default
+- `Callback` - A callback type, satisfying `xieite::concepts::Functional` which accepts `ForwardIterator`'s value type and `ReverseIterator`'s value type, and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
 - `begin` - A `ForwardIterator` copy which points to the beginning of an iterable
 - `end` - A `ReverseIterator` copy which points to the end of the same iterable
@@ -52,4 +52,4 @@ true
 <br/><br/>
 
 ## See also
-- [`xieite::concepts::Function`](../../docs/concepts/Function.md)
+- [`xieite::concepts::Functional`](../../docs/concepts/Function.md)

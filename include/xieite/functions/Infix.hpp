@@ -1,20 +1,20 @@
 #ifndef XIEITE_HEADER_FUNCTIONS_INFIX
 #	define XIEITE_HEADER_FUNCTIONS_INFIX
 
+#	include <functional>
+#	include <xieite/concepts/Functional.hpp>
+
 namespace xieite::functions {
 	template<typename Result, typename LeftParameter, typename RightParameter>
 	class Infix {
-	private:
-		using Callback = Result(*)(LeftParameter, RightParameter);
-
 	public:
-		constexpr Infix(Callback callback) noexcept
+		constexpr Infix(const xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto& callback) noexcept
 		: callback(callback) {}
 
 	private:
 		class Bind {
 		public:
-			constexpr Bind(Callback callback, const LeftParameter& leftParameter) noexcept
+			constexpr Bind(const xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto& callback, const LeftParameter& leftParameter) noexcept
 			: callback(callback), leftParameter(leftParameter) {}
 
 			constexpr Result operator()(const RightParameter& rightParameter) const noexcept {
@@ -22,7 +22,7 @@ namespace xieite::functions {
 			}
 
 		private:
-			Callback callback;
+			std::function<Result(LeftParameter, RightParameter)> callback;
 			const LeftParameter& leftParameter;
 		};
 
@@ -39,7 +39,7 @@ namespace xieite::functions {
 			const Bind bind;
 		};
 
-		Callback callback;
+		std::function<Result(LeftParameter, RightParameter)> callback;
 
 		friend constexpr Infixator operator|(const LeftParameter& leftParameter, const Infix<Result, LeftParameter, RightParameter>& infix) noexcept {
 			return Infixator(Bind(infix.callback, leftParameter));

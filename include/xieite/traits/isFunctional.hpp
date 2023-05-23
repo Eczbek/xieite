@@ -6,10 +6,10 @@
 
 namespace xieite::traits {
 	template<typename, typename>
-	inline constexpr bool isFunction = false;
+	inline constexpr bool isFunctional = false;
 
 	template<typename Result, typename... Parameters, std::invocable<Parameters...> Invocable>
-	inline constexpr bool isFunction<Invocable, Result(Parameters...)> = std::convertible_to<std::invoke_result_t<Invocable, Parameters...>, Result>;
+	inline constexpr bool isFunctional<Invocable, Result(Parameters...)> = std::convertible_to<std::invoke_result_t<Invocable, Parameters...>, Result>;
 }
 
 #endif
