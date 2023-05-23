@@ -8,5 +8,6 @@ A namespace of functional utilities.
 <br/><br/>
 
 ## Member types
+- [`Infix`](../docs/functions/Infix.md)
 - [`OptionalCallOperator`](../docs/functions/OptionalCallOperator.md)
 - [`Overloader`](../docs/functions/Overloader.md)
