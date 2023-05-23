@@ -21,7 +21,6 @@ A collection of macros.
 <br/>
 
 ## Function macros
-- [`ASSERT`](../docs/macros/ASSERT.md)
 - [`CONCATENATE`](../docs/macros/CONCATENATE.md)
 - [`DEFER`](../docs/macros/DEFER.md)
 - [`EMPTY`](../docs/macros/EMPTY.md)
@@ -32,4 +31,3 @@ A collection of macros.
 - [`REPEAT_CONCATENATE`](../docs/macros/REPEAT_CONCATENATE.md)
 - [`SCAN`](../docs/macros/SCAN.md)
 - [`STRINGIFY`](../docs/macros/STRINGIFY.md)
-- [`THIEF_...`](../docs/macros/THIEF.md)

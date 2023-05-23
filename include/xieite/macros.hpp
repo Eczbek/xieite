@@ -1,7 +1,6 @@
 #pragma once
 
 #include <xieite/macros/ARCHITECTURE_TYPE.hpp>
-#include <xieite/macros/ASSERT.hpp>
 #include <xieite/macros/COMPILER_TYPE.hpp>
 #include <xieite/macros/COMPILER_VERSION.hpp>
 #include <xieite/macros/CONCATENATE.hpp>
@@ -17,7 +16,6 @@
 #include <xieite/macros/STANDARD_UNIX.hpp>
 #include <xieite/macros/STRINGIFY.hpp>
 #include <xieite/macros/SYSTEM_TYPE.hpp>
-#include <xieite/macros/THIEF.hpp>
 #include <xieite/macros/UNIQUE_TOKEN.hpp>
 #include <xieite/macros/VANISH.hpp>
 #include <xieite/macros/VERSION.hpp>
