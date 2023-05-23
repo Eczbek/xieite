@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::toLowercase`
-Defined in header [`<xieite/strings/toLowercase.hpp>`](../../include/xieite/strings/toLowercase.hpp)
+# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::toLowerCase`
+Defined in header [`<xieite/strings/toLowerCase.hpp>`](../../include/xieite/strings/toLowerCase.hpp)
 
 <br/>
 
@@ -12,7 +12,7 @@ Converts a string or character to lowercase. Only handles characters `A` to `Z`.
 <br/><br/>
 
 ```cpp
-constexpr char toLowercase(char character) noexcept;
+constexpr char toLowerCase(char character) noexcept;
 ```
 ### Parameters
 - `character` - A `char` copy
@@ -22,7 +22,7 @@ constexpr char toLowercase(char character) noexcept;
 <br/><br/>
 
 ```cpp
-constexpr std::string toLowercase(std::string string) noexcept;
+constexpr std::string toLowerCase(std::string string) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string` copy
@@ -34,10 +34,10 @@ constexpr std::string toLowercase(std::string string) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/toLowercase.hpp>
+#include <xieite/strings/toLowerCase.hpp>
 
 int main() {
-	std::cout << xieite::strings::toLowercase("HELLO, WORLD!\n");
+	std::cout << xieite::strings::toLowerCase("HELLO, WORLD!\n");
 }
 ```
 Output:
