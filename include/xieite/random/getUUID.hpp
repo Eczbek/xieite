@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_RANDOM_GETUUID
+#	define XIEITE_HEADER_RANDOM_GETUUID
 
-#include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#if defined(XIEITE_SYSTEM_TYPE_LINUX)
-#	include <string>
-#	include <uuid/uuid.h>
+#	if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#		include <string>
+#		include <uuid/uuid.h>
 
 namespace xieite::random {
 	inline std::string getUUID() noexcept {
@@ -16,6 +17,8 @@ namespace xieite::random {
 	}
 }
 
-#else
-#	error "System not supported"
+#	else
+#		error "System not supported"
+#	endif
+
 #endif

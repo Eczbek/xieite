@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_PIDIGITS
+#	define XIEITE_HEADER_MATH_PIDIGITS
 
-#include <concepts>
-#include <vector>
-#include <xieite/math/BigInteger.hpp>
+#	include <concepts>
+#	include <vector>
+#	include <xieite/math/BigInteger.hpp>
 
 namespace xieite::math {
 	template<std::integral Integral = int>
@@ -26,3 +27,5 @@ namespace xieite::math {
 }
 
 // This seems to use the Gauss-Legendre algorithm
+
+#endif

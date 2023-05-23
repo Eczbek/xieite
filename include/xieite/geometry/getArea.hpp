@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_GETAREA
+#	define XIEITE_HEADER_GEOMETRY_GETAREA
 
-#include <cmath>
-#include <xieite/geometry/Polygon.hpp>
-#include <xieite/geometry/Segment.hpp>
-#include <xieite/geometry/getSides.hpp>
-#include <xieite/math/pi.hpp>
+#	include <cmath>
+#	include <xieite/geometry/Polygon.hpp>
+#	include <xieite/geometry/Segment.hpp>
+#	include <xieite/geometry/getSides.hpp>
+#	include <xieite/math/pi.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
@@ -16,3 +17,5 @@ namespace xieite::geometry {
 		return std::abs(area) / 2.0;
 	}
 }
+
+#endif

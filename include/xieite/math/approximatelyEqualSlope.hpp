@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_APPROXIMATELYEQUALSLOPE
+#	define XIEITE_HEADER_MATH_APPROXIMATELYEQUALSLOPE
 
-#include <cmath>
-#include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/math/approximatelyEqual.hpp>
+#	include <cmath>
+#	include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
@@ -11,3 +12,5 @@ namespace xieite::math {
 		return (std::isinf(value1) && std::isinf(value2)) || xieite::math::approximatelyEqual(value1, value2);
 	}
 }
+
+#endif

@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_POINT
+#	define XIEITE_HEADER_GEOMETRY_POINT
 
-#include <xieite/math/approximatelyEqual.hpp>
+#	include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {
 	struct Point final {
@@ -16,3 +17,5 @@ namespace xieite::geometry {
 		}
 	};
 }
+
+#endif

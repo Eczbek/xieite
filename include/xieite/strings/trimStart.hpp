@@ -1,11 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_TRIMSTART
+#	define XIEITE_HEADER_STRINGS_TRIMSTART
 
-#include <array>
-#include <cstddef>
-#include <limits>
-#include <span>
-#include <string>
-#include <vector>
+#	include <array>
+#	include <cstddef>
+#	include <limits>
+#	include <span>
+#	include <string>
+#	include <vector>
 
 namespace xieite::strings {
 	[[nodiscard]]
@@ -34,3 +35,5 @@ namespace xieite::strings {
 		return "";
 	}
 }
+
+#endif

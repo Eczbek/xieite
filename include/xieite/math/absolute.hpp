@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_ABSOLUTE
+#	define XIEITE_HEADER_MATH_ABSOLUTE
 
-#include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
@@ -9,3 +10,5 @@ namespace xieite::math {
 		return ((value >= 0.0) * 2 - 1) * value;
 	}
 }
+
+#endif

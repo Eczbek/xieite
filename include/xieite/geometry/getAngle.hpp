@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_GETANGLE
+#	define XIEITE_HEADER_GEOMETRY_GETANGLE
 
-#include <cmath>
-#include <xieite/concepts/LinearShape.hpp>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/math/pi.hpp>
-#include <xieite/math/tau.hpp>
+#	include <cmath>
+#	include <xieite/concepts/LinearShape.hpp>
+#	include <xieite/geometry/Point.hpp>
+#	include <xieite/math/pi.hpp>
+#	include <xieite/math/tau.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
@@ -17,3 +18,5 @@ namespace xieite::geometry {
 		return xieite::geometry::getAngle(linearShape.start, linearShape.end);
 	}
 }
+
+#endif

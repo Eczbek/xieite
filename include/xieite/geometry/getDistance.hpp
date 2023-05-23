@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_GETDISTANCE
+#	define XIEITE_HEADER_GEOMETRY_GETDISTANCE
 
-#include <cmath>
-#include <xieite/geometry/Point.hpp>
+#	include <cmath>
+#	include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
@@ -9,3 +10,5 @@ namespace xieite::geometry {
 		return std::hypot(point1.x - point2.x, point1.y - point2.y);
 	}
 }
+
+#endif

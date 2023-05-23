@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_ISPOWEROF2
+#	define XIEITE_HEADER_MATH_ISPOWEROF2
 
-#include <concepts>
+#	include <concepts>
 
 namespace xieite::math {
 	[[nodiscard]]
@@ -8,3 +9,5 @@ namespace xieite::math {
 		return value && !(value & (value - 1));
 	}
 }
+
+#endif

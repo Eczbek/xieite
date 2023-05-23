@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_SYSTEM_DETECTCOSMICRAY
+#	define XIEITE_HEADER_SYSTEM_DETECTCOSMICRAY
 
-#include <cstddef>
-#include <memory>
+#	include <cstddef>
+#	include <memory>
 
 namespace xieite::system {
 	constexpr void detectCosmicRay(const std::size_t detectionBytes) noexcept {
@@ -16,3 +17,5 @@ namespace xieite::system {
 		}
 	}
 }
+
+#endif

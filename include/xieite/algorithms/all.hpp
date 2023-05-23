@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_ALL
+#	define XIEITE_HEADER_ALGORITHMS_ALL
 
-#include <concepts>
-#include <type_traits>
+#	include <concepts>
+#	include <type_traits>
 
 namespace xieite::algorithms {
 	template<std::convertible_to<bool>... Values>
@@ -11,3 +12,5 @@ namespace xieite::algorithms {
 		return (static_cast<bool>(values) && ...);
 	}
 }
+
+#endif

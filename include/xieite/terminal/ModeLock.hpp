@@ -1,11 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_TERMINAL_MODELOCK
+#	define XIEITE_HEADER_TERMINAL_MODELOCK
 
-#include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#if defined(XIEITE_SYSTEM_TYPE_LINUX)
-#	include <fcntl.h>
-#	include <termios.h>
-#	include <unistd.h>
+#	if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#		include <fcntl.h>
+#		include <termios.h>
+#		include <unistd.h>
 
 namespace xieite::terminal {
 	class ModeLock final {
@@ -90,6 +91,8 @@ namespace xieite::terminal {
 	};
 }
 
-#else
-#	error "System not supported"
+#	else
+#		error "System not supported"
+#	endif
+
 #endif

@@ -1,11 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_FINDOCCURRENCE
+#	define XIEITE_HEADER_ALGORITHMS_FINDOCCURRENCE
 
-#include <concepts>
-#include <cstddef>
-#include <functional>
-#include <iterator>
-#include <ranges>
-#include <xieite/concepts/Function.hpp>
+#	include <concepts>
+#	include <cstddef>
+#	include <functional>
+#	include <iterator>
+#	include <ranges>
+#	include <xieite/concepts/Function.hpp>
 
 namespace xieite::algorithms {
 	template<std::forward_iterator ForwardIterator, xieite::concepts::Function<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ForwardIterator>)> Callback = std::ranges::equal_to>
@@ -19,3 +20,5 @@ namespace xieite::algorithms {
 		return end;
 	}
 }
+
+#endif

@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_GETLENGTH
+#	define XIEITE_HEADER_GEOMETRY_GETLENGTH
 
-#include <limits>
-#include <xieite/concepts/LinearShape.hpp>
-#include <xieite/geometry/Segment.hpp>
-#include <xieite/geometry/getDistance.hpp>
+#	include <limits>
+#	include <xieite/concepts/LinearShape.hpp>
+#	include <xieite/geometry/Segment.hpp>
+#	include <xieite/geometry/getDistance.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
@@ -16,3 +17,5 @@ namespace xieite::geometry {
 		return std::numeric_limits<double>::infinity();
 	}
 }
+
+#endif

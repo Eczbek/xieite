@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_SYSTEM_GETTOTALMEMORY
+#	define XIEITE_HEADER_SYSTEM_GETTOTALMEMORY
 
-#include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#if defined(XIEITE_SYSTEM_TYPE_LINUX)
-#	include <cstddef>
-#	include <unistd.h>
+#	if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#		include <cstddef>
+#		include <unistd.h>
 
 namespace xieite::system {
 	[[nodiscard]]
@@ -13,6 +14,8 @@ namespace xieite::system {
 	}
 }
 
-#else
-#	error "System not supported"
+#	else
+#		error "System not supported"
+#	endif
+
 #endif

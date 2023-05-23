@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_LINE
+#	define XIEITE_HEADER_GEOMETRY_LINE
 
-#include <cmath>
-#include <limits>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/math/approximatelyEqual.hpp>
-#include <xieite/math/approximatelyEqualSlope.hpp>
+#	include <cmath>
+#	include <limits>
+#	include <xieite/geometry/Point.hpp>
+#	include <xieite/math/approximatelyEqual.hpp>
+#	include <xieite/math/approximatelyEqualSlope.hpp>
 
 namespace xieite::geometry {
 	struct Line final {
@@ -24,3 +25,5 @@ namespace xieite::geometry {
 		}
 	};
 }
+
+#endif

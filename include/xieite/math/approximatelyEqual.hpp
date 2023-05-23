@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_APPROXIMATELYEQUAL
+#	define XIEITE_HEADER_MATH_APPROXIMATELYEQUAL
 
-#include <limits>
-#include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/math/absolute.hpp>
+#	include <limits>
+#	include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/math/absolute.hpp>
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
@@ -11,3 +12,5 @@ namespace xieite::math {
 		return xieite::math::absolute(value1 - value2) <= std::numeric_limits<Number>::epsilon();
 	}
 }
+
+#endif

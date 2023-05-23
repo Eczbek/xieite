@@ -1,18 +1,19 @@
-#pragma once
+#ifndef XIEITE_HEADER_RANDOM_INTERRUPTABLEUNIFORMDISTRIBUTION
+#	define XIEITE_HEADER_RANDOM_INTERRUPTABLEUNIFORMDISTRIBUTION
 
-#include <algorithm>
-#include <cmath>
-#include <concepts>
-#include <random>
-#include <span>
-#include <type_traits>
-#include <utility>
-#include <vector>
-#include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/concepts/UniformRandomBitGenerator.hpp>
-#include <xieite/math/closestTo.hpp>
-#include <xieite/math/difference.hpp>
-#include <xieite/math/farthestFrom.hpp>
+#	include <algorithm>
+#	include <cmath>
+#	include <concepts>
+#	include <random>
+#	include <span>
+#	include <type_traits>
+#	include <utility>
+#	include <vector>
+#	include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/concepts/UniformRandomBitGenerator.hpp>
+#	include <xieite/math/closestTo.hpp>
+#	include <xieite/math/difference.hpp>
+#	include <xieite/math/farthestFrom.hpp>
 
 namespace xieite::random {
 	template<xieite::concepts::Arithmetic Number>
@@ -59,3 +60,5 @@ namespace xieite::random {
 		UniformDistribution distribution;
 	};
 }
+
+#endif

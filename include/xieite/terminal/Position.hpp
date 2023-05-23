@@ -1,4 +1,5 @@
-#pragma once
+#ifndef XIEITE_HEADER_TERMINAL_POSITION
+#	define XIEITE_HEADER_TERMINAL_POSITION
 
 namespace xieite::terminal {
 	struct Position final {
@@ -9,3 +10,5 @@ namespace xieite::terminal {
 		: row(row), column(column) {}
 	};
 }
+
+#endif

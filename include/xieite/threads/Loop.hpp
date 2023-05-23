@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_THREADS_LOOP
+#	define XIEITE_HEADER_THREADS_LOOP
 
-#include <concepts>
-#include <stop_token>
-#include <thread>
+#	include <concepts>
+#	include <stop_token>
+#	include <thread>
 
 namespace xieite::threads {
 	class Loop final {
@@ -35,3 +36,5 @@ namespace xieite::threads {
 }
 
 // Thanks to uno20001 for help
+
+#endif

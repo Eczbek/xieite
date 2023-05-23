@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_TERMINAL_PUTBACKSTRING
+#	define XIEITE_HEADER_TERMINAL_PUTBACKSTRING
 
-#include <cstddef>
-#include <iostream>
-#include <string_view>
+#	include <cstddef>
+#	include <iostream>
+#	include <string_view>
 
 namespace xieite::terminal {
 	inline void putBackString(const std::string_view value) {
@@ -11,3 +12,5 @@ namespace xieite::terminal {
 		}
 	}
 }
+
+#endif

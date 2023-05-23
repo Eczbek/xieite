@@ -1,4 +1,5 @@
-#pragma once
+#ifndef XIEITE_HEADER_SYSTEM_SEGMENTATIONFAULT
+#	define XIEITE_HEADER_SYSTEM_SEGMENTATIONFAULT
 
 namespace xieite::system {
 	[[noreturn]]
@@ -8,3 +9,5 @@ namespace xieite::system {
 }
 
 // Thanks to eightfold for original idea
+
+#endif

@@ -1,11 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_INTEGER
+#	define XIEITE_HEADER_MATH_INTEGER
 
-#include <compare>
-#include <concepts>
-#include <cstddef>
-#include <ostream>
-#include <xieite/math/ConditionalIntegerSign.hpp>
-#include <xieite/math/MinimalIntegerSize.hpp>
+#	include <compare>
+#	include <concepts>
+#	include <cstddef>
+#	include <ostream>
+#	include <xieite/math/ConditionalIntegerSign.hpp>
+#	include <xieite/math/MinimalIntegerSize.hpp>
 
 namespace xieite::math {
 	template<std::size_t bits, bool sign>
@@ -174,3 +175,5 @@ namespace xieite::math {
 		xieite::math::ConditionalIntegerSign<xieite::math::MinimalIntegerSize<bits>, sign> value : bits;
 	};
 }
+
+#endif

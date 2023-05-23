@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_RAY
+#	define XIEITE_HEADER_GEOMETRY_RAY
 
-#include <cmath>
-#include <limits>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/math/approximatelyEqualSlope.hpp>
+#	include <cmath>
+#	include <limits>
+#	include <xieite/geometry/Point.hpp>
+#	include <xieite/math/approximatelyEqualSlope.hpp>
 
 namespace xieite::geometry {
 	struct Ray final {
@@ -22,3 +23,5 @@ namespace xieite::geometry {
 		}
 	};
 }
+
+#endif

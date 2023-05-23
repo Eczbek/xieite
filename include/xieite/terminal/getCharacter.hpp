@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_TERMINAL_GETCHARACTER
+#	define XIEITE_HEADER_TERMINAL_GETCHARACTER
 
-#include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#if defined(XIEITE_SYSTEM_TYPE_LINUX)
-#	include <unistd.h>
-#	include <xieite/terminal/ModeLock.hpp>
+#	if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#		include <unistd.h>
+#		include <xieite/terminal/ModeLock.hpp>
 
 namespace xieite::terminal {
 	inline char getCharacter(const xieite::terminal::ModeLock& modeLock) {
@@ -18,6 +19,8 @@ namespace xieite::terminal {
 	}
 }
 
-#else
-#	error "System not supported"
+#	else
+#		error "System not supported"
+#	endif
+
 #endif

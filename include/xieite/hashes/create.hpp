@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_HASHES_CREATE
+#	define XIEITE_HEADER_HASHES_CREATE
 
-#include <cstddef>
-#include <string_view>
+#	include <cstddef>
+#	include <string_view>
 
 namespace xieite::hashes {
 	[[nodiscard]]
@@ -13,3 +14,5 @@ namespace xieite::hashes {
 		return result;
 	}
 }
+
+#endif

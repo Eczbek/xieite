@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_RATIOS_VOLUMES
+#	define XIEITE_HEADER_RATIOS_VOLUMES
 
-#include <ratio>
+#	include <ratio>
 
 namespace xieite::ratios::volumes {
 	inline constexpr std::ratio<284130625, 10000000> fluidOunce;
@@ -9,3 +10,5 @@ namespace xieite::ratios::volumes {
 	inline constexpr std::ratio<11365225, 10000> quart;
 	inline constexpr std::ratio<454609, 100> gallon;
 }
+
+#endif

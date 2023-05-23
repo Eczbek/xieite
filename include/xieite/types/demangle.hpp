@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_TYPES_DEMANGLE
+#	define XIEITE_HEADER_TYPES_DEMANGLE
 
-#include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#if defined(XIEITE_SYSTEM_TYPE_LINUX)
-#	include <cxxabi.h>
-#	include <string>
+#	if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#		include <cxxabi.h>
+#		include <string>
 
 namespace xieite::types {
 	[[nodiscard]]
@@ -19,8 +20,10 @@ namespace xieite::types {
 	}
 }
 
-#else
-#	error "System not supported"
-#endif
+#	else
+#		error "System not supported"
+#	endif
 
 // Thanks to eightfold for original idea
+
+#endif

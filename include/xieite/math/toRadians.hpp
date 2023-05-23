@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_TORADIANS
+#	define XIEITE_HEADER_MATH_TORADIANS
 
-#include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/math/pi.hpp>
+#	include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/math/pi.hpp>
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
@@ -10,3 +11,5 @@ namespace xieite::math {
 		return degrees * xieite::math::pi<Number> / 180.0;
 	}
 }
+
+#endif

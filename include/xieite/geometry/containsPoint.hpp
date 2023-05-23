@@ -1,16 +1,17 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_CONTAINSPOINT
+#	define XIEITE_HEADER_GEOMETRY_CONTAINSPOINT
 
-#include <cmath>
-#include <cstddef>
-#include <xieite/geometry/Line.hpp>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/geometry/Polygon.hpp>
-#include <xieite/geometry/Ray.hpp>
-#include <xieite/geometry/Segment.hpp>
-#include <xieite/geometry/getDistance.hpp>
-#include <xieite/geometry/getSides.hpp>
-#include <xieite/geometry/getSlope.hpp>
-#include <xieite/math/approximatelyEqual.hpp>
+#	include <cmath>
+#	include <cstddef>
+#	include <xieite/geometry/Line.hpp>
+#	include <xieite/geometry/Point.hpp>
+#	include <xieite/geometry/Polygon.hpp>
+#	include <xieite/geometry/Ray.hpp>
+#	include <xieite/geometry/Segment.hpp>
+#	include <xieite/geometry/getDistance.hpp>
+#	include <xieite/geometry/getSides.hpp>
+#	include <xieite/geometry/getSlope.hpp>
+#	include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
@@ -50,3 +51,5 @@ namespace xieite::geometry {
 		return intersections % 2;
 	}
 }
+
+#endif

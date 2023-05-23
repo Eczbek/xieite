@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_ROTATEMATRIX
+#	define XIEITE_HEADER_ALGORITHMS_ROTATEMATRIX
 
-#include <concepts>
-#include <vector>
-#include <xieite/math/wrap.hpp>
+#	include <concepts>
+#	include <vector>
+#	include <xieite/math/wrap.hpp>
 
 namespace xieite::algorithms {
 	template<std::copyable Value>
@@ -31,3 +32,5 @@ namespace xieite::algorithms {
 		return xieite::algorithms::rotateMatrix(result, ++rotations);
 	}
 }
+
+#endif

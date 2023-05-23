@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_ROBERT
+#	define XIEITE_HEADER_MATH_ROBERT
 
-#include <concepts>
-#include <limits>
-#include <numbers>
+#	include <concepts>
+#	include <limits>
+#	include <numbers>
 
 namespace xieite::math {
 	template<std::integral Integral>
@@ -10,3 +11,5 @@ namespace xieite::math {
 }
 
 // Thanks to melak47 for naming this constant
+
+#endif

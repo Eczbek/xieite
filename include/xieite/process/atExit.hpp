@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_PROCESS_ATEXIT
+#	define XIEITE_HEADER_PROCESS_ATEXIT
 
-#include <functional>
-#include <mutex>
-#include <vector>
+#	include <functional>
+#	include <mutex>
+#	include <vector>
 
 namespace xieite::process {
 	inline void atExit(const std::function<void()>& callback) noexcept {
@@ -21,3 +22,5 @@ namespace xieite::process {
 		callbacks.push_back(callback);
 	}
 }
+
+#endif

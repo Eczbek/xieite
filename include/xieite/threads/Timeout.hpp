@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_THREADS_TIMEOUT
+#	define XIEITE_HEADER_THREADS_TIMEOUT
 
-#include <concepts>
-#include <xieite/concepts/TemporalDuration.hpp>
-#include <xieite/threads/Interval.hpp>
+#	include <concepts>
+#	include <xieite/concepts/TemporalDuration.hpp>
+#	include <xieite/threads/Interval.hpp>
 
 namespace xieite::threads {
 	class Timeout final {
@@ -25,3 +26,5 @@ namespace xieite::threads {
 		xieite::threads::Interval interval;
 	};
 }
+
+#endif

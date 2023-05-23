@@ -1,15 +1,16 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_GETINTERSECTIONS
+#	define XIEITE_HEADER_GEOMETRY_GETINTERSECTIONS
 
-#include <cmath>
-#include <vector>
-#include <xieite/concepts/LinearShape.hpp>
-#include <xieite/geometry/Point.hpp>
-#include <xieite/geometry/Segment.hpp>
-#include <xieite/geometry/containsPoint.hpp>
-#include <xieite/geometry/getDistance.hpp>
-#include <xieite/geometry/getSides.hpp>
-#include <xieite/geometry/rotate.hpp>
-#include <xieite/math/approximatelyEqual.hpp>
+#	include <cmath>
+#	include <vector>
+#	include <xieite/concepts/LinearShape.hpp>
+#	include <xieite/geometry/Point.hpp>
+#	include <xieite/geometry/Segment.hpp>
+#	include <xieite/geometry/containsPoint.hpp>
+#	include <xieite/geometry/getDistance.hpp>
+#	include <xieite/geometry/getSides.hpp>
+#	include <xieite/geometry/rotate.hpp>
+#	include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {
 	[[nodiscard]]
@@ -96,3 +97,5 @@ namespace xieite::geometry {
 		return intersections1;
 	}
 }
+
+#endif

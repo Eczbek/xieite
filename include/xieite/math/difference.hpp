@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_DIFFERENCE
+#	define XIEITE_HEADER_MATH_DIFFERENCE
 
-#include <cmath>
-#include <concepts>
-#include <type_traits>
+#	include <cmath>
+#	include <concepts>
+#	include <type_traits>
 
 namespace xieite::math {
 	template<std::integral Integral>
@@ -19,3 +20,5 @@ namespace xieite::math {
 		return std::abs(a - b);
 	}
 }
+
+#endif

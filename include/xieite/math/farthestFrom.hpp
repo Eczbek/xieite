@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_FARTHESTFROM
+#	define XIEITE_HEADER_MATH_FARTHESTFROM
 
-#include <xieite/concepts/Arithmetic.hpp>
-#include <xieite/math/difference.hpp>
+#	include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/math/difference.hpp>
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
@@ -16,3 +17,5 @@ namespace xieite::math {
 		return (a >= target) ? ((b >= target) ? ((a > b) ? a : b) : ((xieite::math::difference(target, a) < xieite::math::difference(target, b)) ? a : b)) : ((b < target) ? ((a < b) ? a : b) : ((xieite::math::difference(target, a) > xieite::math::difference(target, b)) ? a : b));
 	}
 }
+
+#endif

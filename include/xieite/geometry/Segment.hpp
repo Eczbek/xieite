@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_SEGMENT
+#	define XIEITE_HEADER_GEOMETRY_SEGMENT
 
-#include <xieite/geometry/Point.hpp>
+#	include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
 	struct Segment final {
@@ -16,3 +17,5 @@ namespace xieite::geometry {
 		}
 	};
 }
+
+#endif

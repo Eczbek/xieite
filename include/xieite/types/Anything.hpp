@@ -1,4 +1,5 @@
-#pragma once
+#ifndef XIEITE_HEADER_TYPES_ANYTHING
+#	define XIEITE_HEADER_TYPES_ANYTHING
 
 namespace xieite::types {
 	struct Anything final {
@@ -9,3 +10,5 @@ namespace xieite::types {
 		constexpr operator Any&&();
 	};
 }
+
+#endif
