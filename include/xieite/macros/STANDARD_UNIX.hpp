@@ -4,7 +4,7 @@
 #	if __has_include(<unistd.h>)
 #		include <unistd.h>
 
-#		if defined(_POSIX_VERSION)
+#		ifdef _POSIX_VERSION
 #			if _POSIX_VERSION >= 198808
 #				define XIEITE_STANDARD_UNIX_POSIX_1998
 #			endif
@@ -34,7 +34,7 @@
 #			define XIEITE_STANDARD_UNIX_POSIX_1992
 #		endif
 
-#		if defined(_XOPEN_VERSION)
+#		ifdef _XOPEN_VERSION
 #			if _XOPEN_VERSION >= 3
 #				define XIEITE_STANDARD_UNIX_XOPEN_1989
 #			endif
@@ -60,7 +60,7 @@
 #			endif
 #		endif
 
-#		if defined(__LSB_VERSION__)
+#		ifdef __LSB_VERSION__
 #			define XIEITE_STANDARD_UNIX_LSB
 #		endif
 #	endif

@@ -3,7 +3,7 @@
 
 #	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#	if defined(XIEITE_SYSTEM_TYPE_LINUX)
+#	ifdef XIEITE_SYSTEM_TYPE_LINUX
 #		include <fcntl.h>
 #		include <termios.h>
 #		include <unistd.h>
