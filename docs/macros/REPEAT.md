@@ -16,7 +16,7 @@ Repeats an expression literally.
 	XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT, , argument)
 ```
 ### Parameters
-- `count` - An unsigned value between 0 and 32767, inclusively
+- `count` - An unsigned value between 0 and 255, inclusive
 - `argument` - Any expression
 
 <br/><br/>
