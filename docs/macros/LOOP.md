@@ -16,7 +16,7 @@ Repeats the execution of an macro.
 	XIEITE_CONCATENATE(XIEITE_INTERNAL_LOOP_, count)(macro, initial, __VA_ARGS__)
 ```
 ### Parameters
-- `count` - An integer of value between 0 and 32767, inclusive
+- `count` - An integer of value between 0 and 255, inclusive
 - `macro` - The macro to execute. Must accept parameters:
 	- `count` - The current iteration
 	- `previous` - Result of the previous execution
