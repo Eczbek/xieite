@@ -10,7 +10,6 @@
 #include <vector>
 #include <xieite/concepts/Arithmetic.hpp>
 #include <xieite/concepts/UniformRandomBitGenerator.hpp>
-#include <xieite/macros/ASSERT.hpp>
 #include <xieite/math/closestTo.hpp>
 #include <xieite/math/difference.hpp>
 #include <xieite/math/farthestFrom.hpp>
@@ -31,7 +30,9 @@ namespace xieite::random {
 				interruption.first = std::clamp(interruption.first, begin, end);
 				interruption.second = std::clamp(interruption.second, begin, end);
 				const Number difference = (xieite::math::difference(interruption.first, interruption.second) + 1.0) * this->sign;
-				XIEITE_ASSERT(difference < farthest, "Cannot exclude entire range");
+				if (difference >= farthest) {
+					throw "Cannot exclude entire range";
+				}
 				farthest -= difference;
 				this->interruptions.push_back(interruption);
 			}
