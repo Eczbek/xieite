@@ -44,9 +44,3 @@ Output:
 ```
 true
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../../docs/concepts/Arithmetic.md)
-- [`xieite::math::BigInteger`](../../../docs/math/BigInteger.md)

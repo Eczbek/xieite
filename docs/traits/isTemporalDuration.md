@@ -28,8 +28,3 @@ constexpr bool isTemporalDuration<std::chrono::duration<Number, std::ratio<numer
 - `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
 - `numerator` - A `std::intmax_t` copy
 - `denominator` - Another `std::int_max_t` copy
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

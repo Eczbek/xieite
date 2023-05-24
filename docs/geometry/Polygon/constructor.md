@@ -16,9 +16,3 @@ constexpr Polygon(const xieite::concepts::RangeOf<xieite::geometry::Point> auto&
 ```
 ### Parameters
 - `points` - An `auto` constant reference, satisfying `xieite::concepts::RangeOf` of `xieite::geometry::Point`
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::RangeOf`](../../../docs/concepts/RangeOf.md)
-- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

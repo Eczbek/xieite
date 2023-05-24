@@ -23,8 +23,3 @@ constexpr Number xorShift(Number value, int bits) noexcept;
 - `bits` - An `int` copy, the number of bits to shift to the right
 ### Return value
 - A `Number`
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

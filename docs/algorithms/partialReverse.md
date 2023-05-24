@@ -49,8 +49,3 @@ Output:
 ```
 3 2 1 4 5 
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Functional`](../../docs/concepts/Functional.md)

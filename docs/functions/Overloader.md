@@ -53,8 +53,3 @@ Output:
 foo
 bar
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Derivable`](../../docs/concepts/Derivable.md)

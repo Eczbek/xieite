@@ -17,8 +17,3 @@ inline xieite::terminal::Position getWindowSize() noexcept;
 ```
 ### Return value
 - `xieite::terminal::Position` - The window size
-
-<br/><br/>
-
-## See also
-- [`xieite::terminal::Position`](../../docs/terminal/Position.md)

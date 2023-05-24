@@ -53,8 +53,3 @@ Output:
 ```
 false
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

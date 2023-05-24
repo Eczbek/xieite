@@ -17,8 +17,3 @@ inline xieite::terminal::Position getPosition() noexcept;
 ```
 ### Return value
 - `xieite::terminal::Position` - The cursor's current position
-
-<br/><br/>
-
-## See also
-- [`xieite::terminal::Position`](../../docs/terminal/Position.md)

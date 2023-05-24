@@ -22,8 +22,3 @@ constexpr Number toDegrees(Number radians) noexcept;
 - `radians` - A `Number` copy
 ### Return value
 - A `Number`, equal to `radians` in degrees
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

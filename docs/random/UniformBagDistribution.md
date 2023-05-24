@@ -56,8 +56,3 @@ Possible output:
 3
 0
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

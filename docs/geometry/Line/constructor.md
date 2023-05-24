@@ -49,8 +49,3 @@ Output:
 ```
 0.785398
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

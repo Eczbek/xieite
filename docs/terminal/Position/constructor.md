@@ -17,8 +17,3 @@ constexpr Position(int row, int column) noexcept;
 ### Parameters
 - `row` - An `int` copy to represent the cursor's row position
 - `column` - An `int` copy to represent the cursor's column position
-
-<br/><br/>
-
-## See also
-- [`xieite::terminal::Position`](../../../docs/terminal/Position.md)

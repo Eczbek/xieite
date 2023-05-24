@@ -35,8 +35,3 @@ int main() {
 	std::vector<std::vector<std::vector<int>>> matrix;
 }
 ```
-
-<br/><br/>
-
-## See also
-- [`XIEITE_REPEAT`](../../docs/macros/REPEAT.md)

@@ -34,8 +34,3 @@ Output:
 ```
 556
 ```
-
-<br/><br/>
-
-## See also
-- [`XIEITE_LOOP`](../../docs/macros/LOOP.md)

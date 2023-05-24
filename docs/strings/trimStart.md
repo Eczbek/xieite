@@ -54,8 +54,3 @@ Output:
 ```
 nanana
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::RangeOf`](../../docs/concepts/RangeOf.md)

@@ -38,8 +38,3 @@ Possible output:
 
      Hello, world!
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::terminal::Position`](../../docs/terminal/Position.md)

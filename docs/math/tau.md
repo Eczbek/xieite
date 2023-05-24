@@ -13,9 +13,3 @@ inline constexpr Number tau = xieite::math::pi<Number> * 2.0;
 ```
 ### Template parameters
 - `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)
-- [`xieite::math::pi`](../../docs/math/pi.md)

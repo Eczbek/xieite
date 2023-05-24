@@ -63,8 +63,3 @@ true
 false
 true
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Functional`](../../docs/concepts/Functional.md)

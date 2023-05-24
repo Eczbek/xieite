@@ -19,8 +19,3 @@ constexpr double getArea(const xieite::geometry::Polygon& polygon) noexcept;
 - `polygon` - A `xieite::geometry::Polygon` constant reference
 ### Return value
 - `double` - Area of the shape
-
-<br/><br/>
-
-## See also
-- [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)

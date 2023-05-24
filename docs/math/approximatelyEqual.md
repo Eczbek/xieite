@@ -48,8 +48,3 @@ Output:
 false
 true
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

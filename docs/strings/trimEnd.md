@@ -54,8 +54,3 @@ Output:
 ```
 babab
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::RangeOf`](../../docs/concepts/RangeOf.md)

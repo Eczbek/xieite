@@ -18,8 +18,3 @@ Repeats an expression literally.
 ### Parameters
 - `count` - An unsigned value between 0 and 255, inclusive
 - `argument` - Any expression
-
-<br/><br/>
-
-## See also
-- [`XIEITE_LOOP`](../../docs/macros/LOOP.md)

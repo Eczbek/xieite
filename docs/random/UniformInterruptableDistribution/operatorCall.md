@@ -19,8 +19,3 @@ Number operator()(xieite::concepts::UniformRandomBitGenerator auto& generator) c
 - `generator` - An `auto` constant reference, satisfying `xieite::concepts::UniformRandomBitGenerator`
 ### Return value
 - A `Number`
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::UniformRandomBitGenerator`](../../../docs/concepts/UniformRandomBitGenerator.md)

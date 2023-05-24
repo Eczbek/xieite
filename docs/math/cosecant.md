@@ -22,8 +22,3 @@ constexpr Number cosecant(Number value) noexcept;
 - `value` - A `Number` copy
 ### Return value
 - A `Number`, the cosecant of `value`
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

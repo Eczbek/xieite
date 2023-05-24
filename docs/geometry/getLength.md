@@ -49,9 +49,3 @@ Output:
 ```
 5
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::LinearShape`](../../docs/concepts/LinearShape.md)
-- [`xieite::geometry::Segment`](../../docs/geometry/Segment.md)

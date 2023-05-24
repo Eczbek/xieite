@@ -19,8 +19,3 @@ Integral operator()(xieite::concepts::UniformRandomBitGenerator auto& generator)
 - `generator` - An `auto` constant reference, satisfying `xieite::concepts::UniformRandomBitGenerator`
 ### Return value
 - An `Integral`
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::UniformRandomBitGenerator`](../../../docs/concepts/UniformRandomBitGenerator.md)

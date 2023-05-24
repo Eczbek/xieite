@@ -17,8 +17,3 @@ Interval(const std::invocable<>& callback, const xieite::concepts::TemporalDurat
 ### Parameters
 - `callback` - An `auto` constant reference, satisfying `std::invocable` with no arguments
 - `duration` - An `auto` copy, satisfying `xieite::concepts::TemporalDuration`
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::TemporalDuration`](../../../docs/concepts/TemporalDuration.md)
