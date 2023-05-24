@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`random`](../../docs/random.md)`::InterruptableUniformDistribution`
-Defined in header [`<xieite/random/InterruptableUniformDistribution.hpp>`](../../include/xieite/random/InterruptableUniformDistribution.hpp)
+# [`xieite`](../../README.md)`::`[`random`](../../docs/random.md)`::UniformInterruptableDistribution`
+Defined in header [`<xieite/random/UniformInterruptableDistribution.hpp>`](../../include/xieite/random/UniformInterruptableDistribution.hpp)
 
 <br/>
 
@@ -17,8 +17,8 @@ A uniform random number distribution which allows excluding subintervals from th
 <br/><br/>
 
 ### Member functions
-- [`InterruptableUniformDistribution`](../../docs/random/InterruptableUniformDistribution/constructor.md)
-- [`operator()`](../../docs/random/InterruptableUniformDistribution/operatorCall.md)
+- [`UniformInterruptableDistribution`](../../docs/random/UniformInterruptableDistribution/constructor.md)
+- [`operator()`](../../docs/random/UniformInterruptableDistribution/operatorCall.md)
 
 <br/><br/>
 
@@ -26,7 +26,7 @@ A uniform random number distribution which allows excluding subintervals from th
 ```cpp
 #include <iostream>
 #include <random>
-#include <xieite/random/InterruptableUniformDistribution.hpp>
+#include <xieite/random/UniformInterruptableDistribution.hpp>
 
 int main() {
 	std::default_random_engine rng(std::random_device {}());
@@ -35,7 +35,7 @@ int main() {
 		{ 1, 4 }
 	};
 
-	xieite::random::InterruptableUniformDistribution<int> dist(0, 5, interruptions);
+	xieite::random::UniformInterruptableDistribution<int> dist(0, 5, interruptions);
 
 	for (int i = 0; i < 10; ++i) {
 		std::cout << dist(rng) << '\n';

@@ -14,10 +14,12 @@ namespace xieite::functions {
 		constexpr Infix(const xieite::concepts::Functional<Result(Parameter)> auto& callback) noexcept
 		: callback(callback) {}
 
+		[[nodiscard]]
 		constexpr Result operator>(const Parameter& argument) const noexcept {
 			return this->callback(argument);
 		}
 
+		[[nodiscard]]
 		friend constexpr Result operator<(const Parameter& argument, const xieite::functions::Infix<Result(Parameter)>& infix) noexcept {
 			return infix.callback(argument);
 		}
@@ -34,6 +36,7 @@ namespace xieite::functions {
 			constexpr Intermediate(const std::function<Result(LeftParameter, RightParameter)>& callback, const LeftParameter& leftArgument) noexcept
 			: callback(callback), leftArgument(leftArgument) {}
 
+			[[nodiscard]]
 			constexpr Result operator>(const RightParameter& rightArgument) const noexcept {
 				return this->callback(leftArgument, rightArgument);
 			}
@@ -50,6 +53,7 @@ namespace xieite::functions {
 	private:
 		const std::function<Result(LeftParameter, RightParameter)> callback;
 
+		[[nodiscard]]
 		friend constexpr xieite::functions::Infix<Result(LeftParameter, RightParameter)>::Intermediate operator<(const LeftParameter& leftArgument, const xieite::functions::Infix<Result(LeftParameter, RightParameter)>& infix) noexcept {
 			return xieite::functions::Infix<Result(LeftParameter, RightParameter)>::Intermediate(infix.callback, leftArgument);
 		}
