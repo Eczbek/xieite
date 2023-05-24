@@ -16,8 +16,3 @@ constexpr Infix(const xieite::concepts::Functional<Result(Parameter)> auto& call
 ```
 ### Parameters
 - `callback` - An `auto` constant reference, satisfying `xieite::concepts::Functional` of `Result` of `Parameter`
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Functional`](../../../docs/concepts/Functional.md)

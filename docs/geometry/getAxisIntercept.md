@@ -45,9 +45,3 @@ Output:
 ```
 (3, 0)
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::LinearShape`](../../docs/concepts/LinearShape.md)
-- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

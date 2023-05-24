@@ -40,8 +40,3 @@ Output:
 ```
 5
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

@@ -22,8 +22,3 @@ constexpr Number cotangent(Number value) noexcept;
 - `value` - A `Number` copy
 ### Return value
 - A `Number`, the cotangent of `value`
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)

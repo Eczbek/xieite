@@ -45,8 +45,3 @@ struct OptionalCallOperator<Function>
 ### Member functions
 - [`OptionalCallOperator`](../../docs/functions/OptionalCallOperator/constructor2.md)
 - [`operator()`](../../docs/functions/OptionalCallOperator/operatorCall2.md)
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Derivable`](../../docs/concepts/Derivable.md)

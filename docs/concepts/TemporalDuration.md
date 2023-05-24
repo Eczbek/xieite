@@ -17,8 +17,3 @@ concept TemporalDuration = xieite::concepts::isTemporalDuration<std::remove_cv_t
 ```
 ### Template parameters
 - `Any` - Any type
-
-<br/><br/>
-
-## See also
-- [`xieite::traits::isTemporalDuration`](../../docs/traits/isTemporalDuration.md)

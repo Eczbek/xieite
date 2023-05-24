@@ -47,8 +47,3 @@ Output:
 ```
 4
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Functional`](../../docs/concepts/Functional.md)

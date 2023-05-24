@@ -63,9 +63,3 @@ Output:
 ```
 10
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)
-- [`xieite::concepts::Functional`](../../docs/concepts/Functional.md)

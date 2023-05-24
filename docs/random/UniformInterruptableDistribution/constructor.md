@@ -18,8 +18,3 @@ UniformInterruptableDistribution(Number begin, Number end, const xieite::concept
 - `begin` - A `Number` copy, one end of the range
 - `end` - A `Number` copy, the other end of the range
 - `interruptions` - An `auto` constant reference, satisfying `xieite::concepts::RangeOf` of `std::pair` of two `Number`s
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::RangeOf`](../../../docs/concepts/RangeOf.md)

@@ -45,8 +45,3 @@ Output:
 ```
 h
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::terminal::ModeLock`](../../docs/terminal/ModeLock.md)

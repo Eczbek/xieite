@@ -82,8 +82,3 @@ Output:
 2
 8
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::Functional`](../../docs/concepts/Functional.md)

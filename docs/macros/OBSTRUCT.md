@@ -13,9 +13,3 @@ Defined in header [`<xieite/macros/OBSTRUCT.hpp>`](../../include/xieite/macros/O
 ```
 ### Parameters
 - `...` - Any expressions
-
-<br/><br/>
-
-## See also
-- [`XIEITE_DEFER`](../../docs/macros/DEFER.md)
-- [`XIEITE_EMPTY`](../../docs/macros/EMPTY.md)

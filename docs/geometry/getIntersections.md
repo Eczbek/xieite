@@ -116,10 +116,3 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::ge
 - `polygon2` - Another `xieite::geometry::Polygon` constant reference
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::LinearShape`](../../docs/concepts/LinearShape.md)
-- [`xieite::geometry::Point`](../../docs/geometry/Point.md)
-- [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)

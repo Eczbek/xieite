@@ -32,8 +32,3 @@ int main() {
 Output:
 ```
 ```
-
-<br/><br/>
-
-## See also
-- [`XIEITE_CONCATENATE`](../../docs/macros/CONCATENATE.md)

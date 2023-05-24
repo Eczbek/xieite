@@ -17,8 +17,3 @@ Defers expressions for later evaluation.
 ```
 ### Parameters
 - `...` - Any expressions
-
-<br/><br/>
-
-## See also
-- [`XIEITE_EMPTY`](../../docs/macros/EMPTY.md)

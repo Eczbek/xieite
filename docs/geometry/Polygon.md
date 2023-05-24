@@ -49,9 +49,3 @@ Output:
 ```
 1
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::RangeOf`](../../docs/concepts/RangeOf.md)
-- [`xieite::geometry::Point`](../../docs/geometry/Point.md)

@@ -23,8 +23,3 @@ Repeats the execution of an macro.
 	- `...` - Same arguments as those passed initially
 - `initial` - Initial "result" to be passed to the macro
 - `...` - Arguments to apply to every execution
-
-<br/><br/>
-
-## See also
-- [`XIEITE_CONCATENATE`](../../docs/macros/CONCATENATE.md)

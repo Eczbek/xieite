@@ -76,10 +76,3 @@ Output:
 1
 -1
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::concepts::LinearShape`](../../docs/concepts/LinearShape.md)
-- [`xieite::geometry::Point`](../../docs/geometry/Point.md)
-- [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)

@@ -86,12 +86,3 @@ Output:
 ```
 true
 ```
-
-<br/><br/>
-
-## See also
-- [`xieite::geometry::Line`](../../docs/geometry/Line.md)
-- [`xieite::geometry::Point`](../../docs/geometry/Point.md)
-- [`xieite::geometry::Polygon`](../../docs/geometry/Polygon.md)
-- [`xieite::geometry::Ray`](../../docs/geometry/Ray.md)
-- [`xieite::geometry::Segment`](../../docs/geometry/Segment.md)
