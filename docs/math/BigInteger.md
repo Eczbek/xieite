@@ -11,6 +11,143 @@ A class for storing and operating on very large numbers.
 
 <br/>
 
+```cpp
+struct BigInteger final {
+	template<std::integral Integral = int>
+	constexpr BigInteger(Integral = 0);
+
+	constexpr BigInteger(const xieite::math::BigInteger&);
+
+	constexpr BigInteger(const xieite::concepts::RangeOf<bool> auto&, bool = false);
+
+	constexpr BigInteger(std::string_view);
+
+	constexpr xieite::math::BigInteger& operator=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator=(std::integral auto);
+
+	template<xieite::concepts::Arithmetic Number>
+	constexpr operator Number() const;
+
+	constexpr operator bool() const;
+
+	constexpr bool operator==(const xieite::math::BigInteger&) const;
+
+	constexpr bool operator==(std::integral auto) const;
+
+	constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger&) const;
+
+	constexpr std::strong_ordering operator<=>(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger operator+() const;
+
+	constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator+(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator+=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator+=(std::integral auto);
+
+	constexpr xieite::math::BigInteger& operator++();
+
+	constexpr xieite::math::BigInteger operator++(int);
+
+	constexpr xieite::math::BigInteger operator-() const;
+
+	constexpr xieite::math::BigInteger operator-(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator-(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator-=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator-=(std::integral auto);
+
+	constexpr xieite::math::BigInteger& operator--();
+
+	constexpr xieite::math::BigInteger operator--(int);
+
+	constexpr xieite::math::BigInteger operator*(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator*(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator*=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator*=(std::integral auto);
+
+	constexpr xieite::math::BigInteger operator/(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator/(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator/=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator/=(std::integral auto);
+
+	constexpr xieite::math::BigInteger operator%(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator%(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator%=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator%=(std::integral auto);
+
+	constexpr xieite::math::BigInteger operator~() const;
+
+	constexpr xieite::math::BigInteger operator&(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator&(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator&=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator&=(std::integral auto);
+
+	constexpr xieite::math::BigInteger operator|(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator|(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator|=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator|=(std::integral auto);
+
+	constexpr xieite::math::BigInteger operator^(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator^(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator^=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator^=(std::integral auto);
+
+	constexpr xieite::math::BigInteger operator<<(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator<<(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator<<=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator<<=(std::integral auto);
+
+	constexpr xieite::math::BigInteger operator>>(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger operator>>(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger& operator>>=(const xieite::math::BigInteger&);
+
+	constexpr xieite::math::BigInteger& operator>>=(std::integral auto);
+
+	constexpr xieite::math::BigInteger absolute() const;
+
+	constexpr xieite::math::BigInteger power(xieite::math::BigInteger) const;
+
+	constexpr xieite::math::BigInteger power(std::integral auto) const;
+
+	constexpr xieite::math::BigInteger root(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger root(std::integral auto) const;
+
+	constexpr const std::vector<bool>& data() const;
+
+	constexpr std::string string() const;
+};
+```
 ### Member functions
 - [`BigInteger`](../../docs/math/BigInteger/constructor.md)
 - [`operator=`](../../docs/math/BigInteger/operatorAssign.md)
@@ -62,4 +199,9 @@ Output:
 ```
 369729637649726772657187905628805440595668764281741102430259972423552570455277523421410650010128232727940978889548326540119429996769494359451621570193644014418071060667659301384999779999159200499899
 ```
-([Checked with WolframAlpha](https://www.wolframalpha.com/input?i=99^99))
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::Arithmetic`](../../docs/concepts/Arithmetic.md)
+- [`xieite::concepts::RangeOf`](../../docs/concepts/RangeOf.md)

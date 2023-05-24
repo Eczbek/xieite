@@ -8,7 +8,7 @@ namespace xieite::functions {
 	template<xieite::concepts::Derivable... Functions>
 	struct Overloader final
 	: xieite::functions::OptionalCallOperator<Functions>... {
-		constexpr Overloader(const Functions&... functions)
+		constexpr Overloader(const Functions&... functions) noexcept
 		: xieite::functions::OptionalCallOperator<Functions>(functions)... {}
 
 		using xieite::functions::OptionalCallOperator<Functions>::operator()...;

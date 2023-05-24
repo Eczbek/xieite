@@ -18,7 +18,7 @@ namespace xieite::functions {
 	requires(std::invocable<Function, xieite::types::Anything>)
 	struct OptionalCallOperator<Function>
 	: Function {
-		constexpr OptionalCallOperator(const Function& function)
+		constexpr OptionalCallOperator(const Function& function) noexcept
 		: Function(function) {}
 
 		using Function::operator();

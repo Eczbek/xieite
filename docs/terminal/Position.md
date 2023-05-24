@@ -11,12 +11,16 @@ A class for storing a position in the terminal.
 
 <br/>
 
+```cpp
+struct Position final {
+	int row;
+	int column;
+
+	constexpr Position(int, int);
+};
+```
 ### Member objects
-```cpp
-int row;
-```
-```cpp
-int column;
-```
+- `row` - An `int`
+- `column` - Another `int`
 ### Member functions
 - [`Position`](../../docs/terminal/Position/constructor.md)

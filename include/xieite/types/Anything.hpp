@@ -4,10 +4,10 @@
 namespace xieite::types {
 	struct Anything final {
 		template<typename Any>
-		constexpr operator Any&();
+		constexpr operator Any&() const noexcept;
 
 		template<typename Any>
-		constexpr operator Any&&();
+		constexpr operator Any&&() const noexcept;
 	};
 }
 

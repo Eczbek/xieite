@@ -13,7 +13,7 @@ Compares two `xieite::meta::Version`s, ingoring the `label` member object.
 
 ```cpp
 [[nodiscard]]
-constexpr std::strong_ordering operator<=>(const xieite::meta::Version& version) noexcept;
+constexpr std::strong_ordering operator<=>(const xieite::meta::Version& version) const noexcept;
 ```
 ### Parameters
 - `version` - A `xieite::meta::Version` constant reference

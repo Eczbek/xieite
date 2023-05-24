@@ -12,12 +12,13 @@ Constructs a `xieite::geometry::Polygon`.
 <br/>
 
 ```cpp
-constexpr Polygon(std::span<xieite::geometry::Point> points) noexcept;
+constexpr Polygon(const xieite::concepts::RangeOf<xieite::geometry::Point> auto& points) noexcept;
 ```
 ### Parameters
-- `points` - A `std::span` of `xieite::geometry::Point`s
+- `points` - An `auto` constant reference, satisfying `xieite::concepts::RangeOf` of `xieite::geometry::Point`
 
 <br/><br/>
 
 ## See also
+- [`xieite::concepts::RangeOf`](../../../docs/concepts/RangeOf.md)
 - [`xieite::geometry::Point`](../../../docs/geometry/Point.md)

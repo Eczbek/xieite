@@ -18,8 +18,8 @@
 namespace xieite::math {
 	class BigInteger final {
 	public:
-		template<std::integral Number = int>
-		constexpr BigInteger(Number value = 0) noexcept
+		template<std::integral Integral = int>
+		constexpr BigInteger(Integral value = 0) noexcept
 		: sign(value < 0) {
 			value = xieite::math::absolute(value);
 			do {
@@ -31,8 +31,8 @@ namespace xieite::math {
 		constexpr BigInteger(const xieite::math::BigInteger& bigInteger) noexcept
 		: bits(bigInteger.bits), sign(bigInteger.sign) {}
 
-		constexpr BigInteger(const std::vector<bool>& bits, const bool sign = false) noexcept
-		: bits(std::vector<bool>(bits.begin(), bits.end())), sign(sign) {
+		constexpr BigInteger(const xieite::concepts::RangeOf<bool> auto& bits, const bool sign = false) noexcept
+		: bits(bits.begin(), bits.end()), sign(sign) {
 			std::size_t i = this->bits.size();
 			if (i) {
 				while (!this->bits.back() && --i) {

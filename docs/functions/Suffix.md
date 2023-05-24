@@ -11,11 +11,23 @@ An suffix operator.
 
 <br/><br/>
 
+```cpp
+template<typename>
+struct Suffix;
+```
 ### Template parameters
 - An unnamed type
 
 <br/><br/>
 
+```cpp
+template<typename Result, typename LeftParameter>
+struct Suffix<Result(LeftParameter)> final {
+	constexpr Suffix(const xieite::concepts::Functional<Result(LeftParameter)> auto&);
+
+	friend constexpr Result operator<(const LeftParameter&, const xieite::functions::Suffix<Result(LeftParameter)>&);
+};
+```
 ### Template parameters
 - `Result` - The return type
 - `LeftParameter` - The left parameter type

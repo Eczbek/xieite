@@ -11,16 +11,19 @@ A struct representing a finite line segment.
 
 <br/>
 
+```cpp
+struct Segment final {
+	xieite::geometry::Point start;
+	xieite::geometry::Point end;
+
+	constexpr Segment(xieite::geometry::Point, xieite::geometry::Point);
+
+	constexpr bool operator==(const xieite::geometry::Segment&) const;
+};
+```
 ### Member objects
-```cpp
-xieite::geometry::Point start;
-```
-```cpp
-xieite::geometry::Point end;
-```
-
-<br/>
-
+- `start` - A `xieite::geometry::Point`
+- `end` - Another `xieite::geometry::Point`
 ### Member functions
 - [`Segment`](../../docs/geometry/Segment/constructor.hpp)
 - [`operator==`](../../docs/geometry/Segment/operatorEquals.hpp)

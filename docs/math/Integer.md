@@ -11,9 +11,86 @@ Allows creation of integer types of any bit size. All mathematical operators are
 
 <br/>
 
+```cpp
+template<std::size_t bits, bool sign>
+struct Integer<bits, sign> final {
+	template<std::integral Integral = int>
+	constexpr Integer<bits, sign>(Integral = 0);
+
+	constexpr xieite::math::Integer<bits, sign> operator=(xieite::math::Integer<bits, sign>);
+
+	template<std::integral Integral>
+	constexpr operator Integral() const;
+
+	template<std::size_t integerBits, bool integerSign>
+	constexpr operator xieite::math::Integer<integerBits, integerSign>() const;
+
+	constexpr bool operator==(xieite::math::Integer<bits, sign>) const;
+
+	constexpr std::strong_ordering operator<=>(xieite::math::Integer<bits, sign>) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator+() const;
+
+	constexpr xieite::math::Integer<bits, sign> operator+(xieite::math::Integer<bits, sign>) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator+=(xieite::math::Integer<bits, sign>);
+
+	constexpr xieite::math::Integer<bits, sign> operator++();
+
+	constexpr xieite::math::Integer<bits, sign> operator++(int);
+
+	constexpr xieite::math::Integer<bits, sign> operator-() const;
+
+	constexpr xieite::math::Integer<bits, sign> operator-(xieite::math::Integer<bits, sign>) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator-=(xieite::math::Integer<bits, sign>);
+
+	constexpr xieite::math::Integer<bits, sign> operator--();
+
+	constexpr xieite::math::Integer<bits, sign> operator--(int);
+
+	constexpr xieite::math::Integer<bits, sign> operator*(xieite::math::Integer<bits, sign>) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator*=(xieite::math::Integer<bits, sign>);
+
+	constexpr xieite::math::Integer<bits, sign> operator/(xieite::math::Integer<bits, sign>) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator/=(xieite::math::Integer<bits, sign>);
+
+	constexpr xieite::math::Integer<bits, sign> operator%(xieite::math::Integer<bits, sign>) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator%=(xieite::math::Integer<bits, sign>);
+
+	constexpr xieite::math::Integer<bits, sign> operator~() const;
+
+	constexpr xieite::math::Integer<bits, sign> operator&(xieite::math::Integer<bits, sign>) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator&=(xieite::math::Integer<bits, sign>);
+
+	constexpr xieite::math::Integer<bits, sign> operator|(xieite::math::Integer<bits, sign>) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator|=(xieite::math::Integer<bits, sign>);
+
+	constexpr xieite::math::Integer<bits, sign> operator^(xieite::math::Integer<bits, sign>) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator^=(xieite::math::Integer<bits, sign>);
+
+	constexpr xieite::math::Integer<bits, sign> operator<<(std::size_t) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator<<=(std::size_t);
+
+	constexpr xieite::math::Integer<bits, sign> operator>>(std::size_t) const;
+
+	constexpr xieite::math::Integer<bits, sign> operator>>=(std::size_t);
+
+	friend constexpr std::ostream& operator<<(std::ostream&, xieite::math::Integer<bits, sign>);
+
+	friend constexpr std::istream& operator>>(std::istream&, xieite::math::Integer<bits, sign>&);
+};
+```
 ### Template parameters
 - `bits` - A `std::size_t` copy, how many bits the type can use
-- `sing` - A `bool` copy, whether or not the type is signed
+- `sign` - A `bool` copy, whether or not the type is signed
 ### Member functions
 - [`Integer`](../../docs/math/Integer/constructor.md)
 - [`operator=`](../../docs/math/Integer/operatorAssign.md)

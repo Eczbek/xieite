@@ -12,6 +12,7 @@ Compares two `xieite::graphics::Color`s.
 <br/>
 
 ```cpp
+[[nodiscard]]
 constexpr bool operator==(const xieite::graphics::Color& color) const noexcept;
 ```
 ### Parameters

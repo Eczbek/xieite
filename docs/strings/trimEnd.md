@@ -25,11 +25,11 @@ constexpr std::string trimEnd(const std::string& string, char character) noexcep
 
 ```cpp
 [[nodiscard]]
-constexpr std::string trimEnd(const std::string& string, std::span<char> characters) noexcept;
+constexpr std::string trimEnd(const std::string& string, const xieite::concepts::RangeOf<char> auto& characters) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string` constant reference
-- `characters` - A `std::span` of `char`s
+- `characters` - An `auto` constant reference, satisfying `xieite::concepts::RangeOf` of `char`
 ### Return value
 - A `std::string`
 
@@ -54,3 +54,8 @@ Output:
 ```
 babab
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::RangeOf`](../../docs/concepts/RangeOf.md)

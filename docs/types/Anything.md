@@ -11,5 +11,14 @@ A simple structure which is declared to be convertible to anything. Useful for a
 
 <br/>
 
+```cpp
+struct Anything final {
+	template<typename Any>
+	constexpr operator Any&() const;
+
+	template<typename Any>
+	constexpr operator Any&&() const;
+};
+```
 ### Member functions
 - [`operator typename`](../../docs/types/Anything/operatorCast.md)

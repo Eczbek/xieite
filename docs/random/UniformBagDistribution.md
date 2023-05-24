@@ -11,6 +11,14 @@ A "bag-randomization" distribution.
 
 <br/>
 
+```cpp
+template<std::integral Integral>
+struct UniformBagDistribution final {
+	UniformBagDistribution(Integral, Integral);
+
+	Integral operator()(xieite::concepts::UniformRandomBitGenerator auto&) const;
+};
+```
 ### Template Parameters
 - `Integral` - Any type satisfying `std::integral`
 ### Member functions

@@ -11,13 +11,21 @@ A struct representing an infinite ray with one end.
 
 <br/>
 
+```cpp
+struct Ray final {
+	xieite::geometry::Point start;
+	xieite::geometry::Point end;
+
+	constexpr Ray(xieite::geometry::Point, xieite::geometry::Point);
+
+	constexpr Ray(xieite::geometry::Point, double);
+
+	constexpr bool operator==(const xieite::geometry::Ray&) const;
+};
+```
 ### Member objects
-```cpp
-xieite::geometry::Point start;
-```
-```cpp
-xieite::geometry::Point end;
-```
+- `start` - A `xieite::geometry::Point`
+- `end` - Another `xieite::geometry::Point`
 ### Member functions
 - [`Ray`](../../docs/geometry/Ray/constructor.md)
 - [`operator==`](../../docs/geometry/Ray/operatorEquals.md)

@@ -4,9 +4,9 @@
 #	include <array>
 #	include <cstddef>
 #	include <limits>
-#	include <span>
 #	include <string>
 #	include <vector>
+#	include <xieite/concepts/RangeOf.hpp>
 
 namespace xieite::strings {
 	[[nodiscard]]
@@ -20,7 +20,7 @@ namespace xieite::strings {
 	}
 
 	[[nodiscard]]
-	constexpr std::string trimEnd(const std::string& string, std::span<const char> characters) noexcept {
+	constexpr std::string trimEnd(const std::string& string, const xieite::concepts::RangeOf<char> auto& characters) noexcept {
 		std::array<bool, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> characterMap;
 		for (const char character : characters) {
 			characterMap[character - std::numeric_limits<char>::min()] = true;

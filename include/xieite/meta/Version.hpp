@@ -18,12 +18,12 @@ namespace xieite::meta {
 		: major(major), minor(minor), patch(patch), label(label) {}
 
 		[[nodiscard]]
-		constexpr std::strong_ordering operator<=>(const xieite::meta::Version& version) noexcept {
+		constexpr std::strong_ordering operator<=>(const xieite::meta::Version& version) const noexcept {
 			return (this->major != version.major) ? (this->major <=> version.major) : ((this->minor != version.minor) ? (this->minor <=> version.minor) : (this->patch <=> version.patch));
 		}
 
 		[[nodiscard]]
-		constexpr std::string string() noexcept {
+		constexpr std::string string() const noexcept {
 			std::string result = 'v' + xieite::math::toBase(this->major, 10) + '.' + xieite::math::toBase(this->minor, 10) + '.' + xieite::math::toBase(this->patch, 10);
 			if (this->label.size()) {
 				result += '-' + this->label;
