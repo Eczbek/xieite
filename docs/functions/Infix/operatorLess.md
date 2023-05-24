@@ -7,7 +7,7 @@
 <br/>
 
 ```cpp
-friend constexpr Result operator<(const Parameter& argument, const xieite::functions::Infix<Result(Parameter)>& infix) noexcept;
+friend constexpr Result operator<(const Parameter& argument, const xieite::functions::Infix<Result(Parameter)>& infix);
 ```
 ### Parameters
 - `argument` - A `Parameter` constant reference
