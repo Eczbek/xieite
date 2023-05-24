@@ -14,9 +14,6 @@ Allows creation of integer types of any bit size. All mathematical operators are
 ### Template parameters
 - `bits` - A `std::size_t` copy, how many bits the type can use
 - `sing` - A `bool` copy, whether or not the type is signed
-
-<br/><br/>
-
 ### Member functions
 - [`Integer`](../../docs/math/Integer/constructor.md)
 - [`operator=`](../../docs/math/Integer/operatorAssign.md)

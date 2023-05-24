@@ -15,9 +15,6 @@ A struct representing a polygon.
 ```cpp
 std::vector<xieite::geometry::Point> points;
 ```
-
-<br/><br/>
-
 ### Member functions
 - [`Polygon`](../../docs/geometry/Polygon/constructor.md)
 - [`operator==`](../../docs/geometry/Polygon/operatorEquals.md)

@@ -24,9 +24,6 @@ std::uint8_t blue;
 ```cpp
 std::uint8_t alpha;
 ```
-
-<br/><br/>
-
 ### Member functions
 - [`Color`](../../docs/graphics/Color/constructor.md)
 - [`operator==`](../../docs/graphics/Color/operatorEquals.md)
