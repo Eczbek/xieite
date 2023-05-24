@@ -8,7 +8,7 @@ A namespace of utilities focused on random value generation.
 <br/><br/>
 
 ## Member types
-- [`InterruptableUniformDistribution`](../docs/random/InterruptableUniformDistribution.md)
+- [`UniformInterruptableDistribution`](../docs/random/UniformInterruptableDistribution.md)
 
 <br/>
 

@@ -5,11 +5,13 @@
 #	include <cmath>
 #	include <concepts>
 #	include <random>
-#	include <span>
+#	include <ranges>
+#	include <stdexcept>
 #	include <type_traits>
 #	include <utility>
 #	include <vector>
 #	include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/concepts/RangeOf.hpp>
 #	include <xieite/concepts/UniformRandomBitGenerator.hpp>
 #	include <xieite/math/closestTo.hpp>
 #	include <xieite/math/difference.hpp>
@@ -17,9 +19,9 @@
 
 namespace xieite::random {
 	template<xieite::concepts::Arithmetic Number>
-	class InterruptableUniformDistribution final {
+	class UniformInterruptableDistribution final {
 	public:
-		InterruptableUniformDistribution(const Number begin, const Number end, std::span<const std::pair<Number, Number>> interruptions) {
+		UniformInterruptableDistribution(const Number begin, const Number end, const xieite::concepts::RangeOf<std::pair<Number, Number>> auto& interruptions) {
 			Number begin2 = begin;
 			Number end2 = end;
 			Number& farthest = xieite::math::farthestFrom<Number>(0.0, begin2, end2);
@@ -31,17 +33,17 @@ namespace xieite::random {
 				interruption.first = std::clamp(interruption.first, begin, end);
 				interruption.second = std::clamp(interruption.second, begin, end);
 				const Number difference = (xieite::math::difference(interruption.first, interruption.second) + 1.0) * this->sign;
-				if (difference >= farthest) {
-					throw "Cannot exclude entire range";
+				if (difference > farthest) {
+					throw std::range_error("Cannot exclude entire range");
 				}
 				farthest -= difference;
 				this->interruptions.push_back(interruption);
 			}
-			this->distribution = UniformDistribution(std::min(begin2, end2), std::max(begin2, end2));
+			this->distribution = UniformDistribution(begin2, end2);
 		}
 
 		[[nodiscard]]
-		Number operator()(xieite::concepts::UniformRandomBitGenerator auto& generator) noexcept {
+		Number operator()(xieite::concepts::UniformRandomBitGenerator auto& generator) const noexcept {
 			Number result = this->distribution(generator);
 			for (const std::pair<Number, Number> interruption : this->interruptions) {
 				const Number closest = xieite::math::closestTo<Number>(0.0, interruption.first, interruption.second);
@@ -57,7 +59,7 @@ namespace xieite::random {
 
 		int sign;
 		std::vector<std::pair<Number, Number>> interruptions;
-		UniformDistribution distribution;
+		mutable UniformDistribution distribution;
 	};
 }
 

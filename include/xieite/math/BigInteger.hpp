@@ -6,6 +6,7 @@
 #	include <concepts>
 #	include <cstddef>
 #	include <iterator>
+#	include <stdexcept>
 #	include <string>
 #	include <string_view>
 #	include <utility>
@@ -50,7 +51,7 @@ namespace xieite::math {
 			const std::size_t valueSize = value.size();
 			for (std::size_t i = isNegative; i < valueSize; ++i) {
 				if ((value[i] < '0') || (value[i] > '9')) {
-					throw "Cannot construct with non-digit character";
+					throw std::invalid_argument("Cannot construct with non-digit character");
 				}
 				*this += xieite::math::BigInteger(10).power(valueSize - i - 1) * (value[i] - '0');
 			}
@@ -268,7 +269,7 @@ namespace xieite::math {
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator/(const xieite::math::BigInteger& bigInteger) const {
 			if (!bigInteger) {
-				throw "Cannot divide by zero";
+				throw std::domain_error("Cannot divide by zero");
 			}
 			if (bigInteger == 1) {
 				return *this;
@@ -313,7 +314,7 @@ namespace xieite::math {
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator%(const xieite::math::BigInteger& bigInteger) const {
 			if (!bigInteger) {
-				throw "Cannot find remainder of division by zero";
+				throw std::domain_error("Cannot find remainder of division by zero");
 			}
 			const xieite::math::BigInteger copy = this->absolute();
 			const xieite::math::BigInteger bigIntegerCopy = bigInteger.absolute();
@@ -489,7 +490,7 @@ namespace xieite::math {
 			}
 			if (bigInteger.sign) {
 				if (!*this) {
-					throw "Cannot find power of zero to negative exponent";
+					throw std::domain_error("Cannot find power of zero to negative exponent");
 				}
 				return !bigInteger;
 			}
@@ -518,7 +519,7 @@ namespace xieite::math {
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& bigInteger) const {
 			if (this->sign) {
-				throw "Cannot find root of negative value";
+				throw std::domain_error("Cannot find root of negative value");
 			}
 			if (*this == 1) {
 				return xieite::math::BigInteger(1);
