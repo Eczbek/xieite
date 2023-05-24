@@ -13,5 +13,7 @@ A simple class which exists only to store types.
 
 ### Template parameters
 - `Types...` - Any types
+### Member types
+- [`Data`](../../docs/types/List/Data.md)
 ### Member functions
 - [`operator->*`](../../docs/types/List/operatorMemberPointer.md)
