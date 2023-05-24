@@ -11,6 +11,15 @@ A wrapper for any type which defines `operator()` if it does not exist.
 
 <br/><br/>
 
+```cpp
+template<xieite::concepts::Derivable Any>
+struct OptionalCallOperator
+: Any {
+	constexpr OptionalCallOperator(const Any&);
+
+	constexpr void operator()(xieite::types::Anything) const;
+};
+```
 ### Template parameters
 - `Any` - Any type satisfying `xieite::concepts::Derivable`
 ### Member functions
@@ -19,6 +28,16 @@ A wrapper for any type which defines `operator()` if it does not exist.
 
 <br/><br/>
 
+```cpp
+template<xieite::concepts::Derivable Function>
+requires(std::invocable<Function, xieite::types::Anything>)
+struct OptionalCallOperator<Function>
+: Function {
+	constexpr OptionalCallOperator(const Function&);
+
+	using Function::operator();
+};
+```
 ### Template parameters
 - `Function` - Any type satisfying `xieite::concepts::Derivable`
 ### Requirements

@@ -11,11 +11,25 @@ An infix operator thing.
 
 <br/><br/>
 
+```cpp
+template<typename>
+struct Infix;
+```
 ### Template parameters
 - An unnamed type
 
 <br/><br/>
 
+```cpp
+template<typename Result, typename Parameter>
+struct Infix<Result(Parameter)> final {
+	constexpr Infix(const xieite::concepts::Functional<Result(Parameter)> auto&);
+
+	constexpr Result operator>(const Parameter&) const;
+
+	friend constexpr Result operator<(const Parameter&, const xieite::functions::Infix<Result(Parameter)>&);
+};
+```
 ### Template parameters
 - `Result` - The return type
 - `Parameter` - The parameter type for both right and left possible sides
@@ -26,6 +40,12 @@ An infix operator thing.
 
 <br/><br/>
 
+```cpp
+template<typename Result, typename LeftParameter, typename RightParameter>
+struct Infix<Result(LeftParameter, RightParameter)> final {
+	constexpr Infix(const xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto&);
+};
+```
 ### Template parameters
 - `Result` - The return type
 - `LeftParameter` - The left parameter type
@@ -62,3 +82,8 @@ Output:
 2
 8
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::Functional`](../../docs/concepts/Functional.md)

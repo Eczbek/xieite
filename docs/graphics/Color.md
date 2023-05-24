@@ -11,19 +11,28 @@ A simple class for storing an RGBA value.
 
 <br/>
 
+```cpp
+struct Color final {
+	std::uint8_t red;
+	std::uint8_t green;
+	std::uint8_t blue;
+	std::uint8_t alpha;
+
+
+	constexpr Color(std::uint8_t, std::uint8_t, std::uint8_t, std::uint8_t = std::numeric_limits<std::uint8_t>::max());
+
+	constexpr Color(std::uint32_t);
+
+	constexpr bool operator==(const xieite::graphics::Color&) const;
+
+	constexpr std::uint32_t value();
+};
+```
 ### Member objects
-```cpp
-std::uint8_t red;
-```
-```cpp
-std::uint8_t green;
-```
-```cpp
-std::uint8_t blue;
-```
-```cpp
-std::uint8_t alpha;
-```
+- `red` - A `std::uint8_t`
+- `green` - A `std::uint8_t`
+- `blue` - A `std::uint8_t`
+- `alpha` - A `std::uint8_t`
 ### Member functions
 - [`Color`](../../docs/graphics/Color/constructor.md)
 - [`operator==`](../../docs/graphics/Color/operatorEquals.md)

@@ -11,16 +11,19 @@ A struct representing a point.
 
 <br/>
 
+```cpp
+struct Point final {
+	double x;
+	double y;
+
+	constexpr Point(double = 0.0, double = 0.0);
+
+	constexpr bool operator==(xieite::geometry::Point) const;
+};
+```
 ### Member objects
-```cpp
-double x;
-```
-```cpp
-double y;
-```
-
-<br/>
-
+- `x` - A `double`
+- `y` - Another `double`
 ### Member functions
 - [`Point`](../../docs/geometry/Point/constructor.md)
 - [`operator==`](../../docs/geometry/Point/operatorEquals.md)

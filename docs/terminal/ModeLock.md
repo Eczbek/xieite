@@ -11,6 +11,29 @@ A lock-style class for toggling terminal settings.
 
 <br/>
 
+```cpp
+struct ModeLock final {
+	ModeLock();
+
+	~ModeLock();
+
+	void setBlocking(bool);
+
+	void setEcho(bool);
+
+	void setCanonical(bool);
+
+	void setSignals(bool);
+
+	void setProcessing(bool);
+
+	void lock();
+
+	void unlock();
+
+	bool isLocked() const;
+}
+```
 ### Member functions
 - [`ModeLock`](../../docs/terminal/ModeLock/constructor.md)
 - [`~ModeLock`](../../docs/terminal/ModeLock/destructor.md)

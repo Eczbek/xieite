@@ -11,6 +11,15 @@ Runs a callback once after a set amount of time. Compile with `-pthread`.
 
 <br/>
 
+```cpp
+struct Timeout final {
+	Timeout(const std::invocable<>&, xieite::concepts::TemporalDuration auto);
+
+	bool good() const;
+
+	void stop();
+};
+```
 ### Member functions
 - [`Timeout`](../../docs/threads/Timeout/constructor.md)
 - [`~Timeout`](../../docs/threads/Timeout/destructor.md)

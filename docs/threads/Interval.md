@@ -11,6 +11,15 @@ Runs a callback every set amount of time. Compile with `-pthread`.
 
 <br/>
 
+```cpp
+struct Interval final {
+	Interval(const std::invocable<>&, xieite::concepts::TemporalDuration auto);
+
+	bool good() const;
+
+	void stop();
+};
+```
 ### Member functions
 - [`Interval`](../../docs/threads/Interval/constructor.md)
 - [`~Interval`](../../docs/threads/Interval/destructor.md)

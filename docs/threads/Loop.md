@@ -11,6 +11,17 @@ Runs a callback constantly. Compile with `-pthread`.
 
 <br/>
 
+```cpp
+struct Loop final {
+	Loop(const std::invocable<>&);
+
+	~Loop();
+
+	bool good() const;
+
+	void stop();
+};
+```
 ### Member functions
 - [`Loop`](../../docs/threads/Loop/constructor.md)
 - [`~Loop`](../../docs/threads/Loop/destructor.md)

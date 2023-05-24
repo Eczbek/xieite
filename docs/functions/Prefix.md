@@ -11,11 +11,23 @@ An prefix operator.
 
 <br/><br/>
 
+```cpp
+template<typename>
+struct Prefix;
+```
 ### Template parameters
 - An unnamed type
 
 <br/><br/>
 
+```cpp
+template<typename Result, typename RightParameter>
+struct Prefix<Result(RightParameter)> final {
+	constexpr Prefix(const xieite::concepts::Functional<Result(RightParameter)> auto&);
+
+	constexpr Result operator>(const RightParameter&) const;
+};
+```
 ### Template parameters
 - `Result` - The return type
 - `RightParameter` - The right parameter type

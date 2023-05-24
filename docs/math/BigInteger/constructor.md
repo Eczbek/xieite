@@ -29,10 +29,10 @@ constexpr BigInteger(const xieite::math::BigInteger& bigInteger) noexcept;
 <br/><br/>
 
 ```cpp
-constexpr BigInteger(const std::vector<bool>& bits, bool sign = false) noexcept;
+constexpr BigInteger(const xieite::concepts::RangeOf<bool> auto& bits, bool sign = false) noexcept;
 ```
 ### Parameters
-- `bits` - A `std::span` of `bool`s
+- `bits` - An `auto` constant reference, satisfying `xieite::concepts::RangeOf` of `bool`
 - `sign` - A `bool` copy, determines whether the value is negative or positive
 
 <br/><br/>
@@ -58,3 +58,8 @@ Output:
 ```
 416
 ```
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::RangeOf`](../../../docs/concepts/RangeOf.md)

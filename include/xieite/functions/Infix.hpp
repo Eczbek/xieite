@@ -14,12 +14,10 @@ namespace xieite::functions {
 		constexpr Infix(const xieite::concepts::Functional<Result(Parameter)> auto& callback) noexcept
 		: callback(callback) {}
 
-		[[nodiscard]]
 		constexpr Result operator>(const Parameter& argument) const {
 			return this->callback(argument);
 		}
 
-		[[nodiscard]]
 		friend constexpr Result operator<(const Parameter& argument, const xieite::functions::Infix<Result(Parameter)>& infix) {
 			return infix.callback(argument);
 		}

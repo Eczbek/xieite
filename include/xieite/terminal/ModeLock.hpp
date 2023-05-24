@@ -73,7 +73,7 @@ namespace xieite::terminal {
 		}
 
 		[[nodiscard]]
-		bool isLocked() noexcept {
+		bool isLocked() const noexcept {
 			return this->locked;
 		}
 

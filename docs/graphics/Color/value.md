@@ -12,6 +12,7 @@ Shifts and adds RGBA values together to create a single value.
 <br/>
 
 ```cpp
+[[nodiscard]]
 constexpr std::uint32_t value() noexcept;
 ```
 ### Return value

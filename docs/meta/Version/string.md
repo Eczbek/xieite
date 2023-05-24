@@ -13,7 +13,7 @@ Stringifies a version into the format `v<major>.<minor>.<patch>[-<label>]`.
 
 ```cpp
 [[nodiscard]]
-constexpr std::string string() noexcept;
+constexpr std::string string() const noexcept;
 ```
 ### Return value
 - A `std::string`

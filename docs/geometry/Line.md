@@ -11,16 +11,21 @@ An struct representing an infinite line.
 
 <br/>
 
+```cpp
+struct Line final {
+	xieite::geometry::Point start;
+	xieite::geometry::Point end;
+
+	constexpr Line(xieite::geometry::Point, xieite::geometry::Point);
+
+	constexpr Line(xieite::geometry::Point, double);
+
+	constexpr bool operator==(const xieite::geometry::Line&) const;
+};
+```
 ### Member objects
-```cpp
-xieite::geometry::Point start;
-```
-```cpp
-xieite::geometry::Point end;
-```
-
-<br/>
-
+- `start` - A `xieite::geometry::Point`
+- `end` - Another `xieite::geometry::Point`
 ### Member functions
 - [`Line`](../../docs/geometry/Line/constructor.md)
 - [`operator==`](../../docs/geometry/Line/operatorEquals.md)
