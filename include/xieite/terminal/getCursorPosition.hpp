@@ -14,7 +14,7 @@ namespace xieite::terminal {
 	inline xieite::terminal::Position getCursorPosition() {
 		xieite::terminal::ModeLock modeLock;
 		std::cout << "\u001b[6n";
-		xieite::terminal::Position position(0, 0);
+		xieite::terminal::Position position = xieite::terminal::Position(0, 0);
 		std::scanf("\u001b[%i;%iR", &position.row, &position.column);
 		return xieite::terminal::Position(position.row - 1, position.column - 1);
 	}
