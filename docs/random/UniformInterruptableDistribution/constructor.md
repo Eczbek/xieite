@@ -12,9 +12,14 @@ Constructs a `xieite::random::UniformInterruptableDistribution`.
 <br/>
 
 ```cpp
-UniformInterruptableDistribution(Number begin, Number end, std::span<std::pair<Number, Number>> interruptions);
+UniformInterruptableDistribution(Number begin, Number end, const xieite::concepts::RangeOf<std::pair<Number, Number>> auto& interruptions);
 ```
 ### Parameters
 - `begin` - A `Number` copy, one end of the range
 - `end` - A `Number` copy, the other end of the range
-- `interruptions` - A `std::span` of `std::pair`s of `Number`s
+- `interruptions` - An `auto` constant reference, satisfying `xieite::concepts::RangeOf` of `std::pair` of two `Number`s
+
+<br/><br/>
+
+## See also
+- [`xieite::concepts::RangeOf`](../../../docs/concepts/RangeOf.md)
