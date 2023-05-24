@@ -17,7 +17,7 @@ constexpr std::vector<std::string> split(const std::string& string, std::string_
 ```
 ### Parameters
 - `string` - A `std::string` constant reference
-- `delimiter` - A `std::string_view` copy
+- `delimiter` - A `std::string_view` copy, set to `""` by default
 ### Return value
 - A `std::vector` of `std::string` segments
 
