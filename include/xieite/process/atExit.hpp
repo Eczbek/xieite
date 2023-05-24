@@ -11,14 +11,14 @@ namespace xieite::process {
 		static std::mutex callbacksMutex;
 		static struct Lock final {
 			~Lock() {
-				const std::lock_guard<std::mutex> callbacksLock(callbacksMutex);
+				const std::lock_guard<std::mutex> callbacksLock = std::lock_guard<std::mutex>(callbacksMutex);
 				for (const std::function<void()>& callback : callbacks) {
 					callback();
 				}
 			}
 		} lock;
 
-		const std::lock_guard<std::mutex> callbacksLock(callbacksMutex);
+		const std::lock_guard<std::mutex> callbacksLock = std::lock_guard<std::mutex>(callbacksMutex);
 		callbacks.push_back(callback);
 	}
 }

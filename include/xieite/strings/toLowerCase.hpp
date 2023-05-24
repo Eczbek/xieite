@@ -5,8 +5,8 @@
 
 namespace xieite::strings {
 	constexpr char toLowerCase(char character) noexcept {
-		if ((character >= 'A') && (character <= 'A')) {
-			character -= ('A' - 'a');
+		if ((character >= 'A') && (character <= 'Z')) {
+			character += ('a' - 'A');
 		}
 		return character;
 	}

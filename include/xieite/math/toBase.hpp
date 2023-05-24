@@ -11,12 +11,12 @@ namespace xieite::math {
 	template<std::integral Integral = int>
 	[[nodiscard]]
 	constexpr std::string toBase(Integral value, const std::size_t base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
-		std::make_unsigned_t<Integral> abs = static_cast<std::make_unsigned_t<Integral>>(value);
+		std::make_unsigned_t<Integral> absolute = static_cast<std::make_unsigned_t<Integral>>(value);
 		std::string result;
 		do {
-			result = digits[abs % base] + result;
-			abs /= base;
-		} while (abs);
+			result = digits[absolute % base] + result;
+			absolute /= base;
+		} while (absolute);
 		return result;
 	}
 }

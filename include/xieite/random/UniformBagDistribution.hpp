@@ -19,8 +19,7 @@ namespace xieite::random {
 		[[nodiscard]]
 		Integral operator()(xieite::concepts::UniformRandomBitGenerator auto& generator) const noexcept {
 			static std::set<std::pair<Integral, Integral>> previousResults;
-			const xieite::random::UniformInterruptableDistribution<Integral> distribution(this->begin, this->end, previousResults);
-			const Integral result = distribution(generator);
+			const Integral result = xieite::random::UniformInterruptableDistribution<Integral>(this->begin, this->end, previousResults)(generator);
 			if (previousResults.size() < xieite::math::difference(this->begin, this->end)) {
 				previousResults.insert(std::pair<Integral, Integral>(result, result));
 			} else {

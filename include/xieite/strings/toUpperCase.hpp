@@ -6,7 +6,7 @@
 namespace xieite::strings {
 	constexpr char toUpperCase(char character) noexcept {
 		if ((character >= 'a') && (character <= 'z')) {
-			character += ('A' - 'a');
+			character -= ('a' - 'A');
 		}
 		return character;
 	}
