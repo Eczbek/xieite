@@ -7,10 +7,18 @@ An infix operator thing.
 
 <br/><br/>
 
-## Synopsis
+## Synopses
 
 <br/><br/>
 
+### Template parameters
+- An unnamed type
+
+<br/><br/>
+
+### Template parameters
+- `Result` - The return type
+- `Parameter` - The parameter type for both right and left possible sides
 ### Member functions
 - [`Infix`](../../docs/functions/Infix/constructor1.md)
 - [`operator>`](../../docs/functions/Infix/operatorMore.md)
@@ -18,6 +26,11 @@ An infix operator thing.
 
 <br/><br/>
 
+### Template parameters
+- `Result` - The return type
+- `LeftParameter` - The left parameter type
+- `RightParameter` - The right parameter type
+- 
 ### Member functions
 - [`Infix`](../../docs/functions/Infix/constructor2.md)
 

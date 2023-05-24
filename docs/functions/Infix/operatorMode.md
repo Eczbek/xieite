@@ -7,7 +7,7 @@
 <br/>
 
 ```cpp
-constexpr Result operator>(const Parameter& argument) const noexcept;
+constexpr Result operator>(const Parameter& argument) const;
 ```
 ### Parameters
 - `argument` - A `Parameter` constant reference

@@ -15,12 +15,12 @@ namespace xieite::functions {
 		: callback(callback) {}
 
 		[[nodiscard]]
-		constexpr Result operator>(const Parameter& argument) const noexcept {
+		constexpr Result operator>(const Parameter& argument) const {
 			return this->callback(argument);
 		}
 
 		[[nodiscard]]
-		friend constexpr Result operator<(const Parameter& argument, const xieite::functions::Infix<Result(Parameter)>& infix) noexcept {
+		friend constexpr Result operator<(const Parameter& argument, const xieite::functions::Infix<Result(Parameter)>& infix) {
 			return infix.callback(argument);
 		}
 
@@ -36,8 +36,7 @@ namespace xieite::functions {
 			constexpr Intermediate(const std::function<Result(LeftParameter, RightParameter)>& callback, const LeftParameter& leftArgument) noexcept
 			: callback(callback), leftArgument(leftArgument) {}
 
-			[[nodiscard]]
-			constexpr Result operator>(const RightParameter& rightArgument) const noexcept {
+			constexpr Result operator>(const RightParameter& rightArgument) const {
 				return this->callback(leftArgument, rightArgument);
 			}
 
