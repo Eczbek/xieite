@@ -11,3 +11,5 @@ A namespace of functional utilities.
 - [`Infix`](../docs/functions/Infix.md)
 - [`OptionalCallOperator`](../docs/functions/OptionalCallOperator.md)
 - [`Overloader`](../docs/functions/Overloader.md)
+- [`Prefix`](../docs/functions/Prefix.md)
+- [`Suffix`](../docs/functions/Suffix.md)
