@@ -18,8 +18,5 @@ int row;
 ```cpp
 int column;
 ```
-
-<br/><br/>
-
 ### Member functions
 - [`Position`](../../docs/terminal/Position/constructor.md)

@@ -13,9 +13,6 @@ A uniform random number distribution which allows excluding subintervals from th
 
 ### Template Parameters
 - `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
-
-<br/><br/>
-
 ### Member functions
 - [`UniformInterruptableDistribution`](../../docs/random/UniformInterruptableDistribution/constructor.md)
 - [`operator()`](../../docs/random/UniformInterruptableDistribution/operatorCall.md)

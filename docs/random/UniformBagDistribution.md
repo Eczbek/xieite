@@ -13,9 +13,6 @@ A "bag-randomization" distribution.
 
 ### Template Parameters
 - `Integral` - Any type satisfying `std::integral`
-
-<br/><br/>
-
 ### Member functions
 - [`UniformBagDistribution`](../../docs/random/UniformBagDistribution/constructor.md)
 - [`operator()`](../../docs/random/UniformBagDistribution/operatorCall.md)

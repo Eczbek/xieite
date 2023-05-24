@@ -18,9 +18,6 @@ xieite::geometry::Point start;
 ```cpp
 xieite::geometry::Point end;
 ```
-
-<br/><br/>
-
 ### Member functions
 - [`Ray`](../../docs/geometry/Ray/constructor.md)
 - [`operator==`](../../docs/geometry/Ray/operatorEquals.md)
