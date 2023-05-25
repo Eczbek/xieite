@@ -8,5 +8,6 @@
 #	include <xieite/strings/trimEnd.hpp>
 #	include <xieite/strings/trimStart.hpp>
 #	include <xieite/strings/truncate.hpp>
+#	include <xieite/strings/whitespaces.hpp>
 
 #endif

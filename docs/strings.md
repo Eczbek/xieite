@@ -7,6 +7,11 @@ A namespace of string manipulation functions.
 
 <br/><br/>
 
+## Member objects
+- [`whitespaces`](../docs/strings/whitespaces.md)
+
+<br/>
+
 ## Member functions
 - [`repeat`](../docs/strings/repeat.md)
 - [`split`](../docs/strings/split.md)
