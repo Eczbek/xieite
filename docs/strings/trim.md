@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::trimEnd`
-Defined in header [`<xieite/strings/trimEnd.hpp>`](../../include/xieite/strings/trimEnd.hpp)
+# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::trim`
+Defined in header [`<xieite/strings/trim.hpp>`](../../include/xieite/strings/trim.hpp)
 
 <br/>
 
-Trims the end of a string.
+Trims both the front and back of a string.
 
 <br/><br/>
 
@@ -13,7 +13,7 @@ Trims the end of a string.
 
 ```cpp
 [[nodiscard]]
-constexpr std::string trimEnd(const std::string& string, char character) noexcept;
+constexpr std::string trim(const std::string_view string, char character) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string` constant reference
@@ -25,7 +25,7 @@ constexpr std::string trimEnd(const std::string& string, char character) noexcep
 
 ```cpp
 [[nodiscard]]
-constexpr std::string trimEnd(const std::string& string, const xieite::concepts::RangeOf<char> auto& characters) noexcept;
+constexpr std::string trim(const std::string_view string, const xieite::concepts::RangeOf<char> auto& characters) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string` constant reference
@@ -39,18 +39,19 @@ constexpr std::string trimEnd(const std::string& string, const xieite::concepts:
 ```cpp
 #include <iostream>
 #include <vector>
-#include <xieite/strings/trimEnd.hpp>
+#include <xieite/strings/trim.hpp>
 
 int main() {
 	std::vector<char> characters {
+		'b',
 		'a',
 		'n'
 	};
 
-	std::cout << xieite::strings::trimEnd("bababananana", characters) << '\n';
+	std::cout << xieite::strings::trim("bababatananana", characters) << '\n';
 }
 ```
 Output:
 ```
-babab
+t
 ```
