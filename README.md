@@ -1,17 +1,7 @@
-# XIEITE
+# **XIEITE**
 C++ header-only utility library
 
-<br/>
-
-## Usage
-Add the `include` directory to your project
-
-<br/>
-
-## Requirements
-- C++ 23
-
-<br/>
+<br/><br/>
 
 ## Contents
 - [`algorithms`](./docs/algorithms.md)
