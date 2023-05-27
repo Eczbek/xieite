@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)_VANISH
+# [XIEITE](../macros.md)\_VANISH
 Defined in header [<xieite/macros/VANISH.hpp>](../../include/xieite/macros/VANISH.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)_DEFER
+# [XIEITE](../macros.md)\_DEFER
 Defined in header [<xieite/macros/DEFER.hpp>](../../include/xieite/macros/DEFER.hpp)
 
 <br/>

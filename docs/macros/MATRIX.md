@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)_MATRIX
+# [XIEITE](../macros.md)\_MATRIX
 Defined in header [<xieite/macros/MATRIX.hpp>](../../include/xieite/macros/MATRIX.hpp)
 
 <br/>
