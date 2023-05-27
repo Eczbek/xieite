@@ -5,21 +5,14 @@
 #	include <xieite/concepts/Functional.hpp>
 
 namespace xieite::functions {
-	template<typename>
+	template<typename, auto>
 	struct Suffix;
 
-	template<typename Result, typename LeftParameter>
-	class Suffix<Result(LeftParameter)> final {
-	public:
-		constexpr Suffix(const xieite::concepts::Functional<Result(LeftParameter)> auto& callback) noexcept
-		: callback(callback) {}
-
-		friend constexpr Result operator<(const LeftParameter& leftArgument, const xieite::functions::Suffix<Result(LeftParameter)>& suffix) {
-			return suffix.callback(leftArgument);
+	template<typename Result, typename LeftParameter, xieite::concepts::Functional<Result(LeftParameter)> auto callback>
+	struct Suffix<Result(LeftParameter), callback> final {
+		friend constexpr Result operator<(const LeftParameter& leftArgument, const xieite::functions::Suffix<Result(LeftParameter), callback>&) {
+			return callback(leftArgument);
 		}
-
-	private:
-		std::function<Result(LeftParameter)> callback;
 	};
 }
 
