@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::Polygon`
-Defined in header [`<xieite/geometry/Polygon.hpp>`](../../include/xieite/geometry/Polygon.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::Polygon
+Defined in header [<xieite/geometry/Polygon.hpp>](../../include/xieite/geometry/Polygon.hpp)
 
 <br/>
 
-A struct representing a polygon.
+A class representing a polygon
 
 <br/><br/>
 
@@ -20,11 +20,12 @@ struct Polygon final {
 	constexpr bool operator==(const xieite::geometry::Polygon&) const;
 };
 ```
-### Member objects
-- `points` - A `std::vector` of `xieite::geometry::Point`s
-### Member functions
-- [`Polygon`](../../docs/geometry/Polygon/constructor.md)
-- [`operator==`](../../docs/geometry/Polygon/operatorEquals.md)
+### Public members
+<pre><code>Polygon/
+|- points
+|- <a href="./Polygon/constructor.md">Polygon</a>
+`- <a href="./Polygon/operatorEquals.md">operator==</a>
+</code></pre>
 
 <br/><br/>
 

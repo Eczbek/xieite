@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::partialReverse`
-Defined in header [`<xieite/algorithms/partialReverse.hpp>`](../../include/xieite/algorithms/partialReverse.hpp)
+# [xieite](../../README.md)::[algorithms](../algorithms.md)::partialReverse
+Defined in header [<xieite/algorithms/partialReverse.hpp>](../../include/xieite/algorithms/partialReverse.hpp)
 
 <br/>
 
-Selects iterators and then reverses them in their same overall positions.
+Selects iterators and then reverses them in their same overall positions
 
 <br/><br/>
 

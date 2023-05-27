@@ -1,7 +1,7 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::tau`
-Defined in header [`<xieite/math/tau.hpp>`](../../include/xieite/math/tau.hpp)
+# [xieite](../../README.md)::[math](../math.md)::tau
+Defined in header [<xieite/math/tau.hpp>](../../include/xieite/math/tau.hpp)
 
-<br/>
+<br/><br/>
 
 ## Synopsis
 

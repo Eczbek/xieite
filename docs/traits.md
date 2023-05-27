@@ -1,12 +1,13 @@
-# [`xieite`](../README.md)`::traits`
-Aggregated in header [`<xieite/traits.hpp>`](../include/xieite/traits.hpp)
+# [xieite](../README.md)::traits
+Aggregated in header [<xieite/traits.hpp>](../include/xieite/traits.hpp)
 
 <br/>
 
-A namespace of type traits.
+Type traits
 
 <br/><br/>
 
-## Member objects
-- [`isFunctional`](../docs/traits/isFunctional.md)
-- [`isTemporalDuration`](../docs/traits/isTemporalDuration.md)
+<pre><code>traits/
+|- <a href="./traits/isFunctional.md">isFunctional</a>
+`- <a href="./traits/isTemporalDuration.md">isTemporalDuration</a>
+</code></pre>

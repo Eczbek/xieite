@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getSlope`
-Defined in header [`<xieite/geometry/getSlope.hpp>`](../../include/xieite/geometry/getSlope.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::getSlope
+Defined in header [<xieite/geometry/getSlope.hpp>](../../include/xieite/geometry/getSlope.hpp)
 
 <br/>
 
-Calculates the slope of a line or between two points.
+Calculates the slope of a line or between two points
 
 <br/><br/>
 

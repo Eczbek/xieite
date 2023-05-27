@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::numberSearch`
-Defined in header [`<xieite/algorithms/numberSearch.hpp>`](../../include/xieite/algorithms/numberSearch.hpp)
+# [xieite](../../README.md)::[algorithms](../algorithms.md)::numberSearch
+Defined in header [<xieite/algorithms/numberSearch.hpp>](../../include/xieite/algorithms/numberSearch.hpp)
 
 <br/>
 
-Using a variant of the binary search algorithm, finds the lowest value which, if passed to the callback, will return `true`. If not given minimum and maximum search limits, starting from `1`, will exponentially decrease or increase a limit until it contains the possible range. The callback **must** be logically equaivalent to `x >= y`, where `x` is the callback parameter and `y` is the desired limit.
+Using a variant of the binary search algorithm, finds the lowest value which, if passed to the callback, will return `true`. If not given minimum and maximum search limits, starting from 1, will exponentially decrease or increase a limit until it contains the possible range. The callback **must** be logically equaivalent to (x >= y), where x is the callback parameter and y is the desired limit
 
 <br/><br/>
 
@@ -19,7 +19,7 @@ constexpr Number numberSearch(const xieite::concepts::Functional<bool(Number)> a
 ### Template parameters
 - `Number` - An integer or floating point type, satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `selector` - An `auto` constant reference, satisfying `xieite::concepts::Functional` which `Iterator`'s value type and returns a `bool`
+- `selector` - An `auto` constant reference, satisfying `xieite::concepts::Functional` which accepts `Iterator`'s value type and returns a `bool`
 - `minimum` - A `Number` copy, determining the minimum search limit for the algorithm
 - `maxumum` - A `Number` copy, determining the maxumum search limit for the algorithm
 ### Return value

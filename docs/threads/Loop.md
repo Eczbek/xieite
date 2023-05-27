@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`threads`](../../docs/threads.md)`::Loop`
-Defined in header [`<xieite/threads/Loop.hpp>`](../../include/threads/Loop.hpp)
+# [xieite](../../README.md)::[threads](../threads.md)::Loop
+Defined in header [<xieite/threads/Loop.hpp>](../../include/xieite/threads/Loop.hpp)
 
 <br/>
 
-Runs a callback constantly. Compile with `-pthread`.
+Runs a callback constantly. Compile with `-pthread
 
 <br/><br/>
 
@@ -22,11 +22,13 @@ struct Loop final {
 	void stop();
 };
 ```
-### Member functions
-- [`Loop`](../../docs/threads/Loop/constructor.md)
-- [`~Loop`](../../docs/threads/Loop/destructor.md)
-- [`good`](../../docs/threads/Loop/good.md)
-- [`stop`](../../docs/threads/Loop/stop.md)
+### Public members
+<pre><code>Loop/
+|- <a href="./Loop/constructor.md">Loop</a>
+|- <a href="./Loop/destructor.md">~Loop</a>
+|- <a href="./Loop/good.md">good</a>
+`- <a href="./Loop/stop.md">stop</a>
+</code></pre>
 
 <br/><br/>
 

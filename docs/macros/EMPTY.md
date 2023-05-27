@@ -1,9 +1,9 @@
-# [`XIEITE`](../../docs/macros.md)`_EMPTY`
-Defined in header [`<xieite/macros/EMPTY.hpp>`](../../include/xieite/macros/EMPTY.hpp)
+# [XIEITE](../macros.md)_EMPTY
+Defined in header [<xieite/macros/EMPTY.hpp>](../../include/xieite/macros/EMPTY.hpp)
 
 <br/>
 
-Does nothing.
+Does nothing
 
 <br/><br/>
 

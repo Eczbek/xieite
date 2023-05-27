@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::clearScreen`
-Defined in header [`<xieite/terminal/clearScreen.hpp>`](../../include/xieite/terminal/clearScreen.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::clearScreen
+Defined in header [<xieite/terminal/clearScreen.hpp>](../../include/xieite/terminal/clearScreen.hpp)
 
 <br/>
 
-Clears the entire screen.
+Clears the entire screen
 
 <br/><br/>
 

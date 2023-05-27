@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::cosecant`
-Defined in header [`<xieite/math/cosecant.hpp>`](../../include/xieite/math/cosecant.hpp)
+# [xieite](../../README.md)::[math](../math.md)::cosecant
+Defined in header [<xieite/math/cosecant.hpp>](../../include/xieite/math/cosecant.hpp)
 
 <br/>
 
-A trigonometric function which wasn't included in the standard math library. Calculates the cosecant of a value.
+A trigonometric function which wasn't included in the standard math library. Calculates the cosecant of a value
 
 <br/><br/>
 
@@ -21,4 +21,4 @@ constexpr Number cosecant(Number value) noexcept;
 ### Parameters
 - `value` - A `Number` copy
 ### Return value
-- A `Number`, the cosecant of `value`
+- A `Number`, the cosecant of value

@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::pi`
-Defined in header [`<xieite/math/pi.hpp>`](../../include/xieite/math/pi.hpp)
+# [xieite](../../README.md)::[math](../math.md)::pi
+Defined in header [<xieite/math/pi.hpp>](../../include/xieite/math/pi.hpp)
 
 <br/>
 
-Defines integer values of Pi.
+Defines integer values of Pi
 
 <br/><br/>
 
@@ -16,7 +16,7 @@ template<typename>
 inline constexpr double pi = std::numbers::pi;
 ```
 ### Template parameters
-- An unconstrained and unnamed type
+- An unnamed type
 
 <br/><br/>
 

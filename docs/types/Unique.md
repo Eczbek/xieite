@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`types`](../../docs/types.md)`::Unique`
-Defined in header [`<xieite/types/Unique.hpp>`](../../include/xieite/types/Unique.hpp)
+# [xieite](../../README.md)::[types](../types.md)::Unique
+Defined in header [<xieite/types/Unique.hpp>](../../include/xieite/types/Unique.hpp)
 
 <br/>
 
-Creates a `xieite::types::List` using only unique types of those provided.
+Creates a `xieite::types::List` using only unique types of those provided
 
 <br/><br/>
 
@@ -35,7 +35,8 @@ int main() {
 		<< std::same_as<
 			xieite::types::List<int, char>,
 			xieite::types::Unique<int, int, char, int, char, char, int>
-		> << '\n';
+		>
+		<< '\n';
 }
 ```
 Output:

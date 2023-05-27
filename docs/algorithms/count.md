@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::count`
-Defined in header [`<xieite/algorithms/count.hpp>`](../../include/xieite/algorithms/count.hpp)
+# [xieite](../../README.md)::[algorithms](../algorithms.md)::count
+Defined in header [<xieite/algorithms/count.hpp>](../../include/xieite/algorithms/count.hpp)
 
 <br/>
 
-Counts the number of arguments provided.
+Counts the number of arguments provided
 
 <br/><br/>
 
@@ -16,7 +16,7 @@ Counts the number of arguments provided.
 constexpr std::size_t count(const auto&... arguments) noexcept;
 ```
 ### Parameters
-- `arguments...` - Any `auto` constant references
+- `arguments` - `auto...` constant references
 ### Return value
 - A `std::size_t`, the number of arguments passed
 

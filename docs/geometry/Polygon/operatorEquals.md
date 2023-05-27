@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Polygon`](../../../docs/geoemtry/Polygon.md)`::operator==`
-Defined in header [`<xieite/geometry/Polygon.hpp>`](../../../include/xieite/geometry/Polygon.hpp)
+# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Polygon](../Polygon.md)::operator==
+Defined in header [<xieite/geometry/Polygon.hpp>](../../../include/xieite/geometry/Polygon.hpp)
 
 <br/>
 
-Compares two polygons to each other. Only checks that the polygons have the same points in the same relative or reversed relative order.
+Compares two polygons to each other. Only checks that the polygons have the same points in the same relative or reversed relative order
 
 <br/><br/>
 

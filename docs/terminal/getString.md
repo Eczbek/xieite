@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::getString`
-Defined in header [`<xieite/terminal/getString.hpp>`](../../include/xieite/terminal/getString.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::getString
+Defined in header [<xieite/terminal/getString.hpp>](../../include/xieite/terminal/getString.hpp)
 
 <br/>
 
-Reads the entire input buffer, clearing it in the process.
+Reads the entire input buffer, clearing it in the process
 
 <br/><br/>
 

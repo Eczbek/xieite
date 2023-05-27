@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::absolute`
-Defined in header [`<xieite/math/absolute.hpp>`](../../include/xieite/math/absolute.hpp)
+# [xieite](../../README.md)::[math](../math.md)::absolute
+Defined in header [<xieite/math/absolute.hpp>](../../include/xieite/math/absolute.hpp)
 
 <br/>
 
-Returns the absolute of a value. Unlike `std::abs`, this accepts both signed and unsigned arithmetic types.
+Returns the absolute of a value. Unlike std::abs, this accepts both signed and unsigned arithmetic types
 
 <br/><br/>
 
@@ -21,7 +21,7 @@ constexpr Number absolute(Number value) noexcept;
 ### Parameters
 - `value` - A `Number` copy
 ### Return value
-- A `Number`, the absolute of `value`
+- A `Number`, the absolute of value
 
 <br/><br/>
 

@@ -1,5 +1,5 @@
-# [`XIEITE`](../../docs/macros.md)`_OBSTRUCT`
-Defined in header [`<xieite/macros/OBSTRUCT.hpp>`](../../include/xieite/macros/OBSTRUCT.hpp)
+# [XIEITE](../macros.md)_OBSTRUCT
+Defined in header [<xieite/macros/OBSTRUCT.hpp>](../../include/xieite/macros/OBSTRUCT.hpp)
 
 <br/><br/>
 

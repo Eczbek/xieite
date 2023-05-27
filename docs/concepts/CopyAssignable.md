@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::CopyAssignable`
-Defined in header [`<xieite/concepts/CopyAssignable.hpp>`](../../include/xieite/concepts/CopyAssignable.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::CopyAssignable
+Defined in header [<xieite/concepts/CopyAssignable.hpp>](../../include/xieite/concepts/CopyAssignable.hpp)
 
 <br/>
 
-Specifies that type `Any` is copy-assignable.
+Specifies that a type is copy-assignable
 
 <br/><br/>
 

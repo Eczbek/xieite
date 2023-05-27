@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::isPrime`
-Defined in header [`<xieite/math/isPrime.hpp>`](../../include/xieite/math/isPrime.hpp)
+# [xieite](../../README.md)::[math](../math.md)::isPrime
+Defined in header [<xieite/math/isPrime.hpp>](../../include/xieite/math/isPrime.hpp)
 
 <br/>
 
-Checks whether an integer is only evenly divisible by itself and 1.
+Checks whether an integer is only evenly divisible by itself and 1
 
 <br/><br/>
 
@@ -21,7 +21,7 @@ constexpr bool isPrime(Integral value) noexcept;
 ### Parameters
 - `value` - An `Integral` copy
 ### Return value
-- A `bool`, whether or not `value` is prime
+- A `bool`, whether or not value is prime
 
 <br/><br/>
 

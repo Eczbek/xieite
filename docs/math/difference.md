@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::difference`
-Defined in header [`<xieite/math/difference.hpp>`](../../include/xieite/math/difference.hpp)
+# [xieite](../../README.md)::[math](../math.md)::difference
+Defined in header [<xieite/math/difference.hpp>](../../include/xieite/math/difference.hpp)
 
 <br/>
 
-Calculates the absolute difference between two values. Handles some edge cases.
+Calculates the absolute difference between two values. Handles some edge cases
 
 <br/><br/>
 

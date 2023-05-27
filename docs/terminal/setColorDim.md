@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setColorDim`
-Defined in header [`<xieite/terminal/setColorDim.hpp>`](../../include/xieite/terminal/setColorDim.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setColorDim
+Defined in header [<xieite/terminal/setColorDim.hpp>](../../include/xieite/terminal/setColorDim.hpp)
 
 <br/>
 
-Enables or disables the "dimming" of foreground and background colors.
+Enables or disables the "dimming" of foreground and background colors
 
 <br/><br/>
 

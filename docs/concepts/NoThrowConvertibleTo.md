@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::NoThrowConvertibleTo`
-Defined in header [`<xieite/concepts/NoThrowConvertibleTo.hpp>`](../../include/xieite/concepts/NoThrowConvertibleTo.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::NoThrowConvertibleTo
+Defined in header [<xieite/concepts/NoThrowConvertibleTo.hpp>](../../include/xieite/concepts/NoThrowConvertibleTo.hpp)
 
 <br/>
 
-Specifies that type `From` is convertible to type `To` without throwing an exception.
+Specifies that a type is convertible to another type without throwing an exception
 
 <br/><br/>
 

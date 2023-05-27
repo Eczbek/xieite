@@ -1,7 +1,7 @@
-# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::operator-`
-Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
+# [xieite](../../../README.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::operator-
+Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/>
+<br/><br/>
 
 ## Synopses
 
@@ -12,7 +12,7 @@ Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/
 constexpr xieite::math::BigInteger operator-() const noexcept;
 ```
 ### Return value
-- The same `xieite::math::BigInteger` with unchanged value
+- A `xieite::math::BigInteger` of oppositely-negative value
 
 <br/><br/>
 

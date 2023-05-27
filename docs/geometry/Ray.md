@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::Ray`
-Defined in header [`<xieite/geometry/Ray.hpp>`](../../include/xieite/geometry/Ray.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::Ray
+Defined in header [<xieite/geometry/Ray.hpp>](../../include/xieite/geometry/Ray.hpp)
 
 <br/>
 
-A struct representing an infinite ray with one end.
+A struct representing an infinite ray with one end
 
 <br/><br/>
 
@@ -23,12 +23,13 @@ struct Ray final {
 	constexpr bool operator==(const xieite::geometry::Ray&) const;
 };
 ```
-### Member objects
-- `start` - A `xieite::geometry::Point`
-- `end` - Another `xieite::geometry::Point`
-### Member functions
-- [`Ray`](../../docs/geometry/Ray/constructor.md)
-- [`operator==`](../../docs/geometry/Ray/operatorEquals.md)
+### Public members
+<pre><code>Ray/
+|- start
+|- end
+|- <a href="./Ray/constructor.md">Ray</a>
+`- <a href="./Ray/operatorEquals.md">operator==</a>
+</code></pre>
 
 <br/><br/>
 

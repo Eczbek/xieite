@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`terminal`](../../../docs/terminal.md)`::`[`ModeLock`](../../../docs/terminal/ModeLock.md)`::setProcessing`
-Defined in header [`<xieite/terminal/ModeLock.hpp>`](../../../include/xieite/terminal/ModeLock.hpp)
+# [xieite](../../../README.md)::[terminal](../../terminal.md)::[ModeLock](../ModeLock.md)::setProcessing
+Defined in header [<xieite/terminal/ModeLock.hpp>](../../../include/xieite/terminal/ModeLock.hpp)
 
 <br/>
 
-Enables or disables output processing. Disabled by default.
+Enables or disables output processing. Disabled by default
 
 <br/><br/>
 

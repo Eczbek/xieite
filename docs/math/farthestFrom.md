@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::farthestFrom`
-Defined in header [`<xieite/math/farthestFrom.hpp>`](../../include/xieite/math/farthestFrom.hpp)
+# [xieite](../../README.md)::[math](../math.md)::farthestFrom
+Defined in header [<xieite/math/farthestFrom.hpp>](../../include/xieite/math/farthestFrom.hpp)
 
 <br/>
 
-Selects the value farthest from a target.
+Selects the value farthest from a target
 
 <br/><br/>
 
@@ -23,7 +23,7 @@ constexpr Number& farthestFrom(Number target, Number& a, Number& b) noexcept;
 - `a` - A `Number` reference
 - `b` - A `Number` reference
 ### Return value
-- A `Number` reference to whichever of `a` and `b` has the greatest difference from `target`
+- A `Number` reference to whichever of `a` and `b` has the greatest difference from target
 
 <br/><br/>
 
@@ -35,7 +35,7 @@ constexpr Number farthestFrom(Number target, const Number& a, const Number& b) n
 ### Template parameters
 - `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `target` - A `Number` copy
+- `target` - A Number copy
 - `a` - A `Number` constant reference
 - `b` - Also a `Number` constant reference
 ### Return value

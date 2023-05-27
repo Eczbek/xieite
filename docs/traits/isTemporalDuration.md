@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`traits`](../../docs/traits.md)`::isTemporalDuration`
-Defined in header [`<xieite/traits/isTemporalDuration.hpp>`](../../include/xieite/traits/isTemporalDuration.hpp)
+# [xieite](../../README.md)::[traits](../traits.md)::isTemporalDuration
+Defined in header [<xieite/traits/isTemporalDuration.hpp>](../../include/xieite/traits/isTemporalDuration.hpp)
 
 <br/>
 
-A boolean representing whether an arithmetic type and two `std::intmax_t` values can create a `std::chrono::duration`.
+A boolean representing whether an arithmetic type and two std::intmax_t values can create a std::chrono::duration
 
 <br/><br/>
 

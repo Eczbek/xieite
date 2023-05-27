@@ -1,45 +1,38 @@
-# [`xieite`](../README.md)`::math`
-Aggregated in header [`<xieite/math.hpp>`](../include/xieite/math.hpp)
+# [xieite](../README.md)::math
+Aggregated in header [<xieite/math.hpp>](../include/xieite/math.hpp)
 
 <br/>
 
-A namespace of mathematical types and functions.
+Mathematical types and functions
 
 <br/><br/>
 
-## Member types
-- [`BigInteger`](../docs/math/BigInteger.md)
-- [`ConditionalIntegerSign`](../docs/math/ConditionalIntegerSign.md)
-- [`Integer`](../docs/math/Integer.md)
-- [`MinimalIntegerSize`](../docs/math/MinimalIntegerSize.md)
-
-<br/>
-
-## Member objects
-- [`alternatingBits`](../docs/math/alternatingBits.md)
-- [`pi`](../docs/math/pi.md)
-- [`robert`](../docs/math/robert.md)
-- [`tau`](../docs/math/tau.md)
-
-<br/>
-
-## Member functions
-- [`absolute`](../docs/math/absolute.md)
-- [`approximatelyEqual`](../docs/math/approximatelyEqual.md)
-- [`approximatelyEqualSlope`](../docs/math/approximatelyEqualSlope.md)
-- [`closestTo`](../docs/math/closestTo.md)
-- [`cosecant`](../docs/math/cosecant.md)
-- [`cotangent`](../docs/math/cotangent.md)
-- [`difference`](../docs/math/difference.md)
-- [`farthestFrom`](../docs/math/farthestFrom.md)
-- [`fromBase`](../docs/math/fromBase.md)
-- [`isPowerOf2`](../docs/math/isPowerOf2.md)
-- [`isPrime`](../docs/math/isPrime.md)
-- [`minimalBits`](../docs/math/minimalBits.md)
-- [`piDigits`](../docs/math/piDigits.md)
-- [`secant`](../docs/math/secant.md)
-- [`toBase`](../docs/math/toBase.md)
-- [`toDegrees`](../docs/math/toDegrees.md)
-- [`toRadians`](../docs/math/toRadians.md)
-- [`wrap`](../docs/math/wrap.md)
-- [`xorShift`](../docs/math/xorShift.md)
+<pre><code>math/
+|- <a href="./math/BigInteger.md">BigInteger</a>
+|- <a href="./math/ConditionalIntegerSign.md">ConditionalIntegerSign</a>
+|- <a href="./math/Integer.md">Integer</a>
+|- <a href="./math/MinimalIntegerSize.md">MinimalIntegerSize</a>
+|- <a href="./math/absolute.md">absolute</a>
+|- <a href="./math/alternatingBits.md">alternatingBits</a>
+|- <a href="./math/approximatelyEqual.md">approximatelyEqual</a>
+|- <a href="./math/approximatelyEqualSlope.md">approximatelyEqualSlope</a>
+|- <a href="./math/closestTo.md">closestTo</a>
+|- <a href="./math/cosecant.md">cosecant</a>
+|- <a href="./math/cotangent.md">cotangent</a>
+|- <a href="./math/difference.md">difference</a>
+|- <a href="./math/farthestFrom.md">farthestFrom</a>
+|- <a href="./math/fromBase.md">fromBase</a>
+|- <a href="./math/isPowerOf2.md">isPowerOf2</a>
+|- <a href="./math/isPrime.md">isPrime</a>
+|- <a href="./math/minimalBits.md">minimalBits</a>
+|- <a href="./math/pi.md">pi</a>
+|- <a href="./math/piDigits.md">piDigits</a>
+|- <a href="./math/robert.md">robert</a>
+|- <a href="./math/secant.md">secant</a>
+|- <a href="./math/tau.md">tau</a>
+|- <a href="./math/toBase.md">toBase</a>
+|- <a href="./math/toDegrees.md">toDegrees</a>
+|- <a href="./math/toRadians.md">toRadians</a>
+|- <a href="./math/wrap.md">wrap</a>
+`- <a href="./math/xorShift.md">xorShift</a>
+</code></pre>

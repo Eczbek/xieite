@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setScreenAlternative`
-Defined in header [`<xieite/terminal/setScreenAlternative.hpp>`](../../include/xieite/terminal/setScreenAlternative.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setScreenAlternative
+Defined in header [<xieite/terminal/setScreenAlternative.hpp>](../../include/xieite/terminal/setScreenAlternative.hpp)
 
 <br/>
 
-Enables or disables the alternative screen.
+Enables or disables the alternative screen
 
 <br/><br/>
 

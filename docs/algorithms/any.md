@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::any`
-Defined in header [`<xieite/algorithms/any.hpp>`](../../include/xieite/algorithms/any.hpp)
+# [xieite](../../README.md)::[algorithms](../algorithms.md)::any
+Defined in header [<xieite/algorithms/any.hpp>](../../include/xieite/algorithms/any.hpp)
 
 <br/>
 
-Checks whether at least one passed argument is true. Expects all arguments to be converible to a boolean value.
+Checks whether at least one passed argument is true. Expects all arguments to be converible to a boolean value
 
 <br/><br/>
 
@@ -20,7 +20,7 @@ noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...)));
 ### Template parameters
 - `Values...` - Types satisfying `std::convertible_to` of `bool`
 ### Parameters
-- `values...` - `Values` constant references
+- `values...` - `Values...` constant references
 ### Return value
 - A `bool` to represent whether or not all elements are true
 

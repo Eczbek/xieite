@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::toLowerCase`
-Defined in header [`<xieite/strings/toLowerCase.hpp>`](../../include/xieite/strings/toLowerCase.hpp)
+# [xieite](../../README.md)::[strings](../strings.md)::toLowerCase
+Defined in header [<xieite/strings/toLowerCase.hpp>](../../include/xieite/strings/toLowerCase.hpp)
 
 <br/>
 
-Converts a string or character to lowercase. Only handles characters `A` to `Z`.
+Converts a string or character to lowercase. Only handles characters `A` to `Z`
 
 <br/><br/>
 

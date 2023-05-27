@@ -1,7 +1,12 @@
-# [`xieite`](../README.md)`::meta`
-Aggregated in header [`<xieite/meta.hpp>`](../include/xieite/meta.hpp)
+# [xieite](../README.md)::meta
+Aggregated in header [<xieite/meta.hpp>](../include/xieite/meta.hpp)
+
+<br/>
+
+Metadata stuff
 
 <br/><br/>
 
-## Member types
-- [`Version`](../docs/meta/Version.md)
+<pre><code>meta/
+`- <a href="./meta/Version.md">Version</a>
+</code></pre>

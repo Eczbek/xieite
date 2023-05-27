@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::ConvertibleToOneOf`
-Defined in header [`<xieite/concepts/ConvertibleToOneOf.hpp>`](../../include/xieite/concepts/ConvertibleToOneOf.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::ConvertibleToOneOf
+Defined in header [<xieite/concepts/ConvertibleToOneOf.hpp>](../../include/xieite/concepts/ConvertibleToOneOf.hpp)
 
 <br/>
 
-Specifies that type `Any1` can be converted to at least one of `Any2...`.
+Specifies that a type can be converted to at least one of several other types
 
 <br/><br/>
 

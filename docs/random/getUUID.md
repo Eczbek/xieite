@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`random`](../../docs/random.md)`::getUUID`
-Defined in header [`<xieite/random/getUUID.hpp>`](../../include/xieite/random/getUUID.hpp)
+# [xieite](../../README.md)::[random](../random.md)::getUUID
+Defined in header [<xieite/random/getUUID.hpp>](../../include/xieite/random/getUUID.hpp)
 
 <br/>
 
-Generates a UUID. Compile with `-luuid`.
+Generates a UUID. Compile with `-luuid`
 
 <br/><br/>
 

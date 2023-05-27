@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::fromBase`
-Defined in header [`<xieite/math/fromBase.hpp>`](../../include/xieite/math/fromBase.hpp)
+# [xieite](../../README.md)::[math](../math.md)::fromBase
+Defined in header [<xieite/math/fromBase.hpp>](../../include/xieite/math/fromBase.hpp)
 
 <br/>
 
-Converts an integer string to base 10.
+Converts an integer string to base-10
 
 <br/><br/>
 
@@ -19,11 +19,11 @@ constexpr Integral fromBase(std::string_view value, std::size_t base, std::strin
 ### Template parameters
 - `Integral` - An integral type, satisfying `std::integral`. Set to `int` by default
 ### Parameters
-- `value` - A `std::string_view` copy, the value to convert to base 10
-- `base` - A `std::size_t` copy, the current base of `value`
+- `value` - A `std::string_view` copy, the value to convert to base-10
+- `base` - A `std::size_t` copy, the current base of value
 - `digits` - A `std:string_view` copy, the digits to use, set to `"0123456789abcdefghijklmnopqrstuvwxyz"` by default
 ### Return value
-- An `Integral`, equal to `value` in base 10
+- An `Integral`, equal to value in base-10
 
 <br/><br/>
 

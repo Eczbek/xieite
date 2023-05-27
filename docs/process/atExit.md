@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`process`](../../docs/process.md)`::atExit`
-Defined in header [`<xieite/process/atExit.hpp>`](../../include/xieite/process/atExit.hpp)
+# [xieite](../../README.md)::[process](../process.md)::atExit
+Defined in header [<xieite/process/atExit.hpp>](../../include/xieite/process/atExit.hpp)
 
 <br/>
 
-Executes given callbacks when the program ends. Is thread-safe.
+Executes given callbacks when the program ends. Is thread-safe
 
 <br/><br/>
 

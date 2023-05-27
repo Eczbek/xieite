@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`random`](../../docs/random.md)`::UniformBagDistribution`
-Defined in header [`<xieite/random/UniformBagDistribution.hpp>`](../../include/xieite/random/UniformBagDistribution.hpp)
+# [xieite](../../README.md)::[random](../random.md)::UniformBagDistribution
+Defined in header [<xieite/random/UniformBagDistribution.hpp>](../../include/xieite/random/UniformBagDistribution.hpp)
 
 <br/>
 
-A "bag-randomization" distribution.
+A "bag-randomization" distribution
 
 <br/><br/>
 
@@ -20,10 +20,12 @@ struct UniformBagDistribution final {
 };
 ```
 ### Template Parameters
-- `Integral` - Any type satisfying `std::integral`
-### Member functions
-- [`UniformBagDistribution`](../../docs/random/UniformBagDistribution/constructor.md)
-- [`operator()`](../../docs/random/UniformBagDistribution/operatorCall.md)
+- Integral - Any type satisfying std::integral
+### Public members
+<pre><code>UniformBagDistribution/
+|- <a href="./UniformBagDistribution/constructor.md">UniformBagDistribution</a>
+`- <a href="./UniformBagDistribution/operatorCall.md">operator()</a>
+</code></pre>
 
 <br/><br/>
 

@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`functions`](../../../docs/functions.md)`::`[`Suffix<Result, LeftParameter>`](../../../docs/functions/Suffix.md)`::Suffix`
-Defined in header [`<xieite/functions/Suffix.hpp>`](../../../include/xieite/functions/Suffix.hpp)
+# [xieite](../../../README.md)::[functions](../../functions.md)::[Suffix<Result(LeftParameter)>](../Suffix.md)::Suffix
+Defined in header [<xieite/functions/Suffix.hpp>](../../../include/xieite/functions/Suffix.hpp)
 
 <br/>
 
-Creates a `xieite::functions::Suffix` operator.
+Creates a `xieite::functions::Suffix` operator
 
 <br/><br/>
 

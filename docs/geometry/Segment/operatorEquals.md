@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Segment`](../../../docs/geoemtry/Segment.md)`::operator==`
-Defined in header [`<xieite/geometry/Segment.hpp>`](../../../include/xieite/geometry/Segment.hpp)
+# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Segment](../Segment.md)::operator==
+Defined in header [<xieite/geometry/Segment.hpp>](../../../include/xieite/geometry/Segment.hpp)
 
 <br/>
 
-Compares two segments to each other.
+Compares two segments to each other
 
 <br/><br/>
 

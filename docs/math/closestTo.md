@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::closestTo`
-Defined in header [`<xieite/math/closestTo.hpp>`](../../include/xieite/math/closestTo.hpp)
+# [xieite](../../README.md)::[math](../math.md)::closestTo
+Defined in header [<xieite/math/closestTo.hpp>](../../include/xieite/math/closestTo.hpp)
 
 <br/>
 
-Selects the value closest to a target.
+Selects the value closest to a target
 
 <br/><br/>
 

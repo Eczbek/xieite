@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::BigInteger`
-Defined in header [`<xieite/math/BigInteger.hpp>`](../../include/xieite/math/BigInteger.hpp)
+# [xieite](../../README.md)::[math](../math.md)::BigInteger
+Defined in header [<xieite/math/BigInteger.hpp>](../../include/xieite/math/BigInteger.hpp)
 
 <br/>
 
-A class for storing and operating on very large numbers.
+A class for storing and operating on very large numbers
 
 <br/><br/>
 
@@ -148,41 +148,43 @@ struct BigInteger final {
 	constexpr std::string string() const;
 };
 ```
-### Member functions
-- [`BigInteger`](../../docs/math/BigInteger/constructor.md)
-- [`operator=`](../../docs/math/BigInteger/operatorAssign.md)
-- [`operator typename`](../../docs/math/BigInteger/operatorCast.md)
-- [`operator!`](../../docs/math/BigInteger/operatorNot.md)
-- [`operator==`](../../docs/math/BigInteger/operatorEquals.md)
-- [`operator<=>`](../../docs/math/BigInteger/operatorSpaceship.md)
-- [`operator+`](../../docs/math/BigInteger/operatorAdd.md)
-- [`operator+=`](../../docs/math/BigInteger/operatorAddAssign.md)
-- [`operator++`](../../docs/math/BigInteger/operatorIncrement.md)
-- [`operator-`](../../docs/math/BigInteger/operatorSubtract.md)
-- [`operator-=`](../../docs/math/BigInteger/operatorSubtractAssign.md)
-- [`operator--`](../../docs/math/BigInteger/operatorDecrement.md)
-- [`operator*`](../../docs/math/BigInteger/operatorMultiply.md)
-- [`operator*=`](../../docs/math/BigInteger/operatorMultiplyAssign.md)
-- [`operator/`](../../docs/math/BigInteger/operatorDivide.md)
-- [`operator/=`](../../docs/math/BigInteger/operatorDivideAssign.md)
-- [`operator%`](../../docs/math/BigInteger/operatorModulo.md)
-- [`operator%=`](../../docs/math/BigInteger/operatorModuloAssign.md)
-- [`operator~`](../../docs/math/BigInteger/operatorBitwiseNot.md)
-- [`operator&`](../../docs/math/BigInteger/operatorBitwiseAnd.md)
-- [`operator&=`](../../docs/math/BigInteger/operatorBitwiseNotAssign.md)
-- [`operator|`](../../docs/math/BigInteger/operatorBitwiseOr.md)
-- [`operator|=`](../../docs/math/BigInteger/operatorBitwiseOrAssign.md)
-- [`operator^`](../../docs/math/BigInteger/operatorBitwiseXor.md)
-- [`operator^=`](../../docs/math/BigInteger/operatorBitwiseXorAssign.md)
-- [`operator<<`](../../docs/math/BigInteger/operatorBitwiseShiftLeft.md)
-- [`operator<<=`](../../docs/math/BigInteger/operatorBitwiseShiftLeftAssign.md)
-- [`operator>>`](../../docs/math/BigInteger/operatorBitwiseShiftRight.md)
-- [`operator>>=`](../../docs/math/BigInteger/operatorBitwiseShiftRightAssign.md)
-- [`absolute`](../../docs/math/BigInteger/absolute.md)
-- [`power`](../../docs/math/BigInteger/power.md)
-- [`root`](../../docs/math/BigInteger/root.md)
-- [`data`](../../docs/math/BigInteger/data.md)
-- [`string`](../../docs/math/BigInteger/string.md)
+### Public members
+<pre><code>BigInteger/
+|- <a href="./BigInteger/constructor.md">BigInteger</a>
+|- <a href="./BigInteger/operatorAssign.md">operator=</a>
+|- <a href="./BigInteger/operatorCast.md">operator typename</a>
+|- <a href="./BigInteger/operatorNot.md">operator!</a>
+|- <a href="./BigInteger/operatorEquals.md">operator==</a>
+|- <a href="./BigInteger/operatorSpaceship.md">operator<=></a>
+|- <a href="./BigInteger/operatorAdd.md">operator+</a>
+|- <a href="./BigInteger/operatorAddAssign.md">operator+=</a>
+|- <a href="./BigInteger/operatorIncrement.md">operator++</a>
+|- <a href="./BigInteger/operatorSubtract.md">operator-</a>
+|- <a href="./BigInteger/operatorSubtractAssign.md">operator-=</a>
+|- <a href="./BigInteger/operatorDecrement.md">operator--</a>
+|- <a href="./BigInteger/operatorMultiply.md">operator*</a>
+|- <a href="./BigInteger/operatorMultiplyAssign.md">operator*=</a>
+|- <a href="./BigInteger/operatorDivide.md">operator/</a>
+|- <a href="./BigInteger/operatorDivideAssign.md">operator/=</a>
+|- <a href="./BigInteger/operatorModulo.md">operator%</a>
+|- <a href="./BigInteger/operatorModuloAssign.md">operator%=</a>
+|- <a href="./BigInteger/operatorBitwiseNot.md">operator~</a>
+|- <a href="./BigInteger/operatorBitwiseAnd.md">operator&</a>
+|- <a href="./BigInteger/operatorBitwiseNotAssign.md">operator&=</a>
+|- <a href="./BigInteger/operatorBitwiseOr.md">operator|</a>
+|- <a href="./BigInteger/operatorBitwiseOrAssign.md">operator|=</a>
+|- <a href="./BigInteger/operatorBitwiseXor.md">operator^</a>
+|- <a href="./BigInteger/operatorBitwiseXorAssign.md">operator^=</a>
+|- <a href="./BigInteger/operatorBitwiseShiftLeft.md">operator<<</a>
+|- <a href="./BigInteger/operatorBitwiseShiftLeftAssign.md">operator<<=</a>
+|- <a href="./BigInteger/operatorBitwiseShiftRight.md">operator>></a>
+|- <a href="./BigInteger/operatorBitwiseShiftRightAssign.md">operator>>=</a>
+|- <a href="./BigInteger/absolute.md">absolute</a>
+|- <a href="./BigInteger/power.md">power</a>
+|- <a href="./BigInteger/root.md">root</a>
+|- <a href="./BigInteger/data.md">data</a>
+`- <a href="./BigInteger/string.md">string</a>
+</code></pre>
 
 <br/><br/>
 

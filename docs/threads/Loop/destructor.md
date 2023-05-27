@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Loop`](../../../docs/threads/Loop.md)`::~Loop`
-Defined in header [`<xieite/threads/Loop.hpp>`](../../../include/xieite/threads/Loop.hpp)
+# [xieite](../../../README.md)::[threads](../../threads.md)::[Loop](../Loop.md)::~Loop
+Defined in header [<xieite/threads/Loop.hpp>](../../../include/xieite/threads/Loop.hpp)
 
 <br/>
 
-Destructs a `xieite::threads::Loop`, stops further callbacks.
+Destructs a `xieite::threads::Loop`, stops further callbacks
 
 <br/><br/>
 

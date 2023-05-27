@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`hashes`](../../docs/hashes.md)`::create`
-Defined in header [`<xieite/hashes/create.hpp>`](../../include/xieite/hashes/create.hpp)
+# [xieite](../../README.md)::[hashes](../hashes.md)::create
+Defined in header [<xieite/hashes/create.hpp>](../../include/xieite/hashes/create.hpp)
 
 <br/>
 
-Hashes a value. Currently only supports `std::string`s. Collisions may occur.
+Hashes a value. Currently only supports std::strings. Collisions may occur
 
 <br/><br/>
 

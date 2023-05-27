@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`functions`](../../../docs/functions.md)`::`[`OptionalCallOperator<Any>`](../../../docs/functions/OptionalCallOperator.md)`::OptionalCallOperator`
-Defined in header [`<xieite/functions/OptionalCallOperator.hpp>`](../../../include/xieite/functions/OptionalCallOperator.hpp)
+# [xieite](../../../README.md)::[functions](../../functions.md)::[OptionalCallOperator<Any>](../OptionalCallOperator.md)::OptionalCallOperator
+Defined in header [<xieite/functions/OptionalCallOperator.hpp>](../../../include/xieite/functions/OptionalCallOperator.hpp)
 
 <br/>
 
-Helps construct the wrapper class.
+Helps construct the wrapper class
 
 <br/><br/>
 

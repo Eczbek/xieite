@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::resetStyle`
-Defined in header [`<xieite/terminal/resetStyle.hpp>`](../../include/xieite/terminal/resetStyle.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::resetStyle
+Defined in header [<xieite/terminal/resetStyle.hpp>](../../include/xieite/terminal/resetStyle.hpp)
 
 <br/>
 
-Resets all text effects and colors.
+Resets all text effects and colors
 
 <br/><br/>
 

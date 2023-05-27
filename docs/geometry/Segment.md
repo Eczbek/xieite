@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::Segment`
-Defined in header [`<xieite/geometry/Segment.hpp>`](../../include/xieite/geometry/Segment.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::Segment
+Defined in header [<xieite/geometry/Segment.hpp>](../../include/xieite/geometry/Segment.hpp)
 
 <br/>
 
-A struct representing a finite line segment.
+A struct representing a finite line segment
 
 <br/><br/>
 
@@ -21,12 +21,13 @@ struct Segment final {
 	constexpr bool operator==(const xieite::geometry::Segment&) const;
 };
 ```
-### Member objects
-- `start` - A `xieite::geometry::Point`
-- `end` - Another `xieite::geometry::Point`
-### Member functions
-- [`Segment`](../../docs/geometry/Segment/constructor.hpp)
-- [`operator==`](../../docs/geometry/Segment/operatorEquals.hpp)
+### Public members
+<pre><code>Segment/
+|- start
+|- end
+|- <a href="./Segment/constructor.md">Segment</a>
+`- <a href="./Segment/operatorEquals.md">operator==</a>
+</code></pre>
 
 <br/><br/>
 

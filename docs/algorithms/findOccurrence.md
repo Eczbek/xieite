@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::findOccurrence`
-Defined in header [`<xieite/algorithms/findOccurrence.hpp>`](../../include/xieite/algorithms/findOccurrence.hpp)
+# [xieite](../../README.md)::[algorithms](../algorithms.md)::findOccurrence
+Defined in header [<xieite/algorithms/findOccurrence.hpp>](../../include/xieite/algorithms/findOccurrence.hpp)
 
 <br/>
 
-Finds the pointer to a specific occurrence of a value in an iterable. If the value is not found, returns the end pointer. Uses `std::equal_to` as the default comparator.
+Finds the pointer to a specific occurrence of a value in an iterable. If the value is not found, returns the end pointer
 
 <br/><br/>
 
@@ -24,7 +24,7 @@ constexpr ForwardIterator findOccurrence(ForwardIterator begin, std::sentinel_fo
 - `end` - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
 - `comparator` - A `Callback` constant reference, default-constructed by default
 ### Return value
-- The `ForwardIterator` pointing to the specified value occurrence, or to the end if it is not found.
+- The `ForwardIterator` pointing to the specified value occurrence, or `end` if it is not found
 
 <br/><br/>
 

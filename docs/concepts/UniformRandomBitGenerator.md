@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::UniformRandomBitGenerator`
-Defined in header [`<xieite/concepts/UniformRandomBitGenerator.hpp>`](../../include/xieite/UniformRandomBitGenerator.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::UniformRandomBitGenerator
+Defined in header [<xieite/concepts/UniformRandomBitGenerator.hpp>](../../include/xieite/UniformRandomBitGenerator.hpp)
 
 <br/>
 
-Specifies that type `Any` is a uniform random bit generator.
+Specifies that a type is a uniform random bit generator
 
 <br/><br/>
 

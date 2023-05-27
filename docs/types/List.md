@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`types`](../../docs/types.md)`::List`
-Defined in header [`<xieite/types/List.hpp>`](../../include/xieite/types/List.hpp)
+# [xieite](../../README.md)::[types](../types.md)::List
+Defined in header [<xieite/types/List.hpp>](../../include/xieite/types/List.hpp)
 
 <br/>
 
-A simple class which exists only to store types.
+A simple class which exists only to store types
 
 <br/><br/>
 
@@ -22,7 +22,8 @@ struct List final {
 ```
 ### Template parameters
 - `Types...` - Any types
-### Member types
-- [`Data`](../../docs/types/List/Data.md)
-### Member functions
-- [`operator->*`](../../docs/types/List/operatorMemberPointer.md)
+### Public members
+<pre><code>List/
+|- <a href="./List/Data.md">Data</a>
+`- <a href="./List/operatorMemberPointer.md">operator->*</a>
+</code></pre>

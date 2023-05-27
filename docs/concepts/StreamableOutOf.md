@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::StreamableOutOf`
-Defined in header [`<xieite/concepts/StreamableOutOf.hpp>`](../../include/xieite/concepts/StreamableOutOf.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::StreamableOutOf
+Defined in header [<xieite/concepts/StreamableOutOf.hpp>](../../include/xieite/concepts/StreamableOutOf.hpp)
 
 <br/>
 
-Specifies that type `Any` has defined a `friend operator<<(std::ostream&, Any)`.
+Specifies that a type can be "streamed" out of
 
 <br/><br/>
 

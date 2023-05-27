@@ -1,9 +1,9 @@
-# [`XIEITE`](../../docs/macros.md)`_CONCATENATE`
-Defined in header [`<xieite/macros/CONCATENATE.hpp>`](../../include/xieite/macros/CONCATENATE.hpp)
+# [XIEITE](../macros.md)_CONCATENATE
+Defined in header [<xieite/macros/CONCATENATE.hpp>](../../include/xieite/macros/CONCATENATE.hpp)
 
 <br/>
 
-Concatenates expressions literally.
+Concatenates expressions literally
 
 <br/><br/>
 

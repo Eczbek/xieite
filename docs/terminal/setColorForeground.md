@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setColorForeground`
-Defined in header [`<xieite/terminal/setColorForeground.hpp>`](../../include/xieite/terminal/setColorForeground.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setColorForeground
+Defined in header [<xieite/terminal/setColorForeground.hpp>](../../include/xieite/terminal/setColorForeground.hpp)
 
 <br/>
 
-Sets the text foreground color. Disregards alpha value of the passed argument.
+Sets the text foreground color. Disregards alpha value of the passed argument
 
 <br/><br/>
 
@@ -17,4 +17,4 @@ constexpr std::string setColorForeground(const xieite::graphics::Color& color) n
 ### Parameters
 - `color` - A `xieite::graphics::Color` constant reference
 ### Return value
-- `std::string` - The resulting ANSI escape sequence to print
+- A `std::string` - The resulting ANSI escape sequence to print

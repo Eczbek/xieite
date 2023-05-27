@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`random`](../../../docs/random.md)`::`[`UniformInterruptableDistribution<Number>`](../../../docs/random/UniformInterruptableDistribution.md)`::operator()`
-Defined in header [`<xieite/random/UniformInterruptableDistribution.hpp>`](../../../include/random/UniformInterruptableDistribution.hpp)
+# [xieite](../../../README.md)::[random](../../random.md)::[UniformInterruptableDistribution<Number>](../UniformInterruptableDistribution.md)::operator()
+Defined in header [<xieite/random/UniformInterruptableDistribution.hpp>](../../../include/xieite/random/UniformInterruptableDistribution.hpp)
 
 <br/>
 
-Distributes the result of a random number generator.
+Distributes the result of a random number generator
 
 <br/><br/>
 

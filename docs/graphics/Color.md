@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`graphics`](../../docs/graphics.md)`::Color`
-Defined in header [`<xieite/graphics/Color.hpp>`](../../include/xieite/graphics/Color.hpp)
+# [xieite](../../README.md)::[graphics](../graphics.md)::Color
+Defined in header [<xieite/graphics/Color.hpp>](../../include/xieite/graphics/Color.hpp)
 
 <br/>
 
-A simple class for storing an RGBA value.
+A simple class for storing an RGBA value
 
 <br/><br/>
 
@@ -28,12 +28,13 @@ struct Color final {
 	constexpr std::uint32_t value();
 };
 ```
-### Member objects
-- `red` - A `std::uint8_t`
-- `green` - A `std::uint8_t`
-- `blue` - A `std::uint8_t`
-- `alpha` - A `std::uint8_t`
-### Member functions
-- [`Color`](../../docs/graphics/Color/constructor.md)
-- [`operator==`](../../docs/graphics/Color/operatorEquals.md)
-- [`value`](../../docs/graphics/Color/value.md)
+### Public members
+<pre><code>Color/
+|- red
+|- green
+|- blue
+|- alpha
+|- <a href="./Color/constructor.md">Color</a>
+|- <a href="./Color/operatorEquals.md">operator==</a>
+`- <a href="./Color/value.md">value</a>
+</code></pre>

@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Point`](../../../docs/geoemtry/Point.md)`::Point`
-Defined in header [`<xieite/geometry/Point.hpp>`](../../../include/xieite/geometry/Point.hpp)
+# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Point](../Point.md)::Point
+Defined in header [<xieite/geometry/Point.hpp>](../../../include/xieite/geometry/Point.hpp)
 
 <br/>
 
-Constructs a `xieite::geometry::Point`.
+Constructs a `xieite::geometry::Point`
 
 <br/><br/>
 

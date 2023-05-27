@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getLength`
-Defined in header [`<xieite/geometry/getLength.hpp>`](../../include/xieite/geometry/getLength.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::getLength
+Defined in header [<xieite/geometry/getLength.hpp>](../../include/xieite/geometry/getLength.hpp)
 
 <br/>
 
-Calculates the length of a linear shape.
+Calculates the length of a linear shape
 
 <br/><br/>
 
@@ -27,7 +27,7 @@ constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 constexpr double getLength(const xieite::concepts::LinearShape auto&) noexcept;
 ```
 ### Parameters
-- An unnamed `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- An unnamed auto constant reference, satisfying `xieite::concepts::LinearShape`
 ### Return value
 - `double` - Always infinity
 

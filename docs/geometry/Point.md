@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::Point`
-Defined in header [`<xieite/geometry/Point.hpp>`](../../include/xieite/geometry/Point.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::Point
+Defined in header [<xieite/geometry/Point.hpp>](../../include/xieite/geometry/Point.hpp)
 
 <br/>
 
-A struct representing a point.
+A class representing a point
 
 <br/><br/>
 
@@ -21,12 +21,13 @@ struct Point final {
 	constexpr bool operator==(xieite::geometry::Point) const;
 };
 ```
-### Member objects
-- `x` - A `double`
-- `y` - Another `double`
-### Member functions
-- [`Point`](../../docs/geometry/Point/constructor.md)
-- [`operator==`](../../docs/geometry/Point/operatorEquals.md)
+### Public members
+<pre><code>Point/
+|- x
+|- y
+|- <a href="./Point/constructor.md">Point</a>
+`- <a href="./Point/operatorEquals.md">operator==</a>
+</code></pre>
 
 <br/><br/>
 

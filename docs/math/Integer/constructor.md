@@ -1,7 +1,7 @@
-# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`Integer<bits, sign>`](../../../docs/math/Integer.md)`::Integer`
-Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
+# [xieite](../../../README.md)::[math](../../math.md)::[Integer<bits, sign>](../Integer.md)::Integer
+Defined in header [<xieite/math/Integer.hpp>](../../../include/xieite/math/Integer.hpp)
 
-<br/>
+<br/><br/>
 
 ## Synopsis
 

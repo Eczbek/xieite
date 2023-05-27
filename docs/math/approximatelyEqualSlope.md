@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::approximatelyEqualSlope`
-Defined in header [`<xieite/math/approximatelyEqualSlope.hpp>`](../../include/xieite/math/approximatelyEqualSlope.hpp)
+# [xieite](../../README.md)::[math](../math.md)::approximatelyEqualSlope
+Defined in header [<xieite/math/approximatelyEqualSlope.hpp>](../../include/xieite/math/approximatelyEqualSlope.hpp)
 
 <br/>
 
-Checks whether two slopes are almost equal.
+Checks whether two slopes are almost equal
 
 <br/><br/>
 

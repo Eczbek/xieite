@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Interval`](../../../docs/threads/Interval.md)`::Interval`
-Defined in header [`<xieite/threads/Interval.hpp>`](../../../include/xieite/threads/Interval.hpp)
+# [xieite](../../../README.md)::[threads](../../threads.md)::[Interval](../Interval.md)::Interval
+Defined in header [<xieite/threads/Interval.hpp>](../../../include/xieite/threads/Interval.hpp)
 
 <br/>
 
-Constructs a `xieite::threads::Interval`, starts running a callback between set delays.
+Constructs a `xieite::threads::Interval`, starts running a callback between set delays
 
 <br/><br/>
 

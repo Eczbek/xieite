@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`types`](../../../docs/types.md)`::`[`List<Types...>`](../../../docs/types/List.md)`::operator->*`
-Defined in header [`<xieite/types/List.hpp>`](../../../include/xieite/types/List.hpp)
+# [xieite](../../../README.md)::[types](../../types.md)::[List<Types...>](../List.md)::operator->*
+Defined in header [<xieite/types/List.hpp>](../../../include/xieite/types/List.hpp)
 
 <br/>
 
-For use in `xieite::types::Unique`.
+For use in `xieite::types::Unique`
 
 <br/><br/>
 
@@ -20,4 +20,4 @@ constexpr std::conditional_t<(std::is_same_v<Types, Type> || ...), xieite::types
 ### Parameters
 - An unnamed copy of `xieite::types::List` of `Type`
 ### Return type
-- If at least one of `Types...` is `Type`, then a `xieite::types::List` of `Types...`, otherwise of `Types...` and `Type`
+- If at least one of `Types...` is the same as `Type`, then a `xieite::types::List` of `Types...`, otherwise of `Types...` and `Type`

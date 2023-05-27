@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getArea`
-Defined in header [`<xieite/geometry/getArea.hpp>`](../../include/xieite/geometry/getArea.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::getArea
+Defined in header [<xieite/geometry/getArea.hpp>](../../include/xieite/geometry/getArea.hpp)
 
 <br/>
 
-Calculates the area of a shape.
+Calculates the area of a shape
 
 <br/><br/>
 

@@ -1,4 +1,4 @@
-# [`xieite`](../../../README.md)`::`[`functions`](../../../docs/functions.md)`::`[`Infix<Result, Parameter>`](../../../docs/functions/Infix.md)`::operator>`
+# [xieite](../../../README.md)::[functions](../../functions.md)::[Infix<Result(Parameter)>](../Infix.md)::operator>
 
 <br/><br/>
 

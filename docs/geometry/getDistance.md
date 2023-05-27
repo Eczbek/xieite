@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getDistance`
-Defined in header [`<xieite/geometry/getDistance.hpp>`](../../include/xieite/geometry/getDistance.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::getDistance
+Defined in header [<xieite/geometry/getDistance.hpp>](../../include/xieite/geometry/getDistance.hpp)
 
 <br/>
 
-Calculates the distance between two points.
+Calculates the distance between two points
 
 <br/><br/>
 

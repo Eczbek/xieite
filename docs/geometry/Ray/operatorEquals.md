@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Ray`](../../../docs/geoemtry/Ray.md)`::operator==`
-Defined in header [`<xieite/geometry/Ray.hpp>`](../../../include/xieite/geometry/Ray.hpp)
+# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Ray](../Ray.md)::operator==
+Defined in header [<xieite/geometry/Ray.hpp>](../../../include/xieite/geometry/Ray.hpp)
 
 <br/>
 
-Compares two rays to each other.
+Compares two rays to each other
 
 <br/><br/>
 

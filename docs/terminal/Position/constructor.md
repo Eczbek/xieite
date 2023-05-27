@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`terminal`](../../../docs/terminal.md)`::`[`Position`](../../../docs/terminal/Position.md)`::Position`
-Defined in header [`<xieite/terminal/Position.hpp>`](../../../include/xieite/terminal/Position.hpp)
+# [xieite](../../../README.md)::[terminal](../../terminal.md)::[Position](../Position.md)::Position
+Defined in header [<xieite/terminal/Position.hpp>](../../../include/xieite/terminal/Position.hpp)
 
 <br/>
 
-Constructs `xieite::terminal::Position`.
+Constructs a `xieite::terminal::Position`
 
 <br/><br/>
 

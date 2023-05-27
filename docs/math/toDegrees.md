@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::toDegrees`
-Defined in header [`<xieite/math/toDegrees.hpp>`](../../include/xieite/math/toDegrees.hpp)
+# [xieite](../../README.md)::[math](../math.md)::toDegrees
+Defined in header [<xieite/math/toDegrees.hpp>](../../include/xieite/math/toDegrees.hpp)
 
 <br/>
 
-Converts radians to degrees.
+Converts radians to degrees
 
 <br/><br/>
 
@@ -21,4 +21,4 @@ constexpr Number toDegrees(Number radians) noexcept;
 ### Parameters
 - `radians` - A `Number` copy
 ### Return value
-- A `Number`, equal to `radians` in degrees
+- A `Number`, equal to radians in degrees

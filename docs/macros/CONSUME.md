@@ -1,9 +1,9 @@
-# [`XIEITE`](../../docs/macros.md)`_CONSUME`
-Defined in header [`<xieite/macros/CONSUME.hpp>`](../../include/xieite/macros/CONSUME.hpp)
+# [XIEITE](../macros.md)_CONSUME
+Defined in header [<xieite/macros/CONSUME.hpp>](../../include/xieite/macros/CONSUME.hpp)
 
 <br/>
 
-Consumes expressions and returns nothing.
+Consumes expressions and returns nothing
 
 <br/><br/>
 

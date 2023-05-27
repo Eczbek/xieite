@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::getWindowSize`
-Defined in header [`<xieite/terminal/getWindowSize.hpp>`](../../include/xieite/terminal/getWindowSize.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::getWindowSize
+Defined in header [<xieite/terminal/getWindowSize.hpp>](../../include/xieite/terminal/getWindowSize.hpp)
 
 <br/>
 
-Gets the terminal window size, in rows and columns.
+Gets the terminal window size, in rows and columns
 
 <br/><br/>
 

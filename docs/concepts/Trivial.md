@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Trivial`
-Defined in header [`<xieite/concepts/Trivial.hpp>`](../../include/xieite/concepts/Trivial.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::Trivial
+Defined in header [<xieite/concepts/Trivial.hpp>](../../include/xieite/concepts/Trivial.hpp)
 
 <br/>
 
-Specifies that type `Any` is trivial.
+Specifies that a type is trivial
 
 <br/><br/>
 

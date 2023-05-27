@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`hashes`](../../docs/hashes.md)`::combine`
-Defined in header [`<xieite/hashes/combine.hpp>`](../../include/xieite/hashes/combine.hpp)
+# [xieite](../../README.md)::[hashes](../hashes.md)::combine
+Defined in header [<xieite/hashes/combine.hpp>](../../include/xieite/hashes/combine.hpp)
 
 <br/>
 
-Combines two hashes.
+Combines two hashes
 
 <br/><br/>
 

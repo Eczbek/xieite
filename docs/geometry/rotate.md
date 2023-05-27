@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::rotate`
-Defined in header [`<xieite/geometry/rotate.hpp>`](../../include/xieite/geometry/rotate.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::rotate
+Defined in header [<xieite/geometry/rotate.hpp>](../../include/xieite/geometry/rotate.hpp)
 
 <br/>
 
-Rotates shapes a specific angle around any pivot, clockwise.
+Rotates shapes a specific angle around any pivot, clockwise
 
 <br/><br/>
 

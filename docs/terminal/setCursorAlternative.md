@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setCursorAlternative`
-Defined in header [`<xieite/terminal/setCursorAlternative.hpp>`](../../include/xieite/terminal/setCursorAlternative.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setCursorAlternative
+Defined in header [<xieite/terminal/setCursorAlternative.hpp>](../../include/xieite/terminal/setCursorAlternative.hpp)
 
 <br/>
 
-Enables or disables the alternative cursor. The alternative cursor starts at the original cursor's position.
+Enables or disables the alternative cursor. The alternative cursor starts at the original cursor's position
 
 <br/><br/>
 

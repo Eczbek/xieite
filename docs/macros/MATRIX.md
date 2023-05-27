@@ -1,9 +1,9 @@
-# [`XIEITE`](../../docs/macros.md)`_MATRIX`
-Defined in header [`<xieite/macros/MATRIX.hpp>`](../../include/xieite/macros/MATRIX.hpp)
+# [XIEITE](../macros.md)_MATRIX
+Defined in header [<xieite/macros/MATRIX.hpp>](../../include/xieite/macros/MATRIX.hpp)
 
 <br/>
 
-Creates a multidimensional vector matrix.
+Creates a multidimensional vector matrix
 
 <br/><br/>
 
@@ -17,7 +17,7 @@ Creates a multidimensional vector matrix.
 ```
 ### Parameters
 - `type` - Any typename
-- `dimensions` - Any integer between 0 and 32767, inclusive
+- `dimensions` - Any integer between `0` and `255`, inclusive
 
 <br/><br/>
 

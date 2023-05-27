@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setColorInversion`
-Defined in header [`<xieite/terminal/setColorInversion.hpp>`](../../include/xieite/terminal/setColorInversion.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setColorInversion
+Defined in header [<xieite/terminal/setColorInversion.hpp>](../../include/xieite/terminal/setColorInversion.hpp)
 
 <br/>
 
-Enables or disables the swapping of foreground and background colors.
+Enables or disables the swapping of foreground and background colors
 
 <br/><br/>
 

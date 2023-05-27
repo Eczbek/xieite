@@ -1,15 +1,16 @@
-# [`xieite`](../README.md)`::functions`
-Aggregated in header [`<xieite/functions.hpp>`](../include/xieite/functions.hpp)
+# [xieite](../README.md)::functions
+Aggregated in header [<xieite/functions.hpp>](../include/xieite/functions.hpp)
 
 <br/>
 
-A namespace of functional utilities.
+Functional utilities
 
 <br/><br/>
 
-## Member types
-- [`Infix`](../docs/functions/Infix.md)
-- [`OptionalCallOperator`](../docs/functions/OptionalCallOperator.md)
-- [`Overloader`](../docs/functions/Overloader.md)
-- [`Prefix`](../docs/functions/Prefix.md)
-- [`Suffix`](../docs/functions/Suffix.md)
+<pre><code>functions/
+|- <a href="./functions/Infix.md">Infix</a>
+|- <a href="./functions/OptionalCallOperator.md">OptionalCallOperator</a>
+|- <a href="./functions/Overloader.md">Overloader</a>
+|- <a href="./functions/Prefix.md">Prefix</a>
+`- <a href="./functions/Suffix.md">Suffix</a>
+</code></pre>

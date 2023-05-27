@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getIntersections`
-Defined in header [`<xieite/geometry/getIntersections.hpp>`](../../include/xieite/geometry/getIntersections.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::getIntersections
+Defined in header [<xieite/geometry/getIntersections.hpp>](../../include/xieite/geometry/getIntersections.hpp)
 
 <br/>
 
-Calculates all intersections between two geometrical elements.
+Calculates all intersections between two geometrical elements
 
 <br/><br/>
 
@@ -52,7 +52,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(xieite::geometry
 constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::concepts::LinearShape auto& linearShape, xieite::geometry::Point point) noexcept;
 ```
 ### Parameters
-- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- `linearShape` - An auto constant reference, satisfying `xieite::concepts::LinearShape`
 - `point` - A `xieite::geometry::Point` copy
 ### Return value
 - A `std::vector` of `xieite::geometry::Point`s. In this case, only one intersection is possible
@@ -79,7 +79,7 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::co
 - `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
 - `polygon` - A `xieite::geometry::Polygon` constant reference
 ### Return value
-- A `std::vector` of `xieite::geometry::Point`s
+- A `std::vector` of `xieite::geometry::Points`
 
 <br/><br/>
 
@@ -115,4 +115,4 @@ constexpr std::vector<xieite::geometry::Point> getIntersections(const xieite::ge
 - `polygon1` - A `xieite::geometry::Polygon` constant reference
 - `polygon2` - Another `xieite::geometry::Polygon` constant reference
 ### Return value
-- A `std::vector` of `xieite::geometry::Point`s
+- A `std::vector` of `xieite::geometry::Points`

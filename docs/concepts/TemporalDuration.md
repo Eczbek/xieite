@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::TemporalDuration`
-Defined in header [`<xieite/concepts/TemporalDuration.hpp>`](../../include/xieite/concepts/TemporalDuration.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::TemporalDuration
+Defined in header [<xieite/concepts/TemporalDuration.hpp>](../../include/xieite/concepts/TemporalDuration.hpp)
 
 <br/>
 
-Specifies that type `Any` is a `std::chrono::duration`.
+Specifies that a type is a `std::chrono::duration`
 
 <br/><br/>
 

@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setTextBlink`
-Defined in header [`<xieite/terminal/setTextBlink.hpp>`](../../include/xieite/terminal/setTextBlink.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setTextBlink
+Defined in header [<xieite/terminal/setTextBlink.hpp>](../../include/xieite/terminal/setTextBlink.hpp)
 
 <br/>
 
-Enables or disables text blinking.
+Enables or disables text blinking
 
 <br/><br/>
 

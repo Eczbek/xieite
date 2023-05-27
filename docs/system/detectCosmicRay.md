@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`system`](../../docs/system.md)`::detectCosmicRay`
-Defined in header [`<xieite/system/detectCosmicRay.hpp>`](../../include/xieite/system/detectCosmicRay.hpp)
+# [xieite](../../README.md)::[system](../system.md)::detectCosmicRay
+Defined in header [<xieite/system/detectCosmicRay.hpp>](../../include/xieite/system/detectCosmicRay.hpp)
 
 <br/>
 

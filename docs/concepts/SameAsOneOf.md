@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::SameAsOneOf`
-Defined in header [`<xieite/concepts/SameAsOneOf.hpp>`](../../include/xieite/concepts/SameAsOneOf.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::SameAsOneOf
+Defined in header [<xieite/concepts/SameAsOneOf.hpp>](../../include/xieite/concepts/SameAsOneOf.hpp)
 
 <br/>
 
-Specifies that type `Any1` is the same as at least one of `Any2...`.
+Specifies that a type is the same as at least one of several other types
 
 <br/><br/>
 
