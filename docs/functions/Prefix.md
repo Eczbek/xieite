@@ -3,7 +3,7 @@ Defined in header [<xieite/functions/Prefix.hpp>](../../include/xieite/functions
 
 <br/>
 
-An prefix operator
+An prefix operator thing
 
 <br/><br/>
 
@@ -12,25 +12,25 @@ An prefix operator
 <br/><br/>
 
 ```cpp
-template<typename>
+template<typename, auto>
 struct Prefix;
 ```
 ### Template parameters
-- An unnamed type
+- An unnamed unconstrained type
+- An unnamed `auto` value
 
 <br/><br/>
 
 ```cpp
-template<typename Result, typename RightParameter>
-struct Prefix<Result(RightParameter)> final {
-	constexpr Prefix(const xieite::concepts::Functional<Result(RightParameter)> auto&);
-
+template<typename Result, typename RightParameter, xieite::concepts::Functional<Result(RightParameter)> auto callback>
+struct Prefix<Result(RightParameter), callback> final {
 	constexpr Result operator>(const RightParameter&) const;
 };
 ```
 ### Template parameters
 - `Result` - The return type
 - `RightParameter` - The right parameter type
+- `callback` - An `auto` value, satisfaying `xieite::concepts::Functional` of `Result` of `RightParameter`
 ### Public members
 <pre><code>Prefix/
 |- <a href="./Prefix/constructor.md">Prefix</a>
@@ -45,9 +45,9 @@ struct Prefix<Result(RightParameter)> final {
 #include <xieite/functions/Prefix.hpp>
 
 int main() {
-	xieite::functions::Prefix<int(int)> increment([](int x) -> int {
+	xieite::functions::Prefix<int(int), [](int x) -> int {
 		return x + 1;
-	});
+	}> increment;
 
 	std::cout << (increment> 2) << '\n';
 }

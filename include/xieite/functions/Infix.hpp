@@ -1,58 +1,43 @@
 #ifndef XIEITE_HEADER_FUNCTIONS_INFIX
 #	define XIEITE_HEADER_FUNCTIONS_INFIX
 
-#	include <functional>
 #	include <xieite/concepts/Functional.hpp>
 
 namespace xieite::functions {
-	template<typename>
+	template<typename, auto>
 	struct Infix;
 
-	template<typename Result, typename Parameter>
-	class Infix<Result(Parameter)> final {
-	public:
-		constexpr Infix(const xieite::concepts::Functional<Result(Parameter)> auto& callback) noexcept
-		: callback(callback) {}
-
+	template<typename Result, typename Parameter, xieite::concepts::Functional<Result(Parameter)> auto callback>
+	struct Infix<Result(Parameter), callback> final {
 		constexpr Result operator>(const Parameter& argument) const {
-			return this->callback(argument);
+			return callback(argument);
 		}
 
-		friend constexpr Result operator<(const Parameter& argument, const xieite::functions::Infix<Result(Parameter)>& infix) {
-			return infix.callback(argument);
+		friend constexpr Result operator<(const Parameter& argument, const xieite::functions::Infix<Result(Parameter), callback>&) {
+			return callback(argument);
 		}
-
-	private:
-		const std::function<Result(Parameter)> callback;
 	};
 
-	template<typename Result, typename LeftParameter, typename RightParameter>
-	class Infix<Result(LeftParameter, RightParameter)> final {
+	template<typename Result, typename LeftParameter, typename RightParameter, xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto callback>
+	class Infix<Result(LeftParameter, RightParameter), callback> final {
 	private:
 		class Intermediate {
 		public:
-			constexpr Intermediate(const std::function<Result(LeftParameter, RightParameter)>& callback, const LeftParameter& leftArgument) noexcept
-			: callback(callback), leftArgument(leftArgument) {}
+			constexpr Intermediate(const LeftParameter& leftArgument) noexcept
+			: leftArgument(leftArgument) {}
 
 			constexpr Result operator>(const RightParameter& rightArgument) const {
-				return this->callback(leftArgument, rightArgument);
+				return callback(leftArgument, rightArgument);
 			}
 
 		private:
-			const std::function<Result(LeftParameter, RightParameter)> callback;
 			const LeftParameter& leftArgument;
 		};
 
 	public:
-		constexpr Infix(const xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto& callback) noexcept
-		: callback(callback) {}
-
-	private:
-		const std::function<Result(LeftParameter, RightParameter)> callback;
-
 		[[nodiscard]]
-		friend constexpr xieite::functions::Infix<Result(LeftParameter, RightParameter)>::Intermediate operator<(const LeftParameter& leftArgument, const xieite::functions::Infix<Result(LeftParameter, RightParameter)>& infix) noexcept {
-			return xieite::functions::Infix<Result(LeftParameter, RightParameter)>::Intermediate(infix.callback, leftArgument);
+		friend constexpr xieite::functions::Infix<Result(LeftParameter, RightParameter), callback>::Intermediate operator<(const LeftParameter& leftArgument, const xieite::functions::Infix<Result(LeftParameter, RightParameter), callback>&) noexcept {
+			return xieite::functions::Infix<Result(LeftParameter, RightParameter), callback>::Intermediate(leftArgument);
 		}
 	};
 }

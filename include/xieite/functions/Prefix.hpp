@@ -5,21 +5,14 @@
 #	include <xieite/concepts/Functional.hpp>
 
 namespace xieite::functions {
-	template<typename>
+	template<typename, auto>
 	struct Prefix;
 
-	template<typename Result, typename RightParameter>
-	class Prefix<Result(RightParameter)> final {
-	public:
-		constexpr Prefix(const xieite::concepts::Functional<Result(RightParameter)> auto& callback) noexcept
-		: callback(callback) {}
-
+	template<typename Result, typename RightParameter, xieite::concepts::Functional<Result(RightParameter)> auto callback>
+	struct Prefix<Result(RightParameter), callback> final {
 		constexpr Result operator>(const RightParameter& rightArgument) const {
-			return this->callback(rightArgument);
+			return callback(rightArgument);
 		}
-
-	private:
-		std::function<Result(RightParameter)> callback;
 	};
 }
 

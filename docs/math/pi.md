@@ -16,7 +16,7 @@ template<typename>
 inline constexpr double pi = std::numbers::pi;
 ```
 ### Template parameters
-- An unnamed type
+- An unnamed unconstrained type
 
 <br/><br/>
 
