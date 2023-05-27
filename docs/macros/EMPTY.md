@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)_EMPTY
+# [XIEITE](../macros.md)\_EMPTY
 Defined in header [<xieite/macros/EMPTY.hpp>](../../include/xieite/macros/EMPTY.hpp)
 
 <br/>

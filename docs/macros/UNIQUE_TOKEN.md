@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)_UNIQUE_TOKEN
+# [XIEITE](../macros.md)\_UNIQUE\_TOKEN
 Defined in header [<xieite/macros/UNIQUE_TOKEN.hpp>](../../include/xieite/macros/UNIQUE_TOKEN.hpp)
 
 <br/>

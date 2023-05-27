@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)_CONSUME
+# [XIEITE](../macros.md)\_CONSUME
 Defined in header [<xieite/macros/CONSUME.hpp>](../../include/xieite/macros/CONSUME.hpp)
 
 <br/>

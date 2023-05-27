@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)_REPEAT_CONCATENATE
+# [XIEITE](../macros.md)\_REPEAT\_CONCATENATE
 Defined in header [<xieite/macros/REPEAT_CONCATENATE.hpp>](../../include/xieite/macros/REPEAT_CONCATENATE.hpp)
 
 <br/>
