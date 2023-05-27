@@ -1,9 +1,5 @@
-# [`xieite`](../../../README.md)`::`[`types`](../../../docs/types.md)`::`[`List<Types...>`](../../../docs/types/List.md)`::Data`
-Defined in header [`<xieite/types/List.hpp>`](../../../include/xieite/types/List.hpp)
-
-<br/>
-
-Creates a `std::tuple` of `Types...`.
+# [xieite](../../../README.md)::[types](../../types.md)::[List<Types...>](../List.md)::Data
+Defined in header [<xieite/types/List.hpp>](../../../include/xieite/types/List.hpp)
 
 <br/><br/>
 

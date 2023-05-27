@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`functions`](../../docs/functions.md)`::Suffix`
-Defined in header [`<xieite/functions/Suffix.hpp>`](../../include/xieite/functions/Suffix.hpp)
+# [xieite](../../README.md)::[functions](../functions.md)::Suffix
+Defined in header [<xieite/functions/Suffix.hpp>](../../include/xieite/functions/Suffix.hpp)
 
 <br/>
 
-An suffix operator.
+An suffix operator
 
 <br/><br/>
 
@@ -31,9 +31,11 @@ struct Suffix<Result(LeftParameter)> final {
 ### Template parameters
 - `Result` - The return type
 - `LeftParameter` - The left parameter type
-### Member functions
-- [`Suffix`](../../docs/functions/Suffix/constructor.md)
-- [`operator<`](../../docs/functions/Suffix/operatorLess.md)
+### Public members
+<pre><code>Suffix/
+|- <a href="./Suffix/constructor.md">Suffix</a>
+`- <a href="./Suffix/operatorMode.md">operator<</a>
+</code></pre>
 
 <br/><br/>
 

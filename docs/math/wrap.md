@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::wrap`
-Defined in header [`<xieite/math/wrap.hpp>`](../../include/xieite/math/wrap.hpp)
+# [xieite](../../README.md)::[math](../math.md)::wrap
+Defined in header [<xieite/math/wrap.hpp>](../../include/xieite/math/wrap.hpp)
 
 <br/>
 
-"Wraps" a number between two limits, inclusively.
+"Wraps" a number between two limits, inclusively
 
 <br/><br/>
 
@@ -23,7 +23,7 @@ constexpr Number wrap(Number value, Number max, Number min = 0.0) noexcept;
 - `max` - A `Number` copy, the inclusive maximum of the result
 - `min` - A `Number` copy, the inclusive minimum of the result. Set to `0.0` by default
 ### Return value
-- A `Number`, the `value` wrapped between `max` and `min`
+- A `Number`, the value wrapped between `max` and `min`
 
 <br/><br/>
 

@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`graphics`](../../../docs/graphics.md)`::`[`Color`](../../../docs/graphics/Color.md)`::operator==`
-Defined in header [`<xieite/graphics/Color.hpp>`](../../../include/xieite/graphics/Color.hpp)
+# [xieite](../../../README.md)::[graphics](../../graphics.md)::[Color](../Color.md)::operator==
+Defined in header [<xieite/graphics/Color.hpp>](../../../include/xieite/graphics/Color.hpp)
 
 <br/>
 
-Compares two `xieite::graphics::Color`s.
+Compares two `xieite::graphics::Colors`
 
 <br/><br/>
 

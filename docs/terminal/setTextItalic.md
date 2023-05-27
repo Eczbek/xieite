@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setTextItalic`
-Defined in header [`<xieite/terminal/setTextItalic.hpp>`](../../include/xieite/terminal/setTextItalic.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setTextItalic
+Defined in header [<xieite/terminal/setTextItalic.hpp>](../../include/xieite/terminal/setTextItalic.hpp)
 
 <br/>
 
-Enables or disables *italic* text.
+Enables or disables *italic* text
 
 <br/><br/>
 

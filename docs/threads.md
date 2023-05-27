@@ -1,13 +1,14 @@
-# [`xieite`](../README.md)`::threads`
-Aggregated in header [`<xieite/threads.hpp>`](../include/xieite/threads.hpp)
+# [xieite](../README.md)::threads
+Aggregated in header [<xieite/threads.hpp>](../include/xieite/threads.hpp)
 
 <br/>
 
-A namespace of threading utilities.
+Threading utilities
 
 <br/><br/>
 
-## Member types
-- [`Interval`](../docs/threads/Interval.md)
-- [`Loop`](../docs/threads/Loop.md)
-- [`Timeout`](../docs/threads/Timeout.md)
+<pre><code>threads/
+|- <a href="./threads/Interval.md">Interval</a>
+|- <a href="./threads/Loop.md">Loop</a>
+`- <a href="./threads/Timeout.md">Timeout</a>
+</code></pre>

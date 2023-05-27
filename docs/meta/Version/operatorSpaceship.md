@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`meta`](../../../docs/meta.md)`::`[`Version`](../../../docs/meta/Version.md)`::operator<=>`
-Defined in header [`<xieite/meta/Version.hpp>`](../../../include/xieite/meta/Version.hpp)
+# [xieite](../../../README.md)::[meta](../../meta.md)::[Version](../Version.md)::operator<=>
+Defined in header [<xieite/meta/Version.hpp>](../../../include/xieite/meta/Version.hpp)
 
 <br/>
 
-Compares two `xieite::meta::Version`s, ingoring the `label` member object.
+Compares two `xieite::meta::Version`s, ingoring the label member object
 
 <br/><br/>
 

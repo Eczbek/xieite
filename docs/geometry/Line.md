@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::Line`
-Defined in header [`<xieite/geometry/Line.hpp>`](../../include/xieite/geometry/Line.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::Line
+Defined in header [<xieite/geometry/Line.hpp>](../../include/xieite/geometry/Line.hpp)
 
 <br/>
 
-An struct representing an infinite line.
+An class representing an infinite line
 
 <br/><br/>
 
@@ -23,9 +23,10 @@ struct Line final {
 	constexpr bool operator==(const xieite::geometry::Line&) const;
 };
 ```
-### Member objects
-- `start` - A `xieite::geometry::Point`
-- `end` - Another `xieite::geometry::Point`
-### Member functions
-- [`Line`](../../docs/geometry/Line/constructor.md)
-- [`operator==`](../../docs/geometry/Line/operatorEquals.md)
+### Public members
+<pre><code>Line/
+|- start
+|- end
+|- <a href="./Line/constructor.md">Line</a>
+`- <a href="./Line/operatorEquals.md">operator==</a>
+</code></pre>

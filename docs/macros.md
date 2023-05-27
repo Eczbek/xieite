@@ -1,33 +1,31 @@
-# [`XIEITE`](../README.md)`_...`
-Aggregated in header [`<xieite/macros.hpp>`](../include/xieite/macros.hpp)
+# [XIEITE](../README.md)_...
+Aggregated in header [<xieite/macros.hpp>](../include/xieite/macros.hpp)
 
 <br/>
 
-A collection of macros.
+Macros
 
 <br/><br/>
 
-## Object macros
-- [`ARCHITECTURE_TYPE_...`](../docs/macros/ARCHITECTURE_TYPE.md)
-- [`COMPILER_TYPE_...`](../docs/macros/COMPILER_TYPE.md)
-- [`COMPILER_VERSION_...`](../docs/macros/COMPILER_VERSION.md)
-- [`STANDARD_LANGUAGE_...`](../docs/macros/STANDARD_LANGUAGE.md)
-- [`STANDARD_UNIX_...`](../docs/macros/STANDARD_UNIX.md)
-- [`SYSTEM_TYPE_...`](../docs/macros/SYSTEM_TYPE.md)
-- [`UNIQUE_TOKEN`](../docs/macros/UNIQUE_TOKEN.md)
-- [`VANISH`](../docs/macros/VANISH.md)
-- [`VERSION_...`](../docs/macros/VERSION.md)
-
-<br/>
-
-## Function macros
-- [`CONCATENATE`](../docs/macros/CONCATENATE.md)
-- [`DEFER`](../docs/macros/DEFER.md)
-- [`EMPTY`](../docs/macros/EMPTY.md)
-- [`LOOP`](../docs/macros/LOOP.md)
-- [`MATRIX`](../docs/macros/MATRIX.md)
-- [`OBSTRUCT`](../docs/macros/OBSTRUCT.md)
-- [`REPEAT`](../docs/macros/REPEAT.md)
-- [`REPEAT_CONCATENATE`](../docs/macros/REPEAT_CONCATENATE.md)
-- [`SCAN`](../docs/macros/SCAN.md)
-- [`STRINGIFY`](../docs/macros/STRINGIFY.md)
+<pre><code>macros/
+|- <a href="./macros/ARCHITECTURE_TYPE.md">ARCHITECTURE_TYPE</a>
+|- <a href="./macros/COMPILER_TYPE.md">COMPILER_TYPE</a>
+|- <a href="./macros/COMPILER_VERSION.md">COMPILER_VERSION</a>
+|- <a href="./macros/CONCATENATE.md">CONCATENATE</a>
+|- <a href="./macros/CONSUME.md">CONSUME</a>
+|- <a href="./macros/DEFER.md">DEFER</a>
+|- <a href="./macros/EMPTY.md">EMPTY</a>
+|- <a href="./macros/LOOP.md">LOOP</a>
+|- <a href="./macros/MATRIX.md">MATRIX</a>
+|- <a href="./macros/OBSTRUCT.md">OBSTRUCT</a>
+|- <a href="./macros/REPEAT.md">REPEAT</a>
+|- <a href="./macros/REPEAT_CONCATENATE.md">REPEAT_CONCATENATE</a>
+|- <a href="./macros/SCAN.md">SCAN</a>
+|- <a href="./macros/STANDARD_LANGUAGE.md">STANDARD_LANGUAGE</a>
+|- <a href="./macros/STANDARD_UNIX.md">STANDARD_UNIX</a>
+|- <a href="./macros/STRINGIFY.md">STRINGIFY</a>
+|- <a href="./macros/SYSTEM_TYPE.md">SYSTEM_TYPE</a>
+|- <a href="./macros/UNIQUE_TOKEN.md">UNIQUE_TOKEN</a>
+|- <a href="./macros/VANISH.md">VANISH</a>
+`- <a href="./macros/VERSION.md">VERSION</a>
+</code></pre>

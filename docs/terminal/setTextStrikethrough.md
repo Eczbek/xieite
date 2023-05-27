@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setTextStrikethrough`
-Defined in header [`<xieite/terminal/setTextStrikethrough.hpp>`](../../include/xieite/terminal/setTextStrikethrough.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setTextStrikethrough
+Defined in header [<xieite/terminal/setTextStrikethrough.hpp>](../../include/xieite/terminal/setTextStrikethrough.hpp)
 
 <br/>
 
-Enables or disables ~~strikethrough~~ text.
+Enables or disables ~~strikethrough~~ text
 
 <br/><br/>
 

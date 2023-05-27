@@ -1,7 +1,7 @@
-# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`Integer<bits, sign>`](../../../docs/math/Integer.md)`::operator|=`
-Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Integer.hpp)
+# [xieite](../../../README.md)::[math](../../math.md)::[Integer<bits, sign>](../Integer.md)::operator|=
+Defined in header [<xieite/math/Integer.hpp>](../../../include/xieite/math/Integer.hpp)
 
-<br/>
+<br/><br/>
 
 ## Synopsis
 
@@ -11,7 +11,7 @@ Defined in header [`<xieite/math/Integer.hpp>`](../../../include/xieite/math/Int
 constexpr xieite::math::Integer<bits, sign> operator|=(xieite::math::Integer<bits, sign> integer) const noexcept;
 ```
 ### Parameters
-- `integer` - A `xieite::math::Integer` copy of `bits` and `sign`
+- `integer` - A `xieite::math::Integer` of `bits` and `sign`
 ### Return value
 - A `xieite::math::Integer` of `bits` and `sign`
 

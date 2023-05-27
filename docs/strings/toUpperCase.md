@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::toUpperCase`
-Defined in header [`<xieite/strings/toUpperCase.hpp>`](../../include/xieite/strings/toUpperCase.hpp)
+# [xieite](../../README.md)::[strings](../strings.md)::toUpperCase
+Defined in header [<xieite/strings/toUpperCase.hpp>](../../include/xieite/strings/toUpperCase.hpp)
 
 <br/>
 
-Converts a string or character to uppercase. Only handles characters `a` to `z`.
+Converts a string or character to uppercase. Only handles characters `a` to `z`
 
 <br/><br/>
 

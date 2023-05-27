@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`graphics`](../../../docs/graphics.md)`::`[`Color`](../../../docs/graphics/Color.md)`::Color`
-Defined in header [`<xieite/graphics/Color.hpp>`](../../../include/xieite/graphics/Color.hpp)
+# [xieite](../../../README.md)::[graphics](../../graphics.md)::[Color](../Color.md)::Color
+Defined in header [<xieite/graphics/Color.hpp>](../../../include/xieite/graphics/Color.hpp)
 
 <br/>
 
-Constructs a `xieite::graphics::Color`.
+Constructs a `xieite::graphics::Color`
 
 <br/><br/>
 
@@ -18,7 +18,7 @@ constexpr Color(std::uint8_t red, std::uint8_t green, std::uint8_t blue, std::ui
 - `red` - A `std::uint8_t` copy
 - `green` - A `std::uint8_t` copy
 - `blue` - A `std::uint8_t` copy
-- `alpha` - A `std::uint8_t` copy, set to `255` by default
+- `alpha` - A `std::uint8_t` copy, set to `std::numeric_limits<std::uint8_t>::max()` by default
 
 <br/><br/>
 

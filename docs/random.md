@@ -1,17 +1,14 @@
-# [`xieite`](../README.md)`::random`
-Aggregated in header [`<xieite/random.hpp>`](../include/xieite/random.hpp)
+# [xieite](../README.md)::random
+Aggregated in header [<xieite/random.hpp>](../include/xieite/random.hpp)
 
 <br/>
 
-A namespace of utilities focused on random value generation.
+Utilities for random value generation
 
 <br/><br/>
 
-## Member types
-- [`UniformBagDistribution`](../docs/random/UniformBagDistribution.md)
-- [`UniformInterruptableDistribution`](../docs/random/UniformInterruptableDistribution.md)
-
-<br/>
-
-## Member functions
-- [`getUUID`](../docs/random/getUUID.md)
+<pre><code>random/
+|- <a href="./random/UniformBagDistribution.md">UniformBagDistribution</a>
+|- <a href="./random/UniformInterruptableDistribution.md">UniformInterruptableDistribution</a>
+`- <a href="./random/getUUID.md">getUUID</a>
+</code></pre>

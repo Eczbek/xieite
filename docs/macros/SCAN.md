@@ -1,9 +1,9 @@
-# [`XIEITE`](../../docs/macros.md)`_SCAN`
-Defined in header [`<xieite/macros/SCAN.hpp>`](../../include/xieite/macros/SCAN.hpp)
+# [XIEITE](../macros.md)_SCAN
+Defined in header [<xieite/macros/SCAN.hpp>](../../include/xieite/macros/SCAN.hpp)
 
 <br/>
 
-Scans and expands expressions if possible.
+Scans and expands expressions if possible
 
 <br/><br/>
 

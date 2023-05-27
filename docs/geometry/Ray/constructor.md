@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Ray`](../../../docs/geoemtry/Ray.md)`::Ray`
-Defined in header [`<xieite/geometry/Ray.hpp>`](../../../include/xieite/geometry/Ray.hpp)
+# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Ray](../Ray.md)::Ray
+Defined in header [<xieite/geometry/Ray.hpp>](../../../include/xieite/geometry/Ray.hpp)
 
 <br/>
 
-Constructs a `xieite::geometry::Ray`.
+Constructs a `xieite::geometry::Ray`
 
 <br/><br/>
 

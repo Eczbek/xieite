@@ -1,4 +1,4 @@
-# [`xieite`](../../../README.md)`::`[`functions`](../../../docs/functions.md)`::`[`Infix<Result, Parameter>`](../../../docs/functions/Infix.md)`::operator<`
+# [xieite](../../../README.md)::[functions](../../functions.md)::[Infix<Result(Parameter)>](../Infix.md)::operator<
 
 <br/><br/>
 
@@ -11,6 +11,6 @@ friend constexpr Result operator<(const Parameter& argument, const xieite::funct
 ```
 ### Parameters
 - `argument` - A `Parameter` constant reference
-- `infix` - This `xieite::functions::Infix` instance
+- `infix` - A `xieite::functions::Infix` constant reference
 ### Return value
 - A `Result`

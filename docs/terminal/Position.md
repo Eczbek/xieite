@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::Position`
-Defined in header [`<xieite/terminal/Position.hpp>`](../../include/xieite/terminal/Position.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::Position
+Defined in header [<xieite/terminal/Position.hpp>](../../include/xieite/terminal/Position.hpp)
 
 <br/>
 
-A class for storing a position in the terminal.
+A class for storing a position in the terminal
 
 <br/><br/>
 
@@ -19,8 +19,9 @@ struct Position final {
 	constexpr Position(int, int);
 };
 ```
-### Member objects
-- `row` - An `int`
-- `column` - Another `int`
-### Member functions
-- [`Position`](../../docs/terminal/Position/constructor.md)
+### Public members
+<pre><code>Position/
+|- row
+|- column
+`- <a href="./Position/constructor.md">Position</a>
+</code></pre>

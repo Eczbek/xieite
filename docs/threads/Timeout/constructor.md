@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Timeout`](../../../docs/threads/Timeout.md)`::Timeout`
-Defined in header [`<xieite/threads/Timeout.hpp>`](../../../include/xieite/threads/Timeout.hpp)
+# [xieite](../../../README.md)::[threads](../../threads.md)::[Timeout](../Timeout.md)::Timeout
+Defined in header [<xieite/threads/Timeout.hpp>](../../../include/xieite/threads/Timeout.hpp)
 
 <br/>
 
-Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time before calling a callback.
+Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time before calling a callback
 
 <br/><br/>
 

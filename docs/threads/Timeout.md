@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`threads`](../../docs/threads.md)`::Timeout`
-Defined in header [`<xieite/threads/Timeout.hpp>`](../../include/xieite/threads/Timeout.hpp)
+# [xieite](../../README.md)::[threads](../threads.md)::Timeout
+Defined in header [<xieite/threads/Timeout.hpp>](../../include/xieite/threads/Timeout.hpp)
 
 <br/>
 
-Runs a callback once after a set amount of time. Compile with `-pthread`.
+Runs a callback once after a set amount of time. Compile with `-pthread
 
 <br/><br/>
 
@@ -20,11 +20,12 @@ struct Timeout final {
 	void stop();
 };
 ```
-### Member functions
-- [`Timeout`](../../docs/threads/Timeout/constructor.md)
-- [`~Timeout`](../../docs/threads/Timeout/destructor.md)
-- [`good`](../../docs/threads/Timeout/good.md)
-- [`stop`](../../docs/threads/Timeout/stop.md)
+### Public members
+<pre><code>Timeout/
+|- <a href="./Timeout/constructor.md">Timeout</a>
+|- <a href="./Timeout/good.md">good</a>
+`- <a href="./Timeout/stop.md">stop</a>
+</code></pre>
 
 <br/><br/>
 

@@ -1,23 +1,16 @@
-# [`xieite`](../README.md)`::types`
-Aggregated in header [`<xieite/types.hpp>`](../include/xieite/types.hpp)
+# [xieite](../README.md)::types
+Aggregated in header [<xieite/types.hpp>](../include/xieite/types.hpp)
 
 <br/>
 
-A namespace of type utilities.
+Utilities for types and metaprogramming
 
 <br/><br/>
 
-## Member types
-- [`Anything`](../docs/types/Anything.md)
-- [`List`](../docs/types/List.md)
-- [`Unique`](../docs/types/Unique.md)
-
-<br/>
-
-## Member objects
-- [`count`](../docs/types/count.md)
-
-<br/>
-
-## Member functions
-- [`demangle`](../docs/types/demangle.md)
+<pre><code>types/
+|- <a href="./types/Anything.md">Anything</a>
+|- <a href="./types/List.md">List</a>
+|- <a href="./types/Unique.md">Unique</a>
+|- <a href="./types/count.md">count</a>
+`- <a href="./types/demangle.md">demangle</a>
+</code></pre>

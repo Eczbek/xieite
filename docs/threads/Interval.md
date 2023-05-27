@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`threads`](../../docs/threads.md)`::Interval`
-Defined in header [`<xieite/threads/Interval.hpp>`](../../include/xieite/threads/Interval.hpp)
+# [xieite](../../README.md)::[threads](../threads.md)::Interval
+Defined in header [<xieite/threads/Interval.hpp>](../../include/xieite/threads/Interval.hpp)
 
 <br/>
 
-Runs a callback every set amount of time. Compile with `-pthread`.
+Runs a callback every set amount of time. Compile with `-pthread
 
 <br/><br/>
 
@@ -20,11 +20,12 @@ struct Interval final {
 	void stop();
 };
 ```
-### Member functions
-- [`Interval`](../../docs/threads/Interval/constructor.md)
-- [`~Interval`](../../docs/threads/Interval/destructor.md)
-- [`good`](../../docs/threads/Interval/good.md)
-- [`stop`](../../docs/threads/Interval/stop.md)
+### Public members
+<pre><code>Interval/
+|- <a href="./Interval/constructor.md">Interval</a>
+|- <a href="./Interval/good.md">good</a>
+`- <a href="./Interval/stop.md">stop</a>
+</code></pre>
 
 <br/><br/>
 

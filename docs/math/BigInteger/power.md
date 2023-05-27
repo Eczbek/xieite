@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::power`
-Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
+# [xieite](../../../README.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::power
+Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 <br/>
 
-Raises a `xieite::math::BigInteger` to an exponent.
+Raises a `xieite::math::BigInteger` to an exponent
 
 <br/><br/>
 
@@ -16,16 +16,18 @@ Raises a `xieite::math::BigInteger` to an exponent.
 constexpr xieite::math::BigInteger power(xieite::math::BigInteger bigInteger) const;
 ```
 ### Parameters
-- A `xieite::math::BigInteger` copy
+- `bigInteger` - A `xieite::math::BigInteger` copy
 ### Return value
 - A `xieite::math::BigInteger`
+
+<br/><br/>
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger power(std::integral auto value) const;
 ```
 ### Parameters
-- An `auto` integer type, satisfying `std::integral`
+- `value` - An `auto` integer type, satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

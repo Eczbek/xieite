@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setTextBold`
-Defined in header [`<xieite/terminal/setTextBold.hpp>`](../../include/xieite/terminal/setTextBold.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setTextBold
+Defined in header [<xieite/terminal/setTextBold.hpp>](../../include/xieite/terminal/setTextBold.hpp)
 
 <br/>
 
-Enables or disables text **boldness**.
+Enables or disables text **boldness**
 
 <br/><br/>
 

@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`system`](../../docs/system.md)`::segmentationFault`
-Defined in header [`<xieite/system/segmentationFault.hpp>`](../../include/xieite/system/segmentationFault.hpp)
+# [xieite](../../README.md)::[system](../system.md)::segmentationFault
+Defined in header [<xieite/system/segmentationFault.hpp>](../../include/xieite/system/segmentationFault.hpp)
 
 <br/>
 

@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getSides`
-Defined in header p`<xieite/geometry/getSides.hpp>`](../../include/xieite/geometry/getSides.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::getSides
+Defined in header p<xieite/geometry/getSides.hpp>](../../include/xieite/geometry/getSides.hpp)
 
 <br/>
 
-Creates line segments between the points of a polygon.
+Creates line segments between the points of a polygon
 
 <br/><br/>
 

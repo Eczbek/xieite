@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::piDigits`
-Defined in header [`<xieite/math/piDigits.hpp>`](../../include/xieite/math/piDigits.hpp)
+# [xieite](../../README.md)::[math](../math.md)::piDigits
+Defined in header [<xieite/math/piDigits.hpp>](../../include/xieite/math/piDigits.hpp)
 
 <br/>
 
-Calculates digits of Pi.
+Calculates digits of Pi
 
 <br/><br/>
 

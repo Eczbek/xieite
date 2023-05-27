@@ -1,11 +1,12 @@
-# [`xieite`](../README.md)`::graphics`
-Aggregated in header [`<xieite/graphics.hpp>`](../include/xieite/graphics.hpp)
+# [xieite](../README.md)::graphics
+Aggregated in header [<xieite/graphics.hpp>](../include/xieite/graphics.hpp)
 
 <br/>
 
-A namespace of graphical utilities.
+Graphical utilities
 
 <br/><br/>
 
-## Member types
-- [`Color`](../docs/graphics/Color.md)
+<pre><code>graphics/
+`- <a href="./graphics/Color.md">Color</a>
+</code></pre>

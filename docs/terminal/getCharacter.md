@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::getCharacter`
-Defined in header [`<xieite/terminal/getCharacter.hpp>`](../../include/xieite/terminal/getCharacter.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::getCharacter
+Defined in header [<xieite/terminal/getCharacter.hpp>](../../include/xieite/terminal/getCharacter.hpp)
 
 <br/>
 
-Waits for and returns the next keypress input.
+Waits for and returns the next keypress input
 
 <br/><br/>
 

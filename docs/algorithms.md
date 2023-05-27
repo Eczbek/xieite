@@ -1,20 +1,21 @@
-# [`xieite`](../README.md)`::algorithms`
-Aggregated in header [`<xieite/algorithms.hpp>`](../include/xieite/algorithms.hpp)
+# [xieite](../README.md)::algorithms
+Aggregated in header [<xieite/algorithms.hpp>](../include/xieite/algorithms.hpp)
 
 <br/>
 
-A namespace of useful algorithms.
+Somewhat useful algorithms
 
 <br/><br/>
 
-## Member functions
-- [`all`](../docs/algorithms/all.md)
-- [`any`](../docs/algorithms/any.md)
-- [`count`](../docs/algorithms/count.md)
-- [`findOccurrence`](../docs/algorithms/findOccurrence.md)
-- [`group`](../docs/algorithms/group.md)
-- [`isPalindrome`](../docs/algorithms/isPalindrome.md)
-- [`numberSearch`](../docs/algorithms/numberSearch.md)
-- [`partialReverse`](../docs/algorithms/partialReverse.md)
-- [`rotateMatrix`](../docs/algorithms/rotateMatrix.md)
-- [`sameRelativeOrder`](../docs/algorithms/sameRelativeOrder.md)
+<pre><code>algorithms/
+|- <a href="./algorithms/all.md">all</a>
+|- <a href="./algorithms/any.md">any</a>
+|- <a href="./algorithms/count.md">count</a>
+|- <a href="./algorithms/findOccurrence.md">findOccurrence</a>
+|- <a href="./algorithms/group.md">group</a>
+|- <a href="./algorithms/isPalindrome.md">isPalindrome</a>
+|- <a href="./algorithms/numberSearch.md">numberSearch</a>
+|- <a href="./algorithms/partialReverse.md">partialReverse</a>
+|- <a href="./algorithms/rotateMatrix.md">rotateMatrix</a>
+`- <a href="./algorithms/sameRelativeOrder.md">sameRelativeOrder</a>
+</code></pre>

@@ -1,9 +1,9 @@
-# [`XIEITE`](../../docs/macros.md)`_DEFER`
-Defined in header [`<xieite/macros/DEFER.hpp>`](../../include/xieite/macros/DEFER.hpp)
+# [XIEITE](../macros.md)_DEFER
+Defined in header [<xieite/macros/DEFER.hpp>](../../include/xieite/macros/DEFER.hpp)
 
 <br/>
 
-Defers expressions for later evaluation.
+Defers expressions for later evaluation
 
 <br/><br/>
 

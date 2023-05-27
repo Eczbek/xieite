@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Derivable`
-Defined in header [`<xieite/concepts/Derivable.hpp>`](../../include/xieite/concepts/Derivable.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::Derivable
+Defined in header [<xieite/concepts/Derivable.hpp>](../../include/xieite/concepts/Derivable.hpp)
 
 <br/>
 
-Specifies that type `Any` can be derived from.
+Specifies that a type can be derived from
 
 <br/><br/>
 

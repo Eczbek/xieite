@@ -1,9 +1,9 @@
-# [`XIEITE`](../../docs/macros.md)`_VANISH`
-Defined in header [`<xieite/macros/VANISH.hpp>`](../../include/xieite/macros/VANISH.hpp)
+# [XIEITE](../macros.md)_VANISH
+Defined in header [<xieite/macros/VANISH.hpp>](../../include/xieite/macros/VANISH.hpp)
 
 <br/>
 
-Uses cursed C++ magic to remove any line where it is mentioned.
+Uses cursed C++ magic to remove any line where it is mentioned
 
 <br/><br/>
 

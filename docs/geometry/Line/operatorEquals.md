@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`geometry`](../../../docs/geometry.md)`::`[`Line`](../../../docs/geoemtry/Line.md)`::operator==`
-Defined in header [`<xieite/geometry/Line.hpp>`](../../../include/xieite/geometry/Line.hpp)
+# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Line](../Line.md)::operator==
+Defined in header [<xieite/geometry/Line.hpp>](../../../include/xieite/geometry/Line.hpp)
 
 <br/>
 
-Compares two lines to each other.
+Compares two lines to each other
 
 <br/><br/>
 

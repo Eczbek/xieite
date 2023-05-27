@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`functions`](../../docs/functions.md)`::OptionalCallOperator`
-Defined in header [`<xieite/functions/OptionalCallOperator.hpp>`](../../include/xieite/functions/OptionalCallOperator.hpp)
+# [xieite](../../README.md)::[functions](../functions.md)::OptionalCallOperator
+Defined in header [<xieite/functions/OptionalCallOperator.hpp>](../../include/xieite/functions/OptionalCallOperator.hpp)
 
 <br/>
 
-A wrapper for any type which defines `operator()` if it does not exist.
+A wrapper for any type which defines `operator()` if it does not exist
 
 <br/><br/>
 
@@ -22,9 +22,11 @@ struct OptionalCallOperator
 ```
 ### Template parameters
 - `Any` - Any type satisfying `xieite::concepts::Derivable`
-### Member functions
-- [`OptionalCallOperator`](../../docs/functions/OptionalCallOperator/constructor1.md)
-- [`operator()`](../../docs/functions/OptionalCallOperator/operatorCall1.md)
+### Public members
+<pre><code>OptionalCallOperator/
+|- <a href="./OptionalCallOperator/constructor1.md">OptionalCallOperator</a>
+`- <a href="./OptionalCallOperator/operatorCall1.md">operator()</a>
+</code></pre>
 
 <br/><br/>
 
@@ -42,6 +44,8 @@ struct OptionalCallOperator<Function>
 - `Function` - Any type satisfying `xieite::concepts::Derivable`
 ### Requirements
 - `Function` must be invocable with a `xieite::types::Anything`
-### Member functions
-- [`OptionalCallOperator`](../../docs/functions/OptionalCallOperator/constructor2.md)
-- [`operator()`](../../docs/functions/OptionalCallOperator/operatorCall2.md)
+### Public members
+<pre><code>OptionalCallOperator/
+|- <a href="./OptionalCallOperator/constructor2.md">OptionalCallOperator</a>
+`- <a href="./OptionalCallOperator/operatorCall2.md">operator()</a>
+</code></pre>

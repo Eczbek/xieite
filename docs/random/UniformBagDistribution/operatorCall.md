@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`random`](../../../docs/random.md)`::`[`UniformBagDistribution<Integral>`](../../../docs/random/UniformBagDistribution.md)`::operator()`
-Defined in header [`<xieite/random/UniformBagDistribution.hpp>`](../../../include/random/UniformBagDistribution.hpp)
+# [xieite](../../../README.md)::[random](../../random.md)::[UniformBagDistribution<Integral>](../UniformBagDistribution.md)::operator()
+Defined in header [<xieite/random/UniformBagDistribution.hpp>](../../../include/xieite/random/UniformBagDistribution.hpp)
 
 <br/>
 
-Distributes the result of a random number generator.
+Distributes the result of a random number generator
 
 <br/><br/>
 

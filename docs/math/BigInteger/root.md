@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::root`
-Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
+# [xieite](../../../README.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::root
+Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 <br/>
 
-Calculates any root of a `xieite::math::BigInteger`.
+Calculates any root of a `xieite::math::BigInteger`
 
 <br/><br/>
 
@@ -16,7 +16,7 @@ Calculates any root of a `xieite::math::BigInteger`.
 constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& bigInteger) const;
 ```
 ### Parameters
-- A `xieite::math::BigInteger` copy
+- `bigInteger` - A `xieite::math::BigInteger` copy
 ### Return value
 - A `xieite::math::BigInteger`
 
@@ -27,7 +27,7 @@ constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& bigInteg
 constexpr xieite::math::BigInteger root(std::integral auto value) const;
 ```
 ### Parameters
-- An `auto` integer type, satisfying `std::integral`
+- `value` - An `auto` integer type, satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

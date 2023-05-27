@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`functions`](../../docs/functions.md)`::Infix`
-Defined in header [`<xieite/functions/Infix.hpp>`](../../include/xieite/functions/Infix.hpp)
+# [xieite](../../README.md)::[functions](../functions.md)::Infix
+Defined in header [<xieite/functions/Infix.hpp>](../../include/xieite/functions/Infix.hpp)
 
 <br/>
 
-An infix operator thing.
+An infix operator thing
 
 <br/><br/>
 
@@ -33,10 +33,12 @@ struct Infix<Result(Parameter)> final {
 ### Template parameters
 - `Result` - The return type
 - `Parameter` - The parameter type for both right and left possible sides
-### Member functions
-- [`Infix`](../../docs/functions/Infix/constructor1.md)
-- [`operator>`](../../docs/functions/Infix/operatorMore.md)
-- [`operator<`](../../docs/functions/Infix/operatorLess.md)
+### Public members
+<pre><code>Infix/
+|- <a href="./Infix/constructor1.md">Infix</a>
+|- <a href="./Infix/operatorMore.md">operator></a>
+`- <a href="./Infix/operatorLess.md">operator<</a>
+</code></pre>
 
 <br/><br/>
 
@@ -50,9 +52,10 @@ struct Infix<Result(LeftParameter, RightParameter)> final {
 - `Result` - The return type
 - `LeftParameter` - The left parameter type
 - `RightParameter` - The right parameter type
-- 
-### Member functions
-- [`Infix`](../../docs/functions/Infix/constructor2.md)
+### Public members
+<pre><code>Infix/
+`- <a href="./Infix/constructor2.md">Infix</a>
+</code></pre>
 
 <br/><br/>
 

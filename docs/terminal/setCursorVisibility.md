@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setCursorVisibility`
-Defined in header [`<xieite/terminal/setCursorVisibility.hpp>`](../../include/xieite/terminal/setCursorVisibility.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setCursorVisibility
+Defined in header [<xieite/terminal/setCursorVisibility.hpp>](../../include/xieite/terminal/setCursorVisibility.hpp)
 
 <br/>
 
-Shows or hides the cursor.
+Shows or hides the cursor
 
 <br/><br/>
 

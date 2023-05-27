@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::trimBack`
-Defined in header [`<xieite/strings/trimBack.hpp>`](../../include/xieite/strings/trimBack.hpp)
+# [xieite](../../README.md)::[strings](../strings.md)::trimBack
+Defined in header [<xieite/strings/trimBack.hpp>](../../include/xieite/strings/trimBack.hpp)
 
 <br/>
 
-Trims the back of a string.
+Trims the back of a string
 
 <br/><br/>
 

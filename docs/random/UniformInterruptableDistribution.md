@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`random`](../../docs/random.md)`::UniformInterruptableDistribution`
-Defined in header [`<xieite/random/UniformInterruptableDistribution.hpp>`](../../include/xieite/random/UniformInterruptableDistribution.hpp)
+# [xieite](../../README.md)::[random](../random.md)::UniformInterruptableDistribution
+Defined in header [<xieite/random/UniformInterruptableDistribution.hpp>](../../include/xieite/random/UniformInterruptableDistribution.hpp)
 
 <br/>
 
-A uniform random number distribution which allows excluding subintervals from the main interval.
+A uniform random number distribution which allows excluding subintervals from the main interval
 
 <br/><br/>
 
@@ -21,9 +21,11 @@ struct UniformInterruptableDistribution final {
 ```
 ### Template Parameters
 - `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
-### Member functions
-- [`UniformInterruptableDistribution`](../../docs/random/UniformInterruptableDistribution/constructor.md)
-- [`operator()`](../../docs/random/UniformInterruptableDistribution/operatorCall.md)
+### Public members
+<pre><code>UniformInterruptableDistribution/
+|- <a href="./UniformInterruptableDistribution/constructor.md">UniformInterruptableDistribution</a>
+`- <a href="./UniformInterruptableDistribution/operatorCall.md">operator()</a>
+</code></pre>
 
 <br/><br/>
 

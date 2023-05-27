@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::truncate`
-Defined in header [`<xieite/strings/truncate.hpp>`](../../include/xieite/strings/truncate.hpp)
+# [xieite](../../README.md)::[strings](../strings.md)::truncate
+Defined in header [<xieite/strings/truncate.hpp>](../../include/xieite/strings/truncate.hpp)
 
 <br/>
 
-Shortens the end of a string, replacing it with a suffix.
+Shortens the end of a string, replacing it with a suffix
 
 <br/><br/>
 

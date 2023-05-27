@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::getPosition`
-Defined in header [`<xieite/terminal/getPosition.hpp>`](../../include/xieite/terminal/getPosition.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::getPosition
+Defined in header [<xieite/terminal/getPosition.hpp>](../../include/xieite/terminal/getPosition.hpp)
 
 <br/>
 
-Gets the cursor's position in the terminal. The coordinates correlate to the `{ +x, -y }` cartesian quadrant.
+Gets the cursor's position in the terminal. The coordinates correlate to the `{ +x, -y }` cartesian quadrant
 
 <br/><br/>
 

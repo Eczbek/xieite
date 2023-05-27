@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::data`
-Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
+# [xieite](../../../README.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::data
+Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 <br/>
 
-Gets the data of a `xieite::math::BigInteger`.
+Gets the data of a `xieite::math::BigInteger`
 
 <br/><br/>
 

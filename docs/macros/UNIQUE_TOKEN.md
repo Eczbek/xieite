@@ -1,9 +1,9 @@
-# [`XIEITE`](../../docs/macros.md)`_UNIQUE_TOKEN`
-Defined in header [`<xieite/macros/UNIQUE_TOKEN.hpp>`](../../include/xieite/macros/UNIQUE_TOKEN.hpp)
+# [XIEITE](../macros.md)_UNIQUE_TOKEN
+Defined in header [<xieite/macros/UNIQUE_TOKEN.hpp>](../../include/xieite/macros/UNIQUE_TOKEN.hpp)
 
 <br/>
 
-Creates a unique token.
+Creates a unique token
 
 <br/><br/>
 
@@ -20,7 +20,6 @@ Creates a unique token.
 
 ## Example
 ```cpp
-#include <iostream>
 #include <xieite/macros/UNIQUE_TOKEN.hpp>
 
 int main() {
@@ -28,7 +27,4 @@ int main() {
 
 	double XIEITE_UNIQUE_TOKEN = 3.14159;
 }
-```
-Output:
-```
 ```

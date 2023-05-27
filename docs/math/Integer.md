@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::Integer`
-Defined in header [`<xieite/math/Integer.hpp>`](../../include/xieite/math/Integer.hpp)
+# [xieite](../../README.md)::[math](../math.md)::Integer
+Defined in header [<xieite/math/Integer.hpp>](../../include/xieite/math/Integer.hpp)
 
 <br/>
 
-Allows creation of integer types of any bit size. All mathematical operators are defined.
+Allows creation of integer types of any bit size. All mathematical operators are defined
 
 <br/><br/>
 
@@ -91,36 +91,38 @@ struct Integer<bits, sign> final {
 ### Template parameters
 - `bits` - A `std::size_t` copy, how many bits the type can use
 - `sign` - A `bool` copy, whether or not the type is signed
-### Member functions
-- [`Integer`](../../docs/math/Integer/constructor.md)
-- [`operator=`](../../docs/math/Integer/operatorAssign.md)
-- [`operator typename`](../../docs/math/Integer/operatorCast.md)
-- [`operator!`](../../docs/math/Integer/operatorNot.md)
-- [`operator==`](../../docs/math/Integer/operatorEquals.md)
-- [`operator<=>`](../../docs/math/Integer/operatorSpaceship.md)
-- [`operator+`](../../docs/math/Integer/operatorAdd.md)
-- [`operator+=`](../../docs/math/Integer/operatorAddAssign.md)
-- [`operator++`](../../docs/math/Integer/operatorIncrement.md)
-- [`operator-`](../../docs/math/Integer/operatorSubtract.md)
-- [`operator-=`](../../docs/math/Integer/operatorSubtractAssign.md)
-- [`operator--`](../../docs/math/Integer/operatorDecrement.md)
-- [`operator*`](../../docs/math/Integer/operatorMultiply.md)
-- [`operator*=`](../../docs/math/Integer/operatorMultiplyAssign.md)
-- [`operator/`](../../docs/math/Integer/operatorDivide.md)
-- [`operator/=`](../../docs/math/Integer/operatorDivideAssign.md)
-- [`operator%`](../../docs/math/Integer/operatorModulo.md)
-- [`operator%=`](../../docs/math/Integer/operatorModuloAssign.md)
-- [`operator~`](../../docs/math/Integer/operatorBitwiseNot.md)
-- [`operator&`](../../docs/math/Integer/operatorBitwiseAnd.md)
-- [`operator&=`](../../docs/math/Integer/operatorBitwiseNotAssign.md)
-- [`operator|`](../../docs/math/Integer/operatorBitwiseOr.md)
-- [`operator|=`](../../docs/math/Integer/operatorBitwiseOrAssign.md)
-- [`operator^`](../../docs/math/Integer/operatorBitwiseXor.md)
-- [`operator^=`](../../docs/math/Integer/operatorBitwiseXorAssign.md)
-- [`operator<<`](../../docs/math/Integer/operatorBitwiseShiftLeft.md)
-- [`operator<<=`](../../docs/math/Integer/operatorBitwiseShiftLeftAssign.md)
-- [`operator>>`](../../docs/math/Integer/operatorBitwiseShiftRight.md)
-- [`operator>>=`](../../docs/math/Integer/operatorBitwiseShiftRightAssign.md)
+### Public members
+<pre><code>Integer/
+|- <a href="./Integer/constructor.md">Integer</a>
+|- <a href="./Integer/operatorAssign.md">operator=</a>
+|- <a href="./Integer/operatorCast.md">operator typename</a>
+|- <a href="./Integer/operatorNot.md">operator!</a>
+|- <a href="./Integer/operatorEquals.md">operator==</a>
+|- <a href="./Integer/operatorSpaceship.md">operator<=></a>
+|- <a href="./Integer/operatorAdd.md">operator+</a>
+|- <a href="./Integer/operatorAddAssign.md">operator+=</a>
+|- <a href="./Integer/operatorIncrement.md">operator++</a>
+|- <a href="./Integer/operatorSubtract.md">operator-</a>
+|- <a href="./Integer/operatorSubtractAssign.md">operator-=</a>
+|- <a href="./Integer/operatorDecrement.md">operator--</a>
+|- <a href="./Integer/operatorMultiply.md">operator*</a>
+|- <a href="./Integer/operatorMultiplyAssign.md">operator*=</a>
+|- <a href="./Integer/operatorDivide.md">operator/</a>
+|- <a href="./Integer/operatorDivideAssign.md">operator/=</a>
+|- <a href="./Integer/operatorModulo.md">operator%</a>
+|- <a href="./Integer/operatorModuloAssign.md">operator%=</a>
+|- <a href="./Integer/operatorBitwiseNot.md">operator~</a>
+|- <a href="./Integer/operatorBitwiseAnd.md">operator&</a>
+|- <a href="./Integer/operatorBitwiseNotAssign.md">operator&=</a>
+|- <a href="./Integer/operatorBitwiseOr.md">operator|</a>
+|- <a href="./Integer/operatorBitwiseOrAssign.md">operator|=</a>
+|- <a href="./Integer/operatorBitwiseXor.md">operator^</a>
+|- <a href="./Integer/operatorBitwiseXorAssign.md">operator^=</a>
+|- <a href="./Integer/operatorBitwiseShiftLeft.md">operator<<</a>
+|- <a href="./Integer/operatorBitwiseShiftLeftAssign.md">operator<<=</a>
+|- <a href="./Integer/operatorBitwiseShiftRight.md">operator>></a>
+`- <a href="./Integer/operatorBitwiseShiftRightAssign.md">operator>>=</a>
+</code></pre>
 
 <br/><br/>
 

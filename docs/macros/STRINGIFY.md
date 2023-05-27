@@ -1,9 +1,9 @@
-# [`XIEITE`](../../docs/macros.md)`_STRINGIFY`
-Defined in header [`<xieite/macros/STRINGIFY.hpp>`](../../include/xieite/macros/STRINGIFY.hpp)
+# [XIEITE](../macros.md)_STRINGIFY
+Defined in header [<xieite/macros/STRINGIFY.hpp>](../../include/xieite/macros/STRINGIFY.hpp)
 
 <br/>
 
-Converts expressions to a string literally.
+Converts expressions to a string literally
 
 <br/><br/>
 

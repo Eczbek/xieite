@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::xorShift`
-Defined in header [`<xieite/math/xorShift.hpp>`](../../include/xieite/math/xorShift.hpp)
+# [xieite](../../README.md)::[math](../math.md)::xorShift
+Defined in header [<xieite/math/xorShift.hpp>](../../include/xieite/math/xorShift.hpp)
 
 <br/>
 
-Returns the XOR of a value and the value shifted right.
+Returns the XOR of a value and the value shifted right
 
 <br/><br/>
 

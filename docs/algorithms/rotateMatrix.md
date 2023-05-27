@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::rotateMatrix`
-Defined in header [`<xieite/algorithms/rotateMatrix.hpp>`](../../include/xieite/algorithms/rotateMatrix.hpp)
+# [xieite](../../README.md)::[algorithms](../algorithms.md)::rotateMatrix
+Defined in header [<xieite/algorithms/rotateMatrix.hpp>](../../include/xieite/algorithms/rotateMatrix.hpp)
 
 <br/>
 
-Rotates a 2D vector matrix by 90* up to 3 times in either direction.
+Rotates a 2D vector matrix by 90* up to 3 times in either direction
 
 <br/><br/>
 
@@ -19,10 +19,10 @@ constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::ve
 ### Template parameters
 - `Value` - Any type
 ### Parameters
-- `matrix` - A constant reference to a 2-dimensional `std::vector` of `Value`s
+- `matrix` - A constant reference to a `std::vector` of `std::vector`s of `Value`s
 - `rotations` - An `int` copy for which direction to rotate in. Positive = clockwise, negative = counter-clockwise
 ### Return value
-- A 2-dimensional `std::vector` of the same `Values`s
+- A `std::vector` of `std::vector`s of the same `Value`s but in a different order
 
 <br/><br/>
 

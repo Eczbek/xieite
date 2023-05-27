@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::secant`
-Defined in header [`<xieite/math/secant.hpp>`](../../include/xieite/math/secant.hpp)
+# [xieite](../../README.md)::[math](../math.md)::secant
+Defined in header [<xieite/math/secant.hpp>](../../include/xieite/math/secant.hpp)
 
 <br/>
 
-A trigonometric function which wasn't included in the standard math library. Calculates the secant of a value.
+A trigonometric function which wasn't included in the standard math library. Calculates the secant of a value
 
 <br/><br/>
 
@@ -21,4 +21,4 @@ constexpr Number secant(Number value) noexcept;
 ### Parameters
 - `value` - A `Number` copy
 ### Return value
-- A `Number`, the secant of `value`
+- A `Number`, the secant of value

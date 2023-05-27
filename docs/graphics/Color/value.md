@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`graphics`](../../../docs/graphics.md)`::`[`Color`](../../../docs/graphics/Color.md)`::value`
-Defined in header [`<xieite/graphics/Color.hpp>`](../../../include/xieite/graphics/Color.hpp)
+# [xieite](../../../README.md)::[graphics](../../graphics.md)::[Color](../Color.md)::value
+Defined in header [<xieite/graphics/Color.hpp>](../../../include/xieite/graphics/Color.hpp)
 
 <br/>
 
-Shifts and adds RGBA values together to create a single value.
+Shifts and adds RGBA values together to create a single value
 
 <br/><br/>
 
@@ -16,7 +16,7 @@ Shifts and adds RGBA values together to create a single value.
 constexpr std::uint32_t value() noexcept;
 ```
 ### Return value
-- The combined value
+- A `std::uint32_t`, the combined value
 
 <br/><br/>
 

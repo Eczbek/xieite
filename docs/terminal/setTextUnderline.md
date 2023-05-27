@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setTextUnderline`
-Defined in header [`<xieite/terminal/setTextUnderline.hpp>`](../../include/xieite/terminal/setTextUnderline.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setTextUnderline
+Defined in header [<xieite/terminal/setTextUnderline.hpp>](../../include/xieite/terminal/setTextUnderline.hpp)
 
 <br/>
 
-Enables or disables text <u>underlining</u>.
+Enables or disables text <u>underlining</u>
 
 <br/><br/>
 

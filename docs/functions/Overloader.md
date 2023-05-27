@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`functions`](../../docs/functions.md)`::Overloader`
-Defined in header [`<xieite/functions/Overloader.hpp>`](../../include/xieite/functions/Overloader.hpp)
+# [xieite](../../README.md)::[functions](../functions.md)::Overloader
+Defined in header [<xieite/functions/Overloader.hpp>](../../include/xieite/functions/Overloader.hpp)
 
 <br/>
 
-Extends multiple invocable types and overloads `operator()` for each. Ignores types which are not callable.
+Extends multiple invocable types and overloads `operator()` for each. Ignores types which are not callable
 
 <br/><br/>
 
@@ -22,9 +22,11 @@ struct Overloader final
 ```
 ### Template parameters
 - `Functions...` - Any types, satisfying `xieite::concepts::Derivable`, to be derived from
-### Member functions
-- [`Overloader`](../../docs/functions/Overloader/constructor.md)
-- [`operator()`](../../docs/functions/Overloader/operatorCall.md)
+### Public members
+<pre><code>Overloader/
+|- <a href="./Overloader/constructor.md">Overloader</a>
+`- <a href="./Overloader/operatorCall.md">operator()</a>
+</code></pre>
 
 <br/><br/>
 
@@ -33,8 +35,6 @@ struct Overloader final
 #include <iostream>
 #include <xieite/functions/Overloader.hpp>
 
-struct nope {};
-
 int main() {
 	auto foo = [](int) -> void {
 		std::cout << "foo\n";
@@ -42,6 +42,8 @@ int main() {
 	auto bar = [](double) -> void {
 		std::cout << "bar\n";
 	};
+	struct nope {};
+
 	xieite::functions::Overloader overloader(foo, bar, nope());
 
 	overloader(999);

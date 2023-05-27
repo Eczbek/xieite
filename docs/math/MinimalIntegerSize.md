@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::MinimalIntegerSize`
-Defined in header [`<xieite/math/MinimalIntegerSize.hpp>`](../../include/math/MinimalIntegerSize.hpp)
+# [xieite](../../README.md)::[math](../math.md)::MinimalIntegerSize
+Defined in header [<xieite/math/MinimalIntegerSize.hpp>](../../include/xieite/math/MinimalIntegerSize.hpp)
 
 <br/>
 
-Determines the minimal unsigned integer type for any reasonable amount of bits.
+Determines the minimal unsigned integer type for any reasonable amount of bits
 
 <br/><br/>
 
@@ -18,4 +18,4 @@ using MinimalIntegerSize = std::conditional_t<bits <= std::numeric_limits<std::u
 ### Template parameters
 - `bits` - A `std::size_t` copy
 ### Resulting type
-- The smallest unsigned integer type to contain `bits` amount of bits
+- The smallest unsigned integer type to contain bits amount of bits

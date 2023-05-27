@@ -1,23 +1,20 @@
-# [`xieite`](../README.md)`::strings`
-Aggregated in header [`<xieite/strings.hpp>`](../include/xieite/strings.hpp)
+# [xieite](../README.md)::strings
+Aggregated in header [<xieite/strings.hpp>](../include/xieite/strings.hpp)
 
 <br/>
 
-A namespace of string manipulation functions.
+String manipulation functions
 
 <br/><br/>
 
-## Member objects
-- [`whitespaces`](../docs/strings/whitespaces.md)
-
-<br/>
-
-## Member functions
-- [`repeat`](../docs/strings/repeat.md)
-- [`split`](../docs/strings/split.md)
-- [`toLowerCase`](../docs/strings/toLowerCase.md)
-- [`toUpperCase`](../docs/strings/toUpperCase.md)
-- [`trim`](../docs/strings/trim.md)
-- [`trimBack`](../docs/strings/trimBack.md)
-- [`trimFront`](../docs/strings/trimFront.md)
-- [`truncate`](../docs/strings/truncate.md)
+<pre><code>strings/
+|- <a href="./strings/repeat.md">repeat</a>
+|- <a href="./strings/split.md">split</a>
+|- <a href="./strings/toLowerCase.md">toLowerCase</a>
+|- <a href="./strings/toUpperCase.md">toUpperCase</a>
+|- <a href="./strings/trim.md">trim</a>
+|- <a href="./strings/trimBack.md">trimBack</a>
+|- <a href="./strings/trimFront.md">trimFront</a>
+|- <a href="./strings/truncate.md">truncate</a>
+`- <a href="./strings/whitespaces.md">whitespaces</a>
+</code></pre>

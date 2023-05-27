@@ -1,5 +1,5 @@
-# [`xieite`](../../../README.md)`::`[`meta`](../../../docs/meta.md)`::`[`Version`](../../../docs/meta/Version.md)`::Version`
-Defined in header [`<xieite/meta/Version.hpp>`](../../../include/xieite/meta/Version.hpp)
+# [xieite](../../../README.md)::[meta](../../meta.md)::[Version](../Version.md)::Version
+Defined in header [<xieite/meta/Version.hpp>](../../../include/xieite/meta/Version.hpp)
 
 <br/><br/>
 

@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setColorBackground`
-Defined in header [`<xieite/terminal/setColorBackground.hpp>`](../../include/xieite/terminal/setColorBackground.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setColorBackground
+Defined in header [<xieite/terminal/setColorBackground.hpp>](../../include/xieite/terminal/setColorBackground.hpp)
 
 <br/>
 
-Sets the text background color. Disregards alpha value of the passed argument.
+Sets the text background color. Disregards alpha value of the passed argument
 
 <br/><br/>
 

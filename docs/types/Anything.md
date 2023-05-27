@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`types`](../../docs/types.md)`::Anything`
-Defined in header [`<xieite/types/Anything.hpp>`](../../include/xieite/types/Anything.hpp)
+# [xieite](../../README.md)::[types](../types.md)::Anything
+Defined in header [<xieite/types/Anything.hpp>](../../include/xieite/types/Anything.hpp)
 
 <br/>
 
-A simple structure which is declared to be convertible to anything. Useful for avoiding weird template deduction.
+A simple structure which is declared to be convertible to anything. Useful for avoiding weird template deduction
 
 <br/><br/>
 
@@ -20,5 +20,7 @@ struct Anything final {
 	constexpr operator Any&&() const;
 };
 ```
-### Member functions
-- [`operator typename`](../../docs/types/Anything/operatorCast.md)
+### Public members
+<pre><code>Anything/
+`- <a href="./Anything/operatorCast.md">operator typename</a>
+</code></pre>

@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::split`
-Defined in header [`<xieite/strings/split.hpp>`](../../include/xieite/strings/split.hpp)
+# [xieite](../../README.md)::[strings](../strings.md)::split
+Defined in header [<xieite/strings/split.hpp>](../../include/xieite/strings/split.hpp)
 
 <br/>
 
-Splits a string into a vector of substrings.
+Splits a string into a vector of substrings
 
 <br/><br/>
 
@@ -19,7 +19,7 @@ constexpr std::vector<std::string> split(const std::string& string, std::string_
 - `string` - A `std::string` constant reference
 - `delimiter` - A `std::string_view` copy, set to `""` by default
 ### Return value
-- A `std::vector` of `std::string` segments
+- A `std::vector` of `std::string`s
 
 <br/><br/>
 
@@ -31,7 +31,7 @@ constexpr std::vector<std::string> split(const std::string& string, char delimit
 - `string` - A `std::string` constant reference
 - `delimiter` - A `char` copy
 ### Return value
-- A `std::vector` of `std::string` segments
+- A `std::vector` of `std::string`s
 
 <br/><br/>
 

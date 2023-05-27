@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`terminal`](../../docs/terminal.md)`::setTextVisibility`
-Defined in header [`<xieite/terminal/setTextVisibility.hpp>`](../../include/xieite/terminal/setTextVisibility.hpp)
+# [xieite](../../README.md)::[terminal](../terminal.md)::setTextVisibility
+Defined in header [<xieite/terminal/setTextVisibility.hpp>](../../include/xieite/terminal/setTextVisibility.hpp)
 
 <br/>
 
-Enables or disables text visibility.
+Enables or disables text visibility
 
 <br/><br/>
 

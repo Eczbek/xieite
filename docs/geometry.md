@@ -1,30 +1,27 @@
-# [`xieite`](../README.md)`::geometry`
-Aggregated in header [`<xieite/geometry.hpp>`](../include/xieite/geometry.hpp)
+# [xieite](../README.md)::geometry
+Aggregated in header [<xieite/geometry.hpp>](../include/xieite/geometry.hpp)
 
 <br/>
 
-A namespace of 2D geometrical classes and operations.
+Geometrical classes and operations
 
 <br/><br/>
 
-## Member types
-- [`Line`](../docs/geometry/Line.md)
-- [`Point`](../docs/geometry/Point.md)
-- [`Polygon`](../docs/geometry/Polygon.md)
-- [`Ray`](../docs/geometry/Ray.md)
-- [`Segment`](../docs/geometry/Segment.md)
-
-<br/>
-
-## Member functions
-- [`containsPoint`](../docs/geometry/containsPoint.md)
-- [`getAngle`](../docs/geometry/getAngle.md)
-- [`getArea`](../docs/geometry/getArea.md)
-- [`getAxisIntercept`](../docs/geometry/getAxisIntercept.md)
-- [`getDistance`](../docs/geometry/getDistance.md)
-- [`getIntersections`](../docs/geometry/getIntersectiond.md)
-- [`getLength`](../docs/geometry/getLength.md)
-- [`getPerimeter`](../docs/geometry/getPerimeter.md)
-- [`getSides`](../docs/geometry/getSides.md)
-- [`getSlope`](../docs/geometry/getSlope.md)
-- [`rotate`](../docs/geometry/rotate.md)
+<pre><code>geometry/
+|- <a href="./geometry/Line.md">Line</a>
+|- <a href="./geometry/Point.md">Point</a>
+|- <a href="./geometry/Polygon.md">Polygon</a>
+|- <a href="./geometry/Ray.md">Ray</a>
+|- <a href="./geometry/Segment.md">Segment</a>
+|- <a href="./geometry/containsPoint.md">containsPoint</a>
+|- <a href="./geometry/getAngle.md">getAngle</a>
+|- <a href="./geometry/getArea.md">getArea</a>
+|- <a href="./geometry/getAxisIntercept.md">getAxisIntercept</a>
+|- <a href="./geometry/getDistance.md">getDistance</a>
+|- <a href="./geometry/getIntersections.md">getIntersections</a>
+|- <a href="./geometry/getLength.md">getLength</a>
+|- <a href="./geometry/getPerimeter.md">getPerimeter</a>
+|- <a href="./geometry/getSides.md">getSides</a>
+|- <a href="./geometry/getSlope.md">getSlope</a>
+`- <a href="./geometry/rotate.md">rotate</a>
+</code></pre>

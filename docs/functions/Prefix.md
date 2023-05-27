@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`functions`](../../docs/functions.md)`::Prefix`
-Defined in header [`<xieite/functions/Prefix.hpp>`](../../include/xieite/functions/Prefix.hpp)
+# [xieite](../../README.md)::[functions](../functions.md)::Prefix
+Defined in header [<xieite/functions/Prefix.hpp>](../../include/xieite/functions/Prefix.hpp)
 
 <br/>
 
-An prefix operator.
+An prefix operator
 
 <br/><br/>
 
@@ -31,9 +31,11 @@ struct Prefix<Result(RightParameter)> final {
 ### Template parameters
 - `Result` - The return type
 - `RightParameter` - The right parameter type
-### Member functions
-- [`Prefix`](../../docs/functions/Prefix/constructor.md)
-- [`operator>`](../../docs/functions/Prefix/operatorMore.md)
+### Public members
+<pre><code>Prefix/
+|- <a href="./Prefix/constructor.md">Prefix</a>
+`- <a href="./Prefix/operatorMode.md">operator></a>
+</code></pre>
 
 <br/><br/>
 

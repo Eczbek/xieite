@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getAxisIntercept`
-Defined in header [`<xieite/geometry/getAxisIntercept.hpp>`](../../include/xieite/geometry/getAxisIntercept.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::getAxisIntercept
+Defined in header [<xieite/geometry/getAxisIntercept.hpp>](../../include/xieite/geometry/getAxisIntercept.hpp)
 
 <br/>
 
-Finds a point where a line intercepts an axis of `origin`.
+Finds a point where a line intercepts an axis of origin
 
 <br/><br/>
 
@@ -19,7 +19,7 @@ constexpr xieite::geometry::Point getAxisIntercept(const xieite::concepts::Linea
 - `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
 - `origin` - A `xieite::geometry::Point` copy, set to `xieite::geometry::Point(0.0, 0.0)` by default
 ### Return value
-- A `xieite::geometry::Point` - The intercept point
+- A `xieite::geometry::Point`, the intercept point
 
 <br/><br/>
 

@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::whitespaces`
-Defined in header [`<xieite/strings/whitespaces.hpp>`](../../include/xieite/strings/whitespaces.hpp)
+# [xieite](../../README.md)::[strings](../strings.md)::whitespaces
+Defined in header [<xieite/strings/whitespaces.hpp>](../../include/xieite/strings/whitespaces.hpp)
 
 <br/>
 
-Whitespace characters.
+Whitespace characters
 
 <br/><br/>
 

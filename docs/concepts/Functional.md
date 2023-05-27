@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Function`
-Defined in header [`<xieite/concepts/Functional.hpp>`](../../include/xieite/concepts/Functional.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::Function
+Defined in header [<xieite/concepts/Functional.hpp>](../../include/xieite/concepts/Functional.hpp)
 
 <br/>
 
-Specifies that type `Invocable` is function-like.
+Specifies that a type is function-like
 
 <br/><br/>
 

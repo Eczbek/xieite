@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`random`](../../../docs/random.md)`::`[`UniformBagDistribution<Integral>`](../../../docs/random/UniformBagDistribution.md)`::UniformBagDistribution`
-Defined in header [`<xieite/random/UniformBagDistribution.hpp>`](../../../include/random/UniformBagDistribution.hpp)
+# [xieite](../../../README.md)::[random](../../random.md)::[UniformBagDistribution<Integral>](../UniformBagDistribution.md)::UniformBagDistribution
+Defined in header [<xieite/random/UniformBagDistribution.hpp>](../../../include/xieite/random/UniformBagDistribution.hpp)
 
 <br/>
 
-Constructs a `xieite::random::UniformBagDistribution`.
+Constructs a `xieite::random::UniformBagDistribution`
 
 <br/><br/>
 

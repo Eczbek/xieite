@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::containsPoint`
-Defined in header [`<xieite/geometry/containsPoint.hpp>`](../../include/xieite/geometry/containsPoint.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::containsPoint
+Defined in header [<xieite/geometry/containsPoint.hpp>](../../include/xieite/geometry/containsPoint.hpp)
 
 <br/>
 
-Checks whether a point lies within or on the border of a shape.
+Checks whether a point lies within or on the border of a shape
 
 <br/><br/>
 

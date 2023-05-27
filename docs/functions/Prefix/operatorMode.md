@@ -1,4 +1,4 @@
-# [`xieite`](../../../README.md)`::`[`functions`](../../../docs/functions.md)`::`[`Prefix<Result, RightParameter>`](../../../docs/functions/Prefix.md)`::operator>`
+# [xieite](../../../README.md)::[functions](../../functions.md)::[Prefix<Result(RightParameter)>](../Prefix.md)::operator>
 
 <br/><br/>
 

@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::trimFront`
-Defined in header [`<xieite/strings/trimFront.hpp>`](../../include/xieite/strings/trimFront.hpp)
+# [xieite](../../README.md)::[strings](../strings.md)::trimFront
+Defined in header [<xieite/strings/trimFront.hpp>](../../include/xieite/strings/trimFront.hpp)
 
 <br/>
 
-Trims the front of a string.
+Trims the front of a string
 
 <br/><br/>
 

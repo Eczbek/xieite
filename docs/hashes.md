@@ -1,13 +1,14 @@
-# [`xieite`](../README.md)`::hashes`
-Aggregated in header [`<xieite/hashes.hpp>`](../include/xieite/hashes.hpp)
+# [xieite](../README.md)::hashes
+Aggregated in header [<xieite/hashes.hpp>](../include/xieite/hashes.hpp)
 
 <br/>
 
-A namespace of hashing utilities.
+Hashing utilities
 
 <br/><br/>
 
-## Member functions
-- [`combine`](../docs/hashes/combine.md)
-- [`create`](../docs/hashes/create.md)
-- [`distribute`](../docs/hashes/distribute.md)
+<pre><code>hashes/
+|- <a href="./hashes/combine.md">combine</a>
+|- <a href="./hashes/create.md">create</a>
+`- <a href="./hashes/distribute.md">distribute</a>
+</code></pre>

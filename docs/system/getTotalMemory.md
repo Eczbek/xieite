@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`system`](../../docs/system.md)`::getTotalMemory`
-Defined in header [`<xieite/system/getTotalMemory.hpp>`](../../include/xieite/system/getTotalMemory.hpp)
+# [xieite](../../README.md)::[system](../system.md)::getTotalMemory
+Defined in header [<xieite/system/getTotalMemory.hpp>](../../include/xieite/system/getTotalMemory.hpp)
 
 <br/>
 
-Gets the system's total amount of memory.
+Gets the system's total amount of memory
 
 <br/><br/>
 

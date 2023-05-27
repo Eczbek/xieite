@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::approximatelyEqual`
-Defined in header [`<xieite/math/approximatelyEqual.hpp>`](../../include/xieite/math/approximatelyEqual.hpp)
+# [xieite](../../README.md)::[math](../math.md)::approximatelyEqual
+Defined in header [<xieite/math/approximatelyEqual.hpp>](../../include/xieite/math/approximatelyEqual.hpp)
 
 <br/>
 
-Checks whether two numbers' difference is below or equal to their type's epsilon.
+Checks whether two numbers' difference is below or equal to their type's epsilon
 
 <br/><br/>
 
@@ -22,7 +22,7 @@ constexpr bool approximatelyEqual(Number value1, Number value2) noexcept;
 - `value1` - A `Number` copy
 - `value2` - Also a `Number` copy
 ### Return value
-- A `bool`
+- A bool
 
 <br/><br/>
 

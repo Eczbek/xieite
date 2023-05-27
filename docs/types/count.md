@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`types`](../../docs/types.md)`::count`
-Defined in header [`<xieite/types/count.hpp>`](../../include/xieite/types/count.hpp)
+# [xieite](../../README.md)::[types](../types.md)::count
+Defined in header [<xieite/types/count.hpp>](../../include/xieite/types/count.hpp)
 
 <br/>
 
-Counts the number of types passed.
+Counts the number of types passed
 
 <br/><br/>
 

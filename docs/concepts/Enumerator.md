@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Enumerator`
-Defined in header [`<xieite/concepts/Enumerator.hpp>`](../../include/xieite/concepts/Enumerator.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::Enumerator
+Defined in header [<xieite/concepts/Enumerator.hpp>](../../include/xieite/concepts/Enumerator.hpp)
 
 <br/>
 
-Specifies that type `Any` is an enumerator.
+Specifies that a type is an enumerator
 
 <br/><br/>
 

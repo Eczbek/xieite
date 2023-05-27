@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`ratios`](../../docs/ratios.md)`::lengths`
-Defined in header [`<xieite/ratios/lengths.hpp>`](../../include/xieite/ratios/lengths.hpp)
+# [xieite](../../README.md)::[ratios](../ratios.md)::lengths
+Defined in header [<xieite/ratios/lengths.hpp>](../../include/xieite/ratios/lengths.hpp)
 
 <br/>
 
-A colletion of ratios of meters to imperial length measurement units.
+A colletion of ratios of meters to imperial length measurement units
 
 <br/><br/>
 

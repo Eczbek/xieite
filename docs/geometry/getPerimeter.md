@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getPerimeter`
-Defined in header [`<xieite/geometry/getPerimeter.hpp>`](../../include/xieite/geometry/getPerimeter.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::getPerimeter
+Defined in header [<xieite/geometry/getPerimeter.hpp>](../../include/xieite/geometry/getPerimeter.hpp)
 
 <br/>
 
-Calculates the perimeter of a polygon, or the sum of all its sides' lengths.
+Calculates the perimeter of a polygon, or the sum of all its sides' lengths
 
 <br/><br/>
 

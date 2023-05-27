@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::cotangent`
-Defined in header [`<xieite/math/cotangent.hpp>`](../../include/xieite/math/cotagent.hpp)
+# [xieite](../../README.md)::[math](../math.md)::cotangent
+Defined in header [<xieite/math/cotangent.hpp>](../../include/xieite/math/cotagent.hpp)
 
 <br/>
 
-A trigonometric function which wasn't included in the standard math library. Calculates the cotangent of a value.
+A trigonometric function which wasn't included in the standard math library. Calculates the cotangent of a value
 
 <br/><br/>
 
@@ -21,4 +21,4 @@ constexpr Number cotangent(Number value) noexcept;
 ### Parameters
 - `value` - A `Number` copy
 ### Return value
-- A `Number`, the cotangent of `value`
+- A `Number`, the cotangent of value

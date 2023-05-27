@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::RangeOf`
-Defined in header [`<xieite/concepts/RangeOf.hpp>`](../../include/xieite/concepts/RangeOf.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::RangeOf
+Defined in header [<xieite/concepts/RangeOf.hpp>](../../include/xieite/concepts/RangeOf.hpp)
 
 <br/>
 
-Specifies that type `Range` satisfies `std::ranges::range` and contains `Value`s
+Specifies that a type satisfies `std::ranges::range` and contains values of specified type
 
 <br/><br/>
 

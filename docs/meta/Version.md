@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`meta`](../../docs/meta.md)`::Version`
-Defined in header [`<xieite/meta/Version.hpp>`](../../include/xieite/meta/Version.hpp)
+# [xieite](../../README.md)::[meta](../meta.md)::Version
+Defined in header [<xieite/meta/Version.hpp>](../../include/xieite/meta/Version.hpp)
 
 <br/>
 
-A class to store and compare versions.
+A class to store and compare versions
 
 <br/><br/>
 
@@ -25,15 +25,16 @@ struct Version final {
 	constexpr std::string string() const;
 };
 ```
-### Member objects
-- `major` - A `std::size_t`
-- `minor` - A `std::size_t`
-- `patch` - A `std::size_t`
-- `label` - A `std::string`
-### Member functions
-- [`Version`](../../docs/meta/Version/constructor.md)
-- [`operator<=>`](../../docs/meta/Version/operatorSpaceship.md)
-- [`string`](../../docs/meta/Version/string.md)
+### Public members
+<pre><code>Version/
+|- major
+|- minor
+|- patch
+|- label
+|- <a href="./Version/consructor.md">Version</a>
+|- <a href="./Version/operatorSpaceship.md">operator<=></a>
+`- <a href="./Version/string.md">string</a>
+</code></pre>
 
 <br/><br/>
 

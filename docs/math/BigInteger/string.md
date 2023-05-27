@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::string`
-Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
+# [xieite](../../../README.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::string
+Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 <br/>
 
-Converts a `xieite::math::BigInteger` to a `std::string`.
+Converts a `xieite::math::BigInteger` to a `std::string`
 
 <br/><br/>
 

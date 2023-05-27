@@ -1,9 +1,5 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::robert`
-Defined in header [`<xieite/math/robert.hpp>`](../../include/xieite/math/robert.hpp)
-
-<br/>
-
-This excellently named constant exists for many noble purposes.
+# [xieite](../../README.md)::[math](../math.md)::robert
+Defined in header [<xieite/math/robert.hpp>](../../include/xieite/math/robert.hpp)
 
 <br/><br/>
 

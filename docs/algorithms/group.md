@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`algorithms`](../../docs/algorithms.md)`::group`
-Defined in header [`<xieite/algorithms/group.hpp>`](../../include/xieite/algorithms/group.hpp)
+# [xieite](../../README.md)::[algorithms](../algorithms.md)::group
+Defined in header [<xieite/algorithms/group.hpp>](../../include/xieite/algorithms/group.hpp)
 
 <br/>
 
-Groups elements of a vector into a `std::unordered_map`. The resulting map's keys depend on the return value of the callback.
+Groups elements of a `std::vector` into a `std::unordered_map`. The resulting map's keys depend on the return value of the callback provided
 
 <br/><br/>
 
@@ -20,11 +20,11 @@ std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<ForwardIterat
 - `ForwardIterator` - The passed iterators' type, satisfying `std::forward_iterator`
 - `Callback` - The callback type, satisfying `std::invocable` where it accepts `ForwardIterator`'s value type
 ### Parameters
-- `begin` - An `ForwardIterator` copy, pointing the the beginning of an iterable
+- `begin` - A `ForwardIterator` copy, pointing the the beginning of an iterable
 - `end` - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
 - `callback` - A `Callback` constant reference
 ### Return value
-- An `std::unordered_map`, of which the keys type depends on the return type of the callback, and the values type is a `std::vector` of `ForwardIterator`'s value type
+- A `std::unordered_map`, of which the keys type depends on the return type of `callback`, and the values type is a `std::vector` of `ForwardIterator`'s value type
 
 <br/><br/>
 
@@ -37,11 +37,11 @@ std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<ForwardIterat
 - `ForwardIterator` - The passed iterators' type, satisfying `std::forward_iterator`
 - `Callback` - The callback type, satisfying `std::invocable` where it accepts `ForwardIterator`'s value type and a `std::size_t`
 ### Parameters
-- `begin` - An `ForwardIterator` copy, pointing the the beginning of an iterable
-- `end` - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
+- `begin` - A `ForwardIterator` copy, pointing the the beginning of an iterable
+- end - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
 - `callback` - A `Callback` constant reference
 ### Return value
-- A `std::unordered_map`, of which the keys' type depends on the return type of the callback, and the values' type is a `std::vector` of `ForwardIterator`'s value type
+- A `std::unordered_map`, of which the keys' type depends on the return type of `callback`, and the values' type is a `std::vector` of `ForwardIterator`'s value type
 
 <br/><br/>
 

@@ -1,5 +1,5 @@
-# [`xieite`](../../../README.md)`::`[`types`](../../../docs/types.md)`::`[`Anything`](../../../docs/types/Anything.md)`::operator typename`
-Defined in header [`<xieite/types/Anything.hpp>`](../../../include/xieite/types/Anything.hpp)
+# [xieite](../../../README.md)::[types](../../types.md)::[Anything](../Anything.md)::operator typename
+Defined in header [<xieite/types/Anything.hpp>](../../../include/xieite/types/Anything.hpp)
 
 <br/><br/>
 
@@ -9,7 +9,7 @@ Defined in header [`<xieite/types/Anything.hpp>`](../../../include/xieite/types/
 
 ```cpp
 template<typename Any>
-constexpr operator Any&();
+constexpr operator Any&() const noexcept;
 ```
 ### Template parameters
 - `Any` - Any type
@@ -18,7 +18,7 @@ constexpr operator Any&();
 
 ```cpp
 template<typename Any>
-constexpr operator Any&&();
+constexpr operator Any&&() const noexcept;
 ```
 ### Template parameters
 - `Any` - Any type

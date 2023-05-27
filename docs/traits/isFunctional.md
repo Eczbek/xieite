@@ -1,5 +1,5 @@
-# [`xieite`](../../README.md)`::`[`traits`](../../docs/traits.md)`::isFunction`
-Defined in header [`<xieite/traits/isFunction.hpp>`](../../include/xieite/traits/isFunction.hpp)
+# [xieite](../../README.md)::[traits](../traits.md)::isFunction
+Defined in header [<xieite/traits/isFunction.hpp>](../../include/xieite/traits/isFunction.hpp)
 
 <br/><br/>
 
@@ -23,5 +23,5 @@ constexpr bool isFunction<Invocable, Result(Parameters...)> = std::convertible_t
 ```
 ### Template parameters
 - `Result` - Any type
-- `Parameters...` - Any types
+- `Parameters` - Any types
 - `Invocable` - A type invocable with `Parameters...`

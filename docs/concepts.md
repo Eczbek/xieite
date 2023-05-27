@@ -1,27 +1,29 @@
-# [`xieite`](../README.md)`::concepts`
-Aggregated in header [`<xieite/concepts.hpp>`](../include/xieite/concepts.hpp)
+# [xieite](../README.md)::concepts
+Aggregated in header [<xieite/concepts.hpp>](../include/xieite/concepts.hpp)
 
 <br/>
 
-A namespace of common concepts.
+Common concepts
 
 <br/><br/>
 
-## Member concepts
-- [`Aggregate`](../docs/concepts/Aggregate.md)
-- [`Arithmetic`](../docs/concepts/Arithmetic.md)
-- [`ConvertibleToOneOf`](../docs/concepts/ConvertibleToOneOf.md)
-- [`CopyAssignable`](../docs/concepts/CopyAssignable.md)
-- [`Decayed`](../docs/concepts/Decayed.md)
-- [`Enumerator`](../docs/concepts/Enumerator.md)
-- [`Functional`](../docs/concepts/Functional.md)
-- [`Hashable`](../docs/concepts/Hashable.md)
-- [`LinearShape`](../docs/concepts/LinearShape.md)
-- [`NoThrowConvertibleTo`](../docs/concepts/NoThrowConvertibleTo.md)
-- [`NoThrowConvertibleToOneOf`](../docs/concepts/NoThrowConvertibleToOneOf.md)
-- [`SameAsOneOf`](../docs/concepts/SameAsOneOf.md)
-- [`StreamableInto`](../docs/concepts/StreamableInto.md)
-- [`StreamableOutOf`](../docs/concepts/StreamableOutOf.md)
-- [`TemporalDuration`](../docs/concepts/TemporalDuration.md)
-- [`Trivial`](../docs/concepts/Trivial.md)
-- [`UniformRandomBitGenerator`](../docs/concepts/UniformRandomBitGenerator.md)
+<pre><code>concepts/
+|- <a href="./concepts/Aggregate.md">Aggregate</a>
+|- <a href="./concepts/Arithmetic.md">Arithmetic</a>
+|- <a href="./concepts/ConvertibleToOneOf.md">ConvertibleToOneOf</a>
+|- <a href="./concepts/CopyAssignable.md">CopyAssignable</a>
+|- <a href="./concepts/Decayed.md">Decayed</a>
+|- <a href="./concepts/Derivable.md">Derivable</a>
+|- <a href="./concepts/Enumerator.md">Enumerator</a>
+|- <a href="./concepts/Functional.md">Functional</a>
+|- <a href="./concepts/Hashable.md">Hashable</a>
+|- <a href="./concepts/LinearShape.md">LinearShape</a>
+|- <a href="./concepts/NoThrowConvertibleTo.md">NoThrowConvertibleTo</a>
+|- <a href="./concepts/RangeOf.md">RangeOf</a>
+|- <a href="./concepts/SameAsOneOf.md">SameAsOneOf</a>
+|- <a href="./concepts/StreamableInto.md">StreamableInto</a>
+|- <a href="./concepts/StreamableOutOf.md">StreamableOutOf</a>
+|- <a href="./concepts/TemporalDuration.md">TemporalDuration</a>
+|- <a href="./concepts/Trivial.md">Trivial</a>
+`- <a href="./concepts/UniformRandomBitGenerator.md">UniformRandomBitGenerator</a>
+</code></pre>

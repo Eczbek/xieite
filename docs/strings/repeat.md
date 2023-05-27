@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`strings`](../../docs/strings.md)`::repeat`
-Defined in header [`<xieite/strings/repeat.hpp>`](../../include/xieite/strings/repeat.hpp)
+# [xieite](../../README.md)::[strings](../strings.md)::repeat
+Defined in header [<xieite/strings/repeat.hpp>](../../include/xieite/strings/repeat.hpp)
 
 <br/>
 
-Repeats a string.
+Repeats a string
 
 <br/><br/>
 
@@ -17,7 +17,7 @@ constexpr std::string repeat(std::string_view string, std::size_t count) noexcep
 ```
 ### Parameters
 - `string` - A `std::string_view` copy, the value to repeat
-- `count` - A `std::size_t` copy, how many times to repeat `string`
+- `count` - A `std::size_t` copy, how many times to repeat string
 ### Return value
 - A `std::string`
 

@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Interval`](../../../docs/threads/Interval.md)`::good`
-Defined in header [`<xieite/threads/Interval.hpp>`](../../../include/xieite/threads/Interval.hpp)
+# [xieite](../../../README.md)::[threads](../../threads.md)::[Interval](../Interval.md)::good
+Defined in header [<xieite/threads/Interval.hpp>](../../../include/xieite/threads/Interval.hpp)
 
 <br/>
 
-Returns `true` if the interval is still running, and `false` if it has been stopped.
+Returns `true` if the interval is still running, and `false` if it has been stopped
 
 <br/><br/>
 
@@ -14,3 +14,5 @@ Returns `true` if the interval is still running, and `false` if it has been stop
 ```cpp
 bool good() const noexcept;
 ```
+### Return value
+- A `bool`, whether or not the interval is still running

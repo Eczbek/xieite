@@ -1,7 +1,7 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::alternatingBits`
-Defined in header [`<xieite/math/alternatingBits.hpp>`](../../include/xieite/math/alternatingBits.hpp)
+# [xieite](../../README.md)::[math](../math.md)::alternatingBits
+Defined in header [<xieite/math/alternatingBits.hpp>](../../include/xieite/math/alternatingBits.hpp)
 
-<br/>
+<br/><br/>
 
 ## Synopsis
 

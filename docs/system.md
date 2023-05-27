@@ -1,15 +1,16 @@
-# [`xieite`](../README.md)`::system`
-Aggregated in header [`<xieite/system.hpp>`](../include/xieite/system.hpp)
+# [xieite](../README.md)::system
+Aggregated in header [<xieite/system.hpp>](../include/xieite/system.hpp)
 
 <br/>
 
-A namespace of tools for interacting with the system.
+Tools for interacting with the system
 
 <br/><br/>
 
-## Member functions
-- [`detectCosmicRay`](../docs/system/detectCosmicRay.md)
-- [`execute`](../docs/system/execute.md)
-- [`getAvailableMemory`](../docs/system/getAvailableMemory.md)
-- [`getTotalMemory`](../docs/system/getTotalMemory.md)
-- [`segmentationFault`](../docs/system/segmentationFault.md)
+<pre><code>system/
+|- <a href="./system/detectCosmicRay.md">detectCosmicRay</a>
+|- <a href="./system/execute.md">execute</a>
+|- <a href="./system/getAvailableMemory.md">getAvailableMemory</a>
+|- <a href="./system/getTotalMemory.md">getTotalMemory</a>
+`- <a href="./system/segmentationFault.md">segmentationFault</a>
+</code></pre>

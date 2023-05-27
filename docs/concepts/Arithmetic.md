@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::Arithmetic`
-Defined in header [`<xieite/concepts/Arithmetic.hpp>`](../../include/xieite/concepts/Arithmetic.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::Arithmetic
+Defined in header [<xieite/concepts/Arithmetic.hpp>](../../include/xieite/concepts/Arithmetic.hpp)
 
 <br/>
 
-Specifies that type `Any` is an integer or a floating point.
+Specifies that a type is an integer or a floating point
 
 <br/><br/>
 

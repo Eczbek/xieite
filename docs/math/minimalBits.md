@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`math`](../../docs/math.md)`::minimalBits`
-Defined in header [`<xieite/math/minimalBits.hpp>`](../../include/xieite/math/minimalBits.hpp)
+# [xieite](../../README.md)::[math](../math.md)::minimalBits
+Defined in header [<xieite/math/minimalBits.hpp>](../../include/xieite/math/minimalBits.hpp)
 
 <br/>
 
-Calculates the minimmum amount of bits needed to store a value.
+Calculates the minimmum amount of bits needed to store a value
 
 <br/><br/>
 

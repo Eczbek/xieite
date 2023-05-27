@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`threads`](../../../docs/threads.md)`::`[`Loop`](../../../docs/threads/Loop.md)`::stop`
-Defined in header [`<xieite/threads/Loop.hpp>`](../../../include/xieite/threads/Loop.hpp)
+# [xieite](../../../README.md)::[threads](../../threads.md)::[Loop](../Loop.md)::stop
+Defined in header [<xieite/threads/Loop.hpp>](../../../include/xieite/threads/Loop.hpp)
 
 <br/>
 
-Stops a `xieite::threads::Loop`, and further callback calls.
+Stops a `xieite::threads::Loop`, and further callback calls
 
 <br/><br/>
 

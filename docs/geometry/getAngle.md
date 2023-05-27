@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`geometry`](../../docs/geometry.md)`::getAngle`
-Defined in header [`<xieite/geometry/getAngle.hpp>`](../../include/xieite/geometry/getAngle.hpp)
+# [xieite](../../README.md)::[geometry](../geometry.md)::getAngle
+Defined in header [<xieite/geometry/getAngle.hpp>](../../include/xieite/geometry/getAngle.hpp)
 
 <br/>
 
-Calculates the angle of a line or between two points, in radians.
+Calculates the angle of a line or between two points, in radians
 
 <br/><br/>
 

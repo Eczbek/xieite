@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`concepts`](../../docs/concepts.md)`::StreamableInto`
-Defined in header [`<xieite/concepts/StreamableInto.hpp>`](../../include/xieite/concepts/StreamableInto.hpp)
+# [xieite](../../README.md)::[concepts](../concepts.md)::StreamableInto
+Defined in header [<xieite/concepts/StreamableInto.hpp>](../../include/xieite/concepts/StreamableInto.hpp)
 
 <br/>
 
-Specifies that type `Any` has defined a `friend operator>>(std::istream&, Any)`.
+Specifies that a type can be "streamed" into
 
 <br/><br/>
 

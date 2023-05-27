@@ -1,4 +1,4 @@
-# [`xieite`](../../../README.md)`::`[`functions`](../../../docs/functions.md)`::`[`Suffix<Result, LeftParameter>`](../../../docs/functions/Suffix.md)`::operator>`
+# [xieite](../../../README.md)::[functions](../../functions.md)::[Suffix<Result(LeftParameter)>](../Suffix.md)::operator>
 
 <br/><br/>
 
@@ -11,6 +11,6 @@ friend constexpr Result operator<(const LeftParameter& leftArgument, const xieit
 ```
 ### Parameters
 - `leftArgument` - A `LeftParameter` constant reference
-- `suffix` - This `xieite::functions::Suffix` instance
+- `suffix` - A `xieite::functions::Suffix` constant reference
 ### Return value
 - A `Result`

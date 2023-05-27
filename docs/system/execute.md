@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`system`](../../docs/system.md)`::execute`
-Defined in header [`<xieite/system/execute.hpp>`](../../include/xieite/system/execute.hpp)
+# [xieite](../../README.md)::[system](../system.md)::execute
+Defined in header [<xieite/system/execute.hpp>](../../include/xieite/system/execute.hpp)
 
 <br/>
 
-Executes a command and returns its output.
+Executes a command and returns its output
 
 <br/><br/>
 

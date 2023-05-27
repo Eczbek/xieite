@@ -1,9 +1,9 @@
-# [`xieite`](../../README.md)`::`[`types`](../../docs/types.md)`::demangle`
-Defined in header [`<xieite/types/demangle.hpp>`](../../include/xieite/types/demangle.hpp)
+# [xieite](../../README.md)::[types](../types.md)::demangle
+Defined in header [<xieite/types/demangle.hpp>](../../include/xieite/types/demangle.hpp)
 
 <br/>
 
-Demangles the name of a `std::type_info::name()`. Returns original string if demangling fails.
+Demangles the name of a `std::type_info`. Returns original string if demangling fails
 
 <br/><br/>
 

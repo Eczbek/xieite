@@ -1,9 +1,9 @@
-# [`xieite`](../../../README.md)`::`[`math`](../../../docs/math.md)`::`[`BigInteger`](../../../docs/math/BigInteger.md)`::BigInteger`
-Defined in header [`<xieite/math/BigInteger.hpp>`](../../../include/xieite/math/BigInteger.hpp)
+# [xieite](../../../README.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::BigInteger
+Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 <br/>
 
-Constructs a `xieite::math::BigInteger`.
+Constructs a `xieite::math::BigInteger`
 
 <br/><br/>
 
