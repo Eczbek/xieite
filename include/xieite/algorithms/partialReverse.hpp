@@ -4,13 +4,16 @@
 #	include <algorithm>
 #	include <cstddef>
 #	include <iterator>
+#	include <ranges>
 #	include <vector>
 #	include <xieite/concepts/Functional.hpp>
 
 namespace xieite::algorithms {
-	template<std::forward_iterator ForwardIterator>
-	constexpr void partialReverse(ForwardIterator begin, const std::sentinel_for<ForwardIterator> auto end, const xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator>)> auto& selector) {
-		std::vector<ForwardIterator> iterators;
+	template<std::ranges::range Range>
+	constexpr void partialReverse(const Range& range, const xieite::concepts::Functional<bool(std::ranges::range_value_t<Range>)> auto& selector) {
+		std::ranges::iterator_t<const Range&> begin = std::ranges::begin(range);
+		std::ranges::const_iterator_t<const Range&> end = std::ranges::end(range);
+		std::vector<std::ranges::iterator_t<const Range&>> iterators;
 		for (; begin != end; ++begin) {
 			if (selector(*begin)) {
 				iterators.push_back(begin);

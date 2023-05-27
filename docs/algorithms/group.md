@@ -12,36 +12,34 @@ Groups elements of a `std::vector` into a `std::unordered_map`. The resulting ma
 <br/><br/>
 
 ```cpp
-template<std::forward_iterator ForwardIterator, std::invocable<std::iter_value_t<ForwardIterator>> Callback>
+template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Range>> Callback>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<ForwardIterator>)>, std::vector<std::iter_value_t<ForwardIterator>>> group(ForwardIterator begin, std::sentinel_for<ForwardIterator> auto end, const Callback& callback);
+std::unordered_map<std::invoke_result_t<Callback(std::ranges::range_value_t<Range>)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Callback& callback);
 ```
 ### Template parameters
-- `ForwardIterator` - The passed iterators' type, satisfying `std::forward_iterator`
-- `Callback` - The callback type, satisfying `std::invocable` where it accepts `ForwardIterator`'s value type
+- `Range` - The range type, satisfying `std::ranges::range`
+- `Callback` - The callback type, satisfying `std::invocable` where it accepts a `std::ranges::range_value_t` of `Range`
 ### Parameters
-- `begin` - A `ForwardIterator` copy, pointing the the beginning of an iterable
-- `end` - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
+- `range` - A `Range` constant reference
 - `callback` - A `Callback` constant reference
 ### Return value
-- A `std::unordered_map`, of which the keys type depends on the return type of `callback`, and the values type is a `std::vector` of `ForwardIterator`'s value type
+- A `std::unordered_map`, of which the keys type depends on the return type of `callback`, and the values type is a `std::vector` of `std::ranges::range_value_t` of `Range`
 
 <br/><br/>
 
 ```cpp
-template<std::forward_iterator ForwardIterator, std::invocable<std::iter_value_t<ForwardIterator>, std::size_t> Callback>
+template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Range>, std::size_t> Callback>
 [[nodiscard]]
-std::unordered_map<std::invoke_result_t<Callback(std::iter_value_t<ForwardIterator>, std::size_t)>, std::vector<std::iter_value_t<ForwardIterator>>> group(ForwardIterator begin, const std::sentinel_for<ForwardIterator> auto end, const Callback& callback);
+std::unordered_map<std::invoke_result_t<Callback(std::ranges::range_value_t<Range>, std::size_t)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Callback& callback);
 ```
 ### Template parameters
-- `ForwardIterator` - The passed iterators' type, satisfying `std::forward_iterator`
-- `Callback` - The callback type, satisfying `std::invocable` where it accepts `ForwardIterator`'s value type and a `std::size_t`
+- `Range` - The range type, satisfying `std::ranges::range`
+- `Callback` - The callback type, satisfying `std::invocable` where it accepts `std::ranges::range_value_t` of `Range`, and a `std::size_t`
 ### Parameters
-- `begin` - A `ForwardIterator` copy, pointing the the beginning of an iterable
-- end - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
+- `range` - A `Range` constant reference
 - `callback` - A `Callback` constant reference
 ### Return value
-- A `std::unordered_map`, of which the keys' type depends on the return type of `callback`, and the values' type is a `std::vector` of `ForwardIterator`'s value type
+- A `std::unordered_map`, of which the keys' type depends on the return type of `callback`, and the values' type is a `std::vector` of `std::ranges::range_value_t` of `Range`
 
 <br/><br/>
 

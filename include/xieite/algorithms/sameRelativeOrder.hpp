@@ -8,9 +8,13 @@
 #	include <xieite/concepts/Functional.hpp>
 
 namespace xieite::algorithms {
-	template<std::forward_iterator ForwardIterator1, std::forward_iterator ForwardIterator2, xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator1>, std::iter_value_t<ForwardIterator2>)> Callback = std::ranges::equal_to>
+	template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functional<bool(std::ranges::range_value_t<Range1>, std::ranges::range_value_t<Range2>)> Callback = std::ranges::equal_to>
 	[[nodiscard]]
-	constexpr bool sameRelativeOrder(const ForwardIterator1 begin1, const std::sentinel_for<ForwardIterator1> auto end1, const ForwardIterator2 begin2, const std::sentinel_for<ForwardIterator2> auto end2, const Callback& comparator = Callback()) {
+	constexpr bool sameRelativeOrder(const Range1& range1, const Range2& range2, const Callback& comparator = Callback()) {
+		std::ranges::const_iterator_t<const Range1&> begin1 = std::ranges::begin(range1);
+		std::ranges::const_iterator_t<const Range1&> end1 = std::ranges::end(range1);
+		std::ranges::const_iterator_t<const Range2&> begin2 = std::ranges::begin(range2);
+		std::ranges::const_iterator_t<const Range2&> end2 = std::ranges::end(range2);
 		if (std::distance(begin1, end1) == std::distance(begin2, end2)) {
 			for (ForwardIterator1 i = begin1; i != end1; ++i) {
 				ForwardIterator1 copy1 = i;

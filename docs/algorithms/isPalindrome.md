@@ -3,7 +3,7 @@ Defined in header [<xieite/algorithms/isPalindrome.hpp>](../../include/xieite/al
 
 <br/>
 
-Checks if an iterable is the same backwards as it is forwards
+Checks if a range is the same backwards as it is forwards
 
 <br/><br/>
 
@@ -12,20 +12,18 @@ Checks if an iterable is the same backwards as it is forwards
 <br/>
 
 ```cpp
-template<std::forward_iterator ForwardIterator, std::reverse_iterator ReverseIterator, xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ReverseIterator>)> Callback = std::ranges::equal_to>
+template<std::ranges::range Range, xieite::concepts::Functional<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Callback = std::ranges::equal_to>
 [[nodiscard]]
-constexpr bool isPalindrome(ForwardIterator begin, ReverseIterator end, const Callback& comparator = Callback());
+constexpr bool isPalindrome(const Range& range, const Callback& comparator = Callback());
 ```
 ### Template parameters
-- `ForwardIterator` - An iterator type, satisfying `std::forward_iterator`
-- `ReverseIterator` - An iterator type, satisfying `std::reverse_iterator`
-- `Callback` - A callback type, satisfying `xieite::concepts::Functional` which accepts `ForwardIterator`'s value type and `ReverseIterator`'s value type, and returns a bool. Set to `std::ranges::equal_to` by default
+- `Range` - The range type, satisfying `std::ranges::range`
+- `Callback` - A callback type, satisfying `xieite::concepts::Functional` which accepts`std::ranges::range_value_t` of `Range`, and `std::ranges::range_value_t` of `Range`, and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
-- `begin` - A `ForwardIterator` copy which points to the beginning of an iterable
-- `end` - A `ReverseIterator` copy which points to the end of the same iterable
+- `range` - A `Range` constant reference
 - `comparator` - A `Callback` constant reference, default-constructed by default
 ### Return value
-- A `bool`, whether or not the passed iterable is a palindrome
+- A `bool`, whether or not the passed range is a palindrome
 
 <br/><br/>
 
