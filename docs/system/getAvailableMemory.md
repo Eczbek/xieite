@@ -16,4 +16,4 @@ Gets the system's currently available amount of memory
 inline std::size_t getAvailableMemory() noexcept;
 ```
 ### Return value
-- The amount of memory, in bytes
+- A `std::size_t`, the amount of memory, in bytes
