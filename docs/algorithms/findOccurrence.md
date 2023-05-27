@@ -3,7 +3,7 @@ Defined in header [<xieite/algorithms/findOccurrence.hpp>](../../include/xieite/
 
 <br/>
 
-Finds the pointer to a specific occurrence of a value in an iterable. If the value is not found, returns the end pointer
+Finds the pointer to a specific occurrence of a value in an range. If the value is not found, returns the end pointer
 
 <br/><br/>
 
@@ -12,19 +12,18 @@ Finds the pointer to a specific occurrence of a value in an iterable. If the val
 <br/>
 
 ```cpp
-template<std::forward_iterator ForwardIterator, xieite::concepts::Functional<bool(std::iter_value_t<ForwardIterator>, std::iter_value_t<ForwardIterator>)> Callback = std::ranges::equal_to>
+template<std::ranges::range Range, xieite::concepts::Functional<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Callback = std::ranges::equal_to>
 [[nodiscard]]
-constexpr ForwardIterator findOccurrence(ForwardIterator begin, std::sentinel_for<ForwardIterator> auto end, const std::convertible_to<std::iter_value_t<ForwardIterator>> auto& value, std::size_t count, const Callback& comparator = Callback());
+constexpr std::ranges::const_iterator_t<const Range&> findOccurrence(const Range& range, std::ranges::range_const_reference_t<Range> value, std::size_t count, const Callback& comparator = Callback());
 ```
 ### Template parameters
-- `ForwardIterator` - An iterator type, satisfying `std::forward_iterator`
-- `Callback` - A callback type, satisfying `xieite::concepts::Functional` which accepts two `ForwardIterator` value types and returns a `bool`. Set to `std::ranges::equal_to` by default
+- `Range` - A range type, satisfying `std::ranges::range`
+- `Callback` - A callback type, satisfying `xieite::concepts::Functional` which accepts two of `std::ranges::range_value_t` of `Range`, and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
-- `begin` - A `ForwardIterator` copy which points to the beginning of an iterable
-- `end` - An `auto` copy, satisfying `std::sentinel_for` of `ForwardIterator`
+- `range` - A `Range` constant reference
 - `comparator` - A `Callback` constant reference, default-constructed by default
 ### Return value
-- The `ForwardIterator` pointing to the specified value occurrence, or `end` if it is not found
+- A `std::ranges::const_iterator_t` of a constant reference to `Range`, pointing to the specified value occurrence or to the end if it is not found
 
 <br/><br/>
 
