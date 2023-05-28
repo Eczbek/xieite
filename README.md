@@ -88,8 +88,8 @@ C++ header-only utility library
 |  `- <a href="./docs/macros/VERSION.md">VERSION</a>
 |- <a href="./docs/math.md">math</a>/
 |  |- <a href="./docs/math/BigInteger.md">BigInteger</a>
-|  |- <a href="./docs/math/ConditionalIntegerSign.md">ConditionalIntegerSign</a>
-|  |- <a href="./docs/math/MinimalIntegerSize.md">MinimalIntegerSize</a>
+|  |- <a href="./docs/math/MinimalInteger.md">MinimalInteger</a>
+|  |- <a href="./docs/math/SignedInteger.md">SignedInteger</a>
 |  |- <a href="./docs/math/absolute.md">absolute</a>
 |  |- <a href="./docs/math/alternatingBits.md">alternatingBits</a>
 |  |- <a href="./docs/math/approximatelyEqual.md">approximatelyEqual</a>

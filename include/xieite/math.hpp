@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER_MATH
 
 #	include <xieite/math/BigInteger.hpp>
-#	include <xieite/math/ConditionalIntegerSign.hpp>
-#	include <xieite/math/MinimalIntegerSize.hpp>
+#	include <xieite/math/MinimalInteger.hpp>
+#	include <xieite/math/SignedInteger.hpp>
 #	include <xieite/math/absolute.hpp>
 #	include <xieite/math/alternatingBits.hpp>
 #	include <xieite/math/approximatelyEqual.hpp>
