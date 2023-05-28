@@ -9,8 +9,8 @@ Mathematical types and functions
 
 <pre><code>math/
 |- <a href="./math/BigInteger.md">BigInteger</a>
-|- <a href="./math/ConditionalIntegerSign.md">ConditionalIntegerSign</a>
-|- <a href="./math/MinimalIntegerSize.md">MinimalIntegerSize</a>
+|- <a href="./math/MinimalInteger.md">MinimalInteger</a>
+|- <a href="./math/SignedInteger.md">SignedInteger</a>
 |- <a href="./math/absolute.md">absolute</a>
 |- <a href="./math/alternatingBits.md">alternatingBits</a>
 |- <a href="./math/approximatelyEqual.md">approximatelyEqual</a>
