@@ -163,6 +163,11 @@ namespace xieite::math {
 			return this->value >>= distance;
 		}
 
+		[[nodiscard]]
+		constexpr xieite::math::ConditionalIntegerSign<xieite::math::MinimalIntegerSize<bits>, sign> data() const noexcept {
+			return this->value;
+		}
+
 		friend constexpr std::ostream& operator<<(std::ostream& outStream, const xieite::math::Integer<bits, sign> self) noexcept {
 			return outStream << self.value;
 		}
