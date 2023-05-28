@@ -23,6 +23,7 @@ Mathematical types and functions
 |- <a href="./math/fromBase.md">fromBase</a>
 |- <a href="./math/isPowerOf2.md">isPowerOf2</a>
 |- <a href="./math/isPrime.md">isPrime</a>
+|- <a href="./math/logarithm.md">logarithm</a>
 |- <a href="./math/minimalBits.md">minimalBits</a>
 |- <a href="./math/pi.md">pi</a>
 |- <a href="./math/piDigits.md">piDigits</a>
