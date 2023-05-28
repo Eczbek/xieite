@@ -83,6 +83,8 @@ struct Integer<bits, sign> final {
 
 	constexpr xieite::math::Integer<bits, sign> operator>>=(std::size_t);
 
+	constexpr xieite::math::ConditionalIntegerSign<xieite::math::MinimalIntegerSize<bits>, sign> data() const;
+
 	friend constexpr std::ostream& operator<<(std::ostream&, xieite::math::Integer<bits, sign>);
 
 	friend constexpr std::istream& operator>>(std::istream&, xieite::math::Integer<bits, sign>&);
@@ -121,7 +123,8 @@ struct Integer<bits, sign> final {
 |- <a href="./Integer/operatorBitwiseShiftLeft.md">operator<<</a>
 |- <a href="./Integer/operatorBitwiseShiftLeftAssign.md">operator<<=</a>
 |- <a href="./Integer/operatorBitwiseShiftRight.md">operator>></a>
-`- <a href="./Integer/operatorBitwiseShiftRightAssign.md">operator>>=</a>
+|- <a href="./Integer/operatorBitwiseShiftRightAssign.md">operator>>=</a>
+`- <a href="./Integer/data.md">data</a>
 </code></pre>
 
 <br/><br/>
