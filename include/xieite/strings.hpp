@@ -3,7 +3,6 @@
 
 #	include <xieite/strings/repeat.hpp>
 #	include <xieite/strings/something.hpp>
-#	include <xieite/strings/split.hpp>
 #	include <xieite/strings/toLowerCase.hpp>
 #	include <xieite/strings/toUpperCase.hpp>
 #	include <xieite/strings/trim.hpp>
