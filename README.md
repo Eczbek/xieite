@@ -102,6 +102,7 @@ C++ header-only utility library
 |  |- <a href="./docs/math/fromBase.md">fromBase</a>
 |  |- <a href="./docs/math/isPowerOf2.md">isPowerOf2</a>
 |  |- <a href="./docs/math/isPrime.md">isPrime</a>
+|  |- <a href="./docs/math/logarithm.md">logarithm</a>
 |  |- <a href="./docs/math/minimalBits.md">minimalBits</a>
 |  |- <a href="./docs/math/pi.md">pi</a>
 |  |- <a href="./docs/math/piDigits.md">piDigits</a>
