@@ -8,20 +8,20 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 <br/><br/>
 
 ```cpp
-constexpr xieite::math::BigInteger& operator>>=(const xieite::math::BigInteger& bigInteger) noexcept;
+constexpr xieite::math::BigInteger& operator>>=(const xieite::math::BigInteger& positions) noexcept;
 ```
 ### Parameters
-- `bigInteger` - A `xieite::math::BigInteger` constant reference
+- `positions` - A `xieite::math::BigInteger` constant reference
 ### Return value
 - The `xieite::math::BigInteger`
 
 <br/><br/>
 
 ```cpp
-constexpr xieite::math::BigInteger& operator>>=(std::integral auto value) noexcept;
+constexpr xieite::math::BigInteger& operator>>=(std::integral auto positions) noexcept;
 ```
 ### Parameters
-- `value` - An `auto` copy, satisfying `std::integral`
+- `positions` - An `auto` copy, satisfying `std::integral`
 ### Return value
 - The `xieite::math::BigInteger`
 

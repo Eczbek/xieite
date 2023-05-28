@@ -9,10 +9,10 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 
 ```cpp
 [[nodiscard]]
-constexpr bool operator==(const xieite::math::BigInteger& bigInteger) const noexcept;
+constexpr bool operator==(const xieite::math::BigInteger& comparand) const noexcept;
 ```
 ### Parameters
-- `bigInteger` - A `xieite::math::BigInteger` constant reference
+- `comparand` - A `xieite::math::BigInteger` constant reference
 ### Return value
 - A `bool`, whether or not the two values are equal
 
@@ -20,10 +20,10 @@ constexpr bool operator==(const xieite::math::BigInteger& bigInteger) const noex
 
 ```cpp
 [[nodiscard]]
-constexpr bool operator==(const std::integral auto value) const noexcept;
+constexpr bool operator==(const std::integral auto comparand) const noexcept;
 ```
 ### Parameters
-- `value` - An `auto` copy, satisfying `std::integral`
+- `comparand` - An `auto` copy, satisfying `std::integral`
 ### Return value
 - A `bool`, whether or not the two values are equal
 

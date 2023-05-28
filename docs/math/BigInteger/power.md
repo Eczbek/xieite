@@ -13,10 +13,10 @@ Raises a `xieite::math::BigInteger` to an exponent
 
 ```cpp
 [[nodiscard]]
-constexpr xieite::math::BigInteger power(xieite::math::BigInteger bigInteger) const;
+constexpr xieite::math::BigInteger power(xieite::math::BigInteger exponent) const;
 ```
 ### Parameters
-- `bigInteger` - A `xieite::math::BigInteger` copy
+- `exponent` - A `xieite::math::BigInteger` copy
 ### Return value
 - A `xieite::math::BigInteger`
 
@@ -24,10 +24,10 @@ constexpr xieite::math::BigInteger power(xieite::math::BigInteger bigInteger) co
 
 ```cpp
 [[nodiscard]]
-constexpr xieite::math::BigInteger power(std::integral auto value) const;
+constexpr xieite::math::BigInteger power(std::integral auto exponent) const;
 ```
 ### Parameters
-- `value` - An `auto` integer type, satisfying `std::integral`
+- `exponent` - An `auto` integer type, satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

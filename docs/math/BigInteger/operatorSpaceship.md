@@ -9,10 +9,10 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 
 ```cpp
 [[nodiscard]]
-constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& bigInteger) const noexcept;
+constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& comparand) const noexcept;
 ```
 ### Parameters
-- `bigInteger` - A `xieite::math::BigInteger` constant reference
+- `comparand` - A `xieite::math::BigInteger` constant reference
 ### Return value
 - A `std::strong_ordering`
 
@@ -20,10 +20,10 @@ constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& bigIn
 
 ```cpp
 [[nodiscard]]
-constexpr std::strong_ordering operator<=>(std::integral auto value) const noexcept;
+constexpr std::strong_ordering operator<=>(std::integral auto comparand) const noexcept;
 ```
 ### Parameters
-- `value` - An `auto` copy, satisfying `std::integral`
+- `comparand` - An `auto` copy, satisfying `std::integral`
 ### Return value
 - A `std::strong_ordering`
 
