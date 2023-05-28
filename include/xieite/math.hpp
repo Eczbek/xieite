@@ -12,12 +12,12 @@
 #	include <xieite/math/cosecant.hpp>
 #	include <xieite/math/cotangent.hpp>
 #	include <xieite/math/difference.hpp>
+#	include <xieite/math/digits.hpp>
 #	include <xieite/math/farthestFrom.hpp>
 #	include <xieite/math/fromBase.hpp>
 #	include <xieite/math/isPowerOf2.hpp>
 #	include <xieite/math/isPrime.hpp>
 #	include <xieite/math/logarithm.hpp>
-#	include <xieite/math/minimalBits.hpp>
 #	include <xieite/math/pi.hpp>
 #	include <xieite/math/piDigits.hpp>
 #	include <xieite/math/robert.hpp>
