@@ -19,12 +19,12 @@ Mathematical types and functions
 |- <a href="./math/cosecant.md">cosecant</a>
 |- <a href="./math/cotangent.md">cotangent</a>
 |- <a href="./math/difference.md">difference</a>
+|- <a href="./math/digits.md">digits</a>
 |- <a href="./math/farthestFrom.md">farthestFrom</a>
 |- <a href="./math/fromBase.md">fromBase</a>
 |- <a href="./math/isPowerOf2.md">isPowerOf2</a>
 |- <a href="./math/isPrime.md">isPrime</a>
 |- <a href="./math/logarithm.md">logarithm</a>
-|- <a href="./math/minimalBits.md">minimalBits</a>
 |- <a href="./math/pi.md">pi</a>
 |- <a href="./math/piDigits.md">piDigits</a>
 |- <a href="./math/robert.md">robert</a>
