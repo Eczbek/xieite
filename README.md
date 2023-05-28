@@ -129,7 +129,6 @@ C++ header-only utility library
 |- <a href="./docs/strings.md">strings</a>/
 |  |- <a href="./docs/strings/repeat.md">repeat</a>
 |  |- <a href="./docs/strings/something.md">something</a>
-|  |- <a href="./docs/strings/split.md">split</a>
 |  |- <a href="./docs/strings/toLowerCase.md">toLowerCase</a>
 |  |- <a href="./docs/strings/toUpperCase.md">toUpperCase</a>
 |  |- <a href="./docs/strings/trim.md">trim</a>
