@@ -21,10 +21,10 @@ constexpr BigInteger(Number value = 0) noexcept;
 <br/><br/>
 
 ```cpp
-constexpr BigInteger(const xieite::math::BigInteger& bigInteger) noexcept;
+constexpr BigInteger(const xieite::math::BigInteger& value) noexcept;
 ```
 ### Parameters
-- `bigInteger` - A `xieite::math::BigInteger` constant reference
+- `value` - A `xieite::math::BigInteger` constant reference
 
 <br/><br/>
 
@@ -41,7 +41,7 @@ constexpr BigInteger(const xieite::concepts::RangeOf<bool> auto& bits, bool sign
 constexpr BigInteger(std::string_view value);
 ```
 ### Parameters
-- `value` - A `std::string_view` copy, which must consist of only digits and a `'-'`
+- `value` - A `std::string_view` copy, which must consist of only digits may be preceded by a `'-'`
 
 <br/><br/>
 

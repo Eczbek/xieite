@@ -18,10 +18,10 @@ constexpr xieite::math::BigInteger operator+() const noexcept;
 
 ```cpp
 [[nodiscard]]
-constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger& bigInteger) const noexcept;
+constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger& addend) const noexcept;
 ```
 ### Parameters
-- `bigInteger` - A `xieite::math::BigInteger` constant reference
+- `addend` - A `xieite::math::BigInteger` constant reference
 ### Return value
 - A `xieite::math::BigInteger`
 
@@ -29,10 +29,10 @@ constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger& big
 
 ```cpp
 [[nodiscard]]
-constexpr xieite::math::BigInteger operator+(std::integral auto value) const noexcept;
+constexpr xieite::math::BigInteger operator+(std::integral auto addend) const noexcept;
 ```
 ### Parameters
-- `value` - An `auto` copy, satisfying `std::integral`
+- `addend` - An `auto` copy, satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

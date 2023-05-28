@@ -8,10 +8,10 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 <br/><br/>
 
 ```cpp
-constexpr xieite::math::BigInteger& operator=(const xieite::math::BigInteger& bigInteger) const noexcept;
+constexpr xieite::math::BigInteger& operator=(const xieite::math::BigInteger& value) const noexcept;
 ```
 ### Parameters
-- `bigInteger` - A `xieite::math::BigInteger` constant reference
+- `value` - A `xieite::math::BigInteger` constant reference
 ### Return value
 - The `xieite::math::BigInteger`
 

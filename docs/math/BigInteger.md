@@ -143,6 +143,10 @@ struct BigInteger final {
 
 	constexpr xieite::math::BigInteger root(std::integral auto) const;
 
+	constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger&) const;
+
+	constexpr xieite::math::BigInteger logarithm(std::integral auto) const;
+
 	constexpr const std::vector<bool>& data() const;
 
 	constexpr std::string string() const;
@@ -182,6 +186,7 @@ struct BigInteger final {
 |- <a href="./BigInteger/absolute.md">absolute</a>
 |- <a href="./BigInteger/power.md">power</a>
 |- <a href="./BigInteger/root.md">root</a>
+|- <a href="./BigInteger/logarithm.md">logarithm</a>
 |- <a href="./BigInteger/data.md">data</a>
 `- <a href="./BigInteger/string.md">string</a>
 </code></pre>

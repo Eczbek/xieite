@@ -9,10 +9,10 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 
 ```cpp
 [[nodiscard]]
-constexpr xieite::math::BigInteger operator&(const xieite::math::BigInteger& bigInteger) const noexcept;
+constexpr xieite::math::BigInteger operator&(const xieite::math::BigInteger& operand) const noexcept;
 ```
 ### Parameters
-- `bigInteger` - A `xieite::math::BigInteger` constant reference
+- `operand` - A `xieite::math::BigInteger` constant reference
 ### Return value
 - A `xieite::math::BigInteger`
 
@@ -20,10 +20,10 @@ constexpr xieite::math::BigInteger operator&(const xieite::math::BigInteger& big
 
 ```cpp
 [[nodiscard]]
-constexpr xieite::math::BigInteger operator&(std::integral auto value) const noexcept;
+constexpr xieite::math::BigInteger operator&(std::integral auto operand) const noexcept;
 ```
 ### Parameters
-- `value` - An `auto` copy, satisfying `std::integral`
+- `operand` - An `auto` copy, satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

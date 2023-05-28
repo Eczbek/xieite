@@ -13,10 +13,10 @@ Calculates any root of a `xieite::math::BigInteger`
 
 ```cpp
 [[nodiscard]]
-constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& bigInteger) const;
+constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& degree) const;
 ```
 ### Parameters
-- `bigInteger` - A `xieite::math::BigInteger` copy
+- `degree` - A `xieite::math::BigInteger` copy
 ### Return value
 - A `xieite::math::BigInteger`
 
@@ -24,10 +24,10 @@ constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& bigInteg
 
 ```cpp
 [[nodiscard]]
-constexpr xieite::math::BigInteger root(std::integral auto value) const;
+constexpr xieite::math::BigInteger root(std::integral auto degree) const;
 ```
 ### Parameters
-- `value` - An `auto` integer type, satisfying `std::integral`
+- `degree` - An `auto` integer type, satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 
