@@ -89,7 +89,6 @@ C++ header-only utility library
 |- <a href="./docs/math.md">math</a>/
 |  |- <a href="./docs/math/BigInteger.md">BigInteger</a>
 |  |- <a href="./docs/math/ConditionalIntegerSign.md">ConditionalIntegerSign</a>
-|  |- <a href="./docs/math/Integer.md">Integer</a>
 |  |- <a href="./docs/math/MinimalIntegerSize.md">MinimalIntegerSize</a>
 |  |- <a href="./docs/math/absolute.md">absolute</a>
 |  |- <a href="./docs/math/alternatingBits.md">alternatingBits</a>

@@ -3,7 +3,6 @@
 
 #	include <xieite/math/BigInteger.hpp>
 #	include <xieite/math/ConditionalIntegerSign.hpp>
-#	include <xieite/math/Integer.hpp>
 #	include <xieite/math/MinimalIntegerSize.hpp>
 #	include <xieite/math/absolute.hpp>
 #	include <xieite/math/alternatingBits.hpp>
