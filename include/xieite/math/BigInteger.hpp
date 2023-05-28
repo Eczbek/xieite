@@ -13,6 +13,7 @@
 #	include <vector>
 #	include <xieite/concepts/Arithmetic.hpp>
 #	include <xieite/concepts/Functional.hpp>
+#	include <xieite/concepts/RangeOf.hpp>
 #	include <xieite/math/absolute.hpp>
 
 namespace xieite::math {
