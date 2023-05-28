@@ -9,6 +9,7 @@ String manipulation functions
 
 <pre><code>strings/
 |- <a href="./strings/repeat.md">repeat</a>
+|- <a href="./strings/something.md">something</a>
 |- <a href="./strings/split.md">split</a>
 |- <a href="./strings/toLowerCase.md">toLowerCase</a>
 |- <a href="./strings/toUpperCase.md">toUpperCase</a>
