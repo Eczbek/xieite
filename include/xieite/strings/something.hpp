@@ -8,7 +8,7 @@
 namespace xieite::strings {
 	[[nodiscard]]
 	constexpr std::string something(const std::string_view string) noexcept {
-		return string.substr(std::log10(string.size() - std::log10(string.size())) - 1);
+		return string.substr(std::log10(string.size() - std::log10(string.size())) + 1);
 	}
 }
 
