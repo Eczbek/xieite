@@ -27,6 +27,8 @@ C++ header-only utility library
 |  |- <a href="./docs/concepts/Hashable.md">Hashable</a>
 |  |- <a href="./docs/concepts/LinearShape.md">LinearShape</a>
 |  |- <a href="./docs/concepts/NoThrowConvertibleTo.md">NoThrowConvertibleTo</a>
+|  |- <a href="./docs/concepts/NoThrowConvertibleToOneOf.md">NoThrowConvertibleToOneOf</a>
+|  |- <a href="./docs/concepts/Polymorphic.md">Polymorphic</a>
 |  |- <a href="./docs/concepts/RangeOf.md">RangeOf</a>
 |  |- <a href="./docs/concepts/SameAsOneOf.md">SameAsOneOf</a>
 |  |- <a href="./docs/concepts/StreamableInto.md">StreamableInto</a>

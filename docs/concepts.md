@@ -19,6 +19,8 @@ Common concepts
 |- <a href="./concepts/Hashable.md">Hashable</a>
 |- <a href="./concepts/LinearShape.md">LinearShape</a>
 |- <a href="./concepts/NoThrowConvertibleTo.md">NoThrowConvertibleTo</a>
+|- <a href="./concepts/NoThrowConvertibleToOneOf.md">NoThrowConvertibleToOneOf</a>
+|- <a href="./concepts/Polymorphic.md">Polymorphic</a>
 |- <a href="./concepts/RangeOf.md">RangeOf</a>
 |- <a href="./concepts/SameAsOneOf.md">SameAsOneOf</a>
 |- <a href="./concepts/StreamableInto.md">StreamableInto</a>

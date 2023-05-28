@@ -12,12 +12,12 @@ Specifies that a type can be converted to at least one of several other types
 <br/>
 
 ```cpp
-template<typename Any1, typename... Any2>
-concept ConvertibleToOneOf = (std::convertible_to<Any1, Any2> || ...);
+template<typename From, typename... Tos>
+concept ConvertibleToOneOf = (std::convertible_to<From, Tos> || ...);
 ```
 ### Template parameters
-- `Any1` - Any type
-- `Any2...` - Any types
+- `From` - Any type
+- `Tos...` - Any types
 
 <br/><br/>
 
