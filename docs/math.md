@@ -10,7 +10,6 @@ Mathematical types and functions
 <pre><code>math/
 |- <a href="./math/BigInteger.md">BigInteger</a>
 |- <a href="./math/ConditionalIntegerSign.md">ConditionalIntegerSign</a>
-|- <a href="./math/Integer.md">Integer</a>
 |- <a href="./math/MinimalIntegerSize.md">MinimalIntegerSize</a>
 |- <a href="./math/absolute.md">absolute</a>
 |- <a href="./math/alternatingBits.md">alternatingBits</a>
