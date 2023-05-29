@@ -12,7 +12,7 @@ Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time
 <br/>
 
 ```cpp
-Timeout(const std::invocable<>& callback, const xieite::concepts::TemporalDuration auto duration) noexcept;
+Timeout(const std::invocable auto& callback, const xieite::concepts::TemporalDuration auto duration) noexcept;
 ```
 ### Parameters
 - `callback` - An `auto` constant reference, satisfying `std::invocable` with no arguments

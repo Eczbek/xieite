@@ -773,3 +773,5 @@
 
 #	define XIEITE_INTERNAL_LOOP_255(macro, initial, ...) \
 		macro(255, XIEITE_INTERNAL_LOOP_254(macro, initial, __VA_ARGS__), __VA_ARGS__)
+
+#endif
