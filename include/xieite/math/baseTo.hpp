@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_TOBASE
-#	define XIEITE_HEADER_MATH_TOBASE
+#ifndef XIEITE_HEADER_MATH_BASETO
+#	define XIEITE_HEADER_MATH_BASETO
 
 #	include <concepts>
 #	include <cstddef>
@@ -10,7 +10,7 @@
 namespace xieite::math {
 	template<std::integral Integral = int>
 	[[nodiscard]]
-	constexpr std::string toBase(Integral value, const std::size_t base, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
+	constexpr std::string baseTo(const std::size_t base, Integral value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") {
 		std::make_unsigned_t<Integral> absolute = static_cast<std::make_unsigned_t<Integral>>(value);
 		std::string result;
 		do {
