@@ -14,10 +14,10 @@ Extends multiple invocable types and overloads `operator()` for each. Ignores ty
 ```cpp
 template<xieite::concepts::Derivable... Functions>
 struct Overloader final
-: xieite::functions::OptionalCallOperator<Functions>... {
+: xieite::functions::DefaultCallOperator<Functions>... {
 	constexpr Overloader(const Functions&...);
 
-	using xieite::functions::OptionalCallOperator<Functions>::operator()...;
+	using xieite::functions::DefaultCallOperator<Functions>::operator()...;
 };
 ```
 ### Template parameters

@@ -3,8 +3,8 @@
 
 #	include <xieite/strings/repeat.hpp>
 #	include <xieite/strings/something.hpp>
-#	include <xieite/strings/toLowerCase.hpp>
-#	include <xieite/strings/toUpperCase.hpp>
+#	include <xieite/strings/toLower.hpp>
+#	include <xieite/strings/toUpper.hpp>
 #	include <xieite/strings/trim.hpp>
 #	include <xieite/strings/trimBack.hpp>
 #	include <xieite/strings/trimFront.hpp>

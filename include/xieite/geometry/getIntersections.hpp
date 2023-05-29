@@ -9,7 +9,6 @@
 #	include <xieite/geometry/containsPoint.hpp>
 #	include <xieite/geometry/getDistance.hpp>
 #	include <xieite/geometry/getSides.hpp>
-#	include <xieite/geometry/rotate.hpp>
 #	include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {

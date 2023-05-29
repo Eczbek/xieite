@@ -36,13 +36,13 @@ struct UniformInterruptableDistribution final {
 #include <xieite/random/UniformInterruptableDistribution.hpp>
 
 int main() {
-	std::default_random_engine rng(std::random_device {}());
+	auto rng = std::default_random_engine(std::random_device {}());
 
 	std::vector<std::pair<int, int>> interruptions {
 		{ 1, 4 }
 	};
 
-	xieite::random::UniformInterruptableDistribution<int> dist(0, 5, interruptions);
+	auto dist = xieite::random::UniformInterruptableDistribution<int>(0, 5, interruptions);
 
 	for (int i = 0; i < 10; ++i) {
 		std::cout << dist(rng) << '\n';

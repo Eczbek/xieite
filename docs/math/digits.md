@@ -33,10 +33,8 @@ constexpr Integral digits(const Integral value, const Integral base = 10) noexce
 
 int main() {
 	std::cout
-		<< xieite::math::digits(12)
-		<< '\n'
-		<< xieite::math::digits(0b110110, 2)
-		<< '\n';
+		<< xieite::math::digits(12) << '\n'
+		<< xieite::math::digits(0b110110, 2) << '\n';
 }
 ```
 Output:

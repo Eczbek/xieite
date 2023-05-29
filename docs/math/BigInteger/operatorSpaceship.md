@@ -35,7 +35,8 @@ constexpr std::strong_ordering operator<=>(std::integral auto comparand) const n
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout << std::boolalpha
+	std::cout
+		<< std::boolalpha
 		<< (xieite::math::BigInteger(9) > 3) << '\n';
 }
 ```

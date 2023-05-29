@@ -35,8 +35,7 @@ int main() {
 		<< std::same_as<
 			xieite::types::List<int, char>,
 			xieite::types::Unique<int, int, char, int, char, char, int>
-		>
-		<< '\n';
+		> << '\n';
 }
 ```
 Output:

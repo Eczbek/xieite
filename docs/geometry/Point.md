@@ -35,11 +35,11 @@ struct Point final {
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Point.hpp>
-#include <xieite/geometry/rotate.hpp>
+#include <xieite/geometry/getRotated.hpp>
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-	xieite::geometry::Point point = xieite::geometry::rotate({ 1.0, 0.0 }, xieite::math::toRadians(90.0));
+	xieite::geometry::Point point = xieite::geometry::getRotated({ 1.0, 0.0 }, xieite::math::toRadians(90.0));
 	
 	std::cout << '(' << point.x << ", " << point.y << ")\n";
 }

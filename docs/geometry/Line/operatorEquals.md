@@ -38,8 +38,7 @@ int main() {
 
 	std::cout
 		<< std::boolalpha
-		<< (line1 == line2)
-		<< '\n';
+		<< (line1 == line2) << '\n';
 }
 ```
 Output:

@@ -33,8 +33,7 @@ constexpr bool isPrime(Integral value) noexcept;
 int main() {
 	std::cout
 		<< std::boolalpha
-		<< xieite::math::isPrime(17)
-		<< '\n';
+		<< xieite::math::isPrime(17) << '\n';
 }
 ```
 Output:

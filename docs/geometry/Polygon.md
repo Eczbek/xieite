@@ -36,14 +36,12 @@ struct Polygon final {
 #include <xieite/geometry/getArea.hpp>
 
 int main() {
-	std::cout
-		<< xieite::geometry::getArea(xieite::geometry::Polygon({
-			{ 1.0, 0.0 },
-			{ 2.0, 1.0 },
-			{ 1.0, 2.0 },
-			{ 0.0, 1.0 }
-		}))
-		<< '\n';
+	std::cout << xieite::geometry::getArea(xieite::geometry::Polygon({
+		{ 1.0, 0.0 },
+		{ 2.0, 1.0 },
+		{ 1.0, 2.0 },
+		{ 0.0, 1.0 }
+	})) << '\n';
 }
 ```
 Output:

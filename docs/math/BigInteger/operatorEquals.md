@@ -35,7 +35,8 @@ constexpr bool operator==(const std::integral auto comparand) const noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout << std::boolalpha
+	std::cout
+		<< std::boolalpha
 		<< (xieite::math::BigInteger(2) == 2) << '\n';
 }
 ```

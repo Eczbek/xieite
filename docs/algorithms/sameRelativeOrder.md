@@ -47,12 +47,9 @@ int main() {
 
 	std::cout
 		<< std::boolalpha
-		<< xieite::algorithms::sameRelativeOrder(std::begin(a), std::end(a), std::begin(b), std::end(b))
-		<< '\n'
-		<< xieite::algorithms::sameRelativeOrder(std::begin(a), std::end(a), std::begin(c), std::end(c))
-		<< '\n'
-		<< xieite::algorithms::sameRelativeOrder(std::rbegin(a), std::rend(a), std::begin(c), std::end(c))
-		<< '\n';
+		<< xieite::algorithms::sameRelativeOrder(std::begin(a), std::end(a), std::begin(b), std::end(b)) << '\n'
+		<< xieite::algorithms::sameRelativeOrder(std::begin(a), std::end(a), std::begin(c), std::end(c)) << '\n'
+		<< xieite::algorithms::sameRelativeOrder(std::rbegin(a), std::rend(a), std::begin(c), std::end(c)) << '\n';
 }
 ```
 Output:

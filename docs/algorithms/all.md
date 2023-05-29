@@ -34,8 +34,7 @@ noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...)));
 int main() {
 	std::cout
 		<< std::boolalpha
-		<< xieite::algorithms::all(4, true, '$')
-		<< '\n';
+		<< xieite::algorithms::all(4, true, '$') << '\n';
 }
 ```
 Output:

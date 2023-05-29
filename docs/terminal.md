@@ -17,19 +17,19 @@ Terminal manipulation tools
 |- <a href="./terminal/getString.md">getString</a>
 |- <a href="./terminal/getWindowSize.md">getWindowSize</a>
 |- <a href="./terminal/putBackString.md">putBackString</a>
-|- <a href="./terminal/resetStyle.md">resetStyle</a>
+|- <a href="./terminal/resetStyles.md">resetStyles</a>
 |- <a href="./terminal/setColorBackground.md">setColorBackground</a>
-|- <a href="./terminal/setColorDim.md">setColorDim</a>
+|- <a href="./terminal/setColorDimness.md">setColorDimness</a>
 |- <a href="./terminal/setColorForeground.md">setColorForeground</a>
 |- <a href="./terminal/setColorInversion.md">setColorInversion</a>
 |- <a href="./terminal/setCursorAlternative.md">setCursorAlternative</a>
 |- <a href="./terminal/setCursorPosition.md">setCursorPosition</a>
 |- <a href="./terminal/setCursorVisibility.md">setCursorVisibility</a>
 |- <a href="./terminal/setScreenAlternative.md">setScreenAternative</a>
-|- <a href="./terminal/setTextBlink.md">setTextBlink</a>
-|- <a href="./terminal/setTextBold.md">setTextBold</a>
-|- <a href="./terminal/setTextItalic.md">setTextItalic</a>
-|- <a href="./terminal/setTextStrikethrough.md">setTextStrikethrough</a>
-|- <a href="./terminal/setTextUnderline.md">setTextUnderline</a>
+|- <a href="./terminal/setTextBlinking.md">setTextBlinking</a>
+|- <a href="./terminal/setTextBoldness.md">setTextBoldness</a>
+|- <a href="./terminal/setTextItalicized.md">setTextItalicized</a>
+|- <a href="./terminal/setTextStriked.md">setTextStriked</a>
+|- <a href="./terminal/setTextUnderlined.md">setTextUnderlined</a>
 `- <a href="./terminal/setTextVisibility.md">setTextVisibility</a>
 </code></pre>

@@ -21,7 +21,7 @@ Geometrical classes and operations
 |- <a href="./geometry/getIntersections.md">getIntersections</a>
 |- <a href="./geometry/getLength.md">getLength</a>
 |- <a href="./geometry/getPerimeter.md">getPerimeter</a>
+|- <a href="./geometry/getRotated.md">getRotated</a>
 |- <a href="./geometry/getSides.md">getSides</a>
-|- <a href="./geometry/getSlope.md">getSlope</a>
-`- <a href="./geometry/rotate.md">rotate</a>
+`- <a href="./geometry/getSlope.md">getSlope</a>
 </code></pre>

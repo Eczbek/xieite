@@ -45,10 +45,8 @@ inline constexpr Integral pi<Integral> = 3;
 
 int main() {
 	std::cout
-		<< xieite::math::pi<double>
-		<< '\n'
-		<< xieite::math::pi<int>
-		<< '\n';
+		<< xieite::math::pi<double> << '\n'
+		<< xieite::math::pi<int> << '\n';
 }
 ```
 Output:

@@ -30,8 +30,7 @@ int main() {
 
 	std::cout
 		<< std::hex
-		<< color.value()
-		<< '\n';
+		<< color.value() << '\n';
 }
 ```
 Output:
