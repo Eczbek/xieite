@@ -6,22 +6,24 @@
 #	ifdef XIEITE_SYSTEM_TYPE_LINUX
 #		include <iostream>
 #		include <string>
+#		include <unistd.h>
 #		include <xieite/terminal/ModeLock.hpp>
-#		include <xieite/terminal/getCharacter.hpp>
 
 namespace xieite::terminal {
+	[[nodiscard]]
 	inline std::string getString() noexcept {
 		xieite::terminal::ModeLock modeLock;
 		modeLock.setBlocking(false);
-		std::string buffer;
+		std::string result;
 		while (true) {
-			const char input = xieite::terminal::getCharacter(modeLock);
-			if (input < 1) {
+			std::string buffer = std::string(1024, '\0');
+			const ssize_t bytesRead = read(STDIN_FILENO, buffer.data(), buffer.size());
+			if (bytesRead < 1) {
 				break;
 			}
-			buffer += input;
+			result += buffer;
 		}
-		return buffer;
+		return result;
 	}
 }
 
