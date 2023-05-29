@@ -13,7 +13,7 @@ Trims both the front and back of a string
 
 ```cpp
 [[nodiscard]]
-constexpr std::string trim(const std::string_view string, char character) noexcept;
+constexpr std::string trim(const std::string& string, char character) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string` constant reference
@@ -25,7 +25,7 @@ constexpr std::string trim(const std::string_view string, char character) noexce
 
 ```cpp
 [[nodiscard]]
-constexpr std::string trim(const std::string_view string, const xieite::concepts::RangeOf<char> auto& characters) noexcept;
+constexpr std::string trim(const std::string& string, const xieite::concepts::RangeOf<char> auto& characters) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string` constant reference

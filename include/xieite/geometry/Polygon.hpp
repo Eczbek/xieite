@@ -16,7 +16,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Polygon& polygon) const noexcept {
-			return xieite::algorithms::sameRelativeOrder(std::begin(this->points), std::end(this->points), std::begin(polygon.points), std::end(polygon.points)) || xieite::algorithms::sameRelativeOrder(std::rbegin(this->points), std::rend(this->points), std::begin(polygon.points), std::end(polygon.points));
+			return xieite::algorithms::sameRelativeOrder(this->points, polygon.points) || xieite::algorithms::sameRelativeOrder(std::vector<xieite::geometry::Point>(std::rbegin(this->points), std::rend(this->points)), polygon.points);
 		}
 	};
 }

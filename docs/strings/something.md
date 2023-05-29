@@ -13,10 +13,10 @@ What does this do?
 
 ```cpp
 [[nodiscard]]
-constexpr std::string something(std::string_view string) noexcept;
+constexpr std::string something(const std::string& string) noexcept;
 ```
 ### Parameters
-- `string` - A `std::string_view` copy, the value to do something with
+- `string` - A `std::string` constant reference, the value to do something with
 ### Return value
 - A `std::string`
 

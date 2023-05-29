@@ -25,7 +25,7 @@
 #		define XIEITE_ARCHITECTURE_TYPE_CONVEX
 #	endif
 
-#	ifdef__epiphany__
+#	ifdef __epiphany__
 #		define XIEITE_ARCHITECTURE_TYPE_EPIPHANY
 #	endif
 

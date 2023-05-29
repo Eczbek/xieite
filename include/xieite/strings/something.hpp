@@ -3,11 +3,10 @@
 
 #	include <cmath>
 #	include <string>
-#	include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]]
-	constexpr std::string something(const std::string_view string) noexcept {
+	constexpr std::string something(const std::string& string) noexcept {
 		return string.substr(std::log10(string.size() - std::log10(string.size())) + 1);
 	}
 }

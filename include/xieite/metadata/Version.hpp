@@ -5,7 +5,7 @@
 #	include <cstddef>
 #	include <string>
 #	include <string_view>
-#	include <xieite/math/toBase.hpp>
+#	include <xieite/math/baseTo.hpp>
 
 namespace xieite::metadata {
 	struct Version final {
@@ -24,7 +24,7 @@ namespace xieite::metadata {
 
 		[[nodiscard]]
 		constexpr std::string string() const noexcept {
-			std::string result = 'v' + xieite::math::toBase(this->major, 10) + '.' + xieite::math::toBase(this->minor, 10) + '.' + xieite::math::toBase(this->patch, 10);
+			std::string result = 'v' + xieite::math::baseTo(this->major, 10) + '.' + xieite::math::baseTo(this->minor, 10) + '.' + xieite::math::baseTo(this->patch, 10);
 			if (this->label.size()) {
 				result += '-' + this->label;
 			}
