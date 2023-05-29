@@ -15,13 +15,14 @@ Mathematical types and functions
 |- <a href="./math/alternatingBits.md">alternatingBits</a>
 |- <a href="./math/approximatelyEqual.md">approximatelyEqual</a>
 |- <a href="./math/approximatelyEqualSlope.md">approximatelyEqualSlope</a>
+|- <a href="./math/baseFrom.md">baseFrom</a>
+|- <a href="./math/baseTo.md">baseTo</a>
 |- <a href="./math/closestTo.md">closestTo</a>
 |- <a href="./math/cosecant.md">cosecant</a>
 |- <a href="./math/cotangent.md">cotangent</a>
 |- <a href="./math/difference.md">difference</a>
 |- <a href="./math/digits.md">digits</a>
 |- <a href="./math/farthestFrom.md">farthestFrom</a>
-|- <a href="./math/fromBase.md">fromBase</a>
 |- <a href="./math/isPowerOf2.md">isPowerOf2</a>
 |- <a href="./math/isPrime.md">isPrime</a>
 |- <a href="./math/logarithm.md">logarithm</a>
@@ -30,7 +31,6 @@ Mathematical types and functions
 |- <a href="./math/robert.md">robert</a>
 |- <a href="./math/secant.md">secant</a>
 |- <a href="./math/tau.md">tau</a>
-|- <a href="./math/toBase.md">toBase</a>
 |- <a href="./math/toDegrees.md">toDegrees</a>
 |- <a href="./math/toRadians.md">toRadians</a>
 |- <a href="./math/wrap.md">wrap</a>

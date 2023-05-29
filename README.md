@@ -94,13 +94,14 @@ C++ header-only utility library
 |  |- <a href="./docs/math/alternatingBits.md">alternatingBits</a>
 |  |- <a href="./docs/math/approximatelyEqual.md">approximatelyEqual</a>
 |  |- <a href="./docs/math/approximatelyEqualSlope.md">approximatelyEqualSlope</a>
+|  |- <a href="./docs/math/baseFrom.md">baseFrom</a>
+|  |- <a href="./docs/math/baseTo.md">baseTo</a>
 |  |- <a href="./docs/math/closestTo.md">closestTo</a>
 |  |- <a href="./docs/math/cosecant.md">cosecant</a>
 |  |- <a href="./docs/math/cotangent.md">cotangent</a>
 |  |- <a href="./docs/math/difference.md">difference</a>
 |  |- <a href="./docs/math/digits.md">digits</a>
 |  |- <a href="./docs/math/farthestFrom.md">farthestFrom</a>
-|  |- <a href="./docs/math/fromBase.md">fromBase</a>
 |  |- <a href="./docs/math/isPowerOf2.md">isPowerOf2</a>
 |  |- <a href="./docs/math/isPrime.md">isPrime</a>
 |  |- <a href="./docs/math/logarithm.md">logarithm</a>
@@ -109,7 +110,6 @@ C++ header-only utility library
 |  |- <a href="./docs/math/robert.md">robert</a>
 |  |- <a href="./docs/math/secant.md">secant</a>
 |  |- <a href="./docs/math/tau.md">tau</a>
-|  |- <a href="./docs/math/toBase.md">toBase</a>
 |  |- <a href="./docs/math/toDegrees.md">toDegrees</a>
 |  |- <a href="./docs/math/toRadians.md">toRadians</a>
 |  |- <a href="./docs/math/wrap.md">wrap</a>
