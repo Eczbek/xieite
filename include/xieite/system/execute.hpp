@@ -16,14 +16,16 @@ namespace xieite::system {
 		const auto pipe = std::unique_ptr<std::FILE, decltype([](std::FILE* const file) noexcept -> void {
 			pclose(file);
 		})>(popen(command.data(), "r"));
-		std::string buffer;
-		std::size_t status;
-		do {
-			std::string chunk = std::string(1024, '\0');
-			status = std::fread(chunk.data(), sizeof(char), chunk.size(), pipe.get());
-			buffer += chunk;
-		} while (status);
-		return buffer;
+		std::string result;
+		while (true) {
+			std::string buffer = std::string(1024, '\0');
+			const std::size_t bytesRead = std::fread(chunk.data(), sizeof(char), chunk.size(), pipe.get());
+			if (!bytesRead) {
+				break;
+			}
+			result += buffer;
+		}
+		return result;
 	}
 }
 
