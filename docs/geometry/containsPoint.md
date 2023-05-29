@@ -78,8 +78,7 @@ int main() {
 
 	std::cout
 		<< std::boolalpha
-		<< xieite::geometry::containsPoint(square, point)
-		<< '\n';
+		<< xieite::geometry::containsPoint(square, point) << '\n';
 }
 ```
 Output:

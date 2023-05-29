@@ -39,9 +39,7 @@ int main() {
 	};
 
 	for (xieite::geometry::Segment& side : xieite::geometry::getSides(rectangle)) {
-		std::cout
-			<< xieite::geometry::getLength(side)
-			<< '\n';
+		std::cout << xieite::geometry::getLength(side) << '\n';
 	}
 }
 ```

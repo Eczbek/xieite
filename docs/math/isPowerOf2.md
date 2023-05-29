@@ -30,10 +30,8 @@ constexpr bool isPowerOf2(std::unsigned_integral auto value) noexcept;
 int main() {
 	std::cout
 		<< std::boolalpha
-		<< xieite::math::isPowerOf2(4)
-		<< '\n'
-		<< xieite::math::isPowerOf2(0)
-		<< '\n';
+		<< xieite::math::isPowerOf2(4) << '\n'
+		<< xieite::math::isPowerOf2(0) << '\n';
 }
 ```
 Output:

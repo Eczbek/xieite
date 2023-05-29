@@ -34,12 +34,9 @@ int main() {
 	std::size_t hash2 = std::hash<std::string>()("world!");
 
 	std::cout
-		<< hash1
-		<< '\n'
-		<< hash2
-		<< '\n'
-		<< xieite::hashes::combine(hash1, hash2)
-		<< '\n';
+		<< hash1 << '\n'
+		<< hash2 << '\n'
+		<< xieite::hashes::combine(hash1, hash2) << '\n';
 }
 ```
 Possible output:

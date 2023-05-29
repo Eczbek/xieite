@@ -40,9 +40,7 @@ constexpr double getLength(const xieite::concepts::LinearShape auto&) noexcept;
 #include <xieite/geometry/getLength.hpp>
 
 int main() {
-	std::cout
-		<< xieite::geometry::getLength(xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 }))
-		<< '\n';
+	std::cout << xieite::geometry::getLength(xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 })) << '\n';
 }
 ```
 Output:

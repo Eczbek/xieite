@@ -3,7 +3,7 @@ Defined in header [<xieite/concepts/NoThrowConvertibleTo.hpp>](../../include/xie
 
 <br/>
 
-Specifies that a type is convertible to another type without throwing an exception
+Specifies that a type can be converted to at least one of several other types without throwing an exception
 
 <br/><br/>
 
@@ -12,9 +12,9 @@ Specifies that a type is convertible to another type without throwing an excepti
 <br/>
 
 ```cpp
-template<typename From, typename To>
-concept NoThrowConvertibleTo = std::is_nothrow_convertible_v<From, To>;
+template<typename From, typename... Tos>
+concept NoThrowConvertibleTo = (std::convertible_to<From, Tos> || ...);
 ```
-### Template parametets
+### Template parameters
 - `From` - Any type
-- `To` - Any type
+- `Tos...` - Any types

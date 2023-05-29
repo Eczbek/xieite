@@ -35,10 +35,8 @@ int main() {
 	unsigned b = 4;
 	
 	std::cout
-		<< xieite::math::absolute(a)
-		<< '\n'
-		<< xieite::math::absolute(b)
-		<< '\n';
+		<< xieite::math::absolute(a) << '\n'
+		<< xieite::math::absolute(b) << '\n';
 }
 ```
 Output:

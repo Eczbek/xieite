@@ -45,8 +45,7 @@ int main() {
 
 	std::cout
 		<< std::boolalpha
-		<< xieite::geometry::containsPoint(ray, point)
-		<< '\n';
+		<< xieite::geometry::containsPoint(ray, point) << '\n';
 }
 ```
 Output:

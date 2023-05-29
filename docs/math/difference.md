@@ -53,12 +53,9 @@ int main() {
 	std::int8_t max = std::numeric_limits<std::int8_t>::max();
 
 	std::cout
-		<< min
-		<< '\n'
-		<< max
-		<< '\n'
-		<< xieite::math::difference(min, max)
-		<< '\n';
+		<< min << '\n'
+		<< max << '\n'
+		<< xieite::math::difference(min, max) << '\n';
 }
 ```
 Output:

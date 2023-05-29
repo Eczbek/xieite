@@ -36,9 +36,9 @@ struct UniformBagDistribution final {
 #include <xieite/random/UniformBagDistribution.hpp>
 
 int main() {
-	std::default_random_engine rng(std::random_device {}());
+	auto rng = std::default_random_engine(std::random_device {}());
 
-	xieite::random::UniformBagDistribution<int> dist(0, 3);
+	auto dist = xieite::random::UniformBagDistribution<int>(0, 3);
 
 	for (int i = 0; i < 10; ++i) {
 		std::cout << dist(rng) << '\n';

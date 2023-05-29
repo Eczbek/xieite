@@ -37,10 +37,8 @@ int main() {
 	
 	std::cout
 		<< std::boolalpha
-		<< (a == b)
-		<< '\n'
-		<< xieite::math::approximatelyEqual(a, b)
-		<< '\n';
+		<< (a == b) << '\n'
+		<< xieite::math::approximatelyEqual(a, b) << '\n';
 }
 ```
 Output:

@@ -38,8 +38,7 @@ int main() {
 
 	std::cout
 		<< std::boolalpha
-		<< xieite::algorithms::isPalindrome(std::begin(value), std::end(value))
-		<< '\n';
+		<< xieite::algorithms::isPalindrome(std::begin(value), std::end(value)) << '\n';
 }
 ```
 Output:

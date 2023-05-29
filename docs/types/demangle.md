@@ -35,10 +35,8 @@ int main() {
 	std::string typeName = typeid(Type<int>).name();
 
 	std::cout
-		<< typeName
-		<< '\n'
-		<< xieite::types::demangle(typeName)
-		<< '\n';
+		<< typeName << '\n'
+		<< xieite::types::demangle(typeName) << '\n';
 }
 ```
 Possible output:
