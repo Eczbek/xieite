@@ -7,7 +7,7 @@
 
 namespace xieite::terminal {
 	constexpr std::string setColorBackground(const xieite::graphics::Color& color) noexcept {
-		return "\u001b[48;2;" + xieite::math::baseTo(color.red, 10) + ';' + xieite::math::baseTo(color.green, 10) + ';' + xieite::math::baseTo(color.blue, 10) + 'm';
+		return "\u001b[48;2;" + xieite::math::baseTo(10, color.red) + ';' + xieite::math::baseTo(10, color.green) + ';' + xieite::math::baseTo(10, color.blue) + 'm';
 	}
 
 	constexpr std::string setColorBackground() noexcept {

@@ -24,7 +24,7 @@ namespace xieite::metadata {
 
 		[[nodiscard]]
 		constexpr std::string string() const noexcept {
-			std::string result = 'v' + xieite::math::baseTo(this->major, 10) + '.' + xieite::math::baseTo(this->minor, 10) + '.' + xieite::math::baseTo(this->patch, 10);
+			std::string result = 'v' + xieite::math::baseTo(10, this->major) + '.' + xieite::math::baseTo(10, this->minor) + '.' + xieite::math::baseTo(this->patch, 10);
 			if (this->label.size()) {
 				result += '-' + this->label;
 			}
