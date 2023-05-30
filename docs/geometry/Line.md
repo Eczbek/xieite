@@ -12,7 +12,7 @@ An class representing an infinite line
 <br/>
 
 ```cpp
-struct Line final {
+struct Line {
 	xieite::geometry::Point start;
 	xieite::geometry::Point end;
 

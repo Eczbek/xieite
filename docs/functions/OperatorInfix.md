@@ -23,7 +23,7 @@ struct OperatorInfix;
 
 ```cpp
 template<typename Result, typename Parameter, xieite::concepts::Functional<Result(Parameter)> auto callback>
-struct OperatorInfix<Result(Parameter), callback> final {
+struct OperatorInfix<Result(Parameter), callback> {
 	constexpr Result operator>(const Parameter&) const;
 
 	friend constexpr Result operator<(const Parameter&, const xieite::functions::OperatorInfix<Result(Parameter), callback>&);
@@ -43,7 +43,7 @@ struct OperatorInfix<Result(Parameter), callback> final {
 
 ```cpp
 template<typename Result, typename LeftParameter, typename RightParameter, xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto callback>
-class OperatorInfix<Result(LeftParameter, RightParameter), callback> final {
+class OperatorInfix<Result(LeftParameter, RightParameter), callback> {
 private:
 	struct Intermediate {
 		constexpr Result operator>(const RightParameter& rightArgument) const;

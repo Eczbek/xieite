@@ -12,7 +12,7 @@ Runs a callback constantly. Compile with `-pthread
 <br/>
 
 ```cpp
-struct Loop final {
+struct Loop {
 	Loop(const std::invocable auto&);
 
 	~Loop();

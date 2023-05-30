@@ -12,7 +12,7 @@ Runs a callback once after a set amount of time. Compile with `-pthread
 <br/>
 
 ```cpp
-struct Timeout final {
+struct Timeout {
 	Timeout(const std::invocable auto&, xieite::concepts::TemporalDuration auto);
 
 	bool good() const;

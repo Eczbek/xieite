@@ -8,7 +8,7 @@ namespace xieite::functions {
 	struct OperatorInfix;
 
 	template<typename Result, typename Parameter, xieite::concepts::Functional<Result(Parameter)> auto callback>
-	struct OperatorInfix<Result(Parameter), callback> final {
+	struct OperatorInfix<Result(Parameter), callback> {
 		constexpr Result operator>(const Parameter& argument) const {
 			return callback(argument);
 		}
@@ -19,7 +19,7 @@ namespace xieite::functions {
 	};
 
 	template<typename Result, typename LeftParameter, typename RightParameter, xieite::concepts::Functional<Result(LeftParameter, RightParameter)> auto callback>
-	class OperatorInfix<Result(LeftParameter, RightParameter), callback> final {
+	class OperatorInfix<Result(LeftParameter, RightParameter), callback> {
 	private:
 		class Intermediate {
 		public:

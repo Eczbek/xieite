@@ -6,7 +6,7 @@
 #	include <thread>
 
 namespace xieite::threads {
-	class Loop final {
+	class Loop {
 	public:
 		Loop(const std::invocable auto& callback) noexcept
 		: thread([&callback](const std::stop_token stopToken) -> void {

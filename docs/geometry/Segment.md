@@ -12,7 +12,7 @@ A struct representing a finite line segment
 <br/>
 
 ```cpp
-struct Segment final {
+struct Segment {
 	xieite::geometry::Point start;
 	xieite::geometry::Point end;
 

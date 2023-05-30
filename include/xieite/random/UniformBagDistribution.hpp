@@ -11,7 +11,7 @@
 
 namespace xieite::random {
 	template<std::integral Integral>
-	class UniformBagDistribution final {
+	class UniformBagDistribution {
 	public:
 		UniformBagDistribution(const Integral begin, const Integral end) noexcept
 		: begin(begin), end(end) {}

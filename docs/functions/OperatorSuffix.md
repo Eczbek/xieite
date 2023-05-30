@@ -23,7 +23,7 @@ struct OperatorSuffix;
 
 ```cpp
 template<typename Result, typename LeftParameter, xieite::concepts::Functional<Result(LeftParameter)> auto callback>
-struct OperatorSuffix<Result(LeftParameter), callback> final {
+struct OperatorSuffix<Result(LeftParameter), callback> {
 	friend constexpr Result operator<(const LeftParameter&, const xieite::functions::OperatorSuffix<Result(LeftParameter), callback>&);
 };
 ```

@@ -7,7 +7,7 @@
 #	include <xieite/math/approximatelyEqualSlope.hpp>
 
 namespace xieite::geometry {
-	struct Ray final {
+	struct Ray {
 		xieite::geometry::Point start;
 		xieite::geometry::Point end;
 

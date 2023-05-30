@@ -7,7 +7,7 @@
 
 namespace xieite::types {
 	template<typename... Types>
-	struct List final {
+	struct List {
 		using Data = std::tuple<Types...>;
 
 		template<typename Type>

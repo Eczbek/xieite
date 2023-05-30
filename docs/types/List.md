@@ -13,7 +13,7 @@ A simple class which exists only to store types
 
 ```cpp
 template<typename... Types>
-struct List final {
+struct List {
 	using Data = std::tuple<Types...>;
 
 	template<typename Type>

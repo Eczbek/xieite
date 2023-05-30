@@ -13,7 +13,7 @@ A uniform random number distribution which allows excluding subintervals from th
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-struct UniformInterruptableDistribution final {
+struct UniformInterruptableDistribution {
 	UniformInterruptableDistribution(Number, Number, const xieite::concepts::RangeOf<std::pair<Number, NUmber>> auto&);
 
 	Integral operator()(xieite::concepts::UniformRandomBitGenerator auto&) const;

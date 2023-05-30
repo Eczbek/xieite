@@ -12,7 +12,7 @@ A class representing a polygon
 <br/>
 
 ```cpp
-struct Polygon final {
+struct Polygon {
 	std::vector<xieite::geometry::Point> points;
 
 	constexpr Polygon(const xieite::concepts::RangeOf<xieite::geometry::Point> auto&);

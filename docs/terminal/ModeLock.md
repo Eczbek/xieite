@@ -12,7 +12,7 @@ A lock-style class for toggling terminal settings
 <br/>
 
 ```cpp
-struct ModeLock final {
+struct ModeLock {
 	ModeLock();
 
 	~ModeLock();
