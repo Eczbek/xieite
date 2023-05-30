@@ -12,7 +12,7 @@ A struct representing an infinite ray with one end
 <br/>
 
 ```cpp
-struct Ray final {
+struct Ray {
 	xieite::geometry::Point start;
 	xieite::geometry::Point end;
 

@@ -6,7 +6,7 @@
 #	include <xieite/threads/Interval.hpp>
 
 namespace xieite::threads {
-	class Timeout final {
+	class Timeout {
 	public:
 		Timeout(const std::invocable auto& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
 		: interval([this, &callback]() -> void {

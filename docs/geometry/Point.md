@@ -12,7 +12,7 @@ A class representing a point
 <br/>
 
 ```cpp
-struct Point final {
+struct Point {
 	double x;
 	double y;
 

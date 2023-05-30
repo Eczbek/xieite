@@ -12,7 +12,7 @@ A class for storing a position in the terminal
 <br/>
 
 ```cpp
-struct Position final {
+struct Position {
 	int row;
 	int column;
 

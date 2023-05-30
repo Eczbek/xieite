@@ -7,7 +7,7 @@
 #	include <xieite/threads/Loop.hpp>
 
 namespace xieite::threads {
-	class Interval final {
+	class Interval {
 	public:
 		Interval(const std::invocable auto& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
 		: loop([&callback, duration]() noexcept -> void {

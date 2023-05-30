@@ -4,7 +4,7 @@
 #	include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::geometry {
-	struct Point final {
+	struct Point {
 		double x;
 		double y;
 

@@ -9,7 +9,7 @@ namespace xieite::functions {
 	struct OperatorSuffix;
 
 	template<typename Result, typename LeftParameter, xieite::concepts::Functional<Result(LeftParameter)> auto callback>
-	struct OperatorSuffix<Result(LeftParameter), callback> final {
+	struct OperatorSuffix<Result(LeftParameter), callback> {
 		friend constexpr Result operator<(const LeftParameter& leftArgument, const xieite::functions::OperatorSuffix<Result(LeftParameter), callback>&) {
 			return callback(leftArgument);
 		}

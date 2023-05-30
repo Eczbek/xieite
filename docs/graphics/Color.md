@@ -12,7 +12,7 @@ A simple class for storing an RGBA value
 <br/>
 
 ```cpp
-struct Color final {
+struct Color {
 	std::uint8_t red;
 	std::uint8_t green;
 	std::uint8_t blue;

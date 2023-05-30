@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_TERMINAL_POSITION
 
 namespace xieite::terminal {
-	struct Position final {
+	struct Position {
 		int row;
 		int column;
 

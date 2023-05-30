@@ -8,7 +8,7 @@
 #	include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
-	struct Polygon final {
+	struct Polygon {
 		std::vector<xieite::geometry::Point> points;
 
 		constexpr Polygon(const xieite::concepts::RangeOf<xieite::geometry::Point> auto& points) noexcept

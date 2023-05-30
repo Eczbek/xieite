@@ -8,7 +8,7 @@
 #	include <xieite/math/approximatelyEqualSlope.hpp>
 
 namespace xieite::geometry {
-	struct Line final {
+	struct Line {
 		xieite::geometry::Point start;
 		xieite::geometry::Point end;
 

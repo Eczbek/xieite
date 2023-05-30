@@ -4,7 +4,7 @@
 #	include <xieite/geometry/Point.hpp>
 
 namespace xieite::geometry {
-	struct Segment final {
+	struct Segment {
 		xieite::geometry::Point start;
 		xieite::geometry::Point end;
 		

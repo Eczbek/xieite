@@ -12,7 +12,7 @@ A class for storing and operating on very large numbers
 <br/>
 
 ```cpp
-struct BigInteger final {
+struct BigInteger {
 	template<std::integral Integral = int>
 	constexpr BigInteger(Integral = 0);
 

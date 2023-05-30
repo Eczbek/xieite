@@ -9,7 +9,7 @@ namespace xieite::functions {
 	struct OperatorPrefix;
 
 	template<typename Result, typename RightParameter, xieite::concepts::Functional<Result(RightParameter)> auto callback>
-	struct OperatorPrefix<Result(RightParameter), callback> final {
+	struct OperatorPrefix<Result(RightParameter), callback> {
 		constexpr Result operator>(const RightParameter& rightArgument) const {
 			return callback(rightArgument);
 		}

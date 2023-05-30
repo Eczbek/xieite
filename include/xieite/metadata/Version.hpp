@@ -8,7 +8,7 @@
 #	include <xieite/math/baseTo.hpp>
 
 namespace xieite::metadata {
-	struct Version final {
+	struct Version {
 		std::size_t major;
 		std::size_t minor;
 		std::size_t patch;

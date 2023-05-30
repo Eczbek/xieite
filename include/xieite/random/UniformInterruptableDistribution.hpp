@@ -19,7 +19,7 @@
 
 namespace xieite::random {
 	template<xieite::concepts::Arithmetic Number>
-	class UniformInterruptableDistribution final {
+	class UniformInterruptableDistribution {
 	public:
 		UniformInterruptableDistribution(const Number begin, const Number end, const xieite::concepts::RangeOf<std::pair<Number, Number>> auto& interruptions) {
 			Number begin2 = begin;

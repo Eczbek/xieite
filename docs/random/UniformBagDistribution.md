@@ -13,7 +13,7 @@ A "bag-randomization" distribution
 
 ```cpp
 template<std::integral Integral>
-struct UniformBagDistribution final {
+struct UniformBagDistribution {
 	UniformBagDistribution(Integral, Integral);
 
 	Integral operator()(xieite::concepts::UniformRandomBitGenerator auto&) const;

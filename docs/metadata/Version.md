@@ -12,7 +12,7 @@ A class to store and compare versions
 <br/>
 
 ```cpp
-struct Version final {
+struct Version {
 	std::size_t major;
 	std::size_t minor;
 	std::size_t patch;
