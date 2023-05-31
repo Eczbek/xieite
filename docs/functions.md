@@ -8,9 +8,9 @@ Functional utilities
 <br/><br/>
 
 <pre><code>functions/
-|- <a href="./functions/DefaultCallOperator.md">DefaultCallOperator</a>
-|- <a href="./functions/OperatorInfix.md">OperatorInfix</a>
-|- <a href="./functions/OperatorPrefix.md">OperatorPrefix</a>
-|- <a href="./functions/OperatorSuffix.md">OperatorSuffix</a>
-`- <a href="./functions/Overloader.md">Overloader</a>
+|- <a href="./functions/Infix.md">Infix</a>
+|- <a href="./functions/MakeFunctor.md">MakeFunctor</a>
+|- <a href="./functions/Overloader.md">Overloader</a>
+|- <a href="./functions/Prefix.md">Prefix</a>
+`- <a href="./functions/Suffix.md">Suffix</a>
 </code></pre>

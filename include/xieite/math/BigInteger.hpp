@@ -12,7 +12,7 @@
 #	include <utility>
 #	include <vector>
 #	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/concepts/Functional.hpp>
+#	include <xieite/concepts/Functable.hpp>
 #	include <xieite/concepts/RangeOf.hpp>
 #	include <xieite/math/absolute.hpp>
 
@@ -592,7 +592,7 @@ namespace xieite::math {
 		bool sign;
 
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& value, const xieite::concepts::Functional<bool(bool, bool)> auto& callback) const noexcept {
+		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& value, const xieite::concepts::Functable<bool(bool, bool)> auto& callback) const noexcept {
 			xieite::math::BigInteger copy = *this;
 			const std::size_t bitsSize = this->bits.size();
 			if (this->sign) {

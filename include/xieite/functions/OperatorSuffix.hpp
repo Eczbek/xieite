@@ -1,18 +1,17 @@
-#ifndef XIEITE_HEADER_FUNCTIONS_SUFFIX
-#	define XIEITE_HEADER_FUNCTIONS_SUFFIX
+#ifndef XIEITE_HEADER_FUNCTIONS_OPERATORSUFFIX
+#	define XIEITE_HEADER_FUNCTIONS_OPERATORSUFFIX
 
-#	include <functional>
-#	include <xieite/concepts/Functional.hpp>
+#	warning "'xietie::functions::OperatorSuffix' is deprecated"
+
+#	include <xieite/functions/Suffix.hpp>
 
 namespace xieite::functions {
-	template<typename, auto>
-	struct OperatorSuffix;
-
-	template<typename Result, typename LeftParameter, xieite::concepts::Functional<Result(LeftParameter)> auto callback>
-	struct OperatorSuffix<Result(LeftParameter), callback> {
-		friend constexpr Result operator<(const LeftParameter& leftArgument, const xieite::functions::OperatorSuffix<Result(LeftParameter), callback>&) {
-			return callback(leftArgument);
-		}
+	template<typename Any1, typename any2>
+	struct OperatorSuffix
+	: xieite::functions::Suffix<Any1, decltype(any2)> {
+		[[deprecated]]
+		constexpr OperatorSuffix() noexcept
+		: xieite::functions::Suffix<Any1, decltype(any2)>(any2) {}
 	};
 }
 

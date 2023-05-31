@@ -2,16 +2,16 @@
 #	define XIEITE_HEADER_FUNCTIONS_OVERLOADER
 
 #	include <xieite/concepts/Derivable.hpp>
-#	include <xieite/functions/DefaultCallOperator.hpp>
+#	include <xieite/functions/MakeFunctor.hpp>
 
 namespace xieite::functions {
 	template<xieite::concepts::Derivable... Functions>
 	struct Overloader
-	: xieite::functions::DefaultCallOperator<Functions>... {
+	: xieite::functions::MakeFunctor<Functions>... {
 		constexpr Overloader(const Functions&... functions) noexcept
-		: xieite::functions::DefaultCallOperator<Functions>(functions)... {}
+		: xieite::functions::MakeFunctor<Functions>(functions)... {}
 
-		using xieite::functions::DefaultCallOperator<Functions>::operator()...;
+		using xieite::functions::MakeFunctor<Functions>::operator()...;
 	};
 }
 

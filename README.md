@@ -23,7 +23,7 @@ C++ header-only utility library
 |  |- <a href="./docs/concepts/Decayed.md">Decayed</a>
 |  |- <a href="./docs/concepts/Derivable.md">Derivable</a>
 |  |- <a href="./docs/concepts/Enumerator.md">Enumerator</a>
-|  |- <a href="./docs/concepts/Functional.md">Functional</a>
+|  |- <a href="./docs/concepts/Functable.md">Functable</a>
 |  |- <a href="./docs/concepts/Hashable.md">Hashable</a>
 |  |- <a href="./docs/concepts/LinearShape.md">LinearShape</a>
 |  |- <a href="./docs/concepts/NoThrowConvertibleTo.md">NoThrowConvertibleTo</a>
@@ -36,11 +36,11 @@ C++ header-only utility library
 |  |- <a href="./docs/concepts/Trivial.md">Trivial</a>
 |  `- <a href="./docs/concepts/UniformRandomBitGenerator.md">UniformRandomBitGenerator</a>
 |- <a href="./docs/functions.md">functions</a>/
-|  |- <a href="./docs/functions/DefaultCallOperator.md">DefaultCallOperator</a>
-|  |- <a href="./docs/functions/OperatorInfix.md">OperatorInfix</a>
-|  |- <a href="./docs/functions/OperatorPrefix.md">OperatorPrefix</a>
-|  |- <a href="./docs/functions/OperatorSuffix.md">OperatorSuffix</a>
-|  `- <a href="./docs/functions/Overloader.md">Overloader</a>
+|  |- <a href="./docs/functions/Infix.md">Infix</a>
+|  |- <a href="./docs/functions/MakeFunctor.md">MakeFunctor</a>
+|  |- <a href="./docs/functions/Overloader.md">Overloader</a>
+|  |- <a href="./docs/functions/Prefix.md">Prefix</a>
+|  `- <a href="./docs/functions/Suffix.md">Suffix</a>
 |- <a href="./docs/geometry.md">geometry</a>/
 |  |- <a href="./docs/geometry/Line.md">Line</a>
 |  |- <a href="./docs/geometry/Point.md">Point</a>
@@ -172,7 +172,7 @@ C++ header-only utility library
 |  |- <a href="./docs/threads/Loop.md">Loop</a>
 |  `- <a href="./docs/threads/Timeout.md">Timeout</a>
 |- <a href="./docs/traits.md">traits</a>/
-|  |- <a href="./docs/traits/isFunctional.md">isFunctional</a>
+|  |- <a href="./docs/traits/isFunctable.md">isFunctable</a>
 |  `- <a href="./docs/traits/isTemporalDuration.md">isTemporalDuration</a>
 `- <a href="./docs/types.md">types</a>/
    |- <a href="./docs/types/Anything.md">Anything</a>
