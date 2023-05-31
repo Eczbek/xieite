@@ -1,5 +1,5 @@
-# [xieite](../../README.md)::[traits](../traits.md)::isFunction
-Defined in header [<xieite/traits/isFunction.hpp>](../../include/xieite/traits/isFunction.hpp)
+# [xieite](../../README.md)::[traits](../traits.md)::isFunctable
+Defined in header [<xieite/traits/isFunctable.hpp>](../../include/xieite/traits/isFunctable.hpp)
 
 <br/><br/>
 
@@ -9,7 +9,7 @@ Defined in header [<xieite/traits/isFunction.hpp>](../../include/xieite/traits/i
 
 ```cpp
 template<typename, typename>
-constexpr bool isFunction = false;
+inline constexpr bool isFunctable = false;
 ```
 ### Template parameters
 - Unconstrained parameter
@@ -18,10 +18,21 @@ constexpr bool isFunction = false;
 <br/><br/>
 
 ```cpp
-template<typename Result, typename... Parameters, std::invocable<Parameters...> Invocable>
-constexpr bool isFunction<Invocable, Result(Parameters...)> = std::convertible_to<std::invoke_result_t<Invocable, Parameters...>, Result>;
+template<typename Functor, typename Result, typename... Parameters>
+inline constexpr bool isFunctable<Functor, Result(Parameters...)> = std::same_as<Result, decltype(std::declval<Functor>()(std::declval<Parameters>()...))>;
 ```
 ### Template parameters
+- `Functor` - Any type
 - `Result` - Any type
-- `Parameters` - Any types
-- `Invocable` - A type invocable with `Parameters...`
+- `Parameters...` - Any types
+
+<br/><br/>
+
+```cpp
+template<typename Functor, typename Result, typename... Parameters>
+inline constexpr bool isFunctable<Result(Parameters...), Functor> = xieite::traits::isFunctable<Functor, Result(Parameters...)>;
+```
+### Template parameters
+- `Functor` - Any type
+- `Result` - Any type
+- `Parameters...` - Any types
