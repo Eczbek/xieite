@@ -12,7 +12,7 @@ namespace xieite::math {
 	inline constexpr FloatingPoint pi<FloatingPoint> = std::numbers::pi_v<FloatingPoint>;
 
 	template<std::integral Integral>
-	inline constexpr Integral pi<Integral> = 3;
+	inline constexpr Integral pi<Integral> = static_cast<Integral>(std::numbers::pi);
 }
 
 #endif
