@@ -1,15 +1,13 @@
-#ifndef XIEITE_HEADER_TRAITS_ISFUNCTION
-#	define XIEITE_HEADER_TRAITS_ISFUNCTION
+#ifndef XIEITE_HEADER_TRAITS_ISFUNCTIONAL
+#	define XIEITE_HEADER_TRAITS_ISFUNCTIONAL
 
-#	include <concepts>
-#	include <type_traits>
+#	warning "'xieite::traits::isFunctional' is deprecated"
+
+#	include <xieite/traits/isFunctable.hpp>
 
 namespace xieite::traits {
-	template<typename, typename>
-	inline constexpr bool isFunctional = false;
-
-	template<typename Result, typename... Parameters, std::invocable<Parameters...> Invocable>
-	inline constexpr bool isFunctional<Invocable, Result(Parameters...)> = std::convertible_to<std::invoke_result_t<Invocable, Parameters...>, Result>;
+	template<typename Any1, typename Any2>
+	inline constexpr bool isFunctional = xieite::traits::isFunctable<Any1, Any2>;
 }
 
 #endif

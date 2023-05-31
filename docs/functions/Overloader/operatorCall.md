@@ -3,7 +3,7 @@ Defined in header [<xieite/functions/Overloader.hpp>](../../../include/xieite/fu
 
 <br/>
 
-Calls one of the `xieite::functions::DefaultCallOperator`s of `Functions` the class is derived from
+Calls one of the `xieite::functions::MakeFunctor`s of `Functions` the class is derived from
 
 <br/><br/>
 
@@ -12,5 +12,5 @@ Calls one of the `xieite::functions::DefaultCallOperator`s of `Functions` the cl
 <br/>
 
 ```cpp
-using xieite::functions::DefaultCallOperator<Functions>::operator()...;
+using xieite::functions::MakeFunctor<Functions>::operator()...;
 ```

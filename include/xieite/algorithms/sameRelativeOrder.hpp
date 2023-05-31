@@ -5,10 +5,10 @@
 #	include <functional>
 #	include <iterator>
 #	include <ranges>
-#	include <xieite/concepts/Functional.hpp>
+#	include <xieite/concepts/Functable.hpp>
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functional<bool(std::ranges::range_value_t<Range1>, std::ranges::range_value_t<Range2>)> Callback = std::ranges::equal_to>
+	template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range1>, std::ranges::range_value_t<Range2>)> Callback = std::ranges::equal_to>
 	[[nodiscard]]
 	constexpr bool sameRelativeOrder(const Range1& range1, const Range2& range2, const Callback& comparator = Callback()) {
 		std::ranges::const_iterator_t<const Range1&> begin1 = std::ranges::begin(range1);

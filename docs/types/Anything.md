@@ -1,10 +1,6 @@
 # [xieite](../../README.md)::[types](../types.md)::Anything
 Defined in header [<xieite/types/Anything.hpp>](../../include/xieite/types/Anything.hpp)
 
-<br/>
-
-A simple structure which is declared to be convertible to anything. Useful for avoiding weird template deduction
-
 <br/><br/>
 
 ## Synopsis

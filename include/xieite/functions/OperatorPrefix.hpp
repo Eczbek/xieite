@@ -1,18 +1,17 @@
-#ifndef XIEITE_HEADER_FUNCTIONS_PREFIX
-#	define XIEITE_HEADER_FUNCTIONS_PREFIX
+#ifndef XIEITE_HEADER_FUNCTIONS_OPERATORPREFIX
+#	define XIEITE_HEADER_FUNCTIONS_OPERATORPREFIX
 
-#	include <functional>
-#	include <xieite/concepts/Functional.hpp>
+#	warning "'xietie::functions::OperatorPrefix' is deprecated"
+
+#	include <xieite/functions/Prefix.hpp>
 
 namespace xieite::functions {
-	template<typename, auto>
-	struct OperatorPrefix;
-
-	template<typename Result, typename RightParameter, xieite::concepts::Functional<Result(RightParameter)> auto callback>
-	struct OperatorPrefix<Result(RightParameter), callback> {
-		constexpr Result operator>(const RightParameter& rightArgument) const {
-			return callback(rightArgument);
-		}
+	template<typename Any1, typename any2>
+	struct OperatorPrefix
+	: xieite::functions::Prefix<Any1, decltype(any2)> {
+		[[deprecated]]
+		constexpr OperatorPrefix() noexcept
+		: xieite::functions::Prefix<Any1, decltype(any2)>(any2) {}
 	};
 }
 

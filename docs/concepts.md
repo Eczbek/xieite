@@ -15,7 +15,7 @@ Common concepts
 |- <a href="./concepts/Decayed.md">Decayed</a>
 |- <a href="./concepts/Derivable.md">Derivable</a>
 |- <a href="./concepts/Enumerator.md">Enumerator</a>
-|- <a href="./concepts/Functional.md">Functional</a>
+|- <a href="./concepts/Functable.md">Functable</a>
 |- <a href="./concepts/Hashable.md">Hashable</a>
 |- <a href="./concepts/LinearShape.md">LinearShape</a>
 |- <a href="./concepts/NoThrowConvertibleTo.md">NoThrowConvertibleTo</a>
