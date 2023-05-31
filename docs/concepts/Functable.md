@@ -12,9 +12,9 @@ Specifies that a type is functable
 <br/>
 
 ```cpp
-template<typename Invocable, typename ResultOfParameters>
-concept Functable = xieite::traits::isFunctable<Invocable, ResultOfParameters>;
+template<typename Functor, typename Type>
+concept Functable = xieite::traits::isFunctable<Functor, Type> && xieite::traits::isFunctable<Type, Functor>;
 ```
 ### Template parameters
-- `Invocable` - An invocable type
-- `ResultOfParameters` - A function type, like `void(int, bool)`
+- `Functor` - Any type
+- `Type` - The function type, like `void(int, bool)`
