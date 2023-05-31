@@ -30,8 +30,8 @@ C++ header-only utility library
 |  |- <a href="./docs/concepts/Polymorphic.md">Polymorphic</a>
 |  |- <a href="./docs/concepts/RangeOf.md">RangeOf</a>
 |  |- <a href="./docs/concepts/SameAs.md">SameAs</a>
-|  |- <a href="./docs/concepts/StreamableIn.md">StreamableInto</a>
-|  |- <a href="./docs/concepts/StreamableOut.md">StreamableOutOf</a>
+|  |- <a href="./docs/concepts/StreamableIn.md">StreamableIn</a>
+|  |- <a href="./docs/concepts/StreamableOut.md">StreamableOut</a>
 |  |- <a href="./docs/concepts/TemporalDuration.md">TemporalDuration</a>
 |  |- <a href="./docs/concepts/Trivial.md">Trivial</a>
 |  `- <a href="./docs/concepts/UniformRandomBitGenerator.md">UniformRandomBitGenerator</a>
