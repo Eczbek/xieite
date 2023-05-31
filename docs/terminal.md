@@ -19,7 +19,6 @@ Terminal manipulation tools
 |- <a href="./terminal/putBackString.md">putBackString</a>
 |- <a href="./terminal/resetStyles.md">resetStyles</a>
 |- <a href="./terminal/setColorBackground.md">setColorBackground</a>
-|- <a href="./terminal/setColorDimness.md">setColorDimness</a>
 |- <a href="./terminal/setColorForeground.md">setColorForeground</a>
 |- <a href="./terminal/setColorInversion.md">setColorInversion</a>
 |- <a href="./terminal/setCursorAlternative.md">setCursorAlternative</a>

@@ -154,7 +154,6 @@ C++ header-only utility library
 |  |- <a href="./docs/terminal/putBackString.md">putBackString</a>
 |  |- <a href="./docs/terminal/resetStyles.md">resetStyles</a>
 |  |- <a href="./docs/terminal/setColorBackground.md">setColorBackground</a>
-|  |- <a href="./docs/terminal/setColorDimness.md">setColorDimness</a>
 |  |- <a href="./docs/terminal/setColorForeground.md">setColorForeground</a>
 |  |- <a href="./docs/terminal/setColorInversion.md">setColorInversion</a>
 |  |- <a href="./docs/terminal/setCursorAlternative.md">setCursorAlternative</a>
