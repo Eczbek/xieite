@@ -136,6 +136,7 @@ C++ header-only utility library
 |  |- <a href="./docs/strings/truncate.md">truncate</a>
 |  `- <a href="./docs/strings/whitespaces.md">whitespaces</a>
 |- <a href="./docs/system.md">system</a>/
+|  |- <a href="./docs/system/bufferSize.md">bufferSize</a>
 |  |- <a href="./docs/system/detectCosmicRay.md">detectCosmicRay</a>
 |  |- <a href="./docs/system/execute.md">execute</a>
 |  |- <a href="./docs/system/getAvailableMemory.md">getAvailableMemory</a>

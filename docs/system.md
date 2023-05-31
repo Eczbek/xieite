@@ -8,6 +8,7 @@ Tools for interacting with the system
 <br/><br/>
 
 <pre><code>system/
+|- <a href="./system/bufferSize.md">bufferSize</a>
 |- <a href="./system/detectCosmicRay.md">detectCosmicRay</a>
 |- <a href="./system/execute.md">execute</a>
 |- <a href="./system/getAvailableMemory.md">getAvailableMemory</a>

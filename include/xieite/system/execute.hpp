@@ -10,6 +10,7 @@
 #		include <stdio.h>
 #		include <string>
 #		include <string_view>
+#		include <xieite/system/bufferSize.hpp>
 
 namespace xieite::system {
 	inline std::string execute(const std::string_view command) noexcept {
@@ -18,7 +19,7 @@ namespace xieite::system {
 		})>(popen(command.data(), "r"));
 		std::string result;
 		while (true) {
-			std::string buffer = std::string(1024, '\0');
+			std::string buffer = std::string(xieite::system::bufferSize, '\0');
 			const std::size_t bytesRead = std::fread(chunk.data(), sizeof(char), chunk.size(), pipe.get());
 			if (!bytesRead) {
 				break;

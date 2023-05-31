@@ -7,6 +7,7 @@
 #		include <iostream>
 #		include <string>
 #		include <unistd.h>
+#		include <xieite/system/bufferSize.hpp>
 #		include <xieite/terminal/ModeLock.hpp>
 
 namespace xieite::terminal {
@@ -16,7 +17,7 @@ namespace xieite::terminal {
 		modeLock.setBlocking(false);
 		std::string result;
 		while (true) {
-			std::string buffer = std::string(1024, '\0');
+			std::string buffer = std::string(xieite::system::bufferSize, '\0');
 			const ssize_t bytesRead = read(STDIN_FILENO, buffer.data(), buffer.size());
 			if (bytesRead < 1) {
 				break;
