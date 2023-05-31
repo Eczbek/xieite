@@ -14,7 +14,6 @@
 #	include <xieite/terminal/setCursorAlternative.hpp>
 #	include <xieite/terminal/setScreenAlternative.hpp>
 #	include <xieite/terminal/setColorBackground.hpp>
-#	include <xieite/terminal/setColorDimness.hpp>
 #	include <xieite/terminal/setColorForeground.hpp>
 #	include <xieite/terminal/setColorInversion.hpp>
 #	include <xieite/terminal/setCursorPosition.hpp>
