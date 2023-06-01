@@ -3,6 +3,7 @@
 
 #	include <xieite/concepts/Arithmetic.hpp>
 #	include <xieite/concepts/Functable.hpp>
+#	include <xieite/math/absolute.hpp>
 #	include <xieite/math/approximatelyEqual.hpp>
 
 namespace xieite::algorithms {
@@ -26,15 +27,15 @@ namespace xieite::algorithms {
 		if (selector(0)) {
 			maximum = 0;
 			while (selector(minimum)) {
-				minimum -= absolute(minimum);
+				minimum -= xieite::math::absolute(minimum);
 			}
 		} else {
 			minimum = 0;
 			while (!selector(maximum)) {
-				maximum += absolute(maximum);
+				maximum += xieite::math::absolute(maximum);
 			}
 		}
-		return numberSearch(selector, minimum, maximum);
+		return xieite::algorithms::numberSearch(selector, minimum, maximum);
 	}
 }
 
