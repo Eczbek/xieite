@@ -3,14 +3,14 @@
 
 #	include <cmath>
 #	include <concepts>
-#	include <type_traits>
+#	include <cstddef>
 #	include <xieite/math/logarithm.hpp>
 
 namespace xieite::math {
-	template<std::integral Integral>
+	template<std::unsigned_integral UnsignedIntegral>
 	[[nodiscard]]
-	constexpr Integral digits(const Integral value, const Integral base = 10) noexcept {
-		return std::ceil(xieite::math::logarithm(base, static_cast<std::make_unsigned_t<Integral>>(value) + 1 + !value));
+	constexpr std::size_t digits(const UnsignedIntegral value, const std::size_t base = 10) noexcept {
+		return std::ceil(xieite::math::logarithm(base, value + 1 + !value));
 	}
 }
 

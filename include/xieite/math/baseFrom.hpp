@@ -17,7 +17,7 @@ namespace xieite::math {
 			characterMap[static_cast<unsigned char>(digits[i])] = i;
 		}
 		Integral result = 0;
-		Integral power = 1;
+		Integral power = !!base;
 		for (std::size_t i = value.size(); i--;) {
 			result += characterMap[static_cast<unsigned char>(value[i])] * power;
 			power *= base;

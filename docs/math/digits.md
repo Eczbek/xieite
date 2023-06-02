@@ -12,9 +12,9 @@ Calculates the number of digits in a value of any base
 <br/>
 
 ```cpp
-template<std::integral Integral>
+template<std::unsigned_integral UnsignedIntegral>
 [[nodiscard]]
-constexpr Integral digits(const Integral value, const Integral base = 10) noexcept;
+constexpr std::size_t digits(const UnsignedIntegral value, const std::size_t base = 10) noexcept;
 ```
 ### Template parameters
 - `Integral` - A type satisfying `std::integral`
