@@ -20,7 +20,7 @@ namespace xieite::system {
 		std::string result;
 		while (true) {
 			std::string buffer = std::string(xieite::system::bufferSize, '\0');
-			const std::size_t bytesRead = std::fread(chunk.data(), sizeof(char), chunk.size(), pipe.get());
+			const std::size_t bytesRead = std::fread(buffer.data(), sizeof(char), buffer.size(), pipe.get());
 			if (!bytesRead) {
 				break;
 			}
