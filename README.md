@@ -115,6 +115,17 @@ C++ header-only utility library
 |  `- <a href="./docs/math/xorShift.md">xorShift</a>
 |- <a href="./docs/metadata.md">metadata</a>/
 |  `- <a href="./docs/metadata/Version.md">Version</a>
+|- <a href="./docs/network.md">network</a>/
+|  |- <a href="./docs/network/Address.md">Address</a>
+|  |- <a href="./docs/network/Domain.md">Domain</a>
+|  |- <a href="./docs/network/Flag.md">Flag</a>
+|  |- <a href="./docs/network/Modifier.md">Modifier</a>
+|  |- <a href="./docs/network/Protocol.md">Protocol</a>
+|  |- <a href="./docs/network/Socket.md">Socket</a>
+|  |- <a href="./docs/network/Stream.md">Stream</a>
+|  |- <a href="./docs/network/StreamClient.md">StreamClient</a>
+|  |- <a href="./docs/network/StreamServer.md">StreamServer</a>
+|  `- <a href="./docs/network/Type.md">Type</a>
 |- <a href="./docs/process.md">process</a>/
 |  `- <a href="./docs/process/atExit.md">atExit</a>
 |- <a href="./docs/random.md">random</a>/
