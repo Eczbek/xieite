@@ -1,7 +1,10 @@
 #ifndef XIEITE_HEADER_NETWORK
 #	define XIEITE_HEADER_NETWORK
 
+#	warning "'xieite::network' is incomplete"
+
 #	include <xieite/network/Address.hpp>
+#	include <xieite/network/Datagram.hpp>
 #	include <xieite/network/Domain.hpp>
 #	include <xieite/network/Flag.hpp>
 #	include <xieite/network/Modifier.hpp>

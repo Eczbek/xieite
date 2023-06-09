@@ -117,6 +117,7 @@ C++ header-only utility library
 |  `- <a href="./docs/metadata/Version.md">Version</a>
 |- <a href="./docs/network.md">network</a>/
 |  |- <a href="./docs/network/Address.md">Address</a>
+|  |- <a href="./docs/network/Datagram.md">Datagram</a>
 |  |- <a href="./docs/network/Domain.md">Domain</a>
 |  |- <a href="./docs/network/Flag.md">Flag</a>
 |  |- <a href="./docs/network/Modifier.md">Modifier</a>
@@ -180,6 +181,7 @@ C++ header-only utility library
 |- <a href="./docs/threads.md">threads</a>/
 |  |- <a href="./docs/threads/Interval.md">Interval</a>
 |  |- <a href="./docs/threads/Loop.md">Loop</a>
+|  |- <a href="./docs/threads/Pool.md">Pool</a>
 |  `- <a href="./docs/threads/Timeout.md">Timeout</a>
 |- <a href="./docs/traits.md">traits</a>/
 |  |- <a href="./docs/traits/isFunctable.md">isFunctable</a>
