@@ -17,6 +17,13 @@ namespace xieite::threads {
 			this->setThreadCount(threadCount);
 		}
 
+		~Pool() {
+			for (std::jthread& thread : this->threads) {
+				thread.request_stop();
+			}
+			this->jobsCondition.notify_all();
+		}
+
 		void setThreadCount(std::size_t threadCount) {
 			if (!threadCount) {
 				throw std::invalid_argument("Cannot resize thread pool to zero");
@@ -31,7 +38,7 @@ namespace xieite::threads {
 							this->jobsCondition.wait(jobsLock, [this, stopToken]() noexcept -> bool {
 								return this->jobs.size() || stopToken.stop_requested();
 							});
-							if (stopToken.stop_requested()) {
+							if (!this->jobs.size() && stopToken.stop_requested()) {
 								break;
 							}
 							std::function<void()> job = std::move(this->jobs.front());
@@ -45,8 +52,9 @@ namespace xieite::threads {
 		}
 
 		void enqueue(const std::function<void()>& job) noexcept {
-			const auto jobsLock = std::lock_guard<std::mutex>(this->jobsMutex);
+			auto jobsLock = std::unique_lock<std::mutex>(this->jobsMutex);
 			this->jobs.push(job);
+			jobsLock.unlock();
 			this->jobsCondition.notify_one();
 		}
 
