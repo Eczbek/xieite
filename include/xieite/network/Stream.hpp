@@ -1,6 +1,8 @@
 #ifndef XIEITE_HEADER_NETWORK_STREAM
 #	define XIEITE_HEADER_NETWORK_STREAM
 
+#	warning "'xieite::network::Stream' is incomplete"
+
 #	include <xieite/macros/SYSTEM_TYPE.hpp>
 
 #	ifdef XIEITE_SYSTEM_TYPE_LINUX
@@ -25,26 +27,6 @@ namespace xieite::network {
 
 		Stream(const int id) noexcept
 		: xieite::network::Socket(id) {}
-
-		void send(const std::string& message) {
-			if (::send(this->id, message.c_str(), message.size(), 0) != message.size()) {
-				throw std::runtime_error("Cannot send message");
-			}
-		}
-
-		void receiving(const xieite::concepts::Functable<void(const std::string&)> auto& callback) {
-			std::string message;
-			ssize_t status;
-			while (true) {
-				std::string buffer = std::string(xieite::system::bufferSize, '\0');
-				status = ::recv(this->id, buffer.data(), buffer.size(), static_cast<int>(xieite::network::Flag::DoNotWait) * !!message.size());
-				if (status < 1) {
-					break;
-				}
-				message += buffer;
-			}
-			callback(message);
-		}
 	};
 }
 
