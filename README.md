@@ -95,6 +95,7 @@ C++ header-only utility library
 |  |- <a href="./docs/math/approximatelyEqualSlope.md">approximatelyEqualSlope</a>
 |  |- <a href="./docs/math/baseFrom.md">baseFrom</a>
 |  |- <a href="./docs/math/baseTo.md">baseTo</a>
+|  |- <a href="./docs/math/bits.md">bits</a>
 |  |- <a href="./docs/math/closestTo.md">closestTo</a>
 |  |- <a href="./docs/math/cosecant.md">cosecant</a>
 |  |- <a href="./docs/math/cotangent.md">cotangent</a>

@@ -17,6 +17,7 @@ Mathematical types and functions
 |- <a href="./math/approximatelyEqualSlope.md">approximatelyEqualSlope</a>
 |- <a href="./math/baseFrom.md">baseFrom</a>
 |- <a href="./math/baseTo.md">baseTo</a>
+|- <a href="./math/bits.md">bits</a>
 |- <a href="./math/closestTo.md">closestTo</a>
 |- <a href="./math/cosecant.md">cosecant</a>
 |- <a href="./math/cotangent.md">cotangent</a>
