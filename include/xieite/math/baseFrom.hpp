@@ -11,6 +11,12 @@ namespace xieite::math {
 	template<std::integral Integral = int>
 	[[nodiscard]]
 	constexpr Integral baseFrom(const std::size_t base, const std::string_view value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
+		if (!base) {
+			return 0;
+		}
+		if (base == 1) {
+			return value.size();
+		}
 		std::array<std::size_t, std::numeric_limits<unsigned char>::max()> characterMap;
 		const std::size_t digitsSize = digits.size();
 		for (std::size_t i = 0; i < digitsSize; ++i) {
