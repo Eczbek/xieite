@@ -15,8 +15,6 @@ A lock-style class for toggling terminal settings
 struct ModeLock {
 	ModeLock();
 
-	~ModeLock();
-
 	void setBlocking(bool);
 
 	void setEcho(bool);
@@ -37,7 +35,6 @@ struct ModeLock {
 ### Public members
 <pre><code>ModeLock/
 |- <a href="./ModeLock/constructor.md">ModeLock</a>
-|- <a href="./ModeLock/destructor.md">~ModeLock</a>
 |- <a href="./ModeLock/setBlocking.md">setBlocking</a>
 |- <a href="./ModeLock/setEcho.md">setEcho</a>
 |- <a href="./ModeLock/setCanonical.md">setCanonical</a>

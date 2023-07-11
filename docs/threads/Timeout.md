@@ -3,7 +3,7 @@ Defined in header [<xieite/threads/Timeout.hpp>](../../include/xieite/threads/Ti
 
 <br/>
 
-Runs a callback once after a set amount of time. Compile with `-pthread
+Runs a callback once after a set amount of time. Compile with `-pthread`
 
 <br/><br/>
 

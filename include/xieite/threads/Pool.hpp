@@ -51,6 +51,10 @@ namespace xieite::threads {
 			}
 		}
 
+		std::size_t getThreadCount() const noexcept {
+			return this->threads.size();
+		}
+
 		void enqueue(const std::function<void()>& job) noexcept {
 			auto jobsLock = std::unique_lock<std::mutex>(this->jobsMutex);
 			this->jobs.push(job);
