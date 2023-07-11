@@ -28,10 +28,11 @@ namespace xieite::threads {
 			if (!threadCount) {
 				throw std::invalid_argument("Cannot resize thread pool to zero");
 			}
-			if (threadCount < this->threads.size()) {
+			const std::size_t currentThreadCount = this->threads.size();
+			if (threadCount < currentThreadCount) {
 				this->threads.resize(threadCount);
 			} else {
-				while (threadCount--) {
+				while (threadCount-- > currentThreadCount) {
 					this->threads.emplace_back([this](const std::stop_token stopToken) -> void {
 						while (true) {
 							auto jobsLock = std::unique_lock<std::mutex>(this->jobsMutex);
