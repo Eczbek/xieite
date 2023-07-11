@@ -11,7 +11,7 @@
 namespace xieite::math {
 	template<std::integral Integral = int>
 	[[nodiscard]]
-	constexpr std::string baseTo(const std::size_t base, Integral value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
+	constexpr std::string baseTo(const std::size_t base, const Integral value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
 		if (!base) {
 			return "";
 		}

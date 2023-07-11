@@ -16,7 +16,9 @@ namespace xieite::threads {
 		}) {}
 
 		~Loop() {
-			this->stop();
+			if (this->good()) {
+				this->stop();
+			}
 		}
 
 		bool good() const noexcept {
@@ -24,10 +26,8 @@ namespace xieite::threads {
 		}
 
 		void stop() noexcept {
-			if (this->good()) {
-				this->thread.request_stop();
-				this->thread.detach();
-			}
+			this->thread.request_stop();
+			this->thread.detach();
 		}
 
 	private:

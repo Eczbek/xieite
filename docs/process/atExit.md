@@ -25,7 +25,7 @@ inline void atExit(const std::function<void()>& callback) noexcept;
 #include <xieite/process/atExit.hpp>
 
 int main() {
-	xieite::process::atExit([]() {
+	xieite::process::atExit([] {
 		std::cout << "world!\n";
 	});
 
