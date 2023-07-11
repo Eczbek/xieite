@@ -40,7 +40,7 @@ struct Loop {
 #include <xieite/threads/Loop.hpp>
 
 int main() {
-	xieite::threads::Loop loop([]() {
+	xieite::threads::Loop loop([] {
 		static int i = 0;
 
 		std::this_thread::sleep_for(std::chrono::seconds(1));

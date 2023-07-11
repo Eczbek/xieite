@@ -35,7 +35,7 @@ namespace xieite::threads {
 					this->threads.emplace_back([this](const std::stop_token stopToken) -> void {
 						while (true) {
 							auto jobsLock = std::unique_lock<std::mutex>(this->jobsMutex);
-							this->jobsCondition.wait(jobsLock, [this, stopToken]() noexcept -> bool {
+							this->jobsCondition.wait(jobsLock, [this, stopToken] noexcept -> bool {
 								return this->jobs.size() || stopToken.stop_requested();
 							});
 							if (!this->jobs.size() && stopToken.stop_requested()) {

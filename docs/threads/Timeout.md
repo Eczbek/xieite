@@ -37,7 +37,7 @@ struct Timeout {
 #include <xieite/threads/Timeout.hpp>
 
 int main() {
-	xieite::threads::Timeout timeout([]() {
+	xieite::threads::Timeout timeout([] {
 		std::cout << "Hello, world!\n";
 	}, std::chrono::seconds(3));
 

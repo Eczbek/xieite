@@ -37,7 +37,7 @@ struct Interval {
 #include <xieite/threads/Interval.hpp>
 
 int main() {
-	xieite::threads::Interval interval([]() {
+	xieite::threads::Interval interval([] {
 		static int i = 0;
 
 		std::cout << ++i << '\n';
