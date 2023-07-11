@@ -3,7 +3,7 @@ Defined in header [<xieite/threads/Loop.hpp>](../../include/xieite/threads/Loop.
 
 <br/>
 
-Runs a callback constantly. Compile with `-pthread
+Runs a callback constantly. Compile with `-pthread`
 
 <br/><br/>
 
@@ -15,8 +15,6 @@ Runs a callback constantly. Compile with `-pthread
 struct Loop {
 	Loop(const std::invocable auto&);
 
-	~Loop();
-
 	bool good() const;
 
 	void stop();
@@ -25,7 +23,6 @@ struct Loop {
 ### Public members
 <pre><code>Loop/
 |- <a href="./Loop/constructor.md">Loop</a>
-|- <a href="./Loop/destructor.md">~Loop</a>
 |- <a href="./Loop/good.md">good</a>
 `- <a href="./Loop/stop.md">stop</a>
 </code></pre>

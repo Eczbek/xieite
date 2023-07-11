@@ -3,7 +3,7 @@ Defined in header [<xieite/threads/Interval.hpp>](../../include/xieite/threads/I
 
 <br/>
 
-Runs a callback every set amount of time. Compile with `-pthread
+Runs a callback every set amount of time. Compile with `-pthread`
 
 <br/><br/>
 
