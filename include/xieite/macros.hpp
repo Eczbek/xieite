@@ -5,6 +5,7 @@
 #	include <xieite/macros/COMPILER_TYPE.hpp>
 #	include <xieite/macros/COMPILER_VERSION.hpp>
 #	include <xieite/macros/CONCATENATE.hpp>
+#	include <xieite/macros/CONSUME.hpp>
 #	include <xieite/macros/DEFER.hpp>
 #	include <xieite/macros/EMPTY.hpp>
 #	include <xieite/macros/LOOP.hpp>
