@@ -12,18 +12,10 @@ Waits for and returns the next keypress input
 <br/>
 
 ```cpp
-inline char getCharacter(const xieite::terminal::ModeLock& modeLock);
+inline char getCharacter(const xieite::terminal::ModeLock& modeLock = xieite::terminal::ModeLock());
 ```
 ### Parameters
-- `modeLock` - A `xieite::terminal::ModeLock` constant reference to apply while getting input
-### Return value
-- `char` - The input character
-
-<br/><br/>
-
-```cpp
-inline char getCharacter();
-```
+- `modeLock` - A `xieite::terminal::ModeLock` constant reference to apply while getting input, default-constructed by default
 ### Return value
 - `char` - The input character
 
