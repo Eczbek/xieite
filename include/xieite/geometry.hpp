@@ -13,8 +13,11 @@
 #	include <xieite/geometry/getIntersections.hpp>
 #	include <xieite/geometry/getLength.hpp>
 #	include <xieite/geometry/getPerimeter.hpp>
-#	include <xieite/geometry/getRotated.hpp>
 #	include <xieite/geometry/getSides.hpp>
 #	include <xieite/geometry/getSlope.hpp>
+#	include <xieite/geometry/reflect.hpp>
+#	include <xieite/geometry/rotate.hpp>
+#	include <xieite/geometry/scale.hpp>
+#	include <xieite/geometry/translate.hpp>
 
 #endif
