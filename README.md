@@ -55,9 +55,12 @@ C++ header-only utility library
 |  |- <a href="./docs/geometry/getIntersections.md">getIntersections</a>
 |  |- <a href="./docs/geometry/getLength.md">getLength</a>
 |  |- <a href="./docs/geometry/getPerimeter.md">getPerimeter</a>
-|  |- <a href="./docs/geometry/getRotated.md">getRotated</a>
 |  |- <a href="./docs/geometry/getSides.md">getSides</a>
-|  `- <a href="./docs/geometry/getSlope.md">getSlope</a>
+|  |- <a href="./docs/geometry/getSlope.md">getSlope</a>
+|  |- <a href="./docs/geometry/reflect.md">reflect</a>
+|  |- <a href="./docs/geometry/rotate.md">rotate</a>
+|  |- <a href="./docs/geometry/scale.md">scale</a>
+|  `- <a href="./docs/geometry/translate.md">translate</a>
 |- <a href="./docs/graphics.md">graphics</a>/
 |  `- <a href="./docs/graphics/Color.md">Color</a>
 |- <a href="./docs/hashes.md">hashes</a>/
