@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_GEOMETRY_POINT
 #	define XIEITE_HEADER_GEOMETRY_POINT
 
-#	include <xieite/math/approximatelyEqual.hpp>
+#	include <xieite/math/almostEqual.hpp>
 
 namespace xieite::geometry {
 	struct Point {
@@ -13,7 +13,7 @@ namespace xieite::geometry {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Point point) const noexcept {
-			return xieite::math::approximatelyEqual(this->x, point.x) && xieite::math::approximatelyEqual(this->y, point.y);
+			return xieite::math::almostEqual(this->x, point.x) && xieite::math::almostEqual(this->y, point.y);
 		}
 	};
 }
