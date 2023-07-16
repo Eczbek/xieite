@@ -12,9 +12,9 @@ Mathematical types and functions
 |- <a href="./math/MinimalInteger.md">MinimalInteger</a>
 |- <a href="./math/SignedInteger.md">SignedInteger</a>
 |- <a href="./math/absolute.md">absolute</a>
+|- <a href="./math/almostEqual.md">almostEqual</a>
+|- <a href="./math/almostEqualSlope.md">almostEqualSlope</a>
 |- <a href="./math/alternatingBits.md">alternatingBits</a>
-|- <a href="./math/approximatelyEqual.md">approximatelyEqual</a>
-|- <a href="./math/approximatelyEqualSlope.md">approximatelyEqualSlope</a>
 |- <a href="./math/baseFrom.md">baseFrom</a>
 |- <a href="./math/baseTo.md">baseTo</a>
 |- <a href="./math/bits.md">bits</a>

@@ -94,9 +94,9 @@ C++ header-only utility library
 |  |- <a href="./docs/math/MinimalInteger.md">MinimalInteger</a>
 |  |- <a href="./docs/math/SignedInteger.md">SignedInteger</a>
 |  |- <a href="./docs/math/absolute.md">absolute</a>
+|  |- <a href="./docs/math/almostEqual.md">almostEqual</a>
+|  |- <a href="./docs/math/almostEqualSlope.md">almostEqualSlope</a>
 |  |- <a href="./docs/math/alternatingBits.md">alternatingBits</a>
-|  |- <a href="./docs/math/approximatelyEqual.md">approximatelyEqual</a>
-|  |- <a href="./docs/math/approximatelyEqualSlope.md">approximatelyEqualSlope</a>
 |  |- <a href="./docs/math/baseFrom.md">baseFrom</a>
 |  |- <a href="./docs/math/baseTo.md">baseTo</a>
 |  |- <a href="./docs/math/bits.md">bits</a>

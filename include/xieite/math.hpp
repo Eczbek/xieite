@@ -6,9 +6,9 @@
 #	include <xieite/math/MinimalInteger.hpp>
 #	include <xieite/math/SignedInteger.hpp>
 #	include <xieite/math/absolute.hpp>
+#	include <xieite/math/almostEqual.hpp>
+#	include <xieite/math/almostEqualSlope.hpp>
 #	include <xieite/math/alternatingBits.hpp>
-#	include <xieite/math/approximatelyEqual.hpp>
-#	include <xieite/math/approximatelyEqualSlope.hpp>
 #	include <xieite/math/baseFrom.hpp>
 #	include <xieite/math/baseTo.hpp>
 #	include <xieite/math/bits.hpp>

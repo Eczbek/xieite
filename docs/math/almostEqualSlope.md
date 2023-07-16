@@ -1,5 +1,5 @@
-# [xieite](../../README.md)::[math](../math.md)::approximatelyEqualSlope
-Defined in header [<xieite/math/approximatelyEqualSlope.hpp>](../../include/xieite/math/approximatelyEqualSlope.hpp)
+# [xieite](../../README.md)::[math](../math.md)::almostEqualSlope
+Defined in header [<xieite/math/almostEqualSlope.hpp>](../../include/xieite/math/almostEqualSlope.hpp)
 
 <br/>
 
@@ -14,7 +14,7 @@ Checks whether two slopes are almost equal
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr bool approximatelyEqualSlope(Number value1, Number value2) noexcept;
+constexpr bool almostEqualSlope(Number value1, Number value2) noexcept;
 ```
 ### Template parameters
 - `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`

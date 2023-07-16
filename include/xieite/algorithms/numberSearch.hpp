@@ -4,7 +4,7 @@
 #	include <xieite/concepts/Arithmetic.hpp>
 #	include <xieite/concepts/Functable.hpp>
 #	include <xieite/math/absolute.hpp>
-#	include <xieite/math/approximatelyEqual.hpp>
+#	include <xieite/math/almostEqual.hpp>
 
 namespace xieite::algorithms {
 	template<xieite::concepts::Arithmetic Number>
@@ -12,7 +12,7 @@ namespace xieite::algorithms {
 	constexpr Number numberSearch(const xieite::concepts::Functable<bool(Number)> auto& selector, Number minimum, Number maximum) {
 		while (true) {
 			const Number middle = (minimum + maximum) / 2;
-			if (xieite::math::approximatelyEqual(middle, minimum) || xieite::math::approximatelyEqual(middle, maximum)) {
+			if (xieite::math::almostEqual(middle, minimum) || xieite::math::almostEqual(middle, maximum)) {
 				return middle;
 			}
 			(selector(middle) ? maximum : minimum) = middle;

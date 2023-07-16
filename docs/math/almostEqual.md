@@ -1,9 +1,9 @@
-# [xieite](../../README.md)::[math](../math.md)::approximatelyEqual
-Defined in header [<xieite/math/approximatelyEqual.hpp>](../../include/xieite/math/approximatelyEqual.hpp)
+# [xieite](../../README.md)::[math](../math.md)::almostEqual
+Defined in header [<xieite/math/almostEqual.hpp>](../../include/xieite/math/almostEqual.hpp)
 
 <br/>
 
-Checks whether two numbers' difference is below or equal to their type's epsilon
+Checks if two values are almost equal
 
 <br/><br/>
 
@@ -14,7 +14,7 @@ Checks whether two numbers' difference is below or equal to their type's epsilon
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr bool approximatelyEqual(Number value1, Number value2) noexcept;
+constexpr bool almostEqual(Number value1, Number value2) noexcept;
 ```
 ### Template parameters
 - `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
@@ -29,7 +29,7 @@ constexpr bool approximatelyEqual(Number value1, Number value2) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/approximatelyEqual.hpp>
+#include <xieite/math/almostEqual.hpp>
 
 int main() {
 	const double a = 0.3;
@@ -38,7 +38,7 @@ int main() {
 	std::cout
 		<< std::boolalpha
 		<< (a == b) << '\n'
-		<< xieite::math::approximatelyEqual(a, b) << '\n';
+		<< xieite::math::almostEqual(a, b) << '\n';
 }
 ```
 Output:
