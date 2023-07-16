@@ -8,7 +8,6 @@ Utilities for random value generation
 <br/><br/>
 
 <pre><code>random/
-|- <a href="./random/UniformBagDistribution.md">UniformBagDistribution</a>
 |- <a href="./random/UniformInterruptableDistribution.md">UniformInterruptableDistribution</a>
 `- <a href="./random/getUUID.md">getUUID</a>
 </code></pre>

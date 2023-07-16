@@ -14,7 +14,7 @@ A uniform random number distribution which allows excluding subintervals from th
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 struct UniformInterruptableDistribution {
-	UniformInterruptableDistribution(Number, Number, const xieite::concepts::RangeOf<std::pair<Number, NUmber>> auto&);
+	UniformInterruptableDistribution(xieite::math::Interval<Number>, const xieite::concepts::RangeOf<xieite::math::Interval<Number>> auto&);
 
 	Integral operator()(xieite::concepts::UniformRandomBitGenerator auto&) const;
 };
@@ -38,11 +38,13 @@ struct UniformInterruptableDistribution {
 int main() {
 	auto rng = std::default_random_engine(std::random_device {}());
 
-	std::vector<std::pair<int, int>> interruptions {
-		{ 1, 4 }
+	auto interval = xieite::math::Interval<int>(0, 5);
+
+	std::vector<xieite::math::Interval<int>> interruptions {
+		xieite::math::Interval<int>(1, 4)
 	};
 
-	auto dist = xieite::random::UniformInterruptableDistribution<int>(0, 5, interruptions);
+	auto dist = xieite::random::UniformInterruptableDistribution<int>(interval, interruptions);
 
 	for (int i = 0; i < 10; ++i) {
 		std::cout << dist(rng) << '\n';

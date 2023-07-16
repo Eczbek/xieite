@@ -10,7 +10,6 @@ String manipulation functions
 <pre><code>strings/
 |- <a href="./strings/repeat.md">repeat</a>
 |- <a href="./strings/something.md">something</a>
-|- <a href="./strings/split.md">split</a>
 |- <a href="./strings/toLower.md">toLower</a>
 |- <a href="./strings/toUpper.md">toUpper</a>
 |- <a href="./strings/trim.md">trim</a>

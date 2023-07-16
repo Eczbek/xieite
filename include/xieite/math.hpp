@@ -2,6 +2,7 @@
 #	define XIEITE_HEADER_MATH
 
 #	include <xieite/math/BigInteger.hpp>
+#	include <xieite/math/Interval.hpp>
 #	include <xieite/math/MinimalInteger.hpp>
 #	include <xieite/math/SignedInteger.hpp>
 #	include <xieite/math/absolute.hpp>
@@ -21,6 +22,7 @@
 #	include <xieite/math/isPowerOf2.hpp>
 #	include <xieite/math/isPrime.hpp>
 #	include <xieite/math/logarithm.hpp>
+#	include <xieite/math/mergeIntervals.hpp>
 #	include <xieite/math/pi.hpp>
 #	include <xieite/math/robert.hpp>
 #	include <xieite/math/secant.hpp>
