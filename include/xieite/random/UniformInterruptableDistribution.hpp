@@ -1,54 +1,53 @@
-#ifndef XIEITE_HEADER_RANDOM_INTERRUPTABLEUNIFORMDISTRIBUTION
-#	define XIEITE_HEADER_RANDOM_INTERRUPTABLEUNIFORMDISTRIBUTION
+#ifndef XIEITE_HEADER_RANDOM_UNIFORMINTERRUPTABLEDISTRIBUTION
+#	define XIEITE_HEADER_RANDOM_UNIFORMINTERRUPTABLEDISTRIBUTION
 
 #	include <algorithm>
 #	include <cmath>
 #	include <concepts>
+#	include <iterator>
 #	include <random>
-#	include <ranges>
 #	include <stdexcept>
 #	include <type_traits>
-#	include <utility>
-#	include <vector>
 #	include <xieite/concepts/Arithmetic.hpp>
 #	include <xieite/concepts/RangeOf.hpp>
 #	include <xieite/concepts/UniformRandomBitGenerator.hpp>
-#	include <xieite/math/closestTo.hpp>
+#	include <xieite/math/Interval.hpp>
 #	include <xieite/math/difference.hpp>
-#	include <xieite/math/farthestFrom.hpp>
+#	include <xieite/math/mergeIntervals.hpp>
 
 namespace xieite::random {
 	template<xieite::concepts::Arithmetic Number>
 	class UniformInterruptableDistribution {
 	public:
-		UniformInterruptableDistribution(const Number begin, const Number end, const xieite::concepts::RangeOf<std::pair<Number, Number>> auto& interruptions) {
-			Number begin2 = begin;
-			Number end2 = end;
-			Number& farthest = xieite::math::farthestFrom<Number>(0.0, begin2, end2);
-			this->sign = (farthest >= 0.0) * 2 - 1;
-			for (std::pair<Number, Number> interruption : interruptions) {
-				if (((interruption.first < begin) || (interruption.first > end)) && ((interruption.first > begin) || (interruption.first < end)) && ((interruption.second < begin) || (interruption.second > end)) && ((interruption.second > begin) || (interruption.second < end))) {
-					continue;
+		UniformInterruptableDistribution(const xieite::math::Interval<Number> interval, const xieite::concepts::RangeOf<xieite::math::Interval<Number>> auto& interruptions) {
+			const Number lower = std::min(interval.start, interval.end);
+			const Number upper = std::max(interval.start, interval.end);
+			Number maximum = upper;
+			for (const xieite::math::Interval<Number> interruption : xieite::math::mergeIntervals<Number>(interruptions)) {
+				const Number start = std::clamp(interruption.start, lower, upper);
+				const Number end = std::clamp(interruption.end, lower, upper);
+				if (((start >= lower) && (start <= upper)) || ((end >= lower) && (end <= upper))) {
+					const Number difference = xieite::math::difference(start, end);
+					if (maximum > (lower + difference)) {
+						maximum -= (difference + std::integral<Number>);
+						this->interruptions.push_back(xieite::math::Interval<Number>(std::min(start, end), difference));
+					} else {
+						throw std::range_error("Cannot exclude entire interval");
+					}
 				}
-				interruption.first = std::clamp(interruption.first, begin, end);
-				interruption.second = std::clamp(interruption.second, begin, end);
-				const Number difference = (xieite::math::difference(interruption.first, interruption.second) + 1.0) * this->sign;
-				if (difference > farthest) {
-					throw std::range_error("Cannot exclude entire range");
-				}
-				farthest -= difference;
-				this->interruptions.push_back(interruption);
 			}
-			this->distribution = UniformDistribution(begin2, end2);
+			this->distribution = xieite::random::UniformInterruptableDistribution<Number>::UniformDistribution(lower, maximum);
+			std::sort(std::begin(this->interruptions), std::end(this->interruptions), [](const xieite::math::Interval<Number> interruption1, const xieite::math::Interval<Number> interruption2) noexcept -> Number {
+				return interruption1.start < interruption2.start;
+			});
 		}
 
 		[[nodiscard]]
 		Number operator()(xieite::concepts::UniformRandomBitGenerator auto& generator) const noexcept {
 			Number result = this->distribution(generator);
-			for (const std::pair<Number, Number> interruption : this->interruptions) {
-				const Number closest = xieite::math::closestTo<Number>(0.0, interruption.first, interruption.second);
-				if ((this->sign > 0) && (result >= closest) || (this->sign < 0) && (result <= closest)) {
-					result += (xieite::math::difference(interruption.first, interruption.second) + 1.0) * this->sign;
+			for (const xieite::math::Interval<Number> interruption : this->interruptions) {
+				if (result >= interruption.start) {
+					result += (interruption.end + std::integral<Number>);
 				}
 			}
 			return result;
@@ -57,9 +56,8 @@ namespace xieite::random {
 	private:
 		using UniformDistribution = std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>>;
 
-		int sign;
-		std::vector<std::pair<Number, Number>> interruptions;
 		mutable UniformDistribution distribution;
+		std::vector<xieite::math::Interval<Number>> interruptions;
 	};
 }
 

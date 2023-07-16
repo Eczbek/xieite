@@ -87,6 +87,7 @@ C++ header-only utility library
 |  `- <a href="./docs/macros/VERSION.md">VERSION</a>
 |- <a href="./docs/math.md">math</a>/
 |  |- <a href="./docs/math/BigInteger.md">BigInteger</a>
+|  |- <a href="./docs/math/Interval.md">Interval</a>
 |  |- <a href="./docs/math/MinimalInteger.md">MinimalInteger</a>
 |  |- <a href="./docs/math/SignedInteger.md">SignedInteger</a>
 |  |- <a href="./docs/math/absolute.md">absolute</a>
@@ -106,6 +107,7 @@ C++ header-only utility library
 |  |- <a href="./docs/math/isPowerOf2.md">isPowerOf2</a>
 |  |- <a href="./docs/math/isPrime.md">isPrime</a>
 |  |- <a href="./docs/math/logarithm.md">logarithm</a>
+|  |- <a href="./docs/math/mergeIntervals.md">mergeIntervals</a>
 |  |- <a href="./docs/math/pi.md">pi</a>
 |  |- <a href="./docs/math/robert.md">robert</a>
 |  |- <a href="./docs/math/secant.md">secant</a>
@@ -131,7 +133,6 @@ C++ header-only utility library
 |- <a href="./docs/process.md">process</a>/
 |  `- <a href="./docs/process/atExit.md">atExit</a>
 |- <a href="./docs/random.md">random</a>/
-|  |- <a href="./docs/random/UniformBagDistribution.md">UniformBagDistribution</a>
 |  |- <a href="./docs/random/UniformInterruptableDistribution.md">UniformInterruptableDistribution</a>
 |  `- <a href="./docs/random/getUUID.md">getUUID</a>
 |- <a href="./docs/ratios.md">ratios</a>/
