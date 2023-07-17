@@ -1,4 +1,4 @@
-# [xieite](../README.md)::ratios
+# [xieite](./xieite.md)::ratios
 Aggregated in header [<xieite/ratios.hpp>](../include/xieite/ratios.hpp)
 
 <br/>

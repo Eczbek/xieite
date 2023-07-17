@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::getSlope
+# [xieite](../xieite.md)::[geometry](../geometry.md)::getSlope
 Defined in header [<xieite/geometry/getSlope.hpp>](../../include/xieite/geometry/getSlope.hpp)
 
 <br/>

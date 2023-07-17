@@ -3,7 +3,7 @@
 
 #	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#	ifdef XIEITE_SYSTEM_TYPE_LINUX
+#	if XIEITE_SYSTEM_TYPE_UNIX
 #		include <cstddef>
 #		include <cstdio>
 #		include <memory>
@@ -19,7 +19,7 @@ namespace xieite::system {
 		})>(popen(command.data(), "r"));
 		std::string result;
 		while (true) {
-			std::string buffer = std::string(xieite::system::bufferSize, '\0');
+			std::string buffer = std::string(xieite::memory::bufferSize, '\0');
 			const std::size_t bytesRead = std::fread(buffer.data(), sizeof(char), buffer.size(), pipe.get());
 			if (!bytesRead) {
 				break;

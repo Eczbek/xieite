@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::bits
+# [xieite](../xieite.md)::[math](../math.md)::bits
 Defined in header [<xieite/math/bits.hpp>](../../include/xieite/math/bits.hpp)
 
 <br/>

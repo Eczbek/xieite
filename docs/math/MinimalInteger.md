@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::MinimalInteger
+# [xieite](../xieite.md)::[math](../math.md)::MinimalInteger
 Defined in header [<xieite/math/MinimalInteger.hpp>](../../include/xieite/math/MinimalInteger.hpp)
 
 <br/>

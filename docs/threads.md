@@ -1,4 +1,4 @@
-# [xieite](../README.md)::threads
+# [xieite](./xieite.md)::threads
 Aggregated in header [<xieite/threads.hpp>](../include/xieite/threads.hpp)
 
 <br/>

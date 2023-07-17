@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::getDistance
+# [xieite](../xieite.md)::[geometry](../geometry.md)::getDistance
 Defined in header [<xieite/geometry/getDistance.hpp>](../../include/xieite/geometry/getDistance.hpp)
 
 <br/>

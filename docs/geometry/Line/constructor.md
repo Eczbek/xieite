@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Line](../Line.md)::Line
+# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Line](../Line.md)::Line
 Defined in header [<xieite/geometry/Line.hpp>](../../../include/xieite/geometry/Line.hpp)
 
 <br/>

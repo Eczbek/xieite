@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[strings](../strings.md)::toLower
+# [xieite](../xieite.md)::[strings](../strings.md)::toLower
 Defined in header [<xieite/strings/toLower.hpp>](../../include/xieite/strings/toLower.hpp)
 
 <br/>

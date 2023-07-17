@@ -1,4 +1,4 @@
-# [xieite](../README.md)::metadata
+# [xieite](./xieite.md)::metadata
 Aggregated in header [<xieite/metadata.hpp>](../include/xieite/metadata.hpp)
 
 <br/>

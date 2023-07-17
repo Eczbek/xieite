@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::generatePi
+# [xieite](../xieite.md)::[math](../math.md)::generatePi
 Defined in header [<xieite/math/generatePi.hpp>](../../include/xieite/math/generatePi.hpp)
 
 <br/>

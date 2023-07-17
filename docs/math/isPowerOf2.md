@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::isPowerOf2
+# [xieite](../xieite.md)::[math](../math.md)::isPowerOf2
 Defined in header [<xieite/math/isPowerOf2.hpp>](../../include/xieite/math/isPowerOf2.hpp)
 
 <br/>

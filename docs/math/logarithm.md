@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::logarithm
+# [xieite](../xieite.md)::[math](../math.md)::logarithm
 Defined in header [<xieite/math/logarithm.hpp>](../../include/xieite/math/logarithm.hpp)
 
 <br/>

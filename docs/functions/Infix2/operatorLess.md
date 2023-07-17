@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[functions](../../functions.md)::[Infix<Result(LeftParameter, RightParameter), callback>](../Infix.md)::operator<
+# [xieite](../../xieite.md)::[functions](../../functions.md)::[Infix<Result(LeftParameter, RightParameter), callback>](../Infix.md)::operator<
 
 <br/><br/>
 

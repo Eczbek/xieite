@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[hashes](../hashes.md)::create
+# [xieite](../xieite.md)::[hashes](../hashes.md)::create
 Defined in header [<xieite/hashes/create.hpp>](../../include/xieite/hashes/create.hpp)
 
 <br/>

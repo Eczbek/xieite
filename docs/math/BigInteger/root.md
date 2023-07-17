@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::root
+# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::root
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 <br/>

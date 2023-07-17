@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[algorithms](../algorithms.md)::count
+# [xieite](../xieite.md)::[algorithms](../algorithms.md)::count
 Defined in header [<xieite/algorithms/count.hpp>](../../include/xieite/algorithms/count.hpp)
 
 <br/>

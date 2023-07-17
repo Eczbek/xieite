@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::getAngle
+# [xieite](../xieite.md)::[geometry](../geometry.md)::getAngle
 Defined in header [<xieite/geometry/getAngle.hpp>](../../include/xieite/geometry/getAngle.hpp)
 
 <br/>

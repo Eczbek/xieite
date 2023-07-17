@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::getArea
+# [xieite](../xieite.md)::[geometry](../geometry.md)::getArea
 Defined in header [<xieite/geometry/getArea.hpp>](../../include/xieite/geometry/getArea.hpp)
 
 <br/>

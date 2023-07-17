@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::containsPoint
+# [xieite](../xieite.md)::[geometry](../geometry.md)::containsPoint
 Defined in header [<xieite/geometry/containsPoint.hpp>](../../include/xieite/geometry/containsPoint.hpp)
 
 <br/>

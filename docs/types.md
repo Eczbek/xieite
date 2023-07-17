@@ -1,4 +1,4 @@
-# [xieite](../README.md)::types
+# [xieite](./xieite.md)::types
 Aggregated in header [<xieite/types.hpp>](../include/xieite/types.hpp)
 
 <br/>

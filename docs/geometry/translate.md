@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::translate
+# [xieite](../xieite.md)::[geometry](../geometry.md)::translate
 Defined in header [<xieite/geometry/translate.hpp>](../../include/xieite/geometry/translate.hpp)
 
 <br/>

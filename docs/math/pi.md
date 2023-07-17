@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::pi
+# [xieite](../xieite.md)::[math](../math.md)::pi
 Defined in header [<xieite/math/pi.hpp>](../../include/xieite/math/pi.hpp)
 
 <br/>

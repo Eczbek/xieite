@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[math](../../math.md)::[Interval<Number>](../Interval.md)::Interval
+# [xieite](../../xieite.md)::[math](../../math.md)::[Interval<Number>](../Interval.md)::Interval
 Defined in header [<xieite/math/Interval.hpp>](../../../include/xieite/math/Interval.hpp)
 
 <br/>

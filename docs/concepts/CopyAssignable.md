@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[concepts](../concepts.md)::CopyAssignable
+# [xieite](../xieite.md)::[concepts](../concepts.md)::CopyAssignable
 Defined in header [<xieite/concepts/CopyAssignable.hpp>](../../include/xieite/concepts/CopyAssignable.hpp)
 
 <br/>

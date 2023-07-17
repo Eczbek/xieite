@@ -3,7 +3,7 @@
 
 #	include <xieite/macros/SYSTEM_TYPE.hpp>
 
-#	ifdef XIEITE_SYSTEM_TYPE_LINUX
+#	if XIEITE_SYSTEM_TYPE_UNIX
 #		include <string>
 #		include <uuid/uuid.h>
 

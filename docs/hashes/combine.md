@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[hashes](../hashes.md)::combine
+# [xieite](../xieite.md)::[hashes](../hashes.md)::combine
 Defined in header [<xieite/hashes/combine.hpp>](../../include/xieite/hashes/combine.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::almostEqualSlope
+# [xieite](../xieite.md)::[math](../math.md)::almostEqualSlope
 Defined in header [<xieite/math/almostEqualSlope.hpp>](../../include/xieite/math/almostEqualSlope.hpp)
 
 <br/>

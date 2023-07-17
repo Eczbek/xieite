@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[metadata](../metadata.md)::Version
+# [xieite](../xieite.md)::[metadata](../metadata.md)::Version
 Defined in header [<xieite/metadata/Version.hpp>](../../include/xieite/metadata/Version.hpp)
 
 <br/>

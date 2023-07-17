@@ -1,4 +1,4 @@
-# [xieite](../README.md)::traits
+# [xieite](./xieite.md)::traits
 Aggregated in header [<xieite/traits.hpp>](../include/xieite/traits.hpp)
 
 <br/>

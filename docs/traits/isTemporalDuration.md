@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[traits](../traits.md)::isTemporalDuration
+# [xieite](../xieite.md)::[traits](../traits.md)::isTemporalDuration
 Defined in header [<xieite/traits/isTemporalDuration.hpp>](../../include/xieite/traits/isTemporalDuration.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[concepts](../concepts.md)::LinearShape
+# [xieite](../xieite.md)::[concepts](../concepts.md)::LinearShape
 Defined in header [<xieite/concepts/LinearShape.hpp>](../../include/xieite/concepts/LinearShape.hpp)
 
 <br/>

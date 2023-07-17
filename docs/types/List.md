@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[types](../types.md)::List
+# [xieite](../xieite.md)::[types](../types.md)::List
 Defined in header [<xieite/types/List.hpp>](../../include/xieite/types/List.hpp)
 
 <br/>

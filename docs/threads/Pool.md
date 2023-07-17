@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[threads](../threads.md)::Pool
+# [xieite](../xieite.md)::[threads](../threads.md)::Pool
 Defined in header [<xieite/threads/Pool.hpp>](../../include/xieite/threads/Pool.hpp)
 
 <br/>

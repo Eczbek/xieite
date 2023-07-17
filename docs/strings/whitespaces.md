@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[strings](../strings.md)::whitespaces
+# [xieite](../xieite.md)::[strings](../strings.md)::whitespaces
 Defined in header [<xieite/strings/whitespaces.hpp>](../../include/xieite/strings/whitespaces.hpp)
 
 <br/>

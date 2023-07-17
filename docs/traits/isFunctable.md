@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[traits](../traits.md)::isFunctable
+# [xieite](../xieite.md)::[traits](../traits.md)::isFunctable
 Defined in header [<xieite/traits/isFunctable.hpp>](../../include/xieite/traits/isFunctable.hpp)
 
 <br/><br/>

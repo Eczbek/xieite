@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[algorithms](../algorithms.md)::sameRelativeOrder
+# [xieite](../xieite.md)::[algorithms](../algorithms.md)::sameRelativeOrder
 Defined in header [<xieite/algorithms/sameRelativeOrder.hpp>](../../include/xieite/algorithms/sameRelativeOrder.hpp)
 
 <br/>

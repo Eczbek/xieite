@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::absolute
+# [xieite](../xieite.md)::[math](../math.md)::absolute
 Defined in header [<xieite/math/absolute.hpp>](../../include/xieite/math/absolute.hpp)
 
 <br/>

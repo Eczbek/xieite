@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[threads](../../threads.md)::[Pool](../Pool.md)::getThreadCount
+# [xieite](../../xieite.md)::[threads](../../threads.md)::[Pool](../Pool.md)::getThreadCount
 Defined in header [<xieite/threads/Pool.hpp>](../../../include/xieite/threads/Pool.hpp)
 
 <br/>

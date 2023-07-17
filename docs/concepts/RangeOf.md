@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[concepts](../concepts.md)::RangeOf
+# [xieite](../xieite.md)::[concepts](../concepts.md)::RangeOf
 Defined in header [<xieite/concepts/RangeOf.hpp>](../../include/xieite/concepts/RangeOf.hpp)
 
 <br/>

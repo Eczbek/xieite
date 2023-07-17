@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::Segment
+# [xieite](../xieite.md)::[geometry](../geometry.md)::Segment
 Defined in header [<xieite/geometry/Segment.hpp>](../../include/xieite/geometry/Segment.hpp)
 
 <br/>

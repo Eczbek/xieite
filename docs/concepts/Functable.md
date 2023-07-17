@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[concepts](../concepts.md)::Functable
+# [xieite](../xieite.md)::[concepts](../concepts.md)::Functable
 Defined in header [<xieite/concepts/Functable.hpp>](../../include/xieite/concepts/Functable.hpp)
 
 <br/>

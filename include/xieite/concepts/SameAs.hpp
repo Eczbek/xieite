@@ -4,8 +4,8 @@
 #	include <concepts>
 
 namespace xieite::concepts {
-	template<typename From, typename... Tos>
-	concept SameAs = (std::same_as<From, Tos> || ...);
+	template<typename Any, typename... Others>
+	concept SameAs = (std::same_as<Any, Others> || ...);
 }
 
 #endif

@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::baseTo
+# [xieite](../xieite.md)::[math](../math.md)::baseTo
 Defined in header [<xieite/math/baseTo.hpp>](../../include/xieite/math/baseTo.hpp)
 
 <br/>

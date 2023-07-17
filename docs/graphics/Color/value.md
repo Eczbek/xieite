@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[graphics](../../graphics.md)::[Color](../Color.md)::value
+# [xieite](../../xieite.md)::[graphics](../../graphics.md)::[Color](../Color.md)::value
 Defined in header [<xieite/graphics/Color.hpp>](../../../include/xieite/graphics/Color.hpp)
 
 <br/>

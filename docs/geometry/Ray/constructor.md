@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Ray](../Ray.md)::Ray
+# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Ray](../Ray.md)::Ray
 Defined in header [<xieite/geometry/Ray.hpp>](../../../include/xieite/geometry/Ray.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[concepts](../concepts.md)::SameAs
+# [xieite](../xieite.md)::[concepts](../concepts.md)::SameAs
 Defined in header [<xieite/concepts/SameAs.hpp>](../../include/xieite/concepts/SameAs.hpp)
 
 <br/>

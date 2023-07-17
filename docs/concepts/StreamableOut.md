@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[concepts](../concepts.md)::StreamableOut
+# [xieite](../xieite.md)::[concepts](../concepts.md)::StreamableOut
 Defined in header [<xieite/concepts/StreamableOut.hpp>](../../include/xieite/concepts/StreamableOut.hpp)
 
 <br/>
@@ -13,8 +13,8 @@ Specifies that a type can be "streamed" out of
 
 ```cpp
 template<typename Any>
-concept StreamableOut = requires(std::ostream& outStream, Any value) {
-	{ outStream << value } -> std::convertible_to<std::ostream&>;
+concept StreamableOut = requires(std::ostream& outputStream, Any value) {
+	{ outputStream << value } -> std::convertible_to<std::ostream&>;
 };
 ```
 ### Template parameters

@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::SignedInteger
+# [xieite](../xieite.md)::[math](../math.md)::SignedInteger
 Defined in header [<xieite/math/SignedInteger.hpp>](../../include/xieite/math/SignedInteger.hpp)
 
 <br/><br/>

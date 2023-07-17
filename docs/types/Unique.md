@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[types](../types.md)::Unique
+# [xieite](../xieite.md)::[types](../types.md)::Unique
 Defined in header [<xieite/types/Unique.hpp>](../../include/xieite/types/Unique.hpp)
 
 <br/>
