@@ -3,7 +3,7 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../include/xie
 
 <br/>
 
-// DESCRIPTION HERE
+A class for controlling standard text streams with modes and styles
 
 <br/><br/>
 
