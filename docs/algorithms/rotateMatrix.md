@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[algorithms](../algorithms.md)::rotateMatrix
+# [xieite](../xieite.md)::[algorithms](../algorithms.md)::rotateMatrix
 Defined in header [<xieite/algorithms/rotateMatrix.hpp>](../../include/xieite/algorithms/rotateMatrix.hpp)
 
 <br/>

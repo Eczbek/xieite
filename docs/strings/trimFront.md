@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[strings](../strings.md)::trimFront
+# [xieite](../xieite.md)::[strings](../strings.md)::trimFront
 Defined in header [<xieite/strings/trimFront.hpp>](../../include/xieite/strings/trimFront.hpp)
 
 <br/>

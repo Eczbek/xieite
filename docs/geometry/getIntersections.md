@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::getIntersections
+# [xieite](../xieite.md)::[geometry](../geometry.md)::getIntersections
 Defined in header [<xieite/geometry/getIntersections.hpp>](../../include/xieite/geometry/getIntersections.hpp)
 
 <br/>

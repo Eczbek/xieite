@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::reflect
+# [xieite](../xieite.md)::[geometry](../geometry.md)::reflect
 Defined in header [<xieite/geometry/reflect.hpp>](../../include/xieite/geometry/reflect.hpp)
 
 <br/>

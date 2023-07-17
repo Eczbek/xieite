@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::isPrime
+# [xieite](../xieite.md)::[math](../math.md)::isPrime
 Defined in header [<xieite/math/isPrime.hpp>](../../include/xieite/math/isPrime.hpp)
 
 <br/>

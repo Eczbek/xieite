@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::toDegrees
+# [xieite](../xieite.md)::[math](../math.md)::toDegrees
 Defined in header [<xieite/math/toDegrees.hpp>](../../include/xieite/math/toDegrees.hpp)
 
 <br/>

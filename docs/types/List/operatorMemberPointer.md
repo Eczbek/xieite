@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[types](../../types.md)::[List<Types...>](../List.md)::operator->*
+# [xieite](../../xieite.md)::[types](../../types.md)::[List<Types...>](../List.md)::operator->*
 Defined in header [<xieite/types/List.hpp>](../../../include/xieite/types/List.hpp)
 
 <br/>

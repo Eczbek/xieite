@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::getLength
+# [xieite](../xieite.md)::[geometry](../geometry.md)::getLength
 Defined in header [<xieite/geometry/getLength.hpp>](../../include/xieite/geometry/getLength.hpp)
 
 <br/>

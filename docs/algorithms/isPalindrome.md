@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[algorithms](../algorithms.md)::isPalindrome
+# [xieite](../xieite.md)::[algorithms](../algorithms.md)::isPalindrome
 Defined in header [<xieite/algorithms/isPalindrome.hpp>](../../include/xieite/algorithms/isPalindrome.hpp)
 
 <br/>

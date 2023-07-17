@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::Polygon
+# [xieite](../xieite.md)::[geometry](../geometry.md)::Polygon
 Defined in header [<xieite/geometry/Polygon.hpp>](../../include/xieite/geometry/Polygon.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# [xieite](../README.md)::functions
+# [xieite](./xieite.md)::functions
 Aggregated in header [<xieite/functions.hpp>](../include/xieite/functions.hpp)
 
 <br/>

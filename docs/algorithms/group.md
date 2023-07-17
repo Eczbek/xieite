@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[algorithms](../algorithms.md)::group
+# [xieite](../xieite.md)::[algorithms](../algorithms.md)::group
 Defined in header [<xieite/algorithms/group.hpp>](../../include/xieite/algorithms/group.hpp)
 
 <br/>

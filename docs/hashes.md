@@ -1,4 +1,4 @@
-# [xieite](../README.md)::hashes
+# [xieite](./xieite.md)::hashes
 Aggregated in header [<xieite/hashes.hpp>](../include/xieite/hashes.hpp)
 
 <br/>

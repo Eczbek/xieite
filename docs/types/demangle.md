@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[types](../types.md)::demangle
+# [xieite](../xieite.md)::[types](../types.md)::demangle
 Defined in header [<xieite/types/demangle.hpp>](../../include/xieite/types/demangle.hpp)
 
 <br/>

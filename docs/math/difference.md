@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::difference
+# [xieite](../xieite.md)::[math](../math.md)::difference
 Defined in header [<xieite/math/difference.hpp>](../../include/xieite/math/difference.hpp)
 
 <br/>

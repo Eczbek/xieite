@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[system](../system.md)::execute
+# [xieite](../xieite.md)::[system](../system.md)::execute
 Defined in header [<xieite/system/execute.hpp>](../../include/xieite/system/execute.hpp)
 
 <br/>
@@ -30,7 +30,7 @@ int main() {
 	std::cout << xieite::system::execute("echo Hello, world!");
 }
 ```
-Possible output:
+Output:
 ```
 Hello, world!
 ```

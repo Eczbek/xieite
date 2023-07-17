@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::xorShift
+# [xieite](../xieite.md)::[math](../math.md)::xorShift
 Defined in header [<xieite/math/xorShift.hpp>](../../include/xieite/math/xorShift.hpp)
 
 <br/>

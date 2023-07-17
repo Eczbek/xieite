@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::wrap
+# [xieite](../xieite.md)::[math](../math.md)::wrap
 Defined in header [<xieite/math/wrap.hpp>](../../include/xieite/math/wrap.hpp)
 
 <br/>

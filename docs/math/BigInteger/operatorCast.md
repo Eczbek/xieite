@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::operator typename
+# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::operator typename
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Segment](../Segment.md)::operator==
+# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Segment](../Segment.md)::operator==
 Defined in header [<xieite/geometry/Segment.hpp>](../../../include/xieite/geometry/Segment.hpp)
 
 <br/>

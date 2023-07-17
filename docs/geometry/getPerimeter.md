@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::getPerimeter
+# [xieite](../xieite.md)::[geometry](../geometry.md)::getPerimeter
 Defined in header [<xieite/geometry/getPerimeter.hpp>](../../include/xieite/geometry/getPerimeter.hpp)
 
 <br/>

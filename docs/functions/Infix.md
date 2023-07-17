@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[functions](../functions.md)::Infix
+# [xieite](../xieite.md)::[functions](../functions.md)::Infix
 Defined in header [<xieite/functions/Infix.hpp>](../../include/xieite/functions/Infix.hpp)
 
 <br/>

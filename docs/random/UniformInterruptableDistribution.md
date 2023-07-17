@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[random](../random.md)::UniformInterruptableDistribution
+# [xieite](../xieite.md)::[random](../random.md)::UniformInterruptableDistribution
 Defined in header [<xieite/random/UniformInterruptableDistribution.hpp>](../../include/xieite/random/UniformInterruptableDistribution.hpp)
 
 <br/>

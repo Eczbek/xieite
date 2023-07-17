@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[algorithms](../algorithms.md)::partialReverse
+# [xieite](../xieite.md)::[algorithms](../algorithms.md)::partialReverse
 Defined in header [<xieite/algorithms/partialReverse.hpp>](../../include/xieite/algorithms/partialReverse.hpp)
 
 <br/>

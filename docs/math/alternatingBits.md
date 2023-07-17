@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::alternatingBits
+# [xieite](../xieite.md)::[math](../math.md)::alternatingBits
 Defined in header [<xieite/math/alternatingBits.hpp>](../../include/xieite/math/alternatingBits.hpp)
 
 <br/><br/>

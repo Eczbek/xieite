@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::getSides
+# [xieite](../xieite.md)::[geometry](../geometry.md)::getSides
 Defined in header p<xieite/geometry/getSides.hpp>](../../include/xieite/geometry/getSides.hpp)
 
 <br/>

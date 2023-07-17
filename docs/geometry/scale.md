@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::scale
+# [xieite](../xieite.md)::[geometry](../geometry.md)::scale
 Defined in header [<xieite/geometry/scale.hpp>](../../include/xieite/geometry/scale.hpp)
 
 <br/>

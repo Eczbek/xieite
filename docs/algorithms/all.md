@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[algorithms](../algorithms.md)::all
+# [xieite](../xieite.md)::[algorithms](../algorithms.md)::all
 Defined in header [<xieite/algorithms/all.hpp>](../../include/xieite/algorithms/all.hpp)
 
 <br/>

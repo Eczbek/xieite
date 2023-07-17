@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[strings](../strings.md)::toUpper
+# [xieite](../xieite.md)::[strings](../strings.md)::toUpper
 Defined in header [<xieite/strings/toUpper.hpp>](../../include/xieite/strings/toUpper.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[functions](../functions.md)::Prefix
+# [xieite](../xieite.md)::[functions](../functions.md)::Prefix
 Defined in header [<xieite/functions/Prefix.hpp>](../../include/xieite/functions/Prefix.hpp)
 
 <br/>

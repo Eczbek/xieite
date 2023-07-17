@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[functions](../../functions.md)::[Suffix<Result(LeftParameter)>](../Suffix.md)::Suffix
+# [xieite](../../xieite.md)::[functions](../../functions.md)::[Suffix<Result(LeftParameter)>](../Suffix.md)::Suffix
 Defined in header [<xieite/functions/Suffix.hpp>](../../../include/xieite/functions/Suffix.hpp)
 
 <br/>

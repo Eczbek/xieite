@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[strings](../strings.md)::something
+# [xieite](../xieite.md)::[strings](../strings.md)::something
 Defined in header [<xieite/strings/something.hpp>](../../include/xieite/strings/something.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[geometry](../../geometry.md)::[Point](../Point.md)::Point
+# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Point](../Point.md)::Point
 Defined in header [<xieite/geometry/Point.hpp>](../../../include/xieite/geometry/Point.hpp)
 
 <br/>

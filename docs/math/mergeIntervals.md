@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::mergeIntervals
+# [xieite](../xieite.md)::[math](../math.md)::mergeIntervals
 Defined in header [<xieite/math/mergeIntervals.hpp>](../../include/xieite/math/mergeIntervals.hpp)
 
 <br/>

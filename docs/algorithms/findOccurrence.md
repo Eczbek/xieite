@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[algorithms](../algorithms.md)::findOccurrence
+# [xieite](../xieite.md)::[algorithms](../algorithms.md)::findOccurrence
 Defined in header [<xieite/algorithms/findOccurrence.hpp>](../../include/xieite/algorithms/findOccurrence.hpp)
 
 <br/>

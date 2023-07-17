@@ -1,4 +1,4 @@
-# [xieite](../../../README.md)::[functions](../../functions.md)::[MakeFunctor<Function>](../MakeFunctor.md)::MakeFunctor
+# [xieite](../../xieite.md)::[functions](../../functions.md)::[MakeFunctor<Function>](../MakeFunctor.md)::MakeFunctor
 Defined in header [<xieite/functions/MakeFunctor.hpp>](../../../include/xieite/functions/MakeFunctor.hpp)
 
 <br/>

@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[geometry](../geometry.md)::getAxisIntercept
+# [xieite](../xieite.md)::[geometry](../geometry.md)::getAxisIntercept
 Defined in header [<xieite/geometry/getAxisIntercept.hpp>](../../include/xieite/geometry/getAxisIntercept.hpp)
 
 <br/>

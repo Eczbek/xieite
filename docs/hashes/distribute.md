@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[hashes](../hashes.md)::distribute
+# [xieite](../xieite.md)::[hashes](../hashes.md)::distribute
 Defined in header [<xieite/hashes/distribute.hpp>](../../include/xieite/hashes/distribute.hpp)
 
 <br/><br/>

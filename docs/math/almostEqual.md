@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::almostEqual
+# [xieite](../xieite.md)::[math](../math.md)::almostEqual
 Defined in header [<xieite/math/almostEqual.hpp>](../../include/xieite/math/almostEqual.hpp)
 
 <br/>

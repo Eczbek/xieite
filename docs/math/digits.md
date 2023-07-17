@@ -1,4 +1,4 @@
-# [xieite](../../README.md)::[math](../math.md)::digits
+# [xieite](../xieite.md)::[math](../math.md)::digits
 Defined in header [<xieite/math/digits.hpp>](../../include/xieite/math/digits.hpp)
 
 <br/>
