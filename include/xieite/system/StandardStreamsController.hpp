@@ -37,6 +37,8 @@ namespace xieite::system {
 			this->resetStyles();
 		}
 
+		auto operator=(const xieite::system::StandardStreamsController<auto, auto>&) = delete;
+
 		void setInputBlocking(const bool value) noexcept {
 			this->blocking = value;
 			this->update();
