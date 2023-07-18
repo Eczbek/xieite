@@ -27,6 +27,7 @@ constexpr void partialReverse(const Range& range, const xieite::concepts::Functa
 ```cpp
 #include <array>
 #include <iostream>
+#include <ranges>
 #include <xieite/algorithms/partialReverse.hpp>
 
 int main() {
@@ -36,7 +37,7 @@ int main() {
 		return value <= 3;
 	};
 	
-	xieite::algorithms::partialReverse(std::begin(values), std::end(values), callback);
+	xieite::algorithms::partialReverse(std::ranges::begin(values), std::ranges::end(values), callback);
 
 	for (int value : values) {
 		std::cout << value << ' ';

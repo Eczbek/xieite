@@ -25,5 +25,5 @@ Main namespace
 |- <a href="./system.md">system</a>
 |- <a href="./threads.md">threads</a>
 |- <a href="./traits.md">traits</a>
-`- <a href="./types.md">types</a>`
+`- <a href="./types.md">types</a>
 </code></pre>
