@@ -30,6 +30,7 @@ constexpr bool isPalindrome(const Range& range, const Callback& comparator = Cal
 ## Example
 ```cpp
 #include <iostream>
+#include <ranges>
 #include <string>
 #include <xieite/algorithms/isPalindrome.hpp>
 
@@ -38,7 +39,7 @@ int main() {
 
 	std::cout
 		<< std::boolalpha
-		<< xieite::algorithms::isPalindrome(std::begin(value), std::end(value)) << '\n';
+		<< xieite::algorithms::isPalindrome(std::ranges::begin(value), std::ranges::end(value)) << '\n';
 }
 ```
 Output:

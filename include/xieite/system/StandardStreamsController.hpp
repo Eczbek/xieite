@@ -26,7 +26,7 @@ namespace xieite::system {
 	class StandardStreamsController {
 	public:
 		StandardStreamsController() noexcept
-		: inputStreamFile(xieite::system::getStreamFile(inputStream)), inputFileDescriptor(fileno(this->inputFile)), blockingMode(fcntl(this->inputFileDescriptor, F_GETFL)), blocking(true), echo(false), canonical(false), signals(false), processing(false) {
+		: inputStreamFile(xieite::system::getStreamFile(inputStream)), inputFileDescriptor(fileno(this->inputStreamFile)), blockingMode(fcntl(this->inputFileDescriptor, F_GETFL)), blocking(true), echo(true), canonical(true), signals(true), processing(true) {
 			tcgetattr(this->inputFileDescriptor, &this->cookedMode);
 			this->update();
 		}
@@ -37,7 +37,8 @@ namespace xieite::system {
 			this->resetStyles();
 		}
 
-		auto operator=(const xieite::system::StandardStreamsController<auto, auto>&) = delete;
+		template<std::istream& otherInputStream, std::ostream& otherOutputStream>
+		auto operator=(const xieite::system::StandardStreamsController<otherInputStream, otherOutputStream>&) = delete;
 
 		void setInputBlocking(const bool value) noexcept {
 			this->blocking = value;

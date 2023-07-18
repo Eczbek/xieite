@@ -19,9 +19,9 @@ namespace xieite::algorithms {
 				iterators.push_back(begin);
 			}
 		}
-		const std::size_t iteratorsSize = iterators.size();
+		const std::size_t iteratorsSize = std::ranges::size(iterators);
 		for (std::size_t i = 0; i < iteratorsSize / 2; ++i) {
-			std::iter_swap(iterators[i], iterators[iteratorsSize - i - 1]);
+			std::ranges::iter_swap(iterators[i], iterators[iteratorsSize - i - 1]);
 		}
 	}
 }
