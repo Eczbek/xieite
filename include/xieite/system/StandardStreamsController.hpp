@@ -195,7 +195,7 @@ namespace xieite::system {
 
 	private:
 		std::FILE* const inputStreamFile;
-		const int inputFileDescriptor;;
+		const int inputFileDescriptor;
 
 		termios cookedMode;
 		int blockingMode;
