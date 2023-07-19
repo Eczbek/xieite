@@ -12,17 +12,14 @@ Calculates the number of digits in a value of any base
 <br/>
 
 ```cpp
-template<std::unsigned_integral UnsignedIntegral>
 [[nodiscard]]
-constexpr std::size_t digits(const UnsignedIntegral value, const std::size_t base = 10) noexcept;
+constexpr std::size_t digits(const std::integral auto value, const std::size_t base = 10) noexcept;
 ```
-### Template parameters
-- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `value` - An `Integral` copy
+- `value` - An `auto` copy, satisfying `std::integral`
 - `base` - An `Integral` copy, set to `10` by default
 ### Return value
-- An `Integral`, the number of digits
+- A `std::size_t`, the number of digits
 
 <br/><br/>
 
