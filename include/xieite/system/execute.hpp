@@ -10,7 +10,7 @@
 #		include <stdio.h>
 #		include <string>
 #		include <string_view>
-#		include <xieite/system/bufferSize.hpp>
+#		include <xieite/memory/bufferSize.hpp>
 
 namespace xieite::system {
 	inline std::string execute(const std::string_view command) noexcept {
