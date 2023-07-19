@@ -11,7 +11,6 @@
 #	include <xieite/math/alternatingBits.hpp>
 #	include <xieite/math/baseFrom.hpp>
 #	include <xieite/math/baseTo.hpp>
-#	include <xieite/math/bits.hpp>
 #	include <xieite/math/closestTo.hpp>
 #	include <xieite/math/cosecant.hpp>
 #	include <xieite/math/cotangent.hpp>
