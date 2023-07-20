@@ -29,7 +29,7 @@ namespace xieite::system {
 				return stderr;
 			}
 		}
-		return static_cast<__gnu_cxx::stdio_filebuf<Character>* const>(static_cast<std::basic_ofstream<Character>::__filebuf_type* const>(stream.rdbuf()))->file();
+		return static_cast<__gnu_cxx::stdio_filebuf<Character>*>(stream.rdbuf())->file();
 	}
 }
 
