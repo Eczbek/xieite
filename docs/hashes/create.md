@@ -16,7 +16,7 @@ Hashes a value. Currently only supports std::strings. Collisions may occur
 constexpr std::size_t create(std::string_view string) noexcept;
 ```
 ### Parameters
-- `string` - A `std::string_view` copy, the value to hash
+- `string` - A `std::string_view`, the value to hash
 ### Return value
 - A `std::size_t`, the hashed result
 

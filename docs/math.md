@@ -9,8 +9,10 @@ Mathematical types and functions
 
 <pre><code>math/
 |- <a href="./math/BigInteger.md">BigInteger</a>
+|- <a href="./math/ConditionalSign.md">ConditionalSign</a>
+|- <a href="./math/Interval.md">Interval</a>
 |- <a href="./math/MinimalInteger.md">MinimalInteger</a>
-|- <a href="./math/SignedInteger.md">SignedInteger</a>
+|- <a href="./math/Result.md">Result</a>
 |- <a href="./math/absolute.md">absolute</a>
 |- <a href="./math/almostEqual.md">almostEqual</a>
 |- <a href="./math/almostEqualSlope.md">almostEqualSlope</a>
@@ -28,6 +30,7 @@ Mathematical types and functions
 |- <a href="./math/isPrime.md">isPrime</a>
 |- <a href="./math/logarithm.md">logarithm</a>
 |- <a href="./math/pi.md">pi</a>
+|- <a href="./math/reverse.md">reverse</a>
 |- <a href="./math/robert.md">robert</a>
 |- <a href="./math/secant.md">secant</a>
 |- <a href="./math/tau.md">tau</a>

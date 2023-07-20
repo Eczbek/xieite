@@ -16,9 +16,9 @@ template<std::integral Integral = int>
 constexpr std::vector<Integral> generatePi(std::size_t digits) noexcept;
 ```
 ### Template parameters
-- `Integral` - An integral type, satisfying `std::integral`
+- `Integral` - An integral type satisfying `std::integral`
 ### Parameters
-- `digits` - A `std::size_t` copy, how many digits to calculate
+- `digits` - A `std::size_t`, how many digits to calculate
 ### Return value
 - A `std::vector` of `Integral`s, digits of Pi in order
 

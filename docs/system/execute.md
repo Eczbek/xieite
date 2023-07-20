@@ -15,7 +15,7 @@ Executes a command and returns its output
 inline std::string execute(std::string_view command) noexcept;
 ```
 ### Parameters
-- `command` - A `std::string_view` copy
+- `command` - A `std::string_view`
 ### Return value
 - A `std::string`
 

@@ -15,5 +15,5 @@ Constructs a `xieite::geometry::Point`
 constexpr Point(double x = 0.0, double y = 0.0) noexcept;
 ```
 ### Parameters
-- `x` - A `double` copy
-- `y` - Another `double` copy
+- `x` - A `double`, set to `0.0` by default
+- `y` - Another `double`, set to `0.0` by default

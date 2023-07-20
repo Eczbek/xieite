@@ -3,7 +3,7 @@ Defined in header [<xieite/math/logarithm.hpp>](../../include/xieite/math/logari
 
 <br/>
 
-Takes the logarithm of a value to a base
+Takes the logarithm of a value of any base
 
 <br/><br/>
 
@@ -12,14 +12,15 @@ Takes the logarithm of a value to a base
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>
 [[nodiscard]]
-constexpr Number logarithm(const Number base, const Number value) noexcept;
+constexpr xieite::math::Result<Number1, Number2> logarithm(const Number1 base, const Number2 value) noexcept;
 ```
 ### Template parameters
-- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number1` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number2` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `base` - A `Number` copy
-- `value` - Another `Number` copy
+- `base` - A `Number1`
+- `value` - A `Number2`
 ### Return value
-- A `Number`, the logarithm
+- A `xieite::math::Result` of `Number1` and `Number2`

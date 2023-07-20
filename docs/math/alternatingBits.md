@@ -12,7 +12,7 @@ template<std::integral Integral>
 inline constexpr Integral alternatingBits = std::numeric_limits<Integral>::max() / 3;
 ```
 ### Template parameters
-- `Integral` - Any integer type, satisfying `std::integral`
+- `Integral` - Any integer type satisfying `std::integral`
 
 <br/><br/>
 

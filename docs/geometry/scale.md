@@ -16,9 +16,9 @@ Scales a shape
 constexpr xieite::geometry::Point scale(xieite::geometry::Point point, double scale, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 ### Parameters
-- `point` - A `xieite::geometry::Point` copy
-- `scale` - A `double` copy
-- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+- `point` - A `xieite::geometry::Point`
+- `scale` - A `double`
+- `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
 ### Return value
 - A new scaled `xieite::geometry::Point`
 
@@ -30,11 +30,11 @@ template<xieite::concepts::LinearShape LinearShape>
 constexpr LinearShape scale(const LinearShape& linearShape, double scale, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 ### Template parameters
-- `LinearShape` - The type of the passed linear shape, satisfying `xieite::concepts::LinearShape`
+- `LinearShape` - The type of the passed linear shape satisfying `xieite::concepts::LinearShape`
 ### Parameters
 - `linearShape` - A `LinearShape` constant reference
-- `scale` - A `double` copy
-- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+- `scale` - A `double`
+- `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
 ### Return value
 - A new scaled `LinearShape`
 
@@ -46,7 +46,7 @@ constexpr xieite::geometry::Polygon scale(xieite::geometry::Polygon polygon, dou
 ```
 ### Parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference
-- `scale` - A `double` copy
-- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+- `scale` - A `double`
+- `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
 ### Return value
 - A new scaled `xieite::geometry::Polygon`

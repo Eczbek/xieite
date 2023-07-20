@@ -17,9 +17,9 @@ template<std::integral Integral>
 constexpr bool isPrime(Integral value) noexcept;
 ```
 ### Template parameters
-- `Integral` - An integral type, satisfying `std::integral`
+- `Integral` - An integral type satisfying `std::integral`
 ### Parameters
-- `value` - An `Integral` copy
+- `value` - An `Integral`
 ### Return value
 - A `bool`, whether or not value is prime
 

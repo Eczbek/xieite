@@ -15,4 +15,4 @@ Enables or disables the echo. When echoing is disabled, pressed keys will not be
 void setInputEcho(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy, determining whether to enable or disable echoing.
+- `value` - A `bool`, determining whether to enable or disable echoing.

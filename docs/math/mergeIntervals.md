@@ -19,7 +19,7 @@ constexpr std::vector<xieite::math::Interval<Number>> mergeIntervals(const xieit
 ### Template parameters
 - `Number` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `intervals` - A constant `auto` reference, satisfying `xieite::concepts::RangeOf` of `xieite::math::Interval` of `Number`
+- `intervals` - A constant `auto` reference satisfying `xieite::concepts::RangeOf` of `xieite::math::Interval` of `Number`
 ### Return value
 - A `std::vector` of `xieite::math::Interval`s of `Number`, the merged intervals
 

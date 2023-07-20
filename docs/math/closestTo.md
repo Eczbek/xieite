@@ -12,34 +12,36 @@ Selects the value closest to a target
 <br/><br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2, xieite::concepts::Arithmetic Number3>
 [[nodiscard]]
-constexpr Number& closestTo(Number target, Number& a, Number& b) noexcept;
+constexpr xieite::math::Result<Number1, Number2, Number3>& closestTo(const Number1 target, Number2& value1, Number3& value2) noexcept;
 ```
 ### Template parameters
-- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number1` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number2` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number3` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `target` - A `Number` copy
-- `a` - A `Number` reference
-- `b` - Another `Number` reference
+- `target` - A `Number1`
+- `value1` - A `Number2` reference
+- `value2` - A `Number3` reference
 ### Return value
-- A `Number` reference to whichever of `a` or `b` has the least difference from `target`
+- A `xieite::math::Result` of `Number`, reference to whichever of `value1` or `value2` has the least difference from `target`
 
 <br/><br/>
 
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr const Number& closestTo(Number target, const Number& a, const Number& b) noexcept;
+constexpr const Number& closestTo(Number target, const Number& value1, const Number& value2) noexcept;
 ```
 ### Template parameters
-- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `target` - A `Number` copy
-- `a` - A `Number` constant reference
-- `b` - Another `Number` constant reference
+- `target` - A `Number`
+- `value1` - A constant `Number` reference
+- `value2` - A constant `Number` reference
 ### Return value
-- A `Number` constant reference to whichever of `a` or `b` has the least difference from `target`
+- A constant `xieite::math::Result` of `Number1`, `Number2`, and `Number3`, reference to whichever of `value1` or `value2` has the least difference from `target`
 
 <br/><br/>
 

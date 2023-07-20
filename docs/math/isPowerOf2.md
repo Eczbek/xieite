@@ -16,7 +16,7 @@ Checks that a value is a power of 2
 constexpr bool isPowerOf2(std::unsigned_integral auto value) noexcept;
 ```
 ### Parameters
-- `value` - An `auto` copy, satisfying `std::unsigned_integral`
+- `value` - A value of any type satisfying `std::unsigned_integral`
 ### Return value
 - A `bool`, whether or not value is a power of 2
 

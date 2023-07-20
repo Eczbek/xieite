@@ -12,18 +12,20 @@ Defined in header [<xieite/math/wrap.hpp>](../../include/xieite/math/wrap.hpp)
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2, xieite::concepts::Arithmetic Number3>
 [[nodiscard]]
-constexpr Number wrap(Number value, Number max, Number min = 0.0) noexcept;
+constexpr std::common_type_t<Number1, Number2, Number3> wrap(const Number1 value, const Number2 maximum, const Number3 minimum = 0.0) noexcept;
 ```
 ### Template parameters
-- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number1` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number2` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number3` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `value` - A `Number` copy, the value to wrap
-- `max` - A `Number` copy, the inclusive maximum of the result
-- `min` - A `Number` copy, the inclusive minimum of the result. Set to `0.0` by default
+- `value` - A `Number1`, the value to wrap
+- `maximum` - A `Number2`, the inclusive maximum of the result
+- `minimum` - A `Number3`, the inclusive minimum of the result, set to `0.0` by default
 ### Return value
-- A `Number`, the value wrapped between `max` and `min`
+- A `std::common_type_t` of `Number1`, `Number2`, and `Number3`
 
 <br/><br/>
 

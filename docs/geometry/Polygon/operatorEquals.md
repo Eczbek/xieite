@@ -18,4 +18,4 @@ constexpr bool operator==(const xieite::geometry::Polygon& polygon) const noexce
 ### Parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference
 ### Return value
-- `bool` - Whether or not the compared shapes are equal
+- A `bool` - Whether or not the compared shapes are equal

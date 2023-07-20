@@ -25,7 +25,7 @@ template<std::floating_point FloatingPoint>
 inline constexpr FloatingPoint pi<FloatingPoint> = std::numbers::pi_v<FloatingPoint>;
 ```
 ### Template parameters
-- `FloatingPoint` - A floating point type, satisfying `std::floating_point`
+- `FloatingPoint` - A floating point type satisfying `std::floating_point`
 
 <br/><br/>
 
@@ -34,7 +34,7 @@ template<std::integral Integral>
 inline constexpr Integral pi<Integral> = static_cast<Integral>(std::numbers::pi);
 ```
 ### Template parameters
-- `Integral` - An integral type, satisfying `std::integral`
+- `Integral` - An integral type satisfying `std::integral`
 
 <br/><br/>
 

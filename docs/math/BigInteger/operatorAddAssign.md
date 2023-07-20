@@ -21,7 +21,7 @@ constexpr xieite::math::BigInteger& operator+=(const xieite::math::BigInteger& a
 constexpr xieite::math::BigInteger& operator+=(std::integral auto addend) noexcept;
 ```
 ### Parameters
-- `addend` - An `auto` copy, satisfying `std::integral`
+- `addend` - A value of any type satisfying `std::integral`
 ### Return value
 - The `xieite::math::BigInteger`
 

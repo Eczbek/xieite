@@ -15,4 +15,4 @@ Creates a `xieite::functions::Suffix` operator
 constexpr Suffix(const xieite::concepts::Functable<Result(LeftParameter)> auto& callback) noexcept;
 ```
 ### Parameters
-- `callback` - An `auto` constant reference, satisfying `xieite::concepts::Functable` of `Result` of `LeftParameter`
+- `callback` - A constant reference to a value of any type satisfying `xieite::concepts::Functable` of `Result` of `LeftParameter`

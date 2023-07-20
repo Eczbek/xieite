@@ -15,4 +15,4 @@ Enables or disables text **boldness**
 void setTextBoldness(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to determine whether to enable or disable text boldness
+- `value` - A `bool` to determine whether to enable or disable text boldness

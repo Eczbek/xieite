@@ -17,9 +17,9 @@ template<xieite::concepts::Arithmetic Number>
 constexpr Number absolute(Number value) noexcept;
 ```
 ### Template parameters
-- `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `value` - A `Number` copy
+- `value` - A `Number`
 ### Return value
 - A `Number`, the absolute of value
 

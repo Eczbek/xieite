@@ -21,7 +21,7 @@ constexpr xieite::math::BigInteger& operator^=(const xieite::math::BigInteger& o
 constexpr xieite::math::BigInteger& operator^=(std::integral auto operand) noexcept;
 ```
 ### Parameters
-- `operand` - An `auto` copy, satisfying `std::integral`
+- `operand` - A value of any type satisfying `std::integral`
 ### Return value
 - The `xieite::math::BigInteger`
 

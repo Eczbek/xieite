@@ -17,7 +17,7 @@ struct Prefix;
 ```
 ### Template parameters
 - `Type` - The function type
-- An unnamed `auto` value, satisfying `xieite::concepts::Functable` of `Type`
+- An unnamed `auto` value satisfying `xieite::concepts::Functable` of `Type`
 
 <br/><br/>
 
@@ -30,7 +30,7 @@ struct Prefix<Result(RightParameter), callback> {
 ### Template parameters
 - `Result` - The return type
 - `RightParameter` - The right parameter type
-- `callback` - An `auto` value
+- `callback` - A value of any type value
 ### Public members
 <pre><code>Prefix/
 |- <a href="./Prefix/constructor.md">Prefix</a>

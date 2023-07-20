@@ -16,9 +16,9 @@ Rotates shapes a specific angle around any pivot, clockwise
 constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 ### Parameters
-- `point` - A `xieite::geometry::Point` copy
-- `angle` - A `double` copy, clockwise rotation in radians
-- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+- `point` - A `xieite::geometry::Point`
+- `angle` - A `double`, clockwise rotation in radians
+- `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
 ### Return value
 - A new rotated `xieite::geometry::Point`
 
@@ -30,11 +30,11 @@ template<xieite::concepts::LinearShape LinearShape>
 constexpr LinearShape rotate(const LinearShape& linearShape, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 ### Template parameters
-- `LinearShape` - The type of the passed linear shape, satisfying `xieite::concepts::LinearShape`
+- `LinearShape` - The type of the passed linear shape satisfying `xieite::concepts::LinearShape`
 ### Parameters
 - `linearShape` - A `LinearShape` constant reference
-- `angle` - A `double` copy, clockwise rotation in radians
-- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+- `angle` - A `double`, clockwise rotation in radians
+- `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
 ### Return value
 - A new rotated `LinearShape`
 
@@ -46,8 +46,8 @@ constexpr xieite::geometry::Polygon rotate(xieite::geometry::Polygon polygon, do
 ```
 ### Parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference
-- `angle` - A `double` copy, clockwise rotation in radians
-- `pivot` - A `xieite::geometry::Point` copy, is `{ 0, 0 }` by default
+- `angle` - A `double`, clockwise rotation in radians
+- `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
 ### Return value
 - A new rotated `xieite::geometry::Polygon`
 

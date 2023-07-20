@@ -17,7 +17,7 @@ struct Suffix;
 ```
 ### Template parameters
 - `Type` - The function type
-- An unnamed `auto` value, satisfying `xieite::concepts::Functable` of `Type`
+- An unnamed `auto` value satisfying `xieite::concepts::Functable` of `Type`
 
 <br/><br/>
 
@@ -30,7 +30,7 @@ struct Suffix<Result(LeftParameter), callback> {
 ### Template parameters
 - `Result` - The return type
 - `LeftParameter` - The left parameter type
-- `callback` - An `auto` value
+- `callback` - A value of any type value
 ### Public members
 <pre><code>Suffix/
 |- <a href="./Suffix/constructor.md">Suffix</a>

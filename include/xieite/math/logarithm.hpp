@@ -3,11 +3,12 @@
 
 #	include <cmath>
 #	include <xieite/concepts/Arithmetic.hpp>
+#	include <xieite/math/Result.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>
 	[[nodiscard]]
-	constexpr Number logarithm(const Number base, const Number value) noexcept {
+	constexpr xieite::math::Result<Number1, Number2> logarithm(const Number1 base, const Number2 value) noexcept {
 		return std::log2(value) / std::log2(base);
 	}
 }

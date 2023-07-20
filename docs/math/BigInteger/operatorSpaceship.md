@@ -23,7 +23,7 @@ constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& compa
 constexpr std::strong_ordering operator<=>(std::integral auto comparand) const noexcept;
 ```
 ### Parameters
-- `comparand` - An `auto` copy, satisfying `std::integral`
+- `comparand` - A value of any type satisfying `std::integral`
 ### Return value
 - A `std::strong_ordering`
 

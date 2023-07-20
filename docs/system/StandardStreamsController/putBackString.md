@@ -15,7 +15,7 @@ Puts a string back into the input buffer
 void putBackString(std::string_view value) noexcept;
 ```
 ### Parameters
-- `value` - A `std::string_view` copy to prepend to the buffer
+- `value` - A `std::string_view` to prepend to the buffer
 
 <br/><br/>
 

@@ -17,8 +17,8 @@ template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges:
 constexpr std::ranges::const_iterator_t<const Range&> findOccurrence(const Range& range, std::ranges::range_const_reference_t<Range> value, std::size_t count, const Callback& comparator = Callback());
 ```
 ### Template parameters
-- `Range` - A range type, satisfying `std::ranges::range`
-- `Callback` - A callback type, satisfying `xieite::concepts::Functable` which accepts two of `std::ranges::range_value_t` of `Range`, and returns a `bool`. Set to `std::ranges::equal_to` by default
+- `Range` - A range type satisfying `std::ranges::range`
+- `Callback` - A callback type satisfying `xieite::concepts::Functable` which accepts two of `std::ranges::range_value_t` of `Range`, and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
 - `range` - A `Range` constant reference
 - `comparator` - A `Callback` constant reference, default-constructed by default

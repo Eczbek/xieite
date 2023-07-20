@@ -19,7 +19,7 @@ constexpr xieite::math::BigInteger& operator--() noexcept;
 constexpr xieite::math::BigInteger& operator--(int) noexcept;
 ```
 ### Parameters
-- An unnamed `int` copy
+ An unnamed `int`
 ### Return value
 - The `xieite::math::BigInteger`
 

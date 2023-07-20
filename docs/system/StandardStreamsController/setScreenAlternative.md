@@ -15,7 +15,7 @@ Enables or disables the alternative screen
 void setScreenAlternative(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to determine whether to save or restore the screen
+- `value` - A `bool` to determine whether to save or restore the screen
 
 <br/><br/>
 

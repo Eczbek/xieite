@@ -10,4 +10,4 @@ template<std::integral Integral>
 inline constexpr Integral robert = std::numeric_limits<Integral>::max() / std::numbers::phi_v<long double>;
 ```
 ### Template parameters
-- `Integral` - An integral type, satisfying `std::integral`
+- `Integral` - An integral type satisfying `std::integral`

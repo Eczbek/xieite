@@ -16,7 +16,7 @@ Raises a `xieite::math::BigInteger` to an exponent
 constexpr xieite::math::BigInteger power(xieite::math::BigInteger exponent) const;
 ```
 ### Parameters
-- `exponent` - A `xieite::math::BigInteger` copy
+- `exponent` - A `xieite::math::BigInteger`
 ### Return value
 - A `xieite::math::BigInteger`
 
@@ -27,7 +27,7 @@ constexpr xieite::math::BigInteger power(xieite::math::BigInteger exponent) cons
 constexpr xieite::math::BigInteger power(std::integral auto exponent) const;
 ```
 ### Parameters
-- `exponent` - An `auto` integer type, satisfying `std::integral`
+- `exponent` - A value of any type integer type satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

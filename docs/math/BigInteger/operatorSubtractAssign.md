@@ -21,7 +21,7 @@ constexpr xieite::math::BigInteger& operator-=(const xieite::math::BigInteger& s
 constexpr xieite::math::BigInteger& operator-=(std::integral auto subtrahend) noexcept;
 ```
 ### Parameters
-- `subtrahend` - An `auto` copy, satisfying `std::integral`
+- `subtrahend` - A value of any type satisfying `std::integral`
 ### Return value
 - The `xieite::math::BigInteger`
 

@@ -16,7 +16,7 @@ template<std::integral Number>
 constexpr BigInteger(Number value = 0) noexcept;
 ```
 ### Parameters
-- `value` - An `auto` copy, satisfying `std::integral`
+- `value` - A value of any type satisfying `std::integral`
 
 <br/><br/>
 
@@ -32,8 +32,8 @@ constexpr BigInteger(const xieite::math::BigInteger& value) noexcept;
 constexpr BigInteger(const xieite::concepts::RangeOf<bool> auto& bits, bool sign = false) noexcept;
 ```
 ### Parameters
-- `bits` - An `auto` constant reference, satisfying `xieite::concepts::RangeOf` of `bool`
-- `sign` - A `bool` copy, determines whether the value is negative or positive
+- `bits` - A constant reference to a value of any type satisfying `xieite::concepts::RangeOf` of `bool`
+- `sign` - A `bool`, determines whether the value is negative or positive
 
 <br/><br/>
 
@@ -41,7 +41,7 @@ constexpr BigInteger(const xieite::concepts::RangeOf<bool> auto& bits, bool sign
 constexpr BigInteger(std::string_view value);
 ```
 ### Parameters
-- `value` - A `std::string_view` copy, which must consist of only digits may be preceded by a `'-'`
+- `value` - A `std::string_view`, which must consist of only digits may be preceded by a `'-'`
 
 <br/><br/>
 

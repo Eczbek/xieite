@@ -16,8 +16,8 @@ Calculates the slope of a line or between two points
 constexpr double getSlope(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
 ### Parameters
-- `point1` - A `xieite::geometry::Point` copy
-- `point2` - Also a `xieite::geometry::Point` copy
+- `point1` - A `xieite::geometry::Point`
+- `point2` - Also a `xieite::geometry::Point`
 ### Return value
 - A `double`, the slope between the passed points, in radians
 
@@ -28,7 +28,7 @@ constexpr double getSlope(xieite::geometry::Point point1, xieite::geometry::Poin
 constexpr double getSlope(const xieite::concepts::LinearShape auto& linearShape) noexcept;
 ```
 ### Parameters
-- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- `linearShape` - A constant reference to a value of any type satisfying `xieite::concepts::LinearShape`
 ### Return value
 - A `double`, the slope of the linear shape, in radians
 

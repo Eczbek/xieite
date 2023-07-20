@@ -20,7 +20,7 @@ constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::ve
 - `Value` - Any type
 ### Parameters
 - `matrix` - A constant reference to a `std::vector` of `std::vector`s of `Value`s
-- `rotations` - An `int` copy for which direction to rotate in. Positive = clockwise, negative = counter-clockwise
+- `rotations` - An `int` for which direction to rotate in. Positive = clockwise, negative = counter-clockwise
 ### Return value
 - A `std::vector` of `std::vector`s of the same `Value`s but in a different order
 

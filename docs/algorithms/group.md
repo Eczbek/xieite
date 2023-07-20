@@ -17,8 +17,8 @@ template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Ran
 std::unordered_map<std::invoke_result_t<Callback(std::ranges::range_value_t<Range>)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Callback& callback);
 ```
 ### Template parameters
-- `Range` - The range type, satisfying `std::ranges::range`
-- `Callback` - The callback type, satisfying `std::invocable` where it accepts a `std::ranges::range_value_t` of `Range`
+- `Range` - The range type satisfying `std::ranges::range`
+- `Callback` - The callback type satisfying `std::invocable` where it accepts a `std::ranges::range_value_t` of `Range`
 ### Parameters
 - `range` - A `Range` constant reference
 - `callback` - A `Callback` constant reference
@@ -33,8 +33,8 @@ template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Ran
 std::unordered_map<std::invoke_result_t<Callback(std::ranges::range_value_t<Range>, std::size_t)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Callback& callback);
 ```
 ### Template parameters
-- `Range` - The range type, satisfying `std::ranges::range`
-- `Callback` - The callback type, satisfying `std::invocable` where it accepts `std::ranges::range_value_t` of `Range`, and a `std::size_t`
+- `Range` - The range type satisfying `std::ranges::range`
+- `Callback` - The callback type satisfying `std::invocable` where it accepts `std::ranges::range_value_t` of `Range`, and a `std::size_t`
 ### Parameters
 - `range` - A `Range` constant reference
 - `callback` - A `Callback` constant reference

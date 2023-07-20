@@ -17,7 +17,7 @@ struct Infix;
 ```
 ### Template parameters
 - `Type` - The function type
-- An unnamed `auto` value, satisfying `xieite::concepts::Functable` of `Type`
+- An unnamed `auto` value satisfying `xieite::concepts::Functable` of `Type`
 
 <br/><br/>
 
@@ -32,7 +32,7 @@ struct Infix<Result(Parameter), callback> {
 ### Template parameters
 - `Result` - The return type
 - `Parameter` - The parameter type for both right and left possible sides
-- `callback` - An `auto` value
+- `callback` - A value of any type value
 ### Public members
 <pre><code>Infix/
 |- <a href="./Infix1/operatorMore.md">operator></a>
@@ -57,7 +57,7 @@ public:
 - `Result` - The return type
 - `LeftParameter` - The left parameter type
 - `RightParameter` - The right parameter type
-- `callback` - An `auto` value
+- `callback` - A value of any type value
 ### Public members
 <pre><code>Infix/
 |- Intermediate/

@@ -15,4 +15,4 @@ Shows or hides the cursor
 void setCursorVisibility(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to determine whether to show or hide the cursor
+- `value` - A `bool` to determine whether to show or hide the cursor

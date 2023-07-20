@@ -15,4 +15,4 @@ Constructs a `xieite::geometry::Polygon`
 constexpr Polygon(const xieite::concepts::RangeOf<xieite::geometry::Point> auto& points) noexcept;
 ```
 ### Parameters
-- `points` - An auto constant reference, satisfying `xieite::concepts::RangeOf` of `xieite::geometry::Point`
+- `points` - A constant reference to a value of any type satisfying `xieite::concepts::RangeOf` of `xieite::geometry::Point`

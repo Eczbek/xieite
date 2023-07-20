@@ -16,8 +16,8 @@ Reflects a shape across any line
 constexpr xieite::geometry::Point reflect(xieite::geometry::Point point, const xieite::concepts::LinearShape auto& mirror) noexcept;
 ```
 ### Parameters
-- `point` - A `xieite::geometry::Point` copy
-- `mirror` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- `point` - A `xieite::geometry::Point`
+- `mirror` - A constant reference to a value of any type satisfying `xieite::concepts::LinearShape`
 ### Return value
 - A new reflected `xieite::geometry::Point`
 
@@ -29,10 +29,10 @@ template<xieite::concepts::LinearShape LinearShape>
 constexpr LinearShape reflect(const LinearShape& line, const xieite::concepts::LinearShape auto& mirror) noexcept;
 ```
 ### Template parameters
-- `LinearShape` - The type of the passed linear shape, satisfying `xieite::concepts::LinearShape`
+- `LinearShape` - The type of the passed linear shape satisfying `xieite::concepts::LinearShape`
 ### Parameters
 - `linearShape` - A `LinearShape` constant reference
-- `mirror` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- `mirror` - A constant reference to a value of any type satisfying `xieite::concepts::LinearShape`
 ### Return value
 - A new reflected `LinearShape`
 
@@ -44,6 +44,6 @@ constexpr xieite::geometry::Polygon reflect(xieite::geometry::Polygon polygon, c
 ```
 ### Parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference
-- `mirror` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- `mirror` - A constant reference to a value of any type satisfying `xieite::concepts::LinearShape`
 ### Return value
 - A new reflected `xieite::geometry::Polygon`

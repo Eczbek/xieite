@@ -15,7 +15,7 @@ Enables or disables the alternative cursor. The alternative cursor starts at the
 void setCursorAlternative(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to enable or disable the alternative cursor
+- `value` - A `bool` to enable or disable the alternative cursor
 
 <br/><br/>
 

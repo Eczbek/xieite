@@ -15,4 +15,4 @@ Enables or disables canonical mode. When it is disabled, the input is read by by
 void setInputCanonical(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to enable or disable canonical mode
+- `value` - A `bool` to enable or disable canonical mode

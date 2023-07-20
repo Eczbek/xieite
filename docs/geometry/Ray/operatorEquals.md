@@ -18,4 +18,4 @@ constexpr bool operator==(const xieite::geometry::Ray& ray) const noexcept;
 ### Parameters
 - `ray` - A `xieite::geometry::Ray` constant reference
 ### Return value
-- `bool` - Whether or not the compared shapes are equal
+- A `bool` - Whether or not the compared shapes are equal

@@ -6,6 +6,7 @@
 #	include <functional>
 #	include <mutex>
 #	include <queue>
+#	include <ranges>
 #	include <thread>
 #	include <utility>
 #	include <vector>
@@ -28,7 +29,7 @@ namespace xieite::threads {
 			if (!threadCount) {
 				throw std::invalid_argument("Cannot resize thread pool to zero");
 			}
-			const std::size_t currentThreadCount = this->threads.size();
+			const std::size_t currentThreadCount = xieite::ranges::size(this->threads);
 			if (threadCount < currentThreadCount) {
 				this->threads.resize(threadCount);
 			} else {
@@ -37,9 +38,9 @@ namespace xieite::threads {
 						while (true) {
 							auto jobsLock = std::unique_lock<std::mutex>(this->jobsMutex);
 							this->jobsCondition.wait(jobsLock, [this, stopToken] noexcept -> bool {
-								return this->jobs.size() || stopToken.stop_requested();
+								return xieite::ranges::size(this->jobs) || stopToken.stop_requested();
 							});
-							if (!this->jobs.size() && stopToken.stop_requested()) {
+							if (!xieite::ranges::size(this->jobs) && stopToken.stop_requested()) {
 								break;
 							}
 							std::function<void()> job = std::move(this->jobs.front());
@@ -53,7 +54,7 @@ namespace xieite::threads {
 		}
 
 		std::size_t getThreadCount() const noexcept {
-			return this->threads.size();
+			return xieite::ranges::size(this->threads);
 		}
 
 		void enqueue(const std::function<void()>& job) noexcept {

@@ -17,9 +17,9 @@ template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts:
 constexpr bool sameRelativeOrder(const Range1& range1, const Range2& range2, const Callback& comparator = Callback());
 ```
 ### Template parameters
-- `Range1` - The first range type, satisfying `std::ranges::range`
+- `Range1` - The first range type satisfying `std::ranges::range`
 - `Range2` - The second range type, also satisfying `std::ranges::range`
-- `Callback` - A callback type, satisfying `xieite::concepts::Functable` which accepts `std::ranges::range_value_t` of `Range1`, and `std::ranges::range_value_t` of `Range2`, and returns a `bool`. Set to `std::ranges::equal_to` by default
+- `Callback` - A callback type satisfying `xieite::concepts::Functable` which accepts `std::ranges::range_value_t` of `Range1`, and `std::ranges::range_value_t` of `Range2`, and returns a `bool`. Set to `std::ranges::equal_to` by default
 ### Parameters
 - `range1` - A `Range1` constant reference
 - `range2` - A `Range2` constant reference

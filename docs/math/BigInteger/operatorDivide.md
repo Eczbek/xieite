@@ -23,7 +23,7 @@ constexpr xieite::math::BigInteger operator/(const xieite::math::BigInteger& div
 constexpr xieite::math::BigInteger operator/(std::integral auto divisor) const noexcept;
 ```
 ### Parameters
-- `divisor` - An `auto` copy, satisfying `std::integral`
+- `divisor` - A value of any type satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

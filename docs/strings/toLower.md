@@ -15,7 +15,7 @@ Converts a string or character to lowercase. Only handles characters `A` to `Z`
 constexpr char toLower(char character) noexcept;
 ```
 ### Parameters
-- `character` - A `char` copy
+- `character` - A `char`
 ### Return value
 - A `char`
 
@@ -25,7 +25,7 @@ constexpr char toLower(char character) noexcept;
 constexpr std::string toLower(std::string string) noexcept;
 ```
 ### Parameters
-- `string` - A `std::string` copy
+- `string` - A `std::string`
 ### Return value
 - A `std::string`
 

@@ -15,4 +15,4 @@ Sets the amount of threads to use
 void setThreadCount(std::size_t threadCount);
 ```
 ### Parameters
-- `threadCount` - A `std::size_t` copy
+- `threadCount` - A `std::size_t`

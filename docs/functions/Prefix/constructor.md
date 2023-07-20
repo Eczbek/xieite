@@ -15,4 +15,4 @@ Creates a `xieite::functions::Prefix` operator
 constexpr Prefix(const xieite::concepts::Functable<Result(RightParameter)> auto& callback) noexcept;
 ```
 ### Parameters
-- `callback` - An `auto` constant reference, satisfying `xieite::concepts::Functable` of `Result` of `RightParameter`
+- `callback` - A constant reference to a value of any type satisfying `xieite::concepts::Functable` of `Result` of `RightParameter`

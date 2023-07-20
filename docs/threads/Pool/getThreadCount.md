@@ -15,4 +15,4 @@ Gets the number of threads currently used
 std::size_t getThreadCount() const noexcept;
 ```
 ### Return value
-- A `std::size_t` copy
+ A `std::size_t`

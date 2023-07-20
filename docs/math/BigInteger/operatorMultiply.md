@@ -23,7 +23,7 @@ constexpr xieite::math::BigInteger operator*(const xieite::math::BigInteger& mul
 constexpr xieite::math::BigInteger operator*(std::integral auto multiplicand) const noexcept;
 ```
 ### Parameters
-- `multiplicand` - An `auto` copy, satisfying `std::integral`
+- `multiplicand` - A value of any type satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 
