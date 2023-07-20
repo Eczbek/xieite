@@ -3,4 +3,4 @@ Defined in header [<xieite/macros/VERSION.hpp>](../../include/xieite/macros/VERS
 
 <br/>
 
-Macros for XIEITE's current version (major, minor, patch). See header file for definitions.
+Macros for XIEITE's current version (major, minor, patch). See header file for definitions
