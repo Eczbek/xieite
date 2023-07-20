@@ -17,9 +17,10 @@ template<xieite::concepts::Arithmetic Number>
 constexpr bool almostEqualSlope(Number value1, Number value2) noexcept;
 ```
 ### Template parameters
-- `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number1` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number2` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `value1` - A `Number` copy
-- `value2` - Also a `Number` copy
+- `value1` - A `Number1`
+- `value2` - A `Number2`
 ### Return value
 - A `bool`

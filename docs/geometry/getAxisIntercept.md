@@ -16,8 +16,8 @@ Finds a point where a line intercepts an axis of origin
 constexpr xieite::geometry::Point getAxisIntercept(const xieite::concepts::LinearShape auto& linearShape, const xieite::geometry::Point origin = xieite::geometry::Point(0.0, 0.0)) noexcept;
 ```
 ### Parameters
-- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
-- `origin` - A `xieite::geometry::Point` copy, set to `xieite::geometry::Point(0.0, 0.0)` by default
+- `linearShape` - A constant reference to a value of any type satisfying `xieite::concepts::LinearShape`
+- `origin` - A `xieite::geometry::Point`, set to `xieite::geometry::Point(0.0, 0.0)` by default
 ### Return value
 - A `xieite::geometry::Point`, the intercept point
 

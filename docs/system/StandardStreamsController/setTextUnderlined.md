@@ -15,4 +15,4 @@ Enables or disables text <u>underlining</u>
 void setTextUnderline(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to determine whether to enable or disable text underlining
+- `value` - A `bool` to determine whether to enable or disable text underlining

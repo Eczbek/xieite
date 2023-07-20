@@ -15,8 +15,8 @@ Constructs a `xieite::geometry::Line`
 constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
 ### Parameters
-- `start` - A `xieite::geometry::Point` copy, one intersection through which the infinite line passes
-- `end` - A `xieite::geometry::Point` copy, another intersection through which the infinite line passes
+- `start` - A `xieite::geometry::Point`, one intersection through which the infinite line passes
+- `end` - A `xieite::geometry::Point`, another intersection through which the infinite line passes
 
 <br/><br/>
 
@@ -24,8 +24,8 @@ constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexc
 constexpr Line(xieite::geometry::Point start, double angle) noexcept;
 ```
 ### Parameters
-- `start` - A `xieite::geometry::Point` copy, an intersection through which the infinite line passes
-- `angle` - A `double` copy, the line's angle
+- `start` - A `xieite::geometry::Point`, an intersection through which the infinite line passes
+- `angle` - A `double`, the line's angle
 
 <br/><br/>
 

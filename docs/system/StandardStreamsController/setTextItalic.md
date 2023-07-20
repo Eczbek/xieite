@@ -15,4 +15,4 @@ Enables or disables *italic* text
 void setTextItalic(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to determine whether to enable or disable italic text
+- `value` - A `bool` to determine whether to enable or disable italic text

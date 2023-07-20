@@ -16,10 +16,10 @@ Calculates the distance between two points
 constexpr double getDistance(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
 ### Parameters
-- `point1` - A `xieite::geometry::Point` copy
-- `point2` - Also a `xieite::geometry::Point` copy
+- `point1` - A `xieite::geometry::Point`
+- `point2` - Also a `xieite::geometry::Point`
 ### Return value
-- `double` - Distance between the points
+- A `double` - Distance between the points
 
 <br/><br/>
 

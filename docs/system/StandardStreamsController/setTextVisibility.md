@@ -15,4 +15,4 @@ Enables or disables text visibility
 void setTextVisibility(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to determine whether to enable or disable text visibility
+- `value` - A `bool` to determine whether to enable or disable text visibility

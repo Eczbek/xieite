@@ -18,7 +18,7 @@ constexpr bool operator==(const xieite::geometry::Line& line) const noexcept;
 ### Parameters
 - `line` - A `xieite::geometry::Line` constant reference
 ### Return value
-- `bool` - Whether or not the compared shapes are equal
+- A `bool` - Whether or not the compared shapes are equal
 
 <br/><br/>
 

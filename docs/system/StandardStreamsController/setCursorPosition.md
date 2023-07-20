@@ -15,7 +15,7 @@ Sets the terminal cursor's position
 void setCursorPosition(xieite::system::OutputPosition position) noexcept;
 ```
 ### Parameters
-- `position` - A `xieite::system::OutputPosition` copy, the new cursor coordinates
+- `position` - A `xieite::system::OutputPosition`, the new cursor coordinates
 
 <br/><br/>
 

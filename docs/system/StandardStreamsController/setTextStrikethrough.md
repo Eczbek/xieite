@@ -15,4 +15,4 @@ Enables or disables ~~strikethrough~~ text
 void setTextStrikethrough(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to determine whether to enable or disable strikethrough text
+- `value` - A `bool` to determine whether to enable or disable strikethrough text

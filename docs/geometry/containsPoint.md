@@ -17,9 +17,9 @@ constexpr bool containsPoint(const xieite::geometry::Line& line, xieite::geometr
 ```
 ### Parameters
 - `line` - A `xieite::geometry::Line` constant reference to check for a point on
-- `point` - A `xieite::geometry::Point` copy, the point to check for
+- `point` - A `xieite::geometry::Point`, the point to check for
 ### Return value
-- `bool` - Whether or not the point lies within the shape
+- A `bool` - Whether or not the point lies within the shape
 
 <br/><br/>
 
@@ -29,9 +29,9 @@ constexpr bool containsPoint(const xieite::geometry::Ray& ray, xieite::geometry:
 ```
 ### Parameters
 - `ray` - A `xieite::geometry::Ray` constant reference to check for a point on
-- `point` - A `xieite::geometry::Point` copy, the point to check for
+- `point` - A `xieite::geometry::Point`, the point to check for
 ### Return value
-- `bool` - Whether or not the point lies within the shape
+- A `bool` - Whether or not the point lies within the shape
 
 <br/><br/>
 
@@ -41,9 +41,9 @@ constexpr bool containsPoint(const xieite::geometry::Segment& segment, xieite::g
 ```
 ### Parameters
 - `segment` - A `xieite::geometry::Segment` constant reference to check for a point on
-- `point` - A `xieite::geometry::Point` copy, the point to check for
+- `point` - A `xieite::geometry::Point`, the point to check for
 ### Return value
-- `bool` - Whether or not the point lies within the shape
+- A `bool` - Whether or not the point lies within the shape
 
 <br/><br/>
 
@@ -53,9 +53,9 @@ constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, xieite::g
 ```
 ### Parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference to check for a point in
-- `point` - A `xieite::geometry::Point` copy, the point to check for
+- `point` - A `xieite::geometry::Point`, the point to check for
 ### Return value
-- `bool` - Whether or not the point lies within the shape
+- A `bool` - Whether or not the point lies within the shape
 
 <br/><br/>
 

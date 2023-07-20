@@ -16,6 +16,6 @@ Compares two points to each other
 constexpr bool operator==(xieite::geometry::Point point) const noexcept;
 ```
 ### Parameters
-- `point` - A `xieite::geometry::Point` copy
+- `point` - A `xieite::geometry::Point`
 ### Return value
-- `bool` - Whether or not the compared shapes are equal
+- A `bool` - Whether or not the compared shapes are equal

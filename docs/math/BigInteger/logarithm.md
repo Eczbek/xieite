@@ -16,7 +16,7 @@ Calculates the logarithm of a `xieite::math::BigInteger` to a base
 constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger& base) const;
 ```
 ### Parameters
-- `base` - A `xieite::math::BigInteger` copy
+- `base` - A `xieite::math::BigInteger`
 ### Return value
 - A `xieite::math::BigInteger`
 
@@ -27,7 +27,7 @@ constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger& bas
 constexpr xieite::math::BigInteger logarithm(std::integral auto base) const;
 ```
 ### Parameters
-- `base` - An `auto` integer type, satisfying `std::integral`
+- `base` - A value of any type integer type satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

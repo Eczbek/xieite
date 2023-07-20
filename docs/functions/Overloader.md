@@ -21,7 +21,7 @@ struct Overloader
 };
 ```
 ### Template parameters
-- `Functions...` - Any types, satisfying `xieite::concepts::Derivable`, to be derived from
+- `Functions...` - Any types satisfying `xieite::concepts::Derivable`, to be derived from
 ### Public members
 <pre><code>Overloader/
 |- <a href="./Overloader/constructor.md">Overloader</a>

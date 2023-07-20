@@ -15,7 +15,7 @@ Converts a string or character to uppercase. Only handles characters `a` to `z`
 constexpr char toUpper(char character) noexcept;
 ```
 ### Parameters
-- `character` - A `char` copy
+- `character` - A `char`
 ### Return value
 - A `char`
 
@@ -25,7 +25,7 @@ constexpr char toUpper(char character) noexcept;
 constexpr std::string toUpper(std::string string) noexcept;
 ```
 ### Parameters
-- `string` - A `std::string` copy
+- `string` - A `std::string`
 ### Return value
 - A `std::string`
 

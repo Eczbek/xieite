@@ -16,8 +16,8 @@ Combines two hashes
 constexpr std::size_t combine(std::size_t value1, std::size_t value2) noexcept;
 ```
 ### Parameters
-- `value1` - A `std::size_t` copy, a hash result
-- `value2` - Another `std::size_t` copy, also a hash result
+- `value1` - A `std::size_t`, a hash result
+- `value2` - Another `std::size_t`, also a hash result
 ### Return value
 - A `std::size_t`, the hashes combined using magic
 

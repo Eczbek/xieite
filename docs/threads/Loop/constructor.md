@@ -15,4 +15,4 @@ Constructs a `xieite::threads::Loop`, starts running a callback constantly
 Loop(const std::invocable auto& callback) noexcept;
 ```
 ### Parameters
-- `callback` - An `auto` constant reference, satisfying `std::invocable` with no arguments
+- `callback` - A constant reference to a value of any type satisfying `std::invocable` with no arguments

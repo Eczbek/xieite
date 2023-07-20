@@ -15,10 +15,10 @@ Constructs a `xieite::graphics::Color`
 constexpr Color(std::uint8_t red, std::uint8_t green, std::uint8_t blue, std::uint8_t alpha = std::numeric_limits<std::uint8_t>::max()) noexcept;
 ```
 ### Parameters
-- `red` - A `std::uint8_t` copy
-- `green` - A `std::uint8_t` copy
-- `blue` - A `std::uint8_t` copy
-- `alpha` - A `std::uint8_t` copy, set to `std::numeric_limits<std::uint8_t>::max()` by default
+- `red` - A `std::uint8_t`
+- `green` - A `std::uint8_t`
+- `blue` - A `std::uint8_t`
+- `alpha` - A `std::uint8_t`, set to `std::numeric_limits<std::uint8_t>::max()` by default
 
 <br/><br/>
 
@@ -26,4 +26,4 @@ constexpr Color(std::uint8_t red, std::uint8_t green, std::uint8_t blue, std::ui
 constexpr Color(std::uint32_t value) noexcept;
 ```
 ### Parameters
-- `value` - A `std::uint32_t` copy to get RGBA values from by shifting
+- `value` - A `std::uint32_t` to get RGBA values from by shifting

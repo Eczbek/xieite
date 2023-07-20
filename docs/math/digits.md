@@ -16,8 +16,8 @@ Calculates the number of digits in a value of any base
 constexpr std::size_t digits(const std::integral auto value, const std::size_t base = 10) noexcept;
 ```
 ### Parameters
-- `value` - An `auto` copy, satisfying `std::integral`
-- `base` - An `Integral` copy, set to `10` by default
+- `value` - A value of any type satisfying `std::integral`
+- `base` - An `Integral`, set to `10` by default
 ### Return value
 - A `std::size_t`, the number of digits
 

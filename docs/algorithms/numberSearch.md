@@ -17,11 +17,11 @@ template<xieite::concepts::Arithmetic Number>
 constexpr Number numberSearch(const xieite::concepts::Functable<bool(Number)> auto& selector, Number minimum, Number maximum);
 ```
 ### Template parameters
-- `Number` - An integer or floating point type, satisfying `xieite::concepts::Arithmetic`
+- `Number` - An integer or floating point type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `selector` - An `auto` constant reference, satisfying `xieite::concepts::Functable` which accepts `Iterator`'s value type and returns a `bool`
-- `minimum` - A `Number` copy, determining the minimum search limit for the algorithm
-- `maxumum` - A `Number` copy, determining the maxumum search limit for the algorithm
+- `selector` - A constant reference to a value of any type satisfying `xieite::concepts::Functable` which accepts `Iterator`'s value type and returns a `bool`
+- `minimum` - A `Number`, determining the minimum search limit for the algorithm
+- `maxumum` - A `Number`, determining the maxumum search limit for the algorithm
 ### Return value
 - A `Number`, the lowest value allowed by the callback
 
@@ -33,12 +33,12 @@ template<xieite::concepts::Arithmetic Number>
 constexpr Number numberSearch(const xieite::concepts::Functable<bool(Number)> auto& selector);
 ```
 ### Template parameters
-- `Number` - An integer or floating point type, satisfying `xieite::concepts::Arithmetic`
-- `Callback` - An `auto` constant reference, satisfying `xieite::concepts::Functable` which accepts `Iterator`'s value type and returns a `bool`
+- `Number` - An integer or floating point type satisfying `xieite::concepts::Arithmetic`
+- `Callback` - A constant reference to a value of any type satisfying `xieite::concepts::Functable` which accepts `Iterator`'s value type and returns a `bool`
 ### Parameters
 - `selector` - A `Callback` constant reference
 ### Return value
-- `Number` - The lowest value allowed by the callback
+- A `Number` - The lowest value allowed by the callback
 
 <br/><br/>
 

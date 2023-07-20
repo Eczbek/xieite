@@ -2,9 +2,10 @@
 #	define XIEITE_HEADER_MATH
 
 #	include <xieite/math/BigInteger.hpp>
+#	include <xieite/math/ConditionalSign.hpp>
 #	include <xieite/math/Interval.hpp>
 #	include <xieite/math/MinimalInteger.hpp>
-#	include <xieite/math/SignedInteger.hpp>
+#	include <xieite/math/Result.hpp>
 #	include <xieite/math/absolute.hpp>
 #	include <xieite/math/almostEqual.hpp>
 #	include <xieite/math/almostEqualSlope.hpp>
@@ -23,6 +24,7 @@
 #	include <xieite/math/logarithm.hpp>
 #	include <xieite/math/mergeIntervals.hpp>
 #	include <xieite/math/pi.hpp>
+#	include <xieite/math/reverse.hpp>
 #	include <xieite/math/robert.hpp>
 #	include <xieite/math/secant.hpp>
 #	include <xieite/math/tau.hpp>

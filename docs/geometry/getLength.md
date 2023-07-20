@@ -18,7 +18,7 @@ constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 ### Parameters
 - `segment` - A `xieite::geometry::Segment` constant reference
 ### Return value
-- `double` - The distance between the segment's ends
+- A `double` - The distance between the segment's ends
 
 <br/><br/>
 
@@ -27,9 +27,9 @@ constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 constexpr double getLength(const xieite::concepts::LinearShape auto&) noexcept;
 ```
 ### Parameters
-- An unnamed auto constant reference, satisfying `xieite::concepts::LinearShape`
+- An unnamed auto constant reference satisfying `xieite::concepts::LinearShape`
 ### Return value
-- `double` - Always infinity
+- A `double` - Always infinity
 
 <br/><br/>
 

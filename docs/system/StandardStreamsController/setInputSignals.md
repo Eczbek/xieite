@@ -15,4 +15,4 @@ Enables or disables input signals. Specifically, disables the special functions 
 void setInputSignals(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to enable or disable signals.
+- `value` - A `bool` to enable or disable signals.

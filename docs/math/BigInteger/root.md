@@ -16,7 +16,7 @@ Calculates any root of a `xieite::math::BigInteger`
 constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& degree) const;
 ```
 ### Parameters
-- `degree` - A `xieite::math::BigInteger` copy
+- `degree` - A `xieite::math::BigInteger`
 ### Return value
 - A `xieite::math::BigInteger`
 
@@ -27,7 +27,7 @@ constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& degree) 
 constexpr xieite::math::BigInteger root(std::integral auto degree) const;
 ```
 ### Parameters
-- `degree` - An `auto` integer type, satisfying `std::integral`
+- `degree` - A value of any type integer type satisfying `std::integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

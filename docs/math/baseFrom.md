@@ -17,11 +17,11 @@ template<std::integral Integral = int>
 constexpr Integral baseFrom(std::size_t base, std::string_view value, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept;
 ```
 ### Template parameters
-- `Integral` - An integral type, satisfying `std::integral`. Set to `int` by default
+- `Integral` - An integral type satisfying `std::integral`. Set to `int` by default
 ### Parameters
-- `base` - A `std::size_t` copy, the current base of value
-- `value` - A `std::string_view` copy, the value to convert to base-10
-- `digits` - A `std:string_view` copy, the digits to use, set to `"0123456789abcdefghijklmnopqrstuvwxyz"` by default
+- `base` - A `std::size_t`, the current base of value
+- `value` - A `std::string_view`, the value to convert to base-10
+- `digits` - A `std:string_view`, the digits to use, set to `"0123456789abcdefghijklmnopqrstuvwxyz"` by default
 ### Return value
 - An `Integral`, equal to `value` in base-10
 

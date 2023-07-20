@@ -15,4 +15,4 @@ Enables or disables text blinking
 void setTextBlinking(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to determine whether to enable or disable text blinking
+- `value` - A `bool` to determine whether to enable or disable text blinking

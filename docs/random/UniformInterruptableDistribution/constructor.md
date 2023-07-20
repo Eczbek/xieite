@@ -15,6 +15,6 @@ Constructs a `xieite::random::UniformInterruptableDistribution`. Throws a `std::
 UniformInterruptableDistribution(Number begin, Number end, const xieite::concepts::RangeOf<std::pair<Number, Number>> auto& interruptions);
 ```
 ### Parameters
-- `begin` - A `Number` copy, one end of the range
-- `end` - A `Number` copy, the other end of the range
-- `interruptions` - An `auto` constant reference, satisfying `xieite::concepts::RangeOf` of std::pair of two Numbers
+- `begin` - A `Number`, one end of the range
+- `end` - A `Number`, the other end of the range
+- `interruptions` - A constant reference to a value of any type satisfying `xieite::concepts::RangeOf` of std::pair of two Numbers

@@ -17,7 +17,7 @@ constexpr std::string trimFront(const std::string& string, char character) noexc
 ```
 ### Parameters
 - `string` - A `std::string` constant reference
-- `character` - A `char` copy
+- `character` - A `char`
 ### Return value
 - A `std::string`
 
@@ -29,7 +29,7 @@ constexpr std::string trimFront(const std::string& string, const xieite::concept
 ```
 ### Parameters
 - `string` - A `std::string` constant reference
-- `characters` - An `auto` constant reference, satisfying `xieite::concepts::RangeOf` of `char`
+- `characters` - A constant reference to a value of any type satisfying `xieite::concepts::RangeOf` of `char`
 ### Return value
 - A `std::string`
 

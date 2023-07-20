@@ -18,4 +18,4 @@ constexpr bool operator==(const xieite::geometry::Segment& segment) const noexce
 ### Parameters
 - `segment` - A `xieite::geometry::Segment` constant reference
 ### Return value
-- `bool` - Whether or not the compared shapes are equal
+- A `bool` - Whether or not the compared shapes are equal

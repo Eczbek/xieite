@@ -16,7 +16,7 @@ Waits for and returns the next keypress input
 char readCharacter() noexcept;
 ```
 ### Return value
-- `char` - The input character
+- A `char` - The input character
 
 <br/><br/>
 

@@ -15,4 +15,4 @@ Enables or disables blocking mode. When disabled, any input reading will access 
 void setInputBlocking(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to determine whether to enable or disable blocking mode
+- `value` - A `bool` to determine whether to enable or disable blocking mode

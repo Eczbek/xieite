@@ -20,7 +20,7 @@ struct UniformInterruptableDistribution {
 };
 ```
 ### Template Parameters
-- `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
 ### Public members
 <pre><code>UniformInterruptableDistribution/
 |- <a href="./UniformInterruptableDistribution/constructor.md">UniformInterruptableDistribution</a>

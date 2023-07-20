@@ -17,10 +17,10 @@ template<std::integral Integral>
 constexpr std::make_unsigned<Integral> difference(Integral a, Integral b) noexcept;
 ```
 ### Template parameters
-- `Integral` - An integral type, satisfying `std::integral`
+- `Integral` - An integral type satisfying `std::integral`
 ### Parameters
-- `a` - An `Integral` copy
-- `b` - Another `Integral` copy
+- `a` - An `Integral`
+- `b` - Another `Integral`
 ### Return value
 - A `std::make_unsigned` of `Integral`, the absolute difference between `a` and `b`
 
@@ -32,10 +32,10 @@ template<std::floating_point FloatingPoint>
 constexpr FloatingPoint difference(FloatingPoint a, FloatingPoint b) noexcept;
 ```
 ### Template parameters
-- `FloatingPoint` - A floating point type, satisfying `std::floating_point`
+- `FloatingPoint` - A floating point type satisfying `std::floating_point`
 ### Parameters
-- `a` - A `FloatingPoint` copy
-- `b` - Also a `FloatingPoint` copy
+- `a` - A `FloatingPoint`
+- `b` - Also a `FloatingPoint`
 ### Return value
 - A `FloatingPoint`, the absolute difference between `a` and `b`
 

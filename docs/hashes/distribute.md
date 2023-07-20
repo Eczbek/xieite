@@ -13,8 +13,8 @@ template<std::unsigned_integral UnsignedIntegral>
 constexpr UnsignedIntegral distribute(UnsignedIntegral value) noexcept;
 ```
 ### Template parameters
-- `UnsignedIntegral` - An unsigned integer type, satisfying `std::unsigned_integral`
+- `UnsignedIntegral` - An unsigned integer type satisfying `std::unsigned_integral`
 ### Parameters
-- `value` - An `UnsignedIntegral` copy
+- `value` - An `UnsignedIntegral`
 ### Return value
 - An `UnsignedIntegral`

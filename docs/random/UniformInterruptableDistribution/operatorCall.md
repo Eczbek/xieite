@@ -16,6 +16,6 @@ Distributes the result of a random number generator
 Number operator()(xieite::concepts::UniformRandomBitGenerator auto& generator) const noexcept;
 ```
 ### Parameters
-- `generator` - An `auto` constant reference, satisfying `xieite::concepts::UniformRandomBitGenerator`
+- `generator` - A constant reference to a value of any type satisfying `xieite::concepts::UniformRandomBitGenerator`
 ### Return value
 - A `Number`

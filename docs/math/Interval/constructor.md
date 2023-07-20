@@ -15,5 +15,5 @@ Constructs a `xieite::math::Interval<Number>`
 constexpr Interval(const Number start, const Number end) noexcept;
 ```
 ### Parameters
-- `start` - A `Number` copy
-- `end` - A `Number` copy
+- `start` - A `Number`
+- `end` - A `Number`

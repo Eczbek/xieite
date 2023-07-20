@@ -15,4 +15,4 @@ A default `operator()` for the wrapper class
 constexpr void operator()(xieite::types::Anything) const noexcept;
 ```
 ### Parameters
-- A `xieite::types::Anything` copy which is not used
+- A `xieite::types::Anything` which is not used

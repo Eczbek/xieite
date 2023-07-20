@@ -15,4 +15,4 @@ Enables or disables output processing. Disabled by default
 void setInputProcessing(bool value) noexcept;
 ```
 ### Parameters
-- `value` - A `bool` copy to enable or disable output processing.
+- `value` - A `bool` to enable or disable output processing.

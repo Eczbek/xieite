@@ -16,10 +16,10 @@ Calculates the angle of a line or between two points, in radians
 constexpr double getAngle(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
 ### Parameters
-- `point1` - A `xieite::geometry::Point` copy
-- `point2` - A `xieite::geometry::Point` copy
+- `point1` - A `xieite::geometry::Point`
+- `point2` - A `xieite::geometry::Point`
 ### Return value
-- `double` - The angle between two points
+- A `double` - The angle between two points
 
 <br/><br/>
 
@@ -28,9 +28,9 @@ constexpr double getAngle(xieite::geometry::Point point1, xieite::geometry::Poin
 constexpr double getAngle(const xieite::concepts::LinearShape auto& linearShape) noexcept;
 ```
 ### Parameters
-- `linearShape` - An `auto` constant reference, satisfying `xieite::concepts::LinearShape`
+- `linearShape` - A constant reference to a value of any type satisfying `xieite::concepts::LinearShape`
 ### Return value
-- `double` - The angle of the linear thing
+- A `double` - The angle of the linear thing
 
 <br/><br/>
 

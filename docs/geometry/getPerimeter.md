@@ -18,7 +18,7 @@ constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept
 ### Parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference
 ### Return value
-- `double` - The polygon's perimeter
+- A `double` - The polygon's perimeter
 
 <br/><br/>
 

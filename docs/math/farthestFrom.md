@@ -12,34 +12,38 @@ Selects the value farthest from a target
 <br/><br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2, xieite::concepts::Arithmetic Number3>
 [[nodiscard]]
-constexpr Number& farthestFrom(Number target, Number& a, Number& b) noexcept;
+constexpr xieite::math::Result<Number1, Number2, Number3>& farthestFrom(const Number1 target, Number2& value1, Number3& value2) noexcept;
 ```
 ### Template parameters
-- `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number1` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number2` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number3` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `target` - A `Number` copy
-- `a` - A `Number` reference
-- `b` - A `Number` reference
+- `target` - A `Number1`
+- `value1` - A `Number2` reference
+- `value2` - A `Number3` reference
 ### Return value
-- A `Number` reference to whichever of `a` and `b` has the greatest difference from target
+- A `xieite::math::Result` of `Number1`, `Number2`, and `Number3`, reference to whichever of `value1` and `value2` has the greatest difference from target
 
 <br/><br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2, xieite::concepts::Number3>
 [[nodiscard]]
-constexpr const Number& farthestFrom(Number target, const Number& a, const Number& b) noexcept;
+constexpr const xieite::math::Result<Number1, Number2, Number3>& farthestFrom(const Number1 target, const Number2& value1, const Number3& value2) noexcept;
 ```
 ### Template parameters
-- `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number1` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number2` - A type satisfying `xieite::concepts::Arithmetic`
+- `Number3` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `target` - A Number copy
-- `a` - A `Number` constant reference
-- `b` - Also a `Number` constant reference
+- `target` - A `Number1`
+- `value1` - A `Number2` constant reference
+- `value2` - Also a `Number3` constant reference
 ### Return value
-- A `Number` constant reference to whichever of `a` and `b` has the greatest difference from `target`
+- A `xieite::math::Result` of `Number1`, `Number2`, and `Number3`, constant reference to whichever of `value1` and `value2` has the greatest difference from target
 
 <br/><br/>
 

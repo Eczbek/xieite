@@ -3,7 +3,7 @@ Defined in header [<xieite/math/cotangent.hpp>](../../include/xieite/math/cotage
 
 <br/>
 
-A trigonometric function which wasn't included in the standard math library. Calculates the cotangent of a value
+Calculates the cotangent of a value
 
 <br/><br/>
 
@@ -14,11 +14,11 @@ A trigonometric function which wasn't included in the standard math library. Cal
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 [[nodiscard]]
-constexpr Number cotangent(Number value) noexcept;
+constexpr xieite::math::Result<Number> cotangent(Number value) noexcept;
 ```
 ### Template parameters
-- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `value` - A `Number` copy
+- `value` - A `Number`
 ### Return value
-- A `Number`, the cotangent of value
+- A `xieite::math::Result` of `Number`

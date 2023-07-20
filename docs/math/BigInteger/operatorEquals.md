@@ -23,7 +23,7 @@ constexpr bool operator==(const xieite::math::BigInteger& comparand) const noexc
 constexpr bool operator==(const std::integral auto comparand) const noexcept;
 ```
 ### Parameters
-- `comparand` - An `auto` copy, satisfying `std::integral`
+- `comparand` - A value of any type satisfying `std::integral`
 ### Return value
 - A `bool`, whether or not the two values are equal
 

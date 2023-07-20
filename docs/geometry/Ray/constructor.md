@@ -15,8 +15,8 @@ Constructs a `xieite::geometry::Ray`
 constexpr Ray(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
 ### Parameters
-- `start` - A `xieite::geometry::Point` copy, the start of the ray
-- `end` - A `xieite::geometry::Point` copy, an intersection through which the infinite ray passes
+- `start` - A `xieite::geometry::Point`, the start of the ray
+- `end` - A `xieite::geometry::Point`, an intersection through which the infinite ray passes
 
 <br/><br/>
 
@@ -24,8 +24,8 @@ constexpr Ray(xieite::geometry::Point start, xieite::geometry::Point end) noexce
 constexpr Ray(xieite::geometry::Point start, double angle) noexcept;
 ```
 ### Parameters
-- `start` - A `xieite::geometry::Point` copy, the start of the ray
-- `angle` - A `double` copy, the ray's angle
+- `start` - A `xieite::geometry::Point`, the start of the ray
+- `angle` - A `double`, the ray's angle
 
 <br/><br/>
 

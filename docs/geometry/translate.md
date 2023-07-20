@@ -16,8 +16,8 @@ Translates a shape
 constexpr xieite::geometry::Point translate(xieite::geometry::Point point, xieite::geometry::Point difference) noexcept;
 ```
 ### Parameters
-- `point` - A `xieite::geometry::Point` copy
-- `difference` - A `xieite::geometry::Point` copy
+- `point` - A `xieite::geometry::Point`
+- `difference` - A `xieite::geometry::Point`
 ### Return value
 - A new translated `xieite::geometry::Point`
 
@@ -29,10 +29,10 @@ template<xieite::concepts::LinearShape LinearShape>
 constexpr LinearShape translate(const LinearShape& line, xieite::geometry::Point difference) noexcept;
 ```
 ### Template parameters
-- `LinearShape` - The type of the passed linear shape, satisfying `xieite::concepts::LinearShape`
+- `LinearShape` - The type of the passed linear shape satisfying `xieite::concepts::LinearShape`
 ### Parameters
 - `linearShape` - A `LinearShape` constant reference
-- `difference` - A `xieite::geometry::Point` copy
+- `difference` - A `xieite::geometry::Point`
 ### Return value
 - A new translated `LinearShape`
 
@@ -43,7 +43,7 @@ constexpr LinearShape translate(const LinearShape& line, xieite::geometry::Point
 constexpr xieite::geometry::Polygon translate(xieite::geometry::Polygon polygon, xieite::geometry::Point difference) noexcept;
 ```
 ### Parameters
-- `polygon` - A `xieite::geometry::Polygon` copy
-- `difference` - A `xieite::geometry::Point` copy
+- `polygon` - A `xieite::geometry::Polygon`
+- `difference` - A `xieite::geometry::Point`
 ### Return value
 - A new translated `xieite::geometry::Polygon`

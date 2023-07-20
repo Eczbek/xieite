@@ -25,6 +25,6 @@ template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intm
 inline constexpr bool isTemporalDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>> = true;
 ```
 ### Template parameters
-- `Number` - An arithmetic type, satisfying `xieite::concepts::Arithmetic`
-- `numerator` - A `std::intmax_t` copy
-- `denominator` - Another `std::int_max_t` copy
+- `Number` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
+- `numerator` - A `std::intmax_t`
+- `denominator` - Another `std::int_max_t`

@@ -17,7 +17,7 @@ template<xieite::concepts::Arithmetic Number>
 constexpr operator Number() const noexcept;
 ```
 ### Template parameters
-- `Number` - Any arithmetic type, satisfying `xieite::concepts::Arithmetic`
+- `Number` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
 
 <br/><br/>
 

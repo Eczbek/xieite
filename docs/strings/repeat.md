@@ -16,8 +16,8 @@ Repeats a string
 constexpr std::string repeat(std::string_view string, std::size_t count) noexcept;
 ```
 ### Parameters
-- `string` - A `std::string_view` copy, the value to repeat
-- `count` - A `std::size_t` copy, how many times to repeat string
+- `string` - A `std::string_view`, the value to repeat
+- `count` - A `std::size_t`, how many times to repeat string
 ### Return value
 - A `std::string`
 

@@ -16,7 +16,7 @@ Demangles the name of a `std::type_info`. Returns original string if demangling 
 inline std::string demangle(std::string mangled) noexcept;
 ```
 ### Parameters
-- `mangled` - A `std::string` copy, the mangled type name
+- `mangled` - A `std::string`, the mangled type name
 ### Return value
 - A `std::string`
 
