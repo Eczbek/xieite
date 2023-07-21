@@ -13,15 +13,15 @@
 #		include <xieite/concepts/SameAsOrDerivedFrom.hpp>
 
 namespace xieite::system {
-	template<typename Character = char, xieite::concepts::SameAsOrDerivedFrom<std::basic_istream<Character>, std::basic_ostream<Character>> Stream>
+	template<xieite::concepts::SameAsOrDerivedFrom<std::istream, std::ostream> Stream>
 	[[nodiscard]]
 	inline std::FILE* getStreamFile(const Stream& stream) noexcept {
-		if constexpr (xieite::concepts::SameAsOrDerivedFrom<Stream, std::basic_istream<Character>>) {
+		if constexpr (xieite::concepts::SameAsOrDerivedFrom<Stream, std::istream>) {
 			if (&stream == &std::cin) {
 				return stdin;
 			}
 		}
-		if constexpr (xieite::concepts::SameAsOrDerivedFrom<Stream, std::basic_ostream<Character>>) {
+		if constexpr (xieite::concepts::SameAsOrDerivedFrom<Stream, std::ostream>) {
 			if (&stream == &std::cout) {
 				return stdout;
 			}
@@ -29,7 +29,7 @@ namespace xieite::system {
 				return stderr;
 			}
 		}
-		return static_cast<__gnu_cxx::stdio_filebuf<Character>*>(stream.rdbuf())->file();
+		return static_cast<__gnu_cxx::stdio_filebuf<typename Stream::char_type, typename Stream::traits_type>*>(stream.rdbuf())->file();
 	}
 }
 
