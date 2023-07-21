@@ -12,8 +12,7 @@ Scans and expands expressions if possible
 <br/>
 
 ```cpp
-#define XIEITE_SCAN(...) \
-	__VA_ARGS__
+#define XIEITE_SCAN(...) __VA_ARGS__
 ```
 ### Parameters
 - `...` - Any expressions

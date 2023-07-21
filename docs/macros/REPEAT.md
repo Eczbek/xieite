@@ -12,8 +12,7 @@ Repeats an expression literally
 <br/>
 
 ```cpp
-#define XIEITE_REPEAT(count, argument) \
-	XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT, , argument)
+#define XIEITE_REPEAT(count, argument) XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT, , argument)
 ```
 ### Parameters
 - `count` - An unsigned value between `0` and `255`, inclusive

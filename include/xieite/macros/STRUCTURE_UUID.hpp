@@ -8,10 +8,8 @@
 
 #	if XIEITE_COMPILER_TYPE_MSVC
 #		undef XIEITE_STRUCTURE_UUID
-#		define XIEITE_STRUCTURE_UUID(value) \
-			__declspec(XIEITE_INTERNAL_STRUCTURE_UUID(value))
-#		define XIEITE_INTERNAL_STRUCTURE_UUID(value) \
-			uuid(XIEITE_STRINGIFY(value))
+#		define XIEITE_STRUCTURE_UUID(value) __declspec(XIEITE_INTERNAL_STRUCTURE_UUID(value))
+#		define XIEITE_INTERNAL_STRUCTURE_UUID(value) uuid(XIEITE_STRINGIFY(value))
 #	endif
 
 // Thanks to eightfold for original code

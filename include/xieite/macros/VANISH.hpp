@@ -3,11 +3,11 @@
 
 #	include <xieite/macros/COMPILER_TYPE.hpp>
 
+#	define XIEITE_VANISH
+
 #	if XIEITE_COMPILER_TYPE_GCC
-#		define XIEITE_VANISH \
-			sizeof(decltype(std))
-#	else
-#		error "Compiler not supported"
+#		undef XIEITE_VANISH
+#		define XIEITE_VANISH sizeof(decltype(std))
 #	endif
 
 #endif

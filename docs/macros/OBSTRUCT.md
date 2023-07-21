@@ -8,8 +8,7 @@ Defined in header [<xieite/macros/OBSTRUCT.hpp>](../../include/xieite/macros/OBS
 <br/>
 
 ```cpp
-#define XIEITE_OBSTRUCT(...) \
-	__VA_ARGS__ XIEITE_DEFER(XIEITE_EMPTY)()
+#define XIEITE_OBSTRUCT(...) __VA_ARGS__ XIEITE_DEFER(XIEITE_EMPTY)()
 ```
 ### Parameters
 - `...` - Any expressions
