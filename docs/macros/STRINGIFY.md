@@ -12,8 +12,7 @@ Converts expressions to a string literally
 <br/>
 
 ```cpp
-#define XIEITE_STRINGIFY(...) \
-	XIEITE_INTERNAL_STRINGIFY(__VA_ARGS__)
+#define XIEITE_STRINGIFY(...) XIEITE_INTERNAL_STRINGIFY(__VA_ARGS__)
 ```
 ### Parameters
 - `...` - Any expressions

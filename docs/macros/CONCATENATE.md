@@ -12,8 +12,7 @@ Concatenates expressions literally
 <br/>
 
 ```cpp
-#define XIEITE_CONCATENATE(first, second) \
-	XIEITE_INTERNAL_CONCATENATE(first, second)
+#define XIEITE_CONCATENATE(first, second) XIEITE_INTERNAL_CONCATENATE(first, second)
 ```
 ### Parameters
 - `first` - Any expression

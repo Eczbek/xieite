@@ -3,18 +3,7 @@ Defined in header [<xieite/macros/VANISH.hpp>](../../include/xieite/macros/VANIS
 
 <br/>
 
-Uses cursed C++ magic to remove any line where it is mentioned
-
-<br/><br/>
-
-## Synopsis
-
-<br/>
-
-```cpp
-#define XIEITE_VANISH \
-	sizeof(decltype(std))
-```
+Uses cursed C++ magic to remove any line where it is mentioned. See header file for definitions
 
 <br/><br/>
 
