@@ -10,6 +10,7 @@ Common concepts
 <pre><code>concepts/
 |- <a href="./concepts/Aggregate.md">Aggregate</a>
 |- <a href="./concepts/Arithmetic.md">Arithmetic</a>
+|- <a href="./concepts/BitsetReference.md">BitsetReference</a>
 |- <a href="./concepts/ConvertibleTo.md">ConvertibleTo</a>
 |- <a href="./concepts/CopyAssignable.md">CopyAssignable</a>
 |- <a href="./concepts/Decayed.md">Decayed</a>
