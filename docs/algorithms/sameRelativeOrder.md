@@ -32,7 +32,6 @@ constexpr bool sameRelativeOrder(const Range1& range1, const Range2& range2, con
 ## Example
 ```cpp
 #include <iostream>
-#include <ranges>
 #include <vector>
 #include <xieite/algorithms/sameRelativeOrder.hpp>
 
@@ -46,11 +45,14 @@ int main() {
 	std::vector<int> c { 3, 2, 1, 5, 4 };
 	//                   <  <  <||<  <
 
+	std::vector<int> d { 5, 4, 3, 2, 1 };
+	//                  |<  <  <  <  <|
+
 	std::cout
 		<< std::boolalpha
-		<< xieite::algorithms::sameRelativeOrder(std::ranges::begin(a), std::ranges::end(a), std::ranges::begin(b), std::ranges::end(b)) << '\n'
-		<< xieite::algorithms::sameRelativeOrder(std::ranges::begin(a), std::ranges::end(a), std::ranges::begin(c), std::ranges::end(c)) << '\n'
-		<< xieite::algorithms::sameRelativeOrder(std::ranges::rbegin(a), std::ranges::rend(a), std::ranges::begin(c), std::ranges::end(c)) << '\n';
+		<< xieite::algorithms::sameRelativeOrder(a, b) << '\n'
+		<< xieite::algorithms::sameRelativeOrder(a, c) << '\n'
+		<< xieite::algorithms::sameRelativeOrder(c, d) << '\n';
 }
 ```
 Output:

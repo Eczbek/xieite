@@ -37,7 +37,7 @@ namespace xieite::random {
 				}
 			}
 			this->distribution = xieite::random::UniformInterruptableDistribution<Number>::UniformDistribution(lower, maximum);
-			std::ranges::sort(std::ranges::begin(this->interruptions), std::ranges::end(this->interruptions), [](const xieite::math::Interval<Number> interruption1, const xieite::math::Interval<Number> interruption2) noexcept -> Number {
+			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Number> interruption1, const xieite::math::Interval<Number> interruption2) noexcept -> Number {
 				return interruption1.start < interruption2.start;
 			});
 		}

@@ -34,8 +34,8 @@ namespace xieite::math {
 		: bits(value.bits), sign(value.sign) {}
 
 		constexpr BigInteger(const xieite::concepts::RangeOf<bool> auto& bits, const bool sign = false) noexcept
-		: bits(bits.begin(), bits.end()), sign(sign) {
-			std::size_t i = std::ranges::size(this->bits);
+		: bits(std::ranges::begin(bits), std::ranges::end(bits)), sign(sign) {
+			std::size_t i = this->bits.size();
 			if (i) {
 				while (!this->bits.back() && --i) {
 					this->bits.pop_back();
@@ -50,14 +50,14 @@ namespace xieite::math {
 
 		constexpr BigInteger(const std::string_view value) {
 			const bool isNegative = value[0] == '-';
-			const std::size_t valueSize = std::ranges::size(value);
+			const std::size_t valueSize = value.size();
 			for (std::size_t i = isNegative; i < valueSize; ++i) {
 				if ((value[i] < '0') || (value[i] > '9')) {
 					throw std::invalid_argument("Cannot construct integer with non-digit character");
 				}
 				*this += xieite::math::BigInteger(10).power(valueSize - i - 1) * (value[i] - '0');
 			}
-			this->sign = ((std::ranges::size(this->bits) < 2) && !this->bits[0]) * isNegative;
+			this->sign = ((this->bits.size() < 2) && !this->bits[0]) * isNegative;
 		}
 
 		constexpr xieite::math::BigInteger& operator=(const xieite::math::BigInteger& value) noexcept {
@@ -100,7 +100,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& comparand) const noexcept {
-			return (this->sign != comparand.sign) ? (comparand.sign <=> this->sign) : (this->sign ? ((std::ranges::size(this->bits) != std::ranges::size(comparand.bits)) ? (std::ranges::size(comparand.bits) <=> std::ranges::size(this->bits)) : (std::vector<bool>(std::ranges::rbegin(comparand.bits), std::ranges::rend(comparand.bits)) <=> std::vector<bool>(std::ranges::rbegin(this->bits), std::ranges::rend(this->bits)))) : ((std::ranges::size(this->bits) != std::ranges::size(comparand.bits)) ? (std::ranges::size(this->bits) <=> std::ranges::size(comparand.bits)) : (std::vector<bool>(std::ranges::rbegin(this->bits), std::ranges::rend(this->bits)) <=> std::vector<bool>(std::ranges::rbegin(comparand.bits), std::ranges::rend(comparand.bits)))));
+			return (this->sign != comparand.sign) ? (comparand.sign <=> this->sign) : (this->sign ? ((this->bits.size() != comparand.bits.size()) ? (comparand.bits.size() <=> this->bits.size()) : (std::vector<bool>(comparand.bits.rbegin(), comparand.bits.rend()) <=> std::vector<bool>(this->bits.rbegin(), this->bits.rend()))) : ((this->bits.size() != comparand.bits.size()) ? (this->bits.size() <=> comparand.bits.size()) : (std::vector<bool>(this->bits.rbegin(), this->bits.rend()) <=> std::vector<bool>(comparand.bits.rbegin(), comparand.bits.rend()))));
 		}
 
 		[[nodiscard]]
@@ -126,8 +126,8 @@ namespace xieite::math {
 			}
 			std::vector<bool> resultBits;
 			bool carry = false;
-			const std::size_t bitsSize = std::ranges::size(this->bits);
-			const std::size_t addendBitsSize = std::ranges::size(addend.bits);
+			const std::size_t bitsSize = this->bits.size();
+			const std::size_t addendBitsSize = addend.bits.size();
 			for (std::size_t i = 0; (i < bitsSize) || (i < addendBitsSize) || carry; ++i) {
 				int sum = carry;
 				if (i < bitsSize) {
@@ -187,8 +187,8 @@ namespace xieite::math {
 			}
 			std::vector<bool> resultBits = this->bits;
 			bool borrow = false;
-			const std::size_t bitsSize = std::ranges::size(this->bits);
-			const std::size_t subtrahendBitsSize = std::ranges::size(subtrahend.bits);
+			const std::size_t bitsSize = this->bits.size();
+			const std::size_t subtrahendBitsSize = subtrahend.bits.size();
 			for (std::size_t i = 0; (i < subtrahendBitsSize) || borrow; ++i) {
 				int difference = 2 - borrow + this->bits[i];
 				if (i < subtrahendBitsSize) {
@@ -240,13 +240,13 @@ namespace xieite::math {
 			if (multiplicand == -1) {
 				return -*this;
 			}
-			const std::size_t halfSize = std::min(std::ranges::size(this->bits), std::ranges::size(multiplicand.bits)) / 2;
-			const std::vector<bool>::const_iterator i = std::ranges::next(std::ranges::begin(this->bits), halfSize);
-			const xieite::math::BigInteger a = xieite::math::BigInteger(std::vector<bool>(std::ranges::begin(this->bits), i));
-			const xieite::math::BigInteger b = xieite::math::BigInteger(std::vector<bool>(i, std::ranges::end(this->bits)));
-			const std::vector<bool>::const_iterator j = std::ranges::next(std::ranges::begin(multiplicand.bits), halfSize);
-			const xieite::math::BigInteger c = xieite::math::BigInteger(std::vector<bool>(std::ranges::begin(multiplicand.bits), j));
-			const xieite::math::BigInteger d = xieite::math::BigInteger(std::vector<bool>(j, std::ranges::end(multiplicand.bits)));
+			const std::size_t halfSize = std::min(this->bits.size(), multiplicand.bits.size()) / 2;
+			const std::vector<bool>::const_iterator i = std::ranges::next(this->bits.begin(), halfSize);
+			const xieite::math::BigInteger a = xieite::math::BigInteger(std::vector<bool>(this->bits.begin(), i));
+			const xieite::math::BigInteger b = xieite::math::BigInteger(std::vector<bool>(i, this->bits.end()));
+			const std::vector<bool>::const_iterator j = std::ranges::next(multiplicand.bits.begin(), halfSize);
+			const xieite::math::BigInteger c = xieite::math::BigInteger(std::vector<bool>(multiplicand.bits.begin(), j));
+			const xieite::math::BigInteger d = xieite::math::BigInteger(std::vector<bool>(j, multiplicand.bits.end()));
 			const xieite::math::BigInteger e = a * c;
 			const xieite::math::BigInteger f = (a + b) * (c + d);
 			const xieite::math::BigInteger g = b * d;
@@ -286,16 +286,16 @@ namespace xieite::math {
 			}
 			std::vector<bool> resultBits;
 			xieite::math::BigInteger difference;
-			for (std::size_t i = std::ranges::size(this->bits); i--;) {
+			for (std::size_t i = this->bits.size(); i--;) {
 				if (!difference) {
 					difference.bits.clear();
 				}
-				difference.bits.insert(std::ranges::begin(difference.bits), this->bits[i]);
+				difference.bits.insert(difference.bits.begin(), this->bits[i]);
 				const bool quotient = difference >= divisorCopy;
 				if (quotient) {
 					difference -= divisorCopy;
 				}
-				resultBits.insert(std::ranges::begin(resultBits), quotient);
+				resultBits.insert(resultBits.begin(), quotient);
 			}
 			return xieite::math::BigInteger(resultBits, this->sign != divisorSign);
 		}
@@ -327,11 +327,11 @@ namespace xieite::math {
 				return *this;
 			}
 			xieite::math::BigInteger difference;
-			for (std::size_t i = std::ranges::size(this->bits); i--;) {
+			for (std::size_t i = this->bits.size(); i--;) {
 				if (!difference) {
 					difference.bits.clear();
 				}
-				difference.bits.insert(std::ranges::begin(difference.bits), this->bits[i]);
+				difference.bits.insert(difference.bits.begin(), this->bits[i]);
 				if (difference >= divisorCopy) {
 					difference -= divisorCopy;
 				}
@@ -427,7 +427,7 @@ namespace xieite::math {
 				return *this;
 			}
 			std::vector<bool> resultBits = std::vector<bool>(static_cast<std::size_t>(positions));
-			resultBits.insert(std::ranges::end(resultBits), std::ranges::begin(this->bits), std::ranges::end(this->bits));
+			resultBits.insert(resultBits.end(), this->bits.begin(), this->bits.end());
 			return xieite::math::BigInteger(resultBits, this->sign);
 		}
 
@@ -453,8 +453,7 @@ namespace xieite::math {
 				return *this;
 			}
 			std::vector<bool> resultBits = this->bits;
-			std::vector<bool>::iterator end = std::ranges::begin(resultBits);
-			resultBits.erase(std::ranges::begin(resultBits), std::ranges::next(std::ranges::begin(resultBits), static_cast<std::size_t>(positions)));
+			resultBits.erase(resultBits.begin(), std::ranges::next(resultBits.begin(), static_cast<std::size_t>(positions)));
 			xieite::math::BigInteger result = xieite::math::BigInteger(resultBits, this->sign);
 			return result ? result : -xieite::math::BigInteger(this->sign);
 		}
@@ -558,7 +557,7 @@ namespace xieite::math {
 			if (base < 0) {
 				throw std::domain_error("Cannot take logarithm of negative base");
 			}
-			return (std::ranges::size(this->bits) - 1) / (std::ranges::size(base.bits) - 1);
+			return (this->bits.size() - 1) / (base.bits.size() - 1);
 		}
 
 		[[nodiscard]]
@@ -595,7 +594,7 @@ namespace xieite::math {
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& value, const xieite::concepts::Functable<bool(bool, bool)> auto& callback) const noexcept {
 			xieite::math::BigInteger copy = *this;
-			const std::size_t bitsSize = std::ranges::size(this->bits);
+			const std::size_t bitsSize = this->bits.size();
 			if (this->sign) {
 				++copy;
 				for (std::size_t i = 0; i < bitsSize; ++i) {
@@ -603,7 +602,7 @@ namespace xieite::math {
 				}
 			}
 			xieite::math::BigInteger valueCopy = value;
-			const std::size_t valueBitsSize = std::ranges::size(value.bits);
+			const std::size_t valueBitsSize = value.bits.size();
 			if (value.sign) {
 				++valueCopy;
 				for (std::size_t i = 0; i < valueBitsSize; ++i) {

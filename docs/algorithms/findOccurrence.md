@@ -31,16 +31,15 @@ constexpr std::ranges::const_iterator_t<const Range&> findOccurrence(const Range
 ```cpp
 #include <iostream>
 #include <iterator>
-#include <ranges>
 #include <vector>
 #include <xieite/algorithms/findOccurrence.hpp>
 
 int main() {
 	std::vector<int> values { 1, 2, 1, 3, 1, 4, 1 };
 
-	auto result = xieite::algorithms::findOccurrence(std::ranges::begin(values), std::ranges::end(values), 1, 3);
+	auto result = xieite::algorithms::findOccurrence(values, 1, 3);
 	
-	std::cout << std::ranges::distance(std::ranges::begin(values), result) << '\n';
+	std::cout << std::ranges::distance(values.begin(), result) << '\n';
 }
 ```
 Output:

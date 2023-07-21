@@ -2,7 +2,6 @@
 #	define XIEITE_HEADER_GEOMETRY_GETINTERSECTIONS
 
 #	include <cmath>
-#	include <ranges>
 #	include <vector>
 #	include <xieite/concepts/LinearShape.hpp>
 #	include <xieite/geometry/Point.hpp>
@@ -36,7 +35,7 @@ namespace xieite::geometry {
 		std::vector<xieite::geometry::Point> intersections1;
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {
 			const std::vector<xieite::geometry::Point> intersections2 = xieite::geometry::getIntersections(point, side);
-			if (std::ranges::size(intersections2)) {
+			if (intersections2.size()) {
 				intersections1.push_back(intersections2[0]);
 			}
 		}
@@ -66,7 +65,7 @@ namespace xieite::geometry {
 		std::vector<xieite::geometry::Point> intersections1;
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {
 			const std::vector<xieite::geometry::Point> intersections2 = xieite::geometry::getIntersections(linearShape, side);
-			if (std::ranges::size(intersections2)) {
+			if (intersections2.size()) {
 				intersections1.push_back(intersections2[0]);
 			}
 		}
@@ -89,7 +88,7 @@ namespace xieite::geometry {
 		for (const xieite::geometry::Segment& side1 : xieite::geometry::getSides(polygon1)) {
 			for (const xieite::geometry::Segment& side2 : xieite::geometry::getSides(polygon2)) {
 				const std::vector<xieite::geometry::Point> intersections2 = xieite::geometry::getIntersections(side1, side2);
-				if (std::ranges::size(intersections2)) {
+				if (intersections2.size()) {
 					intersections1.push_back(intersections2[0]);
 				}
 			}

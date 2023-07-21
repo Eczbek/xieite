@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS_TOLOWERCASE
-#	define XIEITE_HEADER_STRINGS_TOLOWERCASE
+#ifndef XIEITE_HEADER_STRINGS_TOLOWER
+#	define XIEITE_HEADER_STRINGS_TOLOWER
 
 #	include <string>
 
@@ -12,9 +12,8 @@ namespace xieite::strings {
 	}
 
 	constexpr std::string toLower(std::string string) noexcept {
-		const std::size_t stringSize = string.size();
-		for (std::size_t i = 0; i < stringSize; ++i) {
-			string[i] = xieite::strings::toLower(string[i]);
+		for (char& character : string) {
+			character = xieite::strings::toLower(character);
 		}
 		return string;
 	}
