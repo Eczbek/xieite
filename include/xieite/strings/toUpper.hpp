@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS_TOUPPERCASE
-#	define XIEITE_HEADER_STRINGS_TOUPPERCASE
+#ifndef XIEITE_HEADER_STRINGS_TOUPPER
+#	define XIEITE_HEADER_STRINGS_TOUPPER
 
 #	include <string>
 
@@ -12,9 +12,8 @@ namespace xieite::strings {
 	}
 
 	constexpr std::string toUpper(std::string string) noexcept {
-		const std::size_t stringSize = string.size();
-		for (std::size_t i = 0; i < stringSize; ++i) {
-			string[i] = xieite::strings::toUpper(string[i]);
+		for (char& character : string) {
+			character = xieite::strings::toUpper(character);
 		}
 		return string;
 	}

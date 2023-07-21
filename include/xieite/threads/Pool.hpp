@@ -6,7 +6,6 @@
 #	include <functional>
 #	include <mutex>
 #	include <queue>
-#	include <ranges>
 #	include <thread>
 #	include <utility>
 #	include <vector>

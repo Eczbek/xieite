@@ -42,7 +42,6 @@ constexpr bool isPalindrome(const std::integral auto value, const std::size_t ba
 ## Example
 ```cpp
 #include <iostream>
-#include <ranges>
 #include <string>
 #include <xieite/algorithms/isPalindrome.hpp>
 
@@ -51,7 +50,7 @@ int main() {
 
 	std::cout
 		<< std::boolalpha
-		<< xieite::algorithms::isPalindrome(std::ranges::begin(value), std::ranges::end(value)) << '\n';
+		<< xieite::algorithms::isPalindrome(value) << '\n';
 }
 ```
 Output:
