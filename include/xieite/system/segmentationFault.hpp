@@ -2,9 +2,8 @@
 #	define XIEITE_HEADER_SYSTEM_SEGMENTATIONFAULT
 
 namespace xieite::system {
-	[[noreturn]]
 	inline void segmentationFault() noexcept {
-		*static_cast<volatile int*>(nullptr);
+		*static_cast<volatile const int*>(nullptr);
 	}
 }
 
