@@ -12,7 +12,6 @@ Creates a segmentation fault. Why would you use this?
 <br/>
 
 ```cpp
-[[noreturn]]
 inline void segmentationFault() noexcept;
 ```
 
