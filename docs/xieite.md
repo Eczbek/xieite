@@ -18,7 +18,6 @@ Main namespace
 |- <a href="./math.md">math</a>
 |- <a href="./memory.md">memory</a>
 |- <a href="./metadata.md">metadata</a>
-|- <a href="./process.md">process</a>
 |- <a href="./random.md">random</a>
 |- <a href="./ratios.md">ratios</a>
 |- <a href="./strings.md">strings</a>
