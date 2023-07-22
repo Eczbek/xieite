@@ -11,7 +11,6 @@
 #	include <xieite/math.hpp>
 #	include <xieite/memory.hpp>
 #	include <xieite/metadata.hpp>
-#	include <xieite/process.hpp>
 #	include <xieite/random.hpp>
 #	include <xieite/ratios.hpp>
 #	include <xieite/strings.hpp>
