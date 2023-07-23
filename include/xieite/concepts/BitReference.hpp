@@ -7,7 +7,7 @@
 
 namespace xieite::concepts {
 	template<typename Any>
-	concept BitsetReference = requires(Any any) {
+	concept BitReference = requires(Any any) {
 		{ any.~Any() };
 		{ any = std::declval<bool>() } -> std::same_as<Any&>;
 		{ any = std::declval<Any>() } -> std::same_as<Any&>;

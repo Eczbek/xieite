@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::BitsetReference
-Defined in header [<xieite/concepts/BitsetReference.hpp>](../../include/xieite/concepts/BitsetReference.hpp)
+# [xieite](../xieite.md)::[concepts](../concepts.md)::BitReference
+Defined in header [<xieite/concepts/BitReference.hpp>](../../include/xieite/concepts/BitReference.hpp)
 
 <br/><br/>
 
@@ -9,7 +9,7 @@ Defined in header [<xieite/concepts/BitsetReference.hpp>](../../include/xieite/c
 
 ```cpp
 template<typename Any>
-concept BitsetReference = requires(Any any) {
+concept BitReference = requires(Any any) {
 	{ any.~Any() };
 	{ any = std::declval<bool>() } -> std::same_as<Any&>;
 	{ any = std::declval<Any>() } -> std::same_as<Any&>;
@@ -27,14 +27,14 @@ concept BitsetReference = requires(Any any) {
 ```cpp
 #include <bitset>
 #include <iostream>
-#include <xieite/concepts/BitsetReference.hpp>
+#include <xieite/concepts/BitReference.hpp>
 
 int main() {
 	std::bitset<8> bitset;
 	auto bit = bitset[0];
 
 	std::cout << std::boolalpha
-		<< xieite::concepts::BitsetReference<decltype(bit)> << '\n';
+		<< xieite::concepts::BitReference<decltype(bit)> << '\n';
 }
 ```
 Output:

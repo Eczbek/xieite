@@ -41,28 +41,38 @@ namespace xieite::system {
 		auto operator=(const xieite::system::StandardStreamsController<otherInputStream, otherOutputStream>&) = delete;
 
 		void setInputBlocking(const bool value) noexcept {
-			this->blocking = value;
-			this->update();
+			if (this->blocking != value) {
+				this->blocking = value;
+				this->update();
+			}
 		}
 
 		void setInputEcho(const bool value) noexcept {
-			this->echo = value;
-			this->update();
+			if (this->echo != value) {
+				this->echo = value;
+				this->update();
+			}
 		}
 
 		void setInputCanonical(const bool value) noexcept {
-			this->canonical = value;
-			this->update();
+			if (this->canonical != value) {
+				this->canonical = value;
+				this->update();
+			}
 		}
 
 		void setInputSignals(const bool value) noexcept {
-			this->signals = value;
-			this->update();
+			if (this->signals != value) {
+				this->signals = value;
+				this->update();
+			}
 		}
 
-		void setInputProcessing(const bool value) noexcept {
-			this->processing = value;
-			this->update();
+		void setOutputProcessing(const bool value) noexcept {
+			if (this->processing != value) {
+				this->processing = value;
+				this->update();
+			}
 		}
 
 		void setTextColor(const xieite::graphics::Color& color) noexcept {
@@ -155,13 +165,15 @@ namespace xieite::system {
 		[[nodiscard]]
 		char readCharacter() noexcept {
 			const bool blocking = this->blocking;
-			if (blocking) {
-				this->setInputBlocking(false);
-			}
-			char input = 0;
-			read(this->inputFileDescriptor, &input, 1);
+			const bool canonical = this->canonical;
+			this->setInputBlocking(false);
+			this->setInputCanonical(false);
+			const char input = inputStream.get();
 			if (blocking) {
 				this->setInputBlocking(true);
+			}
+			if (canonical) {
+				this->setInputCanonical(true);
 			}
 			return input;	
 		}
@@ -169,22 +181,17 @@ namespace xieite::system {
 		[[nodiscard]]
 		std::string readString() noexcept {
 			const bool blocking = this->blocking;
-			if (blocking) {
-				this->setInputBlocking(false);
+			const bool canonical = this->canonical;
+			this->setInputBlocking(false);
+			this->setInputCanonical(false);
+			std::string input;
+			char buffer;
+			while (inputStream.get(buffer)) {
+				input += buffer;
 			}
-			std::string result;
-			while (true) {
-				std::string buffer = std::string(xieite::memory::bufferSize, '\0');
-				read(this->inputFileDescriptor, buffer.data(), buffer.size());
-				if (!buffer.size()) {
-					break;
-				}
-				result += buffer;
-			}
-			if (blocking) {
-				this->setInputBlocking(true);
-			}
-			return result;
+			this->setInputBlocking(blocking);
+			this->setInputCanonical(canonical);
+			return input;
 		}
 
 		void putBackString(const std::string_view value) noexcept {
