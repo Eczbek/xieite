@@ -1,6 +1,8 @@
 #ifndef XIEITE_HEADER_MATH
 #	define XIEITE_HEADER_MATH
 
+#	include <xieite/math/AttemptSign.hpp>
+#	include <xieite/math/AttemptUnsign.hpp>
 #	include <xieite/math/BigInteger.hpp>
 #	include <xieite/math/ConditionalSign.hpp>
 #	include <xieite/math/Interval.hpp>

@@ -66,83 +66,83 @@ namespace xieite::system {
 		}
 
 		void setTextColor(const xieite::graphics::Color& color) noexcept {
-			outputStream << "[38;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
+			outputStream << "\u001b[38;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
 		}
 
 		void resetTextColor() noexcept {
-			outputStream << "[38m";
+			outputStream << "\u001b[38m";
 		}
 
 		void setHighlightColor(const xieite::graphics::Color& color) noexcept {
-			outputStream << "[48;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
+			outputStream << "\u001b[48;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
 		}
 
 		void resetHighlightColor() noexcept {
-			outputStream << "[48m";
+			outputStream << "\u001b[48m";
 		}
 
 		void setTextBold(const bool value) noexcept {
-			outputStream << (value ? "[1m" : "[21m");
+			outputStream << (value ? "\u001b[1m" : "\u001b[21m");
 		}
 
 		void setTextItalic(const bool value) noexcept {
-			outputStream << (value ? "[3m" : "[23m");
+			outputStream << (value ? "\u001b[3m" : "\u001b[23m");
 		}
 
 		void setTextUnderline(const bool value) noexcept {
-			outputStream << (value ? "[4m" : "[24m");
+			outputStream << (value ? "\u001b[4m" : "\u001b[24m");
 		}
 
 		void setTextBlinking(const bool value) noexcept {
-			outputStream << (value ? "[5m" : "[25m");
+			outputStream << (value ? "\u001b[5m" : "\u001b[25m");
 		}
 
 		void setColorsSwapped(const bool value) noexcept {
-			outputStream << (value ? "[7m" : "[27m");
+			outputStream << (value ? "\u001b[7m" : "\u001b[27m");
 		}
 
 		void setTextVisible(const bool value) noexcept {
-			outputStream << (value ? "[28m" : "[8m");
+			outputStream << (value ? "\u001b[28m" : "\u001b[8m");
 		}
 
 		void setTextStrikethrough(const bool value) noexcept {
-			outputStream << (value ? "[9m" : "[29m");
+			outputStream << (value ? "\u001b[9m" : "\u001b[29m");
 		}
 
 		void resetStyles() noexcept {
-			outputStream << "[0m";
+			outputStream << "\u001b[0m";
 		}
 
 		void clearScreen() noexcept {
-			outputStream << "[2J";
+			outputStream << "\u001b[2J";
 		}
 
 		void clearLine() noexcept {
-			outputStream << "[2K";
+			outputStream << "\u001b[2K";
 		}
 
 		[[nodiscard]]
 		xieite::system::OutputPosition getCursorPosition() noexcept {
-			outputStream << "[6n";
+			outputStream << "\u001b[6n";
 			xieite::system::OutputPosition position = xieite::system::OutputPosition(0, 0);
-			std::fscanf(this->inputStreamFile, "[%i;%iR", &position.row, &position.column);
+			std::fscanf(this->inputStreamFile, "\u001b[%i;%iR", &position.row, &position.column);
 			return xieite::system::OutputPosition(position.row - 1, position.column - 1);
 		}
 
 		void setCursorPosition(const xieite::system::OutputPosition position) noexcept {
-			outputStream << "[" << xieite::math::baseTo(10, position.row + 1) << ';' << xieite::math::baseTo(10, position.column + 1) << 'H';
+			outputStream << "\u001b[" << xieite::math::baseTo(10, position.row + 1) << ';' << xieite::math::baseTo(10, position.column + 1) << 'H';
 		}
 
 		void setCursorVisible(const bool value) noexcept {
-			outputStream << (value ? "[?25h" : "[?25l");
+			outputStream << (value ? "\u001b[?25h" : "\u001b[?25l");
 		}
 
 		void setCursorAlternative(const bool value) noexcept {
-			outputStream << (value ? "[s" : "[u");
+			outputStream << (value ? "\u001b[s" : "\u001b[u");
 		}
 
 		void setScreenAlternative(const bool value) noexcept {
-			outputStream << (value ? "[?47h" : "[?47l");
+			outputStream << (value ? "\u001b[?47h" : "\u001b[?47l");
 		}
 
 		[[nodiscard]]

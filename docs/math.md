@@ -8,6 +8,8 @@ Mathematical types and functions
 <br/><br/>
 
 <pre><code>math/
+|- <a href="./math/AttemptSign.md">AttemptSign</a>
+|- <a href="./math/AttemptUnsign.md">AttemptUnsign</a>
 |- <a href="./math/BigInteger.md">BigInteger</a>
 |- <a href="./math/ConditionalSign.md">ConditionalSign</a>
 |- <a href="./math/Interval.md">Interval</a>
