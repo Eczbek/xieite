@@ -24,7 +24,7 @@ struct StandardStreamsController {
 
 	void setInputSignals(bool);
 
-	void setInputProcessing(bool);
+	void setOutputProcessing(bool);
 
 	void setTextColor(const xieite::graphics::Color&);
 
@@ -83,7 +83,7 @@ struct StandardStreamsController {
 |- <a href="./StandardStreamsController/setInputEcho.md">setInputEcho</a>
 |- <a href="./StandardStreamsController/setInputCanonical.md">setInputCanonical</a>
 |- <a href="./StandardStreamsController/setInputSignals.md">setInputSignals</a>
-|- <a href="./StandardStreamsController/setInputProcessing.md">setInputProcessing</a>
+|- <a href="./StandardStreamsController/setOutputProcessing.md">setOutputProcessing</a>
 |- <a href="./StandardStreamsController/setTextColor.md">setTextColor</a>
 |- <a href="./StandardStreamsController/resetTextColor.md">resetTextColor</a>
 |- <a href="./StandardStreamsController/setHighlightColor.md">setHighlightColor</a>

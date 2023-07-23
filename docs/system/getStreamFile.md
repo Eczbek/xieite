@@ -12,13 +12,12 @@ Extracts a `std::FILE*` from a stream
 <br/>
 
 ```cpp
-template<typename Character = char, xieite::concepts::SameAsOrDerivedFrom<std::basic_istream<Character>, std::basic_ostream<Character>> Stream>
+template<xieite::concepts::SameAsOrDerivedFrom<std::istream, std::ostream> Stream>
 [[nodiscard]]
 inline std::FILE* getStreamFile(const Stream& stream) noexcept;
 ```
 ### Template parameters
-- `Character` - A character type, `char` by default
-- `Stream` - A stream type satisfying `xieite::concepts::SameAsOrDerivedFrom` of `std::basic_istream` of `Character`, and `std::basic_ostream` of `Character`
+- `Stream` - A stream type satisfying `xieite::concepts::SameAsOrDerivedFrom` of `std::istream` and `std::ostream`
 ### Parameters
 - `stream` - A `Stream` constant reference
 ### Return value

@@ -3,7 +3,7 @@
 
 #	include <xieite/concepts/Aggregate.hpp>
 #	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/concepts/BitsetReference.hpp>
+#	include <xieite/concepts/BitReference.hpp>
 #	include <xieite/concepts/ConvertibleTo.hpp>
 #	include <xieite/concepts/CopyAssignable.hpp>
 #	include <xieite/concepts/Decayed.hpp>
