@@ -5,7 +5,7 @@
 
 namespace xieite::concepts {
 	template<typename Functor, typename Type>
-	concept Functable = xieite::traits::isFunctable<Functor, Type> && xieite::traits::isFunctable<Type, Functor>;
+	concept Functable = xieite::traits::isFunctable<Functor, Type>;
 }
 
 #endif

@@ -7,7 +7,6 @@
 #	include <mutex>
 #	include <queue>
 #	include <thread>
-#	include <utility>
 #	include <vector>
 
 namespace xieite::threads {
@@ -42,7 +41,7 @@ namespace xieite::threads {
 							if (!std::ranges::size(this->jobs) && stopToken.stop_requested()) {
 								break;
 							}
-							std::function<void()> job = std::move(this->jobs.front());
+							std::function<void()> job = this->jobs.front();
 							this->jobs.pop();
 							jobsLock.unlock();
 							job();

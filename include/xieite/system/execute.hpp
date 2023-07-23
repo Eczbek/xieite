@@ -4,7 +4,6 @@
 #	include <xieite/macros/SYSTEM_TYPE.hpp>
 
 #	if XIEITE_SYSTEM_TYPE_UNIX
-#		include <cstddef>
 #		include <cstdio>
 #		include <memory>
 #		include <stdio.h>
@@ -20,8 +19,7 @@ namespace xieite::system {
 		std::string result;
 		while (true) {
 			std::string buffer = std::string(xieite::memory::bufferSize, '\0');
-			const std::size_t bytesRead = std::fread(buffer.data(), sizeof(char), buffer.size(), pipe.get());
-			if (!bytesRead) {
+			if (!std::fread(buffer.data(), sizeof(char), buffer.size(), pipe.get())) {
 				break;
 			}
 			result += buffer;
