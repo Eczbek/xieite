@@ -14,8 +14,8 @@
 namespace xieite::system {
 	inline std::string execute(const std::string_view command) noexcept {
 		const auto pipe = std::unique_ptr<std::FILE, decltype([](std::FILE* const file) noexcept -> void {
-			pclose(file);
-		})>(popen(command.data(), "r"));
+			::pclose(file);
+		})>(::popen(command.data(), "r"));
 		std::string result;
 		while (true) {
 			std::string buffer = std::string(xieite::memory::bufferSize, '\0');

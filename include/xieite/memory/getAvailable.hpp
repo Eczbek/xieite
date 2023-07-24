@@ -10,7 +10,7 @@
 namespace xieite::memory {
 	[[nodiscard]]
 	inline std::size_t getAvailable() noexcept {
-		return static_cast<std::size_t>(sysconf(_SC_AVPHYS_PAGES)) * static_cast<std::size_t>(sysconf(_SC_PAGE_SIZE));
+		return static_cast<std::size_t>(::sysconf(_SC_AVPHYS_PAGES)) * static_cast<std::size_t>(::sysconf(_SC_PAGE_SIZE));
 	}
 }
 
