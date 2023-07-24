@@ -21,8 +21,8 @@ Macros
 |- <a href="./macros/MATRIX.md">MATRIX</a>
 |- <a href="./macros/OBSTRUCT.md">OBSTRUCT</a>
 |- <a href="./macros/REPEAT.md">REPEAT</a>
-|- <a href="./macros/RESTRICT.md">RESTRICT</a>
 |- <a href="./macros/REPEAT_CONCATENATE.md">REPEAT_CONCATENATE</a>
+|- <a href="./macros/RESTRICT.md">RESTRICT</a>
 |- <a href="./macros/SCAN.md">SCAN</a>
 |- <a href="./macros/STANDARD_LANGUAGE.md">STANDARD_LANGUAGE</a>
 |- <a href="./macros/STANDARD_UNIX.md">STANDARD_UNIX</a>
