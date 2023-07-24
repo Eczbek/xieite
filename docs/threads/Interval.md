@@ -13,7 +13,8 @@ Runs a callback every set amount of time. Compile with `-pthread`
 
 ```cpp
 struct Interval {
-	Interval(const std::invocable auto&, xieite::concepts::TemporalDuration auto);
+	template<std::invocable<> Invocable, xieite::concepts::TemporalDuration TemporalDuration>
+	Interval(const Invocable&, TemporalDuration) noexcept;
 
 	bool good() const;
 

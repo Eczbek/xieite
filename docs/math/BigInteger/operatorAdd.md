@@ -28,11 +28,14 @@ constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger& add
 <br/><br/>
 
 ```cpp
+template<std::integral Integral>
 [[nodiscard]]
-constexpr xieite::math::BigInteger operator+(std::integral auto addend) const noexcept;
+constexpr xieite::math::BigInteger operator+(Integral addend) const noexcept;
 ```
+### Template parameters
+- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `addend` - A value of any type satisfying `std::integral`
+- `addend` - - An `Integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

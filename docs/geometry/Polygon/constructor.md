@@ -12,7 +12,10 @@ Constructs a `xieite::geometry::Polygon`
 <br/>
 
 ```cpp
-constexpr Polygon(const xieite::concepts::RangeOf<xieite::geometry::Point> auto& points) noexcept;
+template<xieite::concepts::RangeOf<xieite::geometry::Point> PointRange>
+constexpr Polygon(const PointRange& points) noexcept;
 ```
+### Template parameters
+- `PointRange` - A type satisfying `xieite::concepts::RangeOf` of `xieite::geometry::Point`
 ### Parameters
-- `points` - A constant reference to a value of any type satisfying `xieite::concepts::RangeOf` of `xieite::geometry::Point`
+- `points` - A constant `PointRange` reference

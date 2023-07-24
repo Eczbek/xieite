@@ -8,7 +8,8 @@
 namespace xieite::threads {
 	class Timeout {
 	public:
-		Timeout(const std::invocable auto& callback, const xieite::concepts::TemporalDuration auto duration) noexcept
+		template<std::invocable<> Invocable, xieite::concepts::TemporalDuration TemporalDuration>
+		Timeout(const Invocable& callback, const TemporalDuration duration) noexcept
 		: interval([this, &callback] -> void {
 			this->stop();
 			callback();

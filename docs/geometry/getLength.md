@@ -23,11 +23,14 @@ constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 <br/><br/>
 
 ```cpp
+template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
-constexpr double getLength(const xieite::concepts::LinearShape auto&) noexcept;
+constexpr double getLength(const LinearShape&) noexcept;
 ```
+### Template parameters
+- `LinearShape` - A type satisfying `xieite::concepts::LinearShape`
 ### Parameters
-- An unnamed auto constant reference satisfying `xieite::concepts::LinearShape`
+- An unnamed constant `LinearShape` reference
 ### Return value
 - A `double` - Always infinity
 

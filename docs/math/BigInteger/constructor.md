@@ -12,11 +12,11 @@ Constructs a `xieite::math::BigInteger`
 <br/><br/>
 
 ```cpp
-template<std::integral Number>
-constexpr BigInteger(Number value = 0) noexcept;
+template<std::integral Integral>
+constexpr BigInteger(Integral value = 0) noexcept;
 ```
 ### Parameters
-- `value` - A value of any type satisfying `std::integral`
+- `value` - - An `Integral`
 
 <br/><br/>
 
@@ -29,10 +29,13 @@ constexpr BigInteger(const xieite::math::BigInteger& value) noexcept;
 <br/><br/>
 
 ```cpp
-constexpr BigInteger(const xieite::concepts::RangeOf<bool> auto& bits, bool sign = false) noexcept;
+template<xieite::concepts::RangeOf<bool> BooleanRange>
+constexpr BigInteger(const BooleanRange& bits, bool sign = false) noexcept;
 ```
+### Template parameters
+- `BooleanRange` - A type satisfying `xieite::concepts::RangeOf` of `bool`
 ### Parameters
-- `bits` - A constant reference to a value of any type satisfying `xieite::concepts::RangeOf` of `bool`
+- `bits` - A constant `BooleanRange` reference
 - `sign` - A `bool`, determines whether the value is negative or positive
 
 <br/><br/>

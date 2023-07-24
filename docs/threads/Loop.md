@@ -13,7 +13,8 @@ Runs a callback constantly. Compile with `-pthread`
 
 ```cpp
 struct Loop {
-	Loop(const std::invocable auto&);
+	template<std::invocable<> Invocable>
+	Loop(const Invocable&);
 
 	bool good() const;
 

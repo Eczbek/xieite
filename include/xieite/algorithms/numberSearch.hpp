@@ -7,11 +7,11 @@
 #	include <xieite/math/almostEqual.hpp>
 
 namespace xieite::algorithms {
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
 	[[nodiscard]]
-	constexpr Number numberSearch(const xieite::concepts::Functable<bool(Number)> auto& selector, Number minimum, Number maximum) {
+	constexpr Arithmetic numberSearch(const Functable& selector, Arithmetic minimum, Arithmetic maximum) {
 		while (true) {
-			const Number middle = (minimum + maximum) / 2;
+			const Arithmetic middle = (minimum + maximum) / 2;
 			if (xieite::math::almostEqual(middle, minimum) || xieite::math::almostEqual(middle, maximum)) {
 				return middle;
 			}
@@ -19,11 +19,11 @@ namespace xieite::algorithms {
 		}
 	}
 
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
 	[[nodiscard]]
-	constexpr Number numberSearch(const xieite::concepts::Functable<bool(Number)> auto& selector) {
-		Number minimum = -1;
-		Number maximum = 1;
+	constexpr Arithmetic numberSearch(const Functable& selector) {
+		Arithmetic minimum = -1;
+		Arithmetic maximum = 1;
 		if (selector(0)) {
 			maximum = 0;
 			while (selector(minimum)) {

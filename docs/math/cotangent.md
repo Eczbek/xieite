@@ -12,13 +12,13 @@ Calculates the cotangent of a value
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
-constexpr xieite::math::Result<Number> cotangent(Number value) noexcept;
+constexpr xieite::math::Result<Arithmetic> cotangent(Arithmetic value) noexcept;
 ```
 ### Template parameters
-- `Number` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `value` - A `Number`
+- `value` - An `Arithmetic`
 ### Return value
-- A `xieite::math::Result` of `Number`
+- A `xieite::math::Result` of `Arithmetic`

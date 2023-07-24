@@ -12,7 +12,10 @@ Constructs a `xieite::threads::Loop`, starts running a callback constantly
 <br/>
 
 ```cpp
-Loop(const std::invocable auto& callback) noexcept;
+template<std::invocable<> Invocable>
+Loop(const Invocable& callback) noexcept;
 ```
+### Template parameters
+- `Invocable` - A type satisfying `std::invocable`
 ### Parameters
-- `callback` - A constant reference to a value of any type satisfying `std::invocable` with no arguments
+- `callback` - A constant `Invocable` reference

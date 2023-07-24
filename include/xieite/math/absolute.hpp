@@ -4,9 +4,9 @@
 #	include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Arithmetic>
 	[[nodiscard]]
-	constexpr Number absolute(const Number value) noexcept {
+	constexpr Arithmetic absolute(const Arithmetic value) noexcept {
 		return value * ((value >= 0.0) * 2 - 1);
 	}
 }

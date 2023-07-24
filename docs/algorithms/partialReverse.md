@@ -12,14 +12,15 @@ Selects iterators and then reverses them in their same overall positions
 <br/>
 
 ```cpp
-template<std::ranges::range Range>
-constexpr void partialReverse(const Range& range, const xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> auto& selector);
+template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> Functable>
+constexpr void partialReverse(const Range& range, const Functable& selector);
 ```
 ### Template parameters
 - `Range` - The range type satisfying `std::ranges::range`
+- `Functable` - A functor type satisfying `xieite::concepts::Functable` which accepts a `std::ranges::range_value_t` of `Range`, and returns a `bool`
 ### Parameters
-- `range` - A `Range` constant reference
-- `selector` - A constant reference to a value of any type satisfying `xieite::concepts::Functable` which accepts `std::ranges::range_value_t` of `Range`, and returns a `bool`
+- `range` - A constant `Range` reference
+- `selector` - A constant `Functable` reference
 
 <br/><br/>
 

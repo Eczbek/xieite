@@ -4,9 +4,10 @@
 #	include <cstddef>
 
 namespace xieite::algorithms {
+	template<typename... Values>
 	[[nodiscard]]
-	constexpr std::size_t count(const auto&... arguments) noexcept {
-		return sizeof...(arguments);
+	constexpr std::size_t count(const Values&... values) noexcept {
+		return sizeof...(values);
 	}
 }
 

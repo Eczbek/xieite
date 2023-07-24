@@ -12,11 +12,14 @@ Calculates the number of digits in a value of any base
 <br/>
 
 ```cpp
+template<std::integral Integral>
 [[nodiscard]]
-constexpr std::size_t digits(const std::integral auto value, const std::size_t base = 10) noexcept;
+constexpr std::size_t digits(const Integral value, const std::size_t base = 10) noexcept;
 ```
+### Template parameters
+- `Integral` - An integral type satisfying `std::integral`
 ### Parameters
-- `value` - A value of any type satisfying `std::integral`
+- `value` - - An `Integral`
 - `base` - An `Integral`, set to `10` by default
 ### Return value
 - A `std::size_t`, the number of digits

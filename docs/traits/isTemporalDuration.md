@@ -21,10 +21,10 @@ inline constexpr bool isTemporalDuration = false;
 <br/><br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intmax_t denominator>
-inline constexpr bool isTemporalDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>> = true;
+template<xieite::concepts::Arithmetic Arithmetic, std::intmax_t numerator, std::intmax_t denominator>
+inline constexpr bool isTemporalDuration<std::chrono::duration<Arithmetic, std::ratio<numerator, denominator>>> = true;
 ```
 ### Template parameters
-- `Number` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
 - `numerator` - A `std::intmax_t`
 - `denominator` - Another `std::int_max_t`

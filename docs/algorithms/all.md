@@ -12,15 +12,15 @@ Checks whether all passed arguments are true. Expects all arguments to be conver
 <br/>
 
 ```cpp
-template<std::convertible_to<bool>... Values>
+template<std::convertible_to<bool>... Booleanables>
 [[nodiscard]]
-constexpr bool all(const Values&... values)
-noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...)));
+constexpr bool all(const Booleanables&... values)
+noexcept(noexcept((std::is_nothrow_convertible_v<Booleanables, bool> && ...)));
 ```
 ### Template parameters
-- `Values...` - Types satisfying `std::convertible_to` of `bool`
+- `Booleanables...` - Types satisfying `std::convertible_to` of `bool`
 ### Parameters
-- `values...` - `Values...` constant references
+- `values...` - `Booleanables...` constant references
 ### Return value
 - A `bool` to represent whether or not all elements are true
 

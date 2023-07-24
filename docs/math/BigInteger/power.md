@@ -23,11 +23,14 @@ constexpr xieite::math::BigInteger power(xieite::math::BigInteger exponent) cons
 <br/><br/>
 
 ```cpp
+template<std::integral Integral>
 [[nodiscard]]
-constexpr xieite::math::BigInteger power(std::integral auto exponent) const;
+constexpr xieite::math::BigInteger power(Integral exponent) const;
 ```
+### Template parameters
+- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `exponent` - A value of any type integer type satisfying `std::integral`
+- `exponent` - An `Integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

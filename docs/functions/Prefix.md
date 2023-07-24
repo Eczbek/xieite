@@ -33,7 +33,6 @@ struct Prefix<Result(RightParameter), callback> {
 - `callback` - A value of any type value
 ### Public members
 <pre><code>Prefix/
-|- <a href="./Prefix/constructor.md">Prefix</a>
 `- <a href="./Prefix/operatorMode.md">operator></a>
 </code></pre>
 

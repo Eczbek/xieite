@@ -12,14 +12,14 @@ Returns the XOR of a value and the value shifted right
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
-constexpr Number xorShift(Number value, std::size_t bits) noexcept;
+constexpr Arithmetic xorShift(Arithmetic value, std::size_t bits) noexcept;
 ```
 ### Template parameters
-- `Number` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `value` - A `Number`
+- `value` - An `Arithmetic`
 - `bits` - A `std::size_t`, the number of bits to shift to the right
 ### Return value
-- A `Number`
+- An `Arithmetic`

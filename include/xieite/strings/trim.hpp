@@ -12,8 +12,9 @@ namespace xieite::strings {
 		return xieite::strings::trimBack(xieite::strings::trimFront(string, character), character);
 	}
 
+	template<xieite::concepts::RangeOf<char> CharacterRange>
 	[[nodiscard]]
-	constexpr std::string trim(const std::string& string, const xieite::concepts::RangeOf<char> auto& characters) noexcept {
+	constexpr std::string trim(const std::string& string, const CharacterRange& characters) noexcept {
 		return xieite::strings::trimBack(xieite::strings::trimFront(string, characters), characters);
 	}
 }

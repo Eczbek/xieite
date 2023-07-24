@@ -12,13 +12,13 @@ Converts degrees to radians
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
-constexpr xieite::math::Result<Number> toRadians(Number degrees) noexcept;
+constexpr xieite::math::Result<Arithmetic> toRadians(Arithmetic degrees) noexcept;
 ```
 ### Template parameters
-- `Number` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `degrees` - A `Number`
+- `degrees` - An `Arithmetic`
 ### Return value
-- A `xieite::math::Result` of `Number`, equal to degrees in radians
+- A `xieite::math::Result` of `Arithmetic`, equal to degrees in radians

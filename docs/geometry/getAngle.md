@@ -24,11 +24,14 @@ constexpr double getAngle(xieite::geometry::Point point1, xieite::geometry::Poin
 <br/><br/>
 
 ```cpp
+template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
-constexpr double getAngle(const xieite::concepts::LinearShape auto& linearShape) noexcept;
+constexpr double getAngle(const LinearShape& linearShape) noexcept;
 ```
+### Template parameters
+- `LinearShape` - A type satisfying `xieite::concepts::LinearShape`
 ### Parameters
-- `linearShape` - A constant reference to a value of any type satisfying `xieite::concepts::LinearShape`
+- `linearShape` - A constant `LinearShape` reference
 ### Return value
 - A `double` - The angle of the linear thing
 
@@ -44,9 +47,7 @@ constexpr double getAngle(const xieite::concepts::LinearShape auto& linearShape)
 int main() {
 	xieite::geometry::Point start(0.0, 0.0);
 	xieite::geometry::Point end(1.0, 0.0);
-
 	xieite::geometry::Line line(start, end);
-
 	std::cout << xieite::geometry::getAngle(line) << '\n';
 }
 ```

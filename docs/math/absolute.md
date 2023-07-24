@@ -12,16 +12,16 @@ Returns the absolute of a value. Unlike std::abs, this accepts both signed and u
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
-constexpr Number absolute(Number value) noexcept;
+constexpr Arithmetic absolute(Arithmetic value) noexcept;
 ```
 ### Template parameters
-- `Number` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `value` - A `Number`
+- `value` - An `Arithmetic`
 ### Return value
-- A `Number`, the absolute of value
+- An `Arithmetic`, the absolute of value
 
 <br/><br/>
 

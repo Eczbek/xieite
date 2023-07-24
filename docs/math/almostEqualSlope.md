@@ -12,15 +12,15 @@ Checks whether two slopes are almost equal
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>
 [[nodiscard]]
-constexpr bool almostEqualSlope(Number value1, Number value2) noexcept;
+constexpr bool almostEqualSlope(const Arithmetic1 value1, const Arithmetic2 value2) noexcept;
 ```
 ### Template parameters
-- `Number1` - A type satisfying `xieite::concepts::Arithmetic`
-- `Number2` - A type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic1` - A type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic2` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `value1` - A `Number1`
-- `value2` - A `Number2`
+- `value1` - An `Arithmetic1`
+- `value2` - An `Arithmetic2`
 ### Return value
 - A `bool`

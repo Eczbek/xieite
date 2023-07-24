@@ -15,7 +15,8 @@ A class representing a polygon
 struct Polygon {
 	std::vector<xieite::geometry::Point> points;
 
-	constexpr Polygon(const xieite::concepts::RangeOf<xieite::geometry::Point> auto&);
+	template<xieite::concepts::RangeOf<xieite::geometry::Point> PointRange>
+	constexpr Polygon(const PointRange& points);
 
 	constexpr bool operator==(const xieite::geometry::Polygon&) const;
 };

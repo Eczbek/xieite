@@ -33,7 +33,8 @@ namespace xieite::math {
 		constexpr BigInteger(const xieite::math::BigInteger& value) noexcept
 		: bits(value.bits), sign(value.sign) {}
 
-		constexpr BigInteger(const xieite::concepts::RangeOf<bool> auto& bits, const bool sign = false) noexcept
+		template<xieite::concepts::RangeOf<bool> BooleanRange>
+		constexpr BigInteger(const BooleanRange& bits, const bool sign = false) noexcept
 		: bits(std::ranges::begin(bits), std::ranges::end(bits)), sign(sign) {
 			std::size_t i = this->bits.size();
 			if (i) {
@@ -66,15 +67,16 @@ namespace xieite::math {
 			return *this;
 		}
 
-		constexpr xieite::math::BigInteger& operator=(const std::integral auto value) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator=(const Integral value) noexcept {
 			return *this = xieite::math::BigInteger(value);
 		}
 
-		template<xieite::concepts::Arithmetic Number>
+		template<xieite::concepts::Arithmetic Arithmetic>
 		[[nodiscard]]
-		constexpr operator Number() const noexcept {
-			Number result = 0;
-			Number exponent = 1;
+		constexpr operator Arithmetic() const noexcept {
+			Arithmetic result = 0;
+			Arithmetic exponent = 1;
 			for (const bool bit : this->bits) {
 				result += exponent * bit;
 				exponent *= 2;
@@ -92,9 +94,10 @@ namespace xieite::math {
 		constexpr bool operator==(const xieite::math::BigInteger& comparand) const noexcept {
 			return (this->sign == comparand.sign) && (this->bits == comparand.bits);
 		}
-		
+
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr bool operator==(const std::integral auto comparand) const noexcept {
+		constexpr bool operator==(const Integral comparand) const noexcept {
 			return *this == xieite::math::BigInteger(comparand);
 		}
 
@@ -103,8 +106,9 @@ namespace xieite::math {
 			return (this->sign != comparand.sign) ? (comparand.sign <=> this->sign) : (this->sign ? ((this->bits.size() != comparand.bits.size()) ? (comparand.bits.size() <=> this->bits.size()) : (std::vector<bool>(comparand.bits.rbegin(), comparand.bits.rend()) <=> std::vector<bool>(this->bits.rbegin(), this->bits.rend()))) : ((this->bits.size() != comparand.bits.size()) ? (this->bits.size() <=> comparand.bits.size()) : (std::vector<bool>(this->bits.rbegin(), this->bits.rend()) <=> std::vector<bool>(comparand.bits.rbegin(), comparand.bits.rend()))));
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr std::strong_ordering operator<=>(const std::integral auto comparand) const noexcept {
+		constexpr std::strong_ordering operator<=>(const Integral comparand) const noexcept {
 			return *this <=> xieite::math::BigInteger(comparand);
 		}
 
@@ -142,8 +146,9 @@ namespace xieite::math {
 			return xieite::math::BigInteger(resultBits, this->sign);
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator+(const std::integral auto addend) const noexcept {
+		constexpr xieite::math::BigInteger operator+(const Integral addend) const noexcept {
 			return *this + xieite::math::BigInteger(addend);
 		}
 
@@ -151,7 +156,8 @@ namespace xieite::math {
 			return *this = *this + addend;
 		}
 
-		constexpr xieite::math::BigInteger& operator+=(const std::integral auto addend) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator+=(const Integral addend) noexcept {
 			return *this += xieite::math::BigInteger(addend);
 		}
 
@@ -200,8 +206,9 @@ namespace xieite::math {
 			return xieite::math::BigInteger(resultBits, this->sign != borrow);
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator-(const std::integral auto subtrahend) const noexcept {
+		constexpr xieite::math::BigInteger operator-(const Integral subtrahend) const noexcept {
 			return *this - xieite::math::BigInteger(subtrahend);
 		}
 
@@ -209,7 +216,8 @@ namespace xieite::math {
 			return *this = *this - subtrahend;
 		}
 
-		constexpr xieite::math::BigInteger& operator-=(const std::integral auto subtrahend) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator-=(const Integral subtrahend) noexcept {
 			return *this -= xieite::math::BigInteger(subtrahend);
 		}
 
@@ -255,8 +263,9 @@ namespace xieite::math {
 			return result;
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator*(const std::integral auto multiplicand) const noexcept {
+		constexpr xieite::math::BigInteger operator*(const Integral multiplicand) const noexcept {
 			return *this * xieite::math::BigInteger(multiplicand);
 		}
 
@@ -264,7 +273,8 @@ namespace xieite::math {
 			return *this = *this * multiplicand;
 		}
 
-		constexpr xieite::math::BigInteger& operator*=(const std::integral auto multiplicand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator*=(const Integral multiplicand) noexcept {
 			return *this *= xieite::math::BigInteger(multiplicand);
 		}
 
@@ -300,8 +310,9 @@ namespace xieite::math {
 			return xieite::math::BigInteger(resultBits, this->sign != divisorSign);
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator/(const std::integral auto divisor) const {
+		constexpr xieite::math::BigInteger operator/(const Integral divisor) const {
 			return *this / xieite::math::BigInteger(divisor);
 		}
 
@@ -309,7 +320,8 @@ namespace xieite::math {
 			return *this = *this / divisor;
 		}
 
-		constexpr xieite::math::BigInteger& operator/=(const std::integral auto divisor) {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator/=(const Integral divisor) {
 			return *this /= xieite::math::BigInteger(divisor);
 		}
 
@@ -340,8 +352,9 @@ namespace xieite::math {
 			return difference;
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator%(const std::integral auto divisor) const {
+		constexpr xieite::math::BigInteger operator%(const Integral divisor) const {
 			return *this % xieite::math::BigInteger(divisor);
 		}
 
@@ -349,7 +362,8 @@ namespace xieite::math {
 			return *this = *this % divisor;
 		}
 
-		constexpr xieite::math::BigInteger& operator%=(const std::integral auto divisor) {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator%=(const Integral divisor) {
 			return *this %= xieite::math::BigInteger(divisor);
 		}
 
@@ -365,8 +379,9 @@ namespace xieite::math {
 			});
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator&(const std::integral auto operand) const noexcept {
+		constexpr xieite::math::BigInteger operator&(const Integral operand) const noexcept {
 			return *this & xieite::math::BigInteger(operand);
 		}
 
@@ -374,7 +389,8 @@ namespace xieite::math {
 			return *this = *this & operand;
 		}
 
-		constexpr xieite::math::BigInteger& operator&=(const std::integral auto operand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator&=(const Integral operand) noexcept {
 			return *this &= xieite::math::BigInteger(operand);
 		}
 
@@ -385,8 +401,9 @@ namespace xieite::math {
 			}));
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator|(const std::integral auto operand) const noexcept {
+		constexpr xieite::math::BigInteger operator|(const Integral operand) const noexcept {
 			return *this | xieite::math::BigInteger(operand);
 		}
 
@@ -394,7 +411,8 @@ namespace xieite::math {
 			return *this = *this | operand;
 		}
 
-		constexpr xieite::math::BigInteger& operator|=(const std::integral auto operand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator|=(const Integral operand) noexcept {
 			return *this |= xieite::math::BigInteger(operand);
 		}
 
@@ -405,8 +423,9 @@ namespace xieite::math {
 			}));
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator^(const std::integral auto operand) const noexcept {
+		constexpr xieite::math::BigInteger operator^(const Integral operand) const noexcept {
 			return *this ^ xieite::math::BigInteger(operand);
 		}
 
@@ -414,7 +433,8 @@ namespace xieite::math {
 			return *this = *this ^ operand;
 		}
 
-		constexpr xieite::math::BigInteger& operator^=(const std::integral auto operand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator^=(const Integral operand) noexcept {
 			return *this ^= xieite::math::BigInteger(operand);
 		}
 
@@ -431,8 +451,9 @@ namespace xieite::math {
 			return xieite::math::BigInteger(resultBits, this->sign);
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator<<(const std::integral auto positions) const noexcept {
+		constexpr xieite::math::BigInteger operator<<(const Integral positions) const noexcept {
 			return *this << xieite::math::BigInteger(positions);
 		}
 
@@ -440,7 +461,8 @@ namespace xieite::math {
 			return *this = *this << positions;
 		}
 
-		constexpr xieite::math::BigInteger& operator<<=(const std::integral auto positions) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger& operator<<=(const Integral positions) noexcept {
 			return *this <<= xieite::math::BigInteger(positions);
 		}
 
@@ -458,8 +480,9 @@ namespace xieite::math {
 			return result ? result : -xieite::math::BigInteger(this->sign);
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger operator>>(const std::integral auto positions) const noexcept {
+		constexpr xieite::math::BigInteger operator>>(const Integral positions) const noexcept {
 			return *this >> xieite::math::BigInteger(positions);
 		}
 
@@ -467,7 +490,8 @@ namespace xieite::math {
 			return *this = *this >> positions;
 		}
 
-		constexpr xieite::math::BigInteger operator>>=(const std::integral auto positions) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger operator>>=(const Integral positions) noexcept {
 			return *this >>= xieite::math::BigInteger(positions);
 		}
 
@@ -512,8 +536,9 @@ namespace xieite::math {
 			return x * y;
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger power(const std::integral auto exponent) const {
+		constexpr xieite::math::BigInteger power(const Integral exponent) const {
 			return this->power(xieite::math::BigInteger(exponent));
 		}
 
@@ -538,8 +563,9 @@ namespace xieite::math {
 			return z;
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger root(const std::integral auto degree) const {
+		constexpr xieite::math::BigInteger root(const Integral degree) const {
 			return this->root(xieite::math::BigInteger(degree));
 		}
 
@@ -560,8 +586,9 @@ namespace xieite::math {
 			return (this->bits.size() - 1) / (base.bits.size() - 1);
 		}
 
+		template<std::integral Integral>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger logarithm(const std::integral auto base) const {
+		constexpr xieite::math::BigInteger logarithm(const Integral base) const {
 			return this->logarithm(xieite::math::BigInteger(base));
 		}
 
@@ -591,8 +618,9 @@ namespace xieite::math {
 		std::vector<bool> bits;
 		bool sign;
 
+		template<xieite::concepts::Functable<bool(bool, bool)> Functable>
 		[[nodiscard]]
-		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& value, const xieite::concepts::Functable<bool(bool, bool)> auto& callback) const noexcept {
+		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& value, const Functable& callback) const noexcept {
 			xieite::math::BigInteger copy = *this;
 			const std::size_t bitsSize = this->bits.size();
 			if (this->sign) {

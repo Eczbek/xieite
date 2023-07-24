@@ -23,11 +23,14 @@ constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& degree) 
 <br/><br/>
 
 ```cpp
+template<std::integral Integral>
 [[nodiscard]]
-constexpr xieite::math::BigInteger root(std::integral auto degree) const;
+constexpr xieite::math::BigInteger root(Integral degree) const;
 ```
+### Template parameters
+- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `degree` - A value of any type integer type satisfying `std::integral`
+- `degree` - An `Integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

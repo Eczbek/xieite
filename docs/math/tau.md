@@ -8,8 +8,8 @@ Defined in header [<xieite/math/tau.hpp>](../../include/xieite/math/tau.hpp)
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-inline constexpr Number tau = xieite::math::pi<Number> * 2.0;
+template<xieite::concepts::Arithmetic Arithmetic>
+inline constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2.0;
 ```
 ### Template parameters
-- `Number` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`

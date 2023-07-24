@@ -12,11 +12,14 @@ Checks that a value is a power of 2
 <br/>
 
 ```cpp
+template<std::unsigned_integral UnsignedIntegral>
 [[nodiscard]]
-constexpr bool isPowerOf2(std::unsigned_integral auto value) noexcept;
+constexpr bool isPowerOf2(const UnsignedIntegral value) noexcept;
 ```
+### Template parameters
+- `UnsignedIntegral` - An unsigned integral type satisfying `std::unsigned_integral`
 ### Parameters
-- `value` - A value of any type satisfying `std::unsigned_integral`
+- `value` - An `UnsignedIntegral`
 ### Return value
 - A `bool`, whether or not value is a power of 2
 
