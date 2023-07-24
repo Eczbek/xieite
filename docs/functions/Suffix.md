@@ -33,7 +33,6 @@ struct Suffix<Result(LeftParameter), callback> {
 - `callback` - A value of any type value
 ### Public members
 <pre><code>Suffix/
-|- <a href="./Suffix/constructor.md">Suffix</a>
 `- <a href="./Suffix/operatorMode.md">operator<</a>
 </code></pre>
 

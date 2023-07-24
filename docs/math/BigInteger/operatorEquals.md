@@ -19,11 +19,14 @@ constexpr bool operator==(const xieite::math::BigInteger& comparand) const noexc
 <br/><br/>
 
 ```cpp
+template<std::integral Integral>
 [[nodiscard]]
-constexpr bool operator==(const std::integral auto comparand) const noexcept;
+constexpr bool operator==(const Integral comparand) const noexcept;
 ```
+### Template parameters
+- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `comparand` - A value of any type satisfying `std::integral`
+- `comparand` - - An `Integral`
 ### Return value
 - A `bool`, whether or not the two values are equal
 

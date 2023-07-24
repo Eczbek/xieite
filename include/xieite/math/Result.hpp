@@ -6,8 +6,8 @@
 #	include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic... Numbers>
-	using Result = std::conditional_t<(std::same_as<Numbers, long double> || ...), long double, double>;
+	template<xieite::concepts::Arithmetic... Arithmetics>
+	using Result = std::conditional_t<(std::same_as<Arithmetics, long double> || ...), long double, double>;
 }
 
 #endif

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)::[random](../../random.md)::[UniformInterruptableDistribution<Number>](../UniformInterruptableDistribution.md)::UniformInterruptableDistribution
+# [xieite](../../xieite.md)::[random](../../random.md)::[UniformInterruptableDistribution<Arithmetic>](../UniformInterruptableDistribution.md)::UniformInterruptableDistribution
 Defined in header [<xieite/random/UniformInterruptableDistribution.hpp>](../../../include/xieite/random/UniformInterruptableDistribution.hpp)
 
 <br/>
@@ -12,9 +12,11 @@ Constructs a `xieite::random::UniformInterruptableDistribution`. Throws a `std::
 <br/>
 
 ```cpp
-UniformInterruptableDistribution(Number begin, Number end, const xieite::concepts::RangeOf<std::pair<Number, Number>> auto& interruptions);
+template<xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic>> IntervalRange>
+UniformInterruptableDistribution(const xieite::math::Interval<Arithmetic> interval, const IntervalRange& interruptions);
 ```
+### Template parameters
+- `IntervalRange` - A type satisfying `xieite::concepts::RangeOf` of `xieite::math::Interval` of `Arithmetic`
 ### Parameters
-- `begin` - A `Number`, one end of the range
-- `end` - A `Number`, the other end of the range
-- `interruptions` - A constant reference to a value of any type satisfying `xieite::concepts::RangeOf` of std::pair of two Numbers
+- `interval` - A `xieite::math::Interval` of `Arithmetic`, the main interval
+- `interruptions` - A constant `IntervalRange` reference, the interval exclusions

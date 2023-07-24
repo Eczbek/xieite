@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS_TRIMEND
-#	define XIEITE_HEADER_STRINGS_TRIMEND
+#ifndef XIEITE_HEADER_STRINGS_TRIMBACK
+#	define XIEITE_HEADER_STRINGS_TRIMBACK
 
 #	include <array>
 #	include <cstddef>
@@ -18,8 +18,9 @@ namespace xieite::strings {
 		return "";
 	}
 
+	template<xieite::concepts::RangeOf<char> CharacterRange>
 	[[nodiscard]]
-	constexpr std::string trimBack(const std::string& string, const xieite::concepts::RangeOf<char> auto& characters) noexcept {
+	constexpr std::string trimBack(const std::string& string, const CharacterRange& characters) noexcept {
 		std::array<bool, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> characterMap;
 		for (const char character : characters) {
 			characterMap[character - std::numeric_limits<char>::min()] = true;

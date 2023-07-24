@@ -24,11 +24,14 @@ constexpr double getSlope(xieite::geometry::Point point1, xieite::geometry::Poin
 <br/><br/>
 
 ```cpp
+template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
-constexpr double getSlope(const xieite::concepts::LinearShape auto& linearShape) noexcept;
+constexpr double getSlope(const LinearShape& linearShape) noexcept;
 ```
+### Template parameters
+- `LinearShape` - A type satisfying `xieite::concepts::LinearShape`
 ### Parameters
-- `linearShape` - A constant reference to a value of any type satisfying `xieite::concepts::LinearShape`
+- `linearShape` - A constant `LinearShape` reference
 ### Return value
 - A `double`, the slope of the linear shape, in radians
 

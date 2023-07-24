@@ -38,7 +38,7 @@ namespace xieite::system {
 		}
 
 		template<std::istream& otherInputStream, std::ostream& otherOutputStream>
-		auto operator=(const xieite::system::StandardStreamsController<otherInputStream, otherOutputStream>&) = delete;
+		void operator=(const xieite::system::StandardStreamsController<otherInputStream, otherOutputStream>&) = delete;
 
 		void setInputBlocking(const bool value) noexcept {
 			if (this->blocking != value) {

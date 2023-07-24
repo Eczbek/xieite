@@ -28,11 +28,14 @@ constexpr bool isPalindrome(const Range& range, const Callback& comparator = Cal
 <br/><br/>
 
 ```cpp
+template<std::integral Integral>
 [[nodiscard]]
-constexpr bool isPalindrome(const std::integral auto value, const std::size_t base = 10) noexcept;
+constexpr bool isPalindrome(const Integral value, const std::size_t base = 10) noexcept;
 ```
+### Template parameters
+- `Integral` - An integral type satisfying `std::integral`
 ### Parameters
-- `value` - A value of any type satisfying `std::integral`
+- `value` - An `Integral`
 - `base` - A `std::size_t`, set to `10` by default
 ### Return value
 - A `bool`, whether or not `value` is a palindrome

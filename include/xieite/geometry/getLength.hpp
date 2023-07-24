@@ -12,8 +12,9 @@ namespace xieite::geometry {
 		return xieite::geometry::getDistance(segment.start, segment.end);
 	}
 
+	template<xieite::concepts::LinearShape LinearShape>
 	[[nodiscard]]
-	constexpr double getLength(const xieite::concepts::LinearShape auto&) noexcept {
+	constexpr double getLength(const LinearShape&) noexcept {
 		return std::numeric_limits<double>::infinity();
 	}
 }

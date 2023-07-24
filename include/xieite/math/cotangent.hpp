@@ -6,9 +6,9 @@
 #	include <xieite/math/Result.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Arithmetic>
 	[[nodiscard]]
-	constexpr xieite::math::Result<Number> cotangent(const Number value) noexcept {
+	constexpr xieite::math::Result<Arithmetic> cotangent(const Arithmetic value) noexcept {
 		return std::cos(value) / std::sin(value);
 	}
 }

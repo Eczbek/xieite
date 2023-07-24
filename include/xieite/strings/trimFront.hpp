@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS_TRIMSTART
-#	define XIEITE_HEADER_STRINGS_TRIMSTART
+#ifndef XIEITE_HEADER_STRINGS_TRIMFRONT
+#	define XIEITE_HEADER_STRINGS_TRIMFRONT
 
 #	include <array>
 #	include <cstddef>
@@ -19,9 +19,10 @@ namespace xieite::strings {
 		return "";
 	}
 
+	template<xieite::concepts::RangeOf<char> CharacterRange>
 	[[nodiscard]]
-	constexpr std::string trimFront(const std::string& string, const xieite::concepts::RangeOf<char> auto& characters) noexcept {
-		std::array<char, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> characterMap;
+	constexpr std::string trimFront(const std::string& string, const CharacterRange& characters) noexcept {
+		std::array<bool, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> characterMap;
 		for (const char character : characters) {
 			characterMap[character - std::numeric_limits<char>::min()] = true;
 		}

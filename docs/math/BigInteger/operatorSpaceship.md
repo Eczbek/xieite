@@ -19,11 +19,14 @@ constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& compa
 <br/><br/>
 
 ```cpp
+template<std::integral Integral>
 [[nodiscard]]
-constexpr std::strong_ordering operator<=>(std::integral auto comparand) const noexcept;
+constexpr std::strong_ordering operator<=>(Integral comparand) const noexcept;
 ```
+### Template parameters
+- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `comparand` - A value of any type satisfying `std::integral`
+- `comparand` - - An `Integral`
 ### Return value
 - A `std::strong_ordering`
 

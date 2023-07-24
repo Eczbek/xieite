@@ -6,10 +6,10 @@
 #	include <xieite/math/pi.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Arithmetic>
 	[[nodiscard]]
-	constexpr xieite::math::Result<Number> toRadians(const Number degrees) noexcept {
-		return degrees * xieite::math::pi<Number> / 180.0;
+	constexpr xieite::math::Result<Arithmetic> toRadians(const Arithmetic degrees) noexcept {
+		return degrees * xieite::math::pi<Arithmetic> / 180.0;
 	}
 }
 

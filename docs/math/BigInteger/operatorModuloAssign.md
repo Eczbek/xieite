@@ -18,10 +18,13 @@ constexpr xieite::math::BigInteger& operator%=(const xieite::math::BigInteger& d
 <br/><br/>
 
 ```cpp
-constexpr xieite::math::BigInteger& operator%=(std::integral auto divisor) noexcept;
+template<std::integral Integral>
+constexpr xieite::math::BigInteger& operator%=(Integral divisor) noexcept;
 ```
+### Template parameters
+- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `divisor` - A value of any type satisfying `std::integral`
+- `divisor` - - An `Integral`
 ### Return value
 - The `xieite::math::BigInteger`
 

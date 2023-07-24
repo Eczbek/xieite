@@ -12,15 +12,15 @@ Takes the logarithm of a value of any base
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>
+template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>
 [[nodiscard]]
-constexpr xieite::math::Result<Number1, Number2> logarithm(const Number1 base, const Number2 value) noexcept;
+constexpr xieite::math::Result<Arithmetic1, Arithmetic2> logarithm(const Arithmetic1 base, const Arithmetic2 value) noexcept;
 ```
 ### Template parameters
-- `Number1` - A type satisfying `xieite::concepts::Arithmetic`
-- `Number2` - A type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic1` - A type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic2` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
-- `base` - A `Number1`
-- `value` - A `Number2`
+- `base` - An `Arithmetic1`
+- `value` - An `Arithmetic2`
 ### Return value
-- A `xieite::math::Result` of `Number1` and `Number2`
+- A `xieite::math::Result` of `Arithmetic1` and `Arithmetic2`

@@ -18,10 +18,13 @@ constexpr xieite::math::BigInteger& operator*=(const xieite::math::BigInteger& m
 <br/><br/>
 
 ```cpp
-constexpr xieite::math::BigInteger& operator*=(std::integral auto multiplicand) noexcept;
+template<std::integral Integral>
+constexpr xieite::math::BigInteger& operator*=(Integral multiplicand) noexcept;
 ```
+### Template parameters
+- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `multiplicand` - A value of any type satisfying `std::integral`
+- `multiplicand` - - An `Integral`
 ### Return value
 - The `xieite::math::BigInteger`
 

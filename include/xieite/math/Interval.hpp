@@ -4,12 +4,12 @@
 #	include <xieite/concepts/Arithmetic.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Arithmetic>
 	struct Interval {
-		Number start;
-		Number end;
+		Arithmetic start;
+		Arithmetic end;
 
-		constexpr Interval(const Number start, const Number end) noexcept
+		constexpr Interval(const Arithmetic start, const Arithmetic end) noexcept
 		: start(start), end(end) {}
 	};
 }

@@ -12,16 +12,17 @@ Merges intervals if they overlap
 <br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic>> IntervalRange>
 [[nodiscard]]
-constexpr std::vector<xieite::math::Interval<Number>> mergeIntervals(const xieite::concepts::RangeOf<xieite::math::Interval<Number>> auto& intervals) noexcept;
+constexpr std::vector<xieite::math::Interval<Arithmetic>> mergeIntervals(const IntervalRange& intervals) noexcept;
 ```
 ### Template parameters
-- `Number` - A type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic` - A type satisfying `xieite::concepts::Arithmetic`
+- `IntervalRange` - A type satisfying `xieite::concepts::RangeOf` of `xieite::math::Interval` of `Arithmetic`
 ### Parameters
-- `intervals` - A constant `auto` reference satisfying `xieite::concepts::RangeOf` of `xieite::math::Interval` of `Number`
+- `intervals` - A constant `IntervalRange` reference
 ### Return value
-- A `std::vector` of `xieite::math::Interval`s of `Number`, the merged intervals
+- A `std::vector` of `xieite::math::Interval`s of `Arithmetic`, the merged intervals
 
 <br/><br/>
 

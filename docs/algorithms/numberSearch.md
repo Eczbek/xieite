@@ -12,33 +12,34 @@ Using a variant of the binary search algorithm, finds the lowest value which, if
 <br/><br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
 [[nodiscard]]
-constexpr Number numberSearch(const xieite::concepts::Functable<bool(Number)> auto& selector, Number minimum, Number maximum);
+constexpr Arithmetic numberSearch(const Functable& selector, Arithmetic minimum, Arithmetic maximum);
 ```
 ### Template parameters
-- `Number` - An integer or floating point type satisfying `xieite::concepts::Arithmetic`
+- `Arithmetic` - An integer or floating point type satisfying `xieite::concepts::Arithmetic`
+- `Functable` - A functor type satisfying `xieite::concepts::Functable` which accepts a `Arithmetic` and returns a `bool`
 ### Parameters
-- `selector` - A constant reference to a value of any type satisfying `xieite::concepts::Functable` which accepts `Iterator`'s value type and returns a `bool`
-- `minimum` - A `Number`, determining the minimum search limit for the algorithm
-- `maxumum` - A `Number`, determining the maxumum search limit for the algorithm
+- `selector` - A constant `Functable` reference
+- `minimum` - An `Arithmetic`, determining the minimum search limit for the algorithm
+- `maxumum` - An `Arithmetic`, determining the maxumum search limit for the algorithm
 ### Return value
-- A `Number`, the lowest value allowed by the callback
+- An `Arithmetic`, the lowest value allowed by the callback
 
 <br/><br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
 [[nodiscard]]
-constexpr Number numberSearch(const xieite::concepts::Functable<bool(Number)> auto& selector);
+constexpr Arithmetic numberSearch(const Functable& selector);
 ```
 ### Template parameters
-- `Number` - An integer or floating point type satisfying `xieite::concepts::Arithmetic`
-- `Callback` - A constant reference to a value of any type satisfying `xieite::concepts::Functable` which accepts `Iterator`'s value type and returns a `bool`
+- `Arithmetic` - An integer or floating point type satisfying `xieite::concepts::Arithmetic`
+- `Functable` - A functor type satisfying `xieite::concepts::Functable` which accepts a `Arithmetic` and returns a `bool`
 ### Parameters
-- `selector` - A `Callback` constant reference
+- `selector` - A `Functor` constant reference
 ### Return value
-- A `Number` - The lowest value allowed by the callback
+- An `Arithmetic` - The lowest value allowed by the callback
 
 <br/><br/>
 

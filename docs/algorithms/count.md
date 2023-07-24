@@ -12,11 +12,14 @@ Counts the number of arguments provided
 <br/>
 
 ```cpp
+template<typename... Values>
 [[nodiscard]]
-constexpr std::size_t count(const auto&... arguments) noexcept;
+constexpr std::size_t count(const Values&... values) noexcept;
 ```
+### Template parameters
+- `Values...` - Any types
 ### Parameters
-- `arguments` - `auto...` constant references
+- `values` - Constant `Values...` references
 ### Return value
 - A `std::size_t`, the number of arguments passed
 

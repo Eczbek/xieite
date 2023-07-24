@@ -6,9 +6,9 @@
 #	include <xieite/math/Result.hpp>
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Arithmetic>
 	[[nodiscard]]
-	constexpr xieite::math::Result<Number> secant(const Number value) noexcept {
+	constexpr xieite::math::Result<Arithmetic> secant(const Arithmetic value) noexcept {
 		return 1.0 / std::cos(value);
 	}
 }

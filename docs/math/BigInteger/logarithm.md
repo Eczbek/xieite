@@ -23,11 +23,14 @@ constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger& bas
 <br/><br/>
 
 ```cpp
+template<std::integral Integral>
 [[nodiscard]]
-constexpr xieite::math::BigInteger logarithm(std::integral auto base) const;
+constexpr xieite::math::BigInteger logarithm(Integral base) const;
 ```
+### Template parameters
+- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `base` - A value of any type integer type satisfying `std::integral`
+- `base` - An `Integral`
 ### Return value
 - A `xieite::math::BigInteger`
 

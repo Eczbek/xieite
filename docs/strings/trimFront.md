@@ -24,12 +24,15 @@ constexpr std::string trimFront(const std::string& string, char character) noexc
 <br/><br/>
 
 ```cpp
+template<xieite::concepts::RangeOf<char> CharacterRange>
 [[nodiscard]]
-constexpr std::string trimFront(const std::string& string, const xieite::concepts::RangeOf<char> auto& characters) noexcept;
+constexpr std::string trimFront(const std::string& string, const CharacterRange& characters) noexcept;
 ```
+### Template parameters
+- `CharacterRange` - A type satisfying `xieite::concepts::RangeOf` of `char`
 ### Parameters
 - `string` - A `std::string` constant reference
-- `characters` - A constant reference to a value of any type satisfying `xieite::concepts::RangeOf` of `char`
+- `characters` - A constant `CharacterRange` reference
 ### Return value
 - A `std::string`
 

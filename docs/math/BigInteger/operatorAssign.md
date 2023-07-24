@@ -18,10 +18,13 @@ constexpr xieite::math::BigInteger& operator=(const xieite::math::BigInteger& va
 <br/><br/>
 
 ```cpp
-constexpr xieite::math::BigInteger& operator=(std::integral auto value) const noexcept;
+template<std::integral Integral>
+constexpr xieite::math::BigInteger& operator=(Integral value) const noexcept;
 ```
+### Template parameters
+- `Integral` - A type satisfying `std::integral`
 ### Parameters
-- `value` - A value of any type satisfying `std::integral`
+- `value` - - An `Integral`
 ### Return value
 - The `xieite::math::BigInteger`
 
