@@ -26,14 +26,14 @@ namespace xieite::system {
 	class StandardStreamsController {
 	public:
 		StandardStreamsController() noexcept
-		: inputStreamFile(xieite::system::getStreamFile(inputStream)), inputFileDescriptor(fileno(this->inputStreamFile)), blockingMode(fcntl(this->inputFileDescriptor, F_GETFL)), blocking(true), echo(true), canonical(true), signals(true), processing(true) {
-			tcgetattr(this->inputFileDescriptor, &this->cookedMode);
+		: inputStreamFile(xieite::system::getStreamFile(inputStream)), inputFileDescriptor(::fileno(this->inputStreamFile)), blockingMode(::fcntl(this->inputFileDescriptor, F_GETFL)), blocking(true), echo(true), canonical(true), signals(true), processing(true) {
+			::tcgetattr(this->inputFileDescriptor, &this->cookedMode);
 			this->update();
 		}
 
 		~StandardStreamsController() {
-			fcntl(this->inputFileDescriptor, F_SETFL, this->blockingMode);
-			tcsetattr(this->inputFileDescriptor, TCSANOW, &this->cookedMode);
+			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingMode);
+			::tcsetattr(this->inputFileDescriptor, TCSANOW, &this->cookedMode);
 			this->resetStyles();
 		}
 
@@ -157,8 +157,8 @@ namespace xieite::system {
 
 		[[nodiscard]]
 		xieite::system::OutputPosition getScreenSize() noexcept {
-			winsize size;
-			ioctl(this->inputFileDescriptor, TIOCGWINSZ, &size);
+			::winsize size;
+			::ioctl(this->inputFileDescriptor, TIOCGWINSZ, &size);
 			return xieite::system::OutputPosition(size.ws_row, size.ws_col);
 		}
 
@@ -214,12 +214,12 @@ namespace xieite::system {
 		bool processing;
 
 		void update() noexcept {
-			fcntl(this->inputFileDescriptor, F_SETFL, this->blockingMode | (O_NONBLOCK * !this->blocking));
-			termios rawMode = this->cookedMode;
+			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingMode | (O_NONBLOCK * !this->blocking));
+			::termios rawMode = this->cookedMode;
 			rawMode.c_iflag &= ~((ICRNL * !this->signals) | (IXON * !this->signals));
 			rawMode.c_lflag &= ~((ECHO * !this->echo) | (ICANON * !this->canonical) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
 			rawMode.c_oflag &= ~(OPOST * !this->processing);
-			tcsetattr(this->inputFileDescriptor, TCSANOW, &rawMode);
+			::tcsetattr(this->inputFileDescriptor, TCSANOW, &rawMode);
 		}
 	};
 }
