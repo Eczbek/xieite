@@ -8,6 +8,7 @@ String manipulation functions
 <br/><br/>
 
 <pre><code>strings/
+|- <a href="./strings/radiotelephonySpellingAlphabet.hpp">radiotelephonySpellingAlphabet</a>
 |- <a href="./strings/repeat.md">repeat</a>
 |- <a href="./strings/something.md">something</a>
 |- <a href="./strings/toLower.md">toLower</a>

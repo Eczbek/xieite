@@ -1,6 +1,7 @@
 #ifndef XIEITE_HEADER_STRINGS
 #	define XIEITE_HEADER_STRINGS
 
+#	include <xieite/strings/radiotelephonySpellingAlphabet.hpp>
 #	include <xieite/strings/repeat.hpp>
 #	include <xieite/strings/something.hpp>
 #	include <xieite/strings/toLower.hpp>
