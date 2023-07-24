@@ -16,6 +16,7 @@
 #	include <xieite/concepts/Functable.hpp>
 #	include <xieite/concepts/RangeOf.hpp>
 #	include <xieite/math/absolute.hpp>
+#	include <xieite/types/bits.hpp>
 
 namespace xieite::math {
 	class BigInteger {
@@ -76,10 +77,10 @@ namespace xieite::math {
 		[[nodiscard]]
 		constexpr operator Arithmetic() const noexcept {
 			Arithmetic result = 0;
-			Arithmetic exponent = 1;
-			for (const bool bit : this->bits) {
-				result += exponent * bit;
-				exponent *= 2;
+			Arithmetic power = 1;
+			for (std::size_t i = 0; i < xieite::types::bits<Arithmetic>; ++i) {
+				result += power * this->bits[i];
+				power *= 2;
 			}
 			result *= !this->sign * 2 - 1;
 			return result;
