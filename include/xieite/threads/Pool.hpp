@@ -70,6 +70,6 @@ namespace xieite::threads {
 	};
 }
 
-// Thanks to when for help
+// Thanks to evan for help
 
 #endif
