@@ -17,4 +17,6 @@ namespace xieite::concepts {
 	};
 }
 
+// I stole this from someone and made it better
+
 #endif

@@ -62,6 +62,7 @@ namespace xieite::geometry {
 		}
 		return intersections;
 	}
+	// I will NEVER be debugging this code again
 
 	template<xieite::concepts::LinearShape LinearShape>
 	[[nodiscard]]
