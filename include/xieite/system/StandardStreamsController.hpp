@@ -76,83 +76,83 @@ namespace xieite::system {
 		}
 
 		void setTextColor(const xieite::graphics::Color& color) noexcept {
-			outputStream << "\u001b[38;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
+			outputStream << "\x1B[38;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
 		}
 
 		void resetTextColor() noexcept {
-			outputStream << "\u001b[38m";
+			outputStream << "\x1B[38m";
 		}
 
 		void setHighlightColor(const xieite::graphics::Color& color) noexcept {
-			outputStream << "\u001b[48;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
+			outputStream << "\x1B[48;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
 		}
 
 		void resetHighlightColor() noexcept {
-			outputStream << "\u001b[48m";
+			outputStream << "\x1B[48m";
 		}
 
 		void setTextBold(const bool value) noexcept {
-			outputStream << (value ? "\u001b[1m" : "\u001b[21m");
+			outputStream << (value ? "\x1B[1m" : "\x1B[21m");
 		}
 
 		void setTextItalic(const bool value) noexcept {
-			outputStream << (value ? "\u001b[3m" : "\u001b[23m");
+			outputStream << (value ? "\x1B[3m" : "\x1B[23m");
 		}
 
 		void setTextUnderline(const bool value) noexcept {
-			outputStream << (value ? "\u001b[4m" : "\u001b[24m");
+			outputStream << (value ? "\x1B[4m" : "\x1B[24m");
 		}
 
 		void setTextBlinking(const bool value) noexcept {
-			outputStream << (value ? "\u001b[5m" : "\u001b[25m");
+			outputStream << (value ? "\x1B[5m" : "\x1B[25m");
 		}
 
 		void setColorsSwapped(const bool value) noexcept {
-			outputStream << (value ? "\u001b[7m" : "\u001b[27m");
+			outputStream << (value ? "\x1B[7m" : "\x1B[27m");
 		}
 
 		void setTextVisible(const bool value) noexcept {
-			outputStream << (value ? "\u001b[28m" : "\u001b[8m");
+			outputStream << (value ? "\x1B[28m" : "\x1B[8m");
 		}
 
 		void setTextStrikethrough(const bool value) noexcept {
-			outputStream << (value ? "\u001b[9m" : "\u001b[29m");
+			outputStream << (value ? "\x1B[9m" : "\x1B[29m");
 		}
 
 		void resetStyles() noexcept {
-			outputStream << "\u001b[0m";
+			outputStream << "\x1B[0m";
 		}
 
 		void clearScreen() noexcept {
-			outputStream << "\u001b[2J";
+			outputStream << "\x1B[2J";
 		}
 
 		void clearLine() noexcept {
-			outputStream << "\u001b[2K";
+			outputStream << "\x1B[2K";
 		}
 
 		[[nodiscard]]
 		xieite::system::OutputPosition getCursorPosition() noexcept {
-			outputStream << "\u001b[6n";
+			outputStream << "\x1B[6n";
 			xieite::system::OutputPosition position = xieite::system::OutputPosition(0, 0);
-			std::fscanf(this->inputStreamFile, "\u001b[%i;%iR", &position.row, &position.column);
+			std::fscanf(this->inputStreamFile, "\x1B[%i;%iR", &position.row, &position.column);
 			return xieite::system::OutputPosition(position.row - 1, position.column - 1);
 		}
 
 		void setCursorPosition(const xieite::system::OutputPosition position) noexcept {
-			outputStream << "\u001b[" << xieite::math::baseTo(10, position.row + 1) << ';' << xieite::math::baseTo(10, position.column + 1) << 'H';
+			outputStream << "\x1B[" << xieite::math::baseTo(10, position.row + 1) << ';' << xieite::math::baseTo(10, position.column + 1) << 'H';
 		}
 
 		void setCursorVisible(const bool value) noexcept {
-			outputStream << (value ? "\u001b[?25h" : "\u001b[?25l");
+			outputStream << (value ? "\x1B[?25h" : "\x1B[?25l");
 		}
 
 		void setCursorAlternative(const bool value) noexcept {
-			outputStream << (value ? "\u001b[s" : "\u001b[u");
+			outputStream << (value ? "\x1B s" : "\x1B u");
 		}
 
 		void setScreenAlternative(const bool value) noexcept {
-			outputStream << (value ? "\u001b[?47h" : "\u001b[?47l");
+			outputStream << (value ? "\x1B[?47h" : "\x1B[?47l");
 		}
 
 		[[nodiscard]]
@@ -175,7 +175,7 @@ namespace xieite::system {
 			if (canonical) {
 				this->setInputCanonical(true);
 			}
-			return input;	
+			return input;
 		}
 
 		[[nodiscard]]
