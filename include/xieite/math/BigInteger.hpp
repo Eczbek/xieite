@@ -263,6 +263,7 @@ namespace xieite::math {
 			result.sign = this->sign != multiplicand.sign;
 			return result;
 		}
+		// I absolutely despise recursion
 
 		template<std::integral Integral>
 		[[nodiscard]]

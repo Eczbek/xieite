@@ -11,4 +11,6 @@ namespace xieite::strings {
 	}
 }
 
+// At some point I realized I can't explain this functionality or even describe a practical application
+
 #endif

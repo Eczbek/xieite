@@ -3,7 +3,7 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 
 <br/>
 
-Enables or disables input signals. Specifically, disables the special functions of Ctrl+C, Ctrl+Z, Ctrl+S, Ctrl+Q, Ctrl+V, and Ctrl+M, to instead read them as a sequence of normal characters. Disabled by default
+Enables or disables input signals. Specifically, disables the special functionalities of Ctrl+C, Ctrl+Z, Ctrl+S, Ctrl+Q, Ctrl+V, and Ctrl+M, to instead read them as a sequence of normal characters. Disabled by default
 
 <br/><br/>
 
