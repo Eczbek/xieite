@@ -11,7 +11,7 @@ Utilities for type information and metaprogramming
 |- <a href="./types/Anything.md">Anything</a>
 |- <a href="./types/List.md">List</a>
 |- <a href="./types/Unique.md">Unique</a>
-|- <a href="./types/bits.md">bits</a>
 |- <a href="./types/count.md">count</a>
-`- <a href="./types/demangle.md">demangle</a>
+|- <a href="./types/demangle.md">demangle</a>
+`- <a href="./types/sizeBits.md">sizeBits</a>
 </code></pre>
