@@ -7,7 +7,7 @@
 
 #	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_LLVM
 #		undef XIEITE_FORCE_INLINE
-#		define XIEITE_FORCE_INLINE inline [[gnu::always_inline]]
+#		define XIEITE_FORCE_INLINE [[gnu::always_inline]] inline
 #	endif
 
 #	if XIEITE_COMPILER_TYPE_MSVC
