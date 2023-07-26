@@ -3,6 +3,7 @@
 
 #	include <xieite/system/OutputPosition.hpp>
 #	include <xieite/system/StandardStreamsController.hpp>
+#	include <xieite/system/bitsPerByte.hpp>
 #	include <xieite/system/execute.hpp>
 #	include <xieite/system/getStreamFile.hpp>
 #	include <xieite/system/segmentationFault.hpp>

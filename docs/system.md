@@ -10,6 +10,7 @@ Tools for interacting with the system
 <pre><code>system/
 |- <a href="./system/OutputPosition.md">OutputPosition</a>
 |- <a href="./system/StandardStreamsController.md">StandardStreamsController</a>
+|- <a href="./system/bitsPerByte.md">bitsPerByte</a>
 |- <a href="./system/execute.md">execute</a>
 |- <a href="./system/getStreamFile.md">getStreamFile</a>
 |- <a href="./system/segmentationFault.md">segmentationFault</a>
