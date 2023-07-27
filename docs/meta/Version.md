@@ -31,7 +31,7 @@ struct Version {
 |- minor
 |- patch
 |- label
-|- <a href="./Version/consructor.md">Version</a>
+|- <a href="./Version/constructor.md">Version</a>
 |- <a href="./Version/operatorSpaceship.md">operator<=></a>
 `- <a href="./Version/string.md">string</a>
 </code></pre>
