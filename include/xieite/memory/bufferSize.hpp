@@ -1,10 +1,18 @@
 #ifndef XIETIE_HEADER_MEMORY_BUFFERSIZE
 #	define XIETIE_HEADER_MEMORY_BUFFERSIZE
 
-#	include <cstddef>
+#	include <xieite/macros/SYSTEM_TYPE.hpp>
+
+#	if XIEITE_SYSTEM_TYPE_UNIX
+#		include <cstddef>
+#		include <unistd.h>
 
 namespace xieite::memory {
-	inline constexpr std::size_t bufferSize = 65536;
+	inline constexpr std::size_t bufferSize = ::sysconf(_SC_PAGE_SIZE);
 }
+
+#	else
+#		error "System not supported"
+#	endif
 
 #endif
