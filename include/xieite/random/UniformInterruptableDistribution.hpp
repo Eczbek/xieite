@@ -29,16 +29,16 @@ namespace xieite::random {
 					const Arithmetic start = std::clamp(interruption.start, minimum, maximum);
 					const Arithmetic end = std::clamp(interruption.end, minimum, maximum);
 					const Arithmetic difference = xieite::math::difference(start, end);
-					if (upper <= (minimum + difference) {
+					if (upper <= (minimum + difference)) {
 						throw std::range_error("Cannot exclude entire interval");
 					}
-					upper -= (difference + std::integral<Arithmetic>);
+					upper -= difference + std::integral<Arithmetic>;
 					this->interruptions.push_back(xieite::math::Interval<Arithmetic>(std::min(start, end), difference));
 				}
 			}
 			this->distribution = xieite::random::UniformInterruptableDistribution<Arithmetic>::UniformDistribution(minimum, upper);
 			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Arithmetic> interruption1, const xieite::math::Interval<Arithmetic> interruption2) noexcept -> Arithmetic {
-				return interruption1.start < interruption2.start;
+				return (interruption1.start < interruption2.start);
 			});
 		}
 
