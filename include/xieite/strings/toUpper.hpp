@@ -5,10 +5,7 @@
 
 namespace xieite::strings {
 	constexpr char toUpper(char character) noexcept {
-		if ((character >= 'a') && (character <= 'z')) {
-			character -= ('a' - 'A');
-		}
-		return character;
+		return (character - ('a' - 'A') * ((character >= 'a') && (character <= 'z')));
 	}
 
 	constexpr std::string toUpper(std::string string) noexcept {

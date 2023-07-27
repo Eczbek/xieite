@@ -30,24 +30,24 @@ namespace xieite::threads {
 			const std::size_t currentThreadCount = std::ranges::size(this->threads);
 			if (threadCount < currentThreadCount) {
 				this->threads.resize(threadCount);
-			} else {
-				while (threadCount-- > currentThreadCount) {
-					this->threads.emplace_back([this](const std::stop_token stopToken) -> void {
-						while (true) {
-							auto jobsLock = std::unique_lock<std::mutex>(this->jobsMutex);
-							this->jobsCondition.wait(jobsLock, [this, stopToken] noexcept -> bool {
-								return std::ranges::size(this->jobs) || stopToken.stop_requested();
-							});
-							if (!std::ranges::size(this->jobs) && stopToken.stop_requested()) {
-								break;
-							}
-							std::function<void()> job = this->jobs.front();
-							this->jobs.pop();
-							jobsLock.unlock();
-							job();
+				return;
+			}
+			while (threadCount-- > currentThreadCount) {
+				this->threads.emplace_back([this](const std::stop_token stopToken) -> void {
+					while (true) {
+						auto jobsLock = std::unique_lock<std::mutex>(this->jobsMutex);
+						this->jobsCondition.wait(jobsLock, [this, stopToken] noexcept -> bool {
+							return std::ranges::size(this->jobs) || stopToken.stop_requested();
+						});
+						if (!std::ranges::size(this->jobs) && stopToken.stop_requested()) {
+							break;
 						}
-					});
-				}
+						std::function<void()> job = this->jobs.front();
+						this->jobs.pop();
+						jobsLock.unlock();
+						job();
+					}
+				});
 			}
 		}
 

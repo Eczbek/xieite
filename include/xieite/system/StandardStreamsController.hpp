@@ -148,7 +148,7 @@ namespace xieite::system {
 		}
 
 		void setCursorAlternative(const bool value) noexcept {
-			outputStream << (value ? "\x1B s" : "\x1B u");
+			outputStream << (value ? "\x1B[s" : "\x1B[u");
 		}
 
 		void setScreenAlternative(const bool value) noexcept {
@@ -175,7 +175,7 @@ namespace xieite::system {
 			if (canonical) {
 				this->setInputCanonical(true);
 			}
-			return input;
+			return input;	
 		}
 
 		[[nodiscard]]

@@ -9,4 +9,6 @@ namespace xieite::math {
 	inline constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2.0;
 }
 
+// τ
+
 #endif

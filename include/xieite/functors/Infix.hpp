@@ -7,7 +7,7 @@ namespace xieite::functors {
 	template<typename Type, xieite::concepts::Functable<Type> auto>
 	struct Infix;
 
-	template<typename Result, typename Parameter, auto callback>
+	template<typename Result, typename Parameter, xieite::concepts::Functable<Result(Parameter)> auto callback>
 	struct Infix<Result(Parameter), callback> {
 		constexpr Result operator>(const Parameter& argument) const {
 			return callback(argument);
@@ -18,7 +18,7 @@ namespace xieite::functors {
 		}
 	};
 
-	template<typename Result, typename LeftParameter, typename RightParameter, auto callback>
+	template<typename Result, typename LeftParameter, typename RightParameter, xieite::concepts::Functable<Result(LeftParameter, RightParameter)> auto callback>
 	class Infix<Result(LeftParameter, RightParameter), callback> {
 	private:
 		class Intermediate {
@@ -27,7 +27,7 @@ namespace xieite::functors {
 			: leftArgument(leftArgument) {}
 
 			constexpr Result operator>(const RightParameter& rightArgument) const {
-				return callback(leftArgument, rightArgument);
+				return callback(this->leftArgument, rightArgument);
 			}
 
 		private:

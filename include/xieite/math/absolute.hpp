@@ -7,7 +7,7 @@ namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
 	[[nodiscard]]
 	constexpr Arithmetic absolute(const Arithmetic value) noexcept {
-		return value * ((value >= 0.0) * 2 - 1);
+		return (value * ((value >= 0.0) * 2 - 1));
 	}
 }
 

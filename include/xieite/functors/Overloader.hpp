@@ -2,16 +2,17 @@
 #	define XIEITE_HEADER_FUNCTORS_OVERLOADER
 
 #	include <xieite/concepts/Derivable.hpp>
-#	include <xieite/functors/MakeFunctor.hpp>
 
 namespace xieite::functors {
 	template<xieite::concepts::Derivable... Derivables>
 	struct Overloader
-	: xieite::functors::MakeFunctor<Derivables>... {
-		constexpr Overloader(const Derivables&... derivables) noexcept
-		: xieite::functors::MakeFunctor<Derivables>(derivables)... {}
+	: Derivables... {
+		constexpr Overloader() noexcept = default;
 
-		using xieite::functors::MakeFunctor<Derivables>::operator()...;
+		constexpr Overloader(const Derivables&... derivables) noexcept
+		: Derivables(derivables)... {}
+
+		using Derivables::operator()...;
 	};
 }
 

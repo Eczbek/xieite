@@ -29,12 +29,11 @@ namespace xieite::random {
 					const Arithmetic start = std::clamp(interruption.start, minimum, maximum);
 					const Arithmetic end = std::clamp(interruption.end, minimum, maximum);
 					const Arithmetic difference = xieite::math::difference(start, end);
-					if (upper > (minimum + difference)) {
-						upper -= (difference + std::integral<Arithmetic>);
-						this->interruptions.push_back(xieite::math::Interval<Arithmetic>(std::min(start, end), difference));
-					} else {
+					if (upper <= (minimum + difference) {
 						throw std::range_error("Cannot exclude entire interval");
 					}
+					upper -= (difference + std::integral<Arithmetic>);
+					this->interruptions.push_back(xieite::math::Interval<Arithmetic>(std::min(start, end), difference));
 				}
 			}
 			this->distribution = xieite::random::UniformInterruptableDistribution<Arithmetic>::UniformDistribution(minimum, upper);

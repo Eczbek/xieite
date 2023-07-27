@@ -3,7 +3,7 @@ Defined in header [<xieite/functors/Overloader.hpp>](../../../include/xieite/fun
 
 <br/>
 
-Calls one of the `xieite::functors::MakeFunctor`s of `Derivables` the class is derived from
+Calls one of the `Derivables` the class is derived from
 
 <br/><br/>
 
@@ -12,5 +12,5 @@ Calls one of the `xieite::functors::MakeFunctor`s of `Derivables` the class is d
 <br/>
 
 ```cpp
-using xieite::functors::MakeFunctor<Derivables>::operator()...;
+using Derivables::operator()...;
 ```

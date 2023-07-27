@@ -15,4 +15,6 @@ namespace xieite::math {
 	inline constexpr Integral pi<Integral> = static_cast<Integral>(std::numbers::pi);
 }
 
+// π
+
 #endif

@@ -9,7 +9,7 @@ namespace xieite::math {
 	template<std::integral Integral>
 	[[nodiscard]]
 	constexpr std::make_unsigned_t<Integral> difference(const Integral a, const Integral b) noexcept {
-		return (a > b) ? (static_cast<std::make_unsigned_t<Integral>>(a) - static_cast<std::make_unsigned_t<Integral>>(b)) : (static_cast<std::make_unsigned_t<Integral>>(b) - static_cast<std::make_unsigned_t<Integral>>(a));
+		return ((a > b) ? (static_cast<std::make_unsigned_t<Integral>>(a) - static_cast<std::make_unsigned_t<Integral>>(b)) : (static_cast<std::make_unsigned_t<Integral>>(b) - static_cast<std::make_unsigned_t<Integral>>(a)));
 	}
 
 	template<std::floating_point FloatingPoint>

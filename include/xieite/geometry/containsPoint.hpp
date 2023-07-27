@@ -16,7 +16,7 @@
 namespace xieite::geometry {
 	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept {
-		return point1 == point2;
+		return (point1 == point2);
 	}
 
 	[[nodiscard]]

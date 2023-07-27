@@ -19,7 +19,7 @@ namespace xieite::graphics {
 
 		[[nodiscard]]
 		constexpr bool operator==(const xieite::graphics::Color& color) const noexcept {
-			return (this->red == color.red) && (this->green == color.green) && (this->blue == color.blue) && (this->alpha == color.alpha);
+			return ((this->red == color.red) && (this->green == color.green) && (this->blue == color.blue) && (this->alpha == color.alpha));
 		}
 
 		[[nodiscard]]
