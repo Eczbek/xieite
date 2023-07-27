@@ -7,12 +7,18 @@ Helps construct the wrapper class
 
 <br/><br/>
 
-## Synopsis
+## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
-constexpr Overloader(const Derivables&... derivables);
+constexpr Overloader() noexcept = default;
+```
+
+<br/><br/>
+
+```cpp
+constexpr Overloader(const Derivables&... derivables) noexcept;
 ```
 ### Parameters
 - `derivables...` - `Derivables...` constant references

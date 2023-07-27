@@ -25,17 +25,15 @@ namespace xieite::algorithms {
 		Arithmetic minimum = -1;
 		Arithmetic maximum = 1;
 		if (selector(0)) {
-			maximum = 0;
 			while (selector(minimum)) {
 				minimum -= xieite::math::absolute(minimum);
 			}
-		} else {
-			minimum = 0;
-			while (!selector(maximum)) {
-				maximum += xieite::math::absolute(maximum);
-			}
+			return xieite::algorithms::numberSearch(selector, minimum, 0);
 		}
-		return xieite::algorithms::numberSearch(selector, minimum, maximum);
+		while (!selector(maximum)) {
+			maximum += xieite::math::absolute(maximum);
+		}
+		return xieite::algorithms::numberSearch(selector, 0, maximum);
 	}
 }
 

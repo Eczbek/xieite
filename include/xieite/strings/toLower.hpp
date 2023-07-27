@@ -4,11 +4,8 @@
 #	include <string>
 
 namespace xieite::strings {
-	constexpr char toLower(char character) noexcept {
-		if ((character >= 'A') && (character <= 'Z')) {
-			character += ('a' - 'A');
-		}
-		return character;
+	constexpr char toLower(const char character) noexcept {
+		return (character + ('a' - 'A') * ((character >= 'A') && (character <= 'Z')));
 	}
 
 	constexpr std::string toLower(std::string string) noexcept {
