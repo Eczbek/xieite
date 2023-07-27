@@ -6,7 +6,8 @@
 namespace xieite::concepts {
 	template<typename Any>
 	concept Derivable = std::is_class_v<Any> && !std::is_final_v<Any>;
-	// `std::is_final_v<Any>` is undefined behavior if `Any` is an incomplete type (e.g. `struct Foo;`)
 }
+
+// This is undefined behavior if the parameter type is incomplete (e.g. `struct Foo;`)
 
 #endif

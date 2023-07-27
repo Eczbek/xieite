@@ -8,4 +8,6 @@ namespace xieite::concepts {
 	concept Polymorphic = std::is_polymorphic_v<Any>;
 }
 
+// Can be used for checking if a type has a vtable
+
 #endif
