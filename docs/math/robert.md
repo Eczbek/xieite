@@ -6,8 +6,9 @@ Defined in header [<xieite/math/robert.hpp>](../../include/xieite/math/robert.hp
 ## Synopsis
 
 ```cpp
-template<std::integral Integral>
-inline constexpr Integral robert = std::numeric_limits<Integral>::max() / std::numbers::phi_v<double>;
+template<std::integral Integral, std::floating_point FloatingPoint = double>
+inline constexpr Integral robert = std::numeric_limits<Integral>::max() / std::numbers::phi_v<FloatingPoint>;
 ```
 ### Template parameters
 - `Integral` - An integral type satisfying `std::integral`
+- `FloatingPoint` - A floating point type satisfying `std::floating_point`, set to `double` by default
