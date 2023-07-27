@@ -1,12 +1,12 @@
 #ifndef XIEITE_HEADER_SYSTEM
 #	define XIEITE_HEADER_SYSTEM
 
-#	include <xieite/system/OutputPosition.hpp>
-#	include <xieite/system/StandardStreamsController.hpp>
-#	include <xieite/system/bitsPerByte.hpp>
-#	include <xieite/system/execute.hpp>
-#	include <xieite/system/getStreamFile.hpp>
-#	include <xieite/system/segmentationFault.hpp>
-#	include <xieite/system/terminal.hpp>
+#	include "./system/OutputPosition.hpp"
+#	include "./system/StandardStreamsController.hpp"
+#	include "./system/bitsPerByte.hpp"
+#	include "./system/execute.hpp"
+#	include "./system/getStreamFile.hpp"
+#	include "./system/segmentationFault.hpp"
+#	include "./system/terminal.hpp"
 
 #endif

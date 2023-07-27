@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MEMORY_GETAVAILABLE
 #	define XIEITE_HEADER_MEMORY_GETAVAILABLE
 
-#	include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include "../macros/SYSTEM_TYPE.hpp"
 
 #	if XIEITE_SYSTEM_TYPE_UNIX
 #		include <cstddef>

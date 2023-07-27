@@ -2,10 +2,10 @@
 #	define XIEITE_HEADER_GEOMETRY_GETAREA
 
 #	include <cmath>
-#	include <xieite/geometry/Polygon.hpp>
-#	include <xieite/geometry/Segment.hpp>
-#	include <xieite/geometry/getSides.hpp>
-#	include <xieite/math/pi.hpp>
+#	include "../geometry/Polygon.hpp"
+#	include "../geometry/Segment.hpp"
+#	include "../geometry/getSides.hpp"
+#	include "../math/pi.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

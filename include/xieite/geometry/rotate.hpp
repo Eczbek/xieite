@@ -4,10 +4,10 @@
 #	include <concepts>
 #	include <cmath>
 #	include <vector>
-#	include <xieite/concepts/LinearShape.hpp>
-#	include <xieite/geometry/Point.hpp>
-#	include <xieite/geometry/Polygon.hpp>
-#	include <xieite/math/tau.hpp>
+#	include "../concepts/LinearShape.hpp"
+#	include "../geometry/Point.hpp"
+#	include "../geometry/Polygon.hpp"
+#	include "../math/tau.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

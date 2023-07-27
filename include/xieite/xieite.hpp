@@ -1,22 +1,22 @@
 #ifndef XIEITE_HEADER_XIEITE
 #	define XIEITE_HEADER_XIEITE
 
-#	include <xieite/algorithms.hpp>
-#	include <xieite/concepts.hpp>
-#	include <xieite/functors.hpp>
-#	include <xieite/geometry.hpp>
-#	include <xieite/graphics.hpp>
-#	include <xieite/hashes.hpp>
-#	include <xieite/macros.hpp>
-#	include <xieite/math.hpp>
-#	include <xieite/memory.hpp>
-#	include <xieite/meta.hpp>
-#	include <xieite/random.hpp>
-#	include <xieite/strings.hpp>
-#	include <xieite/system.hpp>
-#	include <xieite/threads.hpp>
-#	include <xieite/traits.hpp>
-#	include <xieite/types.hpp>
-#	include <xieite/units.hpp>
+#	include "./algorithms.hpp"
+#	include "./concepts.hpp"
+#	include "./functors.hpp"
+#	include "./geometry.hpp"
+#	include "./graphics.hpp"
+#	include "./hashes.hpp"
+#	include "./macros.hpp"
+#	include "./math.hpp"
+#	include "./memory.hpp"
+#	include "./meta.hpp"
+#	include "./random.hpp"
+#	include "./strings.hpp"
+#	include "./system.hpp"
+#	include "./threads.hpp"
+#	include "./traits.hpp"
+#	include "./types.hpp"
+#	include "./units.hpp"
 
 #endif

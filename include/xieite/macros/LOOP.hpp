@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MACROS_LOOP
 #	define XIEITE_HEADER_MACROS_LOOP
 
-#	include <xieite/macros/CONCATENATE.hpp>
+#	include "../macros/CONCATENATE.hpp"
 
 #	define XIEITE_LOOP(count, macro, initial, ...) XIEITE_CONCATENATE(XIEITE_INTERNAL_LOOP_, count)(macro, initial, ...)
 

@@ -3,8 +3,8 @@
 
 #	include <concepts>
 #	include <thread>
-#	include <xieite/concepts/TemporalDuration.hpp>
-#	include <xieite/threads/Loop.hpp>
+#	include "../concepts/TemporalDuration.hpp"
+#	include "../threads/Loop.hpp"
 
 namespace xieite::threads {
 	class Interval {

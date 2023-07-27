@@ -1,8 +1,8 @@
 #ifndef XIEITE_HEADER_HASHES
 #	define XIEITE_HEADER_HASHES
 
-#	include <xieite/hashes/combine.hpp>
-#	include <xieite/hashes/create.hpp>
-#	include <xieite/hashes/distribute.hpp>
+#	include "./hashes/combine.hpp"
+#	include "./hashes/create.hpp"
+#	include "./hashes/distribute.hpp"
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MATH_ABSOLUTE
 #	define XIEITE_HEADER_MATH_ABSOLUTE
 
-#	include <xieite/concepts/Arithmetic.hpp>
+#	include "../concepts/Arithmetic.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>

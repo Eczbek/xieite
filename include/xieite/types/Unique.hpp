@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_TYPES_UNIQUE
 
 #	include <type_traits>
-#	include <xieite/types/List.hpp>
+#	include "../types/List.hpp"
 
 namespace xieite::types {
 	template<typename... Types>

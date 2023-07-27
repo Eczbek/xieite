@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MACROS_STANDARD_UNIX
 #	define XIEITE_HEADER_MACROS_STANDARD_UNIX
 
-#	include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include "../macros/SYSTEM_TYPE.hpp"
 
 #	define XIEITE_STANDARD_UNIX_POSIX_1988 false
 #	define XIEITE_STANDARD_UNIX_POSIX_1990 false

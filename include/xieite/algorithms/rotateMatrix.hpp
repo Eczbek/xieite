@@ -3,7 +3,7 @@
 
 #	include <concepts>
 #	include <vector>
-#	include <xieite/math/wrap.hpp>
+#	include "../math/wrap.hpp"
 
 namespace xieite::algorithms {
 	template<std::copyable Value>

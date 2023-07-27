@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_CONCEPTS_SAMEASORDERIVEDFROM
 
 #	include <concepts>
-#	include <xieite/concepts/SameAs.hpp>
+#	include "../concepts/SameAs.hpp"
 
 namespace xieite::concepts {
 	template<typename Any, typename... Bases>

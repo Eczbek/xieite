@@ -12,11 +12,11 @@
 #	include <string_view>
 #	include <utility>
 #	include <vector>
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/concepts/Functable.hpp>
-#	include <xieite/concepts/RangeOf.hpp>
-#	include <xieite/math/absolute.hpp>
-#	include <xieite/types/bits.hpp>
+#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/Functable.hpp"
+#	include "../concepts/RangeOf.hpp"
+#	include "../math/absolute.hpp"
+#	include "../types/bits.hpp"
 
 namespace xieite::math {
 	class BigInteger {

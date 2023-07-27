@@ -1,9 +1,9 @@
 #ifndef XIEITE_HEADER_MATH_CLOSESTTO
 #	define XIEITE_HEADER_MATH_CLOSESTTO
 
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/math/Result.hpp>
-#	include <xieite/math/difference.hpp>
+#	include "../concepts/Arithmetic.hpp"
+#	include "../math/Result.hpp"
+#	include "../math/difference.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2, xieite::concepts::Arithmetic Arithmetic3>

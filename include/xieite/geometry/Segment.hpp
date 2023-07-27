@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_GEOMETRY_SEGMENT
 #	define XIEITE_HEADER_GEOMETRY_SEGMENT
 
-#	include <xieite/geometry/Point.hpp>
+#	include "../geometry/Point.hpp"
 
 namespace xieite::geometry {
 	struct Segment {

@@ -3,13 +3,13 @@
 
 #	include <cmath>
 #	include <vector>
-#	include <xieite/concepts/LinearShape.hpp>
-#	include <xieite/geometry/Point.hpp>
-#	include <xieite/geometry/Segment.hpp>
-#	include <xieite/geometry/containsPoint.hpp>
-#	include <xieite/geometry/getDistance.hpp>
-#	include <xieite/geometry/getSides.hpp>
-#	include <xieite/math/almostEqual.hpp>
+#	include "../concepts/LinearShape.hpp"
+#	include "../geometry/Point.hpp"
+#	include "../geometry/Segment.hpp"
+#	include "../geometry/containsPoint.hpp"
+#	include "../geometry/getDistance.hpp"
+#	include "../geometry/getSides.hpp"
+#	include "../math/almostEqual.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

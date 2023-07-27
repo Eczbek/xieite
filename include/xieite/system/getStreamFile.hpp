@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_SYSTEM_GETSTREAMFILE
 #	define XIEITE_HEADER_SYSTEM_GETSTREAMFILE
 
-#	include <xieite/macros/COMPILER_TYPE.hpp>
+#	include "../macros/COMPILER_TYPE.hpp"
 
 #	if XIEITE_COMPILER_TYPE_GCC
 #		include <cstdio>
@@ -10,7 +10,7 @@
 #		include <iostream>
 #		include <istream>
 #		include <ostream>
-#		include <xieite/concepts/SameAsOrDerivedFrom.hpp>
+#		include "../concepts/SameAsOrDerivedFrom.hpp"
 
 namespace xieite::system {
 	template<xieite::concepts::SameAsOrDerivedFrom<std::istream, std::ostream> Stream>

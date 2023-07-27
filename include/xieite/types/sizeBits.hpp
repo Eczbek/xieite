@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_TYPES_SIZEBITS
 
 #	include <cstddef>
-#	include <xieite/system/bitsPerByte.hpp>
+#	include "../system/bitsPerByte.hpp"
 
 namespace xieite::types {
 	template<typename Any>

@@ -1,10 +1,10 @@
 #ifndef XIEITE_HEADER_CONCEPTS_LINEARSHAPE
 #	define XIEITE_HEADER_CONCEPTS_LINEARSHAPE
 
-#	include <xieite/concepts/SameAs.hpp>
-#	include <xieite/geometry/Line.hpp>
-#	include <xieite/geometry/Ray.hpp>
-#	include <xieite/geometry/Segment.hpp>
+#	include "../concepts/SameAs.hpp"
+#	include "../geometry/Line.hpp"
+#	include "../geometry/Ray.hpp"
+#	include "../geometry/Segment.hpp"
 
 namespace xieite::concepts {
 	template<typename Any>

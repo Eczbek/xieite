@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MACROS_RESTRICT
 #	define XIEITE_HEADER_MACROS_RESTRICT
 
-#	include <xieite/macros/COMPILER_TYPE.hpp>
+#	include "../macros/COMPILER_TYPE.hpp"
 
 #	define XIEITE_RESTRICT
 

@@ -3,7 +3,7 @@
 
 #	include <concepts>
 #	include <type_traits>
-#	include <xieite/concepts/OrdinaryCharacter.hpp>
+#	include "../concepts/OrdinaryCharacter.hpp"
 
 namespace xieite::concepts {
 	template<typename Any>

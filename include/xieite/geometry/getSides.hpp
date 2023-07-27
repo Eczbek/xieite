@@ -3,8 +3,8 @@
 
 #	include <cstddef>
 #	include <vector>
-#	include <xieite/geometry/Polygon.hpp>
-#	include <xieite/geometry/Segment.hpp>
+#	include "../geometry/Polygon.hpp"
+#	include "../geometry/Segment.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

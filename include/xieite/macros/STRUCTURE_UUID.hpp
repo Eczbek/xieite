@@ -1,8 +1,8 @@
 #ifndef XIEITE_HEADER_MACROS_STRUCTURE_UUID
 #	define XIEITE_HEADER_MACROS_STRUCTURE_UUID
 
-#	include <xieite/macros/COMPILER_TYPE.hpp>
-#	include <xieite/macros/STRINGIFY.hpp>
+#	include "../macros/COMPILER_TYPE.hpp"
+#	include "../macros/STRINGIFY.hpp"
 
 #	define XIEITE_STRUCTURE_UUID(...)
 

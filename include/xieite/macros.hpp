@@ -1,30 +1,30 @@
 #ifndef XIEITE_HEADER_MACROS
 #	define XIEITE_HEADER_MACROS
 
-#	include <xieite/macros/ARCHITECTURE_TYPE.hpp>
-#	include <xieite/macros/COMPILER_TYPE.hpp>
-#	include <xieite/macros/COMPILER_VERSION.hpp>
-#	include <xieite/macros/CONCATENATE.hpp>
-#	include <xieite/macros/CONSUME.hpp>
-#	include <xieite/macros/DEFER.hpp>
-#	include <xieite/macros/EMPTY.hpp>
-#	include <xieite/macros/FORCE_INLINE.hpp>
-#	include <xieite/macros/FUNCTION_SIGNATURE.hpp>
-#	include <xieite/macros/LOOP.hpp>
-#	include <xieite/macros/MATRIX.hpp>
-#	include <xieite/macros/OBSTRUCT.hpp>
-#	include <xieite/macros/REPEAT_CONCATENATE.hpp>
-#	include <xieite/macros/REPEAT.hpp>
-#	include <xieite/macros/RESTRICT.hpp>
-#	include <xieite/macros/SCAN.hpp>
-#	include <xieite/macros/STANDARD_LANGUAGE.hpp>
-#	include <xieite/macros/STANDARD_UNIX.hpp>
-#	include <xieite/macros/STRINGIFY.hpp>
-#	include <xieite/macros/STRUCTURE_UUID.hpp>
-#	include <xieite/macros/SYSTEM_TYPE.hpp>
-#	include <xieite/macros/UNIQUE_TOKEN.hpp>
-#	include <xieite/macros/UNREACHABLE.hpp>
-#	include <xieite/macros/VANISH.hpp>
-#	include <xieite/macros/VERSION.hpp>
+#	include "./macros/ARCHITECTURE_TYPE.hpp"
+#	include "./macros/COMPILER_TYPE.hpp"
+#	include "./macros/COMPILER_VERSION.hpp"
+#	include "./macros/CONCATENATE.hpp"
+#	include "./macros/CONSUME.hpp"
+#	include "./macros/DEFER.hpp"
+#	include "./macros/EMPTY.hpp"
+#	include "./macros/FORCE_INLINE.hpp"
+#	include "./macros/FUNCTION_SIGNATURE.hpp"
+#	include "./macros/LOOP.hpp"
+#	include "./macros/MATRIX.hpp"
+#	include "./macros/OBSTRUCT.hpp"
+#	include "./macros/REPEAT_CONCATENATE.hpp"
+#	include "./macros/REPEAT.hpp"
+#	include "./macros/RESTRICT.hpp"
+#	include "./macros/SCAN.hpp"
+#	include "./macros/STANDARD_LANGUAGE.hpp"
+#	include "./macros/STANDARD_UNIX.hpp"
+#	include "./macros/STRINGIFY.hpp"
+#	include "./macros/STRUCTURE_UUID.hpp"
+#	include "./macros/SYSTEM_TYPE.hpp"
+#	include "./macros/UNIQUE_TOKEN.hpp"
+#	include "./macros/UNREACHABLE.hpp"
+#	include "./macros/VANISH.hpp"
+#	include "./macros/VERSION.hpp"
 
 #endif

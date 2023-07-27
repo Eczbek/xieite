@@ -5,7 +5,7 @@
 #	include <cstddef>
 #	include <string>
 #	include <string_view>
-#	include <xieite/math/baseTo.hpp>
+#	include "../math/baseTo.hpp"
 
 namespace xieite::meta {
 	struct Version {

@@ -2,9 +2,9 @@
 #	define XIEITE_HEADER_MATH_ALMOSTEQUAL
 
 #	include <limits>
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/math/Result.hpp>
-#	include <xieite/math/absolute.hpp>
+#	include "../concepts/Arithmetic.hpp"
+#	include "../math/Result.hpp"
+#	include "../math/absolute.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>

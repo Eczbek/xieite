@@ -1,7 +1,7 @@
 #ifndef XIETIE_HEADER_MEMORY_BUFFERSIZE
 #	define XIETIE_HEADER_MEMORY_BUFFERSIZE
 
-#	include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include "../macros/SYSTEM_TYPE.hpp"
 
 #	if XIEITE_SYSTEM_TYPE_UNIX
 #		include <cstddef>

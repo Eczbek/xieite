@@ -5,7 +5,7 @@
 #	include <cstddef>
 #	include <limits>
 #	include <string>
-#	include <xieite/concepts/RangeOf.hpp>
+#	include "../concepts/RangeOf.hpp"
 
 namespace xieite::strings {
 	[[nodiscard]]

@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MACROS_FORCE_INLINE
 #	define XIEITE_HEADER_MACROS_FORCE_INLINE
 
-#	include <xieite/macros/COMPILER_TYPE.hpp>
+#	include "../macros/COMPILER_TYPE.hpp"
 
 #	define XIEITE_FORCE_INLINE inline
 

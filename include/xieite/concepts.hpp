@@ -1,27 +1,27 @@
 #ifndef XIEITE_HEADER_CONCEPTS
 #	define XIEITE_HEADER_CONCEPTS
 
-#	include <xieite/concepts/Aggregate.hpp>
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/concepts/BitReference.hpp>
-#	include <xieite/concepts/Character.hpp>
-#	include <xieite/concepts/ConvertibleTo.hpp>
-#	include <xieite/concepts/CopyAssignable.hpp>
-#	include <xieite/concepts/Decayed.hpp>
-#	include <xieite/concepts/Enumerator.hpp>
-#	include <xieite/concepts/Functable.hpp>
-#	include <xieite/concepts/Hashable.hpp>
-#	include <xieite/concepts/LinearShape.hpp>
-#	include <xieite/concepts/NarrowCharacter.hpp>
-#	include <xieite/concepts/NoThrowConvertibleTo.hpp>
-#	include <xieite/concepts/OrdinaryCharacter.hpp>
-#	include <xieite/concepts/Polymorphic.hpp>
-#	include <xieite/concepts/SameAs.hpp>
-#	include <xieite/concepts/StreamableIn.hpp>
-#	include <xieite/concepts/StreamableOut.hpp>
-#	include <xieite/concepts/TemporalDuration.hpp>
-#	include <xieite/concepts/Trivial.hpp>
-#	include <xieite/concepts/UniformRandomBitGenerator.hpp>
-#	include <xieite/concepts/WideCharacter.hpp>
+#	include "./concepts/Aggregate.hpp"
+#	include "./concepts/Arithmetic.hpp"
+#	include "./concepts/BitReference.hpp"
+#	include "./concepts/Character.hpp"
+#	include "./concepts/ConvertibleTo.hpp"
+#	include "./concepts/CopyAssignable.hpp"
+#	include "./concepts/Decayed.hpp"
+#	include "./concepts/Enumerator.hpp"
+#	include "./concepts/Functable.hpp"
+#	include "./concepts/Hashable.hpp"
+#	include "./concepts/LinearShape.hpp"
+#	include "./concepts/NarrowCharacter.hpp"
+#	include "./concepts/NoThrowConvertibleTo.hpp"
+#	include "./concepts/OrdinaryCharacter.hpp"
+#	include "./concepts/Polymorphic.hpp"
+#	include "./concepts/SameAs.hpp"
+#	include "./concepts/StreamableIn.hpp"
+#	include "./concepts/StreamableOut.hpp"
+#	include "./concepts/TemporalDuration.hpp"
+#	include "./concepts/Trivial.hpp"
+#	include "./concepts/UniformRandomBitGenerator.hpp"
+#	include "./concepts/WideCharacter.hpp"
 
 #endif
