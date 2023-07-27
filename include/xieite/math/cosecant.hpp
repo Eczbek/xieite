@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER_MATH_COSECANT
 
 #	include <cmath>
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/math/Result.hpp>
+#	include "../concepts/Arithmetic.hpp"
+#	include "../math/Result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>

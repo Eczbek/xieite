@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_CONCEPTS_TEMPORALDURATION
 
 #	include <type_traits>
-#	include <xieite/traits/isTemporalDuration.hpp>
+#	include "../traits/isTemporalDuration.hpp"
 
 namespace xieite::concepts {
 	template<typename Any>

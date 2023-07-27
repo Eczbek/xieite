@@ -1,9 +1,9 @@
 #ifndef XIEITE_HEADER_GEOMETRY_TRANSLATE
 #	define XIEITE_HEADER_GEOMETRY_TRANSLATE
 
-#	include <xieite/concepts/LinearShape.hpp>
-#	include <xieite/geometry/Point.hpp>
-#	include <xieite/geometry/Polygon.hpp>
+#	include "../concepts/LinearShape.hpp"
+#	include "../geometry/Point.hpp"
+#	include "../geometry/Polygon.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

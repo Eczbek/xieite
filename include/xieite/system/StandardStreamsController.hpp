@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_SYSTEM_STANDARDSTREAMSCONTROLLER
 #	define XIEITE_HEADER_SYSTEM_STANDARDSTREAMSCONTROLLER
 
-#	include <xieite/macros/SYSTEM_TYPE.hpp>
+#	include "../macros/SYSTEM_TYPE.hpp"
 
 #	if XIEITE_SYSTEM_TYPE_UNIX
 #		include <cstddef>
@@ -15,11 +15,11 @@
 #		include <sys/ioctl.h>
 #		include <termios.h>
 #		include <unistd.h>
-#		include <xieite/graphics/Color.hpp>
-#		include <xieite/math/baseTo.hpp>
-#		include <xieite/memory/bufferSize.hpp>
-#		include <xieite/system/OutputPosition.hpp>
-#		include <xieite/system/getStreamFile.hpp>
+#		include "../graphics/Color.hpp"
+#		include "../math/baseTo.hpp"
+#		include "../memory/bufferSize.hpp"
+#		include "../system/OutputPosition.hpp"
+#		include "../system/getStreamFile.hpp"
 
 namespace xieite::system {
 	template<std::istream& inputStream, std::ostream& outputStream>

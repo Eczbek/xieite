@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MACROS_REPEAT
 #	define XIEITE_HEADER_MACROS_REPEAT
 
-#	include <xieite/macros/LOOP.hpp>
+#	include "../macros/LOOP.hpp"
 
 #	define XIEITE_REPEAT(count, argument) XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT, , argument)
 

@@ -1,15 +1,15 @@
 #ifndef XIEITE_HEADER_STRINGS
 #	define XIEITE_HEADER_STRINGS
 
-#	include <xieite/strings/radiotelephonySpellingAlphabet.hpp>
-#	include <xieite/strings/repeat.hpp>
-#	include <xieite/strings/something.hpp>
-#	include <xieite/strings/toLower.hpp>
-#	include <xieite/strings/toUpper.hpp>
-#	include <xieite/strings/trim.hpp>
-#	include <xieite/strings/trimBack.hpp>
-#	include <xieite/strings/trimFront.hpp>
-#	include <xieite/strings/truncate.hpp>
-#	include <xieite/strings/whitespaces.hpp>
+#	include "./strings/radiotelephonySpellingAlphabet.hpp"
+#	include "./strings/repeat.hpp"
+#	include "./strings/something.hpp"
+#	include "./strings/toLower.hpp"
+#	include "./strings/toUpper.hpp"
+#	include "./strings/trim.hpp"
+#	include "./strings/trimBack.hpp"
+#	include "./strings/trimFront.hpp"
+#	include "./strings/truncate.hpp"
+#	include "./strings/whitespaces.hpp"
 
 #endif

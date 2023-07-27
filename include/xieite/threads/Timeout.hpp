@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER_THREADS_TIMEOUT
 
 #	include <concepts>
-#	include <xieite/concepts/TemporalDuration.hpp>
-#	include <xieite/threads/Interval.hpp>
+#	include "../concepts/TemporalDuration.hpp"
+#	include "../threads/Interval.hpp"
 
 namespace xieite::threads {
 	class Timeout {

@@ -2,10 +2,10 @@
 #	define XIEITE_HEADER_GEOMETRY_GETANGLE
 
 #	include <cmath>
-#	include <xieite/concepts/LinearShape.hpp>
-#	include <xieite/geometry/Point.hpp>
-#	include <xieite/math/pi.hpp>
-#	include <xieite/math/tau.hpp>
+#	include "../concepts/LinearShape.hpp"
+#	include "../geometry/Point.hpp"
+#	include "../math/pi.hpp"
+#	include "../math/tau.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

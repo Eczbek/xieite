@@ -2,9 +2,9 @@
 #	define XIEITE_HEADER_GEOMETRY_GETLENGTH
 
 #	include <limits>
-#	include <xieite/concepts/LinearShape.hpp>
-#	include <xieite/geometry/Segment.hpp>
-#	include <xieite/geometry/getDistance.hpp>
+#	include "../concepts/LinearShape.hpp"
+#	include "../geometry/Segment.hpp"
+#	include "../geometry/getDistance.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

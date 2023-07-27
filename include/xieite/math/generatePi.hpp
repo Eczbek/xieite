@@ -3,7 +3,7 @@
 
 #	include <concepts>
 #	include <vector>
-#	include <xieite/math/BigInteger.hpp>
+#	include "../math/BigInteger.hpp"
 
 namespace xieite::math {
 	template<std::integral Integral = int>

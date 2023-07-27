@@ -3,15 +3,15 @@
 
 #	include <cmath>
 #	include <cstddef>
-#	include <xieite/geometry/Line.hpp>
-#	include <xieite/geometry/Point.hpp>
-#	include <xieite/geometry/Polygon.hpp>
-#	include <xieite/geometry/Ray.hpp>
-#	include <xieite/geometry/Segment.hpp>
-#	include <xieite/geometry/getDistance.hpp>
-#	include <xieite/geometry/getSides.hpp>
-#	include <xieite/geometry/getSlope.hpp>
-#	include <xieite/math/almostEqual.hpp>
+#	include "../geometry/Line.hpp"
+#	include "../geometry/Point.hpp"
+#	include "../geometry/Polygon.hpp"
+#	include "../geometry/Ray.hpp"
+#	include "../geometry/Segment.hpp"
+#	include "../geometry/getDistance.hpp"
+#	include "../geometry/getSides.hpp"
+#	include "../geometry/getSlope.hpp"
+#	include "../math/almostEqual.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

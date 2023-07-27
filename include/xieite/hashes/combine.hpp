@@ -4,7 +4,7 @@
 #	include <bit>
 #	include <cstddef>
 #	include <limits>
-#	include <xieite/hashes/distribute.hpp>
+#	include "../hashes/distribute.hpp"
 
 namespace xieite::hashes {
 	[[nodiscard]]

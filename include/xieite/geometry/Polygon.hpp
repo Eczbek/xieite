@@ -3,9 +3,9 @@
 
 #	include <ranges>
 #	include <vector>
-#	include <xieite/algorithms/sameRelativeOrder.hpp>
-#	include <xieite/concepts/RangeOf.hpp>
-#	include <xieite/geometry/Point.hpp>
+#	include "../algorithms/sameRelativeOrder.hpp"
+#	include "../concepts/RangeOf.hpp"
+#	include "../geometry/Point.hpp"
 
 namespace xieite::geometry {
 	struct Polygon {

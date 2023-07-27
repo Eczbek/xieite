@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER_CONCEPTS_CHARACTER
 
 #	include <type_traits>
-#	include <xieite/concepts/SameAs.hpp>
-#	include <xieite/concepts/WideCharacter.hpp>
+#	include "../concepts/SameAs.hpp"
+#	include "../concepts/WideCharacter.hpp"
 
 namespace xieite::concepts {
 	template<typename Any>

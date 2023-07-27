@@ -3,8 +3,8 @@
 
 #	include <cmath>
 #	include <limits>
-#	include <xieite/concepts/LinearShape.hpp>
-#	include <xieite/geometry/Point.hpp>
+#	include "../concepts/LinearShape.hpp"
+#	include "../geometry/Point.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

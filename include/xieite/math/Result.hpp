@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER_MATH_RESULT
 
 #	include <type_traits>
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/concepts/SameAs.hpp>
+#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/SameAs.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic... Arithmetics>

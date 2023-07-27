@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_GEOMETRY_POINT
 #	define XIEITE_HEADER_GEOMETRY_POINT
 
-#	include <xieite/math/almostEqual.hpp>
+#	include "../math/almostEqual.hpp"
 
 namespace xieite::geometry {
 	struct Point {

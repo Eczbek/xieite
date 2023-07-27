@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER_MATH_ALMOSTEQUALSLOPE
 
 #	include <cmath>
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/math/almostEqual.hpp>
+#	include "../concepts/Arithmetic.hpp"
+#	include "../math/almostEqual.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>

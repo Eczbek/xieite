@@ -1,11 +1,11 @@
 #ifndef XIEITE_HEADER_GEOMETRY_REFLECT
 #	define XIEITE_HEADER_GEOMETRY_REFLECT
 
-#	include <xieite/concepts/LinearShape.hpp>
-#	include <xieite/geometry/Point.hpp>
-#	include <xieite/geometry/Polygon.hpp>
-#	include <xieite/geometry/getAngle.hpp>
-#	include <xieite/geometry/rotate.hpp>
+#	include "../concepts/LinearShape.hpp"
+#	include "../geometry/Point.hpp"
+#	include "../geometry/Polygon.hpp"
+#	include "../geometry/getAngle.hpp"
+#	include "../geometry/rotate.hpp"
 
 namespace xieite::geometry {
 	template<xieite::concepts::LinearShape LinearShape>

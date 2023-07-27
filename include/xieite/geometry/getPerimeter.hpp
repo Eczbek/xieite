@@ -1,10 +1,10 @@
 #ifndef XIEITE_HEADER_GEOMETRY_GETPERIMETER
 #	define XIEITE_HEADER_GEOMETRY_GETPERIMETER
 
-#	include <xieite/geometry/Polygon.hpp>
-#	include <xieite/geometry/Segment.hpp>
-#	include <xieite/geometry/getLength.hpp>
-#	include <xieite/geometry/getSides.hpp>
+#	include "../geometry/Polygon.hpp"
+#	include "../geometry/Segment.hpp"
+#	include "../geometry/getLength.hpp"
+#	include "../geometry/getSides.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]

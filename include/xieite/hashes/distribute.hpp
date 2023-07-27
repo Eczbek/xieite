@@ -3,9 +3,9 @@
 
 #	include <concepts>
 #	include <cstdint>
-#	include <xieite/math/alternatingBits.hpp>
-#	include <xieite/math/robert.hpp>
-#	include <xieite/math/xorShift.hpp>
+#	include "../math/alternatingBits.hpp"
+#	include "../math/robert.hpp"
+#	include "../math/xorShift.hpp"
 
 namespace xieite::hashes {
 	template<std::unsigned_integral UnsignedIntegral>

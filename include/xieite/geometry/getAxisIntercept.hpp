@@ -2,10 +2,10 @@
 #	define XIEITE_HEADER_GEOMETRY_GETAXISINTERCEPT
 
 #	include <limits>
-#	include <xieite/concepts/LinearShape.hpp>
-#	include <xieite/geometry/Point.hpp>
-#	include <xieite/geometry/getSlope.hpp>
-#	include <xieite/math/almostEqualSlope.hpp>
+#	include "../concepts/LinearShape.hpp"
+#	include "../geometry/Point.hpp"
+#	include "../geometry/getSlope.hpp"
+#	include "../math/almostEqualSlope.hpp"
 
 namespace xieite::geometry {
 	template<xieite::concepts::LinearShape LinearShape>

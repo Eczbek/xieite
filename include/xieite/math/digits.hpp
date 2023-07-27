@@ -4,8 +4,8 @@
 #	include <cmath>
 #	include <concepts>
 #	include <cstddef>
-#	include <xieite/math/absolute.hpp>
-#	include <xieite/math/logarithm.hpp>
+#	include "../math/absolute.hpp"
+#	include "../math/logarithm.hpp"
 
 namespace xieite::math {
 	template<std::integral Integral>

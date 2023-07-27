@@ -2,9 +2,9 @@
 #	define XIEITE_HEADER_STRINGS_TRIM
 
 #	include <string>
-#	include <xieite/concepts/RangeOf.hpp>
-#	include <xieite/strings/trimBack.hpp>
-#	include <xieite/strings/trimFront.hpp>
+#	include "../concepts/RangeOf.hpp"
+#	include "../strings/trimBack.hpp"
+#	include "../strings/trimFront.hpp"
 
 namespace xieite::strings {
 	[[nodiscard]]

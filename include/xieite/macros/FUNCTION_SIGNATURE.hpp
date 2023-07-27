@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MACROS_FUNCTION_SIGNATURE
 #	define XIEITE_HEADER_MACROS_FUNCTION_SIGNATURE
 
-#	include <xieite/macros/COMPILER_TYPE.hpp>
+#	include "../macros/COMPILER_TYPE.hpp"
 
 #	define XIEITE_FUNCTION_SIGNATURE __func__
 

@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_FUNCTORS_INFIX
 #	define XIEITE_HEADER_FUNCTORS_INFIX
 
-#	include <xieite/concepts/Functable.hpp>
+#	include "../concepts/Functable.hpp"
 
 namespace xieite::functors {
 	template<typename Type, xieite::concepts::Functable<Type> auto>

@@ -4,7 +4,7 @@
 #	include <chrono>
 #	include <cstdint>
 #	include <ratio>
-#	include <xieite/concepts/Arithmetic.hpp>
+#	include "../concepts/Arithmetic.hpp"
 
 namespace xieite::traits {
 	template<typename>

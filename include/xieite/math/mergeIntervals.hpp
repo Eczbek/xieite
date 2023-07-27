@@ -3,9 +3,9 @@
 
 #	include <cmath>
 #	include <vector>
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/concepts/RangeOf.hpp>
-#	include <xieite/math/Interval.hpp>
+#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/RangeOf.hpp"
+#	include "../math/Interval.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic>> IntervalRange>

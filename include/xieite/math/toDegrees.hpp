@@ -1,9 +1,9 @@
 #ifndef XIEITE_HEADER_MATH_TODEGREES
 #	define XIEITE_HEADER_MATH_TODEGREES
 
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/math/Result.hpp>
-#	include <xieite/math/pi.hpp>
+#	include "../concepts/Arithmetic.hpp"
+#	include "../math/Result.hpp"
+#	include "../math/pi.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>

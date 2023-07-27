@@ -3,8 +3,8 @@
 
 #	include <cmath>
 #	include <limits>
-#	include <xieite/geometry/Point.hpp>
-#	include <xieite/math/almostEqualSlope.hpp>
+#	include "../geometry/Point.hpp"
+#	include "../math/almostEqualSlope.hpp"
 
 namespace xieite::geometry {
 	struct Ray {

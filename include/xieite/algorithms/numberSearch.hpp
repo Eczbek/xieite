@@ -1,10 +1,10 @@
 #ifndef XIEITE_HEADER_ALGORITHMS_NUMBERSEARCH
 #	define XIEITE_HEADER_ALGORITHMS_NUMBERSEARCH
 
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/concepts/Functable.hpp>
-#	include <xieite/math/absolute.hpp>
-#	include <xieite/math/almostEqual.hpp>
+#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/Functable.hpp"
+#	include "../math/absolute.hpp"
+#	include "../math/almostEqual.hpp"
 
 namespace xieite::algorithms {
 	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>

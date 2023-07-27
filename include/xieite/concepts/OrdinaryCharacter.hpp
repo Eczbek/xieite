@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_CONCEPTS_ORDINARYCHARACTER
 
 #	include <type_traits>
-#	include <xieite/concepts/SameAs.hpp>
+#	include "../concepts/SameAs.hpp"
 
 namespace xieite::concepts {
 	template<typename Any>

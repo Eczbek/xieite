@@ -4,7 +4,7 @@
 #	include <cstddef>
 #	include <functional>
 #	include <ranges>
-#	include <xieite/concepts/Functable.hpp>
+#	include "../concepts/Functable.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Callback = std::ranges::equal_to>

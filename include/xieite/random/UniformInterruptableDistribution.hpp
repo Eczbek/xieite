@@ -8,12 +8,12 @@
 #	include <random>
 #	include <stdexcept>
 #	include <type_traits>
-#	include <xieite/concepts/Arithmetic.hpp>
-#	include <xieite/concepts/RangeOf.hpp>
-#	include <xieite/concepts/UniformRandomBitGenerator.hpp>
-#	include <xieite/math/Interval.hpp>
-#	include <xieite/math/difference.hpp>
-#	include <xieite/math/mergeIntervals.hpp>
+#	include "./concepts/Arithmetic.hpp"
+#	include "./concepts/RangeOf.hpp"
+#	include "./concepts/UniformRandomBitGenerator.hpp"
+#	include "./math/Interval.hpp"
+#	include "./math/difference.hpp"
+#	include "./math/mergeIntervals.hpp"
 
 namespace xieite::random {
 	template<xieite::concepts::Arithmetic Arithmetic>

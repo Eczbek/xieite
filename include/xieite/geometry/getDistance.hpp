@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_GEOMETRY_GETDISTANCE
 
 #	include <cmath>
-#	include <xieite/geometry/Point.hpp>
+#	include "../geometry/Point.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]]
