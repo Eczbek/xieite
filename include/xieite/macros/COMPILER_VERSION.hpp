@@ -262,7 +262,7 @@
 #	endif
 
 #	if XIEITE_COMPILER_TYPE_MINGW32
-#		include <windef.h>
+#		include <windows.h>
 
 #		undef XIEITE_COMPILER_VERSION_MAJOR
 #		define XIEITE_COMPILER_VERSION_MAJOR __MINGW32_MAJOR_VERSION
@@ -272,7 +272,7 @@
 #	endif
 
 #	if XIEITE_COMPILER_TYPE_MINGW64
-#		include <windef.h>
+#		include <windows.h>
 
 #		undef XIEITE_COMPILER_VERSION_MAJOR
 #		define XIEITE_COMPILER_VERSION_MAJOR __MINGW64_VERSION_MAJOR
