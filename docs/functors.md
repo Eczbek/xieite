@@ -11,8 +11,8 @@ Functional utilities
 |- <a href="./functors/Infix.md">Infix</a>
 |- <a href="./functors/MakeFunctor.md">MakeFunctor</a>
 |- <a href="./functors/Overloader.md">Overloader</a>
+|- <a href="./functors/Postfix.md">Postfix</a>
 |- <a href="./functors/Prefix.md">Prefix</a>
 |- <a href="./functors/ProcessGuard.md">ProcessGuard</a>
-|- <a href="./functors/ScopeGuard.md">ScopeGuard</a>
-`- <a href="./functors/Suffix.md">Suffix</a>
+`- <a href="./functors/ScopeGuard.md">ScopeGuard</a>
 </code></pre>
