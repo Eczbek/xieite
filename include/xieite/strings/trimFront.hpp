@@ -22,9 +22,9 @@ namespace xieite::strings {
 	template<xieite::concepts::RangeOf<char> CharacterRange>
 	[[nodiscard]]
 	constexpr std::string trimFront(const std::string& string, const CharacterRange& characters) noexcept {
-		std::array<bool, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> characterMap;
+		std::array<bool, std::numeric_limits<unsigned char>::max() + 1> characterMap;
 		for (const char character : characters) {
-			characterMap[character - std::numeric_limits<char>::min()] = true;
+			characterMap[static_cast<unsigned char>(character)] = true;
 		}
 		const std::size_t stringSize = string.size();
 		for (std::size_t i = 0; i < stringSize; ++i) {
