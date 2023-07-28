@@ -11,5 +11,6 @@ Memory things
 |- <a href="./memory/bufferSize.md">bufferSize</a>
 |- <a href="./memory/detectCosmicRay.md">detectCosmicRay</a>
 |- <a href="./memory/getAvailable.md">getAvailable</a>
+|- <a href="./memory/getPageSize.md">getPageSize</a>
 `- <a href="./memory/getTotal.md">getTotal</a>
 </code></pre>

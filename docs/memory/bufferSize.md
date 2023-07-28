@@ -12,5 +12,5 @@ Defines a good amount of bytes to read at a time
 <br/>
 
 ```cpp
-inline constexpr std::size_t bufferSize = ::sysconf(_SC_PAGE_SIZE);
+inline constexpr std::size_t bufferSize = 4096;
 ```
