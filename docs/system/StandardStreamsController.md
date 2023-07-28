@@ -54,9 +54,11 @@ struct StandardStreamsController {
 
 	void clearLine();
 
-	xieite::system::OutputPosition getCursorPosition();
+	xieite::system::BufferPosition getCursorPosition();
 
-	void setCursorPosition(xieite::system::OutputPosition);
+	void setCursorPosition(xieite::system::BufferPosition);
+
+	void moveCursorPosition(xieite::system::BufferPosition);
 
 	void setCursorVisible(bool);
 
@@ -64,7 +66,7 @@ struct StandardStreamsController {
 
 	void setScreenAlternative(bool);
 
-	xieite::system::OutputPosition getScreenSize();
+	xieite::system::BufferPosition getScreenSize();
 
 	char readCharacter();
 
@@ -100,6 +102,7 @@ struct StandardStreamsController {
 |- <a href="./StandardStreamsController/clearLine.md">clearLine</a>
 |- <a href="./StandardStreamsController/getCursorPosition.md">getCursorPosition</a>
 |- <a href="./StandardStreamsController/setCursorPosition.md">setCursorPosition</a>
+|- <a href="./StandardStreamsController/moveCursorPosition.md">moveCursorPosition</a>
 |- <a href="./StandardStreamsController/setCursorVisible.md">setCursorVisible</a>
 |- <a href="./StandardStreamsController/setCursorAlternative.md">setCursorAlternative</a>
 |- <a href="./StandardStreamsController/setScreenAlternative.md">setScreenAlternative</a>

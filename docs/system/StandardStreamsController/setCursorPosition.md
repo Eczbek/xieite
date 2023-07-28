@@ -12,10 +12,10 @@ Sets the terminal cursor's position
 <br/>
 
 ```cpp
-void setCursorPosition(xieite::system::OutputPosition position) noexcept;
+void setCursorPosition(xieite::system::BufferPosition position) noexcept;
 ```
 ### Parameters
-- `position` - A `xieite::system::OutputPosition`, the new cursor coordinates
+- `position` - A `xieite::system::BufferPosition`, the new cursor coordinates
 
 <br/><br/>
 

@@ -6,7 +6,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	inline constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2.0;
+	inline constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2;
 }
 
 // τ

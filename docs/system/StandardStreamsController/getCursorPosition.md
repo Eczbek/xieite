@@ -13,7 +13,7 @@ Gets the cursor's position in the terminal. Coordinates correlate to the `{ +x, 
 
 ```cpp
 [[nodiscard]]
-xieite::system::OutputPosition getPosition() noexcept;
+xieite::system::BufferPosition getPosition() noexcept;
 ```
 ### Return value
--  A `xieite::system::OutputPosition` - The cursor's current position
+-  A `xieite::system::BufferPosition` - The cursor's current position

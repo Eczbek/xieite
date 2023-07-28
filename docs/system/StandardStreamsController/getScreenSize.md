@@ -13,7 +13,7 @@ Gets the terminal screen size, in rows and columns
 
 ```cpp
 [[nodiscard]]
-xieite::system::OutputPosition getScreenSize() noexcept;
+xieite::system::BufferPosition getScreenSize() noexcept;
 ```
 ### Return value
-- A `xieite::system::OutputPosition` - The screen's size
+- A `xieite::system::BufferPosition` - The screen's size
