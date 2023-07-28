@@ -16,6 +16,7 @@ Common concepts
 |- <a href="./concepts/CopyAssignable.md">CopyAssignable</a>
 |- <a href="./concepts/Decayed.md">Decayed</a>
 |- <a href="./concepts/Derivable.md">Derivable</a>
+|- <a href="./concepts/DerivedFrom.md">DerivedFrom</a>
 |- <a href="./concepts/Enumerator.md">Enumerator</a>
 |- <a href="./concepts/Functable.md">Functable</a>
 |- <a href="./concepts/Hashable.md">Hashable</a>
@@ -26,6 +27,7 @@ Common concepts
 |- <a href="./concepts/Polymorphic.md">Polymorphic</a>
 |- <a href="./concepts/RangeOf.md">RangeOf</a>
 |- <a href="./concepts/SameAs.md">SameAs</a>
+|- <a href="./concepts/SameAsOrDerivedFrom.md">SameAsOrDerivedFrom</a>
 |- <a href="./concepts/StreamableIn.md">StreamableInto</a>
 |- <a href="./concepts/StreamableOut.md">StreamableOutOf</a>
 |- <a href="./concepts/TemporalDuration.md">TemporalDuration</a>
