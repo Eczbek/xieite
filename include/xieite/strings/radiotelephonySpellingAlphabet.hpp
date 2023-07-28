@@ -6,8 +6,8 @@
 #	include <string_view>
 
 namespace xieite::strings {
-	inline constexpr std::array<std::string_view, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> radiotelephonySpellingAlphabet = ([] noexcept -> std::array<std::string_view, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> {
-		std::array<std::string_view, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> result;
+	inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> radiotelephonySpellingAlphabet = ([] noexcept -> std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> {
+		std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> result;
 		result['A'] = result['a'] = "Alfa";
 		result['B'] = result['b'] = "Bravo";
 		result['C'] = result['c'] = "Charlie";
@@ -44,7 +44,7 @@ namespace xieite::strings {
 		result['7'] = "Setteseven";
 		result['8'] = "Oktoeight";
 		result['9'] = "Novenine";
-		result['.'] = "Stop"; // "Decimal", "Point"
+		result['.'] = "Stop"; // "Mark", "Decimal", "Point"
 		result[','] = "Comma";
 		result['-'] = "Hyphen"; // "Dash"
 		result['/'] = "Slant";

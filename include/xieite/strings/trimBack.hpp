@@ -21,9 +21,9 @@ namespace xieite::strings {
 	template<xieite::concepts::RangeOf<char> CharacterRange>
 	[[nodiscard]]
 	constexpr std::string trimBack(const std::string& string, const CharacterRange& characters) noexcept {
-		std::array<bool, std::numeric_limits<char>::max() - std::numeric_limits<char>::min() + 1> characterMap;
+		std::array<bool, std::numeric_limits<unsigned char>::max() + 1> characterMap;
 		for (const char character : characters) {
-			characterMap[character - std::numeric_limits<char>::min()] = true;
+			characterMap[static_cast<unsigned char>(character)] = true;
 		}
 		for (std::size_t i = string.size(); i--;) {
 			if (!characterMap[string[i]]) {
