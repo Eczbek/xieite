@@ -1,9 +1,9 @@
-# [xieite](../xieite.md)::[functors](../functors.md)::Suffix
-Defined in header [<xieite/functors/Suffix.hpp>](../../include/xieite/functors/Suffix.hpp)
+# [xieite](../xieite.md)::[functors](../functors.md)::Postfix
+Defined in header [<xieite/functors/Postfix.hpp>](../../include/xieite/functors/Postfix.hpp)
 
 <br/>
 
-An suffix operator thing
+A postfix operator thing
 
 <br/><br/>
 
@@ -13,7 +13,7 @@ An suffix operator thing
 
 ```cpp
 template<typename Type, xieite::concepts::Functable<Type> auto>
-struct Suffix;
+struct Postfix;
 ```
 ### Template parameters
 - `Type` - The function type
@@ -23,8 +23,8 @@ struct Suffix;
 
 ```cpp
 template<typename Result, typename LeftParameter, auto callback>
-struct Suffix<Result(LeftParameter), callback> {
-	friend constexpr Result operator<(const LeftParameter&, const xieite::functors::Suffix<Result(LeftParameter), callback>&);
+struct Postfix<Result(LeftParameter), callback> {
+	friend constexpr Result operator<(const LeftParameter&, const xieite::functors::Postfix<Result(LeftParameter), callback>&);
 };
 ```
 ### Template parameters
@@ -32,8 +32,8 @@ struct Suffix<Result(LeftParameter), callback> {
 - `LeftParameter` - The left parameter type
 - `callback` - A value of any type value
 ### Public members
-<pre><code>Suffix/
-`- <a href="./Suffix/operatorMode.md">operator<</a>
+<pre><code>Postfix/
+`- <a href="./Postfix/operatorMode.md">operator<</a>
 </code></pre>
 
 <br/><br/>
@@ -41,10 +41,10 @@ struct Suffix<Result(LeftParameter), callback> {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/functors/Suffix.hpp>
+#include <xieite/functors/Postfix.hpp>
 
 int main() {
-	xieite::functors::Suffix<int(int), [](int x) -> int {
+	xieite::functors::Postfix<int(int), [](int x) -> int {
 		return x - 1;
 	}> decrement;
 
