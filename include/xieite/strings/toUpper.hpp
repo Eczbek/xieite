@@ -4,7 +4,7 @@
 #	include <string>
 
 namespace xieite::strings {
-	constexpr char toUpper(char character) noexcept {
+	constexpr char toUpper(const char character) noexcept {
 		return (character - ('a' - 'A') * ((character >= 'a') && (character <= 'z')));
 	}
 
