@@ -40,10 +40,10 @@ namespace xieite::geometry {
 	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, const xieite::geometry::Point point) noexcept {
 		std::size_t intersections = 0;
-		xieite::geometry::Ray ray = xieite::geometry::Ray(point, 0.0);
+		xieite::geometry::Ray ray = xieite::geometry::Ray(point, 0);
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {
 			const double a = (ray.start.x - ray.end.x) * (side.start.y - side.end.y) - (ray.start.y - ray.end.y) * (side.start.x - side.end.x);
-			if (!xieite::math::almostEqual(a, 0.0)) {
+			if (!xieite::math::almostEqual(a, 0)) {
 				const xieite::geometry::Point intersection = xieite::geometry::Point(((side.start.x - side.end.x) * (ray.start.x * ray.end.y - ray.start.y * ray.end.x) - (ray.start.x - ray.end.x) * (side.start.x * side.end.y - side.start.y * side.end.x)) / a, ((side.start.y - side.end.y) * (ray.start.x * ray.end.y - ray.start.y * ray.end.x) - (ray.start.y - ray.end.y) * (side.start.x * side.end.y - side.start.y * side.end.x)) / a);
 				intersections += (xieite::geometry::containsPoint(ray, intersection) && xieite::geometry::containsPoint(side, intersection));
 			}
