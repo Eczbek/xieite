@@ -12,12 +12,12 @@ Specifies that a type is the same as at least one of several other types
 <br/>
 
 ```cpp
-template<typename Any1, typename... Any2>
-concept SameAs = (std::same_as<Any1, Any2> || ...);
+template<typename Any, typename... Others>
+concept SameAs = (std::same_as<Any, Others> || ...);
 ```
 ### Template parameters
-- `Any1` - Any type
-- `Any2...` - Any types
+- `Any` - Any type
+- `Others...` - Any types
 
 <br/><br/>
 
