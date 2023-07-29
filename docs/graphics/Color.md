@@ -19,7 +19,7 @@ struct Color {
 	std::uint8_t alpha;
 
 
-	constexpr Color(std::uint8_t, std::uint8_t, std::uint8_t, std::uint8_t = std::numeric_limits<std::uint8_t>::max());
+	constexpr Color(std::uint8_t = 0, std::uint8_t = 0, std::uint8_t = 0, std::uint8_t = std::numeric_limits<std::uint8_t>::max());
 
 	constexpr Color(std::uint32_t);
 
