@@ -11,7 +11,7 @@ namespace xieite::graphics {
 		std::uint8_t blue;
 		std::uint8_t alpha;
 
-		constexpr Color(const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue, const std::uint8_t alpha = std::numeric_limits<std::uint8_t>::max()) noexcept
+		constexpr Color(const std::uint8_t red = 0, const std::uint8_t green = 0, const std::uint8_t blue = 0, const std::uint8_t alpha = std::numeric_limits<std::uint8_t>::max()) noexcept
 		: red(red), green(green), blue(blue), alpha(alpha) {}
 
 		constexpr Color(const std::uint32_t value) noexcept
