@@ -16,13 +16,13 @@ namespace xieite::algorithms {
 		const std::size_t matrixWidth = matrix.size();
 		const std::size_t matrixHeight = matrix[0].size();
 		auto result = std::vector<std::vector<Value>>(matrixHeight);
-		while (rotations-- > 0) {
+		if (rotations > 0) {
 			for (std::size_t x = matrixWidth; x--;) {
 				for (std::size_t y = 0; y < matrixHeight; ++y) {
 					result[y].push_back(matrix[x][y]);
 				}
 			}
-			return result;
+			return xieite::algorithms::rotateMatrix(result, rotations - 1);
 		}
 		for (std::size_t x = 0; x < matrixWidth; ++x) {
 			for (std::size_t y = matrixHeight; y--;) {
