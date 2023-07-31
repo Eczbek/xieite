@@ -17,7 +17,6 @@
 #		include <termios.h>
 #		include <unistd.h>
 #		include "../graphics/Color.hpp"
-#		include "../math/baseTo.hpp"
 #		include "../memory/bufferSize.hpp"
 #		include "../system/BufferPosition.hpp"
 #		include "../system/getStreamFile.hpp"
@@ -77,73 +76,59 @@ namespace xieite::system {
 		}
 
 		void setTextColor(const xieite::graphics::Color& color) noexcept {
-			outputStream << "\x1B[38;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
-			outputStream.flush();
+			outputStream << "\x1B[38;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
 		void resetTextColor() noexcept {
 			outputStream << "\x1B[38m";
-			outputStream.flush();
 		}
 
 		void setHighlightColor(const xieite::graphics::Color& color) noexcept {
-			outputStream << "\x1B[48;2;" << xieite::math::baseTo(10, color.red) << ';' << xieite::math::baseTo(10, color.green) << ';' << xieite::math::baseTo(10, color.blue) << 'm';
-			outputStream.flush();
+			outputStream << "\x1B[48;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
 		void resetHighlightColor() noexcept {
 			outputStream << "\x1B[48m";
-			outputStream.flush();
 		}
 
 		void setTextBold(const bool value) noexcept {
 			outputStream << "\x1B[" << (21 - value * 20) << 'm';
-			outputStream.flush();
 		}
 
 		void setTextItalic(const bool value) noexcept {
 			outputStream << "\x1B[" << (23 - value * 20) << 'm';
-			outputStream.flush();
 		}
 
 		void setTextUnderline(const bool value) noexcept {
 			outputStream << "\x1B[" << (24 - value * 20) << 'm';
-			outputStream.flush();
 		}
 
 		void setTextBlinking(const bool value) noexcept {
 			outputStream << "\x1B[" << (25 - value * 20) << 'm';
-			outputStream.flush();
 		}
 
 		void setColorsSwapped(const bool value) noexcept {
 			outputStream << "\x1B[" << (27 - value * 20) << 'm';
-			outputStream.flush();
 		}
 
 		void setTextVisible(const bool value) noexcept {
 			outputStream << "\x1B[" << (8 + value * 20) << 'm';
-			outputStream.flush();
 		}
 
 		void setTextStrikethrough(const bool value) noexcept {
 			outputStream << "\x1B[" << (29 - value * 20) << 'm';
-			outputStream.flush();
 		}
 
 		void resetStyles() noexcept {
 			outputStream << "\x1B[0m";
-			outputStream.flush();
 		}
 
 		void clearScreen() noexcept {
 			outputStream << "\x1B[2J";
-			outputStream.flush();
 		}
 
 		void clearLine() noexcept {
 			outputStream << "\x1B[2K";
-			outputStream.flush();
 		}
 
 		[[nodiscard]]
@@ -158,8 +143,7 @@ namespace xieite::system {
 		}
 
 		void setCursorPosition(const xieite::system::BufferPosition position) noexcept {
-			outputStream << "\x1B[" << xieite::math::baseTo(10, position.row + 1) << ';' << xieite::math::baseTo(10, position.column + 1) << 'H';
-			outputStream.flush();
+			outputStream << "\x1B[" << static_cast<int>(position.row + 1) << ';' << static_cast<int>(position.column + 1) << 'H';
 		}
 
 		void moveCursorPosition(const xieite::system::BufferPosition difference) noexcept {
@@ -169,22 +153,18 @@ namespace xieite::system {
 			if (difference.column) {
 				outputStream << "\x1B[" << std::abs(difference.column) << "BA"[difference.column < 0];
 			}
-			outputStream.flush();
 		}
 
 		void setCursorVisible(const bool value) noexcept {
 			outputStream << "\x1B[?25" << (value ? 'h' : 'l');
-			outputStream.flush();
 		}
 
 		void setCursorAlternative(const bool value) noexcept {
 			outputStream << "\x1B " << (8 - value);
-			outputStream.flush();
 		}
 
 		void setScreenAlternative(const bool value) noexcept {
 			outputStream << "\x1B[?47" << (value ? 'h' : 'l');
-			outputStream.flush();
 		}
 
 		[[nodiscard]]
@@ -239,8 +219,8 @@ namespace xieite::system {
 		std::FILE* const inputStreamFile;
 		const int inputFileDescriptor;
 
-		termios cookedMode;
 		int blockingStatus;
+		termios cookedMode;
 
 		bool blocking;
 		bool echo;
