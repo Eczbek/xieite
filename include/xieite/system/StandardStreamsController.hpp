@@ -27,13 +27,13 @@ namespace xieite::system {
 	class StandardStreamsController {
 	public:
 		StandardStreamsController() noexcept
-		: inputStreamFile(xieite::system::getStreamFile(inputStream)), inputFileDescriptor(::fileno(this->inputStreamFile)), blockingMode(::fcntl(this->inputFileDescriptor, F_GETFL)), blocking(true), echo(true), canonical(true), signals(true), processing(true) {
+		: inputStreamFile(xieite::system::getStreamFile(inputStream)), inputFileDescriptor(::fileno(this->inputStreamFile)), blockingStatus(::fcntl(this->inputFileDescriptor, F_GETFL)), blocking(true), echo(true), canonical(true), signals(true), processing(true) {
 			::tcgetattr(this->inputFileDescriptor, &this->cookedMode);
 			this->update();
 		}
 
 		~StandardStreamsController() {
-			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingMode);
+			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus);
 			::tcsetattr(this->inputFileDescriptor, TCSANOW, &this->cookedMode);
 			this->resetStyles();
 		}
@@ -234,7 +234,7 @@ namespace xieite::system {
 		const int inputFileDescriptor;
 
 		termios cookedMode;
-		int blockingMode;
+		int blockingStatus;
 
 		bool blocking;
 		bool echo;
@@ -243,7 +243,7 @@ namespace xieite::system {
 		bool processing;
 
 		void update() noexcept {
-			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingMode | (O_NONBLOCK * !this->blocking));
+			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus | (O_NONBLOCK * !this->blocking));
 			::termios rawMode = this->cookedMode;
 			rawMode.c_iflag &= ~((ICRNL * !this->signals) | (IXON * !this->signals));
 			rawMode.c_lflag &= ~((ECHO * !this->echo) | (ICANON * !this->canonical) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
