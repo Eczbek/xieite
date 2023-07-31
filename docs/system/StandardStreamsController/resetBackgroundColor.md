@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::resetHighlightColor
+# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::resetBackgroundColor
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
 <br/>
@@ -12,5 +12,5 @@ Resets the text highlight color to default
 <br/>
 
 ```cpp
-void resetHighlightColor() noexcept;
+void resetBackgroundColor() noexcept;
 ```
