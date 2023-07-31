@@ -75,19 +75,19 @@ namespace xieite::system {
 			}
 		}
 
-		void setTextColor(const xieite::graphics::Color& color) noexcept {
+		void setForegroundColor(const xieite::graphics::Color& color) noexcept {
 			outputStream << "\x1B[38;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
-		void resetTextColor() noexcept {
+		void resetForegroundColor() noexcept {
 			outputStream << "\x1B[38m";
 		}
 
-		void setHighlightColor(const xieite::graphics::Color& color) noexcept {
+		void setBackgroundColor(const xieite::graphics::Color& color) noexcept {
 			outputStream << "\x1B[48;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
-		void resetHighlightColor() noexcept {
+		void resetBackgroundColor() noexcept {
 			outputStream << "\x1B[48m";
 		}
 

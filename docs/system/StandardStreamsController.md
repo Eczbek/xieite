@@ -26,13 +26,13 @@ struct StandardStreamsController {
 
 	void setOutputProcessing(bool);
 
-	void setTextColor(const xieite::graphics::Color&);
+	void setForegroundColor(const xieite::graphics::Color&);
 
-	void resetTextColor();
+	void resetForegroundColor();
 
-	void setHighlightColor(const xieite::graphics::Color&);
+	void setBackgroundColor(const xieite::graphics::Color&);
 
-	void resetHighlightColor();
+	void resetBackgroundColor();
 
 	void setTextBold(bool);
 
@@ -88,10 +88,10 @@ struct StandardStreamsController {
 |- <a href="./StandardStreamsController/setInputCanonical.md">setInputCanonical</a>
 |- <a href="./StandardStreamsController/setInputSignals.md">setInputSignals</a>
 |- <a href="./StandardStreamsController/setOutputProcessing.md">setOutputProcessing</a>
-|- <a href="./StandardStreamsController/setTextColor.md">setTextColor</a>
-|- <a href="./StandardStreamsController/resetTextColor.md">resetTextColor</a>
-|- <a href="./StandardStreamsController/setHighlightColor.md">setHighlightColor</a>
-|- <a href="./StandardStreamsController/resetHighlightColor.md">resetHighlightColor</a>
+|- <a href="./StandardStreamsController/setForegroundColor.md">setForegroundColor</a>
+|- <a href="./StandardStreamsController/resetForegroundColor.md">resetForegroundColor</a>
+|- <a href="./StandardStreamsController/setBackgroundColor.md">setBackgroundColor</a>
+|- <a href="./StandardStreamsController/resetBackgroundColor.md">resetBackgroundColor</a>
 |- <a href="./StandardStreamsController/setTextBold.md">setTextBold</a>
 |- <a href="./StandardStreamsController/setTextItalic.md">setTextItalic</a>
 |- <a href="./StandardStreamsController/setTextUnderline.md">setTextUnderline</a>
