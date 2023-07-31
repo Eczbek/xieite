@@ -73,6 +73,8 @@ struct StandardStreamsController {
 	std::string readString();
 
 	void putBackString(std::string_view);
+
+	void backspace(std::size_t);
 };
 ```
 ### Template parameters
@@ -109,5 +111,6 @@ struct StandardStreamsController {
 |- <a href="./StandardStreamsController/getScreenSize.md">getScreenSize</a>
 |- <a href="./StandardStreamsController/readCharacter.md">readCharacter</a>
 |- <a href="./StandardStreamsController/readString.md">readString</a>
-`- <a href="./StandardStreamsController/putBackString.md">putBackString</a>
+|- <a href="./StandardStreamsController/putBackString.md">putBackString</a>
+`- <a href="./StandardStreamsController/backspace.md">backspace</a>
 </code></pre>

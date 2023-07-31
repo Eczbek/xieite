@@ -229,6 +229,12 @@ namespace xieite::system {
 			}
 		}
 
+		void backspace(const std::size_t count) noexcept {
+			if (count) {
+				outputStream << "\x1B[" << count << 'D' << std::string(count, ' ') << "\x1B[" << count << 'D';
+			}
+		}
+
 	private:
 		std::FILE* const inputStreamFile;
 		const int inputFileDescriptor;
