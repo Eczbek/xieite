@@ -9,6 +9,7 @@
 #	include "../geometry/Ray.hpp"
 #	include "../geometry/Segment.hpp"
 #	include "../geometry/getDistance.hpp"
+#	include "../geometry/getLength.hpp"
 #	include "../geometry/getSides.hpp"
 #	include "../geometry/getSlope.hpp"
 #	include "../math/almostEqual.hpp"
@@ -33,8 +34,7 @@ namespace xieite::geometry {
 
 	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Segment& segment, const xieite::geometry::Point point) noexcept {
-		const double slope = xieite::geometry::getSlope(segment);
-		return std::isinf(slope) ? (xieite::math::almostEqual(point.x, segment.start.x) && ((point.y >= segment.start.y) && (point.y <= segment.end.y) || (point.y <= segment.start.y) && (point.y >= segment.end.y))) : (xieite::math::almostEqual(point.x * slope - segment.start.x * slope + segment.start.y, point.y) && ((segment.start.x < segment.end.x) ? (point.x >= segment.start.x) && (point.x <= segment.end.x) : (point.x <= segment.start.x) && (point.x >= segment.end.x)) && ((segment.start.y < segment.end.y) ? (point.y >= segment.start.y) && (point.y <= segment.end.y) : (point.y <= segment.start.y) && (point.y >= segment.end.y)));
+		return xieite::math::almostEqual(xieite::geometry::getDistance(point, segment.start) + xieite::geometry::getDistance(point, segment.end), xieite::geometry::getLength(segment));
 	}
 
 	[[nodiscard]]
