@@ -143,7 +143,7 @@ namespace xieite::system {
 		}
 
 		void setCursorPosition(const xieite::system::BufferPosition position) noexcept {
-			outputStream << "\x1B[" << static_cast<int>(position.row + 1) << ';' << static_cast<int>(position.column + 1) << 'H';
+			outputStream << "\x1B[" << (position.row + 1) << ';' << (position.column + 1) << 'H';
 		}
 
 		void moveCursorPosition(const xieite::system::BufferPosition difference) noexcept {
@@ -156,7 +156,7 @@ namespace xieite::system {
 		}
 
 		void setCursorVisible(const bool value) noexcept {
-			outputStream << "\x1B[?25" << (value ? 'h' : 'l');
+			outputStream << "\x1B[?25" << "lh"[value];
 		}
 
 		void setCursorAlternative(const bool value) noexcept {
@@ -164,7 +164,7 @@ namespace xieite::system {
 		}
 
 		void setScreenAlternative(const bool value) noexcept {
-			outputStream << "\x1B[?47" << (value ? 'h' : 'l');
+			outputStream << "\x1B[?47" << "lh"[value];
 		}
 
 		[[nodiscard]]
