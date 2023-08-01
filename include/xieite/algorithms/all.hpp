@@ -5,10 +5,10 @@
 #	include <type_traits>
 
 namespace xieite::algorithms {
-	template<std::convertible_to<bool>... Booleanables>
+	template<std::convertible_to<bool>... Values>
 	[[nodiscard]]
-	constexpr bool all(const Booleanables&... values)
-	noexcept(noexcept((std::is_nothrow_convertible_v<Booleanables, bool> && ...))) {
+	constexpr bool all(const Values&... values)
+	noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...))) {
 		return (static_cast<bool>(values) && ...);
 	}
 }
