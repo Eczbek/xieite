@@ -19,6 +19,7 @@ Macros
 |- <a href="./macros/FUNCTION_SIGNATURE.md">FUNCTION_SIGNATURE</a>
 |- <a href="./macros/LOOP.md">LOOP</a>
 |- <a href="./macros/MATRIX.md">MATRIX</a>
+|- <a href="./macros/NO_RETURN.md">NO_RETURN</a>
 |- <a href="./macros/OBSTRUCT.md">OBSTRUCT</a>
 |- <a href="./macros/REPEAT.md">REPEAT</a>
 |- <a href="./macros/REPEAT_CONCATENATE.md">REPEAT_CONCATENATE</a>

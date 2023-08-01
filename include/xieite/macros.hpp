@@ -12,6 +12,7 @@
 #	include "./macros/FUNCTION_SIGNATURE.hpp"
 #	include "./macros/LOOP.hpp"
 #	include "./macros/MATRIX.hpp"
+#	include "./macros/NO_RETURN.hpp"
 #	include "./macros/OBSTRUCT.hpp"
 #	include "./macros/REPEAT_CONCATENATE.hpp"
 #	include "./macros/REPEAT.hpp"
