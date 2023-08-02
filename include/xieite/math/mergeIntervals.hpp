@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MATH_MERGEINTERVALS
 #	define XIEITE_HEADER_MATH_MERGEINTERVALS
 
-#	include <cmath>
+#	include <algorithm>
 #	include <vector>
 #	include "../concepts/Arithmetic.hpp"
 #	include "../concepts/RangeOf.hpp"

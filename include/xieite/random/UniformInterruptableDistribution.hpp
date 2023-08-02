@@ -2,7 +2,6 @@
 #	define XIEITE_HEADER_RANDOM_UNIFORMINTERRUPTABLEDISTRIBUTION
 
 #	include <algorithm>
-#	include <cmath>
 #	include <concepts>
 #	include <iterator>
 #	include <random>
