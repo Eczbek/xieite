@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)::[algorithms](../algorithms.md)::any
-Defined in header [<xieite/algorithms/any.hpp>](../../include/xieite/algorithms/any.hpp)
+# [xieite](../xieite.md)::[logic](../logic.md)::any
+Defined in header [<xieite/logic/any.hpp>](../../include/xieite/logic/any.hpp)
 
 <br/>
 
@@ -29,12 +29,12 @@ noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...)));
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/algorithms/any.hpp>
+#include <xieite/logic/any.hpp>
 
 int main() {
 	std::cout
 		<< std::boolalpha
-		<< xieite::algorithms::any(false, 0, '\0') << '\n';
+		<< xieite::logic::any(false, 0, '\0') << '\n';
 }
 ```
 Output:

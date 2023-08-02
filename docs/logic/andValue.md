@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)::[algorithms](../algorithms.md)::andValue
-Defined in header [<xieite/algorithms/andValue.hpp>](../../include/xieite/algorithms/andValue.hpp)
+# [xieite](../xieite.md)::[logic](../logic.md)::andValue
+Defined in header [<xieite/logic/andValue.hpp>](../../include/xieite/logic/andValue.hpp)
 
 <br/>
 
@@ -46,7 +46,7 @@ noexcept(noexcept(std::is_nothrow_convertible_v<Value, bool>));
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/algorithms/andValue.hpp>
+#include <xieite/logic/andValue.hpp>
 
 int main() {
 	int x = 0;
@@ -54,8 +54,8 @@ int main() {
 	int z = 9;
 
 	std::cout
-		<< xieite::algorithms::andValue(x, y) << '\n'
-		<< xieite::algorithms::andValue(y, z) << '\n';
+		<< xieite::logic::andValue(x, y) << '\n'
+		<< xieite::logic::andValue(y, z) << '\n';
 }
 ```
 Output:

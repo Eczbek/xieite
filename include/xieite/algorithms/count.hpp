@@ -6,8 +6,8 @@
 namespace xieite::algorithms {
 	template<typename... Values>
 	[[nodiscard]]
-	constexpr std::size_t count(const Values&... values) noexcept {
-		return sizeof...(values);
+	constexpr std::size_t count(const Values&...) noexcept {
+		return sizeof...(Values);
 	}
 }
 
