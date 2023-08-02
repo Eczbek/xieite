@@ -2,6 +2,7 @@
 #	define XIEITE_HEADER_MACROS
 
 #	include "./macros/ARCHITECTURE_TYPE.hpp"
+#	include "./macors/ASCII_SUPPORT.hpp"
 #	include "./macros/COMPILER_TYPE.hpp"
 #	include "./macros/COMPILER_VERSION.hpp"
 #	include "./macros/CONCATENATE.hpp"
