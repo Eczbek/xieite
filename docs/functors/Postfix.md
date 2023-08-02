@@ -44,7 +44,7 @@ struct Postfix<Result(LeftParameter), callback> {
 #include <xieite/functors/Postfix.hpp>
 
 int main() {
-	xieite::functors::Postfix<int(int), [](int x) -> int {
+	xieite::functors::Postfix<int(int), [](int x) {
 		return x - 1;
 	}> decrement;
 

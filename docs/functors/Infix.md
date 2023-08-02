@@ -73,11 +73,11 @@ public:
 #include <xieite/functors/Infix.hpp>
 
 int main() {
-	xieite::functors::Infix<int(int, int), [](int x, int y) -> int {
+	xieite::functors::Infix<int(int, int), [](int x, int y) {
 		return x * y;
 	}> multiply;
 
-	xieite::functors::Infix<int(int), [](int x) -> int {
+	xieite::functors::Infix<int(int), [](int x) {
 		return x + 1;
 	}> increment;
 

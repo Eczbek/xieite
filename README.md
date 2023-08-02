@@ -32,7 +32,7 @@ Copy the `include` directory's contents into your project
 #include <chrono>
 #include <iostream>
 #include <thread>
-#include <xieite/strings/toLower.hpp>
+#include <xieite/strings/lowercase.hpp>
 #include <xieite/system/BufferPosition.hpp>
 #include <xieite/system/terminal.hpp>
 
@@ -46,7 +46,7 @@ int main() {
 	bool running = true;
 
 	while (running) {
-		for (const char input : xieite::strings::toLower(xieite::system::terminal.readString())) {
+		for (const char input : xieite::strings::lowercase(xieite::system::terminal.readString())) {
 			if ((input >= '0') && (input <= '9')) {
 				pen = " .:-=+*#%@"[input - '0'];
 			} else {

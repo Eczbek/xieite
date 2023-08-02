@@ -11,7 +11,7 @@ namespace xieite::threads {
 	public:
 		template<std::invocable<> Invocable, xieite::concepts::TemporalDuration TemporalDuration>
 		Interval(const Invocable& callback, const TemporalDuration duration) noexcept
-		: loop([&callback, duration] -> void {
+		: loop([&callback, duration] {
 			static bool first = true;
 			if (first) {
 				first = false;

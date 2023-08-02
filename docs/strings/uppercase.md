@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)::[strings](../strings.md)::toUpper
-Defined in header [<xieite/strings/toUpper.hpp>](../../include/xieite/strings/toUpper.hpp)
+# [xieite](../xieite.md)::[strings](../strings.md)::uppercase
+Defined in header [<xieite/strings/uppercase.hpp>](../../include/xieite/strings/uppercase.hpp)
 
 <br/>
 
@@ -12,7 +12,7 @@ Converts a string or character to uppercase. Only handles characters `a` to `z`
 <br/><br/>
 
 ```cpp
-constexpr char toUpper(char character) noexcept;
+constexpr char uppercase(char character) noexcept;
 ```
 ### Parameters
 - `character` - A `char`
@@ -22,7 +22,7 @@ constexpr char toUpper(char character) noexcept;
 <br/><br/>
 
 ```cpp
-constexpr std::string toUpper(std::string string) noexcept;
+constexpr std::string uppercase(std::string string) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string`
@@ -34,10 +34,10 @@ constexpr std::string toUpper(std::string string) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/toUpper.hpp>
+#include <xieite/strings/uppercase.hpp>
 
 int main() {
-	std::cout << xieite::strings::toUpper("hello, world!\n");
+	std::cout << xieite::strings::uppercase("hello, world!\n");
 }
 ```
 Output:

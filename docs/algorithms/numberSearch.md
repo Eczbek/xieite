@@ -53,7 +53,7 @@ bool checkCollision(double x) {
 }
 
 int main() {
-	auto callback = [](double x) -> bool {
+	auto callback = [](double x) {
 		return !checkCollision(x);
 	};
 
