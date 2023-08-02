@@ -1,9 +1,9 @@
-#ifndef XIEITE_HEADER_ALGORITHMS_ORVALUE
-#	define XIEITE_HEADER_ALGORITHMS_ORVALUE
+#ifndef XIEITE_HEADER_LOGIC_ORVALUE
+#	define XIEITE_HEADER_LOGIC_ORVALUE
 
 #	include <concepts>
 
-namespace xieite::algorithms {
+namespace xieite::logic {
 	template<std::convertible_to<bool> Value>
 	constexpr Value& orValue(Value& value1, Value& value2)
 	noexcept(noexcept(std::is_nothrow_convertible_v<Value, bool>)) {

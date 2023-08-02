@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)::[algorithms](../algorithms.md)::orValue
-Defined in header [<xieite/algorithms/orValue.hpp>](../../include/xieite/algorithms/orValue.hpp)
+# [xieite](../xieite.md)::[logic](../logic.md)::orValue
+Defined in header [<xieite/logic/orValue.hpp>](../../include/xieite/logic/orValue.hpp)
 
 <br/>
 
@@ -46,7 +46,7 @@ noexcept(noexcept(std::is_nothrow_convertible_v<Value, bool>));
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/algorithms/orValue.hpp>
+#include <xieite/logic/orValue.hpp>
 
 int main() {
 	int x = 0;
@@ -54,8 +54,8 @@ int main() {
 	int z = 9;
 
 	std::cout
-		<< xieite::algorithms::orValue(x, y) << '\n'
-		<< xieite::algorithms::orValue(y, z) << '\n';
+		<< xieite::logic::orValue(x, y) << '\n'
+		<< xieite::logic::orValue(y, z) << '\n';
 }
 ```
 Output:

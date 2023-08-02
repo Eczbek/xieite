@@ -14,6 +14,7 @@ Main namespace
 |- <a href="./geometry.md">geometry</a>
 |- <a href="./graphics.md">graphics</a>
 |- <a href="./hashes.md">hashes</a>
+|- <a href="./logic.md">logic</a>
 |- <a href="./macros.md">macros</a>
 |- <a href="./math.md">math</a>
 |- <a href="./memory.md">memory</a>

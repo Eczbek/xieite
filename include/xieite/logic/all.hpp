@@ -1,10 +1,10 @@
-#ifndef XIEITE_HEADER_ALGORITHMS_ALL
-#	define XIEITE_HEADER_ALGORITHMS_ALL
+#ifndef XIEITE_HEADER_LOGIC_ALL
+#	define XIEITE_HEADER_LOGIC_ALL
 
 #	include <concepts>
 #	include <type_traits>
 
-namespace xieite::algorithms {
+namespace xieite::logic {
 	template<std::convertible_to<bool>... Values>
 	[[nodiscard]]
 	constexpr bool all(const Values&... values)
