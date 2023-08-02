@@ -3,44 +3,55 @@ Defined in header [<xieite/math/absolute.hpp>](../../include/xieite/math/absolut
 
 <br/>
 
-Returns the absolute of a value. Unlike std::abs, this accepts both signed and unsigned arithmetic types
+Returns the absolute of a value
 
 <br/><br/>
 
-## Synopsis
+## Synopses
 
-<br/>
+<br/><br/>
 
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
+template<std::integral Integral>
 [[nodiscard]]
-constexpr Arithmetic absolute(Arithmetic value) noexcept;
+constexpr std::make_unsigned_t<Integral> absolute(Integral value) noexcept;
 ```
 ### Template parameters
-- `Arithmetic` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
+- `Integral` - Any integral type satisfying `std::integral`
 ### Parameters
-- `value` - An `Arithmetic`
+- `value` - An `Integral`
 ### Return value
-- An `Arithmetic`, the absolute of value
+- A `std::make_unsigned_t` of `Integral`, the absolute of `value`
+
+<br/><br/>
+
+```cpp
+template<std::floating_point FloatingPoint>
+[[nodiscard]]
+constexpr FloatingPoint absolute(const FloatingPoint value) noexcept;
+```
+### Template parameters
+- `FloatingPoint` - A floating point type satisfying `std::floating_point`
+### Parameters
+- `value` - A `FloatingPoint`
+### Return value
+- A `FloatingPoint`, the absolute of `value`
 
 <br/><br/>
 
 ## Example
 ```cpp
+#include <cstdint>
 #include <iostream>
 #include <xieite/math/absolute.hpp>
 
 int main() {
-	int a = -17;
-	unsigned b = 4;
+	std::int16_t value = -32768;
 	
-	std::cout
-		<< xieite::math::absolute(a) << '\n'
-		<< xieite::math::absolute(b) << '\n';
+	std::cout << xieite::math::absolute(value) << '\n';
 }
 ```
 Output:
 ```
-17
-4
+32768
 ```
