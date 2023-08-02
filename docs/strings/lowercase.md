@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)::[strings](../strings.md)::toLower
-Defined in header [<xieite/strings/toLower.hpp>](../../include/xieite/strings/toLower.hpp)
+# [xieite](../xieite.md)::[strings](../strings.md)::lowercase
+Defined in header [<xieite/strings/lowercase.hpp>](../../include/xieite/strings/lowercase.hpp)
 
 <br/>
 
@@ -12,7 +12,7 @@ Converts a string or character to lowercase. Only handles characters `A` to `Z`
 <br/><br/>
 
 ```cpp
-constexpr char toLower(char character) noexcept;
+constexpr char lowercase(char character) noexcept;
 ```
 ### Parameters
 - `character` - A `char`
@@ -22,7 +22,7 @@ constexpr char toLower(char character) noexcept;
 <br/><br/>
 
 ```cpp
-constexpr std::string toLower(std::string string) noexcept;
+constexpr std::string lowercase(std::string string) noexcept;
 ```
 ### Parameters
 - `string` - A `std::string`
@@ -34,10 +34,10 @@ constexpr std::string toLower(std::string string) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/toLower.hpp>
+#include <xieite/strings/lowercase.hpp>
 
 int main() {
-	std::cout << xieite::strings::toLower("HELLO, WORLD!\n");
+	std::cout << xieite::strings::lowercase("HELLO, WORLD!\n");
 }
 ```
 Output:

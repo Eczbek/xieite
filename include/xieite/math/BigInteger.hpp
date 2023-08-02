@@ -376,7 +376,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator&(const xieite::math::BigInteger& operand) const noexcept {
-			return (!*this || !operand) ? xieite::math::BigInteger(0) : this->commonBitwiseOperation(operand, [](const bool left, const bool right) noexcept -> bool {
+			return (!*this || !operand) ? xieite::math::BigInteger(0) : this->commonBitwiseOperation(operand, [](const bool left, const bool right) {
 				return left && right;
 			});
 		}
@@ -398,7 +398,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator|(const xieite::math::BigInteger& operand) const noexcept {
-			return !*this ? operand : (!operand ? *this : this->commonBitwiseOperation(operand, [](const bool left, const bool right) noexcept -> bool {
+			return !*this ? operand : (!operand ? *this : this->commonBitwiseOperation(operand, [](const bool left, const bool right) {
 				return left || right;
 			}));
 		}
@@ -420,7 +420,7 @@ namespace xieite::math {
 
 		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator^(const xieite::math::BigInteger& operand) const noexcept {
-			return !*this ? operand : (!operand ? *this : this->commonBitwiseOperation(operand, [](const bool left, const bool right) noexcept -> bool {
+			return !*this ? operand : (!operand ? *this : this->commonBitwiseOperation(operand, [](const bool left, const bool right) {
 				return left != right;
 			}));
 		}

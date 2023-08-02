@@ -44,7 +44,7 @@ struct Prefix<Result(RightParameter), callback> {
 #include <xieite/functors/Prefix.hpp>
 
 int main() {
-	xieite::functors::Prefix<int(int), [](int x) -> int {
+	xieite::functors::Prefix<int(int), [](int x) {
 		return x + 1;
 	}> increment;
 

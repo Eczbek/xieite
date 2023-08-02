@@ -53,7 +53,7 @@ std::unordered_map<std::invoke_result_t<Callback(std::ranges::range_value_t<Rang
 int main() {
 	std::vector<int> values { 1, 2, 3, 4, 5 };
 
-	auto callback = [](int value) -> bool {
+	auto callback = [](int value) {
 		return value % 2;
 	};
 
