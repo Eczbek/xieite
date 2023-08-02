@@ -14,7 +14,7 @@ Defined in header [<xieite/math/wrap.hpp>](../../include/xieite/math/wrap.hpp)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2, xieite::concepts::Arithmetic Arithmetic3>
 [[nodiscard]]
-constexpr std::common_type_t<Arithmetic1, Arithmetic2, Arithmetic3> wrap(const Arithmetic1 value, const Arithmetic2 maximum, const Arithmetic3 minimum = 0.0) noexcept;
+constexpr std::common_type_t<Arithmetic1, Arithmetic2, Arithmetic3> wrap(const Arithmetic1 value, const Arithmetic2 limit1, const Arithmetic3 limit2) noexcept;
 ```
 ### Template parameters
 - `Arithmetic1` - A type satisfying `xieite::concepts::Arithmetic`
@@ -22,8 +22,8 @@ constexpr std::common_type_t<Arithmetic1, Arithmetic2, Arithmetic3> wrap(const A
 - `Arithmetic3` - A type satisfying `xieite::concepts::Arithmetic`
 ### Parameters
 - `value` - An `Arithmetic1`, the value to wrap
-- `maximum` - An `Arithmetic2`, the inclusive maximum of the result
-- `minimum` - An `Arithmetic3`, the inclusive minimum of the result, set to `0.0` by default
+- `limit1` - An `Arithmetic2`, one inclusive limit
+- `limit2` - An `Arithmetic3`, other inclusive limit
 ### Return value
 - A `std::common_type_t` of `Arithmetic1`, `Arithmetic2`, and `Arithmetic3`
 

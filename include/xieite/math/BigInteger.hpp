@@ -1,7 +1,6 @@
 #ifndef XIEITE_HEADER_MATH_BIGINTEGER
 #	define XIEITE_HEADER_MATH_BIGINTEGER
 
-#	include <cmath>
 #	include <compare>
 #	include <concepts>
 #	include <cstddef>
@@ -10,6 +9,7 @@
 #	include <stdexcept>
 #	include <string>
 #	include <string_view>
+#	include <type_traits>
 #	include <utility>
 #	include <vector>
 #	include "../concepts/Arithmetic.hpp"
@@ -22,13 +22,13 @@ namespace xieite::math {
 	class BigInteger {
 	public:
 		template<std::integral Integral = int>
-		constexpr BigInteger(Integral value = 0) noexcept
+		constexpr BigInteger(const Integral value = 0) noexcept
 		: sign(value < 0) {
-			value = xieite::math::absolute(value);
+			std::make_unsigned_t<Integral> absolute = xieite::math::absolute(value);
 			do {
-				this->bits.push_back(value % 2);
-				value /= 2;
-			} while (value);
+				this->bits.push_back(absolute % 2);
+				absolute /= 2;
+			} while (absolute);
 		}
 
 		constexpr BigInteger(const xieite::math::BigInteger& value) noexcept
