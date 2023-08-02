@@ -9,6 +9,7 @@ Macros
 
 <pre><code>macros/
 |- <a href="./macros/ARCHITECTURE_TYPE.md">ARCHITECTURE_TYPE</a>
+|- <a href="./macros/ASCII_SUPPORT.md">ASCII_SUPPORT</a>
 |- <a href="./macros/COMPILER_TYPE.md">COMPILER_TYPE</a>
 |- <a href="./macros/COMPILER_VERSION.md">COMPILER_VERSION</a>
 |- <a href="./macros/CONCATENATE.md">CONCATENATE</a>
