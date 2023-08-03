@@ -3,13 +3,16 @@
 
 #	include "../macros/SYSTEM_TYPE.hpp"
 
-#	if XIEITE_SYSTEM_TYPE_UNIX
-#		include <cstdio>
-#		include <memory>
-#		include <stdio.h>
-#		include <string>
-#		include <string_view>
-#		include "../memory/bufferSize.hpp"
+#	if !XIEITE_SYSTEM_TYPE_UNIX
+#		error "System not supported"
+#	endif
+
+#	include <cstdio>
+#	include <memory>
+#	include <stdio.h>
+#	include <string>
+#	include <string_view>
+#	include "../memory/bufferSize.hpp"
 
 namespace xieite::system {
 	inline std::string execute(const std::string_view command) noexcept {
@@ -27,9 +30,5 @@ namespace xieite::system {
 		return result;
 	}
 }
-
-#	else
-#		error "System not supported"
-#	endif
 
 #endif

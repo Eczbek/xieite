@@ -3,6 +3,10 @@
 
 #	include "../macros/SYSTEM_TYPE.hpp"
 
+#	if !XIEITE_SYSTEM_TYPE_UNIX
+#		error "System not supported"
+#	endif
+
 #	define XIEITE_STANDARD_UNIX_POSIX_1988 false
 #	define XIEITE_STANDARD_UNIX_POSIX_1990 false
 #	define XIEITE_STANDARD_UNIX_POSIX_1993 false
@@ -18,84 +22,80 @@
 #	define XIEITE_STANDARD_UNIX_XOPEN_2008 false
 #	define XIEITE_STANDARD_UNIX_LSB false
 
-#	if XIEITE_SYSTEM_TYPE_UNIX
-#		include <unistd.h>
+#	include <unistd.h>
 
-#		ifdef _POSIX_VERSION
-#			if (_POSIX_VERSION >= 198808)
-#				undef XIEITE_STANDARD_UNIX_POSIX_1988
-#				define XIEITE_STANDARD_UNIX_POSIX_1988 true
-#			endif
-
-#			if (_POSIX_VERSION >= 199009)
-#				undef XIEITE_STANDARD_UNIX_POSIX_1990
-#				define XIEITE_STANDARD_UNIX_POSIX_1990 true
-#			endif
-
-#			if (_POSIX_VERSION >= 199309)
-#				undef XIEITE_STANDARD_UNIX_POSIX_1993
-#				define XIEITE_STANDARD_UNIX_POSIX_1993 true
-#			endif
-
-#			if (_POSIX_VERSION >= 199506)
-#				undef XIEITE_STANDARD_UNIX_POSIX_1996
-#				define XIEITE_STANDARD_UNIX_POSIX_1996 true
-#			endif
-
-#			if (_POSIX_VERSION >= 200112)
-#				undef XIEITE_STANDARD_UNIX_POSIX_2001
-#				define XIEITE_STANDARD_UNIX_POSIX_2001 true
-#			endif
-
-#			if (_POSIX_VERSION >= 200809)
-#				undef XIEITE_STANDARD_UNIX_POSIX_2008
-#				define XIEITE_STANDARD_UNIX_POSIX_2008 true
-#			endif
+#	ifdef _POSIX_VERSION
+#		if (_POSIX_VERSION >= 198808)
+#			undef XIEITE_STANDARD_UNIX_POSIX_1988
+#			define XIEITE_STANDARD_UNIX_POSIX_1988 true
 #		endif
 
-#		if defined(_POSIX2_C_VERSION) && (_POSIX2_C_VERSION >= 199209)
-#			undef XIEITE_STANDARD_UNIX_POSIX_1992
-#			define XIEITE_STANDARD_UNIX_POSIX_1992 true
+#		if (_POSIX_VERSION >= 199009)
+#			undef XIEITE_STANDARD_UNIX_POSIX_1990
+#			define XIEITE_STANDARD_UNIX_POSIX_1990 true
 #		endif
 
-#		ifdef _XOPEN_VERSION
-#			if (_XOPEN_VERSION >= 3)
-#				undef XIEITE_STANDARD_UNIX_XOPEN_1989
-#				define XIEITE_STANDARD_UNIX_XOPEN_1989 true
-#			endif
-
-#			if (_XOPEN_VERSION >= 4)
-#				undef XIEITE_STANDARD_UNIX_XOPEN_1992
-#				define XIEITE_STANDARD_UNIX_XOPEN_1992 true
-#			endif
-
-#			if (_XOPEN_VERSION >= 4) && defined(_XOPEN_UNIX)
-#				undef XIEITE_STANDARD_UNIX_XOPEN_1995
-#				define XIEITE_STANDARD_UNIX_XOPEN_1995 true
-#			endif
-
-#			if (_XOPEN_VERSION >= 500)
-#				undef XIEITE_STANDARD_UNIX_XOPEN_1998
-#				define XIEITE_STANDARD_UNIX_XOPEN_1998 true
-#			endif
-
-#			if (_XOPEN_VERSION >= 600)
-#				undef XIEITE_STANDARD_UNIX_XOPEN_2003
-#				define XIEITE_STANDARD_UNIX_XOPEN_2003 true
-#			endif
-
-#			if (_XOPEN_VERSION >= 700)
-#				undef XIEITE_STANDARD_UNIX_XOPEN_2008
-#				define XIEITE_STANDARD_UNIX_XOPEN_2008 true
-#			endif
+#		if (_POSIX_VERSION >= 199309)
+#			undef XIEITE_STANDARD_UNIX_POSIX_1993
+#			define XIEITE_STANDARD_UNIX_POSIX_1993 true
 #		endif
 
-#		ifdef __LSB_VERSION__
-#			undef XIEITE_STANDARD_UNIX_LSB
-#			define XIEITE_STANDARD_UNIX_LSB true
+#		if (_POSIX_VERSION >= 199506)
+#			undef XIEITE_STANDARD_UNIX_POSIX_1996
+#			define XIEITE_STANDARD_UNIX_POSIX_1996 true
 #		endif
-#	else
-#		error "System not supported"
+
+#		if (_POSIX_VERSION >= 200112)
+#			undef XIEITE_STANDARD_UNIX_POSIX_2001
+#			define XIEITE_STANDARD_UNIX_POSIX_2001 true
+#		endif
+
+#		if (_POSIX_VERSION >= 200809)
+#			undef XIEITE_STANDARD_UNIX_POSIX_2008
+#			define XIEITE_STANDARD_UNIX_POSIX_2008 true
+#		endif
+#	endif
+
+#	if defined(_POSIX2_C_VERSION) && (_POSIX2_C_VERSION >= 199209)
+#		undef XIEITE_STANDARD_UNIX_POSIX_1992
+#		define XIEITE_STANDARD_UNIX_POSIX_1992 true
+#	endif
+
+#	ifdef _XOPEN_VERSION
+#		if (_XOPEN_VERSION >= 3)
+#			undef XIEITE_STANDARD_UNIX_XOPEN_1989
+#			define XIEITE_STANDARD_UNIX_XOPEN_1989 true
+#		endif
+
+#		if (_XOPEN_VERSION >= 4)
+#			undef XIEITE_STANDARD_UNIX_XOPEN_1992
+#			define XIEITE_STANDARD_UNIX_XOPEN_1992 true
+#		endif
+
+#		if (_XOPEN_VERSION >= 4) && defined(_XOPEN_UNIX)
+#			undef XIEITE_STANDARD_UNIX_XOPEN_1995
+#			define XIEITE_STANDARD_UNIX_XOPEN_1995 true
+#		endif
+
+#		if (_XOPEN_VERSION >= 500)
+#			undef XIEITE_STANDARD_UNIX_XOPEN_1998
+#			define XIEITE_STANDARD_UNIX_XOPEN_1998 true
+#		endif
+
+#		if (_XOPEN_VERSION >= 600)
+#			undef XIEITE_STANDARD_UNIX_XOPEN_2003
+#			define XIEITE_STANDARD_UNIX_XOPEN_2003 true
+#		endif
+
+#		if (_XOPEN_VERSION >= 700)
+#			undef XIEITE_STANDARD_UNIX_XOPEN_2008
+#			define XIEITE_STANDARD_UNIX_XOPEN_2008 true
+#		endif
+#	endif
+
+#	ifdef __LSB_VERSION__
+#		undef XIEITE_STANDARD_UNIX_LSB
+#		define XIEITE_STANDARD_UNIX_LSB true
 #	endif
 
 #endif
