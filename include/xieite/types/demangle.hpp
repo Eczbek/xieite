@@ -1,12 +1,15 @@
 #ifndef XIEITE_HEADER_TYPES_DEMANGLE
 #	define XIEITE_HEADER_TYPES_DEMANGLE
 
-#	include "../macros/SYSTEM_TYPE.hpp"
+#	include "../macros/COMPILER_TYPE.hpp"
 
-#	if XIEITE_SYSTEM_TYPE_UNIX
-#		include <cstdlib>
-#		include <cxxabi.h>
-#		include <string>
+#	if !XIEITE_COMPILER_TYPE_GCC
+#		error "Compiler not supported"
+#	endif
+
+#	include <cstdlib>
+#	include <cxxabi.h>
+#	include <string>
 
 namespace xieite::types {
 	[[nodiscard]]
@@ -21,10 +24,6 @@ namespace xieite::types {
 		return mangled;
 	}
 }
-
-#	else
-#		error "System not supported"
-#	endif
 
 // Thanks to eightfold for original idea
 

@@ -3,23 +3,26 @@
 
 #	include "../macros/SYSTEM_TYPE.hpp"
 
-#	if XIEITE_SYSTEM_TYPE_UNIX
-#		include <cmath>
-#		include <cstddef>
-#		include <cstdio>
-#		include <fcntl.h>
-#		include <istream>
-#		include <ostream>
-#		include <stdio.h>
-#		include <string>
-#		include <string_view>
-#		include <sys/ioctl.h>
-#		include <termios.h>
-#		include <unistd.h>
-#		include "../graphics/Color.hpp"
-#		include "../memory/bufferSize.hpp"
-#		include "../system/BufferPosition.hpp"
-#		include "../system/getStreamFile.hpp"
+#	if !XIEITE_SYSTEM_TYPE_UNIX
+#		error "System not supported"
+#	endif
+
+#	include <cmath>
+#	include <cstddef>
+#	include <cstdio>
+#	include <fcntl.h>
+#	include <istream>
+#	include <ostream>
+#	include <stdio.h>
+#	include <string>
+#	include <string_view>
+#	include <sys/ioctl.h>
+#	include <termios.h>
+#	include <unistd.h>
+#	include "../graphics/Color.hpp"
+#	include "../memory/bufferSize.hpp"
+#	include "../system/BufferPosition.hpp"
+#	include "../system/getStreamFile.hpp"
 
 namespace xieite::system {
 	template<std::istream& inputStream, std::ostream& outputStream>
@@ -238,9 +241,5 @@ namespace xieite::system {
 		}
 	};
 }
-
-#	else
-#		error "System not supported"
-#	endif
 
 #endif

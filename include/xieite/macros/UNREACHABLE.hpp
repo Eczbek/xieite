@@ -10,16 +10,14 @@
 #	else
 #		include "../macros/COMPILER_TYPE.hpp"
 
-#		define XIEITE_UNREACHABLE static_cast<void>(0)
-
 #		if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_LLVM
 #			undef XIEITE_UNREACHABLE
 #			define XIEITE_UNREACHABLE __builtin_unreachable()
-#		endif
-
-#		if XIEITE_COMPILER_TYPE_MSVC
+#		elif XIEITE_COMPILER_TYPE_MSVC
 #			undef XIEITE_UNREACHABLE
 #			define XIEITE_UNREACHABLE __assume(false)
+#		else
+#			define XIEITE_UNREACHABLE static_cast<void>(0)
 #		endif
 #	endif
 

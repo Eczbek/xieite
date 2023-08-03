@@ -3,14 +3,17 @@
 
 #	include "../macros/COMPILER_TYPE.hpp"
 
-#	if XIEITE_COMPILER_TYPE_GCC
-#		include <cstdio>
-#		include <ext/stdio_filebuf.h>
-#		include <fstream>
-#		include <iostream>
-#		include <istream>
-#		include <ostream>
-#		include "../concepts/SameAsOrDerivedFrom.hpp"
+#	if !XIEITE_COMPILER_TYPE_GCC
+#		error "Compiler not supported"
+#	endif
+
+#	include <cstdio>
+#	include <ext/stdio_filebuf.h>
+#	include <fstream>
+#	include <iostream>
+#	include <istream>
+#	include <ostream>
+#	include "../concepts/SameAsOrDerivedFrom.hpp"
 
 namespace xieite::system {
 	template<xieite::concepts::SameAsOrDerivedFrom<std::istream, std::ostream> Stream>
@@ -32,9 +35,5 @@ namespace xieite::system {
 		return static_cast<__gnu_cxx::stdio_filebuf<typename Stream::char_type, typename Stream::traits_type>*>(stream.rdbuf())->file();
 	}
 }
-
-#	else
-#		error "Compiler not supported"
-#	endif
 
 #endif
