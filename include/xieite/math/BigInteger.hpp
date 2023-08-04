@@ -9,14 +9,14 @@
 #	include <stdexcept>
 #	include <string>
 #	include <string_view>
-#	include <type_traits>
 #	include <utility>
 #	include <vector>
 #	include "../concepts/Arithmetic.hpp"
 #	include "../concepts/Functable.hpp"
 #	include "../concepts/RangeOf.hpp"
+#	include "../math/AttemptUnsign.hpp"
 #	include "../math/absolute.hpp"
-#	include "../types/bits.hpp"
+#	include "../types/sizeBits.hpp"
 
 namespace xieite::math {
 	class BigInteger {
@@ -24,7 +24,7 @@ namespace xieite::math {
 		template<std::integral Integral = int>
 		constexpr BigInteger(const Integral value = 0) noexcept
 		: sign(value < 0) {
-			std::make_unsigned_t<Integral> absolute = xieite::math::absolute(value);
+			xieite::math::AttemptUnsign<Integral> absolute = xieite::math::absolute(value);
 			do {
 				this->bits.push_back(absolute % 2);
 				absolute /= 2;
@@ -78,7 +78,7 @@ namespace xieite::math {
 		constexpr operator Arithmetic() const noexcept {
 			Arithmetic result = 0;
 			Arithmetic power = 1;
-			for (std::size_t i = 0; i < xieite::types::bits<Arithmetic>; ++i) {
+			for (std::size_t i = 0; i < xieite::types::sizeBits<Arithmetic>; ++i) {
 				result += power * this->bits[i];
 				power *= 2;
 			}
