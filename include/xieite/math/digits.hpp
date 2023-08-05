@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_DIGITS
-#	define XIEITE_HEADER_MATH_DIGITS
+#ifndef XIEITE_HEADER__MATH__DIGITS
+#	define XIEITE_HEADER__MATH__DIGITS
 
 #	include <cmath>
 #	include <concepts>

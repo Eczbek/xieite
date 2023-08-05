@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_PI
-#	define XIEITE_HEADER_MATH_PI
+#ifndef XIEITE_HEADER__MATH__PI
+#	define XIEITE_HEADER__MATH__PI
 
 #	include <concepts>
 #	include <numbers>

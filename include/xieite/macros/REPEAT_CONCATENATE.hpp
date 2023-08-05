@@ -1,11 +1,11 @@
-#ifndef XIEITE_HEADER_MACROS_REPEAT_CONCATENATE
-#	define XIEITE_HEADER_MACROS_REPEAT_CONCATENATE
+#ifndef XIEITE_HEADER__MACROS__REPEAT_CONCATENATE
+#	define XIEITE_HEADER__MACROS__REPEAT_CONCATENATE
 
 #	include "../macros/CONCATENATE.hpp"
 #	include "../macros/LOOP.hpp"
 
-#	define XIEITE_REPEAT_CONCATENATE(count, argument) XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT_CONCATENATE, , argument)
+#	define XIEITE__REPEAT_CONCATENATE(count, argument) XIEITE__LOOP(count, XIEITE_INTERNAL_REPEAT_CONCATENATE, , argument)
 
-#	define XIEITE_INTERNAL_REPEAT_CONCATENATE(count, accumulator, argument) XIEITE_CONCATENATE(accumulator, argument)
+#	define XIEITE_INTERNAL_REPEAT_CONCATENATE(count, accumulator, argument) XIEITE__CONCATENATE(accumulator, argument)
 
 #endif

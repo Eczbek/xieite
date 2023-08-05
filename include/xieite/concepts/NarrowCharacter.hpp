@@ -1,13 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_NARROWCHARACTER
-#	define XIEITE_HEADER_CONCEPTS_NARROWCHARACTER
+#ifndef XIEITE_HEADER__CONCEPTS__NARROW_CHARACTER
+#	define XIEITE_HEADER__CONCEPTS__NARROW_CHARACTER
 
-#	include <concepts>
-#	include <type_traits>
-#	include "../concepts/OrdinaryCharacter.hpp"
+#	include "../traits/IsNarrowCharacter.hpp"
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept NarrowCharacter = xieite::concepts::OrdinaryCharacter<Any> || std::same_as<std::remove_cv_t<Any>, char8_t>;
+	template<typename Type>
+	concept NarrowCharacter = xieite::traits::IsNarrowCharacter<Type>::value;
 }
 
 #endif

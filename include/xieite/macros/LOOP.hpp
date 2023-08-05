@@ -1,9 +1,9 @@
-#ifndef XIEITE_HEADER_MACROS_LOOP
-#	define XIEITE_HEADER_MACROS_LOOP
+#ifndef XIEITE_HEADER__MACROS__LOOP
+#	define XIEITE_HEADER__MACROS__LOOP
 
 #	include "../macros/CONCATENATE.hpp"
 
-#	define XIEITE_LOOP(count, macro, initial, ...) XIEITE_CONCATENATE(XIEITE_INTERNAL_LOOP_, count)(macro, initial, ...)
+#	define XIEITE__LOOP(count, macro, initial, ...) XIEITE__CONCATENATE(XIEITE_INTERNAL_LOOP_, count)(macro, initial, ...)
 
 #	define XIEITE_INTERNAL_LOOP_0(macro, initial, ...) initial
 #	define XIEITE_INTERNAL_LOOP_1(macro, initial, ...) macro(1, XIEITE_INTERNAL_LOOP_0(macro, initial, __VA_ARGS__), __VA_ARGS__)

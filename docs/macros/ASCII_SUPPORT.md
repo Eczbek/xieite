@@ -15,7 +15,7 @@ Checks if the compiler supports ASCII stuff. See header file for definition
 int main() {
 	std::cout
 		<< std::boolalpha
-		<< XIEITE_ASCII_SUPPORT << '\n';
+		<< XIEITE__ASCII_SUPPORT << '\n';
 }
 ```
 Possible output:

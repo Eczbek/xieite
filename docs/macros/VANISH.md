@@ -15,11 +15,11 @@ Uses cursed C++ magic to remove any line where it is mentioned. See header file 
 int main() {
 	int x = 5;
 	
-	XIEITE_VANISH, x = 999;
+	XIEITE__VANISH, x = 999;
 
 	std::cout << x << '\n';
 
-	std::cout << "Hello, world!\n" << XIEITE_VANISH;
+	std::cout << "Hello, world!\n" << XIEITE__VANISH;
 }
 ```
 Output:

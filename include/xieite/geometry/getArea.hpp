@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_GETAREA
-#	define XIEITE_HEADER_GEOMETRY_GETAREA
+#ifndef XIEITE_HEADER__GEOMETRY__GET__AREA
+#	define XIEITE_HEADER__GEOMETRY__GET__AREA
 
 #	include <cmath>
 #	include "../geometry/Polygon.hpp"

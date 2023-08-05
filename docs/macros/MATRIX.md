@@ -12,7 +12,7 @@ Creates a multidimensional vector matrix
 <br/>
 
 ```cpp
-#define XIEITE_MATRIX(type, dimensions) XIEITE_REPEAT(dimensions, std::vector<) type XIEITE_REPEAT(dimensions, >)
+#define XIEITE__MATRIX(type, dimensions) XIEITE__REPEAT(dimensions, std::vector<) type XIEITE__REPEAT(dimensions, >)
 ```
 ### Parameters
 - `type` - Any typename
@@ -25,7 +25,7 @@ Creates a multidimensional vector matrix
 #include <xieite/macros/MATRIX.hpp>
 
 int main() {
-	XIEITE_MATRIX(int, 3) matrix;
+	XIEITE__MATRIX(int, 3) matrix;
 }
 ```
 Result:

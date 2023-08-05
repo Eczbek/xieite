@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_ATTEMPTSIGN
-#	define XIEITE_HEADER_MATH_ATTEMPTSIGN
+#ifndef XIEITE_HEADER__MATH__ATTEMPT_SIGN
+#	define XIEITE_HEADER__MATH__ATTEMPT_SIGN
 
 #	include <concepts>
 #	include <type_traits>

@@ -1,10 +1,10 @@
-#ifndef XIEITE_HEADER_MACROS_MATRIX
-#	define XIEITE_HEADER_MACROS_MATRIX
+#ifndef XIEITE_HEADER__MACROS__MATRIX
+#	define XIEITE_HEADER__MACROS__MATRIX
 
 #	include <vector>
 #	include "../macros/REPEAT.hpp"
 
-#	define XIEITE_MATRIX(type, dimensions) XIEITE_REPEAT(dimensions, std::vector<) type XIEITE_REPEAT(dimensions, >)
+#	define XIEITE__MATRIX(type, dimensions) XIEITE__REPEAT(dimensions, std::vector<) type XIEITE__REPEAT(dimensions, >)
 
 // Thanks to eightfold for help
 

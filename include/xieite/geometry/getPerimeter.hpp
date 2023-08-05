@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_GETPERIMETER
-#	define XIEITE_HEADER_GEOMETRY_GETPERIMETER
+#ifndef XIEITE_HEADER__GEOMETRY__GET_PERIMETER
+#	define XIEITE_HEADER__GEOMETRY__GET_PERIMETER
 
 #	include "../geometry/Polygon.hpp"
 #	include "../geometry/Segment.hpp"

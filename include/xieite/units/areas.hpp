@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_UNITS_AREAS
-#	define XIEITE_HEADER_UNITS_AREAS
+#ifndef XIEITE_HEADER__UNITS__AREAS
+#	define XIEITE_HEADER__UNITS__AREAS
 
 #	include <ratio>
 

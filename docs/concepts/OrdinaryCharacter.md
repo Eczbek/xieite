@@ -13,7 +13,7 @@ Specifies that a type is a narrow character
 
 ```cpp
 template<typename Any>
-concept OrdinaryCharacter = xieite::concepts::SameAs<std::remove_cv_t<Any>, char, signed char, unsigned char>;
+concept OrdinaryCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Any>, char, signed char, unsigned char>;
 ```
 ### Template parameters
 - `Any` - Any type

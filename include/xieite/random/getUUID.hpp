@@ -1,9 +1,9 @@
-#ifndef XIEITE_HEADER_RANDOM_GETUUID
-#	define XIEITE_HEADER_RANDOM_GETUUID
+#ifndef XIEITE_HEADER__RANDOM__GET_UUID
+#	define XIEITE_HEADER__RANDOM__GET_UUID
 
 #	include "../macros/SYSTEM_TYPE.hpp"
 
-#	if !XIEITE_SYSTEM_TYPE_UNIX
+#	if !XIEITE__SYSTEM_TYPE__UNIX
 #		error "System not supported"
 #	endif
 
@@ -11,6 +11,7 @@
 #	include <uuid/uuid.h>
 
 namespace xieite::random {
+	[[nodiscard]]
 	inline std::string getUUID() noexcept {
 		::uuid_t uuid;
 		::uuid_generate(uuid);

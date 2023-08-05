@@ -12,7 +12,7 @@ Repeats the execution of an macro
 <br/>
 
 ```cpp
-#define XIEITE_LOOP(count, macro, initial, ...) XIEITE_CONCATENATE(XIEITE_INTERNAL_LOOP_, count)(macro, initial, __VA_ARGS__)
+#define XIEITE__LOOP(count, macro, initial, ...) XIEITE__CONCATENATE(XIEITE_INTERNAL_LOOP_, count)(macro, initial, __VA_ARGS__)
 ```
 ### Parameters
 - `count` - An integer of value between `0` and `255`, inclusive

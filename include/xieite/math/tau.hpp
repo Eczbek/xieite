@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_TAU
-#	define XIEITE_HEADER_MATH_TAU
+#ifndef XIEITE_HEADER__MATH__TAU
+#	define XIEITE_HEADER__MATH__TAU
 
 #	include "../concepts/Arithmetic.hpp"
 #	include "../math/pi.hpp"

@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MEMORY
-#	define XIEITE_HEADER_MEMORY
+#ifndef XIEITE_HEADER__MEMORY
+#	define XIEITE_HEADER__MEMORY
 
 #	include "./memory/bufferSize.hpp"
 #	include "./memory/detectCosmicRay.hpp"

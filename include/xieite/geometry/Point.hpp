@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_POINT
-#	define XIEITE_HEADER_GEOMETRY_POINT
+#ifndef XIEITE_HEADER__GEOMETRY__POINT
+#	define XIEITE_HEADER__GEOMETRY__POINT
 
 #	include "../math/almostEqual.hpp"
 

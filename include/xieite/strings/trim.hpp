@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS_TRIM
-#	define XIEITE_HEADER_STRINGS_TRIM
+#ifndef XIEITE_HEADER__STRINGS__TRIM
+#	define XIEITE_HEADER__STRINGS__TRIM
 
 #	include <string>
 #	include "../concepts/RangeOf.hpp"

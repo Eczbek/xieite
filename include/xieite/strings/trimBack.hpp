@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS_TRIMBACK
-#	define XIEITE_HEADER_STRINGS_TRIMBACK
+#ifndef XIEITE_HEADER__STRINGS__TRIM_BACK
+#	define XIEITE_HEADER__STRINGS__TRIM_BACK
 
 #	include <array>
 #	include <cstddef>

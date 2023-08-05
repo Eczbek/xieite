@@ -1,12 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_WIDECHARACTER
-#	define XIEITE_HEADER_CONCEPTS_WIDECHARACTER
+#ifndef XIEITE_HEADER__CONCEPTS__WIDE_CHARACTER
+#	define XIEITE_HEADER__CONCEPTS__WIDE_CHARACTER
 
-#	include <type_traits>
-#	include "../concepts/SameAs.hpp"
+#	include "../traits/IsWideCharacter.hpp"
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept WideCharacter = xieite::concepts::SameAs<std::remove_cv_t<Any>, wchar_t, char16_t, char32_t>;
+	template<typename Type>
+	concept WideCharacter = xieite::traits::IsWideCharacter<Type>::value;
 }
 
 #endif

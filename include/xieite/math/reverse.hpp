@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_REVERSE
-#	define XIEITE_HEADER_MATH_REVERSE
+#ifndef XIEITE_HEADER__MATH__REVERSE
+#	define XIEITE_HEADER__MATH__REVERSE
 
 #	include <concepts>
 #	include <cstddef>

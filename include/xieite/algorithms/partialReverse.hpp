@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_ALGORITHMS_PARTIALREVERSE
-#	define XIEITE_HEADER_ALGORITHMS_PARTIALREVERSE
+#ifndef XIEITE_HEADER__ALGORITHMS__PARTIALREVERSE
+#	define XIEITE_HEADER__ALGORITHMS__PARTIALREVERSE
 
 #	include <algorithm>
 #	include <cstddef>
@@ -10,10 +10,10 @@
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> Functable>
-	constexpr void partialReverse(const Range& range, const Functable& selector) {
-		std::ranges::iterator_t<const Range&> begin = std::ranges::begin(range);
-		std::ranges::const_iterator_t<const Range&> end = std::ranges::end(range);
-		std::vector<std::ranges::iterator_t<const Range&>> iterators;
+	constexpr void partialReverse(Range& range, const Functable& selector) {
+		std::ranges::iterator_t<Range&> begin = std::ranges::begin(range);
+		std::ranges::const_iterator_t<Range&> end = std::ranges::end(range);
+		std::vector<std::ranges::iterator_t<Range&>> iterators;
 		for (; begin != end; ++begin) {
 			if (selector(*begin)) {
 				iterators.push_back(begin);

@@ -1,16 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_STREAMABLEOUT
-#	define XIEITE_HEADER_CONCEPTS_STREAMABLEOUT
+#ifndef XIEITE_HEADER__CONCEPTS__STREAMABLE_OUT
+#	define XIEITE_HEADER__CONCEPTS__STREAMABLE_OUT
 
-#	include <concepts>
-#	include <ostream>
+#	include "../traits/IsStreamableOut.hpp"
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept StreamableOut = requires(std::ostream& outputStream, Any value) {
-		{ outputStream << value } -> std::convertible_to<std::ostream&>;
-	};
+	template<typename Type>
+	concept StreamableOut = xieite::traits::IsStreamableOut<Type>::value;
 }
-
-// Thanks to fux for original code
 
 #endif

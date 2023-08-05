@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS
-#	define XIEITE_HEADER_STRINGS
+#ifndef XIEITE_HEADER__STRINGS
+#	define XIEITE_HEADER__STRINGS
 
 #	include "./strings/lowercase.hpp"
 #	include "./strings/radiotelephonySpellingAlphabet.hpp"

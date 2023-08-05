@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_SCALE
-#	define XIEITE_HEADER_GEOMETRY_SCALE
+#ifndef XIEITE_HEADER__GEOMETRY__SCALE
+#	define XIEITE_HEADER__GEOMETRY__SCALE
 
 #	include "../concepts/LinearShape.hpp"
 #	include "../geometry/Point.hpp"

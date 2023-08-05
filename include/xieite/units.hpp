@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_UNITS
-#	define XIEITE_HEADER_UNITS
+#ifndef XIEITE_HEADER__UNITS
+#	define XIEITE_HEADER__UNITS
 
 #	include "./units/areas.hpp"
 #	include "./units/lengths.hpp"

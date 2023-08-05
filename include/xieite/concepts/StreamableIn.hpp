@@ -1,14 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_STREAMABLEIN
-#	define XIEITE_HEADER_CONCEPTS_STREAMABLEIN
+#ifndef XIEITE_HEADER__CONCEPTS__STREAMABLE_IN
+#	define XIEITE_HEADER__CONCEPTS__STREAMABLE_IN
 
-#	include <concepts>
-#	include <istream>
+#	include "../traits/IsStreamableIn.hpp"
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept StreamableIn = requires(std::istream& inputStream, Any value) {
-		{ inputStream >> value } -> std::convertible_to<std::istream&>;
-	};
+	template<typename Type>
+	concept StreamableIn = xieite::traits::IsStreamableIn<Type>::value;
 }
 
 #endif

@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::TemporalDuration
-Defined in header [<xieite/concepts/TemporalDuration.hpp>](../../include/xieite/concepts/TemporalDuration.hpp)
+# [xieite](../xieite.md)::[concepts](../concepts.md)::ChronoDuration
+Defined in header [<xieite/concepts/ChronoDuration.hpp>](../../include/xieite/concepts/ChronoDuration.hpp)
 
 <br/>
 
@@ -13,7 +13,7 @@ Specifies that a type is a `std::chrono::duration`
 
 ```cpp
 template<typename Any>
-concept TemporalDuration = xieite::concepts::isTemporalDuration<std::remove_cv_t<Any>>;
+concept ChronoDuration = xieite::concepts::isChronoDuration<std::remove_cv_t<Any>>;
 ```
 ### Template parameters
 - `Any` - Any type

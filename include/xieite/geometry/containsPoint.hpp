@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_CONTAINSPOINT
-#	define XIEITE_HEADER_GEOMETRY_CONTAINSPOINT
+#ifndef XIEITE_HEADER__GEOMETRY__CONTAINS_POINT
+#	define XIEITE_HEADER__GEOMETRY__CONTAINS_POINT
 
 #	include <cmath>
 #	include <cstddef>
@@ -39,16 +39,21 @@ namespace xieite::geometry {
 
 	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, const xieite::geometry::Point point) noexcept {
-		std::size_t intersections = 0;
-		xieite::geometry::Ray ray = xieite::geometry::Ray(point, 0);
+		bool odd = false;
+		const std::size_t pointsSize = polygon.points.size();
+		for (std::size_t i = 0; i < pointsSize; ++i) {
+			const std::size_t j = (i + 1) % pointsSize;
+			odd ^= ((polygon.points[i].y < point.y) && (polygon.points[j].y >= point.y) || (polygon.points[j].y < point.y) && (polygon.points[i].y >= point.y)) && ((polygon.points[i].x <= point.x) || (polygon.points[j].x <= point.x)) && ((polygon.points[i].x + (point.y - polygon.points[i].y) / (polygon.points[j].y - polygon.points[i].y) * (polygon.points[j].x - polygon.points[i].x)) < point.x);
+		}
+		if (odd) {
+			return true;
+		}
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {
-			const double a = (ray.start.x - ray.end.x) * (side.start.y - side.end.y) - (ray.start.y - ray.end.y) * (side.start.x - side.end.x);
-			if (!xieite::math::almostEqual(a, 0)) {
-				const xieite::geometry::Point intersection = xieite::geometry::Point(((side.start.x - side.end.x) * (ray.start.x * ray.end.y - ray.start.y * ray.end.x) - (ray.start.x - ray.end.x) * (side.start.x * side.end.y - side.start.y * side.end.x)) / a, ((side.start.y - side.end.y) * (ray.start.x * ray.end.y - ray.start.y * ray.end.x) - (ray.start.y - ray.end.y) * (side.start.x * side.end.y - side.start.y * side.end.x)) / a);
-				intersections += (xieite::geometry::containsPoint(ray, intersection) && xieite::geometry::containsPoint(side, intersection));
+			if (xieite::geometry::containsPoint(side, point)) {
+				return true;
 			}
 		}
-		return intersections % 2;
+		return false;
 	}
 }
 

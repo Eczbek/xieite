@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_XORSHIFT
-#	define XIEITE_HEADER_MATH_XORSHIFT
+#ifndef XIEITE_HEADER__MATH__XOR_SHIFT
+#	define XIEITE_HEADER__MATH__XOR_SHIFT
 
 #	include <concepts>
 #	include <cstddef>

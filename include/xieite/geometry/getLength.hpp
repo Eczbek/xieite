@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_GETLENGTH
-#	define XIEITE_HEADER_GEOMETRY_GETLENGTH
+#ifndef XIEITE_HEADER__GEOMETRY__GET_LENGTH
+#	define XIEITE_HEADER__GEOMETRY__GET_LENGTH
 
 #	include <limits>
 #	include "../concepts/LinearShape.hpp"

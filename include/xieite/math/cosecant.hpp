@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_COSECANT
-#	define XIEITE_HEADER_MATH_COSECANT
+#ifndef XIEITE_HEADER__MATH__COSECANT
+#	define XIEITE_HEADER__MATH__COSECANT
 
 #	include <cmath>
 #	include "../concepts/Arithmetic.hpp"

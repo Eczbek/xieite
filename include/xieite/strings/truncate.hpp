@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS_TRUNCATE
-#	define XIEITE_HEADER_STRINGS_TRUNCATE
+#ifndef XIEITE_HEADER__STRINGS__TRUNCATE
+#	define XIEITE_HEADER__STRINGS__TRUNCATE
 
 #	include <cstddef>
 #	include <string>

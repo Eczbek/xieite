@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_INTERVAL
-#	define XIEITE_HEADER_MATH_INTERVAL
+#ifndef XIEITE_HEADER__MATH__INTERVAL
+#	define XIEITE_HEADER__MATH__INTERVAL
 
 #	include "../concepts/Arithmetic.hpp"
 

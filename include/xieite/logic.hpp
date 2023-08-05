@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_LOGIC
-#	define XIEITE_HEADER_LOGIC
+#ifndef XIEITE_HEADER__LOGIC
+#	define XIEITE_HEADER__LOGIC
 
 #	include "./logic/all.hpp"
 #	include "./logic/andValue.hpp"

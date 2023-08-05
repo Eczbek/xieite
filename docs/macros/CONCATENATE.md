@@ -12,7 +12,7 @@ Concatenates expressions literally
 <br/>
 
 ```cpp
-#define XIEITE_CONCATENATE(first, second) XIEITE_INTERNAL_CONCATENATE(first, second)
+#define XIEITE__CONCATENATE(first, second) XIEITE_INTERNAL_CONCATENATE(first, second)
 ```
 ### Parameters
 - `first` - Any expression
@@ -26,7 +26,7 @@ Concatenates expressions literally
 #include <xieite/macros/CONCATENATE.hpp>
 
 int main() {
-	std::cout << (XIEITE_CONCATENATE(4, 5) + 1) << '\n';
+	std::cout << (XIEITE__CONCATENATE(4, 5) + 1) << '\n';
 }
 ```
 Output:

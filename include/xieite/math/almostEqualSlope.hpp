@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_ALMOSTEQUALSLOPE
-#	define XIEITE_HEADER_MATH_ALMOSTEQUALSLOPE
+#ifndef XIEITE_HEADER__MATH__ALMOST_EQUAL_SLOPE
+#	define XIEITE_HEADER__MATH__ALMOST_EQUAL_SLOPE
 
 #	include <cmath>
 #	include "../concepts/Arithmetic.hpp"

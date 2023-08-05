@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_TYPES_COUNT
-#	define XIEITE_HEADER_TYPES_COUNT
+#ifndef XIEITE_HEADER__TYPES__COUNT
+#	define XIEITE_HEADER__TYPES__COUNT
 
 #	include <cstddef>
 

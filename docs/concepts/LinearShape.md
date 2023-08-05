@@ -13,7 +13,7 @@ Specifies that a type is a `xieite::geometry::Line`, `xieite::geometry::Ray`, or
 
 ```cpp
 template<typename Any>
-concept LinearShape = xieite::concepts::SameAs<Any, xieite::geometry::Line, xieite::geometry::Ray, xieite::geometry::Segment>;
+concept LinearShape = xieite::concepts::SameAsAny<Any, xieite::geometry::Line, xieite::geometry::Ray, xieite::geometry::Segment>;
 ```
 ### Template parameters
 - `Any` - Any type

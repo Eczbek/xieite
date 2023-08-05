@@ -1,9 +1,9 @@
-#ifndef XIEITE_HEADER_SYSTEM_CLOSEFILEPIPE
-#	define XIEITE_HEADER_SYSTEM_CLOSEFILEPIPE
+#ifndef XIEITE_HEADER__SYSTEM__CLOSE_FILE_PIPE
+#	define XIEITE_HEADER__SYSTEM__CLOSE_FILE_PIPE
 
 #	include "../macros/SYSTEM_TYPE.hpp"
 
-#	if XIEITE_SYSTEM_TYPE_UNIX
+#	if XIEITE__SYSTEM_TYPE__UNIX
 #		include <cstdio>
 #		include <stdio.h>
 
@@ -13,7 +13,7 @@ namespace xieite::system {
 	}
 }
 
-#	elif XIEITE_SYSTEM_TYPE_WINDOWS
+#	elif XIEITE__SYSTEM_TYPE__WINDOWS
 #		include <cstdio>
 #		include <stdio.h>
 

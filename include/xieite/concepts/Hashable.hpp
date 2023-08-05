@@ -1,14 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_HASHABLE
-#	define XIEITE_HEADER_CONCEPTS_HASHABLE
+#ifndef XIEITE_HEADER__CONCEPTS__HASHABLE
+#	define XIEITE_HEADER__CONCEPTS__HASHABLE
 
-#	include <cstddef>
-#	include <functional>
+#	include "../traits/IsHashable.hpp"
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept Hashable = requires(Any value) {
-		{ std::hash<Any>()(value) } -> std::convertible_to<std::size_t>;
-	};
+	template<typename Type>
+	concept Hashable = xieite::traits::IsHashable<Type>::value;
 }
 
 #endif

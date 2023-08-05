@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH
-#	define XIEITE_HEADER_MATH
+#ifndef XIEITE_HEADER__MATH
+#	define XIEITE_HEADER__MATH
 
 #	include "./math/AttemptSign.hpp"
 #	include "./math/AttemptUnsign.hpp"

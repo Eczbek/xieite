@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_SYSTEM
-#	define XIEITE_HEADER_SYSTEM
+#ifndef XIEITE_HEADER__SYSTEM
+#	define XIEITE_HEADER__SYSTEM
 
 #	include "./system/BufferPosition.hpp"
 #	include "./system/StandardStreamsController.hpp"

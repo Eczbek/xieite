@@ -12,12 +12,12 @@ Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time
 <br/>
 
 ```cpp
-template<std::invocable<> Invocable, xieite::concepts::TemporalDuration TemporalDuration>
-Timeout(const Invocable& callback, const TemporalDuration duration) noexcept;
+template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
+Timeout(const Invocable& callback, const ChronoDuration duration) noexcept;
 ```
 ### Template parameters
 - `Invocable` - A type satisfying `std::invocable`
-- `TemporalDuration` - A type satisfying `xieite::concepts::TemporalDuration`
+- `ChronoDuration` - A type satisfying `xieite::concepts::ChronoDuration`
 ### Parameters
 - `callback` - A constant `Invocable` reference
-- `duration` - A `TemporalDuration`
+- `duration` - A `ChronoDuration`

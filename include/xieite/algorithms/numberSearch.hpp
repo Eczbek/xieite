@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_ALGORITHMS_NUMBERSEARCH
-#	define XIEITE_HEADER_ALGORITHMS_NUMBERSEARCH
+#ifndef XIEITE_HEADER__ALGORITHMS__NUMBER_SEARCH
+#	define XIEITE_HEADER__ALGORITHMS__NUMBER_SEARCH
 
 #	include "../concepts/Arithmetic.hpp"
 #	include "../concepts/Functable.hpp"

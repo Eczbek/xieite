@@ -12,5 +12,5 @@ Does nothing
 <br/>
 
 ```cpp
-#define XIEITE_EMPTY()
+#define XIEITE__EMPTY()
 ```

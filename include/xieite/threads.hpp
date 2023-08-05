@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_THREADS
-#	define XIEITE_HEADER_THREADS
+#ifndef XIEITE_HEADER__THREADS
+#	define XIEITE_HEADER__THREADS
 
 #	include "./threads/Interval.hpp"
 #	include "./threads/Loop.hpp"

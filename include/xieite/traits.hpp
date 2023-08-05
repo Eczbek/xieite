@@ -1,7 +1,32 @@
-#ifndef XIEITE_HEADER_TRAITS
-#	define XIEITE_HEADER_TRAITS
+#ifndef XIEITE_HEADER__TRAITS
+#	define XIEITE_HEADER__TRAITS
 
-#	include "./traits/isFunctable.hpp"
-#	include "./traits/isTemporalDuration.hpp"
+#	include "./traits/IsAllOf.hpp"
+#	include "./traits/IsAnyOf.hpp"
+#	include "./traits/IsBaseOfAllOf.hpp"
+#	include "./traits/IsBaseOfAnyOf.hpp"
+#	include "./traits/IsBitsetReference.hpp"
+#	include "./traits/IsCharacter.hpp"
+#	include "./traits/IsChronoDuration.hpp"
+#	include "./traits/IsConvertibleToAllOf.hpp"
+#	include "./traits/IsConvertibleToAnyOf.hpp"
+#	include "./traits/IsDecayed.hpp"
+#	include "./traits/IsDerivable.hpp"
+#	include "./traits/IsDerivedFromAllOf.hpp"
+#	include "./traits/IsDerivedFromAnyOf.hpp"
+#	include "./traits/IsFunctable.hpp"
+#	include "./traits/IsHashable.hpp"
+#	include "./traits/IsLinearShape.hpp"
+#	include "./traits/IsNarrowCharacter.hpp"
+#	include "./traits/IsNoThrowConvertibleToAllOf.hpp"
+#	include "./traits/IsNoThrowConvertibleToAnyOf.hpp"
+#	include "./traits/IsOrdinaryCharacter.hpp"
+#	include "./traits/IsRangeOf.hpp"
+#	include "./traits/IsSameAsAllOf.hpp"
+#	include "./traits/IsSameAsAnyOf.hpp"
+#	include "./traits/IsStreamableIn.hpp"
+#	include "./traits/IsStreamableOut.hpp"
+#	include "./traits/IsUniformRandomBitGenerator.hpp"
+#	include "./traits/IsWideCharacter.hpp"
 
 #endif

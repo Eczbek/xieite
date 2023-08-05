@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_HASHES_CREATE
-#	define XIEITE_HEADER_HASHES_CREATE
+#ifndef XIEITE_HEADER__HASHES__CREATE
+#	define XIEITE_HEADER__HASHES__CREATE
 
 #	include <cstddef>
 #	include <string_view>

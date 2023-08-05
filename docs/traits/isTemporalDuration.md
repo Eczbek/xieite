@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)::[traits](../traits.md)::isTemporalDuration
-Defined in header [<xieite/traits/isTemporalDuration.hpp>](../../include/xieite/traits/isTemporalDuration.hpp)
+# [xieite](../xieite.md)::[traits](../traits.md)::isChronoDuration
+Defined in header [<xieite/traits/isChronoDuration.hpp>](../../include/xieite/traits/isChronoDuration.hpp)
 
 <br/>
 
@@ -13,7 +13,7 @@ A boolean representing whether an arithmetic type and two std::intmax_t values c
 
 ```cpp
 template<typename>
-inline constexpr bool isTemporalDuration = false;
+inline constexpr bool isChronoDuration = false;
 ```
 ### Template parameters
 - Unconstrained parameter
@@ -22,7 +22,7 @@ inline constexpr bool isTemporalDuration = false;
 
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic, std::intmax_t numerator, std::intmax_t denominator>
-inline constexpr bool isTemporalDuration<std::chrono::duration<Arithmetic, std::ratio<numerator, denominator>>> = true;
+inline constexpr bool isChronoDuration<std::chrono::duration<Arithmetic, std::ratio<numerator, denominator>>> = true;
 ```
 ### Template parameters
 - `Arithmetic` - An arithmetic type satisfying `xieite::concepts::Arithmetic`

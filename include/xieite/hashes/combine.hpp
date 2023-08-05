@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_HASHES_COMBINE
-#	define XIEITE_HEADER_HASHES_COMBINE
+#ifndef XIEITE_HEADER__HASHES__COMBINE
+#	define XIEITE_HEADER__HASHES__COMBINE
 
 #	include <bit>
 #	include <cstddef>

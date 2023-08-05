@@ -1,13 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_DERIVABLE
-#	define XIEITE_HEADER_CONCEPTS_DERIVABLE
+#ifndef XIEITE_HEADER__CONCEPTS__DERIVABLE
+#	define XIEITE_HEADER__CONCEPTS__DERIVABLE
 
-#	include <type_traits>
+#	include "../traits/IsDerivable.hpp"
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept Derivable = std::is_class_v<Any> && !std::is_final_v<Any>;
+	template<typename Type>
+	concept Derivable = xieite::traits::IsDerivable<Type>::value;
 }
-
-// This is undefined behavior if the parameter type is incomplete (e.g. `struct Foo;`)
 
 #endif

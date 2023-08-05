@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_POLYGON
-#	define XIEITE_HEADER_GEOMETRY_POLYGON
+#ifndef XIEITE_HEADER__GEOMETRY__POLYGON
+#	define XIEITE_HEADER__GEOMETRY__POLYGON
 
 #	include <ranges>
 #	include <vector>

@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_THREADS_LOOP
-#	define XIEITE_HEADER_THREADS_LOOP
+#ifndef XIEITE_HEADER__THREADS__LOOP
+#	define XIEITE_HEADER__THREADS__LOOP
 
 #	include <concepts>
 #	include <stop_token>
@@ -22,6 +22,7 @@ namespace xieite::threads {
 			}
 		}
 
+		[[nodiscard]]
 		bool good() const noexcept {
 			return this->thread.joinable();
 		}

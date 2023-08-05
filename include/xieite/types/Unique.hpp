@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_TYPES_UNIQUE
-#	define XIEITE_HEADER_TYPES_UNIQUE
+#ifndef XIEITE_HEADER__TYPES__UNIQUE
+#	define XIEITE_HEADER__TYPES__UNIQUE
 
 #	include <type_traits>
 #	include "../types/List.hpp"

@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_SECANT
-#	define XIEITE_HEADER_MATH_SECANT
+#ifndef XIEITE_HEADER__MATH__SECANT
+#	define XIEITE_HEADER__MATH__SECANT
 
 #	include <cmath>
 #	include "../concepts/Arithmetic.hpp"

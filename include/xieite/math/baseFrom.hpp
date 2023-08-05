@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_BASEFROM
-#	define XIEITE_HEADER_MATH_BASEFROM
+#ifndef XIEITE_HEADER__MATH__BASE_FROM
+#	define XIEITE_HEADER__MATH__BASE_FROM
 
 #	include <array>
 #	include <concepts>

@@ -1,12 +1,12 @@
-#ifndef XIEITE_HEADER_CONCEPTS_RANGEOF
-#	define XIEITE_HEADER_CONCEPTS_RANGEOF
+#ifndef XIEITE_HEADER__CONCEPTS__RANGE_OF
+#	define XIEITE_HEADER__CONCEPTS__RANGE_OF
 
 #	include <concepts>
 #	include <ranges>
 
 namespace xieite::concepts {
 	template<typename Range, typename Value>
-	concept RangeOf = std::ranges::range<Range> && std::same_as<std::ranges::range_value_t<Range>, Value>;
+	concept RangeOf = std::ranges::range<Range> && (std::same_as<std::ranges::range_value_t<Range>, Value> || std::convertible_to<std::ranges::range_value_t<Range>, Value>);
 }
 
 #endif

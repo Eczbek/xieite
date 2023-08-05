@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_ABSOLUTE
-#	define XIEITE_HEADER_MATH_ABSOLUTE
+#ifndef XIEITE_HEADER__MATH__ABSOLUTE
+#	define XIEITE_HEADER__MATH__ABSOLUTE
 
 #	include <cmath>
 #	include <concepts>
