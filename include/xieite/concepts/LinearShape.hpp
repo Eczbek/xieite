@@ -1,14 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_LINEARSHAPE
-#	define XIEITE_HEADER_CONCEPTS_LINEARSHAPE
+#ifndef XIEITE_HEADER__CONCEPTS__LINEAR_SHAPE
+#	define XIEITE_HEADER__CONCEPTS__LINEAR_SHAPE
 
-#	include "../concepts/SameAs.hpp"
-#	include "../geometry/Line.hpp"
-#	include "../geometry/Ray.hpp"
-#	include "../geometry/Segment.hpp"
+#	include "../traits/IsLinearShape.hpp"
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept LinearShape = xieite::concepts::SameAs<Any, xieite::geometry::Line, xieite::geometry::Ray, xieite::geometry::Segment>;
+	template<typename Type>
+	concept LinearShape = xieite::traits::IsLinearShape<Type>::value;
 }
 
 #endif

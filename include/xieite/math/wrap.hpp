@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_WRAP
-#	define XIEITE_HEADER_MATH_WRAP
+#ifndef XIEITE_HEADER__MATH__WRAP
+#	define XIEITE_HEADER__MATH__WRAP
 
 #	include <algorithm>
 #	include <cmath>

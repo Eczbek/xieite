@@ -13,7 +13,7 @@ Specifies that a type is a wide character
 
 ```cpp
 template<typename Any>
-concept WideCharacter = xieite::concepts::SameAs<std::remove_cv_t<Any>, wchar_t, char16_t, char32_t>;
+concept WideCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Any>, wchar_t, char16_t, char32_t>;
 ```
 ### Template parameters
 - `Any` - Any type

@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_ALGORITHMS
-#	define XIEITE_HEADER_ALGORITHMS
+#ifndef XIEITE_HEADER__ALGORITHMS
+#	define XIEITE_HEADER__ALGORITHMS
 
 #	include "./algorithms/count.hpp"
 #	include "./algorithms/findOccurrence.hpp"

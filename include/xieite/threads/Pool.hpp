@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_THREADS_POOL
-#	define XIEITE_HEADER_THREADS_POOL
+#ifndef XIEITE_HEADER__THREADS__POOL
+#	define XIEITE_HEADER__THREADS__POOL
 
 #	include <condition_variable>
 #	include <cstddef>
@@ -51,6 +51,7 @@ namespace xieite::threads {
 			}
 		}
 
+		[[nodiscard]]
 		std::size_t getThreadCount() const noexcept {
 			return std::ranges::size(this->threads);
 		}

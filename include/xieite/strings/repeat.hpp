@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS_REPEAT
-#	define XIEITE_HEADER_STRINGS_REPEAT
+#ifndef XIEITE_HEADER__STRINGS__REPEAT
+#	define XIEITE_HEADER__STRINGS__REPEAT
 
 #	include <cstddef>
 #	include <string>

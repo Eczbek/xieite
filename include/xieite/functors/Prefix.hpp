@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_FUNCTORS_PREFIX
-#	define XIEITE_HEADER_FUNCTORS_PREFIX
+#ifndef XIEITE_HEADER__FUNCTORS__PREFIX
+#	define XIEITE_HEADER__FUNCTORS__PREFIX
 
 #	include "../concepts/Functable.hpp"
 

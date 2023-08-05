@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_LOGARITHM
-#	define XIEITE_HEADER_MATH_LOGARITHM
+#ifndef XIEITE_HEADER__MATH__LOGARITHM
+#	define XIEITE_HEADER__MATH__LOGARITHM
 
 #	include <cmath>
 #	include "../concepts/Arithmetic.hpp"

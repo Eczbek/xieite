@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_META
-#	define XIEITE_HEADER_META
+#ifndef XIEITE_HEADER__META
+#	define XIEITE_HEADER__META
 
 #	include "./meta/Version.hpp"
 

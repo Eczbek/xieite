@@ -9,5 +9,5 @@ Type traits
 
 <pre><code>traits/
 |- <a href="./traits/isFunctable.md">isFunctable</a>
-`- <a href="./traits/isTemporalDuration.md">isTemporalDuration</a>
+`- <a href="./traits/isChronoDuration.md">isChronoDuration</a>
 </code></pre>

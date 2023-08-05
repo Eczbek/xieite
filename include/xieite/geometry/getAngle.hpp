@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_GETANGLE
-#	define XIEITE_HEADER_GEOMETRY_GETANGLE
+#ifndef XIEITE_HEADER__GEOMETRY__GET__ANGLE
+#	define XIEITE_HEADER__GEOMETRY__GET__ANGLE
 
 #	include <cmath>
 #	include "../concepts/LinearShape.hpp"

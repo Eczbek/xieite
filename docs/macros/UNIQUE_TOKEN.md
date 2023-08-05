@@ -12,7 +12,7 @@ Creates a unique token
 <br/>
 
 ```cpp
-#define XIEITE_UNIQUE_TOKEN XIEITE_CONCATENATE(XIEITE_INTERNAL_UNIQUE_TOKEN_, __COUNTER__)
+#define XIEITE__UNIQUE_TOKEN XIEITE__CONCATENATE(XIEITE_INTERNAL_UNIQUE_TOKEN_, __COUNTER__)
 ```
 
 <br/><br/>
@@ -22,8 +22,8 @@ Creates a unique token
 #include <xieite/macros/UNIQUE_TOKEN.hpp>
 
 int main() {
-	int XIEITE_UNIQUE_TOKEN = 999;
+	int XIEITE__UNIQUE_TOKEN = 999;
 
-	double XIEITE_UNIQUE_TOKEN = 3.14159;
+	double XIEITE__UNIQUE_TOKEN = 3.14159;
 }
 ```

@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_GENERATEPI
-#	define XIEITE_HEADER_MATH_GENERATEPI
+#ifndef XIEITE_HEADER__MATH__GENERATE_PI
+#	define XIEITE_HEADER__MATH__GENERATE_PI
 
 #	include <concepts>
 #	include <vector>
@@ -7,6 +7,7 @@
 
 namespace xieite::math {
 	template<std::integral Integral = int>
+	[[nodiscard]]
 	constexpr std::vector<Integral> generatePi(std::size_t digits) noexcept {
 		xieite::math::BigInteger a = 180;
 		xieite::math::BigInteger b = 1;

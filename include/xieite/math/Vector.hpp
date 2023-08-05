@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_VECTOR
-#	define XIEITE_HEADER_MATH_VECTOR
+#ifndef XIEITE_HEADER__MATH__VECTOR
+#	define XIEITE_HEADER__MATH__VECTOR
 
 #	include "../concepts/Arithmetic.hpp"
 

@@ -12,12 +12,12 @@ Constructs a `xieite::threads::Interval`, starts running a callback between set 
 <br/>
 
 ```cpp
-template<std::invocable<> Invocable, xieite::concepts::TemporalDuration TemporalDuration>
-Interval(const Invocable& callback, TemporalDuration duration) noexcept;
+template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
+Interval(const Invocable& callback, ChronoDuration duration) noexcept;
 ```
 ### Template parameters
 - `Invocable` - A type satisfying `std::invocable`
-- `TemporalDuration` - A type satisfying `xieite::concepts::TemporalDuration`
+- `ChronoDuration` - A type satisfying `xieite::concepts::ChronoDuration`
 ### Parameters
 - `callback` - A constant `Invocable` reference
-- `duration` - A `TemporalDuration`
+- `duration` - A `ChronoDuration`

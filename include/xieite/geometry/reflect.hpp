@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_REFLECT
-#	define XIEITE_HEADER_GEOMETRY_REFLECT
+#ifndef XIEITE_HEADER__GEOMETRY__REFLECT
+#	define XIEITE_HEADER__GEOMETRY__REFLECT
 
 #	include "../concepts/LinearShape.hpp"
 #	include "../geometry/Point.hpp"

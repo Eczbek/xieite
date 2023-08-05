@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_ROBERT
-#	define XIEITE_HEADER_MATH_ROBERT
+#ifndef XIEITE_HEADER__MATH__ROBERT
+#	define XIEITE_HEADER__MATH__ROBERT
 
 #	include <concepts>
 #	include <limits>

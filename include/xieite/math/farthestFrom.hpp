@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_FARTHESTFROM
-#	define XIEITE_HEADER_MATH_FARTHESTFROM
+#ifndef XIEITE_HEADER__MATH__FARTHEST_FROM
+#	define XIEITE_HEADER__MATH__FARTHEST_FROM
 
 #	include "../concepts/Arithmetic.hpp"
 #	include "../math/Result.hpp"

@@ -1,11 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_FUNCTABLE
-#	define XIEITE_HEADER_CONCEPTS_FUNCTABLE
+#ifndef XIEITE_HEADER__CONCEPTS__FUNCTABLE
+#	define XIEITE_HEADER__CONCEPTS__FUNCTABLE
 
-#	include "../traits/isFunctable.hpp"
+#	include "../traits/IsFunctable.hpp"
 
 namespace xieite::concepts {
-	template<typename Functor, typename Type>
-	concept Functable = xieite::traits::isFunctable<Functor, Type>;
+	template<typename Functor, typename Specification>
+	concept Functable = xieite::traits::IsFunctable<Functor, Specification>::value;
 }
 
 #endif

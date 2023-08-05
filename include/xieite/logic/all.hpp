@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_LOGIC_ALL
-#	define XIEITE_HEADER_LOGIC_ALL
+#ifndef XIEITE_HEADER__LOGIC__ALL
+#	define XIEITE_HEADER__LOGIC__ALL
 
 #	include <concepts>
 #	include <type_traits>

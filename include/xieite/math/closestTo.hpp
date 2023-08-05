@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_CLOSESTTO
-#	define XIEITE_HEADER_MATH_CLOSESTTO
+#ifndef XIEITE_HEADER__MATH__CLOSEST_TO
+#	define XIEITE_HEADER__MATH__CLOSEST_TO
 
 #	include "../concepts/Arithmetic.hpp"
 #	include "../math/Result.hpp"

@@ -1,11 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_COPYASSIGNABLE
-#	define XIEITE_HEADER_CONCEPTS_COPYASSIGNABLE
+#ifndef XIEITE_HEADER__CONCEPTS__COPY_ASSIGNABLE
+#	define XIEITE_HEADER__CONCEPTS__COPY_ASSIGNABLE
 
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept CopyAssignable = std::is_copy_assignable_v<Any>;
+	template<typename Type>
+	concept CopyAssignable = std::is_copy_assignable_v<Type>;
 }
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_SYSTEM_SEGMENTATIONFAULT
-#	define XIEITE_HEADER_SYSTEM_SEGMENTATIONFAULT
+#ifndef XIEITE_HEADER__SYSTEM__SEGMENTATION_FAULT
+#	define XIEITE_HEADER__SYSTEM__SEGMENTATION_FAULT
 
 namespace xieite::system {
 	inline void segmentationFault() noexcept {

@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_ALGORITHMS_GROUP
-#	define XIEITE_HEADER_ALGORITHMS_GROUP
+#ifndef XIEITE_HEADER__ALGORITHMS__GROUP
+#	define XIEITE_HEADER__ALGORITHMS__GROUP
 
 #	include <concepts>
 #	include <cstddef>

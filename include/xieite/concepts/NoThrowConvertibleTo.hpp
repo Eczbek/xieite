@@ -1,11 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_NOTHROWCONVERTIBLETO
-#	define XIEITE_HEADER_CONCEPTS_NOTHROWCONVERTIBLETO
+#ifndef XIEITE_HEADER__CONCEPTS__NO_THROW_CONVERTIBLE_TO
+#	define XIEITE_HEADER__CONCEPTS__NO_THROW_CONVERTIBLE_TO
 
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename From, typename... Tos>
-	concept NoThrowConvertibleTo = (std::is_nothrow_convertible_v<From, Tos> || ...);
+	template<typename Source, typename Target>
+	concept NoThrowConvertibleTo = std::is_nothrow_convertible_v<Source, Target>;
 }
 
 #endif

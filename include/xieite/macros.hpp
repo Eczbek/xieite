@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MACROS
-#	define XIEITE_HEADER_MACROS
+#ifndef XIEITE_HEADER__MACROS
+#	define XIEITE_HEADER__MACROS
 
 #	include "./macros/ARCHITECTURE_TYPE.hpp"
 #	include "./macros/ASCII_SUPPORT.hpp"

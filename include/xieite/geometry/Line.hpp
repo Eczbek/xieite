@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_LINE
-#	define XIEITE_HEADER_GEOMETRY_LINE
+#ifndef XIEITE_HEADER__GEOMETRY__LINE
+#	define XIEITE_HEADER__GEOMETRY__LINE
 
 #	include <cmath>
 #	include <limits>

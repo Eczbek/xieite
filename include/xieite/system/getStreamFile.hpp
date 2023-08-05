@@ -1,30 +1,31 @@
-#ifndef XIEITE_HEADER_SYSTEM_GETSTREAMFILE
-#	define XIEITE_HEADER_SYSTEM_GETSTREAMFILE
+#ifndef XIEITE_HEADER__SYSTEM__GET_STREAM_FILE
+#	define XIEITE_HEADER__SYSTEM__GET_STREAM_FILE
 
 #	include "../macros/COMPILER_TYPE.hpp"
 
-#	if !XIEITE_COMPILER_TYPE_GCC
+#	if !XIEITE__COMPILER_TYPE__GCC
 #		error "Compiler not supported"
 #	endif
 
+#	include <concepts>
 #	include <cstdio>
 #	include <ext/stdio_filebuf.h>
 #	include <fstream>
 #	include <iostream>
 #	include <istream>
 #	include <ostream>
-#	include "../concepts/SameAsOrDerivedFrom.hpp"
 
 namespace xieite::system {
-	template<xieite::concepts::SameAsOrDerivedFrom<std::istream, std::ostream> Stream>
+	template<typename Stream>
+	requires std::same_as<Stream, std::istream> || std::derived_from<Stream, std::istream> || std::same_as<Stream, std::ostream> || std::derived_from<Stream, std::ostream>
 	[[nodiscard]]
 	inline std::FILE* getStreamFile(const Stream& stream) noexcept {
-		if constexpr (xieite::concepts::SameAsOrDerivedFrom<Stream, std::istream>) {
+		if constexpr (std::same_as<Stream, std::istream> || std::derived_from<Stream, std::istream>) {
 			if (&stream == &std::cin) {
 				return stdin;
 			}
 		}
-		if constexpr (xieite::concepts::SameAsOrDerivedFrom<Stream, std::ostream>) {
+		if constexpr (std::same_as<Stream, std::ostream> || std::derived_from<Stream, std::ostream>) {
 			if (&stream == &std::cout) {
 				return stdout;
 			}

@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_TYPES_SIZEBITS
-#	define XIEITE_HEADER_TYPES_SIZEBITS
+#ifndef XIEITE_HEADER__TYPES__SIZEBITS
+#	define XIEITE_HEADER__TYPES__SIZEBITS
 
 #	include <cstddef>
 #	include "../system/bitsPerByte.hpp"

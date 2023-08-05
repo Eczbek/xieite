@@ -13,7 +13,7 @@ Specifies that a type is a character
 
 ```cpp
 template<typename Any>
-concept Character = xieite::concepts::WideCharacter<Any> || xieite::concepts::SameAs<std::remove_cv_t<Any>, char, char8_t>;
+concept Character = xieite::concepts::WideCharacter<Any> || xieite::concepts::SameAsAny<std::remove_cv_t<Any>, char, char8_t>;
 ```
 ### Template parameters
 - `Any` - Any type

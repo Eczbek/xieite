@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_META_VERSION
-#	define XIEITE_HEADER_META_VERSION
+#ifndef XIEITE_HEADER__META__VERSION
+#	define XIEITE_HEADER__META__VERSION
 
 #	include <compare>
 #	include <cstddef>

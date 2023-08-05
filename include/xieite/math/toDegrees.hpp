@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_TODEGREES
-#	define XIEITE_HEADER_MATH_TODEGREES
+#ifndef XIEITE_HEADER__MATH__TO_DEGREES
+#	define XIEITE_HEADER__MATH__TO_DEGREES
 
 #	include "../concepts/Arithmetic.hpp"
 #	include "../math/Result.hpp"

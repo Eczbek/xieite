@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_BASETO
-#	define XIEITE_HEADER_MATH_BASETO
+#ifndef XIEITE_HEADER__MATH__BASE_TO
+#	define XIEITE_HEADER__MATH__BASE_TO
 
 #	include <concepts>
 #	include <cstddef>

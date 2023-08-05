@@ -12,7 +12,7 @@ Consumes expressions and returns nothing
 <br/>
 
 ```cpp
-#define XIEITE_CONSUME(...)
+#define XIEITE__CONSUME(...)
 ```
 ### Parameters
 - `...` - Any expressions

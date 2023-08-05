@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_SYSTEM_TERMINAL
-#	define XIEITE_HEADER_SYSTEM_TERMINAL
+#ifndef XIEITE_HEADER__SYSTEM__TERMINAL
+#	define XIEITE_HEADER__SYSTEM__TERMINAL
 
 #	include <iostream>
 #	include "../system/StandardStreamsController.hpp"

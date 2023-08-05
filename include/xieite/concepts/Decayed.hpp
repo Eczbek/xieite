@@ -1,12 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_DECAYED
-#	define XIEITE_HEADER_CONCEPTS_DECAYED
+#ifndef XIEITE_HEADER__CONCEPTS__DECAYED
+#	define XIEITE_HEADER__CONCEPTS__DECAYED
 
-#	include <concepts>
-#	include <type_traits>
+#	include "../traits/IsDecayed.hpp"
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept Decayed = std::same_as<Any, std::decay_t<Any>>;
+	template<typename Type>
+	concept Decayed = xieite::traits::IsDecayed<Type>::value;
 }
 
 #endif

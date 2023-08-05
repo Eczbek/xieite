@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_BIGINTEGER
-#	define XIEITE_HEADER_MATH_BIGINTEGER
+#ifndef XIEITE_HEADER__MATH__BIG_INTEGER
+#	define XIEITE_HEADER__MATH__BIG_INTEGER
 
 #	include <compare>
 #	include <concepts>

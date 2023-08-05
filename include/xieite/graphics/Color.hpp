@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GRAPHICS_COLOR
-#	define XIEITE_HEADER_GRAPHICS_COLOR
+#ifndef XIEITE_HEADER__GRAPHICS__COLOR
+#	define XIEITE_HEADER__GRAPHICS__COLOR
 
 #	include <limits>
 #	include <cstdint>

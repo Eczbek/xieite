@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::ConvertibleTo
-Defined in header [<xieite/concepts/ConvertibleTo.hpp>](../../include/xieite/concepts/ConvertibleTo.hpp)
+# [xieite](../xieite.md)::[concepts](../concepts.md)::ConvertibleToAny
+Defined in header [<xieite/concepts/ConvertibleToAny.hpp>](../../include/xieite/concepts/ConvertibleToAny.hpp)
 
 <br/>
 
@@ -13,7 +13,7 @@ Specifies that a type can be converted to at least one of several other types
 
 ```cpp
 template<typename From, typename... Tos>
-concept ConvertibleTo = (std::convertible_to<From, Tos> || ...);
+concept ConvertibleToAny = (std::convertible_to<From, Tos> || ...);
 ```
 ### Template parameters
 - `From` - Any type
@@ -25,9 +25,9 @@ concept ConvertibleTo = (std::convertible_to<From, Tos> || ...);
 ```cpp
 #include <iostream>
 #include <string>
-#include <xieite/concepts/ConvertibleTo.hpp>
+#include <xieite/concepts/ConvertibleToAny.hpp>
 
-template<xieite::concepts::ConvertibleTo<bool, char, int>>
+template<xieite::concepts::ConvertibleToAny<bool, char, int>>
 void test() {
 	std::cout << "foo\n";
 }

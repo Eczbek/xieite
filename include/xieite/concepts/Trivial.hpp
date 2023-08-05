@@ -1,11 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_TRIVIAL
-#	define XIEITE_HEADER_CONCEPTS_TRIVIAL
+#ifndef XIEITE_HEADER__CONCEPTS__TRIVIAL
+#	define XIEITE_HEADER__CONCEPTS__TRIVIAL
 
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept Trivial = std::is_trivial_v<Any>;
+	template<typename Type>
+	concept Trivial = std::is_trivial_v<Type>;
 }
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_ROTATE
-#	define XIEITE_HEADER_GEOMETRY_ROTATE
+#ifndef XIEITE_HEADER__GEOMETRY__ROTATE
+#	define XIEITE_HEADER__GEOMETRY__ROTATE
 
 #	include <concepts>
 #	include <cmath>

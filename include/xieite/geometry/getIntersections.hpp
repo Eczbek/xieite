@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_GETINTERSECTIONS
-#	define XIEITE_HEADER_GEOMETRY_GETINTERSECTIONS
+#ifndef XIEITE_HEADER__GEOMETRY__GET_INTERSECTIONS
+#	define XIEITE_HEADER__GEOMETRY__GET_INTERSECTIONS
 
 #	include <cmath>
 #	include <vector>
@@ -61,8 +61,9 @@ namespace xieite::geometry {
 			}
 		}
 		return intersections;
+
+		// I will NEVER be debugging this code again
 	}
-	// I will NEVER be debugging this code again
 
 	template<xieite::concepts::LinearShape LinearShape>
 	[[nodiscard]]

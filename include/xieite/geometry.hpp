@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY
-#	define XIEITE_HEADER_GEOMETRY
+#ifndef XIEITE_HEADER__GEOMETRY
+#	define XIEITE_HEADER__GEOMETRY
 
 #	include "./geometry/Line.hpp"
 #	include "./geometry/Point.hpp"

@@ -1,11 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_ENUMERATOR
-#	define XIEITE_HEADER_CONCEPTS_ENUMERATOR
+#ifndef XIEITE_HEADER__CONCEPTS__ENUMERATOR
+#	define XIEITE_HEADER__CONCEPTS__ENUMERATOR
 
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept Enumerator = std::is_enum_v<Any>;
+	template<typename Type>
+	concept Enumerator = std::is_enum_v<Type>;
 }
 
 #endif

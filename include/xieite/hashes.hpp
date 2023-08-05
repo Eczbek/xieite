@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_HASHES
-#	define XIEITE_HEADER_HASHES
+#ifndef XIEITE_HEADER__HASHES
+#	define XIEITE_HEADER__HASHES
 
 #	include "./hashes/combine.hpp"
 #	include "./hashes/create.hpp"

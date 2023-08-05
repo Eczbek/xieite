@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_ISPRIME
-#	define XIEITE_HEADER_MATH_ISPRIME
+#ifndef XIEITE_HEADER__MATH__IS_PRIME
+#	define XIEITE_HEADER__MATH__IS_PRIME
 
 #	include <concepts>
 

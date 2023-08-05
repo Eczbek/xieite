@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_XIEITE
-#	define XIEITE_HEADER_XIEITE
+#ifndef XIEITE_HEADER__XIEITE
+#	define XIEITE_HEADER__XIEITE
 
 #	include "./algorithms.hpp"
 #	include "./concepts.hpp"

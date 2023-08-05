@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_DIFFERENCE
-#	define XIEITE_HEADER_MATH_DIFFERENCE
+#ifndef XIEITE_HEADER__MATH__DIFFERENCE
+#	define XIEITE_HEADER__MATH__DIFFERENCE
 
 #	include <cmath>
 #	include <concepts>

@@ -1,12 +1,11 @@
-#ifndef XIEITE_HEADER_CONCEPTS_ORDINARYCHARACTER
-#	define XIEITE_HEADER_CONCEPTS_ORDINARYCHARACTER
+#ifndef XIEITE_HEADER__CONCEPTS__ORDINARY_CHARACTER
+#	define XIEITE_HEADER__CONCEPTS__ORDINARY_CHARACTER
 
-#	include <type_traits>
-#	include "../concepts/SameAs.hpp"
+#	include "../traits/IsOrdinaryCharacter.hpp"
 
 namespace xieite::concepts {
-	template<typename Any>
-	concept OrdinaryCharacter = xieite::concepts::SameAs<std::remove_cv_t<Any>, char, signed char, unsigned char>;
+	template<typename Type>
+	concept OrdinaryCharacter = xieite::traits::IsOrdinaryCharacter<Type>::value;
 }
 
 #endif

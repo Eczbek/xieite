@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_GEOMETRY_TRANSLATE
-#	define XIEITE_HEADER_GEOMETRY_TRANSLATE
+#ifndef XIEITE_HEADER__GEOMETRY__TRANSLATE
+#	define XIEITE_HEADER__GEOMETRY__TRANSLATE
 
 #	include "../concepts/LinearShape.hpp"
 #	include "../geometry/Point.hpp"

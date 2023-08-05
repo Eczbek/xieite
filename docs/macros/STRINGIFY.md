@@ -12,7 +12,7 @@ Converts expressions to a string literally
 <br/>
 
 ```cpp
-#define XIEITE_STRINGIFY(...) XIEITE_INTERNAL_STRINGIFY(__VA_ARGS__)
+#define XIEITE__STRINGIFY(...) XIEITE_INTERNAL_STRINGIFY(__VA_ARGS__)
 ```
 ### Parameters
 - `...` - Any expressions
@@ -25,7 +25,7 @@ Converts expressions to a string literally
 #include <xieite/macros/STRINGIFY.hpp>
 
 int main() {
-	std::cout << XIEITE_STRINGIFY(2 + 2) << '\n';
+	std::cout << XIEITE__STRINGIFY(2 + 2) << '\n';
 }
 ```
 Output:

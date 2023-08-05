@@ -12,7 +12,7 @@ Defers expressions for later evaluation
 <br/>
 
 ```cpp
-#define XIEITE_DEFER(...) __VA_ARGS__ XIEITE_EMPTY()
+#define XIEITE__DEFER(...) __VA_ARGS__ XIEITE__EMPTY()
 ```
 ### Parameters
 - `...` - Any expressions

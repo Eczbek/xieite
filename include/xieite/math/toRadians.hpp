@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_MATH_TORADIANS
-#	define XIEITE_HEADER_MATH_TORADIANS
+#ifndef XIEITE_HEADER__MATH__TO_RADIANS
+#	define XIEITE_HEADER__MATH__TO_RADIANS
 
 #	include "../concepts/Arithmetic.hpp"
 #	include "../math/Result.hpp"
