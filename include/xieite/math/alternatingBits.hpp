@@ -5,8 +5,8 @@
 #	include <limits>
 
 namespace xieite::math {
-	template<std::integral Integral>
-	inline constexpr Integral alternatingBits = std::numeric_limits<Integral>::max() / 3;
+	template<std::integral Integer>
+	inline constexpr Integer alternatingBits = std::numeric_limits<Integer>::max() / 3;
 }
 
 #endif

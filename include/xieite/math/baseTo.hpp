@@ -9,13 +9,13 @@
 #	include <type_traits>
 
 namespace xieite::math {
-	template<std::integral Integral = int>
+	template<std::integral Integer = int>
 	[[nodiscard]]
-	constexpr std::string baseTo(const std::size_t base, const Integral value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
+	constexpr std::string baseTo(const std::size_t base, const Integer value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
 		if (!base) {
 			return "";
 		}
-		std::make_unsigned_t<Integral> absolute = static_cast<std::make_unsigned_t<Integral>>(value);
+		std::make_unsigned_t<Integer> absolute = static_cast<std::make_unsigned_t<Integer>>(value);
 		if (base == 1) {
 			return std::string(absolute, digits[1]);
 		}

@@ -27,9 +27,9 @@ namespace xieite::algorithms {
 		return true;
 	}
 
-	template<std::integral Integral>
+	template<std::integral Integer>
 	[[nodiscard]]
-	constexpr bool isPalindrome(const Integral value, const std::size_t base = 10) noexcept {
+	constexpr bool isPalindrome(const Integer value, const std::size_t base = 10) noexcept {
 		return (value == xieite::math::reverse(value, base));
 	}
 }
