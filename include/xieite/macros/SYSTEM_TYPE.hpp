@@ -27,7 +27,7 @@
 #	define XIEITE__SYSTEM_TYPE__IRIX false
 #	define XIEITE__SYSTEM_TYPE__LINUX false
 #	define XIEITE__SYSTEM_TYPE__LYNXOS false
-#	define XIEITE__SYSTEM_TYPE__MACOS false
+#	define XIEITE__SYSTEM_TYPE__MACINTOSH false
 #	define XIEITE__SYSTEM_TYPE__MINIX false
 #	define XIEITE__SYSTEM_TYPE__MORPHOS false
 #	define XIEITE__SYSTEM_TYPE__MPE_IX false
@@ -196,8 +196,8 @@
 #	endif
 
 #	if defined(macintosh) || defined(Macintosh) || defined(__APPLE__) && defined(__MACH__)
-#		undef XIEITE__SYSTEM_TYPE__MACOS
-#		define XIEITE__SYSTEM_TYPE__MACOS true
+#		undef XIEITE__SYSTEM_TYPE__MACINTOSH
+#		define XIEITE__SYSTEM_TYPE__MACINTOSH true
 #	endif
 
 #	ifdef __minix

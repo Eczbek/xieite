@@ -1,18 +1,13 @@
 # **XIEITE**
 C++ header-only utility library
 
-The goal of this project is to extend the standard library and to provide an organized collection of components that can be included easily in projects without any external dependencies
-
-<br/>
-
-## Usage
-Copy the `include` directory's contents into your project
+This project extends the standard library and provides an organized collection of components that can be included easily in projects without external dependencies
 
 <br/>
 
 ## Support
 - Linux: 100%
-- macOS: Should work
+- Macintosh: Should work
 - Windows: *ish*
 
 <br/>
@@ -21,75 +16,207 @@ Copy the `include` directory's contents into your project
 
 <br/>
 
-## Examples
-```cpp
-// Simple canvas
-// - Select pens with keys 0-9
-// - Space to start or stop drawing
-// - Move cursor with WASD
-// - Press Q to quit
-
-#include <chrono>
-#include <iostream>
-#include <thread>
-#include <xieite/strings/lowercase.hpp>
-#include <xieite/system/BufferPosition.hpp>
-#include <xieite/system/terminal.hpp>
-
-int main() {
-	xieite::system::terminal.setInputEcho(false);
-	xieite::system::terminal.setInputSignals(false);
-	xieite::system::terminal.setScreenAlternative(true);
-
-	char pen = '#';
-	bool draw = false;
-	bool running = true;
-
-	while (running) {
-		for (const char input : xieite::strings::lowercase(xieite::system::terminal.readString())) {
-			if ((input >= '0') && (input <= '9')) {
-				pen = " .:-=+*#%@"[input - '0'];
-			} else {
-				switch (input) {
-				case ' ':
-					draw = !draw;
-					break;
-
-				case 'w':
-					xieite::system::terminal.moveCursorPosition(xieite::system::BufferPosition(0, -1));
-					break;
-
-				case 'a':
-					xieite::system::terminal.moveCursorPosition(xieite::system::BufferPosition(-1, 0));
-					break;
-
-				case 's':
-					xieite::system::terminal.moveCursorPosition(xieite::system::BufferPosition(0, 1));
-					break;
-
-				case 'd':
-					xieite::system::terminal.moveCursorPosition(xieite::system::BufferPosition(1, 0));
-					break;
-
-				case 'q':
-					running = false;
-					break;
-				}
-
-				if (draw) {
-					std::cout << pen;
-					xieite::system::terminal.moveCursorPosition(xieite::system::BufferPosition(-1, 0));
-				}
-			}
-		}
-
-		std::cout.flush();
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
-	}
-
-	xieite::system::terminal.setScreenAlternative(false);
-}
-```
-```cpp
-// ...
-```
+## Features
+- algorithms::count
+- algorithms::findOccurrence
+- algorithms::group
+- algorithms::isPalindrome
+- algorithms::numberSearch
+- algorithms::partialReverse
+- algorithms::rotateMatrix
+- algorithms::sameRelativeOrder
+- concepts::Aggregate
+- concepts::AllOf
+- concepts::AnyOf
+- concepts::Arithmetic
+- concepts::BaseOf
+- concepts::BaseOfAllOf
+- concepts::BaseOfAnyOf
+- concepts::BitsetReference
+- concepts::Character
+- concepts::ChronoDuration
+- concepts::ConvertibleToAllOf
+- concepts::ConvertibleToAnyOf
+- concepts::CopyAssignable
+- concepts::Decayed
+- concepts::Derivable
+- concepts::DerivedFromAllOf
+- concepts::DerivedFromAnyOf
+- concepts::Enumerator
+- concepts::Functable
+- concepts::Hashable
+- concepts::LinearShape
+- concepts::NarrowCharacter
+- concepts::NoThrowConvertibleTo
+- concepts::NoThrowConvertibleToAllOf
+- concepts::NoThrowConvertibleToAnyOf
+- concepts::OrdinaryCharacter
+- concepts::Polymorphic
+- concepts::RangeOf
+- concepts::SameAsAllOf
+- concepts::SameAsAnyOf
+- concepts::StreamableIn
+- concepts::StreamableOut
+- concepts::Trivial
+- concepts::UniformRandomBitGenerator
+- concepts::WideCharacter
+- functors::Infix
+- functors::Overloader
+- functors::Postfix
+- functors::Prefix
+- functors::ProcessGuard
+- functors::ScopeGuard
+- geometry::Line
+- geometry::Point
+- geometry::Polygon
+- geometry::Ray
+- geometry::Segment
+- geometry::containsPoint
+- geometry::getAngle
+- geometry::getAxisIntercept
+- geometry::getDistance
+- geometry::getIntersections
+- geometry::getLength
+- geometry::getPerimeter
+- geometry::getSides
+- geometry::getSlope
+- geometry::reflect
+- geometry::rotate
+- geometry::scale
+- geometry::translate
+- graphics::Color
+- hashes::combine
+- hashes::create
+- hashes::distribute
+- logic::all
+- logic::andValue
+- logic::any
+- logic::orValue
+- macros::ARCHITECTURE_TYPE
+- macros::ASCII_SUPPORT
+- macros::COMPILER_TYPE
+- macros::COMPILER_VERSION
+- macros::CONCATENATE
+- macros::CONSUME
+- macros::DEFER
+- macros::EMPTY
+- macros::FORCE_INLINE
+- macros::FUNCTION_SIGNATURE
+- macros::LOOP
+- macros::MATRIX
+- macros::NO_RETURN
+- macros::OBSTRUCT
+- macros::REPEAT_CONCATENATE
+- macros::REPEAT
+- macros::RESTRICT
+- macros::SCAN
+- macros::STANDARD_LANGUAGE
+- macros::STANDARD_UNIX
+- macros::STRINGIFY
+- macros::STRUCTURE_UUID
+- macros::SYSTEM_TYPE
+- macros::UNIQUE_TOKEN
+- macros::UNREACHABLE
+- macros::VANISH
+- macros::VERSION
+- math::AttemptSign
+- math::AttemptUnsign
+- math::BigInteger
+- math::ConditionalSign
+- math::Interval
+- math::MinimalInteger
+- math::Result
+- math::absolute
+- math::almostEqual
+- math::almostEqualSlope
+- math::alternatingBits
+- math::baseFrom
+- math::baseTo
+- math::closestTo
+- math::cosecant
+- math::cotangent
+- math::difference
+- math::digits
+- math::farthestFrom
+- math::generatePi
+- math::isPowerOf2
+- math::isPrime
+- math::logarithm
+- math::mergeIntervals
+- math::pi
+- math::reverse
+- math::robert
+- math::secant
+- math::tau
+- math::toDegrees
+- math::toRadians
+- math::wrap
+- math::xorShift
+- memory::bufferSize
+- memory::detectCosmicRay
+- memory::getAvailable
+- memory::getPageSize
+- memory::getTotal
+- meta::Version
+- random::UniformInterruptableDistribution
+- random::getUUID
+- strings::lowercase
+- strings::radiotelephonySpellingAlphabet
+- strings::repeat
+- strings::something
+- strings::trim
+- strings::trimBack
+- strings::trimFront
+- strings::truncate
+- strings::uppercase
+- strings::whitespaces
+- system::BufferPosition
+- system::StandardStreamsController
+- system::bitsPerByte
+- system::closeFilePipe
+- system::execute
+- system::getStreamFile
+- system::openFilePipe
+- system::segmentationFault
+- system::terminal
+- threads::Interval
+- threads::Loop
+- threads::Pool
+- threads::Timeout
+- traits::IsAllOf
+- traits::IsAnyOf
+- traits::IsBaseOfAllOf
+- traits::IsBaseOfAnyOf
+- traits::IsBitsetReference
+- traits::IsCharacter
+- traits::IsChronoDuration
+- traits::IsConvertibleToAllOf
+- traits::IsConvertibleToAnyOf
+- traits::IsDecayed
+- traits::IsDerivable
+- traits::IsDerivedFromAllOf
+- traits::IsDerivedFromAnyOf
+- traits::IsFunctable
+- traits::IsHashable
+- traits::IsLinearShape
+- traits::IsNarrowCharacter
+- traits::IsNoThrowConvertibleToAllOf
+- traits::IsNoThrowConvertibleToAnyOf
+- traits::IsOrdinaryCharacter
+- traits::IsRangeOf
+- traits::IsSameAsAllOf
+- traits::IsSameAsAnyOf
+- traits::IsStreamableIn
+- traits::IsStreamableOut
+- traits::IsUniformRandomBitGenerator
+- traits::IsWideCharacter
+- types::List
+- types::PartialBack
+- types::PartialFront
+- types::Unique
+- types::count
+- types::demangle
+- types::sizeBits
+- units::areas
+- units::lengths
+- units::volumes
