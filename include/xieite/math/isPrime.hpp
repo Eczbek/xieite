@@ -4,13 +4,13 @@
 #	include <concepts>
 
 namespace xieite::math {
-	template<std::integral Integral>
+	template<std::integral Integer>
 	[[nodiscard]]
-	constexpr bool isPrime(const Integral value) noexcept {
+	constexpr bool isPrime(const Integer value) noexcept {
 		if (value < 0) {
 			return false;
 		}
-		for (Integral i = 0; (i * i) <= value; ++i) {
+		for (Integer i = 0; (i * i) <= value; ++i) {
 			if (!(value % i)) {
 				return false;
 			}

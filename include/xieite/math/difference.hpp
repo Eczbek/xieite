@@ -6,15 +6,15 @@
 #	include <type_traits>
 
 namespace xieite::math {
-	template<std::integral Integral>
+	template<std::integral Integer>
 	[[nodiscard]]
-	constexpr std::make_unsigned_t<Integral> difference(const Integral a, const Integral b) noexcept {
-		return ((a > b) ? (static_cast<std::make_unsigned_t<Integral>>(a) - static_cast<std::make_unsigned_t<Integral>>(b)) : (static_cast<std::make_unsigned_t<Integral>>(b) - static_cast<std::make_unsigned_t<Integral>>(a)));
+	constexpr std::make_unsigned_t<Integer> difference(const Integer a, const Integer b) noexcept {
+		return ((a > b) ? (static_cast<std::make_unsigned_t<Integer>>(a) - static_cast<std::make_unsigned_t<Integer>>(b)) : (static_cast<std::make_unsigned_t<Integer>>(b) - static_cast<std::make_unsigned_t<Integer>>(a)));
 	}
 
-	template<std::floating_point FloatingPoint>
+	template<std::floating_point Floating>
 	[[nodiscard]]
-	constexpr FloatingPoint difference(const FloatingPoint a, const FloatingPoint b) noexcept {
+	constexpr Floating difference(const Floating a, const Floating b) noexcept {
 		return std::abs(a - b);
 	}
 }

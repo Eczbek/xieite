@@ -1,66 +1,78 @@
 # [xieite](../xieite.md)::[algorithms](../algorithms.md)::numberSearch
 Defined in header [<xieite/algorithms/numberSearch.hpp>](../../include/xieite/algorithms/numberSearch.hpp)
 
-<br/>
+&nbsp;
 
-Using a variant of the binary search algorithm, finds the lowest value which, if passed to the callback, will return `true`. If not given minimum and maximum search limits, starting from 1, will exponentially decrease or increase a limit until it contains the possible range. The callback **must** be logically equaivalent to (x >= y), where x is the callback parameter and y is the desired limit
+Finds the lowest numerical value which, if passed to the provided callback, will return `true`. Will automatically determine minimum and maximum limits if they are not given. The callback **must** be logically equaivalent to `(x >= y)`, where `x` is the callback argument and `y` is the desired limit. See example.
 
-<br/><br/>
+&nbsp;
+
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
-```cpp
-template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
-[[nodiscard]]
-constexpr Arithmetic numberSearch(const Functable& selector, Arithmetic minimum, Arithmetic maximum);
-```
-### Template parameters
-- `Arithmetic` - An integer or floating point type satisfying `xieite::concepts::Arithmetic`
-- `Functable` - A functor type satisfying `xieite::concepts::Functable` which accepts a `Arithmetic` and returns a `bool`
-### Parameters
-- `selector` - A constant `Functable` reference
-- `minimum` - An `Arithmetic`, determining the minimum search limit for the algorithm
-- `maxumum` - An `Arithmetic`, determining the maxumum search limit for the algorithm
-### Return value
-- An `Arithmetic`, the lowest value allowed by the callback
+> ```cpp
+> template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
+> [[nodiscard]]
+> constexpr Arithmetic numberSearch(const Functable& selector, Arithmetic minimum, Arithmetic maximum);
+> ```
+> #### Template parameters
+> - `Arithmetic`, satisfying `xieite::concepts::Arithmetic`
+> - `Functable`, satisfying `xieite::concepts::Functable` of a function type which accepts an `Arithmetic` and returns a `bool`
+> #### Function parameters
+> - `selector`, reference to a constant `Functable`
+> - `minimum`, an `Arithmetic`
+> - `maxumum`, an `Arithmetic`
+> #### Return type
+> - `Arithmetic`
+> #### Specifiers
+> - `constexpr`
+> - `inline`, implicit
+> #### Attributes
+> - `nodiscard`
 
-<br/><br/>
+&nbsp;
 
-```cpp
-template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
-[[nodiscard]]
-constexpr Arithmetic numberSearch(const Functable& selector);
-```
-### Template parameters
-- `Arithmetic` - An integer or floating point type satisfying `xieite::concepts::Arithmetic`
-- `Functable` - A functor type satisfying `xieite::concepts::Functable` which accepts a `Arithmetic` and returns a `bool`
-### Parameters
-- `selector` - A `Functor` constant reference
-### Return value
-- An `Arithmetic` - The lowest value allowed by the callback
+> ```cpp
+> template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
+> [[nodiscard]]
+> constexpr Arithmetic numberSearch(const Functable& selector);
+> ```
+> #### Template parameters
+> - `Arithmetic`, satisfying `xieite::concepts::Arithmetic`
+> - `Functable`, satisfying `xieite::concepts::Functable` of a function type which accepts an `Arithmetic` and returns a `bool`
+> #### Function parameters
+> - `selector`, reference to a constant `Functable`
+> #### Return type
+> - `Arithmetic`
+> #### Specifiers
+> - `constexpr`
+> - `inline`, implicit
+> #### Attributes
+> - `nodiscard`
 
-<br/><br/>
+&nbsp;
+
+&nbsp;
 
 ## Example
-```cpp
-#include <iostream>
-#include <xieite/algorithms/numberSearch.hpp>
-
-bool checkCollision(double x) {
-	return x < 10;
-}
-
-int main() {
-	auto callback = [](double x) {
-		return !checkCollision(x);
-	};
-
-	std::cout << xieite::algorithms::numberSearch(callback, 5.0, 15.0) << '\n';
-}
-```
-Output:
-```
-10
-```
+> ```cpp
+> #include <iostream>
+> #include <xieite/algorithms/numberSearch.hpp>
+> 
+> bool checkCollision(double x) {
+>     return x < 10;
+> }
+> 
+> int main() {
+>     std::cout << xieite::algorithms::numberSearch([](double x) {
+>         return !checkCollision(x);
+>     }) << '\n';
+> }
+> ```
+> Output:
+> ```
+> 10
+> ```

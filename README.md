@@ -3,18 +3,18 @@ C++ header-only utility library
 
 This project extends the standard library and provides an organized collection of components that can be included easily in projects without external dependencies
 
-<br/>
+&nbsp;
 
 ## Support
 - Linux: 100%
 - Macintosh: Should work
 - Windows: *ish*
 
-<br/>
+&nbsp;
 
 ## [Documentation](https://github.com/Eczbek/xieite/tree/main/docs/xieite.md)
 
-<br/>
+&nbsp;
 
 ## Features
 - algorithms::count

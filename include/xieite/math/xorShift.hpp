@@ -5,9 +5,9 @@
 #	include <cstddef>
 
 namespace xieite::math {
-	template<std::integral Integral>
+	template<std::integral Integer>
 	[[nodiscard]]
-	constexpr Integral xorShift(const Integral value, const std::size_t bits) noexcept {
+	constexpr Integer xorShift(const Integer value, const std::size_t bits) noexcept {
 		return (value ^ (value >> bits));
 	}
 }

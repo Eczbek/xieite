@@ -8,10 +8,10 @@
 #	include "../math/xorShift.hpp"
 
 namespace xieite::hashes {
-	template<std::unsigned_integral UnsignedIntegral>
+	template<std::unsigned_integral UnsignedInteger>
 	[[nodiscard]]
-	constexpr UnsignedIntegral distribute(const UnsignedIntegral value) noexcept {
-		return xieite::math::robert<UnsignedIntegral> * xieite::math::xorShift(xieite::math::alternatingBits<UnsignedIntegral> * xieite::math::xorShift(value, sizeof(UnsignedIntegral) * 4), sizeof(UnsignedIntegral) * 4);
+	constexpr UnsignedInteger distribute(const UnsignedInteger value) noexcept {
+		return xieite::math::robert<UnsignedInteger> * xieite::math::xorShift(xieite::math::alternatingBits<UnsignedInteger> * xieite::math::xorShift(value, sizeof(UnsignedInteger) * 4), sizeof(UnsignedInteger) * 4);
 	}
 }
 

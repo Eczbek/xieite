@@ -8,9 +8,9 @@
 #	include "../math/logarithm.hpp"
 
 namespace xieite::math {
-	template<std::integral Integral>
+	template<std::integral Integer>
 	[[nodiscard]]
-	constexpr std::size_t digits(const Integral value, const std::size_t base = 10) noexcept {
+	constexpr std::size_t digits(const Integer value, const std::size_t base = 10) noexcept {
 		return (!base ? 0 : ((base == 1) ? value : std::ceil(xieite::math::logarithm(base, xieite::math::absolute(value) + !value + 1))));
 	}
 }
