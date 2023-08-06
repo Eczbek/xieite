@@ -20,11 +20,11 @@ Finds a specific occurrence of a value in a range and returns an iterator pointi
 > - `Callback`, satisfying `xieite::concepts::Functable` of a function pointer which accepts two of `std::ranges::range_value_t` of `Range` and returns a `bool`, set to `std::ranges::equal_to` by default
 > #### Function parameters
 > - `range`, reference to a constant `Range`
-> - `value`, a `std::ranges::range:const_reference_t` of `Range`
+> - `value`, a `std::ranges::range_const_reference_t` of `Range`
 > - `count`, a `std::size_t`
 > - `comparator`, reference to a constant `Callback`, default-constructed by default
 > #### Return type
-> - `std::ranges::const_iterator_t` of reference to constant `Range`, pointing to the specified value occurrence or to `std::ranges::end(range)` if it is not found
+> - `std::ranges::const_iterator_t` of reference to a constant `Range`, pointing to the specified value occurrence, or to `std::ranges::end(range)` if it is not found
 > #### Specifiers
 > - `constexpr`
 > - `inline`, implicit
