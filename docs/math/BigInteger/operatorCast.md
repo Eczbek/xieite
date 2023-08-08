@@ -1,32 +1,33 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::operator typename
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:operator typename
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Casts a `xieite::math::BigInteger` to any other arithmetic type
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
 constexpr operator Arithmetic() const noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `Arithmetic` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr operator bool() const noexcept;
 ```
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -34,9 +35,9 @@ constexpr operator bool() const noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout
-		<< std::boolalpha
-		<< static_cast<bool>(xieite::math::BigInteger(4)) << '\n';
+    std::cout
+        << std::boolalpha
+        << static_cast<bool>(xieite::math::BigInteger(4)) << '\n';
 }
 ```
 Output:

@@ -1,17 +1,14 @@
-# [xieite](../xieite.md)::[math](../math.md)::Result
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:Result
 Defined in header [<xieite/math/Result.hpp>](../../include/xieite/math/Result.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<xieite::concepts::Arithmetic... Arithmetics>
 using Result = std::conditional_t<(std::same_as<Arithmetics, long double> || ...), long double, double>;
 ```
-### Template parameters
+#### Template parameters
 - `Arithmetics` - Types satisfying `xieite::concepts::Arithmetic`
-### Resulting type
+#### Resulting type
 - If any of `Arithmetics` is `long double`, then `long double`, otherwise `double`

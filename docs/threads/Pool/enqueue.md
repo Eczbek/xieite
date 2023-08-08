@@ -1,18 +1,16 @@
-# [xieite](../../xieite.md)::[threads](../../threads.md)::[Pool](../Pool.md)::enqueue
+# [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:[Pool](../Pool.md)\:\:enqueue
 Defined in header [<xieite/threads/Pool.hpp>](../../../include/xieite/threads/Pool.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Enqueues a job to be executed when a thread is available
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void enqueue(const std::function<void()>& callback) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `callback` - A constant reference to a `std::function` which takes no arguments and returns `void`

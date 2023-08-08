@@ -1,45 +1,40 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::ConvertibleToAny
-Defined in header [<xieite/concepts/ConvertibleToAny.hpp>](../../include/xieite/concepts/ConvertibleToAny.hpp)
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:ConvertibleToAnyOf
+Defined in header [<xieite/concepts/ConvertibleToAnyOf.hpp>](../../include/xieite/concepts/ConvertibleToAnyOf.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type can be converted to at least one of several other types
+## Description
+Specifies that a type can be converted to at least one of several other types.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename From, typename... Tos>
-concept ConvertibleToAny = (std::convertible_to<From, Tos> || ...);
+template<typename Source, typename... Targets>
+concept ConvertibleToAnyOf = (std::convertible_to<Source, Targets> || ...);
 ```
-### Template parameters
-- `From` - Any type
-- `Tos...` - Any types
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
 #include <iostream>
 #include <string>
-#include <xieite/concepts/ConvertibleToAny.hpp>
+#include <xieite/concepts/ConvertibleToAnyOf.hpp>
 
-template<xieite::concepts::ConvertibleToAny<bool, char, int>>
+template<xieite::concepts::ConvertibleToAnyOf<bool, char, int>>
 void test() {
-	std::cout << "foo\n";
+    std::cout << "foo\n";
 }
 
 template<typename>
 void test() {
-	std::cout << "bar\n";
+    std::cout << "bar\n";
 }
 
 int main() {
-	test<char>();
-	test<std::string>();
+    test<char>();
+    test<std::string>();
 }
 ```
 Output:

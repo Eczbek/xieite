@@ -16,6 +16,7 @@
 #	include "./traits/IsDerivedFromAnyOf.hpp"
 #	include "./traits/IsFunctable.hpp"
 #	include "./traits/IsHashable.hpp"
+#	include "./traits/IsHasher.hpp"
 #	include "./traits/IsLinearShape.hpp"
 #	include "./traits/IsNarrowCharacter.hpp"
 #	include "./traits/IsNoThrowConvertibleToAllOf.hpp"

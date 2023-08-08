@@ -1,24 +1,22 @@
-# [xieite](../xieite.md)::[math](../math.md)::cotangent
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:cotangent
 Defined in header [<xieite/math/cotangent.hpp>](../../include/xieite/math/cotagent.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Calculates the cotangent of a value
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
 constexpr xieite::math::Result<Arithmetic> cotangent(Arithmetic value) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `Arithmetic` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
-### Parameters
+#### Function parameters
 - `value` - An `Arithmetic`
-### Return value
-- A `xieite::math::Result` of `Arithmetic`
+#### Return type
+- `xieite::math::Result` of `Arithmetic`

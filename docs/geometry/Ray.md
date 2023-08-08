@@ -1,37 +1,34 @@
-# [xieite](../xieite.md)::[geometry](../geometry.md)::Ray
+# [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:Ray
 Defined in header [<xieite/geometry/Ray.hpp>](../../include/xieite/geometry/Ray.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 A struct representing an infinite ray with one end
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 struct Ray {
-	xieite::geometry::Point start;
-	xieite::geometry::Point end;
+    xieite::geometry::Point start;
+    xieite::geometry::Point end;
 
-	constexpr Ray(xieite::geometry::Point, xieite::geometry::Point);
+    constexpr Ray(xieite::geometry::Point, xieite::geometry::Point);
 
-	constexpr Ray(xieite::geometry::Point, double);
+    constexpr Ray(xieite::geometry::Point, double);
 
-	constexpr bool operator==(const xieite::geometry::Ray&) const;
+    constexpr bool operator==(const xieite::geometry::Ray&) const;
 };
 ```
-### Public members
-<pre><code>Ray/
+#### Public members
+## Contents
 |- start
 |- end
 |- <a href="./Ray/constructor.md">Ray</a>
 `- <a href="./Ray/operatorEquals.md">operator==</a>
-</code></pre>
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -39,9 +36,9 @@ struct Ray {
 #include <xieite/geometry/Ray.hpp>
 
 int main() {
-	std::cout
-		<< std::boolalpha
-		<< xieite::geometry::containsPoint(xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }), { -1.0, -1.0 }) << '\n';
+    std::cout
+        << std::boolalpha
+        << xieite::geometry::containsPoint(xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }), { -1.0, -1.0 }) << '\n';
 }
 ```
 Output:

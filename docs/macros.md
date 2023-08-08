@@ -1,38 +1,38 @@
-# [XIEITE](./xieite.md)_...
+# [XIEITE](./xieite.md)\_...
 Aggregated in header [<xieite/macros.hpp>](../include/xieite/macros.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Macros
 
-<br/><br/>
+&nbsp;
 
-<pre><code>macros/
-|- <a href="./macros/ARCHITECTURE_TYPE.md">ARCHITECTURE_TYPE</a>
-|- <a href="./macros/ASCII_SUPPORT.md">ASCII_SUPPORT</a>
-|- <a href="./macros/COMPILER_TYPE.md">COMPILER_TYPE</a>
-|- <a href="./macros/COMPILER_VERSION.md">COMPILER_VERSION</a>
-|- <a href="./macros/CONCATENATE.md">CONCATENATE</a>
-|- <a href="./macros/CONSUME.md">CONSUME</a>
-|- <a href="./macros/DEFER.md">DEFER</a>
-|- <a href="./macros/EMPTY.md">EMPTY</a>
-|- <a href="./macros/FORCE_INLINE.md">FORCE_INLINE</a>
-|- <a href="./macros/FUNCTION_SIGNATURE.md">FUNCTION_SIGNATURE</a>
-|- <a href="./macros/LOOP.md">LOOP</a>
-|- <a href="./macros/MATRIX.md">MATRIX</a>
-|- <a href="./macros/NO_RETURN.md">NO_RETURN</a>
-|- <a href="./macros/OBSTRUCT.md">OBSTRUCT</a>
-|- <a href="./macros/REPEAT.md">REPEAT</a>
-|- <a href="./macros/REPEAT_CONCATENATE.md">REPEAT_CONCATENATE</a>
-|- <a href="./macros/RESTRICT.md">RESTRICT</a>
-|- <a href="./macros/SCAN.md">SCAN</a>
-|- <a href="./macros/STANDARD_LANGUAGE.md">STANDARD_LANGUAGE</a>
-|- <a href="./macros/STANDARD_UNIX.md">STANDARD_UNIX</a>
-|- <a href="./macros/STRINGIFY.md">STRINGIFY</a>
-|- <a href="./macros/STRUCTURE_UUID.md">STRUCTURE_UUID</a>
-|- <a href="./macros/SYSTEM_TYPE.md">SYSTEM_TYPE</a>
-|- <a href="./macros/UNIQUE_TOKEN.md">UNIQUE_TOKEN</a>
-|- <a href="./macros/UNREACHABLE.md">UNREACHABLE</a>
-|- <a href="./macros/VANISH.md">VANISH</a>
-`- <a href="./macros/VERSION.md">VERSION</a>
-</code></pre>
+## Contents
+- [XIEITE__ARCHITECTURE_TYPE__...](./macros/ARCHITECTURE_TYPE.md)
+- [XIEITE__ASCII_SUPPORT](./macros/ASCII_SUPPORT.md)
+- [XIEITE__COMPILER_TYPE__...](./macros/COMPILER_TYPE.md)
+- [XIEITE__COMPILER_VERSION__...](./macros/COMPILER_VERSION.md)
+- [XIEITE__CONCATENATE](./macros/CONCATENATE.md)
+- [XIEITE__CONSUME](./macros/CONSUME.md)
+- [XIEITE__DEFER](./macros/DEFER.md)
+- [XIEITE__EMPTY](./macros/EMPTY.md)
+- [XIEITE__FORCE_INLINE](./macros/FORCE_INLINE.md)
+- [XIEITE__FUNCTION_SIGNATURE](./macros/FUNCTION_SIGNATURE.md)
+- [XIEITE__LOOP](./macros/LOOP.md)
+- [XIEITE__MATRIX](./macros/MATRIX.md)
+- [XIEITE__NO_RETURN](./macros/NO_RETURN.md)
+- [XIEITE__OBSTRUCT](./macros/OBSTRUCT.md)
+- [XIEITE__REPEAT](./macros/REPEAT.md)
+- [XIEITE__REPEAT_CONCATENATE](./macros/REPEAT_CONCATENATE.md)
+- [XIEITE__RESTRICT](./macros/RESTRICT.md)
+- [XIEITE__SCAN](./macros/SCAN.md)
+- [XIEITE__STANDARD_LANGUAGE__...](./macros/STANDARD_LANGUAGE.md)
+- [XIEITE__STANDARD_UNIX__...](./macros/STANDARD_UNIX.md)
+- [XIEITE__STRINGIFY](./macros/STRINGIFY.md)
+- [XIEITE__STRUCTURE_UUID](./macros/STRUCTURE_UUID.md)
+- [XIEITE__SYSTEM_TYPE__...](./macros/SYSTEM_TYPE.md)
+- [XIEITE__UNIQUE_TOKEN](./macros/UNIQUE_TOKEN.md)
+- [XIEITE__UNREACHABLE](./macros/UNREACHABLE.md)
+- [XIEITE__VANISH](./macros/VANISH.md)
+- [XIEITE_VERSION__...](./macros/VERSION.md)

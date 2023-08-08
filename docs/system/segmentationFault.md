@@ -1,28 +1,26 @@
-# [xieite](../xieite.md)::[system](../system.md)::segmentationFault
+# [xieite](../xieite.md)\:\:[system](../system.md)\:\:segmentationFault
 Defined in header [<xieite/system/segmentationFault.hpp>](../../include/xieite/system/segmentationFault.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Creates a segmentation fault. Why would you use this?
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 inline void segmentationFault() noexcept;
 ```
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
 #include <xieite/system/segmentationFault.hpp>
 
 int main() {
-	xieite::system::segmentationFault();
+    xieite::system::segmentationFault();
 }
 ```
 Possible output:

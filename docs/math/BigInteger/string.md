@@ -1,24 +1,22 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::string
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:string
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Converts a `xieite::math::BigInteger` to a `std::string`
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr std::string string() const noexcept;
 ```
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -26,7 +24,7 @@ constexpr std::string string() const noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout << xieite::math::BigInteger(418).string() << '\n';
+    std::cout << xieite::math::BigInteger(418).string() << '\n';
 }
 ```
 Output:

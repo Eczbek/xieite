@@ -20,7 +20,7 @@ namespace xieite::algorithms {
 			}
 		}
 		const std::size_t iteratorsSize = std::ranges::size(iterators);
-		for (std::size_t i = 0; i < iteratorsSize / 2; ++i) {
+		for (std::size_t i = 0; i < (iteratorsSize / 2); ++i) {
 			std::ranges::iter_swap(iterators[i], iterators[iteratorsSize - i - 1]);
 		}
 	}

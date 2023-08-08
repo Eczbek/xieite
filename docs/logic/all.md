@@ -1,30 +1,28 @@
-# [xieite](../xieite.md)::[logic](../logic.md)::all
+# [xieite](../xieite.md)\:\:[logic](../logic.md)\:\:all
 Defined in header [<xieite/logic/all.hpp>](../../include/xieite/logic/all.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Checks whether all passed arguments are true. Expects all arguments to be converible to a boolean value
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<std::convertible_to<bool>... Values>
 [[nodiscard]]
 constexpr bool all(const Values&... values)
 noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...)));
 ```
-### Template parameters
+#### Template parameters
 - `Values...` - Types satisfying `std::convertible_to` of `bool`
-### Parameters
+#### Function parameters
 - `values...` - `Values...` constant references
-### Return value
-- A `bool` to represent whether or not all elements are true
+#### Return type
+- `bool` to represent whether or not all elements are true
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -32,9 +30,9 @@ noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...)));
 #include <xieite/logic/all.hpp>
 
 int main() {
-	std::cout
-		<< std::boolalpha
-		<< xieite::logic::all(4, true, '$') << '\n';
+    std::cout
+        << std::boolalpha
+        << xieite::logic::all(4, true, '$') << '\n';
 }
 ```
 Output:

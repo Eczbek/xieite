@@ -1,26 +1,24 @@
-# [xieite](../xieite.md)::[types](../types.md)::demangle
+# [xieite](../xieite.md)\:\:[types](../types.md)\:\:demangle
 Defined in header [<xieite/types/demangle.hpp>](../../include/xieite/types/demangle.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Demangles the name of a `std::type_info`. Returns original string if demangling fails
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 inline std::string demangle(std::string mangled) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `mangled` - A `std::string`, the mangled type name
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -32,11 +30,11 @@ template<typename>
 struct Type {};
 
 int main() {
-	std::string typeName = typeid(Type<int>).name();
+    std::string typeName = typeid(Type<int>).name();
 
-	std::cout
-		<< typeName << '\n'
-		<< xieite::types::demangle(typeName) << '\n';
+    std::cout
+        << typeName << '\n'
+        << xieite::types::demangle(typeName) << '\n';
 }
 ```
 Possible output:

@@ -1,19 +1,17 @@
-# [xieite](../../xieite.md)::[meta](../../meta.md)::[Version](../Version.md)::string
+# [xieite](../../xieite.md)\:\:[meta](../../meta.md)\:\:[Version](../Version.md)\:\:string
 Defined in header [<xieite/meta/Version.hpp>](../../../include/xieite/meta/Version.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Stringifies a version into the format `v<major>.<minor>.<patch>[-<label>]`
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr std::string string() const noexcept;
 ```
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`

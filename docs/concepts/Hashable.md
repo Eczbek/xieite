@@ -1,21 +1,17 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::Hashable
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:Hashable
 Defined in header [<xieite/concepts/Hashable.hpp>](../../include/xieite/concepts/Hashable.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is hashable, or that `std::hash` has a specification for it
+## Description
+Specifies that a type is hashable.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept Hashable = requires(Any value) {
-	{ std::hash<Any>()(value) } -> std::convertible_to<std::size_t>;
+template<typename Type, typename Hasher = std::hash<Type>>
+concept Hashable = requires(Type value, Hasher hasher) {
+    { std::invoke(hasher, value) } -> std::convertible_to<std::size_t>;
 };
 ```
-### Template parameters
-- `Any` - Any type

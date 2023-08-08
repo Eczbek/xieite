@@ -1,26 +1,22 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::StreamableOut
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:StreamableOut
 Defined in header [<xieite/concepts/StreamableOut.hpp>](../../include/xieite/concepts/StreamableOut.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type can be "streamed" out of
+## Description
+Specifies that a type can be streamed out of.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept StreamableOut = requires(std::ostream& outputStream, Any value) {
-	{ outputStream << value } -> std::convertible_to<std::ostream&>;
+template<typename Type>
+concept StreamableOut = requires(Type value, std::ostream outputStream) {
+    { outputStream << value } -> std::same_as<std::ostream&>;
 };
 ```
-### Template parameters
-- `Any` - Any type
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -30,10 +26,10 @@ concept StreamableOut = requires(std::ostream& outputStream, Any value) {
 struct Unstreamable {};
 
 int main() {
-	std::cout
-		<< std::boolalpha
-		<< xieite::concepts::StreamableOut<char> << '\n'
-		<< xieite::concepts::StreamableOut<Unstreamable> << '\n';
+    std::cout
+        << std::boolalpha
+        << xieite::concepts::StreamableOut<char> << '\n'
+        << xieite::concepts::StreamableOut<Unstreamable> << '\n';
 }
 ```
 Output:

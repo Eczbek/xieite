@@ -1,34 +1,31 @@
-# [xieite](../xieite.md)::[geometry](../geometry.md)::Polygon
+# [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:Polygon
 Defined in header [<xieite/geometry/Polygon.hpp>](../../include/xieite/geometry/Polygon.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 A class representing a polygon
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 struct Polygon {
-	std::vector<xieite::geometry::Point> points;
+    std::vector<xieite::geometry::Point> points;
 
-	template<xieite::concepts::RangeOf<xieite::geometry::Point> PointRange>
-	constexpr Polygon(const PointRange& points);
+    template<xieite::concepts::RangeOf<xieite::geometry::Point> PointRange>
+    constexpr Polygon(const PointRange& points);
 
-	constexpr bool operator==(const xieite::geometry::Polygon&) const;
+    constexpr bool operator==(const xieite::geometry::Polygon&) const;
 };
 ```
-### Public members
-<pre><code>Polygon/
+#### Public members
+## Contents
 |- points
 |- <a href="./Polygon/constructor.md">Polygon</a>
 `- <a href="./Polygon/operatorEquals.md">operator==</a>
-</code></pre>
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -37,12 +34,12 @@ struct Polygon {
 #include <xieite/geometry/getArea.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getArea(xieite::geometry::Polygon({
-		{ 1.0, 0.0 },
-		{ 2.0, 1.0 },
-		{ 1.0, 2.0 },
-		{ 0.0, 1.0 }
-	})) << '\n';
+    std::cout << xieite::geometry::getArea(xieite::geometry::Polygon({
+        { 1.0, 0.0 },
+        { 2.0, 1.0 },
+        { 1.0, 2.0 },
+        { 0.0, 1.0 }
+    })) << '\n';
 }
 ```
 Output:

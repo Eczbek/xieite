@@ -1,18 +1,16 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::setTextStrikethrough
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:setTextStrikethrough
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Enables or disables ~~strikethrough~~ text
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void setTextStrikethrough(bool value) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `value` - A `bool` to determine whether to enable or disable strikethrough text

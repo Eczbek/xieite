@@ -4,8 +4,8 @@
 #	include "../traits/IsFunctable.hpp"
 
 namespace xieite::concepts {
-	template<typename Functor, typename Specification>
-	concept Functable = xieite::traits::IsFunctable<Functor, Specification>::value;
+	template<typename Functor, typename Pointer>
+	concept Functable = xieite::traits::IsFunctable<Functor, Pointer>::value;
 }
 
 #endif

@@ -1,27 +1,25 @@
-# [xieite](../xieite.md)::[strings](../strings.md)::repeat
+# [xieite](../xieite.md)\:\:[strings](../strings.md)\:\:repeat
 Defined in header [<xieite/strings/repeat.hpp>](../../include/xieite/strings/repeat.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Repeats a string
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr std::string repeat(std::string_view string, std::size_t count) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `string` - A `std::string_view`, the value to repeat
 - `count` - A `std::size_t`, how many times to repeat string
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -29,7 +27,7 @@ constexpr std::string repeat(std::string_view string, std::size_t count) noexcep
 #include <xieite/strings/repeat.hpp>
 
 int main() {
-	std::cout << xieite::strings::repeat("Hello, world!\n", 3);
+    std::cout << xieite::strings::repeat("Hello, world!\n", 3);
 }
 ```
 Output:

@@ -1,20 +1,35 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::Functable
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:Functable
 Defined in header [<xieite/concepts/Functable.hpp>](../../include/xieite/concepts/Functable.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is functable
+## Description
+Specifies that a type is a functor which accepts and returns specific types.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Functor, typename Type>
-concept Functable = xieite::traits::isFunctable<Functor, Type> && xieite::traits::isFunctable<Type, Functor>;
+template<typename Functor, typename Pointer>
+concept Functable = xieite::traits::IsFunctable<Functor, Pointer>::value;
 ```
-### Template parameters
-- `Functor` - Any type
-- `Type` - The function type, like `void(int, bool)`
+
+&nbsp;
+
+## Example
+```cpp
+#include <iostream>
+#include <xieite/concepts/Functable.hpp>
+
+int main() {
+    auto lambda = [](int x) {
+        return x;
+    };
+
+    std::cout << std::boolalpha << xieite::concepts::Functable<decltype(lambda), int(int)> << '\n';
+}
+```
+Output:
+```
+true
+```

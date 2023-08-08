@@ -1,19 +1,20 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[Interval<Arithmetic>](../Interval.md)::Interval
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[Interval\<Arithmetic\>](../Interval.md)\:\:Interval
 Defined in header [<xieite/math/Interval.hpp>](../../../include/xieite/math/Interval.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Constructs a `xieite::math::Interval<Arithmetic>`
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr Interval(const Arithmetic start, const Arithmetic end) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `start` - An `Arithmetic`
 - `end` - An `Arithmetic`

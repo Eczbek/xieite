@@ -1,19 +1,17 @@
-# [xieite](../xieite.md)::[memory](../memory.md)::getAvailable
+# [xieite](../xieite.md)\:\:[memory](../memory.md)\:\:getAvailable
 Defined in header [<xieite/memory/getAvailable.hpp>](../../include/xieite/memory/getAvailable.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Gets the system's currently available amount of memory
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 inline std::size_t getAvailable() noexcept;
 ```
-### Return value
-- A `std::size_t`, the amount of memory, in bytes
+#### Return type
+- `std::size_t`, the amount of memory, in bytes

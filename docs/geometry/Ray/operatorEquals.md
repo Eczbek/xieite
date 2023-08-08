@@ -1,21 +1,19 @@
-# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Ray](../Ray.md)::operator==
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:[Ray](../Ray.md)\:\:operator==
 Defined in header [<xieite/geometry/Ray.hpp>](../../../include/xieite/geometry/Ray.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Compares two rays to each other
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr bool operator==(const xieite::geometry::Ray& ray) const noexcept;
 ```
-### Parameters
+#### Function parameters
 - `ray` - A `xieite::geometry::Ray` constant reference
-### Return value
-- A `bool` - Whether or not the compared shapes are equal
+#### Return type
+- `bool` - Whether or not the compared shapes are equal

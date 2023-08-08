@@ -1,15 +1,15 @@
-# [xieite](./xieite.md)::logic
+# [xieite](./xieite.md)\:\:logic
 Aggregated in header [<xieite/logic.hpp>](../include/xieite/logic.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Logical utilities, i.e. operate with booleans
 
-<br/><br/>
+&nbsp;
 
-<pre><code>logic/
-|- <a href="./logic/all.md">all</a>
-|- <a href="./logic/andValue.md">andValue</a>
-|- <a href="./logic/any.md">any</a>
-`- <a href="./logic/orValue.md">orValue</a>
-</code></pre>
+## Contents
+- [xieite::logic::all](./logic/all.md)
+- [xieite::logic::andValue](./logic/andValue.md)
+- [xieite::logic::any](./logic/any.md)
+- [xieite::logic::orValue](./logic/orValue.md)

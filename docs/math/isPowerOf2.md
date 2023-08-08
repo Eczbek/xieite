@@ -1,29 +1,27 @@
-# [xieite](../xieite.md)::[math](../math.md)::isPowerOf2
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:isPowerOf2
 Defined in header [<xieite/math/isPowerOf2.hpp>](../../include/xieite/math/isPowerOf2.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Checks that a value is a power of 2
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<std::unsigned_integral UnsignedIntegral>
+template<std::unsigned_integral UnsignedInteger>
 [[nodiscard]]
-constexpr bool isPowerOf2(const UnsignedIntegral value) noexcept;
+constexpr bool isPowerOf2(const UnsignedInteger value) noexcept;
 ```
-### Template parameters
-- `UnsignedIntegral` - An unsigned integral type satisfying `std::unsigned_integral`
-### Parameters
-- `value` - An `UnsignedIntegral`
-### Return value
-- A `bool`, whether or not value is a power of 2
+#### Template parameters
+- `UnsignedInteger` - An unsigned integral type satisfying `std::unsigned_integral`
+#### Function parameters
+- `value` - An `UnsignedInteger`
+#### Return type
+- `bool`, whether or not value is a power of 2
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -31,10 +29,10 @@ constexpr bool isPowerOf2(const UnsignedIntegral value) noexcept;
 #include <xieite/math/isPowerOf2.hpp>
 
 int main() {
-	std::cout
-		<< std::boolalpha
-		<< xieite::math::isPowerOf2(4) << '\n'
-		<< xieite::math::isPowerOf2(0) << '\n';
+    std::cout
+        << std::boolalpha
+        << xieite::math::isPowerOf2(4) << '\n'
+        << xieite::math::isPowerOf2(0) << '\n';
 }
 ```
 Output:

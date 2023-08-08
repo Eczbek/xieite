@@ -1,23 +1,21 @@
-# [xieite](../xieite.md)::[random](../random.md)::getUUID
+# [xieite](../xieite.md)\:\:[random](../random.md)\:\:getUUID
 Defined in header [<xieite/random/getUUID.hpp>](../../include/xieite/random/getUUID.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Generates a UUID. Compile with `-luuid`
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 inline std::string getUUID() noexcept;
 ```
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -25,7 +23,7 @@ inline std::string getUUID() noexcept;
 #include <xieite/random/getUUID.hpp>
 
 int main() {
-	std::cout << xieite::random::getUUID() << '\n';
+    std::cout << xieite::random::getUUID() << '\n';
 }
 ```
 Very unlikely output:

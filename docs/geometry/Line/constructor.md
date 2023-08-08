@@ -1,33 +1,31 @@
-# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Line](../Line.md)::Line
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:[Line](../Line.md)\:\:Line
 Defined in header [<xieite/geometry/Line.hpp>](../../../include/xieite/geometry/Line.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Constructs a `xieite::geometry::Line`
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `start` - A `xieite::geometry::Point`, one intersection through which the infinite line passes
 - `end` - A `xieite::geometry::Point`, another intersection through which the infinite line passes
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr Line(xieite::geometry::Point start, double angle) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `start` - A `xieite::geometry::Point`, an intersection through which the infinite line passes
 - `angle` - A `double`, the line's angle
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -37,12 +35,12 @@ constexpr Line(xieite::geometry::Point start, double angle) noexcept;
 #include <xieite/geometry/getAngle.hpp>
 
 int main() {
-	xieite::geometry::Point start(0.0, 0.0);
-	xieite::geometry::Point end(1.0, 1.0);
+    xieite::geometry::Point start(0.0, 0.0);
+    xieite::geometry::Point end(1.0, 1.0);
 
-	xieite::geometry::Line line(start, end);
+    xieite::geometry::Line line(start, end);
 
-	std::cout << xieite::geometry::getAngle(line) << '\n';
+    std::cout << xieite::geometry::getAngle(line) << '\n';
 }
 ```
 Output:

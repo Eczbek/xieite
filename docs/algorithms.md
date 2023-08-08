@@ -1,19 +1,19 @@
-# [xieite](./xieite.md)::algorithms
+# [xieite](./xieite.md)\:\:algorithms
 Aggregated in header [<xieite/algorithms.hpp>](../include/xieite/algorithms.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Somewhat useful algorithms
 
-<br/><br/>
+&nbsp;
 
-<pre><code>algorithms/
-|- <a href="./algorithms/count.md">count</a>
-|- <a href="./algorithms/findOccurrence.md">findOccurrence</a>
-|- <a href="./algorithms/group.md">group</a>
-|- <a href="./algorithms/isPalindrome.md">isPalindrome</a>
-|- <a href="./algorithms/numberSearch.md">numberSearch</a>
-|- <a href="./algorithms/partialReverse.md">partialReverse</a>
-|- <a href="./algorithms/rotateMatrix.md">rotateMatrix</a>
-`- <a href="./algorithms/sameRelativeOrder.md">sameRelativeOrder</a>
-</code></pre>
+## Contents
+- [xieite::algorithms::count](./algorithms/count.md)
+- [xieite::algorithms::findOccurrence](./algorithms/findOccurrence.md)
+- [xieite::algorithms::group](./algorithms/group.md)
+- [xieite::algorithms::isPalindrome](./algorithms/isPalindrome.md)
+- [xieite::algorithms::numberSearch](./algorithms/numberSearch.md)
+- [xieite::algorithms::partialReverse](./algorithms/partialReverse.md)
+- [xieite::algorithms::rotateMatrix](./algorithms/rotateMatrix.md)
+- [xieite::algorithms::sameRelativeOrder](./algorithms/sameRelativeOrder.md)

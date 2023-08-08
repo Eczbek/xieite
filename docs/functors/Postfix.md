@@ -1,42 +1,42 @@
-# [xieite](../xieite.md)::[functors](../functors.md)::Postfix
+# [xieite](../xieite.md)\:\:[functors](../functors.md)\:\:Postfix
 Defined in header [<xieite/functors/Postfix.hpp>](../../include/xieite/functors/Postfix.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 A postfix operator thing
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<typename Type, xieite::concepts::Functable<Type> auto>
 struct Postfix;
 ```
-### Template parameters
+#### Template parameters
 - `Type` - The function type
-- An unnamed `auto` value satisfying `xieite::concepts::Functable` of `Type`
+- unnamed `auto` value satisfying `xieite::concepts::Functable` of `Type`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<typename Result, typename LeftParameter, auto callback>
-struct Postfix<Result(LeftParameter), callback> {
-	friend constexpr Result operator<(const LeftParameter&, const xieite::functors::Postfix<Result(LeftParameter), callback>&);
+template<typename Result, typename LeftArgument, auto callback>
+struct Postfix<Result(LeftArgument), callback> {
+    friend constexpr Result operator<(const LeftArgument&, const xieite::functors::Postfix<Result(LeftArgument), callback>&);
 };
 ```
-### Template parameters
+#### Template parameters
 - `Result` - The return type
-- `LeftParameter` - The left parameter type
+- `LeftArgument` - The left parameter type
 - `callback` - A value of any type value
-### Public members
-<pre><code>Postfix/
+#### Public members
+## Contents
 `- <a href="./Postfix/operatorMode.md">operator<</a>
-</code></pre>
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -44,11 +44,11 @@ struct Postfix<Result(LeftParameter), callback> {
 #include <xieite/functors/Postfix.hpp>
 
 int main() {
-	xieite::functors::Postfix<int(int), [](int x) {
-		return x - 1;
-	}> decrement;
+    xieite::functors::Postfix<int(int), [](int x) {
+        return x - 1;
+    }> decrement;
 
-	std::cout << (2 <decrement) << '\n';
+    std::cout << (2 <decrement) << '\n';
 }
 ```
 Output:

@@ -1,41 +1,42 @@
-# [xieite](../xieite.md)::[geometry](../geometry.md)::getAngle
+# [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:getAngle
 Defined in header [<xieite/geometry/getAngle.hpp>](../../include/xieite/geometry/getAngle.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Calculates the angle of a line or between two points, in radians
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr double getAngle(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `point1` - A `xieite::geometry::Point`
 - `point2` - A `xieite::geometry::Point`
-### Return value
-- A `double` - The angle between two points
+#### Return type
+- `double` - The angle between two points
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
 constexpr double getAngle(const LinearShape& linearShape) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `LinearShape` - A type satisfying `xieite::concepts::LinearShape`
-### Parameters
+#### Function parameters
 - `linearShape` - A constant `LinearShape` reference
-### Return value
-- A `double` - The angle of the linear thing
+#### Return type
+- `double` - The angle of the linear thing
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -45,10 +46,10 @@ constexpr double getAngle(const LinearShape& linearShape) noexcept;
 #include <xieite/geometry/getAngle.hpp>
 
 int main() {
-	xieite::geometry::Point start(0.0, 0.0);
-	xieite::geometry::Point end(1.0, 0.0);
-	xieite::geometry::Line line(start, end);
-	std::cout << xieite::geometry::getAngle(line) << '\n';
+    xieite::geometry::Point start(0.0, 0.0);
+    xieite::geometry::Point end(1.0, 0.0);
+    xieite::geometry::Line line(start, end);
+    std::cout << xieite::geometry::getAngle(line) << '\n';
 }
 ```
 Output (rounded):

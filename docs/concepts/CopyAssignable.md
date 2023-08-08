@@ -1,19 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::CopyAssignable
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:CopyAssignable
 Defined in header [<xieite/concepts/CopyAssignable.hpp>](../../include/xieite/concepts/CopyAssignable.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is copy-assignable
+## Description
+Specifies that a type is copy-assignable.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept CopyAssignable = std::is_copy_assignable_v<Any>;
+template<typename Type>
+concept CopyAssignable = std::is_copy_assignable_v<Type>;
 ```
-### Template parameters
-- `Any` - Any type

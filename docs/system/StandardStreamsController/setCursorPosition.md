@@ -1,23 +1,21 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::setCursorPosition
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:setCursorPosition
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Sets the terminal cursor's position
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void setCursorPosition(xieite::system::BufferPosition position) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `position` - A `xieite::system::BufferPosition`, the new cursor coordinates
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -25,8 +23,8 @@ void setCursorPosition(xieite::system::BufferPosition position) noexcept;
 #include <xieite/system/terminal.hpp>
 
 int main() {
-	xieite::system::terminal.setCursorPosition({ 2, 5 });
-	std::cout << "Hello, world!\n";
+    xieite::system::terminal.setCursorPosition({ 2, 5 });
+    std::cout << "Hello, world!\n";
 }
 ```
 Possible output:

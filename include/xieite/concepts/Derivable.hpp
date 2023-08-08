@@ -1,11 +1,11 @@
 #ifndef XIEITE_HEADER__CONCEPTS__DERIVABLE
 #	define XIEITE_HEADER__CONCEPTS__DERIVABLE
 
-#	include "../traits/IsDerivable.hpp"
+#	include <type_traits>
 
 namespace xieite::concepts {
 	template<typename Type>
-	concept Derivable = xieite::traits::IsDerivable<Type>::value;
+	concept Derivable = std::is_class_v<Type> && !std::is_final_v<Type>;
 }
 
 #endif

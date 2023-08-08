@@ -1,26 +1,23 @@
-# [xieite](../xieite.md)::[geometry](../geometry.md)::getSides
+# [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:getSides
 Defined in header p<xieite/geometry/getSides.hpp>](../../include/xieite/geometry/getSides.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Creates line segments between the points of a polygon
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr std::vector<xieite::geometry::Segment> getSides(const xieite::geometry::Polygon& polygon) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference
-### Return value
+#### Return type
 
-
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -31,16 +28,16 @@ constexpr std::vector<xieite::geometry::Segment> getSides(const xieite::geometry
 #include <xieite/geometry/getSides.hpp>
 
 int main() {
-	xieite::geometry::Polygon rectangle {
-		{ 0.0, 0.0 },
-		{ 3.0, 0.0 },
-		{ 3.0, 2.0 },
-		{ 0.0, 2.0 }
-	};
+    xieite::geometry::Polygon rectangle {
+        { 0.0, 0.0 },
+        { 3.0, 0.0 },
+        { 3.0, 2.0 },
+        { 0.0, 2.0 }
+    };
 
-	for (xieite::geometry::Segment& side : xieite::geometry::getSides(rectangle)) {
-		std::cout << xieite::geometry::getLength(side) << '\n';
-	}
+    for (xieite::geometry::Segment& side : xieite::geometry::getSides(rectangle)) {
+        std::cout << xieite::geometry::getLength(side) << '\n';
+    }
 }
 ```
 Output:

@@ -1,13 +1,13 @@
-# [xieite](./xieite.md)::random
+# [xieite](./xieite.md)\:\:random
 Aggregated in header [<xieite/random.hpp>](../include/xieite/random.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Utilities for random value generation
 
-<br/><br/>
+&nbsp;
 
-<pre><code>random/
-|- <a href="./random/UniformInterruptableDistribution.md">UniformInterruptableDistribution</a>
-`- <a href="./random/getUUID.md">getUUID</a>
-</code></pre>
+## Contents
+- [xieite::random::UniformInterruptableDistribution](./random/UniformInterruptableDistribution.md)
+- [xieite::random::getUUID](./random/getUUID.md)

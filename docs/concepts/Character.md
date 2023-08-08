@@ -1,19 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::Character
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:Character
 Defined in header [<xieite/concepts/Character.hpp>](../../include/xieite/concepts/Character.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is a character
+## Description
+Specifies that a type is a character.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept Character = xieite::concepts::WideCharacter<Any> || xieite::concepts::SameAsAny<std::remove_cv_t<Any>, char, char8_t>;
+template<typename Type>
+concept Character = xieite::concepts::WideCharacter<Type> || xieite::concepts::SameAsAnyOf<std::remove_cv_t<Type>, char, char8_t>;
 ```
-### Template parameters
-- `Any` - Any type

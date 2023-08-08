@@ -1,63 +1,64 @@
-# [xieite](../xieite.md)::[geometry](../geometry.md)::containsPoint
+# [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:containsPoint
 Defined in header [<xieite/geometry/containsPoint.hpp>](../../include/xieite/geometry/containsPoint.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Checks whether a point lies within or on the border of a shape
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Line& line, xieite::geometry::Point point) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `line` - A `xieite::geometry::Line` constant reference to check for a point on
 - `point` - A `xieite::geometry::Point`, the point to check for
-### Return value
-- A `bool` - Whether or not the point lies within the shape
+#### Return type
+- `bool` - Whether or not the point lies within the shape
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Ray& ray, xieite::geometry::Point point) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `ray` - A `xieite::geometry::Ray` constant reference to check for a point on
 - `point` - A `xieite::geometry::Point`, the point to check for
-### Return value
-- A `bool` - Whether or not the point lies within the shape
+#### Return type
+- `bool` - Whether or not the point lies within the shape
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Segment& segment, xieite::geometry::Point point) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `segment` - A `xieite::geometry::Segment` constant reference to check for a point on
 - `point` - A `xieite::geometry::Point`, the point to check for
-### Return value
-- A `bool` - Whether or not the point lies within the shape
+#### Return type
+- `bool` - Whether or not the point lies within the shape
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, xieite::geometry::Point point) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference to check for a point in
 - `point` - A `xieite::geometry::Point`, the point to check for
-### Return value
-- A `bool` - Whether or not the point lies within the shape
+#### Return type
+- `bool` - Whether or not the point lies within the shape
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -67,18 +68,18 @@ constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, xieite::g
 #include <xieite/geometry/containsPoint.hpp>
 
 int main() {
-	xieite::geometry::Point point(0.0, 0.0);
+    xieite::geometry::Point point(0.0, 0.0);
 
-	xieite::geometry::Polygon square({
-		xieite::geometry::Point(-1.0, -1.0),
-		xieite::geometry::Point(1.0, -1.0),
-		xieite::geometry::Point(1.0, 1.0),
-		xieite::geometry::Point(-1.0, 1.0)
-	});
+    xieite::geometry::Polygon square({
+        xieite::geometry::Point(-1.0, -1.0),
+        xieite::geometry::Point(1.0, -1.0),
+        xieite::geometry::Point(1.0, 1.0),
+        xieite::geometry::Point(-1.0, 1.0)
+    });
 
-	std::cout
-		<< std::boolalpha
-		<< xieite::geometry::containsPoint(square, point) << '\n';
+    std::cout
+        << std::boolalpha
+        << xieite::geometry::containsPoint(square, point) << '\n';
 }
 ```
 Output:

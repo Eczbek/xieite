@@ -1,26 +1,24 @@
-# [xieite](../xieite.md)::[geometry](../geometry.md)::getPerimeter
+# [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:getPerimeter
 Defined in header [<xieite/geometry/getPerimeter.hpp>](../../include/xieite/geometry/getPerimeter.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Calculates the perimeter of a polygon, or the sum of all its sides' lengths
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference
-### Return value
-- A `double` - The polygon's perimeter
+#### Return type
+- `double` - The polygon's perimeter
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -29,12 +27,12 @@ constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept
 #include <xieite/geometry/getPerimeter.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getPerimeter(xieite::geometry::Polygon({
-		{ -1.0, -1.0 },
-		{ 1.0, -1.0 },
-		{ 1.0, 1.0 },
-		{ -1.0, 1.0 }
-	})) << '\n';
+    std::cout << xieite::geometry::getPerimeter(xieite::geometry::Polygon({
+        { -1.0, -1.0 },
+        { 1.0, -1.0 },
+        { 1.0, 1.0 },
+        { -1.0, 1.0 }
+    })) << '\n';
 }
 ```
 Output:

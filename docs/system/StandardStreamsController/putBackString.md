@@ -1,23 +1,21 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::putBackString
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:putBackString
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Puts a string back into the input buffer
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void putBackString(std::string_view value) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `value` - A `std::string_view` to prepend to the buffer
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -26,13 +24,13 @@ void putBackString(std::string_view value) noexcept;
 #include <xieite/system/terminal.hpp>
 
 int main() {
-	xieite::system::terminal.putBackString("Hello, world!\n");
+    xieite::system::terminal.putBackString("Hello, world!\n");
 
-	std::string input;
+    std::string input;
 
-	std::getline(std::cin, input);
+    std::getline(std::cin, input);
 
-	std::cout << input << '\n';
+    std::cout << input << '\n';
 }
 ```
 Output:

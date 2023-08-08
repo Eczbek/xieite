@@ -1,12 +1,12 @@
-# [xieite](./xieite.md)::graphics
+# [xieite](./xieite.md)\:\:graphics
 Aggregated in header [<xieite/graphics.hpp>](../include/xieite/graphics.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Graphical utilities
 
-<br/><br/>
+&nbsp;
 
-<pre><code>graphics/
-`- <a href="./graphics/Color.md">Color</a>
-</code></pre>
+## Contents
+- [xieite::graphics::Color](./graphics/Color.md)

@@ -1,20 +1,17 @@
-# [xieite](../xieite.md)::[hashes](../hashes.md)::distribute
+# [xieite](../xieite.md)\:\:[hashes](../hashes.md)\:\:distribute
 Defined in header [<xieite/hashes/distribute.hpp>](../../include/xieite/hashes/distribute.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<std::unsigned_integral UnsignedIntegral>
+template<std::unsigned_integral UnsignedInteger>
 [[nodiscard]]
-constexpr UnsignedIntegral distribute(UnsignedIntegral value) noexcept;
+constexpr UnsignedInteger distribute(UnsignedInteger value) noexcept;
 ```
-### Template parameters
-- `UnsignedIntegral` - An unsigned integer type satisfying `std::unsigned_integral`
-### Parameters
-- `value` - An `UnsignedIntegral`
-### Return value
-- An `UnsignedIntegral`
+#### Template parameters
+- `UnsignedInteger` - An unsigned integer type satisfying `std::unsigned_integral`
+#### Function parameters
+- `value` - An `UnsignedInteger`
+#### Return type
+- `UnsignedInteger`

@@ -1,36 +1,36 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::operator/
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:operator/
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr bool operator==(const xieite::math::BigInteger& comparand) const noexcept;
 ```
-### Parameters
+#### Function parameters
 - `comparand` - A `xieite::math::BigInteger` constant reference
-### Return value
-- A `bool`, whether or not the two values are equal
+#### Return type
+- `bool`, whether or not the two values are equal
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr bool operator==(const Integral comparand) const noexcept;
+constexpr bool operator==(const Integer comparand) const noexcept;
 ```
-### Template parameters
-- `Integral` - A type satisfying `std::integral`
-### Parameters
-- `comparand` - - An `Integral`
-### Return value
-- A `bool`, whether or not the two values are equal
+#### Template parameters
+- `Integer` - A type satisfying `std::integral`
+#### Function parameters
+- `comparand` - - An `Integer`
+#### Return type
+- `bool`, whether or not the two values are equal
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -38,9 +38,9 @@ constexpr bool operator==(const Integral comparand) const noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout
-		<< std::boolalpha
-		<< (xieite::math::BigInteger(2) == 2) << '\n';
+    std::cout
+        << std::boolalpha
+        << (xieite::math::BigInteger(2) == 2) << '\n';
 }
 ```
 Output:

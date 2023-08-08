@@ -1,24 +1,22 @@
-# [xieite](../../xieite.md)::[graphics](../../graphics.md)::[Color](../Color.md)::value
+# [xieite](../../xieite.md)\:\:[graphics](../../graphics.md)\:\:[Color](../Color.md)\:\:value
 Defined in header [<xieite/graphics/Color.hpp>](../../../include/xieite/graphics/Color.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Shifts and adds RGBA values together to create a single value
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr std::uint32_t value() noexcept;
 ```
-### Return value
-- A `std::uint32_t`, the combined value
+#### Return type
+- `std::uint32_t`, the combined value
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -26,11 +24,11 @@ constexpr std::uint32_t value() noexcept;
 #include <xieite/graphics/Color.hpp>
 
 int main() {
-	xieite::graphics::Color color(255, 127, 0);
+    xieite::graphics::Color color(255, 127, 0);
 
-	std::cout
-		<< std::hex
-		<< color.value() << '\n';
+    std::cout
+        << std::hex
+        << color.value() << '\n';
 }
 ```
 Output:

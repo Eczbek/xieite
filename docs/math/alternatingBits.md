@@ -1,20 +1,17 @@
-# [xieite](../xieite.md)::[math](../math.md)::alternatingBits
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:alternatingBits
 Defined in header [<xieite/math/alternatingBits.hpp>](../../include/xieite/math/alternatingBits.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<std::integral Integral>
-inline constexpr Integral alternatingBits = std::numeric_limits<Integral>::max() / 3;
+template<std::integral Integer>
+inline constexpr Integer alternatingBits = std::numeric_limits<Integer>::max() / 3;
 ```
-### Template parameters
-- `Integral` - Any integer type satisfying `std::integral`
+#### Template parameters
+- `Integer` - Any integer type satisfying `std::integral`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -24,9 +21,9 @@ inline constexpr Integral alternatingBits = std::numeric_limits<Integral>::max()
 #include <xieite/math/alternatingBits.hpp>
 
 int main() {
-	std::bitset<32> bits = xieite::math::alternatingBits<std::uint32_t>;
+    std::bitset<32> bits = xieite::math::alternatingBits<std::uint32_t>;
 
-	std::cout << bits << '\n';
+    std::cout << bits << '\n';
 }
 ```
 Output:

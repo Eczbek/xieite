@@ -1,30 +1,30 @@
-# [xieite](./xieite.md)::geometry
+# [xieite](./xieite.md)\:\:geometry
 Aggregated in header [<xieite/geometry.hpp>](../include/xieite/geometry.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Geometrical classes and operations
 
-<br/><br/>
+&nbsp;
 
-<pre><code>geometry/
-|- <a href="./geometry/Line.md">Line</a>
-|- <a href="./geometry/Point.md">Point</a>
-|- <a href="./geometry/Polygon.md">Polygon</a>
-|- <a href="./geometry/Ray.md">Ray</a>
-|- <a href="./geometry/Segment.md">Segment</a>
-|- <a href="./geometry/containsPoint.md">containsPoint</a>
-|- <a href="./geometry/getAngle.md">getAngle</a>
-|- <a href="./geometry/getArea.md">getArea</a>
-|- <a href="./geometry/getAxisIntercept.md">getAxisIntercept</a>
-|- <a href="./geometry/getDistance.md">getDistance</a>
-|- <a href="./geometry/getIntersections.md">getIntersections</a>
-|- <a href="./geometry/getLength.md">getLength</a>
-|- <a href="./geometry/getPerimeter.md">getPerimeter</a>
-|- <a href="./geometry/getSides.md">getSides</a>
-|- <a href="./geometry/getSlope.md">getSlope</a>
-|- <a href="./geometry/reflect.md">reflect</a>
-|- <a href="./geometry/rotate.md">rotate</a>
-|- <a href="./geometry/scale.md">scale</a>
-`- <a href="./geometry/translate.md">translate</a>
-</code></pre>
+## Contents
+- [xieite::geometry::Line](./geometry/Line.md)
+- [xieite::geometry::Point](./geometry/Point.md)
+- [xieite::geometry::Polygon](./geometry/Polygon.md)
+- [xieite::geometry::Ray](./geometry/Ray.md)
+- [xieite::geometry::Segment](./geometry/Segment.md)
+- [xieite::geometry::containsPoint](./geometry/containsPoint.md)
+- [xieite::geometry::getAngle](./geometry/getAngle.md)
+- [xieite::geometry::getArea](./geometry/getArea.md)
+- [xieite::geometry::getAxisIntercept](./geometry/getAxisIntercept.md)
+- [xieite::geometry::getDistance](./geometry/getDistance.md)
+- [xieite::geometry::getIntersections](./geometry/getIntersections.md)
+- [xieite::geometry::getLength](./geometry/getLength.md)
+- [xieite::geometry::getPerimeter](./geometry/getPerimeter.md)
+- [xieite::geometry::getSides](./geometry/getSides.md)
+- [xieite::geometry::getSlope](./geometry/getSlope.md)
+- [xieite::geometry::reflect](./geometry/reflect.md)
+- [xieite::geometry::rotate](./geometry/rotate.md)
+- [xieite::geometry::scale](./geometry/scale.md)
+- [xieite::geometry::translate](./geometry/translate.md)

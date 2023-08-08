@@ -1,30 +1,28 @@
-# [xieite](../xieite.md)::[math](../math.md)::reverse
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:reverse
 Defined in header [<xieite/math/reverse.hpp>](../../include/xieite/math/reverse.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Reverses an integral of any base
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr Integral reverse(Integral value, std::size_t base = 10) noexcept;
+constexpr Integer reverse(Integer value, std::size_t base = 10) noexcept;
 ```
-### Template parameters
-- `Integral` - An integral type satisfying `std::integral`
-### Parameters
-- `value` - An `Integral`
+#### Template parameters
+- `Integer` - An integral type satisfying `std::integral`
+#### Function parameters
+- `value` - An `Integer`
 - `base` - A `std::size_t`, set to `10` by default
-### Return value
-- An `Integral`
+#### Return type
+- `Integer`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -32,7 +30,7 @@ constexpr Integral reverse(Integral value, std::size_t base = 10) noexcept;
 #include <xieite/math/reverse.hpp>
 
 int main() {
-	std::cout << xieite::math::reverse(12345) << '\n';
+    std::cout << xieite::math::reverse(12345) << '\n';
 }
 ```
 Output:

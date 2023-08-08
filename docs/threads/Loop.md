@@ -1,34 +1,31 @@
-# [xieite](../xieite.md)::[threads](../threads.md)::Loop
+# [xieite](../xieite.md)\:\:[threads](../threads.md)\:\:Loop
 Defined in header [<xieite/threads/Loop.hpp>](../../include/xieite/threads/Loop.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Runs a callback constantly. Compile with `-pthread`
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 struct Loop {
-	template<std::invocable<> Invocable>
-	Loop(const Invocable&);
+    template<std::invocable<> Invocable>
+    Loop(const Invocable&);
 
-	bool good() const;
+    bool good() const;
 
-	void stop();
+    void stop();
 };
 ```
-### Public members
-<pre><code>Loop/
+#### Public members
+## Contents
 |- <a href="./Loop/constructor.md">Loop</a>
 |- <a href="./Loop/good.md">good</a>
 `- <a href="./Loop/stop.md">stop</a>
-</code></pre>
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -38,15 +35,15 @@ struct Loop {
 #include <xieite/threads/Loop.hpp>
 
 int main() {
-	xieite::threads::Loop loop([] {
-		static int i = 0;
+    xieite::threads::Loop loop([] {
+        static int i = 0;
 
-		std::this_thread::sleep_for(std::chrono::seconds(1));
-		
-		std::cout << ++i << '\n';
-	});
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        
+        std::cout << ++i << '\n';
+    });
 
-	std::this_thread::sleep_for(std::chrono::seconds(5));
+    std::this_thread::sleep_for(std::chrono::seconds(5));
 }
 ```
 Possible output:

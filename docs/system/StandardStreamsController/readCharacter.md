@@ -1,24 +1,22 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::readCharacter
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:readCharacter
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Waits for and returns the next keypress input
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 char readCharacter() noexcept;
 ```
-### Return value
-- A `char` - The input character
+#### Return type
+- `char` - The input character
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -26,9 +24,9 @@ char readCharacter() noexcept;
 #include <xieite/system/terminal.hpp>
 
 int main() {
-	std::cin.putback('h');
+    std::cin.putback('h');
 
-	std::cout << xieite::system::terminal.readCharacter() << '\n';
+    std::cout << xieite::system::terminal.readCharacter() << '\n';
 }
 ```
 Output:

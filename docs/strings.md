@@ -1,21 +1,21 @@
-# [xieite](./xieite.md)::strings
+# [xieite](./xieite.md)\:\:strings
 Aggregated in header [<xieite/strings.hpp>](../include/xieite/strings.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 String manipulation functions
 
-<br/><br/>
+&nbsp;
 
-<pre><code>strings/
-|- <a href="./strings/lowercase.md">lowercase</a>
-|- <a href="./strings/radiotelephonySpellingAlphabet.hpp">radiotelephonySpellingAlphabet</a>
-|- <a href="./strings/repeat.md">repeat</a>
-|- <a href="./strings/something.md">something</a>
-|- <a href="./strings/trim.md">trim</a>
-|- <a href="./strings/trimBack.md">trimBack</a>
-|- <a href="./strings/trimFront.md">trimFront</a>
-|- <a href="./strings/truncate.md">truncate</a>
-|- <a href="./strings/uppercase.md">uppercase</a>
-`- <a href="./strings/whitespaces.md">whitespaces</a>
-</code></pre>
+## Contents
+- [xieite::strings::lowercase](./strings/lowercase.md)
+- [xieite::strings::radiotelephonySpellingAlphabet](./strings/radiotelephonySpellingAlphabet.md)
+- [xieite::strings::repeat](./strings/repeat.md)
+- [xieite::strings::something](./strings/something.md)
+- [xieite::strings::trim](./strings/trim.md)
+- [xieite::strings::trimBack](./strings/trimBack.md)
+- [xieite::strings::trimFront](./strings/trimFront.md)
+- [xieite::strings::truncate](./strings/truncate.md)
+- [xieite::strings::uppercase](./strings/uppercase.md)
+- [xieite::strings::whitespaces](./strings/whitespaces.md)

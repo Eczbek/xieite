@@ -1,21 +1,19 @@
-# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Point](../Point.md)::operator==
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:[Point](../Point.md)\:\:operator==
 Defined in header [<xieite/geometry/Point.hpp>](../../../include/xieite/geometry/Point.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Compares two points to each other
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr bool operator==(xieite::geometry::Point point) const noexcept;
 ```
-### Parameters
+#### Function parameters
 - `point` - A `xieite::geometry::Point`
-### Return value
-- A `bool` - Whether or not the compared shapes are equal
+#### Return type
+- `bool` - Whether or not the compared shapes are equal
