@@ -16,6 +16,7 @@
 #	include "../concepts/RangeOf.hpp"
 #	include "../math/AttemptUnsign.hpp"
 #	include "../math/absolute.hpp"
+#	include "../math/splitBoolean.hpp"
 #	include "../types/sizeBits.hpp"
 
 namespace xieite::math {
@@ -82,7 +83,7 @@ namespace xieite::math {
 				result += power * this->bits[i];
 				power *= 2;
 			}
-			result *= !this->sign * 2 - 1;
+			result *= xieite::math::splitBoolean(!this->sign);
 			return result;
 		}
 
@@ -510,7 +511,7 @@ namespace xieite::math {
 				return *this;
 			}
 			if (*this == -1) {
-				return *this * (exponent % 2) * 2 - 1;
+				return *this * xieite::math::splitBoolean(exponent % 2);
 			}
 			if (!exponent) {
 				return xieite::math::BigInteger(1);
