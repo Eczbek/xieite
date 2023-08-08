@@ -1,13 +1,13 @@
 #ifndef XIEITE_HEADER__TRAITS__IS_CONVERTIBLE_TO_ANY_OF
 #	define XIEITE_HEADER__TRAITS__IS_CONVERTIBLE_TO_ANY_OF
 
-#	include <concepts>
 #	include <type_traits>
+#	include "../concepts/ConvertibleToAnyOf.hpp"
 
 namespace xieite::traits {
 	template<typename Source, typename... Targets>
 	struct IsConvertibleToAnyOf
-	: std::bool_constant<(std::convertible_to<Source, Targets> || ...)> {};
+	: std::bool_constant<xieite::concepts::ConvertibleToAnyOf<Source, Targets...>> {};
 }
 
 #endif

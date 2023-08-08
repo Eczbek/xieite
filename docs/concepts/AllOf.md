@@ -1,20 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::AllOf
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:AllOf
 Defined in header [<xieite/concepts/AllOf.hpp>](../../include/xieite/concepts/AllOf.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type satisfies all of several type traits
+## Description
+Specifies that a type satisfies all of several type traits.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Type, template<typename> typename... Traits>
-concept AllOf = xieite::traits::IsAllOf<Type, Traits...>::value;
+template<typename Type, xieite::concepts::Trait<Type>... Traits>
+concept AllOf = (Traits<Type>::value && ...);
 ```
-### Template parameters
-- `Type` - Any type
-- `Traits` - Any template type accepting one type argument

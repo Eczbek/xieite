@@ -1,19 +1,17 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::getPosition
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:getPosition
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Gets the cursor's position in the terminal. Coordinates correlate to the `{ +x, -y }` cartesian quadrant
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 xieite::system::BufferPosition getPosition() noexcept;
 ```
-### Return value
+#### Return type
 -  A `xieite::system::BufferPosition` - The cursor's current position

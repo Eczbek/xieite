@@ -1,87 +1,85 @@
-# [xieite](./xieite.md)::[system](../system.md)::StandardStreamsController
+# [xieite](./xieite.md)\:\:[system](../system.md)\:\:StandardStreamsController
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 A class for controlling standard text streams with modes and styles
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<std::istream& inputStream, std::ostream& outputStream>
 struct StandardStreamsController {
-	StandardStreamsController();
+    StandardStreamsController();
 
-	void setInputBlocking(bool);
+    void setInputBlocking(bool);
 
-	void setInputEcho(bool);
+    void setInputEcho(bool);
 
-	void setInputCanonical(bool);
+    void setInputCanonical(bool);
 
-	void setInputSignals(bool);
+    void setInputSignals(bool);
 
-	void setOutputProcessing(bool);
+    void setOutputProcessing(bool);
 
-	void setForegroundColor(const xieite::graphics::Color&);
+    void setForegroundColor(const xieite::graphics::Color&);
 
-	void resetForegroundColor();
+    void resetForegroundColor();
 
-	void setBackgroundColor(const xieite::graphics::Color&);
+    void setBackgroundColor(const xieite::graphics::Color&);
 
-	void resetBackgroundColor();
+    void resetBackgroundColor();
 
-	void setTextBold(bool);
+    void setTextBold(bool);
 
-	void setTextItalic(bool);
+    void setTextItalic(bool);
 
-	void setTextUnderline(bool);
+    void setTextUnderline(bool);
 
-	void setTextBlinking(bool);
+    void setTextBlinking(bool);
 
-	void setColorsSwapped(bool);
+    void setColorsSwapped(bool);
 
-	void setTextVisible(bool);
+    void setTextVisible(bool);
 
-	void setTextStrikethough(bool);
+    void setTextStrikethough(bool);
 
-	void resetStyles();
+    void resetStyles();
 
-	void clearScreen();
+    void clearScreen();
 
-	void clearLine();
+    void clearLine();
 
-	xieite::system::BufferPosition getCursorPosition();
+    xieite::system::BufferPosition getCursorPosition();
 
-	void setCursorPosition(xieite::system::BufferPosition);
+    void setCursorPosition(xieite::system::BufferPosition);
 
-	void moveCursorPosition(xieite::system::BufferPosition);
+    void moveCursorPosition(xieite::system::BufferPosition);
 
-	void setCursorVisible(bool);
+    void setCursorVisible(bool);
 
-	void setCursorAlternative(bool);
+    void setCursorAlternative(bool);
 
-	void setScreenAlternative(bool);
+    void setScreenAlternative(bool);
 
-	xieite::system::BufferPosition getScreenSize();
+    xieite::system::BufferPosition getScreenSize();
 
-	char readCharacter();
+    char readCharacter();
 
-	std::string readString();
+    std::string readString();
 
-	void putBackString(std::string_view);
+    void putBackString(std::string_view);
 
-	void backspace(std::size_t);
+    void backspace(std::size_t);
 };
 ```
-### Template parameters
+#### Template parameters
 - `inputStream` - A `std::istream` reference
 - `outputStream` - A `std::ostream` reference
-### Public members
-<pre><code>StandardStreamsController/
+#### Public members
+## Contents
 |- <a href="./StandardStreamsController/constructor.md">StandardStreamsController</a>
 |- <a href="./StandardStreamsController/setInputBlocking.md">setInputBlocking</a>
 |- <a href="./StandardStreamsController/setInputEcho.md">setInputEcho</a>
@@ -113,4 +111,3 @@ struct StandardStreamsController {
 |- <a href="./StandardStreamsController/readString.md">readString</a>
 |- <a href="./StandardStreamsController/putBackString.md">putBackString</a>
 `- <a href="./StandardStreamsController/backspace.md">backspace</a>
-</code></pre>

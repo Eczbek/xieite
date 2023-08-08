@@ -1,19 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::Enumerator
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:Enumerator
 Defined in header [<xieite/concepts/Enumerator.hpp>](../../include/xieite/concepts/Enumerator.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is an enumerator
+## Description
+Specifies that a type is an enumerator.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept Enumerator = std::is_enum_v<Any>;
+template<typename Type>
+concept Enumerator = std::is_enum_v<Type>;
 ```
-### Template parameters
-- `Any` - Any type

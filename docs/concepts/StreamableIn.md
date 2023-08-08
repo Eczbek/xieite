@@ -1,21 +1,17 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::StreamableIn
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:StreamableIn
 Defined in header [<xieite/concepts/StreamableIn.hpp>](../../include/xieite/concepts/StreamableIn.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type can be "streamed" into
+## Description
+Specifies that a type can be streamed into.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept StreamableIn = requires(std::istream& inputStream, Any value) {
-	{ inputStream >> value } -> std::convertible_to<std::istream&>;
+template<typename Type>
+concept StreamableIn = requires(Type value, std::istream inputStream) {
+    { inputStream >> value } -> std::same_as<std::istream&>;
 };
 ```
-### Template parameters
-- `Any` - Any type

@@ -1,34 +1,34 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::operator+=
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:operator+=
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr xieite::math::BigInteger& operator+=(const xieite::math::BigInteger& addend) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `addend` - A `xieite::math::BigInteger` constant reference
-### Return value
+#### Return type
 - The `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
-constexpr xieite::math::BigInteger& operator+=(Integral addend) noexcept;
+template<std::integral Integer>
+constexpr xieite::math::BigInteger& operator+=(Integer addend) noexcept;
 ```
-### Template parameters
-- `Integral` - A type satisfying `std::integral`
-### Parameters
-- `addend` - - An `Integral`
-### Return value
+#### Template parameters
+- `Integer` - A type satisfying `std::integral`
+#### Function parameters
+- `addend` - - An `Integer`
+#### Return type
 - The `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -36,11 +36,11 @@ constexpr xieite::math::BigInteger& operator+=(Integral addend) noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	xieite::math::BigInteger bigInteger = 9;
+    xieite::math::BigInteger bigInteger = 9;
 
-	bigInteger += 3;
+    bigInteger += 3;
 
-	std::cout << bigInteger.string() << '\n';
+    std::cout << bigInteger.string() << '\n';
 }
 ```
 Output:

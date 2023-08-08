@@ -1,40 +1,41 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::root
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:root
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Calculates any root of a `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& degree) const;
 ```
-### Parameters
+#### Function parameters
 - `degree` - A `xieite::math::BigInteger`
-### Return value
-- A `xieite::math::BigInteger`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr xieite::math::BigInteger root(Integral degree) const;
+constexpr xieite::math::BigInteger root(Integer degree) const;
 ```
-### Template parameters
-- `Integral` - A type satisfying `std::integral`
-### Parameters
-- `degree` - An `Integral`
-### Return value
-- A `xieite::math::BigInteger`
+#### Template parameters
+- `Integer` - A type satisfying `std::integral`
+#### Function parameters
+- `degree` - An `Integer`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -42,9 +43,9 @@ constexpr xieite::math::BigInteger root(Integral degree) const;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	xieite::math::BigInteger bigInteger = 8;
+    xieite::math::BigInteger bigInteger = 8;
 
-	std::cout << bigInteger.root(3).string() << '\n';
+    std::cout << bigInteger.root(3).string() << '\n';
 }
 ```
 Output:

@@ -1,16 +1,16 @@
-# [xieite](./xieite.md)::types
+# [xieite](./xieite.md)\:\:types
 Aggregated in header [<xieite/types.hpp>](../include/xieite/types.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Utilities for type information and metaprogramming
 
-<br/><br/>
+&nbsp;
 
-<pre><code>types/
-|- <a href="./types/List.md">List</a>
-|- <a href="./types/Unique.md">Unique</a>
-|- <a href="./types/count.md">count</a>
-|- <a href="./types/demangle.md">demangle</a>
-`- <a href="./types/sizeBits.md">sizeBits</a>
-</code></pre>
+## Contents
+- [xieite::types::List](./types/List.md)
+- [xieite::types::Unique](./types/Unique.md)
+- [xieite::types::count](./types/count.md)
+- [xieite::types::demangle](./types/demangle.md)
+- [xieite::types::sizeBits](./types/sizeBits.md)

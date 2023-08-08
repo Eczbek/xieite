@@ -1,20 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::RangeOf
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:RangeOf
 Defined in header [<xieite/concepts/RangeOf.hpp>](../../include/xieite/concepts/RangeOf.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type satisfies `std::ranges::range` and contains values of specified type
+## Description
+Specifies that a type satisfies `std::ranges::range` and contains values of a specified type.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<typename Range, typename Value>
-concept RangeOf = std::ranges::range<Range> && std::same_as<std::ranges::range_value_t<Range>, Value>;
+concept RangeOf = std::ranges::range<Range> && (std::same_as<std::ranges::range_value_t<Range>, Value> || std::convertible_to<std::ranges::range_value_t<Range>, Value>);
 ```
-### Template parameters
-- `Range` - Any type
-- `Value` - Any type

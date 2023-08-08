@@ -1,49 +1,50 @@
-# [xieite](../xieite.md)::[geometry](../geometry.md)::translate
+# [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:translate
 Defined in header [<xieite/geometry/translate.hpp>](../../include/xieite/geometry/translate.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Translates a shape
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::geometry::Point translate(xieite::geometry::Point point, xieite::geometry::Point difference) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `point` - A `xieite::geometry::Point`
 - `difference` - A `xieite::geometry::Point`
-### Return value
-- A new translated `xieite::geometry::Point`
+#### Return type
+- new translated `xieite::geometry::Point`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
 constexpr LinearShape translate(const LinearShape& line, xieite::geometry::Point difference) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `LinearShape` - The type of the passed linear shape satisfying `xieite::concepts::LinearShape`
-### Parameters
+#### Function parameters
 - `linearShape` - A `LinearShape` constant reference
 - `difference` - A `xieite::geometry::Point`
-### Return value
-- A new translated `LinearShape`
+#### Return type
+- new translated `LinearShape`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::geometry::Polygon translate(xieite::geometry::Polygon polygon, xieite::geometry::Point difference) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `polygon` - A `xieite::geometry::Polygon`
 - `difference` - A `xieite::geometry::Point`
-### Return value
-- A new translated `xieite::geometry::Polygon`
+#### Return type
+- new translated `xieite::geometry::Polygon`

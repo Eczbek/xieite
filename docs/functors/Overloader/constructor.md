@@ -1,24 +1,25 @@
-# [xieite](../../xieite.md)::[functors](../../functors.md)::[Overloader<Derivables...>](../Overloader.md)::Overloader
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:[Overloader\<Derivables...\>](../Overloader.md)\:\:Overloader
 Defined in header [<xieite/functors/Overloader.hpp>](../../../include/xieite/functors/Overloader.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Helps construct the wrapper class
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr Overloader() noexcept = default;
 ```
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr Overloader(const Derivables&... derivables) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `derivables...` - `Derivables...` constant references

@@ -1,29 +1,29 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::operator--
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:operator--
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr xieite::math::BigInteger& operator--() noexcept;
 ```
-### Return value
+#### Return type
 - The `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr xieite::math::BigInteger& operator--(int) noexcept;
 ```
-### Parameters
+#### Function parameters
  An unnamed `int`
-### Return value
+#### Return type
 - The `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -31,9 +31,9 @@ constexpr xieite::math::BigInteger& operator--(int) noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	xieite::math::BigInteger bigInteger = 7;
+    xieite::math::BigInteger bigInteger = 7;
 
-	std::cout << (--bigInteger).string() << '\n';
+    std::cout << (--bigInteger).string() << '\n';
 }
 ```
 Output:

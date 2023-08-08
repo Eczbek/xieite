@@ -1,19 +1,17 @@
-# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Segment](../Segment.md)::Segment
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:[Segment](../Segment.md)\:\:Segment
 Defined in header [<xieite/geometry/Segment.hpp>](../../../include/xieite/geometry/Segment.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Constructs a `xieite::geometry::Segment`
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 constexpr Segment(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `start` - A `xieite::geometry::Point`, the start of the segment
 - `end` - A `xieite::geometry::Point`, the end of the segment

@@ -1,14 +1,14 @@
-# [xieite](./xieite.md)::units
+# [xieite](./xieite.md)\:\:units
 Aggregated in header [<xieite/units.hpp>](../include/xieite/units.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Unit conversion ratios
 
-<br/><br/>
+&nbsp;
 
-<pre><code>units/
-|- <a href="./docs/units/areas.md">areas</a>
-|- <a href="./docs/units/lengths.md">lengths</a>
-`- <a href="./docs/units/volumes.md">volumes</a>
-</code></pre>
+## Contents
+- [xieite::units::areas](./units/areas.md)
+- [xieite::units::lengths](./units/lengths.md)
+- [xieite::units::volumes](./units/volumes.md)

@@ -1,38 +1,38 @@
-# [xieite](../xieite.md)::[traits](../traits.md)::isFunctable
+# [xieite](../xieite.md)\:\:[traits](../traits.md)\:\:isFunctable
 Defined in header [<xieite/traits/isFunctable.hpp>](../../include/xieite/traits/isFunctable.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<typename, typename>
 inline constexpr bool isFunctable = false;
 ```
-### Template parameters
+#### Template parameters
 - Unconstrained parameter
 - Unconstrained parameter
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<typename Functor, typename Result, typename... Parameters>
-inline constexpr bool isFunctable<Functor, Result(Parameters...)> = std::same_as<Result, decltype(std::declval<Functor>()(std::declval<Parameters>()...))>;
+template<typename Functor, typename Result, typename... Arguments>
+inline constexpr bool isFunctable<Functor, Result(Arguments...)> = std::same_as<Result, decltype(std::declval<Functor>()(std::declval<Arguments>()...))>;
 ```
-### Template parameters
+#### Template parameters
 - `Functor` - Any type
 - `Result` - Any type
-- `Parameters...` - Any types
+- `Arguments...` - Any types
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<typename Functor, typename Result, typename... Parameters>
-inline constexpr bool isFunctable<Result(Parameters...), Functor> = xieite::traits::isFunctable<Functor, Result(Parameters...)>;
+template<typename Functor, typename Result, typename... Arguments>
+inline constexpr bool isFunctable<Result(Arguments...), Functor> = xieite::traits::isFunctable<Functor, Result(Arguments...)>;
 ```
-### Template parameters
+#### Template parameters
 - `Functor` - Any type
 - `Result` - Any type
-- `Parameters...` - Any types
+- `Arguments...` - Any types

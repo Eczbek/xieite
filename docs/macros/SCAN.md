@@ -1,18 +1,16 @@
 # [XIEITE](../macros.md)\_SCAN
 Defined in header [<xieite/macros/SCAN.hpp>](../../include/xieite/macros/SCAN.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Scans and expands expressions if possible
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 #define XIEITE__SCAN(...) __VA_ARGS__
 ```
-### Parameters
+#### Function parameters
 - `...` - Any expressions

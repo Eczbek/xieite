@@ -2,12 +2,12 @@
 #	define XIEITE_HEADER__TRAITS__IS_ORDINARY_CHARACTER
 
 #	include <type_traits>
-#	include "../concepts/SameAsAnyOf.hpp"
+#	include "../concepts/OrdinaryCharacter.hpp"
 
 namespace xieite::traits {
 	template<typename Type>
 	struct IsOrdinaryCharacter
-	: std::bool_constant<xieite::concepts::SameAsAnyOf<std::remove_cv_t<Type>, char, signed char, unsigned char>> {};
+	: std::bool_constant<xieite::concepts::OrdinaryCharacter<Type>> {};
 }
 
 #endif

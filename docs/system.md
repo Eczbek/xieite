@@ -1,20 +1,20 @@
-# [xieite](./xieite.md)::system
+# [xieite](./xieite.md)\:\:system
 Aggregated in header [<xieite/system.hpp>](../include/xieite/system.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Tools for interacting with the system
 
-<br/><br/>
+&nbsp;
 
-<pre><code>system/
-|- <a href="./system/BufferPosition.md">BufferPosition</a>
-|- <a href="./system/StandardStreamsController.md">StandardStreamsController</a>
-|- <a href="./system/bitsPerByte.md">bitsPerByte</a>
-|- <a href="./system/closeFilePipe.md">closeFilePipe</a>
-|- <a href="./system/execute.md">execute</a>
-|- <a href="./system/getStreamFile.md">getStreamFile</a>
-|- <a href="./system/openFilePipe.md">openFilePipe</a>
-|- <a href="./system/segmentationFault.md">segmentationFault</a>
-`- <a href="./system/terminal.md">terminal</a>
-</code></pre>
+## Contents
+- [xieite::system::BufferPosition](./system/BufferPosition.md)
+- [xieite::system::StandardStreamsController](./system/StandardStreamsController.md)
+- [xieite::system::bitsPerByte](./system/bitsPerByte.md)
+- [xieite::system::closeFilePipe](./system/closeFilePipe.md)
+- [xieite::system::execute](./system/execute.md)
+- [xieite::system::getStreamFile](./system/getStreamFile.md)
+- [xieite::system::openFilePipe](./system/openFilePipe.md)
+- [xieite::system::segmentationFault](./system/segmentationFault.md)
+- [xieite::system::terminal](./system/terminal.md)

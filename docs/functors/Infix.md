@@ -1,71 +1,50 @@
-# [xieite](../xieite.md)::[functors](../functors.md)::Infix
+# [xieite](../xieite.md)\:\:[functors](../functors.md)\:\:Infix
 Defined in header [<xieite/functors/Infix.hpp>](../../include/xieite/functors/Infix.hpp)
 
-<br/>
+&nbsp;
 
-An infix operator thing
+## Description
+An infix operator thing.
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
-
-<br/><br/>
-
+#### 1)
 ```cpp
-template<typename Type, xieite::concepts::Functable<Type> auto>
+template<typename>
 struct Infix;
 ```
-### Template parameters
-- `Type` - The function type
-- An unnamed `auto` value satisfying `xieite::concepts::Functable` of `Type`
-
-<br/><br/>
-
+#### 2)
 ```cpp
-template<typename Result, typename Parameter, auto callback>
-struct Infix<Result(Parameter), callback> {
-	constexpr Result operator>(const Parameter&) const;
+template<std::invocable<xieite::types::Placeholder> Callback>
+struct Infix<Callback> {
+	constexpr Infix(const Callback& = Callback());
 
-	friend constexpr Result operator<(const Parameter&, const xieite::functors::Infix<Result(Parameter), callback>&);
+	constexpr xieite::functors::Result<Callback> operator>(const xieite::functors::Argument<Callback, 0>&) const;
+
+	friend constexpr xieite::functors::Result<Callback> operator<(const xieite::functors::Argument<Callback, 0>&, const xieite::functors::Infix<Callback>&);
 };
 ```
-### Template parameters
-- `Result` - The return type
-- `Parameter` - The parameter type for both right and left possible sides
-- `callback` - A value of any type value
-### Public members
-<pre><code>Infix/
-|- <a href="./Infix1/operatorMore.md">operator></a>
-`- <a href="./Infix1/operatorLess.md">operator<</a>
-</code></pre>
-
-<br/><br/>
-
+##### Member functions
+- [Infix](./Infix/2/constructor.md)
+- [operator>](./Infix/2/operatorMore.md)
+- [operator<](./Infix/2/operatorLess.md)
+#### 3)
 ```cpp
-template<typename Result, typename LeftParameter, typename RightParameter, auto callback>
-class Infix<Result(LeftParameter, RightParameter), callback> {
-private:
-	struct Intermediate {
-		constexpr Result operator>(const RightParameter& rightArgument) const;
-	};
+template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> Callback>
+struct Infix<Callback> {
+	constexpr Infix(const Callback& = Callback());
 
-public:
-	friend constexpr xieite::functors::Infix<Result(LeftParameter, RightParameter), callback>::Intermediate operator<(const LeftParameter&, const xieite::functors::Infix<Result(LeftParameter, RightParameter), callback>&);
+	friend constexpr xieite::functors::Infix<Callback>::Intermediate operator<(const xieite::functors::Argument<Callback, 0>&, const xieite::functors::Infix<Callback>&);
 };
 ```
-### Template parameters
-- `Result` - The return type
-- `LeftParameter` - The left parameter type
-- `RightParameter` - The right parameter type
-- `callback` - A value of any type value
-### Public members
-<pre><code>Infix/
-|- Intermediate/
-|  `- <a href="./Infix2/Intermediate/operatorMore.md">operator></a>
-`- <a href="./Infix2/operatorLess.md">operator<</a>
-</code></pre>
+##### Member structures
+- [Intermediate](./Infix/3/Intermediate.md)
+##### Member functions
+- [Infix](./Infix/3/constructor.md)
+- [operator<](./Infix/3/operatorLess.md)
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -73,18 +52,18 @@ public:
 #include <xieite/functors/Infix.hpp>
 
 int main() {
-	xieite::functors::Infix<int(int, int), [](int x, int y) {
-		return x * y;
-	}> multiply;
+    auto multiply = xieite::functors::Infix([](int x, int y) {
+        return x * y;
+    });
 
-	xieite::functors::Infix<int(int), [](int x) {
-		return x + 1;
-	}> increment;
+    auto increment = xieite::functors::Infix([](int x) {
+        return x + 1;
+    });
 
-	std::cout
-		<< (2 <multiply> 2) << '\n'
-		<< (1 <increment) << '\n'
-		<< (increment> 7) << '\n';
+    std::cout
+        << (2 <multiply> 2) << '\n'
+        << (1 <increment) << '\n'
+        << (increment> 7) << '\n';
 }
 ```
 Output:

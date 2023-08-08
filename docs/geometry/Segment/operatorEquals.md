@@ -1,21 +1,19 @@
-# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Segment](../Segment.md)::operator==
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:[Segment](../Segment.md)\:\:operator==
 Defined in header [<xieite/geometry/Segment.hpp>](../../../include/xieite/geometry/Segment.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Compares two segments to each other
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr bool operator==(const xieite::geometry::Segment& segment) const noexcept;
 ```
-### Parameters
+#### Function parameters
 - `segment` - A `xieite::geometry::Segment` constant reference
-### Return value
-- A `bool` - Whether or not the compared shapes are equal
+#### Return type
+- `bool` - Whether or not the compared shapes are equal

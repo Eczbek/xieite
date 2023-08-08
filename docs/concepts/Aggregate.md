@@ -1,19 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::Aggregate
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:Aggregate
 Defined in header [<xieite/concepts/Aggregate.hpp>](../../include/xieite/concepts/Aggregate.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is aggregate
+## Description
+Specifies that a type is an aggregate.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept Aggregate = std::is_aggregate_v<Any>;
+template<typename Type>
+concept Aggregate = std::is_aggregate_v<Type>;
 ```
-### Template parameters
-- `Any` - Any type

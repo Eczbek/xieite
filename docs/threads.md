@@ -1,15 +1,15 @@
-# [xieite](./xieite.md)::threads
+# [xieite](./xieite.md)\:\:threads
 Aggregated in header [<xieite/threads.hpp>](../include/xieite/threads.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Threading utilities
 
-<br/><br/>
+&nbsp;
 
-<pre><code>threads/
-|- <a href="./threads/Interval.md">Interval</a>
-|- <a href="./threads/Loop.md">Loop</a>
-|- <a href="./threads/Pool.md">Pool</a>
-`- <a href="./threads/Timeout.md">Timeout</a>
-</code></pre>
+## Contents
+- [xieite::threads::Interval](./threads/Interval.md)
+- [xieite::threads::Loop](./threads/Loop.md)
+- [xieite::threads::Pool](./threads/Pool.md)
+- [xieite::threads::Timeout](./threads/Timeout.md)

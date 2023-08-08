@@ -1,19 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::UniformRandomBitGenerator
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:UniformRandomBitGenerator
 Defined in header [<xieite/concepts/UniformRandomBitGenerator.hpp>](../../include/xieite/UniformRandomBitGenerator.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is a uniform random bit generator
+## Description
+Specifies that a type is a uniform random bit generator.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept UniformRandomBitGenerator = std::uniform_random_bit_generator<std::remove_reference_t<Any>>;
+template<typename Type>
+concept UniformRandomBitGenerator = std::uniform_random_bit_generator<std::remove_reference_t<Type>>;
 ```
-### Template parameters
-- `Any` - Any type

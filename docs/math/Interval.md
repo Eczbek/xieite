@@ -1,28 +1,25 @@
-# [xieite](../xieite.md)::[math](../math.md)::Interval
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:Interval
 Defined in header [<xieite/math/Interval.hpp>](../../include/xieite/math/Interval.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 A simple class for storing an interval between two numbers
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
 struct Interval {
-	Arithmetic start;
-	Arithmetic end;
+    Arithmetic start;
+    Arithmetic end;
 
-	constexpr Interval(Arithmetic, Arithmetic);
+    constexpr Interval(Arithmetic, Arithmetic);
 };
 ```
-### Public members
-<pre><code>Interval/
+#### Public members
+## Contents
 |- start
 |- end
 `- <a href="./Interval/constructor.md">Interval</a>
-</code></pre>

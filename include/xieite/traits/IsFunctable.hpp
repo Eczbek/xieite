@@ -2,6 +2,7 @@
 #	define XIEITE_HEADER__TRAITS__IS_FUNCTABLE
 
 #	include <concepts>
+#	include <functional>
 #	include <type_traits>
 
 namespace xieite::traits {
@@ -9,9 +10,11 @@ namespace xieite::traits {
 	struct IsFunctable
 	: std::false_type {};
 
-	template<typename Functor, typename Result, typename... Parameters>
-	struct IsFunctable<Functor, Result(Parameters...)>
-	: std::bool_constant<std::invocable<Functor, Parameters...> && std::convertible_to<Result, std::invoke_result_t<Functor, Parameters...>>> {};
+	template<typename Functor, typename Result, typename... Arguments>
+	struct IsFunctable<Functor, Result(Arguments...)>
+	: std::bool_constant<requires(Functor functor, Arguments... arguments) {
+		{ std::invoke(functor, arguments...) } -> std::convertible_to<Result>;
+	}> {};
 }
 
 #endif

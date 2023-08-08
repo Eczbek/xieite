@@ -1,43 +1,43 @@
-# [xieite](./xieite.md)::math
+# [xieite](./xieite.md)\:\:math
 Aggregated in header [<xieite/math.hpp>](../include/xieite/math.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Mathematical types and functions
 
-<br/><br/>
+&nbsp;
 
-<pre><code>math/
-|- <a href="./math/AttemptSign.md">AttemptSign</a>
-|- <a href="./math/AttemptUnsign.md">AttemptUnsign</a>
-|- <a href="./math/BigInteger.md">BigInteger</a>
-|- <a href="./math/ConditionalSign.md">ConditionalSign</a>
-|- <a href="./math/Interval.md">Interval</a>
-|- <a href="./math/MinimalInteger.md">MinimalInteger</a>
-|- <a href="./math/Result.md">Result</a>
-|- <a href="./math/absolute.md">absolute</a>
-|- <a href="./math/almostEqual.md">almostEqual</a>
-|- <a href="./math/almostEqualSlope.md">almostEqualSlope</a>
-|- <a href="./math/alternatingBits.md">alternatingBits</a>
-|- <a href="./math/baseFrom.md">baseFrom</a>
-|- <a href="./math/baseTo.md">baseTo</a>
-|- <a href="./math/closestTo.md">closestTo</a>
-|- <a href="./math/cosecant.md">cosecant</a>
-|- <a href="./math/cotangent.md">cotangent</a>
-|- <a href="./math/difference.md">difference</a>
-|- <a href="./math/digits.md">digits</a>
-|- <a href="./math/farthestFrom.md">farthestFrom</a>
-|- <a href="./math/generatePi.md">generatePi</a>
-|- <a href="./math/isPowerOf2.md">isPowerOf2</a>
-|- <a href="./math/isPrime.md">isPrime</a>
-|- <a href="./math/logarithm.md">logarithm</a>
-|- <a href="./math/pi.md">pi</a>
-|- <a href="./math/reverse.md">reverse</a>
-|- <a href="./math/robert.md">robert</a>
-|- <a href="./math/secant.md">secant</a>
-|- <a href="./math/tau.md">tau</a>
-|- <a href="./math/toDegrees.md">toDegrees</a>
-|- <a href="./math/toRadians.md">toRadians</a>
-|- <a href="./math/wrap.md">wrap</a>
-`- <a href="./math/xorShift.md">xorShift</a>
-</code></pre>
+## Contents
+- [xieite::math::AttemptSign](./math/AttemptSign.md)
+- [xieite::math::AttemptUnsign](./math/AttemptUnsign.md)
+- [xieite::math::BigInteger](./math/BigInteger.md)
+- [xieite::math::ConditionalSign](./math/ConditionalSign.md)
+- [xieite::math::Interval](./math/Interval.md)
+- [xieite::math::MinimalInteger](./math/MinimalInteger.md)
+- [xieite::math::Result](./math/Result.md)
+- [xieite::math::absolute](./math/absolute.md)
+- [xieite::math::almostEqual](./math/almostEqual.md)
+- [xieite::math::almostEqualSlope](./math/almostEqualSlope.md)
+- [xieite::math::alternatingBits](./math/alternatingBits.md)
+- [xieite::math::closestTo](./math/closestTo.md)
+- [xieite::math::cosecant](./math/cosecant.md)
+- [xieite::math::cotangent](./math/cotangent.md)
+- [xieite::math::difference](./math/difference.md)
+- [xieite::math::digits](./math/digits.md)
+- [xieite::math::farthestFrom](./math/farthestFrom.md)
+- [xieite::math::fromBase](./math/fromBase.md)
+- [xieite::math::generatePi](./math/generatePi.md)
+- [xieite::math::isPowerOf2](./math/isPowerOf2.md)
+- [xieite::math::isPrime](./math/isPrime.md)
+- [xieite::math::logarithm](./math/logarithm.md)
+- [xieite::math::pi](./math/pi.md)
+- [xieite::math::reverse](./math/reverse.md)
+- [xieite::math::robert](./math/robert.md)
+- [xieite::math::secant](./math/secant.md)
+- [xieite::math::tau](./math/tau.md)
+- [xieite::math::toDegrees](./math/toDegrees.md)
+- [xieite::math::toBase](./math/toBase.md)
+- [xieite::math::toRadians](./math/toRadians.md)
+- [xieite::math::wrap](./math/wrap.md)
+- [xieite::math::xorShift](./math/xorShift.md)

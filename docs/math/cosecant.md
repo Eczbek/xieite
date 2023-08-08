@@ -1,24 +1,22 @@
-# [xieite](../xieite.md)::[math](../math.md)::cosecant
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:cosecant
 Defined in header [<xieite/math/cosecant.hpp>](../../include/xieite/math/cosecant.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Calculates the cosecant of a value
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
 constexpr xieite::math::Result<Arithmetic> cosecant(Arithmetic value) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `Arithmetic` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
-### Parameters
+#### Function parameters
 - `value` - An `Arithmetic`
-### Return value
-- A `xieite::math::Result` of `Arithmetic`
+#### Return type
+- `xieite::math::Result` of `Arithmetic`

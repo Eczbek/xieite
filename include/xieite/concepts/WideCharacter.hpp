@@ -1,11 +1,11 @@
 #ifndef XIEITE_HEADER__CONCEPTS__WIDE_CHARACTER
 #	define XIEITE_HEADER__CONCEPTS__WIDE_CHARACTER
 
-#	include "../traits/IsWideCharacter.hpp"
+#	include "../concepts/SameAsAnyOf.hpp"
 
 namespace xieite::concepts {
 	template<typename Type>
-	concept WideCharacter = xieite::traits::IsWideCharacter<Type>::value;
+	concept WideCharacter = xieite::concepts::SameAsAnyOf<std::remove_cv_t<Type>, wchar_t, char16_t, char32_t>;
 }
 
 #endif

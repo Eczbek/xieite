@@ -1,23 +1,13 @@
 #ifndef XIEITE_HEADER__TRAITS__IS_STREAMABLE_OUT
 #	define XIEITE_HEADER__TRAITS__IS_STREAMABLE_OUT
 
-#	include <concepts>
-#	include <ostream>
 #	include <type_traits>
+#	include "../concepts/StreamableOut.hpp"
 
 namespace xieite::traits {
-	template<typename>
-	struct IsStreamableOut
-	: std::false_type {};
-
 	template<typename Type>
-	requires(requires(std::ostream& outputStream, Type value) {
-		{ outputStream << value } -> std::convertible_to<std::ostream&>;
-	})
-	struct IsStreamableOut<Type>
-	: std::true_type {};
+	struct IsStreamableOut
+	: std::bool_constant<xieite::concepts::StreamableOut<Type>> {};
 }
-
-// Thanks to fux for original code
 
 #endif

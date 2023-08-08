@@ -1,23 +1,21 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::setScreenAlternative
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:setScreenAlternative
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Enables or disables the alternative screen
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void setScreenAlternative(bool value) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `value` - A `bool` to determine whether to save or restore the screen
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -25,10 +23,10 @@ void setScreenAlternative(bool value) noexcept;
 #include <xieite/system/terminal.hpp>
 
 int main() {
-	xieite::system::terminal.setScreenAlternative(true);
-	std::cout << "Hello, ";
-	xieite::system::terminal.setScreenAlternative(false);
-	std::cout << "world!\n";
+    xieite::system::terminal.setScreenAlternative(true);
+    std::cout << "Hello, ";
+    xieite::system::terminal.setScreenAlternative(false);
+    std::cout << "world!\n";
 }
 ```
 Output:

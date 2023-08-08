@@ -1,18 +1,16 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::setTextBlinking
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:setTextBlinking
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Enables or disables text blinking
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void setTextBlinking(bool value) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `value` - A `bool` to determine whether to enable or disable text blinking

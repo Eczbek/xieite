@@ -1,14 +1,14 @@
-# [xieite](../xieite.md)::[math](../math.md)::robert
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:robert
 Defined in header [<xieite/math/robert.hpp>](../../include/xieite/math/robert.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
 
 ```cpp
-template<std::integral Integral, std::floating_point FloatingPoint = double>
-inline constexpr Integral robert = std::numeric_limits<Integral>::max() / std::numbers::phi_v<FloatingPoint>;
+template<std::integral Integer, std::floating_point Floating = double>
+inline constexpr Integer robert = std::numeric_limits<Integer>::max() / std::numbers::phi_v<Floating>;
 ```
-### Template parameters
-- `Integral` - An integral type satisfying `std::integral`
-- `FloatingPoint` - A floating point type satisfying `std::floating_point`, set to `double` by default
+#### Template parameters
+- `Integer` - An integral type satisfying `std::integral`
+- `Floating` - A floating point type satisfying `std::floating_point`, set to `double` by default

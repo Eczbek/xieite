@@ -1,19 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::LinearShape
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:LinearShape
 Defined in header [<xieite/concepts/LinearShape.hpp>](../../include/xieite/concepts/LinearShape.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is a `xieite::geometry::Line`, `xieite::geometry::Ray`, or `xieite::geometry::Segment`
+## Description
+Specifies that a type is one of `xieite::geometry::Line`, `xieite::geometry::Ray`, and `xieite::geometry::Segment`.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept LinearShape = xieite::concepts::SameAsAny<Any, xieite::geometry::Line, xieite::geometry::Ray, xieite::geometry::Segment>;
+template<typename Type>
+concept LinearShape = xieite::concepts::SameAsAnyOf<Type, xieite::geometry::Line, xieite::geometry::Ray, xieite::geometry::Segment>;
 ```
-### Template parameters
-- `Any` - Any type

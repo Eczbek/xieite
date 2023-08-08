@@ -1,20 +1,18 @@
-# [xieite](../xieite.md)::[system](../system.md)::closeFilePipe
+# [xieite](../xieite.md)\:\:[system](../system.md)\:\:closeFilePipe
 Defined in header [<xieite/system/closeFilePipe.hpp>](../../include/xieite/system/closeFilePipe.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Closes a file pipe
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 inline int closeFilePipe(const std::FILE* pipe) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `pipe` - A `std::FILE` pointer
-### Return value
-- An `int`
+#### Return type
+- `int`

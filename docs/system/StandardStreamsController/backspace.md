@@ -1,17 +1,14 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::backspace
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:backspace
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void backspace(std::size_t count) noexcept;
 ```
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -19,9 +16,9 @@ void backspace(std::size_t count) noexcept;
 #include <xieite/system/terminal.hpp>
 
 int main() {
-	std::cout << "Hello, world!";
-	xieite::system::terminal.backspace(6);
-	std::cout << "something\n";
+    std::cout << "Hello, world!";
+    xieite::system::terminal.backspace(6);
+    std::cout << "something\n";
 }
 ```
 Possible output:

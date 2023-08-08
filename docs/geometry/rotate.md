@@ -1,57 +1,58 @@
-# [xieite](../xieite.md)::[geometry](../geometry.md)::rotate
+# [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:rotate
 Defined in header [<xieite/geometry/rotate.hpp>](../../include/xieite/geometry/rotate.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Rotates shapes a specific angle around any pivot, clockwise
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `point` - A `xieite::geometry::Point`
 - `angle` - A `double`, clockwise rotation in radians
 - `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
-### Return value
-- A new rotated `xieite::geometry::Point`
+#### Return type
+- new rotated `xieite::geometry::Point`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
 constexpr LinearShape rotate(const LinearShape& linearShape, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `LinearShape` - The type of the passed linear shape satisfying `xieite::concepts::LinearShape`
-### Parameters
+#### Function parameters
 - `linearShape` - A `LinearShape` constant reference
 - `angle` - A `double`, clockwise rotation in radians
 - `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
-### Return value
-- A new rotated `LinearShape`
+#### Return type
+- new rotated `LinearShape`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::geometry::Polygon rotate(xieite::geometry::Polygon polygon, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `polygon` - A `xieite::geometry::Polygon` constant reference
 - `angle` - A `double`, clockwise rotation in radians
 - `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
-### Return value
-- A new rotated `xieite::geometry::Polygon`
+#### Return type
+- new rotated `xieite::geometry::Polygon`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -62,13 +63,13 @@ constexpr xieite::geometry::Polygon rotate(xieite::geometry::Polygon polygon, do
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-	xieite::geometry::Line line1({ 0, 0 }, { 1, 1 });
+    xieite::geometry::Line line1({ 0, 0 }, { 1, 1 });
 
-	xieite::geometry::Line line2 = xieite::geometry::rotate(line1, xieite::math::toRadians(90.0));
+    xieite::geometry::Line line2 = xieite::geometry::rotate(line1, xieite::math::toRadians(90.0));
 
-	std::cout
-		<< xieite::geometry::getSlope(line1) << '\n'
-		<< xieite::geometry::getSlope(line2) << '\n';
+    std::cout
+        << xieite::geometry::getSlope(line1) << '\n'
+        << xieite::geometry::getSlope(line2) << '\n';
 }
 ```
 Output:

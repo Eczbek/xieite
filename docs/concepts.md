@@ -1,46 +1,47 @@
-# [xieite](./xieite.md)::concepts
+# [xieite](./xieite.md)\:\:concepts
 Aggregated in header [<xieite/concepts.hpp>](../include/xieite/concepts.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Common concepts
 
-<br/><br/>
+&nbsp;
 
-<pre><code>concepts/
-|- <a href="./concepts/Aggregate.md">Aggregate</a>
-|- <a href="./concepts/AllOf.md">AllOf</a>
-|- <a href="./concepts/AnyOf.md">AnyOf</a>
-|- <a href="./concepts/Arithmetic.md">Arithmetic</a>
-|- <a href="./concepts/BaseOf.md">BaseOf</a>
-|- <a href="./concepts/BaseOfAllOf.md">BaseOfAllOf</a>
-|- <a href="./concepts/BaseOfAnyOf.md">BaseOfAnyOf</a>
-|- <a href="./concepts/BitsetReference.md">BitsetReference</a>
-|- <a href="./concepts/Character.md">Character</a>
-|- <a href="./concepts/ChronoDuration.md">ChronoDuration</a>
-|- <a href="./concepts/ConvertibleToAllOf.md">ConvertibleToAllOf</a>
-|- <a href="./concepts/ConvertibleToAnyOf.md">ConvertibleToAnyOf</a>
-|- <a href="./concepts/CopyAssignable.md">CopyAssignable</a>
-|- <a href="./concepts/Decayed.md">Decayed</a>
-|- <a href="./concepts/Derivable.md">Derivable</a>
-|- <a href="./concepts/DerivedFromAllOf.md">DerivedFromAllOf</a>
-|- <a href="./concepts/DerivedFromAnyOf.md">DerivedFromAnyOf</a>
-|- <a href="./concepts/Enumerator.md">Enumerator</a>
-|- <a href="./concepts/Functable.md">Functable</a>
-|- <a href="./concepts/Hashable.md">Hashable</a>
-|- <a href="./concepts/LinearShape.md">LinearShape</a>
-|- <a href="./concepts/NarrowCharacter.md">NarrowCharacter</a>
-|- <a href="./concepts/NoThrowConvertibleTo.md">NoThrowConvertibleTo</a>
-|- <a href="./concepts/NoThrowConvertibleToAllOf.md">NoThrowConvertibleToAllOf</a>
-|- <a href="./concepts/NoThrowConvertibleToAnyOf.md">NoThrowConvertibleToAnyOf</a>
-|- <a href="./concepts/OrdinaryCharacter.md">OrdinaryCharacter</a>
-|- <a href="./concepts/Polymorphic.md">Polymorphic</a>
-|- <a href="./concepts/RangeOf.md">RangeOf</a>
-|- <a href="./concepts/SameAsAllOf.md">SameAsAllOf</a>
-|- <a href="./concepts/SameAsAnyOf.md">SameAsAnyOf</a>
-|- <a href="./concepts/StreamableIn.md">StreamableInto</a>
-|- <a href="./concepts/StreamableOut.md">StreamableOutOf</a>
-|- <a href="./concepts/Trivial.md">Trivial</a>
-|- <a href="./concepts/UniformRandomBitGenerator.md">UniformRandomBitGenerator</a>
-`- <a href="./concepts/WideCharacter.md">WideCharacter</a>
-</code></pre>
+## Contents
+- [xieite::concepts::Aggregate](./concepts/Aggregate.md)
+- [xieite::concepts::AllOf](./concepts/AllOf.md)
+- [xieite::concepts::AnyOf](./concepts/AnyOf.md)
+- [xieite::concepts::Arithmetic](./concepts/Arithmetic.md)
+- [xieite::concepts::BaseOf](./concepts/BaseOf.md)
+- [xieite::concepts::BaseOfAllOf](./concepts/BaseOfAllOf.md)
+- [xieite::concepts::BaseOfAnyOf](./concepts/BaseOfAnyOf.md)
+- [xieite::concepts::BitsetReference](./concepts/BitsetReference.md)
+- [xieite::concepts::Character](./concepts/Character.md)
+- [xieite::concepts::ChronoDuration](./concepts/ChronoDuration.md)
+- [xieite::concepts::ConvertibleToAllOf](./concepts/ConvertibleToAllOf.md)
+- [xieite::concepts::ConvertibleToAnyOf](./concepts/ConvertibleToAnyOf.md)
+- [xieite::concepts::CopyAssignable](./concepts/CopyAssignable.md)
+- [xieite::concepts::Decayed](./concepts/Decayed.md)
+- [xieite::concepts::Derivable](./concepts/Derivable.md)
+- [xieite::concepts::DerivedFromAllOf](./concepts/DerivedFromAllOf.md)
+- [xieite::concepts::DerivedFromAnyOf](./concepts/DerivedFromAnyOf.md)
+- [xieite::concepts::Enumerator](./concepts/Enumerator.md)
+- [xieite::concepts::Functable](./concepts/Functable.md)
+- [xieite::concepts::Hashable](./concepts/Hashable.md)
+- [xieite::concepts::Hasher](./concepts/Hasher.md)
+- [xieite::concepts::LinearShape](./concepts/LinearShape.md)
+- [xieite::concepts::NarrowCharacter](./concepts/NarrowCharacter.md)
+- [xieite::concepts::NoThrowConvertibleTo](./concepts/NoThrowConvertibleTo.md)
+- [xieite::concepts::NoThrowConvertibleToAllOf](./concepts/NoThrowConvertibleToAllOf.md)
+- [xieite::concepts::NoThrowConvertibleToAnyOf](./concepts/NoThrowConvertibleToAnyOf.md)
+- [xieite::concepts::OrdinaryCharacter](./concepts/OrdinaryCharacter.md)
+- [xieite::concepts::Polymorphic](./concepts/Polymorphic.md)
+- [xieite::concepts::RangeOf](./concepts/RangeOf.md)
+- [xieite::concepts::SameAsAllOf](./concepts/SameAsAllOf.md)
+- [xieite::concepts::SameAsAnyOf](./concepts/SameAsAnyOf.md)
+- [xieite::concepts::StreamableIn](./concepts/StreamableInto.md)
+- [xieite::concepts::StreamableOut](./concepts/StreamableOutOf.md)
+- [xieite::concepts::Trivial](./concepts/Trivial.md)
+- [xieite::concepts::UniformRandomBitGenerator](./concepts/UniformRandomBitGenerator.md)
+- [xieite::concepts::WideCharacter](./concepts/WideCharacter.md)

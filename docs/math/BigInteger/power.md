@@ -1,40 +1,41 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::power
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:power
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Raises a `xieite::math::BigInteger` to an exponent
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger power(xieite::math::BigInteger exponent) const;
 ```
-### Parameters
+#### Function parameters
 - `exponent` - A `xieite::math::BigInteger`
-### Return value
-- A `xieite::math::BigInteger`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr xieite::math::BigInteger power(Integral exponent) const;
+constexpr xieite::math::BigInteger power(Integer exponent) const;
 ```
-### Template parameters
-- `Integral` - A type satisfying `std::integral`
-### Parameters
-- `exponent` - An `Integral`
-### Return value
-- A `xieite::math::BigInteger`
+#### Template parameters
+- `Integer` - A type satisfying `std::integral`
+#### Function parameters
+- `exponent` - An `Integer`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -42,9 +43,9 @@ constexpr xieite::math::BigInteger power(Integral exponent) const;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	xieite::math::BigInteger bigInteger = 2;
+    xieite::math::BigInteger bigInteger = 2;
 
-	std::cout << bigInteger.power(3).string() << '\n';
+    std::cout << bigInteger.power(3).string() << '\n';
 }
 ```
 Output:

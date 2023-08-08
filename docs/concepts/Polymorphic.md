@@ -1,19 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::Polymorphic
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:Polymorphic
 Defined in header [<xieite/concepts/Polymorphic.hpp>](../../include/xieite/concepts/Polymorphic.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is polymorphic
+## Description
+Specifies that a type is polymorphic.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept Polymorphic = std::is_polymorphic_v<Any>;
+template<typename Type>
+concept Polymorphic = std::is_polymorphic_v<Type>;
 ```
-### Template parameters
-- `Any` - Any type

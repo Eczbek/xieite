@@ -1,43 +1,44 @@
-# [xieite](../xieite.md)::[math](../math.md)::absolute
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:absolute
 Defined in header [<xieite/math/absolute.hpp>](../../include/xieite/math/absolute.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Returns the absolute of a value
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr std::make_unsigned_t<Integral> absolute(Integral value) noexcept;
+constexpr std::make_unsigned_t<Integer> absolute(Integer value) noexcept;
 ```
-### Template parameters
-- `Integral` - Any integral type satisfying `std::integral`
-### Parameters
-- `value` - An `Integral`
-### Return value
-- A `std::make_unsigned_t` of `Integral`, the absolute of `value`
+#### Template parameters
+- `Integer` - Any integral type satisfying `std::integral`
+#### Function parameters
+- `value` - An `Integer`
+#### Return type
+- `std::make_unsigned_t` of `Integer`, the absolute of `value`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::floating_point FloatingPoint>
+template<std::floating_point Floating>
 [[nodiscard]]
-constexpr FloatingPoint absolute(const FloatingPoint value) noexcept;
+constexpr Floating absolute(const Floating value) noexcept;
 ```
-### Template parameters
-- `FloatingPoint` - A floating point type satisfying `std::floating_point`
-### Parameters
-- `value` - A `FloatingPoint`
-### Return value
-- A `FloatingPoint`, the absolute of `value`
+#### Template parameters
+- `Floating` - A floating point type satisfying `std::floating_point`
+#### Function parameters
+- `value` - A `Floating`
+#### Return type
+- `Floating`, the absolute of `value`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -46,9 +47,9 @@ constexpr FloatingPoint absolute(const FloatingPoint value) noexcept;
 #include <xieite/math/absolute.hpp>
 
 int main() {
-	std::int16_t value = -32768;
-	
-	std::cout << xieite::math::absolute(value) << '\n';
+    std::int16_t value = -32768;
+    
+    std::cout << xieite::math::absolute(value) << '\n';
 }
 ```
 Output:

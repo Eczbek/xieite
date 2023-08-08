@@ -1,18 +1,18 @@
-# [xieite](./xieite.md)::functors
+# [xieite](./xieite.md)\:\:functors
 Aggregated in header [<xieite/functors.hpp>](../include/xieite/functors.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Functional utilities
 
-<br/><br/>
+&nbsp;
 
-<pre><code>functors/
-|- <a href="./functors/Infix.md">Infix</a>
-|- <a href="./functors/MakeFunctor.md">MakeFunctor</a>
-|- <a href="./functors/Overloader.md">Overloader</a>
-|- <a href="./functors/Postfix.md">Postfix</a>
-|- <a href="./functors/Prefix.md">Prefix</a>
-|- <a href="./functors/ProcessGuard.md">ProcessGuard</a>
-`- <a href="./functors/ScopeGuard.md">ScopeGuard</a>
-</code></pre>
+## Contents
+- [xieite::functors::Infix](./functors/Infix.md)
+- [xieite::functors::MakeFunctor](./functors/MakeFunctor.md)
+- [xieite::functors::Overloader](./functors/Overloader.md)
+- [xieite::functors::Postfix](./functors/Postfix.md)
+- [xieite::functors::Prefix](./functors/Prefix.md)
+- [xieite::functors::ProcessGuard](./functors/ProcessGuard.md)
+- [xieite::functors::ScopeGuard](./functors/ScopeGuard.md)

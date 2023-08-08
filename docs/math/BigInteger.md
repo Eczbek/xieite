@@ -1,186 +1,184 @@
-# [xieite](../xieite.md)::[math](../math.md)::BigInteger
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:BigInteger
 Defined in header [<xieite/math/BigInteger.hpp>](../../include/xieite/math/BigInteger.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 A class for storing and operating on very large numbers
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 struct BigInteger {
-	template<std::integral Integral = int>
-	constexpr BigInteger(Integral = 0);
+    template<std::integral Integer = int>
+    constexpr BigInteger(Integer = 0);
 
-	constexpr BigInteger(const xieite::math::BigInteger&);
+    constexpr BigInteger(const xieite::math::BigInteger&);
 
-	template<xieite::concepts::RangeOf<bool> BooleanRange>
-	constexpr BigInteger(const BooleanRange&, bool = false);
+    template<xieite::concepts::RangeOf<bool> BooleanRange>
+    constexpr BigInteger(const BooleanRange&, bool = false);
 
-	constexpr BigInteger(std::string_view);
+    constexpr BigInteger(std::string_view);
 
-	constexpr xieite::math::BigInteger& operator=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator=(Integer);
 
-	template<xieite::concepts::Arithmetic Arithmetic>
-	constexpr operator Arithmetic() const;
+    template<xieite::concepts::Arithmetic Arithmetic>
+    constexpr operator Arithmetic() const;
 
-	constexpr operator bool() const;
+    constexpr operator bool() const;
 
-	constexpr bool operator==(const xieite::math::BigInteger&) const;
+    constexpr bool operator==(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr bool operator==(Integral) const;
+    template<std::integral Integer>
+    constexpr bool operator==(Integer) const;
 
-	constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger&) const;
+    constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr std::strong_ordering operator<=>(Integral) const;
+    template<std::integral Integer>
+    constexpr std::strong_ordering operator<=>(Integer) const;
 
-	constexpr xieite::math::BigInteger operator+() const;
+    constexpr xieite::math::BigInteger operator+() const;
 
-	constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator+(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator+(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator+=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator+=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator+=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator+=(Integer);
 
-	constexpr xieite::math::BigInteger& operator++();
+    constexpr xieite::math::BigInteger& operator++();
 
-	constexpr xieite::math::BigInteger operator++(int);
+    constexpr xieite::math::BigInteger operator++(int);
 
-	constexpr xieite::math::BigInteger operator-() const;
+    constexpr xieite::math::BigInteger operator-() const;
 
-	constexpr xieite::math::BigInteger operator-(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator-(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator-(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator-(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator-=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator-=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator-=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator-=(Integer);
 
-	constexpr xieite::math::BigInteger& operator--();
+    constexpr xieite::math::BigInteger& operator--();
 
-	constexpr xieite::math::BigInteger operator--(int);
+    constexpr xieite::math::BigInteger operator--(int);
 
-	constexpr xieite::math::BigInteger operator*(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator*(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator*(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator*(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator*=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator*=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator*=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator*=(Integer);
 
-	constexpr xieite::math::BigInteger operator/(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator/(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator/(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator/(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator/=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator/=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator/=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator/=(Integer);
 
-	constexpr xieite::math::BigInteger operator%(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator%(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator%(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator%(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator%=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator%=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator%=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator%=(Integer);
 
-	constexpr xieite::math::BigInteger operator~() const;
+    constexpr xieite::math::BigInteger operator~() const;
 
-	constexpr xieite::math::BigInteger operator&(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator&(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator&(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator&(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator&=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator&=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator&=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator&=(Integer);
 
-	constexpr xieite::math::BigInteger operator|(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator|(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator|(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator|(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator|=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator|=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator|=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator|=(Integer);
 
-	constexpr xieite::math::BigInteger operator^(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator^(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator^(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator^(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator^=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator^=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator^=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator^=(Integer);
 
-	constexpr xieite::math::BigInteger operator<<(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator<<(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator<<(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator<<(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator<<=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator<<=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator<<=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator<<=(Integer);
 
-	constexpr xieite::math::BigInteger operator>>(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger operator>>(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger operator>>(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger operator>>(Integer) const;
 
-	constexpr xieite::math::BigInteger& operator>>=(const xieite::math::BigInteger&);
+    constexpr xieite::math::BigInteger& operator>>=(const xieite::math::BigInteger&);
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger& operator>>=(Integral);
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger& operator>>=(Integer);
 
-	constexpr xieite::math::BigInteger absolute() const;
+    constexpr xieite::math::BigInteger absolute() const;
 
-	constexpr xieite::math::BigInteger power(xieite::math::BigInteger) const;
+    constexpr xieite::math::BigInteger power(xieite::math::BigInteger) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger power(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger power(Integer) const;
 
-	constexpr xieite::math::BigInteger root(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger root(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger root(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger root(Integer) const;
 
-	constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger&) const;
+    constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger&) const;
 
-	template<std::integral Integral>
-	constexpr xieite::math::BigInteger logarithm(Integral) const;
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger logarithm(Integer) const;
 
-	constexpr const std::vector<bool>& data() const;
+    constexpr const std::vector<bool>& data() const;
 
-	constexpr std::string string() const;
+    constexpr std::string string() const;
 };
 ```
-### Public members
-<pre><code>BigInteger/
+#### Public members
+## Contents
 |- <a href="./BigInteger/constructor.md">BigInteger</a>
 |- <a href="./BigInteger/operatorAssign.md">operator=</a>
 |- <a href="./BigInteger/operatorCast.md">operator typename</a>
@@ -216,9 +214,8 @@ struct BigInteger {
 |- <a href="./BigInteger/logarithm.md">logarithm</a>
 |- <a href="./BigInteger/data.md">data</a>
 `- <a href="./BigInteger/string.md">string</a>
-</code></pre>
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -226,7 +223,7 @@ struct BigInteger {
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout << xieite::math::BigInteger(99).power(99).string() << '\n';
+    std::cout << xieite::math::BigInteger(99).power(99).string() << '\n';
 }
 ```
 Output:

@@ -1,28 +1,20 @@
-# [xieite](../xieite.md)::[algorithms](../algorithms.md)::partialReverse
+# [xieite](../xieite.md)\:\:[algorithms](../algorithms.md)\:\:partialReverse
 Defined in header [<xieite/algorithms/partialReverse.hpp>](../../include/xieite/algorithms/partialReverse.hpp)
 
-<br/>
+&nbsp;
 
-Selects iterators and then reverses them in their same overall positions
+## Description
+Selects iterators and then reverses them only between themselves.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> Functable>
 constexpr void partialReverse(const Range& range, const Functable& selector);
 ```
-### Template parameters
-- `Range` - The range type satisfying `std::ranges::range`
-- `Functable` - A functor type satisfying `xieite::concepts::Functable` which accepts a `std::ranges::range_value_t` of `Range`, and returns a `bool`
-### Parameters
-- `range` - A constant `Range` reference
-- `selector` - A constant `Functable` reference
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -31,18 +23,18 @@ constexpr void partialReverse(const Range& range, const Functable& selector);
 #include <xieite/algorithms/partialReverse.hpp>
 
 int main() {
-	std::array<int, 5> values { 1, 2, 3, 4, 5 };
+    std::array<int, 5> values { 1, 2, 3, 4, 5 };
 
-	auto callback = [](int value) {
-		return value <= 3;
-	};
-	
-	xieite::algorithms::partialReverse(values, callback);
+    auto callback = [](int value) {
+        return value <= 3;
+    };
 
-	for (int value : values) {
-		std::cout << value << ' ';
-	}
-	std::cout << '\n';
+    xieite::algorithms::partialReverse(values, callback);
+
+    for (int value : values) {
+        std::cout << value << ' ';
+    }
+    std::cout << '\n';
 }
 ```
 Output:

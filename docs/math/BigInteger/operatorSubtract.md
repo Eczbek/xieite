@@ -1,45 +1,45 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::operator-
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:operator-
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger operator-() const noexcept;
 ```
-### Return value
-- A `xieite::math::BigInteger` of oppositely-negative value
+#### Return type
+- `xieite::math::BigInteger` of oppositely-negative value
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger operator-(const xieite::math::BigInteger& subtrahend) const noexcept;
 ```
-### Parameters
+#### Function parameters
 - `subtrahend` - A `xieite::math::BigInteger` constant reference
-### Return value
-- A `xieite::math::BigInteger`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr xieite::math::BigInteger operator-(Integral subtrahend) const noexcept;
+constexpr xieite::math::BigInteger operator-(Integer subtrahend) const noexcept;
 ```
-### Template parameters
-- `Integral` - A type satisfying `std::integral`
-### Parameters
-- `subtrahend` - - An `Integral`
-### Return value
-- A `xieite::math::BigInteger`
+#### Template parameters
+- `Integer` - A type satisfying `std::integral`
+#### Function parameters
+- `subtrahend` - - An `Integer`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -47,7 +47,7 @@ constexpr xieite::math::BigInteger operator-(Integral subtrahend) const noexcept
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout << (xieite::math::BigInteger(9) - 3).string() << '\n';
+    std::cout << (xieite::math::BigInteger(9) - 3).string() << '\n';
 }
 ```
 Output:

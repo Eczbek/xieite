@@ -1,18 +1,16 @@
-# [xieite](../../xieite.md)::[threads](../../threads.md)::[Pool](../Pool.md)::setThreadCount
+# [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:[Pool](../Pool.md)\:\:setThreadCount
 Defined in header [<xieite/threads/Pool.hpp>](../../../include/xieite/threads/Pool.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Sets the amount of threads to use
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void setThreadCount(std::size_t threadCount);
 ```
-### Parameters
+#### Function parameters
 - `threadCount` - A `std::size_t`

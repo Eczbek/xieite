@@ -1,30 +1,28 @@
-# [xieite](../xieite.md)::[math](../math.md)::digits
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:digits
 Defined in header [<xieite/math/digits.hpp>](../../include/xieite/math/digits.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Calculates the number of digits in a value of any base
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr std::size_t digits(const Integral value, const std::size_t base = 10) noexcept;
+constexpr std::size_t digits(const Integer value, const std::size_t base = 10) noexcept;
 ```
-### Template parameters
-- `Integral` - An integral type satisfying `std::integral`
-### Parameters
-- `value` - - An `Integral`
-- `base` - An `Integral`, set to `10` by default
-### Return value
-- A `std::size_t`, the number of digits
+#### Template parameters
+- `Integer` - An integral type satisfying `std::integral`
+#### Function parameters
+- `value` - - An `Integer`
+- `base` - An `Integer`, set to `10` by default
+#### Return type
+- `std::size_t`, the number of digits
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -32,9 +30,9 @@ constexpr std::size_t digits(const Integral value, const std::size_t base = 10) 
 #include <xieite/math/digits.hpp>
 
 int main() {
-	std::cout
-		<< xieite::math::digits(12) << '\n'
-		<< xieite::math::digits(0b110110, 2) << '\n';
+    std::cout
+        << xieite::math::digits(12) << '\n'
+        << xieite::math::digits(0b110110, 2) << '\n';
 }
 ```
 Output:

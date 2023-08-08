@@ -1,40 +1,41 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::logarithm
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:logarithm
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Calculates the logarithm of a `xieite::math::BigInteger` to a base
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger& base) const;
 ```
-### Parameters
+#### Function parameters
 - `base` - A `xieite::math::BigInteger`
-### Return value
-- A `xieite::math::BigInteger`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr xieite::math::BigInteger logarithm(Integral base) const;
+constexpr xieite::math::BigInteger logarithm(Integer base) const;
 ```
-### Template parameters
-- `Integral` - A type satisfying `std::integral`
-### Parameters
-- `base` - An `Integral`
-### Return value
-- A `xieite::math::BigInteger`
+#### Template parameters
+- `Integer` - A type satisfying `std::integral`
+#### Function parameters
+- `base` - An `Integer`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -42,9 +43,9 @@ constexpr xieite::math::BigInteger logarithm(Integral base) const;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	xieite::math::BigInteger bigInteger = 1000;
+    xieite::math::BigInteger bigInteger = 1000;
 
-	std::cout << bigInteger.logarithm(10).string() << '\n';
+    std::cout << bigInteger.logarithm(10).string() << '\n';
 }
 ```
 Output:

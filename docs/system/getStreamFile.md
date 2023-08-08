@@ -1,29 +1,27 @@
-# [xieite](../xieite.md)::[system](../system.md)::getStreamFile
+# [xieite](../xieite.md)\:\:[system](../system.md)\:\:getStreamFile
 Defined in header [<xieite/system/getStreamFile.hpp>](../../include/xieite/system/getStreamFile.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Extracts a `std::FILE*` from a stream
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<xieite::concepts::SameAsOrDerivedFromAnyAny<std::istream, std::ostream> Stream>
 [[nodiscard]]
 inline std::FILE* getStreamFile(const Stream& stream) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `Stream` - A stream type satisfying `xieite::concepts::SameAsOrDerivedFromAnyAny` of `std::istream` and `std::ostream`
-### Parameters
+#### Function parameters
 - `stream` - A `Stream` constant reference
-### Return value
-- A `std::FILE` pointer
+#### Return type
+- `std::FILE` pointer
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -32,7 +30,7 @@ inline std::FILE* getStreamFile(const Stream& stream) noexcept;
 #include <xieite/system/getStreamFile.hpp>
 
 int main() {
-	std::fprintf(xieite::system::getStreamFile(std::cout), "Hello, world!\n");
+    std::fprintf(xieite::system::getStreamFile(std::cout), "Hello, world!\n");
 }
 ```
 Output:

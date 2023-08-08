@@ -1,42 +1,43 @@
-# [xieite](../xieite.md)::[strings](../strings.md)::trim
+# [xieite](../xieite.md)\:\:[strings](../strings.md)\:\:trim
 Defined in header [<xieite/strings/trim.hpp>](../../include/xieite/strings/trim.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Trims both the front and back of a string
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr std::string trim(const std::string& string, char character) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `string` - A `std::string` constant reference
 - `character` - A `char`
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<xieite::concepts::RangeOf<char> CharacterRange>
 [[nodiscard]]
 constexpr std::string trim(const std::string& string, const CharacterRange& characters) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `CharacterRange` - A type satisfying `xieite::concepts::RangeOf` of `char`
-### Parameters
+#### Function parameters
 - `string` - A `std::string` constant reference
 - `characters` - A constant `CharacterRange` reference
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -45,13 +46,13 @@ constexpr std::string trim(const std::string& string, const CharacterRange& char
 #include <xieite/strings/trim.hpp>
 
 int main() {
-	std::vector<char> characters {
-		'b',
-		'a',
-		'n'
-	};
+    std::vector<char> characters {
+        'b',
+        'a',
+        'n'
+    };
 
-	std::cout << xieite::strings::trim("bababatananana", characters) << '\n';
+    std::cout << xieite::strings::trim("bababatananana", characters) << '\n';
 }
 ```
 Output:

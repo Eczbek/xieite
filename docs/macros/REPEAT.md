@@ -1,19 +1,17 @@
 # [XIEITE](../macros.md)\_REPEAT
 Defined in header [<xieite/macros/REPEAT.hpp>](../../include/xieite/macros/REPEAT.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Repeats an expression literally
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 #define XIEITE__REPEAT(count, argument) XIEITE__LOOP(count, XIEITE_INTERNAL_REPEAT, , argument)
 ```
-### Parameters
+#### Function parameters
 - `count` - An unsigned value between `0` and `255`, inclusive
 - `argument` - Any expression

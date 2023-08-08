@@ -1,29 +1,30 @@
-# [xieite](../../xieite.md)::[graphics](../../graphics.md)::[Color](../Color.md)::Color
+# [xieite](../../xieite.md)\:\:[graphics](../../graphics.md)\:\:[Color](../Color.md)\:\:Color
 Defined in header [<xieite/graphics/Color.hpp>](../../../include/xieite/graphics/Color.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Constructs a `xieite::graphics::Color`
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr Color(std::uint8_t red = 0, std::uint8_t green = 0, std::uint8_t blue = 0, std::uint8_t alpha = std::numeric_limits<std::uint8_t>::max()) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `red` - A `std::uint8_t`, set to `0` by default
 - `green` - A `std::uint8_t`, set to `0` by default
 - `blue` - A `std::uint8_t`, set to `0` by default
 - `alpha` - A `std::uint8_t`, set to `std::numeric_limits<std::uint8_t>::max()` by default
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr Color(std::uint32_t value) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `value` - A `std::uint32_t` to get RGBA values from by shifting

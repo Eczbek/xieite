@@ -1,21 +1,19 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::clearScreen
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:clearScreen
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Clears the entire screen
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void clearScreen() noexcept;
 ```
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -23,9 +21,9 @@ void clearScreen() noexcept;
 #include <xieite/system/terminal.hpp>
 
 int main() {
-	std::cout << "Hello, world!\n";
+    std::cout << "Hello, world!\n";
 
-	xieite::system::terminal.clearScreen();
+    xieite::system::terminal.clearScreen();
 }
 ```
 Output:

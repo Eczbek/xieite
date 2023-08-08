@@ -21,6 +21,7 @@
 #	include "./concepts/Enumerator.hpp"
 #	include "./concepts/Functable.hpp"
 #	include "./concepts/Hashable.hpp"
+#	include "./concepts/Hasher.hpp"
 #	include "./concepts/LinearShape.hpp"
 #	include "./concepts/NarrowCharacter.hpp"
 #	include "./concepts/NoThrowConvertibleTo.hpp"

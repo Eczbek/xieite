@@ -1,33 +1,30 @@
-# [xieite](../xieite.md)::[functors](../functors.md)::ScopeGuard
+# [xieite](../xieite.md)\:\:[functors](../functors.md)\:\:ScopeGuard
 Defined in header [<xieite/functors/ScopeGuard.hpp>](../../include/xieite/functors/ScopeGuard.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Executes a callback when it goes out of scope
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 template<std::invocable<> Invocable>
 struct ScopeGuard {
-	ScopeGuard(const Invocable&);
+    ScopeGuard(const Invocable&);
 
-	void release();
+    void release();
 };
 ```
-### Template parameters
+#### Template parameters
 - `Invocable` - A type satisfying `std::invocable`
-### Public members
-<pre><code>ScopeGuard/
+#### Public members
+## Contents
 |- <a href="./ScopeGuard/constructor.md">ScopeGuard</a>
 `- <a href="./ScopeGuard/release.md">release</a>
-</code></pre>
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -35,11 +32,11 @@ struct ScopeGuard {
 #include <xieite/functors/ScopeGuard.hpp>
 
 int main() {
-	xieite::functors::ScopeGuard guard([] {
-		std::cout << "foo\n";
-	});
+    xieite::functors::ScopeGuard guard([] {
+        std::cout << "foo\n";
+    });
 
-	std::cout << "bar\n";
+    std::cout << "bar\n";
 }
 ```
 Output:

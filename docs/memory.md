@@ -1,16 +1,16 @@
-# [xieite](./xieite.md)::memory
+# [xieite](./xieite.md)\:\:memory
 Aggregated in header [<xieite/memory.hpp>](../include/xieite/memory.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Memory things
 
-<br/><br/>
+&nbsp;
 
-<pre><code>memory/
-|- <a href="./memory/bufferSize.md">bufferSize</a>
-|- <a href="./memory/detectCosmicRay.md">detectCosmicRay</a>
-|- <a href="./memory/getAvailable.md">getAvailable</a>
-|- <a href="./memory/getPageSize.md">getPageSize</a>
-`- <a href="./memory/getTotal.md">getTotal</a>
-</code></pre>
+## Contents
+- [xieite::memory::bufferSize](./memory/bufferSize.md)
+- [xieite::memory::detectCosmicRay](./memory/detectCosmicRay.md)
+- [xieite::memory::getAvailable](./memory/getAvailable.md)
+- [xieite::memory::getPageSize](./memory/getPageSize.md)
+- [xieite::memory::getTotal](./memory/getTotal.md)

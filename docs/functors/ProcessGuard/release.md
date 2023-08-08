@@ -1,16 +1,14 @@
-# [xieite](../../xieite.md)::[functors](../../functors.md)::[ProcessGuard](../ProcessGuard.md)::release
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:[ProcessGuard](../ProcessGuard.md)\:\:release
 Defined in header [<xieite/functors/ProcessGuard.hpp>](../../../include/xieite/functors/ProcessGuard.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Releases the guard, so that when the program ends, the callback will not execute
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 void release() noexcept;
 ```

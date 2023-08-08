@@ -1,42 +1,43 @@
-# [xieite](../xieite.md)::[strings](../strings.md)::trimBack
+# [xieite](../xieite.md)\:\:[strings](../strings.md)\:\:trimBack
 Defined in header [<xieite/strings/trimBack.hpp>](../../include/xieite/strings/trimBack.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Trims the back of a string
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr std::string trimBack(const std::string& string, char character) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `string` - A `std::string` constant reference
 - `character` - A `char`
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<xieite::concepts::RangeOf<char> CharacterRange>
 [[nodiscard]]
 constexpr std::string trimBack(const std::string& string, const CharacterRange& characters) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `CharacterRange` - A type satisfying `xieite::concepts::RangeOf` of `char`
-### Parameters
+#### Function parameters
 - `string` - A `std::string` constant reference
 - `characters` - A constant `CharacterRange` reference
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -45,12 +46,12 @@ constexpr std::string trimBack(const std::string& string, const CharacterRange& 
 #include <xieite/strings/trimBack.hpp>
 
 int main() {
-	std::vector<char> characters {
-		'a',
-		'n'
-	};
+    std::vector<char> characters {
+        'a',
+        'n'
+    };
 
-	std::cout << xieite::strings::trimBack("bababananana", characters) << '\n';
+    std::cout << xieite::strings::trimBack("bababananana", characters) << '\n';
 }
 ```
 Output:

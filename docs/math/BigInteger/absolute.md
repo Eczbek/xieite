@@ -1,24 +1,22 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::absolute
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:absolute
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Gets the absolute value of a `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger absolute() const noexcept;
 ```
-### Return value
-- A `xieite::math::BigInteger`, the absolute value
+#### Return type
+- `xieite::math::BigInteger`, the absolute value
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -26,9 +24,9 @@ constexpr xieite::math::BigInteger absolute() const noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	xieite::math::BigInteger bigInteger = -999;
+    xieite::math::BigInteger bigInteger = -999;
 
-	std::cout << bigInteger.absolute().string() << '\n';
+    std::cout << bigInteger.absolute().string() << '\n';
 }
 ```
 Output:

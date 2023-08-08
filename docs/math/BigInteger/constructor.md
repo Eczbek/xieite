@@ -1,52 +1,53 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::BigInteger
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:BigInteger
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Constructs a `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
-constexpr BigInteger(Integral value = 0) noexcept;
+template<std::integral Integer>
+constexpr BigInteger(Integer value = 0) noexcept;
 ```
-### Parameters
-- `value` - - An `Integral`
+#### Function parameters
+- `value` - - An `Integer`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr BigInteger(const xieite::math::BigInteger& value) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `value` - A `xieite::math::BigInteger` constant reference
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<xieite::concepts::RangeOf<bool> BooleanRange>
 constexpr BigInteger(const BooleanRange& bits, bool sign = false) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `BooleanRange` - A type satisfying `xieite::concepts::RangeOf` of `bool`
-### Parameters
+#### Function parameters
 - `bits` - A constant `BooleanRange` reference
 - `sign` - A `bool`, determines whether the value is negative or positive
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 constexpr BigInteger(std::string_view value);
 ```
-### Parameters
+#### Function parameters
 - `value` - A `std::string_view`, which must consist of only digits may be preceded by a `'-'`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -54,7 +55,7 @@ constexpr BigInteger(std::string_view value);
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout << xieite::math::BigInteger(416).string() << '\n';
+    std::cout << xieite::math::BigInteger(416).string() << '\n';
 }
 ```
 Output:

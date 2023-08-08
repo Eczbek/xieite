@@ -1,19 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::OrdinaryCharacter
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:OrdinaryCharacter
 Defined in header [<xieite/concepts/OrdinaryCharacter.hpp>](../../include/xieite/concepts/OrdinaryCharacter.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type is a narrow character
+## Description
+Specifies that a type is a narrow character.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept OrdinaryCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Any>, char, signed char, unsigned char>;
+template<typename Type>
+concept OrdinaryCharacter = xieite::concepts::SameAsAnyOf<std::remove_cv_t<Type>, char, signed char, unsigned char>;
 ```
-### Template parameters
-- `Any` - Any type

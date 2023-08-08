@@ -292,7 +292,7 @@ namespace xieite::math {
 				return -*this;
 			}
 			const bool divisorSign = divisor.sign;
-            const xieite::math::BigInteger divisorCopy = divisor.absolute();
+			const xieite::math::BigInteger divisorCopy = divisor.absolute();
 			if (this->absolute() < divisorCopy) {
 				return xieite::math::BigInteger(0);
 			}

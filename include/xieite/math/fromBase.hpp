@@ -10,7 +10,7 @@
 namespace xieite::math {
 	template<std::integral Integer = int>
 	[[nodiscard]]
-	constexpr Integer baseFrom(const std::size_t base, const std::string_view value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
+	constexpr Integer fromBase(const std::size_t base, const std::string_view value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz") noexcept {
 		if (!base) {
 			return 0;
 		}

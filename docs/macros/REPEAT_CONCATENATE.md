@@ -1,24 +1,22 @@
 # [XIEITE](../macros.md)\_REPEAT\_CONCATENATE
 Defined in header [<xieite/macros/REPEAT_CONCATENATE.hpp>](../../include/xieite/macros/REPEAT_CONCATENATE.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Repeats the concatenation of an expression with itself
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 #define XIEITE__REPEAT_CONCATENATE(count, argument) XIEITE__LOOP(count, XIEITE_INTERNAL_REPEAT_CONCATENATE, , argument)
 ```
-### Parameters
+#### Function parameters
 - `count` - An unsigned value between `0` and `255`, inclusive
 - `argument` - Any expression
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -26,7 +24,7 @@ Repeats the concatenation of an expression with itself
 #include <xieite/macros/REPEAT_CONCATENATE.hpp>
 
 int main() {
-	std::cout << (XIEITE__REPEAT_CONCATENATE(3, 5) + 1) << '\n';
+    std::cout << (XIEITE__REPEAT_CONCATENATE(3, 5) + 1) << '\n';
 }
 ```
 Output:

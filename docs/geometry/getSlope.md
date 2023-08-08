@@ -1,41 +1,42 @@
-# [xieite](../xieite.md)::[geometry](../geometry.md)::getSlope
+# [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:getSlope
 Defined in header [<xieite/geometry/getSlope.hpp>](../../include/xieite/geometry/getSlope.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Calculates the slope of a line or between two points
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr double getSlope(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `point1` - A `xieite::geometry::Point`
 - `point2` - Also a `xieite::geometry::Point`
-### Return value
-- A `double`, the slope between the passed points, in radians
+#### Return type
+- `double`, the slope between the passed points, in radians
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
 constexpr double getSlope(const LinearShape& linearShape) noexcept;
 ```
-### Template parameters
+#### Template parameters
 - `LinearShape` - A type satisfying `xieite::concepts::LinearShape`
-### Parameters
+#### Function parameters
 - `linearShape` - A constant `LinearShape` reference
-### Return value
-- A `double`, the slope of the linear shape, in radians
+#### Return type
+- `double`, the slope of the linear shape, in radians
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -44,7 +45,7 @@ constexpr double getSlope(const LinearShape& linearShape) noexcept;
 #include <xieite/geometry/getSlope.hpp>
 
 int main() {
-	std::cout << xieite::geometry::getSlope(xieite::geometry::Line({ 0.0, 0.0 }, { 2.0, 3.0 })) << '\n';
+    std::cout << xieite::geometry::getSlope(xieite::geometry::Line({ 0.0, 0.0 }, { 2.0, 3.0 })) << '\n';
 }
 ```
 Output:

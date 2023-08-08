@@ -1,19 +1,17 @@
-# [xieite](../../xieite.md)::[geometry](../../geometry.md)::[Point](../Point.md)::Point
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:[Point](../Point.md)\:\:Point
 Defined in header [<xieite/geometry/Point.hpp>](../../../include/xieite/geometry/Point.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Constructs a `xieite::geometry::Point`
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 constexpr Point(double x = 0.0, double y = 0.0) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `x` - A `double`, set to `0.0` by default
 - `y` - Another `double`, set to `0.0` by default

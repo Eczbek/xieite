@@ -1,19 +1,15 @@
-# [xieite](../xieite.md)::[concepts](../concepts.md)::Derivable
+# [xieite](../xieite.md)\:\:[concepts](../concepts.md)\:\:Derivable
 Defined in header [<xieite/concepts/Derivable.hpp>](../../include/xieite/concepts/Derivable.hpp)
 
-<br/>
+&nbsp;
 
-Specifies that a type can be derived from
+## Description
+Specifies that a type can be derived from.
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
-template<typename Any>
-concept Derivable = std::is_class_v<Any> && !std::is_final_v<Any>;
+template<typename Type>
+concept Derivable = std::is_class_v<Type> && !std::is_final_v<Type>;
 ```
-### Template parameters
-- `Any` - Any type

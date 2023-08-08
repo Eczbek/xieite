@@ -1,25 +1,23 @@
-# [xieite](../xieite.md)::[system](../system.md)::execute
+# [xieite](../xieite.md)\:\:[system](../system.md)\:\:execute
 Defined in header [<xieite/system/execute.hpp>](../../include/xieite/system/execute.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Executes a command and returns its output
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 inline std::string execute(std::string_view command) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `command` - A `std::string_view`
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -27,7 +25,7 @@ inline std::string execute(std::string_view command) noexcept;
 #include <xieite/system/execute.hpp>
 
 int main() {
-	std::cout << xieite::system::execute("echo Hello, world!");
+    std::cout << xieite::system::execute("echo Hello, world!");
 }
 ```
 Output:

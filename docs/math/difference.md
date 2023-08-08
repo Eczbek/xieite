@@ -1,45 +1,46 @@
-# [xieite](../xieite.md)::[math](../math.md)::difference
+# [xieite](../xieite.md)\:\:[math](../math.md)\:\:difference
 Defined in header [<xieite/math/difference.hpp>](../../include/xieite/math/difference.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Calculates the absolute difference between two values. Handles some edge cases
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr std::make_unsigned<Integral> difference(Integral a, Integral b) noexcept;
+constexpr std::make_unsigned<Integer> difference(Integer a, Integer b) noexcept;
 ```
-### Template parameters
-- `Integral` - An integral type satisfying `std::integral`
-### Parameters
-- `a` - An `Integral`
-- `b` - Another `Integral`
-### Return value
-- A `std::make_unsigned` of `Integral`, the absolute difference between `a` and `b`
+#### Template parameters
+- `Integer` - An integral type satisfying `std::integral`
+#### Function parameters
+- `a` - An `Integer`
+- `b` - Another `Integer`
+#### Return type
+- `std::make_unsigned` of `Integer`, the absolute difference between `a` and `b`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::floating_point FloatingPoint>
+template<std::floating_point Floating>
 [[nodiscard]]
-constexpr FloatingPoint difference(FloatingPoint a, FloatingPoint b) noexcept;
+constexpr Floating difference(Floating a, Floating b) noexcept;
 ```
-### Template parameters
-- `FloatingPoint` - A floating point type satisfying `std::floating_point`
-### Parameters
-- `a` - A `FloatingPoint`
-- `b` - Also a `FloatingPoint`
-### Return value
-- A `FloatingPoint`, the absolute difference between `a` and `b`
+#### Template parameters
+- `Floating` - A floating point type satisfying `std::floating_point`
+#### Function parameters
+- `a` - A `Floating`
+- `b` - Also a `Floating`
+#### Return type
+- `Floating`, the absolute difference between `a` and `b`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -49,13 +50,13 @@ constexpr FloatingPoint difference(FloatingPoint a, FloatingPoint b) noexcept;
 #include <xieite/math/difference.hpp>
 
 int main() {
-	std::int8_t min = std::numeric_limits<std::int8_t>::min();
-	std::int8_t max = std::numeric_limits<std::int8_t>::max();
+    std::int8_t min = std::numeric_limits<std::int8_t>::min();
+    std::int8_t max = std::numeric_limits<std::int8_t>::max();
 
-	std::cout
-		<< min << '\n'
-		<< max << '\n'
-		<< xieite::math::difference(min, max) << '\n';
+    std::cout
+        << min << '\n'
+        << max << '\n'
+        << xieite::math::difference(min, max) << '\n';
 }
 ```
 Output:

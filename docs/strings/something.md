@@ -1,26 +1,24 @@
-# [xieite](../xieite.md)::[strings](../strings.md)::something
+# [xieite](../xieite.md)\:\:[strings](../strings.md)\:\:something
 Defined in header [<xieite/strings/something.hpp>](../../include/xieite/strings/something.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 What does this do?
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 constexpr std::string something(const std::string& string) noexcept;
 ```
-### Parameters
+#### Function parameters
 - `string` - A `std::string` constant reference, the value to do something with
-### Return value
-- A `std::string`
+#### Return type
+- `std::string`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -28,10 +26,10 @@ constexpr std::string something(const std::string& string) noexcept;
 #include <xieite/strings/something.hpp>
 
 int main() {
-	std::cout
-		<< xieite::strings::something("3aaa") << '\n'
-		<< xieite::strings::something("11bbbbbbbbbbb") << '\n'
-		<< xieite::strings::something("0") << '\n';
+    std::cout
+        << xieite::strings::something("3aaa") << '\n'
+        << xieite::strings::something("11bbbbbbbbbbb") << '\n'
+        << xieite::strings::something("0") << '\n';
 }
 ```
 Output:

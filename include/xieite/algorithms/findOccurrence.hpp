@@ -2,7 +2,6 @@
 #	define XIEITE_HEADER__ALGORITHMS__FIND_OCCURRENCE
 
 #	include <cstddef>
-#	include <functional>
 #	include <ranges>
 #	include "../concepts/Functable.hpp"
 

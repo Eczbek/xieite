@@ -1,19 +1,17 @@
-# [xieite](../../xieite.md)::[system](../../system.md)::[StandardStreamsController<inputStream, outputStream>](../StandardStreamsController.md)::getScreenSize
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:[StandardStreamsController\<inputStream, outputStream\>](../StandardStreamsController.md)\:\:getScreenSize
 Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../include/xieite/system/StandardStreamsController.hpp)
 
-<br/>
+&nbsp;
 
+## Description
 Gets the terminal screen size, in rows and columns
 
-<br/><br/>
+&nbsp;
 
 ## Synopsis
-
-<br/>
-
 ```cpp
 [[nodiscard]]
 xieite::system::BufferPosition getScreenSize() noexcept;
 ```
-### Return value
-- A `xieite::system::BufferPosition` - The screen's size
+#### Return type
+- `xieite::system::BufferPosition` - The screen's size

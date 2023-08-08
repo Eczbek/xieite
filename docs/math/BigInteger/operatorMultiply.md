@@ -1,36 +1,36 @@
-# [xieite](../../xieite.md)::[math](../../math.md)::[BigInteger](../BigInteger.md)::operator*
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:operator*
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
-<br/><br/>
+&nbsp;
 
 ## Synopses
 
-<br/><br/>
+&nbsp;
 
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger operator*(const xieite::math::BigInteger& multiplicand) const noexcept;
 ```
-### Parameters
+#### Function parameters
 - `multiplicand` - A `xieite::math::BigInteger` constant reference
-### Return value
-- A `xieite::math::BigInteger`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ```cpp
-template<std::integral Integral>
+template<std::integral Integer>
 [[nodiscard]]
-constexpr xieite::math::BigInteger operator*(Integral multiplicand) const noexcept;
+constexpr xieite::math::BigInteger operator*(Integer multiplicand) const noexcept;
 ```
-### Template parameters
-- `Integral` - A type satisfying `std::integral`
-### Parameters
-- `multiplicand` - - An `Integral`
-### Return value
-- A `xieite::math::BigInteger`
+#### Template parameters
+- `Integer` - A type satisfying `std::integral`
+#### Function parameters
+- `multiplicand` - - An `Integer`
+#### Return type
+- `xieite::math::BigInteger`
 
-<br/><br/>
+&nbsp;
 
 ## Example
 ```cpp
@@ -38,7 +38,7 @@ constexpr xieite::math::BigInteger operator*(Integral multiplicand) const noexce
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-	std::cout << (xieite::math::BigInteger(9) * 3).string() << '\n';
+    std::cout << (xieite::math::BigInteger(9) * 3).string() << '\n';
 }
 ```
 Output:
