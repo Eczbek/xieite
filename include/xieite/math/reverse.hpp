@@ -3,19 +3,20 @@
 
 #	include <concepts>
 #	include <cstddef>
+#	include "../math/splitBoolean.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
 	[[nodiscard]]
 	constexpr Integer reverse(Integer value, const std::size_t base = 10) noexcept {
 		const bool positive = value >= 0;
-		value *= (positive * 2 - 1);
+		value *= xieite::math::splitBoolean(positive);
 		Integer result = 0;
 		while (value) {
 			result = result * base + value % base;
 			value /= base;
 		}
-		return (result * (positive * 2 - 1));
+		return (result * xieite::math::splitBoolean(positive));
 	}
 }
 
