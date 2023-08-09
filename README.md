@@ -12,4 +12,9 @@ This project extends the standard library and provides an organized collection o
 
 &nbsp;
 
+## Requirements
+- C++23
+
+&nbsp;
+
 ## [Documentation](https://github.com/Eczbek/xieite/tree/main/docs/xieite.md)

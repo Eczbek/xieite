@@ -11,6 +11,5 @@ Compares two rays.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr bool operator==(const xieite::geometry::Ray& ray) const noexcept;
 ```

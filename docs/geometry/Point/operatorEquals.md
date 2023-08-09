@@ -11,6 +11,5 @@ Compares two points.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr bool operator==(xieite::geometry::Point point) const noexcept;
 ```

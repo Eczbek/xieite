@@ -12,7 +12,6 @@ Finds a point where a line intercepts an axis of origin.
 #### 1)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-[[nodiscard]]
 constexpr xieite::geometry::Point getAxisIntercept(const LinearShape& linearShape, xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept;
 ```
 

@@ -11,13 +11,11 @@ Trims the front of a string.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr std::string trimFront(const std::string& string, char character) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::RangeOf<char> CharacterRange>
-[[nodiscard]]
 constexpr std::string trimFront(const std::string& string, const CharacterRange& characters) noexcept;
 ```
 

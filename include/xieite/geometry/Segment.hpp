@@ -11,7 +11,6 @@ namespace xieite::geometry {
 		constexpr Segment(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept
 		: start(start), end(end) {}
 
-		[[nodiscard]]
 		constexpr bool operator==(const xieite::geometry::Segment& segment) const noexcept {
 			return (this->start == segment.start) && (this->end == segment.end) || (this->start == segment.end) && (this->end == segment.start);
 		}

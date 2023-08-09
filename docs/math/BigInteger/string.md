@@ -11,7 +11,6 @@ Converts a `xieite::math::BigInteger` to a `std::string`.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr std::string string() const noexcept;
 ```
 

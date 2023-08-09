@@ -12,7 +12,6 @@ Converts an integer to a string in any base. Allows negative bases. Doubles as a
 #### 1)
 ```cpp
 template<std::integral Integer = int>
-[[nodiscard]]
 constexpr std::string toBase(int base, Integer value, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz");
 ```
 

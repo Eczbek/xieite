@@ -11,6 +11,5 @@ Reads the entire input buffer, clearing it in the process.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 std::string readString() noexcept;
 ```

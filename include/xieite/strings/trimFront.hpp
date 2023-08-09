@@ -8,7 +8,6 @@
 #	include "../concepts/RangeOf.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]]
 	constexpr std::string trimFront(const std::string& string, const char character) noexcept {
 		const std::size_t stringSize = string.size();
 		for (std::size_t i = 0; i < stringSize; ++i) {
@@ -20,7 +19,6 @@ namespace xieite::strings {
 	}
 
 	template<xieite::concepts::RangeOf<char> CharacterRange>
-	[[nodiscard]]
 	constexpr std::string trimFront(const std::string& string, const CharacterRange& characters) noexcept {
 		std::array<bool, std::numeric_limits<unsigned char>::max() + 1> characterMap;
 		for (const char character : characters) {

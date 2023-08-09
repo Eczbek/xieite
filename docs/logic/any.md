@@ -12,7 +12,6 @@ Checks whether at least one passed argument is true. Expects all arguments to be
 #### 1)
 ```cpp
 template<std::convertible_to<bool>... Values>
-[[nodiscard]]
 constexpr bool any(const Values&... values)
 noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...)));
 ```

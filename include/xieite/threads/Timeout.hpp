@@ -15,7 +15,6 @@ namespace xieite::threads {
 			callback();
 		}, duration) {}
 
-		[[nodiscard]]
 		bool good() const noexcept {
 			return this->interval.good();
 		}

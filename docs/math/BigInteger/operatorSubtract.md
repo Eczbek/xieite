@@ -6,18 +6,15 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr xieite::math::BigInteger operator-() const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]]
 constexpr xieite::math::BigInteger operator-(const xieite::math::BigInteger& subtrahend) const noexcept;
 ```
 #### 3)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]]
 constexpr xieite::math::BigInteger operator-(Integer subtrahend) const noexcept;
 ```
 

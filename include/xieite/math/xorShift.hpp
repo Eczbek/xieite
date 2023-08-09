@@ -6,7 +6,6 @@
 
 namespace xieite::math {
 	template<std::integral Integer>
-	[[nodiscard]]
 	constexpr Integer xorShift(const Integer value, const std::size_t bits) noexcept {
 		return (value ^ (value >> bits));
 	}

@@ -11,6 +11,5 @@ Calculates the area of a shape.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr double getArea(const xieite::geometry::Polygon& polygon) noexcept;
 ```

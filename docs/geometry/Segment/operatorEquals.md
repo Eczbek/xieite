@@ -11,6 +11,5 @@ Compares two segments to each other
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr bool operator==(const xieite::geometry::Segment& segment) const noexcept;
 ```

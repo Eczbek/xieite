@@ -6,7 +6,6 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]]
 	constexpr int sign(const Arithmetic value) noexcept {
 		return xieite::math::splitBoolean(value >= 0);
 	}

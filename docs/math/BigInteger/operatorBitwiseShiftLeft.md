@@ -6,13 +6,11 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr xieite::math::BigInteger operator<<(const xieite::math::BigInteger& positions) const noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]]
 constexpr xieite::math::BigInteger operator<<(Integer positions) const noexcept;
 ```
 

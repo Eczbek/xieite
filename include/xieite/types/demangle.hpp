@@ -12,7 +12,6 @@
 #	include <string>
 
 namespace xieite::types {
-	[[nodiscard]]
 	inline std::string demangle(std::string mangled) noexcept {
 		int status;
 		char* const buffer = abi::__cxa_demangle(mangled.data(), 0, 0, &status);

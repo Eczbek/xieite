@@ -12,7 +12,6 @@ Calculates the number of digits in a value of any base.
 #### 1)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]]
 constexpr std::size_t digits(Integer value, std::size_t base = 10) noexcept;
 ```
 

@@ -7,7 +7,6 @@
 
 namespace xieite::math {
 	template<std::integral Integer = int>
-	[[nodiscard]]
 	constexpr std::vector<Integer> generatePi(std::size_t digits) noexcept {
 		xieite::math::BigInteger a = 180;
 		xieite::math::BigInteger b = 1;

@@ -11,13 +11,11 @@ Calculates the slope of a line or between two points.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr double getSlope(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-[[nodiscard]]
 constexpr double getSlope(const LinearShape& linearShape) noexcept;
 ```
 

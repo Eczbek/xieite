@@ -12,14 +12,12 @@ Creates a short-circuit to return the first argument if it is true, or otherwise
 #### 1)
 ```cpp
 template<std::convertible_to<bool> Value>
-[[nodiscard]]
 constexpr Value& orValue(Value& value1, Value& value2)
 noexcept(noexcept(std::is_nothrow_convertible_v<Value, bool>));
 ```
 #### 2)
 ```cpp
 template<std::convertible_to<bool> Value>
-[[nodiscard]]
 constexpr const Value& orValue(const Value& value1, const Value& value2)
 noexcept(noexcept(std::is_nothrow_convertible_v<Value, bool>));
 ```

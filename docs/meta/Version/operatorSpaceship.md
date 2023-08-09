@@ -11,7 +11,6 @@ Compares two `xieite::meta::Version`s, ingoring the label member object.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr std::strong_ordering operator<=>(const xieite::meta::Version& version) const noexcept;
 ```
 

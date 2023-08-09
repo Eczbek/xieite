@@ -11,6 +11,5 @@ Gets the terminal screen size, in rows and columns.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 xieite::system::BufferPosition getScreenSize() noexcept;
 ```

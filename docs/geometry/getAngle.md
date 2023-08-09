@@ -11,13 +11,11 @@ Calculates the angle of a line or between two points, in radians.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr double getAngle(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-[[nodiscard]]
 constexpr double getAngle(const LinearShape& linearShape) noexcept;
 ```
 

@@ -7,7 +7,6 @@
 #	include "../geometry/Segment.hpp"
 
 namespace xieite::geometry {
-	[[nodiscard]]
 	constexpr std::vector<xieite::geometry::Segment> getSides(const xieite::geometry::Polygon& polygon) noexcept {
 		std::vector<xieite::geometry::Segment> sides;
 		const std::size_t pointsSize = polygon.points.size();

@@ -11,7 +11,6 @@ Waits for and returns the next keypress input.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 char readCharacter() noexcept;
 ```
 

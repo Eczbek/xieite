@@ -12,6 +12,5 @@ Calculates the secant of a value.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]]
 constexpr xieite::math::Result<Arithmetic> secant(Arithmetic value) noexcept;
 ```

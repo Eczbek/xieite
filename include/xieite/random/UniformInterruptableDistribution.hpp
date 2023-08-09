@@ -42,7 +42,6 @@ namespace xieite::random {
 		}
 
 		template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator>
-		[[nodiscard]]
 		Arithmetic operator()(UniformRandomBitGenerator& generator) const noexcept {
 			Arithmetic result = this->distribution(generator);
 			for (const xieite::math::Interval<Arithmetic> interruption : this->interruptions) {

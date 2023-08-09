@@ -11,18 +11,15 @@ Rotates shapes a specific angle around any pivot, clockwise.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-[[nodiscard]]
 constexpr LinearShape rotate(const LinearShape& linearShape, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 #### 3)
 ```cpp
-[[nodiscard]]
 constexpr xieite::geometry::Polygon rotate(xieite::geometry::Polygon polygon, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 

@@ -11,7 +11,6 @@ Demangles the name of a `std::type_info`. Returns original string if demangling 
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 inline std::string demangle(std::string mangled) noexcept;
 ```
 

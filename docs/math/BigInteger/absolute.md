@@ -11,7 +11,6 @@ Gets the absolute value of a `xieite::math::BigInteger`.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr xieite::math::BigInteger absolute() const noexcept;
 ```
 

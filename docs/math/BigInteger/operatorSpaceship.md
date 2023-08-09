@@ -6,13 +6,11 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& comparand) const noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]]
 constexpr std::strong_ordering operator<=>(Integer comparand) const noexcept;
 ```
 

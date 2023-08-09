@@ -12,6 +12,5 @@ Calculates the cosecant of a value.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]]
 constexpr xieite::math::Result<Arithmetic> cosecant(Arithmetic value) noexcept;
 ```
