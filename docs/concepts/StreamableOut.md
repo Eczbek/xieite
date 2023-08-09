@@ -8,7 +8,8 @@ Specifies that a type can be streamed out of.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept StreamableOut = requires(Type value, std::ostream outputStream) {

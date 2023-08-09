@@ -8,7 +8,8 @@ Specifies that a type is an enumerator.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept Enumerator = std::is_enum_v<Type>;

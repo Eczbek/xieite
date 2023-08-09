@@ -4,11 +4,12 @@ Defined in header [<xieite/functors/Overloader.hpp>](../../../include/xieite/fun
 &nbsp;
 
 ## Description
-Calls one of the `Derivables` the class is derived from
+Calls one of the `Derivables` the class is derived from.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 using Derivables::operator()...;
 ```

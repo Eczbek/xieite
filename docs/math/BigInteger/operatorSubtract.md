@@ -4,40 +4,22 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger operator-() const noexcept;
 ```
-#### Return type
-- `xieite::math::BigInteger` of oppositely-negative value
-
-&nbsp;
-
+#### 2)
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger operator-(const xieite::math::BigInteger& subtrahend) const noexcept;
 ```
-#### Function parameters
-- `subtrahend` - A `xieite::math::BigInteger` constant reference
-#### Return type
-- `xieite::math::BigInteger`
-
-&nbsp;
-
+#### 3)
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
 constexpr xieite::math::BigInteger operator-(Integer subtrahend) const noexcept;
 ```
-#### Template parameters
-- `Integer` - A type satisfying `std::integral`
-#### Function parameters
-- `subtrahend` - - An `Integer`
-#### Return type
-- `xieite::math::BigInteger`
 
 &nbsp;
 

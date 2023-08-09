@@ -4,13 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Enables or disables the echo. When echoing is disabled, pressed keys will not be visibly reflected in the terminal. Disabled by default
+Enables or disables the echo. When echoing is disabled, pressed keys will not be visibly reflected in the terminal. Disabled by default.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setInputEcho(bool value) noexcept;
 ```
-#### Function parameters
-- `value` - A `bool`, determining whether to enable or disable echoing.

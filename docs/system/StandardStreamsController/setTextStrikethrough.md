@@ -4,13 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Enables or disables ~~strikethrough~~ text
+Enables or disables ~~strikethrough~~ text.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setTextStrikethrough(bool value) noexcept;
 ```
-#### Function parameters
-- `value` - A `bool` to determine whether to enable or disable strikethrough text

@@ -4,24 +4,14 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 constexpr xieite::math::BigInteger& operator++() noexcept;
 ```
-#### Return type
-- The `xieite::math::BigInteger`
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr xieite::math::BigInteger& operator++(int) noexcept;
 ```
-#### Function parameters
-- unnamed `int`
-#### Return type
-- The `xieite::math::BigInteger`
 
 &nbsp;
 

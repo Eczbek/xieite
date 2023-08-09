@@ -4,11 +4,12 @@ Defined in header [<xieite/system/BufferPosition.hpp>](../../include/xieite/syst
 &nbsp;
 
 ## Description
-A class for storing a position in the terminal output buffer
+A class for storing a position in the terminal output buffer.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct BufferPosition {
     int row;
@@ -17,8 +18,8 @@ struct BufferPosition {
     constexpr BufferPosition(int, int);
 };
 ```
-#### Public members
-## Contents
-|- row
-|- column
-`- <a href="./BufferPosition/constructor.md">BufferPosition</a>
+##### Member variables
+- row
+- column
+##### Member functions
+- [BufferPosition](./BufferPosition/constructor.md)

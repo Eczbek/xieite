@@ -4,11 +4,12 @@ Defined in header [<xieite/threads/Timeout.hpp>](../../include/xieite/threads/Ti
 &nbsp;
 
 ## Description
-Runs a callback once after a set amount of time. Compile with `-pthread`
+Runs a callback once after a set amount of time. Compile with `-pthread`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Timeout {
     template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
@@ -19,11 +20,10 @@ struct Timeout {
     void stop();
 };
 ```
-#### Public members
-## Contents
-|- <a href="./Timeout/constructor.md">Timeout</a>
-|- <a href="./Timeout/good.md">good</a>
-`- <a href="./Timeout/stop.md">stop</a>
+##### Member functions
+- [Timeout](./Timeout/constructor.md)
+- [good](./Timeout/good.md)
+- [stop](./Timeout/stop.md)
 
 &nbsp;
 

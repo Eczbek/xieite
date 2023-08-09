@@ -4,18 +4,13 @@ Defined in header [<xieite/types/List.hpp>](../../../include/xieite/types/List.h
 &nbsp;
 
 ## Description
-For use in `xieite::types::Unique`
+For use in `xieite::types::Unique`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 constexpr std::conditional_t<(std::is_same_v<Types, Type> || ...), xieite::types::List<Types...>, xieite::types::List<Types..., Type>> operator->*(const xieite::types::List<Type>);
 ```
-#### Template parameters
-- `Type` - Any type
-#### Function parameters
-- unnamed copy of `xieite::types::List` of `Type`
-#### Return type
-- If at least one of `Types...` is the same as `Type`, then a `xieite::types::List` of `Types...`, otherwise of `Types...` and `Type`

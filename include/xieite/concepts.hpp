@@ -11,6 +11,7 @@
 #	include "./concepts/BitsetReference.hpp"
 #	include "./concepts/Character.hpp"
 #	include "./concepts/ChronoDuration.hpp"
+#	include "./concepts/Constant.hpp"
 #	include "./concepts/ConvertibleToAllOf.hpp"
 #	include "./concepts/ConvertibleToAnyOf.hpp"
 #	include "./concepts/CopyAssignable.hpp"

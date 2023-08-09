@@ -4,21 +4,16 @@ Defined in header [<xieite/math/generatePi.hpp>](../../include/xieite/math/gener
 &nbsp;
 
 ## Description
-Calculates digits of Pi
+Calculates digits of Pi.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::integral Integer = int>
 constexpr std::vector<Integer> generatePi(std::size_t digits) noexcept;
 ```
-#### Template parameters
-- `Integer` - An integral type satisfying `std::integral`
-#### Function parameters
-- `digits` - A `std::size_t`, how many digits to calculate
-#### Return type
-- `std::vector` of `Integer`s, digits of Pi in order
 
 &nbsp;
 

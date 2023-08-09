@@ -4,13 +4,12 @@ Defined in header [<xieite/threads/Pool.hpp>](../../../include/xieite/threads/Po
 &nbsp;
 
 ## Description
-Sets the amount of threads to use
+Sets the amount of threads to use.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setThreadCount(std::size_t threadCount);
 ```
-#### Function parameters
-- `threadCount` - A `std::size_t`

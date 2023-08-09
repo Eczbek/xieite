@@ -4,11 +4,12 @@ Defined in header [<xieite/geometry/Ray.hpp>](../../include/xieite/geometry/Ray.
 &nbsp;
 
 ## Description
-A struct representing an infinite ray with one end
+A struct representing an infinite ray with one end.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Ray {
     xieite::geometry::Point start;
@@ -21,12 +22,12 @@ struct Ray {
     constexpr bool operator==(const xieite::geometry::Ray&) const;
 };
 ```
-#### Public members
-## Contents
-|- start
-|- end
-|- <a href="./Ray/constructor.md">Ray</a>
-`- <a href="./Ray/operatorEquals.md">operator==</a>
+##### Member variables
+- start
+- end
+##### Member functions
+- [Ray](./Ray/constructor.md)
+- [operator==](./Ray/operatorEquals.md)
 
 &nbsp;
 

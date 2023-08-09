@@ -3,7 +3,8 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void backspace(std::size_t count) noexcept;
 ```

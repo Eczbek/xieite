@@ -1,21 +1,19 @@
 # [xieite](../xieite.md)\:\:[geometry](../geometry.md)\:\:getSides
-Defined in header p<xieite/geometry/getSides.hpp>](../../include/xieite/geometry/getSides.hpp)
+Defined in header [<xieite/geometry/getSides.hpp>](../../include/xieite/geometry/getSides.hpp)
 
 &nbsp;
 
 ## Description
-Creates line segments between the points of a polygon
+Creates line segments between the points of a polygon.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::vector<xieite::geometry::Segment> getSides(const xieite::geometry::Polygon& polygon) noexcept;
 ```
-#### Function parameters
-- `polygon` - A `xieite::geometry::Polygon` constant reference
-#### Return type
 
 &nbsp;
 

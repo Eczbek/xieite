@@ -4,36 +4,22 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Description
-Calculates the logarithm of a `xieite::math::BigInteger` to a base
+Calculates the logarithm of a `xieite::math::BigInteger` to a base.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger& base) const;
 ```
-#### Function parameters
-- `base` - A `xieite::math::BigInteger`
-#### Return type
-- `xieite::math::BigInteger`
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
 constexpr xieite::math::BigInteger logarithm(Integer base) const;
 ```
-#### Template parameters
-- `Integer` - A type satisfying `std::integral`
-#### Function parameters
-- `base` - An `Integer`
-#### Return type
-- `xieite::math::BigInteger`
 
 &nbsp;
 

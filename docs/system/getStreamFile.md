@@ -4,22 +4,17 @@ Defined in header [<xieite/system/getStreamFile.hpp>](../../include/xieite/syste
 &nbsp;
 
 ## Description
-Extracts a `std::FILE*` from a stream
+Extracts a `std::FILE*` from a stream.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<xieite::concepts::SameAsOrDerivedFromAnyAny<std::istream, std::ostream> Stream>
 [[nodiscard]]
 inline std::FILE* getStreamFile(const Stream& stream) noexcept;
 ```
-#### Template parameters
-- `Stream` - A stream type satisfying `xieite::concepts::SameAsOrDerivedFromAnyAny` of `std::istream` and `std::ostream`
-#### Function parameters
-- `stream` - A `Stream` constant reference
-#### Return type
-- `std::FILE` pointer
 
 &nbsp;
 

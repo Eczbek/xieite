@@ -3,9 +3,8 @@ Defined in header [<xieite/types/List.hpp>](../../../include/xieite/types/List.h
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 using Data = std::tuple<Types...>;
 ```
-#### Resulting type
-- `std::tuple` of `Types...`

@@ -4,11 +4,12 @@ Defined in header [<xieite/system/bitsPerByte.hpp>](../../include/xieite/system/
 &nbsp;
 
 ## Description
-Defines the amount of bits per byte on this system
+Defines the amount of bits per byte on this system.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline constexpr std::size_t bitsPerByte = std::numeric_limits<unsigned char>::digits;
 ```

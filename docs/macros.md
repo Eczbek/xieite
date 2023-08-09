@@ -4,7 +4,7 @@ Aggregated in header [<xieite/macros.hpp>](../include/xieite/macros.hpp)
 &nbsp;
 
 ## Description
-Macros
+Macros.
 
 &nbsp;
 

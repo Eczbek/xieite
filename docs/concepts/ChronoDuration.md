@@ -8,7 +8,8 @@ Specifies that a type is a `std::chrono::duration`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept ChronoDuration = xieite::traits::IsChronoDuration<Type>::value;

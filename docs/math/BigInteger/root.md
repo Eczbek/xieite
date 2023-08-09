@@ -4,36 +4,22 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Description
-Calculates any root of a `xieite::math::BigInteger`
+Calculates any root of a `xieite::math::BigInteger`.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& degree) const;
 ```
-#### Function parameters
-- `degree` - A `xieite::math::BigInteger`
-#### Return type
-- `xieite::math::BigInteger`
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
 constexpr xieite::math::BigInteger root(Integer degree) const;
 ```
-#### Template parameters
-- `Integer` - A type satisfying `std::integral`
-#### Function parameters
-- `degree` - An `Integer`
-#### Return type
-- `xieite::math::BigInteger`
 
 &nbsp;
 

@@ -4,17 +4,16 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Waits for and returns the next keypress input
+Waits for and returns the next keypress input.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 char readCharacter() noexcept;
 ```
-#### Return type
-- `char` - The input character
 
 &nbsp;
 

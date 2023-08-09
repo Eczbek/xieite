@@ -4,14 +4,12 @@ Defined in header [<xieite/geometry/Segment.hpp>](../../../include/xieite/geomet
 &nbsp;
 
 ## Description
-Constructs a `xieite::geometry::Segment`
+Constructs a `xieite::geometry::Segment`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 constexpr Segment(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
-#### Function parameters
-- `start` - A `xieite::geometry::Point`, the start of the segment
-- `end` - A `xieite::geometry::Point`, the end of the segment

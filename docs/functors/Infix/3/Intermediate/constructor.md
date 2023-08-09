@@ -1,4 +1,4 @@
-# [xieite](../../../../xieite.md)\:\:[functors](../../../../functors.md)\:\:[Infix\<Callback\>](../../../Infix.md)\:\:[Intermediate](../Intermediate.md)\:\:Intermediate
+# [xieite](../../../../xieite.md)\:\:[functors](../../../../functors.md)\:\:[Infix\<Result\(LeftArgument, RightArgument\), callback\>](../../../Infix.md)\:\:[Intermediate](../Intermediate.md)\:\:Intermediate
 Defined in header [<xieite/functors/Infix.hpp>](../../../../../include/xieite/functors/Infix.hpp)
 
 &nbsp;
@@ -8,7 +8,8 @@ Constructs an intermediate state of an infix.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
-constexpr Intermediate(const Callback& callback, const xieite::functors::Argument<Callback, 0>& leftArgument) noexcept;
+constexpr Intermediate(const LeftArgument& leftArgument) noexcept;
 ```

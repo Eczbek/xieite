@@ -8,7 +8,8 @@ Extends multiple invocable types and overloads `operator()` for each.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<xieite::concepts::Derivable... Derivables>
 struct Overloader
@@ -38,9 +39,8 @@ int main() {
     auto bar = [](double) -> void {
         std::cout << "bar\n";
     };
-    struct nope {};
 
-    xieite::functors::Overloader overloader(foo, bar, nope());
+    xieite::functors::Overloader overloader(foo, bar);
 
     overloader(999);
     overloader(3.14159);

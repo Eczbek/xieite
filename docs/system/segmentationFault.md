@@ -8,7 +8,8 @@ Creates a segmentation fault. Why would you use this?
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline void segmentationFault() noexcept;
 ```

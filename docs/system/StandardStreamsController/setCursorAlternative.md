@@ -4,16 +4,15 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Enables or disables the alternative cursor. The alternative cursor starts at the original cursor's position
+Enables or disables the alternative cursor. The alternative cursor starts at the original cursor's position.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setCursorAlternative(bool value) noexcept;
 ```
-#### Function parameters
-- `value` - A `bool` to enable or disable the alternative cursor
 
 &nbsp;
 

@@ -1,9 +1,10 @@
-# [xieite](../../../xieite.md)\:\:[functors](../../../functors.md)\:\:[Infix\<Callback\>](../../Infix.md)\:\:operator\<
+# [xieite](../../../xieite.md)\:\:[functors](../../../functors.md)\:\:[Infix\<Result\(Argument\), callback\>](../../Infix.md)\:\:operator\<
 Defined in header [<xieite/functors/Infix.hpp>](../../../../include/xieite/functors/Infix.hpp)
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
-friend constexpr xieite::functors::Result<Callback> operator<(const xieite::functors::Argument<Callback, 0>& argument, const xieite::functors::Infix<Callback>& infix);
+friend constexpr Result operator<(const Argument& argument, const xieite::functors::Infix<Result(Argument), callback>);
 ```

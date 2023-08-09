@@ -4,16 +4,15 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Sets the terminal cursor's position
+Sets the terminal cursor's position.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setCursorPosition(xieite::system::BufferPosition position) noexcept;
 ```
-#### Function parameters
-- `position` - A `xieite::system::BufferPosition`, the new cursor coordinates
 
 &nbsp;
 

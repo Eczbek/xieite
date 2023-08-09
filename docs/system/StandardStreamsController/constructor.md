@@ -4,11 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Constructs `xieite::system::StandardStreamsController`
+Constructs `xieite::system::StandardStreamsController`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 StandardStreamsController() noexcept;
 ```

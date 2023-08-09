@@ -4,98 +4,69 @@ Defined in header [<xieite/units/lengths.hpp>](../../include/xieite/units/length
 &nbsp;
 
 ## Description
-A colletion of ratios of meters to imperial length measurement units
+A colletion of ratios of meters to imperial length measurement units.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 constexpr std::ratio<176389, 10000000000> twip;
 ```
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr std::ratio<254, 10000000> thou;
 ```
-
-&nbsp;
-
+#### 3)
 ```cpp
 constexpr std::ratio<84667, 10000000> barleycorn;
 ```
-
-&nbsp;
-
+#### 4)
 ```cpp
 constexpr std::ratio<254, 10000> inch;
 ```
-
-&nbsp;
-
+#### 5)
 ```cpp
 constexpr std::ratio<3048, 10000> foot;
 ```
-
-&nbsp;
-
+#### 6)
 ```cpp
 constexpr std::ratio<9144, 10000> yard;
 ```
 
-&nbsp;
-
+#### 7)
 ```cpp
 constexpr std::ratio<201168, 10000> chain;
 ```
-
-&nbsp;
-
+#### 8)
 ```cpp
 constexpr std::ratio<201168, 1000> furlong;
 ```
-
-&nbsp;
-
+#### 9)
 ```cpp
 constexpr std::ratio<1609344, 100> mile;
 ```
-
-&nbsp;
-
+#### 10)
 ```cpp
 constexpr std::ratio<4828032, 100> league;
 ```
-
-&nbsp;
-
+#### 11)
 ```cpp
 constexpr std::ratio<1852, 1000> fathom;
 ```
-
-&nbsp;
-
+#### 12)
 ```cpp
 constexpr std::ratio<1852, 10> cable;
 ```
-
-&nbsp;
-
+#### 13)
 ```cpp
 constexpr std::ratio<1852, 1> nauticalMile;
 ```
-
-&nbsp;
-
+#### 14)
 ```cpp
 constexpr std::ratio<201168, 1000000> link;
 ```
-
-&nbsp;
-
+#### 15)
 ```cpp
 constexpr std::ratio<50292, 10000> rod;
 ```

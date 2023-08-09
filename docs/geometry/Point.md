@@ -4,27 +4,28 @@ Defined in header [<xieite/geometry/Point.hpp>](../../include/xieite/geometry/Po
 &nbsp;
 
 ## Description
-A class representing a point
+A class representing a point.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Point {
     double x;
     double y;
 
-    constexpr Point(double = 0.0, double = 0.0);
+    constexpr Point(double = 0, double = 0);
 
     constexpr bool operator==(xieite::geometry::Point) const;
 };
 ```
-#### Public members
-## Contents
-|- x
-|- y
-|- <a href="./Point/constructor.md">Point</a>
-`- <a href="./Point/operatorEquals.md">operator==</a>
+##### Member variables
+- x
+- y
+##### Member functions
+- [Point](./Point/constructor.md)
+- [operator==](./Point/operatorEquals.md)
 
 &nbsp;
 
@@ -36,7 +37,7 @@ struct Point {
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-    xieite::geometry::Point point = xieite::geometry::rotate({ 1.0, 0.0 }, xieite::math::toRadians(90.0));
+    xieite::geometry::Point point = xieite::geometry::rotate(xieite::geometry::Point(1, 0), xieite::math::toRadians(90));
     
     std::cout << '(' << point.x << ", " << point.y << ")\n";
 }

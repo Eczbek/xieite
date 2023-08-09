@@ -8,7 +8,8 @@ Specifies that a type can be converted to at least one of several other types wi
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Source, typename... Targets>
 concept NoThrowConvertibleToAnyOf = (xieite::concepts::NoThrowConvertibleTo<Source, Targets> || ...);

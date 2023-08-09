@@ -4,11 +4,12 @@ Defined in header [<xieite/threads/Pool.hpp>](../../include/xieite/threads/Pool.
 &nbsp;
 
 ## Description
-Creates a "pool" of threads for distributing jobs between. Compile with `-pthread`
+Creates a "pool" of threads for distributing jobs between. Compile with `-pthread`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Pool {
     Pool(std::size_t = std::thread::hardware_concurrency());
@@ -20,12 +21,11 @@ struct Pool {
     void enqueue(const std::function<void()>&);
 };
 ```
-#### Public members
-## Contents
-|- <a href="./Pool/constructor.md">Pool</a>
-|- <a href="./Pool/setThreadCount.md">setThreadCount</a>
-|- <a href="./Pool/getThreadCount.md">getTHreadCount</a>
-`- <a href="./Pool/enqueue.md">enqueue</a>
+##### Member functions
+- [Pool](./Pool/constructor.md)
+- [setThreadCount](./Pool/setThreadCount.md)
+- [getThreadCount](./Pool/getThreadCount.md)
+- [enqueue](./Pool/enqueue.md)
 
 &nbsp;
 

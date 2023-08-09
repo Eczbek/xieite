@@ -4,11 +4,12 @@ Defined in header [<xieite/functors/ProcessGuard.hpp>](../../../include/xieite/f
 &nbsp;
 
 ## Description
-Releases the guard, so that when the program ends, the callback will not execute
+Releases the guard, so that when the program ends, the callback will not execute.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void release() noexcept;
 ```

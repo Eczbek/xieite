@@ -4,11 +4,12 @@ Defined in header [<xieite/threads/Interval.hpp>](../../include/xieite/threads/I
 &nbsp;
 
 ## Description
-Runs a callback every set amount of time. Compile with `-pthread`
+Runs a callback every set amount of time. Compile with `-pthread`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Interval {
     template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
@@ -19,11 +20,10 @@ struct Interval {
     void stop();
 };
 ```
-#### Public members
-## Contents
-|- <a href="./Interval/constructor.md">Interval</a>
-|- <a href="./Interval/good.md">good</a>
-`- <a href="./Interval/stop.md">stop</a>
+##### Member functions
+- [Interval](./Interval/constructor.md)
+- [good](./Interval/good.md)
+- [stop](./Interval/stop.md)
 
 &nbsp;
 

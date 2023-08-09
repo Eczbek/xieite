@@ -8,7 +8,8 @@ Specifies that a type is a functor for hashing values.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type, typename Argument>
 concept Hasher = requires(Type hasher, Argument value) {

@@ -8,7 +8,8 @@ Specifies that a type satisfies `std::ranges::range` and contains values of a sp
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Range, typename Value>
 concept RangeOf = std::ranges::range<Range> && (std::same_as<std::ranges::range_value_t<Range>, Value> || std::convertible_to<std::ranges::range_value_t<Range>, Value>);

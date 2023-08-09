@@ -1,16 +1,16 @@
-# [XIEITE](../macros.md)\_UNIQUE\_TOKEN
+# [XIEITE](../macros.md)\_\_UNIQUE\_TOKEN
 Defined in header [<xieite/macros/UNIQUE_TOKEN.hpp>](../../include/xieite/macros/UNIQUE_TOKEN.hpp)
 
 &nbsp;
 
 ## Description
-Creates a unique token
+Creates a unique token.
 
 &nbsp;
 
 ## Synopsis
 ```cpp
-#define XIEITE__UNIQUE_TOKEN XIEITE__CONCATENATE(XIEITE_INTERNAL_UNIQUE_TOKEN_, __COUNTER__)
+#define XIEITE__UNIQUE_TOKEN XIEITE__CONCATENATE(XIEITE_INTERNAL__UNIQUE_TOKEN_, __COUNTER__)
 ```
 
 &nbsp;

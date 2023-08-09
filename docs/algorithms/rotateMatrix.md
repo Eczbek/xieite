@@ -8,7 +8,8 @@ Rotates a `std::vector` of at least 2 dimensions in 90* increments.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Value>
 [[nodiscard]]

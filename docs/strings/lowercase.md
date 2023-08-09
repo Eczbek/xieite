@@ -4,31 +4,19 @@ Defined in header [<xieite/strings/lowercase.hpp>](../../include/xieite/strings/
 &nbsp;
 
 ## Description
-Converts a string or character to lowercase. Only handles characters `A` to `Z`
+Converts a string or character to lowercase. Only handles characters `A` to `Z`.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 constexpr char lowercase(char character) noexcept;
 ```
-#### Function parameters
-- `character` - A `char`
-#### Return type
-- `char`
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr std::string lowercase(std::string string) noexcept;
 ```
-#### Function parameters
-- `string` - A `std::string`
-#### Return type
-- `std::string`
 
 &nbsp;
 

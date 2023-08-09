@@ -4,39 +4,23 @@ Defined in header [<xieite/math/absolute.hpp>](../../include/xieite/math/absolut
 &nbsp;
 
 ## Description
-Returns the absolute of a value
+Returns the unsigned absolute of a value.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
 constexpr std::make_unsigned_t<Integer> absolute(Integer value) noexcept;
 ```
-#### Template parameters
-- `Integer` - Any integral type satisfying `std::integral`
-#### Function parameters
-- `value` - An `Integer`
-#### Return type
-- `std::make_unsigned_t` of `Integer`, the absolute of `value`
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<std::floating_point Floating>
 [[nodiscard]]
-constexpr Floating absolute(const Floating value) noexcept;
+constexpr Floating absolute(Floating value) noexcept;
 ```
-#### Template parameters
-- `Floating` - A floating point type satisfying `std::floating_point`
-#### Function parameters
-- `value` - A `Floating`
-#### Return type
-- `Floating`, the absolute of `value`
 
 &nbsp;
 

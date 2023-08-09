@@ -4,11 +4,12 @@ Defined in header [<xieite/geometry/Polygon.hpp>](../../include/xieite/geometry/
 &nbsp;
 
 ## Description
-A class representing a polygon
+A class representing a polygon.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Polygon {
     std::vector<xieite::geometry::Point> points;
@@ -19,11 +20,11 @@ struct Polygon {
     constexpr bool operator==(const xieite::geometry::Polygon&) const;
 };
 ```
-#### Public members
-## Contents
-|- points
-|- <a href="./Polygon/constructor.md">Polygon</a>
-`- <a href="./Polygon/operatorEquals.md">operator==</a>
+##### Member variables
+- points
+##### Member functions
+- [Polygon](./Polygon/constructor.md)
+- [operator==](./Polygon/operatorEquals.md)
 
 &nbsp;
 

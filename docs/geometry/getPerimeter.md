@@ -4,19 +4,16 @@ Defined in header [<xieite/geometry/getPerimeter.hpp>](../../include/xieite/geom
 &nbsp;
 
 ## Description
-Calculates the perimeter of a polygon, or the sum of all its sides' lengths
+Calculates the perimeter of a polygon.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept;
 ```
-#### Function parameters
-- `polygon` - A `xieite::geometry::Polygon` constant reference
-#### Return type
-- `double` - The polygon's perimeter
 
 &nbsp;
 

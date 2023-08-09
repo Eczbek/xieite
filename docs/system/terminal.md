@@ -4,11 +4,12 @@ Defined in header [<xieite/system/terminal.hpp>](../../include/xieite/system/ter
 &nbsp;
 
 ## Description
-An instance of `xieite::system::StandardStreamsController` specialized to `std::cin` and `std::cout`
+An instance of `xieite::system::StandardStreamsController` specialized to `std::cin` and `std::cout`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline auto terminal = xieite::system::StandardStreamsController<std::cin, std::cout>();
 ```

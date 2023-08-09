@@ -4,13 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Sets the text highlight color. Disregards transparency value of passed value
+Sets the text highlight color. Disregards transparency value of passed value.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setBackgroundColor(const xieite::graphics::Color& color) noexcept;
 ```
-#### Function parameters
-- `color` - A `xieite::graphics::Color` constant reference

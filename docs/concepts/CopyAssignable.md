@@ -8,7 +8,8 @@ Specifies that a type is copy-assignable.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept CopyAssignable = std::is_copy_assignable_v<Type>;

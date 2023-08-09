@@ -4,59 +4,31 @@ Defined in header [<xieite/geometry/containsPoint.hpp>](../../include/xieite/geo
 &nbsp;
 
 ## Description
-Checks whether a point lies within or on the border of a shape
+Checks whether a point lies within or on the border of a shape.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Line& line, xieite::geometry::Point point) noexcept;
 ```
-#### Function parameters
-- `line` - A `xieite::geometry::Line` constant reference to check for a point on
-- `point` - A `xieite::geometry::Point`, the point to check for
-#### Return type
-- `bool` - Whether or not the point lies within the shape
-
-&nbsp;
-
+#### 2)
 ```cpp
 [[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Ray& ray, xieite::geometry::Point point) noexcept;
 ```
-#### Function parameters
-- `ray` - A `xieite::geometry::Ray` constant reference to check for a point on
-- `point` - A `xieite::geometry::Point`, the point to check for
-#### Return type
-- `bool` - Whether or not the point lies within the shape
-
-&nbsp;
-
+#### 3)
 ```cpp
 [[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Segment& segment, xieite::geometry::Point point) noexcept;
 ```
-#### Function parameters
-- `segment` - A `xieite::geometry::Segment` constant reference to check for a point on
-- `point` - A `xieite::geometry::Point`, the point to check for
-#### Return type
-- `bool` - Whether or not the point lies within the shape
-
-&nbsp;
-
+#### 4)
 ```cpp
 [[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, xieite::geometry::Point point) noexcept;
 ```
-#### Function parameters
-- `polygon` - A `xieite::geometry::Polygon` constant reference to check for a point in
-- `point` - A `xieite::geometry::Point`, the point to check for
-#### Return type
-- `bool` - Whether or not the point lies within the shape
 
 &nbsp;
 

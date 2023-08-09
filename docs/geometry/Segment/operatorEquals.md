@@ -8,12 +8,9 @@ Compares two segments to each other
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr bool operator==(const xieite::geometry::Segment& segment) const noexcept;
 ```
-#### Function parameters
-- `segment` - A `xieite::geometry::Segment` constant reference
-#### Return type
-- `bool` - Whether or not the compared shapes are equal

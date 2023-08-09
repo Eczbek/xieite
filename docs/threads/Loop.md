@@ -4,11 +4,12 @@ Defined in header [<xieite/threads/Loop.hpp>](../../include/xieite/threads/Loop.
 &nbsp;
 
 ## Description
-Runs a callback constantly. Compile with `-pthread`
+Runs a callback constantly. Compile with `-pthread`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Loop {
     template<std::invocable<> Invocable>
@@ -19,11 +20,10 @@ struct Loop {
     void stop();
 };
 ```
-#### Public members
-## Contents
-|- <a href="./Loop/constructor.md">Loop</a>
-|- <a href="./Loop/good.md">good</a>
-`- <a href="./Loop/stop.md">stop</a>
+##### Member functions
+- [Loop](./Loop/constructor.md)
+- [good](./Loop/good.md)
+- [stop](./Loop/stop.md)
 
 &nbsp;
 

@@ -4,13 +4,12 @@ Defined in header [<xieite/threads/Interval.hpp>](../../../include/xieite/thread
 &nbsp;
 
 ## Description
-Returns `true` if the interval is still running, and `false` if it has been stopped
+Returns `true` if the interval is still running, and `false` if it has been stopped.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 bool good() const noexcept;
 ```
-#### Return type
-- `bool`, whether or not the interval is still running

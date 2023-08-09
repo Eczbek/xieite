@@ -4,16 +4,13 @@ Defined in header [<xieite/threads/Loop.hpp>](../../../include/xieite/threads/Lo
 &nbsp;
 
 ## Description
-Constructs a `xieite::threads::Loop`, starts running a callback constantly
+Constructs a `xieite::threads::Loop`, starts running a callback constantly.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::invocable<> Invocable>
 Loop(const Invocable& callback) noexcept;
 ```
-#### Template parameters
-- `Invocable` - A type satisfying `std::invocable`
-#### Function parameters
-- `callback` - A constant `Invocable` reference

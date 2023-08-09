@@ -4,13 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Moves the terminal cursor's position
+Moves the terminal cursor's position.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void moveCursorPosition(xieite::system::BufferPosition difference) noexcept;
 ```
-#### Function parameters
-- `difference` - A `xieite::system::BufferPosition`, how many rows and columns to move

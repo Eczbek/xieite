@@ -1,10 +1,10 @@
-# [XIEITE](../macros.md)\_VANISH
+# [XIEITE](../macros.md)\_\_VANISH
 Defined in header [<xieite/macros/VANISH.hpp>](../../include/xieite/macros/VANISH.hpp)
 
 &nbsp;
 
 ## Description
-Uses cursed C++ magic to remove any line where it is mentioned. See header file for definitions
+Uses cursed C++ magic to remove any line where it is mentioned. See header file for definitions.
 
 &nbsp;
 

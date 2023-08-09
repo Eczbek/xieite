@@ -4,11 +4,12 @@ Defined in header [<xieite/geometry/Segment.hpp>](../../include/xieite/geometry/
 &nbsp;
 
 ## Description
-A struct representing a finite line segment
+A struct representing a finite line segment.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Segment {
     xieite::geometry::Point start;
@@ -19,12 +20,12 @@ struct Segment {
     constexpr bool operator==(const xieite::geometry::Segment&) const;
 };
 ```
-#### Public members
-## Contents
-|- start
-|- end
-|- <a href="./Segment/constructor.md">Segment</a>
-`- <a href="./Segment/operatorEquals.md">operator==</a>
+##### Member variables
+- start
+- end
+##### Member functions
+- [Segment](./Segment/constructor.md)
+- [operator==](./Segment/operatorEquals.md)
 
 &nbsp;
 

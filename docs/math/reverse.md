@@ -4,23 +4,17 @@ Defined in header [<xieite/math/reverse.hpp>](../../include/xieite/math/reverse.
 &nbsp;
 
 ## Description
-Reverses an integral of any base
+Reverses an integral of any base.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
 constexpr Integer reverse(Integer value, std::size_t base = 10) noexcept;
 ```
-#### Template parameters
-- `Integer` - An integral type satisfying `std::integral`
-#### Function parameters
-- `value` - An `Integer`
-- `base` - A `std::size_t`, set to `10` by default
-#### Return type
-- `Integer`
 
 &nbsp;
 

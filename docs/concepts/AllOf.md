@@ -8,7 +8,8 @@ Specifies that a type satisfies all of several type traits.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type, xieite::concepts::Trait<Type>... Traits>
 concept AllOf = (Traits<Type>::value && ...);

@@ -3,15 +3,10 @@ Defined in header [<xieite/hashes/distribute.hpp>](../../include/xieite/hashes/d
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::unsigned_integral UnsignedInteger>
 [[nodiscard]]
 constexpr UnsignedInteger distribute(UnsignedInteger value) noexcept;
 ```
-#### Template parameters
-- `UnsignedInteger` - An unsigned integer type satisfying `std::unsigned_integral`
-#### Function parameters
-- `value` - An `UnsignedInteger`
-#### Return type
-- `UnsignedInteger`

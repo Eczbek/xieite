@@ -8,7 +8,8 @@ Specifies that a type can be streamed into.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept StreamableIn = requires(Type value, std::istream inputStream) {

@@ -4,23 +4,17 @@ Defined in header [<xieite/math/mergeIntervals.hpp>](../../include/xieite/math/m
 &nbsp;
 
 ## Description
-Merges intervals if they overlap
+Merges intervals if they overlap.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic>> IntervalRange>
 [[nodiscard]]
 constexpr std::vector<xieite::math::Interval<Arithmetic>> mergeIntervals(const IntervalRange& intervals) noexcept;
 ```
-#### Template parameters
-- `Arithmetic` - A type satisfying `xieite::concepts::Arithmetic`
-- `IntervalRange` - A type satisfying `xieite::concepts::RangeOf` of `xieite::math::Interval` of `Arithmetic`
-#### Function parameters
-- `intervals` - A constant `IntervalRange` reference
-#### Return type
-- `std::vector` of `xieite::math::Interval`s of `Arithmetic`, the merged intervals
 
 &nbsp;
 

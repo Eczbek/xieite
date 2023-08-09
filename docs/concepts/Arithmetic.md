@@ -8,7 +8,8 @@ Specifies that a type is an integer or a floating point.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept Arithmetic = std::is_arithmetic_v<Type>;

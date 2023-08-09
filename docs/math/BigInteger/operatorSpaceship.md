@@ -4,31 +4,17 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& comparand) const noexcept;
 ```
-#### Function parameters
-- `comparand` - A `xieite::math::BigInteger` constant reference
-#### Return type
-- `std::strong_ordering`
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
 constexpr std::strong_ordering operator<=>(Integer comparand) const noexcept;
 ```
-#### Template parameters
-- `Integer` - A type satisfying `std::integral`
-#### Function parameters
-- `comparand` - - An `Integer`
-#### Return type
-- `std::strong_ordering`
 
 &nbsp;
 

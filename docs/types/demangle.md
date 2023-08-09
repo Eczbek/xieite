@@ -4,19 +4,16 @@ Defined in header [<xieite/types/demangle.hpp>](../../include/xieite/types/deman
 &nbsp;
 
 ## Description
-Demangles the name of a `std::type_info`. Returns original string if demangling fails
+Demangles the name of a `std::type_info`. Returns original string if demangling fails.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 inline std::string demangle(std::string mangled) noexcept;
 ```
-#### Function parameters
-- `mangled` - A `std::string`, the mangled type name
-#### Return type
-- `std::string`
 
 &nbsp;
 

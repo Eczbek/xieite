@@ -15,6 +15,7 @@
 #	include "./macros/MATRIX.hpp"
 #	include "./macros/NO_RETURN.hpp"
 #	include "./macros/OBSTRUCT.hpp"
+#	include "./macros/PACKED.hpp"
 #	include "./macros/REPEAT.hpp"
 #	include "./macros/REPEAT_CONCATENATE.hpp"
 #	include "./macros/RESTRICT.hpp"

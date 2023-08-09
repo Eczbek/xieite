@@ -4,19 +4,13 @@ Defined in header [<xieite/geometry/getArea.hpp>](../../include/xieite/geometry/
 &nbsp;
 
 ## Description
-Calculates the area of a shape
+Calculates the area of a shape.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr double getArea(const xieite::geometry::Polygon& polygon) noexcept;
 ```
-#### Function parameters
-- `polygon` - A `xieite::geometry::Polygon` constant reference
-#### Return type
-- `double` - Area of the shape

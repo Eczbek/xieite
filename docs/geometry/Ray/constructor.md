@@ -4,26 +4,19 @@ Defined in header [<xieite/geometry/Ray.hpp>](../../../include/xieite/geometry/R
 &nbsp;
 
 ## Description
-Constructs a `xieite::geometry::Ray`
+Constructs a `xieite::geometry::Ray`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 constexpr Ray(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
-#### Function parameters
-- `start` - A `xieite::geometry::Point`, the start of the ray
-- `end` - A `xieite::geometry::Point`, an intersection through which the infinite ray passes
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr Ray(xieite::geometry::Point start, double angle) noexcept;
 ```
-#### Function parameters
-- `start` - A `xieite::geometry::Point`, the start of the ray
-- `angle` - A `double`, the ray's angle
 
 &nbsp;
 
@@ -35,15 +28,11 @@ constexpr Ray(xieite::geometry::Point start, double angle) noexcept;
 #include <xieite/geometry/containsPoint.hpp>
 
 int main() {
-    xieite::geometry::Point start(0.0, 0.0);
-    xieite::geometry::Point end(1.0, 1.0);
+    xieite::geometry::Ray ray(xieite::geometry::Point(0.0, 0.0), xieite::geometry::Point(1.0, 1.0));
+
     xieite::geometry::Point point(-1.0, -1.0);
 
-    xieite::geometry::Ray ray(stat, end);
-
-    std::cout
-        << std::boolalpha
-        << xieite::geometry::containsPoint(ray, point) << '\n';
+    std::cout << std::boolalpha << xieite::geometry::containsPoint(ray, point) << '\n';
 }
 ```
 Output:

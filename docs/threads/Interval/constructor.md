@@ -4,18 +4,13 @@ Defined in header [<xieite/threads/Interval.hpp>](../../../include/xieite/thread
 &nbsp;
 
 ## Description
-Constructs a `xieite::threads::Interval`, starts running a callback between set delays
+Constructs a `xieite::threads::Interval`, starts running a callback between set delays.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
 Interval(const Invocable& callback, ChronoDuration duration) noexcept;
 ```
-#### Template parameters
-- `Invocable` - A type satisfying `std::invocable`
-- `ChronoDuration` - A type satisfying `xieite::concepts::ChronoDuration`
-#### Function parameters
-- `callback` - A constant `Invocable` reference
-- `duration` - A `ChronoDuration`

@@ -4,22 +4,17 @@ Defined in header [<xieite/math/isPowerOf2.hpp>](../../include/xieite/math/isPow
 &nbsp;
 
 ## Description
-Checks that a value is a power of 2
+Checks that a value is a power of 2.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::unsigned_integral UnsignedInteger>
 [[nodiscard]]
-constexpr bool isPowerOf2(const UnsignedInteger value) noexcept;
+constexpr bool isPowerOf2(UnsignedInteger value) noexcept;
 ```
-#### Template parameters
-- `UnsignedInteger` - An unsigned integral type satisfying `std::unsigned_integral`
-#### Function parameters
-- `value` - An `UnsignedInteger`
-#### Return type
-- `bool`, whether or not value is a power of 2
 
 &nbsp;
 

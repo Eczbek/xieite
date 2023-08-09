@@ -4,11 +4,12 @@ Defined in header [<xieite/threads/Timeout.hpp>](../../../include/xieite/threads
 &nbsp;
 
 ## Description
-Returns `true` if the timeout is still waiting, and `false` if it has been stopped
+Returns `true` if the timeout is still waiting, and `false` if it has been stopped.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 bool good() const noexcept;
 ```

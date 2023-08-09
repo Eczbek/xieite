@@ -5,8 +5,8 @@
 #	include "../system/bitsPerByte.hpp"
 
 namespace xieite::types {
-	template<typename Any>
-	inline constexpr std::size_t sizeBits = sizeof(Any) * xieite::system::bitsPerByte;
+	template<typename Type>
+	inline constexpr std::size_t sizeBits = sizeof(Type) * xieite::system::bitsPerByte;
 }
 
 #endif

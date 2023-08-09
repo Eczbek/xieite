@@ -4,20 +4,16 @@ Defined in header [<xieite/hashes/combine.hpp>](../../include/xieite/hashes/comb
 &nbsp;
 
 ## Description
-Combines two hashes
+Combines two hashes.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::size_t combine(std::size_t value1, std::size_t value2) noexcept;
 ```
-#### Function parameters
-- `value1` - A `std::size_t`, a hash result
-- `value2` - Another `std::size_t`, also a hash result
-#### Return type
-- `std::size_t`, the hashes combined using magic
 
 &nbsp;
 

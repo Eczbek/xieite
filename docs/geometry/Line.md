@@ -4,11 +4,12 @@ Defined in header [<xieite/geometry/Line.hpp>](../../include/xieite/geometry/Lin
 &nbsp;
 
 ## Description
-An class representing an infinite line
+An class representing an infinite line.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Line {
     xieite::geometry::Point start;
@@ -21,9 +22,9 @@ struct Line {
     constexpr bool operator==(const xieite::geometry::Line&) const;
 };
 ```
-#### Public members
-## Contents
-|- start
-|- end
-|- <a href="./Line/constructor.md">Line</a>
-`- <a href="./Line/operatorEquals.md">operator==</a>
+##### Member variables
+- start
+- end
+##### Member functions
+- [Line](./Line/constructor.md)
+- [operator==](./Line/operatorEquals.md)

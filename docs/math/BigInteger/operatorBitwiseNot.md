@@ -3,13 +3,12 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger operator~() const noexcept;
 ```
-#### Return type
-- `xieite::math::BigInteger`
 
 &nbsp;
 

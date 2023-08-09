@@ -19,7 +19,7 @@ constexpr bool isPalindrome(const Range& range, const Callback& comparator = Cal
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
-constexpr bool isPalindrome(const Integer value, const std::size_t base = 10) noexcept;
+constexpr bool isPalindrome(Integer value, std::size_t base = 10) noexcept;
 ```
 
 &nbsp;

@@ -4,13 +4,12 @@ Defined in header [<xieite/threads/Pool.hpp>](../../../include/xieite/threads/Po
 &nbsp;
 
 ## Description
-Gets the number of threads currently used
+Gets the number of threads currently used.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 std::size_t getThreadCount() const noexcept;
 ```
-#### Return type
- A `std::size_t`

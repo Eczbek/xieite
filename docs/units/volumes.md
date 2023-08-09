@@ -4,38 +4,28 @@ Defined in header [<xieite/units/volumes.hpp>](../../include/xieite/units/volume
 &nbsp;
 
 ## Description
-A colletion of ratios of milliliters to imperial volume measurement units
+A colletion of ratios of milliliters to imperial volume measurement units.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 constexpr std::ratio<284130625, 10000000> fluidOunce;
 ```
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr std::ratio<1420653125, 10000000> gill;
 ```
-
-&nbsp;
-
+#### 3)
 ```cpp
 constexpr std::ratio<56826125, 100000> pint;
 ```
-
-&nbsp;
-
+#### 4)
 ```cpp
 constexpr std::ratio<11365225, 10000> quart;
 ```
-
-&nbsp;
-
+#### 5)
 ```cpp
 constexpr std::ratio<454609, 100> gallon;
 ```

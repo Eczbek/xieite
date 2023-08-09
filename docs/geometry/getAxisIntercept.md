@@ -4,23 +4,17 @@ Defined in header [<xieite/geometry/getAxisIntercept.hpp>](../../include/xieite/
 &nbsp;
 
 ## Description
-Finds a point where a line intercepts an axis of origin
+Finds a point where a line intercepts an axis of origin.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
-constexpr xieite::geometry::Point getAxisIntercept(const LinearShape& linearShape, const xieite::geometry::Point origin = xieite::geometry::Point(0.0, 0.0)) noexcept;
+constexpr xieite::geometry::Point getAxisIntercept(const LinearShape& linearShape, xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept;
 ```
-#### Template parameters
-- `LinearShape` - A type satisfying `xieite::concepts::LinearShape`
-#### Function parameters
-- `linearShape` - A constant `LinearShape` reference
-- `origin` - A `xieite::geometry::Point`, set to `xieite::geometry::Point(0.0, 0.0)` by default
-#### Return type
-- `xieite::geometry::Point`, the intercept point
 
 &nbsp;
 

@@ -4,38 +4,26 @@ Defined in header [<xieite/math/pi.hpp>](../../include/xieite/math/pi.hpp)
 &nbsp;
 
 ## Description
-Defines integer values of Pi
+Defines integer values of Pi.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 template<typename>
 inline constexpr double pi = std::numbers::pi;
 ```
-#### Template parameters
-- unnamed unconstrained type
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<std::floating_point Floating>
 inline constexpr Floating pi<Floating> = std::numbers::pi_v<Floating>;
 ```
-#### Template parameters
-- `Floating` - A floating point type satisfying `std::floating_point`
-
-&nbsp;
-
+#### 3)
 ```cpp
 template<std::integral Integer>
 inline constexpr Integer pi<Integer> = static_cast<Integer>(std::numbers::pi);
 ```
-#### Template parameters
-- `Integer` - An integral type satisfying `std::integral`
 
 &nbsp;
 

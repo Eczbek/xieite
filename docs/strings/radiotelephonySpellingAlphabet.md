@@ -4,11 +4,12 @@ Defined in header [<xieite/strings/radiotelephonySpellingAlphabet.hpp>](../../in
 &nbsp;
 
 ## Description
-Defines the Radiotelephony Spelling Alphabet
+Defines the radiotelephony spelling alphabet.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> radiotelephonySpellingAlphabet = ([] {
     std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> result;

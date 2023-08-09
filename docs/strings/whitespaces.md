@@ -4,11 +4,12 @@ Defined in header [<xieite/strings/whitespaces.hpp>](../../include/xieite/string
 &nbsp;
 
 ## Description
-Whitespace characters
+Whitespace characters.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline constexpr std::string_view whitespaces = "\x9\xA\xB\xC\xD\x20\x85\xA0";
 ```

@@ -4,11 +4,12 @@ Defined in header [<xieite/threads/Timeout.hpp>](../../../include/xieite/threads
 &nbsp;
 
 ## Description
-Stops a `xieite::threads::Timeout` and its callback call. Returns execution to the caller thread, without waiting for the timout to complete
+Stops a `xieite::threads::Timeout` and its callback call. Returns execution to the caller thread, without waiting for the timout to complete.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void stop() noexcept;
 ```

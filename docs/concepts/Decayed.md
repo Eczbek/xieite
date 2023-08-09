@@ -8,7 +8,8 @@ Specifies that a type is decayed.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept Decayed = std::same_as<Type, std::decay_t<Type>>;

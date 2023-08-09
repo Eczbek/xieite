@@ -4,14 +4,13 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Description
-Gets the data of a `xieite::math::BigInteger`
+Gets the data of a `xieite::math::BigInteger`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr const std::vector<bool>& data() const noexcept;
 ```
-#### Return type
-- `std::vector` of `bool`s

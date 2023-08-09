@@ -4,11 +4,12 @@ Defined in header [<xieite/threads/Loop.hpp>](../../../include/xieite/threads/Lo
 &nbsp;
 
 ## Description
-Returns `true` if the loop is still running, and `false` if it has been stopped
+Returns `true` if the loop is still running, and `false` if it has been stopped.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 bool good() const noexcept;
 ```

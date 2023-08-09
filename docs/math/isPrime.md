@@ -4,22 +4,17 @@ Defined in header [<xieite/math/isPrime.hpp>](../../include/xieite/math/isPrime.
 &nbsp;
 
 ## Description
-Checks whether an integer is only evenly divisible by itself and 1
+Checks whether an integer is only evenly divisible by itself and 1.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
 constexpr bool isPrime(Integer value) noexcept;
 ```
-#### Template parameters
-- `Integer` - An integral type satisfying `std::integral`
-#### Function parameters
-- `value` - An `Integer`
-#### Return type
-- `bool`, whether or not value is prime
 
 &nbsp;
 

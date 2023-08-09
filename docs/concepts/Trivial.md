@@ -8,7 +8,8 @@ Specifies that a type is trivial.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept Trivial = std::is_trivial_v<Type>;

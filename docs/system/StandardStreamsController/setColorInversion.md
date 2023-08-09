@@ -4,13 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Enables or disables the swapping of foreground and background colors
+Enables or disables the swapping of foreground and background colors.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setColorInversion(bool value) noexcept;
 ```
-#### Function parameters
-- `value` - A `bool` to determine whether to enable or disable color inversion
