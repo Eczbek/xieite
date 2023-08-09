@@ -11,7 +11,6 @@ Calculates the perimeter of a polygon.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept;
 ```
 

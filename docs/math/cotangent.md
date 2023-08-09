@@ -12,6 +12,5 @@ Calculates the cotangent of a value.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]]
 constexpr xieite::math::Result<Arithmetic> cotangent(Arithmetic value) noexcept;
 ```

@@ -11,7 +11,6 @@ Calculates the distance between two points.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr double getDistance(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
 

@@ -11,13 +11,11 @@ Calculates any root of a `xieite::math::BigInteger`.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& degree) const;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]]
 constexpr xieite::math::BigInteger root(Integer degree) const;
 ```
 

@@ -11,6 +11,5 @@ Gets the data of a `xieite::math::BigInteger`.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr const std::vector<bool>& data() const noexcept;
 ```

@@ -134,7 +134,6 @@ namespace xieite::system {
 			outputStream << "\x1B[2K";
 		}
 
-		[[nodiscard]]
 		xieite::system::BufferPosition getCursorPosition() noexcept {
 			const bool canonical = this->canonical;
 			this->setInputCanonical(false);
@@ -170,14 +169,12 @@ namespace xieite::system {
 			outputStream << "\x1B[?47" << "lh"[value];
 		}
 
-		[[nodiscard]]
 		xieite::system::BufferPosition getScreenSize() noexcept {
 			::winsize size;
 			::ioctl(this->inputFileDescriptor, TIOCGWINSZ, &size);
 			return xieite::system::BufferPosition(size.ws_row, size.ws_col);
 		}
 
-		[[nodiscard]]
 		char readCharacter() noexcept {
 			const bool blocking = this->blocking;
 			const bool canonical = this->canonical;
@@ -189,7 +186,6 @@ namespace xieite::system {
 			return input;	
 		}
 
-		[[nodiscard]]
 		std::string readString() noexcept {
 			const bool blocking = this->blocking;
 			const bool canonical = this->canonical;

@@ -11,5 +11,6 @@ Opens a file pipe.
 ## Synopses
 #### 1)
 ```cpp
+[[nodiscard]]
 inline std::FILE* openFilePipe(const char* command, const char* mode) noexcept;
 ```

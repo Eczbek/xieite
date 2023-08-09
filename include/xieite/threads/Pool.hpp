@@ -51,7 +51,6 @@ namespace xieite::threads {
 			}
 		}
 
-		[[nodiscard]]
 		std::size_t getThreadCount() const noexcept {
 			return std::ranges::size(this->threads);
 		}

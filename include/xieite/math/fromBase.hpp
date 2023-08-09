@@ -11,7 +11,6 @@
 
 namespace xieite::math {
 	template<std::integral Integer = int>
-	[[nodiscard]]
 	constexpr Integer fromBase(const int base, const std::string_view value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char sign = '-') noexcept {
 		if (!base) {
 			return 0;

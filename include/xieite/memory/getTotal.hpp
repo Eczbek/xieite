@@ -9,7 +9,6 @@
 #		include "../memory/getPageSize.hpp"
 
 namespace xieite::memory {
-	[[nodiscard]]
 	inline std::size_t getTotal() noexcept {
 		return (static_cast<std::size_t>(::sysconf(_SC_PHYS_PAGES)) * xieite::memory::getPageSize());
 	}
@@ -20,7 +19,6 @@ namespace xieite::memory {
 #		include <windows.h>
 
 namespace xieite::memory {
-	[[nodiscard]]
 	inline std::size_t getTotal() noexcept {
 		::MEMORYSTATUSEX status;
 		status.dwLength = sizeof(status);

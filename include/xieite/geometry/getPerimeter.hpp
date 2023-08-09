@@ -7,7 +7,6 @@
 #	include "../geometry/getSides.hpp"
 
 namespace xieite::geometry {
-	[[nodiscard]]
 	constexpr double getPerimeter(const xieite::geometry::Polygon& polygon) noexcept {
 		double perimeter = 0;
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {

@@ -8,7 +8,6 @@
 #	include "../math/pi.hpp"
 
 namespace xieite::geometry {
-	[[nodiscard]]
 	constexpr double getArea(const xieite::geometry::Polygon& polygon) noexcept {
 		double area = 0;
 		for (const xieite::geometry::Segment& side : xieite::geometry::getSides(polygon)) {

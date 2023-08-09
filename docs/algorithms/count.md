@@ -12,7 +12,6 @@ Counts and returns the number of arguments passed.
 #### 1)
 ```cpp
 template<typename... Values>
-[[nodiscard]]
 constexpr std::size_t count(const Values&... values) noexcept;
 ```
 

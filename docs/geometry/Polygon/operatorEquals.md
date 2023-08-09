@@ -11,7 +11,6 @@ Compares two polygons.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr bool operator==(const xieite::geometry::Polygon& polygon) const noexcept;
 ```
 

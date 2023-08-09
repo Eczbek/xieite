@@ -12,7 +12,6 @@ Defined in header [<xieite/math/wrap.hpp>](../../include/xieite/math/wrap.hpp)
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2, xieite::concepts::Arithmetic Arithmetic3>
-[[nodiscard]]
 constexpr std::common_type_t<Arithmetic1, Arithmetic2, Arithmetic3> wrap(Arithmetic1 value, Arithmetic2 limit1, Arithmetic3 limit2) noexcept;
 ```
 

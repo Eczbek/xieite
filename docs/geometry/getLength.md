@@ -11,13 +11,11 @@ Calculates the length of a linear shape.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-[[nodiscard]]
 constexpr double getLength(const LinearShape&) noexcept;
 ```
 

@@ -7,6 +7,5 @@ Defined in header [<xieite/hashes/distribute.hpp>](../../include/xieite/hashes/d
 #### 1)
 ```cpp
 template<std::unsigned_integral UnsignedInteger>
-[[nodiscard]]
 constexpr UnsignedInteger distribute(UnsignedInteger value) noexcept;
 ```

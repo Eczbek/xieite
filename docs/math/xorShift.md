@@ -12,6 +12,5 @@ Returns the XOR of a value and the value shifted right.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]]
 constexpr Arithmetic xorShift(Arithmetic value, std::size_t bits) noexcept;
 ```

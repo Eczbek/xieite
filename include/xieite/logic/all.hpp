@@ -6,7 +6,6 @@
 
 namespace xieite::logic {
 	template<std::convertible_to<bool>... Values>
-	[[nodiscard]]
 	constexpr bool all(const Values&... values)
 	noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...))) {
 		return (static_cast<bool>(values) && ...);

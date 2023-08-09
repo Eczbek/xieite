@@ -5,7 +5,6 @@
 
 namespace xieite::math {
 	template<std::integral Integer>
-	[[nodiscard]]
 	constexpr bool isPrime(const Integer value) noexcept {
 		if (value < 0) {
 			return false;

@@ -11,17 +11,14 @@ Scales a shape.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr xieite::geometry::Point scale(xieite::geometry::Point point, double scale, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-[[nodiscard]]
 constexpr LinearShape scale(const LinearShape& linearShape, double scale, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
 #### 3)
 ```cpp
-[[nodiscard]]
 constexpr xieite::geometry::Polygon scale(xieite::geometry::Polygon polygon, double scale, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```

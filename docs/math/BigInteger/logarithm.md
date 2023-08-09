@@ -11,13 +11,11 @@ Calculates the logarithm of a `xieite::math::BigInteger` to a base.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger& base) const;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]]
 constexpr xieite::math::BigInteger logarithm(Integer base) const;
 ```
 

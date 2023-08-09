@@ -14,7 +14,6 @@ namespace xieite::math {
 		: x(x), y(y), z(z) {}
 
 		template<xtypename OtherArithmetic1, typename OtherArithmetic2, typename OtherArithmetic3>
-		[[nodiscard]]
 		constexpr bool operator==(const xieite::math::Vector<OtherArithmetic1, OtherArithmetic2, OtherArithmetic3>& vector) noexcept {
 			return ((this->x == vector.x) && (this->y == vector.y) && (this->z == vector.z));
 		}

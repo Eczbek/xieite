@@ -8,7 +8,6 @@
 
 namespace xieite::algorithms {
 	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
-	[[nodiscard]]
 	constexpr Arithmetic numberSearch(const Functable& selector, Arithmetic minimum, Arithmetic maximum) {
 		while (true) {
 			const Arithmetic middle = (minimum + maximum) / 2;
@@ -20,7 +19,6 @@ namespace xieite::algorithms {
 	}
 
 	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functable<bool(Arithmetic)> Functable>
-	[[nodiscard]]
 	constexpr Arithmetic numberSearch(const Functable& selector) {
 		Arithmetic minimum = -1;
 		Arithmetic maximum = 1;

@@ -11,13 +11,11 @@ Raises a `xieite::math::BigInteger` to an exponent.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr xieite::math::BigInteger power(xieite::math::BigInteger exponent) const;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]]
 constexpr xieite::math::BigInteger power(Integer exponent) const;
 ```
 

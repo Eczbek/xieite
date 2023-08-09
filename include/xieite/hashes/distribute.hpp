@@ -9,7 +9,6 @@
 
 namespace xieite::hashes {
 	template<std::unsigned_integral UnsignedInteger>
-	[[nodiscard]]
 	constexpr UnsignedInteger distribute(const UnsignedInteger value) noexcept {
 		return xieite::math::robert<UnsignedInteger> * xieite::math::xorShift(xieite::math::alternatingBits<UnsignedInteger> * xieite::math::xorShift(value, sizeof(UnsignedInteger) * 4), sizeof(UnsignedInteger) * 4);
 	}

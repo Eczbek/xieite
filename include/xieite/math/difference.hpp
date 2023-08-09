@@ -7,13 +7,11 @@
 
 namespace xieite::math {
 	template<std::integral Integer>
-	[[nodiscard]]
 	constexpr std::make_unsigned_t<Integer> difference(const Integer a, const Integer b) noexcept {
 		return ((a > b) ? (static_cast<std::make_unsigned_t<Integer>>(a) - static_cast<std::make_unsigned_t<Integer>>(b)) : (static_cast<std::make_unsigned_t<Integer>>(b) - static_cast<std::make_unsigned_t<Integer>>(a)));
 	}
 
 	template<std::floating_point Floating>
-	[[nodiscard]]
 	constexpr Floating difference(const Floating a, const Floating b) noexcept {
 		return std::abs(a - b);
 	}

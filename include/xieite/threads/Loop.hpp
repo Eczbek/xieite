@@ -22,7 +22,6 @@ namespace xieite::threads {
 			}
 		}
 
-		[[nodiscard]]
 		bool good() const noexcept {
 			return this->thread.joinable();
 		}

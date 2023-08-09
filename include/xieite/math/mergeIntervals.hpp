@@ -9,7 +9,6 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic>> IntervalRange>
-	[[nodiscard]]
 	constexpr std::vector<xieite::math::Interval<Arithmetic>> mergeIntervals(const IntervalRange& intervals) noexcept {
 		std::vector<xieite::math::Interval<Arithmetic>> result;
 		for (const xieite::math::Interval<Arithmetic> interval1 : intervals) {

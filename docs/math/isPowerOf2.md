@@ -12,7 +12,6 @@ Checks that a value is a power of 2.
 #### 1)
 ```cpp
 template<std::unsigned_integral UnsignedInteger>
-[[nodiscard]]
 constexpr bool isPowerOf2(UnsignedInteger value) noexcept;
 ```
 

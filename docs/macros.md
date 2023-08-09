@@ -32,7 +32,6 @@ Macros.
 - [XIEITE__STRINGIFY](./macros/STRINGIFY.md)
 - [XIEITE__STRUCTURE_UUID](./macros/STRUCTURE_UUID.md)
 - [XIEITE__SYSTEM_TYPE__...](./macros/SYSTEM_TYPE.md)
-- [XIEITE__UNIQUE_TOKEN](./macros/UNIQUE_TOKEN.md)
 - [XIEITE__UNREACHABLE](./macros/UNREACHABLE.md)
 - [XIEITE__VANISH](./macros/VANISH.md)
 - [XIEITE_VERSION__...](./macros/VERSION.md)

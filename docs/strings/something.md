@@ -11,7 +11,6 @@ What does this do? Not even I know. Do not use this.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr std::string something(const std::string& string) noexcept;
 ```
 

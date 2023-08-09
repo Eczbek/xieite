@@ -7,7 +7,6 @@
 
 namespace xieite::algorithms {
 	template<std::copyable Value>
-	[[nodiscard]]
 	constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::vector<Value>>& matrix, int rotations) noexcept {
 		rotations = xieite::math::wrap(rotations, 2, -1);
 		if (!rotations) {

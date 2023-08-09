@@ -11,6 +11,5 @@ Stringifies a version into the format `v<major>.<minor>.<patch>[-<label>]`.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr std::string string() const noexcept;
 ```

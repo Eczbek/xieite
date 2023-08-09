@@ -15,29 +15,24 @@
 #	include "../math/almostEqual.hpp"
 
 namespace xieite::geometry {
-	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept {
 		return (point1 == point2);
 	}
 
-	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Line& line, const xieite::geometry::Point point) noexcept {
 		const double slope = xieite::geometry::getSlope(line);
 		return std::isinf(slope) ? xieite::math::almostEqual(point.x, line.start.x) : xieite::math::almostEqual(point.x * slope - line.start.x * slope + line.start.y, point.y);
 	}
 
-	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Ray& ray, const xieite::geometry::Point point) noexcept {
 		const double slope = xieite::geometry::getSlope(ray);
 		return std::isinf(slope) ? (xieite::math::almostEqual(point.x, ray.start.x) && (slope < std::numeric_limits<double>::lowest()) ? (point.y >= ray.start.y) : (point.y <= ray.start.y)) : (xieite::math::almostEqual(point.x * slope - ray.start.x * slope + ray.start.y, point.y) && ((ray.start.x <= ray.end.x) ? (point.x >= ray.start.x) : (point.x <= ray.start.x)) && ((ray.start.y <= ray.end.y) ? (point.y >= ray.start.y) : (point.y <= ray.start.y)));
 	}
 
-	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Segment& segment, const xieite::geometry::Point point) noexcept {
 		return xieite::math::almostEqual(xieite::geometry::getDistance(point, segment.start) + xieite::geometry::getDistance(point, segment.end), xieite::geometry::getLength(segment));
 	}
 
-	[[nodiscard]]
 	constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, const xieite::geometry::Point point) noexcept {
 		bool odd = false;
 		const std::size_t pointsSize = polygon.points.size();

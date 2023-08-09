@@ -7,7 +7,6 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]]
 	constexpr xieite::math::Result<Arithmetic> secant(const Arithmetic value) noexcept {
 		return (1 / std::cos(value));
 	}

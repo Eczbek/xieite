@@ -75,7 +75,6 @@ namespace xieite::math {
 		}
 
 		template<xieite::concepts::Arithmetic Arithmetic>
-		[[nodiscard]]
 		constexpr operator Arithmetic() const noexcept {
 			Arithmetic result = 0;
 			Arithmetic power = 1;
@@ -87,39 +86,32 @@ namespace xieite::math {
 			return result;
 		}
 
-		[[nodiscard]]
 		constexpr operator bool() const noexcept {
 			return *this != 0;
 		}
 
-		[[nodiscard]]
 		constexpr bool operator==(const xieite::math::BigInteger& comparand) const noexcept {
 			return (this->sign == comparand.sign) && (this->bits == comparand.bits);
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr bool operator==(const Integer comparand) const noexcept {
 			return *this == xieite::math::BigInteger(comparand);
 		}
 
-		[[nodiscard]]
 		constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger& comparand) const noexcept {
 			return (this->sign != comparand.sign) ? (comparand.sign <=> this->sign) : (this->sign ? ((this->bits.size() != comparand.bits.size()) ? (comparand.bits.size() <=> this->bits.size()) : (std::vector<bool>(comparand.bits.rbegin(), comparand.bits.rend()) <=> std::vector<bool>(this->bits.rbegin(), this->bits.rend()))) : ((this->bits.size() != comparand.bits.size()) ? (this->bits.size() <=> comparand.bits.size()) : (std::vector<bool>(this->bits.rbegin(), this->bits.rend()) <=> std::vector<bool>(comparand.bits.rbegin(), comparand.bits.rend()))));
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr std::strong_ordering operator<=>(const Integer comparand) const noexcept {
 			return *this <=> xieite::math::BigInteger(comparand);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator+() const noexcept {
 			return *this;
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator+(const xieite::math::BigInteger& addend) const noexcept {
 			if (this->sign != addend.sign) {
 				return *this - (-addend);
@@ -149,7 +141,6 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator+(const Integer addend) const noexcept {
 			return *this + xieite::math::BigInteger(addend);
 		}
@@ -173,7 +164,6 @@ namespace xieite::math {
 			return copy;
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator-() const noexcept {
 			xieite::math::BigInteger copy = *this;
 			if (copy) {
@@ -182,7 +172,6 @@ namespace xieite::math {
 			return copy;
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator-(const xieite::math::BigInteger& subtrahend) const noexcept {
 			if (!subtrahend) {
 				return *this;
@@ -209,7 +198,6 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator-(const Integer subtrahend) const noexcept {
 			return *this - xieite::math::BigInteger(subtrahend);
 		}
@@ -233,7 +221,6 @@ namespace xieite::math {
 			return copy;
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator*(const xieite::math::BigInteger& multiplicand) const noexcept {
 			if (!*this || !multiplicand) {
 				return xieite::math::BigInteger(0);
@@ -263,11 +250,11 @@ namespace xieite::math {
 			xieite::math::BigInteger result = (g << (halfSize * 2)) + ((f - g - e) << halfSize) + e;
 			result.sign = this->sign != multiplicand.sign;
 			return result;
+
+			// I absolutely despise recursion
 		}
-		// I absolutely despise recursion
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator*(const Integer multiplicand) const noexcept {
 			return *this * xieite::math::BigInteger(multiplicand);
 		}
@@ -281,7 +268,6 @@ namespace xieite::math {
 			return *this *= xieite::math::BigInteger(multiplicand);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator/(const xieite::math::BigInteger& divisor) const {
 			if (!divisor) {
 				throw std::domain_error("Cannot divide by zero");
@@ -314,7 +300,6 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator/(const Integer divisor) const {
 			return *this / xieite::math::BigInteger(divisor);
 		}
@@ -328,7 +313,6 @@ namespace xieite::math {
 			return *this /= xieite::math::BigInteger(divisor);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator%(const xieite::math::BigInteger& divisor) const {
 			if (!divisor) {
 				throw std::domain_error("Cannot take modulus of zero");
@@ -356,7 +340,6 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator%(const Integer divisor) const {
 			return *this % xieite::math::BigInteger(divisor);
 		}
@@ -370,12 +353,10 @@ namespace xieite::math {
 			return *this %= xieite::math::BigInteger(divisor);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator~() const noexcept {
 			return -(*this + 1);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator&(const xieite::math::BigInteger& operand) const noexcept {
 			return (!*this || !operand) ? xieite::math::BigInteger(0) : this->commonBitwiseOperation(operand, [](const bool left, const bool right) {
 				return left && right;
@@ -383,7 +364,6 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator&(const Integer operand) const noexcept {
 			return *this & xieite::math::BigInteger(operand);
 		}
@@ -397,7 +377,6 @@ namespace xieite::math {
 			return *this &= xieite::math::BigInteger(operand);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator|(const xieite::math::BigInteger& operand) const noexcept {
 			return !*this ? operand : (!operand ? *this : this->commonBitwiseOperation(operand, [](const bool left, const bool right) {
 				return left || right;
@@ -405,7 +384,6 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator|(const Integer operand) const noexcept {
 			return *this | xieite::math::BigInteger(operand);
 		}
@@ -419,7 +397,6 @@ namespace xieite::math {
 			return *this |= xieite::math::BigInteger(operand);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator^(const xieite::math::BigInteger& operand) const noexcept {
 			return !*this ? operand : (!operand ? *this : this->commonBitwiseOperation(operand, [](const bool left, const bool right) {
 				return left != right;
@@ -427,7 +404,6 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator^(const Integer operand) const noexcept {
 			return *this ^ xieite::math::BigInteger(operand);
 		}
@@ -441,7 +417,6 @@ namespace xieite::math {
 			return *this ^= xieite::math::BigInteger(operand);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator<<(const xieite::math::BigInteger& positions) const noexcept {
 			if (positions.sign || !*this) {
 				return xieite::math::BigInteger(0);
@@ -455,7 +430,6 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator<<(const Integer positions) const noexcept {
 			return *this << xieite::math::BigInteger(positions);
 		}
@@ -469,7 +443,6 @@ namespace xieite::math {
 			return *this <<= xieite::math::BigInteger(positions);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator>>(const xieite::math::BigInteger& positions) const noexcept {
 			if (!this->sign && positions.sign || !*this) {
 				return xieite::math::BigInteger(0);
@@ -484,7 +457,6 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger operator>>(const Integer positions) const noexcept {
 			return *this >> xieite::math::BigInteger(positions);
 		}
@@ -498,14 +470,12 @@ namespace xieite::math {
 			return *this >>= xieite::math::BigInteger(positions);
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger absolute() const noexcept {
 			xieite::math::BigInteger copy = *this;
 			copy.sign = false;
 			return copy;
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger power(xieite::math::BigInteger exponent) const {
 			if ((*this == 1) || (exponent == 1)) {
 				return *this;
@@ -540,12 +510,10 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger power(const Integer exponent) const {
 			return this->power(xieite::math::BigInteger(exponent));
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger root(const xieite::math::BigInteger& degree) const {
 			if (this->sign) {
 				throw std::domain_error("Cannot take root of negative radicand");
@@ -567,12 +535,10 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger root(const Integer degree) const {
 			return this->root(xieite::math::BigInteger(degree));
 		}
 
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger logarithm(const xieite::math::BigInteger& base) const {
 			if (!base) {
 				return base;
@@ -590,17 +556,14 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger logarithm(const Integer base) const {
 			return this->logarithm(xieite::math::BigInteger(base));
 		}
 
-		[[nodiscard]]
 		constexpr const std::vector<bool>& data() const noexcept {
 			return this->bits;
 		}
 
-		[[nodiscard]]
 		constexpr std::string string() const noexcept {
 			if (!*this) {
 				return "0";
@@ -622,7 +585,6 @@ namespace xieite::math {
 		bool sign;
 
 		template<xieite::concepts::Functable<bool(bool, bool)> Functable>
-		[[nodiscard]]
 		constexpr xieite::math::BigInteger commonBitwiseOperation(const xieite::math::BigInteger& value, const Functable& callback) const noexcept {
 			xieite::math::BigInteger copy = *this;
 			const std::size_t bitsSize = this->bits.size();

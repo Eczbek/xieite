@@ -12,13 +12,11 @@ Calculates the absolute difference between two values. Handles some edge cases.
 #### 1)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]]
 constexpr std::make_unsigned<Integer> difference(Integer a, Integer b) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::floating_point Floating>
-[[nodiscard]]
 constexpr Floating difference(Floating a, Floating b) noexcept;
 ```
 

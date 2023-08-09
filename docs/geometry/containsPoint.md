@@ -11,22 +11,18 @@ Checks whether a point lies within or on the border of a shape.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Line& line, xieite::geometry::Point point) noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Ray& ray, xieite::geometry::Point point) noexcept;
 ```
 #### 3)
 ```cpp
-[[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Segment& segment, xieite::geometry::Point point) noexcept;
 ```
 #### 4)
 ```cpp
-[[nodiscard]]
 constexpr bool containsPoint(const xieite::geometry::Polygon& polygon, xieite::geometry::Point point) noexcept;
 ```
 

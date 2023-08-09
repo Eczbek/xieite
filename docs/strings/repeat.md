@@ -11,7 +11,6 @@ Repeats a string multiple times.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr std::string repeat(std::string_view string, std::size_t count) noexcept;
 ```
 

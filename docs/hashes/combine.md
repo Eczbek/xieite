@@ -11,7 +11,6 @@ Combines two hashes.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
 constexpr std::size_t combine(std::size_t value1, std::size_t value2) noexcept;
 ```
 

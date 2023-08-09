@@ -12,12 +12,10 @@ Casts a `xieite::math::BigInteger` to any other arithmetic type.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]]
 constexpr operator Arithmetic() const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]]
 constexpr operator bool() const noexcept;
 ```
 

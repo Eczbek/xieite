@@ -11,7 +11,6 @@
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Callback = std::ranges::equal_to>
-	[[nodiscard]]
 	constexpr bool isPalindrome(const Range& range, const Callback& comparator = Callback()) {
 		std::ranges::iterator_t<const Range&> begin = std::ranges::begin(range);
 		std::ranges::iterator_t<const Range&> end = std::ranges::end(range);
@@ -28,7 +27,6 @@ namespace xieite::algorithms {
 	}
 
 	template<std::integral Integer>
-	[[nodiscard]]
 	constexpr bool isPalindrome(const Integer value, const std::size_t base = 10) noexcept {
 		return (value == xieite::math::reverse(value, base));
 	}
