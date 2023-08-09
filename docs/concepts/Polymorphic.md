@@ -8,7 +8,8 @@ Specifies that a type is polymorphic.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept Polymorphic = std::is_polymorphic_v<Type>;

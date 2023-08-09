@@ -4,11 +4,12 @@ Defined in header [<xieite/threads/Loop.hpp>](../../../include/xieite/threads/Lo
 &nbsp;
 
 ## Description
-Stops a `xieite::threads::Loop`, and further callback calls
+Stops a `xieite::threads::Loop`, and further callback calls.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void stop() noexcept;
 ```

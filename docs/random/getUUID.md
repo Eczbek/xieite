@@ -4,16 +4,15 @@ Defined in header [<xieite/random/getUUID.hpp>](../../include/xieite/random/getU
 &nbsp;
 
 ## Description
-Generates a UUID. Compile with `-luuid`
+Generates a UUID. Compile with `-luuid`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline std::string getUUID() noexcept;
 ```
-#### Return type
-- `std::string`
 
 &nbsp;
 

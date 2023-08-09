@@ -4,48 +4,29 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Description
-Constructs a `xieite::math::BigInteger`
+Constructs a `xieite::math::BigInteger`.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 template<std::integral Integer>
 constexpr BigInteger(Integer value = 0) noexcept;
 ```
-#### Function parameters
-- `value` - - An `Integer`
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr BigInteger(const xieite::math::BigInteger& value) noexcept;
 ```
-#### Function parameters
-- `value` - A `xieite::math::BigInteger` constant reference
-
-&nbsp;
-
+#### 3)
 ```cpp
 template<xieite::concepts::RangeOf<bool> BooleanRange>
 constexpr BigInteger(const BooleanRange& bits, bool sign = false) noexcept;
 ```
-#### Template parameters
-- `BooleanRange` - A type satisfying `xieite::concepts::RangeOf` of `bool`
-#### Function parameters
-- `bits` - A constant `BooleanRange` reference
-- `sign` - A `bool`, determines whether the value is negative or positive
-
-&nbsp;
-
+#### 4)
 ```cpp
 constexpr BigInteger(std::string_view value);
 ```
-#### Function parameters
-- `value` - A `std::string_view`, which must consist of only digits may be preceded by a `'-'`
 
 &nbsp;
 

@@ -4,53 +4,27 @@ Defined in header [<xieite/geometry/rotate.hpp>](../../include/xieite/geometry/r
 &nbsp;
 
 ## Description
-Rotates shapes a specific angle around any pivot, clockwise
+Rotates shapes a specific angle around any pivot, clockwise.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
-#### Function parameters
-- `point` - A `xieite::geometry::Point`
-- `angle` - A `double`, clockwise rotation in radians
-- `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
-#### Return type
-- new rotated `xieite::geometry::Point`
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
 constexpr LinearShape rotate(const LinearShape& linearShape, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
-#### Template parameters
-- `LinearShape` - The type of the passed linear shape satisfying `xieite::concepts::LinearShape`
-#### Function parameters
-- `linearShape` - A `LinearShape` constant reference
-- `angle` - A `double`, clockwise rotation in radians
-- `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
-#### Return type
-- new rotated `LinearShape`
-
-&nbsp;
-
+#### 3)
 ```cpp
 [[nodiscard]]
 constexpr xieite::geometry::Polygon rotate(xieite::geometry::Polygon polygon, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
 ```
-#### Function parameters
-- `polygon` - A `xieite::geometry::Polygon` constant reference
-- `angle` - A `double`, clockwise rotation in radians
-- `pivot` - A `xieite::geometry::Point`, is `{ 0, 0 }` by default
-#### Return type
-- new rotated `xieite::geometry::Polygon`
 
 &nbsp;
 

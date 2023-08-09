@@ -4,11 +4,12 @@ Defined in header [<xieite/random/UniformInterruptableDistribution.hpp>](../../i
 &nbsp;
 
 ## Description
-A uniform random number distribution which allows excluding subintervals from the main interval
+A uniform random number distribution which allows excluding subintervals from the main interval.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
 struct UniformInterruptableDistribution {
@@ -19,12 +20,9 @@ struct UniformInterruptableDistribution {
     Integer operator()(UniformRandomBitGenerator&) const;
 };
 ```
-#### Template Arguments
-- `Arithmetic` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
-#### Public members
-## Contents
-|- <a href="./UniformInterruptableDistribution/constructor.md">UniformInterruptableDistribution</a>
-`- <a href="./UniformInterruptableDistribution/operatorCall.md">operator()</a>
+##### Member functions
+- [UniformInterruptableDistribution](./UniformInterruptableDistribution/constructor.md)
+- [operator()](./UniformInterruptableDistribution/operatorCall.md)
 
 &nbsp;
 

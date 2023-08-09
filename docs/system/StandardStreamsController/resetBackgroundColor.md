@@ -4,11 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Resets the text highlight color to default
+Resets the text highlight color to default.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void resetBackgroundColor() noexcept;
 ```

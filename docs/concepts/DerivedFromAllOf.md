@@ -8,7 +8,8 @@ Specifies that a type is derived from several other types.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Derived, typename... Bases>
 concept DerivedFromAllOf = (std::derived_from<Derived, Bases> && ...);

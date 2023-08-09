@@ -4,37 +4,22 @@ Defined in header [<xieite/geometry/getSlope.hpp>](../../include/xieite/geometry
 &nbsp;
 
 ## Description
-Calculates the slope of a line or between two points
+Calculates the slope of a line or between two points.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr double getSlope(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
-#### Function parameters
-- `point1` - A `xieite::geometry::Point`
-- `point2` - Also a `xieite::geometry::Point`
-#### Return type
-- `double`, the slope between the passed points, in radians
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
 constexpr double getSlope(const LinearShape& linearShape) noexcept;
 ```
-#### Template parameters
-- `LinearShape` - A type satisfying `xieite::concepts::LinearShape`
-#### Function parameters
-- `linearShape` - A constant `LinearShape` reference
-#### Return type
-- `double`, the slope of the linear shape, in radians
 
 &nbsp;
 

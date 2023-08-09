@@ -8,7 +8,8 @@ Finds a specific occurrence of a value in a range and returns an iterator pointi
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Callback = std::ranges::equal_to>
 [[nodiscard]]

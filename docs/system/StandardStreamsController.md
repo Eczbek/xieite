@@ -4,11 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../include/xie
 &nbsp;
 
 ## Description
-A class for controlling standard text streams with modes and styles
+A class for controlling standard text streams with modes and styles.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::istream& inputStream, std::ostream& outputStream>
 struct StandardStreamsController {
@@ -75,39 +76,35 @@ struct StandardStreamsController {
     void backspace(std::size_t);
 };
 ```
-#### Template parameters
-- `inputStream` - A `std::istream` reference
-- `outputStream` - A `std::ostream` reference
-#### Public members
-## Contents
-|- <a href="./StandardStreamsController/constructor.md">StandardStreamsController</a>
-|- <a href="./StandardStreamsController/setInputBlocking.md">setInputBlocking</a>
-|- <a href="./StandardStreamsController/setInputEcho.md">setInputEcho</a>
-|- <a href="./StandardStreamsController/setInputCanonical.md">setInputCanonical</a>
-|- <a href="./StandardStreamsController/setInputSignals.md">setInputSignals</a>
-|- <a href="./StandardStreamsController/setOutputProcessing.md">setOutputProcessing</a>
-|- <a href="./StandardStreamsController/setForegroundColor.md">setForegroundColor</a>
-|- <a href="./StandardStreamsController/resetForegroundColor.md">resetForegroundColor</a>
-|- <a href="./StandardStreamsController/setBackgroundColor.md">setBackgroundColor</a>
-|- <a href="./StandardStreamsController/resetBackgroundColor.md">resetBackgroundColor</a>
-|- <a href="./StandardStreamsController/setTextBold.md">setTextBold</a>
-|- <a href="./StandardStreamsController/setTextItalic.md">setTextItalic</a>
-|- <a href="./StandardStreamsController/setTextUnderline.md">setTextUnderline</a>
-|- <a href="./StandardStreamsController/setTextBlinking.md">setTextBlinking</a>
-|- <a href="./StandardStreamsController/setColorsSwapped.md">setColorsSwapped</a>
-|- <a href="./StandardStreamsController/setTextVisible.md">setTextVisible</a>
-|- <a href="./StandardStreamsController/setTextStrikethrough.md">setTextStrikethrough</a>
-|- <a href="./StandardStreamsController/resetStyles.md">resetStyles</a>
-|- <a href="./StandardStreamsController/clearScreen.md">clearScreen</a>
-|- <a href="./StandardStreamsController/clearLine.md">clearLine</a>
-|- <a href="./StandardStreamsController/getCursorPosition.md">getCursorPosition</a>
-|- <a href="./StandardStreamsController/setCursorPosition.md">setCursorPosition</a>
-|- <a href="./StandardStreamsController/moveCursorPosition.md">moveCursorPosition</a>
-|- <a href="./StandardStreamsController/setCursorVisible.md">setCursorVisible</a>
-|- <a href="./StandardStreamsController/setCursorAlternative.md">setCursorAlternative</a>
-|- <a href="./StandardStreamsController/setScreenAlternative.md">setScreenAlternative</a>
-|- <a href="./StandardStreamsController/getScreenSize.md">getScreenSize</a>
-|- <a href="./StandardStreamsController/readCharacter.md">readCharacter</a>
-|- <a href="./StandardStreamsController/readString.md">readString</a>
-|- <a href="./StandardStreamsController/putBackString.md">putBackString</a>
-`- <a href="./StandardStreamsController/backspace.md">backspace</a>
+##### Member functions
+- [StandardStreamsController](./StandardStreamsController/constructor.md)
+- [setInputBlocking](./StandardStreamsController/setInputBlocking.md)
+- [setInputEcho](./StandardStreamsController/setInputEcho.md)
+- [setInputCanonical](./StandardStreamsController/setInputCanonical.md)
+- [setInputSignals](./StandardStreamsController/setInputSignals.md)
+- [setOutputProcessing](./StandardStreamsController/setOutputProcessing.md)
+- [setForegroundColor](./StandardStreamsController/setForegroundColor.md)
+- [resetForegroundColor](./StandardStreamsController/resetForegroundColor.md)
+- [setBackgroundColor](./StandardStreamsController/setBackgroundColor.md)
+- [resetBackgroundColor](./StandardStreamsController/resetBackgroundColor.md)
+- [setTextBold](./StandardStreamsController/setTextBold.md)
+- [setTextItalic](./StandardStreamsController/setTextItalic.md)
+- [setTextUnderline](./StandardStreamsController/setTextUnderline.md)
+- [setTextBlinking](./StandardStreamsController/setTextBlinking.md)
+- [setColorsSwapped](./StandardStreamsController/setColorsSwapped.md)
+- [setTextVisible](./StandardStreamsController/setTextVisible.md)
+- [setTextStrikethrough](./StandardStreamsController/setTextStrikethrough.md)
+- [resetStyles](./StandardStreamsController/resetStyles.md)
+- [clearScreen](./StandardStreamsController/clearScreen.md)
+- [clearLine](./StandardStreamsController/clearLine.md)
+- [getCursorPosition](./StandardStreamsController/getCursorPosition.md)
+- [setCursorPosition](./StandardStreamsController/setCursorPosition.md)
+- [moveCursorPosition](./StandardStreamsController/moveCursorPosition.md)
+- [setCursorVisible](./StandardStreamsController/setCursorVisible.md)
+- [setCursorAlternative](./StandardStreamsController/setCursorAlternative.md)
+- [setScreenAlternative](./StandardStreamsController/setScreenAlternative.md)
+- [getScreenSize](./StandardStreamsController/getScreenSize.md)
+- [readCharacter](./StandardStreamsController/readCharacter.md)
+- [readString](./StandardStreamsController/readString.md)
+- [putBackString](./StandardStreamsController/putBackString.md)
+- [backspace](./StandardStreamsController/backspace.md)

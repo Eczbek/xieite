@@ -4,19 +4,16 @@ Defined in header [<xieite/strings/something.hpp>](../../include/xieite/strings/
 &nbsp;
 
 ## Description
-What does this do?
+What does this do? Not even I know. Do not use this.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::string something(const std::string& string) noexcept;
 ```
-#### Function parameters
-- `string` - A `std::string` constant reference, the value to do something with
-#### Return type
-- `std::string`
 
 &nbsp;
 

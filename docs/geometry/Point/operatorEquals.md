@@ -4,16 +4,13 @@ Defined in header [<xieite/geometry/Point.hpp>](../../../include/xieite/geometry
 &nbsp;
 
 ## Description
-Compares two points to each other
+Compares two points.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr bool operator==(xieite::geometry::Point point) const noexcept;
 ```
-#### Function parameters
-- `point` - A `xieite::geometry::Point`
-#### Return type
-- `bool` - Whether or not the compared shapes are equal

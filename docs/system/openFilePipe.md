@@ -4,16 +4,12 @@ Defined in header [<xieite/system/openFilePipe.hpp>](../../include/xieite/system
 &nbsp;
 
 ## Description
-Opens a file pipe
+Opens a file pipe.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline std::FILE* openFilePipe(const char* command, const char* mode) noexcept;
 ```
-#### Function parameters
-- `command` - A constant `char` pointer
-- `mode` - Another constant `char` pointer
-#### Return type
-- `std::FILE` pointer

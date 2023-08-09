@@ -8,7 +8,8 @@ Specifies that a type is the same as at least one of several other types.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Source, typename... Targets>
 concept SameAsAnyOf = (std::same_as<Source, Targets> || ...);

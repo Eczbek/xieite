@@ -4,11 +4,12 @@ Defined in header [<xieite/functors/ProcessGuard.hpp>](../../include/xieite/func
 &nbsp;
 
 ## Description
-Executes a callback when the program ends
+Executes a callback when the program ends.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct ProcessGuard {
     template<std::invocable<> Invocable>
@@ -17,10 +18,9 @@ struct ProcessGuard {
     void release();
 };
 ```
-#### Public members
-## Contents
-|- <a href="./ProcessGuard/constructor.md">ProcessGuard</a>
-`- <a href="./ProcessGuard/release.md">release</a>
+##### Member functions
+- [ProcessGuard](./ProcessGuard/constructor.md)
+- [release](./ProcessGuard/release.md)
 
 &nbsp;
 

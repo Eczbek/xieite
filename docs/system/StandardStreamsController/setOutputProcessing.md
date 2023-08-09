@@ -4,13 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Enables or disables output processing. Disabled by default
+Enables or disables output processing. Disabled by default.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setOutputProcessing(bool value) noexcept;
 ```
-#### Function parameters
-- `value` - A `bool` to enable or disable output processing.

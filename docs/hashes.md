@@ -4,11 +4,11 @@ Aggregated in header [<xieite/hashes.hpp>](../include/xieite/hashes.hpp)
 &nbsp;
 
 ## Description
-Hashing utilities
+Hashing utilities.
 
 &nbsp;
 
 ## Contents
-- [xieite::hashes::combine](./hashes/combine.md)
-- [xieite::hashes::create](./hashes/create.md)
-- [xieite::hashes::distribute](./hashes/distribute.md)
+- [combine](./hashes/combine.md)
+- [create](./hashes/create.md)
+- [distribute](./hashes/distribute.md)

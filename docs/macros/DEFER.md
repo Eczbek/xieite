@@ -1,10 +1,10 @@
-# [XIEITE](../macros.md)\_DEFER
+# [XIEITE](../macros.md)\_\_DEFER
 Defined in header [<xieite/macros/DEFER.hpp>](../../include/xieite/macros/DEFER.hpp)
 
 &nbsp;
 
 ## Description
-Defers expressions for later evaluation
+Defers expressions for later evaluation.
 
 &nbsp;
 
@@ -12,5 +12,3 @@ Defers expressions for later evaluation
 ```cpp
 #define XIEITE__DEFER(...) __VA_ARGS__ XIEITE__EMPTY()
 ```
-#### Function parameters
-- `...` - Any expressions

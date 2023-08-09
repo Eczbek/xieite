@@ -4,17 +4,12 @@ Defined in header [<xieite/math/Interval.hpp>](../../../include/xieite/math/Inte
 &nbsp;
 
 ## Description
-Constructs a `xieite::math::Interval<Arithmetic>`
+Constructs a `xieite::math::Interval<Arithmetic>`.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
-constexpr Interval(const Arithmetic start, const Arithmetic end) noexcept;
+constexpr Interval(Arithmetic start, Arithmetic end) noexcept;
 ```
-#### Function parameters
-- `start` - An `Arithmetic`
-- `end` - An `Arithmetic`

@@ -4,11 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Clears the line on which the cursor currently is
+Clears the line on which the cursor currently is.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void clearLine() noexcept;
 ```

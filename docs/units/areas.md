@@ -4,32 +4,24 @@ Defined in header [<xieite/units/areas.hpp>](../../include/xieite/units/areas.hp
 &nbsp;
 
 ## Description
-A colletion of ratios of square meters to imperial area measurement units
+A colletion of ratios of square meters to imperial area measurement units.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 constexpr std::ratio<2529285264, 100000000> perch;
 ```
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr std::ratio<10117141056, 10000000> rood;
 ```
-
-&nbsp;
-
+#### 3)
 ```cpp
 constexpr std::ratio<40468564224, 10000000> acre;
 ```
-
-&nbsp;
-
+#### 4)
 ```cpp
 constexpr std::ratio<2589988110336, 1000000> squareMile;
 ```

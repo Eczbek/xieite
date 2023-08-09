@@ -4,43 +4,25 @@ Defined in header [<xieite/logic/andValue.hpp>](../../include/xieite/logic/andVa
 &nbsp;
 
 ## Description
-Creates a short-circuit to return the first argument if it is false, or otherwise return the second argument
+Creates a short-circuit to return the first argument if it is false, or otherwise return the second argument.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 template<std::convertible_to<bool> Value>
 [[nodiscard]]
 constexpr Value& andValue(Value& value1, Value& value2)
 noexcept(noexcept(std::is_nothrow_convertible_v<Value, bool>));
 ```
-#### Template parameters
-- `Value` - A type satisfying `std::convertible_to` of `bool`
-#### Function parameters
-- `value1` - A `Value` reference
-- `value2` - A `Value` reference
-#### Return type
-- `Value` reference to either `value1` or `value2`
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<std::convertible_to<bool> Value>
 [[nodiscard]]
 constexpr const Value& andValue(const Value& value1, const Value& value2)
 noexcept(noexcept(std::is_nothrow_convertible_v<Value, bool>));
 ```
-#### Template parameters
-- `Value` - A type satisfying `std::convertible_to` of `bool`
-#### Function parameters
-- `value1` - A constant `Value` reference
-- `value2` - A constant `Value` reference
-#### Return type
-- constant `Value` reference to either `value1` or `value2`
 
 &nbsp;
 

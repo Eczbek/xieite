@@ -8,7 +8,8 @@ Specifies that a type is an aggregate.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept Aggregate = std::is_aggregate_v<Type>;

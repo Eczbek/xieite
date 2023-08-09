@@ -4,26 +4,19 @@ Defined in header [<xieite/geometry/Line.hpp>](../../../include/xieite/geometry/
 &nbsp;
 
 ## Description
-Constructs a `xieite::geometry::Line`
+Constructs a `xieite::geometry::Line`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;
 ```
-#### Function parameters
-- `start` - A `xieite::geometry::Point`, one intersection through which the infinite line passes
-- `end` - A `xieite::geometry::Point`, another intersection through which the infinite line passes
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr Line(xieite::geometry::Point start, double angle) noexcept;
 ```
-#### Function parameters
-- `start` - A `xieite::geometry::Point`, an intersection through which the infinite line passes
-- `angle` - A `double`, the line's angle
 
 &nbsp;
 

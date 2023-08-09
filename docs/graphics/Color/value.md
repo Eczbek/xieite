@@ -4,17 +4,16 @@ Defined in header [<xieite/graphics/Color.hpp>](../../../include/xieite/graphics
 &nbsp;
 
 ## Description
-Shifts and adds RGBA values together to create a single value
+Shifts and adds RGBA values together to create a single value.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::uint32_t value() noexcept;
 ```
-#### Return type
-- `std::uint32_t`, the combined value
 
 &nbsp;
 

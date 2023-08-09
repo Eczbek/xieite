@@ -4,18 +4,13 @@ Defined in header [<xieite/threads/Timeout.hpp>](../../../include/xieite/threads
 &nbsp;
 
 ## Description
-Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time before calling a callback
+Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time before calling a callback.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
-Timeout(const Invocable& callback, const ChronoDuration duration) noexcept;
+Timeout(const Invocable& callback, ChronoDuration duration) noexcept;
 ```
-#### Template parameters
-- `Invocable` - A type satisfying `std::invocable`
-- `ChronoDuration` - A type satisfying `xieite::concepts::ChronoDuration`
-#### Function parameters
-- `callback` - A constant `Invocable` reference
-- `duration` - A `ChronoDuration`

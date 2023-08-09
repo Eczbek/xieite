@@ -4,47 +4,23 @@ Defined in header [<xieite/math/closestTo.hpp>](../../include/xieite/math/closes
 &nbsp;
 
 ## Description
-Selects the value closest to a target
+Selects the value closest to a target.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2, xieite::concepts::Arithmetic Arithmetic3>
 [[nodiscard]]
-constexpr xieite::math::Result<Arithmetic1, Arithmetic2, Arithmetic3>& closestTo(const Arithmetic1 target, Arithmetic2& value1, Arithmetic3& value2) noexcept;
+constexpr xieite::math::Result<Arithmetic1, Arithmetic2, Arithmetic3>& closestTo(Arithmetic1 target, Arithmetic2& value1, Arithmetic3& value2) noexcept;
 ```
-#### Template parameters
-- `Arithmetic1` - A type satisfying `xieite::concepts::Arithmetic`
-- `Arithmetic2` - A type satisfying `xieite::concepts::Arithmetic`
-- `Arithmetic3` - A type satisfying `xieite::concepts::Arithmetic`
-#### Function parameters
-- `target` - An `Arithmetic1`
-- `value1` - An `Arithmetic2` reference
-- `value2` - An `Arithmetic3` reference
-#### Return type
-- `xieite::math::Result` of `Arithmetic`, reference to whichever of `value1` or `value2` has the least difference from `target`
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2, xieite::concepts::Arithmetic Arithmetic3>
 [[nodiscard]]
-constexpr const xieite::math::Result<Arithmetic1, Arithmetic2, Arithmetic3>& closestTo(const Arithmetic1 target, const Arithmetic2& value1, const Arithmetic3& value2) noexcept;
+constexpr const xieite::math::Result<Arithmetic1, Arithmetic2, Arithmetic3>& closestTo(Arithmetic1 target, const Arithmetic2& value1, const Arithmetic3& value2) noexcept;
 ```
-#### Template parameters
-- `Arithmetic1` - A type satisfying `xieite::concepts::Arithmetic`
-- `Arithmetic2` - A type satisfying `xieite::concepts::Arithmetic`
-- `Arithmetic3` - A type satisfying `xieite::concepts::Arithmetic`
-#### Function parameters
-- `target` - An `Arithmetic1`
-- `value1` - A constant `Arithmetic2` reference
-- `value2` - A constant `Arithmetic3` reference
-#### Return type
-- constant `xieite::math::Result` of `Arithmetic1`, `Arithmetic2`, and `Arithmetic3`, reference to whichever of `value1` or `value2` has the least difference from `target`
 
 &nbsp;
 

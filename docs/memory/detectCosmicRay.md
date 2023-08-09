@@ -8,12 +8,10 @@ Detects rare cosmic rays or a faulty memory. Even if you do intercept something,
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline void detectCosmicRay(std::size_t detectionBytes) noexcept;
-```
-#### Function parameters
-- `detectionBytes` - The amount of bytes to constantly scan until something changes
 
 &nbsp;
 

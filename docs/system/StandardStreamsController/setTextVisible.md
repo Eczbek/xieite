@@ -4,13 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Enables or disables text visibility
+Enables or disables text visibility.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setTextVisibility(bool value) noexcept;
 ```
-#### Function parameters
-- `value` - A `bool` to determine whether to enable or disable text visibility

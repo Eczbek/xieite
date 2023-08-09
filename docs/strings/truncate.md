@@ -4,21 +4,16 @@ Defined in header [<xieite/strings/truncate.hpp>](../../include/xieite/strings/t
 &nbsp;
 
 ## Description
-Shortens the end of a string, replacing it with a suffix
+Shortens the end of a string, replacing it with a suffix.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::string truncate(const std::string& string, std::size_t length, const std::string& suffix = "") noexcept;
 ```
-#### Function parameters
-- `string` - A `std::string` constant reference
-- `length` - A `std::size_t`, the desired string length
-- `suffix` - A `std::string` cosntant reference, set to `""` by default
-#### Return type
-- `std::string`
 
 &nbsp;
 

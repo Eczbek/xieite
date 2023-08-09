@@ -4,17 +4,16 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Description
-Gets the absolute value of a `xieite::math::BigInteger`
+Gets the absolute value of a `xieite::math::BigInteger`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger absolute() const noexcept;
 ```
-#### Return type
-- `xieite::math::BigInteger`, the absolute value
 
 &nbsp;
 

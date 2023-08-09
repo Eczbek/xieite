@@ -4,24 +4,18 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Description
-Casts a `xieite::math::BigInteger` to any other arithmetic type
+Casts a `xieite::math::BigInteger` to any other arithmetic type.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
 constexpr operator Arithmetic() const noexcept;
 ```
-#### Template parameters
-- `Arithmetic` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`
-
-&nbsp;
-
+#### 2)
 ```cpp
 [[nodiscard]]
 constexpr operator bool() const noexcept;

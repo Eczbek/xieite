@@ -1,10 +1,10 @@
-# [XIEITE](../macros.md)\_ASCII\_SUPPORT
+# [XIEITE](../macros.md)\_\_ASCII\_SUPPORT
 Defined in header [<xieite/macros/ASCII_SUPPORT.hpp>](../../include/xieite/macros/ASCII_SUPPORT.hpp)
 
 &nbsp;
 
 ## Description
-Checks if the compiler supports ASCII stuff. See header file for definition
+Checks if the compiler supports ASCII stuff. See header file for definition.
 
 &nbsp;
 

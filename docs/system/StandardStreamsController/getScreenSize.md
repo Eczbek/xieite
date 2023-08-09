@@ -4,14 +4,13 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Gets the terminal screen size, in rows and columns
+Gets the terminal screen size, in rows and columns.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 xieite::system::BufferPosition getScreenSize() noexcept;
 ```
-#### Return type
-- `xieite::system::BufferPosition` - The screen's size

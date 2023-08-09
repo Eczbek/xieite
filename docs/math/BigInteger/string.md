@@ -4,17 +4,16 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Description
-Converts a `xieite::math::BigInteger` to a `std::string`
+Converts a `xieite::math::BigInteger` to a `std::string`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::string string() const noexcept;
 ```
-#### Return type
-- `std::string`
 
 &nbsp;
 

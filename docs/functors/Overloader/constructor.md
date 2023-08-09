@@ -3,23 +3,12 @@ Defined in header [<xieite/functors/Overloader.hpp>](../../../include/xieite/fun
 
 &nbsp;
 
-## Description
-Helps construct the wrapper class
-
-&nbsp;
-
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 constexpr Overloader() noexcept = default;
 ```
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr Overloader(const Derivables&... derivables) noexcept;
 ```
-#### Function parameters
-- `derivables...` - `Derivables...` constant references

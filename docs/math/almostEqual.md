@@ -4,24 +4,17 @@ Defined in header [<xieite/math/almostEqual.hpp>](../../include/xieite/math/almo
 &nbsp;
 
 ## Description
-Checks if two values are almost equal
+Checks if two values are almost equal.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>
 [[nodiscard]]
-constexpr bool almostEqual(const Arithmetic1 value1, const Arithmetic2 value2) noexcept;
+constexpr bool almostEqual(Arithmetic1 value1, Arithmetic2 value2) noexcept;
 ```
-#### Template parameters
-- `Arithmetic1` - A type satisfying `xieite::concepts::Arithmetic`
-- `Arithmetic2` - A type satisfying `xieite::concepts::Arithmetic`
-#### Function parameters
-- `value1` - An `Arithmetic1`
-- `value2` - An `Arithmetic2`
-#### Return type
-- `bool`
 
 &nbsp;
 
@@ -31,8 +24,8 @@ constexpr bool almostEqual(const Arithmetic1 value1, const Arithmetic2 value2) n
 #include <xieite/math/almostEqual.hpp>
 
 int main() {
-    const double a = 0.3;
-    const double b = 0.1 + 0.2;
+    double a = 0.3;
+    double b = 0.1 + 0.2;
     
     std::cout
         << std::boolalpha

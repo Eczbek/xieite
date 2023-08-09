@@ -8,10 +8,9 @@ Defines number of bits in a type
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
-template<typename Any>
-inline constexpr std::size_t sizeBits = sizeof(Any) * xieite::system::bitsPerByte;
+template<typename Type>
+inline constexpr std::size_t sizeBits = sizeof(Type) * xieite::system::bitsPerByte;
 ```
-#### Template parameters
-- `Any` - Any type

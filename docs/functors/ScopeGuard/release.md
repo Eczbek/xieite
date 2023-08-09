@@ -4,11 +4,12 @@ Defined in header [<xieite/functors/ScopeGuard.hpp>](../../../include/xieite/fun
 &nbsp;
 
 ## Description
-Releases the guard, so that when it goes out of scope, the callback will not execute
+Releases the guard, so that when it goes out of scope, the callback will not execute.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 constexpr void release() noexcept;
 ```

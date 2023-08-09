@@ -4,8 +4,8 @@
 #	include <cstddef>
 
 namespace xieite::types {
-	template<typename... Any>
-	inline constexpr std::size_t count = sizeof...(Any);
+	template<typename... Types>
+	inline constexpr std::size_t count = sizeof...(Types);
 }
 
 #endif

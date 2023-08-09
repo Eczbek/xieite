@@ -4,14 +4,13 @@ Defined in header [<xieite/meta/Version.hpp>](../../../include/xieite/meta/Versi
 &nbsp;
 
 ## Description
-Stringifies a version into the format `v<major>.<minor>.<patch>[-<label>]`
+Stringifies a version into the format `v<major>.<minor>.<patch>[-<label>]`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::string string() const noexcept;
 ```
-#### Return type
-- `std::string`

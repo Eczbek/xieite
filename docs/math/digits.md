@@ -4,23 +4,17 @@ Defined in header [<xieite/math/digits.hpp>](../../include/xieite/math/digits.hp
 &nbsp;
 
 ## Description
-Calculates the number of digits in a value of any base
+Calculates the number of digits in a value of any base.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
-constexpr std::size_t digits(const Integer value, const std::size_t base = 10) noexcept;
+constexpr std::size_t digits(Integer value, std::size_t base = 10) noexcept;
 ```
-#### Template parameters
-- `Integer` - An integral type satisfying `std::integral`
-#### Function parameters
-- `value` - - An `Integer`
-- `base` - An `Integer`, set to `10` by default
-#### Return type
-- `std::size_t`, the number of digits
 
 &nbsp;
 

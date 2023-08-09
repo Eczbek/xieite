@@ -4,36 +4,22 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Description
-Raises a `xieite::math::BigInteger` to an exponent
+Raises a `xieite::math::BigInteger` to an exponent.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr xieite::math::BigInteger power(xieite::math::BigInteger exponent) const;
 ```
-#### Function parameters
-- `exponent` - A `xieite::math::BigInteger`
-#### Return type
-- `xieite::math::BigInteger`
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<std::integral Integer>
 [[nodiscard]]
 constexpr xieite::math::BigInteger power(Integer exponent) const;
 ```
-#### Template parameters
-- `Integer` - A type satisfying `std::integral`
-#### Function parameters
-- `exponent` - An `Integer`
-#### Return type
-- `xieite::math::BigInteger`
 
 &nbsp;
 

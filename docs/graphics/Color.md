@@ -4,11 +4,12 @@ Defined in header [<xieite/graphics/Color.hpp>](../../include/xieite/graphics/Co
 &nbsp;
 
 ## Description
-A simple class for storing an RGBA value
+A simple class for storing an RGBA value.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Color {
     std::uint8_t red;
@@ -25,12 +26,12 @@ struct Color {
     constexpr std::uint32_t value();
 };
 ```
-#### Public members
-## Contents
-|- red
-|- green
-|- blue
-|- alpha
-|- <a href="./Color/constructor.md">Color</a>
-|- <a href="./Color/operatorEquals.md">operator==</a>
-`- <a href="./Color/value.md">value</a>
+##### Member variables
+- red
+- green
+- blue
+- alpha
+##### Member functions
+- [Color](./Color/constructor.md)
+- [operator==](./Color/operatorEquals.md)
+- [value](./Color/value.md)

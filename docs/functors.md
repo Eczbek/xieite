@@ -4,15 +4,15 @@ Aggregated in header [<xieite/functors.hpp>](../include/xieite/functors.hpp)
 &nbsp;
 
 ## Description
-Functional utilities
+Functional utilities.
 
 &nbsp;
 
 ## Contents
-- [xieite::functors::Infix](./functors/Infix.md)
-- [xieite::functors::MakeFunctor](./functors/MakeFunctor.md)
-- [xieite::functors::Overloader](./functors/Overloader.md)
-- [xieite::functors::Postfix](./functors/Postfix.md)
-- [xieite::functors::Prefix](./functors/Prefix.md)
-- [xieite::functors::ProcessGuard](./functors/ProcessGuard.md)
-- [xieite::functors::ScopeGuard](./functors/ScopeGuard.md)
+- [Infix](./functors/Infix.md)
+- [MakeFunctor](./functors/MakeFunctor.md)
+- [Overloader](./functors/Overloader.md)
+- [Postfix](./functors/Postfix.md)
+- [Prefix](./functors/Prefix.md)
+- [ProcessGuard](./functors/ProcessGuard.md)
+- [ScopeGuard](./functors/ScopeGuard.md)

@@ -4,19 +4,16 @@ Defined in header [<xieite/hashes/create.hpp>](../../include/xieite/hashes/creat
 &nbsp;
 
 ## Description
-Hashes a value. Currently only supports `std::string`s. Collisions may occur
+Hashes a value. Currently only supports `std::string`s. Collisions may occur.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::size_t create(std::string_view string) noexcept;
 ```
-#### Function parameters
-- `string` - A `std::string_view`, the value to hash
-#### Return type
-- `std::size_t`, the hashed result
 
 &nbsp;
 

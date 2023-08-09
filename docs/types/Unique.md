@@ -4,19 +4,16 @@ Defined in header [<xieite/types/Unique.hpp>](../../include/xieite/types/Unique.
 &nbsp;
 
 ## Description
-Creates a `xieite::types::List` using only unique types of those provided
+Creates a `xieite::types::List` using only unique types of those provided.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename... Types>
 using Unique = decltype((xieite::types::List<>()->*...->*xieite::types::List<Types>()));
 ```
-#### Template parameters
-- `Types...` - Any types
-#### Resulting type
-- `xieite::types::List` of one of each unique type of `Types...`
 
 &nbsp;
 

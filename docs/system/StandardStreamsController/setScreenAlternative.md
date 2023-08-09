@@ -4,16 +4,15 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Enables or disables the alternative screen
+Enables or disables the alternative screen.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setScreenAlternative(bool value) noexcept;
 ```
-#### Function parameters
-- `value` - A `bool` to determine whether to save or restore the screen
 
 &nbsp;
 

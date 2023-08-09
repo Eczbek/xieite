@@ -4,24 +4,17 @@ Defined in header [<xieite/math/toBase.hpp>](../../include/xieite/math/toBase.hp
 &nbsp;
 
 ## Description
-Converts an integer to a string in any base. Doubles as a compile-time method of stringifying integers
+Converts an integer to a string in any base. Allows negative bases. Doubles as a compile-time method of stringifying integers.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::integral Integer = int>
 [[nodiscard]]
-constexpr std::string toBase(std::size_t base, Integer value, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz");
+constexpr std::string toBase(int base, Integer value, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz");
 ```
-#### Template parameters
-- `Integer` - An integral type satisfying `std::integral`. Set to `int` by default
-#### Function parameters
-- `base` - A `std::size_t`, the desired base
-- `value` - An `Integer`
-- `digits` - A `std::string_view`, the digits to use in the result. Set to `"0123456789abcdefghijklmnopqrstuvwxyz"` by default
-#### Return type
-- `std::string`, equal to value in the base base
 
 &nbsp;
 

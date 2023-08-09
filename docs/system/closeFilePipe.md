@@ -4,15 +4,12 @@ Defined in header [<xieite/system/closeFilePipe.hpp>](../../include/xieite/syste
 &nbsp;
 
 ## Description
-Closes a file pipe
+Closes a file pipe.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline int closeFilePipe(const std::FILE* pipe) noexcept;
 ```
-#### Function parameters
-- `pipe` - A `std::FILE` pointer
-#### Return type
-- `int`

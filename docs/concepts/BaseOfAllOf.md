@@ -8,7 +8,8 @@ Specifies that a type is a base of several other types.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Base, typename... Derived>
 concept BaseOfAllOf = (xieite::concepts::BaseOf<Base, Derived> && ...);

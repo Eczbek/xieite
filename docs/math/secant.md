@@ -4,19 +4,14 @@ Defined in header [<xieite/math/secant.hpp>](../../include/xieite/math/secant.hp
 &nbsp;
 
 ## Description
-Calculates the secant of a value
+Calculates the secant of a value.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
 constexpr xieite::math::Result<Arithmetic> secant(Arithmetic value) noexcept;
 ```
-#### Template parameters
-- `Arithmetic` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
-#### Function parameters
-- `value` - An `Arithmetic`
-#### Return type
-- `xieite::math::Result` of `Arithmetic`

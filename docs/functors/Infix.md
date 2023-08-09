@@ -11,37 +11,31 @@ An infix operator thing.
 ## Synopses
 #### 1)
 ```cpp
-template<typename>
+template<typename, auto>
 struct Infix;
 ```
 #### 2)
 ```cpp
-template<std::invocable<xieite::types::Placeholder> Callback>
-struct Infix<Callback> {
-	constexpr Infix(const Callback& = Callback());
+template<typename Result, typename Argument, xieite::concepts::Functable<Result(Argument)> auto callback>
+struct Infix<Result(Argument), callback> {
+	constexpr Result operator>(const Argument&) const;
 
-	constexpr xieite::functors::Result<Callback> operator>(const xieite::functors::Argument<Callback, 0>&) const;
-
-	friend constexpr xieite::functors::Result<Callback> operator<(const xieite::functors::Argument<Callback, 0>&, const xieite::functors::Infix<Callback>&);
+	friend constexpr Result operator<(const Argument&, const xieite::functors::Infix<Result(Argument), callback>);
 };
 ```
 ##### Member functions
-- [Infix](./Infix/2/constructor.md)
 - [operator>](./Infix/2/operatorMore.md)
 - [operator<](./Infix/2/operatorLess.md)
 #### 3)
 ```cpp
-template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> Callback>
-struct Infix<Callback> {
-	constexpr Infix(const Callback& = Callback());
-
-	friend constexpr xieite::functors::Infix<Callback>::Intermediate operator<(const xieite::functors::Argument<Callback, 0>&, const xieite::functors::Infix<Callback>&);
+template<typename Result, typename LeftArgument, typename RightArgument, xieite::concepts::Functable<Result(LeftArgument, RightArgument)> auto callback>
+struct Infix<Result(LeftArgument, RightArgument), callback> {
+	friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate operator<(const LeftArgument&, const xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>);
 };
 ```
 ##### Member structures
 - [Intermediate](./Infix/3/Intermediate.md)
 ##### Member functions
-- [Infix](./Infix/3/constructor.md)
 - [operator<](./Infix/3/operatorLess.md)
 
 &nbsp;
@@ -52,13 +46,13 @@ struct Infix<Callback> {
 #include <xieite/functors/Infix.hpp>
 
 int main() {
-    auto multiply = xieite::functors::Infix([](int x, int y) {
+    xieite::functors::Infix<int(int, int), [](int x, int y) {
         return x * y;
-    });
+    }> multiply;
 
-    auto increment = xieite::functors::Infix([](int x) {
+    xieite::functors::Infix<int(int), [](int x) {
         return x + 1;
-    });
+    }> increment;
 
     std::cout
         << (2 <multiply> 2) << '\n'

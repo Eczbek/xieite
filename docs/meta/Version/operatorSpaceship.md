@@ -4,19 +4,16 @@ Defined in header [<xieite/meta/Version.hpp>](../../../include/xieite/meta/Versi
 &nbsp;
 
 ## Description
-Compares two `xieite::meta::Version`s, ingoring the label member object
+Compares two `xieite::meta::Version`s, ingoring the label member object.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::strong_ordering operator<=>(const xieite::meta::Version& version) const noexcept;
 ```
-#### Function parameters
-- `version` - A `xieite::meta::Version` constant reference
-#### Return type
-- `std::strong_ordering`
 
 &nbsp;
 

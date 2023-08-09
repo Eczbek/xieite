@@ -4,23 +4,22 @@ Defined in header [<xieite/types/List.hpp>](../../include/xieite/types/List.hpp)
 &nbsp;
 
 ## Description
-A simple class which exists only to store types
+A simple class for storing a list of types.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename... Types>
 struct List {
     using Data = std::tuple<Types...>;
 
     template<typename Type>
-    constexpr std::conditional_t<(std::same_as<Types, Type> || ...), xieite::types::List<Types...>, xieite::types::List<Types..., Type>> operator->*(xieite::types::List<Type>) const noexcept;
+    constexpr std::conditional_t<(std::same_as<Types, Type> || ...), xieite::types::List<Types...>, xieite::types::List<Types..., Type>> operator->*(xieite::types::List<Type>) const;
 };
 ```
-#### Template parameters
-- `Types...` - Any types
-#### Public members
-## Contents
-|- <a href="./List/Data.md">Data</a>
-`- <a href="./List/operatorMemberPointer.md">operator->*</a>
+##### Member types
+- [Data](./List/Data.md)
+##### Member functions
+- [operator->*](./List/operatorMemberPointer.md)

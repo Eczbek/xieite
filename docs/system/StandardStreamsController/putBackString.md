@@ -4,16 +4,15 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Puts a string back into the input buffer
+Puts a string back into the input buffer.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void putBackString(std::string_view value) noexcept;
 ```
-#### Function parameters
-- `value` - A `std::string_view` to prepend to the buffer
 
 &nbsp;
 

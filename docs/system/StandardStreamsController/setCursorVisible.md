@@ -4,13 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Shows or hides the cursor
+Shows or hides the cursor.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setCursorVisibility(bool value) noexcept;
 ```
-#### Function parameters
-- `value` - A `bool` to determine whether to show or hide the cursor

@@ -8,7 +8,8 @@ Specifies that a type is a functor which accepts and returns specific types.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Functor, typename Pointer>
 concept Functable = xieite::traits::IsFunctable<Functor, Pointer>::value;

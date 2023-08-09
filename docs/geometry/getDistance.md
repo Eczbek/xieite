@@ -4,20 +4,16 @@ Defined in header [<xieite/geometry/getDistance.hpp>](../../include/xieite/geome
 &nbsp;
 
 ## Description
-Calculates the distance between two points
+Calculates the distance between two points.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr double getDistance(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
-#### Function parameters
-- `point1` - A `xieite::geometry::Point`
-- `point2` - Also a `xieite::geometry::Point`
-#### Return type
-- `double` - Distance between the points
 
 &nbsp;
 

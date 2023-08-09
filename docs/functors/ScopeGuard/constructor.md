@@ -4,13 +4,12 @@ Defined in header [<xieite/functors/ScopeGuard.hpp>](../../../include/xieite/fun
 &nbsp;
 
 ## Description
-Constructs a `xieite::functors::ScopeGuard`
+Constructs a `xieite::functors::ScopeGuard`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 constexpr ScopeGuard(const Invocable& invocable) noexcept;
 ```
-#### Function parameters
-- `invocable` - An `Invocable` constant references

@@ -4,36 +4,22 @@ Defined in header [<xieite/geometry/getLength.hpp>](../../include/xieite/geometr
 &nbsp;
 
 ## Description
-Calculates the length of a linear shape
+Calculates the length of a linear shape.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr double getLength(const xieite::geometry::Segment& segment) noexcept;
 ```
-#### Function parameters
-- `segment` - A `xieite::geometry::Segment` constant reference
-#### Return type
-- `double` - The distance between the segment's ends
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
 constexpr double getLength(const LinearShape&) noexcept;
 ```
-#### Template parameters
-- `LinearShape` - A type satisfying `xieite::concepts::LinearShape`
-#### Function parameters
-- unnamed constant `LinearShape` reference
-#### Return type
-- `double` - Always infinity
 
 &nbsp;
 

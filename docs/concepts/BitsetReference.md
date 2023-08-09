@@ -8,7 +8,8 @@ Specifies that a type is a `std::bitset::reference`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type>
 concept BitsetReference = requires(Type value) {

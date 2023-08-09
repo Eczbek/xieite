@@ -4,16 +4,13 @@ Defined in header [<xieite/functors/ProcessGuard.hpp>](../../../include/xieite/f
 &nbsp;
 
 ## Description
-Constructs a `xieite::functors::ProcessGuard`
+Constructs a `xieite::functors::ProcessGuard`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::invocable<> Invocable>
 constexpr ProcessGuard(const Invocable& invocable) noexcept;
 ```
-#### Template parameters
-- `Invocable` - A type satisfying `std::invocable`
-#### Function parameters
-- `invocable` - An `Invocable` constant references

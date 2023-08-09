@@ -1,4 +1,4 @@
-# [xieite](../../../xieite.md)\:\:[functors](../../../functors.md)\:\:[Infix\<Callback\>](../../Infix.md)\:\:Intermediate
+# [xieite](../../../xieite.md)\:\:[functors](../../../functors.md)\:\:[Infix\<Result\(LeftArgument, RightArgument\), callback\>](../../Infix.md)\:\:Intermediate
 Defined in header [<xieite/functors/Infix.hpp>](../../../../include/xieite/functors/Infix.hpp)
 
 &nbsp;
@@ -8,7 +8,8 @@ An intermediate state for an infix.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Intermediate {
 	constexpr Intermediate(const LeftArgument&);

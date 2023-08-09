@@ -4,19 +4,14 @@ Defined in header [<xieite/math/cotangent.hpp>](../../include/xieite/math/cotage
 &nbsp;
 
 ## Description
-Calculates the cotangent of a value
+Calculates the cotangent of a value.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
 [[nodiscard]]
 constexpr xieite::math::Result<Arithmetic> cotangent(Arithmetic value) noexcept;
 ```
-#### Template parameters
-- `Arithmetic` - An arithmetic type satisfying `xieite::concepts::Arithmetic`
-#### Function parameters
-- `value` - An `Arithmetic`
-#### Return type
-- `xieite::math::Result` of `Arithmetic`

@@ -8,7 +8,8 @@ Specifies that a type is a base of another type.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Base, typename Derived>
 concept BaseOf = std::is_base_of_v<Base, Derived>;

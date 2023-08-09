@@ -3,13 +3,12 @@ Defined in header [<xieite/math/alternatingBits.hpp>](../../include/xieite/math/
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<std::integral Integer>
 inline constexpr Integer alternatingBits = std::numeric_limits<Integer>::max() / 3;
 ```
-#### Template parameters
-- `Integer` - Any integer type satisfying `std::integral`
 
 &nbsp;
 

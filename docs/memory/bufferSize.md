@@ -4,11 +4,12 @@ Defined in header [<xieite/memory/bufferSize.hpp>](../../include/xieite/memory/b
 &nbsp;
 
 ## Description
-Defines a good amount of bytes to read at a time
+Defines a good amount of bytes to read at a time.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
-inline constexpr std::size_t bufferSize = 4096;
+inline const std::size_t bufferSize = xieite::memory::getPageSize();
 ```

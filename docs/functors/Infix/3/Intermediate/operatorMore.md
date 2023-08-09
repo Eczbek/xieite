@@ -1,9 +1,10 @@
-# [xieite](../../../../xieite.md)\:\:[functors](../../../../functors.md)\:\:[Infix\<Callback\>](../../../Infix.md)\:\:[Intermediate](../Intermediate.md)\:\:Intermediate
+# [xieite](../../../../xieite.md)\:\:[functors](../../../../functors.md)\:\:[Infix\<Result\(LeftArgument, RightArgument\), callback\>](../../../Infix.md)\:\:[Intermediate](../Intermediate.md)\:\:Intermediate
 Defined in header [<xieite/functors/Infix.hpp>](../../../../../include/xieite/functors/Infix.hpp)
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
-constexpr xieite::functors::Result<Callback> operator>(const xieite::functors::Argument<Callback, 1>& rightArgument) const;
+constexpr Result operator>(const RightArgument& rightArgument) const;
 ```

@@ -4,11 +4,12 @@ Defined in header [<xieite/meta/Version.hpp>](../../include/xieite/meta/Version.
 &nbsp;
 
 ## Description
-A class to store and compare versions
+A class to store and compare versions.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 struct Version {
     std::size_t major;
@@ -23,15 +24,15 @@ struct Version {
     constexpr std::string string() const;
 };
 ```
-#### Public members
-## Contents
-|- major
-|- minor
-|- patch
-|- label
-|- <a href="./Version/constructor.md">Version</a>
-|- <a href="./Version/operatorSpaceship.md">operator<=></a>
-`- <a href="./Version/string.md">string</a>
+##### Member variables
+- major
+- minor
+- patch
+- label
+##### Member functions
+- [Version](./Version/constructor.md)
+- [operator<=>](./Version/operatorSpaceship.md)
+- [string](./Version/string.md)
 
 &nbsp;
 

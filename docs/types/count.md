@@ -4,17 +4,16 @@ Defined in header [<xieite/types/count.hpp>](../../include/xieite/types/count.hp
 &nbsp;
 
 ## Description
-Counts the number of types passed
+Counts the number of template arguments passed.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
-template<typename... Any>
-inline constexpr std::size_t count = sizeof...(Any);
+template<typename... Types>
+inline constexpr std::size_t count = sizeof...(Types);
 ```
-#### Template parameters
-- `Any...` - Any types
 
 &nbsp;
 

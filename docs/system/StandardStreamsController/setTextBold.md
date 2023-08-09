@@ -4,13 +4,12 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Enables or disables text **boldness**
+Enables or disables text **boldness**.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 void setTextBoldness(bool value) noexcept;
 ```
-#### Function parameters
-- `value` - A `bool` to determine whether to enable or disable text boldness

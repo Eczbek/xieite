@@ -4,14 +4,12 @@ Defined in header [<xieite/geometry/Point.hpp>](../../../include/xieite/geometry
 &nbsp;
 
 ## Description
-Constructs a `xieite::geometry::Point`
+Constructs a `xieite::geometry::Point`.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
-constexpr Point(double x = 0.0, double y = 0.0) noexcept;
+constexpr Point(double x = 0, double y = 0) noexcept;
 ```
-#### Function parameters
-- `x` - A `double`, set to `0.0` by default
-- `y` - Another `double`, set to `0.0` by default

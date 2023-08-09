@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)\_OBSTRUCT
+# [XIEITE](../macros.md)\_\_OBSTRUCT
 Defined in header [<xieite/macros/OBSTRUCT.hpp>](../../include/xieite/macros/OBSTRUCT.hpp)
 
 &nbsp;
@@ -7,5 +7,3 @@ Defined in header [<xieite/macros/OBSTRUCT.hpp>](../../include/xieite/macros/OBS
 ```cpp
 #define XIEITE__OBSTRUCT(...) __VA_ARGS__ XIEITE__DEFER(XIEITE__EMPTY)()
 ```
-#### Function parameters
-- `...` - Any expressions

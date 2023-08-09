@@ -8,7 +8,8 @@ Counts and returns the number of arguments passed.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename... Values>
 [[nodiscard]]

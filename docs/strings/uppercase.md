@@ -4,31 +4,19 @@ Defined in header [<xieite/strings/uppercase.hpp>](../../include/xieite/strings/
 &nbsp;
 
 ## Description
-Converts a string or character to uppercase. Only handles characters `a` to `z`
+Converts a string or character to uppercase. Only handles characters `a` to `z`.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 constexpr char uppercase(char character) noexcept;
 ```
-#### Function parameters
-- `character` - A `char`
-#### Return type
-- `char`
-
-&nbsp;
-
+#### 2)
 ```cpp
 constexpr std::string uppercase(std::string string) noexcept;
 ```
-#### Function parameters
-- `string` - A `std::string`
-#### Return type
-- `std::string`
 
 &nbsp;
 

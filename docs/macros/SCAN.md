@@ -1,10 +1,10 @@
-# [XIEITE](../macros.md)\_SCAN
+# [XIEITE](../macros.md)\_\_SCAN
 Defined in header [<xieite/macros/SCAN.hpp>](../../include/xieite/macros/SCAN.hpp)
 
 &nbsp;
 
 ## Description
-Scans and expands expressions if possible
+Scans and expands expressions if possible.
 
 &nbsp;
 
@@ -12,5 +12,3 @@ Scans and expands expressions if possible
 ```cpp
 #define XIEITE__SCAN(...) __VA_ARGS__
 ```
-#### Function parameters
-- `...` - Any expressions

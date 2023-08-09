@@ -4,29 +4,15 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 constexpr xieite::math::BigInteger& operator+=(const xieite::math::BigInteger& addend) noexcept;
 ```
-#### Function parameters
-- `addend` - A `xieite::math::BigInteger` constant reference
-#### Return type
-- The `xieite::math::BigInteger`
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<std::integral Integer>
 constexpr xieite::math::BigInteger& operator+=(Integer addend) noexcept;
 ```
-#### Template parameters
-- `Integer` - A type satisfying `std::integral`
-#### Function parameters
-- `addend` - - An `Integer`
-#### Return type
-- The `xieite::math::BigInteger`
 
 &nbsp;
 

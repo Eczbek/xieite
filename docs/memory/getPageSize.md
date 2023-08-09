@@ -3,13 +3,12 @@ Defined in header [<xieite/memory/getPageSize.hpp>](../../include/xieite/memory/
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 inline std::size_t getPageSize() noexcept;
 ```
-#### Return type
-- `std::size_t`
 
 &nbsp;
 

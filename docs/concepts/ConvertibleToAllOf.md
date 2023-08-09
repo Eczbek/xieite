@@ -8,7 +8,8 @@ Specifies that a type can be converted to several other types.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Source, typename... Targets>
 concept ConvertibleToAllOf = (std::convertible_to<Source, Targets> && ...);

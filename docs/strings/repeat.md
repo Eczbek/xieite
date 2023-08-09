@@ -4,20 +4,16 @@ Defined in header [<xieite/strings/repeat.hpp>](../../include/xieite/strings/rep
 &nbsp;
 
 ## Description
-Repeats a string
+Repeats a string multiple times.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr std::string repeat(std::string_view string, std::size_t count) noexcept;
 ```
-#### Function parameters
-- `string` - A `std::string_view`, the value to repeat
-- `count` - A `std::size_t`, how many times to repeat string
-#### Return type
-- `std::string`
 
 &nbsp;
 

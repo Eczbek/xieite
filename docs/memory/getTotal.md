@@ -4,14 +4,13 @@ Defined in header [<xieite/memory/getTotal.hpp>](../../include/xieite/memory/get
 &nbsp;
 
 ## Description
-Gets the system's total amount of memory
+Gets the system's total amount of memory.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 inline std::size_t getTotal() noexcept;
 ```
-#### Return type
-- `std::size_t`, the amount of memory, in bytes

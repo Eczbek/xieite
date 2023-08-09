@@ -3,10 +3,9 @@ Defined in header [<xieite/math/tau.hpp>](../../include/xieite/math/tau.hpp)
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-inline constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2.0;
+inline constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2;
 ```
-#### Template parameters
-- `Arithmetic` - Any arithmetic type satisfying `xieite::concepts::Arithmetic`

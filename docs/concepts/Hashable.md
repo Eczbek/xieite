@@ -8,7 +8,8 @@ Specifies that a type is hashable.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 template<typename Type, typename Hasher = std::hash<Type>>
 concept Hashable = requires(Type value, Hasher hasher) {

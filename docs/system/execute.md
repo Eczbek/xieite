@@ -4,18 +4,15 @@ Defined in header [<xieite/system/execute.hpp>](../../include/xieite/system/exec
 &nbsp;
 
 ## Description
-Executes a command and returns its output
+Executes a command and returns its output.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 inline std::string execute(std::string_view command) noexcept;
 ```
-#### Function parameters
-- `command` - A `std::string_view`
-#### Return type
-- `std::string`
 
 &nbsp;
 

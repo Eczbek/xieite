@@ -4,8 +4,8 @@
 #	include <concepts>
 #	include <string>
 #	include <string_view>
-#	include "../AttemptUnsign.hpp"
-#	include "../absolute.hpp"
+#	include "../math/AttemptUnsign.hpp"
+#	include "../math/absolute.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>

@@ -4,14 +4,13 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../inclu
 &nbsp;
 
 ## Description
-Reads the entire input buffer, clearing it in the process
+Reads the entire input buffer, clearing it in the process.
 
 &nbsp;
 
-## Synopsis
+## Synopses
+#### 1)
 ```cpp
 [[nodiscard]]
 std::string readString() noexcept;
 ```
-#### Return type
-- `std::string` - Anything that's in the input buffer

@@ -4,37 +4,22 @@ Defined in header [<xieite/geometry/getAngle.hpp>](../../include/xieite/geometry
 &nbsp;
 
 ## Description
-Calculates the angle of a line or between two points, in radians
+Calculates the angle of a line or between two points, in radians.
 
 &nbsp;
 
 ## Synopses
-
-&nbsp;
-
+#### 1)
 ```cpp
 [[nodiscard]]
 constexpr double getAngle(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
-#### Function parameters
-- `point1` - A `xieite::geometry::Point`
-- `point2` - A `xieite::geometry::Point`
-#### Return type
-- `double` - The angle between two points
-
-&nbsp;
-
+#### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
 [[nodiscard]]
 constexpr double getAngle(const LinearShape& linearShape) noexcept;
 ```
-#### Template parameters
-- `LinearShape` - A type satisfying `xieite::concepts::LinearShape`
-#### Function parameters
-- `linearShape` - A constant `LinearShape` reference
-#### Return type
-- `double` - The angle of the linear thing
 
 &nbsp;
 
