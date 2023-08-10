@@ -26,7 +26,6 @@
 #	include "./macros/STRUCTURE_UUID.hpp"
 #	include "./macros/SYSTEM_TYPE.hpp"
 #	include "./macros/UNREACHABLE.hpp"
-#	include "./macros/VANISH.hpp"
 #	include "./macros/VERSION.hpp"
 
 #endif
