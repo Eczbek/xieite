@@ -33,5 +33,4 @@ Macros.
 - [XIEITE__STRUCTURE_UUID](./macros/STRUCTURE_UUID.md)
 - [XIEITE__SYSTEM_TYPE__...](./macros/SYSTEM_TYPE.md)
 - [XIEITE__UNREACHABLE](./macros/UNREACHABLE.md)
-- [XIEITE__VANISH](./macros/VANISH.md)
 - [XIEITE_VERSION__...](./macros/VERSION.md)
