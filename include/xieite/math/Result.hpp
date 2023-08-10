@@ -3,11 +3,12 @@
 
 #	include <type_traits>
 #	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/SameAsAllOf.hpp"
 #	include "../concepts/SameAsAnyOf.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic... Arithmetics>
-	using Result = std::conditional_t<xieite::concepts::SameAsAnyOf<long double, Arithmetics...>, long double, double>;
+	using Result = std::conditional_t<xieite::concepts::SameAsAnyOf<long double, Arithmetics...>, long double, xieite::concepts::SameAsAllOf<float, Arithmetics...>, float, double>;
 }
 
 #endif
