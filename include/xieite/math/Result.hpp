@@ -8,7 +8,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic... Arithmetics>
-	using Result = std::conditional_t<xieite::concepts::SameAsAnyOf<long double, Arithmetics...>, long double, xieite::concepts::SameAsAllOf<float, Arithmetics...>, float, double>;
+	using Result = std::conditional_t<xieite::concepts::SameAsAnyOf<long double, Arithmetics...>, long double, std::conditional_t<xieite::concepts::SameAsAllOf<float, Arithmetics...>, float, double>>;
 }
 
 #endif
