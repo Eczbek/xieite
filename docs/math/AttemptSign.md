@@ -6,6 +6,6 @@ Defined in header [<xieite/math/AttemptSign.hpp>](../../include/xieite/math/Atte
 ## Synopses
 #### 1)
 ```cpp
-template<typename Any>
-using AttemptSign = std::conditional_t<std::unsigned_integral<Any>, std::make_signed<Any>, std::type_identity<Any>>::type;
+template<typename Type>
+using AttemptSign = std::conditional_t<std::unsigned_integral<Type>, std::make_signed<Type>, std::type_identity<Type>>::type;
 ```

@@ -5,8 +5,8 @@
 #	include <type_traits>
 
 namespace xieite::math {
-	template<typename Any>
-	using AttemptUnsign = std::conditional_t<std::signed_integral<Any>, std::make_unsigned<Any>, std::type_identity<Any>>::type;
+	template<typename Type>
+	using AttemptUnsign = std::conditional_t<std::signed_integral<Type>, std::make_unsigned<Type>, std::type_identity<Type>>::type;
 }
 
 #endif
