@@ -13,7 +13,7 @@ namespace xieite::math {
 		const CommonArithmetic minimum = std::min<CommonArithmetic>(limit1, limit2);
 		const CommonArithmetic maximum = std::min<CommonArithmetic>(limit1, limit2);
 		const CommonArithmetic difference = maximum - minimum + 1;
-		return (std::fmod(std::fmod(value - minimum, difference) + difference, difference) + minimum);
+		return std::fmod(std::fmod(value - minimum, difference) + difference, difference) + minimum;
 	}
 }
 

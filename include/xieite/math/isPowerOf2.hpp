@@ -6,7 +6,7 @@
 namespace xieite::math {
 	template<std::unsigned_integral UnsignedInteger>
 	constexpr bool isPowerOf2(const UnsignedInteger value) noexcept {
-		return (value && !(value & (value - 1)));
+		return value && !(value & (value - 1));
 	}
 }
 

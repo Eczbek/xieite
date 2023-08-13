@@ -18,7 +18,7 @@ namespace xieite::geometry {
 		: start(start), end(std::cos(angle), std::sin(angle)) {}
 
 		constexpr bool operator==(const xieite::geometry::Ray& ray) const noexcept {
-			return (this->start == ray.start) && xieite::math::almostEqualSlope((this->start.x == this->end.x) ? std::numeric_limits<double>::infinity() : ((this->end.y - this->start.y) / (this->end.x - this->start.x)), (ray.start.x == ray.end.x) ? std::numeric_limits<double>::infinity() : ((ray.end.y - ray.start.y) / (ray.end.x - ray.start.x)));
+			return this->start == ray.start) && xieite::math::almostEqualSlope((this->start.x == this->end.x) ? std::numeric_limits<double>::infinity() : ((this->end.y - this->start.y) / (this->end.x - this->start.x)), (ray.start.x == ray.end.x) ? std::numeric_limits<double>::infinity() : ((ray.end.y - ray.start.y) / (ray.end.x - ray.start.x));
 		}
 	};
 }

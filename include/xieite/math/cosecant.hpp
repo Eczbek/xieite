@@ -8,7 +8,7 @@
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
 	constexpr xieite::math::Result<Arithmetic> cosecant(const Arithmetic value) noexcept {
-		return (1 / std::sin(value));
+		return 1 / std::sin(value);
 	}
 }
 

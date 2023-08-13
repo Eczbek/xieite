@@ -6,7 +6,7 @@
 namespace xieite::math {
 	template<std::integral Integer>
 	constexpr Integer divideDown(const Integer dividend, const Integer divisor) noexcept {
-		return (dividend / divisor);
+		return dividend / divisor;
 	}
 }
 

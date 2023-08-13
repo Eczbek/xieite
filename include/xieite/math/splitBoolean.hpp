@@ -3,7 +3,7 @@
 
 namespace xieite::math {
 	constexpr int splitBoolean(const bool value) noexcept {
-		return (value * 2 - 1);
+		return value * 2 - 1;
 	}
 }
 

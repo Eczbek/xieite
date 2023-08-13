@@ -18,7 +18,7 @@ namespace xieite::meta {
 		: major(major), minor(minor), patch(patch), label(label) {}
 
 		constexpr std::strong_ordering operator<=>(const xieite::meta::Version& version) const noexcept {
-			return ((this->major != version.major) ? (this->major <=> version.major) : ((this->minor != version.minor) ? (this->minor <=> version.minor) : (this->patch <=> version.patch)));
+			return (this->major != version.major) ? (this->major <=> version.major) : ((this->minor != version.minor) ? (this->minor <=> version.minor) : (this->patch <=> version.patch));
 		}
 
 		constexpr std::string string() const noexcept {

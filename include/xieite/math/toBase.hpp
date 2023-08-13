@@ -10,8 +10,8 @@
 namespace xieite::math {
 	template<std::integral Integer>
 	constexpr std::string toBase(const int base, Integer value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char sign = '-') noexcept {
-		if (!base) {
-			return "";
+		if (!base || !value) {
+			return "0";
 		}
 		std::string result;
 		xieite::math::AttemptUnsign<Integer> absoluteValue = xieite::math::absolute(value);
@@ -19,9 +19,9 @@ namespace xieite::math {
 			result = std::string(absoluteValue, digits[1]);
 		} else {
 			if (base == -1) {
-				result += digits[!!value];
+				result = digits[1];
 				while (absoluteValue-- > 1) {
-					result = std::string(1, digits[1]) + digits[0] + result;
+					result += std::string(1, digits[0]) + digits[1];
 				}
 			} else {
 				const unsigned int absoluteBase = xieite::math::absolute(base);
