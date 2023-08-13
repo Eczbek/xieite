@@ -3,8 +3,6 @@
 
 #	include "./traits/IsAllOf.hpp"
 #	include "./traits/IsAnyOf.hpp"
-#	include "./traits/IsBaseOfAllOf.hpp"
-#	include "./traits/IsBaseOfAnyOf.hpp"
 #	include "./traits/IsBitsetReference.hpp"
 #	include "./traits/IsCharacter.hpp"
 #	include "./traits/IsChronoDuration.hpp"
