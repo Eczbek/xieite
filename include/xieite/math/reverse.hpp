@@ -15,7 +15,7 @@ namespace xieite::math {
 			result = result * base + value % base;
 			value /= base;
 		}
-		return (result * xieite::math::splitBoolean(positive));
+		return result * xieite::math::splitBoolean(positive);
 	}
 }
 

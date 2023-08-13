@@ -18,7 +18,7 @@ namespace xieite::graphics {
 		: red(value >> (3 * std::numeric_limits<std::uint8_t>::digits)), green(value >> (2 * std::numeric_limits<std::uint8_t>::digits) & std::numeric_limits<std::uint8_t>::max()), blue(value >> std::numeric_limits<std::uint8_t>::digits & std::numeric_limits<std::uint8_t>::max()), alpha(value & std::numeric_limits<std::uint8_t>::max()) {}
 
 		constexpr bool operator==(const xieite::graphics::Color& color) const noexcept {
-			return ((this->red == color.red) && (this->green == color.green) && (this->blue == color.blue) && (this->alpha == color.alpha));
+			return (this->red == color.red) && (this->green == color.green) && (this->blue == color.blue) && (this->alpha == color.alpha);
 		}
 
 		constexpr std::uint32_t value() noexcept {

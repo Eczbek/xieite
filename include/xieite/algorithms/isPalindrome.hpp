@@ -28,7 +28,7 @@ namespace xieite::algorithms {
 
 	template<std::integral Integer>
 	constexpr bool isPalindrome(const Integer value, const std::size_t base = 10) noexcept {
-		return (value == xieite::math::reverse(value, base));
+		return value == xieite::math::reverse(value, base);
 	}
 }
 

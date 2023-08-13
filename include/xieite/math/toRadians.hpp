@@ -8,7 +8,7 @@
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
 	constexpr xieite::math::Result<Arithmetic> toRadians(const Arithmetic degrees) noexcept {
-		return (degrees * xieite::math::pi<Arithmetic> / 180);
+		return degrees * xieite::math::pi<Arithmetic> / 180;
 	}
 }
 

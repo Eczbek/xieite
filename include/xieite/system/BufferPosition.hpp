@@ -10,7 +10,7 @@ namespace xieite::system {
 		: row(row), column(column) {}
 
 		constexpr bool operator==(const xieite::system::BufferPosition& position) noexcept {
-			return ((this->row == position.row) && (this->column == position.column));
+			return (this->row == position.row) && (this->column == position.column);
 		}
 	};
 }

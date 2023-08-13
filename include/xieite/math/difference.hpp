@@ -8,7 +8,7 @@
 namespace xieite::math {
 	template<std::integral Integer>
 	constexpr std::make_unsigned_t<Integer> difference(const Integer a, const Integer b) noexcept {
-		return ((a > b) ? (static_cast<std::make_unsigned_t<Integer>>(a) - static_cast<std::make_unsigned_t<Integer>>(b)) : (static_cast<std::make_unsigned_t<Integer>>(b) - static_cast<std::make_unsigned_t<Integer>>(a)));
+		return (a > b) ? (static_cast<std::make_unsigned_t<Integer>>(a) - static_cast<std::make_unsigned_t<Integer>>(b)) : (static_cast<std::make_unsigned_t<Integer>>(b) - static_cast<std::make_unsigned_t<Integer>>(a));
 	}
 
 	template<std::floating_point Floating>

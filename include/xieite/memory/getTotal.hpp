@@ -10,7 +10,7 @@
 
 namespace xieite::memory {
 	inline std::size_t getTotal() noexcept {
-		return (static_cast<std::size_t>(::sysconf(_SC_PHYS_PAGES)) * xieite::memory::getPageSize());
+		return static_cast<std::size_t>(::sysconf(_SC_PHYS_PAGES)) * xieite::memory::getPageSize();
 	}
 }
 
