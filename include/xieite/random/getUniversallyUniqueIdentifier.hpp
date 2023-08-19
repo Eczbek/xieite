@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER__RANDOM__GET_UUID
-#	define XIEITE_HEADER__RANDOM__GET_UUID
+#ifndef XIEITE_HEADER__RANDOM__GET_UNIVERSALLY_UNIQUE_IDENTIFIER
+#	define XIEITE_HEADER__RANDOM__GET_UNIVERSALLY_UNIQUE_IDENTIFIER
 
 #	include "../macros/SYSTEM_TYPE.hpp"
 
@@ -11,7 +11,7 @@
 #	include <uuid/uuid.h>
 
 namespace xieite::random {
-	inline std::string getUUID() noexcept {
+	inline std::string getUniversallyUniqueIdentifier() noexcept {
 		::uuid_t uuid;
 		::uuid_generate(uuid);
 		std::string result = std::string(37, '\0');

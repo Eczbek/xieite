@@ -10,4 +10,4 @@ Utilities for random value generation.
 
 ## Contents
 - [UniformInterruptableDistribution](./random/UniformInterruptableDistribution.md)
-- [getUUID](./random/getUUID.md)
+- [getUniversallyUniqueIdentifier](./random/getUniversallyUniqueIdentifier.md)
