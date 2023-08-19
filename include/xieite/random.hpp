@@ -2,6 +2,6 @@
 #	define XIEITE_HEADER__RANDOM
 
 #	include "./random/UniformInterruptableDistribution.hpp"
-#	include "./random/getUUID.hpp"
+#	include "./random/getUniversallyUniqueIdentifier.hpp"
 
 #endif
