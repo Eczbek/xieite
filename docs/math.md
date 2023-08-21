@@ -34,6 +34,7 @@ Mathematical types and functions.
 - [pi](./math/pi.md)
 - [reverse](./math/reverse.md)
 - [robert](./math/robert.md)
+- [round](./math/round.md)
 - [secant](./math/secant.md)
 - [tau](./math/tau.md)
 - [toDegrees](./math/toDegrees.md)
