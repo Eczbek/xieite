@@ -32,6 +32,7 @@
 #	include "./math/productSign.hpp"
 #	include "./math/reverse.hpp"
 #	include "./math/robert.hpp"
+#	include "./math/round.hpp"
 #	include "./math/secant.hpp"
 #	include "./math/sign.hpp"
 #	include "./math/splitBoolean.hpp"
