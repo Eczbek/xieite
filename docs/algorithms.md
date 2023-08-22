@@ -9,10 +9,12 @@ Somewhat useful algorithms.
 &nbsp;
 
 ## Contents
-- [count](./algorithms/count.md)
 - [findOccurrence](./algorithms/findOccurrence.md)
 - [group](./algorithms/group.md)
 - [isPalindrome](./algorithms/isPalindrome.md)
+- [mean](./algorithms/mean.md)
+- [median](./algorithms/median.md)
+- [mode](./algorithms/mode.md)
 - [numberSearch](./algorithms/numberSearch.md)
 - [partialReverse](./algorithms/partialReverse.md)
 - [rotateMatrix](./algorithms/rotateMatrix.md)

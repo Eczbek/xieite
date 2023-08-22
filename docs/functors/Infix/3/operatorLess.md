@@ -6,6 +6,5 @@ Defined in header [<xieite/functors/Infix.hpp>](../../../../include/xieite/funct
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]]
-friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate operator<(const LeftArgument& leftArgument, const xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>) noexcept;
+[[nodiscard]] friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate operator<(const LeftArgument& leftArgument, const xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>) noexcept;
 ```
