@@ -22,7 +22,7 @@ namespace xieite::math {
 
 	template<xieite::concepts::Arithmetic... Arithmetics>
 	constexpr xieite::math::Result<Arithmetics...> mean(const Arithmetics... values) noexcept {
-		return (static_cast<xieite::math::Result<Arithmetics...>>(values) / xieite::types::count<Arithmetics...> + ...);
+		return ((static_cast<xieite::math::Result<Arithmetics...>>(values) / xieite::types::count<Arithmetics...>) + ...);
 	}
 }
 
