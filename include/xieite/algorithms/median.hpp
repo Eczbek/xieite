@@ -4,9 +4,9 @@
 #	include <array>
 #	include <iterator>
 #	include <ranges>
+#	include "../algorithms/mean.hpp"
 #	include "../concepts/Arithmetic.hpp"
 #	include "../math/Result.hpp"
-#	include "../math/mean.hpp"
 #	include "../types/count.hpp"
 
 namespace xieite::math {
