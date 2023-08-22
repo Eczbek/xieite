@@ -11,7 +11,7 @@ Defines the radiotelephony spelling alphabet.
 ## Synopses
 #### 1)
 ```cpp
-inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> radiotelephonySpellingAlphabet = ([] {
+inline constexpr auto radiotelephonySpellingAlphabet = ([] {
     std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> result;
     result['A'] = result['a'] = "Alfa";
     result['B'] = result['b'] = "Bravo";

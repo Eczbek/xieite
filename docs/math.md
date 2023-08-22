@@ -31,6 +31,7 @@ Mathematical types and functions.
 - [isPowerOf2](./math/isPowerOf2.md)
 - [isPrime](./math/isPrime.md)
 - [logarithm](./math/logarithm.md)
+- [mergeIntervals](./math/mergeIntervals.md)
 - [pi](./math/pi.md)
 - [reverse](./math/reverse.md)
 - [robert](./math/robert.md)

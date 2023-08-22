@@ -8,8 +8,7 @@
 #		include <stdio.h>
 
 namespace xieite::system {
-	[[nodiscard]]
-	inline std::FILE* openFilePipe(const char* const command, const char* const mode) noexcept {
+	[[nodiscard]] inline std::FILE* openFilePipe(const char* const command, const char* const mode) noexcept {
 		return ::popen(command, mode);
 	}
 }
@@ -19,8 +18,7 @@ namespace xieite::system {
 #		include <stdio.h>
 
 namespace xieite::system {
-	[[nodiscard]]
-	inline std::FILE* openFilePipe(const char* const command, const char* const mode) noexcept {
+	[[nodiscard]] inline std::FILE* openFilePipe(const char* const command, const char* const mode) noexcept {
 		return ::_popen(command, mode);
 	}
 }

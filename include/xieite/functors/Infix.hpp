@@ -36,8 +36,7 @@ namespace xieite::functors {
 		};
 
 	public:
-		[[nodiscard]]
-		friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate operator<(const LeftArgument& leftArgument, const xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>) noexcept {
+		[[nodiscard]] friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate operator<(const LeftArgument& leftArgument, const xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>) noexcept {
 			return xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate(leftArgument);
 		}
 	};

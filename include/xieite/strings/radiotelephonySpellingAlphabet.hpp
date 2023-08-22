@@ -6,7 +6,7 @@
 #	include <string_view>
 
 namespace xieite::strings {
-	inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> radiotelephonySpellingAlphabet = ([] {
+	inline constexpr auto radiotelephonySpellingAlphabet = ([] {
 		std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> result;
 		result['A'] = result['a'] = "Alfa";
 		result['B'] = result['b'] = "Bravo";
@@ -44,7 +44,7 @@ namespace xieite::strings {
 		result['7'] = "Setteseven";
 		result['8'] = "Oktoeight";
 		result['9'] = "Novenine";
-		result['.'] = "Stop"; // "Mark", "Decimal", "Point"
+		result['.'] = "Stop"; // "Dot", "Mark", "Decimal", "Point"
 		result[','] = "Comma";
 		result['-'] = "Hyphen"; // "Dash"
 		result['/'] = "Slant";
