@@ -13,7 +13,7 @@ Checks whether all passed arguments are true. Expects all arguments to be conver
 ```cpp
 template<std::convertible_to<bool>... Values>
 constexpr bool all(const Values&... values)
-noexcept(noexcept((std::is_nothrow_convertible_v<Values, bool> && ...)));
+noexcept(noexcept(xieite::concepts::NoThrowConvertibleToAllOf<bool, Values...>));
 ```
 
 &nbsp;
