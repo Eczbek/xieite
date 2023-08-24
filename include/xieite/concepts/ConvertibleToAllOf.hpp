@@ -5,7 +5,7 @@
 
 namespace xieite::concepts {
 	template<typename Source, typename... Targets>
-	concept ConvertibleToAllOf = (std::convertible_to<Source, Targets> && ...);
+	concept ConvertibleToAllOf = (... && std::convertible_to<Source, Targets>);
 }
 
 #endif

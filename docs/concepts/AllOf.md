@@ -11,6 +11,8 @@ Specifies that a type satisfies all of several type traits.
 ## Synopses
 #### 1)
 ```cpp
-template<typename Type, xieite::concepts::Trait<Type>... Traits>
-concept AllOf = (Traits<Type>::value && ...);
+template<typename Type, template<typename> typename... Traits>
+concept AllOf = (... && requires {
+	{ Traits<Type>::value } -> std::convertible_to<bool>;
+}) && (... && Traits<Type>::value);
 ```

@@ -12,5 +12,5 @@ For use in `xieite::types::Unique`.
 #### 1)
 ```cpp
 template<typename Type>
-constexpr std::conditional_t<(std::is_same_v<Types, Type> || ...), xieite::types::List<Types...>, xieite::types::List<Types..., Type>> operator->*(const xieite::types::List<Type>);
+constexpr std::conditional_t<(... || std::same_as<Types, Type>), xieite::types::List<Types...>, xieite::types::List<Types..., Type>> operator->*(xieite::types::List<Type>) const noexcept;
 ```

@@ -12,5 +12,5 @@ Specifies that a type can be converted to several other types without throwing e
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>
-concept NoThrowConvertibleToAllOf = (xieite::concepts::NoThrowConvertibleTo<Source, Targets> && ...);
+concept NoThrowConvertibleToAllOf = (... && xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
 ```

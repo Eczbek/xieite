@@ -5,7 +5,7 @@
 
 namespace xieite::concepts {
 	template<typename Derived, typename... Bases>
-	concept DerivedFromAllOf = (std::derived_from<Derived, Bases> && ...);
+	concept DerivedFromAllOf = (... && std::derived_from<Derived, Bases>);
 }
 
 #endif

@@ -5,9 +5,9 @@
 
 namespace xieite::concepts {
 	template<typename Type, template<typename> typename... Traits>
-	concept AnyOf = (requires {
+	concept AnyOf = (... && requires {
 		{ Traits<Type>::value } -> std::convertible_to<bool>;
-	} && ...) && (Traits<Type>::value || ...);
+	}) && (... || Traits<Type>::value);
 }
 
 #endif
