@@ -5,7 +5,7 @@
 
 namespace xieite::concepts {
 	template<typename Source, typename... Targets>
-	concept NoThrowConvertibleToAnyOf = (xieite::concepts::NoThrowConvertibleTo<Source, Targets> || ...);
+	concept NoThrowConvertibleToAnyOf = (... || xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
 }
 
 #endif

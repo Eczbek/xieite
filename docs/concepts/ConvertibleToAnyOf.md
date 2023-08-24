@@ -12,7 +12,7 @@ Specifies that a type can be converted to at least one of several other types.
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>
-concept ConvertibleToAnyOf = (std::convertible_to<Source, Targets> || ...);
+concept ConvertibleToAnyOf = (... || std::convertible_to<Source, Targets>);
 ```
 
 &nbsp;

@@ -12,5 +12,5 @@ Specifies that a type can be converted to at least one of several other types wi
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>
-concept NoThrowConvertibleToAnyOf = (xieite::concepts::NoThrowConvertibleTo<Source, Targets> || ...);
+concept NoThrowConvertibleToAnyOf = (... || xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
 ```

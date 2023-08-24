@@ -11,7 +11,7 @@ namespace xieite::types {
 		using Data = std::tuple<Types...>;
 
 		template<typename Type>
-		constexpr std::conditional_t<(std::same_as<Types, Type> || ...), xieite::types::List<Types...>, xieite::types::List<Types..., Type>> operator->*(xieite::types::List<Type>) const noexcept;
+		constexpr std::conditional_t<(... || std::same_as<Types, Type>), xieite::types::List<Types...>, xieite::types::List<Types..., Type>> operator->*(xieite::types::List<Type>) const noexcept;
 	};
 }
 

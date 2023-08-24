@@ -5,7 +5,7 @@
 
 namespace xieite::concepts {
 	template<typename Source, typename... Targets>
-	concept SameAsAnyOf = (std::same_as<Source, Targets> || ...);
+	concept SameAsAnyOf = (... || std::same_as<Source, Targets>);
 }
 
 #endif

@@ -8,7 +8,7 @@ namespace xieite::logic {
 	template<std::convertible_to<bool>... Values>
 	constexpr bool all(const Values&... values)
 	noexcept(noexcept(xieite::concepts::NoThrowConvertibleToAllOf<bool, Values...>)) {
-		return (static_cast<bool>(values) && ...);
+		return (... && static_cast<bool>(values));
 	}
 }
 

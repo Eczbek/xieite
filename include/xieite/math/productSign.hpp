@@ -7,7 +7,7 @@
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic... Arithmetics>
 	constexpr int productSign(const Arithmetics... values) noexcept {
-		return (xieite::math::sign(values) * ...);
+		return (... * xieite::math::sign(values));
 	}
 }
 

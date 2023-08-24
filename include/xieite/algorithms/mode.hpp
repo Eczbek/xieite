@@ -12,7 +12,7 @@ namespace xieite::math {
 	template<std::ranges::range Range>
 	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
 	constexpr xieite::math::Result<std::ranges::range_value_t<Range>> mode(const Range& range) noexcept {
-		return *std::ranges::max_element(range);
+		return std::ranges::size(range) ? *std::ranges::max_element(range) : 0;
 	}
 
 	template<xieite::concepts::Arithmetic... Arithmetics>

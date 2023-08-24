@@ -12,5 +12,5 @@ Specifies that a type is derived from at least one of several other types.
 #### 1)
 ```cpp
 template<typename Derived, typename... Bases>
-concept DerivedFromAnyOf = (std::derived_from<Derived, Bases> || ...);
+concept DerivedFromAnyOf = (... || std::derived_from<Derived, Bases>);
 ```

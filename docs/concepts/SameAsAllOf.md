@@ -12,5 +12,5 @@ Specifies that a type is the same as several other types.
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>
-concept SameAsAllOf = (std::same_as<Source, Targets> || ...);
+concept SameAsAllOf = (... || std::same_as<Source, Targets>);
 ```
