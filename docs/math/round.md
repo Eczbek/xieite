@@ -11,6 +11,6 @@ Rounds a `value` to the nearest `step`.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>
-constexpr Arithmetic1 round(const Arithmetic1 value, const Arithmetic2 step = 1) noexcept;
+template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>
+constexpr Number1 round(const Number1 value, const Number2 step = 1) noexcept;
 ```

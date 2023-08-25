@@ -1,20 +1,20 @@
 #ifndef XIEITE_HEADER__MATH__VECTOR
 #	define XIEITE_HEADER__MATH__VECTOR
 
-#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/Numeric.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2 = Arithmetic1, xieite::concepts::Arithmetic Arithmetic3 = Arithmetic2>
+	template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2 = Number1, xieite::concepts::Numeric Number3 = Number2>
 	struct Vector {
-		Arithmetic1 x;
-		Arithmetic2 y;
-		Arithmetic3 z;
+		Number1 x;
+		Number2 y;
+		Number3 z;
 
-		constexpr Vector(const Arithmetic1 x = 0, const Arithmetic2 y = 0, const Arithmetic3 z = 0) noexcept
+		constexpr Vector(const Number1 x = 0, const Number2 y = 0, const Number3 z = 0) noexcept
 		: x(x), y(y), z(z) {}
 
-		template<xtypename OtherArithmetic1, typename OtherArithmetic2, typename OtherArithmetic3>
-		constexpr bool operator==(const xieite::math::Vector<OtherArithmetic1, OtherArithmetic2, OtherArithmetic3>& vector) noexcept {
+		template<xtypename OtherNumber1, typename OtherNumber2, typename OtherNumber3>
+		constexpr bool operator==(const xieite::math::Vector<OtherNumber1, OtherNumber2, OtherNumber3>& vector) noexcept {
 			return (this->x == vector.x) && (this->y == vector.y) && (this->z == vector.z);
 		}
 	};

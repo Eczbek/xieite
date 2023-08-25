@@ -11,6 +11,6 @@ Calculates the cotangent of a value.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-constexpr xieite::math::Result<Arithmetic> cotangent(Arithmetic value) noexcept;
+template<xieite::concepts::Numeric Number>
+constexpr xieite::math::Result<Number> cotangent(Number value) noexcept;
 ```

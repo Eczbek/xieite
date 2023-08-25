@@ -7,7 +7,7 @@
 #	include <random>
 #	include <stdexcept>
 #	include <type_traits>
-#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/Numeric.hpp"
 #	include "../concepts/RangeOf.hpp"
 #	include "../concepts/UniformRandomBitGenerator.hpp"
 #	include "../math/Interval.hpp"
@@ -15,48 +15,48 @@
 #	include "../math/mergeIntervals.hpp"
 
 namespace xieite::random {
-	template<xieite::concepts::Arithmetic Arithmetic>
+	template<xieite::concepts::Numeric Number>
 	class UniformInterruptableDistribution {
 	public:
-		template<xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic>> IntervalRange>
-		UniformInterruptableDistribution(const xieite::math::Interval<Arithmetic> interval, const IntervalRange& interruptions) {
-			const Arithmetic minimum = std::min(interval.start, interval.end);
-			const Arithmetic maximum = std::max(interval.start, interval.end);
-			Arithmetic upper = maximum;
-			for (const xieite::math::Interval<Arithmetic> interruption : xieite::math::mergeIntervals<Arithmetic>(interruptions)) {
+		template<xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
+		UniformInterruptableDistribution(const xieite::math::Interval<Number> interval, const IntervalRange& interruptions) {
+			const Number minimum = std::min(interval.start, interval.end);
+			const Number maximum = std::max(interval.start, interval.end);
+			Number upper = maximum;
+			for (const xieite::math::Interval<Number> interruption : xieite::math::mergeIntervals<Number>(interruptions)) {
 				if (((interruption.start >= minimum) || (interruption.end >= minimum)) && ((interruption.start <= maximum) || (interruption.end <= maximum))) {
-					const Arithmetic start = std::clamp(interruption.start, minimum, maximum);
-					const Arithmetic end = std::clamp(interruption.end, minimum, maximum);
-					const Arithmetic difference = xieite::math::difference(start, end);
+					const Number start = std::clamp(interruption.start, minimum, maximum);
+					const Number end = std::clamp(interruption.end, minimum, maximum);
+					const Number difference = xieite::math::difference(start, end);
 					if (upper <= (minimum + difference)) {
 						throw std::range_error("Cannot exclude entire interval");
 					}
-					upper -= difference + std::integral<Arithmetic>;
-					this->interruptions.push_back(xieite::math::Interval<Arithmetic>(std::min(start, end), difference));
+					upper -= difference + std::integral<Number>;
+					this->interruptions.push_back(xieite::math::Interval<Number>(std::min(start, end), difference));
 				}
 			}
-			this->distribution = xieite::random::UniformInterruptableDistribution<Arithmetic>::UniformDistribution(minimum, upper);
-			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Arithmetic> interruption1, const xieite::math::Interval<Arithmetic> interruption2) {
+			this->distribution = xieite::random::UniformInterruptableDistribution<Number>::UniformDistribution(minimum, upper);
+			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Number> interruption1, const xieite::math::Interval<Number> interruption2) {
 				return interruption1.start < interruption2.start;
 			});
 		}
 
 		template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator>
-		Arithmetic operator()(UniformRandomBitGenerator& generator) const noexcept {
-			Arithmetic result = this->distribution(generator);
-			for (const xieite::math::Interval<Arithmetic> interruption : this->interruptions) {
+		Number operator()(UniformRandomBitGenerator& generator) const noexcept {
+			Number result = this->distribution(generator);
+			for (const xieite::math::Interval<Number> interruption : this->interruptions) {
 				if (result >= interruption.start) {
-					result += (interruption.end + std::integral<Arithmetic>);
+					result += (interruption.end + std::integral<Number>);
 				}
 			}
 			return result;
 		}
 
 	private:
-		using UniformDistribution = std::conditional_t<std::integral<Arithmetic>, std::uniform_int_distribution<Arithmetic>, std::uniform_real_distribution<Arithmetic>>;
+		using UniformDistribution = std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>>;
 
 		mutable UniformDistribution distribution;
-		std::vector<xieite::math::Interval<Arithmetic>> interruptions;
+		std::vector<xieite::math::Interval<Number>> interruptions;
 	};
 }
 

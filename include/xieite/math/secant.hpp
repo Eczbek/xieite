@@ -2,12 +2,12 @@
 #	define XIEITE_HEADER__MATH__SECANT
 
 #	include <cmath>
-#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/Numeric.hpp"
 #	include "../math/Result.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic>
-	constexpr xieite::math::Result<Arithmetic> secant(const Arithmetic value) noexcept {
+	template<xieite::concepts::Numeric Number>
+	constexpr xieite::math::Result<Number> secant(const Number value) noexcept {
 		return 1 / std::cos(value);
 	}
 }

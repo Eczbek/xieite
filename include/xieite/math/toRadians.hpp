@@ -1,14 +1,14 @@
 #ifndef XIEITE_HEADER__MATH__TO_RADIANS
 #	define XIEITE_HEADER__MATH__TO_RADIANS
 
-#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/Numeric.hpp"
 #	include "../math/Result.hpp"
 #	include "../math/pi.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic>
-	constexpr xieite::math::Result<Arithmetic> toRadians(const Arithmetic degrees) noexcept {
-		return degrees * xieite::math::pi<Arithmetic> / 180;
+	template<xieite::concepts::Numeric Number>
+	constexpr xieite::math::Result<Number> toRadians(const Number degrees) noexcept {
+		return degrees * xieite::math::pi<Number> / 180;
 	}
 }
 

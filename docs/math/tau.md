@@ -6,6 +6,6 @@ Defined in header [<xieite/math/tau.hpp>](../../include/xieite/math/tau.hpp)
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-inline constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2;
+template<xieite::concepts::Numeric Number>
+inline constexpr Number tau = xieite::math::pi<Number> * 2;
 ```
