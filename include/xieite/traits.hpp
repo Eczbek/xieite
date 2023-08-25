@@ -15,10 +15,12 @@
 #	include "./traits/IsFunctable.hpp"
 #	include "./traits/IsHashable.hpp"
 #	include "./traits/IsHasher.hpp"
+#	include "./traits/IsInteger.hpp"
 #	include "./traits/IsLinearShape.hpp"
 #	include "./traits/IsNarrowCharacter.hpp"
 #	include "./traits/IsNoThrowConvertibleToAllOf.hpp"
 #	include "./traits/IsNoThrowConvertibleToAnyOf.hpp"
+#	include "./traits/IsNumeric.hpp"
 #	include "./traits/IsOrdinaryCharacter.hpp"
 #	include "./traits/IsRangeOf.hpp"
 #	include "./traits/IsSameAsAllOf.hpp"
@@ -26,6 +28,7 @@
 #	include "./traits/IsStreamableIn.hpp"
 #	include "./traits/IsStreamableOut.hpp"
 #	include "./traits/IsUniformRandomBitGenerator.hpp"
+#	include "./traits/IsUnsignedInteger.hpp"
 #	include "./traits/IsWideCharacter.hpp"
 
 #endif

@@ -7,5 +7,5 @@ Defined in header [<xieite/math/AttemptSign.hpp>](../../include/xieite/math/Atte
 #### 1)
 ```cpp
 template<typename Type>
-using AttemptSign = std::conditional_t<std::unsigned_integral<Type>, std::make_signed<Type>, std::type_identity<Type>>::type;
+using AttemptSign = std::conditional_t<xieite::concepts::UnsignedInteger<Type>, std::make_signed<Type>, std::type_identity<Type>>::type;
 ```

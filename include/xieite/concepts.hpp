@@ -20,6 +20,7 @@
 #	include "./concepts/Functable.hpp"
 #	include "./concepts/Hashable.hpp"
 #	include "./concepts/Hasher.hpp"
+#	include "./concepts/Integer.hpp"
 #	include "./concepts/LinearShape.hpp"
 #	include "./concepts/NarrowCharacter.hpp"
 #	include "./concepts/NoThrowConvertibleTo.hpp"
@@ -35,6 +36,7 @@
 #	include "./concepts/StreamableOut.hpp"
 #	include "./concepts/Trivial.hpp"
 #	include "./concepts/UniformRandomBitGenerator.hpp"
+#	include "./concepts/UnsignedInteger.hpp"
 #	include "./concepts/WideCharacter.hpp"
 
 #endif

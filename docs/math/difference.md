@@ -11,13 +11,8 @@ Calculates the absolute difference between two values. Handles some edge cases.
 ## Synopses
 #### 1)
 ```cpp
-template<std::integral Integer>
-constexpr std::make_unsigned<Integer> difference(Integer a, Integer b) noexcept;
-```
-#### 2)
-```cpp
-template<std::floating_point Floating>
-constexpr Floating difference(Floating a, Floating b) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>
+constexpr xieite::math::AttemptUnsign<std::common_type_t<Arithmetic1, Arithmetic2>> difference(const Arithmetic1 a, const Arithmetic2 b) noexcept;
 ```
 
 &nbsp;
