@@ -28,6 +28,7 @@ Common concepts.
 - [Functable](./concepts/Functable.md)
 - [Hashable](./concepts/Hashable.md)
 - [Hasher](./concepts/Hasher.md)
+- [Integer](./concepts/Integer.md)
 - [LinearShape](./concepts/LinearShape.md)
 - [NarrowCharacter](./concepts/NarrowCharacter.md)
 - [NoThrowConvertibleTo](./concepts/NoThrowConvertibleTo.md)
@@ -43,4 +44,5 @@ Common concepts.
 - [StreamableOut](./concepts/StreamableOutOf.md)
 - [Trivial](./concepts/Trivial.md)
 - [UniformRandomBitGenerator](./concepts/UniformRandomBitGenerator.md)
+- [UnsignedInteger](./concepts/UnsignedInteger.md)
 - [WideCharacter](./concepts/WideCharacter.md)

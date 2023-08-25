@@ -6,6 +6,6 @@ Defined in header [<xieite/math/ConditionalSign.hpp>](../../include/xieite/math/
 ## Synopses
 #### 1)
 ```cpp
-template<std::integral Integer, bool sign>
+template<xieite::concepts::Integer Integer, bool sign>
 using ConditionalSign = std::conditional_t<sign, std::make_signed_t<Integer>, std::make_unsigned_t<Integer>>;
 ```
