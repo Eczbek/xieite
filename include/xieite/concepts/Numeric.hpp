@@ -6,7 +6,7 @@
 
 namespace xieite::concepts {
 	template<typename Type>
-	concept Numeric = !std::same_as<Type, bool> && xieite::concepts::Arithmetic<Type>;
+	concept Numeric = xieite::concepts::Arithmetic<Type> && !std::same_as<Type, bool>;
 }
 
 #endif
