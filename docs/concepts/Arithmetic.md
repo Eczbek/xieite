@@ -4,7 +4,7 @@ Defined in header [<xieite/concepts/Arithmetic.hpp>](../../include/xieite/concep
 &nbsp;
 
 ## Description
-Specifies that a type is an integer or a floating point.
+Specifies that a type is integral, floating point, or boolean.
 
 &nbsp;
 

@@ -4,7 +4,7 @@ Defined in header [<xieite/concepts/Numeric.hpp>](../../include/xieite/concepts/
 &nbsp;
 
 ## Description
-Specifies that a type is a arithmetic but not a boolean.
+Specifies that a type is arithmetic but not boolean.
 
 &nbsp;
 
@@ -12,5 +12,5 @@ Specifies that a type is a arithmetic but not a boolean.
 #### 1)
 ```cpp
 template<typename Type>
-concept Numeric = !std::same_as<Type, bool> && xieite::concepts::Arithmetic<Type>;
+concept Numeric = xieite::concepts::Arithmetic<Type> && !std::same_as<Type, bool>;
 ```
