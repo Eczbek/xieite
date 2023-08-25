@@ -11,6 +11,6 @@ Checks whether two slopes are almost equal.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>
-constexpr bool almostEqualSlope(Arithmetic1 value1, Arithmetic2 value2) noexcept;
+template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>
+constexpr bool almostEqualSlope(Number1 value1, Number2 value2) noexcept;
 ```

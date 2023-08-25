@@ -11,13 +11,13 @@ Selects the value closest to a target.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2, xieite::concepts::Arithmetic Arithmetic3>
-constexpr xieite::math::Result<Arithmetic1, Arithmetic2, Arithmetic3>& closestTo(Arithmetic1 target, Arithmetic2& value1, Arithmetic3& value2) noexcept;
+template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2, xieite::concepts::Numeric Number3>
+constexpr xieite::math::Result<Number1, Number2, Number3>& closestTo(Number1 target, Number2& value1, Number3& value2) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2, xieite::concepts::Arithmetic Arithmetic3>
-constexpr const xieite::math::Result<Arithmetic1, Arithmetic2, Arithmetic3>& closestTo(Arithmetic1 target, const Arithmetic2& value1, const Arithmetic3& value2) noexcept;
+template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2, xieite::concepts::Numeric Number3>
+constexpr const xieite::math::Result<Number1, Number2, Number3>& closestTo(Number1 target, const Number2& value1, const Number3& value2) noexcept;
 ```
 
 &nbsp;

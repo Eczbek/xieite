@@ -3,13 +3,13 @@
 
 #	include <iterator>
 #	include <ranges>
-#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/Numeric.hpp"
 #	include "../math/Result.hpp"
 #	include "../types/count.hpp"
 
-namespace xieite::math {
+namespace xieite::algorithms {
 	template<std::ranges::range Range>
-	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
+	requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
 	constexpr xieite::math::Result<std::ranges::range_value_t<Range>> mean(const Range& range) noexcept {
 		const std::size_t rangeSize = std::ranges::size(range);
 		std::ranges::range_value_t<Range> result = 0;
@@ -20,9 +20,9 @@ namespace xieite::math {
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic... Arithmetics>
-	constexpr xieite::math::Result<Arithmetics...> mean(const Arithmetics... values) noexcept {
-		return (... + (static_cast<xieite::math::Result<Arithmetics...>>(values) / xieite::types::count<Arithmetics...>));
+	template<xieite::concepts::Numeric... Numbers>
+	constexpr xieite::math::Result<Numbers...> mean(const Numbers... values) noexcept {
+		return (... + (static_cast<xieite::math::Result<Numbers...>>(values) / xieite::types::count<Numbers...>));
 	}
 }
 

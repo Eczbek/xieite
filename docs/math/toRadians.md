@@ -11,6 +11,6 @@ Converts degrees to radians.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-constexpr xieite::math::Result<Arithmetic> toRadians(Arithmetic degrees) noexcept;
+template<xieite::concepts::Numeric Number>
+constexpr xieite::math::Result<Number> toRadians(Number degrees) noexcept;
 ```

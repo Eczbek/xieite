@@ -11,6 +11,6 @@ Takes the logarithm of a value of any base.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>
-constexpr xieite::math::Result<Arithmetic1, Arithmetic2> logarithm(Arithmetic1 base, Arithmetic2 value) noexcept;
+template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>
+constexpr xieite::math::Result<Number1, Number2> logarithm(Number1 base, Number2 value) noexcept;
 ```

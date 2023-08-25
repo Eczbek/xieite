@@ -11,8 +11,8 @@ Checks if two values are almost equal.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>
-constexpr bool almostEqual(Arithmetic1 value1, Arithmetic2 value2) noexcept;
+template<xieite::concepts::Numeric Number1, xieite::concepts::Number Number2>
+constexpr bool almostEqual(Number1 value1, Number2 value2) noexcept;
 ```
 
 &nbsp;

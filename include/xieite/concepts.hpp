@@ -25,6 +25,7 @@
 #	include "./concepts/NoThrowConvertibleTo.hpp"
 #	include "./concepts/NoThrowConvertibleToAllOf.hpp"
 #	include "./concepts/NoThrowConvertibleToAnyOf.hpp"
+#	include "./concepts/Numeric.hpp"
 #	include "./concepts/OrdinaryCharacter.hpp"
 #	include "./concepts/Polymorphic.hpp"
 #	include "./concepts/RangeOf.hpp"

@@ -11,12 +11,12 @@ A simple class for storing an interval between two numbers.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
+template<xieite::concepts::Numeric Number>
 struct Interval {
-    Arithmetic start;
-    Arithmetic end;
+    Number start;
+    Number end;
 
-    constexpr Interval(Arithmetic, Arithmetic);
+    constexpr Interval(Number, Number);
 };
 ```
 ##### Member variables

@@ -3,19 +3,19 @@
 
 #	include <algorithm>
 #	include <vector>
-#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/Numeric.hpp"
 #	include "../concepts/RangeOf.hpp"
 #	include "../math/Interval.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic>> IntervalRange>
-	constexpr std::vector<xieite::math::Interval<Arithmetic>> mergeIntervals(const IntervalRange& intervals) noexcept {
-		std::vector<xieite::math::Interval<Arithmetic>> result;
-		for (const xieite::math::Interval<Arithmetic> interval1 : intervals) {
-			const Arithmetic min = std::min(interval1.start, interval1.end);
-			const Arithmetic max = std::max(interval1.start, interval1.end);
+	template<xieite::concepts::Numeric Number, xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
+	constexpr std::vector<xieite::math::Interval<Number>> mergeIntervals(const IntervalRange& intervals) noexcept {
+		std::vector<xieite::math::Interval<Number>> result;
+		for (const xieite::math::Interval<Number> interval1 : intervals) {
+			const Number min = std::min(interval1.start, interval1.end);
+			const Number max = std::max(interval1.start, interval1.end);
 			bool overlaps = false;
-			for (xieite::math::Interval<Arithmetic>& interval2 : result) {
+			for (xieite::math::Interval<Number>& interval2 : result) {
 				if (((min >= interval2.start) && (min <= interval2.end)) || ((max >= interval2.start) && (max <= interval2.end))) {
 					overlaps = true;
 					interval2.start = std::min(interval2.start, min);
@@ -23,7 +23,7 @@ namespace xieite::math {
 				}
 			}
 			if (!overlaps) {
-				result.push_back(xieite::math::Interval<Arithmetic>(min, max));
+				result.push_back(xieite::math::Interval<Number>(min, max));
 			}
 		}
 		return result;

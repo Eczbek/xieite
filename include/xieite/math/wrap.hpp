@@ -4,15 +4,15 @@
 #	include <algorithm>
 #	include <cmath>
 #	include <type_traits>
-#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/Numeric.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2, xieite::concepts::Arithmetic Arithmetic3>
-	constexpr std::common_type_t<Arithmetic1, Arithmetic2, Arithmetic3> wrap(const Arithmetic1 value, const Arithmetic2 limit1, const Arithmetic3 limit2) noexcept {
-		using CommonArithmetic = std::common_type_t<Arithmetic2, Arithmetic3>;
-		const CommonArithmetic minimum = std::min<CommonArithmetic>(limit1, limit2);
-		const CommonArithmetic maximum = std::min<CommonArithmetic>(limit1, limit2);
-		const CommonArithmetic difference = maximum - minimum + 1;
+	template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2, xieite::concepts::Numeric Number3>
+	constexpr std::common_type_t<Number1, Number2, Number3> wrap(const Number1 value, const Number2 limit1, const Number3 limit2) noexcept {
+		using CommonNumber = std::common_type_t<Number2, Number3>;
+		const CommonNumber minimum = std::min<CommonNumber>(limit1, limit2);
+		const CommonNumber maximum = std::min<CommonNumber>(limit1, limit2);
+		const CommonNumber difference = maximum - minimum + 1;
 		return std::fmod(std::fmod(value - minimum, difference) + difference, difference) + minimum;
 	}
 }

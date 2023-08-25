@@ -12,11 +12,11 @@ Computes the mode of a set of data.
 #### 1)
 ```cpp
 template<std::ranges::range Range>
-requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
+requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
 constexpr xieite::algorithms::Result<std::ranges::range_value_t<Range>> mode(const Range& range) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic... Arithmetics>
-constexpr xieite::algorithms::Result<Arithmetics...> mode(const Arithmetics... values) noexcept;
+template<xieite::concepts::Numeric... Numbers>
+constexpr xieite::algorithms::Result<Numbers...> mode(const Numbers... values) noexcept;
 ```

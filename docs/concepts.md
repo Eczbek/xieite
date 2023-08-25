@@ -33,6 +33,7 @@ Common concepts.
 - [NoThrowConvertibleTo](./concepts/NoThrowConvertibleTo.md)
 - [NoThrowConvertibleToAllOf](./concepts/NoThrowConvertibleToAllOf.md)
 - [NoThrowConvertibleToAnyOf](./concepts/NoThrowConvertibleToAnyOf.md)
+- [Numeric](./concepts/Numeric.md)
 - [OrdinaryCharacter](./concepts/OrdinaryCharacter.md)
 - [Polymorphic](./concepts/Polymorphic.md)
 - [RangeOf](./concepts/RangeOf.md)
