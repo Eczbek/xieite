@@ -5,7 +5,7 @@
 
 namespace xieite::concepts {
 	template<typename Type>
-	concept Enumerator = std::is_enum_v<Type>;
+	concept Enumeration = std::is_enum_v<Type>;
 }
 
 #endif

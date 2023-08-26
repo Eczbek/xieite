@@ -12,6 +12,7 @@
 #	include "./math.hpp"
 #	include "./memory.hpp"
 #	include "./meta.hpp"
+#	include "./network.hpp"
 #	include "./random.hpp"
 #	include "./strings.hpp"
 #	include "./system.hpp"

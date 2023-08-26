@@ -24,7 +24,7 @@ Common concepts.
 - [Derivable](./concepts/Derivable.md)
 - [DerivedFromAllOf](./concepts/DerivedFromAllOf.md)
 - [DerivedFromAnyOf](./concepts/DerivedFromAnyOf.md)
-- [Enumerator](./concepts/Enumerator.md)
+- [Enumeration](./concepts/Enumeration.md)
 - [Functable](./concepts/Functable.md)
 - [Hashable](./concepts/Hashable.md)
 - [Hasher](./concepts/Hasher.md)

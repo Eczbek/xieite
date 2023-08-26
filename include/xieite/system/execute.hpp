@@ -1,12 +1,6 @@
 #ifndef XIEITE_HEADER__SYSTEM__EXECUTE
 #	define XIEITE_HEADER__SYSTEM__EXECUTE
 
-#	include "../macros/SYSTEM_TYPE.hpp"
-
-#	if !XIEITE__SYSTEM_TYPE__UNIX && !XIEITE__SYSTEM_TYPE__WINDOWS
-#		error "System not supported"
-#	endif
-
 #	include <cstdio>
 #	include <memory>
 #	include <string>

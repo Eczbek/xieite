@@ -16,7 +16,7 @@
 #	include "./concepts/Derivable.hpp"
 #	include "./concepts/DerivedFromAllOf.hpp"
 #	include "./concepts/DerivedFromAnyOf.hpp"
-#	include "./concepts/Enumerator.hpp"
+#	include "./concepts/Enumeration.hpp"
 #	include "./concepts/Functable.hpp"
 #	include "./concepts/Hashable.hpp"
 #	include "./concepts/Hasher.hpp"
