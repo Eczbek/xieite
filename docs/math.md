@@ -32,6 +32,7 @@ Mathematical types and functions.
 - [isPrime](./math/isPrime.md)
 - [logarithm](./math/logarithm.md)
 - [mergeIntervals](./math/mergeIntervals.md)
+- [modulo](./math/modulo.md)
 - [pi](./math/pi.md)
 - [reverse](./math/reverse.md)
 - [robert](./math/robert.md)

@@ -12,8 +12,8 @@ namespace xieite::math {
 		return (value < 0) ? (std::numeric_limits<xieite::math::AttemptUnsign<Integer>>::max() - value + 1) : value;
 	}
 
-	template<std::floating_point Floating>
-	constexpr Floating absolute(const Floating value) noexcept {
+	template<std::floating_point FloatingPoint>
+	constexpr FloatingPoint absolute(const FloatingPoint value) noexcept {
 		return std::abs(value);
 	}
 }

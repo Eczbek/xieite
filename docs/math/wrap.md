@@ -11,8 +11,8 @@ Defined in header [<xieite/math/wrap.hpp>](../../include/xieite/math/wrap.hpp)
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2, xieite::concepts::Numeric Number3>
-constexpr std::common_type_t<Number1, Number2, Number3> wrap(Number1 value, Number2 limit1, Number3 limit2) noexcept;
+template<xieite::concepts::Numeric Number>
+constexpr Number wrap(const Number value, const Number limit1, const Number limit2) noexcept;
 ```
 
 &nbsp;

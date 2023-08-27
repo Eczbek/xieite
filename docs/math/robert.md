@@ -6,6 +6,6 @@ Defined in header [<xieite/math/robert.hpp>](../../include/xieite/math/robert.hp
 ## Synopses
 #### 1)
 ```cpp
-template<std::integral Integer, std::floating_point Floating = double>
-inline constexpr Integer robert = std::numeric_limits<Integer>::max() / std::numbers::phi_v<Floating>;
+template<std::integral Integer, std::floating_point FloatingPoint = double>
+inline constexpr Integer robert = std::numeric_limits<Integer>::max() / std::numbers::phi_v<FloatingPoint>;
 ```

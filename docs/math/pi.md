@@ -16,8 +16,8 @@ inline constexpr double pi = std::numbers::pi;
 ```
 #### 2)
 ```cpp
-template<std::floating_point Floating>
-inline constexpr Floating pi<Floating> = std::numbers::pi_v<Floating>;
+template<std::floating_point FloatingPoint>
+inline constexpr FloatingPoint pi<FloatingPoint> = std::numbers::pi_v<FloatingPoint>;
 ```
 #### 3)
 ```cpp
