@@ -6,5 +6,5 @@ Defined in header [<xieite/network/Address.hpp>](../../../include/xieite/network
 ## Synopses
 #### 1)
 ```cpp
-Address(const std::string& host = "::", const std::uint16_t port = 1024);
+Address(const std::string& host = "::");
 ```

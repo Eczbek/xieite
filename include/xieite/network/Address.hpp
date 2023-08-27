@@ -8,7 +8,6 @@
 #	endif
 
 #	include <arpa/inet.h>
-#	include <cstdint>
 #	include <netinet/in.h>
 #	include <stdexcept>
 #	include <string>
@@ -17,15 +16,11 @@
 namespace xieite::network {
 	class Address {
 	public:
-		Address(const std::string& host = "::", const std::uint16_t port = 1024) {
+		Address(const std::string& host = "::") {
 			this->address.sin6_family = static_cast<int>(xieite::network::Domain::IPv6);
 			if (::inet_pton(static_cast<int>(xieite::network::Domain::IPv6), host.c_str(), &this->address.sin6_addr) < 1) {
 				throw std::runtime_error("Cannot create address with invalid host");
 			}
-			if (port < 1024) {
-				throw std::runtime_error("Cannot create address with reserved port");
-			}
-			this->address.sin6_port = ::htons(port);
 			this->addressSize = sizeof(this->address);
 		}
 
@@ -45,8 +40,10 @@ namespace xieite::network {
 			return this->addressSize;
 		}
 
-	private:
+	protected:
 		::sockaddr_in6 address;
+
+	private:
 		::socklen_t addressSize;
 	};
 }

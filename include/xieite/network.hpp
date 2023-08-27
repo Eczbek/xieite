@@ -4,5 +4,6 @@
 #	include "../network/Address.hpp"
 #	include "../network/Domain.hpp"
 #	include "../network/Protocol.hpp"
+#	include "../network/SocketAddress.hpp"
 
 #endif
