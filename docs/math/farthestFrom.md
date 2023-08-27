@@ -11,13 +11,13 @@ Selects the value farthest from a target.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2, xieite::concepts::Numeric Number3>
-constexpr xieite::math::Result<Number1, Number2, Number3>& farthestFrom(Number1 target, Number2& value1, Number3& value2) noexcept;
+template<xieite::concepts::Numeric Number>
+constexpr Number& farthestFrom(Number target, Number& value1, Number& value2) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2, xieite::concepts::Numeric3>
-constexpr const xieite::math::Result<Number1, Number2, Number3>& farthestFrom(Number1 target, const Number2& value1, const Number3& value2) noexcept;
+template<xieite::concepts::Numeric Number>
+constexpr const Number& farthestFrom(Number target, const Number& value1, const Number& value2) noexcept;
 ```
 
 &nbsp;

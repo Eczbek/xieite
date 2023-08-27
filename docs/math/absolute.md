@@ -16,8 +16,8 @@ constexpr std::make_unsigned_t<Integer> absolute(Integer value) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::floating_point Floating>
-constexpr Floating absolute(Floating value) noexcept;
+template<std::floating_point FloatingPoint>
+constexpr FloatingPoint absolute(FloatingPoint value) noexcept;
 ```
 
 &nbsp;

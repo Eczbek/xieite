@@ -28,6 +28,7 @@
 #	include "./math/isPrime.hpp"
 #	include "./math/logarithm.hpp"
 #	include "./math/mergeIntervals.hpp"
+#	include "./math/modulo.hpp"
 #	include "./math/pi.hpp"
 #	include "./math/productSign.hpp"
 #	include "./math/reverse.hpp"

@@ -4,13 +4,13 @@ Defined in header [<xieite/math/logarithm.hpp>](../../include/xieite/math/logari
 &nbsp;
 
 ## Description
-Takes the logarithm of a value of any base.
+Takes the logarithm of a value in any base.
 
 &nbsp;
 
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>
-constexpr xieite::math::Result<Number1, Number2> logarithm(Number1 base, Number2 value) noexcept;
+template<xieite::concepts::Numeric Number>
+constexpr xieite::math::Result<Number> logarithm(Number base, Number value) noexcept;
 ```
