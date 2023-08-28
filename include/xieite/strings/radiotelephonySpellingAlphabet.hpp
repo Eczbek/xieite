@@ -8,7 +8,7 @@
 namespace xieite::strings {
 	inline constexpr auto radiotelephonySpellingAlphabet = ([] {
 		std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> result;
-		result['A'] = result['a'] = "Alfa";
+		result['A'] = result['a'] = "Alfa"; // This is not a typo
 		result['B'] = result['b'] = "Bravo";
 		result['C'] = result['c'] = "Charlie";
 		result['D'] = result['d'] = "Delta";
