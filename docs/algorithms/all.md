@@ -1,0 +1,42 @@
+# [xieite](../xieite.md)\:\:[algorithms](../algorithms.md)\:\:all
+Defined in header [<xieite/algorithms/all.hpp>](../../include/xieite/algorithms/all.hpp)
+
+&nbsp;
+
+## Description
+Checks whether all passed arguments are true. Expects all arguments to be converible to a boolean value.
+
+&nbsp;
+
+## Synopses
+#### 1)
+```cpp
+template<std::ranges::range Range>
+requires(std::convertible_to<bool, std::ranges::range_value_t<Range>>)
+constexpr bool all(const Range& range)
+noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<bool, std::ranges::range_value_t<Range>));
+```
+#### 2)
+```cpp
+template<std::convertible_to<bool>... Values>
+constexpr bool all(const Values&... values)
+noexcept(noexcept(xieite::concepts::NoThrowConvertibleToAllOf<bool, Values...>));
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <iostream>
+#include <xieite/algorithms/all.hpp>
+
+int main() {
+    std::cout
+        << std::boolalpha
+        << xieite::algorithms::all(4, true, '$') << '\n';
+}
+```
+Output:
+```
+true
+```
