@@ -1,19 +1,18 @@
 #ifndef XIEITE_HEADER__STRINGS__TRIM
 #	define XIEITE_HEADER__STRINGS__TRIM
 
-#	include <string>
-#	include "../concepts/RangeOf.hpp"
-#	include "../strings/trimBack.hpp"
-#	include "../strings/trimFront.hpp"
+#	include <cstddef>
+#	include <string_view>
 
 namespace xieite::strings {
-	constexpr std::string trim(const std::string& string, const char character) noexcept {
-		return xieite::strings::trimBack(xieite::strings::trimFront(string, character), character);
+	constexpr std::string_view trim(const std::string_view string, const char character) noexcept {
+		const std::size_t start = string.find_first_not_of(character);
+		return (start == std::string_view::npos) ? "" : string.substr(start, string.find_last_not_of(character) - start + 1);
 	}
 
-	template<xieite::concepts::RangeOf<char> CharacterRange>
-	constexpr std::string trim(const std::string& string, const CharacterRange& characters) noexcept {
-		return xieite::strings::trimBack(xieite::strings::trimFront(string, characters), characters);
+	constexpr std::string_view trim(const std::string_view string, const std::string_view characters) noexcept {
+		const std::size_t start = string.find_first_not_of(characters);
+		return (start == std::string_view::npos) ? "" : string.substr(start, string.find_last_not_of(characters) - start + 1);
 	}
 }
 

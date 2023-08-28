@@ -11,12 +11,11 @@ Trims the front of a string.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::string trimFront(const std::string& string, char character) noexcept;
+constexpr std::string_view trimFront(const std::string_view string, const char character) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::RangeOf<char> CharacterRange>
-constexpr std::string trimFront(const std::string& string, const CharacterRange& characters) noexcept;
+constexpr std::string_view trimFront(const std::string_view string, const std::string_view characters) noexcept;
 ```
 
 &nbsp;
@@ -24,16 +23,10 @@ constexpr std::string trimFront(const std::string& string, const CharacterRange&
 ## Example
 ```cpp
 #include <iostream>
-#include <vector>
 #include <xieite/strings/trimFront.hpp>
 
 int main() {
-    std::vector<char> characters {
-        'a',
-        'b'
-    };
-
-    std::cout << xieite::strings::trimFront("bababananana", characters) << '\n';
+    std::cout << xieite::strings::trimFront("bababananana", "ab") << '\n';
 }
 ```
 Output:
