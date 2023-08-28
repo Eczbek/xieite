@@ -34,6 +34,8 @@ namespace xieite::algorithms {
 			}
 		}
 		return false;
+
+		// TODO: Consider incorporating std::ranges::mismatch
 	}
 }
 

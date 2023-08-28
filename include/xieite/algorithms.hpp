@@ -1,7 +1,9 @@
 #ifndef XIEITE_HEADER__ALGORITHMS
 #	define XIEITE_HEADER__ALGORITHMS
 
+#	include "./algorithms/all.hpp"
 #	include "./algorithms/antimode.hpp"
+#	include "./algorithms/any.hpp"
 #	include "./algorithms/findOccurrence.hpp"
 #	include "./algorithms/group.hpp"
 #	include "./algorithms/isPalindrome.hpp"
