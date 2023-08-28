@@ -1,6 +1,7 @@
-#ifndef XIEITE_HEADER__MATH__MEDIAN
-#	define XIEITE_HEADER__MATH__MEDIAN
+#ifndef XIEITE_HEADER__ALGORITHMS__MEDIAN
+#	define XIEITE_HEADER__ALGORITHMS__MEDIAN
 
+#	include <algorithm>
 #	include <array>
 #	include <iterator>
 #	include <ranges>
@@ -11,11 +12,12 @@
 namespace xieite::algorithms {
 	template<std::ranges::range Range>
 	requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-	constexpr xieite::math::Result<std::ranges::range_value_t<Range>> median(const Range& range) noexcept {
+	constexpr xieite::math::Result<std::ranges::range_value_t<Range>> median(Range range) noexcept {
 		const std::size_t rangeSize = std::ranges::size(range);
 		if (!rangeSize) {
 			return 0;
 		}
+		std::ranges::sort(range);
 		if (rangeSize % 2) {
 			return *std::ranges::next(std::ranges::begin(range), (rangeSize - 1) / 2);
 		}

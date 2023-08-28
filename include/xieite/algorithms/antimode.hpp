@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER__ALGORITHMS__MODE
-#	define XIEITE_HEADER__ALGORITHMS__MODE
+#ifndef XIEITE_HEADER__ALGORITHMS__ANTIMODE
+#	define XIEITE_HEADER__ALGORITHMS__ANTIMODE
 
 #	include <algorithm>
 #	include <array>
@@ -12,7 +12,7 @@ namespace xieite::algorithms {
 	template<std::ranges::range Range>
 	requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
 	constexpr xieite::math::Result<std::ranges::range_value_t<Range>> mode(const Range& range) noexcept {
-		return std::ranges::size(range) ? *std::ranges::max_element(range) : 0;
+		return std::ranges::size(range) ? *std::ranges::min_element(range) : 0;
 	}
 
 	template<xieite::concepts::Numeric... Numbers>

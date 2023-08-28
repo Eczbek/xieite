@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER__MATH__MEAN
-#	define XIEITE_HEADER__MATH__MEAN
+#ifndef XIEITE_HEADER__ALGORITHMS__MEAN
+#	define XIEITE_HEADER__ALGORITHMS__MEAN
 
 #	include <iterator>
 #	include <ranges>

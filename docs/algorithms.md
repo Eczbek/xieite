@@ -9,6 +9,7 @@ Somewhat useful algorithms.
 &nbsp;
 
 ## Contents
+- [antimode](./algorithms/antimode.md)
 - [findOccurrence](./algorithms/findOccurrence.md)
 - [group](./algorithms/group.md)
 - [isPalindrome](./algorithms/isPalindrome.md)
