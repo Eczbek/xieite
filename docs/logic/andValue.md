@@ -13,13 +13,13 @@ Creates a short-circuit to return the first argument if it is false, or otherwis
 ```cpp
 template<std::convertible_to<bool> Value>
 constexpr Value& andValue(Value& value1, Value& value2)
-noexcept(noexcept(std::is_nothrow_convertible_v<Value, bool>));
+noexcept(noexcept(std::xieite::concepts::NoThrowConvertibleTo<Value, bool>));
 ```
 #### 2)
 ```cpp
 template<std::convertible_to<bool> Value>
 constexpr const Value& andValue(const Value& value1, const Value& value2)
-noexcept(noexcept(std::is_nothrow_convertible_v<Value, bool>));
+noexcept(noexcept(std::xieite::concepts::NoThrowConvertibleTo<Value, bool>));
 ```
 
 &nbsp;
