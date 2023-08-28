@@ -8,10 +8,10 @@
 
 namespace xieite::geometry {
 	constexpr std::vector<xieite::geometry::Segment> getSides(const xieite::geometry::Polygon& polygon) noexcept {
-		std::vector<xieite::geometry::Segment> sides;
+		std::vector<xieite::geometry::Segment> sides = std::vector<xieite::geometry::Segment>(polygon.points.size());
 		const std::size_t pointsSize = polygon.points.size();
 		for (std::size_t i = 0; i < pointsSize; ++i) {
-			sides.push_back(xieite::geometry::Segment(polygon.points[i], polygon.points[(i + 1) % pointsSize]));
+			sides[i] = xieite::geometry::Segment(polygon.points[i], polygon.points[(i + 1) % pointsSize]));
 		}
 		return sides;
 	}
