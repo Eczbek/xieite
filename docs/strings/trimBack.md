@@ -11,12 +11,11 @@ Trims the back of a string.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::string trimBack(const std::string& string, char character) noexcept;
+constexpr std::string_view trimBack(const std::string_view string, const char character) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::RangeOf<char> CharacterRange>
-constexpr std::string trimBack(const std::string& string, const CharacterRange& characters) noexcept;
+constexpr std::string_view trimBack(const std::string_view string, const std::string_view characters) noexcept;
 ```
 
 &nbsp;
@@ -24,16 +23,10 @@ constexpr std::string trimBack(const std::string& string, const CharacterRange& 
 ## Example
 ```cpp
 #include <iostream>
-#include <vector>
 #include <xieite/strings/trimBack.hpp>
 
 int main() {
-    std::vector<char> characters {
-        'a',
-        'n'
-    };
-
-    std::cout << xieite::strings::trimBack("bababananana", characters) << '\n';
+    std::cout << xieite::strings::trimBack("bababananana", "an") << '\n';
 }
 ```
 Output:

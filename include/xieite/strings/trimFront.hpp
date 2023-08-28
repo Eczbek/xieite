@@ -1,36 +1,18 @@
 #ifndef XIEITE_HEADER__STRINGS__TRIM_FRONT
 #	define XIEITE_HEADER__STRINGS__TRIM_FRONT
 
-#	include <array>
 #	include <cstddef>
-#	include <limits>
-#	include <string>
-#	include "../concepts/RangeOf.hpp"
+#	include <string_view>
 
 namespace xieite::strings {
-	constexpr std::string trimFront(const std::string& string, const char character) noexcept {
-		const std::size_t stringSize = string.size();
-		for (std::size_t i = 0; i < stringSize; ++i) {
-			if (string[i] != character) {
-				return string.substr(i);
-			}
-		}
-		return "";
+	constexpr std::string_view trimFront(const std::string_view string, const char character) noexcept {
+		const std::size_t start = string.find_first_not_of(character);
+		return (start == std::string_view::npos) ? "" : string.substr(start);
 	}
 
-	template<xieite::concepts::RangeOf<char> CharacterRange>
-	constexpr std::string trimFront(const std::string& string, const CharacterRange& characters) noexcept {
-		std::array<bool, std::numeric_limits<unsigned char>::max() + 1> characterMap;
-		for (const char character : characters) {
-			characterMap[static_cast<unsigned char>(character)] = true;
-		}
-		const std::size_t stringSize = string.size();
-		for (std::size_t i = 0; i < stringSize; ++i) {
-			if (!characterMap[string[i]]) {
-				return string.substr(i);
-			}
-		}
-		return "";
+	constexpr std::string_view trimFront(const std::string_view string, const std::string_view characters) noexcept {
+		const std::size_t start = string.find_first_not_of(characters);
+		return (start == std::string_view::npos) ? "" : string.substr(start);
 	}
 }
 
