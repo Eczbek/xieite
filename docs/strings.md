@@ -9,6 +9,7 @@ String manipulation functions.
 &nbsp;
 
 ## Contents
+- [hash](./strings/hash.md)
 - [lowercase](./strings/lowercase.md)
 - [radiotelephonySpellingAlphabet](./strings/radiotelephonySpellingAlphabet.md)
 - [repeat](./strings/repeat.md)

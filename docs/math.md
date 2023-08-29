@@ -43,4 +43,3 @@ Mathematical types and functions.
 - [toBase](./math/toBase.md)
 - [toRadians](./math/toRadians.md)
 - [wrap](./math/wrap.md)
-- [xorShift](./math/xorShift.md)
