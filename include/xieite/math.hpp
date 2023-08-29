@@ -42,6 +42,5 @@
 #	include "./math/toBase.hpp"
 #	include "./math/toRadians.hpp"
 #	include "./math/wrap.hpp"
-#	include "./math/xorShift.hpp"
 
 #endif

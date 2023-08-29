@@ -1,6 +1,7 @@
 #ifndef XIEITE_HEADER__STRINGS
 #	define XIEITE_HEADER__STRINGS
 
+#	include "./strings/hash.hpp"
 #	include "./strings/lowercase.hpp"
 #	include "./strings/radiotelephonySpellingAlphabet.hpp"
 #	include "./strings/repeat.hpp"
