@@ -9,7 +9,7 @@
 namespace xieite::math {
 	template<std::integral Integer>
 	constexpr xieite::math::AttemptUnsign<Integer> absolute(const Integer value) noexcept {
-		return (value < 0) ? (std::numeric_limits<xieite::math::AttemptUnsign<Integer>>::max() - value + 1) : value;
+		return static_cast<xieite::math::AttemptUnsign<Integer>>((value < 0) ? -value : value);
 	}
 
 	template<std::floating_point FloatingPoint>
