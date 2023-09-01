@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:BigInteger
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum, Operand>](../BigInteger.md)\:\:BigInteger
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 &nbsp;
@@ -16,16 +16,17 @@ constexpr BigInteger(Integer value = 0) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr BigInteger(const xieite::math::BigInteger& value) noexcept;
+constexpr BigInteger(const xieite::math::BigInteger<Datum, Operand>& value) noexcept;
 ```
 #### 3)
 ```cpp
-template<xieite::concepts::RangeOf<bool> BooleanRange>
-constexpr BigInteger(const BooleanRange& bits, bool sign = false) noexcept;
+template<std::ranges::Range Range>
+requires(std::same_as<Datum, std::ranges::range_value_t<Range>>)
+constexpr BigInteger(const Range& range, bool negative = false) noexcept;
 ```
 #### 4)
 ```cpp
-constexpr BigInteger(std::string_view value);
+constexpr BigInteger(std::string_view value, int base = 10, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", char sign = '-') noexcept;
 ```
 
 &nbsp;

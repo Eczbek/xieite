@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:operator%
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum, Operand>](../BigInteger.md)\:\:operator%
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 &nbsp;
@@ -6,12 +6,12 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 ## Synopses
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger operator%(const xieite::math::BigInteger& divisor) const noexcept;
+friend constexpr xieite::math::BigInteger<Datum, Operand> operator%(const xieite::math::BigInteger<Datum, Operand>& dividend, const xieite::math::BigInteger<Datum, Operand>& divisor);
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-constexpr xieite::math::BigInteger operator%(Integer divisor) const noexcept;
+friend constexpr xieite::math::BigInteger<Datum, Operand> operator%(const xieite::math::BigInteger<Datum, Operand>& dividend, const Integer divisor);
 ```
 
 &nbsp;

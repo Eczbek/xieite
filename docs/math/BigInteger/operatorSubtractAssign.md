@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:operator-=
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum, Operand>](../BigInteger.md)\:\:operator-=
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 &nbsp;
@@ -6,12 +6,12 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 ## Synopses
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger& operator-=(const xieite::math::BigInteger& subtrahend) noexcept;
+constexpr xieite::math::BigInteger<Datum, Operand>& operator-=(const xieite::math::BigInteger<Datum, Operand>& subtrahend) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-constexpr xieite::math::BigInteger& operator-=(Integer subtrahend) noexcept;
+constexpr xieite::math::BigInteger<Datum, Operand>& operator-=(Integer subtrahend) noexcept;
 ```
 
 &nbsp;
@@ -22,7 +22,7 @@ constexpr xieite::math::BigInteger& operator-=(Integer subtrahend) noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-    xieite::math::BigInteger bigInteger = 9;
+    xieite::math::BigInteger<Datum, Operand> bigInteger = 9;
 
     bigInteger -= 3;
 

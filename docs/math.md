@@ -11,7 +11,7 @@ Mathematical types and functions.
 ## Contents
 - [AttemptSign](./math/AttemptSign.md)
 - [AttemptUnsign](./math/AttemptUnsign.md)
-- [BigInteger](./math/BigInteger.md)
+- [BigInteger<Datum, Operand>](./math/BigInteger.md)
 - [ConditionalSign](./math/ConditionalSign.md)
 - [Interval](./math/Interval.md)
 - [MinimalInteger](./math/MinimalInteger.md)
@@ -33,6 +33,7 @@ Mathematical types and functions.
 - [logarithm](./math/logarithm.md)
 - [mergeIntervals](./math/mergeIntervals.md)
 - [modulo](./math/modulo.md)
+- [negative](./math/negative.md)
 - [pi](./math/pi.md)
 - [reverse](./math/reverse.md)
 - [robert](./math/robert.md)
