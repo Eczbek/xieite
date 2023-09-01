@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger](../BigInteger.md)\:\:operator typename
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum, Operand>](../BigInteger.md)\:\:operator typename
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Casts a `xieite::math::BigInteger` to any other arithmetic type.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-constexpr operator Arithmetic() const noexcept;
+template<std::integral Integer>
+constexpr operator Integer() const noexcept;
 ```
 #### 2)
 ```cpp

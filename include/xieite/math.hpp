@@ -29,6 +29,7 @@
 #	include "./math/logarithm.hpp"
 #	include "./math/mergeIntervals.hpp"
 #	include "./math/modulo.hpp"
+#	include "./math/negative.hpp"
 #	include "./math/pi.hpp"
 #	include "./math/productSign.hpp"
 #	include "./math/reverse.hpp"

@@ -5,11 +5,12 @@
 #	include <concepts>
 #	include <limits>
 #	include "../math/AttemptUnsign.hpp"
+#	include "../math/negative.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
 	constexpr xieite::math::AttemptUnsign<Integer> absolute(const Integer value) noexcept {
-		return static_cast<xieite::math::AttemptUnsign<Integer>>((value < 0) ? -value : value);
+		return static_cast<xieite::math::AttemptUnsign<Integer>>(xieite::math::negative(value) ? -value : value);
 	}
 
 	template<std::floating_point FloatingPoint>
