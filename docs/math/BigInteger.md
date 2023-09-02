@@ -4,7 +4,7 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../include/xieite/math/BigIn
 &nbsp;
 
 ## Description
-A class for storing and operating on very large numbers. DOES NOT WORK CORRECTLY, DO NOT USE.
+A class for storing and operating on very large numbers.
 
 &nbsp;
 

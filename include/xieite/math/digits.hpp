@@ -10,7 +10,7 @@
 namespace xieite::math {
 	template<std::integral Integer>
 	constexpr std::size_t digits(const Integer value, const std::size_t base = 10) noexcept {
-		return !base ? 0 : ((base == 1) ? value : std::ceil(xieite::math::logarithm(base, xieite::math::absolute(value) + !value + 1)));
+		return !base ? 0 : ((base == 1) ? value : static_cast<std::size_t>(std::ceil(xieite::math::logarithm(base, xieite::math::absolute(value) + !value + 1))));
 	}
 }
 
