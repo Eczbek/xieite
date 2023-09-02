@@ -21,7 +21,6 @@
 #	include "../math/negative.hpp"
 #	include "../math/splitBoolean.hpp"
 #	include "../system/bitsPerByte.hpp"
-#	include "../types/sizeBits.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral Datum = std::uint32_t, std::unsigned_integral Operand = std::uint64_t>
@@ -35,7 +34,7 @@ namespace xieite::math {
 			do {
 				this->data.push_back(static_cast<Datum>(absoluteValue));
 				if constexpr(sizeof(Integer) > sizeof(Datum)) {
-					absoluteValue >>= xieite::types::sizeBits<Datum>;
+					absoluteValue >>= std::numeric_limits<Datum>::digits;
 				} else {
 					break;
 				}
@@ -265,7 +264,7 @@ namespace xieite::math {
 					if (!multiplicand.data[j]) {
 						continue;
 					}
-					result += (xieite::math::BigInteger<Datum, Operand>(static_cast<Operand>(multiplier.data[i]) * multiplicand.data[j]) << i) << j;
+					result += xieite::math::BigInteger<Datum, Operand>(static_cast<Operand>(multiplier.data[i]) * multiplicand.data[j]) << (xieite::math::BigInteger(i) * sizeof(Datum) * xieite::system::bitsPerByte) << (xieite::math::BigInteger(j) * sizeof(Datum) * xieite::system::bitsPerByte);
 				}
 			}
 			result.negative = multiplier.negative != multiplicand.negative;
@@ -306,7 +305,7 @@ namespace xieite::math {
 			remainder.data.resize(dividend.data.size(), 0);
 			result.data.resize(dividend.data.size(), 0);
 			for (std::size_t i = dividend.data.size(); i--;) {
-				for (std::size_t j = xieite::types::sizeBits<Datum>; j--;) {
+				for (std::size_t j = std::numeric_limits<Datum>::digits; j--;) {
 					remainder <<= 1;
 					remainder.data[0] |= (dividend.data[i] >> j) & 1;
 					const bool quotient = remainder >= absoluteDivisor;
@@ -350,7 +349,7 @@ namespace xieite::math {
 			}
 			xieite::math::BigInteger<Datum, Operand> remainder;
 			for (std::size_t i = dividend.data.size(); i--;) {
-				for (std::size_t j = xieite::types::sizeBits<Datum>; j--;) {
+				for (std::size_t j = std::numeric_limits<Datum>::digits; j--;) {
 					remainder <<= 1;
 					remainder.data[0] |= (dividend.data[i] >> j) & 1;
 					remainder -= absoluteDivisor * (remainder >= absoluteDivisor);
@@ -445,19 +444,20 @@ namespace xieite::math {
 			if (rightOperand.negative) {
 				return leftOperand >> -rightOperand;
 			}
-			const std::size_t dataShift = (rightOperand <= std::numeric_limits<Datum>::max()) ? 0 : static_cast<std::size_t>(rightOperand >> xieite::types::sizeBits<Datum>);
-			const std::size_t bitsShift = rightOperand & std::numeric_limits<Datum>::max();
+			const std::size_t dataShift = rightOperand / std::numeric_limits<Datum>::digits;
+			const std::size_t bitsShift = rightOperand % std::numeric_limits<Datum>::digits;
 			std::vector<Datum> resultData = std::vector<Datum>(dataShift, 0);
 			resultData.insert(resultData.end(), leftOperand.data.begin(), leftOperand.data.end());
 			if (bitsShift) {
-				resultData.push_back(0);
-				const std::size_t resultDataSize = resultData.size();
-				Datum shift = 0;
-				for (std::size_t i = dataShift; i < resultDataSize; ++i) {
-					const Datum datum = resultData[i];
-					resultData[i] = (datum << bitsShift) | shift;
-					shift = datum >> (xieite::types::sizeBits<Datum> - bitsShift);
+				Datum carry = 0;
+                const std::size_t leftDataSize = leftOperand.data.size();
+				for (std::size_t i = 0; i < leftDataSize; ++i) {
+					resultData[i + dataShift] = (leftOperand.data[i] << bitsShift) | carry;
+                    carry = leftOperand.data[i] >> (std::numeric_limits<Datum>::digits - bitsShift);
 				}
+                if (carry) {
+                    resultData.push_back(carry);
+                }
 			}
 			return xieite::math::BigInteger<Datum, Operand>(resultData, leftOperand.negative);
 		}
@@ -483,18 +483,21 @@ namespace xieite::math {
 			if (rightOperand.negative) {
 				return leftOperand >> -rightOperand;
 			}
-			const std::size_t dataShift = (rightOperand <= std::numeric_limits<Datum>::max()) ? 0 : static_cast<std::size_t>(rightOperand >> xieite::types::sizeBits<Datum>);
-			const std::size_t bitsShift = rightOperand & std::numeric_limits<Datum>::max();
+			const std::size_t dataShift = rightOperand / std::numeric_limits<Datum>::digits;
+			const std::size_t bitsShift = rightOperand % std::numeric_limits<Datum>::digits;
 			const std::size_t leftDataSize = leftOperand.data.size();
 			if (dataShift >= leftDataSize) {
 				return 0;
 			}
-			std::vector<Datum> resultData = std::vector<Datum>(std::ranges::next(leftOperand.data.begin(), dataShift), leftOperand.data.end());
-			Datum shift = 0;
-			for (std::size_t i = resultData.size(); i--;) {
-				shift = resultData[i] & (std::numeric_limits<Datum>::max() ^ (std::numeric_limits<Datum>::max() >> (xieite::types::sizeBits<Datum> - bitsShift)));
-				resultData[i] = (resultData[i] >> bitsShift) | shift;
-			}
+			std::vector<Datum> resultData = std::vector<Datum>(std::ranges::next(leftOperand.data.begin(), dataShift, leftOperand.data.end()), leftOperand.data.end());
+            if (bitsShift) {
+                Datum carry = 0;
+                for (std::size_t i = resultData.size(); i--;) {
+                    const Datum datum = resultData[i];
+                    resultData[i] = (datum >> bitsShift) | carry;
+                    carry = datum << (std::numeric_limits<Datum>::digits - bitsShift);
+                }
+            }
 			return xieite::math::BigInteger<Datum, Operand>(resultData, leftOperand.negative);
 		}
 
@@ -592,7 +595,7 @@ namespace xieite::math {
 			if (base.negative) {
 				throw std::domain_error("Cannot take logarithm of negative base");
 			}
-			return (xieite::math::BigInteger<Datum, Operand>(xieite::types::sizeBits<Datum>) * (this->data.size() - 1) + xieite::math::digits(this->data.back(), 2) - 1) / (xieite::math::BigInteger<Datum, Operand>(xieite::types::sizeBits<Datum>) * (base.data.size() - 1) + xieite::math::digits(base.data.back(), 2) - 1);
+			return (xieite::math::BigInteger<Datum, Operand>(std::numeric_limits<Datum>::digits) * (this->data.size() - 1) + xieite::math::digits(this->data.back(), 2) - 1) / (xieite::math::BigInteger<Datum, Operand>(std::numeric_limits<Datum>::digits) * (base.data.size() - 1) + xieite::math::digits(base.data.back(), 2) - 1);
 		}
 
 		template<std::integral Integer>
@@ -634,7 +637,7 @@ namespace xieite::math {
 			return result;
 		}
 
-	private:
+	// private:
 		std::vector<Datum> data;
 		bool negative;
 
