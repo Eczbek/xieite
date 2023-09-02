@@ -637,7 +637,7 @@ namespace xieite::math {
 			return result;
 		}
 
-	// private:
+	private:
 		std::vector<Datum> data;
 		bool negative;
 
