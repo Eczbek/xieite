@@ -16,7 +16,6 @@
 #	include "../concepts/Arithmetic.hpp"
 #	include "../concepts/Functable.hpp"
 #	include "../math/AttemptUnsign.hpp"
-#	include "../math/absolute.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/negative.hpp"
 #	include "../math/splitBoolean.hpp"
@@ -154,9 +153,10 @@ namespace xieite::math {
 			const std::size_t augendDataSize = augend.data.size();
 			const std::size_t addendDataSize = addend.data.size();
 			for (std::size_t i = 0; (i < augendDataSize) || (i < addendDataSize) || carry; ++i) {
-				const Operand sum = static_cast<Operand>((i < augendDataSize) ? augend.data[i] : 0) + ((i < addendDataSize) ? addend.data[i] : 0) + carry;
-				carry = sum > std::numeric_limits<Datum>::max();
-				resultData.push_back(static_cast<Datum>(sum));
+				const Datum augendDatum = (i < augendDataSize) ? augend.data[i] : 0;
+				const Datum addendDatum = (i < addendDataSize) ? addend.data[i] : 0;
+				resultData.push_back(augendDatum + addendDatum + carry);
+				carry = ((std::numeric_limits<Datum>::max() - augendDatum) < carry) || ((std::numeric_limits<Datum>::max() - augendDatum) < addendDatum) || ((std::numeric_limits<Datum>::max() - augendDatum - carry) < addendDatum);
 			}
 			return xieite::math::BigInteger<Datum, Operand>(resultData, augend.negative);
 		}
@@ -214,9 +214,9 @@ namespace xieite::math {
 			const std::size_t minuendDataSize = minuend.data.size();
 			const std::size_t subtrahendDataSize = subtrahend.data.size();
 			for (std::size_t i = 0; (i < subtrahendDataSize) || borrow; ++i) {
-				const Operand difference = (static_cast<Operand>(std::numeric_limits<Datum>::max()) + !borrow) + minuend.data[i] - ((i < subtrahendDataSize) ? subtrahend.data[i] : 0);
-				borrow = (i < (minuendDataSize - 1)) && (difference <= std::numeric_limits<Datum>::max());
-				resultData.push_back(static_cast<Datum>(difference));
+				const Datum subtrahendDatum = (i < subtrahendDataSize) ? subtrahend.data[i] : 0;
+				resultData.push_back(minuend.data[i] - subtrahendDatum - borrow);
+				borrow = (i < (minuendDataSize - 1)) && ((minuend.data[i] < borrow) || (minuend.data[i] < subtrahendDatum) || ((minuend.data[i] - borrow) < subtrahendDatum));
 			}
 			return xieite::math::BigInteger<Datum, Operand>(resultData, minuend.negative);
 		}
@@ -264,7 +264,7 @@ namespace xieite::math {
 					if (!multiplicand.data[j]) {
 						continue;
 					}
-					result += xieite::math::BigInteger<Datum, Operand>(static_cast<Operand>(multiplier.data[i]) * multiplicand.data[j]) << (xieite::math::BigInteger(i) * sizeof(Datum) * xieite::system::bitsPerByte) << (xieite::math::BigInteger(j) * sizeof(Datum) * xieite::system::bitsPerByte);
+					result += xieite::math::BigInteger<Datum, Operand>(static_cast<Operand>(multiplier.data[i]) * multiplicand.data[j]) << (xieite::math::BigInteger<Datum, Operand>(i) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2)) << (xieite::math::BigInteger<Datum, Operand>(j) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2));
 				}
 			}
 			result.negative = multiplier.negative != multiplicand.negative;
@@ -450,14 +450,14 @@ namespace xieite::math {
 			resultData.insert(resultData.end(), leftOperand.data.begin(), leftOperand.data.end());
 			if (bitsShift) {
 				Datum carry = 0;
-                const std::size_t leftDataSize = leftOperand.data.size();
+				const std::size_t leftDataSize = leftOperand.data.size();
 				for (std::size_t i = 0; i < leftDataSize; ++i) {
 					resultData[i + dataShift] = (leftOperand.data[i] << bitsShift) | carry;
-                    carry = leftOperand.data[i] >> (std::numeric_limits<Datum>::digits - bitsShift);
+					carry = leftOperand.data[i] >> (std::numeric_limits<Datum>::digits - bitsShift);
 				}
-                if (carry) {
-                    resultData.push_back(carry);
-                }
+				if (carry) {
+					resultData.push_back(carry);
+				}
 			}
 			return xieite::math::BigInteger<Datum, Operand>(resultData, leftOperand.negative);
 		}
@@ -490,14 +490,14 @@ namespace xieite::math {
 				return 0;
 			}
 			std::vector<Datum> resultData = std::vector<Datum>(std::ranges::next(leftOperand.data.begin(), dataShift, leftOperand.data.end()), leftOperand.data.end());
-            if (bitsShift) {
-                Datum carry = 0;
-                for (std::size_t i = resultData.size(); i--;) {
-                    const Datum datum = resultData[i];
-                    resultData[i] = (datum >> bitsShift) | carry;
-                    carry = datum << (std::numeric_limits<Datum>::digits - bitsShift);
-                }
-            }
+			if (bitsShift) {
+				Datum carry = 0;
+				for (std::size_t i = resultData.size(); i--;) {
+					const Datum datum = resultData[i];
+					resultData[i] = (datum >> bitsShift) | carry;
+					carry = datum << (std::numeric_limits<Datum>::digits - bitsShift);
+				}
+			}
 			return xieite::math::BigInteger<Datum, Operand>(resultData, leftOperand.negative);
 		}
 
@@ -608,26 +608,20 @@ namespace xieite::math {
 				return std::string(1, digits[0]);
 			}
 			std::string result;
-			xieite::math::BigInteger<Datum, Operand> copy = *this;
-			std::size_t absoluteCopy = this->absolute();
+			xieite::math::BigInteger<Datum, Operand> absolute = this->absolute();
+			std::size_t absoluteValue = absolute;
 			if (base == 1) {
-				result = std::string(absoluteCopy, digits[1]);
+				result = std::string(absoluteValue, digits[1]);
 			} else {
 				if (base == -1) {
 					result = digits[1];
-					while (absoluteCopy-- > 1) {
+					while (absoluteValue-- > 1) {
 						result += std::string(1, digits[0]) + digits[1];
 					}
 				} else {
-					const unsigned int absoluteBase = xieite::math::absolute(base);
-					while (copy) {
-						int remainder = copy % base;
-						copy /= base;
-						if (remainder < 0) {
-							remainder += absoluteBase;
-							++copy;
-						}
-						result = digits[remainder] + result;
+					while (absolute) {
+						result = digits[absolute % base] + result;
+						absolute /= base;
 					}
 				}
 			}
