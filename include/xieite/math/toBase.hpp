@@ -11,7 +11,7 @@ namespace xieite::math {
 	template<std::integral Integer>
 	constexpr std::string toBase(const int base, Integer value, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char sign = '-') noexcept {
 		if (!base || !value) {
-			return digits[0];
+			return std::string(1, digits[0]);
 		}
 		std::string result;
 		xieite::math::AttemptUnsign<Integer> absoluteValue = xieite::math::absolute(value);
