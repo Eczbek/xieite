@@ -23,7 +23,6 @@
 #	include "./math/divideUp.hpp"
 #	include "./math/farthestFrom.hpp"
 #	include "./math/fromBase.hpp"
-#	include "./math/generatePi.hpp"
 #	include "./math/isPowerOf2.hpp"
 #	include "./math/isPrime.hpp"
 #	include "./math/logarithm.hpp"

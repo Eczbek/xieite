@@ -27,7 +27,6 @@ Mathematical types and functions.
 - [digits](./math/digits.md)
 - [farthestFrom](./math/farthestFrom.md)
 - [fromBase](./math/fromBase.md)
-- [generatePi](./math/generatePi.md)
 - [isPowerOf2](./math/isPowerOf2.md)
 - [isPrime](./math/isPrime.md)
 - [logarithm](./math/logarithm.md)
