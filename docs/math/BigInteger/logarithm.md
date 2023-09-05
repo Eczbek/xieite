@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum, Operand>](../BigInteger.md)\:\:logarithm
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum>](../BigInteger.md)\:\:logarithm
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Calculates the logarithm of a `xieite::math::BigInteger` to a base.
 ## Synopses
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Datum, Operand> logarithm(const xieite::math::BigInteger<Datum, Operand>& base) const;
+constexpr xieite::math::BigInteger<Datum> logarithm(const xieite::math::BigInteger<Datum>& base) const;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-constexpr xieite::math::BigInteger<Datum, Operand> logarithm(Integer base) const;
+constexpr xieite::math::BigInteger<Datum> logarithm(Integer base) const;
 ```
 
 &nbsp;
@@ -27,7 +27,7 @@ constexpr xieite::math::BigInteger<Datum, Operand> logarithm(Integer base) const
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-    xieite::math::BigInteger<Datum, Operand> bigInteger = 1000;
+    xieite::math::BigInteger<Datum> bigInteger = 1000;
 
     std::cout << bigInteger.logarithm(10).string() << '\n';
 }
