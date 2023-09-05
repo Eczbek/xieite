@@ -40,6 +40,11 @@ struct BigInteger {
     template<std::integral Integer>
     constexpr std::strong_ordering operator<=>(Integer) const;
 
+    constexpr bool operator==(const xieite::math::BigInteger<Datum>&) const;
+
+    template<std::integral Integer>
+    constexpr bool operator==(Integer) const;
+
     constexpr xieite::math::BigInteger<Datum> operator+() const;
 
     friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>&) const;
@@ -179,6 +184,7 @@ struct BigInteger {
 - [operator=](./BigInteger/operatorAssign.md)
 - [operator typename](./BigInteger/operatorCast.md)
 - [operator<=>](./BigInteger/operatorSpaceship.md)
+- [operator==](./BigInteger/operatorEqual.md)
 - [operator+](./BigInteger/operatorAdd.md)
 - [operator+=](./BigInteger/operatorAddAssign.md)
 - [operator++](./BigInteger/operatorIncrement.md)

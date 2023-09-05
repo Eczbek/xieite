@@ -133,6 +133,15 @@ namespace xieite::math {
 			return leftComparand <=> xieite::math::BigInteger<Datum>(rightComparand);
 		}
 
+		friend constexpr bool operator==(const xieite::math::BigInteger<Datum>& leftComparand, const xieite::math::BigInteger<Datum>& rightComparand) noexcept {
+			return (leftComparand <=> rightComparand) == std::strong_ordering::equivalent;
+		}
+
+		template<std::integral Integer>
+		friend constexpr bool operator==(const xieite::math::BigInteger<Datum>& leftComparand, const Integer rightComparand) noexcept {
+			return leftComparand == xieite::math::BigInteger<Datum>(rightComparand);
+		}
+
 		constexpr xieite::math::BigInteger<Datum> operator+() const noexcept {
 			return *this;
 		}
