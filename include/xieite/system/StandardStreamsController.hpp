@@ -176,12 +176,9 @@ namespace xieite::system {
 		}
 
 		char readCharacter() noexcept {
-			const bool blocking = this->blocking;
 			const bool canonical = this->canonical;
-			this->setInputBlocking(false);
 			this->setInputCanonical(false);
 			const char input = inputStream.get();
-			this->setInputBlocking(blocking);
 			this->setInputCanonical(canonical);
 			return input;	
 		}
