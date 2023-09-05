@@ -23,7 +23,6 @@
 #	include "./macros/STANDARD_LANGUAGE.hpp"
 #	include "./macros/STANDARD_UNIX.hpp"
 #	include "./macros/STRINGIFY.hpp"
-#	include "./macros/STRUCTURE_UUID.hpp"
 #	include "./macros/SYSTEM_TYPE.hpp"
 #	include "./macros/UNREACHABLE.hpp"
 #	include "./macros/VERSION.hpp"
