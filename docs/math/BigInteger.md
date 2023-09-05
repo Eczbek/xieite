@@ -11,7 +11,7 @@ A class for storing and operating on very large numbers.
 ## Synopses
 #### 1)
 ```cpp
-template<std::unsigned_integral Datum>
+template<std::unsigned_integral Datum = std::uint64_t>
 struct BigInteger {
     template<std::integral Integer = int>
     constexpr BigInteger(Integer = 0);
