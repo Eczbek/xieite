@@ -5,10 +5,10 @@
 #	include <concepts>
 #	include <ranges>
 #	include "../concepts/NoThrowConvertibleToAllOf.hpp"
+#	include "../concepts/RangeOf.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range>
-	requires(std::convertible_to<bool, std::ranges::range_value_t<Range>>)
+	template<xieite::concepts::RangeOf<bool> Range>
 	constexpr bool all(const Range& range)
 	noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<bool, std::ranges::range_value_t<Range>)) {
 		return std::ranges::all_of(range, [](const std::ranges::range_const_reference_t<const Range&> value) -> bool {

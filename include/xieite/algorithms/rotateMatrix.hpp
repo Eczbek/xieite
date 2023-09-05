@@ -14,7 +14,7 @@ namespace xieite::algorithms {
 			return matrix;
 		}
 		const std::size_t matrixHeight = matrix[0].size();
-		auto result = std::vector<std::vector<Value>>(matrixHeight, std::vector<Value>(matrixWidth));
+		std::vector<std::vector<Value>> result = std::vector<std::vector<Value>>(matrixHeight, std::vector<Value>(matrixWidth));
 		if (rotations > 0) {
 			for (std::size_t x = matrixWidth; x--;) {
 				for (std::size_t y = 0; y < matrixHeight; ++y) {

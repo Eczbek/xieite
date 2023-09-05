@@ -11,8 +11,7 @@ Checks whether all passed arguments are true. Expects all arguments to be conver
 ## Synopses
 #### 1)
 ```cpp
-template<std::ranges::range Range>
-requires(std::convertible_to<bool, std::ranges::range_value_t<Range>>)
+template<xieite::concepts::RangeOf<bool> Range>
 constexpr bool all(const Range& range)
 noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<bool, std::ranges::range_value_t<Range>));
 ```
