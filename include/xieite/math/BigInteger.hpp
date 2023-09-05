@@ -1,6 +1,7 @@
 #ifndef XIEITE_HEADER__MATH__BIG_INTEGER
 #	define XIEITE_HEADER__MATH__BIG_INTEGER
 
+#	include <algorithm>
 #	include <array>
 #	include <compare>
 #	include <concepts>
@@ -125,17 +126,15 @@ namespace xieite::math {
 		}
 
 		friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>& leftComparand, const xieite::math::BigInteger<Datum>& rightComparand) noexcept {
-			return (leftComparand.negative != rightComparand.negative) ? (rightComparand.negative <=> leftComparand.negative) : (leftComparand.negative ? ((leftComparand.data.size() != rightComparand.data.size()) ? (rightComparand.data.size() <=> leftComparand.data.size()) : (std::vector<Datum>(rightComparand.data.rbegin(), rightComparand.data.rend()) <=> std::vector<Datum>(leftComparand.data.rbegin(), leftComparand.data.rend()))) : ((leftComparand.data.size() != rightComparand.data.size()) ? (leftComparand.data.size() <=> rightComparand.data.size()) : (std::vector<Datum>(leftComparand.data.rbegin(), leftComparand.data.rend()) <=> std::vector<Datum>(rightComparand.data.rbegin(), rightComparand.data.rend()))));
-		}
+			return (leftComparand.negative != rightComparand.negative) ? (rightComparand.negative <=> leftComparand.negative) : (leftComparand.negative ? ((leftComparand.data.size() != rightComparand.data.size()) ? (rightComparand.data.size() <=> leftComparand.data.size()) : std::lexicographical_compare_three_way(rightComparand.data.rbegin(), rightComparand.data.rend(), leftComparand.data.rbegin(), leftComparand.data.rend())) : ((leftComparand.data.size() != rightComparand.data.size()) ? (leftComparand.data.size() <=> rightComparand.data.size()) : std::lexicographical_compare_three_way(leftComparand.data.rbegin(), leftComparand.data.rend(), rightComparand.data.rbegin(), rightComparand.data.rend())));
+		};
 
 		template<std::integral Integer>
 		friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>& leftComparand, const Integer rightComparand) noexcept {
 			return leftComparand <=> xieite::math::BigInteger<Datum>(rightComparand);
 		}
 
-		friend constexpr bool operator==(const xieite::math::BigInteger<Datum>& leftComparand, const xieite::math::BigInteger<Datum>& rightComparand) noexcept {
-			return (leftComparand <=> rightComparand) == std::strong_ordering::equivalent;
-		}
+		friend constexpr bool operator==(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&) noexcept = default;
 
 		template<std::integral Integer>
 		friend constexpr bool operator==(const xieite::math::BigInteger<Datum>& leftComparand, const Integer rightComparand) noexcept {
