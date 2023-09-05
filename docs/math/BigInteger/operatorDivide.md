@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum, Operand>](../BigInteger.md)\:\:operator/
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum>](../BigInteger.md)\:\:operator/
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 &nbsp;
@@ -6,12 +6,12 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/Bi
 ## Synopses
 #### 1)
 ```cpp
-friend constexpr xieite::math::BigInteger<Datum, Operand> operator/(const xieite::math::BigInteger<Datum, Operand>& dividend, const xieite::math::BigInteger<Datum, Operand>& divisor);
+friend constexpr xieite::math::BigInteger<Datum> operator/(const xieite::math::BigInteger<Datum>& dividend, const xieite::math::BigInteger<Datum>& divisor);
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-friend constexpr xieite::math::BigInteger<Datum, Operand> operator/(const xieite::math::BigInteger<Datum, Operand>& dividend, const Integer divisor);
+friend constexpr xieite::math::BigInteger<Datum> operator/(const xieite::math::BigInteger<Datum>& dividend, const Integer divisor);
 ```
 
 &nbsp;

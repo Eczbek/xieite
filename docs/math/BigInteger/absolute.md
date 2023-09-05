@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum, Operand>](../BigInteger.md)\:\:absolute
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum>](../BigInteger.md)\:\:absolute
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Gets the absolute value of a `xieite::math::BigInteger`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Datum, Operand> absolute() const noexcept;
+constexpr xieite::math::BigInteger<Datum> absolute() const noexcept;
 ```
 
 &nbsp;
@@ -22,7 +22,7 @@ constexpr xieite::math::BigInteger<Datum, Operand> absolute() const noexcept;
 #include <xieite/math/BigInteger.hpp>
 
 int main() {
-    xieite::math::BigInteger<Datum, Operand> bigInteger = -999;
+    xieite::math::BigInteger<Datum> bigInteger = -999;
 
     std::cout << bigInteger.absolute().string() << '\n';
 }

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum, Operand>](../BigInteger.md)\:\:BigInteger
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:[BigInteger<Datum>](../BigInteger.md)\:\:BigInteger
 Defined in header [<xieite/math/BigInteger.hpp>](../../../include/xieite/math/BigInteger.hpp)
 
 &nbsp;
@@ -16,7 +16,7 @@ constexpr BigInteger(Integer value = 0) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr BigInteger(const xieite::math::BigInteger<Datum, Operand>& value) noexcept;
+constexpr BigInteger(const xieite::math::BigInteger<Datum>& value) noexcept;
 ```
 #### 3)
 ```cpp

@@ -11,7 +11,7 @@ Mathematical types and functions.
 ## Contents
 - [AttemptSign](./math/AttemptSign.md)
 - [AttemptUnsign](./math/AttemptUnsign.md)
-- [BigInteger<Datum, Operand>](./math/BigInteger.md)
+- [BigInteger](./math/BigInteger.md)
 - [ConditionalSign](./math/ConditionalSign.md)
 - [Interval](./math/Interval.md)
 - [MinimalInteger](./math/MinimalInteger.md)
