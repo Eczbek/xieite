@@ -11,7 +11,7 @@ Defines the radiotelephony spelling alphabet.
 ## Synopses
 #### 1)
 ```cpp
-inline constexpr auto radiotelephonySpellingAlphabet = ([] {
+inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> radiotelephonySpellingAlphabet = ([] {
     std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> result;
     result['A'] = result['a'] = "Alfa";
     result['B'] = result['b'] = "Bravo";
@@ -49,9 +49,9 @@ inline constexpr auto radiotelephonySpellingAlphabet = ([] {
     result['7'] = "Setteseven";
     result['8'] = "Oktoeight";
     result['9'] = "Novenine";
-    result['.'] = "Stop";
+    result['.'] = "Mark";
     result[','] = "Comma";
-    result['-'] = "Hyphen";
+    result['-'] = "Dash";
     result['/'] = "Slant";
     result['('] = "Brackets On";
     result[')'] = "Brackets Off";

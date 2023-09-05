@@ -6,7 +6,6 @@
 #	include "./functors.hpp"
 #	include "./geometry.hpp"
 #	include "./graphics.hpp"
-#	include "./hashes.hpp"
 #	include "./macros.hpp"
 #	include "./math.hpp"
 #	include "./memory.hpp"
