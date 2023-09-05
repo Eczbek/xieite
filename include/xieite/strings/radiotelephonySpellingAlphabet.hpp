@@ -44,9 +44,9 @@ namespace xieite::strings {
 		result['7'] = "Setteseven";
 		result['8'] = "Oktoeight";
 		result['9'] = "Novenine";
-		result['.'] = "Stop"; // "Dot", "Mark", "Decimal", "Point"
+		result['.'] = "Mark"; // "Dot", "Stop", "Decimal", "Point"
 		result[','] = "Comma";
-		result['-'] = "Hyphen"; // "Dash"
+		result['-'] = "Dash"; // "Hyphen"
 		result['/'] = "Slant";
 		result['('] = "Brackets On";
 		result[')'] = "Brackets Off";
@@ -55,7 +55,7 @@ namespace xieite::strings {
 		result['!'] = "Exclamation Mark";
 		result['?'] = "Question Mark";
 		result['\''] = "Apostrophe";
-		result['"'] = "Quote"; // "Unquote"
+		result['"'] = "Quote";
 		return result;
 	})();
 }
