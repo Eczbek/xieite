@@ -19,8 +19,8 @@ struct ProcessGuard {
 };
 ```
 ##### Member functions
-- [ProcessGuard](./ProcessGuard/constructor.md)
-- [release](./ProcessGuard/release.md)
+- [ProcessGuard](./ProcessGuard/1/constructor.md)
+- [release](./ProcessGuard/1/release.md)
 
 &nbsp;
 

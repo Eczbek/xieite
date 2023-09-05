@@ -10,7 +10,6 @@ Functional utilities.
 
 ## Contents
 - [Infix](./functors/Infix.md)
-- [MakeFunctor](./functors/MakeFunctor.md)
 - [Overloader](./functors/Overloader.md)
 - [Postfix](./functors/Postfix.md)
 - [Prefix](./functors/Prefix.md)

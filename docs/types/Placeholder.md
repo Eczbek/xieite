@@ -19,3 +19,5 @@ struct Placeholder {
     constexpr operator Type&&() const noexcept;
 };
 ```
+##### Member functions
+- [operator typename](./Placeholder/1/operatorCast.md)

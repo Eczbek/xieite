@@ -22,8 +22,8 @@ struct Overloader
 };
 ```
 ##### Member functions
-- [Overloader](./Overloader/constructor.md)
-- [operator()](./Overloader/operatorCall.md)
+- [Overloader](./Overloader/1/constructor.md)
+- [operator()](./Overloader/1/operatorCall.md)
 
 &nbsp;
 

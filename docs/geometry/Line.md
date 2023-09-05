@@ -26,5 +26,5 @@ struct Line {
 - start
 - end
 ##### Member functions
-- [Line](./Line/constructor.md)
-- [operator==](./Line/operatorEquals.md)
+- [Line](./Line/1/constructor.md)
+- [operator==](./Line/1/operatorEquals.md)

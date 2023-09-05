@@ -21,9 +21,9 @@ struct Loop {
 };
 ```
 ##### Member functions
-- [Loop](./Loop/constructor.md)
-- [good](./Loop/good.md)
-- [stop](./Loop/stop.md)
+- [Loop](./Loop/1/constructor.md)
+- [good](./Loop/1/good.md)
+- [stop](./Loop/1/stop.md)
 
 &nbsp;
 

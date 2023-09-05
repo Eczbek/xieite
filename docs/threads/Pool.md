@@ -22,10 +22,10 @@ struct Pool {
 };
 ```
 ##### Member functions
-- [Pool](./Pool/constructor.md)
-- [setThreadCount](./Pool/setThreadCount.md)
-- [getThreadCount](./Pool/getThreadCount.md)
-- [enqueue](./Pool/enqueue.md)
+- [Pool](./Pool/1/constructor.md)
+- [setThreadCount](./Pool/1/setThreadCount.md)
+- [getThreadCount](./Pool/1/getThreadCount.md)
+- [enqueue](./Pool/1/enqueue.md)
 
 &nbsp;
 

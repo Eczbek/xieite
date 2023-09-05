@@ -24,8 +24,8 @@ struct Segment {
 - start
 - end
 ##### Member functions
-- [Segment](./Segment/constructor.md)
-- [operator==](./Segment/operatorEquals.md)
+- [Segment](./Segment/1/constructor.md)
+- [operator==](./Segment/1/operatorEquals.md)
 
 &nbsp;
 

@@ -30,9 +30,9 @@ struct Version {
 - patch
 - label
 ##### Member functions
-- [Version](./Version/constructor.md)
-- [operator<=>](./Version/operatorSpaceship.md)
-- [string](./Version/string.md)
+- [Version](./Version/1/constructor.md)
+- [operator<=>](./Version/1/operatorSpaceship.md)
+- [string](./Version/1/string.md)
 
 &nbsp;
 
