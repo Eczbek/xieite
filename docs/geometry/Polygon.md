@@ -23,8 +23,8 @@ struct Polygon {
 ##### Member variables
 - points
 ##### Member functions
-- [Polygon](./Polygon/constructor.md)
-- [operator==](./Polygon/operatorEquals.md)
+- [Polygon](./Polygon/1/constructor.md)
+- [operator==](./Polygon/1/operatorEquals.md)
 
 &nbsp;
 

@@ -24,8 +24,8 @@ struct Point {
 - x
 - y
 ##### Member functions
-- [Point](./Point/constructor.md)
-- [operator==](./Point/operatorEquals.md)
+- [Point](./Point/1/constructor.md)
+- [operator==](./Point/1/operatorEquals.md)
 
 &nbsp;
 

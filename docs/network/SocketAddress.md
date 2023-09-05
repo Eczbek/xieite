@@ -12,4 +12,4 @@ struct SocketAddress
 };
 ```
 ##### Member functions
-- [SocketAddress](./SocketAddress/constructor.md)
+- [SocketAddress](./SocketAddress/1/constructor.md)

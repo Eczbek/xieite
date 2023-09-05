@@ -26,8 +26,8 @@ struct Ray {
 - start
 - end
 ##### Member functions
-- [Ray](./Ray/constructor.md)
-- [operator==](./Ray/operatorEquals.md)
+- [Ray](./Ray/1/constructor.md)
+- [operator==](./Ray/1/operatorEquals.md)
 
 &nbsp;
 

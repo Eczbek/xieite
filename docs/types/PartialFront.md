@@ -17,3 +17,5 @@ struct PartialFront {
     using Type = Template<FrontArguments..., BackArguments...>;
 };
 ```
+##### Member types
+- [Type](./PartialFront/1/Type.md)
