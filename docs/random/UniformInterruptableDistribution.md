@@ -17,7 +17,7 @@ struct UniformInterruptableDistribution {
     UniformInterruptableDistribution(xieite::math::Interval<Number>, const IntervalRange&);
 
     template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator>
-    Integer operator()(UniformRandomBitGenerator&) const;
+    Number operator()(UniformRandomBitGenerator&) const;
 };
 ```
 ##### Member functions
