@@ -11,8 +11,7 @@ Checks whether at least one passed argument is true. Expects all arguments to be
 ## Synopses
 #### 1)
 ```cpp
-template<std::ranges::range Range>
-requires(std::convertible_to<bool, std::ranges::range_value_t<Range>>)
+template<xieite::concepts::RangeOf<bool> Range>
 constexpr bool any(const Range& range)
 noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<bool, std::ranges::range_value_t<Range>));
 ```
