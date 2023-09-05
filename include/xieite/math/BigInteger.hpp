@@ -114,8 +114,8 @@ namespace xieite::math {
 		constexpr operator Integer() const noexcept {
 			Integer result = 0;
 			const std::size_t dataSize = this->data.size();
-			for (std::size_t i = 0; (i < dataSize) && ((i * sizeof(Datum)) < sizeof(Integer)); ++i) {
-				result |= static_cast<Integer>(this->data[i]) << (i * sizeof(Datum) * xieite::system::bitsPerByte);
+			for (std::size_t i = 0; i < dataSize; ++i) {
+				result |= static_cast<Integer>(this->data[i]) << (static_cast<Integer>(i) * std::numeric_limits<Datum>::digits);
 			}
 			return this->negative ? -result : result;
 		}
