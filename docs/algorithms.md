@@ -10,14 +10,14 @@ Somewhat useful algorithms.
 
 ## Contents
 - [all](./algorithms/all.md)
-- [antimode](./algorithms/antimode.md)
+- [antimodes](./algorithms/antimodes.md)
 - [any](./algorithms/any.md)
 - [findOccurrence](./algorithms/findOccurrence.md)
 - [group](./algorithms/group.md)
 - [isPalindrome](./algorithms/isPalindrome.md)
 - [mean](./algorithms/mean.md)
 - [median](./algorithms/median.md)
-- [mode](./algorithms/mode.md)
+- [modes](./algorithms/modes.md)
 - [numberSearch](./algorithms/numberSearch.md)
 - [partialReverse](./algorithms/partialReverse.md)
 - [rotateMatrix](./algorithms/rotateMatrix.md)
