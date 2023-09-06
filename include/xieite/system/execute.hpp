@@ -5,7 +5,7 @@
 #	include <memory>
 #	include <string>
 #	include <string_view>
-#	include "../memory/bufferSize.hpp"
+#	include "../memory/getPageSize.hpp"
 #	include "../system/closeFilePipe.hpp"
 #	include "../system/openFilePipe.hpp"
 
@@ -14,9 +14,10 @@ namespace xieite::system {
 		const auto pipe = std::unique_ptr<std::FILE, decltype([](std::FILE* const file) {
 			xieite::system::closeFilePipe(file);
 		})>(xieite::system::openFilePipe(command.data(), "r"));
+		const std::size_t pageSize = xieite::memory::getPageSize();
 		std::string result;
 		while (true) {
-			std::string buffer = std::string(xieite::memory::bufferSize, '\0');
+			std::string buffer = std::string(pageSize, '\0');
 			if (!std::fread(buffer.data(), sizeof(char), buffer.size(), pipe.get())) {
 				break;
 			}
