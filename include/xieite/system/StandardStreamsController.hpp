@@ -20,7 +20,6 @@
 #	include <termios.h>
 #	include <unistd.h>
 #	include "../graphics/Color.hpp"
-#	include "../memory/bufferSize.hpp"
 #	include "../system/BufferPosition.hpp"
 #	include "../system/getStreamFile.hpp"
 
