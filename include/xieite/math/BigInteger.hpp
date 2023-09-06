@@ -256,11 +256,18 @@ namespace xieite::math {
 			if (!multiplier || !multiplicand) {
 				return 0;
 			}
+			const bool sameSign = multiplier.negative == multiplicand.negative;
 			if ((multiplier == 1) || (multiplier == -1)) {
-				return multiplier.negative ? -multiplicand : multiplicand;
+				return sameSign ? multiplicand : -multiplicand;
 			}
 			if ((multiplicand == 1) || (multiplicand == -1)) {
-				return multiplicand.negative ? -multiplier : multiplier;
+				return sameSign ? multiplier : -multiplier;
+			}
+			if ((multiplier == 2) || (multiplier == -2)) {
+				return sameSign ? (multiplicand << 1) : -(multiplicand << 1);
+			}
+			if ((multiplicand == 2) || (multiplicand == -2)) {
+				return sameSign ? (multiplier << 1) : -(multiplier << 1);
 			}
 			xieite::math::BigInteger<Datum> result;
 			constexpr Datum halfSize = std::numeric_limits<Datum>::digits / 2;
@@ -283,7 +290,7 @@ namespace xieite::math {
 					result += ((xieite::math::BigInteger<Datum>(bar * qux + (hyk >> halfSize) + (roq >> halfSize) + (halfBits & (((byx >> halfSize) + (hyk & halfBits) + (roq & halfBits)) >> halfSize))) << std::numeric_limits<Datum>::digits) | (byx + (hyk << halfSize) + (roq << halfSize))) << (xieite::math::BigInteger<Datum>(i) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2)) << (xieite::math::BigInteger<Datum>(j) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2));
 				}
 			}
-			result.negative = multiplier.negative != multiplicand.negative;
+			result.negative = !sameSign;
 			return result;
 		}
 
@@ -305,8 +312,12 @@ namespace xieite::math {
 			if (!divisor) {
 				throw std::domain_error("Cannot divide by zero");
 			}
+			const bool sameSign = dividend.negative == divisor.negative;
 			if ((divisor == 1) || (divisor == -1)) {
-				return (dividend.negative == divisor.negative) ? dividend : -dividend;
+				return sameSign ? dividend : -dividend;
+			}
+			if ((divisor == 2) || (divisor == -2)) {
+				return sameSign ? (dividend >> 1) : -(dividend >> 1);
 			}
 			const xieite::math::BigInteger<Datum> absoluteDividend = dividend.absolute();
 			const xieite::math::BigInteger<Datum> absoluteDivisor = divisor.absolute();
@@ -314,7 +325,7 @@ namespace xieite::math {
 				return 0;
 			}
 			if (absoluteDividend == absoluteDivisor) {
-				return xieite::math::splitBoolean(dividend.negative == divisor.negative);
+				return xieite::math::splitBoolean(sameSign);
 			}
 			xieite::math::BigInteger<Datum> remainder;
 			xieite::math::BigInteger<Datum> result;
@@ -329,7 +340,7 @@ namespace xieite::math {
 					result.data[i] |= static_cast<Datum>(quotient) << j;
 				}
 			}
-			result.negative = dividend.negative != divisor.negative;
+			result.negative = !sameSign;
 			result.trim();
 			return result;
 		}
