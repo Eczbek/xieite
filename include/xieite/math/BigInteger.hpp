@@ -134,7 +134,9 @@ namespace xieite::math {
 			return leftComparand <=> xieite::math::BigInteger<Datum>(rightComparand);
 		}
 
-		friend constexpr bool operator==(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&) noexcept = default;
+		friend constexpr bool operator==(const xieite::math::BigInteger<Datum>& leftComparand, const xieite::math::BigInteger<Datum>& rightComparand) noexcept {
+			return std::is_eq(leftComparand <=> rightComparand);
+		}
 
 		template<std::integral Integer>
 		friend constexpr bool operator==(const xieite::math::BigInteger<Datum>& leftComparand, const Integer rightComparand) noexcept {

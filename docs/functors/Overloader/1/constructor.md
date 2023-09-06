@@ -6,7 +6,7 @@ Defined in header [<xieite/functors/Overloader.hpp>](../../../../include/xieite/
 ## Synopses
 #### 1)
 ```cpp
-constexpr Overloader() noexcept = default;
+constexpr Overloader() noexcept;
 ```
 #### 2)
 ```cpp
