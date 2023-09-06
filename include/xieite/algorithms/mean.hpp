@@ -1,11 +1,10 @@
 #ifndef XIEITE_HEADER__ALGORITHMS__MEAN
 #	define XIEITE_HEADER__ALGORITHMS__MEAN
 
-#	include <iterator>
+#	include <cstddef>
 #	include <ranges>
 #	include "../concepts/Numeric.hpp"
 #	include "../math/Result.hpp"
-#	include "../types/count.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range>
@@ -18,11 +17,6 @@ namespace xieite::algorithms {
 			result += static_cast<xieite::math::Result<std::ranges::range_value_t<Range>>>(*iterator) / rangeSize;
 		}
 		return result;
-	}
-
-	template<xieite::concepts::Numeric... Numbers>
-	constexpr xieite::math::Result<Numbers...> mean(const Numbers... values) noexcept {
-		return (... + (static_cast<xieite::math::Result<Numbers...>>(values) / xieite::types::count<Numbers...>));
 	}
 }
 
