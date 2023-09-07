@@ -9,11 +9,13 @@ String manipulation functions.
 &nbsp;
 
 ## Contents
+- [fromRomanNumerals](./strings/fromRomanNumerals.md)
 - [hash](./strings/hash.md)
 - [lowercase](./strings/lowercase.md)
 - [radiotelephonySpellingAlphabet](./strings/radiotelephonySpellingAlphabet.md)
 - [repeat](./strings/repeat.md)
 - [something](./strings/something.md)
+- [toRomanNumerals](./strings/toRomanNumerals.md)
 - [trim](./strings/trim.md)
 - [trimBack](./strings/trimBack.md)
 - [trimFront](./strings/trimFront.md)
