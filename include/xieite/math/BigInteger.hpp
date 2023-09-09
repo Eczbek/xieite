@@ -17,7 +17,9 @@
 #	include "../concepts/Arithmetic.hpp"
 #	include "../concepts/Functable.hpp"
 #	include "../math/AttemptUnsign.hpp"
+#   include "../math/Product.hpp"
 #	include "../math/digits.hpp"
+#   include "../math/multiply.hpp"
 #	include "../math/negative.hpp"
 #	include "../math/splitBoolean.hpp"
 #	include "../system/bitsPerByte.hpp"
@@ -272,8 +274,6 @@ namespace xieite::math {
 				return sameSign ? (multiplier << 1) : -(multiplier << 1);
 			}
 			xieite::math::BigInteger<Datum> result;
-			constexpr Datum halfSize = std::numeric_limits<Datum>::digits / 2;
-			constexpr Datum halfBits = std::numeric_limits<Datum>::max() >> halfSize;
 			for (std::size_t i = multiplier.data.size(); i--;) {
 				if (!multiplier.data[i]) {
 					continue;
@@ -282,14 +282,8 @@ namespace xieite::math {
 					if (!multiplicand.data[j]) {
 						continue;
 					}
-					const Datum foo = multiplier.data[i] & halfBits;
-					const Datum bar = multiplier.data[i] >> halfSize;
-					const Datum baz = multiplicand.data[j] & halfBits;
-					const Datum qux = multiplicand.data[j] >> halfSize;
-					const Datum byx = foo * baz;
-					const Datum hyk = foo * qux;
-					const Datum roq = bar * baz;
-					result += ((xieite::math::BigInteger<Datum>(bar * qux + (hyk >> halfSize) + (roq >> halfSize) + (halfBits & (((byx >> halfSize) + (hyk & halfBits) + (roq & halfBits)) >> halfSize))) << std::numeric_limits<Datum>::digits) | (byx + (hyk << halfSize) + (roq << halfSize))) << (xieite::math::BigInteger<Datum>(i) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2)) << (xieite::math::BigInteger<Datum>(j) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2));
+					const xieite::math::Product<Datum> product = xieite::math::multiply<Datum>(multiplier.data[i], multiplicand.data[j]);
+					result += ((xieite::math::BigInteger<Datum>(product.upper) << std::numeric_limits<Datum>::digits) | product.lower) << (xieite::math::BigInteger<Datum>(i) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2)) << (xieite::math::BigInteger<Datum>(j) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2));
 				}
 			}
 			result.negative = !sameSign;
