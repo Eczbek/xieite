@@ -22,7 +22,7 @@ namespace xieite::meta {
 		}
 
 		constexpr std::string string() const noexcept {
-			std::string result = 'v' + xieite::math::toBase(10, this->major) + '.' + xieite::math::toBase(10, this->minor) + '.' + xieite::math::toBase(this->patch, 10);
+			std::string result = 'v' + xieite::math::toBase(10, this->major) + '.' + xieite::math::toBase(10, this->minor) + '.' + xieite::math::toBase(10, this->patch);
 			if (this->label.size()) {
 				result += '-' + this->label;
 			}
