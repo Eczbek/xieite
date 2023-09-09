@@ -24,7 +24,7 @@ namespace xieite::concepts {
 		// and flips like a std::bitset<N>::reference,
 		{ value.flip() } -> std::same_as<Type&>;
 
-		// then it just might be a std::bitset<N>::reference.
+		// then it just might be a std::bitset<N>::reference
 	};
 }
 
