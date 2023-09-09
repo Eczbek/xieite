@@ -14,7 +14,6 @@ String manipulation functions.
 - [lowercase](./strings/lowercase.md)
 - [radiotelephonySpellingAlphabet](./strings/radiotelephonySpellingAlphabet.md)
 - [repeat](./strings/repeat.md)
-- [something](./strings/something.md)
 - [toRomanNumerals](./strings/toRomanNumerals.md)
 - [trim](./strings/trim.md)
 - [trimBack](./strings/trimBack.md)

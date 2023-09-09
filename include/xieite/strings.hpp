@@ -6,7 +6,6 @@
 #	include "./strings/lowercase.hpp"
 #	include "./strings/radiotelephonySpellingAlphabet.hpp"
 #	include "./strings/repeat.hpp"
-#	include "./strings/something.hpp"
 #	include "./strings/toRomanNumerals.hpp"
 #	include "./strings/trim.hpp"
 #	include "./strings/trimBack.hpp"
