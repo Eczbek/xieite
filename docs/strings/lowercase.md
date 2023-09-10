@@ -15,7 +15,7 @@ constexpr char lowercase(char character) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr std::string lowercase(std::string string) noexcept;
+constexpr std::string lowercase(std::string_view string) noexcept;
 ```
 
 &nbsp;

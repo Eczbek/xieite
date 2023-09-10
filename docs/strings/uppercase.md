@@ -15,7 +15,7 @@ constexpr char uppercase(char character) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr std::string uppercase(std::string string) noexcept;
+constexpr std::string uppercase(std::string_view string) noexcept;
 ```
 
 &nbsp;

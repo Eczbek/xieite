@@ -2,7 +2,6 @@
 #	define XIEITE_HEADER__MATH__BIG_INTEGER
 
 #	include <algorithm>
-#	include <array>
 #	include <compare>
 #	include <concepts>
 #	include <cstddef>
@@ -17,9 +16,11 @@
 #	include "../concepts/Arithmetic.hpp"
 #	include "../concepts/Functable.hpp"
 #	include "../math/AttemptUnsign.hpp"
-#   include "../math/Product.hpp"
+#	include "../math/Base.hpp"
+#	include "../math/Product.hpp"
+#	include "../math/decimal.hpp"
 #	include "../math/digits.hpp"
-#   include "../math/multiply.hpp"
+#	include "../math/multiply.hpp"
 #	include "../math/negative.hpp"
 #	include "../math/splitBoolean.hpp"
 #	include "../system/bitsPerByte.hpp"
@@ -78,30 +79,26 @@ namespace xieite::math {
 			this->trim();
 		}
 
-		constexpr BigInteger(const std::string_view value, const int base = 10, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char sign = '-') noexcept
+		constexpr BigInteger(const std::string_view value, const xieite::math::Base& base = xieite::math::decimal) noexcept
 		: data({ 0 }), negative(false) {
 			const std::size_t valueSize = value.size();
-			if (!valueSize || !base) {
+			if (!valueSize || !base.radix) {
 				return;
 			}
-			const bool valueNegative = value[0] == sign;
+			const bool valueNegative = value[0] == base.negativeSign;
 			const int valueSign = xieite::math::splitBoolean(!valueNegative);
-			if ((base == 1) || (base == -1)) {
+			if ((base.radix == 1) || (base.radix == -1)) {
 				int nextSign = valueSign;
 				for (std::size_t i = valueSize; i-- > valueNegative;) {
-					*this += (value[i] != digits[0]) * nextSign;
-					nextSign *= base;
+					*this += base.position(value[i]) * nextSign;
+					nextSign *= base.radix;
 				}
 				return;
 			}
-			std::array<std::size_t, static_cast<std::size_t>(std::numeric_limits<unsigned char>::max()) + 1> digitMap;
-			for (std::size_t i = digits.size(); i--;) {
-				digitMap[static_cast<unsigned char>(digits[i])] = i;
-			}
 			xieite::math::BigInteger<Datum> power = 1;
 			for (std::size_t i = valueSize; i-- > valueNegative;) {
-				*this += power * digitMap[static_cast<unsigned char>(value[i])];
-				power *= base;
+				*this += base.position(value[i]) * power;
+				power *= base.radix;
 			}
 			this->negative = valueNegative;
 		}
@@ -626,30 +623,30 @@ namespace xieite::math {
 			return this->logarithm(xieite::math::BigInteger<Datum>(base));
 		}
 
-		constexpr std::string string(const int base = 10, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char sign = '-') const noexcept {
-			if (!base || !*this) {
-				return std::string(1, digits[0]);
+		constexpr std::string string(const xieite::math::Base& base = xieite::math::decimal) const noexcept {
+			if (!base.radix || !*this) {
+				return std::string(1, base.digit(0));
 			}
 			std::string result;
 			xieite::math::BigInteger<Datum> absolute = this->absolute();
 			std::size_t absoluteValue = absolute;
-			if (base == 1) {
-				result = std::string(absoluteValue, digits[1]);
+			if (base.radix == 1) {
+				result = std::string(absoluteValue, base.digit(1));
 			} else {
-				if (base == -1) {
-					result = digits[1];
+				if (base.radix == -1) {
+					result = base.digit(1);
 					while (absoluteValue-- > 1) {
-						result += std::string(1, digits[0]) + digits[1];
+						result += std::string(1, base.digit(0)) + base.digit(1);
 					}
 				} else {
 					while (absolute) {
-						result = digits[absolute % base] + result;
-						absolute /= base;
+						result = base.digit(absolute % base.radix) + result;
+						absolute /= base.radix;
 					}
 				}
 			}
 			if (this->negative) {
-				result = sign + result;
+				result = base.negativeSign + result;
 			}
 			return result;
 		}
