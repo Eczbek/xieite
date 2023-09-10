@@ -12,7 +12,7 @@ Converts an integer string to base 10. Allows negative bases.
 #### 1)
 ```cpp
 template<std::integral Integer = int>
-constexpr Integer fromBase(int base, std::string_view value, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", char sign = '-') noexcept;
+constexpr Integer fromBase(const xieite::math::Base& base, std::string_view value) noexcept;
 ```
 
 &nbsp;
@@ -20,10 +20,11 @@ constexpr Integer fromBase(int base, std::string_view value, std::string_view di
 ## Example
 ```cpp
 #include <iostream>
+#include <xieite/math/Base.hpp>
 #include <xieite/math/fromBase.hpp>
 
 int main() {
-    std::cout << xieite::math::fromBase(21, "g4h3") << '\n';
+    std::cout << xieite::math::fromBase(xieite::math::Base(21), "g4h3") << '\n';
 }
 ```
 Output:

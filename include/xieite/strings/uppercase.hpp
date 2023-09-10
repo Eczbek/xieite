@@ -5,6 +5,7 @@
 #	include <limits>
 #	include <numeric>
 #	include <string>
+#	include <string_view>
 
 namespace xieite::strings {
 	constexpr char uppercase(const char character) noexcept {
@@ -19,11 +20,12 @@ namespace xieite::strings {
 		return lookup[static_cast<unsigned char>(character)];
 	}
 
-	constexpr std::string uppercase(std::string string) noexcept {
-		for (char& character : string) {
+	constexpr std::string uppercase(const std::string_view string) noexcept {
+		std::string result = std::string(string);
+		for (char& character : result) {
 			character = xieite::strings::uppercase(character);
 		}
-		return string;
+		return result;
 	}
 }
 
