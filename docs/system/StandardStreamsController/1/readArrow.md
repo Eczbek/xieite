@@ -37,5 +37,5 @@ int main() {
 ```
 Output:
 ```
--1 0
+Arrow: (-1, 0)
 ```
