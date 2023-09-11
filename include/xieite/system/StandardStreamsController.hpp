@@ -28,14 +28,18 @@ namespace xieite::system {
 	class StandardStreamsController {
 	public:
 		StandardStreamsController() noexcept
-		: inputStreamFile(xieite::system::getStreamFile(inputStream)), inputFileDescriptor(::fileno(this->inputStreamFile)), blockingStatus(::fcntl(this->inputFileDescriptor, F_GETFL)), blocking(true), echo(true), canonical(true), signals(true), processing(true) {
+		: inputStreamFile(xieite::system::getStreamFile(inputStream)), inputFileDescriptor(::fileno(this->inputStreamFile)), blockingStatus(::fcntl(this->inputFileDescriptor, F_GETFL)) {
 			::tcgetattr(this->inputFileDescriptor, &this->cookedMode);
+			this->blocking = !(this->blockingStatus & O_NONBLOCK);
+			this->echo = this->cookedMode.c_lflag & ECHO;
+			this->canonical = this->cookedMode.c_lflag & ICANON;
+			this->signals = (this->cookedMode.c_iflag & IXON) || (this->cookedMode.c_iflag & ICRNL) || (this->cookedMode.c_lflag & IEXTEN) || (this->cookedMode.c_lflag & ISIG);
+			this->processing = this->cookedMode.c_oflag & OPOST;
 			this->update();
 		}
 
 		~StandardStreamsController() {
-			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus);
-			::tcsetattr(this->inputFileDescriptor, TCSANOW, &this->cookedMode);
+			this->resetModes();
 			this->resetStyles();
 		}
 
@@ -124,6 +128,11 @@ namespace xieite::system {
 		void resetStyles() noexcept {
 			outputStream << "\x1B[0m";
 		}
+		
+		void resetModes() noexcept {
+			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus);
+			::tcsetattr(this->inputFileDescriptor, TCSANOW, &this->cookedMode);
+		}
 
 		void clearScreen() noexcept {
 			outputStream << "\x1B[2J";
@@ -161,7 +170,7 @@ namespace xieite::system {
 		}
 
 		void setCursorAlternative(const bool value) noexcept {
-			outputStream << "\x1B " << (8 - value);
+			outputStream << "\x1b[" << static_cast<char>(117 - value * 2);
 		}
 
 		void setScreenAlternative(const bool value) noexcept {
