@@ -70,6 +70,8 @@ struct StandardStreamsController {
     char readCharacter();
 
     std::string readString();
+	
+    xieite::system::BufferPosition readArrow();
 
     void putBackString(std::string_view);
 
@@ -106,5 +108,6 @@ struct StandardStreamsController {
 - [getScreenSize](./StandardStreamsController/1/getScreenSize.md)
 - [readCharacter](./StandardStreamsController/1/readCharacter.md)
 - [readString](./StandardStreamsController/1/readString.md)
+- [readArrow](./StandardStreamsController/1/readArrow.md)
 - [putBackString](./StandardStreamsController/1/putBackString.md)
 - [backspace](./StandardStreamsController/1/backspace.md)

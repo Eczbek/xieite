@@ -19,6 +19,7 @@
 #	include <sys/ioctl.h>
 #	include <termios.h>
 #	include <unistd.h>
+#	include "../functors/ScopeGuard.hpp"
 #	include "../graphics/Color.hpp"
 #	include "../system/BufferPosition.hpp"
 #	include "../system/getStreamFile.hpp"
@@ -205,6 +206,33 @@ namespace xieite::system {
 			this->setInputBlocking(blocking);
 			this->setInputCanonical(canonical);
 			return input;
+		}
+		
+		xieite::system::BufferPosition readArrow() noexcept {
+			const char first = this->readCharacter();
+			if (first == '\x1B') {
+				xieite::functors::ScopeGuard scopeGuard = xieite::functors::ScopeGuard([this, blocking = this->blocking]() {
+					this->setInputBlocking(blocking);
+				});
+				this->setInputBlocking(false);
+				if (this->readCharacter() == '[') {
+					const char direction = this->readCharacter();
+					switch (direction) {
+					case 'A':
+						return xieite::system::BufferPosition(-1, 0);
+					case 'B':
+						return xieite::system::BufferPosition(1, 0);
+					case 'C':
+						return xieite::system::BufferPosition(0, 1);
+					case 'D':
+						return xieite::system::BufferPosition(0, -1);
+					}
+					inputStream.putback(direction);
+				}
+				inputStream.putback('[');
+			}
+			inputStream.putback(first);
+			return xieite::system::BufferPosition(0, 0);
 		}
 
 		void putBackString(const std::string_view value) noexcept {
