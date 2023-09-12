@@ -14,8 +14,8 @@ A structure for representing a polygon.
 struct Polygon {
     std::vector<xieite::geometry::Point> points;
 
-    template<xieite::concepts::RangeOf<xieite::geometry::Point> PointRange>
-    constexpr Polygon(const PointRange& points);
+    template<xieite::concepts::RangeOf<xieite::geometry::Point> Range>
+    constexpr Polygon(const Range&);
 
     friend constexpr bool operator==(const xieite::geometry::Polygon&);
     
