@@ -11,7 +11,8 @@ Detects rare cosmic rays or a faulty memory. Even if you do intercept something,
 ## Synopses
 #### 1)
 ```cpp
-inline void detectCosmicRay(std::size_t detectionBytes) noexcept;
+template<std::unsigned_integral Chunk = std::uintmax_t>
+constexpr void detectCosmicRay(std::size_t detectionBytes) noexcept;
 ```
 
 &nbsp;
