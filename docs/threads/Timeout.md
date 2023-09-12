@@ -21,7 +21,7 @@ struct Timeout {
 };
 ```
 ##### Member functions
-- [Timeout](./Timeout/1/constructor.md)
+- [Timeout](./Timeout/1/operators/constructor.md)
 - [good](./Timeout/1/good.md)
 - [stop](./Timeout/1/stop.md)
 

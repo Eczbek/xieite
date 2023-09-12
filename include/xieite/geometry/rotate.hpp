@@ -1,9 +1,7 @@
 #ifndef XIEITE_HEADER__GEOMETRY__ROTATE
 #	define XIEITE_HEADER__GEOMETRY__ROTATE
 
-#	include <concepts>
 #	include <cmath>
-#	include <vector>
 #	include "../concepts/LinearShape.hpp"
 #	include "../geometry/Point.hpp"
 #	include "../geometry/Polygon.hpp"
@@ -11,7 +9,7 @@
 
 namespace xieite::geometry {
 	constexpr xieite::geometry::Point rotate(const xieite::geometry::Point point, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept {
-		return xieite::geometry::Point(pivot.x + std::cos(angle) * (point.x - pivot.x) - std::sin(angle) * (point.y - pivot.y), pivot.y + std::cos(angle) * (point.y - pivot.y) + std::sin(angle) * (point.x - pivot.x));
+		return xieite::geometry::Point(pivot.x + std::cos(angle) * (point.x - pivot.x) - std::sin(angle) * (point.y - pivot.y), pivot.y + std::sin(angle) * (point.x - pivot.x) + std::cos(angle) * (point.y - pivot.y));
 	}
 
 	template<xieite::concepts::LinearShape LinearShape>

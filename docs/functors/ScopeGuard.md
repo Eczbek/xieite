@@ -19,7 +19,7 @@ struct ScopeGuard {
 };
 ```
 ##### Member functions
-- [ScopeGuard](./ScopeGuard/1/constructor.md)
+- [ScopeGuard](./ScopeGuard/1/operators/constructor.md)
 - [release](./ScopeGuard/1/release.md)
 
 &nbsp;

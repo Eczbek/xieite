@@ -4,7 +4,7 @@ Defined in header [<xieite/math/secant.hpp>](../../include/xieite/math/secant.hp
 &nbsp;
 
 ## Description
-Calculates the secant of a value.
+Computes the secant of a value.
 
 &nbsp;
 

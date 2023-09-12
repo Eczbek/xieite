@@ -22,4 +22,4 @@ struct BufferPosition {
 - row
 - column
 ##### Member functions
-- [BufferPosition](./BufferPosition/1/constructor.md)
+- [BufferPosition](./BufferPosition/1/operators/constructor.md)

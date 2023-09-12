@@ -12,7 +12,7 @@ namespace xieite::geometry {
 
 	template<xieite::concepts::LinearShape LinearShape>
 	constexpr LinearShape scale(const LinearShape& line, const double scale, const xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept {
-		return Line(xieite::geometry::scale(line.start, scale, origin), xieite::geometry::scale(line.end, scale, origin));
+		return LinearShape(xieite::geometry::scale(line.start, scale, origin), xieite::geometry::scale(line.end, scale, origin));
 	}
 
 	constexpr xieite::geometry::Polygon scale(xieite::geometry::Polygon polygon, const double scale, const xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept {

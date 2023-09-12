@@ -70,7 +70,7 @@ struct StandardStreamsController {
     char readCharacter();
 
     std::string readString();
-	
+    
     xieite::system::BufferPosition readArrow();
 
     void putBackString(std::string_view);
@@ -79,7 +79,7 @@ struct StandardStreamsController {
 };
 ```
 ##### Member functions
-- [StandardStreamsController](./StandardStreamsController/1/constructor.md)
+- [StandardStreamsController](./StandardStreamsController/1/operators/constructor.md)
 - [setInputBlocking](./StandardStreamsController/1/setInputBlocking.md)
 - [setInputEcho](./StandardStreamsController/1/setInputEcho.md)
 - [setInputCanonical](./StandardStreamsController/1/setInputCanonical.md)

@@ -4,7 +4,7 @@ Defined in header [<xieite/geometry/Point.hpp>](../../include/xieite/geometry/Po
 &nbsp;
 
 ## Description
-A class representing a point.
+A structure for representing a point.
 
 &nbsp;
 
@@ -17,15 +17,18 @@ struct Point {
 
     constexpr Point(double = 0, double = 0);
 
-    constexpr bool operator==(xieite::geometry::Point) const;
+    friend constexpr bool operator==(xieite::geometry::Point);
 };
 ```
 ##### Member variables
 - x
 - y
 ##### Member functions
-- [Point](./Point/1/constructor.md)
-- [operator==](./Point/1/operatorEquals.md)
+- [Point](./Point/1/operators/constructor.md)
+- [operator==](./Point/1/operators/equal.md)
+- [angleTo](./Point/1/angleTo.md)
+- [distanceTo](./Point/1/distanceTo.md)
+- [slopeTo](./Point/1/slopeTo.md)
 
 &nbsp;
 

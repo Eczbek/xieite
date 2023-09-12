@@ -21,8 +21,8 @@ struct UniformInterruptableDistribution {
 };
 ```
 ##### Member functions
-- [UniformInterruptableDistribution](./UniformInterruptableDistribution/1/constructor.md)
-- [operator()](./UniformInterruptableDistribution/1/operatorCall.md)
+- [UniformInterruptableDistribution](./UniformInterruptableDistribution/1/operators/constructor.md)
+- [operator()](./UniformInterruptableDistribution/1/operators/call.md)
 
 &nbsp;
 

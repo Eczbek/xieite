@@ -12,11 +12,11 @@ An intermediate state for an infix.
 #### 1)
 ```cpp
 struct Intermediate {
-	constexpr Intermediate(const LeftArgument&);
+    constexpr Intermediate(const LeftArgument&);
 
-	constexpr Result operator>(const RightArgument&) const;
+    constexpr Result operator>(const RightArgument&) const;
 };
 ```
 ##### Member functions
-- [Intermediate](./Intermediate/constructor.md)
-- [operator>](./Intermediate/operatorMore.md)
+- [Intermediate](./structures/Intermediate/constructor.md)
+- [operator>](./structures/Intermediate/operatorMore.md)

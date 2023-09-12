@@ -21,7 +21,7 @@ struct Interval {
 };
 ```
 ##### Member functions
-- [Interval](./Interval/1/constructor.md)
+- [Interval](./Interval/1/operators/constructor.md)
 - [good](./Interval/1/good.md)
 - [stop](./Interval/1/stop.md)
 

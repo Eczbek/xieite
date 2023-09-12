@@ -25,9 +25,9 @@ constexpr xieite::math::Product<UnsignedInteger> multiply(const UnsignedInteger 
 
 int main() {
     std::uint8_t x = 255;
-	std::uint8_t y = 255;
-	xieite::math::Product<std::uint8_t> z = xieite::math::multiply(x, y);
-	std::cout << ((static_cast<std::uint16_t>(z.upper) << 8) | z.lower) << '\n';
+    std::uint8_t y = 255;
+    xieite::math::Product<std::uint8_t> z = xieite::math::multiply(x, y);
+    std::cout << ((static_cast<std::uint16_t>(z.upper) << 8) | z.lower) << '\n';
 }
 ```
 Output:

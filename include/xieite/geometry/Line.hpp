@@ -18,9 +18,25 @@ namespace xieite::geometry {
 		constexpr Line(const xieite::geometry::Point start, const double angle) noexcept
 		: start(start), end(std::cos(angle), std::sin(angle)) {}
 
-		constexpr bool operator==(const xieite::geometry::Line& line) const noexcept {
-			const double slope = (this->start.x == this->end.x) ? std::numeric_limits<double>::infinity() : ((this->end.y - this->start.y) / (this->end.x - this->start.x));
-			return std::isinf(slope) ? xieite::math::almostEqual(this->start.x, line.start.x) : xieite::math::almostEqual(line.start.x * slope - this->start.x * slope + this->start.y, line.start.y) && xieite::math::almostEqualSlope(slope, (line.start.x == line.end.x) ? std::numeric_limits<double>::infinity() : ((line.end.y - line.start.y) / (line.end.x - line.start.x)));
+		friend constexpr bool operator==(const xieite::geometry::Line& line1, const xieite::geometry::Line& line2) noexcept {
+			return (line1.containsPoint(line2.start) || line1.containsPoint(line2.end)) && xieite::math::almostEqualSlope(line1.slope(), line2.slope());
+		}
+		
+		constexpr double angle() const noexcept {
+			return this->start.angleTo(this->end);
+		}
+		
+		constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
+			const double slope = this->slope();
+			return std::isinf(slope) ? xieite::math::almostEqual(point.x, this->start.x) : xieite::math::almostEqual(point.x * slope - this->start.x * slope + this->start.y, point.y);
+		}
+		
+		constexpr double length() const noexcept {
+			return std::numeric_limits<double>::infinity();
+		}
+		
+		constexpr double slope() const noexcept {
+			return this->start.slopeTo(this->end);
 		}
 	};
 }

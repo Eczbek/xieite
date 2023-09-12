@@ -23,4 +23,4 @@ struct Interval {
 - start
 - end
 ##### Member functions
-- [Interval](./Interval/1/constructor.md)
+- [Interval](./Interval/1/operators/constructor.md)

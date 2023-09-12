@@ -4,7 +4,7 @@ Defined in header [<xieite/math/digits.hpp>](../../include/xieite/math/digits.hp
 &nbsp;
 
 ## Description
-Calculates the number of digits in a value of any base.
+Computes the number of digits in a value of any base.
 
 &nbsp;
 

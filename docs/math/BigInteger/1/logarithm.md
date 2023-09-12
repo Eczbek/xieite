@@ -4,7 +4,7 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../../include/xieite/math
 &nbsp;
 
 ## Description
-Calculates the logarithm of a `xieite::math::BigInteger` to a base.
+Computes the logarithm of a `xieite::math::BigInteger` to a base.
 
 &nbsp;
 

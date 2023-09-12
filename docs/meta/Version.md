@@ -19,7 +19,9 @@ struct Version {
 
     constexpr Version(std::size_t = 0, std::size_t = 0, std::size_t = 0, std::string_view = "");
 
-    constexpr std::strong_ordering operator<=>(const xieite::metdata::Version&) const;
+    friend constexpr std::strong_ordering operator<=>(const xieite::meta::Version&, const xieite::meta::Version&);
+	
+	friend constexpr bool operator==(const xieite::meta::Version&, const xieite::meta::Version&);
 
     constexpr std::string string() const;
 };
@@ -30,8 +32,9 @@ struct Version {
 - patch
 - label
 ##### Member functions
-- [Version](./Version/1/constructor.md)
-- [operator<=>](./Version/1/operatorSpaceship.md)
+- [Version](./Version/1/operators/constructor.md)
+- [operator<=>](./Version/1/operators/spaceship.md)
+- [operator==](./Version/1/operators/equal.md)
 - [string](./Version/1/string.md)
 
 &nbsp;

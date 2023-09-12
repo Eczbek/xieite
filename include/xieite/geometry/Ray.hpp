@@ -3,6 +3,7 @@
 
 #	include <cmath>
 #	include <limits>
+#	include "../geometry/Line.hpp"
 #	include "../geometry/Point.hpp"
 #	include "../math/almostEqualSlope.hpp"
 
@@ -17,8 +18,25 @@ namespace xieite::geometry {
 		constexpr Ray(const xieite::geometry::Point start, const double angle) noexcept
 		: start(start), end(std::cos(angle), std::sin(angle)) {}
 
-		constexpr bool operator==(const xieite::geometry::Ray& ray) const noexcept {
-			return (this->start == ray.start) && xieite::math::almostEqualSlope((this->start.x == this->end.x) ? std::numeric_limits<double>::infinity() : ((this->end.y - this->start.y) / (this->end.x - this->start.x)), (ray.start.x == ray.end.x) ? std::numeric_limits<double>::infinity() : ((ray.end.y - ray.start.y) / (ray.end.x - ray.start.x)));
+		friend constexpr bool operator==(const xieite::geometry::Ray& ray1, const xieite::geometry::Ray& ray2) noexcept {
+			return (ray1.start == ray2.start) && xieite::math::almostEqualSlope(ray1.slope(), ray2.slope());
+		}
+		
+		constexpr double angle() const noexcept {
+			return this->start.angleTo(this->end);
+		}
+		
+		constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
+			const double slope = this->slope();
+			return std::isinf(slope) ? (xieite::math::almostEqual(point.x, this->start.x) && (slope < std::numeric_limits<double>::lowest()) ? (point.y >= this->start.y) : (point.y <= this->start.y)) : (xieite::math::almostEqual(point.x * slope - this->start.x * slope + this->start.y, point.y) && ((this->start.x <= this->end.x) ? (point.x >= this->start.x) : (point.x <= this->start.x)) && ((this->start.y <= this->end.y) ? (point.y >= this->start.y) : (point.y <= this->start.y)));
+		}
+		
+		constexpr double length() const noexcept {
+			return std::numeric_limits<double>::infinity();
+		}
+		
+		constexpr double slope() const noexcept {
+			return this->start.slopeTo(this->end);
 		}
 	};
 }

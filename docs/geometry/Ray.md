@@ -4,7 +4,7 @@ Defined in header [<xieite/geometry/Ray.hpp>](../../include/xieite/geometry/Ray.
 &nbsp;
 
 ## Description
-A struct representing an infinite ray with one end.
+A structure for representing an infinite ray with one end.
 
 &nbsp;
 
@@ -19,15 +19,27 @@ struct Ray {
 
     constexpr Ray(xieite::geometry::Point, double);
 
-    constexpr bool operator==(const xieite::geometry::Ray&) const;
+    friend constexpr bool operator==(const xieite::geometry::Ray&);
+    
+    constexpr double angle() const;
+    
+    constexpr bool containsPoint(xieite::geometry::Point) const;
+    
+    constexpr double length() const;
+    
+    constexpr double slope() const;
 };
 ```
 ##### Member variables
 - start
 - end
 ##### Member functions
-- [Ray](./Ray/1/constructor.md)
-- [operator==](./Ray/1/operatorEquals.md)
+- [Ray](./Ray/1/operators/constructor.md)
+- [operator==](./Ray/1/operators/equal.md)
+- [angle](./Ray/1/angle.md)
+- [containsPoint](./Ray/1/containsPoint.md)
+- [length](./Ray/1/length.md)
+- [slope](./Ray/1/slope.md)
 
 &nbsp;
 
@@ -39,7 +51,7 @@ struct Ray {
 int main() {
     std::cout
         << std::boolalpha
-        << xieite::geometry::containsPoint(xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }), { -1.0, -1.0 }) << '\n';
+        << xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }).containsPoint({ -1.0, -1.0 }) << '\n';
 }
 ```
 Output:

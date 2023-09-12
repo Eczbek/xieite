@@ -4,7 +4,7 @@ Defined in header [<xieite/math/cotangent.hpp>](../../include/xieite/math/cotage
 &nbsp;
 
 ## Description
-Calculates the cotangent of a value.
+Computes the cotangent of a value.
 
 &nbsp;
 
