@@ -79,7 +79,7 @@
 #			define XIEITE__STANDARD_LANGUAGE__CPP_2020 true
 #		endif
 
-#		if __cplusplus >= 202100
+#		if __cplusplus >= 202100 // 202306
 #			undef XIEITE__STANDARD_LANGUAGE__CPP_2023
 #			define XIEITE__STANDARD_LANGUAGE__CPP_2023 true
 #		endif
