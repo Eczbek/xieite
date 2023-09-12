@@ -25,32 +25,32 @@
 #	include <unistd.h>
 
 #	ifdef _POSIX_VERSION
-#		if (_POSIX_VERSION >= 198808)
+#		if _POSIX_VERSION >= 198808
 #			undef XIEITE__STANDARD_UNIX__POSIX_1988
 #			define XIEITE__STANDARD_UNIX__POSIX_1988 true
 #		endif
 
-#		if (_POSIX_VERSION >= 199009)
+#		if _POSIX_VERSION >= 199009
 #			undef XIEITE__STANDARD_UNIX__POSIX_1990
 #			define XIEITE__STANDARD_UNIX__POSIX_1990 true
 #		endif
 
-#		if (_POSIX_VERSION >= 199309)
+#		if _POSIX_VERSION >= 199309
 #			undef XIEITE__STANDARD_UNIX__POSIX_1993
 #			define XIEITE__STANDARD_UNIX__POSIX_1993 true
 #		endif
 
-#		if (_POSIX_VERSION >= 199506)
+#		if _POSIX_VERSION >= 199506
 #			undef XIEITE__STANDARD_UNIX__POSIX_1996
 #			define XIEITE__STANDARD_UNIX__POSIX_1996 true
 #		endif
 
-#		if (_POSIX_VERSION >= 200112)
+#		if _POSIX_VERSION >= 200112
 #			undef XIEITE__STANDARD_UNIX__POSIX_2001
 #			define XIEITE__STANDARD_UNIX__POSIX_2001 true
 #		endif
 
-#		if (_POSIX_VERSION >= 200809)
+#		if _POSIX_VERSION >= 200809
 #			undef XIEITE__STANDARD_UNIX__POSIX_2008
 #			define XIEITE__STANDARD_UNIX__POSIX_2008 true
 #		endif
@@ -62,12 +62,12 @@
 #	endif
 
 #	ifdef _XOPEN_VERSION
-#		if (_XOPEN_VERSION >= 3)
+#		if _XOPEN_VERSION >= 3
 #			undef XIEITE__STANDARD_UNIX__XOPEN_1989
 #			define XIEITE__STANDARD_UNIX__XOPEN_1989 true
 #		endif
 
-#		if (_XOPEN_VERSION >= 4)
+#		if _XOPEN_VERSION >= 4
 #			undef XIEITE__STANDARD_UNIX__XOPEN_1992
 #			define XIEITE__STANDARD_UNIX__XOPEN_1992 true
 #		endif
@@ -77,17 +77,17 @@
 #			define XIEITE__STANDARD_UNIX__XOPEN_1995 true
 #		endif
 
-#		if (_XOPEN_VERSION >= 500)
+#		if _XOPEN_VERSION >= 500
 #			undef XIEITE__STANDARD_UNIX__XOPEN_1998
 #			define XIEITE__STANDARD_UNIX__XOPEN_1998 true
 #		endif
 
-#		if (_XOPEN_VERSION >= 600)
+#		if _XOPEN_VERSION >= 600
 #			undef XIEITE__STANDARD_UNIX__XOPEN_2003
 #			define XIEITE__STANDARD_UNIX__XOPEN_2003 true
 #		endif
 
-#		if (_XOPEN_VERSION >= 700)
+#		if _XOPEN_VERSION >= 700
 #			undef XIEITE__STANDARD_UNIX__XOPEN_2008
 #			define XIEITE__STANDARD_UNIX__XOPEN_2008 true
 #		endif
