@@ -11,7 +11,7 @@ namespace xieite::strings {
 	constexpr char lowercase(const char character) noexcept {
 		static constexpr std::array<char, std::numeric_limits<unsigned char>::max() + 1> lookup = ([] {
 			std::array<char, std::numeric_limits<unsigned char>::max() + 1> result;
-			std::iota(result.begin(), result.end(), 0);
+			std::ranges::iota(result, 0);
 			for (std::size_t i = 0; i < 26; ++i) {
 				result[static_cast<unsigned char>("ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i])] = "abcdefghijklmnopqrstuvwxyz"[i];
 			}
