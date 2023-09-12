@@ -4,6 +4,7 @@
 #	include <concepts>
 #	include <cmath>
 #	include <cstddef>
+#	include <ranges>
 #	include <string_view>
 #	include "../strings/uppercase.hpp"
 
@@ -16,8 +17,8 @@ namespace xieite::strings {
 			return result;
 		}
 		Integer previous = 0;
-		for (std::size_t i = value.size(); i--;) {
-			const std::size_t index = numerals.find(xieite::strings::uppercase(value[i]));
+		for (const char digit : std::views::reverse(value)) {
+			const std::size_t index = numerals.find(xieite::strings::uppercase(digit));
 			if (index == std::string_view::npos) {
 				continue;
 			}

@@ -13,6 +13,7 @@
 #	include <fcntl.h>
 #	include <istream>
 #	include <ostream>
+#	include <ranges>
 #	include <stdio.h>
 #	include <string>
 #	include <string_view>
@@ -236,8 +237,8 @@ namespace xieite::system {
 		}
 
 		void putBackString(const std::string_view value) noexcept {
-			for (std::size_t i = value.size(); i--;) {
-				inputStream.putback(value[i]);
+			for (const char character : std::views::reverse(value)) {
+				inputStream.putback(character);
 			}
 		}
 
