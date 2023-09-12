@@ -18,3 +18,4 @@ This project extends the standard library and provides an organized collection o
 &nbsp;
 
 ## [Documentation](https://github.com/Eczbek/xieite/tree/main/docs/xieite.md)
+Written manually :)
