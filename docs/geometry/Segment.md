@@ -45,10 +45,9 @@ struct Segment {
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Segment.hpp>
-#include <xieite/geometry/getLength.hpp>
 
 int main() {
-    std::cout << xieite::geometry::getLength(xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 })) << '\n';
+    std::cout << xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 }).length() << '\n';
 }
 ```
 Output:

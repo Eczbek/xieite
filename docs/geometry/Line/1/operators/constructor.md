@@ -28,12 +28,7 @@ constexpr Line(xieite::geometry::Point start, double angle) noexcept;
 #include <xieite/geometry/getAngle.hpp>
 
 int main() {
-    xieite::geometry::Point start(0.0, 0.0);
-    xieite::geometry::Point end(1.0, 1.0);
-
-    xieite::geometry::Line line(start, end);
-
-    std::cout << xieite::geometry::getAngle(line) << '\n';
+    std::cout << xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 }).angle() << '\n';
 }
 ```
 Output:

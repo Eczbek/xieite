@@ -24,15 +24,13 @@ friend constexpr bool operator==(const xieite::geometry::Segment& segment1, cons
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-    xieite::geometry::Point start(0.0, 0.0);
-	xieite::geometry::Point end(3.0, 4.0);
-
-    xieite::geometry::Segment segment1(start, end);
-    xieite::geometry::Segment segment2(end, start);
+    xieite::geometry::Segment segment1({ 0.0, 0.0 }, { 3.0, 4.0 });
+    xieite::geometry::Segment segment2({ 3.0, 4.0 }, { 0.0, 0.0 });
 
     std::cout
         << std::boolalpha
-        << (segment1 == segment2) << '\n';
+        << (segment1 == segment2)
+        << '\n';
 }
 ```
 Output:

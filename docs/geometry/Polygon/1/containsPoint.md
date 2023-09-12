@@ -24,11 +24,11 @@ constexpr bool containsPoint(xieite::geometry::Point point) const noexcept;
 
 int main() {
     std::cout << xieite::geometry::Polygon({
-		xieite::geometry::Point(0, 0),
-		xieite::geometry::Point(2, 0),
-		xieite::geometry::Point(2, 2),
-		xieite::geometry::Point(0, 2)
-	}).containsPoint(xieite::geometry::Point(1, 1)) << '\n';
+        { 0.0, 0.0 },
+        { 2.0, 0.0 },
+        { 2.0, 2.0 },
+        { 0.0, 2.0 }
+    }).containsPoint({ 1.0, 1.0 }) << '\n';
 }
 ```
 Output:

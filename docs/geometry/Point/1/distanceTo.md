@@ -22,7 +22,7 @@ constexpr double distanceTo(xieite::geometry::Point point) const noexcept;
 #include <xieite/geometry/Point.hpp>
 
 int main() {
-    std::cout << xieite::geometry::Point({ 0.0, 0.0 }).distanceTo({ 1.0, 1.0 }) << '\n';
+    std::cout << xieite::geometry::Point(0.0, 0.0).distanceTo({ 1.0, 1.0 }) << '\n';
 }
 ```
 Output:

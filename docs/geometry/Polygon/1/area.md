@@ -24,11 +24,11 @@ constexpr double area() const noexcept;
 
 int main() {
     std::cout << xieite::geometry::Polygon({
-		xieite::geometry::Point(0, 0),
-		xieite::geometry::Point(2, 0),
-		xieite::geometry::Point(2, 2),
-		xieite::geometry::Point(0, 2)
-	}).area() << '\n';
+        { 0.0, 0.0 },
+        { 2.0, 0.0 },
+        { 2.0, 2.0 },
+        { 0.0, 2.0 }
+    }).area() << '\n';
 }
 ```
 Output:

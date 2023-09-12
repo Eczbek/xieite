@@ -24,14 +24,13 @@ friend constexpr bool operator==(const xieite::geometry::Ray& ray1, const xieite
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-    xieite::geometry::Point start(0.0, 0.0);
-
-    xieite::geometry::Ray ray1(start, xieite::geometry::Point(1.0, 1.0));
-    xieite::geometry::Ray ray2(start, xieite::math::toRadians(45.0));
+    xieite::geometry::Ray ray1({ 0.0, 0.0 }, { 1.0, 1.0 });
+    xieite::geometry::Ray ray2({ 0.0, 0.0 }, xieite::math::toRadians(45.0));
 
     std::cout
         << std::boolalpha
-        << (ray1 == ray2) << '\n';
+        << (ray1 == ray2)
+        << '\n';
 }
 ```
 Output:

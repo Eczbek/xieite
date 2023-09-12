@@ -34,13 +34,15 @@ constexpr xieite::geometry::Polygon rotate(xieite::geometry::Polygon polygon, do
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-    xieite::geometry::Line line1({ 0, 0 }, { 1, 1 });
+    xieite::geometry::Line line1({ 0.0, 0.0 }, { 1.0, 1.0 });
 
     xieite::geometry::Line line2 = xieite::geometry::rotate(line1, xieite::math::toRadians(90.0));
 
     std::cout
-        << xieite::geometry::getSlope(line1) << '\n'
-        << xieite::geometry::getSlope(line2) << '\n';
+        << xieite::geometry::getSlope(line1)
+        << '\n'
+        << xieite::geometry::getSlope(line2)
+        << '\n';
 }
 ```
 Output:
