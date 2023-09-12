@@ -3,6 +3,7 @@
 
 #	include <concepts>
 #	include <cstddef>
+#	include <cstdint>
 #	include <memory>
 
 namespace xieite::memory {

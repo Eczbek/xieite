@@ -368,10 +368,10 @@ namespace xieite::math {
 				return dividend;
 			}
 			xieite::math::BigInteger<Datum> remainder;
-			for (std::size_t i = dividend.data.size(); i--;) {
+			for (const Datum dividendDatum : std::views::reverse(dividend.data)) {
 				for (std::size_t j = std::numeric_limits<Datum>::digits; j--;) {
 					remainder <<= 1;
-					remainder.data[0] |= (dividend.data[i] >> j) & 1;
+					remainder.data[0] |= (dividendDatum >> j) & 1;
 					remainder -= absoluteDivisor * (remainder >= absoluteDivisor);
 				}
 			}
@@ -512,10 +512,10 @@ namespace xieite::math {
 			std::vector<Datum> resultData = std::vector<Datum>(std::ranges::next(leftOperand.data.begin(), dataShift, leftOperand.data.end()), leftOperand.data.end());
 			if (bitsShift) {
 				Datum carry = 0;
-				for (std::size_t i = resultData.size(); i--;) {
-					const Datum datum = resultData[i];
-					resultData[i] = (datum >> bitsShift) | carry;
-					carry = datum << (std::numeric_limits<Datum>::digits - bitsShift);
+				for (Datum& resultDatum : std::views::reverse(resultData)) {
+					const Datum copy = resultDatum;
+					resultDatum = (copy >> bitsShift) | carry;
+					carry = copy << (std::numeric_limits<Datum>::digits - bitsShift);
 				}
 			}
 			return xieite::math::BigInteger<Datum>(resultData, leftOperand.negative);
