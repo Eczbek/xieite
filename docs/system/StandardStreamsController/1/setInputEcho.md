@@ -4,7 +4,7 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../../in
 &nbsp;
 
 ## Description
-Enables or disables the echo. When echoing is disabled, pressed keys will not be visibly reflected in the terminal. Disabled by default.
+Enables or disables the echo. When echoing is disabled, pressed keys will not be visibly reflected in the terminal.
 
 &nbsp;
 

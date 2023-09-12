@@ -4,7 +4,7 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../../in
 &nbsp;
 
 ## Description
-Enables or disables output processing. Disabled by default.
+Enables or disables output processing.
 
 &nbsp;
 
