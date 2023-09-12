@@ -21,7 +21,7 @@ struct Loop {
 };
 ```
 ##### Member functions
-- [Loop](./Loop/1/constructor.md)
+- [Loop](./Loop/1/operators/constructor.md)
 - [good](./Loop/1/good.md)
 - [stop](./Loop/1/stop.md)
 

@@ -4,7 +4,7 @@ Defined in header [<xieite/math/cosecant.hpp>](../../include/xieite/math/cosecan
 &nbsp;
 
 ## Description
-Calculates the cosecant of a value.
+Computes the cosecant of a value.
 
 &nbsp;
 

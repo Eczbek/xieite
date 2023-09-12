@@ -47,10 +47,10 @@ struct BigInteger {
 
     constexpr xieite::math::BigInteger<Datum> operator+() const;
 
-    friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator+(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator+(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator+=(const xieite::math::BigInteger<Datum>&);
 
@@ -63,10 +63,10 @@ struct BigInteger {
 
     constexpr xieite::math::BigInteger<Datum> operator-() const;
 
-    friend constexpr xieite::math::BigInteger<Datum> operator-(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator-(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator-(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator-(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator-=(const xieite::math::BigInteger<Datum>&);
 
@@ -77,30 +77,30 @@ struct BigInteger {
 
     constexpr xieite::math::BigInteger<Datum> operator--(int);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator*(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator*(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator*(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator*(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator*=(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
     constexpr xieite::math::BigInteger<Datum>& operator*=(Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator/(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator/(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator/(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator/(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator/=(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
     constexpr xieite::math::BigInteger<Datum>& operator/=(Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator%(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator%(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator%=(const xieite::math::BigInteger<Datum>&);
 
@@ -109,50 +109,50 @@ struct BigInteger {
 
     constexpr xieite::math::BigInteger<Datum> operator~() const;
 
-    friend constexpr xieite::math::BigInteger<Datum> operator&(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator&(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator&(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator&(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator&=(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
     constexpr xieite::math::BigInteger<Datum>& operator&=(Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator|(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator|(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator|=(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
     constexpr xieite::math::BigInteger<Datum>& operator|=(Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator^(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator^(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator^(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator^(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator^=(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
     constexpr xieite::math::BigInteger<Datum>& operator^=(Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator<<(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator<<(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator<<(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator<<(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator<<=(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
     constexpr xieite::math::BigInteger<Datum>& operator<<=(Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator>>(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator>>(const xieite::math::BigInteger<Datum>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator>>(Integer) const;
+    friend constexpr xieite::math::BigInteger<Datum> operator>>(Integer);
 
     constexpr xieite::math::BigInteger<Datum>& operator>>=(const xieite::math::BigInteger<Datum>&);
 
@@ -181,33 +181,33 @@ struct BigInteger {
 ```
 ##### Member functions
 - [BigInteger](./BigInteger/1/constructor.md)
-- [operator=](./BigInteger/1/operatorAssign.md)
-- [operator typename](./BigInteger/1/operatorCast.md)
-- [operator<=>](./BigInteger/1/operatorSpaceship.md)
-- [operator==](./BigInteger/1/operatorEqual.md)
-- [operator+](./BigInteger/1/operatorAdd.md)
-- [operator+=](./BigInteger/1/operatorAddAssign.md)
-- [operator++](./BigInteger/1/operatorIncrement.md)
-- [operator-](./BigInteger/1/operatorSubtract.md)
-- [operator-=](./BigInteger/1/operatorSubtractAssign.md)
-- [operator--](./BigInteger/1/operatorDecrement.md)
-- [operator*](./BigInteger/1/operatorMultiply.md)
-- [operator*=](./BigInteger/1/operatorMultiplyAssign.md)
-- [operator/](./BigInteger/1/operatorDivide.md)
-- [operator/=](./BigInteger/1/operatorDivideAssign.md)
-- [operator%](./BigInteger/1/operatorModulo.md)
-- [operator%=](./BigInteger/1/operatorModuloAssign.md)
-- [operator~](./BigInteger/1/operatorBitwiseNot.md)
-- [operator&](./BigInteger/1/operatorBitwiseAnd.md)
-- [operator&=](./BigInteger/1/operatorBitwiseNotAssign.md)
-- [operator|](./BigInteger/1/operatorBitwiseOr.md)
-- [operator|=](./BigInteger/1/operatorBitwiseOrAssign.md)
-- [operator^](./BigInteger/1/operatorBitwiseXor.md)
-- [operator^=](./BigInteger/1/operatorBitwiseXorAssign.md)
-- [operator<<](./BigInteger/1/operatorBitwiseShiftLeft.md)
-- [operator<<=](./BigInteger/1/operatorBitwiseShiftLeftAssign.md)
-- [operator>>](./BigInteger/1/operatorBitwiseShiftRight.md)
-- [operator>>=](./BigInteger/1/operatorBitwiseShiftRightAssign.md)
+- [operator=](./BigInteger/1/operators/assign.md)
+- [operator typename](./BigInteger/1/operators/cast.md)
+- [operator<=>](./BigInteger/1/operators/spaceship.md)
+- [operator==](./BigInteger/1/operators/s/equal.md)
+- [operator+](./BigInteger/1/operators/add.md)
+- [operator+=](./BigInteger/1/operators/addAssign.md)
+- [operator++](./BigInteger/1/operators/increment.md)
+- [operator-](./BigInteger/1/operators/subtract.md)
+- [operator-=](./BigInteger/1/operators/subtractAssign.md)
+- [operator--](./BigInteger/1/operators/decrement.md)
+- [operator*](./BigInteger/1/operators/multiply.md)
+- [operator*=](./BigInteger/1/operators/multiplyAssign.md)
+- [operator/](./BigInteger/1/operators/divide.md)
+- [operator/=](./BigInteger/1/operators/divideAssign.md)
+- [operator%](./BigInteger/1/operators/modulo.md)
+- [operator%=](./BigInteger/1/operators/moduloAssign.md)
+- [operator~](./BigInteger/1/operators/bitwiseNot.md)
+- [operator&](./BigInteger/1/operators/bitwiseAnd.md)
+- [operator&=](./BigInteger/1/operators/bitwiseNotAssign.md)
+- [operator|](./BigInteger/1/operators/bitwiseOr.md)
+- [operator|=](./BigInteger/1/operators/bitwiseOrAssign.md)
+- [operator^](./BigInteger/1/operators/bitwiseXor.md)
+- [operator^=](./BigInteger/1/operators/bitwiseXorAssign.md)
+- [operator<<](./BigInteger/1/operators/bitwiseShiftLeft.md)
+- [operator<<=](./BigInteger/1/operators/bitwiseShiftLeftAssign.md)
+- [operator>>](./BigInteger/1/operators/bitwiseShiftRight.md)
+- [operator>>=](./BigInteger/1/operators/bitwiseShiftRightAssign.md)
 - [absolute](./BigInteger/1/absolute.md)
 - [power](./BigInteger/1/power.md)
 - [root](./BigInteger/1/root.md)

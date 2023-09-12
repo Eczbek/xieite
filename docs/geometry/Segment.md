@@ -4,7 +4,7 @@ Defined in header [<xieite/geometry/Segment.hpp>](../../include/xieite/geometry/
 &nbsp;
 
 ## Description
-A struct representing a finite line segment.
+A structure for representing a finite line segment.
 
 &nbsp;
 
@@ -17,15 +17,27 @@ struct Segment {
 
     constexpr Segment(xieite::geometry::Point, xieite::geometry::Point);
 
-    constexpr bool operator==(const xieite::geometry::Segment&) const;
+    friend constexpr bool operator==(const xieite::geometry::Segment&);
+    
+    constexpr double angle() const;
+    
+    constexpr bool containsPoint(xieite::geometry::Point) const;
+    
+    constexpr double length() const;
+    
+    constexpr double slope() const;
 };
 ```
 ##### Member variables
 - start
 - end
 ##### Member functions
-- [Segment](./Segment/1/constructor.md)
-- [operator==](./Segment/1/operatorEquals.md)
+- [Segment](./Segment/1/operators/constructor.md)
+- [operator==](./Segment/1/operators/equal.md)
+- [angle](./Segment/1/angle.md)
+- [containsPoint](./Segment/1/containsPoint.md)
+- [length](./Segment/1/length.md)
+- [slope](./Segment/1/slope.md)
 
 &nbsp;
 

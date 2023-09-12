@@ -24,6 +24,6 @@ struct Address {
 };
 ```
 ##### Member functions
-- [Address](./Address/1/constructor.md)
+- [Address](./Address/1/operators/constructor.md)
 - [data](./Address/1/data.md)
 - [size](./Address/1/size.md)

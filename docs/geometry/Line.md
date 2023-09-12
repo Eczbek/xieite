@@ -4,7 +4,7 @@ Defined in header [<xieite/geometry/Line.hpp>](../../include/xieite/geometry/Lin
 &nbsp;
 
 ## Description
-An class representing an infinite line.
+An structure for representing an infinite line.
 
 &nbsp;
 
@@ -19,12 +19,24 @@ struct Line {
 
     constexpr Line(xieite::geometry::Point, double);
 
-    constexpr bool operator==(const xieite::geometry::Line&) const;
+    friend constexpr bool operator==(const xieite::geometry::Line&, const xieite::geometry::Line&);
+    
+    constexpr double angle() const;
+    
+    constexpr bool containsPoint(xieite::geometry::Point) const;
+    
+    constexpr double length() const;
+    
+    constexpr double slope() const;
 };
 ```
 ##### Member variables
 - start
 - end
 ##### Member functions
-- [Line](./Line/1/constructor.md)
-- [operator==](./Line/1/operatorEquals.md)
+- [Line](./Line/1/operators/constructor.md)
+- [operator==](./Line/1/operators/equal.md)
+- [angle](./Line/1/angle.md)
+- [containsPoint](./Line/1/containsPoint.md)
+- [length](./Line/1/length.md)
+- [slope](./Line/1/slope.md)

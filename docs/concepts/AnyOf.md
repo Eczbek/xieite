@@ -13,6 +13,6 @@ Specifies that a type satisfies at least one of several type traits.
 ```cpp
 template<typename Type, template<typename> typename... Traits>
 concept AnyOf = (... && requires {
-	{ Traits<Type>::value } -> std::convertible_to<bool>;
+    { Traits<Type>::value } -> std::convertible_to<bool>;
 }) && (... || Traits<Type>::value);
 ```

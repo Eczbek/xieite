@@ -23,4 +23,4 @@ struct Product {
 - lower
 - upper
 ##### Member functions
-- [Product](./Product/1/constructor.md)
+- [Product](./Product/1/operators/constructor.md)

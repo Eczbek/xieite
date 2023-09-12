@@ -18,25 +18,25 @@ struct Infix;
 ```cpp
 template<typename Result, typename Argument, xieite::concepts::Functable<Result(Argument)> auto callback>
 struct Infix<Result(Argument), callback> {
-	constexpr Result operator>(const Argument&) const;
+    constexpr Result operator>(const Argument&) const;
 
-	friend constexpr Result operator<(const Argument&, const xieite::functors::Infix<Result(Argument), callback>);
+    friend constexpr Result operator<(const Argument&, const xieite::functors::Infix<Result(Argument), callback>);
 };
 ```
 ##### Member functions
-- [operator>](./Infix/2/operatorMore.md)
-- [operator<](./Infix/2/operatorLess.md)
+- [operator>](./Infix/2/operators/more.md)
+- [operator<](./Infix/2/operators/less.md)
 #### 3)
 ```cpp
 template<typename Result, typename LeftArgument, typename RightArgument, xieite::concepts::Functable<Result(LeftArgument, RightArgument)> auto callback>
 struct Infix<Result(LeftArgument, RightArgument), callback> {
-	friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate operator<(const LeftArgument&, const xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>);
+    friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate operator<(const LeftArgument&, const xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>);
 };
 ```
 ##### Member structures
 - [Intermediate](./Infix/3/Intermediate.md)
 ##### Member functions
-- [operator<](./Infix/3/operatorLess.md)
+- [operator<](./Infix/3/operators/less.md)
 
 &nbsp;
 

@@ -22,4 +22,4 @@ struct List {
 ##### Member types
 - [Data](./List/1/Data.md)
 ##### Member functions
-- [operator->*](./List/1/operatorMemberPointer.md)
+- [operator->*](./List/1/operators/memberPointer.md)

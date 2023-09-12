@@ -10,12 +10,12 @@ constexpr xieite::math::BigInteger<Datum> operator+() const noexcept;
 ```
 #### 2)
 ```cpp
-friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>& augend, const xieite::math::BigInteger<Datum>& addend) const noexcept;
+friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>& augend, const xieite::math::BigInteger<Datum>& addend) noexcept;
 ```
 #### 3)
 ```cpp
 template<std::integral Integer>
-friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>& augend, Integer addend) const noexcept;
+friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>& augend, Integer addend) noexcept;
 ```
 
 &nbsp;

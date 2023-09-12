@@ -4,7 +4,7 @@ Defined in header [<xieite/math/difference.hpp>](../../include/xieite/math/diffe
 &nbsp;
 
 ## Description
-Calculates the absolute difference between two values. Handles some edge cases.
+Computes the absolute difference between two values. Handles some edge cases.
 
 &nbsp;
 

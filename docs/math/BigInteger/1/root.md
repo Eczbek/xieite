@@ -4,7 +4,7 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../../include/xieite/math
 &nbsp;
 
 ## Description
-Calculates any root of a `xieite::math::BigInteger`.
+Computes any root of a `xieite::math::BigInteger`.
 
 &nbsp;
 

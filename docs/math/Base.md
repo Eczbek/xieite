@@ -16,9 +16,9 @@ struct Base {
     char negativeSign;
         
     constexpr Base(int, std::string_view = "0123456789abcdefghijklmnopqrstuvwxyz", char = '-', bool = false) noexcept;
-	
+    
     constexpr char digit(std::size_t) const noexcept;
-	
+    
     constexpr std::size_t position(char) const noexcept;
 };
 ```
@@ -26,6 +26,6 @@ struct Base {
 - radix
 - negativeSign
 ##### Member functions
-- [Base](./Base/1/constructor.md)
+- [Base](./Base/1/operators/constructor.md)
 - [digit](./Base/1/digit.md)
 - [position](./Base/1/position.md)

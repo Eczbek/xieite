@@ -15,6 +15,6 @@ struct IsFunctable
 template<typename Functor, typename Result, typename... Arguments>
 struct IsFunctable<Functor, Result(Arguments...)>
 : std::bool_constant<requires(Functor functor, Arguments... arguments) {
-	{ std::invoke(functor, arguments...) } -> std::convertible_to<Result>;
+    { std::invoke(functor, arguments...) } -> std::convertible_to<Result>;
 }> {};
 ```

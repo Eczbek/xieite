@@ -32,6 +32,6 @@ struct Color {
 - blue
 - alpha
 ##### Member functions
-- [Color](./Color/1/constructor.md)
-- [operator==](./Color/1/operatorEquals.md)
+- [Color](./Color/1/operators/constructor.md)
+- [operator==](./Color/1/operators/equal.md)
 - [value](./Color/1/value.md)
