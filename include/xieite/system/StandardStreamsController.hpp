@@ -212,7 +212,7 @@ namespace xieite::system {
 		xieite::system::BufferPosition readArrow() noexcept {
 			const char first = this->readCharacter();
 			if (first == '\x1B') {
-				xieite::functors::ScopeGuard scopeGuard = xieite::functors::ScopeGuard([this, blocking = this->blocking] {
+				const xieite::functors::ScopeGuard scopeGuard = xieite::functors::ScopeGuard([this, blocking = this->blocking] {
 					this->setInputBlocking(blocking);
 				});
 				this->setInputBlocking(false);
