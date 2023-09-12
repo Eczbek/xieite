@@ -24,11 +24,11 @@ constexpr double perimeter() const noexcept;
 
 int main() {
     std::cout << xieite::geometry::Polygon({
-		xieite::geometry::Point(0, 0),
-		xieite::geometry::Point(2, 0),
-		xieite::geometry::Point(2, 2),
-		xieite::geometry::Point(0, 2)
-	}).perimeter() << '\n';
+        { 0, 0 },
+        { 2, 0 },
+        { 2, 2 },
+        { 0, 2 }
+    }).perimeter() << '\n';
 }
 ```
 Output:

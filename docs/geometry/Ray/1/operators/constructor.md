@@ -28,11 +28,13 @@ constexpr Ray(xieite::geometry::Point start, double angle) noexcept;
 #include <xieite/geometry/containsPoint.hpp>
 
 int main() {
-    xieite::geometry::Ray ray(xieite::geometry::Point(0.0, 0.0), xieite::geometry::Point(1.0, 1.0));
+    ;
 
-    xieite::geometry::Point point(-1.0, -1.0);
-
-    std::cout << std::boolalpha << xieite::geometry::containsPoint(ray, point) << '\n';
+    std::cout
+        << std::boolalpha
+        << xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 })
+            .containsPoint({ -1.0, -1.0 })
+        << '\n';
 }
 ```
 Output:

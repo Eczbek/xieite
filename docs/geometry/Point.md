@@ -40,7 +40,7 @@ struct Point {
 #include <xieite/math/toRadians.hpp>
 
 int main() {
-    xieite::geometry::Point point = xieite::geometry::rotate(xieite::geometry::Point(1, 0), xieite::math::toRadians(90));
+    xieite::geometry::Point point = xieite::geometry::rotate({ 1.0, 0.0 }, xieite::math::toRadians(90));
     
     std::cout << '(' << point.x << ", " << point.y << ")\n";
 }

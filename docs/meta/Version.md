@@ -20,8 +20,8 @@ struct Version {
     constexpr Version(std::size_t = 0, std::size_t = 0, std::size_t = 0, std::string_view = "");
 
     friend constexpr std::strong_ordering operator<=>(const xieite::meta::Version&, const xieite::meta::Version&);
-	
-	friend constexpr bool operator==(const xieite::meta::Version&, const xieite::meta::Version&);
+    
+    friend constexpr bool operator==(const xieite::meta::Version&, const xieite::meta::Version&);
 
     constexpr std::string string() const;
 };

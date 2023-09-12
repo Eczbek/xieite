@@ -24,24 +24,24 @@ friend constexpr bool operator==(const xieite::geometry::Polygon& polygon) noexc
 #include <xieite/geometry/Polygon.hpp>
 
 int main() {
-    auto polygon1 = xieite::geometry::Polygon(std::vector<xieite::geometry::Point> {
-        xieite::geometry::Point(0, 0),
-        xieite::geometry::Point(2, 0),
-        xieite::geometry::Point(2, 2),
-        xieite::geometry::Point(0, 2)
+    auto polygon1 = xieite::geometry::Polygon({
+        { 0, 0 },
+        { 2, 0 },
+        { 2, 2 },
+        { 0, 2 }
     });
 
-    auto polygon2 = xieite::geometry::Polygon(std::vector<xieite::geometry::Point> {
-        xieite::geometry::Point(0, 2),
-        xieite::geometry::Point(2, 2),
-        xieite::geometry::Point(2, 0),
-		xieite::geometry::Point(0, 0)
+    auto polygon2 = xieite::geometry::Polygon({
+        { 0, 2 },
+        { 2, 2 },
+        { 2, 0 },
+        { 0, 0 }
     });
 
     std::cout
-		<< std::boolalpha
-		<< (polygon1 == polygon2)
-		<< '\n';
+        << std::boolalpha
+        << (polygon1 == polygon2)
+        << '\n';
 }
 ```
 Output:

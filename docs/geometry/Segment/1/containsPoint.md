@@ -22,7 +22,11 @@ constexpr bool containsPoint(xieite::geometry::Point point) const noexcept;
 #include <xieite/geometry/Segment.hpp>
 
 int main() {
-    std::cout << xieite::geometry::Segment({ 0.0, 0.0 }, { 1.0, 1.0 }).containsPoint({ -1.0, -1.0 }) << '\n';
+    std::cout
+        << std::boolalpha
+        << xieite::geometry::Segment({ 0.0, 0.0 }, { 1.0, 1.0 })
+            .containsPoint({ -1.0, -1.0 })
+        << '\n';
 }
 ```
 Output:

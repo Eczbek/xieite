@@ -46,12 +46,15 @@ struct Polygon {
 #include <xieite/geometry/Polygon.hpp>
 
 int main() {
-    std::cout << xieite::geometry::Polygon({
-        { 1.0, 0.0 },
-        { 2.0, 1.0 },
-        { 1.0, 2.0 },
-        { 0.0, 1.0 }
-    }).area() << '\n';
+    std::cout
+        << xieite::geometry::Polygon({
+            { 1.0, 0.0 },
+            { 2.0, 1.0 },
+            { 1.0, 2.0 },
+            { 0.0, 1.0 }
+        })
+            .area()
+        << '\n';
 }
 ```
 Output:

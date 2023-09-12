@@ -51,7 +51,9 @@ struct Ray {
 int main() {
     std::cout
         << std::boolalpha
-        << xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }).containsPoint({ -1.0, -1.0 }) << '\n';
+        << xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 })
+            .containsPoint({ -1.0, -1.0 })
+        << '\n';
 }
 ```
 Output:
