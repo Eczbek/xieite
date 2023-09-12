@@ -29,7 +29,6 @@ constexpr xieite::geometry::Polygon rotate(xieite::geometry::Polygon polygon, do
 ```cpp
 #include <iostream>
 #include <xieite/geometry/Line.hpp>
-#include <xieite/geometry/getSlope.hpp>
 #include <xieite/geometry/rotate.hpp>
 #include <xieite/math/toRadians.hpp>
 
@@ -39,10 +38,8 @@ int main() {
     xieite::geometry::Line line2 = xieite::geometry::rotate(line1, xieite::math::toRadians(90.0));
 
     std::cout
-        << xieite::geometry::getSlope(line1)
-        << '\n'
-        << xieite::geometry::getSlope(line2)
-        << '\n';
+        << line1.slope() << '\n'
+        << line2.slope() << '\n';
 }
 ```
 Output:
