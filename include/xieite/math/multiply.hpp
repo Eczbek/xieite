@@ -14,10 +14,10 @@ namespace xieite::math {
 		const UnsignedInteger bar = multiplier >> halfSize;
 		const UnsignedInteger baz = multiplicand & halfBits;
 		const UnsignedInteger qux = multiplicand >> halfSize;
-		const UnsignedInteger byx = foo * baz;
-		const UnsignedInteger hyk = foo * qux;
-		const UnsignedInteger roq = bar * baz;
-		return xieite::math::Product<UnsignedInteger>(byx + (hyk << halfSize) + (roq << halfSize), bar * qux + (hyk >> halfSize) + (roq >> halfSize) + (halfBits & (((byx >> halfSize) + (hyk & halfBits) + (roq & halfBits)) >> halfSize)));
+		const UnsignedInteger corge = foo * baz;
+		const UnsignedInteger grault = foo * qux;
+		const UnsignedInteger garply = bar * baz;
+		return xieite::math::Product<UnsignedInteger>(corge + (grault << halfSize) + (garply << halfSize), bar * qux + (grault >> halfSize) + (garply >> halfSize) + (halfBits & (((corge >> halfSize) + (grault & halfBits) + (garply & halfBits)) >> halfSize)));
 	}
 }
 
