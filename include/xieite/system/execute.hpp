@@ -19,7 +19,7 @@ namespace xieite::system {
 		std::string result;
 		while (true) {
 			std::string buffer = std::string(pageSize, '\0');
-			if (!std::fread(buffer.data(), sizeof(char), buffer.size(), pipe.get())) {
+			if (!std::fread(buffer.data(), sizeof(char), buffer.size(), pipe)) {
 				break;
 			}
 			result += buffer;

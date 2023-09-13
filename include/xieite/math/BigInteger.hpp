@@ -16,13 +16,12 @@
 #	include "../concepts/Arithmetic.hpp"
 #	include "../concepts/Functable.hpp"
 #	include "../math/AttemptUnsign.hpp"
-#	include "../math/Base.hpp"
 #	include "../math/Product.hpp"
-#	include "../math/decimal.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/multiply.hpp"
 #	include "../math/negative.hpp"
 #	include "../math/splitBoolean.hpp"
+#	include "../strings/lowercase.hpp"
 #	include "../system/bitsPerByte.hpp"
 
 namespace xieite::math {
@@ -79,35 +78,34 @@ namespace xieite::math {
 			this->trim();
 		}
 
-		constexpr BigInteger(const std::string_view value, const xieite::math::Base& base = xieite::math::decimal) noexcept
+		constexpr BigInteger(const std::string_view value, const int radix = 10, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char negativeSign = '-', const bool caseSensitive = false) noexcept
 		: data({ 0 }), negative(false) {
 			const std::size_t valueSize = value.size();
-			if (!valueSize || !base.radix) {
+			if (!valueSize || !radix) {
 				return;
 			}
-			const bool valueNegative = value[0] == base.negativeSign;
-			const int valueSign = xieite::math::splitBoolean(!valueNegative);
-			if ((base.radix == 1) || (base.radix == -1)) {
-				int nextSign = valueSign;
-				for (std::size_t i = valueSize; i-- > valueNegative;) {
-					*this += base.position(value[i]) * nextSign;
-					nextSign *= base.radix;
-				}
-				return;
-			}
+			const bool valueNegative = value[0] == negativeSign;
+			const std::string usedDigits = caseSensitive ? std::string(digits) : xieite::strings::lowercase(digits);
 			xieite::math::BigInteger<Datum> power = 1;
 			for (std::size_t i = valueSize; i-- > valueNegative;) {
-				*this += base.position(value[i]) * power;
-				power *= base.radix;
+				const std::size_t index = usedDigits.find(caseSensitive ? value[i] : xieite::strings::lowercase(value[i]));
+				*this += power * index * (index != std::string::npos);
+				power *= radix;
 			}
-			this->negative = valueNegative;
+			if (*this) {
+				this->negative = valueNegative;
+			}
 		}
 		
-		constexpr xieite::math::BigInteger<Datum>& operator=(const xieite::math::BigInteger<Datum>&) noexcept = default;
+		constexpr xieite::math::BigInteger<Datum>& operator=(const xieite::math::BigInteger<Datum>& value) noexcept {
+			this->data = value.data;
+			this->negative = value.negative;
+			return *this;
+		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator=(const Integer integer) noexcept {
-			return *this = xieite::math::BigInteger<Datum>(integer);
+		constexpr xieite::math::BigInteger<Datum>& operator=(const Integer value) noexcept {
+			return *this = xieite::math::BigInteger<Datum>(value);
 		}
 
 		template<std::integral Integer>
@@ -623,30 +621,31 @@ namespace xieite::math {
 			return this->logarithm(xieite::math::BigInteger<Datum>(base));
 		}
 
-		constexpr std::string string(const xieite::math::Base& base = xieite::math::decimal) const noexcept {
-			if (!base.radix || !*this) {
-				return std::string(1, base.digit(0));
+		constexpr std::string string(const int radix = 10, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char negativeSign = '-', const bool caseSensitive = false) const noexcept {
+			if (!radix || !*this) {
+				return std::string(1, digits[0]);
 			}
 			std::string result;
 			xieite::math::BigInteger<Datum> absolute = this->absolute();
 			std::size_t absoluteValue = absolute;
-			if (base.radix == 1) {
-				result = std::string(absoluteValue, base.digit(1));
+			if (radix == 1) {
+				result = std::string(absoluteValue, digits[1]);
 			} else {
-				if (base.radix == -1) {
-					result = base.digit(1);
+				if (radix == -1) {
+					result = digits[1];
 					while (absoluteValue-- > 1) {
-						result += std::string(1, base.digit(0)) + base.digit(1);
+						result += std::string(1, digits[0]) + digits[1];
 					}
 				} else {
 					while (absolute) {
-						result = base.digit(absolute % base.radix) + result;
-						absolute /= base.radix;
+						const std::size_t index = absolute % radix;
+						result = digits[index * (index < digits.size())] + result;
+						absolute /= radix;
 					}
 				}
 			}
 			if (this->negative) {
-				result = base.negativeSign + result;
+				result = negativeSign + result;
 			}
 			return result;
 		}

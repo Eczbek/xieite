@@ -13,13 +13,13 @@ Checks whether all passed arguments are true. Expects all arguments to be conver
 ```cpp
 template<xieite::concepts::RangeOf<bool> Range>
 constexpr bool all(const Range& range)
-noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<bool, std::ranges::range_value_t<Range>));
+noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_value_t<Range>, bool>));
 ```
 #### 2)
 ```cpp
 template<std::convertible_to<bool>... Values>
 constexpr bool all(const Values&... values)
-noexcept(noexcept(xieite::concepts::NoThrowConvertibleToAllOf<bool, Values...>));
+noexcept(noexcept((... && xieite::concepts::NoThrowConvertibleTo<Values, bool>)));
 ```
 
 &nbsp;
