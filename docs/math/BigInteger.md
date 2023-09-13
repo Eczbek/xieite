@@ -23,7 +23,7 @@ struct BigInteger {
     requires(std::same_as<Datum, std::ranges::range_value_t<Range>>)
     constexpr BigInteger(const Range&, bool = false);
 
-    constexpr BigInteger(std::string_view, const xieite::math::Base& = xieite::math::decimal);
+    constexpr BigInteger(std::string_view, int = 10, std::string_view = "0123456789abcdefghijklmnopqrstuvwxyz", char = '-', bool = false);
 
     constexpr xieite::math::BigInteger<Datum>& operator=(const xieite::math::BigInteger<Datum>&);
 
@@ -176,7 +176,7 @@ struct BigInteger {
     template<std::integral Integer>
     constexpr xieite::math::BigInteger<Datum> logarithm(Integer) const;
 
-    constexpr std::string string(const xieite::math::Base& = xieite::math::decimal) const;
+    constexpr std::string string(int = 10, std::string_view = "0123456789abcdefghijklmnopqrstuvwxyz", char = '-', bool = false) const;
 };
 ```
 ##### Member functions

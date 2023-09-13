@@ -6,9 +6,6 @@
 #	include "../concepts/LinearShape.hpp"
 #	include "../geometry/Point.hpp"
 #	include "../geometry/Segment.hpp"
-#	include "../geometry/containsPoint.hpp"
-#	include "../geometry/getDistance.hpp"
-#	include "../geometry/getSides.hpp"
 #	include "../math/almostEqual.hpp"
 
 namespace xieite::geometry {
@@ -26,11 +23,12 @@ namespace xieite::geometry {
 	}
 
 	constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Point point, const xieite::geometry::Polygon& polygon) noexcept {
-		std::vector<xieite::geometry::Point> intersections;
+		std::vector<xieite::geometry::Point> totalIntersections;
 		for (const xieite::geometry::Segment& side : polygon.sides()) {
-			intersections.insert_range(intersections.end(), xieite::geometry::intersections(point, side));
+			const std::vector<xieite::geometry::Point> localIntersections = xieite::geometry::intersections(point, side);
+			totalIntersections.insert(totalIntersections.end(), localIntersections.begin(), localIntersections.end());
 		}
-		return intersections;
+		return totalIntersections;
 	}
 	
 	template<xieite::concepts::LinearShape LinearShape>
@@ -54,11 +52,12 @@ namespace xieite::geometry {
 
 	template<xieite::concepts::LinearShape LinearShape>
 	constexpr std::vector<xieite::geometry::Point> intersections(const LinearShape& linearShape, const xieite::geometry::Polygon& polygon) noexcept {
-		std::vector<xieite::geometry::Point> intersections;
+		std::vector<xieite::geometry::Point> totalIntersections;
 		for (const xieite::geometry::Segment& side : polygon.sides()) {
-			intersections.insert_range(intersections.end(), xieite::geometry::intersections(linearShape, side));
+			const std::vector<xieite::geometry::Point> localIntersections = xieite::geometry::intersections(linearShape, side);
+			totalIntersections.insert(totalIntersections.end(), localIntersections.begin(), localIntersections.end());
 		}
-		return intersections;
+		return totalIntersections;
 	}
 
 	constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Polygon& polygon, const xieite::geometry::Point point) noexcept {
@@ -71,14 +70,15 @@ namespace xieite::geometry {
 	}
 
 	constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Polygon& polygon1, const xieite::geometry::Polygon& polygon2) noexcept {
-		std::vector<xieite::geometry::Point> intersections;
-		const std::vector<xieite::geometry::Point> sides2 = polygon2.sides();
+		std::vector<xieite::geometry::Point> totalIntersections;
+		const std::vector<xieite::geometry::Segment> sides2 = polygon2.sides();
 		for (const xieite::geometry::Segment& side1 : polygon1.sides()) {
 			for (const xieite::geometry::Segment& side2 : sides2) {
-				intersections.insert_range(intersections.end(), xieite::geometry::intersections(side1, side2));
+				const std::vector<xieite::geometry::Point> localIntersections = xieite::geometry::intersections(side1, side2);
+				totalIntersections.insert(totalIntersections.end(), localIntersections.begin(), localIntersections.end());
 			}
 		}
-		return intersections;
+		return totalIntersections;
 	}
 }
 

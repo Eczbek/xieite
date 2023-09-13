@@ -3,7 +3,7 @@
 
 #	include "../macros/SYSTEM_TYPE.hpp"
 
-#	if !XIEITE_SYSTEM_TYPE_LINUX
+#	if !XIEITE__SYSTEM_TYPE__UNIX
 #		error "System not supported"
 #	endif
 

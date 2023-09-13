@@ -18,14 +18,14 @@ namespace xieite::algorithms {
 		if (rotations > 0) {
 			for (std::size_t x = matrixWidth; x--;) {
 				for (std::size_t y = 0; y < matrixHeight; ++y) {
-					result[y][x] = matrix[x][y]);
+					result[y][x] = matrix[x][y];
 				}
 			}
 			return xieite::algorithms::rotateMatrix(result, rotations - 1);
 		}
 		for (std::size_t x = 0; x < matrixWidth; ++x) {
 			for (std::size_t y = matrixHeight; y--;) {
-				result[y][x] = matrix[x][y]);
+				result[y][x] = matrix[x][y];
 			}
 		}
 		return result;

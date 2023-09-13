@@ -12,7 +12,7 @@ Converts an integer to a string in any base. Allows negative bases. Can be used 
 #### 1)
 ```cpp
 template<std::integral Integer>
-constexpr std::string toBase(const xieite::math::Base& base, Integer value) noexcept;
+constexpr std::string toBase(Integer value, int radix, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", char negativeSign = '-', bool caseSensitive = false) noexcept;
 ```
 
 &nbsp;
@@ -24,7 +24,7 @@ constexpr std::string toBase(const xieite::math::Base& base, Integer value) noex
 #include <xieite/math/toBase.hpp>
 
 int main() {
-    std::cout << xieite::math::toBase(xieite::math::binary, 13) << '\n';
+    std::cout << xieite::math::toBase(13, 2) << '\n';
 }
 ```
 Output:
