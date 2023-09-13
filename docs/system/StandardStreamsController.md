@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)\:\:[system](../system.md)\:\:StandardStreamsController
-Defined in header [<xieite/system/StandardStreamsController.hpp>](../include/xieite/system/StandardStreamsController.hpp)
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:StandardStreamsController
+Defined in header [<xieite/system/StandardStreamsController.hpp>](../../include/xieite/system/StandardStreamsController.hpp)
 
 &nbsp;
 
