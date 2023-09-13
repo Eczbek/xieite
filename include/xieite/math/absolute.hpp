@@ -3,14 +3,14 @@
 
 #	include <cmath>
 #	include <concepts>
-#	include <limits>
 #	include "../math/AttemptUnsign.hpp"
-#	include "../math/negative.hpp"
+#	include "../types/sizeBits.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
 	constexpr xieite::math::AttemptUnsign<Integer> absolute(const Integer value) noexcept {
-		return static_cast<xieite::math::AttemptUnsign<Integer>>(xieite::math::negative(value) ? -value : value);
+		const Integer mask = value >> (xieite::types::sizeBits<Integer> - 1);
+		return (value ^ mask) - mask;
 	}
 
 	template<std::floating_point FloatingPoint>
