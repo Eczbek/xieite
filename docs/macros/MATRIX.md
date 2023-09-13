@@ -10,7 +10,7 @@ Creates a multidimensional vector matrix.
 
 ## Synopsis
 ```cpp
-#define XIEITE__MATRIX(type, dimensions) XIEITE__REPEAT(dimensions, std::vector<) type XIEITE__REPEAT(dimensions, >)
+#define XIEITE__MATRIX(dimensions, type) XIEITE__REPEAT(dimensions, std::vector<) type XIEITE__REPEAT(dimensions, >)
 ```
 
 &nbsp;
@@ -20,7 +20,7 @@ Creates a multidimensional vector matrix.
 #include <xieite/macros/MATRIX.hpp>
 
 int main() {
-    XIEITE__MATRIX(int, 3) matrix;
+    XIEITE__MATRIX(3, int) matrix;
 }
 ```
 Result:

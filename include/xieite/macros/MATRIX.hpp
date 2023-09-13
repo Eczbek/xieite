@@ -4,7 +4,7 @@
 #	include <vector>
 #	include "../macros/REPEAT.hpp"
 
-#	define XIEITE__MATRIX(type, dimensions) XIEITE__REPEAT(dimensions, std::vector<) type XIEITE__REPEAT(dimensions, >)
+#	define XIEITE__MATRIX(dimensions, type) XIEITE__REPEAT(dimensions, std::vector<) type XIEITE__REPEAT(dimensions, >)
 
 // Thanks to eightfold for help
 
