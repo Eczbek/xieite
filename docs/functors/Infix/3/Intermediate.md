@@ -18,5 +18,5 @@ struct Intermediate {
 };
 ```
 ##### Member functions
-- [Intermediate](./structures/Intermediate/constructor.md)
-- [operator>](./structures/Intermediate/operatorMore.md)
+- [Intermediate](./structures/Intermediate/operators/constructor.md)
+- [operator>](./structures/Intermediate/operators/more.md)
