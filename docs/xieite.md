@@ -1,4 +1,4 @@
-# [xieite](https://github.com/Eczbek/xieite/tree/main#readme)
+# [xieite](https://github.com/Eczbek/xieite#readme)
 Aggregated in header [<xieite/xieite.hpp>](../include/xieite/xieite.hpp)
 
 &nbsp;

@@ -24,7 +24,8 @@ friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger
 int main() {
     std::cout
         << std::boolalpha
-        << (xieite::math::BigInteger(9) > 3) << '\n';
+        << (xieite::math::BigInteger(9) > 3)
+        << '\n';
 }
 ```
 Output:
