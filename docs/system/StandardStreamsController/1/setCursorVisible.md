@@ -11,5 +11,5 @@ Shows or hides the cursor.
 ## Synopses
 #### 1)
 ```cpp
-void setCursorVisibility(bool value) noexcept;
+void setCursorVisibility(bool value) const noexcept;
 ```

@@ -35,7 +35,7 @@ namespace xieite::random {
 					this->interruptions.push_back(xieite::math::Interval<Number>(std::min(start, end), difference));
 				}
 			}
-			this->distribution = xieite::random::UniformInterruptableDistribution<Number>::UniformDistribution(minimum, upper);
+			this->distribution = std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>>(minimum, upper);
 			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Number> interruption1, const xieite::math::Interval<Number> interruption2) {
 				return interruption1.start < interruption2.start;
 			});
@@ -53,9 +53,7 @@ namespace xieite::random {
 		}
 
 	private:
-		using UniformDistribution = std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>>;
-
-		mutable UniformDistribution distribution;
+		mutable std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>> distribution;
 		std::vector<xieite::math::Interval<Number>> interruptions;
 	};
 }

@@ -13,73 +13,70 @@ A class for controlling standard text streams with modes and styles.
 ```cpp
 template<std::istream& inputStream, std::ostream& outputStream>
 struct StandardStreamsController {
-    StandardStreamsController();
+    void setInputBlocking(bool) const;
 
-    void setInputBlocking(bool);
+    void setInputEcho(bool) const;
 
-    void setInputEcho(bool);
+    void setInputCanonical(bool) const;
 
-    void setInputCanonical(bool);
+    void setInputSignals(bool) const;
 
-    void setInputSignals(bool);
+    void setOutputProcessing(bool) const;
 
-    void setOutputProcessing(bool);
+    void setForegroundColor(const xieite::graphics::Color&) const;
 
-    void setForegroundColor(const xieite::graphics::Color&);
+    void resetForegroundColor() const;
 
-    void resetForegroundColor();
+    void setBackgroundColor(const xieite::graphics::Color&) const;
 
-    void setBackgroundColor(const xieite::graphics::Color&);
+    void resetBackgroundColor() const;
 
-    void resetBackgroundColor();
+    void setTextBold(bool) const;
 
-    void setTextBold(bool);
+    void setTextItalic(bool) const;
 
-    void setTextItalic(bool);
+    void setTextUnderline(bool) const;
 
-    void setTextUnderline(bool);
+    void setTextBlinking(bool) const;
 
-    void setTextBlinking(bool);
+    void setColorsSwapped(bool) const;
 
-    void setColorsSwapped(bool);
+    void setTextVisible(bool) const;
 
-    void setTextVisible(bool);
+    void setTextStrikethough(bool) const;
 
-    void setTextStrikethough(bool);
+    void resetStyles() const;
 
-    void resetStyles();
+    void clearScreen() const;
 
-    void clearScreen();
+    void clearLine() const;
 
-    void clearLine();
+    xieite::system::BufferPosition getCursorPosition() const;
 
-    xieite::system::BufferPosition getCursorPosition();
+    void setCursorPosition(xieite::system::BufferPosition) const;
 
-    void setCursorPosition(xieite::system::BufferPosition);
+    void moveCursorPosition(xieite::system::BufferPosition) const;
 
-    void moveCursorPosition(xieite::system::BufferPosition);
+    void setCursorVisible(bool) const;
 
-    void setCursorVisible(bool);
+    void setCursorAlternative(bool) const;
 
-    void setCursorAlternative(bool);
+    void setScreenAlternative(bool) const;
 
-    void setScreenAlternative(bool);
+    xieite::system::BufferPosition getScreenSize() const;
 
-    xieite::system::BufferPosition getScreenSize();
+    char readCharacter() const;
 
-    char readCharacter();
-
-    std::string readString();
+    std::string readString() const;
     
-    xieite::system::BufferPosition readArrow();
+    xieite::system::BufferPosition readArrow() const;
 
-    void putBackString(std::string_view);
+    void putBackString(std::string_view) const;
 
-    void backspace(std::size_t);
+    void backspace(std::size_t) const;
 };
 ```
 ##### Member functions
-- [StandardStreamsController](./StandardStreamsController/1/operators/constructor.md)
 - [setInputBlocking](./StandardStreamsController/1/setInputBlocking.md)
 - [setInputEcho](./StandardStreamsController/1/setInputEcho.md)
 - [setInputCanonical](./StandardStreamsController/1/setInputCanonical.md)

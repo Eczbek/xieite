@@ -11,5 +11,5 @@ Enables or disables ~~strikethrough~~ text.
 ## Synopses
 #### 1)
 ```cpp
-void setTextStrikethrough(bool value) noexcept;
+void setTextStrikethrough(bool value) const noexcept;
 ```

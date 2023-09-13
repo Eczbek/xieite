@@ -11,5 +11,5 @@ Enables or disables text **boldness**.
 ## Synopses
 #### 1)
 ```cpp
-void setTextBoldness(bool value) noexcept;
+void setTextBoldness(bool value) const noexcept;
 ```

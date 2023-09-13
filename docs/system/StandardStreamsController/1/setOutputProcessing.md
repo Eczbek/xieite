@@ -11,5 +11,5 @@ Enables or disables output processing.
 ## Synopses
 #### 1)
 ```cpp
-void setOutputProcessing(bool value) noexcept;
+void setOutputProcessing(bool value) const noexcept;
 ```

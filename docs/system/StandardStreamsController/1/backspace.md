@@ -6,7 +6,7 @@ Defined in header [<xieite/system/StandardStreamsController.hpp>](../../../../in
 ## Synopses
 #### 1)
 ```cpp
-void backspace(std::size_t count) noexcept;
+void backspace(std::size_t count) const noexcept;
 ```
 
 &nbsp;

@@ -11,5 +11,5 @@ Enables or disables blocking mode. When disabled, any input reading will access 
 ## Synopses
 #### 1)
 ```cpp
-void setInputBlocking(bool value) noexcept;
+void setInputBlocking(bool value) const noexcept;
 ```

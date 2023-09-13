@@ -11,5 +11,5 @@ Enables or disables text blinking.
 ## Synopses
 #### 1)
 ```cpp
-void setTextBlinking(bool value) noexcept;
+void setTextBlinking(bool value) const noexcept;
 ```

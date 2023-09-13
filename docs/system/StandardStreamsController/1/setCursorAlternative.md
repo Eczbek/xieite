@@ -11,7 +11,7 @@ Enables or disables the alternative cursor. The alternative cursor starts at the
 ## Synopses
 #### 1)
 ```cpp
-void setCursorAlternative(bool value) noexcept;
+void setCursorAlternative(bool value) const noexcept;
 ```
 
 &nbsp;

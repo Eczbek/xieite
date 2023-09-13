@@ -11,5 +11,5 @@ Enables or disables the echo. When echoing is disabled, pressed keys will not be
 ## Synopses
 #### 1)
 ```cpp
-void setInputEcho(bool value) noexcept;
+void setInputEcho(bool value) const noexcept;
 ```

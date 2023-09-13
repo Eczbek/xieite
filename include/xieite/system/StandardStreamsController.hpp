@@ -45,106 +45,103 @@ namespace xieite::system {
 			this->resetStyles();
 		}
 
-		template<std::istream& otherInputStream, std::ostream& otherOutputStream>
-		void operator=(const xieite::system::StandardStreamsController<otherInputStream, otherOutputStream>&) = delete;
-
-		void setInputBlocking(const bool value) noexcept {
+		void setInputBlocking(const bool value) const noexcept {
 			if (this->blocking != value) {
 				this->blocking = value;
 				this->update();
 			}
 		}
 
-		void setInputEcho(const bool value) noexcept {
+		void setInputEcho(const bool value) const noexcept {
 			if (this->echo != value) {
 				this->echo = value;
 				this->update();
 			}
 		}
 
-		void setInputCanonical(const bool value) noexcept {
+		void setInputCanonical(const bool value) const noexcept {
 			if (this->canonical != value) {
 				this->canonical = value;
 				this->update();
 			}
 		}
 
-		void setInputSignals(const bool value) noexcept {
+		void setInputSignals(const bool value) const noexcept {
 			if (this->signals != value) {
 				this->signals = value;
 				this->update();
 			}
 		}
 
-		void setOutputProcessing(const bool value) noexcept {
+		void setOutputProcessing(const bool value) const noexcept {
 			if (this->processing != value) {
 				this->processing = value;
 				this->update();
 			}
 		}
 
-		void setForegroundColor(const xieite::graphics::Color& color) noexcept {
+		void setForegroundColor(const xieite::graphics::Color& color) const noexcept {
 			outputStream << "\x1B[38;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
-		void resetForegroundColor() noexcept {
+		void resetForegroundColor() const noexcept {
 			outputStream << "\x1B[38m";
 		}
 
-		void setBackgroundColor(const xieite::graphics::Color& color) noexcept {
+		void setBackgroundColor(const xieite::graphics::Color& color) const noexcept {
 			outputStream << "\x1B[48;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
-		void resetBackgroundColor() noexcept {
+		void resetBackgroundColor() const noexcept {
 			outputStream << "\x1B[48m";
 		}
 
-		void setTextBold(const bool value) noexcept {
+		void setTextBold(const bool value) const noexcept {
 			outputStream << "\x1B[" << (21 - value * 20) << 'm';
 		}
 
-		void setTextItalic(const bool value) noexcept {
+		void setTextItalic(const bool value) const noexcept {
 			outputStream << "\x1B[" << (23 - value * 20) << 'm';
 		}
 
-		void setTextUnderline(const bool value) noexcept {
+		void setTextUnderline(const bool value) const noexcept {
 			outputStream << "\x1B[" << (24 - value * 20) << 'm';
 		}
 
-		void setTextBlinking(const bool value) noexcept {
+		void setTextBlinking(const bool value) const noexcept {
 			outputStream << "\x1B[" << (25 - value * 20) << 'm';
 		}
 
-		void setColorsSwapped(const bool value) noexcept {
+		void setColorsSwapped(const bool value) const noexcept {
 			outputStream << "\x1B[" << (27 - value * 20) << 'm';
 		}
 
-		void setTextVisible(const bool value) noexcept {
+		void setTextVisible(const bool value) const noexcept {
 			outputStream << "\x1B[" << (8 + value * 20) << 'm';
 		}
 
-		void setTextStrikethrough(const bool value) noexcept {
+		void setTextStrikethrough(const bool value) const noexcept {
 			outputStream << "\x1B[" << (29 - value * 20) << 'm';
 		}
 
-		void resetStyles() noexcept {
+		void resetStyles() const noexcept {
 			outputStream << "\x1B[0m";
 		}
 		
-		void resetModes() noexcept {
+		void resetModes() const noexcept {
 			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus);
 			::tcsetattr(this->inputFileDescriptor, TCSANOW, &this->cookedMode);
 		}
 
-		void clearScreen() noexcept {
+		void clearScreen() const noexcept {
 			outputStream << "\x1B[2J";
 		}
 
-		void clearLine() noexcept {
+		void clearLine() const noexcept {
 			outputStream << "\x1B[2K";
 		}
 
-		xieite::system::BufferPosition getCursorPosition() noexcept {
+		xieite::system::BufferPosition getCursorPosition() const noexcept {
 			const bool canonical = this->canonical;
 			this->setInputCanonical(false);
 			outputStream << "\x1B[6n";
@@ -154,11 +151,11 @@ namespace xieite::system {
 			return xieite::system::BufferPosition(position.row - 1, position.column - 1);
 		}
 
-		void setCursorPosition(const xieite::system::BufferPosition position) noexcept {
+		void setCursorPosition(const xieite::system::BufferPosition position) const noexcept {
 			outputStream << "\x1B[" << (position.row + 1) << ';' << (position.column + 1) << 'H';
 		}
 
-		void moveCursorPosition(const xieite::system::BufferPosition difference) noexcept {
+		void moveCursorPosition(const xieite::system::BufferPosition difference) const noexcept {
 			if (difference.row) {
 				outputStream << "\x1B[" << std::abs(difference.row) << "CD"[difference.row < 0];
 			}
@@ -167,25 +164,25 @@ namespace xieite::system {
 			}
 		}
 
-		void setCursorVisible(const bool value) noexcept {
+		void setCursorVisible(const bool value) const noexcept {
 			outputStream << "\x1B[?25" << "lh"[value];
 		}
 
-		void setCursorAlternative(const bool value) noexcept {
+		void setCursorAlternative(const bool value) const noexcept {
 			outputStream << "\x1b[" << static_cast<char>(117 - value * 2);
 		}
 
-		void setScreenAlternative(const bool value) noexcept {
+		void setScreenAlternative(const bool value) const noexcept {
 			outputStream << "\x1B[?47" << "lh"[value];
 		}
 
-		xieite::system::BufferPosition getScreenSize() noexcept {
+		xieite::system::BufferPosition getScreenSize() const noexcept {
 			::winsize size;
 			::ioctl(this->inputFileDescriptor, TIOCGWINSZ, &size);
 			return xieite::system::BufferPosition(size.ws_row, size.ws_col);
 		}
 
-		char readCharacter() noexcept {
+		char readCharacter() const noexcept {
 			const bool canonical = this->canonical;
 			this->setInputCanonical(false);
 			const char input = inputStream.get();
@@ -193,7 +190,7 @@ namespace xieite::system {
 			return input;	
 		}
 
-		std::string readString() noexcept {
+		std::string readString() const noexcept {
 			const bool blocking = this->blocking;
 			const bool canonical = this->canonical;
 			this->setInputBlocking(false);
@@ -209,7 +206,7 @@ namespace xieite::system {
 			return input;
 		}
 		
-		xieite::system::BufferPosition readArrow() noexcept {
+		xieite::system::BufferPosition readArrow() const noexcept {
 			const char first = this->readCharacter();
 			if (first == '\x1B') {
 				const xieite::functors::ScopeGuard terminalGuard = xieite::functors::ScopeGuard([this, blocking = this->blocking] {
@@ -236,13 +233,13 @@ namespace xieite::system {
 			return xieite::system::BufferPosition(0, 0);
 		}
 
-		void putBackString(const std::string_view value) noexcept {
+		void putBackString(const std::string_view value) const noexcept {
 			for (const char character : std::views::reverse(value)) {
 				inputStream.putback(character);
 			}
 		}
 
-		void backspace(const std::size_t count) noexcept {
+		void backspace(const std::size_t count) const noexcept {
 			if (count) {
 				outputStream << "\x1B[" << count << 'D' << std::string(count, ' ') << "\x1B[" << count << 'D';
 			}
@@ -252,16 +249,16 @@ namespace xieite::system {
 		std::FILE* const inputStreamFile;
 		const int inputFileDescriptor;
 
-		int blockingStatus;
+		const int blockingStatus;
 		termios cookedMode;
 
-		bool blocking;
-		bool echo;
-		bool canonical;
-		bool signals;
-		bool processing;
+		mutable bool blocking;
+		mutable bool echo;
+		mutable bool canonical;
+		mutable bool signals;
+		mutable bool processing;
 
-		void update() noexcept {
+		void update() const noexcept {
 			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus | (O_NONBLOCK * !this->blocking));
 			::termios rawMode = this->cookedMode;
 			rawMode.c_iflag &= ~((ICRNL * !this->signals) | (IXON * !this->signals));

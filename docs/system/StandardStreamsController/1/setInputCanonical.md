@@ -11,5 +11,5 @@ Enables or disables canonical mode. When it is disabled, the input is read by by
 ## Synopses
 #### 1)
 ```cpp
-void setInputCanonical(bool value) noexcept;
+void setInputCanonical(bool value) const noexcept;
 ```

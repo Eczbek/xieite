@@ -11,5 +11,5 @@ Clears the line on which the cursor currently is.
 ## Synopses
 #### 1)
 ```cpp
-void clearLine() noexcept;
+void clearLine() const noexcept;
 ```

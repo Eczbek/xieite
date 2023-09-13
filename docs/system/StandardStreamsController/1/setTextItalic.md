@@ -11,5 +11,5 @@ Enables or disables *italic* text.
 ## Synopses
 #### 1)
 ```cpp
-void setTextItalic(bool value) noexcept;
+void setTextItalic(bool value) const noexcept;
 ```

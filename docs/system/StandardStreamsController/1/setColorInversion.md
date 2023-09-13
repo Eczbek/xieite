@@ -11,5 +11,5 @@ Enables or disables the swapping of foreground and background colors.
 ## Synopses
 #### 1)
 ```cpp
-void setColorInversion(bool value) noexcept;
+void setColorInversion(bool value) const noexcept;
 ```

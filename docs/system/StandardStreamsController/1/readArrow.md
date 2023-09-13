@@ -11,7 +11,7 @@ Waits for and returns the next arrow key input. Puts back characters if fails to
 ## Synopses
 #### 1)
 ```cpp
-xieite::system::BufferPosition readArrow() noexcept;
+xieite::system::BufferPosition readArrow() const noexcept;
 ```
 
 &nbsp;

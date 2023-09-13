@@ -11,5 +11,5 @@ Reads the entire input buffer, clearing it in the process.
 ## Synopses
 #### 1)
 ```cpp
-std::string readString() noexcept;
+std::string readString() const noexcept;
 ```

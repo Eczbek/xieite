@@ -5,7 +5,7 @@
 #	include "../system/StandardStreamsController.hpp"
 
 namespace xieite::system {
-	inline auto terminal = xieite::system::StandardStreamsController<std::cin, std::cout>();
+	inline const auto terminal = xieite::system::StandardStreamsController<std::cin, std::cout>();
 }
 
 #endif

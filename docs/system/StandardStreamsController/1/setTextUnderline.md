@@ -11,5 +11,5 @@ Enables or disables text <u>underlining</u>.
 ## Synopses
 #### 1)
 ```cpp
-void setTextUnderline(bool value) noexcept;
+void setTextUnderline(bool value) const noexcept;
 ```
