@@ -11,5 +11,5 @@ Enables or disables input signals. Specifically, disables the special functional
 ## Synopses
 #### 1)
 ```cpp
-void setInputSignals(bool value) noexcept;
+void setInputSignals(bool value) const noexcept;
 ```

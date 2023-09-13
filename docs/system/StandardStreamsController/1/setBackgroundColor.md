@@ -11,5 +11,5 @@ Sets the text highlight color. Disregards transparency value of passed value.
 ## Synopses
 #### 1)
 ```cpp
-void setBackgroundColor(const xieite::graphics::Color& color) noexcept;
+void setBackgroundColor(const xieite::graphics::Color& color) const noexcept;
 ```

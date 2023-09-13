@@ -11,5 +11,5 @@ Enables or disables text visibility.
 ## Synopses
 #### 1)
 ```cpp
-void setTextVisibility(bool value) noexcept;
+void setTextVisibility(bool value) const noexcept;
 ```

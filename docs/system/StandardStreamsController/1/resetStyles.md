@@ -11,5 +11,5 @@ Resets all text effects and colors.
 ## Synopses
 #### 1)
 ```cpp
-void resetStyles() noexcept;
+void resetStyles() const noexcept;
 ```

@@ -11,5 +11,5 @@ Moves the terminal cursor's position.
 ## Synopses
 #### 1)
 ```cpp
-void moveCursorPosition(xieite::system::BufferPosition difference) noexcept;
+void moveCursorPosition(xieite::system::BufferPosition difference) const noexcept;
 ```

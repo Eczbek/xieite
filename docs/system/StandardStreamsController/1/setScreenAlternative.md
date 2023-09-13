@@ -11,7 +11,7 @@ Enables or disables the alternative screen.
 ## Synopses
 #### 1)
 ```cpp
-void setScreenAlternative(bool value) noexcept;
+void setScreenAlternative(bool value) const noexcept;
 ```
 
 &nbsp;

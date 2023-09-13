@@ -11,5 +11,5 @@ Resets the text color to default.
 ## Synopses
 #### 1)
 ```cpp
-void resetForegroundColor() noexcept;
+void resetForegroundColor() const noexcept;
 ```

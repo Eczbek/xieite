@@ -11,5 +11,5 @@ An instance of `xieite::system::StandardStreamsController` specialized to `std::
 ## Synopses
 #### 1)
 ```cpp
-inline auto terminal = xieite::system::StandardStreamsController<std::cin, std::cout>();
+inline const auto terminal = xieite::system::StandardStreamsController<std::cin, std::cout>();
 ```

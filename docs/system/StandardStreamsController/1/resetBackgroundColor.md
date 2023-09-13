@@ -11,5 +11,5 @@ Resets the text highlight color to default.
 ## Synopses
 #### 1)
 ```cpp
-void resetBackgroundColor() noexcept;
+void resetBackgroundColor() const noexcept;
 ```

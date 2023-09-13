@@ -11,7 +11,7 @@ Clears the entire screen.
 ## Synopses
 #### 1)
 ```cpp
-void clearScreen() noexcept;
+void clearScreen() const noexcept;
 ```
 
 &nbsp;

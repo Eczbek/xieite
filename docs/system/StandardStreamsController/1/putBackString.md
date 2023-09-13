@@ -11,7 +11,7 @@ Puts a string back into the input buffer.
 ## Synopses
 #### 1)
 ```cpp
-void putBackString(std::string_view value) noexcept;
+void putBackString(std::string_view value) const noexcept;
 ```
 
 &nbsp;
