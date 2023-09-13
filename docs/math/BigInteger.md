@@ -180,7 +180,7 @@ struct BigInteger {
 };
 ```
 ##### Member functions
-- [BigInteger](./BigInteger/1/constructor.md)
+- [BigInteger](./BigInteger/1/operators/constructor.md)
 - [operator=](./BigInteger/1/operators/assign.md)
 - [operator typename](./BigInteger/1/operators/cast.md)
 - [operator<=>](./BigInteger/1/operators/spaceship.md)
