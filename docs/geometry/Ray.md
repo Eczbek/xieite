@@ -20,13 +20,13 @@ struct Ray {
     constexpr Ray(xieite::geometry::Point, double);
 
     friend constexpr bool operator==(const xieite::geometry::Ray&);
-    
+
     constexpr double angle() const;
-    
+
     constexpr bool containsPoint(xieite::geometry::Point) const;
-    
+
     constexpr double length() const;
-    
+
     constexpr double slope() const;
 };
 ```

@@ -1,16 +1,17 @@
-# [xieite](../../../xieite.md)\:\:[types](../../../types.md)\:\:[List\<Types...\>](../../List.md)\:\:Data
+# [xieite](../../../xieite.md)\:\:[types](../../../types.md)\:\:[List\<Types...\>](../../List.md)\:\:Append
 Defined in header [<xieite/types/List.hpp>](../../../../include/xieite/types/List.hpp)
 
 &nbsp;
 
-Returns the stored list of types as a `std::tuple`.
+Appends a list of types.
 
 &nbsp;
 
 ## Synopses
 #### 1)
 ```cpp
-using Data = std::tuple<Types...>;
+template<typename... OtherTypes>
+using Append = xieite::types::List<Types..., OtherTypes...>;
 ```
 
 &nbsp;
@@ -22,12 +23,12 @@ using Data = std::tuple<Types...>;
 #include <xieite/types/demangle.hpp>
 
 int main() {
-    using List = xieite::types::List<int, char, short, long>;
+    using List = xieite::types::List<int, char, short, long>::Append<float, double>;
 
     std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<int, char, short, long>
+std::tuple<int, char, short, long, float, double>
 ```

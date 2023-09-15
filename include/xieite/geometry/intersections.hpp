@@ -30,7 +30,7 @@ namespace xieite::geometry {
 		}
 		return totalIntersections;
 	}
-	
+
 	template<xieite::concepts::LinearShape LinearShape>
 	constexpr std::vector<xieite::geometry::Point> intersections(const LinearShape& linearShape, const xieite::geometry::Point point) noexcept {
 		return xieite::geometry::intersections(point, linearShape);

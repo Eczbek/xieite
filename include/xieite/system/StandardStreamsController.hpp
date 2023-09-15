@@ -127,7 +127,7 @@ namespace xieite::system {
 		void resetStyles() const noexcept {
 			outputStream << "\x1B[0m";
 		}
-		
+
 		void resetModes() const noexcept {
 			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus);
 			::tcsetattr(this->inputFileDescriptor, TCSANOW, &this->cookedMode);
@@ -187,7 +187,7 @@ namespace xieite::system {
 			this->setInputCanonical(false);
 			const char input = inputStream.get();
 			this->setInputCanonical(canonical);
-			return input;	
+			return input;
 		}
 
 		std::string readString() const noexcept {
@@ -205,7 +205,7 @@ namespace xieite::system {
 			this->setInputCanonical(canonical);
 			return input;
 		}
-		
+
 		xieite::system::BufferPosition readArrow() const noexcept {
 			const char first = this->readCharacter();
 			if (first == '\x1B') {

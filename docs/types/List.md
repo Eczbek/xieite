@@ -4,7 +4,7 @@ Defined in header [<xieite/types/List.hpp>](../../include/xieite/types/List.hpp)
 &nbsp;
 
 ## Description
-A simple class for storing a list of types.
+A structure for operating on a list of types.
 
 &nbsp;
 
@@ -15,11 +15,56 @@ template<typename... Types>
 struct List {
     using Data = std::tuple<Types...>;
 
-    template<typename Type>
-    constexpr std::conditional_t<(... || std::same_as<Types, Type>), xieite::types::List<Types...>, xieite::types::List<Types..., Type>> operator->*(xieite::types::List<Type>) const;
+    template<typename... OtherTypes>
+    using Append = xieite::types::List<Types..., OtherTypes...>;
+
+    template<typename... OtherTypes>
+    using Prepend = xieite::types::List<OtherTypes..., Types...>;
+
+    using Unique = /* ... */;
+
+    template <std::size_t start, std::size_t end = sizeof...(Types)>
+    using Slice = /* ... */;
 };
 ```
 ##### Member types
 - [Data](./List/1/Data.md)
-##### Member functions
-- [operator->*](./List/1/operators/memberPointer.md)
+- [Append](./List/1/Append.md)
+- [Prepend](./List/1/Prepend.md)
+- [Unique](./List/1/Unique.md)
+- [Slice](./List/1/Slice.md)
+
+&nbsp;
+
+## Example
+```cpp
+#include <iostream>
+#include <xieite/types/List.hpp>
+#include <xieite/types/demangle.hpp>
+
+int main() {
+    using Foo = xieite::types::List<int, char, int, int, char>;
+    using Bar = Foo::Append<float, double, float, float, double>;
+    using Baz = Bar::Prepend<short, long, short, short, long>;
+    using Qux = Baz::Unique;
+    using Corge = Qux::Slice<1, 5>;
+    using Grault = Corge::Data;
+
+    std::cout
+        << xieite::types::demangle(typeid(Foo).name()) << '\n'
+        << xieite::types::demangle(typeid(Bar).name()) << '\n'
+        << xieite::types::demangle(typeid(Baz).name()) << '\n'
+        << xieite::types::demangle(typeid(Qux).name()) << '\n'
+        << xieite::types::demangle(typeid(Corge).name()) << '\n'
+        << xieite::types::demangle(typeid(Grault).name()) << '\n';
+}
+```
+Output:
+```
+xieite::types::List<int, char, int, int, char>
+xieite::types::List<int, char, int, int, char, float, double, float, float, double>
+xieite::types::List<short, long, short, short, long, int, char, int, int, char, float, double, float, float, double>
+xieite::types::List<short, long, int, char, float, double>
+xieite::types::List<long, int, char, float>
+std::tuple<long, int, char, float>
+```

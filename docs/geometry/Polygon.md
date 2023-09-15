@@ -18,13 +18,13 @@ struct Polygon {
     constexpr Polygon(const Range&);
 
     friend constexpr bool operator==(const xieite::geometry::Polygon&);
-    
+
     constexpr double area() const;
-    
+
     constexpr bool containsPoint(xieite::geometry::Point) const;
-    
+
     constexpr double perimeter() const;
-    
+
     constexpr std::vector<xieite::geometry::Segment> sides() const;
 };
 ```

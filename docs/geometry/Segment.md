@@ -18,13 +18,13 @@ struct Segment {
     constexpr Segment(xieite::geometry::Point, xieite::geometry::Point);
 
     friend constexpr bool operator==(const xieite::geometry::Segment&);
-    
+
     constexpr double angle() const;
-    
+
     constexpr bool containsPoint(xieite::geometry::Point) const;
-    
+
     constexpr double length() const;
-    
+
     constexpr double slope() const;
 };
 ```

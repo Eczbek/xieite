@@ -4,7 +4,7 @@ Defined in header [<xieite/macros/SYSTEM_TYPE.hpp>](../../include/xieite/macros/
 &nbsp;
 
 ## Description
-Macros for identifying the current platform/OS type. See header file for definitions.
+Macros for identifying the current platform/OS. See header file for definitions.
 
 &nbsp;
 
@@ -15,13 +15,14 @@ Macros for identifying the current platform/OS type. See header file for definit
 
 int main() {
 #if XIEITE__SYSTEM_TYPE__WINDOWS
-	std::cout << "Windows\n";
+    std::cout << "Windows\n";
 #elif XIEITE__SYSTEM_TYPE__MACINTOSH
-	std::cout << "Macintosh\n";
+    std::cout << "Macintosh\n";
 #elif XIEITE__SYSTEM_TYPE__LINUX
-	std::cout << "Linux\n";
+    std::cout << "Linux\n";
 #else
-	std::cout << "Other\n";
+    std::cout << "Other\n";
+#endif
 }
 ```
 Possible output:

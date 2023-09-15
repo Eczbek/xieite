@@ -30,7 +30,7 @@ namespace xieite::functors {
 			constexpr Result operator>(const RightArgument& rightArgument) const {
 				return callback(this->leftArgument, rightArgument);
 			}
-		
+
 		private:
 			const LeftArgument& leftArgument;
 		};

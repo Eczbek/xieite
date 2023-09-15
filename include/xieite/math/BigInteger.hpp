@@ -96,7 +96,7 @@ namespace xieite::math {
 				this->negative = valueNegative;
 			}
 		}
-		
+
 		constexpr xieite::math::BigInteger<Datum>& operator=(const xieite::math::BigInteger<Datum>& value) noexcept {
 			this->data = value.data;
 			this->negative = value.negative;
