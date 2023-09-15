@@ -13,59 +13,59 @@ A structure for operating on a list of types.
 ```cpp
 template<typename... Types>
 struct List {
-    static constexpr std::size_t size = sizeof...(Types);
+    static constexpr std::size_t size;
 
-    using Data = std::tuple<Types...>;
+    using Data;
 
-    template<std::size_t index>
-    using At = std::conditional_t<index < sizeof...(Types), std::tuple_element<index, List<Types...>::Data>, std::type_identity<void>>::type;
+    template<std::size_t>
+    using At;
 
-    using First = List<Types...>::At<0>;
+    using First;
 
-    using Last = List<Types...>::At<sizeof...(Types) - 1>;
+    using Last;
 
-    template<typename... OtherTypes>
-    using Append = List<Types..., OtherTypes...>;
+    using Reverse;
 
-    template<typename... OtherTypes>
-    using Prepend = List<OtherTypes..., Types...>;
+    template<typename...>
+    using Append;
+
+    template<typename>
+    using AppendRange;
+
+    template<typename...>
+    using Prepend;
+
+    template<typename>
+    using PrependRange;
 
     template<std::size_t, std::size_t = sizeof...(Types)>
-    using Slice = /* ... */;
+    using Slice;
 
-    using Reverse = /* ... */;
+    template<std::size_t start, std::size_t = start + 1>
+    using Erase;
 
-    template<typename>
-    using AppendRange = /* ... */;
-
-    template<typename>
-    using PrependRange = /* ... */;
-
-    template<std::size_t start, std::size_t end = start + 1>
-    using Erase = List<Types...>::Slice<0, start>::template AppendRange<List<Types...>::Slice<end>>;
-
-    template<std::size_t index, typename... OtherTypes>
-    using Insert = List<Types...>::Slice<0, index>::template Append<OtherTypes...>::template AppendRange<List<Types...>::Slice<index>>;
-
-    template<std::size_t index, typename OtherType>
-    using Set = List<Types...>::Erase<index>::template Insert<index, OtherType>;
-
-    template<std::size_t index1, std::size_t index2>
-    using Swap = List<Types...>::template Set<index1, List<Types...>::At<index2>>::template Set<index2, List<Types...>::At<index1>>;
+    template<std::size_t, typename...>
+    using Insert;
 
     template<std::size_t, typename>
-    using InsertRange = /* ... */;
+    using InsertRange;
 
-    template<std::size_t start, std::size_t end, typename... OtherTypes>
-    using Replace = List<Types...>::Erase<start, end>::template Insert<start, OtherTypes...>;
+    template<std::size_t, typename>
+    using Set;
+
+    template<std::size_t, std::size_t, typename...>
+    using Replace;
 
     template<std::size_t, std::size_t, typename>
-    using ReplaceRange = /* ... */;
+    using ReplaceRange;
+
+    template<std::size_t, std::size_t>
+    using Swap;
 
     template<std::size_t, std::size_t, std::size_t, std::size_t>
-    using SwapRanges = /* ... */;
+    using SwapRanges;
 
-    using Unique = /* ... */;
+    using Unique;
 };
 ```
 ##### Member types
