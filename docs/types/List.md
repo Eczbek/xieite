@@ -23,8 +23,10 @@ struct List {
 
     using Unique = /* ... */;
 
-    template <std::size_t start, std::size_t end = sizeof...(Types)>
+    template<std::size_t start, std::size_t end = sizeof...(Types)>
     using Slice = /* ... */;
+
+    using Reverse = /* ... */;
 };
 ```
 ##### Member types
@@ -33,6 +35,7 @@ struct List {
 - [Prepend](./List/1/Prepend.md)
 - [Unique](./List/1/Unique.md)
 - [Slice](./List/1/Slice.md)
+- [Reverse](./List/1/Reverse.md)
 
 &nbsp;
 
@@ -48,7 +51,8 @@ int main() {
     using Baz = Bar::Prepend<short, long, short, short, long>;
     using Qux = Baz::Unique;
     using Corge = Qux::Slice<1, 5>;
-    using Grault = Corge::Data;
+    using Grault = Corge::Reverse;
+    using Garply = Corge::Data;
 
     std::cout
         << xieite::types::demangle(typeid(Foo).name()) << '\n'
@@ -56,7 +60,8 @@ int main() {
         << xieite::types::demangle(typeid(Baz).name()) << '\n'
         << xieite::types::demangle(typeid(Qux).name()) << '\n'
         << xieite::types::demangle(typeid(Corge).name()) << '\n'
-        << xieite::types::demangle(typeid(Grault).name()) << '\n';
+        << xieite::types::demangle(typeid(Grault).name()) << '\n'
+        << xieite::types::demangle(typeid(Garply).name()) << '\n';
 }
 ```
 Output:
@@ -66,5 +71,6 @@ xieite::types::List<int, char, int, int, char, float, double, float, float, doub
 xieite::types::List<short, long, short, short, long, int, char, int, int, char, float, double, float, float, double>
 xieite::types::List<short, long, int, char, float, double>
 xieite::types::List<long, int, char, float>
+xieite::types::List<float, char, int, long>
 std::tuple<long, int, char, float>
 ```
