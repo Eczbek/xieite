@@ -4,7 +4,7 @@ Defined in header [<xieite/types/Partial.hpp>](../../include/xieite/types/Partia
 &nbsp;
 
 ## Description
-An intermediate state for a partial specialization.
+An structure for storing a partial specialization.
 
 &nbsp;
 
@@ -13,11 +13,11 @@ An intermediate state for a partial specialization.
 ```cpp
 template<template<typename...> typename Template, typename... FirstArguments>
 struct Partial {
-    template<typename... SecondArguments>
-    using Append = Template<FirstArguments..., SecondArguments...>;
+    template<typename...>
+    using Append;
 
-    template<typename... SecondArguments>
-    using Prepend = Template<SecondArguments..., FirstArguments...>;
+    template<typename...>
+    using Prepend;
 };
 ```
 ##### Member types
