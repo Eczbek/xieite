@@ -3,7 +3,7 @@ Defined in header [<xieite/types/List.hpp>](../../../../include/xieite/types/Lis
 
 &nbsp;
 
-Selects a "slice" from the stored list of types.
+Selects a "slice" from the stored list of types. Allows indices out of bounds and in any order.
 
 &nbsp;
 
