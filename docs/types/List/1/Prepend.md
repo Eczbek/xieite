@@ -3,7 +3,7 @@ Defined in header [<xieite/types/List.hpp>](../../../../include/xieite/types/Lis
 
 &nbsp;
 
-Prepends a list of types.
+Prepends types.
 
 &nbsp;
 

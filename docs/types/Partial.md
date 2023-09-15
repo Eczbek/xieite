@@ -21,4 +21,5 @@ struct Partial {
 };
 ```
 ##### Member types
-- [Type](./Partial/1/Type.md)
+- [Append](./Partial/1/Append.md)
+- [Prepend](./Partial/1/Prepend.md)
