@@ -68,7 +68,7 @@ struct StandardStreamsController {
     char readCharacter() const;
 
     std::string readString() const;
-    
+
     xieite::system::BufferPosition readArrow() const;
 
     void putBackString(std::string_view) const;

@@ -5,13 +5,12 @@
 #	include <array>
 #	include "../concepts/Numeric.hpp"
 #	include "../math/Result.hpp"
-#	include "../types/count.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
 	constexpr xieite::math::Result<Numbers...> maximum(const Numbers... values) noexcept {
-		if constexpr (xieite::types::count<Numbers...>) {
-			return std::ranges::max(std::array<xieite::math::Result<Numbers...>, xieite::types::count<Numbers...>> {
+		if constexpr (sizeof...(Numbers)) {
+			return std::ranges::max(std::array<xieite::math::Result<Numbers...>, sizeof...(Numbers)> {
 				static_cast<xieite::math::Result<Numbers...>>(values)...
 			});
 		}

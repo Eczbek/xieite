@@ -15,7 +15,7 @@ template<std::unsigned_integral UnsignedInteger>
 struct Product {
     UnsignedInteger lower;
     UnsignedInteger upper;
-        
+
     constexpr Product(UnsignedInteger, UnsignedInteger) noexcept;
 };
 ```

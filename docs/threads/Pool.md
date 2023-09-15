@@ -41,7 +41,7 @@ int main() {
         static int i = 0;
 
         std::this_thread::sleep_for(std::chrono::seconds(1));
-        
+
         std::cout << ++i << '\n';
     });
 

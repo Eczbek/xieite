@@ -20,7 +20,7 @@ namespace xieite::meta {
 		friend constexpr std::strong_ordering operator<=>(const xieite::meta::Version& version1, const xieite::meta::Version& version2) noexcept {
 			return (version1.major != version2.major) ? (version1.major <=> version2.major) : ((version1.minor != version2.minor) ? (version1.minor <=> version2.minor) : (version1.patch <=> version2.patch));
 		}
-		
+
 		friend constexpr bool operator==(const xieite::meta::Version& version1, const xieite::meta::Version& version2) noexcept {
 			return std::is_eq(version1 <=> version2);
 		}

@@ -5,12 +5,11 @@
 #	include "../algorithms/median.hpp"
 #	include "../concepts/Numeric.hpp"
 #	include "../math/Result.hpp"
-#	include "../types/count.hpp"
 
-namespace xieite::math {	
+namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
 	constexpr xieite::math::Result<Numbers...> median(const Numbers... values) noexcept {
-		return xieite::algorithms::median(std::array<xieite::math::Result<Numbers...>, xieite::types::count<Numbers...>> {
+		return xieite::algorithms::median(std::array<xieite::math::Result<Numbers...>, sizeof...(Numbers)> {
 			static_cast<xieite::math::Result<Numbers...>>(values)...
 		});
 	}

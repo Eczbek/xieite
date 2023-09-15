@@ -25,11 +25,11 @@ friend constexpr bool operator==(const xieite::geometry::Point point1, const xie
 
 int main() {
     xieite::geometry::Point point1(1, 0);
-    
+
     xieite::geometry::Point point2(0, 1);
-    
+
     point1 = xieite::geometry::rotate(point1, xieite::math::toRadians(90));
-    
+
     std::cout
         << std::boolalpha
         << '(' << point1.x << ", " << point1.y << ")\n"

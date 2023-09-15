@@ -25,7 +25,7 @@ constexpr bool almostEqual(Number1 value1, Number2 value2) noexcept;
 int main() {
     double a = 0.3;
     double b = 0.1 + 0.2;
-    
+
     std::cout
         << std::boolalpha
         << (a == b) << '\n'

@@ -30,7 +30,7 @@ constexpr FloatingPoint absolute(FloatingPoint value) noexcept;
 
 int main() {
     std::int16_t value = -32768;
-    
+
     std::cout << xieite::math::absolute(value) << '\n';
 }
 ```

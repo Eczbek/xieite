@@ -21,20 +21,20 @@ namespace xieite::geometry {
 		friend constexpr bool operator==(const xieite::geometry::Line& line1, const xieite::geometry::Line& line2) noexcept {
 			return (line1.containsPoint(line2.start) || line1.containsPoint(line2.end)) && xieite::math::almostEqualSlope(line1.slope(), line2.slope());
 		}
-		
+
 		constexpr double angle() const noexcept {
 			return this->start.angleTo(this->end);
 		}
-		
+
 		constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
 			const double slope = this->slope();
 			return std::isinf(slope) ? xieite::math::almostEqual(point.x, this->start.x) : xieite::math::almostEqual(point.x * slope - this->start.x * slope + this->start.y, point.y);
 		}
-		
+
 		constexpr double length() const noexcept {
 			return std::numeric_limits<double>::infinity();
 		}
-		
+
 		constexpr double slope() const noexcept {
 			return this->start.slopeTo(this->end);
 		}

@@ -20,13 +20,13 @@ struct Line {
     constexpr Line(xieite::geometry::Point, double);
 
     friend constexpr bool operator==(const xieite::geometry::Line&, const xieite::geometry::Line&);
-    
+
     constexpr double angle() const;
-    
+
     constexpr bool containsPoint(xieite::geometry::Point) const;
-    
+
     constexpr double length() const;
-    
+
     constexpr double slope() const;
 };
 ```
