@@ -12,18 +12,16 @@
 #	include <string>
 
 namespace xieite::types {
-	inline std::string demangle(std::string mangled) noexcept {
-		int status;
-		char* const buffer = abi::__cxa_demangle(mangled.data(), nullptr, nullptr, &status);
-		if (!status) {
-			mangled = std::string(buffer);
+	inline std::string demangle(const std::string& mangled) noexcept {
+		char* const buffer = abi::__cxa_demangle(mangled.data(), nullptr, nullptr, nullptr);
+		if (buffer) {
+			const std::string demangled = std::string(buffer);
 			std::free(buffer);
+			return demangled;
 		}
 		// Buffer does not need to be freed if demangling fails
 		return mangled;
 	}
 }
-
-// Thanks to eightfold for original idea
 
 #endif
