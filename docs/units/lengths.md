@@ -33,7 +33,6 @@ constexpr std::ratio<3048, 10000> foot;
 ```cpp
 constexpr std::ratio<9144, 10000> yard;
 ```
-
 #### 7)
 ```cpp
 constexpr std::ratio<201168, 10000> chain;
