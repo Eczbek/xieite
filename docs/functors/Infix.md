@@ -16,21 +16,39 @@ struct Infix;
 ```
 #### 2)
 ```cpp
-template<typename Result, typename Argument, xieite::concepts::Functable<Result(Argument)> auto callback>
-struct Infix<Result(Argument), callback> {
-    constexpr Result operator>(const Argument&) const;
+template<std::invocable<xieite::types::Placeholder> auto callback>
+struct Infix<callback> {
+    template<typename Argument>
+    requires(std::invocable<decltype(callback), const Argument&>)
+    constexpr std::invoke_result_t<decltype(callback), const Argument&> operator>(const Argument&) const;
 
-    friend constexpr Result operator<(const Argument&, const xieite::functors::Infix<Result(Argument), callback>);
-};
+    template<typename Argument>
+    requires(std::invocable<decltype(callback), Argument&>)
+    constexpr std::invoke_result_t<decltype(callback), Argument&> operator>(Argument&) const;
+
+    template<typename Argument>
+    requires(std::invocable<decltype(callback), const Argument&>)
+    friend constexpr std::invoke_result_t<decltype(callback), const Argument&> operator<(const Argument&, xieite::functors::Infix<callback>);
+
+    template<typename Argument>
+    requires(std::invocable<decltype(callback), Argument&>)
+    friend constexpr std::invoke_result_t<decltype(callback), Argument&> operator<(Argument&, xieite::functors::Infix<callback>);
+    };
 ```
 ##### Member functions
 - [operator>](./Infix/2/operators/more.md)
 - [operator<](./Infix/2/operators/less.md)
 #### 3)
 ```cpp
-template<typename Result, typename LeftArgument, typename RightArgument, xieite::concepts::Functable<Result(LeftArgument, RightArgument)> auto callback>
-struct Infix<Result(LeftArgument, RightArgument), callback> {
-    friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate operator<(const LeftArgument&, const xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>);
+template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> auto callback>
+struct Infix<callback> {
+    template<typename LeftArgument>
+    requires(std::invocable<decltype(callback), const LeftArgument&, xieite::types::Placeholder>)
+    [[nodiscard]] friend constexpr Infix<callback>::Intermediate<const LeftArgument&> operator<(const LeftArgument&, xieite::functors::Infix<callback>) noexcept;
+
+    template<typename LeftArgument>
+    requires(std::invocable<decltype(callback), LeftArgument&, xieite::types::Placeholder>)
+    [[nodiscard]] friend constexpr Infix<callback>::Intermediate<LeftArgument&> operator<(LeftArgument&, xieite::functors::Infix<callback>) noexcept;
 };
 ```
 ##### Member structures
@@ -46,11 +64,11 @@ struct Infix<Result(LeftArgument, RightArgument), callback> {
 #include <xieite/functors/Infix.hpp>
 
 int main() {
-    xieite::functors::Infix<int(int, int), [](int x, int y) {
+    xieite::functors::Infix<[](int x, int y) {
         return x * y;
     }> multiply;
 
-    xieite::functors::Infix<int(int), [](int x) {
+    xieite::functors::Infix<[](int x) {
         return x + 1;
     }> increment;
 
