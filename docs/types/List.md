@@ -13,59 +13,59 @@ A structure for operating on a list of types.
 ```cpp
 template<typename... Types>
 struct List {
-    static constexpr std::size_t size;
+    static constexpr std::size_t size = sizeof...(Types);
 
-    using Data;
+    using Data = std::tuple<Types...>;
 
-    template<std::size_t>
-    using At;
+    template<std::size_t index>
+    using At = std::conditional_t<index < sizeof...(Types), std::tuple_element<index, xieite::types::List<Types...>::Data>, std::type_identity<void>>::type;
 
-    using First;
+    using First = xieite::types::List<Types...>::At<0>;
 
-    using Last;
+    using Last = xieite::types::List<Types...>::At<sizeof...(Types) - 1>;
 
-    using Reverse;
+    template<typename... OtherTypes>
+    using Append = xieite::types::List<Types..., OtherTypes...>;
 
-    template<typename...>
-    using Append;
+    template<typename... OtherTypes>
+    using Prepend = xieite::types::List<OtherTypes..., Types...>;
+    template<std::size_t start, std::size_t end = sizeof...(Types)>
 
-    template<typename>
-    using AppendRange;
+    using Slice = /* ... */;
 
-    template<typename...>
-    using Prepend;
+    using Reverse = /* ... */;
 
-    template<typename>
-    using PrependRange;
+    template<typename Range>
+    using AppendRange = /* ... */;
 
-    template<std::size_t, std::size_t = sizeof...(Types)>
-    using Slice;
+    template<typename Range>
+    using PrependRange = /* ... */;
 
-    template<std::size_t start, std::size_t = start + 1>
-    using Erase;
+    template<std::size_t start, std::size_t end = start + 1>
+    using Erase = xieite::types::List<Types...>::Slice<0, start>::template AppendRange<xieite::types::List<Types...>::Slice<end>>;
 
-    template<std::size_t, typename...>
-    using Insert;
+    template<std::size_t index, typename... OtherTypes>
+    using Insert = xieite::types::List<Types...>::Slice<0, index>::template Append<OtherTypes...>::template AppendRange<xieite::types::List<Types...>::Slice<index>>;
 
-    template<std::size_t, typename>
-    using InsertRange;
+    template<std::size_t index, typename OtherType>
+    using Set = xieite::types::List<Types...>::Erase<index>::template Insert<index, OtherType>;
 
-    template<std::size_t, typename>
-    using Set;
+    template<std::size_t index1, std::size_t index2>
+    using Swap = xieite::types::List<Types...>::template Set<index1, xieite::types::List<Types...>::At<index2>>::template Set<index2, xieite::types::List<Types...>::At<index1>>;
 
-    template<std::size_t, std::size_t, typename...>
-    using Replace;
+    template<std::size_t index, typename Range>
+    using InsertRange = /* ... */;
 
-    template<std::size_t, std::size_t, typename>
-    using ReplaceRange;
+    template<std::size_t start, std::size_t end, typename... OtherTypes>
+    using Replace = xieite::types::List<Types...>::Erase<start, end>::template Insert<start, OtherTypes...>;
 
-    template<std::size_t, std::size_t>
-    using Swap;
+    template<std::size_t start, std::size_t end, typename Range>
+    using ReplaceRange = /* ... */;
 
-    template<std::size_t, std::size_t, std::size_t, std::size_t>
-    using SwapRanges;
+    template<std::size_t start1, std::size_t end1, std::size_t start2, std::size_t end2>
+    using SwapRanges = xieite::types::List<Types...>::ReplaceRange<start1, end1, xieite::types::List<Types...>::Slice<start2, end2>>::template ReplaceRange<start2, end2, xieite::types::List<Types...>::Slice<start1, end1>>;
 
-    using Unique;
+    using Unique = /* ... */;
 };
 ```
 ##### Member types
