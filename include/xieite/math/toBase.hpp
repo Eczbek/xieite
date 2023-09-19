@@ -6,6 +6,7 @@
 #	include <string_view>
 #	include "../math/AttemptUnsign.hpp"
 #	include "../math/absolute.hpp"
+#	include "../math/negative.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
@@ -24,19 +25,19 @@ namespace xieite::math {
 					result += std::string(1, digits[0]) + digits[1];
 				}
 			} else {
-				const unsigned int absoluteBase = xieite::math::absolute(radix);
+				const unsigned int absoluteRadix = xieite::math::absolute(radix);
 				while (value) {
 					Integer remainder = value % radix;
 					value /= radix;
-					if (remainder < 0) {
-						remainder += absoluteBase;
+					if (xieite::math::negative(remainder)) {
+						remainder += absoluteRadix;
 						++value;
 					}
 					result = digits[remainder * (remainder < digits.size())] + result;
 				}
 			}
 		}
-		if (value < 0) {
+		if (xieite::math::negative(value)) {
 			result = negativeSign + result;
 		}
 		return result;
