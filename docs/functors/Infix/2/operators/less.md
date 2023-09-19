@@ -1,4 +1,4 @@
-# [xieite](../../../../xieite.md)\:\:[functors](../../../../functors.md)\:\:[Infix\<Result\(Argument\), callback\>](../../../Infix.md)\:\:operator\<
+# [xieite](../../../../xieite.md)\:\:[functors](../../../../functors.md)\:\:[Infix\<callback\>](../../../Infix.md)\:\:operator\<
 Defined in header [<xieite/functors/Infix.hpp>](../../../../../include/xieite/functors/Infix.hpp)
 
 &nbsp;
@@ -6,5 +6,13 @@ Defined in header [<xieite/functors/Infix.hpp>](../../../../../include/xieite/fu
 ## Synopses
 #### 1)
 ```cpp
-friend constexpr Result operator<(const Argument& argument, const xieite::functors::Infix<Result(Argument), callback>);
+template<typename Argument>
+requires(std::invocable<decltype(callback), const Argument&>)
+friend constexpr std::invoke_result_t<decltype(callback), const Argument&> operator<(const Argument& argument, xieite::functors::Infix<callback>);
+```
+#### 2)
+```cpp
+template<typename Argument>
+requires(std::invocable<decltype(callback), Argument&>)
+friend constexpr std::invoke_result_t<decltype(callback), Argument&> operator<(Argument& argument, xieite::functors::Infix<callback>);
 ```

@@ -2,42 +2,76 @@
 #	define XIEITE_HEADER__FUNCTORS__INFIX
 
 #	include <concepts>
-#	include "../concepts/Functable.hpp"
+#	include <type_traits>
+#	include "../types/Placeholder.hpp"
 
 namespace xieite::functors {
-	template<typename, auto>
+	template<auto>
 	struct Infix;
 
-	template<typename Result, typename Argument, xieite::concepts::Functable<Result(Argument)> auto callback>
-	struct Infix<Result(Argument), callback> {
-		constexpr Result operator>(const Argument& argument) const {
+	template<std::invocable<xieite::types::Placeholder> auto callback>
+	struct Infix<callback> {
+		template<typename Argument>
+		requires(std::invocable<decltype(callback), const Argument&>)
+		constexpr std::invoke_result_t<decltype(callback), const Argument&> operator>(const Argument& argument) const {
 			return callback(argument);
 		}
 
-		friend constexpr Result operator<(const Argument& argument, const xieite::functors::Infix<Result(Argument), callback>) {
+		template<typename Argument>
+		requires(std::invocable<decltype(callback), Argument&>)
+		constexpr std::invoke_result_t<decltype(callback), Argument&> operator>(Argument& argument) const {
+			return callback(argument);
+		}
+
+		template<typename Argument>
+		requires(std::invocable<decltype(callback), const Argument&>)
+		friend constexpr std::invoke_result_t<decltype(callback), const Argument&> operator<(const Argument& argument, xieite::functors::Infix<callback>) {
+			return callback(argument);
+		}
+
+		template<typename Argument>
+		requires(std::invocable<decltype(callback), Argument&>)
+		friend constexpr std::invoke_result_t<decltype(callback), Argument&> operator<(Argument& argument, xieite::functors::Infix<callback>) {
 			return callback(argument);
 		}
 	};
 
-	template<typename Result, typename LeftArgument, typename RightArgument, xieite::concepts::Functable<Result(LeftArgument, RightArgument)> auto callback>
-	class Infix<Result(LeftArgument, RightArgument), callback> {
+	template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> auto callback>
+	class Infix<callback> {
 	private:
+		template<typename LeftArgument>
 		class Intermediate {
 		public:
 			constexpr Intermediate(const LeftArgument& leftArgument) noexcept
 			: leftArgument(leftArgument) {}
 
-			constexpr Result operator>(const RightArgument& rightArgument) const {
+			template<typename RightArgument>
+			requires(std::invocable<decltype(callback), LeftArgument, const RightArgument&>)
+			constexpr std::invoke_result_t<decltype(callback), LeftArgument, const RightArgument&> operator>(const RightArgument& rightArgument) const {
+				return callback(this->leftArgument, rightArgument);
+			}
+
+			template<typename RightArgument>
+			requires(std::invocable<decltype(callback), LeftArgument, RightArgument&>)
+			constexpr std::invoke_result_t<decltype(callback), LeftArgument, RightArgument&> operator>(RightArgument& rightArgument) {
 				return callback(this->leftArgument, rightArgument);
 			}
 
 		private:
-			const LeftArgument& leftArgument;
+			const LeftArgument leftArgument;
 		};
 
 	public:
-		[[nodiscard]] friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate operator<(const LeftArgument& leftArgument, const xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>) noexcept {
-			return xieite::functors::Infix<Result(LeftArgument, RightArgument), callback>::Intermediate(leftArgument);
+		template<typename LeftArgument>
+		requires(std::invocable<decltype(callback), const LeftArgument&, xieite::types::Placeholder>)
+		[[nodiscard]] friend constexpr Infix<callback>::Intermediate<const LeftArgument&> operator<(const LeftArgument& leftArgument, xieite::functors::Infix<callback>) noexcept {
+			return xieite::functors::Infix<callback>::Intermediate<const LeftArgument&>(leftArgument);
+		}
+
+		template<typename LeftArgument>
+		requires(std::invocable<decltype(callback), LeftArgument&, xieite::types::Placeholder>)
+		[[nodiscard]] friend constexpr Infix<callback>::Intermediate<LeftArgument&> operator<(LeftArgument& leftArgument, xieite::functors::Infix<callback>) noexcept {
+			return xieite::functors::Infix<callback>::Intermediate<LeftArgument&>(leftArgument);
 		}
 	};
 }
