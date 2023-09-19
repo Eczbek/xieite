@@ -14,7 +14,7 @@ namespace xieite::geometry {
 	struct Polygon {
 		std::vector<xieite::geometry::Point> points;
 
-		template<xieite::concepts::RangeOf<xieite::geometry::Point> Range>
+		template<xieite::concepts::RangeOf<xieite::geometry::Point> Range = std::vector<xieite::geometry::Point>>
 		constexpr Polygon(const Range& points) noexcept
 		: points(std::ranges::begin(points), std::ranges::end(points)) {}
 

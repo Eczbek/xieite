@@ -11,6 +11,6 @@ Constructs a `xieite::geometry::Polygon`.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::RangeOf<xieite::geometry::Point> Range>
+template<xieite::concepts::RangeOf<xieite::geometry::Point> Range = std::vector<xieite::geometry::Point>>
 constexpr Polygon(const Range& points) noexcept;
 ```
