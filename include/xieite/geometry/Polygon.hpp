@@ -24,10 +24,12 @@ namespace xieite::geometry {
 
 		constexpr double area() const noexcept {
 			double area = 0;
-			for (const xieite::geometry::Segment& side : this->sides()) {
-				area += side.start.x * side.start.y - side.start.x * side.end.y;
+			const std::size_t pointsSize = this->points.size();
+			for (std::size_t i = 0; i < pointsSize; ++i) {
+				const std::size_t j = (i + 1) % pointsSize;
+				area += std::abs(this->points[i].x * this->points[j].y - this->points[i].y * this->points[j].x);
 			}
-			return std::abs(area) / 2;
+			return area / 2;
 		}
 
 		constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
