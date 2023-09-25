@@ -10,5 +10,5 @@ Defined in header [<xieite/network/Address.hpp>](../../../../include/xieite/netw
 ```
 #### 2)
 ```cpp
-const ::socklen_t size() const noexcept;
+const ::socklen_t* size() const noexcept;
 ```

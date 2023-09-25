@@ -36,8 +36,8 @@ namespace xieite::network {
 			return &this->addressSize;
 		}
 
-		const ::socklen_t size() const noexcept {
-			return this->addressSize;
+		const ::socklen_t* size() const noexcept {
+			return &this->addressSize;
 		}
 
 	protected:
