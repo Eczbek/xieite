@@ -3,7 +3,6 @@
 
 #	include <cmath>
 #	include <concepts>
-#	include <tuple>
 #	include <type_traits>
 #	include <utility>
 
@@ -13,14 +12,22 @@ namespace xieite::types {
 	public:
 		static constexpr std::size_t size = sizeof...(Types);
 
-		using Data = std::tuple<Types...>;
+	private:
+		template<std::size_t, typename...>
+		struct AtHelper;
 
+		template<std::size_t index, typename First, typename... Rest>
+		struct AtHelper<index, First, Rest...>
+		: xieite::types::List<Types...>::AtHelper<index - 1, Rest...> {};
+
+		template<typename First, typename... Rest>
+		struct AtHelper<0, First, Rest...> {
+			using Type = First;
+		};
+
+	public:
 		template<std::size_t index>
-		using At = std::conditional_t<index < sizeof...(Types), std::tuple_element<index, xieite::types::List<Types...>::Data>, std::type_identity<void>>::type;
-
-		using First = xieite::types::List<Types...>::At<0>;
-
-		using Last = xieite::types::List<Types...>::At<sizeof...(Types) - 1>;
+		using At = xieite::types::List<Types...>::AtHelper<index, Types...>::Type;
 
 		template<typename... OtherTypes>
 		using Append = xieite::types::List<Types..., OtherTypes...>;
@@ -46,7 +53,7 @@ namespace xieite::types {
 	private:
 		template<template<typename...> typename Operation, typename... OtherTypes>
 		struct RangeTypesHelper {
-			using Data = Operation<OtherTypes...>;
+			using Type = Operation<OtherTypes...>;
 		};
 
 		template<template<typename...> typename Operation, template<typename...> typename Range, typename... OtherTypes>
@@ -55,10 +62,10 @@ namespace xieite::types {
 
 	public:
 		template<typename Range>
-		using AppendRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::Append, Range>::Data;
+		using AppendRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::Append, Range>::Type;
 
 		template<typename Range>
-		using PrependRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::Prepend, Range>::Data;
+		using PrependRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::Prepend, Range>::Type;
 
 		template<std::size_t start, std::size_t end = start + 1>
 		using Erase = xieite::types::List<Types...>::Slice<0, start>::template AppendRange<xieite::types::List<Types...>::Slice<end>>;
@@ -76,12 +83,12 @@ namespace xieite::types {
 		template<std::size_t index>
 		struct InsertRangeHelper {
 			template<typename... OtherTypes>
-			using Data = xieite::types::List<Types...>::Insert<index, OtherTypes...>;
+			using Type = xieite::types::List<Types...>::Insert<index, OtherTypes...>;
 		};
 
 	public:
 		template<std::size_t index, typename Range>
-		using InsertRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::InsertRangeHelper<index>::template Data, Range>::Data;
+		using InsertRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::InsertRangeHelper<index>::template Type, Range>::Type;
 
 		template<std::size_t start, std::size_t end, typename... OtherTypes>
 		using Replace = xieite::types::List<Types...>::Erase<start, end>::template Insert<start, OtherTypes...>;
@@ -90,27 +97,43 @@ namespace xieite::types {
 		template<std::size_t start, std::size_t end>
 		struct ReplaceRangeHelper {
 			template<typename... OtherTypes>
-			using Data = xieite::types::List<Types...>::Replace<start, end, OtherTypes...>;
+			using Type = xieite::types::List<Types...>::Replace<start, end, OtherTypes...>;
 		};
 
 	public:
 		template<std::size_t start, std::size_t end, typename Range>
-		using ReplaceRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::ReplaceRangeHelper<start, end>::template Data, Range>::Data;
+		using ReplaceRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::ReplaceRangeHelper<start, end>::template Type, Range>::Type;
 
 		template<std::size_t start1, std::size_t end1, std::size_t start2, std::size_t end2>
 		using SwapRanges = xieite::types::List<Types...>::ReplaceRange<start1, end1, xieite::types::List<Types...>::Slice<start2, end2>>::template ReplaceRange<start2, end2, xieite::types::List<Types...>::Slice<start1, end1>>;
 
 	private:
+		template<std::size_t>
+		struct RepeatHelper {
+			using Type = xieite::types::List<>;
+		};
+
+		template<std::size_t count>
+		requires(static_cast<bool>(count))
+		struct RepeatHelper<count> {
+			using Type = xieite::types::List<Types...>::template AppendRange<typename xieite::types::List<Types...>::RepeatHelper<count - 1>::Type>;
+		};
+
+	public:
+		template<std::size_t count>
+		using Repeat = xieite::types::List<Types...>::RepeatHelper<count>::Type;
+
+	private:
 		template<typename... UniqueTypes>
 		struct UniqueHelper {
-			using Data = xieite::types::List<UniqueTypes...>;
+			using Type = xieite::types::List<UniqueTypes...>;
 
 			template<typename Type>
 			consteval std::conditional_t<(... || std::same_as<UniqueTypes, Type>), xieite::types::List<Types...>::UniqueHelper<UniqueTypes...>, xieite::types::List<Types...>::UniqueHelper<UniqueTypes..., Type>> operator->*(xieite::types::List<Types...>::UniqueHelper<Type>) const noexcept;
 		};
 
 	public:
-		using Unique = decltype((xieite::types::List<Types...>::UniqueHelper<>()->*...->*xieite::types::List<Types...>::UniqueHelper<Types>()))::Data;
+		using Unique = decltype((xieite::types::List<Types...>::UniqueHelper<>()->*...->*xieite::types::List<Types...>::UniqueHelper<Types>()))::Type;
 	};
 }
 

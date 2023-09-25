@@ -24,10 +24,10 @@ using Unique = /* ... */;
 int main() {
     using List = xieite::types::List<int, int, char, int, char>::Unique;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<int, char>
+xieite::types::List<int, char>
 ```

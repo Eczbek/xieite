@@ -25,10 +25,10 @@ using InsertRange = /* ... */;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Insert<2, xieite::types::List<float, double>>;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<int, char, float, double, short, long>
+xieite::types::List<int, char, float, double, short, long>
 ```

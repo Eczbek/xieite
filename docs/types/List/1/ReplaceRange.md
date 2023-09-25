@@ -25,10 +25,10 @@ using ReplaceRange = /* ... */;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Replace<2, 1, xieite::types::List<float, double>>;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<int, char, float, double, long>
+xieite::types::List<int, char, float, double, long>
 ```

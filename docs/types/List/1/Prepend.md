@@ -25,10 +25,10 @@ using Prepend = xieite::types::List<Types..., OtherTypes...>;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Prepend<float, double>;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<float, double, int, char, short, long>
+xieite::types::List<float, double, int, char, short, long>
 ```
