@@ -25,10 +25,10 @@ using Set = List<Types...>::Erase<index>::template Insert<index, OtherType>;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Set<2, float>;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<int, char, float, long>
+xieite::types::List<int, char, float, long>
 ```

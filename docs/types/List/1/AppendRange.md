@@ -25,10 +25,10 @@ using AppendRange = /* ... */;
 int main() {
     using List = xieite::types::List<int, char, short, long>::AppendRange<xieite::types::List<float, double>>;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<int, char, short, long, float, double>
+xieite::types::List<int, char, short, long, float, double>
 ```

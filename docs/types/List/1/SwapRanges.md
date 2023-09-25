@@ -25,10 +25,10 @@ using SwapRanges = /* ... */;;
 int main() {
     using List = xieite::types::List<int, char, short, long>::SwapRanges<0, 2, 2, 4>;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<short, long, int, char>
+xieite::types::List<short, long, int, char>
 ```

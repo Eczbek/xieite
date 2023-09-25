@@ -12,25 +12,19 @@ A structure for operating on a list of types.
 #### 1)
 ```cpp
 template<typename... Types>
-struct List {
+class List {
     static constexpr std::size_t size = sizeof...(Types);
 
-    using Data = std::tuple<Types...>;
-
     template<std::size_t index>
-    using At = std::conditional_t<index < sizeof...(Types), std::tuple_element<index, xieite::types::List<Types...>::Data>, std::type_identity<void>>::type;
-
-    using First = xieite::types::List<Types...>::At<0>;
-
-    using Last = xieite::types::List<Types...>::At<sizeof...(Types) - 1>;
+    using At = /* ... */;
 
     template<typename... OtherTypes>
     using Append = xieite::types::List<Types..., OtherTypes...>;
 
     template<typename... OtherTypes>
     using Prepend = xieite::types::List<OtherTypes..., Types...>;
-    template<std::size_t start, std::size_t end = sizeof...(Types)>
 
+    template<std::size_t start, std::size_t end = sizeof...(Types)>
     using Slice = /* ... */;
 
     using Reverse = /* ... */;
@@ -65,26 +59,26 @@ struct List {
     template<std::size_t start1, std::size_t end1, std::size_t start2, std::size_t end2>
     using SwapRanges = xieite::types::List<Types...>::ReplaceRange<start1, end1, xieite::types::List<Types...>::Slice<start2, end2>>::template ReplaceRange<start2, end2, xieite::types::List<Types...>::Slice<start1, end1>>;
 
+    template<std::size_t count>
+    using Repeat = /* ... */;
+
     using Unique = /* ... */;
-};
+    };
 ```
 ##### Member types
-- [Data](./List/1/Data.md)
-- [At](./List/1/At.md)
-- [First](./List/1/First.md)
-- [Last](./List/1/Last.md)
-- [Reverse](./List/1/Reverse.md)
 - [Append](./List/1/Append.md)
 - [AppendRange](./List/1/AppendRange.md)
-- [Prepend](./List/1/Prepend.md)
-- [PrependRange](./List/1/PrependRange.md)
-- [Slice](./List/1/Slice.md)
+- [At](./List/1/At.md)
 - [Erase](./List/1/Erase.md)
 - [Insert](./List/1/Insert.md)
 - [InsertRange](./List/1/InsertRange.md)
-- [Set](./List/1/Set.md)
+- [Prepend](./List/1/Prepend.md)
+- [PrependRange](./List/1/PrependRange.md)
 - [Replace](./List/1/Replace.md)
 - [ReplaceRange](./List/1/ReplaceRange.md)
+- [Reverse](./List/1/Reverse.md)
+- [Set](./List/1/Set.md)
+- [Slice](./List/1/Slice.md)
 - [Swap](./List/1/Swap.md)
 - [SwapRanges](./List/1/SwapRanges.md)
 - [Unique](./List/1/Unique.md)
@@ -105,10 +99,10 @@ int main() {
     using Baz = Bar::Reverse;
     using Qux = Baz::Erase<3>;
 
-    std::cout << xieite::types::demangle(typeid(Qux::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(Qux).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<double, float, long, char, int>
+xieite::types::List<double, float, long, char, int>
 ```

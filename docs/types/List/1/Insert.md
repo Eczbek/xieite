@@ -25,10 +25,10 @@ using Insert = List<Types...>::Slice<0, index>::template Append<OtherTypes...>::
 int main() {
     using List = xieite::types::List<int, char, short, long>::Insert<2, float, double>;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<int, char, float, double, short, long>
+xieite::types::List<int, char, float, double, short, long>
 ```

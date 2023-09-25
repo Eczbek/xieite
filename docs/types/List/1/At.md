@@ -11,7 +11,7 @@ Accesses a type by index.
 #### 1)
 ```cpp
 template<std::size_t index>
-using At = std::conditional_t<index < sizeof...(Types), std::tuple_element<index, List<Types...>::Data>, std::type_identity<void>>::type;
+using At = /* ... */;
 ```
 
 &nbsp;

@@ -24,10 +24,10 @@ using Reverse = /* ... */;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Reverse;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<long, short, char, int>
+xieite::types::List<long, short, char, int>
 ```

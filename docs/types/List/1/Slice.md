@@ -25,10 +25,10 @@ using Slice = /* ... */;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Slice<1, 3>;
 
-    std::cout << xieite::types::demangle(typeid(List::Data).name()) << '\n';
+    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
 }
 ```
 Output:
 ```
-std::tuple<char, short>
+xieite::types::List<char, short>
 ```
