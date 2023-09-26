@@ -1,5 +1,5 @@
-# [xieite](../xieite.md)\:\:[meta](../meta.md)\:\:Version
-Defined in header [<xieite/meta/Version.hpp>](../../include/xieite/meta/Version.hpp)
+# [xieite](../xieite.md)\:\:[metadata](../metadata.md)\:\:Version
+Defined in header [<xieite/metadata/Version.hpp>](../../include/xieite/metadata/Version.hpp)
 
 &nbsp;
 
@@ -19,9 +19,9 @@ struct Version {
 
     constexpr Version(std::size_t = 0, std::size_t = 0, std::size_t = 0, std::string_view = "");
 
-    friend constexpr std::strong_ordering operator<=>(const xieite::meta::Version&, const xieite::meta::Version&);
+    friend constexpr std::strong_ordering operator<=>(const xieite::metadata::Version&, const xieite::metadata::Version&);
 
-    friend constexpr bool operator==(const xieite::meta::Version&, const xieite::meta::Version&);
+    friend constexpr bool operator==(const xieite::metadata::Version&, const xieite::metadata::Version&);
 
     constexpr std::string string() const;
 };
@@ -42,10 +42,10 @@ struct Version {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/meta/Version.hpp>
+#include <xieite/metadata/Version.hpp>
 
 int main() {
-    std::cout << xieite::meta::Version(1, 43, 998, "alpha").string() << '\n';
+    std::cout << xieite::metadata::Version(1, 43, 998, "alpha").string() << '\n';
 }
 ```
 Output:

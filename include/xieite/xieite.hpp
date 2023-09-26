@@ -3,6 +3,7 @@
 
 #	include "./algorithms.hpp"
 #	include "./concepts.hpp"
+#	include "./containers.hpp"
 #	include "./functors.hpp"
 #	include "./geometry.hpp"
 #	include "./graphics.hpp"
@@ -10,7 +11,7 @@
 #	include "./macros.hpp"
 #	include "./math.hpp"
 #	include "./memory.hpp"
-#	include "./meta.hpp"
+#	include "./metadata.hpp"
 #	include "./network.hpp"
 #	include "./random.hpp"
 #	include "./strings.hpp"

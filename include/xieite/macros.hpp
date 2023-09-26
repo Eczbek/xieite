@@ -12,7 +12,6 @@
 #	include "./macros/FORCE_INLINE.hpp"
 #	include "./macros/FUNCTION_SIGNATURE.hpp"
 #	include "./macros/LOOP.hpp"
-#	include "./macros/MATRIX.hpp"
 #	include "./macros/NO_RETURN.hpp"
 #	include "./macros/OBSTRUCT.hpp"
 #	include "./macros/PACKED.hpp"

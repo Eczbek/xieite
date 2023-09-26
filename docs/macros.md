@@ -20,7 +20,6 @@ Macros.
 - [XIEITE__FORCE_INLINE](./macros/FORCE_INLINE.md)
 - [XIEITE__FUNCTION_SIGNATURE](./macros/FUNCTION_SIGNATURE.md)
 - [XIEITE__LOOP](./macros/LOOP.md)
-- [XIEITE__MATRIX](./macros/MATRIX.md)
 - [XIEITE__NO_RETURN](./macros/NO_RETURN.md)
 - [XIEITE__OBSTRUCT](./macros/OBSTRUCT.md)
 - [XIEITE__REPEAT](./macros/REPEAT.md)
