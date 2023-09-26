@@ -4,7 +4,6 @@ Aggregated in header [<xieite/xieite.hpp>](../include/xieite/xieite.hpp)
 &nbsp;
 
 ## Contents
-- [XIEITE_...](./macros.md)
 - [algorithms](./algorithms.md)
 - [concepts](./concepts.md)
 - [containers](./containers.md)
@@ -12,6 +11,7 @@ Aggregated in header [<xieite/xieite.hpp>](../include/xieite/xieite.hpp)
 - [geometry](./geometry.md)
 - [graphics](./graphics.md)
 - [literals](./literals.md)
+- [XIEITE_...](./macros.md)
 - [math](./math.md)
 - [memory](./memory.md)
 - [metadata](./metadata.md)
