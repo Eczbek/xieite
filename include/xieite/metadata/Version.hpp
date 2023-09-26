@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER__META__VERSION
-#	define XIEITE_HEADER__META__VERSION
+#ifndef XIEITE_HEADER__METADATA__VERSION
+#	define XIEITE_HEADER__METADATA__VERSION
 
 #	include <compare>
 #	include <cstddef>
@@ -7,7 +7,7 @@
 #	include <string_view>
 #	include "../math/toBase.hpp"
 
-namespace xieite::meta {
+namespace xieite::metadata {
 	struct Version {
 		std::size_t major;
 		std::size_t minor;
@@ -17,11 +17,11 @@ namespace xieite::meta {
 		constexpr Version(const std::size_t major = 0, const std::size_t minor = 0, const std::size_t patch = 0, const std::string_view label = "") noexcept
 		: major(major), minor(minor), patch(patch), label(label) {}
 
-		friend constexpr std::strong_ordering operator<=>(const xieite::meta::Version& version1, const xieite::meta::Version& version2) noexcept {
+		friend constexpr std::strong_ordering operator<=>(const xieite::metadata::Version& version1, const xieite::metadata::Version& version2) noexcept {
 			return (version1.major != version2.major) ? (version1.major <=> version2.major) : ((version1.minor != version2.minor) ? (version1.minor <=> version2.minor) : (version1.patch <=> version2.patch));
 		}
 
-		friend constexpr bool operator==(const xieite::meta::Version& version1, const xieite::meta::Version& version2) noexcept {
+		friend constexpr bool operator==(const xieite::metadata::Version& version1, const xieite::metadata::Version& version2) noexcept {
 			return std::is_eq(version1 <=> version2);
 		}
 
