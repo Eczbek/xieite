@@ -19,9 +19,7 @@ namespace xieite::math {
 			}
 			return results;
 		}
-		return std::vector<xieite::math::Result<Numbers...>> {
-			0
-		};
+		return std::vector<xieite::math::Result<Numbers...>>();
 	}
 }
 
