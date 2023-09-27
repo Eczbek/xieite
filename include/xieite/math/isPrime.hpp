@@ -6,10 +6,10 @@
 namespace xieite::math {
 	template<xieite::concepts::Integer Integer>
 	constexpr bool isPrime(const Integer value) noexcept {
-		if (value < 2) {
+		if ((value < 2) || (value > 2) && !(value % 2)) {
 			return false;
 		}
-		for (Integer i = 2; (i * i) <= value; ++i) {
+		for (Integer i = 3; (i * i) <= value; i += 2) {
 			if (!(value % i)) {
 				return false;
 			}
