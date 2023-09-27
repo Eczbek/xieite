@@ -66,7 +66,7 @@ constexpr std::uintptr_t operator""_uptr(const unsigned long long int value) noe
 #include <xieite/literals/integers.hpp>
 
 int main() {
-	std::cout << -1_u64 << '\n';
+    std::cout << -1_u64 << '\n';
 }
 ```
 Output:
