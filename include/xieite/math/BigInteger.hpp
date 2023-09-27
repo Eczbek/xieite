@@ -576,7 +576,7 @@ namespace xieite::math {
 		}
 
 		constexpr xieite::math::BigInteger<Datum> root(const xieite::math::BigInteger<Datum>& degree) const {
-			if (this-->negative) {
+			if (this->negative) {
 				throw std::domain_error("Cannot take root of negative radicand");
 			}
 			if (*this == 1) {
@@ -604,7 +604,7 @@ namespace xieite::math {
 			if (!base) {
 				return base;
 			}
-			if (this-->negative) {
+			if (this->negative) {
 				throw std::domain_error("Cannot take logarithm of negative anti-logarithm");
 			}
 			if (base == 1) {
