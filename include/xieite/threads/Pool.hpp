@@ -17,17 +17,20 @@ namespace xieite::threads {
 		}
 
 		~Pool() {
+			auto threadsLock = std::unique_lock<std::mutex>(this->mutex);
 			for (std::jthread& thread : this->threads) {
 				thread.request_stop();
 			}
-			this->jobsCondition.notify_all();
+			threadsLock.unlock();
+			this->condition.notify_all();
 		}
 
 		void setThreadCount(std::size_t threadCount) {
 			if (!threadCount) {
 				throw std::invalid_argument("Cannot resize thread pool to zero");
 			}
-			const std::size_t currentThreadCount = std::ranges::size(this->threads);
+			const auto threadsLock = std::unique_lock<std::mutex>(this->mutex);
+			const std::size_t currentThreadCount = this->thread.size();
 			if (threadCount < currentThreadCount) {
 				this->threads.resize(threadCount);
 				return;
@@ -35,11 +38,11 @@ namespace xieite::threads {
 			while (threadCount-- > currentThreadCount) {
 				this->threads.emplace_back([this](const std::stop_token stopToken) {
 					while (true) {
-						auto jobsLock = std::unique_lock<std::mutex>(this->jobsMutex);
-						this->jobsCondition.wait(jobsLock, [this, stopToken] {
-							return std::ranges::size(this->jobs) || stopToken.stop_requested();
+						auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
+						this->condition.wait(jobsLock, [this, stopToken] {
+							return this->jobs.size() || stopToken.stop_requested();
 						});
-						if (!std::ranges::size(this->jobs) && stopToken.stop_requested()) {
+						if (!this->jobs.size() && stopToken.stop_requested()) {
 							break;
 						}
 						std::function<void()> job = this->jobs.front();
@@ -52,21 +55,21 @@ namespace xieite::threads {
 		}
 
 		std::size_t getThreadCount() const noexcept {
-			return std::ranges::size(this->threads);
+			return this->threads.size();
 		}
 
 		void enqueue(const std::function<void()>& job) noexcept {
-			auto jobsLock = std::unique_lock<std::mutex>(this->jobsMutex);
+			auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
 			this->jobs.push(job);
 			jobsLock.unlock();
-			this->jobsCondition.notify_one();
+			this->condition.notify_one();
 		}
 
 	private:
 		std::vector<std::jthread> threads;
 		std::queue<std::function<void()>> jobs;
-		std::mutex jobsMutex;
-		std::condition_variable jobsCondition;
+		std::mutex mutex;
+		std::condition_variable condition;
 	};
 }
 
