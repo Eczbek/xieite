@@ -4,7 +4,6 @@
 namespace xieite::streams {
 	enum struct Key
 	: char {
-		Unknown = '\0',
 		Pause = '\0',
 		Null = '\0',
 		ControlA = '\x01',
@@ -163,7 +162,8 @@ namespace xieite::streams {
 		ArrowRight = xieite::streams::Key::NumpadDigit6,
 		ArrowLeft = xieite::streams::Key::NumpadDigit4,
 		End = xieite::streams::Key::NumpadDigit1,
-		Home = xieite::streams::Key::NumpadDigit7
+		Home = xieite::streams::Key::NumpadDigit7,
+		Unknown = '\0'
 	};
 }
 
