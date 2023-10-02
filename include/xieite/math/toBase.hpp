@@ -18,23 +18,21 @@ namespace xieite::math {
 		xieite::math::AttemptUnsign<Integer> absoluteValue = xieite::math::absolute(value);
 		if (radix == 1) {
 			result = std::string(absoluteValue, digits[1]);
+		} else if (radix == -1) {
+			result = digits[1];
+			while (--absoluteValue) {
+				result += std::string(1, digits[0]) + digits[1];
+			}
 		} else {
-			if (radix == -1) {
-				result = digits[1];
-				while (--absoluteValue) {
-					result += std::string(1, digits[0]) + digits[1];
+			const unsigned int absoluteRadix = xieite::math::absolute(radix);
+			while (value) {
+				Integer remainder = value % radix;
+				value /= radix;
+				if (xieite::math::negative(remainder)) {
+					remainder += absoluteRadix;
+					++value;
 				}
-			} else {
-				const unsigned int absoluteRadix = xieite::math::absolute(radix);
-				while (value) {
-					Integer remainder = value % radix;
-					value /= radix;
-					if (xieite::math::negative(remainder)) {
-						remainder += absoluteRadix;
-						++value;
-					}
-					result = digits[remainder * (remainder < digits.size())] + result;
-				}
+				result = digits[remainder * (remainder < digits.size())] + result;
 			}
 		}
 		if (xieite::math::negative(value)) {

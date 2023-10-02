@@ -630,18 +630,16 @@ namespace xieite::math {
 			std::size_t absoluteValue = absolute;
 			if (radix == 1) {
 				result = std::string(absoluteValue, digits[1]);
+			} else if (radix == -1) {
+				result = digits[1];
+				while (absoluteValue-- > 1) {
+					result += std::string(1, digits[0]) + digits[1];
+				}
 			} else {
-				if (radix == -1) {
-					result = digits[1];
-					while (absoluteValue-- > 1) {
-						result += std::string(1, digits[0]) + digits[1];
-					}
-				} else {
-					while (absolute) {
-						const std::size_t index = absolute % radix;
-						result = digits[index * (index < digits.size())] + result;
-						absolute /= radix;
-					}
+				while (absolute) {
+					const std::size_t index = absolute % radix;
+					result = digits[index * (index < digits.size())] + result;
+					absolute /= radix;
 				}
 			}
 			if (this->negative) {
