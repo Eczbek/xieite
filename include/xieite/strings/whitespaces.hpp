@@ -4,7 +4,7 @@
 #	include <string_view>
 
 namespace xieite::strings {
-	inline constexpr std::string_view whitespaces = "\x9\xA\xB\xC\xD\x20\x85\xA0";
+	inline constexpr std::string_view whitespaces = "\t\n\v\f\r ";
 }
 
 #endif

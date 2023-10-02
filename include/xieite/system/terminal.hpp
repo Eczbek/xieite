@@ -2,10 +2,10 @@
 #	define XIEITE_HEADER__SYSTEM__TERMINAL
 
 #	include <iostream>
-#	include "../system/StandardStreamsController.hpp"
+#	include "../streams/StandardController.hpp"
 
 namespace xieite::system {
-	inline const auto terminal = xieite::system::StandardStreamsController<std::cin, std::cout>();
+	inline const xieite::streams::StandardController<std::cin, std::cout> terminal;
 }
 
 #endif

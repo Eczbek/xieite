@@ -3,6 +3,7 @@
 
 #	include "./strings/fromRomanNumerals.hpp"
 #	include "./strings/hash.hpp"
+#	include "./strings/isDigit.hpp"
 #	include "./strings/lowercase.hpp"
 #	include "./strings/radiotelephonySpellingAlphabet.hpp"
 #	include "./strings/repeat.hpp"

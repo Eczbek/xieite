@@ -22,7 +22,7 @@
 #	include "../math/negative.hpp"
 #	include "../math/splitBoolean.hpp"
 #	include "../strings/lowercase.hpp"
-#	include "../system/bitsPerByte.hpp"
+#	include "../system/byteBits.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral Datum = std::uint64_t>
@@ -56,7 +56,7 @@ namespace xieite::math {
 						shiftBytes = 0;
 						this->data.push_back(0);
 					}
-					this->data.back() |= otherDatum << (shiftBytes * xieite::system::bitsPerByte);
+					this->data.back() |= otherDatum << (shiftBytes * xieite::system::byteBits);
 					shiftBytes += sizeof(OtherDatum);
 				}
 				return;
@@ -64,7 +64,7 @@ namespace xieite::math {
 			for (const OtherDatum otherDatum : value.data) {
 				std::size_t shiftBytes = 0;
 				do {
-					this->data.push_back(static_cast<Datum>(otherDatum >> (shiftBytes * xieite::system::bitsPerByte)));
+					this->data.push_back(static_cast<Datum>(otherDatum >> (shiftBytes * xieite::system::byteBits)));
 					shiftBytes += sizeof(Datum);
 				} while (shiftBytes < sizeof(OtherDatum));
 			}

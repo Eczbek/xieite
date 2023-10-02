@@ -11,6 +11,7 @@ String manipulation functions.
 ## Contents
 - [fromRomanNumerals](./strings/fromRomanNumerals.md)
 - [hash](./strings/hash.md)
+- [isDigit](./strings/isDigit.md)
 - [lowercase](./strings/lowercase.md)
 - [radiotelephonySpellingAlphabet](./strings/radiotelephonySpellingAlphabet.md)
 - [repeat](./strings/repeat.md)

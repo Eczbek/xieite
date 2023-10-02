@@ -9,12 +9,7 @@ Tools for interacting with the system.
 &nbsp;
 
 ## Contents
-- [BufferPosition](./system/BufferPosition.md)
-- [StandardStreamsController](./system/StandardStreamsController.md)
-- [bitsPerByte](./system/bitsPerByte.md)
-- [closeFilePipe](./system/closeFilePipe.md)
+- [byteBits](./system/byteBits.md)
 - [execute](./system/execute.md)
-- [getStreamFile](./system/getStreamFile.md)
-- [openFilePipe](./system/openFilePipe.md)
 - [segmentationFault](./system/segmentationFault.md)
 - [terminal](./system/terminal.md)

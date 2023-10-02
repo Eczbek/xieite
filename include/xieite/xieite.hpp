@@ -14,6 +14,7 @@
 #	include "./metadata.hpp"
 #	include "./network.hpp"
 #	include "./random.hpp"
+#	include "./streams.hpp"
 #	include "./strings.hpp"
 #	include "./system.hpp"
 #	include "./threads.hpp"

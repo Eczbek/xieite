@@ -6,14 +6,14 @@
 #	include <string_view>
 #	include "../functors/ScopeGuard.hpp"
 #	include "../memory/getPageSize.hpp"
-#	include "../system/closeFilePipe.hpp"
-#	include "../system/openFilePipe.hpp"
+#	include "../streams/closePipe.hpp"
+#	include "../streams/openPipe.hpp"
 
 namespace xieite::system {
 	inline std::string execute(const std::string_view command) noexcept {
-		std::FILE* const pipe = xieite::system::openFilePipe(command.data(), "r");
-		const xieite::functors::ScopeGuard pipeGuard([pipe] {
-			xieite::system::closeFilePipe(pipe);
+		std::FILE* const pipe = xieite::streams::openPipe(command.data(), "r");
+		const xieite::functors::ScopeGuard pipeGuard = xieite::functors::ScopeGuard([pipe] {
+			xieite::streams::closePipe(pipe);
 		});
 		const std::size_t pageSize = xieite::memory::getPageSize();
 		std::string result;

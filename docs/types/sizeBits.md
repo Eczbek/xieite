@@ -12,5 +12,5 @@ Defines number of bits in a type
 #### 1)
 ```cpp
 template<typename Type>
-inline constexpr std::size_t sizeBits = sizeof(Type) * xieite::system::bitsPerByte;
+inline constexpr std::size_t sizeBits = sizeof(Type) * xieite::system::byteBits;
 ```
