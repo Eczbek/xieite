@@ -28,12 +28,16 @@ int main() {
     switch (xieite::system::terminal.readKey()) {
         case xieite::streams::Key::ArrowUp:
             std::cout << "Up\n";
+            break;
         case xieite::streams::Key::ArrowDown:
             std::cout << "Down\n";
+            break;
         case xieite::streams::Key::ArrowRight:
             std::cout << "Left\n";
+            break;
         case xieite::streams::Key::ArrowLeft:
             std::cout << "Right\n";
+            break;
         default:
             std::cout << "None\n";
     }
