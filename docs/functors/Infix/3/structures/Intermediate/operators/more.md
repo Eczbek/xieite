@@ -8,11 +8,11 @@ Defined in header [<xieite/functors/Infix.hpp>](../../../../../../../include/xie
 ```cpp
 template<typename RightArgument>
 requires(std::invocable<decltype(callback), LeftArgument, const RightArgument&>)
-constexpr std::invoke_result_t<decltype(callback), LeftArgument, const RightArgument&> operator>(const RightArgument& rightArgument) const;
+friend constexpr std::invoke_result_t<decltype(callback), LeftArgument, const RightArgument&> operator>(xieite::functors::Infix<callback>::Intermediate<LeftArgument>& infixIntermediate, const RightArgument& rightArgument);
 ```
 #### 2)
 ```cpp
 template<typename RightArgument>
 requires(std::invocable<decltype(callback), LeftArgument, RightArgument&>)
-constexpr std::invoke_result_t<decltype(callback), LeftArgument, RightArgument&> operator>(RightArgument& rightArgument);
+friend constexpr std::invoke_result_t<decltype(callback), LeftArgument, RightArgument&> operator>(xieite::functors::Infix<callback>::Intermediate<LeftArgument>& infixIntermediate, RightArgument& rightArgument);
 ```

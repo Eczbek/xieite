@@ -8,11 +8,9 @@ Defined in header [<xieite/functors/Infix.hpp>](../../../../../include/xieite/fu
 ```cpp
 template<typename Argument>
 requires(std::invocable<decltype(callback), const Argument&>)
-constexpr std::invoke_result_t<decltype(callback), const Argument&> operator>(const Argument& argument) const;
+friend constexpr std::invoke_result_t<decltype(callback), const Argument&> operator>(xieite::functors::Infix<callback>, const Argument& argument);
 ```
 #### 2)
 ```cpp
-template<typename Argument>
-requires(std::invocable<decltype(callback), Argument&>)
-constexpr std::invoke_result_t<decltype(callback), Argument&> operator>(Argument& argument) const;
+friend constexpr std::invoke_result_t<decltype(callback), Argument&> operator>(xieite::functors::Infix<callback>, Argument& argument);
 ```

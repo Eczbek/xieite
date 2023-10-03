@@ -55,6 +55,7 @@ namespace xieite::threads {
 		}
 
 		std::size_t getThreadCount() const noexcept {
+			const auto threadsLock = std::unique_lock<std::mutex>(this->mutex);
 			return this->threads.size();
 		}
 

@@ -12,7 +12,5 @@ friend constexpr std::invoke_result_t<decltype(callback), const Argument&> opera
 ```
 #### 2)
 ```cpp
-template<typename Argument>
-requires(std::invocable<decltype(callback), Argument&>)
 friend constexpr std::invoke_result_t<decltype(callback), Argument&> operator<(Argument& argument, xieite::functors::Infix<callback>);
 ```

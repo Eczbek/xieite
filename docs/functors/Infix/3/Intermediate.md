@@ -16,13 +16,15 @@ class Intermediate {
 public:
     constexpr Intermediate(const LeftArgument&) noexcept;
 
+    constexpr auto operator=(const xieite::functions::Infix<callback>::Intermediate<LeftArgument>&) = delete;
+
     template<typename RightArgument>
     requires(std::invocable<decltype(callback), LeftArgument, const RightArgument&>)
-    constexpr std::invoke_result_t<decltype(callback), LeftArgument, const RightArgument&> operator>(const RightArgument&) const;
+    friend constexpr std::invoke_result_t<decltype(callback), LeftArgument, const RightArgument&> operator>(xieite::functors::Infix<callback>::Intermediate<LeftArgument>&, const RightArgument&);
 
     template<typename RightArgument>
     requires(std::invocable<decltype(callback), LeftArgument, RightArgument&>)
-    constexpr std::invoke_result_t<decltype(callback), LeftArgument, RightArgument&> operator>(RightArgument&);
+    friend constexpr std::invoke_result_t<decltype(callback), LeftArgument, RightArgument&> operator>(xieite::functors::Infix<callback>::Intermediate<LeftArgument>&, RightArgument&);
 };
 ```
 ##### Member functions

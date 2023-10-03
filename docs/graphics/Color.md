@@ -21,7 +21,7 @@ struct Color {
 
     constexpr Color(std::uint32_t);
 
-    constexpr bool operator==(const xieite::graphics::Color&) const;
+    friend constexpr bool operator==(const xieite::graphics::Color&, const xieite::graphics::Color&);
 
     constexpr std::uint32_t value();
 };

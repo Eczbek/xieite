@@ -17,7 +17,7 @@ struct Point {
 
     constexpr Point(double = 0, double = 0);
 
-    friend constexpr bool operator==(xieite::geometry::Point);
+    friend constexpr bool operator==(xieite::geometry::Point, xieite::geometry::Point);
 };
 ```
 ##### Member variables
