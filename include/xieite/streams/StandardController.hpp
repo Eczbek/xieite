@@ -82,51 +82,51 @@ namespace xieite::streams {
 		}
 
 		void setForegroundColor(const xieite::graphics::Color& color) const noexcept {
-			outputStream << "\x1b[38;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
+			outputStream << "\x1B[38;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
 		void resetForegroundColor() const noexcept {
-			outputStream << "\x1b[38m";
+			outputStream << "\x1B[38m";
 		}
 
 		void setBackgroundColor(const xieite::graphics::Color& color) const noexcept {
-			outputStream << "\x1b[48;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
+			outputStream << "\x1B[48;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
 		void resetBackgroundColor() const noexcept {
-			outputStream << "\x1b[48m";
+			outputStream << "\x1B[48m";
 		}
 
 		void setTextBold(const bool value) const noexcept {
-			outputStream << "\x1b[" << (21 - value * 20) << 'm';
+			outputStream << "\x1B[" << (21 - value * 20) << 'm';
 		}
 
 		void setTextItalic(const bool value) const noexcept {
-			outputStream << "\x1b[" << (23 - value * 20) << 'm';
+			outputStream << "\x1B[" << (23 - value * 20) << 'm';
 		}
 
 		void setTextUnderline(const bool value) const noexcept {
-			outputStream << "\x1b[" << (24 - value * 20) << 'm';
+			outputStream << "\x1B[" << (24 - value * 20) << 'm';
 		}
 
 		void setTextBlinking(const bool value) const noexcept {
-			outputStream << "\x1b[" << (25 - value * 20) << 'm';
+			outputStream << "\x1B[" << (25 - value * 20) << 'm';
 		}
 
 		void setColorsSwapped(const bool value) const noexcept {
-			outputStream << "\x1b[" << (27 - value * 20) << 'm';
+			outputStream << "\x1B[" << (27 - value * 20) << 'm';
 		}
 
 		void setTextVisible(const bool value) const noexcept {
-			outputStream << "\x1b[" << (8 + value * 20) << 'm';
+			outputStream << "\x1B[" << (8 + value * 20) << 'm';
 		}
 
 		void setTextStrikethrough(const bool value) const noexcept {
-			outputStream << "\x1b[" << (29 - value * 20) << 'm';
+			outputStream << "\x1B[" << (29 - value * 20) << 'm';
 		}
 
 		void resetStyles() const noexcept {
-			outputStream << "\x1b[0m";
+			outputStream << "\x1B[0m";
 		}
 
 		void resetModes() const noexcept {
@@ -135,46 +135,46 @@ namespace xieite::streams {
 		}
 
 		void clearScreen() const noexcept {
-			outputStream << "\x1b[2J";
+			outputStream << "\x1B[2J";
 		}
 
 		void clearLine() const noexcept {
-			outputStream << "\x1b[2K";
+			outputStream << "\x1B[2K";
 		}
 
 		xieite::streams::Position getCursorPosition() const noexcept {
 			const bool canonical = this->canonical;
 			this->setInputCanonical(false);
-			outputStream << "\x1b[6n";
+			outputStream << "\x1B[6n";
 			xieite::streams::Position position;
-			std::fscanf(this->inputStreamFile, "\x1b[%i;%iR", &position.row, &position.column);
+			std::fscanf(this->inputStreamFile, "\x1B[%i;%iR", &position.row, &position.column);
 			this->setInputCanonical(canonical);
 			return xieite::streams::Position(position.row - 1, position.column - 1);
 		}
 
 		void setCursorPosition(const xieite::streams::Position position) const noexcept {
-			outputStream << "\x1b[" << (position.row + 1) << ';' << (position.column + 1) << 'H';
+			outputStream << "\x1B[" << (position.row + 1) << ';' << (position.column + 1) << 'H';
 		}
 
 		void moveCursorPosition(const xieite::streams::Position difference) const noexcept {
 			if (difference.row) {
-				outputStream << "\x1b[" << std::abs(difference.row) << "CD"[difference.row < 0];
+				outputStream << "\x1B[" << std::abs(difference.row) << "CD"[difference.row < 0];
 			}
 			if (difference.column) {
-				outputStream << "\x1b[" << std::abs(difference.column) << "BA"[difference.column < 0];
+				outputStream << "\x1B[" << std::abs(difference.column) << "BA"[difference.column < 0];
 			}
 		}
 
 		void setCursorVisible(const bool value) const noexcept {
-			outputStream << "\x1b[?25" << "lh"[value];
+			outputStream << "\x1B[?25" << "lh"[value];
 		}
 
 		void setCursorAlternative(const bool value) const noexcept {
-			outputStream << "\x1b[" << static_cast<char>(117 - value * 2);
+			outputStream << "\x1B[" << static_cast<char>(117 - value * 2);
 		}
 
 		void setScreenAlternative(const bool value) const noexcept {
-			outputStream << "\x1b[?47" << "lh"[value];
+			outputStream << "\x1B[?47" << "lh"[value];
 		}
 
 		xieite::streams::Position getScreenSize() const noexcept {
@@ -595,7 +595,7 @@ namespace xieite::streams {
 
 		void backspace(const std::size_t count) const noexcept {
 			if (count) {
-				outputStream << "\x1b[" << count << 'D' << std::string(count, ' ') << "\x1b[" << count << 'D';
+				outputStream << "\x1B[" << count << 'D' << std::string(count, ' ') << "\x1B[" << count << 'D';
 			}
 		}
 
