@@ -16,7 +16,7 @@ struct Pool {
 
     void setThreadCount(std::size_t);
 
-    std::size_t getThreadCount() const;
+    std::size_t getThreadCount();
 
     void enqueue(const std::function<void()>&);
 };
