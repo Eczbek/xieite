@@ -11,5 +11,5 @@ Gets the number of threads currently used.
 ## Synopses
 #### 1)
 ```cpp
-std::size_t getThreadCount() const noexcept;
+std::size_t getThreadCount() noexcept;
 ```
