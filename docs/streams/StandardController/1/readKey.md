@@ -23,7 +23,7 @@ xieite::streams::Key readKey() const noexcept;
 #include <xieite/system/terminal.hpp>
 
 int main() {
-    xieite::system::terminal.putBackString("\x1b[C"); // Right arrow
+    xieite::system::terminal.putBackString("\x1B[C"); // Right arrow
 
     switch (xieite::system::terminal.readKey()) {
         case xieite::streams::Key::ArrowUp:
