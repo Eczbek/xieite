@@ -20,11 +20,11 @@ template<std::invocable<xieite::types::Placeholder> auto callback>
 struct Infix<callback> {
     template<typename Argument>
     requires(std::invocable<decltype(callback), const Argument&>)
-    constexpr std::invoke_result_t<decltype(callback), const Argument&> operator>(const Argument&) const;
+    friend constexpr std::invoke_result_t<decltype(callback), const Argument&> operator>(xieite::functors::Infix<callback>, const Argument&);
 
     template<typename Argument>
     requires(std::invocable<decltype(callback), Argument&>)
-    constexpr std::invoke_result_t<decltype(callback), Argument&> operator>(Argument&) const;
+    friend constexpr std::invoke_result_t<decltype(callback), Argument&> operator>(xieite::functors::Infix<callback>, Argument&);
 
     template<typename Argument>
     requires(std::invocable<decltype(callback), const Argument&>)
@@ -41,7 +41,12 @@ struct Infix<callback> {
 #### 3)
 ```cpp
 template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> auto callback>
-struct Infix<callback> {
+class Infix<callback> {
+private:
+    template<typename LeftArgument>
+    struct Intermediate;
+
+public:
     template<typename LeftArgument>
     requires(std::invocable<decltype(callback), const LeftArgument&, xieite::types::Placeholder>)
     [[nodiscard]] friend constexpr Infix<callback>::Intermediate<const LeftArgument&> operator<(const LeftArgument&, xieite::functors::Infix<callback>) noexcept;

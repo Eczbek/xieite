@@ -24,19 +24,19 @@ namespace xieite::network {
 			this->addressSize = sizeof(this->address);
 		}
 
-		::sockaddr* data() noexcept {
-			return reinterpret_cast<::sockaddr*>(&this->address);
-		}
-
 		const ::sockaddr* data() const noexcept {
 			return reinterpret_cast<const ::sockaddr*>(&this->address);
 		}
 
-		::socklen_t* size() noexcept {
-			return &this->addressSize;
+		::sockaddr* data() noexcept {
+			return reinterpret_cast<::sockaddr*>(&this->address);
 		}
 
 		const ::socklen_t* size() const noexcept {
+			return &this->addressSize;
+		}
+
+		::socklen_t* size() noexcept {
 			return &this->addressSize;
 		}
 

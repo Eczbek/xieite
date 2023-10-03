@@ -14,13 +14,13 @@ A structure to represent an IPv6 address.
 struct Address {
     Address(const std::string& = "::", const std::uint16_t = 1024);
 
-    ::sockaddr* data();
-
     const ::sockaddr* data() const;
 
-    ::socklen_t* size();
+    ::sockaddr* data();
 
     const ::socklen_t* size() const;
+
+    ::socklen_t* size();
 };
 ```
 ##### Member functions

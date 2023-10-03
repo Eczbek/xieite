@@ -14,8 +14,8 @@ namespace xieite::geometry {
 		constexpr Point(const double x = 0, const double y = 0) noexcept
 		: x(x), y(y) {}
 
-		constexpr bool operator==(const xieite::geometry::Point point) const noexcept {
-			return xieite::math::almostEqual(this->x, point.x) && xieite::math::almostEqual(this->y, point.y);
+		friend constexpr bool operator==(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept {
+			return xieite::math::almostEqual(point1.x, point2.x) && xieite::math::almostEqual(point1.y, point2.y);
 		}
 
 		constexpr double angleTo(const xieite::geometry::Point point) const noexcept {
