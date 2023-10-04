@@ -2,7 +2,6 @@
 #	define XIEITE_HEADER__GEOMETRY__RAY
 
 #	include <cmath>
-#	include <limits>
 #	include "../geometry/Line.hpp"
 #	include "../geometry/Point.hpp"
 #	include "../math/almostEqualSlope.hpp"
@@ -27,8 +26,7 @@ namespace xieite::geometry {
 		}
 
 		constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
-			const double slope = this->slope();
-			return std::isinf(slope) ? (xieite::math::almostEqual(point.x, this->start.x) && (slope < std::numeric_limits<double>::lowest()) ? (point.y >= this->start.y) : (point.y <= this->start.y)) : (xieite::math::almostEqual(point.x * slope - this->start.x * slope + this->start.y, point.y) && ((this->start.x <= this->end.x) ? (point.x >= this->start.x) : (point.x <= this->start.x)) && ((this->start.y <= this->end.y) ? (point.y >= this->start.y) : (point.y <= this->start.y)));
+			return xieite::math::almostEqual(this->angle(), this->start.angleTo(point));
 		}
 
 		constexpr double length() const noexcept {

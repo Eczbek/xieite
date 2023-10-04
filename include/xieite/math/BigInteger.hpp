@@ -162,7 +162,7 @@ namespace xieite::math {
 				const Datum augendDatum = (i < augendDataSize) ? augend.data[i] : 0;
 				const Datum addendDatum = (i < addendDataSize) ? addend.data[i] : 0;
 				resultData.push_back(augendDatum + addendDatum + carry);
-				carry = ((std::numeric_limits<Datum>::max() - augendDatum) < carry) || ((std::numeric_limits<Datum>::max() - augendDatum) < addendDatum) || ((std::numeric_limits<Datum>::max() - augendDatum - carry) < addendDatum);
+				carry = (std::numeric_limits<Datum>::max() - augendDatum < carry) || (std::numeric_limits<Datum>::max() - augendDatum < addendDatum) || (std::numeric_limits<Datum>::max() - augendDatum - carry < addendDatum);
 			}
 			return xieite::math::BigInteger<Datum>(resultData, augend.negative);
 		}
@@ -222,7 +222,7 @@ namespace xieite::math {
 			for (std::size_t i = 0; (i < subtrahendDataSize) || borrow; ++i) {
 				const Datum subtrahendDatum = (i < subtrahendDataSize) ? subtrahend.data[i] : 0;
 				resultData.push_back(minuend.data[i] - subtrahendDatum - borrow);
-				borrow = (i < (minuendDataSize - 1)) && ((minuend.data[i] < borrow) || (minuend.data[i] < subtrahendDatum) || ((minuend.data[i] - borrow) < subtrahendDatum));
+				borrow = (i < minuendDataSize - 1) && ((minuend.data[i] < borrow) || (minuend.data[i] < subtrahendDatum) || ((minuend.data[i] - borrow) < subtrahendDatum));
 			}
 			return xieite::math::BigInteger<Datum>(resultData, minuend.negative);
 		}

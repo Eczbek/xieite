@@ -37,7 +37,7 @@ namespace xieite::geometry {
 			const std::size_t pointsSize = this->points.size();
 			for (std::size_t i = 0; i < pointsSize; ++i) {
 				const std::size_t j = (i + 1) % pointsSize;
-				odd ^= ((this->points[i].y < point.y) && (this->points[j].y >= point.y) || (this->points[j].y < point.y) && (this->points[i].y >= point.y)) && ((this->points[i].x <= point.x) || (this->points[j].x <= point.x)) && ((this->points[i].x + (point.y - this->points[i].y) / (this->points[j].y - this->points[i].y) * (this->points[j].x - this->points[i].x)) < point.x);
+				odd ^= ((this->points[i].y < point.y) && (this->points[j].y >= point.y) || (this->points[j].y < point.y) && (this->points[i].y >= point.y)) && ((this->points[i].x <= point.x) || (this->points[j].x <= point.x)) && (this->points[i].x + (point.y - this->points[i].y) / (this->points[j].y - this->points[i].y) * (this->points[j].x - this->points[i].x) < point.x);
 			}
 			if (odd) {
 				return true;
@@ -59,11 +59,10 @@ namespace xieite::geometry {
 		}
 
 		constexpr std::vector<xieite::geometry::Segment> sides() const noexcept {
-			const std::size_t pointsSize = this->points.size();
 			std::vector<xieite::geometry::Segment> sides;
-			sides.reserve(pointsSize);
+			const std::size_t pointsSize = this->points.size();
 			for (std::size_t i = 0; i < pointsSize; ++i) {
-				sides[i] = xieite::geometry::Segment(this->points[i], this->points[(i + 1) % pointsSize]);
+				sides.push_back(xieite::geometry::Segment(this->points[i], this->points[(i + 1) % pointsSize]));
 			}
 			return sides;
 		}

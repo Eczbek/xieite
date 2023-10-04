@@ -28,7 +28,7 @@ namespace xieite::random {
 					const Number start = std::clamp(interruption.start, minimum, maximum);
 					const Number end = std::clamp(interruption.end, minimum, maximum);
 					const Number difference = xieite::math::difference(start, end);
-					if (upper <= (minimum + difference)) {
+					if (upper <= minimum + difference) {
 						throw std::range_error("Cannot exclude entire interval");
 					}
 					upper -= difference + std::integral<Number>;
