@@ -27,8 +27,7 @@ namespace xieite::geometry {
 		}
 
 		constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
-			const double slope = this->slope();
-			return std::isinf(slope) ? xieite::math::almostEqual(point.x, this->start.x) : xieite::math::almostEqual(point.x * slope - this->start.x * slope + this->start.y, point.y);
+			return xieite::math::almostEqual((this->end.x - this->start.x) * (point.y - this->start.y), (this->end.y - this->start.y) * (point.x - this->start.x));
 		}
 
 		constexpr double length() const noexcept {

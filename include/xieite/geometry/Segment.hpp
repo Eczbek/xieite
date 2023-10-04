@@ -21,7 +21,7 @@ namespace xieite::geometry {
 		}
 
 		constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
-			return xieite::math::almostEqual(point.distanceTo(this->start) + point.distanceTo(this->end), this->length());
+			return xieite::math::almostEqual(this->start.distanceTo(point) + this->end.distanceTo(point), this->length());
 		}
 
 		constexpr double length() const noexcept {
