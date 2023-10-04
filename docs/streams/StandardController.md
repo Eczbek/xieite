@@ -11,8 +11,12 @@ A class for controlling standard IO with modes and styles.
 ## Synopses
 #### 1)
 ```cpp
-template<std::istream& inputStream, std::ostream& outputStream>
 struct StandardController {
+    std::istream& inputStream;
+    std::ostream& outputStream;
+
+    StandardController(std::istream&, std::ostream&);
+
     void setInputBlocking(bool) const;
 
     void setInputEcho(bool) const;

@@ -11,5 +11,5 @@ An instance of `xieite::streams::StandardController` specialized to `std::cin` a
 ## Synopses
 #### 1)
 ```cpp
-inline const xieite::streams::StandardController<std::cin, std::cout> terminal;
+inline const xieite::streams::StandardController terminal = xieite::streams::StandardController(std::cin, std::cout);
 ```
