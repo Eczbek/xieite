@@ -1,4 +1,4 @@
-# [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:[StandardController\<inputStream, outputStream\>](../../StandardController.md)\:\:setScreenAlternative
+# [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:[StandardController](../../StandardController.md)\:\:setScreenAlternative
 Defined in header [<xieite/streams/StandardController.hpp>](../../../../include/xieite/streams/StandardController.hpp)
 
 &nbsp;

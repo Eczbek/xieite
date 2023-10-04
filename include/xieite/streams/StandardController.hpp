@@ -27,11 +27,13 @@
 #	include "../streams/getFile.hpp"
 
 namespace xieite::streams {
-	template<std::istream& inputStream, std::ostream& outputStream>
 	class StandardController {
 	public:
-		StandardController() noexcept
-		: inputStreamFile(xieite::streams::getFile(inputStream)), inputFileDescriptor(::fileno(this->inputStreamFile)), blockingStatus(::fcntl(this->inputFileDescriptor, F_GETFL)) {
+		std::istream& inputStream;
+		std::ostream& outputStream;
+
+		StandardController(std::istream& inputStream, std::ostream& outputStream) noexcept
+		: inputStream(inputStream), outputStream(outputStream), inputFile(xieite::streams::getFile(inputStream)), inputFileDescriptor(::fileno(this->inputFile)), blockingStatus(::fcntl(this->inputFileDescriptor, F_GETFL)) {
 			::tcgetattr(this->inputFileDescriptor, &this->cookedMode);
 			this->blocking = !(this->blockingStatus & O_NONBLOCK);
 			this->echo = this->cookedMode.c_lflag & ECHO;
@@ -82,51 +84,51 @@ namespace xieite::streams {
 		}
 
 		void setForegroundColor(const xieite::graphics::Color& color) const noexcept {
-			outputStream << "\x1B[38;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
+			this->outputStream << "\x1B[38;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
 		void resetForegroundColor() const noexcept {
-			outputStream << "\x1B[38m";
+			this->outputStream << "\x1B[38m";
 		}
 
 		void setBackgroundColor(const xieite::graphics::Color& color) const noexcept {
-			outputStream << "\x1B[48;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
+			this->outputStream << "\x1B[48;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
 		}
 
 		void resetBackgroundColor() const noexcept {
-			outputStream << "\x1B[48m";
+			this->outputStream << "\x1B[48m";
 		}
 
 		void setTextBold(const bool value) const noexcept {
-			outputStream << "\x1B[" << (21 - value * 20) << 'm';
+			this->outputStream << "\x1B[" << (21 - value * 20) << 'm';
 		}
 
 		void setTextItalic(const bool value) const noexcept {
-			outputStream << "\x1B[" << (23 - value * 20) << 'm';
+			this->outputStream << "\x1B[" << (23 - value * 20) << 'm';
 		}
 
 		void setTextUnderline(const bool value) const noexcept {
-			outputStream << "\x1B[" << (24 - value * 20) << 'm';
+			this->outputStream << "\x1B[" << (24 - value * 20) << 'm';
 		}
 
 		void setTextBlinking(const bool value) const noexcept {
-			outputStream << "\x1B[" << (25 - value * 20) << 'm';
+			this->outputStream << "\x1B[" << (25 - value * 20) << 'm';
 		}
 
 		void setColorsSwapped(const bool value) const noexcept {
-			outputStream << "\x1B[" << (27 - value * 20) << 'm';
+			this->outputStream << "\x1B[" << (27 - value * 20) << 'm';
 		}
 
 		void setTextVisible(const bool value) const noexcept {
-			outputStream << "\x1B[" << (8 + value * 20) << 'm';
+			this->outputStream << "\x1B[" << (8 + value * 20) << 'm';
 		}
 
 		void setTextStrikethrough(const bool value) const noexcept {
-			outputStream << "\x1B[" << (29 - value * 20) << 'm';
+			this->outputStream << "\x1B[" << (29 - value * 20) << 'm';
 		}
 
 		void resetStyles() const noexcept {
-			outputStream << "\x1B[0m";
+			this->outputStream << "\x1B[0m";
 		}
 
 		void resetModes() const noexcept {
@@ -135,46 +137,46 @@ namespace xieite::streams {
 		}
 
 		void clearScreen() const noexcept {
-			outputStream << "\x1B[2J";
+			this->outputStream << "\x1B[2J";
 		}
 
 		void clearLine() const noexcept {
-			outputStream << "\x1B[2K";
+			this->outputStream << "\x1B[2K";
 		}
 
 		xieite::streams::Position getCursorPosition() const noexcept {
 			const bool canonical = this->canonical;
 			this->setInputCanonical(false);
-			outputStream << "\x1B[6n";
+			this->outputStream << "\x1B[6n";
 			xieite::streams::Position position;
-			std::fscanf(this->inputStreamFile, "\x1B[%i;%iR", &position.row, &position.column);
+			std::fscanf(this->inputFile, "\x1B[%i;%iR", &position.row, &position.column);
 			this->setInputCanonical(canonical);
 			return xieite::streams::Position(position.row - 1, position.column - 1);
 		}
 
 		void setCursorPosition(const xieite::streams::Position position) const noexcept {
-			outputStream << "\x1B[" << (position.row + 1) << ';' << (position.column + 1) << 'H';
+			this->outputStream << "\x1B[" << (position.row + 1) << ';' << (position.column + 1) << 'H';
 		}
 
 		void moveCursorPosition(const xieite::streams::Position difference) const noexcept {
 			if (difference.row) {
-				outputStream << "\x1B[" << std::abs(difference.row) << "CD"[difference.row < 0];
+				this->outputStream << "\x1B[" << std::abs(difference.row) << "CD"[difference.row < 0];
 			}
 			if (difference.column) {
-				outputStream << "\x1B[" << std::abs(difference.column) << "BA"[difference.column < 0];
+				this->outputStream << "\x1B[" << std::abs(difference.column) << "BA"[difference.column < 0];
 			}
 		}
 
 		void setCursorVisible(const bool value) const noexcept {
-			outputStream << "\x1B[?25" << "lh"[value];
+			this->outputStream << "\x1B[?25" << "lh"[value];
 		}
 
 		void setCursorAlternative(const bool value) const noexcept {
-			outputStream << "\x1B[" << static_cast<char>(117 - value * 2);
+			this->outputStream << "\x1B[" << static_cast<char>(117 - value * 2);
 		}
 
 		void setScreenAlternative(const bool value) const noexcept {
-			outputStream << "\x1B[?47" << "lh"[value];
+			this->outputStream << "\x1B[?47" << "lh"[value];
 		}
 
 		xieite::streams::Position getScreenSize() const noexcept {
@@ -186,7 +188,7 @@ namespace xieite::streams {
 		char readCharacter() const noexcept {
 			const bool canonical = this->canonical;
 			this->setInputCanonical(false);
-			const char input = inputStream.get();
+			const char input = this->inputStream.get();
 			this->setInputCanonical(canonical);
 			return input;
 		}
@@ -198,10 +200,10 @@ namespace xieite::streams {
 			this->setInputCanonical(false);
 			std::string input;
 			char buffer;
-			while (inputStream.get(buffer)) {
+			while (this->inputStream.get(buffer)) {
 				input += buffer;
 			}
-			inputStream.clear();
+			this->inputStream.clear();
 			this->setInputBlocking(blocking);
 			this->setInputCanonical(canonical);
 			return input;
@@ -222,7 +224,7 @@ namespace xieite::streams {
 						case 3:
 							return xieite::streams::Key::Null;
 					}
-					inputStream.putback(bar);
+					this->inputStream.putback(bar);
 					break;
 				}
 				case 1:
@@ -292,7 +294,7 @@ namespace xieite::streams {
 								case 83:
 									return xieite::streams::Key::Function4;
 							}
-							inputStream.putback(qux);
+							this->inputStream.putback(qux);
 							break;
 						}
 						case 91: {
@@ -303,7 +305,7 @@ namespace xieite::streams {
 									if (grault == 126) {
 										return xieite::streams::Key::NumpadDigit0;
 									}
-									inputStream.putback(grault);
+									this->inputStream.putback(grault);
 									break;
 								}
 								case 33: {
@@ -311,7 +313,7 @@ namespace xieite::streams {
 									if (garply == 126) {
 										return xieite::streams::Key::NumpadPeriod;
 									}
-									inputStream.putback(garply);
+									this->inputStream.putback(garply);
 									break;
 								}
 								case 35: {
@@ -319,7 +321,7 @@ namespace xieite::streams {
 									if (waldo == 126) {
 										return xieite::streams::Key::NumpadDigit9;
 									}
-									inputStream.putback(waldo);
+									this->inputStream.putback(waldo);
 									break;
 								}
 								case 36: {
@@ -327,7 +329,7 @@ namespace xieite::streams {
 									if (fred == 126) {
 										return xieite::streams::Key::NumpadDigit3;
 									}
-									inputStream.putback(fred);
+									this->inputStream.putback(fred);
 									break;
 								}
 								case 41:
@@ -359,8 +361,8 @@ namespace xieite::streams {
 												return xieite::streams::Key::Function8;
 										}
 									}
-									inputStream.putback(xyzzy);
-									inputStream.putback(plugh);
+									this->inputStream.putback(xyzzy);
+									this->inputStream.putback(plugh);
 									break;
 								}
 								case 50: {
@@ -378,16 +380,16 @@ namespace xieite::streams {
 												return xieite::streams::Key::Function12;
 										}
 									}
-									inputStream.putback(glug);
-									inputStream.putback(thud);
+									this->inputStream.putback(glug);
+									this->inputStream.putback(thud);
 									break;
 								}
 							}
-							inputStream.putback(corge);
+							this->inputStream.putback(corge);
 							break;
 						}
 					}
-					inputStream.putback(baz);
+					this->inputStream.putback(baz);
 					break;
 				}
 				case 32:
@@ -583,24 +585,24 @@ namespace xieite::streams {
 				case 127:
 					return xieite::streams::Key::Backspace;
 			}
-			inputStream.putback(foo);
+			this->inputStream.putback(foo);
 			return xieite::streams::Key::Unknown;
 		}
 
 		void putBackString(const std::string_view value) const noexcept {
 			for (const char character : std::views::reverse(value)) {
-				inputStream.putback(character);
+				this->inputStream.putback(character);
 			}
 		}
 
 		void backspace(const std::size_t count) const noexcept {
 			if (count) {
-				outputStream << "\x1B[" << count << 'D' << std::string(count, ' ') << "\x1B[" << count << 'D';
+				this->outputStream << "\x1B[" << count << 'D' << std::string(count, ' ') << "\x1B[" << count << 'D';
 			}
 		}
 
 	private:
-		std::FILE* const inputStreamFile;
+		std::FILE* const inputFile;
 		const int inputFileDescriptor;
 
 		const int blockingStatus;
