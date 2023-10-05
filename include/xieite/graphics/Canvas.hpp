@@ -9,6 +9,7 @@
 #	include "../geometry/Polygon.hpp"
 #	include "../geometry/Segment.hpp"
 #	include "../graphics/Color.hpp"
+#	include "../math/almostEqual.hpp"
 #	include "../streams/Position.hpp"
 #	include "../streams/StandardController.hpp"
 #	include "../system/terminal.hpp"
@@ -59,16 +60,22 @@ namespace xieite::graphics {
 			this->draw(line.end, color);
 			if ((line.slope() <= 1) && (line.slope() >= -1)) {
 				for (double x = this->center.x - this->radii.x; x <= this->center.x + this->radii.x; ++x) {
-					const std::vector<xieite::geometry::Point> intersections = xieite::geometry::intersections(line, xieite::geometry::Ray(xieite::geometry::Point(x, 0), xieite::geometry::Point(x, 1)));
-					if (intersections.size()) {
-						this->draw(intersections[0], color);
+					const double divisor = line.end.x - line.start.x;
+					if (!xieite::math::almostEqual(divisor, 0)) {
+						const xieite::geometry::Point intersection = xieite::geometry::Point(x, (-(line.start.x * line.end.y - line.start.y * line.end.x) - (line.start.y - line.end.y) * x) / divisor);
+						if (std::same_as<LinearShape, xieite::geometry::Segment> ? (line.start.distanceTo(intersection) + line.end.distanceTo(intersection) - line.length() < 1) : ((std::abs((line.end.x - line.start.x) * (intersection.y - line.start.y) - (line.end.y - line.start.y) * (intersection.x - line.start.x)) < 1) && (std::same_as<LinearShape, xieite::geometry::Line> || (std::same_as<LinearShape, xieite::geometry::Ray> && ((line.start.x <= line.end.x) ? (line.start.x <= intersection.x) : (line.start.x > intersection.x)) && ((line.start.y <= line.end.y) ? (line.start.y <= intersection.y) : (line.start.y > intersection.y)))))) {
+							this->draw(intersection, color);
+						}
 					}
 				}
 			} else {
 				for (double y = this->center.y - this->radii.y; y <= this->center.y + this->radii.y; ++y) {
-					const std::vector<xieite::geometry::Point> intersections = xieite::geometry::intersections(line, xieite::geometry::Ray(xieite::geometry::Point(0, y), xieite::geometry::Point(1, y)));
-					if (intersections.size()) {
-						this->draw(intersections[0], color);
+					const double divisor = line.start.y - line.end.y;
+					if (!xieite::math::almostEqual(divisor, 0)) {
+						const xieite::geometry::Point intersection = xieite::geometry::Point((-(line.start.x * line.end.y - line.start.y * line.end.x) + (line.start.x - line.end.x) * y) / divisor, y);
+						if (std::same_as<LinearShape, xieite::geometry::Segment> ? (line.start.distanceTo(intersection) + line.end.distanceTo(intersection) - line.length() < 1) : ((std::abs((line.end.x - line.start.x) * (intersection.y - line.start.y) - (line.end.y - line.start.y) * (intersection.x - line.start.x)) < 1) && (std::same_as<LinearShape, xieite::geometry::Line> || (std::same_as<LinearShape, xieite::geometry::Ray> && ((line.start.x <= line.end.x) ? (line.start.x <= intersection.x) : (line.start.x > intersection.x)) && ((line.start.y <= line.end.y) ? (line.start.y <= intersection.y) : (line.start.y > intersection.y)))))) {
+							this->draw(intersection, color);
+						}
 					}
 				}
 			}
