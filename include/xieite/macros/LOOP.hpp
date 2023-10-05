@@ -262,6 +262,4 @@
 #	define XIEITE_INTERNAL__LOOP_254(callback, accumulator, ...) callback(XIEITE_INTERNAL__LOOP_253(callback, accumulator, __VA_ARGS__), 254, __VA_ARGS__)
 #	define XIEITE_INTERNAL__LOOP_255(callback, accumulator, ...) callback(XIEITE_INTERNAL__LOOP_254(callback, accumulator, __VA_ARGS__), 255, __VA_ARGS__)
 
-// TODO: Replace with continuation machine
-
 #endif
