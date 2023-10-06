@@ -14,4 +14,5 @@ Utilities for type information and metaprogramming.
 - [Placeholder](./types/Placeholder.md)
 - [count](./types/count.md)
 - [demangle](./types/demangle.md)
+- [name](./types/name.md)
 - [sizeBits](./types/sizeBits.md)
