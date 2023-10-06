@@ -4,7 +4,7 @@ Defined in header [<xieite/literals/base.hpp>](../../include/xieite/literals/bas
 &nbsp;
 
 ## Description
-Useless
+Useless.
 
 &nbsp;
 

@@ -13,7 +13,7 @@ namespace xieite::strings {
 	constexpr Integer fromRomanNumerals(const std::string_view value) noexcept {
 		static constexpr std::string_view numerals = "IVXLCDM";
 		Integer result = 0;
-		if (value == "N") {
+		if (!value.size() || (value == "N")) {
 			return result;
 		}
 		Integer previous = 0;

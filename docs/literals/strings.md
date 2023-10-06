@@ -4,7 +4,7 @@ Defined in header [<xieite/literals/strings.hpp>](../../include/xieite/literals/
 &nbsp;
 
 ## Description
-Stringification
+Stringification!
 
 &nbsp;
 
