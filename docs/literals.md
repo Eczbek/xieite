@@ -4,4 +4,6 @@ Aggregated in header [<xieite/literals.hpp>](../include/xieite/literals.hpp)
 &nbsp;
 
 ## Contents
-- [Color](./literals/integers.md)
+- [base](./literals/base.md)
+- [(integers)](./literals/integers.md)
+- [(strings)](./literals/strings.md)
