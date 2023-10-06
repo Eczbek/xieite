@@ -6,6 +6,7 @@
 #	include "./types/Placeholder.hpp"
 #	include "./types/count.hpp"
 #	include "./types/demangle.hpp"
+#	include "./types/name.hpp"
 #	include "./types/sizeBits.hpp"
 
 #endif
