@@ -3,36 +3,36 @@
 
 #	include <ratio>
 
-namespace xieite::units::lengths {
-	inline constexpr std::ratio<176389, 10000000000> twip;
+namespace xieite::units {
+	using Twip = std::ratio<10000000000, 176389>;
 
-	inline constexpr std::ratio<254, 10000000> thou;
+	using Thou = std::ratio<10000000, 254>;
 
-	inline constexpr std::ratio<84667, 10000000> barleycorn;
+	using Barleycorn = std::ratio<10000000, 84667>;
 
-	inline constexpr std::ratio<254, 10000> inch;
+	using Inch = std::ratio<10000, 254>;
 
-	inline constexpr std::ratio<3048, 10000> foot;
+	using Foot = std::ratio<10000, 3048>;
 
-	inline constexpr std::ratio<9144, 10000> yard;
+	using Yard = std::ratio<10000, 9144>;
 
-	inline constexpr std::ratio<201168, 10000> chain;
+	using Chain = std::ratio<10000, 201168>;
 
-	inline constexpr std::ratio<201168, 1000> furlong;
+	using Furlong = std::ratio<1000, 201168>;
 
-	inline constexpr std::ratio<1609344, 100> mile;
+	using Mile = std::ratio<1000, 1609344>;
 
-	inline constexpr std::ratio<4828032, 100> league;
+	using League = std::ratio<100, 4828032>;
 
-	inline constexpr std::ratio<1852, 1000> fathom;
+	using Fathom = std::ratio<1000, 1852>;
 
-	inline constexpr std::ratio<1852, 10> cable;
+	using Cable = std::ratio<10, 1852>;
 
-	inline constexpr std::ratio<1852, 1> nauticalMile;
+	using NauticalMile = std::ratio<1, 1852>;
 
-	inline constexpr std::ratio<201168, 1000000> link;
+	using Link = std::ratio<1000000, 201168>;
 
-	inline constexpr std::ratio<50292, 10000> rod;
+	using Rod = std::ratio<10000, 50292>;
 }
 
 #endif

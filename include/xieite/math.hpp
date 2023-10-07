@@ -27,6 +27,7 @@
 #	include "./math/fromBase.hpp"
 #	include "./math/isPowerOf2.hpp"
 #	include "./math/isPrime.hpp"
+#	include "./math/literals.hpp"
 #	include "./math/logarithm.hpp"
 #	include "./math/maximum.hpp"
 #	include "./math/mean.hpp"

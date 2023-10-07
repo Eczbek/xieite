@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)\_\_STRINGIFY
+# [XIEITE](../xieite.md)\_\_STRINGIFY
 Defined in header [<xieite/macros/STRINGIFY.hpp>](../../include/xieite/macros/STRINGIFY.hpp)
 
 &nbsp;

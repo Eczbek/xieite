@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:network
-Aggregated in header [<xieite/network.hpp>](../include/xieite/network.hpp)
+Aggregated in header [<xieite/network.hpp>](../../include/xieite/network.hpp)
 
 &nbsp;
 
@@ -9,7 +9,7 @@ Networking thingamabobs.
 &nbsp;
 
 ## Contents
-- [Address](./network/Address.md)
-- [Domain](./network/Domain.md)
-- [Protocol](./network/Protocol.md)
-- [SocketAddress](./network/SocketAddress.md)
+- [Address](./namespaces/network/Address.md)
+- [Domain](./namespaces/network/Domain.md)
+- [Protocol](./namespaces/network/Protocol.md)
+- [SocketAddress](./namespaces/network/SocketAddress.md)

@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:strings
-Aggregated in header [<xieite/strings.hpp>](../include/xieite/strings.hpp)
+Aggregated in header [<xieite/strings.hpp>](../../include/xieite/strings.hpp)
 
 &nbsp;
 
@@ -9,20 +9,21 @@ String manipulation functions.
 &nbsp;
 
 ## Contents
-- [after](./strings/after.md)
-- [before](./strings/before.md)
-- [between](./strings/between.md)
-- [fromRomanNumerals](./strings/fromRomanNumerals.md)
-- [hash](./strings/hash.md)
-- [isDigit](./strings/isDigit.md)
-- [lowercase](./strings/lowercase.md)
-- [radiotelephonySpellingAlphabet](./strings/radiotelephonySpellingAlphabet.md)
-- [repeat](./strings/repeat.md)
-- [split](./strings/split.md)
-- [toRomanNumerals](./strings/toRomanNumerals.md)
-- [trim](./strings/trim.md)
-- [trimBack](./strings/trimBack.md)
-- [trimFront](./strings/trimFront.md)
-- [truncate](./strings/truncate.md)
-- [uppercase](./strings/uppercase.md)
-- [whitespaces](./strings/whitespaces.md)
+- [after](./namespaces/strings/after.md)
+- [before](./namespaces/strings/before.md)
+- [between](./namespaces/strings/between.md)
+- [fromRomanNumerals](./namespaces/strings/fromRomanNumerals.md)
+- [hash](./namespaces/strings/hash.md)
+- [isDigit](./namespaces/strings/isDigit.md)
+- [literals](./namespaces/strings/literals.md)
+- [lowercase](./namespaces/strings/lowercase.md)
+- [radiotelephonySpellingAlphabet](./namespaces/strings/radiotelephonySpellingAlphabet.md)
+- [repeat](./namespaces/strings/repeat.md)
+- [split](./namespaces/strings/split.md)
+- [toRomanNumerals](./namespaces/strings/toRomanNumerals.md)
+- [trim](./namespaces/strings/trim.md)
+- [trimBack](./namespaces/strings/trimBack.md)
+- [trimFront](./namespaces/strings/trimFront.md)
+- [truncate](./namespaces/strings/truncate.md)
+- [uppercase](./namespaces/strings/uppercase.md)
+- [whitespaces](./namespaces/strings/whitespaces.md)

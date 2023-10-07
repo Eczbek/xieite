@@ -3,14 +3,14 @@
 
 #	include <ratio>
 
-namespace xieite::units::areas {
-	inline constexpr std::ratio<2529285264, 100000000> perch;
+namespace xieite::units {
+	using Perch = std::ratio<100000000, 2529285264>;
 
-	inline constexpr std::ratio<10117141056, 10000000> rood;
+	using Rood = std::ratio<10000000, 10117141056>;
 
-	inline constexpr std::ratio<40468564224, 10000000> acre;
+	using Acre = std::ratio<10000000, 40468564224>;
 
-	inline constexpr std::ratio<2589988110336, 1000000> squareMile;
+	using SquareMile = std::ratio<1000000, 2589988110336>;
 }
 
 #endif

@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:memory
-Aggregated in header [<xieite/memory.hpp>](../include/xieite/memory.hpp)
+Aggregated in header [<xieite/memory.hpp>](../../include/xieite/memory.hpp)
 
 &nbsp;
 
@@ -9,7 +9,7 @@ Memory things.
 &nbsp;
 
 ## Contents
-- [detectCosmicRay](./memory/detectCosmicRay.md)
-- [getAvailable](./memory/getAvailable.md)
-- [getPageSize](./memory/getPageSize.md)
-- [getTotal](./memory/getTotal.md)
+- [detectCosmicRay](./namespaces/memory/detectCosmicRay.md)
+- [getAvailable](./namespaces/memory/getAvailable.md)
+- [getPageSize](./namespaces/memory/getPageSize.md)
+- [getTotal](./namespaces/memory/getTotal.md)

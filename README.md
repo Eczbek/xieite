@@ -18,7 +18,7 @@ This project extends the standard library and provides an organized collection o
 - [XIEITE__SYSTEM_TYPE__...](https://github.com/Eczbek/xieite/tree/main/docs/macros/SYSTEM_TYPE.md)
 - [xieite::strings::radiotelephonySpellingAlphabet](https://github.com/Eczbek/xieite/tree/main/docs/strings/radiotelephonySpellingAlphabet.md)
 - [xieite::threads::Pool](https://github.com/Eczbek/xieite/tree/main/docs/threads/Pool.md)
-- [xieite::containers::DynamicMatrix](https://github.com/Eczbek/xieite/tree/main/docs/containers/DynamicMatrix.md)
+- [xieite::units::literals](https://github.com/Eczbek/xieite/tree/main/docs/units/literals.md)
 - [xieite::types::name](https://github.com/Eczbek/xieite/tree/main/docs/types/name.md)
 
 &nbsp;
