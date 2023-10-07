@@ -11,7 +11,7 @@ This project extends the standard library and provides an organized collection o
 - [xieite::functors::Infix](https://github.com/Eczbek/xieite/tree/main/docs/functors/Infix.md)
 - [xieite::concepts::Numeric](https://github.com/Eczbek/xieite/tree/main/docs/concepts/Numeric.md)
 - [xieite::memory::detectCosmicRay](https://github.com/Eczbek/xieite/tree/main/docs/memory/detectCosmicRay.md)
-- [XIEITE__REPEAT](https://github.com/Eczbek/xieite/tree/main/docs/macros/REPEAT.md)
+- [xieite::graphics::Canvas](https://github.com/Eczbek/xieite/tree/main/docs/graphics/Canvas.md)
 - [xieite::streams::StandardController](https://github.com/Eczbek/xieite/tree/main/docs/streams/StandardController.md)
 - [xieite::random::UniformInterruptableDistribution](https://github.com/Eczbek/xieite/tree/main/docs/random/UniformInterruptableDistribution.md)
 - [xieite::system::execute](https://github.com/Eczbek/xieite/tree/main/docs/system/execute.md)
