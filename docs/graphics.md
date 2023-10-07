@@ -9,4 +9,5 @@ Graphical utilities.
 &nbsp;
 
 ## Contents
+- [Canvas](./graphics/Canvas.md)
 - [Color](./graphics/Color.md)
