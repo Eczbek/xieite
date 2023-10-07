@@ -14,7 +14,6 @@
 #	define XIEITE__STANDARD_LANGUAGE__CPP_2017 false
 #	define XIEITE__STANDARD_LANGUAGE__CPP_2020 false
 #	define XIEITE__STANDARD_LANGUAGE__CPP_2023 false
-#	define XIEITE__STANDARD_LANGUAGE__CPP_2026 false
 #	define XIEITE__STANDARD_LANGUAGE__CPP_CLI false
 #	define XIEITE__STANDARD_LANGUAGE__CPP_EMBEDDED false
 
@@ -79,14 +78,9 @@
 #			define XIEITE__STANDARD_LANGUAGE__CPP_2020 true
 #		endif
 
-#		if __cplusplus >= 202100 // 202306
+#		if __cplusplus >= 202306
 #			undef XIEITE__STANDARD_LANGUAGE__CPP_2023
 #			define XIEITE__STANDARD_LANGUAGE__CPP_2023 true
-#		endif
-
-#		if __cplusplus >= 999999
-#			undef XIEITE__STANDARD_LANGUAGE__CPP_2026
-#			define XIEITE__STANDARD_LANGUAGE__CPP_2026 true
 #		endif
 #	endif
 
