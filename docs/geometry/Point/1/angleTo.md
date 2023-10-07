@@ -11,7 +11,7 @@ Computes the angle between this and another point.
 ## Synopses
 #### 1)
 ```cpp
-constexpr double angleTo(xieite::geometry::Point point) const noexcept;
+[[nodiscard]] constexpr double angleTo(xieite::geometry::Point point) const noexcept;
 ```
 
 &nbsp;

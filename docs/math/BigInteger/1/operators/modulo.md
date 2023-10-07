@@ -6,12 +6,12 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../../include/xieite/math
 ## Synopses
 #### 1)
 ```cpp
-friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>& dividend, const xieite::math::BigInteger<Datum>& divisor);
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>& dividend, const xieite::math::BigInteger<Datum>& divisor);
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>& dividend, const Integer divisor);
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>& dividend, const Integer divisor);
 ```
 
 &nbsp;

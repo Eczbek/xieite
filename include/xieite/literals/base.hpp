@@ -5,7 +5,7 @@
 
 namespace xieite::literals {
 	template<char... characters>
-	constexpr int operator""_base() noexcept {
+	[[nodiscard]] constexpr int operator""_base() noexcept {
 		static constexpr std::string value {
 			characters...
 		};

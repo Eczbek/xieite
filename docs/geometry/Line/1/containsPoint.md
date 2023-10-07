@@ -11,7 +11,7 @@ Checks whether this line contains a point.
 ## Synopses
 #### 1)
 ```cpp
-constexpr bool containsPoint(xieite::geometry::Point point) const noexcept;
+[[nodiscard]] constexpr bool containsPoint(xieite::geometry::Point point) const noexcept;
 ```
 
 &nbsp;

@@ -12,7 +12,7 @@ Reverses an integral of any base.
 #### 1)
 ```cpp
 template<std::integral Integer>
-constexpr Integer reverse(Integer value, std::size_t base = 10) noexcept;
+[[nodiscard]] constexpr Integer reverse(Integer value, std::size_t base = 10) noexcept;
 ```
 
 &nbsp;

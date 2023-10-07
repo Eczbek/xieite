@@ -11,7 +11,7 @@ Checks if a character is a digit.
 ## Synopses
 #### 1)
 ```cpp
-constexpr bool isDigit(char character) noexcept;
+[[nodiscard]] constexpr bool isDigit(char character) noexcept;
 ```
 
 &nbsp;

@@ -13,7 +13,7 @@ Computes the mean of a set of data.
 ```cpp
 template<std::ranges::range Range>
 requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-constexpr xieite::algorithms::Result<std::ranges::range_value_t<Range>> mean(const Range& range) noexcept;
+[[nodiscard]] constexpr xieite::algorithms::Result<std::ranges::range_value_t<Range>> mean(const Range& range) noexcept;
 ```
 
 &nbsp;

@@ -11,5 +11,5 @@ Gets the cursor's position in the terminal. Coordinates correlate to the `{ +x, 
 ## Synopses
 #### 1)
 ```cpp
-xieite::streams::Position getPosition() const noexcept;
+[[nodiscard]] xieite::streams::Position getPosition() const noexcept;
 ```

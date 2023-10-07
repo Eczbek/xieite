@@ -11,7 +11,7 @@ Computes the area of this polygon.
 ## Synopses
 #### 1)
 ```cpp
-constexpr double area() const noexcept;
+[[nodiscard]] constexpr double area() const noexcept;
 ```
 
 &nbsp;

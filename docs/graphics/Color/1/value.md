@@ -11,7 +11,7 @@ Shifts and adds RGBA values together to create a single value.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::uint32_t value() noexcept;
+[[nodiscard]] constexpr std::uint32_t value() noexcept;
 ```
 
 &nbsp;

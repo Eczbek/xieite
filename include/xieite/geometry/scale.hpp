@@ -6,16 +6,16 @@
 #	include "../geometry/Polygon.hpp"
 
 namespace xieite::geometry {
-	constexpr xieite::geometry::Point scale(const xieite::geometry::Point point, const double scale, const xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept {
+	[[nodiscard]] constexpr xieite::geometry::Point scale(const xieite::geometry::Point point, const double scale, const xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept {
 		return xieite::geometry::Point((point.x - origin.x) * scale + origin.x, (point.y - origin.y) * scale + origin.y);
 	}
 
 	template<xieite::concepts::LinearShape LinearShape>
-	constexpr LinearShape scale(const LinearShape& line, const double scale, const xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept {
+	[[nodiscard]] constexpr LinearShape scale(const LinearShape& line, const double scale, const xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept {
 		return LinearShape(xieite::geometry::scale(line.start, scale, origin), xieite::geometry::scale(line.end, scale, origin));
 	}
 
-	constexpr xieite::geometry::Polygon scale(xieite::geometry::Polygon polygon, const double scale, const xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept {
+	[[nodiscard]] constexpr xieite::geometry::Polygon scale(xieite::geometry::Polygon polygon, const double scale, const xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept {
 		for (xieite::geometry::Point& point : polygon.points) {
 			point = xieite::geometry::scale(point, scale, origin);
 		}

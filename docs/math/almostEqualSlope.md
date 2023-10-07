@@ -12,5 +12,5 @@ Checks whether two slopes are almost equal.
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>
-constexpr bool almostEqualSlope(Number1 value1, Number2 value2) noexcept;
+[[nodiscard]] constexpr bool almostEqualSlope(Number1 value1, Number2 value2) noexcept;
 ```

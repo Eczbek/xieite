@@ -12,12 +12,12 @@ Returns the unsigned absolute of a value.
 #### 1)
 ```cpp
 template<std::integral Integer>
-constexpr std::make_unsigned_t<Integer> absolute(Integer value) noexcept;
+[[nodiscard]] constexpr std::make_unsigned_t<Integer> absolute(Integer value) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::floating_point FloatingPoint>
-constexpr FloatingPoint absolute(FloatingPoint value) noexcept;
+[[nodiscard]] constexpr FloatingPoint absolute(FloatingPoint value) noexcept;
 ```
 
 &nbsp;

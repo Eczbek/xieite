@@ -12,7 +12,7 @@ Computes the value of a division and rounds toward zero.
 #### 1)
 ```cpp
 template<std::integral Integer>
-constexpr Integer divideDown(const Integer dividend, const Integer divisor) noexcept;
+[[nodiscard]] constexpr Integer divideDown(const Integer dividend, const Integer divisor) noexcept;
 ```
 
 &nbsp;

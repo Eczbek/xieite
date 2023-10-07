@@ -9,7 +9,7 @@
 
 namespace xieite::types {
 	template<typename Type>
-	constexpr std::string_view name() noexcept {
+	[[nodiscard]] constexpr std::string_view name() noexcept {
 		return xieite::strings::between(__PRETTY_FUNCTION__, "= ", ";");
 	}
 }
@@ -20,7 +20,7 @@ namespace xieite::types {
 
 namespace xieite::types {
 	template<typename Type>
-	constexpr std::string_view name() noexcept {
+	[[nodiscard]] constexpr std::string_view name() noexcept {
 		return xieite::strings::between(__PRETTY_FUNCTION__, "= ", "]");
 	}
 }
@@ -32,7 +32,7 @@ namespace xieite::types {
 
 namespace xieite::types {
 	template<typename Type>
-	inline constexpr std::string_view name() {
+	[[nodiscard]] constexpr std::string_view name() noexcept {
 		return xieite::strings::between(xieite::strings::after(__FUNCSIG__, "__cdecl"), "<", ">(");
 	}
 }

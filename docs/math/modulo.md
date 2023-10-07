@@ -7,7 +7,7 @@ Defined in header [<xieite/math/modulo.hpp>](../../include/xieite/math/modulo.hp
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-constexpr Arithmetic modulo(Arithmetic dividend, Arithmetic divisor) noexcept;
+[[nodiscard]] constexpr Arithmetic modulo(Arithmetic dividend, Arithmetic divisor) noexcept;
 ```
 
 &nbsp;

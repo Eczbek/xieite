@@ -12,5 +12,5 @@ Distributes the result of a random number generator.
 #### 1)
 ```cpp
 template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator>
-Number operator()(UniformRandomBitGenerator& generator) const noexcept;
+[[nodiscard]] Number operator()(UniformRandomBitGenerator& generator) const noexcept;
 ```

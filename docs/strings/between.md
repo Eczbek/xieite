@@ -11,19 +11,19 @@ Takes a substring between two other substrings.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::vector<std::string_view> between(std::string_view string, std::string_view start, std::string_view end) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> between(std::string_view string, std::string_view start, std::string_view end) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr std::vector<std::string_view> between(std::string_view string, std::string_view start, char end) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> between(std::string_view string, std::string_view start, char end) noexcept;
 ```
 #### 3)
 ```cpp
-constexpr std::vector<std::string_view> between(std::string_view string, char start, std::string_view end) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> between(std::string_view string, char start, std::string_view end) noexcept;
 ```
 #### 4)
 ```cpp
-constexpr std::vector<std::string_view> between(std::string_view string, char start, char end) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> between(std::string_view string, char start, char end) noexcept;
 ```
 
 &nbsp;

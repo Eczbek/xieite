@@ -11,42 +11,42 @@ Computes all intersections between two geometrical elements.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::vector<xieite::geometry::Point> intersections(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-constexpr std::vector<xieite::geometry::Point> intersections(xieite::geometry::Point point, const LinearShape& linearShape) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(xieite::geometry::Point point, const LinearShape& linearShape) noexcept;
 ```
 #### 3)
 ```cpp
-constexpr std::vector<xieite::geometry::Point> intersections(xieite::geometry::Point point, const xieite::geometry::Polygon& polygon) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(xieite::geometry::Point point, const xieite::geometry::Polygon& polygon) noexcept;
 ```
 #### 4)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-constexpr std::vector<xieite::geometry::Point> intersections(const LinearShape& linearShape, xieite::geometry::Point point) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(const LinearShape& linearShape, xieite::geometry::Point point) noexcept;
 ```
 #### 5)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape1, xieite::concepts::LinearShape LinearShape2>
-constexpr std::vector<xieite::geometry::Point> intersections(const LinearShape1& linearShape1, const LinearShape2& linearShape2) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(const LinearShape1& linearShape1, const LinearShape2& linearShape2) noexcept;
 ```
 #### 6)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-constexpr std::vector<xieite::geometry::Point> intersections(const LinearShape& linearShape, const xieite::geometry::Polygon& polygon) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(const LinearShape& linearShape, const xieite::geometry::Polygon& polygon) noexcept;
 ```
 #### 7)
 ```cpp
-constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Polygon& polygon, xieite::geometry::Point point) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Polygon& polygon, xieite::geometry::Point point) noexcept;
 ```
 #### 8)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>
-constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Polygon& polygon, const LinearShape& linearShape) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Polygon& polygon, const LinearShape& linearShape) noexcept;
 ```
 #### 9)
 ```cpp
-constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Polygon& polygon1, const xieite::geometry::Polygon& polygon2) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Polygon& polygon1, const xieite::geometry::Polygon& polygon2) noexcept;
 ```

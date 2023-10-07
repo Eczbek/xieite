@@ -9,7 +9,7 @@
 
 namespace xieite::math {
 	template<std::integral Integer = int>
-	constexpr Integer fromBase(const std::string_view value, const int radix, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char negativeSign = '-', const bool caseSensitive = false) noexcept {
+	[[nodiscard]] constexpr Integer fromBase(const std::string_view value, const int radix, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char negativeSign = '-', const bool caseSensitive = false) noexcept {
 		if (!radix || !value.size()) {
 			return 0;
 		}

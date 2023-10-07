@@ -12,7 +12,7 @@ Computes the mean of some values. Returns `0` if no arguments are passed.
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric... Numbers>
-constexpr xieite::math::Result<Numbers...> mean(const Numbers... values) noexcept;
+[[nodiscard]] constexpr xieite::math::Result<Numbers...> mean(const Numbers... values) noexcept;
 ```
 
 &nbsp;

@@ -12,7 +12,7 @@ Checks if two values are almost equal.
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric Number1, xieite::concepts::Number Number2>
-constexpr bool almostEqual(Number1 value1, Number2 value2) noexcept;
+[[nodiscard]] constexpr bool almostEqual(Number1 value1, Number2 value2) noexcept;
 ```
 
 &nbsp;

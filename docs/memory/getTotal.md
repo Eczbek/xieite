@@ -11,5 +11,5 @@ Gets the system's total amount of memory.
 ## Synopses
 #### 1)
 ```cpp
-inline std::size_t getTotal() noexcept;
+[[nodiscard]] inline std::size_t getTotal() noexcept;
 ```

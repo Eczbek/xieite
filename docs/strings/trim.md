@@ -11,11 +11,11 @@ Trims both the front and back of a string.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::string_view trim(const std::string_view string, const char character) noexcept;
+[[nodiscard]] constexpr std::string_view trim(const std::string_view string, const char character) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr std::string_view trim(const std::string_view string, const std::string_view characters) noexcept;
+[[nodiscard]] constexpr std::string_view trim(const std::string_view string, const std::string_view characters) noexcept;
 ```
 
 &nbsp;

@@ -11,5 +11,5 @@ Returns `true` if the loop is still running, and `false` if it has been stopped.
 ## Synopses
 #### 1)
 ```cpp
-bool good() const noexcept;
+[[nodiscard]] bool good() const noexcept;
 ```

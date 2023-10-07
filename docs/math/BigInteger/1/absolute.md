@@ -11,7 +11,7 @@ Gets the absolute value of a `xieite::math::BigInteger`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Datum> absolute() const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Datum> absolute() const noexcept;
 ```
 
 &nbsp;

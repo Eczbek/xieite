@@ -11,7 +11,7 @@ Converts a `xieite::math::BigInteger` to a `std::string`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::string string(int radix = 10, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", char negativeSign = '-', bool caseSensitive = false) const noexcept;
+[[nodiscard]] constexpr std::string string(int radix = 10, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", char negativeSign = '-', bool caseSensitive = false) const noexcept;
 ```
 
 &nbsp;

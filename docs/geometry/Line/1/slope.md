@@ -11,7 +11,7 @@ Computes the slope of this line.
 ## Synopses
 #### 1)
 ```cpp
-constexpr double slope() const noexcept;
+[[nodiscard]] constexpr double slope() const noexcept;
 ```
 
 &nbsp;

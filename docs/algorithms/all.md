@@ -12,7 +12,7 @@ Checks whether all passed arguments are true. Expects all arguments to be conver
 #### 1)
 ```cpp
 template<xieite::concepts::RangeOf<bool> Range>
-constexpr bool all(const Range& range)
+[[nodiscard]] constexpr bool all(const Range& range)
 noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_value_t<Range>, bool>));
 ```
 #### 2)

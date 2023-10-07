@@ -13,7 +13,7 @@
 namespace xieite::algorithms {
 	template<std::ranges::range Range>
 	requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-	constexpr xieite::math::Result<std::ranges::range_value_t<Range>> median(const Range& range) noexcept {
+	[[nodiscard]] constexpr xieite::math::Result<std::ranges::range_value_t<Range>> median(const Range& range) noexcept {
 		const std::size_t rangeSize = std::ranges::size(range);
 		if (!rangeSize) {
 			return 0;

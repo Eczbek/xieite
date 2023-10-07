@@ -6,7 +6,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
-	constexpr xieite::math::Result<Numbers...> mean(const Numbers... values) noexcept {
+	[[nodiscard]] constexpr xieite::math::Result<Numbers...> mean(const Numbers... values) noexcept {
 		if constexpr (sizeof...(Numbers)) {
 			return (... + (static_cast<xieite::math::Result<Numbers...>>(values) / sizeof...(Numbers)));
 		}

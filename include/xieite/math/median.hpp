@@ -8,7 +8,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
-	constexpr xieite::math::Result<Numbers...> median(const Numbers... values) noexcept {
+	[[nodiscard]] constexpr xieite::math::Result<Numbers...> median(const Numbers... values) noexcept {
 		return xieite::algorithms::median(std::array<xieite::math::Result<Numbers...>, sizeof...(Numbers)> {
 			static_cast<xieite::math::Result<Numbers...>>(values)...
 		});

@@ -18,11 +18,11 @@ namespace xieite::geometry {
 		constexpr Polygon(const Range& points) noexcept
 		: points(std::ranges::begin(points), std::ranges::end(points)) {}
 
-		friend constexpr bool operator==(const xieite::geometry::Polygon& polygon1, const xieite::geometry::Polygon& polygon2) noexcept {
+		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Polygon& polygon1, const xieite::geometry::Polygon& polygon2) noexcept {
 			return xieite::algorithms::sameRelativeOrder(polygon1.points, polygon2.points) || xieite::algorithms::sameRelativeOrder(polygon1.points, std::vector<xieite::geometry::Point>(polygon2.points.rbegin(), polygon2.points.rend()));
 		}
 
-		constexpr double area() const noexcept {
+		[[nodiscard]] constexpr double area() const noexcept {
 			double area = 0;
 			const std::size_t pointsSize = this->points.size();
 			for (std::size_t i = 0; i < pointsSize; ++i) {
@@ -32,7 +32,7 @@ namespace xieite::geometry {
 			return area / 2;
 		}
 
-		constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
+		[[nodiscard]] constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
 			bool odd = false;
 			const std::size_t pointsSize = this->points.size();
 			for (std::size_t i = 0; i < pointsSize; ++i) {
@@ -50,7 +50,7 @@ namespace xieite::geometry {
 			return false;
 		}
 
-		constexpr double perimeter() const noexcept {
+		[[nodiscard]] constexpr double perimeter() const noexcept {
 			double perimeter = 0;
 			for (const xieite::geometry::Segment& side : this->sides()) {
 				perimeter += side.length();
@@ -58,7 +58,7 @@ namespace xieite::geometry {
 			return perimeter;
 		}
 
-		constexpr std::vector<xieite::geometry::Segment> sides() const noexcept {
+		[[nodiscard]] constexpr std::vector<xieite::geometry::Segment> sides() const noexcept {
 			std::vector<xieite::geometry::Segment> sides;
 			const std::size_t pointsSize = this->points.size();
 			for (std::size_t i = 0; i < pointsSize; ++i) {

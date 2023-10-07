@@ -11,11 +11,11 @@ Takes the start of a string before some substring.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::vector<std::string_view> before(std::string_view string, std::string_view end) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> before(std::string_view string, std::string_view end) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr std::vector<std::string_view> before(std::string_view string, char end) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> before(std::string_view string, char end) noexcept;
 ```
 
 &nbsp;

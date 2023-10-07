@@ -11,7 +11,7 @@ Hashes a value. Currently only supports `std::string`s. Collisions may occur.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::size_t hash(std::string_view string) noexcept;
+[[nodiscard]] constexpr std::size_t hash(std::string_view string) noexcept;
 ```
 
 &nbsp;

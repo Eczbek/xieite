@@ -8,7 +8,7 @@
 
 namespace xieite::math {
 	template<std::integral Integer>
-	constexpr Integer divideUp(const Integer dividend, const Integer divisor) noexcept {
+	[[nodiscard]] constexpr Integer divideUp(const Integer dividend, const Integer divisor) noexcept {
 		return xieite::math::divideDown(dividend, divisor) - !!(dividend % divisor) * xieite::math::splitBoolean(xieite::math::sign(dividend) != xieite::math::sign(divisor));
 	}
 }

@@ -144,7 +144,7 @@ namespace xieite::streams {
 			this->outputStream << "\x1B[2K";
 		}
 
-		xieite::streams::Position getCursorPosition() const noexcept {
+		[[nodiscard]] xieite::streams::Position getCursorPosition() const noexcept {
 			const bool canonical = this->canonical;
 			this->setInputCanonical(false);
 			this->outputStream << "\x1B[6n";
@@ -179,7 +179,7 @@ namespace xieite::streams {
 			this->outputStream << "\x1B[?47" << "lh"[value];
 		}
 
-		xieite::streams::Position getScreenSize() const noexcept {
+		[[nodiscard]] xieite::streams::Position getScreenSize() const noexcept {
 			::winsize size;
 			::ioctl(this->inputFileDescriptor, TIOCGWINSZ, &size);
 			return xieite::streams::Position(size.ws_row, size.ws_col);

@@ -11,7 +11,7 @@ Always returns `std::numeric_limits<double>::infinity()`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr double length() const noexcept;
+[[nodiscard]] constexpr double length() const noexcept;
 ```
 
 &nbsp;

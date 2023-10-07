@@ -11,5 +11,5 @@ Compares two `xieite::graphics::Colors`.
 ## Synopses
 #### 1)
 ```cpp
-friend constexpr bool operator==(const xieite::graphics::Color& color1, const xieite::graphics::Color& color2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::graphics::Color& color1, const xieite::graphics::Color& color2) noexcept;
 ```

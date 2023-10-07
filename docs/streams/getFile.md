@@ -12,7 +12,7 @@ Extracts a `std::FILE*` from a stream.
 #### 1)
 ```cpp
 template<xieite::concepts::SameAsOrDerivedFromAnyAny<std::istream, std::ostream> Stream>
-inline std::FILE* getFile(const Stream& stream) noexcept;
+[[nodiscard]] inline std::FILE* getFile(const Stream& stream) noexcept;
 ```
 
 &nbsp;

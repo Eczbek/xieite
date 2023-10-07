@@ -12,5 +12,5 @@ Checks if a value is negative.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-constexpr bool negative(const Arithmetic value) noexcept;
+[[nodiscard]] constexpr bool negative(const Arithmetic value) noexcept;
 ```

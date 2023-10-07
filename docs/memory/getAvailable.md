@@ -11,5 +11,5 @@ Gets the system's currently available amount of memory.
 ## Synopses
 #### 1)
 ```cpp
-inline std::size_t getAvailable() noexcept;
+[[nodiscard]] inline std::size_t getAvailable() noexcept;
 ```

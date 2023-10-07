@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER__MATH__SPLIT_BOOLEAN
 
 namespace xieite::math {
-	constexpr int splitBoolean(const bool value) noexcept {
+	[[nodiscard]] constexpr int splitBoolean(const bool value) noexcept {
 		return value * 2 - 1;
 	}
 }

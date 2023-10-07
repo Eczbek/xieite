@@ -12,7 +12,7 @@ Gets the string name of a type. Allows compile-time evaluation.
 #### 1)
 ```cpp
 template<typename Type>
-constexpr std::string_view name() noexcept;
+[[nodiscard]] constexpr std::string_view name() noexcept;
 ```
 
 &nbsp;

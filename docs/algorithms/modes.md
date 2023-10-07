@@ -13,7 +13,7 @@ Computes the modes of a set of data.
 ```cpp
 template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> GreaterComparator = std::ranges::greater>
 requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-constexpr std::vector<std::ranges::const_iterator_t<const Range&>> modes(const Range& range, GreaterComparator greaterComparator = GreaterComparator()) noexcept;
+[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range&>> modes(const Range& range, GreaterComparator greaterComparator = GreaterComparator()) noexcept;
 ```
 
 &nbsp;

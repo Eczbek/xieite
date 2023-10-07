@@ -11,11 +11,11 @@ Converts a string or character to lowercase. Only handles characters `A` to `Z`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr char lowercase(char character) noexcept;
+[[nodiscard]] constexpr char lowercase(char character) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr std::string lowercase(std::string_view string) noexcept;
+[[nodiscard]] constexpr std::string lowercase(std::string_view string) noexcept;
 ```
 
 &nbsp;

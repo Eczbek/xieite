@@ -12,7 +12,7 @@ Computes the floor value of a division.
 #### 1)
 ```cpp
 template<std::integral Integer>
-constexpr Integer divideFloor(const Integer dividend, const Integer divisor) noexcept;
+[[nodiscard]] constexpr Integer divideFloor(const Integer dividend, const Integer divisor) noexcept;
 ```
 
 &nbsp;

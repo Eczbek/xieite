@@ -11,7 +11,7 @@ Computes the slope from this to another point.
 ## Synopses
 #### 1)
 ```cpp
-constexpr double slopeTo(xieite::geometry::Point point) const noexcept;
+[[nodiscard]] constexpr double slopeTo(xieite::geometry::Point point) const noexcept;
 ```
 
 &nbsp;
