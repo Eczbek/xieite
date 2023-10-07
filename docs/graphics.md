@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:graphics
-Aggregated in header [<xieite/graphics.hpp>](../include/xieite/graphics.hpp)
+Aggregated in header [<xieite/graphics.hpp>](../../include/xieite/graphics.hpp)
 
 &nbsp;
 
@@ -9,5 +9,5 @@ Graphical utilities.
 &nbsp;
 
 ## Contents
-- [Canvas](./graphics/Canvas.md)
-- [Color](./graphics/Color.md)
+- [Canvas](./namespaces/graphics/Canvas.md)
+- [Color](./namespaces/graphics/Color.md)

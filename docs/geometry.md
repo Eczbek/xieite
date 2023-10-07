@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:geometry
-Aggregated in header [<xieite/geometry.hpp>](../include/xieite/geometry.hpp)
+Aggregated in header [<xieite/geometry.hpp>](../../include/xieite/geometry.hpp)
 
 &nbsp;
 
@@ -9,13 +9,13 @@ Geometrical classes and operations.
 &nbsp;
 
 ## Contents
-- [Line](./geometry/Line.md)
-- [Point](./geometry/Point.md)
-- [Polygon](./geometry/Polygon.md)
-- [Ray](./geometry/Ray.md)
-- [Segment](./geometry/Segment.md)
-- [intersections](./geometry/intersections.md)
-- [reflect](./geometry/reflect.md)
-- [rotate](./geometry/rotate.md)
-- [scale](./geometry/scale.md)
-- [translate](./geometry/translate.md)
+- [Line](./namespaces/geometry/Line.md)
+- [Point](./namespaces/geometry/Point.md)
+- [Polygon](./namespaces/geometry/Polygon.md)
+- [Ray](./namespaces/geometry/Ray.md)
+- [Segment](./namespaces/geometry/Segment.md)
+- [intersections](./namespaces/geometry/intersections.md)
+- [reflect](./namespaces/geometry/reflect.md)
+- [rotate](./namespaces/geometry/rotate.md)
+- [scale](./namespaces/geometry/scale.md)
+- [translate](./namespaces/geometry/translate.md)

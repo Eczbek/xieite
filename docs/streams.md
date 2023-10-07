@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:streams
-Aggregated in header [<xieite/streams.hpp>](../include/xieite/streams.hpp)
+Aggregated in header [<xieite/streams.hpp>](../../include/xieite/streams.hpp)
 
 &nbsp;
 
@@ -9,8 +9,8 @@ Utilities relating to streams.
 &nbsp;
 
 ## Contents
-- [Position](./streams/Position.md)
-- [StandardController](./streams/StandardController.md)
-- [closePipe](./streams/closePipe.md)
-- [getFile](./streams/getFile.md)
-- [openPipe](./streams/openPipe.md)
+- [Position](./namespaces/streams/Position.md)
+- [StandardController](./namespaces/streams/StandardController.md)
+- [closePipe](./namespaces/streams/closePipe.md)
+- [getFile](./namespaces/streams/getFile.md)
+- [openPipe](./namespaces/streams/openPipe.md)

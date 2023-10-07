@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:threads
-Aggregated in header [<xieite/threads.hpp>](../include/xieite/threads.hpp)
+Aggregated in header [<xieite/threads.hpp>](../../include/xieite/threads.hpp)
 
 &nbsp;
 
@@ -9,7 +9,7 @@ Threading utilities.
 &nbsp;
 
 ## Contents
-- [Interval](./threads/Interval.md)
-- [Loop](./threads/Loop.md)
-- [Pool](./threads/Pool.md)
-- [Timeout](./threads/Timeout.md)
+- [Interval](./namespaces/threads/Interval.md)
+- [Loop](./namespaces/threads/Loop.md)
+- [Pool](./namespaces/threads/Pool.md)
+- [Timeout](./namespaces/threads/Timeout.md)

@@ -1,6 +1,8 @@
 #ifndef XIEITE_HEADER__TYPES
 #	define XIEITE_HEADER__TYPES
 
+#	include "./types/DynamicMatrix.hpp"
+#	include "./types/FixedMatrix.hpp"
 #	include "./types/List.hpp"
 #	include "./types/Partial.hpp"
 #	include "./types/Placeholder.hpp"

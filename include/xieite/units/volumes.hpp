@@ -3,16 +3,16 @@
 
 #	include <ratio>
 
-namespace xieite::units::volumes {
-	inline constexpr std::ratio<284130625, 10000000> fluidOunce;
+namespace xieite::units {
+	using FluidOunce = std::ratio<10000000, 284130625>;
 
-	inline constexpr std::ratio<1420653125, 10000000> gill;
+	using Gill = std::ratio<10000000, 1420653125>;
 
-	inline constexpr std::ratio<56826125, 100000> pint;
+	using Pint = std::ratio<100000, 56826125>;
 
-	inline constexpr std::ratio<11365225, 10000> quart;
+	using Quart = std::ratio<10000, 11365225>;
 
-	inline constexpr std::ratio<454609, 100> gallon;
+	using Gallon = std::ratio<100, 454609> gallon;
 }
 
 #endif

@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:random
-Aggregated in header [<xieite/random.hpp>](../include/xieite/random.hpp)
+Aggregated in header [<xieite/random.hpp>](../../include/xieite/random.hpp)
 
 &nbsp;
 
@@ -9,5 +9,5 @@ Utilities for random value generation.
 &nbsp;
 
 ## Contents
-- [UniformInterruptableDistribution](./random/UniformInterruptableDistribution.md)
-- [getUniversallyUniqueIdentifier](./random/getUniversallyUniqueIdentifier.md)
+- [UniformInterruptableDistribution](./namespaces/random/UniformInterruptableDistribution.md)
+- [getUniversallyUniqueIdentifier](./namespaces/random/getUniversallyUniqueIdentifier.md)

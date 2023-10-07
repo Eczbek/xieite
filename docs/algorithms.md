@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:algorithms
-Aggregated in header [<xieite/algorithms.hpp>](../include/xieite/algorithms.hpp)
+Aggregated in header [<xieite/algorithms.hpp>](../../include/xieite/algorithms.hpp)
 
 &nbsp;
 
@@ -9,16 +9,16 @@ Somewhat useful algorithms.
 &nbsp;
 
 ## Contents
-- [all](./algorithms/all.md)
-- [antimodes](./algorithms/antimodes.md)
-- [any](./algorithms/any.md)
-- [findOccurrence](./algorithms/findOccurrence.md)
-- [group](./algorithms/group.md)
-- [isPalindrome](./algorithms/isPalindrome.md)
-- [mean](./algorithms/mean.md)
-- [median](./algorithms/median.md)
-- [modes](./algorithms/modes.md)
-- [numberSearch](./algorithms/numberSearch.md)
-- [partialReverse](./algorithms/partialReverse.md)
-- [rotateMatrix](./algorithms/rotateMatrix.md)
-- [sameRelativeOrder](./algorithms/sameRelativeOrder.md)
+- [all](./namespaces/algorithms/all.md)
+- [antimodes](./namespaces/algorithms/antimodes.md)
+- [any](./namespaces/algorithms/any.md)
+- [findOccurrence](./namespaces/algorithms/findOccurrence.md)
+- [group](./namespaces/algorithms/group.md)
+- [isPalindrome](./namespaces/algorithms/isPalindrome.md)
+- [mean](./namespaces/algorithms/mean.md)
+- [median](./namespaces/algorithms/median.md)
+- [modes](./namespaces/algorithms/modes.md)
+- [numberSearch](./namespaces/algorithms/numberSearch.md)
+- [partialReverse](./namespaces/algorithms/partialReverse.md)
+- [rotateMatrix](./namespaces/algorithms/rotateMatrix.md)
+- [sameRelativeOrder](./namespaces/algorithms/sameRelativeOrder.md)
