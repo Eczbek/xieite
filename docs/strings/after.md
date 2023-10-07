@@ -11,11 +11,11 @@ Takes the rest of a string after some substring.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::vector<std::string_view> after(std::string_view string, std::string_view start) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> after(std::string_view string, std::string_view start) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr std::vector<std::string_view> after(std::string_view string, char start) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> after(std::string_view string, char start) noexcept;
 ```
 
 &nbsp;

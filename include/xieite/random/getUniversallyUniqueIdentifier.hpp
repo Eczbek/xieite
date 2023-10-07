@@ -11,7 +11,7 @@
 #	include <uuid/uuid.h>
 
 namespace xieite::random {
-	inline std::string getUniversallyUniqueIdentifier() noexcept {
+	[[nodiscard]] inline std::string getUniversallyUniqueIdentifier() noexcept {
 		::uuid_t uuid;
 		::uuid_generate(uuid);
 		std::string result = std::string(37, '\0');

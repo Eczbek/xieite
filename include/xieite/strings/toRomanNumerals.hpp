@@ -10,7 +10,7 @@
 
 namespace xieite::strings {
 	template<std::integral Integer>
-	constexpr std::string toRomanNumerals(const Integer value) noexcept {
+	[[nodiscard]] constexpr std::string toRomanNumerals(const Integer value) noexcept {
 		static constexpr std::array<std::string_view, 10> units {
 			"",
 			"I",

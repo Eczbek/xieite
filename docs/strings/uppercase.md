@@ -11,11 +11,11 @@ Converts a string or character to uppercase. Only handles characters `a` to `z`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr char uppercase(char character) noexcept;
+[[nodiscard]] constexpr char uppercase(char character) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr std::string uppercase(std::string_view string) noexcept;
+[[nodiscard]] constexpr std::string uppercase(std::string_view string) noexcept;
 ```
 
 &nbsp;

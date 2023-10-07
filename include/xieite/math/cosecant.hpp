@@ -7,7 +7,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number>
-	constexpr xieite::math::Result<Number> cosecant(const Number value) noexcept {
+	[[nodiscard]] constexpr xieite::math::Result<Number> cosecant(const Number value) noexcept {
 		return 1 / std::sin(value);
 	}
 }

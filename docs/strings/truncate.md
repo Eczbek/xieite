@@ -11,7 +11,7 @@ Shortens the end of a string, replacing it with a suffix.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::string truncate(const std::string& string, std::size_t length, const std::string& suffix = "") noexcept;
+[[nodiscard]] constexpr std::string truncate(const std::string& string, std::size_t length, const std::string& suffix = "") noexcept;
 ```
 
 &nbsp;

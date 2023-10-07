@@ -11,5 +11,5 @@ Returns `true` if the interval is still running, and `false` if it has been stop
 ## Synopses
 #### 1)
 ```cpp
-bool good() const noexcept;
+[[nodiscard]] bool good() const noexcept;
 ```

@@ -12,5 +12,5 @@ Computes the cosecant of a value.
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric Number>
-constexpr xieite::math::Result<Number> cosecant(Number value) noexcept;
+[[nodiscard]] constexpr xieite::math::Result<Number> cosecant(Number value) noexcept;
 ```

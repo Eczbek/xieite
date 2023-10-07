@@ -12,12 +12,12 @@ Selects the value farthest from a target.
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric Number>
-constexpr Number& farthestFrom(Number target, Number& value1, Number& value2) noexcept;
+[[nodiscard]] constexpr Number& farthestFrom(Number target, Number& value1, Number& value2) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::Numeric Number>
-constexpr const Number& farthestFrom(Number target, const Number& value1, const Number& value2) noexcept;
+[[nodiscard]] constexpr const Number& farthestFrom(Number target, const Number& value1, const Number& value2) noexcept;
 ```
 
 &nbsp;

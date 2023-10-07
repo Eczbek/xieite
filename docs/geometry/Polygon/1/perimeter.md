@@ -11,7 +11,7 @@ Computes the perimeter of this polygon.
 ## Synopses
 #### 1)
 ```cpp
-constexpr double perimeter() const noexcept;
+[[nodiscard]] constexpr double perimeter() const noexcept;
 ```
 
 &nbsp;

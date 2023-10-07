@@ -12,7 +12,7 @@ Computes the ceiling value of a division.
 #### 1)
 ```cpp
 template<std::integral Integer>
-constexpr Integer divideCeiling(const Integer dividend, const Integer divisor) noexcept;
+[[nodiscard]] constexpr Integer divideCeiling(const Integer dividend, const Integer divisor) noexcept;
 ```
 
 &nbsp;

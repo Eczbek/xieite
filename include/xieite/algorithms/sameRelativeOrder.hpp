@@ -9,7 +9,7 @@
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range1>, std::ranges::range_value_t<Range2>)> Callback = std::ranges::equal_to>
-	constexpr bool sameRelativeOrder(const Range1& range1, const Range2& range2, const Callback& comparator = Callback()) {
+	[[nodiscard]] constexpr bool sameRelativeOrder(const Range1& range1, const Range2& range2, const Callback& comparator = Callback()) {
 		std::ranges::const_iterator_t<const Range1&> begin1 = std::ranges::begin(range1);
 		std::ranges::const_iterator_t<const Range1&> end1 = std::ranges::end(range1);
 		std::ranges::const_iterator_t<const Range2&> begin2 = std::ranges::begin(range2);

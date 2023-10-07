@@ -18,7 +18,7 @@
 namespace xieite::streams {
 	template<typename Stream>
 	requires(std::same_as<Stream, std::istream> || std::derived_from<Stream, std::istream> || std::same_as<Stream, std::ostream> || std::derived_from<Stream, std::ostream>)
-	inline std::FILE* getFile(const Stream& stream) noexcept {
+	[[nodiscard]] inline std::FILE* getFile(const Stream& stream) noexcept {
 		if constexpr (std::same_as<Stream, std::istream> || std::derived_from<Stream, std::istream>) {
 			if (&stream == &std::cin) {
 				return stdin;

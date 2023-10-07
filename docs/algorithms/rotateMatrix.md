@@ -12,7 +12,7 @@ Rotates a `std::vector` of at least 2 dimensions in 90* increments.
 #### 1)
 ```cpp
 template<typename Value>
-constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::vector<Value>>& matrix, int rotations) noexcept;
+[[nodiscard]] constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::vector<Value>>& matrix, int rotations) noexcept;
 ```
 
 &nbsp;

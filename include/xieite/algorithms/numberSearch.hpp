@@ -8,7 +8,7 @@
 
 namespace xieite::algorithms {
 	template<xieite::concepts::Numeric Number, xieite::concepts::Functable<bool(Number)> Functable>
-	constexpr Number numberSearch(const Functable& selector, Number minimum, Number maximum) {
+	[[nodiscard]] constexpr Number numberSearch(const Functable& selector, Number minimum, Number maximum) {
 		while (true) {
 			const Number middle = (minimum + maximum) / 2;
 			if (xieite::math::almostEqual(middle, minimum) || xieite::math::almostEqual(middle, maximum)) {
@@ -19,7 +19,7 @@ namespace xieite::algorithms {
 	}
 
 	template<xieite::concepts::Numeric Number, xieite::concepts::Functable<bool(Number)> Functable>
-	constexpr Number numberSearch(const Functable& selector) {
+	[[nodiscard]] constexpr Number numberSearch(const Functable& selector) {
 		Number minimum = -1;
 		Number maximum = 1;
 		if (selector(0)) {

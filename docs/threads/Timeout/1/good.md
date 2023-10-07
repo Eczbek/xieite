@@ -11,5 +11,5 @@ Returns `true` if the timeout is still waiting, and `false` if it has been stopp
 ## Synopses
 #### 1)
 ```cpp
-bool good() const noexcept;
+[[nodiscard]] bool good() const noexcept;
 ```

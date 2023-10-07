@@ -6,12 +6,12 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../../include/xieite/math
 ## Synopses
 #### 1)
 ```cpp
-friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>& leftComparand, const xieite::math::BigInteger<Datum>& rightComparand) noexcept;
+[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>& leftComparand, const xieite::math::BigInteger<Datum>& rightComparand) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>& leftComparand, const Integer rightComparand) noexcept;
+[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>& leftComparand, const Integer rightComparand) noexcept;
 ```
 
 &nbsp;

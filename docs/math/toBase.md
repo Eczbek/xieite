@@ -12,7 +12,7 @@ Converts an integer to a string in any base. Allows negative bases. Can be used 
 #### 1)
 ```cpp
 template<std::integral Integer>
-constexpr std::string toBase(Integer value, int radix, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", char negativeSign = '-', bool caseSensitive = false) noexcept;
+[[nodiscard]] constexpr std::string toBase(Integer value, int radix, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", char negativeSign = '-', bool caseSensitive = false) noexcept;
 ```
 
 &nbsp;

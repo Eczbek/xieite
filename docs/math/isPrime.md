@@ -12,7 +12,7 @@ Checks whether an integer is only evenly divisible by itself and 1.
 #### 1)
 ```cpp
 template<std::integral Integer>
-constexpr bool isPrime(Integer value) noexcept;
+[[nodiscard]] constexpr bool isPrime(Integer value) noexcept;
 ```
 
 &nbsp;

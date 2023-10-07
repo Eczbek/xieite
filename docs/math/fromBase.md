@@ -12,7 +12,7 @@ Converts an integer string to base 10. Allows negative bases.
 #### 1)
 ```cpp
 template<std::integral Integer = int>
-constexpr Integer fromBase(std::string_view value, int radix, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", char negativeSign = '-', bool caseSensitive = false) noexcept;
+[[nodiscard]] constexpr Integer fromBase(std::string_view value, int radix, std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", char negativeSign = '-', bool caseSensitive = false) noexcept;
 ```
 
 &nbsp;

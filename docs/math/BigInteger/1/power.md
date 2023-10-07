@@ -11,12 +11,12 @@ Raises a `xieite::math::BigInteger` to an exponent.
 ## Synopses
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Datum> power(const xieite::math::BigInteger<Datum>& exponent) const;
+[[nodiscard]] constexpr xieite::math::BigInteger<Datum> power(const xieite::math::BigInteger<Datum>& exponent) const;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-constexpr xieite::math::BigInteger<Datum> power(Integer exponent) const;
+[[nodiscard]] constexpr xieite::math::BigInteger<Datum> power(Integer exponent) const;
 ```
 
 &nbsp;

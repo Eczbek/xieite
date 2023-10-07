@@ -12,12 +12,12 @@ Finds the lowest numerical value which, if passed to the provided callback, will
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric Number, xieite::concepts::Functable<bool(Number)> Functable>
-constexpr Number numberSearch(const Functable& selector, Number minimum, Number maximum);
+[[nodiscard]] constexpr Number numberSearch(const Functable& selector, Number minimum, Number maximum);
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::Numeric Number, xieite::concepts::Functable<bool(Number)> Functable>
-constexpr Number numberSearch(const Functable& selector);
+[[nodiscard]] constexpr Number numberSearch(const Functable& selector);
 ```
 
 &nbsp;

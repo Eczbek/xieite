@@ -12,11 +12,11 @@ Casts a `xieite::math::BigInteger` to any other arithmetic type.
 #### 1)
 ```cpp
 template<std::integral Integer>
-constexpr operator Integer() const noexcept;
+[[nodiscard]] constexpr operator Integer() const noexcept;
 ```
 #### 2)
 ```cpp
-constexpr operator bool() const noexcept;
+[[nodiscard]] constexpr operator bool() const noexcept;
 ```
 
 &nbsp;

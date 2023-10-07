@@ -12,7 +12,7 @@ Computes the modes of some values. Returns `{ 0 }` if no arguments are passed.
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric... Numbers>
-constexpr std::vector<xieite::math::Result<Numbers...>> modes(const Numbers... values) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::math::Result<Numbers...>> modes(const Numbers... values) noexcept;
 ```
 
 &nbsp;

@@ -6,7 +6,7 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../../include/xieite/math
 ## Synopses
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Datum> operator~() const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Datum> operator~() const noexcept;
 ```
 
 &nbsp;

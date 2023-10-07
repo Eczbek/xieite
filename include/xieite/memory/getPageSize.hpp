@@ -8,7 +8,7 @@
 #		include <unistd.h>
 
 namespace xieite::memory {
-	inline std::size_t getPageSize() noexcept {
+	[[nodiscard]] inline std::size_t getPageSize() noexcept {
 		return ::sysconf(_SC_PAGE_SIZE);
 	}
 }
@@ -18,7 +18,7 @@ namespace xieite::memory {
 #		include <windows.h>
 
 namespace xieite::memory {
-	inline std::size_t getPageSize() noexcept {
+	[[nodiscard]] inline std::size_t getPageSize() noexcept {
 		::SYSTEM_INFO info;
 		::GetSystemInfo(&info);
 		return info.dwPageSize;

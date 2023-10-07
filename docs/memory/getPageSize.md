@@ -6,7 +6,7 @@ Defined in header [<xieite/memory/getPageSize.hpp>](../../include/xieite/memory/
 ## Synopses
 #### 1)
 ```cpp
-inline std::size_t getPageSize() noexcept;
+[[nodiscard]] inline std::size_t getPageSize() noexcept;
 ```
 
 &nbsp;

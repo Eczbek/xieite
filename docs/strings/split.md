@@ -11,11 +11,11 @@ Splits a string by a delimiter.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::vector<std::string_view> split(std::string_view string, std::string_view delimiter) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> split(std::string_view string, std::string_view delimiter) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr std::vector<std::string_view> split(std::string_view string, char delimiter) noexcept;
+[[nodiscard]] constexpr std::vector<std::string_view> split(std::string_view string, char delimiter) noexcept;
 ```
 
 &nbsp;

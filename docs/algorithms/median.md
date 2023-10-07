@@ -13,7 +13,7 @@ Computes the median of a set of data.
 ```cpp
 template<std::ranges::range Range>
 requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-constexpr xieite::math::Result<std::ranges::range_value_t<Range>> median(const Range& range) noexcept;
+[[nodiscard]] constexpr xieite::math::Result<std::ranges::range_value_t<Range>> median(const Range& range) noexcept;
 ```
 
 &nbsp;

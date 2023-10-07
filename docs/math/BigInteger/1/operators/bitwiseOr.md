@@ -6,12 +6,12 @@ Defined in header [<xieite/math/BigInteger.hpp>](../../../../include/xieite/math
 ## Synopses
 #### 1)
 ```cpp
-friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>& leftOperand, const xieite::math::BigInteger<Datum>& rightOperand) noexcept;
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>& leftOperand, const xieite::math::BigInteger<Datum>& rightOperand) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>& leftOperand, const Integer rightOperand) noexcept;
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>& leftOperand, const Integer rightOperand) noexcept;
 ```
 
 &nbsp;

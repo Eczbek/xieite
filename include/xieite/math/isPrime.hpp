@@ -5,7 +5,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Integer Integer>
-	constexpr bool isPrime(const Integer value) noexcept {
+	[[nodiscard]] constexpr bool isPrime(const Integer value) noexcept {
 		if ((value < 2) || (value > 2) && !(value % 2)) {
 			return false;
 		}

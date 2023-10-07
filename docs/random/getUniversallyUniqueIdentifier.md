@@ -11,7 +11,7 @@ Generates a UUID. Compile with `-luuid`.
 ## Synopses
 #### 1)
 ```cpp
-inline std::string getUniversallyUniqueIdentifier() noexcept;
+[[nodiscard]] inline std::string getUniversallyUniqueIdentifier() noexcept;
 ```
 
 &nbsp;

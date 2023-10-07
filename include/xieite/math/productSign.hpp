@@ -6,7 +6,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
-	constexpr int productSign(const Numbers... values) noexcept {
+	[[nodiscard]] constexpr int productSign(const Numbers... values) noexcept {
 		return (... * xieite::math::sign(values));
 	}
 }

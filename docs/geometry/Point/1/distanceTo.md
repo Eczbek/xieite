@@ -11,7 +11,7 @@ Computes the distance between this and another point.
 ## Synopses
 #### 1)
 ```cpp
-constexpr double distanceTo(xieite::geometry::Point point) const noexcept;
+[[nodiscard]] constexpr double distanceTo(xieite::geometry::Point point) const noexcept;
 ```
 
 &nbsp;

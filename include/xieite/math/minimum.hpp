@@ -8,7 +8,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
-	constexpr xieite::math::Result<Numbers...> minimum(const Numbers... values) noexcept {
+	[[nodiscard]] constexpr xieite::math::Result<Numbers...> minimum(const Numbers... values) noexcept {
 		if constexpr (sizeof...(Numbers)) {
 			return std::ranges::min(std::array<xieite::math::Result<Numbers...>, sizeof...(Numbers)> {
 				static_cast<xieite::math::Result<Numbers...>>(values)...

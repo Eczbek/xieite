@@ -11,7 +11,7 @@ Compares two lines.
 ## Synopses
 #### 1)
 ```cpp
-friend constexpr bool operator==(const xieite::geometry::Line& line1, const xieite::geometry::Line& line2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Line& line1, const xieite::geometry::Line& line2) noexcept;
 ```
 
 &nbsp;

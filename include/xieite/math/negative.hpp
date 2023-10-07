@@ -6,7 +6,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	constexpr bool negative(const Arithmetic value) noexcept {
+	[[nodiscard]] constexpr bool negative(const Arithmetic value) noexcept {
 		if constexpr (!std::unsigned_integral<Arithmetic>) {
 			return value < 0;
 		}

@@ -7,7 +7,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	constexpr xieite::math::AttemptUnsign<Arithmetic> difference(const Arithmetic value1, const Arithmetic value2) noexcept {
+	[[nodiscard]] constexpr xieite::math::AttemptUnsign<Arithmetic> difference(const Arithmetic value1, const Arithmetic value2) noexcept {
 		return (value1 > value2) ? (static_cast<xieite::math::AttemptUnsign<Arithmetic>>(value1) - static_cast<xieite::math::AttemptUnsign<Arithmetic>>(value2)) : (static_cast<xieite::math::AttemptUnsign<Arithmetic>>(value2) - static_cast<xieite::math::AttemptUnsign<Arithmetic>>(value1));
 	}
 }

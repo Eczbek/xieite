@@ -10,7 +10,7 @@
 
 namespace xieite::strings {
 	template<std::integral Integer = int>
-	constexpr Integer fromRomanNumerals(const std::string_view value) noexcept {
+	[[nodiscard]] constexpr Integer fromRomanNumerals(const std::string_view value) noexcept {
 		static constexpr std::string_view numerals = "IVXLCDM";
 		Integer result = 0;
 		if (!value.size() || (value == "N")) {

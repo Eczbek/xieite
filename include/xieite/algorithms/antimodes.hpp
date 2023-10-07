@@ -11,7 +11,7 @@
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> LesserComparator = std::ranges::less>
 	requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-	constexpr std::vector<std::ranges::const_iterator_t<const Range&>> antimodes(const Range& range, const LesserComparator lesserComparator = LesserComparator()) noexcept {
+	[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range&>> antimodes(const Range& range, const LesserComparator lesserComparator = LesserComparator()) noexcept {
 		std::vector<std::ranges::const_iterator_t<const Range&>> iterators;
 		std::ranges::const_iterator_t<const Range&> iterator = std::ranges::next(std::ranges::begin(range));
 		const std::size_t rangeSize = std::ranges::size(range);

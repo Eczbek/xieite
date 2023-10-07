@@ -12,7 +12,7 @@ Useless.
 #### 1)
 ```cpp
 template<char... characters>
-constexpr int operator""_base() noexcept;
+[[nodiscard]] constexpr int operator""_base() noexcept;
 ```
 
 &nbsp;

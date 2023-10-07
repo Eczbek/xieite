@@ -12,7 +12,7 @@ Defined in header [<xieite/math/wrap.hpp>](../../include/xieite/math/wrap.hpp)
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric Number>
-constexpr Number wrap(const Number value, const Number limit1, const Number limit2) noexcept;
+[[nodiscard]] constexpr Number wrap(Number value, Number limit1, Number limit2) noexcept;
 ```
 
 &nbsp;

@@ -12,7 +12,7 @@ Checks whether one range contains elements in the same relative order as in anot
 #### 1)
 ```cpp
 template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range1>, std::ranges::range_value_t<Range2>)> Callback = std::ranges::equal_to>
-constexpr bool sameRelativeOrder(const Range1& range1, const Range2& range2, const Callback& comparator = Callback());
+[[nodiscard]] constexpr bool sameRelativeOrder(const Range1& range1, const Range2& range2, const Callback& comparator = Callback());
 ```
 
 &nbsp;

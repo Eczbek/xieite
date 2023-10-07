@@ -11,5 +11,5 @@ Returns the sides of this polygon.
 ## Synopses
 #### 1)
 ```cpp
-constexpr std::vector<xieite::geometry::Segment> sides() const noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Segment> sides() const noexcept;
 ```

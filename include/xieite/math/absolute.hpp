@@ -8,13 +8,13 @@
 
 namespace xieite::math {
 	template<std::integral Integer>
-	constexpr xieite::math::AttemptUnsign<Integer> absolute(const Integer value) noexcept {
+	[[nodiscard]] constexpr xieite::math::AttemptUnsign<Integer> absolute(const Integer value) noexcept {
 		const Integer mask = value >> (xieite::types::sizeBits<Integer> - 1);
 		return (value ^ mask) - mask;
 	}
 
 	template<std::floating_point FloatingPoint>
-	constexpr FloatingPoint absolute(const FloatingPoint value) noexcept {
+	[[nodiscard]] constexpr FloatingPoint absolute(const FloatingPoint value) noexcept {
 		return std::abs(value);
 	}
 }

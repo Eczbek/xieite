@@ -6,14 +6,14 @@
 
 namespace xieite::literals {
 	template<char... characters>
-	constexpr std::string operator""_s() noexcept {
+	[[nodiscard]] constexpr std::string operator""_s() noexcept {
 		return std::string {
 			characters...
 		};
 	}
 
 	template<char... characters>
-	constexpr std::string_view operator""_sv() noexcept {
+	[[nodiscard]] constexpr std::string_view operator""_sv() noexcept {
 		static constexpr std::string value {
 			characters...
 		};

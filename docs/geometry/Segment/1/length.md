@@ -11,7 +11,7 @@ Computes the distance between the start and end of this segment.
 ## Synopses
 #### 1)
 ```cpp
-constexpr double length() const noexcept;
+[[nodiscard]] constexpr double length() const noexcept;
 ```
 
 &nbsp;

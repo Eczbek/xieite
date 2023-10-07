@@ -16,6 +16,8 @@ struct Position {
     int column;
 
     constexpr Position(int, int);
+
+    friend constexpr bool operator==(xieite::streams::Position, xieite::streams::Position);
 };
 ```
 ##### Member variables

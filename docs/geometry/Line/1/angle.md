@@ -11,7 +11,7 @@ Computes the angle of this line, in radians.
 ## Synopses
 #### 1)
 ```cpp
-constexpr double angle() const noexcept;
+[[nodiscard]] constexpr double angle() const noexcept;
 ```
 
 &nbsp;
