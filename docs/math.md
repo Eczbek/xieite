@@ -13,6 +13,7 @@ Mathematical types and functions.
 - [AttemptUnsign](./namespaces/math/AttemptUnsign.md)
 - [BigInteger](./namespaces/math/BigInteger.md)
 - [ConditionalSign](./namespaces/math/ConditionalSign.md)
+- [Exponent](./namespaces/math/Exponent.md)
 - [Interval](./namespaces/math/Interval.md)
 - [MinimalInteger](./namespaces/math/MinimalInteger.md)
 - [Result](./namespaces/math/Result.md)
