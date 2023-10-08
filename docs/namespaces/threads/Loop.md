@@ -12,8 +12,8 @@ Runs a callback constantly. Compile with `-pthread`.
 #### 1)
 ```cpp
 struct Loop {
-    template<std::invocable<> Invocable>
-    Loop(const Invocable&);
+    template<std::invocable<> Functor>
+    Loop(const Functor&);
 
     bool good() const;
 

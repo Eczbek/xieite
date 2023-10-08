@@ -2,17 +2,18 @@
 #	define XIEITE_HEADER__THREADS__TIMEOUT
 
 #	include <concepts>
+#	include <functional>
 #	include "../concepts/ChronoDuration.hpp"
 #	include "../threads/Interval.hpp"
 
 namespace xieite::threads {
 	class Timeout {
 	public:
-		template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
-		Timeout(const Invocable& callback, const ChronoDuration duration) noexcept
+		template<std::invocable<> Functor, xieite::concepts::ChronoDuration ChronoDuration>
+		Timeout(const Functor& callback, const ChronoDuration duration) noexcept
 		: interval([this, &callback] {
 			this->stop();
-			callback();
+			std::invoke(callback);
 		}, duration) {}
 
 		[[nodiscard]] bool good() const noexcept {

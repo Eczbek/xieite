@@ -2,6 +2,7 @@
 #	define XIEITE_HEADER__THREADS__INTERVAL
 
 #	include <concepts>
+#	include <functional>
 #	include <thread>
 #	include "../concepts/ChronoDuration.hpp"
 #	include "../threads/Loop.hpp"
@@ -9,14 +10,14 @@
 namespace xieite::threads {
 	class Interval {
 	public:
-		template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
-		Interval(const Invocable& callback, const ChronoDuration duration) noexcept
+		template<std::invocable<> Functor, xieite::concepts::ChronoDuration ChronoDuration>
+		Interval(const Functor& callback, const ChronoDuration duration) noexcept
 		: loop([&callback, duration] {
 			static bool first = true;
 			if (first) {
 				first = false;
 			} else {
-				callback();
+				std::invoke(callback);
 			}
 			std::this_thread::sleep_for(duration);
 		}) {}

@@ -2,17 +2,18 @@
 #	define XIEITE_HEADER__THREADS__LOOP
 
 #	include <concepts>
+#	include <functional>
 #	include <stop_token>
 #	include <thread>
 
 namespace xieite::threads {
 	class Loop {
 	public:
-		template<std::invocable<> Invocable>
-		Loop(const Invocable& callback) noexcept
+		template<std::invocable<> Functor>
+		Loop(const Functor& callback) noexcept
 		: thread([&callback](const std::stop_token stopToken) {
 			while (!stopToken.stop_requested()) {
-				callback();
+				std::invoke(callback);
 			}
 		}) {}
 

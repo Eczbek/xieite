@@ -11,6 +11,6 @@ Constructs a `xieite::threads::Interval`, starts running a callback between set 
 ## Synopses
 #### 1)
 ```cpp
-template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
-Interval(const Invocable& callback, ChronoDuration duration) noexcept;
+template<std::invocable<> Functor, xieite::concepts::ChronoDuration ChronoDuration>
+Interval(const Functor& callback, ChronoDuration duration) noexcept;
 ```
