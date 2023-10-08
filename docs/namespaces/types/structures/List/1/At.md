@@ -20,12 +20,12 @@ using At = /* ... */;
 ```cpp
 #include <iostream>
 #include <xieite/types/List.hpp>
-#include <xieite/types/demangle.hpp>
+#include <xieite/types/name.hpp>
 
 int main() {
     using Type = xieite::types::List<int, char, short, long>::At<2>;
 
-    std::cout << xieite::types::demangle(typeid(Type).name()) << '\n';
+    std::cout << xieite::types::name<Type>() << '\n';
 }
 ```
 Output:

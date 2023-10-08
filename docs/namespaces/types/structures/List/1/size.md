@@ -19,7 +19,6 @@ static constexpr std::size_t size = sizeof...(Types);
 ```cpp
 #include <iostream>
 #include <xieite/types/List.hpp>
-#include <xieite/types/demangle.hpp>
 
 int main() {
     std::size_t size = xieite::types::List<int, char, short, long>::size;

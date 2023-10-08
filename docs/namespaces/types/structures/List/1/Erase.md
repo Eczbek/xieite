@@ -20,15 +20,15 @@ using Erase = List<Types...>::Slice<0, start>::template AppendRange<List<Types..
 ```cpp
 #include <iostream>
 #include <xieite/types/List.hpp>
-#include <xieite/types/demangle.hpp>
+#include <xieite/types/name.hpp>
 
 int main() {
     using List = xieite::types::List<int, char, short, long>::Erase<2>;
 
-    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
+    std::cout << xieite::types::name<List>() << '\n';
 }
 ```
 Output:
 ```
-xieite::types::List<int, char, long>
+List<int, char, long>
 ```

@@ -20,15 +20,15 @@ using InsertRange = /* ... */;
 ```cpp
 #include <iostream>
 #include <xieite/types/List.hpp>
-#include <xieite/types/demangle.hpp>
+#include <xieite/types/name.hpp>
 
 int main() {
     using List = xieite::types::List<int, char, short, long>::Insert<2, xieite::types::List<float, double>>;
 
-    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
+    std::cout << xieite::types::name<List>() << '\n';
 }
 ```
 Output:
 ```
-xieite::types::List<int, char, float, double, short, long>
+List<int, char, float, double, short, long>
 ```

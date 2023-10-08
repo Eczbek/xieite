@@ -19,15 +19,15 @@ using Reverse = /* ... */;
 ```cpp
 #include <iostream>
 #include <xieite/types/List.hpp>
-#include <xieite/types/demangle.hpp>
+#include <xieite/types/name.hpp>
 
 int main() {
     using List = xieite::types::List<int, char, short, long>::Reverse;
 
-    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
+    std::cout << xieite::types::name<List>() << '\n';
 }
 ```
 Output:
 ```
-xieite::types::List<long, short, char, int>
+List<long, short, char, int>
 ```
