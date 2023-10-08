@@ -12,8 +12,8 @@ Runs a callback once after a set amount of time. Compile with `-pthread`.
 #### 1)
 ```cpp
 struct Timeout {
-    template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
-    Timeout(const Invocable&, ChronoDuration) noexcept;
+    template<std::invocable<> Functor, xieite::concepts::ChronoDuration ChronoDuration>
+    Timeout(const Functor&, ChronoDuration) noexcept;
 
     bool good() const;
 

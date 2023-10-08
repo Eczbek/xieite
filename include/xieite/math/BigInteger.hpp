@@ -14,7 +14,6 @@
 #	include <string_view>
 #	include <vector>
 #	include "../concepts/Arithmetic.hpp"
-#	include "../concepts/Functable.hpp"
 #	include "../math/AttemptUnsign.hpp"
 #	include "../math/Product.hpp"
 #	include "../math/digits.hpp"
@@ -652,8 +651,8 @@ namespace xieite::math {
 		std::vector<Datum> data;
 		bool negative;
 
-		template<xieite::concepts::Functable<Datum(Datum, Datum)> Functor>
-		[[nodiscard]] static constexpr xieite::math::BigInteger<Datum> bitwiseOperation(xieite::math::BigInteger<Datum> leftOperand, xieite::math::BigInteger<Datum> rightOperand, const Functor& callback = Functor()) {
+		template<typename Functor>
+		[[nodiscard]] static constexpr xieite::math::BigInteger<Datum> bitwiseOperation(xieite::math::BigInteger<Datum> leftOperand, xieite::math::BigInteger<Datum> rightOperand, const Functor& callback) {
 			const bool leftNegative = leftOperand.negative;
 			const bool rightNegative = rightOperand.negative;
 			leftOperand += leftNegative;

@@ -11,6 +11,6 @@ Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time
 ## Synopses
 #### 1)
 ```cpp
-template<std::invocable<> Invocable, xieite::concepts::ChronoDuration ChronoDuration>
-Timeout(const Invocable& callback, ChronoDuration duration) noexcept;
+template<std::invocable<> Functor, xieite::concepts::ChronoDuration ChronoDuration>
+Timeout(const Functor& callback, ChronoDuration duration) noexcept;
 ```

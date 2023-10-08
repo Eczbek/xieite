@@ -57,7 +57,7 @@ namespace xieite::functors {
 
 	public:
 		constexpr Infix(Functor&& callback) noexcept
-		: callback(std::move(functor)) {}
+		: callback(std::forward<Functor>(functor)) {}
 
 		template<typename LeftArgument>
 		requires(std::invocable<Functor, LeftArgument&&, xieite::types::Placeholder>)

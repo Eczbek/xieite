@@ -2,6 +2,7 @@
 #	define XIEITE_HEADER__FUNCTORS__PROCESS_GUARD
 
 #	include <concepts>
+#	include <functor>
 #	include <memory>
 
 namespace xieite::functors {
@@ -14,7 +15,7 @@ namespace xieite::functors {
 			static const struct Lock final {
 				~Lock() {
 					if (!*released) {
-						callback();
+						std::invoke(callback);
 					}
 				}
 			} lock;
