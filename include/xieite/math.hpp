@@ -5,6 +5,7 @@
 #	include "./math/AttemptUnsign.hpp"
 #	include "./math/BigInteger.hpp"
 #	include "./math/ConditionalSign.hpp"
+#	include "./math/Exponent.hpp"
 #	include "./math/Interval.hpp"
 #	include "./math/MinimalInteger.hpp"
 #	include "./math/Result.hpp"
