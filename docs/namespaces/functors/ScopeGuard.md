@@ -11,9 +11,9 @@ Executes a callback when it goes out of scope.
 ## Synopses
 #### 1)
 ```cpp
-template<std::invocable<> Invocable>
+template<std::invocable<> Functor>
 struct ScopeGuard {
-    ScopeGuard(const Invocable&);
+    ScopeGuard(Functor&&);
 
     void release();
 };

@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[Infix\<callback\>](../../../Infix.md)\:\:Intermediate
+# [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[Infix\<Functor\>](../../../Infix.md)\:\:Intermediate
 Defined in header [<xieite/functors/Infix.hpp>](../../../../../../include/xieite/functors/Infix.hpp)
 
 &nbsp;
@@ -14,17 +14,13 @@ An intermediate state for an infix.
 template<typename LeftArgument>
 class Intermediate {
 public:
-    constexpr Intermediate(const LeftArgument&) noexcept;
+    constexpr Intermediate(Functor&&, LeftArgument&&);
 
-    constexpr auto operator=(const xieite::functions::Infix<callback>::Intermediate<LeftArgument>&) = delete;
-
-    template<typename RightArgument>
-    requires(std::invocable<decltype(callback), LeftArgument, const RightArgument&>)
-    friend constexpr std::invoke_result_t<decltype(callback), LeftArgument, const RightArgument&> operator>(xieite::functors::Infix<callback>::Intermediate<LeftArgument>&, const RightArgument&);
+    constexpr auto operator=(const xieite::functions::Infix<Functor>::Intermediate<LeftArgument>&) = delete;
 
     template<typename RightArgument>
-    requires(std::invocable<decltype(callback), LeftArgument, RightArgument&>)
-    friend constexpr std::invoke_result_t<decltype(callback), LeftArgument, RightArgument&> operator>(xieite::functors::Infix<callback>::Intermediate<LeftArgument>&, RightArgument&);
+    requires(std::invocable<Functor, LeftArgument, RightArgument&&>)
+    friend constexpr std::invoke_result_t<Functor, LeftArgument, RightArgument&&> operator>(const xieite::functors::Infix<Functor>::Intermediate<LeftArgument>&, RightArgument&&);
 };
 ```
 ##### Member functions

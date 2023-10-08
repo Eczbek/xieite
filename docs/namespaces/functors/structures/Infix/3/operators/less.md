@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix\<callback\>](../../../../Infix.md)\:\:operator\<
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix\<Functor\>](../../../../Infix.md)\:\:operator\<
 Defined in header [<xieite/functors/Infix.hpp>](../../../../../../../include/xieite/functors/Infix.hpp)
 
 &nbsp;
@@ -7,12 +7,6 @@ Defined in header [<xieite/functors/Infix.hpp>](../../../../../../../include/xie
 #### 1)
 ```cpp
 template<typename LeftArgument>
-requires(std::invocable<decltype(callback), const LeftArgument&, xieite::types::Placeholder>)
-[[nodiscard]] friend constexpr Infix<callback>::Intermediate<const LeftArgument&> operator<(const LeftArgument& leftArgument, xieite::functors::Infix<callback>) noexcept;
-```
-#### 2)
-```cpp
-template<typename LeftArgument>
-requires(std::invocable<decltype(callback), LeftArgument&, xieite::types::Placeholder>)
-[[nodiscard]] friend constexpr Infix<callback>::Intermediate<LeftArgument&> operator<(LeftArgument& leftArgument, xieite::functors::Infix<callback>) noexcept;
+requires(std::invocable<Functor, LeftArgument&&, xieite::types::Placeholder>)
+[[nodiscard]] friend constexpr xieite::functors::Infix<Functor>::Intermediate<LeftArgument&&> operator<(LeftArgument&& leftArgument, const xieite::functors::Infix<Functor>& infix) noexcept;
 ```

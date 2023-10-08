@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[ScopeGuard\<Invocable\>](../../../../ScopeGuard.md)\:\:ScopeGuard
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[ScopeGuard\<Functor\>](../../../../ScopeGuard.md)\:\:ScopeGuard
 Defined in header [<xieite/functors/ScopeGuard.hpp>](../../../../../../../include/xieite/functors/ScopeGuard.hpp)
 
 &nbsp;
@@ -11,5 +11,5 @@ Constructs a `xieite::functors::ScopeGuard`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr ScopeGuard(const Invocable& invocable) noexcept;
+constexpr ScopeGuard(Functor&& callback) noexcept;
 ```
