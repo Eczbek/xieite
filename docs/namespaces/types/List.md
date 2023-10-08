@@ -91,7 +91,7 @@ class List {
 ```cpp
 #include <iostream>
 #include <xieite/types/List.hpp>
-#include <xieite/types/demangle.hpp>
+#include <xieite/types/name.hpp>
 
 int main() {
     using Foo = xieite::types::List<int, char, short, long>;
@@ -99,10 +99,10 @@ int main() {
     using Baz = Bar::Reverse;
     using Qux = Baz::Erase<3>;
 
-    std::cout << xieite::types::demangle(typeid(Qux).name()) << '\n';
+    std::cout << xieite::types::name<Qux>() << '\n';
 }
 ```
 Output:
 ```
-xieite::types::List<double, float, long, char, int>
+List<double, float, long, char, int>
 ```

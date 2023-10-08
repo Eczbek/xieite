@@ -20,15 +20,15 @@ using Set = List<Types...>::Erase<index>::template Insert<index, OtherType>;
 ```cpp
 #include <iostream>
 #include <xieite/types/List.hpp>
-#include <xieite/types/demangle.hpp>
+#include <xieite/types/name.hpp>
 
 int main() {
     using List = xieite::types::List<int, char, short, long>::Set<2, float>;
 
-    std::cout << xieite::types::demangle(typeid(List).name()) << '\n';
+    std::cout << xieite::types::name<List>() << '\n';
 }
 ```
 Output:
 ```
-xieite::types::List<int, char, float, long>
+List<int, char, float, long>
 ```
