@@ -1,4 +1,4 @@
-# [XIEITE](../macros.md)\_\_ASCII\_SUPPORT
+# [XIEITE](../../macros.md)\_\_ASCII\_SUPPORT
 Defined in header [<xieite/macros/ASCII_SUPPORT.hpp>](../../include/xieite/macros/ASCII_SUPPORT.hpp)
 
 &nbsp;
