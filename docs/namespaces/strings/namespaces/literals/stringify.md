@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[strings](../../../strings.md)\:\:[literals](../literals.md)\:\:\_stringify
-Defined in header [<xieite/literals/strings.hpp>](../../../include/xieite/literals/strings.hpp)
+Defined in header [<xieite/strings/literals/stringify.hpp>](../../../../../include/xieite/strings/literals/stringify.hpp)
 
 &nbsp;
 
