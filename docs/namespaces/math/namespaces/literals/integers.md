@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[math](../../../../math.md)\:\:[literals](../literals.md)\:\: \(integers\)
-Defined in header [<xieite/literals/integers.hpp>](../../../include/xieite/literals/integers.hpp)
+Defined in header [<xieite/math/literals/integers.hpp>](../../../../../include/xieite/math/literals/integers.hpp)
 
 &nbsp;
 

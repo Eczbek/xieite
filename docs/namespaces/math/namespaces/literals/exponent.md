@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[math](../../../../math.md)\:\:[literals](../literals.md)\:\:\_exponent
-Defined in header [<xieite/literals/exponent.hpp>](../../../include/xieite/literals/exponent.hpp)
+Defined in header [<xieite/math/literals/exponent.hpp>](../../../../../include/xieite/math/literals/exponent.hpp)
 
 &nbsp;
 
