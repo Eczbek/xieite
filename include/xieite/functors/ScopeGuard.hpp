@@ -2,17 +2,19 @@
 #	define XIEITE_HEADER__FUNCTORS__SCOPE_GUARD
 
 #	include <concepts>
+#	include <functional>
+#	include <utility>
 
 namespace xieite::functors {
-	template<std::invocable<> Invocable>
+	template<std::invocable<> Functor>
 	class ScopeGuard {
 	public:
-		constexpr ScopeGuard(const Invocable& callback) noexcept
-		: callback(callback), released(false) {}
+		constexpr ScopeGuard(Functor&& callback) noexcept
+		: callback(std::forward<Functor>(callback)), released(false) {}
 
 		constexpr ~ScopeGuard() {
 			if (!this->released) {
-				this->callback();
+				std::invoke(this->callback);
 			}
 		}
 
@@ -21,7 +23,7 @@ namespace xieite::functors {
 		}
 
 	private:
-		const Invocable callback;
+		const Functor callback;
 		bool released;
 	};
 }

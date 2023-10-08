@@ -1,12 +1,11 @@
 #ifndef XIEITE_HEADER__ALGORITHMS__ROTATE_MATRIX
 #	define XIEITE_HEADER__ALGORITHMS__ROTATE_MATRIX
 
-#	include <concepts>
 #	include <vector>
 #	include "../math/wrap.hpp"
 
 namespace xieite::algorithms {
-	template<std::copyable Value>
+	template<typename Value>
 	[[nodiscard]] constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::vector<Value>>& matrix, int rotations) noexcept {
 		rotations = xieite::math::wrap(rotations, 2, -1);
 		const std::size_t matrixWidth = matrix.size();

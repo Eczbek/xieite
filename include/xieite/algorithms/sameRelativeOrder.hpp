@@ -14,7 +14,7 @@ namespace xieite::algorithms {
 		const std::size_t rangeSize = std::ranges::size(range1);
 		if (rangeSize == std::ranges::size(range2)) {
 			for (std::size_t i = 0; i < rangeSize; ++i) {
-				if (std::ranges::equal(range1, range2)) {
+				if (std::ranges::equal(range1, range2, comparator)) {
 					return true;
 				}
 				std::ranges::rotate(range2, std::ranges::next(std::ranges::begin(range2)));

@@ -12,8 +12,8 @@ Executes a callback when the program ends.
 #### 1)
 ```cpp
 struct ProcessGuard {
-    template<std::invocable<> Invocable>
-    ProcessGuard(const Invocable&);
+    template<std::invocable<> Functor>
+    ProcessGuard(Functor);
 
     void release();
 };

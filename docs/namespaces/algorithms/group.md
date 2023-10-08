@@ -11,13 +11,13 @@ Groups elements of a `std::vector` into a `std::unordered_map`, of which the key
 ## Synopses
 #### 1)
 ```cpp
-template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Range>> Callback>
-[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Callback(std::ranges::range_value_t<Range>)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Callback& callback);
+template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Range>> Functor>
+[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor(std::ranges::range_value_t<Range>)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Functor& callback);
 ```
 #### 2)
 ```cpp
-template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Range>, std::size_t> Callback>
-[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Callback(std::ranges::range_value_t<Range>, std::size_t)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Callback& callback);
+template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Range>, std::size_t> Functor>
+[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor(std::ranges::range_value_t<Range>, std::size_t)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Functor& callback);
 ```
 
 &nbsp;

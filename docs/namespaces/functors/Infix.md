@@ -11,49 +11,41 @@ An infix operator thing.
 ## Synopses
 #### 1)
 ```cpp
-template<typename, auto>
+template<typename>
 struct Infix;
 ```
 #### 2)
 ```cpp
-template<std::invocable<xieite::types::Placeholder> auto callback>
-struct Infix<callback> {
-    template<typename Argument>
-    requires(std::invocable<decltype(callback), const Argument&>)
-    friend constexpr std::invoke_result_t<decltype(callback), const Argument&> operator>(xieite::functors::Infix<callback>, const Argument&);
+template<std::invocable<xieite::types::Placeholder> Functor>
+struct Infix<Functor> {
+    constexpr Infix(Functor&&);
 
     template<typename Argument>
-    requires(std::invocable<decltype(callback), Argument&>)
-    friend constexpr std::invoke_result_t<decltype(callback), Argument&> operator>(xieite::functors::Infix<callback>, Argument&);
+    requires(std::invocable<Functor, Argument&&>)
+    friend constexpr std::invoke_result_t<Functor, Argument&&> operator>(const xieite::functors::Infix<Functor>&, Argument&&);
 
     template<typename Argument>
-    requires(std::invocable<decltype(callback), const Argument&>)
-    friend constexpr std::invoke_result_t<decltype(callback), const Argument&> operator<(const Argument&, xieite::functors::Infix<callback>);
-
-    template<typename Argument>
-    requires(std::invocable<decltype(callback), Argument&>)
-    friend constexpr std::invoke_result_t<decltype(callback), Argument&> operator<(Argument&, xieite::functors::Infix<callback>);
-    };
+    requires(std::invocable<Functor, Argument&&>)
+    friend constexpr std::invoke_result_t<Functor, Argument&> operator<(Argument&&, const xieite::functors::Infix<Functor>&);
+};
 ```
 ##### Member functions
 - [operator>](./structures/Infix/2/operators/more.md)
 - [operator<](./structures/Infix/2/operators/less.md)
 #### 3)
 ```cpp
-template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> auto callback>
-class Infix<callback> {
+template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> Functor>
+class Infix<Functor> {
 private:
     template<typename LeftArgument>
     struct Intermediate;
 
 public:
-    template<typename LeftArgument>
-    requires(std::invocable<decltype(callback), const LeftArgument&, xieite::types::Placeholder>)
-    [[nodiscard]] friend constexpr Infix<callback>::Intermediate<const LeftArgument&> operator<(const LeftArgument&, xieite::functors::Infix<callback>) noexcept;
+    constexpr Infix(Functor&&);
 
     template<typename LeftArgument>
-    requires(std::invocable<decltype(callback), LeftArgument&, xieite::types::Placeholder>)
-    [[nodiscard]] friend constexpr Infix<callback>::Intermediate<LeftArgument&> operator<(LeftArgument&, xieite::functors::Infix<callback>) noexcept;
+    requires(std::invocable<Functor, LeftArgument&&, xieite::types::Placeholder>)
+    [[nodiscard]] friend constexpr xieite::functors::Infix<Functor>::Intermediate<LeftArgument&&> operator<(LeftArgument&&, const xieite::functors::Infix<Functor>&);
 };
 ```
 ##### Member structures
@@ -63,19 +55,27 @@ public:
 
 &nbsp;
 
+### Deduction guides
+```cpp
+template<typename Functor>
+xieite::functors::Infix(Functor&&) -> xieite::functors::Infix<Functor>;
+```
+
+&nbsp;
+
 ## Example
 ```cpp
 #include <iostream>
 #include <xieite/functors/Infix.hpp>
 
 int main() {
-    xieite::functors::Infix<[](int x, int y) {
+    auto multiply = xieite::functors::Infix([](int x, int y) {
         return x * y;
-    }> multiply;
+    });
 
-    xieite::functors::Infix<[](int x) {
+    auto increment = xieite::functors::Infix([](int x) {
         return x + 1;
-    }> increment;
+    });
 
     std::cout
         << (2 <multiply> 2) << '\n'

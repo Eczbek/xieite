@@ -16,7 +16,7 @@ struct Overloader
 : Derivables... {
     constexpr Overloader();
 
-    constexpr Overloader(const Derivables&...);
+    constexpr Overloader(Derivables&&...);
 
     using Derivables::operator()...;
 };

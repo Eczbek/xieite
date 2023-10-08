@@ -11,8 +11,8 @@ Selects iterators and then reverses them only between themselves.
 ## Synopses
 #### 1)
 ```cpp
-template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> Functable>
-constexpr void partialReverse(const Range& range, const Functable& selector);
+template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> Functor>
+constexpr void partialReverse(const Range& range, const Functor& selector);
 ```
 
 &nbsp;

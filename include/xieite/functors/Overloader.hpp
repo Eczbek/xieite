@@ -1,6 +1,7 @@
 #ifndef XIEITE_HEADER__FUNCTORS__OVERLOADER
 #	define XIEITE_HEADER__FUNCTORS__OVERLOADER
 
+#	include <utility>
 #	include "../concepts/Derivable.hpp"
 
 namespace xieite::functors {
@@ -9,8 +10,8 @@ namespace xieite::functors {
 	: Derivables... {
 		constexpr Overloader() noexcept = default;
 
-		constexpr Overloader(const Derivables&... derivables) noexcept
-		: Derivables(derivables)... {}
+		constexpr Overloader(Derivables&&... callbacks) noexcept
+		: Derivables(std::forward<Derivables>(callbacks))... {}
 
 		using Derivables::operator()...;
 	};
