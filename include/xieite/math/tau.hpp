@@ -9,6 +9,4 @@ namespace xieite::math {
 	inline constexpr Number tau = xieite::math::pi<Number> * 2;
 }
 
-// τ
-
 #endif

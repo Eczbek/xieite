@@ -20,6 +20,4 @@ namespace xieite::functors {
 	};
 }
 
-// Thanks to melak47 for help
-
 #endif

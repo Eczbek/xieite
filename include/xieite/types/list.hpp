@@ -137,6 +137,6 @@ namespace xieite::types {
 	};
 }
 
-// Thanks to Eisenwave and eightfold for help
-
 #endif
+
+// Thanks to Eisenwave for the algorithm for getting unique types, and eightfold for helping compact the slicer

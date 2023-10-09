@@ -685,6 +685,6 @@ namespace xieite::math {
 	};
 }
 
-// Thanks to sam_dev for help with division
-
 #endif
+
+// Thanks to sam_dev for fixing the new division algorithm

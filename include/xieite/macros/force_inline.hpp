@@ -13,6 +13,6 @@
 #		define XIEITE__FORCE_INLINE inline
 #	endif
 
-// Thanks to eightfold for original code
-
 #endif
+
+// Thanks to eightfold for original code

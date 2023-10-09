@@ -15,6 +15,4 @@ namespace xieite::math {
 	inline constexpr Integer pi<Integer> = static_cast<Integer>(std::numbers::pi);
 }
 
-// π
-
 #endif

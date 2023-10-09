@@ -10,6 +10,6 @@ namespace xieite::math {
 	inline constexpr Integer robert = std::numeric_limits<Integer>::max() / std::numbers::phi_v<FloatingPoint>;
 }
 
-// Thanks to melak47 for naming this constant
-
 #endif
+
+// Thanks to melak47 for naming this constant

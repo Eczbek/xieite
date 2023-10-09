@@ -37,6 +37,6 @@ namespace xieite::threads {
 	};
 }
 
-// Thanks to uno20001 for help
-
 #endif
+
+// Thanks to uno20001 for help

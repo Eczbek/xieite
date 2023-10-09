@@ -3,6 +3,6 @@
 
 #	define XIEITE_VERSION__MAJOR 5
 #	define XIEITE_VERSION__MINOR 0
-#	define XIEITE_VERSION__PATCH 1
+#	define XIEITE_VERSION__PATCH 2
 
 #endif

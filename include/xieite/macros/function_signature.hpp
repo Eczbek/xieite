@@ -11,6 +11,6 @@
 #		define XIEITE__FUNCTION_SIGNATURE __func__
 #	endif
 
-// Thanks to eightfold for original code
-
 #endif
+
+// Thanks to eightfold for original code

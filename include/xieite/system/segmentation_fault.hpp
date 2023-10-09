@@ -7,6 +7,4 @@ namespace xieite::system {
 	}
 }
 
-// Thanks to eightfold for original idea
-
 #endif

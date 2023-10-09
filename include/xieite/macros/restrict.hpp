@@ -11,6 +11,6 @@
 #		define XIEITE__RESTRICT
 #	endif
 
-// Thanks to eightfold for original code
-
 #endif
+
+// Thanks to eightfold for original code

@@ -24,6 +24,6 @@ namespace xieite::math::literals {
 	}
 }
 
-// Thanks to Che for idea
-
 #endif
+
+// Thanks to Che for original idea

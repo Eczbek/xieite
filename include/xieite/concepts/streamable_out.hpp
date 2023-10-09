@@ -11,6 +11,6 @@ namespace xieite::concepts {
 	};
 }
 
-// Thanks to fux for original code
-
 #endif
+
+// Thanks to fux for original code
