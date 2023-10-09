@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:traits
-Aggregated in header [<xieite/traits.hpp>](../../include/xieite/traits.hpp)
+Aggregated in header [<xieite/traits.hpp>](../include/xieite/traits.hpp)
 
 &nbsp;
 

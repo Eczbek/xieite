@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:system
-Aggregated in header [<xieite/system.hpp>](../../include/xieite/system.hpp)
+Aggregated in header [<xieite/system.hpp>](../include/xieite/system.hpp)
 
 &nbsp;
 

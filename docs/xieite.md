@@ -1,5 +1,5 @@
 # [XIEITE](https://github.com/Eczbek/xieite#readme)
-Aggregated in header [<xieite/xieite.hpp>](../../include/xieite/xieite.hpp)
+Aggregated in header [<xieite/xieite.hpp>](../include/xieite/xieite.hpp)
 
 &nbsp;
 

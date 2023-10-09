@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:geometry
-Aggregated in header [<xieite/geometry.hpp>](../../include/xieite/geometry.hpp)
+Aggregated in header [<xieite/geometry.hpp>](../include/xieite/geometry.hpp)
 
 &nbsp;
 

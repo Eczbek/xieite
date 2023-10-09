@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:math
-Aggregated in header [<xieite/math.hpp>](../../include/xieite/math.hpp)
+Aggregated in header [<xieite/math.hpp>](../include/xieite/math.hpp)
 
 &nbsp;
 

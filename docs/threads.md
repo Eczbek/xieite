@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:threads
-Aggregated in header [<xieite/threads.hpp>](../../include/xieite/threads.hpp)
+Aggregated in header [<xieite/threads.hpp>](../include/xieite/threads.hpp)
 
 &nbsp;
 

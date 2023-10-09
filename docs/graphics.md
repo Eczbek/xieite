@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:graphics
-Aggregated in header [<xieite/graphics.hpp>](../../include/xieite/graphics.hpp)
+Aggregated in header [<xieite/graphics.hpp>](../include/xieite/graphics.hpp)
 
 &nbsp;
 

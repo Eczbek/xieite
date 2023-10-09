@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:algorithms
-Aggregated in header [<xieite/algorithms.hpp>](../../include/xieite/algorithms.hpp)
+Aggregated in header [<xieite/algorithms.hpp>](../include/xieite/algorithms.hpp)
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Somewhat useful algorithms.
 - [all](./namespaces/algorithms/all.md)
 - [antimodes](./namespaces/algorithms/antimodes.md)
 - [any](./namespaces/algorithms/any.md)
-- [find_occurrence](./namespaces/algorithms/find_occurence.md)
+- [find_occurrence](./namespaces/algorithms/find_occurrence.md)
 - [group](./namespaces/algorithms/group.md)
 - [is_palindrome](./namespaces/algorithms/is_palindrome.md)
 - [mean](./namespaces/algorithms/mean.md)

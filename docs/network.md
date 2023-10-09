@@ -1,5 +1,5 @@
 # [xieite](./xieite.md)\:\:network
-Aggregated in header [<xieite/network.hpp>](../../include/xieite/network.hpp)
+Aggregated in header [<xieite/network.hpp>](../include/xieite/network.hpp)
 
 &nbsp;
 
