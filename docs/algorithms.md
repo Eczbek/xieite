@@ -12,7 +12,7 @@ Somewhat useful algorithms.
 - [all](./namespaces/algorithms/all.md)
 - [antimodes](./namespaces/algorithms/antimodes.md)
 - [any](./namespaces/algorithms/any.md)
-- [find_occurrence](./namespaces/algorithms/find_occurrence.md)
+- [find_occurrence](./namespaces/algorithms/find_occurence.md)
 - [group](./namespaces/algorithms/group.md)
 - [is_palindrome](./namespaces/algorithms/is_palindrome.md)
 - [mean](./namespaces/algorithms/mean.md)
