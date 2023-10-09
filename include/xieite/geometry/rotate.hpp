@@ -2,9 +2,9 @@
 #	define XIEITE_HEADER__GEOMETRY__ROTATE
 
 #	include <cmath>
-#	include "../concepts/LinearShape.hpp"
-#	include "../geometry/Point.hpp"
-#	include "../geometry/Polygon.hpp"
+#	include "../concepts/linear_shape.hpp"
+#	include "../geometry/point.hpp"
+#	include "../geometry/polygon.hpp"
 #	include "../math/tau.hpp"
 
 namespace xieite::geometry {

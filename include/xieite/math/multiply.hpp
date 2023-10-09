@@ -3,7 +3,7 @@
 
 #	include <concepts>
 #	include <limits>
-#	include "../math/Product.hpp"
+#	include "../math/product.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral UnsignedInteger>

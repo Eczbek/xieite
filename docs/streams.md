@@ -9,8 +9,8 @@ Utilities relating to streams.
 &nbsp;
 
 ## Contents
-- [Position](./namespaces/streams/Position.md)
-- [StandardController](./namespaces/streams/StandardController.md)
-- [closePipe](./namespaces/streams/closePipe.md)
-- [getFile](./namespaces/streams/getFile.md)
-- [openPipe](./namespaces/streams/openPipe.md)
+- [closePipe](./namespaces/streams/close_pipe.md)
+- [getFile](./namespaces/streams/get_file.md)
+- [openPipe](./namespaces/streams/open_pipe.md)
+- [position](./namespaces/streams/position.md)
+- [standard_controller](./namespaces/streams/standard_controller.md)

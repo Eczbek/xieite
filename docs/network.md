@@ -9,7 +9,7 @@ Networking thingamabobs.
 &nbsp;
 
 ## Contents
-- [Address](./namespaces/network/Address.md)
-- [Domain](./namespaces/network/Domain.md)
-- [Protocol](./namespaces/network/Protocol.md)
-- [SocketAddress](./namespaces/network/SocketAddress.md)
+- [address](./namespaces/network/address.md)
+- [domain](./namespaces/network/domain.md)
+- [protocol](./namespaces/network/protocol.md)
+- [socket_address](./namespaces/network/socket_address.md)

@@ -3,7 +3,7 @@
 
 #	include <algorithm>
 #	include <type_traits>
-#	include "../concepts/Numeric.hpp"
+#	include "../concepts/numeric.hpp"
 #	include "../math/modulo.hpp"
 
 namespace xieite::math {

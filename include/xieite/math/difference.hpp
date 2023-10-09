@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER__MATH__DIFFERENCE
 
 #	include <type_traits>
-#	include "../concepts/Arithmetic.hpp"
-#	include "../math/AttemptUnsign.hpp"
+#	include "../concepts/arithmetic.hpp"
+#	include "../math/attempt_unsign.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>

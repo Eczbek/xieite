@@ -1,8 +1,8 @@
 #ifndef XIEITE_HEADER__MATH__SIGN
 #	define XIEITE_HEADER__MATH__SIGN
 
-#	include "../concepts/Numeric.hpp"
-#	include "../math/splitBoolean.hpp"
+#	include "../concepts/numeric.hpp"
+#	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number>

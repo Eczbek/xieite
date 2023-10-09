@@ -1,9 +1,9 @@
 #ifndef XIEITE_HEADER__GEOMETRY__TRANSLATE
 #	define XIEITE_HEADER__GEOMETRY__TRANSLATE
 
-#	include "../concepts/LinearShape.hpp"
-#	include "../geometry/Point.hpp"
-#	include "../geometry/Polygon.hpp"
+#	include "../concepts/linear_shape.hpp"
+#	include "../geometry/point.hpp"
+#	include "../geometry/polygon.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]] constexpr xieite::geometry::Point translate(const xieite::geometry::Point point, const xieite::geometry::Point difference) noexcept {

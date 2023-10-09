@@ -9,13 +9,13 @@ Geometrical classes and operations.
 &nbsp;
 
 ## Contents
-- [Line](./namespaces/geometry/Line.md)
-- [Point](./namespaces/geometry/Point.md)
-- [Polygon](./namespaces/geometry/Polygon.md)
-- [Ray](./namespaces/geometry/Ray.md)
-- [Segment](./namespaces/geometry/Segment.md)
 - [intersections](./namespaces/geometry/intersections.md)
+- [line](./namespaces/geometry/line.md)
+- [point](./namespaces/geometry/point.md)
+- [polygon](./namespaces/geometry/polygon.md)
+- [ray](./namespaces/geometry/ray.md)
 - [reflect](./namespaces/geometry/reflect.md)
 - [rotate](./namespaces/geometry/rotate.md)
 - [scale](./namespaces/geometry/scale.md)
+- [segment](./namespaces/geometry/segment.md)
 - [translate](./namespaces/geometry/translate.md)

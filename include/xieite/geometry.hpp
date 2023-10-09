@@ -1,11 +1,11 @@
 #ifndef XIEITE_HEADER__GEOMETRY
 #	define XIEITE_HEADER__GEOMETRY
 
-#	include "./geometry/Line.hpp"
-#	include "./geometry/Point.hpp"
-#	include "./geometry/Polygon.hpp"
-#	include "./geometry/Ray.hpp"
-#	include "./geometry/Segment.hpp"
+#	include "./geometry/line.hpp"
+#	include "./geometry/point.hpp"
+#	include "./geometry/polygon.hpp"
+#	include "./geometry/ray.hpp"
+#	include "./geometry/segment.hpp"
 #	include "./geometry/intersections.hpp"
 #	include "./geometry/reflect.hpp"
 #	include "./geometry/rotate.hpp"

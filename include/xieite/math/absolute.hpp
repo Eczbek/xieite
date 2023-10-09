@@ -3,8 +3,8 @@
 
 #	include <cmath>
 #	include <concepts>
-#	include "../math/AttemptUnsign.hpp"
-#	include "../types/sizeBits.hpp"
+#	include "../math/attempt_unsign.hpp"
+#	include "../types/size_bits.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>

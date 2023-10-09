@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER__MATH__COTANGENT
 
 #	include <cmath>
-#	include "../concepts/Numeric.hpp"
-#	include "../math/Result.hpp"
+#	include "../concepts/numeric.hpp"
+#	include "../math/result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number>
