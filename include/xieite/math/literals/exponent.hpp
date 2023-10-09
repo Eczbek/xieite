@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER__MATH__LITERALS__EXPONENT
 #	define XIEITE_HEADER__MATH__LITERALS__EXPONENT
 
-#	include "../../math/Exponent.hpp"
+#	include "../../math/exponent.hpp"
 
 namespace xieite::math::literals {
 	[[nodiscard]] constexpr auto operator""_exponent(const unsigned long long int value) noexcept {

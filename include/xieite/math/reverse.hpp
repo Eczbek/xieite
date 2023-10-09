@@ -3,7 +3,7 @@
 
 #	include <concepts>
 #	include <cstddef>
-#	include "../math/splitBoolean.hpp"
+#	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>

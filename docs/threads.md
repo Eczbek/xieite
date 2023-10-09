@@ -9,7 +9,7 @@ Threading utilities.
 &nbsp;
 
 ## Contents
-- [Interval](./namespaces/threads/Interval.md)
-- [Loop](./namespaces/threads/Loop.md)
-- [Pool](./namespaces/threads/Pool.md)
-- [Timeout](./namespaces/threads/Timeout.md)
+- [interval](./namespaces/threads/interval.md)
+- [loop](./namespaces/threads/loop.md)
+- [pool](./namespaces/threads/pool.md)
+- [timeout](./namespaces/threads/timeout.md)

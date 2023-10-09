@@ -9,7 +9,7 @@ Tools for interacting with the system.
 &nbsp;
 
 ## Contents
-- [byteBits](./namespaces/system/byteBits.md)
+- [byte_bits](./namespaces/system/byte_bits.md)
 - [execute](./namespaces/system/execute.md)
-- [segmentationFault](./namespaces/system/segmentationFault.md)
+- [segmentation_fault](./namespaces/system/segmentation_fault.md)
 - [terminal](./namespaces/system/terminal.md)

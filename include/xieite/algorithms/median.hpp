@@ -7,8 +7,8 @@
 #	include <iterator>
 #	include <ranges>
 #	include "../algorithms/mean.hpp"
-#	include "../concepts/Numeric.hpp"
-#	include "../math/Result.hpp"
+#	include "../concepts/numeric.hpp"
+#	include "../math/result.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range>

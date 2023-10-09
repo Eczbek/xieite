@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER__MATH__MODULO
 
 #	include <cmath>
-#	include "../concepts/Arithmetic.hpp"
+#	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>

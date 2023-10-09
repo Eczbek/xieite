@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER__MATH__LOGARITHM
 
 #	include <cmath>
-#	include "../concepts/Arithmetic.hpp"
-#	include "../math/Result.hpp"
+#	include "../concepts/arithmetic.hpp"
+#	include "../math/result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>

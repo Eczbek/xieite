@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER__MATH__ROUND
 
 #	include <cmath>
-#	include "../concepts/Numeric.hpp"
+#	include "../concepts/numeric.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>

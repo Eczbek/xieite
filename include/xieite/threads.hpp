@@ -1,9 +1,9 @@
 #ifndef XIEITE_HEADER__THREADS
 #	define XIEITE_HEADER__THREADS
 
-#	include "./threads/Interval.hpp"
-#	include "./threads/Loop.hpp"
-#	include "./threads/Pool.hpp"
-#	include "./threads/Timeout.hpp"
+#	include "./threads/interval.hpp"
+#	include "./threads/loop.hpp"
+#	include "./threads/pool.hpp"
+#	include "./threads/timeout.hpp"
 
 #endif

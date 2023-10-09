@@ -1,9 +1,9 @@
 #ifndef XIEITE_HEADER__GEOMETRY__REFLECT
 #	define XIEITE_HEADER__GEOMETRY__REFLECT
 
-#	include "../concepts/LinearShape.hpp"
-#	include "../geometry/Point.hpp"
-#	include "../geometry/Polygon.hpp"
+#	include "../concepts/linear_shape.hpp"
+#	include "../geometry/point.hpp"
+#	include "../geometry/polygon.hpp"
 #	include "../geometry/rotate.hpp"
 
 namespace xieite::geometry {

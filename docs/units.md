@@ -10,6 +10,6 @@ Unit conversion ratios.
 
 ## Contents
 - [areas](./namespaces/units/areas.md)
-- [literals](./namespaces/units/literals.md)
 - [lengths](./namespaces/units/lengths.md)
+- [literals](./namespaces/units/literals.md)
 - [volumes](./namespaces/units/volumes.md)

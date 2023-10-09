@@ -1,9 +1,9 @@
 #ifndef XIEITE_HEADER__GEOMETRY__SCALE
 #	define XIEITE_HEADER__GEOMETRY__SCALE
 
-#	include "../concepts/LinearShape.hpp"
-#	include "../geometry/Point.hpp"
-#	include "../geometry/Polygon.hpp"
+#	include "../concepts/linear_shape.hpp"
+#	include "../geometry/point.hpp"
+#	include "../geometry/polygon.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]] constexpr xieite::geometry::Point scale(const xieite::geometry::Point point, const double scale, const xieite::geometry::Point origin = xieite::geometry::Point(0, 0)) noexcept {

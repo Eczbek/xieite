@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER__MATH__TAU
 #	define XIEITE_HEADER__MATH__TAU
 
-#	include "../concepts/Numeric.hpp"
+#	include "../concepts/numeric.hpp"
 #	include "../math/pi.hpp"
 
 namespace xieite::math {

@@ -20,7 +20,7 @@ template<std::unsigned_integral UnsignedInteger>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/Product.hpp>
+#include <xieite/math/product.hpp>
 #include <xieite/math/multiply.hpp>
 
 int main() {

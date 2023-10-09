@@ -28,9 +28,9 @@ template<xieite::concepts::LinearShape LinearShape>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/Line.hpp>
+#include <xieite/geometry/line.hpp>
 #include <xieite/geometry/rotate.hpp>
-#include <xieite/math/toRadians.hpp>
+#include <xieite/math/to_radians.hpp>
 
 int main() {
     xieite::geometry::Line line1({ 0.0, 0.0 }, { 1.0, 1.0 });
