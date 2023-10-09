@@ -3,7 +3,7 @@
 
 #	include "../macros/compiler_type.hpp"
 
-#	if !XIEITE__COMPILER_TYPE__GCC
+#	if !XIEITE__COMPILER_TYPE__GCC || !HAVE_CXA_DEMANGLE
 #		error "Compiler not supported"
 #	endif
 
