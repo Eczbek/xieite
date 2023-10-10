@@ -11,4 +11,4 @@ A namespace of math literals.
 ## Contents
 - [base](./namespaces/literals/base.md)
 - [exponent](./namespaces/literals/exponent.md)
-- [(integers)](./namespaces/literals/integers.md)
+- [integers](./namespaces/literals/integers.md)
