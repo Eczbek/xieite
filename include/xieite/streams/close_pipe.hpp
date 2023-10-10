@@ -9,7 +9,7 @@
 
 namespace xieite::streams {
 	inline int closePipe(std::FILE* const pipe) noexcept {
-		return ::pclose(pipe);
+		return pclose(pipe);
 	}
 }
 
@@ -19,7 +19,7 @@ namespace xieite::streams {
 
 namespace xieite::streams {
 	inline int closePipe(std::FILE* const pipe) noexcept {
-		return ::_pclose(pipe);
+		return _pclose(pipe);
 	}
 }
 

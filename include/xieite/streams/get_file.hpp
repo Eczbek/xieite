@@ -7,24 +7,22 @@
 #		error "Compiler not supported"
 #	endif
 
-#	include <concepts>
 #	include <cstdio>
 #	include <ext/stdio_filebuf.h>
-#	include <fstream>
 #	include <iostream>
-#	include <istream>
-#	include <ostream>
+#	include "../concepts/input_stream.hpp"
+#	include "../concepts/output_stream.hpp"
+#	include "../concepts/stream.hpp"
 
 namespace xieite::streams {
-	template<typename Stream>
-	requires(std::same_as<Stream, std::istream> || std::derived_from<Stream, std::istream> || std::same_as<Stream, std::ostream> || std::derived_from<Stream, std::ostream>)
+	template<xieite::concepts::Stream Stream>
 	[[nodiscard]] inline std::FILE* getFile(const Stream& stream) noexcept {
-		if constexpr (std::same_as<Stream, std::istream> || std::derived_from<Stream, std::istream>) {
+		if constexpr (xieite::concepts::InputStream<Stream>) {
 			if (&stream == &std::cin) {
 				return stdin;
 			}
 		}
-		if constexpr (std::same_as<Stream, std::ostream> || std::derived_from<Stream, std::ostream>) {
+		if constexpr (xieite::concepts::OutputStream<Stream>) {
 			if (&stream == &std::cout) {
 				return stdout;
 			}

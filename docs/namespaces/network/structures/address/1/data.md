@@ -6,9 +6,9 @@ Defined in header [<xieite/network/address.hpp>](../../../../../../include/xieit
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]] const ::sockaddr* data() const noexcept;
+[[nodiscard]] const sockaddr* data() const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] ::sockaddr* data() noexcept;
+[[nodiscard]] sockaddr* data() noexcept;
 ```

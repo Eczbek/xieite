@@ -6,9 +6,9 @@ Defined in header [<xieite/network/address.hpp>](../../../../../../include/xieit
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]] const ::socklen_t* size() const noexcept;
+[[nodiscard]] const socklen_t* size() const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] ::socklen_t* size() noexcept;
+[[nodiscard]] socklen_t* size() noexcept;
 ```
