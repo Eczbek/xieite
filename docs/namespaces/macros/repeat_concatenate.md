@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_REPEAT\_CONCATENATE
-Defined in header [<xieite/macros/repeat_concatenate.hpp>](../../include/xieite/macros/repeat_concatenate.hpp)
+Defined in header [<xieite/macros/repeat_concatenate.hpp>](../../../include/xieite/macros/repeat_concatenate.hpp)
 
 &nbsp;
 

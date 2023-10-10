@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_REPEAT
-Defined in header [<xieite/macros/repeat.hpp>](../../include/xieite/macros/repeat.hpp)
+Defined in header [<xieite/macros/repeat.hpp>](../../../include/xieite/macros/repeat.hpp)
 
 &nbsp;
 

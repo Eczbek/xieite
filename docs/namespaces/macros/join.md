@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_JOIN
-Defined in header [<xieite/macros/join.hpp>](../../include/xieite/macros/join.hpp)
+Defined in header [<xieite/macros/join.hpp>](../../../include/xieite/macros/join.hpp)
 
 &nbsp;
 
