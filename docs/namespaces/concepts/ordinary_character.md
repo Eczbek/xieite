@@ -12,5 +12,5 @@ Specifies that a type is a narrow character.
 #### 1)
 ```cpp
 template<typename Type>
-concept OrdinaryCharacter = xieite::concepts::SameAsAnyOf<std::remove_cv_t<Type>, char, signed char, unsigned char>;
+concept OrdinaryCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Type>, char, signed char, unsigned char>;
 ```

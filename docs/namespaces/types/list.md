@@ -67,13 +67,13 @@ class List {
 ```
 ##### Member types
 - [Append](./structures/list/1/append.md)
-- [AppendRange](./structures/list/1/append_range.md)
+- [AppendRange](./structures/list/1/append_range_of.md)
 - [At](./structures/list/1/at.md)
 - [Erase](./structures/list/1/erase.md)
 - [Insert](./structures/list/1/Insert.md)
-- [InsertRange](./structures/list/1/insert_range.md)
+- [InsertRange](./structures/list/1/insert_range_of.md)
 - [Prepend](./structures/list/1/prepend.md)
-- [PrependRange](./structures/list/1/prepend_range.md)
+- [PrependRange](./structures/list/1/prepend_range_of.md)
 - [Replace](./structures/list/1/Replace.md)
 - [ReplaceRange](./structures/list/1/ReplaceRange.md)
 - [Reverse](./structures/list/1/reverse.md)

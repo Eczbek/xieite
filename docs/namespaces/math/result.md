@@ -7,5 +7,5 @@ Defined in header [<xieite/math/result.hpp>](../../../include/xieite/math/result
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric... Numbers>
-using Result = std::conditional_t<xieite::concepts::SameAsAnyOf<long double, Numbers...>, long double, std::conditional_t<xieite::concepts::SameAsAllOf<float, Numbers...>, float, double>>;
+using Result = std::conditional_t<xieite::concepts::SameAsAny<long double, Numbers...>, long double, std::conditional_t<xieite::concepts::SameAsAll<float, Numbers...>, float, double>>;
 ```
