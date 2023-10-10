@@ -1,13 +1,10 @@
-#ifndef XIEITE_HEADER__TRAITS___UNIFORM_RANDOM_BIT_GENERATOR
-#	define XIEITE_HEADER__TRAITS___UNIFORM_RANDOM_BIT_GENERATOR
+#pragma once
 
-#	include <type_traits>
-#	include "../concepts/uniform_random_bit_generator.hpp"
+#include <type_traits>
+#include "../concepts/uniform_random_bit_generator.hpp"
 
 namespace xieite::traits {
 	template<typename Type>
 	struct UniformRandomBitGenerator
 	: std::bool_constant<xieite::concepts::UniformRandomBitGenerator<Type>> {};
 }
-
-#endif

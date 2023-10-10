@@ -1,16 +1,13 @@
-#ifndef XIEITE_HEADER__MACROS__FUNCTION_SIGNATURE
-#	define XIEITE_HEADER__MACROS__FUNCTION_SIGNATURE
+#pragma once
 
-#	include "../macros/compiler_type.hpp"
+#include "../macros/compiler.hpp"
 
-#	if XIEITE__COMPILER_TYPE__GCC || XIEITE__COMPILER_TYPE__LLVM
-#		define XIEITE__FUNCTION_SIGNATURE __PRETTY_FUNCTION__
-#	elif XIEITE__COMPILER_TYPE__MSVC
-#		define XIEITE__FUNCTION_SIGNATURE __FUNCSIG__
-#	else
-#		define XIEITE__FUNCTION_SIGNATURE __func__
-#	endif
-
+#if XIEITE_COMPILER_GCC || XIEITE_COMPILER_LLVM
+#	define XIEITE_FUNCTION_SIGNATURE __PRETTY_FUNCTION__
+#elif XIEITE_COMPILER_MSVC
+#	define XIEITE_FUNCTION_SIGNATURE __FUNCSIG__
+#else
+#	define XIEITE_FUNCTION_SIGNATURE __func__
 #endif
 
 // Thanks to eightfold for original code

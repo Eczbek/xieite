@@ -1,6 +1,3 @@
-#ifndef XIEITE_HEADER__MACROS__EMPTY
-#	define XIEITE_HEADER__MACROS__EMPTY
+#pragma once
 
-#	define XIEITE__EMPTY()
-
-#endif
+#define XIEITE_EMPTY()

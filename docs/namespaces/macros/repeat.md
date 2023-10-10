@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_REPEAT
+# [XIEITE](../../macros.md)\_REPEAT
 Defined in header [<xieite/macros/repeat.hpp>](../../include/xieite/macros/repeat.hpp)
 
 &nbsp;
@@ -10,5 +10,5 @@ Repeats an expression literally.
 
 ## Synopsis
 ```cpp
-#define XIEITE__REPEAT(count, argument) XIEITE__LOOP(count, XIEITE_INTERNAL__REPEAT, , argument)
+#define XIEITE_REPEAT(count, argument) /* ... */
 ```

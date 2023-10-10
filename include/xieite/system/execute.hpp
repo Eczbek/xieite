@@ -1,13 +1,12 @@
-#ifndef XIEITE_HEADER__SYSTEM__EXECUTE
-#	define XIEITE_HEADER__SYSTEM__EXECUTE
+#pragma once
 
-#	include <cstdio>
-#	include <string>
-#	include <string_view>
-#	include "../functors/scope_guard.hpp"
-#	include "../memory/get_page_size.hpp"
-#	include "../streams/close_pipe.hpp"
-#	include "../streams/open_pipe.hpp"
+#include <cstdio>
+#include <string>
+#include <string_view>
+#include "../functors/scope_guard.hpp"
+#include "../memory/get_page_size.hpp"
+#include "../streams/close_pipe.hpp"
+#include "../streams/open_pipe.hpp"
 
 namespace xieite::system {
 	inline std::string execute(const std::string_view command) noexcept {
@@ -27,5 +26,3 @@ namespace xieite::system {
 		return result;
 	}
 }
-
-#endif

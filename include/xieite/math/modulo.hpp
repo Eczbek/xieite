@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__MATH__MODULO
-#	define XIEITE_HEADER__MATH__MODULO
+#pragma once
 
-#	include <cmath>
-#	include "../concepts/arithmetic.hpp"
+#include <cmath>
+#include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
@@ -10,5 +9,3 @@ namespace xieite::math {
 		return std::fmod(std::fmod(dividend, divisor) + divisor, divisor);
 	}
 }
-
-#endif

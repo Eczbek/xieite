@@ -1,7 +1,6 @@
-#ifndef XIEITE_HEADER__UNITS__LITERALS__AREAS
-#	define XIEITE_HEADER__UNITS__LITERALS__AREAS
+#pragma once
 
-#	include "../../units/areas.hpp"
+#include "../../units/areas.hpp"
 
 namespace xieite::units::literals {
 	[[nodiscard]] constexpr double operator""_perches(const long double value) noexcept {
@@ -20,5 +19,3 @@ namespace xieite::units::literals {
 		return value * xieite::units::SquareMile::den / xieite::units::SquareMile::num;
 	}
 }
-
-#endif

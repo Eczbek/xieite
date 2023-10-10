@@ -1,11 +1,10 @@
-#ifndef XIEITE_HEADER__TRAITS___CHRONO_DURATION
-#	define XIEITE_HEADER__TRAITS___CHRONO_DURATION
+#pragma once
 
-#	include <chrono>
-#	include <cstdint>
-#	include <ratio>
-#	include <type_traits>
-#	include "../concepts/numeric.hpp"
+#include <chrono>
+#include <cstdint>
+#include <ratio>
+#include <type_traits>
+#include "../concepts/numeric.hpp"
 
 namespace xieite::traits {
 	template<typename>
@@ -16,5 +15,3 @@ namespace xieite::traits {
 	struct TemporalDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>>
 	: std::true_type {};
 }
-
-#endif

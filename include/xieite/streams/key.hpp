@@ -1,5 +1,4 @@
-#ifndef XIEITE_HEADER__STREAMS__KEY
-#	define XIEITE_HEADER__STREAMS__KEY
+#pragma once
 
 namespace xieite::streams {
 	enum struct Key
@@ -166,5 +165,3 @@ namespace xieite::streams {
 		Unknown = '\0'
 	};
 }
-
-#endif

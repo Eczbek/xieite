@@ -1,7 +1,6 @@
-#ifndef XIEITE_HEADER__TYPES__PARTIAL
-#	define XIEITE_HEADER__TYPES__PARTIAL
+#pragma once
 
-#	include <type_traits>
+#include <type_traits>
 
 namespace xieite::types {
 	template<template<typename...> typename Template, typename... FirstArguments>
@@ -13,5 +12,3 @@ namespace xieite::types {
 		using Prepend = Template<SecondArguments..., FirstArguments...>;
 	};
 }
-
-#endif

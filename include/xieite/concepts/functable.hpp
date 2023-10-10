@@ -1,11 +1,8 @@
-#ifndef XIEITE_HEADER__CONCEPTS__FUNCTABLE
-#	define XIEITE_HEADER__CONCEPTS__FUNCTABLE
+#pragma once
 
-#	include "../traits/functable.hpp"
+#include "../traits/functable.hpp"
 
 namespace xieite::concepts {
 	template<typename Functor, typename Signature>
 	concept Functable = xieite::traits::Functable<Functor, Signature>::value;
 }
-
-#endif

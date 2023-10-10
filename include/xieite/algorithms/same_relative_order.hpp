@@ -1,12 +1,11 @@
-#ifndef XIEITE_HEADER__ALGORITHMS__SAME_RELATIVE_ORDER
-#	define XIEITE_HEADER__ALGORITHMS__SAME_RELATIVE_ORDER
+#pragma once
 
-#	include <algorithm>
-#	include <cstddef>
-#	include <functional>
-#	include <iterator>
-#	include <ranges>
-#	include "../concepts/functable.hpp"
+#include <algorithm>
+#include <cstddef>
+#include <functional>
+#include <iterator>
+#include <ranges>
+#include "../concepts/functable.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range1>, std::ranges::range_value_t<Range2>)> Functor = std::ranges::equal_to>
@@ -23,5 +22,3 @@ namespace xieite::algorithms {
 		return false;
 	}
 }
-
-#endif

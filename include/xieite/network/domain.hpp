@@ -1,13 +1,12 @@
-#ifndef XIEITE_HEADER__NETWORK__DOMAIN
-#	define XIEITE_HEADER__NETWORK__DOMAIN
+#pragma once
 
-#	include "../macros/system_type.hpp"
+#include "../macros/platform.hpp"
 
-#	if !XIEITE__SYSTEM_TYPE__UNIX
-#		error "System not supported"
-#	endif
+#if !XIEITE_PLATFORM_UNIX
+#	error "System not supported"
+#endif
 
-#	include <sys/socket.h>
+#include <sys/socket.h>
 
 namespace xieite::network {
 	enum struct Domain
@@ -37,5 +36,3 @@ namespace xieite::network {
 		X25 = AF_X25
 	};
 }
-
-#endif

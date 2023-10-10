@@ -1,9 +1,6 @@
-#ifndef XIEITE_HEADER__MEMORY
-#	define XIEITE_HEADER__MEMORY
+#pragma once
 
-#	include "./memory/detect_cosmic_ray.hpp"
-#	include "./memory/get_available.hpp"
-#	include "./memory/get_page_size.hpp"
-#	include "./memory/get_total.hpp"
-
-#endif
+#include "./memory/detect_cosmic_ray.hpp"
+#include "./memory/get_available.hpp"
+#include "./memory/get_page_size.hpp"
+#include "./memory/get_total.hpp"

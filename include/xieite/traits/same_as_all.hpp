@@ -1,13 +1,10 @@
-#ifndef XIEITE_HEADER__TRAITS___SAME_AS_ALL
-#	define XIEITE_HEADER__TRAITS___SAME_AS_ALL
+#pragma once
 
-#	include <type_traits>
-#	include "../concepts/same_as_all.hpp"
+#include <type_traits>
+#include "../concepts/same_as_all.hpp"
 
 namespace xieite::traits {
 	template<typename Source, typename... Targets>
 	struct SameAsAll
 	: std::bool_constant<xieite::concepts::SameAsAll<Source, Targets...>> {};
 }
-
-#endif

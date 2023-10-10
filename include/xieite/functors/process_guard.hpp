@@ -1,9 +1,8 @@
-#ifndef XIEITE_HEADER__FUNCTORS__PROCESS_GUARD
-#	define XIEITE_HEADER__FUNCTORS__PROCESS_GUARD
+#pragma once
 
-#	include <concepts>
-#	include <functor>
-#	include <memory>
+#include <concepts>
+#include <functor>
+#include <memory>
 
 namespace xieite::functors {
 	class ProcessGuard {
@@ -29,5 +28,3 @@ namespace xieite::functors {
 		std::shared_ptr<bool> released;
 	};
 }
-
-#endif

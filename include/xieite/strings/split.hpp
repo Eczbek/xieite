@@ -1,10 +1,9 @@
-#ifndef XIEITE_HEADER__STRINGS__SPLIT
-#	define XIEITE_HEADER__STRINGS__SPLIT
+#pragma once
 
-#	include <ranges>
-#	include <string>
-#	include <string_view>
-#	include <vector>
+#include <ranges>
+#include <string>
+#include <string_view>
+#include <vector>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::vector<std::string_view> split(const std::string_view string, const std::string_view delimiter) noexcept {
@@ -22,5 +21,3 @@ namespace xieite::strings {
 		return xieite::strings::split(string, std::string(1, delimiter));
 	}
 }
-
-#endif

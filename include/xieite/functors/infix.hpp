@@ -1,11 +1,10 @@
-#ifndef XIEITE_HEADER__FUNCTORS__INFIX
-#	define XIEITE_HEADER__FUNCTORS__INFIX
+#pragma once
 
-#	include <concepts>
-#	include <functional>
-#	include <type_traits>
-#	include <utility>
-#	include "../types/placeholder.hpp"
+#include <concepts>
+#include <functional>
+#include <type_traits>
+#include <utility>
+#include "../types/placeholder.hpp"
 
 namespace xieite::functors {
 	template<typename>
@@ -78,5 +77,3 @@ namespace xieite::functors {
 	template<typename Functor>
 	xieite::functors::Infix(Functor&&) -> xieite::functors::Infix<Functor>;
 }
-
-#endif

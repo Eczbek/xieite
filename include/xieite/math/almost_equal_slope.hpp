@@ -1,9 +1,8 @@
-#ifndef XIEITE_HEADER__MATH__ALMOST_EQUAL_SLOPE
-#	define XIEITE_HEADER__MATH__ALMOST_EQUAL_SLOPE
+#pragma once
 
-#	include <cmath>
-#	include "../concepts/numeric.hpp"
-#	include "../math/almost_equal.hpp"
+#include <cmath>
+#include "../concepts/numeric.hpp"
+#include "../math/almost_equal.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>
@@ -11,5 +10,3 @@ namespace xieite::math {
 		return std::isinf(value1) && std::isinf(value2) || xieite::math::almostEqual(value1, value2);
 	}
 }
-
-#endif

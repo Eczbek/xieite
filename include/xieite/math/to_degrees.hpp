@@ -1,9 +1,8 @@
-#ifndef XIEITE_HEADER__MATH__TO_DEGREES
-#	define XIEITE_HEADER__MATH__TO_DEGREES
+#pragma once
 
-#	include "../concepts/numeric.hpp"
-#	include "../math/result.hpp"
-#	include "../math/pi.hpp"
+#include "../concepts/numeric.hpp"
+#include "../math/result.hpp"
+#include "../math/pi.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number>
@@ -11,5 +10,3 @@ namespace xieite::math {
 		return radians * 180 / xieite::math::pi<xieite::math::Result<Number>>;
 	}
 }
-
-#endif

@@ -1,10 +1,9 @@
-#ifndef XIEITE_HEADER__GEOMETRY__RAY
-#	define XIEITE_HEADER__GEOMETRY__RAY
+#pragma once
 
-#	include <cmath>
-#	include "../geometry/line.hpp"
-#	include "../geometry/point.hpp"
-#	include "../math/almost_equal_slope.hpp"
+#include <cmath>
+#include "../geometry/line.hpp"
+#include "../geometry/point.hpp"
+#include "../math/almost_equal_slope.hpp"
 
 namespace xieite::geometry {
 	struct Ray {
@@ -38,5 +37,3 @@ namespace xieite::geometry {
 		}
 	};
 }
-
-#endif

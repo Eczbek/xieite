@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_STRINGIFY
+# [XIEITE](../../macros.md)\_STRINGIFY
 Defined in header [<xieite/macros/stringify.hpp>](../../include/xieite/macros/stringify.hpp)
 
 &nbsp;
@@ -10,7 +10,7 @@ Converts expressions to a string literally.
 
 ## Synopsis
 ```cpp
-#define XIEITE__STRINGIFY(...) XIEITE_INTERNAL__STRINGIFY(__VA_ARGS__)
+#define XIEITE_STRINGIFY(...) /* ... */
 ```
 
 &nbsp;
@@ -21,7 +21,7 @@ Converts expressions to a string literally.
 #include <xieite/macros/stringify.hpp>
 
 int main() {
-    std::cout << XIEITE__STRINGIFY(2 + 2) << '\n';
+    std::cout << XIEITE_STRINGIFY(2 + 2) << '\n';
 }
 ```
 Output:

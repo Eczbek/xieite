@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_NO\_RETURN
+# [XIEITE](../../macros.md)\_NO\_RETURN
 Defined in header [<xieite/macros/no_return.hpp>](../../include/xieite/macros/no_return.hpp)
 
 &nbsp;

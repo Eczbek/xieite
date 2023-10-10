@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_EMPTY
+# [XIEITE](../../macros.md)\_EMPTY
 Defined in header [<xieite/macros/empty.hpp>](../../include/xieite/macros/empty.hpp)
 
 &nbsp;
@@ -10,5 +10,5 @@ Does nothing.
 
 ## Synopsis
 ```cpp
-#define XIEITE__EMPTY()
+#define XIEITE_EMPTY()
 ```

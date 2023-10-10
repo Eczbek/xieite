@@ -1,9 +1,8 @@
-#ifndef XIEITE_HEADER__STRINGS__RADIOTELEPHONY_SPELLING_ALPHABET
-#	define XIEITE_HEADER__STRINGS__RADIOTELEPHONY_SPELLING_ALPHABET
+#pragma once
 
-#	include <array>
-#	include <limits>
-#	include <string_view>
+#include <array>
+#include <limits>
+#include <string_view>
 
 namespace xieite::strings {
 	inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> radiotelephonySpellingAlphabet = ([] {
@@ -59,5 +58,3 @@ namespace xieite::strings {
 		return result;
 	})();
 }
-
-#endif

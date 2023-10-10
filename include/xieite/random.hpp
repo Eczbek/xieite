@@ -1,7 +1,4 @@
-#ifndef XIEITE_HEADER__RANDOM
-#	define XIEITE_HEADER__RANDOM
+#pragma once
 
-#	include "./random/uniform_interruptable_distribution.hpp"
-#	include "./random/get_universally_unique_identifier.hpp"
-
-#endif
+#include "./random/uniform_interruptable_distribution.hpp"
+#include "./random/get_universally_unique_identifier.hpp"

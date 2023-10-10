@@ -1,16 +1,13 @@
-#ifndef XIEITE_HEADER__MACROS__RESTRICT
-#	define XIEITE_HEADER__MACROS__RESTRICT
+#pragma once
 
-#	include "../macros/compiler_type.hpp"
+#include "../macros/compiler.hpp"
 
-#	if XIEITE__COMPILER_TYPE__GCC
-#		define XIEITE__RESTRICT __restrict__
-#	elif XIEITE__COMPILER_TYPE__LLVM || XIEITE__COMPILER_TYPE__MSVC
-#		define XIEITE__RESTRICT __restrict
-#	else
-#		define XIEITE__RESTRICT
-#	endif
-
+#if XIEITE_COMPILER_GCC
+#	define XIEITE_RESTRICT __restrict__
+#elif XIEITE_COMPILER_LLVM || XIEITE_COMPILER_MSVC
+#	define XIEITE_RESTRICT __restrict
+#else
+#	define XIEITE_RESTRICT
 #endif
 
 // Thanks to eightfold for original code

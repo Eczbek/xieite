@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_LOOP
+# [XIEITE](../../macros.md)\_LOOP
 Defined in header [<xieite/macros/loop.hpp>](../../include/xieite/macros/loop.hpp)
 
 &nbsp;
@@ -10,5 +10,5 @@ Repeats the execution of an macro.
 
 ## Synopsis
 ```cpp
-#define XIEITE__LOOP(count, macro, initial, ...) XIEITE__CONCATENATE(XIEITE_INTERNAL__LOOP_, count)(macro, initial, __VA_ARGS__)
+#define XIEITE_LOOP(count, macro, initial, ...) XIEITE_CONCATENATE(XIEITE_LOOP_INTERNAL_, count)(macro, initial, __VA_ARGS__)
 ```

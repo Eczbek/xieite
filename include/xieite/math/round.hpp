@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__MATH__ROUND
-#	define XIEITE_HEADER__MATH__ROUND
+#pragma once
 
-#	include <cmath>
-#	include "../concepts/numeric.hpp"
+#include <cmath>
+#include "../concepts/numeric.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>
@@ -10,5 +9,3 @@ namespace xieite::math {
 		return std::round(value / step) * step;
 	}
 }
-
-#endif

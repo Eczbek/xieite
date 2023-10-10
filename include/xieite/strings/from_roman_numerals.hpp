@@ -1,12 +1,11 @@
-#ifndef XIEITE_HEADER__STRINGS__FROM_ROMAN_NUMERALS
-#	define XIEITE_HEADER__STRINGS__FROM_ROMAN_NUMERALS
+#pragma once
 
-#	include <concepts>
-#	include <cmath>
-#	include <cstddef>
-#	include <ranges>
-#	include <string_view>
-#	include "../strings/uppercase.hpp"
+#include <concepts>
+#include <cmath>
+#include <cstddef>
+#include <ranges>
+#include <string_view>
+#include "../strings/uppercase.hpp"
 
 namespace xieite::strings {
 	template<std::integral Integer = int>
@@ -29,5 +28,3 @@ namespace xieite::strings {
 		return result;
 	}
 }
-
-#endif

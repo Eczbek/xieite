@@ -1,18 +1,17 @@
-#ifndef XIEITE_HEADER__GRAPHICS__CANVAS
-#	define XIEITE_HEADER__GRAPHICS__CANVAS
+#pragma once
 
-#	include <cmath>
-#	include <cstddef>
-#	include <vector>
-#	include "../concepts/linear_shape.hpp"
-#	include "../geometry/point.hpp"
-#	include "../geometry/polygon.hpp"
-#	include "../geometry/segment.hpp"
-#	include "../graphics/color.hpp"
-#	include "../math/almost_equal.hpp"
-#	include "../streams/position.hpp"
-#	include "../streams/standard_controller.hpp"
-#	include "../system/terminal.hpp"
+#include <cmath>
+#include <cstddef>
+#include <vector>
+#include "../concepts/linear_shape.hpp"
+#include "../geometry/point.hpp"
+#include "../geometry/polygon.hpp"
+#include "../geometry/segment.hpp"
+#include "../graphics/color.hpp"
+#include "../math/almost_equal.hpp"
+#include "../streams/position.hpp"
+#include "../streams/standard_controller.hpp"
+#include "../system/terminal.hpp"
 
 namespace xieite::graphics {
 	class Canvas {
@@ -91,5 +90,3 @@ namespace xieite::graphics {
 		std::vector<std::vector<xieite::graphics::Color>> data;
 	};
 }
-
-#endif

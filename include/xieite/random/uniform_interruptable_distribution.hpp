@@ -1,18 +1,17 @@
-#ifndef XIEITE_HEADER__RANDOM__UNIFORM_INTERRUPTABLE_DISTRIBUTION
-#	define XIEITE_HEADER__RANDOM__UNIFORM_INTERRUPTABLE_DISTRIBUTION
+#pragma once
 
-#	include <algorithm>
-#	include <concepts>
-#	include <iterator>
-#	include <random>
-#	include <stdexcept>
-#	include <type_traits>
-#	include "../concepts/numeric.hpp"
-#	include "../concepts/range_of.hpp"
-#	include "../concepts/uniform_random_bit_generator.hpp"
-#	include "../math/interval.hpp"
-#	include "../math/difference.hpp"
-#	include "../math/merge_intervals.hpp"
+#include <algorithm>
+#include <concepts>
+#include <iterator>
+#include <random>
+#include <stdexcept>
+#include <type_traits>
+#include "../concepts/numeric.hpp"
+#include "../concepts/range_of.hpp"
+#include "../concepts/uniform_random_bit_generator.hpp"
+#include "../math/interval.hpp"
+#include "../math/difference.hpp"
+#include "../math/merge_intervals.hpp"
 
 namespace xieite::random {
 	template<xieite::concepts::Numeric Number>
@@ -57,5 +56,3 @@ namespace xieite::random {
 		std::vector<xieite::math::Interval<Number>> interruptions;
 	};
 }
-
-#endif

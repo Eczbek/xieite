@@ -1,9 +1,8 @@
-#ifndef XIEITE_HEADER__MATH__REVERSE
-#	define XIEITE_HEADER__MATH__REVERSE
+#pragma once
 
-#	include <concepts>
-#	include <cstddef>
-#	include "../math/split_boolean.hpp"
+#include <concepts>
+#include <cstddef>
+#include "../math/split_boolean.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
@@ -18,5 +17,3 @@ namespace xieite::math {
 		return result * xieite::math::splitBoolean(positive);
 	}
 }
-
-#endif

@@ -1,7 +1,6 @@
-#ifndef XIEITE_HEADER__TYPES__DYNAMIC_MATRIX
-#	define XIEITE_HEADER__TYPES__DYNAMIC_MATRIX
+#pragma once
 
-#	include <cstddef>
+#include <cstddef>
 
 namespace xieite::types {
 	template<template<typename> typename DynamicContainer, typename Value, std::size_t dimensions>
@@ -14,5 +13,3 @@ namespace xieite::types {
 		using Type = Value;
 	};
 }
-
-#endif

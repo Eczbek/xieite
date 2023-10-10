@@ -1,6 +1,3 @@
-#ifndef XIEITE_HEADER__STRINGS__LITERALS
-#	define XIEITE_HEADER__STRINGS__LITERALS
+#pragma once
 
-#	include "./literals/stringify.hpp"
-
-#endif
+#include "./literals/stringify.hpp"

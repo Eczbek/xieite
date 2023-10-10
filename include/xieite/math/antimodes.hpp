@@ -1,11 +1,10 @@
-#ifndef XIEITE_HEADER__MATH__ANTIMODES
-#	define XIEITE_HEADER__MATH__ANTIMODES
+#pragma once
 
-#	include <array>
-#	include <vector>
-#	include "../algorithms/antimodes.hpp"
-#	include "../concepts/numeric.hpp"
-#	include "../math/result.hpp"
+#include <array>
+#include <vector>
+#include "../algorithms/antimodes.hpp"
+#include "../concepts/numeric.hpp"
+#include "../math/result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
@@ -22,5 +21,3 @@ namespace xieite::math {
 		return std::vector<xieite::math::Result<Numbers...>>();
 	}
 }
-
-#endif

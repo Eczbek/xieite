@@ -1,5 +1,5 @@
-# [XIEITE](../../macros.md)\_\_SYSTEM\_TYPE\_\_...
-Defined in header [<xieite/macros/system_type.hpp>](../../include/xieite/macros/system_type.hpp)
+# [XIEITE](../../macros.md)\_PLATFORM\_...
+Defined in header [<xieite/macros/platform.hpp>](../../include/xieite/macros/platform.hpp)
 
 &nbsp;
 
@@ -11,14 +11,14 @@ Macros for identifying the current platform/OS. See header file for definitions.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/macros/system_type.hpp>
+#include <xieite/macros/platform.hpp>
 
 int main() {
-#if XIEITE__SYSTEM_TYPE__WINDOWS
+#if XIEITE_PLATFORM_WINDOWS
     std::cout << "Windows\n"; // trash
-#elif XIEITE__SYSTEM_TYPE__MACINTOSH
+#elif XIEITE_PLATFORM_MACINTOSH
     std::cout << "Macintosh\n"; // garbage
-#elif XIEITE__SYSTEM_TYPE__LINUX
+#elif XIEITE_PLATFORM_LINUX
     std::cout << "Linux\n"; // #linuxmasterrace
 #else
     std::cout << "Other\n"; // BSD?

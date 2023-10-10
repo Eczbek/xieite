@@ -1,7 +1,6 @@
-#ifndef XIEITE_HEADER__MATH__PRODUCT
-#	define XIEITE_HEADER__MATH__PRODUCT
+#pragma once
 
-#	include <concepts>
+#include <concepts>
 
 namespace xieite::math {
 	template<std::unsigned_integral UnsignedInteger>
@@ -13,5 +12,3 @@ namespace xieite::math {
 		: lower(lower), upper(upper) {}
 	};
 }
-
-#endif

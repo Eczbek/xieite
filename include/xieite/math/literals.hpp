@@ -1,8 +1,5 @@
-#ifndef XIEITE_HEADER__MATH__LITERALS
-#	define XIEITE_HEADER__MATH__LITERALS
+#pragma once
 
-#	include "./literals/base.hpp"
-#	include "./literals/exponent.hpp"
-#	include "./literals/integers.hpp"
-
-#endif
+#include "./literals/base.hpp"
+#include "./literals/exponent.hpp"
+#include "./literals/integers.hpp"

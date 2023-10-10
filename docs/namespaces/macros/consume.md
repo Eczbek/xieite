@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_CONSUME
+# [XIEITE](../../macros.md)\_CONSUME
 Defined in header [<xieite/macros/consume.hpp>](../../include/xieite/macros/consume.hpp)
 
 &nbsp;
@@ -10,5 +10,5 @@ Consumes expressions and returns nothing.
 
 ## Synopsis
 ```cpp
-#define XIEITE__CONSUME(...)
+#define XIEITE_CONSUME(...)
 ```

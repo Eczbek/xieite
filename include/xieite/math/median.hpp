@@ -1,10 +1,9 @@
-#ifndef XIEITE_HEADER__MATH__MEDIAN
-#	define XIEITE_HEADER__MATH__MEDIAN
+#pragma once
 
-#	include <array>
-#	include "../algorithms/median.hpp"
-#	include "../concepts/numeric.hpp"
-#	include "../math/result.hpp"
+#include <array>
+#include "../algorithms/median.hpp"
+#include "../concepts/numeric.hpp"
+#include "../math/result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
@@ -14,5 +13,3 @@ namespace xieite::math {
 		});
 	}
 }
-
-#endif

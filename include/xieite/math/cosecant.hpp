@@ -1,9 +1,8 @@
-#ifndef XIEITE_HEADER__MATH__COSECANT
-#	define XIEITE_HEADER__MATH__COSECANT
+#pragma once
 
-#	include <cmath>
-#	include "../concepts/numeric.hpp"
-#	include "../math/result.hpp"
+#include <cmath>
+#include "../concepts/numeric.hpp"
+#include "../math/result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number>
@@ -11,5 +10,3 @@ namespace xieite::math {
 		return 1 / std::sin(value);
 	}
 }
-
-#endif

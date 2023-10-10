@@ -1,11 +1,11 @@
-#ifndef XIETIE__HEADER__MEMORY__GET_PAGE_SIZE
-#	define XIETIE__HEADER__MEMORY__GET_PAGE_SIZE
+#ifndef XIETIE_HEADER_MEMORY_GET_PAGE_SIZE
+#define XIETIE_HEADER_MEMORY_GET_PAGE_SIZE
 
-#	include "../macros/system_type.hpp"
+#include "../macros/platform.hpp"
 
-#	if XIEITE__SYSTEM_TYPE__UNIX
-#		include <cstddef>
-#		include <unistd.h>
+#if XIEITE_PLATFORM_UNIX
+#	include <cstddef>
+#	include <unistd.h>
 
 namespace xieite::memory {
 	[[nodiscard]] inline std::size_t getPageSize() noexcept {
@@ -13,9 +13,9 @@ namespace xieite::memory {
 	}
 }
 
-#	elif XIEITE__SYSTEM_TYPE__WINDOWS
-#		include <cstddef>
-#		include <windows.h>
+#elif XIEITE_PLATFORM_WINDOWS
+#	include <cstddef>
+#	include <windows.h>
 
 namespace xieite::memory {
 	[[nodiscard]] inline std::size_t getPageSize() noexcept {
@@ -25,8 +25,6 @@ namespace xieite::memory {
 	}
 }
 
-#	else
-#		error "System not supported"
-#	endif
-
+#else
+#	error "System not supported"
 #endif

@@ -1,11 +1,10 @@
-#ifndef XIEITE_HEADER__GEOMETRY__ROTATE
-#	define XIEITE_HEADER__GEOMETRY__ROTATE
+#pragma once
 
-#	include <cmath>
-#	include "../concepts/linear_shape.hpp"
-#	include "../geometry/point.hpp"
-#	include "../geometry/polygon.hpp"
-#	include "../math/tau.hpp"
+#include <cmath>
+#include "../concepts/linear_shape.hpp"
+#include "../geometry/point.hpp"
+#include "../geometry/polygon.hpp"
+#include "../math/tau.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]] constexpr xieite::geometry::Point rotate(const xieite::geometry::Point point, const double angle, const xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept {
@@ -24,5 +23,3 @@ namespace xieite::geometry {
 		return polygon;
 	}
 }
-
-#endif

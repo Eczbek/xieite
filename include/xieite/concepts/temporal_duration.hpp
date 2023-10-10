@@ -1,11 +1,8 @@
-#ifndef XIEITE_HEADER__CONCEPTS__CHRONO_DURATION
-#	define XIEITE_HEADER__CONCEPTS__CHRONO_DURATION
+#pragma once
 
-#	include "../traits/temporal_duration.hpp"
+#include "../traits/temporal_duration.hpp"
 
 namespace xieite::concepts {
 	template<typename Type>
 	concept TemporalDuration = xieite::traits::TemporalDuration<Type>::value;
 }
-
-#endif

@@ -1,6 +1,3 @@
-#ifndef XIEITE_HEADER__MACROS__CONSUME
-#	define XIEITE_HEADER__MACROS__CONSUME
+#pragma once
 
-#	define XIEITE__CONSUME(...)
-
-#endif
+#define XIEITE_CONSUME(...)

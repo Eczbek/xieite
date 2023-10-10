@@ -1,17 +1,16 @@
-#ifndef XIEITE_HEADER__NETWORK__ADDRESS
-#	define XIEITE_HEADER__NETWORK__ADDRESS
+#pragma once
 
-#	include "../macros/system_type.hpp"
+#include "../macros/platform.hpp"
 
-#	if !XIEITE__SYSTEM_TYPE__UNIX
-#		error "System not supported"
-#	endif
+#if !XIEITE_PLATFORM_UNIX
+#	error "System not supported"
+#endif
 
-#	include <arpa/inet.h>
-#	include <netinet/in.h>
-#	include <stdexcept>
-#	include <string>
-#	include "../network/domain.hpp"
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <stdexcept>
+#include <string>
+#include "../network/domain.hpp"
 
 namespace xieite::network {
 	class Address {
@@ -47,5 +46,3 @@ namespace xieite::network {
 		socklen_t addressSize;
 	};
 }
-
-#endif

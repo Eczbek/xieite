@@ -1,11 +1,10 @@
-#ifndef XIEITE_HEADER__ALGORITHMS__MEAN
-#	define XIEITE_HEADER__ALGORITHMS__MEAN
+#pragma once
 
-#	include <cstddef>
-#	include <iterator>
-#	include <ranges>
-#	include "../concepts/numeric.hpp"
-#	include "../math/result.hpp"
+#include <cstddef>
+#include <iterator>
+#include <ranges>
+#include "../concepts/numeric.hpp"
+#include "../math/result.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range>
@@ -19,5 +18,3 @@ namespace xieite::algorithms {
 		return result / std::ranges::size(range);
 	}
 }
-
-#endif

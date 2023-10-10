@@ -1,13 +1,12 @@
-#ifndef XIEITE_HEADER__ALGORITHMS__PARTIALREVERSE
-#	define XIEITE_HEADER__ALGORITHMS__PARTIALREVERSE
+#pragma once
 
-#	include <algorithm>
-#	include <cstddef>
-#	include <functional>
-#	include <iterator>
-#	include <ranges>
-#	include <vector>
-#	include "../concepts/functable.hpp"
+#include <algorithm>
+#include <cstddef>
+#include <functional>
+#include <iterator>
+#include <ranges>
+#include <vector>
+#include "../concepts/functable.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> Functor>
@@ -26,5 +25,3 @@ namespace xieite::algorithms {
 		}
 	}
 }
-
-#endif

@@ -1,8 +1,5 @@
-#ifndef XIEITE_HEADER__UNITS__LITERALS
-#	define XIEITE_HEADER__UNITS__LITERALS
+#pragma once
 
-#	include "./literals/areas.hpp"
-#	include "./literals/lengths.hpp"
-#	include "./literals/volumes.hpp"
-
-#endif
+#include "./literals/areas.hpp"
+#include "./literals/lengths.hpp"
+#include "./literals/volumes.hpp"

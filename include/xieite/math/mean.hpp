@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__MATH__MEAN
-#	define XIEITE_HEADER__MATH__MEAN
+#pragma once
 
-#	include "../concepts/numeric.hpp"
-#	include "../math/result.hpp"
+#include "../concepts/numeric.hpp"
+#include "../math/result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
@@ -13,5 +12,3 @@ namespace xieite::math {
 		return 0;
 	}
 }
-
-#endif

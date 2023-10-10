@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_UNREACHABLE
+# [XIEITE](../../macros.md)\_UNREACHABLE
 Defined in header [<xieite/macros/unreachable.hpp>](../../include/xieite/macros/unreachable.hpp)
 
 &nbsp;

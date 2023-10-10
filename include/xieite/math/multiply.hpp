@@ -1,9 +1,8 @@
-#ifndef XIEITE_HEADER__MATH__MULTIPLY
-#	define XIEITE_HEADER__MATH__MULTIPLY
+#pragma once
 
-#	include <concepts>
-#	include <limits>
-#	include "../math/product.hpp"
+#include <concepts>
+#include <limits>
+#include "../math/product.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral UnsignedInteger>
@@ -20,5 +19,3 @@ namespace xieite::math {
 		return xieite::math::Product<UnsignedInteger>(corge + (grault << halfSize) + (garply << halfSize), bar * qux + (grault >> halfSize) + (garply >> halfSize) + (halfBits & (((corge >> halfSize) + (grault & halfBits) + (garply & halfBits)) >> halfSize)));
 	}
 }
-
-#endif

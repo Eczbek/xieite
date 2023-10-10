@@ -1,12 +1,9 @@
-#ifndef XIEITE_HEADER__MACROS__PACKED
-#	define XIEITE_HEADER__MACROS__PACKED
+#pragma once
 
-#	include "../macros/compiler_type.hpp"
+#include "../macros/compiler.hpp"
 
-#	if XIEITE__COMPILER_TYPE__GCC
-#		define XIEITE__PACKED [[gnu::packed]]
-#	else
-#		define XIEITE__PACKED
-#	endif
-
+#if XIEITE_COMPILER_GCC
+#	define XIEITE_PACKED [[gnu::packed]]
+#else
+#	define XIEITE_PACKED
 #endif

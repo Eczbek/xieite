@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_REPEAT\_CONCATENATE
+# [XIEITE](../../macros.md)\_REPEAT\_CONCATENATE
 Defined in header [<xieite/macros/repeat_concatenate.hpp>](../../include/xieite/macros/repeat_concatenate.hpp)
 
 &nbsp;
@@ -10,7 +10,7 @@ Repeats the concatenation of an expression with itself.
 
 ## Synopsis
 ```cpp
-#define XIEITE__REPEAT_CONCATENATE(count, argument) XIEITE__LOOP(count, XIEITE_INTERNAL__REPEAT_CONCATENATE, , argument)
+#define XIEITE_REPEAT_CONCATENATE(count, argument) XIEITE_LOOP(count, XIEITE_REPEAT_CONCATENATE_INTERNAL, , argument)
 ```
 
 &nbsp;
@@ -21,7 +21,7 @@ Repeats the concatenation of an expression with itself.
 #include <xieite/macros/repeat_concatenate.hpp>
 
 int main() {
-    std::cout << (XIEITE__REPEAT_CONCATENATE(3, 5) + 1) << '\n';
+    std::cout << (XIEITE_REPEAT_CONCATENATE(3, 5) + 1) << '\n';
 }
 ```
 Output:

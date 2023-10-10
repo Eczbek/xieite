@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_ASCII\_SUPPORT
+# [XIEITE](../../macros.md)\_ASCII\_SUPPORT
 Defined in header [<xieite/macros/ascii_support.hpp>](../../include/xieite/macros/ascii_support.hpp)
 
 &nbsp;
@@ -16,7 +16,7 @@ Checks if the compiler supports ASCII stuff. See header file for definition.
 int main() {
     std::cout
         << std::boolalpha
-        << XIEITE__ASCII_SUPPORT << '\n';
+        << XIEITE_ASCII_SUPPORT << '\n';
 }
 ```
 Possible output:

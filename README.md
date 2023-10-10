@@ -15,7 +15,7 @@ This project extends the standard library and provides an organized collection o
 - [xieite::streams::StandardController](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/streams/standard_controller.md)
 - [xieite::random::UniformInterruptableDistribution](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/random/uniform_interruptable_distribution.md)
 - [xieite::system::execute](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/system/execute.md)
-- [XIEITE__SYSTEM_TYPE__...](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/macros/system_type.md)
+- [XIEITE_PLATFORM_...](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/macros/platform.md)
 - [xieite::strings::radiotelephonySpellingAlphabet](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/strings/radiotelephony_spelling_alphabet.md)
 - [xieite::threads::Pool](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/threads/pool.md)
 - [xieite::units::literals](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/units/literals.md)

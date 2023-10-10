@@ -1,16 +1,15 @@
-#ifndef XIEITE_HEADER__NETWORK__SOCKET_ADDRESS
-#	define XIEITE_HEADER__NETWORK__SOCKET_ADDRESS
+#pragma once
 
-#	include "../macros/system_type.hpp"
+#include "../macros/platform.hpp"
 
-#	if !XIEITE__SYSTEM_TYPE__UNIX
-#		error "System not supported"
-#	endif
+#if !XIEITE_PLATFORM_UNIX
+#	error "System not supported"
+#endif
 
-#	include <cstdint>
-#	include <netinet/in.h>
-#	include <string>
-#	include "../network/address.hpp"
+#include <cstdint>
+#include <netinet/in.h>
+#include <string>
+#include "../network/address.hpp"
 
 namespace xieite::network {
 	struct SocketAddress
@@ -21,5 +20,3 @@ namespace xieite::network {
 		}
 	};
 }
-
-#endif

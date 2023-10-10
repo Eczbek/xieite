@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__CONCEPTS__STREAMABLE_OUT
-#	define XIEITE_HEADER__CONCEPTS__STREAMABLE_OUT
+#pragma once
 
-#	include <concepts>
-#	include <ostream>
+#include <concepts>
+#include <ostream>
 
 namespace xieite::concepts {
 	template<typename Type>
@@ -10,7 +9,5 @@ namespace xieite::concepts {
 		{ outputStream << value } -> std::same_as<std::ostream&>;
 	};
 }
-
-#endif
 
 // Thanks to fux for original code

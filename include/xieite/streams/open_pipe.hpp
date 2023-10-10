@@ -1,11 +1,10 @@
-#ifndef XIEITE_HEADER__STREAMS__OPEN_PIPE
-#	define XIEITE_HEADER__STREAMS__OPEN_PIPE
+#pragma once
 
-#	include "../macros/system_type.hpp"
+#include "../macros/platform.hpp"
 
-#	if XIEITE__SYSTEM_TYPE__UNIX
-#		include <cstdio>
-#		include <stdio.h>
+#if XIEITE_PLATFORM_UNIX
+#	include <cstdio>
+#	include <stdio.h>
 
 namespace xieite::streams {
 	[[nodiscard]] inline std::FILE* openPipe(const char* const command, const char* const mode) noexcept {
@@ -13,9 +12,9 @@ namespace xieite::streams {
 	}
 }
 
-#	elif XIEITE__SYSTEM_TYPE__WINDOWS
-#		include <cstdio>
-#		include <stdio.h>
+#elif XIEITE_PLATFORM_WINDOWS
+#	include <cstdio>
+#	include <stdio.h>
 
 namespace xieite::streams {
 	[[nodiscard]] inline std::FILE* openPipe(const char* const command, const char* const mode) noexcept {
@@ -23,8 +22,6 @@ namespace xieite::streams {
 	}
 }
 
-#	else
-#		error "System not supported"
-#	endif
-
+#else
+#	error "System not supported"
 #endif

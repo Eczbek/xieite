@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__GRAPHICS__COLOR
-#	define XIEITE_HEADER__GRAPHICS__COLOR
+#pragma once
 
-#	include <limits>
-#	include <cstdint>
+#include <limits>
+#include <cstdint>
 
 namespace xieite::graphics {
 	struct Color {
@@ -26,5 +25,3 @@ namespace xieite::graphics {
 		}
 	};
 }
-
-#endif

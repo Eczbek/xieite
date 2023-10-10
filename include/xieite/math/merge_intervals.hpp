@@ -1,11 +1,10 @@
-#ifndef XIEITE_HEADER__MATH__MERGE_INTERVALS
-#	define XIEITE_HEADER__MATH__MERGE_INTERVALS
+#pragma once
 
-#	include <algorithm>
-#	include <vector>
-#	include "../concepts/numeric.hpp"
-#	include "../concepts/range_of.hpp"
-#	include "../math/interval.hpp"
+#include <algorithm>
+#include <vector>
+#include "../concepts/numeric.hpp"
+#include "../concepts/range_of.hpp"
+#include "../math/interval.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number, xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
@@ -29,5 +28,3 @@ namespace xieite::math {
 		return result;
 	}
 }
-
-#endif

@@ -1,10 +1,9 @@
-#ifndef XIEITE_HEADER__STRINGS__BETWEEN
-#	define XIEITE_HEADER__STRINGS__BETWEEN
+#pragma once
 
-#	include <string>
-#	include <string_view>
-#	include "../strings/after.hpp"
-#	include "../strings/before.hpp"
+#include <string>
+#include <string_view>
+#include "../strings/after.hpp"
+#include "../strings/before.hpp"
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::string_view between(const std::string_view string, const std::string_view start, const std::string_view end) noexcept {
@@ -23,5 +22,3 @@ namespace xieite::strings {
 		return xieite::strings::between(string, std::string(1, start), std::string(1, end));
 	}
 }
-
-#endif

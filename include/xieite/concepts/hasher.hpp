@@ -1,9 +1,8 @@
-#ifndef XIEITE_HEADER__CONCEPTS__HASHER
-#	define XIEITE_HEADER__CONCEPTS__HASHER
+#pragma once
 
-#	include <concepts>
-#	include <cstddef>
-#	include <functional>
+#include <concepts>
+#include <cstddef>
+#include <functional>
 
 namespace xieite::concepts {
 	template<typename Type, typename Argument>
@@ -11,5 +10,3 @@ namespace xieite::concepts {
 		{ std::invoke(hasher, value) } -> std::convertible_to<std::size_t>;
 	};
 }
-
-#endif

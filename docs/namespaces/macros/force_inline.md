@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_FORCE\_INLINE
+# [XIEITE](../../macros.md)\_FORCE\_INLINE
 Defined in header [<xieite/macros/force_inline.hpp>](../../include/xieite/macros/force_inline.hpp)
 
 &nbsp;

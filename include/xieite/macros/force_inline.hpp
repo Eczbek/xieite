@@ -1,18 +1,15 @@
-#ifndef XIEITE_HEADER__MACROS__FORCE_INLINE
-#	define XIEITE_HEADER__MACROS__FORCE_INLINE
+#pragma once
 
-#	include "../macros/compiler_type.hpp"
+#include "../macros/compiler.hpp"
 
-#	if XIEITE__COMPILER_TYPE__GCC || XIEITE__COMPILER_TYPE__LLVM
-#		define XIEITE__FORCE_INLINE [[gnu::always_inline]] inline
-#	elif XIEITE__COMPILER_TYPE__CLANG
-#		define XIEITE__FORCE_INLINE [[clang::always_inline]] inline
-#	elif XIEITE__COMPILER_TYPE__MSVC
-#		define XIEITE__FORCE_INLINE __forceinline
-#	else
-#		define XIEITE__FORCE_INLINE inline
-#	endif
-
+#if XIEITE_COMPILER_GCC || XIEITE_COMPILER_LLVM
+#	define XIEITE_FORCE_INLINE [[gnu::always_inline]] inline
+#elif XIEITE_COMPILER_CLANG
+#	define XIEITE_FORCE_INLINE [[clang::always_inline]] inline
+#elif XIEITE_COMPILER_MSVC
+#	define XIEITE_FORCE_INLINE __forceinline
+#else
+#	define XIEITE_FORCE_INLINE inline
 #endif
 
 // Thanks to eightfold for original code

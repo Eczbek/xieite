@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__STRINGS__BEFORE
-#	define XIEITE_HEADER__STRINGS__BEFORE
+#pragma once
 
-#	include <string>
-#	include <string_view>
+#include <string>
+#include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::string_view before(const std::string_view string, const std::string_view end) noexcept {
@@ -13,5 +12,3 @@ namespace xieite::strings {
 		return xieite::strings::before(string, std::string(1, end));
 	}
 }
-
-#endif

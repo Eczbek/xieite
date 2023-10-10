@@ -1,9 +1,8 @@
-#ifndef XIEITE_HEADER__MATH__EXPONENT
-#	define XIEITE_HEADER__MATH__EXPONENT
+#pragma once
 
-#	include <cmath>
-#	include <type_traits>
-#	include "../concepts/arithmetic.hpp"
+#include <cmath>
+#include <type_traits>
+#include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
@@ -42,5 +41,3 @@ namespace xieite::math {
 		xieite::math::Exponent<Arithmetic>::Value value;
 	};
 }
-
-#endif

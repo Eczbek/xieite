@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__STRINGS__TRIM
-#	define XIEITE_HEADER__STRINGS__TRIM
+#pragma once
 
-#	include <cstddef>
-#	include <string_view>
+#include <cstddef>
+#include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::string_view trim(const std::string_view string, const char character) noexcept {
@@ -15,5 +14,3 @@ namespace xieite::strings {
 		return (start == std::string_view::npos) ? "" : string.substr(start, string.find_last_not_of(characters) - start + 1);
 	}
 }
-
-#endif

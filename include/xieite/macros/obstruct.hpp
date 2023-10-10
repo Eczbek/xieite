@@ -1,9 +1,6 @@
-#ifndef XIEITE_HEADER__MACROS__OBSTRUCT
-#	define XIEITE_HEADER__MACROS__OBSTRUCT
+#pragma once
 
-#	include "../macros/defer.hpp"
-#	include "../macros/empty.hpp"
+#include "../macros/defer.hpp"
+#include "../macros/empty.hpp"
 
-#	define XIEITE__OBSTRUCT(...) __VA_ARGS__ XIEITE__DEFER(XIEITE__EMPTY)()
-
-#endif
+#define XIEITE_OBSTRUCT(...) __VA_ARGS__ XIEITE_DEFER(XIEITE_EMPTY)()

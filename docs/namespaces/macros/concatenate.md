@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_\_CONCATENATE
+# [XIEITE](../../macros.md)\_CONCATENATE
 Defined in header [<xieite/macros/concatenate.hpp>](../../include/xieite/macros/concatenate.hpp)
 
 &nbsp;
@@ -10,7 +10,7 @@ Concatenates expressions literally.
 
 ## Synopsis
 ```cpp
-#define XIEITE__CONCATENATE(first, second) XIEITE_INTERNAL__CONCATENATE(first, second)
+#define XIEITE_CONCATENATE(first, second) /* ... */
 ```
 
 &nbsp;
@@ -21,7 +21,7 @@ Concatenates expressions literally.
 #include <xieite/macros/concatenate.hpp>
 
 int main() {
-    std::cout << (XIEITE__CONCATENATE(4, 5) + 1) << '\n';
+    std::cout << (XIEITE_CONCATENATE(4, 5) + 1) << '\n';
 }
 ```
 Output:

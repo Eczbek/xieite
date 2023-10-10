@@ -1,6 +1,3 @@
-#ifndef XIEITE_HEADER__METADATA
-#	define XIEITE_HEADER__METADATA
+#pragma once
 
-#	include "./metadata/version.hpp"
-
-#endif
+#include "./metadata/version.hpp"

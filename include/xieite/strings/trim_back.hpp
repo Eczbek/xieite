@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__STRINGS__TRIM_BACK
-#	define XIEITE_HEADER__STRINGS__TRIM_BACK
+#pragma once
 
-#	include <cstddef>
-#	include <string_view>
+#include <cstddef>
+#include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::string_view trimBack(const std::string_view string, const char character) noexcept {
@@ -15,5 +14,3 @@ namespace xieite::strings {
 		return (end == std::string_view::npos) ? "" : string.substr(0, end + 1);
 	}
 }
-
-#endif

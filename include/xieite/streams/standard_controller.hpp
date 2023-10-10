@@ -1,30 +1,29 @@
-#ifndef XIEITE_HEADER__STREAMS__STANDARD_CONTROLLER
-#	define XIEITE_HEADER__STREAMS__STANDARD_CONTROLLER
+#pragma once
 
-#	include "../macros/system_type.hpp"
+#include "../macros/platform.hpp"
 
-#	if !XIEITE__SYSTEM_TYPE__UNIX
-#		error "System not supported"
-#	endif
+#if !XIEITE_PLATFORM_UNIX
+#	error "System not supported"
+#endif
 
-#	include <cmath>
-#	include <cstddef>
-#	include <cstdio>
-#	include <fcntl.h>
-#	include <istream>
-#	include <ostream>
-#	include <ranges>
-#	include <stdio.h>
-#	include <string>
-#	include <string_view>
-#	include <sys/ioctl.h>
-#	include <termios.h>
-#	include <unistd.h>
-#	include "../functors/scope_guard.hpp"
-#	include "../graphics/color.hpp"
-#	include "../streams/key.hpp"
-#	include "../streams/position.hpp"
-#	include "../streams/get_file.hpp"
+#include <cmath>
+#include <cstddef>
+#include <cstdio>
+#include <fcntl.h>
+#include <istream>
+#include <ostream>
+#include <ranges>
+#include <stdio.h>
+#include <string>
+#include <string_view>
+#include <sys/ioctl.h>
+#include <termios.h>
+#include <unistd.h>
+#include "../functors/scope_guard.hpp"
+#include "../graphics/color.hpp"
+#include "../streams/key.hpp"
+#include "../streams/position.hpp"
+#include "../streams/get_file.hpp"
 
 namespace xieite::streams {
 	class StandardController {
@@ -624,5 +623,3 @@ namespace xieite::streams {
 		}
 	};
 }
-
-#endif

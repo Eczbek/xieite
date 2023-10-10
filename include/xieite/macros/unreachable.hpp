@@ -1,26 +1,23 @@
-#ifndef XIEITE_HEADER__MACROS__UNREACHABLE
-#	define XIEITE_HEADER__MACROS__UNREACHABLE
+#pragma once
 
-#	include "../macros/standard_language.hpp"
+#include "../macros/language_standard.hpp"
 
-#	if XIEITE__STANDARD_LANGUAGE__CPP_2023
-#		include <utility>
+#if XIEITE_LANGUAGE_STANDARD_CPP_2023
+#	include <utility>
 
-#		define XIEITE__UNREACHABLE std::unreachable()
+#	define XIEITE_UNREACHABLE std::unreachable()
+#else
+#	include "../macros/compiler.hpp"
+
+#	if XIEITE_COMPILER_GCC || XIEITE_COMPILER_LLVM
+#		undef XIEITE_UNREACHABLE
+#		define XIEITE_UNREACHABLE __builtin_unreachable()
+#	elif XIEITE_COMPILER_MSVC
+#		undef XIEITE_UNREACHABLE
+#		define XIEITE_UNREACHABLE __assume(false)
 #	else
-#		include "../macros/compiler_type.hpp"
-
-#		if XIEITE__COMPILER_TYPE__GCC || XIEITE__COMPILER_TYPE__LLVM
-#			undef XIEITE__UNREACHABLE
-#			define XIEITE__UNREACHABLE __builtin_unreachable()
-#		elif XIEITE__COMPILER_TYPE__MSVC
-#			undef XIEITE__UNREACHABLE
-#			define XIEITE__UNREACHABLE __assume(false)
-#		else
-#			define XIEITE__UNREACHABLE static_cast<void>(0)
-#		endif
+#		define XIEITE_UNREACHABLE static_cast<void>(0)
 #	endif
-
 #endif
 
 // Thanks to eightfold for original code

@@ -1,6 +1,3 @@
-#ifndef XIEITE_HEADER__MACROS__SCAN
-#	define XIEITE_HEADER__MACROS__SCAN
+#pragma once
 
-#	define XIEITE__SCAN(...) __VA_ARGS__
-
-#endif
+#define XIEITE_SCAN(...) __VA_ARGS__

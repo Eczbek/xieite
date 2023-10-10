@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__MATH__NEGATIVE
-#	define XIEITE_HEADER__MATH__NEGATIVE
+#pragma once
 
-#	include <concepts>
-#	include "../concepts/arithmetic.hpp"
+#include <concepts>
+#include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
@@ -13,5 +12,3 @@ namespace xieite::math {
 		return false;
 	}
 }
-
-#endif

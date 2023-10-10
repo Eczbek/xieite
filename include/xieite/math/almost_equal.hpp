@@ -1,10 +1,9 @@
-#ifndef XIEITE_HEADER__MATH__ALMOST_EQUAL
-#	define XIEITE_HEADER__MATH__ALMOST_EQUAL
+#pragma once
 
-#	include <limits>
-#	include <type_traits>
-#	include "../concepts/arithmetic.hpp"
-#	include "../math/absolute.hpp"
+#include <limits>
+#include <type_traits>
+#include "../concepts/arithmetic.hpp"
+#include "../math/absolute.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic1, xieite::concepts::Arithmetic Arithmetic2>
@@ -12,5 +11,3 @@ namespace xieite::math {
 		return xieite::math::absolute(value1 - value2) <= std::numeric_limits<std::common_type_t<Arithmetic1, Arithmetic2>>::epsilon();
 	}
 }
-
-#endif

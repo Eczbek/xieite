@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__GEOMETRY__SEGMENT
-#	define XIEITE_HEADER__GEOMETRY__SEGMENT
+#pragma once
 
-#	include "../geometry/point.hpp"
-#	include "../math/almost_equal.hpp"
+#include "../geometry/point.hpp"
+#include "../math/almost_equal.hpp"
 
 namespace xieite::geometry {
 	struct Segment {
@@ -33,5 +32,3 @@ namespace xieite::geometry {
 		}
 	};
 }
-
-#endif

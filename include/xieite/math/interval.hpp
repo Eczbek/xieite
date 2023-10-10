@@ -1,7 +1,6 @@
-#ifndef XIEITE_HEADER__MATH__INTERVAL
-#	define XIEITE_HEADER__MATH__INTERVAL
+#pragma once
 
-#	include "../concepts/numeric.hpp"
+#include "../concepts/numeric.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number>
@@ -13,5 +12,3 @@ namespace xieite::math {
 		: start(start), end(end) {}
 	};
 }
-
-#endif

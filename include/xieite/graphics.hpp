@@ -1,7 +1,4 @@
-#ifndef XIEITE_HEADER__GRAPHICS
-#	define XIEITE_HEADER__GRAPHICS
+#pragma once
 
-#	include "./graphics/canvas.hpp"
-#	include "./graphics/color.hpp"
-
-#endif
+#include "./graphics/canvas.hpp"
+#include "./graphics/color.hpp"

@@ -1,9 +1,6 @@
-#ifndef XIEITE_HEADER__NETWORK
-#	define XIEITE_HEADER__NETWORK
+#pragma once
 
-#	include "./network/address.hpp"
-#	include "./network/domain.hpp"
-#	include "./network/protocol.hpp"
-#	include "./network/socket_address.hpp"
-
-#endif
+#include "./network/address.hpp"
+#include "./network/domain.hpp"
+#include "./network/protocol.hpp"
+#include "./network/socket_address.hpp"

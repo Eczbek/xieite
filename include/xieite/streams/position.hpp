@@ -1,5 +1,4 @@
-#ifndef XIEITE_HEADER__STREAMS__POSITION
-#	define XIEITE_HEADER__STREAMS__POSITION
+#pragma once
 
 namespace xieite::streams {
 	struct Position {
@@ -14,5 +13,3 @@ namespace xieite::streams {
 		}
 	};
 }
-
-#endif

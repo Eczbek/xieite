@@ -1,8 +1,7 @@
-#ifndef XIEITE_HEADER__STRINGS__HASH
-#	define XIEITE_HEADER__STRINGS_HASHs
+#pragma once
 
-#	include <cstddef>
-#	include <string_view>
+#include <cstddef>
+#include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::size_t hash(const std::string_view string) noexcept {
@@ -13,5 +12,3 @@ namespace xieite::strings {
 		return result;
 	}
 }
-
-#endif

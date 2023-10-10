@@ -1,5 +1,4 @@
-#ifndef XIEITE_HEADER__TYPES__FIXED_MATRIX
-#	define XIEITE_HEADER__TYPES__FIXED_MATRIX
+#pragma once
 
 namespace xieite::types {
 	template<template<typename, std::size_t> typename, typename, std::size_t...>
@@ -20,5 +19,3 @@ namespace xieite::types {
 		using Type = Value;
 	};
 }
-
-#endif

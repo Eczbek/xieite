@@ -1,7 +1,6 @@
-#ifndef XIEITE_HEADER__MATH__LITERALS__BASE
-#	define XIEITE_HEADER__MATH__LITERALS__BASE
+#pragma once
 
-#	include <string>
+#include <string>
 
 namespace xieite::math::literals {
 	template<char... characters>
@@ -23,7 +22,5 @@ namespace xieite::math::literals {
 		return 10;
 	}
 }
-
-#endif
 
 // Thanks to Che for original idea
