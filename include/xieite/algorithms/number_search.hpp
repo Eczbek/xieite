@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_NUMBER_SEARCH
+#	define XIEITE_HEADER_ALGORITHMS_NUMBER_SEARCH
 
-#include <functional>
-#include "../concepts/numeric.hpp"
-#include "../concepts/functable.hpp"
-#include "../math/absolute.hpp"
-#include "../math/almost_equal.hpp"
+#	include <functional>
+#	include "../concepts/numeric.hpp"
+#	include "../concepts/functable.hpp"
+#	include "../math/absolute.hpp"
+#	include "../math/almost_equal.hpp"
 
 namespace xieite::algorithms {
 	template<xieite::concepts::Numeric Number, xieite::concepts::Functable<bool(Number)> Functor>
@@ -34,3 +35,5 @@ namespace xieite::algorithms {
 		return xieite::algorithms::numberSearch(selector, 0, maximum);
 	}
 }
+
+#endif

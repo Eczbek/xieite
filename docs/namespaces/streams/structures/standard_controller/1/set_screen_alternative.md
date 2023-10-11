@@ -1,5 +1,5 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardController](../../../standard_controller.md)\:\:setScreenAlternative
-Defined in header [<xieite/streams/standard_controller.hpp>](../../../../../../include/xieite/streams/standard_controller.hpp)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setScreenAlternative
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -19,12 +19,14 @@ void setScreenAlternative(bool value) const noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/system/terminal.hpp>
+#include <xieite/streams/standard_handle.hpp>
 
 int main() {
-    xieite::system::terminal.setScreenAlternative(true);
+    auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
+
+    terminal.setScreenAlternative(true);
     std::cout << "Hello, ";
-    xieite::system::terminal.setScreenAlternative(false);
+    terminal.setScreenAlternative(false);
     std::cout << "world!\n";
 }
 ```

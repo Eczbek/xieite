@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_UPPERCASE
+#	define XIEITE_HEADER_STRINGS_UPPERCASE
 
-#include <array>
-#include <limits>
-#include <numeric>
-#include <string>
-#include <string_view>
+#	include <array>
+#	include <limits>
+#	include <numeric>
+#	include <string>
+#	include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr char uppercase(const char character) noexcept {
@@ -27,3 +28,5 @@ namespace xieite::strings {
 		return result;
 	}
 }
+
+#endif

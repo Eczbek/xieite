@@ -1,5 +1,5 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardController](../../../standard_controller.md)\:\:readCharacter
-Defined in header [<xieite/streams/standard_controller.hpp>](../../../../../../include/xieite/streams/standard_controller.hpp)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:readCharacter
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -19,12 +19,14 @@ char readCharacter() const noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/system/terminal.hpp>
+#include <xieite/streams/standard_handle.hpp>
 
 int main() {
+    auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
+
     std::cin.putback('h');
 
-    std::cout << xieite::system::terminal.readCharacter() << '\n';
+    std::cout << terminal.readCharacter() << '\n';
 }
 ```
 Output:

@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_MEMORY_DETECT_COSMIC_RAY
+#	define XIEITE_HEADER_MEMORY_DETECT_COSMIC_RAY
 
-#include <concepts>
-#include <cstddef>
-#include <cstdint>
-#include <memory>
+#	include <concepts>
+#	include <cstddef>
+#	include <cstdint>
+#	include <memory>
 
 namespace xieite::memory {
 	template<std::unsigned_integral Chunk = std::uintmax_t>
@@ -13,3 +14,5 @@ namespace xieite::memory {
 		for (std::size_t i = 0; !detector[i]; i = (i + 1) % size);
 	}
 }
+
+#endif

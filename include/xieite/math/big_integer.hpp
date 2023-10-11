@@ -1,26 +1,27 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_BIG_INTEGER
+#	define XIEITE_HEADER_MATH_BIG_INTEGER
 
-#include <algorithm>
-#include <compare>
-#include <concepts>
-#include <cstddef>
-#include <cstdint>
-#include <iterator>
-#include <limits>
-#include <ranges>
-#include <stdexcept>
-#include <string>
-#include <string_view>
-#include <vector>
-#include "../concepts/arithmetic.hpp"
-#include "../math/attempt_unsign.hpp"
-#include "../math/product.hpp"
-#include "../math/digits.hpp"
-#include "../math/multiply.hpp"
-#include "../math/negative.hpp"
-#include "../math/split_boolean.hpp"
-#include "../strings/lowercase.hpp"
-#include "../system/byte_bits.hpp"
+#	include <algorithm>
+#	include <compare>
+#	include <concepts>
+#	include <cstddef>
+#	include <cstdint>
+#	include <iterator>
+#	include <limits>
+#	include <ranges>
+#	include <stdexcept>
+#	include <string>
+#	include <string_view>
+#	include <vector>
+#	include "../concepts/arithmetic.hpp"
+#	include "../math/attempt_unsign.hpp"
+#	include "../math/product.hpp"
+#	include "../math/digits.hpp"
+#	include "../math/multiply.hpp"
+#	include "../math/negative.hpp"
+#	include "../math/split_boolean.hpp"
+#	include "../strings/lowercase.hpp"
+#	include "../system/byte_bits.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral Datum = std::uint64_t>
@@ -683,5 +684,7 @@ namespace xieite::math {
 		}
 	};
 }
+
+#endif
 
 // Thanks to sam_dev for fixing the new division algorithm

@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_FROM_BASE
+#	define XIEITE_HEADER_MATH_FROM_BASE
 
-#include <concepts>
-#include <cstddef>
-#include <string>
-#include <string_view>
-#include "../strings/lowercase.hpp"
+#	include <concepts>
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
+#	include "../strings/lowercase.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer = int>
@@ -24,3 +25,5 @@ namespace xieite::math {
 		return valueNegative ? -result : result;
 	}
 }
+
+#endif

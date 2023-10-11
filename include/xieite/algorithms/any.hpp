@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_ANY
+#	define XIEITE_HEADER_ALGORITHMS_ANY
 
-#include <algorithm>
-#include <concepts>
-#include <ranges>
-#include "../concepts/no_throw_convertible_to.hpp"
-#include "../concepts/range_of.hpp"
+#	include <algorithm>
+#	include <concepts>
+#	include <ranges>
+#	include "../concepts/no_throw_convertible_to.hpp"
+#	include "../concepts/range_of.hpp"
 
 namespace xieite::algorithms {
 	template<xieite::concepts::RangeOf<bool> Range>
@@ -21,3 +22,5 @@ namespace xieite::algorithms {
 		return (... || static_cast<bool>(values));
 	}
 }
+
+#endif

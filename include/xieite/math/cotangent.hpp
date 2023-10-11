@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_COTANGENT
+#	define XIEITE_HEADER_MATH_COTANGENT
 
-#include <cmath>
-#include "../concepts/numeric.hpp"
-#include "../math/result.hpp"
+#	include <cmath>
+#	include "../concepts/numeric.hpp"
+#	include "../math/result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number>
@@ -10,3 +11,5 @@ namespace xieite::math {
 		return std::cos(value) / std::sin(value);
 	}
 }
+
+#endif

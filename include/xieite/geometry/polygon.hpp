@@ -1,13 +1,14 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_POLYGON
+#	define XIEITE_HEADER_GEOMETRY_POLYGON
 
-#include <cmath>
-#include <cstddef>
-#include <ranges>
-#include <vector>
-#include "../algorithms/same_relative_order.hpp"
-#include "../concepts/range_of.hpp"
-#include "../geometry/point.hpp"
-#include "../geometry/segment.hpp"
+#	include <cmath>
+#	include <cstddef>
+#	include <ranges>
+#	include <vector>
+#	include "../algorithms/same_relative_order.hpp"
+#	include "../concepts/range_of.hpp"
+#	include "../geometry/point.hpp"
+#	include "../geometry/segment.hpp"
 
 namespace xieite::geometry {
 	struct Polygon {
@@ -67,3 +68,5 @@ namespace xieite::geometry {
 		}
 	};
 }
+
+#endif

@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_THREADS_LOOP
+#	define XIEITE_HEADER_THREADS_LOOP
 
-#include <concepts>
-#include <functional>
-#include <stop_token>
-#include <thread>
+#	include <concepts>
+#	include <functional>
+#	include <stop_token>
+#	include <thread>
 
 namespace xieite::threads {
 	class Loop {
@@ -35,5 +36,7 @@ namespace xieite::threads {
 		std::jthread thread;
 	};
 }
+
+#endif
 
 // Thanks to uno20001 for help

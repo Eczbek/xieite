@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_LITERALS_INTEGERS
+#	define XIEITE_HEADER_MATH_LITERALS_INTEGERS
 
-#include <cstdint>
+#	include <cstdint>
 
 namespace xieite::math::literals {
 	[[nodiscard]] constexpr int operator""_i(const unsigned long long int value) noexcept {
@@ -59,3 +60,5 @@ namespace xieite::math::literals {
 		return static_cast<std::uintptr_t>(value);
 	}
 }
+
+#endif

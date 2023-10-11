@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_FUNCTORS_SCOPE_GUARD
+#	define XIEITE_HEADER_FUNCTORS_SCOPE_GUARD
 
-#include <concepts>
-#include <functional>
-#include <utility>
+#	include <concepts>
+#	include <functional>
+#	include <utility>
 
 namespace xieite::functors {
 	template<std::invocable<> Functor>
@@ -29,3 +30,5 @@ namespace xieite::functors {
 		bool released;
 	};
 }
+
+#endif

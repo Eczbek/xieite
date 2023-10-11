@@ -1,13 +1,14 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_MODES
+#	define XIEITE_HEADER_ALGORITHMS_MODES
 
-#include <array>
-#include <cstddef>
-#include <functional>
-#include <iterator>
-#include <ranges>
-#include <vector>
-#include "../concepts/functable.hpp"
-#include "../concepts/numeric.hpp"
+#	include <array>
+#	include <cstddef>
+#	include <functional>
+#	include <iterator>
+#	include <ranges>
+#	include <vector>
+#	include "../concepts/functable.hpp"
+#	include "../concepts/numeric.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::greater>
@@ -34,3 +35,5 @@ namespace xieite::algorithms {
 		return iterators;
 	}
 }
+
+#endif

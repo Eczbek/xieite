@@ -1,12 +1,13 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_ANTIMODES
+#	define XIEITE_HEADER_ALGORITHMS_ANTIMODES
 
-#include <array>
-#include <cstddef>
-#include <functional>
-#include <ranges>
-#include <vector>
-#include "../concepts/functable.hpp"
-#include "../concepts/numeric.hpp"
+#	include <array>
+#	include <cstddef>
+#	include <functional>
+#	include <ranges>
+#	include <vector>
+#	include "../concepts/functable.hpp"
+#	include "../concepts/numeric.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::less>
@@ -33,3 +34,5 @@ namespace xieite::algorithms {
 		return iterators;
 	}
 }
+
+#endif

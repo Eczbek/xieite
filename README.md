@@ -12,7 +12,7 @@ This project extends the standard library and provides an organized collection o
 - [xieite::concepts::Numeric](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/concepts/numeric.md)
 - [xieite::memory::detectCosmicRay](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/memory/detect_cosmic_ray.md)
 - [xieite::graphics::Canvas](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/graphics/canvas.md)
-- [xieite::streams::StandardController](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/streams/standard_controller.md)
+- [xieite::streams::StandardHandle](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/streams/standard_handle.md)
 - [xieite::random::UniformInterruptableDistribution](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/random/uniform_interruptable_distribution.md)
 - [xieite::system::execute](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/system/execute.md)
 - [XIEITE_PLATFORM_...](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/macros/platform.md)

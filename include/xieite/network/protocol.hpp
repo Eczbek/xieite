@@ -1,12 +1,13 @@
-#pragma once
+#ifndef XIEITE_HEADER_NETWORK_PROTOCOL
+#	define XIEITE_HEADER_NETWORK_PROTOCOL
 
-#include "../macros/platform.hpp"
+#	include "../macros/platform.hpp"
 
-#if !XIEITE_PLATFORM_UNIX
-#	error "System not supported"
-#endif
+#	if !XIEITE_PLATFORM_UNIX
+#		error "System not supported"
+#	endif
 
-#include <sys/socket.h>
+#	include <sys/socket.h>
 
 namespace xieite::network {
 	enum struct Protocol
@@ -21,3 +22,5 @@ namespace xieite::network {
 		UDP = IPPROTO_UDP
 	};
 }
+
+#endif

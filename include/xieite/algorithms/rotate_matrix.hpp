@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_ROTATE_MATRIX
+#	define XIEITE_HEADER_ALGORITHMS_ROTATE_MATRIX
 
-#include <vector>
-#include "../math/wrap.hpp"
+#	include <vector>
+#	include "../math/wrap.hpp"
 
 namespace xieite::algorithms {
 	template<typename Value>
@@ -29,3 +30,5 @@ namespace xieite::algorithms {
 		return result;
 	}
 }
+
+#endif

@@ -1,11 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_INTERSECTIONS
+#	define XIEITE_HEADER_GEOMETRY_INTERSECTIONS
 
-#include <cmath>
-#include <vector>
-#include "../concepts/linear_shape.hpp"
-#include "../geometry/point.hpp"
-#include "../geometry/segment.hpp"
-#include "../math/almost_equal.hpp"
+#	include <cmath>
+#	include <vector>
+#	include "../concepts/linear_shape.hpp"
+#	include "../geometry/point.hpp"
+#	include "../geometry/segment.hpp"
+#	include "../math/almost_equal.hpp"
 
 namespace xieite::geometry {
 	[[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept {
@@ -80,3 +81,5 @@ namespace xieite::geometry {
 		return totalIntersections;
 	}
 }
+
+#endif

@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_UNITS_VOLUMES
+#	define XIEITE_HEADER_UNITS_VOLUMES
 
-#include <ratio>
+#	include <ratio>
 
 namespace xieite::units {
 	using FluidOunce = std::ratio<10000000, 284130625>;
@@ -13,3 +14,5 @@ namespace xieite::units {
 
 	using Gallon = std::ratio<100, 454609> gallon;
 }
+
+#endif

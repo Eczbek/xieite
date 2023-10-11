@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_TRAITS_FUNCTABLE
+#	define XIEITE_HEADER_TRAITS_FUNCTABLE
 
-#include <concepts>
-#include <functional>
-#include <type_traits>
+#	include <concepts>
+#	include <functional>
+#	include <type_traits>
 
 namespace xieite::traits {
 	template<typename, typename>
@@ -15,3 +16,5 @@ namespace xieite::traits {
 		{ std::invoke(functor, arguments...) } -> std::convertible_to<SignatureResult>;
 	}> {};
 }
+
+#endif

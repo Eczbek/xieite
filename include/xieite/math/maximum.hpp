@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_MAXIMUM
+#	define XIEITE_HEADER_MATH_MAXIMUM
 
-#include <algorithm>
-#include <array>
-#include "../concepts/numeric.hpp"
-#include "../math/result.hpp"
+#	include <algorithm>
+#	include <array>
+#	include "../concepts/numeric.hpp"
+#	include "../math/result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
@@ -16,3 +17,5 @@ namespace xieite::math {
 		return 0;
 	}
 }
+
+#endif

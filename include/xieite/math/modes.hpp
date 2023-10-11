@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_MODES
+#	define XIEITE_HEADER_MATH_MODES
 
-#include <array>
-#include <vector>
-#include "../algorithms/modes.hpp"
-#include "../concepts/numeric.hpp"
-#include "../math/result.hpp"
+#	include <array>
+#	include <vector>
+#	include "../algorithms/modes.hpp"
+#	include "../concepts/numeric.hpp"
+#	include "../math/result.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric... Numbers>
@@ -21,3 +22,5 @@ namespace xieite::math {
 		return std::vector<xieite::math::Result<Numbers...>>();
 	}
 }
+
+#endif

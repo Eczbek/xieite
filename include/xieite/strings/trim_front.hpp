@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_TRIM_FRONT
+#	define XIEITE_HEADER_STRINGS_TRIM_FRONT
 
-#include <cstddef>
-#include <string_view>
+#	include <cstddef>
+#	include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::string_view trimFront(const std::string_view string, const char character) noexcept {
@@ -14,3 +15,5 @@ namespace xieite::strings {
 		return (start == std::string_view::npos) ? "" : string.substr(start);
 	}
 }
+
+#endif

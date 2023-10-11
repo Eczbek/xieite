@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_CONCEPTS_STREAMABLE_IN
+#	define XIEITE_HEADER_CONCEPTS_STREAMABLE_IN
 
-#include <concepts>
-#include <istream>
+#	include <concepts>
+#	include <istream>
 
 namespace xieite::concepts {
 	template<typename Type>
@@ -9,3 +10,5 @@ namespace xieite::concepts {
 		{ inputStream >> value } -> std::same_as<std::istream&>;
 	};
 }
+
+#endif

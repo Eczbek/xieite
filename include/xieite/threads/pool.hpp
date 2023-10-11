@@ -1,12 +1,13 @@
-#pragma once
+#ifndef XIEITE_HEADER_THREADS_POOL
+#	define XIEITE_HEADER_THREADS_POOL
 
-#include <condition_variable>
-#include <cstddef>
-#include <functional>
-#include <mutex>
-#include <queue>
-#include <thread>
-#include <vector>
+#	include <condition_variable>
+#	include <cstddef>
+#	include <functional>
+#	include <mutex>
+#	include <queue>
+#	include <thread>
+#	include <vector>
 
 namespace xieite::threads {
 	class Pool {
@@ -72,5 +73,7 @@ namespace xieite::threads {
 		std::condition_variable condition;
 	};
 }
+
+#endif
 
 // Thanks to Evan for help

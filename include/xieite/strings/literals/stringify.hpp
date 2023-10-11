@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_LITERALS_STRINGIFY
+#	define XIEITE_HEADER_STRINGS_LITERALS_STRINGIFY
 
-#include <string>
-#include <string_view>
+#	include <string>
+#	include <string_view>
 
 namespace xieite::strings::literals {
 	template<char... characters>
@@ -11,3 +12,5 @@ namespace xieite::strings::literals {
 		};
 	}
 }
+
+#endif

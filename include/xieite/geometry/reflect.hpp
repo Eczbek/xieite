@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_REFLECT
+#	define XIEITE_HEADER_GEOMETRY_REFLECT
 
-#include "../concepts/linear_shape.hpp"
-#include "../geometry/point.hpp"
-#include "../geometry/polygon.hpp"
-#include "../geometry/rotate.hpp"
+#	include "../concepts/linear_shape.hpp"
+#	include "../geometry/point.hpp"
+#	include "../geometry/polygon.hpp"
+#	include "../geometry/rotate.hpp"
 
 namespace xieite::geometry {
 	template<xieite::concepts::LinearShape LinearShape>
@@ -24,3 +25,5 @@ namespace xieite::geometry {
 		return polygon;
 	}
 }
+
+#endif

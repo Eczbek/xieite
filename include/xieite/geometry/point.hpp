@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_GEOMETRY_POINT
+#	define XIEITE_HEADER_GEOMETRY_POINT
 
-#include <cmath>
-#include "../math/almost_equal.hpp"
-#include "../math/pi.hpp"
-#include "../math/tau.hpp"
+#	include <cmath>
+#	include "../math/almost_equal.hpp"
+#	include "../math/pi.hpp"
+#	include "../math/tau.hpp"
 
 namespace xieite::geometry {
 	struct Point {
@@ -30,3 +31,5 @@ namespace xieite::geometry {
 		}
 	};
 }
+
+#endif

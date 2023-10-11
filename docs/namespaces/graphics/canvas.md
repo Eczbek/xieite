@@ -14,9 +14,9 @@ A canvas for drawing shapes to the terminal.
 struct Canvas {
     xieite::geometry::Point center;
     xieite::geometry::Point radii;
-    xieite::streams::StandardController controller;
+    xieite::streams::StandardHandle controller;
 
-    constexpr Canvas(xieite::geometry::Point, xieite::geometry::Point, xieite::streams::StandardController = xieite::system::terminal);
+    constexpr Canvas(xieite::geometry::Point, xieite::geometry::Point, xieite::streams::StandardHandle = xieite::streams::StandardHandle(std::cin, std::cout));
 
     void print(xieite::streams::Position) const;
 

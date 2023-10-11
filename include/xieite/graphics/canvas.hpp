@@ -1,26 +1,27 @@
-#pragma once
+#ifndef XIEITE_HEADER_GRAPHICS_CANVAS
+#	define XIEITE_HEADER_GRAPHICS_CANVAS
 
-#include <cmath>
-#include <cstddef>
-#include <vector>
-#include "../concepts/linear_shape.hpp"
-#include "../geometry/point.hpp"
-#include "../geometry/polygon.hpp"
-#include "../geometry/segment.hpp"
-#include "../graphics/color.hpp"
-#include "../math/almost_equal.hpp"
-#include "../streams/position.hpp"
-#include "../streams/standard_controller.hpp"
-#include "../system/terminal.hpp"
+#	include <cmath>
+#	include <cstddef>
+#	include <iostream>
+#	include <vector>
+#	include "../concepts/linear_shape.hpp"
+#	include "../geometry/point.hpp"
+#	include "../geometry/polygon.hpp"
+#	include "../geometry/segment.hpp"
+#	include "../graphics/color.hpp"
+#	include "../math/almost_equal.hpp"
+#	include "../streams/position.hpp"
+#	include "../streams/standard_handle.hpp"
 
 namespace xieite::graphics {
 	class Canvas {
 	public:
 		xieite::geometry::Point center;
 		xieite::geometry::Point radii;
-		xieite::streams::StandardController controller;
+		xieite::streams::StandardHandle controller;
 
-		constexpr Canvas(const xieite::geometry::Point center, const xieite::geometry::Point radii, const xieite::streams::StandardController controller = xieite::system::terminal) noexcept
+		constexpr Canvas(const xieite::geometry::Point center, const xieite::geometry::Point radii, const xieite::streams::StandardHandle controller = xieite::streams::StandardHandle(std::cin, std::cout)) noexcept
 		: center(center), radii(radii), controller(controller), data(static_cast<std::size_t>(this->radii.x * 2) + 1, std::vector<xieite::graphics::Color>(static_cast<std::size_t>(this->radii.y * 2) + 1, xieite::graphics::Color(255, 255, 255))) {}
 
 		void print(const xieite::streams::Position position) const noexcept {
@@ -90,3 +91,5 @@ namespace xieite::graphics {
 		std::vector<std::vector<xieite::graphics::Color>> data;
 	};
 }
+
+#endif

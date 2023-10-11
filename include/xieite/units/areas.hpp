@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_UNITS_AREAS
+#	define XIEITE_HEADER_UNITS_AREAS
 
-#include <ratio>
+#	include <ratio>
 
 namespace xieite::units {
 	using Perch = std::ratio<100000000, 2529285264>;
@@ -11,3 +12,5 @@ namespace xieite::units {
 
 	using SquareMile = std::ratio<1000000, 2589988110336>;
 }
+
+#endif

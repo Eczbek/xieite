@@ -1,17 +1,18 @@
-#pragma once
+#ifndef XIEITE_HEADER_STREAMS_GET_FILE
+#	define XIEITE_HEADER_STREAMS_GET_FILE
 
-#include "../macros/compiler.hpp"
+#	include "../macros/compiler.hpp"
 
-#if !XIEITE_COMPILER_GCC
-#	error "Compiler not supported"
-#endif
+#	if !XIEITE_COMPILER_GCC
+#		error "Compiler not supported"
+#	endif
 
-#include <cstdio>
-#include <ext/stdio_filebuf.h>
-#include <iostream>
-#include "../concepts/input_stream.hpp"
-#include "../concepts/output_stream.hpp"
-#include "../concepts/stream.hpp"
+#	include <cstdio>
+#	include <ext/stdio_filebuf.h>
+#	include <iostream>
+#	include "../concepts/input_stream.hpp"
+#	include "../concepts/output_stream.hpp"
+#	include "../concepts/stream.hpp"
 
 namespace xieite::streams {
 	template<xieite::concepts::Stream Stream>
@@ -32,3 +33,5 @@ namespace xieite::streams {
 		return static_cast<__gnu_cxx::stdio_filebuf<typename Stream::char_type, typename Stream::traits_type>*>(stream.rdbuf())->file();
 	}
 }
+
+#endif

@@ -1,9 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_CONCEPTS_DECAYED
+#	define XIEITE_HEADER_CONCEPTS_DECAYED
 
-#include <concepts>
-#include <type_traits>
+#	include <concepts>
+#	include <type_traits>
 
 namespace xieite::concepts {
 	template<typename Type>
 	concept Decayed = std::same_as<Type, std::decay_t<Type>>;
 }
+
+#endif

@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_REPEAT
+#	define XIEITE_HEADER_STRINGS_REPEAT
 
-#include <cstddef>
-#include <string>
-#include <string_view>
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::string repeat(std::size_t count, const std::string_view string) noexcept {
@@ -14,3 +15,5 @@ namespace xieite::strings {
 		return result;
 	}
 }
+
+#endif

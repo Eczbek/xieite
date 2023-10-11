@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_FUNCTORS_OVERLOADER
+#	define XIEITE_HEADER_FUNCTORS_OVERLOADER
 
-#include <utility>
-#include "../concepts/derivable.hpp"
+#	include <utility>
+#	include "../concepts/derivable.hpp"
 
 namespace xieite::functors {
 	template<xieite::concepts::Derivable... Derivables>
@@ -18,3 +19,5 @@ namespace xieite::functors {
 		using Derivables::operator()...;
 	};
 }
+
+#endif

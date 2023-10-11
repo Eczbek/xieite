@@ -1,14 +1,15 @@
-#pragma once
+#ifndef XIEITE_HEADER_TYPES_DEMANGLE
+#	define XIEITE_HEADER_TYPES_DEMANGLE
 
-#include "../macros/compiler.hpp"
+#	include "../macros/compiler.hpp"
 
-#if !XIEITE_COMPILER_GCC || !HAVE_CXA_DEMANGLE
-#	error "Compiler not supported"
-#endif
+#	if !XIEITE_COMPILER_GCC || !HAVE_CXA_DEMANGLE
+#		error "Compiler not supported"
+#	endif
 
-#include <cstdlib>
-#include <cxxabi.h>
-#include <string>
+#	include <cstdlib>
+#	include <cxxabi.h>
+#	include <string>
 
 namespace xieite::types {
 	[[nodiscard]] inline std::string demangle(const std::string& mangled) noexcept {
@@ -22,3 +23,5 @@ namespace xieite::types {
 		return mangled;
 	}
 }
+
+#endif

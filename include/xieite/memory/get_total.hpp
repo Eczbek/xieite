@@ -1,11 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_MEMORY_GET_TOTAL
+#	define XIEITE_HEADER_MEMORY_GET_TOTAL
 
-#include "../macros/platform.hpp"
+#	include "../macros/platform.hpp"
 
-#if XIEITE_PLATFORM_UNIX
-#	include <cstddef>
-#	include <unistd.h>
-#	include "../memory/get_page_size.hpp"
+#	if XIEITE_PLATFORM_UNIX
+#		include <cstddef>
+#		include <unistd.h>
+#		include "../memory/get_page_size.hpp"
 
 namespace xieite::memory {
 	[[nodiscard]] inline std::size_t getTotal() noexcept {
@@ -13,9 +14,9 @@ namespace xieite::memory {
 	}
 }
 
-#elif XIEITE_PLATFORM_WINDOWS
-#	include <cstddef>
-#	include <windows.h>
+#	elif XIEITE_PLATFORM_WINDOWS
+#		include <cstddef>
+#		include <windows.h>
 
 namespace xieite::memory {
 	[[nodiscard]] inline std::size_t getTotal() noexcept {
@@ -26,6 +27,8 @@ namespace xieite::memory {
 	}
 }
 
-#else
-#	error "System not supported"
+#	else
+#		error "System not supported"
+#	endif
+
 #endif

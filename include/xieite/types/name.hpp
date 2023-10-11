@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_TYPES_NAME
+#	define XIEITE_HEADER_TYPES_NAME
 
-#include "../macros/compiler.hpp"
+#	include "../macros/compiler.hpp"
 
-#if XIEITE_COMPILER_GCC
-#	include <string_view>
-#	include "../strings/between.hpp"
+#	if XIEITE_COMPILER_GCC
+#		include <string_view>
+#		include "../strings/between.hpp"
 
 namespace xieite::types {
 	template<typename Type>
@@ -13,9 +14,9 @@ namespace xieite::types {
 	}
 }
 
-#elif XIEITE_COMPILER_LLVM
-#	include <string_view>
-#	include "../strings/between.hpp"
+#	elif XIEITE_COMPILER_LLVM
+#		include <string_view>
+#		include "../strings/between.hpp"
 
 namespace xieite::types {
 	template<typename Type>
@@ -24,10 +25,10 @@ namespace xieite::types {
 	}
 }
 
-#elif XIEITE_COMPILER_MSVC
-#	include <string_view>
-#	include "../strings/after.hpp"
-#	include "../strings/between.hpp"
+#	elif XIEITE_COMPILER_MSVC
+#		include <string_view>
+#		include "../strings/after.hpp"
+#		include "../strings/between.hpp"
 
 namespace xieite::types {
 	template<typename Type>
@@ -36,6 +37,8 @@ namespace xieite::types {
 	}
 }
 
-#else
-#	error "Compiler not supported"
+#	else
+#		error "Compiler not supported"
+#	endif
+
 #endif

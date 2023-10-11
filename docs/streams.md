@@ -13,4 +13,4 @@ Utilities relating to streams.
 - [getFile](./namespaces/streams/get_file.md)
 - [openPipe](./namespaces/streams/open_pipe.md)
 - [position](./namespaces/streams/position.md)
-- [standard_controller](./namespaces/streams/standard_controller.md)
+- [standard_handle](./namespaces/streams/standard_handle.md)

@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_TYPES_LIST
+#	define XIEITE_HEADER_TYPES_LIST
 
-#include <cmath>
-#include <concepts>
-#include <type_traits>
-#include <utility>
+#	include <cmath>
+#	include <concepts>
+#	include <type_traits>
+#	include <utility>
 
 namespace xieite::types {
 	template<typename... Types>
@@ -135,5 +136,7 @@ namespace xieite::types {
 		using Unique = decltype((xieite::types::List<Types...>::UniqueHelper<>()->*...->*xieite::types::List<Types...>::UniqueHelper<Types>()))::Type;
 	};
 }
+
+#endif
 
 // Thanks to Eisenwave for the algorithm for getting unique types, and eightfold for helping compact the slicer

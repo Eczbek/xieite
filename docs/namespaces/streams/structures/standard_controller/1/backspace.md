@@ -1,5 +1,5 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardController](../../../standard_controller.md)\:\:backspace
-Defined in header [<xieite/streams/standard_controller.hpp>](../../../../../../include/xieite/streams/standard_controller.hpp)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:backspace
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -14,11 +14,13 @@ void backspace(std::size_t count) const noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/streams/terminal.hpp>
+#include <xieite/streams/standard_handle.hpp>
 
 int main() {
+    auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
+
     std::cout << "Hello, world!";
-    xieite::streams::terminal.backspace(6);
+    terminal.backspace(6);
     std::cout << "something\n";
 }
 ```

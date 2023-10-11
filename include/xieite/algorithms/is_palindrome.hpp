@@ -1,12 +1,13 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_IS_PALINDROME
+#	define XIEITE_HEADER_ALGORITHMS_IS_PALINDROME
 
-#include <concepts>
-#include <cstddef>
-#include <functional>
-#include <iterator>
-#include <ranges>
-#include "../concepts/functable.hpp"
-#include "../math/reverse.hpp"
+#	include <concepts>
+#	include <cstddef>
+#	include <functional>
+#	include <iterator>
+#	include <ranges>
+#	include "../concepts/functable.hpp"
+#	include "../math/reverse.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::equal_to>
@@ -28,3 +29,5 @@ namespace xieite::algorithms {
 		return value == xieite::math::reverse(value, base);
 	}
 }
+
+#endif

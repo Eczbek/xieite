@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_UNITS_LITERALS_LENGTHS
+#	define XIEITE_HEADER_UNITS_LITERALS_LENGTHS
 
-#include "../../units/lengths.hpp"
+#	include "../../units/lengths.hpp"
 
 namespace xieite::units::literals {
 	[[nodiscard]] constexpr double operator""_twips(const long double value) noexcept {
@@ -63,3 +64,5 @@ namespace xieite::units::literals {
 		return value * xieite::units::Rod::den / xieite::units::Rod::num;
 	}
 }
+
+#endif

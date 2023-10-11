@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_CONCEPTS_BITSET_REFERENCE
+#	define XIEITE_HEADER_CONCEPTS_BITSET_REFERENCE
 
-#include <bitset>
-#include <concepts>
-#include <utility>
+#	include <bitset>
+#	include <concepts>
+#	include <utility>
 
 namespace xieite::concepts {
 	template<typename Type>
@@ -15,3 +16,5 @@ namespace xieite::concepts {
 		{ value.flip() } -> std::same_as<Type&>;
 	};
 }
+
+#endif

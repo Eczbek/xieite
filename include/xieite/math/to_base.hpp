@@ -1,11 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_TO_BASE
+#	define XIEITE_HEADER_MATH_TO_BASE
 
-#include <concepts>
-#include <string>
-#include <string_view>
-#include "../math/attempt_unsign.hpp"
-#include "../math/absolute.hpp"
-#include "../math/negative.hpp"
+#	include <concepts>
+#	include <string>
+#	include <string_view>
+#	include "../math/attempt_unsign.hpp"
+#	include "../math/absolute.hpp"
+#	include "../math/negative.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
@@ -40,3 +41,5 @@ namespace xieite::math {
 		return result;
 	}
 }
+
+#endif

@@ -1,5 +1,5 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardController](../../../standard_controller.md)\:\:setCursorPosition
-Defined in header [<xieite/streams/standard_controller.hpp>](../../../../../../include/xieite/streams/standard_controller.hpp)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setCursorPosition
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -19,10 +19,12 @@ void setCursorPosition(xieite::streams::Position position) const noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/system/terminal.hpp>
+#include <xieite/streams/standard_handle.hpp>
 
 int main() {
-    xieite::system::terminal.setCursorPosition({ 2, 5 });
+    auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
+
+    terminal.setCursorPosition({ 2, 5 });
     std::cout << "Hello, world!\n";
 }
 ```

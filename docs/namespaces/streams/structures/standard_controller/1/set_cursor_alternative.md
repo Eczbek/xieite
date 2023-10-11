@@ -1,5 +1,5 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardController](../../../standard_controller.md)\:\:setCursorAlternative
-Defined in header [<xieite/streams/standard_controller.hpp>](../../../../../../include/xieite/streams/standard_controller.hpp)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setCursorAlternative
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -19,12 +19,14 @@ void setCursorAlternative(bool value) const noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/system/terminal.hpp>
+#include <xieite/streams/standard_handle.hpp>
 
 int main() {
-    xieite::system::terminal.setCursorAlternative(true);
+    auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
+
+    terminal.setCursorAlternative(true);
     std::cout << "Hello, ";
-    xieite::system::terminal.setCursorAlternative(false);
+    terminal.setCursorAlternative(false);
     std::cout << "world!\n";
 }
 ```

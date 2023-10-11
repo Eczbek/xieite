@@ -1,8 +1,9 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_AFTER
+#	define XIEITE_HEADER_STRINGS_AFTER
 
-#include <cstddef>
-#include <string>
-#include <string_view>
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::string_view after(const std::string_view string, const std::string_view start) noexcept {
@@ -14,3 +15,5 @@ namespace xieite::strings {
 		return xieite::strings::after(string, std::string(1, start));
 	}
 }
+
+#endif

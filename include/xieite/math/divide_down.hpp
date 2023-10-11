@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_DIVIDE_DOWN
+#	define XIEITE_HEADER_MATH_DIVIDE_DOWN
 
-#include <concepts>
+#	include <concepts>
 
 namespace xieite::math {
 	template<std::integral Integer>
@@ -8,3 +9,5 @@ namespace xieite::math {
 		return dividend / divisor;
 	}
 }
+
+#endif

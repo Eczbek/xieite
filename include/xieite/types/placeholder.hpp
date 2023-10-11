@@ -1,4 +1,5 @@
-#pragma once
+#ifndef XIEITE_HEADER_TYPES_PLACEHOLDER
+#	define XIEITE_HEADER_TYPES_PLACEHOLDER
 
 namespace xieite::types {
 	struct Placeholder {
@@ -9,3 +10,5 @@ namespace xieite::types {
 		constexpr operator Type&&() const noexcept;
 	};
 }
+
+#endif

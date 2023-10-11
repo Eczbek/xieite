@@ -1,5 +1,5 @@
-# [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:StandardController
-Defined in header [<xieite/streams/standard_controller.hpp>](../../../include/xieite/streams/standard_controller.hpp)
+# [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:StandardHandle
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -11,11 +11,11 @@ A class for controlling standard IO with modes and styles.
 ## Synopses
 #### 1)
 ```cpp
-struct StandardController {
+struct StandardHandle {
     std::istream& inputStream;
     std::ostream& outputStream;
 
-    StandardController(std::istream&, std::ostream&);
+    StandardHandle(std::istream&, std::ostream&);
 
     void setInputBlocking(bool) const;
 
@@ -81,34 +81,34 @@ struct StandardController {
 };
 ```
 ##### Member functions
-- [setInputBlocking](./structures/standard_controller/1/set_input_blocking.md)
-- [setInputEcho](./structures/standard_controller/1/set_input_echo.md)
-- [setInputCanonical](./structures/standard_controller/1/set_input_canonical.md)
-- [setInputSignals](./structures/standard_controller/1/set_input_signals.md)
-- [setOutputProcessing](./structures/standard_controller/1/set_output_processing.md)
-- [setForegroundColor](./structures/standard_controller/1/set_foreground_color.md)
-- [resetForegroundColor](./structures/standard_controller/1/reset_foreground_color.md)
-- [setBackgroundColor](./structures/standard_controller/1/set_background_color.md)
-- [resetBackgroundColor](./structures/standard_controller/1/reset_background_color.md)
-- [setTextBold](./structures/standard_controller/1/set_text_bold.md)
-- [setTextItalic](./structures/standard_controller/1/set_text_italic.md)
-- [setTextUnderline](./structures/standard_controller/1/set_text_underline.md)
-- [setTextBlinking](./structures/standard_controller/1/set_text_blinking.md)
-- [setColorsSwapped](./structures/standard_controller/1/set_colors_swapped.md)
-- [setTextVisible](./structures/standard_controller/1/set_text_visible.md)
-- [setTextStrikethrough](./structures/standard_controller/1/set_text_strikethrough.md)
-- [resetStyles](./structures/standard_controller/1/reset_styles.md)
-- [clearScreen](./structures/standard_controller/1/clear_screen.md)
-- [clearLine](./structures/standard_controller/1/clear_line.md)
-- [getCursorPosition](./structures/standard_controller/1/get_cursor_position.md)
-- [setCursorPosition](./structures/standard_controller/1/set_cursor_position.md)
-- [moveCursorPosition](./structures/standard_controller/1/move_cursor_position.md)
-- [setCursorVisible](./structures/standard_controller/1/set_cursor_visible.md)
-- [setCursorAlternative](./structures/standard_controller/1/set_cursor_alternative.md)
-- [setScreenAlternative](./structures/standard_controller/1/set_screen_alternative.md)
-- [getScreenSize](./structures/standard_controller/1/get_screen_size.md)
-- [readCharacter](./structures/standard_controller/1/read_character.md)
-- [readString](./structures/standard_controller/1/read_string.md)
-- [readKey](./structures/standard_controller/1/read_key.md)
-- [putBackString](./structures/standard_controller/1/put_back_string.md)
-- [backspace](./structures/standard_controller/1/backspace.md)
+- [setInputBlocking](./structures/standard_handle/1/set_input_blocking.md)
+- [setInputEcho](./structures/standard_handle/1/set_input_echo.md)
+- [setInputCanonical](./structures/standard_handle/1/set_input_canonical.md)
+- [setInputSignals](./structures/standard_handle/1/set_input_signals.md)
+- [setOutputProcessing](./structures/standard_handle/1/set_output_processing.md)
+- [setForegroundColor](./structures/standard_handle/1/set_foreground_color.md)
+- [resetForegroundColor](./structures/standard_handle/1/reset_foreground_color.md)
+- [setBackgroundColor](./structures/standard_handle/1/set_background_color.md)
+- [resetBackgroundColor](./structures/standard_handle/1/reset_background_color.md)
+- [setTextBold](./structures/standard_handle/1/set_text_bold.md)
+- [setTextItalic](./structures/standard_handle/1/set_text_italic.md)
+- [setTextUnderline](./structures/standard_handle/1/set_text_underline.md)
+- [setTextBlinking](./structures/standard_handle/1/set_text_blinking.md)
+- [setColorsSwapped](./structures/standard_handle/1/set_colors_swapped.md)
+- [setTextVisible](./structures/standard_handle/1/set_text_visible.md)
+- [setTextStrikethrough](./structures/standard_handle/1/set_text_strikethrough.md)
+- [resetStyles](./structures/standard_handle/1/reset_styles.md)
+- [clearScreen](./structures/standard_handle/1/clear_screen.md)
+- [clearLine](./structures/standard_handle/1/clear_line.md)
+- [getCursorPosition](./structures/standard_handle/1/get_cursor_position.md)
+- [setCursorPosition](./structures/standard_handle/1/set_cursor_position.md)
+- [moveCursorPosition](./structures/standard_handle/1/move_cursor_position.md)
+- [setCursorVisible](./structures/standard_handle/1/set_cursor_visible.md)
+- [setCursorAlternative](./structures/standard_handle/1/set_cursor_alternative.md)
+- [setScreenAlternative](./structures/standard_handle/1/set_screen_alternative.md)
+- [getScreenSize](./structures/standard_handle/1/get_screen_size.md)
+- [readCharacter](./structures/standard_handle/1/read_character.md)
+- [readString](./structures/standard_handle/1/read_string.md)
+- [readKey](./structures/standard_handle/1/read_key.md)
+- [putBackString](./structures/standard_handle/1/put_back_string.md)
+- [backspace](./structures/standard_handle/1/backspace.md)

@@ -1,5 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_MACROS_CONCATENATE
+#	define XIEITE_HEADER_MACROS_CONCATENATE
 
-#define XIEITE_CONCATENATE(first, second) XIEITE_CONCATENATE_INTERNAL(first, second)
+#	define XIEITE_CONCATENATE(first, second) XIEITE_CONCATENATE_INTERNAL(first, second)
 
-#define XIEITE_CONCATENATE_INTERNAL(first, second) first##second
+#	define XIEITE_CONCATENATE_INTERNAL(first, second) first##second
+
+#endif

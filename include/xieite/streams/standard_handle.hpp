@@ -1,37 +1,38 @@
-#pragma once
+#ifndef XIEITE_HEADER_STREAMS_STANDARD_HANDLE
+#	define XIEITE_HEADER_STREAMS_STANDARD_HANDLE
 
-#include "../macros/platform.hpp"
+#	include "../macros/platform.hpp"
 
-#if !XIEITE_PLATFORM_UNIX
-#	error "System not supported"
-#endif
+#	if !XIEITE_PLATFORM_UNIX
+#		error "System not supported"
+#	endif
 
-#include <cmath>
-#include <cstddef>
-#include <cstdio>
-#include <fcntl.h>
-#include <istream>
-#include <ostream>
-#include <ranges>
-#include <stdio.h>
-#include <string>
-#include <string_view>
-#include <sys/ioctl.h>
-#include <termios.h>
-#include <unistd.h>
-#include "../functors/scope_guard.hpp"
-#include "../graphics/color.hpp"
-#include "../streams/key.hpp"
-#include "../streams/position.hpp"
-#include "../streams/get_file.hpp"
+#	include <cmath>
+#	include <cstddef>
+#	include <cstdio>
+#	include <fcntl.h>
+#	include <istream>
+#	include <ostream>
+#	include <ranges>
+#	include <stdio.h>
+#	include <string>
+#	include <string_view>
+#	include <sys/ioctl.h>
+#	include <termios.h>
+#	include <unistd.h>
+#	include "../functors/scope_guard.hpp"
+#	include "../graphics/color.hpp"
+#	include "../streams/key.hpp"
+#	include "../streams/position.hpp"
+#	include "../streams/get_file.hpp"
 
 namespace xieite::streams {
-	class StandardController {
+	class StandardHandle {
 	public:
 		std::istream& inputStream;
 		std::ostream& outputStream;
 
-		StandardController(std::istream& inputStream, std::ostream& outputStream) noexcept
+		StandardHandle(std::istream& inputStream, std::ostream& outputStream) noexcept
 		: inputStream(inputStream), outputStream(outputStream), inputFile(xieite::streams::getFile(inputStream)), inputFileDescriptor(::fileno(this->inputFile)), blockingStatus(::fcntl(this->inputFileDescriptor, F_GETFL)) {
 			tcgetattr(this->inputFileDescriptor, &this->cookedMode);
 			this->blocking = !(this->blockingStatus & O_NONBLOCK);
@@ -42,7 +43,7 @@ namespace xieite::streams {
 			this->update();
 		}
 
-		~StandardController() {
+		~StandardHandle() {
 			this->resetModes();
 			this->resetStyles();
 		}
@@ -210,7 +211,7 @@ namespace xieite::streams {
 
 		xieite::streams::Key readKey() const noexcept {
 			const char foo = this->readCharacter();
-			const xieite::functors::ScopeGuard terminalGuard = xieite::functors::ScopeGuard([this, blocking = this->blocking] {
+			const xieite::functors::ScopeGuard streamGuard = xieite::functors::ScopeGuard([this, blocking = this->blocking] {
 				this->setInputBlocking(blocking);
 			});
 			this->setInputBlocking(false);
@@ -623,3 +624,5 @@ namespace xieite::streams {
 		}
 	};
 }
+
+#endif

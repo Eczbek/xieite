@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_PI
+#	define XIEITE_HEADER_MATH_PI
 
-#include <concepts>
-#include <numbers>
+#	include <concepts>
+#	include <numbers>
 
 namespace xieite::math {
 	template<typename>
@@ -13,3 +14,5 @@ namespace xieite::math {
 	template<std::integral Integer>
 	inline constexpr Integer pi<Integer> = static_cast<Integer>(std::numbers::pi);
 }
+
+#endif

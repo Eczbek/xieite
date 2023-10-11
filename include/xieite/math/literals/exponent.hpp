@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_LITERALS_EXPONENT
+#	define XIEITE_HEADER_MATH_LITERALS_EXPONENT
 
-#include "../../math/exponent.hpp"
+#	include "../../math/exponent.hpp"
 
 namespace xieite::math::literals {
 	[[nodiscard]] constexpr auto operator""_exponent(const unsigned long long int value) noexcept {
@@ -11,3 +12,5 @@ namespace xieite::math::literals {
 		return xieite::math::Exponent(value);
 	}
 }
+
+#endif

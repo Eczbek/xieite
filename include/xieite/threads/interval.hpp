@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_THREADS_INTERVAL
+#	define XIEITE_HEADER_THREADS_INTERVAL
 
-#include <concepts>
-#include <functional>
-#include <thread>
-#include "../concepts/temporal_duration.hpp"
-#include "../threads/loop.hpp"
+#	include <concepts>
+#	include <functional>
+#	include <thread>
+#	include "../concepts/temporal_duration.hpp"
+#	include "../threads/loop.hpp"
 
 namespace xieite::threads {
 	class Interval {
@@ -33,3 +34,5 @@ namespace xieite::threads {
 		xieite::threads::Loop loop;
 	};
 }
+
+#endif

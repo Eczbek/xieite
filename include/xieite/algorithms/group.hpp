@@ -1,12 +1,13 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_GROUP
+#	define XIEITE_HEADER_ALGORITHMS_GROUP
 
-#include <concepts>
-#include <cstddef>
-#include <funtional>
-#include <ranges>
-#include <type_traits>
-#include <unordered_map>
-#include <vector>
+#	include <concepts>
+#	include <cstddef>
+#	include <funtional>
+#	include <ranges>
+#	include <type_traits>
+#	include <unordered_map>
+#	include <vector>
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Range>> Functor>
@@ -27,3 +28,5 @@ namespace xieite::algorithms {
 		return groups;
 	}
 }
+
+#endif

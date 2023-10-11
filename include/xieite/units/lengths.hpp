@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_UNITS_LENGTHS
+#	define XIEITE_HEADER_UNITS_LENGTHS
 
-#include <ratio>
+#	include <ratio>
 
 namespace xieite::units {
 	using Twip = std::ratio<10000000000, 176389>;
@@ -33,3 +34,5 @@ namespace xieite::units {
 
 	using Rod = std::ratio<10000, 50292>;
 }
+
+#endif

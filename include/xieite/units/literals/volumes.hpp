@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_UNITS_LITERALS_VOLUMES
+#	define XIEITE_HEADER_UNITS_LITERALS_VOLUMES
 
-#include "../../units/volumes.hpp"
+#	include "../../units/volumes.hpp"
 
 namespace xieite::units::literals {
 	[[nodiscard]] constexpr double operator""_fluidOunces(const long double value) noexcept {
@@ -23,3 +24,5 @@ namespace xieite::units::literals {
 		return value * xieite::units::Gallon::den / xieite::units::Gallon::num;
 	}
 }
+
+#endif

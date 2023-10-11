@@ -1,11 +1,12 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_TO_ROMAN_NUMERALS
+#	define XIEITE_HEADER_STRINGS_TO_ROMAN_NUMERALS
 
-#include <array>
-#include <concepts>
-#include <string>
-#include <string_view>
-#include "../math/attempt_unsign.hpp"
-#include "../math/absolute.hpp"
+#	include <array>
+#	include <concepts>
+#	include <string>
+#	include <string_view>
+#	include "../math/attempt_unsign.hpp"
+#	include "../math/absolute.hpp"
 
 namespace xieite::strings {
 	template<std::integral Integer>
@@ -50,3 +51,5 @@ namespace xieite::strings {
 		return absoluteValue ? (std::string(absoluteValue / 1000, 'M') + std::string(hundreds[absoluteValue / 100 % 10]) + std::string(tens[absoluteValue / 10 % 10]) + std::string(units[absoluteValue % 10])) : "N";
 	}
 }
+
+#endif

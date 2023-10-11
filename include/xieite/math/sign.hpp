@@ -1,7 +1,8 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_SIGN
+#	define XIEITE_HEADER_MATH_SIGN
 
-#include "../concepts/numeric.hpp"
-#include "../math/split_boolean.hpp"
+#	include "../concepts/numeric.hpp"
+#	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Numeric Number>
@@ -9,3 +10,5 @@ namespace xieite::math {
 		return xieite::math::splitBoolean(value >= 0);
 	}
 }
+
+#endif

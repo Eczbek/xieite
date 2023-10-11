@@ -1,5 +1,5 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardController](../../../standard_controller.md)\:\:readKey
-Defined in header [<xieite/streams/standard_controller.hpp>](../../../../../../include/xieite/streams/standard_controller.hpp)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:readKey
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -20,12 +20,14 @@ xieite::streams::Key readKey() const noexcept;
 ```cpp
 #include <iostream>
 #include <xieite/streams/key.hpp>
-#include <xieite/system/terminal.hpp>
+#include <xieite/streams/standard_handle.hpp>
 
 int main() {
-    xieite::system::terminal.putBackString("\x1B[C"); // Right arrow
+    auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
 
-    switch (xieite::system::terminal.readKey()) {
+    terminal.putBackString("\x1B[C"); // Right arrow
+
+    switch (terminal.readKey()) {
         case xieite::streams::Key::ArrowUp:
             std::cout << "Up\n";
             break;

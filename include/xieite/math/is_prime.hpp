@@ -1,6 +1,7 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_IS_PRIME
+#	define XIEITE_HEADER_MATH_IS_PRIME
 
-#include "../concepts/integer.hpp"
+#	include "../concepts/integer.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Integer Integer>
@@ -16,3 +17,5 @@ namespace xieite::math {
 		return true;
 	}
 }
+
+#endif

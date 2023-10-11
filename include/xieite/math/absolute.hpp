@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_MATH_ABSOLUTE
+#	define XIEITE_HEADER_MATH_ABSOLUTE
 
-#include <cmath>
-#include <concepts>
-#include "../math/attempt_unsign.hpp"
-#include "../types/size_bits.hpp"
+#	include <cmath>
+#	include <concepts>
+#	include "../math/attempt_unsign.hpp"
+#	include "../types/size_bits.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
@@ -17,3 +18,5 @@ namespace xieite::math {
 		return std::abs(value);
 	}
 }
+
+#endif

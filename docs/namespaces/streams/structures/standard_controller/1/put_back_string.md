@@ -1,5 +1,5 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardController](../../../standard_controller.md)\:\:putBackString
-Defined in header [<xieite/streams/standard_controller.hpp>](../../../../../../include/xieite/streams/standard_controller.hpp)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:putBackString
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -20,13 +20,14 @@ void putBackString(std::string_view value) const noexcept;
 ```cpp
 #include <iostream>
 #include <string>
-#include <xieite/system/terminal.hpp>
+#include <xieite/streams/standard_handle.hpp>
 
 int main() {
-    xieite::system::terminal.putBackString("Hello, world!\n");
+    auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
+
+    terminal.putBackString("Hello, world!\n");
 
     std::string input;
-
     std::getline(std::cin, input);
 
     std::cout << input << '\n';

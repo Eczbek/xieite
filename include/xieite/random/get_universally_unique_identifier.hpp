@@ -1,13 +1,14 @@
-#pragma once
+#ifndef XIEITE_HEADER_RANDOM_GET_UNIVERSALLY_UNIQUE_IDENTIFIER
+#	define XIEITE_HEADER_RANDOM_GET_UNIVERSALLY_UNIQUE_IDENTIFIER
 
-#include "../macros/platform.hpp"
+#	include "../macros/platform.hpp"
 
-#if !XIEITE_PLATFORM_UNIX
-#	error "System not supported"
-#endif
+#	if !XIEITE_PLATFORM_UNIX
+#		error "System not supported"
+#	endif
 
-#include <string>
-#include <uuid/uuid.h>
+#	include <string>
+#	include <uuid/uuid.h>
 
 namespace xieite::random {
 	[[nodiscard]] inline std::string getUniversallyUniqueIdentifier() noexcept {
@@ -18,3 +19,5 @@ namespace xieite::random {
 		return result;
 	}
 }
+
+#endif

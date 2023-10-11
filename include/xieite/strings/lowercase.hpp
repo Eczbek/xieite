@@ -1,10 +1,11 @@
-#pragma once
+#ifndef XIEITE_HEADER_STRINGS_LOWERCASE
+#	define XIEITE_HEADER_STRINGS_LOWERCASE
 
-#include <array>
-#include <limits>
-#include <numeric>
-#include <string>
-#include <string_view>
+#	include <array>
+#	include <limits>
+#	include <numeric>
+#	include <string>
+#	include <string_view>
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr char lowercase(const char character) noexcept {
@@ -27,3 +28,5 @@ namespace xieite::strings {
 		return result;
 	}
 }
+
+#endif

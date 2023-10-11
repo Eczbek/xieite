@@ -1,9 +1,10 @@
-#pragma once
+#ifndef XIEITE_HEADER_ALGORITHMS_FIND_OCCURRENCE
+#	define XIEITE_HEADER_ALGORITHMS_FIND_OCCURRENCE
 
-#include <cstddef>
-#include <functional>
-#include <ranges>
-#include "../concepts/functable.hpp"
+#	include <cstddef>
+#	include <functional>
+#	include <ranges>
+#	include "../concepts/functable.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::equal_to>
@@ -17,3 +18,5 @@ namespace xieite::algorithms {
 		return end;
 	}
 }
+
+#endif
