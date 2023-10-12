@@ -18,6 +18,8 @@ struct Infix;
 ```cpp
 template<std::invocable<xieite::types::Placeholder> Functor>
 struct Infix<Functor> {
+    constexpr Infix(const Functor&);
+
     constexpr Infix(Functor&&);
 
     template<typename Argument>
@@ -41,6 +43,8 @@ private:
     struct Intermediate;
 
 public:
+    constexpr Infix(const Functor&);
+
     constexpr Infix(Functor&&);
 
     template<typename LeftArgument>

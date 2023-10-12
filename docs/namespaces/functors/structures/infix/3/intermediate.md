@@ -14,7 +14,7 @@ An intermediate state for an infix.
 template<typename LeftArgument>
 class Intermediate {
 public:
-    constexpr Intermediate(Functor&&, LeftArgument&&);
+    constexpr Intermediate(const Functor&, LeftArgument);
 
     constexpr auto operator=(const xieite::functions::Infix<Functor>::Intermediate<LeftArgument>&) = delete;
 
