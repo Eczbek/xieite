@@ -18,69 +18,69 @@
 #	undef XIEITE_LANGUAGE_STANDARD_CPP_CLI
 #	undef XIEITE_LANGUAGE_STANDARD_CPP_EMBEDDED
 
-#	if true
-#		define XIEITE_LANGUAGE_STANDARD_C_1978
+#	if 1
+#		define XIEITE_LANGUAGE_STANDARD_C_1978 1
 #	endif
 
 #	ifdef __STDC__
-#		define XIEITE_LANGUAGE_STANDARD_C_1989 true
-#		define XIEITE_LANGUAGE_STANDARD_C_1990 true
+#		define XIEITE_LANGUAGE_STANDARD_C_1989 1
+#		define XIEITE_LANGUAGE_STANDARD_C_1990 1
 #	endif
 
 #	ifdef __STDC_VERSION__
 #		if __STDC_VERSION__ >= 199409
-#			define XIEITE_LANGUAGE_STANDARD_C_1994 true
+#			define XIEITE_LANGUAGE_STANDARD_C_1994 1
 #		endif
 
 #		if __STDC_VERSION__ >= 199901
-#			define XIEITE_LANGUAGE_STANDARD_C_1999 true
+#			define XIEITE_LANGUAGE_STANDARD_C_1999 1
 #		endif
 
 #		if __STDC_VERSION__ >= 201112
-#			define XIEITE_LANGUAGE_STANDARD_C_2011 true
+#			define XIEITE_LANGUAGE_STANDARD_C_2011 1
 #		endif
 
 #		if __STDC_VERSION__ >= 201710
-#			define XIEITE_LANGUAGE_STANDARD_C_2018 true
+#			define XIEITE_LANGUAGE_STANDARD_C_2018 1
 #		endif
 
 #		if __STDC_VERSION__ >= 202000
-#			define XIEITE_LANGUAGE_STANDARD_C_2020 true
+#			define XIEITE_LANGUAGE_STANDARD_C_2020 1
 #		endif
 #	endif
 
 #	ifdef __cplusplus
 #		if __cplusplus >= 199711
-#			define XIEITE_LANGUAGE_STANDARD_CPP_1998 true
+#			define XIEITE_LANGUAGE_STANDARD_CPP_1998 1
 #		endif
 
 #		if __cplusplus >= 201103
-#			define XIEITE_LANGUAGE_STANDARD_CPP_2011 true
+#			define XIEITE_LANGUAGE_STANDARD_CPP_2011 1
 #		endif
 
 #		if __cplusplus >= 201402
-#			define XIEITE_LANGUAGE_STANDARD_CPP_2014 true
+#			define XIEITE_LANGUAGE_STANDARD_CPP_2014 1
 #		endif
 
 #		if __cplusplus >= 201703
-#			define XIEITE_LANGUAGE_STANDARD_CPP_2017 true
+#			define XIEITE_LANGUAGE_STANDARD_CPP_2017 1
 #		endif
 
 #		if __cplusplus >= 202002
-#			define XIEITE_LANGUAGE_STANDARD_CPP_2020 true
+#			define XIEITE_LANGUAGE_STANDARD_CPP_2020 1
 #		endif
 
 #		if __cplusplus >= 202302
-#			define XIEITE_LANGUAGE_STANDARD_CPP_2023 true
+#			define XIEITE_LANGUAGE_STANDARD_CPP_2023 1
 #		endif
 #	endif
 
 #	if defined(__cplusplus_cli) && (__cplusplus_cli >= 200406)
-#		define XIEITE_LANGUAGE_STANDARD_CPP_CLI true
+#		define XIEITE_LANGUAGE_STANDARD_CPP_CLI 1
 #	endif
 
 #	ifdef __embedded_cplusplus
-#		define XIEITE_LANGUAGE_STANDARD_CPP_EMBEDDED true
+#		define XIEITE_LANGUAGE_STANDARD_CPP_EMBEDDED 1
 #	endif
 
 #endif
