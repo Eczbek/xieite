@@ -4,35 +4,69 @@
 #	include <ratio>
 
 namespace xieite::units {
-	using Twip = std::ratio<10000000000, 176389>;
+	using Attometer = std::atto;
 
-	using Thou = std::ratio<10000000, 254>;
+	using Femtometer = std::femto;
 
-	using Barleycorn = std::ratio<10000000, 84667>;
+	using Picometer = std::pico;
 
-	using Inch = std::ratio<10000, 254>;
+	using Nanometer = std::nano;
 
-	using Foot = std::ratio<10000, 3048>;
+	using Micrometer = std::micro;
 
-	using Yard = std::ratio<10000, 9144>;
+	using Millimeter = std::milli;
 
-	using Chain = std::ratio<10000, 201168>;
+	using Centimeter = std::centi;
 
-	using Furlong = std::ratio<1000, 201168>;
+	using Decimeter = std::deci;
 
-	using Mile = std::ratio<1000, 1609344>;
+	using Meter = std::ratio<1, 1>;
 
-	using League = std::ratio<100, 4828032>;
+	using Decameter = std::deca;
 
-	using Fathom = std::ratio<1000, 1852>;
+	using Hectometer = std::hecto;
 
-	using Cable = std::ratio<10, 1852>;
+	using Kilometer = std::kilo;
 
-	using NauticalMile = std::ratio<1, 1852>;
+	using Megameter = std::mega;
 
-	using Link = std::ratio<1000000, 201168>;
+	using Gigameter = std::giga;
 
-	using Rod = std::ratio<10000, 50292>;
+	using Terameter = std::tera;
+
+	using Petameter = std::peta;
+
+	using Exameter = std::exa;
+
+	using Twip = std::ratio<176389, 10000000000>;
+
+	using Thou = std::ratio<254, 10000000>;
+
+	using Barleycorn = std::ratio<84667, 10000000>;
+
+	using Inch = std::ratio<254, 10000>;
+
+	using Foot = std::ratio<3048, 10000>;
+
+	using Yard = std::ratio<9144, 10000>;
+
+	using Chain = std::ratio<201168, 10000>;
+
+	using Furlong = std::ratio<201168, 1000>;
+
+	using Mile = std::ratio<1609344, 1000>;
+
+	using League = std::ratio<4828032, 100>;
+
+	using Fathom = std::ratio<1852, 1000>;
+
+	using Cable = std::ratio<1852, 10>;
+
+	using NauticalMile = std::ratio<1852, 1>;
+
+	using Link = std::ratio<201168, 1000000>;
+
+	using Rod = std::ratio<50292, 10000>;
 }
 
 #endif

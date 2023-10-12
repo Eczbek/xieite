@@ -4,15 +4,49 @@
 #	include <ratio>
 
 namespace xieite::units {
-	using FluidOunce = std::ratio<10000000, 284130625>;
+	using Attolitre = std::atto;
 
-	using Gill = std::ratio<10000000, 1420653125>;
+	using Femtolitre = std::femto;
 
-	using Pint = std::ratio<100000, 56826125>;
+	using Picolitre = std::pico;
 
-	using Quart = std::ratio<10000, 11365225>;
+	using Nanolitre = std::nano;
 
-	using Gallon = std::ratio<100, 454609> gallon;
+	using Microlitre = std::micro;
+
+	using Millilitre = std::milli;
+
+	using Centilitre = std::centi;
+
+	using Decilitre = std::deci;
+
+	using Litre = std::ratio<1, 1>;
+
+	using Decalitre = std::deca;
+
+	using Hectolitre = std::hecto;
+
+	using Kilolitre = std::kilo;
+
+	using Megalitre = std::mega;
+
+	using Gigalitre = std::giga;
+
+	using Teralitre = std::tera;
+
+	using Petalitre = std::peta;
+
+	using Exalitre = std::exa;
+
+	using FluidOunce = std::ratio<2841306, 100000000>;
+
+	using Pint = std::ratio<5682612, 10000000>;
+
+	using Quart = std::ratio<1136522, 1000000>;
+
+	using Gallon = std::ratio<454609, 100000>;
+
+	using Gill = std::ratio<1182941, 10000000>;
 }
 
 #endif
