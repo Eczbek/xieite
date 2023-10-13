@@ -51,10 +51,6 @@ struct StandardHandle {
 
     void resetStyles() const;
 
-    void clearScreen() const;
-
-    void clearLine() const;
-
     xieite::streams::Position getCursorPosition() const;
 
     void setCursorPosition(xieite::streams::Position) const;
@@ -69,15 +65,31 @@ struct StandardHandle {
 
     xieite::streams::Position getScreenSize() const;
 
+    void putBackString(std::string_view) const;
+
+    void clearScreen() const;
+
+    void clearScreenUntil() const;
+
+    void clearScreenFrom() const;
+
+    void clearLine() const;
+
+    void clearLine(xieite::streams::Position) const;
+
+    void clearLineUntil() const;
+
+    void clearLineUntil(xieite::streams::Position) const;
+
+    void clearLineFrom() const;
+
+    void clearLineFrom(xieite::streams::Position) const;
+
     char readCharacter() const;
 
     std::string readString() const;
 
     xieite::streams::Key readKey() const;
-
-    void putBackString(std::string_view) const;
-
-    void backspace(std::size_t) const;
 };
 ```
 ##### Member functions
@@ -98,8 +110,6 @@ struct StandardHandle {
 - [setTextVisible](./structures/standard_handle/1/set_text_visible.md)
 - [setTextStrikethrough](./structures/standard_handle/1/set_text_strikethrough.md)
 - [resetStyles](./structures/standard_handle/1/reset_styles.md)
-- [clearScreen](./structures/standard_handle/1/clear_screen.md)
-- [clearLine](./structures/standard_handle/1/clear_line.md)
 - [getCursorPosition](./structures/standard_handle/1/get_cursor_position.md)
 - [setCursorPosition](./structures/standard_handle/1/set_cursor_position.md)
 - [moveCursorPosition](./structures/standard_handle/1/move_cursor_position.md)
@@ -107,8 +117,13 @@ struct StandardHandle {
 - [setCursorAlternative](./structures/standard_handle/1/set_cursor_alternative.md)
 - [setScreenAlternative](./structures/standard_handle/1/set_screen_alternative.md)
 - [getScreenSize](./structures/standard_handle/1/get_screen_size.md)
+- [putBackString](./structures/standard_handle/1/put_back_string.md)
+- [clearScreen](./structures/standard_handle/1/clear_screen.md)
+- [clearScreenUntil](./structures/standard_handle/1/clear_screen_until.md)
+- [clearScreenFrom](./structures/standard_handle/1/clear_screen_from.md)
+- [clearLine](./structures/standard_handle/1/clear_line.md)
+- [clearLineUntil](./structures/standard_handle/1/clear_line_until.md)
+- [clearLineFrom](./structures/standard_handle/1/clear_line_from.md)
 - [readCharacter](./structures/standard_handle/1/read_character.md)
 - [readString](./structures/standard_handle/1/read_string.md)
 - [readKey](./structures/standard_handle/1/read_key.md)
-- [putBackString](./structures/standard_handle/1/put_back_string.md)
-- [backspace](./structures/standard_handle/1/backspace.md)

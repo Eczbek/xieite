@@ -136,14 +136,6 @@ namespace xieite::streams {
 			tcsetattr(this->inputFileDescriptor, TCSANOW, &this->cookedMode);
 		}
 
-		void clearScreen() const noexcept {
-			this->outputStream << "\x1B[2J";
-		}
-
-		void clearLine() const noexcept {
-			this->outputStream << "\x1B[2K";
-		}
-
 		[[nodiscard]] xieite::streams::Position getCursorPosition() const noexcept {
 			const bool canonical = this->canonical;
 			this->setInputCanonical(false);
@@ -172,7 +164,7 @@ namespace xieite::streams {
 		}
 
 		void setCursorAlternative(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << static_cast<char>(117 - value * 2);
+			this->outputStream << "\x1B[" << "su"[value];
 		}
 
 		void setScreenAlternative(const bool value) const noexcept {
@@ -183,6 +175,62 @@ namespace xieite::streams {
 			winsize size;
 			ioctl(this->inputFileDescriptor, TIOCGWINSZ, &size);
 			return xieite::streams::Position(size.ws_row, size.ws_col);
+		}
+
+		void putBackString(const std::string_view value) const noexcept {
+			for (const char character : std::views::reverse(value)) {
+				this->inputStream.putback(character);
+			}
+		}
+
+		void clearScreen() const noexcept {
+			this->outputStream << "\x1B[2J";
+		}
+
+		void clearScreenUntil(const xieite::streams::Position position) const noexcept {
+			const xieite::streams::Position original = this->getCursorPosition();
+			this->setCursorPosition(position);
+			this->outputStream << "\x1B[1J";
+			this->setCursorPosition(original);
+		}
+
+		void clearScreenFrom(const xieite::streams::Position position) const noexcept {
+			const xieite::streams::Position original = this->getCursorPosition();
+			this->setCursorPosition(position);
+			this->outputStream << "\x1B[0J";
+			this->setCursorPosition(original);
+		}
+
+		void clearLine() const noexcept {
+			this->outputStream << "\x1B[2K";
+		}
+
+		void clearLine(const xieite::streams::Position position) const noexcept {
+			const xieite::streams::Position original = this->getCursorPosition();
+			this->setCursorPosition(position);
+			this->clearLine();
+			this->setCursorPosition(original);
+		}
+
+		void clearLineUntil() const noexcept {
+			this->outputStream << "\x1B[1J";
+
+		void clearLineUntil(const xieite::streams::Position position) const noexcept {
+			const xieite::streams::Position original = this->getCursorPosition();
+			this->setCursorPosition(position);
+			this->clearLineUntil();
+			this->setCursorPosition(original);
+		}
+
+		void clearLineFrom() const noexcept {
+			this->outputStream << "\x1B[0J";
+		}
+
+		void clearLineFrom(const xieite::streams::Position position) const noexcept {
+			const xieite::streams::Position original = this->getCursorPosition();
+			this->setCursorPosition(position);
+			this->clearLineFrom();
+			this->setCursorPosition(original);
 		}
 
 		char readCharacter() const noexcept {
@@ -587,18 +635,6 @@ namespace xieite::streams {
 			}
 			this->inputStream.putback(foo);
 			return xieite::streams::Key::Unknown;
-		}
-
-		void putBackString(const std::string_view value) const noexcept {
-			for (const char character : std::views::reverse(value)) {
-				this->inputStream.putback(character);
-			}
-		}
-
-		void backspace(const std::size_t count) const noexcept {
-			if (count) {
-				this->outputStream << "\x1B[" << count << 'D' << std::string(count, ' ') << "\x1B[" << count << 'D';
-			}
 		}
 
 	private:
