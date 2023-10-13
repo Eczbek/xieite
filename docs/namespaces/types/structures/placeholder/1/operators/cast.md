@@ -12,10 +12,10 @@ Casting operators to any type (only declared).
 #### 1)
 ```cpp
 template<typename Type>
-constexpr operator Type&() const noexcept;
+constexpr operator Type&() const& noexcept;
 ```
 #### 2)
 ```cpp
 template<typename Type>
-constexpr operator Type&&() const noexcept;
+constexpr operator Type&&() const&& noexcept;
 ```

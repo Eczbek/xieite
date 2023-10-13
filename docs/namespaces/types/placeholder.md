@@ -13,10 +13,10 @@ A placeholder type.
 ```cpp
 struct Placeholder {
     template<typename Type>
-    constexpr operator Type&() const noexcept;
+    constexpr operator Type&() const&;
 
     template<typename Type>
-    constexpr operator Type&&() const noexcept;
+    constexpr operator Type&&() const&&;
 };
 ```
 ##### Member functions
