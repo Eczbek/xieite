@@ -9,4 +9,4 @@ Metadata stuff.
 &nbsp;
 
 ## Contents
-- [version](./namespaces/metadata/version.md)
+- [Version](./namespaces/metadata/version.md)

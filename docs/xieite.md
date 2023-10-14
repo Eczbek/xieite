@@ -4,12 +4,12 @@ Aggregated in header [<xieite/xieite.hpp>](../include/xieite/xieite.hpp)
 &nbsp;
 
 ## Contents
+- [(macros)](./macros.md)
 - [algorithms](./algorithms.md)
 - [concepts](./concepts.md)
 - [functors](./functors.md)
 - [geometry](./geometry.md)
 - [graphics](./graphics.md)
-- [macros](./macros.md)
 - [math](./math.md)
 - [memory](./memory.md)
 - [metadata](./metadata.md)

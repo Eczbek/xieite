@@ -9,8 +9,8 @@ Memory things.
 &nbsp;
 
 ## Contents
-- [detect_cosmic_ray](./namespaces/memory/detect_cosmic_ray.md)
-- [get_available](./namespaces/memory/get_available.md)
-- [get_page_size](./namespaces/memory/get_page_size.md)
-- [get_total](./namespaces/memory/get_total.md)
-- [shredder](./namespaces/memory/shredder.md)
+- [Shredder](./namespaces/memory/shredder.md)
+- [detectCosmicRay](./namespaces/memory/detect_cosmic_ray.md)
+- [getAvailable](./namespaces/memory/get_available.md)
+- [getPage_size](./namespaces/memory/get_page_size.md)
+- [getTotal](./namespaces/memory/get_total.md)

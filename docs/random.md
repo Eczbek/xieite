@@ -9,5 +9,5 @@ Utilities for random value generation.
 &nbsp;
 
 ## Contents
-- [get_universally_unique_identifier](./namespaces/random/get_universally_unique_identifier.md)
-- [uniform_interruptable_distribution](./namespaces/random/uniform_interruptable_distribution.md)
+- [getUniversallyUniqueIdentifier](./namespaces/random/get_universally_unique_identifier.md)
+- [UniformInterruptableDistribution](./namespaces/random/uniform_interruptable_distribution.md)

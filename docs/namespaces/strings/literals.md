@@ -9,4 +9,4 @@ A namespace of string literals.
 &nbsp;
 
 ## Contents
-- [stringify](./namespaces/literals/stringify.md)
+- [_stringify](./namespaces/literals/stringify.md)

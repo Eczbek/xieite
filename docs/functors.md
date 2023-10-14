@@ -9,7 +9,7 @@ Functional utilities.
 &nbsp;
 
 ## Contents
-- [infix](./namespaces/functors/infix.md)
-- [overloader](./namespaces/functors/overloader.md)
-- [process_guard](./namespaces/functors/process_guard.md)
-- [scope_guard](./namespaces/functors/scope_guard.md)
+- [Infix](./namespaces/functors/infix.md)
+- [Overloader](./namespaces/functors/overloader.md)
+- [ProcessGuard](./namespaces/functors/process_guard.md)
+- [ScopeGuard](./namespaces/functors/scope_guard.md)

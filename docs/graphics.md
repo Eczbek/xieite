@@ -9,5 +9,5 @@ Graphical utilities.
 &nbsp;
 
 ## Contents
-- [canvas](./namespaces/graphics/canvas.md)
-- [color](./namespaces/graphics/color.md)
+- [Canvas](./namespaces/graphics/canvas.md)
+- [Color](./namespaces/graphics/color.md)
