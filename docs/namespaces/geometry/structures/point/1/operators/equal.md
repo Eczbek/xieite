@@ -21,14 +21,16 @@ Compares two points.
 #include <iostream>
 #include <xieite/geometry/point.hpp>
 #include <xieite/geometry/rotate.hpp>
-#include <xieite/math/to_radians.hpp>
+#include <xieite/units/literals/angles.hpp>
 
 int main() {
+    using namespace xieite::units::literals;
+
     xieite::geometry::Point point1(1, 0);
 
     xieite::geometry::Point point2(0, 1);
 
-    point1 = xieite::geometry::rotate(point1, xieite::math::toRadians(90));
+    point1 = xieite::geometry::rotate(point1, 90_degrees);
 
     std::cout
         << std::boolalpha

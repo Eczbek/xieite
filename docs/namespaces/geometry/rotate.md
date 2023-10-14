@@ -30,12 +30,14 @@ template<xieite::concepts::LinearShape LinearShape>
 #include <iostream>
 #include <xieite/geometry/line.hpp>
 #include <xieite/geometry/rotate.hpp>
-#include <xieite/math/to_radians.hpp>
+#include <xieite/units/literals/angles.hpp>
 
 int main() {
+    using namespace xieite::units::literals;
+
     xieite::geometry::Line line1({ 0.0, 0.0 }, { 1.0, 1.0 });
 
-    xieite::geometry::Line line2 = xieite::geometry::rotate(line1, xieite::math::toRadians(90.0));
+    xieite::geometry::Line line2 = xieite::geometry::rotate(line1, 90_degrees);
 
     std::cout
         << line1.slope() << '\n'

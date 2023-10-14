@@ -1,263 +1,264 @@
 #ifndef XIEITE_HEADER_UNITS_LITERALS_LENGTHS
 #	define XIEITE_HEADER_UNITS_LITERALS_LENGTHS
 
+#	include "../../units/convert.hpp"
 #	include "../../units/lengths.hpp"
 
 namespace xieite::units::literals {
 	[[nodiscard]] constexpr double operator""_attometers(const long double value) noexcept {
-		return value * xieite::units::Attometer::num / xieite::units::Attometer::den;
+		return xieite::units::convert<xieite::units::Attometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_attometers(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Attometer::num / xieite::units::Attometer::den;
+		return xieite::units::convert<xieite::units::Attometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_femtometers(const long double value) noexcept {
-		return value * xieite::units::Femtometer::num / xieite::units::Femtometer::den;
+		return xieite::units::convert<xieite::units::Femtometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_femtometers(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Femtometer::num / xieite::units::Femtometer::den;
+		return xieite::units::convert<xieite::units::Femtometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_picometers(const long double value) noexcept {
-		return value * xieite::units::Picometer::num / xieite::units::Picometer::den;
+		return xieite::units::convert<xieite::units::Picometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_picometers(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Picometer::num / xieite::units::Picometer::den;
+		return xieite::units::convert<xieite::units::Picometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_nanometers(const long double value) noexcept {
-		return value * xieite::units::Nanometer::num / xieite::units::Nanometer::den;
+		return xieite::units::convert<xieite::units::Nanometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_nanometers(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Nanometer::num / xieite::units::Nanometer::den;
+		return xieite::units::convert<xieite::units::Nanometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_micrometers(const long double value) noexcept {
-		return value * xieite::units::Micrometer::num / xieite::units::Micrometer::den;
+		return xieite::units::convert<xieite::units::Micrometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_micrometers(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Micrometer::num / xieite::units::Micrometer::den;
+		return xieite::units::convert<xieite::units::Micrometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_millimeters(const long double value) noexcept {
-		return value * xieite::units::Millimeter::num / xieite::units::Millimeter::den;
+		return xieite::units::convert<xieite::units::Millimeter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_millimeters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Millimeter::num / xieite::units::Millimeter::den;
+		return xieite::units::convert<xieite::units::Millimeter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_centimeters(const long double value) noexcept {
-		return value * xieite::units::Centimeter::num / xieite::units::Centimeter::den;
+		return xieite::units::convert<xieite::units::Centimeter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_centimeters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Centimeter::num / xieite::units::Centimeter::den;
+		return xieite::units::convert<xieite::units::Centimeter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_decimeters(const long double value) noexcept {
-		return value * xieite::units::Decimeter::num / xieite::units::Decimeter::den;
+		return xieite::units::convert<xieite::units::Decimeter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_decimeters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Decimeter::num / xieite::units::Decimeter::den;
+		return xieite::units::convert<xieite::units::Decimeter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_meters(const long double value) noexcept {
-		return value * xieite::units::Meter::num / xieite::units::Meter::den;
+		return value;
 	}
 
 	[[nodiscard]] constexpr double operator""_meters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Meter::num / xieite::units::Meter::den;
+		return static_cast<double>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_decameters(const long double value) noexcept {
-		return value * xieite::units::Decameter::num / xieite::units::Decameter::den;
+		return xieite::units::convert<xieite::units::Decameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_decameters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Decameter::num / xieite::units::Decameter::den;
+		return xieite::units::convert<xieite::units::Decameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_hectometers(const long double value) noexcept {
-		return value * xieite::units::Hectometer::num / xieite::units::Hectometer::den;
+		return xieite::units::convert<xieite::units::Hectometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_hectometers(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Hectometer::num / xieite::units::Hectometer::den;
+		return xieite::units::convert<xieite::units::Hectometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_kilometers(const long double value) noexcept {
-		return value * xieite::units::Kilometer::num / xieite::units::Kilometer::den;
+		return xieite::units::convert<xieite::units::Kilometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_kilometers(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Kilometer::num / xieite::units::Kilometer::den;
+		return xieite::units::convert<xieite::units::Kilometer, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_megameters(const long double value) noexcept {
-		return value * xieite::units::Megameter::num / xieite::units::Megameter::den;
+		return xieite::units::convert<xieite::units::Megameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_megameters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Megameter::num / xieite::units::Megameter::den;
+		return xieite::units::convert<xieite::units::Megameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_gigameters(const long double value) noexcept {
-		return value * xieite::units::Gigameter::num / xieite::units::Gigameter::den;
+		return xieite::units::convert<xieite::units::Gigameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_gigameters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Gigameter::num / xieite::units::Gigameter::den;
+		return xieite::units::convert<xieite::units::Gigameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_terameters(const long double value) noexcept {
-		return value * xieite::units::Terameter::num / xieite::units::Terameter::den;
+		return xieite::units::convert<xieite::units::Terameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_terameters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Terameter::num / xieite::units::Terameter::den;
+		return xieite::units::convert<xieite::units::Terameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_petameters(const long double value) noexcept {
-		return value * xieite::units::Petameter::num / xieite::units::Petameter::den;
+		return xieite::units::convert<xieite::units::Petameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_petameters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Petameter::num / xieite::units::Petameter::den;
+		return xieite::units::convert<xieite::units::Petameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_exameters(const long double value) noexcept {
-		return value * xieite::units::Exameter::num / xieite::units::Exameter::den;
+		return xieite::units::convert<xieite::units::Exameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_exameters(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Exameter::num / xieite::units::Exameter::den;
+		return xieite::units::convert<xieite::units::Exameter, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_twips(const long double value) noexcept {
-		return value * xieite::units::Twip::num / xieite::units::Twip::den;
+		return xieite::units::convert<xieite::units::Twip, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_twips(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Twip::num / xieite::units::Twip::den;
+		return xieite::units::convert<xieite::units::Twip, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_thous(const long double value) noexcept {
-		return value * xieite::units::Thou::num / xieite::units::Thou::den;
+		return xieite::units::convert<xieite::units::Thou, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_thous(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Thou::num / xieite::units::Thou::den;
+		return xieite::units::convert<xieite::units::Thou, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_barleycorns(const long double value) noexcept {
-		return value * xieite::units::Barleycorn::num / xieite::units::Barleycorn::den;
+		return xieite::units::convert<xieite::units::Barleycorn, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_barleycorns(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Barleycorn::num / xieite::units::Barleycorn::den;
+		return xieite::units::convert<xieite::units::Barleycorn, xieite::units::Meter>(value);
 	}
 
-	[[nodiscard]] constexpr double operator""_inchs(const long double value) noexcept {
-		return value * xieite::units::Inch::num / xieite::units::Inch::den;
+	[[nodiscard]] constexpr double operator""_inches(const long double value) noexcept {
+		return xieite::units::convert<xieite::units::Inch, xieite::units::Meter>(value);
 	}
 
-	[[nodiscard]] constexpr double operator""_inchs(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Inch::num / xieite::units::Inch::den;
+	[[nodiscard]] constexpr double operator""_inches(const unsigned long long int value) noexcept {
+		return xieite::units::convert<xieite::units::Inch, xieite::units::Meter>(value);
 	}
 
-	[[nodiscard]] constexpr double operator""_foots(const long double value) noexcept {
-		return value * xieite::units::Foot::num / xieite::units::Foot::den;
+	[[nodiscard]] constexpr double operator""_feet(const long double value) noexcept {
+		return xieite::units::convert<xieite::units::Foot, xieite::units::Meter>(value);
 	}
 
-	[[nodiscard]] constexpr double operator""_foots(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Foot::num / xieite::units::Foot::den;
+	[[nodiscard]] constexpr double operator""_feet(const unsigned long long int value) noexcept {
+		return xieite::units::convert<xieite::units::Foot, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_yards(const long double value) noexcept {
-		return value * xieite::units::Yard::num / xieite::units::Yard::den;
+		return xieite::units::convert<xieite::units::Yard, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_yards(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Yard::num / xieite::units::Yard::den;
+		return xieite::units::convert<xieite::units::Yard, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_chains(const long double value) noexcept {
-		return value * xieite::units::Chain::num / xieite::units::Chain::den;
+		return xieite::units::convert<xieite::units::Chain, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_chains(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Chain::num / xieite::units::Chain::den;
+		return xieite::units::convert<xieite::units::Chain, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_furlongs(const long double value) noexcept {
-		return value * xieite::units::Furlong::num / xieite::units::Furlong::den;
+		return xieite::units::convert<xieite::units::Furlong, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_furlongs(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Furlong::num / xieite::units::Furlong::den;
+		return xieite::units::convert<xieite::units::Furlong, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_miles(const long double value) noexcept {
-		return value * xieite::units::Mile::num / xieite::units::Mile::den;
+		return xieite::units::convert<xieite::units::Mile, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_miles(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Mile::num / xieite::units::Mile::den;
+		return xieite::units::convert<xieite::units::Mile, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_leagues(const long double value) noexcept {
-		return value * xieite::units::League::num / xieite::units::League::den;
+		return xieite::units::convert<xieite::units::League, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_leagues(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::League::num / xieite::units::League::den;
+		return xieite::units::convert<xieite::units::League, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_fathoms(const long double value) noexcept {
-		return value * xieite::units::Fathom::num / xieite::units::Fathom::den;
+		return xieite::units::convert<xieite::units::Fathom, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_fathoms(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Fathom::num / xieite::units::Fathom::den;
+		return xieite::units::convert<xieite::units::Fathom, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_cables(const long double value) noexcept {
-		return value * xieite::units::Cable::num / xieite::units::Cable::den;
+		return xieite::units::convert<xieite::units::Cable, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_cables(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Cable::num / xieite::units::Cable::den;
+		return xieite::units::convert<xieite::units::Cable, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_nauticalMiles(const long double value) noexcept {
-		return value * xieite::units::NauticalMile::num / xieite::units::NauticalMile::den;
+		return xieite::units::convert<xieite::units::NauticalMile, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_nauticalMiles(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::NauticalMile::num / xieite::units::NauticalMile::den;
+		return xieite::units::convert<xieite::units::NauticalMile, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_links(const long double value) noexcept {
-		return value * xieite::units::Link::num / xieite::units::Link::den;
+		return xieite::units::convert<xieite::units::Link, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_links(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Link::num / xieite::units::Link::den;
+		return xieite::units::convert<xieite::units::Link, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_rods(const long double value) noexcept {
-		return value * xieite::units::Rod::num / xieite::units::Rod::den;
+		return xieite::units::convert<xieite::units::Rod, xieite::units::Meter>(value);
 	}
 
 	[[nodiscard]] constexpr double operator""_rods(const unsigned long long int value) noexcept {
-		return static_cast<double>(value) * xieite::units::Rod::num / xieite::units::Rod::den;
+		return xieite::units::convert<xieite::units::Rod, xieite::units::Meter>(value);
 	}
 }
 

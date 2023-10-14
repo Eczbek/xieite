@@ -39,6 +39,7 @@
 #	include "./concepts/output_stream.hpp"
 #	include "./concepts/polymorphic.hpp"
 #	include "./concepts/range_of.hpp"
+#	include "./concepts/ratio.hpp"
 #	include "./concepts/same_as_all.hpp"
 #	include "./concepts/same_as_any.hpp"
 #	include "./concepts/same_as_none.hpp"

@@ -32,6 +32,7 @@
 #	include "./traits/ordinary_character.hpp"
 #	include "./traits/output_stream.hpp"
 #	include "./traits/range_of.hpp"
+#	include "./traits/ratio.hpp"
 #	include "./traits/same_as_all.hpp"
 #	include "./traits/same_as_any.hpp"
 #	include "./traits/same_as_none.hpp"

@@ -37,10 +37,12 @@ struct Point {
 #include <iostream>
 #include <xieite/geometry/point.hpp>
 #include <xieite/geometry/rotate.hpp>
-#include <xieite/math/to_radians.hpp>
+#include <xieite/units/literals/angles.hpp>
 
 int main() {
-    xieite::geometry::Point point = xieite::geometry::rotate({ 1.0, 0.0 }, xieite::math::toRadians(90));
+    using namespace xieite::units::literals;
+
+    xieite::geometry::Point point = xieite::geometry::rotate({ 1.0, 0.0 }, 90_degrees);
 
     std::cout << '(' << point.x << ", " << point.y << ")\n";
 }

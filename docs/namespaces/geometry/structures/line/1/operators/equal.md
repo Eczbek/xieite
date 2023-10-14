@@ -21,11 +21,13 @@ Compares two lines.
 #include <iostream>
 #include <xieite/geometry/line.hpp>
 #include <xieite/geometry/point.hpp>
-#include <xieite/math/to_radians.hpp>
+#include <xieite/units/literals/angles.hpp>
 
 int main() {
+    using namespace xieite::units::literals;
+
     xieite::geometry::Line line1({ 0.0, 0.0 }, { 1.0, 1.0 });
-    xieite::geometry::Line line2({ 0.0, 0.0 }, xieite::math::toRadians(45.0));
+    xieite::geometry::Line line2({ 0.0, 0.0 }, 45_degrees);
 
     std::cout
         << std::boolalpha

@@ -9,6 +9,7 @@ A namespace of unit literals.
 &nbsp;
 
 ## Contents
+- [(angles)](./namespaces/literals/angles.md)
 - [(areas)](./namespaces/literals/areas.md)
 - [(lengths)](./namespaces/literals/lengths.md)
 - [(volumes)](./namespaces/literals/volumes.md)

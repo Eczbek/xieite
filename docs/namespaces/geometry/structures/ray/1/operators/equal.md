@@ -21,11 +21,11 @@ Compares two rays.
 #include <iostream>
 #include <xieite/geometry/ray.hpp>
 #include <xieite/geometry/point.hpp>
-#include <xieite/math/to_radians.hpp>
+#include <xieite/units/literals/angles.hpp>
 
 int main() {
     xieite::geometry::Ray ray1({ 0.0, 0.0 }, { 1.0, 1.0 });
-    xieite::geometry::Ray ray2({ 0.0, 0.0 }, xieite::math::toRadians(45.0));
+    xieite::geometry::Ray ray2({ 0.0, 0.0 }, 45_degrees);
 
     std::cout
         << std::boolalpha

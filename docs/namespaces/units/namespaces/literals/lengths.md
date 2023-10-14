@@ -171,19 +171,19 @@ A colletion of literals for length units.
 ```
 #### 41)
 ```cpp
-[[nodiscard]] constexpr double operator""_inchs(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_inches(const long double value) noexcept;
 ```
 #### 42)
 ```cpp
-[[nodiscard]] constexpr double operator""_inchs(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_inches(const unsigned long long int value) noexcept;
 ```
 #### 43)
 ```cpp
-[[nodiscard]] constexpr double operator""_foots(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_feet(const long double value) noexcept;
 ```
 #### 44)
 ```cpp
-[[nodiscard]] constexpr double operator""_foots(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_feet(const unsigned long long int value) noexcept;
 ```
 #### 45)
 ```cpp
