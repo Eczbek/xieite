@@ -9,6 +9,5 @@ A namespace of math literals.
 &nbsp;
 
 ## Contents
-- [(integers)](./namespaces/literals/integers.md)
 - [_base](./namespaces/literals/base.md)
 - [_exponent](./namespaces/literals/exponent.md)
