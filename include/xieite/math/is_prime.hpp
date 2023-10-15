@@ -9,7 +9,7 @@ namespace xieite::math {
 		if ((value < 2) || (value > 2) && !(value % 2)) {
 			return false;
 		}
-		for (Integer i = 3; i * i <= value; i += 2) {
+		for (Integer i = 3; value / i >= i; i += 2) {
 			if (!(value % i)) {
 				return false;
 			}
