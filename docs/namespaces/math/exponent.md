@@ -6,18 +6,18 @@ Defined in header [<xieite/math/exponent.hpp>](../../../include/xieite/math/expo
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
+template<xieite::concepts::Numeric Number>
 class Exponent {
 private:
     struct Value;
 
 public:
-    constexpr Exponent(Arithmetic);
+    constexpr Exponent(Number);
 
-    template<xieite::concepts::Arithmetic OtherArithmetic>
-    constexpr operator OtherArithmetic() const;
+    template<xieite::concepts::Numeric OtherNumber>
+    constexpr operator OtherNumber() const;
 
-    constexpr xieite::math::Exponent<Arithmetic>::Value operator*() const;
+    constexpr xieite::math::Exponent<Number>::Value operator*() const;
 };
 ```
 ##### Member types

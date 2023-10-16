@@ -11,8 +11,8 @@ Computes the absolute difference between two values. Handles some edge cases.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr xieite::math::AttemptUnsign<Arithmetic> difference(Arithmetic value1, Arithmetic value2) noexcept;
+template<xieite::concepts::Numeric Number>
+[[nodiscard]] constexpr xieite::math::AttemptUnsign<Number> difference(Number value1, Number value2) noexcept;
 ```
 
 &nbsp;

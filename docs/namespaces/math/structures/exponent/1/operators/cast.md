@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Exponent\<Arithmetic\>](../../../../exponent.md)\:\:operator typename
+# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Exponent\<Number\>](../../../../exponent.md)\:\:operator typename
 Defined in header [<xieite/math/exponent.hpp>](../../../../../../../include/xieite/math/exponent.hpp)
 
 &nbsp;
@@ -6,6 +6,6 @@ Defined in header [<xieite/math/exponent.hpp>](../../../../../../../include/xiei
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic OtherArithmetic>
-[[nodiscard]] constexpr operator OtherArithmetic() const noexcept;
+template<xieite::concepts::Numeric OtherNumber>
+[[nodiscard]] constexpr operator OtherNumber() const noexcept;
 ```

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../../../../xieite.md)\:\:[math](../../../../../../../../../math.md)\:\:[Exponent\<Arithmetic\>](../../../../../../../exponent.md)\:\:[Value](../../../../value.md)\:\:operator*
+# [xieite](../../../../../../../../../xieite.md)\:\:[math](../../../../../../../../../math.md)\:\:[Exponent\<Number\>](../../../../../../../exponent.md)\:\:[Value](../../../../value.md)\:\:operator*
 Defined in header [<xieite/math/exponent.hpp>](../../../../../../../../../../include/xieite/math/exponent.hpp)
 
 &nbsp;
@@ -6,6 +6,6 @@ Defined in header [<xieite/math/exponent.hpp>](../../../../../../../../../../inc
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic OtherArithmetic>
-[[nodiscard]] friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(OtherArithmetic base, xieite::math::Exponent<Arithmetic>::Value exponent) noexcept;
+template<xieite::concepts::Number OtherNumber>
+[[nodiscard]] friend constexpr std::common_type_t<Number, OtherNumber> operator*(OtherNumber base, xieite::math::Exponent<Number>::Value exponent) noexcept;
 ```

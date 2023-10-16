@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Exponent\<Arithmetic\>](../../../exponent.md)\:\:Value
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Exponent\<Number\>](../../../exponent.md)\:\:Value
 Defined in header [<xieite/math/exponent.hpp>](../../../../../../include/xieite/math/exponent.hpp)
 
 &nbsp;
@@ -7,12 +7,12 @@ Defined in header [<xieite/math/exponent.hpp>](../../../../../../include/xieite/
 #### 1)
 ```cpp
 struct Value {
-    constexpr Value(Arithmetic);
+    constexpr Value(Number);
 
-    constexpr auto operator=(xieite::math::Exponent<Arithmetic>::Value) = delete;
+    constexpr auto operator=(xieite::math::Exponent<Number>::Value) = delete;
 
-    template<xieite::concepts::Arithmetic OtherArithmetic>
-    friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(OtherArithmetic, xieite::math::Exponent<Arithmetic>::Value);
+    template<xieite::concepts::Numeric OtherNumber>
+    friend constexpr std::common_type_t<Number, OtherNumber> operator*(OtherNumber, xieite::math::Exponent<Number>::Value);
 };
 ```
 ##### Member functions

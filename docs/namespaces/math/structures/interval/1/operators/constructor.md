@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Interval\<Arithmetic\>](../../../../interval.md)\:\:Interval
+# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Interval\<Number\>](../../../../interval.md)\:\:Interval
 Defined in header [<xieite/math/interval.hpp>](../../../../../../../include/xieite/math/interval.hpp)
 
 &nbsp;
@@ -11,5 +11,5 @@ Constructs a `xieite::math::Interval`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr Interval(Arithmetic start, Arithmetic end) noexcept;
+constexpr Interval(Number start, Number end) noexcept;
 ```

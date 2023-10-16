@@ -2,13 +2,13 @@
 #	define XIEITE_HEADER_MATH_DIFFERENCE
 
 #	include <type_traits>
-#	include "../concepts/arithmetic.hpp"
+#	include "../concepts/numeric.hpp"
 #	include "../math/attempt_unsign.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr xieite::math::AttemptUnsign<Arithmetic> difference(const Arithmetic value1, const Arithmetic value2) noexcept {
-		return (value1 > value2) ? (static_cast<xieite::math::AttemptUnsign<Arithmetic>>(value1) - static_cast<xieite::math::AttemptUnsign<Arithmetic>>(value2)) : (static_cast<xieite::math::AttemptUnsign<Arithmetic>>(value2) - static_cast<xieite::math::AttemptUnsign<Arithmetic>>(value1));
+	template<xieite::concepts::Numeric Number>
+	[[nodiscard]] constexpr xieite::math::AttemptUnsign<Number> difference(const Number value1, const Number value2) noexcept {
+		return (value1 > value2) ? (static_cast<xieite::math::AttemptUnsign<Number>>(value1) - static_cast<xieite::math::AttemptUnsign<Number>>(value2)) : (static_cast<xieite::math::AttemptUnsign<Number>>(value2) - static_cast<xieite::math::AttemptUnsign<Number>>(value1));
 	}
 }
 

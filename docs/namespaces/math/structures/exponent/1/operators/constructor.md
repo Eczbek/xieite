@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Exponent\<Arithmetic\>](../../../../exponent.md)\:\:Exponent
+# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Exponent\<Number\>](../../../../exponent.md)\:\:Exponent
 Defined in header [<xieite/math/exponent.hpp>](../../../../../../../include/xieite/math/exponent.hpp)
 
 &nbsp;
@@ -11,5 +11,5 @@ Constructs a `xieite::math::Exponent`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr Exponent(Arithmetic value) noexcept;
+constexpr Exponent(Number value) noexcept;
 ```

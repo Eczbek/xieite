@@ -6,8 +6,8 @@ Defined in header [<xieite/math/modulo.hpp>](../../../include/xieite/math/modulo
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic modulo(Arithmetic dividend, Arithmetic divisor) noexcept;
+template<xieite::concepts::Numeric Number>
+[[nodiscard]] constexpr Number modulo(Number dividend, Number divisor) noexcept;
 ```
 
 &nbsp;

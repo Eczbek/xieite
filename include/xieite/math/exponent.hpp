@@ -3,43 +3,43 @@
 
 #	include <cmath>
 #	include <type_traits>
-#	include "../concepts/arithmetic.hpp"
+#	include "../concepts/numeric.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic>
+	template<xieite::concepts::Numeric Number>
 	class Exponent {
 	private:
 		class Value {
 		public:
-			constexpr Value(const Arithmetic value) noexcept
+			constexpr Value(const Number value) noexcept
 			: value(value) {}
 
-			constexpr auto operator=(xieite::math::Exponent<Arithmetic>::Value) = delete;
+			constexpr auto operator=(xieite::math::Exponent<Number>::Value) = delete;
 
-			template<xieite::concepts::Arithmetic OtherArithmetic>
-			[[nodiscard]] friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(const OtherArithmetic base, const xieite::math::Exponent<Arithmetic>::Value exponent) noexcept {
+			template<xieite::concepts::Numeric OtherNumber>
+			[[nodiscard]] friend constexpr std::common_type_t<Number, OtherNumber> operator*(const OtherNumber base, const xieite::math::Exponent<Number>::Value exponent) noexcept {
 				return std::pow(base, exponent.value);
 			}
 
 		private:
-			const Arithmetic value;
+			const Number value;
 		};
 
 	public:
-		constexpr Exponent(const Arithmetic value) noexcept
+		constexpr Exponent(const Number value) noexcept
 		: value(value) {}
 
-		template<xieite::concepts::Arithmetic OtherArithmetic>
-		[[nodiscard]] constexpr operator OtherArithmetic() const noexcept {
-			return static_cast<OtherArithmetic>(this->value.value);
+		template<xieite::concepts::Numeric OtherNumber>
+		[[nodiscard]] constexpr operator OtherNumber() const noexcept {
+			return static_cast<OtherNumber>(this->value.value);
 		}
 
-		[[nodiscard]] constexpr xieite::math::Exponent<Arithmetic>::Value operator*() const noexcept {
+		[[nodiscard]] constexpr xieite::math::Exponent<Number>::Value operator*() const noexcept {
 			return this->value;
 		}
 
 	private:
-		xieite::math::Exponent<Arithmetic>::Value value;
+		xieite::math::Exponent<Number>::Value value;
 	};
 }
 
