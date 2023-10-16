@@ -12,5 +12,5 @@ Rounds a `value` to the nearest `step`.
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>
-[[nodiscard]] constexpr Number1 round(const Number1 value, const Number2 step = 1) noexcept;
+[[nodiscard]] constexpr std::common_type_t<Number1, Number2> round(const Number1 value, const Number2 step = 1) noexcept;
 ```
