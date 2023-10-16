@@ -10,7 +10,7 @@ namespace xieite::math {
 	template<std::integral Integer>
 	[[nodiscard]] constexpr xieite::math::AttemptUnsign<Integer> absolute(const Integer value) noexcept {
 		const Integer mask = value >> (xieite::types::sizeBits<Integer> - 1);
-		return (value ^ mask) - mask;
+		return static_cast<xieite::math::AttemptUnsign<Integer>>((value ^ mask) - mask);
 	}
 
 	template<std::floating_point FloatingPoint>

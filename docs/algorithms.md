@@ -1,5 +1,4 @@
 # [xieite](./xieite.md)\:\:algorithms
-Aggregated in header [<xieite/algorithms.hpp>](../include/xieite/algorithms.hpp)
 
 &nbsp;
 

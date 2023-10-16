@@ -1,5 +1,4 @@
 # [xieite](./xieite.md)\:\:functors
-Aggregated in header [<xieite/functors.hpp>](../include/xieite/functors.hpp)
 
 &nbsp;
 

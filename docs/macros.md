@@ -1,5 +1,4 @@
 # [XIEITE](./xieite.md)\_...
-Aggregated in header [<xieite/macros.hpp>](../include/xieite/macros.hpp)
 
 &nbsp;
 

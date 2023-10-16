@@ -15,10 +15,10 @@
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
 #	include "../math/attempt_unsign.hpp"
-#	include "../math/product.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/multiply.hpp"
 #	include "../math/negative.hpp"
+#	include "../math/product.hpp"
 #	include "../math/split_boolean.hpp"
 #	include "../strings/lowercase.hpp"
 #	include "../system/byte_bits.hpp"

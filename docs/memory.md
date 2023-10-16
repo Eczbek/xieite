@@ -1,5 +1,4 @@
 # [xieite](./xieite.md)\:\:memory
-Aggregated in header [<xieite/memory.hpp>](../include/xieite/memory.hpp)
 
 &nbsp;
 

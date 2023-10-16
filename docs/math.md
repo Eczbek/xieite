@@ -1,5 +1,4 @@
 # [xieite](./xieite.md)\:\:math
-Aggregated in header [<xieite/math.hpp>](../include/xieite/math.hpp)
 
 &nbsp;
 
@@ -19,6 +18,7 @@ Mathematical types and functions.
 - [Product](./namespaces/math/product.md)
 - [Result](./namespaces/math/result.md)
 - [absolute](./namespaces/math/absolute.md)
+- [additionOverflows](./namespaces/math/addition_overflows.md)
 - [almostEqual](./namespaces/math/almost_equal.md)
 - [almostEqualSlope](./namespaces/math/almost_equal_slope.md)
 - [alternatingBits](./namespaces/math/alternating_bits.md)
@@ -45,6 +45,7 @@ Mathematical types and functions.
 - [minimum](./namespaces/math/median.md)
 - [modes](./namespaces/math/modes.md)
 - [modulo](./namespaces/math/modulo.md)
+- [multiplicationOverflows](./namespaces/math/multiplication_overflows.md)
 - [multiply](./namespaces/math/multiply.md)
 - [negative](./namespaces/math/negative.md)
 - [pi](./namespaces/math/pi.md)
@@ -55,6 +56,7 @@ Mathematical types and functions.
 - [secant](./namespaces/math/secant.md)
 - [sign](./namespaces/math/sign.md)
 - [splitBoolean](./namespaces/math/split_boolean.md)
+- [subtractionOverflows](./namespaces/math/subtraction_overflows.md)
 - [tau](./namespaces/math/tau.md)
 - [toBase](./namespaces/math/to_base.md)
 - [wrap](./namespaces/math/wrap.md)
