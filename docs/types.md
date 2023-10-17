@@ -11,6 +11,7 @@ Utilities for type information and metaprogramming.
 - [DynamicMatrix](./namespaces/types/dynamic_matrix.md)
 - [FixedMatrix](./namespaces/types/fixed_matrix.md)
 - [List](./namespaces/types/list.md)
+- [MaybeReference](./namespaces/types/maybe_reference.md)
 - [Partial](./namespaces/types/partial.md)
 - [Placeholder](./namespaces/types/placeholder.md)
 - [count](./namespaces/types/count.md)
