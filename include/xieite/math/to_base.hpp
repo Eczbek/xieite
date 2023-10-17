@@ -4,9 +4,9 @@
 #	include <concepts>
 #	include <string>
 #	include <string_view>
-#	include "../math/attempt_unsign.hpp"
 #	include "../math/absolute.hpp"
 #	include "../math/negative.hpp"
+#	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
@@ -15,7 +15,7 @@ namespace xieite::math {
 			return std::string(1, digits[0]);
 		}
 		std::string result;
-		xieite::math::AttemptUnsign<Integer> absoluteValue = xieite::math::absolute(value);
+		xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
 		if (radix == 1) {
 			result = std::string(absoluteValue, digits[1]);
 		} else if (radix == -1) {

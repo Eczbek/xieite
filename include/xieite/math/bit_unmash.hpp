@@ -14,7 +14,7 @@ namespace xieite::math {
 		std::tuple<xieite::math::MinimalInteger<sizes>...> result;
 		std::size_t shift = (... + sizes);
 		([&bits, &result, &shift]<std::size_t... indices>(std::index_sequence<indices...>) {
-			(..., (std::get<indices>(result) = static_cast<xieite::math::MinimalInteger<sizes>>(((bits >> (shift -= sizes)) & std::bitset<(... + sizes)>((1 << sizes) - 1)).to_ullong())));
+			(..., (std::get<indices>(result) = static_cast<xieite::math::MinimalInteger<sizes>>(((bits >> (shift -= sizes)) & std::bitset<(... + sizes)>(std::string(sizes, '1'))).to_ullong())));
 		})(std::make_index_sequence<sizeof...(sizes)>());
 		return result;
 	}

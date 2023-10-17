@@ -8,8 +8,6 @@ Mathematical types and functions.
 &nbsp;
 
 ## Contents
-- [AttemptSign](./namespaces/math/attempt_sign.md)
-- [AttemptUnsign](./namespaces/math/attempt_unsign.md)
 - [BigInteger](./namespaces/math/big_integer.md)
 - [ConditionalSign](./namespaces/math/conditional_sign.md)
 - [Exponent](./namespaces/math/exponent.md)

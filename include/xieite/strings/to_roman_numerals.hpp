@@ -5,8 +5,8 @@
 #	include <concepts>
 #	include <string>
 #	include <string_view>
-#	include "../math/attempt_unsign.hpp"
 #	include "../math/absolute.hpp"
+#	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::strings {
 	template<std::integral Integer>
@@ -47,7 +47,7 @@ namespace xieite::strings {
 			"DCCC",
 			"CM"
 		};
-		const xieite::math::AttemptUnsign<Integer> absoluteValue = xieite::math::absolute(value);
+		const xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
 		return absoluteValue ? (std::string(absoluteValue / 1000, 'M') + std::string(hundreds[absoluteValue / 100 % 10]) + std::string(tens[absoluteValue / 10 % 10]) + std::string(units[absoluteValue % 10])) : "N";
 	}
 }

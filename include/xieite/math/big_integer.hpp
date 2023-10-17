@@ -14,7 +14,6 @@
 #	include <string_view>
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
-#	include "../math/attempt_unsign.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/multiply.hpp"
 #	include "../math/negative.hpp"
@@ -22,6 +21,7 @@
 #	include "../math/split_boolean.hpp"
 #	include "../strings/lowercase.hpp"
 #	include "../system/byte_bits.hpp"
+#	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral Datum = std::uint64_t>
@@ -30,7 +30,7 @@ namespace xieite::math {
 		template<std::integral Integer = int>
 		constexpr BigInteger(const Integer value = 0) noexcept
 		: negative(xieite::math::negative(value)) {
-			xieite::math::AttemptUnsign<Integer> absoluteValue = xieite::math::absolute(value);
+			xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
 			do {
 				this->data.push_back(static_cast<Datum>(absoluteValue));
 				if constexpr (sizeof(Integer) > sizeof(Datum)) {

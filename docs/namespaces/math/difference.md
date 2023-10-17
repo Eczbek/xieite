@@ -12,7 +12,7 @@ Computes the absolute difference between two values. Handles some edge cases.
 #### 1)
 ```cpp
 template<xieite::concepts::Numeric Number>
-[[nodiscard]] constexpr xieite::math::AttemptUnsign<Number> difference(Number value1, Number value2) noexcept;
+[[nodiscard]] constexpr xieite::types::MaybeUnsigned<Number> difference(Number value1, Number value2) noexcept;
 ```
 
 &nbsp;

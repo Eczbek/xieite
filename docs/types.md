@@ -12,6 +12,8 @@ Utilities for type information and metaprogramming.
 - [FixedMatrix](./namespaces/types/fixed_matrix.md)
 - [List](./namespaces/types/list.md)
 - [MaybeReference](./namespaces/types/maybe_reference.md)
+- [MaybeSigned](./namespaces/types/maybe_signed.md)
+- [MaybeUnsigned](./namespaces/types/maybe_unsigned.md)
 - [Partial](./namespaces/types/partial.md)
 - [Placeholder](./namespaces/types/placeholder.md)
 - [count](./namespaces/types/count.md)
