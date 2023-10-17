@@ -23,6 +23,8 @@ Mathematical types and functions.
 - [almostEqualSlope](./namespaces/math/almost_equal_slope.md)
 - [alternatingBits](./namespaces/math/alternating_bits.md)
 - [antimodes](./namespaces/math/antimodes.md)
+- [bitMash](./namespaces/math/bit_mash.md)
+- [bitUnmash](./namespaces/math/bit_unmash.md)
 - [ceiling](./namespaces/math/ceiling.md)
 - [closestTo](./namespaces/math/closest_to.md)
 - [cosecant](./namespaces/math/cosecant.md)
