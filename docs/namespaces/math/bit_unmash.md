@@ -26,8 +26,8 @@ template<std::integral... Integers>
 #include <xieite/math/bit_unmash.hpp>
 
 int main() {
-    std::bitset<24> foo = 0b000001010000000011000111;
-    auto bar = xieite::math::bitUnmash<std::uint8_t, std::uint16_t>(foo);
+    std::bitset<12> foo = 0b101011000111;
+    auto bar = xieite::math::bitUnmash<3, 9>(foo);
 
     std::cout
         << static_cast<int>(std::get<0>(bar)) << '\n'
