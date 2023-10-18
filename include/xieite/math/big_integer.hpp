@@ -48,7 +48,7 @@ namespace xieite::math {
 				this->data = value.data;
 				return;
 			}
-			if (sizeof(Datum) > sizeof(OtherDatum)) {
+			if constexpr (sizeof(Datum) > sizeof(OtherDatum)) {
 				std::size_t shiftBytes = sizeof(Datum);
 				for (const OtherDatum otherDatum : value.data) {
 					if (shiftBytes >= sizeof(Datum)) {
