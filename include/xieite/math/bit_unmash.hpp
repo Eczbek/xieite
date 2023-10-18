@@ -4,6 +4,7 @@
 #	include <bitset>
 #	include <concepts>
 #	include <cstddef>
+#	include <string>
 #	include <tuple>
 #	include <utility>
 #	include "../math/minimal_integer.hpp"
