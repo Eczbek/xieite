@@ -1,16 +1,21 @@
 #ifndef XIEITE_HEADER_MATH_IS_PRIME
 #	define XIEITE_HEADER_MATH_IS_PRIME
 
+#	include <cmath>
 #	include "../concepts/integer.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Integer Integer>
-	[[nodiscard]] constexpr bool isPrime(const Integer value) noexcept {
-		if ((value < 2) || (value > 2) && !(value % 2)) {
+	constexpr bool isPrime(const Integer value) noexcept {
+		if (value < 4) {
+			return value > 1;
+		}
+		if (!(value % 2) || !(value % 3)) {
 			return false;
 		}
-		for (Integer i = 3; value / i >= i; i += 2) {
-			if (!(value % i)) {
+		const Integer limit = std::sqrt(value);
+		for (Integer i = 5; i <= limit; i += 6) {
+			if (!(value % i) || !(value % (i + 2))) {
 				return false;
 			}
 		}
