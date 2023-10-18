@@ -163,6 +163,18 @@ namespace xieite::streams {
 			this->outputStream << "\x1B[?25" << "lh"[value];
 		}
 
+		void setCursorShapeBlock(const bool blink) const noexcept {
+			this->outputStream << "\1\x1B[" << (2 - blink) << " q\2";
+		}
+
+		void setCursorShapeUnderscore(const bool blink) const noexcept {
+			this->outputStream << "\1\x1B[" << (4 - blink) << " q\2";
+		}
+
+		void setCursorShapePipe(const bool blink) const noexcept {
+			this->outputStream << "\1\x1B[" << (6 - blink) << " q\2";
+		}
+
 		void setCursorAlternative(const bool value) const noexcept {
 			this->outputStream << "\x1B[" << "su"[value];
 		}

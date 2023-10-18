@@ -59,6 +59,12 @@ struct StandardHandle {
 
     void setCursorVisible(bool) const;
 
+    void setCursorShapeBlock(bool) const;
+
+    void setCursorShapeUnderscore(bool) const;
+
+    void setCursorShapePipe(bool) const;
+
     void setCursorAlternative(bool) const;
 
     void setScreenAlternative(bool) const;
