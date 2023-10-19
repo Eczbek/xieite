@@ -262,10 +262,10 @@ namespace xieite::math {
 				return sameSign ? multiplier : -multiplier;
 			}
 			if (multiplier.isPowerOf2()) {
-				return sameSign ? (multiplicand << multiplier.logarithm2()) : -(multiplicand << multiplier.logarithm2());
+				return sameSign ? (multiplicand.absolute() << multiplier.logarithm2()) : -(multiplicand.absolute() << multiplier.logarithm2());
 			}
 			if (multiplicand.isPowerOf2()) {
-				return sameSign ? (multiplier << multiplicand.logarithm2()) : -(multiplier << multiplicand.logarithm2());
+				return sameSign ? (multiplier.absolute() << multiplicand.logarithm2()) : -(multiplier.absolute() << multiplicand.logarithm2());
 			}
 			xieite::math::BigInteger<Datum> result;
 			for (std::size_t i = multiplier.data.size(); i--;) {
@@ -307,7 +307,7 @@ namespace xieite::math {
 				return sameSign ? dividend : -dividend;
 			}
 			if (divisor.isPowerOf2()) {
-				return sameSign ? (dividend >> divisor.logarithm2()) : -(dividend >> divisor.logarithm2());
+				return sameSign ? (dividend.absolute() >> divisor.logarithm2()) : -(dividend.absolute() >> divisor.logarithm2());
 			}
 			const xieite::math::BigInteger<Datum> absoluteDividend = dividend.absolute();
 			const xieite::math::BigInteger<Datum> absoluteDivisor = divisor.absolute();
@@ -359,7 +359,7 @@ namespace xieite::math {
 				return 0;
 			}
 			if (absoluteDivisor.isPowerOf2()) {
-				return (dividend & (absoluteDivisor - 1)) * xieite::math::splitBoolean(!dividend.negative);
+				return (dividend.absolute() & (absoluteDivisor.absolute() - 1)) * xieite::math::splitBoolean(!dividend.negative);
 			}
 			if (absoluteDividend < absoluteDivisor) {
 				return dividend;
@@ -461,7 +461,7 @@ namespace xieite::math {
 			if (rightOperand.negative) {
 				return leftOperand >> -rightOperand;
 			}
-			const std::size_t dataShift = rightOperand / std::numeric_limits<Datum>::digits;
+			const std::size_t dataShift = (rightOperand >= std::numeric_limits<Datum>::digits) ? (rightOperand / std::numeric_limits<Datum>::digits) : xieite::math::BigInteger<Datum>(0);
 			const std::size_t bitsShift = rightOperand % std::numeric_limits<Datum>::digits;
 			std::vector<Datum> resultData = std::vector<Datum>(dataShift, 0);
 			resultData.insert(resultData.end(), leftOperand.data.begin(), leftOperand.data.end());
@@ -515,7 +515,7 @@ namespace xieite::math {
 					carry = copy << (std::numeric_limits<Datum>::digits - bitsShift);
 				}
 			}
-			return xieite::math::BigInteger<Datum>(resultData, leftOperand.negative);
+			return xieite::math::BigInteger<Datum>(resultData, leftOperand.negative) - leftOperand.negative;
 		}
 
 		template<std::integral Integer>
@@ -657,13 +657,13 @@ namespace xieite::math {
 			const bool rightNegative = rightOperand.negative;
 			leftOperand += leftNegative;
 			rightOperand += rightNegative;
-			const std::size_t leftDataSize = leftOperand.data.size();
-			const std::size_t rightDataSize = rightOperand.data.size();
 			xieite::math::BigInteger<Datum> result;
 			result.data.clear();
-			result.negative = leftNegative && rightNegative;
+			result.negative = callback(leftNegative, rightNegative);
+			const std::size_t leftDataSize = leftOperand.data.size();
+			const std::size_t rightDataSize = rightOperand.data.size();
 			for (std::size_t i = 0; (i < leftDataSize) || (i < rightDataSize); ++i) {
-				const Datum datum = callback(((i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Datum>::max() * leftOperand.negative)), ((i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Datum>::max() * rightNegative)));
+				const Datum datum = callback(((i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Datum>::max() * leftNegative)), ((i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Datum>::max() * rightNegative)));
 				result.data.push_back(result.negative ? ~datum : datum);
 			}
 			return result - result.negative;
@@ -684,7 +684,8 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] constexpr bool isPowerOf2() const noexcept {
-			return *this && !(*this & (*this - 1));
+			const xieite::math::BigInteger<Datum> absolute = this->absolute();
+			return absolute && !(absolute & (absolute - 1));
 		}
 
 		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> logarithm2() const noexcept {
