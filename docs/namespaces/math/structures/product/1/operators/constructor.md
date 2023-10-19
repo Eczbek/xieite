@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Product\<UnsignedIntegral\>](../../../../product.md)\:\:Product
+# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Product<UnsignedIntegral>](../../../../product.md)\:\:Product
 Defined in header [<xieite/math/product.hpp>](../../../../../../../include/xieite/math/product.hpp)
 
 &nbsp;

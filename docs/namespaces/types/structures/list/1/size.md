@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List\<Types...\>](../../../list.md)\:\:size
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:size
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;

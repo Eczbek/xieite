@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Datum>](../../../big_integer.md)\:\:root
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:root
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Computes any root of a `xieite::math::BigInteger`.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Datum> root(const xieite::math::BigInteger<Datum>& degree) const;
+[[nodiscard]] constexpr xieite::math::BigInteger<Word> root(const xieite::math::BigInteger<Word>& degree) const;
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] constexpr xieite::math::BigInteger<Datum> root(Integer degree) const;
+[[nodiscard]] constexpr xieite::math::BigInteger<Word> root(Integer degree) const;
 ```
 
 &nbsp;
@@ -27,7 +27,7 @@ template<std::integral Integer>
 #include <xieite/math/big_integer.hpp>
 
 int main() {
-    xieite::math::BigInteger<Datum> bigInteger = 8;
+    xieite::math::BigInteger<Word> bigInteger = 8;
 
     std::cout << bigInteger.root(3).string() << '\n';
 }

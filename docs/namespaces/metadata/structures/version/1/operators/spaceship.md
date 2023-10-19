@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[metadata](../../../../../../metadata.md)\:\:[Version](../../../../version.md)\:\:operator\<=\>
+# [xieite](../../../../../../xieite.md)\:\:[metadata](../../../../../../metadata.md)\:\:[Version](../../../../version.md)\:\:operator<=>
 Defined in header [<xieite/metadata/version.hpp>](../../../../../../../include/xieite/metadata/version.hpp)
 
 &nbsp;

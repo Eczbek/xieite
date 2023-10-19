@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Datum>](../../../big_integer.md)\:\:absolute
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:absolute
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Gets the absolute value of a `xieite::math::BigInteger`.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Datum> absolute() const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Word> absolute() const noexcept;
 ```
 
 &nbsp;
@@ -22,7 +22,7 @@ Gets the absolute value of a `xieite::math::BigInteger`.
 #include <xieite/math/big_integer.hpp>
 
 int main() {
-    xieite::math::BigInteger<Datum> bigInteger = -999;
+    xieite::math::BigInteger<Word> bigInteger = -999;
 
     std::cout << bigInteger.absolute().string() << '\n';
 }

@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Datum>](../../../big_integer.md)\:\:BigInteger
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:BigInteger
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -16,12 +16,12 @@ constexpr BigInteger(Integer value = 0) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr BigInteger(const xieite::math::BigInteger<Datum>& value) noexcept;
+constexpr BigInteger(const xieite::math::BigInteger<Word>& value) noexcept;
 ```
 #### 3)
 ```cpp
 template<std::ranges::Range Range>
-requires(std::same_as<Datum, std::ranges::range_value_t<Range>>)
+requires(std::same_as<Word, std::ranges::range_value_t<Range>>)
 constexpr BigInteger(const Range& range, bool negative = false) noexcept;
 ```
 #### 4)

@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Datum>](../../../../big_integer.md)\:\:operator++
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator++
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -6,11 +6,11 @@ Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/x
 ## Synopses
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Datum>& operator++() noexcept;
+constexpr xieite::math::BigInteger<Word>& operator++() noexcept;
 ```
 #### 2)
 ```cpp
-constexpr xieite::math::BigInteger<Datum>& operator++(int) noexcept;
+constexpr xieite::math::BigInteger<Word>& operator++(int) noexcept;
 ```
 
 &nbsp;
@@ -21,7 +21,7 @@ constexpr xieite::math::BigInteger<Datum>& operator++(int) noexcept;
 #include <xieite/math/big_integer.hpp>
 
 int main() {
-    xieite::math::BigInteger<Datum> bigInteger = 7;
+    xieite::math::BigInteger<Word> bigInteger = 7;
 
     std::cout << (++bigInteger).string() << '\n';
 }

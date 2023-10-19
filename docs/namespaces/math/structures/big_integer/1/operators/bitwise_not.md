@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Datum>](../../../../big_integer.md)\:\:operator~
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator~
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -6,7 +6,7 @@ Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/x
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Datum> operator~() const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Word> operator~() const noexcept;
 ```
 
 &nbsp;

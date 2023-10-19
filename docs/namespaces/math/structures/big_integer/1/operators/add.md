@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Datum>](../../../../big_integer.md)\:\:operator+
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator+
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -6,16 +6,16 @@ Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/x
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Datum> operator+() const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Word> operator+() const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>& augend, const xieite::math::BigInteger<Datum>& addend) noexcept;
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>& augend, const xieite::math::BigInteger<Word>& addend) noexcept;
 ```
 #### 3)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>& augend, const Integer addend) noexcept;
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>& augend, const Integer addend) noexcept;
 ```
 
 &nbsp;

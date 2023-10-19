@@ -11,170 +11,170 @@ A class for storing and operating on very large numbers.
 ## Synopses
 #### 1)
 ```cpp
-template<std::unsigned_integral Datum = std::uint64_t>
+template<std::unsigned_integral Word = std::uint64_t>
 struct BigInteger {
     template<std::integral Integer = int>
     constexpr BigInteger(Integer = 0);
 
-    template<typename OtherDatum, typename OtherOperand>
-    constexpr BigInteger(const xieite::math::BigInteger<OtherDatum, OtherOperand>&);
+    template<typename OtherWord, typename OtherOperand>
+    constexpr BigInteger(const xieite::math::BigInteger<OtherWord, OtherOperand>&);
 
     template<std::ranges::range Range>
-    requires(std::same_as<Datum, std::ranges::range_value_t<Range>>)
+    requires(std::same_as<Word, std::ranges::range_value_t<Range>>)
     constexpr BigInteger(const Range&, bool = false);
 
     constexpr BigInteger(std::string_view, int = 10, std::string_view = "0123456789abcdefghijklmnopqrstuvwxyz", char = '-', bool = false);
 
-    constexpr xieite::math::BigInteger<Datum>& operator=(const xieite::math::BigInteger<Datum>&);
+    constexpr xieite::math::BigInteger<Word>& operator=(const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator=(Integer);
+    constexpr xieite::math::BigInteger<Word>& operator=(Integer);
 
     template<std::integral Integer>
     constexpr operator Integer() const;
 
     constexpr operator bool() const;
 
-    friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
+    friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>&, Integer);
+    friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>&, Integer);
 
-    friend constexpr bool operator==(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&) const;
-
-    template<std::integral Integer>
-    friend constexpr bool operator==(const xieite::math::BigInteger<Datum>&, Integer) const;
-
-    constexpr xieite::math::BigInteger<Datum> operator+() const;
-
-    friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
+    friend constexpr bool operator==(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) const;
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>&, Integer);
+    friend constexpr bool operator==(const xieite::math::BigInteger<Word>&, Integer) const;
 
-    constexpr xieite::math::BigInteger<Datum>& operator+=(const xieite::math::BigInteger<Datum>&);
+    constexpr xieite::math::BigInteger<Word> operator+() const;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator+=(Integer);
-
-    constexpr xieite::math::BigInteger<Datum>& operator++();
-
-    constexpr xieite::math::BigInteger<Datum> operator++(int);
-
-    constexpr xieite::math::BigInteger<Datum> operator-() const;
-
-    friend constexpr xieite::math::BigInteger<Datum> operator-(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
+    friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator-(const xieite::math::BigInteger<Datum>&, Integer);
+    friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>&, Integer);
 
-    constexpr xieite::math::BigInteger<Datum>& operator-=(const xieite::math::BigInteger<Datum>&);
-
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator-=(Integer);
-
-    constexpr xieite::math::BigInteger<Datum>& operator--();
-
-    constexpr xieite::math::BigInteger<Datum> operator--(int);
-
-    friend constexpr xieite::math::BigInteger<Datum> operator*(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
+    constexpr xieite::math::BigInteger<Word>& operator+=(const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator*(const xieite::math::BigInteger<Datum>&, Integer);
+    constexpr xieite::math::BigInteger<Word>& operator+=(Integer);
 
-    constexpr xieite::math::BigInteger<Datum>& operator*=(const xieite::math::BigInteger<Datum>&);
+    constexpr xieite::math::BigInteger<Word>& operator++();
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator*=(Integer);
+    constexpr xieite::math::BigInteger<Word> operator++(int);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator/(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
+    constexpr xieite::math::BigInteger<Word> operator-() const;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator/(const xieite::math::BigInteger<Datum>&, Integer);
-
-    constexpr xieite::math::BigInteger<Datum>& operator/=(const xieite::math::BigInteger<Datum>&);
+    friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator/=(Integer);
+    friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>&, Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
-
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>&, Integer);
-
-    constexpr xieite::math::BigInteger<Datum>& operator%=(const xieite::math::BigInteger<Datum>&);
+    constexpr xieite::math::BigInteger<Word>& operator-=(const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator%=(Integer);
+    constexpr xieite::math::BigInteger<Word>& operator-=(Integer);
 
-    constexpr xieite::math::BigInteger<Datum> operator~() const;
+    constexpr xieite::math::BigInteger<Word>& operator--();
 
-    friend constexpr xieite::math::BigInteger<Datum> operator&(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
+    constexpr xieite::math::BigInteger<Word> operator--(int);
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator&(const xieite::math::BigInteger<Datum>&, Integer);
-
-    constexpr xieite::math::BigInteger<Datum>& operator&=(const xieite::math::BigInteger<Datum>&);
+    friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator&=(Integer);
+    friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>&, Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
-
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>&, Integer);
-
-    constexpr xieite::math::BigInteger<Datum>& operator|=(const xieite::math::BigInteger<Datum>&);
+    constexpr xieite::math::BigInteger<Word>& operator*=(const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator|=(Integer);
+    constexpr xieite::math::BigInteger<Word>& operator*=(Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator^(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
-
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator^(const xieite::math::BigInteger<Datum>&, Integer);
-
-    constexpr xieite::math::BigInteger<Datum>& operator^=(const xieite::math::BigInteger<Datum>&);
+    friend constexpr xieite::math::BigInteger<Word> operator/(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator^=(Integer);
+    friend constexpr xieite::math::BigInteger<Word> operator/(const xieite::math::BigInteger<Word>&, Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator<<(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
-
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator<<(const xieite::math::BigInteger<Datum>&, Integer);
-
-    constexpr xieite::math::BigInteger<Datum>& operator<<=(const xieite::math::BigInteger<Datum>&);
+    constexpr xieite::math::BigInteger<Word>& operator/=(const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator<<=(Integer);
+    constexpr xieite::math::BigInteger<Word>& operator/=(Integer);
 
-    friend constexpr xieite::math::BigInteger<Datum> operator>>(const xieite::math::BigInteger<Datum>&, const xieite::math::BigInteger<Datum>&);
-
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Datum> operator>>(const xieite::math::BigInteger<Datum>&, Integer);
-
-    constexpr xieite::math::BigInteger<Datum>& operator>>=(const xieite::math::BigInteger<Datum>&);
+    friend constexpr xieite::math::BigInteger<Word> operator%(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum>& operator>>=(Integer);
+    friend constexpr xieite::math::BigInteger<Word> operator%(const xieite::math::BigInteger<Word>&, Integer);
 
-    constexpr xieite::math::BigInteger<Datum> absolute() const;
-
-    constexpr xieite::math::BigInteger<Datum> power(const xieite::math::BigInteger<Datum>&) const;
+    constexpr xieite::math::BigInteger<Word>& operator%=(const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum> power(Integer) const;
+    constexpr xieite::math::BigInteger<Word>& operator%=(Integer);
 
-    constexpr xieite::math::BigInteger<Datum> root(const xieite::math::BigInteger<Datum>&) const;
+    constexpr xieite::math::BigInteger<Word> operator~() const;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum> root(Integer) const;
-
-    constexpr xieite::math::BigInteger<Datum> logarithm(const xieite::math::BigInteger<Datum>&) const;
+    friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
 
     template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Datum> logarithm(Integer) const;
+    friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>&, Integer);
+
+    constexpr xieite::math::BigInteger<Word>& operator&=(const xieite::math::BigInteger<Word>&);
+
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger<Word>& operator&=(Integer);
+
+    friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
+
+    template<std::integral Integer>
+    friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>&, Integer);
+
+    constexpr xieite::math::BigInteger<Word>& operator|=(const xieite::math::BigInteger<Word>&);
+
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger<Word>& operator|=(Integer);
+
+    friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
+
+    template<std::integral Integer>
+    friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>&, Integer);
+
+    constexpr xieite::math::BigInteger<Word>& operator^=(const xieite::math::BigInteger<Word>&);
+
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger<Word>& operator^=(Integer);
+
+    friend constexpr xieite::math::BigInteger<Word> operator<<(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
+
+    template<std::integral Integer>
+    friend constexpr xieite::math::BigInteger<Word> operator<<(const xieite::math::BigInteger<Word>&, Integer);
+
+    constexpr xieite::math::BigInteger<Word>& operator<<=(const xieite::math::BigInteger<Word>&);
+
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger<Word>& operator<<=(Integer);
+
+    friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
+
+    template<std::integral Integer>
+    friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>&, Integer);
+
+    constexpr xieite::math::BigInteger<Word>& operator>>=(const xieite::math::BigInteger<Word>&);
+
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger<Word>& operator>>=(Integer);
+
+    constexpr xieite::math::BigInteger<Word> absolute() const;
+
+    constexpr xieite::math::BigInteger<Word> power(const xieite::math::BigInteger<Word>&) const;
+
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger<Word> power(Integer) const;
+
+    constexpr xieite::math::BigInteger<Word> root(const xieite::math::BigInteger<Word>&) const;
+
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger<Word> root(Integer) const;
+
+    constexpr xieite::math::BigInteger<Word> logarithm(const xieite::math::BigInteger<Word>&) const;
+
+    template<std::integral Integer>
+    constexpr xieite::math::BigInteger<Word> logarithm(Integer) const;
 
     constexpr std::string string(int = 10, std::string_view = "0123456789abcdefghijklmnopqrstuvwxyz", char = '-', bool = false) const;
 };

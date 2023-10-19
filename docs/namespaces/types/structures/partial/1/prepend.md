@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[Partial\<Template, FirstArguments...\>](../../../partial.md)\:\:Prepend
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[Partial<Template, FirstArguments...>](../../../partial.md)\:\:Prepend
 Defined in header [<xieite/types/partial.hpp>](../../../../../../include/xieite/types/partial.hpp)
 
 &nbsp;

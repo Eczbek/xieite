@@ -24,7 +24,7 @@
 #	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::math {
-	template<std::unsigned_integral Datum = std::uint64_t>
+	template<std::unsigned_integral Word = std::uint64_t>
 	class BigInteger {
 	public:
 		template<std::integral Integer = int>
@@ -32,46 +32,46 @@ namespace xieite::math {
 		: negative(xieite::math::negative(value)) {
 			xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
 			do {
-				this->data.push_back(static_cast<Datum>(absoluteValue));
-				if constexpr (sizeof(Integer) > sizeof(Datum)) {
-					absoluteValue >>= std::numeric_limits<Datum>::digits;
+				this->data.push_back(static_cast<Word>(absoluteValue));
+				if constexpr (sizeof(Integer) > sizeof(Word)) {
+					absoluteValue >>= std::numeric_limits<Word>::digits;
 				} else {
 					break;
 				}
 			} while (absoluteValue);
 		}
 
-		template<typename OtherDatum>
-		constexpr BigInteger(const xieite::math::BigInteger<OtherDatum> value) noexcept
+		template<typename OtherWord>
+		constexpr BigInteger(const xieite::math::BigInteger<OtherWord> value) noexcept
 		: negative(value.negative) {
-			if constexpr (sizeof(Datum) == sizeof(OtherDatum)) {
+			if constexpr (sizeof(Word) == sizeof(OtherWord)) {
 				this->data = value.data;
 				return;
 			}
-			if constexpr (sizeof(Datum) > sizeof(OtherDatum)) {
-				std::size_t shiftBytes = sizeof(Datum);
-				for (const OtherDatum otherDatum : value.data) {
-					if (shiftBytes >= sizeof(Datum)) {
+			if constexpr (sizeof(Word) > sizeof(OtherWord)) {
+				std::size_t shiftBytes = sizeof(Word);
+				for (const OtherWord otherWord : value.data) {
+					if (shiftBytes >= sizeof(Word)) {
 						shiftBytes = 0;
 						this->data.push_back(0);
 					}
-					this->data.back() |= otherDatum << (shiftBytes * xieite::system::byteBits);
-					shiftBytes += sizeof(OtherDatum);
+					this->data.back() |= otherWord << (shiftBytes * xieite::system::byteBits);
+					shiftBytes += sizeof(OtherWord);
 				}
 				return;
 			}
-			for (const OtherDatum otherDatum : value.data) {
+			for (const OtherWord otherWord : value.data) {
 				std::size_t shiftBytes = 0;
 				do {
-					this->data.push_back(static_cast<Datum>(otherDatum >> (shiftBytes * xieite::system::byteBits)));
-					shiftBytes += sizeof(Datum);
-				} while (shiftBytes < sizeof(OtherDatum));
+					this->data.push_back(static_cast<Word>(otherWord >> (shiftBytes * xieite::system::byteBits)));
+					shiftBytes += sizeof(Word);
+				} while (shiftBytes < sizeof(OtherWord));
 			}
 			this->trim();
 		}
 
 		template<std::ranges::range Range>
-		requires(std::same_as<Datum, std::ranges::range_value_t<Range>>)
+		requires(std::same_as<Word, std::ranges::range_value_t<Range>>)
 		constexpr BigInteger(const Range& range, const bool negative = false) noexcept
 		: data(range.begin(), range.end()), negative(negative) {
 			this->trim();
@@ -85,7 +85,7 @@ namespace xieite::math {
 			}
 			const bool valueNegative = value[0] == negativeSign;
 			const std::string usedDigits = caseSensitive ? std::string(digits) : xieite::strings::lowercase(digits);
-			xieite::math::BigInteger<Datum> power = 1;
+			xieite::math::BigInteger<Word> power = 1;
 			for (std::size_t i = valueSize; i-- > valueNegative;) {
 				const std::size_t index = usedDigits.find(caseSensitive ? value[i] : xieite::strings::lowercase(value[i]));
 				*this += power * index * (index != std::string::npos);
@@ -96,15 +96,15 @@ namespace xieite::math {
 			}
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator=(const xieite::math::BigInteger<Datum>& value) noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator=(const xieite::math::BigInteger<Word>& value) noexcept {
 			this->data = value.data;
 			this->negative = value.negative;
 			return *this;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator=(const Integer value) noexcept {
-			return *this = xieite::math::BigInteger<Datum>(value);
+		constexpr xieite::math::BigInteger<Word>& operator=(const Integer value) noexcept {
+			return *this = xieite::math::BigInteger<Word>(value);
 		}
 
 		template<std::integral Integer>
@@ -112,7 +112,7 @@ namespace xieite::math {
 			Integer result = 0;
 			const std::size_t dataSize = this->data.size();
 			for (std::size_t i = 0; i < dataSize; ++i) {
-				result |= static_cast<Integer>(this->data[i]) << (static_cast<Integer>(i) * std::numeric_limits<Datum>::digits);
+				result |= static_cast<Integer>(this->data[i]) << (static_cast<Integer>(i) * std::numeric_limits<Word>::digits);
 			}
 			return this->negative ? -result : result;
 		}
@@ -121,29 +121,29 @@ namespace xieite::math {
 			return (this->data.size() > 1) || this->data[0];
 		}
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>& leftComparand, const xieite::math::BigInteger<Datum>& rightComparand) noexcept {
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, const xieite::math::BigInteger<Word>& rightComparand) noexcept {
 			return (leftComparand.negative != rightComparand.negative) ? (rightComparand.negative <=> leftComparand.negative) : (leftComparand.negative ? ((leftComparand.data.size() != rightComparand.data.size()) ? (rightComparand.data.size() <=> leftComparand.data.size()) : std::lexicographical_compare_three_way(rightComparand.data.rbegin(), rightComparand.data.rend(), leftComparand.data.rbegin(), leftComparand.data.rend())) : ((leftComparand.data.size() != rightComparand.data.size()) ? (leftComparand.data.size() <=> rightComparand.data.size()) : std::lexicographical_compare_three_way(leftComparand.data.rbegin(), leftComparand.data.rend(), rightComparand.data.rbegin(), rightComparand.data.rend())));
 		};
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Datum>& leftComparand, const Integer rightComparand) noexcept {
-			return leftComparand <=> xieite::math::BigInteger<Datum>(rightComparand);
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, const Integer rightComparand) noexcept {
+			return leftComparand <=> xieite::math::BigInteger<Word>(rightComparand);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Datum>& leftComparand, const xieite::math::BigInteger<Datum>& rightComparand) noexcept {
+		[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Word>& leftComparand, const xieite::math::BigInteger<Word>& rightComparand) noexcept {
 			return std::is_eq(leftComparand <=> rightComparand);
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Datum>& leftComparand, const Integer rightComparand) noexcept {
-			return leftComparand == xieite::math::BigInteger<Datum>(rightComparand);
+		[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Word>& leftComparand, const Integer rightComparand) noexcept {
+			return leftComparand == xieite::math::BigInteger<Word>(rightComparand);
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> operator+() const noexcept {
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> operator+() const noexcept {
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>& augend, const xieite::math::BigInteger<Datum>& addend) noexcept {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>& augend, const xieite::math::BigInteger<Word>& addend) noexcept {
 			if (!augend) {
 				return addend;
 			}
@@ -153,52 +153,52 @@ namespace xieite::math {
 			if (augend.negative != addend.negative) {
 				return augend - (-addend);
 			}
-			std::vector<Datum> resultData;
+			std::vector<Word> resultData;
 			bool carry = false;
 			const std::size_t augendDataSize = augend.data.size();
 			const std::size_t addendDataSize = addend.data.size();
 			for (std::size_t i = 0; (i < augendDataSize) || (i < addendDataSize) || carry; ++i) {
-				const Datum augendDatum = (i < augendDataSize) ? augend.data[i] : 0;
-				const Datum addendDatum = (i < addendDataSize) ? addend.data[i] : 0;
-				resultData.push_back(augendDatum + addendDatum + carry);
-				carry = (std::numeric_limits<Datum>::max() - augendDatum < carry) || (std::numeric_limits<Datum>::max() - augendDatum < addendDatum) || (std::numeric_limits<Datum>::max() - augendDatum - carry < addendDatum);
+				const Word augendWord = (i < augendDataSize) ? augend.data[i] : 0;
+				const Word addendWord = (i < addendDataSize) ? addend.data[i] : 0;
+				resultData.push_back(augendWord + addendWord + carry);
+				carry = (std::numeric_limits<Word>::max() - augendWord < carry) || (std::numeric_limits<Word>::max() - augendWord < addendWord) || (std::numeric_limits<Word>::max() - augendWord - carry < addendWord);
 			}
-			return xieite::math::BigInteger<Datum>(resultData, augend.negative);
+			return xieite::math::BigInteger<Word>(resultData, augend.negative);
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator+(const xieite::math::BigInteger<Datum>& augend, const Integer addend) noexcept {
-			return augend + xieite::math::BigInteger<Datum>(addend);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>& augend, const Integer addend) noexcept {
+			return augend + xieite::math::BigInteger<Word>(addend);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator+=(const xieite::math::BigInteger<Datum>& addend) noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator+=(const xieite::math::BigInteger<Word>& addend) noexcept {
 			return *this = *this + addend;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator+=(const Integer addend) noexcept {
-			return *this += xieite::math::BigInteger<Datum>(addend);
+		constexpr xieite::math::BigInteger<Word>& operator+=(const Integer addend) noexcept {
+			return *this += xieite::math::BigInteger<Word>(addend);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator++() noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator++() noexcept {
 			return *this += 1;
 		}
 
-		constexpr xieite::math::BigInteger<Datum> operator++(int) noexcept {
-			xieite::math::BigInteger<Datum> copy = *this;
+		constexpr xieite::math::BigInteger<Word> operator++(int) noexcept {
+			xieite::math::BigInteger<Word> copy = *this;
 			++*this;
 			return copy;
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> operator-() const noexcept {
-			xieite::math::BigInteger<Datum> copy = *this;
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> operator-() const noexcept {
+			xieite::math::BigInteger<Word> copy = *this;
 			if (copy) {
 				copy.negative = !copy.negative;
 			}
 			return copy;
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator-(const xieite::math::BigInteger<Datum>& minuend, const xieite::math::BigInteger<Datum>& subtrahend) noexcept {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>& minuend, const xieite::math::BigInteger<Word>& subtrahend) noexcept {
 			if (!subtrahend) {
 				return minuend;
 			}
@@ -214,43 +214,43 @@ namespace xieite::math {
 			if (minuend == subtrahend) {
 				return 0;
 			}
-			std::vector<Datum> resultData;
+			std::vector<Word> resultData;
 			bool borrow = false;
 			const std::size_t minuendDataSize = minuend.data.size();
 			const std::size_t subtrahendDataSize = subtrahend.data.size();
 			for (std::size_t i = 0; (i < subtrahendDataSize) || borrow; ++i) {
-				const Datum subtrahendDatum = (i < subtrahendDataSize) ? subtrahend.data[i] : 0;
-				resultData.push_back(minuend.data[i] - subtrahendDatum - borrow);
-				borrow = (i < minuendDataSize - 1) && ((minuend.data[i] < borrow) || (minuend.data[i] < subtrahendDatum) || ((minuend.data[i] - borrow) < subtrahendDatum));
+				const Word subtrahendWord = (i < subtrahendDataSize) ? subtrahend.data[i] : 0;
+				resultData.push_back(minuend.data[i] - subtrahendWord - borrow);
+				borrow = (i < minuendDataSize - 1) && ((minuend.data[i] < borrow) || (minuend.data[i] < subtrahendWord) || ((minuend.data[i] - borrow) < subtrahendWord));
 			}
-			return xieite::math::BigInteger<Datum>(resultData, minuend.negative);
+			return xieite::math::BigInteger<Word>(resultData, minuend.negative);
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator-(const xieite::math::BigInteger<Datum>& minuend, const Integer subtrahend) noexcept {
-			return minuend - xieite::math::BigInteger<Datum>(subtrahend);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>& minuend, const Integer subtrahend) noexcept {
+			return minuend - xieite::math::BigInteger<Word>(subtrahend);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator-=(const xieite::math::BigInteger<Datum>& subtrahend) noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator-=(const xieite::math::BigInteger<Word>& subtrahend) noexcept {
 			return *this = *this - subtrahend;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator-=(const Integer subtrahend) noexcept {
-			return *this -= xieite::math::BigInteger<Datum>(subtrahend);
+		constexpr xieite::math::BigInteger<Word>& operator-=(const Integer subtrahend) noexcept {
+			return *this -= xieite::math::BigInteger<Word>(subtrahend);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator--() noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator--() noexcept {
 			return *this -= 1;
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator--(int) noexcept {
-			xieite::math::BigInteger<Datum> copy = *this;
+		constexpr xieite::math::BigInteger<Word>& operator--(int) noexcept {
+			xieite::math::BigInteger<Word> copy = *this;
 			--*this;
 			return copy;
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator*(const xieite::math::BigInteger<Datum>& multiplier, const xieite::math::BigInteger<Datum>& multiplicand) noexcept {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>& multiplier, const xieite::math::BigInteger<Word>& multiplicand) noexcept {
 			if (!multiplier || !multiplicand) {
 				return 0;
 			}
@@ -267,7 +267,7 @@ namespace xieite::math {
 			if (multiplicand.isPowerOf2()) {
 				return sameSign ? (multiplier.absolute() << multiplicand.logarithm2()) : -(multiplier.absolute() << multiplicand.logarithm2());
 			}
-			xieite::math::BigInteger<Datum> result;
+			xieite::math::BigInteger<Word> result;
 			for (std::size_t i = multiplier.data.size(); i--;) {
 				if (!multiplier.data[i]) {
 					continue;
@@ -276,8 +276,8 @@ namespace xieite::math {
 					if (!multiplicand.data[j]) {
 						continue;
 					}
-					const xieite::math::Product<Datum> product = xieite::math::multiply<Datum>(multiplier.data[i], multiplicand.data[j]);
-					result += ((xieite::math::BigInteger<Datum>(product.upper) << std::numeric_limits<Datum>::digits) | product.lower) << (xieite::math::BigInteger<Datum>(i) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2)) << (xieite::math::BigInteger<Datum>(j) << xieite::math::digits(std::numeric_limits<Datum>::digits - 1, 2));
+					const xieite::math::Product<Word> product = xieite::math::multiply<Word>(multiplier.data[i], multiplicand.data[j]);
+					result += ((xieite::math::BigInteger<Word>(product.upper) << std::numeric_limits<Word>::digits) | product.lower) << (xieite::math::BigInteger<Word>(i) << xieite::math::digits(std::numeric_limits<Word>::digits - 1, 2)) << (xieite::math::BigInteger<Word>(j) << xieite::math::digits(std::numeric_limits<Word>::digits - 1, 2));
 				}
 			}
 			result.negative = !sameSign;
@@ -285,49 +285,52 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator*(const xieite::math::BigInteger<Datum>& multiplier, const Integer multiplicand) noexcept {
-			return multiplier * xieite::math::BigInteger<Datum>(multiplicand);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>& multiplier, const Integer multiplicand) noexcept {
+			return multiplier * xieite::math::BigInteger<Word>(multiplicand);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator*=(const xieite::math::BigInteger<Datum>& multiplicand) noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator*=(const xieite::math::BigInteger<Word>& multiplicand) noexcept {
 			return *this = *this * multiplicand;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator*=(const Integer multiplicand) noexcept {
-			return *this *= xieite::math::BigInteger<Datum>(multiplicand);
+		constexpr xieite::math::BigInteger<Word>& operator*=(const Integer multiplicand) noexcept {
+			return *this *= xieite::math::BigInteger<Word>(multiplicand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator/(const xieite::math::BigInteger<Datum>& dividend, const xieite::math::BigInteger<Datum>& divisor) {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator/(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) {
 			if (!divisor) {
 				throw std::domain_error("Cannot divide by zero");
+			}
+			if ((dividend.data.size() < 2) && (divisor.data.size() < 2)) {
+				return dividend.data[0] / divisor.data[0];
 			}
 			const bool sameSign = dividend.negative == divisor.negative;
 			if ((divisor == 1) || (divisor == -1)) {
 				return sameSign ? dividend : -dividend;
 			}
-			if (divisor.isPowerOf2()) {
-				return sameSign ? (dividend.absolute() >> divisor.logarithm2()) : -(dividend.absolute() >> divisor.logarithm2());
-			}
-			const xieite::math::BigInteger<Datum> absoluteDividend = dividend.absolute();
-			const xieite::math::BigInteger<Datum> absoluteDivisor = divisor.absolute();
+			const xieite::math::BigInteger<Word> absoluteDividend = dividend.absolute();
+			const xieite::math::BigInteger<Word> absoluteDivisor = divisor.absolute();
 			if (!dividend || (absoluteDividend < absoluteDivisor)) {
 				return 0;
 			}
 			if (absoluteDividend == absoluteDivisor) {
 				return xieite::math::splitBoolean(sameSign);
 			}
-			xieite::math::BigInteger<Datum> remainder;
-			xieite::math::BigInteger<Datum> result;
+			if (divisor.isPowerOf2()) {
+				return sameSign ? (dividend.absolute() >> divisor.logarithm2()) : -(dividend.absolute() >> divisor.logarithm2());
+			}
+			xieite::math::BigInteger<Word> remainder;
+			xieite::math::BigInteger<Word> result;
 			remainder.data.resize(dividend.data.size(), 0);
 			result.data.resize(dividend.data.size(), 0);
 			for (std::size_t i = dividend.data.size(); i--;) {
-				for (std::size_t j = std::numeric_limits<Datum>::digits; j--;) {
+				for (std::size_t j = std::numeric_limits<Word>::digits; j--;) {
 					remainder <<= 1;
 					remainder.data[0] |= (dividend.data[i] >> j) & 1;
 					const bool quotient = remainder >= absoluteDivisor;
 					remainder -= absoluteDivisor * quotient;
-					result.data[i] |= static_cast<Datum>(quotient) << j;
+					result.data[i] |= static_cast<Word>(quotient) << j;
 				}
 			}
 			result.negative = !sameSign;
@@ -336,25 +339,25 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator/(const xieite::math::BigInteger<Datum>& dividend, const Integer divisor) {
-			return dividend / xieite::math::BigInteger<Datum>(divisor);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator/(const xieite::math::BigInteger<Word>& dividend, const Integer divisor) {
+			return dividend / xieite::math::BigInteger<Word>(divisor);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator/=(const xieite::math::BigInteger<Datum>& divisor) {
+		constexpr xieite::math::BigInteger<Word>& operator/=(const xieite::math::BigInteger<Word>& divisor) {
 			return *this = *this / divisor;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator/=(const Integer divisor) {
-			return *this /= xieite::math::BigInteger<Datum>(divisor);
+		constexpr xieite::math::BigInteger<Word>& operator/=(const Integer divisor) {
+			return *this /= xieite::math::BigInteger<Word>(divisor);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>& dividend, const xieite::math::BigInteger<Datum>& divisor) {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator%(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) {
 			if (!divisor) {
 				throw std::domain_error("Cannot take modulus of division by zero");
 			}
-			const xieite::math::BigInteger<Datum> absoluteDividend = dividend.absolute();
-			const xieite::math::BigInteger<Datum> absoluteDivisor = divisor.absolute();
+			const xieite::math::BigInteger<Word> absoluteDividend = dividend.absolute();
+			const xieite::math::BigInteger<Word> absoluteDivisor = divisor.absolute();
 			if (!dividend || (absoluteDivisor == 1) || (absoluteDividend == absoluteDivisor)) {
 				return 0;
 			}
@@ -364,11 +367,11 @@ namespace xieite::math {
 			if (absoluteDividend < absoluteDivisor) {
 				return dividend;
 			}
-			xieite::math::BigInteger<Datum> remainder;
-			for (const Datum dividendDatum : std::views::reverse(dividend.data)) {
-				for (std::size_t j = std::numeric_limits<Datum>::digits; j--;) {
+			xieite::math::BigInteger<Word> remainder;
+			for (const Word dividendWord : std::views::reverse(dividend.data)) {
+				for (std::size_t j = std::numeric_limits<Word>::digits; j--;) {
 					remainder <<= 1;
-					remainder.data[0] |= (dividendDatum >> j) & 1;
+					remainder.data[0] |= (dividendWord >> j) & 1;
 					remainder -= absoluteDivisor * (remainder >= absoluteDivisor);
 				}
 			}
@@ -377,168 +380,168 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator%(const xieite::math::BigInteger<Datum>& dividend, const Integer divisor) {
-			return dividend % xieite::math::BigInteger<Datum>(divisor);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator%(const xieite::math::BigInteger<Word>& dividend, const Integer divisor) {
+			return dividend % xieite::math::BigInteger<Word>(divisor);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator%=(const xieite::math::BigInteger<Datum>& divisor) {
+		constexpr xieite::math::BigInteger<Word>& operator%=(const xieite::math::BigInteger<Word>& divisor) {
 			return *this = *this % divisor;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator%=(const Integer divisor) {
-			return *this %= xieite::math::BigInteger<Datum>(divisor);
+		constexpr xieite::math::BigInteger<Word>& operator%=(const Integer divisor) {
+			return *this %= xieite::math::BigInteger<Word>(divisor);
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> operator~() const noexcept {
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> operator~() const noexcept {
 			return -(*this + 1);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator&(const xieite::math::BigInteger<Datum>& leftOperand, const xieite::math::BigInteger<Datum>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Datum>::bitwiseOperation(leftOperand, rightOperand, [](const Datum left, const Datum right) -> Datum {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
 				return left & right;
 			});
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator&(const xieite::math::BigInteger<Datum>& leftOperand, const Integer rightOperand) noexcept {
-			return leftOperand & xieite::math::BigInteger<Datum>(rightOperand);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+			return leftOperand & xieite::math::BigInteger<Word>(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator&=(const xieite::math::BigInteger<Datum>& operand) noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator&=(const xieite::math::BigInteger<Word>& operand) noexcept {
 			return *this = *this & operand;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator&=(const Integer operand) noexcept {
-			return *this &= xieite::math::BigInteger<Datum>(operand);
+		constexpr xieite::math::BigInteger<Word>& operator&=(const Integer operand) noexcept {
+			return *this &= xieite::math::BigInteger<Word>(operand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>& leftOperand, const xieite::math::BigInteger<Datum>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Datum>::bitwiseOperation(leftOperand, rightOperand, [](const Datum left, const Datum right) -> Datum {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
 				return left | right;
 			});
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator|(const xieite::math::BigInteger<Datum>& leftOperand, const Integer rightOperand) noexcept {
-			return leftOperand | xieite::math::BigInteger<Datum>(rightOperand);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+			return leftOperand | xieite::math::BigInteger<Word>(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator|=(const xieite::math::BigInteger<Datum>& operand) noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator|=(const xieite::math::BigInteger<Word>& operand) noexcept {
 			return *this = *this | operand;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator|=(const Integer operand) noexcept {
-			return *this |= xieite::math::BigInteger<Datum>(operand);
+		constexpr xieite::math::BigInteger<Word>& operator|=(const Integer operand) noexcept {
+			return *this |= xieite::math::BigInteger<Word>(operand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator^(const xieite::math::BigInteger<Datum>& leftOperand, const xieite::math::BigInteger<Datum>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Datum>::bitwiseOperation(leftOperand, rightOperand, [](const Datum left, const Datum right) -> Datum {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
 				return left ^ right;
 			});
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator^(const xieite::math::BigInteger<Datum>& leftOperand, const Integer rightOperand) noexcept {
-			return leftOperand ^ xieite::math::BigInteger<Datum>(rightOperand);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+			return leftOperand ^ xieite::math::BigInteger<Word>(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator^=(const xieite::math::BigInteger<Datum>& operand) noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator^=(const xieite::math::BigInteger<Word>& operand) noexcept {
 			return *this = *this ^ operand;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator^=(const Integer operand) noexcept {
-			return *this ^= xieite::math::BigInteger<Datum>(operand);
+		constexpr xieite::math::BigInteger<Word>& operator^=(const Integer operand) noexcept {
+			return *this ^= xieite::math::BigInteger<Word>(operand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator<<(const xieite::math::BigInteger<Datum>& leftOperand, const xieite::math::BigInteger<Datum>& rightOperand) noexcept {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator<<(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
 			if (!leftOperand || !rightOperand) {
 				return leftOperand;
 			}
 			if (rightOperand.negative) {
 				return leftOperand >> -rightOperand;
 			}
-			const std::size_t dataShift = (rightOperand >= std::numeric_limits<Datum>::digits) ? (rightOperand / std::numeric_limits<Datum>::digits) : xieite::math::BigInteger<Datum>(0);
-			const std::size_t bitsShift = rightOperand % std::numeric_limits<Datum>::digits;
-			std::vector<Datum> resultData = std::vector<Datum>(dataShift, 0);
+			const std::size_t dataShift = static_cast<std::size_t>(rightOperand) >> static_cast<std::size_t>(std::log2(std::numeric_limits<Word>::digits));
+			const std::size_t bitsShift = static_cast<std::size_t>(rightOperand) & (std::numeric_limits<Word>::digits - 1);
+			std::vector<Word> resultData = std::vector<Word>(dataShift, 0);
 			resultData.insert(resultData.end(), leftOperand.data.begin(), leftOperand.data.end());
 			if (bitsShift) {
-				Datum carry = 0;
+				Word carry = 0;
 				const std::size_t leftDataSize = leftOperand.data.size();
 				for (std::size_t i = 0; i < leftDataSize; ++i) {
 					resultData[i + dataShift] = (leftOperand.data[i] << bitsShift) | carry;
-					carry = leftOperand.data[i] >> (std::numeric_limits<Datum>::digits - bitsShift);
+					carry = leftOperand.data[i] >> (std::numeric_limits<Word>::digits - bitsShift);
 				}
 				if (carry) {
 					resultData.push_back(carry);
 				}
 			}
-			return xieite::math::BigInteger<Datum>(resultData, leftOperand.negative);
+			return xieite::math::BigInteger<Word>(resultData, leftOperand.negative);
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator<<(const xieite::math::BigInteger<Datum>& leftOperand, const Integer rightOperand) noexcept {
-			return leftOperand << xieite::math::BigInteger<Datum>(rightOperand);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator<<(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+			return leftOperand << xieite::math::BigInteger<Word>(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator<<=(const xieite::math::BigInteger<Datum>& operand) noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator<<=(const xieite::math::BigInteger<Word>& operand) noexcept {
 			return *this = *this << operand;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator<<=(const Integer operand) noexcept {
-			return *this <<= xieite::math::BigInteger<Datum>(operand);
+		constexpr xieite::math::BigInteger<Word>& operator<<=(const Integer operand) noexcept {
+			return *this <<= xieite::math::BigInteger<Word>(operand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator>>(const xieite::math::BigInteger<Datum>& leftOperand, const xieite::math::BigInteger<Datum>& rightOperand) noexcept {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
 			if (!leftOperand || !rightOperand) {
 				return leftOperand;
 			}
 			if (rightOperand.negative) {
 				return leftOperand >> -rightOperand;
 			}
-			const std::size_t dataShift = (rightOperand >= std::numeric_limits<Datum>::digits) ? (rightOperand / std::numeric_limits<Datum>::digits) : xieite::math::BigInteger<Datum>(0);
-			const std::size_t bitsShift = rightOperand % std::numeric_limits<Datum>::digits;
+			const std::size_t dataShift = static_cast<std::size_t>(rightOperand) >> static_cast<std::size_t>(std::log2(std::numeric_limits<Word>::digits));
+			const std::size_t bitsShift = static_cast<std::size_t>(rightOperand) & (std::numeric_limits<Word>::digits - 1);
 			const std::size_t leftDataSize = leftOperand.data.size();
 			if (dataShift >= leftDataSize) {
 				return 0;
 			}
-			std::vector<Datum> resultData = std::vector<Datum>(std::ranges::next(leftOperand.data.begin(), dataShift, leftOperand.data.end()), leftOperand.data.end());
+			std::vector<Word> resultData = std::vector<Word>(std::ranges::next(leftOperand.data.begin(), dataShift, leftOperand.data.end()), leftOperand.data.end());
 			if (bitsShift) {
-				Datum carry = 0;
-				for (Datum& resultDatum : std::views::reverse(resultData)) {
-					const Datum copy = resultDatum;
-					resultDatum = (copy >> bitsShift) | carry;
-					carry = copy << (std::numeric_limits<Datum>::digits - bitsShift);
+				Word carry = 0;
+				for (Word& resultWord : std::views::reverse(resultData)) {
+					const Word copy = resultWord;
+					resultWord = (copy >> bitsShift) | carry;
+					carry = copy << (std::numeric_limits<Word>::digits - bitsShift);
 				}
 			}
-			return xieite::math::BigInteger<Datum>(resultData, leftOperand.negative) - leftOperand.negative;
+			return xieite::math::BigInteger<Word>(resultData, leftOperand.negative) - leftOperand.negative;
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Datum> operator>>(const xieite::math::BigInteger<Datum>& leftOperand, const Integer rightOperand) noexcept {
-			return leftOperand >> xieite::math::BigInteger<Datum>(rightOperand);
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+			return leftOperand >> xieite::math::BigInteger<Word>(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Datum>& operator>>=(const xieite::math::BigInteger<Datum>& operand) noexcept {
+		constexpr xieite::math::BigInteger<Word>& operator>>=(const xieite::math::BigInteger<Word>& operand) noexcept {
 			return *this = *this >> operand;
 		}
 
 		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Datum>& operator>>=(const Integer operand) noexcept {
-			return *this >>= xieite::math::BigInteger<Datum>(operand);
+		constexpr xieite::math::BigInteger<Word>& operator>>=(const Integer operand) noexcept {
+			return *this >>= xieite::math::BigInteger<Word>(operand);
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> absolute() const noexcept {
-			xieite::math::BigInteger<Datum> copy = *this;
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> absolute() const noexcept {
+			xieite::math::BigInteger<Word> copy = *this;
 			copy.negative = false;
 			return copy;
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> power(const xieite::math::BigInteger<Datum>& exponent) const {
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> power(const xieite::math::BigInteger<Word>& exponent) const {
 			if ((*this == 1) || (exponent == 1)) {
 				return *this;
 			}
@@ -554,9 +557,9 @@ namespace xieite::math {
 				}
 				return !exponent;
 			}
-			xieite::math::BigInteger<Datum> foo = *this;
-			xieite::math::BigInteger<Datum> bar = 1;
-			xieite::math::BigInteger<Datum> baz = exponent;
+			xieite::math::BigInteger<Word> foo = *this;
+			xieite::math::BigInteger<Word> bar = 1;
+			xieite::math::BigInteger<Word> baz = exponent;
 			while (baz > 1) {
 				if (baz % 2) {
 					bar *= foo;
@@ -570,11 +573,11 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> power(const Integer exponent) const {
-			return this->power(xieite::math::BigInteger<Datum>(exponent));
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> power(const Integer exponent) const {
+			return this->power(xieite::math::BigInteger<Word>(exponent));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> root(const xieite::math::BigInteger<Datum>& degree) const {
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> root(const xieite::math::BigInteger<Word>& degree) const {
 			if (this->negative) {
 				throw std::domain_error("Cannot take root of negative radicand");
 			}
@@ -584,9 +587,9 @@ namespace xieite::math {
 			if (degree.negative) {
 				return 0;
 			}
-			xieite::math::BigInteger<Datum> foo = degree - 1;
-			xieite::math::BigInteger<Datum> bar = *this;
-			xieite::math::BigInteger<Datum> baz = bar + 1;
+			xieite::math::BigInteger<Word> foo = degree - 1;
+			xieite::math::BigInteger<Word> bar = *this;
+			xieite::math::BigInteger<Word> baz = bar + 1;
 			while (bar < baz) {
 				baz = bar;
 				bar = (foo * bar + *this / bar.power(foo)) / degree;
@@ -595,11 +598,11 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> root(const Integer degree) const {
-			return this->root(xieite::math::BigInteger<Datum>(degree));
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> root(const Integer degree) const {
+			return this->root(xieite::math::BigInteger<Word>(degree));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> logarithm(const xieite::math::BigInteger<Datum>& base) const {
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> logarithm(const xieite::math::BigInteger<Word>& base) const {
 			if (!base) {
 				return base;
 			}
@@ -616,8 +619,8 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integer>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> logarithm(const Integer base) const {
-			return this->logarithm(xieite::math::BigInteger<Datum>(base));
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> logarithm(const Integer base) const {
+			return this->logarithm(xieite::math::BigInteger<Word>(base));
 		}
 
 		[[nodiscard]] constexpr std::string string(const int radix = 10, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char negativeSign = '-', const bool caseSensitive = false) const noexcept {
@@ -625,7 +628,7 @@ namespace xieite::math {
 				return std::string(1, digits[0]);
 			}
 			std::string result;
-			xieite::math::BigInteger<Datum> absolute = this->absolute();
+			xieite::math::BigInteger<Word> absolute = this->absolute();
 			std::size_t absoluteValue = absolute;
 			if (radix == 1) {
 				result = std::string(absoluteValue, digits[1]);
@@ -648,22 +651,22 @@ namespace xieite::math {
 		}
 
 	private:
-		std::vector<Datum> data;
+		std::vector<Word> data;
 		bool negative;
 
 		template<typename Functor>
-		[[nodiscard]] static constexpr xieite::math::BigInteger<Datum> bitwiseOperation(xieite::math::BigInteger<Datum> leftOperand, xieite::math::BigInteger<Datum> rightOperand, const Functor& callback) {
+		[[nodiscard]] static constexpr xieite::math::BigInteger<Word> bitwiseOperation(xieite::math::BigInteger<Word> leftOperand, xieite::math::BigInteger<Word> rightOperand, const Functor& callback) {
 			const bool leftNegative = leftOperand.negative;
 			const bool rightNegative = rightOperand.negative;
 			leftOperand += leftNegative;
 			rightOperand += rightNegative;
-			xieite::math::BigInteger<Datum> result;
+			xieite::math::BigInteger<Word> result;
 			result.data.clear();
 			result.negative = callback(leftNegative, rightNegative);
 			const std::size_t leftDataSize = leftOperand.data.size();
 			const std::size_t rightDataSize = rightOperand.data.size();
 			for (std::size_t i = 0; (i < leftDataSize) || (i < rightDataSize); ++i) {
-				const Datum datum = callback(((i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Datum>::max() * leftNegative)), ((i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Datum>::max() * rightNegative)));
+				const Word datum = callback(((i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Word>::max() * leftNegative)), ((i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Word>::max() * rightNegative)));
 				result.data.push_back(result.negative ? ~datum : datum);
 			}
 			return result - result.negative;
@@ -684,12 +687,12 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] constexpr bool isPowerOf2() const noexcept {
-			const xieite::math::BigInteger<Datum> absolute = this->absolute();
+			const xieite::math::BigInteger<Word> absolute = this->absolute();
 			return absolute && !(absolute & (absolute - 1));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> logarithm2() const noexcept {
-			return xieite::math::BigInteger<Datum>(std::numeric_limits<Datum>::digits) * (this->data.size() - 1) + xieite::math::digits(this->data.back(), 2) - 1;
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> logarithm2() const noexcept {
+			return xieite::math::BigInteger<Word>(std::numeric_limits<Word>::digits) * (this->data.size() - 1) + xieite::math::digits(this->data.back(), 2) - 1;
 		}
 	};
 }

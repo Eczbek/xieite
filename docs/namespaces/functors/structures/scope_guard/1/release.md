@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[ScopeGuard\<Functor\>](../../../scope_guard.md)\:\:release
+# [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[ScopeGuard<Functor>](../../../scope_guard.md)\:\:release
 Defined in header [<xieite/functors/scope_guard.hpp>](../../../../../../include/xieite/functors/scope_guard.hpp)
 
 &nbsp;

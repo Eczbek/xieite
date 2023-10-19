@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Exponent\<Number\>](../../../../exponent.md)\:\:Exponent
+# [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Exponent<Number>](../../../../exponent.md)\:\:Exponent
 Defined in header [<xieite/math/exponent.hpp>](../../../../../../../include/xieite/math/exponent.hpp)
 
 &nbsp;
