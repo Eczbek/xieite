@@ -8,9 +8,13 @@
 namespace xieite::functors {
 	class ProcessGuard {
 	public:
-		template<std::invocable<> Functor>
-		ProcessGuard(const Functor callback) noexcept
-		: released(std::make_shared<bool>(false)) {
+		template<
+			std::invocable<> Functor
+		> ProcessGuard(
+			const Functor callback
+		) noexcept
+			: released(std::make_shared<bool>(false))
+		{
 			static const std::shared_ptr<bool> released = this->released;
 			static const struct Lock final {
 				~Lock() {

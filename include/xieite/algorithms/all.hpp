@@ -8,17 +8,21 @@
 #	include "../concepts/range_of.hpp"
 
 namespace xieite::algorithms {
-	template<xieite::concepts::RangeOf<bool> Range>
-	[[nodiscard]] constexpr bool all(const Range& range)
-	noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_value_t<Range>, bool>)) {
+	template<
+		xieite::concepts::RangeOf<bool> Range
+	> [[nodiscard]] constexpr bool all(
+		const Range& range
+	) noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_value_t<Range>, bool>)) {
 		return std::ranges::all_of(range, [](const auto value) {
 			return static_cast<bool>(value);
 		});
 	}
 
-	template<std::convertible_to<bool>... Values>
-	[[nodiscard]] constexpr bool all(const Values&... values)
-	noexcept(noexcept((... && xieite::concepts::NoThrowConvertibleTo<Values, bool>))) {
+	template<
+		std::convertible_to<bool>... Values
+	> [[nodiscard]] constexpr bool all(
+		const Values&... values
+	) noexcept(noexcept((... && xieite::concepts::NoThrowConvertibleTo<Values, bool>))) {
 		return (... && static_cast<bool>(values));
 	}
 }

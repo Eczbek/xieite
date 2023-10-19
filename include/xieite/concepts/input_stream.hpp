@@ -5,8 +5,9 @@
 #	include <istream>
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept InputStream = std::same_as<Type, std::istream> || std::derived_from<Type, std::istream>;
+	template<
+		typename Type
+	> concept InputStream = std::same_as<Type, std::istream> || std::derived_from<Type, std::istream>;
 }
 
 #endif

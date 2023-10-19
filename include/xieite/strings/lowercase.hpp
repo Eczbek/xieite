@@ -8,7 +8,9 @@
 #	include <string_view>
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr char lowercase(const char character) noexcept {
+	[[nodiscard]] constexpr char lowercase(
+		const char character
+	) noexcept {
 		static constexpr std::array<char, std::numeric_limits<unsigned char>::max() + 1> lookup = ([] {
 			std::array<char, std::numeric_limits<unsigned char>::max() + 1> result;
 			std::iota(result.begin(), result.end(), 0);
@@ -20,7 +22,9 @@ namespace xieite::strings {
 		return lookup[static_cast<unsigned char>(character)];
 	}
 
-	[[nodiscard]] constexpr std::string lowercase(const std::string_view string) noexcept {
+	[[nodiscard]] constexpr std::string lowercase(
+		const std::string_view string
+	) noexcept {
 		std::string result = std::string(string);
 		for (char& character : result) {
 			character = xieite::strings::lowercase(character);

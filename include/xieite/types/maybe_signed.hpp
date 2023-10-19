@@ -5,8 +5,13 @@
 #	include "../concepts/unsigned_integer.hpp"
 
 namespace xieite::types {
-	template<typename Type>
-	using MaybeSigned = std::conditional_t<xieite::concepts::UnsignedInteger<Type>, std::make_signed<Type>, std::type_identity<Type>>::type;
+	template<
+		typename Type
+	> using MaybeSigned = std::conditional_t<
+		xieite::concepts::UnsignedInteger<Type>,
+		std::make_signed<Type>,
+		std::type_identity<Type>
+	>::type;
 }
 
 #endif

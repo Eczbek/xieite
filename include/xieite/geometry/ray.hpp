@@ -11,22 +11,37 @@ namespace xieite::geometry {
 		xieite::geometry::Point start;
 		xieite::geometry::Point end;
 
-		constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept
-		: start(start), end(end) {}
+		constexpr Ray(
+			const xieite::geometry::Point start,
+			const xieite::geometry::Point end
+		) noexcept
+			: start(start),
+			end(end)
+		{}
 
-		constexpr Ray(const xieite::geometry::Point start, const double angle) noexcept
-		: start(start), end(std::cos(angle), std::sin(angle)) {}
+		constexpr Ray(
+			const xieite::geometry::Point start,
+			const double angle
+		) noexcept
+			: start(start),
+			end(std::cos(angle), std::sin(angle))
+		{}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Ray& ray1, const xieite::geometry::Ray& ray2) noexcept {
-			return (ray1.start == ray2.start) && xieite::math::almostEqualSlope(ray1.slope(), ray2.slope());
+		[[nodiscard]] friend constexpr bool operator==(
+			const xieite::geometry::Ray& ray1,
+			const xieite::geometry::Ray& ray2
+		) noexcept {
+			return ray1.start == ray2.start && xieite::math::almostEqualSlope(ray1.slope(), ray2.slope());
 		}
 
 		[[nodiscard]] constexpr double angle() const noexcept {
 			return this->start.angleTo(this->end);
 		}
 
-		[[nodiscard]] constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
-			return xieite::math::almostEqual((this->end.x - this->start.x) * (point.y - this->start.y), (this->end.y - this->start.y) * (point.x - this->start.x)) && ((this->start.x <= this->end.x) ? (this->start.x <= point.x) : (this->start.x > point.x)) && ((this->start.y <= this->end.y) ? (this->start.y <= point.y) : (this->start.y > point.y));
+		[[nodiscard]] constexpr bool containsPoint(
+			const xieite::geometry::Point point
+		) const noexcept {
+			return *this == xieite::geometry::Ray(this->start, point);
 		}
 
 		[[nodiscard]] constexpr double length() const noexcept {

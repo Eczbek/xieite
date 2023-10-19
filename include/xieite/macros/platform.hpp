@@ -89,7 +89,13 @@
 #		define XIEITE_PLATFORM_BLUE_GENE 1
 #	endif
 
-#	if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__bsdi__) || defined(__DragonFly__) || defined(_SYSTYPE_BSD)
+#	if \
+		defined(__FreeBSD__) \
+		|| defined(__NetBSD__) \
+		|| defined(__OpenBSD__) \
+		|| defined(__bsdi__) \
+		|| defined(__DragonFly__) \
+		|| defined(_SYSTYPE_BSD)
 #		define XIEITE_PLATFORM_BSD 1
 #	endif
 

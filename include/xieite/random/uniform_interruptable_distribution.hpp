@@ -15,16 +15,27 @@
 #	include "../math/merge_intervals.hpp"
 
 namespace xieite::random {
-	template<xieite::concepts::Numeric Number>
-	class UniformInterruptableDistribution {
+	template<
+		xieite::concepts::Numeric Number
+	> class UniformInterruptableDistribution {
 	public:
-		template<xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
-		UniformInterruptableDistribution(const xieite::math::Interval<Number> interval, const IntervalRange& interruptions) {
+		template<
+			xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange
+		> UniformInterruptableDistribution(
+			const xieite::math::Interval<Number> interval,
+			const IntervalRange& interruptions
+		) {
 			const Number minimum = std::min(interval.start, interval.end);
 			const Number maximum = std::max(interval.start, interval.end);
 			Number upper = maximum;
 			for (const xieite::math::Interval<Number> interruption : xieite::math::mergeIntervals<Number>(interruptions)) {
-				if (((interruption.start >= minimum) || (interruption.end >= minimum)) && ((interruption.start <= maximum) || (interruption.end <= maximum))) {
+				if ((
+						interruption.start >= minimum
+						|| interruption.end >= minimum
+					) && (
+						interruption.start <= maximum
+						|| interruption.end <= maximum
+				)) {
 					const Number start = std::clamp(interruption.start, minimum, maximum);
 					const Number end = std::clamp(interruption.end, minimum, maximum);
 					const Number difference = xieite::math::difference(start, end);
@@ -36,13 +47,22 @@ namespace xieite::random {
 				}
 			}
 			this->distribution = std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>>(minimum, upper);
-			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Number> interruption1, const xieite::math::Interval<Number> interruption2) {
-				return interruption1.start < interruption2.start;
-			});
+			std::ranges::sort(
+				this->interruptions,
+				[](
+					const xieite::math::Interval<Number> interruption1,
+					const xieite::math::Interval<Number> interruption2
+				) {
+					return interruption1.start < interruption2.start;
+				}
+			);
 		}
 
-		template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator>
-		[[nodiscard]] Number operator()(UniformRandomBitGenerator& generator) const noexcept {
+		template<
+			xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator
+		> [[nodiscard]] Number operator()(
+			UniformRandomBitGenerator& generator
+		) const noexcept {
 			Number result = this->distribution(generator);
 			for (const xieite::math::Interval<Number> interruption : this->interruptions) {
 				if (result >= interruption.start) {

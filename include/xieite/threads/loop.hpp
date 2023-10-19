@@ -9,13 +9,19 @@
 namespace xieite::threads {
 	class Loop {
 	public:
-		template<std::invocable<> Functor>
-		Loop(const Functor& callback) noexcept
-		: thread([&callback](const std::stop_token stopToken) {
-			while (!stopToken.stop_requested()) {
-				std::invoke(callback);
-			}
-		}) {}
+		template<
+			std::invocable<> Functor
+		> Loop(
+			const Functor& callback
+		) noexcept
+			: thread([&callback](
+				const std::stop_token stopToken
+			) {
+				while (!stopToken.stop_requested()) {
+					std::invoke(callback);
+				}
+			})
+		{}
 
 		~Loop() {
 			if (this->good()) {

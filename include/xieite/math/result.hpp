@@ -7,8 +7,16 @@
 #	include "../concepts/same_as_any.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Numeric... Numbers>
-	using Result = std::conditional_t<xieite::concepts::SameAsAny<long double, Numbers...>, long double, std::conditional_t<xieite::concepts::SameAsAll<float, Numbers...>, float, double>>;
+	template<
+		xieite::concepts::Numeric... Numbers
+	> using Result = std::conditional_t<
+		xieite::concepts::SameAsAny<long double, Numbers...>,
+		long double,
+		std::conditional_t<
+			xieite::concepts::SameAsAll<float, Numbers...>,
+			float, double
+		>
+	>;
 }
 
 #endif

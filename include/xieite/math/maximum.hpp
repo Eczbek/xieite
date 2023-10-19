@@ -7,8 +7,11 @@
 #	include "../math/result.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Numeric... Numbers>
-	[[nodiscard]] constexpr xieite::math::Result<Numbers...> maximum(const Numbers... values) noexcept {
+	template<
+		xieite::concepts::Numeric... Numbers
+	> [[nodiscard]] constexpr xieite::math::Result<Numbers...> maximum(
+		const Numbers... values
+	) noexcept {
 		if constexpr (sizeof...(Numbers)) {
 			return std::ranges::max(std::array<xieite::math::Result<Numbers...>, sizeof...(Numbers)> {
 				static_cast<xieite::math::Result<Numbers...>>(values)...

@@ -16,7 +16,9 @@
 namespace xieite::network {
 	class Address {
 	public:
-		Address(const std::string& host = "::") {
+		Address(
+			const std::string& host = "::"
+		) {
 			this->address.sin6_family = static_cast<int>(xieite::network::Domain::IPv6);
 			if (::inet_pton(static_cast<int>(xieite::network::Domain::IPv6), host.c_str(), &this->address.sin6_addr) < 1) {
 				throw std::runtime_error("Cannot create address with invalid host");

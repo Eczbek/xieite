@@ -4,8 +4,9 @@
 #	include <cstddef>
 
 namespace xieite::strings::literals {
-	template<char... characters>
-	[[nodiscard]] constexpr std::size_t operator""_length() noexcept {
+	template<
+		char... characters
+	> [[nodiscard]] constexpr std::size_t operator""_length() noexcept {
 		return sizeof...(characters);
 	}
 }

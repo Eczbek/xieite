@@ -10,7 +10,9 @@
 #	include "../streams/open_pipe.hpp"
 
 namespace xieite::system {
-	inline std::string execute(const std::string_view command) noexcept {
+	inline std::string execute(
+		const std::string_view command
+	) noexcept {
 		std::FILE* const pipe = xieite::streams::openPipe(command.data(), "r");
 		const xieite::functors::ScopeGuard pipeGuard = xieite::functors::ScopeGuard([pipe] {
 			xieite::streams::closePipe(pipe);

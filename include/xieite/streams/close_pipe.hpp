@@ -8,7 +8,9 @@
 #		include <stdio.h>
 
 namespace xieite::streams {
-	inline int closePipe(std::FILE* const pipe) noexcept {
+	inline int closePipe(
+		std::FILE* const pipe
+	) noexcept {
 		return pclose(pipe);
 	}
 }
@@ -18,7 +20,9 @@ namespace xieite::streams {
 #		include <stdio.h>
 
 namespace xieite::streams {
-	inline int closePipe(std::FILE* const pipe) noexcept {
+	inline int closePipe(
+		std::FILE* const pipe
+	) noexcept {
 		return _pclose(pipe);
 	}
 }

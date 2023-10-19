@@ -4,8 +4,9 @@
 #	include "../traits/ratio.hpp"
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept Ratio = xieite::traits::Ratio<Type>::value;
+	template<
+		typename Type
+	> concept Ratio = xieite::traits::Ratio<Type>::value;
 }
 
 #endif

@@ -7,11 +7,14 @@
 #	include "../system/byte_bits.hpp"
 
 namespace xieite::types {
-	template<typename Type>
-	inline constexpr std::size_t sizeBits = sizeof(Type) * xieite::system::byteBits;
+	template<
+		typename Type
+	> inline constexpr std::size_t sizeBits = sizeof(Type) * xieite::system::byteBits;
 
-	template<std::integral Integer>
-	inline constexpr std::size_t sizeBits<Integer> = std::numeric_limits<Integer>::digits + std::numeric_limits<Integer>::is_signed;
+	template<
+		std::integral Integer
+	> inline constexpr std::size_t sizeBits<Integer> = std::numeric_limits<Integer>::digits
+		+ std::numeric_limits<Integer>::is_signed;
 }
 
 #endif

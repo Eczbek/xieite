@@ -11,7 +11,8 @@
 
 namespace xieite::network {
 	enum struct Domain
-	: int {
+		: int
+	{
 		AmateurRadioAX25 = AF_AX25,
 		AppleTalk = AF_APPLETALK,
 		Bluetooth = AF_BLUETOOTH,

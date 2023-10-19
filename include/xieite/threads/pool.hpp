@@ -12,7 +12,9 @@
 namespace xieite::threads {
 	class Pool {
 	public:
-		Pool(const std::size_t threadCount = std::thread::hardware_concurrency()) {
+		Pool(
+			const std::size_t threadCount = std::thread::hardware_concurrency()
+		) {
 			this->setThreadCount(threadCount);
 		}
 
@@ -25,7 +27,9 @@ namespace xieite::threads {
 			this->condition.notify_all();
 		}
 
-		void setThreadCount(std::size_t threadCount) {
+		void setThreadCount(
+			std::size_t threadCount
+		) {
 			if (!threadCount) {
 				throw std::invalid_argument("Cannot set thread pool size to zero");
 			}
@@ -36,7 +40,9 @@ namespace xieite::threads {
 				return;
 			}
 			while (threadCount-- > currentThreadCount) {
-				this->threads.emplace_back([this](const std::stop_token stopToken) {
+				this->threads.emplace_back([this](
+					const std::stop_token stopToken
+				) {
 					while (true) {
 						auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
 						this->condition.wait(jobsLock, [this, stopToken] {
@@ -59,7 +65,9 @@ namespace xieite::threads {
 			return this->threads.size();
 		}
 
-		void enqueue(const std::function<void()>& job) noexcept {
+		void enqueue(
+			const std::function<void()>& job
+		) noexcept {
 			auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
 			this->jobs.push(job);
 			jobsLock.unlock();

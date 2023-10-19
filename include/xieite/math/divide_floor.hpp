@@ -6,9 +6,15 @@
 #	include "../math/sign.hpp"
 
 namespace xieite::math {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr Integer divideFloor(const Integer dividend, const Integer divisor) noexcept {
-		return xieite::math::divideDown(dividend, divisor) - !!(dividend % divisor) * (xieite::math::sign(dividend) == xieite::math::sign(divisor));
+	template<
+		std::integral Integer
+	> [[nodiscard]] constexpr Integer divideFloor(
+		const Integer dividend,
+		const Integer divisor
+	) noexcept {
+		return xieite::math::divideDown(dividend, divisor)
+			- !!(dividend % divisor)
+			* (xieite::math::sign(dividend) == xieite::math::sign(divisor));
 	}
 }
 

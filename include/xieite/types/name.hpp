@@ -8,8 +8,9 @@
 #		include "../strings/between.hpp"
 
 namespace xieite::types {
-	template<typename Type>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
+	template<
+		typename Type
+	> [[nodiscard]] constexpr std::string_view name() noexcept {
 		return xieite::strings::between(__PRETTY_FUNCTION__, "= ", ";");
 	}
 }
@@ -19,8 +20,9 @@ namespace xieite::types {
 #		include "../strings/between.hpp"
 
 namespace xieite::types {
-	template<typename Type>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
+	template<
+		typename Type
+	> [[nodiscard]] constexpr std::string_view name() noexcept {
 		return xieite::strings::between(__PRETTY_FUNCTION__, "= ", "]");
 	}
 }
@@ -31,8 +33,9 @@ namespace xieite::types {
 #		include "../strings/between.hpp"
 
 namespace xieite::types {
-	template<typename Type>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
+	template<
+		typename Type
+	> [[nodiscard]] constexpr std::string_view name() noexcept {
 		return xieite::strings::between(xieite::strings::after(__FUNCSIG__, "__cdecl"), "<", ">(");
 	}
 }

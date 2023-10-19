@@ -3,7 +3,8 @@
 
 namespace xieite::streams {
 	enum struct Key
-	: char {
+		: char
+	{
 		Pause = '\0',
 		Null = '\0',
 		ControlA = '\x01',

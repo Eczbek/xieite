@@ -10,8 +10,13 @@
 #	include "../concepts/functable.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> Functor>
-	constexpr void partialReverse(Range& range, const Functor& selector) {
+	template<
+		std::ranges::range Range,
+		xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> Functor
+	> constexpr void partialReverse(
+		Range& range,
+		const Functor& selector
+	) {
 		std::ranges::iterator_t<Range&> begin = std::ranges::begin(range);
 		std::ranges::const_iterator_t<Range&> end = std::ranges::end(range);
 		std::vector<std::ranges::iterator_t<Range&>> iterators;

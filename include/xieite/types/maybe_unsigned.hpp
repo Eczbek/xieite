@@ -5,8 +5,13 @@
 #	include <type_traits>
 
 namespace xieite::types {
-	template<typename Type>
-	using MaybeUnsigned = std::conditional_t<std::signed_integral<Type>, std::make_unsigned<Type>, std::type_identity<Type>>::type;
+	template<
+		typename Type
+	> using MaybeUnsigned = std::conditional_t<
+		std::signed_integral<Type>,
+		std::make_unsigned<Type>,
+		std::type_identity<Type>
+	>::type;
 }
 
 #endif

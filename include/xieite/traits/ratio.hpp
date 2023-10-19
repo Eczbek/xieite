@@ -6,13 +6,18 @@
 #	include <type_traits>
 
 namespace xieite::traits {
-	template<typename>
-	struct Ratio
-	: std::false_type {};
+	template<
+		typename
+	> struct Ratio
+		: std::false_type
+	{};
 
-	template<std::intmax_t numerator, std::intmax_t denominator>
-	struct Ratio<std::ratio<numerator, denominator>>
-	: std::true_type {};
+	template<
+		std::intmax_t numerator,
+		std::intmax_t denominator
+	> struct Ratio<std::ratio<numerator, denominator>>
+		: std::true_type
+	{};
 }
 
 #endif

@@ -9,8 +9,15 @@
 #	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::math {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr std::string toBase(Integer value, const int radix, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char negativeSign = '-', const bool caseSensitive = false) noexcept {
+	template<
+		std::integral Integer
+	> [[nodiscard]] constexpr std::string toBase(
+		Integer value,
+		const int radix,
+		const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz",
+		const char negativeSign = '-',
+		const bool caseSensitive = false
+	) noexcept {
 		if (!radix || !value) {
 			return std::string(1, digits[0]);
 		}

@@ -11,7 +11,8 @@
 
 namespace xieite::network {
 	enum struct Protocol
-	: int {
+		: int
+	{
 		Default = 0,
 		ICMPv4 = IPPROTO_ICMP,
 		ICMPv6 = IPPROTO_ICMPV6,

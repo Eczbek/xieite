@@ -6,8 +6,11 @@
 #	include <utility>
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept BitsetReference = requires(Type value) {
+	template<
+		typename Type
+	> concept BitsetReference = requires(
+		Type value
+	) {
 		{ value.~Type() };
 		{ value = std::declval<bool>() } -> std::same_as<Type&>;
 		{ value = std::declval<Type>() } -> std::same_as<Type&>;

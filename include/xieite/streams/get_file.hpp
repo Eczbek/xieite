@@ -15,8 +15,11 @@
 #	include "../concepts/stream.hpp"
 
 namespace xieite::streams {
-	template<xieite::concepts::Stream Stream>
-	[[nodiscard]] inline std::FILE* getFile(const Stream& stream) noexcept {
+	template<
+		xieite::concepts::Stream Stream
+	> [[nodiscard]] inline std::FILE* getFile(
+		const Stream& stream
+	) noexcept {
 		if constexpr (xieite::concepts::InputStream<Stream>) {
 			if (&stream == &std::cin) {
 				return stdin;
@@ -30,7 +33,10 @@ namespace xieite::streams {
 				return stderr;
 			}
 		}
-		return static_cast<__gnu_cxx::stdio_filebuf<typename Stream::char_type, typename Stream::traits_type>*>(stream.rdbuf())->file();
+		return static_cast<__gnu_cxx::stdio_filebuf<
+			typename Stream::char_type,
+			typename Stream::traits_type>*
+		>(stream.rdbuf())->file();
 	}
 }
 

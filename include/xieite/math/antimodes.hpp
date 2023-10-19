@@ -8,13 +8,17 @@
 #	include "../math/result.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Numeric... Numbers>
-	[[nodiscard]] constexpr std::vector<xieite::math::Result<Numbers...>> antimodes(const Numbers... values) noexcept {
+	template<
+		xieite::concepts::Numeric... Numbers
+	> [[nodiscard]] constexpr std::vector<xieite::math::Result<Numbers...>> antimodes(
+		const Numbers... values
+	) noexcept {
 		if constexpr (sizeof...(Numbers)) {
 			std::vector<xieite::math::Result<Numbers...>> results;
-			for (const typename std::array<xieite::math::Result<Numbers...>, sizeof...(Numbers)>::const_iterator iterator : xieite::algorithms::antimodes(std::array<xieite::math::Result<Numbers...>, sizeof...(Numbers)> {
-				static_cast<xieite::math::Result<Numbers...>>(values)...
-			})) {
+			for (const auto iterator : xieite::algorithms::antimodes(
+				std::array<xieite::math::Result<Numbers...>,
+				sizeof...(Numbers)> { static_cast<xieite::math::Result<Numbers...>>(values)... }
+			)) {
 				results.push_back(*iterator);
 			}
 			return results;

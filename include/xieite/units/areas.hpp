@@ -27,33 +27,75 @@ namespace xieite::units {
 
 	using SquareGigameter = std::ratio<std::giga::num * std::giga::num, 1>;
 
-	using SquareThou = std::ratio<xieite::units::Thou::num * xieite::units::Thou::num, xieite::units::Thou::den * xieite::units::Thou::den>;
+	using SquareThou = std::ratio<
+		xieite::units::Thou::num * xieite::units::Thou::num,
+		xieite::units::Thou::den * xieite::units::Thou::den
+	>;
 
-	using SquareBarleycorn = std::ratio<xieite::units::Barleycorn::num * xieite::units::Barleycorn::num, xieite::units::Barleycorn::den * xieite::units::Barleycorn::den>;
+	using SquareBarleycorn = std::ratio<
+		xieite::units::Barleycorn::num * xieite::units::Barleycorn::num,
+		xieite::units::Barleycorn::den * xieite::units::Barleycorn::den
+	>;
 
-	using SquareInch = std::ratio<xieite::units::Inch::num * xieite::units::Inch::num, xieite::units::Inch::den * xieite::units::Inch::den>;
+	using SquareInch = std::ratio<
+		xieite::units::Inch::num * xieite::units::Inch::num,
+		xieite::units::Inch::den * xieite::units::Inch::den
+	>;
 
-	using SquareFoot = std::ratio<xieite::units::Foot::num * xieite::units::Foot::num, xieite::units::Foot::den * xieite::units::Foot::den>;
+	using SquareFoot = std::ratio<
+		xieite::units::Foot::num * xieite::units::Foot::num,
+		xieite::units::Foot::den * xieite::units::Foot::den
+	>;
 
-	using SquareYard = std::ratio<xieite::units::Yard::num * xieite::units::Yard::num, xieite::units::Yard::den * xieite::units::Yard::den>;
+	using SquareYard = std::ratio<
+		xieite::units::Yard::num * xieite::units::Yard::num,
+		xieite::units::Yard::den * xieite::units::Yard::den
+	>;
 
-	using SquareChain = std::ratio<xieite::units::Chain::num * xieite::units::Chain::num, xieite::units::Chain::den * xieite::units::Chain::den>;
+	using SquareChain = std::ratio<
+		xieite::units::Chain::num * xieite::units::Chain::num,
+		xieite::units::Chain::den * xieite::units::Chain::den
+	>;
 
-	using SquareFurlong = std::ratio<xieite::units::Furlong::num * xieite::units::Furlong::num, xieite::units::Furlong::den * xieite::units::Furlong::den>;
+	using SquareFurlong = std::ratio<
+		xieite::units::Furlong::num * xieite::units::Furlong::num,
+		xieite::units::Furlong::den * xieite::units::Furlong::den
+	>;
 
-	using SquareMile = std::ratio<xieite::units::Mile::num * xieite::units::Mile::num, xieite::units::Mile::den * xieite::units::Mile::den>;
+	using SquareMile = std::ratio<
+		xieite::units::Mile::num * xieite::units::Mile::num,
+		xieite::units::Mile::den * xieite::units::Mile::den
+	>;
 
-	using SquareLeague = std::ratio<xieite::units::League::num * xieite::units::League::num, xieite::units::League::den * xieite::units::League::den>;
+	using SquareLeague = std::ratio<
+		xieite::units::League::num * xieite::units::League::num,
+		xieite::units::League::den * xieite::units::League::den
+	>;
 
-	using SquareFathom = std::ratio<xieite::units::Fathom::num * xieite::units::Fathom::num, xieite::units::Fathom::den * xieite::units::Fathom::den>;
+	using SquareFathom = std::ratio<
+		xieite::units::Fathom::num * xieite::units::Fathom::num,
+		xieite::units::Fathom::den * xieite::units::Fathom::den
+	>;
 
-	using SquareCable = std::ratio<xieite::units::Cable::num * xieite::units::Cable::num, xieite::units::Cable::den * xieite::units::Cable::den>;
+	using SquareCable = std::ratio<
+		xieite::units::Cable::num * xieite::units::Cable::num,
+		xieite::units::Cable::den * xieite::units::Cable::den
+	>;
 
-	using SquareNauticalMile = std::ratio<xieite::units::NauticalMile::num * xieite::units::NauticalMile::num, xieite::units::NauticalMile::den * xieite::units::NauticalMile::den>;
+	using SquareNauticalMile = std::ratio<
+		xieite::units::NauticalMile::num * xieite::units::NauticalMile::num,
+		xieite::units::NauticalMile::den * xieite::units::NauticalMile::den
+	>;
 
-	using SquareLink = std::ratio<xieite::units::Link::num * xieite::units::Link::num, xieite::units::Link::den * xieite::units::Link::den>;
+	using SquareLink = std::ratio<
+		xieite::units::Link::num * xieite::units::Link::num,
+		xieite::units::Link::den * xieite::units::Link::den
+	>;
 
-	using SquareRod = std::ratio<xieite::units::Rod::num * xieite::units::Rod::num, xieite::units::Rod::den * xieite::units::Rod::den>;
+	using SquareRod = std::ratio<
+		xieite::units::Rod::num * xieite::units::Rod::num,
+		xieite::units::Rod::den * xieite::units::Rod::den
+	>;
 
 	using Perch = std::ratio<2529285264, 100000000>;
 

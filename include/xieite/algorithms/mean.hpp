@@ -8,9 +8,12 @@
 #	include "../math/result.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range>
-	requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-	[[nodiscard]] constexpr xieite::math::Result<std::ranges::range_value_t<Range>> mean(const Range& range) noexcept {
+	template<
+		std::ranges::range Range
+	> requires xieite::concepts::Numeric<std::ranges::range_value_t<Range>>
+	[[nodiscard]] constexpr xieite::math::Result<std::ranges::range_value_t<Range>> mean(
+		const Range& range
+	) noexcept {
 		xieite::math::Result<std::ranges::range_value_t<Range>> result = 0;
 		const auto end = std::ranges::end(range);
 		for (auto iterator = std::ranges::begin(range); iterator != end; iterator = std::ranges::next(iterator)) {

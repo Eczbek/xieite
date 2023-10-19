@@ -14,12 +14,20 @@ namespace xieite::geometry {
 	struct Polygon {
 		std::vector<xieite::geometry::Point> points;
 
-		template<xieite::concepts::RangeOf<xieite::geometry::Point> Range = std::vector<xieite::geometry::Point>>
-		constexpr Polygon(const Range& points) noexcept
-		: points(std::ranges::begin(points), std::ranges::end(points)) {}
+		template<
+			xieite::concepts::RangeOf<xieite::geometry::Point> Range = std::vector<xieite::geometry::Point>
+		> constexpr Polygon(
+			const Range& points
+		) noexcept
+			: points(std::ranges::begin(points), std::ranges::end(points))
+		{}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Polygon& polygon1, const xieite::geometry::Polygon& polygon2) noexcept {
-			return xieite::algorithms::sameRelativeOrder(polygon1.points, polygon2.points) || xieite::algorithms::sameRelativeOrder(polygon1.points, std::vector<xieite::geometry::Point>(polygon2.points.rbegin(), polygon2.points.rend()));
+		[[nodiscard]] friend constexpr bool operator==(
+			const xieite::geometry::Polygon& polygon1,
+			const xieite::geometry::Polygon& polygon2
+		) noexcept {
+			return xieite::algorithms::sameRelativeOrder(polygon1.points, polygon2.points)
+				|| xieite::algorithms::sameRelativeOrder(polygon1.points, std::views::reverse(polygon2.points));
 		}
 
 		[[nodiscard]] constexpr double area() const noexcept {
@@ -37,7 +45,15 @@ namespace xieite::geometry {
 			const std::size_t pointsSize = this->points.size();
 			for (std::size_t i = 0; i < pointsSize; ++i) {
 				const std::size_t j = (i + 1) % pointsSize;
-				odd ^= ((this->points[i].y < point.y) && (this->points[j].y >= point.y) || (this->points[j].y < point.y) && (this->points[i].y >= point.y)) && ((this->points[i].x <= point.x) || (this->points[j].x <= point.x)) && (this->points[i].x + (point.y - this->points[i].y) / (this->points[j].y - this->points[i].y) * (this->points[j].x - this->points[i].x) < point.x);
+				odd ^= (
+						this->points[i].y < point.y && this->points[j].y >= point.y
+						|| this->points[j].y < point.y && this->points[i].y >= point.y
+					) && (
+						this->points[i].x <= point.x
+						|| this->points[j].x <= point.x
+					) && this->points[i].x + (point.y - this->points[i].y)
+						/ (this->points[j].y - this->points[i].y) * (this->points[j].x - this->points[i].x)
+						< point.x;
 			}
 			if (odd) {
 				return true;

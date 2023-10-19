@@ -6,8 +6,12 @@
 #	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr Integer reverse(Integer value, const std::size_t base = 10) noexcept {
+	template<
+		std::integral Integer
+	> [[nodiscard]] constexpr Integer reverse(
+		Integer value,
+		const std::size_t base = 10
+	) noexcept {
 		const bool positive = value >= 0;
 		value *= xieite::math::splitBoolean(positive);
 		Integer result = 0;

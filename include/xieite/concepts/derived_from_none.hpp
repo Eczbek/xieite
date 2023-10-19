@@ -4,8 +4,10 @@
 #	include "../concepts/derived_from_any.hpp"
 
 namespace xieite::concepts {
-	template<typename Derived, typename... Bases>
-	concept DerivedFromNone = !xieite::concepts::DerivedFromAny<Derived, Bases...>;
+	template<
+		typename Derived,
+		typename... Bases
+	> concept DerivedFromNone = !xieite::concepts::DerivedFromAny<Derived, Bases...>;
 }
 
 #endif

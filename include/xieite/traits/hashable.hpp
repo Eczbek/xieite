@@ -5,9 +5,11 @@
 #	include "../concepts/hashable.hpp"
 
 namespace xieite::traits {
-	template<typename Type>
-	struct Hashable
-	: std::bool_constant<xieite::concepts::Hashable<Type>> {};
+	template<
+		typename Type
+	> struct Hashable
+		: std::bool_constant<xieite::concepts::Hashable<Type>>
+	{};
 }
 
 #endif

@@ -6,15 +6,20 @@
 #	include <utility>
 
 namespace xieite::memory {
-	template<typename Type>
-	class Shredder {
+	template<
+		typename Type
+	> class Shredder {
 	public:
 		constexpr Shredder() noexcept = default;
 
-		template<typename... Arguments>
-		requires(std::constructible_from<Type, Arguments...>)
-		constexpr Shredder(Arguments&&... arguments) noexcept
-		: value(std::forward<Arguments>(arguments)...) {}
+		template<
+			typename... Arguments
+		> requires std::constructible_from<Type, Arguments...>
+		constexpr Shredder(
+			Arguments&&... arguments
+		) noexcept
+			: value(std::forward<Arguments>(arguments)...)
+		{}
 
 		constexpr operator const Type&() const& noexcept {
 			return this->value;

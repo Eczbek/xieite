@@ -5,8 +5,11 @@
 #	include "../concepts/integer.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Integer Integer>
-	constexpr bool isPrime(const Integer value) noexcept {
+	template<
+		xieite::concepts::Integer Integer
+	> constexpr bool isPrime(
+		const Integer value
+	) noexcept {
 		if (value < 4) {
 			return value > 1;
 		}

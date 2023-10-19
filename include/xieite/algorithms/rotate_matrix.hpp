@@ -5,15 +5,19 @@
 #	include "../math/wrap.hpp"
 
 namespace xieite::algorithms {
-	template<typename Value>
-	[[nodiscard]] constexpr std::vector<std::vector<Value>> rotateMatrix(const std::vector<std::vector<Value>>& matrix, int rotations) noexcept {
+	template<
+		typename Value
+	> [[nodiscard]] constexpr std::vector<std::vector<Value>> rotateMatrix(
+		const std::vector<std::vector<Value>>& matrix,
+		int rotations
+	) noexcept {
 		rotations = xieite::math::wrap(rotations, 2, -1);
 		const std::size_t matrixWidth = matrix.size();
 		if (!rotations || !matrixWidth) {
 			return matrix;
 		}
 		const std::size_t matrixHeight = matrix[0].size();
-		std::vector<std::vector<Value>> result = std::vector<std::vector<Value>>(matrixHeight, std::vector<Value>(matrixWidth));
+		auto result = std::vector<std::vector<Value>>(matrixHeight, std::vector<Value>(matrixWidth));
 		if (rotations > 0) {
 			for (std::size_t x = matrixWidth; x--;) {
 				for (std::size_t y = 0; y < matrixHeight; ++y) {

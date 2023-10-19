@@ -8,7 +8,10 @@
 #		include <stdio.h>
 
 namespace xieite::streams {
-	[[nodiscard]] inline std::FILE* openPipe(const char* const command, const char* const mode) noexcept {
+	[[nodiscard]] inline std::FILE* openPipe(
+		const char* const command,
+		const char* const mode
+	) noexcept {
 		return popen(command, mode);
 	}
 }
@@ -18,7 +21,10 @@ namespace xieite::streams {
 #		include <stdio.h>
 
 namespace xieite::streams {
-	[[nodiscard]] inline std::FILE* openPipe(const char* const command, const char* const mode) noexcept {
+	[[nodiscard]] inline std::FILE* openPipe(
+		const char* const command,
+		const char* const mode
+	) noexcept {
 		return _popen(command, mode);
 	}
 }

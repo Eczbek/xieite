@@ -226,6 +226,7 @@ namespace xieite::streams {
 
 		void clearLineUntil() const noexcept {
 			this->outputStream << "\x1B[1J";
+		}
 
 		void clearLineUntil(const xieite::streams::Position position) const noexcept {
 			const xieite::streams::Position original = this->getCursorPosition();

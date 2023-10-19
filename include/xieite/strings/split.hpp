@@ -7,7 +7,10 @@
 #	include <vector>
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr std::vector<std::string_view> split(const std::string_view string, const std::string_view delimiter) noexcept {
+	[[nodiscard]] constexpr std::vector<std::string_view> split(
+		const std::string_view string,
+		const std::string_view delimiter
+	) noexcept {
 		std::vector<std::string_view> result;
 		const auto subranges = std::views::split(string, delimiter);
 		if (subranges) {
@@ -18,7 +21,10 @@ namespace xieite::strings {
 		return result;
 	}
 
-	[[nodiscard]] constexpr std::vector<std::string_view> split(const std::string_view string, const char delimiter) noexcept {
+	[[nodiscard]] constexpr std::vector<std::string_view> split(
+		const std::string_view string,
+		const char delimiter
+	) noexcept {
 		return xieite::strings::split(string, std::string(1, delimiter));
 	}
 }

@@ -9,12 +9,18 @@
 namespace xieite::threads {
 	class Timeout {
 	public:
-		template<std::invocable<> Functor, xieite::concepts::TemporalDuration TemporalDuration>
-		Timeout(const Functor& callback, const TemporalDuration duration) noexcept
-		: interval([this, &callback] {
-			this->stop();
-			std::invoke(callback);
-		}, duration) {}
+		template<
+			std::invocable<> Functor,
+			xieite::concepts::TemporalDuration TemporalDuration
+		> Timeout(
+			const Functor& callback,
+			const TemporalDuration duration
+		) noexcept
+			: interval([this, &callback] {
+				this->stop();
+				std::invoke(callback);
+			}, duration)
+		{}
 
 		[[nodiscard]] bool good() const noexcept {
 			return this->interval.good();

@@ -9,8 +9,11 @@
 #	include "../strings/uppercase.hpp"
 
 namespace xieite::strings {
-	template<std::integral Integer = int>
-	[[nodiscard]] constexpr Integer fromRomanNumerals(const std::string_view value) noexcept {
+	template<
+		std::integral Integer = int
+	> [[nodiscard]] constexpr Integer fromRomanNumerals(
+		const std::string_view value
+	) noexcept {
 		static constexpr std::string_view numerals = "IVXLCDM";
 		Integer result = 0;
 		if (!value.size() || (value == "N")) {
@@ -22,8 +25,14 @@ namespace xieite::strings {
 			if (index == std::string_view::npos) {
 				continue;
 			}
-			const Integer addend = ((index % 2) ? 5 : 1) * std::pow(10, index / 2);
-			result += (addend < previous) ? -addend : addend;
+			const Integer addend = (
+					index % 2
+						? 5
+						: 1
+				) * std::pow(10, index / 2);
+			result += addend < previous
+				? -addend
+				: addend;
 			previous = addend;
 		}
 		return result;
