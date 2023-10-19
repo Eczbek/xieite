@@ -261,11 +261,11 @@ namespace xieite::math {
 			if ((multiplicand == 1) || (multiplicand == -1)) {
 				return sameSign ? multiplier : -multiplier;
 			}
-			if ((multiplier == 2) || (multiplier == -2)) {
-				return sameSign ? (multiplicand << 1) : -(multiplicand << 1);
+			if (multiplier.isPowerOf2()) {
+				return sameSign ? (multiplicand << multiplier.logarithm2()) : -(multiplicand << multiplier.logarithm2());
 			}
-			if ((multiplicand == 2) || (multiplicand == -2)) {
-				return sameSign ? (multiplier << 1) : -(multiplier << 1);
+			if (multiplicand.isPowerOf2()) {
+				return sameSign ? (multiplier << multiplicand.logarithm2()) : -(multiplier << multiplicand.logarithm2());
 			}
 			xieite::math::BigInteger<Datum> result;
 			for (std::size_t i = multiplier.data.size(); i--;) {
@@ -306,8 +306,8 @@ namespace xieite::math {
 			if ((divisor == 1) || (divisor == -1)) {
 				return sameSign ? dividend : -dividend;
 			}
-			if ((divisor == 2) || (divisor == -2)) {
-				return sameSign ? (dividend >> 1) : -(dividend >> 1);
+			if (divisor.isPowerOf2()) {
+				return sameSign ? (dividend >> divisor.logarithm2()) : -(dividend >> divisor.logarithm2());
 			}
 			const xieite::math::BigInteger<Datum> absoluteDividend = dividend.absolute();
 			const xieite::math::BigInteger<Datum> absoluteDivisor = divisor.absolute();
@@ -358,8 +358,8 @@ namespace xieite::math {
 			if (!dividend || (absoluteDivisor == 1) || (absoluteDividend == absoluteDivisor)) {
 				return 0;
 			}
-			if (absoluteDivisor == 2) {
-				return (dividend.data[0] & 1) * xieite::math::splitBoolean(!dividend.negative);
+			if (absoluteDivisor.isPowerOf2()) {
+				return (dividend & (absoluteDivisor - 1)) * xieite::math::splitBoolean(!dividend.negative);
 			}
 			if (absoluteDividend < absoluteDivisor) {
 				return dividend;
@@ -500,7 +500,7 @@ namespace xieite::math {
 			if (rightOperand.negative) {
 				return leftOperand >> -rightOperand;
 			}
-			const std::size_t dataShift = rightOperand / std::numeric_limits<Datum>::digits;
+			const std::size_t dataShift = (rightOperand >= std::numeric_limits<Datum>::digits) ? (rightOperand / std::numeric_limits<Datum>::digits) : xieite::math::BigInteger<Datum>(0);
 			const std::size_t bitsShift = rightOperand % std::numeric_limits<Datum>::digits;
 			const std::size_t leftDataSize = leftOperand.data.size();
 			if (dataShift >= leftDataSize) {
@@ -612,7 +612,7 @@ namespace xieite::math {
 			if (base.negative) {
 				throw std::domain_error("Cannot take logarithm of negative base");
 			}
-			return (xieite::math::BigInteger<Datum>(std::numeric_limits<Datum>::digits) * (this->data.size() - 1) + xieite::math::digits(this->data.back(), 2) - 1) / (xieite::math::BigInteger<Datum>(std::numeric_limits<Datum>::digits) * (base.data.size() - 1) + xieite::math::digits(base.data.back(), 2) - 1);
+			return this->logarithm2() / base.logarithm2();
 		}
 
 		template<std::integral Integer>
@@ -681,6 +681,14 @@ namespace xieite::math {
 			if (!*this) {
 				this->negative = false;
 			}
+		}
+
+		[[nodiscard]] constexpr bool isPowerOf2() const noexcept {
+			return *this && !(*this & (*this - 1));
+		}
+
+		[[nodiscard]] constexpr xieite::math::BigInteger<Datum> logarithm2() const noexcept {
+			return xieite::math::BigInteger<Datum>(std::numeric_limits<Datum>::digits) * (this->data.size() - 1) + xieite::math::digits(this->data.back(), 2) - 1;
 		}
 	};
 }
