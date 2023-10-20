@@ -666,8 +666,8 @@ namespace xieite::math {
 			const std::size_t leftDataSize = leftOperand.data.size();
 			const std::size_t rightDataSize = rightOperand.data.size();
 			for (std::size_t i = 0; (i < leftDataSize) || (i < rightDataSize); ++i) {
-				const Word datum = callback(((i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Word>::max() * leftNegative)), ((i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Word>::max() * rightNegative)));
-				result.data.push_back(result.negative ? ~datum : datum);
+				const Word word = callback(((i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Word>::max() * leftNegative)), ((i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Word>::max() * rightNegative)));
+				result.data.push_back(result.negative ? ~word : word);
 			}
 			return result - result.negative;
 		}
