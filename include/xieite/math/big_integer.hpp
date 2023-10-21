@@ -398,7 +398,7 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) {
 				return left & right;
 			});
 		}
@@ -418,7 +418,7 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) {
 				return left | right;
 			});
 		}
@@ -438,7 +438,7 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) {
 				return left ^ right;
 			});
 		}
