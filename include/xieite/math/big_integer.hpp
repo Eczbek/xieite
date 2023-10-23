@@ -318,7 +318,7 @@ namespace xieite::math {
 				return xieite::math::splitBoolean(sameSign);
 			}
 			if (divisor.isPowerOf2()) {
-				return sameSign ? (dividend.absolute() >> divisor.logarithm2()) : -(dividend.absolute() >> divisor.logarithm2());
+				return sameSign ? (absoluteDividend >> divisor.logarithm2()) : -(absoluteDividend >> divisor.logarithm2());
 			}
 			xieite::math::BigInteger<Word> remainder;
 			xieite::math::BigInteger<Word> result;
@@ -362,7 +362,7 @@ namespace xieite::math {
 				return 0;
 			}
 			if (absoluteDivisor.isPowerOf2()) {
-				return (dividend.absolute() & (absoluteDivisor.absolute() - 1)) * xieite::math::splitBoolean(!dividend.negative);
+				return (absoluteDividend & (absoluteDivisor - 1)) * xieite::math::splitBoolean(!dividend.negative);
 			}
 			if (absoluteDividend < absoluteDivisor) {
 				return dividend;
