@@ -4,7 +4,7 @@ Defined in header [<xieite/graphics/color.hpp>](../../../../../../include/xieite
 &nbsp;
 
 ## Description
-Prints the canvas to its streams controller.
+Prints the canvas to its streams handle.
 
 &nbsp;
 

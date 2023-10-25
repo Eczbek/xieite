@@ -19,10 +19,10 @@ namespace xieite::graphics {
 	public:
 		xieite::geometry::Point center;
 		xieite::geometry::Point radii;
-		xieite::streams::StandardHandle controller;
+		xieite::streams::StandardHandle handle;
 
-		constexpr Canvas(const xieite::geometry::Point center, const xieite::geometry::Point radii, const xieite::streams::StandardHandle controller = xieite::streams::StandardHandle(std::cin, std::cout)) noexcept
-		: center(center), radii(radii), controller(controller), data(static_cast<std::size_t>(this->radii.x * 2) + 1, std::vector<xieite::graphics::Color>(static_cast<std::size_t>(this->radii.y * 2) + 1, xieite::graphics::Color(255, 255, 255))) {}
+		constexpr Canvas(const xieite::geometry::Point center, const xieite::geometry::Point radii, const xieite::streams::StandardHandle handle = xieite::streams::StandardHandle(std::cin, std::cout)) noexcept
+		: center(center), radii(radii), handle(handle), data(static_cast<std::size_t>(this->radii.x * 2) + 1, std::vector<xieite::graphics::Color>(static_cast<std::size_t>(this->radii.y * 2) + 1, xieite::graphics::Color(255, 255, 255))) {}
 
 		void print(const xieite::streams::Position position) const noexcept {
 			const std::size_t width = this->data.size();
@@ -31,12 +31,12 @@ namespace xieite::graphics {
 			}
 			const std::size_t height = this->data[0].size();
 			for (std::size_t y = 0; y < height; ++y) {
-				this->controller.setCursorPosition(xieite::streams::Position(position.row + y, position.column));
+				this->handle.setCursorPosition(xieite::streams::Position(position.row + y, position.column));
 				for (std::size_t x = 0; x < width; ++x) {
-					controller.setBackgroundColor(this->data[x][height - y - 1]);
-					controller.outputStream << "  ";
+					handle.setBackgroundColor(this->data[x][height - y - 1]);
+					handle.outputStream << "  ";
 				}
-				controller.resetBackgroundColor();
+				handle.resetBackgroundColor();
 			}
 		}
 
