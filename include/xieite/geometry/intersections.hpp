@@ -5,6 +5,7 @@
 #	include <vector>
 #	include "../concepts/linear_shape.hpp"
 #	include "../geometry/point.hpp"
+#	include "../geometry/polygon.hpp"
 #	include "../geometry/segment.hpp"
 #	include "../math/almost_equal.hpp"
 
