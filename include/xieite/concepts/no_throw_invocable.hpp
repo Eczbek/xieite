@@ -1,12 +1,11 @@
 #ifndef XIEITE_HEADER_CONCEPTS_NO_THROW_INVOCABLE
 #	define XIEITE_HEADER_CONCEPTS_NO_THROW_INVOCABLE
 
-#	include <concepts>
-#	include <utility>
+#	include <type_traits>
 
 namespace xieite::concepts {
 	template<typename Functor, typename... Arguments>
-	concept NoThrowInvocable = std::invocable<Functor, Arguments...> && noexcept(std::declval<Functor>()(std::declval<Arguments>()...));
+	concept NoThrowInvocable = std::is_nothrow_invocable_v<Fuctor, Arguments...>;
 }
 
 #endif

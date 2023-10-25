@@ -34,7 +34,6 @@ Type traits.
 - [NoThrowConvertibleToAny](./namespaces/traits/no_throw_convertible_to_any.md)
 - [NoThrowConvertibleToNone](./namespaces/traits/no_throw_convertible_to_none.md)
 - [NoThrowConvertibleToNotAll](./namespaces/traits/no_throw_convertible_to_not_all.md)
-- [NoThrowInvocable](./namespaces/traits/no_throw_invocable.md)
 - [None](./namespaces/traits/none.md)
 - [NotAll](./namespaces/traits/not_all.md)
 - [Numeric](./namespaces/traits/numeric.md)
