@@ -39,6 +39,7 @@ Common concepts.
 - [NoThrowConvertibleToAny](./namespaces/concepts/no_throw_convertible_to_any.md)
 - [NoThrowConvertibleToNone](./namespaces/concepts/no_throw_convertible_to_none.md)
 - [NoThrowConvertibleToNotAll](./namespaces/concepts/no_throw_convertible_to_not_all.md)
+- [NoThrowInvocable](./namespaces/concepts/no_throw_invocable.md)
 - [None](./namespaces/concepts/none.md)
 - [NotAll](./namespaces/concepts/not_all.md)
 - [Numeric](./namespaces/concepts/numeric.md)
