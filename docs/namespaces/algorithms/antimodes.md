@@ -13,7 +13,8 @@ Computes the antimodes of a set of data.
 ```cpp
 template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::less>
 requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range&>> antimodes(const Range& range, const Functor& lesserComparator = Functor()) noexcept;
+[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range&>> antimodes(const Range& range, const Functor& lesserComparator = Functor())
+noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>>);
 ```
 
 &nbsp;

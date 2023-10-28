@@ -10,7 +10,7 @@ Repeats the concatenation of an expression with itself.
 
 ## Synopsis
 ```cpp
-#define XIEITE_REPEAT_CONCATENATE(count, argument) XIEITE_LOOP(count, XIEITE_REPEAT_CONCATENATE_INTERNAL, , argument)
+#define XIEITE_REPEAT_CONCATENATE(count, argument) XIEITE_LOOP(count, XIEITE_INTERNAL_REPEAT_CONCATENATE, , argument)
 ```
 
 &nbsp;

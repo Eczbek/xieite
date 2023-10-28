@@ -5,7 +5,7 @@
 
 namespace xieite::concepts {
 	template<typename Functor, typename... Arguments>
-	concept NoThrowInvocable = std::is_nothrow_invocable_v<Fuctor, Arguments...>;
+	concept NoThrowInvocable = std::is_nothrow_invocable_v<Functor, Arguments...>;
 }
 
 #endif

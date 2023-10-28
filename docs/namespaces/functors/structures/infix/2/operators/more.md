@@ -8,5 +8,6 @@ Defined in header [<xieite/functors/infix.hpp>](../../../../../../../include/xie
 ```cpp
 template<typename Argument>
 requires(std::invocable<Functor, Argument&&>)
-friend constexpr std::invoke_result_t<Functor, Argument&&> operator>(const xieite::functors::Infix<Functor>& infix, Argument&& argument);
+friend constexpr std::invoke_result_t<Functor, Argument&&> operator>(const xieite::functors::Infix<Functor>& infix, Argument&& argument)
+noexcept(xieite::concepts::NoThrowInvocable<Functor, Argument&&>);
 ```

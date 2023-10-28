@@ -7,12 +7,14 @@
 #	include <ranges>
 #	include <vector>
 #	include "../concepts/functable.hpp"
+#	include "../concepts/no_throw_invocable.hpp"
 #	include "../concepts/numeric.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::less>
 	requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-	[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range&>> antimodes(const Range& range, const Functor& lesserComparator = Functor()) noexcept {
+	[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range&>> antimodes(const Range& range, const Functor& lesserComparator = Functor())
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>>) {
 		std::vector<std::ranges::const_iterator_t<const Range&>> iterators;
 		auto iterator = std::ranges::next(std::ranges::begin(range));
 		const std::size_t rangeSize = std::ranges::size(range);
