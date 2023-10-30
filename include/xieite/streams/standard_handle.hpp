@@ -176,7 +176,7 @@ namespace xieite::streams {
 		}
 
 		void setCursorAlternative(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << "su"[value];
+			this->outputStream << "\x1B[" << "us"[value];
 		}
 
 		void setScreenAlternative(const bool value) const noexcept {
