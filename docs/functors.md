@@ -12,3 +12,4 @@ Functional utilities.
 - [Overloader](./namespaces/functors/overloader.md)
 - [ProcessGuard](./namespaces/functors/process_guard.md)
 - [ScopeGuard](./namespaces/functors/scope_guard.md)
+- [templatify](./namespaces/functors/templatify.md)
