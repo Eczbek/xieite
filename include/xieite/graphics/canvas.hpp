@@ -21,7 +21,7 @@ namespace xieite::graphics {
 		xieite::geometry::Point radii;
 		xieite::streams::StandardHandle handle;
 
-		constexpr Canvas(const xieite::geometry::Point center, const xieite::geometry::Point radii, const xieite::streams::StandardHandle handle = xieite::streams::StandardHandle(std::cin, std::cout)) noexcept
+		Canvas(const xieite::geometry::Point center, const xieite::geometry::Point radii, const xieite::streams::StandardHandle handle = xieite::streams::StandardHandle(std::cin, std::cout)) noexcept
 		: center(center), radii(radii), handle(handle), data(static_cast<std::size_t>(this->radii.x * 2) + 1, std::vector<xieite::graphics::Color>(static_cast<std::size_t>(this->radii.y * 2) + 1, xieite::graphics::Color(255, 255, 255))) {}
 
 		void print(const xieite::streams::Position position) const noexcept {
