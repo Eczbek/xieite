@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_UNITS_LITERALS_ANGLES
 #	define XIEITE_HEADER_UNITS_LITERALS_ANGLES
 
-#	include "../../units/angles.hpp"
+#	include "../../units/angle.hpp"
 #	include "../../units/convert.hpp"
 
 namespace xieite::units::literals {
@@ -14,11 +14,11 @@ namespace xieite::units::literals {
 	}
 
 	[[nodiscard]] constexpr double operator""_degrees(const long double value) noexcept {
-		return xieite::units::convert<xieite::units::Degree, xieite::units::Radian>(value);
+		return xieite::units::convert(value, xieite::units::Angle::degree, xieite::units::Angle::radian);
 	}
 
 	[[nodiscard]] constexpr double operator""_degrees(const unsigned long long int value) noexcept {
-		return xieite::units::convert<xieite::units::Degree, xieite::units::Radian>(value);
+		return xieite::units::convert(value, xieite::units::Angle::degree, xieite::units::Angle::radian);
 	}
 }
 

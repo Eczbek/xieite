@@ -11,259 +11,355 @@ A colletion of literals for length units.
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]] constexpr double operator""_attometers(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_quectometers(long double value) noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] constexpr double operator""_attometers(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_quectometers(unsigned long long int value) noexcept;
 ```
 #### 3)
 ```cpp
-[[nodiscard]] constexpr double operator""_femtometers(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_rontometers(long double value) noexcept;
 ```
 #### 4)
 ```cpp
-[[nodiscard]] constexpr double operator""_femtometers(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_rontometers(unsigned long long int value) noexcept;
 ```
 #### 5)
 ```cpp
-[[nodiscard]] constexpr double operator""_picometers(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_yoctometers(long double value) noexcept;
 ```
 #### 6)
 ```cpp
-[[nodiscard]] constexpr double operator""_picometers(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_yoctometers(unsigned long long int value) noexcept;
 ```
 #### 7)
 ```cpp
-[[nodiscard]] constexpr double operator""_nanometers(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_zeptometers(long double value) noexcept;
 ```
 #### 8)
 ```cpp
-[[nodiscard]] constexpr double operator""_nanometers(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_zeptometers(unsigned long long int value) noexcept;
 ```
 #### 9)
 ```cpp
-[[nodiscard]] constexpr double operator""_micrometers(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_attometers(long double value) noexcept;
 ```
 #### 10)
 ```cpp
-[[nodiscard]] constexpr double operator""_micrometers(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_attometers(unsigned long long int value) noexcept;
 ```
 #### 11)
 ```cpp
-[[nodiscard]] constexpr double operator""_millimeters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_femtometers(long double value) noexcept;
 ```
 #### 12)
 ```cpp
-[[nodiscard]] constexpr double operator""_millimeters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_femtometers(unsigned long long int value) noexcept;
 ```
 #### 13)
 ```cpp
-[[nodiscard]] constexpr double operator""_centimeters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_picometers(long double value) noexcept;
 ```
 #### 14)
 ```cpp
-[[nodiscard]] constexpr double operator""_centimeters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_picometers(unsigned long long int value) noexcept;
 ```
 #### 15)
 ```cpp
-[[nodiscard]] constexpr double operator""_decimeters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_nanometers(long double value) noexcept;
 ```
 #### 16)
 ```cpp
-[[nodiscard]] constexpr double operator""_decimeters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_nanometers(unsigned long long int value) noexcept;
 ```
 #### 17)
 ```cpp
-[[nodiscard]] constexpr double operator""_meters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_micrometers(long double value) noexcept;
 ```
 #### 18)
 ```cpp
-[[nodiscard]] constexpr double operator""_meters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_micrometers(unsigned long long int value) noexcept;
 ```
 #### 19)
 ```cpp
-[[nodiscard]] constexpr double operator""_decameters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_millimeters(long double value) noexcept;
 ```
 #### 20)
 ```cpp
-[[nodiscard]] constexpr double operator""_decameters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_millimeters(unsigned long long int value) noexcept;
 ```
 #### 21)
 ```cpp
-[[nodiscard]] constexpr double operator""_hectometers(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_centimeters(long double value) noexcept;
 ```
 #### 22)
 ```cpp
-[[nodiscard]] constexpr double operator""_hectometers(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_centimeters(unsigned long long int value) noexcept;
 ```
 #### 23)
 ```cpp
-[[nodiscard]] constexpr double operator""_kilometers(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_decimeters(long double value) noexcept;
 ```
 #### 24)
 ```cpp
-[[nodiscard]] constexpr double operator""_kilometers(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_decimeters(unsigned long long int value) noexcept;
 ```
 #### 25)
 ```cpp
-[[nodiscard]] constexpr double operator""_megameters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_meters(long double value) noexcept;
 ```
 #### 26)
 ```cpp
-[[nodiscard]] constexpr double operator""_megameters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_meters(unsigned long long int value) noexcept;
 ```
 #### 27)
 ```cpp
-[[nodiscard]] constexpr double operator""_gigameters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_decameters(long double value) noexcept;
 ```
 #### 28)
 ```cpp
-[[nodiscard]] constexpr double operator""_gigameters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_decameters(unsigned long long int value) noexcept;
 ```
 #### 29)
 ```cpp
-[[nodiscard]] constexpr double operator""_terameters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_hectometers(long double value) noexcept;
 ```
 #### 30)
 ```cpp
-[[nodiscard]] constexpr double operator""_terameters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_hectometers(unsigned long long int value) noexcept;
 ```
 #### 31)
 ```cpp
-[[nodiscard]] constexpr double operator""_petameters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_kilometers(long double value) noexcept;
 ```
 #### 32)
 ```cpp
-[[nodiscard]] constexpr double operator""_petameters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_kilometers(unsigned long long int value) noexcept;
 ```
 #### 33)
 ```cpp
-[[nodiscard]] constexpr double operator""_exameters(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_megameters(long double value) noexcept;
 ```
 #### 34)
 ```cpp
-[[nodiscard]] constexpr double operator""_exameters(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_megameters(unsigned long long int value) noexcept;
 ```
 #### 35)
 ```cpp
-[[nodiscard]] constexpr double operator""_twips(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_gigameters(long double value) noexcept;
 ```
 #### 36)
 ```cpp
-[[nodiscard]] constexpr double operator""_twips(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_gigameters(unsigned long long int value) noexcept;
 ```
 #### 37)
 ```cpp
-[[nodiscard]] constexpr double operator""_thous(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_terameters(long double value) noexcept;
 ```
 #### 38)
 ```cpp
-[[nodiscard]] constexpr double operator""_thous(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_terameters(unsigned long long int value) noexcept;
 ```
 #### 39)
 ```cpp
-[[nodiscard]] constexpr double operator""_barleycorns(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_petameters(long double value) noexcept;
 ```
 #### 40)
 ```cpp
-[[nodiscard]] constexpr double operator""_barleycorns(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_petameters(unsigned long long int value) noexcept;
 ```
 #### 41)
 ```cpp
-[[nodiscard]] constexpr double operator""_inches(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_exameters(long double value) noexcept;
 ```
 #### 42)
 ```cpp
-[[nodiscard]] constexpr double operator""_inches(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_exameters(unsigned long long int value) noexcept;
 ```
 #### 43)
 ```cpp
-[[nodiscard]] constexpr double operator""_feet(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_zettameters(long double value) noexcept;
 ```
 #### 44)
 ```cpp
-[[nodiscard]] constexpr double operator""_feet(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_zettameters(unsigned long long int value) noexcept;
 ```
 #### 45)
 ```cpp
-[[nodiscard]] constexpr double operator""_yards(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_yottameters(long double value) noexcept;
 ```
 #### 46)
 ```cpp
-[[nodiscard]] constexpr double operator""_yards(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_yottameters(unsigned long long int value) noexcept;
 ```
 #### 47)
 ```cpp
-[[nodiscard]] constexpr double operator""_chains(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_ronnameters(long double value) noexcept;
 ```
 #### 48)
 ```cpp
-[[nodiscard]] constexpr double operator""_chains(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_ronnameters(unsigned long long int value) noexcept;
 ```
 #### 49)
 ```cpp
-[[nodiscard]] constexpr double operator""_furlongs(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_quettameters(long double value) noexcept;
 ```
 #### 50)
 ```cpp
-[[nodiscard]] constexpr double operator""_furlongs(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_quettameters(unsigned long long int value) noexcept;
 ```
 #### 51)
 ```cpp
-[[nodiscard]] constexpr double operator""_miles(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_twips(long double value) noexcept;
 ```
 #### 52)
 ```cpp
-[[nodiscard]] constexpr double operator""_miles(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_twips(unsigned long long int value) noexcept;
 ```
 #### 53)
 ```cpp
-[[nodiscard]] constexpr double operator""_leagues(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_thous(long double value) noexcept;
 ```
 #### 54)
 ```cpp
-[[nodiscard]] constexpr double operator""_leagues(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_thous(unsigned long long int value) noexcept;
 ```
 #### 55)
 ```cpp
-[[nodiscard]] constexpr double operator""_fathoms(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_barleycorns(long double value) noexcept;
 ```
 #### 56)
 ```cpp
-[[nodiscard]] constexpr double operator""_fathoms(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_barleycorns(unsigned long long int value) noexcept;
 ```
 #### 57)
 ```cpp
-[[nodiscard]] constexpr double operator""_cables(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_inches(long double value) noexcept;
 ```
 #### 58)
 ```cpp
-[[nodiscard]] constexpr double operator""_cables(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_inches(unsigned long long int value) noexcept;
 ```
 #### 59)
 ```cpp
-[[nodiscard]] constexpr double operator""_nauticalMiles(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_feet(long double value) noexcept;
 ```
 #### 60)
 ```cpp
-[[nodiscard]] constexpr double operator""_nauticalMiles(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_feet(unsigned long long int value) noexcept;
 ```
 #### 61)
 ```cpp
-[[nodiscard]] constexpr double operator""_links(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_yards(long double value) noexcept;
 ```
 #### 62)
 ```cpp
-[[nodiscard]] constexpr double operator""_links(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_yards(unsigned long long int value) noexcept;
 ```
 #### 63)
 ```cpp
-[[nodiscard]] constexpr double operator""_rods(const long double value) noexcept;
+[[nodiscard]] constexpr double operator""_chains(long double value) noexcept;
 ```
 #### 64)
 ```cpp
-[[nodiscard]] constexpr double operator""_rods(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr double operator""_chains(unsigned long long int value) noexcept;
+```
+#### 65)
+```cpp
+[[nodiscard]] constexpr double operator""_furlongs(long double value) noexcept;
+```
+#### 66)
+```cpp
+[[nodiscard]] constexpr double operator""_furlongs(unsigned long long int value) noexcept;
+```
+#### 67)
+```cpp
+[[nodiscard]] constexpr double operator""_miles(long double value) noexcept;
+```
+#### 68)
+```cpp
+[[nodiscard]] constexpr double operator""_miles(unsigned long long int value) noexcept;
+```
+#### 69)
+```cpp
+[[nodiscard]] constexpr double operator""_leagues(long double value) noexcept;
+```
+#### 70)
+```cpp
+[[nodiscard]] constexpr double operator""_leagues(unsigned long long int value) noexcept;
+```
+#### 71)
+```cpp
+[[nodiscard]] constexpr double operator""_fathoms(long double value) noexcept;
+```
+#### 72)
+```cpp
+[[nodiscard]] constexpr double operator""_fathoms(unsigned long long int value) noexcept;
+```
+#### 73)
+```cpp
+[[nodiscard]] constexpr double operator""_cables(long double value) noexcept;
+```
+#### 74)
+```cpp
+[[nodiscard]] constexpr double operator""_cables(unsigned long long int value) noexcept;
+```
+#### 75)
+```cpp
+[[nodiscard]] constexpr double operator""_nauticalMiles(long double value) noexcept;
+```
+#### 76)
+```cpp
+[[nodiscard]] constexpr double operator""_nauticalMiles(unsigned long long int value) noexcept;
+```
+#### 77)
+```cpp
+[[nodiscard]] constexpr double operator""_nauticalLeagues(long double value) noexcept;
+```
+#### 78)
+```cpp
+[[nodiscard]] constexpr double operator""_nauticalLeagues(unsigned long long int value) noexcept;
+```
+#### 79)
+```cpp
+[[nodiscard]] constexpr double operator""_links(long double value) noexcept;
+```
+#### 80)
+```cpp
+[[nodiscard]] constexpr double operator""_links(unsigned long long int value) noexcept;
+```
+#### 81)
+```cpp
+[[nodiscard]] constexpr double operator""_rods(long double value) noexcept;
+```
+#### 82)
+```cpp
+[[nodiscard]] constexpr double operator""_rods(unsigned long long int value) noexcept;
+```
+#### 83)
+```cpp
+[[nodiscard]] constexpr double operator""_perches(long double value) noexcept;
+```
+#### 84)
+```cpp
+[[nodiscard]] constexpr double operator""_perches(unsigned long long int value) noexcept;
+```
+#### 85)
+```cpp
+[[nodiscard]] constexpr double operator""_poles(long double value) noexcept;
+```
+#### 86)
+```cpp
+[[nodiscard]] constexpr double operator""_poles(unsigned long long int value) noexcept;
+```
+#### 87)
+```cpp
+[[nodiscard]] constexpr double operator""_lugs(long double value) noexcept;
+```
+#### 88)
+```cpp
+[[nodiscard]] constexpr double operator""_lugs(unsigned long long int value) noexcept;
 ```
 
 &nbsp;
