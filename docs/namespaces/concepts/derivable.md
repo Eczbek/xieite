@@ -12,5 +12,5 @@ Specifies that a type can be derived from.
 #### 1)
 ```cpp
 template<typename Type>
-concept Derivable = std::is_class_v<Type> && !std::is_final_v<Type>;
+concept Derivable = !std::is_final_v<Type>;
 ```
