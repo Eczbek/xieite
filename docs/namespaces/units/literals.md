@@ -11,4 +11,5 @@ A namespace of unit literals.
 - [(angles)](./namespaces/literals/angles.md)
 - [(areas)](./namespaces/literals/areas.md)
 - [(lengths)](./namespaces/literals/lengths.md)
+- [(temperatures)](./namespaces/literals/temperatures.md)
 - [(volumes)](./namespaces/literals/volumes.md)
