@@ -13,7 +13,8 @@
 
 namespace xieite::types {
 	[[nodiscard]] inline std::string demangle(const std::string& mangled) noexcept {
-		char* const buffer = abi::__cxa_demangle(mangled.data(), nullptr, nullptr, nullptr);
+		int status;
+		char* const buffer = abi::__cxa_demangle(mangled.data(), nullptr, nullptr, &status);
 		if (buffer) {
 			const std::string demangled = std::string(buffer);
 			std::free(buffer);
