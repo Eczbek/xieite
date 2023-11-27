@@ -6,13 +6,13 @@
 #	include <iterator>
 #	include <random>
 #	include <stdexcept>
-#	include <type_traits>
 #	include "../concepts/numeric.hpp"
 #	include "../concepts/range_of.hpp"
 #	include "../concepts/uniform_random_bit_generator.hpp"
 #	include "../math/interval.hpp"
 #	include "../math/difference.hpp"
 #	include "../math/merge_intervals.hpp"
+#	include "../random/uniform_distribution.hpp"
 
 namespace xieite::random {
 	template<xieite::concepts::Numeric Number>
@@ -35,7 +35,7 @@ namespace xieite::random {
 					this->interruptions.push_back(xieite::math::Interval<Number>(std::min(start, end), difference));
 				}
 			}
-			this->distribution = std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>>(minimum, upper);
+			this->distribution = xieite::random::UniformDistribution<Number>(minimum, upper);
 			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Number> interruption1, const xieite::math::Interval<Number> interruption2) {
 				return interruption1.start < interruption2.start;
 			});
@@ -53,7 +53,7 @@ namespace xieite::random {
 		}
 
 	private:
-		mutable std::conditional_t<std::integral<Number>, std::uniform_int_distribution<Number>, std::uniform_real_distribution<Number>> distribution;
+		mutable xieite::random::UniformDistribution<Number> distribution;
 		std::vector<xieite::math::Interval<Number>> interruptions;
 	};
 }
