@@ -12,7 +12,7 @@ Detects rare cosmic rays or a faulty memory. Even if you do intercept something,
 #### 1)
 ```cpp
 template<std::unsigned_integral Chunk = std::uintmax_t>
-constexpr void detectCosmicRay(std::size_t detectionBytes) noexcept;
+void detectCosmicRay(std::size_t bytes = xieite::memory::getPageSize()) noexcept;
 ```
 
 &nbsp;
