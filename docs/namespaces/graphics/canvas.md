@@ -20,14 +20,14 @@ struct Canvas {
 
     void print(xieite::streams::Position) const;
 
-    void clear();
+    constexpr void clear();
 
-    void draw(xieite::geometry::Point, const xieite::graphics::Color&);
+    constexpr void draw(xieite::geometry::Point, const xieite::graphics::Color&);
 
     template<xieite::concepts::LinearShape LinearShape>
-    void draw(const LinearShape&, const xieite::graphics::Color&);
+    constexpr void draw(const LinearShape&, const xieite::graphics::Color&);
 
-    void draw(const xieite::geometry::Polygon&, const xieite::graphics::Color&)
+    constexpr void draw(const xieite::geometry::Polygon&, const xieite::graphics::Color&)
 };
 ```
 ##### Member variables

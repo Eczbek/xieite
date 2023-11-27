@@ -11,5 +11,5 @@ Clears the canvas.
 ## Synopses
 #### 1)
 ```cpp
-void clear() noexcept;
+constexpr void clear(const xieite::graphics::Color& color = xieite::graphics::Color()) noexcept;
 ```

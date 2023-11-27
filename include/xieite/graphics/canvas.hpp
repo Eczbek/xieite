@@ -21,8 +21,8 @@ namespace xieite::graphics {
 		xieite::geometry::Point radii;
 		xieite::streams::StandardHandle handle;
 
-		Canvas(const xieite::geometry::Point center, const xieite::geometry::Point radii, const xieite::streams::StandardHandle handle = xieite::streams::StandardHandle(std::cin, std::cout)) noexcept
-		: center(center), radii(radii), handle(handle), data(static_cast<std::size_t>(this->radii.x * 2) + 1, std::vector<xieite::graphics::Color>(static_cast<std::size_t>(this->radii.y * 2) + 1, xieite::graphics::Color(255, 255, 255))) {}
+		constexpr Canvas(const xieite::geometry::Point center, const xieite::geometry::Point radii, const xieite::streams::StandardHandle handle = xieite::streams::StandardHandle(std::cin, std::cout)) noexcept
+		: center(center), radii(radii), handle(handle), data(static_cast<std::size_t>(this->radii.x * 2) + 1, std::vector<xieite::graphics::Color>(static_cast<std::size_t>(this->radii.y * 2) + 1)) {}
 
 		void print(const xieite::streams::Position position) const noexcept {
 			const std::size_t width = this->data.size();
@@ -40,22 +40,22 @@ namespace xieite::graphics {
 			}
 		}
 
-		void clear() noexcept {
-			for (std::vector<xieite::graphics::Color>& line : this->data) {
-				for (xieite::graphics::Color& color : line) {
-					color = xieite::graphics::Color(255, 255, 255);
+		constexpr void clear(const xieite::graphics::Color& color = xieite::graphics::Color()) noexcept {
+			for (std::vector<xieite::graphics::Color>& column : this->data) {
+				for (xieite::graphics::Color& item : column) {
+					item = color;
 				}
 			}
 		}
 
-		void draw(const xieite::geometry::Point point, const xieite::graphics::Color& color) noexcept {
+		constexpr void draw(const xieite::geometry::Point point, const xieite::graphics::Color& color) noexcept {
 			if ((point.x >= this->center.x - this->radii.x) && (point.x <= this->center.x + this->radii.x) && (point.y >= this->center.y - this->radii.y) && (point.y <= this->center.y + this->radii.y)) {
 				this->data[static_cast<std::size_t>(std::round(point.x - this->center.x + this->radii.x))][static_cast<std::size_t>(std::round(point.y - this->center.y + this->radii.y))] = color;
 			}
 		}
 
 		template<xieite::concepts::LinearShape LinearShape>
-		void draw(const LinearShape& line, const xieite::graphics::Color& color) noexcept {
+		constexpr void draw(const LinearShape& line, const xieite::graphics::Color& color) noexcept {
 			this->draw(line.start, color);
 			this->draw(line.end, color);
 			if ((line.slope() <= 1) && (line.slope() >= -1)) {
@@ -81,7 +81,7 @@ namespace xieite::graphics {
 			}
 		}
 
-		void draw(const xieite::geometry::Polygon& polygon, const xieite::graphics::Color& color) noexcept {
+		constexpr void draw(const xieite::geometry::Polygon& polygon, const xieite::graphics::Color& color) noexcept {
 			for (const xieite::geometry::Segment& side : polygon.sides()) {
 				this->draw(side, color);
 			}
