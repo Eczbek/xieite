@@ -42,18 +42,18 @@ namespace xieite::random {
 		}
 
 		template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator>
-		[[nodiscard]] Number operator()(UniformRandomBitGenerator& generator) const noexcept {
+		[[nodiscard]] Number operator()(UniformRandomBitGenerator& generator) noexcept {
 			Number result = this->distribution(generator);
 			for (const xieite::math::Interval<Number> interruption : this->interruptions) {
 				if (result >= interruption.start) {
-					result += (interruption.end + std::integral<Number>);
+					result += interruption.end + std::integral<Number>;
 				}
 			}
 			return result;
 		}
 
 	private:
-		mutable xieite::random::UniformDistribution<Number> distribution;
+		xieite::random::UniformDistribution<Number> distribution;
 		std::vector<xieite::math::Interval<Number>> interruptions;
 	};
 }
