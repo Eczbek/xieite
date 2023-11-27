@@ -6,6 +6,7 @@
 namespace xieite::strings {
 	[[nodiscard]] constexpr bool isDigit(const char character) noexcept {
 		return (character >= '0') && (character <= '9');
+		// Apparently digits are guaranteed to be in order
 	}
 }
 
