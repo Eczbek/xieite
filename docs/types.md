@@ -16,7 +16,6 @@ Utilities for type information and metaprogramming.
 - [MaybeUnsigned](./namespaces/types/maybe_unsigned.md)
 - [Partial](./namespaces/types/partial.md)
 - [Placeholder](./namespaces/types/placeholder.md)
-- [count](./namespaces/types/count.md)
 - [demangle](./namespaces/types/demangle.md)
 - [name](./namespaces/types/name.md)
 - [sizeBits](./namespaces/types/size_bits.md)
