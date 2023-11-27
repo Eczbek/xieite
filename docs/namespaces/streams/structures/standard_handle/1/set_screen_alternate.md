@@ -1,17 +1,17 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setCursorAlternative
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setScreenAlternate
 Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
 ## Description
-Enables or disables the alternative cursor. The alternative cursor starts at the original cursor's position.
+Enables or disables the Alternate screen.
 
 &nbsp;
 
 ## Synopses
 #### 1)
 ```cpp
-void setCursorAlternative(bool value) const noexcept;
+void setScreenAlternate(bool value) const noexcept;
 ```
 
 &nbsp;
@@ -24,9 +24,9 @@ void setCursorAlternative(bool value) const noexcept;
 int main() {
     auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
 
-    terminal.setCursorAlternative(true);
+    terminal.setScreenAlternate(true);
     std::cout << "Hello, ";
-    terminal.setCursorAlternative(false);
+    terminal.setScreenAlternate(false);
     std::cout << "world!\n";
 }
 ```

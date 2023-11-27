@@ -175,11 +175,11 @@ namespace xieite::streams {
 			this->outputStream << "\1\x1B[" << (6 - blink) << " q\2";
 		}
 
-		void setCursorAlternative(const bool value) const noexcept {
+		void setCursorAlternate(const bool value) const noexcept {
 			this->outputStream << "\x1B[" << "us"[value];
 		}
 
-		void setScreenAlternative(const bool value) const noexcept {
+		void setScreenAlternate(const bool value) const noexcept {
 			this->outputStream << "\x1B[?47" << "lh"[value];
 		}
 

@@ -65,9 +65,9 @@ struct StandardHandle {
 
     void setCursorShapePipe(bool) const;
 
-    void setCursorAlternative(bool) const;
+    void setCursorAlternate(bool) const;
 
-    void setScreenAlternative(bool) const;
+    void setScreenAlternate(bool) const;
 
     xieite::streams::Position getScreenSize() const;
 
@@ -120,8 +120,8 @@ struct StandardHandle {
 - [setCursorPosition](./structures/standard_handle/1/set_cursor_position.md)
 - [moveCursorPosition](./structures/standard_handle/1/move_cursor_position.md)
 - [setCursorVisible](./structures/standard_handle/1/set_cursor_visible.md)
-- [setCursorAlternative](./structures/standard_handle/1/set_cursor_alternative.md)
-- [setScreenAlternative](./structures/standard_handle/1/set_screen_alternative.md)
+- [setCursorAlternate](./structures/standard_handle/1/set_cursor_alternate.md)
+- [setScreenAlternate](./structures/standard_handle/1/set_screen_alternate.md)
 - [getScreenSize](./structures/standard_handle/1/get_screen_size.md)
 - [putBackString](./structures/standard_handle/1/put_back_string.md)
 - [clearScreen](./structures/standard_handle/1/clear_screen.md)
