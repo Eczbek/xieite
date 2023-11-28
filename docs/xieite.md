@@ -14,6 +14,7 @@
 - [metadata](./metadata.md)
 - [network](./network.md)
 - [random](./random.md)
+- [streams](./streams.md)
 - [strings](./strings.md)
 - [system](./system.md)
 - [threads](./threads.md)
