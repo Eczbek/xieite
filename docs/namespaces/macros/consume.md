@@ -4,7 +4,7 @@ Defined in header [<xieite/macros/consume.hpp>](../../../include/xieite/macros/c
 &nbsp;
 
 ## Description
-Consumes expressions and returns nothing.
+Consumes expressions and expands to nothing.
 
 &nbsp;
 

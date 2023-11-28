@@ -4,4 +4,4 @@ Defined in header [<xieite/macros/language_standard.hpp>](../../../include/xieit
 &nbsp;
 
 ## Description
-Macros for identifying the current C/C++ language standard. See header file for definitions.
+Macros for identifying the current C or C++ language standard. See header file for definitions.

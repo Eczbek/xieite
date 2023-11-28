@@ -4,7 +4,7 @@ Defined in header [<xieite/macros/platform.hpp>](../../../include/xieite/macros/
 &nbsp;
 
 ## Description
-Macros for identifying the current platform/OS. See header file for definitions.
+Macros for identifying the current platform or operating system. See header file for definitions.
 
 &nbsp;
 
