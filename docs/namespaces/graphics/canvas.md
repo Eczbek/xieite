@@ -4,7 +4,7 @@ Defined in header [<xieite/graphics/canvas.hpp>](../../../include/xieite/graphic
 &nbsp;
 
 ## Description
-A canvas for drawing shapes to the terminal.
+A canvas for drawing shapes and possibly printing to the terminal.
 
 &nbsp;
 
@@ -14,11 +14,10 @@ A canvas for drawing shapes to the terminal.
 struct Canvas {
     xieite::geometry::Point center;
     xieite::geometry::Point radii;
-    xieite::streams::StandardHandle handle;
 
-    constexpr Canvas(xieite::geometry::Point, xieite::geometry::Point, xieite::streams::StandardHandle = xieite::streams::StandardHandle(std::cin, std::cout));
+    constexpr Canvas(xieite::geometry::Point, xieite::geometry::Point);
 
-    void print(xieite::streams::Position) const;
+    void print(xieite::streams::StandardHandle, xieite::streams::Position = xieite::streams::Position(0, 0)) const;
 
     constexpr void clear();
 
@@ -33,7 +32,6 @@ struct Canvas {
 ##### Member variables
 - canter
 - radii
-- handle
 ##### Member functions
 - [Canvas](./structures/canvas/1/operators/constructor.md)
 - [print](./structures/canvas/1/print.md)

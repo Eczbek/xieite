@@ -4,12 +4,12 @@ Defined in header [<xieite/graphics/color.hpp>](../../../../../../include/xieite
 &nbsp;
 
 ## Description
-Prints the canvas to its streams handle.
+Prints the canvas to a streams handle.
 
 &nbsp;
 
 ## Synopses
 #### 1)
 ```cpp
-void print(xieite::streams::Position position) const noexcept;
+void print(xieite::streams::StandardHandle handle, xieite::streams::Position position = xieite::streams::Position(0, 0)) const noexcept;
 ```

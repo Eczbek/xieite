@@ -11,5 +11,5 @@ Constructs a `xieite::graphics::Canvas`.
 ## Synopses
 #### 1)
 ```cpp
-constexpr Canvas(xieite::geometry::Point center, xieite::geometry::Point radii, xieite::streams::StandardHandle handle = xieite::streams::StandardHandle(std::cin, std::cout)) noexcept;
+constexpr Canvas(xieite::geometry::Point center, xieite::geometry::Point radii) noexcept;
 ```
