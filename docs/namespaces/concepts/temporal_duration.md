@@ -12,5 +12,5 @@ Specifies that a type is a `std::chrono::duration`.
 #### 1)
 ```cpp
 template<typename Type>
-concept TemporalDuration = xieite::traits::TemporalDuration<Type>::value;
+concept TemporalDuration = xieite::traits::IsTemporalDuration<Type>::value;
 ```

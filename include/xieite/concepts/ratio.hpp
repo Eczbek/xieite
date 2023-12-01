@@ -1,11 +1,11 @@
 #ifndef XIEITE_HEADER_CONCEPTS_RATIO
 #	define XIEITE_HEADER_CONCEPTS_RATIO
 
-#	include "../traits/ratio.hpp"
+#	include "../traits/is_ratio.hpp"
 
 namespace xieite::concepts {
 	template<typename Type>
-	concept Ratio = xieite::traits::Ratio<Type>::value;
+	concept Ratio = xieite::traits::IsRatio<Type>::value;
 }
 
 #endif

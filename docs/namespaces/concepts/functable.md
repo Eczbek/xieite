@@ -12,7 +12,7 @@ Specifies that a type is a functor which accepts and returns specific types.
 #### 1)
 ```cpp
 template<typename Functor, typename Pointer>
-concept Functable = xieite::traits::Functable<Functor, Pointer>::value;
+concept Functable = xieite::traits::IsFunctable<Functor, Pointer>::value;
 ```
 
 &nbsp;
