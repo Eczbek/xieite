@@ -11,7 +11,7 @@ An enumeration of angle units.
 ## Synopses
 #### 1)
 ```cpp
-enum struct Angle {
+enum Angle {
 	radian,
 	degree
 };

@@ -11,7 +11,7 @@ An enumeration of volume units.
 ## Synopses
 #### 1)
 ```cpp
-enum struct Volume {
+enum Volume {
 	quectolitre,
 	rontolitre,
 	yoctolitre,

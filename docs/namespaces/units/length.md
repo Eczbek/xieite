@@ -11,7 +11,7 @@ An enumeration of length units.
 ## Synopses
 #### 1)
 ```cpp
-enum struct Length {
+enum Length {
 	quectometre,
 	rontometre,
 	yoctometre,

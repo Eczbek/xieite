@@ -11,7 +11,7 @@ An enumeration of temperature units.
 ## Synopses
 #### 1)
 ```cpp
-enum struct Temperature {
+enum Temperature {
 	kelvin,
 	celsius,
 	fahrenheit,

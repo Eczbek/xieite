@@ -11,7 +11,7 @@ An enumeration of area units.
 ## Synopses
 #### 1)
 ```cpp
-enum struct Area {
+enum Area {
 	quectometre,
 	rontometre,
 	yoctometre,
