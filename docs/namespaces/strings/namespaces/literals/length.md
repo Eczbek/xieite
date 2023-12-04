@@ -1,4 +1,4 @@
-# [xieite](../../../../xieite.md)\:\:[strings](../../../strings.md)\:\:[literals](../literals.md)\:\:\_length
+# [xieite](../../../../xieite.md)\:\:[strings](../../../../strings.md)\:\:[literals](../literals.md)\:\:\_length
 Defined in header [<xieite/strings/literals/length.hpp>](../../../../../include/xieite/strings/literals/length.hpp)
 
 &nbsp;
