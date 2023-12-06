@@ -10,7 +10,7 @@ constexpr operator const Type&() const& noexcept;
 ```
 #### 2)
 ```cpp
-constexpr operator Type&() & noexcept;
+constexpr operator Type&()& noexcept;
 ```
 #### 3)
 ```cpp
@@ -18,5 +18,5 @@ constexpr operator const Type&&() const&& noexcept;
 ```
 #### 4)
 ```cpp
-constexpr operator Type&&() && noexcept;
+constexpr operator Type&&()&& noexcept;
 ```
