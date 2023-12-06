@@ -42,8 +42,6 @@ Common concepts.
 - [RangeOf](./namespaces/concepts/range_of.md)
 - [SameAsAll](./namespaces/concepts/same_as_all.md)
 - [SameAsAny](./namespaces/concepts/same_as_any.md)
-- [SameAsNone](./namespaces/concepts/same_as_none.md)
-- [SameAsNotAll](./namespaces/concepts/same_as_not_all.md)
 - [Stream](./namespaces/concepts/stream.md)
 - [StreamableIn](./namespaces/concepts/streamable_in.md)
 - [StreamableOut](./namespaces/concepts/streamable_out.md)
