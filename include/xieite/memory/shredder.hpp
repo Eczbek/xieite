@@ -20,7 +20,7 @@ namespace xieite::memory {
 			return this->value;
 		}
 
-		constexpr operator Type&() & noexcept {
+		constexpr operator Type&()& noexcept {
 			return this->value;
 		}
 
@@ -28,7 +28,7 @@ namespace xieite::memory {
 			return std::move(this->value);
 		}
 
-		constexpr operator Type&&() && noexcept {
+		constexpr operator Type&&()&& noexcept {
 			return std::move(this->value);
 		}
 

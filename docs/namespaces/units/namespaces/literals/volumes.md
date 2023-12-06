@@ -4,7 +4,7 @@ Defined in header [<xieite/units/literals/volumes.hpp>](../../../../../include/x
 &nbsp;
 
 ## Description
-A colletion of literals for volume units. **LITER**als. LOL
+A colletion of literals for volume units.
 
 &nbsp;
 

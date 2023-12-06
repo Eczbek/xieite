@@ -21,11 +21,11 @@ struct Shredder {
 
     constexpr operator const Type&() const&;
 
-    constexpr operator Type&() &;
+    constexpr operator Type&()&;
 
     constexpr operator const Type&&() const&&;
 
-    constexpr operator Type&&() &&;
+    constexpr operator Type&&()&&;
 };
 ```
 ##### Member functions
@@ -47,7 +47,7 @@ int main() {
     std::cout << b << '\n';
 
     {
-        int c = 4;
+        xieite::memory::Shredder<int> c = 4;
     }
     int d;
     std::cout << d << '\n';
