@@ -101,11 +101,11 @@ namespace xieite::units::literals {
 		return xieite::units::convert(value, xieite::units::Area::squareDecimetre, xieite::units::Area::squareMetre);
 	}
 
-	[[nodiscard]] constexpr double operator""_squaremetres(const long double value) noexcept {
+	[[nodiscard]] constexpr double operator""_squareMetres(const long double value) noexcept {
 		return value;
 	}
 
-	[[nodiscard]] constexpr double operator""_squaremetres(const unsigned long long int value) noexcept {
+	[[nodiscard]] constexpr double operator""_squareMetres(const unsigned long long int value) noexcept {
 		return static_cast<double>(value);
 	}
 

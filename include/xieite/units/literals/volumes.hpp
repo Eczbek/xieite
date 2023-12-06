@@ -101,11 +101,11 @@ namespace xieite::units::literals {
 		return xieite::units::convert(value, xieite::units::Volume::cubicDecimetre, xieite::units::Volume::cubicMetre);
 	}
 
-	[[nodiscard]] constexpr double operator""_cubicmetres(const long double value) noexcept {
+	[[nodiscard]] constexpr double operator""_cubicMetres(const long double value) noexcept {
 		return value;
 	}
 
-	[[nodiscard]] constexpr double operator""_cubicmetres(const unsigned long long int value) noexcept {
+	[[nodiscard]] constexpr double operator""_cubicMetres(const unsigned long long int value) noexcept {
 		return static_cast<double>(value);
 	}
 
