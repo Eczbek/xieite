@@ -4,7 +4,7 @@ Defined in header [<xieite/types/fixed_matrix.hpp>](../../../include/xieite/type
 &nbsp;
 
 ## Description
-A structure for generating multidimensional types of fixed size.
+A structure for generating multidimensional containers of fixed size.
 
 &nbsp;
 

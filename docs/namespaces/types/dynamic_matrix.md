@@ -4,7 +4,7 @@ Defined in header [<xieite/types/dynamic_matrix.hpp>](../../../include/xieite/ty
 &nbsp;
 
 ## Description
-A structure for generating dynamic multidimensional types.
+A structure for generating dynamic multidimensional containers.
 
 &nbsp;
 
