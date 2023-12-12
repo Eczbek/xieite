@@ -11,7 +11,7 @@ namespace xieite::functors {
 	constexpr void templatify(const std::uint8_t value) noexcept {
 		([value]<std::size_t... indices>(std::index_sequence<indices...>) {
 			(..., ([value] {
-				constexpr std::uint8_t index = static_cast<std::uint8_t>(indices);
+				static constexpr std::uint8_t index = static_cast<std::uint8_t>(indices);
 				if (value == index) {
 					Functor<index>()();
 				}

@@ -8,8 +8,8 @@
 namespace xieite::math {
 	template<std::unsigned_integral UnsignedInteger>
 	[[nodiscard]] constexpr xieite::math::Product<UnsignedInteger> multiply(const UnsignedInteger multiplier, const UnsignedInteger multiplicand) noexcept {
-		constexpr UnsignedInteger halfSize = std::numeric_limits<UnsignedInteger>::digits / 2;
-		constexpr UnsignedInteger halfBits = std::numeric_limits<UnsignedInteger>::max() >> halfSize;
+		static constexpr UnsignedInteger halfSize = std::numeric_limits<UnsignedInteger>::digits / 2;
+		static constexpr UnsignedInteger halfBits = std::numeric_limits<UnsignedInteger>::max() >> halfSize;
 		const UnsignedInteger foo = multiplier & halfBits;
 		const UnsignedInteger bar = multiplier >> halfSize;
 		const UnsignedInteger baz = multiplicand & halfBits;
