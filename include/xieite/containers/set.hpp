@@ -25,11 +25,7 @@ namespace xieite::containers {
 		constexpr Set(const std::initializer_list<Key> keys) noexcept
 		: array(makeArray<Key, size>(keys)) {}
 
-		[[nodiscard]] constexpr const Key& operator[](const Key& key) const {
-			return this->contains(key);
-		}
-
-		[[nodiscard]] constexpr Key& operator[](const Key& key) {
+		[[nodiscard]] constexpr bool operator[](const Key& key) const noexcept {
 			return this->contains(key);
 		}
 

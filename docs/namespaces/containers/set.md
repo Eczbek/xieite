@@ -21,9 +21,7 @@ public:
 
     constexpr Set(std::initializer_list<Key>);
 
-    constexpr const Value& operator[](const Key&) const;
-
-    constexpr Value& operator[](const Key&);
+    constexpr bool operator[](const Key&) const;
 
     constexpr std::array<Key, size>::const_iterator begin() const;
 
@@ -38,6 +36,13 @@ public:
     constexpr const std::array<Key, size>& data() const;
 };
 ```
+##### Member functions
+- [Map](./structures/set/1/operators/constructor.md)
+- [operator\[\]](./structures/set/1/operators/array_subscript.md)
+- [begin](./structures/set/1/begin.md)
+- [end](./structures/set/1/end.md)
+- [contains](./structures/set/1/contains.md)
+- [data](./structures/set/1/data.md)
 
 &nbsp;
 

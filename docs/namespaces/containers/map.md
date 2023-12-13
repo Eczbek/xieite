@@ -38,6 +38,14 @@ public:
     constexpr const std::array<std::pair<Key, Value>, size>& data() const;
 };
 ```
+##### Member functions
+- [Map](./structures/map/1/operators/constructor.md)
+- [operator\[\]](./structures/map/1/operators/array_subscript.md)
+- [begin](./structures/map/1/begin.md)
+- [end](./structures/map/1/end.md)
+- [contains](./structures/map/1/contains.md)
+- [data](./structures/map/1/data.md)
+
 
 &nbsp;
 

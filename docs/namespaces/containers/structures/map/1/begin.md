@@ -1,0 +1,18 @@
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Map<Key, Value, size, Hash, KeyEqual, Allocator>](../../../../map.md)\:\:begin
+Defined in header [<xieite/containers/map.hpp>](../../../../../../../include/xieite/containers/map.hpp)
+
+&nbsp;
+
+Returns an iterator to the beginning of the map's entries.
+
+&nbsp;
+
+## Synopses
+#### 1)
+```cpp
+[[nodiscard]] constexpr std::array<std::pair<Key, Value>, size>::const_iterator begin() const noexcept;
+```
+#### 2)
+```cpp
+[[nodiscard]] constexpr std::array<std::pair<Key, Value>, size>::iterator begin() noexcept;
+```
