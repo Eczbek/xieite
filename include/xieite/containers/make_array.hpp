@@ -13,7 +13,7 @@ namespace xieite::containers {
 	[[nodiscard]] constexpr std::array<Value, size> makeArray(const Range& range) noexcept {
 		return std::array<Value, size>(([&range]<std::size_t... indices>(std::index_sequence<indices...>) {
 			return std::array<Value, size> {
-				*std::ranges::next(std::ranges::begin(range), indices, std::ranges::end(range))...
+				static_cast<Value>(*std::ranges::next(std::ranges::begin(range), indices, std::ranges::end(range)))...
 			};
 		})(std::make_index_sequence<size>()));
 	}
