@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_MEMORY_SHREDDER
 
 #	include <concepts>
-#	include <cstring>
+#	include <cstddef>
 #	include <utility>
 
 namespace xieite::memory {
@@ -34,7 +34,10 @@ namespace xieite::memory {
 
 		constexpr ~Shredder() {
 			if !consteval {
-				std::memset(&this->value, 0, sizeof(this->value));
+				volatile std::byte* const byte = reinterpret_cast<std::byte*>(&this->value);
+				for (std::size_t i = 0; i < sizeof(Type); ++i) {
+					byte[i] = 0;
+				}
 			}
 		}
 
