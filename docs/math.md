@@ -37,6 +37,7 @@ Mathematical types and functions.
 - [divideUp](./namespaces/math/divide_up.md)
 - [factorial](./namespaces/math/factorial.md)
 - [farthestFrom](./namespaces/math/farthest_from.md)
+- [fibonacci](./namespaces/math/fibonacci.md)
 - [floor](./namespaces/math/floor.md)
 - [fromBase](./namespaces/math/from_base.md)
 - [isPowerOf2](./namespaces/math/is_power_of_2.md)

@@ -4,14 +4,14 @@ Defined in header [<xieite/math/factorial.hpp>](../../../include/xieite/math/fac
 &nbsp;
 
 ## Description
-Calculates the factorial of a value.
+A lookup table of factorials.
 
 &nbsp;
 
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::size_t factorial(std::size_t value) noexcept;
+inline constexpr auto factorial = /* std::array<std::size_t, N> { ... } */
 ```
 
 &nbsp;
@@ -22,7 +22,7 @@ Calculates the factorial of a value.
 #include <xieite/math/factorial.hpp>
 
 int main() {
-    std::cout << xieite::math::factorial(17) << '\n';
+    std::cout << xieite::math::factorial.at(17) << '\n';
 }
 ```
 Output:
