@@ -35,6 +35,7 @@ Mathematical types and functions.
 - [divideDown](./namespaces/math/divide_down.md)
 - [divideFloor](./namespaces/math/divide_floor.md)
 - [divideUp](./namespaces/math/divide_up.md)
+- [factorial](./namespaces/math/factorial.md)
 - [farthestFrom](./namespaces/math/farthest_from.md)
 - [floor](./namespaces/math/floor.md)
 - [fromBase](./namespaces/math/from_base.md)
