@@ -5,7 +5,7 @@
 #	include <cstddef>
 #	include <string_view>
 #	include "../concepts/arithmetic.hpp"
-#	include "../strings/is_digit.hpp"
+#	include "../strings/digit.hpp"
 #	include "../strings/trim.hpp"
 #	include "../strings/whitespaces.hpp"
 
@@ -13,19 +13,19 @@ namespace xieite::strings {
 	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]] constexpr Number validNumber(std::string_view value) noexcept {
 		value = xieite::strings::trim(value, xieite::strings::whitespaces);
-		if (!xieite::strings::isDigit(value[0]) && (value[0] != '+') && (value[0] != '-')) {
+		if (!xieite::strings::digit(value[0]) && (value[0] != '+') && (value[0] != '-')) {
 			return false;
 		}
 		if constexpr (std::integral<Number>) {
 			for (std::size_t i = 1; i < value.size(); ++i) {
-				if (!xieite::strings::isDigit(value[i])) {
+				if (!xieite::strings::digit(value[i])) {
 					return false;
 				}
 			}
 		} else {
 			bool point = false;
 			for (std::size_t i = 1; i < value.size(); ++i) {
-				if (xieite::strings::isDigit(value[i])) {
+				if (xieite::strings::digit(value[i])) {
 					continue;
 				} else if (!point && (value[i] == '.')) {
 					point = true;

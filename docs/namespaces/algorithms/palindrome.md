@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isPalindrome
-Defined in header [<xieite/algorithms/is_palindrome.hpp>](../../../include/xieite/algorithms/is_palindrome.hpp)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:palindrome
+Defined in header [<xieite/algorithms/palindrome.hpp>](../../../include/xieite/algorithms/palindrome.hpp)
 
 &nbsp;
 
@@ -12,13 +12,13 @@ Checks if a range is the same backwards as it is forwards, or if an integer can 
 #### 1)
 ```cpp
 template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::equal_to>
-[[nodiscard]] constexpr bool isPalindrome(const Range& range, const Functor& comparator = Functor())
+[[nodiscard]] constexpr bool palindrome(const Range& range, const Functor& comparator = Functor())
 noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>>);
 ```
 #### 2)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] constexpr bool isPalindrome(Integer value, std::size_t base = 10) noexcept;
+[[nodiscard]] constexpr bool palindrome(Integer value, std::size_t base = 10) noexcept;
 ```
 
 &nbsp;
@@ -27,7 +27,7 @@ template<std::integral Integer>
 ```cpp
 #include <iostream>
 #include <string>
-#include <xieite/algorithms/is_palindrome.hpp>
+#include <xieite/algorithms/palindrome.hpp>
 
 int main() {
     std::string string1 = "racecar";
@@ -37,10 +37,10 @@ int main() {
 
     std::cout
         << std::boolalpha
-        << xieite::algorithms::isPalindrome(string1) << '\n'
-        << xieite::algorithms::isPalindrome(string2) << '\n'
-        << xieite::algorithms::isPalindrome(integer1) << '\n'
-        << xieite::algorithms::isPalindrome(integer2) << '\n';
+        << xieite::algorithms::palindrome(string1) << '\n'
+        << xieite::algorithms::palindrome(string2) << '\n'
+        << xieite::algorithms::palindrome(integer1) << '\n'
+        << xieite::algorithms::palindrome(integer2) << '\n';
 }
 ```
 Output:

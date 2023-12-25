@@ -1,12 +1,12 @@
-#ifndef XIEITE_HEADER_MATH_IS_PRIME
-#	define XIEITE_HEADER_MATH_IS_PRIME
+#ifndef XIEITE_HEADER_MATH_PRIME
+#	define XIEITE_HEADER_MATH_PRIME
 
 #	include <cmath>
 #	include "../concepts/integer.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Integer Integer>
-	constexpr bool isPrime(const Integer value) noexcept {
+	constexpr bool prime(const Integer value) noexcept {
 		if (value < 4) {
 			return value > 1;
 		}

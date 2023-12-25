@@ -6,7 +6,7 @@
 #	include <cstddef>
 #	include <string_view>
 #	include "../concepts/arithmetic.hpp"
-#	include "../strings/is_digit.hpp"
+#	include "../strings/digit.hpp"
 #	include "../strings/trim.hpp"
 #	include "../strings/whitespaces.hpp"
 
@@ -17,7 +17,7 @@ namespace xieite::strings {
 		const bool negative = value[0] == '-';
 		if constexpr (std::integral<Number>) {
 			Number result = 0;
-			for (std::size_t i = negative || (value[0] == '+'); (i < value.size()) && xieite::strings::isDigit(value[i]); ++i) {
+			for (std::size_t i = negative || (value[0] == '+'); (i < value.size()) && xieite::strings::digit(value[i]); ++i) {
 				result = result * 10 + (value[i] - '0');
 			}
 			return negative ? -result : result;
@@ -27,7 +27,7 @@ namespace xieite::strings {
 			Number decimal = 0;
 			int power = 0;
 			for (std::size_t i = negative || (value[0] == '+'); i < value.size(); ++i) {
-				if (xieite::strings::isDigit(value[i])) {
+				if (xieite::strings::digit(value[i])) {
 					Number& part = (point ? decimal : integer);
 					part = part * 10 + (value[i] - '0');
 				} else if ((value[i] == '.')) {
