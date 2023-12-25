@@ -16,15 +16,16 @@ namespace xieite::strings {
 		if (!xieite::strings::digit(value[0]) && (value[0] != '+') && (value[0] != '-')) {
 			return false;
 		}
+		const std::size_t valueSize = value.size();
 		if constexpr (std::integral<Number>) {
-			for (std::size_t i = 1; i < value.size(); ++i) {
+			for (std::size_t i = 1; i < valueSize; ++i) {
 				if (!xieite::strings::digit(value[i])) {
 					return false;
 				}
 			}
 		} else {
 			bool point = false;
-			for (std::size_t i = 1; i < value.size(); ++i) {
+			for (std::size_t i = 1; i < valueSize; ++i) {
 				if (xieite::strings::digit(value[i])) {
 					continue;
 				} else if (!point && (value[i] == '.')) {

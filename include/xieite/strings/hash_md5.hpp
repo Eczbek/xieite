@@ -28,7 +28,8 @@ namespace xieite::strings {
 		padded.emplace_back((length >> 40) & 255);
 		padded.emplace_back((length >> 48) & 255);
 		padded.emplace_back(length >> 56);
-		for (std::size_t i = 0; i < padded.size(); i += 64) {
+		const std::size_t paddedSize = padded.size();
+		for (std::size_t i = 0; i < paddedSize; i += 64) {
 			std::array<std::uint64_t, 16> chunks;
 			for (std::size_t j = 0; j < 16; ++j) {
 				chunks[j] = 0;
