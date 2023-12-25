@@ -4,15 +4,15 @@ Defined in header [<xieite/math/subtraction_overflows.hpp>](../../../include/xie
 &nbsp;
 
 ## Description
-Checks if the subtraction of two values will overflow or underflow their type.
+Checks if the subtraction of two values will overflow or underflow their type, or is not representable.
 
 &nbsp;
 
 ## Synopses
 #### 1)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr bool subtractionOverflows(const Integer value1, const Integer value2) noexcept;
+template<xieite::concepts::Arithmetic Number>
+[[nodiscard]] constexpr bool subtractionOverflows(const Number value1, const Number value2) noexcept;
 ```
 
 &nbsp;
