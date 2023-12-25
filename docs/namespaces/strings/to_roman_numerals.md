@@ -12,7 +12,7 @@ Converts a number to roman numerals.
 #### 1)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] constexpr std::string toRomanNumerals(const Integer value) noexcept;
+[[nodiscard]] constexpr std::string toRomanNumerals(Integer value) noexcept;
 ```
 
 &nbsp;
