@@ -25,6 +25,7 @@ namespace xieite::math {
 			}
 		} else {
 			const unsigned int absoluteRadix = xieite::math::absolute(radix);
+			const std::size_t digitsSize = digits.size();
 			while (value) {
 				Integer remainder = value % radix;
 				value /= radix;
@@ -32,7 +33,7 @@ namespace xieite::math {
 					remainder += absoluteRadix;
 					++value;
 				}
-				result = digits[remainder * (remainder < digits.size())] + result;
+				result = digits[remainder * (remainder < digitsSize)] + result;
 			}
 		}
 		if (xieite::math::negative(value)) {

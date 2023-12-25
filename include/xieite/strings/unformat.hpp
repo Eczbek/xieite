@@ -22,8 +22,10 @@ namespace xieite::strings {
 		std::size_t nextIndex = 0;
 		std::size_t i = 0;
 		std::size_t j = 0;
-		while ((i < format.size()) && (j < input.size())) {
-			if ((format[i] == '{') && ((format.size() - i) > 1) && (format[i + 1] == '{') || (format[i] == '}') && ((format.size() - i) > 1) && (format[i + 1] == '}')) {
+		const std::size_t formatSize = format.size();
+		const std::size_t inputSize = input.size();
+		while ((i < formatSize) && (j < inputSize)) {
+			if ((format[i] == '{') && ((formatSize - i) > 1) && (format[i + 1] == '{') || (format[i] == '}') && ((formatSize - i) > 1) && (format[i + 1] == '}')) {
 				++i;
 			} else if (format[i] == '{') {
 				++i;
@@ -47,10 +49,12 @@ namespace xieite::strings {
 				if (index >= sizeof...(Types)) {
 					throw std::invalid_argument("Placeholder index out of range");
 				}
-				const std::size_t inputEnd = ((format.size() - i) > 1) ? input.find(format[i + 1], j) : std::string_view::npos;
+				const std::size_t inputEnd = ((formatSize - i) > 1) ? input.find(format[i + 1], j) : std::string_view::npos;
 				const std::size_t inputLength = (inputEnd != std::string_view::npos) ? (inputEnd - j) : std::string_view::npos;
 				strings[index] = input.substr(j, inputLength);
 				j = inputEnd - 1;
+			} else if (format[i] != input[j]) {
+				throw std::invalid_argument("Input does not match format");
 			}
 			++i;
 			++j;

@@ -40,7 +40,7 @@ namespace xieite::strings {
 					break;
 				}
 			}
-			return (!negative * 2 - 1) * (integer + decimal / std::pow(10, std::floor(std::log10(decimal)) + 1)) * std::pow(10, power);
+			return (!negative * 2 - 1) * (integer + decimal / std::pow(10, std::floor(std::log10(decimal + !decimal)) + 1)) * std::pow(10, power);
 		}
 	}
 }

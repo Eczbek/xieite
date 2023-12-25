@@ -638,9 +638,10 @@ namespace xieite::math {
 					result += std::string(1, digits[0]) + digits[1];
 				}
 			} else {
+				const std::size_t digitsSize = digits.size();
 				while (absolute) {
 					const std::size_t index = absolute % radix;
-					result = digits[index * (index < digits.size())] + result;
+					result = digits[index * (index < digitsSize)] + result;
 					absolute /= radix;
 				}
 			}
