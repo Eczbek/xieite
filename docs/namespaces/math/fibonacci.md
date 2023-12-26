@@ -11,7 +11,8 @@ A lookup table of the fibonacci sequence.
 ## Synopses
 #### 1)
 ```cpp
-inline constexpr auto fibonacci = /* std::array<std::size_t, N> { ... } */
+template<xieite::concepts::Arithmetic Number>
+inline constexpr auto fibonacci = /* std::array<Number, N> { ... } */
 ```
 
 &nbsp;
@@ -22,7 +23,7 @@ inline constexpr auto fibonacci = /* std::array<std::size_t, N> { ... } */
 #include <xieite/math/fibonacci.hpp>
 
 int main() {
-    std::cout << xieite::math::fibonacci.at(45) << '\n';
+    std::cout << xieite::math::fibonacci<std::size_t>[45] << '\n';
 }
 ```
 Output:

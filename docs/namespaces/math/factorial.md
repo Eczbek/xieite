@@ -11,7 +11,8 @@ A lookup table of factorials.
 ## Synopses
 #### 1)
 ```cpp
-inline constexpr auto factorial = /* std::array<std::size_t, N> { ... } */
+template<xieite::concepts::Arithmetic Number>
+inline constexpr auto factorial = /* std::array<Number, N> { ... } */
 ```
 
 &nbsp;
@@ -22,7 +23,7 @@ inline constexpr auto factorial = /* std::array<std::size_t, N> { ... } */
 #include <xieite/math/factorial.hpp>
 
 int main() {
-    std::cout << xieite::math::factorial.at(17) << '\n';
+    std::cout << xieite::math::factorial<std::size_t>[17] << '\n';
 }
 ```
 Output:
