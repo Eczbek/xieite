@@ -33,7 +33,7 @@ namespace xieite::strings {
 				if (indexEnd == std::string_view::npos) {
 					throw std::invalid_argument("Last indexed placeholder not terminated");
 				}
-				const std::string_view indexString = trim(format.substr(i, indexEnd - i), whitespaces);
+				const std::string_view indexString = format.substr(i, indexEnd - i);
 				i = indexEnd;
 				if (!indicesDecided) {
 					indicesDecided = true;
