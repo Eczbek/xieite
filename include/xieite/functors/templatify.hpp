@@ -3,6 +3,7 @@
 
 #	include <cstdint>
 #	include <cstddef>
+#	include <functional>
 #	include <limits>
 #	include <utility>
 
@@ -13,7 +14,7 @@ namespace xieite::functors {
 			(..., ([value] {
 				static constexpr std::uint8_t index = static_cast<std::uint8_t>(indices);
 				if (value == index) {
-					Functor<index>()();
+					std::invoke(Functor<index>());
 				}
 			})());
 		})(std::make_index_sequence<static_cast<std::size_t>(std::numeric_limits<std::uint8_t>::max()) + 1>());

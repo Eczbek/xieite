@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Set
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:FixedSet
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -23,7 +23,7 @@ using Set = List<Types...>::Erase<index>::template Insert<index, OtherType>;
 #include <xieite/types/name.hpp>
 
 int main() {
-    using List = xieite::types::List<int, char, short, long>::Set<2, float>;
+    using List = xieite::types::List<int, char, short, long>::FixedSet<2, float>;
 
     std::cout << xieite::types::name<List>() << '\n';
 }

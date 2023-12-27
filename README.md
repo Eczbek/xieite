@@ -10,7 +10,7 @@ This project extends the standard library and provides an organized collection o
 - [xieite::types::List](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/types/list.md)
 - [xieite::strings::unformat](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/strings/unformat.md)
 - [xieite::random::UniformInterruptableDistribution](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/random/uniform_interruptable_distribution.md)
-- [xieite::containers::Map](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/containers/map.md)
+- [xieite::containers::FixedMap](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/containers/fixed_map.md)
 - [xieite::streams::StandardHandle](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/streams/standard_handle.md)
 - [xieite::functors::Infix](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/functors/infix.md)
 - [xieite::types::name](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/types/name.md)

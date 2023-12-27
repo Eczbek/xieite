@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Map<Key, Value, size, Hash, KeyEqual, Allocator>](../../../../map.md)\:\:operator\[\]
-Defined in header [<xieite/containers/map.hpp>](../../../../../../../include/xieite/containers/map.hpp)
+Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
 

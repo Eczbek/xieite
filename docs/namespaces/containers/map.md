@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:Map
-Defined in header [<xieite/containers/map.hpp>](../../../include/xieite/containers/map.hpp)
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedMap
+Defined in header [<xieite/containers/fixed_map.hpp>](../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
 
@@ -53,10 +53,10 @@ public:
 ```cpp
 #include <iostream>
 #include <utility>
-#include <xieite/containers/map.hpp>
+#include <xieite/containers/fixed_map.hpp>
 
 int main() {
-    constexpr xieite::containers::Map<std::string_view, int, 4> map {
+    constexpr xieite::containers::FixedMap<std::string_view, int, 4> map {
         { "foo", 1 },
         { "bar", 2 },
         { "baz", 3 },

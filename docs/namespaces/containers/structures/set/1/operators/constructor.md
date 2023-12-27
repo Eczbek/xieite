@@ -1,9 +1,9 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Set<Key, size, Hash, KeyEqual, Allocator>](../../../../set.md)\:\:Set
-Defined in header [<xieite/containers/set.hpp>](../../../../../../../include/xieite/containers/set.hpp)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Set<Key, size, Hash, KeyEqual, Allocator>](../../../../set.md)\:\:FixedSet
+Defined in header [<xieite/containers/fixed_set.hpp>](../../../../../../../include/xieite/containers/fixed_set.hpp)
 
 &nbsp;
 
-Constructs a `xieite::containers::Set`.
+Constructs a `xieite::containers::FixedSet`.
 
 &nbsp;
 

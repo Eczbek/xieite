@@ -1,9 +1,9 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Map<Key, Value, size, Hash, KeyEqual, Allocator>](../../../../map.md)\:\:Map
-Defined in header [<xieite/containers/map.hpp>](../../../../../../../include/xieite/containers/map.hpp)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Map<Key, Value, size, Hash, KeyEqual, Allocator>](../../../../map.md)\:\:FixedMap
+Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
 
-Constructs a `xieite::containers::Map`.
+Constructs a `xieite::containers::FixedMap`.
 
 &nbsp;
 

@@ -4,16 +4,17 @@
 #	include <concepts>
 #	include <functional>
 #	include <type_traits>
+#	include <utility>
 
 namespace xieite::traits {
 	template<typename, typename>
 	struct IsFunctable
 	: std::false_type {};
 
-	template<typename Functor, typename SignatureResult, typename... SignatureArguments>
-	struct IsFunctable<Functor, SignatureResult(SignatureArguments...)>
-	: std::bool_constant<requires(Functor functor, SignatureArguments... arguments) {
-		{ std::invoke(functor, arguments...) } -> std::convertible_to<SignatureResult>;
+	template<typename Functor, typename Result, typename... Arguments>
+	struct IsFunctable<Functor, Result(Arguments...)>
+	: std::bool_constant<requires(Functor functor, Arguments... arguments) {
+		{ std::invoke(functor, arguments...) } -> std::convertible_to<Result>;
 	}> {};
 }
 

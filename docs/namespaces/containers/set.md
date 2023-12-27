@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:Set
-Defined in header [<xieite/containers/set.hpp>](../../../include/xieite/containers/set.hpp)
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedSet
+Defined in header [<xieite/containers/fixed_set.hpp>](../../../include/xieite/containers/fixed_set.hpp)
 
 &nbsp;
 
@@ -50,10 +50,10 @@ public:
 ```cpp
 #include <iostream>
 #include <utility>
-#include <xieite/containers/set.hpp>
+#include <xieite/containers/fixed_set.hpp>
 
 int main() {
-    constexpr xieite::containers::Set<std::string_view, 4> set {
+    constexpr xieite::containers::FixedSet<std::string_view, 4> set {
         "foo",
         "bar",
         "baz",

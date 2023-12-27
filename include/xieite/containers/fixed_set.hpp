@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_CONTAINERS_SET
-#	define XIEITE_HEADER_CONTAINERS_SET
+#ifndef XIEITE_HEADER_CONTAINERS_FIXED_SET
+#	define XIEITE_HEADER_CONTAINERS_FIXED_SET
 
 #	include <algorithm>
 #	include <array>
@@ -14,15 +14,15 @@
 
 namespace xieite::containers {
 	template<typename Key, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<Key>>
-	class Set {
+	class FixedSet {
 	public:
-		constexpr Set() noexcept = default;
+		constexpr FixedSet() noexcept = default;
 
 		template<std::ranges::range Range>
-		constexpr Set(const Range& keys) noexcept
+		constexpr FixedSet(const Range& keys) noexcept
 		: array(makeArray<Key, size>(keys)) {}
 
-		constexpr Set(const std::initializer_list<Key> keys) noexcept
+		constexpr FixedSet(const std::initializer_list<Key> keys) noexcept
 		: array(makeArray<Key, size>(keys)) {}
 
 		[[nodiscard]] constexpr bool operator[](const Key& key) const noexcept {

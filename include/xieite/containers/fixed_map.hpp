@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_CONTAINERS_MAP
-#	define XIEITE_HEADER_CONTAINERS_MAP
+#ifndef XIEITE_HEADER_CONTAINERS_FIXED_MAP
+#	define XIEITE_HEADER_CONTAINERS_FIXED_MAP
 
 #	include <array>
 #	include <cstddef>
@@ -14,15 +14,15 @@
 
 namespace xieite::containers {
 	template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value&>>>
-	class Map {
+	class FixedMap {
 	public:
-		constexpr Map() noexcept = default;
+		constexpr FixedMap() noexcept = default;
 
 		template<std::ranges::range Range>
-		constexpr Map(const Range& entries) noexcept
+		constexpr FixedMap(const Range& entries) noexcept
 		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
-		constexpr Map(const std::initializer_list<std::pair<Key, Value>> entries) noexcept
+		constexpr FixedMap(const std::initializer_list<std::pair<Key, Value>> entries) noexcept
 		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		[[nodiscard]] constexpr const Value& operator[](const Key& key) const {
@@ -58,7 +58,7 @@ namespace xieite::containers {
 				}
 				return false;
 			} else {
-				return this->getMap().contains(key);
+				return this->getFixedMap().contains(key);
 			}
 		}
 
@@ -69,7 +69,7 @@ namespace xieite::containers {
 	private:
 		mutable std::array<std::pair<Key, Value>, size> array;
 
-		[[nodiscard]] std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator>& getMap() const noexcept {
+		[[nodiscard]] std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator>& getFixedMap() const noexcept {
 			static std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator> map = ([this] {
 				std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator> map;
 				for (std::pair<Key, Value>& entry : this->array) {
@@ -89,7 +89,7 @@ namespace xieite::containers {
 				}
 				throw std::out_of_range("Cannot access key not in map");
 			} else {
-				return this->getMap().at(key);
+				return this->getFixedMap().at(key);
 			}
 		}
 	};
