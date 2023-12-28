@@ -1,0 +1,16 @@
+#ifndef XIEITE_HEADER_MACROS_STANDARD_CALLING_CONVENTION
+#	define XIEITE_HEADER_MACROS_STANDARD_CALLING_CONVENTION
+
+#	include "../macros/compiler.hpp"
+
+#	if XIEITE_COMPILER_GCC
+#		define XIEITE_STANDARD_CALLING_CONVENTION [[stdcall]]
+#	elif XIEITE_COMPILER_CLANG
+#		define XIEITE_STANDARD_CALLING_CONVENTION __stdcall
+#	elif XIEITE_COMPILER_MSVC
+#		define XIEITE_STANDARD_CALLING_CONVENTION __cdecl
+#	else
+#		error "Compiler not supported"
+#	endif
+
+#endif

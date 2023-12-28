@@ -12,14 +12,14 @@ A compile-time wrapper for `std::unordered_set`.
 #### 1)
 ```cpp
 template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<Key>>
-class Set {
+class FixedSet {
 public:
-    constexpr Set();
+    constexpr FixedSet();
 
     template<std::ranges::range Range>
-    constexpr Set(const Range&);
+    constexpr FixedSet(const Range&);
 
-    constexpr Set(std::initializer_list<Key>);
+    constexpr FixedSet(std::initializer_list<Key>);
 
     constexpr bool operator[](const Key&) const;
 
@@ -53,7 +53,7 @@ public:
 #include <xieite/containers/fixed_set.hpp>
 
 int main() {
-    constexpr xieite::containers::FixedSet<std::string_view, 4> set {
+    constexpr xieite::containers::FixedFixedSet<std::string_view, 4> set {
         "foo",
         "bar",
         "baz",

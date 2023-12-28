@@ -25,5 +25,6 @@
 - [REPEAT_CONCATENATE](./namespaces/macros/repeat_concatenate.md)
 - [RESTRICT](./namespaces/macros/restrict.md)
 - [SCAN](./namespaces/macros/scan.md)
+- [STANDARD_CALLING_CONVENTION](./namespaces/macros/standard_calling_convention.hpp)
 - [STRINGIFY](./namespaces/macros/stringify.md)
 - [UNREACHABLE](./namespaces/macros/unreachable.md)
