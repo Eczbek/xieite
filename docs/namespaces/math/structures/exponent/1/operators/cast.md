@@ -6,6 +6,6 @@ Defined in header [<xieite/math/exponent.hpp>](../../../../../../../include/xiei
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric OtherNumber>
+template<xieite::concepts::ArithmeticOtherNumber>
 [[nodiscard]] constexpr operator OtherNumber() const noexcept;
 ```

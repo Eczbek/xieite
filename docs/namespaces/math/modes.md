@@ -11,7 +11,13 @@ Computes the modes of some values. Returns `{ 0 }` if no arguments are passed.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric... Numbers>
+template<std::ranges::range Range>
+requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
+[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range>> modes(const Range& range) noexcept;
+```
+#### 2)
+```cpp
+template<xieite::concepts::Arithmetic... Numbers>
 [[nodiscard]] constexpr std::vector<xieite::math::Result<Numbers...>> modes(const Numbers... values) noexcept;
 ```
 

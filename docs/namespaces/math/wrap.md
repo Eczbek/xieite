@@ -11,7 +11,7 @@ Defined in header [<xieite/math/wrap.hpp>](../../../include/xieite/math/wrap.hpp
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr Number wrap(Number value, Number limit1, Number limit2) noexcept;
 ```
 

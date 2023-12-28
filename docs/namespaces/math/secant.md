@@ -11,6 +11,6 @@ Computes the secant of a value.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr xieite::math::Result<Number> secant(Number value) noexcept;
 ```

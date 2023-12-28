@@ -4,7 +4,7 @@
 #	include "../macros/platform.hpp"
 
 #	if !XIEITE_PLATFORM_UNIX
-#		error "System not supported"
+#		error "Platform not supported"
 #	endif
 
 #	include <cmath>

@@ -11,7 +11,7 @@ A simple class for storing an interval between two numbers.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 struct Interval {
     Number start;
     Number end;

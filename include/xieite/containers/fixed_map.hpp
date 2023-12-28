@@ -10,7 +10,7 @@
 #	include <stdexcept>
 #	include <unordered_map>
 #	include <utility>
-#	include "../containers/make_array.hpp"
+#	include "../ranges/make_array.hpp"
 
 namespace xieite::containers {
 	template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value&>>>
@@ -20,10 +20,10 @@ namespace xieite::containers {
 
 		template<std::ranges::range Range>
 		constexpr FixedMap(const Range& entries) noexcept
-		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
+		: array(xieite::ranges::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		constexpr FixedMap(const std::initializer_list<std::pair<Key, Value>> entries) noexcept
-		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
+		: array(xieite::ranges::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		[[nodiscard]] constexpr const Value& operator[](const Key& key) const {
 			return this->getValue(key);
@@ -58,7 +58,7 @@ namespace xieite::containers {
 				}
 				return false;
 			} else {
-				return this->getFixedMap().contains(key);
+				return this->getMap().contains(key);
 			}
 		}
 
@@ -69,7 +69,7 @@ namespace xieite::containers {
 	private:
 		mutable std::array<std::pair<Key, Value>, size> array;
 
-		[[nodiscard]] std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator>& getFixedMap() const noexcept {
+		[[nodiscard]] std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator>& getMap() const noexcept {
 			static std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator> map = ([this] {
 				std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator> map;
 				for (std::pair<Key, Value>& entry : this->array) {
@@ -89,7 +89,7 @@ namespace xieite::containers {
 				}
 				throw std::out_of_range("Cannot access key not in map");
 			} else {
-				return this->getFixedMap().at(key);
+				return this->getMap().at(key);
 			}
 		}
 	};

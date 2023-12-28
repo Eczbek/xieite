@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Map<Key, Value, size, Hash, KeyEqual, Allocator>](../../../../map.md)\:\:FixedMap
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyEqual, Allocator>](../../../../map.md)\:\:FixedMap
 Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;

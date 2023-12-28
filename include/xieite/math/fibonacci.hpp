@@ -1,11 +1,12 @@
 #ifndef XIEITE_HEADER_MATH_FIBONACCI
 #	define XIEITE_HEADER_MATH_FIBONACCI
 
+#	include <array>
 #	include <cstddef>
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
-#	include "../containers/make_array.hpp"
 #	include "../math/addition_overflows.hpp"
+#	include "../ranges/make_array.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
@@ -17,7 +18,7 @@ namespace xieite::math {
 			}
 			return result;
 		};
-		return xieite::containers::makeArray<Number, generate().size()>(generate());
+		return xieite::ranges::makeArray<Number, generate().size()>(generate());
 	})();
 }
 

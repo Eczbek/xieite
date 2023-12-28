@@ -11,12 +11,12 @@ Selects the value closest to a target.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr Number& closestTo(Number target, Number& value1, Number& value2) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr const Number& closestTo(Number target, const Number& value1, const Number& value2) noexcept;
 ```
 

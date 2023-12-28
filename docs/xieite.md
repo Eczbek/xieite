@@ -15,6 +15,7 @@
 - [metadata](./metadata.md)
 - [network](./network.md)
 - [random](./random.md)
+- [ranges](./ranges.md)
 - [streams](./streams.md)
 - [strings](./strings.md)
 - [system](./system.md)

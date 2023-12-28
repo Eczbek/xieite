@@ -33,9 +33,11 @@ namespace xieite::memory {
 		}
 
 		constexpr ~Shredder() {
-			volatile std::byte* const byte = static_cast<std::byte*>(static_cast<void*>(&this->value));
-			for (std::size_t i = 0; i < sizeof(Type); ++i) {
-				byte[i] = 0;
+			if !consteval {
+				const auto byte = reinterpret_cast<volatile std::byte*>(&this->value);
+				for (std::size_t i = 0; i < sizeof(Type); ++i) {
+					byte[i] = 0;
+				}
 			}
 		}
 

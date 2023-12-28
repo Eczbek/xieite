@@ -6,6 +6,6 @@ Defined in header [<xieite/math/result.hpp>](../../../include/xieite/math/result
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric... Numbers>
+template<xieite::concepts::Arithmetic... Numbers>
 using Result = std::conditional_t<xieite::concepts::SameAsAny<long double, Numbers...>, long double, std::conditional_t<xieite::concepts::SameAsAll<float, Numbers...>, float, double>>;
 ```

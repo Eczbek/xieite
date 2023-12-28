@@ -11,7 +11,7 @@ Computes the minimum of some values. Returns `0` if no arguments are passed.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric... Numbers>
+template<xieite::concepts::Arithmetic... Numbers>
 [[nodiscard]] constexpr xieite::math::Result<Numbers...> minimum(const Numbers... values) noexcept;
 ```
 

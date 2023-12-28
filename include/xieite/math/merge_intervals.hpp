@@ -3,12 +3,12 @@
 
 #	include <algorithm>
 #	include <vector>
-#	include "../concepts/numeric.hpp"
+#	include "../concepts/arithmetic.hpp"
 #	include "../concepts/range_of.hpp"
 #	include "../math/interval.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Numeric Number, xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
+	template<xieite::concepts::Arithmetic Number, xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
 	[[nodiscard]] constexpr std::vector<xieite::math::Interval<Number>> mergeIntervals(const IntervalRange& intervals) noexcept {
 		std::vector<xieite::math::Interval<Number>> result;
 		for (const xieite::math::Interval<Number> interval1 : intervals) {

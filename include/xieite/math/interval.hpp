@@ -1,10 +1,10 @@
 #ifndef XIEITE_HEADER_MATH_INTERVAL
 #	define XIEITE_HEADER_MATH_INTERVAL
 
-#	include "../concepts/numeric.hpp"
+#	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Numeric Number>
+	template<xieite::concepts::Arithmetic Number>
 	struct Interval {
 		Number start;
 		Number end;

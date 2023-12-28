@@ -4,7 +4,7 @@ Defined in header [<xieite/algorithms/modes.hpp>](../../../include/xieite/algori
 &nbsp;
 
 ## Description
-Computes the modes of a set of data.
+Computes the modes (or antimodes) of a set of data.
 
 &nbsp;
 
@@ -12,8 +12,8 @@ Computes the modes of a set of data.
 #### 1)
 ```cpp
 template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::greater>
-requires(xieite::concepts::Numeric<std::ranges::range_value_t<Range>>)
-[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range&>> modes(const Range& range, Functor greaterComparator = Functor())
+requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
+[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range&>> modes(const Range& range, Functor comparator = Functor())
 noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>>);
 ```
 

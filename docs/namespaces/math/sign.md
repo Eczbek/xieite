@@ -11,7 +11,7 @@ Gets the sign of a number.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr int sign(Number value) noexcept;
 ```
 

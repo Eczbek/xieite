@@ -4,7 +4,7 @@
 #	include "../macros/platform.hpp"
 
 #	if !XIEITE_PLATFORM_UNIX
-#		error "System not supported"
+#		error "Platform not supported"
 #	endif
 
 #	include <arpa/inet.h>
@@ -29,7 +29,7 @@ namespace xieite::network {
 		}
 
 		[[nodiscard]] sockaddr* data() noexcept {
-			return reinterpret_cast<::sockaddr*>(&this->address);
+			return reinterpret_cast<sockaddr*>(&this->address);
 		}
 
 		[[nodiscard]] const socklen_t* size() const noexcept {

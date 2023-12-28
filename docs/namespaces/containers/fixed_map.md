@@ -39,7 +39,7 @@ public:
 };
 ```
 ##### Member functions
-- [Map](./structures/map/1/operators/constructor.md)
+- [FixedMap](./structures/map/1/operators/constructor.md)
 - [operator\[\]](./structures/map/1/operators/array_subscript.md)
 - [begin](./structures/map/1/begin.md)
 - [end](./structures/map/1/end.md)

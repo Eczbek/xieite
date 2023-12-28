@@ -28,7 +28,7 @@ namespace xieite::memory {
 }
 
 #	else
-#		error "System not supported"
+#		error "Platform not supported"
 #	endif
 
 #endif

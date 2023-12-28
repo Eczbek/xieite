@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_UNITS_CONVERT
 #	define XIEITE_HEADER_UNITS_CONVERT
 
-#	include "../concepts/numeric.hpp"
+#	include "../concepts/arithmetic.hpp"
 #	include "../math/pi.hpp"
 #	include "../math/result.hpp"
 #	include "../units/angle.hpp"
@@ -11,7 +11,7 @@
 #	include "../units/volume.hpp"
 
 namespace xieite::units {
-	template<xieite::concepts::Numeric Number>
+	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Angle source, const xieite::units::Angle target) noexcept {
 		xieite::math::Result<Number> result = value;
 		if (source == xieite::units::Angle::degree) {
@@ -23,7 +23,7 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Numeric Number>
+	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Area source, const xieite::units::Area target) noexcept {
 		xieite::math::Result<Number> result = value;
 		switch (source) {
@@ -231,7 +231,7 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Numeric Number>
+	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Length source, const xieite::units::Length target) noexcept {
 		xieite::math::Result<Number> result = value;
 		switch (source) {
@@ -487,7 +487,7 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Numeric Number>
+	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Temperature source, const xieite::units::Temperature target) noexcept {
 		xieite::math::Result<Number> result = value;
 		switch (source) {
@@ -515,7 +515,7 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Numeric Number>
+	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Volume source, const xieite::units::Volume target) noexcept {
 		xieite::math::Result<Number> result = value;
 		switch (source) {

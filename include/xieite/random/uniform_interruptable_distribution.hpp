@@ -6,7 +6,7 @@
 #	include <iterator>
 #	include <random>
 #	include <stdexcept>
-#	include "../concepts/numeric.hpp"
+#	include "../concepts/arithmetic.hpp"
 #	include "../concepts/range_of.hpp"
 #	include "../concepts/uniform_random_bit_generator.hpp"
 #	include "../math/interval.hpp"
@@ -15,7 +15,7 @@
 #	include "../random/uniform_distribution.hpp"
 
 namespace xieite::random {
-	template<xieite::concepts::Numeric Number>
+	template<xieite::concepts::Arithmetic Number>
 	class UniformInterruptableDistribution {
 	public:
 		template<xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>

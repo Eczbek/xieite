@@ -11,7 +11,7 @@ Merges intervals if they overlap.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number, xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
+template<xieite::concepts::Arithmetic Number, xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
 [[nodiscard]] constexpr std::vector<xieite::math::Interval<Number>> mergeIntervals(const IntervalRange& intervals) noexcept;
 ```
 

@@ -11,7 +11,7 @@ struct Value {
 
     constexpr auto operator=(xieite::math::Exponent<Number>::Value) = delete;
 
-    template<xieite::concepts::Numeric OtherNumber>
+    template<xieite::concepts::ArithmeticOtherNumber>
     friend constexpr std::common_type_t<Number, OtherNumber> operator*(OtherNumber, xieite::math::Exponent<Number>::Value);
 };
 ```

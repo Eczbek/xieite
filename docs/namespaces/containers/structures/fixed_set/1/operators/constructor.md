@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Set<Key, size, Hash, KeyEqual, Allocator>](../../../../set.md)\:\:FixedSet
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedSet<Key, size, Hash, KeyEqual, Allocator>](../../../../set.md)\:\:FixedSet
 Defined in header [<xieite/containers/fixed_set.hpp>](../../../../../../../include/xieite/containers/fixed_set.hpp)
 
 &nbsp;

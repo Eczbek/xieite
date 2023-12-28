@@ -8,6 +8,5 @@ Compile-time containers and other utilities.
 &nbsp;
 
 ## Contents
-- [Map](./namespaces/containers/fixed_map.md)
-- [Set](./namespaces/containers/fixed_set.md)
-- [makeArray](./namespaces/containers/make_array.md)
+- [FixedMap](./namespaces/containers/fixed_map.md)
+- [FixedSet](./namespaces/containers/fixed_set.md)

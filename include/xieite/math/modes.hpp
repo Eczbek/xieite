@@ -1,25 +1,29 @@
 #ifndef XIEITE_HEADER_MATH_MODES
 #	define XIEITE_HEADER_MATH_MODES
 
-#	include <array>
+#	include <functional>
+#	include <ranges>
 #	include <vector>
 #	include "../algorithms/modes.hpp"
-#	include "../concepts/numeric.hpp"
+#	include "../concepts/arithmetic.hpp"
 #	include "../math/result.hpp"
+#	include "../ranges/convert.hpp"
+#	include "../ranges/make_array.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Numeric... Numbers>
+	template<std::ranges::range Range>
+	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
+	[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range>> modes(const Range& range) noexcept {
+		auto result = std::vector<xieite::math::Result<Numbers...>>(sizeof...(Numbers));
+		xieite::ranges::convert(xieite::algorithms::modes(range, std::ranges::greater()), result, [](const auto iterator) {
+			return *iterator;
+		});
+		return result;
+	}
+
+	template<xieite::concepts::Arithmetic... Numbers>
 	[[nodiscard]] constexpr std::vector<xieite::math::Result<Numbers...>> modes(const Numbers... values) noexcept {
-		if constexpr (sizeof...(Numbers)) {
-			std::vector<xieite::math::Result<Numbers...>> results;
-			for (const typename std::array<xieite::math::Result<Numbers...>, sizeof...(Numbers)>::const_iterator iterator : xieite::algorithms::modes(std::array<xieite::math::Result<Numbers...>, sizeof...(Numbers)> {
-				static_cast<xieite::math::Result<Numbers...>>(values)...
-			})) {
-				results.push_back(*iterator);
-			}
-			return results;
-		}
-		return std::vector<xieite::math::Result<Numbers...>>();
+		return xieite::math::modes(xieite::ranges::makeArray<xieite::math::Result<Numbers...>>(values...));
 	}
 }
 

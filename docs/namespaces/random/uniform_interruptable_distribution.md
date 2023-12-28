@@ -11,7 +11,7 @@ A uniform random number distribution which allows excluding subintervals from th
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 struct UniformInterruptableDistribution {
     template<xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
     UniformInterruptableDistribution(xieite::math::Interval<Number>, const IntervalRange&);

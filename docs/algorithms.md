@@ -9,12 +9,9 @@ Somewhat useful algorithms.
 
 ## Contents
 - [all](./namespaces/algorithms/all.md)
-- [antimodes](./namespaces/algorithms/antimodes.md)
 - [any](./namespaces/algorithms/any.md)
 - [findCccurrence](./namespaces/algorithms/find_occurrence.md)
 - [group](./namespaces/algorithms/group.md)
-- [mean](./namespaces/algorithms/mean.md)
-- [median](./namespaces/algorithms/median.md)
 - [modes](./namespaces/algorithms/modes.md)
 - [numberSearch](./namespaces/algorithms/number_search.md)
 - [palindrome](./namespaces/algorithms/palindrome.md)

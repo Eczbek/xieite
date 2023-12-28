@@ -59,6 +59,8 @@ Mathematical types and functions.
 - [reverse](./namespaces/math/reverse.md)
 - [robert](./namespaces/math/robert.md)
 - [round](./namespaces/math/round.md)
+- [roundDown](./namespaces/math/round_down.md)
+- [roundUp](./namespaces/math/round_up.md)
 - [secant](./namespaces/math/secant.md)
 - [sign](./namespaces/math/sign.md)
 - [splitBoolean](./namespaces/math/split_boolean.md)

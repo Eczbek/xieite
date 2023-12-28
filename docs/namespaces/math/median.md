@@ -11,7 +11,13 @@ Computes the median of some values. Returns `0` if no arguments are passed.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric... Numbers>
+template<std::ranges::range Range>
+requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
+[[nodiscard]] constexpr xieite::math::Result<std::ranges::range_value_t<Range>> median(Range range) noexcept;
+```
+#### 2)
+```cpp
+template<xieite::concepts::Arithmetic... Numbers>
 [[nodiscard]] constexpr xieite::math::Result<Numbers...> median(const Numbers... values) noexcept;
 ```
 

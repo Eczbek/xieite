@@ -11,7 +11,7 @@ Gets the sign of the product of multiple numbers.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric... Numbers>
+template<xieite::concepts::Arithmetic... Numbers>
 [[nodiscard]] constexpr int productSign(Numbers... values) noexcept;
 ```
 

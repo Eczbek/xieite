@@ -11,26 +11,26 @@ Converts one unit type to another.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr xieite::math::Result<Number> convert(Number value, xieite::units::Angle source, xieite::units::Angle target) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr xieite::math::Result<Number> convert(Number value, xieite::units::Area source, xieite::units::Area target) noexcept;
 ```
 #### 3)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr xieite::math::Result<Number> convert(Number value, xieite::units::Length source, xieite::units::Length target) noexcept;
 ```
 #### 4)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr xieite::math::Result<Number> convert(Number value, xieite::units::Temperature source, xieite::units::Temperature target) noexcept;
 ```
 #### 5)
 ```cpp
-template<xieite::concepts::Numeric Number>
+template<xieite::concepts::Arithmetic Number>
 [[nodiscard]] constexpr xieite::math::Result<Number> convert(Number value, xieite::units::Volume source, xieite::units::Volume target) noexcept;
 ```

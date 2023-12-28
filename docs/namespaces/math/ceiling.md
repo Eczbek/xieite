@@ -11,6 +11,6 @@ Rounds a `value` up to the next multiple of `step`.
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::Numeric Number1, xieite::concepts::Numeric Number2>
+template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>
 [[nodiscard]] constexpr std::common_type_t<Number1, Number2> ceiling(const Number1 value, const Number2 step = 1) noexcept;
 ```
