@@ -18,7 +18,7 @@ namespace xieite::math {
 
 			template<xieite::concepts::Numeric OtherNumber>
 			[[nodiscard]] friend constexpr std::common_type_t<Number, OtherNumber> operator*(const OtherNumber base, const xieite::math::Exponent<Number>::Value exponent) noexcept {
-				return std::pow(base, exponent.value);
+				return static_cast<Number>(std::pow(base, exponent.value));
 			}
 
 		private:
