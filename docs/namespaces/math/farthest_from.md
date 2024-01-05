@@ -17,7 +17,7 @@ template<xieite::concepts::Arithmetic Number>
 #### 2)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr const Number& farthestFrom(Number target, const Number& value1, const Number& value2) noexcept;
+[[nodiscard]] constexpr Number farthestFrom(Number target, const Number& value1, const Number& value2) noexcept;
 ```
 
 &nbsp;
