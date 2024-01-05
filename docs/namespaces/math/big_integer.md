@@ -13,6 +13,8 @@ A class for storing and operating on very large numbers.
 ```cpp
 template<std::unsigned_integral Word = std::uint64_t>
 struct BigInteger {
+    using WordType = Word;
+
     template<std::integral Integer = int>
     constexpr BigInteger(Integer = 0);
 
@@ -179,6 +181,8 @@ struct BigInteger {
     constexpr std::string string(int = 10, std::string_view = "0123456789abcdefghijklmnopqrstuvwxyz", char = '-', bool = false) const;
 };
 ```
+##### Member types
+- [WordType](./structures/big_integer/1/WordType.md)
 ##### Member functions
 - [BigInteger](./structures/big_integer/1/operators/constructor.md)
 - [operator=](./structures/big_integer/1/operators/assign.md)

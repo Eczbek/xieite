@@ -10,3 +10,5 @@ Compile-time containers and other utilities.
 ## Contents
 - [FixedMap](./namespaces/containers/fixed_map.md)
 - [FixedSet](./namespaces/containers/fixed_set.md)
+- [convertRange](./namespaces/containers/convert_range.md)
+- [makeArray](./namespaces/containers/make_array.md)

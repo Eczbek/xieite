@@ -28,6 +28,8 @@ namespace xieite::math {
 	template<std::unsigned_integral Word = std::uint64_t>
 	class BigInteger {
 	public:
+		using WordType = Word;
+
 		template<std::integral Integer = int>
 		constexpr BigInteger(const Integer value = 0) noexcept
 		: negative(xieite::math::negative(value)) {

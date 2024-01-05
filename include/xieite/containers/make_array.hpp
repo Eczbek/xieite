@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_RANGES_MAKE_ARRAY
-#	define XIEITE_HEADER_RANGES_MAKE_ARRAY
+#ifndef XIEITE_HEADER_CONTAINERS_MAKE_ARRAY
+#	define XIEITE_HEADER_CONTAINERS_MAKE_ARRAY
 
 #	include <array>
 #	include <concepts>
@@ -10,7 +10,7 @@
 #	include <utility>
 #	include "../concepts/no_throw_convertible_to.hpp"
 
-namespace xieite::ranges {
+namespace xieite::containers {
 	template<typename Value, std::size_t size, std::ranges::range Range>
 	requires(std::convertible_to<std::ranges::range_value_t<Range>, Value>)
 	[[nodiscard]] constexpr std::array<Value, size> makeArray(const Range& range)
@@ -22,7 +22,7 @@ namespace xieite::ranges {
 		})(std::make_index_sequence<size>());
 	}
 
-	template<typename... Arguments, typename Value = std::common_type_t<Arguments...>, std::size_t size = sizeof...(Values)>
+	template<typename... Arguments, typename Value = std::common_type_t<Arguments...>, std::size_t size = sizeof...(Arguments)>
 	requires(sizeof...(Arguments) <= size)
 	[[nodiscard]] constexpr std::array<Value, size> makeArray(const Arguments&... values) noexcept {
 		return std::array<Value, size> {

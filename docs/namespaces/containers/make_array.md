@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[ranges](../../ranges.md)\:\:makeArray
-Defined in header [<xieite/ranges/make_array.hpp>](../../../include/xieite/ranges/make_array.hpp)
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:makeArray
+Defined in header [<xieite/containers/make_array.hpp>](../../../include/xieite/containers/make_array.hpp)
 
 &nbsp;
 
@@ -29,12 +29,12 @@ requires(sizeof...(Arguments) <= size)
 ```cpp
 #include <iostream>
 #include <vector>
-#include <xieite/ranges/make_array.hpp>
+#include <xieite/containers/make_array.hpp>
 
 int main() {
     std::vector<int> source { 1, 2, 3, 4, 5 };
 
-    auto result = xieite::ranges::makeArray<int, 5>(source);
+    auto result = xieite::containers::makeArray<int, 5>(source);
 
     for (int item : result) {
         std::cout << item << '\n';
