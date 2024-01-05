@@ -4,7 +4,7 @@ Defined in header [<xieite/strings/quoted.hpp>](../../../include/xieite/strings/
 &nbsp;
 
 ## Description
-Repeats a string multiple times.
+Replicates `std::quoted` but without streams and more constexpr.
 
 &nbsp;
 
