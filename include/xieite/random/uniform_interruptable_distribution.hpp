@@ -5,10 +5,10 @@
 #	include <concepts>
 #	include <iterator>
 #	include <random>
-#	include <stdexcept>
 #	include "../concepts/arithmetic.hpp"
 #	include "../concepts/range_of.hpp"
 #	include "../concepts/uniform_random_bit_generator.hpp"
+#	include "../exceptions/possible_results_excluded_by_arguments.hpp"
 #	include "../math/interval.hpp"
 #	include "../math/difference.hpp"
 #	include "../math/merge_intervals.hpp"
@@ -28,8 +28,8 @@ namespace xieite::random {
 					const Number start = std::clamp(interruption.start, minimum, maximum);
 					const Number end = std::clamp(interruption.end, minimum, maximum);
 					const Number difference = xieite::math::difference(start, end);
-					if (upper <= minimum + difference) {
-						throw std::range_error("Cannot exclude entire interval");
+					if (upper <= (minimum + difference)) {
+						throw xieite::exceptions::PossibleResultsExcludedByArguments("Cannot exclude entire interval");
 					}
 					upper -= difference + std::integral<Number>;
 					this->interruptions.push_back(xieite::math::Interval<Number>(std::min(start, end), difference));

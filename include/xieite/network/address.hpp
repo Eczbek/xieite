@@ -9,8 +9,8 @@
 
 #	include <arpa/inet.h>
 #	include <netinet/in.h>
-#	include <stdexcept>
 #	include <string>
+#	include "../exceptions/invalid_network_address.hpp"
 #	include "../network/domain.hpp"
 
 namespace xieite::network {
@@ -18,8 +18,8 @@ namespace xieite::network {
 	public:
 		Address(const std::string& host = "::") {
 			this->address.sin6_family = static_cast<int>(xieite::network::Domain::IPv6);
-			if (::inet_pton(static_cast<int>(xieite::network::Domain::IPv6), host.c_str(), &this->address.sin6_addr) < 1) {
-				throw std::runtime_error("Cannot create address with invalid host");
+			if (inet_pton(static_cast<int>(xieite::network::Domain::IPv6), host.c_str(), &this->address.sin6_addr) < 1) {
+				throw xieite::exceptions::InvalidNetworkAddress("Cannot create address with invalid host");
 			}
 			this->addressSize = sizeof(this->address);
 		}

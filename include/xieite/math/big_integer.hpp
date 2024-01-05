@@ -9,11 +9,12 @@
 #	include <iterator>
 #	include <limits>
 #	include <ranges>
-#	include <stdexcept>
 #	include <string>
 #	include <string_view>
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
+#	include "../exceptions/division_by_zero.hpp"
+#	include "../exceptions/unrepresentable_value.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/multiply.hpp"
 #	include "../math/negative.hpp"
@@ -300,7 +301,7 @@ namespace xieite::math {
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator/(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) {
 			if (!divisor) {
-				throw std::domain_error("Cannot divide by zero");
+				throw xieite::exceptions::DivisionByZero("Cannot divide by zero");
 			}
 			if ((dividend.data.size() < 2) && (divisor.data.size() < 2)) {
 				return dividend.data[0] / divisor.data[0];
@@ -354,7 +355,7 @@ namespace xieite::math {
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator%(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) {
 			if (!divisor) {
-				throw std::domain_error("Cannot take modulus of division by zero");
+				throw xieite::exceptions::DivisionByZero("Cannot take remainder of division by zero");
 			}
 			const xieite::math::BigInteger<Word> absoluteDividend = dividend.absolute();
 			const xieite::math::BigInteger<Word> absoluteDivisor = divisor.absolute();
@@ -553,7 +554,7 @@ namespace xieite::math {
 			}
 			if (!*this) {
 				if (exponent.negative) {
-					throw std::domain_error("Cannot take power of zero to negative exponent");
+					throw xieite::exceptions::UnrepresentableValue("Cannot represent infinite value of zero to negative exponent");
 				}
 				return !exponent;
 			}
@@ -579,7 +580,7 @@ namespace xieite::math {
 
 		[[nodiscard]] constexpr xieite::math::BigInteger<Word> root(const xieite::math::BigInteger<Word>& degree) const {
 			if (this->negative) {
-				throw std::domain_error("Cannot take root of negative radicand");
+				throw xieite::exceptions::UnrepresentableValue("Cannot represent imaginary value of root of negative radicand");
 			}
 			if (*this == 1) {
 				return *this;
@@ -604,16 +605,16 @@ namespace xieite::math {
 
 		[[nodiscard]] constexpr xieite::math::BigInteger<Word> logarithm(const xieite::math::BigInteger<Word>& base) const {
 			if (!base) {
-				return base;
+				return 0;
 			}
 			if (this->negative) {
-				throw std::domain_error("Cannot take logarithm of negative anti-logarithm");
+				throw xieite::exceptions::UnrepresentableValue("Cannot represent imaginary value of logarithm of negative anti-logarithm");
 			}
 			if (base == 1) {
-				throw std::domain_error("Cannot take logarithm of first base");
+				throw xieite::exceptions::UnrepresentableValue("Cannot represent infinite value of logarithm of first base");
 			}
 			if (base.negative) {
-				throw std::domain_error("Cannot take logarithm of negative base");
+				throw xieite::exceptions::UnrepresentableValue("Cannot represent imaginary value of logarithm of negative base");
 			}
 			return this->logarithm2() / base.logarithm2();
 		}

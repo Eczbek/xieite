@@ -7,9 +7,9 @@
 #	include <initializer_list>
 #	include <memory>
 #	include <ranges>
-#	include <stdexcept>
 #	include <unordered_map>
 #	include <utility>
+#	include "../exceptions/invalid_key.hpp"
 #	include "../ranges/make_array.hpp"
 
 namespace xieite::containers {
@@ -87,7 +87,7 @@ namespace xieite::containers {
 						return entry.second;
 					}
 				}
-				throw std::out_of_range("Cannot access key not in map");
+				throw xieite::exceptions::InvalidKey("Cannot access key not in map");
 			} else {
 				return this->getMap().at(key);
 			}

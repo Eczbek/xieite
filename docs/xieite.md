@@ -7,6 +7,7 @@
 - [algorithms](./algorithms.md)
 - [concepts](./concepts.md)
 - [containers](./containers.md)
+- [exceptions](./exceptions.md)
 - [functors](./functors.md)
 - [geometry](./geometry.md)
 - [graphics](./graphics.md)
