@@ -1,4 +1,4 @@
-# [xieite](../../../../xieite.md)\:\:[strings](../../../../strings.md)\:\:[literals](../../literals.md)\:\:\_stringify
+# [xieite](../../../../xieite.md)\:\:[strings](../../../../strings.md)\:\:[literals](../../literals.md)\:\:stringify
 Defined in header [<xieite/strings/literals/stringify.hpp>](../../../../../include/xieite/strings/literals/stringify.hpp)
 
 &nbsp;
@@ -23,7 +23,7 @@ template<char... characters>
 #include <xieite/strings/literals/strigify.hpp>
 
 int main() {
-    using namespace xieite::strings::literals;
+    using namespace xieite::strings::literals::stringify;
 
     std::cout << 0xFF7F00_stringify << '\n';
 }

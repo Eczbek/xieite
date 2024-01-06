@@ -4,7 +4,7 @@
 #	include "../../units/convert.hpp"
 #	include "../../units/length.hpp"
 
-namespace xieite::units::literals {
+namespace xieite::units::literals::lengths {
 	[[nodiscard]] constexpr double operator""_quectometres(const long double value) noexcept {
 		return xieite::units::convert(value, xieite::units::Length::quectometre, xieite::units::Length::metre);
 	}

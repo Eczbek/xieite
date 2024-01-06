@@ -4,7 +4,7 @@
 #	include "../../units/area.hpp"
 #	include "../../units/convert.hpp"
 
-namespace xieite::units::literals {
+namespace xieite::units::literals::areas {
 	[[nodiscard]] constexpr double operator""_squareQuectometres(const long double value) noexcept {
 		return xieite::units::convert(value, xieite::units::Area::squareQuectometre, xieite::units::Area::squareMetre);
 	}

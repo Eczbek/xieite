@@ -3,7 +3,7 @@
 
 #	include "../../math/exponent.hpp"
 
-namespace xieite::math::literals {
+namespace xieite::math::literals::exponent {
 	[[nodiscard]] constexpr auto operator""_exponent(const unsigned long long int value) noexcept {
 		return xieite::math::Exponent(value);
 	}

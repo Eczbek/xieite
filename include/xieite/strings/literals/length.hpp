@@ -3,7 +3,7 @@
 
 #	include <cstddef>
 
-namespace xieite::strings::literals {
+namespace xieite::strings::literals::length {
 	template<char... characters>
 	[[nodiscard]] constexpr std::size_t operator""_length() noexcept {
 		return sizeof...(characters);

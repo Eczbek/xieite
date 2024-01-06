@@ -4,7 +4,7 @@
 #	include <cstddef>
 #	include <cstdint>
 
-namespace xieite::math::literals {
+namespace xieite::math::literals::types {
 	[[nodiscard]] constexpr std::int8_t operator""_i8(const unsigned long long int value) noexcept {
 		return static_cast<std::int8_t>(value);
 	}

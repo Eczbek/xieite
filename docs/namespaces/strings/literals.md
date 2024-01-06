@@ -3,10 +3,10 @@
 &nbsp;
 
 ## Description
-A namespace of string literals.
+A namespace of namespaces of string literals.
 
 &nbsp;
 
 ## Contents
-- [_length](./namespaces/literals/length.md)
-- [_stringify](./namespaces/literals/stringify.md)
+- [length](./namespaces/literals/length.md)
+- [stringify](./namespaces/literals/stringify.md)

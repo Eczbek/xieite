@@ -4,7 +4,7 @@
 #	include <string>
 #	include <string_view>
 
-namespace xieite::strings::literals {
+namespace xieite::strings::literals::stringify {
 	template<char... characters>
 	[[nodiscard]] constexpr std::string operator""_stringify() noexcept {
 		return std::string {

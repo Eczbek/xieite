@@ -1,4 +1,4 @@
-# [xieite](../../../../xieite.md)\:\:[units](../../../../units.md)\:\:[literals](../../literals.md)\:\: \(lengths\)
+# [xieite](../../../../xieite.md)\:\:[units](../../../../units.md)\:\:[literals](../../literals.md)\:\:lengths
 Defined in header [<xieite/units/literals/lengths.hpp>](../../../../../include/xieite/units/literals/lengths.hpp)
 
 &nbsp;
@@ -370,7 +370,7 @@ A colletion of literals for length units.
 #include <xieite/units/literals/lengths.hpp>
 
 int main() {
-    using namespace xieite::units::literals;
+    using namespace xieite::units::literals::lengths;
 
     std::cout << "One mile is " << 1_miles << " metres.\n";
 }

@@ -1,4 +1,4 @@
-# [xieite](../../../../xieite.md)\:\:[strings](../../../../strings.md)\:\:[literals](../../literals.md)\:\:\_length
+# [xieite](../../../../xieite.md)\:\:[strings](../../../../strings.md)\:\:[literals](../../literals.md)\:\:length
 Defined in header [<xieite/strings/literals/length.hpp>](../../../../../include/xieite/strings/literals/length.hpp)
 
 &nbsp;
@@ -23,7 +23,7 @@ template<char... characters>
 #include <xieite/strings/literals/length.hpp>
 
 int main() {
-    using namespace xieite::strings::literals;
+    using namespace xieite::strings::literals::length;
 
     std::cout << 12345_length << '\n';
 }

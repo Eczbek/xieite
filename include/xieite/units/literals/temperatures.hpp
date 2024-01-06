@@ -4,7 +4,7 @@
 #	include "../../units/convert.hpp"
 #	include "../../units/temperature.hpp"
 
-namespace xieite::units::literals {
+namespace xieite::units::literals::temperatures {
 	[[nodiscard]] constexpr double operator""_kelvin(const long double value) noexcept {
 		return value;
 	}

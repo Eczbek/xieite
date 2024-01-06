@@ -3,11 +3,11 @@
 &nbsp;
 
 ## Description
-A namespace of math literals.
+A namespace of namespaces of math literals.
 
 &nbsp;
 
 ## Contents
-- [(types)](./namespaces/literals/types.md)
-- [_base](./namespaces/literals/base.md)
-- [_exponent](./namespaces/literals/exponent.md)
+- [base](./namespaces/literals/base.md)
+- [exponent](./namespaces/literals/exponent.md)
+- [types](./namespaces/literals/types.md)

@@ -3,7 +3,7 @@
 
 #	include <string>
 
-namespace xieite::math::literals {
+namespace xieite::math::literals::base {
 	template<char... characters>
 	[[nodiscard]] constexpr int operator""_base() noexcept {
 		static constexpr std::string value {

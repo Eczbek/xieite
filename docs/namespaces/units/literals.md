@@ -3,13 +3,13 @@
 &nbsp;
 
 ## Description
-A namespace of unit literals.
+A namespace of namespaces of unit literals.
 
 &nbsp;
 
 ## Contents
-- [(angles)](./namespaces/literals/angles.md)
-- [(areas)](./namespaces/literals/areas.md)
-- [(lengths)](./namespaces/literals/lengths.md)
-- [(temperatures)](./namespaces/literals/temperatures.md)
-- [(volumes)](./namespaces/literals/volumes.md)
+- [angles](./namespaces/literals/angles.md)
+- [areas](./namespaces/literals/areas.md)
+- [lengths](./namespaces/literals/lengths.md)
+- [temperatures](./namespaces/literals/temperatures.md)
+- [volumes](./namespaces/literals/volumes.md)

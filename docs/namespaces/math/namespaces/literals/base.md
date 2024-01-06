@@ -1,4 +1,4 @@
-# [xieite](../../../../xieite.md)\:\:[math](../../../../math.md)\:\:[literals](../../literals.md)\:\:\_base
+# [xieite](../../../../xieite.md)\:\:[math](../../../../math.md)\:\:[literals](../../literals.md)\:\:base
 Defined in header [<xieite/math/literals/base.hpp>](../../../../../include/xieite/math/literals/base.hpp)
 
 &nbsp;
@@ -23,7 +23,7 @@ template<char... characters>
 #include <xieite/math/literals/base.hpp>
 
 int main() {
-    using namespace xieite::math::literals;
+    using namespace xieite::math::literals::base;
 
     std::cout
         << 111_base << '\n'

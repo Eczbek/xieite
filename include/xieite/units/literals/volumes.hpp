@@ -4,7 +4,7 @@
 #	include "../../units/convert.hpp"
 #	include "../../units/volume.hpp"
 
-namespace xieite::units::literals {
+namespace xieite::units::literals::volumes {
 	[[nodiscard]] constexpr double operator""_cubicQuectometres(const long double value) noexcept {
 		return xieite::units::convert(value, xieite::units::Volume::cubicQuectometre, xieite::units::Volume::cubicMetre);
 	}

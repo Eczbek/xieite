@@ -4,7 +4,7 @@
 #	include "../../units/angle.hpp"
 #	include "../../units/convert.hpp"
 
-namespace xieite::units::literals {
+namespace xieite::units::literals::angles {
 	[[nodiscard]] constexpr double operator""_radians(const long double value) noexcept {
 		return value;
 	}

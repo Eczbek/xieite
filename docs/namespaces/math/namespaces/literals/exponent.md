@@ -1,4 +1,4 @@
-# [xieite](../../../../xieite.md)\:\:[math](../../../../math.md)\:\:[literals](../../literals.md)\:\:\_exponent
+# [xieite](../../../../xieite.md)\:\:[math](../../../../math.md)\:\:[literals](../../literals.md)\:\:exponent
 Defined in header [<xieite/math/literals/exponent.hpp>](../../../../../include/xieite/math/literals/exponent.hpp)
 
 &nbsp;
@@ -6,11 +6,11 @@ Defined in header [<xieite/math/literals/exponent.hpp>](../../../../../include/x
 ## Synopses
 #### 1)
 ```cpp
-[[nodiscard]] constexpr auto operator""_exponent(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr auto operator""_exponent(unsigned long long int value) noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] constexpr auto operator""_exponent(const long double value) noexcept;
+[[nodiscard]] constexpr auto operator""_exponent(long double value) noexcept;
 ```
 
 &nbsp;
@@ -21,7 +21,7 @@ Defined in header [<xieite/math/literals/exponent.hpp>](../../../../../include/x
 #include <xieite/math/literals/exponent.hpp>
 
 int main() {
-    using namespace xieite::math::literals;
+    using namespace xieite::math::literals::exponent;
 
     std::cout << (2 ** 5_exponent) << '\n';
 }
