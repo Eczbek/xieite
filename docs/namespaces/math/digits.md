@@ -4,15 +4,15 @@ Defined in header [<xieite/math/digits.hpp>](../../../include/xieite/math/digits
 &nbsp;
 
 ## Description
-Computes the number of digits in a value of any base.
+Computes the number of integral digits in a value of any base.
 
 &nbsp;
 
 ## Synopses
 #### 1)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr std::size_t digits(Integer value, std::size_t base = 10) noexcept;
+template<xieite::concepts::Arithmetic Number>
+[[nodiscard]] constexpr std::size_t digits(Number value, std::size_t base = 10) noexcept;
 ```
 
 &nbsp;
