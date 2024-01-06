@@ -8,7 +8,7 @@
 #	include <string>
 #	include <string_view>
 #	include <vector>
-#	include "../math/to_base.hpp"
+#	include "../math/stringify.hpp"
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr std::string hashMd5(const std::string_view value) noexcept {
@@ -66,7 +66,7 @@ namespace xieite::strings {
 		}
 		std::string result;
 		for (const std::uint32_t item : foo) {
-			const std::string part = xieite::math::toBase((item >> 24) | ((item & 16711680) >> 8) | ((item & 65280) << 8) | (item << 24), 16);
+			const std::string part = xieite::math::stringify((item >> 24) | ((item & 16711680) >> 8) | ((item & 65280) << 8) | (item << 24), 16);
 			result += std::string(8 - part.size(), '0') + part;
 		}
 		return result;
