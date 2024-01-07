@@ -15,14 +15,14 @@ struct Interval {
     template<std::invocable<> Functor, xieite::concepts::TemporalDuration TemporalDuration>
     Interval(const Functor&, TemporalDuration) noexcept;
 
-    bool good() const;
+    operator bool() const;
 
     void stop();
 };
 ```
 ##### Member functions
 - [Interval](./structures/interval/1/operators/constructor.md)
-- [good](./structures/interval/1/good.md)
+- [operator typename](./structures/interval/1/operators/cast.md)
 - [stop](./structures/interval/1/stop.md)
 
 &nbsp;

@@ -18,12 +18,12 @@ namespace xieite::threads {
 		}) {}
 
 		~Loop() {
-			if (this->good()) {
+			if (*this) {
 				this->stop();
 			}
 		}
 
-		[[nodiscard]] bool good() const noexcept {
+		[[nodiscard]] operator bool() const noexcept {
 			return this->thread.joinable();
 		}
 

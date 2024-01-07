@@ -22,8 +22,8 @@ namespace xieite::threads {
 			std::this_thread::sleep_for(duration);
 		}) {}
 
-		[[nodiscard]] bool good() const noexcept {
-			return this->loop.good();
+		[[nodiscard]] operator bool() const noexcept {
+			return this->loop;
 		}
 
 		void stop() noexcept {

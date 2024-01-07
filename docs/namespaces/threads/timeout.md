@@ -15,14 +15,14 @@ struct Timeout {
     template<std::invocable<> Functor, xieite::concepts::TemporalDuration TemporalDuration>
     Timeout(const Functor&, TemporalDuration) noexcept;
 
-    bool good() const;
+    operator bool() const;
 
     void stop();
 };
 ```
 ##### Member functions
 - [Timeout](./structures/timeout/1/operators/constructor.md)
-- [good](./structures/timeout/1/good.md)
+- [operator typename](./structures/timeout/1/operators/cast.md)
 - [stop](./structures/timeout/1/stop.md)
 
 &nbsp;

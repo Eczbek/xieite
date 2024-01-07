@@ -15,14 +15,14 @@ struct Loop {
     template<std::invocable<> Functor>
     Loop(const Functor&);
 
-    bool good() const;
+    operator bool() const;
 
     void stop();
 };
 ```
 ##### Member functions
 - [Loop](./structures/loop/1/operators/constructor.md)
-- [good](./structures/loop/1/good.md)
+- [operator typename](./structures/loop/1/operators/cast.md)
 - [stop](./structures/loop/1/stop.md)
 
 &nbsp;

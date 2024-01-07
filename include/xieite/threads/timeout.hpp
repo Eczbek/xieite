@@ -16,8 +16,8 @@ namespace xieite::threads {
 			std::invoke(callback);
 		}, duration) {}
 
-		[[nodiscard]] bool good() const noexcept {
-			return this->interval.good();
+		[[nodiscard]] operator bool() const noexcept {
+			return this->interval;
 		}
 
 		void stop() noexcept {
