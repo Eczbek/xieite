@@ -55,24 +55,21 @@ namespace xieite::math {
 					const Number bar = -foo / (foo + 1);
 					const Number baz = 1 / (foo + 1);
 					Number qux = value;
-					Number position = 0;
+					Number point = 0;
 					while ((qux < bar) || (qux >= baz)) {
-						++position;
+						++point;
 						qux /= -foo;
 					}
 					do {
 						const std::size_t index = static_cast<std::size_t>(-foo * qux - bar);
-						qux = -foo * qux - static_cast<Number>(index);
-						if (!position) {
-							result += decimalPoint;
-						}
+						qux = qux * -foo - static_cast<Number>(index);
 						if (index == static_cast<std::size_t>(foo)) {
 							result += std::string(1, digits[index - 1]) + digits[0];
 						} else {
 							result += digits[index];
 						}
-						--position;
 					} while (qux);
+					result.insert(point, 1, decimalPoint);
 				} else {
 					Number fractional = std::fmod(value, 1);
 					Number integral = value - fractional;
