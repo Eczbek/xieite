@@ -56,9 +56,9 @@ namespace xieite::math {
 					const Number baz = 1 / (foo + 1);
 					Number qux = value;
 					Number position = 0;
-					while ((qux <= bar) || (qux >= baz)) {
+					while ((qux < bar) || (qux >= baz)) {
 						++position;
-						qux = value / std::pow(-foo, position);
+						qux /= -foo;
 					}
 					do {
 						const std::size_t index = static_cast<std::size_t>(-foo * qux - bar);
