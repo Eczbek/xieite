@@ -12,5 +12,5 @@ A type for automatically determining if a type should be taken by copy or by ref
 #### 1)
 ```cpp
 template<typename Type>
-using MaybeReference = std::conditional_t<sizeof(Type) > sizeof(std::size_t), const Type&, Type>;
+using MaybeReference = std::conditional_t<(sizeof(Type) > sizeof(std::size_t)), const Type&, const Type>;
 ```

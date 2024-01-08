@@ -6,7 +6,7 @@
 
 namespace xieite::types {
 	template<typename Type>
-	using MaybeReference = std::conditional_t<sizeof(Type) > sizeof(std::size_t), const Type&, Type>;
+	using MaybeReference = std::conditional_t<(sizeof(Type) > sizeof(std::size_t)), const Type&, const Type>;
 }
 
 #endif
