@@ -3,6 +3,7 @@
 
 #	include <concepts>
 #	include <functional>
+#	include <memory>
 #	include <utility>
 
 namespace xieite::functors {
@@ -10,14 +11,17 @@ namespace xieite::functors {
 	class ScopeGuard {
 	public:
 		constexpr ScopeGuard(const Functor& callback) noexcept
-		: callback(callback), released(false) {}
+		: callback(std::make_shared<Functor>(callback)) {}
+
+		constexpr ScopeGuard(Functor& callback) noexcept
+		: callback(std::make_shared<Functor>(callback)) {}
 
 		constexpr ScopeGuard(Functor&& callback) noexcept
-		: callback(std::move(callback)), released(false) {}
+		: callback(std::make_shared<Functor>(std::move(callback))) {}
 
 		constexpr ~ScopeGuard() {
 			if (!this->released) {
-				std::invoke(this->callback);
+				std::invoke(std::forward<Functor>(*this->callback));
 			}
 		}
 
@@ -26,8 +30,8 @@ namespace xieite::functors {
 		}
 
 	private:
-		const Functor callback;
-		bool released;
+		std::shared_ptr<Functor> callback;
+		bool released = false;
 	};
 }
 

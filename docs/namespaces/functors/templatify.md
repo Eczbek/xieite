@@ -4,7 +4,7 @@ Defined in header [<xieite/functors/templatify.hpp>](../../../include/xieite/fun
 &nbsp;
 
 ## Description
-Performs a slight bit of spacetime manipulation.
+Performs a slight bit of spacetime manipulation. `Functor` must be default-constructible.
 
 &nbsp;
 

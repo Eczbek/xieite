@@ -22,7 +22,7 @@ namespace xieite::math {
 			}
 
 		private:
-			const Number value;
+			Number value;
 		};
 
 	public:
