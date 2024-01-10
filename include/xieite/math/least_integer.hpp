@@ -3,12 +3,12 @@
 
 #	include <cstddef>
 #	include <cstdint>
-#	include <limits>
 #	include <type_traits>
+#	include "../types/size_bits.hpp"
 
 namespace xieite::math {
 	template<std::size_t bits>
-	using LeastInteger = std::conditional_t<bits <= std::numeric_limits<std::uint8_t>::digits, std::uint8_t, std::conditional_t<bits <= std::numeric_limits<std::uint16_t>::digits, std::uint16_t, std::conditional_t<bits <= std::numeric_limits<std::uint32_t>::digits, std::uint32_t, std::uint64_t>>>;
+	using LeastInteger = std::conditional_t<bits <= xieite::types::sizeBits<std::uint_least8_t>, std::uint_least8_t, std::conditional_t<bits <= xieite::types::sizeBits<std::uint_least16_t>, std::uint_least16_t, std::conditional_t<bits <= xieite::types::sizeBits<std::uint_least32_t>, std::uint_least32_t, std::uint_least64_t>>>;
 }
 
 #endif

@@ -11,6 +11,7 @@ Mathematical types and functions.
 - [BigInteger](./namespaces/math/big_integer.md)
 - [ConditionalSigned](./namespaces/math/conditional_signed.md)
 - [Exponent](./namespaces/math/exponent.md)
+- [Integer](./namespaces/math/integer.md)
 - [Interval](./namespaces/math/interval.md)
 - [LeastInteger](./namespaces/math/least_integer.md)
 - [Product](./namespaces/math/product.md)
