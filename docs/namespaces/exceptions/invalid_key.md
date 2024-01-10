@@ -6,7 +6,8 @@ Defined in header [<xieite/exceptions/invalid_key.hpp>](../../../include/xieite/
 ## Synopses
 #### 1)
 ```cpp
-struct InvalidKey {
+struct InvalidKey
+: xieite::exceptions::Unspecified {
     constexpr InvalidKey(std::string_view = "");
 };
 ```

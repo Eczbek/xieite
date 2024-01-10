@@ -6,7 +6,8 @@ Defined in header [<xieite/exceptions/unrepresentable_value.hpp>](../../../inclu
 ## Synopses
 #### 1)
 ```cpp
-struct UnrepresentableValue {
+struct UnrepresentableValue
+: xieite::exceptions::Unspecified {
     constexpr UnrepresentableValue(std::string_view = "");
 };
 ```

@@ -6,7 +6,8 @@ Defined in header [<xieite/exceptions/division_by_zero.hpp>](../../../include/xi
 ## Synopses
 #### 1)
 ```cpp
-struct DivisionByZero {
+struct DivisionByZero
+: xieite::exceptions::Unspecified {
     constexpr DivisionByZero(std::string_view = "");
 };
 ```

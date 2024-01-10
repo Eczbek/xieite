@@ -5,7 +5,8 @@
 #	include "../exceptions/unspecified.hpp"
 
 namespace xieite::exceptions {
-	struct UnsetFunctorInvoked {
+	struct UnsetFunctorInvoked
+	: xieite::exceptions::Unspecified {
 		constexpr UnsetFunctorInvoked(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};

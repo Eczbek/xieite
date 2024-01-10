@@ -5,7 +5,8 @@
 #	include "../exceptions/unspecified.hpp"
 
 namespace xieite::exceptions {
-	struct InvalidIndex {
+	struct InvalidIndex
+	: xieite::exceptions::Unspecified {
 		constexpr InvalidIndex(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};

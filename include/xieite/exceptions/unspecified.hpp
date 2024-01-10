@@ -14,7 +14,7 @@ namespace xieite::exceptions {
 			return this->message.c_str();
 		}
 
-	private:
+	protected:
 		std::string message;
 	};
 }

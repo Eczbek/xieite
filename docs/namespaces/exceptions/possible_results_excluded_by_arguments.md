@@ -6,7 +6,8 @@ Defined in header [<xieite/exceptions/possible_results_excluded_by_arguments.hpp
 ## Synopses
 #### 1)
 ```cpp
-struct PossibleResultsExcludedByArguments {
+struct PossibleResultsExcludedByArguments
+: xieite::exceptions::Unspecified {
     constexpr PossibleResultsExcludedByArguments(std::string_view = "");
 };
 ```

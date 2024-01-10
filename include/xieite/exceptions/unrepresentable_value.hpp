@@ -5,7 +5,8 @@
 #	include "../exceptions/unspecified.hpp"
 
 namespace xieite::exceptions {
-	struct UnrepresentableValue {
+	struct UnrepresentableValue
+	: xieite::exceptions::Unspecified {
 		constexpr UnrepresentableValue(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};

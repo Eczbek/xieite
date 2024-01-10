@@ -5,7 +5,8 @@
 #	include "../exceptions/unspecified.hpp"
 
 namespace xieite::exceptions {
-	struct PossibleResultsExcludedByArguments {
+	struct PossibleResultsExcludedByArguments
+	: xieite::exceptions::Unspecified {
 		constexpr PossibleResultsExcludedByArguments(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};

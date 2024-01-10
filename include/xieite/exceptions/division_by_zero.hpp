@@ -5,7 +5,8 @@
 #	include "../exceptions/unspecified.hpp"
 
 namespace xieite::exceptions {
-	struct DivisionByZero {
+	struct DivisionByZero
+	: xieite::exceptions::Unspecified {
 		constexpr DivisionByZero(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};

@@ -6,7 +6,8 @@ Defined in header [<xieite/exceptions/invalid_network_address.hpp>](../../../inc
 ## Synopses
 #### 1)
 ```cpp
-struct InvalidNetworkAddress {
+struct InvalidNetworkAddress
+: xieite::exceptions::Unspecified {
     constexpr InvalidNetworkAddress(std::string_view = "");
 };
 ```

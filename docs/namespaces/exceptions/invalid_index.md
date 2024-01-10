@@ -6,7 +6,8 @@ Defined in header [<xieite/exceptions/invalid_index.hpp>](../../../include/xieit
 ## Synopses
 #### 1)
 ```cpp
-struct InvalidIndex {
+struct InvalidIndex
+: xieite::exceptions::Unspecified {
     constexpr InvalidIndex(std::string_view = "");
 };
 ```

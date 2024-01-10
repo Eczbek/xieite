@@ -6,7 +6,8 @@ Defined in header [<xieite/exceptions/unset_functor_invoked.hpp>](../../../inclu
 ## Synopses
 #### 1)
 ```cpp
-struct UnsetFunctorInvoked {
+struct UnsetFunctorInvoked
+: xieite::exceptions::Unspecified {
     constexpr UnsetFunctorInvoked(std::string_view = "");
 };
 ```

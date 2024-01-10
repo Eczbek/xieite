@@ -5,7 +5,8 @@
 #	include "../exceptions/unspecified.hpp"
 
 namespace xieite::exceptions {
-	struct InvalidNetworkAddress {
+	struct InvalidNetworkAddress
+	: xieite::exceptions::Unspecified {
 		constexpr InvalidNetworkAddress(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};

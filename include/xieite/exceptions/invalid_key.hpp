@@ -5,7 +5,8 @@
 #	include "../exceptions/unspecified.hpp"
 
 namespace xieite::exceptions {
-	struct InvalidKey {
+	struct InvalidKey
+	: xieite::exceptions::Unspecified {
 		constexpr InvalidKey(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};
