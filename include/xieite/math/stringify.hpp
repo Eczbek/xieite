@@ -68,7 +68,7 @@ namespace xieite::math {
 						} else {
 							result += digits[index];
 						}
-					} while (qux);
+					} while (std::abs(qux) >= std::numeric_limits<Number>::epsilon());
 					result.insert(point, 1, decimalPoint);
 				} else {
 					Number fractional = std::fmod(value, 1);
