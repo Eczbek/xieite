@@ -75,8 +75,10 @@
 #		endif
 #	endif
 
-#	if defined(__cplusplus_cli) && (__cplusplus_cli >= 200406)
-#		define XIEITE_LANGUAGE_STANDARD_CPP_CLI 1
+#	ifdef __cplusplus_cli
+#		if __cplusplus_cli >= 200406
+#			define XIEITE_LANGUAGE_STANDARD_CPP_CLI 1
+#		endif
 #	endif
 
 #	ifdef __embedded_cplusplus

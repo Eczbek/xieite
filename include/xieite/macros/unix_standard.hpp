@@ -50,8 +50,10 @@
 #		endif
 #	endif
 
-#	if defined(_POSIX2_C_VERSION) && (_POSIX2_C_VERSION >= 199209)
-#		define XIEITE_UNIX_STANDARD_POSIX_1992 1
+#	ifdef _POSIX2_C_VERSION
+#		if _POSIX2_C_VERSION >= 199209
+#			define XIEITE_UNIX_STANDARD_POSIX_1992 1
+#		endif
 #	endif
 
 #	ifdef _XOPEN_VERSION
