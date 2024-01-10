@@ -8,7 +8,7 @@ This project extends the standard library and provides an organized collection o
 ## Features
 - [xieite::math::BigInteger](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/math/big_integer.md)
 - [xieite::types::List](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/types/list.md)
-- [xieite::strings::unformat](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/strings/unformat.md)
+- [xieite::math::parse](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/math/parse.md)
 - [xieite::random::UniformInterruptableDistribution](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/random/uniform_interruptable_distribution.md)
 - [xieite::containers::FixedMap](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/containers/fixed_map.md)
 - [xieite::streams::StandardHandle](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/streams/standard_handle.md)

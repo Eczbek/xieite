@@ -28,7 +28,6 @@ String manipulation functions.
 - [trimBack](./namespaces/strings/trim_back.md)
 - [trimFront](./namespaces/strings/trim_front.md)
 - [truncate](./namespaces/strings/truncate.md)
-- [unformat](./namespaces/strings/unformat.md)
 - [uppercase](./namespaces/strings/uppercase.md)
 - [validNumber](./namespaces/strings/valid_number.md)
 - [whitespaces](./namespaces/strings/whitespaces.md)
