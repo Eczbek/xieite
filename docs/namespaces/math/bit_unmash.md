@@ -4,15 +4,15 @@ Defined in header [<xieite/math/bit_unmash.hpp>](../../../include/xieite/math/bi
 &nbsp;
 
 ## Description
-"Unmashes" one `std::bitset` apart into multiple integers.
+"Unmashes" one `std::bitset` apart into multiple integers of specified sizes.
 
 &nbsp;
 
 ## Synopses
 #### 1)
 ```cpp
-template<std::integral... Integers>
-[[nodiscard]] constexpr std::tuple<Integers...> bitUnmash(const std::bitset<(... + xieite::types::sizeBits<Integers>)>& bits) noexcept;
+template<std::size_t... sizes>
+[[nodiscard]] constexpr std::tuple<xieite::math::LeastInteger<sizes>...> bitUnmash(const std::bitset<(... + sizes)>& bits) noexcept;
 ```
 
 &nbsp;
