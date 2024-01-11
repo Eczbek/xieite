@@ -1,6 +1,7 @@
 #ifndef XIEITE_HEADER_ALGORITHMS_ROTATE_MATRIX
 #	define XIEITE_HEADER_ALGORITHMS_ROTATE_MATRIX
 
+#	include <cstddef>
 #	include <vector>
 #	include "../math/wrap.hpp"
 
@@ -13,7 +14,7 @@ namespace xieite::algorithms {
 			return matrix;
 		}
 		const std::size_t matrixHeight = matrix[0].size();
-		std::vector<std::vector<Value>> result = std::vector<std::vector<Value>>(matrixHeight, std::vector<Value>(matrixWidth));
+		auto result = std::vector<std::vector<Value>>(matrixHeight, std::vector<Value>(matrixWidth));
 		if (rotations > 0) {
 			for (std::size_t x = matrixWidth; x--;) {
 				for (std::size_t y = 0; y < matrixHeight; ++y) {

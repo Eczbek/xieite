@@ -470,7 +470,7 @@ namespace xieite::math {
 			}
 			const std::size_t dataShift = static_cast<std::size_t>(rightOperand) >> static_cast<std::size_t>(std::log2(xieite::types::sizeBits<Word>));
 			const std::size_t bitsShift = static_cast<std::size_t>(rightOperand) & (xieite::types::sizeBits<Word> - 1);
-			std::vector<Word> resultData = std::vector<Word>(dataShift, 0);
+			auto resultData = std::vector<Word>(dataShift, 0);
 			resultData.insert(resultData.end(), leftOperand.data.begin(), leftOperand.data.end());
 			if (bitsShift) {
 				Word carry = 0;
@@ -513,7 +513,7 @@ namespace xieite::math {
 			if (dataShift >= leftDataSize) {
 				return 0;
 			}
-			std::vector<Word> resultData = std::vector<Word>(std::ranges::next(leftOperand.data.begin(), dataShift, leftOperand.data.end()), leftOperand.data.end());
+			auto resultData = std::vector<Word>(std::ranges::next(leftOperand.data.begin(), dataShift, leftOperand.data.end()), leftOperand.data.end());
 			if (bitsShift) {
 				Word carry = 0;
 				for (Word& resultWord : std::views::reverse(resultData)) {
