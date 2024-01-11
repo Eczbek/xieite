@@ -18,7 +18,7 @@ requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
 #### 2)
 ```cpp
 template<xieite::concepts::Arithmetic... Numbers>
-[[nodiscard]] constexpr std::vector<xieite::math::Result<Numbers...>> modes(const Numbers... values) noexcept;
+[[nodiscard]] constexpr std::vector<xieite::types::CommonFloatingPoint<Numbers...>> modes(const Numbers... values) noexcept;
 ```
 
 &nbsp;

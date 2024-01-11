@@ -23,6 +23,7 @@
 #	include "../strings/lowercase.hpp"
 #	include "../system/byte_bits.hpp"
 #	include "../types/maybe_unsigned.hpp"
+#	include "../types/size_bits.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral Word = std::uint64_t>
@@ -37,7 +38,7 @@ namespace xieite::math {
 			do {
 				this->data.push_back(static_cast<Word>(absoluteValue));
 				if constexpr (sizeof(Integer) > sizeof(Word)) {
-					absoluteValue >>= std::numeric_limits<Word>::digits;
+					absoluteValue >>= xieite::types::sizeBits<Word>;
 				} else {
 					break;
 				}
@@ -115,7 +116,7 @@ namespace xieite::math {
 			Integer result = 0;
 			const std::size_t dataSize = this->data.size();
 			for (std::size_t i = 0; i < dataSize; ++i) {
-				result |= static_cast<Integer>(this->data[i]) << (static_cast<Integer>(i) * std::numeric_limits<Word>::digits);
+				result |= static_cast<Integer>(this->data[i]) << (static_cast<Integer>(i) * xieite::types::sizeBits<Word>);
 			}
 			return this->negative ? -result : result;
 		}
@@ -280,7 +281,7 @@ namespace xieite::math {
 						continue;
 					}
 					const xieite::math::Product<Word> product = xieite::math::multiply<Word>(multiplier.data[i], multiplicand.data[j]);
-					result += ((xieite::math::BigInteger<Word>(product.upper) << std::numeric_limits<Word>::digits) | product.lower) << (xieite::math::BigInteger<Word>(i) << xieite::math::digits(std::numeric_limits<Word>::digits - 1, 2)) << (xieite::math::BigInteger<Word>(j) << xieite::math::digits(std::numeric_limits<Word>::digits - 1, 2));
+					result += ((xieite::math::BigInteger<Word>(product.upper) << xieite::types::sizeBits<Word>) | product.lower) << (xieite::math::BigInteger<Word>(i) << xieite::math::digits(xieite::types::sizeBits<Word> - 1, 2)) << (xieite::math::BigInteger<Word>(j) << xieite::math::digits(xieite::types::sizeBits<Word> - 1, 2));
 				}
 			}
 			result.negative = !sameSign;
@@ -328,7 +329,7 @@ namespace xieite::math {
 			remainder.data.resize(dividend.data.size(), 0);
 			result.data.resize(dividend.data.size(), 0);
 			for (std::size_t i = dividend.data.size(); i--;) {
-				for (std::size_t j = std::numeric_limits<Word>::digits; j--;) {
+				for (std::size_t j = xieite::types::sizeBits<Word>; j--;) {
 					remainder <<= 1;
 					remainder.data[0] |= (dividend.data[i] >> j) & 1;
 					const bool quotient = remainder >= absoluteDivisor;
@@ -372,7 +373,7 @@ namespace xieite::math {
 			}
 			xieite::math::BigInteger<Word> remainder;
 			for (const Word dividendWord : std::views::reverse(dividend.data)) {
-				for (std::size_t j = std::numeric_limits<Word>::digits; j--;) {
+				for (std::size_t j = xieite::types::sizeBits<Word>; j--;) {
 					remainder <<= 1;
 					remainder.data[0] |= (dividendWord >> j) & 1;
 					remainder -= absoluteDivisor * (remainder >= absoluteDivisor);
@@ -467,8 +468,8 @@ namespace xieite::math {
 			if (rightOperand.negative) {
 				return leftOperand >> -rightOperand;
 			}
-			const std::size_t dataShift = static_cast<std::size_t>(rightOperand) >> static_cast<std::size_t>(std::log2(std::numeric_limits<Word>::digits));
-			const std::size_t bitsShift = static_cast<std::size_t>(rightOperand) & (std::numeric_limits<Word>::digits - 1);
+			const std::size_t dataShift = static_cast<std::size_t>(rightOperand) >> static_cast<std::size_t>(std::log2(xieite::types::sizeBits<Word>));
+			const std::size_t bitsShift = static_cast<std::size_t>(rightOperand) & (xieite::types::sizeBits<Word> - 1);
 			std::vector<Word> resultData = std::vector<Word>(dataShift, 0);
 			resultData.insert(resultData.end(), leftOperand.data.begin(), leftOperand.data.end());
 			if (bitsShift) {
@@ -476,7 +477,7 @@ namespace xieite::math {
 				const std::size_t leftDataSize = leftOperand.data.size();
 				for (std::size_t i = 0; i < leftDataSize; ++i) {
 					resultData[i + dataShift] = (leftOperand.data[i] << bitsShift) | carry;
-					carry = leftOperand.data[i] >> (std::numeric_limits<Word>::digits - bitsShift);
+					carry = leftOperand.data[i] >> (xieite::types::sizeBits<Word> - bitsShift);
 				}
 				if (carry) {
 					resultData.push_back(carry);
@@ -506,8 +507,8 @@ namespace xieite::math {
 			if (rightOperand.negative) {
 				return leftOperand >> -rightOperand;
 			}
-			const std::size_t dataShift = static_cast<std::size_t>(rightOperand) >> static_cast<std::size_t>(std::log2(std::numeric_limits<Word>::digits));
-			const std::size_t bitsShift = static_cast<std::size_t>(rightOperand) & (std::numeric_limits<Word>::digits - 1);
+			const std::size_t dataShift = static_cast<std::size_t>(rightOperand) >> static_cast<std::size_t>(std::log2(xieite::types::sizeBits<Word>));
+			const std::size_t bitsShift = static_cast<std::size_t>(rightOperand) & (xieite::types::sizeBits<Word> - 1);
 			const std::size_t leftDataSize = leftOperand.data.size();
 			if (dataShift >= leftDataSize) {
 				return 0;
@@ -518,7 +519,7 @@ namespace xieite::math {
 				for (Word& resultWord : std::views::reverse(resultData)) {
 					const Word copy = resultWord;
 					resultWord = (copy >> bitsShift) | carry;
-					carry = copy << (std::numeric_limits<Word>::digits - bitsShift);
+					carry = copy << (xieite::types::sizeBits<Word> - bitsShift);
 				}
 			}
 			return xieite::math::BigInteger<Word>(resultData, leftOperand.negative) - leftOperand.negative;
@@ -696,7 +697,7 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] constexpr xieite::math::BigInteger<Word> logarithm2() const noexcept {
-			return xieite::math::BigInteger<Word>(std::numeric_limits<Word>::digits) * (this->data.size() - 1) + xieite::math::digits(this->data.back(), 2) - 1;
+			return xieite::math::BigInteger<Word>(xieite::types::sizeBits<Word>) * (this->data.size() - 1) + xieite::math::digits(this->data.back(), 2) - 1;
 		}
 	};
 }

@@ -9,7 +9,7 @@
 #	include "../concepts/arithmetic.hpp"
 #	include "../concepts/functable.hpp"
 #	include "../concepts/no_throw_invocable.hpp"
-#	include "../math/result.hpp"
+#	include "../types/common_floating_point.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::greater>

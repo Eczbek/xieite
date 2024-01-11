@@ -6,5 +6,5 @@ Defined in header [<xieite/math/integer.hpp>](../../../../../../include/xieite/m
 ## Synopses
 #### 1)
 ```cpp
-using Type = xieite::math::ConditionalSigned<xieite::math::LeastInteger<bits>, sign>;
+using Type = xieite::types::ConditionallySigned<xieite::types::LeastInteger<bits>, sign>;
 ```

@@ -3,12 +3,12 @@
 
 #	include <cmath>
 #	include "../concepts/arithmetic.hpp"
-#	include "../math/result.hpp"
+#	include "../types/common_floating_point.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr xieite::math::Result<Number> cotangent(const Number value) noexcept {
-		return std::cos(value) / std::sin(value);
+	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> cotangent(const Number value) noexcept {
+		return std::cos(static_cast<xieite::types::CommonFloatingPoint<Number>>(value)) / std::sin(static_cast<xieite::types::CommonFloatingPoint<Number>>(value));
 	}
 }
 

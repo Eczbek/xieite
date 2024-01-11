@@ -4,14 +4,14 @@
 #	include <compare>
 #	include <concepts>
 #	include <cstddef>
-#	include "../math/conditional_signed.hpp"
-#	include "../math/least_integer.hpp"
+#	include "../types/conditionally_signed.hpp"
+#	include "../types/least_integer.hpp"
 
 namespace xieite::math {
 	template<std::size_t bits, bool sign>
 	class Integer final {
 	public:
-		using Type = xieite::math::ConditionalSigned<xieite::math::LeastInteger<bits>, sign>;
+		using Type = xieite::types::ConditionallySigned<xieite::types::LeastInteger<bits>, sign>;
 
 		template<std::integral OtherInteger = int>
 		constexpr Integer(const OtherInteger value = 0) noexcept

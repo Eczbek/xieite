@@ -12,7 +12,7 @@ Computes the maximum of some values. Returns `0` if no arguments are passed.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic... Numbers>
-[[nodiscard]] constexpr xieite::math::Result<Numbers...> maximum(const Numbers... values) noexcept;
+[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Numbers...> maximum(const Numbers... values) noexcept;
 ```
 
 &nbsp;

@@ -13,12 +13,12 @@ Computes the mean of some values. Returns `0` if no arguments are passed.
 ```cpp
 template<std::ranges::range Range>
 requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
-[[nodiscard]] constexpr xieite::math::Result<std::ranges::range_value_t<Range>> mean(const Range& range) noexcept;
+[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<std::ranges::range_value_t<Range>> mean(const Range& range) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::Arithmetic... Numbers>
-[[nodiscard]] constexpr xieite::math::Result<Numbers...> mean(const Numbers... values) noexcept;
+[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Numbers...> mean(const Numbers... values) noexcept;
 ```
 
 &nbsp;

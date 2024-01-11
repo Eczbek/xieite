@@ -3,7 +3,7 @@
 
 #	include "../concepts/arithmetic.hpp"
 #	include "../math/pi.hpp"
-#	include "../math/result.hpp"
+#	include "../types/common_floating_point.hpp"
 #	include "../units/angle.hpp"
 #	include "../units/area.hpp"
 #	include "../units/length.hpp"
@@ -12,20 +12,20 @@
 
 namespace xieite::units {
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Angle source, const xieite::units::Angle target) noexcept {
-		xieite::math::Result<Number> result = value;
+	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> convert(const Number value, const xieite::units::Angle source, const xieite::units::Angle target) noexcept {
+		xieite::types::CommonFloatingPoint<Number> result = value;
 		if (source == xieite::units::Angle::degree) {
-			result = result * xieite::math::pi<xieite::math::Result<Number>> / 180;
+			result = result * xieite::math::pi<xieite::types::CommonFloatingPoint<Number>> / 180;
 		}
 		if (target == xieite::units::Angle::degree) {
-			result = result * 180 / xieite::math::pi<xieite::math::Result<Number>>;
+			result = result * 180 / xieite::math::pi<xieite::types::CommonFloatingPoint<Number>>;
 		}
 		return result;
 	}
 
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Area source, const xieite::units::Area target) noexcept {
-		xieite::math::Result<Number> result = value;
+	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> convert(const Number value, const xieite::units::Area source, const xieite::units::Area target) noexcept {
+		xieite::types::CommonFloatingPoint<Number> result = value;
 		switch (source) {
 			case xieite::units::Area::squareQuectometre:
 				result /= 1000000000000000000000000000000000000000000000000000000000000.0;
@@ -232,8 +232,8 @@ namespace xieite::units {
 	}
 
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Length source, const xieite::units::Length target) noexcept {
-		xieite::math::Result<Number> result = value;
+	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> convert(const Number value, const xieite::units::Length source, const xieite::units::Length target) noexcept {
+		xieite::types::CommonFloatingPoint<Number> result = value;
 		switch (source) {
 			case xieite::units::Length::quectometre:
 				result /= 1000000000000000000000000000000.0;
@@ -488,8 +488,8 @@ namespace xieite::units {
 	}
 
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Temperature source, const xieite::units::Temperature target) noexcept {
-		xieite::math::Result<Number> result = value;
+	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> convert(const Number value, const xieite::units::Temperature source, const xieite::units::Temperature target) noexcept {
+		xieite::types::CommonFloatingPoint<Number> result = value;
 		switch (source) {
 			case xieite::units::Temperature::celsius:
 				result += 273.15;
@@ -516,8 +516,8 @@ namespace xieite::units {
 	}
 
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr xieite::math::Result<Number> convert(const Number value, const xieite::units::Volume source, const xieite::units::Volume target) noexcept {
-		xieite::math::Result<Number> result = value;
+	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> convert(const Number value, const xieite::units::Volume source, const xieite::units::Volume target) noexcept {
+		xieite::types::CommonFloatingPoint<Number> result = value;
 		switch (source) {
 			case xieite::units::Volume::cubicQuectometre:
 				result /= 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;

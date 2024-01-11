@@ -4,24 +4,24 @@
 #	include <iterator>
 #	include <ranges>
 #	include "../concepts/arithmetic.hpp"
-#	include "../math/result.hpp"
+#	include "../types/common_floating_point.hpp"
 
 namespace xieite::math {
 	template<std::ranges::range Range>
 	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
-	[[nodiscard]] constexpr xieite::math::Result<std::ranges::range_value_t<Range>> mean(const Range& range) noexcept {
-		xieite::math::Result<std::ranges::range_value_t<Range>> result = 0;
+	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<std::ranges::range_value_t<Range>> mean(const Range& range) noexcept {
+		xieite::types::CommonFloatingPoint<std::ranges::range_value_t<Range>> result = 0;
 		const auto end = std::ranges::end(range);
 		for (auto iterator = std::ranges::begin(range); iterator != end; iterator = std::ranges::next(iterator)) {
-			result += static_cast<xieite::math::Result<std::ranges::range_value_t<Range>>>(*iterator);
+			result += static_cast<xieite::types::CommonFloatingPoint<std::ranges::range_value_t<Range>>>(*iterator);
 		}
 		return result / std::ranges::size(range);
 	}
 
 	template<xieite::concepts::Arithmetic... Numbers>
-	[[nodiscard]] constexpr xieite::math::Result<Numbers...> mean(const Numbers... values) noexcept {
+	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Numbers...> mean(const Numbers... values) noexcept {
 		if constexpr (sizeof...(Numbers)) {
-			return (... + (static_cast<xieite::math::Result<Numbers...>>(values) / sizeof...(Numbers)));
+			return (... + (static_cast<xieite::types::CommonFloatingPoint<Numbers...>>(values) / sizeof...(Numbers)));
 		}
 		return 0;
 	}

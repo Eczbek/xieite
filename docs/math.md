@@ -9,13 +9,11 @@ Mathematical types and functions.
 
 ## Contents
 - [BigInteger](./namespaces/math/big_integer.md)
-- [ConditionalSigned](./namespaces/math/conditional_signed.md)
 - [Exponent](./namespaces/math/exponent.md)
 - [Integer](./namespaces/math/integer.md)
 - [Interval](./namespaces/math/interval.md)
-- [LeastInteger](./namespaces/math/least_integer.md)
 - [Product](./namespaces/math/product.md)
-- [Result](./namespaces/math/result.md)
+- [Result](./namespaces/types/common_floating_point.md)
 - [absolute](./namespaces/math/absolute.md)
 - [additionOverflows](./namespaces/math/addition_overflows.md)
 - [almostEqual](./namespaces/math/almost_equal.md)

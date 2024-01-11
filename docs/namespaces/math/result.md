@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Result
-Defined in header [<xieite/math/result.hpp>](../../../include/xieite/math/result.hpp)
+Defined in header [<xieite/types/common_floating_point.hpp>](../../../include/xieite/types/common_floating_point.hpp)
 
 &nbsp;
 

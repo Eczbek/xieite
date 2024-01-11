@@ -12,7 +12,7 @@ Defined in header [<xieite/math/bit_unmash.hpp>](../../../include/xieite/math/bi
 #### 1)
 ```cpp
 template<std::size_t... sizes>
-[[nodiscard]] constexpr std::tuple<xieite::math::LeastInteger<sizes>...> bitUnmash(const std::bitset<(... + sizes)>& bits) noexcept;
+[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes>...> bitUnmash(const std::bitset<(... + sizes)>& bits) noexcept;
 ```
 
 &nbsp;
