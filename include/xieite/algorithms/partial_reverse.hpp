@@ -11,9 +11,9 @@
 #	include "../concepts/no_throw_invocable.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>)> Functor>
+	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>)> Functor>
 	constexpr void partialReverse(Range& range, const Functor& selector)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range>>) {
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>) {
 		auto iterator = std::ranges::begin(range);
 		const auto end = std::ranges::end(range);
 		std::vector<std::ranges::iterator_t<Range&>> iterators;

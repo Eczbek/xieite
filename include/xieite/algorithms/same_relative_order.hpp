@@ -10,9 +10,9 @@
 #	include "../concepts/no_throw_invocable.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range1>, std::ranges::range_value_t<Range2>)> Functor = std::ranges::equal_to>
+	template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>)> Functor = std::ranges::equal_to>
 	[[nodiscard]] constexpr bool sameRelativeOrder(const Range1& range1, Range2 range2, const Functor& comparator = Functor())
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range1>, std::ranges::range_value_t<Range2>>) {
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>>) {
 		const std::size_t rangeSize = std::ranges::size(range1);
 		if (rangeSize == std::ranges::size(range2)) {
 			for (std::size_t i = 0; i < rangeSize; ++i) {

@@ -11,9 +11,9 @@
 #	include "../math/reverse.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::equal_to>
+	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
 	[[nodiscard]] constexpr bool palindrome(const Range& range, const Functor& comparator = Functor())
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>>) {
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>) {
 		auto begin = std::ranges::begin(range);
 		auto end = std::ranges::end(range);
 		for (std::size_t i = std::ranges::size(range) / 2; i--;) {

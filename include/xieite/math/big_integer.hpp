@@ -75,7 +75,7 @@ namespace xieite::math {
 		}
 
 		template<std::ranges::range Range>
-		requires(std::same_as<Word, std::ranges::range_value_t<Range>>)
+		requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
 		constexpr BigInteger(const Range& range, const bool negative = false) noexcept
 		: data(range.begin(), range.end()), negative(negative) {
 			this->trim();

@@ -12,9 +12,9 @@ Attempts to create `std::array`s from other ranges.
 #### 1)
 ```cpp
 template<typename Value, std::size_t size, std::ranges::range Range>
-requires(std::convertible_to<std::ranges::range_value_t<Range>, Value>)
+requires(std::convertible_to<std::ranges::range_reference_t<Range>, Value>)
 [[nodiscard]] constexpr std::array<Value, size> makeArray(const Range& range)
-noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_value_t<Range>, Value>);
+noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, Value>);
 ```
 #### 2)
 ```cpp

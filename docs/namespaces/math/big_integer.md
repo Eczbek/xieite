@@ -22,7 +22,7 @@ struct BigInteger {
     constexpr BigInteger(const xieite::math::BigInteger<OtherWord, OtherOperand>&);
 
     template<std::ranges::range Range>
-    requires(std::same_as<Word, std::ranges::range_value_t<Range>>)
+    requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
     constexpr BigInteger(const Range&, bool = false);
 
     constexpr BigInteger(std::string_view, int = 10, std::string_view = "0123456789abcdefghijklmnopqrstuvwxyz", char = '-', bool = false);

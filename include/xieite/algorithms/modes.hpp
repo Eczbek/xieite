@@ -12,10 +12,10 @@
 #	include "../types/common_floating_point.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>)> Functor = std::ranges::greater>
+	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::greater>
 	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
 	[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range&>> modes(const Range& range, const Functor& comparator = Functor())
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range>, std::ranges::range_value_t<Range>>) {
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>) {
 		std::vector<std::ranges::const_iterator_t<const Range&>> iterators;
 		auto iterator = std::ranges::next(std::ranges::begin(range));
 		const std::size_t rangeSize = std::ranges::size(range);

@@ -11,15 +11,15 @@ Groups elements of a `std::vector` into a `std::unordered_map`, of which the key
 ## Synopses
 #### 1)
 ```cpp
-template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Range>> Functor>
-[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor(std::ranges::range_value_t<Range>)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Functor& callback)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range>>);
+template<std::ranges::range Range, std::invocable<std::ranges::range_reference_t<Range>> Functor>
+[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor(std::ranges::range_reference_t<Range>)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Functor& callback)
+noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>);
 ```
 #### 2)
 ```cpp
-template<std::ranges::range Range, std::invocable<std::ranges::range_value_t<Range>, std::size_t> Functor>
-[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor(std::ranges::range_value_t<Range>, std::size_t)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Functor& callback)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_value_t<Range>, std::size_t>);
+template<std::ranges::range Range, std::invocable<std::ranges::range_reference_t<Range>, std::size_t> Functor>
+[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor(std::ranges::range_reference_t<Range>, std::size_t)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Functor& callback)
+noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::size_t>);
 ```
 
 &nbsp;

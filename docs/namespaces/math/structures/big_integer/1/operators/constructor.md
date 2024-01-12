@@ -21,7 +21,7 @@ constexpr BigInteger(const xieite::math::BigInteger<Word>& value) noexcept;
 #### 3)
 ```cpp
 template<std::ranges::Range Range>
-requires(std::same_as<Word, std::ranges::range_value_t<Range>>)
+requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
 constexpr BigInteger(const Range& range, bool negative = false) noexcept;
 ```
 #### 4)

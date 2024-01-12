@@ -10,7 +10,7 @@
 namespace xieite::algorithms {
 	template<xieite::concepts::RangeOf<bool> Range>
 	[[nodiscard]] constexpr bool all(const Range& range)
-	noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_value_t<Range>, bool>)) {
+	noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, bool>)) {
 		return std::ranges::all_of(range, [](const auto value) {
 			return static_cast<bool>(value);
 		});
