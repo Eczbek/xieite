@@ -17,30 +17,27 @@ namespace xieite::functors {
 	class Infix<Functor> {
 	public:
 		constexpr Infix(const Functor& callback) noexcept
-		: callback(std::make_shared<Functor>(callback)) {}
-
-		constexpr Infix(Functor& callback) noexcept
-		: callback(std::make_shared<Functor>(callback)) {}
+		: callback(callback) {}
 
 		constexpr Infix(Functor&& callback) noexcept
-		: callback(std::make_shared<Functor>(std::move(callback))) {}
+		: callback(std::move(callback)) {}
 
 		template<typename Argument>
 		requires(std::invocable<Functor, Argument&&>)
 		friend constexpr std::invoke_result_t<Functor, Argument&&> operator>(const xieite::functors::Infix<Functor>& infix, Argument&& argument)
 		noexcept(xieite::concepts::NoThrowInvocable<Functor, Argument&&>) {
-			return std::invoke(std::forward<Functor>(*infix.callback), std::forward<Argument>(argument));
+			return std::invoke(std::forward<Functor>(infix.callback), std::forward<Argument>(argument));
 		}
 
 		template<typename Argument>
 		requires(std::invocable<Functor, Argument&&>)
 		friend constexpr std::invoke_result_t<Functor, Argument&&> operator<(Argument&& argument, const xieite::functors::Infix<Functor>& infix)
 		noexcept(xieite::concepts::NoThrowInvocable<Functor, Argument&&>) {
-			return std::invoke(std::forward<Functor>(*infix.callback), std::forward<Argument>(argument));
+			return std::invoke(std::forward<Functor>(infix.callback), std::forward<Argument>(argument));
 		}
 
 	private:
-		std::shared_ptr<Functor> callback;
+		mutable Functor callback;
 	};
 
 	template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> Functor>
@@ -49,8 +46,8 @@ namespace xieite::functors {
 		template<typename LeftArgument>
 		class Intermediate {
 		public:
-			constexpr Intermediate(const std::shared_ptr<Functor> callback, LeftArgument leftArgument) noexcept
-			: callback(callback), leftArgument(std::make_shared<LeftArgument>(leftArgument)) {}
+			constexpr Intermediate(const Functor& callback, LeftArgument leftArgument) noexcept
+			: callback(callback), leftArgument(leftArgument) {}
 
 			constexpr auto operator=(const xieite::functors::Infix<Functor>::Intermediate<LeftArgument>&) = delete;
 
@@ -58,32 +55,29 @@ namespace xieite::functors {
 			requires(std::invocable<Functor, LeftArgument, RightArgument&&>)
 			friend constexpr std::invoke_result_t<Functor, LeftArgument, RightArgument&&> operator>(const xieite::functors::Infix<Functor>::Intermediate<LeftArgument>& infixIntermediate, RightArgument&& rightArgument)
 			noexcept(xieite::concepts::NoThrowInvocable<Functor, LeftArgument, RightArgument&&>) {
-				return std::invoke(std::forward<Functor>(*infixIntermediate.callback), std::forward<LeftArgument>(*infixIntermediate.leftArgument), std::forward<RightArgument>(rightArgument));
+				return std::invoke(std::forward<Functor>(infixIntermediate.callback), std::forward<LeftArgument>(infixIntermediate.leftArgument), std::forward<RightArgument>(rightArgument));
 			}
 
 		private:
-			std::shared_ptr<Functor> callback;
-			std::shared_ptr<LeftArgument> leftArgument;
+			mutable Functor callback;
+			mutable LeftArgument leftArgument;
 		};
 
 	public:
 		constexpr Infix(const Functor& callback) noexcept
-		: callback(std::make_shared<Functor>(callback)) {}
-
-		constexpr Infix(Functor& callback) noexcept
-		: callback(std::make_shared<Functor>(callback)) {}
+		: callback(callback) {}
 
 		constexpr Infix(Functor&& callback) noexcept
-		: callback(std::make_shared<Functor>(std::move(functor))) {}
+		: callback(std::move(functor)) {}
 
 		template<typename LeftArgument>
 		requires(std::invocable<Functor, LeftArgument&&, xieite::types::Placeholder>)
 		[[nodiscard]] friend constexpr xieite::functors::Infix<Functor>::Intermediate<LeftArgument&&> operator<(LeftArgument&& leftArgument, const xieite::functors::Infix<Functor>& infix) noexcept {
-			return xieite::functors::Infix<Functor>::Intermediate<LeftArgument&&>(*infix.callback, std::forward<LeftArgument>(leftArgument));
+			return xieite::functors::Infix<Functor>::Intermediate<LeftArgument&&>(infix.callback, std::forward<LeftArgument>(leftArgument));
 		}
 
 	private:
-		std::shared_ptr<Functor> callback;
+		mutable Functor callback;
 	};
 
 	template<typename Functor>
