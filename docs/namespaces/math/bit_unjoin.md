@@ -12,7 +12,12 @@ Unjoins one `std::bitset` apart into multiple integers.
 #### 1)
 ```cpp
 template<std::integral... Integers>
-[[nodiscard]] constexpr std::tuple<Integers...> bitUnjoin(const std::bitset<(... + xieite::types::sizeBits<Integers>)>& bits) noexcept;
+[[nodiscard]] constexpr std::tuple<Integers...> bitUnjoin(const std::bitset<(... + xieite::types::sizeBits<Integers>)>& value) noexcept;
+```
+#### 2)
+```cpp
+template<std::integral Integer, std::size_t size>
+[[nodiscard]] constexpr std::array<Integer, size> bitUnjoin(const std::bitset<xieite::types::sizeBits<Integer> * size>& value) noexcept;
 ```
 
 &nbsp;

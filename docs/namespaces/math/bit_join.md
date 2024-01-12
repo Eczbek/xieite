@@ -14,6 +14,11 @@ Joins multiple integers together into one `std::bitset`, preserving every values
 template<std::integral... Integers>
 [[nodiscard]] constexpr std::bitset<(... + xieite::types::sizeBits<Integers>)> bitJoin(Integers... values) noexcept;
 ```
+#### 2)
+```cpp
+template<std::integral Integer, std::size_t size>
+[[nodiscard]] constexpr std::bitset<xieite::types::sizeBits<Integer> * size> bitJoin(const std::array<Integer, size>& values) noexcept;
+```
 
 &nbsp;
 

@@ -115,7 +115,7 @@ namespace xieite::types {
 		};
 
 		template<std::size_t count>
-		requires(static_cast<bool>(count))
+		requires(count > 0)
 		struct RepeatHelper<count> {
 			using Type = xieite::types::List<Types...>::template AppendRange<typename xieite::types::List<Types...>::RepeatHelper<count - 1>::Type>;
 		};

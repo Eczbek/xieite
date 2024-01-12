@@ -8,6 +8,8 @@
 #	include <string>
 #	include <string_view>
 #	include <vector>
+#	include "../math/bit_join.hpp"
+#	include "../math/bit_unjoin.hpp"
 #	include "../math/stringify.hpp"
 
 namespace xieite::strings {
@@ -150,26 +152,20 @@ namespace xieite::strings {
 			2562383102,
 			271733878
 		};
-		auto padded = std::vector<char>(value.begin(), value.end());
-		const std::uint64_t length = static_cast<std::uint64_t>(padded.size()) * 8;
-		padded.emplace_back(128);
-		const auto padding = std::vector<char>((120 - padded.size() % 64) % 64, 0);
-		padded.insert(padded.end(), padding.begin(), padding.end());
-		padded.emplace_back(length & 255);
-		padded.emplace_back((length >> 8) & 255);
-		padded.emplace_back((length >> 16) & 255);
-		padded.emplace_back((length >> 24) & 255);
-		padded.emplace_back((length >> 32) & 255);
-		padded.emplace_back((length >> 40) & 255);
-		padded.emplace_back((length >> 48) & 255);
-		padded.emplace_back(length >> 56);
-		const std::size_t paddedSize = padded.size();
-		for (std::size_t i = 0; i < paddedSize; i += 64) {
+		auto data = std::vector<char>(value.begin(), value.end());
+		const std::uint64_t length = static_cast<std::uint64_t>(data.size()) * 8;
+		data.emplace_back(128);
+		const auto padding = std::vector<char>((120 - data.size() % 64) % 64, 0);
+		const auto lengthBytes = xieite::math::bitUnjoin<std::uint8_t, 8>(xieite::math::bitJoin(length));
+		data.insert(data.end(), padding.begin(), padding.end());
+		data.insert(data.end(), lengthBytes.rbegin(), lengthBytes.rend());
+		const std::size_t dataSize = data.size();
+		for (std::size_t i = 0; i < dataSize; i += 64) {
 			std::array<std::uint64_t, 16> chunks;
 			for (std::size_t j = 0; j < 16; ++j) {
 				chunks[j] = 0;
 				for (std::size_t k = 0; k < 4; ++k) {
-					chunks[j] |= static_cast<std::uint32_t>(static_cast<unsigned char>(padded[i + j * 4 + k])) << (k * 8);
+					chunks[j] |= static_cast<std::uint32_t>(static_cast<unsigned char>(data[i + j * 4 + k])) << (k * 8);
 				}
 			}
 			std::array<std::uint32_t, 4> bar = foo;

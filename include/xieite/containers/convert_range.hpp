@@ -8,10 +8,11 @@
 #	include <ranges>
 #	include "../concepts/functable.hpp"
 #	include "../concepts/no_throw_invocable.hpp"
-#	include "../functors/static_cast.hpp"
 
 namespace xieite::containers {
-	template<std::ranges::range RangeFrom, std::ranges::range RangeTo, xieite::concepts::Functable<std::ranges::range_value_t<RangeTo>(std::ranges::range_value_t<RangeFrom>)> Converter = decltype(xieite::functors::staticCast<std::ranges::range_value_t<RangeFrom>, std::ranges::range_value_t<RangeTo>>)>
+	template<std::ranges::range RangeFrom, std::ranges::range RangeTo, xieite::concepts::Functable<std::ranges::range_value_t<RangeTo>(std::ranges::range_value_t<RangeFrom>)> Converter = decltype([](std::ranges::range_value_t<RangeFrom>& value) {
+		return static_cast<std::ranges::range_value_t<RangeTo>>(value);
+	})>
 	[[nodiscard]] constexpr void convertRange(const RangeFrom& rangeFrom, RangeTo& rangeTo, const Converter& converter = Converter())
 	noexcept(xieite::concepts::NoThrowInvocable<Converter, std::ranges::range_value_t<RangeFrom>>) {
 		const std::size_t size = std::min(std::ranges::size(rangeFrom), std::ranges::size(rangeTo));

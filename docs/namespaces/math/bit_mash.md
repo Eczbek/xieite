@@ -14,6 +14,11 @@ Defined in header [<xieite/math/bit_mash.hpp>](../../../include/xieite/math/bit_
 template<std::size_t... sizes, std::integral... Integers>
 [[nodiscard]] constexpr std::bitset<(... + sizes)> bitMash(Integers... values) noexcept;
 ```
+#### 2)
+```cpp
+template<std::size_t... sizes, std::integral Integer>
+[[nodiscard]] constexpr std::bitset<(... + sizes)> bitMash(const std::array<Integer, sizeof...(sizes)>& values) noexcept;
+```
 
 &nbsp;
 

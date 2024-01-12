@@ -3,18 +3,16 @@
 
 #	include <algorithm>
 #	include <array>
+#	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
-#	include "../types/common_floating_point.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic... Numbers>
-	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Numbers...> maximum(const Numbers... values) noexcept {
-		if constexpr (sizeof...(Numbers)) {
-			return std::ranges::max(std::array<xieite::types::CommonFloatingPoint<Numbers...>, sizeof...(Numbers)> {
-				static_cast<xieite::types::CommonFloatingPoint<Numbers...>>(values)...
-			});
-		}
-		return 0;
+	requires(sizeof...(Numbers) > 0)
+	[[nodiscard]] constexpr std::common_type_t<Numbers...> maximum(const Numbers... values) noexcept {
+		return std::ranges::max(std::array<std::common_type_t<Numbers...>, sizeof...(Numbers)> {
+			static_cast<std::common_type_t<Numbers...>>(values)...
+		});
 	}
 }
 
