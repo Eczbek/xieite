@@ -39,12 +39,12 @@ public:
 };
 ```
 ##### Member functions
-- [FixedMap](./structures/map/1/operators/constructor.md)
-- [operator\[\]](./structures/map/1/operators/array_subscript.md)
-- [begin](./structures/map/1/begin.md)
-- [end](./structures/map/1/end.md)
-- [contains](./structures/map/1/contains.md)
-- [data](./structures/map/1/data.md)
+- [FixedMap](./structures/fixed_map/1/operators/constructor.md)
+- [operator\[\]](./structures/fixed_map/1/operators/array_subscript.md)
+- [begin](./structures/fixed_map/1/begin.md)
+- [end](./structures/fixed_map/1/end.md)
+- [contains](./structures/fixed_map/1/contains.md)
+- [data](./structures/fixed_map/1/data.md)
 
 
 &nbsp;

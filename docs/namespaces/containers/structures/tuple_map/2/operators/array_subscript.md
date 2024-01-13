@@ -1,5 +1,5 @@
-# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<std::tuple<FirstKey, RestKeys...>, Value>](../../../tuple_map.md)\:\:operator\[\]
-Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../include/xieite/containers/tuple_map.hpp)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleMap<std::tuple<FirstKey, RestKeys...>, Value>](../../../../tuple_map.md)\:\:operator\[\]
+Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../../include/xieite/containers/tuple_map.hpp)
 
 &nbsp;
 
