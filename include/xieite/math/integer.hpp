@@ -9,7 +9,7 @@
 
 namespace xieite::math {
 	template<std::size_t bits, bool sign>
-	class Integer final {
+	class Integer {
 	public:
 		using Type = xieite::types::ConditionallySigned<xieite::types::LeastInteger<bits>, sign>;
 
