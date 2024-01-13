@@ -11,13 +11,13 @@ A thing.
 ## Synopses
 #### 1)
 ```cpp
-template<typename, typename>
+template<template<typename, typename> typename, typename, typename>
 struct TupleMap;
 ```
 #### 2)
 ```cpp
-template<typename Value, typename FirstKey, typename... RestKeys>
-struct TupleMap<std::tuple<FirstKey, RestKeys...>, Value> {
+template<template<typename, typename> typename Container, typename Value, typename FirstKey, typename... RestKeys>
+struct TupleMap<Container, std::tuple<FirstKey, RestKeys...>, Value> {
     TupleMap(std::initializer_list<std::pair<FirstKey, TupleMap<std::tuple<RestKeys...>, Value>>> = {});
 
     const Value& operator[](const std::tuple<FirstKey, RestKeys...>&) const;
@@ -36,8 +36,8 @@ struct TupleMap<std::tuple<FirstKey, RestKeys...>, Value> {
 - [contains](./structures/tuple_map/2/contains.md)
 #### 3)
 ```cpp
-template<typename Value, typename Key>
-struct TupleMap<std::tuple<Key>, Value> {
+template<template<typename, typename> typename Container, typename Value, typename Key>
+struct TupleMap<Container, std::tuple<Key>, Value> {
     TupleMap(std::initializer_list<std::pair<Key, Value>> = {});
 
     const Value& operator[](const std::tuple<Key>&) const;

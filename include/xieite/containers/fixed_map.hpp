@@ -49,6 +49,14 @@ namespace xieite::containers {
 			return this->array.end();
 		}
 
+		[[nodiscard]] constexpr const Value& at(const Key& key) const {
+			return this->getValue(key);
+		}
+
+		[[nodiscard]] constexpr Value& at(const Key& key) {
+			return this->getValue(key);
+		}
+
 		[[nodiscard]] constexpr bool contains(const Key& key) const noexcept {
 			if consteval {
 				for (const std::pair<Key, Value>& entry : this->array) {

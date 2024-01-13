@@ -4,17 +4,16 @@
 #	include <cstddef>
 #	include <initializer_list>
 #	include <tuple>
-#	include <unordered_map>
 #	include <utility>
 
 namespace xieite::containers {
-	template<typename, typename>
+	template<template<typename, typename> typename, typename, typename>
 	struct TupleMap;
 
-	template<typename Value, typename FirstKey, typename... RestKeys>
-	class TupleMap<std::tuple<FirstKey, RestKeys...>, Value> {
+	template<template<typename, typename> typename Container, typename Value, typename FirstKey, typename... RestKeys>
+	class TupleMap<Container, std::tuple<FirstKey, RestKeys...>, Value> {
 	public:
-		TupleMap(const std::initializer_list<std::pair<FirstKey, TupleMap<std::tuple<RestKeys...>, Value>>> list = {}) noexcept
+		TupleMap(const std::initializer_list<std::pair<FirstKey, TupleMap<Container, std::tuple<RestKeys...>, Value>>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
 
 		[[nodiscard]] const Value& operator[](const std::tuple<FirstKey, RestKeys...>& keys) const noexcept {
@@ -42,11 +41,11 @@ namespace xieite::containers {
 		}
 
 	private:
-		std::unordered_map<FirstKey, TupleMap<std::tuple<RestKeys...>, Value>> map;
+		Container<FirstKey, TupleMap<Container, std::tuple<RestKeys...>, Value>> map;
 	};
 
-	template<typename Value, typename Key>
-	class TupleMap<std::tuple<Key>, Value> {
+	template<template<typename, typename> typename Container, typename Value, typename Key>
+	class TupleMap<Container, std::tuple<Key>, Value> {
 	public:
 		TupleMap(const std::initializer_list<std::pair<Key, Value>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
@@ -68,7 +67,7 @@ namespace xieite::containers {
 		}
 
 	private:
-		std::unordered_map<Key, Value> map;
+		Container<Key, Value> map;
 	};
 }
 
