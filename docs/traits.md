@@ -12,6 +12,7 @@ Type traits.
 - [IsAny](./namespaces/traits/is_any.md)
 - [IsBitsetReference](./namespaces/traits/is_bitset_reference.md)
 - [IsCharacter](./namespaces/traits/is_character.md)
+- [IsConstantInvocable](./namespaces/traits/is_constant_invocable.md)
 - [IsConvertibleToAll](./namespaces/traits/is_convertible_to_all.md)
 - [IsConvertibleToAny](./namespaces/traits/is_convertible_to_any.md)
 - [IsDecayed](./namespaces/traits/is_decayed.md)

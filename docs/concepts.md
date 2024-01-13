@@ -14,7 +14,7 @@ Common concepts.
 - [Arithmetic](./namespaces/concepts/arithmetic.md)
 - [BitsetReference](./namespaces/concepts/bitset_reference.md)
 - [Character](./namespaces/concepts/character.md)
-- [Constant](./namespaces/concepts/constant.md)
+- [ConstantInvocable](./namespaces/concepts/constant_invocable.md)
 - [ConvertibleToAll](./namespaces/concepts/convertible_to_all.md)
 - [ConvertibleToAny](./namespaces/concepts/convertible_to_any.md)
 - [CopyAssignable](./namespaces/concepts/copy_assignable.md)
