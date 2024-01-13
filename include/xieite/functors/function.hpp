@@ -42,7 +42,7 @@ namespace xieite::functors {
 
 		template<typename Functor>
 		struct Derived
-		: Base {
+		: xieite::functors::Function<Result(Arguments...)>::Base {
 			mutable Functor functor;
 
 			constexpr Derived(const Functor& functor) noexcept
