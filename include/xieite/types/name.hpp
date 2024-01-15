@@ -1,44 +1,20 @@
 #ifndef XIEITE_HEADER_TYPES_NAME
 #	define XIEITE_HEADER_TYPES_NAME
 
-#	include "../macros/compiler.hpp"
+#	include <source_location>
+#	include <string_view>
+#	include "../strings/between.hpp"
 
-#	if XIEITE_COMPILER_GCC
-#		include <string_view>
-#		include "../strings/between.hpp"
-
-namespace xieite::types {
-	template<typename Type>
+namespace XIEITE_INTERNAL_TYPES_NAME {
+	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
-		return xieite::strings::between(__PRETTY_FUNCTION__, "= ", ";");
+		return xieite::strings::between(std::source_location::current().function_name(), "= ", ";");
 	}
 }
 
-#	elif XIEITE_COMPILER_LLVM
-#		include <string_view>
-#		include "../strings/between.hpp"
-
 namespace xieite::types {
 	template<typename Type>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
-		return xieite::strings::between(__PRETTY_FUNCTION__, "= ", "]");
-	}
+	inline constexpr std::string_view name = XIEITE_INTERNAL_TYPES_NAME::name<Type>();
 }
-
-#	elif XIEITE_COMPILER_MSVC
-#		include <string_view>
-#		include "../strings/after.hpp"
-#		include "../strings/between.hpp"
-
-namespace xieite::types {
-	template<typename Type>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
-		return xieite::strings::between(xieite::strings::after(__FUNCSIG__, "__cdecl"), "<", ">(");
-	}
-}
-
-#	else
-#		error "Compiler not supported"
-#	endif
 
 #endif

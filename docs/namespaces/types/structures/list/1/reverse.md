@@ -24,10 +24,10 @@ using Reverse = /* ... */;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Reverse;
 
-    std::cout << xieite::types::name<List>() << '\n';
+    std::cout << xieite::types::name<List> << '\n';
 }
 ```
 Output:
 ```
-List<long, short, char, int>
+xieite::types::List<long, short, char, int>
 ```

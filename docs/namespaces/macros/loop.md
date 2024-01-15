@@ -10,5 +10,5 @@ Repeats the execution of an macro.
 
 ## Synopsis
 ```cpp
-#define XIEITE_LOOP(count, macro, initial, ...) XIEITE_CONCATENATE(XIEITE_INTERNAL_LOOP_, count)(macro, initial, __VA_ARGS__)
+#define XIEITE_LOOP(count, macro, initial, ...) /* ... */
 ```

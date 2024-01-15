@@ -25,10 +25,10 @@ using Erase = List<Types...>::Slice<0, start>::template AppendRange<List<Types..
 int main() {
     using List = xieite::types::List<int, char, short, long>::Erase<2>;
 
-    std::cout << xieite::types::name<List>() << '\n';
+    std::cout << xieite::types::name<List> << '\n';
 }
 ```
 Output:
 ```
-List<int, char, long>
+xieite::types::List<int, char, long>
 ```

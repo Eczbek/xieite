@@ -25,10 +25,10 @@ using Swap = List<Types...>::template Set<index1, List<Types...>::At<index2>>::t
 int main() {
     using List = xieite::types::List<int, char, short, long>::Swap<1, 3>;
 
-    std::cout << xieite::types::name<List>() << '\n';
+    std::cout << xieite::types::name<List> << '\n';
 }
 ```
 Output:
 ```
-List<int, long, short, char>
+xieite::types::List<int, long, short, char>
 ```

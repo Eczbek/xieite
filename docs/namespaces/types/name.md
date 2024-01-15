@@ -4,7 +4,7 @@ Defined in header [<xieite/types/name.hpp>](../../../include/xieite/types/name.h
 &nbsp;
 
 ## Description
-Gets the string name of a type. Allows compile-time evaluation.
+Gets the string name of a type at compile-time.
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Gets the string name of a type. Allows compile-time evaluation.
 #### 1)
 ```cpp
 template<typename Type>
-[[nodiscard]] constexpr std::string_view name() noexcept;
+inline constexpr std::string_view name = /* ... */;
 ```
 
 &nbsp;
@@ -24,7 +24,7 @@ template<typename Type>
 #include <xieite/types/name.hpp>
 
 int main() {
-    std::cout << xieite::types::name<std::vector<int>>() << '\n';
+    std::cout << xieite::types::name<std::vector<int>> << '\n';
 }
 ```
 Output:

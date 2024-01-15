@@ -25,7 +25,7 @@ using At = /* ... */;
 int main() {
     using Type = xieite::types::List<int, char, short, long>::At<2>;
 
-    std::cout << xieite::types::name<Type>() << '\n';
+    std::cout << xieite::types::name<Type> << '\n';
 }
 ```
 Output:

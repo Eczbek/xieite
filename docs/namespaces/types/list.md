@@ -99,10 +99,10 @@ int main() {
     using Baz = Bar::Reverse;
     using Qux = Baz::Erase<3>;
 
-    std::cout << xieite::types::name<Qux>() << '\n';
+    std::cout << xieite::types::name<Qux> << '\n';
 }
 ```
 Output:
 ```
-List<double, float, long, char, int>
+xieite::types::List<double, float, long, char, int>
 ```

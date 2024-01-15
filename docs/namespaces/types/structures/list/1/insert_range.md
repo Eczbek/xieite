@@ -25,10 +25,10 @@ using InsertRange = /* ... */;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Insert<2, xieite::types::List<float, double>>;
 
-    std::cout << xieite::types::name<List>() << '\n';
+    std::cout << xieite::types::name<List> << '\n';
 }
 ```
 Output:
 ```
-List<int, char, float, double, short, long>
+xieite::types::List<int, char, float, double, short, long>
 ```

@@ -24,10 +24,10 @@ using Unique = /* ... */;
 int main() {
     using List = xieite::types::List<int, int, char, int, char>::Unique;
 
-    std::cout << xieite::types::name<List>() << '\n';
+    std::cout << xieite::types::name<List> << '\n';
 }
 ```
 Output:
 ```
-List<int, char>
+xieite::types::List<int, char>
 ```

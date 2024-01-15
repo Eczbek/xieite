@@ -25,10 +25,10 @@ using Set = List<Types...>::Erase<index>::template Insert<index, OtherType>;
 int main() {
     using List = xieite::types::List<int, char, short, long>::FixedSet<2, float>;
 
-    std::cout << xieite::types::name<List>() << '\n';
+    std::cout << xieite::types::name<List> << '\n';
 }
 ```
 Output:
 ```
-List<int, char, float, long>
+xieite::types::List<int, char, float, long>
 ```
