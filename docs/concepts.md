@@ -12,6 +12,7 @@ Common concepts.
 - [All](./namespaces/concepts/all.md)
 - [Any](./namespaces/concepts/any.md)
 - [Arithmetic](./namespaces/concepts/arithmetic.md)
+- [BigInteger](./namespaces/concepts/big_integer.md)
 - [BitsetReference](./namespaces/concepts/bitset_reference.md)
 - [Character](./namespaces/concepts/character.md)
 - [ConstantInvocable](./namespaces/concepts/constant_invocable.md)

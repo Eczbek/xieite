@@ -12,7 +12,7 @@ Parses an number string in any base. Allows negative bases.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number parse(std::string_view value, std::conditional_t<std::integral<Number>, Number, std::make_signed_t<std::size_t>> radix = 10, std::string_view digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", char negativeSign = '-', char positiveSign = '+', char decimalPoint = '.', char exponentCharacter = 'e') noexcept;
+[[nodiscard]] constexpr Number parse(std::string_view value, std::conditional_t<std::integral<Number>, Number, std::make_signed_t<std::size_t>> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept;
 ```
 
 &nbsp;

@@ -26,7 +26,11 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]] constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
-			return xieite::math::almostEqual((this->end.x - this->start.x) * (point.y - this->start.y), (this->end.y - this->start.y) * (point.x - this->start.x)) && ((this->start.x <= this->end.x) ? (this->start.x <= point.x) : (this->start.x > point.x)) && ((this->start.y <= this->end.y) ? (this->start.y <= point.y) : (this->start.y > point.y));
+			const double foo = (this->end.x - this->start.x) * (point.y - this->start.y);
+			const double bar = (this->end.y - this->start.y) * (point.x - this->start.x);
+			const double baz = (this->start.x <= this->end.x) == (this->start.x <= point.x);
+			const double qux = (this->start.y <= this->end.y) == (this->start.y <= point.y);
+			return xieite::math::almostEqual(foo, bar) && baz && qux;
 		}
 
 		[[nodiscard]] constexpr double length() const noexcept {

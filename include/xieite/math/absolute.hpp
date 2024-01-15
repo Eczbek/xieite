@@ -3,13 +3,12 @@
 
 #	include <cmath>
 #	include <concepts>
-#	include "../math/negative.hpp"
 #	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
 	[[nodiscard]] constexpr xieite::types::MaybeUnsigned<Integer> absolute(const Integer value) noexcept {
-		return static_cast<xieite::types::MaybeUnsigned<Integer>>(xieite::math::negative(value) ? -value : value);
+		return static_cast<xieite::types::MaybeUnsigned<Integer>>((value >= 0) ? value : -value);
 	}
 
 	template<std::floating_point FloatingPoint>

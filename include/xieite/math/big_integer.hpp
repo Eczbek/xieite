@@ -16,10 +16,12 @@
 #	include "../exceptions/division_by_zero.hpp"
 #	include "../exceptions/unrepresentable_value.hpp"
 #	include "../math/digits.hpp"
+#	include "../math/integer_string_components.hpp"
 #	include "../math/multiply.hpp"
-#	include "../math/negative.hpp"
+#	include "../math/parse.hpp"
 #	include "../math/product.hpp"
 #	include "../math/split_boolean.hpp"
+#	include "../math/stringify.hpp"
 #	include "../strings/lowercase.hpp"
 #	include "../system/byte_bits.hpp"
 #	include "../types/maybe_unsigned.hpp"
@@ -33,7 +35,7 @@ namespace xieite::math {
 
 		template<std::integral Integer = int>
 		constexpr BigInteger(const Integer value = 0) noexcept
-		: negative(xieite::math::negative(value)) {
+		: negative(!(value >= 0)) {
 			xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
 			do {
 				this->data.push_back(static_cast<Word>(absoluteValue));
@@ -81,23 +83,8 @@ namespace xieite::math {
 			this->trim();
 		}
 
-		constexpr BigInteger(const std::string_view value, const int radix = 10, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char negativeSign = '-', const bool caseSensitive = false) noexcept
-		: data({ 0 }), negative(false) {
-			const std::size_t valueSize = value.size();
-			if (!valueSize || !radix) {
-				return;
-			}
-			const bool valueNegative = value[0] == negativeSign;
-			const std::string usedDigits = caseSensitive ? std::string(digits) : xieite::strings::lowercase(digits);
-			xieite::math::BigInteger<Word> power = 1;
-			for (std::size_t i = valueSize; i-- > valueNegative;) {
-				const std::size_t index = usedDigits.find(caseSensitive ? value[i] : xieite::strings::lowercase(value[i]));
-				*this += power * index * (index != std::string::npos);
-				power *= radix;
-			}
-			if (*this) {
-				this->negative = valueNegative;
-			}
+		constexpr BigInteger(const std::string_view value, const std::make_signed_t<std::size_t> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept {
+			*this = xieite::math::parse<xieite::math::BigInteger<Word>>(value, radix, components);
 		}
 
 		constexpr xieite::math::BigInteger<Word>& operator=(const xieite::math::BigInteger<Word>& value) noexcept {
@@ -118,7 +105,10 @@ namespace xieite::math {
 			for (std::size_t i = 0; i < dataSize; ++i) {
 				result |= static_cast<Integer>(this->data[i]) << (static_cast<Integer>(i) * xieite::types::sizeBits<Word>);
 			}
-			return this->negative ? -result : result;
+			if (this->negative) {
+				return -result;
+			}
+			return result;
 		}
 
 		[[nodiscard]] constexpr operator bool() const noexcept {
@@ -126,8 +116,22 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, const xieite::math::BigInteger<Word>& rightComparand) noexcept {
-			return (leftComparand.negative != rightComparand.negative) ? (rightComparand.negative <=> leftComparand.negative) : (leftComparand.negative ? ((leftComparand.data.size() != rightComparand.data.size()) ? (rightComparand.data.size() <=> leftComparand.data.size()) : std::lexicographical_compare_three_way(rightComparand.data.rbegin(), rightComparand.data.rend(), leftComparand.data.rbegin(), leftComparand.data.rend())) : ((leftComparand.data.size() != rightComparand.data.size()) ? (leftComparand.data.size() <=> rightComparand.data.size()) : std::lexicographical_compare_three_way(leftComparand.data.rbegin(), leftComparand.data.rend(), rightComparand.data.rbegin(), rightComparand.data.rend())));
-		};
+			if (leftComparand.negative != rightComparand.negative) {
+				return rightComparand.negative <=> leftComparand.negative;
+			}
+			if (leftComparand.negative) {
+				if (leftComparand.data.size() != rightComparand.data.size()) {
+					return rightComparand.data.size() <=> leftComparand.data.size();
+				} else {
+					return std::lexicographical_compare_three_way(rightComparand.data.rbegin(), rightComparand.data.rend(), leftComparand.data.rbegin(), leftComparand.data.rend());
+				}
+			}
+			if (leftComparand.data.size() != rightComparand.data.size()) {
+				return leftComparand.data.size() <=> rightComparand.data.size();
+			} else {
+				return std::lexicographical_compare_three_way(leftComparand.data.rbegin(), leftComparand.data.rend(), rightComparand.data.rbegin(), rightComparand.data.rend());
+			}
+		}
 
 		template<std::integral Integer>
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, const Integer rightComparand) noexcept {
@@ -266,10 +270,16 @@ namespace xieite::math {
 				return sameSign ? multiplier : -multiplier;
 			}
 			if (multiplier.isPowerOf2()) {
-				return sameSign ? (multiplicand.absolute() << multiplier.logarithm2()) : -(multiplicand.absolute() << multiplier.logarithm2());
+				if (sameSign) {
+					return multiplicand.absolute() << multiplier.logarithm2();
+				}
+				return -(multiplicand.absolute() << multiplier.logarithm2());
 			}
 			if (multiplicand.isPowerOf2()) {
-				return sameSign ? (multiplier.absolute() << multiplicand.logarithm2()) : -(multiplier.absolute() << multiplicand.logarithm2());
+				if (sameSign) {
+					return multiplier.absolute() << multiplicand.logarithm2();
+				}
+				return -(multiplier.absolute() << multiplicand.logarithm2());
 			}
 			xieite::math::BigInteger<Word> result;
 			for (std::size_t i = multiplier.data.size(); i--;) {
@@ -322,7 +332,10 @@ namespace xieite::math {
 				return xieite::math::splitBoolean(sameSign);
 			}
 			if (divisor.isPowerOf2()) {
-				return sameSign ? (absoluteDividend >> divisor.logarithm2()) : -(absoluteDividend >> divisor.logarithm2());
+				if (sameSign) {
+					return absoluteDividend >> divisor.logarithm2();
+				}
+				return -(absoluteDividend >> divisor.logarithm2());
 			}
 			xieite::math::BigInteger<Word> remainder;
 			xieite::math::BigInteger<Word> result;
@@ -627,32 +640,8 @@ namespace xieite::math {
 			return this->logarithm(xieite::math::BigInteger<Word>(base));
 		}
 
-		[[nodiscard]] constexpr std::string string(const int radix = 10, const std::string_view digits = "0123456789abcdefghijklmnopqrstuvwxyz", const char negativeSign = '-', const bool caseSensitive = false) const noexcept {
-			if (!radix || !*this) {
-				return std::string(1, digits[0]);
-			}
-			std::string result;
-			xieite::math::BigInteger<Word> absolute = this->absolute();
-			std::size_t absoluteValue = absolute;
-			if (radix == 1) {
-				result = std::string(absoluteValue, digits[1]);
-			} else if (radix == -1) {
-				result = digits[1];
-				while (absoluteValue-- > 1) {
-					result += std::string(1, digits[0]) + digits[1];
-				}
-			} else {
-				const std::size_t digitsSize = digits.size();
-				while (absolute) {
-					const std::size_t index = absolute % radix;
-					result = digits[index * (index < digitsSize)] + result;
-					absolute /= radix;
-				}
-			}
-			if (this->negative) {
-				result = negativeSign + result;
-			}
-			return result;
+		[[nodiscard]] constexpr std::string string(const std::make_signed_t<std::size_t> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) const noexcept {
+			return xieite::math::stringify(*this, radix, components);
 		}
 
 	private:
@@ -671,7 +660,11 @@ namespace xieite::math {
 			const std::size_t leftDataSize = leftOperand.data.size();
 			const std::size_t rightDataSize = rightOperand.data.size();
 			for (std::size_t i = 0; (i < leftDataSize) || (i < rightDataSize); ++i) {
-				const Word word = callback(((i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Word>::max() * leftNegative)), ((i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Word>::max() * rightNegative)));
+				const Word leftData = leftNegative ? ~leftOperand.data[i] : leftOperand.data[i];
+				const Word rightData = rightNegative ? ~rightOperand.data[i] : rightOperand.data[i];
+				const Word leftValue = (i < leftDataSize) ? leftData : (std::numeric_limits<Word>::max() * leftNegative);
+				const Word rightValue = (i < rightDataSize) ? rightData : (std::numeric_limits<Word>::max() * rightNegative);
+				const Word word = callback(leftValue, rightValue);
 				result.data.push_back(result.negative ? ~word : word);
 			}
 			return result - result.negative;

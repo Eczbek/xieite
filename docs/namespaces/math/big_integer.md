@@ -25,7 +25,7 @@ struct BigInteger {
     requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
     constexpr BigInteger(const Range&, bool = false);
 
-    constexpr BigInteger(std::string_view, int = 10, std::string_view = "0123456789abcdefghijklmnopqrstuvwxyz", char = '-', bool = false);
+    constexpr BigInteger(std::string_view, std::make_signed_t<std::size_t> = 10, const xieite::math::IntegerStringComponents& = xieite::math::IntegerStringComponents());
 
     constexpr xieite::math::BigInteger<Word>& operator=(const xieite::math::BigInteger<Word>&);
 
@@ -178,7 +178,7 @@ struct BigInteger {
     template<std::integral Integer>
     constexpr xieite::math::BigInteger<Word> logarithm(Integer) const;
 
-    constexpr std::string string(int = 10, std::string_view = "0123456789abcdefghijklmnopqrstuvwxyz", char = '-', bool = false) const;
+    constexpr std::string string(std::make_signed_t<std::size_t> = 10, const xieite::math::IntegerStringComponents& = xieite::math::IntegerStringComponents()) const;
 };
 ```
 ##### Member types

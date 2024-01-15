@@ -12,7 +12,7 @@ Stringifies a number in any base. Allows negative bases.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::integral<Number>, Number, std::make_signed_t<std::size_t>> radix = 10, std::string_view digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", char negativeSign = '-', char decimalPoint = '.') noexcept;
+[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::integral<Number>, Number, std::make_signed_t<std::size_t>> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept;
 ```
 
 &nbsp;
