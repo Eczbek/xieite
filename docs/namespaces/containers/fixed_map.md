@@ -12,8 +12,7 @@ A compile-time wrapper for `std::unordered_map`.
 #### 1)
 ```cpp
 template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value&>>>
-class FixedMap {
-public:
+struct FixedMap {
     constexpr FixedMap();
 
     template<std::ranges::range Range>
