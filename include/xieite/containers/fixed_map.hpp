@@ -77,11 +77,11 @@ namespace xieite::containers {
 	private:
 		mutable std::array<std::pair<Key, Value>, size> array;
 
-		[[nodiscard]] std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator>& getMap() const noexcept {
-			static std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator> map = ([this] {
-				std::unordered_map<Key, Value&, Hash, KeyEqual, Allocator> map;
+		[[nodiscard]] std::unordered_map<Key, Value*, Hash, KeyEqual, Allocator>& getMap() const noexcept {
+			static std::unordered_map<Key, Value*, Hash, KeyEqual, Allocator> map = ([this] {
+				std::unordered_map<Key, Value*, Hash, KeyEqual, Allocator> map;
 				for (std::pair<Key, Value>& entry : this->array) {
-					map.emplace(entry);
+					map.emplace(std::make_pair(entry.first, &entry.second));
 				}
 				return map;
 			})();
@@ -97,7 +97,7 @@ namespace xieite::containers {
 				}
 				throw xieite::exceptions::InvalidKey("Cannot access key not in map");
 			} else {
-				return this->getMap().at(key);
+				return *this->getMap().at(key);
 			}
 		}
 	};
