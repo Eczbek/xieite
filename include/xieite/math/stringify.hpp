@@ -22,7 +22,7 @@ namespace xieite::math {
 			return "";
 		}
 		if (!value) {
-			return components.digits[0];
+			return std::string(1, components.digits[0]);
 		}
 		std::string result;
 		const bool negative = !(value >= 0);
