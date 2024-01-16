@@ -9,8 +9,8 @@
 #	include <ranges>
 #	include <unordered_map>
 #	include <utility>
-#	include "../exceptions/invalid_key.hpp"
 #	include "../containers/make_array.hpp"
+#	include "../exceptions/invalid_key.hpp"
 
 namespace xieite::containers {
 	template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value&>>>

@@ -1,4 +1,4 @@
-# [xieite](./xieite.md)\:\:meta
+# [xieite](./xieite.md)\:\:metadata
 
 &nbsp;
 

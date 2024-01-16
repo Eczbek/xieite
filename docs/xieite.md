@@ -1,4 +1,4 @@
-# [XIEITE](https://github.com/Eczbek/xieite#readme)
+# [xieite](https://github.com/Eczbek/xieite#readme)
 
 &nbsp;
 
@@ -16,7 +16,6 @@
 - [metadata](./metadata.md)
 - [network](./network.md)
 - [random](./random.md)
-- [ranges](./ranges.md)
 - [streams](./streams.md)
 - [strings](./strings.md)
 - [system](./system.md)

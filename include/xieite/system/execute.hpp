@@ -5,22 +5,20 @@
 #	include <string>
 #	include <string_view>
 #	include "../memory/get_page_size.hpp"
-#	include "../streams/close_pipe.hpp"
-#	include "../streams/open_pipe.hpp"
+#	include "../streams/pipe.hpp"
 
 namespace xieite::system {
 	inline std::string execute(const std::string_view command) noexcept {
-		std::FILE* const pipe = xieite::streams::openPipe(command.data(), "r");
+		const xieite::streams::Pipe pipe = xieite::streams::Pipe(command.data(), "r");
 		const std::size_t pageSize = xieite::memory::getPageSize();
 		std::string result;
 		while (true) {
 			std::string buffer = std::string(pageSize, '\0');
-			if (!std::fread(buffer.data(), sizeof(char), buffer.size(), pipe)) {
+			if (!std::fread(buffer.data(), sizeof(char), buffer.size(), pipe.file)) {
 				break;
 			}
 			result += buffer;
 		}
-		xieite::streams::closePipe(pipe);
 		return result;
 	}
 }
