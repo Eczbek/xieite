@@ -7,7 +7,7 @@
 #	include "../math/parse.hpp"
 
 namespace xieite::metadata {
-	inline constexpr std::chrono::seconds compilationTimestamp = std::chrono::years(xieite::math::parse<int>(std::string_view(__DATE__).substr(7))) + std::chrono::months((xieite::containers::FixedMap<std::string_view, int, 12> {
+	static constexpr std::chrono::seconds compilationTimestamp = std::chrono::years(xieite::math::parse<int>(std::string_view(__DATE__).substr(7))) + std::chrono::months((xieite::containers::FixedMap<std::string_view, int, 12> {
 		{ "Jan", 1 },
 		{ "Feb", 2 },
 		{ "Mar", 3 },

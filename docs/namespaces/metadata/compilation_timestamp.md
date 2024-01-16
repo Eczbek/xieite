@@ -11,7 +11,7 @@ Stores the time of compilation.
 ## Synopses
 #### 1)
 ```cpp
-inline constexpr std::chrono::seconds compilationTimestamp = /* ... */;
+static constexpr std::chrono::seconds compilationTimestamp = /* ... */;
 ```
 
 &nbsp;
