@@ -9,3 +9,4 @@ Metadata stuff.
 
 ## Contents
 - [Version](./namespaces/metadata/version.md)
+- [compilationTimestamp](./namespaces/metadata/compilation_timestamp.md)
