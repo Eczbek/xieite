@@ -26,6 +26,7 @@ String manipulation functions.
 - [repeat](./namespaces/strings/repeat.md)
 - [replace](./namespaces/strings/replace.md)
 - [split](./namespaces/strings/split.md)
+- [timestamp](./namespaces/strings/timestamp.md)
 - [toRomanNumerals](./namespaces/strings/to_roman_numerals.md)
 - [trim](./namespaces/strings/trim.md)
 - [trimBack](./namespaces/strings/trim_back.md)
