@@ -10,7 +10,7 @@
 #	include <ranges>
 #	include <unordered_set>
 #	include <utility>
-#	include "../ranges/make_array.hpp"
+#	include "../containers/make_array.hpp"
 
 namespace xieite::containers {
 	template<typename Key, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<Key>>
@@ -20,10 +20,10 @@ namespace xieite::containers {
 
 		template<std::ranges::range Range>
 		constexpr FixedSet(const Range& keys) noexcept
-		: array(xieite::ranges::makeArray<Key, size>(keys)) {}
+		: array(xieite::containers::makeArray<Key, size>(keys)) {}
 
 		constexpr FixedSet(const std::initializer_list<Key> keys) noexcept
-		: array(xieite::ranges::makeArray<Key, size>(keys)) {}
+		: array(xieite::containers::makeArray<Key, size>(keys)) {}
 
 		[[nodiscard]] constexpr bool operator[](const Key& key) const noexcept {
 			return this->contains(key);

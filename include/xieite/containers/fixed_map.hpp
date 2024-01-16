@@ -10,7 +10,7 @@
 #	include <unordered_map>
 #	include <utility>
 #	include "../exceptions/invalid_key.hpp"
-#	include "../ranges/make_array.hpp"
+#	include "../containers/make_array.hpp"
 
 namespace xieite::containers {
 	template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value&>>>
@@ -20,10 +20,10 @@ namespace xieite::containers {
 
 		template<std::ranges::range Range>
 		constexpr FixedMap(const Range& entries) noexcept
-		: array(xieite::ranges::makeArray<std::pair<Key, Value>, size>(entries)) {}
+		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		constexpr FixedMap(const std::initializer_list<std::pair<Key, Value>> entries) noexcept
-		: array(xieite::ranges::makeArray<std::pair<Key, Value>, size>(entries)) {}
+		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		[[nodiscard]] constexpr const Value& operator[](const Key& key) const {
 			return this->getValue(key);
