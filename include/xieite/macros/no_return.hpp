@@ -1,12 +1,10 @@
 #ifndef XIEITE_HEADER_MACROS_NO_RETURN
 #	define XIEITE_HEADER_MACROS_NO_RETURN
 
-#	ifdef __cplusplus
+#	include "../macros/language_standard.hpp"
+
+#	if defined(__cplusplus) || XIEITE_LANGUAGE_STANDARD_C_2023
 #		define XIEITE_NO_RETURN [[noreturn]]
-#	elifdef __has_c_attribute
-#		if __has_c_attribute(noreturn)
-#			define XIEITE_NO_RETURN [[noreturn]]
-#		endif
 #	else
 #		define XIEITE_NO_RETURN _Noreturn
 #	endif
