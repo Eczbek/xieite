@@ -1,6 +1,0 @@
-#ifndef XIEITE_HEADER_MACROS_EMPTY
-#	define XIEITE_HEADER_MACROS_EMPTY
-
-#	define XIEITE_EMPTY()
-
-#endif
