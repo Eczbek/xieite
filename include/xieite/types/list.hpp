@@ -1,11 +1,15 @@
 #ifndef XIEITE_HEADER_TYPES_LIST
 #	define XIEITE_HEADER_TYPES_LIST
 
+#	include <algorithm>
+#	include <array>
 #	include <cmath>
 #	include <concepts>
 #	include <cstddef>
+#	include <string_view>
 #	include <type_traits>
 #	include <utility>
+#	include "../types/name.hpp"
 
 namespace xieite::types {
 	template<typename... Types>
@@ -135,6 +139,22 @@ namespace xieite::types {
 
 	public:
 		using Unique = decltype((xieite::types::List<Types...>::UniqueHelper<>()->*...->*xieite::types::List<Types...>::UniqueHelper<Types>()))::Type;
+
+		template<xieite::concepts::Functable<bool(std::string_view, std::string_view)> Comparator>
+		requires(std::is_default_constructible_v<Comparator>)
+		using Sort = decltype(([]<std::size_t... indices>(std::index_sequence<indices...>) -> auto {
+			using Entry = std::pair<std::string_view, std::size_t>;
+			static constexpr auto entries = ([] -> std::array<Entry, sizeof...(Types)> {
+				std::array<Entry, sizeof...(Types)> entries = {
+					std::make_pair(xieite::types::name<Types>, indices)...
+				};
+				std::ranges::sort(entries, [](const Entry foo, const Entry bar) -> bool {
+					return std::invoke(Comparator(), foo.first, bar.first);
+				});
+				return entries;
+			})();
+			return xieite::types::List<xieite::types::List<Types...>::At<entries[indices].second>...>();
+		})(std::make_index_sequence<sizeof...(Types)>()));
 	};
 }
 

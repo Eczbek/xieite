@@ -63,7 +63,11 @@ class List {
     using Repeat = /* ... */;
 
     using Unique = /* ... */;
-    };
+
+    template<xieite::concepts::Functable<bool(std::string_view, std::string_view)> Comparator>
+    requires(std::is_default_constructible_v<Comparator>)
+    using Sort = /* ... */;
+};
 ```
 ##### Member types
 - [Append](./structures/list/1/append.md)
