@@ -11,15 +11,15 @@ Checks whether all passed arguments are true. Expects all arguments to be conver
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::RangeOf<bool> Range>
-[[nodiscard]] constexpr bool all(const Range& range)
-noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, bool>));
-```
-#### 2)
-```cpp
 template<std::convertible_to<bool>... Values>
 constexpr bool all(const Values&... values)
 noexcept(noexcept((... && xieite::concepts::NoThrowConvertibleTo<Values, bool>)));
+```
+#### 2)
+```cpp
+template<xieite::concepts::RangeOf<bool> Range>
+[[nodiscard]] constexpr bool all(const Range& range)
+noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, bool>));
 ```
 
 &nbsp;

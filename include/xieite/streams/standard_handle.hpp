@@ -272,7 +272,7 @@ namespace xieite::streams {
 
 		xieite::streams::Key readKey() const noexcept {
 			const char foo = this->readCharacter();
-			const xieite::functors::ScopeGuard streamGuard = xieite::functors::ScopeGuard([this, blocking = this->blocking] {
+			const xieite::functors::ScopeGuard streamGuard = xieite::functors::ScopeGuard([this, blocking = this->blocking] -> void {
 				this->setInputBlocking(blocking);
 			});
 			this->setInputBlocking(false);

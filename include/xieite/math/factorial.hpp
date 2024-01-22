@@ -10,8 +10,8 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
-	inline constexpr auto factorial = ([] {
-		static constexpr auto generate = [] {
+	inline constexpr auto factorial = ([] -> auto {
+		static constexpr auto generate = [] -> auto {
 			std::vector<Number> result = { 1 };
 			for (Number i = 1; !xieite::math::multiplicationOverflows(i, result[i - 1]); ++i) {
 				result.push_back(i * result[i - 1]);

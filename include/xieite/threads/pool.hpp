@@ -3,11 +3,11 @@
 
 #	include <condition_variable>
 #	include <cstddef>
-#	include <functional>
 #	include <mutex>
 #	include <queue>
 #	include <thread>
 #	include <vector>
+#	include "../functors/functional.hpp"
 
 namespace xieite::threads {
 	class Pool {
@@ -36,16 +36,16 @@ namespace xieite::threads {
 				return;
 			}
 			while (threadCount-- > currentThreadCount) {
-				this->threads.emplace_back([this](const std::stop_token stopToken) {
+				this->threads.emplace_back([this](const std::stop_token stopToken) -> void {
 					while (true) {
 						auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
-						this->condition.wait(jobsLock, [this, stopToken] {
+						this->condition.wait(jobsLock, [this, stopToken] -> bool {
 							return this->jobs.size() || stopToken.stop_requested();
 						});
 						if (!this->jobs.size() && stopToken.stop_requested()) {
 							break;
 						}
-						std::function<void()> job = this->jobs.front();
+						xieite::functors::Function<void()> job = this->jobs.front();
 						this->jobs.pop();
 						jobsLock.unlock();
 						job();
@@ -59,7 +59,7 @@ namespace xieite::threads {
 			return this->threads.size();
 		}
 
-		void enqueue(const std::function<void()>& job) noexcept {
+		void enqueue(const xieite::functors::Function<void()>& job) noexcept {
 			auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
 			this->jobs.push(job);
 			jobsLock.unlock();
@@ -68,7 +68,7 @@ namespace xieite::threads {
 
 	private:
 		std::vector<std::jthread> threads;
-		std::queue<std::function<void()>> jobs;
+		std::queue<xieite::functors::Function<void()>> jobs;
 		std::mutex mutex;
 		std::condition_variable condition;
 	};

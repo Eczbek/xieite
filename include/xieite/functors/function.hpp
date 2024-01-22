@@ -19,18 +19,20 @@ namespace xieite::functors {
 		constexpr Function() noexcept = default;
 
 		template<xieite::concepts::Functable<Result(Arguments...)> Functor>
-		constexpr Function(const Functor& functor) noexcept
-		: pointer(std::make_unique<xieite::functors::Function<Result(Arguments...)>::Derived<Functor>>(functor)) {}
+		constexpr Function(Functor&& functor) noexcept
+		: pointer(std::make_unique<xieite::functors::Function<Result(Arguments...)>::Derived<Functor>>(std::forward<Functor>(functor))) {}
 
 		[[nodiscard]] constexpr operator bool() const noexcept {
 			return this->pointer;
 		}
 
-		constexpr Result operator()(Arguments... arguments) const {
+		template<typename... ArgumentReferences>
+		requires((... && std::convertible_to<ArgumentReferences, Arguments>))
+		constexpr Result operator()(ArgumentReferences&&... arguments) const {
 			if (!*this) {
 				throw xieite::exceptions::UnsetFunctorInvoked("Cannot invoke unset functor");
 			}
-			return (*this->pointer)(std::forward<Arguments>(arguments)...);
+			return (*this->pointer)(std::forward<ArgumentReferences>(arguments)...);
 		}
 
 	private:
@@ -45,11 +47,14 @@ namespace xieite::functors {
 		: xieite::functors::Function<Result(Arguments...)>::Base {
 			mutable Functor functor;
 
-			constexpr Derived(const Functor& functor) noexcept
-			: functor(functor) {}
+			template<std::convertible_to<Functor> FunctorReference>
+			constexpr Derived(FunctorReference&& functor) noexcept
+			: functor(std::forward<FunctorReference>(functor)) {}
 
-			constexpr Result operator()(Arguments... arguments) const override {
-				return std::invoke(this->functor, std::forward<Arguments>(arguments)...);
+			template<typename... ArgumentReferences>
+			requires((... && std::convertible_to<ArgumentReferences, Arguments>))
+			constexpr Result operator()(ArgumentReferences&&... arguments) const {
+				return std::invoke(this->functor, std::forward<ArgumentReferences>(arguments)...);
 			}
 		};
 

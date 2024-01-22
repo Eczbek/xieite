@@ -1,0 +1,6 @@
+#ifndef XIEITE_HEADER_MACROS_UNUSED
+#	define XIEITE_HEADER_MACROS_UNUSED
+
+#	define XIEITE_UNUSED(...) (void)(__VA_ARGS__)
+
+#endif

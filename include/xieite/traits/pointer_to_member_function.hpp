@@ -779,3 +779,4 @@ namespace xieite::traits {
 #endif
 
 // Thanks to halalaluyafail3 for the original (terribly unreadable) code
+// https://github.com/Halalaluyafail3

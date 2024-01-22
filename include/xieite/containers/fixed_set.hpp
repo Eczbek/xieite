@@ -3,6 +3,7 @@
 
 #	include <algorithm>
 #	include <array>
+#	include <concepts>
 #	include <cstddef>
 #	include <functional>
 #	include <initializer_list>
@@ -19,14 +20,15 @@ namespace xieite::containers {
 		constexpr FixedSet() noexcept = default;
 
 		template<std::ranges::range Range>
-		constexpr FixedSet(const Range& keys) noexcept
-		: array(xieite::containers::makeArray<Key, size>(keys)) {}
+		constexpr FixedSet(Range&& keys) noexcept
+		: array(xieite::containers::makeArray<Key, size>(std::forward<Range>(keys))) {}
 
 		constexpr FixedSet(const std::initializer_list<Key> keys) noexcept
 		: array(xieite::containers::makeArray<Key, size>(keys)) {}
 
-		[[nodiscard]] constexpr bool operator[](const Key& key) const noexcept {
-			return this->contains(key);
+		template<std::convertible_to<Key> KeyReference>
+		[[nodiscard]] constexpr bool operator[](KeyReference&& key) const noexcept {
+			return this->contains(std::forward<KeyReference>(key));
 		}
 
 		[[nodiscard]] constexpr std::array<Key, size>::const_iterator begin() const noexcept {
@@ -45,18 +47,13 @@ namespace xieite::containers {
 			return this->array.end();
 		}
 
-		[[nodiscard]] constexpr bool contains(const Key& key) const noexcept {
+		template<std::convertible_to<Key> KeyReference>
+		[[nodiscard]] constexpr bool contains(KeyReference&& key) const noexcept {
 			if consteval {
-				return std::ranges::find(this->array, key) != this->array.end();
+				return std::ranges::find(this->array, std::forward<KeyReference>(key)) != this->array.end();
 			} else {
-				static std::unordered_set<Key, Hash, KeyEqual, Allocator> set = ([this] {
-					std::unordered_set<Key, Hash, KeyEqual, Allocator> set;
-					for (const Key& entry : this->array) {
-						set.emplace(entry);
-					}
-					return set;
-				})();
-				return set.contains(key);
+				static auto set = std::unordered_set<Key, Hash, KeyEqual, Allocator>(this->array.begin(), this->array.end());
+				return set.contains(std::forward<KeyReference>(key));
 			}
 		}
 

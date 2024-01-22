@@ -11,7 +11,7 @@ A compile-time wrapper for `std::unordered_map`.
 ## Synopses
 #### 1)
 ```cpp
-template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value&>>>
+template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value*>>>
 struct FixedMap {
     constexpr FixedMap();
 

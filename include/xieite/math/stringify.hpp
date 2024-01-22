@@ -8,15 +8,18 @@
 #	include <string_view>
 #	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
-#	include "../concepts/big_integer.hpp"
+#	include "../concepts/specialization_of.hpp"
 #	include "../math/absolute.hpp"
 #	include "../math/integer_string_components.hpp"
 #	include "../math/round_down.hpp"
 #	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::math {
+	template<std::unsigned_integral>
+	struct BigInteger;
+
 	template<typename Number>
-	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::BigInteger<Number>)
+	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
 	[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, std::make_signed_t<std::size_t>, Number> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept {
 		if (!value || !radix) {
 			return "";

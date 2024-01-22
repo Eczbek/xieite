@@ -8,11 +8,11 @@
 
 #		define XIEITE_UNREACHABLE std::unreachable()
 #	else
-#		include "../macros/compiler.hpp"
+#		include "../macros/compiler_type.hpp"
 
-#		if XIEITE_COMPILER_GCC || XIEITE_COMPILER_LLVM
+#		if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_LLVM
 #			define XIEITE_UNREACHABLE __builtin_unreachable()
-#		elif XIEITE_COMPILER_MSVC
+#		elif XIEITE_COMPILER_TYPE_MSVC
 #			define XIEITE_UNREACHABLE __assume(false)
 #		else
 #			define XIEITE_UNREACHABLE static_cast<void>(0)
@@ -22,3 +22,4 @@
 #endif
 
 // Thanks to eightfold for original code
+// https://github.com/8ightfold

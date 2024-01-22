@@ -11,6 +11,7 @@
 #	include <ranges>
 #	include <string>
 #	include <string_view>
+#	include <utility>
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
 #	include "../exceptions/division_by_zero.hpp"
@@ -48,7 +49,7 @@ namespace xieite::math {
 		}
 
 		template<typename OtherWord>
-		constexpr BigInteger(const xieite::math::BigInteger<OtherWord> value) noexcept
+		constexpr BigInteger(const xieite::math::BigInteger<OtherWord>& value) noexcept
 		: negative(value.negative) {
 			if constexpr (sizeof(Word) == sizeof(OtherWord)) {
 				this->data = value.data;
@@ -78,8 +79,8 @@ namespace xieite::math {
 
 		template<std::ranges::range Range>
 		requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
-		constexpr BigInteger(const Range& range, const bool negative = false) noexcept
-		: data(range.begin(), range.end()), negative(negative) {
+		constexpr BigInteger(Range&& range, const bool negative = false) noexcept
+		: data(std::ranges::begin(std::forward<Range>(range)), std::ranges::end(std::forward<Range>(range))), negative(negative) {
 			this->trim();
 		}
 
@@ -415,7 +416,7 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
 				return left & right;
 			});
 		}
@@ -435,7 +436,7 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
 				return left | right;
 			});
 		}
@@ -455,7 +456,7 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
 				return left ^ right;
 			});
 		}
@@ -698,3 +699,4 @@ namespace xieite::math {
 #endif
 
 // Thanks to sam_dev for fixing the new division algorithm
+// https://github.com/Sam-programs

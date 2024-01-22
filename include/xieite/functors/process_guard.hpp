@@ -3,16 +3,16 @@
 
 #	include <concepts>
 #	include <cstdint>
-#	include <functor>
+#	include <functional>
 #	include <memory>
 #	include <type_traits>
 #	include <unordered_map>
+#	include "../functors/function.hpp"
 
 namespace xieite::functors {
 	class ProcessGuard {
 	public:
-		template<std::invocable<> Functor>
-		ProcessGuard(Functor&& callback) noexcept
+		ProcessGuard(const xieite::functors::Function<void()>& callback) noexcept
 		: released(std::make_shared<bool>(false)) {
 			struct Lock {
 				const std::shared_ptr<bool> released;
@@ -22,16 +22,11 @@ namespace xieite::functors {
 
 				~Lock() {
 					if (!*this->released) {
-						std::invoke(callback);
+						callback();
 					}
 				}
 			};
-			if constexpr (std::is_pointer_v<Functor>) {
-				static std::unordered_map<std::uintptr_t, Lock> locks;
-				locks[reinterpret_cast<std::uintptr_t>(callback)] = Lock(this->released);
-			} else {
-				static Lock lock = Lock(this->released);
-			}
+			static Lock lock = Lock(this->released);
 		}
 
 		void release() noexcept {

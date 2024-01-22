@@ -8,6 +8,7 @@ namespace xieite::concepts {
 	concept All = (... && requires {
 		{ Traits<Type>::value } -> std::convertible_to<bool>;
 	}) && (... && Traits<Type>::value);
+	// Fails if passed a non-trait-like template
 }
 
 #endif

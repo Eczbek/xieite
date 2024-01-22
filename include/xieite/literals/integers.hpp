@@ -1,10 +1,142 @@
-#ifndef XIEITE_HEADER_MATH_LITERALS_TYPES
-#	define XIEITE_HEADER_MATH_LITERALS_TYPES
+#ifndef XIEITE_HEADER_LITERALS_INTEGERS
+#	define XIEITE_HEADER_LITERALS_INTEGERS
 
 #	include <cstddef>
 #	include <cstdint>
+#	include <stdfloat>
+#	include <type_traits>
+#	include "../math/signed_128.hpp"
+#	include "../math/unsigned_128.hpp"
 
-namespace xieite::math::literals::types {
+namespace xieite::literals::integers {
+	[[nodiscard]] constexpr signed int operator""_i(const unsigned long long int value) noexcept {
+		return static_cast<signed int>(value);
+	}
+
+	[[nodiscard]] constexpr signed int operator""_i(const long double value) noexcept {
+		return static_cast<signed int>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned int operator""_u(const unsigned long long int value) noexcept {
+		return static_cast<unsigned int>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned int operator""_u(const long double value) noexcept {
+		return static_cast<unsigned int>(value);
+	}
+
+	[[nodiscard]] constexpr signed long int operator""_il(const unsigned long long int value) noexcept {
+		return static_cast<signed long int>(value);
+	}
+
+	[[nodiscard]] constexpr signed long int operator""_il(const long double value) noexcept {
+		return static_cast<signed long int>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned long int operator""_ul(const unsigned long long int value) noexcept {
+		return static_cast<unsigned long int>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned long int operator""_ul(const long double value) noexcept {
+		return static_cast<unsigned long int>(value);
+	}
+
+	[[nodiscard]] constexpr signed long long int operator""_ill(const unsigned long long int value) noexcept {
+		return static_cast<signed long long int>(value);
+	}
+
+	[[nodiscard]] constexpr signed long long int operator""_ill(const long double value) noexcept {
+		return static_cast<signed long long int>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned long long int operator""_ull(const unsigned long long int value) noexcept {
+		return static_cast<unsigned long long int>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned long long int operator""_ull(const long double value) noexcept {
+		return static_cast<unsigned long long int>(value);
+	}
+
+	[[nodiscard]] constexpr signed short int operator""_is(const unsigned long long int value) noexcept {
+		return static_cast<signed short int>(value);
+	}
+
+	[[nodiscard]] constexpr signed short int operator""_is(const long double value) noexcept {
+		return static_cast<signed short int>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned short int operator""_us(const unsigned long long int value) noexcept {
+		return static_cast<unsigned short int>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned short int operator""_us(const long double value) noexcept {
+		return static_cast<unsigned short int>(value);
+	}
+
+	[[nodiscard]] constexpr bool operator""_b(const unsigned long long int value) noexcept {
+		return static_cast<bool>(value);
+	}
+
+	[[nodiscard]] constexpr bool operator""_b(const long double value) noexcept {
+		return static_cast<bool>(value);
+	}
+
+	[[nodiscard]] constexpr char operator""_c(const unsigned long long int value) noexcept {
+		return static_cast<char>(value);
+	}
+
+	[[nodiscard]] constexpr char operator""_c(const long double value) noexcept {
+		return static_cast<char>(value);
+	}
+
+	[[nodiscard]] constexpr signed char operator""_ci(const unsigned long long int value) noexcept {
+		return static_cast<signed char>(value);
+	}
+
+	[[nodiscard]] constexpr signed char operator""_ci(const long double value) noexcept {
+		return static_cast<signed char>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned char operator""_cu(const unsigned long long int value) noexcept {
+		return static_cast<unsigned char>(value);
+	}
+
+	[[nodiscard]] constexpr unsigned char operator""_cu(const long double value) noexcept {
+		return static_cast<unsigned char>(value);
+	}
+
+	[[nodiscard]] constexpr wchar_t operator""_cw(const unsigned long long int value) noexcept {
+		return static_cast<wchar_t>(value);
+	}
+
+	[[nodiscard]] constexpr wchar_t operator""_cw(const long double value) noexcept {
+		return static_cast<wchar_t>(value);
+	}
+
+	[[nodiscard]] constexpr char8_t operator""_c8(const unsigned long long int value) noexcept {
+		return static_cast<char8_t>(value);
+	}
+
+	[[nodiscard]] constexpr char8_t operator""_c8(const long double value) noexcept {
+		return static_cast<char8_t>(value);
+	}
+
+	[[nodiscard]] constexpr char16_t operator""_c16(const unsigned long long int value) noexcept {
+		return static_cast<char16_t>(value);
+	}
+
+	[[nodiscard]] constexpr char16_t operator""_c16(const long double value) noexcept {
+		return static_cast<char16_t>(value);
+	}
+
+	[[nodiscard]] constexpr char32_t operator""_c32(const unsigned long long int value) noexcept {
+		return static_cast<char32_t>(value);
+	}
+
+	[[nodiscard]] constexpr char32_t operator""_c32(const long double value) noexcept {
+		return static_cast<char32_t>(value);
+	}
+
 	[[nodiscard]] constexpr std::int8_t operator""_i8(const unsigned long long int value) noexcept {
 		return static_cast<std::int8_t>(value);
 	}
@@ -197,6 +329,22 @@ namespace xieite::math::literals::types {
 		return static_cast<std::uint_least64_t>(value);
 	}
 
+	[[nodiscard]] constexpr xieite::math::Signed128 operator""_i128(const unsigned long long int value) noexcept {
+		return static_cast<xieite::math::Signed128>(value);
+	}
+
+	[[nodiscard]] constexpr xieite::math::Signed128 operator""_i128(const long double value) noexcept {
+		return static_cast<xieite::math::Signed128>(value);
+	}
+
+	[[nodiscard]] constexpr xieite::math::Unsigned128 operator""_u128(const unsigned long long int value) noexcept {
+		return static_cast<xieite::math::Unsigned128>(value);
+	}
+
+	[[nodiscard]] constexpr xieite::math::Unsigned128 operator""_u128(const long double value) noexcept {
+		return static_cast<xieite::math::Unsigned128>(value);
+	}
+
 	[[nodiscard]] constexpr std::intmax_t operator""_imax(const unsigned long long int value) noexcept {
 		return static_cast<std::intmax_t>(value);
 	}
@@ -237,12 +385,92 @@ namespace xieite::math::literals::types {
 		return static_cast<std::uintptr_t>(value);
 	}
 
-	[[nodiscard]] constexpr std::ptrdiff_t operator""_dptr(const unsigned long long int value) noexcept {
+	[[nodiscard]] constexpr std::ptrdiff_t operator""_iptrd(const unsigned long long int value) noexcept {
 		return static_cast<std::ptrdiff_t>(value);
 	}
 
-	[[nodiscard]] constexpr std::ptrdiff_t operator""_dptr(const long double value) noexcept {
+	[[nodiscard]] constexpr std::ptrdiff_t operator""_iptrd(const long double value) noexcept {
 		return static_cast<std::ptrdiff_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::make_signed_t<std::size_t> operator""_iz(const unsigned long long int value) noexcept {
+		return static_cast<std::make_signed_t<std::size_t>>(value);
+	}
+
+	[[nodiscard]] constexpr std::make_signed_t<std::size_t> operator""_iz(const long double value) noexcept {
+		return static_cast<std::make_signed_t<std::size_t>>(value);
+	}
+
+	[[nodiscard]] constexpr std::size_t operator""_uz(const unsigned long long int value) noexcept {
+		return static_cast<std::size_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::size_t operator""_uz(const long double value) noexcept {
+		return static_cast<std::size_t>(value);
+	}
+
+	[[nodiscard]] constexpr float operator""_f(const unsigned long long int value) noexcept {
+		return static_cast<float>(value);
+	}
+
+	[[nodiscard]] constexpr float operator""_f(const long double value) noexcept {
+		return static_cast<float>(value);
+	}
+
+	[[nodiscard]] constexpr std::float16_t operator""_f16(const unsigned long long int value) noexcept {
+		return static_cast<std::float16_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::float16_t operator""_f16(const long double value) noexcept {
+		return static_cast<std::float16_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::bfloat16_t operator""_f16b(const unsigned long long int value) noexcept {
+		return static_cast<std::bfloat16_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::bfloat16_t operator""_f16b(const long double value) noexcept {
+		return static_cast<std::bfloat16_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::float32_t operator""_f32(const unsigned long long int value) noexcept {
+		return static_cast<std::float32_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::float32_t operator""_f32(const long double value) noexcept {
+		return static_cast<std::float32_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::float64_t operator""_f64(const unsigned long long int value) noexcept {
+		return static_cast<std::float64_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::float64_t operator""_f64(const long double value) noexcept {
+		return static_cast<std::float64_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::float128_t operator""_f128(const unsigned long long int value) noexcept {
+		return static_cast<std::float128_t>(value);
+	}
+
+	[[nodiscard]] constexpr std::float128_t operator""_f128(const long double value) noexcept {
+		return static_cast<std::float128_t>(value);
+	}
+
+	[[nodiscard]] constexpr double operator""_d(const unsigned long long int value) noexcept {
+		return static_cast<double>(value);
+	}
+
+	[[nodiscard]] constexpr double operator""_d(const long double value) noexcept {
+		return static_cast<double>(value);
+	}
+
+	[[nodiscard]] constexpr long double operator""_dl(const unsigned long long int value) noexcept {
+		return static_cast<long double>(value);
+	}
+
+	[[nodiscard]] constexpr long double operator""_dl(const long double value) noexcept {
+		return static_cast<long double>(value);
 	}
 }
 

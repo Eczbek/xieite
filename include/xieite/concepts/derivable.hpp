@@ -6,6 +6,7 @@
 namespace xieite::concepts {
 	template<typename Type>
 	concept Derivable = !std::is_final_v<Type>;
+	// Type must be a complete structure
 }
 
 #endif

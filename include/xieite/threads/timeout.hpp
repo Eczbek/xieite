@@ -2,18 +2,19 @@
 #	define XIEITE_HEADER_THREADS_TIMEOUT
 
 #	include <concepts>
-#	include <functional>
+#	include <utility>
 #	include "../concepts/temporal_duration.hpp"
+#	include "../functors/function.hpp"
 #	include "../threads/interval.hpp"
 
 namespace xieite::threads {
 	class Timeout {
 	public:
-		template<std::invocable<> Functor, xieite::concepts::TemporalDuration TemporalDuration>
-		Timeout(const Functor& callback, const TemporalDuration duration) noexcept
-		: interval([this, &callback] {
+		template<xieite::concepts::TemporalDuration TemporalDuration>
+		Timeout(const xieite::functors::Function<void()>& callback, const TemporalDuration duration) noexcept
+		: interval([this, &callback] -> void {
 			this->stop();
-			std::invoke(callback);
+			callback();
 		}, duration) {}
 
 		[[nodiscard]] operator bool() const noexcept {

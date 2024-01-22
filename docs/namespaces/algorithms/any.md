@@ -11,15 +11,15 @@ Checks whether at least one passed argument is true. Expects all arguments to be
 ## Synopses
 #### 1)
 ```cpp
-template<xieite::concepts::RangeOf<bool> Range>
-[[nodiscard]] constexpr bool any(const Range& range)
-noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, bool>));
-```
-#### 2)
-```cpp
 template<std::convertible_to<bool>... Values>
 [[nodiscard]] constexpr bool any(const Values&... values)
 noexcept(noexcept((... && xieite::concepts::NoThrowConvertibleTo<Values, bool>)));
+```
+#### 2)
+```cpp
+template<xieite::concepts::RangeOf<bool> Range>
+[[nodiscard]] constexpr bool any(const Range& range)
+noexcept(noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, bool>));
 ```
 
 &nbsp;

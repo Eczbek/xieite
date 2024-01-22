@@ -1,12 +1,13 @@
-#ifndef XIEITE_HEADER_MATH_LITERALS_BASE
-#	define XIEITE_HEADER_MATH_LITERALS_BASE
+#ifndef XIEITE_HEADER_LITERALS_BASE
+#	define XIEITE_HEADER_LITERALS_BASE
 
-#	include <string>
+#	include <array>
+#	include <cstddef>
 
-namespace xieite::math::literals::base {
+namespace xieite::literals::base {
 	template<char... characters>
-	[[nodiscard]] constexpr int operator""_base() noexcept {
-		static constexpr std::string value {
+	[[nodiscard]] constexpr std::size_t operator""_base() noexcept {
+		static constexpr std::array<char, sizeof...(characters)> value {
 			characters...
 		};
 		if constexpr ((value.size() > 1) && (value[0] == '0')) {
@@ -27,3 +28,4 @@ namespace xieite::math::literals::base {
 #endif
 
 // Thanks to Che for original idea
+// https://github.com/Tsche

@@ -9,7 +9,7 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number, xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
-	[[nodiscard]] constexpr std::vector<xieite::math::Interval<Number>> mergeIntervals(const IntervalRange& intervals) noexcept {
+	[[nodiscard]] constexpr std::vector<xieite::math::Interval<Number>> mergeIntervals(IntervalRange&& intervals) noexcept {
 		std::vector<xieite::math::Interval<Number>> result;
 		for (const xieite::math::Interval<Number> interval1 : intervals) {
 			const Number min = std::min(interval1.start, interval1.end);

@@ -1,27 +1,20 @@
 #ifndef XIEITE_HEADER_FUNCTORS_SCOPE_GUARD
 #	define XIEITE_HEADER_FUNCTORS_SCOPE_GUARD
 
-#	include <concepts>
 #	include <functional>
 #	include <memory>
 #	include <utility>
+#	include "../functors/function.hpp"
 
 namespace xieite::functors {
-	template<std::invocable<> Functor>
 	class ScopeGuard {
 	public:
-		constexpr ScopeGuard(const Functor& callback) noexcept
-		: callback(std::make_shared<Functor>(callback)) {}
-
-		constexpr ScopeGuard(Functor& callback) noexcept
-		: callback(std::make_shared<Functor>(callback)) {}
-
-		constexpr ScopeGuard(Functor&& callback) noexcept
-		: callback(std::make_shared<Functor>(std::move(callback))) {}
+		constexpr ScopeGuard(const xieite::functors::Function<void()>& callback) noexcept
+		: callback(callback) {}
 
 		constexpr ~ScopeGuard() {
 			if (!this->released) {
-				std::invoke(std::forward<Functor>(*this->callback));
+				this->callback();
 			}
 		}
 
@@ -30,7 +23,7 @@ namespace xieite::functors {
 		}
 
 	private:
-		std::shared_ptr<Functor> callback;
+		xieite::functors::Function<void()> callback;
 		bool released = false;
 	};
 }

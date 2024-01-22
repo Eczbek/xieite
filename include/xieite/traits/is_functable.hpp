@@ -5,6 +5,7 @@
 #	include <functional>
 #	include <type_traits>
 #	include <utility>
+#	include "../types/placeholder.hpp"
 
 namespace xieite::traits {
 	template<typename, typename>
@@ -14,7 +15,7 @@ namespace xieite::traits {
 	template<typename Functor, typename Result, typename... Arguments>
 	struct IsFunctable<Functor, Result(Arguments...)>
 	: std::bool_constant<requires(Functor functor, Arguments... arguments) {
-		{ std::invoke(functor, arguments...) } -> std::convertible_to<Result>;
+		{ std::invoke(functor, arguments...) } -> std::convertible_to<std::conditional_t<std::same_as<Result, void>, xieite::types::Placeholder, Result>>;
 	}> {};
 }
 

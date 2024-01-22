@@ -6,6 +6,7 @@ namespace xieite::concepts {
 	concept Not = requires {
 		{ Trait<Type>::value } -> std::convertible_to<bool>;
 	} && !Trait<Type>::value;
+	// Fails if passed a non-trait-like template
 }
 
 #endif

@@ -8,25 +8,30 @@
 #	include <ranges>
 #	include <type_traits>
 #	include <utility>
-#	include "../concepts/no_throw_convertible_to.hpp"
+#	include "../concepts/functable.hpp"
+#	include "../concepts/no_throw_invocable.hpp"
+#	include "../concepts/range_of.hpp"
 
 namespace xieite::containers {
-	template<typename Value, std::size_t size, std::ranges::range Range>
-	requires(std::convertible_to<std::ranges::range_reference_t<Range>, Value>)
-	[[nodiscard]] constexpr std::array<Value, size> makeArray(const Range& range)
-	noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, Value>) {
+	template<typename Value, std::size_t size, xieite::concepts::RangeOf<Value> Range, xieite::concepts::Functable<Value(std::ranges::range_reference_t<Range>)> Functor = decltype([](const std::ranges::range_const_reference_t<Range> value) -> Value {
+		return static_cast<Value>(value);
+	})>
+	[[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>) {
 		return ([&range]<std::size_t... indices>(std::index_sequence<indices...>) {
 			return std::array<Value, size> {
-				static_cast<Value>(*std::ranges::next(std::ranges::begin(range), indices, std::ranges::end(range)))...
+				std::invoke(std::forward<Functor>(converter), *std::ranges::next(std::ranges::begin(std::forward<Range>(range)), indices, std::ranges::end(std::forward<Range>(range))))...
 			};
 		})(std::make_index_sequence<size>());
 	}
 
-	template<typename... Arguments, typename Value = std::common_type_t<Arguments...>, std::size_t size = sizeof...(Arguments)>
+	template<typename... Arguments, typename Value = std::common_type_t<Arguments...>, std::size_t size = sizeof...(Arguments), xieite::concepts::Functable<Value(std::ranges::range_reference_t<Range>)> Functor = decltype([](const std::ranges::range_const_reference_t<Range> value) -> Value {
+		return static_cast<Value>(value);
+	})>
 	requires(sizeof...(Arguments) <= size)
-	[[nodiscard]] constexpr std::array<Value, size> makeArray(const Arguments&... values) noexcept {
+	[[nodiscard]] constexpr std::array<Value, size> makeArray(Arguments&&... values, Functor&& converter = Functor()) noexcept {
 		return std::array<Value, size> {
-			static_cast<Value>(values)...
+			std::invoke(std::forward<Functor>(converter), std::forward<Arguments>(values))...
 		};
 	}
 }

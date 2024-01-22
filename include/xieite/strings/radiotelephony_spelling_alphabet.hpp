@@ -6,7 +6,7 @@
 #	include <string_view>
 
 namespace xieite::strings {
-	inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> radiotelephonySpellingAlphabet = ([] {
+	inline constexpr auto radiotelephonySpellingAlphabet = ([] -> std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> {
 		std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> result;
 		result['A'] = result['a'] = "Alfa"; // This is not a typo
 		result['B'] = result['b'] = "Bravo";

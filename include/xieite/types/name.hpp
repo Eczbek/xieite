@@ -2,9 +2,9 @@
 #	define XIEITE_HEADER_TYPES_NAME
 
 #	include <string_view>
-#	include "../macros/compiler.hpp"
+#	include "../macros/compiler_type.hpp"
 
-#	if XIEITE_COMPILER_GCC
+#	if XIEITE_COMPILER_TYPE_GCC
 #		include "../strings/between.hpp"
 
 namespace XIEITE_INTERNAL_TYPES_NAME {
@@ -14,7 +14,7 @@ namespace XIEITE_INTERNAL_TYPES_NAME {
 	}
 }
 
-#	elif XIEITE_COMPILER_LLVM
+#	elif XIEITE_COMPILER_TYPE_LLVM
 #		include "../strings/between.hpp"
 
 namespace XIEITE_INTERNAL_TYPES_NAME {
@@ -24,7 +24,7 @@ namespace XIEITE_INTERNAL_TYPES_NAME {
 	}
 }
 
-#	elif XIEITE_COMPILER_MSVC
+#	elif XIEITE_COMPILER_TYPE_MSVC
 #		include "../strings/after.hpp"
 #		include "../strings/between.hpp"
 

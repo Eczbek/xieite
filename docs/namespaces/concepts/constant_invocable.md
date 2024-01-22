@@ -12,7 +12,7 @@ Specifies that a type is invokable without mutating.
 #### 1)
 ```cpp
 template<typename Functor, typename... Arguments>
-concept ConstantInvocable = std::invocable<Functor, Arguments...> && requires(const Functor& functor, Arguments&&... arguments) {
+concept ConstantInvocable = std::invocable<Functor, Arguments...> && requires(const Functor functor, Arguments... arguments) {
 	std::invoke(functor, std::forward<Arguments>(arguments)...);
 };
 ```

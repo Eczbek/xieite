@@ -141,3 +141,5 @@ namespace xieite::types {
 #endif
 
 // Thanks to Eisenwave for the algorithm for getting unique types, and eightfold for helping compact the slicer
+// https://github.com/Eisenwave
+// https://github.com/8ightfold

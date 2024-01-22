@@ -1,6 +1,7 @@
 #ifndef XIEITE_HEADER_CONTAINERS_TUPLE_MAP
 #	define XIEITE_HEADER_CONTAINERS_TUPLE_MAP
 
+#	include <concepts>
 #	include <cstddef>
 #	include <initializer_list>
 #	include <tuple>
@@ -16,27 +17,31 @@ namespace xieite::containers {
 		TupleMap(const std::initializer_list<std::pair<FirstKey, TupleMap<Container, std::tuple<RestKeys...>, Value>>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
 
-		[[nodiscard]] const Value& operator[](const std::tuple<FirstKey, RestKeys...>& keys) const noexcept {
+		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+		[[nodiscard]] const Value& operator[](KeysReference&& keys) const noexcept {
 			return ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) -> const Value& {
-				return this->map.at(std::get<0>(keys))[std::make_tuple(std::get<indices + 1>(keys)...)];
+				return this->map.at(std::get<0>(std::forward<KeysReference>(keys)))[std::make_tuple(std::get<indices + 1>(std::forward<KeysReference>(keys))...)];
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
-		[[nodiscard]] Value& operator[](const std::tuple<FirstKey, RestKeys...>& keys) noexcept {
+		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+		[[nodiscard]] Value& operator[](KeysReference&& keys) noexcept {
 			return ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) -> Value& {
-				return this->map.at(std::get<0>(keys))[std::make_tuple(std::get<indices + 1>(keys)...)];
+				return this->map.at(std::get<0>(std::forward<KeysReference>(keys)))[std::make_tuple(std::get<indices + 1>(std::forward<KeysReference>(keys))...)];
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
-		void insert(const std::tuple<FirstKey, RestKeys...>& keys, const Value& value) noexcept {
+		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
+		void insert(KeysReference&& keys, ValueReference&& value) noexcept {
 			return ([this, &keys, &value]<std::size_t... indices>(std::index_sequence<indices...>) {
-				this->map[std::get<0>(keys)].insert(std::make_tuple(std::get<indices + 1>(keys)...), value);
+				this->map[std::get<0>(std::forward<KeysReference>(keys))].insert(std::make_tuple(std::get<indices + 1>(std::forward<KeysReference>(keys))...), std::forward<ValueReference>(value));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
-		[[nodiscard]] bool contains(const std::tuple<FirstKey, RestKeys...>& keys) const noexcept {
-			return this->map.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) {
-				return this->map.at(std::get<0>(keys)).contains(std::make_tuple(std::get<indices + 1>(keys)...));
+		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+		[[nodiscard]] bool contains(KeysReference&& keys) const noexcept {
+			return this->map.contains(std::get<0>(std::forward<KeysReference>(keys))) && ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) {
+				return this->map.at(std::get<0>(std::forward<KeysReference>(keys))).contains(std::make_tuple(std::get<indices + 1>(std::forward<KeysReference>(keys))...));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
@@ -50,20 +55,24 @@ namespace xieite::containers {
 		TupleMap(const std::initializer_list<std::pair<Key, Value>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
 
-		[[nodiscard]] const Value& operator[](const std::tuple<Key>& key) const noexcept {
-			return this->map.at(std::get<0>(key));
+		template<std::convertible_to<std::tuple<Key>> KeyReference>
+		[[nodiscard]] const Value& operator[](KeyReference&& key) const noexcept {
+			return this->map.at(std::get<0>(std::forward<KeyReference>(key)));
 		}
 
-		[[nodiscard]] Value& operator[](const std::tuple<Key>& key) noexcept {
-			return this->map.at(std::get<0>(key));
+		template<std::convertible_to<std::tuple<Key>> KeyReference>
+		[[nodiscard]] Value& operator[](KeyReference& key) noexcept {
+			return this->map.at(std::get<0>(std::forward<KeyReference>(key)));
 		}
 
-		void insert(const std::tuple<Key>& key, const Value& value) noexcept {
-			this->map.emplace(std::make_pair(std::get<0>(key), value));
+		template<std::convertible_to<std::tuple<Key>> KeyReference, std::convertible_to<Value> ValueReference>
+		void insert(KeyReference&& key, ValueReference&& value) noexcept {
+			this->map.emplace(std::make_pair(std::get<0>(std::forward<KeyReference>(key)), std::forward<ValueReference>(value)));
 		}
 
-		[[nodiscard]] bool contains(const std::tuple<Key>& key) const noexcept {
-			return this->map.contains(std::get<0>(key));
+		template<std::convertible_to<std::tuple<Key>> KeyReference>
+		[[nodiscard]] bool contains(KeyReference&& key) const noexcept {
+			return this->map.contains(std::get<0>(std::forward<KeyReference>(key)));
 		}
 
 	private:

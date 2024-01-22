@@ -5,6 +5,7 @@
 #	include <concepts>
 #	include <iterator>
 #	include <random>
+#	include <utility>
 #	include "../concepts/arithmetic.hpp"
 #	include "../concepts/range_of.hpp"
 #	include "../concepts/uniform_random_bit_generator.hpp"
@@ -19,11 +20,11 @@ namespace xieite::random {
 	class UniformInterruptableDistribution {
 	public:
 		template<xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
-		UniformInterruptableDistribution(const xieite::math::Interval<Number> interval, const IntervalRange& interruptions) {
+		UniformInterruptableDistribution(const xieite::math::Interval<Number> interval, IntervalRange&& interruptions) {
 			const Number minimum = std::min(interval.start, interval.end);
 			const Number maximum = std::max(interval.start, interval.end);
 			Number upper = maximum;
-			for (const xieite::math::Interval<Number> interruption : xieite::math::mergeIntervals<Number>(interruptions)) {
+			for (const xieite::math::Interval<Number> interruption : xieite::math::mergeIntervals<Number>(std::forward<IntervalRange>(interruptions))) {
 				if (((interruption.start >= minimum) || (interruption.end >= minimum)) && ((interruption.start <= maximum) || (interruption.end <= maximum))) {
 					const Number start = std::clamp(interruption.start, minimum, maximum);
 					const Number end = std::clamp(interruption.end, minimum, maximum);
@@ -36,7 +37,7 @@ namespace xieite::random {
 				}
 			}
 			this->distribution = xieite::random::UniformDistribution<Number>(minimum, upper);
-			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Number> interruption1, const xieite::math::Interval<Number> interruption2) {
+			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Number> interruption1, const xieite::math::Interval<Number> interruption2) -> bool {
 				return interruption1.start < interruption2.start;
 			});
 		}

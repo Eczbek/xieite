@@ -9,7 +9,7 @@
 
 namespace xieite::strings {
 	[[nodiscard]] constexpr char lowercase(const char character) noexcept {
-		static constexpr std::array<char, std::numeric_limits<unsigned char>::max() + 1> lookup = ([] {
+		static constexpr auto lookup = ([] -> std::array<char, std::numeric_limits<unsigned char>::max() + 1> {
 			std::array<char, std::numeric_limits<unsigned char>::max() + 1> result;
 			std::iota(result.begin(), result.end(), 0);
 			for (std::size_t i = 0; i < 26; ++i) {
