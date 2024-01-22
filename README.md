@@ -14,6 +14,7 @@ This project extends the standard library and provides an organized collection o
 - [xieite::streams::StandardHandle](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/streams/standard_handle.md)
 - [xieite::functors::Infix](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/functors/infix.md)
 - [xieite::types::name](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/types/name.md)
+- [xieite::functors::memoize](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/functors/memoize.md)
 - [xieite::system::execute](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/system/execute.md)
 - [xieite::memory::detectCosmicRay](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/memory/detect_cosmic_ray.md)
 - [xieite::concepts::Numeric](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/concepts/numeric.md)

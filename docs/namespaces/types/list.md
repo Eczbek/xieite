@@ -86,6 +86,7 @@ class List {
 - [Swap](./structures/list/1/swap.md)
 - [SwapRanges](./structures/list/1/swap_ranges.md)
 - [Unique](./structures/list/1/unique.md)
+- [Sort](./structures/list/1/sort.md)
 ##### Member values
 - [size](./structures/list/1/size.md)
 
