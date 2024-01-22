@@ -102,3 +102,5 @@
 #	endif
 
 #endif
+
+// https://sourceforge.net/p/predef/wiki/Standards/
