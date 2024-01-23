@@ -9,6 +9,7 @@
 #	include <string_view>
 #	include <type_traits>
 #	include <utility>
+#	include "../concepts/functable.hpp"
 #	include "../types/name.hpp"
 
 namespace xieite::types {
@@ -33,6 +34,9 @@ namespace xieite::types {
 	public:
 		template<std::size_t index>
 		using At = xieite::types::List<Types...>::AtHelper<index, Types...>::Type;
+
+		template<template<typename...> typename Template>
+		using Apply = Template<Types...>;
 
 		template<typename... OtherTypes>
 		using Append = xieite::types::List<Types..., OtherTypes...>;
@@ -127,6 +131,26 @@ namespace xieite::types {
 	public:
 		template<std::size_t count>
 		using Repeat = xieite::types::List<Types...>::RepeatHelper<count>::Type;
+
+	private:
+		template<typename... OtherTypes>
+		requires(sizeof...(Types) == sizeof...(OtherTypes))
+		struct ZipRangesHelper {
+			using Type = decltype(([]<std::size_t... indices>(std::index_sequence<indices...>) -> auto {
+				return xieite::types::List<xieite::types::List<xieite::types::List<Types...>::At<indices>, typename xieite::types::List<OtherTypes...>::At<indices>>...>();
+			})(std::make_index_sequence<sizeof...(OtherTypes)>()));
+		};
+
+		template<template<typename...> typename Range, typename... OtherTypes>
+		struct ZipRangesHelper<Range<OtherTypes...>>
+		: xieite::types::List<Types...>::ZipRangesHelper<OtherTypes...> {};
+
+	public:
+		template<typename... OtherTypes>
+		using Zip = xieite::types::List<Types...>::ZipRangesHelper<OtherTypes...>::Type;
+
+		template<typename... Ranges>
+		using ZipRanges = xieite::types::List<Types...>::ZipRangesHelper<Ranges...>::Type;
 
 	private:
 		template<typename... UniqueTypes>
