@@ -5,12 +5,15 @@
 #	include "../macros/compiler_type.hpp"
 
 #	if XIEITE_COMPILER_TYPE_GCC
+#		include <string>
+#		include "../containers/make_array.hpp"
 #		include "../strings/between.hpp"
 
 namespace XIEITE_INTERNAL_TYPES_NAME {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
-		return xieite::strings::between(__PRETTY_FUNCTION__, "= ", ';');
+		static constexpr auto data = xieite::containers::makeArray<char, std::string_view(__PRETTY_FUNCTION__).size()>(std::string_view(__PRETTY_FUNCTION__));
+		return xieite::strings::between(std::string_view(data.begin(), data.end()), "= ", ';');
 	}
 }
 
@@ -20,7 +23,8 @@ namespace XIEITE_INTERNAL_TYPES_NAME {
 namespace XIEITE_INTERNAL_TYPES_NAME {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
-		return xieite::strings::between(__PRETTY_FUNCTION__, "= ", ']');
+		static constexpr auto data = xieite::containers::makeArray<char, std::string_view(__PRETTY_FUNCTION__).size()>(std::string_view(__PRETTY_FUNCTION__));
+		return xieite::strings::between(std::string_view(data.begin(), data.end()), "= ", ']');
 	}
 }
 
@@ -31,7 +35,8 @@ namespace XIEITE_INTERNAL_TYPES_NAME {
 namespace XIEITE_INTERNAL_TYPES_NAME {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
-		return xieite::strings::between(xieite::strings::after(__FUNCSIG__, "__cdecl"), '<', ">(");
+		static constexpr auto data = xieite::containers::makeArray<char, std::string_view(__FUNCSIG__).size()>(std::string_view(__FUNCSIG__));
+		return xieite::strings::between(xieite::strings::after(std::string_view(data.begin(), data.end()), "__cdecl"), '<', ">(");
 	}
 }
 
