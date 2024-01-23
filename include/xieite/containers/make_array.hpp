@@ -18,21 +18,11 @@ namespace xieite::containers {
 	})>
 	[[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
 	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>) {
-		return ([&range]<std::size_t... indices>(std::index_sequence<indices...>) {
+		return ([&range, &converter]<std::size_t... indices>(std::index_sequence<indices...>) {
 			return std::array<Value, size> {
 				std::invoke(std::forward<Functor>(converter), *std::ranges::next(std::ranges::begin(std::forward<Range>(range)), indices, std::ranges::end(std::forward<Range>(range))))...
 			};
 		})(std::make_index_sequence<size>());
-	}
-
-	template<typename... Arguments, typename Value = std::common_type_t<Arguments...>, std::size_t size = sizeof...(Arguments), xieite::concepts::Functable<Value(std::ranges::range_reference_t<Range>)> Functor = decltype([](const std::ranges::range_const_reference_t<Range> value) -> Value {
-		return static_cast<Value>(value);
-	})>
-	requires(sizeof...(Arguments) <= size)
-	[[nodiscard]] constexpr std::array<Value, size> makeArray(Arguments&&... values, Functor&& converter = Functor()) noexcept {
-		return std::array<Value, size> {
-			std::invoke(std::forward<Functor>(converter), std::forward<Arguments>(values))...
-		};
 	}
 }
 
