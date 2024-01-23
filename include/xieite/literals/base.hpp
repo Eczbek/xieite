@@ -3,6 +3,7 @@
 
 #	include <array>
 #	include <cstddef>
+#	include "../macros/attributes.hpp"
 
 namespace xieite::literals::base {
 	template<char... characters>
@@ -13,9 +14,11 @@ namespace xieite::literals::base {
 		if constexpr ((value.size() > 1) && (value[0] == '0')) {
 			switch (value[1]) {
 				case 'x':
+					XIEITE_ATTRIBUTES_FALLTHROUGH();
 				case 'X':
 					return 16;
 				case 'b':
+					XIEITE_ATTRIBUTES_FALLTHROUGH();
 				case 'B':
 					return 2;
 			}
