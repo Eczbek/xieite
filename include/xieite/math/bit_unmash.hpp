@@ -5,31 +5,38 @@
 #	include <bitset>
 #	include <concepts>
 #	include <cstddef>
-#	include <string>
+#	include <limits>
 #	include <tuple>
-#	include <utility>
+#	include "../functors/reverse_tuple.hpp"
 #	include "../types/least_integer.hpp"
+#	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::math {
 	template<std::size_t... sizes>
-	[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes>...> bitUnmash(const std::bitset<(... + sizes)>& value) noexcept {
-		static constexpr std::size_t bits = (... + sizes);
-		std::tuple<xieite::types::LeastInteger<sizes>...> result;
-		std::size_t shift = bits;
-		([&bits, &value, &result, &shift]<std::size_t... indices>(std::index_sequence<indices...>) {
-			(..., (std::get<indices>(result) = static_cast<xieite::types::LeastInteger<sizes>>(((value >> (shift -= sizes)) & std::bitset<bits>(std::string(sizes, '1'))).to_ullong())));
-		})(std::make_index_sequence<sizeof...(sizes)>());
-		return result;
+	[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes>...> bitUnmash(std::bitset<(... + sizes)> value) noexcept {
+		return xieite::functors::reverseTuple(std::make_tuple<xieite::types::LeastInteger<sizes>...>(([&value] -> xieite::types::LeastInteger<sizes> {
+			using Integer = xieite::types::LeastInteger<sizes>;
+			Integer item = static_cast<Integer>(value.to_ullong());
+			if constexpr (sizes < xieite::types::sizeBits<Integer>) {
+				item &= std::numeric_limits<Integer>::max() >> (xieite::types::sizeBits<Integer> - sizes);
+			}
+			value >>= sizes;
+			return item;
+		})()...));
 	}
 
 	template<std::integral Integer, std::size_t... sizes>
-	[[nodiscard]] constexpr std::array<Integer, sizeof...(sizes)> bitUnmash(const std::bitset<(... + sizes)>& value) noexcept {
-		static constexpr std::size_t bits = (... + sizes);
-		std::array<Integer, sizeof...(sizes)> result;
-		std::size_t shift = bits;
-		std::size_t i = 0;
-		(..., (result[i++] = static_cast<Integer>(((value >> (shift -= sizes)) & std::bitset<bits>(std::string(sizes, '1'))).to_ullong())));
-		return result;
+	[[nodiscard]] constexpr std::array<Integer, sizeof...(sizes)> bitUnmash(std::bitset<(... + sizes)> value) noexcept {
+		return std::array<Integer, sizeof...(sizes)> {
+			([&value] -> Integer {
+				Integer item = static_cast<Integer>(value.to_ullong());
+				if constexpr (sizes < xieite::types::sizeBits<Integer>) {
+					item &= std::numeric_limits<xieite::types::MaybeUnsigned<Integer>>::max() >> (xieite::types::sizeBits<Integer> - sizes);
+				}
+				value >>= sizes;
+				return item;
+			})()...
+		};
 	}
 }
 

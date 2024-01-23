@@ -6,28 +6,25 @@
 #	include <concepts>
 #	include <cstddef>
 #	include <tuple>
-#	include <utility>
+#	include "../functors/reverse_tuple.hpp"
 #	include "../types/size_bits.hpp"
 
 namespace xieite::math {
 	template<std::integral... Integers>
-	[[nodiscard]] constexpr std::tuple<Integers...> bitUnjoin(const std::bitset<(... + xieite::types::sizeBits<Integers>)>& value) noexcept {
-		std::tuple<Integers...> result;
-		std::size_t shift = (... + xieite::types::sizeBits<Integers>);
-		([&value, &result, &shift]<std::size_t... indices>(std::index_sequence<indices...>) {
-			(..., (std::get<indices>(result) = static_cast<Integers>((value >> (shift -= xieite::types::sizeBits<Integers>)).to_ullong())));
-		})(std::make_index_sequence<sizeof...(Integers)>());
-		return result;
+	[[nodiscard]] constexpr std::tuple<Integers...> bitUnjoin(std::bitset<(... + xieite::types::sizeBits<Integers>)> value) noexcept {
+		return xieite::functors::reverseTuple(std::make_tuple<Integers...>(([&value] -> Integers {
+			const Integers item = static_cast<Integers>(value.to_ullong());
+			value >>= xieite::types::sizeBits<Integers>;
+			return item;
+		})()...));
 	}
 
 	template<std::integral Integer, std::size_t size>
-	[[nodiscard]] constexpr std::array<Integer, size> bitUnjoin(const std::bitset<xieite::types::sizeBits<Integer> * size>& value) noexcept {
-		static constexpr std::size_t bits = xieite::types::sizeBits<Integer> * size;
+	[[nodiscard]] constexpr std::array<Integer, size> bitUnjoin(std::bitset<xieite::types::sizeBits<Integer> * size> value) noexcept {
 		std::array<Integer, size> result;
-		std::size_t shift = bits;
 		for (std::size_t i = 0; i < size; ++i) {
-			shift -= xieite::types::sizeBits<Integer>;
-			result[i] = static_cast<Integer>((value >> shift).to_ullong());
+			result[i] = static_cast<Integer>(value.to_ullong());
+			value >>= xieite::types::sizeBits<Integer>;
 		}
 		return result;
 	}
