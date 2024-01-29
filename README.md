@@ -38,3 +38,65 @@ This project extends the standard library and provides an organized collection o
 
 ## [Documentation](https://github.com/Eczbek/xieite/tree/main/docs/xieite.md)
 Written manually :)
+
+&nbsp;
+
+## To-do:
+- Compiler type macro detection:
+	- `ACORN_C_CPP`
+	- `ALAN_SNYDERS_PORTABLE_C_COMPILER`
+	- `AOCC`
+	- `BDS_C`
+	- `BSD_C`
+	- `CFRONT`
+	- `CH`
+	- `CINT`
+	- `DIGITAL_RESEARCH_C`
+	- `DIGNUS_SYSTEMS_C`
+	- `DPCPP`
+	- `EDGE_C_CPP`
+	- `FPGAC`
+	- `IMPULSE_C`
+	- `INTERACTIVE_C`
+	- `LABWINDOWS`
+	- `MARK_WILLIAMS_C`
+	- `MCC`
+	- `MEGAMAX_C`
+	- `MKROC_COMPILER`
+	- `PCC`
+	- `PERSONAL_C_COMPILER`
+	- `PICOC`
+	- `PRODEV_WORKSHOP`
+	- `PRO_C_CPP`
+	- `QUICKC`
+	- `REALVIEW_COMPILATION_TOOLS`
+	- `RITCHIE_C_COMPILER`
+	- `SAS_C_CPP`
+	- `SCORE_C`
+	- `SCORE_CPP`
+	- `SEGGER_COMPILER`
+	- `SMALL_C`
+	- `STANFORD_C_COMPILER`
+	- `SUBC`
+	- `SYMBOLICS_C`
+	- `TANDEM_C`
+	- `TANDEM_CPP`
+	- `TASKING`
+	- `VECTORC`
+	- `ZIG_C_CPP`
+- Compiler version macro detection:
+	- `ACK`
+	- `ACORN_C_CPP`
+	- `ALAN_SNYDERS_PORTABLE_C_COMPILER`
+	- `AOCC`
+	- `BDS_C`
+	- `BSD_C`
+	- `CFRONT`
+	- `CH`
+	- `CINT`
+	- `CIRCLE`
+	- `COVERITY_C_CPP_STATIC_ANALYZER`
+	- `CPPBUILDER`
+	- `DICE_C`
+	- `DIGITAL_RESEARCH_C`
+	- `

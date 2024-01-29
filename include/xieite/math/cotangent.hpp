@@ -2,13 +2,13 @@
 #	define XIEITE_HEADER_MATH_COTANGENT
 
 #	include <cmath>
+#	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
-#	include "../types/common_floating_point.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> cotangent(const Number value) noexcept {
-		return std::cos(static_cast<xieite::types::CommonFloatingPoint<Number>>(value)) / std::sin(static_cast<xieite::types::CommonFloatingPoint<Number>>(value));
+	[[nodiscard]] constexpr std::common_type_t<double, Number> cotangent(const Number value) noexcept {
+		return std::cos(static_cast<std::common_type_t<double, Number>>(value)) / std::sin(static_cast<std::common_type_t<double, Number>>(value));
 	}
 }
 

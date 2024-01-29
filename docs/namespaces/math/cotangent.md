@@ -12,5 +12,5 @@ Computes the cotangent of a value.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> cotangent(Number value) noexcept;
+[[nodiscard]] constexpr std::common_type_t<double, Number> cotangent(Number value) noexcept;
 ```

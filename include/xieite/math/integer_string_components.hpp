@@ -3,18 +3,17 @@
 
 #	include <string>
 #	include <string_view>
+#	include "../strings/characters.hpp"
 
 namespace xieite::math {
 	struct IntegerStringComponents {
-		std::string digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-		char negative = '-';
-		char positive = '+';
-		char point = '.';
-		char exponent = 'e';
+		std::string digits;
+		char negative;
+		char positive;
+		char point;
+		char exponent;
 
-		constexpr IntegerStringComponents() noexcept = default;
-
-		constexpr IntegerStringComponents(const std::string_view digits, const char negative, const char positive, const char point, const char exponent) noexcept
+		constexpr IntegerStringComponents(const std::string_view digits = xieite::strings::characters::alphanumeric, const char negative = '-', const char positive = '+', const char point = '.', const char exponent = 'e') noexcept
 		: digits(digits), negative(negative), positive(positive), point(point), exponent(exponent) {}
 	};
 }

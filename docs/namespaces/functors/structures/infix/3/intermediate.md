@@ -24,5 +24,5 @@ public:
 };
 ```
 ##### Member functions
-- [Intermediate](./structures/intermediate/operators/constructor.md)
-- [operator>](./structures/intermediate/operators/more.md)
+- [Intermediate](./structures/intermediate/1/operators/constructor.md)
+- [operator>](./structures/intermediate/1/operators/more.md)

@@ -10,6 +10,7 @@
 #	include <type_traits>
 #	include <utility>
 #	include "../concepts/functable.hpp"
+#	include "../concepts/same_as_any.hpp"
 #	include "../types/name.hpp"
 
 namespace xieite::types {
@@ -116,6 +117,18 @@ namespace xieite::types {
 		template<std::size_t start1, std::size_t end1, std::size_t start2, std::size_t end2>
 		using SwapRanges = xieite::types::List<Types...>::ReplaceRange<start1, end1, xieite::types::List<Types...>::Slice<start2, end2>>::template ReplaceRange<start2, end2, xieite::types::List<Types...>::Slice<start1, end1>>;
 
+		template<typename Type>
+		static constexpr bool has = xieite::concepts::SameAsAny<Type, Types...>;
+
+		template<xieite::concepts::SameAsAny<Types...> Type>
+		static constexpr std::size_t find = ([] -> std::size_t {
+			if constexpr (std::same_as<Type, xieite::types::List<Types...>::At<0>>) {
+				return 0;
+			} else {
+				return xieite::types::List<Types...>::Slice<1>::find<Type>;
+			}
+		})();
+
 	private:
 		template<std::size_t>
 		struct RepeatHelper {
@@ -184,6 +197,4 @@ namespace xieite::types {
 
 #endif
 
-// Thanks to Eisenwave for the algorithm for getting unique types, and eightfold for helping compact the slicer
-// https://github.com/Eisenwave
-// https://github.com/8ightfold
+// Thanks to Eisenwave (https://github.com/Eisenwave) for the algorithm for getting unique types, and eightfold (https://github.com/8ightfold) for helping compact the slicer

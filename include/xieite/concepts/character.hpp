@@ -8,7 +8,8 @@
 namespace xieite::concepts {
 	template<typename Type>
 	concept Character = xieite::concepts::WideCharacter<Type> || xieite::concepts::SameAsAny<std::remove_cv_t<Type>, char, char8_t>;
-	// https://eel.is/c++draft/basic.fundamental#11
 }
 
 #endif
+
+// https://eel.is/c++draft/basic.fundamental#11

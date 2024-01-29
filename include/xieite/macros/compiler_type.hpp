@@ -12,8 +12,8 @@
 #	define XIEITE_COMPILER_TYPE_AZTEC_C 0
 #	define XIEITE_COMPILER_TYPE_BDS_C 0
 #	define XIEITE_COMPILER_TYPE_BSD_C 0
-#	define XIEITE_COMPILER_TYPE_CFRONT 0
 #	define XIEITE_COMPILER_TYPE_CC65 0
+#	define XIEITE_COMPILER_TYPE_CFRONT 0
 #	define XIEITE_COMPILER_TYPE_CH 0
 #	define XIEITE_COMPILER_TYPE_CINT 0
 #	define XIEITE_COMPILER_TYPE_CIRCLE 0
@@ -85,9 +85,9 @@
 #	define XIEITE_COMPILER_TYPE_PERSONAL_C_COMPILER 0
 #	define XIEITE_COMPILER_TYPE_PGI_C_CPP 0
 #	define XIEITE_COMPILER_TYPE_PICOC 0
+#	define XIEITE_COMPILER_TYPE_PRODEV_WORKSHOP 0
 #	define XIEITE_COMPILER_TYPE_PRO_C 0
 #	define XIEITE_COMPILER_TYPE_PRO_C_CPP 0
-#	define XIEITE_COMPILER_TYPE_PRODEV_WORKSHOP 0
 #	define XIEITE_COMPILER_TYPE_QUICKC 0
 #	define XIEITE_COMPILER_TYPE_REALVIEW_COMPILATION_TOOLS 0
 #	define XIEITE_COMPILER_TYPE_RENESAS_C_CPP 0
@@ -133,12 +133,12 @@
 #		define XIEITE_COMPILER_TYPE_ACK 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_ACORN_C_CPP
 #		define XIEITE_COMPILER_TYPE_ACORN_C_CPP 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_ALAN_SNYDERS_PORTABLE_C_COMPILER
 #		define XIEITE_COMPILER_TYPE_ALAN_SNYDERS_PORTABLE_C_COMPILER 1
 #	endif
@@ -153,7 +153,7 @@
 #		define XIEITE_COMPILER_TYPE_ALTIUM_MICROBLAZE_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_AOCC
 #		define XIEITE_COMPILER_TYPE_AOCC 1
 #	endif
@@ -168,19 +168,14 @@
 #		define XIEITE_COMPILER_TYPE_AZTEC_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_BDS_C
 #		define XIEITE_COMPILER_TYPE_BDS_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_BSD_C
 #		define XIEITE_COMPILER_TYPE_BSD_C 1
-#	endif
-
-#	if false
-#		undef XIEITE_COMPILER_TYPE_CFRONT
-#		define XIEITE_COMPILER_TYPE_CFRONT 1
 #	endif
 
 #	ifdef __CC65__
@@ -188,12 +183,17 @@
 #		define XIEITE_COMPILER_TYPE_CC65 1
 #	endif
 
-#	if false
+#	if 0
+#		undef XIEITE_COMPILER_TYPE_CFRONT
+#		define XIEITE_COMPILER_TYPE_CFRONT 1
+#	endif
+
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_CH
 #		define XIEITE_COMPILER_TYPE_CH 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_CINT
 #		define XIEITE_COMPILER_TYPE_CINT 1
 #	endif
@@ -263,12 +263,12 @@
 #		define XIEITE_COMPILER_TYPE_DICE_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_DIGITAL_RESEARCH_C
 #		define XIEITE_COMPILER_TYPE_DIGITAL_RESEARCH_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_DIGNUS_SYSTEMS_C
 #		define XIEITE_COMPILER_TYPE_DIGNUS_SYSTEMS_C 1
 #	endif
@@ -283,7 +283,7 @@
 #		define XIEITE_COMPILER_TYPE_DJGPP 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_DPCPP
 #		define XIEITE_COMPILER_TYPE_DPCPP 1
 #	endif
@@ -293,7 +293,7 @@
 #		define XIEITE_COMPILER_TYPE_ECCP 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_EDGE_C_CPP
 #		define XIEITE_COMPILER_TYPE_EDGE_C_CPP 1
 #	endif
@@ -313,12 +313,7 @@
 #		define XIEITE_COMPILER_TYPE_EMSCRIPTEN 1
 #	endif
 
-#	if defined(__SUNPRO_C) || defined(__SUNPRO_CC)
-#		undef XIEITE_COMPILER_TYPE_SUNPRO_COMPILERS
-#		define XIEITE_COMPILER_TYPE_SUNPRO_COMPILERS 1
-#	endif
-
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_FPGAC
 #		define XIEITE_COMPILER_TYPE_FPGAC 1
 #	endif
@@ -368,12 +363,12 @@
 #		define XIEITE_COMPILER_TYPE_IMAGECRAFT_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_IMPULSE_C
 #		define XIEITE_COMPILER_TYPE_IMPULSE_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_INTERACTIVE_C
 #		define XIEITE_COMPILER_TYPE_INTERACTIVE_C 1
 #	endif
@@ -398,7 +393,7 @@
 #		define XIEITE_COMPILER_TYPE_KEIL_CARM 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_LABWINDOWS
 #		define XIEITE_COMPILER_TYPE_LABWINDOWS 1
 #	endif
@@ -423,22 +418,17 @@
 #		define XIEITE_COMPILER_TYPE_LLVM 1
 #	endif
 
-#	if defined(__MRC__) || defined(MPW_C) || defined(MPW_CPLUS)
-#		undef XIEITE_COMPILER_TYPE_MPW
-#		define XIEITE_COMPILER_TYPE_MPW 1
-#	endif
-
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_MARK_WILLIAMS_C
 #		define XIEITE_COMPILER_TYPE_MARK_WILLIAMS_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_MCC
 #		define XIEITE_COMPILER_TYPE_MCC 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_MEGAMAX_C
 #		define XIEITE_COMPILER_TYPE_MEGAMAX_C 1
 #	endif
@@ -446,11 +436,6 @@
 #	ifdef __HIGHC__
 #		undef XIEITE_COMPILER_TYPE_METAWARE_HIGH_C_CPP
 #		define XIEITE_COMPILER_TYPE_METAWARE_HIGH_C_CPP 1
-#	endif
-
-#	ifdef _MSC_VER
-#		undef XIEITE_COMPILER_TYPE_MSVC
-#		define XIEITE_COMPILER_TYPE_MSVC 1
 #	endif
 
 #	ifdef _MRI
@@ -463,7 +448,7 @@
 #		define XIEITE_COMPILER_TYPE_MICROWAY_NPC_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_MIKROC_COMPILER
 #		define XIEITE_COMPILER_TYPE_MIKROC_COMPILER 1
 #	endif
@@ -488,6 +473,16 @@
 #		define XIEITE_COMPILER_TYPE_MIRACLE_C 1
 #	endif
 
+#	if defined(__MRC__) || defined(MPW_C) || defined(MPW_CPLUS)
+#		undef XIEITE_COMPILER_TYPE_MPW
+#		define XIEITE_COMPILER_TYPE_MPW 1
+#	endif
+
+#	ifdef _MSC_VER
+#		undef XIEITE_COMPILER_TYPE_MSVC
+#		define XIEITE_COMPILER_TYPE_MSVC 1
+#	endif
+
 #	ifdef __CC_NORCROFT
 #		undef XIEITE_COMPILER_TYPE_NORCROFT_C
 #		define XIEITE_COMPILER_TYPE_NORCROFT_C 1
@@ -501,16 +496,6 @@
 #	ifdef __NWCC__
 #		undef XIEITE_COMPILER_TYPE_NWCC
 #		define XIEITE_COMPILER_TYPE_NWCC 1
-#	endif
-
-#	ifdef __WATCOMC__
-#		undef XIEITE_COMPILER_TYPE_WATCOM_C_CPP
-#		define XIEITE_COMPILER_TYPE_WATCOM_C_CPP 1
-#	endif
-
-#	if defined(__ibmxl__) || defined(__xlC__) || defined(__IBMC__) || defined(__IBMCPP__)
-#		undef XIEITE_COMPILER_TYPE_XL_C_CPP
-#		define XIEITE_COMPILER_TYPE_XL_C_CPP 1
 #	endif
 
 #	if defined(__OPEN64__) || defined(__OPENCC__)
@@ -533,7 +518,7 @@
 #		define XIEITE_COMPILER_TYPE_PALM_C_CPP 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_PCC
 #		define XIEITE_COMPILER_TYPE_PCC 1
 #	endif
@@ -543,7 +528,7 @@
 #		define XIEITE_COMPILER_TYPE_PELLES_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_PERSONAL_C_COMPILER
 #		define XIEITE_COMPILER_TYPE_PERSONAL_C_COMPILER 1
 #	endif
@@ -553,9 +538,14 @@
 #		define XIEITE_COMPILER_TYPE_PGI_C_CPP 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_PICOC
 #		define XIEITE_COMPILER_TYPE_PICOC 1
+#	endif
+
+#	if 0
+#		undef XIEITE_COMPILER_TYPE_PRODEV_WORKSHOP
+#		define XIEITE_COMPILER_TYPE_PRODEV_WORKSHOP 1
 #	endif
 
 #	ifdef ORA_PROC
@@ -563,22 +553,17 @@
 #		define XIEITE_COMPILER_TYPE_PRO_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_PRO_C_CPP
 #		define XIEITE_COMPILER_TYPE_PRO_C_CPP 1
 #	endif
 
-#	if false
-#		undef XIEITE_COMPILER_TYPE_PRODEV_WORKSHOP
-#		define XIEITE_COMPILER_TYPE_PRODEV_WORKSHOP 1
-#	endif
-
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_QUICKC
 #		define XIEITE_COMPILER_TYPE_QUICKC 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_REALVIEW_COMPILATION_TOOLS
 #		define XIEITE_COMPILER_TYPE_REALVIEW_COMPILATION_TOOLS 1
 #	endif
@@ -588,22 +573,22 @@
 #		define XIEITE_COMPILER_TYPE_RENESAS_C_CPP 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_RITCHIE_C_COMPILER
 #		define XIEITE_COMPILER_TYPE_RITCHIE_C_COMPILER 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_SAS_C_CPP
 #		define XIEITE_COMPILER_TYPE_SAS_C_CPP 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_SCORE_C
 #		define XIEITE_COMPILER_TYPE_SCORE_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_SCORE_CPP
 #		define XIEITE_COMPILER_TYPE_SCORE_CPP 1
 #	endif
@@ -613,12 +598,12 @@
 #		define XIEITE_COMPILER_TYPE_SDCC 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_SEGGER_COMPILER
 #		define XIEITE_COMPILER_TYPE_SEGGER_COMPILER 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_SMALL_C
 #		define XIEITE_COMPILER_TYPE_SMALL_C 1
 #	endif
@@ -628,7 +613,7 @@
 #		define XIEITE_COMPILER_TYPE_SNC_COMPILER 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_STANFORD_CPP_COMPILER
 #		define XIEITE_COMPILER_TYPE_STANFORD_CPP_COMPILER 1
 #	endif
@@ -638,9 +623,14 @@
 #		define XIEITE_COMPILER_TYPE_STRATUS_VOS_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_SUBC
 #		define XIEITE_COMPILER_TYPE_SUBC 1
+#	endif
+
+#	if defined(__SUNPRO_C) || defined(__SUNPRO_CC)
+#		undef XIEITE_COMPILER_TYPE_SUNPRO_COMPILERS
+#		define XIEITE_COMPILER_TYPE_SUNPRO_COMPILERS 1
 #	endif
 
 #	ifdef __SC__
@@ -648,22 +638,22 @@
 #		define XIEITE_COMPILER_TYPE_SYMANTEC_CPP 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_SYMBOLICS_C
 #		define XIEITE_COMPILER_TYPE_SYMBOLICS_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_TANDEM_C
 #		define XIEITE_COMPILER_TYPE_TANDEM_C 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_TANDEM_CPP
 #		define XIEITE_COMPILER_TYPE_TANDEM_CPP 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_TASKING
 #		define XIEITE_COMPILER_TYPE_TASKING 1
 #	endif
@@ -703,9 +693,14 @@
 #		define XIEITE_COMPILER_TYPE_VBCC 1
 #	endif
 
-#	if false
+#	if 0
 #		undef XIEITE_COMPILER_TYPE_VECTORC
 #		define XIEITE_COMPILER_TYPE_VECTORC 1
+#	endif
+
+#	ifdef __WATCOMC__
+#		undef XIEITE_COMPILER_TYPE_WATCOM_C_CPP
+#		define XIEITE_COMPILER_TYPE_WATCOM_C_CPP 1
 #	endif
 
 #	ifdef __DCC__
@@ -713,14 +708,19 @@
 #		define XIEITE_COMPILER_TYPE_WIND_RIVER_DIAB_COMPILER 1
 #	endif
 
+#	if defined(__ibmxl__) || defined(__xlC__) || defined(__IBMC__) || defined(__IBMCPP__)
+#		undef XIEITE_COMPILER_TYPE_XL_C_CPP
+#		define XIEITE_COMPILER_TYPE_XL_C_CPP 1
+#	endif
+
+#	if 0
+#		undef XIEITE_COMPILER_TYPE_ZIG_C_CPP
+#		define XIEITE_COMPILER_TYPE_ZIG_C_CPP 1
+#	endif
+
 #	ifdef __ZTC__
 #		undef XIEITE_COMPILER_TYPE_ZORTECH_CPP
 #		define XIEITE_COMPILER_TYPE_ZORTECH_CPP 1
-#	endif
-
-#	if false
-#		undef XIEITE_COMPILER_TYPE_ZIG_C_CPP
-#		define XIEITE_COMPILER_TYPE_ZIG_C_CPP 1
 #	endif
 
 #endif

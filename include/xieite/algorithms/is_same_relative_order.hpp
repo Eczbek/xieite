@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_ALGORITHMS_SAME_RELATIVE_ORDER
-#	define XIEITE_HEADER_ALGORITHMS_SAME_RELATIVE_ORDER
+#ifndef XIEITE_HEADER_ALGORITHMS_IS_SAME_RELATIVE_ORDER
+#	define XIEITE_HEADER_ALGORITHMS_IS_SAME_RELATIVE_ORDER
 
 #	include <algorithm>
 #	include <cstddef>
@@ -13,7 +13,7 @@
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>)> Functor = std::ranges::equal_to>
-	[[nodiscard]] constexpr bool sameRelativeOrder(Range1&& range1, Range2&& range2, Functor&& comparator = Functor())
+	[[nodiscard]] constexpr bool isSameRelativeOrder(Range1&& range1, Range2&& range2, Functor&& comparator = Functor())
 	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>>) {
 		const std::ranges::const_iterator_t<Range1&&> begin1 = std::ranges::begin(std::forward<Range1>(range1));
 		const std::ranges::const_iterator_t<Range1&&> end1 = std::ranges::end(std::forward<Range1>(range1));

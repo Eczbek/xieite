@@ -12,5 +12,5 @@ Computes the secant of a value.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> secant(Number value) noexcept;
+[[nodiscard]] constexpr std::common_type_t<double, Number> secant(Number value) noexcept;
 ```

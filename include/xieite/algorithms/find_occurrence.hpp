@@ -14,7 +14,7 @@ namespace xieite::algorithms {
 	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>) {
 		const auto end = std::ranges::end(std::forward<Range>(range));
 		for (auto begin = std::ranges::begin(std::forward<Range>(range)); begin != end; ++begin) {
-			if (std::invoke(std::forward<Functor>(comparator), *begin, std::forward<Value>(value)) && !count--) {
+			if (std::invoke(std::forward<Functor>(comparator), *begin, std::forward<Value>(value)) && !count--) { // Intentional short-circuit
 				return begin;
 			}
 		}

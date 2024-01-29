@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_ALGORITHMS_PALINDROME
-#	define XIEITE_HEADER_ALGORITHMS_PALINDROME
+#ifndef XIEITE_HEADER_ALGORITHMS_IS_PALINDROME
+#	define XIEITE_HEADER_ALGORITHMS_IS_PALINDROME
 
 #	include <concepts>
 #	include <cstddef>
@@ -13,7 +13,7 @@
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
-	[[nodiscard]] constexpr bool palindrome(Range&& range, Functor&& comparator = Functor())
+	[[nodiscard]] constexpr bool isPalindrome(Range&& range, Functor&& comparator = Functor())
 	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>) {
 		auto begin = std::ranges::begin(std::forward<Range>(range));
 		auto end = std::ranges::end(std::forward<Range>(range));
@@ -28,7 +28,7 @@ namespace xieite::algorithms {
 	}
 
 	template<std::integral Integer>
-	[[nodiscard]] constexpr bool palindrome(const Integer value, const std::size_t base = 10) noexcept {
+	[[nodiscard]] constexpr bool isPalindrome(const Integer value, const std::size_t base = 10) noexcept {
 		return value == xieite::math::reverse(value, base);
 	}
 }

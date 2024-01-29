@@ -5,15 +5,15 @@
 #	include <cstddef>
 #	include <iterator>
 #	include <ranges>
+#	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
 #	include "../math/mean.hpp"
-#	include "../types/common_floating_point.hpp"
 #	include "../ranges/make_array.hpp"
 
 namespace xieite::math {
 	template<std::ranges::range Range>
 	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
-	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<std::ranges::range_value_t<Range>> median(Range range) noexcept {
+	[[nodiscard]] constexpr std::common_type_t<double, std::ranges::range_value_t<Range>> median(Range range) noexcept {
 		const std::size_t rangeSize = std::ranges::size(range);
 		if (!rangeSize) {
 			return 0;
@@ -23,8 +23,8 @@ namespace xieite::math {
 	}
 
 	template<xieite::concepts::Arithmetic... Numbers>
-	[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Numbers...> median(const Numbers... values) noexcept {
-		return xieite::math::median(xieite::ranges::makeArray<xieite::types::CommonFloatingPoint<Numbers...>>(values...));
+	[[nodiscard]] constexpr std::common_type_t<double, Numbers...> median(const Numbers... values) noexcept {
+		return xieite::math::median(xieite::ranges::makeArray<std::common_type_t<double, Numbers...>>(values...));
 	}
 }
 

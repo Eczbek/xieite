@@ -35,3 +35,5 @@ namespace xieite::streams {
 }
 
 #endif
+
+// TODO: Use std::native_handle_type in C++26

@@ -23,7 +23,7 @@
 #	include "../math/product.hpp"
 #	include "../math/split_boolean.hpp"
 #	include "../math/stringify.hpp"
-#	include "../strings/lowercase.hpp"
+#	include "../strings/to_lowercase.hpp"
 #	include "../system/byte_bits.hpp"
 #	include "../types/maybe_unsigned.hpp"
 #	include "../types/size_bits.hpp"
@@ -698,5 +698,4 @@ namespace xieite::math {
 
 #endif
 
-// Thanks to sam_dev for fixing the new division algorithm
-// https://github.com/Sam-programs
+// Thanks to sam_dev (https://github.com/Sam-programs) for fixing the new division algorithm

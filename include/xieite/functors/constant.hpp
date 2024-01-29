@@ -2,6 +2,7 @@
 #	define XIEITE_HEADER_FUNCTORS_CONSTANT
 
 #	include <concepts>
+#	include <type_traits>
 #	include <utility>
 
 namespace xieite::functors {
@@ -10,7 +11,7 @@ namespace xieite::functors {
 	public:
 		template<typename... Arguments>
 		constexpr Constant(Arguments&&... arguments)
-		noexcept(noexcept(Type(std::forward<Arguments>(arguments)...)))
+		noexcept(std::is_nothrow_constructible_v<Type, Arguments...>)
 		: value(std::forward<Arguments>(arguments)...) {}
 
 		constexpr Type& operator()() const& noexcept {

@@ -16,5 +16,4 @@
 
 #endif
 
-// Thanks to Ian Pike for original code
-// https://github.com/Rinzii
+// Thanks to Ian Pike (https://github.com/Rinzii) for original code

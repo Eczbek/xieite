@@ -71,5 +71,4 @@ namespace xieite::functors {
 
 #endif
 
-// Thanks to hspk. and fux for fixing my original code, and wreien for rewriting everything entirely
-// https://github.com/wreien
+// Thanks to hspk. and fux for fixing my original code, and wreien (https://github.com/wreien) for rewriting everything entirely

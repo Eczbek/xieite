@@ -10,7 +10,7 @@
 #	include "../concepts/specialization_of.hpp"
 #	include "../math/integer_string_components.hpp"
 #	include "../math/split_boolean.hpp"
-#	include "../strings/lowercase.hpp"
+#	include "../strings/to_lowercase.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral>
@@ -34,7 +34,7 @@ namespace xieite::math {
 							break;
 						}
 						point = 1;
-					} else if (xieite::strings::lowercase(value[i]) == xieite::strings::lowercase(components.exponent)) {
+					} else if (xieite::strings::toLowercase(value[i]) == xieite::strings::toLowercase(components.exponent)) {
 						power = xieite::math::parse<std::make_signed_t<std::size_t>>(value.substr(i + 1));
 						break;
 					}

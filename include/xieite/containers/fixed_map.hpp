@@ -84,7 +84,6 @@ namespace xieite::containers {
 		mutable std::array<std::pair<Key, Value>, size> array;
 
 		[[nodiscard]] std::unordered_map<Key, Value*, Hash, KeyEqual, Allocator>& getMap() const noexcept {
-			// Cannot store references as values, replaced with pointers
 			static auto map = ([this] -> std::unordered_map<Key, Value*, Hash, KeyEqual, Allocator> {
 				std::unordered_map<Key, Value*, Hash, KeyEqual, Allocator> map;
 				for (std::pair<Key, Value>& entry : this->array) {

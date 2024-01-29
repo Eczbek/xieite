@@ -20,7 +20,7 @@ namespace xieite::algorithms {
 		std::vector<std::ranges::const_iterator_t<Range&&>> iterators;
 		auto iterator = std::ranges::next(std::ranges::begin(std::forward<Range>(range)));
 		const std::size_t rangeSize = std::ranges::size(std::forward<Range>(range));
-		// if range is empty, invalid iterator is not considered
+		// If range is empty, invalid iterator is not considered
 		if ((rangeSize == 1) || std::invoke(std::forward<Functor>(comparator), *std::ranges::begin(std::forward<Range>(range)), *iterator)) {
 			iterators.push_back(std::ranges::begin(std::forward<Functor>(range)));
 		}

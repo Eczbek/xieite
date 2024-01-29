@@ -16,5 +16,4 @@
 
 #endif
 
-// Thanks to eightfold for original code
-// https://github.com/8ightfold
+// Thanks to eightfold (https://github.com/8ightfold) for original code

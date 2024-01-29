@@ -12,5 +12,5 @@ Computes the cosecant of a value.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr xieite::types::CommonFloatingPoint<Number> cosecant(Number value) noexcept;
+[[nodiscard]] constexpr std::common_type_t<double, Number> cosecant(Number value) noexcept;
 ```

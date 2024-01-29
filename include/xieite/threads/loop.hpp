@@ -38,5 +38,4 @@ namespace xieite::threads {
 
 #endif
 
-// Thanks to uno20001 for help
-// https://github.com/uno20001
+// Thanks to uno20001 (https://github.com/uno20001) for help

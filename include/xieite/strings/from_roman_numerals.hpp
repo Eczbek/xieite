@@ -6,7 +6,7 @@
 #	include <cstddef>
 #	include <ranges>
 #	include <string_view>
-#	include "../strings/uppercase.hpp"
+#	include "../strings/to_uppercase.hpp"
 
 namespace xieite::strings {
 	template<std::integral Integer = int>
@@ -18,7 +18,7 @@ namespace xieite::strings {
 		}
 		Integer previous = 0;
 		for (const char digit : std::views::reverse(value)) {
-			const std::size_t index = numerals.find(xieite::strings::uppercase(digit));
+			const std::size_t index = numerals.find(xieite::strings::toUppercase(digit));
 			if (index == std::string_view::npos) {
 				continue;
 			}
