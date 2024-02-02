@@ -3,9 +3,11 @@ C++ header-only utility library
 
 This project extends the standard library and provides an organized collection of components that can be included easily in projects without external dependencies
 
+Feel free to steal code!
+
 &nbsp;
 
-## Features
+## Coolest Features
 - [xieite::math::BigInteger](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/math/big_integer.md)
 - [xieite::types::List](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/types/list.md)
 - [xieite::math::parse](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/math/parse.md)
@@ -25,9 +27,14 @@ This project extends the standard library and provides an organized collection o
 &nbsp;
 
 ## Support
+#### Platforms
 - Linux: 100%
 - Macintosh: Should work
 - Windows: *ish*
+#### Compilers
+- GCC: Works fully
+- Clang: Some bugs
+- MSVC: Not tested
 
 &nbsp;
 
@@ -41,7 +48,8 @@ Written manually :)
 
 &nbsp;
 
-## To-do:
+## To-Do
+- Complete to-do list
 - Compiler type macro detection:
 	- `ACORN_C_CPP`
 	- `ALAN_SNYDERS_PORTABLE_C_COMPILER`

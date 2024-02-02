@@ -19,6 +19,9 @@ namespace xieite::math {
 	template<typename Number>
 	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
 	[[nodiscard]] constexpr Number parse(const std::string_view value, const std::conditional_t<std::floating_point<Number>, std::make_signed_t<std::size_t>, Number> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept {
+		if (!radix) {
+			return 0;
+		}
 		const bool negative = value[0] == components.negative;
 		const std::size_t valueSize = value.size();
 		if constexpr (std::floating_point<Number>) {

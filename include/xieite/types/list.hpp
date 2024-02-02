@@ -1,23 +1,32 @@
 #ifndef XIEITE_HEADER_TYPES_LIST
 #	define XIEITE_HEADER_TYPES_LIST
 
-#	include <algorithm>
-#	include <array>
 #	include <cmath>
 #	include <concepts>
 #	include <cstddef>
-#	include <string_view>
 #	include <type_traits>
 #	include <utility>
-#	include "../concepts/functable.hpp"
 #	include "../concepts/same_as_any.hpp"
-#	include "../types/name.hpp"
 
 namespace xieite::types {
 	template<typename... Types>
 	class List {
 	public:
 		static constexpr std::size_t size = sizeof...(Types);
+
+		template<typename Type, template<typename, typename> typename Selector = std::is_same>
+		static constexpr std::size_t count = (... + Selector<Type, Types>::value);
+
+		template<typename Type, template<typename, typename> typename Selector = std::is_same>
+		static constexpr bool has = (... || Selector<Type, Types>::value);
+
+		template<typename Type, template<typename, typename> typename Selector = std::is_same>
+		requires(xieite::types::List<Types...>::has<Type, Selector>)
+		static constexpr std::size_t find = ([] -> std::size_t {
+			std::size_t index = 0;
+			(... && (Selector<Type, Types>::value && ++index));
+			return index;
+		})();
 
 	private:
 		template<std::size_t, typename...>
@@ -117,17 +126,29 @@ namespace xieite::types {
 		template<std::size_t start1, std::size_t end1, std::size_t start2, std::size_t end2>
 		using SwapRanges = xieite::types::List<Types...>::ReplaceRange<start1, end1, xieite::types::List<Types...>::Slice<start2, end2>>::template ReplaceRange<start2, end2, xieite::types::List<Types...>::Slice<start1, end1>>;
 
-		template<typename Type>
-		static constexpr bool has = xieite::concepts::SameAsAny<Type, Types...>;
+	private:
+		template<template<typename, typename...> typename Selector, typename... OtherTypes>
+		struct FilterHelper {
+			using Type = xieite::types::List<OtherTypes...>;
 
-		template<xieite::concepts::SameAsAny<Types...> Type>
-		static constexpr std::size_t find = ([] -> std::size_t {
-			if constexpr (std::same_as<Type, xieite::types::List<Types...>::At<0>>) {
-				return 0;
-			} else {
-				return xieite::types::List<Types...>::Slice<1>::find<Type>;
-			}
-		})();
+			template<typename Type>
+			consteval std::conditional_t<Selector<Type, OtherTypes...>::value, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes...>, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes..., Type>> operator->*(xieite::types::List<Types...>::FilterHelper<Selector, Type>) const noexcept;
+		};
+
+	public:
+		template<template<typename, typename...> typename Selector>
+		using Filter = decltype((xieite::types::List<Types...>::FilterHelper<Selector>()->*...->*xieite::types::List<Types...>::FilterHelper<Selector, Types>()))::Type;
+
+	private:
+		template<typename Type, typename... OtherTypes>
+		struct UniqueHelper
+		: std::bool_constant<!xieite::concepts::SameAsAny<Type, OtherTypes...>> {};
+
+	public:
+		using Unique = xieite::types::List<Types...>::Filter<xieite::types::List<Types...>::UniqueHelper>;
+
+		template<std::size_t... indices>
+		using Transform = xieite::types::List<xieite::types::List<Types...>::At<indices>...>;
 
 	private:
 		template<std::size_t>
@@ -148,53 +169,25 @@ namespace xieite::types {
 	private:
 		template<typename... OtherTypes>
 		requires(sizeof...(Types) == sizeof...(OtherTypes))
-		struct ZipRangesHelper {
+		struct ZipHelper {
 			using Type = decltype(([]<std::size_t... indices>(std::index_sequence<indices...>) -> auto {
-				return xieite::types::List<xieite::types::List<xieite::types::List<Types...>::At<indices>, typename xieite::types::List<OtherTypes...>::At<indices>>...>();
+				return xieite::types::List<xieite::types::List<xieite::types::List<Types...>::At<indices>, typename xieite::types::List<OtherTypes...>::template At<indices>>...>();
 			})(std::make_index_sequence<sizeof...(OtherTypes)>()));
 		};
 
 		template<template<typename...> typename Range, typename... OtherTypes>
-		struct ZipRangesHelper<Range<OtherTypes...>>
-		: xieite::types::List<Types...>::ZipRangesHelper<OtherTypes...> {};
+		struct ZipHelper<Range<OtherTypes...>>
+		: xieite::types::List<Types...>::ZipHelper<OtherTypes...> {};
 
 	public:
 		template<typename... OtherTypes>
-		using Zip = xieite::types::List<Types...>::ZipRangesHelper<OtherTypes...>::Type;
+		using Zip = xieite::types::List<Types...>::ZipHelper<OtherTypes...>::Type;
 
-		template<typename... Ranges>
-		using ZipRanges = xieite::types::List<Types...>::ZipRangesHelper<Ranges...>::Type;
-
-	private:
-		template<typename... UniqueTypes>
-		struct UniqueHelper {
-			using Type = xieite::types::List<UniqueTypes...>;
-
-			template<typename Type>
-			consteval std::conditional_t<(... || std::same_as<UniqueTypes, Type>), xieite::types::List<Types...>::UniqueHelper<UniqueTypes...>, xieite::types::List<Types...>::UniqueHelper<UniqueTypes..., Type>> operator->*(xieite::types::List<Types...>::UniqueHelper<Type>) const noexcept;
-		};
-
-	public:
-		using Unique = decltype((xieite::types::List<Types...>::UniqueHelper<>()->*...->*xieite::types::List<Types...>::UniqueHelper<Types>()))::Type;
-
-		template<xieite::concepts::Functable<bool(std::string_view, std::string_view)> Comparator>
-		requires(std::is_default_constructible_v<Comparator>)
-		using Sort = decltype(([]<std::size_t... indices>(std::index_sequence<indices...>) -> auto {
-			using Entry = std::pair<std::string_view, std::size_t>;
-			static constexpr auto entries = ([] -> std::array<Entry, sizeof...(Types)> {
-				std::array<Entry, sizeof...(Types)> entries = {
-					std::make_pair(xieite::types::name<Types>, indices)...
-				};
-				std::ranges::sort(entries, [](const Entry foo, const Entry bar) -> bool {
-					return std::invoke(Comparator(), foo.first, bar.first);
-				});
-				return entries;
-			})();
-			return xieite::types::List<xieite::types::List<Types...>::At<entries[indices].second>...>();
-		})(std::make_index_sequence<sizeof...(Types)>()));
+		template<typename Range>
+		using ZipRange = xieite::types::List<Types...>::ZipHelper<Range>::Type;
 	};
 }
 
 #endif
 
-// Thanks to Eisenwave (https://github.com/Eisenwave) for the algorithm for getting unique types, and eightfold (https://github.com/8ightfold) for helping compact the slicer
+// Thanks to Eisenwave (https://github.com/Eisenwave) for the filtering algorithm, and eightfold (https://github.com/8ightfold) for helping compact the slicer

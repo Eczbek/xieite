@@ -22,9 +22,6 @@ namespace xieite::math {
 	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
 	[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, std::make_signed_t<std::size_t>, Number> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept {
 		if (!value || !radix) {
-			return "";
-		}
-		if (!value) {
 			return std::string(1, components.digits[0]);
 		}
 		std::string result;

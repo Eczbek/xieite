@@ -63,16 +63,16 @@ namespace xieite::containers {
 		}
 
 		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr bool contains(KeyReference&& key) const noexcept {
+		[[nodiscard]] constexpr bool contains(const KeyReference& key) const noexcept {
 			if consteval {
 				for (const std::pair<Key, Value>& entry : this->array) {
-					if (std::invoke(KeyEqual(), entry.first, std::forward<KeyReference>(key))) {
+					if (std::invoke(KeyEqual(), entry.first, key)) {
 						return true;
 					}
 				}
 				return false;
 			} else {
-				return this->getMap().contains(std::forward<KeyReference>(key));
+				return this->getMap().contains(key);
 			}
 		}
 
@@ -95,16 +95,16 @@ namespace xieite::containers {
 		}
 
 		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr Value& getValue(KeyReference&& key) const {
+		[[nodiscard]] constexpr Value& getValue(const KeyReference& key) const {
 			if consteval {
 				for (std::pair<Key, Value>& entry : this->array) {
-					if (std::invoke(KeyEqual(), entry.first, std::forward<KeyReference>(key))) {
+					if (std::invoke(KeyEqual(), entry.first, key)) {
 						return entry.second;
 					}
 				}
 				throw xieite::exceptions::InvalidKey("Cannot access key not in map");
 			} else {
-				return *this->getMap().at(std::forward<KeyReference>(key));
+				return *this->getMap().at(key);
 			}
 		}
 	};

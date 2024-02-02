@@ -2,6 +2,7 @@
 #	define XIEITE_HEADER_MATH_ANTIMODES
 
 #	include <algorithm>
+#	include <array>
 #	include <functional>
 #	include <ranges>
 #	include <type_traits>
@@ -9,7 +10,6 @@
 #	include <vector>
 #	include "../algorithms/modes.hpp"
 #	include "../concepts/arithmetic.hpp"
-#	include "../containers/make_array.hpp"
 
 namespace xieite::math {
 	template<std::ranges::range Range>
@@ -24,7 +24,9 @@ namespace xieite::math {
 
 	template<xieite::concepts::Arithmetic... Numbers>
 	[[nodiscard]] constexpr std::vector<std::common_type_t<double, Numbers...>> antimodes(const Numbers... values) noexcept {
-		return xieite::math::antimodes(xieite::ranges::makeArray<std::common_type_t<double, Numbers...>>(values...));
+		return xieite::math::antimodes(std::array<std::common_type_t<double, Numbers...>, sizeof...(Numbers)> {
+			static_cast<std::common_type_t<double, Numbers...>>(values)...
+		});
 	}
 }
 

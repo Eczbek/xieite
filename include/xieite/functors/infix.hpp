@@ -48,17 +48,17 @@ namespace xieite::functors {
 			constexpr Intermediate(FunctorReference&& callback, LeftArgument&& leftArgument) noexcept
 			: callback(callback), leftArgument(leftArgument) {}
 
-			constexpr auto operator=(const xieite::functors::Infix<Functor>::Intermediate<LeftArgument>&) = delete;
+			constexpr auto operator=(const xieite::functors::Infix<Functor>::Intermediate<LeftArgument>&) noexcept = delete;
 
 			template<typename RightArgument>
 			requires(std::invocable<Functor, LeftArgument, RightArgument>)
-			friend constexpr std::invoke_result_t<Functor, LeftArgument, RightArgument> operator>(const xieite::functors::Infix<Functor>::Intermediate<LeftArgument>& infixIntermediate, RightArgument&& rightArgument)
+			friend constexpr std::invoke_result_t<Functor, LeftArgument, RightArgument> operator>(xieite::functors::Infix<Functor>::Intermediate<LeftArgument>& infixIntermediate, RightArgument&& rightArgument)
 			noexcept(xieite::concepts::NoThrowInvocable<Functor, LeftArgument, RightArgument>) {
 				return std::invoke(infixIntermediate.callback, infixIntermediate.leftArgument, std::forward<RightArgument>(rightArgument));
 			}
 
 		private:
-			mutable Functor callback;
+			Functor callback;
 			LeftArgument leftArgument;
 		};
 

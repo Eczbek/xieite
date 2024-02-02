@@ -48,12 +48,12 @@ namespace xieite::containers {
 		}
 
 		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr bool contains(KeyReference&& key) const noexcept {
+		[[nodiscard]] constexpr bool contains(const KeyReference& key) const noexcept {
 			if consteval {
-				return std::ranges::find(this->array, std::forward<KeyReference>(key)) != this->array.end();
+				return std::ranges::find(this->array, key) != this->array.end();
 			} else {
 				static auto set = std::unordered_set<Key, Hash, KeyEqual, Allocator>(this->array.begin(), this->array.end());
-				return set.contains(std::forward<KeyReference>(key));
+				return set.contains(key);
 			}
 		}
 

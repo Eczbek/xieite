@@ -6,20 +6,21 @@
 #	include <functional>
 #	include <iterator>
 #	include <ranges>
-#	include <utility>
+#	include <type_traits>
 #	include <vector>
 #	include "../concepts/functable.hpp"
 #	include "../concepts/no_throw_invocable.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>)> Functor>
+	requires(!std::is_const_v<Range>)
 	constexpr void partialReverse(Range& range, Functor&& selector)
 	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>) {
 		auto iterator = std::ranges::begin(range);
 		const auto end = std::ranges::end(range);
-		std::vector<std::ranges::iterator_t<Range&>> iterators;
+		std::vector<std::ranges::iterator_t<Range>> iterators;
 		for (; iterator != end; ++iterator) {
-			if (std::invoke(std::forward<Functor>(selector), *iterator)) {
+			if (std::invoke(selector, *iterator)) {
 				iterators.push_back(iterator);
 			}
 		}

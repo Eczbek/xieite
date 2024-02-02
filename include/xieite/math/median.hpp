@@ -2,13 +2,13 @@
 #	define XIEITE_HEADER_MATH_MEDIAN
 
 #	include <algorithm>
+#	include <array>
 #	include <cstddef>
 #	include <iterator>
 #	include <ranges>
 #	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
 #	include "../math/mean.hpp"
-#	include "../ranges/make_array.hpp"
 
 namespace xieite::math {
 	template<std::ranges::range Range>
@@ -24,7 +24,9 @@ namespace xieite::math {
 
 	template<xieite::concepts::Arithmetic... Numbers>
 	[[nodiscard]] constexpr std::common_type_t<double, Numbers...> median(const Numbers... values) noexcept {
-		return xieite::math::median(xieite::ranges::makeArray<std::common_type_t<double, Numbers...>>(values...));
+		return xieite::math::median(std::array<std::common_type_t<double, Numbers...>, sizeof...(Numbers)> {
+			static_cast<std::common_type_t<double, Numbers...>(values)...
+		});
 	}
 }
 

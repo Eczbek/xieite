@@ -16,20 +16,12 @@ namespace xieite::memory {
 		constexpr Shredder(Arguments&&... arguments) noexcept
 		: value(std::forward<Arguments>(arguments)...) {}
 
-		constexpr operator const Type&() const& noexcept {
+		[[nodiscard]] constexpr const Type& get() const noexcept {
 			return this->value;
 		}
 
-		constexpr operator Type&()& noexcept {
+		[[nodiscard]] constexpr Type& get() noexcept {
 			return this->value;
-		}
-
-		constexpr operator const Type&&() const&& noexcept {
-			return std::move(this->value);
-		}
-
-		constexpr operator Type&&()&& noexcept {
-			return std::move(this->value);
 		}
 
 		constexpr ~Shredder() {
