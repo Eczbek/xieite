@@ -11,11 +11,11 @@
 #	include <ranges>
 #	include <string>
 #	include <string_view>
-#	include <utility>
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
 #	include "../exceptions/division_by_zero.hpp"
 #	include "../exceptions/unrepresentable_value.hpp"
+#	include "../macros/forward.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/integer_string_components.hpp"
 #	include "../math/multiply.hpp"
@@ -80,7 +80,7 @@ namespace xieite::math {
 		template<std::ranges::range Range>
 		requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
 		constexpr BigInteger(Range&& range, const bool negative = false) noexcept
-		: data(std::ranges::begin(std::forward<Range>(range)), std::ranges::end(std::forward<Range>(range))), negative(negative) {
+		: data(std::ranges::begin(XIEITE_FORWARD(range)), std::ranges::end(XIEITE_FORWARD(range))), negative(negative) {
 			this->trim();
 		}
 

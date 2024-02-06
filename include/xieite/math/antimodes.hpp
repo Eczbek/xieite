@@ -6,17 +6,17 @@
 #	include <functional>
 #	include <ranges>
 #	include <type_traits>
-#	include <utility>
 #	include <vector>
 #	include "../algorithms/modes.hpp"
 #	include "../concepts/arithmetic.hpp"
+#	include "../macros/forward.hpp"
 
 namespace xieite::math {
 	template<std::ranges::range Range>
 	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
 	[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range>> antimodes(Range&& range) noexcept {
 		auto result = std::vector<std::common_type_t<double, Numbers...>>(sizeof...(Numbers));
-		std::ranges::transform(xieite::algorithms::modes(std::forward<Range>(range), std::ranges::less()), result.begin(), [](const std::ranges::const_iterator_t<Range> iterator) -> std::ranges::range_const_reference_t<Range> {
+		std::ranges::transform(xieite::algorithms::modes(XIEITE_FORWARD(range), std::ranges::less()), result.begin(), [](const std::ranges::const_iterator_t<Range> iterator) -> std::ranges::range_const_reference_t<Range> {
 			return *iterator;
 		});
 		return result;

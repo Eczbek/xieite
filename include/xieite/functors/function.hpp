@@ -5,9 +5,9 @@
 #	include <functional>
 #	include <memory>
 #	include <type_traits>
-#	include <utility>
 #	include "../concepts/functable.hpp"
 #	include "../exceptions/unset_functor_invoked.hpp"
+#	include "../macros/forward.hpp"
 
 namespace xieite::functors {
 	template<typename>
@@ -20,7 +20,7 @@ namespace xieite::functors {
 
 		template<xieite::concepts::Functable<Result(Arguments...)> Functor>
 		constexpr Function(Functor&& functor) noexcept
-		: pointer(std::make_unique<xieite::functors::Function<Result(Arguments...)>::Derived<Functor>>(std::forward<Functor>(functor))) {}
+		: pointer(std::make_unique<xieite::functors::Function<Result(Arguments...)>::Derived<Functor>>(XIEITE_FORWARD(functor))) {}
 
 		[[nodiscard]] constexpr operator bool() const noexcept {
 			return this->pointer;
@@ -32,7 +32,7 @@ namespace xieite::functors {
 			if (!*this) {
 				throw xieite::exceptions::UnsetFunctorInvoked("Cannot invoke unset functor");
 			}
-			return (*this->pointer)(std::forward<ArgumentReferences>(arguments)...);
+			return (*this->pointer)(XIEITE_FORWARD(arguments)...);
 		}
 
 	private:
@@ -49,12 +49,12 @@ namespace xieite::functors {
 
 			template<std::convertible_to<Functor> FunctorReference>
 			constexpr Derived(FunctorReference&& functor) noexcept
-			: functor(std::forward<FunctorReference>(functor)) {}
+			: functor(XIEITE_FORWARD(functor)) {}
 
 			template<typename... ArgumentReferences>
 			requires((... && std::convertible_to<ArgumentReferences, Arguments>))
 			constexpr Result operator()(ArgumentReferences&&... arguments) const {
-				return std::invoke(this->functor, std::forward<ArgumentReferences>(arguments)...);
+				return std::invoke(this->functor, XIEITE_FORWARD(arguments)...);
 			}
 		};
 

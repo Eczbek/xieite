@@ -20,8 +20,8 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_referenc
 
 ## Example
 ```cpp
-#include <iostream>
 #include <iterator>
+#include <print>
 #include <vector>
 #include <xieite/algorithms/find_occurrence.hpp>
 
@@ -31,7 +31,7 @@ int main() {
 
     auto result = xieite::algorithms::findOccurrence(values, 1, 3);
 
-    std::cout << std::ranges::distance(values.begin(), result) << '\n';
+    std::println("{}", std::ranges::distance(values.begin(), result));
 }
 ```
 Output:

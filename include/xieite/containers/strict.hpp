@@ -3,7 +3,7 @@
 
 #	include <concepts>
 #	include <type_traits>
-#	include <utility>
+#	include "../macros/forward.hpp"
 
 namespace xieite::containers {
 	template<typename Type>
@@ -12,7 +12,7 @@ namespace xieite::containers {
 		template<typename TypeReference>
 		requires(std::same_as<std::remove_cvref_t<TypeReference>, Type>)
 		constexpr Strict(TypeReference&& value) noexcept
-		: value(std::forward<TypeReference>(value)) {}
+		: value(XIEITE_FORWARD(value)) {}
 
 		[[nodiscard]] constexpr operator Type&() const& noexcept {
 			return this->value;

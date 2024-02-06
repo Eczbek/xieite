@@ -6,6 +6,7 @@
 #	include <initializer_list>
 #	include <tuple>
 #	include <utility>
+#	include "../macros/forward.hpp"
 
 namespace xieite::containers {
 	template<template<typename, typename> typename, typename, typename>
@@ -32,7 +33,7 @@ namespace xieite::containers {
 		template<std::convertible_to<Value> ValueReference>
 		constexpr void insert(const std::tuple<FirstKey, RestKeys...>& keys, ValueReference&& value) noexcept {
 			return ([this, &keys, &value]<std::size_t... indices>(std::index_sequence<indices...>) {
-				this->map[std::get<0>(keys)].insert(std::make_tuple(std::get<indices + 1>(keys)...), std::forward<ValueReference>(value));
+				this->map[std::get<0>(keys)].insert(std::make_tuple(std::get<indices + 1>(keys)...), XIEITE_FORWARD(value));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
@@ -54,22 +55,22 @@ namespace xieite::containers {
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
 		[[nodiscard]] constexpr const Value& operator[](KeyReference&& key) const noexcept {
-			return this->map.at(std::get<0>(std::forward<KeyReference>(key)));
+			return this->map.at(std::get<0>(XIEITE_FORWARD(key)));
 		}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
 		[[nodiscard]] constexpr Value& operator[](KeyReference&& key) noexcept {
-			return this->map.at(std::get<0>(std::forward<KeyReference>(key)));
+			return this->map.at(std::get<0>(XIEITE_FORWARD(key)));
 		}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference, std::convertible_to<Value> ValueReference>
 		constexpr void insert(KeyReference&& key, ValueReference&& value) noexcept {
-			this->map.emplace(std::make_pair(std::get<0>(std::forward<KeyReference>(key)), std::forward<ValueReference>(value)));
+			this->map.emplace(std::make_pair(std::get<0>(XIEITE_FORWARD(key)), XIEITE_FORWARD(value)));
 		}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
 		[[nodiscard]] constexpr bool contains(KeyReference&& key) const noexcept {
-			return this->map.contains(std::get<0>(std::forward<KeyReference>(key)));
+			return this->map.contains(std::get<0>(XIEITE_FORWARD(key)));
 		}
 
 	private:

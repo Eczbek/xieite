@@ -12,29 +12,29 @@
 namespace xieite::network {
 	enum struct Domain
 	: int {
-		AmateurRadioAX25 = AF_AX25,
 		AppleTalk = AF_APPLETALK,
+		AX_25 = AF_AX25,
 		Bluetooth = AF_BLUETOOTH,
-		ClusterDomainSockets = AF_TIPC,
-		ControllerAreaNetwork = AF_CAN,
-		CryptoNetlink = AF_ALG,
+		CAN = AF_CAN,
+		ALG = AF_ALG,
 		DECnet = AF_DECnet,
-		ExpressDataPath = AF_XDP,
+		IB = AF_IB,
 		IPv4 = AF_INET,
 		IPv6 = AF_INET6,
-		InfiniBand = AF_IB,
-		KernelConnectionMultiplexer = AF_KCM,
-		Key = AF_KEY,
-		Local = AF_UNIX,
-		LogicalLinkControl = AF_LLC,
-		MultiprotocolLabelSwitching = AF_MPLS,
+		KCM = AF_KCM,
+		key = AF_KEY,
+		LLC = AF_LLC,
+		local = AF_UNIX,
+		MPLS = AF_MPLS,
 		Netlink = AF_NETLINK,
-		NovellIPX = AF_IPX,
-		PPPOX = AF_PPPOX,
-		Packet = AF_PACKET,
-		ReliableDatagramSockets = AF_RDS,
-		VMWareVSockets = AF_VSOCK,
-		X25 = AF_X25
+		IPX = AF_IPX,
+		packet = AF_PACKET,
+		PPPoX = AF_PPPOX,
+		RDS = AF_RDS,
+		TIPC = AF_TIPC,
+		vSockets = AF_VSOCK,
+		X_25 = AF_X25,
+		XDP = AF_XDP
 	};
 }
 

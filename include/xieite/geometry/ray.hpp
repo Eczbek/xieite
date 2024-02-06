@@ -2,43 +2,77 @@
 #	define XIEITE_HEADER_GEOMETRY_RAY
 
 #	include <cmath>
-#	include "../geometry/line.hpp"
+#	include <concepts>
+#	include <type_traits>
+#	include "../concepts/arithmetic.hpp"
 #	include "../geometry/point.hpp"
-#	include "../math/almost_equal_slope.hpp"
+#	include "../math/almost_equal.hpp"
 
 namespace xieite::geometry {
-	struct Ray {
-		xieite::geometry::Point start;
-		xieite::geometry::Point end;
+	template<xieite::concepts::Arithmetic>
+	struct Line;
 
-		constexpr Ray(const xieite::geometry::Point start, const xieite::geometry::Point end) noexcept
+	template<xieite::concepts::Arithmetic>
+	struct Segment;
+
+	template<xieite::concepts::Arithmetic>
+	struct Polygon;
+
+	template<xieite::concepts::Arithmetic Number>
+	struct Ray {
+		xieite::geometry::Point<Number> start;
+		xieite::geometry::Point<Number> end;
+
+		constexpr Ray(const xieite::geometry::Point<Number> start, const xieite::geometry::Point<Number> end) noexcept
 		: start(start), end(end) {}
 
-		constexpr Ray(const xieite::geometry::Point start, const double angle) noexcept
+		constexpr Ray(const xieite::geometry::Point<Number> start, const std::conditional_t<std::floating_point<Number>, Number, double> angle) noexcept
 		: start(start), end(std::cos(angle), std::sin(angle)) {}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Ray& ray1, const xieite::geometry::Ray& ray2) noexcept {
-			return (ray1.start == ray2.start) && xieite::math::almostEqualSlope(ray1.slope(), ray2.slope());
+		template<typename OtherNumber>
+		[[nodiscard]] constexpr operator xieite::geometry::Ray<OtherNumber>() const noexcept {
+			return xieite::geometry::Ray<OtherNumber>(this->start, this->end);
 		}
 
-		[[nodiscard]] constexpr double angle() const noexcept {
+		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Ray<Number>& ray1, const xieite::geometry::Ray<Number>& ray2) noexcept {
+			return (ray1.start == ray2.start) && xieite::math::almostEqual(ray1.angle(), ray2.angle());
+		}
+
+		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> angle() const noexcept {
 			return this->start.angleTo(this->end);
 		}
 
-		[[nodiscard]] constexpr bool containsPoint(const xieite::geometry::Point point) const noexcept {
-			const double foo = (this->end.x - this->start.x) * (point.y - this->start.y);
-			const double bar = (this->end.y - this->start.y) * (point.x - this->start.x);
-			const double baz = (this->start.x <= this->end.x) == (this->start.x <= point.x);
-			const double qux = (this->start.y <= this->end.y) == (this->start.y <= point.y);
-			return xieite::math::almostEqual(foo, bar) && baz && qux;
+		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> length() const noexcept {
+			return std::numeric_limits<std::conditional_t<std::floating_point<Number>, Number, double>>::infinity();
 		}
 
-		[[nodiscard]] constexpr double length() const noexcept {
-			return std::numeric_limits<double>::infinity();
-		}
-
-		[[nodiscard]] constexpr double slope() const noexcept {
+		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> slope() const noexcept {
 			return this->start.slopeTo(this->end);
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Point<Number> point) const noexcept {
+			return xieite::math::almostEqual((this->end.x - this->start.x) * (point.y - this->start.y), (this->end.y - this->start.y) * (point.x - this->start.x)) && ((this->start.x <= this->end.x) == (this->start.x <= point.x)) && ((this->start.y <= this->end.y) == (this->start.y <= point.y));
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Line<Number>&) const noexcept {
+			return false;
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Ray<Number>& ray) const noexcept {
+			return this->contains(ray.start) && xieite::math::almostEqual(this->angle(), ray.angle());
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Segment<Number>& segment) const noexcept {
+			return this->contains(segment.start) && this->contains(segment.end);
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Polygon<Number>& polygon) const noexcept {
+			for (const xieite::geometry::Point<Number>& point : polygon.points) {
+				if (!this->contains(point)) {
+					return false;
+				}
+			}
+			return true;
 		}
 	};
 }

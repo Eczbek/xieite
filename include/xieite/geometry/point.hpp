@@ -7,27 +7,70 @@
 #	include "../math/tau.hpp"
 
 namespace xieite::geometry {
-	struct Point {
-		double x;
-		double y;
+	template<xieite::concepts::Arithmetic>
+	struct Line;
 
-		constexpr Point(const double x = 0, const double y = 0) noexcept
+	template<xieite::concepts::Arithmetic>
+	struct Ray;
+
+	template<xieite::concepts::Arithmetic>
+	struct Segment;
+
+	template<xieite::concepts::Arithmetic>
+	struct Polygon;
+
+	template<xieite::concepts::Arithmetic Number>
+	struct Point {
+		Number x;
+		Number y;
+
+		constexpr Point(const Number x = 0, const Number y = 0) noexcept
 		: x(x), y(y) {}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept {
+		template<typename OtherNumber>
+		[[nodiscard]] constexpr operator xieite::geometry::Point<OtherNumber>() const noexcept {
+			return xieite::geometry::Point<OtherNumber>(static_cast<OtherNumber>(this->x), static_cast<OtherNumber>(this->y));
+		}
+
+		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Point<Number> point1, const xieite::geometry::Point<Number> point2) noexcept {
 			return xieite::math::almostEqual(point1.x, point2.x) && xieite::math::almostEqual(point1.y, point2.y);
 		}
 
-		[[nodiscard]] constexpr double angleTo(const xieite::geometry::Point point) const noexcept {
-			return std::fmod(std::atan2(this->y - point.y, this->x - point.x) + xieite::math::pi<double>, xieite::math::tau<double>);
+		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> angleTo(const xieite::geometry::Point<Number> point) const noexcept {
+			return std::fmod(std::atan2(this->y - point.y, this->x - point.x) + xieite::math::pi<Number>, xieite::math::tau<Number>);
 		}
 
-		[[nodiscard]] constexpr double distanceTo(const xieite::geometry::Point point) const noexcept {
+		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> distanceTo(const xieite::geometry::Point<Number> point) const noexcept {
 			return std::hypot(this->x - point.x, this->y - point.y);
 		}
 
-		[[nodiscard]] constexpr double slopeTo(const xieite::geometry::Point point) const noexcept {
-			return xieite::math::almostEqual(this->x, point.x) ? std::numeric_limits<double>::infinity() : ((point.y - this->y) / (point.x - this->x));
+		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> slopeTo(const xieite::geometry::Point<Number> point) const noexcept {
+			return xieite::math::almostEqual(this->x, point.x) ? std::numeric_limits<std::conditional_t<std::floating_point<Number>, Number, double>>::infinity() : ((point.y - this->y) / (point.x - this->x));
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Point<Number> point) const noexcept {
+			return *this == point;
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Line<Number>&) const noexcept {
+			return false;
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Ray<Number>&) const noexcept {
+			return false;
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Segment<Number>& segment) const noexcept {
+			return (*this == segment.start) && (*this == segment.end);
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Polygon<Number>& polygon) const noexcept {
+			for (const xieite::geometry::Point<Number> point : polygon) {
+				if (*this != point) {
+					return false;
+				}
+			}
+			return true;
 		}
 	};
 }

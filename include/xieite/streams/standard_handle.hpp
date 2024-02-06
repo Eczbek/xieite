@@ -13,6 +13,7 @@
 #	include <fcntl.h>
 #	include <istream>
 #	include <ostream>
+#	include <print>
 #	include <ranges>
 #	include <stdio.h>
 #	include <string>
@@ -84,51 +85,51 @@ namespace xieite::streams {
 		}
 
 		void setForegroundColor(const xieite::graphics::Color& color) const noexcept {
-			this->outputStream << "\x1B[38;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
+			std::print(this->outputStream, "\x1B[23;2;{};{};{}m", color.red, color.green, color.blue);
 		}
 
 		void resetForegroundColor() const noexcept {
-			this->outputStream << "\x1B[38m";
+			std::print(this->outputStream, "\x1B[38m");
 		}
 
 		void setBackgroundColor(const xieite::graphics::Color& color) const noexcept {
-			this->outputStream << "\x1B[48;2;" << static_cast<int>(color.red) << ';' << static_cast<int>(color.green) << ';' << static_cast<int>(color.blue) << 'm';
+			std::print(this->outputStream, "\x1B[48;2;{};{};{}m", color.red, color.green, color.blue);
 		}
 
 		void resetBackgroundColor() const noexcept {
-			this->outputStream << "\x1B[48m";
+			std::print(this->outputStream, "\x1B[48m");
 		}
 
 		void setTextBold(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << (21 - value * 20) << 'm';
+			std::print(this->outputStream, "\x1B[{}m", 21 - value * 20);
 		}
 
 		void setTextItalic(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << (23 - value * 20) << 'm';
+			std::print(this->outputStream, "\x1B[{}m", 23 - value * 20);
 		}
 
 		void setTextUnderline(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << (24 - value * 20) << 'm';
+			std::print(this->outputStream, "\x1B[{}m", 24 - value * 20);
 		}
 
 		void setTextBlinking(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << (25 - value * 20) << 'm';
+			std::print(this->outputStream, "\x1B[{}m", 25 - value * 20);
 		}
 
 		void setColorsSwapped(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << (27 - value * 20) << 'm';
+			std::print(this->outputStream, "\x1B[{}m", 27 - value * 20);
 		}
 
 		void setTextVisible(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << (8 + value * 20) << 'm';
+			std::print(this->outputStream, "\x1B[{}m", 8 + value * 20);
 		}
 
 		void setTextStrikethrough(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << (29 - value * 20) << 'm';
+			std::print(this->outputStream, "\x1B[{}m", 29 - value * 20);
 		}
 
 		void resetStyles() const noexcept {
-			this->outputStream << "\x1B[0m";
+			std::print(this->outputStream, "\x1B[0m");
 		}
 
 		void resetModes() const noexcept {
@@ -139,7 +140,7 @@ namespace xieite::streams {
 		[[nodiscard]] xieite::streams::Position getCursorPosition() const noexcept {
 			const bool canonical = this->canonical;
 			this->setInputCanonical(false);
-			this->outputStream << "\x1B[6n";
+			std::print(this->outputStream, "\x1B[6n");
 			xieite::streams::Position position;
 			std::fscanf(this->inputFile, "\x1B[%i;%iR", &position.row, &position.column);
 			this->setInputCanonical(canonical);
@@ -147,40 +148,40 @@ namespace xieite::streams {
 		}
 
 		void setCursorPosition(const xieite::streams::Position position) const noexcept {
-			this->outputStream << "\x1B[" << (position.row + 1) << ';' << (position.column + 1) << 'H';
+			std::print(this->outputStream, "\x1B[{};{}H", position.row + 1, position.column + 1);
 		}
 
 		void moveCursorPosition(const xieite::streams::Position difference) const noexcept {
 			if (difference.row) {
-				this->outputStream << "\x1B[" << std::abs(difference.row) << "CD"[difference.row < 0];
+				std::print(this->outputStream, "\x1B[{}{}", std::abs(difference.row), "CD"[difference.row < 0]);
 			}
 			if (difference.column) {
-				this->outputStream << "\x1B[" << std::abs(difference.column) << "BA"[difference.column < 0];
+				std::print(this->outputStream, "\x1B[{}{}", std::abs(difference.column), "BA"[difference.column < 0]);
 			}
 		}
 
 		void setCursorVisible(const bool value) const noexcept {
-			this->outputStream << "\x1B[?25" << "lh"[value];
+			std::print(this->outputStream, "\x1B[?25{}", "lh"[value]);
 		}
 
 		void setCursorShapeBlock(const bool blink) const noexcept {
-			this->outputStream << "\1\x1B[" << (2 - blink) << " q\2";
+			std::print(this->outputStream, "\1\x1B[{} q\2", 2 - blink);
 		}
 
 		void setCursorShapeUnderscore(const bool blink) const noexcept {
-			this->outputStream << "\1\x1B[" << (4 - blink) << " q\2";
+			std::print(this->outputStream, "\1\x1B[{} q\2", 4 - blink);
 		}
 
 		void setCursorShapePipe(const bool blink) const noexcept {
-			this->outputStream << "\1\x1B[" << (6 - blink) << " q\2";
+			std::print(this->outputStream, "\1\x1B[{} q\2", 6 - blink);
 		}
 
 		void setCursorAlternate(const bool value) const noexcept {
-			this->outputStream << "\x1B[" << "us"[value];
+			std::print(this->outputStream, "\x1B[{}", "us"[value]);
 		}
 
 		void setScreenAlternate(const bool value) const noexcept {
-			this->outputStream << "\x1B[?47" << "lh"[value];
+			std::print(this->outputStream, "\x1B[?47{}", "lh"[value]);
 		}
 
 		[[nodiscard]] xieite::streams::Position getScreenSize() const noexcept {
@@ -196,25 +197,25 @@ namespace xieite::streams {
 		}
 
 		void clearScreen() const noexcept {
-			this->outputStream << "\x1B[2J";
+			std::print(this->outputStream, "\x1B[2J");
 		}
 
 		void clearScreenUntil(const xieite::streams::Position position) const noexcept {
 			const xieite::streams::Position original = this->getCursorPosition();
 			this->setCursorPosition(position);
-			this->outputStream << "\x1B[1J";
+			std::print(this->outputStream, "\x1B[1J");
 			this->setCursorPosition(original);
 		}
 
 		void clearScreenFrom(const xieite::streams::Position position) const noexcept {
 			const xieite::streams::Position original = this->getCursorPosition();
 			this->setCursorPosition(position);
-			this->outputStream << "\x1B[0J";
+			std::print(this->outputStream, "\x1B[0J");
 			this->setCursorPosition(original);
 		}
 
 		void clearLine() const noexcept {
-			this->outputStream << "\x1B[2K";
+			std::print(this->outputStream, "\x1B[2K");
 		}
 
 		void clearLine(const xieite::streams::Position position) const noexcept {
@@ -225,7 +226,7 @@ namespace xieite::streams {
 		}
 
 		void clearLineUntil() const noexcept {
-			this->outputStream << "\x1B[1J";
+			std::print(this->outputStream, "\x1B[1K");
 		}
 
 		void clearLineUntil(const xieite::streams::Position position) const noexcept {
@@ -236,7 +237,7 @@ namespace xieite::streams {
 		}
 
 		void clearLineFrom() const noexcept {
-			this->outputStream << "\x1B[0J";
+			std::print(this->outputStream, "\x1B[0K");
 		}
 
 		void clearLineFrom(const xieite::streams::Position position) const noexcept {

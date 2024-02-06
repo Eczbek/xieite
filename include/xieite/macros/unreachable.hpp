@@ -6,7 +6,7 @@
 #	if XIEITE_LANGUAGE_STANDARD_CPP_2023
 #		include <utility>
 
-#		define XIEITE_UNREACHABLE() std::unreachable()
+#		define XIEITE_UNREACHABLE() ::std::unreachable()
 #	else
 #		include "../macros/compiler_type.hpp"
 #		include "../macros/unused.hpp"

@@ -6,6 +6,7 @@
 #	include <initializer_list>
 #	include <tuple>
 #	include <utility>
+#	include "../macros/forward.hpp"
 
 namespace xieite::containers {
 	template<template<typename> typename, typename>
@@ -19,7 +20,7 @@ namespace xieite::containers {
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 		[[nodiscard]] constexpr bool operator[](KeysReference&& keys) const noexcept {
-			return this->contains(std::forward<KeysReference>(keys));
+			return this->contains(XIEITE_FORWARD(keys));
 		}
 
 		constexpr void insert(const std::tuple<FirstKey, RestKeys...>& keys) noexcept {
@@ -46,17 +47,17 @@ namespace xieite::containers {
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
 		[[nodiscard]] constexpr bool operator[](KeyReference&& key) const noexcept {
-			return this->contains(std::forward<KeyReference>(key));
+			return this->contains(XIEITE_FORWARD(key));
 		}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
 		constexpr void insert(KeyReference&& key) noexcept {
-			this->set.emplace(std::get<0>(std::forward<KeyReference>(key)));
+			this->set.emplace(std::get<0>(XIEITE_FORWARD(key)));
 		}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
 		[[nodiscard]] constexpr bool contains(KeyReference&& key) const noexcept {
-			return this->set.contains(std::get<0>(std::forward<KeyReference>(key)));
+			return this->set.contains(std::get<0>(XIEITE_FORWARD(key)));
 		}
 
 	private:

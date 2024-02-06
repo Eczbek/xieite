@@ -4,7 +4,6 @@
 #	include <cmath>
 #	include <concepts>
 #	include "../types/maybe_unsigned.hpp"
-#	include "../types/size_bits.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>

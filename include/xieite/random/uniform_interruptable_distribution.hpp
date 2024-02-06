@@ -5,11 +5,11 @@
 #	include <concepts>
 #	include <iterator>
 #	include <random>
-#	include <utility>
 #	include "../concepts/arithmetic.hpp"
 #	include "../concepts/range_of.hpp"
 #	include "../concepts/uniform_random_bit_generator.hpp"
 #	include "../exceptions/possible_results_excluded_by_arguments.hpp"
+#	include "../macros/forward.hpp"
 #	include "../math/interval.hpp"
 #	include "../math/difference.hpp"
 #	include "../math/merge_intervals.hpp"
@@ -24,7 +24,7 @@ namespace xieite::random {
 			const Number minimum = std::min(interval.start, interval.end);
 			const Number maximum = std::max(interval.start, interval.end);
 			Number upper = maximum;
-			for (const xieite::math::Interval<Number> interruption : xieite::math::mergeIntervals<Number>(std::forward<IntervalRange>(interruptions))) {
+			for (const xieite::math::Interval<Number> interruption : xieite::math::mergeIntervals<Number>(XIEITE_FORWARD(interruptions))) {
 				if (((interruption.start >= minimum) || (interruption.end >= minimum)) && ((interruption.start <= maximum) || (interruption.end <= maximum))) {
 					const Number start = std::clamp(interruption.start, minimum, maximum);
 					const Number end = std::clamp(interruption.end, minimum, maximum);

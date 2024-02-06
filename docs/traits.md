@@ -25,7 +25,6 @@ Type traits.
 - [IsHasher](./namespaces/traits/is_hasher.md)
 - [IsInputStream](./namespaces/traits/is_input_stream.md)
 - [IsInteger](./namespaces/traits/is_integer.md)
-- [IsLinearShape](./namespaces/traits/is_linear_shape.md)
 - [IsNarrowCharacter](./namespaces/traits/is_narrow_character.md)
 - [IsNoThrowConvertibleToAll](./namespaces/traits/is_no_throw_convertible_to_all.md)
 - [IsNoThrowConvertibleToAny](./namespaces/traits/is_no_throw_convertible_to_any.md)

@@ -4,6 +4,7 @@
 #	include <concepts>
 #	include <cstddef>
 #	include <utility>
+#	include "../macros/forward.hpp"
 
 namespace xieite::memory {
 	template<typename Type>
@@ -14,14 +15,11 @@ namespace xieite::memory {
 		template<typename... Arguments>
 		requires(std::constructible_from<Type, Arguments...>)
 		constexpr Shredder(Arguments&&... arguments) noexcept
-		: value(std::forward<Arguments>(arguments)...) {}
+		: value(XIEITE_FORWARD(arguments)...) {}
 
-		[[nodiscard]] constexpr const Type& get() const noexcept {
-			return this->value;
-		}
-
-		[[nodiscard]] constexpr Type& get() noexcept {
-			return this->value;
+		template<typename Self>
+		[[nodiscard]] std::convertible_to<Type> auto&& data(this Self&& self) noexcept {
+			return XIEITE_FORWARD(self).value;
 		}
 
 		constexpr ~Shredder() {

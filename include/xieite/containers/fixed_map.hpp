@@ -12,6 +12,7 @@
 #	include <utility>
 #	include "../containers/make_array.hpp"
 #	include "../exceptions/invalid_key.hpp"
+#	include "../macros/forward.hpp"
 
 namespace xieite::containers {
 	template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value*>>>
@@ -21,19 +22,19 @@ namespace xieite::containers {
 
 		template<std::ranges::range Range>
 		constexpr FixedMap(Range&& entries) noexcept
-		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(std::forward<Range>(entries))) {}
+		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(XIEITE_FORWARD(entries))) {}
 
 		constexpr FixedMap(const std::initializer_list<std::pair<Key, Value>> entries) noexcept
 		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		template<std::convertible_to<Key> KeyReference>
 		[[nodiscard]] constexpr const Value& operator[](KeyReference&& key) const {
-			return this->getValue(std::forward<KeyReference>(key));
+			return this->getValue(XIEITE_FORWARD(key));
 		}
 
 		template<std::convertible_to<Key> KeyReference>
 		[[nodiscard]] constexpr Value& operator[](KeyReference&& key) {
-			return this->getValue(std::forward<KeyReference>(key));
+			return this->getValue(XIEITE_FORWARD(key));
 		}
 
 		[[nodiscard]] constexpr std::array<std::pair<Key, Value>, size>::const_iterator begin() const noexcept {
@@ -54,12 +55,12 @@ namespace xieite::containers {
 
 		template<std::convertible_to<Key> KeyReference>
 		[[nodiscard]] constexpr const Value& at(KeyReference&& key) const {
-			return this->getValue(std::forward<KeyReference>(key));
+			return this->getValue(XIEITE_FORWARD(key));
 		}
 
 		template<std::convertible_to<Key> KeyReference>
 		[[nodiscard]] constexpr Value& at(KeyReference&& key) {
-			return this->getValue(std::forward<KeyReference>(key));
+			return this->getValue(XIEITE_FORWARD(key));
 		}
 
 		template<std::convertible_to<Key> KeyReference>

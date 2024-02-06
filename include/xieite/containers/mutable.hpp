@@ -3,7 +3,7 @@
 
 #	include <concepts>
 #	include <type_traits>
-#	include <utility>
+#	include "../macros/forward.hpp"
 
 namespace xieite::containers {
 	template<typename Type>
@@ -12,7 +12,7 @@ namespace xieite::containers {
 		template<typename... Arguments>
 		constexpr Mutable(Arguments&&... arguments)
 		noexcept(std::is_nothrow_constructible_v<Type, Arguments...>)
-		: value(std::forward<Arguments>(arguments)...) {}
+		: value(XIEITE_FORWARD(arguments)...) {}
 
 		[[nodiscard]] constexpr operator Type&() const& noexcept {
 			return this->value;
