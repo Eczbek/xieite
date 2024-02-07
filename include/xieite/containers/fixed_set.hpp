@@ -31,28 +31,12 @@ namespace xieite::containers {
 			return this->contains(XIEITE_FORWARD(key));
 		}
 
-		[[nodiscard]] constexpr std::array<Key, size>::const_iterator begin() const noexcept {
-			return this->array.begin();
-		}
-
-		[[nodiscard]] constexpr std::array<Key, size>::iterator begin() noexcept {
-			return this->array.begin();
-		}
-
-		[[nodiscard]] constexpr std::array<Key, size>::const_iterator end() const noexcept {
-			return this->array.end();
-		}
-
-		[[nodiscard]] constexpr std::array<Key, size>::iterator end() noexcept {
-			return this->array.end();
-		}
-
 		template<std::convertible_to<Key> KeyReference>
 		[[nodiscard]] constexpr bool contains(const KeyReference& key) const noexcept {
 			if consteval {
 				return std::ranges::find(this->array, key) != this->array.end();
 			} else {
-				static auto set = std::unordered_set<Key, Hash, KeyEqual, Allocator>(this->array.begin(), this->array.end());
+				static const auto set = std::unordered_set<Key, Hash, KeyEqual, Allocator>(this->array.begin(), this->array.end());
 				return set.contains(key);
 			}
 		}

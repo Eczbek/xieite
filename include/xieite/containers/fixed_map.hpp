@@ -27,34 +27,13 @@ namespace xieite::containers {
 		constexpr FixedMap(const std::initializer_list<std::pair<Key, Value>> entries) noexcept
 		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
-		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr const Value& operator[](KeyReference&& key) const {
-			return this->getValue(XIEITE_FORWARD(key));
+		template<typename Self, std::convertible_to<Key> KeyReference>
+		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, KeyReference&& key) {
+			return XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 		}
 
 		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr Value& operator[](KeyReference&& key) {
-			return this->getValue(XIEITE_FORWARD(key));
-		}
-
-		[[nodiscard]] constexpr std::array<std::pair<Key, Value>, size>::const_iterator begin() const noexcept {
-			return this->array.begin();
-		}
-
-		[[nodiscard]] constexpr std::array<std::pair<Key, Value>, size>::iterator begin() noexcept {
-			return this->array.begin();
-		}
-
-		[[nodiscard]] constexpr std::array<std::pair<Key, Value>, size>::const_iterator end() const noexcept {
-			return this->array.end();
-		}
-
-		[[nodiscard]] constexpr std::array<std::pair<Key, Value>, size>::iterator end() noexcept {
-			return this->array.end();
-		}
-
-		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr const Value& at(KeyReference&& key) const {
+		[[nodiscard]] constexpr std::convertible_to<Value> auto&& at(KeyReference&& key) const {
 			return this->getValue(XIEITE_FORWARD(key));
 		}
 

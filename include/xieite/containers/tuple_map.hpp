@@ -18,15 +18,10 @@ namespace xieite::containers {
 		constexpr TupleMap(const std::initializer_list<std::pair<FirstKey, TupleMap<Container, std::tuple<RestKeys...>, Value>>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
 
-		[[nodiscard]] constexpr const Value& operator[](const std::tuple<FirstKey, RestKeys...>& keys) const noexcept {
-			return ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) -> const Value& {
-				return this->map.at(std::get<0>(keys))[std::make_tuple(std::get<indices + 1>(keys)...)];
-			})(std::make_index_sequence<sizeof...(RestKeys)>());
-		}
-
-		[[nodiscard]] constexpr Value& operator[](const std::tuple<FirstKey, RestKeys...>& keys) noexcept {
-			return ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) -> Value& {
-				return this->map.at(std::get<0>(keys))[std::make_tuple(std::get<indices + 1>(keys)...)];
+		template<typename Self>
+		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, const std::tuple<FirstKey, RestKeys...>& keys) noexcept {
+			return ([&self, &keys]<std::size_t... indices>(std::index_sequence<indices...>) -> std::convertible_to<Value> auto&& {
+				return XIEITE_FORWARD(self).map.at(std::get<0>(keys))[std::make_tuple(std::get<indices + 1>(keys)...)];
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
@@ -53,14 +48,9 @@ namespace xieite::containers {
 		constexpr TupleMap(const std::initializer_list<std::pair<Key, Value>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
 
-		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr const Value& operator[](KeyReference&& key) const noexcept {
-			return this->map.at(std::get<0>(XIEITE_FORWARD(key)));
-		}
-
-		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr Value& operator[](KeyReference&& key) noexcept {
-			return this->map.at(std::get<0>(XIEITE_FORWARD(key)));
+		template<typename Self, std::convertible_to<std::tuple<Key>> KeyReference>
+		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, KeyReference&& key) noexcept {
+			return XIEITE_FORWARD(self).map.at(std::get<0>(XIEITE_FORWARD(key)));
 		}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference, std::convertible_to<Value> ValueReference>

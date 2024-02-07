@@ -10,6 +10,7 @@
 #	include <arpa/inet.h>
 #	include <netinet/in.h>
 #	include <string>
+#	include <type_traits>
 #	include "../exceptions/invalid_network_address.hpp"
 #	include "../network/domain.hpp"
 
@@ -24,20 +25,14 @@ namespace xieite::network {
 			this->addressSize = sizeof(this->address);
 		}
 
-		[[nodiscard]] const sockaddr* data() const noexcept {
-			return reinterpret_cast<const sockaddr*>(&this->address);
+		template<typename Self>
+		[[nodiscard]] std::conditional_t<std::is_const_v<Self>, const sockaddr*, sockaddr*> data(this Self& self) noexcept {
+			return reinterpret_cast<std::conditional_t<std::is_const_v<Self>, const sockaddr*, sockaddr*>>(&self.address);
 		}
 
-		[[nodiscard]] sockaddr* data() noexcept {
-			return reinterpret_cast<sockaddr*>(&this->address);
-		}
-
-		[[nodiscard]] const socklen_t* size() const noexcept {
-			return &this->addressSize;
-		}
-
-		[[nodiscard]] socklen_t* size() noexcept {
-			return &this->addressSize;
+		template<typename Self>
+		[[nodiscard]] std::conditional_t<std::is_const_v<Self>, const socklen_t*, socklen_t*> size(this Self& self) noexcept {
+			return &self.addressSize;
 		}
 
 	protected:

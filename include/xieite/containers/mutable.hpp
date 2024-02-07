@@ -4,6 +4,7 @@
 #	include <concepts>
 #	include <type_traits>
 #	include "../macros/forward.hpp"
+#	include "../types/collapse_reference.hpp"
 
 namespace xieite::containers {
 	template<typename Type>
@@ -14,12 +15,9 @@ namespace xieite::containers {
 		noexcept(std::is_nothrow_constructible_v<Type, Arguments...>)
 		: value(XIEITE_FORWARD(arguments)...) {}
 
-		[[nodiscard]] constexpr operator Type&() const& noexcept {
-			return this->value;
-		}
-
-		[[nodiscard]] constexpr operator Type&&() const&& noexcept {
-			return this->value;
+		template<typename Self>
+		[[nodiscard]] constexpr operator xieite::types::CollapseReference<Type, Self>(this Self&& self) noexcept {
+			return XIEITE_FORWARD(self).value;
 		}
 
 	private:
