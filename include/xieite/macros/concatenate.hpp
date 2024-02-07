@@ -3,7 +3,7 @@
 
 #	define XIEITE_CONCATENATE(first, second) first##second
 
-#	define XIEITE_CONCATENATE_REVERSE(first, second) second##reverse
+#	define XIEITE_CONCATENATE_REVERSE(first, second) second##first
 
 #	define XIEITE_CONCATENATE_SCAN(first, second) CONCATENATE(first, second)
 
