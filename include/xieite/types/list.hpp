@@ -56,7 +56,7 @@ namespace xieite::types {
 
 	private:
 		template<std::size_t offset, std::size_t... indices>
-		static consteval xieite::types::List<xieite::types::List<Types...>::At<indices + offset>...> sliceHelper(std::index_sequence<indices...>) noexcept;
+		static xieite::types::List<xieite::types::List<Types...>::At<indices + offset>...> sliceHelper(std::index_sequence<indices...>) noexcept;
 
 	public:
 		template<std::size_t start, std::size_t end = sizeof...(Types)>
@@ -64,7 +64,7 @@ namespace xieite::types {
 
 	private:
 		template<std::size_t... indices>
-		static consteval xieite::types::List<xieite::types::List<Types...>::At<sizeof...(Types) - indices - 1>...> reverseHelper(std::index_sequence<indices...>) noexcept;
+		static xieite::types::List<xieite::types::List<Types...>::At<sizeof...(Types) - indices - 1>...> reverseHelper(std::index_sequence<indices...>) noexcept;
 
 	public:
 		using Reverse = decltype(xieite::types::List<Types...>::reverseHelper(std::make_index_sequence<sizeof...(Types)>()));
@@ -132,7 +132,7 @@ namespace xieite::types {
 			using Type = xieite::types::List<OtherTypes...>;
 
 			template<typename Type>
-			consteval std::conditional_t<Selector<Type, OtherTypes...>::value, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes...>, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes..., Type>> operator->*(xieite::types::List<Types...>::FilterHelper<Selector, Type>) const noexcept;
+			std::conditional_t<Selector<Type, OtherTypes...>::value, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes...>, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes..., Type>> operator->*(xieite::types::List<Types...>::FilterHelper<Selector, Type>) const noexcept;
 		};
 
 	public:

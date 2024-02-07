@@ -9,7 +9,7 @@
 #		include "../containers/make_array.hpp"
 #		include "../strings/between.hpp"
 
-namespace XIEITE_INTERNAL_TYPES_NAME {
+namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
 		static constexpr auto data = xieite::containers::makeArray<char, std::string_view(__PRETTY_FUNCTION__).size()>(std::string_view(__PRETTY_FUNCTION__));
@@ -20,7 +20,7 @@ namespace XIEITE_INTERNAL_TYPES_NAME {
 #	elif XIEITE_COMPILER_TYPE_LLVM
 #		include "../strings/between.hpp"
 
-namespace XIEITE_INTERNAL_TYPES_NAME {
+namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
 		static constexpr auto data = xieite::containers::makeArray<char, std::string_view(__PRETTY_FUNCTION__).size()>(std::string_view(__PRETTY_FUNCTION__));
@@ -32,7 +32,7 @@ namespace XIEITE_INTERNAL_TYPES_NAME {
 #		include "../strings/after.hpp"
 #		include "../strings/between.hpp"
 
-namespace XIEITE_INTERNAL_TYPES_NAME {
+namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
 		static constexpr auto data = xieite::containers::makeArray<char, std::string_view(__FUNCSIG__).size()>(std::string_view(__FUNCSIG__));
@@ -46,7 +46,7 @@ namespace XIEITE_INTERNAL_TYPES_NAME {
 
 namespace xieite::types {
 	template<typename Type>
-	inline constexpr std::string_view name = XIEITE_INTERNAL_TYPES_NAME::name<Type>();
+	inline constexpr std::string_view name = XIEITE_DETAIL_NAMESPACE::name<Type>();
 }
 
 #endif
