@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Common concepts.
+A collection of commonly and uncommonly used concepts, expanding on the standard library.
 
 &nbsp;
 
@@ -15,6 +15,8 @@ Common concepts.
 - [BigInteger](./namespaces/concepts/big_integer.md)
 - [BitsetReference](./namespaces/concepts/bitset_reference.md)
 - [Character](./namespaces/concepts/character.md)
+- [CompileTimeInvocable](./namespaces/concepts/compile_time_evaluable.md)
+- [Constant](./namespaces/concepts/constant.md)
 - [ConstantInvocable](./namespaces/concepts/constant_invocable.md)
 - [ConvertibleToAll](./namespaces/concepts/convertible_to_all.md)
 - [ConvertibleToAny](./namespaces/concepts/convertible_to_any.md)
@@ -40,13 +42,17 @@ Common concepts.
 - [OutputStream](./namespaces/concepts/output_stream.md)
 - [Polymorphic](./namespaces/concepts/polymorphic.md)
 - [RangeOf](./namespaces/concepts/range_of.md)
+- [Ratio](./namespaces/concepts/ratio.md)
 - [SameAsAll](./namespaces/concepts/same_as_all.md)
 - [SameAsAny](./namespaces/concepts/same_as_any.md)
+- [ScopedEnumeration](./namespaces/concepts/scoped_enumeration.md)
+- [SpecializationOf](./namespaces/concepts/specialization_of.md)
 - [Stream](./namespaces/concepts/stream.md)
 - [StreamableIn](./namespaces/concepts/streamable_in.md)
 - [StreamableOut](./namespaces/concepts/streamable_out.md)
 - [TemporalDuration](./namespaces/concepts/temporal_duration.md)
 - [Trivial](./namespaces/concepts/trivial.md)
 - [UniformRandomBitGenerator](./namespaces/concepts/uniform_random_bit_generator.md)
+- [UnscopedEnumeration](./namespaces/concepts/unscoped_enumeration.md)
 - [UnsignedInteger](./namespaces/concepts/unsigned_integer.md)
 - [WideCharacter](./namespaces/concepts/wide_character.md)

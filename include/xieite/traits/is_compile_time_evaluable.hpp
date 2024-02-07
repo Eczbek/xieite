@@ -6,8 +6,8 @@
 
 namespace xieite::traits {
 	template<typename Functor, typename... Arguments>
-	struct IsCompileTimeEvaluable
-	: std::bool_constant<xieite::concepts::CompileTimeEvaluable<Functor, Arguments...>> {};
+	struct IsCompileTimeInvocable
+	: std::bool_constant<xieite::concepts::CompileTimeInvocable<Functor, Arguments...>> {};
 }
 
 #endif

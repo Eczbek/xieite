@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Type traits.
+The complement of `xieite::concepts`, and directly expanding on the standard library.
 
 &nbsp;
 
