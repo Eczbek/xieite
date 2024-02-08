@@ -385,11 +385,11 @@ namespace xieite::literals::integers {
 		return static_cast<std::uintptr_t>(value);
 	}
 
-	[[nodiscard]] constexpr std::ptrdiff_t operator""_iptrd(const unsigned long long int value) noexcept {
+	[[nodiscard]] constexpr std::ptrdiff_t operator""_dptr(const unsigned long long int value) noexcept {
 		return static_cast<std::ptrdiff_t>(value);
 	}
 
-	[[nodiscard]] constexpr std::ptrdiff_t operator""_iptrd(const long double value) noexcept {
+	[[nodiscard]] constexpr std::ptrdiff_t operator""_dptr(const long double value) noexcept {
 		return static_cast<std::ptrdiff_t>(value);
 	}
 

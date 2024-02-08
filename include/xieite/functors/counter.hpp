@@ -40,4 +40,6 @@ namespace xieite {
 
 #endif
 
-// https://mc-deltat.github.io/articles/stateful-metaprogramming-cpp20
+// Thanks to Reese Jones (https://github.com/MC-DeltaT) for original code
+
+// This is technically not IFNDR but causes wonky behavior in templates
