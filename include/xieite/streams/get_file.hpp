@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_STREAMS_GET_FILE
 #	define XIEITE_HEADER_STREAMS_GET_FILE
 
-#	include "../macros/compiler_type.hpp"
+#	include "../macros/compiler.hpp"
 
 #	if !XIEITE_COMPILER_TYPE_GCC
 #		error "Compiler not supported"

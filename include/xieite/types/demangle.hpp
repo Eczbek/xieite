@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_TYPES_DEMANGLE
 #	define XIEITE_HEADER_TYPES_DEMANGLE
 
-#	include "../macros/compiler_type.hpp"
+#	include "../macros/compiler.hpp"
 
 #	if !XIEITE_COMPILER_TYPE_GCC
 #		error "Compiler not supported"

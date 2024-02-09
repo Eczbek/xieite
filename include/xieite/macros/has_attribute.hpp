@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MACROS_HAS_ATTRIBUTE
 #	define XIEITE_HEADER_MACROS_HAS_ATTRIBUTE
 
-#	include "../macros/compiler_type.hpp"
+#	include "../macros/compiler.hpp"
 #	include "../macros/language_standard.hpp"
 
 #	if XIEITE_LANGUAGE_STANDARD_CPP_2020

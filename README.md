@@ -44,4 +44,4 @@ Feel free to steal code!
 &nbsp;
 
 ## [Documentation](https://github.com/Eczbek/xieite/tree/main/docs/xieite.md)
-Written manually :)
+(Currently outdated)

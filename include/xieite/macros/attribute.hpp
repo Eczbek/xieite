@@ -1,17 +1,16 @@
 #ifndef XIEITE_HEADER_MACROS_ATTRIBUTE
 #	define XIEITE_HEADER_MACROS_ATTRIBUTE
 
-#	include "../macros/compiler_type.hpp"
-#	include "../macros/compiler_version.hpp"
+#	include "../macros/compiler.hpp"
 #	include "../macros/has_attribute.hpp"
 #	include "../macros/language_standard.hpp"
 #	include "../macros/unused.hpp"
 
 #	if XIEITE_LANGUAGE_STANDARD_CPP_2023
 #		define XIEITE_ATTRIBUTE_ASSUME(...) [[assume(__VA_ARGS__)]]
-#	elif XIEITE_COMPILER_TYPE_GCC && XIEITE_COMPILER_VERSION_LEAST(12, 1)
+#	elif XIEITE_COMPILER_VERSION_LEAST(GCC, 12, 1, 0)
 #		define XIEITE_ATTRIBUTE_ASSUME(...) __attribute__((__assume__(__VA_ARGS__)))
-#	elif XIEITE_COMPILER_TYPE_CLANG && XIEITE_COMPILER_VERSION_LEAST(4)
+#	elif XIEITE_COMPILER_VERSION_LEAST(CLANG, 4, 0, 0)
 #		define XIEITE_ATTRIBUTE_ASSUME(...) __builtin_assume(__VA_ARGS__)
 #	elif XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_ATTRIBUTE_ASSUME(...) __assume(__VA_ARGS__)
@@ -93,7 +92,7 @@
 #		define XIEITE_ATTRIBUTE_NO_RETURN [[noreturn]]
 #	elif XIEITE_LANGUAGE_STANDARD_C_2011
 #		define XIEITE_ATTRIBUTE_NO_RETURN _Noreturn
-#	elif XIEITE_COMPILER_TYPE_GCC && XIEITE_COMPILER_VERSION_LEAST(2, 5)
+#	elif XIEITE_COMPILER_VERSION_LEAST(GCC, 2, 5, 0)
 #		define XIEITE_ATTRIBUTE_NO_RETURN __attribute__((__noreturn__))
 #	else
 #		define XIEITE_ATTRIBUTE_NO_RETURN

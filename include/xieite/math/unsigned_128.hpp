@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MATH_UNSIGNED_128
 #	define XIEITE_HEADER_MATH_UNSIGNED_128
 
-#	include "../macros/compiler_type.hpp"
+#	include "../macros/compiler.hpp"
 
 #	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 

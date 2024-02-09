@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_TYPES_NAME
 
 #	include <string_view>
-#	include "../macros/compiler_type.hpp"
+#	include "../macros/compiler.hpp"
 
 #	if XIEITE_COMPILER_TYPE_GCC
 #		include <string>

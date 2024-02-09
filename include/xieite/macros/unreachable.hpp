@@ -8,7 +8,7 @@
 
 #		define XIEITE_UNREACHABLE() ::std::unreachable()
 #	else
-#		include "../macros/compiler_type.hpp"
+#		include "../macros/compiler.hpp"
 #		include "../macros/unused.hpp"
 
 #		if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_LLVM

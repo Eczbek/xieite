@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MACROS_HAS_DECLARE_SPECIFIER_ATTRIBUTE
 #	define XIEITE_HEADER_MACROS_HAS_DECLARE_SPECIFIER_ATTRIBUTE
 
-#	include "../macros/compiler_type.hpp"
+#	include "../macros/compiler.hpp"
 
 #	if XIEITE_COMPILER_TYPE_CLANG
 #		ifdef __has_declspec_attribute

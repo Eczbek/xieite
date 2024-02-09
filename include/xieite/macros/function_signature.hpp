@@ -1,7 +1,7 @@
 #ifndef XIEITE_HEADER_MACROS_FUNCTION_SIGNATURE
 #	define XIEITE_HEADER_MACROS_FUNCTION_SIGNATURE
 
-#	include "../macros/compiler_type.hpp"
+#	include "../macros/compiler.hpp"
 
 #	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_LLVM
 #		define XIEITE_FUNCTION_SIGNATURE __PRETTY_FUNCTION__
