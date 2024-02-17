@@ -1,14 +1,14 @@
 #ifndef XIEITE_HEADER_MACROS_CONCATENATE
 #	define XIEITE_HEADER_MACROS_CONCATENATE
 
-#	define XIEITE_CONCATENATE(first, second) first##second
+#	define XIEITE_CONCATENATE_DIRECT_FORWARD(first, second) first##second
 
-#	define XIEITE_CONCATENATE_REVERSE(first, second) second##first
+#	define XIEITE_CONCATENATE_FIRECT_REVERSE(first, second) second##first
 
-#	define XIEITE_CONCATENATE_SCAN(first, second) CONCATENATE(first, second)
+#	define XIEITE_CONCATENATE(first, second) XIEITE_CONCATENATE_DIRECT_FORWARD(first, second)
 
-#	define XIEITE_CONCATENATE_SCAN_FIRST(first) CONCATENATE(first,
+#	define XIEITE_CONCATENATE_FIRST(first) XIEITE_CONCATENATE_DIRECT_FORWARD(first,
 
-#	define XIEITE_CONCATENATE_SCAN_SECOND(second) CONCATENATE_REVERSE(second,
+#	define XIEITE_CONCATENATE_SECOND(second) XIEITE_CONCATENATE_DIRECT_REVERSE(second,
 
 #endif
