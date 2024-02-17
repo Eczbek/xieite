@@ -10,7 +10,6 @@ namespace xieite::detail {
 		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<current>) noexcept;
 	};
 
-
 	template<std::size_t current>
 	struct CounterSetter {
 		template<typename>
@@ -18,23 +17,20 @@ namespace xieite::detail {
 
 		static constexpr std::size_t value = current;
 	};
-
-	template<auto tag = [] {}, std::size_t next = 0>
-	[[nodiscard]] constexpr std::size_t counterHelper() noexcept {
-		if constexpr (requires(xieite::detail::CounterReader<next> reader) {
-			XIEITE_DETAIL_COUNTER_FLAG<void>(reader);
-		}) {
-			return xieite::detail::counterHelper<tag, next + 1>();
-		} else {
-			return xieite::detail::CounterSetter<next>().value;
-		}
-	}
 }
 
-namespace xieite {
+namespace xieite::functors {
 	template<auto tag = [] {}>
 	[[nodiscard]] constexpr std::size_t counter() noexcept {
-		return xieite::detail::counterHelper<tag>();
+		return ([]<std::size_t current = 0, typename Self>(this const Self& self) -> std::size_t {
+			if constexpr (requires(xieite::detail::CounterReader<current> reader) {
+				XIEITE_DETAIL_COUNTER_FLAG<void>(reader);
+			}) {
+				return self.template operator()<current + 1>();
+			} else {
+				return xieite::detail::CounterSetter<current>::value;
+			}
+		})();
 	}
 }
 
@@ -42,4 +38,4 @@ namespace xieite {
 
 // Thanks to Reese Jones (https://github.com/MC-DeltaT) for original code
 
-// This is technically not IFNDR but causes wonky behavior in templates
+// This is technically not IFNDR but causes wonky behavior if used in template constraints
