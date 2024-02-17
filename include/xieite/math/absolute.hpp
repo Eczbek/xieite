@@ -8,7 +8,7 @@
 namespace xieite::math {
 	template<std::integral Integer>
 	[[nodiscard]] constexpr xieite::types::MaybeUnsigned<Integer> absolute(const Integer value) noexcept {
-		return (value >= 0) ? static_cast<xieite::types::MaybeUnsigned<Integer>>(value) : -static_cast<xieite::types::MaybeUnsigned<Integer>>(value);
+		return (value >= 0) ? static_cast<xieite::types::MaybeUnsigned<Integer>>(value) : -static_cast<xieite::types::MaybeUnsigned<Integer>>(value); // This works so don't touch it
 	}
 
 	template<std::floating_point FloatingPoint>
