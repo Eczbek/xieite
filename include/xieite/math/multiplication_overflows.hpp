@@ -7,8 +7,8 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr bool multiplicationOverflows(const Number value1, const Number value2) noexcept {
-		return value1 && value2 && ((xieite::math::absolute(((value1 < 0) != (value2 < 0)) ? std::numeric_limits<Number>::min() : std::numeric_limits<Number>::max()) / xieite::math::absolute(value1)) < xieite::math::absolute(value2));
+	[[nodiscard]] constexpr bool multiplicationOverflows(const Number multiplier, const Number multiplicand) noexcept {
+		return multiplier && multiplicand && ((xieite::math::absolute(((multiplier < 0) != (multiplicand < 0)) ? std::numeric_limits<Number>::min() : std::numeric_limits<Number>::max()) / xieite::math::absolute(multiplier)) < xieite::math::absolute(multiplicand));
 	}
 }
 

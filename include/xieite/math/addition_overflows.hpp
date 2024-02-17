@@ -6,8 +6,8 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr bool additionOverflows(const Number value1, const Number value2) noexcept {
-		return value1 && value2 && ((value1 >= 0) ? ((std::numeric_limits<Number>::max() - value1) < value2) : ((std::numeric_limits<Number>::min() - value1) > value2));
+	[[nodiscard]] constexpr bool additionOverflows(const Number augend, const Number addend) noexcept {
+		return augend && addend && ((augend >= 0) ? ((std::numeric_limits<Number>::max() - augend) < addend) : ((std::numeric_limits<Number>::min() - augend) > addend));
 	}
 }
 
