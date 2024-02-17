@@ -3,7 +3,7 @@
 
 #	include "../macros/platform.hpp"
 
-#	if XIEITE_PLATFORM_UNIX
+#	if XIEITE_PLATFORM_TYPE_UNIX
 #		include <cstdio>
 #		include <stdio.h>
 #		include <string>
@@ -21,7 +21,7 @@ namespace xieite::streams {
 	};
 }
 
-#	elif XIEITE_PLATFORM_WINDOWS
+#	elif XIEITE_PLATFORM_TYPE_WINDOWS
 #		include <cstdio>
 #		include <stdio.h>
 

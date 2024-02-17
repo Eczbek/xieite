@@ -16,7 +16,7 @@
 #		elif XIEITE_COMPILER_TYPE_MSVC
 #			define XIEITE_UNREACHABLE() __assume(false)
 #		else
-#			define XIEITE_UNREACHABLE() XIEITE_UNUSED()
+#			define XIEITE_UNREACHABLE() XIEITE_UNUSED(0 / 0)
 #		endif
 #	endif
 

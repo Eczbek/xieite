@@ -3,7 +3,7 @@
 
 #	include "../macros/platform.hpp"
 
-#	if XIEITE_PLATFORM_UNIX
+#	if XIEITE_PLATFORM_TYPE_UNIX
 #		include <cstddef>
 #		include <unistd.h>
 #		include "../memory/get_page_size.hpp"
@@ -14,7 +14,7 @@ namespace xieite::memory {
 	}
 }
 
-#	elif XIEITE_PLATFORM_WINDOWS
+#	elif XIEITE_PLATFORM_TYPE_WINDOWS
 #		include <cstddef>
 #		include <windows.h>
 

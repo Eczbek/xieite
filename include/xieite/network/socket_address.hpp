@@ -3,7 +3,7 @@
 
 #	include "../macros/platform.hpp"
 
-#	if !XIEITE_PLATFORM_UNIX
+#	if !XIEITE_PLATFORM_TYPE_UNIX
 #		error "Platform not supported"
 #	endif
 

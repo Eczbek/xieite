@@ -73,7 +73,7 @@
 #	if XIEITE_LANGUAGE_STANDARD_CPP_2017
 #		define XIEITE_ATTRIBUTE_NO_DISCARD [[nodiscard]]
 #	elif XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
-#		define XIETIE_NO_DISCARD __attribute__((__warn_unused_result__))
+#		define XIEITE_NO_DISCARD __attribute__((__warn_unused_result__))
 #	elif XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_ATTRIBUTE_NO_DISCARD __checkReturn
 #	else
@@ -112,6 +112,38 @@
 #		define XIEITE_ATTRIBUTE_USED __attribute__((__used__))
 #	else
 #		define XIEITE_ATTRIBUTE_USED
+#	endif
+
+#	if XIEITE_COMPILER_TYPE_MSVC
+#		define XIEITE_ATTRIBUTE_EXPORT __declspec(dllexport)
+#	elif XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
+#		define XIEITE_ATTRIBUTE_EXPORT __attribute__((__visibility__("default")))
+#	else
+#		define XIEITE_ATTRIBUTE_EXPORT
+#	endif
+
+#	if XIEITE_COMPILER_TYPE_MSVC
+#		define XIEITE_ATTRIBUTE_IMPORT __declspec(dllimport)
+#	elif XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
+#		define XIEITE_ATTRIBUTE_IMPORT __attribute__((__visibility__("default")))
+#	else
+#		define XIEITE_ATTRIBUTE_IMPORT
+#	endif
+
+#	if (XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG) && !XIEITE_COMPILER_TYPE_MSVC
+#		define XIEITE_ATTRIBUTE_NO_EXPORT __attribute__((__visibility__("hidden")))
+#	else
+#		define XIEITE_ATTRIBUTE_NO_EXPORT
+#	endif
+
+#	if XIEITE_COMPILER_TYPE_MSVC
+#		define XIEITE_ATTRIBUTE_DEPRECATED __declspec(deprecated)
+#	elif XIEITE_LANGUAGE_STANDARD_CPP_2014 || XIEITE_LANGUAGE_STANDARD_C_2023
+#		define XIEITE_ATTRIBUTE_DEPRECATED [[deprecated]]
+#	elif XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
+#		define XIEITE_ATTRIBUTE_DEPRECATED __attribute__((__deprecated__))
+#	else
+#		define XIEITE_ATTRIBUTE_DEPRECATED
 #	endif
 
 #endif

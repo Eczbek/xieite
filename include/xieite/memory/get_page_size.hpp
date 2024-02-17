@@ -1,9 +1,9 @@
-#ifndef XIETIE_HEADER_MEMORY_GET_PAGE_SIZE
-#	define XIETIE_HEADER_MEMORY_GET_PAGE_SIZE
+#ifndef XIEITE_HEADER_MEMORY_GET_PAGE_SIZE
+#	define XIEITE_HEADER_MEMORY_GET_PAGE_SIZE
 
 #	include "../macros/platform.hpp"
 
-#	if XIEITE_PLATFORM_UNIX
+#	if XIEITE_PLATFORM_TYPE_UNIX
 #		include <cstddef>
 #		include <unistd.h>
 
@@ -13,7 +13,7 @@ namespace xieite::memory {
 	}
 }
 
-#	elif XIEITE_PLATFORM_WINDOWS
+#	elif XIEITE_PLATFORM_TYPE_WINDOWS
 #		include <cstddef>
 #		include <windows.h>
 
