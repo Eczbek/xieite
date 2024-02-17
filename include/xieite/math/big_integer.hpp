@@ -23,7 +23,6 @@
 #	include "../math/product.hpp"
 #	include "../math/split_boolean.hpp"
 #	include "../math/stringify.hpp"
-#	include "../strings/to_lowercase.hpp"
 #	include "../system/byte_bits.hpp"
 #	include "../types/maybe_unsigned.hpp"
 #	include "../types/size_bits.hpp"
