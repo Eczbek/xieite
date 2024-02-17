@@ -1,0 +1,6 @@
+#ifndef XIEITE_HEADER_MACROS_COMMA
+#	define XIEITE_HEADER_MACROS_COMMA
+
+#	define XIEITE_COMMA(...) ,
+
+#endif

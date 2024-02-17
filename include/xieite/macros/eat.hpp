@@ -1,0 +1,6 @@
+#ifndef XIEITE_HEADER_MACROS_EAT
+#	define XIEITE_HEADER_MACROS_EAT
+
+#	define XIEITE_EAT(...)
+
+#endif
