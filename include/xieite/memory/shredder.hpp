@@ -10,7 +10,9 @@ namespace xieite::memory {
 	template<typename Type>
 	class Shredder {
 	public:
-		constexpr Shredder() noexcept = default;
+		constexpr Shredder() noexcept {
+			this->shred();
+		}
 
 		template<typename... Arguments>
 		requires(std::constructible_from<Type, Arguments...>)
@@ -22,13 +24,17 @@ namespace xieite::memory {
 			return XIEITE_FORWARD(self).value;
 		}
 
-		constexpr ~Shredder() {
+		constexpr void shred() noexcept {
 			if !consteval {
 				const auto byte = reinterpret_cast<volatile std::byte*>(&this->value);
 				for (std::size_t i = 0; i < sizeof(Type); ++i) {
 					byte[i] = 0;
 				}
 			}
+		}
+
+		constexpr ~Shredder() {
+			this->shred();
 		}
 
 	private:
