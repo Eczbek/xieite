@@ -4,7 +4,7 @@ Defined in header [<xieite/algorithms/any.hpp>](../../../include/xieite/algorith
 &nbsp;
 
 ## Description
-Checks whether at least one passed argument is true. Expects all arguments to be converible to a boolean value.
+Checks whether at least one passed argument is true. Expects at least one argument to be converible to a boolean value.
 
 &nbsp;
 
