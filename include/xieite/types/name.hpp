@@ -18,6 +18,7 @@ namespace XIEITE_DETAIL_NAMESPACE {
 }
 
 #	elif XIEITE_COMPILER_TYPE_LLVM
+#		include "../containers/make_array.hpp"
 #		include "../strings/between.hpp"
 
 namespace XIEITE_DETAIL_NAMESPACE {
@@ -29,6 +30,7 @@ namespace XIEITE_DETAIL_NAMESPACE {
 }
 
 #	elif XIEITE_COMPILER_TYPE_MSVC
+#		include "../containers/make_array.hpp"
 #		include "../strings/after.hpp"
 #		include "../strings/between.hpp"
 

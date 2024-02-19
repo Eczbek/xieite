@@ -4,7 +4,7 @@ Defined in header [<xieite/algorithms/group.hpp>](../../../include/xieite/algori
 &nbsp;
 
 ## Description
-Groups elements of a `std::vector` into a `std::unordered_map`, of which the keys' type depends on the return type of the callback provided.
+Groups elements of a range into a `std::unordered_map` of `std::vector`s of iterators, of which the keys' type depends on the return type of the callback provided.
 
 &nbsp;
 
@@ -12,13 +12,13 @@ Groups elements of a `std::vector` into a `std::unordered_map`, of which the key
 #### 1)
 ```cpp
 template<std::ranges::range Range, std::invocable<std::ranges::range_reference_t<Range>> Functor>
-[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor(std::ranges::range_reference_t<Range>)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Functor& callback)
+[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor, std::ranges::range_reference_t<Range>>, std::vector<std::ranges::const_iterator_t<Range>>> group(Range&& range, Functor&& callback)
 noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>);
 ```
 #### 2)
 ```cpp
 template<std::ranges::range Range, std::invocable<std::ranges::range_reference_t<Range>, std::size_t> Functor>
-[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor(std::ranges::range_reference_t<Range>, std::size_t)>, std::vector<std::ranges::range_value_t<Range>>> group(const Range& range, const Functor& callback)
+[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor, std::ranges::range_reference_t<Range>, std::size_t>, std::vector<std::ranges::const_iterator_t<Range>>> group(Range&& range, Functor&& callback)
 noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::size_t>);
 ```
 
@@ -38,15 +38,15 @@ int main() {
         return value % 2;
     };
 
-    std::unordered_map<bool, std::vector<int>> groups = xieite::algorithms::group(values, callback);
+    auto groups = xieite::algorithms::group(values, callback);
 
     std::cout << "true: ";
-    for (int value : groups[true]) {
-        std::cout << value << ' ';
+    for (auto iterator : groups[true]) {
+        std::cout << *iterator << ' ';
     }
     std::cout << "\nfalse: ";
-    for (int value : groups[false]) {
-        std::cout << value << ' ';
+    for (auto iterator : groups[false]) {
+        std::cout << *iterator << ' ';
     }
     std::cout << '\n';
 }
