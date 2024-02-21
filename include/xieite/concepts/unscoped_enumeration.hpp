@@ -6,7 +6,7 @@
 
 namespace xieite::concepts {
 	template<typename Type>
-	concept UnscopedEnumeration = std::is_enum_v<Type> && std::convertible_to<Type, std::underlying_type_t<Type>>;
+	concept UnscopedEnumeration = std::is_enum_v<std::remove_cv_t<Type>> && std::convertible_to<std::remove_cv_t<Type>, std::underlying_type_t<Type>>;
 }
 
 #endif

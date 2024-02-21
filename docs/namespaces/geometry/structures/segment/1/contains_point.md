@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Segment](../../../segment.md)\:\:containsPoint
-Defined in header [<xieite/geometry/segment.hpp>](../../../../../../include/xieite/geometry/segment.hpp)
+Defined in header [<xieite/geometry/segment.hpp"](../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Checks whether this segment contains a point.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/segment.hpp>
+#include "xieite/geometry/segment.hpp"
 
 int main() {
     std::cout

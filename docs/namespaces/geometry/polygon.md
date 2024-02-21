@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Polygon
-Defined in header [<xieite/geometry/polygon.hpp>](../../../include/xieite/geometry/polygon.hpp)
+Defined in header [<xieite/geometry/polygon.hpp"](../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
@@ -43,7 +43,7 @@ struct Polygon {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/polygon.hpp>
+#include "xieite/geometry/polygon.hpp"
 
 int main() {
     std::cout

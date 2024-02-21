@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[graphics](../../../../../../graphics.md)\:\:[Color](../../../../color.md)\:\:operator==
-Defined in header [<xieite/graphics/color.hpp>](../../../../../../../include/xieite/graphics/color.hpp)
+Defined in header [<xieite/graphics/color.hpp"](../../../../../../../include/xieite/graphics/color.hpp)
 
 &nbsp;
 

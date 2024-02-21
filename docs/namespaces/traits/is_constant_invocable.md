@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsConstantInvocable
-Defined in header [<xieite/traits/is_constant_invocable.hpp>](../../../include/xieite/traits/is_constant_invocable.hpp)
+Defined in header [<xieite/traits/is_constant_invocable.hpp"](../../../include/xieite/traits/is_constant_invocable.hpp)
 
 &nbsp;
 

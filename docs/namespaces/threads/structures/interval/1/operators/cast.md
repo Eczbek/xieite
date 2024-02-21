@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Interval](../../../../interval.md)\:\:operator typename
-Defined in header [<xieite/threads/interval.hpp>](../../../../../../../include/xieite/threads/interval.hpp)
+Defined in header [<xieite/threads/interval.hpp"](../../../../../../../include/xieite/threads/interval.hpp)
 
 &nbsp;
 

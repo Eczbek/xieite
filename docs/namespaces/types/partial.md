@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Partial
-Defined in header [<xieite/types/partial.hpp>](../../../include/xieite/types/partial.hpp)
+Defined in header [<xieite/types/partial.hpp"](../../../include/xieite/types/partial.hpp)
 
 &nbsp;
 

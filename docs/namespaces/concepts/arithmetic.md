@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Arithmetic
-Defined in header [<xieite/concepts/arithmetic.hpp>](../../../include/xieite/concepts/arithmetic.hpp)
+Defined in header [<xieite/concepts/arithmetic.hpp"](../../../include/xieite/concepts/arithmetic.hpp)
 
 &nbsp;
 
@@ -19,18 +19,17 @@ concept Arithmetic = std::is_arithmetic_v<Type>;
 
 ## Example
 ```cpp
-#include <iostream>
-#include <xieite/concepts/arithmetic.hpp>
+#include <print>
+#include "xieite/concepts/arithmetic.hpp"
 
-template<xieite::concepts::Arithmetic N>
-N add(N a, N b) {
+template<xieite::concepts::Arithmetic Number>
+Number add(Number a, Number b) {
     return a + b;
 }
 
 int main() {
-    std::cout
-        << add(2, 3) << '\n'
-        << add(5.1, 4.6) << '\n';
+    std::println("{}", add(2, 3));
+    std::println("{}", add(5.1, 4.6));
 }
 ```
 Output:

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:whitespaces
-Defined in header [<xieite/strings/whitespaces.hpp>](../../../include/xieite/strings/whitespaces.hpp)
+Defined in header [<xieite/strings/whitespaces.hpp"](../../../include/xieite/strings/whitespaces.hpp)
 
 &nbsp;
 

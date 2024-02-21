@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator--
-Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
+Defined in header [<xieite/math/big_integer.hpp"](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
@@ -18,7 +18,7 @@ constexpr xieite::math::BigInteger<Word>& operator--(int) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/big_integer.hpp>
+#include "xieite/math/big_integer.hpp"
 
 int main() {
     xieite::math::BigInteger<Word> bigInteger = 7;

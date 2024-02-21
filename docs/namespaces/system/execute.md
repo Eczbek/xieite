@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:execute
-Defined in header [<xieite/system/execute.hpp>](../../../include/xieite/system/execute.hpp)
+Defined in header [<xieite/system/execute.hpp"](../../../include/xieite/system/execute.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ inline std::string execute(std::string_view command) noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/system/execute.hpp>
+#include "xieite/system/execute.hpp"
 
 int main() {
     std::cout << xieite::system::execute("echo Hello, world!");

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:absolute
-Defined in header [<xieite/math/absolute.hpp>](../../../include/xieite/math/absolute.hpp)
+Defined in header [<xieite/math/absolute.hpp"](../../../include/xieite/math/absolute.hpp)
 
 &nbsp;
 
@@ -26,7 +26,7 @@ template<std::floating_point FloatingPoint>
 ```cpp
 #include <cstdint>
 #include <iostream>
-#include <xieite/math/absolute.hpp>
+#include "xieite/math/absolute.hpp"
 
 int main() {
     std::int16_t value = -32768;

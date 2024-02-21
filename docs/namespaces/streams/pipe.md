@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Pipe
-Defined in header [<xieite/streams/pipe.hpp>](../../../include/xieite/streams/pipe.hpp)
+Defined in header [<xieite/streams/pipe.hpp"](../../../include/xieite/streams/pipe.hpp)
 
 &nbsp;
 

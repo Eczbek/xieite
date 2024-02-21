@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[metadata](../../metadata.md)\:\:Version
-Defined in header [<xieite/metadata/version.hpp>](../../../include/xieite/metadata/version.hpp)
+Defined in header [<xieite/metadata/version.hpp"](../../../include/xieite/metadata/version.hpp)
 
 &nbsp;
 
@@ -42,7 +42,7 @@ struct Version {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/metadata/version.hpp>
+#include "xieite/metadata/version.hpp"
 
 int main() {
     std::cout << xieite::metadata::Version(1, 43, 998, "alpha").string() << '\n';

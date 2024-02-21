@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:StreamableOut
-Defined in header [<xieite/concepts/streamable_out.hpp>](../../../include/xieite/concepts/streamable_out.hpp)
+Defined in header [<xieite/concepts/streamable_out.hpp"](../../../include/xieite/concepts/streamable_out.hpp)
 
 &nbsp;
 
@@ -21,16 +21,14 @@ concept StreamableOut = requires(Type value, std::ostream outputStream) {
 
 ## Example
 ```cpp
-#include <iostream>
-#include <xieite/concepts/streamable_out.hpp>
+#include <print>
+#include "xieite/concepts/streamable_out.hpp"
 
-struct Unstreamable {};
+struct Nope {};
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << xieite::concepts::StreamableOut<char> << '\n'
-        << xieite::concepts::StreamableOut<Unstreamable> << '\n';
+    std::println("{}", xieite::concepts::StreamableOut<char>);
+    std::println("{}", xieite::concepts::StreamableOut<Nope>);
 }
 ```
 Output:

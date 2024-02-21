@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNot
-Defined in header [<xieite/traits/is_not.hpp>](../../../include/xieite/traits/is_not.hpp)
+Defined in header [<xieite/traits/is_not.hpp"](../../../include/xieite/traits/is_not.hpp)
 
 &nbsp;
 

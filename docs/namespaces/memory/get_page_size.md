@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:getPageSize
-Defined in header [<xieite/memory/get_page_size.hpp>](../../../include/xieite/memory/get_page_size.hpp)
+Defined in header [<xieite/memory/get_page_size.hpp"](../../../include/xieite/memory/get_page_size.hpp)
 
 &nbsp;
 
@@ -14,7 +14,7 @@ Defined in header [<xieite/memory/get_page_size.hpp>](../../../include/xieite/me
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/memory/get_page_size.hpp>
+#include "xieite/memory/get_page_size.hpp"
 
 int main() {
     std::cout << xieite::memory::getPageSize() << '\n';

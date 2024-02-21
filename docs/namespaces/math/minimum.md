@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:minimum
-Defined in header [<xieite/math/minimum.hpp>](../../../include/xieite/math/minimum.hpp)
+Defined in header [<xieite/math/minimum.hpp"](../../../include/xieite/math/minimum.hpp)
 
 &nbsp;
 
@@ -21,7 +21,7 @@ requires(sizeof...(Numbers) > 0)
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/minimum.hpp>
+#include "xieite/math/minimum.hpp"
 
 int main() {
     std::cout << xieite::math::minimum(1, 3, 2, 4, 5) << '\n';

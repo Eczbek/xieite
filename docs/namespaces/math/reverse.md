@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:reverse
-Defined in header [<xieite/math/reverse.hpp>](../../../include/xieite/math/reverse.hpp)
+Defined in header [<xieite/math/reverse.hpp"](../../../include/xieite/math/reverse.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ template<std::integral Integer>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/reverse.hpp>
+#include "xieite/math/reverse.hpp"
 
 int main() {
     std::cout << xieite::math::reverse(12345) << '\n';

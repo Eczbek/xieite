@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Interval
-Defined in header [<xieite/threads/interval.hpp>](../../../include/xieite/threads/interval.hpp)
+Defined in header [<xieite/threads/interval.hpp"](../../../include/xieite/threads/interval.hpp)
 
 &nbsp;
 
@@ -32,7 +32,7 @@ struct Interval {
 #include <chrono>
 #include <iostream>
 #include <thread>
-#include <xieite/threads/interval.hpp>
+#include "xieite/threads/interval.hpp"
 
 int main() {
     xieite::threads::Interval interval([] {

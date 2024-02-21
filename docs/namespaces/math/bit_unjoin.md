@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:bitUnjoin
-Defined in header [<xieite/math/bit_unjoin.hpp>](../../../include/xieite/math/bit_unjoin.hpp)
+Defined in header [<xieite/math/bit_unjoin.hpp"](../../../include/xieite/math/bit_unjoin.hpp)
 
 &nbsp;
 
@@ -28,7 +28,7 @@ template<std::integral Integer, std::size_t size>
 #include <cstdint>
 #include <iostream>
 #include <tuple>
-#include <xieite/math/bit_unjoin.hpp>
+#include "xieite/math/bit_unjoin.hpp"
 
 int main() {
     std::bitset<24> foo = 0b000001010000000011000111;

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_PLATFORM\_...
-Defined in header [<xieite/macros/platform.hpp>](../../../include/xieite/macros/platform.hpp)
+Defined in header [<xieite/macros/platform.hpp"](../../../include/xieite/macros/platform.hpp)
 
 &nbsp;
 
@@ -11,7 +11,7 @@ Macros for identifying the current platform or operating system. See header file
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/macros/platform.hpp>
+#include "xieite/macros/platform.hpp"
 
 int main() {
 #if XIEITE_PLATFORM_WINDOWS

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FixedMatrix
-Defined in header [<xieite/types/fixed_matrix.hpp>](../../../include/xieite/types/fixed_matrix.hpp)
+Defined in header [<xieite/types/fixed_matrix.hpp"](../../../include/xieite/types/fixed_matrix.hpp)
 
 &nbsp;
 
@@ -48,7 +48,7 @@ struct FixedMatrix<FixedContainer, Value> {
 ```cpp
 #include <array>
 #include <iostream>
-#include <xieite/types/dynamic_matrix.hpp>
+#include "xieite/types/dynamic_matrix.hpp"
 
 int main() {
     std::cout

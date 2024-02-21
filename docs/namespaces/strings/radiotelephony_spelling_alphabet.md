@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:radiotelephonySpellingAlphabet
-Defined in header [<xieite/strings/radiotelephony_spelling_alphabet.hpp>](../../../include/xieite/strings/radiotelephony_spelling_alphabet.hpp)
+Defined in header [<xieite/strings/radiotelephony_spelling_alphabet.hpp"](../../../include/xieite/strings/radiotelephony_spelling_alphabet.hpp)
 
 &nbsp;
 
@@ -71,7 +71,7 @@ inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>
 ```cpp
 #include <iostream>
 #include <string>
-#include <xieite/strings/radiotelephony_spelling_alphabet.hpp>
+#include "xieite/strings/radiotelephony_spelling_alphabet.hpp"
 
 int main() {
     for (char character : std::string("Hello, world!")) {

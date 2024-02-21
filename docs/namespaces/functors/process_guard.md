@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:ProcessGuard
-Defined in header [<xieite/functors/process_guard.hpp>](../../../include/xieite/functors/process_guard.hpp)
+Defined in header [<xieite/functors/process_guard.hpp"](../../../include/xieite/functors/process_guard.hpp)
 
 &nbsp;
 
@@ -27,7 +27,7 @@ struct ProcessGuard {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/functors/process_guard.hpp>
+#include "xieite/functors/process_guard.hpp"
 
 void foo() {
     xieite::functors::ProcessGuard guard([] {

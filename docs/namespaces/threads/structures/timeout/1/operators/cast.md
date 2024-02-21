@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Timeout](../../../../timeout.md)\:\:operator typename
-Defined in header [<xieite/threads/timeout.hpp>](../../../../../../../include/xieite/threads/timeout.hpp)
+Defined in header [<xieite/threads/timeout.hpp"](../../../../../../../include/xieite/threads/timeout.hpp)
 
 &nbsp;
 

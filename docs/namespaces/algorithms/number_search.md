@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:numberSearch
-Defined in header [<xieite/algorithms/number_search.hpp>](../../../include/xieite/algorithms/number_search.hpp)
+Defined in header [<xieite/algorithms/number_search.hpp"](../../../include/xieite/algorithms/number_search.hpp)
 
 &nbsp;
 
@@ -26,17 +26,17 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, Number>);
 
 ## Example
 ```cpp
-#include <iostream>
-#include <xieite/algorithms/number_search.hpp>
+#include <print>
+#include "xieite/algorithms/number_search.hpp"
 
 bool checkCollision(double x) {
     return x < 10;
 }
 
 int main() {
-    std::cout << xieite::algorithms::numberSearch([](double x) {
+    std::println("{}", xieite::algorithms::numberSearch([](double x) {
         return !checkCollision(x);
-    }) << '\n';
+    }));;
 }
 ```
 Output:

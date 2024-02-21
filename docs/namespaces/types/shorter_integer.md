@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:ShorterInteger
-Defined in header [<xieite/types/shorter_integer.hpp>](../../../include/xieite/types/shorter_integer.hpp)
+Defined in header [<xieite/types/shorter_integer.hpp"](../../../include/xieite/types/shorter_integer.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsHasher
-Defined in header [<xieite/traits/is_hasher.hpp>](../../../include/xieite/traits/is_hasher.hpp)
+Defined in header [<xieite/traits/is_hasher.hpp"](../../../include/xieite/traits/is_hasher.hpp)
 
 &nbsp;
 

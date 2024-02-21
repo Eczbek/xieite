@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsInputStream
-Defined in header [<xieite/traits/is_input_stream.hpp>](../../../include/xieite/traits/is_input_stream.hpp)
+Defined in header [<xieite/traits/is_input_stream.hpp"](../../../include/xieite/traits/is_input_stream.hpp)
 
 &nbsp;
 

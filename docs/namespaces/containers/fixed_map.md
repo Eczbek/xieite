@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedMap
-Defined in header [<xieite/containers/fixed_map.hpp>](../../../include/xieite/containers/fixed_map.hpp)
+Defined in header [<xieite/containers/fixed_map.hpp"](../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
 
@@ -50,9 +50,9 @@ struct FixedMap {
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <utility>
-#include <xieite/containers/fixed_map.hpp>
+#include "xieite/containers/fixed_map.hpp"
 
 int main() {
     constexpr xieite::containers::FixedMap<std::string_view, int, 4> map {
@@ -63,7 +63,7 @@ int main() {
     };
 
     for (std::pair<std::string_view, int> entry : map) {
-        std::cout << entry.first << ": " << entry.second << '\n';
+        std::println("{}: {}", entry.first, entry.second);
     }
 }
 ```

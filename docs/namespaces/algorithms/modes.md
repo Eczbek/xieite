@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:modes
-Defined in header [<xieite/algorithms/modes.hpp>](../../../include/xieite/algorithms/modes.hpp)
+Defined in header [<xieite/algorithms/modes.hpp"](../../../include/xieite/algorithms/modes.hpp)
 
 &nbsp;
 
@@ -21,15 +21,15 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_re
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <vector>
-#include <xieite/algorithms/nodes.hpp>
+#include "xieite/algorithms/nodes.hpp"
 
 int main() {
     std::vector<int> data { 1, 3, 2, 4, 5 };
 
     for (const auto iterator : xieite::algorithms::modes(data)) {
-        std::cout << *iterator << '\n';
+        std::println("{}", *iterator);
     }
 }
 ```

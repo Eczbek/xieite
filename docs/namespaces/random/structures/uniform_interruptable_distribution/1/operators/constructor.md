@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[random](../../../../../../random.md)\:\:[UniformInterruptableDistribution<Number>](../../../../uniform_interruptable_distribution.md)\:\:UniformInterruptableDistribution
-Defined in header [<xieite/random/uniform_interruptable_distribution.hpp>](../../../../../../../include/xieite/random/uniform_interruptable_distribution.hpp)
+Defined in header [<xieite/random/uniform_interruptable_distribution.hpp"](../../../../../../../include/xieite/random/uniform_interruptable_distribution.hpp)
 
 &nbsp;
 

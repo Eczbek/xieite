@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:truncate
-Defined in header [<xieite/strings/truncate.hpp>](../../../include/xieite/strings/truncate.hpp)
+Defined in header [<xieite/strings/truncate.hpp"](../../../include/xieite/strings/truncate.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Shortens the end of a string, replacing it with a suffix.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/truncate.hpp>
+#include "xieite/strings/truncate.hpp"
 
 int main() {
     std::cout << xieite::strings::truncate("Hello, world!", 8, "...") << '\n';

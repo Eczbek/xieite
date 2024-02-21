@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:parseNumber
-Defined in header [<xieite/strings/parse_number.hpp>](../../../include/xieite/strings/parse_number.hpp)
+Defined in header [<xieite/strings/parse_number.hpp"](../../../include/xieite/strings/parse_number.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ template<xieite::concepts::Arithmetic Number>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/parse_number.hpp>
+#include "xieite/strings/parse_number.hpp"
 
 int main() {
     std::cout

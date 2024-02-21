@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:size
-Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
+Defined in header [<xieite/types/list.hpp"](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
 
@@ -18,7 +18,7 @@ static constexpr std::size_t size = sizeof...(Types);
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/types/list.hpp>
+#include "xieite/types/list.hpp"
 
 int main() {
     std::size_t size = xieite::types::List<int, char, short, long>::size;

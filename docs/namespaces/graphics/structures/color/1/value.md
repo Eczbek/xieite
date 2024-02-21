@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[graphics](../../../../../graphics.md)\:\:[Color](../../../color.md)\:\:value
-Defined in header [<xieite/graphics/color.hpp>](../../../../../../include/xieite/graphics/color.hpp)
+Defined in header [<xieite/graphics/color.hpp"](../../../../../../include/xieite/graphics/color.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Shifts and adds RGBA values together to create a single value.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/graphics/color.hpp>
+#include "xieite/graphics/color.hpp"
 
 int main() {
     xieite::graphics::Color color(255, 127, 0);

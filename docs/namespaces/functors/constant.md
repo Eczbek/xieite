@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Constant
-Defined in header [<xieite/functors/constant.hpp>](../../../include/xieite/functors/constant.hpp)
+Defined in header [<xieite/functors/constant.hpp"](../../../include/xieite/functors/constant.hpp)
 
 &nbsp;
 
@@ -29,16 +29,15 @@ struct Constant {
 ```cpp
 #include <iostream>
 #include <random>
-#include <xieite/functors/constant.hpp>
+#include "xieite/functors/constant.hpp"
 
 int main() {
-	const auto generator = xieite::functors::Constant<std::mt19937>(std::random_device()());
-	const auto distribution = xieite::functors::Constant<std::uniform_int_distribution<int>>(0, 10);
+    const auto generator = xieite::functors::Constant<std::mt19937>(std::random_device()());
+    const auto distribution = xieite::functors::Constant<std::uniform_int_distribution<int>>(0, 10);
 
-	std::cout << distribution()(generator()) << '\n';
+    std::cout << distribution()(generator()) << '\n';
 }
 Output:
 ```
-foo
-bar
+
 ```

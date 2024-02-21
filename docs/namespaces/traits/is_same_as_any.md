@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsSameAsAny
-Defined in header [<xieite/traits/is_same_as_any.hpp>](../../../include/xieite/traits/is_same_as_any.hpp)
+Defined in header [<xieite/traits/is_same_as_any.hpp"](../../../include/xieite/traits/is_same_as_any.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:multiply
-Defined in header [<xieite/math/multiply.hpp>](../../../include/xieite/math/multiply.hpp)
+Defined in header [<xieite/math/multiply.hpp"](../../../include/xieite/math/multiply.hpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ template<std::unsigned_integral UnsignedInteger>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/product.hpp>
-#include <xieite/math/multiply.hpp>
+#include "xieite/math/product.hpp"
+#include "xieite/math/multiply.hpp"
 
 int main() {
     std::uint8_t x = 255;

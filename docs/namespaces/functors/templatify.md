@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:templatify
-Defined in header [<xieite/functors/templatify.hpp>](../../../include/xieite/functors/templatify.hpp)
+Defined in header [<xieite/functors/templatify.hpp"](../../../include/xieite/functors/templatify.hpp)
 
 &nbsp;
 
@@ -21,7 +21,7 @@ constexpr void templatify(std::uint8_t value) noexcept;
 ```cpp
 #include <cstdint>
 #include <iostream>
-#include <xieite/functors/templatify.hpp>
+#include "xieite/functors/templatify.hpp"
 
 template<std::uint8_t value>
 struct Functor {

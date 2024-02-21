@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_PACKED
-Defined in header [<xieite/macros/packed.hpp>](../../../include/xieite/macros/packed.hpp)
+Defined in header [<xieite/macros/packed.hpp"](../../../include/xieite/macros/packed.hpp)
 
 &nbsp;
 
@@ -11,7 +11,7 @@ See header file for definitions.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/macros/packed.hpp>
+#include "xieite/macros/packed.hpp"
 
 struct Foo {
 	int a;

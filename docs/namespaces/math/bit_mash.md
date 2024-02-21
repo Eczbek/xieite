@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:bitMash
-Defined in header [<xieite/math/bit_mash.hpp>](../../../include/xieite/math/bit_mash.hpp)
+Defined in header [<xieite/math/bit_mash.hpp"](../../../include/xieite/math/bit_mash.hpp)
 
 &nbsp;
 
@@ -26,7 +26,7 @@ template<std::size_t... sizes, std::integral Integer>
 ```cpp
 #include <cstdint>
 #include <iostream>
-#include <xieite/math/bit_mash.hpp>
+#include "xieite/math/bit_mash.hpp"
 
 int main() {
     std::uint8_t foo = 0b101;

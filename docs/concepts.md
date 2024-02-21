@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-A collection of commonly and uncommonly used concepts, expanding on the standard library.
+A collection of commonly and uncommonly-used concepts, expanding on the standard library.
 
 &nbsp;
 
@@ -12,11 +12,10 @@ A collection of commonly and uncommonly used concepts, expanding on the standard
 - [All](./namespaces/concepts/all.md)
 - [Any](./namespaces/concepts/any.md)
 - [Arithmetic](./namespaces/concepts/arithmetic.md)
-- [BigInteger](./namespaces/concepts/big_integer.md)
 - [BitsetReference](./namespaces/concepts/bitset_reference.md)
 - [Character](./namespaces/concepts/character.md)
-- [CompileTimeInvocable](./namespaces/concepts/compile_time_evaluable.md)
 - [Constant](./namespaces/concepts/constant.md)
+- [ConstantExpressionInvocable](./namespaces/concepts/constant_expression_invocable.md)
 - [ConstantInvocable](./namespaces/concepts/constant_invocable.md)
 - [ConvertibleToAll](./namespaces/concepts/convertible_to_all.md)
 - [ConvertibleToAny](./namespaces/concepts/convertible_to_any.md)
@@ -36,7 +35,8 @@ A collection of commonly and uncommonly used concepts, expanding on the standard
 - [NoThrowConvertibleToAll](./namespaces/concepts/no_throw_convertible_to_all.md)
 - [NoThrowConvertibleToAny](./namespaces/concepts/no_throw_convertible_to_any.md)
 - [NoThrowInvocable](./namespaces/concepts/no_throw_invocable.md)
-- [Not](./namespaces/concepts/not.md)
+- [None](./namespaces/concepts/none.md)
+- [NotAll](./namespaces/concepts/not_all.md)
 - [Numeric](./namespaces/concepts/numeric.md)
 - [OrdinaryCharacter](./namespaces/concepts/ordinary_character.md)
 - [OutputStream](./namespaces/concepts/output_stream.md)

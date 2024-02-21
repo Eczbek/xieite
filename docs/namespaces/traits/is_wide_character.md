@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsWideCharacter
-Defined in header [<xieite/traits/is_wide_character.hpp>](../../../include/xieite/traits/is_wide_character.hpp)
+Defined in header [<xieite/traits/is_wide_character.hpp"](../../../include/xieite/traits/is_wide_character.hpp)
 
 &nbsp;
 

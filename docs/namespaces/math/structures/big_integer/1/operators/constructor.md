@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:BigInteger
-Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
+Defined in header [<xieite/math/big_integer.hpp"](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
@@ -34,7 +34,7 @@ constexpr BigInteger(std::string_view value, std::make_signed_t<std::size_t> rad
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/big_integer.hpp>
+#include "xieite/math/big_integer.hpp"
 
 int main() {
     std::cout << xieite::math::BigInteger(418).string() << '\n';

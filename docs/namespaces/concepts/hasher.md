@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Hasher
-Defined in header [<xieite/concepts/hasher.hpp>](../../../include/xieite/concepts/hasher.hpp)
+Defined in header [<xieite/concepts/hasher.hpp"](../../../include/xieite/concepts/hasher.hpp)
 
 &nbsp;
 
@@ -11,8 +11,30 @@ Specifies that a type is a functor for hashing values.
 ## Synopses
 #### 1)
 ```cpp
-template<typename Type, typename Argument>
-concept Hasher = requires(Type hasher, Argument value) {
+template<template<typename> typename Template, typename Argument>
+concept Hasher = requires(Template<Argument> hasher, Argument value) {
     { std::invoke(hasher, value) } -> std::convertible_to<std::size_t>;
 };
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <functional>
+#include <print>
+#include "xieite/concepts/hasher.hpp"
+
+template<typename>
+struct Nope {};
+
+int main() {
+    std::println("{}", xieite::concepts::Hasher<std::hash, int>);
+    std::println("{}", xieite::concepts::Hasher<Nope, int>);
+}
+```
+Output:
+```
+true
+false
 ```

@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray](../../../ray.md)\:\:slope
-Defined in header [<xieite/geometry/ray.hpp>](../../../../../../include/xieite/geometry/ray.hpp)
+Defined in header [<xieite/geometry/ray.hpp"](../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Computes the slope of this ray.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/ray.hpp>
+#include "xieite/geometry/ray.hpp"
 
 int main() {
     std::cout << xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }).slope() << '\n';

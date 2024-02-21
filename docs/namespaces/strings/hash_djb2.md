@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:hashDjb2
-Defined in header [<xieite/strings/hash_djb2.hpp>](../../../include/xieite/strings/hash_djb2.hpp)
+Defined in header [<xieite/strings/hash_djb2.hpp"](../../../include/xieite/strings/hash_djb2.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Generates a djb2 hash.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/hash_djb2.hpp>
+#include "xieite/strings/hash_djb2.hpp"
 
 int main() {
     switch (xieite::strings::hashDjb2("banana")) {

@@ -11,5 +11,3 @@ namespace xieite::concepts {
 }
 
 #endif
-
-// https://eel.is/c++draft/basic.fundamental#11

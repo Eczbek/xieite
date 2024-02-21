@@ -1,6 +1,7 @@
 #ifndef XIEITE_HEADER_CONCEPTS_WIDE_CHARACTER
 #	define XIEITE_HEADER_CONCEPTS_WIDE_CHARACTER
 
+#	include <type_traits>
 #	include "../concepts/same_as_any.hpp"
 
 namespace xieite::concepts {
@@ -9,5 +10,3 @@ namespace xieite::concepts {
 }
 
 #endif
-
-// https://eel.is/c++draft/basic.fundamental#8

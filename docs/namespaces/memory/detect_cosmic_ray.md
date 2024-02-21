@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:detectCosmicRay
-Defined in header [<xieite/memory/detect_cosmic_ray.hpp>](../../../include/xieite/memory/detect_cosmic_ray.hpp)
+Defined in header [<xieite/memory/detect_cosmic_ray.hpp"](../../../include/xieite/memory/detect_cosmic_ray.hpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ void detectCosmicRay(std::size_t bytes = xieite::memory::getPageSize()) noexcept
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/memory/detect_cosmic_ray.hpp>
-#include <xieite/memory/get_available.hpp>
+#include "xieite/memory/detect_cosmic_ray.hpp"
+#include "xieite/memory/get_available.hpp"
 
 int main() {
     xieite::memory::detectCosmicRay(xieite::memory::getAvailable());

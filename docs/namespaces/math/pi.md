@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:pi
-Defined in header [<xieite/math/pi.hpp>](../../../include/xieite/math/pi.hpp)
+Defined in header [<xieite/math/pi.hpp"](../../../include/xieite/math/pi.hpp)
 
 &nbsp;
 
@@ -30,7 +30,7 @@ inline constexpr Integer pi<Integer> = static_cast<Integer>(std::numbers::pi);
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/pi.hpp>
+#include "xieite/math/pi.hpp"
 
 int main() {
     std::cout

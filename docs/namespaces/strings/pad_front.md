@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:padFront
-Defined in header [<xieite/strings/pad_front.hpp>](../../../include/xieite/strings/pad_front.hpp)
+Defined in header [<xieite/strings/pad_front.hpp"](../../../include/xieite/strings/pad_front.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Pads the front of a string.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/pad_front.hpp>
+#include "xieite/strings/pad_front.hpp"
 
 int main() {
     std::cout << xieite::strings::padFront("418", 7, '0') << '\n';

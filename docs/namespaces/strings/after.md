@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:after
-Defined in header [<xieite/strings/after.hpp>](../../../include/xieite/strings/after.hpp)
+Defined in header [<xieite/strings/after.hpp"](../../../include/xieite/strings/after.hpp)
 
 &nbsp;
 
@@ -23,7 +23,7 @@ Takes the rest of a string after some substring.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/after.hpp>
+#include "xieite/strings/after.hpp"
 
 int main() {
     std::cout << xieite::strings::after("Hello, world!", ' ') << '\n';

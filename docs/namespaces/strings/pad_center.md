@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:padCenter
-Defined in header [<xieite/strings/pad_center.hpp>](../../../include/xieite/strings/pad_center.hpp)
+Defined in header [<xieite/strings/pad_center.hpp"](../../../include/xieite/strings/pad_center.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Pads a string from both sides.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/pad_center.hpp>
+#include "xieite/strings/pad_center.hpp"
 
 int main() {
     for (int i = 3; i < 10; ++i) {

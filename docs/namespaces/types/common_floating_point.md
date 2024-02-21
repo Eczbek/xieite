@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:CommonFloatingPoint
-Defined in header [<xieite/types/common_floating_point.hpp>](../../../include/xieite/types/common_floating_point.hpp)
+Defined in header [<xieite/types/common_floating_point.hpp"](../../../include/xieite/types/common_floating_point.hpp)
 
 &nbsp;
 

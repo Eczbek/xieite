@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:alternatingBits
-Defined in header [<xieite/math/alternating_bits.hpp>](../../../include/xieite/math/alternating_bits.hpp)
+Defined in header [<xieite/math/alternating_bits.hpp"](../../../include/xieite/math/alternating_bits.hpp)
 
 &nbsp;
 
@@ -17,7 +17,7 @@ inline constexpr Integer alternatingBits = std::numeric_limits<Integer>::max() /
 #include <bitset>
 #include <cstdint>
 #include <iostream>
-#include <xieite/math/alternating_bits.hpp>
+#include "xieite/math/alternating_bits.hpp"
 
 int main() {
     std::bitset<32> bits = xieite::math::alternatingBits<std::uint32_t>;

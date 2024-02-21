@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_STRINGIFY
-Defined in header [<xieite/macros/stringify.hpp>](../../../include/xieite/macros/stringify.hpp)
+Defined in header [<xieite/macros/stringify.hpp"](../../../include/xieite/macros/stringify.hpp)
 
 &nbsp;
 
@@ -18,7 +18,7 @@ Converts expressions to a string literally.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/macros/stringify.hpp>
+#include "xieite/macros/stringify.hpp"
 
 int main() {
     std::cout << XIEITE_STRINGIFY(2 + 2) << '\n';

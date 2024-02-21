@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:byteBits
-Defined in header [<xieite/system/byte_bits.hpp>](../../../include/xieite/system/byte_bits.hpp)
+Defined in header [<xieite/system/byte_bits.hpp"](../../../include/xieite/system/byte_bits.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ inline constexpr std::size_t byteBits = std::numeric_limits<unsigned char>::digi
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/system/byte_bits.hpp>
+#include "xieite/system/byte_bits.hpp"
 
 int main() {
     std::cout << xieite::system::byteBits << '\n';

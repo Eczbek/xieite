@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivable
-Defined in header [<xieite/traits/is_derivable.hpp>](../../../include/xieite/traits/is_derivable.hpp)
+Defined in header [<xieite/traits/is_derivable.hpp"](../../../include/xieite/traits/is_derivable.hpp)
 
 &nbsp;
 

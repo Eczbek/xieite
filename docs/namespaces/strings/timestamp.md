@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:timestamp
-Defined in header [<xieite/strings/timestamp.hpp>](../../../include/xieite/strings/timestamp.hpp)
+Defined in header [<xieite/strings/timestamp.hpp"](../../../include/xieite/strings/timestamp.hpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ template<xieite::concepts::TemporalDuration Duration>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/metadata/compilation_timestamp.hpp>
-#include <xieite/strings/timestamp.hpp>
+#include "xieite/metadata/compilation_timestamp.hpp"
+#include "xieite/strings/timestamp.hpp"
 
 int main() {
     std::cout << xieite::strings::timestamp(xieite::metadata::compilationTimestamp) << '\n';

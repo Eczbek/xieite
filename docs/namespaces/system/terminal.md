@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:terminal
-Defined in header [<xieite/system/terminal.hpp>](../../../include/xieite/system/terminal.hpp)
+Defined in header [<xieite/system/terminal.hpp"](../../../include/xieite/system/terminal.hpp)
 
 &nbsp;
 

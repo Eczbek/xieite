@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivedFromAll
-Defined in header [<xieite/traits/is_derived_from_all.hpp>](../../../include/xieite/traits/is_derived_from_all.hpp)
+Defined in header [<xieite/traits/is_derived_from_all.hpp"](../../../include/xieite/traits/is_derived_from_all.hpp)
 
 &nbsp;
 

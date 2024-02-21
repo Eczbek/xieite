@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideFloor
-Defined in header [<xieite/math/divide_floor.hpp>](../../../include/xieite/math/divide_floor.hpp)
+Defined in header [<xieite/math/divide_floor.hpp"](../../../include/xieite/math/divide_floor.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ template<std::integral Integer>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/divide_floor.hpp>
+#include "xieite/math/divide_floor.hpp"
 
 int main() {
     std::cout << xieite::math::divideFloor(249, 16) << '\n';

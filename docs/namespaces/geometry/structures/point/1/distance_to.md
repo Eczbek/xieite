@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Point](../../../point.md)\:\:distanceTo
-Defined in header [<xieite/geometry/point.hpp>](../../../../../../include/xieite/geometry/point.hpp)
+Defined in header [<xieite/geometry/point.hpp"](../../../../../../include/xieite/geometry/point.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Computes the distance between this and another point.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/point.hpp>
+#include "xieite/geometry/point.hpp"
 
 int main() {
     std::cout << xieite::geometry::Point(0.0, 0.0).distanceTo({ 1.0, 1.0 }) << '\n';

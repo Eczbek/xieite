@@ -29,7 +29,7 @@ namespace xieite::threads {
 			if (!threadCount) {
 				throw std::invalid_argument("Cannot set thread pool size to zero");
 			}
-			const auto threadsLock = std::unique_lock<std::mutex>(this->mutex);
+			const auto _ = std::unique_lock<std::mutex>(this->mutex);
 			const std::size_t currentThreadCount = this->threads.size();
 			if (threadCount < currentThreadCount) {
 				this->threads.resize(threadCount);
@@ -55,7 +55,7 @@ namespace xieite::threads {
 		}
 
 		[[nodiscard]] std::size_t getThreadCount() noexcept {
-			const auto threadsLock = std::unique_lock<std::mutex>(this->mutex);
+			const auto _ = std::unique_lock<std::mutex>(this->mutex);
 			return this->threads.size();
 		}
 

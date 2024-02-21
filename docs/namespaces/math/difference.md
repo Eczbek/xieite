@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:difference
-Defined in header [<xieite/math/difference.hpp>](../../../include/xieite/math/difference.hpp)
+Defined in header [<xieite/math/difference.hpp"](../../../include/xieite/math/difference.hpp)
 
 &nbsp;
 
@@ -22,7 +22,7 @@ template<xieite::concepts::Arithmetic Number>
 #include <cstdint>
 #include <iostream>
 #include <limits>
-#include <xieite/math/difference.hpp>
+#include "xieite/math/difference.hpp"
 
 int main() {
     std::int8_t min = std::numeric_limits<std::int8_t>::min();

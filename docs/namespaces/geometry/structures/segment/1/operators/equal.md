@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment](../../../../segment.md)\:\:operator==
-Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
+Defined in header [<xieite/geometry/segment.hpp"](../../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
 
@@ -19,9 +19,9 @@ Compares two segments.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/ray.hpp>
-#include <xieite/geometry/point.hpp>
-#include <xieite/math/to_radians.hpp>
+#include "xieite/geometry/ray.hpp"
+#include "xieite/geometry/point.hpp"
+#include "xieite/math/to_radians.hpp"
 
 int main() {
     xieite::geometry::Segment segment1({ 0.0, 0.0 }, { 3.0, 4.0 });

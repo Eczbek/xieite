@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:ConvertibleToAny
-Defined in header [<xieite/concepts/convertible_to_any.hpp>](../../../include/xieite/concepts/convertible_to_any.hpp)
+Defined in header [<xieite/concepts/convertible_to_any.hpp"](../../../include/xieite/concepts/convertible_to_any.hpp)
 
 &nbsp;
 
 ## Description
-Specifies that a type can be converted to at least one of several other types.
+Specifies that a type can be converted to at least one of several other types. Passing no target types evaluates to `true`.
 
 &nbsp;
 
@@ -19,27 +19,28 @@ concept ConvertibleToAny = (... || std::convertible_to<Source, Targets>);
 
 ## Example
 ```cpp
-#include <iostream>
-#include <string>
-#include <xieite/concepts/convertible_to_any.hpp>
+#include <print>
+#include "xieite/concepts/convertible_to_any.hpp"
+
+struct Nope {};
 
 template<xieite::concepts::ConvertibleToAny<bool, char, int>>
 void test() {
-    std::cout << "foo\n";
+    std::println("yep");
 }
 
 template<typename>
 void test() {
-    std::cout << "bar\n";
+    std::println("nope");
 }
 
 int main() {
     test<char>();
-    test<std::string>();
+    test<Nope>();
 }
 ```
 Output:
 ```
-foo
-bar
+yep
+nope
 ```

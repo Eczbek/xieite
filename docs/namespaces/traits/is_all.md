@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsAll
-Defined in header [<xieite/traits/is_all.hpp>](../../../include/xieite/traits/is_all.hpp)
+Defined in header [<xieite/traits/is_all.hpp"](../../../include/xieite/traits/is_all.hpp)
 
 &nbsp;
 

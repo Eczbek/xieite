@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:validNumber
-Defined in header [<xieite/strings/valid_number.hpp>](../../../include/xieite/strings/valid_number.hpp)
+Defined in header [<xieite/strings/valid_number.hpp"](../../../include/xieite/strings/valid_number.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ template<xieite::concepts::Arithmetic Number>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/valid_number.hpp>
+#include "xieite/strings/valid_number.hpp"
 
 int main() {
     std::cout

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideDown
-Defined in header [<xieite/math/divide_down.hpp>](../../../include/xieite/math/divide_down.hpp)
+Defined in header [<xieite/math/divide_down.hpp"](../../../include/xieite/math/divide_down.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ template<std::integral Integer>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/divide_down.hpp>
+#include "xieite/math/divide_down.hpp"
 
 int main() {
     std::cout << xieite::math::divideDown(-249, 16) << '\n';

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:prime
-Defined in header [<xieite/math/prime.hpp>](../../../include/xieite/math/prime.hpp)
+Defined in header [<xieite/math/prime.hpp"](../../../include/xieite/math/prime.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ template<std::integral Integer>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/is_prime.hpp>
+#include "xieite/math/is_prime.hpp"
 
 int main() {
     std::cout

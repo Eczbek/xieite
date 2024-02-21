@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Line](../../../line.md)\:\:slope
-Defined in header [<xieite/geometry/line.hpp>](../../../../../../include/xieite/geometry/line.hpp)
+Defined in header [<xieite/geometry/line.hpp"](../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Computes the slope of this line.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/line.hpp>
+#include "xieite/geometry/line.hpp"
 
 int main() {
     std::cout << xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 }).slope() << '\n';

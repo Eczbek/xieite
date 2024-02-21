@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:any
-Defined in header [<xieite/algorithms/any.hpp>](../../../include/xieite/algorithms/any.hpp)
+Defined in header [<xieite/algorithms/any.hpp"](../../../include/xieite/algorithms/any.hpp)
 
 &nbsp;
 
 ## Description
-Checks whether at least one passed argument is true. Expects at least one argument to be converible to a boolean value.
+Checks whether at least one passed argument is true. Expects at least one argument to be converible to a boolean value. Passing no arguments evaluates to `true`.
 
 &nbsp;
 
@@ -26,13 +26,11 @@ noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<R
 
 ## Example
 ```cpp
-#include <iostream>
-#include <xieite/algorithms/any.hpp>
+#include <print>
+#include "xieite/algorithms/any.hpp"
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << xieite::algorithms::any(false, 0, '\0') << '\n';
+    std::println("{}", xieite::algorithms::any(false, 0, '\0'));
 }
 ```
 Output:

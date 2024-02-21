@@ -6,7 +6,7 @@
 
 namespace xieite::concepts {
 	template<typename Type>
-	concept UnsignedInteger = std::unsigned_integral<Type> && !std::same_as<std::remove_cvref_t<Type>, bool>;
+	concept UnsignedInteger = std::unsigned_integral<std::remove_cv_t<Type>> && !std::same_as<std::remove_cv_t<Type>, bool>;
 }
 
 #endif

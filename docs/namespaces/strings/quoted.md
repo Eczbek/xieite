@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:quoted
-Defined in header [<xieite/strings/quoted.hpp>](../../../include/xieite/strings/quoted.hpp)
+Defined in header [<xieite/strings/quoted.hpp"](../../../include/xieite/strings/quoted.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Replicates `std::quoted` but without streams and more constexpr.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/quoted.hpp>
+#include "xieite/strings/quoted.hpp"
 
 int main() {
     std::cout << xieite::strings::quoted("Something \"quoted\" and \\escaped") << '\n';

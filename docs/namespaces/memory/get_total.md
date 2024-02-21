@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:getTotal
-Defined in header [<xieite/memory/get_total.hpp>](../../../include/xieite/memory/get_total.hpp)
+Defined in header [<xieite/memory/get_total.hpp"](../../../include/xieite/memory/get_total.hpp)
 
 &nbsp;
 

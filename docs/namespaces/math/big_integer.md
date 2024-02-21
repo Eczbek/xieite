@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:BigInteger
-Defined in header [<xieite/math/big_integer.hpp>](../../../include/xieite/math/big_integer.hpp)
+Defined in header [<xieite/math/big_integer.hpp"](../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
@@ -223,7 +223,7 @@ struct BigInteger {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/big_integer.hpp>
+#include "xieite/math/big_integer.hpp"
 
 int main() {
     std::cout << xieite::math::BigInteger(99).power(99).string() << '\n';

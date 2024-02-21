@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:fibonacci
-Defined in header [<xieite/math/fibonacci.hpp>](../../../include/xieite/math/fibonacci.hpp)
+Defined in header [<xieite/math/fibonacci.hpp"](../../../include/xieite/math/fibonacci.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ inline constexpr auto fibonacci = /* std::array<Number, N> { ... } */
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/fibonacci.hpp>
+#include "xieite/math/fibonacci.hpp"
 
 int main() {
     std::cout << xieite::math::fibonacci<std::size_t>[45] << '\n';

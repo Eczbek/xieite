@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:mergeIntervals
-Defined in header [<xieite/math/merge_intervals.hpp>](../../../include/xieite/math/merge_intervals.hpp)
+Defined in header [<xieite/math/merge_intervals.hpp"](../../../include/xieite/math/merge_intervals.hpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ template<xieite::concepts::Arithmetic Number, xieite::concepts::RangeOf<xieite::
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/interval.hpp>
-#include <xieite/math/merge_intervals.hpp>
+#include "xieite/math/interval.hpp"
+#include "xieite/math/merge_intervals.hpp"
 
 int main() {
     std::vector<xieite::math::Interval<int>> intervals {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:powerOf2
-Defined in header [<xieite/math/power_of_2.hpp>](../../../include/xieite/math/power_of_2.hpp)
+Defined in header [<xieite/math/power_of_2.hpp"](../../../include/xieite/math/power_of_2.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ template<std::unsigned_integral UnsignedInteger>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/power_of_2.hpp>
+#include "xieite/math/power_of_2.hpp"
 
 int main() {
     std::cout

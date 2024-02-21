@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[strings](../../../../strings.md)\:\:[literals](../../literals.md)\:\:stringify
-Defined in header [<xieite/strings/literals/stringify.hpp>](../../../../../include/xieite/strings/literals/stringify.hpp)
+Defined in header [<xieite/strings/literals/stringify.hpp"](../../../../../include/xieite/strings/literals/stringify.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ template<char... characters>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/literals/strigify.hpp>
+#include "xieite/strings/literals/strigify.hpp"
 
 int main() {
     using namespace xieite::strings::literals::stringify;

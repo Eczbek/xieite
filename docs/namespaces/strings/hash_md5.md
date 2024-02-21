@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:hashMd5
-Defined in header [<xieite/strings/hash_md5.hpp>](../../../include/xieite/strings/hash_md5.hpp)
+Defined in header [<xieite/strings/hash_md5.hpp"](../../../include/xieite/strings/hash_md5.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Generates an MD5 hash.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/hash_md5.hpp>
+#include "xieite/strings/hash_md5.hpp"
 
 int main() {
     std::cout << xieite::strings::hashMd5("Hello, world!") << '\n';

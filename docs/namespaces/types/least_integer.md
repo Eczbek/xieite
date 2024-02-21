@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:LeastInteger
-Defined in header [<xieite/types/least_integer.hpp>](../../../include/xieite/types/least_integer.hpp)
+Defined in header [<xieite/types/least_integer.hpp"](../../../include/xieite/types/least_integer.hpp)
 
 &nbsp;
 

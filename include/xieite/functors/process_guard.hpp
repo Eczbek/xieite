@@ -12,21 +12,24 @@
 namespace xieite::functors {
 	class ProcessGuard {
 	public:
+		template<auto = [] {}>
 		ProcessGuard(const xieite::functors::Function<void()>& callback) noexcept
 		: released(std::make_shared<bool>(false)) {
-			struct Lock {
+			struct Guard {
 				const std::shared_ptr<bool> released;
+				const xieite::functors::Function<void()>& callback;
 
-				Lock(const std::shared_ptr<bool> released) noexcept
-				: released(released) {}
+				Guard(const std::shared_ptr<bool> released, const xieite::functors::Function<void()>& callback) noexcept
+				: released(released), callback(callback) {}
 
-				~Lock() {
+				~Guard() {
 					if (!*this->released) {
-						callback();
+						this->callback();
 					}
 				}
 			};
-			static Lock lock = Lock(this->released);
+
+			static Guard _ = Guard(this->released, callback);
 		}
 
 		void release() noexcept {

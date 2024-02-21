@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon](../../../../polygon.md)\:\:operator==
-Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../../include/xieite/geometry/polygon.hpp)
+Defined in header [<xieite/geometry/polygon.hpp"](../../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ Compares two polygons.
 ```cpp
 #include <iostream>
 #include <vector>
-#include <xieite/geometry/point.hpp>
-#include <xieite/geometry/polygon.hpp>
+#include "xieite/geometry/point.hpp"
+#include "xieite/geometry/polygon.hpp"
 
 int main() {
     auto polygon1 = xieite::geometry::Polygon({

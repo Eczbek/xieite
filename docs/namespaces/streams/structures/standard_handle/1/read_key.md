@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:readKey
-Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in header [<xieite/streams/standard_handle.hpp"](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ xieite::streams::Key readKey() const noexcept;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/streams/key.hpp>
-#include <xieite/streams/standard_handle.hpp>
+#include "xieite/streams/key.hpp"
+#include "xieite/streams/standard_handle.hpp"
 
 int main() {
     auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);

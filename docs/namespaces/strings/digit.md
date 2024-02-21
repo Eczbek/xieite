@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:digit
-Defined in header [<xieite/strings/digit.hpp>](../../../include/xieite/strings/digit.hpp)
+Defined in header [<xieite/strings/digit.hpp"](../../../include/xieite/strings/digit.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Checks if a character is a digit.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/digit.hpp>
+#include "xieite/strings/digit.hpp"
 
 int main() {
     std::cout

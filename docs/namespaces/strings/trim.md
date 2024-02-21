@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:trim
-Defined in header [<xieite/strings/trim.hpp>](../../../include/xieite/strings/trim.hpp)
+Defined in header [<xieite/strings/trim.hpp"](../../../include/xieite/strings/trim.hpp)
 
 &nbsp;
 
@@ -23,7 +23,7 @@ Trims both the front and back of a string.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/trim.hpp>
+#include "xieite/strings/trim.hpp"
 
 int main() {
     std::cout << xieite::strings::trim("bababatananana", "ban") << '\n';

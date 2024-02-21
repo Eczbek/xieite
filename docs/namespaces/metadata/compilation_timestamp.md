@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[metadata](../../metadata.md)\:\:compilationTimestamp
-Defined in header [<xieite/metadata/compilation_timestamp.hpp>](../../../include/xieite/metadata/compilation_timestamp.hpp)
+Defined in header [<xieite/metadata/compilation_timestamp.hpp"](../../../include/xieite/metadata/compilation_timestamp.hpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ static constexpr std::chrono::seconds compilationTimestamp = /* ... */;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/metadata/compilation_timestamp.hpp>
-#include <xieite/strings/timestamp.hpp>
+#include "xieite/metadata/compilation_timestamp.hpp"
+#include "xieite/strings/timestamp.hpp"
 
 int main() {
     std::cout << xieite::strings::timestamp(xieite::metadata::compilationTimestamp) << '\n';

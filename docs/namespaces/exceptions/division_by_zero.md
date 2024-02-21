@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:DivisionByZero
-Defined in header [<xieite/exceptions/division_by_zero.hpp>](../../../include/xieite/exceptions/division_by_zero.hpp)
+Defined in header [<xieite/exceptions/division_by_zero.hpp"](../../../include/xieite/exceptions/division_by_zero.hpp)
 
 &nbsp;
 

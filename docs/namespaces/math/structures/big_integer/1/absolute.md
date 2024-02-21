@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:absolute
-Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
+Defined in header [<xieite/math/big_integer.hpp"](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Gets the absolute value of a `xieite::math::BigInteger`.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/big_integer.hpp>
+#include "xieite/math/big_integer.hpp"
 
 int main() {
     xieite::math::BigInteger<Word> bigInteger = -999;

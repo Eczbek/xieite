@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:bitJoin
-Defined in header [<xieite/math/bit_join.hpp>](../../../include/xieite/math/bit_join.hpp)
+Defined in header [<xieite/math/bit_join.hpp"](../../../include/xieite/math/bit_join.hpp)
 
 &nbsp;
 
@@ -26,7 +26,7 @@ template<std::integral Integer, std::size_t size>
 ```cpp
 #include <cstdint>
 #include <iostream>
-#include <xieite/math/bit_join.hpp>
+#include "xieite/math/bit_join.hpp"
 
 int main() {
     std::uint8_t foo = 0b101;

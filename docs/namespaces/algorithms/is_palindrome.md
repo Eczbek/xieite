@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isPalindrome
-Defined in header [<xieite/algorithms/is_palindrome.hpp>](../../../include/xieite/algorithms/is_palindrome.hpp)
+Defined in header [<xieite/algorithms/is_palindrome.hpp"](../../../include/xieite/algorithms/is_palindrome.hpp)
 
 &nbsp;
 
@@ -25,9 +25,9 @@ template<std::integral Integer>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <string>
-#include <xieite/algorithms/is_palindrome.hpp>
+#include "xieite/algorithms/is_palindrome.hpp"
 
 int main() {
     std::string string1 = "racecar";
@@ -35,12 +35,10 @@ int main() {
     int integer1 = 12321;
     int integer2 = 12345;
 
-    std::cout
-        << std::boolalpha
-        << xieite::algorithms::isPalindrome(string1) << '\n'
-        << xieite::algorithms::isPalindrome(string2) << '\n'
-        << xieite::algorithms::isPalindrome(integer1) << '\n'
-        << xieite::algorithms::isPalindrome(integer2) << '\n';
+    std::println("{}", xieite::algorithms::isPalindrome(string1));
+    std::println("{}", xieite::algorithms::isPalindrome(string2));
+    std::println("{}", xieite::algorithms::isPalindrome(integer1));
+    std::println("{}", xieite::algorithms::isPalindrome(integer2));
 }
 ```
 Output:

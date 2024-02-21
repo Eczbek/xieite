@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Pool
-Defined in header [<xieite/threads/pool.hpp>](../../../include/xieite/threads/pool.hpp)
+Defined in header [<xieite/threads/pool.hpp"](../../../include/xieite/threads/pool.hpp)
 
 &nbsp;
 
@@ -34,7 +34,7 @@ struct Pool {
 #include <chrono>
 #include <iostream>
 #include <thread>
-#include <xieite/threads/pool.hpp>
+#include "xieite/threads/pool.hpp"
 
 int main() {
     xieite::threads::Pool loop([] {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:median
-Defined in header [<xieite/math/median.hpp>](../../../include/xieite/math/median.hpp)
+Defined in header [<xieite/math/median.hpp"](../../../include/xieite/math/median.hpp)
 
 &nbsp;
 
@@ -26,7 +26,7 @@ template<xieite::concepts::Arithmetic... Numbers>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/median.hpp>
+#include "xieite/math/median.hpp"
 
 int main() {
     std::cout << xieite::math::median(1, 1, 2, 2, 5) << '\n';

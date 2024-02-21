@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:makeArray
-Defined in header [<xieite/containers/make_array.hpp>](../../../include/xieite/containers/make_array.hpp)
+Defined in header [<xieite/containers/make_array.hpp"](../../../include/xieite/containers/make_array.hpp)
 
 &nbsp;
 
@@ -29,7 +29,7 @@ requires(sizeof...(Arguments) <= size)
 ```cpp
 #include <iostream>
 #include <vector>
-#include <xieite/containers/make_array.hpp>
+#include "xieite/containers/make_array.hpp"
 
 int main() {
     std::vector<int> source { 1, 2, 3, 4, 5 };

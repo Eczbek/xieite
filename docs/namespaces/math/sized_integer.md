@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:SizedInteger
-Defined in header [<xieite/math/sized_integer.hpp>](../../../include/xieite/math/sized_integer.hpp)
+Defined in header [<xieite/math/sized_integer.hpp"](../../../include/xieite/math/sized_integer.hpp)
 
 &nbsp;
 
@@ -120,7 +120,7 @@ struct Integer {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/sized_integer.hpp>
+#include "xieite/math/sized_integer.hpp"
 
 int main() {
     xieite::math::SizedInteger<3, false> integer = 0;

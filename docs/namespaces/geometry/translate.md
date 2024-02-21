@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:translate
-Defined in header [<xieite/geometry/translate.hpp>](../../../include/xieite/geometry/translate.hpp)
+Defined in header [<xieite/geometry/translate.hpp"](../../../include/xieite/geometry/translate.hpp)
 
 &nbsp;
 

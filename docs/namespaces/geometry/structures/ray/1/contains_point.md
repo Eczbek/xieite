@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray](../../../ray.md)\:\:containsPoint
-Defined in header [<xieite/geometry/ray.hpp>](../../../../../../include/xieite/geometry/ray.hpp)
+Defined in header [<xieite/geometry/ray.hpp"](../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Checks whether this ray contains a point.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/ray.hpp>
+#include "xieite/geometry/ray.hpp"
 
 int main() {
     std::cout

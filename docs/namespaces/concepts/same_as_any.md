@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SameAsAny
-Defined in header [<xieite/concepts/same_as_any.hpp>](../../../include/xieite/concepts/same_as_any.hpp)
+Defined in header [<xieite/concepts/same_as_any.hpp"](../../../include/xieite/concepts/same_as_any.hpp)
 
 &nbsp;
 
 ## Description
-Specifies that a type is the same as at least one of several other types.
+Specifies that a type is the same as at least one of several other types. Passing no target types evalutes to `true`.
 
 &nbsp;
 
@@ -19,27 +19,28 @@ concept SameAsAny = (... || std::same_as<Source, Targets>);
 
 ## Example
 ```cpp
-#include <iostream>
-#include <string>
-#include <xieite/concepts/same_as_any.hpp>
+#include <print>
+#include "xieite/concepts/same_as_any.hpp"
+
+struct Nope {};
 
 template<xieite::concepts::SameAsAny<bool, char, int>>
 void test() {
-    std::cout << "foo\n";
+    std::println("yep");
 }
 
 template<typename>
 void test() {
-    std::cout << "bar\n";
+    std::println("nope");
 }
 
 int main() {
     test<char>();
-    test<std::string>();
+    test<Nope>();
 }
 ```
 Output:
 ```
-foo
-bar
+yep
+nope
 ```

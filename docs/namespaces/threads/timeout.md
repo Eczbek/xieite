@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Timeout
-Defined in header [<xieite/threads/timeout.hpp>](../../../include/xieite/threads/timeout.hpp)
+Defined in header [<xieite/threads/timeout.hpp"](../../../include/xieite/threads/timeout.hpp)
 
 &nbsp;
 
@@ -32,7 +32,7 @@ struct Timeout {
 #include <chrono>
 #include <iostream>
 #include <thread>
-#include <xieite/threads/timeout.hpp>
+#include "xieite/threads/timeout.hpp"
 
 int main() {
     xieite::threads::Timeout timeout([] {

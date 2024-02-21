@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:group
-Defined in header [<xieite/algorithms/group.hpp>](../../../include/xieite/algorithms/group.hpp)
+Defined in header [<xieite/algorithms/group.hpp"](../../../include/xieite/algorithms/group.hpp)
 
 &nbsp;
 
@@ -26,10 +26,10 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_referenc
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <unordered_map>
 #include <vector>
-#include <xieite/algorithms/group.hpp>
+#include "xieite/algorithms/group.hpp"
 
 int main() {
     std::vector<int> values { 1, 2, 3, 4, 5 };
@@ -40,15 +40,15 @@ int main() {
 
     auto groups = xieite::algorithms::group(values, callback);
 
-    std::cout << "true: ";
+    std::print("true: ");
     for (auto iterator : groups[true]) {
-        std::cout << *iterator << ' ';
+        std::print("{} ", *iterator);
     }
-    std::cout << "\nfalse: ";
+    std::print("\nfalse: ");
     for (auto iterator : groups[false]) {
-        std::cout << *iterator << ' ';
+        std::print("{} ", *iterator);
     }
-    std::cout << '\n';
+    std::println("");
 }
 ```
 Output:

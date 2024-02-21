@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:digits
-Defined in header [<xieite/math/digits.hpp>](../../../include/xieite/math/digits.hpp)
+Defined in header [<xieite/math/digits.hpp"](../../../include/xieite/math/digits.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ template<xieite::concepts::Arithmetic Number>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/digits.hpp>
+#include "xieite/math/digits.hpp"
 
 int main() {
     std::cout

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Segment
-Defined in header [<xieite/geometry/segment.hpp>](../../../include/xieite/geometry/segment.hpp)
+Defined in header [<xieite/geometry/segment.hpp"](../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
 
@@ -44,7 +44,7 @@ struct Segment {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/segment.hpp>
+#include "xieite/geometry/segment.hpp"
 
 int main() {
     std::cout << xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 }).length() << '\n';

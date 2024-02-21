@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsTemporalDuration
-Defined in header [<xieite/traits/is_temporal_duration.hpp>](../../../include/xieite/traits/is_temporal_duration.hpp)
+Defined in header [<xieite/traits/is_temporal_duration.hpp"](../../../include/xieite/traits/is_temporal_duration.hpp)
 
 &nbsp;
 

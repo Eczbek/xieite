@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Line](../../../../line.md)\:\:operator==
-Defined in header [<xieite/geometry/line.hpp>](../../../../../../../include/xieite/geometry/line.hpp)
+Defined in header [<xieite/geometry/line.hpp"](../../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
 
@@ -19,9 +19,9 @@ Compares two lines.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/line.hpp>
-#include <xieite/geometry/point.hpp>
-#include <xieite/units/literals/angles.hpp>
+#include "xieite/geometry/line.hpp"
+#include "xieite/geometry/point.hpp"
+#include "xieite/units/literals/angles.hpp"
 
 int main() {
     using namespace xieite::units::literals;

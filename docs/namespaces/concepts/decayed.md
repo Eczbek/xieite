@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Decayed
-Defined in header [<xieite/concepts/decayed.hpp>](../../../include/xieite/concepts/decayed.hpp)
+Defined in header [<xieite/concepts/decayed.hpp"](../../../include/xieite/concepts/decayed.hpp)
 
 &nbsp;
 
@@ -14,3 +14,7 @@ Specifies that a type is decayed.
 template<typename Type>
 concept Decayed = std::same_as<Type, std::decay_t<Type>>;
 ```
+
+&nbsp;
+
+## [Example](https://en.cppreference.com/w/cpp/types/decay#Example)

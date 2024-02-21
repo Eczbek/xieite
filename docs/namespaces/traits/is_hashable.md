@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsHashable
-Defined in header [<xieite/traits/is_hashable.hpp>](../../../include/xieite/traits/is_hashable.hpp)
+Defined in header [<xieite/traits/is_hashable.hpp"](../../../include/xieite/traits/is_hashable.hpp)
 
 &nbsp;
 

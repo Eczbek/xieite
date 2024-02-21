@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:Shredder
-Defined in header [<xieite/memory/shredder.hpp>](../../../include/xieite/memory/shredder.hpp)
+Defined in header [<xieite/memory/shredder.hpp"](../../../include/xieite/memory/shredder.hpp)
 
 &nbsp;
 
@@ -37,7 +37,7 @@ struct Shredder {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/memory/shredder.hpp>
+#include "xieite/memory/shredder.hpp"
 
 int main() {
     {

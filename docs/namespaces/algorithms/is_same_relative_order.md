@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:sameRelativeOrder
-Defined in header [<xieite/algorithms/same_relative_order.hpp>](../../../include/xieite/algorithms/same_relative_order.hpp)
+Defined in header [<xieite/algorithms/same_relative_order.hpp"](../../../include/xieite/algorithms/same_relative_order.hpp)
 
 &nbsp;
 
@@ -20,28 +20,26 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_referenc
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <vector>
-#include <xieite/algorithms/is_same_relative_order.hpp>
+#include "xieite/algorithms/is_same_relative_order.hpp"
 
 int main() {
-    std::vector<int> a { 1, 2, 3, 4, 5 };
-    //                  |>  >  >  >  >|
+    std::vector<int> foo { 1, 2, 3, 4, 5 };
+    //                    |>  >  >  >  >|
 
-    std::vector<int> b { 4, 5, 1, 2, 3 };
-    //                   >  >||>  >  >
+    std::vector<int> bar { 4, 5, 1, 2, 3 };
+    //                     >  >||>  >  >
 
-    std::vector<int> c { 3, 2, 1, 5, 4 };
-    //                   <  <  <||<  <
+    std::vector<int> baz { 3, 2, 1, 5, 4 };
+    //                     <  <  <||<  <
 
-    std::vector<int> d { 5, 4, 3, 2, 1 };
-    //                  |<  <  <  <  <|
+    std::vector<int> qux { 5, 4, 3, 2, 1 };
+    //                    |<  <  <  <  <|
 
-    std::cout
-        << std::boolalpha
-        << xieite::algorithms::isSameRelativeOrder(a, b) << '\n'
-        << xieite::algorithms::isSameRelativeOrder(a, c) << '\n'
-        << xieite::algorithms::isSameRelativeOrder(c, d) << '\n';
+    std::println("{}", xieite::algorithms::isSameRelativeOrder(foo, bar));
+    std::println("{}", xieite::algorithms::isSameRelativeOrder(foo, baz));
+    std::println("{}", xieite::algorithms::isSameRelativeOrder(baz, qux));
 }
 ```
 Output:

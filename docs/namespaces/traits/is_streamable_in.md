@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsStreamableIn
-Defined in header [<xieite/traits/is_streamable_in.hpp>](../../../include/xieite/traits/is_streamable_in.hpp)
+Defined in header [<xieite/traits/is_streamable_in.hpp"](../../../include/xieite/traits/is_streamable_in.hpp)
 
 &nbsp;
 

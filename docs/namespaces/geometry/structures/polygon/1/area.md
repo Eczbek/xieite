@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon](../../../polygon.md)\:\:area
-Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../include/xieite/geometry/polygon.hpp)
+Defined in header [<xieite/geometry/polygon.hpp"](../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ Computes the area of this polygon.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/point.hpp>
-#include <xieite/geometry/polygon.hpp>
+#include "xieite/geometry/point.hpp"
+#include "xieite/geometry/polygon.hpp"
 
 int main() {
     std::cout << xieite::geometry::Polygon({

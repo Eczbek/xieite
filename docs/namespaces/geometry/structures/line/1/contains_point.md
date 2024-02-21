@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Line](../../../line.md)\:\:containsPoint
-Defined in header [<xieite/geometry/line.hpp>](../../../../../../include/xieite/geometry/line.hpp)
+Defined in header [<xieite/geometry/line.hpp"](../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Checks whether this line contains a point.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/geometry/line.hpp>
+#include "xieite/geometry/line.hpp"
 
 int main() {
     std::cout

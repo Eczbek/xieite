@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:trimBack
-Defined in header [<xieite/strings/trim_back.hpp>](../../../include/xieite/strings/trim_back.hpp)
+Defined in header [<xieite/strings/trim_back.hpp"](../../../include/xieite/strings/trim_back.hpp)
 
 &nbsp;
 
@@ -23,7 +23,7 @@ Trims the back of a string.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/trim_back.hpp>
+#include "xieite/strings/trim_back.hpp"
 
 int main() {
     std::cout << xieite::strings::trimBack("bababananana", "an") << '\n';

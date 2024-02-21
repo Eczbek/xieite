@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:BitsetReference
-Defined in header [<xieite/concepts/bitset_reference.hpp>](../../../include/xieite/concepts/bitset_reference.hpp)
+Defined in header [<xieite/concepts/bitset_reference.hpp"](../../../include/xieite/concepts/bitset_reference.hpp)
 
 &nbsp;
 
 ## Description
-Specifies that a type is a `std::bitset::reference`.
+Specifies that a type is a `std::bitset<N>::reference`. Uses a "duck test" because the bitset's size cannot be deduced.
 
 &nbsp;
 
@@ -27,14 +27,14 @@ concept BitsetReference = requires(Type value) {
 ## Example
 ```cpp
 #include <bitset>
-#include <iostream>
-#include <xieite/concepts/bitset_reference.hpp>
+#include <print>
+#include "xieite/concepts/bitset_reference.hpp"
 
 int main() {
     std::bitset<8> bitset;
     auto bit = bitset[0];
 
-    std::cout << std::boolalpha << xieite::concepts::BitsetReference<decltype(bit)> << '\n';
+    std::println("{}", xieite::concepts::BitsetReference<decltype(bit)>);
 }
 ```
 Output:

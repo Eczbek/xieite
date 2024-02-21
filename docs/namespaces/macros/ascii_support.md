@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_ASCII\_SUPPORT
-Defined in header [<xieite/macros/ascii_support.hpp>](../../../include/xieite/macros/ascii_support.hpp)
+Defined in header [<xieite/macros/ascii_support.hpp"](../../../include/xieite/macros/ascii_support.hpp)
 
 &nbsp;
 
@@ -11,7 +11,7 @@ Checks if the compiler supports ASCII stuff. See header file for definition.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/macros/ascii_support.hpp>
+#include "xieite/macros/ascii_support.hpp"
 
 int main() {
     std::cout

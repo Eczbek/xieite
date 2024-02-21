@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Infix
-Defined in header [<xieite/functors/infix.hpp>](../../../include/xieite/functors/infix.hpp)
+Defined in header [<xieite/functors/infix.hpp"](../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
 
@@ -70,7 +70,7 @@ xieite::functors::Infix(Functor&&) -> xieite::functors::Infix<Functor>;
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/functors/infix.hpp>
+#include "xieite/functors/infix.hpp"
 
 int main() {
     auto multiply = xieite::functors::Infix([](int x, int y) {

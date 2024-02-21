@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:InvalidIndex
-Defined in header [<xieite/exceptions/invalid_index.hpp>](../../../include/xieite/exceptions/invalid_index.hpp)
+Defined in header [<xieite/exceptions/invalid_index.hpp"](../../../include/xieite/exceptions/invalid_index.hpp)
 
 &nbsp;
 

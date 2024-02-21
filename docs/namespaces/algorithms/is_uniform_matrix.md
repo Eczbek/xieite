@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isUniformMatrix
-Defined in header [<xieite/algorithms/is_uniform_matrix.hpp>](../../../include/xieite/algorithms/is_uniform_matrix.hpp)
+Defined in header [<xieite/algorithms/is_uniform_matrix.hpp"](../../../include/xieite/algorithms/is_uniform_matrix.hpp)
 
 &nbsp;
 
@@ -20,9 +20,9 @@ requires(std::ranges::range<std::ranges::range_value_t<Matrix>>)
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <vector>
-#include <xieite/algorithms/is_uniform_matrix.hpp>
+#include "xieite/algorithms/is_uniform_matrix.hpp"
 
 int main() {
     std::vector<std::vector<int>> matrix1 {
@@ -36,10 +36,8 @@ int main() {
         { 4, 5, 6 }
     };
 
-    std::cout
-        << std::boolalpha
-        << xieite::algorithms::isUniformMatrix(matrix1) << '\n'
-        << xieite::algorithms::isUniformMatrix(matrix2) << '\n';
+    std::println("{}", xieite::algorithms::isUniformMatrix(matrix1));
+    std::println("{}", xieite::algorithms::isUniformMatrix(matrix2));
 }
 ```
 Output:

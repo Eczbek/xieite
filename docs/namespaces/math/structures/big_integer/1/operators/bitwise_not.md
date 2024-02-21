@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator~
-Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
+Defined in header [<xieite/math/big_integer.hpp"](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
@@ -14,7 +14,7 @@ Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/x
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/big_integer.hpp>
+#include "xieite/math/big_integer.hpp"
 
 int main() {
     std::cout << (~xieite::math::BigInteger(3)).string() << '\n';

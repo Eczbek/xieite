@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[memory](../../../../../../memory.md)\:\:[Shredder<Type>](../../../../shredder.md)\:\:operator typename
-Defined in header [<xieite/memory/shredder.hpp>](../../../../../../../include/xieite/memory/shredder.hpp)
+Defined in header [<xieite/memory/shredder.hpp"](../../../../../../../include/xieite/memory/shredder.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:cotangent
-Defined in header [<xieite/math/cotangent.hpp>](../../../include/xieite/math/cotagent.hpp)
+Defined in header [<xieite/math/cotangent.hpp"](../../../include/xieite/math/cotagent.hpp)
 
 &nbsp;
 

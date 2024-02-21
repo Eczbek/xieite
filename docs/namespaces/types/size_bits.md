@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:sizeBits
-Defined in header [<xieite/types/size_bits.hpp>](../../../include/xieite/types/size_bits.hpp)
+Defined in header [<xieite/types/size_bits.hpp"](../../../include/xieite/types/size_bits.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:modes
-Defined in header [<xieite/math/modes.hpp>](../../../include/xieite/math/modes.hpp)
+Defined in header [<xieite/math/modes.hpp"](../../../include/xieite/math/modes.hpp)
 
 &nbsp;
 
@@ -26,7 +26,7 @@ template<xieite::concepts::Arithmetic... Numbers>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/modes.hpp>
+#include "xieite/math/modes.hpp"
 
 int main() {
     for (int value : xieite::math::modes(1, 3, 2, 4, 5)) {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:getFile
-Defined in header [<xieite/streams/get_file.hpp>](../../../include/xieite/streams/get_file.hpp)
+Defined in header [<xieite/streams/get_file.hpp"](../../../include/xieite/streams/get_file.hpp)
 
 &nbsp;
 
@@ -21,7 +21,7 @@ template<xieite::concepts::SameAsOrDerivedFromAnyAny<std::istream, std::ostream>
 ```cpp
 #include <cstdio>
 #include <iostream>
-#include <xieite/streams/get_file.hpp>
+#include "xieite/streams/get_file.hpp"
 
 int main() {
     std::fprintf(xieite::streams::getFile(std::cout), "Hello, world!\n");

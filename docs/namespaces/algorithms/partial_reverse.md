@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:partialReverse
-Defined in header [<xieite/algorithms/partial_reverse.hpp>](../../../include/xieite/algorithms/partial_reverse.hpp)
+Defined in header [<xieite/algorithms/partial_reverse.hpp"](../../../include/xieite/algorithms/partial_reverse.hpp)
 
 &nbsp;
 
@@ -22,8 +22,8 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_referenc
 ## Example
 ```cpp
 #include <array>
-#include <iostream>
-#include <xieite/algorithms/partial_reverse.hpp>
+#include <print>
+#include "xieite/algorithms/partial_reverse.hpp"
 
 int main() {
     std::array<int, 5> values { 1, 2, 3, 4, 5 };
@@ -35,9 +35,9 @@ int main() {
     xieite::algorithms::partialReverse(values, callback);
 
     for (int value : values) {
-        std::cout << value << ' ';
+        std::print("{} ", value);
     }
-    std::cout << '\n';
+    std::println("");
 }
 ```
 Output:

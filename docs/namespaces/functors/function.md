@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Function
-Defined in header [<xieite/functors/function.hpp>](../../../include/xieite/functors/function.hpp)
+Defined in header [<xieite/functors/function.hpp"](../../../include/xieite/functors/function.hpp)
 
 &nbsp;
 
@@ -38,7 +38,7 @@ struct Function<Result(Arguments...)> {
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/functors/function.hpp>
+#include "xieite/functors/function.hpp"
 
 int add(int a, int b) {
     return a + b;

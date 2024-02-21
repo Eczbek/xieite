@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:trimFront
-Defined in header [<xieite/strings/trim_front.hpp>](../../../include/xieite/strings/trim_front.hpp)
+Defined in header [<xieite/strings/trim_front.hpp"](../../../include/xieite/strings/trim_front.hpp)
 
 &nbsp;
 
@@ -23,7 +23,7 @@ Trims the front of a string.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/trim_front.hpp>
+#include "xieite/strings/trim_front.hpp"
 
 int main() {
     std::cout << xieite::strings::trimFront("bababananana", "ab") << '\n';

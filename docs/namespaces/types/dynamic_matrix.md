@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:DynamicMatrix
-Defined in header [<xieite/types/dynamic_matrix.hpp>](../../../include/xieite/types/dynamic_matrix.hpp)
+Defined in header [<xieite/types/dynamic_matrix.hpp"](../../../include/xieite/types/dynamic_matrix.hpp)
 
 &nbsp;
 
@@ -34,7 +34,7 @@ struct DynamicMatrix<DynamicContainer, Value, 0> {
 ```cpp
 #include <iostream>
 #include <vector>
-#include <xieite/types/dynamic_matrix.hpp>
+#include "xieite/types/dynamic_matrix.hpp"
 
 int main() {
     std::cout

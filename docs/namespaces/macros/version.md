@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_VERSION\_...
-Defined in header [<xieite/macros/version.hpp>](../../../include/xieite/macros/version.hpp)
+Defined in header [<xieite/macros/version.hpp"](../../../include/xieite/macros/version.hpp)
 
 &nbsp;
 
@@ -23,7 +23,7 @@ Also provides checking utilities with optional parameters (major, minor, patch):
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/macros/version.hpp>
+#include "xieite/macros/version.hpp"
 
 int main() {
     std::cout

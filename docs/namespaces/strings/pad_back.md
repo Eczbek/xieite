@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:padBack
-Defined in header [<xieite/strings/pad_back.hpp>](../../../include/xieite/strings/pad_back.hpp)
+Defined in header [<xieite/strings/pad_back.hpp"](../../../include/xieite/strings/pad_back.hpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Pads the back of a string.
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/strings/pad_back.hpp>
+#include "xieite/strings/pad_back.hpp"
 
 int main() {
     std::cout << xieite::strings::padBack("BEEF", 7, '=') << '\n';

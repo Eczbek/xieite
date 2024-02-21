@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:mean
-Defined in header [<xieite/math/mean.hpp>](../../../include/xieite/math/mean.hpp)
+Defined in header [<xieite/math/mean.hpp"](../../../include/xieite/math/mean.hpp)
 
 &nbsp;
 
@@ -26,7 +26,7 @@ template<xieite::concepts::Arithmetic... Numbers>
 ## Example
 ```cpp
 #include <iostream>
-#include <xieite/math/mean.hpp>
+#include "xieite/math/mean.hpp"
 
 int main() {
     std::cout << xieite::math::mean(1, 1, 2, 2, 5) << '\n';

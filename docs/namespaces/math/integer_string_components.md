@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:IntegerStringComponents
-Defined in header [<xieite/math/integer_string_components.hpp>](../../../include/xieite/math/integer_string_components.hpp)
+Defined in header [<xieite/math/integer_string_components.hpp"](../../../include/xieite/math/integer_string_components.hpp)
 
 &nbsp;
 

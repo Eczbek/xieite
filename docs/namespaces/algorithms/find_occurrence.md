@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:findOccurrence
-Defined in header [<xieite/algorithms/find_occurrence.hpp>](../../../include/xieite/algorithms/find_occurrence.hpp)
+Defined in header [<xieite/algorithms/find_occurrence.hpp"](../../../include/xieite/algorithms/find_occurrence.hpp)
 
 &nbsp;
 
@@ -23,7 +23,7 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_referenc
 #include <iterator>
 #include <print>
 #include <vector>
-#include <xieite/algorithms/find_occurrence.hpp>
+#include "xieite/algorithms/find_occurrence.hpp"
 
 int main() {
     //               indices: 0  1  2  3  4  5  6

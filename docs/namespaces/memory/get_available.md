@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:getAvailable
-Defined in header [<xieite/memory/get_available.hpp>](../../../include/xieite/memory/get_available.hpp)
+Defined in header [<xieite/memory/get_available.hpp"](../../../include/xieite/memory/get_available.hpp)
 
 &nbsp;
 

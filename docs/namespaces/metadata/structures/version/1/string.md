@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[metadata](../../../../../metadata.md)\:\:[Version](../../../version.md)\:\:string
-Defined in header [<xieite/metadata/version.hpp>](../../../../../../include/xieite/metadata/version.hpp)
+Defined in header [<xieite/metadata/version.hpp"](../../../../../../include/xieite/metadata/version.hpp)
 
 &nbsp;
 
