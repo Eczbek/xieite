@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:after
-Defined in header [<xieite/strings/after.hpp"](../../../include/xieite/strings/after.hpp)
+Defined in header [<xieite/strings/after.hpp>](../../../include/xieite/strings/after.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Takes the rest of a string after some substring.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::vector<std::string_view> after(std::string_view string, std::string_view start) noexcept;

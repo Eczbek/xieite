@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Numeric
-Defined in header [<xieite/concepts/numeric.hpp"](../../../include/xieite/concepts/numeric.hpp)
+Defined in header [<xieite/concepts/numeric.hpp>](../../../include/xieite/concepts/numeric.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is a floating point or an integer but not a boolean.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:minimum
-Defined in header [<xieite/math/minimum.hpp"](../../../include/xieite/math/minimum.hpp)
+Defined in header [<xieite/math/minimum.hpp>](../../../include/xieite/math/minimum.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the minimum of some values. Returns `0` if no arguments are passed.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic... Numbers>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:radiotelephonySpellingAlphabet
-Defined in header [<xieite/strings/radiotelephony_spelling_alphabet.hpp"](../../../include/xieite/strings/radiotelephony_spelling_alphabet.hpp)
+Defined in header [<xieite/strings/radiotelephony_spelling_alphabet.hpp>](../../../include/xieite/strings/radiotelephony_spelling_alphabet.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Defines the radiotelephony spelling alphabet.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> radiotelephonySpellingAlphabet = ([] {

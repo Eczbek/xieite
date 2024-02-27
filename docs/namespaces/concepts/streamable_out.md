@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:StreamableOut
-Defined in header [<xieite/concepts/streamable_out.hpp"](../../../include/xieite/concepts/streamable_out.hpp)
+Defined in header [<xieite/concepts/streamable_out.hpp>](../../../include/xieite/concepts/streamable_out.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type can be streamed out of.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

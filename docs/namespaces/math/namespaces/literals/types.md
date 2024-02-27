@@ -1,9 +1,9 @@
 # [xieite](../../../../xieite.md)\:\:[math](../../../../math.md)\:\:[literals](../../literals.md)\:\:types
-Defined in header [<xieite/math/literals/types.hpp"](../../../../../include/xieite/math/literals/types.hpp)
+Defined in header [<xieite/math/literals/types.hpp>](../../../../../include/xieite/math/literals/types.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::int8_t operator""_i8(unsigned long long int value) noexcept;

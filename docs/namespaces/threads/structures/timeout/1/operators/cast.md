@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Timeout](../../../../timeout.md)\:\:operator typename
-Defined in header [<xieite/threads/timeout.hpp"](../../../../../../../include/xieite/threads/timeout.hpp)
+Defined in header [<xieite/threads/timeout.hpp>](../../../../../../../include/xieite/threads/timeout.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ The boolean cast eturns `true` if the timeout is still waiting, and `false` if i
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] operator bool() const noexcept;

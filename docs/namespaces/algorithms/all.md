@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:all
-Defined in header [<xieite/algorithms/all.hpp"](../../../include/xieite/algorithms/all.hpp)
+Defined in header [<xieite/algorithms/all.hpp>](../../../include/xieite/algorithms/all.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks whether all passed arguments are true. Expects all arguments to be conver
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::convertible_to<bool>... Values>

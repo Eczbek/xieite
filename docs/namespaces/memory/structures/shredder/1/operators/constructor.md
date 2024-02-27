@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[memory](../../../../../../memory.md)\:\:[Shredder<Type>](../../../../shredder.md)\:\:Shredder
-Defined in header [<xieite/memory/shredder.hpp"](../../../../../../../include/xieite/memory/shredder.hpp)
+Defined in header [<xieite/memory/shredder.hpp>](../../../../../../../include/xieite/memory/shredder.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Constructs a `xieite::memory::Shredder`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 constexpr Shredder() noexcept;

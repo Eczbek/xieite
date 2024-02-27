@@ -14,7 +14,7 @@ namespace xieite::functors {
 	struct Infix;
 
 	template<std::invocable<xieite::types::Placeholder> Functor>
-	class Infix<Functor> {
+	struct Infix<Functor> {
 	public:
 		template<std::convertible_to<Functor> FunctorReference>
 		constexpr Infix(FunctorReference&& callback) noexcept
@@ -39,10 +39,10 @@ namespace xieite::functors {
 	};
 
 	template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> Functor>
-	class Infix<Functor> {
+	struct Infix<Functor> {
 	private:
 		template<typename LeftArgument>
-		class Intermediate {
+		struct Intermediate {
 		public:
 			template<std::convertible_to<Functor> FunctorReference>
 			constexpr Intermediate(FunctorReference&& callback, LeftArgument&& leftArgument) noexcept

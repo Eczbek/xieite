@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[network](../../network.md)\:\:Domain
-Defined in header [<xieite/network/domain.hpp"](../../../include/xieite/network/domain.hpp)
+Defined in header [<xieite/network/domain.hpp>](../../../include/xieite/network/domain.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An enumeration of network domain things.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 enum struct Domain

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[network](../../network.md)\:\:Protocol
-Defined in header [<xieite/network/protocol.hpp"](../../../include/xieite/network/protocol.hpp)
+Defined in header [<xieite/network/protocol.hpp>](../../../include/xieite/network/protocol.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An enumeration of network protocol things.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 enum struct Protocol

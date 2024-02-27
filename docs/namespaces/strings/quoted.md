@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:quoted
-Defined in header [<xieite/strings/quoted.hpp"](../../../include/xieite/strings/quoted.hpp)
+Defined in header [<xieite/strings/quoted.hpp>](../../../include/xieite/strings/quoted.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Replicates `std::quoted` but without streams and more constexpr.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::string quoted(std::string_view value, char delimiter = '"', char escape = '\\') noexcept;

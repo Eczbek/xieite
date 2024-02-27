@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:hashMd5
-Defined in header [<xieite/strings/hash_md5.hpp"](../../../include/xieite/strings/hash_md5.hpp)
+Defined in header [<xieite/strings/hash_md5.hpp>](../../../include/xieite/strings/hash_md5.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Generates an MD5 hash.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::string hashMd5(std::string_view value) noexcept;

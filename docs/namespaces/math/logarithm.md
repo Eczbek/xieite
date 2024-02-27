@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:logarithm
-Defined in header [<xieite/math/logarithm.hpp"](../../../include/xieite/math/logarithm.hpp)
+Defined in header [<xieite/math/logarithm.hpp>](../../../include/xieite/math/logarithm.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Takes the logarithm of a value in any base.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>

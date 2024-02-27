@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[units](../../../../units.md)\:\:[literals](../../literals.md)\:\:temperatures
-Defined in header [<xieite/units/literals/temperatures.hpp"](../../../../../include/xieite/units/literals/temperatures.hpp)
+Defined in header [<xieite/units/literals/temperatures.hpp>](../../../../../include/xieite/units/literals/temperatures.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A colletion of literals for temperature units.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr double operator""_kelvin(long double value) noexcept;

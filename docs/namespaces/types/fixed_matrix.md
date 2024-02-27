@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FixedMatrix
-Defined in header [<xieite/types/fixed_matrix.hpp"](../../../include/xieite/types/fixed_matrix.hpp)
+Defined in header [<xieite/types/fixed_matrix.hpp>](../../../include/xieite/types/fixed_matrix.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A structure for generating multidimensional containers of fixed size.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<template<typename, std::size_t> typename, typename, std::size_t...>

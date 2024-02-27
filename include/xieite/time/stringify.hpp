@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_STRINGS_TIMESTAMP
-#	define XIEITE_HEADER_STRINGS_TIMESTAMP
+#ifndef XIEITE_HEADER_TIME_STRINGIFY
+#	define XIEITE_HEADER_TIME_STRINGIFY
 
 #	include <chrono>
 #	include <string>
@@ -7,9 +7,9 @@
 #	include "../math/stringify.hpp"
 #	include "../strings/pad_front.hpp"
 
-namespace xieite::strings {
+namespace xieite::time {
 	template<xieite::concepts::TemporalDuration Duration>
-	[[nodiscard]] constexpr std::string timestamp(Duration value, const bool date = true, const bool time = true, const bool subsecond = false) noexcept {
+	[[nodiscard]] constexpr std::string stringify(Duration value, const bool date = true, const bool time = true, const bool subsecond = false) noexcept {
 		const auto years = std::chrono::duration_cast<std::chrono::years>(value);
 		value -= std::chrono::duration_cast<Duration>(years);
 		const auto months = std::chrono::duration_cast<std::chrono::months>(value);

@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUniformRandomBitGenerator
-Defined in header [<xieite/traits/is_uniform_random_bit_generator.hpp"](../../../include/xieite/uniform_random_bit_generator.hpp)
+Defined in header [<xieite/traits/is_uniform_random_bit_generator.hpp>](../../../include/xieite/uniform_random_bit_generator.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

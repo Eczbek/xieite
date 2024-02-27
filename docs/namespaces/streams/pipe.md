@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Pipe
-Defined in header [<xieite/streams/pipe.hpp"](../../../include/xieite/streams/pipe.hpp)
+Defined in header [<xieite/streams/pipe.hpp>](../../../include/xieite/streams/pipe.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Provides a wrapper for a `std::FILE*` pipe, automatically closed upon destructio
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Pipe {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:intersections
-Defined in header [<xieite/geometry/intersections.hpp"](../../../include/xieite/geometry/intersections.hpp)
+Defined in header [<xieite/geometry/intersections.hpp>](../../../include/xieite/geometry/intersections.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes all intersections between two geometrical elements.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::vector<xieite::geometry::Point> intersections(xieite::geometry::Point point1, xieite::geometry::Point point2) noexcept;

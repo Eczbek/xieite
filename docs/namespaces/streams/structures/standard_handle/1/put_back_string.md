@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:putBackString
-Defined in header [<xieite/streams/standard_handle.hpp"](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Puts a string back into the input buffer.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 void putBackString(std::string_view value) const noexcept;

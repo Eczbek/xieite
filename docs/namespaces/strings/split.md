@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:split
-Defined in header [<xieite/strings/split.hpp"](../../../include/xieite/strings/split.hpp)
+Defined in header [<xieite/strings/split.hpp>](../../../include/xieite/strings/split.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Splits a string by a delimiter.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::vector<std::string_view> split(std::string_view string, std::string_view delimiter) noexcept;

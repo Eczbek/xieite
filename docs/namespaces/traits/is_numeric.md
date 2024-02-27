@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNumeric
-Defined in header [<xieite/traits/is_numeric.hpp"](../../../include/xieite/traits/is_numeric.hpp)
+Defined in header [<xieite/traits/is_numeric.hpp>](../../../include/xieite/traits/is_numeric.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

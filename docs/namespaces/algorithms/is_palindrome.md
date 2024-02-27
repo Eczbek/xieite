@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isPalindrome
-Defined in header [<xieite/algorithms/is_palindrome.hpp"](../../../include/xieite/algorithms/is_palindrome.hpp)
+Defined in header [<xieite/algorithms/is_palindrome.hpp>](../../../include/xieite/algorithms/is_palindrome.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks if a range is the same backwards as it is forwards, or if an integer can 
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>

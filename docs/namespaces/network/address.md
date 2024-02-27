@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[network](../../network.md)\:\:Address
-Defined in header [<xieite/network/address.hpp"](../../../include/xieite/network/address.hpp)
+Defined in header [<xieite/network/address.hpp>](../../../include/xieite/network/address.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A structure to represent an IPv6 address.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Address {

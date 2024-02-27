@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Line](../../../../line.md)\:\:operator==
-Defined in header [<xieite/geometry/line.hpp"](../../../../../../../include/xieite/geometry/line.hpp)
+Defined in header [<xieite/geometry/line.hpp>](../../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Compares two lines.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Line& line1, const xieite::geometry::Line& line2) noexcept;

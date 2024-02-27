@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon](../../../../polygon.md)\:\:Polygon
-Defined in header [<xieite/geometry/polygon.hpp"](../../../../../../../include/xieite/geometry/polygon.hpp)
+Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Constructs a `xieite::geometry::Polygon`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::RangeOf<xieite::geometry::Point> Range = std::vector<xieite::geometry::Point>>

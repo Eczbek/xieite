@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Segment
-Defined in header [<xieite/geometry/segment.hpp"](../../../include/xieite/geometry/segment.hpp)
+Defined in header [<xieite/geometry/segment.hpp>](../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A structure for representing a finite line segment.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Segment {

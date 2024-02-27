@@ -1,9 +1,9 @@
 # [xieite](../../../../xieite.md)\:\:[math](../../../../math.md)\:\:[literals](../../literals.md)\:\:exponent
-Defined in header [<xieite/math/literals/exponent.hpp"](../../../../../include/xieite/math/literals/exponent.hpp)
+Defined in header [<xieite/math/literals/exponent.hpp>](../../../../../include/xieite/math/literals/exponent.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr auto operator""_exponent(unsigned long long int value) noexcept;

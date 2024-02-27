@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUnsignedInteger
-Defined in header [<xieite/traits/is_unsigned_integer.hpp"](../../../include/xieite/traits/is_unsigned_integer.hpp)
+Defined in header [<xieite/traits/is_unsigned_integer.hpp>](../../../include/xieite/traits/is_unsigned_integer.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

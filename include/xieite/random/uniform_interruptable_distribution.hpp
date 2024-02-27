@@ -17,7 +17,7 @@
 
 namespace xieite::random {
 	template<xieite::concepts::Arithmetic Number>
-	class UniformInterruptableDistribution {
+	struct UniformInterruptableDistribution {
 	public:
 		template<xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
 		UniformInterruptableDistribution(const xieite::math::Interval<Number> interval, IntervalRange&& interruptions) {

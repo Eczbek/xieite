@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivedFromAny
-Defined in header [<xieite/traits/is_derived_from_any.hpp"](../../../include/xieite/traits/is_derived_from_any.hpp)
+Defined in header [<xieite/traits/is_derived_from_any.hpp>](../../../include/xieite/traits/is_derived_from_any.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Derived, typename... Bases>

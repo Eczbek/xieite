@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:BigInteger
-Defined in header [<xieite/math/big_integer.hpp"](../../../include/xieite/math/big_integer.hpp)
+Defined in header [<xieite/math/big_integer.hpp>](../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A class for storing and operating on very large numbers.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::unsigned_integral Word = std::uint64_t>
@@ -25,7 +25,7 @@ struct BigInteger {
     requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
     constexpr BigInteger(const Range&, bool = false);
 
-    constexpr BigInteger(std::string_view, std::make_signed_t<std::size_t> = 10, const xieite::math::IntegerStringComponents& = xieite::math::IntegerStringComponents());
+    constexpr BigInteger(std::string_view, xieite::math::SignedSize = 10, const xieite::math::IntegerStringComponents& = xieite::math::IntegerStringComponents());
 
     constexpr xieite::math::BigInteger<Word>& operator=(const xieite::math::BigInteger<Word>&);
 
@@ -178,7 +178,7 @@ struct BigInteger {
     template<std::integral Integer>
     constexpr xieite::math::BigInteger<Word> logarithm(Integer) const;
 
-    constexpr std::string string(std::make_signed_t<std::size_t> = 10, const xieite::math::IntegerStringComponents& = xieite::math::IntegerStringComponents()) const;
+    constexpr std::string string(xieite::math::SignedSize = 10, const xieite::math::IntegerStringComponents& = xieite::math::IntegerStringComponents()) const;
 };
 ```
 ##### Member types

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:group
-Defined in header [<xieite/algorithms/group.hpp"](../../../include/xieite/algorithms/group.hpp)
+Defined in header [<xieite/algorithms/group.hpp>](../../../include/xieite/algorithms/group.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Groups elements of a range into a `std::unordered_map` of `std::vector`s of iter
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::ranges::range Range, std::invocable<std::ranges::range_reference_t<Range>> Functor>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Pool
-Defined in header [<xieite/threads/pool.hpp"](../../../include/xieite/threads/pool.hpp)
+Defined in header [<xieite/threads/pool.hpp>](../../../include/xieite/threads/pool.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Creates a "pool" of threads for distributing jobs between. Compile with `-pthrea
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Pool {

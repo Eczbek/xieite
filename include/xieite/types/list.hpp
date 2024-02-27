@@ -10,7 +10,7 @@
 
 namespace xieite::types {
 	template<typename... Types>
-	class List {
+	struct List {
 	public:
 		static constexpr std::size_t size = sizeof...(Types);
 
@@ -132,7 +132,7 @@ namespace xieite::types {
 			using Type = xieite::types::List<OtherTypes...>;
 
 			template<typename Type>
-			std::conditional_t<Selector<Type, OtherTypes...>::value, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes...>, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes..., Type>> operator->*(xieite::types::List<Types...>::FilterHelper<Selector, Type>) const noexcept;
+			std::conditional_t<Selector<Type, OtherTypes...>::value, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes..., Type>, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes...>> operator->*(xieite::types::List<Types...>::FilterHelper<Selector, Type>) const noexcept;
 		};
 
 	public:

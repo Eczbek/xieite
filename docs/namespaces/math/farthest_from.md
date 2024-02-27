@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:farthestFrom
-Defined in header [<xieite/math/farthest_from.hpp"](../../../include/xieite/math/farthest_from.hpp)
+Defined in header [<xieite/math/farthest_from.hpp>](../../../include/xieite/math/farthest_from.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Selects the value farthest from a target.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

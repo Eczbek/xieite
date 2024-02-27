@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment](../../../../segment.md)\:\:operator==
-Defined in header [<xieite/geometry/segment.hpp"](../../../../../../../include/xieite/geometry/segment.hpp)
+Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Compares two segments.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Segment& segment1, const xieite::geometry::Segment& segment2) noexcept;

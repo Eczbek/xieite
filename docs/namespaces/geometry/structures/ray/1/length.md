@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray](../../../ray.md)\:\:length
-Defined in header [<xieite/geometry/ray.hpp"](../../../../../../include/xieite/geometry/ray.hpp)
+Defined in header [<xieite/geometry/ray.hpp>](../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Always returns `std::numeric_limits<double>::infinity()`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr double length() const noexcept;

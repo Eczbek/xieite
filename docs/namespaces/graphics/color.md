@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[graphics](../../graphics.md)\:\:Color
-Defined in header [<xieite/graphics/color.hpp"](../../../include/xieite/graphics/color.hpp)
+Defined in header [<xieite/graphics/color.hpp>](../../../include/xieite/graphics/color.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A simple class for storing an RGBA value.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Color {

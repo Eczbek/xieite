@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Line](../../../line.md)\:\:angle
-Defined in header [<xieite/geometry/line.hpp"](../../../../../../include/xieite/geometry/line.hpp)
+Defined in header [<xieite/geometry/line.hpp>](../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the angle of this line, in radians.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr double angle() const noexcept;

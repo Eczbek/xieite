@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SpecializationOf
-Defined in header [<xieite/concepts/specialization_of.hpp"](../../../include/xieite/concepts/specialization_of.hpp)
+Defined in header [<xieite/concepts/specialization_of.hpp>](../../../include/xieite/concepts/specialization_of.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is a specialization of a template. To be deprecated once `
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type, template<typename...> typename Template>

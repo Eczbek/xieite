@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsAny
-Defined in header [<xieite/traits/is_any.hpp"](../../../include/xieite/traits/is_any.hpp)
+Defined in header [<xieite/traits/is_any.hpp>](../../../include/xieite/traits/is_any.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type, template<typename> typename... Traits>

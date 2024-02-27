@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[units](../../../../units.md)\:\:[literals](../../literals.md)\:\:angles
-Defined in header [<xieite/units/literals/angles.hpp"](../../../../../include/xieite/units/literals/angles.hpp)
+Defined in header [<xieite/units/literals/angles.hpp>](../../../../../include/xieite/units/literals/angles.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A colletion of literals for angle units.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr double operator""_radians(long double value) noexcept;

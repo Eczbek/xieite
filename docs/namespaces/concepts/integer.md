@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Integer
-Defined in header [<xieite/concepts/integer.hpp"](../../../include/xieite/concepts/integer.hpp)
+Defined in header [<xieite/concepts/integer.hpp>](../../../include/xieite/concepts/integer.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is an integer and not a boolean.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

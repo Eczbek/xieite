@@ -4,8 +4,8 @@
 #	include <cstddef>
 #	include <cstdint>
 #	include <stdfloat>
-#	include <type_traits>
 #	include "../math/signed_128.hpp"
+#	include "../math/signed_size.hpp"
 #	include "../math/unsigned_128.hpp"
 
 namespace xieite::literals::integers {
@@ -393,12 +393,12 @@ namespace xieite::literals::integers {
 		return static_cast<std::ptrdiff_t>(value);
 	}
 
-	[[nodiscard]] constexpr std::make_signed_t<std::size_t> operator""_iz(const unsigned long long int value) noexcept {
-		return static_cast<std::make_signed_t<std::size_t>>(value);
+	[[nodiscard]] constexpr xieite::math::SignedSize operator""_iz(const unsigned long long int value) noexcept {
+		return static_cast<xieite::math::SignedSize>(value);
 	}
 
-	[[nodiscard]] constexpr std::make_signed_t<std::size_t> operator""_iz(const long double value) noexcept {
-		return static_cast<std::make_signed_t<std::size_t>>(value);
+	[[nodiscard]] constexpr xieite::math::SignedSize operator""_iz(const long double value) noexcept {
+		return static_cast<xieite::math::SignedSize>(value);
 	}
 
 	[[nodiscard]] constexpr std::size_t operator""_uz(const unsigned long long int value) noexcept {

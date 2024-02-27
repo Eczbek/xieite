@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:BitsetReference
-Defined in header [<xieite/concepts/bitset_reference.hpp"](../../../include/xieite/concepts/bitset_reference.hpp)
+Defined in header [<xieite/concepts/bitset_reference.hpp>](../../../include/xieite/concepts/bitset_reference.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is a `std::bitset<N>::reference`. Uses a "duck test" becau
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

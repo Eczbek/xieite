@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:UniformInterruptableDistribution
-Defined in header [<xieite/random/uniform_interruptable_distribution.hpp"](../../../include/xieite/random/uniform_interruptable_distribution.hpp)
+Defined in header [<xieite/random/uniform_interruptable_distribution.hpp>](../../../include/xieite/random/uniform_interruptable_distribution.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A uniform random number distribution which allows excluding subintervals from th
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

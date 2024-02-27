@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:execute
-Defined in header [<xieite/system/execute.hpp"](../../../include/xieite/system/execute.hpp)
+Defined in header [<xieite/system/execute.hpp>](../../../include/xieite/system/execute.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Executes a command and returns its output.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 inline std::string execute(std::string_view command) noexcept;

@@ -14,7 +14,7 @@ namespace xieite::functors {
 	struct Function;
 
 	template<typename Result, typename... Arguments>
-	class Function<Result(Arguments...)> {
+	struct Function<Result(Arguments...)> {
 	public:
 		constexpr Function() noexcept = default;
 

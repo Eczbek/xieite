@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_STRINGIFY
-Defined in header [<xieite/macros/stringify.hpp"](../../../include/xieite/macros/stringify.hpp)
+Defined in header [<xieite/macros/stringify.hpp>](../../../include/xieite/macros/stringify.hpp)
 
 &nbsp;
 

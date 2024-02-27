@@ -10,7 +10,7 @@
 #	include "../functors/functional.hpp"
 
 namespace xieite::threads {
-	class Pool {
+	struct Pool {
 	public:
 		Pool(const std::size_t threadCount = std::thread::hardware_concurrency()) {
 			this->setThreadCount(threadCount);

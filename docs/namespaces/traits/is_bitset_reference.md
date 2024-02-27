@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsBitsetReference
-Defined in header [<xieite/traits/is_bitset_reference.hpp"](../../../include/xieite/traits/is_bitset_reference.hpp)
+Defined in header [<xieite/traits/is_bitset_reference.hpp>](../../../include/xieite/traits/is_bitset_reference.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

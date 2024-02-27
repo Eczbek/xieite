@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:readKey
-Defined in header [<xieite/streams/standard_handle.hpp"](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Waits for and returns the key press. Puts back characters if fails to parse esca
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 xieite::streams::Key readKey() const noexcept;

@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:getPageSize
-Defined in header [<xieite/memory/get_page_size.hpp"](../../../include/xieite/memory/get_page_size.hpp)
+Defined in header [<xieite/memory/get_page_size.hpp>](../../../include/xieite/memory/get_page_size.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] inline std::size_t getPageSize() noexcept;

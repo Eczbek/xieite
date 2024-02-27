@@ -7,9 +7,9 @@
 
 namespace xieite::detail {
 	template<xieite::concepts::Numeric Number>
-	class Exponent {
+	struct Exponent {
 	private:
-		class Value {
+		struct Value {
 		public:
 			constexpr Value(const Number value) noexcept
 			: value(value) {}

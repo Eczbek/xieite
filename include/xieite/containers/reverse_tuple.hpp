@@ -22,4 +22,4 @@ namespace xieite::containers {
 
 #endif
 
-// Thanks to fux for help with making this
+// Thanks to fux for helping make this

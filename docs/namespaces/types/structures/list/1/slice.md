@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Slice
-Defined in header [<xieite/types/list.hpp"](../../../../../../include/xieite/types/list.hpp)
+Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
 
@@ -7,7 +7,7 @@ Selects a "slice" from the stored list of types. Allows indices out of bounds an
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::size_t start, std::size_t end = sizeof...(Types)>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:getUniversallyUniqueIdentifier
-Defined in header [<xieite/random/get_universally_unique_identifier.hpp"](../../../include/xieite/random/get_universally_unique_identifier.hpp)
+Defined in header [<xieite/random/get_universally_unique_identifier.hpp>](../../../include/xieite/random/get_universally_unique_identifier.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Generates a UUID. Compile with `-luuid`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] inline std::string getUniversallyUniqueIdentifier() noexcept;

@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Line](../../../../line.md)\:\:Line
-Defined in header [<xieite/geometry/line.hpp"](../../../../../../../include/xieite/geometry/line.hpp)
+Defined in header [<xieite/geometry/line.hpp>](../../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Constructs a `xieite::geometry::Line`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 constexpr Line(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;

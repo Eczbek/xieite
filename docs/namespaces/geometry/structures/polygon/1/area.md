@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon](../../../polygon.md)\:\:area
-Defined in header [<xieite/geometry/polygon.hpp"](../../../../../../include/xieite/geometry/polygon.hpp)
+Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the area of this polygon.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr double area() const noexcept;

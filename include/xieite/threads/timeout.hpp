@@ -8,7 +8,7 @@
 #	include "../threads/interval.hpp"
 
 namespace xieite::threads {
-	class Timeout {
+	struct Timeout {
 	public:
 		template<xieite::concepts::TemporalDuration TemporalDuration>
 		Timeout(const xieite::functors::Function<void()>& callback, const TemporalDuration duration) noexcept

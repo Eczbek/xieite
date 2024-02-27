@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:Unspecified
-Defined in header [<xieite/exceptions/unspecified.hpp"](../../../include/xieite/exceptions/unspecified.hpp)
+Defined in header [<xieite/exceptions/unspecified.hpp>](../../../include/xieite/exceptions/unspecified.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Unspecified {

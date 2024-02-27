@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Position](../../../../position.md)\:\:Position
-Defined in header [<xieite/streams/position.hpp"](../../../../../../../include/xieite/streams/position.hpp)
+Defined in header [<xieite/streams/position.hpp>](../../../../../../../include/xieite/streams/position.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Constructs a `xieite::streams::Position`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 constexpr Position(int row = 0, int column = 0) noexcept;

@@ -1,5 +1,5 @@
 # [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:StandardHandle
-Defined in header [<xieite/streams/standard_handle.hpp"](../../../include/xieite/streams/standard_handle.hpp)
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A class for controlling standard IO with modes and styles.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct StandardHandle {

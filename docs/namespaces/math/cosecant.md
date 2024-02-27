@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:cosecant
-Defined in header [<xieite/math/cosecant.hpp"](../../../include/xieite/math/cosecant.hpp)
+Defined in header [<xieite/math/cosecant.hpp>](../../../include/xieite/math/cosecant.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the cosecant of a value.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

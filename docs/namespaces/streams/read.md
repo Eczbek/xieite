@@ -1,5 +1,5 @@
 # [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:read
-Defined in header [<xieite/streams/read.hpp"](../../../include/xieite/streams/read.hpp)
+Defined in header [<xieite/streams/read.hpp>](../../../include/xieite/streams/read.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Reads the entire contents of an input stream, including whitespace.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 inline std::string read(std::istream& inputStream) noexcept;

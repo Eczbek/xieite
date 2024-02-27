@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:additionOverflows
-Defined in header [<xieite/math/addition_overflows.hpp"](../../../include/xieite/math/addition_overflows.hpp)
+Defined in header [<xieite/math/addition_overflows.hpp>](../../../include/xieite/math/addition_overflows.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks if the addition of two values will overflow or underflow their type, or i
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

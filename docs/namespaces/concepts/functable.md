@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Functable
-Defined in header [<xieite/concepts/functable.hpp"](../../../include/xieite/concepts/functable.hpp)
+Defined in header [<xieite/concepts/functable.hpp>](../../../include/xieite/concepts/functable.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a functor type has a specific "signature" thing.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Functor, typename Pointer>

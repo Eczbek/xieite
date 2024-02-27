@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:ConditionallySigned
-Defined in header [<xieite/types/conditionally_signed.hpp"](../../../include/xieite/types/conditionally_signed.hpp)
+Defined in header [<xieite/types/conditionally_signed.hpp>](../../../include/xieite/types/conditionally_signed.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Integer Integer, bool sign>

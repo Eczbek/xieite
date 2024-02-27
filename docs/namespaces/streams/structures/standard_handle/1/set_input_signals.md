@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:echo
-Defined in header [<xieite/streams/standard_handle.hpp"](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Enables or disables input signals. Specifically, disables the special functional
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 void setInputSignals(bool value) const noexcept;

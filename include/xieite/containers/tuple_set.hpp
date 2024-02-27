@@ -13,23 +13,25 @@ namespace xieite::containers {
 	struct TupleSet;
 
 	template<template<typename> typename Container, typename FirstKey, typename... RestKeys>
-	class TupleSet<Container, std::tuple<FirstKey, RestKeys...>> {
+	struct TupleSet<Container, std::tuple<FirstKey, RestKeys...>> {
 	public:
 		constexpr TupleSet(const std::initializer_list<std::pair<FirstKey, TupleSet<Container, std::tuple<RestKeys...>>>> list = {}) noexcept
 		: set(list.begin(), list.end()) {}
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		[[nodiscard]] constexpr bool operator[](KeysReference&& keys) const noexcept {
+		[[nodiscard]] constexpr bool operator[](KeysReference&& keys) const {
 			return this->contains(XIEITE_FORWARD(keys));
 		}
 
-		constexpr void insert(const std::tuple<FirstKey, RestKeys...>& keys) noexcept {
+		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+		constexpr void insert(KeysReference&& keys) {
 			return ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) {
 				this->set[std::get<0>(keys)].insert(std::make_tuple(std::get<indices + 1>(keys)...));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
-		[[nodiscard]] constexpr bool contains(const std::tuple<FirstKey, RestKeys...>& keys) const noexcept {
+		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+		[[nodiscard]] constexpr bool contains(KeysReference&& keys) const {
 			return this->set.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) {
 				return this->set.at(std::get<0>(keys)).contains(std::make_tuple(std::get<indices + 1>(keys)...));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
@@ -40,23 +42,23 @@ namespace xieite::containers {
 	};
 
 	template<template<typename, typename> typename Container, typename Key>
-	class TupleSet<Container, std::tuple<Key>> {
+	struct TupleSet<Container, std::tuple<Key>> {
 	public:
 		constexpr TupleSet(const std::initializer_list<Key> list = {}) noexcept
 		: set(list.begin(), list.end()) {}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr bool operator[](KeyReference&& key) const noexcept {
+		[[nodiscard]] constexpr bool operator[](KeyReference&& key) const {
 			return this->contains(XIEITE_FORWARD(key));
 		}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		constexpr void insert(KeyReference&& key) noexcept {
+		constexpr void insert(KeyReference&& key) {
 			this->set.emplace(std::get<0>(XIEITE_FORWARD(key)));
 		}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr bool contains(KeyReference&& key) const noexcept {
+		[[nodiscard]] constexpr bool contains(KeyReference&& key) const {
 			return this->set.contains(std::get<0>(XIEITE_FORWARD(key)));
 		}
 

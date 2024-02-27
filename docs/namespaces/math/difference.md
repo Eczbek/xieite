@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:difference
-Defined in header [<xieite/math/difference.hpp"](../../../include/xieite/math/difference.hpp)
+Defined in header [<xieite/math/difference.hpp>](../../../include/xieite/math/difference.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the absolute difference between two values. Handles some edge cases.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

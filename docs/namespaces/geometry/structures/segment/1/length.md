@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Segment](../../../segment.md)\:\:length
-Defined in header [<xieite/geometry/segment.hpp"](../../../../../../include/xieite/geometry/segment.hpp)
+Defined in header [<xieite/geometry/segment.hpp>](../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the distance between the start and end of this segment.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr double length() const noexcept;

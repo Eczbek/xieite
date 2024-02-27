@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Point
-Defined in header [<xieite/geometry/point.hpp"](../../../include/xieite/geometry/point.hpp)
+Defined in header [<xieite/geometry/point.hpp>](../../../include/xieite/geometry/point.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A structure for representing a point.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Point {

@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Loop](../../../../loop.md)\:\:operator typename
-Defined in header [<xieite/threads/loop.hpp"](../../../../../../../include/xieite/threads/loop.hpp)
+Defined in header [<xieite/threads/loop.hpp>](../../../../../../../include/xieite/threads/loop.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ The boolean cast returns `true` if the loop is still running, and `false` if it 
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] operator bool() const noexcept;

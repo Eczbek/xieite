@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsSameAsAny
-Defined in header [<xieite/traits/is_same_as_any.hpp"](../../../include/xieite/traits/is_same_as_any.hpp)
+Defined in header [<xieite/traits/is_same_as_any.hpp>](../../../include/xieite/traits/is_same_as_any.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>

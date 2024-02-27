@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybeReference
-Defined in header [<xieite/types/maybe_reference.hpp"](../../../include/xieite/types/maybe_reference.hpp)
+Defined in header [<xieite/types/maybe_reference.hpp>](../../../include/xieite/types/maybe_reference.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A type for automatically determining if a type should be taken by copy or by ref
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

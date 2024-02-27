@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Interval](../../../../interval.md)\:\:Interval
-Defined in header [<xieite/threads/interval.hpp"](../../../../../../../include/xieite/threads/interval.hpp)
+Defined in header [<xieite/threads/interval.hpp>](../../../../../../../include/xieite/threads/interval.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Constructs a `xieite::threads::Interval`, starts running a callback between set 
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::invocable<> Functor, xieite::concepts::TemporalDuration TemporalDuration>

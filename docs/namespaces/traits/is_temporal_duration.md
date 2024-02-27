@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsTemporalDuration
-Defined in header [<xieite/traits/is_temporal_duration.hpp"](../../../include/xieite/traits/is_temporal_duration.hpp)
+Defined in header [<xieite/traits/is_temporal_duration.hpp>](../../../include/xieite/traits/is_temporal_duration.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename>

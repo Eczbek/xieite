@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:None
-Defined in header [<xieite/concepts/none.hpp"](../../../include/xieite/concepts/none.hpp)
+Defined in header [<xieite/concepts/none.hpp>](../../../include/xieite/concepts/none.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Negates type traits. Expects trait-like template structures. Passing no trait te
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type, template<typename> typename... Traits>

@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Erase
-Defined in header [<xieite/types/list.hpp"](../../../../../../include/xieite/types/list.hpp)
+Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
 
@@ -7,7 +7,7 @@ Erases one or a range of types.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::size_t start, std::size_t end = start + 1>

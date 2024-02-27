@@ -1,9 +1,7 @@
 # **XIEITE**
 C++ header-only utility library
 
-This project extends the standard library and provides an organized collection of components that can be included easily in projects without external dependencies
-
-Feel free to steal code!
+This project is a collection of questionably useful components designed for varying tasks, and is designed to extend the standard library without requiring external dependencies.
 
 &nbsp;
 
@@ -32,16 +30,16 @@ Feel free to steal code!
 - Macintosh: Should work
 - Windows: *ish*
 #### Compilers
-- GCC: Works fully
-- Clang: Some bugs
-- MSVC: Not tested
+- GCC-14: Works fully
+- Clang-19: Some bugs with metaprogramming
+- MSVC-19: Skill issue
 
 &nbsp;
 
 ## Requirements
-- C++23
+- C++26
 
 &nbsp;
 
 ## [Documentation](https://github.com/Eczbek/xieite/tree/main/docs/xieite.md)
-(Currently outdated)
+Written manually :)

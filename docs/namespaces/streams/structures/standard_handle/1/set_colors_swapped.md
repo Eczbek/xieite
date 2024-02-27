@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setColorInversion
-Defined in header [<xieite/streams/standard_handle.hpp"](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Enables or disables the swapping of foreground and background colors.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 void setColorInversion(bool value) const noexcept;

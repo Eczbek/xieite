@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Position
-Defined in header [<xieite/streams/position.hpp"](../../../include/xieite/streams/position.hpp)
+Defined in header [<xieite/streams/position.hpp>](../../../include/xieite/streams/position.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A class for storing a position in the terminal output buffer.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Position {

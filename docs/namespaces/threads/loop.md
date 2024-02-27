@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Loop
-Defined in header [<xieite/threads/loop.hpp"](../../../include/xieite/threads/loop.hpp)
+Defined in header [<xieite/threads/loop.hpp>](../../../include/xieite/threads/loop.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Runs a callback constantly. Compile with `-pthread`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Loop {

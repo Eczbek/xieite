@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:memoize
-Defined in header [<xieite/functors/memoize.hpp"](../../../include/xieite/functors/memoize.hpp)
+Defined in header [<xieite/functors/memoize.hpp>](../../../include/xieite/functors/memoize.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Memo-izes a function call and returns its output immediately on subsequent execu
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename... Arguments, std::invocable<Arguments...> Functor>

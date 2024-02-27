@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[strings](../../../../strings.md)\:\:[literals](../../literals.md)\:\:stringify
-Defined in header [<xieite/strings/literals/stringify.hpp"](../../../../../include/xieite/strings/literals/stringify.hpp)
+Defined in header [<xieite/strings/literals/stringify.hpp>](../../../../../include/xieite/strings/literals/stringify.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Stringification.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<char... characters>

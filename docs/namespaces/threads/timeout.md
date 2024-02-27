@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Timeout
-Defined in header [<xieite/threads/timeout.hpp"](../../../include/xieite/threads/timeout.hpp)
+Defined in header [<xieite/threads/timeout.hpp>](../../../include/xieite/threads/timeout.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Runs a callback once after a set amount of time. Compile with `-pthread`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Timeout {

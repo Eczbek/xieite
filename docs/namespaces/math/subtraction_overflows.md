@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:subtractionOverflows
-Defined in header [<xieite/math/subtraction_overflows.hpp"](../../../include/xieite/math/subtraction_overflows.hpp)
+Defined in header [<xieite/math/subtraction_overflows.hpp>](../../../include/xieite/math/subtraction_overflows.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks if the subtraction of two values will overflow or underflow their type, o
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

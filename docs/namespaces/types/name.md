@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:name
-Defined in header [<xieite/types/name.hpp"](../../../include/xieite/types/name.hpp)
+Defined in header [<xieite/types/name.hpp>](../../../include/xieite/types/name.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Gets the string name of a type at compile-time.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

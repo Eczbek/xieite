@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:almostEqual
-Defined in header [<xieite/math/almost_equal.hpp"](../../../include/xieite/math/almost_equal.hpp)
+Defined in header [<xieite/math/almost_equal.hpp>](../../../include/xieite/math/almost_equal.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks if two values are almost equal.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number1, xieite::concepts::Number Number2>

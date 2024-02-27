@@ -7,7 +7,7 @@
 #	include "../functors/function.hpp"
 
 namespace xieite::functors {
-	class ScopeGuard {
+	struct ScopeGuard {
 	public:
 		constexpr ScopeGuard(const xieite::functors::Function<void()>& callback) noexcept
 		: callback(callback) {}

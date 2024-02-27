@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideCeiling
-Defined in header [<xieite/math/divide_ceiling.hpp"](../../../include/xieite/math/divide_ceiling.hpp)
+Defined in header [<xieite/math/divide_ceiling.hpp>](../../../include/xieite/math/divide_ceiling.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the ceiling value of a division.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral Integer>

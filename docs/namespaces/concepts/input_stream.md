@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:InputStream
-Defined in header [<xieite/concepts/input_stream.hpp"](../../../include/xieite/concepts/input_stream.hpp)
+Defined in header [<xieite/concepts/input_stream.hpp>](../../../include/xieite/concepts/input_stream.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is `std::istream` or derives from it.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

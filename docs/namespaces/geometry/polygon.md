@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Polygon
-Defined in header [<xieite/geometry/polygon.hpp"](../../../include/xieite/geometry/polygon.hpp)
+Defined in header [<xieite/geometry/polygon.hpp>](../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A structure for representing a polygon.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Polygon {

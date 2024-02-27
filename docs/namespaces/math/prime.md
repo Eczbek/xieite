@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:prime
-Defined in header [<xieite/math/prime.hpp"](../../../include/xieite/math/prime.hpp)
+Defined in header [<xieite/math/prime.hpp>](../../../include/xieite/math/prime.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks whether an integer is only evenly divisible by itself and 1.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral Integer>

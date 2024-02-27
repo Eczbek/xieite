@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:trim
-Defined in header [<xieite/strings/trim.hpp"](../../../include/xieite/strings/trim.hpp)
+Defined in header [<xieite/strings/trim.hpp>](../../../include/xieite/strings/trim.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Trims both the front and back of a string.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::string_view trim(std::string_view string, char character) noexcept;

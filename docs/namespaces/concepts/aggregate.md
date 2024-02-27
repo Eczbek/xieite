@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Aggregate
-Defined in header [<xieite/concepts/aggregate.hpp"](../../../include/xieite/concepts/aggregate.hpp)
+Defined in header [<xieite/concepts/aggregate.hpp>](../../../include/xieite/concepts/aggregate.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is an aggregate.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:makeArray
-Defined in header [<xieite/containers/make_array.hpp"](../../../include/xieite/containers/make_array.hpp)
+Defined in header [<xieite/containers/make_array.hpp>](../../../include/xieite/containers/make_array.hpp)
 
 &nbsp;
 
@@ -8,26 +8,19 @@ Attempts to create `std::array`s from other ranges.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
-template<typename Value, std::size_t size, std::ranges::range Range>
-requires(std::convertible_to<std::ranges::range_reference_t<Range>, Value>)
-[[nodiscard]] constexpr std::array<Value, size> makeArray(const Range& range)
-noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, Value>);
-```
-#### 2)
-```cpp
-template<typename... Arguments, typename Value = std::common_type_t<Arguments...>, std::size_t size = sizeof...(Values)>
-requires(sizeof...(Arguments) <= size)
-[[nodiscard]] constexpr std::array<Value, size> makeArray(const Arguments&... values) noexcept;
+template<typename Value, std::size_t size, xieite::concepts::RangeOf<Value> Range, xieite::concepts::Functable<Value(std::ranges::range_reference_t<Range>)> Functor = xieite::functors::StaticCast<Value>>
+[[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
+noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <vector>
 #include "xieite/containers/make_array.hpp"
 
@@ -37,7 +30,7 @@ int main() {
     auto result = xieite::containers::makeArray<int, 5>(source);
 
     for (int item : result) {
-        std::cout << item << '\n';
+        std::println("{}", item);
     }
 }
 ```

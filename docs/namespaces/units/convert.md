@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:convert
-Defined in header [<xieite/units/convert.hpp"](../../../include/xieite/units/convert.hpp)
+Defined in header [<xieite/units/convert.hpp>](../../../include/xieite/units/convert.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Converts one unit type to another.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

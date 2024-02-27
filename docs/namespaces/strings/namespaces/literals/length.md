@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[strings](../../../../strings.md)\:\:[literals](../../literals.md)\:\:length
-Defined in header [<xieite/strings/literals/length.hpp"](../../../../../include/xieite/strings/literals/length.hpp)
+Defined in header [<xieite/strings/literals/length.hpp>](../../../../../include/xieite/strings/literals/length.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Length.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<char... characters>

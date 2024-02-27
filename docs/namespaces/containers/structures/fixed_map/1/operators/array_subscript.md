@@ -1,18 +1,41 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyEqual, Allocator>](../../../../fixed_map.md)\:\:operator\[\]
-Defined in header [<xieite/containers/fixed_map.hpp"](../../../../../../../include/xieite/containers/fixed_map.hpp)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyComparator, Allocator>](../../../../fixed_map.md)\:\:operator\[\]
+Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
 
-Accesses a value by its key, if it exists.
+Accesses a value by its key, if it exists. May throw `xieite::exceptions::InvalidKey` if the map does not contain a key that it is accessed with.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr const Value& operator[](const Key& key) const;
+template<typename Self, std::convertible_to<Key> KeyReference>
+[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, KeyReference&& key);
 ```
-#### 2)
+
+&nbsp;
+
+## Example
 ```cpp
-[[nodiscard]] constexpr Value& operator[](const Key& key);
+#include <print>
+#include "xieite/containers/fixed_map.hpp"
+
+int main() {
+    xieite::containers::FixedMap<int, double, 3> map = {
+        { 1, 2.71828 },
+        { 2, 3.14159 },
+        { 3, 6.28318 }
+    };
+
+    for (int i = 1; i <= 3; ++i) {
+        std::println("{}: {}", i, map[i]);
+    }
+}
+```
+Output:
+```
+1: 2.71828
+2: 3.14159
+2: 6.28318
 ```

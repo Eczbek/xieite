@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:fromRomanNumerals
-Defined in header [<xieite/strings/from_roman_numerals.hpp"](../../../include/xieite/strings/from_roman_numerals.hpp)
+Defined in header [<xieite/strings/from_roman_numerals.hpp>](../../../include/xieite/strings/from_roman_numerals.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Converts a number from roman numerals.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral Integer = int>

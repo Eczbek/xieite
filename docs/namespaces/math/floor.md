@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:floor
-Defined in header [<xieite/math/floor.hpp"](../../../include/xieite/math/floor.hpp)
+Defined in header [<xieite/math/floor.hpp>](../../../include/xieite/math/floor.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Rounds a `value` down to the last multiple of `step`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Constant
-Defined in header [<xieite/concepts/constant.hpp"](../../../include/xieite/concepts/constant.hpp)
+Defined in header [<xieite/concepts/constant.hpp>](../../../include/xieite/concepts/constant.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is constant.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

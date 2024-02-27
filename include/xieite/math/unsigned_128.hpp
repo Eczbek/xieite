@@ -6,7 +6,7 @@
 #	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 
 namespace xieite::math {
-	using Unsigned128 = __uint128_t;
+	using Unsigned128 = unsigned __int128;
 }
 
 #	elif XIEITE_COMPILER_TYPE_MSVC

@@ -19,8 +19,10 @@
 #	include "../math/digits.hpp"
 #	include "../math/integer_string_components.hpp"
 #	include "../math/multiply.hpp"
+#	include "../math/negative.hpp"
 #	include "../math/parse.hpp"
 #	include "../math/product.hpp"
+#	include "../math/signed_size.hpp"
 #	include "../math/split_boolean.hpp"
 #	include "../math/stringify.hpp"
 #	include "../system/byte_bits.hpp"
@@ -29,13 +31,13 @@
 
 namespace xieite::math {
 	template<std::unsigned_integral Word = std::uint64_t>
-	class BigInteger {
+	struct BigInteger {
 	public:
 		using Type = Word;
 
 		template<std::integral Integer = int>
 		constexpr BigInteger(const Integer value = 0) noexcept
-		: negative(!(value >= 0)) {
+		: negative(xieite::math::negative(value)) {
 			xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
 			do {
 				this->data.push_back(static_cast<Word>(absoluteValue));
@@ -83,7 +85,7 @@ namespace xieite::math {
 			this->trim();
 		}
 
-		constexpr BigInteger(const std::string_view value, const std::make_signed_t<std::size_t> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept {
+		constexpr BigInteger(const std::string_view value, const xieite::math::SignedSize radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept {
 			*this = xieite::math::parse<xieite::math::BigInteger<Word>>(value, radix, components);
 		}
 
@@ -640,7 +642,7 @@ namespace xieite::math {
 			return this->logarithm(xieite::math::BigInteger<Word>(base));
 		}
 
-		[[nodiscard]] constexpr std::string string(const std::make_signed_t<std::size_t> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) const noexcept {
+		[[nodiscard]] constexpr std::string string(const xieite::math::SignedSize radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) const noexcept {
 			return xieite::math::stringify(*this, radix, components);
 		}
 

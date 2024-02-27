@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:WideCharacter
-Defined in header [<xieite/concepts/wide_character.hpp"](../../../include/xieite/concepts/wide_character.hpp)
+Defined in header [<xieite/concepts/wide_character.hpp>](../../../include/xieite/concepts/wide_character.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is a wide character, according to [the standard draft](htt
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

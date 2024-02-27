@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:Length
-Defined in header [<xieite/units/length.hpp"](../../../include/xieite/units/length.hpp)
+Defined in header [<xieite/units/length.hpp>](../../../include/xieite/units/length.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An enumeration of length units.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 enum Length {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:rotate
-Defined in header [<xieite/geometry/rotate.hpp"](../../../include/xieite/geometry/rotate.hpp)
+Defined in header [<xieite/geometry/rotate.hpp>](../../../include/xieite/geometry/rotate.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Rotates shapes a specific angle around any pivot, clockwise.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;

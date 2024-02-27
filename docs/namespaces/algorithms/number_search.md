@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:numberSearch
-Defined in header [<xieite/algorithms/number_search.hpp"](../../../include/xieite/algorithms/number_search.hpp)
+Defined in header [<xieite/algorithms/number_search.hpp>](../../../include/xieite/algorithms/number_search.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Finds the lowest numerical value which, if passed to the provided callback, will
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number, xieite::concepts::Functable<bool(Number)> Functor>

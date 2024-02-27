@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:modes
-Defined in header [<xieite/math/modes.hpp"](../../../include/xieite/math/modes.hpp)
+Defined in header [<xieite/math/modes.hpp>](../../../include/xieite/math/modes.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the modes of some values. Returns `{ 0 }` if no arguments are passed.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::ranges::range Range>

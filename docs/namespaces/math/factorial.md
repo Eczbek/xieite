@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:factorial
-Defined in header [<xieite/math/factorial.hpp"](../../../include/xieite/math/factorial.hpp)
+Defined in header [<xieite/math/factorial.hpp>](../../../include/xieite/math/factorial.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A lookup table of factorials.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

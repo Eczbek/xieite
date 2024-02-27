@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:closestTo
-Defined in header [<xieite/math/closest_to.hpp"](../../../include/xieite/math/closest_to.hpp)
+Defined in header [<xieite/math/closest_to.hpp>](../../../include/xieite/math/closest_to.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Selects the value closest to a target.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

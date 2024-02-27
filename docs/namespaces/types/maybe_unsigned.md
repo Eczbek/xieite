@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybeUnsigned
-Defined in header [<xieite/types/maybe_unsigned.hpp"](../../../include/xieite/types/maybe_unsigned.hpp)
+Defined in header [<xieite/types/maybe_unsigned.hpp>](../../../include/xieite/types/maybe_unsigned.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

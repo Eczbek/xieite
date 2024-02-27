@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:pi
-Defined in header [<xieite/math/pi.hpp"](../../../include/xieite/math/pi.hpp)
+Defined in header [<xieite/math/pi.hpp>](../../../include/xieite/math/pi.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Defines integer values of Pi.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename>

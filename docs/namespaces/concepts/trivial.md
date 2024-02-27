@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Trivial
-Defined in header [<xieite/concepts/trivial.hpp"](../../../include/xieite/concepts/trivial.hpp)
+Defined in header [<xieite/concepts/trivial.hpp>](../../../include/xieite/concepts/trivial.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is trivial.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

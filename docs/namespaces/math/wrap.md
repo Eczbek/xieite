@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:wrap
-Defined in header [<xieite/math/wrap.hpp"](../../../include/xieite/math/wrap.hpp)
+Defined in header [<xieite/math/wrap.hpp>](../../../include/xieite/math/wrap.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Defined in header [<xieite/math/wrap.hpp"](../../../include/xieite/math/wrap.hpp
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

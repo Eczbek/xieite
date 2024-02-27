@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:UnscopedEnumeration
-Defined in header [<xieite/concepts/unscoped_enumeration.hpp"](../../../include/xieite/concepts/unscoped_enumeration.hpp)
+Defined in header [<xieite/concepts/unscoped_enumeration.hpp>](../../../include/xieite/concepts/unscoped_enumeration.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is an unscoped enumeration.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Interval](../../../../interval.md)\:\:operator typename
-Defined in header [<xieite/threads/interval.hpp"](../../../../../../../include/xieite/threads/interval.hpp)
+Defined in header [<xieite/threads/interval.hpp>](../../../../../../../include/xieite/threads/interval.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ The boolean cast returns `true` if the interval is still running, and `false` if
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] operator bool() const noexcept;

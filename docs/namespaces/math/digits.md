@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:digits
-Defined in header [<xieite/math/digits.hpp"](../../../include/xieite/math/digits.hpp)
+Defined in header [<xieite/math/digits.hpp>](../../../include/xieite/math/digits.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the number of integral digits in a value of any base.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

@@ -1,9 +1,9 @@
 # [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[Partial<Template, FirstArguments...>](../../../partial.md)\:\:Append
-Defined in header [<xieite/types/partial.hpp"](../../../../../../include/xieite/types/partial.hpp)
+Defined in header [<xieite/types/partial.hpp>](../../../../../../include/xieite/types/partial.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename... SecondArguments>

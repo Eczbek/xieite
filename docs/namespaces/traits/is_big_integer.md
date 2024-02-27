@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsBigInteger
-Defined in header [<xieite/traits/is_big_integer.hpp"](../../../include/xieite/traits/is_big_integer.hpp)
+Defined in header [<xieite/traits/is_big_integer.hpp>](../../../include/xieite/traits/is_big_integer.hpp)
 
 &nbsp;
 
@@ -7,7 +7,7 @@ Forward-declares `xieite::math::BigInteger` and does stuff.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

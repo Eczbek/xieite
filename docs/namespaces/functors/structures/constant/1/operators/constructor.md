@@ -1,9 +1,9 @@
 # [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Constant<Type>](../../../../constant.md)\:\:Constant
-Defined in header [<xieite/functors/constant.hpp"](../../../../../../../include/xieite/functors/constant.hpp)
+Defined in header [<xieite/functors/constant.hpp>](../../../../../../../include/xieite/functors/constant.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename... Arguments>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:fibonacci
-Defined in header [<xieite/math/fibonacci.hpp"](../../../include/xieite/math/fibonacci.hpp)
+Defined in header [<xieite/math/fibonacci.hpp>](../../../include/xieite/math/fibonacci.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A lookup table of the fibonacci sequence.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

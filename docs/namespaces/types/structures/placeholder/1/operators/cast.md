@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[types](../../../../../../types.md)\:\:[Placeholder](../../../../placeholder.md)\:\:Type
-Defined in header [<xieite/types/placeholder.hpp"](../../../../../../../include/xieite/types/placeholder.hpp)
+Defined in header [<xieite/types/placeholder.hpp>](../../../../../../../include/xieite/types/placeholder.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Casting operators to any type (only declared).
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

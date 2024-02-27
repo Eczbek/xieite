@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Unique
-Defined in header [<xieite/types/list.hpp"](../../../../../../include/xieite/types/list.hpp)
+Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
 
@@ -7,7 +7,7 @@ Selects one of each type from the stored list of types.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 using Unique = /* ... */;

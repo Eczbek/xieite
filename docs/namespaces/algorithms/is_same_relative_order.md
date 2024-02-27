@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:sameRelativeOrder
-Defined in header [<xieite/algorithms/same_relative_order.hpp"](../../../include/xieite/algorithms/same_relative_order.hpp)
+Defined in header [<xieite/algorithms/same_relative_order.hpp>](../../../include/xieite/algorithms/same_relative_order.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks whether one range contains elements in the same relative order as in anot
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>)> Functor = std::ranges::equal_to>

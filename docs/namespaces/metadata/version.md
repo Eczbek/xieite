@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[metadata](../../metadata.md)\:\:Version
-Defined in header [<xieite/metadata/version.hpp"](../../../include/xieite/metadata/version.hpp)
+Defined in header [<xieite/metadata/version.hpp>](../../../include/xieite/metadata/version.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A class to store and compare versions.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Version {

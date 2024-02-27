@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[units](../../../../units.md)\:\:[literals](../../literals.md)\:\:areas
-Defined in header [<xieite/units/literals/areas.hpp"](../../../../../include/xieite/units/literals/areas.hpp)
+Defined in header [<xieite/units/literals/areas.hpp>](../../../../../include/xieite/units/literals/areas.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A colletion of literals for area units.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr double operator""_squareQuectometres(long double value) noexcept;

@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[metadata](../../../../../metadata.md)\:\:[Version](../../../version.md)\:\:string
-Defined in header [<xieite/metadata/version.hpp"](../../../../../../include/xieite/metadata/version.hpp)
+Defined in header [<xieite/metadata/version.hpp>](../../../../../../include/xieite/metadata/version.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Stringifies a version into the format `v<major>.<minor>.<patch>[-<label>]`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::string string() const noexcept;

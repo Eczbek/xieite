@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Any
-Defined in header [<xieite/concepts/any.hpp"](../../../include/xieite/concepts/any.hpp)
+Defined in header [<xieite/concepts/any.hpp>](../../../include/xieite/concepts/any.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type satisfies at least one of several type traits. Expects tra
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type, template<typename> typename... Traits>

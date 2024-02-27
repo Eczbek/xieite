@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:SizedInteger
-Defined in header [<xieite/math/sized_integer.hpp"](../../../include/xieite/math/sized_integer.hpp)
+Defined in header [<xieite/math/sized_integer.hpp>](../../../include/xieite/math/sized_integer.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::size_t bits, bool sign>

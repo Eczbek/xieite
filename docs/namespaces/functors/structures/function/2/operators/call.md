@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Function<Return(Arguments...)>](../../../../function.md)\:\:operator\(\)
-Defined in header [<xieite/functors/function.hpp"](../../../../../../../include/xieite/functors/function.hpp)
+Defined in header [<xieite/functors/function.hpp>](../../../../../../../include/xieite/functors/function.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Calls the underlying functor. Throws `xieite::exceptions::UnsetFunctorInvoked` i
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 constexpr Return operator()(Arguments... arguments) const;

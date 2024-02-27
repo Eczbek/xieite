@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Interval
-Defined in header [<xieite/threads/interval.hpp"](../../../include/xieite/threads/interval.hpp)
+Defined in header [<xieite/threads/interval.hpp>](../../../include/xieite/threads/interval.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Runs a callback every set amount of time. Compile with `-pthread`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Interval {

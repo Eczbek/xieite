@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:Shredder
-Defined in header [<xieite/memory/shredder.hpp"](../../../include/xieite/memory/shredder.hpp)
+Defined in header [<xieite/memory/shredder.hpp>](../../../include/xieite/memory/shredder.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Clears used memory upon destruction.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

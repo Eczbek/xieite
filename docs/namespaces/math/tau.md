@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:tau
-Defined in header [<xieite/math/tau.hpp"](../../../include/xieite/math/tau.hpp)
+Defined in header [<xieite/math/tau.hpp>](../../../include/xieite/math/tau.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

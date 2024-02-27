@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:replace
-Defined in header [<xieite/strings/replace.hpp"](../../../include/xieite/strings/replace.hpp)
+Defined in header [<xieite/strings/replace.hpp>](../../../include/xieite/strings/replace.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Replaces instances of a substring with another.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::string replace(std::string_view value, std::string_view target, std::string_view replacement, std::size_t start = 0) noexcept;

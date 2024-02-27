@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Hasher
-Defined in header [<xieite/concepts/hasher.hpp"](../../../include/xieite/concepts/hasher.hpp)
+Defined in header [<xieite/concepts/hasher.hpp>](../../../include/xieite/concepts/hasher.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is a functor for hashing values.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<template<typename> typename Template, typename Argument>

@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[threads](../../../../../threads.md)\:\:[Interval](../../../interval.md)\:\:stop
-Defined in header [<xieite/threads/interval.hpp"](../../../../../../include/xieite/threads/interval.hpp)
+Defined in header [<xieite/threads/interval.hpp>](../../../../../../include/xieite/threads/interval.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Stops a `xieite::threads::Interval`, and further callback calls. Immediately ret
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 void stop() noexcept;

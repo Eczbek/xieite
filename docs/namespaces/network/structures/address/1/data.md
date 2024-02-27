@@ -1,9 +1,9 @@
 # [xieite](../../../../../xieite.md)\:\:[network](../../../../../network.md)\:\:[Address](../../../address.md)\:\:data
-Defined in header [<xieite/network/address.hpp"](../../../../../../include/xieite/network/address.hpp)
+Defined in header [<xieite/network/address.hpp>](../../../../../../include/xieite/network/address.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] const sockaddr* data() const noexcept;

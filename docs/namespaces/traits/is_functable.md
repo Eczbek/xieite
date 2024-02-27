@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsFunctable
-Defined in header [<xieite/traits/is_functable.hpp"](../../../include/xieite/traits/is_functable.hpp)
+Defined in header [<xieite/traits/is_functable.hpp>](../../../include/xieite/traits/is_functable.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename, typename>

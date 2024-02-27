@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:hashDjb2
-Defined in header [<xieite/strings/hash_djb2.hpp"](../../../include/xieite/strings/hash_djb2.hpp)
+Defined in header [<xieite/strings/hash_djb2.hpp>](../../../include/xieite/strings/hash_djb2.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Generates a djb2 hash.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::size_t hashDjb2(std::string_view value) noexcept;

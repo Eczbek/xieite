@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon](../../../polygon.md)\:\:containsPoint
-Defined in header [<xieite/geometry/polygon.hpp"](../../../../../../include/xieite/geometry/polygon.hpp)
+Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks whether this polygon contains a point.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr bool containsPoint(xieite::geometry::Point point) const noexcept;

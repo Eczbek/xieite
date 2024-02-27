@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:LongerInteger
-Defined in header [<xieite/types/longer_integer.hpp"](../../../include/xieite/types/longer_integer.hpp)
+Defined in header [<xieite/types/longer_integer.hpp>](../../../include/xieite/types/longer_integer.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Gets the next larger unsigned integer type.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral Type>

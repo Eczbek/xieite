@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:roundDown
-Defined in header [<xieite/math/round_down.hpp"](../../../include/xieite/math/round_down.hpp)
+Defined in header [<xieite/math/round_down.hpp>](../../../include/xieite/math/round_down.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Rounds a `value` to the nearest `step` toward `0`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>

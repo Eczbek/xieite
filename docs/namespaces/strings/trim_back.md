@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:trimBack
-Defined in header [<xieite/strings/trim_back.hpp"](../../../include/xieite/strings/trim_back.hpp)
+Defined in header [<xieite/strings/trim_back.hpp>](../../../include/xieite/strings/trim_back.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Trims the back of a string.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::string_view trimBack(std::string_view string, char character) noexcept;

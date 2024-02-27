@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:Angle
-Defined in header [<xieite/units/angle.hpp"](../../../include/xieite/units/angle.hpp)
+Defined in header [<xieite/units/angle.hpp>](../../../include/xieite/units/angle.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An enumeration of angle units.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 enum Angle {

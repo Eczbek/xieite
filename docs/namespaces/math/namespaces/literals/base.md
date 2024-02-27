@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[math](../../../../math.md)\:\:[literals](../../literals.md)\:\:base
-Defined in header [<xieite/math/literals/base.hpp"](../../../../../include/xieite/math/literals/base.hpp)
+Defined in header [<xieite/math/literals/base.hpp>](../../../../../include/xieite/math/literals/base.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Useless.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<char... characters>

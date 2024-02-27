@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:bitUnjoin
-Defined in header [<xieite/math/bit_unjoin.hpp"](../../../include/xieite/math/bit_unjoin.hpp)
+Defined in header [<xieite/math/bit_unjoin.hpp>](../../../include/xieite/math/bit_unjoin.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Unjoins one `std::bitset` apart into multiple integers.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral... Integers>

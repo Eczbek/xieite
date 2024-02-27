@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:reflect
-Defined in header [<xieite/geometry/reflect.hpp"](../../../include/xieite/geometry/reflect.hpp)
+Defined in header [<xieite/geometry/reflect.hpp>](../../../include/xieite/geometry/reflect.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Reflects a shape across any line.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::LinearShape LinearShape>

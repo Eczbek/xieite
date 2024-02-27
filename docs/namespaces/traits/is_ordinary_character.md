@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsOrdinaryCharacter
-Defined in header [<xieite/traits/is_ordinary_character.hpp"](../../../include/xieite/traits/is_ordinary_character.hpp)
+Defined in header [<xieite/traits/is_ordinary_character.hpp>](../../../include/xieite/traits/is_ordinary_character.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

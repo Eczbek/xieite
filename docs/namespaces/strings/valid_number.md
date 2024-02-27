@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:validNumber
-Defined in header [<xieite/strings/valid_number.hpp"](../../../include/xieite/strings/valid_number.hpp)
+Defined in header [<xieite/strings/valid_number.hpp>](../../../include/xieite/strings/valid_number.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks if a string can be parsed a number from.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

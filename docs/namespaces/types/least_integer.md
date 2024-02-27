@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:LeastInteger
-Defined in header [<xieite/types/least_integer.hpp"](../../../include/xieite/types/least_integer.hpp)
+Defined in header [<xieite/types/least_integer.hpp>](../../../include/xieite/types/least_integer.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Determines the minimal unsigned integer type for any reasonable amount of bits.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::size_t bits>

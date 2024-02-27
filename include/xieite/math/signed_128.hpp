@@ -6,7 +6,7 @@
 #	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 
 namespace xieite::math {
-	using Signed128 = __int128_t;
+	using Signed128 = __int128;
 }
 
 #	elif XIEITE_COMPILER_TYPE_MSVC

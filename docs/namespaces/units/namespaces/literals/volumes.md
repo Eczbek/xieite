@@ -1,5 +1,5 @@
 # [xieite](../../../../xieite.md)\:\:[units](../../../../units.md)\:\:[literals](../../literals.md)\:\:volumes
-Defined in header [<xieite/units/literals/volumes.hpp"](../../../../../include/xieite/units/literals/volumes.hpp)
+Defined in header [<xieite/units/literals/volumes.hpp>](../../../../../include/xieite/units/literals/volumes.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A colletion of literals for volume units.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr double operator""_cubicQuectometres(long double value) noexcept;

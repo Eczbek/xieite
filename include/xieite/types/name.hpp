@@ -5,15 +5,17 @@
 #	include "../macros/compiler.hpp"
 
 #	if XIEITE_COMPILER_TYPE_GCC
-#		include <string>
 #		include "../containers/make_array.hpp"
 #		include "../strings/between.hpp"
 
 namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
-		static constexpr auto data = xieite::containers::makeArray<char, std::string_view(__PRETTY_FUNCTION__).size()>(std::string_view(__PRETTY_FUNCTION__));
-		return xieite::strings::between(std::string_view(data.begin(), data.end()), "= ", ';');
+	[[nodiscard]] consteval std::string_view name() noexcept {
+		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] -> std::string_view {
+			return xieite::strings::between(string, "= ", ';');
+		};
+		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
+		return data.view();
 	}
 }
 
@@ -24,8 +26,11 @@ namespace XIEITE_DETAIL_NAMESPACE {
 namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
-		static constexpr auto data = xieite::containers::makeArray<char, std::string_view(__PRETTY_FUNCTION__).size()>(std::string_view(__PRETTY_FUNCTION__));
-		return xieite::strings::between(std::string_view(data.begin(), data.end()), "= ", ']');
+		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] -> std::string_view {
+			return xieite::strings::between(string, "= ", ']');
+		};
+		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
+		return data.view();
 	}
 }
 
@@ -37,8 +42,11 @@ namespace XIEITE_DETAIL_NAMESPACE {
 namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
-		static constexpr auto data = xieite::containers::makeArray<char, std::string_view(__FUNCSIG__).size()>(std::string_view(__FUNCSIG__));
-		return xieite::strings::between(xieite::strings::after(std::string_view(data.begin(), data.end()), "__cdecl"), '<', ">(");
+		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] -> std::string_view {
+			return xieite::strings::between(xieite::strings::after(string, "__cdecl"), '<', ">(");
+		};
+		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
+		return data.view();
 	}
 }
 

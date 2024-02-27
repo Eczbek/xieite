@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:before
-Defined in header [<xieite/strings/before.hpp"](../../../include/xieite/strings/before.hpp)
+Defined in header [<xieite/strings/before.hpp>](../../../include/xieite/strings/before.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Takes the start of a string before some substring.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::vector<std::string_view> before(std::string_view string, std::string_view end) noexcept;

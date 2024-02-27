@@ -8,7 +8,7 @@
 
 namespace xieite::memory {
 	template<typename Type>
-	class Shredder {
+	struct Shredder {
 	public:
 		constexpr Shredder() noexcept {
 			this->shred();

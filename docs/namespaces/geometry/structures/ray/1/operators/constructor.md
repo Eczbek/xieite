@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray](../../../../ray.md)\:\:Ray
-Defined in header [<xieite/geometry/ray.hpp"](../../../../../../../include/xieite/geometry/ray.hpp)
+Defined in header [<xieite/geometry/ray.hpp>](../../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Constructs a `xieite::geometry::Ray`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 constexpr Ray(xieite::geometry::Point start, xieite::geometry::Point end) noexcept;

@@ -1,9 +1,9 @@
 # [xieite](../../../../../../../../../xieite.md)\:\:[functors](../../../../../../../../../functors.md)\:\:[Infix<Functor>](../../../../../../../infix.md)\:\:[Intermediate<LeftArgument>](../../../../intermediate.md)\:\:operator>
-Defined in header [<xieite/functors/infix.hpp"](../../../../../../../../../../include/xieite/functors/infix.hpp)
+Defined in header [<xieite/functors/infix.hpp>](../../../../../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename RightArgument>

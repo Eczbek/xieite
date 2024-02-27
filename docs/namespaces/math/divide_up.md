@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideUp
-Defined in header [<xieite/math/divide_up.hpp"](../../../include/xieite/math/divide_up.hpp)
+Defined in header [<xieite/math/divide_up.hpp>](../../../include/xieite/math/divide_up.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the value of a division and rounds away from zero.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral Integer>

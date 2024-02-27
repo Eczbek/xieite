@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Polymorphic
-Defined in header [<xieite/concepts/polymorphic.hpp"](../../../include/xieite/concepts/polymorphic.hpp)
+Defined in header [<xieite/concepts/polymorphic.hpp>](../../../include/xieite/concepts/polymorphic.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is polymorphic. Can be used for checking if a type has a v
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

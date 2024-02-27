@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideDown
-Defined in header [<xieite/math/divide_down.hpp"](../../../include/xieite/math/divide_down.hpp)
+Defined in header [<xieite/math/divide_down.hpp>](../../../include/xieite/math/divide_down.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the value of a division and rounds toward zero.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral Integer>

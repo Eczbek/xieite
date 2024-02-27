@@ -15,7 +15,7 @@
 #	include "../network/domain.hpp"
 
 namespace xieite::network {
-	class Address {
+	struct Address {
 	public:
 		Address(const std::string& host = "::") {
 			this->address.sin6_family = static_cast<int>(xieite::network::Domain::IPv6);

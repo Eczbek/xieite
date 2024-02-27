@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsStream
-Defined in header [<xieite/traits/is_stream.hpp"](../../../include/xieite/traits/is_stream.hpp)
+Defined in header [<xieite/traits/is_stream.hpp>](../../../include/xieite/traits/is_stream.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

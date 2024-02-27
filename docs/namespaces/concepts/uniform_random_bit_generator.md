@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:UniformRandomBitGenerator
-Defined in header [<xieite/concepts/uniform_random_bit_generator.hpp"](../../../include/xieite/uniform_random_bit_generator.hpp)
+Defined in header [<xieite/concepts/uniform_random_bit_generator.hpp>](../../../include/xieite/uniform_random_bit_generator.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is a uniform random bit generator.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

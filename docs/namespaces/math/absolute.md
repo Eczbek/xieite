@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:absolute
-Defined in header [<xieite/math/absolute.hpp"](../../../include/xieite/math/absolute.hpp)
+Defined in header [<xieite/math/absolute.hpp>](../../../include/xieite/math/absolute.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Returns the unsigned absolute of a value.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral Integer>

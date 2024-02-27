@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:DerivedFromAll
-Defined in header [<xieite/concepts/derived_from_all.hpp"](../../../include/xieite/concepts/derived_from_all.hpp)
+Defined in header [<xieite/concepts/derived_from_all.hpp>](../../../include/xieite/concepts/derived_from_all.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is derived from several other types. Passing no target typ
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Derived, typename... Bases>

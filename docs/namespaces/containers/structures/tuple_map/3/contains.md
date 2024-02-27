@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<Key>, Value>](../../../tuple_map.md)\:\:contains
-Defined in header [<xieite/containers/tuple_map.hpp"](../../../../../../include/xieite/containers/tuple_map.hpp)
+Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../include/xieite/containers/tuple_map.hpp)
 
 &nbsp;
 
@@ -8,8 +8,36 @@ Checks if a value exists by a key.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] bool contains(const std::tuple<Key>& key) const noexcept;
+template<std::convertible_to<std::tuple<Key>> KeyReference>
+[[nodiscard]] constexpr bool contains(KeyReference&& key) const;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include <tuple>
+#include <unordered_map>
+#include "xieite/containers/tuple_map.hpp"
+
+int main() {
+    using TupleMap = xieite::containers::TupleMap<std::unordered_map, std::tuple<int>, double>;
+
+    TupleMap map = {
+        { 5, 3.14159 },
+        { -23, 2.71828 }
+    };
+
+    std::println("{}", map.contains(std::make_tuple(5)));
+    std::println("{}", map.contains(std::make_tuple(999)));
+}
+```
+Output:
+```
+true
+false
 ```

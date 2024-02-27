@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:timestamp
-Defined in header [<xieite/strings/timestamp.hpp"](../../../include/xieite/strings/timestamp.hpp)
+Defined in header [<xieite/strings/timestamp.hpp>](../../../include/xieite/strings/timestamp.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Stringifies a `std::chrono::duration`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::TemporalDuration Duration>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:segmentationFault
-Defined in header [<xieite/system/segmentation_fault.hpp"](../../../include/xieite/system/segmentation_fault.hpp)
+Defined in header [<xieite/system/segmentation_fault.hpp>](../../../include/xieite/system/segmentation_fault.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Creates a segmentation fault. Why would you use this?
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 inline void segmentationFault() noexcept;

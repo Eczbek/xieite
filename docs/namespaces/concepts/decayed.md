@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Decayed
-Defined in header [<xieite/concepts/decayed.hpp"](../../../include/xieite/concepts/decayed.hpp)
+Defined in header [<xieite/concepts/decayed.hpp>](../../../include/xieite/concepts/decayed.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is decayed.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

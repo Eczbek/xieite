@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:splitBoolean
-Defined in header [<xieite/math/split_boolean.hpp"](../../../include/xieite/math/split_boolean.hpp)
+Defined in header [<xieite/math/split_boolean.hpp>](../../../include/xieite/math/split_boolean.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Defined in header [<xieite/math/split_boolean.hpp"](../../../include/xieite/math
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr int splitBoolean(bool value) noexcept;

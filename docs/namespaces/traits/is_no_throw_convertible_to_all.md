@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNoThrowConvertibleToAll
-Defined in header [<xieite/traits/is_no_throw_convertible_to_all.hpp"](../../../include/xieite/traits/is_no_throw_convertible_to_all.hpp)
+Defined in header [<xieite/traits/is_no_throw_convertible_to_all.hpp>](../../../include/xieite/traits/is_no_throw_convertible_to_all.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>

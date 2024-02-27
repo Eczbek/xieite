@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:OrdinaryCharacter
-Defined in header [<xieite/concepts/ordinary_character.hpp"](../../../include/xieite/concepts/ordinary_character.hpp)
+Defined in header [<xieite/concepts/ordinary_character.hpp>](../../../include/xieite/concepts/ordinary_character.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is a narrow character, according to [the standard draft](h
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Character
-Defined in header [<xieite/concepts/character.hpp"](../../../include/xieite/concepts/character.hpp)
+Defined in header [<xieite/concepts/character.hpp>](../../../include/xieite/concepts/character.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is a character, according to [the standard draft](https://
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

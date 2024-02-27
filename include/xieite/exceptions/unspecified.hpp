@@ -6,7 +6,7 @@
 #	include <string_view>
 
 namespace xieite::exceptions {
-	class Unspecified
+	struct Unspecified
 	: std::exception {
 	public:
 		constexpr Unspecified(const std::string_view message = "") noexcept

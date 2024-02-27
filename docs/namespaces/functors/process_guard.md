@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:ProcessGuard
-Defined in header [<xieite/functors/process_guard.hpp"](../../../include/xieite/functors/process_guard.hpp)
+Defined in header [<xieite/functors/process_guard.hpp>](../../../include/xieite/functors/process_guard.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Executes a callback when the program ends.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct ProcessGuard {

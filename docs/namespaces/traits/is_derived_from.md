@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivedFrom
-Defined in header [<xieite/traits/is_derived_from.hpp"](../../../include/xieite/traits/is_derived_from.hpp)
+Defined in header [<xieite/traits/is_derived_from.hpp>](../../../include/xieite/traits/is_derived_from.hpp)
 
 &nbsp;
 

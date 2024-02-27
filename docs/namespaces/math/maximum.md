@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:maximum
-Defined in header [<xieite/math/maximum.hpp"](../../../include/xieite/math/maximum.hpp)
+Defined in header [<xieite/math/maximum.hpp>](../../../include/xieite/math/maximum.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the maximum of some values. Returns `0` if no arguments are passed.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic... Numbers>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:getFile
-Defined in header [<xieite/streams/get_file.hpp"](../../../include/xieite/streams/get_file.hpp)
+Defined in header [<xieite/streams/get_file.hpp>](../../../include/xieite/streams/get_file.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Extracts a `std::FILE*` from a stream.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::SameAsOrDerivedFromAnyAny<std::istream, std::ostream> Stream>

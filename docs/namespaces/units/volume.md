@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:Volume
-Defined in header [<xieite/units/volume.hpp"](../../../include/xieite/units/volume.hpp)
+Defined in header [<xieite/units/volume.hpp>](../../../include/xieite/units/volume.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An enumeration of volume units.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 enum Volume {

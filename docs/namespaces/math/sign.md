@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:sign
-Defined in header [<xieite/math/sign.hpp"](../../../include/xieite/math/sign.hpp)
+Defined in header [<xieite/math/sign.hpp>](../../../include/xieite/math/sign.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Gets the sign of a number.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

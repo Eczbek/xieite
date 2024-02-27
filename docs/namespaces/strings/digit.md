@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:digit
-Defined in header [<xieite/strings/digit.hpp"](../../../include/xieite/strings/digit.hpp)
+Defined in header [<xieite/strings/digit.hpp>](../../../include/xieite/strings/digit.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks if a character is a digit.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr bool digit(char character) noexcept;

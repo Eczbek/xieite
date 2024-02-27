@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowInvocable
-Defined in header [<xieite/concepts/no_throw_invocable.hpp"](../../../include/xieite/concepts/no_throw_invocable.hpp)
+Defined in header [<xieite/concepts/no_throw_invocable.hpp>](../../../include/xieite/concepts/no_throw_invocable.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a functor can be invoked without throwing exceptions.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Functor, typename... Arguments>

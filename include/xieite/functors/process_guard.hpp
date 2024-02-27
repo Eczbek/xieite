@@ -10,7 +10,7 @@
 #	include "../functors/function.hpp"
 
 namespace xieite::functors {
-	class ProcessGuard {
+	struct ProcessGuard {
 	public:
 		template<auto = [] {}>
 		ProcessGuard(const xieite::functors::Function<void()>& callback) noexcept

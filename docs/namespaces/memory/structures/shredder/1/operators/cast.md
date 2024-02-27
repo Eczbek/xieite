@@ -1,9 +1,9 @@
 # [xieite](../../../../../../xieite.md)\:\:[memory](../../../../../../memory.md)\:\:[Shredder<Type>](../../../../shredder.md)\:\:operator typename
-Defined in header [<xieite/memory/shredder.hpp"](../../../../../../../include/xieite/memory/shredder.hpp)
+Defined in header [<xieite/memory/shredder.hpp>](../../../../../../../include/xieite/memory/shredder.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 constexpr operator const Type&() const& noexcept;

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:RangeOf
-Defined in header [<xieite/concepts/range_of.hpp"](../../../include/xieite/concepts/range_of.hpp)
+Defined in header [<xieite/concepts/range_of.hpp>](../../../include/xieite/concepts/range_of.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type satisfies `std::ranges::range` and contains values of a sp
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Range, typename Value>

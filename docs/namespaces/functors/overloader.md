@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Overloader
-Defined in header [<xieite/functors/overloader.hpp"](../../../include/xieite/functors/overloader.hpp)
+Defined in header [<xieite/functors/overloader.hpp>](../../../include/xieite/functors/overloader.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Extends multiple invocable types and overloads `operator()` for each.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Derivable... Derivables>

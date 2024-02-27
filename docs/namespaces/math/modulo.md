@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:modulo
-Defined in header [<xieite/math/modulo.hpp"](../../../include/xieite/math/modulo.hpp)
+Defined in header [<xieite/math/modulo.hpp>](../../../include/xieite/math/modulo.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>

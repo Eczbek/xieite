@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:median
-Defined in header [<xieite/math/median.hpp"](../../../include/xieite/math/median.hpp)
+Defined in header [<xieite/math/median.hpp>](../../../include/xieite/math/median.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the median of some values. Returns `0` if no arguments are passed.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::ranges::range Range>

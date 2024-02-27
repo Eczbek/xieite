@@ -1,5 +1,5 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyEqual, Allocator>](../../../../fixed_map.md)\:\:FixedMap
-Defined in header [<xieite/containers/fixed_map.hpp"](../../../../../../../include/xieite/containers/fixed_map.hpp)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyComparator, Allocator>](../../../../fixed_map.md)\:\:FixedMap
+Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
 
@@ -7,17 +7,54 @@ Constructs a `xieite::containers::FixedMap`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
-constexpr Map() noexcept;
+constexpr FixedMap() noexcept;
 ```
 #### 2)
 ```cpp
-template<std::ranges::range Range>
-constexpr Map(const Range& entries) noexcept;
+template<xieite::concepts::RangeOf<std::pair<Key, Value>> Range>
+constexpr FixedMap(Range&& entries) noexcept;
 ```
 #### 3)
 ```cpp
-constexpr Map(std::initializer_list<std::pair<Key, Value>> entries) noexcept;
+constexpr FixedMap(std::initializer_list<std::pair<Key, Value>> entries) noexcept;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <array>
+#include <print>
+#include "xieite/containers/fixed_map.hpp"
+
+int main() {
+    using FixedMap = xieite::containers::FixedMap<int, double, 3>;
+
+    FixedMap foo;
+    FixedMap bar = foo;
+
+    std::array<std::pair<int, double>, 3> data {
+        { 1, 2.71828 },
+        { 2, 3.14159 },
+        { 3, 6.28318 }
+    };
+    FixedMap baz = FixedMap(data);
+
+    FixedMap qux = {
+        { 1, 2.71828 },
+        { 2, 3.14159 },
+        { 3, 6.28318 }
+    };
+
+    std::println("{}", baz[1]);
+    std::println("{}", qux[2]);
+}
+```
+Output:
+```
+3.14159
+6.28318
 ```

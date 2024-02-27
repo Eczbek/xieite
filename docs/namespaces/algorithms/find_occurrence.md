@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:findOccurrence
-Defined in header [<xieite/algorithms/find_occurrence.hpp"](../../../include/xieite/algorithms/find_occurrence.hpp)
+Defined in header [<xieite/algorithms/find_occurrence.hpp>](../../../include/xieite/algorithms/find_occurrence.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Finds a specific occurrence of a value in a range and returns an iterator pointi
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::ranges::range Range, std::convertible_to<std::ranges::range_value_t<Range>> Value, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>

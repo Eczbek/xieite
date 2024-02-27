@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:modes
-Defined in header [<xieite/algorithms/modes.hpp"](../../../include/xieite/algorithms/modes.hpp)
+Defined in header [<xieite/algorithms/modes.hpp>](../../../include/xieite/algorithms/modes.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the modes (or antimodes) of a set of data.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>)> Functor = std::ranges::greater>

@@ -28,7 +28,7 @@
 #	include "../streams/get_file.hpp"
 
 namespace xieite::streams {
-	class StandardHandle {
+	struct StandardHandle {
 	public:
 		std::istream& inputStream;
 		std::ostream& outputStream;

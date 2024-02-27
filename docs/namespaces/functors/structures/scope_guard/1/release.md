@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[ScopeGuard<Functor>](../../../scope_guard.md)\:\:release
-Defined in header [<xieite/functors/scope_guard.hpp"](../../../../../../include/xieite/functors/scope_guard.hpp)
+Defined in header [<xieite/functors/scope_guard.hpp>](../../../../../../include/xieite/functors/scope_guard.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Releases the guard, so that when it goes out of scope, the callback will not exe
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 constexpr void release() noexcept;

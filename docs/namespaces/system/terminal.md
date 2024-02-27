@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:terminal
-Defined in header [<xieite/system/terminal.hpp"](../../../include/xieite/system/terminal.hpp)
+Defined in header [<xieite/system/terminal.hpp>](../../../include/xieite/system/terminal.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An instance of `xieite::streams::StandardHandle` specialized to `std::cin` and `
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 inline const xieite::streams::StandardHandle terminal = xieite::streams::StandardHandle(std::cin, std::cout);

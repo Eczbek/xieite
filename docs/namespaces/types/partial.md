@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Partial
-Defined in header [<xieite/types/partial.hpp"](../../../include/xieite/types/partial.hpp)
+Defined in header [<xieite/types/partial.hpp>](../../../include/xieite/types/partial.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An structure for storing a partial specialization.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<template<typename...> typename Template, typename... FirstArguments>

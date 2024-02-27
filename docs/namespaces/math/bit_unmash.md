@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:bitUnmash
-Defined in header [<xieite/math/bit_unmash.hpp"](../../../include/xieite/math/bit_unmash.hpp)
+Defined in header [<xieite/math/bit_unmash.hpp>](../../../include/xieite/math/bit_unmash.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Defined in header [<xieite/math/bit_unmash.hpp"](../../../include/xieite/math/bi
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::size_t... sizes>

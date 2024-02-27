@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:size
-Defined in header [<xieite/types/list.hpp"](../../../../../../include/xieite/types/list.hpp)
+Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
 
@@ -7,7 +7,7 @@ The number of types stored.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 static constexpr std::size_t size = sizeof...(Types);

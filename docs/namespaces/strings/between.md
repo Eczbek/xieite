@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:between
-Defined in header [<xieite/strings/between.hpp"](../../../include/xieite/strings/between.hpp)
+Defined in header [<xieite/strings/between.hpp>](../../../include/xieite/strings/between.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Takes a substring between two other substrings.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr std::vector<std::string_view> between(std::string_view string, std::string_view start, std::string_view end) noexcept;

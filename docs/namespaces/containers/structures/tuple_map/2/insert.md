@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<FirstKey, RestKeys...>, Value>](../../../tuple_map.md)\:\:insert
-Defined in header [<xieite/containers/tuple_map.hpp"](../../../../../../include/xieite/containers/tuple_map.hpp)
+Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../include/xieite/containers/tuple_map.hpp)
 
 &nbsp;
 
@@ -8,8 +8,41 @@ Assigns a value to a specific combination of keys.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
-void insert(const std::tuple<FirstKey, RestKeys...>& keys, const Value& value) noexcept;
+template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
+constexpr void insert(KeysReference&& keys, ValueReference&& value);
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include <tuple>
+#include <unordered_map>
+#include "xieite/containers/tuple_map.hpp"
+
+int main() {
+    using TupleMap = xieite::containers::TupleMap<std::unordered_map, std::tuple<int, char>, double>;
+
+    TupleMap map = {
+        { 5, {
+            { 'h', 3.14159 },
+            { '4', 2.71828 }
+        } },
+        { -23, {
+            { 'L', 6.28318 }
+        } }
+    };
+
+    map.insert(std::make_tuple(-23, ' '), 0.33333);
+
+    std::println("{}", map.contains(std::make_tuple(-23, ' ')));
+}
+```
+Output:
+```
+0.33333
 ```

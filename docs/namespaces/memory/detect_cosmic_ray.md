@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:detectCosmicRay
-Defined in header [<xieite/memory/detect_cosmic_ray.hpp"](../../../include/xieite/memory/detect_cosmic_ray.hpp)
+Defined in header [<xieite/memory/detect_cosmic_ray.hpp>](../../../include/xieite/memory/detect_cosmic_ray.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Detects rare cosmic rays or a faulty memory. Even if you do intercept something,
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::unsigned_integral Chunk = std::uintmax_t>

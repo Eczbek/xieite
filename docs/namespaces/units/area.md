@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:Area
-Defined in header [<xieite/units/area.hpp"](../../../include/xieite/units/area.hpp)
+Defined in header [<xieite/units/area.hpp>](../../../include/xieite/units/area.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An enumeration of area units.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 enum Area {

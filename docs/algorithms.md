@@ -10,6 +10,7 @@ Somewhat useful algorithms.
 ## Contents
 - [all](./namespaces/algorithms/all.md)
 - [any](./namespaces/algorithms/any.md)
+- [findMaximumConsecutive](./namespaces/algorithms/find_maximum_consecutive.md)
 - [findOccurrence](./namespaces/algorithms/find_occurrence.md)
 - [group](./namespaces/algorithms/group.md)
 - [isPalindrome](./namespaces/algorithms/is_palindrome.md)

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Line
-Defined in header [<xieite/geometry/line.hpp"](../../../include/xieite/geometry/line.hpp)
+Defined in header [<xieite/geometry/line.hpp>](../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An structure for representing an infinite line.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct Line {

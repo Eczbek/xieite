@@ -1,47 +1,41 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedMap
-Defined in header [<xieite/containers/fixed_map.hpp"](../../../include/xieite/containers/fixed_map.hpp)
+Defined in header [<xieite/containers/fixed_map.hpp>](../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
 
 ## Description
-A compile-time wrapper for `std::unordered_map`.
+A `constexpr` wrapper-like structure for `std::unordered_map`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
-template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyEqual = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value*>>>
+template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value*>>>
 struct FixedMap {
-    constexpr FixedMap();
+    constexpr FixedMap() noexcept;
 
-    template<std::ranges::range Range>
-    constexpr FixedMap(const Range&);
+    template<xieite::concepts::RangeOf<std::pair<Key, Value>> Range>
+    constexpr FixedMap(Range&&) noexcept;
 
-    constexpr FixedMap(std::initializer_list<std::pair<Key, Value>>);
+    constexpr FixedMap(std::initializer_list<std::pair<Key, Value>>) noexcept;
 
-    constexpr const Value& operator[](const Key&) const;
+    template<typename Self, std::convertible_to<Key> KeyReference>
+    constexpr std::convertible_to<Value> auto&& operator[](this Self&&, KeyReference&&);
 
-    constexpr Value& operator[](const Key&);
+    template<typename Self, std::convertible_to<Key> KeyReference>
+    constexpr std::convertible_to<Value> auto&& at(this Self&&, KeyReference&&);
 
-    constexpr std::array<std::pair<Key, Value>, size>::const_iterator begin() const;
+    template<std::convertible_to<Key> KeyReference>
+    constexpr bool contains(KeyReference&&) const noexcept;
 
-    constexpr std::array<std::pair<Key, Value>, size>::iterator begin();
-
-    constexpr std::array<std::pair<Key, Value>, size>::const_iterator end() const;
-
-    constexpr std::array<std::pair<Key, Value>, size>::iterator end();
-
-    constexpr bool contains(const Key&) const;
-
-    constexpr const std::array<std::pair<Key, Value>, size>& data() const;
+    constexpr const std::array<std::pair<Key, Value>, size>& data() const noexcept;
 };
 ```
 ##### Member functions
 - [FixedMap](./structures/fixed_map/1/operators/constructor.md)
 - [operator\[\]](./structures/fixed_map/1/operators/array_subscript.md)
-- [begin](./structures/fixed_map/1/begin.md)
-- [end](./structures/fixed_map/1/end.md)
+- [at](./structures/fixed_map/1/at.md)
 - [contains](./structures/fixed_map/1/contains.md)
 - [data](./structures/fixed_map/1/data.md)
 
@@ -62,8 +56,8 @@ int main() {
         { "qux", 4 }
     };
 
-    for (std::pair<std::string_view, int> entry : map) {
-        std::println("{}: {}", entry.first, entry.second);
+    for (auto [key, value] : map) {
+        std::println("{}: {}", key, value);
     }
 }
 ```

@@ -1,9 +1,9 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[SizedInteger<bits, sign>](../../../../integer.md)\:\:operator&
-Defined in header [<xieite/math/sized_integer.hpp"](../../../../../../../include/xieite/math/sized_integer.hpp)
+Defined in header [<xieite/math/sized_integer.hpp>](../../../../../../../include/xieite/math/sized_integer.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] friend constexpr xieite::math::SizedInteger<bits, sign> operator&(const xieite::math::SizedInteger<bits, sign> leftOperand, const xieite::math::SizedInteger<bits, sign> rightOperand) noexcept;

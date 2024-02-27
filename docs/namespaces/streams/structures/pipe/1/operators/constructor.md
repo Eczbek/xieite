@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Pipe](../../../../pipe.md)\:\:Pipe
-Defined in header [<xieite/streams/pipe.hpp"](../../../../../../../include/xieite/streams/pipe.hpp)
+Defined in header [<xieite/streams/pipe.hpp>](../../../../../../../include/xieite/streams/pipe.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Constructs a `xieite::streams::Pipe`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 Pipe(const std::string& command, const std::string& mode) noexcept;

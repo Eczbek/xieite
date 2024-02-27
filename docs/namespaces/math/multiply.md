@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:multiply
-Defined in header [<xieite/math/multiply.hpp"](../../../include/xieite/math/multiply.hpp)
+Defined in header [<xieite/math/multiply.hpp>](../../../include/xieite/math/multiply.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the product of two unsigned integers in two parts. Intended for avoidin
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::unsigned_integral UnsignedInteger>

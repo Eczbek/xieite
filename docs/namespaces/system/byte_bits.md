@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:byteBits
-Defined in header [<xieite/system/byte_bits.hpp"](../../../include/xieite/system/byte_bits.hpp)
+Defined in header [<xieite/system/byte_bits.hpp>](../../../include/xieite/system/byte_bits.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Defines the amount of bits per byte on this system.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 inline constexpr std::size_t byteBits = std::numeric_limits<unsigned char>::digits;

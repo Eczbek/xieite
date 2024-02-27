@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:TupleSet
-Defined in header [<xieite/containers/tuple_set.hpp"](../../../include/xieite/containers/tuple_set.hpp)
+Defined in header [<xieite/containers/tuple_set.hpp>](../../../include/xieite/containers/tuple_set.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<template<typename> typename, typename>
@@ -13,13 +13,16 @@ struct TupleSet;
 ```cpp
 template<template<typename> typename Container, typename FirstKey, typename... RestKeys>
 struct TupleSet<Container, std::tuple<FirstKey, RestKeys...>> {
-    TupleSet(std::initializer_list<std::pair<FirstKey, TupleSet<std::tuple<RestKeys...>>>> = {});
+    constexpr TupleSet(const std::initializer_list<std::pair<FirstKey, TupleSet<Container, std::tuple<RestKeys...>>>> = {}) noexcept;
 
-    const bool operator[](const std::tuple<FirstKey, RestKeys...>&) const;
+    template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+    constexpr bool operator[](KeysReference&&) const;
 
-    void insert(const std::tuple<FirstKey, RestKeys...>&);
+    template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+    constexpr void insert(KeysReference&&);
 
-    bool contains(const std::tuple<FirstKey, RestKeys...>&) const;
+    template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+    constexpr bool contains(KeysReference&&) const;
 };
 ```
 ##### Member functions
@@ -31,13 +34,16 @@ struct TupleSet<Container, std::tuple<FirstKey, RestKeys...>> {
 ```cpp
 template<template<typename> typename Container, typename Key>
 struct TupleSet<Container, std::tuple<Key>> {
-    TupleSet(std::initializer_list<Key> = {});
+    constexpr TupleSet(const std::initializer_list<Key> = {}) noexcept;
 
-    const bool operator[](const std::tuple<Key>&) const;
+    template<std::convertible_to<std::tuple<Key>> KeyReference>
+    constexpr bool operator[](KeyReference&&) const;
 
-    void insert(const std::tuple<Key>&);
+    template<std::convertible_to<std::tuple<Key>> KeyReference>
+    constexpr void insert(KeyReference&&);
 
-    bool contains(const std::tuple<Key>&) const;
+    template<std::convertible_to<std::tuple<Key>> KeyReference>
+    constexpr bool contains(KeyReference&&) const;
 };
 ```
 ##### Member functions
@@ -45,3 +51,32 @@ struct TupleSet<Container, std::tuple<Key>> {
 - [operator\[\]](./structures/tuple_set/3/operators/array_subscript.md)
 - [insert](./structures/tuple_set/3/insert.md)
 - [contains](./structures/tuple_set/3/contains.md)
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include <tuple>
+#include <unordered_set>
+#include "xieite/containers/tuple_set.hpp"
+
+int main() {
+    using TupleSet = xieite::containers::TupleSet<std::unordered_set, std::tuple<int, char>>;
+
+    TupleSet map = {
+        { 5, 'h' },
+        { 7, '4' },
+        { -23, 'L' },
+        { 418, ' ' }
+    };
+
+    std::println("{}", map[std::make_tuple(-23, 'L')]);
+    std::println("{}", map[std::make_tuple(999, 'a')]);
+}
+```
+Output:
+```
+true
+false
+```

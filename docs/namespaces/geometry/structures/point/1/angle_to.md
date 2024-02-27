@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Point](../../../point.md)\:\:angleTo
-Defined in header [<xieite/geometry/point.hpp"](../../../../../../include/xieite/geometry/point.hpp)
+Defined in header [<xieite/geometry/point.hpp>](../../../../../../include/xieite/geometry/point.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the angle between this and another point.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr double angleTo(xieite::geometry::Point point) const noexcept;

@@ -15,7 +15,6 @@ A collection of commonly and uncommonly-used concepts, expanding on the standard
 - [BitsetReference](./namespaces/concepts/bitset_reference.md)
 - [Character](./namespaces/concepts/character.md)
 - [Constant](./namespaces/concepts/constant.md)
-- [ConstantExpressionInvocable](./namespaces/concepts/constant_expression_invocable.md)
 - [ConstantInvocable](./namespaces/concepts/constant_invocable.md)
 - [ConvertibleToAll](./namespaces/concepts/convertible_to_all.md)
 - [ConvertibleToAny](./namespaces/concepts/convertible_to_any.md)

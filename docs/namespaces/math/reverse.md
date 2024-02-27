@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:reverse
-Defined in header [<xieite/math/reverse.hpp"](../../../include/xieite/math/reverse.hpp)
+Defined in header [<xieite/math/reverse.hpp>](../../../include/xieite/math/reverse.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Reverses an integral of any base.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral Integer>

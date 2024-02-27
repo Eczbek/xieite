@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix<Functor>](../../../../infix.md)\:\:Infix
-Defined in header [<xieite/functors/infix.hpp"](../../../../../../../include/xieite/functors/infix.hpp)
+Defined in header [<xieite/functors/infix.hpp>](../../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Constructs an infix thingamabob.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 constexpr Infix(const Functor& callback) noexcept;

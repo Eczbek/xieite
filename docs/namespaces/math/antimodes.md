@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:antimodes
-Defined in header [<xieite/math/antimodes.hpp"](../../../include/xieite/math/antimodes.hpp)
+Defined in header [<xieite/math/antimodes.hpp>](../../../include/xieite/math/antimodes.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the antimodes of some values. Returns `{ 0 }` if no arguments are passe
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::ranges::range Range>

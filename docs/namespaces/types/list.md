@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:List
-Defined in header [<xieite/types/list.hpp"](../../../include/xieite/types/list.hpp)
+Defined in header [<xieite/types/list.hpp>](../../../include/xieite/types/list.hpp)
 
 &nbsp;
 
@@ -8,11 +8,11 @@ A structure for operating on a list of types.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename... Types>
-class List {
+struct List {
     static constexpr std::size_t size = sizeof...(Types);
 
     template<std::size_t index>

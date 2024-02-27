@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[Infix<Functor>](../../../infix.md)\:\:Intermediate
-Defined in header [<xieite/functors/infix.hpp"](../../../../../../include/xieite/functors/infix.hpp)
+Defined in header [<xieite/functors/infix.hpp>](../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
 
@@ -8,12 +8,11 @@ An intermediate state for an infix.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename LeftArgument>
-class Intermediate {
-public:
+struct Intermediate {
     constexpr Intermediate(const Functor&, LeftArgument);
 
     constexpr auto operator=(const xieite::functions::Infix<Functor>::Intermediate<LeftArgument>&) = delete;

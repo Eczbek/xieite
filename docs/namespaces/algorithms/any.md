@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:any
-Defined in header [<xieite/algorithms/any.hpp"](../../../include/xieite/algorithms/any.hpp)
+Defined in header [<xieite/algorithms/any.hpp>](../../../include/xieite/algorithms/any.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks whether at least one passed argument is true. Expects at least one argume
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::convertible_to<bool>... Values>

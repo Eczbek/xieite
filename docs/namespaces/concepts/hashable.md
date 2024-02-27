@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Hashable
-Defined in header [<xieite/concepts/hashable.hpp"](../../../include/xieite/concepts/hashable.hpp)
+Defined in header [<xieite/concepts/hashable.hpp>](../../../include/xieite/concepts/hashable.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is hashable.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type, typename Hasher = std::hash<Type>>

@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:InvalidNetworkAddress
-Defined in header [<xieite/exceptions/invalid_network_address.hpp"](../../../include/xieite/exceptions/invalid_network_address.hpp)
+Defined in header [<xieite/exceptions/invalid_network_address.hpp>](../../../include/xieite/exceptions/invalid_network_address.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 struct InvalidNetworkAddress

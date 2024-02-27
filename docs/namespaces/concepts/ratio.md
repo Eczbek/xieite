@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Ratio
-Defined in header [<xieite/concepts/ratio.hpp"](../../../include/xieite/concepts/ratio.hpp)
+Defined in header [<xieite/concepts/ratio.hpp>](../../../include/xieite/concepts/ratio.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type satisfies `std::ranges::range` and contains values of a sp
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

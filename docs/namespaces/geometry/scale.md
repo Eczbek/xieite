@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:scale
-Defined in header [<xieite/geometry/scale.hpp"](../../../include/xieite/geometry/scale.hpp)
+Defined in header [<xieite/geometry/scale.hpp>](../../../include/xieite/geometry/scale.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Scales a shape.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr xieite::geometry::Point scale(xieite::geometry::Point point, double scale, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;

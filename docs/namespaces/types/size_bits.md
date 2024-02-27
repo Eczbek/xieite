@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:sizeBits
-Defined in header [<xieite/types/size_bits.hpp"](../../../include/xieite/types/size_bits.hpp)
+Defined in header [<xieite/types/size_bits.hpp>](../../../include/xieite/types/size_bits.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Defines number of bits in a type.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

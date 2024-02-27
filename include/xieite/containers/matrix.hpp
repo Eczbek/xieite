@@ -16,24 +16,24 @@
 
 namespace xieite::containers {
 	template<typename Value>
-	class Matrix {
+	struct Matrix {
 	public:
 		constexpr Matrix() noexcept
 		: totalSize(0) {}
 
 		template<xieite::concepts::RangeOf<Value> Range>
-		constexpr Matrix(const Range& range) noexcept
+		constexpr Matrix(Range&& range) noexcept
 		: values(std::ranges::begin(range), std::ranges::end(range)), totalSize(std::ranges::size(range)), dimensions(1, this->totalSize) {}
 
 		constexpr Matrix(const std::initializer_list<Value> list) noexcept
 		: xieite::containers::Matrix<Value>(std::ranges::ref_view(list)) {}
 
 		template<typename Self, xieite::concepts::RangeOf<std::size_t> Range>
-		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, const Range& indices) {
+		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, Range&& indices) {
 			if (std::ranges::size(indices) != self.dimensions.size()) {
 				throw std::out_of_range("Cannot access value by indices unfit for dimensions");
 			}
-			return XIEITE_FORWARD(self).values[self.index(indices).first];
+			return XIEITE_FORWARD(self).values[self.index(XIEITE_FORWARD(indices)).first];
 		}
 
 		template<typename Self, std::convertible_to<std::size_t>... Sizes>
@@ -43,9 +43,8 @@ namespace xieite::containers {
 			}];
 		}
 
-		template<typename Self>
-		[[nodiscard]] constexpr std::convertible_to<std::vector<Value>> auto&& data(this Self&& self) noexcept {
-			return XIEITE_FORWARD(self).values;
+		[[nodiscard]] constexpr const std::vector<Value>& data() const noexcept {
+			return this->values;
 		}
 
 		[[nodiscard]] constexpr const std::vector<std::size_t>& size() const noexcept {
@@ -53,7 +52,7 @@ namespace xieite::containers {
 		}
 
 		template<xieite::concepts::RangeOf<std::size_t> Range>
-		constexpr void resize(const Range& dimensions) {
+		constexpr void resize(Range&& dimensions) {
 			std::size_t totalSize = 1;
 			for (const std::size_t dimension : dimensions) {
 				totalSize *= dimension;
@@ -73,7 +72,7 @@ namespace xieite::containers {
 		}
 
 		template<xieite::concepts::RangeOf<std::size_t> Range>
-		constexpr void reverse(const Range& indices) {
+		constexpr void reverse(Range&& indices) {
 			const std::size_t indicesSize = std::ranges::size(indices);
 			if (this->dimensions.size() < (indicesSize + 1)) {
 				throw std::out_of_range("Cannot reverse range of less than one dimension");
@@ -95,7 +94,7 @@ namespace xieite::containers {
 		}
 
 		template<std::integral Integer, xieite::concepts::RangeOf<std::size_t> Range>
-		constexpr void rotate(const Integer rotations, const Range& indices) {
+		constexpr void rotate(const Integer rotations, Range&& indices) {
 			const std::size_t indicesSize = std::ranges::size(indices);
 			if (this->dimensions.size() < (indicesSize + 2)) {
 				throw std::out_of_range("Cannot rotate range of less than two dimensions");
@@ -157,7 +156,7 @@ namespace xieite::containers {
 		std::vector<std::size_t> dimensions;
 
 		template<xieite::concepts::RangeOf<std::size_t> Range>
-		[[nodiscard]] constexpr std::pair<std::size_t, std::size_t> index(const Range& indices, const std::size_t extra = 0) const {
+		[[nodiscard]] constexpr std::pair<std::size_t, std::size_t> index(Range&& indices, const std::size_t extra = 0) const {
 			std::pair<std::size_t, std::size_t> result = std::make_pair(0, this->totalSize);
 			auto indicesIterator = std::ranges::begin(indices);
 			const std::size_t indicesSize = std::ranges::size(indices);

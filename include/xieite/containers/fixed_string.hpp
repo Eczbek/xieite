@@ -6,11 +6,11 @@
 
 namespace xieite::containers {
 	template<std::size_t characters>
-	struct StaticString {
+	struct FixedString {
 		char data[characters + 1];
 
 		template<std::size_t otherCharacters>
-		constexpr StaticString(const char (&data)[otherCharacters]) noexcept {
+		constexpr FixedString(const char (&data)[otherCharacters]) noexcept {
 			for (std::size_t i = 0; i < otherCharacters; ++i) {
 				this->data[i] = data[i];
 			}
@@ -26,7 +26,7 @@ namespace xieite::containers {
 	};
 
 	template<std::size_t characters>
-	StaticString(char const (&)[characters]) -> StaticString<characters - 1>;
+	FixedString(char const (&)[characters]) -> FixedString<characters - 1>;
 }
 
 #endif

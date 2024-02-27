@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideFloor
-Defined in header [<xieite/math/divide_floor.hpp"](../../../include/xieite/math/divide_floor.hpp)
+Defined in header [<xieite/math/divide_floor.hpp>](../../../include/xieite/math/divide_floor.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Computes the floor value of a division.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::integral Integer>

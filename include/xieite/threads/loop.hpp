@@ -7,7 +7,7 @@
 #	include "../functors/function.hpp"
 
 namespace xieite::threads {
-	class Loop {
+	struct Loop {
 	public:
 		Loop(const xieite::functors::Function<void()>& callback) noexcept
 		: thread([&callback](const std::stop_token stopToken) -> void {

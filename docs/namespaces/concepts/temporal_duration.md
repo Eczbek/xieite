@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:TemporalDuration
-Defined in header [<xieite/concepts/temporal_duration.hpp"](../../../include/xieite/concepts/temporal_duration.hpp)
+Defined in header [<xieite/concepts/temporal_duration.hpp>](../../../include/xieite/concepts/temporal_duration.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is a `std::chrono::duration`. To be deprecated once `std::
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:templatify
-Defined in header [<xieite/functors/templatify.hpp"](../../../include/xieite/functors/templatify.hpp)
+Defined in header [<xieite/functors/templatify.hpp>](../../../include/xieite/functors/templatify.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Performs a slight bit of spacetime manipulation. `Functor` must be default-const
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<template<std::uint8_t> typename Functor>

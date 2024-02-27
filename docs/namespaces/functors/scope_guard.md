@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:ScopeGuard
-Defined in header [<xieite/functors/scope_guard.hpp"](../../../include/xieite/functors/scope_guard.hpp)
+Defined in header [<xieite/functors/scope_guard.hpp>](../../../include/xieite/functors/scope_guard.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Executes a callback when it goes out of scope.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::invocable<> Functor>

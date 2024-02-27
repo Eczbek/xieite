@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Infix
-Defined in header [<xieite/functors/infix.hpp"](../../../include/xieite/functors/infix.hpp)
+Defined in header [<xieite/functors/infix.hpp>](../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ An infix operator thing.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename>
@@ -37,7 +37,7 @@ struct Infix<Functor> {
 #### 3)
 ```cpp
 template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> Functor>
-class Infix<Functor> {
+struct Infix<Functor> {
 private:
     template<typename LeftArgument>
     struct Intermediate;

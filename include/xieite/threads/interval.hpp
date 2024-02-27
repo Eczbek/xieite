@@ -8,7 +8,7 @@
 #	include "../threads/loop.hpp"
 
 namespace xieite::threads {
-	class Interval {
+	struct Interval {
 	public:
 		template<xieite::concepts::TemporalDuration TemporalDuration>
 		Interval(const xieite::functors::Function<void()>& callback, const TemporalDuration duration) noexcept

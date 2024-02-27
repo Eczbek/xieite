@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:powerOf2
-Defined in header [<xieite/math/power_of_2.hpp"](../../../include/xieite/math/power_of_2.hpp)
+Defined in header [<xieite/math/power_of_2.hpp>](../../../include/xieite/math/power_of_2.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks that a value is a power of 2.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::unsigned_integral UnsignedInteger>

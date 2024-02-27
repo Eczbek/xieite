@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Arithmetic
-Defined in header [<xieite/concepts/arithmetic.hpp"](../../../include/xieite/concepts/arithmetic.hpp)
+Defined in header [<xieite/concepts/arithmetic.hpp>](../../../include/xieite/concepts/arithmetic.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type is integral, floating point, or boolean.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>

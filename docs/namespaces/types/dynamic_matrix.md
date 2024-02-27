@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:DynamicMatrix
-Defined in header [<xieite/types/dynamic_matrix.hpp"](../../../include/xieite/types/dynamic_matrix.hpp)
+Defined in header [<xieite/types/dynamic_matrix.hpp>](../../../include/xieite/types/dynamic_matrix.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ A structure for generating dynamic multidimensional containers.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<template<typename> typename DynamicContainer, typename Value, std::size_t dimensions>

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isUniformMatrix
-Defined in header [<xieite/algorithms/is_uniform_matrix.hpp"](../../../include/xieite/algorithms/is_uniform_matrix.hpp)
+Defined in header [<xieite/algorithms/is_uniform_matrix.hpp>](../../../include/xieite/algorithms/is_uniform_matrix.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Checks whether all the ranges within one range have the same size.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<std::ranges::range Matrix>

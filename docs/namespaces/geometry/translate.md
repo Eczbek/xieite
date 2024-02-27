@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:translate
-Defined in header [<xieite/geometry/translate.hpp"](../../../include/xieite/geometry/translate.hpp)
+Defined in header [<xieite/geometry/translate.hpp>](../../../include/xieite/geometry/translate.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Translates a shape.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 [[nodiscard]] constexpr xieite::geometry::Point translate(xieite::geometry::Point point, xieite::geometry::Point difference) noexcept;

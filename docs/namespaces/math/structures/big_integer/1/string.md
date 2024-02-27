@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:string
-Defined in header [<xieite/math/big_integer.hpp"](../../../../../../include/xieite/math/big_integer.hpp)
+Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
@@ -8,10 +8,10 @@ Converts a `xieite::math::BigInteger` to a `std::string`.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::string string(std::make_signed_t<std::size_t> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) const noexcept;
+[[nodiscard]] constexpr std::string string(xieite::math::SignedSize radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) const noexcept;
 ```
 
 &nbsp;

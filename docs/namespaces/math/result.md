@@ -1,9 +1,9 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Result
-Defined in header [<xieite/types/common_floating_point.hpp"](../../../include/xieite/types/common_floating_point.hpp)
+Defined in header [<xieite/types/common_floating_point.hpp>](../../../include/xieite/types/common_floating_point.hpp)
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic... Numbers>

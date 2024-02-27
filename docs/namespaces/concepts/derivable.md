@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Derivable
-Defined in header [<xieite/concepts/derivable.hpp"](../../../include/xieite/concepts/derivable.hpp)
+Defined in header [<xieite/concepts/derivable.hpp>](../../../include/xieite/concepts/derivable.hpp)
 
 &nbsp;
 
@@ -8,7 +8,7 @@ Specifies that a type can be derived from. `Type` must be a complete type.
 
 &nbsp;
 
-## Synopses
+## Synopsis
 #### 1)
 ```cpp
 template<typename Type>
