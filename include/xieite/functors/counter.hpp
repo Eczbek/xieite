@@ -37,5 +37,3 @@ namespace xieite::functors {
 #endif
 
 // Thanks to Reese Jones (https://github.com/MC-DeltaT) for original code
-
-// This is technically not IFNDR but causes wonky behavior if used in template constraints

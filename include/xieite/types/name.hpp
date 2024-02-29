@@ -43,7 +43,7 @@ namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
 		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] -> std::string_view {
-			return xieite::strings::between(xieite::strings::after(string, "__cdecl"), '<', ">(");
+			return xieite::strings::between(xieite::strings::after(string, " __"), '<', ">(");
 		};
 		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
 		return data.view();
