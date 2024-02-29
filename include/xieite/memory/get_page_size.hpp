@@ -9,7 +9,7 @@
 
 namespace xieite::memory {
 	[[nodiscard]] inline std::size_t getPageSize() noexcept {
-		return sysconf(_SC_PAGE_SIZE);
+		return ::sysconf(_SC_PAGE_SIZE);
 	}
 }
 
@@ -20,7 +20,7 @@ namespace xieite::memory {
 namespace xieite::memory {
 	[[nodiscard]] inline std::size_t getPageSize() noexcept {
 		SYSTEM_INFO info;
-		GetSystemInfo(&info);
+		::GetSystemInfo(&info);
 		return info.dwPageSize;
 	}
 }

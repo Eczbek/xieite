@@ -19,15 +19,15 @@ namespace xieite::streams {
 	[[nodiscard]] inline std::FILE* getFile(const Stream& stream) noexcept {
 		if constexpr (xieite::concepts::InputStream<Stream>) {
 			if (&stream == &std::cin) {
-				return stdin;
+				return ::stdin;
 			}
 		}
 		if constexpr (xieite::concepts::OutputStream<Stream>) {
 			if (&stream == &std::cout) {
-				return stdout;
+				return ::stdout;
 			}
 			if ((&stream == &std::cerr) || (&stream == &std::clog)) {
-				return stderr;
+				return ::stderr;
 			}
 		}
 		return static_cast<__gnu_cxx::stdio_filebuf<typename Stream::char_type, typename Stream::traits_type>*>(stream.rdbuf())->file();

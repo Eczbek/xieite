@@ -3,8 +3,28 @@ Defined in header [<xieite/exceptions/division_by_zero.hpp>](../../../../../../.
 
 &nbsp;
 
+Constructs a `xieite::exceptions::DivisionByZero`.
+
 ## Synopsis
 #### 1)
 ```cpp
 constexpr DivisionByZero(std::string_view message = "") noexcept;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/exceptions/division_by_zero.hpp"
+
+int main() {
+    xieite::exceptions::DivisionByZero exception;
+
+    std::println("{}", exception.what());
+}
+```
+Output:
+```
+
 ```

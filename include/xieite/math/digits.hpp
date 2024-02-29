@@ -1,16 +1,25 @@
 #ifndef XIEITE_HEADER_MATH_DIGITS
 #	define XIEITE_HEADER_MATH_DIGITS
 
-#	include <cmath>
+#	include <concepts>
 #	include <cstddef>
-#	include "../concepts/arithmetic.hpp"
-#	include "../math/absolute.hpp"
-#	include "../math/logarithm.hpp"
+#	include "../math/is_negative.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr std::size_t digits(const Number value, const std::size_t base = 10) noexcept {
-		return !base ? 0 : ((base == 1) ? value : static_cast<std::size_t>(std::floor(xieite::math::logarithm(base, xieite::math::absolute(value) + !value)) + 1));
+	template<std::integral Integer>
+	[[nodiscard]] constexpr std::size_t digits(Integer value, const Integer base = 10) noexcept {
+		if (!base) {
+			return 0;
+		}
+		if (base == 1) {
+			return value;
+		}
+		std::size_t result = xieite::math::isNegative(value) != xieite::math::isNegative(radix);
+		do {
+			value /= base;
+			++result;
+		} while (value);
+		return result;
 	}
 }
 

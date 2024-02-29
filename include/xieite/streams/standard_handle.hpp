@@ -35,7 +35,7 @@ namespace xieite::streams {
 
 		StandardHandle(std::istream& inputStream, std::ostream& outputStream) noexcept
 		: inputStream(inputStream), outputStream(outputStream), inputFile(xieite::streams::getFile(inputStream)), inputFileDescriptor(::fileno(this->inputFile)), blockingStatus(::fcntl(this->inputFileDescriptor, F_GETFL)) {
-			tcgetattr(this->inputFileDescriptor, &this->cookedMode);
+			::tcgetattr(this->inputFileDescriptor, &this->cookedMode);
 			this->blocking = !(this->blockingStatus & O_NONBLOCK);
 			this->echo = this->cookedMode.c_lflag & ECHO;
 			this->canonical = this->cookedMode.c_lflag & ICANON;
@@ -185,8 +185,8 @@ namespace xieite::streams {
 		}
 
 		[[nodiscard]] xieite::streams::Position getScreenSize() const noexcept {
-			winsize size;
-			ioctl(this->inputFileDescriptor, TIOCGWINSZ, &size);
+			::winsize size;
+			::ioctl(this->inputFileDescriptor, TIOCGWINSZ, &size);
 			return xieite::streams::Position(size.ws_row, size.ws_col);
 		}
 
@@ -656,7 +656,7 @@ namespace xieite::streams {
 		const int inputFileDescriptor;
 
 		const int blockingStatus;
-		termios cookedMode;
+		::termios cookedMode;
 
 		mutable bool blocking;
 		mutable bool echo;
@@ -665,12 +665,12 @@ namespace xieite::streams {
 		mutable bool processing;
 
 		void update() const noexcept {
-			fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus | (O_NONBLOCK * !this->blocking));
-			termios rawMode = this->cookedMode;
+			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus | (O_NONBLOCK * !this->blocking));
+			::termios rawMode = this->cookedMode;
 			rawMode.c_iflag &= ~((ICRNL * !this->signals) | (IXON * !this->signals));
 			rawMode.c_lflag &= ~((ECHO * !this->echo) | (ICANON * !this->canonical) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
 			rawMode.c_oflag &= ~(OPOST * !this->processing);
-			tcsetattr(this->inputFileDescriptor, TCSANOW, &rawMode);
+			::tcsetattr(this->inputFileDescriptor, TCSANOW, &rawMode);
 		}
 	};
 }

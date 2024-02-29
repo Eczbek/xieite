@@ -3,13 +3,13 @@
 
 #	include <concepts>
 #	include <cstddef>
-#	include "../math/negative.hpp"
+#	include "../math/is_negative.hpp"
 #	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
 	[[nodiscard]] constexpr Integer reverse(Integer value, const std::size_t base = 10) noexcept {
-		const bool negative = xieite::math::negative(value);
+		const bool negative = xieite::math::isNegative(value);
 		value *= xieite::math::splitBoolean(!negative);
 		Integer result = 0;
 		while (value) {

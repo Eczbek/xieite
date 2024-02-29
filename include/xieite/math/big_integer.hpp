@@ -18,8 +18,8 @@
 #	include "../macros/forward.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/integer_string_components.hpp"
+#	include "../math/is_negative.hpp"
 #	include "../math/multiply.hpp"
-#	include "../math/negative.hpp"
 #	include "../math/parse.hpp"
 #	include "../math/product.hpp"
 #	include "../math/signed_size.hpp"
@@ -37,7 +37,7 @@ namespace xieite::math {
 
 		template<std::integral Integer = int>
 		constexpr BigInteger(const Integer value = 0) noexcept
-		: negative(xieite::math::negative(value)) {
+		: negative(xieite::math::isNegative(value)) {
 			xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
 			do {
 				this->data.push_back(static_cast<Word>(absoluteValue));

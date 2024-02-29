@@ -7,7 +7,7 @@
 - [algorithms](./algorithms.md)
 - [concepts](./concepts.md)
 - [containers](./containers.md)
-- [exceptions](./exceptions.md) - outdated
+- [exceptions](./exceptions.md)
 - [functors](./functors.md) - outdated
 - [geometry](./geometry.md) - outdated
 - [graphics](./graphics.md) - outdated

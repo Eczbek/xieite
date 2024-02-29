@@ -3,8 +3,28 @@ Defined in header [<xieite/exceptions/invalid_key.hpp>](../../../../../../../inc
 
 &nbsp;
 
+Constructs a `xieite::exceptions::InvalidKey`.
+
 ## Synopsis
 #### 1)
 ```cpp
 constexpr InvalidKey(std::string_view message = "") noexcept;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/exceptions/invalid_key.hpp"
+
+int main() {
+    xieite::exceptions::InvalidKey exception;
+
+    std::println("{}", exception.what());
+}
+```
+Output:
+```
+
 ```

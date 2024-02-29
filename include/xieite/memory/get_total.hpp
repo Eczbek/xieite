@@ -22,7 +22,7 @@ namespace xieite::memory {
 	[[nodiscard]] inline std::size_t getTotal() noexcept {
 		MEMORYSTATUSEX status;
 		status.dwLength = sizeof(status);
-		GlobalMemoryStatusEx(&status);
+		::GlobalMemoryStatusEx(&status);
 		return status.ullTotalPhys;
 	}
 }

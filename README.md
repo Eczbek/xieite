@@ -24,20 +24,8 @@ This project is a collection of questionably useful components designed for vary
 
 &nbsp;
 
-## Support
-#### Platforms
-- Linux: 100%
-- Macintosh: Should work
-- Windows: *ish*
-#### Compilers
-- GCC-14: Works fully
-- Clang-19: Some bugs with metaprogramming
-- MSVC-19: Skill issue
-
-&nbsp;
-
 ## Requirements
-- C++26
+- C++23
 
 &nbsp;
 

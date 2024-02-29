@@ -6,3 +6,5 @@
 #	define XIEITE_TYPE_DEFINED_IN_SCOPE(...) (!::std::same_as<void(int(__VA_ARGS__)), void(int)>)
 
 #endif
+
+// Thanks to halalaluyafail3 for orginal code

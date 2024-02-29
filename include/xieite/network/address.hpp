@@ -19,27 +19,27 @@ namespace xieite::network {
 	public:
 		Address(const std::string& host = "::") {
 			this->address.sin6_family = static_cast<int>(xieite::network::Domain::IPv6);
-			if (inet_pton(static_cast<int>(xieite::network::Domain::IPv6), host.c_str(), &this->address.sin6_addr) < 1) {
+			if (::inet_pton(static_cast<int>(xieite::network::Domain::IPv6), host.c_str(), &this->address.sin6_addr) < 1) {
 				throw xieite::exceptions::InvalidNetworkAddress("Cannot create address with invalid host");
 			}
 			this->addressSize = sizeof(this->address);
 		}
 
 		template<typename Self>
-		[[nodiscard]] std::conditional_t<std::is_const_v<Self>, const sockaddr*, sockaddr*> data(this Self& self) noexcept {
-			return reinterpret_cast<std::conditional_t<std::is_const_v<Self>, const sockaddr*, sockaddr*>>(&self.address);
+		[[nodiscard]] std::conditional_t<std::is_const_v<Self>, const ::sockaddr*, ::sockaddr*> data(this Self& self) noexcept {
+			return reinterpret_cast<std::conditional_t<std::is_const_v<Self>, const ::sockaddr*, ::sockaddr*>>(&self.address);
 		}
 
 		template<typename Self>
-		[[nodiscard]] std::conditional_t<std::is_const_v<Self>, const socklen_t*, socklen_t*> size(this Self& self) noexcept {
+		[[nodiscard]] std::conditional_t<std::is_const_v<Self>, const ::socklen_t*, ::socklen_t*> size(this Self& self) noexcept {
 			return &self.addressSize;
 		}
 
 	protected:
-		sockaddr_in6 address;
+		::sockaddr_in6 address;
 
 	private:
-		socklen_t addressSize;
+		::socklen_t addressSize;
 	};
 }
 

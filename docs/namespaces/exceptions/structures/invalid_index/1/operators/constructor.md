@@ -3,8 +3,28 @@ Defined in header [<xieite/exceptions/invalid_index.hpp>](../../../../../../../i
 
 &nbsp;
 
+Constructs a `xieite::exceptions::InvalidIndex`.
+
 ## Synopsis
 #### 1)
 ```cpp
 constexpr InvalidIndex(std::string_view message = "") noexcept;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/exceptions/invalid_index.hpp"
+
+int main() {
+    xieite::exceptions::InvalidIndex exception;
+
+    std::println("{}", exception.what());
+}
+```
+Output:
+```
+
 ```

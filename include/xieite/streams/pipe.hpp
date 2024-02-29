@@ -13,10 +13,10 @@ namespace xieite::streams {
 		std::FILE* const file;
 
 		Pipe(const std::string& command, const std::string& mode) noexcept
-		: file(popen(command.c_str(), mode.c_str())) {}
+		: file(::popen(command.c_str(), mode.c_str())) {}
 
 		~Pipe() {
-			pclose(this->file);
+			::pclose(this->file);
 		}
 	};
 }
@@ -30,10 +30,10 @@ namespace xieite::streams {
 		std::FILE* const file;
 
 		Pipe(const std::string& command, const std::string& mode) noexcept
-		: file(_popen(command.c_str(), mode.c_str())) {}
+		: file(::_popen(command.c_str(), mode.c_str())) {}
 
 		~Pipe() {
-			_pclose(this->file);
+			::_pclose(this->file);
 		}
 	};
 }

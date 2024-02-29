@@ -11,7 +11,7 @@
 #	include "../concepts/specialization_of.hpp"
 #	include "../math/absolute.hpp"
 #	include "../math/integer_string_components.hpp"
-#	include "../math/negative.hpp"
+#	include "../math/is_negative.hpp"
 #	include "../math/round_down.hpp"
 #	include "../math/signed_size.hpp"
 #	include "../types/maybe_unsigned.hpp"
@@ -27,7 +27,7 @@ namespace xieite::math {
 			return std::string(1, components.digits[0]);
 		}
 		std::string result;
-		const bool negative = xieite::math::negative(value);
+		const bool negative = xieite::math::isNegative(value);
 		xieite::types::MaybeUnsigned<Number> absoluteValue;
 		if constexpr (xieite::concepts::Arithmetic<Number>) {
 			absoluteValue = xieite::math::absolute(value);
@@ -45,7 +45,7 @@ namespace xieite::math {
 		} else {
 			const std::size_t digitsSize = components.digits.size();
 			if constexpr (std::floating_point<Number>) {
-				if (xieite::math::negative(radix)) {
+				if (xieite::math::isNegative(radix)) {
 					const Number foo = std::abs(static_cast<Number>(radix));
 					const Number bar = -foo / (foo + 1);
 					const Number baz = 1 / (foo + 1);
@@ -71,7 +71,7 @@ namespace xieite::math {
 					do {
 						Number index = std::fmod(integral, radix);
 						integral = xieite::math::roundDown(integral / static_cast<Number>(radix));
-						if (xieite::math::negative(index)) {
+						if (xieite::math::isNegative(index)) {
 							index += std::abs(static_cast<Number>(radix));
 							++integral;
 						}
@@ -89,7 +89,7 @@ namespace xieite::math {
 				while (value) {
 					Number index = value % radix;
 					value /= radix;
-					if (xieite::math::negative(index)) {
+					if (xieite::math::isNegative(index)) {
 						index = static_cast<Number>(static_cast<xieite::types::MaybeUnsigned<Number>>(index) + xieite::math::absolute(radix));
 						++value;
 					}
