@@ -12,7 +12,7 @@ An enumeration of angle units.
 #### 1)
 ```cpp
 enum Angle {
-	radian,
-	degree
+    radian,
+    degree
 };
 ```

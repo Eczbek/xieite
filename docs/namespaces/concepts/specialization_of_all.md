@@ -29,10 +29,10 @@ template<typename>
 struct Bar {};
 
 int main() {
-	using Baz = Foo<int>;
+    using Baz = Foo<int>;
 
-	std::println("{}", xieite::concepts::SpecializationOfAll<Baz, Foo, Foo>);
-	std::println("{}", xieite::concepts::SpecializationOfAll<Baz, Foo, Bar>);
+    std::println("{}", xieite::concepts::SpecializationOfAll<Baz, Foo, Foo>);
+    std::println("{}", xieite::concepts::SpecializationOfAll<Baz, Foo, Bar>);
 }
 ```
 Output:

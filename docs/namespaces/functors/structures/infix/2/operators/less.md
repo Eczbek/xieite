@@ -22,11 +22,11 @@ friend constexpr Result operator>(const xieite::functors::Infix<Result(Argument)
 #include "xieite/functors/infix.hpp"
 
 int main() {
-	xieite::functors::Infix<int(int)> square = [](int x) {
-		return x * x;
-	};
+    xieite::functors::Infix<int(int)> square = [](int x) {
+        return x * x;
+    };
 
-	std::println("{}", square> 2);
+    std::println("{}", square> 2);
 }
 ```
 Output:

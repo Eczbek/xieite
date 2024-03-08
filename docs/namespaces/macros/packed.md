@@ -14,19 +14,19 @@ See header file for definitions.
 #include "xieite/macros/packed.hpp"
 
 struct Foo {
-	int a;
-	char b;
+    int a;
+    char b;
 };
 
 struct XIEITE_PACKED(Bar {
-	int a;
-	char b;
+    int a;
+    char b;
 });
 
 int main() {
-	std::cout
-		<< sizeof(Foo) << '\n'
-		<< sizeof(Bar) << '\n';
+    std::cout
+        << sizeof(Foo) << '\n'
+        << sizeof(Bar) << '\n';
 }
 ```
 Output:

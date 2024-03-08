@@ -12,9 +12,9 @@ An enumeration of temperature units.
 #### 1)
 ```cpp
 enum Temperature {
-	kelvin,
-	celsius,
-	fahrenheit,
-	rankine
+    kelvin,
+    celsius,
+    fahrenheit,
+    rankine
 };
 ```

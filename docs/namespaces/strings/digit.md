@@ -25,7 +25,7 @@ int main() {
     std::cout
         << std::boolalpha
         << xieite::strings::digit('3')
-		<< '\n';
+        << '\n';
 }
 ```
 Output:

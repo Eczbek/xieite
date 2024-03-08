@@ -10,9 +10,9 @@ Mathematical types and functions.
 ## Contents
 - [BigInteger](./namespaces/math/big_integer.md)
 - [Exponent](./namespaces/math/exponent.md)
+- [Integer](./namespaces/math/integer.md)
 - [Interval](./namespaces/math/interval.md)
 - [Product](./namespaces/math/product.md)
-- [Integer](./namespaces/math/integer.md)
 - [absolute](./namespaces/math/absolute.md)
 - [additionOverflows](./namespaces/math/addition_overflows.md)
 - [almostEqual](./namespaces/math/almost_equal.md)

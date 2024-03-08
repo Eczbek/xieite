@@ -69,10 +69,10 @@ int main() {
     };
 
     std::println("{}", 2 <multiply> 2);
-	std::println("{}", multiply(4, 8));
+    std::println("{}", multiply(4, 8));
     std::println("{}", 1 <increment);
     std::println("{}", increment> 7);
-	std::println("{}", increment(98));
+    std::println("{}", increment(98));
 }
 ```
 Output:

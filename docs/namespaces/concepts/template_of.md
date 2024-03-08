@@ -26,10 +26,10 @@ template<typename>
 struct Foo {};
 
 int main() {
-	using Bar = Foo<int>;
+    using Bar = Foo<int>;
 
-	std::println("{}", xieite::concepts::TemplateOf<Foo, Bar>);
-	std::println("{}", xieite::concepts::TemplateOf<Bar, char>);
+    std::println("{}", xieite::concepts::TemplateOf<Foo, Bar>);
+    std::println("{}", xieite::concepts::TemplateOf<Bar, char>);
 }
 ```
 Output:

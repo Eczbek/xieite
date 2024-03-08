@@ -12,9 +12,9 @@ Provides a wrapper for a `std::FILE*` pipe, automatically closed upon destructio
 #### 1)
 ```cpp
 struct Pipe {
-	std::FILE* const file;
+    std::FILE* const file;
 
-	Pipe(const std::string&, const std::string&);
+    Pipe(const std::string&, const std::string&);
 };
 ```
 ##### Member variables

@@ -22,11 +22,11 @@ friend constexpr Result operator<(ArgumentReference&& argument, const xieite::fu
 #include "xieite/functors/infix.hpp"
 
 int main() {
-	xieite::functors::Infix<int(int)> half = [](int x) {
-		return x / 2;
-	};
+    xieite::functors::Infix<int(int)> half = [](int x) {
+        return x / 2;
+    };
 
-	std::println("{}", 14 <half);
+    std::println("{}", 14 <half);
 }
 ```
 Output:

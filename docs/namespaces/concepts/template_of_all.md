@@ -26,12 +26,12 @@ template<typename>
 struct Foo {};
 
 int main() {
-	using Bar = Foo<int>;
-	using Baz = Foo<char>;
-	using Qux = Foo<float>;
+    using Bar = Foo<int>;
+    using Baz = Foo<char>;
+    using Qux = Foo<float>;
 
-	std::println("{}", xieite::concepts::TemplateOfAll<Foo, Bar, Baz>);
-	std::println("{}", xieite::concepts::TemplateOfAll<Foo, Qux, void>);
+    std::println("{}", xieite::concepts::TemplateOfAll<Foo, Bar, Baz>);
+    std::println("{}", xieite::concepts::TemplateOfAll<Foo, Qux, void>);
 }
 ```
 Output:

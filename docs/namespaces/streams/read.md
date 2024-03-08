@@ -23,13 +23,13 @@ inline std::string read(std::istream& inputStream) noexcept;
 #include "xieite/streams/read.md>
 
 int main() {
-	std::ofstream writer("test.txt");
+    std::ofstream writer("test.txt");
 
-	writer << "Hello, world!\n";
+    writer << "Hello, world!\n";
 
-	std::ifstream reader("test.txt");
+    std::ifstream reader("test.txt");
 
-	std::cout << xieite::streams::read(reader);
+    std::cout << xieite::streams::read(reader);
 }
 ```
 Output:
