@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-A collection of commonly and uncommonly-used concepts, expanding on the standard library.
+A collection of commonly concepts, expanding on the standard library.
 
 &nbsp;
 
@@ -14,6 +14,7 @@ A collection of commonly and uncommonly-used concepts, expanding on the standard
 - [Arithmetic](./namespaces/concepts/arithmetic.md)
 - [BitsetReference](./namespaces/concepts/bitset_reference.md)
 - [Character](./namespaces/concepts/character.md)
+- [Clock](./namespaces/concepts/clock.md)
 - [Constant](./namespaces/concepts/constant.md)
 - [ConstantInvocable](./namespaces/concepts/constant_invocable.md)
 - [ConvertibleToAll](./namespaces/concepts/convertible_to_all.md)
@@ -23,6 +24,8 @@ A collection of commonly and uncommonly-used concepts, expanding on the standard
 - [Derivable](./namespaces/concepts/derivable.md)
 - [DerivedFromAll](./namespaces/concepts/derived_from_all.md)
 - [DerivedFromAny](./namespaces/concepts/derived_from_any.md)
+- [Destructible](./namespaces/concepts/destructible.md)
+- [Duration](./namespaces/concepts/duration.md)
 - [Enumeration](./namespaces/concepts/enumeration.md)
 - [Functable](./namespaces/concepts/functable.md)
 - [Hashable](./namespaces/concepts/hashable.md)
@@ -33,6 +36,7 @@ A collection of commonly and uncommonly-used concepts, expanding on the standard
 - [NoThrowConvertibleTo](./namespaces/concepts/no_throw_convertible_to.md)
 - [NoThrowConvertibleToAll](./namespaces/concepts/no_throw_convertible_to_all.md)
 - [NoThrowConvertibleToAny](./namespaces/concepts/no_throw_convertible_to_any.md)
+- [NoThrowDestructible](./namespaces/concepts/no_throw_destructible.md)
 - [NoThrowInvocable](./namespaces/concepts/no_throw_invocable.md)
 - [None](./namespaces/concepts/none.md)
 - [NotAll](./namespaces/concepts/not_all.md)
@@ -46,11 +50,18 @@ A collection of commonly and uncommonly-used concepts, expanding on the standard
 - [SameAsAny](./namespaces/concepts/same_as_any.md)
 - [ScopedEnumeration](./namespaces/concepts/scoped_enumeration.md)
 - [SpecializationOf](./namespaces/concepts/specialization_of.md)
+- [SpecializationOfAll](./namespaces/concepts/specialization_of_all.md)
+- [SpecializationOfAny](./namespaces/concepts/specialization_of_any.md)
 - [Stream](./namespaces/concepts/stream.md)
 - [StreamableIn](./namespaces/concepts/streamable_in.md)
 - [StreamableOut](./namespaces/concepts/streamable_out.md)
-- [TemporalDuration](./namespaces/concepts/temporal_duration.md)
+- [String](./namespaces/concepts/string.md)
+- [StringView](./namespaces/concepts/string_view.md)
+- [TemplateOf](./namespaces/concepts/template_of.md)
+- [TemplateOfAll](./namespaces/concepts/template_of_all.md)
+- [TemplateOfAny](./namespaces/concepts/template_of_any.md)
 - [Trivial](./namespaces/concepts/trivial.md)
+- [TriviallyDestructible](./namespaces/concepts/trivially_destructible.md)
 - [UniformRandomBitGenerator](./namespaces/concepts/uniform_random_bit_generator.md)
 - [UnscopedEnumeration](./namespaces/concepts/unscoped_enumeration.md)
 - [UnsignedInteger](./namespaces/concepts/unsigned_integer.md)

@@ -3,15 +3,15 @@
 
 #	include <concepts>
 #	include <utility>
-#	include "../concepts/temporal_duration.hpp"
+#	include "../concepts/duration.hpp"
 #	include "../functors/function.hpp"
 #	include "../threads/interval.hpp"
 
 namespace xieite::threads {
 	struct Timeout {
 	public:
-		template<xieite::concepts::TemporalDuration TemporalDuration>
-		Timeout(const xieite::functors::Function<void()>& callback, const TemporalDuration duration) noexcept
+		template<xieite::concepts::Duration Duration>
+		Timeout(const xieite::functors::Function<void()>& callback, const Duration duration) noexcept
 		: interval([this, &callback] -> void {
 			this->stop();
 			callback();

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedString<characters>](../../../../fixed_string.md)\:\:view
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedString<characters, Character>](../../../../fixed_string.md)\:\:view
 Defined in header [<xieite/containers/fixed_string.hpp>](../../../../../../../include/xieite/containers/fixed_string.hpp)
 
 &nbsp;
@@ -10,7 +10,8 @@ Returns a view to the string's data.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::string_view view() const noexcept;
+template<xieite::concepts::StringView StringView = std::string_view>
+[[nodiscard]] constexpr StringView view() const noexcept;
 ```
 
 &nbsp;

@@ -11,16 +11,17 @@ Stores a fixed-size string.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t characters>
+template<std::size_t characters, typename Character = char>
 struct FixedString {
-	char data[characters + 1];
+    std::array<Character, characters + 1> data;
 
-	template<std::size_t otherCharacters>
-	constexpr FixedString(const char (&)[otherCharacters]) noexcept;
+    template<std::size_t otherCharacters>
+    constexpr FixedString(const Character(&)[otherCharacters]) noexcept;
 
-	static constexpr std::size_t size() noexcept;
+    static constexpr std::size_t size() noexcept;
 
-	constexpr std::string_view view() const noexcept;
+    template<xieite::concepts::StringView StringView = std::string_view>
+    constexpr StringView view() const noexcept;
 };
 ```
 ##### Member variables
@@ -34,8 +35,8 @@ struct FixedString {
 
 ### Deduction guides
 ```cpp
-template<std::size_t characters>
-FixedString(char const (&)[characters]) -> FixedString<characters - 1>;
+template<std::size_t characters, typename Character>
+FixedString(char Character(&)[characters]) -> FixedString<characters - 1, Character>;
 ```
 
 &nbsp;

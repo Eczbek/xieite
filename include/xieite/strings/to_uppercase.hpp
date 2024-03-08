@@ -6,10 +6,13 @@
 #	include <limits>
 #	include <numeric>
 #	include <string>
+#	include "../concepts/character.hpp"
+#	include "../concepts/string.hpp"
 #	include "../strings/characters.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr char toUppercase(const char character) noexcept {
+	template<xieite::concepts::Character Character = char>
+	[[nodiscard]] constexpr Character toUppercase(const Character character) noexcept {
 		using Lookup = std::array<char, static_cast<std::size_t>(std::numeric_limits<unsigned char>::max()) + 1>;
 		static constexpr Lookup lookup = ([] -> Lookup {
 			Lookup lookup;
@@ -19,11 +22,12 @@ namespace xieite::strings {
 			}
 			return lookup;
 		})();
-		return lookup[static_cast<std::size_t>(static_cast<unsigned char>(character))];
+		return static_cast<Character>(lookup[static_cast<std::size_t>(static_cast<unsigned char>(character))]);
 	}
 
-	[[nodiscard]] constexpr std::string toUppercase(std::string string) noexcept {
-		for (char& character : string) {
+	template<xieite::concepts::String String = std::string>
+	[[nodiscard]] constexpr String toUppercase(String string) noexcept {
+		for (String::value_type& character : string) {
 			character = xieite::strings::toUppercase(character);
 		}
 		return string;

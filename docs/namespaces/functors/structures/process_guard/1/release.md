@@ -4,7 +4,7 @@ Defined in header [<xieite/functors/process_guard.hpp>](../../../../../../includ
 &nbsp;
 
 ## Description
-Releases the guard, so that when the program ends, the callback will not execute.
+Releases the guard, so that when the process ends, the callback will not execute.
 
 &nbsp;
 
@@ -12,4 +12,23 @@ Releases the guard, so that when the program ends, the callback will not execute
 #### 1)
 ```cpp
 void release() noexcept;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/functors/process_guard.hpp"
+
+int main() {
+    xieite::functors::ProcessGuard guard = [] {
+        std::println("Hello, world!");
+    };
+
+    guard.release();
+}
+```
+Output:
+```
 ```

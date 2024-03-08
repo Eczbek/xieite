@@ -9,7 +9,7 @@ namespace xieite::exceptions {
 	struct Unspecified
 	: std::exception {
 	public:
-		constexpr Unspecified(const std::string_view message = "") noexcept
+		Unspecified(const std::string_view message = "") noexcept
 		: message(message) {}
 
 		[[nodiscard]] const char* what() const noexcept {

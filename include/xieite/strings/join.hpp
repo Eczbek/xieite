@@ -4,28 +4,29 @@
 #	include <concepts>
 #	include <ranges>
 #	include <string>
+#	include "../concepts/string.hpp"
 #	include "../macros/forward.hpp"
 
 namespace xieite::strings {
-	template<std::ranges::range Range>
-	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr std::string join(Range&& range, const std::string& delimiter = "") noexcept {
+	template<xieite::concepts::String String = std::string, std::ranges::range Range>
+	requires(std::constructible_from<String, std::ranges::range_const_reference_t<Range>>)
+	[[nodiscard]] constexpr String join(Range&& range, const String& delimiter = "") noexcept {
 		auto iterator = std::ranges::begin(range);
 		const auto end = std::ranges::end(range);
 		if (iterator == end) {
 			return "";
 		}
-		std::string result = std::string(*iterator);
+		String result = String(*iterator);
 		while (++iterator != end) {
-			result += delimiter + std::string(*iterator);
+			result += delimiter + String(*iterator);
 		}
 		return result;
 	}
 
-	template<std::ranges::range Range>
-	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr std::string join(Range&& range, const char delimiter) noexcept {
-		return xieite::strings::join(XIEITE_FORWARD(range), std::string(1, delimiter));
+	template<xieite::concepts::String String = std::string, std::ranges::range Range>
+	requires(std::constructible_from<String, std::ranges::range_const_reference_t<Range>>)
+	[[nodiscard]] constexpr String join(Range&& range, const String::value_type delimiter) noexcept {
+		return xieite::strings::join(XIEITE_FORWARD(range), String(1, delimiter));
 	}
 }
 

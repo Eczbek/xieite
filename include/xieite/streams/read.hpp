@@ -4,10 +4,13 @@
 #	include <istream>
 #	include <iterator>
 #	include <string>
+#	include "../concepts/string.hpp"
 
 namespace xieite::streams {
-	inline std::string read(std::istream& inputStream) noexcept {
-		return std::string(std::istreambuf_iterator<char>(inputStream), std::istreambuf_iterator<char>());
+	template<xieite::concepts::String String = std::string>
+	String read(std::istream& inputStream) noexcept {
+		using Iterator = std::istreambuf_iterator<String::value_type>;
+		return String(Iterator(inputStream), Iterator());
 	}
 }
 

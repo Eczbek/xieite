@@ -6,20 +6,21 @@
 #	include <cstddef>
 #	include <ranges>
 #	include <string_view>
+#	include "../concepts/string_view.hpp"
 #	include "../strings/to_uppercase.hpp"
 
 namespace xieite::strings {
-	template<std::integral Integer = int>
-	[[nodiscard]] constexpr Integer fromRomanNumerals(const std::string_view value) noexcept {
-		static constexpr std::string_view numerals = "IVXLCDM";
+	template<std::integral Integer = int, xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr Integer fromRomanNumerals(const StringView value) noexcept {
+		static constexpr StringView numerals = "IVXLCDM";
 		Integer result = 0;
 		if (!value.size() || (value == "N")) {
 			return result;
 		}
 		Integer previous = 0;
-		for (const char digit : std::views::reverse(value)) {
+		for (const StringView::value_type digit : std::views::reverse(value)) {
 			const std::size_t index = numerals.find(xieite::strings::toUppercase(digit));
-			if (index == std::string_view::npos) {
+			if (index == StringView::npos) {
 				continue;
 			}
 			const Integer addend = ((index % 2) ? 5 : 1) * std::pow(10, index / 2);

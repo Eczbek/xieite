@@ -3,16 +3,19 @@
 
 #	include <cstddef>
 #	include <string_view>
+#	include "../concepts/string_view.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr std::string_view trimBack(const std::string_view string, const char character) noexcept {
-		const std::size_t end = string.find_last_not_of(character);
-		return (end == std::string_view::npos) ? "" : string.substr(0, end + 1);
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView trimBack(const StringView string, const StringView characters) noexcept {
+		const std::size_t end = string.find_last_not_of(characters);
+		return (end == StringView::npos) ? "" : string.substr(0, end + 1);
 	}
 
-	[[nodiscard]] constexpr std::string_view trimBack(const std::string_view string, const std::string_view characters) noexcept {
-		const std::size_t end = string.find_last_not_of(characters);
-		return (end == std::string_view::npos) ? "" : string.substr(0, end + 1);
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView trimBack(const StringView string, const StringView::value_type character) noexcept {
+		const std::size_t end = string.find_last_not_of(character);
+		return (end == StringView::npos) ? "" : string.substr(0, end + 1);
 	}
 }
 

@@ -2,24 +2,25 @@
 #	define XIEITE_HEADER_STRINGS_SPLIT
 
 #	include <ranges>
-#	include <string>
 #	include <string_view>
 #	include <vector>
+#	include "../concepts/string_view.hpp"
+#	include "../functors/static_cast.hpp"
+#	include "../strings/unview.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr std::vector<std::string_view> split(const std::string_view string, const std::string_view delimiter) noexcept {
-		std::vector<std::string_view> result;
-		auto subranges = std::views::split(string, delimiter);
-		if (subranges) {
-			for (const auto slice : subranges) {
-				result.push_back(std::string_view(slice));
-			}
-		}
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr std::vector<StringView> split(const StringView string, const StringView delimiter) noexcept {
+		const auto subranges = std::views::split(string, delimiter);
+		std::vector<StringView> result = std::vector<StringView>(std::ranges::size(subranges));
+		std::ranges::transform(subranges, result.begin(), xieite::functors::StaticCast<StringView>());
 		return result;
 	}
 
-	[[nodiscard]] constexpr std::vector<std::string_view> split(const std::string_view string, const char delimiter) noexcept {
-		return xieite::strings::split(string, std::string(1, delimiter));
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr std::vector<StringView> split(const StringView string, const StringView::value_type delimiter) noexcept {
+		const xieite::strings::Unview<StringView> delimiterString = xieite::strings::Unview<StringView>(1, delimiter);
+		return xieite::strings::split(string, delimiterString);
 	}
 }
 

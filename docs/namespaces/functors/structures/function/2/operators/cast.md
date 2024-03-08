@@ -13,3 +13,27 @@ The boolean cast returns `true` if a functor is assigned, `false` otherwise.
 ```cpp
 [[nodiscard]] constexpr operator bool() const noexcept;
 ```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/functors/function.hpp"
+
+int main() {
+    using Function = xieite::functors::Function<void()>;
+
+    Function foo;
+
+    Function bar = [] {};
+
+    std::println("{}", static_cast<bool>(foo));
+    std::println("{}", static_cast<bool>(bar));
+}
+```
+Output:
+```
+false
+true
+```

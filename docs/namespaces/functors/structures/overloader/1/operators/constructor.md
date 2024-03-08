@@ -3,6 +3,10 @@ Defined in header [<xieite/functors/overloader.hpp>](../../../../../../../includ
 
 &nbsp;
 
+Constructs a `xieite::functors::Overloader`.
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp
@@ -10,5 +14,11 @@ constexpr Overloader() noexcept;
 ```
 #### 2)
 ```cpp
-constexpr Overloader(Derivables&&... derivables) noexcept;
+template<typename... DerivableReferences>
+requires((... && std::convertible_to<DerivableReferences, Derivables>))
+constexpr Overloader(DerivableReferences&&... callbacks) noexcept;
 ```
+
+&nbsp;
+
+## [Example](../../../../overloader.md#Example)

@@ -11,6 +11,10 @@ Constructs a `xieite::functors::ProcessGuard`.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::invocable<> Functor>
-constexpr ProcessGuard(const Functor callback) noexcept;
+template<xieite::concepts::Functable<void()> Functor, auto = [] {}>
+ProcessGuard(Functor&& callback) noexcept;
 ```
+
+&nbsp;
+
+## [Example](../../../../process_guard.md#Example)

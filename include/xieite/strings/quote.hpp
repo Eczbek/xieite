@@ -2,12 +2,14 @@
 #	define XIEITE_HEADER_STRINGS_QUOTE
 
 #	include <string>
-#	include <string_view>
+#	include "../concepts/string.hpp"
 #	include "../strings/replace.hpp"
+#	include "../strings/view.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr std::string quote(const std::string_view value, const char delimiter = '"', const char escape = '\\') noexcept {
-		return delimiter + xieite::strings::replace((delimiter == escape) ? value : xieite::strings::replace(value, escape, std::string(2, escape)), delimiter, std::string(1, escape) + delimiter) + delimiter;
+	template<xieite::concepts::String String = std::string>
+	[[nodiscard]] constexpr String quote(const xieite::strings::View<String> value, const String::value_type delimiter = '"', const String::value_type escape = '\\') noexcept {
+		return delimiter + xieite::strings::replace((delimiter == escape) ? value : xieite::strings::replace(value, escape, String(2, escape)), delimiter, String(1, escape) + delimiter) + delimiter;
 	}
 }
 

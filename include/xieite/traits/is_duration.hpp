@@ -1,5 +1,5 @@
-#ifndef XIEITE_HEADER_TRAITS_IS_TEMPORAL_DURATION
-#	define XIEITE_HEADER_TRAITS_IS_TEMPORAL_DURATION
+#ifndef XIEITE_HEADER_TRAITS_IS_DURATION
+#	define XIEITE_HEADER_TRAITS_IS_DURATION
 
 #	include <chrono>
 #	include <cstdint>
@@ -9,11 +9,11 @@
 
 namespace xieite::traits {
 	template<typename>
-	struct IsTemporalDuration
+	struct IsDuration
 	: std::false_type {};
 
 	template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intmax_t denominator>
-	struct IsTemporalDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>>
+	struct IsDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>>
 	: std::true_type {};
 }
 

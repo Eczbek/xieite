@@ -7,7 +7,7 @@
 namespace xieite::exceptions {
 	struct PossibleResultsExcludedByArguments
 	: xieite::exceptions::Unspecified {
-		constexpr PossibleResultsExcludedByArguments(const std::string_view message = "") noexcept
+		PossibleResultsExcludedByArguments(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};
 }

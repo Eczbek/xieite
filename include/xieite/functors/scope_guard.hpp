@@ -1,16 +1,16 @@
 #ifndef XIEITE_HEADER_FUNCTORS_SCOPE_GUARD
 #	define XIEITE_HEADER_FUNCTORS_SCOPE_GUARD
 
-#	include <functional>
-#	include <memory>
-#	include <utility>
+#	include "../concepts/functable.hpp"
 #	include "../functors/function.hpp"
+#	include "../macros/forward.hpp"
 
 namespace xieite::functors {
 	struct ScopeGuard {
 	public:
-		constexpr ScopeGuard(const xieite::functors::Function<void()>& callback) noexcept
-		: callback(callback) {}
+		template<xieite::concepts::Functable<void()> Functor>
+		constexpr ScopeGuard(Functor&& callback) noexcept
+		: callback(XIEITE_FORWARD(callback)) {}
 
 		constexpr ~ScopeGuard() {
 			if (!this->released) {

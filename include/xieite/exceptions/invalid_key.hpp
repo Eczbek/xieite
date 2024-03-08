@@ -7,7 +7,7 @@
 namespace xieite::exceptions {
 	struct InvalidKey
 	: xieite::exceptions::Unspecified {
-		constexpr InvalidKey(const std::string_view message = "") noexcept
+		InvalidKey(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};
 }

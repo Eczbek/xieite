@@ -13,11 +13,13 @@
 #	include <string_view>
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
+#	include "../concepts/string.hpp"
+#	include "../concepts/string_view.hpp"
 #	include "../exceptions/division_by_zero.hpp"
 #	include "../exceptions/unrepresentable_value.hpp"
 #	include "../macros/forward.hpp"
 #	include "../math/digits.hpp"
-#	include "../math/integer_string_components.hpp"
+#	include "../strings/integer_components.hpp"
 #	include "../math/is_negative.hpp"
 #	include "../math/multiply.hpp"
 #	include "../math/parse.hpp"
@@ -85,7 +87,8 @@ namespace xieite::math {
 			this->trim();
 		}
 
-		constexpr BigInteger(const std::string_view value, const xieite::math::SignedSize radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept {
+		template<xieite::concepts::StringView StringView = std::string_view>
+		constexpr BigInteger(const StringView value, const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
 			*this = xieite::math::parse<xieite::math::BigInteger<Word>>(value, radix, components);
 		}
 
@@ -642,8 +645,9 @@ namespace xieite::math {
 			return this->logarithm(xieite::math::BigInteger<Word>(base));
 		}
 
-		[[nodiscard]] constexpr std::string string(const xieite::math::SignedSize radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) const noexcept {
-			return xieite::math::stringify(*this, radix, components);
+		template<xieite::concepts::String String = std::string>
+		[[nodiscard]] constexpr String string(const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) const noexcept {
+			return xieite::math::stringify<String>(*this, radix, components);
 		}
 
 	private:

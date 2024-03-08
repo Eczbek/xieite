@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsTemporalDuration
-Defined in header [<xieite/traits/is_temporal_duration.hpp>](../../../include/xieite/traits/is_temporal_duration.hpp)
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDuration
+Defined in header [<xieite/traits/is_duration.hpp>](../../../include/xieite/traits/is_duration.hpp)
 
 &nbsp;
 
@@ -7,12 +7,12 @@ Defined in header [<xieite/traits/is_temporal_duration.hpp>](../../../include/xi
 #### 1)
 ```cpp
 template<typename>
-struct IsTemporalDuration
+struct IsDuration
 : std::false_type {};
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intmax_t denominator>
-struct IsTemporalDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>>
+struct IsDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>>
 : std::true_type {};
 ```

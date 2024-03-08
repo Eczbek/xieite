@@ -15,11 +15,11 @@ namespace XIEITE_DETAIL_NAMESPACE {
 			return xieite::strings::between(string, "= ", ';');
 		};
 		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
-		return data.view();
+		return std::string_view(data.begin(), data.end());
 	}
 }
 
-#	elif XIEITE_COMPILER_TYPE_LLVM
+#	elif XIEITE_COMPILER_TYPE_CLANG
 #		include "../containers/make_array.hpp"
 #		include "../strings/between.hpp"
 
@@ -30,7 +30,7 @@ namespace XIEITE_DETAIL_NAMESPACE {
 			return xieite::strings::between(string, "= ", ']');
 		};
 		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
-		return data.view();
+		return std::string_view(data.begin(), data.end());
 	}
 }
 
@@ -46,7 +46,7 @@ namespace XIEITE_DETAIL_NAMESPACE {
 			return xieite::strings::between(xieite::strings::after(string, " __"), '<', ">(");
 		};
 		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
-		return data.view();
+		return std::string_view(data.begin(), data.end());
 	}
 }
 

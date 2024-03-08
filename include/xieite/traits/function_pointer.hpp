@@ -18,8 +18,8 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(*)(Arguments......) noexcept(nonThrowing)> {
-		using FunctionType = Return(Arguments......);
+	struct FunctionPointer<Return(*)(Arguments..., ...) noexcept(nonThrowing)> {
+		using FunctionType = Return(Arguments..., ...);
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -44,10 +44,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = Class&;
-		using FunctionType = Return(Arguments......);
+		using FunctionType = Return(Arguments..., ...);
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -76,10 +76,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) const noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = const Class&;
-		using FunctionType = Return(Arguments......) const;
+		using FunctionType = Return(Arguments..., ...) const;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -108,10 +108,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) volatile noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) volatile noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = volatile Class&;
-		using FunctionType = Return(Arguments......) volatile;
+		using FunctionType = Return(Arguments..., ...) volatile;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -140,10 +140,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) const volatile noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const volatile noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = const volatile Class&;
-		using FunctionType = Return(Arguments......) const volatile;
+		using FunctionType = Return(Arguments..., ...) const volatile;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -172,10 +172,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......)& noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...)& noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = Class&;
-		using FunctionType = Return(Arguments......)&;
+		using FunctionType = Return(Arguments..., ...)&;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -204,10 +204,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) const& noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const& noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = const Class&;
-		using FunctionType = Return(Arguments......) const&;
+		using FunctionType = Return(Arguments..., ...) const&;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -236,10 +236,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) volatile& noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) volatile& noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = volatile Class&;
-		using FunctionType = Return(Arguments......) volatile&;
+		using FunctionType = Return(Arguments..., ...) volatile&;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -268,10 +268,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) const volatile& noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const volatile& noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = const volatile Class&;
-		using FunctionType = Return(Arguments......) const volatile&;
+		using FunctionType = Return(Arguments..., ...) const volatile&;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -300,10 +300,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......)&& noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...)&& noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = Class&&;
-		using FunctionType = Return(Arguments......)&&;
+		using FunctionType = Return(Arguments..., ...)&&;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -332,10 +332,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) const&& noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const&& noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = const Class&&;
-		using FunctionType = Return(Arguments......) const&&;
+		using FunctionType = Return(Arguments..., ...) const&&;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -364,10 +364,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) volatile&& noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) volatile&& noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = volatile Class&&;
-		using FunctionType = Return(Arguments......) volatile&&;
+		using FunctionType = Return(Arguments..., ...) volatile&&;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 
@@ -396,10 +396,10 @@ namespace xieite::traits {
 	};
 
 	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments......) const volatile&& noexcept(nonThrowing)> {
+	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const volatile&& noexcept(nonThrowing)> {
 		using ClassType = Class;
 		using ReferenceType = const volatile Class&&;
-		using FunctionType = Return(Arguments......) const volatile&&;
+		using FunctionType = Return(Arguments..., ...) const volatile&&;
 		using ReturnType = Return;
 		using ArgumentTypes = std::tuple<Arguments...>;
 

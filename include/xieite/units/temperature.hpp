@@ -3,10 +3,10 @@
 
 namespace xieite::units {
 	enum Temperature {
-		kelvin,
-		celsius,
-		fahrenheit,
-		rankine
+		Kelvin,
+		Celsius,
+		Fahrenheit,
+		Rankine
 	};
 }
 

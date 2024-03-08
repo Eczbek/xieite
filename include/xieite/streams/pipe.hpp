@@ -24,6 +24,7 @@ namespace xieite::streams {
 #	elif XIEITE_PLATFORM_TYPE_WINDOWS
 #		include <cstdio>
 #		include <stdio.h>
+#		include <string>
 
 namespace xieite::streams {
 	struct Pipe {
@@ -31,6 +32,9 @@ namespace xieite::streams {
 
 		Pipe(const std::string& command, const std::string& mode) noexcept
 		: file(::_popen(command.c_str(), mode.c_str())) {}
+
+		Pipe(const std::wstring& command, const std::wstring& mode) noexcept
+		: file(::_wpopen(command.c_str(), mode.c_str())) {}
 
 		~Pipe() {
 			::_pclose(this->file);

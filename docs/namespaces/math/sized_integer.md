@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:SizedInteger
-Defined in header [<xieite/math/sized_integer.hpp>](../../../include/xieite/math/sized_integer.hpp)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Integer
+Defined in header [<xieite/math/integer.hpp>](../../../include/xieite/math/integer.hpp)
 
 &nbsp;
 
@@ -13,73 +13,73 @@ struct Integer {
     template<std::integral OtherInteger = int>
     constexpr Integer(OtherInteger = 0);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator=(const xieite::math::Integer<bits, sign>);
 
     template<std::integral OtherInteger>
     constexpr operator OtherInteger() const;
 
     template<std::size_t otherBits, bool otherSign>
-    constexpr operator xieite::math::SizedInteger<otherBits, otherSign>() const;
+    constexpr operator xieite::math::Integer<otherBits, otherSign>() const;
 
-    friend constexpr std::strong_ordering operator<=>(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr std::strong_ordering operator<=>(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    friend constexpr bool operator==(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>) const;
+    friend constexpr bool operator==(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>) const;
 
-    constexpr xieite::math::SizedInteger<bits, sign> operator+() const;
+    constexpr xieite::math::Integer<bits, sign> operator+() const;
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator+(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator+(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator+=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator+=(const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator++();
+    constexpr xieite::math::Integer<bits, sign>& operator++();
 
-    constexpr xieite::math::SizedInteger<bits, sign> operator++(int);
+    constexpr xieite::math::Integer<bits, sign> operator++(int);
 
-    constexpr xieite::math::SizedInteger<bits, sign> operator-() const;
+    constexpr xieite::math::Integer<bits, sign> operator-() const;
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator-(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator-(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator-=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator-=(const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator--();
+    constexpr xieite::math::Integer<bits, sign>& operator--();
 
-    constexpr xieite::math::SizedInteger<bits, sign> operator--(int);
+    constexpr xieite::math::Integer<bits, sign> operator--(int);
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator*(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator*(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator*=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator*=(const xieite::math::Integer<bits, sign>);
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator/(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator/(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator/=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator/=(const xieite::math::Integer<bits, sign>);
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator%(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator%(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator%=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator%=(const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign> operator~() const;
+    constexpr xieite::math::Integer<bits, sign> operator~() const;
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator&(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator&(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator&=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator&=(const xieite::math::Integer<bits, sign>);
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator|(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator|(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator|=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator|=(const xieite::math::Integer<bits, sign>);
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator^(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator^(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator^=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator^=(const xieite::math::Integer<bits, sign>);
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator<<(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator<<(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator<<=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator<<=(const xieite::math::Integer<bits, sign>);
 
-    friend constexpr xieite::math::SizedInteger<bits, sign> operator>>(const xieite::math::SizedInteger<bits, sign>, const xieite::math::SizedInteger<bits, sign>);
+    friend constexpr xieite::math::Integer<bits, sign> operator>>(const xieite::math::Integer<bits, sign>, const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>& operator>>=(const xieite::math::SizedInteger<bits, sign>);
+    constexpr xieite::math::Integer<bits, sign>& operator>>=(const xieite::math::Integer<bits, sign>);
 
-    constexpr xieite::math::SizedInteger<bits, sign>::Type data() const;
+    constexpr xieite::math::Integer<bits, sign>::Type data() const;
 };
 ```
 ##### Member types
@@ -120,10 +120,10 @@ struct Integer {
 ## Example
 ```cpp
 #include <iostream>
-#include "xieite/math/sized_integer.hpp"
+#include "xieite/math/integer.hpp"
 
 int main() {
-    xieite::math::SizedInteger<3, false> integer = 0;
+    xieite::math::Integer<3, false> integer = 0;
     for (int i = 0; i < 10; ++i) {
         ++integer;
         std::cout << static_cast<int>(integer) << '\n';

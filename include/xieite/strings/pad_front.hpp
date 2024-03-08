@@ -4,11 +4,13 @@
 #	include <concepts>
 #	include <cstddef>
 #	include <string>
+#	include "../concepts/string.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr std::string padFront(const std::string& value, const std::size_t size, const char padding = ' ') noexcept {
+	template<xieite::concepts::String String = std::string>
+	[[nodiscard]] constexpr String padFront(const String& value, const std::size_t size, const String::value_type padding = ' ') noexcept {
 		if (value.size() < size) {
-			return std::string(size - value.size(), padding) + value;
+			return String(size - value.size(), padding) + value;
 		}
 		return value;
 	}

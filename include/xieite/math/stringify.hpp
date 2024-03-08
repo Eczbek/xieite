@@ -8,9 +8,10 @@
 #	include <string_view>
 #	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
-#	include "../concepts/specialization_of.hpp"
+#	include "../concepts/string.hpp"
+#	include "../concepts/specialization_of_any.hpp"
 #	include "../math/absolute.hpp"
-#	include "../math/integer_string_components.hpp"
+#	include "../strings/integer_components.hpp"
 #	include "../math/is_negative.hpp"
 #	include "../math/round_down.hpp"
 #	include "../math/signed_size.hpp"
@@ -20,13 +21,16 @@ namespace xieite::math {
 	template<std::unsigned_integral>
 	struct BigInteger;
 
-	template<typename Number>
-	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::math::IntegerStringComponents& components = xieite::math::IntegerStringComponents()) noexcept {
+	template<std::size_t, bool>
+	struct Integer;
+
+	template<xieite::concepts::String String = std::string, typename Number>
+	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOfAny<Number, xieite::math::BigInteger, xieite::math::Integer>)
+	[[nodiscard]] constexpr String stringify(Number value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
 		if (!value || !radix) {
-			return std::string(1, components.digits[0]);
+			return String(1, components.digits[0]);
 		}
-		std::string result;
+		String result;
 		const bool negative = xieite::math::isNegative(value);
 		xieite::types::MaybeUnsigned<Number> absoluteValue;
 		if constexpr (xieite::concepts::Arithmetic<Number>) {
@@ -35,12 +39,12 @@ namespace xieite::math {
 			absoluteValue = value.absolute();
 		}
 		if (radix == 1) {
-			result = std::string(static_cast<std::size_t>(absoluteValue), components.digits[1]);
+			result = String(static_cast<std::size_t>(absoluteValue), components.digits[1]);
 		} else if (!std::unsigned_integral<Number> && (radix == static_cast<std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number>>(-1))) {
 			result = components.digits[1];
 			std::size_t length = static_cast<std::size_t>(absoluteValue);
 			while (--length) {
-				result += std::string(1, components.digits[0]) + components.digits[1];
+				result += String(1, components.digits[0]) + components.digits[1];
 			}
 		} else {
 			const std::size_t digitsSize = components.digits.size();
@@ -59,7 +63,7 @@ namespace xieite::math {
 						const std::size_t index = static_cast<std::size_t>(-foo * qux - bar);
 						qux = qux * -foo - static_cast<Number>(index);
 						if (index == static_cast<std::size_t>(foo)) {
-							result += std::string(1, components.digits[index - 1]) + components.digits[0];
+							result += String(1, components.digits[index - 1]) + components.digits[0];
 						} else {
 							result += components.digits[index];
 						}

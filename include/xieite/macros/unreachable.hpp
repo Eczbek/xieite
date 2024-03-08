@@ -11,7 +11,7 @@
 #		include "../macros/compiler.hpp"
 #		include "../macros/unused.hpp"
 
-#		if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_LLVM
+#		if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 #			define XIEITE_UNREACHABLE() __builtin_unreachable()
 #		elif XIEITE_COMPILER_TYPE_MSVC
 #			define XIEITE_UNREACHABLE() __assume(false)

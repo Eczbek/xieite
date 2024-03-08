@@ -3,17 +3,19 @@
 
 #	include <cstdio>
 #	include <string>
+#	include "../concepts/same_as_any.hpp"
 #	include "../memory/get_page_size.hpp"
 #	include "../streams/pipe.hpp"
 
 namespace xieite::system {
-	inline std::string execute(const std::string& command) noexcept {
-		const xieite::streams::Pipe pipe = xieite::streams::Pipe(command, "r");
+	template<xieite::concepts::SameAsAny<std::string, std::wstring> String = std::string>
+	inline String execute(const String& command) noexcept {
+		const xieite::streams::Pipe pipe = xieite::streams::Pipe(command, String(1, 'r'));
 		const std::size_t pageSize = xieite::memory::getPageSize();
-		std::string result;
+		String result;
 		while (true) {
-			std::string buffer = std::string(pageSize, '\0');
-			if (!std::fread(buffer.data(), sizeof(char), buffer.size(), pipe.file)) {
+			String buffer = String(pageSize, '\0');
+			if (!std::fread(buffer.data(), 1, buffer.size(), pipe.file)) {
 				break;
 			}
 			result += buffer;

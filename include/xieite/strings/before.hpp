@@ -3,14 +3,17 @@
 
 #	include <string>
 #	include <string_view>
+#	include "../concepts/string_view.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr std::string_view before(const std::string_view string, const std::string_view end) noexcept {
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView before(const StringView string, const StringView end) noexcept {
 		return string.substr(0, string.find(end));
 	}
 
-	[[nodiscard]] constexpr std::string_view before(const std::string_view string, const char end) noexcept {
-		return xieite::strings::before(string, std::string(1, end));
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView before(const StringView string, const StringView::value_type end) noexcept {
+		return string.substr(0, string.find(end));
 	}
 }
 

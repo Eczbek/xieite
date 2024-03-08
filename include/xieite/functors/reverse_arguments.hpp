@@ -17,7 +17,7 @@ namespace xieite::functors {
 
 	template<typename Structure, typename... Arguments>
 	requires(xieite::types::List<Arguments...>::Reverse::template Prepend<Structure>::template Apply<std::is_constructible>::value)
-	constexpr Structure reverseArguments(Arguments&&... arguments)
+	[[nodiscard]] constexpr Structure reverseArguments(Arguments&&... arguments)
 	noexcept(xieite::types::List<Arguments...>::Reverse::template Prepend<Structure>::template Apply<std::is_nothrow_constructible>::value) {
 		return std::make_from_tuple<Structure>(xieite::containers::reverseTuple(std::forward_as_tuple(XIEITE_FORWARD(arguments)...)));
 	}

@@ -3,8 +3,8 @@
 
 namespace xieite::units {
 	enum Angle {
-		radian,
-		degree
+		Radian,
+		Degree
 	};
 }
 

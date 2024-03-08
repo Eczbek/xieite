@@ -18,14 +18,21 @@ struct Function;
 ```cpp
 template<typename Result, typename... Arguments>
 struct Function<Result(Arguments...)> {
-    constexpr Function();
+    constexpr Function() noexcept;
+
+    template<typename Functor>
+    requires(std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Result(Arguments...)>>)
+    constexpr Function(Functor&&) noexcept;
 
     template<xieite::concepts::Functable<Result(Arguments...)> Functor>
-    constexpr Function(const Functor&);
+    requires(!std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Result(Arguments...)>>)
+    constexpr Function(Functor&&) noexcept;
 
-    constexpr operator bool() const;
+    constexpr operator bool() const noexcept;
 
-    constexpr Result operator()(Arguments...) const;
+    template<typename... ArgumentReferences>
+    requires((... && std::convertible_to<ArgumentReferences, Arguments>))
+    constexpr Result operator()(ArgumentReferences&&...) const;
 };
 ```
 ##### Member functions
@@ -37,7 +44,7 @@ struct Function<Result(Arguments...)> {
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/functors/function.hpp"
 
 int add(int a, int b) {
@@ -52,18 +59,17 @@ int main() {
         return a * x;
     };
 
-    xieite::functors::Function<int()> baz = [] {
-        static int i = 0;
+    xieite::functors::Function<int()> baz = [i = 0] mutable {
         return i++;
     };
 
     xieite::functors::Function<int()> qux = baz;
 
-    std::cout
-        << foo(1, 2) << '\n'
-        << bar(3) << '\n'
-        << baz() << '\n'
-        << qux() << '\n';
+    std::println("{}", foo(1, 2));
+    std::println("{}", bar(3));
+    std::println("{}", baz());
+    std::println("{}", baz());
+    std::println("{}", qux());
 }
 ```
 Output:
@@ -72,4 +78,5 @@ Output:
 12
 0
 1
+0
 ```

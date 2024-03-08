@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedString<characters>](../../../../fixed_string.md)\:\:FixedString
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedString<characters, Character>](../../../../fixed_string.md)\:\:FixedString
 Defined in header [<xieite/containers/fixed_string.hpp>](../../../../../../../include/xieite/containers/fixed_string.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Constructs a `xieite::containers::FixedString`.
 #### 1)
 ```cpp
 template<std::size_t otherCharacters>
-constexpr FixedString(const char (&data)[otherCharacters]) noexcept;
+constexpr FixedString(const Character(&data)[otherCharacters]) noexcept;
 ```
 
 &nbsp;

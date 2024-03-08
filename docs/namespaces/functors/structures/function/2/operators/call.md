@@ -11,5 +11,27 @@ Calls the underlying functor. Throws `xieite::exceptions::UnsetFunctorInvoked` i
 ## Synopsis
 #### 1)
 ```cpp
-constexpr Return operator()(Arguments... arguments) const;
+template<typename... ArgumentReferences>
+requires((... && std::convertible_to<ArgumentReferences, Arguments>))
+constexpr Result operator()(ArgumentReferences&&... arguments) const;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/functors/function.hpp"
+
+int main() {
+    xieite::functors::Function<void()> foo = [] {
+        std::println("Hello, world!");
+    };
+
+    foo();
+}
+```
+Output:
+```
+Hello, world!
 ```

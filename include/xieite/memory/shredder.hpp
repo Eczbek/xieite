@@ -4,10 +4,11 @@
 #	include <concepts>
 #	include <cstddef>
 #	include <utility>
+#	include "../concepts/trivially_destructible.hpp"
 #	include "../macros/forward.hpp"
 
 namespace xieite::memory {
-	template<typename Type>
+	template<xieite::concepts::TriviallyDestructible Type>
 	struct Shredder {
 	public:
 		constexpr Shredder() noexcept {

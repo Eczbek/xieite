@@ -11,11 +11,10 @@ Executes a callback when it goes out of scope.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::invocable<> Functor>
 struct ScopeGuard {
-    ScopeGuard(Functor&&);
+    constexpr ScopeGuard(const xieite::functors::Function<void()>&);
 
-    void release();
+    constexpr void release();
 };
 ```
 ##### Member functions
@@ -26,15 +25,15 @@ struct ScopeGuard {
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/functors/scope_guard.hpp"
 
 int main() {
-    xieite::functors::ScopeGuard guard([] {
-        std::cout << "foo\n";
-    });
+    xieite::functors::ScopeGuard _ = [] {
+        std::println("foo");
+    };
 
-    std::cout << "bar\n";
+    std::println("bar");
 }
 ```
 Output:

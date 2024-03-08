@@ -8,7 +8,7 @@
 namespace xieite::exceptions {
 	struct SkillIssue
 	: xieite::exceptions::Unspecified {
-		constexpr SkillIssue(const std::string_view message = "cope") noexcept
+		SkillIssue(const std::string_view message = "cope") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};
 }

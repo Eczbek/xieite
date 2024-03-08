@@ -39,7 +39,7 @@ The complement of `xieite::concepts`, and directly expanding on the standard lib
 - [IsStream](./namespaces/traits/is_stream.md)
 - [IsStreamableIn](./namespaces/traits/is_streamable_into.md)
 - [IsStreamableOut](./namespaces/traits/is_streamable_out.md)
-- [IsTemporalDuration](./namespaces/traits/is_temporal_duration.md)
+- [IsDuration](./namespaces/traits/is_duration.md)
 - [IsUniformRandomBitGenerator](./namespaces/traits/is_uniform_random_bit_generator.md)
 - [IsUnsignedInteger](./namespaces/traits/is_unsigned_integer.md)
 - [IsWideCharacter](./namespaces/traits/is_wide_character.md)

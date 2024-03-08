@@ -17,4 +17,26 @@ concept SpecializationOf = xieite::traits::IsSpecializationOf<std::remove_cv_t<T
 
 &nbsp;
 
-## [Example](https://en.cppreference.com/w/cpp/types/is_scoped_enum#Example)
+## Example
+```cpp
+#include <print>
+#include "xieite/concepts/specialization_of.hpp"
+
+template<typename>
+struct Foo {};
+
+template<typename>
+struct Bar {};
+
+int main() {
+	using Baz = Foo<int>;
+
+	std::println("{}", xieite::concepts::SpecializationOf<Baz, Foo>);
+	std::println("{}", xieite::concepts::SpecializationOf<Baz, Bar>);
+}
+```
+Output:
+```
+true
+false
+```

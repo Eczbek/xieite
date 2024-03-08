@@ -7,7 +7,7 @@
 namespace xieite::exceptions {
 	struct InvalidNetworkAddress
 	: xieite::exceptions::Unspecified {
-		constexpr InvalidNetworkAddress(const std::string_view message = "") noexcept
+		InvalidNetworkAddress(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};
 }

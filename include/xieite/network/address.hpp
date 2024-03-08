@@ -11,13 +11,15 @@
 #	include <netinet/in.h>
 #	include <string>
 #	include <type_traits>
+#	include "../concepts/string.hpp"
 #	include "../exceptions/invalid_network_address.hpp"
 #	include "../network/domain.hpp"
 
 namespace xieite::network {
 	struct Address {
 	public:
-		Address(const std::string& host = "::") {
+		template<xieite::concepts::String String = std::string>
+		Address(const String& host = "::") {
 			this->address.sin6_family = static_cast<int>(xieite::network::Domain::IPv6);
 			if (::inet_pton(static_cast<int>(xieite::network::Domain::IPv6), host.c_str(), &this->address.sin6_addr) < 1) {
 				throw xieite::exceptions::InvalidNetworkAddress("Cannot create address with invalid host");

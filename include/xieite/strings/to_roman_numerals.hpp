@@ -5,13 +5,15 @@
 #	include <concepts>
 #	include <string>
 #	include <string_view>
+#	include "../concepts/string.hpp"
 #	include "../math/absolute.hpp"
+#	include "../strings/view.hpp"
 #	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::strings {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr std::string toRomanNumerals(const Integer value) noexcept {
-		static constexpr std::array<std::string_view, 10> units {
+	template<std::integral Integer, xieite::strings::String String = std::string>
+	[[nodiscard]] constexpr String toRomanNumerals(const Integer value) noexcept {
+		static constexpr std::array<xieite::strings::View<String>, 10> units {
 			"",
 			"I",
 			"II",
@@ -23,7 +25,7 @@ namespace xieite::strings {
 			"VIII",
 			"IX"
 		};
-		static constexpr std::array<std::string_view, 10> tens {
+		static constexpr std::array<xieite::strings::View<String>, 10> tens {
 			"",
 			"X",
 			"XX",
@@ -35,7 +37,7 @@ namespace xieite::strings {
 			"LXXX",
 			"XC"
 		};
-		static constexpr std::array<std::string_view, 10> hundreds {
+		static constexpr std::array<xieite::strings::View<String>, 10> hundreds {
 			"",
 			"C",
 			"CC",
@@ -47,8 +49,11 @@ namespace xieite::strings {
 			"DCCC",
 			"CM"
 		};
+		if (!value) {
+			return "N";
+		}
 		const xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
-		return absoluteValue ? (std::string(absoluteValue / 1000, 'M') + std::string(hundreds[absoluteValue / 100 % 10]) + std::string(tens[absoluteValue / 10 % 10]) + std::string(units[absoluteValue % 10])) : "N";
+		return String(absoluteValue / 1000, 'M') + String(hundreds[absoluteValue / 100 % 10]) + String(tens[absoluteValue / 10 % 10]) + String(units[absoluteValue % 10]);
 	}
 }
 

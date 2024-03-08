@@ -4,7 +4,7 @@ Defined in header [<xieite/functors/overloader.hpp>](../../../include/xieite/fun
 &nbsp;
 
 ## Description
-Extends multiple invocable types and overloads `operator()` for each.
+Extends multiple invocable types and overloads its `operator()` for each.
 
 &nbsp;
 
@@ -14,9 +14,11 @@ Extends multiple invocable types and overloads `operator()` for each.
 template<xieite::concepts::Derivable... Derivables>
 struct Overloader
 : Derivables... {
-    constexpr Overloader();
+    constexpr Overloader() noexcept;
 
-    constexpr Overloader(Derivables&&...);
+    template<typename... DerivableReferences>
+    requires((... && std::convertible_to<DerivableReferences, Derivables>))
+    constexpr Overloader(DerivableReferences&&...) noexcept;
 
     using Derivables::operator()...;
 };
@@ -29,18 +31,18 @@ struct Overloader
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/functors/overloader.hpp"
 
 int main() {
-    auto foo = [](int) -> void {
-        std::cout << "foo\n";
+    auto foo = [](int) {
+        std::println("foo");
     };
-    auto bar = [](double) -> void {
-        std::cout << "bar\n";
+    auto bar = [](double) {
+        std::println("bar");
     };
 
-    xieite::functors::Overloader overloader(foo, bar);
+    auto overloader = xieite::functors::Overloader(foo, bar);
 
     overloader(999);
     overloader(3.14159);

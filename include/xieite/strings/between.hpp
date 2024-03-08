@@ -3,24 +3,29 @@
 
 #	include <string>
 #	include <string_view>
+#	include "../concepts/string_view.hpp"
 #	include "../strings/after.hpp"
 #	include "../strings/before.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr std::string_view between(const std::string_view string, const std::string_view start, const std::string_view end) noexcept {
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView between(const StringView string, const StringView start, const StringView end) noexcept {
 		return xieite::strings::before(xieite::strings::after(string, start), end);
 	}
 
-	[[nodiscard]] constexpr std::string_view between(const std::string_view string, const std::string_view start, const char end) noexcept {
-		return xieite::strings::between(string, start, std::string(1, end));
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView between(const StringView string, const StringView start, const StringView::value_type end) noexcept {
+		return xieite::strings::before(xieite::strings::after(string, start), end);
 	}
 
-	[[nodiscard]] constexpr std::string_view between(const std::string_view string, const char start, const std::string_view end) noexcept {
-		return xieite::strings::between(string, std::string(1, start), end);
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView between(const StringView string, const StringView::value_type start, const StringView end) noexcept {
+		return xieite::strings::before(xieite::strings::after(string, start), end);
 	}
 
-	[[nodiscard]] constexpr std::string_view between(const std::string_view string, const char start, const char end) noexcept {
-		return xieite::strings::between(string, std::string(1, start), std::string(1, end));
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView between(const StringView string, const StringView::value_type start, const StringView::value_type end) noexcept {
+		return xieite::strings::before(xieite::strings::after(string, start), end);
 	}
 }
 

@@ -13,3 +13,7 @@ Calls one of the `Derivables` the class is derived from.
 ```cpp
 using Derivables::operator()...;
 ```
+
+&nbsp;
+
+## [Example](../../../../overloader.md#Example)

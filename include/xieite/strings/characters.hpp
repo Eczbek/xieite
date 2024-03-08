@@ -18,6 +18,8 @@ namespace xieite::strings::characters {
 	inline constexpr std::string_view vowels = "AEIOUaeiou";
 
 	inline constexpr std::string_view consonants = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz";
+
+	inline constexpr std::string_view whitespaces = "\t\n\v\f\r ";
 }
 
 #endif

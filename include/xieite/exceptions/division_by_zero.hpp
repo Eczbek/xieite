@@ -7,7 +7,7 @@
 namespace xieite::exceptions {
 	struct DivisionByZero
 	: xieite::exceptions::Unspecified {
-		constexpr DivisionByZero(const std::string_view message = "") noexcept
+		DivisionByZero(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};
 }

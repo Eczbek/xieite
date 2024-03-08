@@ -12,12 +12,10 @@ namespace xieite::literals::base {
 		};
 		if constexpr ((value.size() > 1) && (value[0] == '0')) {
 			switch (value[1]) {
-				case 'x':
-					[[fallthrough]];
+				case 'x': [[fallthrough]];
 				case 'X':
 					return 16;
-				case 'b':
-					[[fallthrough]];
+				case 'b': [[fallthrough]];
 				case 'B':
 					return 2;
 			}

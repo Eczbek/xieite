@@ -4,7 +4,7 @@ Defined in header [<xieite/functors/infix.hpp>](../../../include/xieite/functors
 &nbsp;
 
 ## Description
-An infix operator thing.
+An infix operator thingamabob.
 
 &nbsp;
 
@@ -16,19 +16,16 @@ struct Infix;
 ```
 #### 2)
 ```cpp
-template<std::invocable<xieite::types::Placeholder> Functor>
-struct Infix<Functor> {
-    constexpr Infix(const Functor&);
+template<typename Result, typename Argument>
+struct Infix<Result(Argument)>
+: xieite::functors::Function<Result(Argument)> {
+    using xieite::functors::Function<Result(Argument)>::Function;
 
-    constexpr Infix(Functor&&);
+    template<std::convertible_to<Argument> ArgumentReference>
+    friend constexpr Result operator>(const xieite::functors::Infix<Result(Argument)>&, ArgumentReference&&);
 
-    template<typename Argument>
-    requires(std::invocable<Functor, Argument&&>)
-    friend constexpr std::invoke_result_t<Functor, Argument&&> operator>(const xieite::functors::Infix<Functor>&, Argument&&);
-
-    template<typename Argument>
-    requires(std::invocable<Functor, Argument&&>)
-    friend constexpr std::invoke_result_t<Functor, Argument&> operator<(Argument&&, const xieite::functors::Infix<Functor>&);
+    template<std::convertible_to<Argument> ArgumentReference>
+    friend constexpr Result operator<(ArgumentReference&&, const xieite::functors::Infix<Result(Argument)>&);
 };
 ```
 ##### Member functions
@@ -36,20 +33,18 @@ struct Infix<Functor> {
 - [operator<](./structures/infix/2/operators/less.md)
 #### 3)
 ```cpp
-template<std::invocable<xieite::types::Placeholder, xieite::types::Placeholder> Functor>
-struct Infix<Functor> {
+template<typename Result, typename LeftArgument, typename RightArgument>
+struct Infix<Result(LeftArgument, RightArgument)>
+: xieite::functors::Function<Result(LeftArgument, RightArgument)> {
 private:
-    template<typename LeftArgument>
+    template<typename LeftArgumentReference>
     struct Intermediate;
 
 public:
-    constexpr Infix(const Functor&);
+    using xieite::functors::Function<Result(LeftArgument, RightArgument)>::Function;
 
-    constexpr Infix(Functor&&);
-
-    template<typename LeftArgument>
-    requires(std::invocable<Functor, LeftArgument&&, xieite::types::Placeholder>)
-    [[nodiscard]] friend constexpr xieite::functors::Infix<Functor>::Intermediate<LeftArgument&&> operator<(LeftArgument&&, const xieite::functors::Infix<Functor>&);
+    template<std::convertible_to<LeftArgument> LeftArgumentReference>
+    friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference> operator<(LeftArgumentReference&&, const xieite::functors::Infix<Result(LeftArgument, RightArgument)>&) noexcept;
 };
 ```
 ##### Member structures
@@ -59,37 +54,32 @@ public:
 
 &nbsp;
 
-### Deduction guides
-```cpp
-template<typename Functor>
-xieite::functors::Infix(Functor&&) -> xieite::functors::Infix<Functor>;
-```
-
-&nbsp;
-
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/functors/infix.hpp"
 
 int main() {
-    auto multiply = xieite::functors::Infix([](int x, int y) {
+    xieite::functors::Infix<int(int, int)> multiply = [](int x, int y) {
         return x * y;
-    });
+    };
 
-    auto increment = xieite::functors::Infix([](int x) {
+    xieite::functors::Infix<int(int)> increment = [](int x) {
         return x + 1;
-    });
+    };
 
-    std::cout
-        << (2 <multiply> 2) << '\n'
-        << (1 <increment) << '\n'
-        << (increment> 7) << '\n';
+    std::println("{}", 2 <multiply> 2);
+	std::println("{}", multiply(4, 8));
+    std::println("{}", 1 <increment);
+    std::println("{}", increment> 7);
+	std::println("{}", increment(98));
 }
 ```
 Output:
 ```
 4
+32
 2
 8
+99
 ```

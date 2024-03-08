@@ -7,7 +7,7 @@
 namespace xieite::exceptions {
 	struct UnrepresentableValue
 	: xieite::exceptions::Unspecified {
-		constexpr UnrepresentableValue(const std::string_view message = "") noexcept
+		UnrepresentableValue(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};
 }

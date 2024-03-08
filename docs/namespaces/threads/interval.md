@@ -12,8 +12,8 @@ Runs a callback every set amount of time. Compile with `-pthread`.
 #### 1)
 ```cpp
 struct Interval {
-    template<std::invocable<> Functor, xieite::concepts::TemporalDuration TemporalDuration>
-    Interval(const Functor&, TemporalDuration) noexcept;
+    template<std::invocable<> Functor, xieite::concepts::Duration Duration>
+    Interval(const Functor&, Duration) noexcept;
 
     operator bool() const;
 

@@ -12,7 +12,7 @@ Mathematical types and functions.
 - [Exponent](./namespaces/math/exponent.md)
 - [Interval](./namespaces/math/interval.md)
 - [Product](./namespaces/math/product.md)
-- [SizedInteger](./namespaces/math/sized_integer.md)
+- [Integer](./namespaces/math/integer.md)
 - [absolute](./namespaces/math/absolute.md)
 - [additionOverflows](./namespaces/math/addition_overflows.md)
 - [almostEqual](./namespaces/math/almost_equal.md)

@@ -4,15 +4,19 @@
 #	include <cstddef>
 #	include <string>
 #	include <string_view>
+#	include "../concepts/string_view.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr std::string_view after(const std::string_view string, const std::string_view start) noexcept {
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView after(const StringView string, const StringView start) noexcept {
 		const std::size_t index = string.find(start);
-		return (index == std::string_view::npos) ? "" : string.substr(index + start.size());
+		return (index == StringView::npos) ? "" : string.substr(index + start.size());
 	}
 
-	[[nodiscard]] constexpr std::string_view after(const std::string_view string, const char start) noexcept {
-		return xieite::strings::after(string, std::string(1, start));
+	template<xieite::concepts::StringView StringView = std::string_view>
+	[[nodiscard]] constexpr StringView after(const StringView string, const StringView::value_type start) noexcept {
+		const std::size_t index = string.find(start);
+		return (index == StringView::npos) ? "" : string.substr(index + 1);
 	}
 }
 

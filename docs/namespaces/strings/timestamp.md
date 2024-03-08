@@ -11,7 +11,7 @@ Stringifies a `std::chrono::duration`.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::TemporalDuration Duration>
+template<xieite::concepts::Duration Duration>
 [[nodiscard]] constexpr std::string timestamp(Duration value, bool date = true, bool time = true, bool subsecond = false) noexcept;
 ```
 

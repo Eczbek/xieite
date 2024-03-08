@@ -7,7 +7,7 @@
 namespace xieite::exceptions {
 	struct UnsetFunctorInvoked
 	: xieite::exceptions::Unspecified {
-		constexpr UnsetFunctorInvoked(const std::string_view message = "") noexcept
+		UnsetFunctorInvoked(const std::string_view message = "") noexcept
 		: xieite::exceptions::Unspecified(message) {}
 	};
 }

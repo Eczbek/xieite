@@ -18,7 +18,7 @@ This project is a collection of questionably useful components designed for vary
 - [xieite::system::execute](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/system/execute.md)
 - [xieite::memory::detectCosmicRay](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/memory/detect_cosmic_ray.md)
 - [xieite::concepts::Numeric](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/concepts/numeric.md)
-- [XIEITE_PLATFORM_...](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/macros/platform.md)
+- [XIEITE_ATTRIBUTE_...](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/macros/attribute.md)
 - [xieite::units::literals](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/units/literals.md)
 - [xieite::threads::Pool](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/threads/pool.md)
 
