@@ -8,7 +8,7 @@ Constructs a `xieite::exceptions::InvalidIndex`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr InvalidIndex(std::string_view message = "") noexcept;
+InvalidIndex(std::string_view message = "") noexcept;
 ```
 
 &nbsp;

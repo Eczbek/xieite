@@ -8,7 +8,7 @@ Constructs a `xieite::exceptions::UnsetFunctorInvoked`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr UnsetFunctorInvoked(std::string_view message = "") noexcept;
+UnsetFunctorInvoked(std::string_view message = "") noexcept;
 ```
 
 &nbsp;

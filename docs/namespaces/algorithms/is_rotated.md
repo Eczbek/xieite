@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:sameRelativeOrder
-Defined in header [<xieite/algorithms/same_relative_order.hpp>](../../../include/xieite/algorithms/same_relative_order.hpp)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isRotated
+Defined in header [<xieite/algorithms/is_rotated.hpp>](../../../include/xieite/algorithms/is_rotated.hpp)
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Checks whether one range contains elements in the same relative order as in anot
 #### 1)
 ```cpp
 template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>)> Functor = std::ranges::equal_to>
-[[nodiscard]] constexpr bool isSameRelativeOrder(Range1&& range1, Range2&& range2, Functor&& comparator = Functor())
+[[nodiscard]] constexpr bool isRotated(Range1&& range1, Range2&& range2, Functor&& comparator = Functor())
 noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>>);
 ```
 
@@ -22,7 +22,7 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_referenc
 ```cpp
 #include <print>
 #include <vector>
-#include "xieite/algorithms/is_same_relative_order.hpp"
+#include "xieite/algorithms/is_rotated.hpp"
 
 int main() {
     std::vector<int> foo { 1, 2, 3, 4, 5 };
@@ -37,9 +37,9 @@ int main() {
     std::vector<int> qux { 5, 4, 3, 2, 1 };
     //                    |<  <  <  <  <|
 
-    std::println("{}", xieite::algorithms::isSameRelativeOrder(foo, bar));
-    std::println("{}", xieite::algorithms::isSameRelativeOrder(foo, baz));
-    std::println("{}", xieite::algorithms::isSameRelativeOrder(baz, qux));
+    std::println("{}", xieite::algorithms::isRotated(foo, bar));
+    std::println("{}", xieite::algorithms::isRotated(foo, baz));
+    std::println("{}", xieite::algorithms::isRotated(baz, qux));
 }
 ```
 Output:

@@ -11,53 +11,68 @@ A structure for representing a polygon.
 ## Synopsis
 #### 1)
 ```cpp
+template<xieite::concepts::Arithmetic Number = double>
 struct Polygon {
-    std::vector<xieite::geometry::Point> points;
+    std::vector<xieite::geometry::Point<Number>> points;
 
-    template<xieite::concepts::RangeOf<xieite::geometry::Point> Range = std::vector<xieite::geometry::Point>>
-    constexpr Polygon(const Range&);
+    template<xieite::concepts::RangeOf<xieite::geometry::Point<Number>> Range = std::vector<xieite::geometry::Point<Number>>>
+    constexpr Polygon(Range&&) noexcept;
 
-    friend constexpr bool operator==(const xieite::geometry::Polygon&);
+    template<typename OtherNumber>
+    constexpr operator xieite::geometry::Polygon<OtherNumber>() const noexcept;
 
-    constexpr double area() const;
+    friend constexpr bool operator==(const xieite::geometry::Polygon<Number>&, const xieite::geometry::Polygon<Number>&) noexcept;
 
-    constexpr bool containsPoint(xieite::geometry::Point) const;
+    static constexpr xieite::geometry::Polygon<Number> rectangle(xieite::geometry::Point<Number>, xieite::geometry::Point<Number>) noexcept;
 
-    constexpr double perimeter() const;
+    constexpr double area() const noexcept;
 
-    constexpr std::vector<xieite::geometry::Segment> sides() const;
+    constexpr double perimeter() const noexcept;
+
+    constexpr std::vector<xieite::geometry::Segment<Number>> sides() const noexcept;
+
+    constexpr bool contains(xieite::geometry::Point<Number>) const noexcept;
+
+    constexpr bool contains(const xieite::geometry::Line<Number>&) const noexcept;
+
+    constexpr bool contains(const xieite::geometry::Ray<Number>&) const noexcept;
+
+    constexpr bool contains(const xieite::geometry::Segment<Number>&) const noexcept;
+
+    constexpr bool contains(const xieite::geometry::Polygon<Number>&) const noexcept;
 };
 ```
 ##### Member variables
 - points
 ##### Member functions
 - [Polygon](./structures/polygon/1/operators/constructor.md)
+- [operator typename](./structures/polygon/1/operators/cast.md)
 - [operator==](./structures/polygon/1/operators/equal.md)
+- [rectangle](./structures/polygon/1/rectangle.md)
 - [area](./structures/polygon/1/area.md)
-- [containsPoint](./structures/polygon/1/contains_point.md)
 - [perimeter](./structures/polygon/1/perimeter.md)
 - [sides](./structures/polygon/1/sides.md)
+- [contains](./structures/polygon/1/contains.md)
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/geometry/polygon.hpp"
 
 int main() {
-    std::cout
-        << xieite::geometry::Polygon({
-            { 1.0, 0.0 },
-            { 2.0, 1.0 },
-            { 1.0, 2.0 },
-            { 0.0, 1.0 }
-        })
-            .area()
-        << '\n';
+    auto polygon = xieite::geometry::Polygon({
+        { 1.0, 0.0 },
+        { 2.0, 1.0 },
+        { 1.0, 2.0 },
+        { 0.0, 1.0 }
+    });
+
+    std::println("{}", polygon.area());
 }
 ```
-Output:
+Possible output:
 ```
-1
+2
 ```

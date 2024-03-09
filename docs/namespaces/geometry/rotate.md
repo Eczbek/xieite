@@ -11,40 +11,41 @@ Rotates shapes a specific angle around any pivot, clockwise.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::geometry::Point rotate(xieite::geometry::Point point, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
+template<typename Number = double>
+[[nodiscard]] constexpr xieite::geometry::Point<Number> rotate(xieite::geometry::Point<Number> point, std::conditional_t<std::floating_point<Number>, Number, double> angle, xieite::geometry::Point<Number> pivot = xieite::geometry::Point<Number>()) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::LinearShape LinearShape>
-[[nodiscard]] constexpr LinearShape rotate(const LinearShape& linearShape, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
+template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape>
+[[nodiscard]] constexpr LinearShape rotate(const LinearShape& linearShape, std::conditional_t<std::floating_point<Number>, Number, double> angle, xieite::geometry::Point<Number> pivot = xieite::geometry::Point<Number>()) noexcept;
 ```
 #### 3)
 ```cpp
-[[nodiscard]] constexpr xieite::geometry::Polygon rotate(xieite::geometry::Polygon polygon, double angle, xieite::geometry::Point pivot = xieite::geometry::Point(0, 0)) noexcept;
+template<typename Number = double>
+[[nodiscard]] constexpr xieite::geometry::Polygon<Number> rotate(xieite::geometry::Polygon<Number> polygon, std::conditional_t<std::floating_point<Number>, Number, double> angle, xieite::geometry::Point<Number> pivot = xieite::geometry::Point<Number>()) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/geometry/line.hpp"
 #include "xieite/geometry/rotate.hpp"
-#include "xieite/units/literals/angles.hpp"
+#include "xieite/literals/units.hpp"
 
 int main() {
-    using namespace xieite::units::literals;
+    using namespace xieite::literals::units;
 
-    xieite::geometry::Line line1({ 0.0, 0.0 }, { 1.0, 1.0 });
+    auto line1 = xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 });
 
-    xieite::geometry::Line line2 = xieite::geometry::rotate(line1, 90_degrees);
+    auto line2 = xieite::geometry::rotate(line1, 90_degrees);
 
-    std::cout
-        << line1.slope() << '\n'
-        << line2.slope() << '\n';
+    std::println("{}", line1.slope());
+    std::println("{}", line2.slope());
 }
 ```
-Output:
+Possible output:
 ```
 1
 -1

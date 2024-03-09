@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray](../../../../ray.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Number>](../../../../ray.md)\:\:operator==
 Defined in header [<xieite/geometry/ray.hpp>](../../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
@@ -11,26 +11,24 @@ Compares two rays.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Ray& ray1, const xieite::geometry::Ray& ray2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Ray<Number>& ray1, const xieite::geometry::Ray<Number>& ray2) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/geometry/ray.hpp"
-#include "xieite/geometry/point.hpp"
-#include "xieite/units/literals/angles.hpp"
+#include "xieite/literals/units.hpp"
 
 int main() {
-    xieite::geometry::Ray ray1({ 0.0, 0.0 }, { 1.0, 1.0 });
-    xieite::geometry::Ray ray2({ 0.0, 0.0 }, 45_degrees);
+    using namespace xieite::literals::units;
 
-    std::cout
-        << std::boolalpha
-        << (ray1 == ray2)
-        << '\n';
+    auto ray1 = xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 });
+    auto ray2 = xieite::geometry::Ray({ 0.0, 0.0 }, 45_degrees);
+
+    std::println("{}", ray1 == ray2);
 }
 ```
 Output:

@@ -14,7 +14,7 @@ Somewhat useful algorithms.
 - [findOccurrence](./namespaces/algorithms/find_occurrence.md)
 - [group](./namespaces/algorithms/group.md)
 - [isPalindrome](./namespaces/algorithms/is_palindrome.md)
-- [isSameRelativeOrder](./namespaces/algorithms/is_same_relative_order.md)
+- [isRotated](./namespaces/algorithms/is_rotated.md)
 - [isUniformMatrix](./namespaces/is_uniform_matrix.md)
 - [modes](./namespaces/algorithms/modes.md)
 - [numberSearch](./namespaces/algorithms/number_search.md)

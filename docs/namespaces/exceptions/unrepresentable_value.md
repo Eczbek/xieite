@@ -12,7 +12,7 @@ An exception type that indicates an unrepresentable value. Extends `xieite::exce
 ```cpp
 struct UnrepresentableValue
 : xieite::exceptions::Unspecified {
-    constexpr UnrepresentableValue(std::string_view = "");
+    UnrepresentableValue(std::string_view = "");
 };
 ```
 ##### Member functions

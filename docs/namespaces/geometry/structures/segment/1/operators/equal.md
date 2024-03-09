@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment](../../../../segment.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Number>](../../../../segment.md)\:\:operator==
 Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
@@ -11,26 +11,21 @@ Compares two segments.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Segment& segment1, const xieite::geometry::Segment& segment2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Segment<Number>& segment1, const xieite::geometry::Segment<Number>& segment2) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
-#include "xieite/geometry/ray.hpp"
+#include <print>
 #include "xieite/geometry/point.hpp"
-#include "xieite/math/to_radians.hpp"
 
 int main() {
-    xieite::geometry::Segment segment1({ 0.0, 0.0 }, { 3.0, 4.0 });
-    xieite::geometry::Segment segment2({ 3.0, 4.0 }, { 0.0, 0.0 });
+    auto segment1 = xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 });
+    auto segment2 = xieite::geometry::Segment({ 3.0, 4.0 }, { 0.0, 0.0 });
 
-    std::cout
-        << std::boolalpha
-        << (segment1 == segment2)
-        << '\n';
+    std::println("{}", segment1 == segment2);
 }
 ```
 Output:

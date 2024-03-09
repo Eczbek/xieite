@@ -32,7 +32,7 @@ namespace xieite::units {
 		SquareFoot,
 		SquareYard,
 		SquareMile,
-		Rood,
+		SquareRood,
 		Acre,
 		Decimilliare,
 		Centiare,

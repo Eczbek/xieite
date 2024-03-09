@@ -8,7 +8,7 @@ Constructs a `xieite::exceptions::UnrepresentableValue`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr UnrepresentableValue(std::string_view message = "") noexcept;
+UnrepresentableValue(std::string_view message = "") noexcept;
 ```
 
 &nbsp;

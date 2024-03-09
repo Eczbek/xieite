@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Line](../../../line.md)\:\:angle
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Line<Number>](../../../line.md)\:\:angle
 Defined in header [<xieite/geometry/line.hpp>](../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
 
 ## Description
-Computes the angle of this line, in radians.
+Computes the angle of a line in radians.
 
 &nbsp;
 
@@ -18,14 +18,14 @@ Computes the angle of this line, in radians.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/geometry/line.hpp"
 
 int main() {
-    std::cout << xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 }).angle() << '\n';
+    std::println("{}", xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 }).angle());
 }
 ```
-Output:
+Possible output:
 ```
-0.785398
+0.7853981633974483
 ```

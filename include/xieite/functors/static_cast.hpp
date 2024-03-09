@@ -9,7 +9,7 @@ namespace xieite::functors {
 	template<typename Target>
 	struct StaticCast {
 		template<std::convertible_to<Target> Source>
-		constexpr Target operator()(Source&& value)
+		constexpr Target operator()(Source&& value) const
 		noexcept(xieite::concepts::NoThrowConvertibleTo<Source, Target>) {
 			return static_cast<Target>(XIEITE_FORWARD(value));
 		}

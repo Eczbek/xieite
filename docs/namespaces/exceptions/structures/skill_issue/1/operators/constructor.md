@@ -8,7 +8,7 @@ Constructs a `xieite::exceptions::SkillIssue`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr SkillIssue(std::string_view message = "") noexcept;
+SkillIssue(std::string_view message = "") noexcept;
 ```
 
 &nbsp;

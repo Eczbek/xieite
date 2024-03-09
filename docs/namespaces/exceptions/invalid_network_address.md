@@ -12,7 +12,7 @@ An exception type that indicates the creation of an invalid network address. Ext
 ```cpp
 struct InvalidNetworkAddress
 : xieite::exceptions::Unspecified {
-    constexpr InvalidNetworkAddress(std::string_view = "");
+    InvalidNetworkAddress(std::string_view = "");
 };
 ```
 ##### Member functions

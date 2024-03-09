@@ -8,7 +8,16 @@
 #	include "../math/almost_equal.hpp"
 
 namespace xieite::geometry {
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic>
+	struct Line;
+
+	template<xieite::concepts::Arithmetic>
+	struct Ray;
+
+	template<xieite::concepts::Arithmetic>
+	struct Polygon;
+
+	template<xieite::concepts::Arithmetic Number = double>
 	struct Segment {
 		xieite::geometry::Point<Number> start;
 		xieite::geometry::Point<Number> end;
@@ -39,6 +48,27 @@ namespace xieite::geometry {
 
 		[[nodiscard]] constexpr bool contains(const xieite::geometry::Point<Number> point) const noexcept {
 			return xieite::math::almostEqual(this->start.distanceTo(point) + this->end.distanceTo(point), this->length());
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Line<Number>&) const noexcept {
+			return false;
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Ray<Number>&) const noexcept {
+			return false;
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Segment<Number>& segment) const noexcept {
+			return this->contains(segment.start) && this->contains(segment.end);
+		}
+
+		[[nodiscard]] constexpr bool contains(const xieite::geometry::Polygon<Number>& polygon) const noexcept {
+			for (const xieite::geometry::Point<Number>& point : polygon.points) {
+				if (!this->contains(point)) {
+					return false;
+				}
+			}
+			return true;
 		}
 	};
 }

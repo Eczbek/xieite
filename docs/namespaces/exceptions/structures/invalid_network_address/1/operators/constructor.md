@@ -8,7 +8,7 @@ Constructs a `xieite::exceptions::InvalidNetworkAddress`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr InvalidNetworkAddress(std::string_view message = "") noexcept;
+InvalidNetworkAddress(std::string_view message = "") noexcept;
 ```
 
 &nbsp;

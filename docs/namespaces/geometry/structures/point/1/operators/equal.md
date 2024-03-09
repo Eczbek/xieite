@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point](../../../../point.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Number>](../../../../point.md)\:\:operator==
 Defined in header [<xieite/geometry/point.hpp>](../../../../../../../include/xieite/geometry/point.hpp)
 
 &nbsp;
@@ -11,37 +11,29 @@ Compares two points.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Point point1, const xieite::geometry::Point point2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(xieite::geometry::Point<Number> point1, xieite::geometry::Point<Number> point2) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/geometry/point.hpp"
 #include "xieite/geometry/rotate.hpp"
-#include "xieite/units/literals/angles.hpp"
+#include "xieite/literals/units.hpp"
 
 int main() {
-    using namespace xieite::units::literals;
+    using namespace xieite::literals::units;
 
-    xieite::geometry::Point point1(1, 0);
+    auto point1 = xieite::geometry::Point(1.0, 0.0);
 
-    xieite::geometry::Point point2(0, 1);
+    auto point2 = xieite::geometry::Point(0.0, 1.0);
 
-    point1 = xieite::geometry::rotate(point1, 90_degrees);
-
-    std::cout
-        << std::boolalpha
-        << '(' << point1.x << ", " << point1.y << ")\n"
-        << '(' << point2.x << ", " << point2.y << ")\n"
-        << (point1 == point2) << '\n';
+    std::println("{}", xieite::geometry::rotate(point1, 90_degrees) == point2);
 }
 ```
 Output:
 ```
-(6.12323e-17, 1)
-(0, 1)
 true
 ```

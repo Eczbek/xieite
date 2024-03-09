@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon](../../../../polygon.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Number>](../../../../polygon.md)\:\:operator==
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
@@ -11,37 +11,32 @@ Compares two polygons.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Polygon& polygon) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Polygon<Number>& polygon1, const xieite::geometry::Polygon<Number>& polygon2) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
-#include <vector>
-#include "xieite/geometry/point.hpp"
+#include <print>
 #include "xieite/geometry/polygon.hpp"
 
 int main() {
     auto polygon1 = xieite::geometry::Polygon({
-        { 0, 0 },
-        { 2, 0 },
-        { 2, 2 },
-        { 0, 2 }
+        { 0.0, 0.0 },
+        { 2.0, 0.0 },
+        { 2.0, 2.0 },
+        { 0.0, 2.0 }
     });
 
     auto polygon2 = xieite::geometry::Polygon({
-        { 0, 2 },
-        { 2, 2 },
-        { 2, 0 },
-        { 0, 0 }
+        { 0.0, 2.0 },
+        { 2.0, 2.0 },
+        { 2.0, 0.0 },
+        { 0.0, 0.0 }
     });
 
-    std::cout
-        << std::boolalpha
-        << (polygon1 == polygon2)
-        << '\n';
+    std::println("{}", polygon1 == polygon2);
 }
 ```
 Output:

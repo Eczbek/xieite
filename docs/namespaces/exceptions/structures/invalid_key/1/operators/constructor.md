@@ -8,7 +8,7 @@ Constructs a `xieite::exceptions::InvalidKey`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr InvalidKey(std::string_view message = "") noexcept;
+InvalidKey(std::string_view message = "") noexcept;
 ```
 
 &nbsp;

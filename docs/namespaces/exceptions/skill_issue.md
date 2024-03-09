@@ -12,7 +12,7 @@ An exception type that indicates a skill issue. Extends `xieite::exceptions::Uns
 ```cpp
 struct SkillIssue
 : xieite::exceptions::Unspecified {
-    constexpr SkillIssue(std::string_view = "cope") noexcept;
+    SkillIssue(std::string_view = "cope") noexcept;
 };
 ```
 ##### Member functions

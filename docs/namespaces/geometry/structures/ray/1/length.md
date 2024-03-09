@@ -1,31 +1,31 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray](../../../ray.md)\:\:length
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray<Number>](../../../ray.md)\:\:length
 Defined in header [<xieite/geometry/ray.hpp>](../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
 
 ## Description
-Always returns `std::numeric_limits<double>::infinity()`.
+Always returns infinity.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr double length() const noexcept;
+[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> length() const noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/geometry/ray.hpp"
 
 int main() {
-    std::cout << xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }).length() << '\n';
+    std::println("{}", xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }).length());
 }
 ```
-Output:
+Possible output:
 ```
 inf
 ```

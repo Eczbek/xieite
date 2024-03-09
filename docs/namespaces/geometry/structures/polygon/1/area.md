@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon](../../../polygon.md)\:\:area
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon<Number>](../../../polygon.md)\:\:area
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
 ## Description
-Computes the area of this polygon.
+Computes the area of a polygon.
 
 &nbsp;
 
@@ -18,20 +18,21 @@ Computes the area of this polygon.
 
 ## Example
 ```cpp
-#include <iostream>
-#include "xieite/geometry/point.hpp"
+#include <print>
 #include "xieite/geometry/polygon.hpp"
 
 int main() {
-    std::cout << xieite::geometry::Polygon({
+    auto polygon = xieite::geometry::Polygon({
         { 0.0, 0.0 },
         { 2.0, 0.0 },
         { 2.0, 2.0 },
         { 0.0, 2.0 }
-    }).area() << '\n';
+    });
+
+    std::println("{}", polygon.area());
 }
 ```
-Output:
+Possible output:
 ```
 4
 ```

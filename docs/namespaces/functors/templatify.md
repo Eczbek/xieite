@@ -20,13 +20,13 @@ constexpr void templatify(std::uint8_t value) noexcept;
 ## Example
 ```cpp
 #include <cstdint>
-#include <iostream>
+#include <print>
 #include "xieite/functors/templatify.hpp"
 
 template<std::uint8_t value>
 struct Functor {
     void operator()() {
-        std::cout << static_cast<int>(value) << '\n';
+        std::println("{}", value);
     }
 };
 

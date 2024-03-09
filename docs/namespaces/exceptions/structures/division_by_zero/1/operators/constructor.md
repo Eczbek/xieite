@@ -8,7 +8,7 @@ Constructs a `xieite::exceptions::DivisionByZero`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr DivisionByZero(std::string_view message = "") noexcept;
+DivisionByZero(std::string_view message = "") noexcept;
 ```
 
 &nbsp;

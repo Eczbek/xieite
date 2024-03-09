@@ -20,21 +20,21 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, Arguments...>);
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/functors/memoize.hpp"
 
 int add(int x, int y) {
-    std::cout << x << " + " << y << " = ";
+    std::print("{} + {} = ", x, y);
     return x + y;
 }
 
 int multiply(int x, int y) {
-    std::cout << x << " * " << y << " = ";
+    std::print("{} * {} = ", x, y);
     return x * y;
 }
 
 auto subtract = [](int x, int y) {
-    std::cout << x << " - " << y << " = ";
+    std::print("{} - {} = ", x, y);
     return x - y;
 };
 

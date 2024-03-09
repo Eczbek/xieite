@@ -12,7 +12,7 @@ An exception type that doesn't indicate anything in particular. Extends `std::ex
 ```cpp
 struct Unspecified
 : std::exception {
-    constexpr Unspecified(std::string_view = "") noexcept;
+    Unspecified(std::string_view = "") noexcept;
 
     const char* what() const noexcept;
 };

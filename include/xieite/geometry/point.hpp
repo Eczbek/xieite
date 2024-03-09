@@ -19,7 +19,7 @@ namespace xieite::geometry {
 	template<xieite::concepts::Arithmetic>
 	struct Polygon;
 
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Number = double>
 	struct Point {
 		Number x;
 		Number y;

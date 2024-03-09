@@ -12,7 +12,7 @@ An exception type that indicates an error due to division by zero. Extends `xiei
 ```cpp
 struct DivisionByZero
 : xieite::exceptions::Unspecified {
-    constexpr DivisionByZero(std::string_view = "");
+    DivisionByZero(std::string_view = "");
 };
 ```
 ##### Member functions

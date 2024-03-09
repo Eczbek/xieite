@@ -12,7 +12,7 @@ An exception type that indicates an invocation of a `xieite::functors::Function`
 ```cpp
 struct UnsetFunctorInvoked
 : xieite::exceptions::Unspecified {
-    constexpr UnsetFunctorInvoked(std::string_view = "");
+    UnsetFunctorInvoked(std::string_view = "");
 };
 ```
 ##### Member functions

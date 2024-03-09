@@ -18,12 +18,12 @@ namespace xieite::units {
 			return result;
 		}
 		switch (source) {
-		case xieite::units::Angle::degree:
+		case xieite::units::Angle::Degree:
 			result = result * xieite::math::pi<std::common_type_t<double, Number>> / 180;
 			break;
 		}
 		switch (target) {
-		case xieite::units::Angle::degree:
+		case xieite::units::Angle::Degree:
 			result = result * 180 / xieite::math::pi<std::common_type_t<double, Number>>;
 			break;
 		}
@@ -37,204 +37,204 @@ namespace xieite::units {
 			return result;
 		}
 		switch (source) {
-		case xieite::units::Area::squareQuectometre:
+		case xieite::units::Area::SquareQuectometre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareRontometre:
+		case xieite::units::Area::SquareRontometre:
 			result /= 1000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareYoctometre:
+		case xieite::units::Area::SquareYoctometre:
 			result /= 1000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareZeptometre:
+		case xieite::units::Area::SquareZeptometre:
 			result /= 1000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareAttometre:
+		case xieite::units::Area::SquareAttometre:
 			result /= 1000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareFemtometre:
+		case xieite::units::Area::SquareFemtometre:
 			result /= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squarePicometre:
+		case xieite::units::Area::SquarePicometre:
 			result /= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareNanometre:
+		case xieite::units::Area::SquareNanometre:
 			result /= 1000000000000000000.0;
 			break;
-		case xieite::units::Area::squareMicrometre:
+		case xieite::units::Area::SquareMicrometre:
 			result /= 1000000000000.0;
 			break;
-		case xieite::units::Area::squareMillimetre:
+		case xieite::units::Area::SquareMillimetre:
 			result /= 1000000.0;
 			break;
-		case xieite::units::Area::squareCentimetre:
+		case xieite::units::Area::SquareCentimetre:
 			result /= 10000.0;
 			break;
-		case xieite::units::Area::squareDecimetre: [[fallthrough]];
-		case xieite::units::Area::decimilliare:
+		case xieite::units::Area::SquareDecimetre: [[fallthrough]];
+		case xieite::units::Area::Decimilliare:
 			result /= 100.0;
 			break;
-		case xieite::units::Area::squareDecametre:
-		case xieite::units::Area::are:
+		case xieite::units::Area::SquareDecametre:
+		case xieite::units::Area::Are:
 			result *= 100.0;
 			break;
-		case xieite::units::Area::squareHectometre: [[fallthrough]];
-		case xieite::units::Area::hectare:
+		case xieite::units::Area::SquareHectometre: [[fallthrough]];
+		case xieite::units::Area::Hectare:
 			result *= 10000.0;
 			break;
-		case xieite::units::Area::squareKilometre:
+		case xieite::units::Area::SquareKilometre:
 			result *= 1000000.0;
 			break;
-		case xieite::units::Area::squareMegametre:
+		case xieite::units::Area::SquareMegametre:
 			result *= 1000000000000.0;
 			break;
-		case xieite::units::Area::squareGigametre:
+		case xieite::units::Area::SquareGigametre:
 			result *= 1000000000000000000.0;
 			break;
-		case xieite::units::Area::squareTerametre:
+		case xieite::units::Area::SquareTerametre:
 			result *= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squarePetametre:
+		case xieite::units::Area::SquarePetametre:
 			result *= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareExametre:
+		case xieite::units::Area::SquareExametre:
 			result *= 1000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareZettametre:
+		case xieite::units::Area::SquareZettametre:
 			result *= 1000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareYottametre:
+		case xieite::units::Area::SquareYottametre:
 			result *= 1000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareRonnametre:
+		case xieite::units::Area::SquareRonnametre:
 			result *= 1000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareQuettametre:
+		case xieite::units::Area::SquareQuettametre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareInch:
+		case xieite::units::Area::SquareInch:
 			result /= 0.00064516;
 			break;
-		case xieite::units::Area::squareFoot:
+		case xieite::units::Area::SquareFoot:
 			result /= 0.09290304;
 			break;
-		case xieite::units::Area::squareYard:
+		case xieite::units::Area::SquareYard:
 			result /= 0.83612736;
 			break;
-		case xieite::units::Area::squareMile:
+		case xieite::units::Area::SquareMile:
 			result *= 2589988.110336;
 			break;
-		case xieite::units::Area::rood:
+		case xieite::units::Area::SquareRood:
 			result *= 1011.7141056;
 			break;
-		case xieite::units::Area::acre:
+		case xieite::units::Area::Acre:
 			result *= 4046.8564224;
 			break;
-		case xieite::units::Area::deciare:
+		case xieite::units::Area::Deciare:
 			result *= 10.0;
 			break;
-		case xieite::units::Area::decare:
+		case xieite::units::Area::Decare:
 			result *= 1000.0;
 			break;
 		}
 		switch (target) {
-		case xieite::units::Area::squareQuectometre:
+		case xieite::units::Area::SquareQuectometre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareRontometre:
+		case xieite::units::Area::SquareRontometre:
 			result *= 1000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareYoctometre:
+		case xieite::units::Area::SquareYoctometre:
 			result *= 1000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareZeptometre:
+		case xieite::units::Area::SquareZeptometre:
 			result *= 1000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareAttometre:
+		case xieite::units::Area::SquareAttometre:
 			result *= 1000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareFemtometre:
+		case xieite::units::Area::SquareFemtometre:
 			result *= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squarePicometre:
+		case xieite::units::Area::SquarePicometre:
 			result *= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareNanometre:
+		case xieite::units::Area::SquareNanometre:
 			result *= 1000000000000000000.0;
 			break;
-		case xieite::units::Area::squareMicrometre:
+		case xieite::units::Area::SquareMicrometre:
 			result *= 1000000000000.0;
 			break;
-		case xieite::units::Area::squareMillimetre:
+		case xieite::units::Area::SquareMillimetre:
 			result *= 1000000.0;
 			break;
-		case xieite::units::Area::squareCentimetre:
+		case xieite::units::Area::SquareCentimetre:
 			result *= 10000.0;
 			break;
-		case xieite::units::Area::squareDecimetre: [[fallthrough]];
-		case xieite::units::Area::decimilliare:
+		case xieite::units::Area::SquareDecimetre: [[fallthrough]];
+		case xieite::units::Area::Decimilliare:
 			result *= 100.0;
 			break;
-		case xieite::units::Area::squareDecametre:
-		case xieite::units::Area::are:
+		case xieite::units::Area::SquareDecametre:
+		case xieite::units::Area::Are:
 			result /= 100.0;
 			break;
-		case xieite::units::Area::squareHectometre: [[fallthrough]];
-		case xieite::units::Area::hectare:
+		case xieite::units::Area::SquareHectometre: [[fallthrough]];
+		case xieite::units::Area::Hectare:
 			result /= 10000.0;
 			break;
-		case xieite::units::Area::squareKilometre:
+		case xieite::units::Area::SquareKilometre:
 			result /= 1000000.0;
 			break;
-		case xieite::units::Area::squareMegametre:
+		case xieite::units::Area::SquareMegametre:
 			result /= 1000000000000.0;
 			break;
-		case xieite::units::Area::squareGigametre:
+		case xieite::units::Area::SquareGigametre:
 			result /= 1000000000000000000.0;
 			break;
-		case xieite::units::Area::squareTerametre:
+		case xieite::units::Area::SquareTerametre:
 			result /= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squarePetametre:
+		case xieite::units::Area::SquarePetametre:
 			result /= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareExametre:
+		case xieite::units::Area::SquareExametre:
 			result /= 1000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareZettametre:
+		case xieite::units::Area::SquareZettametre:
 			result /= 1000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareYottametre:
+		case xieite::units::Area::SquareYottametre:
 			result /= 1000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareRonnametre:
+		case xieite::units::Area::SquareRonnametre:
 			result /= 1000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareQuettametre:
+		case xieite::units::Area::SquareQuettametre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Area::squareInch:
+		case xieite::units::Area::SquareInch:
 			result *= 0.00064516;
 			break;
-		case xieite::units::Area::squareFoot:
+		case xieite::units::Area::SquareFoot:
 			result *= 0.09290304;
 			break;
-		case xieite::units::Area::squareYard:
+		case xieite::units::Area::SquareYard:
 			result *= 0.83612736;
 			break;
-		case xieite::units::Area::squareMile:
+		case xieite::units::Area::SquareMile:
 			result /= 2589988.110336;
 			break;
-		case xieite::units::Area::rood:
+		case xieite::units::Area::SquareRood:
 			result /= 1011.7141056;
 			break;
-		case xieite::units::Area::acre:
+		case xieite::units::Area::Acre:
 			result /= 4046.8564224;
 			break;
-		case xieite::units::Area::deciare:
+		case xieite::units::Area::Deciare:
 			result /= 10.0;
 			break;
-		case xieite::units::Area::decare:
+		case xieite::units::Area::Decare:
 			result /= 1000.0;
 			break;
 		}
@@ -248,252 +248,252 @@ namespace xieite::units {
 			return result;
 		}
 		switch (source) {
-		case xieite::units::Length::quectometre:
+		case xieite::units::Length::Quectometre:
 			result /= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Length::rontometre:
+		case xieite::units::Length::Rontometre:
 			result /= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Length::yoctometre:
+		case xieite::units::Length::Yoctometre:
 			result /= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Length::zeptometre:
+		case xieite::units::Length::Zeptometre:
 			result /= 1000000000000000000000.0;
 			break;
-		case xieite::units::Length::attometre:
+		case xieite::units::Length::Attometre:
 			result /= 1000000000000000000.0;
 			break;
-		case xieite::units::Length::femtometre:
+		case xieite::units::Length::Femtometre:
 			result /= 1000000000000000.0;
 			break;
-		case xieite::units::Length::picometre:
+		case xieite::units::Length::Picometre:
 			result /= 1000000000000.0;
 			break;
-		case xieite::units::Length::nanometre:
+		case xieite::units::Length::Nanometre:
 			result /= 1000000000.0;
 			break;
-		case xieite::units::Length::micrometre:
+		case xieite::units::Length::Micrometre:
 			result /= 1000000.0;
 			break;
-		case xieite::units::Length::millimetre:
+		case xieite::units::Length::Millimetre:
 			result /= 1000.0;
 			break;
-		case xieite::units::Length::centimetre:
+		case xieite::units::Length::Centimetre:
 			result /= 100.0;
 			break;
-		case xieite::units::Length::decimetre:
+		case xieite::units::Length::Decimetre:
 			result /= 10.0;
 			break;
-		case xieite::units::Length::decametre:
+		case xieite::units::Length::Decametre:
 			result *= 10.0;
 			break;
-		case xieite::units::Length::hectometre:
+		case xieite::units::Length::Hectometre:
 			result *= 100.0;
 			break;
-		case xieite::units::Length::kilometre:
+		case xieite::units::Length::Kilometre:
 			result *= 1000.0;
 			break;
-		case xieite::units::Length::megametre:
+		case xieite::units::Length::Megametre:
 			result *= 1000000.0;
 			break;
-		case xieite::units::Length::gigametre:
+		case xieite::units::Length::Gigametre:
 			result *= 1000000000.0;
 			break;
-		case xieite::units::Length::terametre:
+		case xieite::units::Length::Terametre:
 			result *= 1000000000000.0;
 			break;
-		case xieite::units::Length::petametre:
+		case xieite::units::Length::Petametre:
 			result *= 1000000000000000.0;
 			break;
-		case xieite::units::Length::exametre:
+		case xieite::units::Length::Exametre:
 			result *= 1000000000000000000.0;
 			break;
-		case xieite::units::Length::zettametre:
+		case xieite::units::Length::Zettametre:
 			result *= 1000000000000000000000.0;
 			break;
-		case xieite::units::Length::yottametre:
+		case xieite::units::Length::Yottametre:
 			result *= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Length::ronnametre:
+		case xieite::units::Length::Ronnametre:
 			result *= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Length::quettametre:
+		case xieite::units::Length::Quettametre:
 			result *= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Length::twip:
+		case xieite::units::Length::Twip:
 			result /= 0.0254 / 1440.0;
 			break;
-		case xieite::units::Length::thou:
+		case xieite::units::Length::Thou:
 			result /= 0.0000254;
 			break;
-		case xieite::units::Length::barleycorn:
+		case xieite::units::Length::Barleycorn:
 			result /= 0.0254 / 3.0;
 			break;
-		case xieite::units::Length::inch:
+		case xieite::units::Length::Inch:
 			result /= 0.0254;
 			break;
-		case xieite::units::Length::foot:
+		case xieite::units::Length::Foot:
 			result *= 0.3048;
 			break;
-		case xieite::units::Length::yard:
+		case xieite::units::Length::Yard:
 			result *= 0.9144;
 			break;
-		case xieite::units::Length::chain:
+		case xieite::units::Length::Chain:
 			result *= 20.1168;
 			break;
-		case xieite::units::Length::furlong:
+		case xieite::units::Length::Furlong:
 			result *= 201.168;
 			break;
-		case xieite::units::Length::mile:
+		case xieite::units::Length::Mile:
 			result *= 1609.344;
 			break;
-		case xieite::units::Length::league:
+		case xieite::units::Length::League:
 			result *= 4828.032;
 			break;
-		case xieite::units::Length::fathom:
+		case xieite::units::Length::Fathom:
 			result /= 1.8288;
 			break;
-		case xieite::units::Length::cable:
+		case xieite::units::Length::Cable:
 			result *= 185.2;
 			break;
-		case xieite::units::Length::nauticalMile:
+		case xieite::units::Length::NauticalMile:
 			result *= 1852.0;
 			break;
-		case xieite::units::Length::nauticalLeague:
+		case xieite::units::Length::NauticalLeague:
 			result *= 5556.0;
 			break;
-		case xieite::units::Length::link:
+		case xieite::units::Length::Link:
 			result /= 0.201168;
 			break;
-		case xieite::units::Length::rod: [[fallthrough]];
-		case xieite::units::Length::perch: [[fallthrough]];
-		case xieite::units::Length::pole: [[fallthrough]];
-		case xieite::units::Length::lug:
+		case xieite::units::Length::Rod: [[fallthrough]];
+		case xieite::units::Length::Perch: [[fallthrough]];
+		case xieite::units::Length::Pole: [[fallthrough]];
+		case xieite::units::Length::Lug:
 			result *= 5.0292;
 			break;
 		}
 		switch (target) {
-		case xieite::units::Length::quectometre:
+		case xieite::units::Length::Quectometre:
 			result *= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Length::rontometre:
+		case xieite::units::Length::Rontometre:
 			result *= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Length::yoctometre:
+		case xieite::units::Length::Yoctometre:
 			result *= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Length::zeptometre:
+		case xieite::units::Length::Zeptometre:
 			result *= 1000000000000000000000.0;
 			break;
-		case xieite::units::Length::attometre:
+		case xieite::units::Length::Attometre:
 			result *= 1000000000000000000.0;
 			break;
-		case xieite::units::Length::femtometre:
+		case xieite::units::Length::Femtometre:
 			result *= 1000000000000000.0;
 			break;
-		case xieite::units::Length::picometre:
+		case xieite::units::Length::Picometre:
 			result *= 1000000000000.0;
 			break;
-		case xieite::units::Length::nanometre:
+		case xieite::units::Length::Nanometre:
 			result *= 1000000000.0;
 			break;
-		case xieite::units::Length::micrometre:
+		case xieite::units::Length::Micrometre:
 			result *= 1000000.0;
 			break;
-		case xieite::units::Length::millimetre:
+		case xieite::units::Length::Millimetre:
 			result *= 1000.0;
 			break;
-		case xieite::units::Length::centimetre:
+		case xieite::units::Length::Centimetre:
 			result *= 100.0;
 			break;
-		case xieite::units::Length::decimetre:
+		case xieite::units::Length::Decimetre:
 			result *= 10.0;
 			break;
-		case xieite::units::Length::decametre:
+		case xieite::units::Length::Decametre:
 			result /= 10.0;
 			break;
-		case xieite::units::Length::hectometre:
+		case xieite::units::Length::Hectometre:
 			result /= 100.0;
 			break;
-		case xieite::units::Length::kilometre:
+		case xieite::units::Length::Kilometre:
 			result /= 1000.0;
 			break;
-		case xieite::units::Length::megametre:
+		case xieite::units::Length::Megametre:
 			result /= 1000000.0;
 			break;
-		case xieite::units::Length::gigametre:
+		case xieite::units::Length::Gigametre:
 			result /= 1000000000.0;
 			break;
-		case xieite::units::Length::terametre:
+		case xieite::units::Length::Terametre:
 			result /= 1000000000000.0;
 			break;
-		case xieite::units::Length::petametre:
+		case xieite::units::Length::Petametre:
 			result /= 1000000000000000.0;
 			break;
-		case xieite::units::Length::exametre:
+		case xieite::units::Length::Exametre:
 			result /= 1000000000000000000.0;
 			break;
-		case xieite::units::Length::zettametre:
+		case xieite::units::Length::Zettametre:
 			result /= 1000000000000000000000.0;
 			break;
-		case xieite::units::Length::yottametre:
+		case xieite::units::Length::Yottametre:
 			result /= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Length::ronnametre:
+		case xieite::units::Length::Ronnametre:
 			result /= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Length::quettametre:
+		case xieite::units::Length::Quettametre:
 			result /= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Length::twip:
+		case xieite::units::Length::Twip:
 			result *= 0.0254 / 1440.0;
 			break;
-		case xieite::units::Length::thou:
+		case xieite::units::Length::Thou:
 			result *= 0.0000254;
 			break;
-		case xieite::units::Length::barleycorn:
+		case xieite::units::Length::Barleycorn:
 			result *= 0.0254 / 3.0;
 			break;
-		case xieite::units::Length::inch:
+		case xieite::units::Length::Inch:
 			result *= 0.0254;
 			break;
-		case xieite::units::Length::foot:
+		case xieite::units::Length::Foot:
 			result /= 0.3048;
 			break;
-		case xieite::units::Length::yard:
+		case xieite::units::Length::Yard:
 			result /= 0.9144;
 			break;
-		case xieite::units::Length::chain:
+		case xieite::units::Length::Chain:
 			result /= 20.1168;
 			break;
-		case xieite::units::Length::furlong:
+		case xieite::units::Length::Furlong:
 			result /= 201.168;
 			break;
-		case xieite::units::Length::mile:
+		case xieite::units::Length::Mile:
 			result /= 1609.344;
 			break;
-		case xieite::units::Length::league:
+		case xieite::units::Length::League:
 			result /= 4828.032;
 			break;
-		case xieite::units::Length::fathom:
+		case xieite::units::Length::Fathom:
 			result *= 1.8288;
 			break;
-		case xieite::units::Length::cable:
+		case xieite::units::Length::Cable:
 			result /= 185.2;
 			break;
-		case xieite::units::Length::nauticalMile:
+		case xieite::units::Length::NauticalMile:
 			result /= 1852.0;
 			break;
-		case xieite::units::Length::nauticalLeague:
+		case xieite::units::Length::NauticalLeague:
 			result /= 5556.0;
 			break;
-		case xieite::units::Length::link:
+		case xieite::units::Length::Link:
 			result *= 0.201168;
 			break;
-		case xieite::units::Length::rod: [[fallthrough]];
-		case xieite::units::Length::perch: [[fallthrough]];
-		case xieite::units::Length::pole: [[fallthrough]];
-		case xieite::units::Length::lug:
+		case xieite::units::Length::Rod: [[fallthrough]];
+		case xieite::units::Length::Perch: [[fallthrough]];
+		case xieite::units::Length::Pole: [[fallthrough]];
+		case xieite::units::Length::Lug:
 			result /= 5.0292;
 			break;
 		}
@@ -507,24 +507,24 @@ namespace xieite::units {
 			return result;
 		}
 		switch (source) {
-		case xieite::units::Temperature::celsius:
+		case xieite::units::Temperature::Celsius:
 			result += 273.15;
 			break;
-		case xieite::units::Temperature::fahrenheit:
+		case xieite::units::Temperature::Fahrenheit:
 			result = (result - 32.0) / 1.8 + 273.15;
 			break;
-		case xieite::units::Temperature::rankine:
+		case xieite::units::Temperature::Rankine:
 			result *= 5.0 / 9.0;
 			break;
 		}
 		switch (target) {
-		case xieite::units::Temperature::celsius:
+		case xieite::units::Temperature::Celsius:
 			result -= 273.15;
 			break;
-		case xieite::units::Temperature::fahrenheit:
+		case xieite::units::Temperature::Fahrenheit:
 			result = (result - 273.15) * 1.8 + 32.0;
 			break;
-		case xieite::units::Temperature::rankine:
+		case xieite::units::Temperature::Rankine:
 			result *= 1.8;
 			break;
 		}
@@ -538,354 +538,354 @@ namespace xieite::units {
 			return result;
 		}
 		switch (source) {
-		case xieite::units::Volume::cubicQuectometre:
+		case xieite::units::Volume::CubicQuectometre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicRontometre:
+		case xieite::units::Volume::CubicRontometre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicYoctometre:
+		case xieite::units::Volume::CubicYoctometre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicZeptometre:
+		case xieite::units::Volume::CubicZeptometre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicAttometre:
+		case xieite::units::Volume::CubicAttometre:
 			result /= 1000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicFemtometre:
+		case xieite::units::Volume::CubicFemtometre:
 			result /= 1000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicPicometre:
+		case xieite::units::Volume::CubicPicometre:
 			result /= 1000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicNanometre:
+		case xieite::units::Volume::CubicNanometre:
 			result /= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicMicrometre:
+		case xieite::units::Volume::CubicMicrometre:
 			result /= 1000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicMillimetre:
+		case xieite::units::Volume::CubicMillimetre:
 			result /= 1000000000.0;
 			break;
-		case xieite::units::Volume::cubicCentimetre:
+		case xieite::units::Volume::CubicCentimetre:
 			result /= 1000000.0;
 			break;
-		case xieite::units::Volume::cubicDecimetre:
+		case xieite::units::Volume::CubicDecimetre:
 			result /= 1000.0;
 			break;
-		case xieite::units::Volume::cubicDecametre:
+		case xieite::units::Volume::CubicDecametre:
 			result *= 1000.0;
 			break;
-		case xieite::units::Volume::cubicHectometre:
+		case xieite::units::Volume::CubicHectometre:
 			result *= 1000000.0;
 			break;
-		case xieite::units::Volume::cubicKilometre:
+		case xieite::units::Volume::CubicKilometre:
 			result *= 1000000000.0;
 			break;
-		case xieite::units::Volume::cubicMegametre:
+		case xieite::units::Volume::CubicMegametre:
 			result *= 1000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicGigametre:
+		case xieite::units::Volume::CubicGigametre:
 			result *= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicTerametre:
+		case xieite::units::Volume::CubicTerametre:
 			result *= 1000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicPetametre:
+		case xieite::units::Volume::CubicPetametre:
 			result *= 1000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicExametre:
+		case xieite::units::Volume::CubicExametre:
 			result *= 1000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicZettametre:
+		case xieite::units::Volume::CubicZettametre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicYottametre:
+		case xieite::units::Volume::CubicYottametre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicRonnametre:
+		case xieite::units::Volume::CubicRonnametre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicQuettametre:
+		case xieite::units::Volume::CubicQuettametre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicInch:
+		case xieite::units::Volume::CubicInch:
 			result /= 0.000016387064;
 			break;
-		case xieite::units::Volume::cubicFoot:
+		case xieite::units::Volume::CubicFoot:
 			result /= 0.028316846592;
 			break;
-		case xieite::units::Volume::cubicYard:
+		case xieite::units::Volume::CubicYard:
 			result /= 0.764554857984;
 			break;
-		case xieite::units::Volume::cubicMile:
+		case xieite::units::Volume::CubicMile:
 			result *= 4168181825.440579584;
 			break;
-		case xieite::units::Volume::quectolitre:
+		case xieite::units::Volume::Quectolitre:
 			result *= 1000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::rontolitre:
+		case xieite::units::Volume::Rontolitre:
 			result *= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::yoctolitre:
+		case xieite::units::Volume::Yoctolitre:
 			result *= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::zeptolitre:
+		case xieite::units::Volume::Zeptolitre:
 			result *= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::attolitre:
+		case xieite::units::Volume::Attolitre:
 			result *= 1000000000000000000000.0;
 			break;
-		case xieite::units::Volume::femtolitre:
+		case xieite::units::Volume::Femtolitre:
 			result *= 1000000000000000000.0;
 			break;
-		case xieite::units::Volume::picolitre:
+		case xieite::units::Volume::Picolitre:
 			result *= 1000000000000000.0;
 			break;
-		case xieite::units::Volume::nanolitre:
+		case xieite::units::Volume::Nanolitre:
 			result *= 1000000000000.0;
 			break;
-		case xieite::units::Volume::microlitre:
+		case xieite::units::Volume::Microlitre:
 			result *= 1000000000.0;
 			break;
-		case xieite::units::Volume::millilitre:
+		case xieite::units::Volume::Millilitre:
 			result *= 1000000.0;
 			break;
-		case xieite::units::Volume::centilitre:
+		case xieite::units::Volume::Centilitre:
 			result *= 100000.0;
 			break;
-		case xieite::units::Volume::decilitre:
+		case xieite::units::Volume::Decilitre:
 			result *= 10000.0;
 			break;
-		case xieite::units::Volume::litre:
+		case xieite::units::Volume::Litre:
 			result *= 1000.0;
 			break;
-		case xieite::units::Volume::decalitre:
+		case xieite::units::Volume::Decalitre:
 			result *= 100.0;
 			break;
-		case xieite::units::Volume::hectolitre:
+		case xieite::units::Volume::Hectolitre:
 			result *= 10.0;
 			break;
-		case xieite::units::Volume::megalitre:
+		case xieite::units::Volume::Megalitre:
 			result /= 1000.0;
 			break;
-		case xieite::units::Volume::gigalitre:
+		case xieite::units::Volume::Gigalitre:
 			result /= 1000000.0;
 			break;
-		case xieite::units::Volume::teralitre:
+		case xieite::units::Volume::Teralitre:
 			result /= 1000000000.0;
 			break;
-		case xieite::units::Volume::petalitre:
+		case xieite::units::Volume::Petalitre:
 			result /= 1000000000000.0;
 			break;
-		case xieite::units::Volume::exalitre:
+		case xieite::units::Volume::Exalitre:
 			result /= 1000000000000000.0;
 			break;
-		case xieite::units::Volume::zettalitre:
+		case xieite::units::Volume::Zettalitre:
 			result /= 1000000000000000000.0;
 			break;
-		case xieite::units::Volume::yottalitre:
+		case xieite::units::Volume::Yottalitre:
 			result /= 1000000000000000000000.0;
 			break;
-		case xieite::units::Volume::ronnalitre:
+		case xieite::units::Volume::Ronnalitre:
 			result /= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::quettalitre:
+		case xieite::units::Volume::Quettalitre:
 			result /= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::fluidOunce:
+		case xieite::units::Volume::FluidOunce:
 			result *= 0.00002957353;
 			break;
-		case xieite::units::Volume::gill:
+		case xieite::units::Volume::Gill:
 			result *= 0.0001182941;
 			break;
-		case xieite::units::Volume::cup:
+		case xieite::units::Volume::Cup:
 			result *= 0.0002365882;
 			break;
-		case xieite::units::Volume::pint:
+		case xieite::units::Volume::Pint:
 			result *= 0.0004731765;
 			break;
-		case xieite::units::Volume::quart:
+		case xieite::units::Volume::Quart:
 			result *= 0.000946353;
 			break;
-		case xieite::units::Volume::gallon:
+		case xieite::units::Volume::Gallon:
 			result *= 0.003785412;
 			break;
 		}
 		switch (target) {
-		case xieite::units::Volume::cubicQuectometre:
+		case xieite::units::Volume::CubicQuectometre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicRontometre:
+		case xieite::units::Volume::CubicRontometre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicYoctometre:
+		case xieite::units::Volume::CubicYoctometre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicZeptometre:
+		case xieite::units::Volume::CubicZeptometre:
 			result *= 1000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicAttometre:
+		case xieite::units::Volume::CubicAttometre:
 			result *= 1000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicFemtometre:
+		case xieite::units::Volume::CubicFemtometre:
 			result *= 1000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicPicometre:
+		case xieite::units::Volume::CubicPicometre:
 			result *= 1000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicNanometre:
+		case xieite::units::Volume::CubicNanometre:
 			result *= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicMicrometre:
+		case xieite::units::Volume::CubicMicrometre:
 			result *= 1000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicMillimetre:
+		case xieite::units::Volume::CubicMillimetre:
 			result *= 1000000000.0;
 			break;
-		case xieite::units::Volume::cubicCentimetre:
+		case xieite::units::Volume::CubicCentimetre:
 			result *= 1000000.0;
 			break;
-		case xieite::units::Volume::cubicDecimetre:
+		case xieite::units::Volume::CubicDecimetre:
 			result *= 1000.0;
 			break;
-		case xieite::units::Volume::cubicDecametre:
+		case xieite::units::Volume::CubicDecametre:
 			result /= 1000.0;
 			break;
-		case xieite::units::Volume::cubicHectometre:
+		case xieite::units::Volume::CubicHectometre:
 			result /= 1000000.0;
 			break;
-		case xieite::units::Volume::cubicKilometre:
+		case xieite::units::Volume::CubicKilometre:
 			result /= 1000000000.0;
 			break;
-		case xieite::units::Volume::cubicMegametre:
+		case xieite::units::Volume::CubicMegametre:
 			result /= 1000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicGigametre:
+		case xieite::units::Volume::CubicGigametre:
 			result /= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicTerametre:
+		case xieite::units::Volume::CubicTerametre:
 			result /= 1000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicPetametre:
+		case xieite::units::Volume::CubicPetametre:
 			result /= 1000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicExametre:
+		case xieite::units::Volume::CubicExametre:
 			result /= 1000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicZettametre:
+		case xieite::units::Volume::CubicZettametre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicYottametre:
+		case xieite::units::Volume::CubicYottametre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicRonnametre:
+		case xieite::units::Volume::CubicRonnametre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicQuettametre:
+		case xieite::units::Volume::CubicQuettametre:
 			result /= 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::cubicInch:
+		case xieite::units::Volume::CubicInch:
 			result *= 0.000016387064;
 			break;
-		case xieite::units::Volume::cubicFoot:
+		case xieite::units::Volume::CubicFoot:
 			result *= 0.028316846592;
 			break;
-		case xieite::units::Volume::cubicYard:
+		case xieite::units::Volume::CubicYard:
 			result *= 0.764554857984;
 			break;
-		case xieite::units::Volume::cubicMile:
+		case xieite::units::Volume::CubicMile:
 			result /= 4168181825.440579584;
 			break;
-		case xieite::units::Volume::quectolitre:
+		case xieite::units::Volume::Quectolitre:
 			result /= 1000000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::rontolitre:
+		case xieite::units::Volume::Rontolitre:
 			result /= 1000000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::yoctolitre:
+		case xieite::units::Volume::Yoctolitre:
 			result /= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::zeptolitre:
+		case xieite::units::Volume::Zeptolitre:
 			result /= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::attolitre:
+		case xieite::units::Volume::Attolitre:
 			result /= 1000000000000000000000.0;
 			break;
-		case xieite::units::Volume::femtolitre:
+		case xieite::units::Volume::Femtolitre:
 			result /= 1000000000000000000.0;
 			break;
-		case xieite::units::Volume::picolitre:
+		case xieite::units::Volume::Picolitre:
 			result /= 1000000000000000.0;
 			break;
-		case xieite::units::Volume::nanolitre:
+		case xieite::units::Volume::Nanolitre:
 			result /= 1000000000000.0;
 			break;
-		case xieite::units::Volume::microlitre:
+		case xieite::units::Volume::Microlitre:
 			result /= 1000000000.0;
 			break;
-		case xieite::units::Volume::millilitre:
+		case xieite::units::Volume::Millilitre:
 			result /= 1000000.0;
 			break;
-		case xieite::units::Volume::centilitre:
+		case xieite::units::Volume::Centilitre:
 			result /= 100000.0;
 			break;
-		case xieite::units::Volume::decilitre:
+		case xieite::units::Volume::Decilitre:
 			result /= 10000.0;
 			break;
-		case xieite::units::Volume::litre:
+		case xieite::units::Volume::Litre:
 			result /= 1000.0;
 			break;
-		case xieite::units::Volume::decalitre:
+		case xieite::units::Volume::Decalitre:
 			result /= 100.0;
 			break;
-		case xieite::units::Volume::hectolitre:
+		case xieite::units::Volume::Hectolitre:
 			result /= 10.0;
 			break;
-		case xieite::units::Volume::megalitre:
+		case xieite::units::Volume::Megalitre:
 			result *= 1000.0;
 			break;
-		case xieite::units::Volume::gigalitre:
+		case xieite::units::Volume::Gigalitre:
 			result *= 1000000.0;
 			break;
-		case xieite::units::Volume::teralitre:
+		case xieite::units::Volume::Teralitre:
 			result *= 1000000000.0;
 			break;
-		case xieite::units::Volume::petalitre:
+		case xieite::units::Volume::Petalitre:
 			result *= 1000000000000.0;
 			break;
-		case xieite::units::Volume::exalitre:
+		case xieite::units::Volume::Exalitre:
 			result *= 1000000000000000.0;
 			break;
-		case xieite::units::Volume::zettalitre:
+		case xieite::units::Volume::Zettalitre:
 			result *= 1000000000000000000.0;
 			break;
-		case xieite::units::Volume::yottalitre:
+		case xieite::units::Volume::Yottalitre:
 			result *= 1000000000000000000000.0;
 			break;
-		case xieite::units::Volume::ronnalitre:
+		case xieite::units::Volume::Ronnalitre:
 			result *= 1000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::quettalitre:
+		case xieite::units::Volume::Quettalitre:
 			result *= 1000000000000000000000000000.0;
 			break;
-		case xieite::units::Volume::fluidOunce:
+		case xieite::units::Volume::FluidOunce:
 			result /= 0.00002957353;
 			break;
-		case xieite::units::Volume::gill:
+		case xieite::units::Volume::Gill:
 			result /= 0.0001182941;
 			break;
-		case xieite::units::Volume::cup:
+		case xieite::units::Volume::Cup:
 			result /= 0.0002365882;
 			break;
-		case xieite::units::Volume::pint:
+		case xieite::units::Volume::Pint:
 			result /= 0.0004731765;
 			break;
-		case xieite::units::Volume::quart:
+		case xieite::units::Volume::Quart:
 			result /= 0.000946353;
 			break;
-		case xieite::units::Volume::gallon:
+		case xieite::units::Volume::Gallon:
 			result /= 0.003785412;
 			break;
 		}

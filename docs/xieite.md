@@ -8,8 +8,8 @@
 - [concepts](./concepts.md)
 - [containers](./containers.md)
 - [exceptions](./exceptions.md)
-- [functors](./functors.md) - outdated
-- [geometry](./geometry.md) - outdated
+- [functors](./functors.md)
+- [geometry](./geometry.md)
 - [graphics](./graphics.md) - outdated
 - [math](./math.md) - outdated
 - [memory](./memory.md) - outdated

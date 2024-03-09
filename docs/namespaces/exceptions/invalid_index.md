@@ -12,7 +12,7 @@ An exception type that indicates accessing an invalid index in a range. Extends 
 ```cpp
 struct InvalidIndex
 : xieite::exceptions::Unspecified {
-    constexpr InvalidIndex(std::string_view = "");
+    InvalidIndex(std::string_view = "");
 };
 ```
 ##### Member functions

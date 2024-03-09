@@ -12,7 +12,7 @@ An exception type that indicates accessing an invalid key in a map or a set. Ext
 ```cpp
 struct InvalidKey
 : xieite::exceptions::Unspecified {
-    constexpr InvalidKey(std::string_view = "");
+    InvalidKey(std::string_view = "");
 };
 ```
 ##### Member functions

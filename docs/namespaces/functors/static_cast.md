@@ -14,7 +14,7 @@ A functor which simply `static_cast`s one value to another type.
 template<typename Target>
 struct StaticCast {
     template<std::convertible_to<Target> Source>
-    constexpr Target operator()(Source&&)
+    constexpr Target operator()(Source&&) const
     noexcept(xieite::concepts::NoThrowConvertibleTo<Source, Target>);
 };
 ```

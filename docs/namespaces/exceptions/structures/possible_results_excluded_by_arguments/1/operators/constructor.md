@@ -8,7 +8,7 @@ Constructs a `xieite::exceptions::PossibleResultsExcludedByArguments`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr PossibleResultsExcludedByArguments(std::string_view message = "") noexcept;
+PossibleResultsExcludedByArguments(std::string_view message = "") noexcept;
 ```
 
 &nbsp;

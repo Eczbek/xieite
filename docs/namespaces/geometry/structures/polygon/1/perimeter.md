@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon](../../../polygon.md)\:\:perimeter
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon<Number>](../../../polygon.md)\:\:perimeter
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
 ## Description
-Computes the perimeter of this polygon.
+Computes the perimeter of a polygon.
 
 &nbsp;
 
@@ -18,17 +18,18 @@ Computes the perimeter of this polygon.
 
 ## Example
 ```cpp
-#include <iostream>
-#include "xieite/geometry/point.hpp"
+#include <print>
 #include "xieite/geometry/polygon.hpp"
 
 int main() {
-    std::cout << xieite::geometry::Polygon({
-        { 0, 0 },
-        { 2, 0 },
-        { 2, 2 },
-        { 0, 2 }
-    }).perimeter() << '\n';
+    auto polygon = xieite::geometry::Polygon({
+        { 0.0, 0.0 },
+        { 2.0, 0.0 },
+        { 2.0, 2.0 },
+        { 0.0, 2.0 }
+    });
+
+    std::println("{}", polygon.perimeter());
 }
 ```
 Output:

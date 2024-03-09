@@ -1,31 +1,31 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Point](../../../point.md)\:\:distanceTo
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Point<Number>](../../../point.md)\:\:distanceTo
 Defined in header [<xieite/geometry/point.hpp>](../../../../../../include/xieite/geometry/point.hpp)
 
 &nbsp;
 
 ## Description
-Computes the distance between this and another point.
+Computes the distance between two points.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr double distanceTo(xieite::geometry::Point point) const noexcept;
+[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> distanceTo(xieite::geometry::Point<Number> point) const noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/geometry/point.hpp"
 
 int main() {
-    std::cout << xieite::geometry::Point(0.0, 0.0).distanceTo({ 1.0, 1.0 }) << '\n';
+    std::println("{}", xieite::geometry::Point(0.0, 0.0).distanceTo({ 1.0, 1.0 }));
 }
 ```
-Output:
+Possible output:
 ```
-1.41421
+1.4142135623730951
 ```

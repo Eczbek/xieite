@@ -12,7 +12,7 @@ An exception type that indicates that all possible results of a function have be
 ```cpp
 struct PossibleResultsExcludedByArguments
 : xieite::exceptions::Unspecified {
-    constexpr PossibleResultsExcludedByArguments(std::string_view = "");
+    PossibleResultsExcludedByArguments(std::string_view = "");
 };
 ```
 ##### Member functions

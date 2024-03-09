@@ -19,7 +19,7 @@ namespace xieite::geometry {
 	template<xieite::concepts::Arithmetic>
 	struct Segment;
 
-	template<xieite::concepts::Arithmetic Number>
+	template<xieite::concepts::Arithmetic Number = double>
 	struct Line {
 		xieite::geometry::Point<Number> start;
 		xieite::geometry::Point<Number> end;

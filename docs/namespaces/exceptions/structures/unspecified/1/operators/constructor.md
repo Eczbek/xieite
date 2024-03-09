@@ -8,7 +8,7 @@ Constructs a `xieite::exceptions::Unspecified`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr Unspecified(std::string_view message = "") noexcept;
+Unspecified(std::string_view message = "") noexcept;
 ```
 
 &nbsp;

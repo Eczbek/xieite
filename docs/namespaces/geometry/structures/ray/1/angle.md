@@ -1,31 +1,31 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray](../../../ray.md)\:\:angle
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray<Number>](../../../ray.md)\:\:angle
 Defined in header [<xieite/geometry/ray.hpp>](../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
 
 ## Description
-Computes the angle of this ray, in radians.
+Computes the angle of a ray in radians.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr double angle() const noexcept;
+[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> angle() const noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/geometry/ray.hpp"
 
 int main() {
-    std::cout << xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }).angle() << '\n';
+    std::println("{}", xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 }).angle());
 }
 ```
-Output:
+Possible output:
 ```
-0.785398
+0.7853981633974483
 ```
