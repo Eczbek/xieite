@@ -10,7 +10,8 @@ namespace xieite::math {
 		return false;
 	}
 
-	template<xieite::concepts::Arithmetic Number>
+	template<typename Number>
+	requires(std::signed_integral<Number> || std::floating_point<Number>)
 	[[nodiscard]] constexpr bool isNegative(const Number value) noexcept {
 		return value < 0;
 	}

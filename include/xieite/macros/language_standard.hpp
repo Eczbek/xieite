@@ -100,7 +100,6 @@
 #		undef XIEITE_LANGUAGE_STANDARD_CPP_EMBEDDED
 #		define XIEITE_LANGUAGE_STANDARD_CPP_EMBEDDED 1
 #	endif
-
 #endif
 
 // https://sourceforge.net/p/predef/wiki/Standards/

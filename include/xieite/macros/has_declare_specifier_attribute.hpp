@@ -14,7 +14,6 @@
 #	else
 #		define XIEITE_HAS_DECLARE_SPECIFIER_ATTRIBUTE(...) 0
 #	endif
-
 #endif
 
 // Thanks to Ian Pike (https://github.com/Rinzii) for original code

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedString
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedString \{\}
 Defined in header [<xieite/containers/fixed_string.hpp>](../../../include/xieite/containers/fixed_string.hpp)
 
 &nbsp;
@@ -24,12 +24,10 @@ struct FixedString {
     constexpr StringView view() const noexcept;
 };
 ```
-##### Member variables
 - data
-##### Member functions
-- [FixedString](./structures/fixed_string/1/operators/constructor.md)
-- [size](./structures/fixed_string/1/size.md)
-- [view](./structures/fixed_string/1/view.md)
+- [FixedString\(\)](./structures/fixed_string/1/operators/constructor.md)
+- [size\(\)](./structures/fixed_string/1/size.md)
+- [view\(\)](./structures/fixed_string/1/view.md)
 
 &nbsp;
 

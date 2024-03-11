@@ -1125,7 +1125,6 @@
 #		undef XIEITE_COMPILER_VERSION_PATCH_ZORTECH_CPP
 #		define XIEITE_COMPILER_VERSION_PATCH_ZORTECH_CPP (__ZTC__ % 0x10)
 #	endif
-
 #endif
 
 // https://sourceforge.net/p/predef/wiki/Compilers/

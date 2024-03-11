@@ -20,9 +20,8 @@ public:
     constexpr xieite::math::Exponent<Number>::Value operator*() const;
 };
 ```
-##### Member types
+##### Members
 - [Value](./structures/exponent/1/value.md)
-##### Member functions
 - [Exponent](./structures/exponent/1/operators/constructor.md)
 - [operator typename](./structures/exponent/1/operators/cast.md)
 - [operator*](./structures/exponent/1/operators/multiply.md)

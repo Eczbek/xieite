@@ -28,7 +28,6 @@ struct Shredder {
     constexpr operator Type&&()&&;
 };
 ```
-##### Member functions
 - [Shredder](./structures/shredder/1/operators/constructor.md)
 - [operator typename](./structures/shredder/1/operators/cast.md)
 

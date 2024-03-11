@@ -1,9 +1,9 @@
-# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:SkillIssue
+# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:SkillIssue \{\}
 Defined in header [<xieite/exceptions/skill_issue.hpp>](../../../include/xieite/exceptions/skill_issue.hpp)
 
 &nbsp;
 
-An exception type that indicates a skill issue. Extends `xieite::exceptions::Unspecified`.
+An exception type that indicates a skill issue on the part of the user. Extends `xieite::exceptions::Unspecified`.
 
 &nbsp;
 
@@ -15,7 +15,6 @@ struct SkillIssue
     SkillIssue(std::string_view = "cope") noexcept;
 };
 ```
-##### Member functions
 - [SkillIssue](./structures/skill_issue/1/operators/constructor.md)
 
 &nbsp;

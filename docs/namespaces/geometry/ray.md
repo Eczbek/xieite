@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Ray
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Ray \{\}
 Defined in header [<xieite/geometry/ray.hpp>](../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
@@ -42,10 +42,8 @@ struct Ray {
     constexpr bool contains(const xieite::geometry::Polygon<Number>&) const noexcept;
 };
 ```
-##### Member variables
 - start
 - end
-##### Member functions
 - [Ray](./structures/ray/1/operators/constructor.md)
 - [operator typename](./structures/ray/1/operators/cast.md)
 - [operator==](./structures/ray/1/operators/equal.md)

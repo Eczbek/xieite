@@ -181,9 +181,8 @@ struct BigInteger {
     constexpr std::string string(xieite::math::SignedSize = 10, const xieite::strings::IntegerComponents& = xieite::strings::IntegerComponents()) const;
 };
 ```
-##### Member types
+##### Members
 - [Type](./structures/big_integer/1/type.md)
-##### Member functions
 - [BigInteger](./structures/big_integer/1/operators/constructor.md)
 - [operator=](./structures/big_integer/1/operators/assign.md)
 - [operator typename](./structures/big_integer/1/operators/cast.md)

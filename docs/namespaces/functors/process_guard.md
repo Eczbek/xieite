@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:ProcessGuard
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:ProcessGuard \{\}
 Defined in header [<xieite/functors/process_guard.hpp>](../../../include/xieite/functors/process_guard.hpp)
 
 &nbsp;
@@ -18,7 +18,6 @@ struct ProcessGuard {
     void release();
 };
 ```
-##### Member functions
 - [ProcessGuard](./structures/process_guard/1/operators/constructor.md)
 - [release](./structures/process_guard/1/release.md)
 

@@ -98,7 +98,6 @@ struct StandardHandle {
     xieite::streams::Key readKey() const;
 };
 ```
-##### Member functions
 - [setInputBlocking](./structures/standard_handle/1/set_input_blocking.md)
 - [setInputEcho](./structures/standard_handle/1/set_input_echo.md)
 - [setInputCanonical](./structures/standard_handle/1/set_input_canonical.md)

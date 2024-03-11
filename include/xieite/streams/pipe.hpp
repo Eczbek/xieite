@@ -45,5 +45,4 @@ namespace xieite::streams {
 #	else
 #		error "Platform not supported"
 #	endif
-
 #endif

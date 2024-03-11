@@ -35,14 +35,14 @@ namespace xieite::detail {
 
 		template<typename Functor, typename... Arguments>
 		static std::size_t operator()(const xieite::detail::Memo<Functor, Arguments...>& memo) {
-			return ([&memo]<std::size_t... indices>(std::index_sequence<indices...>) -> std::size_t {
+			return ([&memo]<std::size_t... i>(std::index_sequence<i...>) -> std::size_t {
 				return xieite::hashes::combine(([&memo] -> std::size_t {
 					if constexpr (xieite::concepts::Hashable<Functor>) {
 						return std::hash<Functor>()(memo.functor);
 					} else {
 						return 0;
 					}
-				})(), std::hash<std::decay_t<std::tuple_element_t<indices, std::tuple<Arguments...>>>>()(std::get<indices>(memo.arguments))...);
+				})(), std::hash<std::decay_t<std::tuple_element_t<i, std::tuple<Arguments...>>>>()(std::get<i>(memo.arguments))...);
 			})(std::make_index_sequence<sizeof...(Arguments)>());
 		}
 	};

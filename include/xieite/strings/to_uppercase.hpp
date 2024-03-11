@@ -27,7 +27,7 @@ namespace xieite::strings {
 
 	template<xieite::concepts::String String = std::string>
 	[[nodiscard]] constexpr String toUppercase(String string) noexcept {
-		for (String::value_type& character : string) {
+		for (typename String::value_type& character : string) {
 			character = xieite::strings::toUppercase(character);
 		}
 		return string;

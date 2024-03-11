@@ -19,5 +19,4 @@ namespace xieite::math {
 #	else
 #		error "Compiler not supported"
 #	endif
-
 #endif

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Polygon
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Polygon \{\}
 Defined in header [<xieite/geometry/polygon.hpp>](../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
@@ -42,9 +42,7 @@ struct Polygon {
     constexpr bool contains(const xieite::geometry::Polygon<Number>&) const noexcept;
 };
 ```
-##### Member variables
 - points
-##### Member functions
 - [Polygon](./structures/polygon/1/operators/constructor.md)
 - [operator typename](./structures/polygon/1/operators/cast.md)
 - [operator==](./structures/polygon/1/operators/equal.md)

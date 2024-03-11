@@ -26,12 +26,11 @@ struct Version {
     constexpr std::string string() const;
 };
 ```
-##### Member variables
+##### Members
 - major
 - minor
 - patch
 - label
-##### Member functions
 - [Version](./structures/version/1/operators/constructor.md)
 - [operator<=>](./structures/version/1/operators/spaceship.md)
 - [operator==](./structures/version/1/operators/equal.md)

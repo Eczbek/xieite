@@ -21,22 +21,22 @@ namespace xieite::containers {
 
 		template<typename Self, std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, KeysReference&& keys) {
-			return ([&self, &keys]<std::size_t... indices>(std::index_sequence<indices...>) -> std::convertible_to<Value> auto&& {
-				return XIEITE_FORWARD(self).map.at(std::get<0>(keys))[std::make_tuple(std::get<indices + 1>(keys)...)];
+			return ([&self, &keys]<std::size_t... i>(std::index_sequence<i...>) -> std::convertible_to<Value> auto&& {
+				return XIEITE_FORWARD(self).map.at(std::get<0>(keys))[std::make_tuple(std::get<i + 1>(keys)...)];
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
 		constexpr void insert(KeysReference&& keys, ValueReference&& value) {
-			return ([this, &keys, &value]<std::size_t... indices>(std::index_sequence<indices...>) {
-				this->map[std::get<0>(keys)].insert(std::make_tuple(std::get<indices + 1>(keys)...), XIEITE_FORWARD(value));
+			return ([this, &keys, &value]<std::size_t... i>(std::index_sequence<i...>) {
+				this->map[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...), XIEITE_FORWARD(value));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 		[[nodiscard]] constexpr bool contains(KeysReference&& keys) const {
-			return this->map.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) {
-				return this->map.at(std::get<0>(keys)).contains(std::make_tuple(std::get<indices + 1>(keys)...));
+			return this->map.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... i>(std::index_sequence<i...>) {
+				return this->map.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 

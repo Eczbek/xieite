@@ -6,7 +6,7 @@
 
 namespace xieite::strings {
 	template<xieite::concepts::StringView StringView>
-	using Unview = std::basic_string<StringView::value_type, StringView::traits_type>;
+	using Unview = std::basic_string<typename StringView::value_type, typename StringView::traits_type>;
 }
 
 #endif

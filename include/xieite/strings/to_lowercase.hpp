@@ -27,7 +27,7 @@ namespace xieite::strings {
 
 	template<xieite::concepts::String String = std::string>
 	[[nodiscard]] constexpr String toLowercase(String string) noexcept {
-		for (String::value_type& character : string) {
+		for (typename String::value_type& character : string) {
 			character = xieite::strings::toLowercase(character);
 		}
 		return string;

@@ -11,5 +11,4 @@ struct SocketAddress
     SocketAddress(const std::string& = "::", const std::uint16_t = 0);
 };
 ```
-##### Member functions
 - [SocketAddress](./structures/socket_address/1/operators/constructor.md)

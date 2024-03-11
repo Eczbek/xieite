@@ -18,11 +18,10 @@ struct IntegerStringComponents {
     constexpr IntegerStringComponents(std::string_view, char, char, char, char);
 };
 ```
-##### Member variables
+##### Members
 - digits
 - negative
 - positive
 - point
 - exponent
-##### Member functions
 - [IntegerStringComponents](./structures/integer_string_components/1/operators/constructor.md)

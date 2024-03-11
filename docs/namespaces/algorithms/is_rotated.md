@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isRotated
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isRotated\(\)
 Defined in header [<xieite/algorithms/is_rotated.hpp>](../../../include/xieite/algorithms/is_rotated.hpp)
 
 &nbsp;

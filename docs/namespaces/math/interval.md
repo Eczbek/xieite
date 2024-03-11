@@ -19,8 +19,7 @@ struct Interval {
     constexpr Interval(Number, Number);
 };
 ```
-##### Member variables
+##### Members
 - start
 - end
-##### Member functions
 - [Interval](./structures/interval/1/operators/constructor.md)

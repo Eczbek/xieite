@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:InvalidIndex
+# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:InvalidIndex \{\}
 Defined in header [<xieite/exceptions/invalid_index.hpp>](../../../include/xieite/exceptions/invalid_index.hpp)
 
 &nbsp;
@@ -15,7 +15,6 @@ struct InvalidIndex
     InvalidIndex(std::string_view = "");
 };
 ```
-##### Member functions
 - [InvalidIndex](./structures/invalid_index/1/operators/constructor.md)
 
 &nbsp;

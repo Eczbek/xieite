@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[Infix<Result(LeftArgument, RightArgument)>](../../../infix.md)\:\:Intermediate
+# [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[Infix<Result(LeftArgument, RightArgument)>](../../../infix.md)\:\:Intermediate \{\}
 Defined in header [<xieite/functors/infix.hpp>](../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
@@ -21,7 +21,6 @@ struct Intermediate {
     friend constexpr Result operator>(xieite::functors::Infix<Result(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&&, RightArgumentReference&&);
 };
 ```
-##### Member functions
 - [Intermediate](./structures/intermediate/1/operators/constructor.md)
 - [operator>](./structures/intermediate/1/operators/more.md)
 

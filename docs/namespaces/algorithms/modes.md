@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:modes
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:modes\(\)
 Defined in header [<xieite/algorithms/modes.hpp>](../../../include/xieite/algorithms/modes.hpp)
 
 &nbsp;

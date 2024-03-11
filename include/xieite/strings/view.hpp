@@ -6,7 +6,7 @@
 
 namespace xieite::strings {
 	template<xieite::concepts::String String>
-	using View = std::basic_string_view<String::value_type, String::traits_type>;
+	using View = std::basic_string_view<typename String::value_type, typename String::traits_type>;
 }
 
 #endif

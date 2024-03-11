@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:Unspecified
+# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:Unspecified \{\}
 Defined in header [<xieite/exceptions/unspecified.hpp>](../../../include/xieite/exceptions/unspecified.hpp)
 
 &nbsp;
@@ -17,7 +17,6 @@ struct Unspecified
     const char* what() const noexcept;
 };
 ```
-##### Member functions
 - [Unspecified](./structures/unspecified/1/operators/constructor.md)
 - [what](./structures/unspecified/1/what.md)
 

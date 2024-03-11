@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isUniformMatrix
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isUniformMatrix\(\)
 Defined in header [<xieite/algorithms/is_uniform_matrix.hpp>](../../../include/xieite/algorithms/is_uniform_matrix.hpp)
 
 &nbsp;

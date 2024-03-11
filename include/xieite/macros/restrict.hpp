@@ -13,7 +13,6 @@
 #	else
 #		define XIEITE_RESTRICT
 #	endif
-
 #endif
 
 // Thanks to eightfold (https://github.com/8ightfold) for original code

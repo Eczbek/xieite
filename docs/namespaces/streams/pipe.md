@@ -17,7 +17,6 @@ struct Pipe {
     Pipe(const std::string&, const std::string&);
 };
 ```
-##### Member variables
+##### Members
 - file
-##### Member functions
 - [Pipe](./structures/pipe/1/operators/constructor.md)

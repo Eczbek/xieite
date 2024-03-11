@@ -20,6 +20,6 @@ struct Partial {
     using Prepend = Template<SecondArguments..., FirstArguments...>;
 };
 ```
-##### Member types
+##### Members
 - [Append](./structures/partial/1/append.md)
 - [Prepend](./structures/partial/1/prepend.md)

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedSet
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedSet \{\}
 Defined in header [<xieite/containers/fixed_set.hpp>](../../../include/xieite/containers/fixed_set.hpp)
 
 &nbsp;
@@ -29,11 +29,10 @@ struct FixedSet {
     constexpr const std::array<Key, size>& data() const noexcept;
 };
 ```
-##### Member functions
-- [FixedMap](./structures/fixed_set/1/operators/constructor.md)
-- [operator\[\]](./structures/fixed_set/1/operators/array_subscript.md)
-- [contains](./structures/fixed_set/1/contains.md)
-- [data](./structures/fixed_set/1/data.md)
+- [FixedMap\(\)](./structures/fixed_set/1/operators/constructor.md)
+- [operator\[\]\(\)](./structures/fixed_set/1/operators/array_subscript.md)
+- [contains\(\)](./structures/fixed_set/1/contains.md)
+- [data\(\)](./structures/fixed_set/1/data.md)
 
 &nbsp;
 

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:PossibleResultsExcludedByArguments
+# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:PossibleResultsExcludedByArguments \{\}
 Defined in header [<xieite/exceptions/possible_results_excluded_by_arguments.hpp>](../../../include/xieite/exceptions/possible_results_excluded_by_arguments.hpp)
 
 &nbsp;
@@ -15,7 +15,6 @@ struct PossibleResultsExcludedByArguments
     PossibleResultsExcludedByArguments(std::string_view = "");
 };
 ```
-##### Member functions
 - [PossibleResultsExcludedByArguments](./structures/possible_results_excluded_by_arguments/1/operators/constructor.md)
 
 &nbsp;

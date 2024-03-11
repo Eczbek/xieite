@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:numberSearch
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:numberSearch\(\)
 Defined in header [<xieite/algorithms/number_search.hpp>](../../../include/xieite/algorithms/number_search.hpp)
 
 &nbsp;

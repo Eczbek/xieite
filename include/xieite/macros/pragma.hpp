@@ -12,5 +12,4 @@
 #	else
 #		define XIEITE_PRAGMA(...)
 #	endif
-
 #endif

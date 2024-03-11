@@ -9,7 +9,7 @@
 namespace xieite::streams {
 	template<xieite::concepts::String String = std::string>
 	String read(std::istream& inputStream) noexcept {
-		using Iterator = std::istreambuf_iterator<String::value_type>;
+		using Iterator = std::istreambuf_iterator<typename String::value_type>;
 		return String(Iterator(inputStream), Iterator());
 	}
 }

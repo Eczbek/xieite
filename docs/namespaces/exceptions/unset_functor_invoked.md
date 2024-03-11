@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:UnsetFunctorInvoked
+# [xieite](../../xieite.md)\:\:[exceptions](../../exceptions.md)\:\:UnsetFunctorInvoked \{\}
 Defined in header [<xieite/exceptions/unset_functor_invoked.hpp>](../../../include/xieite/exceptions/unset_functor_invoked.hpp)
 
 &nbsp;
@@ -15,7 +15,6 @@ struct UnsetFunctorInvoked
     UnsetFunctorInvoked(std::string_view = "");
 };
 ```
-##### Member functions
 - [UnsetFunctorInvoked](./structures/unset_functor_invoked/1/operators/constructor.md)
 
 &nbsp;

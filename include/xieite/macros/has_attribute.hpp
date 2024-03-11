@@ -13,7 +13,6 @@
 #	else
 #		define XIEITE_HAS_ATTRIBUTE(...) 0
 #	endif
-
 #endif
 
 // Thanks to Ian Pike (https://github.com/Rinzii) for original code

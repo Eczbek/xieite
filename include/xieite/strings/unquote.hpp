@@ -9,7 +9,7 @@
 
 namespace xieite::strings {
 	template<xieite::concepts::String String = std::string>
-	[[nodiscard]] constexpr String unquote(xieite::strings::View<String> value, const String::value_type delimiter = '"', const String::value_type escape = '\\') noexcept {
+	[[nodiscard]] constexpr String unquote(xieite::strings::View<String> value, const typename String::value_type delimiter = '"', const typename String::value_type escape = '\\') noexcept {
 		value.remove_prefix(value[0] == delimiter);
 		value.remove_suffix(value[value.size() - 1] == delimiter);
 		return xieite::strings::replace((delimiter == escape) ? value : xieite::strings::replace(value, String(2, escape), escape), String(1, escape) + delimiter, delimiter);

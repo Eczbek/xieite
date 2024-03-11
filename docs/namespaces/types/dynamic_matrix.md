@@ -16,7 +16,7 @@ struct DynamicMatrix {
     using Type = DynamicMatrix<DynamicContainer, DynamicContainer<Value>, dimensions - 1>::Type;
 };
 ```
-##### Member types
+##### Members
 - [Type](./structures/dynamic_matrix/1/type.md)
 #### 2)
 ```cpp
@@ -25,7 +25,7 @@ struct DynamicMatrix<DynamicContainer, Value, 0> {
     using Type = Value;
 };
 ```
-##### Member types
+##### Members
 - [Type](./structures/dynamic_matrix/2/type.md)
 
 &nbsp;

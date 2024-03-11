@@ -20,7 +20,6 @@ struct Loop {
     void stop();
 };
 ```
-##### Member functions
 - [Loop](./structures/loop/1/operators/constructor.md)
 - [operator typename](./structures/loop/1/operators/cast.md)
 - [stop](./structures/loop/1/stop.md)

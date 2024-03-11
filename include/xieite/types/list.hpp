@@ -55,16 +55,16 @@ namespace xieite::types {
 		using Prepend = xieite::types::List<OtherTypes..., Types...>;
 
 	private:
-		template<std::size_t offset, std::size_t... indices>
-		static xieite::types::List<xieite::types::List<Types...>::At<indices + offset>...> sliceHelper(std::index_sequence<indices...>) noexcept;
+		template<std::size_t offset, std::size_t... i>
+		static xieite::types::List<xieite::types::List<Types...>::At<i + offset>...> sliceHelper(std::index_sequence<i...>) noexcept;
 
 	public:
 		template<std::size_t start, std::size_t end = sizeof...(Types)>
 		using Slice = decltype(xieite::types::List<Types...>::sliceHelper<std::min(start, end)>(std::make_index_sequence<std::min(std::max(start, end), sizeof...(Types)) - std::min(std::min(start, end), sizeof...(Types))>()));
 
 	private:
-		template<std::size_t... indices>
-		static xieite::types::List<xieite::types::List<Types...>::At<sizeof...(Types) - indices - 1>...> reverseHelper(std::index_sequence<indices...>) noexcept;
+		template<std::size_t... i>
+		static xieite::types::List<xieite::types::List<Types...>::At<sizeof...(Types) - i - 1>...> reverseHelper(std::index_sequence<i...>) noexcept;
 
 	public:
 		using Reverse = decltype(xieite::types::List<Types...>::reverseHelper(std::make_index_sequence<sizeof...(Types)>()));
@@ -147,8 +147,8 @@ namespace xieite::types {
 	public:
 		using Unique = xieite::types::List<Types...>::Filter<xieite::types::List<Types...>::UniqueHelper>;
 
-		template<std::size_t... indices>
-		using Transform = xieite::types::List<xieite::types::List<Types...>::At<indices>...>;
+		template<std::size_t... i>
+		using Transform = xieite::types::List<xieite::types::List<Types...>::At<i>...>;
 
 	private:
 		template<std::size_t>
@@ -170,8 +170,8 @@ namespace xieite::types {
 		template<typename... OtherTypes>
 		requires(sizeof...(Types) == sizeof...(OtherTypes))
 		struct ZipHelper {
-			using Type = decltype(([]<std::size_t... indices>(std::index_sequence<indices...>) -> auto {
-				return xieite::types::List<xieite::types::List<xieite::types::List<Types...>::At<indices>, typename xieite::types::List<OtherTypes...>::template At<indices>>...>();
+			using Type = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> auto {
+				return xieite::types::List<xieite::types::List<xieite::types::List<Types...>::At<i>, typename xieite::types::List<OtherTypes...>::template At<i>>...>();
 			})(std::make_index_sequence<sizeof...(OtherTypes)>()));
 		};
 

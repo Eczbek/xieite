@@ -23,7 +23,6 @@ struct Address {
     socklen_t* size();
 };
 ```
-##### Member functions
 - [Address](./structures/address/1/operators/constructor.md)
 - [data](./structures/address/1/data.md)
 - [size](./structures/address/1/size.md)

@@ -556,7 +556,6 @@
 #		undef XIEITE_ARCHITECTURE_TYPE_Z
 #		define XIEITE_ARCHITECTURE_TYPE_Z 1
 #	endif
-
 #endif
 
 // https://sourceforge.net/p/predef/wiki/Architectures/

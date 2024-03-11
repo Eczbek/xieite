@@ -99,7 +99,6 @@
 #		undef XIEITE_UNIX_STANDARD_LSB
 #		define XIEITE_UNIX_STANDARD_LSB 1
 #	endif
-
 #endif
 
 // https://sourceforge.net/p/predef/wiki/Standards/

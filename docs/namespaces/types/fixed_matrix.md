@@ -21,7 +21,7 @@ struct FixedMatrix<FixedContainer, Value, sizesFirst, sizesRest...> {
     using Type = FixedMatrix<FixedContainer, FixedContainer<Value, sizesFirst>, sizesRest...>::Type;
 };
 ```
-##### Member types
+##### Members
 - [Type](./structures/fixed_matrix/2/type.md)
 #### 3)
 ```cpp
@@ -30,7 +30,7 @@ struct FixedMatrix<FixedContainer, Value, size> {
     using Type = FixedContainer<Value, size>;
 };
 ```
-##### Member types
+##### Members
 - [Type](./structures/fixed_matrix/3/type.md)
 #### 4)
 ```cpp
@@ -39,7 +39,7 @@ struct FixedMatrix<FixedContainer, Value> {
     using Type = Value;
 };
 ```
-##### Member types
+##### Members
 - [Type](./structures/fixed_matrix/4/type.md)
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:TupleSet
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:TupleSet \{\}
 Defined in header [<xieite/containers/tuple_set.hpp>](../../../include/xieite/containers/tuple_set.hpp)
 
 &nbsp;
@@ -25,11 +25,10 @@ struct TupleSet<Container, std::tuple<FirstKey, RestKeys...>> {
     constexpr bool contains(KeysReference&&) const;
 };
 ```
-##### Member functions
-- [TupleSet](./structures/tuple_set/2/operators/constructor.md)
-- [operator\[\]](./structures/tuple_set/2/operators/array_subscript.md)
-- [insert](./structures/tuple_set/2/insert.md)
-- [contains](./structures/tuple_set/2/contains.md)
+- [TupleSet\(\)](./structures/tuple_set/2/operators/constructor.md)
+- [operator\[\]\(\)](./structures/tuple_set/2/operators/array_subscript.md)
+- [insert\(\)](./structures/tuple_set/2/insert.md)
+- [contains\(\)](./structures/tuple_set/2/contains.md)
 #### 3)
 ```cpp
 template<template<typename> typename Container, typename Key>
@@ -46,11 +45,10 @@ struct TupleSet<Container, std::tuple<Key>> {
     constexpr bool contains(KeyReference&&) const;
 };
 ```
-##### Member functions
-- [TupleSet](./structures/tuple_set/3/operators/constructor.md)
-- [operator\[\]](./structures/tuple_set/3/operators/array_subscript.md)
-- [insert](./structures/tuple_set/3/insert.md)
-- [contains](./structures/tuple_set/3/contains.md)
+- [TupleSet\(\)](./structures/tuple_set/3/operators/constructor.md)
+- [operator\[\]\(\)](./structures/tuple_set/3/operators/array_subscript.md)
+- [insert\(\)](./structures/tuple_set/3/insert.md)
+- [contains\(\)](./structures/tuple_set/3/contains.md)
 
 &nbsp;
 

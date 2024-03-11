@@ -13,7 +13,7 @@ namespace xieite::strings {
 	}
 
 	template<xieite::concepts::StringView StringView = std::string_view>
-	[[nodiscard]] constexpr StringView trimFront(const StringView string, const StringView::value_type character) noexcept {
+	[[nodiscard]] constexpr StringView trimFront(const StringView string, const typename StringView::value_type character) noexcept {
 		const std::size_t start = string.find_first_not_of(character);
 		return (start == StringView::npos) ? "" : string.substr(start);
 	}

@@ -19,7 +19,6 @@
 #			define XIEITE_UNREACHABLE() XIEITE_UNUSED(0 / 0)
 #		endif
 #	endif
-
 #endif
 
 // Thanks to eightfold (https://github.com/8ightfold) for original code

@@ -685,7 +685,6 @@
 #		undef XIEITE_PLATFORM_TYPE_Z_OS
 #		define XIEITE_PLATFORM_TYPE_Z_OS 1
 #	endif
-
 #endif
 
 // https://sourceforge.net/p/predef/wiki/OperatingSystems/

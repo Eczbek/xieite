@@ -5,12 +5,13 @@
 ## Contents
 - [(macros)](./macros.md) - outdated
 - [algorithms](./algorithms.md)
+- [bits](./bits.md)
 - [concepts](./concepts.md)
 - [containers](./containers.md)
 - [exceptions](./exceptions.md)
 - [functors](./functors.md)
 - [geometry](./geometry.md)
-- [graphics](./graphics.md) - outdated
+- [hashes](./hashes.md)
 - [math](./math.md) - outdated
 - [memory](./memory.md) - outdated
 - [metadata](./metadata.md) - outdated

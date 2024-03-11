@@ -20,9 +20,8 @@ struct UniformInterruptableDistribution {
     Number operator()(UniformRandomBitGenerator&) const;
 };
 ```
-##### Member functions
 - [UniformInterruptableDistribution](./structures/uniform_interruptable_distribution/1/operators/constructor.md)
-- [operator()](./structures/uniform_interruptable_distribution/1/operators/call.md)
+- [operator\(\)](./structures/uniform_interruptable_distribution/1/operators/call.md)
 
 &nbsp;
 

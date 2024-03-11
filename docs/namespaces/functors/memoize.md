@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:memoize
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:memoize\(\)
 Defined in header [<xieite/functors/memoize.hpp>](../../../include/xieite/functors/memoize.hpp)
 
 &nbsp;

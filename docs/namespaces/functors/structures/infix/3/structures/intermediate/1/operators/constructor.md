@@ -1,4 +1,4 @@
-# [xieite](../../../../../../../../../xieite.md)\:\:[functors](../../../../../../../../../functors.md)\:\:[Infix<Result(LeftArgument, RightArgument)>](../../../../../../../infix.md)\:\:[Intermediate<LeftArgumentReference>](../../../../intermediate.md)\:\:Intermediate
+# [xieite](../../../../../../../../../xieite.md)\:\:[functors](../../../../../../../../../functors.md)\:\:[Infix<Result(LeftArgument, RightArgument)>](../../../../../../../infix.md)\:\:[Intermediate<LeftArgumentReference>](../../../../intermediate.md)\:\:Intermediate\(\)
 Defined in header [<xieite/functors/infix.hpp>](../../../../../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;

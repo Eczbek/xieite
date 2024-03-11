@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:makeArray
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:makeArray\(\)
 Defined in header [<xieite/containers/make_array.hpp>](../../../include/xieite/containers/make_array.hpp)
 
 &nbsp;

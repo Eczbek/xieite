@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Line
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Line \{\}
 Defined in header [<xieite/geometry/line.hpp>](../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
@@ -42,10 +42,8 @@ struct Line {
     constexpr bool contains(xieite::geometry::Polygon<Number>&) const noexcept;
 };
 ```
-##### Member variables
 - start
 - end
-##### Member functions
 - [Line](./structures/line/1/operators/constructor.md)
 - [operator typename](./structures/line/1/operators/cast.md)
 - [operator==](./structures/line/1/operators/equal.md)

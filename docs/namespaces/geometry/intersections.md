@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:intersections
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:intersections\(\)
 Defined in header [<xieite/geometry/intersections.hpp>](../../../include/xieite/geometry/intersections.hpp)
 
 &nbsp;

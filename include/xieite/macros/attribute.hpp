@@ -145,7 +145,6 @@
 #	else
 #		define XIEITE_ATTRIBUTE_DEPRECATED
 #	endif
-
 #endif
 
 // Thanks to eightfold (https://github.com/8ightfold) and Ian Pike (https://github.com/Rinzii) for some original code

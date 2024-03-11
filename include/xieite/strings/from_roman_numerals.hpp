@@ -18,7 +18,7 @@ namespace xieite::strings {
 			return result;
 		}
 		Integer previous = 0;
-		for (const StringView::value_type digit : std::views::reverse(value)) {
+		for (const typename StringView::value_type digit : std::views::reverse(value)) {
 			const std::size_t index = numerals.find(xieite::strings::toUppercase(digit));
 			if (index == StringView::npos) {
 				continue;

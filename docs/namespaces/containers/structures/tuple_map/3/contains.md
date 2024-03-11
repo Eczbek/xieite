@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<Key>, Value>](../../../tuple_map.md)\:\:contains
+# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<Key>, Value>](../../../tuple_map.md)\:\:contains\(\)
 Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../include/xieite/containers/tuple_map.hpp)
 
 &nbsp;

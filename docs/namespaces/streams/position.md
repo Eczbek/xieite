@@ -20,8 +20,7 @@ struct Position {
     friend constexpr bool operator==(xieite::streams::Position, xieite::streams::Position);
 };
 ```
-##### Member variables
+##### Members
 - row
 - column
-##### Member functions
 - [Position](./structures/position/1/operators/constructor.md)

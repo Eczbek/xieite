@@ -21,7 +21,6 @@ struct Pool {
     void enqueue(const std::function<void()>&);
 };
 ```
-##### Member functions
 - [Pool](./structures/pool/1/operators/constructor.md)
 - [setThreadCount](./structures/pool/1/set_thread_count.md)
 - [getThreadCount](./structures/pool/1/get_thread_count.md)

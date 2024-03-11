@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:ScopeGuard
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:ScopeGuard \{\}
 Defined in header [<xieite/functors/scope_guard.hpp>](../../../include/xieite/functors/scope_guard.hpp)
 
 &nbsp;
@@ -17,7 +17,6 @@ struct ScopeGuard {
     constexpr void release();
 };
 ```
-##### Member functions
 - [ScopeGuard](./structures/scope_guard/1/operators/constructor.md)
 - [release](./structures/scope_guard/1/release.md)
 

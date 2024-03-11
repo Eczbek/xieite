@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:StaticCast
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:StaticCast \{\}
 Defined in header [<xieite/functors/static_cast.hpp>](../../../include/xieite/functors/static_cast.hpp)
 
 &nbsp;
@@ -18,8 +18,7 @@ struct StaticCast {
     noexcept(xieite::concepts::NoThrowConvertibleTo<Source, Target>);
 };
 ```
-##### Member functions
-- [operator()](./structures/static_cast/1/operators/call.md)
+- [operator\(\)](./structures/static_cast/1/operators/call.md)
 
 &nbsp;
 

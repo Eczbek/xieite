@@ -30,5 +30,4 @@ namespace xieite::memory {
 #	else
 #		error "Platform not supported"
 #	endif
-
 #endif

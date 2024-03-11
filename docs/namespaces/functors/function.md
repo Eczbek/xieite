@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Function
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Function \{\}
 Defined in header [<xieite/functors/function.hpp>](../../../include/xieite/functors/function.hpp)
 
 &nbsp;
@@ -35,10 +35,9 @@ struct Function<Result(Arguments...)> {
     constexpr Result operator()(ArgumentReferences&&...) const;
 };
 ```
-##### Member functions
 - [Function](./structures/function/2/operators/constructor.md)
 - [operator typename](./structures/function/2/operators/cast.md)
-- [operator()](./structures/function/2/operators/call.md)
+- [operator\(\)](./structures/function/2/operators/call.md)
 
 &nbsp;
 

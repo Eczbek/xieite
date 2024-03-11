@@ -18,7 +18,7 @@ namespace xieite::strings {
 	}
 
 	template<xieite::concepts::StringView StringView = std::string_view>
-	[[nodiscard]] constexpr std::vector<StringView> split(const StringView string, const StringView::value_type delimiter) noexcept {
+	[[nodiscard]] constexpr std::vector<StringView> split(const StringView string, const typename StringView::value_type delimiter) noexcept {
 		const xieite::strings::Unview<StringView> delimiterString = xieite::strings::Unview<StringView>(1, delimiter);
 		return xieite::strings::split(string, delimiterString);
 	}

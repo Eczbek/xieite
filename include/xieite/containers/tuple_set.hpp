@@ -25,15 +25,15 @@ namespace xieite::containers {
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 		constexpr void insert(KeysReference&& keys) {
-			return ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) {
-				this->set[std::get<0>(keys)].insert(std::make_tuple(std::get<indices + 1>(keys)...));
+			return ([this, &keys]<std::size_t... i>(std::index_sequence<i...>) {
+				this->set[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 		[[nodiscard]] constexpr bool contains(KeysReference&& keys) const {
-			return this->set.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... indices>(std::index_sequence<indices...>) {
-				return this->set.at(std::get<0>(keys)).contains(std::make_tuple(std::get<indices + 1>(keys)...));
+			return this->set.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... i>(std::index_sequence<i...>) {
+				return this->set.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 

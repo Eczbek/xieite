@@ -15,6 +15,5 @@ struct Value {
     friend constexpr std::common_type_t<Number, OtherNumber> operator*(OtherNumber, xieite::math::Exponent<Number>::Value);
 };
 ```
-##### Member functions
 - [Value](./structures/value/1/operators/constructor.md)
 - [operator*](./structures/value/1/operators/multiply.md)

@@ -20,7 +20,6 @@ struct Interval {
     void stop();
 };
 ```
-##### Member functions
 - [Interval](./structures/interval/1/operators/constructor.md)
 - [operator typename](./structures/interval/1/operators/cast.md)
 - [stop](./structures/interval/1/stop.md)

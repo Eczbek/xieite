@@ -12,7 +12,7 @@ namespace xieite::strings {
 	}
 
 	template<xieite::concepts::StringView StringView = std::string_view>
-	[[nodiscard]] constexpr StringView before(const StringView string, const StringView::value_type end) noexcept {
+	[[nodiscard]] constexpr StringView before(const StringView string, const typename StringView::value_type end) noexcept {
 		return string.substr(0, string.find(end));
 	}
 }

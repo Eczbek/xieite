@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:reverseTuple
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:reverseTuple\(\)
 Defined in header [<xieite/containers/reverse_tuple.hpp>](../../../include/xieite/containers/reverse_tuple.hpp)
 
 &nbsp;
@@ -13,8 +13,8 @@ Reverses the order of elements in a `std::tuple`.
 ```cpp
 template<typename... Types>
 [[nodiscard]] constexpr typename xieite::types::List<Types...>::Reverse::Apply<std::tuple> reverseTuple(const std::tuple<Types...>& tuple)
-noexcept(([]<std::size_t... indices>(std::index_sequence<indices...>) -> bool {
-    return (... && xieite::concepts::NoThrowConvertibleTo<typename xieite::types::List<Types...>::At<indices>, typename xieite::types::List<Types...>::Reverse::At<indices>>);
+noexcept(([]<std::size_t... i>(std::index_sequence<i...>) -> bool {
+    return (... && xieite::concepts::NoThrowConvertibleTo<typename xieite::types::List<Types...>::At<i>, typename xieite::types::List<Types...>::Reverse::At<i>>);
 })(std::make_index_sequence<sizeof...(Types)>()));
 ```
 

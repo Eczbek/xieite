@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Overloader
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Overloader \{\}
 Defined in header [<xieite/functors/overloader.hpp>](../../../include/xieite/functors/overloader.hpp)
 
 &nbsp;
@@ -23,9 +23,8 @@ struct Overloader
     using Derivables::operator()...;
 };
 ```
-##### Member functions
 - [Overloader](./structures/overloader/1/operators/constructor.md)
-- [operator()](./structures/overloader/1/operators/call.md)
+- [operator\(\)](./structures/overloader/1/operators/call.md)
 
 &nbsp;
 

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Segment
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Segment \{\}
 Defined in header [<xieite/geometry/segment.hpp>](../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
@@ -40,10 +40,8 @@ struct Segment {
     constexpr bool contains(const xieite::geometry::Polygon<Number>&) const noexcept;
 };
 ```
-##### Member variables
 - start
 - end
-##### Member functions
 - [Segment](./structures/segment/1/operators/constructor.md)
 - [operator typename](./structures/segment/1/operators/cast.md)
 - [operator==](./structures/segment/1/operators/equal.md)

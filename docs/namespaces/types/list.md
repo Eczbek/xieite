@@ -69,7 +69,7 @@ struct List {
     using Sort = /* ... */;
 };
 ```
-##### Member types
+##### Members
 - [Append](./structures/list/1/append.md)
 - [AppendRange](./structures/list/1/append_range_of.md)
 - [At](./structures/list/1/at.md)
@@ -87,8 +87,7 @@ struct List {
 - [SwapRanges](./structures/list/1/swap_ranges.md)
 - [Unique](./structures/list/1/unique.md)
 - [Sort](./structures/list/1/sort.md)
-##### Member values
-- [size](./structures/list/1/size.md)
+- size
 
 &nbsp;
 

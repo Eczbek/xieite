@@ -8,7 +8,7 @@
 #	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
 #	include "../concepts/string_view.hpp"
-#	include "../concepts/specialization_of_any.hpp"
+#	include "../concepts/specialization_of.hpp"
 #	include "../strings/integer_components.hpp"
 #	include "../math/signed_size.hpp"
 #	include "../math/split_boolean.hpp"
@@ -18,11 +18,8 @@ namespace xieite::math {
 	template<std::unsigned_integral>
 	struct BigInteger;
 
-	template<std::size_t, bool>
-	struct Integer;
-
 	template<typename Number, xieite::concepts::StringView StringView = std::string_view>
-	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOfAny<Number, xieite::math::BigInteger, xieite::math::Integer>)
+	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOfAny<Number, xieite::math::BigInteger>)
 	[[nodiscard]] constexpr Number parse(const StringView value, const std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
 		if (!radix) {
 			return 0;

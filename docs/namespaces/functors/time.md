@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:time
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:time\(\)
 Defined in header [<xieite/functors/time.hpp>](../../../include/xieite/functors/time.hpp)
 
 &nbsp;

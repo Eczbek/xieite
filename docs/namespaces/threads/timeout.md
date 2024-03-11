@@ -20,7 +20,6 @@ struct Timeout {
     void stop();
 };
 ```
-##### Member functions
 - [Timeout](./structures/timeout/1/operators/constructor.md)
 - [operator typename](./structures/timeout/1/operators/cast.md)
 - [stop](./structures/timeout/1/stop.md)

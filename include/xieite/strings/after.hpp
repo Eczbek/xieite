@@ -14,7 +14,7 @@ namespace xieite::strings {
 	}
 
 	template<xieite::concepts::StringView StringView = std::string_view>
-	[[nodiscard]] constexpr StringView after(const StringView string, const StringView::value_type start) noexcept {
+	[[nodiscard]] constexpr StringView after(const StringView string, const typename StringView::value_type start) noexcept {
 		const std::size_t index = string.find(start);
 		return (index == StringView::npos) ? "" : string.substr(index + 1);
 	}

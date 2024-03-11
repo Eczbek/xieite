@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:reverseArguments
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:reverseArguments\(\)
 Defined in header [<xieite/functors/reverse_arguments.hpp>](../../../include/xieite/functors/reverse_arguments.hpp)
 
 &nbsp;

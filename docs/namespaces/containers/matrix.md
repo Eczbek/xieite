@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:Matrix
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:Matrix \{\}
 Defined in header [<xieite/containers/matrix.hpp>](../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
@@ -49,14 +49,13 @@ struct Matrix {
     constexpr void rotate(Integer, Sizes...);
 };
 ```
-##### Member functions
-- [Matrix](./structures/matrix/1/operators/constructor.md)
-- [operator\[\]](./structures/matrix/1/operators/array_subscript.md)
-- [data](./structures/matrix/1/data.md)
-- [size](./structures/matrix/1/size.md)
-- [resize](./structures/matrix/1/resize.md)
-- [reverse](./structures/matrix/1/reverse.md)
-- [rotate](./structures/matrix/1/rotate.md)
+- [Matrix\(\)](./structures/matrix/1/operators/constructor.md)
+- [operator\[\]\(\)](./structures/matrix/1/operators/array_subscript.md)
+- [data\(\)](./structures/matrix/1/data.md)
+- [size\(\)](./structures/matrix/1/size.md)
+- [resize\(\)](./structures/matrix/1/resize.md)
+- [reverse\(\)](./structures/matrix/1/reverse.md)
+- [rotate\(\)](./structures/matrix/1/rotate.md)
 
 &nbsp;
 

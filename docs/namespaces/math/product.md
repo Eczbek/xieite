@@ -19,8 +19,7 @@ struct Product {
     constexpr Product(UnsignedInteger, UnsignedInteger) noexcept;
 };
 ```
-##### Member variables
+##### Members
 - lower
 - upper
-##### Member functions
 - [Product](./structures/product/1/operators/constructor.md)

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Function<Return(Arguments...)>](../../../../function.md)\:\:operator typename
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Function<Return(Arguments...)>](../../../../function.md)\:\:operator typename\(\)
 Defined in header [<xieite/functors/function.hpp>](../../../../../../../include/xieite/functors/function.hpp)
 
 &nbsp;

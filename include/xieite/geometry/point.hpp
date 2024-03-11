@@ -37,7 +37,7 @@ namespace xieite::geometry {
 		}
 
 		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> angleTo(const xieite::geometry::Point<Number> point) const noexcept {
-			return std::fmod(std::atan2(this->y - point.y, this->x - point.x) + xieite::math::pi<Number>, xieite::math::tau<Number>);
+			return std::fmod(std::atan2(this->y - point.y, this->x - point.x) + xieite::math::pi<std::conditional_t<std::floating_point<Number>, Number, double>>, xieite::math::tau<Number>);
 		}
 
 		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> distanceTo(const xieite::geometry::Point<Number> point) const noexcept {

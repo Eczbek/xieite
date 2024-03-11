@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:templatify
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:templatify\(\)
 Defined in header [<xieite/functors/templatify.hpp>](../../../include/xieite/functors/templatify.hpp)
 
 &nbsp;

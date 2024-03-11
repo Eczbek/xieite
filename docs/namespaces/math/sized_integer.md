@@ -82,9 +82,8 @@ struct Integer {
     constexpr xieite::math::Integer<bits, sign>::Type data() const;
 };
 ```
-##### Member types
+##### Members
 - [Type](./structures/integer/1/type.md)
-##### Member functions
 - [Integer](./structures/integer/1/operators/constructor.md)
 - [operator=](./structures/integer/1/operators/assign.md)
 - [operator typename](./structures/integer/1/operators/cast.md)

@@ -25,7 +25,7 @@ namespace xieite::strings {
 
 	template<xieite::concepts::String String = std::string, std::ranges::range Range>
 	requires(std::constructible_from<String, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr String join(Range&& range, const String::value_type delimiter) noexcept {
+	[[nodiscard]] constexpr String join(Range&& range, const typename String::value_type delimiter) noexcept {
 		return xieite::strings::join(XIEITE_FORWARD(range), String(1, delimiter));
 	}
 }

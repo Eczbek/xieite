@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:counter
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:counter\(\)
 Defined in header [<xieite/functors/counter.hpp>](../../../include/xieite/functors/counter.hpp)
 
 &nbsp;
