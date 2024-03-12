@@ -12,6 +12,7 @@
 - [functors](./functors.md)
 - [geometry](./geometry.md)
 - [hashes](./hashes.md)
+- [literals](./literals.md)
 - [math](./math.md) - outdated
 - [memory](./memory.md) - outdated
 - [metadata](./metadata.md) - outdated
