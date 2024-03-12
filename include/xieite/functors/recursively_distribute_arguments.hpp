@@ -7,6 +7,7 @@
 #	include <utility>
 #	include "../concepts/invocable_with_argument_count.hpp"
 #	include "../concepts/no_throw_invocable_with_argument_count.hpp"
+#	include "../containers/splice_tuple.hpp"
 #	include "../macros/forward.hpp"
 
 namespace xieite::functors {
@@ -18,15 +19,8 @@ namespace xieite::functors {
 			return std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...);
 		} else {
 			const std::tuple<Arguments&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
-			decltype(auto) result = ([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) -> decltype(auto) {
-				return std::invoke(functor, std::get<i>(std::move(argumentsTuple))...);
-			})(std::make_index_sequence<argumentCount>());
-			return ([&functor, resultTuple = std::tuple_cat(([&argumentsTuple, &result]<std::size_t... i>(std::index_sequence<i...>) -> auto {
-				return std::forward_as_tuple(std::get<i + argumentCount>(std::move(argumentsTuple))..., XIEITE_FORWARD(result));
-			})(std::make_index_sequence<previousResultIndex>()), ([&argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) -> auto {
-				return std::forward_as_tuple(std::get<i + argumentCount + previousResultIndex>(std::move(argumentsTuple))...);
-			})(std::make_index_sequence<sizeof...(Arguments) - argumentCount - previousResultIndex>()))]<std::size_t... i>(std::index_sequence<i...>) -> decltype(auto) {
-				return xieite::functors::recursivelyDistributeArguments<argumentCount, previousResultIndex>(XIEITE_FORWARD(functor), std::get<i>(std::move(resultTuple))...);
+			return ([&functor, resultsTuple = xieite::containers::spliceTuple<previousResultIndex + argumentCount>(argumentsTuple, std::forward_as_tuple(std::apply(functor, xieite::containers::spliceTuple<argumentCount, sizeof...(Arguments) - argumentCount>(argumentsTuple))))]<std::size_t... i>(std::index_sequence<i...>) -> decltype(auto) {
+				return xieite::functors::recursivelyDistributeArguments<argumentCount, previousResultIndex>(XIEITE_FORWARD(functor), std::get<i + argumentCount>(std::move(resultsTuple))...);
 			})(std::make_index_sequence<sizeof...(Arguments) - argumentCount + 1>());
 		}
 	}

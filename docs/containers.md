@@ -16,4 +16,5 @@ Static containers and other utilities.
 - [TupleSet \{\}](./namespaces/containers/tuple_set.md)
 - [makeArray\(\)](./namespaces/containers/make_array.md)
 - [reverseTuple\(\)](./namespaces/containers/reverse_tuple.md)
+- [spliceTuple\(\)](./namespaces/containers/splice_tuple.md)
 - [tupleify\(\)](./namespaces/containers/tupleify.md)

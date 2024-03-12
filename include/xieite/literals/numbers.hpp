@@ -8,7 +8,7 @@
 #	include "../math/signed_size.hpp"
 #	include "../math/unsigned_128.hpp"
 
-namespace xieite::literals::integers {
+namespace xieite::literals::numbers {
 	[[nodiscard]] constexpr signed int operator""_i(const unsigned long long int value) noexcept {
 		return static_cast<signed int>(value);
 	}

@@ -1,12 +1,12 @@
-#ifndef XIEITE_HEADER_LITERALS_BASE
-#	define XIEITE_HEADER_LITERALS_BASE
+#ifndef XIEITE_HEADER_LITERALS_RADIX
+#	define XIEITE_HEADER_LITERALS_RADIX
 
 #	include <array>
 #	include <cstddef>
 
-namespace xieite::literals::base {
+namespace xieite::literals::radix {
 	template<char... characters>
-	[[nodiscard]] constexpr std::size_t operator""_base() noexcept {
+	[[nodiscard]] constexpr std::size_t operator""_radix() noexcept {
 		static constexpr std::array<char, sizeof...(characters)> value {
 			characters...
 		};
