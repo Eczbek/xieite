@@ -17,57 +17,65 @@ Detects whether some features of the language exist.
 ```cpp
 #define XIEITE_FEATURE_UNSIGNED_INTEGER_8 /* boolean */
 ```
-#### 2)
+#### 3)
 ```cpp
 #define XIEITE_FEATURE_SIGNED_INTEGER_16 /* boolean */
 ```
-#### 2)
+#### 4)
 ```cpp
 #define XIEITE_FEATURE_UNSIGNED_INTEGER_16 /* boolean */
 ```
-#### 2)
+#### 5)
 ```cpp
 #define XIEITE_FEATURE_SIGNED_INTEGER_32 /* boolean */
 ```
-#### 2)
+#### 6)
 ```cpp
 #define XIEITE_FEATURE_UNSIGNED_INTEGER_32 /* boolean */
 ```
-#### 2)
+#### 7)
 ```cpp
 #define XIEITE_FEATURE_SIGNED_INTEGER_64 /* boolean */
 ```
-#### 2)
+#### 8)
 ```cpp
 #define XIEITE_FEATURE_UNSIGNED_INTEGER_64 /* boolean */
 ```
-#### 2)
+#### 9)
 ```cpp
 #define XIEITE_FEATURE_SIGNED_INTEGER_128 /* boolean */
 ```
-#### 2)
+#### 10)
 ```cpp
 #define XIEITE_FEATURE_UNSIGNED_INTEGER_128 /* boolean */
 ```
-#### 2)
+#### 11)
 ```cpp
 #define XIEITE_FEATURE_FLOATING_POINT_16 /* boolean */
 ```
-#### 2)
+#### 12)
 ```cpp
 #define XIEITE_FEATURE_FLOATING_POINT_32 /* boolean */
 ```
-#### 2)
+#### 13)
 ```cpp
 #define XIEITE_FEATURE_FLOATING_POINT_64 /* boolean */
 ```
-#### 2)
+#### 14)
 ```cpp
 #define XIEITE_FEATURE_FLOATING_POINT_128 /* boolean */
 ```
-#### 2)
+#### 15)
 ```cpp
 #define XIEITE_FEATURE_FLOATING_POINT_BRAIN /* boolean */
+```
+#### 16)
+```cpp
+#define XIEITE_FEATURE_BASED_POINTER /* boolean */
+```
+#### 17)
+```cpp
+#define XIEITE_FEATURE_TYPEOF /* boolean */
 ```
 
 &nbsp;
