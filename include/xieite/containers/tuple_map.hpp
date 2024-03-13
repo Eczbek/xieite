@@ -20,8 +20,8 @@ namespace xieite::containers {
 		: map(list.begin(), list.end()) {}
 
 		template<typename Self, std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, KeysReference&& keys) {
-			return ([&self, &keys]<std::size_t... i>(std::index_sequence<i...>) -> std::convertible_to<Value> auto&& {
+		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeysReference&& keys) {
+			return ([&self, &keys]<std::size_t... i>(std::index_sequence<i...>) -> auto&& {
 				return XIEITE_FORWARD(self).map.at(std::get<0>(keys))[std::make_tuple(std::get<i + 1>(keys)...)];
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}

@@ -11,7 +11,7 @@ Accesses a value by its key, if it exists. May throw `xieite::exceptions::Invali
 #### 1)
 ```cpp
 template<typename Self, std::convertible_to<Key> KeyReference>
-[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, KeyReference&& key);
+[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeyReference&& key);
 ```
 
 &nbsp;

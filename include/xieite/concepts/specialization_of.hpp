@@ -6,7 +6,7 @@
 
 namespace xieite::concepts {
 	template<typename Type, template<typename...> typename Template>
-	concept SpecializationOf = xieite::traits::IsSpecializationOf<std::remove_cv_t<Type>, Template>::value;
+	concept SpecializationOf = xieite::traits::IsSpecializationOf<std::remove_cvref_t<Type>, Template>::value;
 }
 
 #endif

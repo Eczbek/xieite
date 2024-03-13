@@ -16,7 +16,7 @@ namespace xieite::strings {
 				break;
 			}
 			result.replace(i, replace.size(), with);
-			i += replace.size() + 1;
+			i += with.size();
 		}
 		return result;
 	}

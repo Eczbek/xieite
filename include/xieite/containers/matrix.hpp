@@ -29,7 +29,7 @@ namespace xieite::containers {
 		: xieite::containers::Matrix<Value>(std::ranges::ref_view(list)) {}
 
 		template<typename Self, xieite::concepts::RangeOf<std::size_t> Range>
-		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, Range&& indices) {
+		[[nodiscard]] constexpr auto&& operator[](this Self&& self, Range&& indices) {
 			if (std::ranges::size(indices) != self.dimensions.size()) {
 				throw std::out_of_range("Cannot access value by indices unfit for dimensions");
 			}
@@ -37,7 +37,7 @@ namespace xieite::containers {
 		}
 
 		template<typename Self, std::convertible_to<std::size_t>... Sizes>
-		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, const Sizes... indices) {
+		[[nodiscard]] constexpr auto&& operator[](this Self&& self, const Sizes... indices) {
 			return XIEITE_FORWARD(self)[std::array<std::size_t, sizeof...(Sizes)> {
 				static_cast<std::size_t>(indices)...
 			}];

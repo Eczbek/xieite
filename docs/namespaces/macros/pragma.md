@@ -1,0 +1,30 @@
+# [XIEITE](../../macros.md)\_PRAGMA\(\)
+Defined in header [<xieite/macros/pragma.hpp>](../../../include/xieite/macros/pragma.hpp)
+
+&nbsp;
+
+## Description
+A simple wrapper around `_Pragma()` or MSVC's `__pragma()`
+
+&nbsp;
+
+## Synopsis
+#### 1)
+```cpp
+#define XIEITE_PRAGMA(...) /* ... */
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include "xieite/macros/pragma.hpp"
+
+XIEITE_PRAGMA(message("Hello, world!"))
+
+int main() {}
+```
+Compilation output:
+```
+Hello, world!
+```

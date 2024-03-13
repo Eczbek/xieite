@@ -12,7 +12,7 @@ Extracts a value by a specific combination of keys.
 #### 1)
 ```cpp
 template<typename Self, std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, KeysReference&& keys);
+[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeysReference&& keys);
 ```
 
 &nbsp;

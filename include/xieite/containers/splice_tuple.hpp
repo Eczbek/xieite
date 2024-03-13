@@ -1,22 +1,23 @@
 #ifndef XIEITE_HEADER_CONTAINERS_SPLICE_TUPLE
 #	define XIEITE_HEADER_CONTAINERS_SPLICE_TUPLE
 
-#	include <concepts>
 #	include <cstddef>
 #	include <tuple>
+#	include <type_traits>
 #	include <utility>
+#	include "../concepts/specialization_of.hpp"
+#	include "../containers/forward_tuple.hpp"
+#	include "../macros/forward.hpp"
 
 namespace xieite::containers {
-	template<std::size_t start, std::size_t count = 0, typename... Types1, typename... Types2>
-	requires((start <= sizeof...(Types1)) && (count <= (sizeof...(Types1) - start)))
-	[[nodiscard]] constexpr auto spliceTuple(const std::tuple<Types1...>& tuple1, const std::tuple<Types2...>& tuple2 = std::tuple<>()) noexcept {
+	template<std::size_t start, std::size_t count = 0, xieite::concepts::SpecializationOf<std::tuple> Tuple1, xieite::concepts::SpecializationOf<std::tuple> Tuple2 = std::tuple<>>
+	requires((start <= std::tuple_size_v<std::remove_cvref_t<Tuple1>>) && (count <= (std::tuple_size_v<std::remove_cvref_t<Tuple1>> - start)))
+	[[nodiscard]] constexpr auto spliceTuple(Tuple1&& tuple1, Tuple2&& tuple2 = Tuple2()) noexcept {
 		return std::tuple_cat(([&tuple1]<std::size_t... i>(std::index_sequence<i...>) -> auto {
 			return std::forward_as_tuple(std::get<i>(std::move(tuple1))...);
-		})(std::make_index_sequence<start>()), ([&tuple2]<std::size_t... i>(std::index_sequence<i...>) -> auto {
-			return std::forward_as_tuple(std::get<i>(std::move(tuple2))...);
-		})(std::make_index_sequence<sizeof...(Types2)>()), ([&tuple1]<std::size_t... i>(std::index_sequence<i...>) -> auto {
+		})(std::make_index_sequence<start>()), xieite::containers::forwardTuple(XIEITE_FORWARD(tuple2)), ([&tuple1]<std::size_t... i>(std::index_sequence<i...>) -> auto {
 			return std::forward_as_tuple(std::get<i + start + count>(std::move(tuple1))...);
-		})(std::make_index_sequence<sizeof...(Types1) - start - count>()));
+		})(std::make_index_sequence<std::tuple_size_v<std::remove_cvref_t<Tuple1>> - start - count>()));
 	}
 }
 

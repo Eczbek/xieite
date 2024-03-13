@@ -11,12 +11,12 @@ Accesses a value by indices for every dimension. May throw `std::out_of_range` i
 #### 1)
 ```cpp
 template<typename Self, xieite::concepts::RangeOf<std::size_t> Range>
-[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, Range&& indices);
+[[nodiscard]] constexpr auto&& operator[](this Self&& self, Range&& indices);
 ```
 #### 2)
 ```cpp
 template<typename Self, std::convertible_to<std::size_t>... Sizes>
-[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, const Sizes... indices);
+[[nodiscard]] constexpr auto&& operator[](this Self&& self, const Sizes... indices);
 ```
 
 &nbsp;

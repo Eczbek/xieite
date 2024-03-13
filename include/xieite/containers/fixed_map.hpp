@@ -28,12 +28,12 @@ namespace xieite::containers {
 		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr std::convertible_to<Value> auto&& operator[](this Self&& self, KeyReference&& key) {
+		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeyReference&& key) {
 			return XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 		}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr std::convertible_to<Value> auto&& at(this Self&& self, KeyReference&& key) {
+		[[nodiscard]] constexpr auto&& at(this Self&& self, KeyReference&& key) {
 			return XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 		}
 

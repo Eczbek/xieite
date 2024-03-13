@@ -4,17 +4,25 @@ Defined in header [<xieite/macros/function_signature.hpp>](../../../include/xiei
 &nbsp;
 
 ## Description
-Gets the function's signature as a string. See header file for definitions.
+Expands to a function's compiler-specific signature.
+
+&nbsp;
+
+## Synopsis
+#### 1)
+```cpp
+#define XIEITE_FUNCTION_SIGNATURE /* string-like */
+```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/macros/function_signature.hpp"
 
 int main() {
-    std::cout << XIEITE_FUNCTION_SIGNATURE << '\n';
+    std::println("{}", XIEITE_FUNCTION_SIGNATURE);
 }
 ```
 Possible output:

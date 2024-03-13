@@ -21,7 +21,7 @@ struct TupleMap<Container, std::tuple<FirstKey, RestKeys...>, Value> {
     constexpr TupleMap(std::initializer_list<std::pair<FirstKey, TupleMap<std::tuple<RestKeys...>, Value>>> = {}) noexcept;
 
     template<typename Self>
-    constexpr std::convertible_to<Value> auto&& operator[](this Self&&, const std::tuple<FirstKey, RestKeys...>&);
+    constexpr auto&& operator[](this Self&&, const std::tuple<FirstKey, RestKeys...>&);
 
     template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
     constexpr void insert(KeysReference&&, ValueReference&&);
@@ -41,7 +41,7 @@ struct TupleMap<Container, std::tuple<Key>, Value> {
     constexpr TupleMap(std::initializer_list<std::pair<Key, Value>> = {}) noexcept;
 
     template<typename Self, std::convertible_to<std::tuple<Key>> KeyReference>
-    constexpr std::convertible_to<Value> auto&& operator[](this Self&&, KeyReference&&);
+    constexpr auto&& operator[](this Self&&, KeyReference&&);
 
     template<std::convertible_to<std::tuple<Key>> KeyReference, std::convertible_to<Value> ValueReference>
     constexpr void insert(KeyReference&&, ValueReference&&);

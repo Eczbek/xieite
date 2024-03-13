@@ -21,10 +21,10 @@ struct Matrix {
     constexpr Matrix(const std::initializer_list<Value>) noexcept;
 
     template<typename Self, xieite::concepts::RangeOf<std::size_t> Range>
-    constexpr std::convertible_to<Value> auto&& operator[](this Self&&, Range&&);
+    constexpr auto&& operator[](this Self&&, Range&&);
 
     template<typename Self, std::convertible_to<std::size_t>... Sizes>
-    constexpr std::convertible_to<Value> auto&& operator[](this Self&&, Sizes...);
+    constexpr auto&& operator[](this Self&&, Sizes...);
 
     constexpr const std::vector<Value>& data() const noexcept;
 

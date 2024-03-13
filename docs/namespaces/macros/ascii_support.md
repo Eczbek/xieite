@@ -4,22 +4,39 @@ Defined in header [<xieite/macros/ascii_support.hpp>](../../../include/xieite/ma
 &nbsp;
 
 ## Description
-Checks if the compiler supports ASCII stuff. See header file for definition.
+Checks if the compiler supports ASCII stuff.
+
+&nbsp;
+
+## Synopsis
+#### 1)
+```cpp
+#define XIEITE_ASCII_SUPPORT /* boolean */
+```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <cstddef>
+#include <print>
+#include <string_view>
 #include "xieite/macros/ascii_support.hpp"
 
+char getAlphabetLetter(std::size_t n) {
+#if XIEITE_ASCII_SUPPORT
+    return static_cast<char>('a' + n);
+#else
+    static constexpr std::string_view alphabet = "abcdefghijklmnopqrstuvwxyz";
+    return alphabet.at(n);
+#endif
+}
+
 int main() {
-    std::cout
-        << std::boolalpha
-        << XIEITE_ASCII_SUPPORT << '\n';
+    std::println("{}", getAlphabetLetter(7));
 }
 ```
-Possible output:
+Output:
 ```
-true
+h
 ```

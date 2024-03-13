@@ -21,7 +21,7 @@ namespace xieite::memory {
 		: value(XIEITE_FORWARD(arguments)...) {}
 
 		template<typename Self>
-		[[nodiscard]] std::convertible_to<Type> auto&& data(this Self&& self) noexcept {
+		[[nodiscard]] auto&& data(this Self&& self) noexcept {
 			return XIEITE_FORWARD(self).value;
 		}
 

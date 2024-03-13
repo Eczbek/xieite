@@ -145,6 +145,18 @@
 #	else
 #		define XIEITE_ATTRIBUTE_DEPRECATED
 #	endif
+
+#	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
+#		define XIEITE_ATTRIBUTE_HOT __attribute__((__hot__))
+#	else
+#		define XIEITE_ATTRIBUTE_HOT
+#	endif
+
+#	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
+#		define XIEITE_ATTRIBUTE_COLD __attribute__((__cold__))
+#	else
+#		define XIEITE_ATTRIBUTE_COLD
+#	endif
 #endif
 
 // Thanks to eightfold (https://github.com/8ightfold) and Ian Pike (https://github.com/Rinzii) for some original code

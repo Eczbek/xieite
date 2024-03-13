@@ -21,10 +21,10 @@ struct FixedMap {
     constexpr FixedMap(std::initializer_list<std::pair<Key, Value>>) noexcept;
 
     template<typename Self, std::convertible_to<Key> KeyReference>
-    constexpr std::convertible_to<Value> auto&& operator[](this Self&&, KeyReference&&);
+    constexpr auto&& operator[](this Self&&, KeyReference&&);
 
     template<typename Self, std::convertible_to<Key> KeyReference>
-    constexpr std::convertible_to<Value> auto&& at(this Self&&, KeyReference&&);
+    constexpr auto&& at(this Self&&, KeyReference&&);
 
     template<std::convertible_to<Key> KeyReference>
     constexpr bool contains(KeyReference&&) const noexcept;
