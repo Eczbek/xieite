@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:getPageSize
+# [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:getPageSize\(\)
 Defined in header [<xieite/memory/get_page_size.hpp>](../../../include/xieite/memory/get_page_size.hpp)
 
 &nbsp;
 
 ## Description
-// TODO
+Gets the system's page size in bytes.
 
 &nbsp;
 

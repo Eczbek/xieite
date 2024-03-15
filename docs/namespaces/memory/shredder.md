@@ -1,35 +1,33 @@
-# [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:Shredder
+# [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:Shredder \{\}
 Defined in header [<xieite/memory/shredder.hpp>](../../../include/xieite/memory/shredder.hpp)
 
 &nbsp;
 
 ## Description
-Clears used memory upon destruction.
+A wrapper that allows clearing its memory. Automatically shreds on destruction.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<xieite::concepts::TriviallyDestructible Type>
 struct Shredder {
-    constexpr Shredder();
+    constexpr Shredder() noexcept;
 
     template<typename... Arguments>
     requires(std::constructible_from<Type, Arguments...>)
-    constexpr Shredder(Arguments&&...);
+    constexpr Shredder(Arguments&&...) noexcept;
 
-    constexpr operator const Type&() const&;
+    template<typename Self>
+    constexpr auto&& data(this Self&&) noexcept;
 
-    constexpr operator Type&()&;
-
-    constexpr operator const Type&&() const&&;
-
-    constexpr operator Type&&()&&;
+    constexpr void shred() noexcept;
 };
 ```
-- [Shredder](./structures/shredder/1/operators/constructor.md)
-- [operator typename](./structures/shredder/1/operators/cast.md)
+- [Shredder\(\)](./structures/shredder/1/operators/constructor.md)
+- [data\(\)](./structures/shredder/1/data.md)
+- [shred\(\)](./structures/shredder/1/shred.md)
 
 &nbsp;
 
@@ -46,7 +44,7 @@ int main() {
     std::println("{}", b);
 
     {
-        xieite::memory::Shredder<int> c = 4;
+        xieite::memory::Shredder<int> c = 17;
     }
     int d;
     std::println("{}", d);

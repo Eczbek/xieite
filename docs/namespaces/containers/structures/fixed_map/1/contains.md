@@ -12,7 +12,7 @@ Checks if the map contains a key.
 #### 1)
 ```cpp
 template<typename Self, std::convertible_to<Key> KeyReference>
-[[nodiscard]] constexpr bool contains(this Self&& self, KeyReference&& key) noexcept;
+[[nodiscard]] constexpr bool contains(this Self&&, KeyReference&& key) noexcept;
 ```
 
 &nbsp;

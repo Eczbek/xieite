@@ -12,7 +12,7 @@ Accesses a value by its key, if it exists. May throw `xieite::exceptions::Invali
 #### 1)
 ```cpp
 template<typename Self, std::convertible_to<Key> KeyReference>
-[[nodiscard]] constexpr auto&& at(this Self&& self, KeyReference&& key);
+[[nodiscard]] constexpr auto&& at(this Self&&, KeyReference&& key);
 ```
 
 &nbsp;

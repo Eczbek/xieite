@@ -14,7 +14,7 @@
 - [hashes](./hashes.md)
 - [literals](./literals.md)
 - [math](./math.md)
-- [memory](./memory.md) - outdated
+- [memory](./memory.md)
 - [metadata](./metadata.md) - outdated
 - [network](./network.md) - outdated
 - [random](./random.md) - outdated

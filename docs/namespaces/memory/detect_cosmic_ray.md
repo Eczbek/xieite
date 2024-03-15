@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:detectCosmicRay
+# [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:detectCosmicRay\(\)
 Defined in header [<xieite/memory/detect_cosmic_ray.hpp>](../../../include/xieite/memory/detect_cosmic_ray.hpp)
 
 &nbsp;
@@ -11,8 +11,7 @@ Detects rare cosmic rays or a faulty memory. Even if you do intercept something,
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral Chunk = std::uintmax_t>
-void detectCosmicRay(std::size_t bytes = xieite::memory::getPageSize()) noexcept;
+inline void detectCosmicRay(std::size_t bytes) noexcept;
 ```
 
 &nbsp;
@@ -28,4 +27,8 @@ int main() {
 
     std::println("Cosmic ray detected!");
 }
+```
+Theoretical output:
+```
+Cosmic ray detected!
 ```
