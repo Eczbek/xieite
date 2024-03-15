@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_uniform_random_bit_generator.hpp>](../../..
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

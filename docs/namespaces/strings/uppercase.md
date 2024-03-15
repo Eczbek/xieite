@@ -22,11 +22,11 @@ Converts a string or character to uppercase. Only handles characters `a` to `z`.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/uppercase.hpp"
 
 int main() {
-    std::cout << xieite::strings::uppercase("hello, world!\n");
+    std::println("{}", xieite::strings::uppercase("hello, world!\n");
 }
 ```
 Output:

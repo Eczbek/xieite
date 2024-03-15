@@ -18,16 +18,16 @@ void setCursorAlternate(bool value) const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/streams/standard_handle.hpp"
 
 int main() {
     auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
 
     terminal.setCursorAlternate(true);
-    std::cout << "Hello, ";
+    std::print("Hello, ");
     terminal.setCursorAlternate(false);
-    std::cout << "world!\n";
+    std::println("world!");
 }
 ```
 Output:

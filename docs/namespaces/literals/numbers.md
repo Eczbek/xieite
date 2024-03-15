@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:\_numbers
+# [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:numbers
 Defined in header [<xieite/literals/numbers.hpp>](../../../include/xieite/literals/numbers.hpp)
 
 &nbsp;
 
 ## Description
-Literals for converting numeric literals to specific integer or floating point types.
+A namespace of literals for converting numeric literals to specific integer or floating point types.
 
 &nbsp;
 

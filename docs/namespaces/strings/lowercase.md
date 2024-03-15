@@ -22,11 +22,11 @@ Converts a string or character to lowercase. Only handles characters `A` to `Z`.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/lowercase.hpp"
 
 int main() {
-    std::cout << xieite::strings::lowercase("HELLO, WORLD!\n");
+    std::println("{}", xieite::strings::lowercase("HELLO, WORLD!\n");
 }
 ```
 Output:

@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_character.hpp>](../../../include/xieite/tra
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:wrap
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:wrap\(\)
 Defined in header [<xieite/math/wrap.hpp>](../../../include/xieite/math/wrap.hpp)
 
 &nbsp;
@@ -19,14 +19,25 @@ template<xieite::concepts::Arithmetic Number>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/wrap.hpp"
 
 int main() {
-    std::cout << xieite::math::wrap(23, 4, -2) << '\n';
+    for (int i = 0; i < 10; ++i) {
+        std::println("{}", xieite::math::wrap(i, 4, -2));
+    }
 }
 ```
 Output:
 ```
+0
+1
+2
+3
+4
+-2
 -1
+0
+1
+2
 ```

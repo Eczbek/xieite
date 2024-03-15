@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/unrepresentable_value.hpp>](../../../inclu
 
 &nbsp;
 
+## Description
 An exception type that indicates an unrepresentable value. Extends `xieite::exceptions::Unspecified`.
 
 &nbsp;

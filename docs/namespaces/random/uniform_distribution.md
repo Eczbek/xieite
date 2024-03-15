@@ -3,6 +3,11 @@ Defined in header [<xieite/random/uniform_distribution.hpp>](../../../include/xi
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

@@ -22,11 +22,11 @@ Trims both the front and back of a string.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/trim.hpp"
 
 int main() {
-    std::cout << xieite::strings::trim("bababatananana", "ban") << '\n';
+    std::println("{}", xieite::strings::trim("bababatananana", "ban"));
 }
 ```
 Output:

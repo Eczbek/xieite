@@ -20,8 +20,7 @@ struct FixedString {
 
     static constexpr std::size_t size() noexcept;
 
-    template<xieite::concepts::StringView StringView = std::string_view>
-    constexpr StringView view() const noexcept;
+    constexpr std::string_view view() const noexcept;
 };
 ```
 - data

@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:antimodes
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:antimodes\(\)
 Defined in header [<xieite/math/antimodes.hpp>](../../../include/xieite/math/antimodes.hpp)
 
 &nbsp;
 
 ## Description
-Computes the antimodes of some values. Returns `{ 0 }` if no arguments are passed.
+Finds values which are less than both their direct neighbors.
 
 &nbsp;
 
@@ -25,12 +25,12 @@ template<xieite::concepts::Arithmetic... Numbers>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/antimodes.hpp"
 
 int main() {
     for (int value : xieite::math::antimodes(1, 3, 2, 4, 5)) {
-        std::cout << value << '\n';
+        std::println("{}", value);
     }
 }
 ```

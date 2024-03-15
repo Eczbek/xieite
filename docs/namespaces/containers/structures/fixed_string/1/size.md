@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/fixed_string.hpp>](../../../../../../../in
 
 &nbsp;
 
+## Description
 Returns the string size, not counting the null-terminator.
 
 &nbsp;

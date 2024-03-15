@@ -19,12 +19,12 @@ inline constexpr std::string_view name = /* ... */;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <vector>
 #include "xieite/types/name.hpp"
 
 int main() {
-    std::cout << xieite::types::name<std::vector<int>> << '\n';
+    std::println("{}", xieite::types::name<std::vector<int>>);
 }
 ```
 Output:

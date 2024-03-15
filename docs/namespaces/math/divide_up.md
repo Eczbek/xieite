@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideUp
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideUp\(\)
 Defined in header [<xieite/math/divide_up.hpp>](../../../include/xieite/math/divide_up.hpp)
 
 &nbsp;
@@ -12,18 +12,23 @@ Computes the value of a division and rounds away from zero.
 #### 1)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] constexpr Integer divideUp(const Integer dividend, const Integer divisor) noexcept;
+[[nodiscard]] constexpr Integer divideUp(Integer dividend, Integer divisor) noexcept;
+```
+#### 2)
+```cpp
+template<std::floating_point FloatingPoint>
+[[nodiscard]] constexpr FloatingPoint divideUp(FloatingPoint dividend, FloatingPoint divisor) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/divide_up.hpp"
 
 int main() {
-    std::cout << xieite::math::divideUp(-249, 16) << '\n';
+    std::println("{}", xieite::math::divideUp(-249, 16));
 }
 ```
 Output:

@@ -18,7 +18,7 @@ char readCharacter() const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/streams/standard_handle.hpp"
 
 int main() {
@@ -26,7 +26,7 @@ int main() {
 
     std::cin.putback('h');
 
-    std::cout << terminal.readCharacter() << '\n';
+    std::println("{}", terminal.readCharacter());
 }
 ```
 Output:

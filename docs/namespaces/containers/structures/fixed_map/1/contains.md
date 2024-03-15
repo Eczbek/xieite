@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../inclu
 
 &nbsp;
 
+## Description
 Checks if the map contains a key.
 
 &nbsp;

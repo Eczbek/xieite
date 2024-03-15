@@ -30,11 +30,11 @@ Takes a substring between two other substrings.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/between.hpp"
 
 int main() {
-    std::cout << xieite::strings::between("Hello, world!", "el", "ld") << '\n';
+    std::println("{}", xieite::strings::between("Hello, world!", "el", "ld"));
 }
 ```
 Output:

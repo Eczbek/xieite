@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_wide_character.hpp>](../../../include/xieit
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

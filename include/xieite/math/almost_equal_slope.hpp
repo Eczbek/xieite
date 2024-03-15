@@ -6,8 +6,8 @@
 #	include "../math/almost_equal.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>
-	[[nodiscard]] constexpr bool almostEqualSlope(const Number1 value1, const Number2 value2) noexcept {
+	template<xieite::concepts::Arithmetic Number>
+	[[nodiscard]] constexpr bool almostEqualSlope(const Number value1, const Number value2) noexcept {
 		return std::isinf(value1) && std::isinf(value2) || xieite::math::almostEqual(value1, value2);
 	}
 }

@@ -13,7 +13,7 @@ Computes the modes (or antimodes) of a set of data.
 ```cpp
 template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>)> Functor = std::ranges::greater>
 requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>> && xieite::concepts::ConstantInvocable<Functor, std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>>)
-[[nodiscard]] constexpr std::vector<std::ranges::const_iterator_t<const Range>> modes(const Range& range, Functor&& comparator = Functor())
+[[nodiscard]] constexpr std::vector<std::ranges::iterator_t<const Range>> modes(const Range& range, Functor&& comparator = Functor())
 noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>>);
 ```
 

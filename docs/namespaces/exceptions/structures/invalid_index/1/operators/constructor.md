@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/invalid_index.hpp>](../../../../../../../i
 
 &nbsp;
 
+## Description
 Constructs a `xieite::exceptions::InvalidIndex`.
 
 ## Synopsis

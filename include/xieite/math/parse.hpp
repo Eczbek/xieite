@@ -7,7 +7,6 @@
 #	include <string_view>
 #	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
-#	include "../concepts/string_view.hpp"
 #	include "../concepts/specialization_of.hpp"
 #	include "../strings/integer_components.hpp"
 #	include "../math/signed_size.hpp"
@@ -18,9 +17,9 @@ namespace xieite::math {
 	template<std::unsigned_integral>
 	struct BigInteger;
 
-	template<typename Number, xieite::concepts::StringView StringView = std::string_view>
-	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOfAny<Number, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr Number parse(const StringView value, const std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
+	template<typename Number>
+	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
+	[[nodiscard]] constexpr Number parse(const std::string_view value, const std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
 		if (!radix) {
 			return 0;
 		}
@@ -33,7 +32,7 @@ namespace xieite::math {
 			xieite::math::SignedSize power = 0;
 			for (std::size_t i = negative || (value[0] == components.positive); i < valueSize; ++i) {
 				const std::size_t index = components.digits.find(value[i]);
-				if (index == StringView::npos) {
+				if (index == std::string_view::npos) {
 					if (value[i] == components.point) {
 						if (point) {
 							break;
@@ -54,7 +53,7 @@ namespace xieite::math {
 			xieite::math::SignedSize power = 0;
 			for (std::size_t i = negative || (value[0] == components.positive); i < valueSize; ++i) {
 				const std::size_t index = components.digits.find(value[i]);
-				if (index == StringView::npos) {
+				if (index == std::string_view::npos) {
 					break;
 				}
 				result = result * radix + static_cast<Number>(index);

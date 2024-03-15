@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/
 
 &nbsp;
 
+## Description
 Accesses a value by indices for every dimension. May throw `std::out_of_range` if the number of indices does not match the number of dimensions, or `std::range_error` if an index is outside its respective dimension.
 
 &nbsp;

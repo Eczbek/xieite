@@ -18,11 +18,11 @@ Repeats a string multiple times.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/repeat.hpp"
 
 int main() {
-    std::cout << xieite::strings::repeat("Hello, world!\n", 3);
+    std::println("{}", xieite::strings::repeat("Hello, world!\n", 3);
 }
 ```
 Output:

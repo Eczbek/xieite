@@ -27,7 +27,7 @@ struct UniformInterruptableDistribution {
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <random>
 #include "xieite/random/uniform_interruptable_distribution.hpp"
 
@@ -43,7 +43,7 @@ int main() {
     auto dist = xieite::random::UniformInterruptableDistribution<int>(interval, interruptions);
 
     for (int i = 0; i < 10; ++i) {
-        std::cout << dist(rng) << '\n';
+        std::println("{}", dist(rng));
     }
 }
 ```

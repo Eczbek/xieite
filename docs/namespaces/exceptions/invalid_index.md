@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/invalid_index.hpp>](../../../include/xieit
 
 &nbsp;
 
+## Description
 An exception type that indicates accessing an invalid index in a range. Extends `xieite::exceptions::Unspecified`.
 
 &nbsp;

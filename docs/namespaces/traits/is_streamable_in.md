@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_streamable_in.hpp>](../../../include/xieite
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

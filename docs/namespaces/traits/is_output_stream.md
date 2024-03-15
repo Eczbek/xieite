@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_output_stream.hpp>](../../../include/xieite
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

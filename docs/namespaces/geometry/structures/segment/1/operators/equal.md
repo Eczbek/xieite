@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Number>](../../../../segment.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Number>](../../../../segment.md)\:\:operator==\(\)
 Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;

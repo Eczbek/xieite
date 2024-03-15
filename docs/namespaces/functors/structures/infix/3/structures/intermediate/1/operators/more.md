@@ -3,6 +3,7 @@ Defined in header [<xieite/functors/infix.hpp>](../../../../../../../../../../in
 
 &nbsp;
 
+## Description
 Calls the underlying functor with both arguments.
 
 &nbsp;

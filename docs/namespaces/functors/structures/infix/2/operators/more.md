@@ -3,6 +3,7 @@ Defined in header [<xieite/functors/infix.hpp>](../../../../../../../include/xie
 
 &nbsp;
 
+## Description
 Calls the underlying functor with one argument.
 
 &nbsp;

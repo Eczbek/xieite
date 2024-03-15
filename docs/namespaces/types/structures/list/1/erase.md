@@ -3,6 +3,7 @@ Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/typ
 
 &nbsp;
 
+## Description
 Erases one or a range of types.
 
 &nbsp;
@@ -18,14 +19,14 @@ using Erase = List<Types...>::Slice<0, start>::template AppendRange<List<Types..
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/types/list.hpp"
 #include "xieite/types/name.hpp"
 
 int main() {
     using List = xieite::types::List<int, char, short, long>::Erase<2>;
 
-    std::cout << xieite::types::name<List> << '\n';
+    std::println("{}", xieite::types::name<List>);
 }
 ```
 Output:

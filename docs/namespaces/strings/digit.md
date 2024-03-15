@@ -18,14 +18,11 @@ Checks if a character is a digit.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/digit.hpp"
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << xieite::strings::digit('3')
-        << '\n';
+    std::println("{}", xieite::strings::digit('3'));
 }
 ```
 Output:

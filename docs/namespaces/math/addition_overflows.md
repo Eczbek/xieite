@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:additionOverflows
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:additionOverflows\(\)
 Defined in header [<xieite/math/addition_overflows.hpp>](../../../include/xieite/math/addition_overflows.hpp)
 
 &nbsp;
 
 ## Description
-Checks if the addition of two values will overflow or underflow their type, or is not representable.
+Checks if the addition of two values will overflow or underflow their type (therefore causing undefined behavior with signed integers), or is not representable.
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Checks if the addition of two values will overflow or underflow their type, or i
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr bool additionOverflows(const Number value1, const Number value2) noexcept;
+[[nodiscard]] constexpr bool additionOverflows(Number augend, Number addend) noexcept;
 ```
 
 &nbsp;
@@ -20,13 +20,11 @@ template<xieite::concepts::Arithmetic Number>
 ## Example
 ```cpp
 #include <cstdint>
-#include <iostream>
+#include <print>
 #include "xieite/math/addition_overflows.hpp"
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << xieite::math::additionOverflows<std::uint8_t>(127, 1) << '\n';
+    std::print("{}", xieite::math::additionOverflows<std::int8_t>(127, 1));
 }
 ```
 Output:

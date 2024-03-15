@@ -3,6 +3,11 @@ Defined in header [<xieite/types/maybe_signed.hpp>](../../../include/xieite/type
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

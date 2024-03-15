@@ -3,6 +3,11 @@ Defined in header [<xieite/network/address.hpp>](../../../../../../include/xieit
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

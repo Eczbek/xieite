@@ -19,7 +19,7 @@ inline std::string read(std::istream& inputStream) noexcept;
 ## Example
 ```cpp
 #include <fstream>
-#include <iostream>
+#include <print>
 #include "xieite/streams/read.md>
 
 int main() {
@@ -29,7 +29,7 @@ int main() {
 
     std::ifstream reader("test.txt");
 
-    std::cout << xieite::streams::read(reader);
+    std::println("{}", xieite::streams::read(reader));
 }
 ```
 Output:

@@ -93,7 +93,7 @@ struct List {
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/types/list.hpp"
 #include "xieite/types/name.hpp"
 
@@ -103,7 +103,7 @@ int main() {
     using Baz = Bar::Reverse;
     using Qux = Baz::Erase<3>;
 
-    std::cout << xieite::types::name<Qux> << '\n';
+    std::println("{}", xieite::types::name<Qux>);
 }
 ```
 Output:

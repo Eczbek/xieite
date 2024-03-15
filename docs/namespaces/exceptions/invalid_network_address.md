@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/invalid_network_address.hpp>](../../../inc
 
 &nbsp;
 
+## Description
 An exception type that indicates the creation of an invalid network address. Extends `xieite::exceptions::Unspecified`.
 
 &nbsp;

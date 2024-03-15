@@ -19,14 +19,12 @@ template<xieite::concepts::Arithmetic Number>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/valid_number.hpp"
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << xieite::strings::validNumber("3.14159") << '\n'
-        << xieite::strings::validNumber("test") << '\n';
+    std::println("{}", xieite::strings::validNumber("3.14159"));
+    std::println("{}", xieite::strings::validNumber("test"));
 }
 ```
 Output:

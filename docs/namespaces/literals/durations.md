@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:\_durations
+# [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:durations
 Defined in header [<xieite/literals/durations.hpp>](../../../include/xieite/literals/durations.hpp)
 
 &nbsp;
 
 ## Description
-Literals for constructing various durations.
+A namespace of literals for constructing various durations.
 
 &nbsp;
 

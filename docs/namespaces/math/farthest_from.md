@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:farthestFrom
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:farthestFrom\(\)
 Defined in header [<xieite/math/farthest_from.hpp>](../../../include/xieite/math/farthest_from.hpp)
 
 &nbsp;
@@ -24,11 +24,11 @@ template<xieite::concepts::Arithmetic Number>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/farthest_from.hpp"
 
 int main() {
-    std::cout << xieite::math::farthestFrom(0, 5, -1) << '\n';
+    std::println("{}", xieite::math::farthestFrom(0, 5, -1));
 }
 ```
 Output:

@@ -18,11 +18,11 @@ Pads the back of a string.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/pad_back.hpp"
 
 int main() {
-    std::cout << xieite::strings::padBack("BEEF", 7, '=') << '\n';
+    std::println("{}", xieite::strings::padBack("BEEF", 7, '='));
 }
 ```
 Output:

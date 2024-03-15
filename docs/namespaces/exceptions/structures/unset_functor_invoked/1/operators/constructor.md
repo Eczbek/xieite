@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/unset_functor_invoked.hpp>](../../../../..
 
 &nbsp;
 
+## Description
 Constructs a `xieite::exceptions::UnsetFunctorInvoked`.
 
 ## Synopsis

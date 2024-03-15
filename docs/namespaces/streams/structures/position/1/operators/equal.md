@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Position](../../../../position.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Position](../../../../position.md)\:\:operator==\(\)
 Defined in header [<xieite/streams/position.hpp>](../../../../../../../include/xieite/streams/position.hpp)
 
 &nbsp;

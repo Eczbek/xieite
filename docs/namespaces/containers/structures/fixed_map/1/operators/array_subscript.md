@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../inclu
 
 &nbsp;
 
+## Description
 Accesses a value by its key, if it exists. May throw `xieite::exceptions::InvalidKey` if the map does not contain a key that it is accessed with.
 
 &nbsp;

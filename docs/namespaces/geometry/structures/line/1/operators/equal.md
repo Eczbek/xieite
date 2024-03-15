@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Line<Number>](../../../../line.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Line<Number>](../../../../line.md)\:\:operator==\(\)
 Defined in header [<xieite/geometry/line.hpp>](../../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;

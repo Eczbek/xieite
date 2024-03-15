@@ -22,11 +22,11 @@ Takes the start of a string before some substring.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/before.hpp"
 
 int main() {
-    std::cout << xieite::strings::before("Hello, world!", ' ') << '\n';
+    std::println("{}", xieite::strings::before("Hello, world!", ' '));
 }
 ```
 Output:

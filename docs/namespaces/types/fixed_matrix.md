@@ -47,16 +47,14 @@ struct FixedMatrix<FixedContainer, Value> {
 ## Example
 ```cpp
 #include <array>
-#include <iostream>
+#include <print>
 #include "xieite/types/dynamic_matrix.hpp"
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << std::same_as<
-            xieite::types::FixedMatrix<std::array, int, 3, 2, 1>::Type,
-            std::array<std::array<std::array<int, 3>, 2>, 1>
-        > << '\n';
+    std::println("{}", std::same_as<
+        xieite::types::FixedMatrix<std::array, int, 3, 2, 1>::Type,
+        std::array<std::array<std::array<int, 3>, 2>, 1>
+    >);
 }
 ```
 Output:

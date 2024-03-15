@@ -3,6 +3,7 @@ Defined in header [<xieite/functors/infix.hpp>](../../../../../../../include/xie
 
 &nbsp;
 
+## Description
 Returns an intermediate state which must be used immediately.
 
 &nbsp;

@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/
 
 &nbsp;
 
+## Description
 Constructs a `xieite::containers::Matrix`.
 
 &nbsp;

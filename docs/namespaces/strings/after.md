@@ -22,11 +22,11 @@ Takes the rest of a string after some substring.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/after.hpp"
 
 int main() {
-    std::cout << xieite::strings::after("Hello, world!", ' ') << '\n';
+    std::println("{}", xieite::strings::after("Hello, world!", ' '));
 }
 ```
 Output:

@@ -3,12 +3,12 @@
 
 #	include <cstddef>
 #	include <string>
-#	include "../concepts/string.hpp"
+#	include <string_view>
 
 namespace xieite::strings {
-	template<xieite::concepts::String String = std::string>
-	[[nodiscard]] constexpr String truncate(const String& string, const std::size_t length, const String& suffix = "") noexcept {
-		return (string.size() <= length) ? string : ((suffix.size() > length) ? suffix.substr(0, length) : (string.substr(0, length - suffix.size()) + suffix));
+	[[nodiscard]] constexpr std::string truncate(const std::string_view string, const std::size_t length, const std::string_view suffix = "") noexcept {
+		const std::size_t suffixSize = suffix.size();
+		return (string.size() <= length) ? std::string(string) : ((suffixSize > length) ? std::string(suffix.substr(0, length)) : (std::string(string.substr(0, length - suffixSize)) + std::string(suffix)));
 	}
 }
 

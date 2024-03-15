@@ -29,7 +29,7 @@ struct Interval {
 ## Example
 ```cpp
 #include <chrono>
-#include <iostream>
+#include <print>
 #include <thread>
 #include "xieite/threads/interval.hpp"
 
@@ -37,7 +37,7 @@ int main() {
     xieite::threads::Interval interval([] {
         static int i = 0;
 
-        std::cout << ++i << '\n';
+        std::println("{}", ++i);
     }, std::chrono::seconds(1));
 
     std::this_thread::sleep_for(std::chrono::seconds(5));

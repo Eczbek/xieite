@@ -3,6 +3,11 @@ Defined in header [<xieite/memory/get_page_size.hpp>](../../../include/xieite/me
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp
@@ -13,11 +18,11 @@ Defined in header [<xieite/memory/get_page_size.hpp>](../../../include/xieite/me
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/memory/get_page_size.hpp"
 
 int main() {
-    std::cout << xieite::memory::getPageSize() << '\n';
+    std::println("{}", xieite::memory::getPageSize());
 }
 ```
 Possible output:

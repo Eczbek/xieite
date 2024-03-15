@@ -1,14 +1,13 @@
 #ifndef XIEITE_HEADER_MATH_CEILING
 #	define XIEITE_HEADER_MATH_CEILING
 
-#	include <cmath>
-#	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
+#	include "../math/divide_ceiling.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2 = Number1>
-	[[nodiscard]] constexpr std::common_type_t<Number1, Number2> ceiling(const Number1 value, const Number2 step = 1) noexcept {
-		return std::ceil(value / step) * step;
+	template<xieite::concepts::Arithmetic Number>
+	[[nodiscard]] constexpr Number ceiling(const Number value, const Number step = 1) noexcept {
+		return xieite::math::divideCeiling(value, step) * step;
 	}
 }
 

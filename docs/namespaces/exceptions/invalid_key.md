@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/invalid_key.hpp>](../../../include/xieite/
 
 &nbsp;
 
+## Description
 An exception type that indicates accessing an invalid key in a map or a set. Extends `xieite::exceptions::Unspecified`.
 
 &nbsp;

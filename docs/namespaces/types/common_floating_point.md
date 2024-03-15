@@ -3,6 +3,11 @@ Defined in header [<xieite/types/common_floating_point.hpp>](../../../include/xi
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

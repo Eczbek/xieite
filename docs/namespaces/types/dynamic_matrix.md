@@ -32,17 +32,15 @@ struct DynamicMatrix<DynamicContainer, Value, 0> {
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <vector>
 #include "xieite/types/dynamic_matrix.hpp"
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << std::same_as<
-            xieite::types::DynamicMatrix<std::vector, int, 3>::Type,
-            std::vector<std::vector<std::vector<int>>>
-        > << '\n';
+    std::println("{}", std::same_as<
+        xieite::types::DynamicMatrix<std::vector, int, 3>::Type,
+        std::vector<std::vector<std::vector<int>>>
+    >);
 }
 ```
 Output:

@@ -1,16 +1,32 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:roundUp
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:roundUp\(\)
 Defined in header [<xieite/math/round_up.hpp>](../../../include/xieite/math/round_up.hpp)
 
 &nbsp;
 
 ## Description
-Rounds a `value` to the nearest `step` away from `0`.
+Rounds a value to the nearest multiple of a step away from zero.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>
-[[nodiscard]] constexpr std::common_type_t<Number1, Number2> roundUp(const Number1 value, const Number2 step = 1) noexcept;
+template<xieite::concepts::Arithmetic Number>
+[[nodiscard]] constexpr Number roundUp(Number value, Number step = 1) noexcept;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/math/round_up.hpp"
+
+int main() {
+    std::println("{}", xieite::math::roundUp(-21, 5));
+}
+```
+Output:
+```
+-25
 ```

@@ -18,12 +18,12 @@ Pads a string from both sides.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/pad_center.hpp"
 
 int main() {
     for (int i = 3; i < 10; ++i) {
-        std::cout << '|' << xieite::strings::padCenter("xyz", i) << "|\n";
+        std::println("|{}|", xieite::strings::padCenter("xyz", i));
     }
 }
 ```

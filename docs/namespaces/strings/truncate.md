@@ -18,11 +18,11 @@ Shortens the end of a string, replacing it with a suffix.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/truncate.hpp"
 
 int main() {
-    std::cout << xieite::strings::truncate("Hello, world!", 8, "...") << '\n';
+    std::println("{}", xieite::strings::truncate("Hello, world!", 8, "..."));
 }
 ```
 Output:

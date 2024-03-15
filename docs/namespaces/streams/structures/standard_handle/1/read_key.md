@@ -18,7 +18,7 @@ xieite::streams::Key readKey() const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/streams/key.hpp"
 #include "xieite/streams/standard_handle.hpp"
 
@@ -29,19 +29,19 @@ int main() {
 
     switch (terminal.readKey()) {
         case xieite::streams::Key::ArrowUp:
-            std::cout << "Up\n";
+            std::println("Up");
             break;
         case xieite::streams::Key::ArrowDown:
-            std::cout << "Down\n";
+            std::println("Down");
             break;
         case xieite::streams::Key::ArrowRight:
-            std::cout << "Left\n";
+            std::println("Left");
             break;
         case xieite::streams::Key::ArrowLeft:
-            std::cout << "Right\n";
+            std::println("Right");
             break;
         default:
-            std::cout << "None\n";
+            std::println("None");
     }
 }
 

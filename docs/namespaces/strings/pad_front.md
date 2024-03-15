@@ -18,11 +18,11 @@ Pads the front of a string.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/pad_front.hpp"
 
 int main() {
-    std::cout << xieite::strings::padFront("418", 7, '0') << '\n';
+    std::println("{}", xieite::strings::padFront("418", 7, '0'));
 }
 ```
 Output:

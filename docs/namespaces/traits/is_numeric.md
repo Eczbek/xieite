@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_numeric.hpp>](../../../include/xieite/trait
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

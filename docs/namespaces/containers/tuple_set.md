@@ -3,6 +3,11 @@ Defined in header [<xieite/containers/tuple_set.hpp>](../../../include/xieite/co
 
 &nbsp;
 
+## Description
+A wrapper for `std::unordered_set` which allows indexing with tuples.
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

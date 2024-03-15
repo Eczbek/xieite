@@ -4,7 +4,7 @@ Defined in header [<xieite/math/fibonacci.hpp>](../../../include/xieite/math/fib
 &nbsp;
 
 ## Description
-A lookup table of the fibonacci sequence.
+A lookup table of all representable values of the fibonacci sequence.
 
 &nbsp;
 
@@ -12,18 +12,18 @@ A lookup table of the fibonacci sequence.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-inline constexpr auto fibonacci = /* std::array<Number, N> { ... } */
+inline constexpr std::array<Number, /* ... */ fibonacci = /* ... */
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/fibonacci.hpp"
 
 int main() {
-    std::cout << xieite::math::fibonacci<std::size_t>[45] << '\n';
+    std::println("{}", xieite::math::fibonacci<std::size_t>[45]);
 }
 ```
 Output:

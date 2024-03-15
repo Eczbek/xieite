@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/fixed_set.hpp>](../../../../../../../inclu
 
 &nbsp;
 
+## Description
 Constructs a `xieite::containers::FixedSet`.
 
 &nbsp;

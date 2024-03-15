@@ -463,18 +463,18 @@ Macros for identifying the current platform or operating system and its version 
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/macros/platform.hpp"
 
 int main() {
 #if XIEITE_PLATFORM_TYPE_WINDOWS
-    std::cout << "Windows\n"; // trash
+    std::println("Windows"); // trash
 #elif XIEITE_PLATFORM_TYPE_MACINTOSH
-    std::cout << "Macintosh\n"; // garbage
+    std::println("Macintosh"); // garbage
 #elif XIEITE_PLATFORM_TYPE_LINUX
-    std::cout << "Linux\n"; // #linuxmasterrace
+    std::println("Linux"); // #linuxmasterrace
 #else
-    std::cout << "Other\n"; // BSD?
+    std::println("Other"); // BSD?
 #endif
 }
 ```

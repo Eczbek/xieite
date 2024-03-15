@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/unrepresentable_value.hpp>](../../../../..
 
 &nbsp;
 
+## Description
 Constructs a `xieite::exceptions::UnrepresentableValue`.
 
 ## Synopsis

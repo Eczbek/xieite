@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/
 
 &nbsp;
 
+## Description
 Resizes the matrix and reinterprets the underlying data. May throw `std::out_of_range` if the new dimensions require more data than what is provided.
 
 &nbsp;

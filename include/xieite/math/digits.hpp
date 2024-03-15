@@ -3,20 +3,24 @@
 
 #	include <concepts>
 #	include <cstddef>
+#	include "../math/absolute.hpp"
 #	include "../math/is_negative.hpp"
 
 namespace xieite::math {
 	template<std::integral Integer>
-	[[nodiscard]] constexpr std::size_t digits(Integer value, const Integer base = 10) noexcept {
-		if (!base) {
-			return 0;
+	[[nodiscard]] constexpr std::size_t digits(Integer value, const Integer radix = 10) noexcept {
+		if (!radix) {
+			return 1;
 		}
-		if (base == 1) {
-			return value;
+		if (radix == 1) {
+			return static_cast<std::size_t>(xieite::math::absolute(value));
 		}
-		std::size_t result = xieite::math::isNegative(value) != xieite::math::isNegative(radix);
+		if (radix == -1) {
+			return static_cast<std::size_t>(xieite::math::absolute(value) * 2) + 1;
+		}
+		std::size_t result = 0;
 		do {
-			value /= base;
+			value = value / radix + xieite::math::isNegative(value % radix);
 			++result;
 		} while (value);
 		return result;

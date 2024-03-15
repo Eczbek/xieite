@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/division_by_zero.hpp>](../../../../../../.
 
 &nbsp;
 
+## Description
 Constructs a `xieite::exceptions::DivisionByZero`.
 
 ## Synopsis

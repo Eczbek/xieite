@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/invalid_key.hpp>](../../../../../../../inc
 
 &nbsp;
 
+## Description
 Constructs a `xieite::exceptions::InvalidKey`.
 
 ## Synopsis

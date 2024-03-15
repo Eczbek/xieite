@@ -13,7 +13,7 @@ namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
 	[[nodiscard]] consteval std::string_view name() noexcept {
 		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] -> std::string {
-			return xieite::strings::replace(xieite::strings::between<std::string_view>(string, "= ", ';'), " >", '>');
+			return xieite::strings::replace(xieite::strings::between(string, "= ", ';'), " >", '>');
 		};
 		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
 		return std::string_view(data.begin(), data.end());
@@ -28,7 +28,7 @@ namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
 		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] -> std::string_view {
-			return xieite::strings::between<std::string_view>(string, "= ", ']');
+			return xieite::strings::between(string, "= ", ']');
 		};
 		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
 		return std::string_view(data.begin(), data.end());
@@ -44,7 +44,7 @@ namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename>
 	[[nodiscard]] constexpr std::string_view name() noexcept {
 		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] -> std::string_view {
-			return xieite::strings::between<std::string_view>(xieite::strings::after<std::string_view>(string, " __"), '<', ">(");
+			return xieite::strings::between(xieite::strings::after(string, " __"), '<', ">(");
 		};
 		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
 		return std::string_view(data.begin(), data.end());

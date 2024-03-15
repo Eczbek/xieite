@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_convertible_to_any.hpp>](../../../include/x
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

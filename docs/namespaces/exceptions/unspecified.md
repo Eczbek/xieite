@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/unspecified.hpp>](../../../include/xieite/
 
 &nbsp;
 
+## Description
 An exception type that doesn't indicate anything in particular. Extends `std::exception`.
 
 &nbsp;

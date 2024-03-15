@@ -18,11 +18,11 @@ Replicates `std::quoted` but without streams and more constexpr.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/quoted.hpp"
 
 int main() {
-    std::cout << xieite::strings::quoted("Something \"quoted\" and \\escaped") << '\n';
+    std::println("{}", xieite::strings::quoted("Something \"quoted\" and \\escaped"));
 }
 ```
 Output:

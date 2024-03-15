@@ -29,13 +29,13 @@ struct Timeout {
 ## Example
 ```cpp
 #include <chrono>
-#include <iostream>
+#include <print>
 #include <thread>
 #include "xieite/threads/timeout.hpp"
 
 int main() {
     xieite::threads::Timeout timeout([] {
-        std::cout << "Hello, world!\n";
+        std::println("Hello, world!");
     }, std::chrono::seconds(3));
 
     std::this_thread::sleep_for(std::chrono::seconds(1));

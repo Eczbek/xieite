@@ -3,6 +3,7 @@ Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/typ
 
 &nbsp;
 
+## Description
 Accesses a type by index.
 
 &nbsp;
@@ -18,14 +19,14 @@ using At = /* ... */;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/types/list.hpp"
 #include "xieite/types/name.hpp"
 
 int main() {
     using Type = xieite::types::List<int, char, short, long>::At<2>;
 
-    std::cout << xieite::types::name<Type> << '\n';
+    std::println("{}", xieite::types::name<Type>);
 }
 ```
 Output:

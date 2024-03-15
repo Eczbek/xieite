@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:logarithm
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:logarithm\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Computes the logarithm of a `xieite::math::BigInteger` to a base.
+Computes the logarithm of a `xieite::math::BigInteger<Word>` to a base.
 
 &nbsp;
 
@@ -23,13 +23,13 @@ template<std::integral Integer>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    xieite::math::BigInteger<Word> bigInteger = 1000;
+    xieite::math::BigInteger bigInteger = 1000;
 
-    std::cout << bigInteger.logarithm(10).string() << '\n';
+    std::println("{}", bigInteger.logarithm(10).string());
 }
 ```
 Output:

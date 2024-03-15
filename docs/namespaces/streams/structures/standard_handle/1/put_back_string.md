@@ -18,7 +18,7 @@ void putBackString(std::string_view value) const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <string>
 #include "xieite/streams/standard_handle.hpp"
 
@@ -30,7 +30,7 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
 
-    std::cout << input << '\n';
+    std::println("{}", input);
 }
 ```
 Output:

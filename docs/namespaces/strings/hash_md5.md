@@ -18,11 +18,11 @@ Generates an MD5 hash.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/hash_md5.hpp"
 
 int main() {
-    std::cout << xieite::strings::hashMd5("Hello, world!") << '\n';
+    std::println("{}", xieite::strings::hashMd5("Hello, world!"));
 }
 ```
 Output:

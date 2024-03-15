@@ -18,15 +18,14 @@ Shifts and adds RGBA values together to create a single value.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
+#include "xieite/math/stringify.hpp"
 #include "xieite/streams/color.hpp"
 
 int main() {
     xieite::streams::Color color(255, 127, 0);
 
-    std::cout
-        << std::hex
-        << color.value() << '\n';
+    std::println("{}", xieite::math::stringify(color.value(), 16));
 }
 ```
 Output:

@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/possible_results_excluded_by_arguments.hpp
 
 &nbsp;
 
+## Description
 Constructs a `xieite::exceptions::PossibleResultsExcludedByArguments`.
 
 ## Synopsis

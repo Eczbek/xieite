@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideFloor
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideFloor\(\)
 Defined in header [<xieite/math/divide_floor.hpp>](../../../include/xieite/math/divide_floor.hpp)
 
 &nbsp;
@@ -12,18 +12,23 @@ Computes the floor value of a division.
 #### 1)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] constexpr Integer divideFloor(const Integer dividend, const Integer divisor) noexcept;
+[[nodiscard]] constexpr Integer divideFloor(Integer dividend, Integer divisor) noexcept;
+```
+#### 2)
+```cpp
+template<std::floating_point FloatingPoint>
+[[nodiscard]] constexpr FloatingPoint divideFloor(FloatingPoint dividend, FloatingPoint divisor) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/divide_floor.hpp"
 
 int main() {
-    std::cout << xieite::math::divideFloor(249, 16) << '\n';
+    std::println("{}", xieite::math::divideFloor(249, 16));
 }
 ```
 Output:

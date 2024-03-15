@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/unspecified.hpp>](../../../../../../includ
 
 &nbsp;
 
+## Description
 Returns the error message.
 
 ## Synopsis

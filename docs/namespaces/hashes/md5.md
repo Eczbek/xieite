@@ -11,8 +11,7 @@ Generates a 128-bit hash of a string using the MD5 algorithm.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::String String = std::string>
-[[nodiscard]] constexpr String md5(const xieite::strings::View<String> value) noexcept;
+[[nodiscard]] constexpr std::string md5(const std::string_view value) noexcept;
 ```
 
 &nbsp;

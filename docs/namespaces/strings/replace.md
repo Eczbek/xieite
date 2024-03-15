@@ -30,11 +30,11 @@ Replaces instances of a substring with another.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/replace.hpp"
 
 int main() {
-    std::cout << xieite::strings::replace("1 + 2 + 3\n", " + ", '-');
+    std::println("{}", xieite::strings::replace("1 + 2 + 3\n", " + ", '-');
 }
 ```
 Output:

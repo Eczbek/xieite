@@ -22,12 +22,12 @@ Splits a string by a delimiter.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/split.hpp"
 
 int main() {
     for (std::string_view slice : xieite::strings::split("Hello, world!", ' ')) {
-        std::cout << slice << '\n';
+        std::println("{}", slice);
     }
 }
 ```

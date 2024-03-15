@@ -8,13 +8,18 @@
 
 namespace xieite::math {
 	template<std::integral Integer>
-	[[nodiscard]] constexpr Integer reverse(Integer value, const std::size_t base = 10) noexcept {
+	[[nodiscard]] constexpr Integer reverse(Integer value, const Integer radix = 10) noexcept {
 		const bool negative = xieite::math::isNegative(value);
 		value *= xieite::math::splitBoolean(!negative);
 		Integer result = 0;
 		while (value) {
-			result = result * base + value % base;
-			value /= base;
+			Integer digit = value % radix;
+			value /= radix;
+			if (xieite::math::isNegative(digit)) {
+				digit += xieite::math::absolute(radix);
+				++value;
+			}
+			result = result * radix + digit;
 		}
 		return result * xieite::math::splitBoolean(!negative);
 	}

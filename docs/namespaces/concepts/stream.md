@@ -4,7 +4,7 @@ Defined in header [<xieite/concepts/output_stream.hpp>](../../../include/xieite/
 &nbsp;
 
 ## Description
-Specifies that a type is, or derives from, `std::istream` or `std::ostream`
+Specifies that a type is, or derives from, `std::istream` or `std::ostream`.
 
 &nbsp;
 

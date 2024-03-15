@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_bitset_reference.hpp>](../../../include/xie
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

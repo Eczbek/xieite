@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:BigInteger
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:BigInteger\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Constructs a `xieite::math::BigInteger`.
+Constructs a `xieite::math::BigInteger<Word>`.
 
 &nbsp;
 
@@ -16,13 +16,14 @@ constexpr BigInteger(Integer value = 0) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr BigInteger(const xieite::math::BigInteger<Word>& value) noexcept;
+template<typename OtherWord>
+constexpr BigInteger(const xieite::math::BigInteger<OtherWord>& value) noexcept;
 ```
 #### 3)
 ```cpp
 template<std::ranges::Range Range>
 requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
-constexpr BigInteger(const Range& range, bool negative = false) noexcept;
+constexpr BigInteger(Range&& range, bool negative = false) noexcept;
 ```
 #### 4)
 ```cpp
@@ -33,14 +34,14 @@ constexpr BigInteger(std::string_view value, xieite::math::SignedSize radix = 10
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    std::cout << xieite::math::BigInteger(418).string() << '\n';
+    std::println("{}", xieite::math::BigInteger(418).string());
 }
 ```
 Output:
 ```
-416
+418
 ```

@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/division_by_zero.hpp>](../../../include/xi
 
 &nbsp;
 
+## Description
 An exception type that indicates an error due to division by zero. Extends `xieite::exceptions::Unspecified`.
 
 &nbsp;

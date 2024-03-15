@@ -20,7 +20,7 @@ template<xieite::concepts::SameAsOrDerivedFromAnyAny<std::istream, std::ostream>
 ## Example
 ```cpp
 #include <cstdio>
-#include <iostream>
+#include <print>
 #include "xieite/streams/get_file.hpp"
 
 int main() {

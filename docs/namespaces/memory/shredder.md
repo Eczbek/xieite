@@ -35,7 +35,7 @@ struct Shredder {
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/memory/shredder.hpp"
 
 int main() {
@@ -43,13 +43,13 @@ int main() {
         int a = 4;
     }
     int b;
-    std::cout << b << '\n';
+    std::println("{}", b);
 
     {
         xieite::memory::Shredder<int> c = 4;
     }
     int d;
-    std::cout << d << '\n';
+    std::println("{}", d);
 }
 ```
 Possible output:

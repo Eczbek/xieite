@@ -3,13 +3,11 @@
 
 #	include <cstddef>
 #	include <string>
-#	include "../concepts/string.hpp"
-#	include "../strings/view.hpp"
+#	include <string_view>
 
 namespace xieite::strings {
-	template<xieite::concepts::String String = std::string>
-	[[nodiscard]] constexpr String repeat(std::size_t count, const xieite::strings::View<String> string) noexcept {
-		String result;
+	[[nodiscard]] constexpr std::string repeat(std::size_t count, const std::string_view string) noexcept {
+		std::string result;
 		result.reserve(string.size() * count);
 		while (count--) {
 			result += string;

@@ -18,12 +18,12 @@ static constexpr std::chrono::seconds compilationTimestamp = /* ... */;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/metadata/compilation_timestamp.hpp"
 #include "xieite/strings/timestamp.hpp"
 
 int main() {
-    std::cout << xieite::strings::timestamp(xieite::metadata::compilationTimestamp) << '\n';
+    std::println("{}", xieite::strings::timestamp(xieite::metadata::compilationTimestamp));
 }
 ```
 Possible output:

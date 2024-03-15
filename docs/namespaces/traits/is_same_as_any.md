@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_same_as_any.hpp>](../../../include/xieite/t
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

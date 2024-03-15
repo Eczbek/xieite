@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_unsigned_integer.hpp>](../../../include/xie
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

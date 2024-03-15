@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:closestTo
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:closestTo\(\)
 Defined in header [<xieite/math/closest_to.hpp>](../../../include/xieite/math/closest_to.hpp)
 
 &nbsp;
@@ -24,11 +24,11 @@ template<xieite::concepts::Arithmetic Number>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/closest_to.hpp"
 
 int main() {
-    std::cout << xieite::math::closestTo(0, 5, -1) << '\n';
+    std::println("{}", xieite::math::closestTo(0, 5, -1));
 }
 ```
 Output:

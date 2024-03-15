@@ -3,6 +3,11 @@ Defined in header [<xieite/memory/shredder.hpp>](../../../../../../../include/xi
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator typename
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator typename\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Casts a `xieite::math::BigInteger` to any other arithmetic type.
+Casts a `xieite::math::BigInteger<Word>` to any other arithmetic type.
 
 &nbsp;
 
@@ -23,14 +23,11 @@ template<std::integral Integer>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << static_cast<bool>(xieite::math::BigInteger(4))
-        << '\n';
+    std::println("{}", static_cast<bool>(xieite::math::BigInteger(4)));
 }
 ```
 Output:

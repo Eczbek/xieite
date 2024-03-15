@@ -13,13 +13,10 @@
 #	include <string_view>
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
-#	include "../concepts/string.hpp"
-#	include "../concepts/string_view.hpp"
 #	include "../exceptions/division_by_zero.hpp"
 #	include "../exceptions/unrepresentable_value.hpp"
 #	include "../macros/forward.hpp"
 #	include "../math/digits.hpp"
-#	include "../strings/integer_components.hpp"
 #	include "../math/is_negative.hpp"
 #	include "../math/multiply.hpp"
 #	include "../math/parse.hpp"
@@ -27,6 +24,7 @@
 #	include "../math/signed_size.hpp"
 #	include "../math/split_boolean.hpp"
 #	include "../math/stringify.hpp"
+#	include "../strings/integer_components.hpp"
 #	include "../system/byte_bits.hpp"
 #	include "../types/maybe_unsigned.hpp"
 #	include "../types/size_bits.hpp"
@@ -87,8 +85,7 @@ namespace xieite::math {
 			this->trim();
 		}
 
-		template<xieite::concepts::StringView StringView = std::string_view>
-		constexpr BigInteger(const StringView value, const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
+		constexpr BigInteger(const std::string_view value, const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
 			*this = xieite::math::parse<xieite::math::BigInteger<Word>>(value, radix, components);
 		}
 
@@ -296,7 +293,7 @@ namespace xieite::math {
 						continue;
 					}
 					const xieite::math::Product<Word> product = xieite::math::multiply<Word>(multiplier.data[i], multiplicand.data[j]);
-					result += ((xieite::math::BigInteger<Word>(product.upper) << xieite::types::sizeBits<Word>) | product.lower) << (xieite::math::BigInteger<Word>(i) << xieite::math::digits(xieite::types::sizeBits<Word> - 1, 2)) << (xieite::math::BigInteger<Word>(j) << xieite::math::digits(xieite::types::sizeBits<Word> - 1, 2));
+					result += ((xieite::math::BigInteger<Word>(product.upper) << xieite::types::sizeBits<Word>) | product.lower) << (xieite::math::BigInteger<Word>(i) << xieite::math::digits<std::size_t>(xieite::types::sizeBits<Word> - 1, 2)) << (xieite::math::BigInteger<Word>(j) << xieite::math::digits<std::size_t>(xieite::types::sizeBits<Word> - 1, 2));
 				}
 			}
 			result.negative = !sameSign;
@@ -645,9 +642,8 @@ namespace xieite::math {
 			return this->logarithm(xieite::math::BigInteger<Word>(base));
 		}
 
-		template<xieite::concepts::String String = std::string>
-		[[nodiscard]] constexpr String string(const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) const noexcept {
-			return xieite::math::stringify<String>(*this, radix, components);
+		[[nodiscard]] constexpr std::string string(const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) const noexcept {
+			return xieite::math::stringify(*this, radix, components);
 		}
 
 	private:
@@ -666,11 +662,7 @@ namespace xieite::math {
 			const std::size_t leftDataSize = leftOperand.data.size();
 			const std::size_t rightDataSize = rightOperand.data.size();
 			for (std::size_t i = 0; (i < leftDataSize) || (i < rightDataSize); ++i) {
-				const Word leftData = leftNegative ? ~leftOperand.data[i] : leftOperand.data[i];
-				const Word rightData = rightNegative ? ~rightOperand.data[i] : rightOperand.data[i];
-				const Word leftValue = (i < leftDataSize) ? leftData : (std::numeric_limits<Word>::max() * leftNegative);
-				const Word rightValue = (i < rightDataSize) ? rightData : (std::numeric_limits<Word>::max() * rightNegative);
-				const Word word = callback(leftValue, rightValue);
+				const Word word = callback((i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Word>::max() * leftNegative), (i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Word>::max() * rightNegative));
 				result.data.push_back(result.negative ? ~word : word);
 			}
 			return result - result.negative;
@@ -696,7 +688,7 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] constexpr xieite::math::BigInteger<Word> logarithm2() const noexcept {
-			return xieite::math::BigInteger<Word>(xieite::types::sizeBits<Word>) * (this->data.size() - 1) + xieite::math::digits(this->data.back(), 2) - 1;
+			return xieite::math::BigInteger<Word>(xieite::types::sizeBits<Word>) * (this->data.size() - 1) + xieite::math::digits<Word>(this->data.back(), 2) - 1;
 		}
 	};
 }

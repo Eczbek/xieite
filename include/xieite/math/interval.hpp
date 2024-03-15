@@ -8,9 +8,6 @@ namespace xieite::math {
 	struct Interval {
 		Number start;
 		Number end;
-
-		constexpr Interval(const Number start, const Number end) noexcept
-		: start(start), end(end) {}
 	};
 }
 

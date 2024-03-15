@@ -69,13 +69,13 @@ inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <string>
 #include "xieite/strings/radiotelephony_spelling_alphabet.hpp"
 
 int main() {
     for (char character : std::string("Hello, world!")) {
-        std::cout << xieite::strings::radiotelephonySpellingAlphabet[character] << '\n';
+        std::println("{}", xieite::strings::radiotelephonySpellingAlphabet[character]);
     }
 }
 ```

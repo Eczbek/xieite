@@ -6,9 +6,9 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number1, xieite::concepts::Arithmetic Number2>
-	[[nodiscard]] constexpr std::common_type_t<double, Number1, Number2> logarithm(const Number1 base, const Number2 value) noexcept {
-		return std::log(static_cast<std::common_type_t<double, Number1, Number2>>(value)) / std::log(static_cast<std::common_type_t<double, Number1, Number2>>(base)); // std::log appears to be slightly faster than std::log2 and std::log10
+	template<xieite::concepts::Arithmetic Number>
+	[[nodiscard]] constexpr std::common_type_t<double, Number> logarithm(const Number base, const Number value) noexcept {
+		return std::log(value) / std::log(base); // std::log is slightly faster than std::log2 and std::log10 in my tests
 	}
 }
 

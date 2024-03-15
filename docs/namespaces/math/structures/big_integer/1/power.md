@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:power
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:power\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Raises a `xieite::math::BigInteger` to an exponent.
+Raises a `xieite::math::BigInteger<Word>` to an exponent.
 
 &nbsp;
 
@@ -23,13 +23,13 @@ template<std::integral Integer>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    xieite::math::BigInteger<Word> bigInteger = 2;
+    xieite::math::BigInteger bigInteger = 2;
 
-    std::cout << bigInteger.power(3).string() << '\n';
+    std::println("{}", bigInteger.power(3).string());
 }
 ```
 Output:

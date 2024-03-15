@@ -5,19 +5,15 @@
 #	include <cstddef>
 #	include <string>
 #	include <string_view>
-#	include "../concepts/string.hpp"
-#	include "../concepts/string_view.hpp"
 #	include "../math/stringify.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::String String = std::string>
 	struct Version {
 		std::size_t major;
 		std::size_t minor;
 		std::size_t patch;
-		String label;
+		std::string label;
 
-		template<xieite::concepts::StringView StringView = std::string_view>
 		constexpr Version(const std::size_t major = 0, const std::size_t minor = 0, const std::size_t patch = 0, const std::string_view label = "") noexcept
 		: major(major), minor(minor), patch(patch), label(label) {}
 
@@ -29,8 +25,8 @@ namespace xieite::math {
 			return std::is_eq(version1 <=> version2);
 		}
 
-		[[nodiscard]] constexpr String string() const noexcept {
-			String result = 'v' + xieite::math::stringify(this->major) + '.' + xieite::math::stringify(this->minor) + '.' + xieite::math::stringify(this->patch);
+		[[nodiscard]] constexpr std::string string() const noexcept {
+			std::string result = 'v' + xieite::math::stringify(this->major) + '.' + xieite::math::stringify(this->minor) + '.' + xieite::math::stringify(this->patch);
 			if (this->label.size()) {
 				result += '-' + this->label;
 			}

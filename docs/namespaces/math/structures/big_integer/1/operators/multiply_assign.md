@@ -1,5 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator*=
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator*=\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
+
+&nbsp;
+
+## Description
+Assigns the product of this big-integer with another.
 
 &nbsp;
 
@@ -18,15 +23,15 @@ constexpr xieite::math::BigInteger<Word>& operator*=(Integer multiplicand) noexc
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    xieite::math::BigInteger<Word> bigInteger = 9;
+    xieite::math::BigInteger bigInteger = 9;
 
     bigInteger *= 3;
 
-    std::cout << bigInteger.string() << '\n';
+    std::println("{}", bigInteger.string());
 }
 ```
 Output:

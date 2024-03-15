@@ -18,11 +18,11 @@ inline constexpr std::size_t byteBits = std::numeric_limits<unsigned char>::digi
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/system/byte_bits.hpp"
 
 int main() {
-    std::cout << xieite::system::byteBits << '\n';
+    std::println("{}", xieite::system::byteBits);
 }
 ```
 Possible output:

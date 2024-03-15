@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/fixed_string.hpp>](../../../../../../../in
 
 &nbsp;
 
+## Description
 Constructs a `xieite::containers::FixedString`.
 
 &nbsp;

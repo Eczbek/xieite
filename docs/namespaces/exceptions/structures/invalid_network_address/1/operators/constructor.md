@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/invalid_network_address.hpp>](../../../../
 
 &nbsp;
 
+## Description
 Constructs a `xieite::exceptions::InvalidNetworkAddress`.
 
 ## Synopsis

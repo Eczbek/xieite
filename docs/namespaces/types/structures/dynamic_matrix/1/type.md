@@ -3,6 +3,11 @@ Defined in header [<xieite/types/dynamic_matrix.hpp>](../../../../../../include/
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Number>](../../../../point.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Number>](../../../../point.md)\:\:operator==\(\)
 Defined in header [<xieite/geometry/point.hpp>](../../../../../../../include/xieite/geometry/point.hpp)
 
 &nbsp;

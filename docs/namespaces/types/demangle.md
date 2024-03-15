@@ -18,7 +18,7 @@ Demangles the name of a `std::type_info`. Returns original string if demangling 
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include <string>
 #include "xieite/types/demangle.hpp"
 
@@ -28,9 +28,8 @@ struct Type {};
 int main() {
     std::string typeName = typeid(Type<int>).name();
 
-    std::cout
-        << typeName << '\n'
-        << xieite::types::demangle(typeName) << '\n';
+    std::println("{}", typeName);
+    std::println("{}", xieite::types::demangle(typeName));
 }
 ```
 Possible output:

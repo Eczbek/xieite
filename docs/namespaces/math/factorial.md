@@ -4,7 +4,7 @@ Defined in header [<xieite/math/factorial.hpp>](../../../include/xieite/math/fac
 &nbsp;
 
 ## Description
-A lookup table of factorials.
+A lookup table of all representable factorial values.
 
 &nbsp;
 
@@ -12,18 +12,18 @@ A lookup table of factorials.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-inline constexpr auto factorial = /* std::array<Number, N> { ... } */
+inline constexpr std::array<Number, /* ... */> factorial = /* ... */
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/factorial.hpp"
 
 int main() {
-    std::cout << xieite::math::factorial<std::size_t>[17] << '\n';
+    std::println("{}", xieite::math::factorial<std::size_t>[17]);
 }
 ```
 Output:

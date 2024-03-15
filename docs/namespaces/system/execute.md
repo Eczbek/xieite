@@ -18,11 +18,11 @@ inline std::string execute(std::string_view command) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/system/execute.hpp"
 
 int main() {
-    std::cout << xieite::system::execute("echo Hello, world!");
+    std::println("{}", xieite::system::execute("echo Hello, world!");
 }
 ```
 Output:

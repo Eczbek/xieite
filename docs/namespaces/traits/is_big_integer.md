@@ -3,7 +3,8 @@ Defined in header [<xieite/traits/is_big_integer.hpp>](../../../include/xieite/t
 
 &nbsp;
 
-Forward-declares `xieite::math::BigInteger` and does stuff.
+## Description
+Forward-declares `xieite::math::BigInteger<Word>` and does stuff.
 
 &nbsp;
 

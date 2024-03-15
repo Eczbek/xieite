@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:root
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:root\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Computes any root of a `xieite::math::BigInteger`.
+Computes any root of a `xieite::math::BigInteger<Word>`.
 
 &nbsp;
 
@@ -23,13 +23,13 @@ template<std::integral Integer>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    xieite::math::BigInteger<Word> bigInteger = 8;
+    xieite::math::BigInteger bigInteger = 8;
 
-    std::cout << bigInteger.root(3).string() << '\n';
+    std::println("{}", bigInteger.root(3).string());
 }
 ```
 Output:

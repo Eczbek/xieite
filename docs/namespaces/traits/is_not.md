@@ -3,6 +3,7 @@ Defined in header [<xieite/traits/is_not.hpp>](../../../include/xieite/traits/is
 
 &nbsp;
 
+## Description
 Negates a trait.
 
 &nbsp;

@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/possible_results_excluded_by_arguments.hpp
 
 &nbsp;
 
+## Description
 An exception type that indicates that all possible results of a function have been excluded by the arguments passed. Extends `xieite::exceptions::Unspecified`.
 
 &nbsp;

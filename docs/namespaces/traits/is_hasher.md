@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_hasher.hpp>](../../../include/xieite/traits
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

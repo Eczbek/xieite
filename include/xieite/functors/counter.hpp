@@ -4,36 +4,41 @@
 #	include <cstddef>
 
 namespace xieite::detail {
-	template<std::size_t current>
+	template<auto tag, std::size_t current>
 	struct CounterReader {
 		template<typename>
-		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<current>) noexcept;
+		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<tag, current>) noexcept;
 	};
 
-	template<std::size_t current>
+	template<auto tag, std::size_t current>
 	struct CounterSetter {
 		template<typename>
-		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<current>) noexcept {}
+		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<tag, current>) noexcept {}
 
 		static constexpr std::size_t value = current;
 	};
+
+	template<auto tag, auto unique, std::size_t current = 0>
+	[[nodiscard]] constexpr std::size_t advanceCounter() noexcept {
+		if constexpr (requires(xieite::detail::CounterReader<tag, current> reader) {
+			XIEITE_DETAIL_COUNTER_FLAG<void>(reader);
+		}) {
+			return xieite::detail::advanceCounter<tag, unique, current + 1>();
+		} else {
+			return xieite::detail::CounterSetter<tag, current>::value;
+		}
+	}
+
+	inline constexpr auto defaultCounterTag = [] {};
 }
 
 namespace xieite::functors {
-	template<auto tag = [] {}>
+	template<auto tag = xieite::detail::defaultCounterTag, auto unique = [] {}>
 	[[nodiscard]] constexpr std::size_t counter() noexcept {
-		return ([]<std::size_t current = 0, typename Self>(this const Self& self) -> std::size_t {
-			if constexpr (requires(xieite::detail::CounterReader<current> reader) {
-				XIEITE_DETAIL_COUNTER_FLAG<void>(reader);
-			}) {
-				return self.template operator()<current + 1>();
-			} else {
-				return xieite::detail::CounterSetter<current>::value;
-			}
-		})();
+		return xieite::detail::advanceCounter<tag, unique>();
 	}
 }
 
 #endif
 
-// Thanks to Reese Jones (https://github.com/MC-DeltaT) for original code
+// https://mc-deltat.github.io/articles/stateful-metaprogramming-cpp20

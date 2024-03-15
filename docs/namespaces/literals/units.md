@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:\_units
+# [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:units
 Defined in header [<xieite/literals/units.hpp>](../../../include/xieite/literals/units.hpp)
 
 &nbsp;
 
 ## Description
-Literals for constructing various units.
+A namespace of literals for constructing various units.
 
 &nbsp;
 

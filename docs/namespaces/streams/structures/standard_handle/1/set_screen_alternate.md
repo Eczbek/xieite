@@ -18,16 +18,16 @@ void setScreenAlternate(bool value) const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/streams/standard_handle.hpp"
 
 int main() {
     auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
 
     terminal.setScreenAlternate(true);
-    std::cout << "Hello, ";
+    std::print("Hello, ");
     terminal.setScreenAlternate(false);
-    std::cout << "world!\n";
+    std::println("world!");
 }
 ```
 Output:

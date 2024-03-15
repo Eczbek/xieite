@@ -56,8 +56,6 @@ A collection of commonly concepts, expanding on the standard library.
 - [Stream](./namespaces/concepts/stream.md)
 - [StreamableIn](./namespaces/concepts/streamable_in.md)
 - [StreamableOut](./namespaces/concepts/streamable_out.md)
-- [String](./namespaces/concepts/string.md)
-- [StringView](./namespaces/concepts/string_view.md)
 - [TemplateOf](./namespaces/concepts/template_of.md)
 - [TemplateOfAll](./namespaces/concepts/template_of_all.md)
 - [TemplateOfAny](./namespaces/concepts/template_of_any.md)

@@ -29,7 +29,7 @@ struct Loop {
 ## Example
 ```cpp
 #include <chrono>
-#include <iostream>
+#include <print>
 #include <thread>
 #include "xieite/threads/loop.hpp"
 
@@ -39,7 +39,7 @@ int main() {
 
         std::this_thread::sleep_for(std::chrono::seconds(1));
 
-        std::cout << ++i << '\n';
+        std::println("{}", ++i);
     });
 
     std::this_thread::sleep_for(std::chrono::seconds(5));

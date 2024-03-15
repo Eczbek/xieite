@@ -19,11 +19,11 @@ template<std::integral Integer = int>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/from_roman_numerals.hpp"
 
 int main() {
-    std::cout << xieite::strings::fromRomanNumerals("CDXVIII") << '\n';
+    std::println("{}", xieite::strings::fromRomanNumerals("CDXVIII"));
 }
 ```
 Output:

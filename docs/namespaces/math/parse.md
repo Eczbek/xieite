@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:parse
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:parse\(\)
 Defined in header [<xieite/math/parse.hpp>](../../../include/xieite/math/parse.hpp)
 
 &nbsp;
 
 ## Description
-Parses an number string in any base. Allows negative bases.
+Parses an number string in any radix. Allows negative radices. Is case-sensitive.
 
 &nbsp;
 
@@ -19,11 +19,11 @@ template<xieite::concepts::Arithmetic Number>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/parse.hpp"
 
 int main() {
-    std::cout << xieite::math::parse<int>("g4h3", 21) << '\n';
+    std::println("{}", xieite::math::parse<int>("G4H3", 21));
 }
 ```
 Output:

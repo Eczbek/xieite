@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Color](../../../../color.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Color](../../../../color.md)\:\:operator==\(\)
 Defined in header [<xieite/streams/color.hpp>](../../../../../../../include/xieite/streams/color.hpp)
 
 &nbsp;

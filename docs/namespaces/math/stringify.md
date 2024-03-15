@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:stringify
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:stringify\(\)
 Defined in header [<xieite/math/stringify.hpp>](../../../include/xieite/math/stringify.hpp)
 
 &nbsp;
 
 ## Description
-Stringifies a number in any base. Allows negative bases.
+Stringifies a number in any radix. Allows negative radices.
 
 &nbsp;
 
@@ -19,11 +19,11 @@ template<xieite::concepts::Arithmetic Number>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/stringify.hpp"
 
 int main() {
-    std::cout << xieite::math::stringify(13, 2) << '\n';
+    std::println("{}", xieite::math::stringify(13, 2));
 }
 ```
 Output:

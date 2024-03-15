@@ -9,14 +9,12 @@
 
 #	include <string>
 #	include <uuid/uuid.h>
-#	include "../concepts/string.hpp"
 
 namespace xieite::random {
-	template<xieite::concepts::String String = std::string>
-	[[nodiscard]] inline String getUniversallyUniqueIdentifier() noexcept {
+	[[nodiscard]] inline std::string getUniversallyUniqueIdentifier() noexcept {
 		::uuid_t uuid;
 		::uuid_generate(uuid);
-		String result = String(37, '\0');
+		std::string result = std::string(37, '\0');
 		::uuid_unparse(uuid, result.data());
 		return result;
 	}

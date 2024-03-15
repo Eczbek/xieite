@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/
 
 &nbsp;
 
+## Description
 Rotates a two-dimensional slice of a matrix 90 degrees. May throw `std::out_of_range` if the number of indices is not one less than the number of dimensions, or `std::range_error` if an index is outside its respective dimension.
 
 &nbsp;

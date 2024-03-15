@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/fixed_string.hpp>](../../../../../../../in
 
 &nbsp;
 
+## Description
 Returns a view to the string's data.
 
 &nbsp;
@@ -10,8 +11,7 @@ Returns a view to the string's data.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::StringView StringView = std::string_view>
-[[nodiscard]] constexpr StringView view() const noexcept;
+[[nodiscard]] constexpr std::string_view view() const noexcept;
 ```
 
 &nbsp;

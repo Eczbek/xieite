@@ -18,13 +18,13 @@ void clearScreen() const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/streams/standard_handle.hpp"
 
 int main() {
     auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
 
-    std::cout << "Hello, world!\n";
+    std::println("Hello, world!");
 
     terminal.clearScreen();
 }

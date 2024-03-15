@@ -3,6 +3,11 @@ Defined in header [<xieite/types/fixed_matrix.hpp>](../../../../../../include/xi
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

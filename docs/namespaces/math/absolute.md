@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:absolute
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:absolute\(\)
 Defined in header [<xieite/math/absolute.hpp>](../../../include/xieite/math/absolute.hpp)
 
 &nbsp;
@@ -12,7 +12,7 @@ Returns the unsigned absolute of a value.
 #### 1)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] constexpr std::make_unsigned_t<Integer> absolute(Integer value) noexcept;
+[[nodiscard]] constexpr xieite::types::MaybeUnsigned<Integer> absolute(Integer value) noexcept;
 ```
 #### 2)
 ```cpp
@@ -25,16 +25,19 @@ template<std::floating_point FloatingPoint>
 ## Example
 ```cpp
 #include <cstdint>
-#include <iostream>
+#include <limits>
+#include <print>
 #include "xieite/math/absolute.hpp"
 
 int main() {
-    std::int16_t value = -32768;
+    std::int64_t value = std::numeric_limits<std::int64_t>::min();
 
-    std::cout << xieite::math::absolute(value) << '\n';
+    std::println("{}", value);
+    std::println("{}", xieite::math::absolute(value));
 }
 ```
 Output:
 ```
-32768
+-9223372036854775808
+9223372036854775808
 ```

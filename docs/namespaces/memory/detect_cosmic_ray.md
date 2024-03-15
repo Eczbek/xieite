@@ -19,13 +19,13 @@ void detectCosmicRay(std::size_t bytes = xieite::memory::getPageSize()) noexcept
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/memory/detect_cosmic_ray.hpp"
 #include "xieite/memory/get_available.hpp"
 
 int main() {
     xieite::memory::detectCosmicRay(xieite::memory::getAvailable());
 
-    std::cout << "Cosmic ray detected!\n";
+    std::println("Cosmic ray detected!");
 }
 ```

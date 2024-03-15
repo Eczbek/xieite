@@ -44,7 +44,7 @@ namespace xieite::geometry {
 	template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape1, xieite::concepts::LinearShape<Number> LinearShape2>
 	[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(const LinearShape1& linearShape1, const LinearShape2& linearShape2) noexcept {
 		const double discriminator = (linearShape1.start.x - linearShape1.end.x) * (linearShape2.start.y - linearShape2.end.y) - (linearShape1.start.y - linearShape1.end.y) * (linearShape2.start.x - linearShape2.end.x);
-		if (!xieite::math::almostEqual(discriminator, 0)) {
+		if (!xieite::math::almostEqual<Number>(discriminator, 0)) {
 			const auto intersection = xieite::geometry::Point<Number>(((linearShape2.start.x - linearShape2.end.x) * (linearShape1.start.x * linearShape1.end.y - linearShape1.start.y * linearShape1.end.x) - (linearShape1.start.x - linearShape1.end.x) * (linearShape2.start.x * linearShape2.end.y - linearShape2.start.y * linearShape2.end.x)) / discriminator, ((linearShape2.start.y - linearShape2.end.y) * (linearShape1.start.x * linearShape1.end.y - linearShape1.start.y * linearShape1.end.x) - (linearShape1.start.y - linearShape1.end.y) * (linearShape2.start.x * linearShape2.end.y - linearShape2.start.y * linearShape2.end.x)) / discriminator);
 			if (linearShape1.contains(intersection) && linearShape2.contains(intersection)) {
 				return std::vector<xieite::geometry::Point<Number>> {

@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_ordinary_character.hpp>](../../../include/x
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

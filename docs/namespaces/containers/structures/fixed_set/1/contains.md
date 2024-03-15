@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/fixed_set.hpp>](../../../../../../../inclu
 
 &nbsp;
 
+## Description
 Checks if the set contains a key.
 
 &nbsp;

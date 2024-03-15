@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:\_radix
+# [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:radix
 Defined in header [<xieite/literals/radix.hpp>](../../../include/xieite/literals/radix.hpp)
 
 &nbsp;
 
 ## Description
-Evaluates to the radix of a numeric literal.
+A namespace for a literal that evaluates to the radix of a numeric literal.
 
 &nbsp;
 

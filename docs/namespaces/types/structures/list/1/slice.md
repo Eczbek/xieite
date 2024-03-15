@@ -3,6 +3,7 @@ Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/typ
 
 &nbsp;
 
+## Description
 Selects a "slice" from the stored list of types. Allows indices out of bounds and in any order.
 
 &nbsp;
@@ -18,14 +19,14 @@ using Slice = /* ... */;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/types/list.hpp"
 #include "xieite/types/name.hpp"
 
 int main() {
     using List = xieite::types::List<int, char, short, long>::Slice<1, 3>;
 
-    std::cout << xieite::types::name<List> << '\n';
+    std::println("{}", xieite::types::name<List>);
 }
 ```
 Output:

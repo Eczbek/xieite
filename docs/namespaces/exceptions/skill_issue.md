@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/skill_issue.hpp>](../../../include/xieite/
 
 &nbsp;
 
+## Description
 An exception type that indicates a skill issue on the part of the user. Extends `xieite::exceptions::Unspecified`.
 
 &nbsp;

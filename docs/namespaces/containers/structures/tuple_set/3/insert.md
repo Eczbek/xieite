@@ -3,6 +3,7 @@ Defined in header [<xieite/containers/tuple_set.hpp>](../../../../../../include/
 
 &nbsp;
 
+## Description
 Adds a tuple to the set.
 
 &nbsp;

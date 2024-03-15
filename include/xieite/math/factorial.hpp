@@ -20,7 +20,7 @@ namespace xieite::detail {
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
-	inline constexpr auto factorial = xieite::containers::makeArray<Number, xieite::detail::generateFactorial<Number>().size()>(xieite::detail::generateFactorial<Number>());
+	inline constexpr std::array<Number, xieite::detail::generateFactorial<Number>().size()> factorial = xieite::containers::makeArray<Number, xieite::detail::generateFactorial<Number>().size()>(xieite::detail::generateFactorial<Number>());
 }
 
 #endif

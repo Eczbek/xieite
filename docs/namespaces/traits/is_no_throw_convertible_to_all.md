@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_no_throw_convertible_to_all.hpp>](../../../
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

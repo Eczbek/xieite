@@ -3,6 +3,7 @@ Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/typ
 
 &nbsp;
 
+## Description
 Inserts a list of values.
 
 &nbsp;
@@ -18,14 +19,14 @@ using InsertRange = /* ... */;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/types/list.hpp"
 #include "xieite/types/name.hpp"
 
 int main() {
     using List = xieite::types::List<int, char, short, long>::Insert<2, xieite::types::List<float, double>>;
 
-    std::cout << xieite::types::name<List> << '\n';
+    std::println("{}", xieite::types::name<List>);
 }
 ```
 Output:

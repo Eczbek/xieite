@@ -18,11 +18,11 @@ Generates a UUID. Compile with `-luuid`.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/random/get_universally_unique_identifier.hpp"
 
 int main() {
-    std::cout << xieite::random::getUniversallyUniqueIdentifier() << '\n';
+    std::println("{}", xieite::random::getUniversallyUniqueIdentifier());
 }
 ```
 Very unlikely output:

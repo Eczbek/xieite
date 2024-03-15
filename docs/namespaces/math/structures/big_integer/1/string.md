@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:string
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:string\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Converts a `xieite::math::BigInteger` to a `std::string`.
+Converts a `xieite::math::BigInteger<Word>` to a `std::string`.
 
 &nbsp;
 
@@ -18,11 +18,11 @@ Converts a `xieite::math::BigInteger` to a `std::string`.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    std::cout << xieite::math::BigInteger(418).string() << '\n';
+    std::println("{}", xieite::math::BigInteger(418).string());
 }
 ```
 Output:

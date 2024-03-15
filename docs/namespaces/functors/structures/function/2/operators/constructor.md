@@ -3,6 +3,11 @@ Defined in header [<xieite/functors/function.hpp>](../../../../../../../include/
 
 &nbsp;
 
+## Description
+Constructs a `xieite::functors::Function<Result(Arguments...)>`.
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

@@ -3,6 +3,11 @@ Defined in header [<xieite/traits/is_hashable.hpp>](../../../include/xieite/trai
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp

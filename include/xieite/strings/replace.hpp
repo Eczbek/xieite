@@ -2,17 +2,15 @@
 #	define XIEITE_HEADER_STRINGS_REPLACE
 
 #	include <string>
-#	include "../concepts/string.hpp"
-#	include "../strings/view.hpp"
+#	include <string_view>
 
 namespace xieite::strings {
-	template<xieite::concepts::String String = std::string>
-	[[nodiscard]] constexpr String replace(const xieite::strings::View<String> value, const xieite::strings::View<String> replace, const xieite::strings::View<String> with, const std::size_t start = 0) noexcept {
-		String result = String(value);
+	[[nodiscard]] constexpr std::string replace(const std::string_view value, const std::string_view replace, const std::string_view with, const std::size_t start = 0) noexcept {
+		std::string result = std::string(value);
 		std::size_t i = start;
 		while (true) {
 			i = result.find(replace, i);
-			if (i == String::npos) {
+			if (i == std::string::npos) {
 				break;
 			}
 			result.replace(i, replace.size(), with);
@@ -21,23 +19,16 @@ namespace xieite::strings {
 		return result;
 	}
 
-	template<xieite::concepts::String String = std::string>
-	[[nodiscard]] constexpr std::string replace(const xieite::strings::View<String> value, const typename String::value_type replace, const xieite::strings::View<String> with, const std::size_t start = 0) noexcept {
-		const String replaceString = String(1, replace);
-		return xieite::strings::replace(value, replaceString, with, start);
+	[[nodiscard]] constexpr std::string replace(const std::string_view value, const char replace, const std::string_view with, const std::size_t start = 0) noexcept {
+		return xieite::strings::replace(value, std::string_view(&replace, 1), with, start);
 	}
 
-	template<xieite::concepts::String String = std::string>
-	[[nodiscard]] constexpr std::string replace(const xieite::strings::View<String> value, const xieite::strings::View<String> replace, const typename String::value_type with, const std::size_t start = 0) noexcept {
-		const String withString = String(1, with);
-		return xieite::strings::replace(value, replace, withString, start);
+	[[nodiscard]] constexpr std::string replace(const std::string_view value, const std::string_view replace, const char with, const std::size_t start = 0) noexcept {
+		return xieite::strings::replace(value, replace, std::string_view(&with, 1), start);
 	}
 
-	template<xieite::concepts::String String = std::string>
-	[[nodiscard]] constexpr std::string replace(const xieite::strings::View<String> value, const typename String::value_type replace, const typename String::value_type with, const std::size_t start = 0) noexcept {
-		const String replaceString = String(replace);
-		const String withString = String(replace);
-		return xieite::strings::replace(value, replaceString, withString, start);
+	[[nodiscard]] constexpr std::string replace(const std::string_view value, const char replace, const char with, const std::size_t start = 0) noexcept {
+		return xieite::strings::replace(value, std::string_view(&replace, 1), std::string_view(&with, 1), start);
 	}
 }
 

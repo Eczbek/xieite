@@ -1,5 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator<=>
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator<=>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
+
+&nbsp;
+
+## Description
+Compares two big-integers.
 
 &nbsp;
 
@@ -11,21 +16,18 @@ Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/x
 #### 2)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, const Integer rightComparand) noexcept;
+[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, Integer rightComparand) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << (xieite::math::BigInteger(9) > 3)
-        << '\n';
+    std::println("{}", xieite::math::BigInteger(9) > 3);
 }
 ```
 Output:

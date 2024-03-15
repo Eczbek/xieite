@@ -1,5 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator++
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator++\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
+
+&nbsp;
+
+## Description
+Increments a big-integer.
 
 &nbsp;
 
@@ -17,13 +22,13 @@ constexpr xieite::math::BigInteger<Word>& operator++(int) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    xieite::math::BigInteger<Word> bigInteger = 7;
+    xieite::math::BigInteger bigInteger = 7;
 
-    std::cout << (++bigInteger).string() << '\n';
+    std::println("{}", (++bigInteger).string());
 }
 ```
 Output:

@@ -29,13 +29,12 @@ inline constexpr Integer pi<Integer> = static_cast<Integer>(std::numbers::pi);
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/pi.hpp"
 
 int main() {
-    std::cout
-        << xieite::math::pi<double> << '\n'
-        << xieite::math::pi<int> << '\n';
+    std::println("{}", xieite::math::pi<double>);
+    std::println("{}", xieite::math::pi<int>);
 }
 ```
 Output:

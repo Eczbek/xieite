@@ -91,7 +91,7 @@ int main() {
 #	include <iostream>
 
 int main() {
-    std::cout << "Hello, world!\n";
+    std::println("Hello, world!");
 }
 
 #endif

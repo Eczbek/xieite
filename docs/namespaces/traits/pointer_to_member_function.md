@@ -3,6 +3,7 @@ Defined in header [<xieite/traits/pointer_to_member_function.hpp>](../../../incl
 
 &nbsp;
 
+## Description
 Provides information about functions.
 
 See header file for definitions.

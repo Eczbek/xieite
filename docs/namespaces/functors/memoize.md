@@ -39,13 +39,12 @@ auto subtract = [](int x, int y) {
 };
 
 int main() {
-    std::cout
-        << "add(1, 2) = " << xieite::functors::memoize(add, 1, 2) << '\n'
-        << "add(1, 2) = " << xieite::functors::memoize(add, 1, 2) << '\n'
-        << "multiply(3, 4) = " << xieite::functors::memoize(multiply, 3, 4) << '\n'
-        << "multiply(3, 4) = " << xieite::functors::memoize(multiply, 3, 4) << '\n'
-        << "subtract(5, 6) = " << xieite::functors::memoize(subtract, 5, 6) << '\n'
-        << "subtract(5, 6) = " << xieite::functors::memoize(subtract, 5, 6) << '\n';
+    std::println("add(1, 2) = ", xieite::functors::memoize(add, 1, 2));
+    std::println("add(1, 2) = ", xieite::functors::memoize(add, 1, 2));
+    std::println("multiply(3, 4) = ", xieite::functors::memoize(multiply, 3, 4));
+    std::println("multiply(3, 4) = ", xieite::functors::memoize(multiply, 3, 4));
+    std::println("subtract(5, 6) = ", xieite::functors::memoize(subtract, 5, 6));
+    std::println("subtract(5, 6) = ", xieite::functors::memoize(subtract, 5, 6));
 }
 ```
 Output:

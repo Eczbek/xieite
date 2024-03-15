@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Contents
-- [(macros)](./macros.md)
+- [\(macros\)](./macros.md)
 - [algorithms](./algorithms.md)
 - [bits](./bits.md)
 - [concepts](./concepts.md)
@@ -13,7 +13,7 @@
 - [geometry](./geometry.md)
 - [hashes](./hashes.md)
 - [literals](./literals.md)
-- [math](./math.md) - outdated
+- [math](./math.md)
 - [memory](./memory.md) - outdated
 - [metadata](./metadata.md) - outdated
 - [network](./network.md) - outdated

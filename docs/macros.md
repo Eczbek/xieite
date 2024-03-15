@@ -1,12 +1,14 @@
-# [XIEITE](./xieite.md)\_...
+# [XIEITE](./xieite.md)...
 
 &nbsp;
 
-Macros.
+Macros and headers.
 
 &nbsp;
 
 ## Contents
+- [\(No unix\)](./namespaces/macros/no_unix.md)
+- [\(No windows\)](./namespaces/macros/no_windows.md)
 - [ARCHITECTURE_...](./namespaces/macros/architecture.md)
 - [ASCII_SUPPORT](./namespaces/macros/ascii_support.md)
 - [ATTRIBUTE_...](./namespaces/macros/attribute.md)

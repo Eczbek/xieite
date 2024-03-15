@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:reverse
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:reverse\(\)
 Defined in header [<xieite/math/reverse.hpp>](../../../include/xieite/math/reverse.hpp)
 
 &nbsp;
 
 ## Description
-Reverses an integral of any base.
+Reverses the digits of an integral of any radix. Allows negative radices.
 
 &nbsp;
 
@@ -12,18 +12,18 @@ Reverses an integral of any base.
 #### 1)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] constexpr Integer reverse(Integer value, std::size_t base = 10) noexcept;
+[[nodiscard]] constexpr Integer reverse(Integer value, Integer radix = 10) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/math/reverse.hpp"
 
 int main() {
-    std::cout << xieite::math::reverse(12345) << '\n';
+    std::println("{}", xieite::math::reverse(12345));
 }
 ```
 Output:

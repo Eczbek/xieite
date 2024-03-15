@@ -4,7 +4,7 @@ Defined in header [<xieite/macros/pragma.hpp>](../../../include/xieite/macros/pr
 &nbsp;
 
 ## Description
-A simple wrapper around `_Pragma()` or MSVC's `__pragma()`
+A simple wrapper around `_Pragma()` or MSVC's `__pragma()`.
 
 &nbsp;
 

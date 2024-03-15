@@ -8,8 +8,15 @@
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr std::conditional_t<std::is_const_v<Number>, Number, Number&> closestTo(const Number target, Number& value1, Number& value2) noexcept {
-		return (value1 >= target) ? ((value2 >= target) ? ((value1 < value2) ? value1 : value2) : ((xieite::math::difference(target, value1) > xieite::math::difference(target, value2)) ? value1 : value2)) : ((value2 < target) ? ((value1 > value2) ? value1 : value2) : ((xieite::math::difference(target, value1) < xieite::math::difference(target, value2)) ? value1 : value2));
+	[[nodiscard]] constexpr Number& closestTo(const Number target, Number& value1, Number& value2) noexcept {
+		return (value1 >= target) ? ((value2 >= target) ? ((value1 > value2) ? value1 : value2) : ((xieite::math::difference(target, value1) < xieite::math::difference(target, value2)) ? value1 : value2)) : ((value2 < target) ? ((value1 < value2) ? value1 : value2) : ((xieite::math::difference(target, value1) > xieite::math::difference(target, value2)) ? value1 : value2));
+	}
+
+	template<xieite::concepts::Arithmetic Number>
+	[[nodiscard]] constexpr Number closestTo(const Number target, const Number& value1, const Number& value2) noexcept {
+		Number copy1 = value1;
+		Number copy2 = value2;
+		return xieite::math::closestTo(target, copy1, copy2);
 	}
 }
 

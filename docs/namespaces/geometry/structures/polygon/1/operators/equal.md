@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Number>](../../../../polygon.md)\:\:operator==
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Number>](../../../../polygon.md)\:\:operator==\(\)
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;

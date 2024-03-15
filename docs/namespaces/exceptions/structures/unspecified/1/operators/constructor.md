@@ -3,6 +3,7 @@ Defined in header [<xieite/exceptions/unspecified.hpp>](../../../../../../../inc
 
 &nbsp;
 
+## Description
 Constructs a `xieite::exceptions::Unspecified`.
 
 ## Synopsis

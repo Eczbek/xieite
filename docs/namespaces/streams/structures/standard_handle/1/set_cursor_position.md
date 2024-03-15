@@ -18,14 +18,14 @@ void setCursorPosition(xieite::streams::Position position) const noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/streams/standard_handle.hpp"
 
 int main() {
     auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
 
     terminal.setCursorPosition({ 2, 5 });
-    std::cout << "Hello, world!\n";
+    std::println("Hello, world!");
 }
 ```
 Possible output:

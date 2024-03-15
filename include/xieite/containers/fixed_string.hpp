@@ -4,7 +4,6 @@
 #	include <array>
 #	include <cstddef>
 #	include <string_view>
-#	include "../concepts/string_view.hpp"
 
 namespace xieite::containers {
 	template<std::size_t characters, typename Character = char>
@@ -22,9 +21,8 @@ namespace xieite::containers {
 			return characters;
 		}
 
-		template<xieite::concepts::StringView StringView = std::string_view>
-		[[nodiscard]] constexpr StringView view() const noexcept {
-			return StringView(this->data, this->data + characters);
+		[[nodiscard]] constexpr std::string_view view() const noexcept {
+			return std::string_view(this->data, this->data + characters);
 		}
 	};
 

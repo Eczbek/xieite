@@ -18,19 +18,19 @@ Generates a djb2 hash.
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/hash_djb2.hpp"
 
 int main() {
     switch (xieite::strings::hashDjb2("banana")) {
         case xieite::strings::hashDjb2("apple"):
-            std::cout << "1\n";
+            std::println("1");
             break;
         case xieite::strings::hashDjb2("banana"):
-            std::cout << "2\n";
+            std::println("2");
             break;
         default:
-            std::cout << "3\n";
+            std::println("3");
     }
 }
 ```

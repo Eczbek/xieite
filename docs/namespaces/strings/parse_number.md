@@ -19,14 +19,12 @@ template<xieite::concepts::Arithmetic Number>
 
 ## Example
 ```cpp
-#include <iostream>
+#include <print>
 #include "xieite/strings/parse_number.hpp"
 
 int main() {
-    std::cout
-        << std::boolalpha
-        << xieite::strings::parseNumber<int>("+20") << '\n'
-        << xieite::strings::parseNumber<double>("3.14159e-2") << '\n';
+    std::println("{}", xieite::strings::parseNumber<int>("+20"));
+    std::println("{}", xieite::strings::parseNumber<double>("3.14159e-2"));
 }
 ```
 Output:

@@ -3,6 +3,11 @@ Defined in header [<xieite/types/partial.hpp>](../../../../../../include/xieite/
 
 &nbsp;
 
+## Description
+// TODO
+
+&nbsp;
+
 ## Synopsis
 #### 1)
 ```cpp
