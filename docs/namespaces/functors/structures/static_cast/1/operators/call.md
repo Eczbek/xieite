@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[StaticCast<Target>](../../../../static_cast.md)\:\:operator()\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[StaticCast<Target>](../../../../static_cast.md)\:\:operator\(\)\(\)
 Defined in header [<xieite/functors/static_cast.hpp>](../../../../../../../include/xieite/functors/static_cast.hpp)
 
 &nbsp;

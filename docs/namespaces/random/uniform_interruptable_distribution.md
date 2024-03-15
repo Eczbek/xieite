@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:UniformInterruptableDistribution
+# [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:UniformInterruptableDistribution \{\}
 Defined in header [<xieite/random/uniform_interruptable_distribution.hpp>](../../../include/xieite/random/uniform_interruptable_distribution.hpp)
 
 &nbsp;
@@ -14,14 +14,14 @@ A uniform random number distribution which allows excluding subintervals from th
 template<xieite::concepts::Arithmetic Number>
 struct UniformInterruptableDistribution {
     template<xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
-    UniformInterruptableDistribution(xieite::math::Interval<Number>, const IntervalRange&);
+    UniformInterruptableDistribution(xieite::math::Interval<Number>, IntervalRange&&);
 
     template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator>
-    Number operator()(UniformRandomBitGenerator&) const;
+    Number operator()(UniformRandomBitGenerator&) noexcept;
 };
 ```
-- [UniformInterruptableDistribution](./structures/uniform_interruptable_distribution/1/operators/constructor.md)
-- [operator\(\)](./structures/uniform_interruptable_distribution/1/operators/call.md)
+- [UniformInterruptableDistribution\(\)](./structures/uniform_interruptable_distribution/1/operators/constructor.md)
+- [operator\(\)\(\)](./structures/uniform_interruptable_distribution/1/operators/call.md)
 
 &nbsp;
 
@@ -36,7 +36,7 @@ int main() {
 
     auto interval = xieite::math::Interval<int>(0, 5);
 
-    std::vector<xieite::math::Interval<int>> interruptions {
+    std::vector<xieite::math::Interval<int>> interruptions = {
         xieite::math::Interval<int>(1, 4)
     };
 

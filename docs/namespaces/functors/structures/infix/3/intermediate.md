@@ -21,8 +21,8 @@ struct Intermediate {
     friend constexpr Result operator>(xieite::functors::Infix<Result(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&&, RightArgumentReference&&);
 };
 ```
-- [Intermediate](./structures/intermediate/1/operators/constructor.md)
-- [operator>](./structures/intermediate/1/operators/more.md)
+- [Intermediate\(\)](./structures/intermediate/1/operators/constructor.md)
+- [operator>\(\)](./structures/intermediate/1/operators/more.md)
 
 &nbsp;
 

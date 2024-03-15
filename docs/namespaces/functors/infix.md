@@ -28,8 +28,8 @@ struct Infix<Result(Argument)>
     friend constexpr Result operator<(ArgumentReference&&, const xieite::functors::Infix<Result(Argument)>&);
 };
 ```
-- [operator>](./structures/infix/2/operators/more.md)
-- [operator<](./structures/infix/2/operators/less.md)
+- [operator>\(\)](./structures/infix/2/operators/more.md)
+- [operator<\(\)](./structures/infix/2/operators/less.md)
 #### 3)
 ```cpp
 template<typename Result, typename LeftArgument, typename RightArgument>

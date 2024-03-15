@@ -35,9 +35,9 @@ struct Function<Result(Arguments...)> {
     constexpr Result operator()(ArgumentReferences&&...) const;
 };
 ```
-- [Function](./structures/function/2/operators/constructor.md)
-- [operator typename](./structures/function/2/operators/cast.md)
-- [operator\(\)](./structures/function/2/operators/call.md)
+- [Function\(\)](./structures/function/2/operators/constructor.md)
+- [operator typename\(\)](./structures/function/2/operators/cast.md)
+- [operator\(\)\(\)](./structures/function/2/operators/call.md)
 
 &nbsp;
 

@@ -23,8 +23,8 @@ struct Overloader
     using Derivables::operator()...;
 };
 ```
-- [Overloader](./structures/overloader/1/operators/constructor.md)
-- [operator\(\)](./structures/overloader/1/operators/call.md)
+- [Overloader\(\)](./structures/overloader/1/operators/constructor.md)
+- [operator\(\)\(\)](./structures/overloader/1/operators/call.md)
 
 &nbsp;
 

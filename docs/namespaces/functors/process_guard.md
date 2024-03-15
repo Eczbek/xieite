@@ -18,8 +18,8 @@ struct ProcessGuard {
     void release();
 };
 ```
-- [ProcessGuard](./structures/process_guard/1/operators/constructor.md)
-- [release](./structures/process_guard/1/release.md)
+- [ProcessGuard\(\)](./structures/process_guard/1/operators/constructor.md)
+- [release\(\)](./structures/process_guard/1/release.md)
 
 &nbsp;
 

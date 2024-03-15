@@ -4,7 +4,7 @@ Defined in header [<xieite/random/uniform_distribution.hpp>](../../../include/xi
 &nbsp;
 
 ## Description
-// TODO
+A type alias to a uniform distribution for an integer, boolean, or floating point.
 
 &nbsp;
 
@@ -13,4 +13,31 @@ Defined in header [<xieite/random/uniform_distribution.hpp>](../../../include/xi
 ```cpp
 template<xieite::concepts::Arithmetic Number>
 using UniformDistribution = std::conditional_t<std::integral<Number>, std::conditional_t<std::same_as<Number, bool>, std::bernoulli_distribution, std::uniform_int_distribution<Number>>, std::uniform_real_distribution<Number>>;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <concepts>
+#include <print>
+#include <random>
+#include "xieite/concepts/specialization_of.hpp"
+#include "xieite/random/uniform_distribution.hpp"
+
+int main() {
+    using Foo = xieite::random::UniformDistribution<int>;
+    using Bar = xieite::random::UniformDistribution<bool>;
+    using Baz = xieite::random::UniformDistribution<double>;
+
+    std::println("{}", xieite::concepts::SpecializationOf<Foo, std::uniform_int_distribution>);
+    std::println("{}", std::same_as<Bar, std::bernoulli_distribution>);
+    std::println("{}", xieite::concepts::SpecializationOf<Baz, std::uniform_real_distribution>);
+}
+```
+Output:
+```
+true
+true
+true
 ```

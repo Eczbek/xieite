@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:getUniversallyUniqueIdentifier
+# [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:getUniversallyUniqueIdentifier\(\)
 Defined in header [<xieite/random/get_universally_unique_identifier.hpp>](../../../include/xieite/random/get_universally_unique_identifier.hpp)
 
 &nbsp;

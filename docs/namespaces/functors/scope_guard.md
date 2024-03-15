@@ -17,8 +17,8 @@ struct ScopeGuard {
     constexpr void release();
 };
 ```
-- [ScopeGuard](./structures/scope_guard/1/operators/constructor.md)
-- [release](./structures/scope_guard/1/release.md)
+- [ScopeGuard\(\)](./structures/scope_guard/1/operators/constructor.md)
+- [release\(\)](./structures/scope_guard/1/release.md)
 
 &nbsp;
 

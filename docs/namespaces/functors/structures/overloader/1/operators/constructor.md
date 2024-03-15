@@ -4,7 +4,7 @@ Defined in header [<xieite/functors/overloader.hpp>](../../../../../../../includ
 &nbsp;
 
 ## Description
-Constructs a `xieite::functors::Overloader`.
+Constructs a `xieite::functors::Overloader<Derivables...>`.
 
 &nbsp;
 
