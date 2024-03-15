@@ -12,7 +12,7 @@ Distributes the bits of an integer magically. See header file.
 #### 1)
 ```cpp
 template<std::integral Integer, std::floating_point Phi = double>
-[[nodiscard]] constexpr Integer distribute(const Integer value) noexcept;
+[[nodiscard]] constexpr Integer distribute(Integer value) noexcept;
 ```
 
 &nbsp;

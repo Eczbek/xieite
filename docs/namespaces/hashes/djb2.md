@@ -11,7 +11,7 @@ Hashes a string using the relatively fast djb2 algorithm.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::size_t djb2(const std::string_view value) noexcept;
+[[nodiscard]] constexpr std::size_t djb2(std::string_view value) noexcept;
 ```
 
 &nbsp;

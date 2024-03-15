@@ -12,13 +12,13 @@ Checks whether at least one passed argument is true. Expects at least one argume
 #### 1)
 ```cpp
 template<std::convertible_to<bool>... Values>
-[[nodiscard]] constexpr bool any(const Values&... values)
+[[nodiscard]] constexpr bool any(Values&&... values)
 noexcept((... || xieite::concepts::NoThrowConvertibleTo<Values, bool>));
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::RangeOf<bool> Range>
-[[nodiscard]] constexpr bool any(const Range& range)
+[[nodiscard]] constexpr bool any(Range&& range)
 noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, bool>);
 ```
 

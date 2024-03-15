@@ -12,7 +12,7 @@ Performs a bitwise XOR operation on a value with itself shifted rightward.
 #### 1)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] constexpr Integer xorShift(const Integer value, const std::size_t bits) noexcept;
+[[nodiscard]] constexpr Integer xorShift(Integer value, std::size_t bits) noexcept;
 ```
 
 &nbsp;

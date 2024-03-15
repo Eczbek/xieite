@@ -11,11 +11,11 @@ Defined in header [<xieite/literals/exponent.hpp>](../../../include/xieite/liter
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr auto operator""_exponent(const unsigned long long int value) noexcept;
+[[nodiscard]] constexpr auto operator""_exponent(unsigned long long int value) noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] constexpr auto operator""_exponent(const long double value) noexcept;
+[[nodiscard]] constexpr auto operator""_exponent(long double value) noexcept;
 ```
 
 &nbsp;

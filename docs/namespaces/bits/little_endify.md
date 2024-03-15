@@ -12,7 +12,7 @@ Byte-swaps an integer if the system is little-endian.
 #### 1)
 ```cpp
 template<std::integral Integer>
-[[nodiscard]] constexpr Integer littleEndify(const Integer value) noexcept;
+[[nodiscard]] constexpr Integer littleEndify(Integer value) noexcept;
 ```
 
 &nbsp;

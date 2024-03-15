@@ -13,7 +13,7 @@ Checks whether all the ranges within one range have the same size.
 ```cpp
 template<std::ranges::range Matrix>
 requires(std::ranges::range<std::ranges::range_value_t<Matrix>>)
-[[nodiscard]] constexpr bool isUniformMatrix(const Matrix& matrix) noexcept;
+[[nodiscard]] constexpr bool isUniformMatrix(Matrix&& matrix) noexcept;
 ```
 
 &nbsp;
