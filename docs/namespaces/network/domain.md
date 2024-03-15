@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[network](../../network.md)\:\:Domain
+# [xieite](../../xieite.md)\:\:[network](../../network.md)\:\:Domain \{\}
 Defined in header [<xieite/network/domain.hpp>](../../../include/xieite/network/domain.hpp)
 
 &nbsp;
 
 ## Description
-An enumeration of network domain things.
+An enumeration of network domain types. For use on UNIX-like systems.
 
 &nbsp;
 
@@ -13,28 +13,44 @@ An enumeration of network domain things.
 ```cpp
 enum struct Domain
 : int {
-    AmateurRadioAX25 = AF_AX25,
     AppleTalk = AF_APPLETALK,
+    AX_25 = AF_AX25,
     Bluetooth = AF_BLUETOOTH,
-    ClusterDomainSockets = AF_TIPC,
-    ControllerAreaNetwork = AF_CAN,
-    CryptoNetlink = AF_ALG,
+    CAN = AF_CAN,
+    ALG = AF_ALG,
     DECnet = AF_DECnet,
-    ExpressDataPath = AF_XDP,
+    IB = AF_IB,
     IPv4 = AF_INET,
     IPv6 = AF_INET6,
-    InfiniBand = AF_IB,
-    KernelConnectionMultiplexer = AF_KCM,
+    KCM = AF_KCM,
     Key = AF_KEY,
+    LLC = AF_LLC,
     Local = AF_UNIX,
-    LogicalLinkControl = AF_LLC,
-    MultiprotocolLabelSwitching = AF_MPLS,
+    MPLS = AF_MPLS,
     Netlink = AF_NETLINK,
-    NovellIPX = AF_IPX,
-    PPPOX = AF_PPPOX,
+    IPX = AF_IPX,
     Packet = AF_PACKET,
-    ReliableDatagramSockets = AF_RDS,
-    VMWareVSockets = AF_VSOCK,
-    X25 = AF_X25
+    PPPoX = AF_PPPOX,
+    RDS = AF_RDS,
+    TIPC = AF_TIPC,
+    VSockets = AF_VSOCK,
+    X_25 = AF_X25,
+    XDP = AF_XDP
 };
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/network/domain.hpp"
+
+int main() {
+    std::println("{}", static_cast<int>(xieite::network::Domain::Bluetooth));
+}
+```
+Possible output:
+```
+31
 ```

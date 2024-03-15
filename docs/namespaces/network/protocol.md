@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[network](../../network.md)\:\:Protocol
+# [xieite](../../xieite.md)\:\:[network](../../network.md)\:\:Protocol \{\}
 Defined in header [<xieite/network/protocol.hpp>](../../../include/xieite/network/protocol.hpp)
 
 &nbsp;
 
 ## Description
-An enumeration of network protocol things.
+An enumeration of network protocol types. For use on UNIX-like systems.
 
 &nbsp;
 
@@ -22,4 +22,20 @@ enum struct Protocol
     TCP = IPPROTO_TCP,
     UDP = IPPROTO_UDP
 };
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/network/protocol.hpp"
+
+int main() {
+    std::println("{}", static_cast<int>(xieite::network::Protocol::IPv6));
+}
+```
+Possible output:
+```
+41
 ```

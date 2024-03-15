@@ -15,8 +15,7 @@
 - [literals](./literals.md)
 - [math](./math.md)
 - [memory](./memory.md)
-- [metadata](./metadata.md) - outdated
-- [network](./network.md) - outdated
+- [network](./network.md)
 - [random](./random.md) - outdated
 - [streams](./streams.md) - outdated
 - [strings](./strings.md) - outdated

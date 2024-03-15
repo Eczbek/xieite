@@ -2,7 +2,7 @@
 
 &nbsp;
 
-Macros and headers.
+Macros and special headers.
 
 &nbsp;
 

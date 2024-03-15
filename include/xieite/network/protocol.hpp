@@ -7,7 +7,7 @@
 #		error "Platform not supported"
 #	endif
 
-#	include <sys/socket.h>
+#	include <netinet/ip.h>
 
 namespace xieite::network {
 	enum struct Protocol
