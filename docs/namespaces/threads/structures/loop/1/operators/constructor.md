@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Loop](../../../../loop.md)\:\:Loop
+# [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Loop](../../../../loop.md)\:\:Loop\(\)
 Defined in header [<xieite/threads/loop.hpp>](../../../../../../../include/xieite/threads/loop.hpp)
 
 &nbsp;
@@ -11,6 +11,9 @@ Constructs a `xieite::threads::Loop`, starts running a callback constantly.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::invocable<> Functor>
-Loop(const Functor& callback) noexcept;
+Loop(const xieite::functors::Function<void()>& callback) noexcept;
 ```
+
+&nbsp;
+
+## [Example](../../../../loop.md#Example)

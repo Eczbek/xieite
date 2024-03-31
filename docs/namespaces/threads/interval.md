@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Interval
+# [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Interval \{\}
 Defined in header [<xieite/threads/interval.hpp>](../../../include/xieite/threads/interval.hpp)
 
 &nbsp;
 
 ## Description
-Runs a callback every set amount of time. Compile with `-pthread`.
+Runs a callback every set amount of time.
 
 &nbsp;
 
@@ -12,17 +12,17 @@ Runs a callback every set amount of time. Compile with `-pthread`.
 #### 1)
 ```cpp
 struct Interval {
-    template<std::invocable<> Functor, xieite::concepts::Duration Duration>
-    Interval(const Functor&, Duration) noexcept;
+    template<xieite::concepts::Duration Duration>
+    Interval(const xieite::functors::Function<void()>&, Duration) noexcept;
 
-    explicit operator bool() const;
+    explicit operator bool() const noexcept;
 
-    void stop();
+    void stop() noexcept;
 };
 ```
-- [Interval](./structures/interval/1/operators/constructor.md)
-- [operator typename](./structures/interval/1/operators/cast.md)
-- [stop](./structures/interval/1/stop.md)
+- [Interval\(\)](./structures/interval/1/operators/constructor.md)
+- [operator typename\(\)](./structures/interval/1/operators/cast.md)
+- [stop\(\)](./structures/interval/1/stop.md)
 
 &nbsp;
 
@@ -34,7 +34,7 @@ struct Interval {
 #include "xieite/threads/interval.hpp"
 
 int main() {
-    xieite::threads::Interval interval([] {
+    auto interval = xieite::threads::Interval([] {
         static int i = 0;
 
         std::println("{}", ++i);

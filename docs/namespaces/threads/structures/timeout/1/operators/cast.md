@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Timeout](../../../../timeout.md)\:\:operator typename
+# [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Timeout](../../../../timeout.md)\:\:operator typename\(\)
 Defined in header [<xieite/threads/timeout.hpp>](../../../../../../../include/xieite/threads/timeout.hpp)
 
 &nbsp;
@@ -12,4 +12,30 @@ The boolean cast eturns `true` if the timeout is still waiting, and `false` if i
 #### 1)
 ```cpp
 [[nodiscard]] explicit operator bool() const noexcept;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <chrono>
+#include <print>
+#include "xieite/threads/timeout.hpp"
+
+int main() {
+    auto timeout = xieite::threads::Timeout([] {
+        std::println("xyz");
+    }, std::chrono::seconds(5));
+
+    std::println("{}", static_cast<bool>(timeout));
+
+    timeout.stop();
+
+    std::println("{}", static_cast<bool>(timeout));
+}
+```
+Output:
+```
+true
+false
 ```

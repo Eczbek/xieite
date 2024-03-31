@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[threads](../../../../../threads.md)\:\:[Interval](../../../interval.md)\:\:stop
+# [xieite](../../../../../xieite.md)\:\:[threads](../../../../../threads.md)\:\:[Interval](../../../interval.md)\:\:stop\(\)
 Defined in header [<xieite/threads/interval.hpp>](../../../../../../include/xieite/threads/interval.hpp)
 
 &nbsp;
@@ -12,4 +12,24 @@ Stops a `xieite::threads::Interval`, and further callback calls. Immediately ret
 #### 1)
 ```cpp
 void stop() noexcept;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <chrono>
+#include <print>
+#include "xieite/threads/interval.hpp"
+
+int main() {
+    auto interval = xieite::threads::Interval([] {
+        std::println("xyz");
+    }, std::chrono::seconds(3));
+
+    interval.stop();
+}
+```
+Possible output:
+```
 ```

@@ -20,9 +20,7 @@ template<typename Result, typename... Arguments>
 struct Function<Result(Arguments...)> {
     constexpr Function() noexcept;
 
-    template<typename Functor>
-    requires(std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Result(Arguments...)>>)
-    constexpr Function(Functor&&) noexcept;
+    constexpr Function(const xieite::functors::Function<Result(Arguments...)>&) noexcept;
 
     template<xieite::concepts::Functable<Result(Arguments...)> Functor>
     requires(!std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Result(Arguments...)>>)

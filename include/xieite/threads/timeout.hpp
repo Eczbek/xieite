@@ -18,7 +18,7 @@ namespace xieite::threads {
 		}, duration) {}
 
 		[[nodiscard]] explicit operator bool() const noexcept {
-			return this->interval;
+			return static_cast<bool>(this->interval);
 		}
 
 		void stop() noexcept {

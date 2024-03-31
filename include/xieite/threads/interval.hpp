@@ -23,7 +23,7 @@ namespace xieite::threads {
 		}) {}
 
 		[[nodiscard]] explicit operator bool() const noexcept {
-			return this->loop;
+			return static_cast<bool>(this->loop);
 		}
 
 		void stop() noexcept {

@@ -15,9 +15,7 @@ constexpr Function() noexcept;
 ```
 #### 2)
 ```cpp
-template<typename Functor>
-requires(std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Result(Arguments...)>>)
-constexpr Function(Functor&& function) noexcept;
+constexpr Function(const xieite::functors::Function<Result(Arguments...)>& function) noexcept;
 ```
 #### 3)
 ```cpp

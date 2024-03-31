@@ -7,12 +7,12 @@
 #	include <queue>
 #	include <thread>
 #	include <vector>
-#	include "../functors/functional.hpp"
+#	include "../functors/function.hpp"
 
 namespace xieite::threads {
 	struct Pool {
 	public:
-		Pool(const std::size_t threadCount = std::thread::hardware_concurrency()) {
+		Pool(const std::size_t threadCount = std::thread::hardware_concurrency()) noexcept {
 			this->setThreadCount(threadCount);
 		}
 
@@ -51,7 +51,7 @@ namespace xieite::threads {
 			}
 		}
 
-		[[nodiscard]] std::size_t getThreadCount() noexcept {
+		[[nodiscard]] std::size_t getThreadCount() const noexcept {
 			const auto _ = std::unique_lock<std::mutex>(this->mutex);
 			return this->threads.size();
 		}
@@ -64,9 +64,10 @@ namespace xieite::threads {
 		}
 
 	private:
-		std::vector<std::jthread> threads;
+		// Destruction order is important
 		std::queue<xieite::functors::Function<void()>> jobs;
-		std::mutex mutex;
+		std::vector<std::jthread> threads;
+		mutable std::mutex mutex;
 		std::condition_variable condition;
 	};
 }

@@ -17,7 +17,6 @@ namespace xieite::functors {
 	public:
 		constexpr Function() noexcept = default;
 
-		template<typename Functor>
 		constexpr Function(const xieite::functors::Function<Result(Arguments...)>& function) noexcept
 		: pointer(function.pointer->clone()) {}
 
