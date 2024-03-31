@@ -19,8 +19,8 @@ Returns the difference between two big-integers.
 ```
 #### 3)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>& minuend, Integer subtrahend) noexcept;
+template<std::integral Integral>
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>& minuend, Integral subtrahend) noexcept;
 ```
 
 &nbsp;

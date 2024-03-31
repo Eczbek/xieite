@@ -15,8 +15,8 @@ constexpr xieite::math::Integer<bits, sign>& operator=(xieite::math::Integer<bit
 ```
 #### 2)
 ```cpp
-template<std::integral Integer>
-constexpr xieite::math::Integer<bits, sign>& operator=(Integer value) const noexcept;
+template<std::integral Integral>
+constexpr xieite::math::Integer<bits, sign>& operator=(Integral value) const noexcept;
 ```
 
 &nbsp;

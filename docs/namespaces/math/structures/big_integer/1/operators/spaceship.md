@@ -15,8 +15,8 @@ Compares two big-integers.
 ```
 #### 2)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, Integer rightComparand) noexcept;
+template<std::integral Integral>
+[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, Integral rightComparand) noexcept;
 ```
 
 &nbsp;

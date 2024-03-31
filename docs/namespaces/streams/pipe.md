@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Pipe
+# [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Pipe \{\}
 Defined in header [<xieite/streams/pipe.hpp>](../../../include/xieite/streams/pipe.hpp)
 
 &nbsp;
@@ -19,4 +19,20 @@ struct Pipe {
 ```
 ##### Members
 - file
-- [Pipe](./structures/pipe/1/operators/constructor.md)
+- [Pipe\(\)](./structures/pipe/1/operators/constructor.md)
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/streams/pipe.hpp"
+
+int main() {
+    auto _ = xieite::streams::Pipe("echo \"Hello, world!\"", "w");
+}
+```
+Possible output:
+```
+Hello, world!
+```

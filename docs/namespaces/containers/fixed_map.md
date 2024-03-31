@@ -21,10 +21,10 @@ struct FixedMap {
     constexpr FixedMap(std::initializer_list<std::pair<Key, Value>>) noexcept;
 
     template<typename Self, std::convertible_to<Key> KeyReference>
-    constexpr auto&& operator[](this Self&&, KeyReference&&);
+    constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&&, KeyReference&&) noexcept;
 
     template<typename Self, std::convertible_to<Key> KeyReference>
-    constexpr auto&& at(this Self&&, KeyReference&&);
+    constexpr std::expected<auto&&, xieite::errors::Type> at(this Self&&, KeyReference&&) noexcept;
 
     template<std::convertible_to<Key> KeyReference>
     constexpr bool contains(KeyReference&&) const noexcept;
@@ -48,14 +48,14 @@ struct FixedMap {
 #include "xieite/containers/fixed_map.hpp"
 
 int main() {
-    constexpr xieite::containers::FixedMap<std::string_view, int, 4> map {
+    constexpr xieite::containers::FixedMap<std::string_view, int, 4> map = {
         { "foo", 1 },
         { "bar", 2 },
         { "baz", 3 },
         { "qux", 4 }
     };
 
-    for (auto [key, value] : map) {
+    for (auto [key, value] : map.data()) {
         std::println("{}: {}", key, value);
     }
 }

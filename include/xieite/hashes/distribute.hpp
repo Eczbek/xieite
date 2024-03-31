@@ -8,9 +8,9 @@
 #	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::hashes {
-	template<std::integral Integer, std::floating_point Phi = double>
-	[[nodiscard]] constexpr Integer distribute(const Integer value) noexcept {
-		return static_cast<Integer>(std::numeric_limits<xieite::types::MaybeUnsigned<Integer>>::max() / std::numbers::phi_v<Phi>) * xieite::bits::xorShift(std::numeric_limits<xieite::types::MaybeUnsigned<Integer>>::max() / 3 * xieite::bits::xorShift(value, sizeof(Integer) * 4), sizeof(Integer) * 4);
+	template<std::integral Integral, std::floating_point Phi = double>
+	[[nodiscard]] constexpr Integral distribute(const Integral value) noexcept {
+		return static_cast<Integral>(std::numeric_limits<xieite::types::MaybeUnsigned<Integral>>::max() / std::numbers::phi_v<Phi>) * xieite::bits::xorShift(std::numeric_limits<xieite::types::MaybeUnsigned<Integral>>::max() / 3 * xieite::bits::xorShift(value, sizeof(Integral) * 4), sizeof(Integral) * 4);
 	}
 }
 

@@ -11,13 +11,13 @@ Returns the unsigned absolute of a value.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr xieite::types::MaybeUnsigned<Integer> absolute(Integer value) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr xieite::types::MaybeUnsigned<Integral> absolute(Integral value) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::floating_point FloatingPoint>
-[[nodiscard]] constexpr FloatingPoint absolute(FloatingPoint value) noexcept;
+template<std::floating_point Fractional>
+[[nodiscard]] constexpr Fractional absolute(Fractional value) noexcept;
 ```
 
 &nbsp;

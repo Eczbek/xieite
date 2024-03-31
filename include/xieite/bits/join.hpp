@@ -9,18 +9,18 @@
 #	include "../types/size_bits.hpp"
 
 namespace xieite::bits {
-	template<std::integral... Integers>
-	[[nodiscard]] constexpr std::bitset<(... + xieite::types::sizeBits<Integers>)> join(const Integers... values) noexcept {
-		std::bitset<(... + xieite::types::sizeBits<Integers>)> result;
-		(..., (result = (result >> xieite::types::sizeBits<Integers>) | (std::bitset<(... + xieite::types::sizeBits<Integers>)>(static_cast<xieite::types::MaybeUnsigned<Integers>>(values)) << ((... + xieite::types::sizeBits<Integers>) - xieite::types::sizeBits<Integers>))));
+	template<std::integral... Integrals>
+	[[nodiscard]] constexpr std::bitset<(... + xieite::types::sizeBits<Integrals>)> join(const Integrals... values) noexcept {
+		std::bitset<(... + xieite::types::sizeBits<Integrals>)> result;
+		(..., (result = (result >> xieite::types::sizeBits<Integrals>) | (std::bitset<(... + xieite::types::sizeBits<Integrals>)>(static_cast<xieite::types::MaybeUnsigned<Integrals>>(values)) << ((... + xieite::types::sizeBits<Integrals>) - xieite::types::sizeBits<Integrals>))));
 		return result;
 	}
 
-	template<std::integral Integer, std::size_t size>
-	[[nodiscard]] constexpr std::bitset<xieite::types::sizeBits<Integer> * size> join(const std::array<Integer, size>& values) noexcept {
-		std::bitset<xieite::types::sizeBits<Integer> * size> result;
-		for (const Integer value : values) {
-			result = (result >> xieite::types::sizeBits<Integer>) | (std::bitset<xieite::types::sizeBits<Integer> * size>(static_cast<xieite::types::MaybeUnsigned<Integer>>(value)) << (xieite::types::sizeBits<Integer> * (size - 1)));
+	template<std::integral Integral, std::size_t size>
+	[[nodiscard]] constexpr std::bitset<xieite::types::sizeBits<Integral> * size> join(const std::array<Integral, size>& values) noexcept {
+		std::bitset<xieite::types::sizeBits<Integral> * size> result;
+		for (const Integral value : values) {
+			result = (result >> xieite::types::sizeBits<Integral>) | (std::bitset<xieite::types::sizeBits<Integral> * size>(static_cast<xieite::types::MaybeUnsigned<Integral>>(value)) << (xieite::types::sizeBits<Integral> * (size - 1)));
 		}
 		return result;
 	}

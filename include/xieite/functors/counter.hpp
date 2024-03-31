@@ -11,7 +11,7 @@ namespace xieite::detail {
 	};
 
 	template<auto tag, std::size_t current>
-	struct CounterSetter {
+	struct CounterWriter {
 		template<typename>
 		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<tag, current>) noexcept {}
 
@@ -25,7 +25,7 @@ namespace xieite::detail {
 		}) {
 			return xieite::detail::advanceCounter<tag, unique, current + 1>();
 		} else {
-			return xieite::detail::CounterSetter<tag, current>::value;
+			return xieite::detail::CounterWriter<tag, current>::value;
 		}
 	}
 

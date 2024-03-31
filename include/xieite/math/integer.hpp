@@ -13,17 +13,17 @@ namespace xieite::math {
 	public:
 		using Type = xieite::types::ConditionallySigned<xieite::types::LeastInteger<bits>, sign>;
 
-		template<std::integral OtherInteger = int>
-		constexpr Integer(const OtherInteger value = 0) noexcept
+		template<std::integral OtherIntegral = int>
+		constexpr Integer(const OtherIntegral value = 0) noexcept
 		: value(static_cast<xieite::math::Integer<bits, sign>::Type>(value)) {}
 
 		constexpr xieite::math::Integer<bits, sign> operator=(const xieite::math::Integer<bits, sign> value) noexcept {
 			this->value = static_cast<xieite::math::Integer<bits, sign>::Type>(value.value);
 		}
 
-		template<std::integral OtherInteger>
-		[[nodiscard]] constexpr operator OtherInteger() const noexcept {
-			return static_cast<OtherInteger>(this->value);
+		template<std::integral OtherIntegral>
+		[[nodiscard]] constexpr operator OtherIntegral() const noexcept {
+			return static_cast<OtherIntegral>(this->value);
 		}
 
 		template<std::size_t otherBits, bool otherSign>

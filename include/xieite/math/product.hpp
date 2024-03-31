@@ -4,10 +4,10 @@
 #	include <concepts>
 
 namespace xieite::math {
-	template<std::unsigned_integral UnsignedInteger>
+	template<std::unsigned_integral UnsignedIntegral>
 	struct Product {
-		UnsignedInteger lower;
-		UnsignedInteger upper;
+		UnsignedIntegral lower;
+		UnsignedIntegral upper;
 	};
 }
 

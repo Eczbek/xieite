@@ -15,8 +15,8 @@ Returns the bitwise XOR result of two big-integers.
 ```
 #### 2)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>& leftOperand, Integer rightOperand) noexcept;
+template<std::integral Integral>
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>& leftOperand, Integral rightOperand) noexcept;
 ```
 
 &nbsp;

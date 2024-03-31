@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_UNITS_TEMPERATURE
 
 namespace xieite::units {
-	enum Temperature {
+	enum struct Temperature {
 		Kelvin,
 		Celsius,
 		Fahrenheit,

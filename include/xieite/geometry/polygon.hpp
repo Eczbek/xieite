@@ -70,6 +70,7 @@ namespace xieite::geometry {
 		[[nodiscard]] constexpr std::vector<xieite::geometry::Segment<Number>> sides() const noexcept {
 			std::vector<xieite::geometry::Segment<Number>> sides;
 			const std::size_t pointsSize = this->points.size();
+			sides.reserve(pointsSize);
 			for (std::size_t i = 0; i < pointsSize; ++i) {
 				sides.push_back(xieite::geometry::Segment<Number>(this->points[i], this->points[(i + 1) % pointsSize]));
 			}

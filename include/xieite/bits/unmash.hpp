@@ -14,24 +14,24 @@
 namespace xieite::bits {
 	template<std::size_t... sizes>
 	[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes>...> unmash(std::bitset<(... + sizes)> value) noexcept {
-		return xieite::containers::reverseTuple(std::make_tuple<xieite::types::LeastInteger<sizes>...>(([&value] -> xieite::types::LeastInteger<sizes> {
-			using Integer = xieite::types::LeastInteger<sizes>;
-			Integer item = static_cast<Integer>(value.to_ullong());
-			if constexpr (sizes < xieite::types::sizeBits<Integer>) {
-				item &= std::numeric_limits<Integer>::max() >> (xieite::types::sizeBits<Integer> - sizes);
+		return xieite::containers::reverseTuple(std::make_tuple<xieite::types::LeastInteger<sizes>...>(([&value] {
+			using Integral = xieite::types::LeastInteger<sizes>;
+			Integral item = static_cast<Integral>(value.to_ullong());
+			if constexpr (sizes < xieite::types::sizeBits<Integral>) {
+				item &= std::numeric_limits<Integral>::max() >> (xieite::types::sizeBits<Integral> - sizes);
 			}
 			value >>= sizes;
 			return item;
 		})()...));
 	}
 
-	template<std::integral Integer, std::size_t... sizes>
-	[[nodiscard]] constexpr std::array<Integer, sizeof...(sizes)> unmash(std::bitset<(... + sizes)> value) noexcept {
-		return std::array<Integer, sizeof...(sizes)> {
-			([&value] -> Integer {
-				Integer item = static_cast<Integer>(value.to_ullong());
-				if constexpr (sizes < xieite::types::sizeBits<Integer>) {
-					item &= std::numeric_limits<xieite::types::MaybeUnsigned<Integer>>::max() >> (xieite::types::sizeBits<Integer> - sizes);
+	template<std::integral Integral, std::size_t... sizes>
+	[[nodiscard]] constexpr std::array<Integral, sizeof...(sizes)> unmash(std::bitset<(... + sizes)> value) noexcept {
+		return std::array<Integral, sizeof...(sizes)> {
+			([&value] {
+				Integral item = static_cast<Integral>(value.to_ullong());
+				if constexpr (sizes < xieite::types::sizeBits<Integral>) {
+					item &= std::numeric_limits<xieite::types::MaybeUnsigned<Integral>>::max() >> (xieite::types::sizeBits<Integral> - sizes);
 				}
 				value >>= sizes;
 				return item;

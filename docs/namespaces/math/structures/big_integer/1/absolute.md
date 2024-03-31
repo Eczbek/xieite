@@ -22,9 +22,9 @@ Gets the absolute value of a `xieite::math::BigInteger<Word>`.
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    xieite::math::BigInteger bigInteger = -999;
+    xieite::math::BigInteger bigIntegral = -999;
 
-    std::println("{}", bigInteger.absolute().string());
+    std::println("{}", bigIntegral.absolute().string());
 }
 ```
 Output:

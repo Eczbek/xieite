@@ -1,17 +1,17 @@
-# [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:getFile
+# [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:getFile\(\)
 Defined in header [<xieite/streams/get_file.hpp>](../../../include/xieite/streams/get_file.hpp)
 
 &nbsp;
 
 ## Description
-Extracts a `std::FILE*` from a stream.
+Extracts a `std::FILE*` from a stream. Requires GCC compiler.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::SameAsOrDerivedFromAnyAny<std::istream, std::ostream> Stream>
+template<xieite::concepts::Stream Stream>
 [[nodiscard]] inline std::FILE* getFile(const Stream& stream) noexcept;
 ```
 
@@ -19,12 +19,12 @@ template<xieite::concepts::SameAsOrDerivedFromAnyAny<std::istream, std::ostream>
 
 ## Example
 ```cpp
-#include <cstdio>
+#include <iostream>
 #include <print>
 #include "xieite/streams/get_file.hpp"
 
 int main() {
-    std::fprintf(xieite::streams::getFile(std::cout), "Hello, world!\n");
+    std::println(xieite::streams::getFile(std::cout), "Hello, world!");
 }
 ```
 Output:

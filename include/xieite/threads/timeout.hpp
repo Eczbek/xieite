@@ -12,12 +12,12 @@ namespace xieite::threads {
 	public:
 		template<xieite::concepts::Duration Duration>
 		Timeout(const xieite::functors::Function<void()>& callback, const Duration duration) noexcept
-		: interval([this, &callback] -> void {
+		: interval([this, &callback] {
 			this->stop();
 			callback();
 		}, duration) {}
 
-		[[nodiscard]] operator bool() const noexcept {
+		[[nodiscard]] explicit operator bool() const noexcept {
 			return this->interval;
 		}
 

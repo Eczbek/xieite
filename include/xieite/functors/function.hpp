@@ -6,7 +6,6 @@
 #	include <memory>
 #	include <type_traits>
 #	include "../concepts/functable.hpp"
-#	include "../exceptions/unset_functor_invoked.hpp"
 #	include "../macros/forward.hpp"
 
 namespace xieite::functors {
@@ -27,16 +26,14 @@ namespace xieite::functors {
 		constexpr Function(Functor&& functor) noexcept
 		: pointer(std::make_unique<xieite::functors::Function<Result(Arguments...)>::Derived<std::remove_cvref_t<Functor>>>(XIEITE_FORWARD(functor))) {}
 
-		[[nodiscard]] constexpr operator bool() const noexcept {
+		[[nodiscard]] explicit constexpr operator bool() const noexcept {
 			return static_cast<bool>(this->pointer);
 		}
 
 		template<typename... ArgumentReferences>
 		requires((... && std::convertible_to<ArgumentReferences, Arguments>))
 		constexpr Result operator()(ArgumentReferences&&... arguments) const {
-			if (!*this) {
-				throw xieite::exceptions::UnsetFunctorInvoked("Cannot invoke unset functor");
-			}
+			// Not handling nullptr dereference
 			return (*this->pointer)(XIEITE_FORWARD(arguments)...);
 		}
 

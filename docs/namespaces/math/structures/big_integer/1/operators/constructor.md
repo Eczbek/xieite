@@ -11,8 +11,8 @@ Constructs a `xieite::math::BigInteger<Word>`.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integer>
-constexpr BigInteger(Integer value = 0) noexcept;
+template<std::integral Integral>
+constexpr BigInteger(Integral value = 0) noexcept;
 ```
 #### 2)
 ```cpp

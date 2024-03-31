@@ -15,7 +15,7 @@ struct Loop {
     template<std::invocable<> Functor>
     Loop(const Functor&);
 
-    operator bool() const;
+    explicit operator bool() const;
 
     void stop();
 };

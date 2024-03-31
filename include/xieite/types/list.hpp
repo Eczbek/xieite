@@ -22,7 +22,7 @@ namespace xieite::types {
 
 		template<typename Type, template<typename, typename> typename Selector = std::is_same>
 		requires(xieite::types::List<Types...>::has<Type, Selector>)
-		static constexpr std::size_t find = ([] -> std::size_t {
+		static constexpr std::size_t find = ([] {
 			std::size_t index = 0;
 			(... && (Selector<Type, Types>::value && ++index));
 			return index;
@@ -170,7 +170,7 @@ namespace xieite::types {
 		template<typename... OtherTypes>
 		requires(sizeof...(Types) == sizeof...(OtherTypes))
 		struct ZipHelper {
-			using Type = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> auto {
+			using Type = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
 				return xieite::types::List<xieite::types::List<xieite::types::List<Types...>::At<i>, typename xieite::types::List<OtherTypes...>::template At<i>>...>();
 			})(std::make_index_sequence<sizeof...(OtherTypes)>()));
 		};

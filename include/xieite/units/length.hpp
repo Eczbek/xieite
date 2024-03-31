@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_UNITS_LENGTH
 
 namespace xieite::units {
-	enum Length {
+	enum struct Length {
 		Quectometre,
 		Rontometre,
 		Yoctometre,

@@ -22,7 +22,7 @@ namespace xieite::math {
 		for (Iterator iterator = std::ranges::begin(range); iterator != end; ++iterator) {
 			iterators.push_back(iterator);
 		}
-		std::ranges::sort(iterators, [comparator = std::ranges::less()](const Iterator left, const Iterator right) -> bool {
+		std::ranges::sort(iterators, [comparator = std::ranges::less()](const Iterator left, const Iterator right) {
 			return comparator(left, right);
 		});
 		const std::size_t rangeSize = std::ranges::size(range);

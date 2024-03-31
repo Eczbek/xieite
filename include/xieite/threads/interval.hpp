@@ -12,7 +12,7 @@ namespace xieite::threads {
 	public:
 		template<xieite::concepts::Duration Duration>
 		Interval(const xieite::functors::Function<void()>& callback, const Duration duration) noexcept
-		: loop([&callback, duration] -> void {
+		: loop([&callback, duration] {
 			static bool first = true;
 			if (first) {
 				first = false;
@@ -22,7 +22,7 @@ namespace xieite::threads {
 			std::this_thread::sleep_for(duration);
 		}) {}
 
-		[[nodiscard]] operator bool() const noexcept {
+		[[nodiscard]] explicit operator bool() const noexcept {
 			return this->loop;
 		}
 

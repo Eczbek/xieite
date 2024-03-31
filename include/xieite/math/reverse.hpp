@@ -7,13 +7,13 @@
 #	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr Integer reverse(Integer value, const Integer radix = 10) noexcept {
+	template<std::integral Integral>
+	[[nodiscard]] constexpr Integral reverse(Integral value, const Integral radix = 10) noexcept {
 		const bool negative = xieite::math::isNegative(value);
 		value *= xieite::math::splitBoolean(!negative);
-		Integer result = 0;
+		Integral result = 0;
 		while (value) {
-			Integer digit = value % radix;
+			Integral digit = value % radix;
 			value /= radix;
 			if (xieite::math::isNegative(digit)) {
 				digit += xieite::math::absolute(radix);

@@ -10,7 +10,7 @@ namespace xieite::threads {
 	struct Loop {
 	public:
 		Loop(const xieite::functors::Function<void()>& callback) noexcept
-		: thread([&callback](const std::stop_token stopToken) -> void {
+		: thread([&callback](const std::stop_token stopToken) {
 			while (!stopToken.stop_requested()) {
 				callback();
 			}
@@ -22,7 +22,7 @@ namespace xieite::threads {
 			}
 		}
 
-		[[nodiscard]] operator bool() const noexcept {
+		[[nodiscard]] explicit operator bool() const noexcept {
 			return this->thread.joinable();
 		}
 

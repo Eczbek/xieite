@@ -4,7 +4,7 @@ Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/
 &nbsp;
 
 ## Description
-Reverses a dimension of the matrix. May throw `std::out_of_range` if the number of indices is equal to or greater than the number of dimensions, or `std::range_error` if an index is outside its respective dimension.
+Reverses a dimension of the matrix.
 
 &nbsp;
 
@@ -12,12 +12,12 @@ Reverses a dimension of the matrix. May throw `std::out_of_range` if the number 
 #### 1)
 ```cpp
 template<xieite::concepts::RangeOf<std::size_t> Range>
-constexpr void reverse(Range&& indices);
+constexpr std::expected<void, xieite::errors::Type> reverse(Range&& indices) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::convertible_to<std::size_t>... Sizes>
-constexpr void reverse(const Sizes... indices);
+constexpr std::expected<void, xieite::errors::Type> reverse(Sizes... indices) noexcept;
 ```
 
 &nbsp;
@@ -35,7 +35,7 @@ int main() {
 
     for (std::size_t x = 0; x < 2; ++x) {
         for (std::size_t y = 0; y < 3; ++y) {
-            std::print("{} ", matrix[x, y]);
+            std::print("{} ", matrix[x, y].value());
         }
         std::println("");
     }
@@ -45,7 +45,7 @@ int main() {
     std::println("");
     for (std::size_t x = 0; x < 3; ++x) {
         for (std::size_t y = 0; y < 2; ++y) {
-            std::print("{} ", matrix[x, y]);
+            std::print("{} ", matrix[x, y].value());
         }
         std::println("");
     }

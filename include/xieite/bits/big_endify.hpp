@@ -6,8 +6,8 @@
 #	include "../system/endian.hpp"
 
 namespace xieite::bits {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr Integer bigEndify(const Integer value) noexcept {
+	template<std::integral Integral>
+	[[nodiscard]] constexpr Integral bigEndify(const Integral value) noexcept {
 		return xieite::system::endian::little ? std::byteswap(value) : value;
 	}
 }

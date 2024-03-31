@@ -10,11 +10,11 @@
 namespace xieite::containers {
 	template<typename... Types>
 	[[nodiscard]] constexpr typename xieite::types::List<Types...>::Reverse::Apply<std::tuple> reverseTuple(const std::tuple<Types...>& tuple)
-	noexcept(([]<std::size_t... i>(std::index_sequence<i...>) -> bool {
+	noexcept(([]<std::size_t... i>(std::index_sequence<i...>) {
 		return (... && xieite::concepts::NoThrowConvertibleTo<typename xieite::types::List<Types...>::At<i>, typename xieite::types::List<Types...>::Reverse::At<i>>);
 	})(std::make_index_sequence<sizeof...(Types)>())) {
 		using Reversed = xieite::types::List<Types...>::Reverse;
-		return ([&tuple]<std::size_t... i>(std::index_sequence<i...>) -> typename Reversed::Apply<std::tuple> {
+		return ([&tuple]<std::size_t... i>(std::index_sequence<i...>) {
 			return typename Reversed::Apply<std::tuple>(static_cast<typename Reversed::At<i>>(std::get<sizeof...(Types) - i - 1>(tuple))...);
 		})(std::make_index_sequence<sizeof...(Types)>());
 	}

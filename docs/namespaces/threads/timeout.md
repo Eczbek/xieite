@@ -15,7 +15,7 @@ struct Timeout {
     template<std::invocable<> Functor, xieite::concepts::Duration Duration>
     Timeout(const Functor&, Duration) noexcept;
 
-    operator bool() const;
+    explicit operator bool() const;
 
     void stop();
 };

@@ -10,8 +10,8 @@ namespace xieite::types {
 	template<typename Type>
 	inline constexpr std::size_t sizeBits = sizeof(Type) * xieite::system::byteBits;
 
-	template<std::integral Integer>
-	inline constexpr std::size_t sizeBits<Integer> = std::numeric_limits<Integer>::digits + std::numeric_limits<Integer>::is_signed;
+	template<std::integral Integral>
+	inline constexpr std::size_t sizeBits<Integral> = std::numeric_limits<Integral>::digits + std::numeric_limits<Integral>::is_signed;
 }
 
 #endif

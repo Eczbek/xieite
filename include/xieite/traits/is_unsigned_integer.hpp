@@ -1,13 +1,13 @@
-#ifndef XIEITE_HEADER_TRAITS_IS_UNSIGNED_INTEGER
-#	define XIEITE_HEADER_TRAITS_IS_UNSIGNED_INTEGER
+#ifndef XIEITE_HEADER_TRAITS_IS_UNSIGNED_INTEGRAL
+#	define XIEITE_HEADER_TRAITS_IS_UNSIGNED_INTEGRAL
 
 #	include <type_traits>
 #	include "../concepts/unsigned_integer.hpp"
 
 namespace xieite::traits {
 	template<typename Type>
-	struct IsUnsignedInteger
-	: std::bool_constant<xieite::concepts::UnsignedInteger<Type>> {};
+	struct IsUnsignedIntegral
+	: std::bool_constant<xieite::concepts::UnsignedIntegral<Type>> {};
 }
 
 #endif

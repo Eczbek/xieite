@@ -12,7 +12,7 @@
 namespace xieite::strings {
 	[[nodiscard]] constexpr char toLowercase(const char character) noexcept {
 		using Lookup = std::array<char, static_cast<std::size_t>(std::numeric_limits<unsigned char>::max()) + 1>;
-		static constexpr Lookup lookup = ([] -> Lookup {
+		static constexpr Lookup lookup = ([] {
 			Lookup lookup;
 			std::iota(lookup.begin(), lookup.end(), 0); // TODO: Replace with std::ranges::iota
 			for (std::size_t i = 0; i < xieite::strings::characters::alphabetSize; ++i) {

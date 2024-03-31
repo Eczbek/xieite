@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:CommonFloatingPoint
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:CommonFractional
 Defined in header [<xieite/types/common_floating_point.hpp>](../../../include/xieite/types/common_floating_point.hpp)
 
 &nbsp;
@@ -12,5 +12,5 @@ Defined in header [<xieite/types/common_floating_point.hpp>](../../../include/xi
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic... Numbers>
-using CommonFloatingPoint = std::conditional_t<xieite::concepts::SameAsAny<long double, Numbers...>, long double, std::conditional_t<xieite::concepts::SameAsAll<float, Numbers...>, float, double>>;
+using CommonFractional = std::conditional_t<xieite::concepts::SameAsAny<long double, Numbers...>, long double, std::conditional_t<xieite::concepts::SameAsAll<float, Numbers...>, float, double>>;
 ```

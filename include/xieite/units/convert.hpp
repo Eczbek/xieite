@@ -74,7 +74,7 @@ namespace xieite::units {
 		case xieite::units::Area::Decimilliare:
 			result /= 100.0;
 			break;
-		case xieite::units::Area::SquareDecametre:
+		case xieite::units::Area::SquareDecametre: [[fallthrough]];
 		case xieite::units::Area::Are:
 			result *= 100.0;
 			break;
@@ -175,7 +175,7 @@ namespace xieite::units {
 		case xieite::units::Area::Decimilliare:
 			result *= 100.0;
 			break;
-		case xieite::units::Area::SquareDecametre:
+		case xieite::units::Area::SquareDecametre: [[fallthrough]];
 		case xieite::units::Area::Are:
 			result /= 100.0;
 			break;

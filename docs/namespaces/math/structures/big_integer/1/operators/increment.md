@@ -26,9 +26,9 @@ constexpr xieite::math::BigInteger<Word>& operator++(int) noexcept;
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    xieite::math::BigInteger bigInteger = 7;
+    xieite::math::BigInteger bigIntegral = 7;
 
-    std::println("{}", (++bigInteger).string());
+    std::println("{}", (++bigIntegral).string());
 }
 ```
 Output:

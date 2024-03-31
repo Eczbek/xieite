@@ -15,8 +15,8 @@ Returns this big-integer bitwise shifted to the right.
 ```
 #### 2)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>& leftOperand, Integer rightOperand) noexcept;
+template<std::integral Integral>
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>& leftOperand, Integral rightOperand) noexcept;
 ```
 
 &nbsp;

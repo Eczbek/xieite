@@ -8,8 +8,8 @@
 #	include "../types/maybe_unsigned.hpp"
 
 namespace xieite::strings {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr std::string toRomanNumerals(const Integer value) noexcept {
+	template<std::integral Integral>
+	[[nodiscard]] constexpr std::string toRomanNumerals(const Integral value) noexcept {
 		static constexpr std::array<std::string_view, 10> units = {
 			"",
 			"I",
@@ -49,7 +49,7 @@ namespace xieite::strings {
 		if (!value) {
 			return "N";
 		}
-		const xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
+		const xieite::types::MaybeUnsigned<Integral> absoluteValue = xieite::math::absolute(value);
 		return std::string(absoluteValue / 1000, 'M') + std::string(hundreds[absoluteValue / 100 % 10]) + std::string(tens[absoluteValue / 10 % 10]) + std::string(units[absoluteValue % 10]);
 	}
 }

@@ -4,7 +4,7 @@ Defined in header [<xieite/functors/function.hpp>](../../../../../../../include/
 &nbsp;
 
 ## Description
-Calls the underlying functor. Throws `xieite::exceptions::UnsetFunctorInvoked` if the instance was default-constructed and no functor was assigned.
+Calls the underlying functor.
 
 &nbsp;
 

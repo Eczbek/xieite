@@ -11,8 +11,8 @@ Checks that a value is negative.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral UnsignedInteger>
-[[nodiscard]] constexpr bool isNegative(UnsignedInteger value) noexcept;
+template<std::unsigned_integral UnsignedIntegral>
+[[nodiscard]] constexpr bool isNegative(UnsignedIntegral value) noexcept;
 ```
 #### 2)
 ```cpp

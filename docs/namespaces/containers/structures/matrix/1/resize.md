@@ -4,7 +4,7 @@ Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/
 &nbsp;
 
 ## Description
-Resizes the matrix and reinterprets the underlying data. May throw `std::out_of_range` if the new dimensions require more data than what is provided.
+Resizes the matrix and reinterprets the underlying data.
 
 &nbsp;
 
@@ -12,12 +12,12 @@ Resizes the matrix and reinterprets the underlying data. May throw `std::out_of_
 #### 1)
 ```cpp
 template<xieite::concepts::RangeOf<std::size_t> Range>
-constexpr void resize(Range&& dimensions);
+constexpr std::expected<void, xieite::errors::Type> resize(Range&& dimensions) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::convertible_to<std::size_t>... Sizes>
-constexpr void resize(const Sizes... dimensions);
+constexpr std::expected<void, xieite::errors::Type> resize(Sizes... dimensions) noexcept;
 ```
 
 &nbsp;
@@ -35,7 +35,7 @@ int main() {
 
     for (std::size_t x = 0; x < 2; ++x) {
         for (std::size_t y = 0; y < 3; ++y) {
-            std::print("{} ", matrix[x, y]);
+            std::print("{} ", matrix[x, y].value());
         }
         std::println("");
     }
@@ -45,7 +45,7 @@ int main() {
     std::println("");
     for (std::size_t x = 0; x < 3; ++x) {
         for (std::size_t y = 0; y < 2; ++y) {
-            std::print("{} ", matrix[x, y]);
+            std::print("{} ", matrix[x, y].value());
         }
         std::println("");
     }

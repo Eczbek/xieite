@@ -11,8 +11,8 @@ Byte-swaps an integer if the system is little-endian.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr Integer littleEndify(Integer value) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr Integral littleEndify(Integral value) noexcept;
 ```
 
 &nbsp;

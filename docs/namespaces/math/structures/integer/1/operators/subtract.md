@@ -19,8 +19,8 @@ Returns the difference between two integers.
 ```
 #### 3)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator-(xieite::math::Integer<bits, sign> minuend, Integer subtrahend) noexcept;
+template<std::integral Integral>
+[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator-(xieite::math::Integer<bits, sign> minuend, Integral subtrahend) noexcept;
 ```
 
 &nbsp;

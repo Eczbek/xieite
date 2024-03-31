@@ -11,13 +11,13 @@ Computes the floor value of a division.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr Integer divideFloor(Integer dividend, Integer divisor) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr Integral divideFloor(Integral dividend, Integral divisor) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::floating_point FloatingPoint>
-[[nodiscard]] constexpr FloatingPoint divideFloor(FloatingPoint dividend, FloatingPoint divisor) noexcept;
+template<std::floating_point Fractional>
+[[nodiscard]] constexpr Fractional divideFloor(Fractional dividend, Fractional divisor) noexcept;
 ```
 
 &nbsp;

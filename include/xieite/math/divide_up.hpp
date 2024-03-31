@@ -8,13 +8,13 @@
 #	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr Integer divideUp(const Integer dividend, const Integer divisor) noexcept {
+	template<std::integral Integral>
+	[[nodiscard]] constexpr Integral divideUp(const Integral dividend, const Integral divisor) noexcept {
 		return xieite::math::divideDown(dividend, divisor) - !!(dividend % divisor) * xieite::math::splitBoolean(xieite::math::sign(dividend) != xieite::math::sign(divisor));
 	}
 
-	template<std::floating_point FloatingPoint>
-	[[nodiscard]] constexpr FloatingPoint divideUp(const FloatingPoint dividend, const FloatingPoint divisor) noexcept {
+	template<std::floating_point Fractional>
+	[[nodiscard]] constexpr Fractional divideUp(const Fractional dividend, const Fractional divisor) noexcept {
 		return std::ceil(dividend / divisor) - (xieite::math::sign(dividend) != xieite::math::sign(divisor));
 	}
 }

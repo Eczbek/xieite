@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_UNITS_ANGLE
 
 namespace xieite::units {
-	enum Angle {
+	enum struct Angle {
 		Radian,
 		Degree
 	};

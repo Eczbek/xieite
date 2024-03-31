@@ -1,4 +1,4 @@
-# [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:read
+# [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:read\(\)
 Defined in header [<xieite/streams/read.hpp>](../../../include/xieite/streams/read.hpp)
 
 &nbsp;
@@ -23,12 +23,9 @@ inline std::string read(std::istream& inputStream) noexcept;
 #include "xieite/streams/read.md>
 
 int main() {
-    std::ofstream writer("test.txt");
+    std::ofstream("test.txt") << "Hello, world!\n";
 
-    writer << "Hello, world!\n";
-
-    std::ifstream reader("test.txt");
-
+    std::ifstream reader = std::ifstream("test.txt");
     std::println("{}", xieite::streams::read(reader));
 }
 ```

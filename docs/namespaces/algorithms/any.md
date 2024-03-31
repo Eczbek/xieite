@@ -4,22 +4,17 @@ Defined in header [<xieite/algorithms/any.hpp>](../../../include/xieite/algorith
 &nbsp;
 
 ## Description
-Checks whether at least one passed argument is true. Expects at least one argument to be converible to a boolean value. Passing no arguments evaluates to `true`.
+Checks whether a functor invoked with at least one following argument evaluates to `true`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<bool>... Values>
-[[nodiscard]] constexpr bool any(Values&&... values)
-noexcept((... || xieite::concepts::NoThrowConvertibleTo<Values, bool>));
-```
-#### 2)
-```cpp
-template<xieite::concepts::RangeOf<bool> Range>
-[[nodiscard]] constexpr bool any(Range&& range)
-noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<Range>, bool>);
+template<typename... Values, typename Functor>
+requires((... && xieite::concepts::Functable<Functor, bool(Values)>))
+[[nodiscard]] constexpr bool any(Functor&& functor, Values&&... values)
+noexcept((... && xieite::concepts::NoThrowInvocable<Functor, Values>));
 ```
 
 &nbsp;
@@ -28,9 +23,12 @@ noexcept(xieite::concepts::NoThrowConvertibleTo<std::ranges::range_reference_t<R
 ```cpp
 #include <print>
 #include "xieite/algorithms/any.hpp"
+#include "xieite/functors/static_cast.hpp"
 
 int main() {
-    std::println("{}", xieite::algorithms::any(false, 0, '\0'));
+    auto predicate = xieite::functors::StaticCast<bool>();
+
+    std::println("{}", xieite::algorithms::any(predicate, false, 0, '\0'));
 }
 ```
 Output:

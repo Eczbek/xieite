@@ -11,8 +11,8 @@ Performs a bitwise XOR operation on a value with itself shifted rightward.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr Integer xorShift(Integer value, std::size_t bits) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr Integral xorShift(Integral value, std::size_t bits) noexcept;
 ```
 
 &nbsp;

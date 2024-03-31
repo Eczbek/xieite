@@ -4,7 +4,7 @@ Defined in header [<xieite/random/uniform_interruptable_distribution.hpp>](../..
 &nbsp;
 
 ## Description
-Constructs a `xieite::random::UniformInterruptableDistribution<Number>`. Throws a `xieite::exceptions::PossibleResultsExcludedByArguments` if all possible values are excluded.
+Constructs a `xieite::random::UniformInterruptableDistribution<Number>`. Invokes `std::unreachable()` if all possible values are excluded.
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Constructs a `xieite::random::UniformInterruptableDistribution<Number>`. Throws 
 #### 1)
 ```cpp
 template<xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
-UniformInterruptableDistribution(xieite::math::Interval<Number> interval, IntervalRange&& interruptions);
+UniformInterruptableDistribution(xieite::math::Interval<Number> interval, IntervalRange&& interruptions) noexcept;
 ```
 
 &nbsp;

@@ -16,8 +16,8 @@ template<std::size_t... sizes>
 ```
 #### 2)
 ```cpp
-template<std::integral Integer, std::size_t... sizes>
-[[nodiscard]] constexpr std::array<Integer, sizeof...(sizes)> unmash(const std::bitset<(... + sizes)>& value) noexcept;
+template<std::integral Integral, std::size_t... sizes>
+[[nodiscard]] constexpr std::array<Integral, sizeof...(sizes)> unmash(const std::bitset<(... + sizes)>& value) noexcept;
 ```
 
 &nbsp;

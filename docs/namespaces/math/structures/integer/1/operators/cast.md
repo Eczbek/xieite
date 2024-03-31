@@ -11,8 +11,8 @@ Casts a `xieite::math::Integer<bits, sign>` to another integer type.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr operator Integer() const noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr operator Integral() const noexcept;
 ```
 #### 2)
 ```cpp

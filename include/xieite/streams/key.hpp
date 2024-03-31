@@ -4,8 +4,8 @@
 namespace xieite::streams {
 	enum struct Key
 	: char {
-		Pause = '\0',
-		Null = '\0',
+		Pause = '\x00',
+		Null = '\x00',
 		ControlA = '\x01',
 		ControlB = '\x02',
 		ControlC = '\x03',
@@ -32,10 +32,10 @@ namespace xieite::streams {
 		ControlX = '\x18',
 		ControlY = '\x19',
 		ControlZ = '\x1A',
-		Function1 = '\0',
-		Function2 = '\0',
-		Function3 = '\0',
-		Function4 = '\0',
+		Function1 = '\x00',
+		Function2 = '\x00',
+		Function3 = '\x00',
+		Function4 = '\x00',
 		NumpadDigit0 = '0',
 		NumpadPeriod = '.',
 		NumpadDigit9 = '9',
@@ -47,14 +47,14 @@ namespace xieite::streams {
 		NumpadDigit5 = '5',
 		NumpadDigit1 = '1',
 		NumpadDigit7 = '7',
-		Function5 = '\0',
-		Function6 = '\0',
-		Function7 = '\0',
-		Function8 = '\0',
-		Function9 = '\0',
-		Function10 = '\0',
-		Function11 = '\0',
-		Function12 = '\0',
+		Function5 = '\x00',
+		Function6 = '\x00',
+		Function7 = '\x00',
+		Function8 = '\x00',
+		Function9 = '\x00',
+		Function10 = '\x00',
+		Function11 = '\x00',
+		Function12 = '\x00',
 		Space = ' ',
 		Ecphoneme = '!',
 		Quotation = '"',
@@ -151,8 +151,8 @@ namespace xieite::streams {
 		BraceClose = '}',
 		Tilde = '~',
 		Backspace = '\x7F',
-		Indent = xieite::streams::Key::LowercaseI,
-		Enter = xieite::streams::Key::LowercaseM,
+		Indent = xieite::streams::Key::ControlI,
+		Enter = xieite::streams::Key::ControlM,
 		Insert = xieite::streams::Key::NumpadDigit0,
 		Delete = xieite::streams::Key::NumpadPeriod,
 		PageUp = xieite::streams::Key::NumpadDigit9,
@@ -163,7 +163,7 @@ namespace xieite::streams {
 		ArrowLeft = xieite::streams::Key::NumpadDigit4,
 		End = xieite::streams::Key::NumpadDigit1,
 		Home = xieite::streams::Key::NumpadDigit7,
-		Unknown = '\0'
+		Unknown = '\x00'
 	};
 }
 

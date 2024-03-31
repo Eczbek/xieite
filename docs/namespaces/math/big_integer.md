@@ -15,8 +15,8 @@ template<std::unsigned_integral Word = std::uint64_t>
 struct BigInteger {
     using Type = Word;
 
-    template<std::integral Integer = int>
-    constexpr BigInteger(Integer = 0) noexcept;
+    template<std::integral Integral = int>
+    constexpr BigInteger(Integral = 0) noexcept;
 
     template<typename OtherWord>
     constexpr BigInteger(const xieite::math::BigInteger<OtherWord>&) noexcept;
@@ -29,35 +29,35 @@ struct BigInteger {
 
     constexpr xieite::math::BigInteger<Word>& operator=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator=(Integer) noexcept;
+    template<std::integral Integral>
+    constexpr xieite::math::BigInteger<Word>& operator=(Integral) noexcept;
 
-    template<std::integral Integer>
-    constexpr operator Integer() const noexcept;
+    template<std::integral Integral>
+    explicit constexpr operator Integral() const noexcept;
 
-    constexpr operator bool() const noexcept;
+    explicit constexpr operator bool() const noexcept;
 
     friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>&, Integer) noexcept;
+    template<std::integral Integral>
+    friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
     friend constexpr bool operator==(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) const noexcept;
 
-    template<std::integral Integer>
-    friend constexpr bool operator==(const xieite::math::BigInteger<Word>&, Integer) const noexcept;
+    template<std::integral Integral>
+    friend constexpr bool operator==(const xieite::math::BigInteger<Word>&, Integral) const noexcept;
 
     constexpr xieite::math::BigInteger<Word> operator+() const noexcept;
 
     friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>&, Integer) noexcept;
+    template<std::integral Integral>
+    friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator+=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator+=(Integer) noexcept;
+    template<std::integral Integral>
+    constexpr xieite::math::BigInteger<Word>& operator+=(Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator++() noexcept;
 
@@ -67,13 +67,13 @@ struct BigInteger {
 
     friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>&, Integer) noexcept;
+    template<std::integral Integral>
+    friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator-=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator-=(Integer) noexcept;
+    template<std::integral Integral>
+    constexpr xieite::math::BigInteger<Word>& operator-=(Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator--() noexcept;
 
@@ -81,102 +81,102 @@ struct BigInteger {
 
     friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>&, Integer) noexcept;
+    template<std::integral Integral>
+    friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator*=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator*=(Integer) noexcept;
+    template<std::integral Integral>
+    constexpr xieite::math::BigInteger<Word>& operator*=(Integral) noexcept;
 
-    friend constexpr xieite::math::BigInteger<Word> operator/(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
+    friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator/(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator/(const xieite::math::BigInteger<Word>&, Integer);
+    template<std::integral Integral>
+    friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator/(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
-    constexpr xieite::math::BigInteger<Word>& operator/=(const xieite::math::BigInteger<Word>&);
+    constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator/=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator/=(Integer);
+    template<std::integral Integral>
+    constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator/=(Integral) noexcept;
 
-    friend constexpr xieite::math::BigInteger<Word> operator%(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&);
+    friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator%(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator%(const xieite::math::BigInteger<Word>&, Integer);
+    template<std::integral Integral>
+    friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator%(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
-    constexpr xieite::math::BigInteger<Word>& operator%=(const xieite::math::BigInteger<Word>&);
+    constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator%=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator%=(Integer);
+    template<std::integral Integral>
+    constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator%=(Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word> operator~() const noexcept;
 
     friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>&, Integer) noexcept;
+    template<std::integral Integral>
+    friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator&=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator&=(Integer) noexcept;
+    template<std::integral Integral>
+    constexpr xieite::math::BigInteger<Word>& operator&=(Integral) noexcept;
 
     friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>&, Integer) noexcept;
+    template<std::integral Integral>
+    friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator|=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator|=(Integer) noexcept;
+    template<std::integral Integral>
+    constexpr xieite::math::BigInteger<Word>& operator|=(Integral) noexcept;
 
     friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>&, Integer) noexcept;
+    template<std::integral Integral>
+    friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator^=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator^=(Integer) noexcept;
+    template<std::integral Integral>
+    constexpr xieite::math::BigInteger<Word>& operator^=(Integral) noexcept;
 
     friend constexpr xieite::math::BigInteger<Word> operator<<(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator<<(const xieite::math::BigInteger<Word>&, Integer) noexcept;
+    template<std::integral Integral>
+    friend constexpr xieite::math::BigInteger<Word> operator<<(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator<<=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator<<=(Integer) noexcept;
+    template<std::integral Integral>
+    constexpr xieite::math::BigInteger<Word>& operator<<=(Integral) noexcept;
 
     friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>&, const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>&, Integer) noexcept;
+    template<std::integral Integral>
+    friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>&, Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator>>=(const xieite::math::BigInteger<Word>&) noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word>& operator>>=(Integer) noexcept;
+    template<std::integral Integral>
+    constexpr xieite::math::BigInteger<Word>& operator>>=(Integral) noexcept;
 
     constexpr xieite::math::BigInteger<Word> absolute() const noexcept;
 
-    constexpr xieite::math::BigInteger<Word> power(const xieite::math::BigInteger<Word>&) const;
+    constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> power(const xieite::math::BigInteger<Word>&) const noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word> power(Integer) const;
+    template<std::integral Integral>
+    constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> power(Integral) const noexcept;
 
-    constexpr xieite::math::BigInteger<Word> root(const xieite::math::BigInteger<Word>&) const;
+    constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> root(const xieite::math::BigInteger<Word>&) const noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word> root(Integer) const;
+    template<std::integral Integral>
+    constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> root(Integral) const noexcept;
 
-    constexpr xieite::math::BigInteger<Word> logarithm(const xieite::math::BigInteger<Word>&) const;
+    constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> logarithm(const xieite::math::BigInteger<Word>&) const noexcept;
 
-    template<std::integral Integer>
-    constexpr xieite::math::BigInteger<Word> logarithm(Integer) const;
+    template<std::integral Integral>
+    constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> logarithm(Integral) const noexcept;
 
     constexpr std::string string(xieite::math::SignedSize = 10, const xieite::strings::IntegerComponents& = xieite::strings::IntegerComponents()) const noexcept;
 };

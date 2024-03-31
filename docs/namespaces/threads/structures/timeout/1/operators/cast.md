@@ -11,5 +11,5 @@ The boolean cast eturns `true` if the timeout is still waiting, and `false` if i
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] operator bool() const noexcept;
+[[nodiscard]] explicit operator bool() const noexcept;
 ```

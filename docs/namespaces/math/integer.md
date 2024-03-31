@@ -15,13 +15,13 @@ template<std::size_t bits, bool sign>
 struct Integer {
     using Type = xieite::types::ConditionallySigned<xieite::types::LeastInteger<bits>, sign>;
 
-    template<std::integral OtherInteger = int>
-    constexpr Integer(OtherInteger = 0) noexcept;
+    template<std::integral OtherIntegral = int>
+    constexpr Integer(OtherIntegral = 0) noexcept;
 
     constexpr xieite::math::Integer<bits, sign>& operator=(xieite::math::Integer<bits, sign>) noexcept;
 
-    template<std::integral OtherInteger>
-    constexpr operator OtherInteger() const noexcept;
+    template<std::integral OtherIntegral>
+    constexpr operator OtherIntegral() const noexcept;
 
     template<std::size_t otherBits, bool otherSign>
     constexpr operator xieite::math::Integer<otherBits, otherSign>() const noexcept;
@@ -89,7 +89,7 @@ struct Integer {
 ```
 ##### Members
 - [Type](./structures/integer/1/type.md)
-- [Integer\(\)](./structures/integer/1/operators/constructor.md)
+- [Integral\(\)](./structures/integer/1/operators/constructor.md)
 - [operator=\(\)](./structures/integer/1/operators/assign.md)
 - [operator typename\(\)](./structures/integer/1/operators/cast.md)
 - [operator<=>\(\)](./structures/integer/1/operators/spaceship.md)

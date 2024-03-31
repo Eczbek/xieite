@@ -15,8 +15,8 @@ Compares two integers.
 ```
 #### 2)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::math::Integer<bits, sign> leftComparand, Integer rightComparand) noexcept;
+template<std::integral Integral>
+[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::math::Integer<bits, sign> leftComparand, Integral rightComparand) noexcept;
 ```
 
 &nbsp;

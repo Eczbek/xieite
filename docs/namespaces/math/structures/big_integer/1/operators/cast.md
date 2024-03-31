@@ -11,12 +11,12 @@ Casts a `xieite::math::BigInteger<Word>` to any other arithmetic type.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr operator Integer() const noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr operator Integral() const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] constexpr operator bool() const noexcept;
+[[nodiscard]] explicit constexpr operator bool() const noexcept;
 ```
 
 &nbsp;

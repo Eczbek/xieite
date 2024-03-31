@@ -11,13 +11,13 @@ Defined in header [<xieite/bits/mash.hpp>](../../../include/xieite/bits/mash.hpp
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t... sizes, std::integral... Integers>
-[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(Integers... values) noexcept;
+template<std::size_t... sizes, std::integral... Integrals>
+[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(Integrals... values) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::size_t... sizes, std::integral Integer>
-[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(const std::array<Integer, sizeof...(sizes)>& values) noexcept;
+template<std::size_t... sizes, std::integral Integral>
+[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(const std::array<Integral, sizeof...(sizes)>& values) noexcept;
 ```
 
 &nbsp;

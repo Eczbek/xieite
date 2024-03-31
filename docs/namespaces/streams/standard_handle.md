@@ -1,10 +1,10 @@
-# [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:StandardHandle
+# [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:StandardHandle \{\}
 Defined in header [<xieite/streams/standard_handle.hpp>](../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
 ## Description
-A class for controlling standard IO with modes and styles.
+A class for controlling standard IO with modes and styles. Currently only works on UNIX-like systems.
 
 &nbsp;
 
@@ -12,95 +12,99 @@ A class for controlling standard IO with modes and styles.
 #### 1)
 ```cpp
 struct StandardHandle {
-    std::istream& inputStream;
-    std::ostream& outputStream;
+    std::FILE* inputFile;
+    std::FILE* outputFile;
 
-    StandardHandle(std::istream&, std::ostream&);
+    StandardHandle(std::FILE*, std::FILE*) noexcept;
 
-    void setInputBlocking(bool) const;
+    void setInputBlocking(bool) noexcept;
 
-    void setInputEcho(bool) const;
+    void setInputEcho(bool) noexcept;
 
-    void setInputCanonical(bool) const;
+    void setInputCanon(bool) noexcept;
 
-    void setInputSignals(bool) const;
+    void setInputSignals(bool) noexcept;
 
-    void setOutputProcessing(bool) const;
+    void setOutputProcessing(bool) noexcept;
 
-    void setForegroundColor(const xieite::graphics::Color&) const;
+    void setForegroundColor(const xieite::streams::Color&) noexcept;
 
-    void resetForegroundColor() const;
+    void resetForegroundColor() noexcept;
 
-    void setBackgroundColor(const xieite::graphics::Color&) const;
+    void setBackgroundColor(const xieite::streams::Color&) noexcept;
 
-    void resetBackgroundColor() const;
+    void resetBackgroundColor() noexcept;
 
-    void setTextBold(bool) const;
+    void setTextBold(bool) noexcept;
 
-    void setTextItalic(bool) const;
+    void setTextItalic(bool) noexcept;
 
-    void setTextUnderline(bool) const;
+    void setTextUnderlined(bool) noexcept;
 
-    void setTextBlinking(bool) const;
+    void setTextBlinking(bool) noexcept;
 
-    void setColorsSwapped(bool) const;
+    void setTextInvisible(bool) noexcept;
 
-    void setTextVisible(bool) const;
+    void setTextStriked(bool) noexcept;
 
-    void setTextStrikethough(bool) const;
+    void setColorsSwapped(bool) noexcept;
 
-    void resetStyles() const;
+    void resetStyles() noexcept;
 
-    xieite::streams::Position getCursorPosition() const;
+    void resetModes() noexcept;
 
-    void setCursorPosition(xieite::streams::Position) const;
+    xieite::streams::Position getCursorPosition() noexcept;
 
-    void moveCursorPosition(xieite::streams::Position) const;
+    void setCursorPosition(xieite::streams::Position) noexcept;
 
-    void setCursorVisible(bool) const;
+    void moveCursorPosition(xieite::streams::Position) noexcept;
 
-    void setCursorShapeBlock(bool) const;
+    void setCursorVisible(bool) noexcept;
 
-    void setCursorShapeUnderscore(bool) const;
+    void setCursorShapeBlock(bool) noexcept;
 
-    void setCursorShapePipe(bool) const;
+    void setCursorShapeUnderscore(bool) noexcept;
 
-    void setCursorAlternate(bool) const;
+    void setCursorShapePipe(bool) noexcept;
 
-    void setScreenAlternate(bool) const;
+    void setCursorAlternate(bool) noexcept;
 
-    xieite::streams::Position getScreenSize() const;
+    void setScreenAlternate(bool) noexcept;
 
-    void putBackString(std::string_view) const;
+    xieite::streams::Position getScreenSize() noexcept;
 
-    void clearScreen() const;
+    void clearScreen() noexcept;
 
-    void clearScreenUntil() const;
+    void clearScreenUntil() noexcept;
 
-    void clearScreenFrom() const;
+    void clearScreenUntil(xieite::streams::Position) noexcept;
 
-    void clearLine() const;
+    void clearScreenFrom() noexcept;
 
-    void clearLine(xieite::streams::Position) const;
+    void clearScreenFrom(xieite::streams::Position) noexcept;
 
-    void clearLineUntil() const;
+    void clearLine() noexcept;
 
-    void clearLineUntil(xieite::streams::Position) const;
+    void clearLine(xieite::streams::Position) noexcept;
 
-    void clearLineFrom() const;
+    void clearLineUntil() noexcept;
 
-    void clearLineFrom(xieite::streams::Position) const;
+    void clearLineUntil(xieite::streams::Position) noexcept;
 
-    char readCharacter() const;
+    void clearLineFrom() noexcept;
 
-    std::string readString() const;
+    void clearLineFrom(xieite::streams::Position) noexcept;
 
-    xieite::streams::Key readKey() const;
+    char readCharacter() noexcept;
+
+    std::string readString() noexcept;
+
+    xieite::streams::Key readKey() noexcept;
 };
 ```
 - [setInputBlocking](./structures/standard_handle/1/set_input_blocking.md)
 - [setInputEcho](./structures/standard_handle/1/set_input_echo.md)
-- [setInputCanonical](./structures/standard_handle/1/set_input_canonical.md)
+- [setInputCanon](./structures/standard_handle/1/set_input_canon.md)
 - [setInputSignals](./structures/standard_handle/1/set_input_signals.md)
 - [setOutputProcessing](./structures/standard_handle/1/set_output_processing.md)
 - [setForegroundColor](./structures/standard_handle/1/set_foreground_color.md)
@@ -109,11 +113,11 @@ struct StandardHandle {
 - [resetBackgroundColor](./structures/standard_handle/1/reset_background_color.md)
 - [setTextBold](./structures/standard_handle/1/set_text_bold.md)
 - [setTextItalic](./structures/standard_handle/1/set_text_italic.md)
-- [setTextUnderline](./structures/standard_handle/1/set_text_underline.md)
+- [setTextUnderlined](./structures/standard_handle/1/set_text_underlined.md)
 - [setTextBlinking](./structures/standard_handle/1/set_text_blinking.md)
+- [setTextInvisible](./structures/standard_handle/1/set_text_visible.md)
+- [setTextStriked](./structures/standard_handle/1/set_text_striked.md)
 - [setColorsSwapped](./structures/standard_handle/1/set_colors_swapped.md)
-- [setTextVisible](./structures/standard_handle/1/set_text_visible.md)
-- [setTextStrikethrough](./structures/standard_handle/1/set_text_strikethrough.md)
 - [resetStyles](./structures/standard_handle/1/reset_styles.md)
 - [getCursorPosition](./structures/standard_handle/1/get_cursor_position.md)
 - [setCursorPosition](./structures/standard_handle/1/set_cursor_position.md)
@@ -122,7 +126,6 @@ struct StandardHandle {
 - [setCursorAlternate](./structures/standard_handle/1/set_cursor_alternate.md)
 - [setScreenAlternate](./structures/standard_handle/1/set_screen_alternate.md)
 - [getScreenSize](./structures/standard_handle/1/get_screen_size.md)
-- [putBackString](./structures/standard_handle/1/put_back_string.md)
 - [clearScreen](./structures/standard_handle/1/clear_screen.md)
 - [clearScreenUntil](./structures/standard_handle/1/clear_screen_until.md)
 - [clearScreenFrom](./structures/standard_handle/1/clear_screen_from.md)
@@ -132,3 +135,24 @@ struct StandardHandle {
 - [readCharacter](./structures/standard_handle/1/read_character.md)
 - [readString](./structures/standard_handle/1/read_string.md)
 - [readKey](./structures/standard_handle/1/read_key.md)
+
+&nbsp;
+
+## Example
+```cpp
+#include <cstdio>
+#include <print>
+#include "xieite/streams/color.hpp"
+#include "xieite/streams/standard_handle.hpp"
+
+int main() {
+    auto terminal = xieite::streams::StandardHandle(stdin, stdout);
+
+    terminal.setForegroundColor(xieite::streams::Color(255, 0, 0));
+
+    std::println("Hello, world!");
+}
+```
+Possible output:
+
+![output](./structures/standard_handle/1/set_foreground_color.png)

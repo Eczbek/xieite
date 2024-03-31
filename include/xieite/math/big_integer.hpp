@@ -6,6 +6,7 @@
 #	include <concepts>
 #	include <cstddef>
 #	include <cstdint>
+#	include <expected>
 #	include <iterator>
 #	include <limits>
 #	include <ranges>
@@ -13,8 +14,7 @@
 #	include <string_view>
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
-#	include "../exceptions/division_by_zero.hpp"
-#	include "../exceptions/unrepresentable_value.hpp"
+#	include "../errors/type.hpp"
 #	include "../macros/forward.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/is_negative.hpp"
@@ -35,13 +35,13 @@ namespace xieite::math {
 	public:
 		using Type = Word;
 
-		template<std::integral Integer = int>
-		constexpr BigInteger(const Integer value = 0) noexcept
+		template<std::integral Integral = int>
+		constexpr BigInteger(const Integral value = 0) noexcept
 		: negative(xieite::math::isNegative(value)) {
-			xieite::types::MaybeUnsigned<Integer> absoluteValue = xieite::math::absolute(value);
+			xieite::types::MaybeUnsigned<Integral> absoluteValue = xieite::math::absolute(value);
 			do {
 				this->data.push_back(static_cast<Word>(absoluteValue));
-				if constexpr (sizeof(Integer) > sizeof(Word)) {
+				if constexpr (sizeof(Integral) > sizeof(Word)) {
 					absoluteValue >>= xieite::types::sizeBits<Word>;
 				} else {
 					break;
@@ -95,17 +95,17 @@ namespace xieite::math {
 			return *this;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator=(const Integer value) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger<Word>& operator=(const Integral value) noexcept {
 			return *this = xieite::math::BigInteger<Word>(value);
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] constexpr operator Integer() const noexcept {
-			Integer result = 0;
+		template<std::integral Integral>
+		[[nodiscard]] explicit constexpr operator Integral() const noexcept {
+			Integral result = 0;
 			const std::size_t dataSize = this->data.size();
 			for (std::size_t i = 0; i < dataSize; ++i) {
-				result |= static_cast<Integer>(this->data[i]) << (static_cast<Integer>(i) * xieite::types::sizeBits<Word>);
+				result |= static_cast<Integral>(this->data[i]) << (static_cast<Integral>(i) * xieite::types::sizeBits<Word>);
 			}
 			if (this->negative) {
 				return -result;
@@ -113,7 +113,7 @@ namespace xieite::math {
 			return result;
 		}
 
-		[[nodiscard]] constexpr operator bool() const noexcept {
+		[[nodiscard]] explicit constexpr operator bool() const noexcept {
 			return (this->data.size() > 1) || this->data[0];
 		}
 
@@ -135,8 +135,8 @@ namespace xieite::math {
 			}
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, const Integer rightComparand) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word>& leftComparand, const Integral rightComparand) noexcept {
 			return leftComparand <=> xieite::math::BigInteger<Word>(rightComparand);
 		}
 
@@ -144,8 +144,8 @@ namespace xieite::math {
 			return std::is_eq(leftComparand <=> rightComparand);
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Word>& leftComparand, const Integer rightComparand) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Word>& leftComparand, const Integral rightComparand) noexcept {
 			return leftComparand == xieite::math::BigInteger<Word>(rightComparand);
 		}
 
@@ -176,8 +176,8 @@ namespace xieite::math {
 			return xieite::math::BigInteger<Word>(resultData, augend.negative);
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>& augend, const Integer addend) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>& augend, const Integral addend) noexcept {
 			return augend + xieite::math::BigInteger<Word>(addend);
 		}
 
@@ -185,8 +185,8 @@ namespace xieite::math {
 			return *this = *this + addend;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator+=(const Integer addend) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger<Word>& operator+=(const Integral addend) noexcept {
 			return *this += xieite::math::BigInteger<Word>(addend);
 		}
 
@@ -236,8 +236,8 @@ namespace xieite::math {
 			return xieite::math::BigInteger<Word>(resultData, minuend.negative);
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>& minuend, const Integer subtrahend) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator-(const xieite::math::BigInteger<Word>& minuend, const Integral subtrahend) noexcept {
 			return minuend - xieite::math::BigInteger<Word>(subtrahend);
 		}
 
@@ -245,8 +245,8 @@ namespace xieite::math {
 			return *this = *this - subtrahend;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator-=(const Integer subtrahend) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger<Word>& operator-=(const Integral subtrahend) noexcept {
 			return *this -= xieite::math::BigInteger<Word>(subtrahend);
 		}
 
@@ -300,8 +300,8 @@ namespace xieite::math {
 			return result;
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>& multiplier, const Integer multiplicand) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>& multiplier, const Integral multiplicand) noexcept {
 			return multiplier * xieite::math::BigInteger<Word>(multiplicand);
 		}
 
@@ -309,14 +309,14 @@ namespace xieite::math {
 			return *this = *this * multiplicand;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator*=(const Integer multiplicand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger<Word>& operator*=(const Integral multiplicand) noexcept {
 			return *this *= xieite::math::BigInteger<Word>(multiplicand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator/(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) {
+		[[nodiscard]] friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator/(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) noexcept {
 			if (!divisor) {
-				throw xieite::exceptions::DivisionByZero("Cannot divide by zero");
+				return std::unexpected(xieite::errors::Type::DivisionByZero);
 			}
 			if ((dividend.data.size() < 2) && (divisor.data.size() < 2)) {
 				return dividend.data[0] / divisor.data[0];
@@ -357,23 +357,23 @@ namespace xieite::math {
 			return result;
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator/(const xieite::math::BigInteger<Word>& dividend, const Integer divisor) {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator/(const xieite::math::BigInteger<Word>& dividend, const Integral divisor) noexcept {
 			return dividend / xieite::math::BigInteger<Word>(divisor);
 		}
 
-		constexpr xieite::math::BigInteger<Word>& operator/=(const xieite::math::BigInteger<Word>& divisor) {
+		constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator/=(const xieite::math::BigInteger<Word>& divisor) noexcept {
 			return *this = *this / divisor;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator/=(const Integer divisor) {
+		template<std::integral Integral>
+		constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator/=(const Integral divisor) noexcept {
 			return *this /= xieite::math::BigInteger<Word>(divisor);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator%(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) {
+		[[nodiscard]] friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator%(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) noexcept {
 			if (!divisor) {
-				throw xieite::exceptions::DivisionByZero("Cannot take remainder of division by zero");
+				return std::unexpected(xieite::errors::Type::DivisionByZero);
 			}
 			const xieite::math::BigInteger<Word> absoluteDividend = dividend.absolute();
 			const xieite::math::BigInteger<Word> absoluteDivisor = divisor.absolute();
@@ -398,17 +398,17 @@ namespace xieite::math {
 			return remainder;
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator%(const xieite::math::BigInteger<Word>& dividend, const Integer divisor) {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator%(const xieite::math::BigInteger<Word>& dividend, const Integral divisor) {
 			return dividend % xieite::math::BigInteger<Word>(divisor);
 		}
 
-		constexpr xieite::math::BigInteger<Word>& operator%=(const xieite::math::BigInteger<Word>& divisor) {
+		constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator%=(const xieite::math::BigInteger<Word>& divisor) {
 			return *this = *this % divisor;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator%=(const Integer divisor) {
+		template<std::integral Integral>
+		constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator%=(const Integral divisor) {
 			return *this %= xieite::math::BigInteger<Word>(divisor);
 		}
 
@@ -417,13 +417,13 @@ namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) {
 				return left & right;
 			});
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator&(const xieite::math::BigInteger<Word>& leftOperand, const Integral rightOperand) noexcept {
 			return leftOperand & xieite::math::BigInteger<Word>(rightOperand);
 		}
 
@@ -431,19 +431,19 @@ namespace xieite::math {
 			return *this = *this & operand;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator&=(const Integer operand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger<Word>& operator&=(const Integral operand) noexcept {
 			return *this &= xieite::math::BigInteger<Word>(operand);
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) {
 				return left | right;
 			});
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator|(const xieite::math::BigInteger<Word>& leftOperand, const Integral rightOperand) noexcept {
 			return leftOperand | xieite::math::BigInteger<Word>(rightOperand);
 		}
 
@@ -451,19 +451,19 @@ namespace xieite::math {
 			return *this = *this | operand;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator|=(const Integer operand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger<Word>& operator|=(const Integral operand) noexcept {
 			return *this |= xieite::math::BigInteger<Word>(operand);
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>& leftOperand, const xieite::math::BigInteger<Word>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) -> Word {
+			return xieite::math::BigInteger<Word>::bitwiseOperation(leftOperand, rightOperand, [](const Word left, const Word right) {
 				return left ^ right;
 			});
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator^(const xieite::math::BigInteger<Word>& leftOperand, const Integral rightOperand) noexcept {
 			return leftOperand ^ xieite::math::BigInteger<Word>(rightOperand);
 		}
 
@@ -471,8 +471,8 @@ namespace xieite::math {
 			return *this = *this ^ operand;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator^=(const Integer operand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger<Word>& operator^=(const Integral operand) noexcept {
 			return *this ^= xieite::math::BigInteger<Word>(operand);
 		}
 
@@ -501,8 +501,8 @@ namespace xieite::math {
 			return xieite::math::BigInteger<Word>(resultData, leftOperand.negative);
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator<<(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator<<(const xieite::math::BigInteger<Word>& leftOperand, const Integral rightOperand) noexcept {
 			return leftOperand << xieite::math::BigInteger<Word>(rightOperand);
 		}
 
@@ -510,8 +510,8 @@ namespace xieite::math {
 			return *this = *this << operand;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator<<=(const Integer operand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger<Word>& operator<<=(const Integral operand) noexcept {
 			return *this <<= xieite::math::BigInteger<Word>(operand);
 		}
 
@@ -540,8 +540,8 @@ namespace xieite::math {
 			return xieite::math::BigInteger<Word>(resultData, leftOperand.negative) - leftOperand.negative;
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>& leftOperand, const Integer rightOperand) noexcept {
+		template<std::integral Integral>
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator>>(const xieite::math::BigInteger<Word>& leftOperand, const Integral rightOperand) noexcept {
 			return leftOperand >> xieite::math::BigInteger<Word>(rightOperand);
 		}
 
@@ -549,8 +549,8 @@ namespace xieite::math {
 			return *this = *this >> operand;
 		}
 
-		template<std::integral Integer>
-		constexpr xieite::math::BigInteger<Word>& operator>>=(const Integer operand) noexcept {
+		template<std::integral Integral>
+		constexpr xieite::math::BigInteger<Word>& operator>>=(const Integral operand) noexcept {
 			return *this >>= xieite::math::BigInteger<Word>(operand);
 		}
 
@@ -560,7 +560,7 @@ namespace xieite::math {
 			return copy;
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Word> power(const xieite::math::BigInteger<Word>& exponent) const {
+		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> power(const xieite::math::BigInteger<Word>& exponent) const noexcept {
 			if ((*this == 1) || (exponent == 1)) {
 				return *this;
 			}
@@ -572,7 +572,7 @@ namespace xieite::math {
 			}
 			if (!*this) {
 				if (exponent.negative) {
-					throw xieite::exceptions::UnrepresentableValue("Cannot represent infinite value of zero to negative exponent");
+					return std::unexpected(xieite::errors::Type::UnrepresentableValue);
 				}
 				return !exponent;
 			}
@@ -591,14 +591,14 @@ namespace xieite::math {
 			return foo * bar;
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Word> power(const Integer exponent) const {
+		template<std::integral Integral>
+		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> power(const Integral exponent) const {
 			return this->power(xieite::math::BigInteger<Word>(exponent));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Word> root(const xieite::math::BigInteger<Word>& degree) const {
+		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> root(const xieite::math::BigInteger<Word>& degree) const noexcept {
 			if (this->negative) {
-				throw xieite::exceptions::UnrepresentableValue("Cannot represent imaginary value of root of negative radicand");
+				return std::unexpected(xieite::errors::Type::UnrepresentableValue);
 			}
 			if (*this == 1) {
 				return *this;
@@ -616,29 +616,23 @@ namespace xieite::math {
 			return baz;
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Word> root(const Integer degree) const {
+		template<std::integral Integral>
+		[[nodiscard]] constexpr xieite::math::BigInteger<Word> root(const Integral degree) const {
 			return this->root(xieite::math::BigInteger<Word>(degree));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Word> logarithm(const xieite::math::BigInteger<Word>& base) const {
+		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> logarithm(const xieite::math::BigInteger<Word>& base) const noexcept {
 			if (!base) {
 				return 0;
 			}
-			if (this->negative) {
-				throw xieite::exceptions::UnrepresentableValue("Cannot represent imaginary value of logarithm of negative anti-logarithm");
-			}
-			if (base == 1) {
-				throw xieite::exceptions::UnrepresentableValue("Cannot represent infinite value of logarithm of first base");
-			}
-			if (base.negative) {
-				throw xieite::exceptions::UnrepresentableValue("Cannot represent imaginary value of logarithm of negative base");
+			if (this->negative || (base == 1) || base.negative) {
+				return std::unexpected(xieite::errors::Type::UnrepresentableValue);
 			}
 			return this->logarithm2() / base.logarithm2();
 		}
 
-		template<std::integral Integer>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Word> logarithm(const Integer base) const {
+		template<std::integral Integral>
+		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> logarithm(const Integral base) const {
 			return this->logarithm(xieite::math::BigInteger<Word>(base));
 		}
 

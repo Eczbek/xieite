@@ -22,23 +22,23 @@
 #	include <termios.h>
 #	include <unistd.h>
 #	include "../functors/scope_guard.hpp"
-#	include "../graphics/color.hpp"
+#	include "../streams/color.hpp"
 #	include "../streams/key.hpp"
 #	include "../streams/position.hpp"
-#	include "../streams/get_file.hpp"
+#	include "../streams/read.hpp"
 
 namespace xieite::streams {
 	struct StandardHandle {
 	public:
-		std::istream& inputStream;
-		std::ostream& outputStream;
+		std::FILE* inputFile;
+		std::FILE* outputFile;
 
-		StandardHandle(std::istream& inputStream, std::ostream& outputStream) noexcept
-		: inputStream(inputStream), outputStream(outputStream), inputFile(xieite::streams::getFile(inputStream)), inputFileDescriptor(::fileno(this->inputFile)), blockingStatus(::fcntl(this->inputFileDescriptor, F_GETFL)) {
-			::tcgetattr(this->inputFileDescriptor, &this->cookedMode);
+		StandardHandle(std::FILE* const inputFile, std::FILE* const outputFile) noexcept
+		: inputFile(inputFile), outputFile(outputFile), blockingStatus(::fcntl(::fileno(this->inputFile), F_GETFL)) {
+			::tcgetattr(::fileno(this->inputFile), &this->cookedMode);
 			this->blocking = !(this->blockingStatus & O_NONBLOCK);
 			this->echo = this->cookedMode.c_lflag & ECHO;
-			this->canonical = this->cookedMode.c_lflag & ICANON;
+			this->canon = this->cookedMode.c_lflag & ICANON;
 			this->signals = (this->cookedMode.c_iflag & IXON) || (this->cookedMode.c_iflag & ICRNL) || (this->cookedMode.c_lflag & IEXTEN) || (this->cookedMode.c_lflag & ISIG);
 			this->processing = this->cookedMode.c_oflag & OPOST;
 			this->update();
@@ -47,630 +47,589 @@ namespace xieite::streams {
 		~StandardHandle() {
 			this->resetModes();
 			this->resetStyles();
+			std::fflush(this->outputFile);
 		}
 
-		void setInputBlocking(const bool value) const noexcept {
+		void setInputBlocking(const bool value) noexcept {
 			if (this->blocking != value) {
 				this->blocking = value;
 				this->update();
 			}
 		}
 
-		void setInputEcho(const bool value) const noexcept {
+		void setInputEcho(const bool value) noexcept {
 			if (this->echo != value) {
 				this->echo = value;
 				this->update();
 			}
 		}
 
-		void setInputCanonical(const bool value) const noexcept {
-			if (this->canonical != value) {
-				this->canonical = value;
+		void setInputCanon(const bool value) noexcept {
+			if (this->canon != value) {
+				this->canon = value;
 				this->update();
 			}
 		}
 
-		void setInputSignals(const bool value) const noexcept {
+		void setInputSignals(const bool value) noexcept {
 			if (this->signals != value) {
 				this->signals = value;
 				this->update();
 			}
 		}
 
-		void setOutputProcessing(const bool value) const noexcept {
+		void setOutputProcessing(const bool value) noexcept {
 			if (this->processing != value) {
 				this->processing = value;
 				this->update();
 			}
 		}
 
-		void setForegroundColor(const xieite::graphics::Color& color) const noexcept {
-			std::print(this->outputStream, "\x1B[23;2;{};{};{}m", color.red, color.green, color.blue);
+		void setForegroundColor(const xieite::streams::Color& color) noexcept {
+			std::print(this->outputFile, "\x1B[38;2;{};{};{}m", color.red, color.green, color.blue);
 		}
 
-		void resetForegroundColor() const noexcept {
-			std::print(this->outputStream, "\x1B[38m");
+		void resetForegroundColor() noexcept {
+			std::print(this->outputFile, "\x1B[38m");
 		}
 
-		void setBackgroundColor(const xieite::graphics::Color& color) const noexcept {
-			std::print(this->outputStream, "\x1B[48;2;{};{};{}m", color.red, color.green, color.blue);
+		void setBackgroundColor(const xieite::streams::Color& color) noexcept {
+			std::print(this->outputFile, "\x1B[48;2;{};{};{}m", color.red, color.green, color.blue);
 		}
 
-		void resetBackgroundColor() const noexcept {
-			std::print(this->outputStream, "\x1B[48m");
+		void resetBackgroundColor() noexcept {
+			std::print(this->outputFile, "\x1B[48m");
 		}
 
-		void setTextBold(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[{}m", 21 - value * 20);
+		void setTextBold(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[{}m", 21 - value * 20);
 		}
 
-		void setTextItalic(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[{}m", 23 - value * 20);
+		void setTextItalic(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[{}m", 23 - value * 20);
 		}
 
-		void setTextUnderline(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[{}m", 24 - value * 20);
+		void setTextUnderlined(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[{}m", 24 - value * 20);
 		}
 
-		void setTextBlinking(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[{}m", 25 - value * 20);
+		void setTextBlinking(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[{}m", 25 - value * 20);
 		}
 
-		void setColorsSwapped(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[{}m", 27 - value * 20);
+		void setTextInvisible(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[{}m", 28 - value * 20);
 		}
 
-		void setTextVisible(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[{}m", 8 + value * 20);
+		void setTextStriked(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[{}m", 29 - value * 20);
+		}
+		
+		void setColorsSwapped(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[{}m", 27 - value * 20);
 		}
 
-		void setTextStrikethrough(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[{}m", 29 - value * 20);
+		void resetStyles() noexcept {
+			std::print(this->outputFile, "\x1B[0m");
+		}
+		
+		void resetModes() noexcept {
+			fcntl(::fileno(this->inputFile), F_SETFL, this->blockingStatus);
+			tcsetattr(::fileno(this->inputFile), TCSANOW, &this->cookedMode);
 		}
 
-		void resetStyles() const noexcept {
-			std::print(this->outputStream, "\x1B[0m");
-		}
-
-		void resetModes() const noexcept {
-			fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus);
-			tcsetattr(this->inputFileDescriptor, TCSANOW, &this->cookedMode);
-		}
-
-		[[nodiscard]] xieite::streams::Position getCursorPosition() const noexcept {
-			const bool canonical = this->canonical;
-			this->setInputCanonical(false);
-			std::print(this->outputStream, "\x1B[6n");
+		[[nodiscard]] xieite::streams::Position getCursorPosition() noexcept {
+			const bool canon = this->canon;
+			this->setInputCanon(false);
+			std::print(this->outputFile, "\x1B[6n");
 			xieite::streams::Position position;
 			std::fscanf(this->inputFile, "\x1B[%i;%iR", &position.row, &position.column);
-			this->setInputCanonical(canonical);
+			this->setInputCanon(canon);
 			return xieite::streams::Position(position.row - 1, position.column - 1);
 		}
 
-		void setCursorPosition(const xieite::streams::Position position) const noexcept {
-			std::print(this->outputStream, "\x1B[{};{}H", position.row + 1, position.column + 1);
+		void setCursorPosition(const xieite::streams::Position position) noexcept {
+			std::print(this->outputFile, "\x1B[{};{}H", position.row + 1, position.column + 1);
 		}
 
-		void moveCursorPosition(const xieite::streams::Position difference) const noexcept {
+		void moveCursorPosition(const xieite::streams::Position difference) noexcept {
 			if (difference.row) {
-				std::print(this->outputStream, "\x1B[{}{}", std::abs(difference.row), "CD"[difference.row < 0]);
+				std::print(this->outputFile, "\x1B[{}{}", std::abs(difference.row), "CD"[difference.row < 0]);
 			}
 			if (difference.column) {
-				std::print(this->outputStream, "\x1B[{}{}", std::abs(difference.column), "BA"[difference.column < 0]);
+				std::print(this->outputFile, "\x1B[{}{}", std::abs(difference.column), "BA"[difference.column < 0]);
 			}
 		}
 
-		void setCursorVisible(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[?25{}", "lh"[value]);
+		void setCursorInvisible(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[?25{}", "hl"[value]);
 		}
 
-		void setCursorShapeBlock(const bool blink) const noexcept {
-			std::print(this->outputStream, "\1\x1B[{} q\2", 2 - blink);
+		void setCursorShapeBlock(const bool blink) noexcept {
+			std::print(this->outputFile, "\1\x1B[{} q\2", 2 - blink);
 		}
 
-		void setCursorShapeUnderscore(const bool blink) const noexcept {
-			std::print(this->outputStream, "\1\x1B[{} q\2", 4 - blink);
+		void setCursorShapeUnderscore(const bool blink) noexcept {
+			std::print(this->outputFile, "\1\x1B[{} q\2", 4 - blink);
 		}
 
-		void setCursorShapePipe(const bool blink) const noexcept {
-			std::print(this->outputStream, "\1\x1B[{} q\2", 6 - blink);
+		void setCursorShapePipe(const bool blink) noexcept {
+			std::print(this->outputFile, "\1\x1B[{} q\2", 6 - blink);
 		}
 
-		void setCursorAlternate(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[{}", "us"[value]);
+		void setCursorAlternate(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[{}", "us"[value]);
 		}
 
-		void setScreenAlternate(const bool value) const noexcept {
-			std::print(this->outputStream, "\x1B[?47{}", "lh"[value]);
+		void setScreenAlternate(const bool value) noexcept {
+			std::print(this->outputFile, "\x1B[?47{}", "lh"[value]);
 		}
 
-		[[nodiscard]] xieite::streams::Position getScreenSize() const noexcept {
+		[[nodiscard]] xieite::streams::Position getScreenSize() noexcept {
 			::winsize size;
-			::ioctl(this->inputFileDescriptor, TIOCGWINSZ, &size);
+			::ioctl(::fileno(this->inputFile), TIOCGWINSZ, &size);
 			return xieite::streams::Position(size.ws_row, size.ws_col);
 		}
 
-		void putBackString(const std::string_view value) const noexcept {
-			for (const char character : std::views::reverse(value)) {
-				this->inputStream.putback(character);
-			}
+		void clearScreen() noexcept {
+			std::print(this->outputFile, "\x1B[2J");
+		}
+		
+		void clearScreenUntil() noexcept {
+			std::print(this->outputFile, "\x1B[1J");
 		}
 
-		void clearScreen() const noexcept {
-			std::print(this->outputStream, "\x1B[2J");
-		}
-
-		void clearScreenUntil(const xieite::streams::Position position) const noexcept {
+		void clearScreenUntil(const xieite::streams::Position position) noexcept {
 			const xieite::streams::Position original = this->getCursorPosition();
 			this->setCursorPosition(position);
-			std::print(this->outputStream, "\x1B[1J");
+			this->clearScreenUntil();
+			this->setCursorPosition(original);
+		}
+		
+		void clearScreenFrom() noexcept {
+			std::print(this->outputFile, "\x1B[0J");
+		}
+
+		void clearScreenFrom(const xieite::streams::Position position) noexcept {
+			const xieite::streams::Position original = this->getCursorPosition();
+			this->setCursorPosition(position);
+			this->clearScreenFrom();
 			this->setCursorPosition(original);
 		}
 
-		void clearScreenFrom(const xieite::streams::Position position) const noexcept {
-			const xieite::streams::Position original = this->getCursorPosition();
-			this->setCursorPosition(position);
-			std::print(this->outputStream, "\x1B[0J");
-			this->setCursorPosition(original);
+		void clearLine() noexcept {
+			std::print(this->outputFile, "\x1B[2K");
 		}
 
-		void clearLine() const noexcept {
-			std::print(this->outputStream, "\x1B[2K");
-		}
-
-		void clearLine(const xieite::streams::Position position) const noexcept {
+		void clearLine(const xieite::streams::Position position) noexcept {
 			const xieite::streams::Position original = this->getCursorPosition();
 			this->setCursorPosition(position);
 			this->clearLine();
 			this->setCursorPosition(original);
 		}
 
-		void clearLineUntil() const noexcept {
-			std::print(this->outputStream, "\x1B[1K");
+		void clearLineUntil() noexcept {
+			std::print(this->outputFile, "\x1B[1K");
 		}
 
-		void clearLineUntil(const xieite::streams::Position position) const noexcept {
+		void clearLineUntil(const xieite::streams::Position position) noexcept {
 			const xieite::streams::Position original = this->getCursorPosition();
 			this->setCursorPosition(position);
 			this->clearLineUntil();
 			this->setCursorPosition(original);
 		}
 
-		void clearLineFrom() const noexcept {
-			std::print(this->outputStream, "\x1B[0K");
+		void clearLineFrom() noexcept {
+			std::print(this->outputFile, "\x1B[0K");
 		}
 
-		void clearLineFrom(const xieite::streams::Position position) const noexcept {
+		void clearLineFrom(const xieite::streams::Position position) noexcept {
 			const xieite::streams::Position original = this->getCursorPosition();
 			this->setCursorPosition(position);
 			this->clearLineFrom();
 			this->setCursorPosition(original);
 		}
 
-		char readCharacter() const noexcept {
-			const bool canonical = this->canonical;
-			this->setInputCanonical(false);
-			const char input = this->inputStream.get();
-			this->setInputCanonical(canonical);
+		char readCharacter() noexcept {
+			const bool canon = this->canon;
+			this->setInputCanon(false);
+			const char input = std::fgetc(this->inputFile);
+			this->setInputCanon(canon);
 			return input;
 		}
 
-		std::string readString() const noexcept {
+		std::string readString() noexcept {
 			const bool blocking = this->blocking;
-			const bool canonical = this->canonical;
+			const bool canon = this->canon;
 			this->setInputBlocking(false);
-			this->setInputCanonical(false);
-			std::string input;
-			char buffer;
-			while (this->inputStream.get(buffer)) {
-				input += buffer;
-			}
-			this->inputStream.clear();
+			this->setInputCanon(false);
+			const std::string input = xieite::streams::read(this->inputFile);
 			this->setInputBlocking(blocking);
-			this->setInputCanonical(canonical);
+			this->setInputCanon(canon);
 			return input;
 		}
 
-		xieite::streams::Key readKey() const noexcept {
-			const char foo = this->readCharacter();
-			const xieite::functors::ScopeGuard _ = xieite::functors::ScopeGuard([this, blocking = this->blocking] -> void {
+		xieite::streams::Key readKey() noexcept {
+			const xieite::functors::ScopeGuard _ = xieite::functors::ScopeGuard([this, blocking = this->blocking] {
 				this->setInputBlocking(blocking);
 			});
+			const char first = this->readCharacter();
 			this->setInputBlocking(false);
-			switch (foo) {
-				case 0: {
-					const char bar = this->readCharacter();
-					switch (bar) {
-						case 0:
-							return xieite::streams::Key::Pause;
-						case 3:
-							return xieite::streams::Key::Null;
-					}
-					this->inputStream.putback(bar);
-					break;
+			switch (first) {
+			case '\x00':
+				switch (this->readCharacter()) {
+				case '\x00':
+					return xieite::streams::Key::Pause;
+				case '\x03':
+					return xieite::streams::Key::Null;
 				}
-				case 1:
-					return xieite::streams::Key::ControlA;
-				case 2:
-					return xieite::streams::Key::ControlB;
-				case 3:
-					return xieite::streams::Key::ControlC;
-				case 4:
-					return xieite::streams::Key::ControlD;
-				case 5:
-					return xieite::streams::Key::ControlE;
-				case 6:
-					return xieite::streams::Key::ControlF;
-				case 7:
-					return xieite::streams::Key::ControlG;
-				case 8:
-					return xieite::streams::Key::ControlH;
-				case 9:
-					return xieite::streams::Key::ControlI;
-				case 10:
-					return xieite::streams::Key::ControlJ;
-				case 11:
-					return xieite::streams::Key::ControlK;
-				case 12:
-					return xieite::streams::Key::ControlL;
-				case 13:
-					return xieite::streams::Key::ControlM;
-				case 14:
-					return xieite::streams::Key::ControlN;
-				case 15:
-					return xieite::streams::Key::ControlO;
-				case 16:
-					return xieite::streams::Key::ControlP;
-				case 17:
-					return xieite::streams::Key::ControlQ;
-				case 18:
-					return xieite::streams::Key::ControlR;
-				case 19:
-					return xieite::streams::Key::ControlS;
-				case 20:
-					return xieite::streams::Key::ControlT;
-				case 21:
-					return xieite::streams::Key::ControlU;
-				case 22:
-					return xieite::streams::Key::ControlV;
-				case 23:
-					return xieite::streams::Key::ControlW;
-				case 24:
-					return xieite::streams::Key::ControlX;
-				case 25:
-					return xieite::streams::Key::ControlY;
-				case 26:
-					return xieite::streams::Key::ControlZ;
-				case 27: {
-					const char baz = this->readCharacter();
-					switch (baz) {
-						case 79: {
-							const char qux = this->readCharacter();
-							switch (qux) {
-								case 80:
-									return xieite::streams::Key::Function1;
-								case 81:
-									return xieite::streams::Key::Function2;
-								case 82:
-									return xieite::streams::Key::Function3;
-								case 83:
-									return xieite::streams::Key::Function4;
-							}
-							this->inputStream.putback(qux);
-							break;
-						}
-						case 91: {
-							const char corge = this->readCharacter();
-							switch (corge) {
-								case 32: {
-									const char grault = this->readCharacter();
-									if (grault == 126) {
-										return xieite::streams::Key::NumpadDigit0;
-									}
-									this->inputStream.putback(grault);
-									break;
-								}
-								case 33: {
-									const char garply = this->readCharacter();
-									if (garply == 126) {
-										return xieite::streams::Key::NumpadPeriod;
-									}
-									this->inputStream.putback(garply);
-									break;
-								}
-								case 35: {
-									const char waldo = this->readCharacter();
-									if (waldo == 126) {
-										return xieite::streams::Key::NumpadDigit9;
-									}
-									this->inputStream.putback(waldo);
-									break;
-								}
-								case 36: {
-									const char fred = this->readCharacter();
-									if (fred == 126) {
-										return xieite::streams::Key::NumpadDigit3;
-									}
-									this->inputStream.putback(fred);
-									break;
-								}
-								case 41:
-									return xieite::streams::Key::NumpadDigit8;
-								case 42:
-									return xieite::streams::Key::NumpadDigit2;
-								case 43:
-									return xieite::streams::Key::NumpadDigit6;
-								case 44:
-									return xieite::streams::Key::NumpadDigit4;
-								case 45:
-									return xieite::streams::Key::NumpadDigit5;
-								case 46:
-									return xieite::streams::Key::NumpadDigit1;
-								case 48:
-									return xieite::streams::Key::NumpadDigit7;
-								case 49: {
-									const char plugh = this->readCharacter();
-									const char xyzzy = this->readCharacter();
-									if (xyzzy == 126) {
-										switch (plugh) {
-											case 53:
-												return xieite::streams::Key::Function5;
-											case 55:
-												return xieite::streams::Key::Function6;
-											case 56:
-												return xieite::streams::Key::Function7;
-											case 57:
-												return xieite::streams::Key::Function8;
-										}
-									}
-									this->inputStream.putback(xyzzy);
-									this->inputStream.putback(plugh);
-									break;
-								}
-								case 50: {
-									const char thud = this->readCharacter();
-									const char glug = this->readCharacter();
-									if (glug == 126) {
-										switch (thud) {
-											case 48:
-												return xieite::streams::Key::Function9;
-											case 50:
-												return xieite::streams::Key::Function10;
-											case 52:
-												return xieite::streams::Key::Function11;
-											case 53:
-												return xieite::streams::Key::Function12;
-										}
-									}
-									this->inputStream.putback(glug);
-									this->inputStream.putback(thud);
-									break;
-								}
-							}
-							this->inputStream.putback(corge);
-							break;
-						}
+				break;
+			case '\x01':
+				return xieite::streams::Key::ControlA;
+			case '\x02':
+				return xieite::streams::Key::ControlB;
+			case '\x03':
+				return xieite::streams::Key::ControlC;
+			case '\x04':
+				return xieite::streams::Key::ControlD;
+			case '\x05':
+				return xieite::streams::Key::ControlE;
+			case '\x06':
+				return xieite::streams::Key::ControlF;
+			case '\x07':
+				return xieite::streams::Key::ControlG;
+			case '\x08':
+				return xieite::streams::Key::ControlH;
+			case '\x09':
+				return xieite::streams::Key::ControlI;
+			case '\x0A':
+				return xieite::streams::Key::ControlJ;
+			case '\x0B':
+				return xieite::streams::Key::ControlK;
+			case '\x0C':
+				return xieite::streams::Key::ControlL;
+			case '\x0D':
+				return xieite::streams::Key::ControlM;
+			case '\x0E':
+				return xieite::streams::Key::ControlN;
+			case '\x0F':
+				return xieite::streams::Key::ControlO;
+			case '\x10':
+				return xieite::streams::Key::ControlP;
+			case '\x11':
+				return xieite::streams::Key::ControlQ;
+			case '\x12':
+				return xieite::streams::Key::ControlR;
+			case '\x13':
+				return xieite::streams::Key::ControlS;
+			case '\x14':
+				return xieite::streams::Key::ControlT;
+			case '\x15':
+				return xieite::streams::Key::ControlU;
+			case '\x16':
+				return xieite::streams::Key::ControlV;
+			case '\x17':
+				return xieite::streams::Key::ControlW;
+			case '\x18':
+				return xieite::streams::Key::ControlX;
+			case '\x19':
+				return xieite::streams::Key::ControlY;
+			case '\x1A':
+				return xieite::streams::Key::ControlZ;
+			case '\x1B':
+				switch (this->readCharacter()) {
+				case '\x4F':
+					switch (this->readCharacter()) {
+					case '\x50':
+						return xieite::streams::Key::Function1;
+					case '\x51':
+						return xieite::streams::Key::Function2;
+					case '\x52':
+						return xieite::streams::Key::Function3;
+					case '\x53':
+						return xieite::streams::Key::Function4;
 					}
-					this->inputStream.putback(baz);
 					break;
+				case '\x5B':
+					switch (this->readCharacter()) {
+					case '\x20':
+						if (this->readCharacter() == '\x7E') {
+							return xieite::streams::Key::NumpadDigit0;
+						}
+						break;
+					case '\x21':
+						if (this->readCharacter() == '\x7E') {
+							return xieite::streams::Key::NumpadPeriod;
+						}
+						break;
+					case '\x23':
+						if (this->readCharacter() == '\x7E') {
+							return xieite::streams::Key::NumpadDigit9;
+						}
+						break;
+					case '\x24':
+						if (this->readCharacter() == '\x7E') {
+							return xieite::streams::Key::NumpadDigit3;
+						}
+						break;
+					case '\x29':
+						return xieite::streams::Key::NumpadDigit8;
+					case '\x2A':
+						return xieite::streams::Key::NumpadDigit2;
+					case '\x2B':
+						return xieite::streams::Key::NumpadDigit6;
+					case '\x2C':
+						return xieite::streams::Key::NumpadDigit4;
+					case '\x2D':
+						return xieite::streams::Key::NumpadDigit5;
+					case '\x2E':
+						return xieite::streams::Key::NumpadDigit1;
+					case '\x30':
+						return xieite::streams::Key::NumpadDigit7;
+					case '\x31':
+						if (const char first = this->readCharacter(); this->readCharacter() == '\x7E') {
+							switch (first) {
+							case '\x35':
+								return xieite::streams::Key::Function5;
+							case '\x37':
+								return xieite::streams::Key::Function6;
+							case '\x38':
+								return xieite::streams::Key::Function7;
+							case '\x39':
+								return xieite::streams::Key::Function8;
+							}
+						}
+						break;
+					case '\x32':
+						if (const char first = this->readCharacter(); this->readCharacter() == '\x7E') {
+							switch (first) {
+							case '\x30':
+								return xieite::streams::Key::Function9;
+							case '\x32':
+								return xieite::streams::Key::Function10;
+							case '\x34':
+								return xieite::streams::Key::Function11;
+							case '\x35':
+								return xieite::streams::Key::Function12;
+							}
+						}
+						break;
+					}
 				}
-				case 32:
-					return xieite::streams::Key::Space;
-				case 33:
-					return xieite::streams::Key::Ecphoneme;
-				case 34:
-					return xieite::streams::Key::Quotation;
-				case 35:
-					return xieite::streams::Key::Octothorpe;
-				case 36:
-					return xieite::streams::Key::Dollar;
-				case 37:
-					return xieite::streams::Key::Percent;
-				case 38:
-					return xieite::streams::Key::Ampersand;
-				case 39:
-					return xieite::streams::Key::Apostrophe;
-				case 40:
-					return xieite::streams::Key::ParenthesisOpen;
-				case 41:
-					return xieite::streams::Key::ParenthesisClose;
-				case 42:
-					return xieite::streams::Key::Asterisk;
-				case 43:
-					return xieite::streams::Key::Plus;
-				case 44:
-					return xieite::streams::Key::Comma;
-				case 45:
-					return xieite::streams::Key::Hyphen;
-				case 46:
-					return xieite::streams::Key::Period;
-				case 47:
-					return xieite::streams::Key::Slash;
-				case 48:
-					return xieite::streams::Key::Digit0;
-				case 49:
-					return xieite::streams::Key::Digit1;
-				case 50:
-					return xieite::streams::Key::Digit2;
-				case 51:
-					return xieite::streams::Key::Digit3;
-				case 52:
-					return xieite::streams::Key::Digit4;
-				case 53:
-					return xieite::streams::Key::Digit5;
-				case 54:
-					return xieite::streams::Key::Digit6;
-				case 55:
-					return xieite::streams::Key::Digit7;
-				case 56:
-					return xieite::streams::Key::Digit8;
-				case 57:
-					return xieite::streams::Key::Digit9;
-				case 58:
-					return xieite::streams::Key::Colon;
-				case 59:
-					return xieite::streams::Key::Semicolon;
-				case 60:
-					return xieite::streams::Key::Less;
-				case 61:
-					return xieite::streams::Key::Equal;
-				case 62:
-					return xieite::streams::Key::Greater;
-				case 63:
-					return xieite::streams::Key::Eroteme;
-				case 64:
-					return xieite::streams::Key::Ampersat;
-				case 65:
-					return xieite::streams::Key::UppercaseA;
-				case 66:
-					return xieite::streams::Key::UppercaseB;
-				case 67:
-					return xieite::streams::Key::UppercaseC;
-				case 68:
-					return xieite::streams::Key::UppercaseD;
-				case 69:
-					return xieite::streams::Key::UppercaseE;
-				case 70:
-					return xieite::streams::Key::UppercaseF;
-				case 71:
-					return xieite::streams::Key::UppercaseG;
-				case 72:
-					return xieite::streams::Key::UppercaseH;
-				case 73:
-					return xieite::streams::Key::UppercaseI;
-				case 74:
-					return xieite::streams::Key::UppercaseJ;
-				case 75:
-					return xieite::streams::Key::UppercaseK;
-				case 76:
-					return xieite::streams::Key::UppercaseL;
-				case 77:
-					return xieite::streams::Key::UppercaseM;
-				case 78:
-					return xieite::streams::Key::UppercaseN;
-				case 79:
-					return xieite::streams::Key::UppercaseO;
-				case 80:
-					return xieite::streams::Key::UppercaseP;
-				case 81:
-					return xieite::streams::Key::UppercaseQ;
-				case 82:
-					return xieite::streams::Key::UppercaseR;
-				case 83:
-					return xieite::streams::Key::UppercaseS;
-				case 84:
-					return xieite::streams::Key::UppercaseT;
-				case 85:
-					return xieite::streams::Key::UppercaseU;
-				case 86:
-					return xieite::streams::Key::UppercaseV;
-				case 87:
-					return xieite::streams::Key::UppercaseW;
-				case 88:
-					return xieite::streams::Key::UppercaseX;
-				case 89:
-					return xieite::streams::Key::UppercaseY;
-				case 90:
-					return xieite::streams::Key::UppercaseZ;
-				case 91:
-					return xieite::streams::Key::BracketOpen;
-				case 92:
-					return xieite::streams::Key::Backslash;
-				case 93:
-					return xieite::streams::Key::BracketClose;
-				case 94:
-					return xieite::streams::Key::Caret;
-				case 95:
-					return xieite::streams::Key::Underscore;
-				case 96:
-					return xieite::streams::Key::Grave;
-				case 97:
-					return xieite::streams::Key::LowercaseA;
-				case 98:
-					return xieite::streams::Key::LowercaseB;
-				case 99:
-					return xieite::streams::Key::LowercaseC;
-				case 100:
-					return xieite::streams::Key::LowercaseD;
-				case 101:
-					return xieite::streams::Key::LowercaseE;
-				case 102:
-					return xieite::streams::Key::LowercaseF;
-				case 103:
-					return xieite::streams::Key::LowercaseG;
-				case 104:
-					return xieite::streams::Key::LowercaseH;
-				case 105:
-					return xieite::streams::Key::LowercaseI;
-				case 106:
-					return xieite::streams::Key::LowercaseJ;
-				case 107:
-					return xieite::streams::Key::LowercaseK;
-				case 108:
-					return xieite::streams::Key::LowercaseL;
-				case 109:
-					return xieite::streams::Key::LowercaseM;
-				case 110:
-					return xieite::streams::Key::LowercaseN;
-				case 111:
-					return xieite::streams::Key::LowercaseO;
-				case 112:
-					return xieite::streams::Key::LowercaseP;
-				case 113:
-					return xieite::streams::Key::LowercaseQ;
-				case 114:
-					return xieite::streams::Key::LowercaseR;
-				case 115:
-					return xieite::streams::Key::LowercaseS;
-				case 116:
-					return xieite::streams::Key::LowercaseT;
-				case 117:
-					return xieite::streams::Key::LowercaseU;
-				case 118:
-					return xieite::streams::Key::LowercaseV;
-				case 119:
-					return xieite::streams::Key::LowercaseW;
-				case 120:
-					return xieite::streams::Key::LowercaseX;
-				case 121:
-					return xieite::streams::Key::LowercaseY;
-				case 122:
-					return xieite::streams::Key::LowercaseZ;
-				case 123:
-					return xieite::streams::Key::BraceOpen;
-				case 124:
-					return xieite::streams::Key::Pipe;
-				case 125:
-					return xieite::streams::Key::BraceClose;
-				case 126:
-					return xieite::streams::Key::Tilde;
-				case 127:
-					return xieite::streams::Key::Backspace;
+				break;
+			case '\x20':
+				return xieite::streams::Key::Space;
+			case '\x21':
+				return xieite::streams::Key::Ecphoneme;
+			case '\x22':
+				return xieite::streams::Key::Quotation;
+			case '\x23':
+				return xieite::streams::Key::Octothorpe;
+			case '\x24':
+				return xieite::streams::Key::Dollar;
+			case '\x25':
+				return xieite::streams::Key::Percent;
+			case '\x26':
+				return xieite::streams::Key::Ampersand;
+			case '\x27':
+				return xieite::streams::Key::Apostrophe;
+			case '\x28':
+				return xieite::streams::Key::ParenthesisOpen;
+			case '\x29':
+				return xieite::streams::Key::ParenthesisClose;
+			case '\x2A':
+				return xieite::streams::Key::Asterisk;
+			case '\x2B':
+				return xieite::streams::Key::Plus;
+			case '\x2C':
+				return xieite::streams::Key::Comma;
+			case '\x2D':
+				return xieite::streams::Key::Hyphen;
+			case '\x2E':
+				return xieite::streams::Key::Period;
+			case '\x2F':
+				return xieite::streams::Key::Slash;
+			case '\x30':
+				return xieite::streams::Key::Digit0;
+			case '\x31':
+				return xieite::streams::Key::Digit1;
+			case '\x32':
+				return xieite::streams::Key::Digit2;
+			case '\x33':
+				return xieite::streams::Key::Digit3;
+			case '\x34':
+				return xieite::streams::Key::Digit4;
+			case '\x35':
+				return xieite::streams::Key::Digit5;
+			case '\x36':
+				return xieite::streams::Key::Digit6;
+			case '\x37':
+				return xieite::streams::Key::Digit7;
+			case '\x38':
+				return xieite::streams::Key::Digit8;
+			case '\x39':
+				return xieite::streams::Key::Digit9;
+			case '\x3A':
+				return xieite::streams::Key::Colon;
+			case '\x3B':
+				return xieite::streams::Key::Semicolon;
+			case '\x3C':
+				return xieite::streams::Key::Less;
+			case '\x3D':
+				return xieite::streams::Key::Equal;
+			case '\x3E':
+				return xieite::streams::Key::Greater;
+			case '\x3F':
+				return xieite::streams::Key::Eroteme;
+			case '\x40':
+				return xieite::streams::Key::Ampersat;
+			case '\x41':
+				return xieite::streams::Key::UppercaseA;
+			case '\x42':
+				return xieite::streams::Key::UppercaseB;
+			case '\x43':
+				return xieite::streams::Key::UppercaseC;
+			case '\x44':
+				return xieite::streams::Key::UppercaseD;
+			case '\x45':
+				return xieite::streams::Key::UppercaseE;
+			case '\x46':
+				return xieite::streams::Key::UppercaseF;
+			case '\x47':
+				return xieite::streams::Key::UppercaseG;
+			case '\x48':
+				return xieite::streams::Key::UppercaseH;
+			case '\x49':
+				return xieite::streams::Key::UppercaseI;
+			case '\x4A':
+				return xieite::streams::Key::UppercaseJ;
+			case '\x4B':
+				return xieite::streams::Key::UppercaseK;
+			case '\x4C':
+				return xieite::streams::Key::UppercaseL;
+			case '\x4D':
+				return xieite::streams::Key::UppercaseM;
+			case '\x4E':
+				return xieite::streams::Key::UppercaseN;
+			case '\x4F':
+				return xieite::streams::Key::UppercaseO;
+			case '\x50':
+				return xieite::streams::Key::UppercaseP;
+			case '\x51':
+				return xieite::streams::Key::UppercaseQ;
+			case '\x52':
+				return xieite::streams::Key::UppercaseR;
+			case '\x53':
+				return xieite::streams::Key::UppercaseS;
+			case '\x54':
+				return xieite::streams::Key::UppercaseT;
+			case '\x55':
+				return xieite::streams::Key::UppercaseU;
+			case '\x56':
+				return xieite::streams::Key::UppercaseV;
+			case '\x57':
+				return xieite::streams::Key::UppercaseW;
+			case '\x58':
+				return xieite::streams::Key::UppercaseX;
+			case '\x59':
+				return xieite::streams::Key::UppercaseY;
+			case '\x5A':
+				return xieite::streams::Key::UppercaseZ;
+			case '\x5B':
+				return xieite::streams::Key::BracketOpen;
+			case '\x5C':
+				return xieite::streams::Key::Backslash;
+			case '\x5D':
+				return xieite::streams::Key::BracketClose;
+			case '\x5E':
+				return xieite::streams::Key::Caret;
+			case '\x5F':
+				return xieite::streams::Key::Underscore;
+			case '\x60':
+				return xieite::streams::Key::Grave;
+			case '\x61':
+				return xieite::streams::Key::LowercaseA;
+			case '\x62':
+				return xieite::streams::Key::LowercaseB;
+			case '\x63':
+				return xieite::streams::Key::LowercaseC;
+			case '\x64':
+				return xieite::streams::Key::LowercaseD;
+			case '\x65':
+				return xieite::streams::Key::LowercaseE;
+			case '\x66':
+				return xieite::streams::Key::LowercaseF;
+			case '\x67':
+				return xieite::streams::Key::LowercaseG;
+			case '\x68':
+				return xieite::streams::Key::LowercaseH;
+			case '\x69':
+				return xieite::streams::Key::LowercaseI;
+			case '\x6A':
+				return xieite::streams::Key::LowercaseJ;
+			case '\x6B':
+				return xieite::streams::Key::LowercaseK;
+			case '\x6C':
+				return xieite::streams::Key::LowercaseL;
+			case '\x6D':
+				return xieite::streams::Key::LowercaseM;
+			case '\x6E':
+				return xieite::streams::Key::LowercaseN;
+			case '\x6F':
+				return xieite::streams::Key::LowercaseO;
+			case '\x70':
+				return xieite::streams::Key::LowercaseP;
+			case '\x71':
+				return xieite::streams::Key::LowercaseQ;
+			case '\x72':
+				return xieite::streams::Key::LowercaseR;
+			case '\x73':
+				return xieite::streams::Key::LowercaseS;
+			case '\x74':
+				return xieite::streams::Key::LowercaseT;
+			case '\x75':
+				return xieite::streams::Key::LowercaseU;
+			case '\x76':
+				return xieite::streams::Key::LowercaseV;
+			case '\x77':
+				return xieite::streams::Key::LowercaseW;
+			case '\x78':
+				return xieite::streams::Key::LowercaseX;
+			case '\x79':
+				return xieite::streams::Key::LowercaseY;
+			case '\x7A':
+				return xieite::streams::Key::LowercaseZ;
+			case '\x7B':
+				return xieite::streams::Key::BraceOpen;
+			case '\x7C':
+				return xieite::streams::Key::Pipe;
+			case '\x7D':
+				return xieite::streams::Key::BraceClose;
+			case '\x7E':
+				return xieite::streams::Key::Tilde;
+			case '\x7F':
+				return xieite::streams::Key::Backspace;
 			}
-			this->inputStream.putback(foo);
 			return xieite::streams::Key::Unknown;
 		}
 
 	private:
-		std::FILE* const inputFile;
-		const int inputFileDescriptor;
-
 		const int blockingStatus;
 		::termios cookedMode;
 
-		mutable bool blocking;
-		mutable bool echo;
-		mutable bool canonical;
-		mutable bool signals;
-		mutable bool processing;
+		bool blocking;
+		bool echo;
+		bool canon;
+		bool signals;
+		bool processing;
 
-		void update() const noexcept {
-			::fcntl(this->inputFileDescriptor, F_SETFL, this->blockingStatus | (O_NONBLOCK * !this->blocking));
+		void update() noexcept {
+			::fcntl(::fileno(this->inputFile), F_SETFL, this->blockingStatus | (O_NONBLOCK * !this->blocking));
 			::termios rawMode = this->cookedMode;
 			rawMode.c_iflag &= ~((ICRNL * !this->signals) | (IXON * !this->signals));
-			rawMode.c_lflag &= ~((ECHO * !this->echo) | (ICANON * !this->canonical) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
+			rawMode.c_lflag &= ~((ECHO * !this->echo) | (ICANON * !this->canon) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
 			rawMode.c_oflag &= ~(OPOST * !this->processing);
-			::tcsetattr(this->inputFileDescriptor, TCSANOW, &rawMode);
+			::tcsetattr(::fileno(this->inputFile), TCSANOW, &rawMode);
 		}
 	};
 }

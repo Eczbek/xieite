@@ -6,7 +6,7 @@
 
 namespace xieite::types {
 	template<typename Type>
-	using MaybeSigned = std::conditional_t<xieite::concepts::UnsignedInteger<Type>, std::make_signed<Type>, std::type_identity<Type>>::type;
+	using MaybeSigned = std::conditional_t<xieite::concepts::UnsignedIntegral<Type>, std::make_signed<Type>, std::type_identity<Type>>::type;
 }
 
 #endif

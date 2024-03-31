@@ -15,8 +15,8 @@ constexpr xieite::math::BigInteger<Word>& operator=(const xieite::math::BigInteg
 ```
 #### 2)
 ```cpp
-template<std::integral Integer>
-constexpr xieite::math::BigInteger<Word>& operator=(Integer value) const noexcept;
+template<std::integral Integral>
+constexpr xieite::math::BigInteger<Word>& operator=(Integral value) const noexcept;
 ```
 
 &nbsp;
@@ -27,11 +27,11 @@ constexpr xieite::math::BigInteger<Word>& operator=(Integer value) const noexcep
 #include "xieite/math/big_integer.hpp"
 
 int main() {
-    xieite::math::BigInteger bigInteger = 17;
+    xieite::math::BigInteger bigIntegral = 17;
 
-    bigInteger = 41;
+    bigIntegral = 41;
 
-    std::println("{}", bigInteger.string());
+    std::println("{}", bigIntegral.string());
 }
 ```
 Output:

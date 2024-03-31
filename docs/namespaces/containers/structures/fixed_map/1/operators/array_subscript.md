@@ -4,7 +4,7 @@ Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../inclu
 &nbsp;
 
 ## Description
-Accesses a value by its key, if it exists. May throw `xieite::exceptions::InvalidKey` if the map does not contain a key that it is accessed with.
+Accesses a value by its key, if it exists.
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Accesses a value by its key, if it exists. May throw `xieite::exceptions::Invali
 #### 1)
 ```cpp
 template<typename Self, std::convertible_to<Key> KeyReference>
-[[nodiscard]] constexpr auto&& operator[](this Self&&, KeyReference&& key);
+[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&&, KeyReference&& key);
 ```
 
 &nbsp;
@@ -30,7 +30,7 @@ int main() {
     };
 
     for (int i = 1; i <= 3; ++i) {
-        std::println("{}: {}", i, map[i]);
+        std::println("{}: {}", i, map[i].value());
     }
 }
 ```

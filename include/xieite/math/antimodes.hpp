@@ -17,7 +17,7 @@ namespace xieite::math {
 		using Value = std::ranges::range_value_t<Range>;
 		const auto iterators = xieite::algorithms::modes(range, std::ranges::less());
 		std::vector<Value> result = std::vector<Value>(iterators.size());
-		std::ranges::transform(iterators, result.begin(), [](const auto iterator) -> Value {
+		std::ranges::transform(iterators, result.begin(), [](const auto iterator) {
 			return *iterator;
 		});
 		return result;

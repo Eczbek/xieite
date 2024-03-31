@@ -11,7 +11,7 @@ The boolean cast returns `true` if a functor is assigned, `false` otherwise.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr operator bool() const noexcept;
+[[nodiscard]] explicit constexpr operator bool() const noexcept;
 ```
 
 &nbsp;

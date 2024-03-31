@@ -5,8 +5,8 @@
 #	include "../concepts/integer.hpp"
 
 namespace xieite::types {
-	template<xieite::concepts::Integer Integer, bool sign>
-	using ConditionallySigned = std::conditional_t<sign, std::make_signed_t<Integer>, std::make_unsigned_t<Integer>>;
+	template<xieite::concepts::Integral Integral, bool sign>
+	using ConditionallySigned = std::conditional_t<sign, std::make_signed_t<Integral>, std::make_unsigned_t<Integral>>;
 }
 
 #endif

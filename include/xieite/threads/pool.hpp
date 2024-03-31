@@ -25,10 +25,7 @@ namespace xieite::threads {
 			this->condition.notify_all();
 		}
 
-		void setThreadCount(std::size_t threadCount) {
-			if (!threadCount) {
-				throw std::invalid_argument("Cannot set thread pool size to zero");
-			}
+		void setThreadCount(std::size_t threadCount) noexcept {
 			const auto _ = std::unique_lock<std::mutex>(this->mutex);
 			const std::size_t currentThreadCount = this->threads.size();
 			if (threadCount < currentThreadCount) {
@@ -36,10 +33,10 @@ namespace xieite::threads {
 				return;
 			}
 			while (threadCount-- > currentThreadCount) {
-				this->threads.emplace_back([this](const std::stop_token stopToken) -> void {
+				this->threads.emplace_back([this](const std::stop_token stopToken) {
 					while (true) {
 						auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
-						this->condition.wait(jobsLock, [this, stopToken] -> bool {
+						this->condition.wait(jobsLock, [this, stopToken] {
 							return this->jobs.size() || stopToken.stop_requested();
 						});
 						if (!this->jobs.size() && stopToken.stop_requested()) {

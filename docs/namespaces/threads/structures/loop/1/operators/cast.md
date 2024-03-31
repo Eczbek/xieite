@@ -11,5 +11,5 @@ The boolean cast returns `true` if the loop is still running, and `false` if it 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] operator bool() const noexcept;
+[[nodiscard]] explicit operator bool() const noexcept;
 ```

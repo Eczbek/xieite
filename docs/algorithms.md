@@ -17,6 +17,7 @@ Somewhat useful algorithms.
 - [isRotated\(\)](./namespaces/algorithms/is_rotated.md)
 - [isUniformMatrix\(\)](./namespaces/is_uniform_matrix.md)
 - [modes\(\)](./namespaces/algorithms/modes.md)
+- [none\(\)](./namespaces/algorithms/none.md)
 - [numberSearch\(\)](./namespaces/algorithms/number_search.md)
 - [partialReverse\(\)](./namespaces/algorithms/partial_reverse.md)
 - [rotate\(\)](./namespaces/algorithms/rotate.md)

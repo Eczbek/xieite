@@ -12,12 +12,12 @@ Forward-declares `xieite::math::BigInteger<Word>` and does stuff.
 #### 1)
 ```cpp
 template<typename Type>
-struct IsIntegerlike
+struct IsIntegrallike
 : std::false_type {};
 ```
 #### 2)
 ```cpp
 template<std::unsigned_integral Word>
-struct IsIntegerlike<xieite::math::BigInteger<Word>>
+struct IsIntegrallike<xieite::math::BigInteger<Word>>
 : std::true_type {};
 ```

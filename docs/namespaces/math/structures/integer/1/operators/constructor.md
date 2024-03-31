@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../integer.md)\:\:Integer\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../integer.md)\:\:Integral\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Constructs a `xieite::math::Integer<bits, sign>`.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral OtherInteger = int>
-constexpr Integer(OtherInteger value = 0) noexcept;
+template<std::integral OtherIntegral = int>
+constexpr Integral(OtherIntegral value = 0) noexcept;
 ```
 
 &nbsp;

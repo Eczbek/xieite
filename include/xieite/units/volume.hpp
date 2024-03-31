@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_UNITS_VOLUME
 
 namespace xieite::units {
-	enum Volume {
+	enum struct Volume {
 		CubicQuectometre,
 		CubicRontometre,
 		CubicYoctometre,

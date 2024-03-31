@@ -28,7 +28,7 @@ struct Function<Result(Arguments...)> {
     requires(!std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Result(Arguments...)>>)
     constexpr Function(Functor&&) noexcept;
 
-    constexpr operator bool() const noexcept;
+    explicit constexpr operator bool() const noexcept;
 
     template<typename... ArgumentReferences>
     requires((... && std::convertible_to<ArgumentReferences, Arguments>))

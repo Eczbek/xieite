@@ -15,7 +15,7 @@ struct Interval {
     template<std::invocable<> Functor, xieite::concepts::Duration Duration>
     Interval(const Functor&, Duration) noexcept;
 
-    operator bool() const;
+    explicit operator bool() const;
 
     void stop();
 };

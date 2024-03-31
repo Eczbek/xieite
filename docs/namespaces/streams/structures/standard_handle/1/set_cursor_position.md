@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setCursorPosition
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setCursorPosition\(\)
 Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
@@ -11,20 +11,22 @@ Sets the terminal cursor's position.
 ## Synopsis
 #### 1)
 ```cpp
-void setCursorPosition(xieite::streams::Position position) const noexcept;
+void setCursorPosition(xieite::streams::Position position) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
+#include <cstdio>
 #include <print>
+#include "xieite/streams/position.hpp"
 #include "xieite/streams/standard_handle.hpp"
 
 int main() {
-    auto terminal = xieite::streams::StandardHandle(std::cin, std::cout);
+    auto terminal = xieite::streams::StandardHandle(stdin, stdout);
 
-    terminal.setCursorPosition({ 2, 5 });
+    terminal.setCursorPosition(xieite::streams::Position(2, 5));
     std::println("Hello, world!");
 }
 ```

@@ -35,8 +35,8 @@ namespace xieite::detail {
 
 		template<typename Functor, typename... Arguments>
 		static std::size_t operator()(const xieite::detail::Memo<Functor, Arguments...>& memo) {
-			return ([&memo]<std::size_t... i>(std::index_sequence<i...>) -> std::size_t {
-				return xieite::hashes::combine(([&memo] -> std::size_t {
+			return ([&memo]<std::size_t... i>(std::index_sequence<i...>) {
+				return xieite::hashes::combine(([&memo] {
 					if constexpr (xieite::concepts::Hashable<Functor>) {
 						return std::hash<Functor>()(memo.functor);
 					} else {

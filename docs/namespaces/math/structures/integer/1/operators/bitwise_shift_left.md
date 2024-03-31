@@ -15,8 +15,8 @@ Returns this integer bitwise shifted to the left.
 ```
 #### 2)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator<<(xieite::math::Integer<bits, sign> leftOperand, Integer rightOperand) noexcept;
+template<std::integral Integral>
+[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator<<(xieite::math::Integer<bits, sign> leftOperand, Integral rightOperand) noexcept;
 ```
 
 &nbsp;

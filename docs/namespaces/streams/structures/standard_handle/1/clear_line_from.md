@@ -1,19 +1,41 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:clearLineFrom
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:clearLineFrom\(\)
 Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
 
 ## Description
-Clears until the end of a line.
+Clears from the cursor until the end of a line.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-void clearLineFrom() const noexcept;
+void clearLineFrom() noexcept;
 ```
 #### 2)
 ```cpp
-void clearLineFrom(xieite::streams::Position position) const noexcept;
+void clearLineFrom(xieite::streams::Position position) noexcept;
+```
+
+&nbsp;
+
+## Example
+```cpp
+#include <cstdio>
+#include <print>
+#include "xieite/streams/standard_handle.hpp"
+
+int main() {
+    auto terminal = xieite::streams::StandardHandle(stdin, stdout);
+
+    std::print("Hello,\nworld!\r");
+
+    terminal.clearLineFrom();
+}
+```
+Possible output:
+```
+Hello,
+      
 ```

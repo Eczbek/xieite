@@ -35,7 +35,7 @@ int main() {
 
     matrix.resize(2, 3);
 
-    std::println("{}", matrix[1, 0]);
+    std::println("{}", matrix[1, 0].value());
 }
 ```
 Output:

@@ -12,5 +12,5 @@ Defined in header [<xieite/types/maybe_signed.hpp>](../../../include/xieite/type
 #### 1)
 ```cpp
 template<typename Type>
-using MaybeSigned = std::conditional_t<xieite::concepts::UnsignedInteger<Type>, std::make_signed<Type>, std::type_identity<Type>>::type;
+using MaybeSigned = std::conditional_t<xieite::concepts::UnsignedIntegral<Type>, std::make_signed<Type>, std::type_identity<Type>>::type;
 ```

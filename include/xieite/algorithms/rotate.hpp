@@ -13,7 +13,7 @@ namespace xieite::algorithms {
 		distance %= sizeof...(Types) + 1;
 		while (distance--) {
 			Type last = std::move(first);
-			([]<typename Self, typename First, typename Second, typename... Rest>(this Self&& self, First& first, Second& second, Rest&... rest) -> void {
+			([]<typename Self, typename First, typename Second, typename... Rest>(this Self&& self, First& first, Second& second, Rest&... rest) {
 				first = std::move(second);
 				if constexpr (sizeof...(Rest)) {
 					XIEITE_FORWARD(self)(second, rest...);

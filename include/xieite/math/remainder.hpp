@@ -5,13 +5,13 @@
 #	include <concepts>
 
 namespace xieite::math {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr Integer remainder(const Integer dividend, const Integer divisor) noexcept {
+	template<std::integral Integral>
+	[[nodiscard]] constexpr Integral remainder(const Integral dividend, const Integral divisor) noexcept {
 		return dividend % divisor;
 	}
 
-	template<std::floating_point FloatingPoint>
-	[[nodiscard]] constexpr FloatingPoint remainder(const FloatingPoint dividend, const FloatingPoint divisor) noexcept {
+	template<std::floating_point Fractional>
+	[[nodiscard]] constexpr Fractional remainder(const Fractional dividend, const Fractional divisor) noexcept {
 		return std::fmod(dividend, divisor);
 	}
 }

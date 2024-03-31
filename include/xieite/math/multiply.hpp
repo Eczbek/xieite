@@ -7,18 +7,18 @@
 #	include "../types/size_bits.hpp"
 
 namespace xieite::math {
-	template<std::unsigned_integral UnsignedInteger>
-	[[nodiscard]] constexpr xieite::math::Product<UnsignedInteger> multiply(const UnsignedInteger multiplier, const UnsignedInteger multiplicand) noexcept {
-		static constexpr UnsignedInteger halfSize = xieite::types::sizeBits<UnsignedInteger> / 2;
-		static constexpr UnsignedInteger halfBits = std::numeric_limits<UnsignedInteger>::max() >> halfSize;
-		const UnsignedInteger foo = multiplier & halfBits;
-		const UnsignedInteger bar = multiplier >> halfSize;
-		const UnsignedInteger baz = multiplicand & halfBits;
-		const UnsignedInteger qux = multiplicand >> halfSize;
-		const UnsignedInteger corge = foo * baz;
-		const UnsignedInteger grault = foo * qux;
-		const UnsignedInteger garply = bar * baz;
-		return xieite::math::Product<UnsignedInteger>(corge + (grault << halfSize) + (garply << halfSize), bar * qux + (grault >> halfSize) + (garply >> halfSize) + (halfBits & (((corge >> halfSize) + (grault & halfBits) + (garply & halfBits)) >> halfSize)));
+	template<std::unsigned_integral UnsignedIntegral>
+	[[nodiscard]] constexpr xieite::math::Product<UnsignedIntegral> multiply(const UnsignedIntegral multiplier, const UnsignedIntegral multiplicand) noexcept {
+		static constexpr UnsignedIntegral halfSize = xieite::types::sizeBits<UnsignedIntegral> / 2;
+		static constexpr UnsignedIntegral halfBits = std::numeric_limits<UnsignedIntegral>::max() >> halfSize;
+		const UnsignedIntegral foo = multiplier & halfBits;
+		const UnsignedIntegral bar = multiplier >> halfSize;
+		const UnsignedIntegral baz = multiplicand & halfBits;
+		const UnsignedIntegral qux = multiplicand >> halfSize;
+		const UnsignedIntegral corge = foo * baz;
+		const UnsignedIntegral grault = foo * qux;
+		const UnsignedIntegral garply = bar * baz;
+		return xieite::math::Product<UnsignedIntegral>(corge + (grault << halfSize) + (garply << halfSize), bar * qux + (grault >> halfSize) + (garply >> halfSize) + (halfBits & (((corge >> halfSize) + (grault & halfBits) + (garply & halfBits)) >> halfSize)));
 	}
 }
 

@@ -157,6 +157,20 @@
 #	else
 #		define XIEITE_ATTRIBUTE_COLD
 #	endif
+
+#	if XIEITE_HAS_ATTRIBUTE(__nonnull__) || XIEITE_COMPILER_TYPE_GCC
+#		define XIEITE_ATTRIBUTE_NON_NULL __attribute__((__nonnull__))
+#	else
+#		define XIEITE_ATTRIBUTE_NON_NULL
+#	endif
+
+#	if XIEITE_HAS_ATTRIBUTE(__returns_nonnull__) || XIEITE_COMPILER_TYPE_GCC
+#		define XIEITE_ATTRIBUTE_RETURNS_NON_NULL __attribute__((__returns_nonnull__))
+#	elif XIEITE_COMPILER_TYPE_MSVC
+#		define XIEITE_ATTRIBUTE_RETURNS_NON_NULL _Ret_notnull_
+#	else
+#		define XIEITE_ATTRIBUTE_RETURNS_NON_NULL
+#	endif
 #endif
 
 // Thanks to eightfold (https://github.com/8ightfold) and Ian Pike (https://github.com/Rinzii) for some original code

@@ -15,13 +15,13 @@ namespace xieite::functors {
 	constexpr void distributeArguments(Functor&& functor, Arguments&&... arguments)
 	noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor, argumentCount>) {
 		if constexpr (sizeof...(Arguments) == argumentCount) {
-			std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...);
+			static_cast<void>(std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...));
 		} else {
 			const std::tuple<Arguments&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
-			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) -> void {
-				std::invoke(functor, std::get<i>(std::move(argumentsTuple))...);
+			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) {
+				static_cast<void>(std::invoke(functor, std::get<i>(std::move(argumentsTuple))...));
 			})(std::make_index_sequence<argumentCount>());
-			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) -> void {
+			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) {
 				xieite::functors::distributeArguments<argumentCount>(XIEITE_FORWARD(functor), std::get<i + argumentCount>(std::move(argumentsTuple))...);
 			})(std::make_index_sequence<sizeof...(Arguments) - argumentCount>());
 		}

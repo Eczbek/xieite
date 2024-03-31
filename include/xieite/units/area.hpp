@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_UNITS_AREA
 
 namespace xieite::units {
-	enum Area {
+	enum struct Area {
 		SquareQuectometre,
 		SquareRontometre,
 		SquareYoctometre,

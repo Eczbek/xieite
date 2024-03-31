@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Color
+# [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Color \{\}
 Defined in header [<xieite/streams/color.hpp>](../../../include/xieite/streams/color.hpp)
 
 &nbsp;
@@ -12,17 +12,15 @@ A simple class for storing an RGB value.
 #### 1)
 ```cpp
 struct Color {
-    std::uint8_t red;
-    std::uint8_t green;
-    std::uint8_t blue;
+    std::uint8_t red = 0;
+    std::uint8_t green = 0;
+    std::uint8_t blue = 0;
 
-    constexpr Color(std::uint8_t = 0, std::uint8_t = 0, std::uint8_t = 0);
+    friend constexpr bool operator==(const xieite::streams::Color&, const xieite::streams::Color&) noexcept;
 
-    constexpr Color(std::uint32_t);
+    static constexpr xieite::streams::Color from(std::uint32_t) noexcept;
 
-    friend constexpr bool operator==(const xieite::streams::Color&, const xieite::streams::Color&);
-
-    constexpr std::uint32_t value();
+    constexpr std::uint32_t value() noexcept;
 };
 ```
 ##### Members
@@ -30,6 +28,24 @@ struct Color {
 - green
 - blue
 - alpha
-- [Color](./structures/color/1/operators/constructor.md)
-- [operator==](./structures/color/1/operators/equal.md)
-- [value](./structures/color/1/value.md)
+- [operator==\(\)](./structures/color/1/operators/equal.md)
+- [from\(\)](./structures/color/1/from.md)
+- [value\(\)](./structures/color/1/value.md)
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/streams/color.hpp"
+
+int main() {
+    auto color = xieite::streams::Color(255, 127, 0);
+
+    std::println("{} {} {}", color.red, color.green, color.blue);
+}
+```
+Output:
+```
+255 127 0
+```

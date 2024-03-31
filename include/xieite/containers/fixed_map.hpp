@@ -4,14 +4,16 @@
 #	include <array>
 #	include <concepts>
 #	include <cstddef>
+#	include <expected>
 #	include <functional>
 #	include <initializer_list>
 #	include <memory>
 #	include <unordered_map>
 #	include <utility>
+#	include "../concepts/no_throw_invocable.hpp"
 #	include "../concepts/range_of.hpp"
 #	include "../containers/make_array.hpp"
-#	include "../exceptions/invalid_key.hpp"
+#	include "../errors/type.hpp"
 #	include "../macros/forward.hpp"
 
 namespace xieite::containers {
@@ -28,12 +30,12 @@ namespace xieite::containers {
 		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeyReference&& key) {
+		[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&& self, KeyReference&& key) noexcept {
 			return XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 		}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr auto&& at(this Self&& self, KeyReference&& key) {
+		[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> at(this Self&& self, KeyReference&& key) noexcept {
 			return XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 		}
 
@@ -59,8 +61,10 @@ namespace xieite::containers {
 		mutable std::array<std::pair<Key, Value>, size> array;
 
 		[[nodiscard]] std::unordered_map<Key, Value*, Hash, KeyComparator, Allocator>& getMap() const noexcept {
-			static auto map = ([this] -> std::unordered_map<Key, Value*, Hash, KeyComparator, Allocator> {
-				std::unordered_map<Key, Value*, Hash, KeyComparator, Allocator> map;
+			using Map = std::unordered_map<Key, Value*, Hash, KeyComparator, Allocator>;
+			static Map map = ([this] {
+				Map map;
+				map.reserve(this->array.size());
 				for (std::pair<Key, Value>& entry : this->array) {
 					map.emplace(std::make_pair(entry.first, &entry.second));
 				}
@@ -70,14 +74,14 @@ namespace xieite::containers {
 		}
 
 		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr Value& getValue(KeyReference&& key) const {
+		[[nodiscard]] constexpr std::expected<Value&, xieite::errors::Type> getValue(KeyReference&& key) const noexcept {
 			if consteval {
 				for (std::pair<Key, Value>& entry : this->array) {
 					if (std::invoke(KeyComparator(), entry.first, key)) {
 						return entry.second;
 					}
 				}
-				throw xieite::exceptions::InvalidKey("Cannot access key not in map");
+				return std::unexpected(xieite::errors::Type::KeyOutOfMap);
 			} else {
 				return *this->getMap().at(key);
 			}

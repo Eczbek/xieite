@@ -11,8 +11,8 @@ Checks that a value is a power of 2.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral UnsignedInteger>
-[[nodiscard]] constexpr bool isPowerOf2(UnsignedInteger value) noexcept;
+template<std::unsigned_integral UnsignedIntegral>
+[[nodiscard]] constexpr bool isPowerOf2(UnsignedIntegral value) noexcept;
 ```
 
 &nbsp;

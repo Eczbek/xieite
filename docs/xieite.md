@@ -8,16 +8,15 @@
 - [bits](./bits.md)
 - [concepts](./concepts.md)
 - [containers](./containers.md)
-- [exceptions](./exceptions.md)
+- [errors](./errors.md)
 - [functors](./functors.md)
 - [geometry](./geometry.md)
 - [hashes](./hashes.md)
 - [literals](./literals.md)
 - [math](./math.md)
 - [memory](./memory.md)
-- [network](./network.md)
 - [random](./random.md)
-- [streams](./streams.md) - outdated
+- [streams](./streams.md)
 - [strings](./strings.md) - outdated
 - [system](./system.md) - outdated
 - [threads](./threads.md) - outdated

@@ -15,8 +15,8 @@ Returns the product of two integers.
 ```
 #### 2)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator*(xieite::math::Integer<bits, sign> multiplier, Integer multiplicand) noexcept;
+template<std::integral Integral>
+[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator*(xieite::math::Integer<bits, sign> multiplier, Integral multiplicand) noexcept;
 ```
 
 &nbsp;

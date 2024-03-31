@@ -8,12 +8,11 @@ Mathematical types and functions.
 &nbsp;
 
 ## Contents
-- [BigInteger \{\}](./namespaces/math/big_integer.md)
+- [BigInteger \{\}](./namespaces/math/big_integral.md)
 - [Integer \{\}](./namespaces/math/integer.md)
 - [Interval \{\}](./namespaces/math/interval.md)
 - [Product \{\}](./namespaces/math/product.md)
 - [Version \{\}](./namespaces/math/version.md)
-- [LeastInteger](./namespaces/math/least_integer.md)
 - [Signed128](./namespaces/math/signed_128.md)
 - [SignedSize](./namespaces/math/signed_size.md)
 - [Unsigned128](./namespaces/math/unsigned_128.md)
@@ -50,6 +49,7 @@ Mathematical types and functions.
 - [multiply\(\)](./namespaces/math/multiply.md)
 - [parse\(\)](./namespaces/math/parse.md)
 - [pi\(\)](./namespaces/math/pi.md)
+- [power\(\)](./namespaces/math/power.md)
 - [productSign\(\)](./namespaces/math/product_sign.md)
 - [remainder\(\)](./namespaces/math/remainder.md)
 - [reverse\(\)](./namespaces/math/reverse.md)

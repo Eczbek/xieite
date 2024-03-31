@@ -13,3 +13,22 @@ Compares two `xieite::streams::Colors`.
 ```cpp
 [[nodiscard]] friend constexpr bool operator==(const xieite::streams::Color& color1, const xieite::streams::Color& color2) noexcept;
 ```
+
+&nbsp;
+
+## Example
+```cpp
+#include <print>
+#include "xieite/streams/color.hpp"
+
+int main() {
+    auto color1 = xieite::streams::Color(255, 127, 0);
+    auto color2 = xieite::streams::Color(63, 0, 191);
+
+    std::println("{}", color1 == color2);
+}
+```
+Output:
+```
+false
+```

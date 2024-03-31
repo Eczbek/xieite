@@ -7,13 +7,13 @@
 #	include "../math/sign.hpp"
 
 namespace xieite::math {
-	template<std::integral Integer>
-	[[nodiscard]] constexpr Integer divideFloor(const Integer dividend, const Integer divisor) noexcept {
+	template<std::integral Integral>
+	[[nodiscard]] constexpr Integral divideFloor(const Integral dividend, const Integral divisor) noexcept {
 		return xieite::math::divideUp(dividend, divisor) - !!(dividend % divisor) * (xieite::math::sign(dividend) == xieite::math::sign(divisor));
 	}
 
-	template<std::floating_point FloatingPoint>
-	[[nodiscard]] constexpr FloatingPoint divideFloor(const FloatingPoint dividend, const FloatingPoint divisor) noexcept {
+	template<std::floating_point Fractional>
+	[[nodiscard]] constexpr Fractional divideFloor(const Fractional dividend, const Fractional divisor) noexcept {
 		return std::floor(dividend / divisor);
 	}
 }

@@ -27,6 +27,7 @@ Macros and special headers.
 - [HAS_DECLARE_SPECIFIER_ATTRIBUTE\(\)](./namespaces/macros/has_declare_specifier_attribute.md)
 - [HAS_INCLUDE\(\)](./namespaces/macros/has_include.md)
 - [LANGUAGE_STANDARD_...](./namespaces/macros/language_standard.md)
+- [LIFT\(\)](./namespaces/macros/lift.md)
 - [MAYBE_RETURN\(\)](./namespaces/macros/maybe_return.md)
 - [PARENTHESIS_...\(\)](./namespaces/macros/parenthesis.md)
 - [PLATFORM_...](./namespaces/macros/platform.md)

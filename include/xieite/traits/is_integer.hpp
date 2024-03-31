@@ -1,13 +1,13 @@
-#ifndef XIEITE_HEADER_TRAITS_IS_INTEGER
-#	define XIEITE_HEADER_TRAITS_IS_INTEGER
+#ifndef XIEITE_HEADER_TRAITS_IS_INTEGRAL
+#	define XIEITE_HEADER_TRAITS_IS_INTEGRAL
 
 #	include <type_traits>
 #	include "../concepts/integer.hpp"
 
 namespace xieite::traits {
 	template<typename Type>
-	struct IsInteger
-	: std::bool_constant<xieite::concepts::Integer<Type>> {};
+	struct IsIntegral
+	: std::bool_constant<xieite::concepts::Integral<Type>> {};
 }
 
 #endif

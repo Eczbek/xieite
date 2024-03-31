@@ -8,8 +8,8 @@ namespace xieite::math {
 	template<std::unsigned_integral>
 	struct BigInteger;
 
-	template<std::unsigned_integral UnsignedInteger>
-	[[nodiscard]] constexpr bool isNegative(const UnsignedInteger value) noexcept {
+	template<std::unsigned_integral UnsignedIntegral>
+	[[nodiscard]] constexpr bool isNegative(const UnsignedIntegral value) noexcept {
 		return false;
 	}
 

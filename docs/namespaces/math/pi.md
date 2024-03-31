@@ -16,13 +16,13 @@ inline constexpr double pi = std::numbers::pi;
 ```
 #### 2)
 ```cpp
-template<std::floating_point FloatingPoint>
-inline constexpr FloatingPoint pi<FloatingPoint> = std::numbers::pi_v<FloatingPoint>;
+template<std::floating_point Fractional>
+inline constexpr Fractional pi<Fractional> = std::numbers::pi_v<Fractional>;
 ```
 #### 3)
 ```cpp
-template<std::integral Integer>
-inline constexpr Integer pi<Integer> = static_cast<Integer>(std::numbers::pi);
+template<std::integral Integral>
+inline constexpr Integral pi<Integral> = static_cast<Integral>(std::numbers::pi);
 ```
 
 &nbsp;

@@ -4,7 +4,7 @@ Defined in header [<xieite/algorithms/is_palindrome.hpp>](../../../include/xieit
 &nbsp;
 
 ## Description
-Checks if a range is the same backwards as it is forwards, or if an integer can be reversed while remaining the same value. Integer palindrome checker does not yet handle negative radices.
+Checks if a range is the same backwards as it is forwards, or if an integer can be reversed while remaining the same value. Integral palindrome checker does not yet handle negative radices.
 
 &nbsp;
 
@@ -17,8 +17,8 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_referenc
 ```
 #### 2)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr bool isPalindrome(Integer value, Integer radix = 10) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr bool isPalindrome(Integral value, Integral radix = 10) noexcept;
 ```
 
 &nbsp;

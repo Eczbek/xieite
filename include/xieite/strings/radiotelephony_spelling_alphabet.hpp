@@ -2,12 +2,13 @@
 #	define XIEITE_HEADER_STRINGS_RADIOTELEPHONY_SPELLING_ALPHABET
 
 #	include <array>
+#	include <cstddef>
 #	include <limits>
 #	include <string_view>
 
 namespace xieite::strings {
-	inline constexpr std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> radiotelephonySpellingAlphabet = ([] -> std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> {
-		std::array<std::string_view, std::numeric_limits<unsigned char>::max() + 1> result;
+	inline constexpr auto radiotelephonySpellingAlphabet = ([] {
+		std::array<std::string_view, static_cast<std::size_t>(std::numeric_limits<unsigned char>::max()) + 1> result;
 		result['A'] = result['a'] = "Alfa"; // This is not a typo
 		result['B'] = result['b'] = "Bravo";
 		result['C'] = result['c'] = "Charlie";

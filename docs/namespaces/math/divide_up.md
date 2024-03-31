@@ -11,13 +11,13 @@ Computes the value of a division and rounds away from zero.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integer>
-[[nodiscard]] constexpr Integer divideUp(Integer dividend, Integer divisor) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr Integral divideUp(Integral dividend, Integral divisor) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::floating_point FloatingPoint>
-[[nodiscard]] constexpr FloatingPoint divideUp(FloatingPoint dividend, FloatingPoint divisor) noexcept;
+template<std::floating_point Fractional>
+[[nodiscard]] constexpr Fractional divideUp(Fractional dividend, Fractional divisor) noexcept;
 ```
 
 &nbsp;

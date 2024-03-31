@@ -11,7 +11,7 @@ An enumeration of volume units.
 ## Synopsis
 #### 1)
 ```cpp
-enum Volume {
+enum struct Volume {
     cubicQuectometre,
     cubicRontometre,
     cubicYoctometre,

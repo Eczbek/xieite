@@ -4,20 +4,20 @@ Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/
 &nbsp;
 
 ## Description
-Rotates a two-dimensional slice of a matrix 90 degrees. May throw `std::out_of_range` if the number of indices is not one less than the number of dimensions, or `std::range_error` if an index is outside its respective dimension.
+Rotates a two-dimensional slice of a matrix 90 degrees.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integer, xieite::concepts::RangeOf<std::size_t> Range>
-constexpr void rotate(Integer rotations, Range&& indices);
+template<std::integral Integral, xieite::concepts::RangeOf<std::size_t> Range>
+constexpr std::expected<void, xieite::errors::Type> rotate(Integral rotations, Range&& indices) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integer, std::convertible_to<std::size_t>... Sizes>
-constexpr void rotate(Integer rotations, Sizes... indices);
+template<std::integral Integral, std::convertible_to<std::size_t>... Sizes>
+constexpr std::expected<void, xieite::errors::Type> rotate(Integral rotations, Sizes... indices) noexcept;
 ```
 
 &nbsp;
@@ -35,7 +35,7 @@ int main() {
 
     for (std::size_t x = 0; x < 2; ++x) {
         for (std::size_t y = 0; y < 3; ++y) {
-            std::print("{} ", matrix[x, y]);
+            std::print("{} ", matrix[x, y].value());
         }
         std::println("");
     }
@@ -45,7 +45,7 @@ int main() {
     std::println("");
     for (std::size_t x = 0; x < 3; ++x) {
         for (std::size_t y = 0; y < 2; ++y) {
-            std::print("{} ", matrix[x, y]);
+            std::print("{} ", matrix[x, y].value());
         }
         std::println("");
     }
@@ -55,7 +55,7 @@ int main() {
     std::println("");
     for (std::size_t x = 0; x < 2; ++x) {
         for (std::size_t y = 0; y < 3; ++y) {
-            std::print("{} ", matrix[x, y]);
+            std::print("{} ", matrix[x, y].value());
         }
         std::println("");
     }
