@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:execute
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:execute\(\)
 Defined in header [<xieite/system/execute.hpp>](../../../include/xieite/system/execute.hpp)
 
 &nbsp;
 
 ## Description
-Executes a command and returns its output.
+Executes a command and returns its output. Works on both UNIX-like and Windows systems.
 
 &nbsp;
 
@@ -25,7 +25,7 @@ int main() {
     std::println("{}", xieite::system::execute("echo Hello, world!");
 }
 ```
-Output:
+Possible output:
 ```
 Hello, world!
 ```

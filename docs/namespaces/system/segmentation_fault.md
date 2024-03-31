@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:segmentationFault
+# [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:segmentationFault\(\)
 Defined in header [<xieite/system/segmentation_fault.hpp>](../../../include/xieite/system/segmentation_fault.hpp)
 
 &nbsp;
