@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:between
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:between\(\)
 Defined in header [<xieite/strings/between.hpp>](../../../include/xieite/strings/between.hpp)
 
 &nbsp;
@@ -11,19 +11,19 @@ Takes a substring between two other substrings.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::vector<std::string_view> between(std::string_view string, std::string_view start, std::string_view end) noexcept;
+[[nodiscard]] constexpr std::string_view between(std::string_view string, std::string_view start, std::string_view end) noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] constexpr std::vector<std::string_view> between(std::string_view string, std::string_view start, char end) noexcept;
+[[nodiscard]] constexpr std::string_view between(std::string_view string, std::string_view start, char end) noexcept;
 ```
 #### 3)
 ```cpp
-[[nodiscard]] constexpr std::vector<std::string_view> between(std::string_view string, char start, std::string_view end) noexcept;
+[[nodiscard]] constexpr std::string_view between(std::string_view string, char start, std::string_view end) noexcept;
 ```
 #### 4)
 ```cpp
-[[nodiscard]] constexpr std::vector<std::string_view> between(std::string_view string, char start, char end) noexcept;
+[[nodiscard]] constexpr std::string_view between(std::string_view string, char start, char end) noexcept;
 ```
 
 &nbsp;

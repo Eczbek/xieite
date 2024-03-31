@@ -10,7 +10,7 @@
 #	include "../strings/characters.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr char toLowercase(const char character) noexcept {
+	[[nodiscard]] constexpr char lowercase(const char character) noexcept {
 		using Lookup = std::array<char, static_cast<std::size_t>(std::numeric_limits<unsigned char>::max()) + 1>;
 		static constexpr Lookup lookup = ([] {
 			Lookup lookup;
@@ -23,10 +23,10 @@ namespace xieite::strings {
 		return lookup[xieite::math::signCast<std::size_t>(character)];
 	}
 
-	[[nodiscard]] constexpr std::string toLowercase(const std::string_view string) noexcept {
+	[[nodiscard]] constexpr std::string lowercase(const std::string_view string) noexcept {
 		std::string result = std::string(string);
 		for (char& character : result) {
-			character = xieite::strings::toLowercase(character);
+			character = xieite::strings::lowercase(character);
 		}
 		return result;
 	}

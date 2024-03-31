@@ -17,9 +17,10 @@
 - [memory](./memory.md)
 - [random](./random.md)
 - [streams](./streams.md)
-- [strings](./strings.md) - outdated
+- [strings](./strings.md)
 - [system](./system.md) - outdated
 - [threads](./threads.md) - outdated
+- [time](./time.md) - outdated
 - [traits](./traits.md) - outdated
 - [types](./types.md) - outdated
 - [units](./units.md) - outdated

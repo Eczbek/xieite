@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:truncate
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:truncate\(\)
 Defined in header [<xieite/strings/truncate.hpp>](../../../include/xieite/strings/truncate.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Shortens the end of a string, replacing it with a suffix.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::string truncate(const std::string& string, std::size_t length, const std::string& suffix = "") noexcept;
+[[nodiscard]] constexpr std::string truncate(std::string_view string, std::size_t length, std::string_view suffix = "") noexcept;
 ```
 
 &nbsp;

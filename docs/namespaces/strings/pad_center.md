@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:padCenter
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:padCenter\(\)
 Defined in header [<xieite/strings/pad_center.hpp>](../../../include/xieite/strings/pad_center.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Pads a string from both sides.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::string padCenter(const std::string& value, std::size_t size, char padding = ' ', bool alignFront = true) noexcept;
+[[nodiscard]] constexpr std::string padCenter(std::string_view value, std::size_t size, char padding = ' ', bool alignFront = true) noexcept;
 ```
 
 &nbsp;

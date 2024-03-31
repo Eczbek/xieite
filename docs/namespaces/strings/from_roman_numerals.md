@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:fromRomanNumerals
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:fromRomanNumerals\(\)
 Defined in header [<xieite/strings/from_roman_numerals.hpp>](../../../include/xieite/strings/from_roman_numerals.hpp)
 
 &nbsp;
 
 ## Description
-Converts a number from roman numerals.
+Converts roman numerals to a number.
 
 &nbsp;
 

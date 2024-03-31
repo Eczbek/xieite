@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:split
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:split\(\)
 Defined in header [<xieite/strings/split.hpp>](../../../include/xieite/strings/split.hpp)
 
 &nbsp;

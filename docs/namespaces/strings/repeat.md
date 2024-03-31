@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:repeat
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:repeat\(\)
 Defined in header [<xieite/strings/repeat.hpp>](../../../include/xieite/strings/repeat.hpp)
 
 &nbsp;
@@ -22,7 +22,7 @@ Repeats a string multiple times.
 #include "xieite/strings/repeat.hpp"
 
 int main() {
-    std::println("{}", xieite::strings::repeat("Hello, world!\n", 3);
+    std::println("{}", xieite::strings::repeat(3, "Hello, world!\n");
 }
 ```
 Output:

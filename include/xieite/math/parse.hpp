@@ -38,7 +38,7 @@ namespace xieite::math {
 							break;
 						}
 						point = 1;
-					} else if (xieite::strings::toLowercase(value[i]) == xieite::strings::toLowercase(components.exponent)) {
+					} else if (xieite::strings::lowercase(value[i]) == xieite::strings::lowercase(components.exponent)) {
 						power = xieite::math::parse<xieite::math::SignedSize>(value.substr(i + 1));
 						break;
 					}

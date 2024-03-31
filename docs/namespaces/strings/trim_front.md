@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:trimFront
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:trimFront\(\)
 Defined in header [<xieite/strings/trim_front.hpp>](../../../include/xieite/strings/trim_front.hpp)
 
 &nbsp;

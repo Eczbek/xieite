@@ -18,7 +18,7 @@ namespace xieite::strings {
 		}
 		Integral previous = 0;
 		for (const char digit : std::views::reverse(value)) {
-			const std::size_t index = numerals.find(xieite::strings::toUppercase(digit));
+			const std::size_t index = numerals.find(xieite::strings::uppercase(digit));
 			if (index == std::string_view::npos) {
 				continue;
 			}

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:padBack
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:padBack\(\)
 Defined in header [<xieite/strings/pad_back.hpp>](../../../include/xieite/strings/pad_back.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Pads the back of a string.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::string padBack(const std::string& value, std::size_t size, char padding = ' ') noexcept;
+[[nodiscard]] constexpr std::string padBack(std::string_view value, std::size_t size, char padding = ' ') noexcept;
 ```
 
 &nbsp;

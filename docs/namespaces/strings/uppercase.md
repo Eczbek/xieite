@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:uppercase
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:uppercase\(\)
 Defined in header [<xieite/strings/uppercase.hpp>](../../../include/xieite/strings/uppercase.hpp)
 
 &nbsp;
 
 ## Description
-Converts a string or character to uppercase. Only handles characters `a` to `z`.
+Converts a string or character to uppercase. Only handles characters between `a` and `z`.
 
 &nbsp;
 

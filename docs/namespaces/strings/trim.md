@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:trim
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:trim\(\)
 Defined in header [<xieite/strings/trim.hpp>](../../../include/xieite/strings/trim.hpp)
 
 &nbsp;

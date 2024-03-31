@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:padFront
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:padFront\(\)
 Defined in header [<xieite/strings/pad_front.hpp>](../../../include/xieite/strings/pad_front.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Pads the front of a string.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::string padFront(const std::string& value, std::size_t size, char padding = ' ') noexcept;
+[[nodiscard]] constexpr std::string padFront(std::string_view value, std::size_t size, char padding = ' ') noexcept;
 ```
 
 &nbsp;
