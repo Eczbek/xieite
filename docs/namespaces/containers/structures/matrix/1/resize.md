@@ -12,12 +12,12 @@ Resizes the matrix and reinterprets the underlying data.
 #### 1)
 ```cpp
 template<xieite::concepts::RangeOf<std::size_t> Range>
-constexpr std::expected<void, xieite::errors::Type> resize(Range&& dimensions) noexcept;
+constexpr std::optional<std::monostate> resize(Range&& dimensions) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::convertible_to<std::size_t>... Sizes>
-constexpr std::expected<void, xieite::errors::Type> resize(Sizes... dimensions) noexcept;
+constexpr std::optional<std::monostate> resize(Sizes... dimensions) noexcept;
 ```
 
 &nbsp;

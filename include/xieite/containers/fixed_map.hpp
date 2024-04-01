@@ -4,17 +4,18 @@
 #	include <array>
 #	include <concepts>
 #	include <cstddef>
-#	include <expected>
 #	include <functional>
 #	include <initializer_list>
 #	include <memory>
+#	include <optional>
+#	include <type_traits>
 #	include <unordered_map>
 #	include <utility>
 #	include "../concepts/no_throw_invocable.hpp"
 #	include "../concepts/range_of.hpp"
 #	include "../containers/make_array.hpp"
-#	include "../errors/type.hpp"
 #	include "../macros/forward.hpp"
+#	include "../types/maybe_constant.hpp"
 
 namespace xieite::containers {
 	template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value*>>>
@@ -30,12 +31,12 @@ namespace xieite::containers {
 		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&& self, KeyReference&& key) noexcept {
+		[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&& self, KeyReference&& key) noexcept {
 			return XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 		}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> at(this Self&& self, KeyReference&& key) noexcept {
+		[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> at(this Self&& self, KeyReference&& key) noexcept {
 			return XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 		}
 
@@ -74,14 +75,14 @@ namespace xieite::containers {
 		}
 
 		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr std::expected<Value&, xieite::errors::Type> getValue(KeyReference&& key) const noexcept {
+		[[nodiscard]] constexpr std::optional<std::reference_wrapper<Value>> getValue(KeyReference&& key) const noexcept {
 			if consteval {
 				for (std::pair<Key, Value>& entry : this->array) {
 					if (std::invoke(KeyComparator(), entry.first, key)) {
 						return entry.second;
 					}
 				}
-				return std::unexpected(xieite::errors::Type::KeyOutOfMap);
+				return std::nullopt;
 			} else {
 				return *this->getMap().at(key);
 			}

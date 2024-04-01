@@ -11,12 +11,12 @@ Computes any root of a `xieite::math::BigInteger<Word>`.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> root(const xieite::math::BigInteger<Word>& degree) const noexcept;
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> root(const xieite::math::BigInteger<Word>& degree) const noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> root(Integral degree) const noexcept;
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> root(Integral degree) const noexcept;
 ```
 
 &nbsp;

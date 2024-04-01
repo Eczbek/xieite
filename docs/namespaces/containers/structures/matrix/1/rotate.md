@@ -12,12 +12,12 @@ Rotates a two-dimensional slice of a matrix 90 degrees.
 #### 1)
 ```cpp
 template<std::integral Integral, xieite::concepts::RangeOf<std::size_t> Range>
-constexpr std::expected<void, xieite::errors::Type> rotate(Integral rotations, Range&& indices) noexcept;
+constexpr std::optional<std::monostate> rotate(Integral rotations, Range&& indices) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral, std::convertible_to<std::size_t>... Sizes>
-constexpr std::expected<void, xieite::errors::Type> rotate(Integral rotations, Sizes... indices) noexcept;
+constexpr std::optional<std::monostate> rotate(Integral rotations, Sizes... indices) noexcept;
 ```
 
 &nbsp;

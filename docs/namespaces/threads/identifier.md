@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:identifier \{\}
+# [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:identifier
 Defined in header [<xieite/threads/identifier.hpp>](../../../include/xieite/threads/identifier.hpp)
 
 &nbsp;

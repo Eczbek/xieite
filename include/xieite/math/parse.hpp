@@ -11,7 +11,7 @@
 #	include "../strings/integer_components.hpp"
 #	include "../math/signed_size.hpp"
 #	include "../math/split_boolean.hpp"
-#	include "../strings/to_lowercase.hpp"
+#	include "../strings/lowercase.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral>

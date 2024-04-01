@@ -11,12 +11,12 @@ Raises a `xieite::math::BigInteger<Word>` to an exponent.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> power(const xieite::math::BigInteger<Word>& exponent) const noexcept;
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> power(const xieite::math::BigInteger<Word>& exponent) const noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> power(Integral exponent) const noexcept;
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> power(Integral exponent) const noexcept;
 ```
 
 &nbsp;

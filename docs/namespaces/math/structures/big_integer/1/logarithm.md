@@ -11,12 +11,12 @@ Computes the logarithm of a `xieite::math::BigInteger<Word>` to a base.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> logarithm(const xieite::math::BigInteger<Word>& base) const noexcept;
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> logarithm(const xieite::math::BigInteger<Word>& base) const noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> logarithm(Integral base) const noexcept;
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> logarithm(Integral base) const noexcept;
 ```
 
 &nbsp;

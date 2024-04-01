@@ -6,7 +6,7 @@
 #	include <cstddef>
 #	include <ranges>
 #	include <string_view>
-#	include "../strings/to_uppercase.hpp"
+#	include "../strings/uppercase.hpp"
 
 namespace xieite::strings {
 	template<std::integral Integral = int>

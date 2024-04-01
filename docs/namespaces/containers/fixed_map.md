@@ -21,10 +21,10 @@ struct FixedMap {
     constexpr FixedMap(std::initializer_list<std::pair<Key, Value>>) noexcept;
 
     template<typename Self, std::convertible_to<Key> KeyReference>
-    constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&&, KeyReference&&) noexcept;
+    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value>>> operator[](this Self&&, KeyReference&&) noexcept;
 
     template<typename Self, std::convertible_to<Key> KeyReference>
-    constexpr std::expected<auto&&, xieite::errors::Type> at(this Self&&, KeyReference&&) noexcept;
+    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value>>> at(this Self&&, KeyReference&&) noexcept;
 
     template<std::convertible_to<Key> KeyReference>
     constexpr bool contains(KeyReference&&) const noexcept;

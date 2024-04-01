@@ -12,7 +12,7 @@ Accesses a value by its key, if it exists.
 #### 1)
 ```cpp
 template<typename Self, std::convertible_to<Key> KeyReference>
-[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&&, KeyReference&& key);
+[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&&, KeyReference&& key);
 ```
 
 &nbsp;

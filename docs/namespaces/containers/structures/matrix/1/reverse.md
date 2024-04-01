@@ -12,12 +12,12 @@ Reverses a dimension of the matrix.
 #### 1)
 ```cpp
 template<xieite::concepts::RangeOf<std::size_t> Range>
-constexpr std::expected<void, xieite::errors::Type> reverse(Range&& indices) noexcept;
+constexpr std::optional<std::monostate> reverse(Range&& indices) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::convertible_to<std::size_t>... Sizes>
-constexpr std::expected<void, xieite::errors::Type> reverse(Sizes... indices) noexcept;
+constexpr std::optional<std::monostate> reverse(Sizes... indices) noexcept;
 ```
 
 &nbsp;

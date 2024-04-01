@@ -6,15 +6,15 @@
 #	include <concepts>
 #	include <cstddef>
 #	include <cstdint>
-#	include <expected>
+#	include <functional>
 #	include <iterator>
 #	include <limits>
+#	include <optional>
 #	include <ranges>
 #	include <string>
 #	include <string_view>
 #	include <vector>
 #	include "../concepts/arithmetic.hpp"
-#	include "../errors/type.hpp"
 #	include "../macros/forward.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/is_negative.hpp"
@@ -314,9 +314,9 @@ namespace xieite::math {
 			return *this *= xieite::math::BigInteger<Word>(multiplicand);
 		}
 
-		[[nodiscard]] friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator/(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) noexcept {
+		[[nodiscard]] friend constexpr std::optional<xieite::math::BigInteger<Word>> operator/(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) noexcept {
 			if (!divisor) {
-				return std::unexpected(xieite::errors::Type::DivisionByZero);
+				return std::nullopt;
 			}
 			if ((dividend.data.size() < 2) && (divisor.data.size() < 2)) {
 				return dividend.data[0] / divisor.data[0];
@@ -358,22 +358,22 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator/(const xieite::math::BigInteger<Word>& dividend, const Integral divisor) noexcept {
+		[[nodiscard]] friend constexpr std::optional<xieite::math::BigInteger<Word>> operator/(const xieite::math::BigInteger<Word>& dividend, const Integral divisor) noexcept {
 			return dividend / xieite::math::BigInteger<Word>(divisor);
 		}
 
-		constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator/=(const xieite::math::BigInteger<Word>& divisor) noexcept {
+		constexpr std::optional<std::reference_wrapper<xieite::math::BigInteger<Word>>> operator/=(const xieite::math::BigInteger<Word>& divisor) noexcept {
 			return *this = *this / divisor;
 		}
 
 		template<std::integral Integral>
-		constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator/=(const Integral divisor) noexcept {
+		constexpr std::optional<std::reference_wrapper<xieite::math::BigInteger<Word>>> operator/=(const Integral divisor) noexcept {
 			return *this /= xieite::math::BigInteger<Word>(divisor);
 		}
 
-		[[nodiscard]] friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator%(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) noexcept {
+		[[nodiscard]] friend constexpr std::optional<xieite::math::BigInteger<Word>> operator%(const xieite::math::BigInteger<Word>& dividend, const xieite::math::BigInteger<Word>& divisor) noexcept {
 			if (!divisor) {
-				return std::unexpected(xieite::errors::Type::DivisionByZero);
+				return std::nullopt;
 			}
 			const xieite::math::BigInteger<Word> absoluteDividend = dividend.absolute();
 			const xieite::math::BigInteger<Word> absoluteDivisor = divisor.absolute();
@@ -399,16 +399,16 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> operator%(const xieite::math::BigInteger<Word>& dividend, const Integral divisor) {
+		[[nodiscard]] friend constexpr std::optional<xieite::math::BigInteger<Word>> operator%(const xieite::math::BigInteger<Word>& dividend, const Integral divisor) {
 			return dividend % xieite::math::BigInteger<Word>(divisor);
 		}
 
-		constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator%=(const xieite::math::BigInteger<Word>& divisor) {
+		constexpr std::optional<std::reference_wrapper<xieite::math::BigInteger<Word>>> operator%=(const xieite::math::BigInteger<Word>& divisor) {
 			return *this = *this % divisor;
 		}
 
 		template<std::integral Integral>
-		constexpr std::expected<xieite::math::BigInteger<Word>&, xieite::errors::Type> operator%=(const Integral divisor) {
+		constexpr std::optional<std::reference_wrapper<xieite::math::BigInteger<Word>>> operator%=(const Integral divisor) {
 			return *this %= xieite::math::BigInteger<Word>(divisor);
 		}
 
@@ -560,7 +560,7 @@ namespace xieite::math {
 			return copy;
 		}
 
-		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> power(const xieite::math::BigInteger<Word>& exponent) const noexcept {
+		[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> power(const xieite::math::BigInteger<Word>& exponent) const noexcept {
 			if ((*this == 1) || (exponent == 1)) {
 				return *this;
 			}
@@ -572,7 +572,7 @@ namespace xieite::math {
 			}
 			if (!*this) {
 				if (exponent.negative) {
-					return std::unexpected(xieite::errors::Type::UnrepresentableValue);
+					return std::nullopt;
 				}
 				return !exponent;
 			}
@@ -592,13 +592,13 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> power(const Integral exponent) const {
+		[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> power(const Integral exponent) const {
 			return this->power(xieite::math::BigInteger<Word>(exponent));
 		}
 
-		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> root(const xieite::math::BigInteger<Word>& degree) const noexcept {
+		[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> root(const xieite::math::BigInteger<Word>& degree) const noexcept {
 			if (this->negative) {
-				return std::unexpected(xieite::errors::Type::UnrepresentableValue);
+				return std::nullopt;
 			}
 			if (*this == 1) {
 				return *this;
@@ -617,22 +617,22 @@ namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Word> root(const Integral degree) const {
+		[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> root(const Integral degree) const {
 			return this->root(xieite::math::BigInteger<Word>(degree));
 		}
 
-		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> logarithm(const xieite::math::BigInteger<Word>& base) const noexcept {
+		[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> logarithm(const xieite::math::BigInteger<Word>& base) const noexcept {
 			if (!base) {
 				return 0;
 			}
 			if (this->negative || (base == 1) || base.negative) {
-				return std::unexpected(xieite::errors::Type::UnrepresentableValue);
+				return std::nullopt;
 			}
 			return this->logarithm2() / base.logarithm2();
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] constexpr std::expected<xieite::math::BigInteger<Word>, xieite::errors::Type> logarithm(const Integral base) const {
+		[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> logarithm(const Integral base) const {
 			return this->logarithm(xieite::math::BigInteger<Word>(base));
 		}
 
@@ -645,7 +645,7 @@ namespace xieite::math {
 		bool negative;
 
 		template<typename Functor>
-		[[nodiscard]] static constexpr xieite::math::BigInteger<Word> bitwiseOperation(xieite::math::BigInteger<Word> leftOperand, xieite::math::BigInteger<Word> rightOperand, const Functor& callback) {
+		[[nodiscard]] static constexpr xieite::math::BigInteger<Word> bitwiseOperation(xieite::math::BigInteger<Word> leftOperand, xieite::math::BigInteger<Word> rightOperand, Functor&& callback) noexcept {
 			const bool leftNegative = leftOperand.negative;
 			const bool rightNegative = rightOperand.negative;
 			leftOperand += leftNegative;

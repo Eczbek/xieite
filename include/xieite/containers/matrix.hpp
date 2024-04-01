@@ -5,15 +5,17 @@
 #	include <array>
 #	include <concepts>
 #	include <cstddef>
-#	include <expected>
 #	include <initializer_list>
+#	include <optional>
 #	include <ranges>
+#	include <type_traits>
 #	include <utility>
+#	include <variant>
 #	include <vector>
 #	include "../concepts/range_of.hpp"
-#	include "../errors/type.hpp"
 #	include "../macros/forward.hpp"
 #	include "../math/wrap.hpp"
+#	include "../types/maybe_constant.hpp"
 
 namespace xieite::containers {
 	template<typename Value>
@@ -30,9 +32,9 @@ namespace xieite::containers {
 		: xieite::containers::Matrix<Value>(std::ranges::ref_view(list)) {}
 
 		template<typename Self, xieite::concepts::RangeOf<std::size_t> Range>
-		[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&& self, Range&& indices) noexcept {
+		[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&& self, Range&& indices) noexcept {
 			if (std::ranges::size(indices) != self.dimensions.size()) {
-				return std::unexpected(xieite::errors::Type::DimensionsMismatch);
+				return std::nullopt;
 			}
 			return self.index(XIEITE_FORWARD(indices)).and_then([&self](const std::pair<std::size_t, std::size_t> index) {
 				return XIEITE_FORWARD(self).values[index.first];
@@ -40,7 +42,7 @@ namespace xieite::containers {
 		}
 
 		template<typename Self, std::convertible_to<std::size_t>... Sizes>
-		[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&& self, const Sizes... indices) noexcept {
+		[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&& self, const Sizes... indices) noexcept {
 			return XIEITE_FORWARD(self)[std::array<std::size_t, sizeof...(Sizes)> {
 				static_cast<std::size_t>(indices)...
 			}];
@@ -55,30 +57,31 @@ namespace xieite::containers {
 		}
 
 		template<xieite::concepts::RangeOf<std::size_t> Range>
-		constexpr std::expected<void, xieite::errors::Type> resize(Range&& dimensions) noexcept {
+		constexpr std::optional<std::monostate> resize(Range&& dimensions) noexcept {
 			std::size_t totalSize = 1;
 			for (const std::size_t dimension : dimensions) {
 				totalSize *= dimension;
 			}
 			if (totalSize > this->values.size()) {
-				return std::unexpected(xieite::errors::Type::DimensionsMismatch);
+				return std::nullopt;
 			}
 			this->totalSize = totalSize;
 			this->dimensions = std::vector<std::size_t>(std::ranges::begin(dimensions), std::ranges::end(dimensions));
+			return std::monostate();
 		}
 
 		template<std::convertible_to<std::size_t>... Sizes>
-		constexpr std::expected<void, xieite::errors::Type> resize(const Sizes... dimensions) noexcept {
+		constexpr std::optional<std::monostate> resize(const Sizes... dimensions) noexcept {
 			return this->resize(std::array<std::size_t, sizeof...(Sizes)> {
 				static_cast<std::size_t>(dimensions)...
 			});
 		}
 
 		template<xieite::concepts::RangeOf<std::size_t> Range>
-		constexpr std::expected<void, xieite::errors::Type> reverse(Range&& indices) noexcept {
+		constexpr std::optional<std::monostate> reverse(Range&& indices) noexcept {
 			const std::size_t indicesSize = std::ranges::size(indices);
 			if (this->dimensions.size() < (indicesSize + 1)) {
-				return std::unexpected(xieite::errors::Type::DimensionsMismatch);
+				return std::nullopt;
 				ret
 			}
 			return this->index(indices, 1).and_then([this, indicesSize](const std::pair<std::size_t, std::size_t> index) {
@@ -88,24 +91,24 @@ namespace xieite::containers {
 						std::ranges::swap(this->values[index.first + x * index.second + y], this->values[index.first + (dimension - x - 1) * index.second + y]);
 					}
 				}
-				return std::expected<void, xieite::errors::Type>();
+				return std::monostate();
 			});
 		}
 
 		template<std::convertible_to<std::size_t>... Sizes>
-		constexpr std::expected<void, xieite::errors::Type> reverse(const Sizes... indices) noexcept {
+		constexpr std::optional<std::monostate> reverse(const Sizes... indices) noexcept {
 			return this->reverse(std::array<std::size_t, sizeof...(Sizes)> {
 				static_cast<std::size_t>(indices)...
 			});
 		}
 
 		template<std::integral Integral, xieite::concepts::RangeOf<std::size_t> Range>
-		constexpr std::expected<void, xieite::errors::Type> rotate(const Integral rotations, Range&& indices) noexcept {
+		constexpr std::optional<std::monostate> rotate(const Integral rotations, Range&& indices) noexcept {
 			const std::size_t indicesSize = std::ranges::size(indices);
 			if (this->dimensions.size() < (indicesSize + 2)) {
-				return std::unexpected(xieite::errors::Type::DimensionsMismatch);
+				return std::nullopt;
 			}
-			this->index(indices, 2).and_then([this, indicesSize](const std::pair<std::size_t, std::size_t> index) {
+			return this->index(indices, 2).and_then([this, indicesSize](const std::pair<std::size_t, std::size_t> index) {
 				const std::size_t outerDimension = this->dimensions[indicesSize];
 				const std::size_t innerDimension = this->dimensions[indicesSize + 1];
 				const std::size_t rotatingSize = outerDimension * innerDimension * index.second;
@@ -147,12 +150,12 @@ namespace xieite::containers {
 					std::ranges::swap(this->dimensions[indicesSize], this->dimensions[indicesSize + 1]);
 					break;
 				}
-				return std::expected<void, xieite::errors::Type>();
+				return std::monostate();
 			});
 		}
 
 		template<std::integral Integral, std::convertible_to<std::size_t>... Sizes>
-		constexpr std::expected<void, xieite::errors::Type> rotate(const Integral rotations, const Sizes... indices) {
+		constexpr std::optional<std::monostate> rotate(const Integral rotations, const Sizes... indices) noexcept {
 			return this->rotate(rotations, std::array<std::size_t, sizeof...(Sizes)> {
 				static_cast<std::size_t>(indices)...
 			});
@@ -164,7 +167,7 @@ namespace xieite::containers {
 		std::vector<std::size_t> dimensions;
 
 		template<xieite::concepts::RangeOf<std::size_t> Range>
-		[[nodiscard]] constexpr std::expected<std::pair<std::size_t, std::size_t>, xieite::errors::Type> index(Range&& indices, const std::size_t extra = 0) const {
+		[[nodiscard]] constexpr std::optional<std::pair<std::size_t, std::size_t>> index(Range&& indices, const std::size_t extra = 0) const noexcept {
 			std::pair<std::size_t, std::size_t> result = std::make_pair(0, this->totalSize);
 			auto indicesIterator = std::ranges::begin(indices);
 			const std::size_t indicesSize = std::ranges::size(indices);
@@ -173,7 +176,7 @@ namespace xieite::containers {
 				result.second /= this->dimensions[i];
 				if (i < indicesSize) {
 					if (*indicesIterator >= this->dimensions[i]) {
-						return std::unexpected(xieite::errors::Type::IndexOutOfRange);
+						return std::nullopt;
 					}
 					result.first += *indicesIterator;
 					++indicesIterator;

@@ -18,35 +18,35 @@ struct Matrix {
     template<xieite::concepts::RangeOf<Value> Range>
     constexpr Matrix(Range&&) noexcept;
 
-    constexpr Matrix(const std::initializer_list<Value>) noexcept;
+    constexpr Matrix(std::initializer_list<Value>) noexcept;
 
     template<typename Self, xieite::concepts::RangeOf<std::size_t> Range>
-    constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&&, Range&&) noexcept;
+    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&&, Range&&) noexcept;
 
     template<typename Self, std::convertible_to<std::size_t>... Sizes>
-    constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&&, Sizes...) noexcept;
+    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&&, Sizes...) noexcept;
 
     constexpr const std::vector<Value>& data() const noexcept;
 
     constexpr const std::vector<std::size_t>& size() const noexcept;
 
     template<xieite::concepts::RangeOf<std::size_t> Range>
-    constexpr std::expected<void, xieite::errors::Type> resize(Range&&) noexcept;
+    constexpr std::optional<std::monostate> resize(Range&&) noexcept;
 
     template<std::convertible_to<std::size_t>... Sizes>
-    constexpr std::expected<void, xieite::errors::Type> resize(Sizes...) noexcept;
+    constexpr std::optional<std::monostate> resize(Sizes...) noexcept;
 
     template<xieite::concepts::RangeOf<std::size_t> Range>
-    constexpr std::expected<void, xieite::errors::Type> reverse(Range&&) noexcept;
+    constexpr std::optional<std::monostate> reverse(Range&&) noexcept;
 
     template<std::convertible_to<std::size_t>... Sizes>
-    constexpr std::expected<void, xieite::errors::Type> reverse(Sizes...) noexcept;
+    constexpr std::optional<std::monostate> reverse(Sizes...) noexcept;
 
     template<std::integral Integral, xieite::concepts::RangeOf<std::size_t> Range>
-    constexpr std::expected<void, xieite::errors::Type> rotate(Integral, Range&&) noexcept;
+    constexpr std::optional<std::monostate> rotate(Integral, Range&&) noexcept;
 
     template<std::integral Integral, std::convertible_to<std::size_t>... Sizes>
-    constexpr std::expected<void, xieite::errors::Type> rotate(Integral, Sizes...) noexcept;
+    constexpr std::optional<std::monostate> rotate(Integral, Sizes...) noexcept;
 };
 ```
 - [Matrix\(\)](./structures/matrix/1/operators/constructor.md)

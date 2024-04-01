@@ -12,12 +12,12 @@ Accesses a value by indices for every dimension.
 #### 1)
 ```cpp
 template<typename Self, xieite::concepts::RangeOf<std::size_t> Range>
-[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&&, Range&& indices);
+[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&&, Range&& indices);
 ```
 #### 2)
 ```cpp
 template<typename Self, std::convertible_to<std::size_t>... Sizes>
-[[nodiscard]] constexpr std::expected<auto&&, xieite::errors::Type> operator[](this Self&&, Sizes... indices);
+[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&&, Sizes... indices);
 ```
 
 &nbsp;

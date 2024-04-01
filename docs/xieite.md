@@ -8,7 +8,6 @@
 - [bits](./bits.md)
 - [concepts](./concepts.md)
 - [containers](./containers.md)
-- [errors](./errors.md)
 - [functors](./functors.md)
 - [geometry](./geometry.md)
 - [hashes](./hashes.md)
@@ -19,8 +18,8 @@
 - [streams](./streams.md)
 - [strings](./strings.md)
 - [system](./system.md)
-- [threads](./threads.md) - outdated
-- [time](./time.md) - outdated
+- [threads](./threads.md)
+- [time](./time.md)
 - [traits](./traits.md) - outdated
 - [types](./types.md) - outdated
 - [units](./units.md) - outdated
