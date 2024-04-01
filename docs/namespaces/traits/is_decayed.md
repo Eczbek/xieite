@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDecayed
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDecayed \{\}
 Defined in header [<xieite/traits/is_decayed.hpp>](../../../include/xieite/traits/is_decayed.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](../concepts/decayed.md#Description)
 
 &nbsp;
 
@@ -15,3 +14,7 @@ template<typename Type>
 struct IsDecayed
 : std::bool_constant<xieite::concepts::Decayed<Type>> {};
 ```
+
+&nbsp;
+
+## [Example](../concepts/decayed.md#Example)

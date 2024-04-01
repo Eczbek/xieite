@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivedFrom
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivedFrom \{\}
 Defined in header [<xieite/traits/is_derived_from.hpp>](../../../include/xieite/traits/is_derived_from.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](https://en.cppreference.com/w/cpp/concepts/derived_from)
 
 &nbsp;
 
@@ -15,3 +14,7 @@ template<typename Derived, typename Base>
 struct IsDerivedFrom
 : std::bool_constant<std::derived_from<Derived, Base>> {};
 ```
+
+&nbsp;
+
+## [Example](https://en.cppreference.com/w/cpp/concepts/derived_from#Example)

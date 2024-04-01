@@ -21,6 +21,7 @@ This project is a collection of questionably useful components for many various 
 - [XIEITE_ATTRIBUTE_...](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/macros/attribute.md)
 - [xieite::units::literals](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/units/literals.md)
 - [xieite::threads::Pool](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/threads/pool.md)
+- [xieite::traits::FunctionPointer](https://github.com/Eczbek/xieite/tree/main/docs/namespaces/traits/function_pointer.md)
 
 &nbsp;
 

@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsCharacter
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsCharacter \{\}
 Defined in header [<xieite/traits/is_character.hpp>](../../../include/xieite/traits/is_character.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](../concepts/character.md#Description)
 
 &nbsp;
 
@@ -15,3 +14,7 @@ template<typename Type>
 struct IsCharacter
 : std::bool_constant<xieite::concepts::Character<Type>> {};
 ```
+
+&nbsp;
+
+## [Example](../concepts/character.md#Example)

@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNarrowCharacter
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNarrowCharacter \{\}
 Defined in header [<xieite/traits/is_narrow_character.hpp>](../../../include/xieite/traits/is_narrow_character.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](../concepts/narrow_character.md#Description)
 
 &nbsp;
 
@@ -15,3 +14,7 @@ template<typename Type>
 struct IsNarrowCharacter
 : std::bool_constant<xieite::concepts::NarrowCharacter<Type>> {};
 ```
+
+&nbsp;
+
+## [Example](../concepts/narrow_character.md#Example)

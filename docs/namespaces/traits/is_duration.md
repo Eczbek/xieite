@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDuration
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDuration \{\}
 Defined in header [<xieite/traits/is_duration.hpp>](../../../include/xieite/traits/is_duration.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](../concepts/duration.md#Description)
 
 &nbsp;
 
@@ -21,3 +20,7 @@ template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intm
 struct IsDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>>
 : std::true_type {};
 ```
+
+&nbsp;
+
+## [Example](../concepts/duration.md#Example)

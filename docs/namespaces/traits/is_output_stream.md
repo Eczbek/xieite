@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsOutputStream
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsOutputStream \{\}
 Defined in header [<xieite/traits/is_output_stream.hpp>](../../../include/xieite/traits/is_output_stream.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](../concepts/output_stream.md#Description)
 
 &nbsp;
 
@@ -15,3 +14,7 @@ template<typename Type>
 struct IsOutputStream
 : std::bool_constant<xieite::concepts::OutputStream<Type>> {};
 ```
+
+&nbsp;
+
+## [Example](../concepts/output_stream.md#Example)

@@ -3,415 +3,247 @@
 
 #	include <tuple>
 
+namespace xieite::detail {
+	template<typename Function_, typename Return_, typename Arguments_, bool variadic_, bool nonThrowing_>
+	struct FunctionPointerTraits {
+		using Function = Function_;
+		using Return = Return_;
+		using Arguments = Arguments_;
+
+		static constexpr bool variadic = variadic_;
+		static constexpr bool nonThrowing = nonThrowing_;
+	};
+
+	template<typename Class_, typename Reference_, typename Function_, typename Return_, typename Arguments_, bool variadic_, bool constantQualified_, bool volatileQualified_, bool leftValueQualified_, bool rightValueQualified_, bool nonThrowing_>
+	struct MemberFunctionPointerTraits {
+		using Class = Class_;
+		using Reference = Reference_;
+		using Function = Function_;
+		using Return = Return_;
+		using Arguments = Arguments_;
+
+		static constexpr bool variadic = variadic_;
+		static constexpr bool constantQualified = constantQualified_;
+		static constexpr bool volatileQualified = volatileQualified_;
+		static constexpr bool leftValueQualified = leftValueQualified_;
+		static constexpr bool rightValueQualified = rightValueQualified_;
+		static constexpr bool nonThrowing = nonThrowing_;
+	};
+}
+
 namespace xieite::traits {
 	template<typename>
 	struct FunctionPointer;
 
-	template<typename Return, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(*)(Arguments...) noexcept(nonThrowing)> {
-		using FunctionType = Return(Arguments...);
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename... Arguments_>
+	struct FunctionPointer<Return_(*)(Arguments_...)>
+	: xieite::detail::FunctionPointerTraits<Return_(Arguments_...), Return_, std::tuple<Arguments_...>, false, false> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename... Arguments_>
+	struct FunctionPointer<Return_(*)(Arguments_..., ...)>
+	: xieite::detail::FunctionPointerTraits<Return_(Arguments_..., ...), Return_, std::tuple<Arguments_...>, true, false> {};
 
-	template<typename Return, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(*)(Arguments..., ...) noexcept(nonThrowing)> {
-		using FunctionType = Return(Arguments..., ...);
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename... Arguments_>
+	struct FunctionPointer<Return_(*)(Arguments_...) noexcept>
+	: xieite::detail::FunctionPointerTraits<Return_(Arguments_...) noexcept, Return_, std::tuple<Arguments_...>, false, true> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename... Arguments_>
+	struct FunctionPointer<Return_(*)(Arguments_..., ...) noexcept>
+	: xieite::detail::FunctionPointerTraits<Return_(Arguments_..., ...) noexcept, Return_, std::tuple<Arguments_...>, true, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = Class&;
-		using FunctionType = Return(Arguments...);
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...)>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&, Return_(Arguments_...), Return_, std::tuple<Arguments_...>, false, false, false, false, false, false> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...)>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&, Return_(Arguments_..., ...), Return_, std::tuple<Arguments_...>, true, false, false, false, false, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = Class&;
-		using FunctionType = Return(Arguments..., ...);
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&, Return_(Arguments_...) const, Return_, std::tuple<Arguments_...>, false, true, false, false, false, false> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&, Return_(Arguments_..., ...) const, Return_, std::tuple<Arguments_...>, true, true, false, false, false, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) const noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const Class&;
-		using FunctionType = Return(Arguments...) const;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_...) volatile, Return_, std::tuple<Arguments_...>, false, false, true, false, false, false> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_..., ...) volatile, Return_, std::tuple<Arguments_...>, true, false, true, false, false, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const Class&;
-		using FunctionType = Return(Arguments..., ...) const;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_...) volatile const, Return_, std::tuple<Arguments_...>, false, true, true, false, false, false> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_..., ...) volatile const, Return_, std::tuple<Arguments_...>, true, true, true, false, false, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) volatile noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = volatile Class&;
-		using FunctionType = Return(Arguments...) volatile;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&, Return_(Arguments_...) &, Return_, std::tuple<Arguments_...>, false, false, false, true, false, false> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&, Return_(Arguments_..., ...) &, Return_, std::tuple<Arguments_...>, true, false, false, true, false, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) volatile noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = volatile Class&;
-		using FunctionType = Return(Arguments..., ...) volatile;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&, Return_(Arguments_...) const &, Return_, std::tuple<Arguments_...>, false, true, false, true, false, false> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&, Return_(Arguments_..., ...) const &, Return_, std::tuple<Arguments_...>, true, true, false, true, false, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) const volatile noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const volatile Class&;
-		using FunctionType = Return(Arguments...) const volatile;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_...) volatile &, Return_, std::tuple<Arguments_...>, false, false, true, true, false, false> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_..., ...) volatile &, Return_, std::tuple<Arguments_...>, true, false, true, true, false, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const volatile noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const volatile Class&;
-		using FunctionType = Return(Arguments..., ...) const volatile;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_...) volatile const &, Return_, std::tuple<Arguments_...>, false, true, true, true, false, false> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_..., ...) volatile const &, Return_, std::tuple<Arguments_...>, true, true, true, true, false, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...)& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = Class&;
-		using FunctionType = Return(Arguments...)&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&&, Return_(Arguments_...) &&, Return_, std::tuple<Arguments_...>, false, false, false, false, true, false> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = true;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&&, Return_(Arguments_..., ...) &&, Return_, std::tuple<Arguments_...>, true, false, false, false, true, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...)& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = Class&;
-		using FunctionType = Return(Arguments..., ...)&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&&, Return_(Arguments_...) const &&, Return_, std::tuple<Arguments_...>, false, true, false, false, true, false> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = true;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&&, Return_(Arguments_..., ...) const &&, Return_, std::tuple<Arguments_...>, true, true, false, false, true, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) const& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const Class&;
-		using FunctionType = Return(Arguments...) const&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&&, Return_(Arguments_...) volatile &&, Return_, std::tuple<Arguments_...>, false, false, true, false, true, false> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = true;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&&, Return_(Arguments_..., ...) volatile &&, Return_, std::tuple<Arguments_...>, true, false, true, false, true, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const Class&;
-		using FunctionType = Return(Arguments..., ...) const&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&&, Return_(Arguments_...) volatile const &&, Return_, std::tuple<Arguments_...>, false, true, true, false, true, false> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = true;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&&, Return_(Arguments_..., ...) volatile const &&, Return_, std::tuple<Arguments_...>, true, true, true, false, true, false> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) volatile& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = volatile Class&;
-		using FunctionType = Return(Arguments...) volatile&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&, Return_(Arguments_...) noexcept, Return_, std::tuple<Arguments_...>, false, false, false, false, false, true> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = true;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&, Return_(Arguments_..., ...) noexcept, Return_, std::tuple<Arguments_...>, true, false, false, false, false, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) volatile& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = volatile Class&;
-		using FunctionType = Return(Arguments..., ...) volatile&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&, Return_(Arguments_...) const noexcept, Return_, std::tuple<Arguments_...>, false, true, false, false, false, true> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = true;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&, Return_(Arguments_..., ...) const noexcept, Return_, std::tuple<Arguments_...>, true, true, false, false, false, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) const volatile& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const volatile Class&;
-		using FunctionType = Return(Arguments...) const volatile&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_...) volatile noexcept, Return_, std::tuple<Arguments_...>, false, false, true, false, false, true> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = true;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_..., ...) volatile noexcept, Return_, std::tuple<Arguments_...>, true, false, true, false, false, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const volatile& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const volatile Class&;
-		using FunctionType = Return(Arguments..., ...) const volatile&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_...) volatile const noexcept, Return_, std::tuple<Arguments_...>, false, true, true, false, false, true> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = true;
-		static constexpr bool isRightValueReference = false;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_..., ...) volatile const noexcept, Return_, std::tuple<Arguments_...>, true, true, true, false, false, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...)&& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = Class&&;
-		using FunctionType = Return(Arguments...)&&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&, Return_(Arguments_...) & noexcept, Return_, std::tuple<Arguments_...>, false, false, false, true, false, true> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = true;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&, Return_(Arguments_..., ...) & noexcept, Return_, std::tuple<Arguments_...>, true, false, false, true, false, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...)&& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = Class&&;
-		using FunctionType = Return(Arguments..., ...)&&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&, Return_(Arguments_...) const & noexcept, Return_, std::tuple<Arguments_...>, false, true, false, true, false, true> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = true;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&, Return_(Arguments_..., ...) const & noexcept, Return_, std::tuple<Arguments_...>, true, true, false, true, false, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) const&& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const Class&&;
-		using FunctionType = Return(Arguments...) const&&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_...) volatile & noexcept, Return_, std::tuple<Arguments_...>, false, false, true, true, false, true> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = true;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_..., ...) volatile & noexcept, Return_, std::tuple<Arguments_...>, true, false, true, true, false, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const&& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const Class&&;
-		using FunctionType = Return(Arguments..., ...) const&&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_...) volatile const & noexcept, Return_, std::tuple<Arguments_...>, false, true, true, true, false, true> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = false;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = true;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_..., ...) volatile const & noexcept, Return_, std::tuple<Arguments_...>, true, true, true, true, false, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) volatile&& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = volatile Class&&;
-		using FunctionType = Return(Arguments...) volatile&&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&&, Return_(Arguments_...) && noexcept, Return_, std::tuple<Arguments_...>, false, false, false, false, true, true> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = true;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, Class_&&, Return_(Arguments_..., ...) && noexcept, Return_, std::tuple<Arguments_...>, true, false, false, false, true, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) volatile&& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = volatile Class&&;
-		using FunctionType = Return(Arguments..., ...) volatile&&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&&, Return_(Arguments_...) const && noexcept, Return_, std::tuple<Arguments_...>, false, true, false, false, true, true> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = false;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = true;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const Class_&&, Return_(Arguments_..., ...) const && noexcept, Return_, std::tuple<Arguments_...>, true, true, false, false, true, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments...) const volatile&& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const volatile Class&&;
-		using FunctionType = Return(Arguments...) const volatile&&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&&, Return_(Arguments_...) volatile && noexcept, Return_, std::tuple<Arguments_...>, false, false, true, false, true, true> {};
 
-		static constexpr bool isVariadic = false;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = true;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&&, Return_(Arguments_..., ...) volatile && noexcept, Return_, std::tuple<Arguments_...>, true, false, true, false, true, true> {};
 
-	template<typename Return, typename Class, typename... Arguments, bool nonThrowing>
-	struct FunctionPointer<Return(Class::*)(Arguments..., ...) const volatile&& noexcept(nonThrowing)> {
-		using ClassType = Class;
-		using ReferenceType = const volatile Class&&;
-		using FunctionType = Return(Arguments..., ...) const volatile&&;
-		using ReturnType = Return;
-		using ArgumentTypes = std::tuple<Arguments...>;
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&&, Return_(Arguments_...) volatile const && noexcept, Return_, std::tuple<Arguments_...>, false, true, true, false, true, true> {};
 
-		static constexpr bool isVariadic = true;
-		static constexpr bool isConstant = true;
-		static constexpr bool isVolatile = true;
-		static constexpr bool isLeftValueReference = false;
-		static constexpr bool isRightValueReference = true;
-		static constexpr bool isNonThrowing = nonThrowing;
-	};
+	template<typename Return_, typename Class_, typename... Arguments_>
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&&, Return_(Arguments_..., ...) volatile const && noexcept, Return_, std::tuple<Arguments_...>, true, true, true, false, true, true> {};
 }
 
 #endif
 
-// Thanks to halalaluyafail3 (https://github.com/Halalaluyafail3) for the original, terribly unreadable, code
+// Thanks to halalaluyafail3 (https://github.com/Halalaluyafail3) for original code

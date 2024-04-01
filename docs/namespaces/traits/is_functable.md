@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsFunctable
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsFunctable \{\}
 Defined in header [<xieite/traits/is_functable.hpp>](../../../include/xieite/traits/is_functable.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](../concepts/functable.md#Description)
 
 &nbsp;
 
@@ -23,3 +22,7 @@ struct IsFunctable<Functor, Result(Arguments...)>
     { std::invoke(functor, arguments...) } -> std::convertible_to<Result>;
 }> {};
 ```
+
+&nbsp;
+
+## [Example](../concepts/functable.md#Example)

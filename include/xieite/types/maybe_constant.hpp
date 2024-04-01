@@ -4,8 +4,8 @@
 #	include <type_traits>
 
 namespace xieite::types {
-	template<typename Type, bool constant>
-	using MaybeConstant = std::conditional_t<constant, std::add_const<Type>, std::remove_const<Type>>::type;
+	template<typename Type_, bool constant_>
+	using MaybeConstant = std::conditional_t<constant_, std::add_const<Type_>, std::remove_const<Type_>>::type;
 }
 
 #endif

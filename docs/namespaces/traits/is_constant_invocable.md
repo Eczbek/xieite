@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsConstantInvocable
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsConstantInvocable \{\}
 Defined in header [<xieite/traits/is_constant_invocable.hpp>](../../../include/xieite/traits/is_constant_invocable.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](../concepts/constant_invocable.md#Description)
 
 &nbsp;
 
@@ -15,3 +14,7 @@ template<typename Functor, typename... Arguments>
 struct IsConstantInvocable
 : std::bool_constant<xieite::concepts::ConstantInvocable<Functor, Arguments...>> {};
 ```
+
+&nbsp;
+
+## [Example](../concepts/constant_invocable.md#Example)

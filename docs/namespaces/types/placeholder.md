@@ -13,10 +13,10 @@ A placeholder type.
 ```cpp
 struct Placeholder {
     template<typename Type>
-    constexpr operator Type&() const&;
+    constexpr operator Type&() const &;
 
     template<typename Type>
-    constexpr operator Type&&() const&&;
+    constexpr operator Type&&() const &&;
 };
 ```
 - [operator typename](./structures/placeholder/1/operatorCast.md)

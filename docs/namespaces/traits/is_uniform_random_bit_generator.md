@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUniformRandomBitGenerator
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUniformRandomBitGenerator \{\}
 Defined in header [<xieite/traits/is_uniform_random_bit_generator.hpp>](../../../include/xieite/uniform_random_bit_generator.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](../concepts/uniform_random_bit_generator.md#Description)
 
 &nbsp;
 
@@ -15,3 +14,7 @@ template<typename Type>
 struct IsUniformRandomBitGenerator
 : std::bool_constant<xieite::concepts::UniformRandomBitGenerator<Type>> {};
 ```
+
+&nbsp;
+
+## [Example](../concepts/uniform_random_bit_generator.md#Example)

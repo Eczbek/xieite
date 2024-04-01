@@ -1,10 +1,9 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsHashable
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsHashable \{\}
 Defined in header [<xieite/traits/is_hashable.hpp>](../../../include/xieite/traits/is_hashable.hpp)
 
 &nbsp;
 
-## Description
-// TODO
+## [Description](../concepts/hashable.md#Description)
 
 &nbsp;
 
@@ -15,3 +14,7 @@ template<typename Type>
 struct IsHashable
 : std::bool_constant<xieite::concepts::Hashable<Type>> {};
 ```
+
+&nbsp;
+
+## [Example](../concepts/hashable.md#Example)
