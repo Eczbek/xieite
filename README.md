@@ -1,7 +1,7 @@
 # **XIEITE**
 C++ header-only utility library
 
-This project is a collection of questionably useful components designed for varying tasks, and is designed to extend the standard library without requiring external dependencies.
+This project is a collection of questionably useful components for many various tasks, designed to extend the standard library without requiring external dependencies.
 
 &nbsp;
 
