@@ -15,7 +15,7 @@ Somewhat useful algorithms
 - [group\(\)](./namespaces/algorithms/group.md)
 - [isPalindrome\(\)](./namespaces/algorithms/is_palindrome.md)
 - [isRotated\(\)](./namespaces/algorithms/is_rotated.md)
-- [isUniformMatrix\(\)](./namespaces/is_uniform_matrix.md)
+- [isUniformMatrix\(\)](./namespaces/algorithms/is_uniform_matrix.md)
 - [modes\(\)](./namespaces/algorithms/modes.md)
 - [none\(\)](./namespaces/algorithms/none.md)
 - [numberSearch\(\)](./namespaces/algorithms/number_search.md)

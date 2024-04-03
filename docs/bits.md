@@ -14,4 +14,4 @@ Utilities to do with bit and byte manipulation
 - [mash\(\)](./namespaces/bits/mash.md)
 - [unjoin\(\)](./namespaces/bits/unjoin.md)
 - [unmash\(\)](./namespaces/bits/unmash.md)
-- [xorShift\(\)](./namespaces/hahes/xor_shift.md)
+- [xorShift\(\)](./namespaces/bits/xor_shift.md)

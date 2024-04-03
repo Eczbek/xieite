@@ -1,4 +1,4 @@
-# [XIEITE](./xieite.md)\_...
+# [XIEITE](./xieite.md)
 
 &nbsp;
 
