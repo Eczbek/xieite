@@ -26,7 +26,7 @@
 #	include "../math/stringify.hpp"
 #	include "../strings/integer_components.hpp"
 #	include "../system/byte_bits.hpp"
-#	include "../types/maybe_unsigned.hpp"
+#	include "../types/try_unsigned.hpp"
 #	include "../types/size_bits.hpp"
 
 namespace xieite::math {
@@ -38,7 +38,7 @@ namespace xieite::math {
 		template<std::integral Integral = int>
 		constexpr BigInteger(const Integral value = 0) noexcept
 		: negative(xieite::math::isNegative(value)) {
-			xieite::types::MaybeUnsigned<Integral> absoluteValue = xieite::math::absolute(value);
+			xieite::types::TryUnsigned<Integral> absoluteValue = xieite::math::absolute(value);
 			do {
 				this->data.push_back(static_cast<Word>(absoluteValue));
 				if constexpr (sizeof(Integral) > sizeof(Word)) {

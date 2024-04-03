@@ -13,7 +13,7 @@ A wrapper for a bit-field.
 ```cpp
 template<std::size_t bits, bool sign>
 struct Integer {
-    using Type = xieite::types::ConditionallySigned<xieite::types::LeastInteger<bits>, sign>;
+    using Type = xieite::types::MaybeSigned<xieite::types::LeastInteger<bits>, sign>;
 
     template<std::integral OtherIntegral = int>
     constexpr Integer(OtherIntegral = 0) noexcept;
@@ -88,7 +88,7 @@ struct Integer {
 };
 ```
 ##### Members
-- [Type](./structures/integer/1/type.md)
+- Type
 - [Integral\(\)](./structures/integer/1/operators/constructor.md)
 - [operator=\(\)](./structures/integer/1/operators/assign.md)
 - [operator typename\(\)](./structures/integer/1/operators/cast.md)

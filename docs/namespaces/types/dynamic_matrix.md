@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:DynamicMatrix
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:DynamicMatrix \{\}
 Defined in header [<xieite/types/dynamic_matrix.hpp>](../../../include/xieite/types/dynamic_matrix.hpp)
 
 &nbsp;
@@ -17,7 +17,7 @@ struct DynamicMatrix {
 };
 ```
 ##### Members
-- [Type](./structures/dynamic_matrix/1/type.md)
+- Type
 #### 2)
 ```cpp
 template<template<typename> typename DynamicContainer, typename Value>
@@ -26,7 +26,7 @@ struct DynamicMatrix<DynamicContainer, Value, 0> {
 };
 ```
 ##### Members
-- [Type](./structures/dynamic_matrix/2/type.md)
+- Type
 
 &nbsp;
 

@@ -20,6 +20,6 @@
 - [system](./system.md)
 - [threads](./threads.md)
 - [time](./time.md)
-- [traits](./traits.md) - outdated
-- [types](./types.md) - outdated
+- [traits](./traits.md)
+- [types](./types.md)
 - [units](./units.md) - outdated

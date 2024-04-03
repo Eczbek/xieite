@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:UnsignedIntegral
-Defined in header [<xieite/concepts/unsigned_integer.hpp>](../../../include/xieite/concepts/unsigned_integer.hpp)
+Defined in header [<xieite/concepts/unsigned_integral.hpp>](../../../include/xieite/concepts/unsigned_integral.hpp)
 
 &nbsp;
 

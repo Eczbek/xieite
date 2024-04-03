@@ -76,12 +76,12 @@ namespace xieite::traits {
 	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_..., ...) volatile, Return_, std::tuple<Arguments_...>, true, false, true, false, false, false> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_...) volatile const, Return_, std::tuple<Arguments_...>, false, true, true, false, false, false> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const volatile>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&, Return_(Arguments_...) const volatile, Return_, std::tuple<Arguments_...>, false, true, true, false, false, false> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_..., ...) volatile const, Return_, std::tuple<Arguments_...>, true, true, true, false, false, false> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const volatile>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&, Return_(Arguments_..., ...) const volatile, Return_, std::tuple<Arguments_...>, true, true, true, false, false, false> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
 	struct FunctionPointer<Return_(Class_::*)(Arguments_...) &>
@@ -108,12 +108,12 @@ namespace xieite::traits {
 	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_..., ...) volatile &, Return_, std::tuple<Arguments_...>, true, false, true, true, false, false> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const &>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_...) volatile const &, Return_, std::tuple<Arguments_...>, false, true, true, true, false, false> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const volatile &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&, Return_(Arguments_...) const volatile &, Return_, std::tuple<Arguments_...>, false, true, true, true, false, false> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const &>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_..., ...) volatile const &, Return_, std::tuple<Arguments_...>, true, true, true, true, false, false> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const volatile &>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&, Return_(Arguments_..., ...) const volatile &, Return_, std::tuple<Arguments_...>, true, true, true, true, false, false> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
 	struct FunctionPointer<Return_(Class_::*)(Arguments_...) &&>
@@ -140,12 +140,12 @@ namespace xieite::traits {
 	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&&, Return_(Arguments_..., ...) volatile &&, Return_, std::tuple<Arguments_...>, true, false, true, false, true, false> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const &&>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&&, Return_(Arguments_...) volatile const &&, Return_, std::tuple<Arguments_...>, false, true, true, false, true, false> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const volatile &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&&, Return_(Arguments_...) const volatile &&, Return_, std::tuple<Arguments_...>, false, true, true, false, true, false> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const &&>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&&, Return_(Arguments_..., ...) volatile const &&, Return_, std::tuple<Arguments_...>, true, true, true, false, true, false> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const volatile &&>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&&, Return_(Arguments_..., ...) const volatile &&, Return_, std::tuple<Arguments_...>, true, true, true, false, true, false> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
 	struct FunctionPointer<Return_(Class_::*)(Arguments_...) noexcept>
@@ -172,12 +172,12 @@ namespace xieite::traits {
 	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_..., ...) volatile noexcept, Return_, std::tuple<Arguments_...>, true, false, true, false, false, true> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const noexcept>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_...) volatile const noexcept, Return_, std::tuple<Arguments_...>, false, true, true, false, false, true> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const volatile noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&, Return_(Arguments_...) const volatile noexcept, Return_, std::tuple<Arguments_...>, false, true, true, false, false, true> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const noexcept>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_..., ...) volatile const noexcept, Return_, std::tuple<Arguments_...>, true, true, true, false, false, true> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const volatile noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&, Return_(Arguments_..., ...) const volatile noexcept, Return_, std::tuple<Arguments_...>, true, true, true, false, false, true> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
 	struct FunctionPointer<Return_(Class_::*)(Arguments_...) & noexcept>
@@ -204,12 +204,12 @@ namespace xieite::traits {
 	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&, Return_(Arguments_..., ...) volatile & noexcept, Return_, std::tuple<Arguments_...>, true, false, true, true, false, true> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const & noexcept>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_...) volatile const & noexcept, Return_, std::tuple<Arguments_...>, false, true, true, true, false, true> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const volatile & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&, Return_(Arguments_...) const volatile & noexcept, Return_, std::tuple<Arguments_...>, false, true, true, true, false, true> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const & noexcept>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&, Return_(Arguments_..., ...) volatile const & noexcept, Return_, std::tuple<Arguments_...>, true, true, true, true, false, true> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const volatile & noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&, Return_(Arguments_..., ...) const volatile & noexcept, Return_, std::tuple<Arguments_...>, true, true, true, true, false, true> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
 	struct FunctionPointer<Return_(Class_::*)(Arguments_...) && noexcept>
@@ -236,12 +236,12 @@ namespace xieite::traits {
 	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile Class_&&, Return_(Arguments_..., ...) volatile && noexcept, Return_, std::tuple<Arguments_...>, true, false, true, false, true, true> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_...) volatile const && noexcept>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&&, Return_(Arguments_...) volatile const && noexcept, Return_, std::tuple<Arguments_...>, false, true, true, false, true, true> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_...) const volatile && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&&, Return_(Arguments_...) const volatile && noexcept, Return_, std::tuple<Arguments_...>, false, true, true, false, true, true> {};
 
 	template<typename Return_, typename Class_, typename... Arguments_>
-	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) volatile const && noexcept>
-	: xieite::detail::MemberFunctionPointerTraits<Class_, volatile const Class_&&, Return_(Arguments_..., ...) volatile const && noexcept, Return_, std::tuple<Arguments_...>, true, true, true, false, true, true> {};
+	struct FunctionPointer<Return_(Class_::*)(Arguments_..., ...) const volatile && noexcept>
+	: xieite::detail::MemberFunctionPointerTraits<Class_, const volatile Class_&&, Return_(Arguments_..., ...) const volatile && noexcept, Return_, std::tuple<Arguments_...>, true, true, true, false, true, true> {};
 }
 
 #endif

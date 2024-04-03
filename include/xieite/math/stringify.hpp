@@ -14,7 +14,7 @@
 #	include "../math/round_down.hpp"
 #	include "../math/signed_size.hpp"
 #	include "../strings/integer_components.hpp"
-#	include "../types/maybe_unsigned.hpp"
+#	include "../types/try_unsigned.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral>
@@ -28,7 +28,7 @@ namespace xieite::math {
 		}
 		std::string result;
 		const bool negative = xieite::math::isNegative(value);
-		const xieite::types::MaybeUnsigned<Number> absoluteValue = xieite::math::absolute(value);
+		const xieite::types::TryUnsigned<Number> absoluteValue = xieite::math::absolute(value);
 		if (radix == 1) {
 			result = std::string(static_cast<std::size_t>(absoluteValue), components.digits[1]);
 		} else if (!std::unsigned_integral<Number> && (radix == static_cast<std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number>>(-1))) {
@@ -85,7 +85,7 @@ namespace xieite::math {
 					Number index = value % radix;
 					value /= radix;
 					if (xieite::math::isNegative(index)) {
-						index = static_cast<Number>(static_cast<xieite::types::MaybeUnsigned<Number>>(index) + xieite::math::absolute(radix));
+						index = static_cast<Number>(static_cast<xieite::types::TryUnsigned<Number>>(index) + xieite::math::absolute(radix));
 						++value;
 					}
 					result = components.digits[static_cast<std::size_t>(index) * (static_cast<std::size_t>(index) < digitsSize)] + result;

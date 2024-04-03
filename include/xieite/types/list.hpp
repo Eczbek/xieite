@@ -14,17 +14,17 @@ namespace xieite::types {
 	public:
 		static constexpr std::size_t size = sizeof...(Types);
 
-		template<typename Type, template<typename, typename> typename Selector = std::is_same>
-		static constexpr std::size_t count = (... + Selector<Type, Types>::value);
+		template<typename Type, template<typename, typename> typename Comparator = std::is_same>
+		static constexpr std::size_t count = (... + Comparator<Type, Types>::value);
 
-		template<typename Type, template<typename, typename> typename Selector = std::is_same>
-		static constexpr bool has = (... || Selector<Type, Types>::value);
+		template<typename Type, template<typename, typename> typename Comparator = std::is_same>
+		static constexpr bool has = (... || Comparator<Type, Types>::value);
 
-		template<typename Type, template<typename, typename> typename Selector = std::is_same>
-		requires(xieite::types::List<Types...>::has<Type, Selector>)
+		template<typename Type, template<typename, typename> typename Comparator = std::is_same>
+		requires(xieite::types::List<Types...>::has<Type, Comparator>)
 		static constexpr std::size_t find = ([] {
 			std::size_t index = 0;
-			(... && (Selector<Type, Types>::value && ++index));
+			(... && (!Comparator<Type, Types>::value && ++index));
 			return index;
 		})();
 

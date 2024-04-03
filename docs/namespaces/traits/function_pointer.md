@@ -29,10 +29,10 @@ struct FunctionPointer<Return_(*)(Arguments_... /* , ... */) /* noexcept */> {
 #### 6..54)
 ```cpp
 template<typename Return_, typename Class_, typename... Arguments_>
-struct FunctionPointer<Return_(Class_::*)(Arguments_... /* , ... */) /* volatile */ /* const */ /* & */ /* && */ /* noexcept */> {
+struct FunctionPointer<Return_(Class_::*)(Arguments_... /* , ... */) /* const */ /* volatile */ /* & */ /* && */ /* noexcept */> {
     using Class = Class_;
     using Reference = /* volatile */ /* const */ Class_ /* & */ /* && */;
-    using Function = Return_(Class_::*)(Arguments_... /* , ... */) /* volatile */ /* const */ /* & */ /* && */ /* noexcept */;
+    using Function = Return_(Class_::*)(Arguments_... /* , ... */) /* const */ /* volatile */ /* & */ /* && */ /* noexcept */;
     using Return = Return_;
     using Arguments = std::tuple<Arguments_...>;
 

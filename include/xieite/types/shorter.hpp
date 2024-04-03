@@ -8,7 +8,7 @@
 #	include "../concepts/numeric.hpp"
 #	include "../concepts/same_as_any.hpp"
 #	include "../math/signed_128.hpp"
-#	include "../math/unsigner_128.hpp"
+#	include "../math/unsigned_128.hpp"
 #	include "../types/list.hpp"
 
 namespace xieite::types {

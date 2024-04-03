@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:List
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:List \{\}
 Defined in header [<xieite/types/list.hpp>](../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -14,6 +14,16 @@ A structure for operating on a list of types.
 template<typename... Types>
 struct List {
     static constexpr std::size_t size = sizeof...(Types);
+
+    template<typename Type, template<typename, typename> typename Comparator = std::is_same>
+    static constexpr std::size_t count = (... + Comparator<Type, Types>::value);
+
+    template<typename Type, template<typename, typename> typename Comparator = std::is_same>
+    static constexpr bool has = (... || Comparator<Type, Types>::value);
+
+    template<typename Type, template<typename, typename> typename Comparator = std::is_same>
+    requires(xieite::types::List<Types...>::has<Type, Comparator>)
+    static constexpr std::size_t find = /* ... */;
 
     template<std::size_t index>
     using At = /* ... */;
@@ -106,7 +116,7 @@ int main() {
     std::println("{}", xieite::types::name<Qux>);
 }
 ```
-Output:
+Possible output:
 ```
 xieite::types::List<double, float, long, char, int>
 ```

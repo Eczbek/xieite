@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Integral
-Defined in header [<xieite/concepts/integer.hpp>](../../../include/xieite/concepts/integer.hpp)
+Defined in header [<xieite/concepts/integral.hpp>](../../../include/xieite/concepts/integral.hpp)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ concept Integral = std::integral<Type> && !std::same_as<std::remove_cv_t<Type>, 
 ## Example
 ```cpp
 #include <print>
-#include "xieite/concepts/integer.hpp"
+#include "xieite/concepts/integral.hpp"
 
 int main() {
     std::println("{}", xieite::concepts::Integral<int>);

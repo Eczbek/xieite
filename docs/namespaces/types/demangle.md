@@ -1,17 +1,17 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:demangle
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:demangle\(\)
 Defined in header [<xieite/types/demangle.hpp>](../../../include/xieite/types/demangle.hpp)
 
 &nbsp;
 
 ## Description
-Demangles the name of a `std::type_info`. Returns original string if demangling fails.
+Demangles the value of `std::type_info::name()`. Returns the original string if demangling fails.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] inline std::string demangle(std::string mangled) noexcept;
+[[nodiscard]] inline std::string demangle(const std::string& mangled) noexcept;
 ```
 
 &nbsp;

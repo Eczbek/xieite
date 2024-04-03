@@ -5,7 +5,7 @@
 #	include <string>
 #	include <string_view>
 #	include "../math/absolute.hpp"
-#	include "../types/maybe_unsigned.hpp"
+#	include "../types/try_unsigned.hpp"
 
 namespace xieite::strings {
 	template<std::integral Integral>
@@ -49,7 +49,7 @@ namespace xieite::strings {
 		if (!value) {
 			return "N";
 		}
-		const xieite::types::MaybeUnsigned<Integral> absoluteValue = xieite::math::absolute(value);
+		const xieite::types::TryUnsigned<Integral> absoluteValue = xieite::math::absolute(value);
 		return std::string(absoluteValue / 1000, 'M') + std::string(hundreds[absoluteValue / 100 % 10]) + std::string(tens[absoluteValue / 10 % 10]) + std::string(units[absoluteValue % 10]);
 	}
 }

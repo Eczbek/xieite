@@ -27,7 +27,7 @@ int main() {
     std::println("{}", xieite::types::name<std::vector<int>>);
 }
 ```
-Output:
+Possible output:
 ```
 std::vector<int>
 ```

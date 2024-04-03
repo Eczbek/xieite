@@ -12,7 +12,7 @@ Returns the unsigned absolute of a value.
 #### 1)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr xieite::types::MaybeUnsigned<Integral> absolute(Integral value) noexcept;
+[[nodiscard]] constexpr xieite::types::TryUnsigned<Integral> absolute(Integral value) noexcept;
 ```
 #### 2)
 ```cpp

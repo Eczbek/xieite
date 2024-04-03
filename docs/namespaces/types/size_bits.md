@@ -19,3 +19,20 @@ inline constexpr std::size_t sizeBits = sizeof(Type) * xieite::system::byteBits;
 template<std::integral Integral>
 inline constexpr std::size_t sizeBits<Integral> = std::numeric_limits<Integral>::digits + std::numeric_limits<Integral>::is_signed;
 ```
+
+&nbsp;
+
+## Example
+```cpp
+#include <cstdint>
+#include <print>
+#include "xieite/types/size_bits.hpp"
+
+int main() {
+    std::println("{}", xieite::types::sizeBits<std::uint16_t>);
+}
+```
+Output:
+```
+16
+```

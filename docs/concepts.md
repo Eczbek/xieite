@@ -31,7 +31,7 @@ A collection of commonly concepts, expanding on the standard library.
 - [Hashable](./namespaces/concepts/hashable.md)
 - [Hasher](./namespaces/concepts/hasher.md)
 - [InputStream](./namespaces/concepts/input_stream.md)
-- [Integral](./namespaces/concepts/integer.md)
+- [Integral](./namespaces/concepts/integral.md)
 - [LinearShape](./namespaces/concepts/linear_shape.md)
 - [NarrowCharacter](./namespaces/concepts/narrow_character.md)
 - [NoThrowConvertibleTo](./namespaces/concepts/no_throw_convertible_to.md)

@@ -2,7 +2,7 @@
 #	define XIEITE_HEADER_TRAITS_IS_INTEGRAL
 
 #	include <type_traits>
-#	include "../concepts/integer.hpp"
+#	include "../concepts/integral.hpp"
 
 namespace xieite::traits {
 	template<typename Type>

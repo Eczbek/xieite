@@ -182,7 +182,7 @@ struct BigInteger {
 };
 ```
 ##### Members
-- [Type](./structures/big_integer/1/type.md)
+- Type
 - [BigInteger\(\)](./structures/big_integer/1/operators/constructor.md)
 - [operator=\(\)](./structures/big_integer/1/operators/assign.md)
 - [operator typename\(\)](./structures/big_integer/1/operators/cast.md)

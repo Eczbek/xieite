@@ -9,7 +9,7 @@
 #	include <tuple>
 #	include "../containers/reverse_tuple.hpp"
 #	include "../types/least_integer.hpp"
-#	include "../types/maybe_unsigned.hpp"
+#	include "../types/try_unsigned.hpp"
 
 namespace xieite::bits {
 	template<std::size_t... sizes>
@@ -31,7 +31,7 @@ namespace xieite::bits {
 			([&value] {
 				Integral item = static_cast<Integral>(value.to_ullong());
 				if constexpr (sizes < xieite::types::sizeBits<Integral>) {
-					item &= std::numeric_limits<xieite::types::MaybeUnsigned<Integral>>::max() >> (xieite::types::sizeBits<Integral> - sizes);
+					item &= std::numeric_limits<xieite::types::TryUnsigned<Integral>>::max() >> (xieite::types::sizeBits<Integral> - sizes);
 				}
 				value >>= sizes;
 				return item;

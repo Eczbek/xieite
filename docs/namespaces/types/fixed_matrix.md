@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FixedMatrix
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FixedMatrix \{\}
 Defined in header [<xieite/types/fixed_matrix.hpp>](../../../include/xieite/types/fixed_matrix.hpp)
 
 &nbsp;
@@ -22,7 +22,7 @@ struct FixedMatrix<FixedContainer, Value, sizesFirst, sizesRest...> {
 };
 ```
 ##### Members
-- [Type](./structures/fixed_matrix/2/type.md)
+- Type
 #### 3)
 ```cpp
 template<template<typename, std::size_t> typename FixedContainer, typename Value, std::size_t size>
@@ -31,7 +31,7 @@ struct FixedMatrix<FixedContainer, Value, size> {
 };
 ```
 ##### Members
-- [Type](./structures/fixed_matrix/3/type.md)
+- Type
 #### 4)
 ```cpp
 template<template<typename, std::size_t> typename FixedContainer, typename Value>
@@ -40,7 +40,7 @@ struct FixedMatrix<FixedContainer, Value> {
 };
 ```
 ##### Members
-- [Type](./structures/fixed_matrix/4/type.md)
+- Type
 
 &nbsp;
 
