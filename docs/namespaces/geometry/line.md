@@ -60,10 +60,12 @@ struct Line {
 #include "xieite/geometry/line.hpp"
 
 int main() {
-    auto line1 = xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 });
+    auto line = xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 });
 
     std::println("{}", line.angle());
 }
 ```
 Output:
+```
+0.7853981633974483
 ```
