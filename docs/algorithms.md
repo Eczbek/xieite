@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Somewhat useful algorithms.
+Somewhat useful algorithms
 
 &nbsp;
 

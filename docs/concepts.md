@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-A collection of commonly concepts, expanding on the standard library.
+A collection of commonly concepts, expanding on the standard library
 
 &nbsp;
 

@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Threading utilities.
+Threading utilities
 
 &nbsp;
 

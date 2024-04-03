@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Tools for interacting with the system.
+Tools for interacting with the system
 
 &nbsp;
 

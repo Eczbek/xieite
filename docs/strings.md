@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-String manipulation functions.
+String manipulation functions
 
 &nbsp;
 

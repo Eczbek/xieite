@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Stuff for hashing things.
+Stuff for hashing things
 
 &nbsp;
 

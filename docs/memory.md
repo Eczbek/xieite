@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Memory things.
+Memory things
 
 &nbsp;
 

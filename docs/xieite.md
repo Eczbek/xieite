@@ -3,7 +3,6 @@
 &nbsp;
 
 ## Contents
-- [\(macros\)](./macros.md)
 - [algorithms](./algorithms.md)
 - [bits](./bits.md)
 - [concepts](./concepts.md)
@@ -12,6 +11,7 @@
 - [geometry](./geometry.md)
 - [hashes](./hashes.md)
 - [literals](./literals.md)
+- [\(macros\)](./macros.md)
 - [math](./math.md)
 - [memory](./memory.md)
 - [random](./random.md)
@@ -22,4 +22,4 @@
 - [time](./time.md)
 - [traits](./traits.md)
 - [types](./types.md)
-- [units](./units.md) - outdated
+- [units](./units.md)

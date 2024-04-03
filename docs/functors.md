@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Utilities relating to functors and arguments.
+Utilities relating to functors and arguments
 
 &nbsp;
 

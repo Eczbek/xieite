@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Geometrical classes and operations.
+Geometrical classes and operations
 
 &nbsp;
 

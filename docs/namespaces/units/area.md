@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:Area
+# [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:Area \{\}
 Defined in header [<xieite/units/area.hpp>](../../../include/xieite/units/area.hpp)
 
 &nbsp;
@@ -12,42 +12,46 @@ An enumeration of area units.
 #### 1)
 ```cpp
 enum struct Area {
-    squareQuectometre,
-    squareRontometre,
-    squareYoctometre,
-    squareZeptometre,
-    squareAttometre,
-    squareFemtometre,
-    squarePicometre,
-    squareNanometre,
-    squareMicrometre,
-    squareMillimetre,
-    squareCentimetre,
-    squareDecimetre,
-    squareMetre,
-    squareDecametre,
-    squareHectometre,
-    squareKilometre,
-    squareMegametre,
-    squareGigametre,
-    squareTerametre,
-    squarePetametre,
-    squareExametre,
-    squareZettametre,
-    squareYottametre,
-    squareRonnametre,
-    squareQuettametre,
-    squareInch,
-    squareFoot,
-    squareYard,
-    squareMile,
-    rood,
-    acre,
-    decimilliare,
-    centiare,
-    deciare,
-    are,
-    decare,
-    hectare
+    SquareQuectometre,
+    SquareRontometre,
+    SquareYoctometre,
+    SquareZeptometre,
+    SquareAttometre,
+    SquareFemtometre,
+    SquarePicometre,
+    SquareNanometre,
+    SquareMicrometre,
+    SquareMillimetre,
+    SquareCentimetre,
+    SquareDecimetre,
+    SquareMetre,
+    SquareDecametre,
+    SquareHectometre,
+    SquareKilometre,
+    SquareMegametre,
+    SquareGigametre,
+    SquareTerametre,
+    SquarePetametre,
+    SquareExametre,
+    SquareZettametre,
+    SquareYottametre,
+    SquareRonnametre,
+    SquareQuettametre,
+    SquareInch,
+    SquareFoot,
+    SquareYard,
+    SquareMile,
+    SquareRood,
+    Acre,
+    Decimilliare,
+    Centiare,
+    Deciare,
+    Are,
+    Decare,
+    Hectare
 };
 ```
+
+&nbsp;
+
+## [Example](./convert.md#Example)

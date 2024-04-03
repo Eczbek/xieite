@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Utilities for random value generation.
+Utilities for random value generation
 
 &nbsp;
 

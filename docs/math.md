@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Mathematical types and functions.
+Mathematical types and functions
 
 &nbsp;
 

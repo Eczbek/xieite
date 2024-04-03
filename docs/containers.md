@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Static containers and other utilities.
+Static containers and other utilities
 
 &nbsp;
 

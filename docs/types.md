@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Utilities for type information and metaprogramming.
+Utilities for type information and metaprogramming
 
 &nbsp;
 

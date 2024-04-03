@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Things to work with time.
+Things to work with time
 
 &nbsp;
 

@@ -1,9 +1,9 @@
-# [XIEITE](./xieite.md)...
+# [XIEITE](./xieite.md)\_...
 
 &nbsp;
 
 ## Description
-Macros and special headers.
+Macros and special headers
 
 &nbsp;
 

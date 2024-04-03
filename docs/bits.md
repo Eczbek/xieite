@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Utilities to do with bit and byte manipulation.
+Utilities to do with bit and byte manipulation
 
 &nbsp;
 

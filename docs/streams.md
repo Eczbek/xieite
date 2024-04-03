@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Utilities relating to streams.
+Utilities relating to streams
 
 &nbsp;
 

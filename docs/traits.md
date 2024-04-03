@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-The complement of `xieite::concepts`.
+The complement of `xieite::concepts`
 
 &nbsp;
 

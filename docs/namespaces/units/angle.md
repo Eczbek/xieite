@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:Angle
+# [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:Angle \{\}
 Defined in header [<xieite/units/angle.hpp>](../../../include/xieite/units/angle.hpp)
 
 &nbsp;
@@ -12,7 +12,11 @@ An enumeration of angle units.
 #### 1)
 ```cpp
 enum struct Angle {
-    radian,
-    degree
+    Radian,
+    Degree
 };
 ```
+
+&nbsp;
+
+## [Example](./convert.md#Example)
