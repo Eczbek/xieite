@@ -24,9 +24,9 @@ constexpr void rotate(std::size_t distance, Type& first, Types&... rest) noexcep
 #include "xieite/algorithms/rotate.hpp"
 
 int main() {
-    int a = 0;
-    int b = 1;
-    int c = 2;
+    int a = 1;
+    int b = 2;
+    int c = 3;
     int d = 4;
     int e = 5;
     std::println("{} {} {} {} {}", a, b, c, d, e);
@@ -40,7 +40,7 @@ int main() {
 ```
 Output:
 ```
-0 1 2 3 4
-1 2 4 5 0
-4 5 0 1 2
+1 2 3 4 5
+2 3 4 5 1
+4 5 1 2 3
 ```
