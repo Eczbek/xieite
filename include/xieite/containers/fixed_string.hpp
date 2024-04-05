@@ -22,7 +22,8 @@ namespace xieite::containers {
 		}
 
 		[[nodiscard]] constexpr std::string_view view() const noexcept {
-			return std::string_view(this->data, this->data + characters);
+			const std::string_view view = std::string_view(this->data, this->data + characters);
+			return view.substr(0, view.find('\0'));
 		}
 	};
 

@@ -255,8 +255,8 @@
 #	define XIEITE_PLATFORM_VERSION_MINOR_Z_OS 0
 #	define XIEITE_PLATFORM_VERSION_PATCH_Z_OS 0
 
-#	define XIEITE_PLATFORM_VERSION_LEAST(platform, major, minor, patch) (XIEITE_COMPILER_TYPE_##platform && ((XIEITE_PLATFORM_VERSION_MAJOR_##platform > (major)) || (XIEITE_PLATFORM_VERSION_MAJOR_##platform == (major)) && ((XIEITE_PLATFORM_VERSION_MINOR_##platform > (minor)) || (XIEITE_PLATFORM_VERSION_MINOR_##platform == (minor)) && (XIEITE_PLATFORM_VERSION_PATCH_##platform >= (patch)))))
-#	define XIEITE_PLATFORM_VERSION_MOST(platform, major, minor, patch) (XIEITE_COMPILER_TYPE_##platform && ((XIEITE_PLATFORM_VERSION_MAJOR_##platform < (major)) || (XIEITE_PLATFORM_VERSION_MAJOR_##platform == (major)) && ((XIEITE_PLATFORM_VERSION_MINOR_##platform < (minor)) || (XIEITE_PLATFORM_VERSION_MINOR_##platform == (minor)) && (XIEITE_PLATFORM_VERSION_PATCH_##platform <= (patch)))))
+#	define XIEITE_PLATFORM_VERSION_LEAST(platform_, major_, minor_, patch_) (XIEITE_COMPILER_TYPE_##platform_ && ((XIEITE_PLATFORM_VERSION_MAJOR_##platform_ > (major_)) || (XIEITE_PLATFORM_VERSION_MAJOR_##platform_ == (major_)) && ((XIEITE_PLATFORM_VERSION_MINOR_##platform_ > (minor_)) || (XIEITE_PLATFORM_VERSION_MINOR_##platform_ == (minor_)) && (XIEITE_PLATFORM_VERSION_PATCH_##platform_ >= (patch_)))))
+#	define XIEITE_PLATFORM_VERSION_MOST(platform_, major_, minor_, patch_) (XIEITE_COMPILER_TYPE_##platform_ && ((XIEITE_PLATFORM_VERSION_MAJOR_##platform_ < (major_)) || (XIEITE_PLATFORM_VERSION_MAJOR_##platform_ == (major_)) && ((XIEITE_PLATFORM_VERSION_MINOR_##platform_ < (minor_)) || (XIEITE_PLATFORM_VERSION_MINOR_##platform_ == (minor_)) && (XIEITE_PLATFORM_VERSION_PATCH_##platform_ <= (patch_)))))
 
 #	ifdef aegis
 #		undef XIEITE_PLATFORM_TYPE_AEGIS
@@ -689,4 +689,4 @@
 
 // https://sourceforge.net/p/predef/wiki/OperatingSystems/
 
-// TODO: Complete XIEITE_PLATFORM_VERSION_LEAST() and XIEITE_PLATFORM_VERSION_MOST() to account for platforms of which all versions are not realistically detectable
+// TODO: Complete XIEITE_PLATFORM_VERSION_LEAST() and XIEITE_PLATFORM_VERSION_MOST() to account for platform_s of which all versions are not realistically detectable

@@ -26,7 +26,6 @@ Utilities for type information and metaprogramming
 - [Shorter](./namespaces/types/shorter.md)
 - [TrySigned](./namespaces/types/try_signed.md)
 - [TryUnsigned](./namespaces/types/try_unsigned.md)
-- [identifier](./namespaces/types/identifier.md)
 - [name](./namespaces/types/name.md)
 - [sizeBits](./namespaces/types/size_bits.md)
 - [demangle\(\)](./namespaces/types/demangle.md)

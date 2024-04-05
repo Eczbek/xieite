@@ -10,4 +10,4 @@
 
 #endif
 
-// Thanks to Tsche for this cool idea
+// Thanks to Tsche (https://github.com/Tsche) for this cool idea

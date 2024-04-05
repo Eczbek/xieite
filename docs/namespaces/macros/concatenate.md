@@ -11,23 +11,23 @@ A helper macro which concatenates two expressions.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_CONCATENATE_DIRECT_FORWARD(first, second) first##second
+#define XIEITE_CONCATENATE_DIRECT_FORWARD(first_, second_) first_##second_
 ```
 #### 2)
 ```cpp
-#define XIEITE_CONCATENATE_FIRECT_REVERSE(first, second) second##first
+#define XIEITE_CONCATENATE_FIRECT_REVERSE(first_, second_) second_##first_
 ```
 #### 3)
 ```cpp
-#define XIEITE_CONCATENATE(first, second) XIEITE_CONCATENATE_DIRECT_FORWARD(first, second)
+#define XIEITE_CONCATENATE(first_, second_) XIEITE_CONCATENATE_DIRECT_FORWARD(first_, second_)
 ```
 #### 4)
 ```cpp
-#define XIEITE_CONCATENATE_FIRST(first) XIEITE_CONCATENATE_DIRECT_FORWARD(first,
+#define XIEITE_CONCATENATE_FIRST(first_) XIEITE_CONCATENATE_DIRECT_FORWARD(first_,
 ```
 #### 5)
 ```cpp
-#define XIEITE_CONCATENATE_SECOND(second) XIEITE_CONCATENATE_DIRECT_REVERSE(second,
+#define XIEITE_CONCATENATE_SECOND(second_) XIEITE_CONCATENATE_DIRECT_REVERSE(second_,
 ```
 
 &nbsp;

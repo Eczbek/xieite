@@ -571,11 +571,11 @@ Macros for identifying the current compiler type and version (major, minor, patc
 ```
 #### 81)
 ```cpp
-#define XIEITE_COMPILER_VERSION_LEAST(compiler, major, minor, patch) /* boolean */
+#define XIEITE_COMPILER_VERSION_LEAST(compiler_, major_, minor_, patch_) /* boolean */
 ```
 #### 82)
 ```cpp
-#define XIEITE_COMPILER_VERSION_MOST(compiler, major, minor, patch) /* boolean */
+#define XIEITE_COMPILER_VERSION_MOST(compiler_, major_, minor_, patch_) /* boolean */
 ```
 
 &nbsp;
