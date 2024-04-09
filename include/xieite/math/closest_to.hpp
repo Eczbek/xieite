@@ -9,7 +9,7 @@
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Number>
 	[[nodiscard]] constexpr Number& closestTo(const Number target, Number& value1, Number& value2) noexcept {
-		return (value1 >= target) ? ((value2 >= target) ? ((value1 > value2) ? value1 : value2) : ((xieite::math::difference(target, value1) < xieite::math::difference(target, value2)) ? value1 : value2)) : ((value2 < target) ? ((value1 < value2) ? value1 : value2) : ((xieite::math::difference(target, value1) > xieite::math::difference(target, value2)) ? value1 : value2));
+		return (xieite::math::difference(target, value1) > xieite::math::difference(target, value2)) ? value2 : value1;
 	}
 
 	template<xieite::concepts::Arithmetic Number>
