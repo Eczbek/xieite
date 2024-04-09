@@ -27,7 +27,7 @@ int main() {
     std::println("{}", xieite::strings::isNumber<int>("4"));
     std::println("{}", xieite::strings::isNumber<double>("-3.14159e22"));
     std::println("{}", xieite::strings::isNumber<double>("+DEAD.BEEF", 16));
-    std::println("{}", xiiete::strings::isNumber<int>("847ey5wi7"));
+    std::println("{}", xieite::strings::isNumber<int>("847ey5wi7"));
 }
 ```
 Output:
