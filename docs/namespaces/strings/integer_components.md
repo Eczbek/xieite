@@ -4,7 +4,7 @@ Defined in header [<xieite/strings/integer_components.hpp>](../../../include/xie
 &nbsp;
 
 ## Description
-A namespace of collections of characters.
+A namespace of collections of integer-related characters.
 
 &nbsp;
 
@@ -12,11 +12,11 @@ A namespace of collections of characters.
 #### 1)
 ```cpp
 struct IntegerComponents {
-    const std::string digits = std::string(xieite::strings::characters::alphanumeric);
-    const char negative = '-';
-    const char positive = '+';
-    const char point = '.';
-    const char exponent = 'e';
+    const std::string_view digits = xieite::strings::characters::alphanumeric;
+    const std::string_view negatives = "-";
+    const std::string_view positives = "+";
+    const std::string_view points = ".";
+    const std::string_view exponents = "Ee";
 };
 ```
 

@@ -22,7 +22,7 @@ namespace xieite::math {
 
 	template<typename Number>
 	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
+	[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) noexcept {
 		if (!value || !radix) {
 			return std::string(1, components.digits[0]);
 		}
@@ -59,7 +59,7 @@ namespace xieite::math {
 							result += components.digits[index];
 						}
 					} while (std::abs(qux) >= std::numeric_limits<Number>::epsilon());
-					result.insert(point, 1, components.point);
+					result.insert(point, 1, components.points[0]);
 				} else {
 					Number fractional = std::fmod(value, 1);
 					Number integral = value - fractional;
@@ -72,7 +72,7 @@ namespace xieite::math {
 						}
 						result = components.digits[static_cast<std::size_t>(index) * (static_cast<std::size_t>(index) < digitsSize)] + result;
 					} while (std::abs(integral) >= std::numeric_limits<Number>::epsilon());
-					result += components.point;
+					result += components.points[0];
 					do {
 						fractional *= static_cast<Number>(radix);
 						Number index = xieite::math::roundDown(fractional);
@@ -93,7 +93,7 @@ namespace xieite::math {
 			}
 		}
 		if (negative && (radix > 0)) {
-			result = components.negative + result;
+			result = components.negatives[0] + result;
 		}
 		return result;
 	}

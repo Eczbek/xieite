@@ -8,13 +8,14 @@ String manipulation functions
 &nbsp;
 
 ## Contents
-- [characters](./namespaces/strings/characters.md)
-- [IntegerComponents \{\}](./namespaces/strings/integer_components.md)
 - [after\(\)](./namespaces/strings/after.md)
 - [before\(\)](./namespaces/strings/before.md)
 - [between\(\)](./namespaces/strings/between.md)
+- [characters](./namespaces/strings/characters.md)
 - [fromRomanNumerals\(\)](./namespaces/strings/from_roman_numerals.md)
-- [isDigit\(\)](./namespaces/strings/digit.md)
+- [IntegerComponents \{\}](./namespaces/strings/integer_components.md)
+- [isDigit\(\)](./namespaces/strings/is_digit.md)
+- [isNumber\(\)](./namespaces/strings/is_number.md)
 - [join\(\)](./namespaces/strings/join.md)
 - [lowercase\(\)](./namespaces/strings/lowercase.md)
 - [padBack\(\)](./namespaces/strings/pad_back.md)

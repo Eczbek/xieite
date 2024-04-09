@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Various user-defined literals for general use
+Namespaces of various user-defined literals for general use
 
 &nbsp;
 

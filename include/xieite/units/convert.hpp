@@ -70,15 +70,15 @@ namespace xieite::units {
 		case xieite::units::Area::SquareCentimetre:
 			result /= 10000.0;
 			break;
-		case xieite::units::Area::SquareDecimetre: [[fallthrough]];
+		case xieite::units::Area::SquareDecimetre:
 		case xieite::units::Area::Decimilliare:
 			result /= 100.0;
 			break;
-		case xieite::units::Area::SquareDecametre: [[fallthrough]];
+		case xieite::units::Area::SquareDecametre:
 		case xieite::units::Area::Are:
 			result *= 100.0;
 			break;
-		case xieite::units::Area::SquareHectometre: [[fallthrough]];
+		case xieite::units::Area::SquareHectometre:
 		case xieite::units::Area::Hectare:
 			result *= 10000.0;
 			break;
@@ -171,15 +171,15 @@ namespace xieite::units {
 		case xieite::units::Area::SquareCentimetre:
 			result *= 10000.0;
 			break;
-		case xieite::units::Area::SquareDecimetre: [[fallthrough]];
+		case xieite::units::Area::SquareDecimetre:
 		case xieite::units::Area::Decimilliare:
 			result *= 100.0;
 			break;
-		case xieite::units::Area::SquareDecametre: [[fallthrough]];
+		case xieite::units::Area::SquareDecametre:
 		case xieite::units::Area::Are:
 			result /= 100.0;
 			break;
-		case xieite::units::Area::SquareHectometre: [[fallthrough]];
+		case xieite::units::Area::SquareHectometre:
 		case xieite::units::Area::Hectare:
 			result /= 10000.0;
 			break;
@@ -365,9 +365,9 @@ namespace xieite::units {
 		case xieite::units::Length::Link:
 			result /= 0.201168;
 			break;
-		case xieite::units::Length::Rod: [[fallthrough]];
-		case xieite::units::Length::Perch: [[fallthrough]];
-		case xieite::units::Length::Pole: [[fallthrough]];
+		case xieite::units::Length::Rod:
+		case xieite::units::Length::Perch:
+		case xieite::units::Length::Pole:
 		case xieite::units::Length::Lug:
 			result *= 5.0292;
 			break;
@@ -490,9 +490,9 @@ namespace xieite::units {
 		case xieite::units::Length::Link:
 			result *= 0.201168;
 			break;
-		case xieite::units::Length::Rod: [[fallthrough]];
-		case xieite::units::Length::Perch: [[fallthrough]];
-		case xieite::units::Length::Pole: [[fallthrough]];
+		case xieite::units::Length::Rod:
+		case xieite::units::Length::Perch:
+		case xieite::units::Length::Pole:
 		case xieite::units::Length::Lug:
 			result /= 5.0292;
 			break;

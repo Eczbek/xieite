@@ -8,8 +8,6 @@ Macros and special headers
 &nbsp;
 
 ## Contents
-- [\(No unix\)](./namespaces/macros/no_unix.md)
-- [\(No windows\)](./namespaces/macros/no_windows.md)
 - [ARCHITECTURE_...](./namespaces/macros/architecture.md)
 - [ASCII_SUPPORT](./namespaces/macros/ascii_support.md)
 - [ATTRIBUTE_...](./namespaces/macros/attribute.md)
@@ -30,6 +28,8 @@ Macros and special headers
 - [LANGUAGE_STANDARD_...](./namespaces/macros/language_standard.md)
 - [LIFT\(\)](./namespaces/macros/lift.md)
 - [MAYBE_RETURN\(\)](./namespaces/macros/maybe_return.md)
+- [\(No unix\)](./namespaces/macros/no_unix.md)
+- [\(No windows\)](./namespaces/macros/no_windows.md)
 - [PARENTHESIS_...\(\)](./namespaces/macros/parenthesis.md)
 - [PLATFORM_...](./namespaces/macros/platform.md)
 - [PRAGMA\(\)](./namespaces/macros/pragma.md)

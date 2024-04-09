@@ -11,7 +11,6 @@
 #	include "../strings/integer_components.hpp"
 #	include "../math/signed_size.hpp"
 #	include "../math/split_boolean.hpp"
-#	include "../strings/lowercase.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral>
@@ -19,26 +18,26 @@ namespace xieite::math {
 
 	template<typename Number>
 	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr Number parse(const std::string_view value, const std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
+	[[nodiscard]] constexpr Number parse(const std::string_view value, const std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) noexcept {
 		if (!radix) {
 			return 0;
 		}
-		const bool negative = value[0] == components.negative;
+		const bool negative = components.negatives.contains(value[0]);
 		const std::size_t valueSize = value.size();
 		if constexpr (std::floating_point<Number>) {
 			Number integral = 0;
 			Number fractional = 0;
 			std::size_t point = 0;
 			xieite::math::SignedSize power = 0;
-			for (std::size_t i = negative || (value[0] == components.positive); i < valueSize; ++i) {
+			for (std::size_t i = negative || components.positives.contains(value[0]); i < valueSize; ++i) {
 				const std::size_t index = components.digits.find(value[i]);
 				if (index == std::string_view::npos) {
-					if (value[i] == components.point) {
+					if (components.points.contains(value[i])) {
 						if (point) {
 							break;
 						}
 						point = 1;
-					} else if (xieite::strings::lowercase(value[i]) == xieite::strings::lowercase(components.exponent)) {
+					} else if (components.exponents.contains(value[i])) {
 						power = xieite::math::parse<xieite::math::SignedSize>(value.substr(i + 1));
 						break;
 					}
@@ -51,7 +50,7 @@ namespace xieite::math {
 		} else {
 			Number result = 0;
 			xieite::math::SignedSize power = 0;
-			for (std::size_t i = negative || (value[0] == components.positive); i < valueSize; ++i) {
+			for (std::size_t i = negative || (components.positives.contains(value[0]); i < valueSize; ++i) {
 				const std::size_t index = components.digits.find(value[i]);
 				if (index == std::string_view::npos) {
 					break;

@@ -4,19 +4,23 @@
 #	include <ranges>
 #	include <string_view>
 #	include <vector>
-#	include "../functors/static_cast.hpp"
 
 namespace xieite::strings {
-	[[nodiscard]] constexpr std::vector<std::string_view> split(const std::string_view string, const std::string_view delimiter) noexcept {
+	[[nodiscard]] constexpr std::vector<std::string_view> split(const std::string_view string, const std::string_view delimiter, const bool discardEmpty = false) noexcept {
 		const auto subranges = std::views::split(string, delimiter);
-		std::vector<std::string_view> result = std::vector<std::string_view>(std::ranges::size(subranges));
-		std::ranges::transform(subranges, result.begin(), xieite::functors::StaticCast<std::string_view>());
+		std::vector<std::string_view> result;
+		result.reserve(std::ranges::size(subranges));
+		for (const auto subrange : subranges) {
+			if (!discardEmpty || (std::ranges::begin(subrange) != std::ranges::end(subrange))) {
+				result.push_back(std::string_view(subrange));
+			}
+		}
 		return result;
 	}
 
 	template<xieite::concepts::std::string_view std::string_view = std::string_view>
-	[[nodiscard]] constexpr std::vector<std::string_view> split(const std::string_view string, const char delimiter) noexcept {
-		return xieite::strings::split(string, std::string_view(&delimiter, 1));
+	[[nodiscard]] constexpr std::vector<std::string_view> split(const std::string_view string, const char delimiter, const bool discardEmpty = false) noexcept {
+		return xieite::strings::split(string, std::string_view(&delimiter, 1), discardEmpty);
 	}
 }
 

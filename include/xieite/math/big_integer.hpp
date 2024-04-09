@@ -85,7 +85,7 @@ namespace xieite::math {
 			this->trim();
 		}
 
-		constexpr BigInteger(const std::string_view value, const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept {
+		constexpr BigInteger(const std::string_view value, const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) noexcept {
 			*this = xieite::math::parse<xieite::math::BigInteger<Word>>(value, radix, components);
 		}
 
@@ -636,7 +636,7 @@ namespace xieite::math {
 			return this->logarithm(xieite::math::BigInteger<Word>(base));
 		}
 
-		[[nodiscard]] constexpr std::string string(const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) const noexcept {
+		[[nodiscard]] constexpr std::string string(const xieite::math::SignedSize radix = 10, const xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) const noexcept {
 			return xieite::math::stringify(*this, radix, components);
 		}
 

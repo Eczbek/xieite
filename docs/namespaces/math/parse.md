@@ -12,7 +12,7 @@ Parses an number string in any radix. Allows negative radices. Is case-sensitive
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number parse(std::string_view value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents& components = xieite::strings::IntegerComponents()) noexcept;
+[[nodiscard]] constexpr Number parse(std::string_view value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) noexcept;
 ```
 
 &nbsp;

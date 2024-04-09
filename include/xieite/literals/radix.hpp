@@ -12,10 +12,10 @@ namespace xieite::literals::radix {
 		};
 		if constexpr ((value.size() > 1) && (value[0] == '0')) {
 			switch (value[1]) {
-				case 'x': [[fallthrough]];
+				case 'x':
 				case 'X':
 					return 16;
-				case 'b': [[fallthrough]];
+				case 'b':
 				case 'B':
 					return 2;
 			}

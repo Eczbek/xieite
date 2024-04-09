@@ -25,7 +25,7 @@ struct BigInteger {
     requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
     constexpr BigInteger(Range&&, bool = false) noexcept;
 
-    constexpr BigInteger(std::string_view, xieite::math::SignedSize = 10, const xieite::strings::IntegerComponents& = xieite::strings::IntegerComponents()) noexcept;
+    constexpr BigInteger(std::string_view, xieite::math::SignedSize = 10, xieite::strings::IntegerComponents = xieite::strings::IntegerComponents()) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator=(const xieite::math::BigInteger<Word>&) noexcept;
 
@@ -178,7 +178,7 @@ struct BigInteger {
     template<std::integral Integral>
     constexpr std::optional<xieite::math::BigInteger<Word>> logarithm(Integral) const noexcept;
 
-    constexpr std::string string(xieite::math::SignedSize = 10, const xieite::strings::IntegerComponents& = xieite::strings::IntegerComponents()) const noexcept;
+    constexpr std::string string(xieite::math::SignedSize = 10, xieite::strings::IntegerComponents = xieite::strings::IntegerComponents()) const noexcept;
 };
 ```
 ##### Members
@@ -186,7 +186,7 @@ struct BigInteger {
 - [BigInteger\(\)](./structures/big_integer/1/operators/constructor.md)
 - [operator=\(\)](./structures/big_integer/1/operators/assign.md)
 - [operator typename\(\)](./structures/big_integer/1/operators/cast.md)
-- [operator<=>\(\)](./structures/big_integer/1/operators/spaceship.md)
+- [operator\<=\>\(\)](./structures/big_integer/1/operators/spaceship.md)
 - [operator==\(\)](./structures/big_integer/1/operators/s/equal.md)
 - [operator+\(\)](./structures/big_integer/1/operators/add.md)
 - [operator+=\(\)](./structures/big_integer/1/operators/addAssign.md)
@@ -207,10 +207,10 @@ struct BigInteger {
 - [operator|=\(\)](./structures/big_integer/1/operators/bitwise_or_assign.md)
 - [operator^\(\)](./structures/big_integer/1/operators/bitwise_xor.md)
 - [operator^=\(\)](./structures/big_integer/1/operators/bitwise_xor_assign.md)
-- [operator<<\(\)](./structures/big_integer/1/operators/bitwise_shift_left.md)
-- [operator<<=\(\)](./structures/big_integer/1/operators/bitwise_shift_left_assign.md)
-- [operator>>\(\)](./structures/big_integer/1/operators/bitwise_shift_right.md)
-- [operator>>=\(\)](./structures/big_integer/1/operators/bitwise_shift_right_assign.md)
+- [operator\<\<\(\)](./structures/big_integer/1/operators/bitwise_shift_left.md)
+- [operator\<\<=\(\)](./structures/big_integer/1/operators/bitwise_shift_left_assign.md)
+- [operator\>\>\(\)](./structures/big_integer/1/operators/bitwise_shift_right.md)
+- [operator\>\>=\(\)](./structures/big_integer/1/operators/bitwise_shift_right_assign.md)
 - [absolute\(\)](./structures/big_integer/1/absolute.md)
 - [power\(\)](./structures/big_integer/1/power.md)
 - [root\(\)](./structures/big_integer/1/root.md)
