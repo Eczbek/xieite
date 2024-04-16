@@ -4,7 +4,7 @@ Defined in header [<xieite/types/name.hpp>](../../../include/xieite/types/name.h
 &nbsp;
 
 ## Description
-Gets the string name of a type at compile-time.
+Extracts the stringified name of a type at compile-time without additional formatting.
 
 &nbsp;
 

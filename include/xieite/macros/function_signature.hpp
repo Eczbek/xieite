@@ -11,5 +11,3 @@
 #		define XIEITE_FUNCTION_SIGNATURE __func__
 #	endif
 #endif
-
-// Thanks to eightfold (https://github.com/8ightfold) for original code

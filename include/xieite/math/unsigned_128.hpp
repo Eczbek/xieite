@@ -3,20 +3,18 @@
 
 #	include "../macros/compiler.hpp"
 
-#	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
-
-namespace xieite::math {
-	using Unsigned128 = unsigned __int128;
-}
-
-#	elif XIEITE_COMPILER_TYPE_MSVC
-#		include <__msvc_int128.hpp>
-
-namespace xieite::math {
-	using Unsigned128 = std::_Unsigned128;
-}
-
-#	else
+#	if XIEITE_COMPILER_TYPE_MSVC
+#		include <__msvc_int128.hpp> // Internal header, no documentation
+#	elif !XIEITE_COMPILER_TYPE_GCC && !XIEITE_COMPILER_TYPE_CLANG
 #		error "Compiler not supported"
 #	endif
+
+namespace xieite::math {
+#	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
+	using Unsigned128 = unsigned __int128;
+#	elif XIEITE_COMPILER_TYPE_MSVC
+	using Unsigned128 = std::_Unsigned128;
+#	endif
+}
+
 #endif

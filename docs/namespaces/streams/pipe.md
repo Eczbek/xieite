@@ -12,14 +12,19 @@ Provides a wrapper for a `std::FILE*` pipe, automatically closed upon destructio
 #### 1)
 ```cpp
 struct Pipe {
-    std::FILE* const file;
-
     Pipe(const std::string&, const std::string&);
+
+    const std::FILE* file() const noexcept;
+
+    std::FILE* file() noexcept;
+
+    int descriptor() const noexcept;
 };
 ```
 ##### Members
-- file
 - [Pipe\(\)](./structures/pipe/1/operators/constructor.md)
+- [file\(\)](./structures/pipe/file.md)
+- [descriptor\(\)](./structures/pipe/descriptor.md)
 
 &nbsp;
 

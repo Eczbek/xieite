@@ -13,6 +13,10 @@ Reads the entire contents of an input stream, including whitespace.
 ```cpp
 inline std::string read(std::istream& inputStream) noexcept;
 ```
+#### 2)
+```cpp
+inline std::string read(std::FILE* inputFile) noexcept;
+```
 
 &nbsp;
 

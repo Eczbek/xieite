@@ -3,11 +3,9 @@
 
 #	include "../macros/platform.hpp"
 
-#	if !XIEITE_PLATFORM_TYPE_UNIX
-#		error "Platform not supported"
+#	if XIEITE_PLATFORM_TYPE_UNIX
+#		include <unistd.h>
 #	endif
-
-#	include <unistd.h>
 
 #	define XIEITE_UNIX_STANDARD_POSIX_1988 0
 #	define XIEITE_UNIX_STANDARD_POSIX_1990 0

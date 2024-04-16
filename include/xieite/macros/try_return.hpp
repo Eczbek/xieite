@@ -1,7 +1,7 @@
-#ifndef XIEITE_HEADER_MACROS_MAYBE_RETURN
-#	define XIEITE_HEADER_MACROS_MAYBE_RETURN
+#ifndef XIEITE_HEADER_MACROS_TRY_RETURN
+#	define XIEITE_HEADER_MACROS_TRY_RETURN
 
-#	define XIEITE_MAYBE_RETURN(...) \
+#	define XIEITE_TRY_RETURN(...) \
 		if constexpr (requires { \
 			__VA_ARGS__; \
 		}) { \

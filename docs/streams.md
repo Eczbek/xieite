@@ -9,7 +9,7 @@ Utilities relating to streams
 
 ## Contents
 - [Color \{\}](./namespaces/streams/color.md)
-- [getFile\(\)](./namespaces/streams/get_file.md)
+- [File \{\}](./namespaces/streams/file.md)
 - [Key \{\}](./namespaces/streams/key.md)
 - [Pipe \{\}](./namespaces/streams/pipe.md)
 - [Position \{\}](./namespaces/streams/position.md)

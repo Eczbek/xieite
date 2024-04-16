@@ -2,58 +2,31 @@
 #	define XIEITE_HEADER_TYPES_NAME
 
 #	include <string_view>
+#	include "../containers/make_array.hpp"
 #	include "../macros/compiler.hpp"
+#	include "../macros/function_signature.hpp"
+#	include "../strings/between.hpp"
 
-#	if XIEITE_COMPILER_TYPE_GCC
-#		include "../containers/make_array.hpp"
-#		include "../strings/between.hpp"
-#		include "../strings/replace.hpp"
-
-namespace XIEITE_DETAIL_NAMESPACE {
-	template<typename>
-	[[nodiscard]] consteval std::string_view name() noexcept {
-		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] {
-			return xieite::strings::replace(xieite::strings::between(string, "= ", ';'), " >", '>');
-		};
-		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
-		return std::string_view(data.begin(), data.end());
-	}
-}
-
-#	elif XIEITE_COMPILER_TYPE_CLANG
-#		include "../containers/make_array.hpp"
-#		include "../strings/between.hpp"
-
-namespace XIEITE_DETAIL_NAMESPACE {
-	template<typename>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
-		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] {
-			return xieite::strings::between(string, "= ", ']');
-		};
-		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
-		return std::string_view(data.begin(), data.end());
-	}
-}
-
-#	elif XIEITE_COMPILER_TYPE_MSVC
-#		include "../containers/make_array.hpp"
+#	if XIEITE_COMPILER_TYPE_MSVC
 #		include "../strings/after.hpp"
-#		include "../strings/between.hpp"
+#	endif
 
 namespace XIEITE_DETAIL_NAMESPACE {
-	template<typename>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
-		static constexpr auto get = [string = std::string_view(__PRETTY_FUNCTION__)] {
+	template<typename _>
+	[[nodiscard]] consteval std::string_view name() noexcept {
+		static constexpr auto get = [string = std::string_view(XIEITE_FUNCTION_SIGNATURE)] {
+#	if XIEITE_COMPILER_TYPE_GCC
+			return xieite::strings::between(string, "= ", ';');
+#	elif XIEITE_COMPILER_TYPE_CLANG
+			return xieite::strings::between(string, "= ", ']');
+#	elif XIEITE_COMPILER_TYPE_WINDOWS
 			return xieite::strings::between(xieite::strings::after(string, " __"), '<', ">(");
+#	endif
 		};
 		static constexpr auto data = xieite::containers::makeArray<char, get().size()>(get());
 		return std::string_view(data.begin(), data.end());
 	}
 }
-
-#	else
-#		error "Compiler not supported"
-#	endif
 
 namespace xieite::types {
 	template<typename Type>

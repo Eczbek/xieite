@@ -26,7 +26,7 @@ This project is a collection of questionably useful components for extending the
 &nbsp;
 
 ## Requirements
-- C++23
+- C++26
 
 &nbsp;
 
