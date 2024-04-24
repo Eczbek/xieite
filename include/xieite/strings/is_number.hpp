@@ -8,7 +8,7 @@
 #	include "../concepts/specialization_of.hpp"
 #	include "../math/absolute.hpp"
 #	include "../math/signed_size.hpp"
-#	include "../strings/integer_components.hpp"
+#	include "../strings/number_components.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral>
@@ -18,7 +18,7 @@ namespace xieite::math {
 namespace xieite::strings {
 	template<typename Number>
 	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr bool isNumber(const std::string_view value, const std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) noexcept {
+	[[nodiscard]] constexpr bool isNumber(const std::string_view value, const std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
 		std::size_t i = components.positives.contains(value[0]) || components.negatives.contains(value[0]);
 		const std::size_t valueSize = value.size();
 		const std::string_view digits = components.digits.substr(0, xieite::math::absolute(radix));

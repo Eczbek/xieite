@@ -13,7 +13,7 @@
 #	include "../math/is_negative.hpp"
 #	include "../math/round_down.hpp"
 #	include "../math/signed_size.hpp"
-#	include "../strings/integer_components.hpp"
+#	include "../strings/number_components.hpp"
 #	include "../types/try_unsigned.hpp"
 
 namespace xieite::math {
@@ -22,7 +22,7 @@ namespace xieite::math {
 
 	template<typename Number>
 	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) noexcept {
+	[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
 		if (!value || !radix) {
 			return std::string(1, components.digits[0]);
 		}
@@ -58,7 +58,7 @@ namespace xieite::math {
 						} else {
 							result += components.digits[index];
 						}
-					} while (std::abs(qux) >= std::numeric_limits<Number>::epsilon());
+					} while (components.precision-- && (std::abs(qux) >= std::numeric_limits<Number>::epsilon()));
 					result.insert(point, 1, components.points[0]);
 				} else {
 					Number fractional = std::fmod(value, 1);
@@ -73,12 +73,13 @@ namespace xieite::math {
 						result = components.digits[static_cast<std::size_t>(index) * (static_cast<std::size_t>(index) < digitsSize)] + result;
 					} while (std::abs(integral) >= std::numeric_limits<Number>::epsilon());
 					result += components.points[0];
+					std::size_t corge = 0;
 					do {
 						fractional *= static_cast<Number>(radix);
 						Number index = xieite::math::roundDown(fractional);
 						fractional -= index;
 						result += components.digits[static_cast<std::size_t>(index) * (static_cast<std::size_t>(index) < digitsSize)];
-					} while (std::abs(fractional) >= std::numeric_limits<Number>::epsilon());
+					} while (components.precision-- && (std::abs(fractional) >= std::numeric_limits<Number>::epsilon()));
 				}
 			} else {
 				while (value) {

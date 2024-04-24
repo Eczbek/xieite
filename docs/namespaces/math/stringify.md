@@ -12,7 +12,7 @@ Stringifies a number in any radix. Allows negative radices.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) noexcept;
+[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept;
 ```
 
 &nbsp;

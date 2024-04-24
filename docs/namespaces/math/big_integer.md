@@ -25,7 +25,7 @@ struct BigInteger {
     requires(std::same_as<std::ranges::range_value_t<Range>, Word>)
     constexpr BigInteger(Range&&, bool = false) noexcept;
 
-    constexpr BigInteger(std::string_view, xieite::math::SignedSize = 10, xieite::strings::IntegerComponents = xieite::strings::IntegerComponents()) noexcept;
+    constexpr BigInteger(std::string_view, xieite::math::SignedSize = 10, xieite::strings::NumberComponents = xieite::strings::NumberComponents()) noexcept;
 
     constexpr xieite::math::BigInteger<Word>& operator=(const xieite::math::BigInteger<Word>&) noexcept;
 
@@ -178,7 +178,7 @@ struct BigInteger {
     template<std::integral Integral>
     constexpr std::optional<xieite::math::BigInteger<Word>> logarithm(Integral) const noexcept;
 
-    constexpr std::string string(xieite::math::SignedSize = 10, xieite::strings::IntegerComponents = xieite::strings::IntegerComponents()) const noexcept;
+    constexpr std::string string(xieite::math::SignedSize = 10, xieite::strings::NumberComponents = xieite::strings::NumberComponents()) const noexcept;
 };
 ```
 ##### Members

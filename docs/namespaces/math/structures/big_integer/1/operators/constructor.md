@@ -27,7 +27,7 @@ constexpr BigInteger(Range&& range, bool negative = false) noexcept;
 ```
 #### 4)
 ```cpp
-constexpr BigInteger(std::string_view value, xieite::math::SignedSize radix = 10, xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) noexcept;
+constexpr BigInteger(std::string_view value, xieite::math::SignedSize radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept;
 ```
 
 &nbsp;

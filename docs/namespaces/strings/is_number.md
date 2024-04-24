@@ -13,7 +13,7 @@ Checks if a string is a number.
 ```cpp
 template<typename Number>
 requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-[[nodiscard]] constexpr bool isNumber(std::string_view value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) noexcept;
+[[nodiscard]] constexpr bool isNumber(std::string_view value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept;
 ```
 
 &nbsp;

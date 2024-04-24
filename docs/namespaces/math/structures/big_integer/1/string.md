@@ -11,7 +11,7 @@ Converts a `xieite::math::BigInteger<Word>` to a `std::string`.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::string string(xieite::math::SignedSize radix = 10, xieite::strings::IntegerComponents components = xieite::strings::IntegerComponents()) const noexcept;
+[[nodiscard]] constexpr std::string string(xieite::math::SignedSize radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) const noexcept;
 ```
 
 &nbsp;
