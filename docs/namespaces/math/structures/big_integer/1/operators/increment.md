@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator++\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../../big_integer.md)\:\:operator++\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,11 +11,11 @@ Increments a big-integer.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Word>& operator++() noexcept;
+constexpr xieite::math::BigInteger<Word_>& operator++() noexcept;
 ```
 #### 2)
 ```cpp
-constexpr xieite::math::BigInteger<Word>& operator++(int) noexcept;
+constexpr xieite::math::BigInteger<Word_>& operator++(int) noexcept;
 ```
 
 &nbsp;

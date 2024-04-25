@@ -4,7 +4,7 @@ Defined in header [<xieite/types/maybe_volatile.hpp>](../../../include/xieite/ty
 &nbsp;
 
 ## Description
-An alias to an optionally volatile type.
+An alias to an optionally volatile qualified type.
 
 &nbsp;
 

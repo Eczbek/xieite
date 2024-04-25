@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator~\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../../big_integer.md)\:\:operator~\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Returns the bitwise NOT result of this big-integer.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Word> operator~() const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Word_> operator~() const noexcept;
 ```
 
 &nbsp;

@@ -4,7 +4,7 @@ Defined in header [<xieite/types/maybe_constant.hpp>](../../../include/xieite/ty
 &nbsp;
 
 ## Description
-An alias to an optionally constant type.
+An alias to an optionally constant qualified type.
 
 &nbsp;
 

@@ -1,22 +1,22 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../big_integer.md)\:\:power\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:power\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Raises a `xieite::math::BigInteger<Word>` to an exponent.
+Raises a `xieite::math::BigInteger<Word_>` to an exponent.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> power(const xieite::math::BigInteger<Word>& exponent) const noexcept;
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word_>> power(const xieite::math::BigInteger<Word_>& exponent) const noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word>> power(Integral exponent) const noexcept;
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word_>> power(Integral exponent) const noexcept;
 ```
 
 &nbsp;

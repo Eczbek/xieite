@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator typename\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../../integer.md)\:\:operator typename\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
 
 ## Description
-Casts a `xieite::math::Integer<bits, sign>` to another integer type.
+Casts a `xieite::math::Integer<bits_, sign_>` to another integer type.
 
 &nbsp;
 

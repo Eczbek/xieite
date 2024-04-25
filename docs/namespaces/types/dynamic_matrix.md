@@ -1,32 +1,19 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:DynamicMatrix \{\}
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:DynamicMatrix
 Defined in header [<xieite/types/dynamic_matrix.hpp>](../../../include/xieite/types/dynamic_matrix.hpp)
 
 &nbsp;
 
 ## Description
-A structure for generating dynamic multidimensional containers.
+A type alias for generating dynamic multidimensional containers.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename> typename DynamicContainer, typename Value, std::size_t dimensions>
-struct DynamicMatrix {
-    using Type = DynamicMatrix<DynamicContainer, DynamicContainer<Value>, dimensions - 1>::Type;
-};
+template<template<typename> typename DynamicContainer_, typename Value_, std::size_t dimensions_>
+using DynamicMatrix = /* ... */;
 ```
-##### Members
-- Type
-#### 2)
-```cpp
-template<template<typename> typename DynamicContainer, typename Value>
-struct DynamicMatrix<DynamicContainer, Value, 0> {
-    using Type = Value;
-};
-```
-##### Members
-- Type
 
 &nbsp;
 

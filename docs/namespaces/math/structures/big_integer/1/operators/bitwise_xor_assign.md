@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator^=\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../../big_integer.md)\:\:operator^=\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Assigns the bitwise XOR result of this big-integer with another.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Word>& operator^=(const xieite::math::BigInteger<Word>& operand) noexcept;
+constexpr xieite::math::BigInteger<Word_>& operator^=(const xieite::math::BigInteger<Word_>& operand) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-constexpr xieite::math::BigInteger<Word>& operator^=(Integral operand) noexcept;
+constexpr xieite::math::BigInteger<Word_>& operator^=(Integral operand) noexcept;
 ```
 
 &nbsp;

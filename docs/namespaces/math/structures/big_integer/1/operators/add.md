@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator+\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../../big_integer.md)\:\:operator+\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,16 +11,16 @@ Returns the sum of two big-integers.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Word> operator+() const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Word_> operator+() const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>& augend, const xieite::math::BigInteger<Word>& addend) noexcept;
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Word_> operator+(const xieite::math::BigInteger<Word_>& augend, const xieite::math::BigInteger<Word_>& addend) noexcept;
 ```
 #### 3)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator+(const xieite::math::BigInteger<Word>& augend, Integral addend) noexcept;
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Word_> operator+(const xieite::math::BigInteger<Word_>& augend, Integral addend) noexcept;
 ```
 
 &nbsp;

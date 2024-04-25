@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator%=\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../../big_integer.md)\:\:operator%=\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Assigns the remainder after division of this big-integer with another.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Word>& operator%=(const xieite::math::BigInteger<Word>& divisor);
+constexpr xieite::math::BigInteger<Word_>& operator%=(const xieite::math::BigInteger<Word_>& divisor);
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-constexpr xieite::math::BigInteger<Word>& operator%=(Integral divisor);
+constexpr xieite::math::BigInteger<Word_>& operator%=(Integral divisor);
 ```
 
 &nbsp;

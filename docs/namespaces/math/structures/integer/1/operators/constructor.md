@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../integer.md)\:\:Integral\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../integer.md)\:\:Integral\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
 
 ## Description
-Constructs a `xieite::math::Integer<bits, sign>`.
+Constructs a `xieite::math::Integer<bits_, sign_>`.
 
 &nbsp;
 

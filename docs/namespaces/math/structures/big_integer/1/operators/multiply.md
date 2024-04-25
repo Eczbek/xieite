@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word>](../../../../big_integer.md)\:\:operator*\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../../big_integer.md)\:\:operator*\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Returns the product of two big-integers.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>& multiplier, const xieite::math::BigInteger<Word>& multiplicand) noexcept;
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Word_> operator*(const xieite::math::BigInteger<Word_>& multiplier, const xieite::math::BigInteger<Word_>& multiplicand) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Word> operator*(const xieite::math::BigInteger<Word>& multiplier, Integral multiplicand) noexcept;
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Word_> operator*(const xieite::math::BigInteger<Word_>& multiplier, Integral multiplicand) noexcept;
 ```
 
 &nbsp;

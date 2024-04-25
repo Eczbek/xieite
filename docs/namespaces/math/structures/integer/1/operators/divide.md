@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator/\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../../integer.md)\:\:operator/\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Returns the quotient of two integers.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator/(xieite::math::Integer<bits, sign> dividend, xieite::math::Integer<bits, sign> divisor) noexcept;
+[[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator/(xieite::math::Integer<bits_, sign_> dividend, xieite::math::Integer<bits_, sign_> divisor) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator/(xieite::math::Integer<bits, sign> dividend, Integral divisor) noexcept;
+[[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator/(xieite::math::Integer<bits_, sign_> dividend, Integral divisor) noexcept;
 ```
 
 &nbsp;

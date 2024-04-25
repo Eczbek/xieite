@@ -1,46 +1,19 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FixedMatrix \{\}
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FixedMatrix
 Defined in header [<xieite/types/fixed_matrix.hpp>](../../../include/xieite/types/fixed_matrix.hpp)
 
 &nbsp;
 
 ## Description
-A structure for generating multidimensional containers of fixed size.
+A type alias for generating multidimensional containers of fixed size.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename, std::size_t> typename, typename, std::size_t...>
-struct FixedMatrix;
+template<template<typename, std::size_t> typename FixedContainer_, typename Value_, std::size_t... sizes_>
+using FixedMatrix = /* ... */;
 ```
-#### 2)
-```cpp
-template<template<typename, std::size_t> typename FixedContainer, typename Value, std::size_t sizesFirst, std::size_t... sizesRest>
-struct FixedMatrix<FixedContainer, Value, sizesFirst, sizesRest...> {
-    using Type = FixedMatrix<FixedContainer, FixedContainer<Value, sizesFirst>, sizesRest...>::Type;
-};
-```
-##### Members
-- Type
-#### 3)
-```cpp
-template<template<typename, std::size_t> typename FixedContainer, typename Value, std::size_t size>
-struct FixedMatrix<FixedContainer, Value, size> {
-    using Type = FixedContainer<Value, size>;
-};
-```
-##### Members
-- Type
-#### 4)
-```cpp
-template<template<typename, std::size_t> typename FixedContainer, typename Value>
-struct FixedMatrix<FixedContainer, Value> {
-    using Type = Value;
-};
-```
-##### Members
-- Type
 
 &nbsp;
 

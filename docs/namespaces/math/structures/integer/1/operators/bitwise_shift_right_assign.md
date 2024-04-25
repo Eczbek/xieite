@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator>>=\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../../integer.md)\:\:operator>>=\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Assigns this integer to itself bitwise shifted to the right.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr xieite::math::Integer<bits, sign>& operator>>=(xieite::math::Integer<bits, sign> positions) noexcept;
+constexpr xieite::math::Integer<bits_, sign_>& operator>>=(xieite::math::Integer<bits_, sign_> positions) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-constexpr xieite::math::Integer<bits, sign>& operator>>=(Integral positions) noexcept;
+constexpr xieite::math::Integer<bits_, sign_>& operator>>=(Integral positions) noexcept;
 ```
 
 &nbsp;
