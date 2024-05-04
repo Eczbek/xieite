@@ -13,11 +13,6 @@ Assigns the remainder after division of this integer with another.
 ```cpp
 constexpr xieite::math::Integer<bits_, sign_>& operator%=(xieite::math::Integer<bits_, sign_> divisor) noexcept;
 ```
-#### 2)
-```cpp
-template<std::integral Integral>
-constexpr xieite::math::Integer<bits_, sign_>& operator%=(Integral divisor) noexcept;
-```
 
 &nbsp;
 

@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:ReplaceRange
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:ReplaceRange\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Replaces a range with a list of values.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t start, std::size_t end, typename Range>
-using ReplaceRange = /* ... */;
+template<std::size_t start_, std::size_t end_, typename Range_>
+using ReplaceRange = /* xieite::types::List<...> */;
 ```
 
 &nbsp;

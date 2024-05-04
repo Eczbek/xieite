@@ -12,15 +12,19 @@ A placeholder type.
 #### 1)
 ```cpp
 struct Placeholder {
-    template<typename... Arguments>
-    constexpr Placeholder(Arguments&&...) noexcept;
+    template<typename... Arguments_>
+    constexpr Placeholder(Arguments_&&...) noexcept;
 
-    template<typename Type>
-    constexpr operator Type&() const & noexcept;
+    template<typename Type_>
+    constexpr operator Type_&() const & noexcept;
 
-    template<typename Type>
-    constexpr operator Type&&() const && noexcept;
+    template<typename Type_>
+    constexpr operator Type_&&() const && noexcept;
 };
 ```
-- Placeholder()
-- operator typename
+- Placeholder\<\>()
+- operator typename\<\>()
+
+&nbsp;
+
+## [Example](../../../include/xieite/concepts/invocable_with_argument_count.hpp)

@@ -5,8 +5,8 @@
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept UnscopedEnumeration = std::is_enum_v<std::remove_cv_t<Type>> && std::convertible_to<std::remove_cv_t<Type>, std::underlying_type_t<Type>>;
+	template<typename Type_>
+	concept UnscopedEnumeration = std::is_enum_v<std::remove_cv_t<Type_>> && std::convertible_to<std::remove_cv_t<Type_>, std::underlying_type_t<Type_>>;
 }
 
 #endif

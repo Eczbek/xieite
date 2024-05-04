@@ -13,11 +13,6 @@ Assigns the sum of this integer with another.
 ```cpp
 constexpr xieite::math::Integer<bits_, sign_>& operator+=(xieite::math::Integer<bits_, sign_> addend) noexcept;
 ```
-#### 2)
-```cpp
-template<std::integral Integral>
-constexpr xieite::math::Integer<bits_, sign_>& operator+=(Integral addend) noexcept;
-```
 
 &nbsp;
 

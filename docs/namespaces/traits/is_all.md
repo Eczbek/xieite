@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsAll \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsAll\<\> \{\}
 Defined in header [<xieite/traits/is_all.hpp>](../../../include/xieite/traits/is_all.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_all.hpp>](../../../include/xieite/traits/is
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename> typename... Traits>
+template<typename Type_, template<typename> typename... Traits_>
 struct IsAll
-: std::bool_constant<xieite::concepts::All<Type, Traits...>> {};
+: std::bool_constant<xieite::concepts::All<Type_, Traits_...>> {};
 ```
 
 &nbsp;

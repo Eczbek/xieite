@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:subtractionOverflows\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:subtractionOverflows\<\>\(\)
 Defined in header [<xieite/math/subtraction_overflows.hpp>](../../../include/xieite/math/subtraction_overflows.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if the subtraction of two values will overflow or underflow their type, o
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr bool subtractionOverflows(Number minuend, Number subtrahend) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool subtractionOverflows(Arithmetic_ minuend, Arithmetic_ subtrahend) noexcept;
 ```
 
 &nbsp;

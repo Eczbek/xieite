@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:almostEqual\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:almostEqual\<\>\(\)
 Defined in header [<xieite/math/almost_equal.hpp>](../../../include/xieite/math/almost_equal.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if two values are almost equal.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr bool almostEqual(Number value1, Number value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool almostEqual(Arithmetic_ value1, Arithmetic_ value2) noexcept;
 ```
 
 &nbsp;

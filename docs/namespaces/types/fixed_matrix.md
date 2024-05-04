@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FixedMatrix
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FixedMatrix\<\>
 Defined in header [<xieite/types/fixed_matrix.hpp>](../../../include/xieite/types/fixed_matrix.hpp)
 
 &nbsp;
@@ -25,7 +25,7 @@ using FixedMatrix = /* ... */;
 
 int main() {
     std::println("{}", std::same_as<
-        xieite::types::FixedMatrix<std::array, int, 3, 2, 1>::Type,
+        xieite::types::FixedMatrix<std::array, int, 3, 2, 1>::Type_,
         std::array<std::array<std::array<int, 3>, 2>, 1>
     >);
 }

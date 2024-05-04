@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Function \{\}
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Function\<\> \{\}
 Defined in header [<xieite/functors/function.hpp>](../../../include/xieite/functors/function.hpp)
 
 &nbsp;
@@ -16,26 +16,26 @@ struct Function;
 ```
 #### 2)
 ```cpp
-template<typename Result, typename... Arguments>
-struct Function<Result(Arguments...)> {
+template<typename Return_, typename... Arguments_>
+struct Function<Return_(Arguments_...)> {
     constexpr Function() noexcept;
 
-    constexpr Function(const xieite::functors::Function<Result(Arguments...)>&) noexcept;
+    constexpr Function(const xieite::functors::Function<Return_(Arguments_...)>&) noexcept;
 
-    template<xieite::concepts::Functable<Result(Arguments...)> Functor>
-    requires(!std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Result(Arguments...)>>)
-    constexpr Function(Functor&&) noexcept;
+    template<xieite::concepts::Functable<Return_(Arguments_...)> Functor_>
+    requires(!std::same_as<std::remove_cvref_t<Functor_>, xieite::functors::Function<Return_(Arguments_...)>>)
+    constexpr Function(Functor_&&) noexcept;
 
     explicit constexpr operator bool() const noexcept;
 
-    template<typename... ArgumentReferences>
-    requires((... && std::convertible_to<ArgumentReferences, Arguments>))
-    constexpr Result operator()(ArgumentReferences&&...) const;
+    template<typename... ArgumentReferences_>
+    requires((... && std::convertible_to<ArgumentReferences_, Arguments_>))
+    constexpr Return_ operator()(ArgumentReferences_&&...) const;
 };
 ```
-- [Function\(\)](./structures/function/2/operators/constructor.md)
+- [Function\<\>\(\)](./structures/function/2/operators/constructor.md)
 - [operator typename\(\)](./structures/function/2/operators/cast.md)
-- [operator\(\)\(\)](./structures/function/2/operators/call.md)
+- [operator\(\)\<\>\(\)](./structures/function/2/operators/call.md)
 
 &nbsp;
 

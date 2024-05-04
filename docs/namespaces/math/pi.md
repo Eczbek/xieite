@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:pi
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:pi\<\>
 Defined in header [<xieite/math/pi.hpp>](../../../include/xieite/math/pi.hpp)
 
 &nbsp;
@@ -16,13 +16,13 @@ inline constexpr double pi = std::numbers::pi;
 ```
 #### 2)
 ```cpp
-template<std::floating_point Fractional>
-inline constexpr Fractional pi<Fractional> = std::numbers::pi_v<Fractional>;
+template<std::floating_point Fractional_>
+inline constexpr Fractional_ pi<Fractional_> = std::numbers::pi_v<Fractional_>;
 ```
 #### 3)
 ```cpp
-template<std::integral Integral>
-inline constexpr Integral pi<Integral> = static_cast<Integral>(std::numbers::pi);
+template<std::integral Integral_>
+inline constexpr Integral_ pi<Integral_> = static_cast<Integral_>(std::numbers::pi);
 ```
 
 &nbsp;

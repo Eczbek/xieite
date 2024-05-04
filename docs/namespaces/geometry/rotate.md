@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:rotate\(\)
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:rotate\<\>\(\)
 Defined in header [<xieite/geometry/rotate.hpp>](../../../include/xieite/geometry/rotate.hpp)
 
 &nbsp;
@@ -11,18 +11,18 @@ Rotates shapes a specific angle around any pivot, clockwise.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Number = double>
-[[nodiscard]] constexpr xieite::geometry::Point<Number> rotate(xieite::geometry::Point<Number> point, std::conditional_t<std::floating_point<Number>, Number, double> angle, xieite::geometry::Point<Number> pivot = xieite::geometry::Point<Number>()) noexcept;
+template<typename Arithmetic_ = double>
+[[nodiscard]] constexpr xieite::geometry::Point<Arithmetic_> rotate(xieite::geometry::Point<Arithmetic_> point, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> angle, xieite::geometry::Point<Arithmetic_> pivot = xieite::geometry::Point<Arithmetic_>()) noexcept;
 ```
 #### 2)
 ```cpp
-template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape>
-[[nodiscard]] constexpr LinearShape rotate(const LinearShape& linearShape, std::conditional_t<std::floating_point<Number>, Number, double> angle, xieite::geometry::Point<Number> pivot = xieite::geometry::Point<Number>()) noexcept;
+template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
+[[nodiscard]] constexpr LinearShape rotate(const LinearShape& linearShape, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> angle, xieite::geometry::Point<Arithmetic_> pivot = xieite::geometry::Point<Arithmetic_>()) noexcept;
 ```
 #### 3)
 ```cpp
-template<typename Number = double>
-[[nodiscard]] constexpr xieite::geometry::Polygon<Number> rotate(xieite::geometry::Polygon<Number> polygon, std::conditional_t<std::floating_point<Number>, Number, double> angle, xieite::geometry::Point<Number> pivot = xieite::geometry::Point<Number>()) noexcept;
+template<typename Arithmetic_ = double>
+[[nodiscard]] constexpr xieite::geometry::Polygon<Arithmetic_> rotate(xieite::geometry::Polygon<Arithmetic_> polygon, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> angle, xieite::geometry::Point<Arithmetic_> pivot = xieite::geometry::Point<Arithmetic_>()) noexcept;
 ```
 
 &nbsp;

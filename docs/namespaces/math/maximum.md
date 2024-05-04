@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:maximum\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:maximum\<\>\(\)
 Defined in header [<xieite/math/maximum.hpp>](../../../include/xieite/math/maximum.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Finds the maximum of several values.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic... Numbers>
-requires(sizeof...(Numbers) > 0)
-[[nodiscard]] constexpr std::common_type_t<Numbers...> maximum(Numbers... values) noexcept;
+template<xieite::concepts::Arithmetic... Arithmetics_>
+requires(sizeof...(Arithmetics_) > 0)
+[[nodiscard]] constexpr std::common_type_t<Arithmetics_...> maximum(Arithmetics_... values) noexcept;
 ```
 
 &nbsp;

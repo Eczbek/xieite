@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:occurrence\(\)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:occurrence\<\>\(\)
 Defined in header [<xieite/algorithms/occurrence.hpp>](../../../include/xieite/algorithms/occurrence.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Finds a specific occurrence of a functor accepting an item of a range and return
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>)> Functor>
-[[nodiscard]] constexpr std::ranges::const_iterator_t<Range> occurrence(Range& range, std::size_t count, Functor&& selector = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>);
+template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range_>)> Functor_>
+[[nodiscard]] constexpr std::ranges::const_iterator_t<Range_> occurrence(Range_& range, std::size_t count, Functor_&& selector = Functor_())
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>>);
 ```
 
 &nbsp;

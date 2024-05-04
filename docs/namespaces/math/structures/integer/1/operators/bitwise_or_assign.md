@@ -13,11 +13,6 @@ Assigns the bitwise OR result of this integer with another.
 ```cpp
 constexpr xieite::math::Integer<bits_, sign_>& operator|=(xieite::math::Integer<bits_, sign_> operand) noexcept;
 ```
-#### 2)
-```cpp
-template<std::integral Integral>
-constexpr xieite::math::Integer<bits_, sign_>& operator|=(Integral operand) noexcept;
-```
 
 &nbsp;
 

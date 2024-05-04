@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Timeout](../../../../timeout.md)\:\:Timeout\(\)
+# [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Timeout](../../../../timeout.md)\:\:Timeout\<\>\(\)
 Defined in header [<xieite/threads/timeout.hpp>](../../../../../../../include/xieite/threads/timeout.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Duration Duration>
-Timeout(const xieite::functors::Function<void()>& callback, Duration duration) noexcept;
+template<xieite::concepts::Duration Duration_>
+Timeout(const xieite::functors::Function<void()>& callback, Duration_ duration) noexcept;
 ```
 
 &nbsp;

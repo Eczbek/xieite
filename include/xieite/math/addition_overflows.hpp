@@ -6,9 +6,9 @@
 #	include "../math/is_negative.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr bool additionOverflows(const Number augend, const Number addend) noexcept {
-		return augend && addend && (xieite::math::isNegative(augend) ? ((std::numeric_limits<Number>::min() - augend) > addend) : ((std::numeric_limits<Number>::max() - augend) < addend));
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr bool additionOverflows(const Arithmetic_ augend, const Arithmetic_ addend) noexcept {
+		return augend && addend && (xieite::math::isNegative(augend) ? ((std::numeric_limits<Arithmetic_>::min() - augend) > addend) : ((std::numeric_limits<Arithmetic_>::max() - augend) < addend));
 	}
 }
 

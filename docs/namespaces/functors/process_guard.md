@@ -12,13 +12,13 @@ Executes a callback when the program ends.
 #### 1)
 ```cpp
 struct ProcessGuard {
-    template<xieite::concepts::Functable<void()> Functor, auto = [] {}>
-    ProcessGuard(Functor&&);
+    template<xieite::concepts::Functable<void()> Functor_, auto = [] {}>
+    ProcessGuard(Functor_&&) noexcept;
 
-    void release();
+    void release() noexcept;
 };
 ```
-- [ProcessGuard\(\)](./structures/process_guard/1/operators/constructor.md)
+- [ProcessGuard\<\>\(\)](./structures/process_guard/1/operators/constructor.md)
 - [release\(\)](./structures/process_guard/1/release.md)
 
 &nbsp;

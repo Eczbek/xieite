@@ -3,14 +3,14 @@
 
 namespace xieite::types {
 	struct Placeholder {
-		template<typename... Arguments>
-		constexpr Placeholder(Arguments&&...) noexcept {}
+		template<typename... Arguments_>
+		constexpr Placeholder(Arguments_&&...) noexcept {}
 
-		template<typename Type>
-		constexpr operator Type&() const & noexcept;
+		template<typename Type_>
+		operator Type_&() const & noexcept;
 
-		template<typename Type>
-		constexpr operator Type&&() const && noexcept;
+		template<typename Type_>
+		operator Type_&&() const && noexcept;
 	};
 }
 

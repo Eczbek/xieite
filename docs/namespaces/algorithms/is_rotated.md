@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isRotated\(\)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isRotated\<\>\(\)
 Defined in header [<xieite/algorithms/is_rotated.hpp>](../../../include/xieite/algorithms/is_rotated.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Checks whether one range contains elements in the same relative order as in anot
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range1, std::ranges::range Range2, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>)> Functor = std::ranges::equal_to>
-[[nodiscard]] constexpr bool isRotated(Range1&& range1, Range2&& range2, Functor&& comparator = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>>);
+template<std::ranges::range Range1_, std::ranges::range Range2_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range1_>, std::ranges::range_reference_t<Range2_>)> Functor_ = std::ranges::equal_to>
+[[nodiscard]] constexpr bool isRotated(Range1_&& range1, Range2_&& range2, Functor_&& comparator = Functor_())
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range1_>, std::ranges::range_reference_t<Range2_>>);
 ```
 
 &nbsp;

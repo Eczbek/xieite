@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Clock
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Clock\<\>
 Defined in header [<xieite/concepts/clock.hpp>](../../../include/xieite/concepts/clock.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type satisfied `std::chrono::is_clock_v`. To be deprecated once
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept Clock = std::chrono::is_clock_v<Type>;
+template<typename Type_>
+concept Clock = std::chrono::is_clock_v<Type_>;
 ```
 
 &nbsp;

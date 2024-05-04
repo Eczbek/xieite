@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:sizeBits
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:sizeBits\<\>
 Defined in header [<xieite/types/size_bits.hpp>](../../../include/xieite/types/size_bits.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Defines number of bits in a type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-inline constexpr std::size_t sizeBits = sizeof(Type) * xieite::system::byteBits;
+template<typename Type_>
+inline constexpr std::size_t sizeBits = sizeof(Type_) * xieite::system::byteBits;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral>
-inline constexpr std::size_t sizeBits<Integral> = std::numeric_limits<Integral>::digits + std::numeric_limits<Integral>::is_signed;
+template<std::integral Integral_>
+inline constexpr std::size_t sizeBits<Integral_> = std::numeric_limits<Integral_>::digits + std::numeric_limits<Integral_>::is_signed;
 ```
 
 &nbsp;

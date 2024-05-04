@@ -14,14 +14,14 @@
 #	include "../functors/static_cast.hpp"
 
 namespace xieite::containers {
-	template<typename Value, std::size_t size, xieite::concepts::RangeOf<Value> Range, xieite::concepts::Functable<Value(std::ranges::range_reference_t<Range>)> Functor = xieite::functors::StaticCast<Value>>
-	[[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>) {
-		return ([&range, &converter]<std::size_t... i>(std::index_sequence<i...>) {
-			return std::array<Value, size> {
-				std::invoke(converter, *std::ranges::next(std::ranges::begin(range), i, std::ranges::end(range)))...
+	template<typename Value_, std::size_t size_, xieite::concepts::RangeOf<Value_> Range_, xieite::concepts::Functable<Value_(std::ranges::range_reference_t<Range_>)> Functor_ = xieite::functors::StaticCast<Value_>>
+	[[nodiscard]] constexpr std::array<Value_, size_> makeArray(Range_&& range, Functor_&& converter = Functor_())
+	noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_const_reference_t<Range_>>) {
+		return ([&range, &converter]<std::size_t... i_>(std::index_sequence<i_...>) {
+			return std::array<Value_, size_> {
+				std::invoke(converter, *std::ranges::next(std::ranges::begin(range), i_, std::ranges::end(range)))...
 			};
-		})(std::make_index_sequence<size>());
+		})(std::make_index_sequence<size_>());
 	}
 }
 

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Number>](../../../../segment.md)\:\:operator typename
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Arithmetic_>](../../../../segment.md)\:\:operator typename\<\>\(\)
 Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Casts one segment type to another.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename OtherNumber>
-[[nodiscard]] constexpr operator xieite::geometry::Segment<OtherNumber>() const noexcept;
+template<typename OtherArithmetic_>
+[[nodiscard]] constexpr operator xieite::geometry::Segment<OtherArithmetic_>() const noexcept;
 ```
 
 &nbsp;

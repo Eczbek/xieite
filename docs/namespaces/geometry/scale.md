@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:scale\(\)
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:scale\<\>\(\)
 Defined in header [<xieite/geometry/scale.hpp>](../../../include/xieite/geometry/scale.hpp)
 
 &nbsp;
@@ -11,18 +11,18 @@ Scales a shape.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Number = double>
-[[nodiscard]] constexpr xieite::geometry::Point<Number> scale(xieite::geometry::Point<Number> point, std::conditional_t<std::floating_point<Number>, Number, double> scale, xieite::geometry::Point<Number> origin = xieite::geometry::Point<Number>()) noexcept;
+template<typename Arithmetic_ = double>
+[[nodiscard]] constexpr xieite::geometry::Point<Arithmetic_> scale(xieite::geometry::Point<Arithmetic_> point, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> scale, xieite::geometry::Point<Arithmetic_> origin = xieite::geometry::Point<Arithmetic_>()) noexcept;
 ```
 #### 2)
 ```cpp
-template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape>
-[[nodiscard]] constexpr LinearShape scale(const LinearShape& line, const std::conditional_t<std::floating_point<Number>, Number, double> scale, const xieite::geometry::Point<Number> origin = xieite::geometry::Point<Number>()) noexcept;
+template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
+[[nodiscard]] constexpr LinearShape scale(const LinearShape& line, const std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> scale, const xieite::geometry::Point<Arithmetic_> origin = xieite::geometry::Point<Arithmetic_>()) noexcept;
 ```
 #### 3)
 ```cpp
-template<typename Number = double>
-[[nodiscard]] constexpr xieite::geometry::Polygon<Number> scale(xieite::geometry::Polygon<Number> polygon, std::conditional_t<std::floating_point<Number>, Number, double> scale, const xieite::geometry::Point<Number> origin = xieite::geometry::Point<Number>()) noexcept;
+template<typename Arithmetic_ = double>
+[[nodiscard]] constexpr xieite::geometry::Polygon<Arithmetic_> scale(xieite::geometry::Polygon<Arithmetic_> polygon, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> scale, const xieite::geometry::Point<Arithmetic_> origin = xieite::geometry::Point<Arithmetic_>()) noexcept;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Number>](../../../../ray.md)\:\:operator typename
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Arithmetic_>](../../../../ray.md)\:\:operator typename\<\>\(\)
 Defined in header [<xieite/geometry/ray.hpp>](../../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Casts one ray type to another.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename OtherNumber>
-[[nodiscard]] constexpr operator xieite::geometry::Ray<OtherNumber>() const noexcept;
+template<typename OtherArithmetic_>
+[[nodiscard]] constexpr operator xieite::geometry::Ray<OtherArithmetic_>() const noexcept;
 ```
 
 &nbsp;

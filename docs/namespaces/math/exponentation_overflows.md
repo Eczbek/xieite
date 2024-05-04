@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:exponentationOverflows\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:exponentationOverflows\<\>\(\)
 Defined in header [<xieite/math/exponentation_overflows.hpp>](../../../include/xieite/math/exponentation_overflows.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if the power of a base to an exponent will overflow its type.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr bool exponentationOverflows(Number base, Number exponent) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool exponentationOverflows(Arithmetic_ base, Arithmetic_ exponent) noexcept;
 ```
 
 &nbsp;

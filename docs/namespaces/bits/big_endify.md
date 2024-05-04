@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:bigEndify\(\)
+# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:bigEndify\<\>\(\)
 Defined in header [<xieite/bits/big_endify.hpp>](../../../include/xieite/bits/big_endify.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Byte-swaps an integer if the system is little-endian.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr Integral bigEndify(Integral value) noexcept;
+template<std::integral Integral_>
+[[nodiscard]] constexpr Integral_ bigEndify(Integral_ value) noexcept;
 ```
 
 &nbsp;

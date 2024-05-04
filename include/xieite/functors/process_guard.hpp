@@ -8,8 +8,8 @@
 namespace xieite::functors {
 	struct ProcessGuard {
 	public:
-		template<xieite::concepts::Functable<void()> Functor, auto = [] {}>
-		ProcessGuard(Functor&& callback) noexcept {
+		template<xieite::concepts::Functable<void()> Functor_, auto = [] {}>
+		ProcessGuard(Functor_&& callback) noexcept {
 			struct Guard {
 				const xieite::functors::Function<void()> callback;
 				bool released = false;

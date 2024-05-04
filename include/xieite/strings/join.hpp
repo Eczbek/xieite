@@ -7,9 +7,9 @@
 #	include "../macros/forward.hpp"
 
 namespace xieite::strings {
-	template<std::ranges::range Range>
-	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr std::string join(Range&& range, const std::string_view delimiter = "", const std::string_view prefix = "", const std::string_view suffix = "") noexcept {
+	template<std::ranges::range Range_>
+	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range_>>)
+	[[nodiscard]] constexpr std::string join(Range_&& range, const std::string_view delimiter = "", const std::string_view prefix = "", const std::string_view suffix = "") noexcept {
 		auto iterator = std::ranges::begin(range);
 		const auto end = std::ranges::end(range);
 		if (iterator == end) {
@@ -22,39 +22,39 @@ namespace xieite::strings {
 		return std::string(prefix) + result + std::string(suffix);
 	}
 
-	template<std::ranges::range Range>
-	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr std::string join(Range&& range, const char delimiter, const std::string_view prefix = "", const std::string_view suffix = "") noexcept {
+	template<std::ranges::range Range_>
+	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range_>>)
+	[[nodiscard]] constexpr std::string join(Range_&& range, const char delimiter, const std::string_view prefix = "", const std::string_view suffix = "") noexcept {
 		return xieite::strings::join(XIEITE_FORWARD(range), std::string_view(&delimiter, 1), prefix, suffix);
 	}
 
-	template<std::ranges::range Range>
-	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr std::string join(Range&& range, const std::string_view delimiter, const char prefix, const std::string_view suffix = "") noexcept {
+	template<std::ranges::range Range_>
+	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range_>>)
+	[[nodiscard]] constexpr std::string join(Range_&& range, const std::string_view delimiter, const char prefix, const std::string_view suffix = "") noexcept {
 		return xieite::strings::join(XIEITE_FORWARD(range), delimiter, std::string_view(&prefix, 1), suffix);
 	}
 
-	template<std::ranges::range Range>
-	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr std::string join(Range&& range, const char delimiter, const char prefix, const std::string_view suffix = "") noexcept {
+	template<std::ranges::range Range_>
+	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range_>>)
+	[[nodiscard]] constexpr std::string join(Range_&& range, const char delimiter, const char prefix, const std::string_view suffix = "") noexcept {
 		return xieite::strings::join(XIEITE_FORWARD(range), std::string_view(&delimiter, 1), std::string_view(&prefix, 1), suffix);
 	}
 
-	template<std::ranges::range Range>
-	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr std::string join(Range&& range, const char delimiter, const std::string_view prefix = "", const char suffix) noexcept {
+	template<std::ranges::range Range_>
+	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range_>>)
+	[[nodiscard]] constexpr std::string join(Range_&& range, const char delimiter, const std::string_view prefix = "", const char suffix) noexcept {
 		return xieite::strings::join(XIEITE_FORWARD(range), std::string_view(&delimiter, 1), prefix, std::string_view(&suffix, 1));
 	}
 
-	template<std::ranges::range Range>
-	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr std::string join(Range&& range, const std::string_view delimiter, const char prefix, const char suffix noexcept {
+	template<std::ranges::range Range_>
+	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range_>>)
+	[[nodiscard]] constexpr std::string join(Range_&& range, const std::string_view delimiter, const char prefix, const char suffix) noexcept {
 		return xieite::strings::join(XIEITE_FORWARD(range), delimiter, std::string_view(&prefix, 1), std::string_view(&suffix, 1));
 	}
 
-	template<std::ranges::range Range>
-	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-	[[nodiscard]] constexpr std::string join(Range&& range, const char delimiter, const char prefix, const char suffix) noexcept {
+	template<std::ranges::range Range_>
+	requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range_>>)
+	[[nodiscard]] constexpr std::string join(Range_&& range, const char delimiter, const char prefix, const char suffix) noexcept {
 		return xieite::strings::join(XIEITE_FORWARD(range), std::string_view(&delimiter, 1), std::string_view(&prefix, 1), std::string_view(&suffix, 1));
 	}
 }

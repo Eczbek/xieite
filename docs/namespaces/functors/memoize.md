@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:memoize\(\)
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:memoize\<\>\(\)
 Defined in header [<xieite/functors/memoize.hpp>](../../../include/xieite/functors/memoize.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Memo-izes a function call and returns its output immediately on subsequent execu
 ## Synopsis
 #### 1)
 ```cpp
-template<typename... Arguments, std::invocable<Arguments...> Functor>
-std::invoke_result_t<Functor, Arguments...> memoize(Functor functor, const Arguments&... arguments)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, Arguments...>);
+template<typename... Arguments_, std::invocable<Arguments_...> Functor_>
+std::invoke_result_t<Functor_, Arguments_...> memoize(Functor_ functor, const Arguments_&... arguments)
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, Arguments_...>);
 ```
 
 &nbsp;

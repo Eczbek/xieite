@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon<Number>](../../../polygon.md)\:\:area
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon<Arithmetic_>](../../../polygon.md)\:\:area\(\)
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;

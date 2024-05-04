@@ -11,13 +11,13 @@ Casts a `xieite::math::Integer<bits_, sign_>` to another integer type.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral>
+template<std::integral Integral_>
 [[nodiscard]] constexpr operator Integral() const noexcept;
 ```
 #### 2)
 ```cpp
-template<std::size_t otherBits, bool otherSign>
-[[nodiscard]] constexpr operator xieite::math::Integer<otherBits, otherSign>() const noexcept;
+template<std::size_t otherBits_, bool otherSign_>
+[[nodiscard]] constexpr operator xieite::math::Integer<otherBits_, otherSign_>() const noexcept;
 ```
 
 &nbsp;

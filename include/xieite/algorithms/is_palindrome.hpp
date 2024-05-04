@@ -11,9 +11,9 @@
 #	include "../math/reverse.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
-	[[nodiscard]] constexpr bool isPalindrome(Range&& range, Functor&& comparator = Functor())
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>) {
+	template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range_>, std::ranges::range_reference_t<Range_>)> Functor_ = std::ranges::equal_to>
+	[[nodiscard]] constexpr bool isPalindrome(Range_&& range, Functor_&& comparator = Functor_())
+	noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>, std::ranges::range_reference_t<Range_>>) {
 		auto iterator = std::ranges::begin(range);
 		auto end = std::ranges::end(range);
 		for (std::size_t i = std::ranges::size(range) / 2; i--;) {
@@ -26,8 +26,8 @@ namespace xieite::algorithms {
 		return true;
 	}
 
-	template<std::integral Integral>
-	[[nodiscard]] constexpr bool isPalindrome(const Integral value, const Integral radix = 10) noexcept {
+	template<std::integral Integral_>
+	[[nodiscard]] constexpr bool isPalindrome(const Integral_ value, const Integral_ radix = 10) noexcept {
 		return value == xieite::math::reverse(value, radix);
 	}
 }

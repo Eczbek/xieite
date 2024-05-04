@@ -11,8 +11,8 @@ A type alias to a uniform distribution for an integer, boolean, or floating poin
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-using UniformDistribution = std::conditional_t<std::integral<Number>, std::conditional_t<std::same_as<Number, bool>, std::bernoulli_distribution, std::uniform_int_distribution<Number>>, std::uniform_real_distribution<Number>>;
+template<xieite::concepts::Arithmetic Arithmetic_>
+using UniformDistribution = std::conditional_t<std::integral<Arithmetic_>, std::conditional_t<std::same_as<Arithmetic_, bool>, std::bernoulli_distribution, std::uniform_int_distribution<Arithmetic_>>, std::uniform_real_distribution<Arithmetic_>>;
 ```
 
 &nbsp;

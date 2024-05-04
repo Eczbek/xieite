@@ -1,17 +1,17 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Overloader<Derivables...>](../../../../overloader.md)\:\:operator\(\)\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Overloader<Derivables_...>](../../../../overloader.md)\:\:operator\(\)\(\)
 Defined in header [<xieite/functors/overloader.hpp>](../../../../../../../include/xieite/functors/overloader.hpp)
 
 &nbsp;
 
 ## Description
-Calls one of the `Derivables` the class is derived from.
+Calls one of the `Derivables_` the class is derived from.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-using Derivables::operator()...;
+using Derivables_::operator()...;
 ```
 
 &nbsp;

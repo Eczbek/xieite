@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isPrime\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isPrime\<\>\(\)
 Defined in header [<xieite/math/is_prime.hpp>](../../../include/xieite/math/is_prime.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks whether an integer is only evenly divisible by itself and 1.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr bool isPrime(Integral value) noexcept;
+template<std::integral Integral_>
+[[nodiscard]] constexpr bool isPrime(Integral_ value) noexcept;
 ```
 
 &nbsp;

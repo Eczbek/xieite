@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideCeiling\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideCeiling\<\>\(\)
 Defined in header [<xieite/math/divide_ceiling.hpp>](../../../include/xieite/math/divide_ceiling.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Computes the ceiling value of a division.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr Integral divideCeiling(Integral dividend, Integral divisor) noexcept;
+template<std::integral Integral_>
+[[nodiscard]] constexpr Integral_ divideCeiling(Integral_ dividend, Integral_ divisor) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::floating_point Fractional>
-[[nodiscard]] constexpr Fractional divideCeiling(Fractional dividend, Fractional divisor) noexcept;
+template<std::floating_point Fractional_>
+[[nodiscard]] constexpr Fractional_ divideCeiling(Fractional_ dividend, Fractional_ divisor) noexcept;
 ```
 
 &nbsp;

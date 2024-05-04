@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isBetweenMagnitude\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isBetweenMagnitude\<\>\(\)
 Defined in header [<xieite/math/is_between_magnitude.hpp>](../../../include/xieite/math/is_between_magnitude.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks whether a number is between two limits, where the limits approaching zero
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr bool isBetweenMagnitude(Number value, Number limit1, Number limit2, bool downInclusive = true, bool upInclusive = true) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool isBetweenMagnitude(Arithmetic_ value, Arithmetic_ limit1, Arithmetic_ limit2, bool downInclusive = true, bool upInclusive = true) noexcept;
 ```
 
 &nbsp;

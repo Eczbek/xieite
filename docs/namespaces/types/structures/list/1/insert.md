@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Insert
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:Insert\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Inserts values.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t index, typename... OtherTypes>
-using Insert = List<Types...>::Slice<0, index>::template Append<OtherTypes...>::template AppendRange<List<Types...>::Slice<index>>;
+template<std::size_t index_, typename... OtherTypes_>
+using Insert = /* xieite::types::List<...> */;
 ```
 
 &nbsp;

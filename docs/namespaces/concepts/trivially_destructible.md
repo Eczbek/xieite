@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:TriviallyDestructible
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:TriviallyDestructible\<\>
 Defined in header [<xieite/concepts/trivially_destructible.hpp>](../../../include/xieite/concepts/trivially_destructible.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is trivially destructible.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept TriviallyDestructible = std::is_trivially_destructible_v<Type>;
+template<typename Type_>
+concept TriviallyDestructible = std::is_trivially_destructible_v<Type_>;
 ```
 
 &nbsp;

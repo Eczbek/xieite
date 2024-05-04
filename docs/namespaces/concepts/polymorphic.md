@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Polymorphic
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Polymorphic\<\>
 Defined in header [<xieite/concepts/polymorphic.hpp>](../../../include/xieite/concepts/polymorphic.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is polymorphic. Can be used for checking if a type has a v
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept Polymorphic = std::is_polymorphic_v<Type>;
+template<typename Type_>
+concept Polymorphic = std::is_polymorphic_v<Type_>;
 ```
 
 &nbsp;

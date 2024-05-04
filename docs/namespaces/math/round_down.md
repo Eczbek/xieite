@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:roundDown\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:roundDown\<\>\(\)
 Defined in header [<xieite/math/round_down.hpp>](../../../include/xieite/math/round_down.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Rounds a value to the nearest multiple of a step toward zero.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number roundDown(Number value, Number step = 1) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_ roundDown(Arithmetic_ value, Arithmetic_ step = 1) noexcept;
 ```
 
 &nbsp;

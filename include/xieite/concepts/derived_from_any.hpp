@@ -4,8 +4,8 @@
 #	include <concepts>
 
 namespace xieite::concepts {
-	template<typename Derived, typename... Bases>
-	concept DerivedFromAny = (... || std::derived_from<Derived, Bases>);
+	template<typename Derived_, typename... Bases_>
+	concept DerivedFromAny = (... || std::derived_from<Derived_, Bases_>);
 }
 
 #endif

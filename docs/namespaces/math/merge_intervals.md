@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:mergeIntervals\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:mergeIntervals\<\>\(\)
 Defined in header [<xieite/math/merge_intervals.hpp>](../../../include/xieite/math/merge_intervals.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Merges intervals if they overlap.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number, xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
-[[nodiscard]] constexpr std::vector<xieite::math::Interval<Number>> mergeIntervals(IntervalRange&& intervals) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic_>> IntervalRange_>
+[[nodiscard]] constexpr std::vector<xieite::math::Interval<Arithmetic_>> mergeIntervals(IntervalRange_&& intervals) noexcept;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:difference\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:difference\<\>\(\)
 Defined in header [<xieite/math/difference.hpp>](../../../include/xieite/math/difference.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Computes the absolute difference between two values. Handles some edge cases.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr xieite::types::TryUnsigned<Number> difference(Number value1, Number value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr xieite::types::TryUnsigned<Arithmetic_> difference(Arithmetic_ value1, Arithmetic_ value2) noexcept;
 ```
 
 &nbsp;

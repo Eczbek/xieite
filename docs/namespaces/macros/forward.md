@@ -11,7 +11,7 @@ A general utility for forwarding values.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_FORWARD(...) ::std::forward<decltype(__VA_ARGS__)>(__VA_ARGS__)
+#define XIEITE_FORWARD(...) static_cast<decltype(__VA_ARGS__)&&>(__VA_ARGS__)
 ```
 
 &nbsp;
@@ -22,13 +22,13 @@ A general utility for forwarding values.
 #include "xieite/macros/forward.hpp"
 #include "xieite/types/name.hpp"
 
-template<typename Type>
-void foo(Type&&) {
-    std::println("{}", xieite::types::name<Type>);
+template<typename T>
+void foo(T&&) {
+    std::println("{}", xieite::types::name<T>);
 }
 
-template<typename Type>
-void bar(Type&& value) {
+template<typename T>
+void bar(T&& value) {
     foo(XIEITE_FORWARD(value));
 }
 

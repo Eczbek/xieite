@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:sign\(\)
-Defined in header [<xieite/math/sign.hpp>](../../../include/xieite/math/sign.hpp)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:productSign\<\>\(\)
+Defined in header [<xieite/math/product_sign.hpp>](../../../include/xieite/math/product_sign.hpp)
 
 &nbsp;
 
@@ -11,8 +11,8 @@ Gets the sign of the product of multiple numbers.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic... Numbers>
-[[nodiscard]] constexpr int productSign(Numbers... values) noexcept;
+template<xieite::concepts::Arithmetic... Arithmetics_>
+[[nodiscard]] constexpr int productSign(Arithmetics_... values) noexcept;
 ```
 
 &nbsp;

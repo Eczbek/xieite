@@ -5,9 +5,9 @@
 #	include "../concepts/none.hpp"
 
 namespace xieite::traits {
-	template<typename Type, template<typename> typename... Traits>
+	template<typename Type_, template<typename> typename... Traits_>
 	struct IsNone
-	: std::bool_constant<xieite::concepts::None<Type, Traits...>> {};
+	: std::bool_constant<xieite::concepts::None<Type_, Traits_...>> {};
 }
 
 #endif

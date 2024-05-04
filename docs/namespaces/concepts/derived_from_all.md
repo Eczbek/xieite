@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:DerivedFromAll
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:DerivedFromAll\<\>
 Defined in header [<xieite/concepts/derived_from_all.hpp>](../../../include/xieite/concepts/derived_from_all.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is derived from several other types. Passing no target typ
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Derived, typename... Bases>
-concept DerivedFromAll = (... && std::derived_from<Derived, Bases>);
+template<typename Derived_, typename... Bases_>
+concept DerivedFromAll = (... && std::derived_from<Derived_, Bases_>);
 ```
 
 &nbsp;

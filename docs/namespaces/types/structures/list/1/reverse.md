@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Reverse
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:Reverse
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Reverses the stored list of types.
 ## Synopsis
 #### 1)
 ```cpp
-using Reverse = /* ... */;
+using Reverse = /* xieite::types::List<...> */;
 ```
 
 &nbsp;

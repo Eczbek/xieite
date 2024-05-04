@@ -8,8 +8,8 @@
 #	include "../math/is_negative.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr Number roundDown(const Number value, const Number step = 1) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr Arithmetic_ roundDown(const Arithmetic_ value, const Arithmetic_ step = 1) noexcept {
 		return xieite::math::isNegative(value) ? xieite::math::ceiling(value, step) : xieite::math::floor(value, step);
 	}
 }

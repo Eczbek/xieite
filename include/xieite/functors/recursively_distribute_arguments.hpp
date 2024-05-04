@@ -11,17 +11,17 @@
 #	include "../macros/forward.hpp"
 
 namespace xieite::functors {
-	template<std::size_t argumentCount, std::size_t previousResultIndex = 0, xieite::concepts::InvocableWithArgumentCount<argumentCount> Functor, typename... Arguments>
-	requires((argumentCount > previousResultIndex) && (argumentCount <= sizeof...(Arguments)) && ((argumentCount == 1) || (argumentCount > 1) && !((sizeof...(Arguments) - 1) % (argumentCount - 1))))
-	constexpr decltype(auto) recursivelyDistributeArguments(Functor&& functor, Arguments&&... arguments)
-	noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor, argumentCount>) {
-		if constexpr (sizeof...(Arguments) == argumentCount) {
+	template<std::size_t argumentCount_, std::size_t previousResultIndex_ = 0, xieite::concepts::InvocableWithArgumentCount<argumentCount_> Functor_, typename... Arguments_>
+	requires((argumentCount_ > previousResultIndex_) && (argumentCount_ <= sizeof...(Arguments_)) && ((argumentCount_ == 1) || (argumentCount_ > 1) && !((sizeof...(Arguments_) - 1) % (argumentCount_ - 1))))
+	constexpr decltype(auto) recursivelyDistributeArguments(Functor_&& functor, Arguments_&&... arguments)
+	noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor_, argumentCount_>) {
+		if constexpr (sizeof...(Arguments_) == argumentCount_) {
 			return std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...);
 		} else {
-			const std::tuple<Arguments&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
-			return ([&functor, resultsTuple = xieite::containers::spliceTuple<previousResultIndex + argumentCount>(argumentsTuple, std::forward_as_tuple(std::apply(functor, xieite::containers::spliceTuple<argumentCount, sizeof...(Arguments) - argumentCount>(argumentsTuple))))]<std::size_t... i>(std::index_sequence<i...>) -> decltype(auto) {
-				return xieite::functors::recursivelyDistributeArguments<argumentCount, previousResultIndex>(XIEITE_FORWARD(functor), std::get<i + argumentCount>(std::move(resultsTuple))...);
-			})(std::make_index_sequence<sizeof...(Arguments) - argumentCount + 1>());
+			const std::tuple<Arguments_&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
+			return ([&functor, resultsTuple = xieite::containers::spliceTuple<previousResultIndex_ + argumentCount_>(argumentsTuple, std::forward_as_tuple(std::apply(functor, xieite::containers::spliceTuple<argumentCount_, sizeof...(Arguments_) - argumentCount_>(argumentsTuple))))]<std::size_t... i_>(std::index_sequence<i_...>) -> decltype(auto) {
+				return xieite::functors::recursivelyDistributeArguments<argumentCount_, previousResultIndex_>(XIEITE_FORWARD(functor), std::get<i_ + argumentCount_>(std::move(resultsTuple))...);
+			})(std::make_index_sequence<sizeof...(Arguments_) - argumentCount_ + 1>());
 		}
 	}
 }

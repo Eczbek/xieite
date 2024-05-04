@@ -10,20 +10,20 @@
 #	include "../macros/forward.hpp"
 
 namespace xieite::functors {
-	template<std::size_t argumentCount, xieite::concepts::InvocableWithArgumentCount<argumentCount> Functor, typename... Arguments>
-	requires((argumentCount > 0) && !(sizeof...(Arguments) % argumentCount))
-	constexpr void distributeArguments(Functor&& functor, Arguments&&... arguments)
-	noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor, argumentCount>) {
-		if constexpr (sizeof...(Arguments) == argumentCount) {
+	template<std::size_t argumentCount_, xieite::concepts::InvocableWithArgumentCount<argumentCount_> Functor_, typename... Arguments_>
+	requires((argumentCount_ > 0) && !(sizeof...(Arguments_) % argumentCount_))
+	constexpr void distributeArguments(Functor_&& functor, Arguments_&&... arguments)
+	noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor_, argumentCount_>) {
+		if constexpr (sizeof...(Arguments_) == argumentCount_) {
 			static_cast<void>(std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...));
 		} else {
-			const std::tuple<Arguments&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
-			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) {
-				static_cast<void>(std::invoke(functor, std::get<i>(std::move(argumentsTuple))...));
-			})(std::make_index_sequence<argumentCount>());
-			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) {
-				xieite::functors::distributeArguments<argumentCount>(XIEITE_FORWARD(functor), std::get<i + argumentCount>(std::move(argumentsTuple))...);
-			})(std::make_index_sequence<sizeof...(Arguments) - argumentCount>());
+			const std::tuple<Arguments_&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
+			([&functor, &argumentsTuple]<std::size_t... i_>(std::index_sequence<i_...>) {
+				static_cast<void>(std::invoke(functor, std::get<i_>(std::move(argumentsTuple))...));
+			})(std::make_index_sequence<argumentCount_>());
+			([&functor, &argumentsTuple]<std::size_t... i_>(std::index_sequence<i_...>) {
+				xieite::functors::distributeArguments<argumentCount_>(XIEITE_FORWARD(functor), std::get<i_ + argumentCount_>(std::move(argumentsTuple))...);
+			})(std::make_index_sequence<sizeof...(Arguments_) - argumentCount_>());
 		}
 	}
 }

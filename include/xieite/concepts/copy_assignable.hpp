@@ -4,8 +4,8 @@
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept CopyAssignable = std::is_copy_assignable_v<Type>;
+	template<typename Type_>
+	concept CopyAssignable = std::is_copy_assignable_v<Type_>;
 }
 
 #endif

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleSet<Container, std::tuple<Key>>](../../../../tuple_set.md)\:\:operator\[\]\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleSet<Container_, std::tuple<Key_>>](../../../../tuple_set.md)\:\:operator\[\]\(\)
 Defined in header [<xieite/containers/tuple_set.hpp>](../../../../../../../include/xieite/containers/tuple_set.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if the set contains a tuple.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<std::tuple<Key>> KeyReference>
-[[nodiscard]] constexpr bool operator[](KeyReference&& key) const;
+template<std::convertible_to<std::tuple<Key_>> KeyReference_>
+[[nodiscard]] constexpr bool operator[](KeyReference_&& key) const;
 ```
 
 &nbsp;

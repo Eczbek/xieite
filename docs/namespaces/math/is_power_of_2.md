@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isPowerOf2\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isPowerOf2\<\>\(\)
 Defined in header [<xieite/math/is_power_of_2.hpp>](../../../include/xieite/math/is_power_of_2.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks that a value is a power of 2.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral UnsignedIntegral>
-[[nodiscard]] constexpr bool isPowerOf2(UnsignedIntegral value) noexcept;
+template<std::unsigned_integral UnsignedIntegral_>
+[[nodiscard]] constexpr bool isPowerOf2(UnsignedIntegral_ value) noexcept;
 ```
 
 &nbsp;

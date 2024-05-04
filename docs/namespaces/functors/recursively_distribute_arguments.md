@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:recursivelyDistributeArguments\(\)
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:recursivelyDistributeArguments\<\>\(\)
 Defined in header [<xieite/functors/recursively_distribute_arguments.hpp>](../../../include/xieite/functors/recursively_distribute_arguments.hpp)
 
 &nbsp;
@@ -11,10 +11,10 @@ Distributes arguments among several calls to a functor, but recursively such tha
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t argumentCount, std::size_t previousResultIndex = 0, xieite::concepts::InvocableWithArgumentCount<argumentCount> Functor, typename... Arguments>
-requires((argumentCount > previousResultIndex) && (argumentCount <= sizeof...(Arguments)) && ((argumentCount == 1) || (argumentCount > 1) && !((sizeof...(Arguments) - 1) % (argumentCount - 1))))
-constexpr decltype(auto) recursivelyDistributeArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor, argumentCount>);
+template<std::size_t argumentCount_, std::size_t previousResultIndex_ = 0, xieite::concepts::InvocableWithArgumentCount<argumentCount_> Functor_, typename... Arguments_>
+requires((argumentCount_ > previousResultIndex_) && (argumentCount_ <= sizeof...(Arguments_)) && ((argumentCount_ == 1) || (argumentCount_ > 1) && !((sizeof...(Arguments_) - 1) % (argumentCount_ - 1))))
+constexpr decltype(auto) recursivelyDistributeArguments(Functor_&& functor, Arguments_&&... arguments)
+noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor_, argumentCount_>);
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:intersections\(\)
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:intersections\<\>\(\)
 Defined in header [<xieite/geometry/intersections.hpp>](../../../include/xieite/geometry/intersections.hpp)
 
 &nbsp;
@@ -11,48 +11,48 @@ Computes all intersections between two geometrical elements.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Number = double>
-[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(xieite::geometry::Point<Number>, xieite::geometry::Point<Number>) noexcept;
+template<typename Arithmetic_ = double>
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic_>> intersections(xieite::geometry::Point<Arithmetic_>, xieite::geometry::Point<Arithmetic_>) noexcept;
 ```
 #### 2)
 ```cpp
-template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape>
-[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(xieite::geometry::Point<Number>, const LinearShape&) noexcept;
+template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic_>> intersections(xieite::geometry::Point<Arithmetic_>, const LinearShape&) noexcept;
 ```
 #### 3)
 ```cpp
-template<typename Number = double>
-[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(xieite::geometry::Point<Number>, const xieite::geometry::Polygon<Number>&) noexcept;
+template<typename Arithmetic_ = double>
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic_>> intersections(xieite::geometry::Point<Arithmetic_>, const xieite::geometry::Polygon<Arithmetic_>&) noexcept;
 ```
 #### 4)
 ```cpp
-template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape>
-[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(const LinearShape&, xieite::geometry::Point<Number>) noexcept;
+template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic_>> intersections(const LinearShape&, xieite::geometry::Point<Arithmetic_>) noexcept;
 ```
 #### 5)
 ```cpp
-template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape1, xieite::concepts::LinearShape<Number> LinearShape2>
-[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(const LinearShape1&, const LinearShape2&) noexcept;
+template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape1, xieite::concepts::LinearShape<Arithmetic_> LinearShape2>
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic_>> intersections(const LinearShape1&, const LinearShape2&) noexcept;
 ```
 #### 6)
 ```cpp
-template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape>
-[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(const LinearShape&, const xieite::geometry::Polygon<Number>&) noexcept;
+template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic_>> intersections(const LinearShape&, const xieite::geometry::Polygon<Arithmetic_>&) noexcept;
 ```
 #### 7)
 ```cpp
-template<typename Number = double>
-[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(const xieite::geometry::Polygon<Number>&, xieite::geometry::Point<Number>) noexcept;
+template<typename Arithmetic_ = double>
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic_>> intersections(const xieite::geometry::Polygon<Arithmetic_>&, xieite::geometry::Point<Arithmetic_>) noexcept;
 ```
 #### 8)
 ```cpp
-template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape>
-[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(const xieite::geometry::Polygon<Number>&, const LinearShape&) noexcept;
+template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic_>> intersections(const xieite::geometry::Polygon<Arithmetic_>&, const LinearShape&) noexcept;
 ```
 #### 9)
 ```cpp
-template<typename Number = double>
-[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Number>> intersections(const xieite::geometry::Polygon<Number>&, const xieite::geometry::Polygon<Number>&) noexcept;
+template<typename Arithmetic_ = double>
+[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic_>> intersections(const xieite::geometry::Polygon<Arithmetic_>&, const xieite::geometry::Polygon<Arithmetic_>&) noexcept;
 ```
 
 &nbsp;

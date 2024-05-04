@@ -8,8 +8,8 @@
 namespace xieite::functors {
 	struct ScopeGuard {
 	public:
-		template<xieite::concepts::Functable<void()> Functor>
-		constexpr ScopeGuard(Functor&& callback) noexcept
+		template<xieite::concepts::Functable<void()> Functor_>
+		constexpr ScopeGuard(Functor_&& callback) noexcept
 		: callback(XIEITE_FORWARD(callback)) {}
 
 		constexpr ~ScopeGuard() {

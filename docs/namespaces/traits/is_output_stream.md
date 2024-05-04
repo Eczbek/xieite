@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsOutputStream \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsOutputStream\<\> \{\}
 Defined in header [<xieite/traits/is_output_stream.hpp>](../../../include/xieite/traits/is_output_stream.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_output_stream.hpp>](../../../include/xieite
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsOutputStream
-: std::bool_constant<xieite::concepts::OutputStream<Type>> {};
+: std::bool_constant<xieite::concepts::OutputStream<Type_>> {};
 ```
 
 &nbsp;

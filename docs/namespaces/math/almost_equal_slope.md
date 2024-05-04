@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:almostEqualSlope\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:almostEqualSlope\<\>\(\)
 Defined in header [<xieite/math/almost_equal_slope.hpp>](../../../include/xieite/math/almost_equal_slope.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks whether two slopes are almost equal or are both infinite.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr bool almostEqualSlope(Number value1, Number value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool almostEqualSlope(Arithmetic_ value1, Arithmetic_ value2) noexcept;
 ```
 
 &nbsp;

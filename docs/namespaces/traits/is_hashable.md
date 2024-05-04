@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsHashable \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsHashable\<\> \{\}
 Defined in header [<xieite/traits/is_hashable.hpp>](../../../include/xieite/traits/is_hashable.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_hashable.hpp>](../../../include/xieite/trai
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsHashable
-: std::bool_constant<xieite::concepts::Hashable<Type>> {};
+: std::bool_constant<xieite::concepts::Hashable<Type_>> {};
 ```
 
 &nbsp;

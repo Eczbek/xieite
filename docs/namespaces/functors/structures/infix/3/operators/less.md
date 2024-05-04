@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix<Result(LeftArgument, RightArgument)>](../../../../infix.md)\:\:operator<\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix<Return_(LeftArgument_, RightArgument_)>](../../../../infix.md)\:\:operator<\(\)
 Defined in header [<xieite/functors/infix.hpp>](../../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Returns an intermediate state which must be used immediately.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<LeftArgument> LeftArgumentReference>
-[[nodiscard]] friend constexpr xieite::functors::Infix<Result(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference> operator<(LeftArgumentReference&& leftArgument, const xieite::functors::Infix<Result(LeftArgument, RightArgument)>& infix) noexcept;
+template<std::convertible_to<LeftArgument_> LeftArgumentReference_>
+[[nodiscard]] friend constexpr xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>::Intermediate<LeftArgumentReference_> operator<(LeftArgumentReference_&& leftArgument, const xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>& infix) noexcept;
 ```
 
 &nbsp;

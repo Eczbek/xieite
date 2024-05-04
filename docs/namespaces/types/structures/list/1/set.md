@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:FixedSet
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:Set\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Sets a type by index.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t index, typename OtherType>
-using Set = List<Types...>::Erase<index>::template Insert<index, OtherType>;
+template<std::size_t index_, typename OtherType_>
+using Set = /* xieite::types::List<...> */;
 ```
 
 &nbsp;
@@ -24,7 +24,7 @@ using Set = List<Types...>::Erase<index>::template Insert<index, OtherType>;
 #include "xieite/types/name.hpp"
 
 int main() {
-    using List = xieite::types::List<int, char, short, long>::FixedSet<2, float>;
+    using List = xieite::types::List<int, char, short, long>::Set<2, float>;
 
     std::println("{}", xieite::types::name<List>);
 }

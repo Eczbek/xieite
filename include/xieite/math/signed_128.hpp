@@ -4,7 +4,7 @@
 #	include "../macros/compiler.hpp"
 
 #	if XIEITE_COMPILER_TYPE_MSVC
-#		include <__msvc_int128.hpp> // Internal header, no documentation
+#		include <__msvc_int128.hpp> // Internal header
 #	elif !XIEITE_COMPILER_TYPE_GCC && !XIEITE_COMPILER_TYPE_CLANG
 #		error "Compiler not supported"
 #	endif

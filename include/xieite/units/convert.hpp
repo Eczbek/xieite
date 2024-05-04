@@ -11,28 +11,28 @@
 #	include "../units/volume.hpp"
 
 namespace xieite::units {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr std::common_type_t<double, Number> convert(const Number value, const xieite::units::Angle source, const xieite::units::Angle target) noexcept {
-		std::common_type_t<double, Number> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Angle source, const xieite::units::Angle target) noexcept {
+		std::common_type_t<double, Arithmetic_> result = value;
 		if (source == target) {
 			return result;
 		}
 		switch (source) {
 		case xieite::units::Angle::Degree:
-			result = result * xieite::math::pi<std::common_type_t<double, Number>> / 180;
+			result = result * xieite::math::pi<std::common_type_t<double, Arithmetic_>> / 180;
 			break;
 		}
 		switch (target) {
 		case xieite::units::Angle::Degree:
-			result = result * 180 / xieite::math::pi<std::common_type_t<double, Number>>;
+			result = result * 180 / xieite::math::pi<std::common_type_t<double, Arithmetic_>>;
 			break;
 		}
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr std::common_type_t<double, Number> convert(const Number value, const xieite::units::Area source, const xieite::units::Area target) noexcept {
-		std::common_type_t<double, Number> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Area source, const xieite::units::Area target) noexcept {
+		std::common_type_t<double, Arithmetic_> result = value;
 		if (source == target) {
 			return result;
 		}
@@ -241,9 +241,9 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr std::common_type_t<double, Number> convert(const Number value, const xieite::units::Length source, const xieite::units::Length target) noexcept {
-		std::common_type_t<double, Number> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Length source, const xieite::units::Length target) noexcept {
+		std::common_type_t<double, Arithmetic_> result = value;
 		if (source == target) {
 			return result;
 		}
@@ -500,9 +500,9 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr std::common_type_t<double, Number> convert(const Number value, const xieite::units::Temperature source, const xieite::units::Temperature target) noexcept {
-		std::common_type_t<double, Number> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Temperature source, const xieite::units::Temperature target) noexcept {
+		std::common_type_t<double, Arithmetic_> result = value;
 		if (source == target) {
 			return result;
 		}
@@ -531,9 +531,9 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr std::common_type_t<double, Number> convert(const Number value, const xieite::units::Volume source, const xieite::units::Volume target) noexcept {
-		std::common_type_t<double, Number> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Volume source, const xieite::units::Volume target) noexcept {
+		std::common_type_t<double, Arithmetic_> result = value;
 		if (source == target) {
 			return result;
 		}

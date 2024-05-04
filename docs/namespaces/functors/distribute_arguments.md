@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:distributeArguments\(\)
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:distributeArguments\<\>\(\)
 Defined in header [<xieite/functors/distribute_arguments.hpp>](../../../include/xieite/functors/distribute_arguments.hpp)
 
 &nbsp;
@@ -11,10 +11,10 @@ Distributes arguments among several calls to a functor.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t argumentCount, xieite::concepts::InvocableWithArgumentCount<argumentCount> Functor, typename... Arguments>
-requires((argumentCount > 0) && !(sizeof...(Arguments) % argumentCount))
-constexpr void distributeArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor, argumentCount>);
+template<std::size_t argumentCount_, xieite::concepts::InvocableWithArgumentCount<argumentCount_> Functor_, typename... Arguments_>
+requires((argumentCount_ > 0) && !(sizeof...(Arguments_) % argumentCount_))
+constexpr void distributeArguments(Functor_&& functor, Arguments_&&... arguments)
+noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor_, argumentCount_>);
 ```
 
 &nbsp;

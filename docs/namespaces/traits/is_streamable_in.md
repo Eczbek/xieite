@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsStreamableIn \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsStreamableIn\<\> \{\}
 Defined in header [<xieite/traits/is_streamable_in.hpp>](../../../include/xieite/traits/is_streamable_in.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_streamable_in.hpp>](../../../include/xieite
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsStreamableIn
-: std::bool_constant<xieite::concepts::StreamableIn<Type>> {};
+: std::bool_constant<xieite::concepts::StreamableIn<Type_>> {};
 ```
 
 &nbsp;

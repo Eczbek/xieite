@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Number>](../../../../ray.md)\:\:operator==\(\)
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Arithmetic_>](../../../../ray.md)\:\:operator==\(\)
 Defined in header [<xieite/geometry/ray.hpp>](../../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Compares two rays.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Ray<Number>& ray1, const xieite::geometry::Ray<Number>& ray2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Ray<Arithmetic_>& ray1, const xieite::geometry::Ray<Arithmetic_>& ray2) noexcept;
 ```
 
 &nbsp;

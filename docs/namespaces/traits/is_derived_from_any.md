@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivedFromAny \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivedFromAny\<\> \{\}
 Defined in header [<xieite/traits/is_derived_from_any.hpp>](../../../include/xieite/traits/is_derived_from_any.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_derived_from_any.hpp>](../../../include/xie
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Derived, typename... Bases>
+template<typename Derived_, typename... Bases_>
 struct IsDerivedFromAny
-: std::bool_constant<xieite::concepts::DerivedFromAny<Derived, Bases...>> {};
+: std::bool_constant<xieite::concepts::DerivedFromAny<Derived_, Bases_...>> {};
 ```
 
 &nbsp;

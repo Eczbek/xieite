@@ -16,13 +16,13 @@ namespace xieite::math {
 }
 
 namespace xieite::strings {
-	template<typename Number>
-	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr bool isNumber(const std::string_view value, const std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
+	template<typename Number_>
+	requires(xieite::concepts::Arithmetic<Number_> || xieite::concepts::SpecializationOf<Number_, xieite::math::BigInteger>)
+	[[nodiscard]] constexpr bool isNumber(const std::string_view value, const std::conditional_t<std::floating_point<Number_>, xieite::math::SignedSize, Number_> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
 		std::size_t i = components.positives.contains(value[0]) || components.negatives.contains(value[0]);
 		const std::size_t valueSize = value.size();
 		const std::string_view digits = components.digits.substr(0, xieite::math::absolute(radix));
-		if constexpr (std::floating_point<Number>) {
+		if constexpr (std::floating_point<Number_>) {
 			bool point = false;
 			for (; i < valueSize; ++i) {
 				if (digits.contains(value[i])) {

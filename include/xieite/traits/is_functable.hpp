@@ -10,10 +10,10 @@ namespace xieite::traits {
 	struct IsFunctable
 	: std::false_type {};
 
-	template<typename Functor, typename Result, typename... Arguments>
-	struct IsFunctable<Functor, Result(Arguments...)>
-	: std::bool_constant<requires(Functor functor, Arguments... arguments) {
-		{ std::invoke(functor, arguments...) } -> std::convertible_to<Result>;
+	template<typename Functor_, typename Return_, typename... Arguments_>
+	struct IsFunctable<Functor_, Return_(Arguments_...)>
+	: std::bool_constant<requires(Functor_ functor, Arguments_... arguments) {
+		{ std::invoke(functor, arguments...) } -> std::convertible_to<Return_>;
 	}> {};
 }
 

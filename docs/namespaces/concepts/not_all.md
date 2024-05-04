@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NotAll
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NotAll\<\>
 Defined in header [<xieite/concepts/not_all.hpp>](../../../include/xieite/concepts/not_all.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Negates type traits. Expects trait-like template structures. Passing no trait te
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename> typename... Traits>
-concept NotAll = (... && !Trait<Type>::value);
+template<typename Type_, template<typename> typename... Traits_>
+concept NotAll = (... && !Traits_<Type_>::value);
 ```
 
 &nbsp;

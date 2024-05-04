@@ -7,8 +7,8 @@
 #	include "../math/is_negative.hpp"
 
 namespace xieite::math {
-	template<std::integral Integral>
-	[[nodiscard]] constexpr std::size_t digits(Integral value, const Integral radix = 10) noexcept {
+	template<std::integral Integral_>
+	[[nodiscard]] constexpr std::size_t digits(Integral_ value, const Integral_ radix = 10) noexcept {
 		if (!radix) {
 			return 1;
 		}

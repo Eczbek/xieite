@@ -13,19 +13,19 @@
 #	include "../hashes/combine.hpp"
 
 namespace xieite::detail {
-	template<typename Functor, typename... Arguments>
-	requires(std::invocable<Functor, Arguments...>)
+	template<typename Functor_, typename... Argument_>
+	requires(std::invocable<Functor_, Argument_...>)
 	struct Memo {
-		Functor functor;
-		std::tuple<Arguments...> arguments;
+		Functor_ functor;
+		std::tuple<Argument_...> arguments;
 
-		constexpr Memo(const Functor& functor, const std::tuple<Arguments...>& arguments) noexcept
+		constexpr Memo(const Functor_& functor, const std::tuple<Argument_...>& arguments) noexcept
 		: functor(functor), arguments(arguments) {}
 
-		bool operator==(const xieite::detail::Memo<Functor, Arguments...>&) const noexcept = default;
+		bool operator==(const xieite::detail::Memo<Functor_, Argument_...>&) const noexcept = default;
 
 		template<typename... OtherArguments>
-		bool operator==(const xieite::detail::Memo<Functor, OtherArguments...>& memo) const noexcept {
+		bool operator==(const xieite::detail::Memo<Functor_, OtherArguments...>& memo) const noexcept {
 			return (this->functor == memo.functor) && (this->arguments == memo.arguments);
 		}
 	};
@@ -33,33 +33,33 @@ namespace xieite::detail {
 	struct MemoHash {
 		using is_transparent = void;
 
-		template<typename Functor, typename... Arguments>
-		static std::size_t operator()(const xieite::detail::Memo<Functor, Arguments...>& memo) {
-			return ([&memo]<std::size_t... i>(std::index_sequence<i...>) {
+		template<typename Functor_, typename... Argument_>
+		static std::size_t operator()(const xieite::detail::Memo<Functor_, Argument_...>& memo) {
+			return ([&memo]<std::size_t... i_>(std::index_sequence<i_...>) {
 				return xieite::hashes::combine(([&memo] {
-					if constexpr (xieite::concepts::Hashable<Functor>) {
-						return std::hash<Functor>()(memo.functor);
+					if constexpr (xieite::concepts::Hashable<Functor_>) {
+						return std::hash<Functor_>()(memo.functor);
 					} else {
 						return 0;
 					}
-				})(), std::hash<std::decay_t<std::tuple_element_t<i, std::tuple<Arguments...>>>>()(std::get<i>(memo.arguments))...);
-			})(std::make_index_sequence<sizeof...(Arguments)>());
+				})(), std::hash<std::decay_t<std::tuple_element_t<i_, std::tuple<Argument_...>>>>()(std::get<i_>(memo.arguments))...);
+			})(std::make_index_sequence<sizeof...(Argument_)>());
 		}
 	};
 }
 
 namespace xieite::functors {
-	template<typename... Arguments, std::invocable<Arguments...> Functor>
-	std::invoke_result_t<Functor, Arguments...> memoize(Functor functor, const Arguments&... arguments)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, Arguments...>) {
-		if constexpr (!std::same_as<std::invoke_result_t<Functor, Arguments...>, void> && (xieite::concepts::Hashable<Functor> || std::is_empty_v<Functor>) && std::equality_comparable<Functor> && (... && xieite::concepts::Hashable<Arguments>)) {
-			static std::unordered_map<xieite::detail::Memo<Functor, std::decay_t<Arguments>...>, std::invoke_result_t<Functor&, Arguments...>, xieite::detail::MemoHash, std::equal_to<>> map;
-			const auto iterator = map.find(xieite::detail::Memo<Functor, const Arguments&...>(functor, std::tie(arguments...)));
+	template<typename... Argument_, std::invocable<Argument_...> Functor_>
+	std::invoke_result_t<Functor_, Argument_...> memoize(Functor_ functor, const Argument_&... arguments)
+	noexcept(xieite::concepts::NoThrowInvocable<Functor_, Argument_...>) {
+		if constexpr (!std::same_as<std::invoke_result_t<Functor_, Argument_...>, void> && (xieite::concepts::Hashable<Functor_> || std::is_empty_v<Functor_>) && std::equality_comparable<Functor_> && (... && xieite::concepts::Hashable<Argument_>)) {
+			static std::unordered_map<xieite::detail::Memo<Functor_, std::decay_t<Argument_>...>, std::invoke_result_t<Functor_&, Argument_...>, xieite::detail::MemoHash, std::equal_to<>> map;
+			const auto iterator = map.find(xieite::detail::Memo<Functor_, const Argument_&...>(functor, std::tie(arguments...)));
 			if (iterator != map.end()) {
 				return iterator->second;
 			} else {
 				const auto tuple = std::make_tuple(arguments...);
-				std::invoke_result_t<Functor, Arguments...> result = std::invoke(functor, arguments...);
+				std::invoke_result_t<Functor_, Argument_...> result = std::invoke(functor, arguments...);
 				map.emplace(std::piecewise_construct, std::forward_as_tuple(std::move(functor), std::move(tuple)), std::forward_as_tuple(result));
 				return result;
 			}
@@ -71,4 +71,4 @@ namespace xieite::functors {
 
 #endif
 
-// Thanks to hspk. and fux for fixing my original code, and wreien (https://github.com/wreien) for rewriting everything entirely
+// Thanks to hspk and fux for fixing my original code, and wreien (https://github.com/wreien) for rewriting everything entirely

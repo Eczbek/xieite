@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:multiplicationOverflows\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:multiplicationOverflows\<\>\(\)
 Defined in header [<xieite/math/multiplication_overflows.hpp>](../../../include/xieite/math/multiplication_overflows.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if the multiplication of two values will overflow or underflow their type
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr bool multiplicationOverflows(Number multiplier, Number multiplicand) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool multiplicationOverflows(Arithmetic_ multiplier, Arithmetic_ multiplicand) noexcept;
 ```
 
 &nbsp;

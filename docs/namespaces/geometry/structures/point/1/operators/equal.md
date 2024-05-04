@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Number>](../../../../point.md)\:\:operator==\(\)
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Arithmetic_>](../../../../point.md)\:\:operator==\(\)
 Defined in header [<xieite/geometry/point.hpp>](../../../../../../../include/xieite/geometry/point.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Compares two points.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(xieite::geometry::Point<Number> point1, xieite::geometry::Point<Number> point2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(xieite::geometry::Point<Arithmetic_> point1, xieite::geometry::Point<Arithmetic_> point2) noexcept;
 ```
 
 &nbsp;

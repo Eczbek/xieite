@@ -8,9 +8,9 @@
 #	include "../concepts/no_throw_invocable.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_const_reference_t<Range>)> Functor>
-	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> mostConsecutive(Range&& range, Functor&& selector = Functor())
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>) {
+	template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_const_reference_t<Range_>)> Functor_>
+	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range_>> getMostConsecutive(Range_&& range, Functor_&& selector = Functor_())
+	noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_const_reference_t<Range_>>) {
 		auto iterator = std::ranges::begin(range);
 		const auto rangeEnd = std::ranges::end(range);
 		auto currentStart = iterator;
@@ -33,9 +33,9 @@ namespace xieite::algorithms {
 			previous = current;
 		}
 		if (previous && (std::ranges::distance(currentStart, currentEnd) > std::ranges::distance(resultStart, resultEnd))) {
-			return std::ranges::subrange<std::ranges::iterator_t<Range>>(currentStart, currentEnd);
+			return std::ranges::subrange<std::ranges::iterator_t<Range_>>(currentStart, currentEnd);
 		}
-		return std::ranges::subrange<std::ranges::iterator_t<Range>>(resultStart, resultEnd);
+		return std::ranges::subrange<std::ranges::iterator_t<Range_>>(resultStart, resultEnd);
 	}
 }
 

@@ -5,9 +5,9 @@
 #	include "../concepts/unsigned_integral.hpp"
 
 namespace xieite::traits {
-	template<typename Type>
+	template<typename Type_>
 	struct IsUnsignedIntegral
-	: std::bool_constant<xieite::concepts::UnsignedIntegral<Type>> {};
+	: std::bool_constant<xieite::concepts::UnsignedIntegral<Type_>> {};
 }
 
 #endif

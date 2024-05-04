@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsAny \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsAny\<\> \{\}
 Defined in header [<xieite/traits/is_any.hpp>](../../../include/xieite/traits/is_any.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_any.hpp>](../../../include/xieite/traits/is
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename> typename... Traits>
+template<typename Type_, template<typename> typename... Traits_>
 struct IsAny
-: std::bool_constant<xieite::concepts::Any<Type, Traits...>> {};
+: std::bool_constant<xieite::concepts::Any<Type_, Traits_...>> {};
 ```
 
 &nbsp;

@@ -13,11 +13,6 @@ Returns the bitwise XOR result of two integers.
 ```cpp
 [[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator^(xieite::math::Integer<bits_, sign_> leftOperand, xieite::math::Integer<bits_, sign_> rightOperand) noexcept;
 ```
-#### 2)
-```cpp
-template<std::integral Integral>
-[[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator^(xieite::math::Integer<bits_, sign_> leftOperand, Integral rightOperand) noexcept;
-```
 
 &nbsp;
 

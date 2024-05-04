@@ -5,9 +5,9 @@
 #	include "../concepts/numeric.hpp"
 
 namespace xieite::traits {
-	template<typename Type>
+	template<typename Type_>
 	struct IsNumeric
-	: std::bool_constant<xieite::concepts::Numeric<Type>> {};
+	: std::bool_constant<xieite::concepts::Numeric<Type_>> {};
 }
 
 #endif

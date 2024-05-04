@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:minimum\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:minimum\<\>\(\)
 Defined in header [<xieite/math/minimum.hpp>](../../../include/xieite/math/minimum.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Computes the minimum of some values.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic... Numbers>
-requires(sizeof...(Numbers) > 0)
-[[nodiscard]] constexpr std::common_type_t<Numbers...> minimum(Numbers... values) noexcept;
+template<xieite::concepts::Arithmetic... Arithmetics_>
+requires(sizeof...(Arithmetics_) > 0)
+[[nodiscard]] constexpr std::common_type_t<Arithmetics_...> minimum(Arithmetics_... values) noexcept;
 ```
 
 &nbsp;

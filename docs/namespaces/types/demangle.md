@@ -23,10 +23,10 @@ Demangles the value of `std::type_info::name()`. Returns the original string if 
 #include "xieite/types/demangle.hpp"
 
 template<typename>
-struct Type {};
+struct Thing {};
 
 int main() {
-    std::string typeName = typeid(Type<int>).name();
+    std::string typeName = typeid(Thing<int>).name();
 
     std::println("{}", typeName);
     std::println("{}", xieite::types::demangle(typeName));
@@ -34,6 +34,6 @@ int main() {
 ```
 Possible output:
 ```
-4TypeIiE
-Type<int>
+5ThingIiE
+Thing<int>
 ```

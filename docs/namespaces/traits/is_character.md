@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsCharacter \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsCharacter\<\> \{\}
 Defined in header [<xieite/traits/is_character.hpp>](../../../include/xieite/traits/is_character.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_character.hpp>](../../../include/xieite/tra
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsCharacter
-: std::bool_constant<xieite::concepts::Character<Type>> {};
+: std::bool_constant<xieite::concepts::Character<Type_>> {};
 ```
 
 &nbsp;

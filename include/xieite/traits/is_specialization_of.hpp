@@ -8,8 +8,8 @@ namespace xieite::traits {
 	struct IsSpecializationOf
 	: std::false_type {};
 
-	template<template<typename...> typename Template, typename... Arguments>
-	struct IsSpecializationOf<Template<Arguments...>, Template>
+	template<template<typename...> typename Template_, typename... Arguments_>
+	struct IsSpecializationOf<Template_<Arguments_...>, Template_>
 	: std::true_type {};
 }
 

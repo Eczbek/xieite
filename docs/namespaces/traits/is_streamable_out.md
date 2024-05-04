@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsStreamableOut \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsStreamableOut\<\> \{\}
 Defined in header [<xieite/traits/is_streamable_out.hpp>](../../../include/xieite/traits/is_streamable_out.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_streamable_out.hpp>](../../../include/xieit
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsStreamableOut
-: std::bool_constant<xieite::concepts::StreamableOut<Type>> {};
+: std::bool_constant<xieite::concepts::StreamableOut<Type_>> {};
 ```
 
 &nbsp;

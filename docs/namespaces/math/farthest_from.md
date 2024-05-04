@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:farthestFrom\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:farthestFrom\<\>\(\)
 Defined in header [<xieite/math/farthest_from.hpp>](../../../include/xieite/math/farthest_from.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Selects the value farthest from a target.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number& farthestFrom(Number target, Number& value1, Number& value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_& farthestFrom(Arithmetic_ target, Arithmetic_& value1, Arithmetic_& value2) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number farthestFrom(Number target, const Number& value1, const Number& value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_ farthestFrom(Arithmetic_ target, const Arithmetic_& value1, const Arithmetic_& value2) noexcept;
 ```
 
 &nbsp;

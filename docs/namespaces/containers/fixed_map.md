@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedMap \{\}
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedMap\<\> \{\}
 Defined in header [<xieite/containers/fixed_map.hpp>](../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
@@ -11,25 +11,25 @@ A `constexpr` wrapper-like structure for `std::unordered_map`.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value*>>>
+template<typename Key_, typename Value_, std::size_t size_, typename Hash_ = std::hash<Key_>, typename KeyComparator_ = std::equal_to<Key_>, typename Allocator_ = std::allocator<std::pair<const Key_, Value_*>>>
 struct FixedMap {
     constexpr FixedMap() noexcept;
 
-    template<xieite::concepts::RangeOf<std::pair<Key, Value>> Range>
-    constexpr FixedMap(Range&&) noexcept;
+    template<xieite::concepts::RangeOf<std::pair<Key_, Value_>> Range_>
+    constexpr FixedMap(Range_&&) noexcept;
 
-    constexpr FixedMap(std::initializer_list<std::pair<Key, Value>>) noexcept;
+    constexpr FixedMap(std::initializer_list<std::pair<Key_, Value_>>) noexcept;
 
-    template<typename Self, std::convertible_to<Key> KeyReference>
-    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value>>> operator[](this Self&&, KeyReference&&) noexcept;
+    template<typename Self_, std::convertible_to<Key_> KeyReference_>
+    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_>>> operator[](this Self_&&, KeyReference_&&) noexcept;
 
-    template<typename Self, std::convertible_to<Key> KeyReference>
-    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value>>> at(this Self&&, KeyReference&&) noexcept;
+    template<typename Self_, std::convertible_to<Key_> KeyReference_>
+    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_>>> at(this Self_&&, KeyReference_&&) noexcept;
 
-    template<std::convertible_to<Key> KeyReference>
-    constexpr bool contains(KeyReference&&) const noexcept;
+    template<std::convertible_to<Key_> KeyReference_>
+    constexpr bool contains(KeyReference_&&) const noexcept;
 
-    constexpr const std::array<std::pair<Key, Value>, size>& data() const noexcept;
+    constexpr const std::array<std::pair<Key_, Value_>, size_>& data() const noexcept;
 };
 ```
 - [FixedMap\(\)](./structures/fixed_map/1/operators/constructor.md)

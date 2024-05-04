@@ -6,8 +6,8 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept Numeric = xieite::concepts::Arithmetic<Type> && !std::same_as<std::remove_cv_t<Type>, bool>;
+	template<typename Type_>
+	concept Numeric = xieite::concepts::Arithmetic<Type_> && !std::same_as<std::remove_cv_t<Type_>, bool>;
 }
 
 #endif

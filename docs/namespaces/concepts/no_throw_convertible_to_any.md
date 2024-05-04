@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowConvertibleToAny
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowConvertibleToAny\<\>
 Defined in header [<xieite/concepts/no_throw_convertible_to_any.hpp>](../../../include/xieite/concepts/no_throw_convertible_to_any.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type can be converted to at least one of several other types wi
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source, typename... Targets>
-concept NoThrowConvertibleToAny = (... || xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
+template<typename Source_, typename... Targets_>
+concept NoThrowConvertibleToAny = (... || xieite::concepts::NoThrowConvertibleTo<Source_, Targets_>);
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:modes\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:modes\<\>\(\)
 Defined in header [<xieite/math/modes.hpp>](../../../include/xieite/math/modes.hpp)
 
 &nbsp;
@@ -11,15 +11,15 @@ Finds values which are greater than both their direct neighbors.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range>
-requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
-[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range>> modes(Range&& range) noexcept;
+template<std::ranges::range Range_>
+requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range_>>)
+[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range_>> modes(Range_&& range) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic... Numbers>
+template<xieite::concepts::Arithmetic... Arithmetics_>
 requires(sizeof...(Number) > 0)
-[[nodiscard]] constexpr std::vector<std::common_type_t<double, Numbers...>> modes(Numbers... values) noexcept;
+[[nodiscard]] constexpr std::vector<std::common_type_t<double, Arithmetics_...>> modes(Arithmetics_... values) noexcept;
 ```
 
 &nbsp;

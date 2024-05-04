@@ -14,4 +14,4 @@ Things to work with time
 - [Eons](./namespaces/time/eons.md)
 - [Epochs](./namespaces/time/epochs.md)
 - [Millenniums](./namespaces/time/millenniums.md)
-- [Stopwatch \{\}](./namespaces/time/stopwatch.md)
+- [Stopwatch\<\> \{\}](./namespaces/time/stopwatch.md)

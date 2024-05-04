@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsIntegral \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsIntegral\<\> \{\}
 Defined in header [<xieite/traits/is_integer.hpp>](../../../include/xieite/traits/is_integer.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_integer.hpp>](../../../include/xieite/trait
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsIntegral
-: std::bool_constant<xieite::concepts::Integral<Type>> {};
+: std::bool_constant<xieite::concepts::Integral<Type_>> {};
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNoThrowConvertibleToAny \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNoThrowConvertibleToAny\<\> \{\}
 Defined in header [<xieite/traits/is_no_throw_convertible_to_any.hpp>](../../../include/xieite/traits/is_no_throw_convertible_to_any.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_no_throw_convertible_to_any.hpp>](../../../
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source, typename... Targets>
+template<typename Source_, typename... Targets_>
 struct IsNoThrowConvertibleToAny
-: std::bool_constant<xieite::concepts::NoThrowConvertibleToAny<Source, Targets...>> {};
+: std::bool_constant<xieite::concepts::NoThrowConvertibleToAny<Source_, Targets_...>> {};
 ```
 
 &nbsp;

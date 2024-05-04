@@ -4,8 +4,8 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr bool isBetweenFixed(const Number value, const Number limit1, const Number limit2, const bool floorInclusive = true, const bool ceilingInclusive = true) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr bool isBetweenFixed(const Arithmetic_ value, const Arithmetic_ limit1, const Arithmetic_ limit2, const bool floorInclusive = true, const bool ceilingInclusive = true) noexcept {
 		return (floorInclusive ? (value >= limit1) : (value > limit1)) && (ceilingInclusive ? (value <= limit2) : (value < limit2)) || (floorInclusive ? (value >= limit2) : (value > limit2)) && (ceilingInclusive ? (value <= limit1) : (value < limit1));
 	}
 }

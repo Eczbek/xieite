@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Ray \{\}
+# [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Ray\<\> \{\}
 Defined in header [<xieite/geometry/ray.hpp>](../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
@@ -11,35 +11,35 @@ A structure for representing a ray.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number = double>
+template<xieite::concepts::Arithmetic Arithmetic_ = double>
 struct Ray {
-    xieite::geometry::Point<Number> start;
-    xieite::geometry::Point<Number> end;
+    xieite::geometry::Point<Arithmetic_> start;
+    xieite::geometry::Point<Arithmetic_> end;
 
-    constexpr Ray(xieite::geometry::Point<Number>, xieite::geometry::Point<Number>) noexcept;
+    constexpr Ray(xieite::geometry::Point<Arithmetic_>, xieite::geometry::Point<Arithmetic_>) noexcept;
 
-    constexpr Ray(xieite::geometry::Point<Number>, std::conditional_t<std::floating_point<Number>, Number, double>) noexcept;
+    constexpr Ray(xieite::geometry::Point<Arithmetic_>, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double>) noexcept;
 
-    template<typename OtherNumber>
-    constexpr operator xieite::geometry::Ray<OtherNumber>() const noexcept;
+    template<typename OtherArithmetic_>
+    constexpr operator xieite::geometry::Ray<OtherArithmetic_>() const noexcept;
 
-    friend constexpr bool operator==(const xieite::geometry::Ray<Number>&, const xieite::geometry::Ray<Number>&) noexcept;
+    friend constexpr bool operator==(const xieite::geometry::Ray<Arithmetic_>&, const xieite::geometry::Ray<Arithmetic_>&) noexcept;
 
-    constexpr std::conditional_t<std::floating_point<Number>, Number, double> angle() const noexcept;
+    constexpr std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> angle() const noexcept;
 
-    constexpr std::conditional_t<std::floating_point<Number>, Number, double> length() const noexcept;
+    constexpr std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> length() const noexcept;
 
-    constexpr std::conditional_t<std::floating_point<Number>, Number, double> slope() const noexcept;
+    constexpr std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> slope() const noexcept;
 
-    constexpr bool contains(xieite::geometry::Point<Number>) const noexcept;
+    constexpr bool contains(xieite::geometry::Point<Arithmetic_>) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Line<Number>&) const noexcept;
+    constexpr bool contains(const xieite::geometry::Line<Arithmetic_>&) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Ray<Number>&) const noexcept;
+    constexpr bool contains(const xieite::geometry::Ray<Arithmetic_>&) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Segment<Number>&) const noexcept;
+    constexpr bool contains(const xieite::geometry::Segment<Arithmetic_>&) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Polygon<Number>&) const noexcept;
+    constexpr bool contains(const xieite::geometry::Polygon<Arithmetic_>&) const noexcept;
 };
 ```
 - start

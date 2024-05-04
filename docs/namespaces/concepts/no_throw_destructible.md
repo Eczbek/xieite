@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowDestructible
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowDestructible\<\>
 Defined in header [<xieite/concepts/no_throw_destructible.hpp>](../../../include/xieite/concepts/no_throw_destructible.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is destructible without throwing exceptions.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept NoThrowDestructible = std::is_nothrow_destructible_v<Type>;
+template<typename Type_>
+concept NoThrowDestructible = std::is_nothrow_destructible_v<Type_>;
 ```
 
 &nbsp;

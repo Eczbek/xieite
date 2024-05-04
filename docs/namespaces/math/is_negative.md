@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isNegative\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isNegative\<\>\(\)
 Defined in header [<xieite/math/is_negative.hpp>](../../../include/xieite/math/is_negative.hpp)
 
 &nbsp;
@@ -11,14 +11,14 @@ Checks that a value is negative.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral UnsignedIntegral>
-[[nodiscard]] constexpr bool isNegative(UnsignedIntegral value) noexcept;
+template<std::unsigned_integral UnsignedIntegral_>
+[[nodiscard]] constexpr bool isNegative(UnsignedIntegral_ value) noexcept;
 ```
 #### 2)
 ```cpp
-template<typename Number>
-requires(std::signed_integral<Number> || std::floating_point<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-[[nodiscard]] constexpr bool isNegative(Number value) noexcept;
+template<typename Number_>
+requires(std::signed_integral<Number_> || std::floating_point<Number_> || xieite::concepts::SpecializationOf<Number_, xieite::math::BigInteger>)
+[[nodiscard]] constexpr bool isNegative(Number_ value) noexcept;
 ```
 
 &nbsp;

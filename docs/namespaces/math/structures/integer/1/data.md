@@ -11,7 +11,7 @@ Returns the underlying integer value.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::Integer<bits_, sign_>::Type data() const noexcept;
+[[nodiscard]] constexpr xieite::math::Integer<bits_, sign_>::Type_ data() const noexcept;
 ```
 
 &nbsp;

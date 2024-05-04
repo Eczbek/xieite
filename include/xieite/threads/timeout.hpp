@@ -10,8 +10,8 @@
 namespace xieite::threads {
 	struct Timeout {
 	public:
-		template<xieite::concepts::Duration Duration>
-		Timeout(const xieite::functors::Function<void()>& callback, const Duration duration) noexcept
+		template<xieite::concepts::Duration Duration_>
+		Timeout(const xieite::functors::Function<void()>& callback, const Duration_ duration) noexcept
 		: interval([this, &callback] {
 			this->stop();
 			callback();

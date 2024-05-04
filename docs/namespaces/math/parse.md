@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:parse\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:parse\<\>\(\)
 Defined in header [<xieite/math/parse.hpp>](../../../include/xieite/math/parse.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Parses an number string in any radix. Allows negative radices. Is case-sensitive
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number parse(std::string_view value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_ parse(std::string_view value, std::conditional_t<std::floating_point<Arithmetic_>, xieite::math::SignedSize, Arithmetic_> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept;
 ```
 
 &nbsp;

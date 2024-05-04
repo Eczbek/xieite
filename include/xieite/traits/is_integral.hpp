@@ -5,9 +5,9 @@
 #	include "../concepts/integral.hpp"
 
 namespace xieite::traits {
-	template<typename Type>
+	template<typename Type_>
 	struct IsIntegral
-	: std::bool_constant<xieite::concepts::Integral<Type>> {};
+	: std::bool_constant<xieite::concepts::Integral<Type_>> {};
 }
 
 #endif

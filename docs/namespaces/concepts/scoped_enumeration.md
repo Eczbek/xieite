@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:ScopedEnumeration
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:ScopedEnumeration\<\>
 Defined in header [<xieite/concepts/scoped_enumeration.hpp>](../../../include/xieite/concepts/scoped_enumeration.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is a scoped enumeration.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept ScopedEnumeration = std::is_scoped_enum_v<Type>;
+template<typename Type_>
+concept ScopedEnumeration = std::is_scoped_enum_v<Type_>;
 ```
 
 &nbsp;

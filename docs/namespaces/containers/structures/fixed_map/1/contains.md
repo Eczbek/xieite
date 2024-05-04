@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyComparator, Allocator>](../../../../fixed_map.md)\:\:contains\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key_, Value_, size_, Hash_, KeyComparator_, Allocator_>](../../../../fixed_map.md)\:\:contains\<\>\(\)
 Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if the map contains a key.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Self, std::convertible_to<Key> KeyReference>
-[[nodiscard]] constexpr bool contains(this Self&&, KeyReference&& key) noexcept;
+template<typename Self_, std::convertible_to<Key_> KeyReference_>
+[[nodiscard]] constexpr bool contains(this Self_&&, KeyReference_&& key) noexcept;
 ```
 
 &nbsp;

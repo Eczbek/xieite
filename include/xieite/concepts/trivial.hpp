@@ -4,8 +4,8 @@
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept Trivial = std::is_trivial_v<Type>;
+	template<typename Type_>
+	concept Trivial = std::is_trivial_v<Type_>;
 }
 
 #endif

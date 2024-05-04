@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Integer \{\}
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Integer\<\> \{\}
 Defined in header [<xieite/math/integer.hpp>](../../../include/xieite/math/integer.hpp)
 
 &nbsp;
@@ -13,18 +13,18 @@ A wrapper for a bit-field.
 ```cpp
 template<std::size_t bits_, bool sign_>
 struct Integer {
-    using Word = xieite::types::MaybeSigned<xieite::types::LeastInteger<bits_>, sign_>;
+    using Word = std::conditional_t<sign_, std::make_signed<xieite::types::LeastInteger<bits_>>, std::make_unsigned<xieite::types::LeastInteger<bits_>>>::type;
 
-    template<std::integral OtherIntegral = int>
-    constexpr Integer(OtherIntegral = 0) noexcept;
+    template<std::integral OtherIntegral_ = int>
+    constexpr Integer(OtherIntegral_ = 0) noexcept;
 
     constexpr xieite::math::Integer<bits_, sign_>& operator=(xieite::math::Integer<bits_, sign_>) noexcept;
 
-    template<std::integral OtherIntegral>
-    constexpr operator OtherIntegral() const noexcept;
+    template<std::integral OtherIntegral_>
+    constexpr operator OtherIntegral_() const noexcept;
 
-    template<std::size_t otherBits, bool otherSign>
-    constexpr operator xieite::math::Integer<otherBits, otherSign>() const noexcept;
+    template<std::size_t otherBits_, bool otherSign_>
+    constexpr operator xieite::math::Integer<otherBits_, otherSign_>() const noexcept;
 
     friend constexpr std::strong_ordering operator<=>(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
 
@@ -89,9 +89,9 @@ struct Integer {
 ```
 ##### Members
 - Word
-- [Integral\(\)](./structures/integer/1/operators/constructor.md)
+- [Integral\<\>\(\)](./structures/integer/1/operators/constructor.md)
 - [operator=\(\)](./structures/integer/1/operators/assign.md)
-- [operator typename\(\)](./structures/integer/1/operators/cast.md)
+- [operator typename\<\>\(\)](./structures/integer/1/operators/cast.md)
 - [operator<=>\(\)](./structures/integer/1/operators/spaceship.md)
 - [operator==\(\)](./structures/integer/1/operators/s/equal.md)
 - [operator+\(\)](./structures/integer/1/operators/add.md)

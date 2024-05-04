@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Stream
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Stream\<\>
 Defined in header [<xieite/concepts/output_stream.hpp>](../../../include/xieite/concepts/output_stream.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is, or derives from, `std::istream` or `std::ostream`.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept Stream = xieite::concepts::InputStream<Type> || xieite::concepts::OutputStream<Type>;
+template<typename Type_>
+concept Stream = xieite::concepts::InputStream<Type_> || xieite::concepts::OutputStream<Type_>;
 ```
 
 &nbsp;

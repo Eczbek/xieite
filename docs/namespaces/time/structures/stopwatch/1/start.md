@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[time](../../../../../time.md)\:\:[Stopwatch<Clock>](../../../stopwatch.md)\:\:start\(\)
+# [xieite](../../../../../xieite.md)\:\:[time](../../../../../time.md)\:\:[Stopwatch<Clock_>](../../../stopwatch.md)\:\:start\(\)
 Defined in header [<xieite/time/stopwatch.hpp>](../../../../../../include/xieite/time/stopwatch.hpp)
 
 &nbsp;
 
 ## Description
-Starts a `xieite::time::Stopwatch<Clock>`.
+Starts a `xieite::time::Stopwatch<Clock_>`.
 
 &nbsp;
 

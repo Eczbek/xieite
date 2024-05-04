@@ -13,11 +13,6 @@ Returns the quotient of two integers.
 ```cpp
 [[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator/(xieite::math::Integer<bits_, sign_> dividend, xieite::math::Integer<bits_, sign_> divisor) noexcept;
 ```
-#### 2)
-```cpp
-template<std::integral Integral>
-[[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator/(xieite::math::Integer<bits_, sign_> dividend, Integral divisor) noexcept;
-```
 
 &nbsp;
 

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Arithmetic
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Arithmetic\<\>
 Defined in header [<xieite/concepts/arithmetic.hpp>](../../../include/xieite/concepts/arithmetic.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is integral, floating point, or boolean.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept Arithmetic = std::is_arithmetic_v<Type>;
+template<typename Type_>
+concept Arithmetic = std::is_arithmetic_v<Type_>;
 ```
 
 &nbsp;
@@ -22,8 +22,8 @@ concept Arithmetic = std::is_arithmetic_v<Type>;
 #include <print>
 #include "xieite/concepts/arithmetic.hpp"
 
-template<xieite::concepts::Arithmetic Number>
-Number add(Number a, Number b) {
+template<xieite::concepts::Arithmetic T>
+T add(T a, T b) {
     return a + b;
 }
 

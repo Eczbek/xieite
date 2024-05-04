@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:PrependRange
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:PrependRange\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Prepends a list of types.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Range>
-using PrependRange = /* ... */;
+template<typename Range_>
+using PrependRange = /* xieite::types::List<...> */;
 ```
 
 &nbsp;

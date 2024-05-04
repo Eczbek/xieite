@@ -1,10 +1,10 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Overloader<Derivables...>](../../../../overloader.md)\:\:Overloader\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Overloader<Derivables_...>](../../../../overloader.md)\:\:Overloader\(\)
 Defined in header [<xieite/functors/overloader.hpp>](../../../../../../../include/xieite/functors/overloader.hpp)
 
 &nbsp;
 
 ## Description
-Constructs a `xieite::functors::Overloader<Derivables...>`.
+Constructs a `xieite::functors::Overloader<Derivables_...>`.
 
 &nbsp;
 
@@ -15,9 +15,9 @@ constexpr Overloader() noexcept;
 ```
 #### 2)
 ```cpp
-template<typename... DerivableReferences>
-requires((... && std::convertible_to<DerivableReferences, Derivables>))
-constexpr Overloader(DerivableReferences&&... callbacks) noexcept;
+template<typename... DerivableReferences_>
+requires((... && std::convertible_to<DerivableReferences_, Derivables_>))
+constexpr Overloader(DerivableReferences_&&... callbacks) noexcept;
 ```
 
 &nbsp;

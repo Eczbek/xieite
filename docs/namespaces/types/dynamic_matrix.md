@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:DynamicMatrix
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:DynamicMatrix\<\>
 Defined in header [<xieite/types/dynamic_matrix.hpp>](../../../include/xieite/types/dynamic_matrix.hpp)
 
 &nbsp;
@@ -25,7 +25,7 @@ using DynamicMatrix = /* ... */;
 
 int main() {
     std::println("{}", std::same_as<
-        xieite::types::DynamicMatrix<std::vector, int, 3>::Type,
+        xieite::types::DynamicMatrix<std::vector, int, 3>::Type_,
         std::vector<std::vector<std::vector<int>>>
     >);
 }

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value>](../../../../matrix.md)\:\:resize\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value_>](../../../../matrix.md)\:\:resize\<\>\(\)
 Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Resizes the matrix and reinterprets the underlying data.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::RangeOf<std::size_t> Range>
-constexpr std::optional<std::monostate> resize(Range&& dimensions) noexcept;
+template<xieite::concepts::RangeOf<std::size_t> Range_>
+constexpr std::optional<std::monostate> resize(Range_&& dimensions) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::convertible_to<std::size_t>... Sizes>
-constexpr std::optional<std::monostate> resize(Sizes... dimensions) noexcept;
+template<std::convertible_to<std::size_t>... Sizes_>
+constexpr std::optional<std::monostate> resize(Sizes_... dimensions) noexcept;
 ```
 
 &nbsp;

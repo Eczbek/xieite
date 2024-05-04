@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivable \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivable\<\> \{\}
 Defined in header [<xieite/traits/is_derivable.hpp>](../../../include/xieite/traits/is_derivable.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_derivable.hpp>](../../../include/xieite/tra
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsDerivable
-: std::bool_constant<xieite::concepts::Derivable<Type>> {};
+: std::bool_constant<xieite::concepts::Derivable<Type_>> {};
 ```
 
 &nbsp;

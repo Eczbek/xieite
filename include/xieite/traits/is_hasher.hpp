@@ -5,9 +5,9 @@
 #	include "../concepts/hasher.hpp"
 
 namespace xieite::traits {
-	template<typename Type, typename Argument>
+	template<typename Type_, typename Argument_>
 	struct IsHasher
-	: std::bool_constant<xieite::concepts::Hasher<Type, Argument>> {};
+	: std::bool_constant<xieite::concepts::Hasher<Type_, Argument_>> {};
 }
 
 #endif

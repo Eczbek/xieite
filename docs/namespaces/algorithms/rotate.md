@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:rotate\(\)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:rotate\<\>\(\)
 Defined in header [<xieite/algorithms/rotate.hpp>](../../../include/xieite/algorithms/rotate.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Rotates individual variables.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, typename... Types>
-requires(!std::is_const_v<Type> && (... && !std::is_const_v<Types>))
-constexpr void rotate(std::size_t distance, Type& first, Types&... rest) noexcept;
+template<typename Type_, typename... Types_>
+requires(!std::is_const_v<Type_> && (... && !std::is_const_v<Types_>))
+constexpr void rotate(std::size_t distance, Type_& first, Types_&... rest) noexcept;
 ```
 
 &nbsp;

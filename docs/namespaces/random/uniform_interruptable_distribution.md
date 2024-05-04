@@ -11,13 +11,13 @@ A uniform random number distribution which allows excluding subintervals from th
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic_>
 struct UniformInterruptableDistribution {
-    template<xieite::concepts::RangeOf<xieite::math::Interval<Number>> IntervalRange>
-    UniformInterruptableDistribution(xieite::math::Interval<Number>, IntervalRange&&) noexcept;
+    template<xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic_>> IntervalRange_>
+    UniformInterruptableDistribution(xieite::math::Interval<Arithmetic_>, IntervalRange_&&) noexcept;
 
-    template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator>
-    Number operator()(UniformRandomBitGenerator&) noexcept;
+    template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator_>
+    Arithmetic_ operator()(UniformRandomBitGenerator_&) noexcept;
 };
 ```
 - [UniformInterruptableDistribution\(\)](./structures/uniform_interruptable_distribution/1/operators/constructor.md)

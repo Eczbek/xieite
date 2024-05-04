@@ -13,11 +13,6 @@ Assigns this integer to another.
 ```cpp
 constexpr xieite::math::Integer<bits_, sign_>& operator=(xieite::math::Integer<bits_, sign_> value) const noexcept;
 ```
-#### 2)
-```cpp
-template<std::integral Integral>
-constexpr xieite::math::Integer<bits_, sign_>& operator=(Integral value) const noexcept;
-```
 
 &nbsp;
 

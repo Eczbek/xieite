@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:wrap\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:wrap\<\>\(\)
 Defined in header [<xieite/math/wrap.hpp>](../../../include/xieite/math/wrap.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Defined in header [<xieite/math/wrap.hpp>](../../../include/xieite/math/wrap.hpp
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number wrap(Number value, Number limit1, Number limit2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_ wrap(Arithmetic_ value, Arithmetic_ limit1, Arithmetic_ limit2) noexcept;
 ```
 
 &nbsp;

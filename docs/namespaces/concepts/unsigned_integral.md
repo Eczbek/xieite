@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:UnsignedIntegral
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:UnsignedIntegral\<\>
 Defined in header [<xieite/concepts/unsigned_integral.hpp>](../../../include/xieite/concepts/unsigned_integral.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is an unsigned integral and not a boolean.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept UnsignedIntegral = std::unsigned_integral<Type> && !std::same_as<std::remove_cv_t<Type>, bool>;
+template<typename Type_>
+concept UnsignedIntegral = std::unsigned_integral<Type_> && !std::same_as<std::remove_cv_t<Type_>, bool>;
 ```
 
 &nbsp;

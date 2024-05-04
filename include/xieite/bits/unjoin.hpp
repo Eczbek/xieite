@@ -10,21 +10,21 @@
 #	include "../types/size_bits.hpp"
 
 namespace xieite::bits {
-	template<std::integral... Integrals>
-	[[nodiscard]] constexpr std::tuple<Integrals...> unjoin(std::bitset<(... + xieite::types::sizeBits<Integrals>)> value) noexcept {
-		return xieite::containers::reverseTuple(std::make_tuple<Integrals...>(([&value] {
-			const Integrals item = static_cast<Integrals>(value.to_ullong());
-			value >>= xieite::types::sizeBits<Integrals>;
+	template<std::integral... Integrals_>
+	[[nodiscard]] constexpr std::tuple<Integrals_...> unjoin(std::bitset<(... + xieite::types::sizeBits<Integrals_>)> value) noexcept {
+		return xieite::containers::reverseTuple(std::make_tuple<Integrals_...>(([&value] {
+			const Integrals_ item = static_cast<Integrals_>(value.to_ullong());
+			value >>= xieite::types::sizeBits<Integrals_>;
 			return item;
 		})()...));
 	}
 
-	template<std::integral Integral, std::size_t size>
-	[[nodiscard]] constexpr std::array<Integral, size> unjoin(std::bitset<xieite::types::sizeBits<Integral> * size> value) noexcept {
-		std::array<Integral, size> result;
-		for (std::size_t i = 0; i < size; ++i) {
-			result[i] = static_cast<Integral>(value.to_ullong());
-			value >>= xieite::types::sizeBits<Integral>;
+	template<std::integral Integral_, std::size_t size_>
+	[[nodiscard]] constexpr std::array<Integral_, size_> unjoin(std::bitset<xieite::types::sizeBits<Integral_> * size_> value) noexcept {
+		std::array<Integral_, size_> result;
+		for (std::size_t i = 0; i < size_; ++i) {
+			result[i] = static_cast<Integral_>(value.to_ullong());
+			value >>= xieite::types::sizeBits<Integral_>;
 		}
 		return result;
 	}

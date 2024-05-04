@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:forwardTuple\(\)
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:forwardTuple\<\>\(\)
 Defined in header [<xieite/containers/forward_tuple.hpp>](../../../include/xieite/containers/forward_tuple.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Forwards every item of a tuple.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::SpecializationOf<std::tuple> Tuple>
-[[nodiscard]] constexpr auto forwardTuple(Tuple&& tuple) noexcept;
+template<xieite::concepts::SpecializationOf<std::tuple> Tuple_>
+[[nodiscard]] constexpr auto forwardTuple(Tuple_&& tuple) noexcept;
 ```
 
 &nbsp;

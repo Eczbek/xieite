@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:unjoin\(\)
+# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:unjoin\<\>\(\)
 Defined in header [<xieite/bits/unjoin.hpp>](../../../include/xieite/bits/unjoin.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Unjoins one `std::bitset` apart into multiple integers.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral... Integrals>
-[[nodiscard]] constexpr std::tuple<Integrals...> unjoin(const std::bitset<(... + xieite::types::sizeBits<Integrals>)>& value) noexcept;
+template<std::integral... Integrals_>
+[[nodiscard]] constexpr std::tuple<Integrals_...> unjoin(const std::bitset<(... + xieite::types::sizeBits<Integrals_>)>& value) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral, std::size_t size>
-[[nodiscard]] constexpr std::array<Integral, size> unjoin(const std::bitset<xieite::types::sizeBits<Integral> * size>& value) noexcept;
+template<std::integral Integral_, std::size_t size_>
+[[nodiscard]] constexpr std::array<Integral_, size_> unjoin(const std::bitset<xieite::types::sizeBits<Integral_> * size_>& value) noexcept;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:unmash\(\)
+# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:unmash\<\>\(\)
 Defined in header [<xieite/bits/unmash.hpp>](../../../include/xieite/bits/unmash.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Defined in header [<xieite/bits/unmash.hpp>](../../../include/xieite/bits/unmash
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t... sizes>
-[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes>...> unmash(const std::bitset<(... + sizes)>& value) noexcept;
+template<std::size_t... sizes_>
+[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes_>...> unmash(const std::bitset<(... + sizes_)>& value) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral, std::size_t... sizes>
-[[nodiscard]] constexpr std::array<Integral, sizeof...(sizes)> unmash(const std::bitset<(... + sizes)>& value) noexcept;
+template<std::integral Integral_, std::size_t... sizes_>
+[[nodiscard]] constexpr std::array<Integral_, sizeof...(sizes_)> unmash(const std::bitset<(... + sizes_)>& value) noexcept;
 ```
 
 &nbsp;

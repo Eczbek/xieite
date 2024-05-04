@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:DerivedFromAny
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:DerivedFromAny\<\>
 Defined in header [<xieite/concepts/derived_from_any.hpp>](../../../include/xieite/concepts/derived_from_any.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is derived from at least one of several other types. Passi
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Derived, typename... Bases>
-concept DerivedFromAny = (... || std::derived_from<Derived, Bases>);
+template<typename Derived_, typename... Bases_>
+concept DerivedFromAny = (... || std::derived_from<Derived_, Bases_>);
 ```
 
 &nbsp;

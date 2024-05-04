@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsSpecializationOf \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsSpecializationOf\<\> \{\}
 Defined in header [<xieite/traits/is_specialization_of.hpp>](../../../include/xieite/traits/is_specialization_of.hpp)
 
 &nbsp;
@@ -16,8 +16,8 @@ struct IsSpecializationOf
 ```
 #### 2)
 ```cpp
-template<template<typename...> typename Template, typename... Arguments>
-struct IsSpecializationOf<Template<Arguments...>, Template>
+template<template<typename...> typename Template_, typename... Arguments_>
+struct IsSpecializationOf<Template_<Arguments...>, Template_>
 : std::true_type {};
 ```
 

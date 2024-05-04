@@ -5,9 +5,9 @@
 #	include "../concepts/convertible_to_all.hpp"
 
 namespace xieite::traits {
-	template<typename Source, typename... Targets>
+	template<typename Source_, typename... Targets_>
 	struct IsConvertibleToAll
-	: std::bool_constant<xieite::concepts::ConvertibleToAll<Source, Targets...>> {};
+	: std::bool_constant<xieite::concepts::ConvertibleToAll<Source_, Targets_...>> {};
 }
 
 #endif

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUnscopedEnumeration \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUnscopedEnumeration\<\> \{\}
 Defined in header [<xieite/traits/is_unscoped_enumeration.hpp>](../../../include/xieite/traits/is_unscoped_enumeration.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_unscoped_enumeration.hpp>](../../../include
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsUnscopedEnumeration
-: std::bool_constant<xieite::concepts::UnscopedEnumeration<Type>> {};
+: std::bool_constant<xieite::concepts::UnscopedEnumeration<Type_>> {};
 ```
 
 &nbsp;

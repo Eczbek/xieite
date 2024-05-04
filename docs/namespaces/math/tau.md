@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:tau
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:tau\<\>
 Defined in header [<xieite/math/tau.hpp>](../../../include/xieite/math/tau.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Defines a constant for tau.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-inline constexpr Number tau = xieite::math::pi<Number> * 2;
+template<xieite::concepts::Arithmetic Arithmetic_>
+inline constexpr Arithmetic_ tau = xieite::math::pi<Arithmetic_> * 2;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:fromRomanNumerals\(\)
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:fromRomanNumerals\<\>\(\)
 Defined in header [<xieite/strings/from_roman_numerals.hpp>](../../../include/xieite/strings/from_roman_numerals.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Converts roman numerals to a number.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral = int>
-[[nodiscard]] constexpr Integral fromRomanNumerals(const std::string_view value) noexcept;
+template<std::integral Integral_ = int>
+[[nodiscard]] constexpr Integral_ fromRomanNumerals(const std::string_view value) noexcept;
 ```
 
 &nbsp;

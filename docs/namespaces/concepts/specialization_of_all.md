@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SpecializationOfAll
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SpecializationOfAll\<\>
 Defined in header [<xieite/concepts/specialization_of_all.hpp>](../../../include/xieite/concepts/specialization_of_all.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is a specialization of all of several templates.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename...> typename Template>
-concept SpecializationOfAll = (... && xieite::concepts::SpecializationOf<Type, Templates>);
+template<typename Type_, template<typename...> typename... Templates_>
+concept SpecializationOfAll = (... && xieite::concepts::SpecializationOf<Type_, Templates_>);
 ```
 
 &nbsp;

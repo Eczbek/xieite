@@ -10,19 +10,19 @@
 #	include "../geometry/segment.hpp"
 
 namespace xieite::geometry {
-	template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape>
-	[[nodiscard]] constexpr xieite::geometry::Point<Number> reflect(const xieite::geometry::Point<Number> point, const LinearShape& mirror) noexcept {
+	template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape_>
+	[[nodiscard]] constexpr xieite::geometry::Point<Arithmetic_> reflect(const xieite::geometry::Point<Arithmetic_> point, const LinearShape_& mirror) noexcept {
 		return xieite::geometry::rotate(point, (mirror.angle() - mirror.start.angleTo(point)) * 2);
 	}
 
-	template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape1, xieite::concepts::LinearShape<Number> LinearShape2>
+	template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape1, xieite::concepts::LinearShape<Arithmetic_> LinearShape2>
 	[[nodiscard]] constexpr LinearShape1 reflect(const LinearShape1& line, const LinearShape2& mirror) noexcept {
 		return LinearShape1(xieite::geometry::rotate(line.start, (mirror.angle() - mirror.start.angleTo(line.start)) * 2), xieite::geometry::rotate(line.end, (mirror.angle() - mirror.start.angleTo(line.end)) * 2));
 	}
 
-	template<typename Number = double, xieite::concepts::LinearShape<Number> LinearShape>
-	[[nodiscard]] constexpr xieite::geometry::Polygon<Number> reflect(xieite::geometry::Polygon<Number> polygon, const LinearShape& mirror) noexcept {
-		for (xieite::geometry::Point<Number>& point : polygon.points) {
+	template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape_>
+	[[nodiscard]] constexpr xieite::geometry::Polygon<Arithmetic_> reflect(xieite::geometry::Polygon<Arithmetic_> polygon, const LinearShape_& mirror) noexcept {
+		for (xieite::geometry::Point<Arithmetic_>& point : polygon.points) {
 			point = xieite::geometry::rotate(point, (mirror.angle() - mirror.start.angleTo(point)) * 2);
 		}
 		return polygon;

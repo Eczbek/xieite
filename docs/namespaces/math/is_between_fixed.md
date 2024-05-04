@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isBetweenFixed\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isBetweenFixed\<\>\(\)
 Defined in header [<xieite/math/is_between_fixed.hpp>](../../../include/xieite/math/is_between_fixed.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks whether a number is between two limits, where the floor and ceiling limit
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr bool isBetweenFixed(Number value, Number limit1, Number limit2, bool floorInclusive = true, bool ceilingInclusive = true) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool isBetweenFixed(Arithmetic_ value, Arithmetic_ limit1, Arithmetic_ limit2, bool floorInclusive = true, bool ceilingInclusive = true) noexcept;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:stringify\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:stringify\<\>\(\)
 Defined in header [<xieite/math/stringify.hpp>](../../../include/xieite/math/stringify.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Stringifies a number in any radix. Allows negative radices.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr std::string stringify(Number value, std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr std::string stringify(Arithmetic_ value, std::conditional_t<std::floating_point<Arithmetic_>, xieite::math::SignedSize, Arithmetic_> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept;
 ```
 
 &nbsp;

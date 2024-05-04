@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:multiply\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:multiply\<\>\(\)
 Defined in header [<xieite/math/multiply.hpp>](../../../include/xieite/math/multiply.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Computes the product of two unsigned integers in two parts. Intended for avoidin
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral UnsignedIntegral>
-[[nodiscard]] constexpr xieite::math::Product<UnsignedIntegral> multiply(UnsignedIntegral multiplier, UnsignedIntegral multiplicand) noexcept;
+template<std::unsigned_integral UnsignedIntegral_>
+[[nodiscard]] constexpr xieite::math::Product<UnsignedIntegral_> multiply(UnsignedIntegral_ multiplier, UnsignedIntegral_ multiplicand) noexcept;
 ```
 
 &nbsp;

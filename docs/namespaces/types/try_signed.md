@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:TrySigned
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:TrySigned\<\>
 Defined in header [<xieite/types/try_signed.hpp>](../../../include/xieite/types/try_signed.hpp)
 
 &nbsp;
@@ -11,25 +11,25 @@ Attempts to get the signed complement of an unsigned type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-using TrySigned = std::conditional_t<xieite::concepts::UnsignedIntegral<Type>, std::make_signed<Type>, std::type_identity<Type>>::type;
+template<typename Type_>
+using TrySigned = /* ... */;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
+#include <concepts>
 #include <print>
-#include "xieite/types/name.hpp"
 #include "xieite/types/try_signed.hpp"
 
 int main() {
-    std::println("{}", xieite::types::name<xieite::types::TrySigned<unsigned int>>);
-    std::println("{}", xieite::types::name<xieite::types::TrySigned<double>>);
+    std::println("{}", std::same_as<int, xieite::types::TrySigned<unsigned int>>);
+    std::println("{}", std::same_as<double, xieite::types::TrySigned<double>>);
 }
 ```
-Possible output:
+Output:
 ```
-int
-double
+true
+true
 ```

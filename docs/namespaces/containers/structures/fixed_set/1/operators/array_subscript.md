@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedSet<Key, size, Hash, KeyComparator, Allocator>](../../../../fixed_set.md)\:\:operator\[\]\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedSet<Key_, size_, Hash_, KeyComparator,_ Allocator_>](../../../../fixed_set.md)\:\:operator\[\]\<\>\(\)
 Defined in header [<xieite/containers/fixed_set.hpp>](../../../../../../../include/xieite/containers/fixed_set.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if the set contains a key.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<Key> KeyReference>
-[[nodiscard]] constexpr bool operator[](KeyReference&& key) const noexcept;
+template<std::convertible_to<Key_> KeyReference_>
+[[nodiscard]] constexpr bool operator[](KeyReference_&& key) const noexcept;
 ```
 
 &nbsp;

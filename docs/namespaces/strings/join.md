@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:join\(\)
+# [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:join\<\>\(\)
 Defined in header [<xieite/strings/join.hpp>](../../../include/xieite/strings/join.hpp)
 
 &nbsp;
@@ -11,15 +11,15 @@ Joins multiple strings with a delimiter.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range>
-requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-[[nodiscard]] constexpr std::string join(Range&& range, std::string_view delimiter = "") noexcept;
+template<std::ranges::range Range_>
+requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range_>>)
+[[nodiscard]] constexpr std::string join(Range_&& range, std::string_view delimiter = "") noexcept;
 ```
 #### 2)
 ```cpp
-template<std::ranges::range Range>
-requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range>>)
-[[nodiscard]] constexpr std::string join(Range&& range, char delimiter) noexcept;
+template<std::ranges::range Range_>
+requires(std::constructible_from<std::string, std::ranges::range_const_reference_t<Range_>>)
+[[nodiscard]] constexpr std::string join(Range_&& range, char delimiter) noexcept;
 ```
 
 &nbsp;

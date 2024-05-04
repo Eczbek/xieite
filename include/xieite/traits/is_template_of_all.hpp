@@ -5,9 +5,9 @@
 #	include "../concepts/template_of_all.hpp"
 
 namespace xieite::traits {
-	template<template<typename...> typename Template, typename... Types>
+	template<template<typename...> typename Template_, typename... Types_>
 	struct IsTemplateOfAll
-	: std::bool_constant<xieite::concepts::TemplateOfAll<Template, Types...>> {};
+	: std::bool_constant<xieite::concepts::TemplateOfAll<Template_, Types_...>> {};
 }
 
 #endif

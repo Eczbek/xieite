@@ -11,13 +11,13 @@
 #	include "../time/stopwatch.hpp"
 
 namespace xieite::functors {
-	template<xieite::concepts::Duration Duration = std::chrono::nanoseconds, xieite::concepts::Clock Clock = std::chrono::steady_clock, typename... Arguments, std::invocable<Arguments...> Functor>
-	Duration time(Functor&& functor, Arguments&&... arguments)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, Arguments...>) {
-		xieite::time::Stopwatch<Clock> stopwatch;
+	template<xieite::concepts::Duration Duration_ = std::chrono::nanoseconds, xieite::concepts::Clock Clock_ = std::chrono::steady_clock, typename... Arguments_, std::invocable<Arguments_...> Functor_>
+	Duration_ time(Functor_&& functor, Arguments_&&... arguments)
+	noexcept(xieite::concepts::NoThrowInvocable<Functor_, Arguments_...>) {
+		xieite::time::Stopwatch<Clock_> stopwatch;
 		stopwatch.start();
 		static_cast<void>(std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...));
-		return stopwatch.template total<Duration>();
+		return stopwatch.template total<Duration_>();
 	}
 }
 

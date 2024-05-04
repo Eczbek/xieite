@@ -5,8 +5,8 @@
 #	include <istream>
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept StreamableIn = requires(Type value, std::istream inputStream) {
+	template<typename Type_>
+	concept StreamableIn = requires(Type_ value, std::istream inputStream) {
 		{ inputStream >> value } -> std::same_as<std::istream&>;
 	};
 }

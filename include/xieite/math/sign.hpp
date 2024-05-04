@@ -6,8 +6,8 @@
 #	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr int sign(const Number value) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr int sign(const Arithmetic_ value) noexcept {
 		return xieite::math::splitBoolean(!xieite::math::isNegative(value));
 	}
 }

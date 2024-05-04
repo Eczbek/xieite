@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsFunctable \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsFunctable\<\> \{\}
 Defined in header [<xieite/traits/is_functable.hpp>](../../../include/xieite/traits/is_functable.hpp)
 
 &nbsp;
@@ -16,11 +16,9 @@ struct IsFunctable
 ```
 #### 2)
 ```cpp
-template<typename Functor, typename Result, typename... Arguments>
-struct IsFunctable<Functor, Result(Arguments...)>
-: std::bool_constant<requires(Functor functor, Arguments... arguments) {
-    { std::invoke(functor, arguments...) } -> std::convertible_to<Result>;
-}> {};
+template<typename Functor_, typename Return_, typename... Arguments_>
+struct IsFunctable<Functor_, Return_(Arguments_...)>
+: std::bool_constant</* ... */> {};
 ```
 
 &nbsp;

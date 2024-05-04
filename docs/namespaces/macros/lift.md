@@ -23,13 +23,13 @@ Defined in header [<xieite/macros/lift.hpp>](../../../include/xieite/macros/lift
 #include "xieite/macros/lift.hpp"
 #include "xieite/types/name.hpp"
 
-template<typename Type>
-void foo(Type&&) {
-    std::println("{}", xieite::types::name<Type>);
+template<typename T>
+void foo(T&&) {
+    std::println("{}", xieite::types::name<T>);
 }
 
-template<typename Functor>
-void bar(Functor&& functor) {
+template<typename F>
+void bar(F&& functor) {
     std::invoke(functor, 15);
 }
 

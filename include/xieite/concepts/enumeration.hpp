@@ -4,8 +4,8 @@
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept Enumeration = std::is_enum_v<Type>;
+	template<typename Type_>
+	concept Enumeration = std::is_enum_v<Type_>;
 }
 
 #endif

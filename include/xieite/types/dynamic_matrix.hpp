@@ -16,7 +16,7 @@ namespace xieite::detail {
 
 namespace xieite::types {
 	template<template<typename> typename DynamicContainer_, typename Value_, std::size_t dimensions_>
-	using DynamicMatrix = xieite::detail::DynamicMatrix<DynamicContainer_, Value_, dimensions_>::Type;
+	using DynamicMatrix = xieite::detail::DynamicMatrix<DynamicContainer_, Value_, dimensions_>::Type_;
 }
 
 #endif

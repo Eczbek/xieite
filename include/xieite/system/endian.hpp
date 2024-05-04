@@ -37,4 +37,4 @@ namespace xieite::system::endian {
 
 #endif
 
-// TODO: Confirm fallback versions of xieite::system::endian::mixed and xieite::system::endian::none
+// TODO: Confirm correctness of fallback versions of xieite::system::endian::mixed and xieite::system::endian::none

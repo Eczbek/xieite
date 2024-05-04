@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Enumeration
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Enumeration\<\>
 Defined in header [<xieite/concepts/enumeration.hpp>](../../../include/xieite/concepts/enumeration.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is an enumeration.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept Enumeration = std::is_enum_v<Type>;
+template<typename Type_>
+concept Enumeration = std::is_enum_v<Type_>;
 ```
 
 &nbsp;

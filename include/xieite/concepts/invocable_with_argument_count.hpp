@@ -7,8 +7,8 @@
 #	include "../types/placeholder.hpp"
 
 namespace xieite::concepts {
-	template<typename Functor, std::size_t argumentCount>
-	concept InvocableWithArgumentCount = xieite::types::List<xieite::types::Placeholder>::Repeat<argumentCount>::template Prepend<Functor>::template Apply<std::is_invocable>::value;
+	template<typename Functor_, std::size_t argumentCount_>
+	concept InvocableWithArgumentCount = xieite::types::List<xieite::types::Placeholder>::Repeat<argumentCount_>::template Prepend<Functor_>::template Apply<std::is_invocable>::value;
 }
 
 #endif

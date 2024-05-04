@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SameAsAny
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SameAsAny\<\>
 Defined in header [<xieite/concepts/same_as_any.hpp>](../../../include/xieite/concepts/same_as_any.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is the same as at least one of several other types. Passin
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source, typename... Targets>
-concept SameAsAny = (... || std::same_as<Source, Targets>);
+template<typename Source_, typename... Targets_>
+concept SameAsAny = (... || std::same_as<Source_, Targets_>);
 ```
 
 &nbsp;

@@ -7,9 +7,9 @@
 #	include "../types/try_unsigned.hpp"
 
 namespace xieite::math {
-	template<std::integral Target, std::integral Source>
-	[[nodiscard]] constexpr Target signCast(const Source value) noexcept {
-		return static_cast<Target>(static_cast<std::conditional_t<std::signed_integral<Target>, xieite::types::TrySigned<Source>, xieite::types::TryUnsigned<Source>>>(value));
+	template<std::integral Target_, std::integral Source_>
+	[[nodiscard]] constexpr Target_ signCast(const Source_ value) noexcept {
+		return static_cast<Target_>(static_cast<std::conditional_t<std::signed_integral<Target_>, xieite::types::TrySigned<Source_>, xieite::types::TryUnsigned<Source_>>>(value));
 	}
 }
 

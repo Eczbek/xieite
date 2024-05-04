@@ -11,8 +11,8 @@ Constructs a `xieite::math::Integer<bits_, sign_>`.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral OtherIntegral = int>
-constexpr Integral(OtherIntegral value = 0) noexcept;
+template<std::integral OtherIntegral_ = int>
+constexpr Integral(OtherIntegral_ value = 0) noexcept;
 ```
 
 &nbsp;

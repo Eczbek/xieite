@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:modulo\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:modulo\<\>\(\)
 Defined in header [<xieite/math/modulo.hpp>](../../../include/xieite/math/modulo.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Computes modulus better.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number modulo(Number dividend, Number divisor) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_ modulo(Arithmetic_ dividend, Arithmetic_ divisor) noexcept;
 ```
 
 &nbsp;

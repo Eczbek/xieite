@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybeVolatileData
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybeVolatileData\<\>
 Defined in header [<xieite/types/maybe_volatile_data.hpp>](../../../include/xieite/types/maybe_volatile_data.hpp)
 
 &nbsp;
@@ -20,17 +20,17 @@ using MaybeVolatileData = /* ... */;
 
 ## Example
 ```cpp
+#include <concepts>
 #include <print>
 #include "xieite/types/maybe_volatile_data.hpp"
-#include "xieite/types/name.hpp"
 
 int main() {
-    std::println("{}", xieite::types::name<xieite::types::MaybeVolatileData<int*, true>>);
-    std::println("{}", xieite::types::name<xieite::types::MaybeVolatileData<volatile int*, false>>);
+    std::println("{}", std::same_as<volatile int*, xieite::types::MaybeVolatileData<int*, true>>);
+    std::println("{}", std::same_as<int*, xieite::types::MaybeVolatileData<volatile int*, false>>);
 }
 ```
-Possible output:
+Output:
 ```
-volatile int*
-int*
+true
+true
 ```

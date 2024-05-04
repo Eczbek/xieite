@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:group\(\)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:group\<\>\(\)
 Defined in header [<xieite/algorithms/group.hpp>](../../../include/xieite/algorithms/group.hpp)
 
 &nbsp;
@@ -11,15 +11,15 @@ Groups elements of a range into a `std::unordered_map` of `std::vector`s of iter
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range, std::invocable<std::ranges::range_reference_t<Range>> Functor>
-[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor, std::ranges::range_reference_t<Range>>, std::vector<std::ranges::const_iterator_t<Range>>> group(Range&& range, Functor&& callback)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>);
+template<std::ranges::range Range_, std::invocable<std::ranges::range_reference_t<Range_>> Functor_>
+[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor_, std::ranges::range_reference_t<Range_>>, std::vector<std::ranges::const_iterator_t<Range_>>> group(Range_&& range, Functor_&& callback)
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>>);
 ```
 #### 2)
 ```cpp
-template<std::ranges::range Range, std::invocable<std::ranges::range_reference_t<Range>, std::size_t> Functor>
-[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor, std::ranges::range_reference_t<Range>, std::size_t>, std::vector<std::ranges::const_iterator_t<Range>>> group(Range&& range, Functor&& callback)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::size_t>);
+template<std::ranges::range Range_, std::invocable<std::ranges::range_reference_t<Range_>, std::size_t> Functor_>
+[[nodiscard]] inline std::unordered_map<std::invoke_result_t<Functor_, std::ranges::range_reference_t<Range_>, std::size_t>, std::vector<std::ranges::const_iterator_t<Range_>>> group(Range_&& range, Functor_&& callback)
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>, std::size_t>);
 ```
 
 &nbsp;

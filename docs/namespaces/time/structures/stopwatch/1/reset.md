@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[time](../../../../../time.md)\:\:[Stopwatch<Clock>](../../../stopwatch.md)\:\:reset\(\)
+# [xieite](../../../../../xieite.md)\:\:[time](../../../../../time.md)\:\:[Stopwatch<Clock_>](../../../stopwatch.md)\:\:reset\(\)
 Defined in header [<xieite/time/stopwatch.hpp>](../../../../../../include/xieite/time/stopwatch.hpp)
 
 &nbsp;
 
 ## Description
-Resets the total and lap times of a `xieite::time::Stopwatch<Clock>`.
+Resets the total and lap times of a `xieite::time::Stopwatch<Clock_>`.
 
 &nbsp;
 

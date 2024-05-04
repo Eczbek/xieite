@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:ConvertibleToAll
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:ConvertibleToAll\<\>
 Defined in header [<xieite/concepts/convertible_to_all.hpp>](../../../include/xieite/concepts/convertible_to_all.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type can be converted to several other types. Passing no target
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source, typename... Targets>
-concept ConvertibleToAll = (... && std::convertible_to<Source, Targets>);
+template<typename Source_, typename... Targets_>
+concept ConvertibleToAll = (... && std::convertible_to<Source_, Targets_>);
 ```
 
 &nbsp;

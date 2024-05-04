@@ -5,9 +5,9 @@
 #	include <type_traits>
 
 namespace xieite::traits {
-	template<typename Derived, typename Base>
+	template<typename Derived_, typename Base_>
 	struct IsDerivedFrom
-	: std::bool_constant<std::derived_from<Derived, Base>> {};
+	: std::bool_constant<std::derived_from<Derived_, Base_>> {};
 }
 
 #endif

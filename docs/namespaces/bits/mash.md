@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:mash\(\)
+# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:mash\<\>\(\)
 Defined in header [<xieite/bits/mash.hpp>](../../../include/xieite/bits/mash.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Defined in header [<xieite/bits/mash.hpp>](../../../include/xieite/bits/mash.hpp
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t... sizes, std::integral... Integrals>
-[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(Integrals... values) noexcept;
+template<std::size_t... sizes_, std::integral... Integrals_>
+[[nodiscard]] constexpr std::bitset<(... + sizes_)> mash(Integrals_... values) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::size_t... sizes, std::integral Integral>
-[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(const std::array<Integral, sizeof...(sizes)>& values) noexcept;
+template<std::size_t... sizes_, std::integral Integral_>
+[[nodiscard]] constexpr std::bitset<(... + sizes_)> mash(const std::array<Integral_, sizeof...(sizes_)>& values) noexcept;
 ```
 
 &nbsp;

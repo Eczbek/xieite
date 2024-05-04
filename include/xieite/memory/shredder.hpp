@@ -8,16 +8,16 @@
 #	include "../macros/forward.hpp"
 
 namespace xieite::memory {
-	template<xieite::concepts::TriviallyDestructible Type>
+	template<xieite::concepts::TriviallyDestructible Type_>
 	struct Shredder {
 	public:
 		constexpr Shredder() noexcept {
 			this->shred();
 		}
 
-		template<typename... Arguments>
-		requires(std::constructible_from<Type, Arguments...>)
-		constexpr Shredder(Arguments&&... arguments) noexcept
+		template<typename... Arguments_>
+		requires(std::constructible_from<Type_, Arguments_...>)
+		constexpr Shredder(Arguments_&&... arguments) noexcept
 		: value(XIEITE_FORWARD(arguments)...) {}
 
 		template<typename Self>
@@ -28,7 +28,7 @@ namespace xieite::memory {
 		constexpr void shred() noexcept {
 			if !consteval {
 				const auto byte = reinterpret_cast<volatile std::byte*>(&this->value);
-				for (std::size_t i = 0; i < sizeof(Type); ++i) {
+				for (std::size_t i = 0; i < sizeof(Type_); ++i) {
 					byte[i] = 0;
 				}
 			}
@@ -39,7 +39,7 @@ namespace xieite::memory {
 		}
 
 	private:
-		mutable Type value;
+		mutable Type_ value;
 	};
 }
 

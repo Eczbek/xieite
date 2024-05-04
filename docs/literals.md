@@ -3,7 +3,7 @@
 &nbsp;
 
 ## Description
-Namespaces of various user-defined literals for general use
+A namespace of namespaces containing various user-defined literals for general use
 
 &nbsp;
 

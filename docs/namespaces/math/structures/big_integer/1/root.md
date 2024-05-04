@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:root\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:root\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -15,8 +15,8 @@ Computes any root of a `xieite::math::BigInteger<Word_>`.
 ```
 #### 2)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word_>> root(Integral degree) const noexcept;
+template<std::integral Integral_>
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word_>> root(Integral_ degree) const noexcept;
 ```
 
 &nbsp;

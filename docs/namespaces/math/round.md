@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:round\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:round\<\>\(\)
 Defined in header [<xieite/math/round.hpp>](../../../include/xieite/math/round.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Rounds a value to the nearest multiple of a step.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number round(Number value, Number step = 1) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_ round(Arithmetic_ value, Arithmetic_ step = 1) noexcept;
 ```
 
 &nbsp;

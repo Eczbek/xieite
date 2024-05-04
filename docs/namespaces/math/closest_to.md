@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:closestTo\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:closestTo\<\>\(\)
 Defined in header [<xieite/math/closest_to.hpp>](../../../include/xieite/math/closest_to.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Selects the value closest to a target.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number& closestTo(Number target, Number& value1, Number& value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_& closestTo(Arithmetic_ target, Arithmetic_& value1, Arithmetic_& value2) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr Number closestTo(Number target, const Number& value1, const Number& value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_ closestTo(Arithmetic_ target, const Arithmetic_& value1, const Arithmetic_& value2) noexcept;
 ```
 
 &nbsp;

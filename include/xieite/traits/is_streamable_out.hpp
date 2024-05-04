@@ -5,9 +5,9 @@
 #	include "../concepts/streamable_out.hpp"
 
 namespace xieite::traits {
-	template<typename Type>
+	template<typename Type_>
 	struct IsStreamableOut
-	: std::bool_constant<xieite::concepts::StreamableOut<Type>> {};
+	: std::bool_constant<xieite::concepts::StreamableOut<Type_>> {};
 }
 
 #endif

@@ -8,10 +8,10 @@
 #	include "../math/multiplication_overflows.hpp"
 
 namespace xieite::detail {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr std::vector<Number> generateFactorial() noexcept {
-		std::vector<Number> result = { 1 };
-		for (Number i = 1; !xieite::math::multiplicationOverflows(i, result[i - 1]); ++i) {
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr std::vector<Arithmetic_> generateFactorial() noexcept {
+		std::vector<Arithmetic_> result = { 1 };
+		for (Arithmetic_ i = 1; !xieite::math::multiplicationOverflows(i, result[i - 1]); ++i) {
 			result.push_back(i * result[i - 1]);
 		}
 		return result;
@@ -19,8 +19,8 @@ namespace xieite::detail {
 }
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	inline constexpr std::array<Number, xieite::detail::generateFactorial<Number>().size()> factorial = xieite::containers::makeArray<Number, xieite::detail::generateFactorial<Number>().size()>(xieite::detail::generateFactorial<Number>());
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	inline constexpr std::array<Arithmetic_, xieite::detail::generateFactorial<Arithmetic_>().size()> factorial = xieite::containers::makeArray<Arithmetic_, xieite::detail::generateFactorial<Arithmetic_>().size()>(xieite::detail::generateFactorial<Arithmetic_>());
 }
 
 #endif

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedSet<Key, size, Hash, KeyComparator, Allocator>](../../../../fixed_set.md)\:\:FixedSet\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedSet<Key_, size_, Hash_, KeyComparator,_ Allocator_>](../../../../fixed_set.md)\:\:FixedSet\<\>\(\)
 Defined in header [<xieite/containers/fixed_set.hpp>](../../../../../../../include/xieite/containers/fixed_set.hpp)
 
 &nbsp;
@@ -15,12 +15,12 @@ constexpr Set() noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::RangeOf<Key> Range>
-constexpr Set(Range&& entries) noexcept;
+template<xieite::concepts::RangeOf<Key_> Range_>
+constexpr Set(Range_&& entries) noexcept;
 ```
 #### 3)
 ```cpp
-constexpr Set(std::initializer_list<Key> entries) noexcept;
+constexpr Set(std::initializer_list<Key_> entries) noexcept;
 ```
 
 &nbsp;

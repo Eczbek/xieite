@@ -1,18 +1,18 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Erase
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:Erase\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
 
 ## Description
-Erases one or a range of types.
+Erases one or a range of types. The end index is not inclusive.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t start, std::size_t end = start + 1>
-using Erase = List<Types...>::Slice<0, start>::template AppendRange<List<Types...>::Slice<end>>;
+template<std::size_t start_, std::size_t end_ = start_ + 1>
+using Erase = /* xieite::types::List<...> */;
 ```
 
 &nbsp;

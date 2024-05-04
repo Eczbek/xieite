@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix<Result(LeftArgument, RightArgument)>](../../../../infix.md)\:\:Infix\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix<Return_(LeftArgument_, RightArgument_)>](../../../../infix.md)\:\:Infix\(\)
 Defined in header [<xieite/functors/infix.hpp>](../../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Constructs an infix thingamabob.
 ## Synopsis
 #### 1)
 ```cpp
-using xieite::functors::Function<Result(LeftArgument, RightArgument)>::Function;
+using xieite::functors::Function<Return_(LeftArgument_, RightArgument_)>::Function;
 ```
 
 &nbsp;

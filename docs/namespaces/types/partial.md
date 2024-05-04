@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Partial \{\}
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Partial\<\> \{\}
 Defined in header [<xieite/types/partial.hpp>](../../../include/xieite/types/partial.hpp)
 
 &nbsp;
@@ -11,18 +11,18 @@ An structure for storing a partial specialization.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename...> typename Template, typename... FirstArguments>
+template<template<typename...> typename Template_, typename... FirstArguments_>
 struct Partial {
-    template<typename... SecondArguments>
-    using Append = Template<FirstArguments..., SecondArguments...>;
+    template<typename... SecondArguments_>
+    using Append = Template_<FirstArguments_..., SecondArguments_...>;
 
-    template<typename... SecondArguments>
-    using Prepend = Template<SecondArguments..., FirstArguments...>;
+    template<typename... SecondArguments_>
+    using Prepend = Template_<SecondArguments_..., FirstArguments_...>;
 };
 ```
 ##### Members
-- Append
-- Prepend
+- Append\<\>
+- Prepend\<\>
 
 &nbsp;
 

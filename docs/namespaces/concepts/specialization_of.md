@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SpecializationOf
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SpecializationOf\<\>
 Defined in header [<xieite/concepts/specialization_of.hpp>](../../../include/xieite/concepts/specialization_of.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is a specialization of a template. To be deprecated once `
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename...> typename Template>
-concept SpecializationOf = xieite::traits::IsSpecializationOf<std::remove_cv_t<Type>, Template>::value;
+template<typename Type_, template<typename...> typename Template_>
+concept SpecializationOf = xieite::traits::IsSpecializationOf<std::remove_cv_t<Type_>, Template_>::value;
 ```
 
 &nbsp;

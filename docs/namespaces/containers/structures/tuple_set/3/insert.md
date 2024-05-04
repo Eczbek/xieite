@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleSet<Container, std::tuple<Key>>](../../../tuple_set.md)\:\:insert\(\)
+# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleSet<Container_, std::tuple<Key_>>](../../../tuple_set.md)\:\:insert\(\)
 Defined in header [<xieite/containers/tuple_set.hpp>](../../../../../../include/xieite/containers/tuple_set.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Adds a tuple to the set.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<std::tuple<Key>> KeyReference>
-constexpr void insert(KeyReference&& key);
+template<std::convertible_to<std::tuple<Key_>> KeyReference_>
+constexpr void insert(KeyReference_&& key);
 ```
 
 &nbsp;

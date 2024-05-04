@@ -5,9 +5,9 @@
 #	include "../concepts/uniform_random_bit_generator.hpp"
 
 namespace xieite::traits {
-	template<typename Type>
+	template<typename Type_>
 	struct IsUniformRandomBitGenerator
-	: std::bool_constant<xieite::concepts::UniformRandomBitGenerator<Type>> {};
+	: std::bool_constant<xieite::concepts::UniformRandomBitGenerator<Type_>> {};
 }
 
 #endif

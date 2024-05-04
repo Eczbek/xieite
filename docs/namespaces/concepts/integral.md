@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Integral
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Integral\<\>
 Defined in header [<xieite/concepts/integral.hpp>](../../../include/xieite/concepts/integral.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is an integer and not a boolean.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept Integral = std::integral<Type> && !std::same_as<std::remove_cv_t<Type>, bool>;
+template<typename Type_>
+concept Integral = std::integral<Type_> && !std::same_as<std::remove_cv_t<Type_>, bool>;
 ```
 
 &nbsp;

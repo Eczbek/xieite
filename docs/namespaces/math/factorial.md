@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:factorial
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:factorial\<\>
 Defined in header [<xieite/math/factorial.hpp>](../../../include/xieite/math/factorial.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ A lookup table of all representable factorial values.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-inline constexpr std::array<Number, /* ... */> factorial = /* ... */
+template<xieite::concepts::Arithmetic Arithmetic_>
+inline constexpr std::array<Arithmetic_, /* size */> factorial = /* ... */
 ```
 
 &nbsp;

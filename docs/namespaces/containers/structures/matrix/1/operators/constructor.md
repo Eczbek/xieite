@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value>](../../../../matrix.md)\:\:Matrix\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value_>](../../../../matrix.md)\:\:Matrix\<\>\(\)
 Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
@@ -15,12 +15,12 @@ constexpr Matrix() noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::RangeOf<Value> Range>
-constexpr Matrix(Range&& range) noexcept;
+template<xieite::concepts::RangeOf<Value_> Range_>
+constexpr Matrix(Range_&& range) noexcept;
 ```
 #### 3)
 ```cpp
-constexpr Matrix(std::initializer_list<Value> list) noexcept;
+constexpr Matrix(std::initializer_list<Value_> list) noexcept;
 ```
 
 &nbsp;

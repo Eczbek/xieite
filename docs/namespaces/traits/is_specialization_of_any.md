@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsSpecializationOfAny \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsSpecializationOfAny\<\> \{\}
 Defined in header [<xieite/traits/is_specialization_of_any.hpp>](../../../include/xieite/traits/is_specialization_of_any.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_specialization_of_any.hpp>](../../../includ
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename...> typename... Templates>
+template<typename Type_, template<typename...> typename... Templates_>
 struct IsSpecializationOfAny
-: std::bool_constant<xieite::concepts::SpecializationOfAny<Type, Templates...>> {};
+: std::bool_constant<xieite::concepts::SpecializationOfAny<Type_, Templates_...>> {};
 ```
 
 &nbsp;

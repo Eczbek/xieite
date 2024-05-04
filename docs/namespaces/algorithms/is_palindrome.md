@@ -1,24 +1,24 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isPalindrome\(\)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isPalindrome\<\>\(\)
 Defined in header [<xieite/algorithms/is_palindrome.hpp>](../../../include/xieite/algorithms/is_palindrome.hpp)
 
 &nbsp;
 
 ## Description
-Checks if a range is the same backwards as it is forwards, or if an integer can be reversed while remaining the same value. Integral palindrome checker does not yet handle negative radices.
+Checks if a range is the same backwards as it is forwards, or if an integer can be reversed while remaining the same value. Integer palindrome checker does not yet handle negative radices.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
-[[nodiscard]] constexpr bool isPalindrome(Range&& range, Functor&& comparator = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>);
+template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range_>, std::ranges::range_reference_t<Range_>)> Functor_ = std::ranges::equal_to>
+[[nodiscard]] constexpr bool isPalindrome(Range_&& range, Functor_&& comparator = Functor_())
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>, std::ranges::range_reference_t<Range_>>);
 ```
 #### 2)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr bool isPalindrome(Integral value, Integral radix = 10) noexcept;
+template<std::integral Integral_>
+[[nodiscard]] constexpr bool isPalindrome(Integral_ value, Integral_ radix = 10) noexcept;
 ```
 
 &nbsp;

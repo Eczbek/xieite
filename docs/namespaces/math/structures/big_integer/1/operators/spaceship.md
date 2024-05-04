@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../../big_integer.md)\:\:operator<=>\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../../big_integer.md)\:\:operator\<=\>\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -15,8 +15,8 @@ Compares two big-integers.
 ```
 #### 2)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word_>& leftComparand, Integral rightComparand) noexcept;
+template<std::integral Integral_>
+[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Word_>& leftComparand, Integral_ rightComparand) noexcept;
 ```
 
 &nbsp;

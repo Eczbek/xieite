@@ -5,8 +5,8 @@
 #	include <cstddef>
 
 namespace xieite::bits {
-	template<std::integral Integral>
-	[[nodiscard]] constexpr Integral xorShift(const Integral value, const std::size_t bits) noexcept {
+	template<std::integral Integral_>
+	[[nodiscard]] constexpr Integral_ xorShift(const Integral_ value, const std::size_t bits) noexcept {
 		return value ^ (value >> bits);
 	}
 }

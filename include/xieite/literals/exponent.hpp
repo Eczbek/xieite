@@ -3,43 +3,43 @@
 
 #	include <cmath>
 #	include <type_traits>
-#	include "../concepts/numeric.hpp"
+#	include "../concepts/arithmetic.hpp"
 
 namespace xieite::detail {
-	template<xieite::concepts::Numeric Number>
+	template<xieite::concepts::Arithmetic Arithmetic_>
 	struct Exponent {
 	private:
 		struct Value {
 		public:
-			constexpr Value(const Number value) noexcept
+			constexpr Value(const Arithmetic_ value) noexcept
 			: value(value) {}
 
-			constexpr auto operator=(xieite::detail::Exponent<Number>::Value) = delete;
+			constexpr auto operator=(xieite::detail::Exponent<Arithmetic_>::Value) = delete;
 
-			template<xieite::concepts::Numeric OtherNumber>
-			[[nodiscard]] friend constexpr std::common_type_t<Number, OtherNumber> operator*(const OtherNumber base, const xieite::detail::Exponent<Number>::Value exponent) noexcept {
-				return static_cast<Number>(std::pow(base, exponent.value));
+			template<xieite::concepts::Arithmetic OtherArithmetic_>
+			[[nodiscard]] friend constexpr std::common_type_t<Arithmetic_, OtherArithmetic_> operator*(const OtherArithmetic_ base, const xieite::detail::Exponent<Arithmetic_>::Value exponent) noexcept {
+				return static_cast<Arithmetic_>(std::pow(base, exponent.value));
 			}
 
 		private:
-			Number value;
+			Arithmetic_ value;
 		};
 
 	public:
-		constexpr Exponent(const Number value) noexcept
+		constexpr Exponent(const Arithmetic_ value) noexcept
 		: value(value) {}
 
-		template<xieite::concepts::Numeric OtherNumber>
-		[[nodiscard]] constexpr operator OtherNumber() const noexcept {
-			return static_cast<OtherNumber>(this->value.value);
+		template<xieite::concepts::Arithmetic OtherArithmetic_>
+		[[nodiscard]] constexpr operator OtherArithmetic_() const noexcept {
+			return static_cast<OtherArithmetic_>(this->value.value);
 		}
 
-		[[nodiscard]] constexpr xieite::detail::Exponent<Number>::Value operator*() const noexcept {
+		[[nodiscard]] constexpr xieite::detail::Exponent<Arithmetic_>::Value operator*() const noexcept {
 			return this->value;
 		}
 
 	private:
-		xieite::detail::Exponent<Number>::Value value;
+		xieite::detail::Exponent<Arithmetic_>::Value value;
 	};
 }
 

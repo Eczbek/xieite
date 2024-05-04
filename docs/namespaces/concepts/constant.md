@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Constant
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Constant\<\>
 Defined in header [<xieite/concepts/constant.hpp>](../../../include/xieite/concepts/constant.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is constant.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept Constant = std::is_const_v<Type>;
+template<typename Type_>
+concept Constant = std::is_const_v<Type_>;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:power\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:power\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -15,8 +15,8 @@ Raises a `xieite::math::BigInteger<Word_>` to an exponent.
 ```
 #### 2)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word_>> power(Integral exponent) const noexcept;
+template<std::integral Integral_>
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word_>> power(Integral_ exponent) const noexcept;
 ```
 
 &nbsp;

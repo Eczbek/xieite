@@ -9,11 +9,11 @@
 #	include "../math/almost_equal.hpp"
 
 namespace xieite::algorithms {
-	template<xieite::concepts::Arithmetic Number, xieite::concepts::Functable<bool(Number)> Functor>
-	[[nodiscard]] constexpr Number numberSearch(Functor&& selector, Number minimum, Number maximum)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, Number>) {
+	template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::Functable<bool(Arithmetic_)> Functor_>
+	[[nodiscard]] constexpr Arithmetic_ numberSearch(Functor_&& selector, Arithmetic_ minimum, Arithmetic_ maximum)
+	noexcept(xieite::concepts::NoThrowInvocable<Functor_, Arithmetic_>) {
 		while (true) {
-			const Number middle = (minimum + maximum) / 2;
+			const Arithmetic_ middle = (minimum + maximum) / 2;
 			if (xieite::math::almostEqual(middle, minimum) || xieite::math::almostEqual(middle, maximum)) {
 				return middle;
 			}
@@ -21,11 +21,11 @@ namespace xieite::algorithms {
 		}
 	}
 
-	template<xieite::concepts::Arithmetic Number, xieite::concepts::Functable<bool(Number)> Functor>
-	[[nodiscard]] constexpr Number numberSearch(Functor&& selector)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, Number>) {
-		Number minimum = -1;
-		Number maximum = 1;
+	template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::Functable<bool(Arithmetic_)> Functor_>
+	[[nodiscard]] constexpr Arithmetic_ numberSearch(Functor_&& selector)
+	noexcept(xieite::concepts::NoThrowInvocable<Functor_, Arithmetic_>) {
+		Arithmetic_ minimum = -1;
+		Arithmetic_ maximum = 1;
 		if (std::invoke(selector, 0)) {
 			while (std::invoke(selector), minimum) {
 				minimum -= xieite::math::absolute(minimum);

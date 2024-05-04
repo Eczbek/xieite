@@ -11,14 +11,14 @@ Creates a `std::tuple` from a structured-bindable type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Structure>
-[[nodiscard]] constexpr std::tuple<> tupleify(Structure&&) noexcept;
+template<typename Structure_>
+[[nodiscard]] constexpr std::tuple<> tupleify(Structure_&&) noexcept;
 ```
-#### 2..256)
+#### 2..257)
 ```cpp
-template<typename... Values, typename Structure>
-requires(sizeof...(Values) == /* 1..256 */)
-[[nodiscard]] constexpr std::tuple<Values...> tupleify(Structure&& structure);
+template<typename... Values_, typename Structure_>
+requires(sizeof...(Values_) == /* 1..256 */)
+[[nodiscard]] constexpr std::tuple<Values_...> tupleify(Structure_&& structure);
 ```
 
 &nbsp;

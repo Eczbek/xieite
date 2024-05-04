@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:sign\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:sign\<\>\(\)
 Defined in header [<xieite/math/sign.hpp>](../../../include/xieite/math/sign.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Gets the sign of a number.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr int sign(Number value) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr int sign(Arithmetic_ value) noexcept;
 ```
 
 &nbsp;

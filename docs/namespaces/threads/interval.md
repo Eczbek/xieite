@@ -12,15 +12,15 @@ Runs a callback every set amount of time.
 #### 1)
 ```cpp
 struct Interval {
-    template<xieite::concepts::Duration Duration>
-    Interval(const xieite::functors::Function<void()>&, Duration) noexcept;
+    template<xieite::concepts::Duration Duration_>
+    Interval(const xieite::functors::Function<void()>&, Duration_) noexcept;
 
     explicit operator bool() const noexcept;
 
     void stop() noexcept;
 };
 ```
-- [Interval\(\)](./structures/interval/1/operators/constructor.md)
+- [Interval\<\>\(\)](./structures/interval/1/operators/constructor.md)
 - [operator typename\(\)](./structures/interval/1/operators/cast.md)
 - [stop\(\)](./structures/interval/1/stop.md)
 

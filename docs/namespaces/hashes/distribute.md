@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[hashes](../../hashes.md)\:\:distribute\(\)
+# [xieite](../../xieite.md)\:\:[hashes](../../hashes.md)\:\:distribute\<\>\(\)
 Defined in header [<xieite/hashes/distribute.hpp>](../../../include/xieite/hashes/distribute.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Distributes the bits of an integer magically. See header file.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral, std::floating_point Phi = double>
-[[nodiscard]] constexpr Integral distribute(Integral value) noexcept;
+template<std::integral Integral_, std::floating_point Phi_ = double>
+[[nodiscard]] constexpr Integral_ distribute(Integral_ value) noexcept;
 ```
 
 &nbsp;

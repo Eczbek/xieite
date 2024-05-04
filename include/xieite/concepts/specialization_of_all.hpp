@@ -4,8 +4,8 @@
 #	include "../concepts/specialization_of.hpp"
 
 namespace xieite::concepts {
-	template<typename Type, template<typename> typename... Templates>
-	concept SpecializationOfAll = (... && xieite::concepts::SpecializationOf<Type, Templates>);
+	template<typename Type_, template<typename> typename... Templates_>
+	concept SpecializationOfAll = (... && xieite::concepts::SpecializationOf<Type_, Templates_>);
 }
 
 #endif

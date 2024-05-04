@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<Key>, Value>](../../../tuple_map.md)\:\:insert\(\)
+# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<Container_, std::tuple<Key_>, Value_>](../../../tuple_map.md)\:\:insert\<\>\(\)
 Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../include/xieite/containers/tuple_map.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Assigns a value to a key.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<std::tuple<Key>> KeyReference, std::convertible_to<Value> ValueReference>
-constexpr void insert(KeyReference&& key, ValueReference&& value);
+template<std::convertible_to<std::tuple<Key_>> KeyReference_, std::convertible_to<Value_> ValueReference_>
+constexpr void insert(KeyReference_&& key, ValueReference_&& value);
 ```
 
 &nbsp;

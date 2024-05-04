@@ -263,18 +263,18 @@
 #	define XIEITE_DETAIL_255(macro) XIEITE_DETAIL_254(macro), XIEITE_DETAIL_##macro(255)
 #	define XIEITE_DETAIL_256(macro) XIEITE_DETAIL_255(macro), XIEITE_DETAIL_##macro(256)
 #	define XIEITE_DETAIL_257(count) _##count
-#	define XIEITE_DETAIL_258(count) std::forward<xieite::types::CollapseReference<decltype(_##count), Structure>>(_##count)
+#	define XIEITE_DETAIL_258(count) std::forward<xieite::types::CollapseReference<decltype(_##count), Structure_>>(_##count)
 #	define XIEITE_DETAIL_259(count) \
-		template<typename... Values, typename Structure> \
-		requires(sizeof...(Values) == (count + 1)) \
-		[[nodiscard]] constexpr std::tuple<Values...> tupleify(Structure&& structure) { \
+		template<typename... Values_, typename Structure_> \
+		requires(sizeof...(Values_) == (count + 1)) \
+		[[nodiscard]] constexpr std::tuple<Values_...> tupleify(Structure_&& structure) { \
 			auto&& [XIEITE_DETAIL_##count(257)] = structure; \
-			return std::tuple<Values...>(XIEITE_DETAIL_##count(258)); \
+			return std::tuple<Values_...>(XIEITE_DETAIL_##count(258)); \
 		}
 
 namespace xieite::containers {
-	template<typename Structure>
-	[[nodiscard]] constexpr std::tuple<> tupleify(Structure&&) noexcept {
+	template<typename Structure_>
+	[[nodiscard]] constexpr std::tuple<> tupleify(Structure_&&) noexcept {
 		return std::tuple<>();
 	}
 

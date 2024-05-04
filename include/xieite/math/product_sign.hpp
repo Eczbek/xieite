@@ -5,8 +5,8 @@
 #	include "../math/sign.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic... Numbers>
-	[[nodiscard]] constexpr int productSign(const Numbers... values) noexcept {
+	template<xieite::concepts::Arithmetic... Arithmetics_>
+	[[nodiscard]] constexpr int productSign(const Arithmetics_... values) noexcept {
 		return (... * xieite::math::sign(values));
 	}
 }

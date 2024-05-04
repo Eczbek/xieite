@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:antimodes\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:antimodes\<\>\(\)
 Defined in header [<xieite/math/antimodes.hpp>](../../../include/xieite/math/antimodes.hpp)
 
 &nbsp;
@@ -11,14 +11,14 @@ Finds values which are less than both their direct neighbors.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range>
-requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
-[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range>> antimodes(const Range& range) noexcept;
+template<std::ranges::range Range_>
+requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range_>>)
+[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range_>> antimodes(const Range_& range) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic... Numbers>
-[[nodiscard]] constexpr std::vector<std::common_type_t<double, Numbers...>> antimodes(Numbers... values) noexcept;
+template<xieite::concepts::Arithmetic... Arithmetics_>
+[[nodiscard]] constexpr std::vector<std::common_type_t<double, Arithmetics_...>> antimodes(Arithmetics_... values) noexcept;
 ```
 
 &nbsp;

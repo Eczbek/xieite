@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_constant_invocable.hpp>](../../../include/x
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Functor, typename... Arguments>
+template<typename Functor_, typename... Arguments_>
 struct IsConstantInvocable
-: std::bool_constant<xieite::concepts::ConstantInvocable<Functor, Arguments...>> {};
+: std::bool_constant<xieite::concepts::ConstantInvocable<Functor_, Arguments_...>> {};
 ```
 
 &nbsp;

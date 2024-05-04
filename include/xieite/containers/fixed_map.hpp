@@ -18,33 +18,33 @@
 #	include "../types/maybe_constant.hpp"
 
 namespace xieite::containers {
-	template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value*>>>
+	template<typename Key_, typename Value_, std::size_t size_, typename Hash_ = std::hash<Key_>, typename KeyComparator_ = std::equal_to<Key_>, typename Allocator_ = std::allocator<std::pair<const Key_, Value_*>>>
 	struct FixedMap {
 	public:
 		constexpr FixedMap() noexcept = default;
 
-		template<xieite::concepts::RangeOf<std::pair<Key, Value>> Range>
-		constexpr FixedMap(Range&& entries) noexcept
-		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(XIEITE_FORWARD(entries))) {}
+		template<xieite::concepts::RangeOf<std::pair<Key_, Value_>> Range_>
+		constexpr FixedMap(Range_&& entries) noexcept
+		: array(xieite::containers::makeArray<std::pair<Key_, Value_>, size_>(XIEITE_FORWARD(entries))) {}
 
-		constexpr FixedMap(const std::initializer_list<std::pair<Key, Value>> entries) noexcept
-		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
+		constexpr FixedMap(const std::initializer_list<std::pair<Key_, Value_>> entries) noexcept
+		: array(xieite::containers::makeArray<std::pair<Key_, Value_>, size_>(entries)) {}
 
-		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&& self, KeyReference&& key) noexcept {
+		template<typename Self_, std::convertible_to<Key_> KeyReference_>
+		[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_, std::is_const_v<Self_>>>> operator[](this Self_&& self, KeyReference_&& key) noexcept {
 			return XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 		}
 
-		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> at(this Self&& self, KeyReference&& key) noexcept {
+		template<typename Self_, std::convertible_to<Key_> KeyReference_>
+		[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_, std::is_const_v<Self_>>>> at(this Self_&& self, KeyReference_&& key) noexcept {
 			return XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 		}
 
-		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr bool contains(KeyReference&& key) const noexcept {
+		template<std::convertible_to<Key_> KeyReference_>
+		[[nodiscard]] constexpr bool contains(KeyReference_&& key) const noexcept {
 			if consteval {
-				for (const std::pair<Key, Value>& entry : this->array) {
-					if (std::invoke(KeyComparator(), entry.first, XIEITE_FORWARD(key))) {
+				for (const std::pair<Key_, Value_>& entry : this->array) {
+					if (std::invoke(KeyComparator_(), entry.first, XIEITE_FORWARD(key))) {
 						return true;
 					}
 				}
@@ -54,19 +54,19 @@ namespace xieite::containers {
 			}
 		}
 
-		[[nodiscard]] constexpr const std::array<std::pair<Key, Value>, size>& data() const noexcept {
+		[[nodiscard]] constexpr const std::array<std::pair<Key_, Value_>, size_>& data() const noexcept {
 			return this->array;
 		}
 
 	private:
-		mutable std::array<std::pair<Key, Value>, size> array;
+		mutable std::array<std::pair<Key_, Value_>, size_> array;
 
-		[[nodiscard]] std::unordered_map<Key, Value*, Hash, KeyComparator, Allocator>& getMap() const noexcept {
-			using Map = std::unordered_map<Key, Value*, Hash, KeyComparator, Allocator>;
+		[[nodiscard]] std::unordered_map<Key_, Value_*, Hash_, KeyComparator_, Allocator_>& getMap() const noexcept {
+			using Map = std::unordered_map<Key_, Value_*, Hash_, KeyComparator_, Allocator_>;
 			static Map map = ([this] {
 				Map map;
-				map.reserve(this->array.size());
-				for (std::pair<Key, Value>& entry : this->array) {
+				map.reserve(this->array.size_());
+				for (std::pair<Key_, Value_>& entry : this->array) {
 					map.emplace(std::make_pair(entry.first, &entry.second));
 				}
 				return map;
@@ -74,11 +74,11 @@ namespace xieite::containers {
 			return map;
 		}
 
-		template<std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr std::optional<std::reference_wrapper<Value>> getValue(KeyReference&& key) const noexcept {
+		template<std::convertible_to<Key_> KeyReference_>
+		[[nodiscard]] constexpr std::optional<std::reference_wrapper<Value_>> getValue(KeyReference_&& key) const noexcept {
 			if consteval {
-				for (std::pair<Key, Value>& entry : this->array) {
-					if (std::invoke(KeyComparator(), entry.first, key)) {
+				for (std::pair<Key_, Value_>& entry : this->array) {
+					if (std::invoke(KeyComparator_(), entry.first, key)) {
 						return entry.second;
 					}
 				}

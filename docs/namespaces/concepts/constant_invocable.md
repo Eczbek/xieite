@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:ConstantInvocable
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:ConstantInvocable\<\>
 Defined in header [<xieite/concepts/constant_invocable.hpp>](../../../include/xieite/concepts/constant_invocable.hpp)
 
 &nbsp;
@@ -11,10 +11,8 @@ Specifies that a functor type is invocable without mutating.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Functor, typename... Arguments>
-concept ConstantInvocable = requires(const Functor functor, Arguments... arguments) {
-    std::invoke(functor, std::forward<Arguments>(arguments)...);
-};
+template<typename Functor_, typename... Arguments_>
+concept ConstantInvocable = /* ... */;
 ```
 
 &nbsp;

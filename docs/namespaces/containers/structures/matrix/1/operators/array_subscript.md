@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value>](../../../../matrix.md)\:\:operator\[\]\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value_>](../../../../matrix.md)\:\:operator\[\]\<\>\(\)
 Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Accesses a value by indices for every dimension.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Self, xieite::concepts::RangeOf<std::size_t> Range>
-[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&&, Range&& indices);
+template<typename Self_, xieite::concepts::RangeOf<std::size_t> Range_>
+[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_, std::is_const_v<Self_>>>> operator[](this Self_&&, Range_&& indices);
 ```
 #### 2)
 ```cpp
-template<typename Self, std::convertible_to<std::size_t>... Sizes>
-[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&&, Sizes... indices);
+template<typename Self_, std::convertible_to<std::size_t>... Sizes_>
+[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_, std::is_const_v<Self_>>>> operator[](this Self_&&, Sizes_... indices);
 ```
 
 &nbsp;

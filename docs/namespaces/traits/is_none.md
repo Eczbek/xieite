@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNone \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNone\<\> \{\}
 Defined in header [<xieite/traits/is_none.hpp>](../../../include/xieite/traits/is_none.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Negates a trait.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename> typename Trait>
+template<typename Type_, template<typename> typename Trait_>
 struct IsNone
-: std::bool_constant<xieite::concepts::None<Type, Trait>> {};
+: std::bool_constant<xieite::concepts::None<Type_, Trait_>> {};
 ```
 
 &nbsp;

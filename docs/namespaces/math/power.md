@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:power\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:power\<\>\(\)
 Defined in header [<xieite/math/power.hpp>](../../../include/xieite/math/power.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Computes a power of an integer.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr Integral power(Integral base, std::size_t exponent) noexcept;
+template<std::integral Integral_>
+[[nodiscard]] constexpr Integral_ power(Integral_ base, std::size_t exponent) noexcept;
 ```
 
 &nbsp;

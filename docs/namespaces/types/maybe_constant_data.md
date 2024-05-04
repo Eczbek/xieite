@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybeConstantData
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybeConstantData\<\>
 Defined in header [<xieite/types/maybe_constant_data.hpp>](../../../include/xieite/types/maybe_constant_data.hpp)
 
 &nbsp;
@@ -20,17 +20,17 @@ using MaybeConstantData = /* ... */;
 
 ## Example
 ```cpp
+#include <concepts>
 #include <print>
 #include "xieite/types/maybe_constant_data.hpp"
-#include "xieite/types/name.hpp"
 
 int main() {
-    std::println("{}", xieite::types::name<xieite::types::MaybeConstantData<int*, true>>);
-    std::println("{}", xieite::types::name<xieite::types::MaybeConstantData<const int*, false>>);
+    std::println("{}", std::same_as<const int*, xieite::types::MaybeConstantData<int*, true>>);
+    std::println("{}", std::same_as<int*, xieite::types::MaybeConstantData<const int*, false>>);
 }
 ```
-Possible output:
+Output:
 ```
-const int*
-int*
+true
+true
 ```

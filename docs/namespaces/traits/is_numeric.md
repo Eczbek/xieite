@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNumeric \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNumeric\<\> \{\}
 Defined in header [<xieite/traits/is_numeric.hpp>](../../../include/xieite/traits/is_numeric.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_numeric.hpp>](../../../include/xieite/trait
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsNumeric
-: std::bool_constant<xieite::concepts::Numeric<Type>> {};
+: std::bool_constant<xieite::concepts::Numeric<Type_>> {};
 ```
 
 &nbsp;

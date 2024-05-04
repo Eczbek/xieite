@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Segment<Number>](../../../segment.md)\:\:slope
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Segment<Arithmetic_>](../../../segment.md)\:\:slope\(\)
 Defined in header [<xieite/geometry/segment.hpp>](../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Computes the slope of a segment.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> slope() const noexcept;
+[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> slope() const noexcept;
 ```
 
 &nbsp;

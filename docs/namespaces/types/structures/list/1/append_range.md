@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:AppendRange
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:AppendRange\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Appends a list of types.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Range>
-using AppendRange = /* ... */;
+template<typename Range_>
+using AppendRange = /* xieite::types::List<...> */;
 ```
 
 &nbsp;

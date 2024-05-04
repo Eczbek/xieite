@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix<Result(Argument)>](../../../../infix.md)\:\:operator<\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix<Return_(Argument_)>](../../../../infix.md)\:\:operator<\(\)
 Defined in header [<xieite/functors/infix.hpp>](../../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Calls the underlying functor with one argument.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<Argument> ArgumentReference>
-friend constexpr Result operator>(const xieite::functors::Infix<Result(Argument)>& infix, ArgumentReference&& argument);
+template<std::convertible_to<Argument_> ArgumentReference_>
+friend constexpr Return_ operator>(const xieite::functors::Infix<Return_(Argument_)>& infix, ArgumentReference_&& argument);
 ```
 
 &nbsp;

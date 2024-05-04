@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:logarithm\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:logarithm\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -15,8 +15,8 @@ Computes the logarithm of a `xieite::math::BigInteger<Word_>` to a base.
 ```
 #### 2)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word_>> logarithm(Integral base) const noexcept;
+template<std::integral Integral_>
+[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Word_>> logarithm(Integral_ base) const noexcept;
 ```
 
 &nbsp;

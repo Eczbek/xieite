@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:fibonacci
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:fibonacci\<\>
 Defined in header [<xieite/math/fibonacci.hpp>](../../../include/xieite/math/fibonacci.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ A lookup table of all representable values of the fibonacci sequence.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-inline constexpr std::array<Number, /* ... */ fibonacci = /* ... */
+template<xieite::concepts::Arithmetic Arithmetic_>
+inline constexpr std::array<Arithmetic_, /* size */> fibonacci = /* ... */
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:RangeOf
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:RangeOf\<\>
 Defined in header [<xieite/concepts/range_of.hpp>](../../../include/xieite/concepts/range_of.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type satisfies `std::ranges::range` and contains values of a sp
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Range, typename Value>
-concept RangeOf = std::ranges::range<Range> && (std::same_as<std::ranges::range_reference_t<Range>, Value> || std::convertible_to<std::ranges::range_reference_t<Range>, Value>);
+template<typename Range_, typename Value_>
+concept RangeOf = std::ranges::range<Range_> && (std::same_as<std::ranges::range_reference_t<Range_>, Value_> || std::convertible_to<std::ranges::range_reference_t<Range_>, Value_>);
 ```
 
 &nbsp;

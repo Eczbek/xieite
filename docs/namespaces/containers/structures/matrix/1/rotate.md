@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value>](../../../../matrix.md)\:\:rotate\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value_>](../../../../matrix.md)\:\:rotate\(\)
 Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Rotates a two-dimensional slice of a matrix 90 degrees.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral, xieite::concepts::RangeOf<std::size_t> Range>
-constexpr std::optional<std::monostate> rotate(Integral rotations, Range&& indices) noexcept;
+template<std::integral Integral_, xieite::concepts::RangeOf<std::size_t> Range_>
+constexpr std::optional<std::monostate> rotate(Integral_ rotations, Range_&& indices) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral, std::convertible_to<std::size_t>... Sizes>
-constexpr std::optional<std::monostate> rotate(Integral rotations, Sizes... indices) noexcept;
+template<std::integral Integral_, std::convertible_to<std::size_t>... Sizes_>
+constexpr std::optional<std::monostate> rotate(Integral_ rotations, Sizes_... indices) noexcept;
 ```
 
 &nbsp;

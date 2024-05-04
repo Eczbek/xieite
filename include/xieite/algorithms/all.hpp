@@ -7,10 +7,10 @@
 #	include "../macros/forward.hpp"
 
 namespace xieite::algorithms {
-	template<typename... Values, typename Functor>
-	requires((... && xieite::concepts::Functable<Functor, bool(Values)>))
-	[[nodiscard]] constexpr bool all(Functor&& functor, Values&&... values)
-	noexcept((... && xieite::concepts::NoThrowInvocable<Functor, Values>)) {
+	template<typename... Values_, typename Functor_>
+	requires((... && xieite::concepts::Functable<Functor_, bool(Values_)>))
+	[[nodiscard]] constexpr bool all(Functor_&& functor, Values_&&... values)
+	noexcept((... && xieite::concepts::NoThrowInvocable<Functor_, Values_>)) {
 		return (... && std::invoke(functor, XIEITE_FORWARD(values)));
 	}
 }

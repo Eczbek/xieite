@@ -12,10 +12,10 @@
 #	include "../math/mean.hpp"
 
 namespace xieite::math {
-	template<std::ranges::range Range>
-	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
-	[[nodiscard]] constexpr std::common_type_t<double, std::ranges::range_value_t<Range>> median(Range&& range) noexcept {
-		using Iterator = std::ranges::iterator_t<Range>;
+	template<std::ranges::range Range_>
+	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range_>>)
+	[[nodiscard]] constexpr std::common_type_t<double, std::ranges::range_value_t<Range_>> median(Range_&& range) noexcept {
+		using Iterator = std::ranges::iterator_t<Range_>;
 		std::vector<Iterator> iterators;
 		iterators.reserve(std::ranges::size(range));
 		const Iterator end = std::ranges::end(range);
@@ -29,11 +29,11 @@ namespace xieite::math {
 		return (rangeSize % 2) ? *iterators[(rangeSize - 1) / 2] : xieite::math::mean(*iterators[rangeSize / 2 - 1], *iterators[rangeSize / 2]);
 	}
 
-	template<xieite::concepts::Arithmetic... Numbers>
-	requires(sizeof...(Numbers) > 0)
-	[[nodiscard]] constexpr std::common_type_t<double, Numbers...> median(const Numbers... values) noexcept {
-		using Result = std::common_type_t<double, Numbers...>;
-		return xieite::math::median(std::array<Result, sizeof...(Numbers)> {
+	template<xieite::concepts::Arithmetic... Arithmetics_>
+	requires(sizeof...(Arithmetics_) > 0)
+	[[nodiscard]] constexpr std::common_type_t<double, Arithmetics_...> median(const Arithmetics_... values) noexcept {
+		using Result = std::common_type_t<double, Arithmetics_...>;
+		return xieite::math::median(std::array<Result, sizeof...(Arithmetics_)> {
 			static_cast<Result>(values)...
 		});
 	}

@@ -5,8 +5,8 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr Number round(const Number value, const Number step = 1) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr Arithmetic_ round(const Arithmetic_ value, const Arithmetic_ step = 1) noexcept {
 		return std::round(value / step) * step;
 	}
 }

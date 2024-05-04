@@ -12,9 +12,9 @@ Executes a callback when it goes out of scope.
 #### 1)
 ```cpp
 struct ScopeGuard {
-    constexpr ScopeGuard(const xieite::functors::Function<void()>&);
+    constexpr ScopeGuard(const xieite::functors::Function<void()>&) noexcept;
 
-    constexpr void release();
+    constexpr void release() noexcept;
 };
 ```
 - [ScopeGuard\(\)](./structures/scope_guard/1/operators/constructor.md)

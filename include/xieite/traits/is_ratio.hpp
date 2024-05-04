@@ -10,8 +10,8 @@ namespace xieite::traits {
 	struct IsRatio
 	: std::false_type {};
 
-	template<std::intmax_t numerator, std::intmax_t denominator>
-	struct IsRatio<std::ratio<numerator, denominator>>
+	template<std::intmax_t numerator_, std::intmax_t denominator_>
+	struct IsRatio<std::ratio<numerator_, denominator_>>
 	: std::true_type {};
 }
 

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:TypeWrapper \{\}
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:TypeWrapper\<\> \{\}
 Defined in header [<xieite/types/type_wrapper.hpp>](../../../include/xieite/types/type_wrapper.hpp)
 
 &nbsp;
@@ -21,15 +21,15 @@ struct TypeWrapper {
 
 ## Example
 ```cpp
+#include <concepts>
 #include <print>
-#include "xieite/types/name.hpp"
 #include "xieite/types/type_wrapper.hpp"
 
 int main() {
-    std::println("{}", xieite::types::name<xieite::types::TypeWrapper<int>::Type>);
+    std::println("{}", std::same_as<int, xieite::types::TypeWrapper<int>::Type>);
 }
 ```
 Possible output:
 ```
-int
+true
 ```

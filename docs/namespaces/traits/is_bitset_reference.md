@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsBitsetReference \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsBitsetReference\<\> \{\}
 Defined in header [<xieite/traits/is_bitset_reference.hpp>](../../../include/xieite/traits/is_bitset_reference.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_bitset_reference.hpp>](../../../include/xie
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsBitsetReference
-: std::bool_constant<xieite::concepts::BitsetReference<Type>> {};
+: std::bool_constant<xieite::concepts::BitsetReference<Type_>> {};
 ```
 
 &nbsp;

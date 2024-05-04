@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Product \{\}
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Product\<\> \{\}
 Defined in header [<xieite/math/product.hpp>](../../../include/xieite/math/product.hpp)
 
 &nbsp;
@@ -11,10 +11,10 @@ A structure intended for storing the product of two unsigned integers in two par
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral UnsignedIntegral>
+template<std::unsigned_integral UnsignedIntegral_>
 struct Product {
-    UnsignedIntegral lower;
-    UnsignedIntegral upper;
+    UnsignedIntegral_ lower;
+    UnsignedIntegral_ upper;
 };
 ```
 ##### Members

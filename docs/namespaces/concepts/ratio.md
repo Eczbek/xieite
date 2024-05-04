@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Ratio
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Ratio\<\>
 Defined in header [<xieite/concepts/ratio.hpp>](../../../include/xieite/concepts/ratio.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type satisfies `std::ranges::range` and contains values of a sp
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept Ratio = xieite::traits::IsRatio<std::remove_cv_t<Type>>::value;
+template<typename Type_>
+concept Ratio = xieite::traits::IsRatio<std::remove_cv_t<Type_>>::value;
 ```
 
 &nbsp;

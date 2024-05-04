@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Line<Number>](../../../line.md)\:\:length
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Line<Arithmetic_>](../../../line.md)\:\:length\(\)
 Defined in header [<xieite/geometry/line.hpp>](../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;

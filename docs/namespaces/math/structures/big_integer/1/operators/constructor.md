@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:BigInteger\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:BigInteger\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Constructs a `xieite::math::BigInteger<Word_>`.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral>
-constexpr BigInteger(Integral value = 0) noexcept;
+template<std::integral Integral_>
+constexpr BigInteger(Integral_ value = 0) noexcept;
 ```
 #### 2)
 ```cpp
@@ -21,9 +21,9 @@ constexpr BigInteger(const xieite::math::BigInteger<OtherWord_>& value) noexcept
 ```
 #### 3)
 ```cpp
-template<std::ranges::Range Range>
-requires(std::same_as<std::ranges::range_value_t<Range>, Word_>)
-constexpr BigInteger(Range&& range, bool negative = false) noexcept;
+template<std::ranges::Range Range_>
+requires(std::same_as<std::ranges::range_value_t<Range_>, Word_>)
+constexpr BigInteger(Range_&& range, bool negative = false) noexcept;
 ```
 #### 4)
 ```cpp

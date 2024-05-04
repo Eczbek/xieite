@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:partialReverse\(\)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:partialReverse\<\>\(\)
 Defined in header [<xieite/algorithms/partial_reverse.hpp>](../../../include/xieite/algorithms/partial_reverse.hpp)
 
 &nbsp;
@@ -11,10 +11,10 @@ Selects iterators and then reverses them only between themselves.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>)> Functor>
-requires(!std::is_const_v<Range>)
-constexpr void partialReverse(Range& range, Functor&& selector)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>);
+template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range_>)> Functor_>
+requires(!std::is_const_v<Range_>)
+constexpr void partialReverse(Range_& range, Functor_&& selector)
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>>);
 ```
 
 &nbsp;

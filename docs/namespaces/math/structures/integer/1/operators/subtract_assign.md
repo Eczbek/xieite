@@ -13,11 +13,6 @@ Assigns the difference between this integer and another.
 ```cpp
 constexpr xieite::math::Integer<bits_, sign_>& operator-=(xieite::math::Integer<bits_, sign_> subtrahend) noexcept;
 ```
-#### 2)
-```cpp
-template<std::integral Integral>
-constexpr xieite::math::Integer<bits_, sign_>& operator-=(Integral subtrahend) noexcept;
-```
 
 &nbsp;
 

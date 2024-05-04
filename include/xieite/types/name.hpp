@@ -29,8 +29,8 @@ namespace XIEITE_DETAIL_NAMESPACE {
 }
 
 namespace xieite::types {
-	template<typename Type>
-	inline constexpr std::string_view name = XIEITE_DETAIL_NAMESPACE::name<Type>();
+	template<typename Type_>
+	inline constexpr std::string_view name = XIEITE_DETAIL_NAMESPACE::name<Type_>();
 }
 
 #endif

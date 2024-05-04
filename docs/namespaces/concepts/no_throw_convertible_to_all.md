@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowConvertibleToAll
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowConvertibleToAll\<\>
 Defined in header [<xieite/concepts/no_throw_convertible_to_all.hpp>](../../../include/xieite/concepts/no_throw_convertible_to_all.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type can be converted to several other types without throwing e
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source, typename... Targets>
-concept NoThrowConvertibleToAll = (... && xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
+template<typename Source_, typename... Targets_>
+concept NoThrowConvertibleToAll = (... && xieite::concepts::NoThrowConvertibleTo<Source_, Targets_>);
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsSameAsAny \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsSameAsAny\<\> \{\}
 Defined in header [<xieite/traits/is_same_as_any.hpp>](../../../include/xieite/traits/is_same_as_any.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_same_as_any.hpp>](../../../include/xieite/t
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source, typename... Targets>
+template<typename Source_, typename... Targets_>
 struct IsSameAsAny
-: std::bool_constant<xieite::concepts::SameAsAny<Source, Targets...>> {};
+: std::bool_constant<xieite::concepts::SameAsAny<Source_, Targets_...>> {};
 ```
 
 &nbsp;

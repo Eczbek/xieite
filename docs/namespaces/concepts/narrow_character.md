@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NarrowCharacter
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NarrowCharacter\<\>
 Defined in header [<xieite/concepts/narrow_character.hpp>](../../../include/xieite/concepts/narrow_character.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is a narrow character, according to [the standard draft](h
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept NarrowCharacter = xieite::concepts::OrdinaryCharacter<Type> || std::same_as<std::remove_cv_t<Type>, char8_t>;
+template<typename Type_>
+concept NarrowCharacter = xieite::concepts::OrdinaryCharacter<Type_> || std::same_as<std::remove_cv_t<Type_>, char8_t>;
 ```
 
 &nbsp;

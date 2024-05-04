@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsTemplateOfAll \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsTemplateOfAll\<\> \{\}
 Defined in header [<xieite/traits/is_template_of_all.hpp>](../../../include/xieite/traits/is_template_of_all.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_template_of_all.hpp>](../../../include/xiei
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename...> typename... Templates>
+template<typename Type_, template<typename...> typename... Templates_>
 struct IsTemplateOfAll
-: std::bool_constant<xieite::concepts::TemplateOfAll<Type, Templates...>> {};
+: std::bool_constant<xieite::concepts::TemplateOfAll<Type_, Templates_...>> {};
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Number>](../../../../segment.md)\:\:operator==\(\)
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Arithmetic_>](../../../../segment.md)\:\:operator==\(\)
 Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Compares two segments.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Segment<Number>& segment1, const xieite::geometry::Segment<Number>& segment2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Segment<Arithmetic_>& segment1, const xieite::geometry::Segment<Arithmetic_>& segment2) noexcept;
 ```
 
 &nbsp;

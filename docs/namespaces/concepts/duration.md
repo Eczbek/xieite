@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Duration
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Duration\<\>
 Defined in header [<xieite/concepts/duration.hpp>](../../../include/xieite/concepts/duration.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is a `std::chrono::duration`. To be deprecated once `std::
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
-concept Duration = xieite::traits::IsDuration<std::remove_cv_t<Type>>::value;
+template<typename Type_>
+concept Duration = xieite::traits::IsDuration<std::remove_cv_t<Type_>>::value;
 ```
 
 &nbsp;

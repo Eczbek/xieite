@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:All
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:All\<\>
 Defined in header [<xieite/concepts/all.hpp>](../../../include/xieite/concepts/all.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type satisfies all of several type traits. Expects trait-like s
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename> typename... Traits>
-concept All = (... && Traits<Type>::value);
+template<typename Type_, template<typename> typename... Traits_>
+concept All = (... && Traits_<Type_>::value);
 ```
 
 &nbsp;
@@ -23,13 +23,13 @@ concept All = (... && Traits<Type>::value);
 #include <type_traits>
 #include "xieite/concepts/all.hpp"
 
-template<xieite::concepts::All<std::is_integral, std::is_signed> Type>
-void test(Type value) {
+template<xieite::concepts::All<std::is_integral, std::is_signed> T>
+void test(T value) {
     std::println("yes: {}", value);
 }
 
-template<typename Type>
-void test(Type&& value) {
+template<typename T>
+void test(T&& value) {
     std::println("no: {}", value);
 }
 

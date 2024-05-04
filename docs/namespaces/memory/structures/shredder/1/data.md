@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[memory](../../../../../memory.md)\:\:[Shredder<Type>](../../../shredder.md)\:\:data\(\)
+# [xieite](../../../../../xieite.md)\:\:[memory](../../../../../memory.md)\:\:[Shredder<Type_>](../../../shredder.md)\:\:data\(\)
 Defined in header [<xieite/memory/shredder.hpp>](../../../../../../include/xieite/memory/shredder.hpp)
 
 &nbsp;

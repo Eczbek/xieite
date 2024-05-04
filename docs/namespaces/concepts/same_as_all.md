@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SameAsAll
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SameAsAll\<\>_
 Defined in header [<xieite/concepts/same_as_all.hpp>](../../../include/xieite/concepts/same_as_all.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type is the same as several other types. Passing no target type
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source, typename... Targets>
-concept SameAsAll = (... || std::same_as<Source, Targets>);
+template<typename Source_, typename... Targets_>
+concept SameAsAll = (... || std::same_as<Source_, Targets_>);
 ```
 
 &nbsp;

@@ -2,18 +2,17 @@
 #	define XIEITE_HEADER_TRAITS_IS_DURATION
 
 #	include <chrono>
-#	include <cstdint>
-#	include <ratio>
 #	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
+#	include "../concepts/ratio.hpp"
 
 namespace xieite::traits {
 	template<typename>
 	struct IsDuration
 	: std::false_type {};
 
-	template<xieite::concepts::Arithmetic Number, std::intmax_t numerator, std::intmax_t denominator>
-	struct IsDuration<std::chrono::duration<Number, std::ratio<numerator, denominator>>>
+	template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::Ratio Ratio_>
+	struct IsDuration<std::chrono::duration<Arithmetic_, Ratio_>>
 	: std::true_type {};
 }
 

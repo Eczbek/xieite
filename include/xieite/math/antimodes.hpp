@@ -11,10 +11,10 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
-	template<std::ranges::range Range>
-	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
-	[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range>> antimodes(const Range& range) noexcept {
-		using Value = std::ranges::range_value_t<Range>;
+	template<std::ranges::range Range_>
+	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range_>>)
+	[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range_>> antimodes(const Range_& range) noexcept {
+		using Value = std::ranges::range_value_t<Range_>;
 		const auto iterators = xieite::algorithms::modes(range, std::ranges::less());
 		std::vector<Value> result = std::vector<Value>(iterators.size());
 		std::ranges::transform(iterators, result.begin(), [](const auto iterator) {
@@ -23,10 +23,10 @@ namespace xieite::math {
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic... Numbers>
-	[[nodiscard]] constexpr std::vector<std::common_type_t<Numbers...>> antimodes(const Numbers... values) noexcept {
-		return xieite::math::antimodes(std::array<std::common_type_t<Numbers...>, sizeof...(Numbers)> {
-			static_cast<std::common_type_t<Numbers...>>(values)...
+	template<xieite::concepts::Arithmetic... Arithmetics_>
+	[[nodiscard]] constexpr std::vector<std::common_type_t<Arithmetics_...>> antimodes(const Arithmetics_... values) noexcept {
+		return xieite::math::antimodes(std::array<std::common_type_t<Arithmetics_...>, sizeof...(Arithmetics_)> {
+			static_cast<std::common_type_t<Arithmetics_...>>(values)...
 		});
 	}
 }

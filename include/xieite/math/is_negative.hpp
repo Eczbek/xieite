@@ -8,14 +8,14 @@ namespace xieite::math {
 	template<std::unsigned_integral>
 	struct BigInteger;
 
-	template<std::unsigned_integral UnsignedIntegral>
-	[[nodiscard]] constexpr bool isNegative(const UnsignedIntegral value) noexcept {
+	template<std::unsigned_integral UnsignedIntegral_>
+	[[nodiscard]] constexpr bool isNegative(const UnsignedIntegral_ value) noexcept {
 		return false;
 	}
 
-	template<typename Number>
-	requires(std::signed_integral<Number> || std::floating_point<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr bool isNegative(const Number value) noexcept {
+	template<typename Number_>
+	requires(std::signed_integral<Number_> || std::floating_point<Number_> || xieite::concepts::SpecializationOf<Number_, xieite::math::BigInteger>)
+	[[nodiscard]] constexpr bool isNegative(const Number_ value) noexcept {
 		return value < 0;
 	}
 }

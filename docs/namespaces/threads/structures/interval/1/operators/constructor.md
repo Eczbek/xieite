@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Interval](../../../../interval.md)\:\:Interval\(\)
+# [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Interval](../../../../interval.md)\:\:Interval\<\>\(\)
 Defined in header [<xieite/threads/interval.hpp>](../../../../../../../include/xieite/threads/interval.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Constructs a `xieite::threads::Interval`, starts running a callback between set 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Duration Duration>
-Interval(const xieite::functors::Function<void()>& callback, Duration duration) noexcept;
+template<xieite::concepts::Duration Duration_>
+Interval(const xieite::functors::Function<void()>& callback, Duration_ duration) noexcept;
 ```
 
 &nbsp;

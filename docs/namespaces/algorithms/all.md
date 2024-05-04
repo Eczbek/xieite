@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:all\(\)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:all\<\>\(\)
 Defined in header [<xieite/algorithms/all.hpp>](../../../include/xieite/algorithms/all.hpp)
 
 &nbsp;
@@ -11,10 +11,10 @@ Checks whether a functor invoked with each following argument evaluates to `true
 ## Synopsis
 #### 1)
 ```cpp
-template<typename... Values, typename Functor>
-requires((... && xieite::concepts::Functable<Functor, bool(Values)>))
-[[nodiscard]] constexpr bool all(Functor&& functor, Values&&... values)
-noexcept((... && xieite::concepts::NoThrowInvocable<Functor, Values>));
+template<typename... Values_, typename Functor_>
+requires((... && xieite::concepts::Functable<Functor_, bool(Values_)>))
+[[nodiscard]] constexpr bool all(Functor_&& functor, Values_&&... values)
+noexcept((... && xieite::concepts::NoThrowInvocable<Functor_, Values_>));
 ```
 
 &nbsp;

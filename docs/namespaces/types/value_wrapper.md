@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:ValueWrapper \{\}
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:ValueWrapper\<\> \{\}
 Defined in header [<xieite/types/value_wrapper.hpp>](../../../include/xieite/types/value_wrapper.hpp)
 
 &nbsp;

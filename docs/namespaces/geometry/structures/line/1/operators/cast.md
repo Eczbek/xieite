@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Line<Number>](../../../../line.md)\:\:operator typename
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Line<Arithmetic_>](../../../../line.md)\:\:operator typename\<\>\(\)
 Defined in header [<xieite/geometry/line.hpp>](../../../../../../../include/xieite/geometry/line.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Casts one line type to another.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename OtherNumber>
-[[nodiscard]] constexpr operator xieite::geometry::Line<OtherNumber>() const noexcept;
+template<typename OtherArithmetic_>
+[[nodiscard]] constexpr operator xieite::geometry::Line<OtherArithmetic_>() const noexcept;
 ```
 
 &nbsp;

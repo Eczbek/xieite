@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:mostConsecutive\(\)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:mostConsecutive\<\>\(\)
 Defined in header [<xieite/algorithms/most_consecutive.hpp>](../../../include/xieite/algorithms/most_consecutive.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Finds the subrange of greatest length containing the maximum number of consecuti
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_const_reference_t<Range>)> Functor>
-[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> mostConsecutive(Range&& range, Functor&& selector = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>);
+template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_const_reference_t<Range_>)> Functor_>
+[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range_>> mostConsecutive(Range_&& range, Functor_&& selector = Functor_())
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_const_reference_t<Range_>>);
 ```
 
 &nbsp;

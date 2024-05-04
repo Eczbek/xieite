@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsOrdinaryCharacter \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsOrdinaryCharacter\<\> \{\}
 Defined in header [<xieite/traits/is_ordinary_character.hpp>](../../../include/xieite/traits/is_ordinary_character.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_ordinary_character.hpp>](../../../include/x
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsOrdinaryCharacter
-: std::bool_constant<xieite::concepts::OrdinaryCharacter<Type>> {};
+: std::bool_constant<xieite::concepts::OrdinaryCharacter<Type_>> {};
 ```
 
 &nbsp;

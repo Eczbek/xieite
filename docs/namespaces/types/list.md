@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:List \{\}
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:List\<\> \{\}
 Defined in header [<xieite/types/list.hpp>](../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,93 +11,108 @@ A structure for operating on a list of types.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename... Types>
+template<typename... Types_>
 struct List {
-    static constexpr std::size_t size = sizeof...(Types);
+    static constexpr std::size_t size = sizeof...(Types_);
 
-    template<typename Type, template<typename, typename> typename Comparator = std::is_same>
-    static constexpr std::size_t count = (... + Comparator<Type, Types>::value);
+    template<typename Type_, template<typename, typename> typename Comparator_ = std::is_same>
+    static constexpr std::size_t count = /* ... */;
 
-    template<typename Type, template<typename, typename> typename Comparator = std::is_same>
-    static constexpr bool has = (... || Comparator<Type, Types>::value);
+    template<typename Type_, template<typename, typename> typename Comparator_ = std::is_same>
+    static constexpr bool has = /* ... */;
 
-    template<typename Type, template<typename, typename> typename Comparator = std::is_same>
-    requires(xieite::types::List<Types...>::has<Type, Comparator>)
+    template<typename Type_, template<typename, typename> typename Comparator_ = std::is_same>
+    requires(xieite::types::List<Types_...>::has<Type_, Comparator_>)
     static constexpr std::size_t find = /* ... */;
 
-    template<std::size_t index>
-    using At = /* ... */;
+    template<std::size_t index_>
+    using At = /* xieite::types::List<...> */;
 
-    template<typename... OtherTypes>
-    using Append = xieite::types::List<Types..., OtherTypes...>;
+    template<template<typename...> typename Template_>
+    using Apply = /* xieite::types::List<...> */;
 
-    template<typename... OtherTypes>
-    using Prepend = xieite::types::List<OtherTypes..., Types...>;
+    template<typename... OtherTypes_>
+    using Append = /* xieite::types::List<...> */;
 
-    template<std::size_t start, std::size_t end = sizeof...(Types)>
-    using Slice = /* ... */;
+    template<typename... OtherTypes_>
+    using Prepend = /* xieite::types::List<...> */;
 
-    using Reverse = /* ... */;
+    template<std::size_t start_, std::size_t end_ = sizeof...(Types_)>
+    using Slice = /* xieite::types::List<...> */;
 
-    template<typename Range>
-    using AppendRange = /* ... */;
+    using Reverse = /* xieite::types::List<...> */;
 
-    template<typename Range>
-    using PrependRange = /* ... */;
+    template<typename Range_>
+    using AppendRange = /* xieite::types::List<...> */;
 
-    template<std::size_t start, std::size_t end = start + 1>
-    using Erase = xieite::types::List<Types...>::Slice<0, start>::template AppendRange<xieite::types::List<Types...>::Slice<end>>;
+    template<typename Range_>
+    using PrependRange = /* xieite::types::List<...> */;
 
-    template<std::size_t index, typename... OtherTypes>
-    using Insert = xieite::types::List<Types...>::Slice<0, index>::template Append<OtherTypes...>::template AppendRange<xieite::types::List<Types...>::Slice<index>>;
+    template<std::size_t start_, std::size_t end_ = start_ + 1>
+    using Erase = /* xieite::types::List<...> */;
 
-    template<std::size_t index, typename OtherType>
-    using Set = xieite::types::List<Types...>::Erase<index>::template Insert<index, OtherType>;
+    template<std::size_t index_, typename... OtherTypes_>
+    using Insert = /* xieite::types::List<...> */;
 
-    template<std::size_t index1, std::size_t index2>
-    using Swap = xieite::types::List<Types...>::template Set<index1, xieite::types::List<Types...>::At<index2>>::template Set<index2, xieite::types::List<Types...>::At<index1>>;
+    template<std::size_t index_, typename OtherType_>
+    using Set = /* xieite::types::List<...> */;
 
-    template<std::size_t index, typename Range>
-    using InsertRange = /* ... */;
+    template<std::size_t index1_, std::size_t index2_>
+    using Swap = /* xieite::types::List<...> */;
 
-    template<std::size_t start, std::size_t end, typename... OtherTypes>
-    using Replace = xieite::types::List<Types...>::Erase<start, end>::template Insert<start, OtherTypes...>;
+    template<std::size_t index_, typename Range_>
+    using InsertRange = /* xieite::types::List<...> */;
 
-    template<std::size_t start, std::size_t end, typename Range>
-    using ReplaceRange = /* ... */;
+    template<std::size_t start_, std::size_t end_, typename... OtherTypes_>
+    using Replace = /* xieite::types::List<...> */;
 
-    template<std::size_t start1, std::size_t end1, std::size_t start2, std::size_t end2>
-    using SwapRanges = xieite::types::List<Types...>::ReplaceRange<start1, end1, xieite::types::List<Types...>::Slice<start2, end2>>::template ReplaceRange<start2, end2, xieite::types::List<Types...>::Slice<start1, end1>>;
+    template<std::size_t start_, std::size_t end_, typename Range_>
+    using ReplaceRange = /* xieite::types::List<...> */;
 
-    template<std::size_t count>
-    using Repeat = /* ... */;
+    template<std::size_t start1_, std::size_t end1_, std::size_t start2_, std::size_t end2_>
+    using SwapRanges = /* xieite::types::List<...> */;
 
-    using Unique = /* ... */;
+    template<template<typename, typename...> typename Selector_>
+    using Filter = /* xieite::types::List<...> */;
 
-    template<xieite::concepts::Functable<bool(std::string_view, std::string_view)> Comparator>
-    requires(std::is_default_constructible_v<Comparator>)
-    using Sort = /* ... */;
+    template<typename<typename, typename...> typename Comparator_ = xieite::traits::IsSameAsAny>
+    using Unique = /* xieite::types::List<...> */;
+
+    template<std::size_t... i_>
+    using Transform = /* xieite::types::List<...> */;
+
+    template<std::size_t count_>
+    using Repeat = /* xieite::types::List<...> */;
+
+    template<typename... OtherTypes_>
+    using Zip = /* xieite::types::List<...> */;
+
+    template<typename Range_>
+    using ZipRange = /* xieite::types::List<...> */;
 };
 ```
 ##### Members
-- [Append](./structures/list/1/append.md)
-- [AppendRange](./structures/list/1/append_range_of.md)
-- [At](./structures/list/1/at.md)
-- [Erase](./structures/list/1/erase.md)
-- [Insert](./structures/list/1/Insert.md)
-- [InsertRange](./structures/list/1/insert_range_of.md)
-- [Prepend](./structures/list/1/prepend.md)
-- [PrependRange](./structures/list/1/prepend_range_of.md)
-- [Replace](./structures/list/1/replace.md)
-- [ReplaceRange](./structures/list/1/replace_range.md)
+- [Append\<\>](./structures/list/1/append.md)
+- [AppendRange\<\>](./structures/list/1/append_range_of.md)
+- [At\<\>](./structures/list/1/at.md)
+- [Erase\<\>](./structures/list/1/erase.md)
+- [Insert\<\>](./structures/list/1/Insert.md)
+- [InsertRange\<\>](./structures/list/1/insert_range_of.md)
+- [Prepend\<\>](./structures/list/1/prepend.md)
+- [PrependRange\<\>](./structures/list/1/prepend_range_of.md)
+- [Replace\<\>](./structures/list/1/replace.md)
+- [ReplaceRange\<\>](./structures/list/1/replace_range.md)
 - [Reverse](./structures/list/1/reverse.md)
-- [Set](./structures/list/1/set.md)
-- [Slice](./structures/list/1/slice.md)
-- [Swap](./structures/list/1/swap.md)
-- [SwapRanges](./structures/list/1/swap_ranges.md)
-- [Unique](./structures/list/1/unique.md)
-- [Sort](./structures/list/1/sort.md)
+- [Set\<\>](./structures/list/1/set.md)
+- [Slice\<\>](./structures/list/1/slice.md)
+- [Swap\<\>](./structures/list/1/swap.md)
+- [SwapRanges\<\>](./structures/list/1/swap_ranges.md)
+- [Unique\<\>](./structures/list/1/unique.md)
+- [Sort\<\>](./structures/list/1/sort.md)
 - size
+- count\<\>
+- has\<\>
+- find\<\>
 
 &nbsp;
 

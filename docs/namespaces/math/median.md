@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:median\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:median\<\>\(\)
 Defined in header [<xieite/math/median.hpp>](../../../include/xieite/math/median.hpp)
 
 &nbsp;
@@ -11,15 +11,15 @@ Computes the median of some values.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range>
-requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
-[[nodiscard]] constexpr std::common_type_t<double, std::ranges::range_value_t<Range>> median(Range range) noexcept;
+template<std::ranges::range Range_>
+requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range_>>)
+[[nodiscard]] constexpr std::common_type_t<double, std::ranges::range_value_t<Range_>> median(Range_ range) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic... Numbers>
-requires(sizeof...(Numbers) > 0)
-[[nodiscard]] constexpr std::common_type_t<double, Numbers...> median(Numbers... values) noexcept;
+template<xieite::concepts::Arithmetic... Arithmetics_>
+requires(sizeof...(Arithmetics_) > 0)
+[[nodiscard]] constexpr std::common_type_t<double, Arithmetics_...> median(Arithmetics_... values) noexcept;
 ```
 
 &nbsp;

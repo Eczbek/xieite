@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:logarithm\(\)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:logarithm\<\>\(\)
 Defined in header [<xieite/math/logarithm.hpp>](../../../include/xieite/math/logarithm.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Takes the logarithm of a value in any base.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
-[[nodiscard]] constexpr std::common_type_t<double, Number> logarithm(Number base, Number value) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> logarithm(Arithmetic_ base, Arithmetic_ value) noexcept;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:has
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:has\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if the list contains a particular type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename, typename> typename Comparator = std::is_same>
-static constexpr bool has = (... || Comparator<Type, Types>::value);
+template<typename Type_, template<typename, typename> typename Comparator_ = std::is_same>
+static constexpr bool has = /* ... */;
 ```
 
 &nbsp;

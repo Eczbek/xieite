@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Any
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Any\<\>
 Defined in header [<xieite/concepts/any.hpp>](../../../include/xieite/concepts/any.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Specifies that a type satisfies at least one of several type traits. Expects tra
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename> typename... Traits>
-concept Any = (... || Traits<Type>::value);
+template<typename Type_, template<typename> typename... Traits_>
+concept Any = (... || Traits_<Type_>::value);
 ```
 
 &nbsp;
@@ -23,13 +23,13 @@ concept Any = (... || Traits<Type>::value);
 #include <type_traits>
 #include "xieite/concepts/any.hpp"
 
-template<xieite::concepts::Any<std::is_integral, std::is_floating_point> Type>
-void test(Type value) {
+template<xieite::concepts::Any<std::is_integral, std::is_floating_point> T>
+void test(T value) {
     std::println("yes: {}", value);
 }
 
-template<typename Type>
-void test(Type&& value) {
+template<typename T>
+void test(T&& value) {
     std::println("no: {}", value);
 }
 

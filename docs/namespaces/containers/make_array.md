@@ -11,9 +11,9 @@ Attempts to create `std::array`s from other ranges.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Value, std::size_t size, xieite::concepts::RangeOf<Value> Range, xieite::concepts::Functable<Value(std::ranges::range_reference_t<Range>)> Functor = xieite::functors::StaticCast<Value>>
-[[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>);
+template<typename Value_, std::size_t size_, xieite::concepts::RangeOf<Value_> Range_, xieite::concepts::Functable<Value_(std::ranges::range_reference_t<Range_>)> Functor_ = xieite::functors::StaticCast<Value_>>
+[[nodiscard]] constexpr std::array<Value_, size_> makeArray(Range_&& range, Functor_&& converter = Functor_())
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_const_reference_t<Range_>>);
 ```
 
 &nbsp;

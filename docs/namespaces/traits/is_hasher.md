@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsHasher \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsHasher\<\> \{\}
 Defined in header [<xieite/traits/is_hasher.hpp>](../../../include/xieite/traits/is_hasher.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_hasher.hpp>](../../../include/xieite/traits
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, typename Argument>
+template<typename Type_, typename Argument_>
 struct IsHasher
-: std::bool_constant<xieite::concepts::Hasher<Type, Argument>> {};
+: std::bool_constant<xieite::concepts::Hasher<Type_, Argument_>> {};
 ```
 
 &nbsp;

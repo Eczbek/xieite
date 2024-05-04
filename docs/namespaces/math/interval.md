@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Interval \{\}
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Interval\<\> \{\}
 Defined in header [<xieite/math/interval.hpp>](../../../include/xieite/math/interval.hpp)
 
 &nbsp;
@@ -11,10 +11,10 @@ A simple structure for storing an interval between two numbers.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Number>
+template<xieite::concepts::Arithmetic Arithmetic_>
 struct Interval {
-    Number start;
-    Number end;
+    Arithmetic_ start;
+    Arithmetic_ end;
 };
 ```
 ##### Members

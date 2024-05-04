@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:findOccurrence\(\)
+# [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:findOccurrence\<\>\(\)
 Defined in header [<xieite/algorithms/find_occurrence.hpp>](../../../include/xieite/algorithms/find_occurrence.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Finds a specific occurrence of a value in a range and returns an iterator pointi
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
-[[nodiscard]] constexpr std::ranges::const_iterator_t<Range> findOccurrence(Range& range, std::size_t count, std::ranges::range_reference_t<Range> value, Functor&& comparator = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>);
+template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range_>, std::ranges::range_reference_t<Range_>)> Functor_ = std::ranges::equal_to>
+[[nodiscard]] constexpr std::ranges::const_iterator_t<Range_> findOccurrence(Range_& range, std::size_t count, std::ranges::range_reference_t<Range_> value, Functor_&& comparator = Functor_())
+noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>, std::ranges::range_reference_t<Range_>>);
 ```
 
 &nbsp;

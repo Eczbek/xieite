@@ -17,11 +17,6 @@ Returns the sum of two integers.
 ```cpp
 [[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator+(xieite::math::Integer<bits_, sign_> augend, xieite::math::Integer<bits_, sign_> addend) noexcept;
 ```
-#### 3)
-```cpp
-template<std::integral Integral>
-[[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator+(xieite::math::Integer<bits_, sign_> augend, Integral addend) noexcept;
-```
 
 &nbsp;
 

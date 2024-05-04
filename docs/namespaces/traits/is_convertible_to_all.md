@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsConvertibleToAll \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsConvertibleToAll\<\> \{\}
 Defined in header [<xieite/traits/is_convertible_to_all.hpp>](../../../include/xieite/traits/is_convertible_to_all.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_convertible_to_all.hpp>](../../../include/x
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source, typename... Targets>
+template<typename Source_, typename... Targets_>
 struct IsConvertibleToAll
-: std::bool_constant<xieite::concepts::ConvertibleToAll<Source, Targets...>> {};
+: std::bool_constant<xieite::concepts::ConvertibleToAll<Source_, Targets_...>> {};
 ```
 
 &nbsp;

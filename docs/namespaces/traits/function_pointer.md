@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:FunctionPointer \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:FunctionPointer\<\> \{\}
 Defined in header [<xieite/traits/function_pointer.hpp>](../../../include/xieite/traits/function_pointer.hpp)
 
 &nbsp;
@@ -23,7 +23,7 @@ struct FunctionPointer<Return_(*)(Arguments_... /* , ... */) /* noexcept */> {
     using Arguments = std::tuple<Arguments_...>;
 
     static constexpr bool variadic = /* ... */;
-    static constexpr bool nonThrowing = /* ... */;
+    static constexpr bool noThrowQualified = /* ... */;
 };
 ```
 #### 6..54)
@@ -41,7 +41,7 @@ struct FunctionPointer<Return_(Class_::*)(Arguments_... /* , ... */) /* const */
     static constexpr bool volatileQualified = /* ... */;
     static constexpr bool leftValueQualified = /* ... */;
     static constexpr bool rightValueQualified = /* ... */;
-    static constexpr bool nonThrowing = /* ... */;
+    static constexpr bool noThrowQualified = /* ... */;
 };
 ```
 
@@ -64,7 +64,7 @@ int main() {
     std::println("{}", Info::volatileQualified);
     std::println("{}", Info::leftValueQualified);
     std::println("{}", Info::rightValueQualified);
-    std::println("{}", Info::nonThrowing);
+    std::println("{}", Info::noThrowQualified);
 }
 ```
 Output:

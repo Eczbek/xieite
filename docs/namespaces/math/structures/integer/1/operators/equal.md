@@ -13,11 +13,6 @@ Compares two integers.
 ```cpp
 [[nodiscard]] friend constexpr bool operator==(xieite::math::Integer<bits_, sign_> leftComparand, xieite::math::Integer<bits_, sign_> rightComparand) noexcept;
 ```
-#### 2)
-```cpp
-template<std::integral Integral>
-[[nodiscard]] friend constexpr bool operator==(xieite::math::Integer<bits_, sign_> leftComparand, Integral rightComparand) noexcept;
-```
 
 &nbsp;
 

@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsRatio \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsRatio\<\> \{\}
 Defined in header [<xieite/traits/is_ratio.hpp>](../../../include/xieite/traits/is_ratio.hpp)
 
 &nbsp;
@@ -16,8 +16,8 @@ struct IsRatio
 ```
 #### 2)
 ```cpp
-template<std::intmax_t numerator, std::intmax_t denominator>
-struct IsRatio<std::ratio<numerator, denominator>>
+template<std::intmax_t numerator_, std::intmax_t denominator_>
+struct IsRatio<std::ratio<numerator_, denominator_>>
 : std::true_type {};
 ```
 

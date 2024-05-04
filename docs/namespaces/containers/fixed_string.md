@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedString \{\}
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedString\<\> \{\}
 Defined in header [<xieite/containers/fixed_string.hpp>](../../../include/xieite/containers/fixed_string.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Stores a fixed-size string.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t characters, typename Character = char>
+template<std::size_t characters_, typename Character_ = char>
 struct FixedString {
-    std::array<Character, characters + 1> data;
+    std::array<Character_, characters_ + 1> data;
 
-    template<std::size_t otherCharacters>
-    constexpr FixedString(const Character(&)[otherCharacters]) noexcept;
+    template<std::size_t otherCharacters_>
+    constexpr FixedString(const Character_(&)[otherCharacters_]) noexcept;
 
     static constexpr std::size_t size() noexcept;
 
@@ -32,8 +32,8 @@ struct FixedString {
 
 ### Deduction guides
 ```cpp
-template<std::size_t characters, typename Character>
-FixedString(char Character(&)[characters]) -> FixedString<characters - 1, Character>;
+template<std::size_t characters_, typename Character_>
+FixedString(char Character_(&)[characters_]) -> FixedString<characters_ - 1, Character_>;
 ```
 
 &nbsp;

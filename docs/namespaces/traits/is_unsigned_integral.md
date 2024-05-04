@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUnsignedIntegral \{\}
+# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUnsignedIntegral\<\> \{\}
 Defined in header [<xieite/traits/is_unsigned_integral.hpp>](../../../include/xieite/traits/is_unsigned_integral.hpp)
 
 &nbsp;
@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_unsigned_integral.hpp>](../../../include/xi
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type>
+template<typename Type_>
 struct IsUnsignedIntegral
-: std::bool_constant<xieite::concepts::UnsignedIntegral<Type>> {};
+: std::bool_constant<xieite::concepts::UnsignedIntegral<Type_>> {};
 ```
 
 &nbsp;

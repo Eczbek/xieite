@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray<Number>](../../../ray.md)\:\:contains
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray<Arithmetic_>](../../../ray.md)\:\:contains\(\)
 Defined in header [<xieite/geometry/ray.hpp>](../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
@@ -11,24 +11,24 @@ Checks whether a ray contains another geometrical element.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr bool contains(xieite::geometry::Point<Number> point) const noexcept;
+[[nodiscard]] constexpr bool contains(xieite::geometry::Point<Arithmetic_> point) const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] constexpr bool contains(const xieite::geometry::Line<Number>&) const noexcept;
+[[nodiscard]] constexpr bool contains(const xieite::geometry::Line<Arithmetic_>&) const noexcept;
 ```
 Always returns `false`.
 #### 3)
 ```cpp
-[[nodiscard]] constexpr bool contains(const xieite::geometry::Ray<Number>& ray) const noexcept;
+[[nodiscard]] constexpr bool contains(const xieite::geometry::Ray<Arithmetic_>& ray) const noexcept;
 ```
 #### 4)
 ```cpp
-[[nodiscard]] constexpr bool contains(const xieite::geometry::Segment<Number>& segment) const noexcept;
+[[nodiscard]] constexpr bool contains(const xieite::geometry::Segment<Arithmetic_>& segment) const noexcept;
 ```
 #### 5)
 ```cpp
-[[nodiscard]] constexpr bool contains(const xieite::geometry::Polygon<Number>& polygon) const noexcept;
+[[nodiscard]] constexpr bool contains(const xieite::geometry::Polygon<Arithmetic_>& polygon) const noexcept;
 ```
 
 &nbsp;

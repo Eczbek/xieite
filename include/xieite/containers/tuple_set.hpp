@@ -12,58 +12,58 @@ namespace xieite::containers {
 	template<template<typename> typename, typename>
 	struct TupleSet;
 
-	template<template<typename> typename Container, typename FirstKey, typename... RestKeys>
-	struct TupleSet<Container, std::tuple<FirstKey, RestKeys...>> {
+	template<template<typename> typename Container_, typename FirstKey_, typename... RestKeys_>
+	struct TupleSet<Container_, std::tuple<FirstKey_, RestKeys_...>> {
 	public:
-		constexpr TupleSet(const std::initializer_list<std::pair<FirstKey, TupleSet<Container, std::tuple<RestKeys...>>>> list = {}) noexcept
+		constexpr TupleSet(const std::initializer_list<std::pair<FirstKey_, xieite::containers::TupleSet<Container_, std::tuple<RestKeys_...>>>> list = {}) noexcept
 		: set(list.begin(), list.end()) {}
 
-		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		[[nodiscard]] constexpr bool operator[](KeysReference&& keys) const {
+		template<std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_>
+		[[nodiscard]] constexpr bool operator[](KeysReference_&& keys) const {
 			return this->contains(XIEITE_FORWARD(keys));
 		}
 
-		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		constexpr void insert(KeysReference&& keys) {
-			return ([this, &keys]<std::size_t... i>(std::index_sequence<i...>) {
-				this->set[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...));
-			})(std::make_index_sequence<sizeof...(RestKeys)>());
+		template<std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_>
+		constexpr void insert(KeysReference_&& keys) {
+			return ([this, &keys]<std::size_t... i_>(std::index_sequence<i_...>) {
+				this->set[std::get<0>(keys)].insert(std::make_tuple(std::get<i_ + 1>(keys)...));
+			})(std::make_index_sequence<sizeof...(RestKeys_)>());
 		}
 
-		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		[[nodiscard]] constexpr bool contains(KeysReference&& keys) const {
-			return this->set.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... i>(std::index_sequence<i...>) {
-				return this->set.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...));
-			})(std::make_index_sequence<sizeof...(RestKeys)>());
+		template<std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_>
+		[[nodiscard]] constexpr bool contains(KeysReference_&& keys) const {
+			return this->set.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... i_>(std::index_sequence<i_...>) {
+				return this->set.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i_ + 1>(keys)...));
+			})(std::make_index_sequence<sizeof...(RestKeys_)>());
 		}
 
 	private:
-		Container<FirstKey, TupleSet<Container, std::tuple<RestKeys...>>> set;
+		Container_<FirstKey_, xieite::containers::TupleSet<Container_, std::tuple<RestKeys_...>>> set;
 	};
 
-	template<template<typename, typename> typename Container, typename Key>
-	struct TupleSet<Container, std::tuple<Key>> {
+	template<template<typename, typename> typename Container_, typename Key_>
+	struct TupleSet<Container_, std::tuple<Key_>> {
 	public:
-		constexpr TupleSet(const std::initializer_list<Key> list = {}) noexcept
+		constexpr TupleSet(const std::initializer_list<Key_> list = {}) noexcept
 		: set(list.begin(), list.end()) {}
 
-		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr bool operator[](KeyReference&& key) const {
+		template<std::convertible_to<std::tuple<Key_>> KeyReference_>
+		[[nodiscard]] constexpr bool operator[](KeyReference_&& key) const {
 			return this->contains(XIEITE_FORWARD(key));
 		}
 
-		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		constexpr void insert(KeyReference&& key) {
+		template<std::convertible_to<std::tuple<Key_>> KeyReference_>
+		constexpr void insert(KeyReference_&& key) {
 			this->set.emplace(std::get<0>(XIEITE_FORWARD(key)));
 		}
 
-		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr bool contains(KeyReference&& key) const {
+		template<std::convertible_to<std::tuple<Key_>> KeyReference_>
+		[[nodiscard]] constexpr bool contains(KeyReference_&& key) const {
 			return this->set.contains(std::get<0>(XIEITE_FORWARD(key)));
 		}
 
 	private:
-		Container<Key> set;
+		Container_<Key_> set;
 	};
 }
 

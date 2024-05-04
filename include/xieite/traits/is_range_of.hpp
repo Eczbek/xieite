@@ -4,9 +4,9 @@
 #	include "../concepts/range_of.hpp"
 
 namespace xieite::traits {
-	template<typename Range, typename Value>
+	template<typename Range_, typename Value_>
 	struct IsRangeOf
-	: std::bool_constant<xieite::concepts::RangeOf<Range, Value>> {};
+	: std::bool_constant<xieite::concepts::RangeOf<Range_, Value_>> {};
 }
 
 #endif

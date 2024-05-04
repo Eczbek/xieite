@@ -7,9 +7,9 @@
 #	include "../math/modulo.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr Number wrap(const Number value, const Number limit1, const Number limit2) noexcept {
-		const Number minimum = std::min(limit1, limit2);
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr Arithmetic_ wrap(const Arithmetic_ value, const Arithmetic_ limit1, const Arithmetic_ limit2) noexcept {
+		const Arithmetic_ minimum = std::min(limit1, limit2);
 		return xieite::math::modulo(value - minimum, std::max(limit1, limit2) - minimum + 1) + minimum;
 	}
 }

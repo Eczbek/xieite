@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:Matrix \{\}
+# [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:Matrix\<\> \{\}
 Defined in header [<xieite/containers/matrix.hpp>](../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
@@ -11,42 +11,42 @@ A structure for interpreting one-dimensional data as multidimensional, allowing 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Value>
+template<typename Value_>
 struct Matrix {
     constexpr Matrix() noexcept;
 
-    template<xieite::concepts::RangeOf<Value> Range>
-    constexpr Matrix(Range&&) noexcept;
+    template<xieite::concepts::RangeOf<Value_> Range_>
+    constexpr Matrix(Range_&&) noexcept;
 
-    constexpr Matrix(std::initializer_list<Value>) noexcept;
+    constexpr Matrix(std::initializer_list<Value_>) noexcept;
 
-    template<typename Self, xieite::concepts::RangeOf<std::size_t> Range>
-    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&&, Range&&) noexcept;
+    template<typename Self_, xieite::concepts::RangeOf<std::size_t> Range_>
+    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_, std::is_const_v<Self_>>>> operator[](this Self_&&, Range_&&) noexcept;
 
-    template<typename Self, std::convertible_to<std::size_t>... Sizes>
-    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value, std::is_const_v<Self>>>> operator[](this Self&&, Sizes...) noexcept;
+    template<typename Self_, std::convertible_to<std::size_t>... Sizes_>
+    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_, std::is_const_v<Self_>>>> operator[](this Self_&&, Sizes_...) noexcept;
 
-    constexpr const std::vector<Value>& data() const noexcept;
+    constexpr const std::vector<Value_>& data() const noexcept;
 
     constexpr const std::vector<std::size_t>& size() const noexcept;
 
-    template<xieite::concepts::RangeOf<std::size_t> Range>
-    constexpr std::optional<std::monostate> resize(Range&&) noexcept;
+    template<xieite::concepts::RangeOf<std::size_t> Range_>
+    constexpr std::optional<std::monostate> resize(Range_&&) noexcept;
 
-    template<std::convertible_to<std::size_t>... Sizes>
-    constexpr std::optional<std::monostate> resize(Sizes...) noexcept;
+    template<std::convertible_to<std::size_t>... Sizes_>
+    constexpr std::optional<std::monostate> resize(Sizes_...) noexcept;
 
-    template<xieite::concepts::RangeOf<std::size_t> Range>
-    constexpr std::optional<std::monostate> reverse(Range&&) noexcept;
+    template<xieite::concepts::RangeOf<std::size_t> Range_>
+    constexpr std::optional<std::monostate> reverse(Range_&&) noexcept;
 
-    template<std::convertible_to<std::size_t>... Sizes>
-    constexpr std::optional<std::monostate> reverse(Sizes...) noexcept;
+    template<std::convertible_to<std::size_t>... Sizes_>
+    constexpr std::optional<std::monostate> reverse(Sizes_...) noexcept;
 
-    template<std::integral Integral, xieite::concepts::RangeOf<std::size_t> Range>
-    constexpr std::optional<std::monostate> rotate(Integral, Range&&) noexcept;
+    template<std::integral Integral_, xieite::concepts::RangeOf<std::size_t> Range_>
+    constexpr std::optional<std::monostate> rotate(Integral_, Range_&&) noexcept;
 
-    template<std::integral Integral, std::convertible_to<std::size_t>... Sizes>
-    constexpr std::optional<std::monostate> rotate(Integral, Sizes...) noexcept;
+    template<std::integral Integral_, std::convertible_to<std::size_t>... Sizes_>
+    constexpr std::optional<std::monostate> rotate(Integral_, Sizes_...) noexcept;
 };
 ```
 - [Matrix\(\)](./structures/matrix/1/operators/constructor.md)

@@ -7,15 +7,15 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr bool exponentationOverflows(const Number base, const Number exponent) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr bool exponentationOverflows(const Arithmetic_ base, const Arithmetic_ exponent) noexcept {
 		const auto power = std::pow(base, exponent);
-		if constexpr (!std::unsigned_integral<Number>) {
-			if (power < std::numeric_limits<Number>::min()) {
+		if constexpr (!std::unsigned_integral<Arithmetic_>) {
+			if (power < std::numeric_limits<Arithmetic_>::min()) {
 				return true;
 			}
 		}
-		return power > std::numeric_limits<Number>::max();
+		return power > std::numeric_limits<Arithmetic_>::max();
 	}
 }
 

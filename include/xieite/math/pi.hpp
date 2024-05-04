@@ -8,11 +8,11 @@ namespace xieite::math {
 	template<typename>
 	inline constexpr double pi = std::numbers::pi;
 
-	template<std::floating_point Fractional>
-	inline constexpr Fractional pi<Fractional> = std::numbers::pi_v<Fractional>;
+	template<std::floating_point Fractional_>
+	inline constexpr Fractional_ pi<Fractional_> = std::numbers::pi_v<Fractional_>;
 
-	template<std::integral Integral>
-	inline constexpr Integral pi<Integral> = static_cast<Integral>(std::numbers::pi);
+	template<std::integral Integral_>
+	inline constexpr Integral_ pi<Integral_> = static_cast<Integral_>(std::numbers::pi);
 }
 
 #endif

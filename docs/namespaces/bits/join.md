@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:join\(\)
+# [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:join\<\>\(\)
 Defined in header [<xieite/bits/join.hpp>](../../../include/xieite/bits/join.hpp)
 
 &nbsp;
@@ -11,13 +11,13 @@ Joins multiple integers together into one `std::bitset`, preserving every values
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral... Integrals>
-[[nodiscard]] constexpr std::bitset<(... + xieite::types::sizeBits<Integrals>)> join(Integrals... values) noexcept;
+template<std::integral... Integrals_>
+[[nodiscard]] constexpr std::bitset<(... + xieite::types::sizeBits<Integrals_>)> join(Integrals_... values) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral, std::size_t size>
-[[nodiscard]] constexpr std::bitset<xieite::types::sizeBits<Integral> * size> join(const std::array<Integral, size>& values) noexcept;
+template<std::integral Integral_, std::size_t size_>
+[[nodiscard]] constexpr std::bitset<xieite::types::sizeBits<Integral_> * size_> join(const std::array<Integral_, size_>& values) noexcept;
 ```
 
 &nbsp;

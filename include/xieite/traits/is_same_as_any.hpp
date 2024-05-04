@@ -5,9 +5,9 @@
 #	include "../concepts/same_as_any.hpp"
 
 namespace xieite::traits {
-	template<typename Source, typename... Targets>
+	template<typename Source_, typename... Targets_>
 	struct IsSameAsAny
-	: std::bool_constant<xieite::concepts::SameAsAny<Source, Targets...>> {};
+	: std::bool_constant<xieite::concepts::SameAsAny<Source_, Targets_...>> {};
 }
 
 #endif

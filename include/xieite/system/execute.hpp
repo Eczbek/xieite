@@ -13,7 +13,7 @@ namespace xieite::system {
 		std::string result;
 		while (true) {
 			std::string buffer = std::string(pageSize, '\0');
-			if (!std::fread(buffer.data(), 1, buffer.size(), pipe.file)) {
+			if (!std::fread(buffer.data(), 1, buffer.size(), pipe.file())) {
 				break;
 			}
 			result += buffer;

@@ -10,8 +10,8 @@
 namespace xieite::threads {
 	struct Interval {
 	public:
-		template<xieite::concepts::Duration Duration>
-		Interval(const xieite::functors::Function<void()>& callback, const Duration duration) noexcept
+		template<xieite::concepts::Duration Duration_>
+		Interval(const xieite::functors::Function<void()>& callback, const Duration_ duration) noexcept
 		: loop([&callback, duration] {
 			static bool first = true;
 			if (first) {

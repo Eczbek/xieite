@@ -4,8 +4,8 @@
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept Aggregate = std::is_aggregate_v<Type>;
+	template<typename Type_>
+	concept Aggregate = std::is_aggregate_v<Type_>;
 }
 
 #endif

@@ -4,8 +4,8 @@
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Type>
-	concept TriviallyDestructible = std::is_trivially_destructible_v<Type>;
+	template<typename Type_>
+	concept TriviallyDestructible = std::is_trivially_destructible_v<Type_>;
 }
 
 #endif

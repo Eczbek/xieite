@@ -16,17 +16,17 @@ namespace xieite::math {
 	template<std::unsigned_integral>
 	struct BigInteger;
 
-	template<typename Number>
-	requires(xieite::concepts::Arithmetic<Number> || xieite::concepts::SpecializationOf<Number, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr Number parse(const std::string_view value, const std::conditional_t<std::floating_point<Number>, xieite::math::SignedSize, Number> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
+	template<typename Number_>
+	requires(xieite::concepts::Arithmetic<Number_> || xieite::concepts::SpecializationOf<Number_, xieite::math::BigInteger>)
+	[[nodiscard]] constexpr Number_ parse(const std::string_view value, const std::conditional_t<std::floating_point<Number_>, xieite::math::SignedSize, Number_> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
 		if (!radix) {
 			return 0;
 		}
 		const bool negative = components.negatives.contains(value[0]);
 		const std::size_t valueSize = value.size();
-		if constexpr (std::floating_point<Number>) {
-			Number integral = 0;
-			Number fractional = 0;
+		if constexpr (std::floating_point<Number_>) {
+			Number_ integral = 0;
+			Number_ fractional = 0;
 			std::size_t point = 0;
 			xieite::math::SignedSize power = 0;
 			for (std::size_t i = negative || components.positives.contains(value[0]); i < valueSize; ++i) {
@@ -42,20 +42,20 @@ namespace xieite::math {
 						break;
 					}
 				}
-				Number& part = (point ? fractional : integral);
-				part = part * static_cast<Number>(radix) + static_cast<Number>(index);
+				Number_& part = (point ? fractional : integral);
+				part = part * static_cast<Number_>(radix) + static_cast<Number_>(index);
 				point += !!point;
 			}
 			return xieite::math::splitBoolean(!negative) * (integral + fractional / std::pow(radix, point - 1)) * std::pow(radix, power);
 		} else {
-			Number result = 0;
+			Number_ result = 0;
 			xieite::math::SignedSize power = 0;
 			for (std::size_t i = negative || (components.positives.contains(value[0]); i < valueSize; ++i) {
 				const std::size_t index = components.digits.find(value[i]);
 				if (index == std::string_view::npos) {
 					break;
 				}
-				result = result * radix + static_cast<Number>(index);
+				result = result * radix + static_cast<Number_>(index);
 			}
 			return negative ? -result : result;
 		}

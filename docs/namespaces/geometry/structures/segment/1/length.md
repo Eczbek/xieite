@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Segment<Number>](../../../segment.md)\:\:length
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Segment<Arithmetic_>](../../../segment.md)\:\:length\(\)
 Defined in header [<xieite/geometry/segment.hpp>](../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Computes the distance between the start and end of a segment.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::conditional_t<std::floating_point<Number>, Number, double> length() const noexcept;
+[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> length() const noexcept;
 ```
 
 &nbsp;

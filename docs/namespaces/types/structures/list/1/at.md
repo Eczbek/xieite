@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:At
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:At\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Accesses a type by index.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t index>
-using At = /* ... */;
+template<std::size_t index_>
+using At = /* xieite::types::List<...> */;
 ```
 
 &nbsp;

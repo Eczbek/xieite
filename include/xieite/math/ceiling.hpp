@@ -5,8 +5,8 @@
 #	include "../math/divide_ceiling.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Number>
-	[[nodiscard]] constexpr Number ceiling(const Number value, const Number step = 1) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr Arithmetic_ ceiling(const Arithmetic_ value, const Arithmetic_ step = 1) noexcept {
 		return xieite::math::divideCeiling(value, step) * step;
 	}
 }
