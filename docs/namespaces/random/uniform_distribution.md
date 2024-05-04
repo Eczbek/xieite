@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:UniformDistribution
+# [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:UniformDistribution\<\>
 Defined in header [<xieite/random/uniform_distribution.hpp>](../../../include/xieite/random/uniform_distribution.hpp)
 
 &nbsp;

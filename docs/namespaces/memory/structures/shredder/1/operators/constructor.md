@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[memory](../../../../../../memory.md)\:\:[Shredder<Type_>](../../../../shredder.md)\:\:Shredder\(\)
+# [xieite](../../../../../../xieite.md)\:\:[memory](../../../../../../memory.md)\:\:[Shredder<Type_>](../../../../shredder.md)\:\:Shredder\<\>\(\)
 Defined in header [<xieite/memory/shredder.hpp>](../../../../../../../include/xieite/memory/shredder.hpp)
 
 &nbsp;
@@ -15,9 +15,9 @@ constexpr Shredder() noexcept;
 ```
 #### 2)
 ```cpp
-template<typename... Arguments>
-requires(std::constructible_from<Type_, Arguments...>)
-constexpr Shredder(Arguments&&... arguments) noexcept;
+template<typename... Arguments_>
+requires(std::constructible_from<Type_, Arguments_...>)
+constexpr Shredder(Arguments_&&... arguments) noexcept;
 ```
 
 &nbsp;

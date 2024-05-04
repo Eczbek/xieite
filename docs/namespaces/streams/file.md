@@ -34,6 +34,9 @@ struct File {
     File(int, const std::wstring&) noexcept;
 #endif
 
+    template<xieite::concepts::Stream Stream_>
+    File(const Stream_&) noexcept;
+
     std::FILE* file() const noexcept;
 
 #if XIEITE_PLATFORM_TYPE_UNIX || XIEITE_PLATFORM_TYPE_WINDOWS
@@ -42,7 +45,7 @@ struct File {
 };
 ```
 ##### Members
-- [File\(\)](./structures/file/1/operators/constructor.md)
+- [File\<\>\(\)](./structures/file/1/operators/constructor.md)
 - [file\(\)](./structures/file/file.md)
 - [descriptor\(\)](./structures/file/descriptor.md)
 

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[random](../../../../../../random.md)\:\:[UniformInterruptableDistribution<Number>](../../../../uniform_interruptable_distribution.md)\:\:operator\(\)\(\)
+# [xieite](../../../../../../xieite.md)\:\:[random](../../../../../../random.md)\:\:[UniformInterruptableDistribution<Arithmetic_>](../../../../uniform_interruptable_distribution.md)\:\:operator\(\)\<\>\(\)
 Defined in header [<xieite/random/uniform_interruptable_distribution.hpp>](../../../../../../../include/xieite/random/uniform_interruptable_distribution.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Distributes the result of a random number generator.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator>
-[[nodiscard]] Number operator()(UniformRandomBitGenerator& generator) noexcept;
+template<std::uniform_random_bit_generator UniformRandomBitGenerator_>
+[[nodiscard]] Arithmetic_ operator()(UniformRandomBitGenerator_& generator) noexcept;
 ```
 
 &nbsp;

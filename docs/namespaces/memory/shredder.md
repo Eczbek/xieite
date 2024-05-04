@@ -25,8 +25,8 @@ struct Shredder {
     constexpr void shred() noexcept;
 };
 ```
-- [Shredder\(\)](./structures/shredder/1/operators/constructor.md)
-- [data\(\)](./structures/shredder/1/data.md)
+- [Shredder\<\>\(\)](./structures/shredder/1/operators/constructor.md)
+- [data\<\>\(\)](./structures/shredder/1/data.md)
 - [shred\(\)](./structures/shredder/1/shred.md)
 
 &nbsp;

@@ -56,11 +56,11 @@ namespace xieite::streams {
 		: stream(::_wfdopen(descriptor, mode.c_str())) {}
 #	endif
 
-		template<xieite::concepts::Stream Stream>
-		File(const Stream& stream) noexcept
+		template<xieite::concepts::Stream Stream_>
+		File(const Stream_& stream) noexcept
 		: stream(([&stream] {
-			static constexpr bool isInput = xieite::concepts::InputStream<Stream>;
-			static constexpr bool isOutput = xieite::concepts::OutputStream<Stream>;
+			static constexpr bool isInput = xieite::concepts::InputStream<Stream_>;
+			static constexpr bool isOutput = xieite::concepts::OutputStream<Stream_>;
 			if constexpr (isInput) {
 				if (&stream == &std::cin) {
 					return stdin;
@@ -74,9 +74,9 @@ namespace xieite::streams {
 				}
 			}
 			if constexpr (requires {
-				{ stream.native_handle() } -> std::same_as<typename Stream::native_handle_type>;
+				{ stream.native_handle() } -> std::same_as<typename Stream_::native_handle_type>;
 			}) {
-				const typename Stream::native_handle_type descriptor = stream.native_handle();
+				const typename Stream_::native_handle_type descriptor = stream.native_handle();
 				std::string mode;
 				mode.reserve(3);
 				if constexpr (isInput) {
@@ -93,7 +93,7 @@ namespace xieite::streams {
 				return xieite::streams::File(descriptor, mode);
 			} else {
 #	if XIEITE_COMPILER_TYPE_GCC
-				return static_cast<__gnu_cxx::stdio_filebuf<typename Stream::char_type, typename Stream::traits_type>*>(stream.rdbuf())->file();
+				return static_cast<__gnu_cxx::stdio_filebuf<typename Stream_::char_type, typename Stream_::traits_type>*>(stream.rdbuf())->file();
 #	else
 				return nullptr;
 #	endif

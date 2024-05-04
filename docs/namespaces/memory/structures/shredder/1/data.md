@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[memory](../../../../../memory.md)\:\:[Shredder<Type_>](../../../shredder.md)\:\:data\(\)
+# [xieite](../../../../../xieite.md)\:\:[memory](../../../../../memory.md)\:\:[Shredder<Type_>](../../../shredder.md)\:\:data\<\>\(\)
 Defined in header [<xieite/memory/shredder.hpp>](../../../../../../include/xieite/memory/shredder.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Returns the underlying data.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Self>
-[[nodiscard]] constexpr auto&& data(this Self&&) noexcept;
+template<typename Self_>
+[[nodiscard]] constexpr auto&& data(this Self_&&) noexcept;
 ```
 
 &nbsp;

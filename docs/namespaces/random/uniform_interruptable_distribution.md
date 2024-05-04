@@ -1,4 +1,4 @@
-# [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:UniformInterruptableDistribution \{\}
+# [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:UniformInterruptableDistribution\<\> \{\}
 Defined in header [<xieite/random/uniform_interruptable_distribution.hpp>](../../../include/xieite/random/uniform_interruptable_distribution.hpp)
 
 &nbsp;
@@ -16,12 +16,12 @@ struct UniformInterruptableDistribution {
     template<xieite::concepts::RangeOf<xieite::math::Interval<Arithmetic_>> IntervalRange_>
     UniformInterruptableDistribution(xieite::math::Interval<Arithmetic_>, IntervalRange_&&) noexcept;
 
-    template<xieite::concepts::UniformRandomBitGenerator UniformRandomBitGenerator_>
+    template<std::uniform_random_bit_generator UniformRandomBitGenerator_>
     Arithmetic_ operator()(UniformRandomBitGenerator_&) noexcept;
 };
 ```
-- [UniformInterruptableDistribution\(\)](./structures/uniform_interruptable_distribution/1/operators/constructor.md)
-- [operator\(\)\(\)](./structures/uniform_interruptable_distribution/1/operators/call.md)
+- [UniformInterruptableDistribution\<\>\(\)](./structures/uniform_interruptable_distribution/1/operators/constructor.md)
+- [operator\(\)\<\>\(\)](./structures/uniform_interruptable_distribution/1/operators/call.md)
 
 &nbsp;
 

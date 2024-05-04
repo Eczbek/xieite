@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[File](../../../../file.md)\:\:File\(\)
+# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[File](../../../../file.md)\:\:File\<\>\(\)
 Defined in header [<xieite/streams/file.hpp>](../../../../../../../include/xieite/streams/file.hpp)
 
 &nbsp;
@@ -47,8 +47,8 @@ File(int descriptor, const std::wstring& mode) noexcept;
 ```
 #### 8)
 ```cpp
-template<xieite::concepts::Stream Stream>
-File(const Stream& stream) noexcept;
+template<xieite::concepts::Stream Stream_>
+File(const Stream_& stream) noexcept;
 ```
 
 &nbsp;
