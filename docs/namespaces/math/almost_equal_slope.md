@@ -14,6 +14,13 @@ Checks whether two slopes are almost equal or are both infinite.
 template<xieite::concepts::Arithmetic Arithmetic_>
 [[nodiscard]] constexpr bool almostEqualSlope(Arithmetic_ value1, Arithmetic_ value2) noexcept;
 ```
+Uses `std::numeric_limits<Arithmetic_>::epsilon()` scaled by the sum of the arguments.
+#### 2)
+```cpp
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool almostEqualSlope(Arithmetic_ value1, Arithmetic_ value2, Arithmetic_ epsilon) noexcept;
+```
+Uses the epsilon argument directly.
 
 &nbsp;
 
