@@ -14,6 +14,7 @@ Utilities relating to functors and arguments
 - [Infix\<\> \{\}](./namespaces/functors/infix.md)
 - [memoize\<\>\(\)](./namespaces/functors/memoize.md)
 - [Overloader\<\> \{\}](./namespaces/functors/overloader.md)
+- [postOperation\<\>\(\)](./namespaces/functors/post_operation.md)
 - [ProcessGuard \{\}](./namespaces/functors/process_guard.md)
 - [recursivelyDistributeArguments\<\>\(\)](./namespaces/functors/recursively_distribute_arguments.md)
 - [reverseArguments\<\>\(\)](./namespaces/functors/reverse_arguments.md)
