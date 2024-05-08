@@ -79,6 +79,10 @@ struct List {
     using Unique = /* xieite::types::List<...> */;
 
     template<std::size_t... i_>
+    using Rearrange = /* xieite::types::List<...> */;
+
+    template<template<typename...> typename Transformer_, std::size_t arguments_>
+    requires((sizeof...(Types_) % arguments_) == 0)
     using Transform = /* xieite::types::List<...> */;
 
     template<std::size_t count_>
@@ -100,6 +104,7 @@ struct List {
 - [InsertRange\<\>](./structures/list/1/insert_range_of.md)
 - [Prepend\<\>](./structures/list/1/prepend.md)
 - [PrependRange\<\>](./structures/list/1/prepend_range_of.md)
+- [Rearrange\<\>](./structures/list/1/rearrange.md)
 - [Replace\<\>](./structures/list/1/replace.md)
 - [ReplaceRange\<\>](./structures/list/1/replace_range.md)
 - [Reverse](./structures/list/1/reverse.md)
@@ -107,6 +112,7 @@ struct List {
 - [Slice\<\>](./structures/list/1/slice.md)
 - [Swap\<\>](./structures/list/1/swap.md)
 - [SwapRanges\<\>](./structures/list/1/swap_ranges.md)
+- [Transform\<\>](./structures/list/1/transform.md)
 - [Unique\<\>](./structures/list/1/unique.md)
 - [Sort\<\>](./structures/list/1/sort.md)
 - size

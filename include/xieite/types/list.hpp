@@ -54,20 +54,10 @@ namespace xieite::types {
 		template<typename... OtherTypes_>
 		using Prepend = xieite::types::List<OtherTypes_..., Types_...>;
 
-	private:
-		template<std::size_t offset_, std::size_t... i_>
-		static xieite::types::List<xieite::types::List<Types_...>::At<i_ + offset_>...> sliceHelper(std::index_sequence<i_...>) noexcept;
-
-	public:
 		template<std::size_t start_, std::size_t end_ = sizeof...(Types_)>
-		using Slice = decltype(xieite::types::List<Types_...>::sliceHelper<std::min(start_, end_)>(std::make_index_sequence<std::min(std::max(start_, end_), sizeof...(Types_)) - std::min(std::min(start_, end_), sizeof...(Types_))>()));
+		using Slice = decltype(([]<std::size_t... i_>(std::index_sequence<i_...>) -> xieite::types::List<xieite::types::List<Types_...>::At<i_ + std::min(start_, end_)>...> {})(std::make_index_sequence<std::min(std::max(start_, end_), sizeof...(Types_)) - std::min(std::min(start_, end_), sizeof...(Types_))>()));
 
-	private:
-		template<std::size_t... i_>
-		static xieite::types::List<xieite::types::List<Types_...>::At<sizeof...(Types_) - i_ - 1>...> reverseHelper(std::index_sequence<i_...>) noexcept;
-
-	public:
-		using Reverse = decltype(xieite::types::List<Types_...>::reverseHelper(std::make_index_sequence<sizeof...(Types_)>()));
+		using Reverse = decltype(([]<std::size_t... i_>(std::index_sequence<i_...>) -> xieite::types::List<xieite::types::List<Types_...>::At<sizeof...(Types_) - i_ - 1>...> {})(std::make_index_sequence<sizeof...(Types_)>()));
 
 	private:
 		template<template<typename...> typename Operator_, typename... OtherTypes_>
@@ -150,8 +140,12 @@ namespace xieite::types {
 		template<template<typename, typename...> typename Comparator_ = xieite::traits::IsSameAsAny>
 		using Unique = typename xieite::types::List<Types_...>::Filter<xieite::types::List<Types_...>::UniqueHelper<Comparator_>::template Selector>;
 
-		template<std::size_t... i_>
-		using Transform = xieite::types::List<xieite::types::List<Types_...>::At<i_>...>;
+		template<std::size_t... indices_>
+		using Rearrange = xieite::types::List<xieite::types::List<Types_...>::At<indices_>...>;
+
+		template<template<typename...> typename Transformer_, std::size_t arguments_>
+		requires((sizeof...(Types_) % arguments_) == 0)
+		using Transform = decltype(([]<std::size_t... i_>(std::index_sequence<i_...>) -> xieite::types::List<typename xieite::types::List<Types_...>::Slice<i_ * arguments_, (i_ + 1) * arguments_>::Apply<Transformer_>...> {})(std::make_index_sequence<sizeof...(Types_) / arguments_>()));
 
 	private:
 		template<std::size_t count_>
