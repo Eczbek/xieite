@@ -28,7 +28,7 @@ int main() {
     std::println("{}", List::count<int>);
 }
 ```
-Output:
+Possible output:
 ```
 4
 ```

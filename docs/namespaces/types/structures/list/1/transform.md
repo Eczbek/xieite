@@ -33,7 +33,7 @@ int main() {
     std::println("{}", xieite::types::name<Bar>);
 }
 ```
-Output:
+Possible output:
 ```
 xieite::types::List<std::pair<int, char>, std::pair<long, float>, std::pair<short, bool>>
 ```

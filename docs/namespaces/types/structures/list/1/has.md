@@ -29,7 +29,7 @@ int main() {
     std::println("{}", List::has<float>);
 }
 ```
-Output:
+Possible output:
 ```
 true
 false

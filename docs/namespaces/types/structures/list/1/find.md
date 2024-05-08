@@ -29,7 +29,7 @@ int main() {
     std::println("{}", List::find<double>);
 }
 ```
-Output:
+Possible output:
 ```
 3
 ```

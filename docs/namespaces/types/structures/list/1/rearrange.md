@@ -31,7 +31,7 @@ int main() {
     std::println("{}", xieite::types::name<Bar>);
 }
 ```
-Output:
+Possible output:
 ```
 xieite::types::List<long, int, short>
 ```

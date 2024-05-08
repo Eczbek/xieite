@@ -29,7 +29,7 @@ int main() {
     std::println("{}", xieite::types::name<List>);
 }
 ```
-Output:
+Possible output:
 ```
 xieite::types::List<int, char, float, double, short, long>
 ```

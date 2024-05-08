@@ -29,7 +29,7 @@ int main() {
     std::println("{}", xieite::types::name<Type>);
 }
 ```
-Output:
+Possible output:
 ```
 short
 ```
