@@ -18,4 +18,3 @@ Static containers and other utilities
 - [spliceTuple\<\>\(\)](./namespaces/containers/splice_tuple.md)
 - [TupleMap\<\> \{\}](./namespaces/containers/tuple_map.md)
 - [TupleSet\<\> \{\}](./namespaces/containers/tuple_set.md)
-- [tupleify\<\>\(\)](./namespaces/containers/tupleify.md)
