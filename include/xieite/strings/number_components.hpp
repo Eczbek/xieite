@@ -11,7 +11,7 @@ namespace xieite::strings {
 		std::string_view positives = "+";
 		std::string_view points = ".";
 		std::string_view exponents = "Ee";
-		std::size_t precision = 10;
+		std::size_t precision = 50;
 	};
 }
 

@@ -13,7 +13,7 @@ A structure for storing and operating on very large numbers. Multiplication, div
 ```cpp
 template<std::unsigned_integral Word_ = std::uint64_t>
 struct BigInteger {
-    using Word_ = Word_;
+    using Word = Word_;
 
     template<std::integral Integral_ = int>
     constexpr BigInteger(Integral_ = 0) noexcept;

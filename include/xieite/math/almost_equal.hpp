@@ -5,6 +5,8 @@
 #	include <concepts>
 #	include <limits>
 #	include "../concepts/arithmetic.hpp"
+#	include "../math/absolute.hpp"
+#	include "../math/difference.hpp"
 
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic_>

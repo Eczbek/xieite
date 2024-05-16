@@ -41,6 +41,7 @@ namespace xieite::math {
 						power = xieite::math::parse<xieite::math::SignedSize>(value.substr(i + 1));
 						break;
 					}
+					continue;
 				}
 				Number_& part = (point ? fractional : integral);
 				part = part * static_cast<Number_>(radix) + static_cast<Number_>(index);
@@ -50,7 +51,7 @@ namespace xieite::math {
 		} else {
 			Number_ result = 0;
 			xieite::math::SignedSize power = 0;
-			for (std::size_t i = negative || (components.positives.contains(value[0]); i < valueSize; ++i) {
+			for (std::size_t i = negative || components.positives.contains(value[0]); i < valueSize; ++i) {
 				const std::size_t index = components.digits.find(value[i]);
 				if (index == std::string_view::npos) {
 					break;
