@@ -12,11 +12,12 @@ A namespace of collections of integer-related characters.
 #### 1)
 ```cpp
 struct NumberComponents {
-    const std::string_view digits = xieite::strings::characters::alphanumeric;
-    const std::string_view negatives = "-";
-    const std::string_view positives = "+";
-    const std::string_view points = ".";
-    const std::string_view exponents = "Ee";
+    std::string_view digits = xieite::strings::characters::alphanumeric;
+    std::string_view negatives = "-";
+    std::string_view positives = "+";
+    std::string_view points = ".";
+    std::string_view exponents = "Ee";
+    std::size_t precision = 50;
 };
 ```
 
