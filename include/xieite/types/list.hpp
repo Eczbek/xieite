@@ -29,21 +29,18 @@ namespace xieite::types {
 		})();
 
 	private:
-		template<std::size_t, typename...>
+		template<typename>
 		struct AtHelper;
 
-		template<std::size_t index_, typename First_, typename... Rest_>
-		struct AtHelper<index_, First_, Rest_...>
-		: xieite::types::List<Types_...>::AtHelper<index_ - 1, Rest_...> {};
-
-		template<typename First_, typename... Rest_>
-		struct AtHelper<0, First_, Rest_...> {
-			using Type = First_;
+		template<std::size_t... i_>
+		struct AtHelper<std::index_sequence<i_...>> {
+			template<typename Type_>
+			Type_ operator()(std::void_t<decltype(i_)>*..., Type_*, ...);
 		};
 
 	public:
 		template<std::size_t index_>
-		using At = xieite::types::List<Types_...>::AtHelper<index_, Types_...>::Type;
+		using At = std::invoke_result_t<xieite::types::List<Types_...>::AtHelper<std::make_index_sequence<index_>>, Types_*...>;
 
 		template<template<typename...> typename Template_>
 		using Apply = Template_<Types_...>;
