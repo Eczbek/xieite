@@ -15,7 +15,7 @@ namespace xieite::streams {
 
 	inline std::string read(std::FILE* const inputFile) noexcept {
 		std::string result;
-		std::size_t chunkSize = 1024; // Arbitrary
+		std::size_t chunkSize = 1024;
 		while (true) {
 			std::string buffer = std::string(chunkSize, '\0');
 			const std::size_t bytesRead = std::fread(buffer.data(), 1, chunkSize, inputFile);
@@ -30,3 +30,5 @@ namespace xieite::streams {
 }
 
 #endif
+
+// TODO: Research best initial chunk size

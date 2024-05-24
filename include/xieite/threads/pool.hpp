@@ -64,7 +64,7 @@ namespace xieite::threads {
 		}
 
 	private:
-		// Destruction order is important
+		// Destruction order is important!!!
 		std::queue<xieite::functors::Function<void()>> jobs;
 		std::vector<std::jthread> threads;
 		mutable std::mutex mutex;

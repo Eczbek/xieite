@@ -14,7 +14,7 @@ namespace xieite::strings {
 		using Lookup = std::array<char, static_cast<std::size_t>(std::numeric_limits<unsigned char>::max()) + 1>;
 		static constexpr Lookup lookup = ([] {
 			Lookup lookup;
-			std::iota(lookup.begin(), lookup.end(), 0); // TODO: Replace with std::ranges::iota
+			std::iota(lookup.begin(), lookup.end(), 0);
 			for (std::size_t i = 0; i < xieite::strings::characters::alphabetSize; ++i) {
 				lookup[xieite::math::signCast<std::size_t>(xieite::strings::characters::uppercase[i])] = xieite::strings::characters::lowercase[i];
 			}
@@ -33,3 +33,5 @@ namespace xieite::strings {
 }
 
 #endif
+
+// TODO: Replace usage of `std::iota` with `std::ranges::iota`

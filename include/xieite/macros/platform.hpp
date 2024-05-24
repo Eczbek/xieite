@@ -687,5 +687,4 @@
 #endif
 
 // https://sourceforge.net/p/predef/wiki/OperatingSystems/
-
-// TODO: Complete XIEITE_PLATFORM_VERSION_LEAST() and XIEITE_PLATFORM_VERSION_MOST() to account for platform_s of which all versions are not realistically detectable
+// TODO: Somehow complete `XIEITE_PLATFORM_VERSION_LEAST` and `XIEITE_PLATFORM_VERSION_MOST` to account for platforms of which it is unrealistic to list all possible versions

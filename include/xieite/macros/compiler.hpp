@@ -1127,5 +1127,4 @@
 #endif
 
 // https://sourceforge.net/p/predef/wiki/Compilers/
-
 // TODO: Search GitHub for possible detection macros

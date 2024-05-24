@@ -14,7 +14,8 @@ namespace xieite::math {
 	template<typename Integral_>
 	requires(std::integral<Integral_> || xieite::concepts::SpecializationOf<Integral_, xieite::math::BigInteger>)
 	[[nodiscard]] constexpr xieite::types::TryUnsigned<Integral_> absolute(const Integral_ value) noexcept {
-		return xieite::math::isNegative(value) ? -static_cast<xieite::types::TryUnsigned<Integral_>>(value) : static_cast<xieite::types::TryUnsigned<Integral_>>(value); // This works so don't touch it
+		return xieite::math::isNegative(value) ? -static_cast<xieite::types::TryUnsigned<Integral_>>(value) : static_cast<xieite::types::TryUnsigned<Integral_>>(value);
+		// This works so don't touch it
 	}
 
 	template<std::floating_point Fractional_>

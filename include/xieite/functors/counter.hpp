@@ -42,4 +42,4 @@ namespace xieite::functors {
 #endif
 
 // https://mc-deltat.github.io/articles/stateful-metaprogramming-cpp20
-// XIEITE_DETAIL_COUNTER_FLAG is a template to avoid warnings on GCC
+// `XIEITE_DETAIL_COUNTER_FLAG` is a template to avoid warnings when compiled with GCC

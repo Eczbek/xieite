@@ -37,4 +37,4 @@ namespace xieite::math {
 
 #endif
 
-// TODO: Use xieite::strings::format() for constexpr stringification in the future
+// TODO: Use `xieite::strings::format` for constexpr stringification in the future
