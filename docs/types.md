@@ -8,6 +8,7 @@ Utilities for type information and metaprogramming
 &nbsp;
 
 ## Contents
+- [Any \{\}](./namespaces/types/any.md)
 - [Boolean \{\}](./namespaces/types/boolean.md)
 - [CollapseReference\<\>](./namespaces/types/collapse_reference.md)
 - [demangle\(\)](./namespaces/types/demangle.md)
@@ -21,7 +22,6 @@ Utilities for type information and metaprogramming
 - [MaybeVolatileData\<\>](./namespaces/types/maybe_volatile_data.md)
 - [name\<\>](./namespaces/types/name.md)
 - [Partial\<\> \{\}](./namespaces/types/partial.md)
-- [Placeholder \{\}](./namespaces/types/placeholder.md)
 - [sizeBits\<\>](./namespaces/types/size_bits.md)
 - [TrySigned\<\>](./namespaces/types/try_signed.md)
 - [TryUnsigned\<\>](./namespaces/types/try_unsigned.md)

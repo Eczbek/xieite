@@ -11,10 +11,10 @@ Distributes arguments among several calls to a functor.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t argumentCount_, xieite::concepts::InvocableWithArgumentCount<argumentCount_> Functor_, typename... Arguments_>
-requires((argumentCount_ > 0) && !(sizeof...(Arguments_) % argumentCount_))
+template<std::size_t arity_, xieite::concepts::InvocableWithArity<arity_> Functor_, typename... Arguments_>
+requires((arity_ > 0) && !(sizeof...(Arguments_) % arity_))
 constexpr void distributeArguments(Functor_&& functor, Arguments_&&... arguments)
-noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor_, argumentCount_>);
+noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>);
 ```
 
 &nbsp;

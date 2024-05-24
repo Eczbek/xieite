@@ -11,10 +11,10 @@ Distributes arguments among several calls to a functor, but recursively such tha
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t argumentCount_, std::size_t previousResultIndex_ = 0, xieite::concepts::InvocableWithArgumentCount<argumentCount_> Functor_, typename... Arguments_>
-requires((argumentCount_ > previousResultIndex_) && (argumentCount_ <= sizeof...(Arguments_)) && ((argumentCount_ == 1) || (argumentCount_ > 1) && !((sizeof...(Arguments_) - 1) % (argumentCount_ - 1))))
+template<std::size_t arity_, std::size_t previousResultIndex_ = 0, xieite::concepts::InvocableWithArity<arity_> Functor_, typename... Arguments_>
+requires((arity_ > previousResultIndex_) && (arity_ <= sizeof...(Arguments_)) && ((arity_ == 1) || (arity_ > 1) && !((sizeof...(Arguments_) - 1) % (arity_ - 1))))
 constexpr decltype(auto) recursivelyDistributeArguments(Functor_&& functor, Arguments_&&... arguments)
-noexcept(xieite::concepts::NoThrowInvocableWithArgumentCount<Functor_, argumentCount_>);
+noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>);
 ```
 
 &nbsp;
