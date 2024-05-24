@@ -27,6 +27,7 @@ Macros and special headers
 - [HAS_INCLUDE\(\)](./namespaces/macros/has_include.md)
 - [LANGUAGE_STANDARD_...](./namespaces/macros/language_standard.md)
 - [LIFT\(\)](./namespaces/macros/lift.md)
+- [LOOP_...\(\)](./namespaces/macros/loop.md)
 - [\(No unix\)](./namespaces/macros/no_unix.md)
 - [\(No windows\)](./namespaces/macros/no_windows.md)
 - [PARENTHESIS_...\(\)](./namespaces/macros/parenthesis.md)
