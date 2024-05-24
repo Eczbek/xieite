@@ -28,19 +28,8 @@ namespace xieite::types {
 			return index;
 		})();
 
-	private:
-		template<typename>
-		struct AtHelper;
-
-		template<std::size_t... i_>
-		struct AtHelper<std::index_sequence<i_...>> {
-			template<typename Type_>
-			Type_ operator()(std::void_t<decltype(i_)>*..., Type_*, ...);
-		};
-
-	public:
 		template<std::size_t index_>
-		using At = std::invoke_result_t<xieite::types::List<Types_...>::AtHelper<std::make_index_sequence<index_>>, Types_*...>;
+		using At = decltype(([]<std::size_t... i_>(std::index_sequence<i_...>) -> decltype(([]<typename Type_>(std::void_t<decltype(i_)>*..., Type_*, ...) -> Type_ {})(static_cast<Types_*>(nullptr)...)) {})(std::make_index_sequence<index_>()));
 
 		template<template<typename...> typename Template_>
 		using Apply = Template_<Types_...>;
