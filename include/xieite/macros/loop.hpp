@@ -1,8 +1,6 @@
 #ifndef XIEITE_HEADER_MACROS_LOOP
 #	define XIEITE_HEADER_MACROS_LOOP
 
-#	include "../macros/unused.hpp"
-
 namespace xieite::detail {
 	struct LoopState {
 		int flag = 2;
@@ -21,7 +19,7 @@ namespace xieite::detail {
 					if ((XIEITE_DETAIL_LOOP_STATE.broke = false)); \
 					else
 
-#	define XIEITE_LOOP_WHILE(...) XIEITE_LOOP_FOR(; __VA_ARGS__; XIEITE_UNUSED())
+#	define XIEITE_LOOP_WHILE(...) XIEITE_LOOP_FOR(; __VA_ARGS__; void())
 
 #endif
 

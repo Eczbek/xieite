@@ -4,7 +4,6 @@
 #	include "../macros/compiler.hpp"
 #	include "../macros/has_attribute.hpp"
 #	include "../macros/language_standard.hpp"
-#	include "../macros/unused.hpp"
 
 #	if XIEITE_LANGUAGE_STANDARD_CPP_2023
 #		define XIEITE_ATTRIBUTE_ASSUME(...) [[assume(__VA_ARGS__)]]
@@ -15,7 +14,7 @@
 #	elif XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_ATTRIBUTE_ASSUME(...) __assume(__VA_ARGS__)
 #	else
-#		define XIEITE_ATTRIBUTE_ASSUME(...) XIEITE_UNUSED()
+#		define XIEITE_ATTRIBUTE_ASSUME(...) void()
 #	endif
 
 #	if XIEITE_LANGUAGE_STANDARD_CPP_2017
@@ -25,7 +24,7 @@
 #	elif XIEITE_XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_ATTRIBUTE_FALLTHROUGH() __fallthrough
 #	else
-#		define XIEITE_ATTRIBUTE_FALLTHROUGH() XIEITE_UNUSED()
+#		define XIEITE_ATTRIBUTE_FALLTHROUGH() void()
 #	endif
 
 #	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG

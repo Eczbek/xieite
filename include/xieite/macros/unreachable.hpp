@@ -9,14 +9,13 @@
 #		define XIEITE_UNREACHABLE() ::std::unreachable()
 #	else
 #		include "../macros/compiler.hpp"
-#		include "../macros/unused.hpp"
 
 #		if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 #			define XIEITE_UNREACHABLE() __builtin_unreachable()
 #		elif XIEITE_COMPILER_TYPE_MSVC
 #			define XIEITE_UNREACHABLE() __assume(false)
 #		else
-#			define XIEITE_UNREACHABLE() XIEITE_UNUSED(0 / 0)
+#			define XIEITE_UNREACHABLE() void(0 / 0)
 #		endif
 #	endif
 #endif

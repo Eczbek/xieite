@@ -39,5 +39,4 @@ Macros and special headers
 - [TRY_RETURN\(\)](./namespaces/macros/try_return.md)
 - [UNIX_STANDARD_...](./namespaces/macros/unix_standard.md)
 - [UNREACHABLE\(\)](./namespaces/macros/unreachable.md)
-- [UNUSED\(\)](./namespaces/macros/unused.md)
 - [VERSION_...](./namespaces/macros/version.md)
