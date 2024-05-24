@@ -16,7 +16,7 @@ namespace xieite::functors {
 	noexcept(xieite::concepts::NoThrowInvocable<Functor_, Arguments_...>) {
 		xieite::time::Stopwatch<Clock_> stopwatch;
 		stopwatch.start();
-		static_cast<void>(std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...));
+		std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...);
 		return stopwatch.template total<Duration_>();
 	}
 }

@@ -15,11 +15,11 @@ namespace xieite::functors {
 	constexpr void distributeArguments(Functor_&& functor, Arguments_&&... arguments)
 	noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>) {
 		if constexpr (sizeof...(Arguments_) == arity_) {
-			static_cast<void>(std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...));
+			std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...);
 		} else {
 			const std::tuple<Arguments_&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
 			([&functor, &argumentsTuple]<std::size_t... i_>(std::index_sequence<i_...>) {
-				static_cast<void>(std::invoke(functor, std::get<i_>(std::move(argumentsTuple))...));
+				std::invoke(functor, std::get<i_>(std::move(argumentsTuple))...);
 			})(std::make_index_sequence<arity_>());
 			([&functor, &argumentsTuple]<std::size_t... i_>(std::index_sequence<i_...>) {
 				xieite::functors::distributeArguments<arity_>(XIEITE_FORWARD(functor), std::get<i_ + arity_>(std::move(argumentsTuple))...);
