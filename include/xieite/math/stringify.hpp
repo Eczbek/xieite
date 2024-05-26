@@ -10,8 +10,8 @@
 #	include "../concepts/arithmetic.hpp"
 #	include "../concepts/specialization_of.hpp"
 #	include "../math/absolute.hpp"
+#	include "../math/down.hpp"
 #	include "../math/is_negative.hpp"
-#	include "../math/round_down.hpp"
 #	include "../math/signed_size.hpp"
 #	include "../strings/number_components.hpp"
 #	include "../types/try_unsigned.hpp"
@@ -65,7 +65,7 @@ namespace xieite::math {
 					Number_ integral = value - fractional;
 					do {
 						Number_ index = std::fmod(integral, radix);
-						integral = xieite::math::roundDown(integral / static_cast<Number_>(radix));
+						integral = xieite::math::down(integral / static_cast<Number_>(radix));
 						if (xieite::math::isNegative(index)) {
 							index += std::abs(static_cast<Number_>(radix));
 							++integral;
@@ -75,7 +75,7 @@ namespace xieite::math {
 					result += components.points[0];
 					do {
 						fractional *= static_cast<Number_>(radix);
-						Number_ index = xieite::math::roundDown(fractional);
+						Number_ index = xieite::math::down(fractional);
 						fractional -= index;
 						result += components.digits[static_cast<std::size_t>(index) * (static_cast<std::size_t>(index) < digitsSize)];
 					} while (components.precision-- && (std::abs(fractional) >= std::numeric_limits<Number_>::epsilon()));
