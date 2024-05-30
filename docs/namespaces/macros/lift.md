@@ -11,7 +11,7 @@ Defined in header [<xieite/macros/lift.hpp>](../../../include/xieite/macros/lift
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_LIFT(function_) /* ... */
+#define XIEITE_LIFT(...) /* ... */
 ```
 
 &nbsp;
