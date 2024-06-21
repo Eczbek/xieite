@@ -8,7 +8,6 @@
 #	include <string_view>
 #	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
-#	include "../concepts/specialization_of.hpp"
 #	include "../math/absolute.hpp"
 #	include "../math/down.hpp"
 #	include "../math/is_negative.hpp"
@@ -16,22 +15,18 @@
 #	include "../strings/number_components.hpp"
 #	include "../types/try_unsigned.hpp"
 
-namespace xieite::math {
-	template<std::unsigned_integral>
-	struct BigInteger;
-
-	template<typename Number_>
-	requires(xieite::concepts::Arithmetic<Number_> || xieite::concepts::SpecializationOf<Number_, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr std::string stringify(Number_ value, std::conditional_t<std::floating_point<Number_>, xieite::math::SignedSize, Number_> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
+namespace xieite::detail {
+	template<typename Value_, typename Radix_>
+	[[nodiscard]] constexpr std::string stringifyNumber(Value_ value, Radix_ radix, xieite::strings::NumberComponents components) noexcept {
 		if (!value || !radix) {
 			return std::string(1, components.digits[0]);
 		}
 		std::string result;
 		const bool negative = xieite::math::isNegative(value);
-		const xieite::types::TryUnsigned<Number_> absoluteValue = xieite::math::absolute(value);
+		const xieite::types::TryUnsigned<Value_> absoluteValue = xieite::math::absolute(value);
 		if (radix == 1) {
 			result = std::string(static_cast<std::size_t>(absoluteValue), components.digits[1]);
-		} else if (!std::unsigned_integral<Number_> && (radix == static_cast<std::conditional_t<std::floating_point<Number_>, xieite::math::SignedSize, Number_>>(-1))) {
+		} else if (!std::unsigned_integral<Value_> && (radix == static_cast<Radix_>(-1))) {
 			result = components.digits[1];
 			std::size_t length = static_cast<std::size_t>(absoluteValue);
 			while (--length) {
@@ -39,12 +34,12 @@ namespace xieite::math {
 			}
 		} else {
 			const std::size_t digitsSize = components.digits.size();
-			if constexpr (std::floating_point<Number_>) {
+			if constexpr (std::floating_point<Value_>) {
 				if (xieite::math::isNegative(radix)) {
-					const Number_ foo = std::abs(static_cast<Number_>(radix));
-					const Number_ bar = -foo / (foo + 1);
-					const Number_ baz = 1 / (foo + 1);
-					Number_ qux = value;
+					const Value_ foo = std::abs(static_cast<Value_>(radix));
+					const Value_ bar = -foo / (foo + 1);
+					const Value_ baz = 1 / (foo + 1);
+					Value_ qux = value;
 					std::size_t point = 0;
 					while ((qux < bar) || (qux >= baz)) {
 						++point;
@@ -52,40 +47,40 @@ namespace xieite::math {
 					}
 					do {
 						const std::size_t index = static_cast<std::size_t>(-foo * qux - bar);
-						qux = qux * -foo - static_cast<Number_>(index);
+						qux = qux * -foo - static_cast<Value_>(index);
 						if (index == static_cast<std::size_t>(foo)) {
 							result += std::string(1, components.digits[index - 1]) + components.digits[0];
 						} else {
 							result += components.digits[index];
 						}
-					} while (components.precision-- && (std::abs(qux) >= std::numeric_limits<Number_>::epsilon()));
+					} while (components.precision-- && (std::abs(qux) >= std::numeric_limits<Value_>::epsilon()));
 					result.insert(point, 1, components.points[0]);
 				} else {
-					Number_ fractional = std::fmod(value, 1);
-					Number_ integral = value - fractional;
+					Value_ fractional = std::fmod(value, 1);
+					Value_ integral = value - fractional;
 					do {
-						Number_ index = std::fmod(integral, radix);
-						integral = xieite::math::down(integral / static_cast<Number_>(radix));
+						Value_ index = std::fmod(integral, radix);
+						integral = xieite::math::down(integral / static_cast<Value_>(radix));
 						if (xieite::math::isNegative(index)) {
-							index += std::abs(static_cast<Number_>(radix));
+							index += std::abs(static_cast<Value_>(radix));
 							++integral;
 						}
 						result = components.digits[static_cast<std::size_t>(index) * (static_cast<std::size_t>(index) < digitsSize)] + result;
-					} while (std::abs(integral) >= std::numeric_limits<Number_>::epsilon());
+					} while (std::abs(integral) >= std::numeric_limits<Value_>::epsilon());
 					result += components.points[0];
 					do {
-						fractional *= static_cast<Number_>(radix);
-						Number_ index = xieite::math::down(fractional);
+						fractional *= static_cast<Value_>(radix);
+						Value_ index = xieite::math::down(fractional);
 						fractional -= index;
 						result += components.digits[static_cast<std::size_t>(index) * (static_cast<std::size_t>(index) < digitsSize)];
-					} while (components.precision-- && (std::abs(fractional) >= std::numeric_limits<Number_>::epsilon()));
+					} while (components.precision-- && (std::abs(fractional) >= std::numeric_limits<Value_>::epsilon()));
 				}
 			} else {
 				while (value) {
-					Number_ index = value % radix;
+					Value_ index = value % radix;
 					value /= radix;
 					if (xieite::math::isNegative(index)) {
-						index = static_cast<Number_>(static_cast<xieite::types::TryUnsigned<Number_>>(index) + xieite::math::absolute(radix));
+						index = static_cast<Value_>(static_cast<xieite::types::TryUnsigned<Value_>>(index) + xieite::math::absolute(radix));
 						++value;
 					}
 					result = components.digits[static_cast<std::size_t>(index) * (static_cast<std::size_t>(index) < digitsSize)] + result;
@@ -96,6 +91,13 @@ namespace xieite::math {
 			result = components.negatives[0] + result;
 		}
 		return result;
+	}
+}
+
+namespace xieite::math {
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr std::string stringify(const Arithmetic_ value, const std::conditional_t<std::floating_point<Arithmetic_>, xieite::math::SignedSize, Arithmetic_> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
+		return xieite::detail::stringifyNumber(value, radix, components);
 	}
 }
 

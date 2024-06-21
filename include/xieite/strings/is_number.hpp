@@ -5,24 +5,17 @@
 #	include <cstddef>
 #	include <string_view>
 #	include "../concepts/arithmetic.hpp"
-#	include "../concepts/specialization_of.hpp"
 #	include "../math/absolute.hpp"
 #	include "../math/signed_size.hpp"
 #	include "../strings/number_components.hpp"
 
-namespace xieite::math {
-	template<std::unsigned_integral>
-	struct BigInteger;
-}
-
-namespace xieite::strings {
-	template<typename Number_>
-	requires(xieite::concepts::Arithmetic<Number_> || xieite::concepts::SpecializationOf<Number_, xieite::math::BigInteger>)
-	[[nodiscard]] constexpr bool isNumber(const std::string_view value, const std::conditional_t<std::floating_point<Number_>, xieite::math::SignedSize, Number_> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
+namespace xieite::detail {
+	template<typename Type_, typename Radix_>
+	[[nodiscard]] constexpr bool isNumber(const std::string_view value, const Radix_ radix, const xieite::strings::NumberComponents components) noexcept {
 		std::size_t i = components.positives.contains(value[0]) || components.negatives.contains(value[0]);
 		const std::size_t valueSize = value.size();
 		const std::string_view digits = components.digits.substr(0, xieite::math::absolute(radix));
-		if constexpr (std::floating_point<Number_>) {
+		if constexpr (std::floating_point<Type_>) {
 			bool point = false;
 			for (; i < valueSize; ++i) {
 				if (digits.contains(value[i])) {
@@ -45,6 +38,13 @@ namespace xieite::strings {
 			}
 		}
 		return true;
+	}
+}
+
+namespace xieite::strings {
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr bool isNumber(const std::string_view value, const std::conditional_t<std::floating_point<Type_>, xieite::math::SignedSize, Type_> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
+		return xieite::detail::isNumber<Arithmetic_>(value, radix, components);
 	}
 }
 
