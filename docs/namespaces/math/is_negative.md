@@ -11,14 +11,8 @@ Checks that a value is negative.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral UnsignedIntegral_>
-[[nodiscard]] constexpr bool isNegative(UnsignedIntegral_ value) noexcept;
-```
-#### 2)
-```cpp
-template<typename Number_>
-requires(std::signed_integral<Number_> || std::floating_point<Number_> || xieite::concepts::SpecializationOf<Number_, xieite::math::BigInteger>)
-[[nodiscard]] constexpr bool isNegative(Number_ value) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool isNegative(Arithmetic_ value) noexcept;
 ```
 
 &nbsp;

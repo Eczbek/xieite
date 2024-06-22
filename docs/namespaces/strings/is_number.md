@@ -11,9 +11,8 @@ Checks if a string is a valid integral or fractional number.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Number_>
-requires(xieite::concepts::Arithmetic<Number_> || xieite::concepts::SpecializationOf<Number_, xieite::math::BigInteger>)
-[[nodiscard]] constexpr bool isNumber(std::string_view value, std::conditional_t<std::floating_point<Number_>, xieite::math::SignedSize, Number_> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr bool isNumber(std::string_view value, std::conditional_t<std::floating_point<Arithmetic_>, xieite::math::SignedSize, Arithmetic_> radix = 10, xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept;
 ```
 
 &nbsp;
