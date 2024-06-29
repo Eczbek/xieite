@@ -18,7 +18,6 @@ struct Position {
     friend constexpr bool operator==(xieite::streams::Position, xieite::streams::Position);
 };
 ```
-##### Members
 - row
 - column
 - [operator==\(\)](./structures/position/1/operators/equal.md)

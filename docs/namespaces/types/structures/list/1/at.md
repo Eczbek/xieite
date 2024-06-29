@@ -12,6 +12,7 @@ Accesses a type by index.
 #### 1)
 ```cpp
 template<std::size_t index_>
+requires(index_ < sizeof...(Types_))
 using At = /* xieite::types::List<...> */;
 ```
 

@@ -181,7 +181,6 @@ struct BigInteger {
     constexpr std::string string(xieite::math::SignedSize = 10, xieite::strings::NumberComponents = xieite::strings::NumberComponents()) const noexcept;
 };
 ```
-##### Members
 - Word
 - [BigInteger\<\>\(\)](./structures/big_integer/1/operators/constructor.md)
 - [operator=\<\>\(\)](./structures/big_integer/1/operators/assign.md)

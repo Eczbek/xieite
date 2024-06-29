@@ -26,7 +26,6 @@ struct Version {
     constexpr std::string string() const noexcept;
 };
 ```
-##### Members
 - major
 - minor
 - patch

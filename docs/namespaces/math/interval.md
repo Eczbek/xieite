@@ -17,7 +17,6 @@ struct Interval {
     Arithmetic_ end;
 };
 ```
-##### Members
 - start
 - end
 

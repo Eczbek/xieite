@@ -9,6 +9,7 @@ Utilities to do with bit and byte manipulation
 
 ## Contents
 - [bigEndify\<\>\(\)](./namespaces/bits/big_endify.md)
+- [Fill \{\}](./namespaces/bits/fill.md)
 - [join\<\>\(\)](./namespaces/bits/join.md)
 - [littleEndify\<\>\(\)](./namespaces/bits/little_endify.md)
 - [mash\<\>\(\)](./namespaces/bits/mash.md)

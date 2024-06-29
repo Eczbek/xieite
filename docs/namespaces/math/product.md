@@ -17,7 +17,6 @@ struct Product {
     UnsignedIntegral_ upper;
 };
 ```
-##### Members
 - lower
 - upper
 

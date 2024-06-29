@@ -82,6 +82,7 @@
 #	define XIEITE_ARCHITECTURE_VERSION_MINOR_Z 0
 #	define XIEITE_ARCHITECTURE_VERSION_PATCH_Z 0
 
+#	define XIEITE_ARCHITECTURE_VERSION_EQUAL(architecture_, major_, minor_, patch_) (XIEITE_ARCHITECTURE_TYPE_##architecture_ && (XIEITE_ARCHITECTURE_VERSION_MAJOR_##architecture_ == (major_)) && (XIEITE_ARCHITECTURE_VERSION_MINOR_##architecture_ == (minor_)) && (XIEITE_ARCHITECTURE_VERSION_PATCH_##architecture_ == (patch_)))
 #	define XIEITE_ARCHITECTURE_VERSION_LEAST(architecture_, major_, minor_, patch_) (XIEITE_ARCHITECTURE_TYPE_##architecture_ && ((XIEITE_ARCHITECTURE_VERSION_MAJOR_##architecture_ > (major_)) || (XIEITE_ARCHITECTURE_VERSION_MAJOR_##architecture_ == (major_)) && ((XIEITE_ARCHITECTURE_VERSION_MINOR_##architecture_ > (minor_)) || (XIEITE_ARCHITECTURE_VERSION_MINOR_##architecture_ == (minor_)) && (XIEITE_ARCHITECTURE_VERSION_PATCH_##architecture_ >= (patch_)))))
 #	define XIEITE_ARCHITECTURE_VERSION_MOST(architecture_, major_, minor_, patch_) (XIEITE_ARCHITECTURE_TYPE_##architecture_ && ((XIEITE_ARCHITECTURE_VERSION_MAJOR_##architecture_ < (major_)) || (XIEITE_ARCHITECTURE_VERSION_MAJOR_##architecture_ == (major_)) && ((XIEITE_ARCHITECTURE_VERSION_MINOR_##architecture_ < (minor_)) || (XIEITE_ARCHITECTURE_VERSION_MINOR_##architecture_ == (minor_)) && (XIEITE_ARCHITECTURE_VERSION_PATCH_##architecture_ <= (patch_)))))
 

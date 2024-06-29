@@ -21,7 +21,6 @@ struct Pipe {
     int descriptor() const noexcept;
 };
 ```
-##### Members
 - [Pipe\(\)](./structures/pipe/1/operators/constructor.md)
 - [file\(\)](./structures/pipe/file.md)
 - [descriptor\(\)](./structures/pipe/descriptor.md)

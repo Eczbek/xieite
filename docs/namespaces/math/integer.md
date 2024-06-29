@@ -87,7 +87,6 @@ struct Integer {
     constexpr xieite::math::Integer<bits_, sign_>::Word data() const noexcept;
 };
 ```
-##### Members
 - Word
 - [Integral\<\>\(\)](./structures/integer/1/operators/constructor.md)
 - [operator=\(\)](./structures/integer/1/operators/assign.md)

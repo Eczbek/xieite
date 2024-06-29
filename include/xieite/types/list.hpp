@@ -29,6 +29,7 @@ namespace xieite::types {
 		})();
 
 		template<std::size_t index_>
+		requires(index_ < sizeof...(Types_))
 		using At = decltype(([]<std::size_t... i_>(std::index_sequence<i_...>) -> decltype(([]<typename Type_>(std::void_t<decltype(i_)>*..., Type_*, ...) -> Type_ {})(static_cast<Types_*>(nullptr)...)) {})(std::make_index_sequence<index_>()));
 
 		template<template<typename...> typename Template_>

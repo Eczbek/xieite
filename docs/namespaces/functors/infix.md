@@ -28,7 +28,6 @@ struct Infix<Return_(Argument_)>
     friend constexpr Return_ operator<(ArgumentReference_&&, const xieite::functors::Infix<Return_(Argument_)>&);
 };
 ```
-##### Members
 - [operator\>\<\>\(\)](./structures/infix/2/operators/more.md)
 - [operator\<\<\>\(\)](./structures/infix/2/operators/less.md)
 #### 3)
@@ -47,7 +46,6 @@ public:
     friend constexpr xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>::Intermediate<LeftArgumentReference_> operator<(LeftArgumentReference_&&, const xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>&) noexcept;
 };
 ```
-##### Members
 - [Intermediate \{\}](./structures/infix/3/intermediate.md)
 - [operator\<\<\>\(\)](./structures/infix/3/operators/less.md)
 

@@ -26,7 +26,6 @@ struct Stopwatch {
     Duration_ total() const noexcept;
 };
 ```
-##### Members
 - [start\(\)](./structures/stopwatch/1/start.md)
 - [stop\(\)](./structures/stopwatch/1/stop.md)
 - [reset\(\)](./structures/stopwatch/1/reset.md)

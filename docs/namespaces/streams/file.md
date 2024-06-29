@@ -44,7 +44,6 @@ struct File {
 #endif
 };
 ```
-##### Members
 - [File\<\>\(\)](./structures/file/1/operators/constructor.md)
 - [file\(\)](./structures/file/file.md)
 - [descriptor\(\)](./structures/file/descriptor.md)

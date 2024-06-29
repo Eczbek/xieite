@@ -20,7 +20,6 @@ struct Partial {
     using Prepend = Template_<SecondArguments_..., FirstArguments_...>;
 };
 ```
-##### Members
 - Append\<\>
 - Prepend\<\>
 

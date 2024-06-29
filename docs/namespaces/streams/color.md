@@ -23,7 +23,6 @@ struct Color {
     constexpr std::uint32_t value() noexcept;
 };
 ```
-##### Members
 - red
 - green
 - blue
