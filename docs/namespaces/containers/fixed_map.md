@@ -51,7 +51,7 @@ int main() {
     constexpr xieite::containers::FixedMap<std::string_view, int, 4> map = {
         { "foo", 1 },
         { "bar", 2 },
-        { "baz", 3 },
+        { "baz", 5 },
         { "qux", 4 }
     };
 
