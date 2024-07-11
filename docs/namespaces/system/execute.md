@@ -22,10 +22,11 @@ inline std::string execute(std::string_view command) noexcept;
 #include "xieite/system/execute.hpp"
 
 int main() {
-    std::println("{}", xieite::system::execute("echo Hello, world!");
+    std::println("{}", xieite::system::execute("echo Hello, world!"));
 }
 ```
 Possible output:
 ```
 Hello, world!
+
 ```
