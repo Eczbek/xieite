@@ -5,25 +5,18 @@
 #	include "../types/type_wrapper.hpp"
 
 namespace xieite::detail {
-	template<template<typename, std::size_t> typename, typename, std::size_t...>
-	struct FixedMatrix;
-
-	template<template<typename, std::size_t> typename FixedContainer_, typename Value_, std::size_t sizesFirst_, std::size_t... sizesRest_>
-	struct FixedMatrix<FixedContainer_, Value_, sizesFirst_, sizesRest_...>
-	: xieite::types::TypeWrapper<FixedContainer_<typename xieite::detail::FixedMatrix<FixedContainer_, Value_, sizesRest_...>::Type_, sizesFirst_>> {};
-
-	template<template<typename, std::size_t> typename FixedContainer_, typename Value_, std::size_t size_>
-	struct FixedMatrix<FixedContainer_, Value_, size_>
-	: xieite::types::TypeWrapper<FixedContainer_<Value_, size_>> {};
-
-	template<template<typename, std::size_t> typename FixedContainer_, typename Value_>
-	struct FixedMatrix<FixedContainer_, Value_>
+	template<template<typename, std::size_t> typename, typename Value_, std::size_t...>
+	struct FixedMatrix
 	: xieite::types::TypeWrapper<Value_> {};
+
+	template<template<typename, std::size_t> typename FixedContainer_, typename Value_, std::size_t firstSize_, std::size_t... restSizes_>
+	struct FixedMatrix<FixedContainer_, Value_, firstSize_, restSizes_...>
+	: xieite::types::TypeWrapper<FixedContainer_<typename xieite::detail::FixedMatrix<FixedContainer_, Value_, restSizes_...>::Type, firstSize_>> {};
 };
 
 namespace xieite::types {
 	template<template<typename, std::size_t> typename FixedContainer_, typename Value_, std::size_t... sizes_>
-	using FixedMatrix = xieite::detail::FixedMatrix<FixedContainer_, Value_, sizes_...>::Type_;
+	using FixedMatrix = xieite::detail::FixedMatrix<FixedContainer_, Value_, sizes_...>::Type;
 }
 
 #endif

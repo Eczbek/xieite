@@ -25,7 +25,7 @@ namespace xieite::detail {
 namespace xieite::types {
 	template<typename Type_, bool constant_>
 	requires(std::is_pointer_v<Type_> || std::is_reference_v<Type_>)
-	using MaybeConstantData = xieite::detail::MaybeConstantData<Type_, constant_>::Type_;
+	using MaybeConstantData = xieite::detail::MaybeConstantData<Type_, constant_>::Type;
 }
 
 #endif

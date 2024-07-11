@@ -25,7 +25,7 @@ using DynamicMatrix = /* ... */;
 
 int main() {
     std::println("{}", std::same_as<
-        xieite::types::DynamicMatrix<std::vector, int, 3>::Type_,
+        xieite::types::DynamicMatrix<std::vector, int, 3>,
         std::vector<std::vector<std::vector<int>>>
     >);
 }

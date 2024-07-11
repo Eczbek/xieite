@@ -25,7 +25,7 @@ using FixedMatrix = /* ... */;
 
 int main() {
     std::println("{}", std::same_as<
-        xieite::types::FixedMatrix<std::array, int, 3, 2, 1>::Type_,
+        xieite::types::FixedMatrix<std::array, int, 3, 2, 1>,
         std::array<std::array<std::array<int, 3>, 2>, 1>
     >);
 }

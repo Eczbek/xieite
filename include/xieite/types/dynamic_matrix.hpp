@@ -7,7 +7,7 @@
 namespace xieite::detail {
 	template<template<typename> typename DynamicContainer_, typename Value_, std::size_t dimensions_>
 	struct DynamicMatrix
-	: xieite::types::TypeWrapper<xieite::detail::DynamicMatrix<DynamicContainer_, DynamicContainer_<Value_>, dimensions_ - 1>> {};
+	: xieite::types::TypeWrapper<DynamicContainer_<typename xieite::detail::DynamicMatrix<DynamicContainer_, Value_, dimensions_ - 1>::Type>> {};
 
 	template<template<typename> typename DynamicContainer_, typename Value_>
 	struct DynamicMatrix<DynamicContainer_, Value_, 0>
@@ -16,7 +16,7 @@ namespace xieite::detail {
 
 namespace xieite::types {
 	template<template<typename> typename DynamicContainer_, typename Value_, std::size_t dimensions_>
-	using DynamicMatrix = xieite::detail::DynamicMatrix<DynamicContainer_, Value_, dimensions_>::Type_;
+	using DynamicMatrix = xieite::detail::DynamicMatrix<DynamicContainer_, Value_, dimensions_>::Type;
 }
 
 #endif

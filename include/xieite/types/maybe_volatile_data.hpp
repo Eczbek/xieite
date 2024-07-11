@@ -25,7 +25,7 @@ namespace xieite::detail {
 namespace xieite::types {
 	template<typename Type_, bool volatile_>
 	requires(std::is_pointer_v<Type_> || std::is_reference_v<Type_>)
-	using MaybeVolatileData = xieite::detail::MaybeVolatileData<Type_, volatile_>::Type_;
+	using MaybeVolatileData = xieite::detail::MaybeVolatileData<Type_, volatile_>::Type;
 }
 
 #endif
