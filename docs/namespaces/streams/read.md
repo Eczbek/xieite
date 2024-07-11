@@ -1,4 +1,4 @@
-# [xieite](../../../xieite.md)\:\:[streams](../../../streams.md)\:\:read\(\)
+# [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:read\(\)
 Defined in header [<xieite/streams/read.hpp>](../../../include/xieite/streams/read.hpp)
 
 &nbsp;
