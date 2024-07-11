@@ -18,8 +18,9 @@ namespace xieite::containers {
 	[[nodiscard]] constexpr std::array<Value_, size_> makeArray(Range_&& range, Functor_&& converter = Functor_())
 	noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_const_reference_t<Range_>>) {
 		return ([&range, &converter]<std::size_t... i_>(std::index_sequence<i_...>) {
+			auto iterator = std::ranges::begin(range);
 			return std::array<Value_, size_> {
-				std::invoke(converter, *std::ranges::next(std::ranges::begin(range), i_, std::ranges::end(range)))...
+				(void(i_), std::invoke(converter, *iterator++))...
 			};
 		})(std::make_index_sequence<size_>());
 	}
