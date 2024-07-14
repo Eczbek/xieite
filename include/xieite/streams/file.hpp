@@ -74,7 +74,7 @@ namespace xieite::streams {
 				}
 			}
 			if constexpr (requires {
-				{ stream.native_handle() } -> std::same_as<typename Stream_::native_handle_type>;
+				stream.native_handle();
 			}) {
 				const typename Stream_::native_handle_type descriptor = stream.native_handle();
 				std::string mode;

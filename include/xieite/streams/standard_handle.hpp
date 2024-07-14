@@ -253,7 +253,7 @@ namespace xieite::streams {
 		char readCharacter() noexcept {
 			const bool canon = this->canon;
 			this->setInputCanon(false);
-			const char input = std::fgetc(this->inputFile);
+			const char input = static_cast<char>(std::fgetc(this->inputFile));
 			this->setInputCanon(canon);
 			return input;
 		}
@@ -626,9 +626,9 @@ namespace xieite::streams {
 		void update() noexcept {
 			::fcntl(::fileno(this->inputFile), F_SETFL, this->blockingStatus | (O_NONBLOCK * !this->blocking));
 			::termios rawMode = this->cookedMode;
-			rawMode.c_iflag &= ~((ICRNL * !this->signals) | (IXON * !this->signals));
-			rawMode.c_lflag &= ~((ECHO * !this->echo) | (ICANON * !this->canon) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
-			rawMode.c_oflag &= ~(OPOST * !this->processing);
+			rawMode.c_iflag &= ~static_cast<::tcflag_t>((ICRNL * !this->signals) | (IXON * !this->signals));
+			rawMode.c_lflag &= ~static_cast<::tcflag_t>((ECHO * !this->echo) | (ICANON * !this->canon) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
+			rawMode.c_oflag &= ~static_cast<::tcflag_t>(OPOST * !this->processing);
 			::tcsetattr(::fileno(this->inputFile), TCSANOW, &rawMode);
 		}
 	};
