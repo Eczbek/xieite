@@ -25,5 +25,4 @@ Utilities for type information and metaprogramming
 - [sizeBits\<\>](./namespaces/types/size_bits.md)
 - [TrySigned\<\>](./namespaces/types/try_signed.md)
 - [TryUnsigned\<\>](./namespaces/types/try_unsigned.md)
-- [TypeWrapper\<\> \{\}](./namespaces/types/type_wrapper.md)
-- [ValueWrapper\<\> \{\}](./namespaces/types/value_wrapper.md)
+- [ValueIdentity\<\> \{\}](./namespaces/types/value_identity.md)
