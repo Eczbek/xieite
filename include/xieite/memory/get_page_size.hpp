@@ -1,13 +1,12 @@
 #ifndef XIEITE_HEADER_MEMORY_GET_PAGE_SIZE
 #	define XIEITE_HEADER_MEMORY_GET_PAGE_SIZE
 
+#	include <cstddef>
 #	include "../macros/platform.hpp"
 
 #	if XIEITE_PLATFORM_TYPE_UNIX
-#		include <cstddef>
 #		include <unistd.h>
 #	elif XIEITE_PLATFORM_TYPE_WINDOWS
-#		include <cstddef>
 #		include <windows.h>
 #	else
 #		error "Platform not supported"

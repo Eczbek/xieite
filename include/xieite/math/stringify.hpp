@@ -17,7 +17,6 @@
 
 namespace xieite::detail {
 	template<typename Value_, typename Radix_>
-	requires(std::floating_point<Value_> || std::same_as<Value_, Radix_>)
 	[[nodiscard]] constexpr std::string stringifyNumber(Value_ value, Radix_ radix, xieite::strings::NumberComponents components) noexcept {
 		if (!static_cast<bool>(value) || !radix) {
 			return std::string(1, components.digits[0]);
