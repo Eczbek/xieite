@@ -33,7 +33,7 @@ namespace xieite::detail {
 						}
 						point = 1;
 					} else if (components.exponents.contains(value[i])) {
-						power = xieite::math::parse<int>(value.substr(i + 1));
+						power = xieite::detail::parseNumber<int>(value.substr(i + 1), radix, components);
 						break;
 					}
 					continue;
@@ -50,7 +50,7 @@ namespace xieite::detail {
 				if (index == std::string_view::npos) {
 					break;
 				}
-				result = result * radix + static_cast<Result_>(index);
+				result = static_cast<Result_>(result * static_cast<Result_>(radix) + static_cast<Result_>(index));
 			}
 			return negative ? -result : result;
 		}
@@ -60,7 +60,7 @@ namespace xieite::detail {
 namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic_>
 	[[nodiscard]] constexpr Arithmetic_ parse(const std::string_view value, const std::conditional_t<std::floating_point<Arithmetic_>, xieite::math::SignedSize, Arithmetic_> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
-		return xieite::detail::parse<Arithmetic_>(value, radix, components);
+		return xieite::detail::parseNumber<Arithmetic_>(value, radix, components);
 	}
 }
 
