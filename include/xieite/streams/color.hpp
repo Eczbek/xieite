@@ -22,7 +22,7 @@ namespace xieite::streams {
 
 		[[nodiscard]] static constexpr xieite::streams::Color from(const std::uint32_t value) noexcept {
 			const auto values = xieite::bits::unjoin<std::uint8_t, 4>(xieite::bits::join(value));
-			return xieite::streams::Color(values[0], values[1], values[2]);
+			return xieite::streams::Color(values[2], values[1], values[0]);
 		}
 
 		[[nodiscard]] constexpr std::uint32_t value() noexcept {
