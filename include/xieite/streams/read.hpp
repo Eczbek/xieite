@@ -19,7 +19,7 @@ namespace xieite::streams {
 		while (true) {
 			std::string buffer = std::string(chunkSize, '\0');
 			const std::size_t bytesRead = std::fread(buffer.data(), 1, chunkSize, inputFile);
-			result += buffer;
+			result += buffer.substr(0, bytesRead);
 			if (bytesRead != chunkSize) {
 				break;
 			}
