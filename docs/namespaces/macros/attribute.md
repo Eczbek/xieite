@@ -93,6 +93,10 @@ Macros for non-standard compiler-specific statement, label, type, variable, and 
 ```cpp
 #define XIEITE_ATTRIBUTE_RETURNS_NON_NULL /* ... */
 ```
+#### 22)
+```cpp
+#define XIEITE_ATTRIBUTE_NO_UNIQUE_ADDRESS /* ... */
+```
 
 &nbsp;
 

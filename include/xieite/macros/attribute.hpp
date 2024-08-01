@@ -170,6 +170,14 @@
 #	else
 #		define XIEITE_ATTRIBUTE_RETURNS_NON_NULL
 #	endif
+
+#	if XIEITE_COMPILER_VERSION_LEAST(MSVC, 16, 9, 0)
+#		define XIEITE_ATTRIBUTE_NO_UNIQUE_ADDRESS [[msvc::no_unique_address]]
+#	elif XIEITE_LANGUAGE_STANDARD_CPP_2020
+#		define XIEITE_ATTRIBUTE_NO_UNIQUE_ADDRESS [[no_unique_address]]
+#	else
+#		define XIEITE_ATTRIBUTE_NO_UNIQUE_ADDRESS
+#	endif
 #endif
 
 // Thanks to eightfold (https://github.com/8ightfold) and Ian Pike (https://github.com/Rinzii) for some original code
