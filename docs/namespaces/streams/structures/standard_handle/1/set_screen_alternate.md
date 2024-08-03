@@ -31,7 +31,7 @@ int main() {
     std::println("world!");
 }
 ```
-Output:
+Possible output:
 ```
 world!
 ```

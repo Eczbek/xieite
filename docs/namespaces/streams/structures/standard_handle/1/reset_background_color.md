@@ -4,7 +4,7 @@ Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../inclu
 &nbsp;
 
 ## Description
-Resets the text highlight color to default.
+Resets the background color to default.
 
 &nbsp;
 

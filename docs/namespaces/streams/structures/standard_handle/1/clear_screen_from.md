@@ -13,10 +13,6 @@ Clears from the cursor until the end of the screen.
 ```cpp
 void clearScreenFrom() noexcept;
 ```
-#### 2)
-```cpp
-void clearScreenFrom(xieite::streams::Position position) noexcept;
-```
 
 &nbsp;
 

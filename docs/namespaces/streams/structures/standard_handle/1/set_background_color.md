@@ -4,7 +4,7 @@ Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../inclu
 &nbsp;
 
 ## Description
-Sets the text highlight color.
+Sets the background color.
 
 &nbsp;
 

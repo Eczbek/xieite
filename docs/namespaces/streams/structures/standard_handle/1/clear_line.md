@@ -4,7 +4,7 @@ Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../inclu
 &nbsp;
 
 ## Description
-Clears a line.
+Clears the line which contains the cursor.
 
 &nbsp;
 
@@ -12,10 +12,6 @@ Clears a line.
 #### 1)
 ```cpp
 void clearLine() noexcept;
-```
-#### 2)
-```cpp
-void clearLine(xieite::streams::Position position) noexcept;
 ```
 
 &nbsp;

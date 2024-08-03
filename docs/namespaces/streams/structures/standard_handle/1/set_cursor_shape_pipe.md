@@ -33,6 +33,6 @@ int main() {
     std::this_thread::sleep_for(std::chrono::seconds(5));
 }
 ```
-Output:
+Possible output:
 
 ![image](./set_cursor_shape_pipe.png)

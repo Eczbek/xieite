@@ -4,7 +4,7 @@ Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../inclu
 &nbsp;
 
 ## Description
-Resets all text effects and colors. Automatically called upon destruction.
+Resets all text and color effects. Automatically called upon destruction.
 
 &nbsp;
 

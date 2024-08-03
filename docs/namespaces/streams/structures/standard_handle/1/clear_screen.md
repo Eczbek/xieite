@@ -25,12 +25,14 @@ void clearScreen() noexcept;
 int main() {
     auto terminal = xieite::streams::StandardHandle(stdin, stdout);
 
-    std::println("Hello, world!");
+    std::print("Hello, ");
 
     terminal.clearScreen();
+
+    std::println("world!");
 }
 ```
-Output:
+Possible output:
 ```
-             
+       world!
 ```

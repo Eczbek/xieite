@@ -13,10 +13,6 @@ Clears from the beginning of a line until the cursor.
 ```cpp
 void clearLineUntil() noexcept;
 ```
-#### 2)
-```cpp
-void clearLineUntil(xieite::streams::Position position) noexcept;
-```
 
 &nbsp;
 
