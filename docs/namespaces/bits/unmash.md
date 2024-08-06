@@ -4,20 +4,22 @@ Defined in header [<xieite/bits/unmash.hpp>](../../../include/xieite/bits/unmash
 &nbsp;
 
 ## Description
-"Unmashes" one `std::bitset` apart into multiple integers of specified sizes.
+"Unmashes" one `std::bitset` apart into multiple integers of specified sizes (I couldn't think of a better function name)
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t... sizes_>
-[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes_>...> unmash(const std::bitset<(... + sizes_)>& value) noexcept;
+template<std::size_t... sizes_, std::size_t bits_>
+requires(bits_ >= (... + sizes_))
+[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes_>...> unmash(std::bitset<bits_> value) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_, std::size_t... sizes_>
-[[nodiscard]] constexpr std::array<Integral_, sizeof...(sizes_)> unmash(const std::bitset<(... + sizes_)>& value) noexcept;
+template<std::integral Integral_, std::size_t... sizes_, std::size_t bits_>
+requires(bits_ >= (... + sizes_))
+[[nodiscard]] constexpr std::array<Integral_, sizeof...(sizes_)> unmash(std::bitset<bits_> value) noexcept;
 ```
 
 &nbsp;

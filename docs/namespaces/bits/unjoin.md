@@ -11,13 +11,15 @@ Unjoins one `std::bitset` apart into multiple integers.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral... Integrals_>
-[[nodiscard]] constexpr std::tuple<Integrals_...> unjoin(const std::bitset<(... + xieite::types::sizeBits<Integrals_>)>& value) noexcept;
+template<std::integral... Integrals_, std::size_t bits_>
+requires(bits >= (... + xieite::bits::size<Integrals_>))
+[[nodiscard]] constexpr std::tuple<Integrals_...> unjoin(std::bitset<bits_> value) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_, std::size_t size_>
-[[nodiscard]] constexpr std::array<Integral_, size_> unjoin(const std::bitset<xieite::types::sizeBits<Integral_> * size_>& value) noexcept;
+template<std::integral Integral_, std::size_t size_, std::size_t bits_>
+requires(bits >= (xieite::bits::size<Integral_> * size_))
+[[nodiscard]] constexpr std::array<Integral_, size_> unjoin(std::bitset<bits_> value) noexcept;
 ```
 
 &nbsp;

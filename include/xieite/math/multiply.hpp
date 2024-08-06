@@ -3,13 +3,13 @@
 
 #	include <concepts>
 #	include <limits>
+#	include "../bits/size.hpp"
 #	include "../math/product.hpp"
-#	include "../types/size_bits.hpp"
 
 namespace xieite::math {
 	template<std::unsigned_integral UnsignedIntegral_>
 	[[nodiscard]] constexpr xieite::math::Product<UnsignedIntegral_> multiply(const UnsignedIntegral_ multiplier, const UnsignedIntegral_ multiplicand) noexcept {
-		static constexpr UnsignedIntegral_ halfSize = xieite::types::sizeBits<UnsignedIntegral_> / 2;
+		static constexpr UnsignedIntegral_ halfSize = xieite::bits::size<UnsignedIntegral_> / 2;
 		static constexpr UnsignedIntegral_ halfBits = std::numeric_limits<UnsignedIntegral_>::max() >> halfSize;
 		const UnsignedIntegral_ foo = multiplier & halfBits;
 		const UnsignedIntegral_ bar = multiplier >> halfSize;

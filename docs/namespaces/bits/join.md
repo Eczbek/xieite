@@ -12,12 +12,12 @@ Joins multiple integers together into one `std::bitset`, preserving every values
 #### 1)
 ```cpp
 template<std::integral... Integrals_>
-[[nodiscard]] constexpr std::bitset<(... + xieite::types::sizeBits<Integrals_>)> join(Integrals_... values) noexcept;
+[[nodiscard]] constexpr std::bitset<(... + xieite::bits::size<Integrals_>)> join(Integrals_... values) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral_, std::size_t size_>
-[[nodiscard]] constexpr std::bitset<xieite::types::sizeBits<Integral_> * size_> join(const std::array<Integral_, size_>& values) noexcept;
+[[nodiscard]] constexpr std::bitset<xieite::bits::size<Integral_> * size_> join(const std::array<Integral_, size_>& values) noexcept;
 ```
 
 &nbsp;

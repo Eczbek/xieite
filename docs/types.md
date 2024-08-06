@@ -22,7 +22,6 @@ Utilities for type information and metaprogramming
 - [MaybeVolatileData\<\>](./namespaces/types/maybe_volatile_data.md)
 - [name\<\>](./namespaces/types/name.md)
 - [Partial\<\> \{\}](./namespaces/types/partial.md)
-- [sizeBits\<\>](./namespaces/types/size_bits.md)
 - [TrySigned\<\>](./namespaces/types/try_signed.md)
 - [TryUnsigned\<\>](./namespaces/types/try_unsigned.md)
 - [ValueIdentity\<\> \{\}](./namespaces/types/value_identity.md)
