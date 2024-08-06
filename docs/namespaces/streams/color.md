@@ -1,34 +1,37 @@
-# [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Color \{\}
-Defined in header [<xieite/streams/color.hpp>](../../../include/xieite/streams/color.hpp)
+# [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Color\<\> \{\}
+Defined in header [<xieite/streams/color_3.hpp>](../../../include/xieite/streams/color_3.hpp)
 
 &nbsp;
 
 ## Description
-A simple class for storing an RGB value.
+A simple class for storing an RGB(A) value.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
+template<std::size_t channels_ = 3>
 struct Color {
-    std::uint8_t red = 0;
-    std::uint8_t green = 0;
-    std::uint8_t blue = 0;
+    std::array<std::uint8_t, channels_> data;
 
-    friend constexpr bool operator==(const xieite::streams::Color&, const xieite::streams::Color&) noexcept;
+    template<std::same_as<std::uint8_t>... Arguments_>
+    requires(sizeof...(Arguments_) == channels_)
+    constexpr Color(Arguments_...) noexcept;
 
-    static constexpr xieite::streams::Color from(std::uint32_t) noexcept;
+    constexpr Color(xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_> = 0) noexcept;
 
-    constexpr std::uint32_t value() noexcept;
+    friend constexpr bool operator==(const xieite::streams::Color<channels_>&, const xieite::streams::Color<channels_>&) noexcept = default;
+
+    template<typename Self>
+    constexpr decltype(auto) operator[](this Self&&, std::size_t) noexcept;
+
+    constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_> value() const noexcept;
 };
 ```
-- red
-- green
-- blue
-- alpha
-- [operator==\(\)](./structures/color/1/operators/equal.md)
-- [from\(\)](./structures/color/1/from.md)
+- data
+- [Color\(\)](./structures/color/1/operators/constructor.md)
+- [operator\[\]\(\)](./structures/color/1/operators/array_subscript.md)
 - [value\(\)](./structures/color/1/value.md)
 
 &nbsp;
@@ -39,9 +42,9 @@ struct Color {
 #include "xieite/streams/color.hpp"
 
 int main() {
-    auto color = xieite::streams::Color(255, 127, 0);
+    auto color = xieite::streams::Color<3>(255, 127, 0);
 
-    std::println("{} {} {}", color.red, color.green, color.blue);
+    std::println("{} {} {}", color[0], color[1], color[2]);
 }
 ```
 Output:

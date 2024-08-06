@@ -86,11 +86,15 @@ namespace xieite::streams {
 			}
 		}
 
-		[[nodiscard]] static constexpr std::string stringSetForegroundColor(const xieite::streams::Color& color) noexcept {
-			return "\x1B[38;2;" + xieite::math::stringify(color.red) + ";" + xieite::math::stringify(color.green) + ";" + xieite::math::stringify(color.blue) + "m";
+		template<std::size_t channels_>
+		requires(channels_ >= 3)
+		[[nodiscard]] static constexpr std::string stringSetForegroundColor(const xieite::streams::Color<channels_>& color) noexcept {
+			return "\x1B[38;2;" + xieite::math::stringify(color[0]) + ";" + xieite::math::stringify(color[1]) + ";" + xieite::math::stringify(color[2]) + "m";
 		}
 
-		void setForegroundColor(const xieite::streams::Color& color) noexcept {
+		template<std::size_t channels_>
+		requires(channels_ >= 3)
+		void setForegroundColor(const xieite::streams::Color<channels_>& color) noexcept {
 			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetForegroundColor(color));
 		}
 
@@ -102,11 +106,15 @@ namespace xieite::streams {
 			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringResetForegroundColor());
 		}
 
-		[[nodiscard]] static constexpr std::string stringSetBackgroundColor(const xieite::streams::Color& color) noexcept {
-			return "\x1B[48;2;" + xieite::math::stringify(color.red) + ";" + xieite::math::stringify(color.green) + ";" + xieite::math::stringify(color.blue) + "m";
+		template<std::size_t channels_>
+		requires(channels_ >= 3)
+		[[nodiscard]] static constexpr std::string stringSetBackgroundColor(const xieite::streams::Color<channels_>& color) noexcept {
+			return "\x1B[48;2;" + xieite::math::stringify(color[0]) + ";" + xieite::math::stringify(color[1]) + ";" + xieite::math::stringify(color[2]) + "m";
 		}
 
-		void setBackgroundColor(const xieite::streams::Color& color) noexcept {
+		template<std::size_t channels_>
+		requires(channels_ >= 3)
+		void setBackgroundColor(const xieite::streams::Color<channels_>& color) noexcept {
 			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetForegroundColor(color));
 		}
 

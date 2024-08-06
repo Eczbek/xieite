@@ -24,8 +24,8 @@ Returns a string which, when printed, enables or disables the swapping of foregr
 #include "xieite/streams/standard_handle.hpp"
 
 int main() {
-    std::string fg = xieite::streams::StandardHandle::stringSetForegroundColor(xieite::streams::Color(255, 0, 0));
-    std::string bg = xieite::streams::StandardHandle::stringSetBackgroundColor(xieite::streams::Color(0, 0, 255));
+    std::string fg = xieite::streams::StandardHandle::stringSetForegroundColor(xieite::streams::Color<3>(255, 0, 0));
+    std::string bg = xieite::streams::StandardHandle::stringSetBackgroundColor(xieite::streams::Color<3>(0, 0, 255));
     std::string swap = xieite::streams::StandardHandle::stringSetColorsSwapped(true);
 
     std::string message = fg + bg + "Hello, " + swap + "world!";

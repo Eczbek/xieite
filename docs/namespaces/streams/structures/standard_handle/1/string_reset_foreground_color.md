@@ -24,7 +24,7 @@ Returns a string which resets the text color to default when printed.
 #include "xieite/streams/standard_handle.hpp"
 
 int main() {
-    std::string color = xieite::streams::StandardHandle::stringSetForegroundColor(xieite::streams::Color(255, 0, 0));
+    std::string color = xieite::streams::StandardHandle::stringSetForegroundColor(xieite::streams::Color<3>(255, 0, 0));
     std::string reset = xieite::streams::StandardHandle::stringResetForegroundColor();
 
     std::string message = color + "Hello, " + reset + "world!";

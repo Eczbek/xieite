@@ -27,17 +27,25 @@ struct StandardHandle {
 
     void setOutputProcessing(bool) noexcept;
 
-    static constexpr std::string stringSetForegroundColor(const xieite::streams::Color&) noexcept;
+    template<std::size_t channels_>
+    requires(channels_ >= 3)
+    static constexpr std::string stringSetForegroundColor(const xieite::streams::Color<channels_>&) noexcept;
 
-    void setForegroundColor(const xieite::streams::Color&) noexcept;
+    template<std::size_t channels_>
+    requires(channels_ >= 3)
+    void setForegroundColor(const xieite::streams::Color<channels_>&) noexcept;
 
     static constexpr std::string stringResetForegroundColor() noexcept;
 
     void resetForegroundColor() noexcept;
 
-    static constexpr std::string stringSetBackgroundColor(const xieite::streams::Color&) noexcept;
+    template<std::size_t channels_>
+    requires(channels_ >= 3)
+    static constexpr std::string stringSetBackgroundColor(const xieite::streams::Color<channels_>&) noexcept;
 
-    void setBackgroundColor(const xieite::streams::Color&) noexcept;
+    template<std::size_t channels_>
+    requires(channels_ >= 3)
+    void setBackgroundColor(const xieite::streams::Color<channels_>&) noexcept;
 
     static constexpr std::string stringResetBackgroundColor() noexcept;
 
@@ -149,12 +157,12 @@ struct StandardHandle {
 - [setInputCanon\(\)](./structures/standard_handle/1/set_input_canon.md)
 - [setInputSignals\(\)](./structures/standard_handle/1/set_input_signals.md)
 - [setOutputProcessing\(\)](./structures/standard_handle/1/set_output_processing.md)
-- [stringSetForegroundColor\(\)](./structures/standard_handle/1/string_set_foreground_color.md)
-- [setForegroundColor\(\)](./structures/standard_handle/1/set_foreground_color.md)
+- [stringSetForegroundColor\<\>\(\)](./structures/standard_handle/1/string_set_foreground_color.md)
+- [setForegroundColor\<\>\(\)](./structures/standard_handle/1/set_foreground_color.md)
 - [stringResetForegroundColor\(\)](./structures/standard_handle/1/string_reset_foreground_color.md)
 - [resetForegroundColor\(\)](./structures/standard_handle/1/reset_foreground_color.md)
-- [stringSetBackgroundColor\(\)](./structures/standard_handle/1/string_set_background_color.md)
-- [setBackgroundColor\(\)](./structures/standard_handle/1/set_background_color.md)
+- [stringSetBackgroundColor\<\>\(\)](./structures/standard_handle/1/string_set_background_color.md)
+- [setBackgroundColor\<\>\(\)](./structures/standard_handle/1/set_background_color.md)
 - [stringResetBackgroundColor\(\)](./structures/standard_handle/1/string_reset_background_color.md)
 - [resetBackgroundColor\(\)](./structures/standard_handle/1/reset_background_color.md)
 - [stringSetTextBold\(\)](./structures/standard_handle/1/string_set_text_bold.md)

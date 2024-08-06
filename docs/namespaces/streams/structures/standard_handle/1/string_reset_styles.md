@@ -26,8 +26,8 @@ Returns a string which resets all text and color effects when printed.
 int main() {
     std::string bold = xieite::streams::StandardHandle::stringSetTextBold(true);
     std::string italic = xieite::streams::StandardHandle::stringSetTextItalic(true);
-    std::string fg = xieite::streams::StandardHandle::stringSetForegroundColor(xieite::streams::Color(255, 0, 0));
-    std::string bg = xieite::streams::StandardHandle::stringSetBackgroundColor(xieite::streams::Color(0, 0, 255));
+    std::string fg = xieite::streams::StandardHandle::stringSetForegroundColor(xieite::streams::Color<3>(255, 0, 0));
+    std::string bg = xieite::streams::StandardHandle::stringSetBackgroundColor(xieite::streams::Color<3>(0, 0, 255));
     std::string swap = xieite::streams::StandardHandle::stringSetColorsSwapped(true);
     std::string reset = xieite::streams::StandardHandle::stringResetStyles();
 

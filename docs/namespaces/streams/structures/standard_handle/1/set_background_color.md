@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setBackgroundColor\(\)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setBackgroundColor\<\>\(\)
 Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
@@ -11,7 +11,9 @@ Sets the background color.
 ## Synopsis
 #### 1)
 ```cpp
-void setBackgroundColor(const xieite::graphics::Color& color) noexcept;
+template<std::size_t channels_>
+requires(channels_ >= 3)
+void setBackgroundColor(const xieite::graphics::Color<channels_>& color) noexcept;
 ```
 
 &nbsp;
@@ -26,7 +28,7 @@ void setBackgroundColor(const xieite::graphics::Color& color) noexcept;
 int main() {
     auto terminal = xieite::streams::StandardHandle(stdin, stdout);
 
-    terminal.setBackgroundColor(xieite::streams::Color(0, 0, 255));
+    terminal.setBackgroundColor(xieite::streams::Color<3>(0, 0, 255));
     std::println("Hello, world!");
 }
 ```

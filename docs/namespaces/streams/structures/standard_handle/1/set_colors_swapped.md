@@ -26,8 +26,8 @@ void setColorsSwapped(bool value) noexcept;
 int main() {
     auto terminal = xieite::streams::StandardHandle(stdin, stdout);
 
-    terminal.setForegroundColor(xieite::streams::Color(255, 0, 0));
-    terminal.setBackgroundColor(xieite::streams::Color(0, 0, 255));
+    terminal.setForegroundColor(xieite::streams::Color<3>(255, 0, 0));
+    terminal.setBackgroundColor(xieite::streams::Color<3>(0, 0, 255));
 
     std::print("Hello, ");
 

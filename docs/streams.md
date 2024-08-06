@@ -8,7 +8,7 @@ Utilities relating to streams
 &nbsp;
 
 ## Contents
-- [Color \{\}](./namespaces/streams/color.md)
+- [Color\<\> \{\}](./namespaces/streams/color.md)
 - [File \{\}](./namespaces/streams/file.md)
 - [Key \{\}](./namespaces/streams/key.md)
 - [Pipe \{\}](./namespaces/streams/pipe.md)

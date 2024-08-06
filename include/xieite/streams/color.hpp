@@ -1,32 +1,45 @@
 #ifndef XIEITE_HEADER_STREAMS_COLOR
 #	define XIEITE_HEADER_STREAMS_COLOR
 
-#	include <limits>
+#	include <array>
+#	include <cstddef>
 #	include <cstdint>
+#	include <utility>
 #	include "../bits/join.hpp"
+#	include "../bits/size.hpp"
 #	include "../bits/unjoin.hpp"
-#	include "../types/size_bits.hpp"
+#	include "../types/least_integer.hpp"
 
 namespace xieite::streams {
+	template<std::size_t channels_ = 3>
 	struct Color {
-		std::uint8_t red;
-		std::uint8_t green;
-		std::uint8_t blue;
+		std::array<std::uint8_t, channels_> data;
 
-		constexpr Color(const std::uint8_t red = 0, const std::uint8_t green = 0, const std::uint8_t blue = 0) noexcept
-		: red(red), green(green), blue(blue) {}
+		template<std::same_as<std::uint8_t>... Arguments_>
+		requires(sizeof...(Arguments_) == channels_)
+		constexpr Color(const Arguments_... arguments) noexcept
+		: data { arguments... } {}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::streams::Color& color1, const xieite::streams::Color& color2) noexcept {
-			return (color1.red == color2.red) && (color1.green == color2.green) && (color1.blue == color2.blue);
+		constexpr Color(const xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_> value = 0) noexcept {
+			const auto values = xieite::bits::unjoin<std::uint8_t, channels_>(xieite::bits::join(value));
+			this->data = ([&values]<std::size_t... i_>(std::index_sequence<i_...>) {
+				return std::array<std::uint8_t, channels_> {
+					values[channels_ - i_ - 1]...
+				};
+			})(std::make_index_sequence<channels_>());
 		}
 
-		[[nodiscard]] static constexpr xieite::streams::Color from(const std::uint32_t value) noexcept {
-			const auto values = xieite::bits::unjoin<std::uint8_t, 4>(xieite::bits::join(value));
-			return xieite::streams::Color(values[2], values[1], values[0]);
+		[[nodiscard]] friend constexpr bool operator==(const xieite::streams::Color<channels_>&, const xieite::streams::Color<channels_>&) noexcept = default;
+
+		template<typename Self>
+		[[nodiscard]] constexpr decltype(auto) operator[](this Self&& self, const std::size_t index) noexcept {
+			return std::forward_like<Self>(self.data[index]);
 		}
 
-		[[nodiscard]] constexpr std::uint32_t value() noexcept {
-			return static_cast<std::uint32_t>(xieite::bits::join(this->blue, this->green, this->red).to_ullong());
+		[[nodiscard]] constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_> value() const noexcept {
+			return ([this]<std::size_t... i_>(std::index_sequence<i_...>) {
+				return static_cast<xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_>>(xieite::bits::join(this->data[i_]...).to_ullong());
+			})(std::make_index_sequence<channels_>());
 		}
 	};
 }

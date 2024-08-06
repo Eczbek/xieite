@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setForegroundColor\(\)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:setForegroundColor\<\>\(\)
 Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
 
 &nbsp;
@@ -11,7 +11,9 @@ Sets the text color.
 ## Synopsis
 #### 1)
 ```cpp
-void setForegroundColor(const xieite::graphics::Color& color) noexcept;
+template<std::size_t channels_>
+requires(channels_ >= 3)
+void setForegroundColor(const xieite::graphics::Color<channels_>& color) noexcept;
 ```
 
 &nbsp;

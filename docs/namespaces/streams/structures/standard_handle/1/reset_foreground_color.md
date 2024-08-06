@@ -26,7 +26,7 @@ void resetForegroundColor() noexcept;
 int main() {
     auto terminal = xieite::streams::StandardHandle(stdin, stdout);
 
-    terminal.setForegroundColor(xieite::streams::Color(255, 0, 0));
+    terminal.setForegroundColor(xieite::streams::Color<3>(255, 0, 0));
     std::print("Hello, ");
     terminal.resetForegroundColor();
     std::println("world!");
