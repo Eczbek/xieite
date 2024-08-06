@@ -5,6 +5,7 @@
 #	include <bit>
 #	include <concepts>
 #	include <cstddef>
+#	include <utility>
 
 namespace xieite::bits {
 	struct Fill {
@@ -16,11 +17,11 @@ namespace xieite::bits {
 
 		template<typename Type_>
 		[[nodiscard]] /* implicit */ constexpr operator Type_() const noexcept {
-			std::array<std::byte, sizeof(Type_)> bytes;
-			for (std::size_t i = 0; i < sizeof(Type_); ++i) {
-				bytes[i] = this->value;
-			}
-			return std::bit_cast<Type_>(bytes);
+			return std::bit_cast<Type_>(([this]<std::size_t... i_>(std::index_sequence<i_...>) {
+				return std::array<std::byte, sizeof(Type_)> {
+					(void(i_), this->value)...
+				};
+			})(std::make_index_sequence<sizeof(Type_)>()));
 		}
 	};
 }

@@ -13,6 +13,7 @@ Utilities to do with bit and byte manipulation
 - [join\<\>\(\)](./namespaces/bits/join.md)
 - [littleEndify\<\>\(\)](./namespaces/bits/little_endify.md)
 - [mash\<\>\(\)](./namespaces/bits/mash.md)
+- [reverse\<\>\(\)](./namespaces/bits/reverse.md)
 - [size\<\>](./namespaces/bits/size.md)
 - [unjoin\<\>\(\)](./namespaces/bits/unjoin.md)
 - [unmash\<\>\(\)](./namespaces/bits/unmash.md)
