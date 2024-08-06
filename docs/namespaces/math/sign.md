@@ -4,15 +4,15 @@ Defined in header [<xieite/math/sign.hpp>](../../../include/xieite/math/sign.hpp
 &nbsp;
 
 ## Description
-Gets the sign of a number.
+Gets the sign of a number or the sign of the product of several numbers.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr int sign(Arithmetic_ value) noexcept;
+template<xieite::concepts::Arithmetic First_, std::same_as<First_>... Rest_>
+[[nodiscard]] constexpr int sign(First_ first, Rest_... rest) noexcept;
 ```
 
 &nbsp;

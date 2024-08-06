@@ -3,17 +3,17 @@
 
 #	include <cmath>
 #	include <concepts>
+#	include "../concepts/arithmetic.hpp"
 #	include "../math/sign.hpp"
 
 namespace xieite::math {
-	template<std::integral Integral_>
-	[[nodiscard]] constexpr Integral_ divideDown(const Integral_ dividend, const Integral_ divisor) noexcept {
-		return dividend / divisor;
-	}
-
-	template<std::floating_point Fractional_>
-	[[nodiscard]] constexpr Fractional_ divideDown(const Fractional_ dividend, const Fractional_ divisor) noexcept {
-		return std::floor(dividend / divisor) + (xieite::math::sign(dividend) != xieite::math::sign(divisor));
+	template<xieite::concepts::Arithmetic Arithmetic_>
+	[[nodiscard]] constexpr Arithmetic_ divideDown(const Arithmetic_ dividend, const Arithmetic_ divisor) noexcept {
+		if constexpr (std::floating_point<Arithmetic_>) {
+			return std::floor(dividend / divisor);
+		} else {
+			return dividend / divisor - !!(dividend % divisor) * (xieite::math::sign(dividend, divisor) < 0);
+		}
 	}
 }
 

@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:down\<\>\(\)
-Defined in header [<xieite/math/down.hpp>](../../../include/xieite/math/down.hpp)
+# [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:roundDown\<\>\(\)
+Defined in header [<xieite/math/round_down.hpp>](../../../include/xieite/math/round_down.hpp)
 
 &nbsp;
 
 ## Description
-Rounds a value to the nearest multiple of a step toward zero.
+Rounds a value to the nearest multiple of a step downwards.
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Rounds a value to the nearest multiple of a step toward zero.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ down(Arithmetic_ value, Arithmetic_ step = 1) noexcept;
+[[nodiscard]] constexpr Arithmetic_ roundDown(Arithmetic_ value, Arithmetic_ step = 1) noexcept;
 ```
 
 &nbsp;
@@ -20,13 +20,13 @@ template<xieite::concepts::Arithmetic Arithmetic_>
 ## Example
 ```cpp
 #include <print>
-#include "xieite/math/down.hpp"
+#include "xieite/math/round_down.hpp"
 
 int main() {
-    std::println("{}", xieite::math::down(-24, 5));
+    std::println("{}", xieite::math::roundDown(-21, 5));
 }
 ```
 Output:
 ```
--20
+-25
 ```

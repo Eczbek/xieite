@@ -1,14 +1,17 @@
 #ifndef XIEITE_HEADER_MATH_SIGN
 #	define XIEITE_HEADER_MATH_SIGN
 
+#	include <concepts>
 #	include "../concepts/arithmetic.hpp"
 #	include "../math/is_negative.hpp"
-#	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr int sign(const Arithmetic_ value) noexcept {
-		return xieite::math::splitBoolean(!xieite::math::isNegative(value));
+	template<xieite::concepts::Arithmetic First_, std::same_as<First_>... Rest_>
+	[[nodiscard]] constexpr int sign(const First_ first, const Rest_... rest) noexcept {
+		static constexpr auto get = [](const First_ value) {
+			return (value > 0) - xieite::math::isNegative(value);
+		};
+		return (get(first) * ... * get(rest));
 	}
 }
 

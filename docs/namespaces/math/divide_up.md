@@ -4,20 +4,15 @@ Defined in header [<xieite/math/divide_up.hpp>](../../../include/xieite/math/div
 &nbsp;
 
 ## Description
-Computes the value of a division and rounds away from zero.
+Computes a quotient and rounds up.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] constexpr Integral_ divideUp(Integral_ dividend, Integral_ divisor) noexcept;
-```
-#### 2)
-```cpp
-template<std::floating_point Fractional_>
-[[nodiscard]] constexpr Fractional_ divideUp(Fractional_ dividend, Fractional_ divisor) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic_>
+[[nodiscard]] constexpr Arithmetic_ divideUp(Arithmetic_ dividend, Arithmetic_ divisor) noexcept;
 ```
 
 &nbsp;
@@ -28,10 +23,16 @@ template<std::floating_point Fractional_>
 #include "xieite/math/divide_up.hpp"
 
 int main() {
-    std::println("{}", xieite::math::divideUp(-249, 16));
+    std::println("{}", xieite::math::divideUp(5, 2));
+    std::println("{}", xieite::math::divideUp(5, -2));
+    std::println("{}", xieite::math::divideUp(-5, 2));
+    std::println("{}", xieite::math::divideUp(-5, -2));
 }
 ```
 Output:
 ```
--16
+3
+-2
+-2
+3
 ```
