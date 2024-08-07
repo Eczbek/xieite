@@ -11,7 +11,7 @@ Executes a command and returns its output. Works on both UNIX-like and Windows s
 ## Synopsis
 #### 1)
 ```cpp
-inline std::string execute(std::string_view command) noexcept;
+inline xieite::system::Result execute(std::string_view command) noexcept;
 ```
 
 &nbsp;
@@ -22,11 +22,14 @@ inline std::string execute(std::string_view command) noexcept;
 #include "xieite/system/execute.hpp"
 
 int main() {
-    std::println("{}", xieite::system::execute("echo Hello, world!"));
+    auto result = xieite::system::execute("echo Hello, world!");
+    std::println("output: {}", result.output);
+    std::println("status: {}", result.status);
 }
 ```
 Possible output:
 ```
-Hello, world!
+output: Hello, world!
 
+status: 0
 ```
