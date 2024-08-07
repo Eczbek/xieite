@@ -4,7 +4,7 @@ Defined in header [<xieite/random/get_universally_unique_identifier.hpp>](../../
 &nbsp;
 
 ## Description
-Generates a UUID. Compile with `-luuid`.
+Generates a UUID. Compile with `-luuid`. Requires `XIEITE_PLATFORM_TYPE_UNIX` to be true.
 
 &nbsp;
 

@@ -1,17 +1,17 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[Pipe](../../../pipe.md)\:\:file\(\)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[Pipe](../../../pipe.md)\:\:close\(\)
 Defined in header [<xieite/streams/pipe.hpp>](../../../../../../include/xieite/streams/pipe.hpp)
 
 &nbsp;
 
 ## Description
-Returns the underlying file stream.
+Closes a pipe. Automatically called upon destruction.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] std::FILE* file() const noexcept;
+int close() noexcept;
 ```
 
 &nbsp;
@@ -20,15 +20,14 @@ Returns the underlying file stream.
 ```cpp
 #include <print>
 #include "xieite/streams/pipe.hpp"
-#include "xieite/streams/read.hpp"
 
 int main() {
     auto pipe = xieite::streams::Pipe("echo Hello, world!", "r");
 
-    std::println("{}", xieite::streams::read(pipe.file()));
+    std::println("{}", pipe.close());
 }
 ```
 Possible output:
 ```
-Hello, world!
+0
 ```

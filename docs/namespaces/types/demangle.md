@@ -4,7 +4,7 @@ Defined in header [<xieite/types/demangle.hpp>](../../../include/xieite/types/de
 &nbsp;
 
 ## Description
-Demangles the value of `std::type_info::name()`. Returns the original string if demangling fails.
+Demangles the value of `std::type_info::name()`. Returns the original string if demangling fails. Requires `XIEITE_COMPILER_TYPE_GCC` to be true.
 
 &nbsp;
 

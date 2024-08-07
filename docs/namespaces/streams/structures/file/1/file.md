@@ -16,4 +16,4 @@ Returns the underlying file stream.
 
 &nbsp;
 
-## [Example](../../file.md#Example)
+## [Example](../../../file.md#Example)

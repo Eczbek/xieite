@@ -11,9 +11,7 @@ Returns the underlying file descriptor.
 ## Synopsis
 #### 1)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_UNIX || XIEITE_PLATFORM_TYPE_WINDOWS
 [[nodiscard]] int descriptor() const noexcept;
-#endif
 ```
 
 &nbsp;

@@ -4,7 +4,7 @@ Defined in header [<xieite/streams/pipe.hpp>](../../../include/xieite/streams/pi
 &nbsp;
 
 ## Description
-Provides a wrapper for a `std::FILE*` pipe, automatically closed upon destruction.
+Provides a wrapper for a `std::FILE*` pipe, automatically closed upon destruction. Requires at least one of `XIEITE_PLATFORM_TYPE_UNIX` or `XIEITE_PLATFORM_TYPE_WINDOWS` to be true.
 
 &nbsp;
 
@@ -12,16 +12,30 @@ Provides a wrapper for a `std::FILE*` pipe, automatically closed upon destructio
 #### 1)
 ```cpp
 struct Pipe {
-    Pipe(const std::string&, const std::string&);
+    Pipe() noexcept;
 
-    const std::FILE* file() const noexcept;
+    Pipe(const std::string&, const std::string&) noexcept;
 
-    std::FILE* file() noexcept;
+#if XIEITE_PLATFORM_TYPE_WINDOWS
+    Pipe(const std::wstring&, const std::wstring&) noexcept;
+#endif
+
+    void open(const std::string&, const std::string&) noexcept;
+
+#if XIEITE_PLATFORM_TYPE_WINDOWS
+    void open(const std::wstring&, const std::wstring&) noexcept;
+#endif
+
+    int close() noexcept;
+
+    std::FILE* file() const noexcept;
 
     int descriptor() const noexcept;
 };
 ```
 - [Pipe\(\)](./structures/pipe/1/operators/constructor.md)
+- [open\(\)](./structures/pipe/open.md)
+- [close\(\)](./structures/pipe/close.md)
 - [file\(\)](./structures/pipe/file.md)
 - [descriptor\(\)](./structures/pipe/descriptor.md)
 

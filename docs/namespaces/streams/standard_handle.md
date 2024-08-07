@@ -4,7 +4,7 @@ Defined in header [<xieite/streams/standard_handle.hpp>](../../../include/xieite
 &nbsp;
 
 ## Description
-A class for controlling standard IO with modes and styles. Currently only works on UNIX-like systems.
+A class for controlling standard IO with modes and styles. Requires `XIEITE_PLATFORM_TYPE_UNIX` to be true.
 
 &nbsp;
 

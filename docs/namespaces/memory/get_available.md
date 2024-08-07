@@ -4,7 +4,7 @@ Defined in header [<xieite/memory/get_available.hpp>](../../../include/xieite/me
 &nbsp;
 
 ## Description
-Gets the system's currently available amount of memory.
+Gets the system's currently available amount of memory. Requires at least one of `XIEITE_PLATFORM_TYPE_UNIX` or `XIEITE_PLATFORM_TYPE_WINDOWS` to be true.
 
 &nbsp;
 

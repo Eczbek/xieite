@@ -4,7 +4,7 @@ Defined in header [<xieite/math/unsigned_128.hpp>](../../../include/xieite/math/
 &nbsp;
 
 ## Description
-A type alias to a compiler-specific extension for an unsigned 128-bit integer.
+A type alias to a compiler-specific extension for an unsigned 128-bit integer. Requires at least one of `XIEITE_COMPILER_TYPE_GCC`, `XIEITE_COMPILER_TYPE_CLANG`, or `XIEITE_COMPILER_TYPE_MSVC` to be true.
 
 &nbsp;
 

@@ -4,7 +4,7 @@ Defined in header [<xieite/memory/get_total.hpp>](../../../include/xieite/memory
 &nbsp;
 
 ## Description
-Gets the system's total amount of memory.
+Gets the system's total amount of memory. Requires at least one of `XIEITE_PLATFORM_TYPE_UNIX` or `XIEITE_PLATFORM_TYPE_WINDOWS` to be true.
 
 &nbsp;
 

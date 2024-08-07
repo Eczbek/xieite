@@ -4,7 +4,7 @@ Defined in header [<xieite/memory/get_page_size.hpp>](../../../include/xieite/me
 &nbsp;
 
 ## Description
-Gets the system's page size in bytes.
+Gets the system's page size in bytes. Requires at least one of `XIEITE_PLATFORM_TYPE_UNIX` or `XIEITE_PLATFORM_TYPE_WINDOWS` to be true.
 
 &nbsp;
 

@@ -11,9 +11,7 @@ Constructs a `xieite::streams::Pipe`.
 ## Synopsis
 #### 1)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_UNIX || XIEITE_PLATFORM_TYPE_WINDOWS
 Pipe(const std::string& command, const std::string& mode) noexcept;
-#endif
 ```
 #### 2)
 ```cpp
