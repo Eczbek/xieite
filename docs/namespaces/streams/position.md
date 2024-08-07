@@ -15,12 +15,11 @@ struct Position {
     int row = 0;
     int column = 0;
 
-    friend constexpr bool operator==(xieite::streams::Position, xieite::streams::Position);
+    friend constexpr bool operator==(xieite::streams::Position, xieite::streams::Position) noexcept = default;
 };
 ```
 - row
 - column
-- [operator==\(\)](./structures/position/1/operators/equal.md)
 
 &nbsp;
 
