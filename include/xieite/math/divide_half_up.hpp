@@ -15,7 +15,7 @@ namespace xieite::math {
 			return std::floor(result) + (result < 0) + (fractional >= 0.5) - (fractional < -0.5);
 		} else {
 			const int quotientSign = xieite::math::sign(dividend, divisor);
-			return dividend / divisor + ((dividend % divisor * xieite::math::sign(dividend)) >= (divisor / 2 * xieite::math::sign(divisor) + ((divisor % 2) || (quotientSign < 0)))) * quotientSign;
+			return static_cast<Arithmetic_>(dividend / divisor + ((dividend % divisor * xieite::math::sign(dividend)) >= (divisor / 2 * xieite::math::sign(divisor) + ((divisor % 2) || (quotientSign < 0)))) * quotientSign);
 		}
 	}
 }

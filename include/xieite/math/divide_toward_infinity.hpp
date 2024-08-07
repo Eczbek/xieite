@@ -12,7 +12,7 @@ namespace xieite::math {
 		if constexpr (std::floating_point<Arithmetic_>) {
 			return std::ceil(dividend / divisor) - ((dividend < 0) != (divisor < 0));
 		} else {
-			return dividend / divisor + !!(dividend % divisor) * xieite::math::sign(dividend, divisor);
+			return static_cast<Arithmetic_>(dividend / divisor + !!(dividend % divisor) * xieite::math::sign(dividend, divisor));
 		}
 	}
 }

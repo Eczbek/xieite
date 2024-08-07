@@ -40,3 +40,5 @@
 #	define XIEITE_DETAIL_CONTINUATION_MACHINE_PASS_F(result_) XIEITE_DETAIL_CONTINUATION_MACHINE_NEXT_F result_
 
 #endif
+
+// Note: I have no idea how to use this

@@ -4,13 +4,13 @@
 #	include <concepts>
 #	include <cstddef>
 #	include "../math/is_negative.hpp"
-#	include "../math/split_boolean.hpp"
+#	include "../math/sign.hpp"
 
 namespace xieite::math {
 	template<std::integral Integral_>
 	[[nodiscard]] constexpr Integral_ reverse(Integral_ value, const Integral_ radix = 10) noexcept {
-		const bool negative = xieite::math::isNegative(value);
-		value *= xieite::math::splitBoolean(!negative);
+		const Integral_ sign = static_cast<Integral_>(xieite::math::sign(value));
+		value *= sign;
 		Integral_ result = 0;
 		while (value) {
 			Integral_ digit = value % radix;
@@ -21,7 +21,7 @@ namespace xieite::math {
 			}
 			result = result * radix + digit;
 		}
-		return result * xieite::math::splitBoolean(!negative);
+		return result * sign;
 	}
 }
 

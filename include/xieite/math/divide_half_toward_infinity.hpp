@@ -13,7 +13,7 @@ namespace xieite::math {
 			const Arithmetic_ result = dividend / divisor;
 			return std::floor(result) + (result < 0) + (std::fmod(std::abs(result), 1) >= 0.5) * xieite::math::sign(result);
 		} else {
-			return dividend / divisor + ((dividend % divisor * xieite::math::sign(dividend)) >= (divisor / 2 * xieite::math::sign(divisor) + !!(divisor % 2))) * xieite::math::sign(dividend, divisor);
+			return static_cast<Arithmetic_>(dividend / divisor + ((dividend % divisor * xieite::math::sign(dividend)) >= (divisor / 2 * xieite::math::sign(divisor) + !!(divisor % 2))) * xieite::math::sign(dividend, divisor));
 		}
 	}
 }
