@@ -10,6 +10,7 @@ Utilities relating to functors and arguments
 ## Contents
 - [counter\<\>\(\)](./namespaces/functors/counter.md)
 - [distributeArguments\<\>\(\)](./namespaces/functors/distribute_arguments.md)
+- [Echo \{\}](./namespaces/functors/echo.md)
 - [Function\<\> \{\}](./namespaces/functors/function.md)
 - [Infix\<\> \{\}](./namespaces/functors/infix.md)
 - [memoize\<\>\(\)](./namespaces/functors/memoize.md)

@@ -18,7 +18,7 @@ struct StaticCast {
     noexcept(xieite::concepts::NoThrowConvertibleTo<Source_, Target_>);
 };
 ```
-- [operator\(\)\(\)](./structures/static_cast/1/operators/call.md)
+- [operator\(\)\<\>\(\)](./structures/static_cast/1/operators/call.md)
 
 &nbsp;
 
