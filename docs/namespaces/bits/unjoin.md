@@ -12,13 +12,13 @@ Unjoins one `std::bitset` apart into multiple integers.
 #### 1)
 ```cpp
 template<std::integral... Integrals_, std::size_t bits_>
-requires(bits >= (... + xieite::bits::size<Integrals_>))
+requires(bits_ >= (... + xieite::bits::size<Integrals_>))
 [[nodiscard]] constexpr std::tuple<Integrals_...> unjoin(std::bitset<bits_> value) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral_, std::size_t size_, std::size_t bits_>
-requires(bits >= (xieite::bits::size<Integral_> * size_))
+requires(bits_ >= (xieite::bits::size<Integral_> * size_))
 [[nodiscard]] constexpr std::array<Integral_, size_> unjoin(std::bitset<bits_> value) noexcept;
 ```
 

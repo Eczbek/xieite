@@ -11,7 +11,7 @@
 
 namespace xieite::bits {
 	template<std::integral... Integrals_, std::size_t bits_>
-	requires(bits >= (... + xieite::bits::size<Integrals_>))
+	requires(bits_ >= (... + xieite::bits::size<Integrals_>))
 	[[nodiscard]] constexpr std::tuple<Integrals_...> unjoin(std::bitset<bits_> value) noexcept {
 		return xieite::containers::reverseTuple(std::make_tuple<Integrals_...>(([&value] {
 			const Integrals_ item = static_cast<Integrals_>(value.to_ullong());
@@ -21,7 +21,7 @@ namespace xieite::bits {
 	}
 
 	template<std::integral Integral_, std::size_t size_, std::size_t bits_>
-	requires(bits >= (xieite::bits::size<Integral_> * size_))
+	requires(bits_ >= (xieite::bits::size<Integral_> * size_))
 	[[nodiscard]] constexpr std::array<Integral_, size_> unjoin(std::bitset<bits_> value) noexcept {
 		std::array<Integral_, size_> result;
 		for (std::size_t i = 0; i < size_; ++i) {
