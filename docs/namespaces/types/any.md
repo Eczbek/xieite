@@ -14,17 +14,14 @@ A placeholder type for metaprogramming purposes. The provided member functions a
 struct Any {
     Any(auto&&...) noexcept;
 
-    xieite::types::Any& operator=(auto&&) noexcept;
+    template<typename Type_>
+    explicit(false) operator Type_&() const & noexcept;
 
     template<typename Type_>
-    operator Type_&() const & noexcept;
-
-    template<typename Type_>
-    operator Type_&&() const && noexcept;
+    explicit(false) operator Type_&&() const && noexcept;
 };
 ```
 - Any\<\>()
-- operator=\<\>()
 - operator typename\<\>()
 
 &nbsp;

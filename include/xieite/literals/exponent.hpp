@@ -30,7 +30,7 @@ namespace xieite::detail {
 		: value(value) {}
 
 		template<xieite::concepts::Arithmetic OtherArithmetic_>
-		[[nodiscard]] constexpr operator OtherArithmetic_() const noexcept {
+		[[nodiscard]] explicit(false) constexpr operator OtherArithmetic_() const noexcept {
 			return static_cast<OtherArithmetic_>(this->value.value);
 		}
 

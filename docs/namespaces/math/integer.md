@@ -16,15 +16,15 @@ struct Integer {
     using Word = std::conditional_t<sign_, std::make_signed<xieite::types::LeastInteger<bits_>>, std::make_unsigned<xieite::types::LeastInteger<bits_>>>::type;
 
     template<std::integral OtherIntegral_ = int>
-    constexpr Integer(OtherIntegral_ = 0) noexcept;
+    explicit(false) constexpr Integer(OtherIntegral_ = 0) noexcept;
 
     constexpr xieite::math::Integer<bits_, sign_>& operator=(xieite::math::Integer<bits_, sign_>) noexcept;
 
     template<std::integral OtherIntegral_>
-    constexpr operator OtherIntegral_() const noexcept;
+    explicit constexpr operator OtherIntegral_() const noexcept;
 
     template<std::size_t otherBits_, bool otherSign_>
-    constexpr operator xieite::math::Integer<otherBits_, otherSign_>() const noexcept;
+    explicit constexpr operator xieite::math::Integer<otherBits_, otherSign_>() const noexcept;
 
     friend constexpr std::strong_ordering operator<=>(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
 

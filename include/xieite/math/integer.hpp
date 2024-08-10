@@ -23,12 +23,12 @@ namespace xieite::math {
 		}
 
 		template<std::integral OtherIntegral_>
-		[[nodiscard]] constexpr operator OtherIntegral_() const noexcept {
+		[[nodiscard]] explicit constexpr operator OtherIntegral_() const noexcept {
 			return static_cast<OtherIntegral_>(this->value);
 		}
 
 		template<std::size_t otherBits_, bool otherSigned_>
-		[[nodiscard]] constexpr operator xieite::math::Integer<otherBits_, otherSigned_>() const noexcept {
+		[[nodiscard]] explicit constexpr operator xieite::math::Integer<otherBits_, otherSigned_>() const noexcept {
 			return xieite::math::Integer<otherBits_, otherSigned_>(this->value);
 		}
 

@@ -5,13 +5,11 @@ namespace xieite::types {
 	struct Any {
 		Any(auto&&...) noexcept;
 
-		xieite::types::Any& operator=(auto&&) noexcept;
+		template<typename Type_>
+		explicit(false) constexpr operator Type_&() const & noexcept;
 
 		template<typename Type_>
-		operator Type_&() const & noexcept;
-
-		template<typename Type_>
-		operator Type_&&() const && noexcept;
+		explicit(false) constexpr operator Type_&&() const && noexcept;
 	};
 }
 

@@ -16,7 +16,7 @@ namespace xieite::bits {
 		: value(static_cast<std::byte>(value)) {}
 
 		template<typename Type_>
-		[[nodiscard]] /* implicit */ constexpr operator Type_() const noexcept {
+		[[nodiscard]] explicit(false) constexpr operator Type_() const noexcept {
 			return std::bit_cast<Type_>(([this]<std::size_t... i_>(std::index_sequence<i_...>) {
 				return std::array<std::byte, sizeof(Type_)> {
 					(void(i_), this->value)...

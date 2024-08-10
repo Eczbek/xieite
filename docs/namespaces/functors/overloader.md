@@ -18,7 +18,7 @@ struct Overloader
 
     template<typename... DerivableReferences_>
     requires((... && std::convertible_to<DerivableReferences_, Derivables_>))
-    constexpr Overloader(DerivableReferences_&&...) noexcept;
+    explicit constexpr Overloader(DerivableReferences_&&...) noexcept;
 
     using Derivables_::operator()...;
 };

@@ -15,10 +15,10 @@ struct Fill {
     std::byte value;
 
     template<std::integral Integral_>
-    constexpr Fill(Integral_) noexcept;
+    explicit constexpr Fill(Integral_) noexcept;
 
     template<typename Type_>
-    /* implicit */ constexpr operator Type_() const noexcept;
+    explicit(false) constexpr operator Type_() const noexcept;
 };
 ```
 - value

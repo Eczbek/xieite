@@ -16,9 +16,9 @@ struct Matrix {
     constexpr Matrix() noexcept;
 
     template<xieite::concepts::RangeOf<Value_> Range_>
-    constexpr Matrix(Range_&&) noexcept;
+    explicit(false) constexpr Matrix(Range_&&) noexcept;
 
-    constexpr Matrix(std::initializer_list<Value_>) noexcept;
+    explicit(false) constexpr Matrix(std::initializer_list<Value_>) noexcept;
 
     template<typename Self_, xieite::concepts::RangeOf<std::size_t> Range_>
     constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_, std::is_const_v<Self_>>>> operator[](this Self_&&, Range_&&) noexcept;

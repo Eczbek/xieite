@@ -11,16 +11,16 @@ Constructs a `xieite::containers::FixedSet`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr Set() noexcept;
+constexpr FixedSet() noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::RangeOf<Key_> Range_>
-constexpr Set(Range_&& entries) noexcept;
+explicit(false) constexpr FixedSet(Range_&& entries) noexcept;
 ```
 #### 3)
 ```cpp
-constexpr Set(std::initializer_list<Key_> entries) noexcept;
+explicit(false) constexpr FixedSet(std::initializer_list<Key_> entries) noexcept;
 ```
 
 &nbsp;

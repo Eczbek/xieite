@@ -12,7 +12,7 @@ Fills any type with copies of a byte with which this instance was constructed.
 #### 1)
 ```cpp
 template<typename Type_>
-[[nodiscard]] /* implicit */ constexpr operator Type_() const noexcept;
+[[nodiscard]] explicit(false) constexpr operator Type_() const noexcept;
 ```
 
 &nbsp;

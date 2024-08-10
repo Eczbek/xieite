@@ -20,11 +20,11 @@ template<typename Return_, typename... Arguments_>
 struct Function<Return_(Arguments_...)> {
     constexpr Function() noexcept;
 
-    constexpr Function(const xieite::functors::Function<Return_(Arguments_...)>&) noexcept;
+    explicit(false) constexpr Function(const xieite::functors::Function<Return_(Arguments_...)>&) noexcept;
 
     template<xieite::concepts::Functable<Return_(Arguments_...)> Functor_>
     requires(!std::same_as<std::remove_cvref_t<Functor_>, xieite::functors::Function<Return_(Arguments_...)>>)
-    constexpr Function(Functor_&&) noexcept;
+    explicit(false) constexpr Function(Functor_&&) noexcept;
 
     explicit constexpr operator bool() const noexcept;
 
