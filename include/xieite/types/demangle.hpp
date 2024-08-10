@@ -4,7 +4,7 @@
 #	include "../macros/compiler.hpp"
 
 #	if !XIEITE_COMPILER_TYPE_GCC
-#		error "Compiler not supported"
+#		warning "Compiler not supported"
 #	endif
 
 #	include <cstdlib>

@@ -4,7 +4,7 @@
 #	include "../macros/platform.hpp"
 
 #	if !XIEITE_PLATFORM_TYPE_UNIX && !XIEITE_PLATFORM_TYPE_WINDOWS
-#		error "Platform not supported"
+#		warning "Platform not supported"
 #	endif
 
 #	include <concepts>

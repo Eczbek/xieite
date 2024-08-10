@@ -10,7 +10,7 @@
 #	elif XIEITE_PLATFORM_TYPE_WINDOWS
 #		include <windows.h>
 #	else
-#		error "Platform not supported"
+#		warning "Platform not supported"
 #	endif
 
 namespace xieite::memory {
