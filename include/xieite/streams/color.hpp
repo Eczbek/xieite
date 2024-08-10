@@ -31,9 +31,9 @@ namespace xieite::streams {
 
 		[[nodiscard]] friend constexpr bool operator==(const xieite::streams::Color<channels_>&, const xieite::streams::Color<channels_>&) noexcept = default;
 
-		template<typename Self>
-		[[nodiscard]] constexpr decltype(auto) operator[](this Self&& self, const std::size_t index) noexcept {
-			return std::forward_like<Self>(self.data[index]);
+		template<typename Self_>
+		[[nodiscard]] constexpr decltype(auto) operator[](this Self_&& self, const std::size_t index) noexcept {
+			return std::forward_like<Self_>(self.data[index]);
 		}
 
 		[[nodiscard]] constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_> value() const noexcept {

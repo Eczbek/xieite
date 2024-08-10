@@ -20,8 +20,8 @@ namespace xieite::memory {
 		constexpr Shredder(Arguments_&&... arguments) noexcept
 		: value(XIEITE_FORWARD(arguments)...) {}
 
-		template<typename Self>
-		[[nodiscard]] constexpr auto&& data(this Self&& self) noexcept {
+		template<typename Self_>
+		[[nodiscard]] constexpr auto&& data(this Self_&& self) noexcept {
 			return XIEITE_FORWARD(self).value;
 		}
 

@@ -11,8 +11,8 @@ Accesses a color channel by index.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Self>
-[[nodiscard]] constexpr decltype(auto) operator[](this Self&&, std::size_t index) noexcept;
+template<typename Self_>
+[[nodiscard]] constexpr decltype(auto) operator[](this Self_&&, std::size_t index) noexcept;
 ```
 
 &nbsp;
