@@ -9,8 +9,9 @@ namespace xieite::math {
 	[[nodiscard]] constexpr bool isNegative(const Arithmetic_ value) noexcept {
 		if constexpr (!std::unsigned_integral<Arithmetic_>) {
 			return value < 0;
+		} else {
+			return false;
 		}
-		return false;
 	}
 }
 
