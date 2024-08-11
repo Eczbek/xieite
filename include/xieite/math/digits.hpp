@@ -15,7 +15,7 @@ namespace xieite::math {
 		if (radix == 1) {
 			return static_cast<std::size_t>(xieite::math::absolute(value));
 		}
-		if (radix == -1) {
+		if (std::signed_integral<Integral_> && (radix == static_cast<Integral_>(-1))) {
 			return static_cast<std::size_t>(xieite::math::absolute(value) * 2) + 1;
 		}
 		std::size_t result = 0;
