@@ -48,7 +48,7 @@ int main() {
     for (auto iterator : groups[false]) {
         std::print("{} ", *iterator);
     }
-    std::println("");
+    std::println();
 }
 ```
 Output:

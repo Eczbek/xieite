@@ -29,7 +29,7 @@ int main() {
     for (std::size_t dimension : matrix.size()) {
         std::print("{} ", dimension);
     }
-    std::println("");
+    std::println();
 }
 ```
 Output:

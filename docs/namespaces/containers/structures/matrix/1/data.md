@@ -29,14 +29,14 @@ int main() {
     for (int item : matrix.data()) {
         std::print("{} ", item);
     }
-    std::println("");
+    std::println();
 
     matrix.rotate(1);
 
     for (int item : matrix.data()) {
         std::print("{} ", item);
     }
-    std::println("");
+    std::println();
 }
 ```
 Output:

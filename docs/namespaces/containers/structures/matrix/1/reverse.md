@@ -37,17 +37,17 @@ int main() {
         for (std::size_t y = 0; y < 3; ++y) {
             std::print("{} ", matrix[x, y].value());
         }
-        std::println("");
+        std::println();
     }
 
     matrix.reverse(0);
 
-    std::println("");
+    std::println();
     for (std::size_t x = 0; x < 3; ++x) {
         for (std::size_t y = 0; y < 2; ++y) {
             std::print("{} ", matrix[x, y].value());
         }
-        std::println("");
+        std::println();
     }
 }
 ```

@@ -38,7 +38,7 @@ int main() {
         for (int item : row) {
             std::print("{} ", item);
         }
-        std::println("");
+        std::println();
     }
 }
 ```

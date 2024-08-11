@@ -37,7 +37,7 @@ int main() {
         for (std::size_t y = 0; y < 3; ++y) {
             std::print("{} ", matrix[x, y].value());
         }
-        std::println("");
+        std::println();
     }
 }
 ```

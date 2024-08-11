@@ -37,7 +37,7 @@ int main() {
     for (int value : values) {
         std::print("{} ", value);
     }
-    std::println("");
+    std::println();
 }
 ```
 Output:

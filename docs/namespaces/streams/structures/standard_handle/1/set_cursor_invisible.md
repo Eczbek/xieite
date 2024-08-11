@@ -34,7 +34,7 @@ int main() {
     std::fflush(stdout);
     std::this_thread::sleep_for(std::chrono::seconds(5));
 
-    std::println("");
+    std::println();
 }
 ```
 Possible output:

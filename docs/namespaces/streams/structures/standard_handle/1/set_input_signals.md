@@ -32,7 +32,7 @@ int main() {
     do {
         std::print("Press Q to quit: ");
         input = terminal.readKey();
-        std::println("");
+        std::println();
     } while ((input != xieite::streams::Key::UppercaseQ) && (input != xieite::streams::Key::LowercaseQ));
 
     std::println("Quitting!");
