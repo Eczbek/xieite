@@ -1,17 +1,17 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:absolute\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb_>](../../../big_integer.md)\:\:absolute\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Gets the absolute value of a `xieite::math::BigInteger<Word_>`.
+Gets the absolute value of a `xieite::math::BigInteger<Limb_>`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Word_> absolute() const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb_> absolute() const noexcept;
 ```
 
 &nbsp;

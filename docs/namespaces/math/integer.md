@@ -13,7 +13,7 @@ A wrapper for a bit-field.
 ```cpp
 template<std::size_t bits_, bool sign_>
 struct Integer {
-    using Word = std::conditional_t<sign_, std::make_signed<xieite::types::LeastInteger<bits_>>, std::make_unsigned<xieite::types::LeastInteger<bits_>>>::type;
+    using Limb = std::conditional_t<sign_, std::make_signed<xieite::types::LeastInteger<bits_>>, std::make_unsigned<xieite::types::LeastInteger<bits_>>>::type;
 
     template<std::integral OtherIntegral_ = int>
     explicit(false) constexpr Integer(OtherIntegral_ = 0) noexcept;
@@ -84,10 +84,10 @@ struct Integer {
 
     constexpr xieite::math::Integer<bits_, sign_>& operator>>=(xieite::math::Integer<bits_, sign_>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>::Word data() const noexcept;
+    constexpr xieite::math::Integer<bits_, sign_>::Limb data() const noexcept;
 };
 ```
-- Word
+- Limb
 - [Integral\<\>\(\)](./structures/integer/1/operators/constructor.md)
 - [operator=\(\)](./structures/integer/1/operators/assign.md)
 - [operator typename\<\>\(\)](./structures/integer/1/operators/cast.md)

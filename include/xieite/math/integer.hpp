@@ -12,14 +12,14 @@ namespace xieite::math {
 	template<std::size_t bits_, bool signed_>
 	struct Integer {
 	public:
-		using Word = std::conditional_t<signed_, std::make_signed<xieite::types::LeastInteger<bits_>>, std::make_unsigned<xieite::types::LeastInteger<bits_>>>::type;
+		using Limb = std::conditional_t<signed_, std::make_signed<xieite::types::LeastInteger<bits_>>, std::make_unsigned<xieite::types::LeastInteger<bits_>>>::type;
 
 		template<std::integral OtherIntegral_ = int>
 		constexpr Integer(const OtherIntegral_ value = 0) noexcept
-		: value(static_cast<xieite::math::Integer<bits_, signed_>::Word>(value)) {}
+		: value(static_cast<xieite::math::Integer<bits_, signed_>::Limb>(value)) {}
 
 		constexpr xieite::math::Integer<bits_, signed_> operator=(const xieite::math::Integer<bits_, signed_> value) noexcept {
-			this->value = static_cast<xieite::math::Integer<bits_, signed_>::Word>(value.value);
+			this->value = static_cast<xieite::math::Integer<bits_, signed_>::Limb>(value.value);
 		}
 
 		template<std::integral OtherIntegral_>
@@ -160,12 +160,12 @@ namespace xieite::math {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xieite::math::Integer<bits_, signed_>::Word data() const noexcept {
+		[[nodiscard]] constexpr xieite::math::Integer<bits_, signed_>::Limb data() const noexcept {
 			return this->value;
 		}
 
 	private:
-		xieite::math::Integer<bits_, signed_>::Word value : bits_;
+		xieite::math::Integer<bits_, signed_>::Limb value : bits_;
 	};
 }
 

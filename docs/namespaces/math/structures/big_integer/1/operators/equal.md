@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../../big_integer.md)\:\:operator==\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb_>](../../../../big_integer.md)\:\:operator==\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Compares two big-integers.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Word_>& leftComparand, const xieite::math::BigInteger<Word_>& rightComparand) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Limb_>& leftComparand, const xieite::math::BigInteger<Limb_>& rightComparand) noexcept;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral_>
-[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Word_>& leftComparand, Integral_ rightComparand) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Limb_>& leftComparand, Integral_ rightComparand) noexcept;
 ```
 
 &nbsp;

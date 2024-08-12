@@ -1,10 +1,10 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Word_>](../../../big_integer.md)\:\:BigInteger\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb_>](../../../big_integer.md)\:\:BigInteger\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Constructs a `xieite::math::BigInteger<Word_>`.
+Constructs a `xieite::math::BigInteger<Limb_>`.
 
 &nbsp;
 
@@ -16,13 +16,13 @@ constexpr BigInteger(Integral_ value = 0) noexcept;
 ```
 #### 2)
 ```cpp
-template<typename OtherWord_>
-constexpr BigInteger(const xieite::math::BigInteger<OtherWord_>& value) noexcept;
+template<typename OtherLimb_>
+constexpr BigInteger(const xieite::math::BigInteger<OtherLimb_>& value) noexcept;
 ```
 #### 3)
 ```cpp
 template<std::ranges::Range Range_>
-requires(std::same_as<std::ranges::range_value_t<Range_>, Word_>)
+requires(std::same_as<std::ranges::range_value_t<Range_>, Limb_>)
 constexpr BigInteger(Range_&& range, bool negative = false) noexcept;
 ```
 #### 4)
