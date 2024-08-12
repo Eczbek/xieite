@@ -5,8 +5,8 @@
 #	include <functional>
 #	include <tuple>
 #	include <utility>
-#	include "../concepts/invocable_with_argument_count.hpp"
-#	include "../concepts/no_throw_invocable_with_argument_count.hpp"
+#	include "../concepts/invocable_with_arity.hpp"
+#	include "../concepts/no_throw_invocable_with_arity.hpp"
 #	include "../macros/forward.hpp"
 
 namespace xieite::functors {

@@ -26,4 +26,4 @@ struct Any {
 
 &nbsp;
 
-## [Example](../../../include/xieite/concepts/invocable_with_argument_count.hpp)
+## [Example](../../../include/xieite/concepts/invocable_with_arity.hpp)
