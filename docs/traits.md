@@ -11,6 +11,7 @@ The complement of `xieite::concepts`
 - [FunctionPointer\<\> \{\}](./namespaces/traits/function_pointer.md)
 - [IsAll\<\> \{\}](./namespaces/traits/is_all.md)
 - [IsAny\<\> \{\}](./namespaces/traits/is_any.md)
+- [IsArithmetic\<\> \{\}](./namespaces/traits/is_arithmetic.md)
 - [IsBitsetReference\<\> \{\}](./namespaces/traits/is_bitset_reference.md)
 - [IsCharacter\<\> \{\}](./namespaces/traits/is_character.md)
 - [IsConstantInvocable\<\> \{\}](./namespaces/traits/is_constant_invocable.md)

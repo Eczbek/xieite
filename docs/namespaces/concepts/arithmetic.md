@@ -4,7 +4,7 @@ Defined in header [<xieite/concepts/arithmetic.hpp>](../../../include/xieite/con
 &nbsp;
 
 ## Description
-Specifies that a type is integral, floating point, or boolean.
+Specifies that a type is an integer or floating point.
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Specifies that a type is integral, floating point, or boolean.
 #### 1)
 ```cpp
 template<typename Type>
-concept Arithmetic = std::is_arithmetic_v<Type>;
+concept Arithmetic = std::integral<Type> || std::floating_point<Type>;
 ```
 
 &nbsp;
