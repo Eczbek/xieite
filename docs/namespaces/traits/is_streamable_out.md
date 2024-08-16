@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_streamable_out.hpp>](../../../include/xieit
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsStreamableOut
-: std::bool_constant<xieite::concepts::StreamableOut<Type_>> {};
+: std::bool_constant<xieite::concepts::StreamableOut<Type>> {};
 ```
 
 &nbsp;

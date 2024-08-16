@@ -11,8 +11,8 @@ Specifies that a type can be converted to another without throwing exceptions.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source_, typename Target_>
-concept NoThrowConvertibleTo = std::is_nothrow_convertible_v<Source_, Target_>;
+template<typename Source, typename Target>
+concept NoThrowConvertibleTo = std::is_nothrow_convertible_v<Source, Target>;
 ```
 
 &nbsp;

@@ -11,8 +11,8 @@ Specifies that a type satisfies at least one of several type traits. Expects tra
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, template<typename> typename... Traits_>
-concept Any = (... || Traits_<Type_>::value);
+template<typename Type, template<typename> typename... Traits>
+concept Any = (... || Traits<Type>::value);
 ```
 
 &nbsp;

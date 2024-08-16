@@ -11,8 +11,8 @@ Rounds a value to the nearest multiple of a step [like so](https://en.wikipedia.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ roundHalfDown(Arithmetic_ value, Arithmetic_ step = 1) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic roundHalfDown(Arithmetic value, Arithmetic step = 1) noexcept;
 ```
 
 &nbsp;

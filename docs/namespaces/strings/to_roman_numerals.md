@@ -11,8 +11,8 @@ Converts a number to roman numerals.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] constexpr std::string toRomanNumerals(Integral_ value) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr std::string toRomanNumerals(Integral value) noexcept;
 ```
 
 &nbsp;

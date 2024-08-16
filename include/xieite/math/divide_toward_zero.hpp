@@ -7,9 +7,9 @@
 #	include "../math/sign.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr Arithmetic_ divideTowardZero(const Arithmetic_ dividend, const Arithmetic_ divisor) noexcept {
-		if constexpr (std::floating_point<Arithmetic_>) {
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr Arithmetic divideTowardZero(const Arithmetic dividend, const Arithmetic divisor) noexcept {
+		if constexpr (std::floating_point<Arithmetic>) {
 			return std::floor(dividend / divisor) + ((dividend < 0) != (divisor < 0));
 		} else {
 			return dividend / divisor;

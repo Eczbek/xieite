@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[StaticCast<Target_>](../../../../static_cast.md)\:\:operator\(\)\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[StaticCast<Target>](../../../../static_cast.md)\:\:operator\(\)\<\>\(\)
 Defined in header [<xieite/functors/static_cast.hpp>](../../../../../../../include/xieite/functors/static_cast.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Casts a value to the `Target` type.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<Target_> Source_>
-constexpr Target_ operator()(Source_&& value) const
-noexcept(xieite::concepts::NoThrowConvertibleTo<Source_, Target_>);
+template<std::convertible_to<Target> Source>
+constexpr Target operator()(Source&& value) const
+noexcept(xieite::concepts::NoThrowConvertibleTo<Source, Target>);
 ```
 
 &nbsp;

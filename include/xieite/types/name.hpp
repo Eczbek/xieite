@@ -14,7 +14,7 @@
 namespace XIEITE_DETAIL_NAMESPACE {
 	template<typename _>
 	[[nodiscard]] consteval std::string_view name() noexcept {
-		static constexpr auto get = [string = std::string_view(XIEITE_FUNCTION_SIGNATURE)] {
+		static constexpr auto get = [string = std::string_view(XIEITE_FUNCTION_SIGNATURE)] -> std::string_view {
 #	if XIEITE_COMPILER_TYPE_GCC
 			return xieite::strings::between(string, "= ", ';');
 #	elif XIEITE_COMPILER_TYPE_CLANG
@@ -29,8 +29,8 @@ namespace XIEITE_DETAIL_NAMESPACE {
 }
 
 namespace xieite::types {
-	template<typename Type_>
-	inline constexpr std::string_view name = XIEITE_DETAIL_NAMESPACE::name<Type_>();
+	template<typename Type>
+	inline constexpr std::string_view name = XIEITE_DETAIL_NAMESPACE::name<Type>();
 }
 
 #endif

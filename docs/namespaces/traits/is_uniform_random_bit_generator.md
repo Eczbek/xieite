@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_uniform_random_bit_generator.hpp>](../../..
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsUniformRandomBitGenerator
-: std::bool_constant<xieite::concepts::UniformRandomBitGenerator<Type_>> {};
+: std::bool_constant<xieite::concepts::UniformRandomBitGenerator<Type>> {};
 ```
 
 &nbsp;

@@ -11,8 +11,8 @@ Specifies that a type is a character, according to [the standard draft](https://
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Character = xieite::concepts::WideCharacter<Type_> || xieite::concepts::SameAsAny<std::remove_cv_t<Type_>, char, char8_t>;
+template<typename Type>
+concept Character = xieite::concepts::WideCharacter<Type> || xieite::concepts::SameAsAny<std::remove_cv_t<Type>, char, char8_t>;
 ```
 
 &nbsp;

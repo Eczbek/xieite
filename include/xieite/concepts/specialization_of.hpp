@@ -5,8 +5,8 @@
 #	include "../traits/is_specialization_of.hpp"
 
 namespace xieite::concepts {
-	template<typename Type_, template<typename...> typename Template_>
-	concept SpecializationOf = xieite::traits::IsSpecializationOf<std::remove_cvref_t<Type_>, Template_>::value;
+	template<typename Type, template<typename...> typename Template>
+	concept SpecializationOf = xieite::traits::IsSpecializationOf<std::remove_cvref_t<Type>, Template>::value;
 }
 
 #endif

@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb_>](../../../../big_integer.md)\:\:operator-=\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb>](../../../../big_integer.md)\:\:operator-=\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Assigns the difference between this big-integer and another.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Limb_>& operator-=(const xieite::math::BigInteger<Limb_>& subtrahend) noexcept;
+constexpr xieite::math::BigInteger<Limb>& operator-=(const xieite::math::BigInteger<Limb>& subtrahend) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_>
-constexpr xieite::math::BigInteger<Limb_>& operator-=(Integral_ subtrahend) noexcept;
+template<std::integral Integral>
+constexpr xieite::math::BigInteger<Limb>& operator-=(Integral subtrahend) noexcept;
 ```
 
 &nbsp;

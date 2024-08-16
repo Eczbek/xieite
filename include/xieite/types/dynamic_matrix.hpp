@@ -5,18 +5,18 @@
 #	include <type_traits>
 
 namespace xieite::detail {
-	template<template<typename> typename DynamicContainer_, typename Value_, std::size_t dimensions_>
+	template<template<typename> typename DynamicContainer, typename Value, std::size_t dimensions>
 	struct DynamicMatrix
-	: std::type_identity<DynamicContainer_<typename xieite::detail::DynamicMatrix<DynamicContainer_, Value_, dimensions_ - 1>::type>> {};
+	: std::type_identity<DynamicContainer<typename xieite::detail::DynamicMatrix<DynamicContainer, Value, dimensions - 1>::type>> {};
 
-	template<template<typename> typename DynamicContainer_, typename Value_>
-	struct DynamicMatrix<DynamicContainer_, Value_, 0>
-	: std::type_identity<Value_> {};
+	template<template<typename> typename DynamicContainer, typename Value>
+	struct DynamicMatrix<DynamicContainer, Value, 0>
+	: std::type_identity<Value> {};
 }
 
 namespace xieite::types {
-	template<template<typename> typename DynamicContainer_, typename Value_, std::size_t dimensions_>
-	using DynamicMatrix = xieite::detail::DynamicMatrix<DynamicContainer_, Value_, dimensions_>::type;
+	template<template<typename> typename DynamicContainer, typename Value, std::size_t dimensions>
+	using DynamicMatrix = xieite::detail::DynamicMatrix<DynamicContainer, Value, dimensions>::type;
 }
 
 #endif

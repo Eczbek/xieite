@@ -16,8 +16,8 @@ struct IsSpecializationOf
 ```
 #### 2)
 ```cpp
-template<template<typename...> typename Template_, typename... Arguments_>
-struct IsSpecializationOf<Template_<Arguments...>, Template_>
+template<template<typename...> typename Template, typename... Arguments>
+struct IsSpecializationOf<Template<Arguments...>, Template>
 : std::true_type {};
 ```
 

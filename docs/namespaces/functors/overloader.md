@@ -11,16 +11,16 @@ Extends multiple invocable types and overloads its `operator()` for each.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Derivable... Derivables_>
+template<xieite::concepts::Derivable... Derivables>
 struct Overloader
-: Derivables_... {
+: Derivables... {
     constexpr Overloader() noexcept;
 
-    template<typename... DerivableReferences_>
-    requires((... && std::convertible_to<DerivableReferences_, Derivables_>))
-    explicit constexpr Overloader(DerivableReferences_&&...) noexcept;
+    template<typename... DerivableReferences>
+    requires((... && std::convertible_to<DerivableReferences, Derivables>))
+    explicit constexpr Overloader(DerivableReferences&&...) noexcept;
 
-    using Derivables_::operator()...;
+    using Derivables::operator()...;
 };
 ```
 - [Overloader\(\)](./structures/overloader/1/operators/constructor.md)
@@ -33,10 +33,10 @@ struct Overloader
 #include "xieite/functors/overloader.hpp"
 
 int main() {
-    auto foo = [](int) {
+    auto foo = [](int) -> void {
         std::println("foo");
     };
-    auto bar = [](double) {
+    auto bar = [](double) -> void {
         std::println("bar");
     };
 

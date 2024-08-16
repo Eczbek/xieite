@@ -42,10 +42,12 @@ static constexpr int seconds = /* ... */;
 #include "xieite/time/compilation.hpp"
 
 int main() {
-    std::println("{}-{}-{} {}:{}:{}", xieite::time::compilation::years, xieite::time::compilation::months, xieite::time::compilation::days, xieite::time::compilation::hours, xieite::time::compilation::minutes, xieite::time::compilation::seconds);
+    using namespace xieite::time::compilation;
+
+    std::println("{}-{}-{} {}:{}:{}", years, months, days, hours, minutes, seconds);
 }
 ```
 Possible output:
 ```
-2024-3-31 22:15:55
+2024-8-14 15:28:43
 ```

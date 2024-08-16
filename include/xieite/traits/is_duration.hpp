@@ -11,8 +11,8 @@ namespace xieite::traits {
 	struct IsDuration
 	: std::false_type {};
 
-	template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::Ratio Ratio_>
-	struct IsDuration<std::chrono::duration<Arithmetic_, Ratio_>>
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Ratio Ratio>
+	struct IsDuration<std::chrono::duration<Arithmetic, Ratio>>
 	: std::true_type {};
 }
 

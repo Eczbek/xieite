@@ -5,9 +5,9 @@
 #	include "../concepts/stream.hpp"
 
 namespace xieite::traits {
-	template<typename Type_>
+	template<typename Type>
 	struct IsStream
-	: std::bool_constant<xieite::concepts::Stream<Type_>> {};
+	: std::bool_constant<xieite::concepts::Stream<Type>> {};
 }
 
 #endif

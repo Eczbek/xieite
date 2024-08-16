@@ -11,8 +11,8 @@ Computes the number of integral digits in a value of any radix.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] constexpr std::size_t digits(Integral_ value, Integral_ radix = 10) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr std::size_t digits(Integral value, Integral radix = 10) noexcept;
 ```
 
 &nbsp;

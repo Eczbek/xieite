@@ -11,8 +11,8 @@ Computes a quotient and rounds down.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ divideDown(Arithmetic_ dividend, Arithmetic_ divisor) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic divideDown(Arithmetic dividend, Arithmetic divisor) noexcept;
 ```
 
 &nbsp;

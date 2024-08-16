@@ -6,40 +6,40 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::detail {
-	template<xieite::concepts::Arithmetic Arithmetic_>
+	template<xieite::concepts::Arithmetic Arithmetic>
 	struct Exponent {
 	private:
 		struct Value {
 		public:
-			constexpr Value(const Arithmetic_ value) noexcept
+			explicit(false) constexpr Value(const Arithmetic value) noexcept
 			: value(value) {}
 
-			constexpr auto operator=(xieite::detail::Exponent<Arithmetic_>::Value) = delete;
+			auto operator=(xieite::detail::Exponent<Arithmetic>::Value) noexcept = delete;
 
-			template<xieite::concepts::Arithmetic OtherArithmetic_>
-			[[nodiscard]] friend constexpr std::common_type_t<Arithmetic_, OtherArithmetic_> operator*(const OtherArithmetic_ base, const xieite::detail::Exponent<Arithmetic_>::Value exponent) noexcept {
-				return static_cast<Arithmetic_>(std::pow(base, exponent.value));
+			template<xieite::concepts::Arithmetic OtherArithmetic>
+			[[nodiscard]] friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(const OtherArithmetic base, const xieite::detail::Exponent<Arithmetic>::Value exponent) noexcept {
+				return static_cast<Arithmetic>(std::pow(base, exponent.value));
 			}
 
 		private:
-			Arithmetic_ value;
+			Arithmetic value;
 		};
 
 	public:
-		constexpr Exponent(const Arithmetic_ value) noexcept
+		explicit(false) constexpr Exponent(const Arithmetic value) noexcept
 		: value(value) {}
 
-		template<xieite::concepts::Arithmetic OtherArithmetic_>
-		[[nodiscard]] explicit(false) constexpr operator OtherArithmetic_() const noexcept {
-			return static_cast<OtherArithmetic_>(this->value.value);
+		template<xieite::concepts::Arithmetic OtherArithmetic>
+		[[nodiscard]] explicit(false) constexpr operator OtherArithmetic() const noexcept {
+			return static_cast<OtherArithmetic>(this->value.value);
 		}
 
-		[[nodiscard]] constexpr xieite::detail::Exponent<Arithmetic_>::Value operator*() const noexcept {
+		[[nodiscard]] constexpr xieite::detail::Exponent<Arithmetic>::Value operator*() const noexcept {
 			return this->value;
 		}
 
 	private:
-		xieite::detail::Exponent<Arithmetic_>::Value value;
+		xieite::detail::Exponent<Arithmetic>::Value value;
 	};
 }
 

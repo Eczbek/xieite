@@ -3,12 +3,14 @@
 
 #	include <array>
 #	include <cstddef>
-#	include <limits>
+#	include <climits>
+#	include <numeric>
 #	include <string_view>
 
 namespace xieite::strings {
-	inline constexpr auto radiotelephonySpellingAlphabet = ([] {
-		std::array<std::string_view, static_cast<std::size_t>(std::numeric_limits<unsigned char>::max()) + 1> result;
+	inline constexpr std::array<std::string_view, (static_cast<std::size_t>(1) << CHAR_BIT)> radiotelephonySpellingAlphabet = ([] -> auto {
+		std::array<std::string_view, (static_cast<std::size_t>(1) << CHAR_BIT)> result;
+		std::ranges::iota(result, '\0');
 		result['A'] = result['a'] = "Alfa"; // This is not a typo
 		result['B'] = result['b'] = "Bravo";
 		result['C'] = result['c'] = "Charlie";

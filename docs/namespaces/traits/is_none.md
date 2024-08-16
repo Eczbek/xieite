@@ -11,9 +11,9 @@ Negates a trait.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, template<typename> typename Trait_>
+template<typename Type, template<typename> typename... Traits>
 struct IsNone
-: std::bool_constant<xieite::concepts::None<Type_, Trait_>> {};
+: std::bool_constant<xieite::concepts::None<Type, Traits>> {};
 ```
 
 &nbsp;

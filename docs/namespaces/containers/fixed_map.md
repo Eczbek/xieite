@@ -11,25 +11,26 @@ A `constexpr` wrapper-like structure for `std::unordered_map`.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Key_, typename Value_, std::size_t size_, typename Hash_ = std::hash<Key_>, typename KeyComparator_ = std::equal_to<Key_>, typename Allocator_ = std::allocator<std::pair<const Key_, Value_*>>>
+template<typename Key, typename Value, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::equal_to<Key>, typename Allocator = std::allocator<std::pair<const Key, Value*>>>
 struct FixedMap {
     constexpr FixedMap() noexcept;
 
-    template<xieite::concepts::RangeOf<std::pair<Key_, Value_>> Range_>
-    constexpr FixedMap(Range_&&) noexcept;
+    template<std::ranges::input_range Range>
+    requires(std::convertible_to<std::ranges::range_value_t<Range>, std::pair<Key, Value>>)
+    constexpr FixedMap(Range&&) noexcept;
 
-    constexpr FixedMap(std::initializer_list<std::pair<Key_, Value_>>) noexcept;
+    constexpr FixedMap(std::initializer_list<std::pair<Key, Value>>) noexcept;
 
-    template<typename Self_, std::convertible_to<Key_> KeyReference_>
-    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_>>> operator[](this Self_&&, KeyReference_&&) noexcept;
+    template<typename Self, std::convertible_to<Key> KeyReference>
+    constexpr auto&& operator[](this Self&&, KeyReference&&) noexcept;
 
-    template<typename Self_, std::convertible_to<Key_> KeyReference_>
-    constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_>>> at(this Self_&&, KeyReference_&&) noexcept;
+    template<typename Self, std::convertible_to<Key> KeyReference>
+    constexpr auto&& at(this Self&&, KeyReference&&) noexcept;
 
-    template<std::convertible_to<Key_> KeyReference_>
-    constexpr bool contains(KeyReference_&&) const noexcept;
+    template<std::convertible_to<Key> KeyReference>
+    constexpr bool contains(KeyReference&&) const noexcept;
 
-    constexpr const std::array<std::pair<Key_, Value_>, size_>& data() const noexcept;
+    constexpr const std::array<std::pair<Key, Value>, size>& data() const noexcept;
 };
 ```
 - [FixedMap\(\)](./structures/fixed_map/1/operators/constructor.md)

@@ -11,8 +11,8 @@ Specifies that a type is polymorphic. Can be used for checking if a type has a v
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Polymorphic = std::is_polymorphic_v<Type_>;
+template<typename Type>
+concept Polymorphic = std::is_polymorphic_v<Type>;
 ```
 
 &nbsp;

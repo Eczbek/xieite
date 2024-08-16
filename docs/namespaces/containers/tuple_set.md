@@ -16,18 +16,18 @@ struct TupleSet;
 ```
 #### 2)
 ```cpp
-template<template<typename> typename Container_, typename FirstKey_, typename... RestKeys_>
-struct TupleSet<Container_, std::tuple<FirstKey_, RestKeys_...>> {
-    constexpr TupleSet(const std::initializer_list<std::pair<FirstKey_, TupleSet<Container_, std::tuple<RestKeys_...>>>> = {}) noexcept;
+template<template<typename> typename Container, typename FirstKey, typename... RestKeys>
+struct TupleSet<Container, std::tuple<FirstKey, RestKeys...>> {
+    constexpr TupleSet(const std::initializer_list<std::pair<FirstKey, TupleSet<Container, std::tuple<RestKeys...>>>> = {}) noexcept;
 
-    template<std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_>
-    constexpr bool operator[](KeysReference_&&) const;
+    template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+    constexpr bool operator[](KeysReference&&) const;
 
-    template<std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_>
-    constexpr void insert(KeysReference_&&);
+    template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+    constexpr void insert(KeysReference&&);
 
-    template<std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_>
-    constexpr bool contains(KeysReference_&&) const;
+    template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+    constexpr bool contains(KeysReference&&) const;
 };
 ```
 - [TupleSet\(\)](./structures/tuple_set/2/operators/constructor.md)
@@ -36,18 +36,18 @@ struct TupleSet<Container_, std::tuple<FirstKey_, RestKeys_...>> {
 - [contains\(\)](./structures/tuple_set/2/contains.md)
 #### 3)
 ```cpp
-template<template<typename> typename Container_, typename Key_>
-struct TupleSet<Container_, std::tuple<Key_>> {
-    constexpr TupleSet(const std::initializer_list<Key_> = {}) noexcept;
+template<template<typename> typename Container, typename Key>
+struct TupleSet<Container, std::tuple<Key>> {
+    constexpr TupleSet(const std::initializer_list<Key> = {}) noexcept;
 
-    template<std::convertible_to<std::tuple<Key_>> KeyReference_>
-    constexpr bool operator[](KeyReference_&&) const;
+    template<std::convertible_to<std::tuple<Key>> KeyReference>
+    constexpr bool operator[](KeyReference&&) const;
 
-    template<std::convertible_to<std::tuple<Key_>> KeyReference_>
-    constexpr void insert(KeyReference_&&);
+    template<std::convertible_to<std::tuple<Key>> KeyReference>
+    constexpr void insert(KeyReference&&);
 
-    template<std::convertible_to<std::tuple<Key_>> KeyReference_>
-    constexpr bool contains(KeyReference_&&) const;
+    template<std::convertible_to<std::tuple<Key>> KeyReference>
+    constexpr bool contains(KeyReference&&) const;
 };
 ```
 - [TupleSet\(\)](./structures/tuple_set/3/operators/constructor.md)

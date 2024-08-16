@@ -11,7 +11,7 @@ A type alias for generating dynamic multidimensional containers.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename> typename DynamicContainer_, typename Value_, std::size_t dimensions_>
+template<template<typename> typename DynamicContainer, typename Value, std::size_t dimensions>
 using DynamicMatrix = /* ... */;
 ```
 

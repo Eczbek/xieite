@@ -27,25 +27,25 @@ struct StandardHandle {
 
     void setOutputProcessing(bool) noexcept;
 
-    template<std::size_t channels_>
-    requires(channels_ >= 3)
-    static constexpr std::string stringSetForegroundColor(const xieite::streams::Color<channels_>&) noexcept;
+    template<std::size_t channels>
+    requires(channels >= 3)
+    static constexpr std::string stringSetForegroundColor(const xieite::streams::Color<channels>&) noexcept;
 
-    template<std::size_t channels_>
-    requires(channels_ >= 3)
-    void setForegroundColor(const xieite::streams::Color<channels_>&) noexcept;
+    template<std::size_t channels>
+    requires(channels >= 3)
+    void setForegroundColor(const xieite::streams::Color<channels>&) noexcept;
 
     static constexpr std::string stringResetForegroundColor() noexcept;
 
     void resetForegroundColor() noexcept;
 
-    template<std::size_t channels_>
-    requires(channels_ >= 3)
-    static constexpr std::string stringSetBackgroundColor(const xieite::streams::Color<channels_>&) noexcept;
+    template<std::size_t channels>
+    requires(channels >= 3)
+    static constexpr std::string stringSetBackgroundColor(const xieite::streams::Color<channels>&) noexcept;
 
-    template<std::size_t channels_>
-    requires(channels_ >= 3)
-    void setBackgroundColor(const xieite::streams::Color<channels_>&) noexcept;
+    template<std::size_t channels>
+    requires(channels >= 3)
+    void setBackgroundColor(const xieite::streams::Color<channels>&) noexcept;
 
     static constexpr std::string stringResetBackgroundColor() noexcept;
 

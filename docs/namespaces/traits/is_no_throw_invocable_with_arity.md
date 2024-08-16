@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_no_throw_invocable_with_arity.hpp>](../../.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Functor_, std::size_t arity_>
+template<typename Functor, std::size_t arity>
 struct IsNoThrowInvocableWithArity
-: std::bool_constant<xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>> {};
+: std::bool_constant<xieite::concepts::NoThrowInvocableWithArity<Functor, arity>> {};
 ```
 
 &nbsp;

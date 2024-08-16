@@ -6,9 +6,9 @@
 #	include "../types/try_unsigned.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr xieite::types::TryUnsigned<Arithmetic_> difference(const Arithmetic_ value1, const Arithmetic_ value2) noexcept {
-		return (value1 > value2) ? (static_cast<xieite::types::TryUnsigned<Arithmetic_>>(value1) - static_cast<xieite::types::TryUnsigned<Arithmetic_>>(value2)) : (static_cast<xieite::types::TryUnsigned<Arithmetic_>>(value2) - static_cast<xieite::types::TryUnsigned<Arithmetic_>>(value1));
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr xieite::types::TryUnsigned<Arithmetic> difference(const Arithmetic value1, const Arithmetic value2) noexcept {
+		return (value1 > value2) ? (static_cast<xieite::types::TryUnsigned<Arithmetic>>(value1) - static_cast<xieite::types::TryUnsigned<Arithmetic>>(value2)) : (static_cast<xieite::types::TryUnsigned<Arithmetic>>(value2) - static_cast<xieite::types::TryUnsigned<Arithmetic>>(value1));
 	}
 }
 

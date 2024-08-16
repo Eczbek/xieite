@@ -5,9 +5,9 @@
 #	include "../concepts/output_stream.hpp"
 
 namespace xieite::traits {
-	template<typename Type_>
+	template<typename Type>
 	struct IsOutputStream
-	: std::bool_constant<xieite::concepts::OutputStream<Type_>> {};
+	: std::bool_constant<xieite::concepts::OutputStream<Type>> {};
 }
 
 #endif

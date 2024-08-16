@@ -11,7 +11,7 @@ Attempts to get the signed complement of an unsigned type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 using TrySigned = /* ... */;
 ```
 

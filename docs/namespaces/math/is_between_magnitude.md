@@ -11,8 +11,8 @@ Checks whether a number is between two limits, where the limits approaching zero
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr bool isBetweenMagnitude(Arithmetic_ value, Arithmetic_ limit1, Arithmetic_ limit2, bool downInclusive = true, bool upInclusive = true) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr bool isBetweenMagnitude(Arithmetic value, Arithmetic limit1, Arithmetic limit2, bool downInclusive = true, bool upInclusive = true) noexcept;
 ```
 
 &nbsp;

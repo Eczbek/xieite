@@ -5,9 +5,9 @@
 #	include "../concepts/narrow_character.hpp"
 
 namespace xieite::traits {
-	template<typename Type_>
+	template<typename Type>
 	struct IsNarrowCharacter
-	: std::bool_constant<xieite::concepts::NarrowCharacter<Type_>> {};
+	: std::bool_constant<xieite::concepts::NarrowCharacter<Type>> {};
 }
 
 #endif

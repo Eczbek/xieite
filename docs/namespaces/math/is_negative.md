@@ -11,8 +11,8 @@ Checks that a value is negative.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr bool isNegative(Arithmetic_ value) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr bool isNegative(Arithmetic value) noexcept;
 ```
 
 &nbsp;

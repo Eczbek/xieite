@@ -11,8 +11,8 @@ Specifies that a type is one of `xieite::geometry::Line`, `xieite::geometry::Ray
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, typename Number_ = double>
-concept LinearShape = xieite::concepts::SameAsAny<std::remove_cvref_t<Type_>, xieite::geometry::Line<Number_>, xieite::geometry::Ray<Number_>, xieite::geometry::Segment<Number_>>;
+template<typename Type, typename Arithmetic = double>
+concept LinearShape = xieite::concepts::SameAsAny<std::remove_cvref_t<Type>, xieite::geometry::Line<Arithmetic>, xieite::geometry::Ray<Arithmetic>, xieite::geometry::Segment<Arithmetic>>;
 ```
 
 &nbsp;

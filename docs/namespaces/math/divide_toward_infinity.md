@@ -11,8 +11,8 @@ Computes a quotient and rounds toward infinity.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ divideTowardInfinity(Arithmetic_ dividend, Arithmetic_ divisor) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic divideTowardInfinity(Arithmetic dividend, Arithmetic divisor) noexcept;
 ```
 
 &nbsp;

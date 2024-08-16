@@ -11,7 +11,7 @@ Performs a slight bit of spacetime manipulation. `Functor` must be default-const
 ## Synopsis
 #### 1)
 ```cpp
-template<template<std::uint8_t> typename Functor_>
+template<template<std::uint8_t> typename Functor>
 constexpr void templatify(std::uint8_t value) noexcept;
 ```
 

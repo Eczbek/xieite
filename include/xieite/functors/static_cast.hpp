@@ -6,12 +6,12 @@
 #	include "../macros/forward.hpp"
 
 namespace xieite::functors {
-	template<typename Target_>
+	template<typename Target>
 	struct StaticCast {
-		template<std::convertible_to<Target_> Source_>
-		constexpr Target_ operator()(Source_&& value) const
-		noexcept(xieite::concepts::NoThrowConvertibleTo<Source_, Target_>) {
-			return static_cast<Target_>(XIEITE_FORWARD(value));
+		template<std::convertible_to<Target> Source>
+		constexpr Target operator()(Source&& value) const
+		noexcept(xieite::concepts::NoThrowConvertibleTo<Source, Target>) {
+			return static_cast<Target>(XIEITE_FORWARD(value));
 		}
 	};
 }

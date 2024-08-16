@@ -11,13 +11,13 @@ Joins multiple integers together into one `std::bitset`, preserving every values
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral... Integrals_>
-[[nodiscard]] constexpr std::bitset<(... + xieite::bits::size<Integrals_>)> join(Integrals_... values) noexcept;
+template<std::integral... Integrals>
+[[nodiscard]] constexpr std::bitset<(... + xieite::bits::size<Integrals>)> join(Integrals... values) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_, std::size_t size_>
-[[nodiscard]] constexpr std::bitset<xieite::bits::size<Integral_> * size_> join(const std::array<Integral_, size_>& values) noexcept;
+template<std::integral Integral, std::size_t size>
+[[nodiscard]] constexpr std::bitset<xieite::bits::size<Integral> * size> join(const std::array<Integral, size>& values) noexcept;
 ```
 
 &nbsp;

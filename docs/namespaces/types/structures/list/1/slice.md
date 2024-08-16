@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:Slice\<\>
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Slice\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Selects a "slice" from the stored list of types. Allows indices out of bounds an
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t start_, std::size_t end_ = sizeof...(Types_)>
+template<std::size_t start, std::size_t end = sizeof...(Types)>
 using Slice = /* xieite::types::List<...> */;
 ```
 

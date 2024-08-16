@@ -5,8 +5,8 @@
 #	include "../math/divide_toward_infinity.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr Arithmetic_ roundTowardInfinity(const Arithmetic_ value, const Arithmetic_ step = 1) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr Arithmetic roundTowardInfinity(const Arithmetic value, const Arithmetic step = 1) noexcept {
 		return xieite::math::divideTowardInfinity(value, step) * step;
 	}
 }

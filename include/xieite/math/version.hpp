@@ -28,7 +28,8 @@ namespace xieite::math {
 		[[nodiscard]] constexpr std::string string() const noexcept {
 			std::string result = 'v' + xieite::math::stringify(this->major) + '.' + xieite::math::stringify(this->minor) + '.' + xieite::math::stringify(this->patch);
 			if (this->label.size()) {
-				result += '-' + this->label;
+				result += '-';
+				result += this->label;
 			}
 			return result;
 		}

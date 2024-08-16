@@ -12,8 +12,8 @@ Runs a callback every set amount of time.
 #### 1)
 ```cpp
 struct Interval {
-    template<xieite::concepts::Duration Duration_>
-    Interval(const xieite::functors::Function<void()>&, Duration_) noexcept;
+    template<std::invocable<> Functor, xieite::concepts::Duration Duration>
+    Interval(Functor&&, Duration) noexcept;
 
     explicit operator bool() const noexcept;
 

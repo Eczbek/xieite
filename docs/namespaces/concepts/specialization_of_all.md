@@ -11,8 +11,8 @@ Specifies that a type is a specialization of all of several templates.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, template<typename...> typename... Templates_>
-concept SpecializationOfAll = (... && xieite::concepts::SpecializationOf<Type_, Templates_>);
+template<typename Type, template<typename...> typename... Templates>
+concept SpecializationOfAll = (... && xieite::concepts::SpecializationOf<Type, Templates>);
 ```
 
 &nbsp;

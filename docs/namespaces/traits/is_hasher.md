@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_hasher.hpp>](../../../include/xieite/traits
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, typename Argument_>
+template<typename Type, typename Argument>
 struct IsHasher
-: std::bool_constant<xieite::concepts::Hasher<Type_, Argument_>> {};
+: std::bool_constant<xieite::concepts::Hasher<Type, Argument>> {};
 ```
 
 &nbsp;

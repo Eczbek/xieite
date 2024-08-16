@@ -11,18 +11,18 @@ Rotates shapes a specific angle around any pivot, clockwise.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Arithmetic_ = double>
-[[nodiscard]] constexpr xieite::geometry::Point<Arithmetic_> rotate(xieite::geometry::Point<Arithmetic_> point, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> angle, xieite::geometry::Point<Arithmetic_> pivot = xieite::geometry::Point<Arithmetic_>()) noexcept;
+template<typename Arithmetic = double>
+[[nodiscard]] constexpr xieite::geometry::Point<Arithmetic> rotate(xieite::geometry::Point<Arithmetic> point, std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angle, xieite::geometry::Point<Arithmetic> pivot = xieite::geometry::Point<Arithmetic>()) noexcept;
 ```
 #### 2)
 ```cpp
-template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
-[[nodiscard]] constexpr LinearShape rotate(const LinearShape& linearShape, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> angle, xieite::geometry::Point<Arithmetic_> pivot = xieite::geometry::Point<Arithmetic_>()) noexcept;
+template<typename Arithmetic = double, xieite::concepts::LinearShape<Arithmetic> LinearShape>
+[[nodiscard]] constexpr LinearShape rotate(const LinearShape& linearShape, std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angle, xieite::geometry::Point<Arithmetic> pivot = xieite::geometry::Point<Arithmetic>()) noexcept;
 ```
 #### 3)
 ```cpp
-template<typename Arithmetic_ = double>
-[[nodiscard]] constexpr xieite::geometry::Polygon<Arithmetic_> rotate(xieite::geometry::Polygon<Arithmetic_> polygon, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> angle, xieite::geometry::Point<Arithmetic_> pivot = xieite::geometry::Point<Arithmetic_>()) noexcept;
+template<typename Arithmetic = double>
+[[nodiscard]] constexpr xieite::geometry::Polygon<Arithmetic> rotate(xieite::geometry::Polygon<Arithmetic> polygon, std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angle, xieite::geometry::Point<Arithmetic> pivot = xieite::geometry::Point<Arithmetic>()) noexcept;
 ```
 
 &nbsp;

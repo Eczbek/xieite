@@ -6,9 +6,9 @@
 #	include "../math/is_negative.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic First_, std::same_as<First_>... Rest_>
-	[[nodiscard]] constexpr int sign(const First_ first, const Rest_... rest) noexcept {
-		static constexpr auto get = [](const First_ value) {
+	template<xieite::concepts::Arithmetic First, std::same_as<First>... Rest>
+	[[nodiscard]] constexpr int sign(const First first, const Rest... rest) noexcept {
+		static constexpr auto get = [](const First value) -> int {
 			return (value > 0) - xieite::math::isNegative(value);
 		};
 		return (get(first) * ... * get(rest));

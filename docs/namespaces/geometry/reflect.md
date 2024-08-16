@@ -11,18 +11,18 @@ Reflects a shape across a "mirror" line.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
-[[nodiscard]] constexpr xieite::geometry::Point<Arithmetic_> reflect(xieite::geometry::Point<Arithmetic_> point, const LinearShape& mirror) noexcept;
+template<typename Arithmetic = double, xieite::concepts::LinearShape<Arithmetic> LinearShape>
+[[nodiscard]] constexpr xieite::geometry::Point<Arithmetic> reflect(xieite::geometry::Point<Arithmetic> point, const LinearShape& mirror) noexcept;
 ```
 #### 2)
 ```cpp
-template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape1, xieite::concepts::LinearShape<Arithmetic_> LinearShape2>
+template<typename Arithmetic = double, xieite::concepts::LinearShape<Arithmetic> LinearShape1, xieite::concepts::LinearShape<Arithmetic> LinearShape2>
 [[nodiscard]] constexpr LinearShape1 reflect(const LinearShape1& line, const LinearShape2& mirror) noexcept;
 ```
 #### 3)
 ```cpp
-template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
-[[nodiscard]] constexpr xieite::geometry::Polygon<Arithmetic_> reflect(xieite::geometry::Polygon<Arithmetic_> polygon, const LinearShape& mirror) noexcept;
+template<typename Arithmetic = double, xieite::concepts::LinearShape<Arithmetic> LinearShape>
+[[nodiscard]] constexpr xieite::geometry::Polygon<Arithmetic> reflect(xieite::geometry::Polygon<Arithmetic> polygon, const LinearShape& mirror) noexcept;
 ```
 
 &nbsp;

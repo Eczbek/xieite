@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon<Arithmetic_>](../../../polygon.md)\:\:sides\(\)
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon<Arithmetic>](../../../polygon.md)\:\:sides\(\)
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Returns the sides of this polygon.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::vector<xieite::geometry::Segment<Arithmetic_>> sides() const noexcept;
+[[nodiscard]] constexpr std::vector<xieite::geometry::Segment<Arithmetic>> sides() const noexcept;
 ```
 
 &nbsp;

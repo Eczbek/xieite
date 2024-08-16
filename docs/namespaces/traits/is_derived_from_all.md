@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_derived_from_all.hpp>](../../../include/xie
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Derived_, typename... Bases_>
+template<typename Derived, typename... Bases>
 struct IsDerivedFromAll
-: std::bool_constant<xieite::concepts::DerivedFromAll<Derived_, Bases_...>> {};
+: std::bool_constant<xieite::concepts::DerivedFromAll<Derived, Bases...>> {};
 ```
 
 &nbsp;

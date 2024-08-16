@@ -24,4 +24,4 @@ Utilities for type information and metaprogramming
 - [Partial\<\> \{\}](./namespaces/types/partial.md)
 - [TrySigned\<\>](./namespaces/types/try_signed.md)
 - [TryUnsigned\<\>](./namespaces/types/try_unsigned.md)
-- [ValueIdentity\<\> \{\}](./namespaces/types/value_identity.md)
+- [Value\<\> \{\}](./namespaces/types/value.md)

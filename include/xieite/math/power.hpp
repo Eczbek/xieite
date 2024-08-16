@@ -5,9 +5,9 @@
 #	include <cstddef>
 
 namespace xieite::math {
-	template<std::integral Integral_>
-	[[nodiscard]] constexpr Integral_ power(Integral_ base, std::size_t exponent) noexcept {
-		Integral_ result = 1;
+	template<std::integral Integral>
+	[[nodiscard]] constexpr Integral power(Integral base, std::size_t exponent) noexcept {
+		Integral result = 1;
 		while (exponent) {
 			if (exponent & 1) {
 				result *= base;

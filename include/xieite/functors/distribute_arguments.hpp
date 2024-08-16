@@ -10,20 +10,20 @@
 #	include "../macros/forward.hpp"
 
 namespace xieite::functors {
-	template<std::size_t arity_, xieite::concepts::InvocableWithArity<arity_> Functor_, typename... Arguments_>
-	requires((arity_ > 0) && !(sizeof...(Arguments_) % arity_))
-	constexpr void distributeArguments(Functor_&& functor, Arguments_&&... arguments)
-	noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>) {
-		if constexpr (sizeof...(Arguments_) == arity_) {
+	template<std::size_t arity, xieite::concepts::InvocableWithArity<arity> Functor, typename... Arguments>
+	requires((arity > 0) && !(sizeof...(Arguments) % arity))
+	constexpr void distributeArguments(Functor&& functor, Arguments&&... arguments)
+	noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor, arity>) {
+		if constexpr (sizeof...(Arguments) == arity) {
 			std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...);
 		} else {
-			const std::tuple<Arguments_&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
-			([&functor, &argumentsTuple]<std::size_t... i_>(std::index_sequence<i_...>) {
-				std::invoke(functor, std::get<i_>(std::move(argumentsTuple))...);
-			})(std::make_index_sequence<arity_>());
-			([&functor, &argumentsTuple]<std::size_t... i_>(std::index_sequence<i_...>) {
-				xieite::functors::distributeArguments<arity_>(XIEITE_FORWARD(functor), std::get<i_ + arity_>(std::move(argumentsTuple))...);
-			})(std::make_index_sequence<sizeof...(Arguments_) - arity_>());
+			const std::tuple<Arguments&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
+			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) -> void {
+				std::invoke(functor, std::get<i>(std::move(argumentsTuple))...);
+			})(std::make_index_sequence<arity>());
+			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) -> void {
+				xieite::functors::distributeArguments<arity>(XIEITE_FORWARD(functor), std::get<i + arity>(std::move(argumentsTuple))...);
+			})(std::make_index_sequence<sizeof...(Arguments) - arity>());
 		}
 	}
 }

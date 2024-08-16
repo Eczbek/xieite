@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value_>](../../../../matrix.md)\:\:Matrix\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value>](../../../../matrix.md)\:\:Matrix\<\>\(\)
 Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
@@ -15,12 +15,13 @@ constexpr Matrix() noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::RangeOf<Value_> Range_>
-constexpr Matrix(Range_&& range) noexcept;
+template<std::ranges::input_range Range>
+requires(std::convertible_to<std::ranges::range_value_t<Range>, Value>)
+explicit constexpr Matrix(Range&& range) noexcept;
 ```
 #### 3)
 ```cpp
-constexpr Matrix(std::initializer_list<Value_> list) noexcept;
+explicit(false) constexpr Matrix(std::initializer_list<Value> list) noexcept;
 ```
 
 &nbsp;
@@ -35,7 +36,7 @@ int main() {
 
     matrix.resize(2, 3);
 
-    std::println("{}", matrix[1, 0].value());
+    std::println("{}", matrix[1, 0]);
 }
 ```
 Output:

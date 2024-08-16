@@ -11,10 +11,10 @@ Distributes arguments among several calls to a functor.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t arity_, xieite::concepts::InvocableWithArity<arity_> Functor_, typename... Arguments_>
-requires((arity_ > 0) && !(sizeof...(Arguments_) % arity_))
-constexpr void distributeArguments(Functor_&& functor, Arguments_&&... arguments)
-noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>);
+template<std::size_t arity, xieite::concepts::InvocableWithArity<arity> Functor, typename... Arguments>
+requires((arity > 0) && !(sizeof...(Arguments) % arity))
+constexpr void distributeArguments(Functor&& functor, Arguments&&... arguments)
+noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor, arity>);
 ```
 
 &nbsp;
@@ -25,7 +25,7 @@ noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>);
 #include "xieite/functors/distribute_arguments.hpp"
 
 int main() {
-    auto lambda = [](int x, int y, int z) {
+    auto lambda = [](int x, int y, int z) -> void {
         std::println("{} {} {}", x, y, z);
     };
 

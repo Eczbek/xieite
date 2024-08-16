@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb_>](../../../../big_integer.md)\:\:operator--\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb>](../../../../big_integer.md)\:\:operator--\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,11 +11,11 @@ Decrements a big-integer.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Limb_>& operator--() noexcept;
+constexpr xieite::math::BigInteger<Limb>& operator--() noexcept;
 ```
 #### 2)
 ```cpp
-constexpr xieite::math::BigInteger<Limb_>& operator--(int) noexcept;
+constexpr xieite::math::BigInteger<Limb>& operator--(int) noexcept;
 ```
 
 &nbsp;

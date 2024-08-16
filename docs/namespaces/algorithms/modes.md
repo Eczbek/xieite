@@ -11,10 +11,10 @@ Computes the modes (or antimodes) of a set of data.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_const_reference_t<Range_>, std::ranges::range_const_reference_t<Range_>)> Functor_ = std::ranges::greater>
-requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range_>> && xieite::concepts::ConstantInvocable<Functor_, std::ranges::range_const_reference_t<Range_>, std::ranges::range_const_reference_t<Range_>>)
-[[nodiscard]] constexpr std::vector<std::ranges::iterator_t<Range_>> modes(Range_& range, Functor_&& comparator = Functor_())
-noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_const_reference_t<Range_>, std::ranges::range_const_reference_t<Range_>>);
+template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>)> Functor = std::ranges::greater>
+requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>> && xieite::concepts::ConstantInvocable<Functor, std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>>)
+[[nodiscard]] constexpr std::vector<std::ranges::iterator_t<Range>> modes(Range& range, Functor&& comparator = Functor())
+noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>>);
 ```
 
 &nbsp;

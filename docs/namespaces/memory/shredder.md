@@ -11,16 +11,16 @@ A wrapper that allows clearing its memory. Automatically shreds on destruction.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::TriviallyDestructible Type_>
+template<xieite::concepts::TriviallyDestructible Type>
 struct Shredder {
     constexpr Shredder() noexcept;
 
-    template<typename... Arguments_>
-    requires(std::constructible_from<Type_, Arguments_...>)
-    constexpr Shredder(Arguments_&&...) noexcept;
+    template<typename... Arguments>
+    requires(std::constructible_from<Type, Arguments...>)
+    constexpr Shredder(Arguments&&...) noexcept;
 
-    template<typename Self_>
-    constexpr auto&& data(this Self_&&) noexcept;
+    template<typename Self>
+    constexpr auto&& data(this Self&&) noexcept;
 
     constexpr void shred() noexcept;
 };

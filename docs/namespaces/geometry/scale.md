@@ -11,18 +11,18 @@ Scales a shape.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Arithmetic_ = double>
-[[nodiscard]] constexpr xieite::geometry::Point<Arithmetic_> scale(xieite::geometry::Point<Arithmetic_> point, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> scale, xieite::geometry::Point<Arithmetic_> origin = xieite::geometry::Point<Arithmetic_>()) noexcept;
+template<typename Arithmetic = double>
+[[nodiscard]] constexpr xieite::geometry::Point<Arithmetic> scale(xieite::geometry::Point<Arithmetic> point, std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> scale, xieite::geometry::Point<Arithmetic> origin = xieite::geometry::Point<Arithmetic>()) noexcept;
 ```
 #### 2)
 ```cpp
-template<typename Arithmetic_ = double, xieite::concepts::LinearShape<Arithmetic_> LinearShape>
-[[nodiscard]] constexpr LinearShape scale(const LinearShape& line, const std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> scale, const xieite::geometry::Point<Arithmetic_> origin = xieite::geometry::Point<Arithmetic_>()) noexcept;
+template<typename Arithmetic = double, xieite::concepts::LinearShape<Arithmetic> LinearShape>
+[[nodiscard]] constexpr LinearShape scale(const LinearShape& line, const std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> scale, const xieite::geometry::Point<Arithmetic> origin = xieite::geometry::Point<Arithmetic>()) noexcept;
 ```
 #### 3)
 ```cpp
-template<typename Arithmetic_ = double>
-[[nodiscard]] constexpr xieite::geometry::Polygon<Arithmetic_> scale(xieite::geometry::Polygon<Arithmetic_> polygon, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> scale, const xieite::geometry::Point<Arithmetic_> origin = xieite::geometry::Point<Arithmetic_>()) noexcept;
+template<typename Arithmetic = double>
+[[nodiscard]] constexpr xieite::geometry::Polygon<Arithmetic> scale(xieite::geometry::Polygon<Arithmetic> polygon, std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> scale, const xieite::geometry::Point<Arithmetic> origin = xieite::geometry::Point<Arithmetic>()) noexcept;
 ```
 
 &nbsp;

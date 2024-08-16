@@ -11,8 +11,8 @@ Casts a value to the signedness of the target type before converting the value.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Target_, std::integral Source_>
-[[nodiscard]] constexpr Target_ signCast(Source_ value) noexcept;
+template<std::integral Target, std::integral Source>
+[[nodiscard]] constexpr Target signCast(Source value) noexcept;
 ```
 
 &nbsp;

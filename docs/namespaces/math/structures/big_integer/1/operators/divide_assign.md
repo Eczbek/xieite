@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb_>](../../../../big_integer.md)\:\:operator/=\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb>](../../../../big_integer.md)\:\:operator/=\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,12 +11,12 @@ Assigns the quotient of this big-integer with another. Dividing by zero invokes 
 ## Synopsis
 #### 1)
 ```cpp
-constexpr xieite::math::BigInteger<Limb_>& operator/=(const xieite::math::BigInteger<Limb_>& divisor);
+constexpr xieite::math::BigInteger<Limb>& operator/=(const xieite::math::BigInteger<Limb>& divisor);
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_>
-constexpr xieite::math::BigInteger<Limb_>& operator/=(Integral_ divisor);
+template<std::integral Integral>
+constexpr xieite::math::BigInteger<Limb>& operator/=(Integral divisor);
 ```
 
 &nbsp;

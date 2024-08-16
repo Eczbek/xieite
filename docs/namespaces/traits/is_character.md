@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_character.hpp>](../../../include/xieite/tra
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsCharacter
-: std::bool_constant<xieite::concepts::Character<Type_>> {};
+: std::bool_constant<xieite::concepts::Character<Type>> {};
 ```
 
 &nbsp;

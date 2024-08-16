@@ -4,28 +4,28 @@
 #	include <cstddef>
 
 namespace xieite::detail {
-	template<auto tag_, std::size_t current_>
+	template<auto tag, std::size_t current>
 	struct CounterReader {
 		template<typename>
-		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<tag_, current_>) noexcept;
+		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<tag, current>) noexcept;
 	};
 
-	template<auto tag_, std::size_t current_>
+	template<auto tag, std::size_t current>
 	struct CounterWriter {
 		template<typename>
-		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<tag_, current_>) noexcept {}
+		friend auto XIEITE_DETAIL_COUNTER_FLAG(xieite::detail::CounterReader<tag, current>) noexcept {}
 
-		static constexpr std::size_t value = current_;
+		static constexpr std::size_t value = current;
 	};
 
-	template<auto tag_, auto unique_, std::size_t current_ = 0>
+	template<auto tag, auto unique, std::size_t current = 0>
 	[[nodiscard]] constexpr std::size_t advanceCounter() noexcept {
-		if constexpr (requires(xieite::detail::CounterReader<tag_, current_> reader) {
+		if constexpr (requires(xieite::detail::CounterReader<tag, current> reader) {
 			XIEITE_DETAIL_COUNTER_FLAG<void>(reader);
 		}) {
-			return xieite::detail::advanceCounter<tag_, unique_, current_ + 1>();
+			return xieite::detail::advanceCounter<tag, unique, current + 1>();
 		} else {
-			return xieite::detail::CounterWriter<tag_, current_>::value;
+			return xieite::detail::CounterWriter<tag, current>::value;
 		}
 	}
 
@@ -33,9 +33,9 @@ namespace xieite::detail {
 }
 
 namespace xieite::functors {
-	template<auto tag_ = xieite::detail::defaultCounterTag, auto unique_ = [] {}>
+	template<auto tag = xieite::detail::defaultCounterTag, auto unique = [] {}>
 	[[nodiscard]] constexpr std::size_t counter() noexcept {
-		return xieite::detail::advanceCounter<tag_, unique_>();
+		return xieite::detail::advanceCounter<tag, unique>();
 	}
 }
 

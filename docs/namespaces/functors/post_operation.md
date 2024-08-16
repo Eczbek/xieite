@@ -11,9 +11,9 @@ Returns a copy of a value before passing it to a functor.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, std::invocable<Type_&> Functor_>
-[[nodiscard]] constexpr Type_ postOperation(Type_& value, Functor_&& functor)
-noexcept(xieite::concepts::NoThrowInvocable<Functor_, Type_&>);
+template<typename Type, std::invocable<Type&> Functor>
+[[nodiscard]] constexpr Type postOperation(Type& value, Functor&& functor)
+noexcept(xieite::concepts::NoThrowInvocable<Functor, Type&>);
 ```
 
 &nbsp;
@@ -26,7 +26,7 @@ noexcept(xieite::concepts::NoThrowInvocable<Functor_, Type_&>);
 int main() {
     int x = 5;
 
-    auto increment = [](int& y) {
+    auto increment = [](int& y) -> void {
         y += 5;
     };
 

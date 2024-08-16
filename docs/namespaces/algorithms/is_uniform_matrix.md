@@ -11,9 +11,9 @@ Checks whether all the ranges within one range have the same size.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Matrix_>
-requires(std::ranges::range<std::ranges::range_value_t<Matrix_>>)
-[[nodiscard]] constexpr bool isUniformMatrix(Matrix_&& matrix) noexcept;
+template<std::ranges::input_range Range>
+requires(std::ranges::input_range<std::ranges::range_value_t<Range>>)
+[[nodiscard]] constexpr bool isUniformMatrix(Range&& matrix) noexcept;
 ```
 
 &nbsp;
@@ -25,12 +25,12 @@ requires(std::ranges::range<std::ranges::range_value_t<Matrix_>>)
 #include "xieite/algorithms/is_uniform_matrix.hpp"
 
 int main() {
-    std::vector<std::vector<int>> matrix1 {
+    std::vector<std::vector<int>> matrix1 = {
         { 1, 2, 3 },
         { 4, 5, 6 }
     };
 
-    std::vector<std::vector<int>> matrix2 {
+    std::vector<std::vector<int>> matrix2 = {
         { 1 },
         { 2, 3 },
         { 4, 5, 6 }

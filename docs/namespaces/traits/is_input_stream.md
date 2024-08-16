@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_input_stream.hpp>](../../../include/xieite/
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsInputStream
-: std::bool_constant<xieite::concepts::InputStream<Type_>> {};
+: std::bool_constant<xieite::concepts::InputStream<Type>> {};
 ```
 
 &nbsp;

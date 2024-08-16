@@ -16,11 +16,11 @@ struct FunctionPointer;
 ```
 #### 2..5)
 ```cpp
-template<typename Return_, typename... Arguments_>
-struct FunctionPointer<Return_(*)(Arguments_... /* , ... */) /* noexcept */> {
-    using Function = Return_(*)(Arguments_... /* , ... */) /* noexcept */;
-    using Return = Return_;
-    using Arguments = std::tuple<Arguments_...>;
+template<typename Return, typename... Arguments>
+struct FunctionPointer<Return(*)(Arguments... /* , ... */) /* noexcept */> {
+    using Function = Return(*)(Arguments... /* , ... */) /* noexcept */;
+    using Return = Return;
+    using Arguments = std::tuple<Arguments...>;
 
     static constexpr bool variadic = /* ... */;
     static constexpr bool noThrowQualified = /* ... */;
@@ -28,13 +28,13 @@ struct FunctionPointer<Return_(*)(Arguments_... /* , ... */) /* noexcept */> {
 ```
 #### 6..54)
 ```cpp
-template<typename Return_, typename Class_, typename... Arguments_>
-struct FunctionPointer<Return_(Class_::*)(Arguments_... /* , ... */) /* const */ /* volatile */ /* & */ /* && */ /* noexcept */> {
-    using Class = Class_;
-    using Reference = /* volatile */ /* const */ Class_ /* & */ /* && */;
-    using Function = Return_(Class_::*)(Arguments_... /* , ... */) /* const */ /* volatile */ /* & */ /* && */ /* noexcept */;
-    using Return = Return_;
-    using Arguments = std::tuple<Arguments_...>;
+template<typename Return, typename Class, typename... Arguments>
+struct FunctionPointer<Return(Class::*)(Arguments... /* , ... */) /* const */ /* volatile */ /* & */ /* && */ /* noexcept */> {
+    using Class = Class;
+    using Reference = /* volatile */ /* const */ Class /* & */ /* && */;
+    using Function = Return(Class::*)(Arguments... /* , ... */) /* const */ /* volatile */ /* & */ /* && */ /* noexcept */;
+    using Return = Return;
+    using Arguments = std::tuple<Arguments...>;
 
     static constexpr bool variadic = /* ... */;
     static constexpr bool constantQualified = /* ... */;

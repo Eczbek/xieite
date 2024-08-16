@@ -11,13 +11,13 @@ Reverses the order of bits in an integer or `std::bitset`.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] constexpr Integral_ reverse(Integral_ value) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr Integral reverse(Integral value) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::size_t bits_>
-[[nodiscard]] constexpr std::bitset<bits_> reverse(const std::bitset<bits_>& values) noexcept;
+template<std::size_t bits>
+[[nodiscard]] constexpr std::bitset<bits> reverse(const std::bitset<bits>& values) noexcept;
 ```
 
 &nbsp;

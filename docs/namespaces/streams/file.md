@@ -26,8 +26,8 @@ struct File {
     File(int, const std::wstring&) noexcept;
 #endif
 
-    template<xieite::concepts::Stream Stream_>
-    File(Stream_&) noexcept;
+    template<xieite::concepts::Stream Stream>
+    File(Stream&) noexcept;
 
     File(const std::string&, const std::string&, xieite::streams::File) noexcept;
 
@@ -47,8 +47,8 @@ struct File {
     void open(int, const std::wstring&) noexcept;
 #endif
 
-    template<xieite::concepts::Stream Stream_>
-    void open(Stream_&) noexcept;
+    template<xieite::concepts::Stream Stream>
+    void open(Stream&) noexcept;
 
     void reopen(const std::string&, const std::string&, xieite::streams::File) noexcept;
 

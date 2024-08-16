@@ -11,8 +11,8 @@ Can be used to insert, replace, and remove elements from a tuple.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t start_, std::size_t count_ = 0, xieite::concepts::SpecializationOf<std::tuple> Tuple1_, xieite::concepts::SpecializationOf<std::tuple> Tuple2_ = std::tuple<>>
-requires((start_ <= std::tuple_size_v<std::remove_cvref_t<Tuple1_>>) && (count_ <= (std::tuple_size_v<std::remove_cvref_t<Tuple1_>> - start_)))
+template<std::size_t start, std::size_t count = 0, xieite::concepts::SpecializationOf<std::tuple> Tuple1_, xieite::concepts::SpecializationOf<std::tuple> Tuple2_ = std::tuple<>>
+requires((start <= std::tuple_size_v<std::remove_cvref_t<Tuple1_>>) && (count <= (std::tuple_size_v<std::remove_cvref_t<Tuple1_>> - start)))
 [[nodiscard]] constexpr auto spliceTuple(Tuple1_&& tuple1, Tuple2_&& tuple2 = Tuple2_()) noexcept;
 ```
 
@@ -29,7 +29,7 @@ int main() {
 
     auto bar = std::make_tuple(6.28318, 'h');
 
-    std::apply([](auto... values) {
+    std::apply([](auto... values) -> void {
         (..., std::println("{}", values));
     }, xieite::containers::spliceTuple<1, 1>(foo, bar));
 }

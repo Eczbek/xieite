@@ -11,8 +11,8 @@ Specifies that a type is, or derives from, `std::istream` or `std::ostream`.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Stream = xieite::concepts::InputStream<Type_> || xieite::concepts::OutputStream<Type_>;
+template<typename Type>
+concept Stream = xieite::concepts::InputStream<Type> || xieite::concepts::OutputStream<Type>;
 ```
 
 &nbsp;

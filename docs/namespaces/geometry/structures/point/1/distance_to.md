@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Point<Arithmetic_>](../../../point.md)\:\:distanceTo\(\)
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Point<Arithmetic>](../../../point.md)\:\:distanceTo\(\)
 Defined in header [<xieite/geometry/point.hpp>](../../../../../../include/xieite/geometry/point.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Computes the distance between two points.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> distanceTo(xieite::geometry::Point<Arithmetic_> point) const noexcept;
+[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> distanceTo(xieite::geometry::Point<Arithmetic> point) const noexcept;
 ```
 
 &nbsp;

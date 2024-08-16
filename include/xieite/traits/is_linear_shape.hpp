@@ -5,9 +5,9 @@
 #	include "../concepts/linear_shape.hpp"
 
 namespace xieite::traits {
-	template<typename Type_>
+	template<typename Type>
 	struct IsLinearShape
-	: std::bool_constant<xieite::concepts::LinearShape<Type_>> {};
+	: std::bool_constant<xieite::concepts::LinearShape<Type>> {};
 }
 
 #endif

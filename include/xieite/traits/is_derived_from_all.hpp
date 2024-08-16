@@ -5,9 +5,9 @@
 #	include "../concepts/derived_from_all.hpp"
 
 namespace xieite::traits {
-	template<typename Derived_, typename... Bases_>
+	template<typename Derived, typename... Bases>
 	struct IsDerivedFromAll
-	: std::bool_constant<xieite::concepts::DerivedFromAll<Derived_, Bases_...>> {};
+	: std::bool_constant<xieite::concepts::DerivedFromAll<Derived, Bases...>> {};
 }
 
 #endif

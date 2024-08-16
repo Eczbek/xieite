@@ -11,9 +11,9 @@ Finds a specific occurrence of a functor accepting an item of a range and return
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range_>)> Functor_>
-[[nodiscard]] constexpr std::ranges::const_iterator_t<Range_> occurrence(Range_& range, std::size_t count, Functor_&& selector = Functor_())
-noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>>);
+template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>)> Functor>
+[[nodiscard]] constexpr std::ranges::const_iterator_t<Range> occurrence(Range& range, std::size_t count, Functor&& selector = Functor())
+noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>);
 ```
 
 &nbsp;
@@ -30,7 +30,7 @@ int main() {
     std::vector<int> values { 1, 2, 1, 3, 1, 4, 1 };
     //           occurrences: 0     1     2     3
 
-    auto result = xieite::algorithms::occurrence(values, 3, [](int value) {
+    auto result = xieite::algorithms::occurrence(values, 3, [](int value) -> bool {
         return value == 1;
     });
 

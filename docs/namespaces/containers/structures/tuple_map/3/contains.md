@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<Container_, std::tuple<Key_>, Value_>](../../../tuple_map.md)\:\:contains\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<Key>, Value>](../../../tuple_map.md)\:\:contains\<\>\(\)
 Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../include/xieite/containers/tuple_map.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if a value exists by a key.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<std::tuple<Key_>> KeyReference_>
-[[nodiscard]] constexpr bool contains(KeyReference_&& key) const;
+template<std::convertible_to<std::tuple<Key>> KeyReference>
+[[nodiscard]] constexpr bool contains(KeyReference&& key) const;
 ```
 
 &nbsp;

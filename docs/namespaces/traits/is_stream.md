@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_stream.hpp>](../../../include/xieite/traits
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsStream
-: std::bool_constant<xieite::concepts::Stream<Type_>> {};
+: std::bool_constant<xieite::concepts::Stream<Type>> {};
 ```
 
 &nbsp;

@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_derivable.hpp>](../../../include/xieite/tra
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsDerivable
-: std::bool_constant<xieite::concepts::Derivable<Type_>> {};
+: std::bool_constant<xieite::concepts::Derivable<Type>> {};
 ```
 
 &nbsp;

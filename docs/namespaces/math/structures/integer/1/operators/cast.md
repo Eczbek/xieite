@@ -1,23 +1,23 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../../integer.md)\:\:operator typename\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator typename\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
 
 ## Description
-Casts a `xieite::math::Integer<bits_, sign_>` to another integer type.
+Casts a `xieite::math::Integer<bits, sign>` to another integer type.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_>
+template<std::integral Integral>
 [[nodiscard]] explicit constexpr operator Integral() const noexcept;
 ```
 #### 2)
 ```cpp
-template<std::size_t otherBits_, bool otherSign_>
-[[nodiscard]] explicit constexpr operator xieite::math::Integer<otherBits_, otherSign_>() const noexcept;
+template<std::size_t otherBits, bool otherSign>
+[[nodiscard]] explicit constexpr operator xieite::math::Integer<otherBits, otherSign>() const noexcept;
 ```
 
 &nbsp;

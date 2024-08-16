@@ -4,10 +4,10 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
+	template<xieite::concepts::Arithmetic Arithmetic>
 	struct Interval {
-		Arithmetic_ start;
-		Arithmetic_ end;
+		Arithmetic start;
+		Arithmetic end;
 	};
 }
 

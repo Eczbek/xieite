@@ -9,20 +9,20 @@
 #	include "../types/try_unsigned.hpp"
 
 namespace xieite::bits {
-	template<std::size_t... sizes_, std::integral... Integrals_>
-	[[nodiscard]] constexpr std::bitset<(... + sizes_)> mash(const Integrals_... values) noexcept {
-		std::bitset<(... + sizes_)> result;
-		(..., (result = (result >> sizes_) | (std::bitset<(... + sizes_)>(static_cast<xieite::types::TryUnsigned<Integrals_>>(values)) << ((... + sizes_) - sizes_))));
+	template<std::size_t... sizes, std::integral... Integrals>
+	[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(const Integrals... values) noexcept {
+		std::bitset<(... + sizes)> result;
+		(..., (result = (result >> sizes) | (std::bitset<(... + sizes)>(static_cast<xieite::types::TryUnsigned<Integrals>>(values)) << ((... + sizes) - sizes))));
 		return result;
 	}
 
-	template<std::size_t... sizes_, std::integral Integral_>
-	[[nodiscard]] constexpr std::bitset<(... + sizes_)> mash(const std::array<Integral_, sizeof...(sizes_)>& values) noexcept {
-		return ([&values]<std::size_t... i_>(std::index_sequence<i_...>) {
-			std::bitset<(... + sizes_)> result;
-			(..., (result = (result >> sizes_) | (std::bitset<(... + sizes_)>(static_cast<xieite::types::TryUnsigned<Integral_>>(values[i_])) << ((... + sizes_) - sizes_))));
+	template<std::size_t... sizes, std::integral Integral>
+	[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(const std::array<Integral, sizeof...(sizes)>& values) noexcept {
+		return ([&values]<std::size_t... i>(std::index_sequence<i...>) -> std::bitset<(... + sizes)> {
+			std::bitset<(... + sizes)> result;
+			(..., (result = (result >> sizes) | (std::bitset<(... + sizes)>(static_cast<xieite::types::TryUnsigned<Integral>>(values[i])) << ((... + sizes) - sizes))));
 			return result;
-		})(std::make_index_sequence<sizeof...(sizes_)>());
+		})(std::make_index_sequence<sizeof...(sizes)>());
 	}
 }
 

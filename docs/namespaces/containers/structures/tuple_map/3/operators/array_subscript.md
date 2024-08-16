@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleMap<Container_, std::tuple<Key_>, Value_>](../../../../tuple_map.md)\:\:operator\[\]\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<Key>, Value>](../../../../tuple_map.md)\:\:operator\[\]\<\>\(\)
 Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../../include/xieite/containers/tuple_map.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Extracts a value by a key.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Self_, std::convertible_to<std::tuple<Key_>> KeyReference_>
-[[nodiscard]] constexpr auto&& operator[](this Self_&&, KeyReference_&& key);
+template<typename Self, std::convertible_to<std::tuple<Key>> KeyReference>
+[[nodiscard]] constexpr auto&& operator[](this Self&&, KeyReference&& key);
 ```
 
 &nbsp;

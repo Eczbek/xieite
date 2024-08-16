@@ -11,8 +11,8 @@ Specifies that a functor can be invoked without throwing exceptions.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Functor_, typename... Arguments_>
-concept NoThrowInvocable = std::is_nothrow_invocable_v<Functor_, Arguments_...>;
+template<typename Functor, typename... Arguments>
+concept NoThrowInvocable = std::is_nothrow_invocable_v<Functor, Arguments...>;
 ```
 
 &nbsp;

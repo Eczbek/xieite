@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[Color<channels_>](../../../color.md)\:\:value\(\)
+# [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[Color<channels>](../../../color.md)\:\:value\(\)
 Defined in header [<xieite/streams/color.hpp>](../../../../../../include/xieite/streams/color.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Shifts and adds color values together to create a single value.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_> value() const noexcept;
+[[nodiscard]] constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value() const noexcept;
 ```
 
 &nbsp;

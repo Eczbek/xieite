@@ -11,8 +11,8 @@ Computes a quotient and rounds [half toward zero](https://en.wikipedia.org/wiki/
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ divideHalfTowardZero(Arithmetic_ dividend, Arithmetic_ divisor) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic divideHalfTowardZero(Arithmetic dividend, Arithmetic divisor) noexcept;
 ```
 
 &nbsp;

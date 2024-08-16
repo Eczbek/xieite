@@ -11,14 +11,14 @@ Checks if two values are almost equal.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr bool almostEqual(Arithmetic_ value1, Arithmetic_ value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr bool almostEqual(Arithmetic value1, Arithmetic value2) noexcept;
 ```
-Uses `std::numeric_limits<Arithmetic_>::epsilon()` scaled by the sum of the arguments.
+Uses `std::numeric_limits<Arithmetic>::epsilon()` scaled by the sum of the arguments.
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr bool almostEqual(Arithmetic_ value1, Arithmetic_ value2, Arithmetic_ epsilon) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr bool almostEqual(Arithmetic value1, Arithmetic value2, Arithmetic epsilon) noexcept;
 ```
 Uses the epsilon argument directly.
 

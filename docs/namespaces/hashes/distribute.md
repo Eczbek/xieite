@@ -11,8 +11,8 @@ Distributes the bits of an integer magically. See header file.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_, std::floating_point Phi_ = double>
-[[nodiscard]] constexpr Integral_ distribute(Integral_ value) noexcept;
+template<std::integral Integral, std::floating_point Phi = double>
+[[nodiscard]] constexpr Integral distribute(Integral value) noexcept;
 ```
 
 &nbsp;

@@ -11,17 +11,17 @@ Passes arguments to a functor or a constructor in reversed order.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename... Arguments_, typename Functor_>
-requires(xieite::types::List<Arguments_...>::Reverse::template Prepend<Functor_>::template Apply<std::is_invocable>::value)
-constexpr typename xieite::types::List<Arguments_...>::Reverse::Prepend<Functor_>::Apply<std::invoke_result>::type reverseArguments(Functor_&& functor, Arguments_&&... arguments)
-noexcept(xieite::types::List<Arguments_...>::Reverse::template Prepend<Functor_>::template Apply<std::is_nothrow_invocable>::value);
+template<typename... Arguments, typename Functor>
+requires(xieite::types::List<Arguments...>::Reverse::template Prepend<Functor>::template Apply<std::is_invocable>::value)
+constexpr typename xieite::types::List<Arguments...>::Reverse::Prepend<Functor>::Apply<std::invoke_result>::type reverseArguments(Functor&& functor, Arguments&&... arguments)
+noexcept(xieite::types::List<Arguments...>::Reverse::template Prepend<Functor>::template Apply<std::is_nothrow_invocable>::value);
 ```
 #### 2)
 ```cpp
-template<typename Structure, typename... Arguments_>
-requires(xieite::types::List<Arguments_...>::Reverse::template Prepend<Structure>::template Apply<std::is_constructible>::value)
-[[nodiscard]] constexpr Structure reverseArguments(Arguments_&&... arguments)
-noexcept(xieite::types::List<Arguments_...>::Reverse::template Prepend<Structure>::template Apply<std::is_nothrow_constructible>::value);
+template<typename Structure, typename... Arguments>
+requires(xieite::types::List<Arguments...>::Reverse::template Prepend<Structure>::template Apply<std::is_constructible>::value)
+[[nodiscard]] constexpr Structure reverseArguments(Arguments&&... arguments)
+noexcept(xieite::types::List<Arguments...>::Reverse::template Prepend<Structure>::template Apply<std::is_nothrow_constructible>::value);
 ```
 
 &nbsp;

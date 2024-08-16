@@ -7,8 +7,8 @@
 #	include "../types/list.hpp"
 
 namespace xieite::concepts {
-	template<typename Functor_, std::size_t arity_>
-	concept NoThrowInvocableWithArity = xieite::types::List<xieite::types::Any>::Repeat<arity_>::template Prepend<Functor_>::template Apply<std::is_nothrow_invocable>::value;
+	template<typename Functor, std::size_t arity>
+	concept NoThrowInvocableWithArity = xieite::types::List<xieite::types::Any>::Repeat<arity>::template Prepend<Functor>::template Apply<std::is_nothrow_invocable>::value;
 }
 
 #endif

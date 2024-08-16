@@ -7,8 +7,8 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::random {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	using UniformDistribution = std::conditional_t<std::integral<Arithmetic_>, std::conditional_t<std::same_as<Arithmetic_, bool>, std::bernoulli_distribution, std::uniform_int_distribution<Arithmetic_>>, std::uniform_real_distribution<Arithmetic_>>;
+	template<xieite::concepts::Arithmetic Arithmetic>
+	using UniformDistribution = std::conditional_t<std::integral<Arithmetic>, std::conditional_t<std::same_as<Arithmetic, bool>, std::bernoulli_distribution, std::uniform_int_distribution<Arithmetic>>, std::uniform_real_distribution<Arithmetic>>;
 }
 
 #endif

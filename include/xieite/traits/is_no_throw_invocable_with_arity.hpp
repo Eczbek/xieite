@@ -5,9 +5,9 @@
 #	include "../concepts/no_throw_invocable_with_arity.hpp"
 
 namespace xieite::traits {
-	template<typename Functor_, std::size_t arity_>
+	template<typename Functor, std::size_t arity>
 	struct IsNoThrowInvocableWithArity
-	: std::bool_constant<xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>> {};
+	: std::bool_constant<xieite::concepts::NoThrowInvocableWithArity<Functor, arity>> {};
 }
 
 #endif

@@ -12,16 +12,16 @@
 #	include "../math/split_boolean.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr Arithmetic_ parse(const std::string_view value, const std::conditional_t<std::floating_point<Arithmetic_>, xieite::math::SignedSize, Arithmetic_> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr Arithmetic parse(const std::string_view value, const std::conditional_t<std::floating_point<Arithmetic>, xieite::math::SignedSize, Arithmetic> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
 		if (!radix) {
 			return 0;
 		}
 		const bool negative = components.negatives.contains(value[0]);
 		const std::size_t valueSize = value.size();
-		if constexpr (std::floating_point<Arithmetic_>) {
-			Arithmetic_ integral = 0;
-			Arithmetic_ fractional = 0;
+		if constexpr (std::floating_point<Arithmetic>) {
+			Arithmetic integral = 0;
+			Arithmetic fractional = 0;
 			std::size_t point = 0;
 			int power = 0;
 			for (std::size_t i = negative || components.positives.contains(value[0]); i < valueSize; ++i) {
@@ -38,19 +38,19 @@ namespace xieite::math {
 					}
 					continue;
 				}
-				Arithmetic_& part = (point ? fractional : integral);
-				part = part * static_cast<Arithmetic_>(radix) + static_cast<Arithmetic_>(index);
+				Arithmetic& part = (point ? fractional : integral);
+				part = part * static_cast<Arithmetic>(radix) + static_cast<Arithmetic>(index);
 				point += !!point;
 			}
 			return xieite::math::splitBoolean(!negative) * (integral + fractional / std::pow(radix, point - 1)) * std::pow(radix, power);
 		} else {
-			Arithmetic_ result = 0;
+			Arithmetic result = 0;
 			for (std::size_t i = negative || components.positives.contains(value[0]); i < valueSize; ++i) {
 				const std::size_t index = components.digits.find(value[i]);
 				if (index == std::string_view::npos) {
 					break;
 				}
-				result = static_cast<Arithmetic_>(result * static_cast<Arithmetic_>(radix) + static_cast<Arithmetic_>(index));
+				result = static_cast<Arithmetic>(result * static_cast<Arithmetic>(radix) + static_cast<Arithmetic>(index));
 			}
 			return negative ? -result : result;
 		}

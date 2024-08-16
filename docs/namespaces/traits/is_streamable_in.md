@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_streamable_in.hpp>](../../../include/xieite
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsStreamableIn
-: std::bool_constant<xieite::concepts::StreamableIn<Type_>> {};
+: std::bool_constant<xieite::concepts::StreamableIn<Type>> {};
 ```
 
 &nbsp;

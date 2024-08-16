@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_no_throw_convertible_to_any.hpp>](../../../
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source_, typename... Targets_>
+template<typename Source, typename... Targets>
 struct IsNoThrowConvertibleToAny
-: std::bool_constant<xieite::concepts::NoThrowConvertibleToAny<Source_, Targets_...>> {};
+: std::bool_constant<xieite::concepts::NoThrowConvertibleToAny<Source, Targets...>> {};
 ```
 
 &nbsp;

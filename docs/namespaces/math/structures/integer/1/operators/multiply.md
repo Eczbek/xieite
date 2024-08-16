@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../../integer.md)\:\:operator*\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator*\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Returns the product of two integers.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator*(xieite::math::Integer<bits_, sign_> multiplier, xieite::math::Integer<bits_, sign_> multiplicand) noexcept;
+[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator*(xieite::math::Integer<bits, sign> multiplier, xieite::math::Integer<bits, sign> multiplicand) noexcept;
 ```
 
 &nbsp;

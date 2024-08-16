@@ -11,8 +11,8 @@ Gets the sign of a number or the sign of the product of several numbers.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic First_, std::same_as<First_>... Rest_>
-[[nodiscard]] constexpr int sign(First_ first, Rest_... rest) noexcept;
+template<xieite::concepts::Arithmetic First, std::same_as<First>... Rest>
+[[nodiscard]] constexpr int sign(First first, Rest... rest) noexcept;
 ```
 
 &nbsp;

@@ -11,8 +11,8 @@ Checks whether a number is between two limits, where the floor and ceiling limit
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr bool isBetweenFixed(Arithmetic_ value, Arithmetic_ limit1, Arithmetic_ limit2, bool floorInclusive = true, bool ceilingInclusive = true) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr bool isBetweenFixed(Arithmetic value, Arithmetic limit1, Arithmetic limit2, bool floorInclusive = true, bool ceilingInclusive = true) noexcept;
 ```
 
 &nbsp;

@@ -11,8 +11,8 @@ Specifies that a type can be converted to at least one of several other types. P
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source_, typename... Targets_>
-concept ConvertibleToAny = (... || std::convertible_to<Source_, Targets_>);
+template<typename Source, typename... Targets>
+concept ConvertibleToAny = (... || std::convertible_to<Source, Targets>);
 ```
 
 &nbsp;

@@ -25,15 +25,15 @@ Also provides version checking utilities:
 ```
 #### 4)
 ```cpp
-#define XIEITE_VERSION_EQUAL(major_, minor_, patch_) /* boolean */
+#define XIEITE_VERSION_EQUAL(major, minor, patch) /* boolean */
 ```
 #### 5)
 ```cpp
-#define XIEITE_VERSION_LEAST(major_, minor_, patch_) /* boolean */
+#define XIEITE_VERSION_LEAST(major, minor, patch) /* boolean */
 ```
 #### 6)
 ```cpp
-#define XIEITE_VERSION_MOST(major_, minor_, patch_) /* boolean */
+#define XIEITE_VERSION_MOST(major, minor, patch) /* boolean */
 ```
 
 &nbsp;

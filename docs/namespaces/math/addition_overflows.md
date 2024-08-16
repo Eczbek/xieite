@@ -11,8 +11,8 @@ Checks if the addition of two values will overflow or underflow their type (ther
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr bool additionOverflows(Arithmetic_ augend, Arithmetic_ addend) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr bool additionOverflows(Arithmetic augend, Arithmetic addend) noexcept;
 ```
 
 &nbsp;

@@ -11,80 +11,79 @@ A wrapper for a bit-field.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t bits_, bool sign_>
-struct Integer {
-    using Limb = std::conditional_t<sign_, std::make_signed<xieite::types::LeastInteger<bits_>>, std::make_unsigned<xieite::types::LeastInteger<bits_>>>::type;
+template<std::size_t bits, bool sign>
+struct Integer
+: std::type_identity<std::conditional_t<sign, std::make_signed<xieite::types::LeastInteger<bits>>, std::make_unsigned<xieite::types::LeastInteger<bits>>>::type> {
+    template<std::integral OtherIntegral = int>
+    explicit(false) constexpr Integer(OtherIntegral = 0) noexcept;
 
-    template<std::integral OtherIntegral_ = int>
-    explicit(false) constexpr Integer(OtherIntegral_ = 0) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator=(xieite::math::Integer<bits_, sign_>) noexcept;
+    template<std::integral OtherIntegral>
+    explicit constexpr operator OtherIntegral() const noexcept;
 
-    template<std::integral OtherIntegral_>
-    explicit constexpr operator OtherIntegral_() const noexcept;
+    template<std::size_t otherBits, bool otherSign>
+    explicit constexpr operator xieite::math::Integer<otherBits, otherSign>() const noexcept;
 
-    template<std::size_t otherBits_, bool otherSign_>
-    explicit constexpr operator xieite::math::Integer<otherBits_, otherSign_>() const noexcept;
+    friend constexpr std::strong_ordering operator<=>(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr std::strong_ordering operator<=>(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    friend constexpr bool operator==(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr bool operator==(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign> operator+() const noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_> operator+() const noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator+(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator+(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator+=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator+=(xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator++() noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator++() noexcept;
+    constexpr xieite::math::Integer<bits, sign> operator++(int) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_> operator++(int) noexcept;
+    constexpr xieite::math::Integer<bits, sign> operator-() const noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_> operator-() const noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator-(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator-(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator-=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator-=(xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator--() noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator--() noexcept;
+    constexpr xieite::math::Integer<bits, sign> operator--(int) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_> operator--(int) noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator*(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator*(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator*=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator*=(xieite::math::Integer<bits_, sign_>) noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator/(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator/(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator/=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator/=(xieite::math::Integer<bits_, sign_>) noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator%(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator%(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator%=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator%=(xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign> operator~() const noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_> operator~() const noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator&(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator&(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator&=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator&=(xieite::math::Integer<bits_, sign_>) noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator|(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator|(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator|=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator|=(xieite::math::Integer<bits_, sign_>) noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator^(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator^(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator^=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator^=(xieite::math::Integer<bits_, sign_>) noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator<<(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator<<(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator<<=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator<<=(xieite::math::Integer<bits_, sign_>) noexcept;
+    friend constexpr xieite::math::Integer<bits, sign> operator>>(xieite::math::Integer<bits, sign>, xieite::math::Integer<bits, sign>) noexcept;
 
-    friend constexpr xieite::math::Integer<bits_, sign_> operator>>(xieite::math::Integer<bits_, sign_>, xieite::math::Integer<bits_, sign_>) noexcept;
+    constexpr xieite::math::Integer<bits, sign>& operator>>=(xieite::math::Integer<bits, sign>) noexcept;
 
-    constexpr xieite::math::Integer<bits_, sign_>& operator>>=(xieite::math::Integer<bits_, sign_>) noexcept;
-
-    constexpr xieite::math::Integer<bits_, sign_>::Limb data() const noexcept;
+    constexpr xieite::math::Integer<bits, sign>::type data() const noexcept;
 };
 ```
 - Limb

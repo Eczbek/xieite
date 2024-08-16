@@ -11,7 +11,7 @@ Extracts the stringified name of a type at compile-time without additional forma
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 inline constexpr std::string_view name = /* ... */;
 ```
 

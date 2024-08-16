@@ -5,9 +5,9 @@
 #	include "../concepts/character.hpp"
 
 namespace xieite::traits {
-	template<typename Type_>
+	template<typename Type>
 	struct IsCharacter
-	: std::bool_constant<xieite::concepts::Character<Type_>> {};
+	: std::bool_constant<xieite::concepts::Character<Type>> {};
 }
 
 #endif

@@ -12,13 +12,14 @@ A placeholder type for metaprogramming purposes. The provided member functions a
 #### 1)
 ```cpp
 struct Any {
-    Any(auto&&...) noexcept;
+    template<typename... Arguments>
+    explicit(false) Any(Arguments&&...) noexcept;
 
-    template<typename Type_>
-    explicit(false) operator Type_&() const & noexcept;
+    template<typename Type>
+    explicit(false) operator Type&() const & noexcept;
 
-    template<typename Type_>
-    explicit(false) operator Type_&&() const && noexcept;
+    template<typename Type>
+    explicit(false) operator Type&&() const && noexcept;
 };
 ```
 - Any\<\>()

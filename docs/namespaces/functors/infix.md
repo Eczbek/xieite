@@ -16,34 +16,34 @@ struct Infix;
 ```
 #### 2)
 ```cpp
-template<typename Return_, typename Argument_>
-struct Infix<Return_(Argument_)>
-: xieite::functors::Function<Return_(Argument_)> {
-    using xieite::functors::Function<Return_(Argument_)>::Function;
+template<typename Return, typename Argument>
+struct Infix<Return(Argument)>
+: xieite::functors::Function<Return(Argument)> {
+    using xieite::functors::Function<Return(Argument)>::Function;
 
-    template<std::convertible_to<Argument_> ArgumentReference_>
-    friend constexpr Return_ operator>(const xieite::functors::Infix<Return_(Argument_)>&, ArgumentReference_&&);
+    template<std::convertible_to<Argument> ArgumentReference>
+    friend constexpr Return operator>(const xieite::functors::Infix<Return(Argument)>&, ArgumentReference&&);
 
-    template<std::convertible_to<Argument_> ArgumentReference_>
-    friend constexpr Return_ operator<(ArgumentReference_&&, const xieite::functors::Infix<Return_(Argument_)>&);
+    template<std::convertible_to<Argument> ArgumentReference>
+    friend constexpr Return operator<(ArgumentReference&&, const xieite::functors::Infix<Return(Argument)>&);
 };
 ```
 - [operator\>\<\>\(\)](./structures/infix/2/operators/more.md)
 - [operator\<\<\>\(\)](./structures/infix/2/operators/less.md)
 #### 3)
 ```cpp
-template<typename Return_, typename LeftArgument_, typename RightArgument_>
-struct Infix<Return_(LeftArgument_, RightArgument_)>
-: xieite::functors::Function<Return_(LeftArgument_, RightArgument_)> {
+template<typename Return, typename LeftArgument, typename RightArgument>
+struct Infix<Return(LeftArgument, RightArgument)>
+: xieite::functors::Function<Return(LeftArgument, RightArgument)> {
 private:
-    template<typename LeftArgumentReference_>
+    template<typename LeftArgumentReference>
     struct Intermediate;
 
 public:
-    using xieite::functors::Function<Return_(LeftArgument_, RightArgument_)>::Function;
+    using xieite::functors::Function<Return(LeftArgument, RightArgument)>::Function;
 
-    template<std::convertible_to<LeftArgument_> LeftArgumentReference_>
-    friend constexpr xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>::Intermediate<LeftArgumentReference_> operator<(LeftArgumentReference_&&, const xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>&) noexcept;
+    template<std::convertible_to<LeftArgument> LeftArgumentReference>
+    friend constexpr xieite::functors::Infix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference> operator<(LeftArgumentReference&&, const xieite::functors::Infix<Return(LeftArgument, RightArgument)>&) noexcept;
 };
 ```
 - [Intermediate \{\}](./structures/infix/3/intermediate.md)
@@ -57,11 +57,11 @@ public:
 #include "xieite/functors/infix.hpp"
 
 int main() {
-    xieite::functors::Infix<int(int, int)> multiply = [](int x, int y) {
+    xieite::functors::Infix<int(int, int)> multiply = [](int x, int y) -> int {
         return x * y;
     };
 
-    xieite::functors::Infix<int(int)> increment = [](int x) {
+    xieite::functors::Infix<int(int)> increment = [](int x) -> int {
         return x + 1;
     };
 

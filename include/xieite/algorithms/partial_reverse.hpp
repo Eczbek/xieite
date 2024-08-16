@@ -8,17 +8,17 @@
 #	include <ranges>
 #	include <type_traits>
 #	include <vector>
-#	include "../concepts/functable.hpp"
+#	include "../concepts/functor.hpp"
 #	include "../concepts/no_throw_invocable.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range_>)> Functor_>
-	requires(!std::is_const_v<Range_>)
-	constexpr void partialReverse(Range_& range, Functor_&& selector)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>>) {
+	template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>)> Functor>
+	requires(!std::is_const_v<Range>)
+	constexpr void partialReverse(Range& range, Functor&& selector)
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>) {
 		auto iterator = std::ranges::begin(range);
 		const auto end = std::ranges::end(range);
-		std::vector<std::ranges::iterator_t<Range_>> iterators;
+		std::vector<std::ranges::iterator_t<Range>> iterators;
 		for (; iterator != end; ++iterator) {
 			if (std::invoke(selector, *iterator)) {
 				iterators.push_back(iterator);

@@ -6,15 +6,15 @@
 #	include "../macros/forward.hpp"
 
 namespace xieite::functors {
-	template<xieite::concepts::Derivable... Derivables_>
+	template<xieite::concepts::Derivable... Derivables>
 	struct Overloader
-	: Derivables_... {
+	: Derivables... {
 		constexpr Overloader() noexcept = default;
 
-		template<typename... DerivableReferences_>
-		requires((... && std::convertible_to<DerivableReferences_, Derivables_>))
-		constexpr Overloader(DerivableReferences_&&... callbacks) noexcept
-		: Derivables_(XIEITE_FORWARD(callbacks))... {}
+		template<typename... DerivableReferences>
+		requires((... && std::convertible_to<DerivableReferences, Derivables>))
+		constexpr Overloader(DerivableReferences&&... callbacks) noexcept
+		: Derivables(XIEITE_FORWARD(callbacks))... {}
 
 		using Derivables::operator()...;
 	};

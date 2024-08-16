@@ -11,8 +11,8 @@ Combines multiple hashes... somehow. See header file.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Hash_ = std::size_t, std::convertible_to<Hash_>... Hashes_>
-[[nodiscard]] constexpr Hash_ combine(Hash_ firstHash, Hashes_... restHashes) noexcept;
+template<std::integral Hash = std::size_t, std::convertible_to<Hash>... Hashes>
+[[nodiscard]] constexpr Hash combine(Hash firstHash, Hashes... restHashes) noexcept;
 ```
 
 &nbsp;

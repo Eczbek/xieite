@@ -11,8 +11,8 @@ Constructs a `xieite::bits::Fill` thingamabob.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_>
-constexpr Fill(Integral_ value) noexcept;
+template<std::integral Integral>
+constexpr Fill(Integral value) noexcept;
 ```
 Accepts any integral type until I think of a reason for why it shouldn't.
 

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedSet<Key_, size_, Hash_, KeyComparator,_ Allocator_>](../../../../fixed_set.md)\:\:FixedSet\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedSet<Key, size, Hash, KeyComparator,_ Allocator>](../../../../fixed_set.md)\:\:FixedSet\<\>\(\)
 Defined in header [<xieite/containers/fixed_set.hpp>](../../../../../../../include/xieite/containers/fixed_set.hpp)
 
 &nbsp;
@@ -15,12 +15,13 @@ constexpr FixedSet() noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::RangeOf<Key_> Range_>
-explicit(false) constexpr FixedSet(Range_&& entries) noexcept;
+template<std::ranges::input_range Range>
+requires(std::convertible_to<std::ranges::range_value_t<Range>, Key>)
+explicit(false) constexpr FixedSet(Range&& entries) noexcept;
 ```
 #### 3)
 ```cpp
-explicit(false) constexpr FixedSet(std::initializer_list<Key_> entries) noexcept;
+explicit(false) constexpr FixedSet(std::initializer_list<Key> entries) noexcept;
 ```
 
 &nbsp;

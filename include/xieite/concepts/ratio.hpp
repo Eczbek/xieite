@@ -5,8 +5,8 @@
 #	include "../traits/is_ratio.hpp"
 
 namespace xieite::concepts {
-	template<typename Type_>
-	concept Ratio = xieite::traits::IsRatio<std::remove_cv_t<Type_>>::value;
+	template<typename Type>
+	concept Ratio = xieite::traits::IsRatio<std::remove_cv_t<Type>>::value;
 }
 
 #endif

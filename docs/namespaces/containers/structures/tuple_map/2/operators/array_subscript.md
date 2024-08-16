@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleMap<Container_, std::tuple<FirstKey_, RestKeys_...>, Value_>](../../../../tuple_map.md)\:\:operator\[\]\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<FirstKey, RestKeys...>, Value>](../../../../tuple_map.md)\:\:operator\[\]\<\>\(\)
 Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../../include/xieite/containers/tuple_map.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Extracts a value by a specific combination of keys.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Self_, std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_>
-[[nodiscard]] constexpr auto&& operator[](this Self_&&, KeysReference_&& keys);
+template<typename Self, std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+[[nodiscard]] constexpr auto&& operator[](this Self&&, KeysReference&& keys);
 ```
 
 &nbsp;

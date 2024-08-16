@@ -11,8 +11,8 @@ Performs no actions on data.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-[[nodiscard]] constexpr decltype(auto) operator()(Type_&& value) const noexcept;
+template<typename Type>
+[[nodiscard]] constexpr decltype(auto) operator()(Type&& value) const noexcept;
 ```
 
 &nbsp;

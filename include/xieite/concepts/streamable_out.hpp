@@ -5,8 +5,8 @@
 #	include <ostream>
 
 namespace xieite::concepts {
-	template<typename Type_>
-	concept StreamableOut = requires(Type_ value, std::ostream outputStream) {
+	template<typename Type>
+	concept StreamableOut = requires(Type value, std::ostream outputStream) {
 		{ outputStream << value } -> std::same_as<std::ostream&>;
 	};
 }

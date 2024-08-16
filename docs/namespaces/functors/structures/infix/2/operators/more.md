@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix<Return_(Argument_)>](../../../../infix.md)\:\:operator<\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Infix<Return(Argument)>](../../../../infix.md)\:\:operator<\(\)
 Defined in header [<xieite/functors/infix.hpp>](../../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Calls the underlying functor with one argument.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<Argument_> ArgumentReference_>
-friend constexpr Return_ operator<(ArgumentReference_&& argument, const xieite::functors::Infix<Return_(Argument_)>& infix);
+template<std::convertible_to<Argument> ArgumentReference>
+friend constexpr Return operator<(ArgumentReference&& argument, const xieite::functors::Infix<Return(Argument)>& infix);
 ```
 
 &nbsp;
@@ -23,7 +23,7 @@ friend constexpr Return_ operator<(ArgumentReference_&& argument, const xieite::
 #include "xieite/functors/infix.hpp"
 
 int main() {
-    xieite::functors::Infix<int(int)> half = [](int x) {
+    xieite::functors::Infix<int(int)> half = [](int x) -> int {
         return x / 2;
     };
 

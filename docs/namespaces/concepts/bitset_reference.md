@@ -11,7 +11,7 @@ Specifies that a type is a `std::bitset<N>::reference`. Uses a "duck test" becau
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 concept BitsetReference = /* ... */;
 ```
 

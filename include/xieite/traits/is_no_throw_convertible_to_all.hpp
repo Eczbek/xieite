@@ -5,9 +5,9 @@
 #	include "../concepts/no_throw_convertible_to_all.hpp"
 
 namespace xieite::traits {
-	template<typename Source_, typename... Targets_>
+	template<typename Source, typename... Targets>
 	struct IsNoThrowConvertibleToAll
-	: std::bool_constant<xieite::concepts::NoThrowConvertibleToAll<Source_, Targets_...>> {};
+	: std::bool_constant<xieite::concepts::NoThrowConvertibleToAll<Source, Targets...>> {};
 }
 
 #endif

@@ -11,22 +11,23 @@ A `constexpr` wrapper-like structure for `std::unordered_set`.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Key_, std::size_t size_, typename Hash_ = std::hash<Key_>, typename KeyComparator_ = std::equal_to<Key_>, typename Allocator_ = std::allocator<Key_>>
+template<typename Key, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::equal_to<Key>, typename Allocator = std::allocator<Key>>
 struct FixedSet {
     constexpr FixedSet() noexcept;
 
-    template<xieite::concepts::RangeOf<Key_> Range_>
+    template<std::ranges::input_range Range>
+    requires(std::convertible_to<std::ranges::range_value_t<Range>, Key>)
     constexpr FixedSet(Range&&) noexcept;
 
-    constexpr FixedSet(std::initializer_list<Key_>) noexcept;
+    constexpr FixedSet(std::initializer_list<Key>) noexcept;
 
-    template<std::convertible_to<Key_> KeyReference_>
-    constexpr bool operator[](KeyReference_&&) const noexcept;
+    template<std::convertible_to<Key> KeyReference>
+    constexpr bool operator[](KeyReference&&) const noexcept;
 
-    template<std::convertible_to<Key_> KeyReference_>
-    constexpr bool contains(KeyReference_&&) const noexcept;
+    template<std::convertible_to<Key> KeyReference>
+    constexpr bool contains(KeyReference&&) const noexcept;
 
-    constexpr const std::array<Key_, size_>& data() const noexcept;
+    constexpr const std::array<Key, size>& data() const noexcept;
 };
 ```
 - [FixedMap\(\)](./structures/fixed_set/1/operators/constructor.md)

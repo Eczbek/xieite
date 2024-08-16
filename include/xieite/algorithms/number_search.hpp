@@ -3,17 +3,17 @@
 
 #	include <functional>
 #	include "../concepts/arithmetic.hpp"
-#	include "../concepts/functable.hpp"
+#	include "../concepts/functor.hpp"
 #	include "../concepts/no_throw_invocable.hpp"
-#	include "../math/absolute.hpp"
 #	include "../math/almost_equal.hpp"
+#	include "../math/is_negative.hpp"
 
 namespace xieite::algorithms {
-	template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::Functable<bool(Arithmetic_)> Functor_>
-	[[nodiscard]] constexpr Arithmetic_ numberSearch(Functor_&& selector, Arithmetic_ minimum, Arithmetic_ maximum)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor_, Arithmetic_>) {
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functor<bool(Arithmetic)> Functor>
+	[[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector, Arithmetic minimum, Arithmetic maximum)
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, Arithmetic>) {
 		while (true) {
-			const Arithmetic_ middle = (minimum + maximum) / 2;
+			const Arithmetic middle = (minimum + maximum) / 2;
 			if (xieite::math::almostEqual(middle, minimum) || xieite::math::almostEqual(middle, maximum)) {
 				return middle;
 			}
@@ -21,19 +21,21 @@ namespace xieite::algorithms {
 		}
 	}
 
-	template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::Functable<bool(Arithmetic_)> Functor_>
-	[[nodiscard]] constexpr Arithmetic_ numberSearch(Functor_&& selector)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor_, Arithmetic_>) {
-		Arithmetic_ minimum = -1;
-		Arithmetic_ maximum = 1;
-		if (std::invoke(selector, 0)) {
-			while (std::invoke(selector), minimum) {
-				minimum -= xieite::math::absolute(minimum);
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functor<bool(Arithmetic)> Functor>
+	[[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector)
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, Arithmetic>) {
+		if constexpr (!std::unsigned_integral<Arithmetic>) {
+			if (std::invoke(selector, 0)) {
+				Arithmetic minimum = -1;
+				while (std::invoke(selector), minimum) {
+					minimum *= 2;
+				}
+				return xieite::algorithms::numberSearch(selector, minimum, 0);
 			}
-			return xieite::algorithms::numberSearch(selector, minimum, 0);
 		}
+		Arithmetic maximum = 1;
 		while (!std::invoke(selector, maximum)) {
-			maximum += xieite::math::absolute(maximum);
+			maximum *= 2;
 		}
 		return xieite::algorithms::numberSearch(selector, 0, maximum);
 	}

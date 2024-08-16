@@ -11,8 +11,8 @@ Forwards every item of a tuple.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::SpecializationOf<std::tuple> Tuple_>
-[[nodiscard]] constexpr auto forwardTuple(Tuple_&& tuple) noexcept;
+template<xieite::concepts::SpecializationOf<std::tuple> Tuple>
+[[nodiscard]] constexpr auto forwardTuple(Tuple&& tuple) noexcept;
 ```
 
 &nbsp;

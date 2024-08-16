@@ -14,7 +14,6 @@ Somewhat useful algorithms
 - [findOccurrence\<\>\(\)](./namespaces/algorithms/find_occurrence.md)
 - [getMostConsecutive\<\>\(\)](./namespaces/algorithms/get_most_consecutive.md)
 - [getOccurrence\<\>\(\)](./namespaces/algorithms/get_occurrence.md)
-- [group\<\>\(\)](./namespaces/algorithms/group.md)
 - [isPalindrome\<\>\(\)](./namespaces/algorithms/is_palindrome.md)
 - [isRotated\<\>\(\)](./namespaces/algorithms/is_rotated.md)
 - [isUniformMatrix\<\>\(\)](./namespaces/algorithms/is_uniform_matrix.md)

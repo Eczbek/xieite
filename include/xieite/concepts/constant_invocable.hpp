@@ -4,8 +4,8 @@
 #	include <functional>
 
 namespace xieite::concepts {
-	template<typename Functor_, typename... Arguments_>
-	concept ConstantInvocable = requires(const Functor_ functor, Arguments_... arguments) {
+	template<typename Functor, typename... Arguments>
+	concept ConstantInvocable = requires(const Functor functor, Arguments... arguments) {
 		std::invoke(functor, arguments...);
 	};
 }

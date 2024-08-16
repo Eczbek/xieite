@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Functable\<\>
-Defined in header [<xieite/concepts/functable.hpp>](../../../include/xieite/concepts/functable.hpp)
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Functor\<\>
+Defined in header [<xieite/concepts/functor.hpp>](../../../include/xieite/concepts/functor.hpp)
 
 &nbsp;
 
@@ -11,8 +11,8 @@ Specifies that a functor type has a specific "signature" thing.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Functor_, typename Signature_>
-concept Functable = xieite::traits::IsFunctable<Functor_, Signature_>::value;
+template<typename Functor, typename Signature>
+concept Functor = xieite::traits::IsFunctor<Functor, Signature>::value;
 ```
 
 &nbsp;
@@ -20,9 +20,9 @@ concept Functable = xieite::traits::IsFunctable<Functor_, Signature_>::value;
 ## Example
 ```cpp
 #include <print>
-#include "xieite/concepts/functable.hpp"
+#include "xieite/concepts/functor.hpp"
 
-template<xieite::concepts::Functable<int(int)>>
+template<xieite::concepts::Functor<int(int)>>
 void test() {
     std::println("yep");
 }

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value_>](../../../../matrix.md)\:\:data\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value>](../../../../matrix.md)\:\:data\(\)
 Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Returns the underlying one-dimensional data.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr const std::vector<Value_>& data() const noexcept;
+[[nodiscard]] constexpr const std::vector<Value>& data() const noexcept;
 ```
 
 &nbsp;

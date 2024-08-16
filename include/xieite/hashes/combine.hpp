@@ -8,9 +8,9 @@
 #	include "../hashes/distribute.hpp"
 
 namespace xieite::hashes {
-	template<std::integral Hash_ = std::size_t, std::convertible_to<Hash_>... Hashes_>
-	[[nodiscard]] constexpr Hash_ combine(Hash_ firstHash, const Hashes_... restHashes) noexcept {
-		(..., (firstHash = std::rotl(firstHash, xieite::bits::size<Hash_> / 3) ^ xieite::hashes::distribute<Hash_>(restHashes)));
+	template<std::integral Hash = std::size_t, std::convertible_to<Hash>... Hashes>
+	[[nodiscard]] constexpr Hash combine(Hash firstHash, const Hashes... restHashes) noexcept {
+		(..., (firstHash = std::rotl(firstHash, xieite::bits::size<Hash> / 3) ^ xieite::hashes::distribute<Hash>(restHashes)));
 		return firstHash;
 	}
 }

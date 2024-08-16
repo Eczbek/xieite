@@ -11,8 +11,8 @@ Checks if the subtraction of two values will overflow or underflow their type, o
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr bool subtractionOverflows(Arithmetic_ minuend, Arithmetic_ subtrahend) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr bool subtractionOverflows(Arithmetic minuend, Arithmetic subtrahend) noexcept;
 ```
 
 &nbsp;

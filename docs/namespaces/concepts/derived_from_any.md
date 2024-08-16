@@ -11,8 +11,8 @@ Specifies that a type is derived from at least one of several other types. Passi
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Derived_, typename... Bases_>
-concept DerivedFromAny = (... || std::derived_from<Derived_, Bases_>);
+template<typename Derived, typename... Bases>
+concept DerivedFromAny = (... || std::derived_from<Derived, Bases>);
 ```
 
 &nbsp;

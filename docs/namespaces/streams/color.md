@@ -11,22 +11,22 @@ A simple class for storing an RGB(A) value.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t channels_ = 3>
+template<std::size_t channels = 3>
 struct Color {
-    std::array<std::uint8_t, channels_> data;
+    std::array<std::uint8_t, channels> data;
 
-    template<std::same_as<std::uint8_t>... Arguments_>
-    requires(sizeof...(Arguments_) == channels_)
-    constexpr Color(Arguments_...) noexcept;
+    template<std::same_as<std::uint8_t>... Arguments>
+    requires(sizeof...(Arguments) == channels)
+    constexpr Color(Arguments...) noexcept;
 
-    constexpr Color(xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_> = 0) noexcept;
+    constexpr Color(xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> = 0) noexcept;
 
-    friend constexpr bool operator==(const xieite::streams::Color<channels_>&, const xieite::streams::Color<channels_>&) noexcept = default;
+    friend constexpr bool operator==(const xieite::streams::Color<channels>&, const xieite::streams::Color<channels>&) noexcept = default;
 
-    template<typename Self_>
-    constexpr decltype(auto) operator[](this Self_&&, std::size_t) noexcept;
+    template<typename Self>
+    constexpr auto&& operator[](this Self&&, std::size_t) noexcept;
 
-    constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_> value() const noexcept;
+    constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value() const noexcept;
 };
 ```
 - data

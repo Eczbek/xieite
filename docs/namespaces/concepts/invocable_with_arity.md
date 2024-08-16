@@ -11,7 +11,7 @@ Specifies that a functor can be invoked with a specific number of arguments with
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Functor_, std::size_t arity_>
+template<typename Functor, std::size_t arity>
 concept InvocableWithArity = /* ... */;
 ```
 
@@ -24,9 +24,9 @@ concept InvocableWithArity = /* ... */;
 #include "xieite/concepts/invocable_with_arity.hpp"
 
 int main() {
-    auto foo = [](int) {};
+    auto foo = [](int) -> void {};
 
-    auto bar = [](int, int, int) {};
+    auto bar = [](int, int, int) -> void {};
 
     std::println("{}", xieite::concepts::InvocableWithArity<decltype(foo), 3>);
     std::println("{}", xieite::concepts::InvocableWithArity<decltype(bar), 3>);

@@ -1,23 +1,24 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value_>](../../../../matrix.md)\:\:rotate\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value>](../../../../matrix.md)\:\:rotate\(\)
 Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
 
 ## Description
-Rotates a two-dimensional slice of a matrix 90 degrees.
+Rotates a two-dimensional slice of a matrix 90 degrees. Using invalid indices invokes undefined behavior.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_, xieite::concepts::RangeOf<std::size_t> Range_>
-constexpr std::optional<std::monostate> rotate(Integral_ rotations, Range_&& indices) noexcept;
+template<std::integral Integral, std::ranges::input_range Range>
+requires(std::convertible_to<std::ranges::range_value_t<Range>, std::size_t>)
+constexpr void rotate(Integral rotations, Range&& indices) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_, std::convertible_to<std::size_t>... Sizes_>
-constexpr std::optional<std::monostate> rotate(Integral_ rotations, Sizes_... indices) noexcept;
+template<std::integral Integral, std::convertible_to<std::size_t>... Sizes>
+constexpr void rotate(Integral rotations, Sizes... indices) noexcept;
 ```
 
 &nbsp;
@@ -35,7 +36,7 @@ int main() {
 
     for (std::size_t x = 0; x < 2; ++x) {
         for (std::size_t y = 0; y < 3; ++y) {
-            std::print("{} ", matrix[x, y].value());
+            std::print("{} ", matrix[x, y]);
         }
         std::println();
     }
@@ -45,7 +46,7 @@ int main() {
     std::println();
     for (std::size_t x = 0; x < 3; ++x) {
         for (std::size_t y = 0; y < 2; ++y) {
-            std::print("{} ", matrix[x, y].value());
+            std::print("{} ", matrix[x, y]);
         }
         std::println();
     }
@@ -55,7 +56,7 @@ int main() {
     std::println();
     for (std::size_t x = 0; x < 2; ++x) {
         for (std::size_t y = 0; y < 3; ++y) {
-            std::print("{} ", matrix[x, y].value());
+            std::print("{} ", matrix[x, y]);
         }
         std::println();
     }

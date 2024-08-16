@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleMap<Container_, std::tuple<Key_>, Value_>](../../../../tuple_map.md)\:\:TupleMap\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<Key>, Value>](../../../../tuple_map.md)\:\:TupleMap\(\)
 Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../../include/xieite/containers/tuple_map.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Constructs a `xieite::containers::TupleMap`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr TupleMap(std::initializer_list<std::pair<Key_, Value_>> list = {}) noexcept;
+constexpr TupleMap(std::initializer_list<std::pair<Key, Value>> list = {}) noexcept;
 ```
 
 &nbsp;

@@ -11,8 +11,8 @@ Computes modulus better.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ modulo(Arithmetic_ dividend, Arithmetic_ divisor) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic modulo(Arithmetic dividend, Arithmetic divisor) noexcept;
 ```
 
 &nbsp;

@@ -11,8 +11,8 @@ An alias to a pointer to an optionally volatile qualified data type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, bool volatile_>
-requires(std::is_pointer_v<Type_> || std::is_reference_v<Type_>)
+template<typename Type, bool volatileQualified>
+requires(std::is_pointer_v<Type> || std::is_reference_v<Type>)
 using MaybeVolatileData = /* ... */;
 ```
 

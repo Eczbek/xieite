@@ -11,8 +11,8 @@ Takes the logarithm of a value in any base.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> logarithm(Arithmetic_ base, Arithmetic_ value) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic Result = std::common_type_t<double, Arithmetic>>
+[[nodiscard]] constexpr Result logarithm(Arithmetic base, Arithmetic value) noexcept;
 ```
 
 &nbsp;

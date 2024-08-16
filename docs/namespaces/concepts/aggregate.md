@@ -11,8 +11,8 @@ Specifies that a type is an aggregate.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Aggregate = std::is_aggregate_v<Type_>;
+template<typename Type>
+concept Aggregate = std::is_aggregate_v<Type>;
 ```
 
 &nbsp;

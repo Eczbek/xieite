@@ -11,7 +11,7 @@ An alias to an optionally volatile qualified type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, bool volatile_>
+template<typename Type, bool volatileQualified>
 using MaybeVolatile = /* ... */;
 ```
 

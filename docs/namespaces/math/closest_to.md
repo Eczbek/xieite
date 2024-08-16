@@ -11,13 +11,13 @@ Selects the value closest to a target.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_& closestTo(Arithmetic_ target, Arithmetic_& value1, Arithmetic_& value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic& closestTo(Arithmetic target, Arithmetic& value1, Arithmetic& value2) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ closestTo(Arithmetic_ target, const Arithmetic_& value1, const Arithmetic_& value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic closestTo(Arithmetic target, const Arithmetic& value1, const Arithmetic& value2) noexcept;
 ```
 
 &nbsp;

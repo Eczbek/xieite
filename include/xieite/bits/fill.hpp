@@ -11,17 +11,17 @@ namespace xieite::bits {
 	struct Fill {
 		std::byte value;
 
-		template<std::integral Integral_>
-		constexpr Fill(const Integral_ value) noexcept
+		template<std::integral Integral>
+		explicit constexpr Fill(const Integral value) noexcept
 		: value(static_cast<std::byte>(value)) {}
 
-		template<typename Type_>
-		[[nodiscard]] explicit(false) constexpr operator Type_() const noexcept {
-			return std::bit_cast<Type_>(([this]<std::size_t... i_>(std::index_sequence<i_...>) {
-				return std::array<std::byte, sizeof(Type_)> {
-					(void(i_), this->value)...
+		template<typename Type>
+		[[nodiscard]] explicit(false) constexpr operator Type() const noexcept {
+			return std::bit_cast<Type>(([this]<std::size_t... i>(std::index_sequence<i...>) -> std::array<std::byte, sizeof(Type)> {
+				return std::array<std::byte, sizeof(Type)> {
+					(void(i), this->value)...
 				};
-			})(std::make_index_sequence<sizeof(Type_)>()));
+			})(std::make_index_sequence<sizeof(Type)>()));
 		}
 	};
 }

@@ -11,13 +11,13 @@ An structure for storing a partial specialization.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename...> typename Template_, typename... FirstArguments_>
+template<template<typename...> typename Template, typename... FirstArguments>
 struct Partial {
-    template<typename... SecondArguments_>
-    using Append = Template_<FirstArguments_..., SecondArguments_...>;
+    template<typename... SecondArguments>
+    using Append = Template<FirstArguments..., SecondArguments...>;
 
-    template<typename... SecondArguments_>
-    using Prepend = Template_<SecondArguments_..., FirstArguments_...>;
+    template<typename... SecondArguments>
+    using Prepend = Template<SecondArguments..., FirstArguments...>;
 };
 ```
 - Append\<\>

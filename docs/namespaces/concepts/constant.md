@@ -11,8 +11,8 @@ Specifies that a type is constant.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Constant = std::is_const_v<Type_>;
+template<typename Type>
+concept Constant = std::is_const_v<Type>;
 ```
 
 &nbsp;

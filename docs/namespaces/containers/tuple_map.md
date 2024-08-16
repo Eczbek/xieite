@@ -16,18 +16,18 @@ struct TupleMap;
 ```
 #### 2)
 ```cpp
-template<template<typename, typename> typename Container_, typename Value_, typename FirstKey_, typename... RestKeys_>
-struct TupleMap<Container_, std::tuple<FirstKey_, RestKeys_...>, Value_> {
-    constexpr TupleMap(std::initializer_list<std::pair<FirstKey_, TupleMap<std::tuple<RestKeys_...>, Value_>>> = {}) noexcept;
+template<template<typename, typename> typename Container, typename Value, typename FirstKey, typename... RestKeys>
+struct TupleMap<Container, std::tuple<FirstKey, RestKeys...>, Value> {
+    constexpr TupleMap(std::initializer_list<std::pair<FirstKey, TupleMap<std::tuple<RestKeys...>, Value>>> = {}) noexcept;
 
-    template<typename Self_>
-    constexpr auto&& operator[](this Self_&&, const std::tuple<FirstKey_, RestKeys_...>&);
+    template<typename Self>
+    constexpr auto&& operator[](this Self&&, const std::tuple<FirstKey, RestKeys...>&);
 
-    template<std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_, std::convertible_to<Value_> ValueReference_>
-    constexpr void insert(KeysReference_&&, ValueReference_&&);
+    template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
+    constexpr void insert(KeysReference&&, ValueReference&&);
 
-    template<std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_>
-    constexpr bool contains(KeysReference_&&) const;
+    template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+    constexpr bool contains(KeysReference&&) const;
 };
 ```
 - [TupleMap\(\)](./structures/tuple_map/2/operators/constructor.md)
@@ -36,18 +36,18 @@ struct TupleMap<Container_, std::tuple<FirstKey_, RestKeys_...>, Value_> {
 - [contains\(\)](./structures/tuple_map/2/contains.md)
 #### 3)
 ```cpp
-template<template<typename, typename> typename Container_, typename Value_, typename Key_>
-struct TupleMap<Container_, std::tuple<Key_>, Value_> {
-    constexpr TupleMap(std::initializer_list<std::pair<Key_, Value_>> = {}) noexcept;
+template<template<typename, typename> typename Container, typename Value, typename Key>
+struct TupleMap<Container, std::tuple<Key>, Value> {
+    constexpr TupleMap(std::initializer_list<std::pair<Key, Value>> = {}) noexcept;
 
-    template<typename Self_, std::convertible_to<std::tuple<Key_>> KeyReference_>
-    constexpr auto&& operator[](this Self_&&, KeyReference_&&);
+    template<typename Self, std::convertible_to<std::tuple<Key>> KeyReference>
+    constexpr auto&& operator[](this Self&&, KeyReference&&);
 
-    template<std::convertible_to<std::tuple<Key_>> KeyReference_, std::convertible_to<Value_> ValueReference_>
-    constexpr void insert(KeyReference_&&, ValueReference_&&);
+    template<std::convertible_to<std::tuple<Key>> KeyReference, std::convertible_to<Value> ValueReference>
+    constexpr void insert(KeyReference&&, ValueReference&&);
 
-    template<std::convertible_to<std::tuple<Key_>> KeyReference_>
-    constexpr bool contains(KeyReference_&&) const;
+    template<std::convertible_to<std::tuple<Key>> KeyReference>
+    constexpr bool contains(KeyReference&&) const;
 };
 ```
 - [TupleMap\(\)](./structures/tuple_map/3/operators/constructor.md)

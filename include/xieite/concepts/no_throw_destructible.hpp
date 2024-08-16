@@ -4,8 +4,8 @@
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Type_>
-	concept NoThrowDestructible = std::is_nothrow_destructible_v<Type_>;
+	template<typename Type>
+	concept NoThrowDestructible = std::is_nothrow_destructible_v<Type>;
 }
 
 #endif

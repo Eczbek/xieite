@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../integer.md)\:\:data\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../integer.md)\:\:data\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Returns the underlying integer value.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::Integer<bits_, sign_>::Limb data() const noexcept;
+[[nodiscard]] constexpr xieite::math::Integer<bits, sign>::Limb data() const noexcept;
 ```
 
 &nbsp;

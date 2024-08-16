@@ -5,8 +5,8 @@
 #	include "../math/divide_toward_zero.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr Arithmetic_ roundTowardZero(const Arithmetic_ value, const Arithmetic_ step = 1) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr Arithmetic roundTowardZero(const Arithmetic value, const Arithmetic step = 1) noexcept {
 		return xieite::math::divideTowardZero(value, step) * step;
 	}
 }

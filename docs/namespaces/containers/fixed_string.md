@@ -11,12 +11,12 @@ Stores a fixed-size string.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t characters_, typename Character_ = char>
+template<std::size_t characters, typename Character = char>
 struct FixedString {
-    std::array<Character_, characters_ + 1> data;
+    std::array<Character, characters + 1> data;
 
-    template<std::size_t otherCharacters_>
-    constexpr FixedString(const Character_(&)[otherCharacters_]) noexcept;
+    template<std::size_t otherCharacters>
+    constexpr FixedString(const Character(&)[otherCharacters]) noexcept;
 
     static constexpr std::size_t size() noexcept;
 
@@ -32,8 +32,8 @@ struct FixedString {
 
 ### Deduction guides
 ```cpp
-template<std::size_t characters_, typename Character_>
-FixedString(char Character_(&)[characters_]) -> FixedString<characters_ - 1, Character_>;
+template<std::size_t characters, typename Character>
+FixedString(char Character(&)[characters]) -> FixedString<characters - 1, Character>;
 ```
 
 &nbsp;

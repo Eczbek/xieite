@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_bitset_reference.hpp>](../../../include/xie
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsBitsetReference
-: std::bool_constant<xieite::concepts::BitsetReference<Type_>> {};
+: std::bool_constant<xieite::concepts::BitsetReference<Type>> {};
 ```
 
 &nbsp;

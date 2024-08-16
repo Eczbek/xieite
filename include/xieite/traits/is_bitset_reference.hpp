@@ -5,9 +5,9 @@
 #	include "../concepts/bitset_reference.hpp"
 
 namespace xieite::traits {
-	template<typename Type_>
+	template<typename Type>
 	struct IsBitsetReference
-	: std::bool_constant<xieite::concepts::BitsetReference<Type_>> {};
+	: std::bool_constant<xieite::concepts::BitsetReference<Type>> {};
 }
 
 #endif

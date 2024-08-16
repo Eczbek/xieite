@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_numeric.hpp>](../../../include/xieite/trait
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsNumeric
-: std::bool_constant<xieite::concepts::Numeric<Type_>> {};
+: std::bool_constant<xieite::concepts::Numeric<Type>> {};
 ```
 
 &nbsp;

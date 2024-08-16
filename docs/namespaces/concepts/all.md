@@ -11,8 +11,8 @@ Specifies that a type satisfies all of several type traits. Expects trait-like s
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, template<typename> typename... Traits_>
-concept All = (... && Traits_<Type_>::value);
+template<typename Type, template<typename> typename... Traits>
+concept All = (... && Traits<Type>::value);
 ```
 
 &nbsp;

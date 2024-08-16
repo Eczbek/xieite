@@ -4,8 +4,8 @@
 #	include <type_traits>
 
 namespace xieite::concepts {
-	template<typename Type_>
-	concept Polymorphic = std::is_polymorphic_v<Type_>;
+	template<typename Type>
+	concept Polymorphic = std::is_polymorphic_v<Type>;
 }
 
 #endif

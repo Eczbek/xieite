@@ -8,13 +8,13 @@
 #	include <ranges>
 #	include <utility>
 #	include <vector>
-#	include "../concepts/functable.hpp"
+#	include "../concepts/functor.hpp"
 #	include "../concepts/no_throw_invocable.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range1_, std::ranges::range Range2_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range1_>, std::ranges::range_reference_t<Range2_>)> Functor_ = std::ranges::equal_to>
-	[[nodiscard]] constexpr bool isRotated(Range1_&& range1, Range2_&& range2, Functor_&& comparator = Functor_())
-	noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range1_>, std::ranges::range_reference_t<Range2_>>) {
+	template<std::ranges::input_range Range1, std::ranges::input_range Range2, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>)> Functor = std::ranges::equal_to>
+	[[nodiscard]] constexpr bool isRotated(Range1&& range1, Range2&& range2, Functor&& comparator = Functor())
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>>) {
 		const auto begin1 = std::ranges::begin(range1);
 		const auto end1 = std::ranges::end(range1);
 		const auto begin2 = std::ranges::begin(range2);

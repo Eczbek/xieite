@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_specialization_of_any.hpp>](../../../includ
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, template<typename...> typename... Templates_>
+template<typename Type, template<typename...> typename... Templates>
 struct IsSpecializationOfAny
-: std::bool_constant<xieite::concepts::SpecializationOfAny<Type_, Templates_...>> {};
+: std::bool_constant<xieite::concepts::SpecializationOfAny<Type, Templates...>> {};
 ```
 
 &nbsp;

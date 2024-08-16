@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:Rearrange\<\>
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Rearrange\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Rearranges the types within a list by their indices
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t... indices_>
+template<std::size_t... indices>
 using Rearrange = /* xieite::types::List<...> */;
 ```
 

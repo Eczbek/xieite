@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Arithmetic_>](../../../../segment.md)\:\:operator typename\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Arithmetic>](../../../../segment.md)\:\:operator typename\<\>\(\)
 Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Casts one segment type to another.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename OtherArithmetic_>
-[[nodiscard]] constexpr operator xieite::geometry::Segment<OtherArithmetic_>() const noexcept;
+template<typename OtherArithmetic>
+[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Segment<OtherArithmetic>() const noexcept;
 ```
 
 &nbsp;
@@ -20,17 +20,20 @@ template<typename OtherArithmetic_>
 ## Example
 ```cpp
 #include <print>
-#include "xieite/geometry/point.hpp"
+#include "xieite/geometry/segment.hpp"
+#include "xieite/math/almost_equal_slope.hpp"
 
 int main() {
     auto segment1 = xieite::geometry::Segment<double>({ 0.0, 0.0 }, { 3.0, 4.0 });
+    float slope1 = static_cast<float>(segment1.slope());
 
     xieite::geometry::Segment<float> segment2 = segment1;
+    float slope2 = segment2.slope();
 
-    std::println("{}", segment1.slope() == segment2.slope());
+    std::println("{}", xieite::math::almostEqualSlope(slope1, slope2));
 }
 ```
-Output:
+Possible output:
 ```
 true
 ```

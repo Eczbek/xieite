@@ -5,9 +5,9 @@
 #	include "../concepts/specialization_of_any.hpp"
 
 namespace xieite::traits {
-	template<typename Type_, template<typename...> typename... Templates_>
+	template<typename Type, template<typename...> typename... Templates>
 	struct IsSpecializationOfAny
-	: std::bool_constant<xieite::concepts::SpecializationOfAny<Type_, Templates_...>> {};
+	: std::bool_constant<xieite::concepts::SpecializationOfAny<Type, Templates...>> {};
 }
 
 #endif

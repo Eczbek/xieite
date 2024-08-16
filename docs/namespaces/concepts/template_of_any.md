@@ -11,8 +11,8 @@ Specifies that a template corresponds to any possible specializations of it.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename...> typename Template_, typename... Types>
-concept TemplateOfAny = (... || xieite::concepts::TemplateOf<Template_, Types>);
+template<template<typename...> typename Template, typename... Types>
+concept TemplateOfAny = (... || xieite::concepts::TemplateOf<Template, Types>);
 ```
 
 &nbsp;

@@ -11,8 +11,8 @@ Specifies that a type is a scoped enumeration.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept ScopedEnumeration = std::is_scoped_enum_v<Type_>;
+template<typename Type>
+concept ScopedEnumeration = std::is_scoped_enum_v<Type>;
 ```
 
 &nbsp;

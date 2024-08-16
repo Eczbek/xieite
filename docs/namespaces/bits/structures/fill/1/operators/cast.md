@@ -11,8 +11,8 @@ Fills any type with copies of a byte with which this instance was constructed.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-[[nodiscard]] explicit(false) constexpr operator Type_() const noexcept;
+template<typename Type>
+[[nodiscard]] explicit(false) constexpr operator Type() const noexcept;
 ```
 
 &nbsp;

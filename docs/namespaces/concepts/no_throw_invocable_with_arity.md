@@ -11,7 +11,7 @@ Specifies that a functor can be invoked with a specific number of arguments with
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Functor_, std::size_t arity_>
+template<typename Functor, std::size_t arity>
 concept NoThrowInvocableWithArity = /* ... */;
 ```
 

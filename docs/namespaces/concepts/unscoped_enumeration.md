@@ -11,8 +11,8 @@ Specifies that a type is an unscoped enumeration.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept UnscopedEnumeration = std::is_enum_v<Type_> && std::convertible_to<Type_, std::underlying_type_t<Type_>>;
+template<typename Type>
+concept UnscopedEnumeration = std::is_enum_v<Type> && std::convertible_to<Type, std::underlying_type_t<Type>>;
 ```
 
 &nbsp;

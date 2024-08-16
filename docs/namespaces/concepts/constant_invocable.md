@@ -11,7 +11,7 @@ Specifies that a functor type is invocable without mutating.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Functor_, typename... Arguments_>
+template<typename Functor, typename... Arguments>
 concept ConstantInvocable = /* ... */;
 ```
 

@@ -11,8 +11,8 @@ Specifies that a type is a wide character, according to [the standard draft](htt
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept WideCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Type_>, wchar_t, char16_t, char32_t>;
+template<typename Type>
+concept WideCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Type>, wchar_t, char16_t, char32_t>;
 ```
 
 &nbsp;

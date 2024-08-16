@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon<Arithmetic_>](../../../polygon.md)\:\:rectangle\(\)
+# [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon<Arithmetic>](../../../polygon.md)\:\:rectangle\(\)
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Creates a rectangle from two points.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] static constexpr xieite::geometry::Polygon<Arithmetic_> rectangle(xieite::geometry::Point<Arithmetic_> start, xieite::geometry::Point<Arithmetic_> end) noexcept;
+[[nodiscard]] static constexpr xieite::geometry::Polygon<Arithmetic> rectangle(xieite::geometry::Point<Arithmetic> start, xieite::geometry::Point<Arithmetic> end) noexcept;
 ```
 
 &nbsp;

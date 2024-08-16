@@ -6,14 +6,14 @@
 #	include <utility>
 
 namespace xieite::concepts {
-	template<typename Type_>
-	concept BitsetReference = requires(Type_ value) {
-		value.~Type_(); // TODO: Use `std::is_destructible`?
-		{ value = true } -> std::same_as<Type_&>;
-		{ value = value } -> std::same_as<Type_&>;
+	template<typename Type>
+	concept BitsetReference = requires(Type value) {
+		value.~Type(); // TODO: Use `std::is_destructible`?
+		{ value = true } -> std::same_as<Type&>;
+		{ value = value } -> std::same_as<Type&>;
 		value.operator bool();
 		{ ~value } -> std::same_as<bool>;
-		{ value.flip() } -> std::same_as<Type_&>;
+		{ value.flip() } -> std::same_as<Type&>;
 	};
 }
 

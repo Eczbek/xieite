@@ -11,8 +11,8 @@ Specifies that a type is a uniform random bit generator.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept UniformRandomBitGenerator = std::uniform_random_bit_generator<std::remove_reference_t<Type_>>;
+template<typename Type>
+concept UniformRandomBitGenerator = std::uniform_random_bit_generator<std::remove_reference_t<Type>>;
 ```
 
 &nbsp;

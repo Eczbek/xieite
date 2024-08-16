@@ -5,9 +5,9 @@
 #	include "../concepts/unscoped_enumeration.hpp"
 
 namespace xieite::traits {
-	template<typename Type_>
+	template<typename Type>
 	struct IsUnscopedEnumeration
-	: std::bool_constant<xieite::concepts::UnscopedEnumeration<Type_>> {};
+	: std::bool_constant<xieite::concepts::UnscopedEnumeration<Type>> {};
 }
 
 #endif

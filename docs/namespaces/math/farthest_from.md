@@ -11,13 +11,13 @@ Selects the value farthest from a target.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_& farthestFrom(Arithmetic_ target, Arithmetic_& value1, Arithmetic_& value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic& farthestFrom(Arithmetic target, Arithmetic& value1, Arithmetic& value2) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ farthestFrom(Arithmetic_ target, const Arithmetic_& value1, const Arithmetic_& value2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic farthestFrom(Arithmetic target, const Arithmetic& value1, const Arithmetic& value2) noexcept;
 ```
 
 &nbsp;

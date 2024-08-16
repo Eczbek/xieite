@@ -11,8 +11,8 @@ Specifies that a type satisfied `std::chrono::is_clock_v`. To be deprecated once
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Clock = std::chrono::is_clock_v<Type_>;
+template<typename Type>
+concept Clock = std::chrono::is_clock_v<Type>;
 ```
 
 &nbsp;

@@ -11,8 +11,8 @@ Computes the tangent of an optionally inverse, hyperbolic, or reciprocal theta.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> tangent(Arithmetic_ theta, bool inverse, bool hyperbolic, bool reciprocal) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic Result = std::common_type_t<double, Arithmetic>>
+[[nodiscard]] constexpr Result tangent(Arithmetic theta, bool inverse, bool hyperbolic, bool reciprocal) noexcept;
 ```
 
 &nbsp;

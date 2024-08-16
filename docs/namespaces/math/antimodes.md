@@ -11,14 +11,14 @@ Finds values which are less than both their direct neighbors.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range_>
-requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range_>>)
-[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range_>> antimodes(const Range_& range) noexcept;
+template<std::ranges::input_range Range>
+requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
+[[nodiscard]] constexpr std::vector<std::ranges::range_value_t<Range>> antimodes(const Range& range) noexcept;
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic... Arithmetics_>
-[[nodiscard]] constexpr std::vector<std::common_type_t<double, Arithmetics_...>> antimodes(Arithmetics_... values) noexcept;
+template<xieite::concepts::Arithmetic... Arithmetics>
+[[nodiscard]] constexpr std::vector<std::common_type_t<double, Arithmetics...>> antimodes(Arithmetics... values) noexcept;
 ```
 
 &nbsp;

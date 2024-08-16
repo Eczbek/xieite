@@ -4,8 +4,8 @@
 #	include <concepts>
 
 namespace xieite::concepts {
-	template<typename Source_, typename... Targets_>
-	concept ConvertibleToAny = (... || std::convertible_to<Source_, Targets_>);
+	template<typename Source, typename... Targets>
+	concept ConvertibleToAny = (... || std::convertible_to<Source, Targets>);
 }
 
 #endif

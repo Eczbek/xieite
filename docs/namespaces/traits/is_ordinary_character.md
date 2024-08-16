@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_ordinary_character.hpp>](../../../include/x
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsOrdinaryCharacter
-: std::bool_constant<xieite::concepts::OrdinaryCharacter<Type_>> {};
+: std::bool_constant<xieite::concepts::OrdinaryCharacter<Type>> {};
 ```
 
 &nbsp;

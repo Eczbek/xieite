@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_convertible_to_all.hpp>](../../../include/x
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source_, typename... Targets_>
+template<typename Source, typename... Targets>
 struct IsConvertibleToAll
-: std::bool_constant<xieite::concepts::ConvertibleToAll<Source_, Targets_...>> {};
+: std::bool_constant<xieite::concepts::ConvertibleToAll<Source, Targets...>> {};
 ```
 
 &nbsp;

@@ -571,19 +571,19 @@ Macros for identifying the current compiler type and version (major, minor, patc
 ```
 #### 81)
 ```cpp
-#define XIEITE_COMPILER_VERSION_EQUAL(compiler_, major_, minor_, patch_) /* boolean */
+#define XIEITE_COMPILER_VERSION_EQUAL(compiler, major, minor, patch) /* boolean */
 ```
-Requires `XIEITE_COMPILER_TYPE_##architecture_` to be `1`.
+Requires `XIEITE_COMPILER_TYPE_##architecture` to be `1`.
 #### 82)
 ```cpp
-#define XIEITE_COMPILER_VERSION_LEAST(compiler_, major_, minor_, patch_) /* boolean */
+#define XIEITE_COMPILER_VERSION_LEAST(compiler, major, minor, patch) /* boolean */
 ```
-Requires `XIEITE_COMPILER_TYPE_##architecture_` to be `1`.
+Requires `XIEITE_COMPILER_TYPE_##architecture` to be `1`.
 #### 83)
 ```cpp
-#define XIEITE_COMPILER_VERSION_MOST(compiler_, major_, minor_, patch_) /* boolean */
+#define XIEITE_COMPILER_VERSION_MOST(compiler, major, minor, patch) /* boolean */
 ```
-Requires `XIEITE_COMPILER_TYPE_##architecture_` to be `1`.
+Requires `XIEITE_COMPILER_TYPE_##architecture` to be `1`.
 
 &nbsp;
 

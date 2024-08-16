@@ -11,8 +11,8 @@ Computes the product of two unsigned integers in two parts. Intended for avoidin
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral UnsignedIntegral_>
-[[nodiscard]] constexpr xieite::math::Product<UnsignedIntegral_> multiply(UnsignedIntegral_ multiplier, UnsignedIntegral_ multiplicand) noexcept;
+template<std::unsigned_integral UnsignedIntegral>
+[[nodiscard]] constexpr xieite::math::Product<UnsignedIntegral> multiply(UnsignedIntegral multiplier, UnsignedIntegral multiplicand) noexcept;
 ```
 
 &nbsp;

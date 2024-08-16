@@ -12,8 +12,8 @@ Executes a callback when the program ends.
 #### 1)
 ```cpp
 struct ProcessGuard {
-    template<xieite::concepts::Functable<void()> Functor_, auto = [] {}>
-    ProcessGuard(Functor_&&) noexcept;
+    template<std::invocable<> Functor, auto = [] {}>
+    ProcessGuard(Functor&&) noexcept;
 
     void release() noexcept;
 };

@@ -12,7 +12,8 @@ Runs a callback constantly.
 #### 1)
 ```cpp
 struct Loop {
-    Loop(const xieite::functors::Function<void()>&) noexcept;
+    template<std::invocable<> Functor>
+    Loop(Functor&&) noexcept;
 
     explicit operator bool() const noexcept;
 

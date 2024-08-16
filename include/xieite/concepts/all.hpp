@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER_CONCEPTS_ALL
 
 namespace xieite::concepts {
-	template<typename Type_, template<typename> typename... Traits_>
-	concept All = (... && Traits_<Type_>::value);
+	template<typename Type, template<typename> typename... Traits>
+	concept All = (... && Traits<Type>::value);
 }
 
 #endif

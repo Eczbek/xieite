@@ -11,10 +11,10 @@ A simple structure for storing an interval between two numbers.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
+template<xieite::concepts::Arithmetic Arithmetic>
 struct Interval {
-    Arithmetic_ start;
-    Arithmetic_ end;
+    Arithmetic start;
+    Arithmetic end;
 };
 ```
 - start

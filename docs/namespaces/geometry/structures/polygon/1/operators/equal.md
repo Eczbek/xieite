@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Arithmetic_>](../../../../polygon.md)\:\:operator==\(\)
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Arithmetic>](../../../../polygon.md)\:\:operator==\(\)
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Compares two polygons.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Polygon<Arithmetic_>& polygon1, const xieite::geometry::Polygon<Arithmetic_>& polygon2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Polygon<Arithmetic>& polygon1, const xieite::geometry::Polygon<Arithmetic>& polygon2) noexcept;
 ```
 
 &nbsp;

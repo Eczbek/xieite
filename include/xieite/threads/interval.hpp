@@ -2,22 +2,22 @@
 #	define XIEITE_HEADER_THREADS_INTERVAL
 
 #	include <concepts>
+#	include <functional>
 #	include <thread>
 #	include "../concepts/duration.hpp"
-#	include "../functors/function.hpp"
 #	include "../threads/loop.hpp"
 
 namespace xieite::threads {
 	struct Interval {
 	public:
-		template<xieite::concepts::Duration Duration_>
-		Interval(const xieite::functors::Function<void()>& callback, const Duration_ duration) noexcept
-		: loop([&callback, duration] {
+		template<std::invocable<> Functor, xieite::concepts::Duration Duration>
+		Interval(Functor&& callback, const Duration duration) noexcept
+		: loop([&callback, duration] -> void {
 			static bool first = true;
 			if (first) {
 				first = false;
 			} else {
-				callback();
+				std::invoke(callback);
 			}
 			std::this_thread::sleep_for(duration);
 		}) {}

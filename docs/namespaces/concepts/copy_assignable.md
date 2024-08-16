@@ -11,8 +11,8 @@ Specifies that a type is copy-assignable.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept CopyAssignable = std::is_copy_assignable_v<Type_>;
+template<typename Type>
+concept CopyAssignable = std::is_copy_assignable_v<Type>;
 ```
 
 &nbsp;

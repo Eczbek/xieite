@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:Swap\<\>
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Swap\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Swaps two types by indices.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t index1_, std::size_t index2_>
+template<std::size_t index1, std::size_t index2>
 using Swap = /* xieite::types::List<...> */;
 ```
 

@@ -6,27 +6,30 @@
 #	include <concepts>
 #	include <cstddef>
 #	include <tuple>
+#	include <utility>
 #	include "../bits/size.hpp"
-#	include "../containers/reverse_tuple.hpp"
 
 namespace xieite::bits {
-	template<std::integral... Integrals_, std::size_t bits_>
-	requires(bits_ >= (... + xieite::bits::size<Integrals_>))
-	[[nodiscard]] constexpr std::tuple<Integrals_...> unjoin(std::bitset<bits_> value) noexcept {
-		return xieite::containers::reverseTuple(std::make_tuple<Integrals_...>(([&value] {
-			const Integrals_ item = static_cast<Integrals_>(value.to_ullong());
-			value >>= xieite::bits::size<Integrals_>;
-			return item;
-		})()...));
+	template<std::integral... Integrals, std::size_t bits>
+	requires(bits >= (... + xieite::bits::size<Integrals>))
+	[[nodiscard]] constexpr std::tuple<Integrals...> unjoin(std::bitset<bits> value) noexcept {
+		std::tuple<Integrals...> result;
+		([&value, &result]<std::size_t... i>(std::index_sequence<i...>) -> void {
+			(..., ([&value, &result] -> void {
+				std::get<i>(result) = static_cast<Integrals>(value.to_ullong());
+				value >>= xieite::bits::size<Integrals>;
+			})());
+		})(std::make_index_sequence<sizeof...(Integrals)>());
+		return result;
 	}
 
-	template<std::integral Integral_, std::size_t size_, std::size_t bits_>
-	requires(bits_ >= (xieite::bits::size<Integral_> * size_))
-	[[nodiscard]] constexpr std::array<Integral_, size_> unjoin(std::bitset<bits_> value) noexcept {
-		std::array<Integral_, size_> result;
-		for (std::size_t i = 0; i < size_; ++i) {
-			result[i] = static_cast<Integral_>(value.to_ullong());
-			value >>= xieite::bits::size<Integral_>;
+	template<std::integral Integral, std::size_t size, std::size_t bits>
+	requires(bits >= (xieite::bits::size<Integral> * size))
+	[[nodiscard]] constexpr std::array<Integral, size> unjoin(std::bitset<bits> value) noexcept {
+		std::array<Integral, size> result;
+		for (std::size_t i = 0; i < size; ++i) {
+			result[i] = static_cast<Integral>(value.to_ullong());
+			value >>= xieite::bits::size<Integral>;
 		}
 		return result;
 	}

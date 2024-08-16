@@ -4,13 +4,13 @@
 #	include <cstddef>
 #	include <functional>
 #	include <ranges>
-#	include "../concepts/functable.hpp"
+#	include "../concepts/functor.hpp"
 #	include "../concepts/no_throw_invocable.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range_>)> Functor_>
-	[[nodiscard]] constexpr std::ranges::const_iterator_t<Range_> getOccurrence(Range_& range, std::size_t count, Functor_&& selector = Functor_())
-	noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>>) {
+	template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>)> Functor>
+	[[nodiscard]] constexpr std::ranges::const_iterator_t<Range> getOccurrence(Range& range, std::size_t count, Functor&& selector = Functor())
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>>) {
 		const auto end = std::ranges::end(range);
 		for (auto iterator = std::ranges::begin(range); iterator != end; ++iterator) {
 			if (std::invoke(comparator, *iterator) && !count--) {

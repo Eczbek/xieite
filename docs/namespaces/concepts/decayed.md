@@ -11,8 +11,8 @@ Specifies that a type is decayed.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Decayed = std::same_as<Type_, std::decay_t<Type_>>;
+template<typename Type>
+concept Decayed = std::same_as<Type, std::decay_t<Type>>;
 ```
 
 &nbsp;

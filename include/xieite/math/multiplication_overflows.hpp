@@ -6,9 +6,9 @@
 #	include "../math/absolute.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr bool multiplicationOverflows(const Arithmetic_ multiplier, const Arithmetic_ multiplicand) noexcept {
-		return multiplier && multiplicand && ((xieite::math::absolute(((multiplier < 0) != (multiplicand < 0)) ? std::numeric_limits<Arithmetic_>::min() : std::numeric_limits<Arithmetic_>::max()) / xieite::math::absolute(multiplier)) < xieite::math::absolute(multiplicand));
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr bool multiplicationOverflows(const Arithmetic multiplier, const Arithmetic multiplicand) noexcept {
+		return multiplier && multiplicand && ((xieite::math::absolute(((multiplier < 0) != (multiplicand < 0)) ? std::numeric_limits<Arithmetic>::min() : std::numeric_limits<Arithmetic>::max()) / xieite::math::absolute(multiplier)) < xieite::math::absolute(multiplicand));
 	}
 }
 

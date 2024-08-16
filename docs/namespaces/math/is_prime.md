@@ -11,8 +11,8 @@ Checks whether an integer is only evenly divisible by itself and 1.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] constexpr bool isPrime(Integral_ value) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr bool isPrime(Integral value) noexcept;
 ```
 
 &nbsp;

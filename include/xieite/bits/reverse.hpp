@@ -8,18 +8,18 @@
 #	include "../bits/size.hpp"
 
 namespace xieite::bits {
-	template<std::integral Integral_>
-	[[nodiscard]] constexpr Integral_ reverse(const Integral_ value) noexcept {
-		return ([]<std::size_t... i_>(std::index_sequence<i_...>) {
-			return (... | (((value >> i_) & 1) << (xieite::bits::size<Integral_> - i_ - 1)));
-		})(std::make_index_sequence<xieite::bits::size<Integral_>>());
+	template<std::integral Integral>
+	[[nodiscard]] constexpr Integral reverse(const Integral value) noexcept {
+		return ([]<std::size_t... i>(std::index_sequence<i...>) -> Integral {
+			return (... | (((value >> i) & 1) << (xieite::bits::size<Integral> - i - 1)));
+		})(std::make_index_sequence<xieite::bits::size<Integral>>());
 	}
 
-	template<std::size_t bits_>
-	[[nodiscard]] constexpr std::bitset<bits_> reverse(const std::bitset<bits_>& value) noexcept {
-		return ([]<std::size_t... i_>(std::index_sequence<i_...>) {
-			return (... | (std::bitset<bits_>(value[i_]) << (bits_ - i_ - 1)));
-		})(std::make_index_sequence<bits_>());
+	template<std::size_t bits>
+	[[nodiscard]] constexpr std::bitset<bits> reverse(const std::bitset<bits>& value) noexcept {
+		return ([]<std::size_t... i>(std::index_sequence<i...>) -> std::bitset<bits> {
+			return (... | (std::bitset<bits>(value[i]) << (bits - i - 1)));
+		})(std::make_index_sequence<bits>());
 	}
 }
 

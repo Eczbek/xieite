@@ -11,10 +11,10 @@ Distributes arguments among several calls to a functor, but recursively such tha
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t arity_, std::size_t previousResultIndex_ = 0, xieite::concepts::InvocableWithArity<arity_> Functor_, typename... Arguments_>
-requires((arity_ > previousResultIndex_) && (arity_ <= sizeof...(Arguments_)) && ((arity_ == 1) || (arity_ > 1) && !((sizeof...(Arguments_) - 1) % (arity_ - 1))))
-constexpr decltype(auto) recursivelyDistributeArguments(Functor_&& functor, Arguments_&&... arguments)
-noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>);
+template<std::size_t arity, std::size_t previousResultIndex = 0, xieite::concepts::InvocableWithArity<arity> Functor, typename... Arguments>
+requires((arity > previousResultIndex) && (arity <= sizeof...(Arguments)) && ((arity == 1) || (arity > 1) && !((sizeof...(Arguments) - 1) % (arity - 1))))
+constexpr decltype(auto) recursivelyDistributeArguments(Functor&& functor, Arguments&&... arguments)
+noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor, arity>);
 ```
 
 &nbsp;
@@ -25,7 +25,7 @@ noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor_, arity_>);
 #include "xieite/functors/recursively_distribute_arguments.hpp"
 
 int main() {
-    auto lambda = [](int x, int total) {
+    auto lambda = [](int x, int total) -> int {
         std::println("total: {}", total);
         return total + x;
     };

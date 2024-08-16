@@ -3,13 +3,13 @@
 
 namespace xieite::types {
 	struct Any {
-		Any(auto&&...) noexcept;
+		explicit(false) Any(auto&&...) noexcept;
 
-		template<typename Type_>
-		explicit(false) constexpr operator Type_&() const & noexcept;
+		template<typename Type>
+		explicit(false) constexpr operator Type&() const & noexcept;
 
-		template<typename Type_>
-		explicit(false) constexpr operator Type_&&() const && noexcept;
+		template<typename Type>
+		explicit(false) constexpr operator Type&&() const && noexcept;
 	};
 }
 

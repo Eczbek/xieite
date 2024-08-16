@@ -5,8 +5,8 @@
 #	include "../concepts/output_stream.hpp"
 
 namespace xieite::concepts {
-	template<typename Type_>
-	concept Stream = xieite::concepts::InputStream<Type_> || xieite::concepts::OutputStream<Type_>;
+	template<typename Type>
+	concept Stream = xieite::concepts::InputStream<Type> || xieite::concepts::OutputStream<Type>;
 }
 
 #endif

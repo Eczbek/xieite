@@ -11,10 +11,10 @@ A structure intended for storing the product of two unsigned integers in two par
 ## Synopsis
 #### 1)
 ```cpp
-template<std::unsigned_integral UnsignedIntegral_>
+template<std::unsigned_integral UnsignedIntegral>
 struct Product {
-    UnsignedIntegral_ lower;
-    UnsignedIntegral_ upper;
+    UnsignedIntegral lower;
+    UnsignedIntegral upper;
 };
 ```
 - lower

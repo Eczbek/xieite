@@ -11,28 +11,28 @@
 #	include "../units/volume.hpp"
 
 namespace xieite::units {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Angle source, const xieite::units::Angle target) noexcept {
-		std::common_type_t<double, Arithmetic_> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic Result = std::common_type_t<double, Arithmetic>>
+	[[nodiscard]] constexpr Result convert(const Arithmetic value, const xieite::units::Angle source, const xieite::units::Angle target) noexcept {
+		Result result = static_cast<Result>(value);
 		if (source == target) {
 			return result;
 		}
 		switch (source) {
 		case xieite::units::Angle::Degree:
-			result = result * xieite::math::pi<std::common_type_t<double, Arithmetic_>> / 180;
+			result = result * xieite::math::pi<std::common_type_t<double, Arithmetic>> / 180;
 			break;
 		}
 		switch (target) {
 		case xieite::units::Angle::Degree:
-			result = result * 180 / xieite::math::pi<std::common_type_t<double, Arithmetic_>>;
+			result = result * 180 / xieite::math::pi<std::common_type_t<double, Arithmetic>>;
 			break;
 		}
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Area source, const xieite::units::Area target) noexcept {
-		std::common_type_t<double, Arithmetic_> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic Result = std::common_type_t<double, Arithmetic>>
+	[[nodiscard]] constexpr Result convert(const Arithmetic value, const xieite::units::Area source, const xieite::units::Area target) noexcept {
+		Result result = static_cast<Result>(value);
 		if (source == target) {
 			return result;
 		}
@@ -241,9 +241,9 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Length source, const xieite::units::Length target) noexcept {
-		std::common_type_t<double, Arithmetic_> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic Result = std::common_type_t<double, Arithmetic>>
+	[[nodiscard]] constexpr Result convert(const Arithmetic value, const xieite::units::Length source, const xieite::units::Length target) noexcept {
+		Result result = static_cast<Result>(value);
 		if (source == target) {
 			return result;
 		}
@@ -500,9 +500,9 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Temperature source, const xieite::units::Temperature target) noexcept {
-		std::common_type_t<double, Arithmetic_> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic Result = std::common_type_t<double, Arithmetic>>
+	[[nodiscard]] constexpr Result convert(const Arithmetic value, const xieite::units::Temperature source, const xieite::units::Temperature target) noexcept {
+		Result result = static_cast<Result>(value);
 		if (source == target) {
 			return result;
 		}
@@ -531,9 +531,9 @@ namespace xieite::units {
 		return result;
 	}
 
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr std::common_type_t<double, Arithmetic_> convert(const Arithmetic_ value, const xieite::units::Volume source, const xieite::units::Volume target) noexcept {
-		std::common_type_t<double, Arithmetic_> result = value;
+	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic Result = std::common_type_t<double, Arithmetic>>
+	[[nodiscard]] constexpr Result convert(const Arithmetic value, const xieite::units::Volume source, const xieite::units::Volume target) noexcept {
+		Result result = static_cast<Result>(value);
 		if (source == target) {
 			return result;
 		}

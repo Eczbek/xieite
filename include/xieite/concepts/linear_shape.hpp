@@ -17,8 +17,8 @@ namespace xieite::geometry {
 }
 
 namespace xieite::concepts {
-	template<typename Type_, xieite::concepts::Arithmetic Arithmetic_ = double>
-	concept LinearShape = xieite::concepts::SameAsAny<std::remove_cvref_t<Type_>, xieite::geometry::Line<Arithmetic_>, xieite::geometry::Ray<Arithmetic_>, xieite::geometry::Segment<Arithmetic_>>;
+	template<typename Type, xieite::concepts::Arithmetic Arithmetic = double>
+	concept LinearShape = xieite::concepts::SameAsAny<std::remove_cvref_t<Type>, xieite::geometry::Line<Arithmetic>, xieite::geometry::Ray<Arithmetic>, xieite::geometry::Segment<Arithmetic>>;
 }
 
 #endif

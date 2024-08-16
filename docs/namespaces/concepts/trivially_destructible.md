@@ -11,8 +11,8 @@ Specifies that a type is trivially destructible.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept TriviallyDestructible = std::is_trivially_destructible_v<Type_>;
+template<typename Type>
+concept TriviallyDestructible = std::is_trivially_destructible_v<Type>;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Arithmetic_>](../../../../ray.md)\:\:operator typename\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Arithmetic>](../../../../ray.md)\:\:operator typename\<\>\(\)
 Defined in header [<xieite/geometry/ray.hpp>](../../../../../../../include/xieite/geometry/ray.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Casts one ray type to another.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename OtherArithmetic_>
-[[nodiscard]] constexpr operator xieite::geometry::Ray<OtherArithmetic_>() const noexcept;
+template<typename OtherArithmetic>
+[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Ray<OtherArithmetic>() const noexcept;
 ```
 
 &nbsp;
@@ -21,16 +21,19 @@ template<typename OtherArithmetic_>
 ```cpp
 #include <print>
 #include "xieite/geometry/ray.hpp"
+#include "xieite/math/almost_equal_slope.hpp"
 
 int main() {
     auto ray1 = xieite::geometry::Ray<double>({ 0.0, 0.0 }, { 1.0, 1.0 });
+    float slope1 = static_cast<float>(ray1.slope());
 
     xieite::geometry::Ray<float> ray2 = ray1;
+    float slope2 = ray2.slope();
 
-    std::println("{}", ray1.slope() == ray2.slope());
+    std::println("{}", xieite::math::almostEqualSlope(slope1, slope2));
 }
 ```
-Output:
+Possible output:
 ```
 true
 ```

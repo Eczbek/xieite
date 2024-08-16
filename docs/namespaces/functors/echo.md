@@ -11,10 +11,10 @@ Functor that returns whatever it is given.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Target_>
+template<typename Target>
 struct Echo {
-    template<typename Type_>
-    constexpr decltype(auto) operator()(Type_&&) const noexcept;
+    template<typename Type>
+    constexpr decltype(auto) operator()(Type&&) const noexcept;
 };
 ```
 - [operator\(\)\<\>\(\)](./structures/echo/1/operators/call.md)

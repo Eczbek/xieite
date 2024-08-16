@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_decayed.hpp>](../../../include/xieite/trait
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsDecayed
-: std::bool_constant<xieite::concepts::Decayed<Type_>> {};
+: std::bool_constant<xieite::concepts::Decayed<Type>> {};
 ```
 
 &nbsp;

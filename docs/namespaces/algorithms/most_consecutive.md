@@ -11,9 +11,9 @@ Finds the subrange of greatest length containing the maximum number of consecuti
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_const_reference_t<Range_>)> Functor_>
-[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range_>> mostConsecutive(Range_&& range, Functor_&& selector = Functor_())
-noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_const_reference_t<Range_>>);
+template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_const_reference_t<Range>)> Functor>
+[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> mostConsecutive(Range&& range, Functor&& selector = Functor())
+noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>);
 ```
 
 &nbsp;
@@ -30,7 +30,7 @@ int main() {
     std::vector<int> values { 1, 0, 1, 1, 1, 0, 1, 1 };
     //           consecutive: 1     1  2  3     1  2
 
-    auto result = xieite::algorithms::mostConsecutive(values, [](int value) {
+    auto result = xieite::algorithms::mostConsecutive(values, [](int value) -> bool {
         return value == 1;
     });
 

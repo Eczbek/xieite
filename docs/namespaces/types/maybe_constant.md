@@ -11,7 +11,7 @@ An alias to an optionally constant qualified type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, bool constant_>
+template<typename Type, bool constantQualified>
 using MaybeConstant = /* ... */;
 ```
 

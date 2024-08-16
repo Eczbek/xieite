@@ -11,9 +11,9 @@ Finds the subrange of greatest length containing the maximum number of consecuti
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_const_reference_t<Range_>, std::ranges::range_const_reference_t<Range_>)> Functor_ = std::ranges::equal_to>
-[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range_>> findMostConsecutive(Range_&& range, std::ranges::range_const_reference_t<Range_> value, Functor_&& comparator = Functor_())
-noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_const_reference_t<Range_>, std::ranges::range_const_reference_t<Range_>>);
+template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>)> Functor = std::ranges::equal_to>
+[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> findMostConsecutive(Range&& range, std::ranges::range_const_reference_t<Range> value, Functor&& comparator = Functor())
+noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>>);
 ```
 
 &nbsp;

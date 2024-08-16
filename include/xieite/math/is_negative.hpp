@@ -5,9 +5,9 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr bool isNegative(const Arithmetic_ value) noexcept {
-		if constexpr (!std::unsigned_integral<Arithmetic_>) {
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr bool isNegative(const Arithmetic value) noexcept {
+		if constexpr (!std::unsigned_integral<Arithmetic>) {
 			return value < 0;
 		} else {
 			return false;

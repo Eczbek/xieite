@@ -5,9 +5,9 @@
 #	include "../concepts/arithmetic.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr bool subtractionOverflows(const Arithmetic_ minuend, const Arithmetic_ subtrahend) noexcept {
-		return minuend && subtrahend && ((subtrahend >= 0) ? ((std::numeric_limits<Arithmetic_>::min() + subtrahend) > minuend) : ((std::numeric_limits<Arithmetic_>::max() + subtrahend) < minuend));
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr bool subtractionOverflows(const Arithmetic minuend, const Arithmetic subtrahend) noexcept {
+		return minuend && subtrahend && ((subtrahend >= 0) ? ((std::numeric_limits<Arithmetic>::min() + subtrahend) > minuend) : ((std::numeric_limits<Arithmetic>::max() + subtrahend) < minuend));
 	}
 }
 

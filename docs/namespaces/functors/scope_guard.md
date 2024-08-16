@@ -12,7 +12,8 @@ Executes a callback when it goes out of scope.
 #### 1)
 ```cpp
 struct ScopeGuard {
-    constexpr ScopeGuard(const xieite::functors::Function<void()>&) noexcept;
+    template<std::invocable<> Functor>
+    constexpr ScopeGuard(Functor&&) noexcept;
 
     constexpr void release() noexcept;
 };

@@ -86,15 +86,15 @@ namespace xieite::streams {
 			}
 		}
 
-		template<std::size_t channels_>
-		requires(channels_ >= 3)
-		[[nodiscard]] static constexpr std::string stringSetForegroundColor(const xieite::streams::Color<channels_>& color) noexcept {
+		template<std::size_t channels>
+		requires(channels >= 3)
+		[[nodiscard]] static constexpr std::string stringSetForegroundColor(const xieite::streams::Color<channels>& color) noexcept {
 			return "\x1B[38;2;" + xieite::math::stringify(color[0]) + ";" + xieite::math::stringify(color[1]) + ";" + xieite::math::stringify(color[2]) + "m";
 		}
 
-		template<std::size_t channels_>
-		requires(channels_ >= 3)
-		void setForegroundColor(const xieite::streams::Color<channels_>& color) noexcept {
+		template<std::size_t channels>
+		requires(channels >= 3)
+		void setForegroundColor(const xieite::streams::Color<channels>& color) noexcept {
 			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetForegroundColor(color));
 		}
 
@@ -106,15 +106,15 @@ namespace xieite::streams {
 			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringResetForegroundColor());
 		}
 
-		template<std::size_t channels_>
-		requires(channels_ >= 3)
-		[[nodiscard]] static constexpr std::string stringSetBackgroundColor(const xieite::streams::Color<channels_>& color) noexcept {
+		template<std::size_t channels>
+		requires(channels >= 3)
+		[[nodiscard]] static constexpr std::string stringSetBackgroundColor(const xieite::streams::Color<channels>& color) noexcept {
 			return "\x1B[48;2;" + xieite::math::stringify(color[0]) + ";" + xieite::math::stringify(color[1]) + ";" + xieite::math::stringify(color[2]) + "m";
 		}
 
-		template<std::size_t channels_>
-		requires(channels_ >= 3)
-		void setBackgroundColor(const xieite::streams::Color<channels_>& color) noexcept {
+		template<std::size_t channels>
+		requires(channels >= 3)
+		void setBackgroundColor(const xieite::streams::Color<channels>& color) noexcept {
 			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetForegroundColor(color));
 		}
 
@@ -351,7 +351,7 @@ namespace xieite::streams {
 		}
 
 		xieite::streams::Key readKey() noexcept {
-			const xieite::functors::ScopeGuard _ = xieite::functors::ScopeGuard([this, blocking = this->blocking] {
+			const xieite::functors::ScopeGuard _ = xieite::functors::ScopeGuard([this, blocking = this->blocking] -> void {
 				this->setInputBlocking(blocking);
 			});
 			const char first = this->readCharacter();

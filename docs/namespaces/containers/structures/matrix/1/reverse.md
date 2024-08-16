@@ -1,23 +1,24 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value_>](../../../../matrix.md)\:\:reverse\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value>](../../../../matrix.md)\:\:reverse\(\)
 Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/xieite/containers/matrix.hpp)
 
 &nbsp;
 
 ## Description
-Reverses a dimension of the matrix.
+Reverses a dimension of the matrix. Using invalid indices invokes undefined behavior.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::RangeOf<std::size_t> Range_>
-constexpr std::optional<std::monostate> reverse(Range_&& indices) noexcept;
+template<std::ranges::input_range Range>
+requires(std::convertible_to<std::ranges::range_value_t<Range>, std::size_t>)
+constexpr void reverse(Range&& indices) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::convertible_to<std::size_t>... Sizes_>
-constexpr std::optional<std::monostate> reverse(Sizes_... indices) noexcept;
+template<std::convertible_to<std::size_t>... Sizes>
+constexpr void reverse(Sizes... indices) noexcept;
 ```
 
 &nbsp;
@@ -35,7 +36,7 @@ int main() {
 
     for (std::size_t x = 0; x < 2; ++x) {
         for (std::size_t y = 0; y < 3; ++y) {
-            std::print("{} ", matrix[x, y].value());
+            std::print("{} ", matrix[x, y]);
         }
         std::println();
     }
@@ -45,7 +46,7 @@ int main() {
     std::println();
     for (std::size_t x = 0; x < 3; ++x) {
         for (std::size_t y = 0; y < 2; ++y) {
-            std::print("{} ", matrix[x, y].value());
+            std::print("{} ", matrix[x, y]);
         }
         std::println();
     }

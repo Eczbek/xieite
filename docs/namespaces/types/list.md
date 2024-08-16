@@ -11,88 +11,88 @@ A structure for operating on a list of types.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename... Types_>
+template<typename... Types>
 struct List {
-    static constexpr std::size_t size = sizeof...(Types_);
+    static constexpr std::size_t size = sizeof...(Types);
 
-    template<typename Type_, template<typename, typename> typename Comparator_ = std::is_same>
+    template<typename Type, template<typename, typename> typename Comparator = std::is_same>
     static constexpr std::size_t count = /* ... */;
 
-    template<typename Type_, template<typename, typename> typename Comparator_ = std::is_same>
+    template<typename Type, template<typename, typename> typename Comparator = std::is_same>
     static constexpr bool has = /* ... */;
 
-    template<typename Type_, template<typename, typename> typename Comparator_ = std::is_same>
-    requires(xieite::types::List<Types_...>::has<Type_, Comparator_>)
+    template<typename Type, template<typename, typename> typename Comparator = std::is_same>
+    requires(xieite::types::List<Types...>::has<Type, Comparator>)
     static constexpr std::size_t find = /* ... */;
 
-    template<std::size_t index_>
-    requires(index_ < sizeof...(Types_))
+    template<std::size_t index>
+    requires(index < sizeof...(Types))
     using At = /* xieite::types::List<...> */;
 
-    template<template<typename...> typename Template_>
+    template<template<typename...> typename Template>
     using Apply = /* xieite::types::List<...> */;
 
-    template<typename... OtherTypes_>
+    template<typename... OtherTypes>
     using Append = /* xieite::types::List<...> */;
 
-    template<typename... OtherTypes_>
+    template<typename... OtherTypes>
     using Prepend = /* xieite::types::List<...> */;
 
-    template<std::size_t start_, std::size_t end_ = sizeof...(Types_)>
+    template<std::size_t start, std::size_t end = sizeof...(Types)>
     using Slice = /* xieite::types::List<...> */;
 
     using Reverse = /* xieite::types::List<...> */;
 
-    template<typename Range_>
+    template<typename Range>
     using AppendRange = /* xieite::types::List<...> */;
 
-    template<typename Range_>
+    template<typename Range>
     using PrependRange = /* xieite::types::List<...> */;
 
-    template<std::size_t start_, std::size_t end_ = start_ + 1>
+    template<std::size_t start, std::size_t end = start + 1>
     using Erase = /* xieite::types::List<...> */;
 
-    template<std::size_t index_, typename... OtherTypes_>
+    template<std::size_t index, typename... OtherTypes>
     using Insert = /* xieite::types::List<...> */;
 
-    template<std::size_t index_, typename OtherType_>
+    template<std::size_t index, typename OtherType>
     using Set = /* xieite::types::List<...> */;
 
-    template<std::size_t index1_, std::size_t index2_>
+    template<std::size_t index1, std::size_t index2>
     using Swap = /* xieite::types::List<...> */;
 
-    template<std::size_t index_, typename Range_>
+    template<std::size_t index, typename Range>
     using InsertRange = /* xieite::types::List<...> */;
 
-    template<std::size_t start_, std::size_t end_, typename... OtherTypes_>
+    template<std::size_t start, std::size_t end, typename... OtherTypes>
     using Replace = /* xieite::types::List<...> */;
 
-    template<std::size_t start_, std::size_t end_, typename Range_>
+    template<std::size_t start, std::size_t end, typename Range>
     using ReplaceRange = /* xieite::types::List<...> */;
 
     template<std::size_t start1_, std::size_t end1_, std::size_t start2_, std::size_t end2_>
     using SwapRanges = /* xieite::types::List<...> */;
 
-    template<template<typename, typename...> typename Selector_>
+    template<template<typename, typename...> typename Selector>
     using Filter = /* xieite::types::List<...> */;
 
-    template<typename<typename, typename...> typename Comparator_ = xieite::traits::IsSameAsAny>
+    template<typename<typename, typename...> typename Comparator = xieite::traits::IsSameAsAny>
     using Unique = /* xieite::types::List<...> */;
 
-    template<std::size_t... i_>
+    template<std::size_t... i>
     using Rearrange = /* xieite::types::List<...> */;
 
-    template<template<typename...> typename Transformer_, std::size_t arguments_>
-    requires((sizeof...(Types_) % arguments_) == 0)
+    template<template<typename...> typename Transformer, std::size_t arity>
+    requires((sizeof...(Types) % arity) == 0)
     using Transform = /* xieite::types::List<...> */;
 
-    template<std::size_t count_>
+    template<std::size_t count>
     using Repeat = /* xieite::types::List<...> */;
 
-    template<typename... OtherTypes_>
+    template<typename... OtherTypes>
     using Zip = /* xieite::types::List<...> */;
 
-    template<typename Range_>
+    template<typename Range>
     using ZipRange = /* xieite::types::List<...> */;
 };
 ```

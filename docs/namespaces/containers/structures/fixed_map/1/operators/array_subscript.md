@@ -1,18 +1,18 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key_, Value_, size_, Hash_, KeyComparator_, Allocator_>](../../../../fixed_map.md)\:\:operator\[\]\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyComparator, Allocator>](../../../../fixed_map.md)\:\:operator\[\]\<\>\(\)
 Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
 
 ## Description
-Accesses a value by its key, if it exists.
+Accesses a value by its key. Accessing a nonexistent key invokes undefined behavior.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Self_, std::convertible_to<Key_> KeyReference_>
-[[nodiscard]] constexpr std::optional<std::reference_wrapper<xieite::types::MaybeConstant<Value_, std::is_const_v<Self_>>>> operator[](this Self_&&, KeyReference_&& key);
+template<typename Self, std::convertible_to<Key> KeyReference>
+[[nodiscard]] constexpr auto&& operator[](this Self&&, KeyReference&& key);
 ```
 
 &nbsp;
@@ -30,7 +30,7 @@ int main() {
     };
 
     for (int i = 1; i <= 3; ++i) {
-        std::println("{}: {}", i, map[i].value());
+        std::println("{}: {}", i, map[i]);
     }
 }
 ```

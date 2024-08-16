@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_template_of.hpp>](../../../include/xieite/t
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename...> typename Template_, typename Type_>
+template<template<typename...> typename Template, typename Type>
 struct IsTemplateOf
-: std::bool_constant<xieite::concepts::TemplateOf<Template_, Type_>> {};
+: std::bool_constant<xieite::concepts::TemplateOf<Template, Type>> {};
 ```
 
 &nbsp;

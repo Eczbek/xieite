@@ -11,8 +11,8 @@ Specifies that a template corresponds to a possible specialization of it.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename...> typename Template_, typename Type_>
-concept TemplateOf = xieite::concepts::SpecializationOf<Type_, Template_>;
+template<template<typename...> typename Template, typename Type>
+concept TemplateOf = xieite::concepts::SpecializationOf<Type, Template>;
 ```
 
 &nbsp;

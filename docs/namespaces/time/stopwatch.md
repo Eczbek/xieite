@@ -11,7 +11,7 @@ A stopwatch structure.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Clock Clock_>
+template<xieite::concepts::Clock Clock>
 struct Stopwatch {
     void start() noexcept;
 
@@ -19,11 +19,11 @@ struct Stopwatch {
 
     void reset() noexcept;
 
-    template<xieite::concepts::Duration Duration_ = std::chrono::nanoseconds>
-    Duration_ lap() const noexcept;
+    template<xieite::concepts::Duration Duration = std::chrono::nanoseconds>
+    Duration lap() const noexcept;
 
-    template<xieite::concepts::Duration Duration_ = std::chrono::nanoseconds>
-    Duration_ total() const noexcept;
+    template<xieite::concepts::Duration Duration = std::chrono::nanoseconds>
+    Duration total() const noexcept;
 };
 ```
 - [start\(\)](./structures/stopwatch/1/start.md)

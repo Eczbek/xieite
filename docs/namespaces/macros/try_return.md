@@ -34,7 +34,7 @@ int foo() {
 }
 
 int main() {
-    constexpr auto lambda = [](int n) {
+    constexpr auto lambda = [](int n) -> int {
         return n * n;
     };
 

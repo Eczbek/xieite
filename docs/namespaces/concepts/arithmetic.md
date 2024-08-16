@@ -11,8 +11,8 @@ Specifies that a type is integral, floating point, or boolean.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Arithmetic = std::is_arithmetic_v<Type_>;
+template<typename Type>
+concept Arithmetic = std::is_arithmetic_v<Type>;
 ```
 
 &nbsp;

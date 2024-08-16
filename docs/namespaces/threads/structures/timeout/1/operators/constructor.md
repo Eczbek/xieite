@@ -11,8 +11,8 @@ Constructs a `xieite::threads::Timeout`, starts waiting for a set amount of time
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Duration Duration_>
-Timeout(const xieite::functors::Function<void()>& callback, Duration_ duration) noexcept;
+template<std::invocable<> Functor, xieite::concepts::Duration Duration>
+Timeout(Functor&& callback, Duration duration) noexcept;
 ```
 
 &nbsp;

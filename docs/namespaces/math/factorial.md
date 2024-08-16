@@ -11,8 +11,8 @@ A lookup table of all representable factorial values.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-inline constexpr std::array<Arithmetic_, /* size */> factorial = /* ... */
+template<xieite::concepts::Arithmetic Arithmetic>
+inline constexpr std::array<Arithmetic, /* size */> factorial = /* ... */
 ```
 
 &nbsp;

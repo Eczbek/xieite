@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_hashable.hpp>](../../../include/xieite/trai
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsHashable
-: std::bool_constant<xieite::concepts::Hashable<Type_>> {};
+: std::bool_constant<xieite::concepts::Hashable<Type>> {};
 ```
 
 &nbsp;

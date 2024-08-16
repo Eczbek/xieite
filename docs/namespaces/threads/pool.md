@@ -18,13 +18,14 @@ struct Pool {
 
     std::size_t getThreadCount() const noexcept;
 
-    void enqueue(const std::function<void()>&) noexcept;
+    template<std::invocable<> Functor>
+    void enqueue(Functor&&) noexcept;
 };
 ```
 - [Pool\(\)](./structures/pool/1/operators/constructor.md)
 - [setThreadCount\(\)](./structures/pool/1/set_thread_count.md)
 - [getThreadCount\(\)](./structures/pool/1/get_thread_count.md)
-- [enqueue\(\)](./structures/pool/1/enqueue.md)
+- [enqueue\<\>\(\)](./structures/pool/1/enqueue.md)
 
 &nbsp;
 

@@ -11,14 +11,14 @@ Checks if a range is the same backwards as it is forwards, or if an integer can 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::range Range_, xieite::concepts::Functable<bool(std::ranges::range_reference_t<Range_>, std::ranges::range_reference_t<Range_>)> Functor_ = std::ranges::equal_to>
-[[nodiscard]] constexpr bool isPalindrome(Range_&& range, Functor_&& comparator = Functor_())
-noexcept(xieite::concepts::NoThrowInvocable<Functor_, std::ranges::range_reference_t<Range_>, std::ranges::range_reference_t<Range_>>);
+template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
+[[nodiscard]] constexpr bool isPalindrome(Range&& range, Functor&& comparator = Functor())
+noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>);
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] constexpr bool isPalindrome(Integral_ value, Integral_ radix = 10) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr bool isPalindrome(Integral value, Integral radix = 10) noexcept;
 ```
 
 &nbsp;

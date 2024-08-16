@@ -11,7 +11,7 @@ Constructs a `xieite::functors::ScopeGuard`.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Functable<void()> Functor>
+template<std::invocable<> Functor>
 constexpr ScopeGuard(Functor&& callback) noexcept;
 ```
 

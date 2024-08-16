@@ -7,12 +7,12 @@
 #	include "../math/sign.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr Arithmetic_ divideUp(const Arithmetic_ dividend, const Arithmetic_ divisor) {
-		if constexpr (std::floating_point<Arithmetic_>) {
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr Arithmetic divideUp(const Arithmetic dividend, const Arithmetic divisor) {
+		if constexpr (std::floating_point<Arithmetic>) {
 			return std::ceil(dividend / divisor);
 		} else {
-			return static_cast<Arithmetic_>(dividend / divisor + !!(dividend % divisor) * (xieite::math::sign(dividend, divisor) > 0));
+			return static_cast<Arithmetic>(dividend / divisor + !!(dividend % divisor) * (xieite::math::sign(dividend, divisor) > 0));
 		}
 	}
 }

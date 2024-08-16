@@ -1,23 +1,23 @@
-# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Color<channels_>](../../../../color.md)\:\:Color\(\)
+# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Color<channels>](../../../../color.md)\:\:Color\(\)
 Defined in header [<xieite/streams/color.hpp>](../../../../../../../include/xieite/streams/color.hpp)
 
 &nbsp;
 
 ## Description
-Constructs a `xieite::streams::Color<channels_>`.
+Constructs a `xieite::streams::Color<channels>`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::same_as<std::uint8_t>... Arguments_>
-requires(sizeof...(Arguments_) == channels_)
-constexpr Color(Arguments_... arguments) noexcept;
+template<std::same_as<std::uint8_t>... Arguments>
+requires(sizeof...(Arguments) == channels)
+constexpr Color(Arguments... arguments) noexcept;
 ```
 #### 2)
 ```cpp
-constexpr Color(xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels_> value = 0) noexcept;
+constexpr Color(xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value = 0) noexcept;
 ```
 
 &nbsp;

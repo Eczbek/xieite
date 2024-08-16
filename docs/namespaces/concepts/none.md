@@ -11,8 +11,8 @@ Negates type traits. Expects trait-like template structures. Passing no trait te
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_, template<typename> typename... Traits_>
-concept None = (... && !Traits_<Type_>::value);
+template<typename Type, template<typename> typename... Traits>
+concept None = (... && !Traits<Type>::value);
 ```
 
 &nbsp;

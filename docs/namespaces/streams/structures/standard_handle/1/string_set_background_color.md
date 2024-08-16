@@ -11,9 +11,9 @@ Returns a string which sets the background color when printed.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t channels_>
-requires(channels_ >= 3)
-[[nodiscard]] static constexpr std::string stringSetBackgroundColor(const xieite::graphics::Color<channels_>& color) noexcept;
+template<std::size_t channels>
+requires(channels >= 3)
+[[nodiscard]] static constexpr std::string stringSetBackgroundColor(const xieite::graphics::Color<channels>& color) noexcept;
 ```
 
 &nbsp;

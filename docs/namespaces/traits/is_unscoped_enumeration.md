@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_unscoped_enumeration.hpp>](../../../include
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsUnscopedEnumeration
-: std::bool_constant<xieite::concepts::UnscopedEnumeration<Type_>> {};
+: std::bool_constant<xieite::concepts::UnscopedEnumeration<Type>> {};
 ```
 
 &nbsp;

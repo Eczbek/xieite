@@ -11,8 +11,8 @@ Specifies that a type is trivial.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Trivial = std::is_trivial_v<Type_>;
+template<typename Type>
+concept Trivial = std::is_trivial_v<Type>;
 ```
 
 &nbsp;

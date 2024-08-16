@@ -11,35 +11,35 @@ An structure for representing an infinite line.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_ = double>
+template<xieite::concepts::Arithmetic Arithmetic = double>
 struct Line {
-    xieite::geometry::Point<Arithmetic_> start;
-    xieite::geometry::Point<Arithmetic_> end;
+    xieite::geometry::Point<Arithmetic> start;
+    xieite::geometry::Point<Arithmetic> end;
 
-    constexpr Line(xieite::geometry::Point<Arithmetic_>, xieite::geometry::Point<Arithmetic_>) noexcept;
+    constexpr Line(xieite::geometry::Point<Arithmetic>, xieite::geometry::Point<Arithmetic>) noexcept;
 
-    constexpr Line(xieite::geometry::Point<Arithmetic_>, std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double>) noexcept;
+    constexpr Line(xieite::geometry::Point<Arithmetic>, std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double>) noexcept;
 
-    template<typename OtherArithmetic_>
-    constexpr operator xieite::geometry::Line<OtherArithmetic_>() const noexcept;
+    template<typename OtherArithmetic>
+    explicit(false) constexpr operator xieite::geometry::Line<OtherArithmetic>() const noexcept;
 
-    friend constexpr bool operator==(const xieite::geometry::Line<Arithmetic_>&, const xieite::geometry::Line<Arithmetic_>&) noexcept;
+    friend constexpr bool operator==(const xieite::geometry::Line<Arithmetic>&, const xieite::geometry::Line<Arithmetic>&) noexcept;
 
-    constexpr std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> angle() const noexcept;
+    constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angle() const noexcept;
 
-    constexpr std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> length() const noexcept;
+    constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> length() const noexcept;
 
-    constexpr std::conditional_t<std::floating_point<Arithmetic_>, Arithmetic_, double> slope() const noexcept;
+    constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> slope() const noexcept;
 
-    constexpr bool contains(xieite::geometry::Point<Arithmetic_>) const noexcept;
+    constexpr bool contains(xieite::geometry::Point<Arithmetic>) const noexcept;
 
-    constexpr bool contains(xieite::geometry::Line<Arithmetic_>&) const noexcept;
+    constexpr bool contains(xieite::geometry::Line<Arithmetic>&) const noexcept;
 
-    constexpr bool contains(xieite::geometry::Ray<Arithmetic_>&) const noexcept;
+    constexpr bool contains(xieite::geometry::Ray<Arithmetic>&) const noexcept;
 
-    constexpr bool contains(xieite::geometry::Segment<Arithmetic_>&) const noexcept;
+    constexpr bool contains(xieite::geometry::Segment<Arithmetic>&) const noexcept;
 
-    constexpr bool contains(xieite::geometry::Polygon<Arithmetic_>&) const noexcept;
+    constexpr bool contains(xieite::geometry::Polygon<Arithmetic>&) const noexcept;
 };
 ```
 - start

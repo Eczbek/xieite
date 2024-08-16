@@ -5,9 +5,9 @@
 #	include "../concepts/convertible_to_any.hpp"
 
 namespace xieite::traits {
-	template<typename Source_, typename... Targets_>
+	template<typename Source, typename... Targets>
 	struct IsConvertibleToAny
-	: std::bool_constant<xieite::concepts::ConvertibleToAny<Source_, Targets_...>> {};
+	: std::bool_constant<xieite::concepts::ConvertibleToAny<Source, Targets...>> {};
 }
 
 #endif

@@ -4,15 +4,15 @@ Defined in header [<xieite/concepts/ratio.hpp>](../../../include/xieite/concepts
 &nbsp;
 
 ## Description
-Specifies that a type satisfies `std::ranges::range` and contains values of a specified type. To be deprecated once `std::specialization_of` is standardized.
+Specifies that a type is a specialization of `std::ratio`. To be deprecated once `std::specialization_of` is standardized.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Ratio = xieite::traits::IsRatio<std::remove_cv_t<Type_>>::value;
+template<typename Type>
+concept Ratio = xieite::traits::IsRatio<std::remove_cv_t<Type>>::value;
 ```
 
 &nbsp;

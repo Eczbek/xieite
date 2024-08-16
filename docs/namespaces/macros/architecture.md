@@ -151,19 +151,19 @@ Macros for identifying the current architecture type and version (major, minor, 
 ```
 #### 21)
 ```cpp
-#define XIEITE_ARCHITECTURE_VERSION_EQUAL(architecture_, major_, minor_, patch_) /* boolean */
+#define XIEITE_ARCHITECTURE_VERSION_EQUAL(architecture, major, minor, patch) /* boolean */
 ```
-Requires `XIEITE_ARCHITECTURE_TYPE_##architecture_` to be `1`.
+Requires `XIEITE_ARCHITECTURE_TYPE_##architecture` to be `1`.
 #### 22)
 ```cpp
-#define XIEITE_ARCHITECTURE_VERSION_LEAST(architecture_, major_, minor_, patch_) /* boolean */
+#define XIEITE_ARCHITECTURE_VERSION_LEAST(architecture, major, minor, patch) /* boolean */
 ```
-Requires `XIEITE_ARCHITECTURE_TYPE_##architecture_` to be `1`.
+Requires `XIEITE_ARCHITECTURE_TYPE_##architecture` to be `1`.
 #### 23)
 ```cpp
-#define XIEITE_ARCHITECTURE_VERSION_MOST(architecture_, major_, minor_, patch_) /* boolean */
+#define XIEITE_ARCHITECTURE_VERSION_MOST(architecture, major, minor, patch) /* boolean */
 ```
-Requires `XIEITE_ARCHITECTURE_TYPE_##architecture_` to be `1`.
+Requires `XIEITE_ARCHITECTURE_TYPE_##architecture` to be `1`.
 
 &nbsp;
 

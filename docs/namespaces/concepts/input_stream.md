@@ -11,8 +11,8 @@ Specifies that a type is `std::istream` or derives from it.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept InputStream = std::same_as<std::remove_cvref_t<Type_>, std::istream> || std::derived_from<std::remove_cvref_t<Type_>, std::istream>;
+template<typename Type>
+concept InputStream = std::same_as<std::remove_cvref_t<Type>, std::istream> || std::derived_from<std::remove_cvref_t<Type>, std::istream>;
 ```
 
 &nbsp;

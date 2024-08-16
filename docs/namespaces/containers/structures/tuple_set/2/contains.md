@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleSet<Container_, std::tuple<FirstKey_, RestKeys_...>>](../../../tuple_set.md)\:\:contains\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleSet<Container, std::tuple<FirstKey, RestKeys...>>](../../../tuple_set.md)\:\:contains\<\>\(\)
 Defined in header [<xieite/containers/tuple_set.hpp>](../../../../../../include/xieite/containers/tuple_set.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Checks if an entry exists.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::convertible_to<std::tuple<FirstKey_, RestKeys_...>> KeysReference_>
-[[nodiscard]] constexpr bool contains(KeysReference_&& keys) const;
+template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
+[[nodiscard]] constexpr bool contains(KeysReference&& keys) const;
 ```
 
 &nbsp;

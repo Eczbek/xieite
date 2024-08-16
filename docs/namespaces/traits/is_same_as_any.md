@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_same_as_any.hpp>](../../../include/xieite/t
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Source_, typename... Targets_>
+template<typename Source, typename... Targets>
 struct IsSameAsAny
-: std::bool_constant<xieite::concepts::SameAsAny<Source_, Targets_...>> {};
+: std::bool_constant<xieite::concepts::SameAsAny<Source, Targets...>> {};
 ```
 
 &nbsp;

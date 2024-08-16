@@ -5,8 +5,8 @@
 #	include "../math/divide_up.hpp"
 
 namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic_>
-	[[nodiscard]] constexpr Arithmetic_ roundUp(const Arithmetic_ value, const Arithmetic_ step = 1) noexcept {
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr Arithmetic roundUp(const Arithmetic value, const Arithmetic step = 1) noexcept {
 		return xieite::math::divideUp(value, step) * step;
 	}
 }

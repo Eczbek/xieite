@@ -11,8 +11,8 @@ Checks if the multiplication of two values will overflow or underflow their type
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr bool multiplicationOverflows(Arithmetic_ multiplier, Arithmetic_ multiplicand) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr bool multiplicationOverflows(Arithmetic multiplier, Arithmetic multiplicand) noexcept;
 ```
 
 &nbsp;

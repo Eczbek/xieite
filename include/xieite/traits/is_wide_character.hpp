@@ -5,9 +5,9 @@
 #	include "../concepts/wide_character.hpp"
 
 namespace xieite::traits {
-	template<typename Type_>
+	template<typename Type>
 	struct IsWideCharacter
-	: std::bool_constant<xieite::concepts::WideCharacter<Type_>> {};
+	: std::bool_constant<xieite::concepts::WideCharacter<Type>> {};
 }
 
 #endif

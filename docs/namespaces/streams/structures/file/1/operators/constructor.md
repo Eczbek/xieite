@@ -35,8 +35,8 @@ File(int descriptor, const std::wstring& mode) noexcept;
 ```
 #### 6)
 ```cpp
-template<xieite::concepts::Stream Stream_>
-File(Stream_& stream) noexcept;
+template<xieite::concepts::Stream Stream>
+File(Stream& stream) noexcept;
 ```
 #### 7)
 ```cpp

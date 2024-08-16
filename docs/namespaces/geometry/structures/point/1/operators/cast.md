@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Arithmetic_>](../../../../point.md)\:\:operator typename\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Arithmetic>](../../../../point.md)\:\:operator typename\<\>\(\)
 Defined in header [<xieite/geometry/point.hpp>](../../../../../../../include/xieite/geometry/point.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Casts one point type to another.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename OtherArithmetic_>
-[[nodiscard]] constexpr operator xieite::geometry::Point<OtherArithmetic_>() const noexcept;
+template<typename OtherArithmetic>
+[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Point<OtherArithmetic>() const noexcept;
 ```
 
 &nbsp;

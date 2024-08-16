@@ -7,11 +7,11 @@
 #	include <limits>
 
 namespace xieite::bits {
-	template<typename Type_>
-	inline constexpr std::size_t size = sizeof(Type_) * CHAR_BIT;
+	template<typename Type>
+	inline constexpr std::size_t size = sizeof(Type) * CHAR_BIT;
 
-	template<std::integral Integral_>
-	inline constexpr std::size_t size<Integral_> = std::numeric_limits<Integral_>::digits + std::numeric_limits<Integral_>::is_signed;
+	template<std::integral Integral>
+	inline constexpr std::size_t size<Integral> = std::numeric_limits<Integral>::digits + std::numeric_limits<Integral>::is_signed;
 }
 
 #endif

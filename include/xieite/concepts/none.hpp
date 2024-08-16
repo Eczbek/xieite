@@ -2,8 +2,8 @@
 #	define XIEITE_HEADER_CONCEPTS_NONE
 
 namespace xieite::concepts {
-	template<typename Type_, template<typename> typename... Traits_>
-	concept None = (... && !Traits_<Type_>::value);
+	template<typename Type, template<typename> typename... Traits>
+	concept None = (... && !Traits<Type>::value);
 }
 
 #endif

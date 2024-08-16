@@ -11,7 +11,7 @@ A compile-time counter thingamabob. Technically not ill-formed ([yet](https://ww
 ## Synopsis
 #### 1)
 ```cpp
-template<auto tag_ = /* ... */, auto = [] {}>
+template<auto tag = /* ... */, auto = [] {}>
 [[nodiscard]] constexpr std::size_t counter() noexcept;
 ```
 

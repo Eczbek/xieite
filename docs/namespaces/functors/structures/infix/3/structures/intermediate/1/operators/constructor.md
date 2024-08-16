@@ -1,4 +1,4 @@
-# [xieite](../../../../../../../../../xieite.md)\:\:[functors](../../../../../../../../../functors.md)\:\:[Infix<Return_(LeftArgument_, RightArgument_)>](../../../../../../../infix.md)\:\:[Intermediate<LeftArgumentReference_>](../../../../intermediate.md)\:\:Intermediate\(\)
+# [xieite](../../../../../../../../../xieite.md)\:\:[functors](../../../../../../../../../functors.md)\:\:[Infix<Return(LeftArgument, RightArgument)>](../../../../../../../infix.md)\:\:[Intermediate<LeftArgumentReference>](../../../../intermediate.md)\:\:Intermediate\(\)
 Defined in header [<xieite/functors/infix.hpp>](../../../../../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Constructs an intermediate state of an infix thingamabob.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr Intermediate(const xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>& infix, LeftArgumentReference_&& leftArgument) noexcept;
+constexpr Intermediate(const xieite::functors::Infix<Return(LeftArgument, RightArgument)>& infix, LeftArgumentReference&& leftArgument) noexcept;
 ```
 
 &nbsp;

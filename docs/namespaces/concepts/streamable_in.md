@@ -11,8 +11,8 @@ Specifies that a type can be streamed into.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept StreamableIn = requires(Type_ value, std::istream inputStream) {
+template<typename Type>
+concept StreamableIn = requires(Type value, std::istream inputStream) {
     { inputStream >> value } -> std::same_as<std::istream&>;
 };
 ```

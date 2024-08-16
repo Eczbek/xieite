@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:Transform\<\>
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Transform\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Applies a transformation to every set amount of types within the list, in order.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename...> typename Transformer_, std::size_t arguments_>
-requires((sizeof...(Types_) % arguments_) == 0)
+template<template<typename...> typename Transformer, std::size_t arity>
+requires((sizeof...(Types) % arity) == 0)
 using Transform = /* xieite::types::List<...> */;
 ```
 

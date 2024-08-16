@@ -1,22 +1,22 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb_>](../../../../big_integer.md)\:\:operator/\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb>](../../../../big_integer.md)\:\:operator/\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Returns the quotient of two big-integers.
+Returns the quotient of two big-integers. Dividing by zero invokes undefined behavior.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb_> operator/(const xieite::math::BigInteger<Limb_>& dividend, const xieite::math::BigInteger<Limb_>& divisor);
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator/(const xieite::math::BigInteger<Limb>& dividend, const xieite::math::BigInteger<Limb>& divisor);
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb_> operator/(const xieite::math::BigInteger<Limb_>& dividend, Integral_ divisor);
+template<std::integral Integral>
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator/(const xieite::math::BigInteger<Limb>& dividend, Integral divisor);
 ```
 
 &nbsp;

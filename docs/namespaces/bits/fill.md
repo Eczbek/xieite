@@ -14,11 +14,11 @@ Fills something with specific bytes.
 struct Fill {
     std::byte value;
 
-    template<std::integral Integral_>
-    explicit constexpr Fill(Integral_) noexcept;
+    template<std::integral Integral>
+    explicit constexpr Fill(Integral) noexcept;
 
-    template<typename Type_>
-    explicit(false) constexpr operator Type_() const noexcept;
+    template<typename Type>
+    explicit(false) constexpr operator Type() const noexcept;
 };
 ```
 - value

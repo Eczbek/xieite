@@ -11,15 +11,15 @@ Defined in header [<xieite/bits/unmash.hpp>](../../../include/xieite/bits/unmash
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t... sizes_, std::size_t bits_>
-requires(bits_ >= (... + sizes_))
-[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes_>...> unmash(std::bitset<bits_> value) noexcept;
+template<std::size_t... sizes, std::size_t bits>
+requires(bits >= (... + sizes))
+[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes>...> unmash(std::bitset<bits> value) noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_, std::size_t... sizes_, std::size_t bits_>
-requires(bits_ >= (... + sizes_))
-[[nodiscard]] constexpr std::array<Integral_, sizeof...(sizes_)> unmash(std::bitset<bits_> value) noexcept;
+template<std::integral Integral, std::size_t... sizes, std::size_t bits>
+requires(bits >= (... + sizes))
+[[nodiscard]] constexpr std::array<Integral, sizeof...(sizes)> unmash(std::bitset<bits> value) noexcept;
 ```
 
 &nbsp;

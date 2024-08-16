@@ -11,35 +11,36 @@ A structure for representing a polygon.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_ = double>
+template<xieite::concepts::Arithmetic Arithmetic = double>
 struct Polygon {
-    std::vector<xieite::geometry::Point<Arithmetic_>> points;
+    std::vector<xieite::geometry::Point<Arithmetic>> points;
 
-    template<xieite::concepts::RangeOf<xieite::geometry::Point<Arithmetic_>> Range_ = std::vector<xieite::geometry::Point<Arithmetic_>>>
-    constexpr Polygon(Range_&&) noexcept;
+    template<std::ranges::input_range PointRange = std::vector<xieite::geometry::Point<Arithmetic>>>
+    requires(std::convertible_to<std::ranges::range_value_t<PointRange>, xieite::geometry::Point<Arithmetic>>)
+    explicit constexpr Polygon(PointRange&&) noexcept;
 
-    template<typename OtherArithmetic_>
-    constexpr operator xieite::geometry::Polygon<OtherArithmetic_>() const noexcept;
+    template<typename OtherArithmetic>
+    explicit(false) constexpr operator xieite::geometry::Polygon<OtherArithmetic>() const noexcept;
 
-    friend constexpr bool operator==(const xieite::geometry::Polygon<Arithmetic_>&, const xieite::geometry::Polygon<Arithmetic_>&) noexcept;
+    friend constexpr bool operator==(const xieite::geometry::Polygon<Arithmetic>&, const xieite::geometry::Polygon<Arithmetic>&) noexcept;
 
-    static constexpr xieite::geometry::Polygon<Arithmetic_> rectangle(xieite::geometry::Point<Arithmetic_>, xieite::geometry::Point<Arithmetic_>) noexcept;
+    static constexpr xieite::geometry::Polygon<Arithmetic> rectangle(xieite::geometry::Point<Arithmetic>, xieite::geometry::Point<Arithmetic>) noexcept;
 
     constexpr double area() const noexcept;
 
     constexpr double perimeter() const noexcept;
 
-    constexpr std::vector<xieite::geometry::Segment<Arithmetic_>> sides() const noexcept;
+    constexpr std::vector<xieite::geometry::Segment<Arithmetic>> sides() const noexcept;
 
-    constexpr bool contains(xieite::geometry::Point<Arithmetic_>) const noexcept;
+    constexpr bool contains(xieite::geometry::Point<Arithmetic>) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Line<Arithmetic_>&) const noexcept;
+    constexpr bool contains(const xieite::geometry::Line<Arithmetic>&) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Ray<Arithmetic_>&) const noexcept;
+    constexpr bool contains(const xieite::geometry::Ray<Arithmetic>&) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Segment<Arithmetic_>&) const noexcept;
+    constexpr bool contains(const xieite::geometry::Segment<Arithmetic>&) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Polygon<Arithmetic_>&) const noexcept;
+    constexpr bool contains(const xieite::geometry::Polygon<Arithmetic>&) const noexcept;
 };
 ```
 - points

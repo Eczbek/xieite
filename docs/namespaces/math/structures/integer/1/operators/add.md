@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../../integer.md)\:\:operator+\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator+\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
@@ -11,11 +11,11 @@ Returns the sum of two integers.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::Integer<bits_, sign_> operator+() const noexcept;
+[[nodiscard]] constexpr xieite::math::Integer<bits, sign> operator+() const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] friend constexpr xieite::math::Integer<bits_, sign_> operator+(xieite::math::Integer<bits_, sign_> augend, xieite::math::Integer<bits_, sign_> addend) noexcept;
+[[nodiscard]] friend constexpr xieite::math::Integer<bits, sign> operator+(xieite::math::Integer<bits, sign> augend, xieite::math::Integer<bits, sign> addend) noexcept;
 ```
 
 &nbsp;

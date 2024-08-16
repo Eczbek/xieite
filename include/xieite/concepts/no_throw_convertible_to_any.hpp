@@ -4,8 +4,8 @@
 #	include "../concepts/no_throw_convertible_to.hpp"
 
 namespace xieite::concepts {
-	template<typename Source_, typename... Targets_>
-	concept NoThrowConvertibleToAny = (... || xieite::concepts::NoThrowConvertibleTo<Source_, Targets_>);
+	template<typename Source, typename... Targets>
+	concept NoThrowConvertibleToAny = (... || xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
 }
 
 #endif

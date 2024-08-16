@@ -4,15 +4,15 @@ Defined in header [<xieite/concepts/derivable.hpp>](../../../include/xieite/conc
 &nbsp;
 
 ## Description
-Specifies that a type can be derived from. `Type_` must be a complete type.
+Specifies that a type can be derived from. `Type` must be a complete type.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Derivable = !std::is_final_v<Type_>;
+template<typename Type>
+concept Derivable = !std::is_final_v<Type>;
 ```
 
 &nbsp;

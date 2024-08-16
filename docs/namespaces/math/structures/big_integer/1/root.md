@@ -1,22 +1,22 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb_>](../../../big_integer.md)\:\:root\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb>](../../../big_integer.md)\:\:root\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
 
 ## Description
-Computes any root of a `xieite::math::BigInteger<Limb_>`.
+Computes any root of a `xieite::math::BigInteger<Limb>`. Taking the root of a negative value invokes undefined behavior.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Limb_>> root(const xieite::math::BigInteger<Limb_>& degree) const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(const xieite::math::BigInteger<Limb>& degree) const noexcept;
 ```
 #### 2)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] constexpr std::optional<xieite::math::BigInteger<Limb_>> root(Integral_ degree) const noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(Integral degree) const noexcept;
 ```
 
 &nbsp;
@@ -29,7 +29,7 @@ template<std::integral Integral_>
 int main() {
     xieite::math::BigInteger bigIntegral = 8;
 
-    std::println("{}", bigIntegral.root(3).value().string());
+    std::println("{}", bigIntegral.root(3).string());
 }
 ```
 Output:

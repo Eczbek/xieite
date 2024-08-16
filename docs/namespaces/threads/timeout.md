@@ -12,8 +12,8 @@ Runs a callback once after a set amount of time.
 #### 1)
 ```cpp
 struct Timeout {
-    template<xieite::concepts::Duration Duration_>
-    Timeout(const xieite::functors::Function<void()>&, Duration_) noexcept;
+    template<std::invocable<> Functor, xieite::concepts::Duration Duration>
+    Timeout(Functor&&, Duration) noexcept;
 
     explicit operator bool() const noexcept;
 

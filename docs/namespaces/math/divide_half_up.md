@@ -11,8 +11,8 @@ Computes a quotient and rounds [half up](https://en.wikipedia.org/wiki/Rounding#
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ divideHalfUp(Arithmetic_ dividend, Arithmetic_ divisor) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic divideHalfUp(Arithmetic dividend, Arithmetic divisor) noexcept;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Arithmetic_>](../../../../polygon.md)\:\:operator typename\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Arithmetic>](../../../../polygon.md)\:\:operator typename\<\>\(\)
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Casts one polygon type to another.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename OtherArithmetic_>
-[[nodiscard]] constexpr operator xieite::geometry::Polygon<OtherArithmetic_>() const noexcept;
+template<typename OtherArithmetic>
+[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Polygon<OtherArithmetic>() const noexcept;
 ```
 
 &nbsp;

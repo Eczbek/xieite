@@ -11,8 +11,8 @@ Specifies that a type is an enumeration.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept Enumeration = std::is_enum_v<Type_>;
+template<typename Type>
+concept Enumeration = std::is_enum_v<Type>;
 ```
 
 &nbsp;

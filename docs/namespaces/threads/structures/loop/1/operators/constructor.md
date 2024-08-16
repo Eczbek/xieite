@@ -11,7 +11,8 @@ Constructs a `xieite::threads::Loop`, starts running a callback constantly.
 ## Synopsis
 #### 1)
 ```cpp
-Loop(const xieite::functors::Function<void()>& callback) noexcept;
+template<std::invocable<> Functor>
+Loop(Functor&& callback) noexcept;
 ```
 
 &nbsp;

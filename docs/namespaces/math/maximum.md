@@ -11,9 +11,9 @@ Finds the maximum of several values.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic... Arithmetics_>
-requires(sizeof...(Arithmetics_) > 0)
-[[nodiscard]] constexpr std::common_type_t<Arithmetics_...> maximum(Arithmetics_... values) noexcept;
+template<xieite::concepts::Arithmetic... Arithmetics>
+requires(sizeof...(Arithmetics) > 0)
+[[nodiscard]] constexpr std::common_type_t<Arithmetics...> maximum(Arithmetics... values) noexcept;
 ```
 
 &nbsp;

@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key_, Value_, size_, Hash_, KeyComparator_, Allocator_>](../../../../fixed_map.md)\:\:data\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyComparator, Allocator>](../../../../fixed_map.md)\:\:data\(\)
 Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Returns the underlying data. Its order is not specified.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr const std::array<std::pair<Key_, Value_>, size_>& data() const noexcept;
+[[nodiscard]] constexpr const std::array<std::pair<Key, Value>, size>& data() const noexcept;
 ```
 
 &nbsp;

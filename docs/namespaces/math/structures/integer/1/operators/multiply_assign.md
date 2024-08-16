@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../../integer.md)\:\:operator*=\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator*=\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Assigns the product of this integer with another.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr xieite::math::Integer<bits_, sign_>& operator*=(xieite::math::Integer<bits_, sign_> multiplicand) noexcept;
+constexpr xieite::math::Integer<bits, sign>& operator*=(xieite::math::Integer<bits, sign> multiplicand) noexcept;
 ```
 
 &nbsp;

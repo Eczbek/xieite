@@ -11,8 +11,8 @@ Specifies that a type is destructible without throwing exceptions.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept NoThrowDestructible = std::is_nothrow_destructible_v<Type_>;
+template<typename Type>
+concept NoThrowDestructible = std::is_nothrow_destructible_v<Type>;
 ```
 
 &nbsp;

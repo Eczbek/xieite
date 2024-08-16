@@ -11,11 +11,11 @@ A functor which simply `static_cast`s one value to another type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Target_>
+template<typename Target>
 struct StaticCast {
-    template<std::convertible_to<Target_> Source_>
-    constexpr Target_ operator()(Source_&&) const
-    noexcept(xieite::concepts::NoThrowConvertibleTo<Source_, Target_>);
+    template<std::convertible_to<Target> Source>
+    constexpr Target operator()(Source&&) const
+    noexcept(xieite::concepts::NoThrowConvertibleTo<Source, Target>);
 };
 ```
 - [operator\(\)\<\>\(\)](./structures/static_cast/1/operators/call.md)

@@ -11,7 +11,7 @@ A type alias for generating multidimensional containers of fixed size.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename, std::size_t> typename FixedContainer_, typename Value_, std::size_t... sizes_>
+template<template<typename, std::size_t> typename FixedContainer, typename Value, std::size_t... sizes>
 using FixedMatrix = /* ... */;
 ```
 

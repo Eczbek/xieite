@@ -1,18 +1,19 @@
-# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Arithmetic_>](../../../../polygon.md)\:\:Polygon\(\)
+# [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Arithmetic>](../../../../polygon.md)\:\:Polygon\(\)
 Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../../include/xieite/geometry/polygon.hpp)
 
 &nbsp;
 
 ## Description
-Constructs a `xieite::geometry::Polygon<Arithmetic_>`.
+Constructs a `xieite::geometry::Polygon<Arithmetic>`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::RangeOf<xieite::geometry::Point<Arithmetic_>> Range_ = std::vector<xieite::geometry::Point<Arithmetic_>>>
-constexpr Polygon(Range_&& points) noexcept;
+template<std::ranges::input_range PointRange = std::vector<xieite::geometry::Point<Arithmetic>>>
+requires(std::convertible_to<std::ranges::range_value_t<PointRange>, xieite::geometry::Point<Arithmetic>>)
+explicit constexpr Polygon(PointRange&& points) noexcept;
 ```
 
 &nbsp;

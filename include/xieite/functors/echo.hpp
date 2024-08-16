@@ -5,8 +5,8 @@
 
 namespace xieite::functors {
 	struct Echo {
-		template<typename Type_>
-		[[nodiscard]] constexpr decltype(auto) operator()(Type_&& value) const noexcept {
+		template<typename Type>
+		[[nodiscard]] constexpr decltype(auto) operator()(Type&& value) const noexcept {
 			return XIEITE_FORWARD(value);
 		}
 	};

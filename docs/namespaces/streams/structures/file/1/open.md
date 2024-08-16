@@ -31,8 +31,8 @@ void open(int descriptor, const std::wstring& mode) noexcept;
 ```
 #### 5)
 ```cpp
-template<xieite::concepts::Stream Stream_>
-void open(Stream_& stream) noexcept;
+template<xieite::concepts::Stream Stream>
+void open(Stream& stream) noexcept;
 ```
 
 &nbsp;

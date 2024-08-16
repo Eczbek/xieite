@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[Infix<Return_(LeftArgument_, RightArgument_)>](../../../infix.md)\:\:Intermediate\<\> \{\}
+# [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[Infix<Return(LeftArgument, RightArgument)>](../../../infix.md)\:\:Intermediate\<\> \{\}
 Defined in header [<xieite/functors/infix.hpp>](../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
@@ -11,14 +11,14 @@ An intermediate state for an infix thingamabob.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename LeftArgumentReference_>
+template<typename LeftArgumentReference>
 struct Intermediate {
-    constexpr Intermediate(const xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>&, LeftArgumentReference_&&) noexcept;
+    constexpr Intermediate(const xieite::functors::Infix<Return(LeftArgument, RightArgument)>&, LeftArgumentReference&&) noexcept;
 
-    constexpr auto operator=(const xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>::Intermediate<LeftArgument_>&) noexcept = delete;
+    constexpr auto operator=(const xieite::functors::Infix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgument>&) noexcept = delete;
 
-    template<std::convertible_to<RightArgument_> RightArgumentReference_>
-    friend constexpr Return_ operator>(xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>::Intermediate<LeftArgumentReference_>&&, RightArgumentReference_&&);
+    template<std::convertible_to<RightArgument> RightArgumentReference>
+    friend constexpr Return operator>(xieite::functors::Infix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&&, RightArgumentReference&&);
 };
 ```
 - [Intermediate\(\)](./structures/intermediate/1/operators/constructor.md)

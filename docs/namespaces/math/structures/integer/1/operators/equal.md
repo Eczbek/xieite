@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits_, sign_>](../../../../integer.md)\:\:operator==\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator==\(\)
 Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Compares two integers.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(xieite::math::Integer<bits_, sign_> leftComparand, xieite::math::Integer<bits_, sign_> rightComparand) noexcept;
+[[nodiscard]] friend constexpr bool operator==(xieite::math::Integer<bits, sign> leftComparand, xieite::math::Integer<bits, sign> rightComparand) noexcept;
 ```
 
 &nbsp;

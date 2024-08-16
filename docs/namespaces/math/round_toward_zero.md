@@ -11,8 +11,8 @@ Rounds a value to the nearest multiple of a step toward zero.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ roundTowardZero(Arithmetic_ value, Arithmetic_ step = 1) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic roundTowardZero(Arithmetic value, Arithmetic step = 1) noexcept;
 ```
 
 &nbsp;

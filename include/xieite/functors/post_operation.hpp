@@ -6,10 +6,10 @@
 #	include "../macros/forward.hpp"
 
 namespace xieite::functors {
-	template<typename Type_, std::invocable<Type_&> Functor_>
-	[[nodiscard]] constexpr Type_ postOperation(Type_& value, Functor_&& functor)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor_, Type_&>) {
-		const Type_ copy = value;
+	template<typename Type, std::invocable<Type&> Functor>
+	[[nodiscard]] constexpr Type postOperation(Type& value, Functor&& functor)
+	noexcept(xieite::concepts::NoThrowInvocable<Functor, Type&>) {
+		const Type copy = value;
 		std::invoke(XIEITE_FORWARD(functor), value);
 		return copy;
 	}

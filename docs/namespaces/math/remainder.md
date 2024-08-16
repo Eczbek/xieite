@@ -11,14 +11,14 @@ Computes the remainder after division.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] constexpr Integral_ remainder(Integral_ dividend, Integral_ divisor) noexcept;
+template<std::integral Integral>
+[[nodiscard]] constexpr Integral remainder(Integral dividend, Integral divisor) noexcept;
 ```
 Uses `%`.
 #### 2)
 ```cpp
-template<std::floating_point Fractional_>
-[[nodiscard]] constexpr Fractional_ remainder(Fractional_ dividend, Fractional_ divisor) noexcept;
+template<std::floating_point Fractional>
+[[nodiscard]] constexpr Fractional remainder(Fractional dividend, Fractional divisor) noexcept;
 ```
 Uses `std::fmod`.
 

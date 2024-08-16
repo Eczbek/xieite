@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Function<Return_(Arguments_...)>](../../../../function.md)\:\:operator\(\)\<\>\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Function<Return(Arguments...)>](../../../../function.md)\:\:operator\(\)\<\>\(\)
 Defined in header [<xieite/functors/function.hpp>](../../../../../../../include/xieite/functors/function.hpp)
 
 &nbsp;
@@ -11,9 +11,9 @@ Calls the underlying functor.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename... ArgumentReferences_>
-requires((... && std::convertible_to<ArgumentReferences_, Arguments_>))
-constexpr Return_ operator()(ArgumentReferences_&&... arguments) const;
+template<typename... ArgumentReferences>
+requires((... && std::convertible_to<ArgumentReferences, Arguments>))
+constexpr Return operator()(ArgumentReferences&&... arguments) const;
 ```
 
 &nbsp;

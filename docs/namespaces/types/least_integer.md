@@ -11,7 +11,7 @@ An alias to the smallest integer type to accomodate some amount of bits.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t bits_>
+template<std::size_t bits>
 using LeastInteger = /* std::uint_least8_t, std::uint_least16_t, std::uint_least32_t, or std::uint_least64_t */;
 ```
 
@@ -25,9 +25,9 @@ using LeastInteger = /* std::uint_least8_t, std::uint_least16_t, std::uint_least
 #include "xieite/types/least_integer.hpp"
 
 int main() {
-    using Type_ = xieite::types::LeastInteger<13>;
+    using Type = xieite::types::LeastInteger<13>;
 
-    std::println("{}", std::same_as<Type_, std::uint16_t>);
+    std::println("{}", std::same_as<Type, std::uint16_t>);
 }
 ```
 Possible output:

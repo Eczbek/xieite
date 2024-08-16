@@ -11,15 +11,15 @@ Finds the lowest numerical value which, if passed to the provided callback, will
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::Functable<bool(Arithmetic_)> Functor_>
-[[nodiscard]] constexpr Arithmetic_ numberSearch(Functor_&& selector, Arithmetic_ minimum, Arithmetic_ maximum)
-noexcept(xieite::concepts::NoThrowInvocable<Functor_, Arithmetic_>);
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functor<bool(Arithmetic)> Functor>
+[[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector, Arithmetic minimum, Arithmetic maximum)
+noexcept(xieite::concepts::NoThrowInvocable<Functor, Arithmetic>);
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::Functable<bool(Arithmetic_)> Functor_>
-[[nodiscard]] constexpr Arithmetic_ numberSearch(Functor_&& selector)
-noexcept(xieite::concepts::NoThrowInvocable<Functor_, Arithmetic_>);
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functor<bool(Arithmetic)> Functor>
+[[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector)
+noexcept(xieite::concepts::NoThrowInvocable<Functor, Arithmetic>);
 ```
 
 &nbsp;
@@ -34,7 +34,7 @@ bool checkCollision(double x) {
 }
 
 int main() {
-    std::println("{}", xieite::algorithms::numberSearch([](double x) {
+    std::println("{}", xieite::algorithms::numberSearch([](double x) -> bool {
         return !checkCollision(x);
     }));;
 }

@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_wide_character.hpp>](../../../include/xieit
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsWideCharacter
-: std::bool_constant<xieite::concepts::WideCharacter<Type_>> {};
+: std::bool_constant<xieite::concepts::WideCharacter<Type>> {};
 ```
 
 &nbsp;

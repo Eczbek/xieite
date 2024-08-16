@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Color<channels_>](../../../../color.md)\:\:operator\[\]\(\)
+# [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Color<channels>](../../../../color.md)\:\:operator\[\]\(\)
 Defined in header [<xieite/streams/color.hpp>](../../../../../../../include/xieite/streams/color.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Accesses a color channel by index.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Self_>
-[[nodiscard]] constexpr decltype(auto) operator[](this Self_&&, std::size_t index) noexcept;
+template<typename Self>
+[[nodiscard]] constexpr decltype(auto) operator[](this Self&&, std::size_t index) noexcept;
 ```
 
 &nbsp;

@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_unsigned_integral.hpp>](../../../include/xi
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsUnsignedIntegral
-: std::bool_constant<xieite::concepts::UnsignedIntegral<Type_>> {};
+: std::bool_constant<xieite::concepts::UnsignedIntegral<Type>> {};
 ```
 
 &nbsp;

@@ -10,9 +10,9 @@ Defined in header [<xieite/traits/is_narrow_character.hpp>](../../../include/xie
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
+template<typename Type>
 struct IsNarrowCharacter
-: std::bool_constant<xieite::concepts::NarrowCharacter<Type_>> {};
+: std::bool_constant<xieite::concepts::NarrowCharacter<Type>> {};
 ```
 
 &nbsp;

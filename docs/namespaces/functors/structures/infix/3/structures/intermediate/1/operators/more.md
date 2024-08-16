@@ -1,4 +1,4 @@
-# [xieite](../../../../../../../../../xieite.md)\:\:[functors](../../../../../../../../../functors.md)\:\:[Infix<Return_(LeftArgument_, RightArgument_)>](../../../../../../../infix.md)\:\:[Intermediate<LeftArgumentReference_>](../../../../intermediate.md)\:\:operator\>\<\>\(\)
+# [xieite](../../../../../../../../../xieite.md)\:\:[functors](../../../../../../../../../functors.md)\:\:[Infix<Return(LeftArgument, RightArgument)>](../../../../../../../infix.md)\:\:[Intermediate<LeftArgumentReference>](../../../../intermediate.md)\:\:operator\>\<\>\(\)
 Defined in header [<xieite/functors/infix.hpp>](../../../../../../../../../../include/xieite/functors/infix.hpp)
 
 &nbsp;
@@ -11,10 +11,10 @@ Calls the underlying functor with both arguments.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename RightArgument_>
-requires(std::invocable<Functor_, LeftArgument_, RightArgument_&&>)
-friend constexpr std::invoke_result_t<Functor_, LeftArgument_, RightArgument_&&> operator>(const xieite::functors::Infix<Return_(LeftArgument_, RightArgument_)>::Intermediate<LeftArgument_>& infixIntermediate, RightArgument_&& rightArgument)
-noexcept(xieite::concepts::NoThrowInvocable<Functor_, LeftArgument_, RightArgument_&&>);
+template<typename RightArgument>
+requires(std::invocable<Functor, LeftArgument, RightArgument&&>)
+friend constexpr std::invoke_result_t<Functor, LeftArgument, RightArgument&&> operator>(const xieite::functors::Infix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgument>& infixIntermediate, RightArgument&& rightArgument)
+noexcept(xieite::concepts::NoThrowInvocable<Functor, LeftArgument, RightArgument&&>);
 ```
 
 &nbsp;

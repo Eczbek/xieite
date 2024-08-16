@@ -11,8 +11,8 @@ Checks if the power of a base to an exponent will overflow its type.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr bool exponentationOverflows(Arithmetic_ base, Arithmetic_ exponent) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr bool exponentationOverflows(Arithmetic base, Arithmetic exponent) noexcept;
 ```
 
 &nbsp;

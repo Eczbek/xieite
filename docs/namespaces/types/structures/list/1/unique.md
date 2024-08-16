@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types_...>](../../../list.md)\:\:Unique\<\>
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Unique\<\>
 Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Selects one of each type from the stored list of types.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename, typename...> typename Comparator_ = xieite::traits::IsSameAsAny>
+template<template<typename, typename...> typename Comparator = xieite::traits::IsSameAsAny>
 using Unique = /* xieite::types::List<...> */;
 ```
 

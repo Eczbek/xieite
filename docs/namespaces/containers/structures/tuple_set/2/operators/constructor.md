@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleSet<Container_, std::tuple<FirstKey_, RestKeys_...>>](../../../../tuple_set.md)\:\:TupleSet\(\)
+# [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleSet<Container, std::tuple<FirstKey, RestKeys...>>](../../../../tuple_set.md)\:\:TupleSet\(\)
 Defined in header [<xieite/containers/tuple_set.hpp>](../../../../../../../include/xieite/containers/tuple_set.hpp)
 
 &nbsp;
@@ -11,7 +11,7 @@ Constructs a `xieite::containers::TupleSet`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr TupleSet(std::initializer_list<std::pair<FirstKey_, xieite::containers::TupleSet<Container_, std::tuple<RestKeys_...>>>> list = {}) noexcept;
+constexpr TupleSet(std::initializer_list<std::pair<FirstKey, xieite::containers::TupleSet<Container, std::tuple<RestKeys...>>>> list = {}) noexcept;
 ```
 
 &nbsp;

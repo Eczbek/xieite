@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[time](../../../../../time.md)\:\:[Stopwatch<Clock_>](../../../stopwatch.md)\:\:lap\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[time](../../../../../time.md)\:\:[Stopwatch<Clock>](../../../stopwatch.md)\:\:lap\<\>\(\)
 Defined in header [<xieite/time/stopwatch.hpp>](../../../../../../include/xieite/time/stopwatch.hpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Returns the current elapsed lap time.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Duration Duration_ = std::chrono::nanoseconds>
-Duration_ lap() const noexcept;
+template<xieite::concepts::Duration Duration = std::chrono::nanoseconds>
+Duration lap() const noexcept;
 ```
 
 &nbsp;

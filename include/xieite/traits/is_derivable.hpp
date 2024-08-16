@@ -5,9 +5,9 @@
 #	include "../concepts/derivable.hpp"
 
 namespace xieite::traits {
-	template<typename Type_>
+	template<typename Type>
 	struct IsDerivable
-	: std::bool_constant<xieite::concepts::Derivable<Type_>> {};
+	: std::bool_constant<xieite::concepts::Derivable<Type>> {};
 }
 
 #endif

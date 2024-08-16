@@ -11,8 +11,8 @@ Specifies that a type is a narrow character, according to [the standard draft](h
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type_>
-concept OrdinaryCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Type_>, char, signed char, unsigned char>;
+template<typename Type>
+concept OrdinaryCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Type>, char, signed char, unsigned char>;
 ```
 
 &nbsp;

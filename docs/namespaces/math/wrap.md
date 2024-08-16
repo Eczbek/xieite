@@ -11,8 +11,8 @@ Defined in header [<xieite/math/wrap.hpp>](../../../include/xieite/math/wrap.hpp
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_>
-[[nodiscard]] constexpr Arithmetic_ wrap(Arithmetic_ value, Arithmetic_ limit1, Arithmetic_ limit2) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic wrap(Arithmetic value, Arithmetic limit1, Arithmetic limit2) noexcept;
 ```
 
 &nbsp;

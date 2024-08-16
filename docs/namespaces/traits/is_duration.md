@@ -16,8 +16,8 @@ struct IsDuration
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic_, xieite::concepts::Ration Ratio_>
-struct IsDuration<std::chrono::duration<Arithmetic_, Ratio_>>
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Ration Ratio>
+struct IsDuration<std::chrono::duration<Arithmetic, Ratio>>
 : std::true_type {};
 ```
 

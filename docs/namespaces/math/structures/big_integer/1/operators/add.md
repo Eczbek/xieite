@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb_>](../../../../big_integer.md)\:\:operator+\<\>\(\)
+# [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb>](../../../../big_integer.md)\:\:operator+\<\>\(\)
 Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
 
 &nbsp;
@@ -11,16 +11,16 @@ Returns the sum of two big-integers.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Limb_> operator+() const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb> operator+() const noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb_> operator+(const xieite::math::BigInteger<Limb_>& augend, const xieite::math::BigInteger<Limb_>& addend) noexcept;
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator+(const xieite::math::BigInteger<Limb>& augend, const xieite::math::BigInteger<Limb>& addend) noexcept;
 ```
 #### 3)
 ```cpp
-template<std::integral Integral_>
-[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb_> operator+(const xieite::math::BigInteger<Limb_>& augend, Integral_ addend) noexcept;
+template<std::integral Integral>
+[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator+(const xieite::math::BigInteger<Limb>& augend, Integral addend) noexcept;
 ```
 
 &nbsp;

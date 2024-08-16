@@ -5,10 +5,10 @@
 #	include <cstddef>
 
 namespace xieite::literals::radix {
-	template<char... characters_>
+	template<char... characters>
 	[[nodiscard]] constexpr std::size_t operator""_radix() noexcept {
-		static constexpr std::array<char, sizeof...(characters_)> value = {
-			characters_...
+		static constexpr std::array<char, sizeof...(characters)> value = {
+			characters...
 		};
 		if constexpr ((value.size() > 1) && (value[0] == '0')) {
 			switch (value[1]) {

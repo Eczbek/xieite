@@ -2,15 +2,15 @@
 #	define XIEITE_HEADER_ALGORITHMS_ANY
 
 #	include <functional>
-#	include "../concepts/functable.hpp"
+#	include "../concepts/functor.hpp"
 #	include "../concepts/no_throw_invocable.hpp"
 #	include "../macros/forward.hpp"
 
 namespace xieite::algorithms {
-	template<typename... Values_, typename Functor_>
-	requires((... && xieite::concepts::Functable<Functor_, bool(Values_)>))
-	[[nodiscard]] constexpr bool any(Functor_&& functor, Values_&&... values)
-	noexcept((... && xieite::concepts::NoThrowInvocable<Functor_, Values_>)) {
+	template<typename... Values, typename Functor>
+	requires((... && xieite::concepts::Functor<Functor, bool(Values)>))
+	[[nodiscard]] constexpr bool any(Functor&& functor, Values&&... values)
+	noexcept((... && xieite::concepts::NoThrowInvocable<Functor, Values>)) {
 		return (... || std::invoke(functor, XIEITE_FORWARD(values)));
 	}
 }
