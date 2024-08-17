@@ -23,10 +23,10 @@ noexcept((... && xieite::concepts::NoThrowInvocable<Functor, Values>));
 ```cpp
 #include <print>
 #include "xieite/algorithms/any.hpp"
-#include "xieite/functors/static_cast.hpp"
+#include "xieite/macros/lift.hpp"
 
 int main() {
-    auto predicate = xieite::functors::StaticCast<bool>();
+    auto predicate = XIEITE_LIFT_ONE(static_cast<bool>);
 
     std::println("{}", xieite::algorithms::any(predicate, false, 0, '\0'));
 }

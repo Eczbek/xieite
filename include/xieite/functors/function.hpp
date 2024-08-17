@@ -31,7 +31,7 @@ namespace xieite::functors {
 
 		template<typename... ArgumentReferences>
 		requires((... && std::convertible_to<ArgumentReferences, Arguments>))
-		constexpr Return operator()(ArgumentReferences&&... arguments) const {
+		constexpr Return operator()(ArgumentReferences&&... arguments) const noexcept(false) {
 			// Explicitly not handling possible nullptr dereference
 			return (*this->pointer)(XIEITE_FORWARD(arguments)...);
 		}
@@ -40,7 +40,7 @@ namespace xieite::functors {
 		struct Base {
 			virtual constexpr ~Base() = default;
 
-			virtual constexpr Return operator()(Arguments...) const = 0;
+			virtual constexpr Return operator()(Arguments...) const noexcept(false) = 0;
 
 			virtual constexpr std::unique_ptr<xieite::functors::Function<Return(Arguments...)>::Base> clone() const noexcept = 0;
 		};
@@ -54,7 +54,7 @@ namespace xieite::functors {
 			explicit(false) constexpr Derived(FunctorReference&& functor) noexcept
 			: functor(XIEITE_FORWARD(functor)) {}
 
-			constexpr Return operator()(Arguments... arguments) const override {
+			constexpr Return operator()(Arguments... arguments) const noexcept(false) override {
 				return std::invoke(this->functor, XIEITE_FORWARD(arguments)...);
 			}
 

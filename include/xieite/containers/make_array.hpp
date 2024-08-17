@@ -10,10 +10,10 @@
 #	include <utility>
 #	include "../concepts/functor.hpp"
 #	include "../concepts/no_throw_invocable.hpp"
-#	include "../functors/static_cast.hpp"
+#	include "../macros/lift.hpp"
 
 namespace xieite::containers {
-	template<typename Value, std::size_t size, std::ranges::input_range Range, xieite::concepts::Functor<Value(std::ranges::range_reference_t<Range>)> Functor = xieite::functors::StaticCast<Value>>
+	template<typename Value, std::size_t size, std::ranges::input_range Range, xieite::concepts::Functor<Value(std::ranges::range_reference_t<Range>)> Functor = decltype(XIEITE_LIFT_ONE(static_cast<bool>))>
 	requires(std::convertible_to<std::ranges::range_value_t<Range>, Value>)
 	[[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
 	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>) {

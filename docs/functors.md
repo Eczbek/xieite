@@ -8,6 +8,7 @@ Utilities relating to functors and arguments
 &nbsp;
 
 ## Contents
+- [AggregateInitialize\<\> \{\}](./namespaces/functors/aggregate_initialize.md)
 - [counter\<\>\(\)](./namespaces/functors/counter.md)
 - [distributeArguments\<\>\(\)](./namespaces/functors/distribute_arguments.md)
 - [Echo \{\}](./namespaces/functors/echo.md)
@@ -20,6 +21,5 @@ Utilities relating to functors and arguments
 - [recursivelyDistributeArguments\<\>\(\)](./namespaces/functors/recursively_distribute_arguments.md)
 - [reverseArguments\<\>\(\)](./namespaces/functors/reverse_arguments.md)
 - [ScopeGuard \{\}](./namespaces/functors/scope_guard.md)
-- [StaticCast\<\> \{\}](./namespaces/functors/static_cast.md)
 - [templatify\<\>\(\)](./namespaces/functors/templatify.md)
 - [time\<\>\(\)](./namespaces/functors/time.md)

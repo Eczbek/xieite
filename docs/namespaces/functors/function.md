@@ -30,7 +30,7 @@ struct Function<Return(Arguments...)> {
 
     template<typename... ArgumentReferences>
     requires((... && std::convertible_to<ArgumentReferences, Arguments>))
-    constexpr Return operator()(ArgumentReferences&&...) const;
+    constexpr Return operator()(ArgumentReferences&&...) const noexcept(false);
 };
 ```
 - [Function\<\>\(\)](./structures/function/2/operators/constructor.md)

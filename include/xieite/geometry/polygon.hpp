@@ -8,10 +8,10 @@
 #	include <vector>
 #	include "../algorithms/is_rotated.hpp"
 #	include "../concepts/arithmetic.hpp"
-#	include "../functors/static_cast.hpp"
 #	include "../geometry/intersections.hpp"
 #	include "../geometry/point.hpp"
 #	include "../geometry/segment.hpp"
+#	include "../macros/lift.hpp"
 
 namespace xieite::geometry {
 	template<xieite::concepts::Arithmetic>
@@ -33,7 +33,7 @@ namespace xieite::geometry {
 		[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Polygon<OtherArithmetic>() const noexcept {
 			using OtherPoint = xieite::geometry::Point<OtherArithmetic>;
 			std::vector<OtherPoint> otherPoints = std::vector<OtherPoint>(this->points.size());
-			std::ranges::transform(this->points, otherPoints.begin(), xieite::functors::StaticCast<OtherPoint>());
+			std::ranges::transform(this->points, otherPoints.begin(), XIEITE_LIFT_ONE(static_cast<OtherPoint>));
 			return xieite::geometry::Polygon<OtherArithmetic>(otherPoints);
 		}
 

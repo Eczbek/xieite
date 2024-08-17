@@ -9,6 +9,7 @@ A collection of commonly concepts, expanding on the standard library
 
 ## Contents
 - [Aggregate\<\>](./namespaces/concepts/aggregate.md)
+- [AggregateInitializable\<\>](./namespaces/concepts/aggregate_initializable.md)
 - [All\<\>](./namespaces/concepts/all.md)
 - [Any\<\>](./namespaces/concepts/any.md)
 - [Arithmetic\<\>](./namespaces/concepts/arithmetic.md)
@@ -35,6 +36,7 @@ A collection of commonly concepts, expanding on the standard library
 - [InvocableWithArity\<\>](./namespaces/concepts/invocable_with_arity.md)
 - [LinearShape\<\>](./namespaces/concepts/linear_shape.md)
 - [NarrowCharacter\<\>](./namespaces/concepts/narrow_character.md)
+- [NoThrowAggregateInitializable\<\>](./namespaces/concepts/no_throw_aggregate_initializable.md)
 - [NoThrowConvertibleTo\<\>](./namespaces/concepts/no_throw_convertible_to.md)
 - [NoThrowConvertibleToAll\<\>](./namespaces/concepts/no_throw_convertible_to_all.md)
 - [NoThrowConvertibleToAny\<\>](./namespaces/concepts/no_throw_convertible_to_any.md)
