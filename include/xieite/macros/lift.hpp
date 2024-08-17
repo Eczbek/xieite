@@ -4,8 +4,13 @@
 #	include "../macros/forward.hpp"
 
 #	define XIEITE_LIFT(...) \
-		([](auto&&... arguments) noexcept(noexcept(__VA_ARGS__(XIEITE_FORWARD(arguments)...))) -> decltype(__VA_ARGS__(XIEITE_FORWARD(arguments)...)) { \
+		([][[nodiscard]](auto&&... arguments) noexcept(noexcept(__VA_ARGS__(XIEITE_FORWARD(arguments)...))) -> decltype(__VA_ARGS__(XIEITE_FORWARD(arguments)...)) { \
 			return __VA_ARGS__(XIEITE_FORWARD(arguments)...); \
+		})
+
+#	define XIEITE_LIFT_ONE(...) \
+		([][[nodiscard]](auto&& argument) noexcept(noexcept(__VA_ARGS__(XIEITE_FORWARD(argument)))) -> decltype(__VA_ARGS__(XIEITE_FORWARD(argument))) { \
+			return __VA_ARGS__(XIEITE_FORWARD(argument)); \
 		})
 
 #endif
