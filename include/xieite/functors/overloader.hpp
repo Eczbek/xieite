@@ -13,8 +13,8 @@ namespace xieite::functors {
 
 		template<typename... DerivableReferences>
 		requires((... && std::convertible_to<DerivableReferences, Derivables>))
-		constexpr Overloader(DerivableReferences&&... callbacks) noexcept
-		: Derivables(XIEITE_FORWARD(callbacks))... {}
+		constexpr Overloader(DerivableReferences&&... arguments) noexcept
+		: Derivables(XIEITE_FORWARD(arguments))... {}
 
 		using Derivables::operator()...;
 	};

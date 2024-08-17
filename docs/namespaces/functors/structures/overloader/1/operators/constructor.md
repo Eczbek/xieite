@@ -17,7 +17,7 @@ constexpr Overloader() noexcept;
 ```cpp
 template<typename... DerivableReferences>
 requires((... && std::convertible_to<DerivableReferences, Derivables>))
-constexpr Overloader(DerivableReferences&&... callbacks) noexcept;
+constexpr Overloader(DerivableReferences&&... arguments) noexcept;
 ```
 
 &nbsp;
