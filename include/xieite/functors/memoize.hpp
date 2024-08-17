@@ -34,7 +34,7 @@ namespace xieite::detail {
 		using is_transparent = void;
 
 		template<typename Functor, typename... Argument>
-		static std::size_t operator()(const xieite::detail::Memo<Functor, Argument...>& memo) {
+		static std::size_t operator()(const xieite::detail::Memo<Functor, Argument...>& memo) noexcept(false) {
 			return ([&memo]<std::size_t... i>(std::index_sequence<i...>) -> std::size_t {
 				return xieite::hashes::combine(([&memo] -> std::size_t {
 					if constexpr (xieite::concepts::Hashable<Functor>) {
