@@ -4,14 +4,14 @@ Defined in header [<xieite/types/maybe_constant.hpp>](../../../include/xieite/ty
 &nbsp;
 
 ## Description
-An alias to an optionally constant qualified type.
+An alias to an optionally constant qualified type, disregarding reference qualifiers.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, bool constantQualified>
+template<typename Type, bool qualified>
 using MaybeConstant = /* ... */;
 ```
 
@@ -26,10 +26,12 @@ using MaybeConstant = /* ... */;
 int main() {
     std::println("{}", std::same_as<const int, xieite::types::MaybeConstant<int, true>>);
     std::println("{}", std::same_as<int, xieite::types::MaybeConstant<const int, false>>);
+    std::println("{}", std::same_as<const int&, xieite::types::MaybeConstant<int&, true>>);
 }
 ```
 Output:
 ```
+true
 true
 true
 ```

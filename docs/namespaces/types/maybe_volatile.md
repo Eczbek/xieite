@@ -4,14 +4,14 @@ Defined in header [<xieite/types/maybe_volatile.hpp>](../../../include/xieite/ty
 &nbsp;
 
 ## Description
-An alias to an optionally volatile qualified type.
+An alias to an optionally volatile qualified type, disregarding reference qualifiers.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, bool volatileQualified>
+template<typename Type, bool qualified>
 using MaybeVolatile = /* ... */;
 ```
 
@@ -26,10 +26,12 @@ using MaybeVolatile = /* ... */;
 int main() {
     std::println("{}", std::same_as<volatile int, xieite::types::MaybeVolatile<int, true>>);
     std::println("{}", std::same_as<int, xieite::types::MaybeVolatile<volatile int, false>>);
+    std::println("{}", std::same_as<volatile int&, xieite::types::MaybeVolatile<int&, true>>);
 }
 ```
 Output:
 ```
+true
 true
 true
 ```

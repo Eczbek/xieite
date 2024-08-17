@@ -4,15 +4,14 @@ Defined in header [<xieite/types/maybe_volatile_data.hpp>](../../../include/xiei
 &nbsp;
 
 ## Description
-An alias to a pointer to an optionally volatile qualified data type.
+An alias to a pointer to an optionally volatile qualified data type, disregarding reference qualifiers.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, bool volatileQualified>
-requires(std::is_pointer_v<Type> || std::is_reference_v<Type>)
+template<xieite::concepts::Pointer Type, bool qualified>
 using MaybeVolatileData = /* ... */;
 ```
 
@@ -27,10 +26,12 @@ using MaybeVolatileData = /* ... */;
 int main() {
     std::println("{}", std::same_as<volatile int*, xieite::types::MaybeVolatileData<int*, true>>);
     std::println("{}", std::same_as<int*, xieite::types::MaybeVolatileData<volatile int*, false>>);
+    std::println("{}", std::same_as<volatile int*&, xieite::types::MaybeVolatileData<int*&, true>>);
 }
 ```
 Output:
 ```
+true
 true
 true
 ```

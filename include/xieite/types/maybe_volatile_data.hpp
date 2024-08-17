@@ -1,30 +1,13 @@
 #ifndef XIEITE_HEADER_TYPES_MAYBE_VOLATILE_DATA
-#   define XIEITE_HEADER_TYPES_MAYBE_VOLATILE_DATA
+#	define XIEITE_HEADER_TYPES_MAYBE_VOLATILE_DATA
 
-#   include <type_traits>
-#   include "../types/maybe_volatile.hpp"
-
-namespace xieite::detail {
-	template<typename, bool>
-	struct MaybeVolatileData;
-
-	template<typename Type, bool volatileQualified>
-	struct MaybeVolatileData<Type*, volatileQualified>
-	: std::type_identity<xieite::types::MaybeVolatile<Type, volatileQualified>*> {};
-
-	template<typename Type, bool volatileQualified>
-	struct MaybeVolatileData<Type&, volatileQualified>
-	: std::type_identity<xieite::types::MaybeVolatile<Type, volatileQualified>&> {};
-
-	template<typename Type, bool volatileQualified>
-	struct MaybeVolatileData<Type&&, volatileQualified>
-	: std::type_identity<xieite::types::MaybeVolatile<Type, volatileQualified>&&> {};
-}
+#	include "../concepts/pointer.hpp"
+#	include "../types/maybe_pointer.hpp"
+#	include "../types/maybe_volatile.hpp"
 
 namespace xieite::types {
-	template<typename Type, bool volatileQualified>
-	requires(std::is_pointer_v<Type> || std::is_reference_v<Type>)
-	using MaybeVolatileData = xieite::detail::MaybeVolatileData<Type, volatileQualified>::type;
+	template<xieite::concepts::Pointer Type, bool qualified>
+	using MaybeVolatileData = xieite::types::MaybePointer<xieite::types::MaybeVolatile<xieite::types::MaybePointer<Type, false>, qualified>, true>;
 }
 
 #endif

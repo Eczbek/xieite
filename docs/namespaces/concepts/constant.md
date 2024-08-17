@@ -4,7 +4,7 @@ Defined in header [<xieite/concepts/constant.hpp>](../../../include/xieite/conce
 &nbsp;
 
 ## Description
-Specifies that a type is constant.
+Specifies that a type is constant, disregarding reference qualifiers.
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Specifies that a type is constant.
 #### 1)
 ```cpp
 template<typename Type>
-concept Constant = std::is_const_v<Type>;
+concept Constant = std::is_const_v<std::remove_reference_t<Type>>;
 ```
 
 &nbsp;
@@ -25,10 +25,12 @@ concept Constant = std::is_const_v<Type>;
 int main() {
     std::println("{}", xieite::concepts::Constant<const int>);
     std::println("{}", xieite::concepts::Constant<int>);
+    std::println("{}", xieite::concepts::Constant<const int&>);
 }
 ```
 Output:
 ```
 true
 false
+true
 ```

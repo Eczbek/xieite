@@ -4,15 +4,14 @@ Defined in header [<xieite/types/maybe_constant_data.hpp>](../../../include/xiei
 &nbsp;
 
 ## Description
-An alias to a pointer to an optionally constant qualified data type.
+An alias to a pointer to an optionally constant qualified data type, disregarding reference qualifiers.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, bool constantQualified>
-requires(std::is_pointer_v<Type> || std::is_reference_v<Type>)
+template<xieite::concepts::Pointer Type, bool qualified>
 using MaybeConstantData = /* ... */;
 ```
 
@@ -27,10 +26,12 @@ using MaybeConstantData = /* ... */;
 int main() {
     std::println("{}", std::same_as<const int*, xieite::types::MaybeConstantData<int*, true>>);
     std::println("{}", std::same_as<int*, xieite::types::MaybeConstantData<const int*, false>>);
+    std::println("{}", std::same_as<const int*&, xieite::types::MaybeConstantData<int*&, true>>);
 }
 ```
 Output:
 ```
+true
 true
 true
 ```
