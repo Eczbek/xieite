@@ -2,6 +2,7 @@
 #	define XIEITE_HEADER_STREAMS_COLOR
 
 #	include <array>
+#	include <concepts>
 #	include <cstddef>
 #	include <cstdint>
 #	include <utility>
@@ -11,16 +12,16 @@
 #	include "../types/least_integer.hpp"
 
 namespace xieite::streams {
-	template<std::size_t channels = 3>
+	template<std::size_t channels>
 	struct Color {
 		std::array<std::uint8_t, channels> data;
 
-		template<std::same_as<std::uint8_t>... Arguments>
+		template<std::convertible_to<std::uint8_t>... Arguments>
 		requires(sizeof...(Arguments) == channels)
-		constexpr Color(const Arguments... arguments) noexcept
-		: data { arguments... } {}
+		explicit constexpr Color(const Arguments... arguments) noexcept
+		: data { static_cast<std::uint8_t>(arguments)... } {}
 
-		constexpr Color(const xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value = 0) noexcept
+		explicit constexpr Color(const xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value = 0) noexcept
 		: data(([value]<std::size_t... i>(std::index_sequence<i...>) -> std::array<std::uint8_t, channels> {
 			const auto values = xieite::bits::unjoin<std::uint8_t, channels>(xieite::bits::join(value));
 			return std::array<std::uint8_t, channels> {

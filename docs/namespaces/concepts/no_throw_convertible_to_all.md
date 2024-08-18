@@ -12,7 +12,7 @@ Specifies that a type can be converted to several other types without throwing e
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>
-concept NoThrowConvertibleToAll = (... && xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
+concept NoThrowConvertibleToAll = (... && std::is_nothrow_convertible_v<Source, Targets>);
 ```
 
 &nbsp;

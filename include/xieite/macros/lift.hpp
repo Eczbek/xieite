@@ -8,7 +8,7 @@
 			return __VA_ARGS__(XIEITE_FORWARD(arguments)...); \
 		})
 
-#	define XIEITE_LIFT_ONE(...) \
+#	define XIEITE_LIFT_UNARY(...) \
 		([][[nodiscard]](auto&& argument) noexcept(noexcept(__VA_ARGS__(XIEITE_FORWARD(argument)))) -> decltype(__VA_ARGS__(XIEITE_FORWARD(argument))) { \
 			return __VA_ARGS__(XIEITE_FORWARD(argument)); \
 		})

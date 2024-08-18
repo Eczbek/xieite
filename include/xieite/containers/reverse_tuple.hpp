@@ -3,15 +3,15 @@
 
 #	include <cstddef>
 #	include <tuple>
+#	include <type_traits>
 #	include <utility>
-#	include "../concepts/no_throw_convertible_to.hpp"
 #	include "../types/list.hpp"
 
 namespace xieite::containers {
 	template<typename... Types>
 	[[nodiscard]] constexpr typename xieite::types::List<Types...>::Reverse::Apply<std::tuple> reverseTuple(const std::tuple<Types...>& tuple)
 	noexcept(([]<std::size_t... i>(std::index_sequence<i...>) -> bool {
-		return (... && xieite::concepts::NoThrowConvertibleTo<typename xieite::types::List<Types...>::At<i>, typename xieite::types::List<Types...>::Reverse::At<i>>);
+		return (... && std::is_nothrow_convertible_v<typename xieite::types::List<Types...>::At<i>, typename xieite::types::List<Types...>::Reverse::At<i>>);
 	})(std::make_index_sequence<sizeof...(Types)>())) {
 		using Reversed = xieite::types::List<Types...>::Reverse;
 		return ([&tuple]<std::size_t... i>(std::index_sequence<i...>) -> auto {

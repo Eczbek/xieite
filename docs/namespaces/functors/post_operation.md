@@ -13,7 +13,7 @@ Returns a copy of a value before passing it to a functor.
 ```cpp
 template<typename Type, std::invocable<Type&> Functor>
 [[nodiscard]] constexpr Type postOperation(Type& value, Functor&& functor)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, Type&>);
+noexcept(std::is_nothrow_invocable_v<Functor, Type&>);
 ```
 
 &nbsp;

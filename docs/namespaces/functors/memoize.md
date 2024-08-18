@@ -13,7 +13,7 @@ Memo-izes a function call and returns its output immediately on subsequent execu
 ```cpp
 template<typename... Arguments, std::invocable<Arguments...> Functor>
 std::invoke_result_t<Functor, Arguments...> memoize(Functor functor, const Arguments&... arguments)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, Arguments...>);
+noexcept(std::is_nothrow_invocable_v<Functor, Arguments...>);
 ```
 
 &nbsp;

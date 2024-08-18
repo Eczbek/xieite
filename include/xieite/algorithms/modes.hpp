@@ -6,16 +6,15 @@
 #	include <iterator>
 #	include <ranges>
 #	include <vector>
+#	include <type_traits>
 #	include "../concepts/arithmetic.hpp"
-#	include "../concepts/constant_invocable.hpp"
 #	include "../concepts/functor.hpp"
-#	include "../concepts/no_throw_invocable.hpp"
 
 namespace xieite::algorithms {
 	template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>)> Functor = std::ranges::greater>
-	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>> && xieite::concepts::ConstantInvocable<Functor, std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>>)
+	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
 	[[nodiscard]] constexpr std::vector<std::ranges::iterator_t<Range>> modes(Range& range, Functor&& comparator = Functor())
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>>) {
+	noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>>) {
 		std::vector<std::ranges::iterator_t<Range>> iterators;
 		const std::size_t rangeSize = std::ranges::size(range);
 		if (rangeSize == 1) {

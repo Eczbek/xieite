@@ -13,7 +13,7 @@ Times the duration of execution of a functor.
 ```cpp
 template<xieite::concepts::Duration Duration = std::chrono::nanoseconds, xieite::concepts::Clock Clock = std::chrono::steady_clock, std::invocable<> Functor>
 Duration time(Functor&& functor)
-noexcept(xieite::concepts::NoThrowInvocable<Functor>);
+noexcept(std::is_nothrow_invocable_v<Functor>);
 ```
 
 &nbsp;

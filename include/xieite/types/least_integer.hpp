@@ -10,9 +10,9 @@
 namespace xieite::detail {
 	template<std::size_t bits>
 	struct LeastIntegerSelector {
-		template<typename Type, typename...>
+		template<typename Integer, typename...>
 		struct Type
-		: std::bool_constant<(bits <= xieite::bits::size<Type>)> {};
+		: std::bool_constant<(bits <= xieite::bits::size<Integer>)> {};
 	};
 }
 

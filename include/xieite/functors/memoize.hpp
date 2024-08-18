@@ -9,7 +9,6 @@
 #	include <unordered_map>
 #	include <utility>
 #	include "../concepts/hashable.hpp"
-#	include "../concepts/no_throw_invocable.hpp"
 #	include "../hashes/combine.hpp"
 
 namespace xieite::detail {
@@ -51,7 +50,7 @@ namespace xieite::detail {
 namespace xieite::functors {
 	template<typename... Argument, std::invocable<Argument...> Functor>
 	std::invoke_result_t<Functor, Argument...> memoize(Functor functor, const Argument&... arguments)
-	noexcept(xieite::concepts::NoThrowInvocable<Functor, Argument...>) {
+	noexcept(std::is_nothrow_invocable_v<Functor, Argument...>) {
 		if constexpr (!std::same_as<std::invoke_result_t<Functor, Argument...>, void> && (xieite::concepts::Hashable<Functor> || std::is_empty_v<Functor>) && std::equality_comparable<Functor> && (... && xieite::concepts::Hashable<Argument>)) {
 			static std::unordered_map<xieite::detail::Memo<Functor, std::decay_t<Argument>...>, std::invoke_result_t<Functor&, Argument...>, xieite::detail::MemoHash, std::equal_to<>> map;
 			const auto iterator = map.find(xieite::detail::Memo<Functor, const Argument&...>(functor, std::tie(arguments...)));

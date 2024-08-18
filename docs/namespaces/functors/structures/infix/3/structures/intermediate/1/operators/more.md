@@ -14,7 +14,7 @@ Calls the underlying functor with both arguments.
 template<typename RightArgument>
 requires(std::invocable<Functor, LeftArgument, RightArgument&&>)
 friend constexpr std::invoke_result_t<Functor, LeftArgument, RightArgument&&> operator>(const xieite::functors::Infix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgument>& infixIntermediate, RightArgument&& rightArgument)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, LeftArgument, RightArgument&&>);
+noexcept(std::is_nothrow_invocable_v<Functor, LeftArgument, RightArgument&&>);
 ```
 
 &nbsp;

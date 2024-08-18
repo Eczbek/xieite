@@ -13,7 +13,7 @@ Checks if a range is the same backwards as it is forwards, or if an integer can 
 ```cpp
 template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
 [[nodiscard]] constexpr bool isPalindrome(Range&& range, Functor&& comparator = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>);
+noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>);
 ```
 #### 2)
 ```cpp

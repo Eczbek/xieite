@@ -12,7 +12,7 @@ Specifies that a type can be converted to at least one of several other types wi
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>
-concept NoThrowConvertibleToAny = (... || xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
+concept NoThrowConvertibleToAny = (... || std::is_nothrow_convertible_v<Source, Targets>);
 ```
 
 &nbsp;

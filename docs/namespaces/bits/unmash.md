@@ -33,7 +33,7 @@ requires(bits >= (... + sizes))
 #include "xieite/bits/unmash.hpp"
 
 int main() {
-    std::bitset<12> foo = 0b101011000111;
+    std::bitset<12> foo = 0b011000111101;
     auto bar = xieite::bits::unmash<3, 9>(foo);
 
     std::println("{}", std::get<0>(bar));

@@ -14,7 +14,7 @@ Checks whether a functor invoked with at least one following argument evaluates 
 template<typename... Values, typename Functor>
 requires((... && xieite::concepts::Functor<Functor, bool(Values)>))
 [[nodiscard]] constexpr bool any(Functor&& functor, Values&&... values)
-noexcept((... && xieite::concepts::NoThrowInvocable<Functor, Values>));
+noexcept((... && std::is_nothrow_invocable_v<Functor, Values>));
 ```
 
 &nbsp;
@@ -26,7 +26,7 @@ noexcept((... && xieite::concepts::NoThrowInvocable<Functor, Values>));
 #include "xieite/macros/lift.hpp"
 
 int main() {
-    auto predicate = XIEITE_LIFT_ONE(static_cast<bool>);
+    auto predicate = XIEITE_LIFT_UNARY(static_cast<bool>);
 
     std::println("{}", xieite::algorithms::any(predicate, false, 0, '\0'));
 }

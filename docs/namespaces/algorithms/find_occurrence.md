@@ -13,7 +13,7 @@ Finds a specific occurrence of a value in a range and returns an iterator pointi
 ```cpp
 template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
 [[nodiscard]] constexpr std::ranges::const_iterator_t<Range> findOccurrence(Range& range, std::size_t count, std::ranges::range_reference_t<Range> value, Functor&& comparator = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>);
+noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>);
 ```
 
 &nbsp;

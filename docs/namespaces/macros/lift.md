@@ -15,7 +15,7 @@ Defined in header [<xieite/macros/lift.hpp>](../../../include/xieite/macros/lift
 ```
 #### 2)
 ```cpp
-#define XIEITE_LIFT_ONE(...) /* ... */
+#define XIEITE_LIFT_UNARY(...) /* ... */
 ```
 Exists for special cases where the compiler errors if a fold expression is passed to `__VA_ARGS__`.
 

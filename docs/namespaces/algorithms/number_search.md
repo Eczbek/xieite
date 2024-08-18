@@ -13,13 +13,13 @@ Finds the lowest numerical value which, if passed to the provided callback, will
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functor<bool(Arithmetic)> Functor>
 [[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector, Arithmetic minimum, Arithmetic maximum)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, Arithmetic>);
+noexcept(std::is_nothrow_invocable_v<Functor, Arithmetic>);
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functor<bool(Arithmetic)> Functor>
 [[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector)
-noexcept(xieite::concepts::NoThrowInvocable<Functor, Arithmetic>);
+noexcept(std::is_nothrow_invocable_v<Functor, Arithmetic>);
 ```
 
 &nbsp;

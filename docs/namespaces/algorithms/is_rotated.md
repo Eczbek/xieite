@@ -13,7 +13,7 @@ Checks whether one range contains elements in the same relative order as in anot
 ```cpp
 template<std::ranges::input_range Range1, std::ranges::input_range Range2, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>)> Functor = std::ranges::equal_to>
 [[nodiscard]] constexpr bool isRotated(Range1&& range1, Range2&& range2, Functor&& comparator = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>>);
+noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_reference_t<Range1>, std::ranges::range_reference_t<Range2>>);
 ```
 
 &nbsp;

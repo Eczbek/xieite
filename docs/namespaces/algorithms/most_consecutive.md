@@ -13,7 +13,7 @@ Finds the subrange of greatest length containing the maximum number of consecuti
 ```cpp
 template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_const_reference_t<Range>)> Functor>
 [[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> mostConsecutive(Range&& range, Functor&& selector = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, std::ranges::range_const_reference_t<Range>>);
+noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_const_reference_t<Range>>);
 ```
 
 &nbsp;

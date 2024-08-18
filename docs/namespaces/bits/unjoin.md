@@ -33,7 +33,7 @@ requires(bits >= (xieite::bits::size<Integral> * size))
 #include "xieite/bits/unjoin.hpp"
 
 int main() {
-    std::bitset<24> foo = 0b000001010000000011000111;
+    std::bitset<24> foo = 0b000000001100011100000101;
     auto bar = xieite::bits::unjoin<std::uint8_t, std::uint16_t>(foo);
 
     std::println("{}", std::get<0>(bar));

@@ -33,7 +33,7 @@ namespace xieite::geometry {
 		[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Polygon<OtherArithmetic>() const noexcept {
 			using OtherPoint = xieite::geometry::Point<OtherArithmetic>;
 			std::vector<OtherPoint> otherPoints = std::vector<OtherPoint>(this->points.size());
-			std::ranges::transform(this->points, otherPoints.begin(), XIEITE_LIFT_ONE(static_cast<OtherPoint>));
+			std::ranges::transform(this->points, otherPoints.begin(), XIEITE_LIFT_UNARY(static_cast<OtherPoint>));
 			return xieite::geometry::Polygon<OtherArithmetic>(otherPoints);
 		}
 
