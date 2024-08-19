@@ -63,6 +63,8 @@ struct File {
 #if XIEITE_PLATFORM_TYPE_UNIX || XIEITE_PLATFORM_TYPE_WINDOWS
     int descriptor() const noexcept;
 #endif
+
+    std::FILE* release() noexcept;
 };
 ```
 - [File\<\>\(\)](./structures/file/1/operators/constructor.md)
@@ -71,6 +73,7 @@ struct File {
 - [close\(\)](./structures/file/1/close.md)
 - [file\(\)](./structures/file/1/file.md)
 - [descriptor\(\)](./structures/file/1/descriptor.md)
+- [release\(\)](./structures/file/1/release.md)
 
 &nbsp;
 

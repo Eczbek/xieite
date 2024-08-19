@@ -129,10 +129,7 @@ namespace xieite::streams {
 						mode += 'a';
 					}
 #	endif
-					xieite::streams::File file = xieite::streams::File(descriptor, mode);
-					std::FILE* const result = file.stream;
-					file.stream = nullptr;
-					return result;
+					return xieite::streams::File(descriptor, mode).release();
 				} else {
 #	if XIEITE_COMPILER_TYPE_GCC
 					return static_cast<__gnu_cxx::stdio_filebuf<typename Stream::char_type, typename Stream::traits_type>*>(stream.rdbuf())->file();
@@ -153,7 +150,7 @@ namespace xieite::streams {
 		}
 #	endif
 
-		void close() noexcept {
+		int close() noexcept {
 			if (this->stream && (this->stream != stdin) && (this->stream != stdout) && (this->stream != stderr)) {
 				return std::fclose(this->stream);
 			}
@@ -170,6 +167,12 @@ namespace xieite::streams {
 #	else
 			return ::_fileno(this->stream);
 #	endif
+		}
+
+		[[nodiscard]] std::FILE* release() noexcept {
+			std::FILE* const copy = this->stream;
+			this->stream = nullptr;
+			return copy;
 		}
 
 	private:
