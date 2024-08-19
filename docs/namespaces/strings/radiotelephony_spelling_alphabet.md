@@ -11,7 +11,7 @@ Defines the radiotelephony spelling alphabet. See header file for the exact defi
 ## Synopsis
 #### 1)
 ```cpp
-inline constexpr auto radiotelephonySpellingAlphabet = /* std::array<std::string_view, N> */;
+inline constexpr std::array<std::string_view, /* size */> radiotelephonySpellingAlphabet = /* ... */;
 ```
 
 &nbsp;

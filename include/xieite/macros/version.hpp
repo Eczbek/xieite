@@ -3,7 +3,7 @@
 
 #	define XIEITE_VERSION_MAJOR 22
 #	define XIEITE_VERSION_MINOR 1
-#	define XIEITE_VERSION_PATCH 2
+#	define XIEITE_VERSION_PATCH 3
 
 #	define XIEITE_VERSION_EQUAL(major, minor, patch) ((XIEITE_VERSION_MAJOR == (major)) && (XIEITE_VERSION_MINOR == (minor)) && (XIEITE_VERSION_PATCH == (patch)))
 #	define XIEITE_VERSION_LEAST(major, minor, patch) ((XIEITE_VERSION_MAJOR > (major)) || (XIEITE_VERSION_MAJOR == (major)) && ((XIEITE_VERSION_MINOR > (minor) || (XIEITE_VERSION_MINOR == (minor)) && (XIEITE_VERSION_PATCH >= (patch)))))
