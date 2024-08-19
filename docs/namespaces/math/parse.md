@@ -4,7 +4,7 @@ Defined in header [<xieite/math/parse.hpp>](../../../include/xieite/math/parse.h
 &nbsp;
 
 ## Description
-Parses an number string in any radix. Allows negative radices. Is case-sensitive.
+Parses a number string in any radix. Allows negative radices. Is case-sensitive.
 
 &nbsp;
 
