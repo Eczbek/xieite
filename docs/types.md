@@ -25,6 +25,7 @@ Utilities for type information and metaprogramming
 - [MaybeConstant\<\>](./namespaces/types/maybe_constant.md)
 - [MaybeConstantData\<\>](./namespaces/types/maybe_constant_data.md)
 - [MaybeLeftValueReference\<\>](./namespaces/types/maybe_left_value_reference.md)
+- [MaybePointer\<\>](./namespaces/types/maybe_pointer.md)
 - [MaybeRightValueReference\<\>](./namespaces/types/maybe_right_value_reference.md)
 - [MaybeVolatile\<\>](./namespaces/types/maybe_volatile.md)
 - [MaybeVolatileData\<\>](./namespaces/types/maybe_volatile_data.md)
