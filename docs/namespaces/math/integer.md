@@ -91,7 +91,7 @@ struct Integer
 - [operator=\(\)](./structures/integer/1/operators/assign.md)
 - [operator typename\<\>\(\)](./structures/integer/1/operators/cast.md)
 - [operator<=>\(\)](./structures/integer/1/operators/spaceship.md)
-- [operator==\(\)](./structures/integer/1/operators/s/equal.md)
+- [operator==\(\)](./structures/integer/1/operators/equal.md)
 - [operator+\(\)](./structures/integer/1/operators/add.md)
 - [operator+=\(\)](./structures/integer/1/operators/addAssign.md)
 - [operator++\(\)](./structures/integer/1/operators/increment.md)
