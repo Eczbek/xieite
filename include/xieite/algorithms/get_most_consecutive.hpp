@@ -8,9 +8,9 @@
 #	include "../concepts/functor.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_const_reference_t<Range>)> Functor>
+	template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>)> Functor>
 	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> getMostConsecutive(Range& range, Functor&& selector = Functor())
-	noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_const_reference_t<Range>>) {
+	noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_reference_t<Range>>) {
 		auto iterator = std::ranges::begin(range);
 		const auto rangeEnd = std::ranges::end(range);
 		auto currentStart = iterator;

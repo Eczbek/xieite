@@ -11,10 +11,10 @@
 #	include "../concepts/functor.hpp"
 
 namespace xieite::algorithms {
-	template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>)> Functor = std::ranges::greater>
+	template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::greater>
 	requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
 	[[nodiscard]] constexpr std::vector<std::ranges::iterator_t<Range>> modes(Range& range, Functor&& comparator = Functor())
-	noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_const_reference_t<Range>, std::ranges::range_const_reference_t<Range>>) {
+	noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>) {
 		std::vector<std::ranges::iterator_t<Range>> iterators;
 		const std::size_t rangeSize = std::ranges::size(range);
 		if (rangeSize == 1) {
