@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Arithmetic>](../../../../ray.md)\:\:operator==\(\)
-Defined in header [<xieite/geometry/ray.hpp>](../../../../../../../include/xieite/geometry/ray.hpp)
+Defined in fragment [xieite:geometry.Ray](../../../../../../../src/geometry/ray.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ Compares two rays.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/ray.hpp"
-#include "xieite/literals/units.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::units;

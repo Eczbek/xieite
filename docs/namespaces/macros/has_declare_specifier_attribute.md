@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_HAS\_DECLARE\_SPECIFIER\_ATTRIBUTE\(\)
-Defined in header [<xieite/macros/has_declare_specifier_attribute.hpp>](../../../include/xieite/macros/has_declare_specifier_attribute.hpp)
+Defined in header ["has_declare_specifier_attribute.hpp"](../../../src/macros/has_declare_specifier_attribute.hpp)
 
 &nbsp;
 
@@ -18,8 +18,9 @@ Expands to a compiler-specific extension to check if an attribute for `__declspe
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/has_declare_specifier_attribute.hpp"
+#include "has_declare_specifier_attribute.hpp"
+
+import std;
 
 int main() {
     std::println("{}", XIEITE_HAS_DECLARE_SPECIFIER_ATTRIBUTE(dllexport));

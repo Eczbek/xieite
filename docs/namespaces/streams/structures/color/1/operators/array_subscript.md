@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Color<channels>](../../../../color.md)\:\:operator\[\]\(\)
-Defined in header [<xieite/streams/color.hpp>](../../../../../../../include/xieite/streams/color.hpp)
+Defined in fragment [xieite:streams.Color](../../../../../../../src/streams/color.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<typename Self>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/streams/color.hpp"
+import std;
+import xieite;
 
 int main() {
     auto color = xieite::streams::Color<3>(0xFF7F00);

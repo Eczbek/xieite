@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:wrap\<\>\(\)
-Defined in header [<xieite/math/wrap.hpp>](../../../include/xieite/math/wrap.hpp)
+Defined in fragment [xieite:math.wrap](../../../src/math/wrap.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/wrap.hpp"
+import std;
+import xieite;
 
 int main() {
     for (int i = 0; i < 10; ++i) {

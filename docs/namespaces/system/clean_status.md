@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:cleanStatus\(\)
-Defined in header [<xieite/system/clean_status.hpp>](../../../include/xieite/system/clean_status.hpp)
+Defined in fragment [xieite:system.cleanStatus](../../../src/system/clean_status.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ inline int cleanStatus(int status) noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/system/clean_status.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::system::cleanStatus(16384));

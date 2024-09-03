@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Trivial\<\>
-Defined in header [<xieite/concepts/trivial.hpp>](../../../include/xieite/concepts/trivial.hpp)
+Defined in fragment [xieite:concepts.Trivial](../../../src/concepts/trivial.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Trivial = std::is_trivial_v<Type>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/trivial.hpp"
+import std;
+import xieite;
 
 struct Nope {
     Nope(const Nope&) = delete;

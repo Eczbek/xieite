@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNarrowCharacter\<\> \{\}
-Defined in header [<xieite/traits/is_narrow_character.hpp>](../../../include/xieite/traits/is_narrow_character.hpp)
+Defined in fragment [xieite:traits.IsNarrowCharacter](../../../src/traits/is_narrow_character.cpp)
 
 &nbsp;
 

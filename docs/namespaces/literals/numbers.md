@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:numbers
-Defined in header [<xieite/literals/numbers.hpp>](../../../include/xieite/literals/numbers.hpp)
+Defined in fragment [xieite:literals.numbers](../../../src/literals/numbers.cpp)
 
 &nbsp;
 
@@ -478,8 +478,8 @@ A namespace of literals for converting numeric literals to specific integer or f
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/literals/numbers.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::numbers;

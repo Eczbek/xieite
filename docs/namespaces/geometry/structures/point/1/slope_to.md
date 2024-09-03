@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Point<Arithmetic>](../../../point.md)\:\:slopeTo\(\)
-Defined in header [<xieite/geometry/point.hpp>](../../../../../../include/xieite/geometry/point.hpp)
+Defined in fragment [xieite:geometry.Point](../../../../../../src/geometry/point.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Computes the slope between two points.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/point.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::geometry::Point(0.0, 0.0).slopeTo({ 1.0, 1.0 }));

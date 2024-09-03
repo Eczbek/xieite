@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[threads](../../../../../threads.md)\:\:[Pool](../../../pool.md)\:\:getThreadCount\(\)
-Defined in header [<xieite/threads/pool.hpp>](../../../../../../include/xieite/threads/pool.hpp)
+Defined in fragment [xieite:threads.Pool](../../../../../../src/threads/pool.cpp)
 
 &nbsp;
 

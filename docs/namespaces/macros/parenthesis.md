@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_PARENTHESIS\_...\(\)
-Defined in header [<xieite/macros/parenthesis.hpp>](../../../include/xieite/macros/parenthesis.hpp)
+Defined in header ["parenthesis.hpp"](../../../src/macros/parenthesis.hpp)
 
 &nbsp;
 
@@ -22,8 +22,9 @@ Helper macros which expand to left and right parentheses.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/parenthesis.hpp"
+#include "parenthesis.hpp"
+
+import std;
 
 int main() {
     std::println XIEITE_PARENTHESIS_LEFT() "Hello, world!" XIEITE_PARENTHESIS_RIGHT();

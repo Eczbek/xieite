@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:NumberComponents \{\}
-Defined in header [<xieite/strings/number_components.hpp>](../../../include/xieite/strings/number_components.hpp)
+Defined in fragment [xieite:strings.NumberComponents](../../../src/strings/number_components.cpp)
 
 &nbsp;
 
@@ -25,8 +25,8 @@ struct NumberComponents {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/number_components.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::NumberComponents().digits);

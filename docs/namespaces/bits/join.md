@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:join\<\>\(\)
-Defined in header [<xieite/bits/join.hpp>](../../../include/xieite/bits/join.hpp)
+Defined in fragment [xieite:bits.join](../../../src/bits/join.cpp)
 
 &nbsp;
 
@@ -24,15 +24,14 @@ template<std::integral Integral, std::size_t size>
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <print>
-#include "xieite/bits/join.hpp"
+import std;
+import xieite;
 
 int main() {
     std::uint8_t foo = 0b101;
     std::uint16_t bar = 0b11000111;
 
-    std::println("{}", xieite::bits::join(foo, bar).to_string());
+    std::println("{}", xieite::bits::join(foo, bar).toString());
 }
 ```
 Output:

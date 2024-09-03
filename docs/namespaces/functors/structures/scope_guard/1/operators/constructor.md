@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[ScopeGuard](../../../../scope_guard.md)\:\:ScopeGuard\<\>\(\)
-Defined in header [<xieite/functors/scope_guard.hpp>](../../../../../../../include/xieite/functors/scope_guard.hpp)
+Defined in fragment [xieite:functors.ScopeGuard](../../../../../../../src/functors/scope_guard.cpp)
 
 &nbsp;
 

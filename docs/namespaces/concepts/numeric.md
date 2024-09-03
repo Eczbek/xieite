@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Numeric\<\>
-Defined in header [<xieite/concepts/numeric.hpp>](../../../include/xieite/concepts/numeric.hpp)
+Defined in fragment [xieite:concepts.Numeric](../../../src/concepts/numeric.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Numeric = xieite::concepts::Arithmetic<Type> && !std::same_as<std::remov
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/numeric.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::Numeric<int>);

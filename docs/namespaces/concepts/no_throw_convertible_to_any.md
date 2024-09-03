@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowConvertibleToAny\<\>
-Defined in header [<xieite/concepts/no_throw_convertible_to_any.hpp>](../../../include/xieite/concepts/no_throw_convertible_to_any.hpp)
+Defined in fragment [xieite:concepts.NoThrowConvertibleToAny](../../../src/concepts/no_throw_convertible_to_any.cpp)
 
 &nbsp;
 
@@ -12,16 +12,15 @@ Specifies that a type can be converted to at least one of several other types wi
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>
-concept NoThrowConvertibleToAny = (... || std::is_nothrow_convertible_v<Source, Targets>);
+concept NoThrowConvertibleToAny = (... || xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include <stdexcept>
-#include "xieite/concepts/no_throw_convertible_to_any.hpp"
+import std;
+import xieite;
 
 struct Nope {
     operator int() {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:tangent\<\>\(\)
-Defined in header [<xieite/math/tangent.hpp>](../../../include/xieite/math/cotagent.hpp)
+Defined in fragment [xieite:math.tangent](../../../src/math/cotagent.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic R
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/literals/units.hpp"
-#include "xieite/math/tangent.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::units;

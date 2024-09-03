@@ -1,0 +1,43 @@
+export module xieite:units.Area;
+
+export namespace xieite::units {
+	enum struct Area {
+		SquareQuectometre,
+		SquareRontometre,
+		SquareYoctometre,
+		SquareZeptometre,
+		SquareAttometre,
+		SquareFemtometre,
+		SquarePicometre,
+		SquareNanometre,
+		SquareMicrometre,
+		SquareMillimetre,
+		SquareCentimetre,
+		SquareDecimetre,
+		SquareMetre,
+		SquareDecametre,
+		SquareHectometre,
+		SquareKilometre,
+		SquareMegametre,
+		SquareGigametre,
+		SquareTerametre,
+		SquarePetametre,
+		SquareExametre,
+		SquareZettametre,
+		SquareYottametre,
+		SquareRonnametre,
+		SquareQuettametre,
+		SquareInch,
+		SquareFoot,
+		SquareYard,
+		SquareMile,
+		SquareRood,
+		Acre,
+		Decimilliare,
+		Centiare,
+		Deciare,
+		Are,
+		Decare,
+		Hectare
+	};
+}

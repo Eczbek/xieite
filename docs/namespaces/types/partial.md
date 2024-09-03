@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Partial\<\> \{\}
-Defined in header [<xieite/types/partial.hpp>](../../../include/xieite/types/partial.hpp)
+Defined in fragment [xieite:types.Partial](../../../src/types/partial.cpp)
 
 &nbsp;
 
@@ -27,9 +27,8 @@ struct Partial {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/types/name.hpp"
-#include "xieite/types/partial.hpp"
+import std;
+import xieite;
 
 template<typename... Types>
 struct List {};

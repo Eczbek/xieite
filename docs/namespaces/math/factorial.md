@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:factorial\<\>
-Defined in header [<xieite/math/factorial.hpp>](../../../include/xieite/math/factorial.hpp)
+Defined in fragment [xieite:math.factorial](../../../src/math/factorial.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ inline constexpr std::array<Arithmetic, /* size */> factorial = /* ... */
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/factorial.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::factorial<std::size_t>[17]);

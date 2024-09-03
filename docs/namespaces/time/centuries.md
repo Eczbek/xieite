@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[time](../../time.md)\:\:Centuries
-Defined in header [<xieite/time/centuries.hpp>](../../../include/xieite/time/centuries.hpp)
+Defined in fragment [xieite:time.Centuries](../../../src/time/centuries.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ using Centuries = std::chrono::duration<std::intmax_t, std::ratio<3155695200>>;
 
 ## Example
 ```cpp
-#include <print>
-#include <thread>
-#include "xieite/time/centuries.hpp"
+import std;
+import xieite;
 
 int main() {
     std::this_thread::sleep_for(xieite::time::Centuries(3));

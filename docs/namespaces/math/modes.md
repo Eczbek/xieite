@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:modes\<\>\(\)
-Defined in header [<xieite/math/modes.hpp>](../../../include/xieite/math/modes.hpp)
+Defined in fragment [xieite:math.modes](../../../src/math/modes.cpp)
 
 &nbsp;
 
@@ -26,8 +26,8 @@ requires(sizeof...(Number) > 0)
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/modes.hpp"
+import std;
+import xieite;
 
 int main() {
     for (int value : xieite::math::modes(1, 3, 2, 4, 5)) {

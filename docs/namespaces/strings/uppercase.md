@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:uppercase\(\)
-Defined in header [<xieite/strings/uppercase.hpp>](../../../include/xieite/strings/uppercase.hpp)
+Defined in fragment [xieite:strings.uppercase](../../../src/strings/uppercase.cpp)
 
 &nbsp;
 
@@ -22,8 +22,8 @@ Converts a string or character to uppercase. Only handles characters between `a`
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/uppercase.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::uppercase("hello, world!\n");

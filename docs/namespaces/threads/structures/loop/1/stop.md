@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[threads](../../../../../threads.md)\:\:[Loop](../../../loop.md)\:\:stop\(\)
-Defined in header [<xieite/threads/loop.hpp>](../../../../../../include/xieite/threads/loop.hpp)
+Defined in fragment [xieite:threads.Loop](../../../../../../src/threads/loop.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ void stop() noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/threads/loop.hpp"
+import std;
+import xieite;
 
 int main() {
     auto loop = xieite::threads::Loop([] {

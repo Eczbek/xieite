@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Derivable\<\>
-Defined in header [<xieite/concepts/derivable.hpp>](../../../include/xieite/concepts/derivable.hpp)
+Defined in fragment [xieite:concepts.Derivable](../../../src/concepts/derivable.cpp)
 
 &nbsp;
 

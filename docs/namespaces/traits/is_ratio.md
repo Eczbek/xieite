@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsRatio\<\> \{\}
-Defined in header [<xieite/traits/is_ratio.hpp>](../../../include/xieite/traits/is_ratio.hpp)
+Defined in fragment [xieite:traits.IsRatio](../../../src/traits/is_ratio.cpp)
 
 &nbsp;
 

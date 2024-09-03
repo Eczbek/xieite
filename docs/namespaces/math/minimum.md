@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:minimum\<\>\(\)
-Defined in header [<xieite/math/minimum.hpp>](../../../include/xieite/math/minimum.hpp)
+Defined in fragment [xieite:math.minimum](../../../src/math/minimum.cpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ requires(sizeof...(Arithmetics) > 0)
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/minimum.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::minimum(1, 3, 2, 4, 5));

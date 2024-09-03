@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:stringClearLine\(\)
-Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in fragment [xieite:streams.StandardHandle](../../../../../../src/streams/standard_handle.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ Returns a string which, when printed, clears the line which contains the cursor.
 
 ## Example
 ```cpp
-#include <print>
-#include <string>
-#include "xieite/streams/standard_handle.hpp"
+import std;
+import xieite;
 
 int main() {
     std::string clear = xieite::streams::StandardHandle::stringClearLine();

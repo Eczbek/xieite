@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Version](../../../version.md)\:\:string\(\)
-Defined in header [<xieite/math/version.hpp>](../../../../../../include/xieite/math/version.hpp)
+Defined in fragment [xieite:math.Version](../../../../../../src/math/version.cpp)
 
 &nbsp;
 

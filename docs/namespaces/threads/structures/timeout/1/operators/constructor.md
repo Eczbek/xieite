@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Timeout](../../../../timeout.md)\:\:Timeout\<\>\(\)
-Defined in header [<xieite/threads/timeout.hpp>](../../../../../../../include/xieite/threads/timeout.hpp)
+Defined in fragment [xieite:threads.Timeout](../../../../../../../src/threads/timeout.cpp)
 
 &nbsp;
 

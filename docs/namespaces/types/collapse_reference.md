@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:CollapseReference\<\>
-Defined in header [<xieite/types/collapse_reference.hpp>](../../../include/xieite/types/collapse_reference.hpp)
+Defined in fragment [xieite:types.CollapseReference](../../../src/types/collapse_reference.cpp)
 
 &nbsp;
 

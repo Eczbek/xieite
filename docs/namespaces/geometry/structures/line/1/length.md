@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Line<Arithmetic>](../../../line.md)\:\:length\(\)
-Defined in header [<xieite/geometry/line.hpp>](../../../../../../include/xieite/geometry/line.hpp)
+Defined in fragment [xieite:geometry.Line](../../../../../../src/geometry/line.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Always returns infinity.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/line.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 }).length());

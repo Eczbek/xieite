@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:pi\<\>
-Defined in header [<xieite/math/pi.hpp>](../../../include/xieite/math/pi.hpp)
+Defined in fragment [xieite:math.pi](../../../src/math/pi.cpp)
 
 &nbsp;
 
@@ -29,8 +29,8 @@ inline constexpr Integral pi<Integral> = static_cast<Integral>(std::numbers::pi)
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/pi.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::pi<double>);

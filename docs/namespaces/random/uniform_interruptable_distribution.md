@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:UniformInterruptableDistribution\<\> \{\}
-Defined in header [<xieite/random/uniform_interruptable_distribution.hpp>](../../../include/xieite/random/uniform_interruptable_distribution.hpp)
+Defined in fragment [xieite:random.UniformInterruptableDistribution](../../../src/random/uniform_interruptable_distribution.cpp)
 
 &nbsp;
 
@@ -28,9 +28,8 @@ struct UniformInterruptableDistribution {
 
 ## Example
 ```cpp
-#include <print>
-#include <random>
-#include "xieite/random/uniform_interruptable_distribution.hpp"
+import std;
+import xieite;
 
 int main() {
     auto rng = std::default_random_engine(std::random_device {}());

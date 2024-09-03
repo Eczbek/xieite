@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:modes\<\>\(\)
-Defined in header [<xieite/algorithms/modes.hpp>](../../../include/xieite/algorithms/modes.hpp)
+Defined in fragment [xieite:algorithms.modes](../../../src/algorithms/modes.cpp)
 
 &nbsp;
 
@@ -11,19 +11,18 @@ Computes the modes (or antimodes) of a set of data.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::greater>
-requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>> && xieite::concepts::ConstantInvocable<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>)
+template<std::ranges::forward_range Range, xieite::concepts::Invocable<bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> Functor = std::ranges::greater>
+requires(std::ranges::sized_range<Range> && xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
 [[nodiscard]] constexpr std::vector<std::ranges::iterator_t<Range>> modes(Range& range, Functor&& comparator = Functor())
-noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>);
+noexcept(xieite::concepts::NoThrowInvocable<Functor, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> && xieite::concepts::NoThrowOperableRange<Range>);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include <vector>
-#include "xieite/algorithms/nodes.hpp"
+import std;
+import xieite;
 
 int main() {
     std::vector<int> data { 1, 3, 2, 4, 5 };

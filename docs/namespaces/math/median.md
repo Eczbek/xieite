@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:median\<\>\(\)
-Defined in header [<xieite/math/median.hpp>](../../../include/xieite/math/median.hpp)
+Defined in fragment [xieite:math.median](../../../src/math/median.cpp)
 
 &nbsp;
 
@@ -26,8 +26,8 @@ requires(sizeof...(Arithmetics) > 0)
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/median.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::median(1, 1, 2, 2, 5));

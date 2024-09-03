@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Hashable\<\>
-Defined in header [<xieite/concepts/hashable.hpp>](../../../include/xieite/concepts/hashable.hpp)
+Defined in fragment [xieite:concepts.Hashable](../../../src/concepts/hashable.cpp)
 
 &nbsp;
 
@@ -12,17 +12,15 @@ Specifies that a type is hashable.
 #### 1)
 ```cpp
 template<typename Type, typename Hasher = std::hash<Type>>
-concept Hashable = requires(Type value, Hasher hasher) {
-    { std::invoke(hasher, value) } -> std::convertible_to<std::size_t>;
-};
+concept Hashable = xieite::concepts::Invocable<Hasher, std::size_t(Type)>;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/hashable.hpp"
+import std;
+import xieite;
 
 struct Nope {};
 

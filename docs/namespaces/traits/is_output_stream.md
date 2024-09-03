@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsOutputStream\<\> \{\}
-Defined in header [<xieite/traits/is_output_stream.hpp>](../../../include/xieite/traits/is_output_stream.hpp)
+Defined in fragment [xieite:traits.IsOutputStream](../../../src/traits/is_output_stream.cpp)
 
 &nbsp;
 

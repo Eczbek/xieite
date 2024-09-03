@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:stringify\<\>\(\)
-Defined in header [<xieite/math/stringify.hpp>](../../../include/xieite/math/stringify.hpp)
+Defined in fragment [xieite:math.stringify](../../../src/math/stringify.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/stringify.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::stringify(13, 2));

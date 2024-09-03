@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:absolute\<\>\(\)
-Defined in header [<xieite/math/absolute.hpp>](../../../include/xieite/math/absolute.hpp)
+Defined in fragment [xieite:math.absolute](../../../src/math/absolute.cpp)
 
 &nbsp;
 
@@ -24,10 +24,8 @@ template<std::floating_point Fractional>
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <limits>
-#include <print>
-#include "xieite/math/absolute.hpp"
+import std;
+import xieite;
 
 int main() {
     std::int64_t value = std::numeric_limits<std::int64_t>::min();

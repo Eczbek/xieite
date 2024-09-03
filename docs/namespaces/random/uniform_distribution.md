@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[random](../../random.md)\:\:UniformDistribution\<\>
-Defined in header [<xieite/random/uniform_distribution.hpp>](../../../include/xieite/random/uniform_distribution.hpp)
+Defined in fragment [xieite:random.UniformDistribution](../../../src/random/uniform_distribution.cpp)
 
 &nbsp;
 
@@ -19,11 +19,8 @@ using UniformDistribution = std::conditional_t<std::integral<Arithmetic>, std::c
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include <random>
-#include "xieite/concepts/specialization_of.hpp"
-#include "xieite/random/uniform_distribution.hpp"
+import std;
+import xieite;
 
 int main() {
     using Foo = xieite::random::UniformDistribution<int>;

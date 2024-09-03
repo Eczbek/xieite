@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyComparator, Allocator>](../../../../fixed_map.md)\:\:FixedMap\<\>\(\)
-Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
+Defined in fragment [xieite:containers.FixedMap](../../../../../../../src/containers/fixed_map.cpp)
 
 &nbsp;
 
@@ -28,9 +28,8 @@ explicit(false) constexpr FixedMap(std::initializer_list<std::pair<Key, Value>> 
 
 ## Example
 ```cpp
-#include <array>
-#include <print>
-#include "xieite/containers/fixed_map.hpp"
+import std;
+import xieite;
 
 int main() {
     using FixedMap = xieite::containers::FixedMap<int, double, 3>;

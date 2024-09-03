@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:sign\<\>\(\)
-Defined in header [<xieite/math/sign.hpp>](../../../include/xieite/math/sign.hpp)
+Defined in fragment [xieite:math.sign](../../../src/math/sign.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic First, std::same_as<First>... Rest>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/sign.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::sign(418));

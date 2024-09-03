@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isBetweenMagnitude\<\>\(\)
-Defined in header [<xieite/math/is_between_magnitude.hpp>](../../../include/xieite/math/is_between_magnitude.hpp)
+Defined in fragment [xieite:math.isBetweenMagnitude](../../../src/math/is_between_magnitude.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/is_between_magnitude.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::isBetweenMagnitude(0, 0, 5));

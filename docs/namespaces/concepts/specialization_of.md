@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SpecializationOf\<\>
-Defined in header [<xieite/concepts/specialization_of.hpp>](../../../include/xieite/concepts/specialization_of.hpp)
+Defined in fragment [xieite:concepts.SpecializationOf](../../../src/concepts/specialization_of.cpp)
 
 &nbsp;
 
 ## Description
-Specifies that a type is a specialization of a template. To be deprecated once `std::specialization_of` is standardized.
+Specifies that a type is a specialization of a template. To be deprecated once universal template parameters are implemented.
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept SpecializationOf = xieite::traits::IsSpecializationOf<std::remove_cv_t<T
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/specialization_of.hpp"
+import std;
+import xieite;
 
 template<typename>
 struct Foo {};

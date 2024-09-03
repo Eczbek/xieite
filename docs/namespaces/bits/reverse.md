@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:reverse\<\>\(\)
-Defined in header [<xieite/bits/reverse.hpp>](../../../include/xieite/bits/reverse.hpp)
+Defined in fragment [xieite:bits.reverse](../../../src/bits/reverse.cpp)
 
 &nbsp;
 
@@ -24,14 +24,13 @@ template<std::size_t bits>
 
 ## Example
 ```cpp
-#include <bit>
-#include <print>
-#include "xieite/bits/reverse.hpp"
+import std;
+import xieite;
 
 int main() {
     std::bitset<8> foo = 0b11001010;
 
-    std::println("{}", xieite::bits::reverse(foo).to_string());
+    std::println("{}", xieite::bits::reverse(foo).toString());
 }
 ```
 Output:

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:unmash\<\>\(\)
-Defined in header [<xieite/bits/unmash.hpp>](../../../include/xieite/bits/unmash.hpp)
+Defined in fragment [xieite:bits.unmash](../../../src/bits/unmash.cpp)
 
 &nbsp;
 
@@ -26,11 +26,8 @@ requires(bits >= (... + sizes))
 
 ## Example
 ```cpp
-#include <bitset>
-#include <cstdint>
-#include <print>
-#include <tuple>
-#include "xieite/bits/unmash.hpp"
+import std;
+import xieite;
 
 int main() {
     std::bitset<12> foo = 0b011000111101;

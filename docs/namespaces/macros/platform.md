@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_PLATFORM\_...
-Defined in header [<xieite/macros/platform.hpp>](../../../include/xieite/macros/platform.hpp)
+Defined in header ["platform.hpp"](../../../src/macros/platform.hpp)
 
 &nbsp;
 
@@ -470,18 +470,19 @@ Requires `XIEITE_PLATFORM_TYPE_##platform` to be `1`.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/platform.hpp"
+#include "platform.hpp"
+
+import std;
 
 int main() {
 #if XIEITE_PLATFORM_TYPE_WINDOWS
-    std::println("Windows"); // trash
+    std::println("Windows");
 #elif XIEITE_PLATFORM_TYPE_MACINTOSH
-    std::println("Macintosh"); // garbage
+    std::println("Macintosh");
 #elif XIEITE_PLATFORM_TYPE_LINUX
-    std::println("Linux"); // #linuxmasterrace
+    std::println("Linux"); // :)
 #else
-    std::println("Other"); // BSD?
+    std::println("Other");
 #endif
 }
 ```

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:units
-Defined in header [<xieite/literals/units.hpp>](../../../include/xieite/literals/units.hpp)
+Defined in fragment [xieite:literals.units](../../../src/literals/units.cpp)
 
 &nbsp;
 
@@ -15,8 +15,8 @@ A namespace of literals for constructing various units.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/literals/units.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::units;

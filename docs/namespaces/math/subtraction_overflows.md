@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:subtractionOverflows\<\>\(\)
-Defined in header [<xieite/math/subtraction_overflows.hpp>](../../../include/xieite/math/subtraction_overflows.hpp)
+Defined in fragment [xieite:math.subtractionOverflows](../../../src/math/subtraction_overflows.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <print>
-#include "xieite/math/subtraction_overflows.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::subtractionOverflows<std::uint8_t>(4, 90));

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:parse\<\>\(\)
-Defined in header [<xieite/math/parse.hpp>](../../../include/xieite/math/parse.hpp)
+Defined in fragment [xieite:math.parse](../../../src/math/parse.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/parse.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::parse<int>("G4H3", 21));

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:littleEndify\<\>\(\)
-Defined in header [<xieite/bits/little_endify.hpp>](../../../include/xieite/bits/little_endify.hpp)
+Defined in fragment [xieite:bits.littleEndify](../../../src/bits/little_endify.cpp)
 
 &nbsp;
 
@@ -19,17 +19,15 @@ template<std::integral Integral>
 
 ## Example
 ```cpp
-#include <bitset>
-#include <cstdint>
-#include <print>
-#include "xieite/bits/little_endify.hpp"
+import std;
+import xieite;
 
 int main() {
     std::uint32_t foo = 12345;
 
     std::uint32_t bar = xieite::bits::littleEndify(foo);
 
-    std::println("{}", std::bitset<32>(bar).to_string());
+    std::println("{}", std::bitset<32>(bar).toString());
 }
 ```
 Output:

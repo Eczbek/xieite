@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:distributeArguments\<\>\(\)
-Defined in header [<xieite/functors/distribute_arguments.hpp>](../../../include/xieite/functors/distribute_arguments.hpp)
+Defined in fragment [xieite:functors.distributeArguments](../../../src/functors/distribute_arguments.cpp)
 
 &nbsp;
 
@@ -11,18 +11,18 @@ Distributes arguments among several calls to a functor.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t arity, xieite::concepts::InvocableWithArity<arity> Functor, typename... Arguments>
-requires((arity > 0) && !(sizeof...(Arguments) % arity))
+template<std::size_t arity, typename Functor, typename... Arguments>
+requires(/* ... */ && (arity > 0) && !(sizeof...(Arguments) % arity))
 constexpr void distributeArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor, arity>);
+noexcept(/* ... */);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/distribute_arguments.hpp"
+import std;
+import xieite;
 
 int main() {
     auto lambda = [](int x, int y, int z) -> void {

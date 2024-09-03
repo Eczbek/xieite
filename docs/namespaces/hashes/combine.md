@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[hashes](../../hashes.md)\:\:combine\<\>\(\)
-Defined in header [<xieite/hashes/combine.hpp>](../../../include/xieite/hashes/combine.hpp)
+Defined in fragment [xieite:hashes.combine](../../../src/hashes/combine.cpp)
 
 &nbsp;
 
 ## Description
-Combines multiple hashes... somehow. See header file.
+Combines multiple hashes... somehow. See definition for specifics.
 
 &nbsp;
 
@@ -19,11 +19,8 @@ template<std::integral Hash = std::size_t, std::convertible_to<Hash>... Hashes>
 
 ## Example
 ```cpp
-#include <cstddef>
-#include <functional>
-#include <print>
-#include <utility>
-#include "xieite/hashes/combine.hpp"
+import std;
+import xieite;
 
 template<typename First, typename Second>
 struct std::hash<std::pair<First, Second>> {

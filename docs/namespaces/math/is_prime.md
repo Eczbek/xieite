@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isPrime\<\>\(\)
-Defined in header [<xieite/math/is_prime.hpp>](../../../include/xieite/math/is_prime.hpp)
+Defined in fragment [xieite:math.isPrime](../../../src/math/is_prime.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<std::integral Integral>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/is_prime.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::isPrime(17));

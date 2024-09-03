@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:tau\<\>
-Defined in header [<xieite/math/tau.hpp>](../../../include/xieite/math/tau.hpp)
+Defined in fragment [xieite:math.tau](../../../src/math/tau.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ inline constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/tau.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::tau<double>);

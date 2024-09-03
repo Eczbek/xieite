@@ -22,6 +22,7 @@ String manipulation functions
 - [padCenter\(\)](./namespaces/strings/pad_center.md)
 - [padFront\(\)](./namespaces/strings/pad_front.md)
 - [quote\(\)](./namespaces/strings/quote.md)
+- [radiotelephonySpellingAlphabet](./namespaces/strings/radiotelephony_spelling_alphabet.md)
 - [repeat\(\)](./namespaces/strings/repeat.md)
 - [replace\(\)](./namespaces/strings/replace.md)
 - [split\(\)](./namespaces/strings/split.md)
@@ -32,4 +33,3 @@ String manipulation functions
 - [truncate\(\)](./namespaces/strings/truncate.md)
 - [unquote\(\)](./namespaces/strings/unquote.md)
 - [uppercase\(\)](./namespaces/strings/uppercase.md)
-- [radiotelephonySpellingAlphabet](./namespaces/strings/radiotelephony_spelling_alphabet.md)

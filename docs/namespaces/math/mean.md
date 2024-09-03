@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:mean\<\>\(\)
-Defined in header [<xieite/math/mean.hpp>](../../../include/xieite/math/mean.hpp)
+Defined in fragment [xieite:math.mean](../../../src/math/mean.cpp)
 
 &nbsp;
 
@@ -26,8 +26,8 @@ requires(sizeof...(Arithmetics) > 0)
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/mean.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::mean(1, 1, 2, 2, 5));

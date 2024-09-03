@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:ConvertibleToAll\<\>
-Defined in header [<xieite/concepts/convertible_to_all.hpp>](../../../include/xieite/concepts/convertible_to_all.hpp)
+Defined in fragment [xieite:concepts.ConvertibleToAll](../../../src/concepts/convertible_to_all.cpp)
 
 &nbsp;
 
 ## Description
-Specifies that a type can be converted to several other types. Passing no target types evaluates to `true`.
+Specifies that a type can be converted to all of several other types. Passing no target types evaluates to `true`.
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept ConvertibleToAll = (... && std::convertible_to<Source, Targets>);
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/convertible_to_all.hpp"
+import std;
+import xieite;
 
 struct Nope {};
 

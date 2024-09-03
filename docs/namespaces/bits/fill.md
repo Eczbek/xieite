@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:Fill \{\}
-Defined in header [<xieite/bits/fill.hpp>](../../../include/xieite/bits/fill.hpp)
+Defined in fragment [xieite:bits.Fill](../../../src/bits/fill.cpp)
 
 &nbsp;
 
@@ -29,9 +29,8 @@ struct Fill {
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <print>
-#include "xieite/bits/fill.hpp"
+import std;
+import xieite;
 
 int main() {
     std::uint8_t x = xieite::bits::Fill(-1);

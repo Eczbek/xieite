@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:sine\<\>\(\)
-Defined in header [<xieite/math/sine.hpp>](../../../include/xieite/math/sine.hpp)
+Defined in fragment [xieite:math.sine](../../../src/math/sine.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic R
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/literals/units.hpp"
-#include "xieite/math/sine.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::units;

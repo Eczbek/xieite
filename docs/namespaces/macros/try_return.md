@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_TRY\_RETURN\(\)
-Defined in header [<xieite/macros/try_return.hpp>](../../../include/xieite/macros/try_return.hpp)
+Defined in header ["try_return.hpp"](../../../src/macros/try_return.hpp)
 
 &nbsp;
 
@@ -12,9 +12,7 @@ Attempts to return something.
 #### 1)
 ```cpp
 #define XIEITE_TRY_RETURN(...) \
-    if constexpr (requires { \
-        __VA_ARGS__; \
-    }) { \
+    if constexpr (requires { __VA_ARGS__; }) { \
         return __VA_ARGS__; \
     }
 ```
@@ -23,8 +21,9 @@ Attempts to return something.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/try_return.hpp"
+#include "try_return.hpp"
+
+import std;
 
 template<auto F>
 int foo() {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:time\<\>\(\)
-Defined in header [<xieite/functors/time.hpp>](../../../include/xieite/functors/time.hpp)
+Defined in fragment [xieite:functors.time](../../../src/functors/time.cpp)
 
 &nbsp;
 
@@ -11,17 +11,17 @@ Times the duration of execution of a functor.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Duration Duration = std::chrono::nanoseconds, xieite::concepts::Clock Clock = std::chrono::steady_clock, std::invocable<> Functor>
-Duration time(Functor&& functor)
-noexcept(std::is_nothrow_invocable_v<Functor>);
+template<xieite::concepts::Duration Duration = std::chrono::nanoseconds, xieite::concepts::Clock Clock = std::chrono::steady_clock, typename... Arguments, std::invocable<Arguments...> Functor>
+[[nodiscard]] Duration time(Functor&& functor, Arguments&&... arguments)
+noexcept(std::is_nothrow_invocable_v<Functor, Arguments...>);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/time.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{} nanoseconds", xieite::functors::time([] {

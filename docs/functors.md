@@ -8,13 +8,12 @@ Utilities relating to functors and arguments
 &nbsp;
 
 ## Contents
-- [AggregateInitialize\<\> \{\}](./namespaces/functors/aggregate_initialize.md)
+- [BraceInitialize\<\> \{\}](./namespaces/functors/brace_initialize.md)
 - [counter\<\>\(\)](./namespaces/functors/counter.md)
 - [distributeArguments\<\>\(\)](./namespaces/functors/distribute_arguments.md)
-- [Echo \{\}](./namespaces/functors/echo.md)
 - [Function\<\> \{\}](./namespaces/functors/function.md)
-- [Infix\<\> \{\}](./namespaces/functors/infix.md)
 - [memoize\<\>\(\)](./namespaces/functors/memoize.md)
+- [Mixfix\<\> \{\}](./namespaces/functors/mixfix.md)
 - [Overloader\<\> \{\}](./namespaces/functors/overloader.md)
 - [postOperation\<\>\(\)](./namespaces/functors/post_operation.md)
 - [ProcessGuard \{\}](./namespaces/functors/process_guard.md)

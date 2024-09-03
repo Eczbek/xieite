@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:before\(\)
-Defined in header [<xieite/strings/before.hpp>](../../../include/xieite/strings/before.hpp)
+Defined in fragment [xieite:strings.before](../../../src/strings/before.cpp)
 
 &nbsp;
 
@@ -22,8 +22,8 @@ Takes the start of a string before some substring.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/before.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::before("Hello, world!", ' '));

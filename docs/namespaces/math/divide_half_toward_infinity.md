@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideHalfTowardInfinity\<\>\(\)
-Defined in header [<xieite/math/divide_half_toward_infinity.hpp>](../../../include/xieite/math/divide_half_toward_infinity.hpp)
+Defined in fragment [xieite:math.divideHalfTowardInfinity](../../../src/math/divide_half_toward_infinity.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/divide_half_toward_infinity.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::divideHalfTowardInfinity(5, 2));

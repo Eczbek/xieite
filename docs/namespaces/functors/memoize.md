@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:memoize\<\>\(\)
-Defined in header [<xieite/functors/memoize.hpp>](../../../include/xieite/functors/memoize.hpp)
+Defined in fragment [xieite:functors.memoize](../../../src/functors/memoize.cpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ noexcept(std::is_nothrow_invocable_v<Functor, Arguments...>);
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/memoize.hpp"
+import std;
+import xieite;
 
 int add(int x, int y) {
     std::print("{} + {} = ", x, y);

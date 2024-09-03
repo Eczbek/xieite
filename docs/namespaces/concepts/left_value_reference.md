@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:LeftValueReference\<\>
-Defined in header [<xieite/concepts/left_value_reference.hpp>](../../../include/xieite/concepts/left_value_reference.hpp)
+Defined in fragment [xieite:concepts.LeftValueReference](../../../src/concepts/left_value_reference.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept LeftValueReference = std::is_lvalue_reference_v<Type>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/left_value_reference.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::LeftValueReference<int>);

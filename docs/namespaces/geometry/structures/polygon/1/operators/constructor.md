@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Polygon<Arithmetic>](../../../../polygon.md)\:\:Polygon\(\)
-Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../../include/xieite/geometry/polygon.hpp)
+Defined in fragment [xieite:geometry.Polygon](../../../../../../../src/geometry/polygon.cpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowConvertibleTo\<\>
-Defined in header [<xieite/concepts/no_throw_convertible_to.hpp>](../../../include/xieite/concepts/no_throw_convertible_to.hpp)
+Defined in fragment [xieite:concepts.NoThrowConvertibleTo](../../../src/concepts/no_throw_convertible_to.cpp)
 
 &nbsp;
 
@@ -12,16 +12,17 @@ Specifies that a type can be converted to another without throwing exceptions.
 #### 1)
 ```cpp
 template<typename Source, typename Target>
-concept NoThrowConvertibleTo = std::is_nothrow_convertible_v<Source, Target>;
+concept NoThrowConvertibleTo = std::is_nothrow_convertible_v<Source, Target> && requires {
+    static_cast<Target>(std::declval<Source>());
+};
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include <stdexcept>
-#include "xieite/concepts/no_throw_convertible_to.hpp"
+import std;
+import xieite;
 
 struct Nope {
     operator int() {

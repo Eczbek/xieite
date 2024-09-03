@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsArithmetic\<\> \{\}
-Defined in header [<xieite/traits/is_arithmetic.hpp>](../../../include/xieite/traits/is_arithmetic.hpp)
+Defined in fragment [xieite:traits.IsArithmetic](../../../src/traits/is_arithmetic.cpp)
 
 &nbsp;
 

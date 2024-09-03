@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:Area \{\}
-Defined in header [<xieite/units/area.hpp>](../../../include/xieite/units/area.hpp)
+Defined in fragment [xieite:units.Area](../../../src/units/area.cpp)
 
 &nbsp;
 

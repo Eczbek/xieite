@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SpecializationOfAll\<\>
-Defined in header [<xieite/concepts/specialization_of_all.hpp>](../../../include/xieite/concepts/specialization_of_all.hpp)
+Defined in fragment [xieite:concepts.SpecializationOfAll](../../../src/concepts/specialization_of_all.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept SpecializationOfAll = (... && xieite::concepts::SpecializationOf<Type, T
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/specialization_of_all.hpp"
+import std;
+import xieite;
 
 template<typename>
 struct Foo {};

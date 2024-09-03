@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsPointer\<\> \{\}
-Defined in header [<xieite/traits/is_pointer.hpp>](../../../include/xieite/traits/is_pointer.hpp)
+Defined in fragment [xieite:traits.IsPointer](../../../src/traits/is_pointer.cpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Arithmetic>](../../../../segment.md)\:\:operator==\(\)
-Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
+Defined in fragment [xieite:geometry.Segment](../../../../../../../src/geometry/segment.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Compares two segments.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/segment.hpp"
+import std;
+import xieite;
 
 int main() {
     auto segment1 = xieite::geometry::Segment({ 0.0, 0.0 }, { 3.0, 4.0 });

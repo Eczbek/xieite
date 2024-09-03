@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowConvertibleToAll\<\>
-Defined in header [<xieite/concepts/no_throw_convertible_to_all.hpp>](../../../include/xieite/concepts/no_throw_convertible_to_all.hpp)
+Defined in fragment [xieite:concepts.NoThrowConvertibleToAll](../../../src/concepts/no_throw_convertible_to_all.cpp)
 
 &nbsp;
 
 ## Description
-Specifies that a type can be converted to several other types without throwing exceptions. Passing no target types evaluates to `true`.
+Specifies that a type can be converted to all of several other types without throwing exceptions. Passing no target types evaluates to `true`.
 
 &nbsp;
 
@@ -12,16 +12,15 @@ Specifies that a type can be converted to several other types without throwing e
 #### 1)
 ```cpp
 template<typename Source, typename... Targets>
-concept NoThrowConvertibleToAll = (... && std::is_nothrow_convertible_v<Source, Targets>);
+concept NoThrowConvertibleToAll = (... && xieite::concepts::NoThrowConvertibleTo<Source, Targets>);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include <stdexcept>
-#include "xieite/concepts/no_throw_convertible_to_all.hpp"
+import std;
+import xieite;
 
 struct Nope {
     operator int() {

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_VERSION\_...
-Defined in header [<xieite/macros/version.hpp>](../../../include/xieite/macros/version.hpp)
+Defined in header ["version.hpp"](../../../src/macros/version.hpp)
 
 &nbsp;
 
@@ -40,8 +40,9 @@ Also provides version checking utilities:
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/version.hpp"
+#include "version.hpp"
+
+import std;
 
 int main() {
     std::println("{}", XIEITE_VERSION_LEAST(6, 56, 0));

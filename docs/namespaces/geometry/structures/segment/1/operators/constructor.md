@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Arithmetic>](../../../../segment.md)\:\:Segment\(\)
-Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
+Defined in fragment [xieite:geometry.Segment](../../../../../../../src/geometry/segment.cpp)
 
 &nbsp;
 

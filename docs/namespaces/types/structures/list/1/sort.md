@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Sort\<\>
-Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
+Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 
 &nbsp;
 
@@ -11,7 +11,7 @@ Sorts types by name.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Functor<bool(std::string_view, std::string_view)> Comparator>
+template<xieite::concepts::Invocable<bool(std::string_view, std::string_view)> Comparator>
 requires(std::is_default_constructible_v<Comparator>)
 using Sort = /* xieite::types::List<...> */;
 ```
@@ -20,9 +20,8 @@ using Sort = /* xieite::types::List<...> */;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/types/list.hpp"
-#include "xieite/types/name.hpp"
+import std;
+import xieite;
 
 struct Foo {};
 

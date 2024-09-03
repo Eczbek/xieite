@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Line<Arithmetic>](../../../line.md)\:\:contains\(\)
-Defined in header [<xieite/geometry/line.hpp>](../../../../../../include/xieite/geometry/line.hpp)
+Defined in fragment [xieite:geometry.Line](../../../../../../src/geometry/line.cpp)
 
 &nbsp;
 
@@ -34,9 +34,8 @@ Checks whether a line contains another geometrical element.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/line.hpp"
-#include "xieite/geometry/point.hpp"
+import std;
+import xieite;
 
 int main() {
     auto line = xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 });

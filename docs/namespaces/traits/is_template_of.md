@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsTemplateOf\<\> \{\}
-Defined in header [<xieite/traits/is_template_of.hpp>](../../../include/xieite/traits/is_template_of.hpp)
+Defined in fragment [xieite:traits.IsTemplateOf](../../../src/traits/is_template_of.cpp)
 
 &nbsp;
 

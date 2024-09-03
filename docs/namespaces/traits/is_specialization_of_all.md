@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsSpecializationOfAll\<\> \{\}
-Defined in header [<xieite/traits/is_specialization_of_all.hpp>](../../../include/xieite/traits/is_specialization_of_all.hpp)
+Defined in fragment [xieite:traits.IsSpecializationOfAll](../../../src/traits/is_specialization_of_all.cpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:TemplateOf\<\>
-Defined in header [<xieite/concepts/template_of.hpp>](../../../include/xieite/concepts/template_of.hpp)
+Defined in fragment [xieite:concepts.TemplateOf](../../../src/concepts/template_of.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept TemplateOf = xieite::concepts::SpecializationOf<Type, Template>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/template_of.hpp"
+import std;
+import xieite;
 
 template<typename>
 struct Foo {};

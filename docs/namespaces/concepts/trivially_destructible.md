@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:TriviallyDestructible\<\>
-Defined in header [<xieite/concepts/trivially_destructible.hpp>](../../../include/xieite/concepts/trivially_destructible.hpp)
+Defined in fragment [xieite:concepts.TriviallyDestructible](../../../src/concepts/trivially_destructible.cpp)
 
 &nbsp;
 

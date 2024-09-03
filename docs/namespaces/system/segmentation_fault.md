@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:segmentationFault\(\)
-Defined in header [<xieite/system/segmentation_fault.hpp>](../../../include/xieite/system/segmentation_fault.hpp)
+Defined in fragment [xieite:system.segmentationFault](../../../src/system/segmentation_fault.cpp)
 
 &nbsp;
 
@@ -18,7 +18,8 @@ inline void segmentationFault() noexcept;
 
 ## Example
 ```cpp
-#include "xieite/system/segmentation_fault.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::system::segmentationFault();

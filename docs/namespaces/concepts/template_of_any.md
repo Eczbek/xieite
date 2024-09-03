@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:TemplateOfAny\<\>
-Defined in header [<xieite/concepts/template_of_any.hpp>](../../../include/xieite/concepts/template_of_any.hpp)
+Defined in fragment [xieite:concepts.TemplateOfAny](../../../src/concepts/template_of_any.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept TemplateOfAny = (... || xieite::concepts::TemplateOf<Template, Types>);
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/template_of_any.hpp"
+import std;
+import xieite;
 
 template<typename>
 struct Foo {};

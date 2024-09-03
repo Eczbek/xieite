@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDecayed\<\> \{\}
-Defined in header [<xieite/traits/is_decayed.hpp>](../../../include/xieite/traits/is_decayed.hpp)
+Defined in fragment [xieite:traits.IsDecayed](../../../src/traits/is_decayed.cpp)
 
 &nbsp;
 

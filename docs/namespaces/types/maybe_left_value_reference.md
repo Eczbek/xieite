@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybeRightValueReference\<\>
-Defined in header [<xieite/types/maybe_right_value_reference.hpp>](../../../include/xieite/types/maybe_right_value_reference.hpp)
+Defined in fragment [xieite:types.MaybeRightValueReference](../../../src/types/maybe_right_value_reference.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using MaybeRightValueReference = /* ... */;
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include "xieite/types/maybe_right_value_reference.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<int&&, xieite::types::MaybeRightValueReference<int, true>>);

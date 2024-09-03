@@ -1,10 +1,10 @@
 # [XIEITE](../../macros.md)\_LIFT...\(\)
-Defined in header [<xieite/macros/lift.hpp>](../../../include/xieite/macros/lift.hpp)
+Defined in header ["lift.hpp"](../../../src/macros/lift.hpp)
 
 &nbsp;
 
 ## Description
-"Lifts" a template function, allowing it to be invoked like a lambda. See header file for definitions. [Also, I found this blog post about it](https://devcodef1.com/news/1167084/lift-f-macro-behavior).
+"Lifts" a template function, allowing it to be invoked like a lambda. See definitions for specifics. [I found this blog post about it](https://devcodef1.com/news/1167084/lift-f-macro-behavior).
 
 &nbsp;
 
@@ -23,10 +23,10 @@ Exists for special cases where the compiler errors if a fold expression is passe
 
 ## Example
 ```cpp
-#include <functional>
-#include <print>
-#include "xieite/macros/lift.hpp"
-#include "xieite/types/name.hpp"
+#include "lift.hpp"
+
+import std;
+import xieite;
 
 template<typename T>
 void foo(T) {

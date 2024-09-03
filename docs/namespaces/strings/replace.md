@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:replace\(\)
-Defined in header [<xieite/strings/replace.hpp>](../../../include/xieite/strings/replace.hpp)
+Defined in fragment [xieite:strings.replace](../../../src/strings/replace.cpp)
 
 &nbsp;
 
@@ -30,8 +30,8 @@ Replaces instances of a substring with another.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/replace.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::replace("1 + 2 + 3\n", " + ", '-');

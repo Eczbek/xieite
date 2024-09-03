@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:between\(\)
-Defined in header [<xieite/strings/between.hpp>](../../../include/xieite/strings/between.hpp)
+Defined in fragment [xieite:strings.between](../../../src/strings/between.cpp)
 
 &nbsp;
 
@@ -30,8 +30,8 @@ Takes a substring between two other substrings.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/between.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::between("Hello, world!", "el", "ld"));

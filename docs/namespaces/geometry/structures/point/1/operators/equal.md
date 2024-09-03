@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Arithmetic>](../../../../point.md)\:\:operator==\(\)
-Defined in header [<xieite/geometry/point.hpp>](../../../../../../../include/xieite/geometry/point.hpp)
+Defined in fragment [xieite:geometry.Point](../../../../../../../src/geometry/point.cpp)
 
 &nbsp;
 
@@ -18,10 +18,8 @@ Compares two points.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/point.hpp"
-#include "xieite/geometry/rotate.hpp"
-#include "xieite/literals/units.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::units;

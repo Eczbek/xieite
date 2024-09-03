@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:CopyReference\<\>
-Defined in header [<xieite/types/copy_reference.hpp>](../../../include/xieite/types/copy_reference.hpp)
+Defined in fragment [xieite:types.CopyReference](../../../src/types/copy_reference.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using CopyReference = /* ... */;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/types/copy_reference.hpp"
-#include "xieite/types/name.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::types::name<xieite::types::CopyReference<float, int>>);

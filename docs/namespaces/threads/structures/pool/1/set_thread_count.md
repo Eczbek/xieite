@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[threads](../../../../../threads.md)\:\:[Pool](../../../pool.md)\:\:setThreadCount\(\)
-Defined in header [<xieite/threads/pool.hpp>](../../../../../../include/xieite/threads/pool.hpp)
+Defined in fragment [xieite:threads.Pool](../../../../../../src/threads/pool.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ void setThreadCount(std::size_t threadCount);
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/threads/pool.hpp"
+import std;
+import xieite;
 
 int main() {
     auto pool = xieite::threads::Pool(2);

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Ratio\<\>
-Defined in header [<xieite/concepts/ratio.hpp>](../../../include/xieite/concepts/ratio.hpp)
+Defined in fragment [xieite:concepts.Ratio](../../../src/concepts/ratio.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ concept Ratio = xieite::traits::IsRatio<std::remove_cv_t<Type>>::value;
 
 ## Example
 ```cpp
-#include <print>
-#include <ratio>
-#include "xieite/concepts/ratio.hpp"
+import std;
+import xieite;
 
 struct Nope {};
 

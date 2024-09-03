@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isPowerOf2\<\>\(\)
-Defined in header [<xieite/math/is_power_of_2.hpp>](../../../include/xieite/math/is_power_of_2.hpp)
+Defined in fragment [xieite:math.isPowerOf2](../../../src/math/is_power_of_2.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<std::unsigned_integral UnsignedIntegral>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/is_power_of_2.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::isPowerOf2<unsigned int>(4));

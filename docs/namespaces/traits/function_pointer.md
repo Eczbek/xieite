@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:FunctionPointer\<\> \{\}
-Defined in header [<xieite/traits/function_pointer.hpp>](../../../include/xieite/traits/function_pointer.hpp)
+Defined in fragment [xieite:traits.FunctionPointer](../../../src/traits/function_pointer.cpp)
 
 &nbsp;
 
 ## Description
-Provides information about function pointers and member function pointers. See header file for specifics.
+Provides information about function pointers and member function pointers. See definitions for specifics.
 
 &nbsp;
 
@@ -23,7 +23,7 @@ struct FunctionPointer<Return(*)(Arguments... /* , ... */) /* noexcept */> {
     using Arguments = std::tuple<Arguments...>;
 
     static constexpr bool variadic = /* ... */;
-    static constexpr bool noThrowQualified = /* ... */;
+    static constexpr bool NoThrowQualified = /* ... */;
 };
 ```
 #### 6..54)
@@ -41,7 +41,7 @@ struct FunctionPointer<Return(Class::*)(Arguments... /* , ... */) /* const */ /*
     static constexpr bool volatileQualified = /* ... */;
     static constexpr bool leftValueQualified = /* ... */;
     static constexpr bool rightValueQualified = /* ... */;
-    static constexpr bool noThrowQualified = /* ... */;
+    static constexpr bool NoThrowQualified = /* ... */;
 };
 ```
 
@@ -49,8 +49,8 @@ struct FunctionPointer<Return(Class::*)(Arguments... /* , ... */) /* const */ /*
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/traits/function_pointer.hpp"
+import std;
+import xieite;
 
 struct Foo {
     void bar(int, char) const & noexcept {}
@@ -64,7 +64,7 @@ int main() {
     std::println("{}", Info::volatileQualified);
     std::println("{}", Info::leftValueQualified);
     std::println("{}", Info::rightValueQualified);
-    std::println("{}", Info::noThrowQualified);
+    std::println("{}", Info::NoThrowQualified);
 }
 ```
 Output:

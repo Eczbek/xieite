@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_ASCII\_SUPPORT
-Defined in header [<xieite/macros/ascii_support.hpp>](../../../include/xieite/macros/ascii_support.hpp)
+Defined in header ["ascii_support.hpp"](../../../src/macros/ascii_support.hpp)
 
 &nbsp;
 
@@ -18,10 +18,9 @@ Checks if the compiler supports ASCII stuff.
 
 ## Example
 ```cpp
-#include <cstddef>
-#include <print>
-#include <string_view>
-#include "xieite/macros/ascii_support.hpp"
+#include "ascii_support.hpp"
+
+import std;
 
 char getAlphabetLetter(std::size_t n) {
 #if XIEITE_ASCII_SUPPORT

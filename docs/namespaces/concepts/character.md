@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Character\<\>
-Defined in header [<xieite/concepts/character.hpp>](../../../include/xieite/concepts/character.hpp)
+Defined in fragment [xieite:concepts.Character](../../../src/concepts/character.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Character = xieite::concepts::WideCharacter<Type> || xieite::concepts::S
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/character.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::Character<signed char>);

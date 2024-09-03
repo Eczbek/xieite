@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:cosine\<\>\(\)
-Defined in header [<xieite/math/cosine.hpp>](../../../include/xieite/math/cosine.hpp)
+Defined in fragment [xieite:math.cosine](../../../src/math/cosine.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic R
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/literals/units.hpp"
-#include "xieite/math/cosine.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::units;

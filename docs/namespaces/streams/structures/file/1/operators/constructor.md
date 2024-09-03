@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[File](../../../../file.md)\:\:File\<\>\(\)
-Defined in header [<xieite/streams/file.hpp>](../../../../../../../include/xieite/streams/file.hpp)
+Defined in fragment [xieite:streams.File](../../../../../../../src/streams/file.cpp)
 
 &nbsp;
 
@@ -19,7 +19,8 @@ File(const std::string& path, const std::string& mode) noexcept;
 ```
 #### 3)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_WINDOWS
+import std;
+import xieite;
 File(const std::wstring& path, const std::wstring& mode) noexcept;
 #endif
 ```
@@ -29,7 +30,8 @@ File(int descriptor, const std::string& mode) noexcept;
 ```
 #### 5)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_WINDOWS
+import std;
+import xieite;
 File(int descriptor, const std::wstring& mode) noexcept;
 #endif
 ```
@@ -44,7 +46,8 @@ File(const std::string& path, const std::string& mode, xieite::streams::File oth
 ```
 #### 8)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_WINDOWS
+import std;
+import xieite;
 File(const std::wstring& path, const std::wstring& mode, xieite::streams::File other) noexcept;
 #endif
 ```

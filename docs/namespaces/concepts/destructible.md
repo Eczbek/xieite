@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Destructible\<\>
-Defined in header [<xieite/concepts/destructible.hpp>](../../../include/xieite/concepts/destructible.hpp)
+Defined in fragment [xieite:concepts.Destructible](../../../src/concepts/destructible.cpp)
 
 &nbsp;
 

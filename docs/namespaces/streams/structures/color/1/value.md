@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[Color<channels>](../../../color.md)\:\:value\(\)
-Defined in header [<xieite/streams/color.hpp>](../../../../../../include/xieite/streams/color.hpp)
+Defined in fragment [xieite:streams.Color](../../../../../../src/streams/color.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ Shifts and adds color values together to create a single value.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/stringify.hpp"
-#include "xieite/streams/color.hpp"
+import std;
+import xieite;
 
 int main() {
     auto color = xieite::streams::Color<3>(255, 127, 0);

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:getPageSize\(\)
-Defined in header [<xieite/memory/get_page_size.hpp>](../../../include/xieite/memory/get_page_size.hpp)
+Defined in fragment [xieite:memory.getPageSize](../../../src/memory/get_page_size.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Gets the system's page size in bytes. Requires at least one of `XIEITE_PLATFORM_
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/memory/get_page_size.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::memory::getPageSize());

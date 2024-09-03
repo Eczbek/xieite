@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:UnscopedEnumeration\<\>
-Defined in header [<xieite/concepts/unscoped_enumeration.hpp>](../../../include/xieite/concepts/unscoped_enumeration.hpp)
+Defined in fragment [xieite:concepts.UnscopedEnumeration](../../../src/concepts/unscoped_enumeration.cpp)
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Specifies that a type is an unscoped enumeration.
 #### 1)
 ```cpp
 template<typename Type>
-concept UnscopedEnumeration = std::is_enum_v<Type> && std::convertible_to<Type, std::underlying_type_t<Type>>;
+concept UnscopedEnumeration = std::is_enum_v<Type> && !std::is_scoped_enum_v<Type>;
 ```
 
 &nbsp;

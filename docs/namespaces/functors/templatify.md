@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:templatify\<\>\(\)
-Defined in header [<xieite/functors/templatify.hpp>](../../../include/xieite/functors/templatify.hpp)
+Defined in fragment [xieite:functors.templatify](../../../src/functors/templatify.cpp)
 
 &nbsp;
 
@@ -12,16 +12,17 @@ Performs a slight bit of spacetime manipulation. `Functor` must be default-const
 #### 1)
 ```cpp
 template<template<std::uint8_t> typename Functor>
-constexpr void templatify(std::uint8_t value) noexcept;
+requires(/* ... */)
+constexpr void templatify(const std::uint8_t value)
+noexcept(/* ... */);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <print>
-#include "xieite/functors/templatify.hpp"
+import std;
+import xieite;
 
 template<std::uint8_t value>
 struct Functor {

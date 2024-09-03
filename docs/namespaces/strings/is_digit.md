@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:isDigit\(\)
-Defined in header [<xieite/strings/is_digit.hpp>](../../../include/xieite/strings/is_digit.hpp)
+Defined in fragment [xieite:strings.isDigit](../../../src/strings/is_digit.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Checks if a character is a digit.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/is_digit.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::isDigit('3'));

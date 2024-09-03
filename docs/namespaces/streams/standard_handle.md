@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:StandardHandle \{\}
-Defined in header [<xieite/streams/standard_handle.hpp>](../../../include/xieite/streams/standard_handle.hpp)
+Defined in fragment [xieite:streams.StandardHandle](../../../src/streams/standard_handle.cpp)
 
 &nbsp;
 
@@ -219,10 +219,8 @@ struct StandardHandle {
 
 ## Example
 ```cpp
-#include <cstdio>
-#include <print>
-#include "xieite/streams/color.hpp"
-#include "xieite/streams/standard_handle.hpp"
+import std;
+import xieite;
 
 int main() {
     auto terminal = xieite::streams::StandardHandle(stdin, stdout);

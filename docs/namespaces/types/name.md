@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:name\<\>
-Defined in header [<xieite/types/name.hpp>](../../../include/xieite/types/name.hpp)
+Defined in fragment [xieite:types.name](../../../src/types/name.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ inline constexpr std::string_view name = /* ... */;
 
 ## Example
 ```cpp
-#include <print>
-#include <vector>
-#include "xieite/types/name.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::types::name<std::vector<int>>);

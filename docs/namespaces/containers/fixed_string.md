@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedString\<\> \{\}
-Defined in header [<xieite/containers/fixed_string.hpp>](../../../include/xieite/containers/fixed_string.hpp)
+Defined in fragment [xieite:containers.FixedString](../../../src/containers/fixed_string.cpp)
 
 &nbsp;
 
@@ -33,16 +33,15 @@ struct FixedString {
 ### Deduction guides
 ```cpp
 template<std::size_t characters, typename Character>
-FixedString(char Character(&)[characters]) -> FixedString<characters - 1, Character>;
+FixedString(char Character(&)[characters]) -> xieite::containers::FixedString<characters - 1, Character>;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include <utility>
-#include "xieite/containers/fixed_string.hpp"
+import std;
+import xieite;
 
 int main() {
     constexpr xieite::containers::FixedString<std::string_view, int, 4> map {

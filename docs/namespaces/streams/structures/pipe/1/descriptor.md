@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[Pipe](../../../pipe.md)\:\:descriptor\(\)
-Defined in header [<xieite/streams/pipe.hpp>](../../../../../../include/xieite/streams/pipe.hpp)
+Defined in fragment [xieite:streams.Pipe](../../../../../../src/streams/pipe.cpp)
 
 &nbsp;
 
@@ -11,7 +11,8 @@ Returns the underlying file descriptor.
 ## Synopsis
 #### 1)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_UNIX || XIEITE_PLATFORM_TYPE_WINDOWS
+import std;
+import xieite;
 [[nodiscard]] int descriptor() const noexcept;
 #endif
 ```
@@ -20,8 +21,8 @@ Returns the underlying file descriptor.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/streams/pipe.hpp"
+import std;
+import xieite;
 
 int main() {
     auto pipe = xieite::streams::Pipe("echo Hello, world!", "r");

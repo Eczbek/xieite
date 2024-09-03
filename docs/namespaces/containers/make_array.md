@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:makeArray\<\>\(\)
-Defined in header [<xieite/containers/make_array.hpp>](../../../include/xieite/containers/make_array.hpp)
+Defined in fragment [xieite:containers.makeArray](../../../src/containers/make_array.cpp)
 
 &nbsp;
 
@@ -11,22 +11,21 @@ Attempts to create `std::array`s from other ranges.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Value, std::size_t size, std::ranges::input_range Range, xieite::concepts::Functor<Value(std::ranges::range_reference_t<Range>)> Functor = decltype(XIEITE_LIFT_UNARY(static_cast<Value>))>
+template<typename Value, std::size_t size, std::ranges::input_range Range, xieite::concepts::Invocable<Value(std::ranges::range_common_reference_t<Range>)> Functor = decltype(XIEITE_LIFT_UNARY(static_cast<Value>))>
 requires(std::convertible_to<std::ranges::range_value_t<Range>, Value>)
 [[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
-noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_reference_t<Range>>);
+noexcept(xieite::concepts::NoThrowInvocable<Functor, Value(std::ranges::range_common_reference_t<Range>)> && xieite::concepts::NoThrowOperableRange<Range>);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include <vector>
-#include "xieite/containers/make_array.hpp"
+import std;
+import xieite;
 
 int main() {
-    std::vector<int> source { 1, 2, 3, 4, 5 };
+    std::vector<int> source = { 1, 2, 3, 4, 5 };
 
     auto result = xieite::containers::makeArray<int, 5>(source);
 

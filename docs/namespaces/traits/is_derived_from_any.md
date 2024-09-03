@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDerivedFromAny\<\> \{\}
-Defined in header [<xieite/traits/is_derived_from_any.hpp>](../../../include/xieite/traits/is_derived_from_any.hpp)
+Defined in fragment [xieite:traits.IsDerivedFromAny](../../../src/traits/is_derived_from_any.cpp)
 
 &nbsp;
 

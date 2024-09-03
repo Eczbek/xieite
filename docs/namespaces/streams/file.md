@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:File \{\}
-Defined in header [<xieite/streams/file.hpp>](../../../include/xieite/streams/file.hpp)
+Defined in fragment [xieite:streams.File](../../../src/streams/file.cpp)
 
 &nbsp;
 
@@ -79,12 +79,11 @@ struct File {
 
 ## Example
 ```cpp
-#include <iostream>
-#include <print>
-#include "xieite/streams/file.hpp"
+import std;
+import xieite;
 
 int main() {
-    std::println(xieite::streams::File(std::cout).file(), "Hello, world!");
+    std::println(xieite::streams::File(std::cout).File(), "Hello, world!");
 }
 ```
 Possible output:

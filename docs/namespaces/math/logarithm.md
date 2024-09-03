@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:logarithm\<\>\(\)
-Defined in header [<xieite/math/logarithm.hpp>](../../../include/xieite/math/logarithm.hpp)
+Defined in fragment [xieite:math.logarithm](../../../src/math/logarithm.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic R
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/logarithm.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::logarithm(5, 170));

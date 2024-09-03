@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[File](../../../file.md)\:\:close\(\)
-Defined in header [<xieite/streams/file.hpp>](../../../../../../include/xieite/streams/file.hpp)
+Defined in fragment [xieite:streams.File](../../../../../../src/streams/file.cpp)
 
 &nbsp;
 

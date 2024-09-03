@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNoThrowConvertibleToAll\<\> \{\}
-Defined in header [<xieite/traits/is_no_throw_convertible_to_all.hpp>](../../../include/xieite/traits/is_no_throw_convertible_to_all.hpp)
+Defined in fragment [xieite:traits.IsNoThrowConvertibleToAll](../../../src/traits/is_no_throw_convertible_to_all.cpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Signed128
-Defined in header [<xieite/math/signed_128.hpp>](../../../include/xieite/math/signed_128.hpp)
+Defined in fragment [xieite:math.Signed128](../../../src/math/signed_128.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ using Signed128 = /* ... */
 
 ## Example
 ```cpp
-#include <limits>
-#include <print>
-#include "xieite/math/signed_128.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::math::Signed128 foo = std::numeric_limits<std::uint64_t>::max();

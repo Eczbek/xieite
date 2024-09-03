@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Arithmetic>](../../../../point.md)\:\:Point\(\)
-Defined in header [<xieite/geometry/point.hpp>](../../../../../../../include/xieite/geometry/point.hpp)
+Defined in fragment [xieite:geometry.Point](../../../../../../../src/geometry/point.cpp)
 
 &nbsp;
 

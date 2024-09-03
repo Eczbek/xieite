@@ -1,17 +1,17 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Key \{\}
-Defined in header [<xieite/streams/key.hpp>](../../../include/xieite/streams/key.hpp)
+Defined in fragment [xieite:streams.Key](../../../src/streams/key.cpp)
 
 &nbsp;
 
 ## Description
-An enumeration of input keys. See header file for definitions.
+An enumeration of input keys. See definition for specifics.
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/streams/key.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::streams::Key::NumpadDigit0 == xieite::streams::Key::Insert);

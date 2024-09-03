@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Segment<Arithmetic>](../../../segment.md)\:\:contains\(\)
-Defined in header [<xieite/geometry/segment.hpp>](../../../../../../include/xieite/geometry/segment.hpp)
+Defined in fragment [xieite:geometry.Segment](../../../../../../src/geometry/segment.cpp)
 
 &nbsp;
 
@@ -36,9 +36,8 @@ Always returns `false`.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/point.hpp"
-#include "xieite/geometry/segment.hpp"
+import std;
+import xieite;
 
 int main() {
     auto segment = xieite::geometry::Segment({ 0.0, 0.0 }, { 1.0, 1.0 });

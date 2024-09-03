@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator/\(\)
-Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
+Defined in fragment [xieite:math.Integer](../../../../../../../src/math/integer.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Returns the quotient of two integers.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/integer.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", (xieite::math::Integer<4, false>(9) / 3).data());

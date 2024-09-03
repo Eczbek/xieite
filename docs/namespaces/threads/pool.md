@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Pool \{\}
-Defined in header [<xieite/threads/pool.hpp>](../../../include/xieite/threads/pool.hpp)
+Defined in fragment [xieite:threads.Pool](../../../src/threads/pool.cpp)
 
 &nbsp;
 
@@ -31,10 +31,8 @@ struct Pool {
 
 ## Example
 ```cpp
-#include <chrono>
-#include <print>
-#include <thread>
-#include "xieite/threads/pool.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::threads::Pool pool;

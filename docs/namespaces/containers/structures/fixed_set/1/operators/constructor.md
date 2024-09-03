@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedSet<Key, size, Hash, KeyComparator,_ Allocator>](../../../../fixed_set.md)\:\:FixedSet\<\>\(\)
-Defined in header [<xieite/containers/fixed_set.hpp>](../../../../../../../include/xieite/containers/fixed_set.hpp)
+Defined in fragment [xieite:containers.FixedSet](../../../../../../../src/containers/fixed_set.cpp)
 
 &nbsp;
 
@@ -28,9 +28,8 @@ explicit(false) constexpr FixedSet(std::initializer_list<Key> entries) noexcept;
 
 ## Example
 ```cpp
-#include <array>
-#include <print>
-#include "xieite/containers/fixed_set.hpp"
+import std;
+import xieite;
 
 int main() {
     using FixedSet = xieite::containers::FixedSet<int, 3>;

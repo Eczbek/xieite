@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:All\<\>
-Defined in header [<xieite/concepts/all.hpp>](../../../include/xieite/concepts/all.hpp)
+Defined in fragment [xieite:concepts.All](../../../src/concepts/all.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ concept All = (... && Traits<Type>::value);
 
 ## Example
 ```cpp
-#include <print>
-#include <type_traits>
-#include "xieite/concepts/all.hpp"
+import std;
+import xieite;
 
 template<xieite::concepts::All<std::is_integral, std::is_signed> T>
 void test(T value) {

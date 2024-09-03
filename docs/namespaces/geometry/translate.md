@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:translate\<\>\(\)
-Defined in header [<xieite/geometry/translate.hpp>](../../../include/xieite/geometry/translate.hpp)
+Defined in fragment [xieite:geometry.translate](../../../src/geometry/translate.cpp)
 
 &nbsp;
 
@@ -29,9 +29,8 @@ template<typename Arithmetic = double>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/point.hpp"
-#include "xieite/geometry/translate.hpp"
+import std;
+import xieite;
 
 int main() {
     auto point = xieite::geometry::Point(3.0, 4.0);

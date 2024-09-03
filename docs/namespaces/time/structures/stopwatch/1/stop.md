@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[time](../../../../../time.md)\:\:[Stopwatch<Clock>](../../../stopwatch.md)\:\:stop\(\)
-Defined in header [<xieite/time/stopwatch.hpp>](../../../../../../include/xieite/time/stopwatch.hpp)
+Defined in fragment [xieite:time.Stopwatch](../../../../../../src/time/stopwatch.cpp)
 
 &nbsp;
 
@@ -18,10 +18,8 @@ void stop() noexcept;
 
 ## Example
 ```cpp
-#include <chrono>
-#include <print>
-#include <thread>
-#include "xieite/time/stopwatch.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::time::Stopwatch<std::chrono::high_resolution_clock> stopwatch;

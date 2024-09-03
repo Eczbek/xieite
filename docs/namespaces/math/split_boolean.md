@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:splitBoolean\(\)
-Defined in header [<xieite/math/split_boolean.hpp>](../../../include/xieite/math/split_boolean.hpp)
+Defined in fragment [xieite:math.splitBoolean](../../../src/math/split_boolean.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Defined in header [<xieite/math/split_boolean.hpp>](../../../include/xieite/math
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/split_boolean.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::splitBoolean(false));

@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Segment<Arithmetic>](../../../segment.md)\:\:length\(\)
-Defined in header [<xieite/geometry/segment.hpp>](../../../../../../include/xieite/geometry/segment.hpp)
+Defined in fragment [xieite:geometry.Segment](../../../../../../src/geometry/segment.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Computes the distance between the start and end of a segment.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/segment.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::geometry::Segment({ 0.0, 0.0 }, { 1.0, 1.0 }).length());

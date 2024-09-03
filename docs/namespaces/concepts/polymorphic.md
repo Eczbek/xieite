@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Polymorphic\<\>
-Defined in header [<xieite/concepts/polymorphic.hpp>](../../../include/xieite/concepts/polymorphic.hpp)
+Defined in fragment [xieite:concepts.Polymorphic](../../../src/concepts/polymorphic.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Polymorphic = std::is_polymorphic_v<Type>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/polymorphic.hpp"
+import std;
+import xieite;
 
 struct Foo {
     void test() {}

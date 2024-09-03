@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:getScreenSize\(\)
-Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in fragment [xieite:streams.StandardHandle](../../../../../../src/streams/standard_handle.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ Gets the terminal screen size, in rows and columns.
 
 ## Example
 ```cpp
-#include <cstdio>
-#include <print>
-#include "xieite/streams/standard_handle.hpp"
+import std;
+import xieite;
 
 int main() {
     auto terminal = xieite::streams::StandardHandle(stdin, stdout);

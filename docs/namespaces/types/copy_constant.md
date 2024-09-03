@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:CopyConstant\<\>
-Defined in header [<xieite/types/copy_constant.hpp>](../../../include/xieite/types/copy_constant.hpp)
+Defined in fragment [xieite:types.CopyConstant](../../../src/types/copy_constant.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using CopyConstant = /* ... */;
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include "xieite/types/copy_constant.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<const int, xieite::types::CopyConstant<const float, int>>);

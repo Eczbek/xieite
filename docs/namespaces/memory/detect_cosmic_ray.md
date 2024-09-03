@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:detectCosmicRay\(\)
-Defined in header [<xieite/memory/detect_cosmic_ray.hpp>](../../../include/xieite/memory/detect_cosmic_ray.hpp)
+Defined in fragment [xieite:memory.detectCosmicRay](../../../src/memory/detect_cosmic_ray.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ inline void detectCosmicRay(std::size_t bytes) noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/memory/detect_cosmic_ray.hpp"
-#include "xieite/memory/get_available.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::memory::detectCosmicRay(xieite::memory::getAvailable());

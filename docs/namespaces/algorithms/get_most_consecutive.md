@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:getMostConsecutive\<\>\(\)
-Defined in header [<xieite/algorithms/get_most_consecutive.hpp>](../../../include/xieite/algorithms/get_most_consecutive.hpp)
+Defined in fragment [xieite:algorithms.getMostConsecutive](../../../src/algorithms/get_most_consecutive.cpp)
 
 &nbsp;
 
@@ -11,19 +11,18 @@ Finds the subrange of greatest length containing the maximum number of consecuti
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_const_reference_t<Range>)> Functor>
+template<std::ranges::forward_range Range, xieite::concepts::Invocable<bool(std::ranges::range_reference_t<Range>)> Functor>
+requires(std::ranges::sized_range<Range>)
 [[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> getMostConsecutive(Range& range, Functor&& selector = Functor())
-noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_const_reference_t<Range>>);
+noexcept(xieite::concepts::NoThrowInvocable<Functor, bool(std::ranges::range_reference_t<Range>)> && xieite::concepts::NoThrowOperableRange<Range>);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <iterator>
-#include <print>
-#include <vector>
-#include "xieite/algorithms/get_most_consecutive.hpp"
+import std;
+import xieite;
 
 int main() {
     //               indices: 0  1  2  3  4  5  6  7

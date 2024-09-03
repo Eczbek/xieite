@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Timeout \{\}
-Defined in header [<xieite/threads/timeout.hpp>](../../../include/xieite/threads/timeout.hpp)
+Defined in fragment [xieite:threads.Timeout](../../../src/threads/timeout.cpp)
 
 &nbsp;
 
@@ -28,10 +28,8 @@ struct Timeout {
 
 ## Example
 ```cpp
-#include <chrono>
-#include <print>
-#include <thread>
-#include "xieite/threads/timeout.hpp"
+import std;
+import xieite;
 
 int main() {
     auto timeout = xieite::threads::Timeout([] {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:partialReverse\<\>\(\)
-Defined in header [<xieite/algorithms/partial_reverse.hpp>](../../../include/xieite/algorithms/partial_reverse.hpp)
+Defined in fragment [xieite:algorithms.partialReverse](../../../src/algorithms/partial_reverse.cpp)
 
 &nbsp;
 
@@ -11,19 +11,18 @@ Selects iterators and then reverses them only between themselves.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>)> Functor>
-requires(!std::is_const_v<Range>)
+template<std::ranges::forward_range Range, xieite::concepts::Invocable<bool(std::ranges::range_common_reference_t<Range>)> Functor>
+requires(std::ranges::sized_range<Range> && !std::is_const_v<std::ranges::iterator_t<Range>>)
 constexpr void partialReverse(Range& range, Functor&& selector)
-noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_reference_t<Range>>);
+noexcept(xieite::concepts::NoThrowInvocable<Functor, bool(std::ranges::range_common_reference_t<Range>)> && xieite::concepts::NoThrowOperableRange<Range>);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <array>
-#include <print>
-#include "xieite/algorithms/partial_reverse.hpp"
+import std;
+import xieite;
 
 int main() {
     std::array<int, 5> values { 1, 2, 3, 4, 5 };

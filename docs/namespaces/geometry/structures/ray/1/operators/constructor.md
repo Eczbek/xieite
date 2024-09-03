@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Arithmetic>](../../../../ray.md)\:\:Ray\(\)
-Defined in header [<xieite/geometry/ray.hpp>](../../../../../../../include/xieite/geometry/ray.hpp)
+Defined in fragment [xieite:geometry.Ray](../../../../../../../src/geometry/ray.cpp)
 
 &nbsp;
 

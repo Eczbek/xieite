@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[math](../../../../../../math.md)\:\:[Version](../../../../version.md)\:\:operator==\(\)
-Defined in header [<xieite/math/version.hpp>](../../../../../../../include/xieite/math/version.hpp)
+Defined in fragment [xieite:math.Version](../../../../../../../src/math/version.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Compares two `xieite::math::Version`s, ingoring the label member object.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/version.hpp"
+import std;
+import xieite;
 
 int main() {
     auto version1 = xieite::math::Version(1, 0, 0, "bbbbb");

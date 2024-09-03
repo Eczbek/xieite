@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:remainder\<\>\(\)
-Defined in header [<xieite/math/remainder.hpp>](../../../include/xieite/math/remainder.hpp)
+Defined in fragment [xieite:math.remainder](../../../src/math/remainder.cpp)
 
 &nbsp;
 
@@ -26,8 +26,8 @@ Uses `std::fmod`.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/remainder.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::remainder(-21, 4));

@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[memory](../../../../../memory.md)\:\:[Shredder<Type>](../../../shredder.md)\:\:data\<\>\(\)
-Defined in header [<xieite/memory/shredder.hpp>](../../../../../../include/xieite/memory/shredder.hpp)
+Defined in fragment [xieite:memory.Shredder](../../../../../../src/memory/shredder.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<typename Self>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/memory/shredder.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::memory::Shredder<int> thing = 5;

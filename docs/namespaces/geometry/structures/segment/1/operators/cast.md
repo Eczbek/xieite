@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Segment<Arithmetic>](../../../../segment.md)\:\:operator typename\<\>\(\)
-Defined in header [<xieite/geometry/segment.hpp>](../../../../../../../include/xieite/geometry/segment.hpp)
+Defined in fragment [xieite:geometry.Segment](../../../../../../../src/geometry/segment.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<typename OtherArithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/segment.hpp"
-#include "xieite/math/almost_equal_slope.hpp"
+import std;
+import xieite;
 
 int main() {
     auto segment1 = xieite::geometry::Segment<double>({ 0.0, 0.0 }, { 3.0, 4.0 });

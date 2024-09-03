@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:FixedSet\<\> \{\}
-Defined in header [<xieite/containers/fixed_set.hpp>](../../../include/xieite/containers/fixed_set.hpp)
+Defined in fragment [xieite:containers.FixedSet](../../../src/containers/fixed_set.cpp)
 
 &nbsp;
 
@@ -39,9 +39,8 @@ struct FixedSet {
 
 ## Example
 ```cpp
-#include <print>
-#include <utility>
-#include "xieite/containers/fixed_set.hpp"
+import std;
+import xieite;
 
 int main() {
     constexpr xieite::containers::FixedSet<std::string_view, 4> set = {

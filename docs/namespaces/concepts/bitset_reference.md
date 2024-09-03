@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:BitsetReference\<\>
-Defined in header [<xieite/concepts/bitset_reference.hpp>](../../../include/xieite/concepts/bitset_reference.hpp)
+Defined in fragment [xieite:concepts.BitsetReference](../../../src/concepts/bitset_reference.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ concept BitsetReference = /* ... */;
 
 ## Example
 ```cpp
-#include <bitset>
-#include <print>
-#include "xieite/concepts/bitset_reference.hpp"
+import std;
+import xieite;
 
 int main() {
     std::bitset<8> bitset;

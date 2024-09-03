@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:fromRomanNumerals\<\>\(\)
-Defined in header [<xieite/strings/from_roman_numerals.hpp>](../../../include/xieite/strings/from_roman_numerals.hpp)
+Defined in fragment [xieite:strings.fromRomanNumerals](../../../src/strings/from_roman_numerals.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<std::integral Integral = int>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/from_roman_numerals.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::fromRomanNumerals("CDXVIII"));

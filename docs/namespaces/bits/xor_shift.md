@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:xorShift\<\>\(\)
-Defined in header [<xieite/bits/xor_shift.hpp>](../../../include/xieite/bits/xor_shift.hpp)
+Defined in fragment [xieite:bits.xorShift](../../../src/bits/xor_shift.cpp)
 
 &nbsp;
 
@@ -19,17 +19,15 @@ template<std::integral Integral>
 
 ## Example
 ```cpp
-#include <bitset>
-#include <cstdint>
-#include <print>
-#include "xieite/bits/xor_shift.hpp"
+import std;
+import xieite;
 
 int main() {
     std::uint16_t foo = 0b1010101010101010;
 
     std::uint16_t bar = xieite::bits::xorShift(foo, 9);
 
-    std::println("{}", std::bitset<16>(bar).to_string());
+    std::println("{}", std::bitset<16>(bar).toString());
 }
 ```
 Output:

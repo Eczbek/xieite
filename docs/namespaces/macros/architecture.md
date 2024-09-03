@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_ARCHITECTURE\_...
-Defined in header [<xieite/macros/architecture.hpp>](../../../include/xieite/macros/architecture.hpp)
+Defined in header ["architecture.hpp"](../../../src/macros/architecture.hpp)
 
 &nbsp;
 
@@ -169,8 +169,8 @@ Requires `XIEITE_ARCHITECTURE_TYPE_##architecture` to be `1`.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/architecture.hpp"
+#include "macros/architecture.hpp"
+import std;
 
 int main() {
 #if XIEITE_ARCHITECTURE_VERSION_LEAST(MIPS, 4, 0, 0)

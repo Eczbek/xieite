@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[functors](../../../../../functors.md)\:\:[ProcessGuard](../../../process_guard.md)\:\:release\(\)
-Defined in header [<xieite/functors/process_guard.hpp>](../../../../../../include/xieite/functors/process_guard.hpp)
+Defined in fragment [xieite:functors.ProcessGuard](../../../../../../src/functors/process_guard.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ void release() noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/process_guard.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::functors::ProcessGuard guard = [] {

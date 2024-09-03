@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isNegative\<\>\(\)
-Defined in header [<xieite/math/is_negative.hpp>](../../../include/xieite/math/is_negative.hpp)
+Defined in fragment [xieite:math.isNegative](../../../src/math/is_negative.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/is_negative.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::isNegative(4));

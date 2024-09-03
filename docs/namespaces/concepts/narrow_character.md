@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NarrowCharacter\<\>
-Defined in header [<xieite/concepts/narrow_character.hpp>](../../../include/xieite/concepts/narrow_character.hpp)
+Defined in fragment [xieite:concepts.NarrowCharacter](../../../src/concepts/narrow_character.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept NarrowCharacter = xieite::concepts::OrdinaryCharacter<Type> || std::same
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/narrow_character.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::NarrowCharacter<char>);

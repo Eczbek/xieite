@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybePointer\<\>
-Defined in header [<xieite/types/maybe_pointer.hpp>](../../../include/xieite/types/maybe_pointer.hpp)
+Defined in fragment [xieite:types.MaybePointer](../../../src/types/maybe_pointer.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using MaybePointer = /* ... */;
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include "xieite/types/maybe_pointer.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<int*, xieite::types::MaybePointer<int, true>>);

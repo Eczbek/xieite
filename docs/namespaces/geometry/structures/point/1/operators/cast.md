@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Point<Arithmetic>](../../../../point.md)\:\:operator typename\<\>\(\)
-Defined in header [<xieite/geometry/point.hpp>](../../../../../../../include/xieite/geometry/point.hpp)
+Defined in fragment [xieite:geometry.Point](../../../../../../../src/geometry/point.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<typename OtherArithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/point.hpp"
+import std;
+import xieite;
 
 int main() {
     auto point1 = xieite::geometry::Point<double>(3.0, 4.0);

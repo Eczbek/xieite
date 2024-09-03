@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybeVolatileData\<\>
-Defined in header [<xieite/types/maybe_volatile_data.hpp>](../../../include/xieite/types/maybe_volatile_data.hpp)
+Defined in fragment [xieite:types.MaybeVolatileData](../../../src/types/maybe_volatile_data.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using MaybeVolatileData = /* ... */;
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include "xieite/types/maybe_volatile_data.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<volatile int*, xieite::types::MaybeVolatileData<int*, true>>);

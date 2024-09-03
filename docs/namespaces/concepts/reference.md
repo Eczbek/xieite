@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Reference\<\>
-Defined in header [<xieite/concepts/reference.hpp>](../../../include/xieite/concepts/reference.hpp)
+Defined in fragment [xieite:concepts.Reference](../../../src/concepts/reference.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Reference = std::is_reference_v<Type>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/reference.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::Reference<int>);

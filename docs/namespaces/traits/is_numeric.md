@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsNumeric\<\> \{\}
-Defined in header [<xieite/traits/is_numeric.hpp>](../../../include/xieite/traits/is_numeric.hpp)
+Defined in fragment [xieite:traits.IsNumeric](../../../src/traits/is_numeric.cpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:reverseTuple\<\>\(\)
-Defined in header [<xieite/containers/reverse_tuple.hpp>](../../../include/xieite/containers/reverse_tuple.hpp)
+Defined in fragment [xieite:containers.reverseTuple](../../../src/containers/reverse_tuple.cpp)
 
 &nbsp;
 
@@ -12,19 +12,15 @@ Reverses the order of elements in a `std::tuple`.
 #### 1)
 ```cpp
 template<typename... Types>
-[[nodiscard]] constexpr typename xieite::types::List<Types...>::Reverse::Apply<std::tuple> reverseTuple(const std::tuple<Types...>& tuple)
-noexcept(([]<std::size_t... i>(std::index_sequence<i...>) -> bool {
-    return (... && std::is_nothrow_convertible_v<typename xieite::types::List<Types...>::At<i>, typename xieite::types::List<Types...>::Reverse::At<i>>);
-})(std::make_index_sequence<sizeof...(Types)>()));
+[[nodiscard]] constexpr /* ... */ reverseTuple(const std::tuple<Types...>& tuple) noexcept;
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include <tuple>
-#include "xieite/containers/reverse_tuple.hpp"
+import std;
+import xieite;
 
 int main() {
     auto tuple = std::make_tuple<int, char, float>(5, 'h', 3.14159);

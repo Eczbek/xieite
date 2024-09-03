@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:CopyVolatileData\<\>
-Defined in header [<xieite/types/copy_volatile_data.hpp>](../../../include/xieite/types/copy_volatile_data.hpp)
+Defined in fragment [xieite:types.CopyVolatileData](../../../src/types/copy_volatile_data.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using CopyVolatileData = /* ... */;
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include "xieite/types/copy_volatile_data.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<volatile int*, xieite::types::CopyVolatileData<volatile float, int*>>);

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUnsignedIntegral\<\> \{\}
-Defined in header [<xieite/traits/is_unsigned_integral.hpp>](../../../include/xieite/traits/is_unsigned_integral.hpp)
+Defined in fragment [xieite:traits.IsUnsignedIntegral](../../../src/traits/is_unsigned_integral.cpp)
 
 &nbsp;
 

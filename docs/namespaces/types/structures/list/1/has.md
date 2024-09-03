@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:has\<\>
-Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
+Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ static constexpr bool has = /* ... */;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/types/list.hpp"
+import std;
+import xieite;
 
 int main() {
     using List = xieite::types::List<int, int, char, int, char, char, int>;

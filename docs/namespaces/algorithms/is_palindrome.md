@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:isPalindrome\<\>\(\)
-Defined in header [<xieite/algorithms/is_palindrome.hpp>](../../../include/xieite/algorithms/is_palindrome.hpp)
+Defined in fragment [xieite:algorithms.isPalindrome](../../../src/algorithms/is_palindrome.cpp)
 
 &nbsp;
 
@@ -11,9 +11,10 @@ Checks if a range is the same backwards as it is forwards, or if an integer can 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::input_range Range, xieite::concepts::Functor<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
+template<std::ranges::forward_range Range, xieite::concepts::Invocable<bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> Functor = std::ranges::equal_to>
+requires(std::ranges::sized_range<Range>)
 [[nodiscard]] constexpr bool isPalindrome(Range&& range, Functor&& comparator = Functor())
-noexcept(std::is_nothrow_invocable_v<Functor, std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>>);
+noexcept(xieite::concepts::NoThrowInvocable<Functor, bool(std::ranges::range_reference_t<Range>, std::ranges::range_reference_t<Range>)> && xieite::concepts::NoThrowOperableRange<Range>);
 ```
 #### 2)
 ```cpp
@@ -25,9 +26,8 @@ template<std::integral Integral>
 
 ## Example
 ```cpp
-#include <print>
-#include <string>
-#include "xieite/algorithms/is_palindrome.hpp"
+import std;
+import xieite;
 
 int main() {
     std::string string1 = "racecar";

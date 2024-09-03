@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FixedMatrix\<\>
-Defined in header [<xieite/types/fixed_matrix.hpp>](../../../include/xieite/types/fixed_matrix.hpp)
+Defined in fragment [xieite:types.FixedMatrix](../../../src/types/fixed_matrix.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using FixedMatrix = /* ... */;
 
 ## Example
 ```cpp
-#include <array>
-#include <print>
-#include "xieite/types/dynamic_matrix.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Boolean \{\}
-Defined in header [<xieite/types/boolean.hpp>](../../../include/xieite/types/boolean.hpp)
+Defined in fragment [xieite:types.Boolean](../../../src/types/boolean.cpp)
 
 &nbsp;
 
@@ -22,10 +22,8 @@ enum struct Boolean
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <print>
-#include <vector>
-#include "xieite/types/boolean.hpp"
+import std;
+import xieite;
 
 int main() {
     std::vector<xieite::types::Boolean> data;

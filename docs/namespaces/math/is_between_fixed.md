@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:isBetweenFixed\<\>\(\)
-Defined in header [<xieite/math/is_between_fixed.hpp>](../../../include/xieite/math/is_between_fixed.hpp)
+Defined in fragment [xieite:math.isBetweenFixed](../../../src/math/is_between_fixed.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/is_between_fixed.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::isBetweenFixed(17, 10, 20));

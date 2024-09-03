@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:LeastInteger\<\>
-Defined in header [<xieite/types/least_integer.hpp>](../../../include/xieite/types/least_integer.hpp)
+Defined in fragment [xieite:types.LeastInteger](../../../src/types/least_integer.cpp)
 
 &nbsp;
 
@@ -19,10 +19,8 @@ using LeastInteger = /* std::uint_least8_t, std::uint_least16_t, std::uint_least
 
 ## Example
 ```cpp
-#include <concepts>
-#include <cstdint>
-#include <print>
-#include "xieite/types/least_integer.hpp"
+import std;
+import xieite;
 
 int main() {
     using Type = xieite::types::LeastInteger<13>;

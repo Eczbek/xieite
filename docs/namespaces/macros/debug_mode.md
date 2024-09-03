@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_DEBUG\_MODE
-Defined in header [<xieite/macros/debug_mode.hpp>](../../../include/xieite/macros/debug_mode.hpp)
+Defined in header ["debug_mode.hpp"](../../../src/macros/debug_mode.hpp)
 
 &nbsp;
 
@@ -18,8 +18,9 @@ Detects whether a debug mode is active.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/debug_mode.hpp"
+#include "debug_mode.hpp"
+
+import std;
 
 int main() {
     std::println("{}", XIEITE_DEBUG_MODE);

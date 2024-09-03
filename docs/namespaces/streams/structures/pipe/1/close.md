@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[Pipe](../../../pipe.md)\:\:close\(\)
-Defined in header [<xieite/streams/pipe.hpp>](../../../../../../include/xieite/streams/pipe.hpp)
+Defined in fragment [xieite:streams.Pipe](../../../../../../src/streams/pipe.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ int close() noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/streams/pipe.hpp"
+import std;
+import xieite;
 
 int main() {
     auto pipe = xieite::streams::Pipe("echo Hello, world!", "r");

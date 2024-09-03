@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[File](../../../file.md)\:\:open\<\>\(\)
-Defined in header [<xieite/streams/file.hpp>](../../../../../../include/xieite/streams/file.hpp)
+Defined in fragment [xieite:streams.File](../../../../../../src/streams/file.cpp)
 
 &nbsp;
 
@@ -15,7 +15,8 @@ void open(const std::string& path, const std::string& mode) noexcept;
 ```
 #### 2)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_WINDOWS
+import std;
+import xieite;
 void open(const std::wstring& path, const std::wstring& mode) noexcept;
 #endif
 ```
@@ -25,7 +26,8 @@ void open(int descriptor, const std::string& mode) noexcept;
 ```
 #### 4)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_WINDOWS
+import std;
+import xieite;
 void open(int descriptor, const std::wstring& mode) noexcept;
 #endif
 ```
@@ -39,14 +41,13 @@ void open(Stream& stream) noexcept;
 
 ## Example
 ```cpp
-#include <iostream>
-#include <print>
-#include "xieite/streams/file.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::streams::File file;
     file.open(std::cout);
-    std::println(file.file(), "Hello, world!");
+    std::println(file.File(), "Hello, world!");
 }
 ```
 Possible output:

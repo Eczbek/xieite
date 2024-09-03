@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:any\<\>\(\)
-Defined in header [<xieite/algorithms/any.hpp>](../../../include/xieite/algorithms/any.hpp)
+Defined in fragment [xieite:algorithms.any](../../../src/algorithms/any.cpp)
 
 &nbsp;
 
@@ -12,18 +12,19 @@ Checks whether a functor invoked with at least one following argument evaluates 
 #### 1)
 ```cpp
 template<typename... Values, typename Functor>
-requires((... && xieite::concepts::Functor<Functor, bool(Values)>))
+requires((... && xieite::concepts::Invocable<Functor, bool(Values)>))
 [[nodiscard]] constexpr bool any(Functor&& functor, Values&&... values)
-noexcept((... && std::is_nothrow_invocable_v<Functor, Values>));
+noexcept((... && xieite::concepts::NoThrowInvocable<Functor, bool(Values)>));
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/algorithms/any.hpp"
-#include "xieite/macros/lift.hpp"
+#include "lift.hpp"
+
+import std;
+import xieite;
 
 int main() {
     auto predicate = XIEITE_LIFT_UNARY(static_cast<bool>);

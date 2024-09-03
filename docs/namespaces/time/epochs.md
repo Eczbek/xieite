@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[time](../../time.md)\:\:Epochs
-Defined in header [<xieite/time/epochs.hpp>](../../../include/xieite/time/epochs.hpp)
+Defined in fragment [xieite:time.Epochs](../../../src/time/epochs.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ using Epochs = std::chrono::duration<std::intmax_t, std::ratio<31556952000000>>;
 
 ## Example
 ```cpp
-#include <print>
-#include <thread>
-#include "xieite/time/epochs.hpp"
+import std;
+import xieite;
 
 int main() {
     std::this_thread::sleep_for(xieite::time::Epochs(4));

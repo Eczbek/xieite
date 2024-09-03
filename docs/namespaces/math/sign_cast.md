@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:signCast\<\>\(\)
-Defined in header [<xieite/math/sign_cast.hpp>](../../../include/xieite/math/sign_cast.hpp)
+Defined in fragment [xieite:math.signCast](../../../src/math/sign_cast.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<std::integral Target, std::integral Source>
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <print>
-#include "xieite/math/sign_cast.hpp"
+import std;
+import xieite;
 
 int main() {
     std::int8_t foo = -1;

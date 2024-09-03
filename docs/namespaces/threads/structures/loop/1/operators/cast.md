@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Loop](../../../../loop.md)\:\:operator typename\(\)
-Defined in header [<xieite/threads/loop.hpp>](../../../../../../../include/xieite/threads/loop.hpp)
+Defined in fragment [xieite:threads.Loop](../../../../../../../src/threads/loop.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ The boolean cast returns `true` if the loop is still running, and `false` if it 
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/threads/loop.hpp"
+import std;
+import xieite;
 
 int main() {
     auto loop = xieite::threads::Loop([] {

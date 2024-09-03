@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:unquote\(\)
-Defined in header [<xieite/strings/unquote.hpp>](../../../include/xieite/strings/unquote.hpp)
+Defined in fragment [xieite:strings.unquote](../../../src/strings/unquote.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Defined in header [<xieite/strings/unquote.hpp>](../../../include/xieite/strings
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/unquote.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::unquote("\"Something \\\"quoted\\\" and \\\\escaped\""));

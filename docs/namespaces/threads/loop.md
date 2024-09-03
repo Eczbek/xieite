@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:Loop \{\}
-Defined in header [<xieite/threads/loop.hpp>](../../../include/xieite/threads/loop.hpp)
+Defined in fragment [xieite:threads.Loop](../../../src/threads/loop.cpp)
 
 &nbsp;
 
@@ -28,10 +28,8 @@ struct Loop {
 
 ## Example
 ```cpp
-#include <chrono>
-#include <print>
-#include <thread>
-#include "xieite/threads/loop.hpp"
+import std;
+import xieite;
 
 int main() {
     auto loop = xieite::threads::Loop([] {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsTemplateOfAll\<\> \{\}
-Defined in header [<xieite/traits/is_template_of_all.hpp>](../../../include/xieite/traits/is_template_of_all.hpp)
+Defined in fragment [xieite:traits.IsTemplateOfAll](../../../src/traits/is_template_of_all.cpp)
 
 &nbsp;
 

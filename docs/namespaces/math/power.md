@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:power\<\>\(\)
-Defined in header [<xieite/math/power.hpp>](../../../include/xieite/math/power.hpp)
+Defined in fragment [xieite:math.power](../../../src/math/power.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<std::integral Integral>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/power.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::power<std::uint64_t>(4, 13));

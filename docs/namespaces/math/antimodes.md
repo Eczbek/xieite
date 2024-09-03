@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:antimodes\<\>\(\)
-Defined in header [<xieite/math/antimodes.hpp>](../../../include/xieite/math/antimodes.hpp)
+Defined in fragment [xieite:math.antimodes](../../../src/math/antimodes.cpp)
 
 &nbsp;
 
@@ -25,8 +25,8 @@ template<xieite::concepts::Arithmetic... Arithmetics>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/antimodes.hpp"
+import std;
+import xieite;
 
 int main() {
     for (int value : xieite::math::antimodes(1, 3, 2, 4, 5)) {

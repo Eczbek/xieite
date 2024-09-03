@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_EAT\(\)
-Defined in header [<xieite/macros/eat.hpp>](../../../include/xieite/macros/eat.hpp)
+Defined in header ["eat.hpp"](../../../src/macros/eat.hpp)
 
 &nbsp;
 
@@ -18,10 +18,9 @@ A helper macro which consumes any number of expressions and expands to nothing.
 
 ## Example
 ```cpp
-#include <csignal>
-#include <exception>
-#include <print>
-#include "xieite/macros/eat.hpp"
+#include "eat.hpp"
+
+import std;
 
 int main() {
     XIEITE_EAT(throw; std::terminate(); std::signal(SIGTERM));

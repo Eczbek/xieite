@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsBitsetReference\<\> \{\}
-Defined in header [<xieite/traits/is_bitset_reference.hpp>](../../../include/xieite/traits/is_bitset_reference.hpp)
+Defined in fragment [xieite:traits.IsBitsetReference](../../../src/traits/is_bitset_reference.cpp)
 
 &nbsp;
 

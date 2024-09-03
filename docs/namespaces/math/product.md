@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Product\<\> \{\}
-Defined in header [<xieite/math/product.hpp>](../../../include/xieite/math/product.hpp)
+Defined in fragment [xieite:math.Product](../../../src/math/product.cpp)
 
 &nbsp;
 

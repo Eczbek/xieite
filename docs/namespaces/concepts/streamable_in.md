@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:StreamableIn\<\>
-Defined in header [<xieite/concepts/streamable_in.hpp>](../../../include/xieite/concepts/streamable_in.hpp)
+Defined in fragment [xieite:concepts.StreamableIn](../../../src/concepts/streamable_in.cpp)
 
 &nbsp;
 
@@ -13,7 +13,7 @@ Specifies that a type can be streamed into.
 ```cpp
 template<typename Type>
 concept StreamableIn = requires(Type value, std::istream inputStream) {
-    { inputStream >> value } -> std::same_as<std::istream&>;
+    { inputStream >> value } -> std::convertible_to<std::istream&>;
 };
 ```
 
@@ -21,8 +21,8 @@ concept StreamableIn = requires(Type value, std::istream inputStream) {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/streamable_in.hpp"
+import std;
+import xieite;
 
 struct Nope {};
 

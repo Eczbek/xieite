@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:forwardTuple\<\>\(\)
-Defined in header [<xieite/containers/forward_tuple.hpp>](../../../include/xieite/containers/forward_tuple.hpp)
+Defined in fragment [xieite:containers.forwardTuple](../../../src/containers/forward_tuple.cpp)
 
 &nbsp;
 
@@ -19,10 +19,8 @@ template<xieite::concepts::SpecializationOf<std::tuple> Tuple>
 
 ## Example
 ```cpp
-#include <print>
-#include <tuple>
-#include "xieite/containers/forward_tuple.hpp"
-#include "xieite/types/name.hpp"
+import std;
+import xieite;
 
 int main() {
     auto foo = xieite::containers::forwardTuple(std::make_tuple(1, 2.5, 'a'));

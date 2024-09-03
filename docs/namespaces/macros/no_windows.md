@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md) \(No windows\)
-Defined in header [<xieite/macros/no_windows.hpp>](../../../include/xieite/macros/no_windows.hpp)
+Defined in header ["no_windows.hpp"](../../../src/macros/no_windows.hpp)
 
 &nbsp;
 
@@ -90,9 +90,9 @@ A wrapper for the `<windows.h>` header (if it exists), excluding generally unwan
 
 ## Example
 ```cpp
-#include <algorithm>
-#include <print>
-#include "xieite/macros/no_windows.hpp"
+#include "no_windows.hpp"
+
+import std;
 
 int main() {
     std::println("{}", std::min(4, 17));

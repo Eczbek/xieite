@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:postOperation\<\>\(\)
-Defined in header [<xieite/functors/post_operation.hpp>](../../../include/xieite/functors/post_operation.hpp)
+Defined in fragment [xieite:functors.postOperation](../../../src/functors/post_operation.cpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ noexcept(std::is_nothrow_invocable_v<Functor, Type&>);
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/post_operation.hpp"
+import std;
+import xieite;
 
 int main() {
     int x = 5;

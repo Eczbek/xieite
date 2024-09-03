@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SameAsAny\<\>
-Defined in header [<xieite/concepts/same_as_any.hpp>](../../../include/xieite/concepts/same_as_any.hpp)
+Defined in fragment [xieite:concepts.SameAsAny](../../../src/concepts/same_as_any.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept SameAsAny = (... || std::same_as<Source, Targets>);
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/same_as_any.hpp"
+import std;
+import xieite;
 
 struct Nope {};
 

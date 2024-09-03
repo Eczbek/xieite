@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Interval\<\> \{\}
-Defined in header [<xieite/math/interval.hpp>](../../../include/xieite/math/interval.hpp)
+Defined in fragment [xieite:math.Interval](../../../src/math/interval.cpp)
 
 &nbsp;
 
@@ -24,8 +24,8 @@ struct Interval {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/interval.hpp"
+import std;
+import xieite;
 
 int main() {
     auto interval = xieite::math::Interval<int>(-5, 23);

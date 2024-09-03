@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:almostEqual\<\>\(\)
-Defined in header [<xieite/math/almost_equal.hpp>](../../../include/xieite/math/almost_equal.hpp)
+Defined in fragment [xieite:math.almostEqual](../../../src/math/almost_equal.cpp)
 
 &nbsp;
 
@@ -26,8 +26,8 @@ Uses the epsilon argument directly.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/almost_equal.hpp"
+import std;
+import xieite;
 
 int main() {
     double a = 0.3;

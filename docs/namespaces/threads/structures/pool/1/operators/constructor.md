@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Pool](../../../../pool.md)\:\:Pool\(\)
-Defined in header [<xieite/threads/pool.hpp>](../../../../../../../include/xieite/threads/pool.hpp)
+Defined in fragment [xieite:threads.Pool](../../../../../../../src/threads/pool.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Pool(std::size_t threadCount = std::thread::hardware_concurrency());
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/threads/pool.hpp"
+import std;
+import xieite;
 
 int main() {
     auto pool = xieite::threads::Pool(4);

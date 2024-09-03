@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[hashes](../../hashes.md)\:\:distribute\<\>\(\)
-Defined in header [<xieite/hashes/distribute.hpp>](../../../include/xieite/hashes/distribute.hpp)
+Defined in fragment [xieite:hashes.distribute](../../../src/hashes/distribute.cpp)
 
 &nbsp;
 
 ## Description
-Distributes the bits of an integer magically. See header file.
+Distributes the bits of an integer magically. See definition for specifics.
 
 &nbsp;
 
@@ -19,18 +19,16 @@ template<std::integral Integral, std::floating_point Phi = double>
 
 ## Example
 ```cpp
-#include <bitset>
-#include <cstddef>
-#include <print>
-#include "xieite/hashes/distribute.hpp"
+import std;
+import xieite;
 
 int main() {
     std::uint32_t foo = 102030405;
 
     std::uint32_t bar = xieite::hashes::distribute(foo);
 
-    std::println("{}", std::bitset<32>(foo).to_string());
-    std::println("{}", std::bitset<32>(bar).to_string());
+    std::println("{}", std::bitset<32>(foo).toString());
+    std::println("{}", std::bitset<32>(bar).toString());
 }
 ```
 Possible output:

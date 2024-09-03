@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:TrySigned\<\>
-Defined in header [<xieite/types/try_signed.hpp>](../../../include/xieite/types/try_signed.hpp)
+Defined in fragment [xieite:types.TrySigned](../../../src/types/try_signed.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using TrySigned = /* ... */;
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include "xieite/types/try_signed.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<int, xieite::types::TrySigned<unsigned int>>);

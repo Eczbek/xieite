@@ -1,14 +1,12 @@
 # **XIEITE**
-C++ header-only utility library
+C++ utility library
 
 This project extends the standard library without external dependencies and provides a somewhat organized collection of questionably useful tools for assisting in various shenanigans
-
-##### *Now SemVer compliant!*
 
 &nbsp;
 
 ## [Documentation](https://github.com/Eczbek/xieite/tree/main/docs/xieite.md)
-Written manually, please enjoy :)
+Written manually :)
 
 &nbsp;
 
@@ -17,6 +15,9 @@ Written manually, please enjoy :)
 - GCC 15
 - Clang 18
 - MSVC 19.34
+
+## Building
+[good luck](https://gist.github.com/Eczbek/677a7c925b6733f48554822cdcde3780)
 
 &nbsp;
 

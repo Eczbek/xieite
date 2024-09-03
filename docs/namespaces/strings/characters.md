@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:characters
-Defined in header [<xieite/strings/characters.hpp>](../../../include/xieite/strings/characters.hpp)
+Defined in fragment [xieite:strings.characters](../../../src/strings/characters.cpp)
 
 &nbsp;
 
@@ -46,8 +46,8 @@ inline constexpr std::string_view whitespaces = "\t\n\v\f\r ";
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/characters.md"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::characters::uppercase);

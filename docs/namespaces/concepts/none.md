@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:None\<\>
-Defined in header [<xieite/concepts/none.hpp>](../../../include/xieite/concepts/none.hpp)
+Defined in fragment [xieite:concepts.None](../../../src/concepts/none.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ concept None = (... && !Traits<Type>::value);
 
 ## Example
 ```cpp
-#include <print>
-#include <type_traits>
-#include "xieite/concepts/none.hpp"
+import std;
+import xieite;
 
 template<xieite::concepts::None<std::is_integral>>
 void test() {

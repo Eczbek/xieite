@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[time](../../time.md)\:\:compilation
-Defined in header [<xieite/time/compilation.hpp>](../../../include/xieite/time/compilation.hpp)
+Defined in fragment [xieite:time.compilation](../../../src/time/compilation.cpp)
 
 &nbsp;
 
@@ -38,8 +38,8 @@ static constexpr int seconds = /* ... */;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/time/compilation.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::time::compilation;

@@ -1,10 +1,10 @@
 # [XIEITE](../../macros.md)\_FUNCTION\_SIGNATURE
-Defined in header [<xieite/macros/function_signature.hpp>](../../../include/xieite/macros/function_signature.hpp)
+Defined in header ["function_signature.hpp"](../../../src/macros/function_signature.hpp)
 
 &nbsp;
 
 ## Description
-Expands to a function's compiler-specific signature.
+Expands to a function's compiler-specific signature in string form.
 
 &nbsp;
 

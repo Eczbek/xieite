@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Overloader\<\> \{\}
-Defined in header [<xieite/functors/overloader.hpp>](../../../include/xieite/functors/overloader.hpp)
+Defined in fragment [xieite:functors.Overloader](../../../src/functors/overloader.cpp)
 
 &nbsp;
 
@@ -14,23 +14,22 @@ Extends multiple invocable types and overloads its `operator()` for each.
 template<xieite::concepts::Derivable... Derivables>
 struct Overloader
 : Derivables... {
-    constexpr Overloader() noexcept;
-
-    template<typename... DerivableReferences>
-    requires((... && std::convertible_to<DerivableReferences, Derivables>))
-    explicit constexpr Overloader(DerivableReferences&&...) noexcept;
-
     using Derivables::operator()...;
 };
 ```
-- [Overloader\(\)](./structures/overloader/1/operators/constructor.md)
+
+### Deduction guide
+```cpp
+template<typename... Functors>
+Overloader(Functors...) -> xieite::functors::Overloader<Functors...>;
+```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/overloader.hpp"
+import std;
+import xieite;
 
 int main() {
     auto foo = [](int) -> void {

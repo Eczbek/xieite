@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:intersections\<\>\(\)
-Defined in header [<xieite/geometry/intersections.hpp>](../../../include/xieite/geometry/intersections.hpp)
+Defined in fragment [xieite:geometry.intersections](../../../src/geometry/intersections.cpp)
 
 &nbsp;
 
@@ -59,9 +59,8 @@ template<typename Arithmetic = double>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/intersections.hpp"
-#include "xieite/geometry/line.hpp"
+import std;
+import xieite;
 
 int main() {
     auto line1 = xieite::geometry::Line({ 0.0, 0.0 }, { 2.0, 2.0 });

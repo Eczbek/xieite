@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:radix
-Defined in header [<xieite/literals/radix.hpp>](../../../include/xieite/literals/radix.hpp)
+Defined in fragment [xieite:literals.radix](../../../src/literals/radix.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<char... characters>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/literals/radix.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::radix;

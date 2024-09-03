@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:mergeIntervals\<\>\(\)
-Defined in header [<xieite/math/merge_intervals.hpp>](../../../include/xieite/math/merge_intervals.hpp)
+Defined in fragment [xieite:math.mergeIntervals](../../../src/math/merge_intervals.cpp)
 
 &nbsp;
 
@@ -20,9 +20,8 @@ requires(std::convertible_to<std::ranges::range_value_t<IntervalRange>, xieite::
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/interval.hpp"
-#include "xieite/math/merge_intervals.hpp"
+import std;
+import xieite;
 
 int main() {
     std::vector<xieite::math::Interval<int>> intervals = {

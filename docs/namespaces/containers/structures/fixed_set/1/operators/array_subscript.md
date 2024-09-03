@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedSet<Key, size, Hash, KeyComparator,_ Allocator>](../../../../fixed_set.md)\:\:operator\[\]\<\>\(\)
-Defined in header [<xieite/containers/fixed_set.hpp>](../../../../../../../include/xieite/containers/fixed_set.hpp)
+Defined in fragment [xieite:containers.FixedSet](../../../../../../../src/containers/fixed_set.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<std::convertible_to<Key> KeyReference>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/containers/fixed_set.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::containers::FixedSet<int, 3> set = {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Any \{\}
-Defined in header [<xieite/types/any.hpp>](../../../include/xieite/types/any.hpp)
+Defined in fragment [xieite:types.Any](../../../src/types/any.cpp)
 
 &nbsp;
 
@@ -14,7 +14,8 @@ A placeholder type for metaprogramming purposes. The provided member functions a
 struct Any {
     explicit(false) Any(auto&&...) noexcept;
 
-    explicit(false) operator decltype(auto)() const noexcept;
+    template<typename Type>
+    explicit(false) operator Type() const noexcept;
 };
 ```
 - Any\<\>()
@@ -22,4 +23,4 @@ struct Any {
 
 &nbsp;
 
-## [Example](../../../include/xieite/concepts/invocable_with_arity.hpp)
+## [Example](../../../src/concepts/invocable_with_arity.cpp)

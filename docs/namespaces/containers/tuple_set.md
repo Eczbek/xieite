@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:TupleSet \{\}
-Defined in header [<xieite/containers/tuple_set.hpp>](../../../include/xieite/containers/tuple_set.hpp)
+Defined in fragment [xieite:containers.TupleSet](../../../src/containers/tuple_set.cpp)
 
 &nbsp;
 
@@ -59,10 +59,8 @@ struct TupleSet<Container, std::tuple<Key>> {
 
 ## Example
 ```cpp
-#include <print>
-#include <tuple>
-#include <unordered_set>
-#include "xieite/containers/tuple_set.hpp"
+import std;
+import xieite;
 
 int main() {
     using TupleSet = xieite::containers::TupleSet<std::unordered_set, std::tuple<int, char>>;

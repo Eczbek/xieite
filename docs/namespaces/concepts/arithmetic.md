@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Arithmetic\<\>
-Defined in header [<xieite/concepts/arithmetic.hpp>](../../../include/xieite/concepts/arithmetic.hpp)
+Defined in fragment [xieite:concepts.Arithmetic](../../../src/concepts/arithmetic.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Arithmetic = std::integral<Type> || std::floating_point<Type>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/arithmetic.hpp"
+import std;
+import xieite;
 
 template<xieite::concepts::Arithmetic T>
 T add(T a, T b) {

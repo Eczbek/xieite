@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Aggregate\<\>
-Defined in header [<xieite/concepts/aggregate.hpp>](../../../include/xieite/concepts/aggregate.hpp)
+Defined in fragment [xieite:concepts.Aggregate](../../../src/concepts/aggregate.cpp)
 
 &nbsp;
 

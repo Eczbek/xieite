@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyComparator, Allocator>](../../../../fixed_map.md)\:\:data\(\)
-Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
+Defined in fragment [xieite:containers.FixedMap](../../../../../../../src/containers/fixed_map.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Returns the underlying data. Its order is not specified.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/containers/fixed_map.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::containers::FixedMap<int, double, 3> map = {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:almostEqualSlope\<\>\(\)
-Defined in header [<xieite/math/almost_equal_slope.hpp>](../../../include/xieite/math/almost_equal_slope.hpp)
+Defined in fragment [xieite:math.almostEqualSlope](../../../src/math/almost_equal_slope.cpp)
 
 &nbsp;
 
@@ -26,9 +26,8 @@ Uses the epsilon argument directly.
 
 ## Example
 ```cpp
-#include <limits>
-#include <print>
-#include "xieite/math/almost_equal_slope.hpp"
+import std;
+import xieite;
 
 int main() {
     auto infinity = std::numeric_limits<double>::infinity();

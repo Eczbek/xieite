@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:DynamicMatrix\<\>
-Defined in header [<xieite/types/dynamic_matrix.hpp>](../../../include/xieite/types/dynamic_matrix.hpp)
+Defined in fragment [xieite:types.DynamicMatrix](../../../src/types/dynamic_matrix.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using DynamicMatrix = /* ... */;
 
 ## Example
 ```cpp
-#include <print>
-#include <vector>
-#include "xieite/types/dynamic_matrix.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<

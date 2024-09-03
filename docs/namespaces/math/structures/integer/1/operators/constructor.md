@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../integer.md)\:\:Integral\(\)
-Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
+Defined in fragment [xieite:math.Integer](../../../../../../../src/math/integer.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ constexpr Integral(OtherIntegral value = 0) noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/integer.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::Integer<6, false>(418).data());

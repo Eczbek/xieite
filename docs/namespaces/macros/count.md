@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_COUNT\(\)
-Defined in header [<xieite/macros/count.hpp>](../../../include/xieite/macros/count.hpp)
+Defined in header ["count.hpp"](../../../src/macros/count.hpp)
 
 &nbsp;
 
@@ -18,8 +18,9 @@ Counts the number of arguments passed, up to 255.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/count.hpp"
+#include "count.hpp"
+
+import std;
 
 int main() {
     std::println("{}", XIEITE_COUNT(a, b, c, d, e, f));

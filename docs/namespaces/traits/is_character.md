@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsCharacter\<\> \{\}
-Defined in header [<xieite/traits/is_character.hpp>](../../../include/xieite/traits/is_character.hpp)
+Defined in fragment [xieite:traits.IsCharacter](../../../src/traits/is_character.cpp)
 
 &nbsp;
 

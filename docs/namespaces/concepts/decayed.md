@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Decayed\<\>
-Defined in header [<xieite/concepts/decayed.hpp>](../../../include/xieite/concepts/decayed.hpp)
+Defined in fragment [xieite:concepts.Decayed](../../../src/concepts/decayed.cpp)
 
 &nbsp;
 

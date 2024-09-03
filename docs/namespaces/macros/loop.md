@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_LOOP\_...\(\)
-Defined in header [<xieite/macros/loop.hpp>](../../../include/xieite/macros/loop.hpp)
+Defined in header ["loop.hpp"](../../../src/macros/loop.hpp)
 
 &nbsp;
 
@@ -22,8 +22,9 @@ Creates a Python-style loop that allows appending an `else` block, except it onl
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/for.hpp"
+#include "for.hpp"
+
+import std;
 
 int main() {
     XIEITE_LOOP_FOR (int i = 0; i < 10; ++i) {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Volatile\<\>
-Defined in header [<xieite/concepts/volatile.hpp>](../../../include/xieite/concepts/volatile.hpp)
+Defined in fragment [xieite:concepts.Volatile](../../../src/concepts/volatile.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Volatile = std::is_volatile_v<std::remove_reference_t<Type>>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/volatile.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::Volatile<volatile int>);

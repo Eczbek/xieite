@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[units](../../units.md)\:\:convert\<\>\(\)
-Defined in header [<xieite/units/convert.hpp>](../../../include/xieite/units/convert.hpp)
+Defined in fragment [xieite:units.convert](../../../src/units/convert.cpp)
 
 &nbsp;
 
@@ -39,14 +39,8 @@ template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic R
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/literals/units.hpp"
-#include "xieite/units/angle.hpp"
-#include "xieite/units/area.hpp"
-#include "xieite/units/convert.hpp"
-#include "xieite/units/length.hpp"
-#include "xieite/units/temperature.hpp"
-#include "xieite/units/volume.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::units;

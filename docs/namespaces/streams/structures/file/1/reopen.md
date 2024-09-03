@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[File](../../../file.md)\:\:reopen\(\)
-Defined in header [<xieite/streams/file.hpp>](../../../../../../include/xieite/streams/file.hpp)
+Defined in fragment [xieite:streams.File](../../../../../../src/streams/file.cpp)
 
 &nbsp;
 
@@ -15,7 +15,8 @@ void reopen(const std::string& path, const std::string& mode, xieite::streams::F
 ```
 #### 2)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_WINDOWS
+import std;
+import xieite;
 void reopen(const std::wstring& path, const std::wstring& mode, xieite::streams::File other) noexcept;
 #endif
 ```

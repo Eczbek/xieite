@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:Line\<\> \{\}
-Defined in header [<xieite/geometry/line.hpp>](../../../include/xieite/geometry/line.hpp)
+Defined in fragment [xieite:geometry.Line](../../../src/geometry/line.cpp)
 
 &nbsp;
 
@@ -56,8 +56,8 @@ struct Line {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/line.hpp"
+import std;
+import xieite;
 
 int main() {
     auto line = xieite::geometry::Line({ 0.0, 0.0 }, { 1.0, 1.0 });

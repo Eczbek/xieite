@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsDuration\<\> \{\}
-Defined in header [<xieite/traits/is_duration.hpp>](../../../include/xieite/traits/is_duration.hpp)
+Defined in fragment [xieite:traits.IsDuration](../../../src/traits/is_duration.cpp)
 
 &nbsp;
 

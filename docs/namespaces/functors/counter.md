@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:counter\<\>\(\)
-Defined in header [<xieite/functors/counter.hpp>](../../../include/xieite/functors/counter.hpp)
+Defined in fragment [xieite:functors.counter](../../../src/functors/counter.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<auto tag = /* ... */, auto = [] {}>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/counter.hpp"
+import std;
+import xieite;
 
 int main() {
     static constexpr std::size_t x = xieite::functors::counter();

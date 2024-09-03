@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:DerivedFromAny\<\>
-Defined in header [<xieite/concepts/derived_from_any.hpp>](../../../include/xieite/concepts/derived_from_any.hpp)
+Defined in fragment [xieite:concepts.DerivedFromAny](../../../src/concepts/derived_from_any.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept DerivedFromAny = (... || std::derived_from<Derived, Bases>);
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/derived_from_all.hpp"
+import std;
+import xieite;
 
 struct Foo {};
 

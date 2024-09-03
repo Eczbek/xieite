@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:durations
-Defined in header [<xieite/literals/durations.hpp>](../../../include/xieite/literals/durations.hpp)
+Defined in fragment [xieite:literals.durations](../../../src/literals/durations.cpp)
 
 &nbsp;
 
@@ -74,9 +74,8 @@ A namespace of literals for constructing various durations.
 
 ## Example
 ```cpp
-#include <print>
-#include <thread>
-#include "xieite/literals/durations.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::durations;

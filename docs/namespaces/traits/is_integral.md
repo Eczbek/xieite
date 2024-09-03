@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsIntegral\<\> \{\}
-Defined in header [<xieite/traits/is_integer.hpp>](../../../include/xieite/traits/is_integer.hpp)
+Defined in fragment [xieite:traits.IsInteger](../../../src/traits/is_integer.cpp)
 
 &nbsp;
 

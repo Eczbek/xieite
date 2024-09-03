@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:InputStream\<\>
-Defined in header [<xieite/concepts/input_stream.hpp>](../../../include/xieite/concepts/input_stream.hpp)
+Defined in fragment [xieite:concepts.InputStream](../../../src/concepts/input_stream.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept InputStream = std::same_as<std::remove_cvref_t<Type>, std::istream> || s
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/input_stream.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::InputStream<decltype(std::cin)>);

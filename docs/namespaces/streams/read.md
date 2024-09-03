@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:read\(\)
-Defined in header [<xieite/streams/read.hpp>](../../../include/xieite/streams/read.hpp)
+Defined in fragment [xieite:streams.read](../../../src/streams/read.cpp)
 
 &nbsp;
 
@@ -22,9 +22,8 @@ inline std::string read(std::FILE* inputFile) noexcept;
 
 ## Example
 ```cpp
-#include <fstream>
-#include <print>
-#include "xieite/streams/read.md>
+import std;
+import xieite;
 
 int main() {
     std::ofstream("test.txt") << "Hello, world!\n";

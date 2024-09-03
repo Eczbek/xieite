@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Polygon<Arithmetic>](../../../polygon.md)\:\:rectangle\(\)
-Defined in header [<xieite/geometry/polygon.hpp>](../../../../../../include/xieite/geometry/polygon.hpp)
+Defined in fragment [xieite:geometry.Polygon](../../../../../../src/geometry/polygon.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Creates a rectangle from two points.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/polygon.hpp"
+import std;
+import xieite;
 
 int main() {
     auto polygon = xieite::geometry::Polygon<>::rectangle({ 0.0, 0.0 }, { 2.0, 2.0 });

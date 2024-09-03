@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_COMMA\(\)
-Defined in header [<xieite/macros/comma.hpp>](../../../include/xieite/macros/comma.hpp)
+Defined in header ["comma.hpp"](../../../src/macros/comma.hpp)
 
 &nbsp;
 
@@ -18,8 +18,9 @@ A helper macro which expands to a comma.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/comma.hpp"
+#include "comma.hpp"
+
+import std;
 
 int main() {
     std::println("{} {}", 3 XIEITE_COMMA() 4);

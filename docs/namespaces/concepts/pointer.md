@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Pointer\<\>
-Defined in header [<xieite/concepts/pointer.hpp>](../../../include/xieite/concepts/pointer.hpp)
+Defined in fragment [xieite:concepts.Pointer](../../../src/concepts/pointer.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Pointer = std::is_pointer_v<std::remove_reference_t<Type>>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/pointer.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::Pointer<int>);

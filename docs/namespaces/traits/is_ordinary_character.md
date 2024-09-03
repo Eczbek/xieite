@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsOrdinaryCharacter\<\> \{\}
-Defined in header [<xieite/traits/is_ordinary_character.hpp>](../../../include/xieite/traits/is_ordinary_character.hpp)
+Defined in fragment [xieite:traits.IsOrdinaryCharacter](../../../src/traits/is_ordinary_character.cpp)
 
 &nbsp;
 

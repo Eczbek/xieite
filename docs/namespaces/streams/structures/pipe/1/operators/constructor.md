@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[streams](../../../../../../streams.md)\:\:[Pipe](../../../../pipe.md)\:\:Pipe\(\)
-Defined in header [<xieite/streams/pipe.hpp>](../../../../../../../include/xieite/streams/pipe.hpp)
+Defined in fragment [xieite:streams.Pipe](../../../../../../../src/streams/pipe.cpp)
 
 &nbsp;
 
@@ -15,7 +15,8 @@ Pipe(const std::string& command, const std::string& mode) noexcept;
 ```
 #### 2)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_WINDOWS
+import std;
+import xieite;
 Pipe(const std::wstring& command, const std::wstring& mode) noexcept;
 #endif
 ```

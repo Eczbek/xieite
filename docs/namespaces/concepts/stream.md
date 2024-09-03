@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Stream\<\>
-Defined in header [<xieite/concepts/output_stream.hpp>](../../../include/xieite/concepts/output_stream.hpp)
+Defined in fragment [xieite:concepts.Stream](../../../src/concepts/stream.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Stream = xieite::concepts::InputStream<Type> || xieite::concepts::Output
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/stream.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::Stream<decltype(std::cin)>);

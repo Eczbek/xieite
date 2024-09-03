@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:stringMoveCursorPosition\(\)
-Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in fragment [xieite:streams.StandardHandle](../../../../../../src/streams/standard_handle.cpp)
 
 &nbsp;
 
@@ -18,10 +18,8 @@ Returns a string which moves the terminal cursor's position when printed.
 
 ## Example
 ```cpp
-#include <print>
-#include <string>
-#include "xieite/streams/position.hpp"
-#include "xieite/streams/standard_handle.hpp"
+import std;
+import xieite;
 
 int main() {
     std::string offset = xieite::streams::StandardHandle::stringMoveCursorPosition(xieite::streams::Position(2, 3));

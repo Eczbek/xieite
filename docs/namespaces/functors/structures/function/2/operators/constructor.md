@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Function<Return(Arguments...)>](../../../../function.md)\:\:Function\<\>\(\)
-Defined in header [<xieite/functors/function.hpp>](../../../../../../../include/xieite/functors/function.hpp)
+Defined in fragment [xieite:functors.Function](../../../../../../../src/functors/function.cpp)
 
 &nbsp;
 
@@ -19,7 +19,7 @@ explicit(false) constexpr Function(const xieite::functors::Function<Return(Argum
 ```
 #### 3)
 ```cpp
-template<xieite::concepts::Functor<Return(Arguments...)> Functor>
+template<xieite::concepts::Invocable<Return(Arguments...)> Functor>
 requires(!std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Return(Arguments...)>>)
 explicit(false) constexpr Function(Functor&& functor) noexcept;
 ```
@@ -28,8 +28,8 @@ explicit(false) constexpr Function(Functor&& functor) noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/function.hpp"
+import std;
+import xieite;
 
 int main() {
     using Function = xieite::functors::Function<void()>;

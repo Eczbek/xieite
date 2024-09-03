@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Line<Arithmetic>](../../../../line.md)\:\:Line\(\)
-Defined in header [<xieite/geometry/line.hpp>](../../../../../../../include/xieite/geometry/line.hpp)
+Defined in fragment [xieite:geometry.Line](../../../../../../../src/geometry/line.cpp)
 
 &nbsp;
 

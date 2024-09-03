@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[containers](../../containers.md)\:\:Matrix\<\> \{\}
-Defined in header [<xieite/containers/matrix.hpp>](../../../include/xieite/containers/matrix.hpp)
+Defined in fragment [xieite:containers.Matrix](../../../src/containers/matrix.cpp)
 
 &nbsp;
 
@@ -66,9 +66,8 @@ struct Matrix {
 
 ## Example
 ```cpp
-#include <cstddef>
-#include <print>
-#include "xieite/containers/matrix.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::containers::Matrix<int> matrix = { 1, 2, 3, 4, 5, 6 };

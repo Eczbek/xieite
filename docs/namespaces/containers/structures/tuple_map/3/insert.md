@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[containers](../../../../../containers.md)\:\:[TupleMap<Container, std::tuple<Key>, Value>](../../../tuple_map.md)\:\:insert\<\>\(\)
-Defined in header [<xieite/containers/tuple_map.hpp>](../../../../../../include/xieite/containers/tuple_map.hpp)
+Defined in fragment [xieite:containers.TupleMap](../../../../../../src/containers/tuple_map.cpp)
 
 &nbsp;
 
@@ -19,10 +19,8 @@ constexpr void insert(KeyReference&& key, ValueReference&& value);
 
 ## Example
 ```cpp
-#include <print>
-#include <tuple>
-#include <unordered_map>
-#include "xieite/containers/tuple_map.hpp"
+import std;
+import xieite;
 
 int main() {
     using TupleMap = xieite::containers::TupleMap<std::unordered_map, std::tuple<int>, double>;

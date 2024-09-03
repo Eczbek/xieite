@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb>](../../../big_integer.md)\:\:string\(\)
-Defined in header [<xieite/math/big_integer.hpp>](../../../../../../include/xieite/math/big_integer.hpp)
+Defined in fragment [xieite:math.BigInteger](../../../../../../src/math/big_integer.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Converts a `xieite::math::BigInteger<Limb>` to a `std::string`.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/big_integer.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::BigInteger(418).string());

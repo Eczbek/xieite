@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:UnsignedIntegral\<\>
-Defined in header [<xieite/concepts/unsigned_integral.hpp>](../../../include/xieite/concepts/unsigned_integral.hpp)
+Defined in fragment [xieite:concepts.UnsignedIntegral](../../../src/concepts/unsigned_integral.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept UnsignedIntegral = std::unsigned_integral<Type> && !std::same_as<std::re
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/unsigned_integral.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::UnsignedIntegral<unsigned short int>);

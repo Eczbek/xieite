@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[bits](../../bits.md)\:\:unjoin\<\>\(\)
-Defined in header [<xieite/bits/unjoin.hpp>](../../../include/xieite/bits/unjoin.hpp)
+Defined in fragment [xieite:bits.unjoin](../../../src/bits/unjoin.cpp)
 
 &nbsp;
 
@@ -26,11 +26,8 @@ requires(bits >= (xieite::bits::size<Integral> * size))
 
 ## Example
 ```cpp
-#include <bitset>
-#include <cstdint>
-#include <print>
-#include <tuple>
-#include "xieite/bits/unjoin.hpp"
+import std;
+import xieite;
 
 int main() {
     std::bitset<24> foo = 0b000000001100011100000101;

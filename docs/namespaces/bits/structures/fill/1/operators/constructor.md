@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[bits](../../../../../../bits.md)\:\:[Fill](../../../../fill.md)\:\:Fill\<\>\(\)
-Defined in header [<xieite/bits/fill.hpp>](../../../../../../../include/xieite/bits/fill.hpp)
+Defined in fragment [xieite:bits.Fill](../../../../../../../src/bits/fill.cpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ Accepts any integral type until I think of a reason for why it shouldn't.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/bits/fill.hpp"
+import std;
+import xieite;
 
 int main() {
     auto fill = xieite::bits::Fill(-1);

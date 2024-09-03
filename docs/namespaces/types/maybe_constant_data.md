@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:MaybeConstantData\<\>
-Defined in header [<xieite/types/maybe_constant_data.hpp>](../../../include/xieite/types/maybe_constant_data.hpp)
+Defined in fragment [xieite:types.MaybeConstantData](../../../src/types/maybe_constant_data.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using MaybeConstantData = /* ... */;
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include "xieite/types/maybe_constant_data.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<const int*, xieite::types::MaybeConstantData<int*, true>>);

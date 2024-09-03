@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:radiotelephonySpellingAlphabet
-Defined in header [<xieite/strings/radiotelephony_spelling_alphabet.hpp>](../../../include/xieite/strings/radiotelephony_spelling_alphabet.hpp)
+Defined in fragment [xieite:strings.radiotelephonySpellingAlphabet](../../../src/strings/radiotelephony_spelling_alphabet.cpp)
 
 &nbsp;
 
 ## Description
-Defines the radiotelephony spelling alphabet. See header file for the exact definitions.
+Defines the radiotelephony spelling alphabet. See definition for specifics.
 
 &nbsp;
 
@@ -18,9 +18,8 @@ inline constexpr std::array<std::string_view, /* size */> radiotelephonySpelling
 
 ## Example
 ```cpp
-#include <print>
-#include <string>
-#include "xieite/strings/radiotelephony_spelling_alphabet.hpp"
+import std;
+import xieite;
 
 int main() {
     for (char character : std::string("Hello, world!")) {

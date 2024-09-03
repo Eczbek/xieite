@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:CopyQualifiers\<\>
-Defined in header [<xieite/types/copy_qualifiers.hpp>](../../../include/xieite/types/copy_qualifiers.hpp)
+Defined in fragment [xieite:types.CopyQualifiers](../../../src/types/copy_qualifiers.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using CopyQualifiers = /* ... */;
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include "xieite/types/copy_qualifiers.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<int* const volatile&&, xieite::types::CopyQualifiers<volatile const float&&, int*&>>);

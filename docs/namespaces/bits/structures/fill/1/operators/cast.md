@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[bits](../../../../../bits.md)\:\:[Fill](../../../../fill.md)\:\:operator typename\<\>\(\)
-Defined in header [<xieite/bits/fill.hpp>](../../../../../../../include/xieite/bits/fill.hpp)
+Defined in fragment [xieite:bits.Fill](../../../../../../../src/bits/fill.cpp)
 
 &nbsp;
 

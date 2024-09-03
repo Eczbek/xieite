@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:getTotal\(\)
-Defined in header [<xieite/memory/get_total.hpp>](../../../include/xieite/memory/get_total.hpp)
+Defined in fragment [xieite:memory.getTotal](../../../src/memory/get_total.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Gets the system's total amount of memory. Requires at least one of `XIEITE_PLATF
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/memory/get_total.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::memory::getTotal());

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[literals](../../literals.md)\:\:exponent
-Defined in header [<xieite/literals/exponent.hpp>](../../../include/xieite/literals/exponent.hpp)
+Defined in fragment [xieite:literals.exponent](../../../src/literals/exponent.cpp)
 
 &nbsp;
 
@@ -22,8 +22,8 @@ Defined in header [<xieite/literals/exponent.hpp>](../../../include/xieite/liter
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/literals/exponent.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::exponent;

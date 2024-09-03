@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:digits\<\>\(\)
-Defined in header [<xieite/math/digits.hpp>](../../../include/xieite/math/digits.hpp)
+Defined in fragment [xieite:math.digits](../../../src/math/digits.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<std::integral Integral>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/digits.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::digits(12));

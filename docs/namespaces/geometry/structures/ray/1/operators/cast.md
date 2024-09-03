@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[geometry](../../../../../../geometry.md)\:\:[Ray<Arithmetic>](../../../../ray.md)\:\:operator typename\<\>\(\)
-Defined in header [<xieite/geometry/ray.hpp>](../../../../../../../include/xieite/geometry/ray.hpp)
+Defined in fragment [xieite:geometry.Ray](../../../../../../../src/geometry/ray.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<typename OtherArithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/ray.hpp"
-#include "xieite/math/almost_equal_slope.hpp"
+import std;
+import xieite;
 
 int main() {
     auto ray1 = xieite::geometry::Ray<double>({ 0.0, 0.0 }, { 1.0, 1.0 });

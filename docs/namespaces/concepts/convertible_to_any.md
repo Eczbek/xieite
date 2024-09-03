@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:ConvertibleToAny\<\>
-Defined in header [<xieite/concepts/convertible_to_any.hpp>](../../../include/xieite/concepts/convertible_to_any.hpp)
+Defined in fragment [xieite:concepts.ConvertibleToAny](../../../src/concepts/convertible_to_any.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept ConvertibleToAny = (... || std::convertible_to<Source, Targets>);
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/convertible_to_any.hpp"
+import std;
+import xieite;
 
 struct Nope {};
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NotAll\<\>
-Defined in header [<xieite/concepts/not_all.hpp>](../../../include/xieite/concepts/not_all.hpp)
+Defined in fragment [xieite:concepts.NotAll](../../../src/concepts/not_all.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ concept NotAll = (... && !Traits<Type>::value);
 
 ## Example
 ```cpp
-#include <print>
-#include <type_traits>
-#include "xieite/concepts/not_all.hpp"
+import std;
+import xieite;
 
 template<xieite::concepts::NotAll<std::is_floating_point, std::is_unsigned>>
 void test() {

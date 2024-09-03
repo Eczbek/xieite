@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:stringSetColorsSwapped\(\)
-Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in fragment [xieite:streams.StandardHandle](../../../../../../src/streams/standard_handle.cpp)
 
 &nbsp;
 
@@ -18,10 +18,8 @@ Returns a string which, when printed, enables or disables the swapping of foregr
 
 ## Example
 ```cpp
-#include <print>
-#include <string>
-#include "xieite/streams/color.hpp"
-#include "xieite/streams/standard_handle.hpp"
+import std;
+import xieite;
 
 int main() {
     std::string fg = xieite::streams::StandardHandle::stringSetForegroundColor(xieite::streams::Color<3>(255, 0, 0));

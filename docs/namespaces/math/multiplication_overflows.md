@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:multiplicationOverflows\<\>\(\)
-Defined in header [<xieite/math/multiplication_overflows.hpp>](../../../include/xieite/math/multiplication_overflows.hpp)
+Defined in fragment [xieite:math.multiplicationOverflows](../../../src/math/multiplication_overflows.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <print>
-#include "xieite/math/multiplication_overflows.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::multiplicationOverflows<std::uint8_t>(99, 99));

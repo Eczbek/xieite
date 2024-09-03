@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[memory](../../memory.md)\:\:getAvailable\(\)
-Defined in header [<xieite/memory/get_available.hpp>](../../../include/xieite/memory/get_available.hpp)
+Defined in fragment [xieite:memory.getAvailable](../../../src/memory/get_available.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Gets the system's currently available amount of memory. Requires at least one of
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/memory/get_available.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::memory::getAvailable());

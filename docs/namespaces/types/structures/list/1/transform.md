@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Transform\<\>
-Defined in header [<xieite/types/list.hpp>](../../../../../../include/xieite/types/list.hpp)
+Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 
 &nbsp;
 
@@ -20,10 +20,8 @@ using Transform = /* xieite::types::List<...> */;
 
 ## Example
 ```cpp
-#include <print>
-#include <utility>
-#include "../xieite/include/xieite/types/list.hpp"
-#include "../xieite/include/xieite/types/name.hpp"
+import std;
+import xieite;
 
 int main() {
     using Foo = xieite::types::List<int, char, long, float, short, bool>;

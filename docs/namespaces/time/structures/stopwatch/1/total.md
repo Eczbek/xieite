@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[time](../../../../../time.md)\:\:[Stopwatch<Clock>](../../../stopwatch.md)\:\:total\<\>\(\)
-Defined in header [<xieite/time/stopwatch.hpp>](../../../../../../include/xieite/time/stopwatch.hpp)
+Defined in fragment [xieite:time.Stopwatch](../../../../../../src/time/stopwatch.cpp)
 
 &nbsp;
 

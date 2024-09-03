@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[hashes](../../hashes.md)\:\:md5\(\)
-Defined in header [<xieite/hashes/md5.hpp>](../../../include/xieite/hashes/md5.hpp)
+Defined in fragment [xieite:hashes.md5](../../../src/hashes/md5.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Generates a 128-bit hash of a string using the MD5 algorithm.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/hashes/md5.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::hashes::md5("Hello, world!"));

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:numberSearch\<\>\(\)
-Defined in header [<xieite/algorithms/number_search.hpp>](../../../include/xieite/algorithms/number_search.hpp)
+Defined in fragment [xieite:algorithms.numberSearch](../../../src/algorithms/number_search.cpp)
 
 &nbsp;
 
@@ -11,23 +11,23 @@ Finds the lowest numerical value which, if passed to the provided callback, will
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functor<bool(Arithmetic)> Functor>
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Invocable<bool(Arithmetic)> Functor>
 [[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector, Arithmetic minimum, Arithmetic maximum)
-noexcept(std::is_nothrow_invocable_v<Functor, Arithmetic>);
+noexcept(xieite::concepts::NoThrowInvocable<Functor, bool(Arithmetic)>);
 ```
 #### 2)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Functor<bool(Arithmetic)> Functor>
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Invocable<bool(Arithmetic)> Functor>
 [[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector)
-noexcept(std::is_nothrow_invocable_v<Functor, Arithmetic>);
+noexcept(xieite::concepts::NoThrowInvocable<Functor, bool(Arithmetic)>);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/algorithms/number_search.hpp"
+import std;
+import xieite;
 
 bool checkCollision(double x) {
     return x < 10;

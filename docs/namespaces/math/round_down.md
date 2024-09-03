@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:roundDown\<\>\(\)
-Defined in header [<xieite/math/round_down.hpp>](../../../include/xieite/math/round_down.hpp)
+Defined in fragment [xieite:math.roundDown](../../../src/math/round_down.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/round_down.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::roundDown(-21, 5));

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Enumeration\<\>
-Defined in header [<xieite/concepts/enumeration.hpp>](../../../include/xieite/concepts/enumeration.hpp)
+Defined in fragment [xieite:concepts.Enumeration](../../../src/concepts/enumeration.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Enumeration = std::is_enum_v<Type>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/enumeration.hpp"
+import std;
+import xieite;
 
 struct Foo {};
 

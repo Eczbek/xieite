@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:OrdinaryCharacter\<\>
-Defined in header [<xieite/concepts/ordinary_character.hpp>](../../../include/xieite/concepts/ordinary_character.hpp)
+Defined in fragment [xieite:concepts.OrdinaryCharacter](../../../src/concepts/ordinary_character.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept OrdinaryCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Type>, 
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/ordinary_character.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::OrdinaryCharacter<char>);

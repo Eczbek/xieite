@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Constant\<\>
-Defined in header [<xieite/concepts/constant.hpp>](../../../include/xieite/concepts/constant.hpp)
+Defined in fragment [xieite:concepts.Constant](../../../src/concepts/constant.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Constant = std::is_const_v<std::remove_reference_t<Type>>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/constant.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::Constant<const int>);

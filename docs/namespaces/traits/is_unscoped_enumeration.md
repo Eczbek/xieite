@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsUnscopedEnumeration\<\> \{\}
-Defined in header [<xieite/traits/is_unscoped_enumeration.hpp>](../../../include/xieite/traits/is_unscoped_enumeration.hpp)
+Defined in fragment [xieite:traits.IsUnscopedEnumeration](../../../src/traits/is_unscoped_enumeration.cpp)
 
 &nbsp;
 

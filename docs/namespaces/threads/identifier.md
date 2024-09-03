@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[threads](../../threads.md)\:\:identifier
-Defined in header [<xieite/threads/identifier.hpp>](../../../include/xieite/threads/identifier.hpp)
+Defined in fragment [xieite:threads.identifier](../../../src/threads/identifier.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ inline thread_local const std::size_t identifier = /* ... */;
 
 ## Example
 ```cpp
-#include <print>
-#include <thread>
-#include "xieite/threads/identifier.hpp"
+import std;
+import xieite;
 
 int main() {
     auto x = std::jthread([] {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsConvertibleToAny\<\> \{\}
-Defined in header [<xieite/traits/is_convertible_to_any.hpp>](../../../include/xieite/traits/is_convertible_to_any.hpp)
+Defined in fragment [xieite:traits.IsConvertibleToAny](../../../src/traits/is_convertible_to_any.cpp)
 
 &nbsp;
 

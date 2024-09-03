@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator++\(\)
-Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
+Defined in fragment [xieite:math.Integer](../../../../../../../src/math/integer.cpp)
 
 &nbsp;
 
@@ -22,8 +22,8 @@ constexpr xieite::math::Integer<bits, sign>& operator++(int) noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/integer.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::math::Integer<4, false> integer = 7;

@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SameAsAll\<\>_
-Defined in header [<xieite/concepts/same_as_all.hpp>](../../../include/xieite/concepts/same_as_all.hpp)
+# [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:SameAsAll\<\>
+Defined in fragment [xieite:concepts.SameAsAll](../../../src/concepts/same_as_all.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept SameAsAll = (... || std::same_as<Source, Targets>);
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/same_as_all.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::SameAsAll<int, int, int, int>);

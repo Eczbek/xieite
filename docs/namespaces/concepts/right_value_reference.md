@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:RightValueReference\<\>
-Defined in header [<xieite/concepts/right_value_reference.hpp>](../../../include/xieite/concepts/right_value_reference.hpp)
+Defined in fragment [xieite:concepts.RightValueReference](../../../src/concepts/right_value_reference.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept RightValueReference = std::is_rvalue_reference_v<Type>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/right_value_reference.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::RightValueReference<int>);

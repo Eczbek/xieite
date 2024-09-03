@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:StreamableOut\<\>
-Defined in header [<xieite/concepts/streamable_out.hpp>](../../../include/xieite/concepts/streamable_out.hpp)
+Defined in fragment [xieite:concepts.StreamableOut](../../../src/concepts/streamable_out.cpp)
 
 &nbsp;
 
@@ -13,7 +13,7 @@ Specifies that a type can be streamed out of.
 ```cpp
 template<typename Type>
 concept StreamableOut = requires(Type value, std::ostream outputStream) {
-    { outputStream << value } -> std::same_as<std::ostream&>;
+    { outputStream << value } -> std::convertible_to<std::ostream&>;
 };
 ```
 
@@ -21,8 +21,8 @@ concept StreamableOut = requires(Type value, std::ostream outputStream) {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/streamable_out.hpp"
+import std;
+import xieite;
 
 struct Nope {};
 

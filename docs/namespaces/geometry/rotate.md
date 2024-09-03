@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:rotate\<\>\(\)
-Defined in header [<xieite/geometry/rotate.hpp>](../../../include/xieite/geometry/rotate.hpp)
+Defined in fragment [xieite:geometry.rotate](../../../src/geometry/rotate.cpp)
 
 &nbsp;
 
@@ -29,10 +29,8 @@ template<typename Arithmetic = double>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/line.hpp"
-#include "xieite/geometry/rotate.hpp"
-#include "xieite/literals/units.hpp"
+import std;
+import xieite;
 
 int main() {
     using namespace xieite::literals::units;

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Integer\<\> \{\}
-Defined in header [<xieite/math/integer.hpp>](../../../include/xieite/math/integer.hpp)
+Defined in fragment [xieite:math.Integer](../../../src/math/integer.cpp)
 
 &nbsp;
 
@@ -121,8 +121,8 @@ struct Integer
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/integer.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::math::Integer<3, false> integer = 0;

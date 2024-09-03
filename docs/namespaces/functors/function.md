@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Function\<\> \{\}
-Defined in header [<xieite/functors/function.hpp>](../../../include/xieite/functors/function.hpp)
+Defined in fragment [xieite:functors.Function](../../../src/functors/function.cpp)
 
 &nbsp;
 
@@ -22,7 +22,7 @@ struct Function<Return(Arguments...)> {
 
     explicit(false) constexpr Function(const xieite::functors::Function<Return(Arguments...)>&) noexcept;
 
-    template<xieite::concepts::Functor<Return(Arguments...)> Functor>
+    template<xieite::concepts::Invocable<Return(Arguments...)> Functor>
     requires(!std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Return(Arguments...)>>)
     explicit(false) constexpr Function(Functor&&) noexcept;
 
@@ -41,8 +41,8 @@ struct Function<Return(Arguments...)> {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/function.hpp"
+import std;
+import xieite;
 
 int add(int a, int b) {
     return a + b;

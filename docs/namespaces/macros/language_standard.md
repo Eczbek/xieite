@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_LANGUAGE\_STANDARD\_...
-Defined in header [<xieite/macros/language_standard.hpp>](../../../include/xieite/macros/language_standard.hpp)
+Defined in header ["language_standard.hpp"](../../../src/macros/language_standard.hpp)
 
 &nbsp;
 
@@ -78,7 +78,7 @@ Macros for identifying the current C or C++ language standard.
 
 ## Example
 ```cpp
-#include "xieite/macros/language_standard.hpp"
+#include "language_standard.hpp"
 
 #if XIEITE_LANGUAGE_STANDARD_CPP_2023
 #    include <print>
@@ -91,7 +91,7 @@ int main() {
 #    include <iostream>
 
 int main() {
-    std::println("Hello, world!");
+    std::cout << "Hello, world!\n";
 }
 
 #endif

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_FORWARD\(\)
-Defined in header [<xieite/macros/forward.hpp>](../../../include/xieite/macros/forward.hpp)
+Defined in header ["forward.hpp"](../../../src/macros/forward.hpp)
 
 &nbsp;
 
@@ -18,9 +18,10 @@ A general utility for forwarding values.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/forward.hpp"
-#include "xieite/types/name.hpp"
+#include "forward.hpp"
+
+import std;
+import xieite;
 
 template<typename T>
 void foo(T&&) {

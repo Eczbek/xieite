@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsVolatile\<\> \{\}
-Defined in header [<xieite/traits/is_volatile.hpp>](../../../include/xieite/traits/is_volatile.hpp)
+Defined in fragment [xieite:traits.IsVolatile](../../../src/traits/is_volatile.cpp)
 
 &nbsp;
 

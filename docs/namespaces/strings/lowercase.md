@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:lowercase\(\)
-Defined in header [<xieite/strings/lowercase.hpp>](../../../include/xieite/strings/lowercase.hpp)
+Defined in fragment [xieite:strings.lowercase](../../../src/strings/lowercase.cpp)
 
 &nbsp;
 
@@ -22,8 +22,8 @@ Converts a string or character to lowercase. Only handles characters between `A`
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/lowercase.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::lowercase("HELLO, WORLD!\n");

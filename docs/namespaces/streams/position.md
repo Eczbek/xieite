@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Position \{\}
-Defined in header [<xieite/streams/position.hpp>](../../../include/xieite/streams/position.hpp)
+Defined in fragment [xieite:streams.Position](../../../src/streams/position.cpp)
 
 &nbsp;
 

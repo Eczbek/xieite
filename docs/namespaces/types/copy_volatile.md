@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:CopyVolatile\<\>
-Defined in header [<xieite/types/copy_volatile.hpp>](../../../include/xieite/types/copy_volatile.hpp)
+Defined in fragment [xieite:types.CopyVolatile](../../../src/types/copy_volatile.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ using CopyVolatile = /* ... */;
 
 ## Example
 ```cpp
-#include <concepts>
-#include <print>
-#include "xieite/types/copy_volatile.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", std::same_as<volatile int, xieite::types::CopyVolatile<volatile float, int>>);

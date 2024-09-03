@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Duration\<\>
-Defined in header [<xieite/concepts/duration.hpp>](../../../include/xieite/concepts/duration.hpp)
+Defined in fragment [xieite:concepts.Duration](../../../src/concepts/duration.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Duration = xieite::traits::IsDuration<std::remove_cv_t<Type>>::value;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/duration.hpp"
+import std;
+import xieite;
 
 struct Nope {};
 

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:reverseArguments\<\>\(\)
-Defined in header [<xieite/functors/reverse_arguments.hpp>](../../../include/xieite/functors/reverse_arguments.hpp)
+Defined in fragment [xieite:functors.reverseArguments](../../../src/functors/reverse_arguments.cpp)
 
 &nbsp;
 
@@ -11,25 +11,25 @@ Passes arguments to a functor or a constructor in reversed order.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename... Arguments, typename Functor>
-requires(xieite::types::List<Arguments...>::Reverse::template Prepend<Functor>::template Apply<std::is_invocable>::value)
-constexpr typename xieite::types::List<Arguments...>::Reverse::Prepend<Functor>::Apply<std::invoke_result>::type reverseArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(xieite::types::List<Arguments...>::Reverse::template Prepend<Functor>::template Apply<std::is_nothrow_invocable>::value);
+template<typename Functor, typename... Arguments>
+requires(/* ... */)
+constexpr /* ... */ reverseArguments(Functor&& functor, Arguments&&... arguments)
+noexcept(/* ... */);
 ```
 #### 2)
 ```cpp
 template<typename Structure, typename... Arguments>
-requires(xieite::types::List<Arguments...>::Reverse::template Prepend<Structure>::template Apply<std::is_constructible>::value)
-[[nodiscard]] constexpr Structure reverseArguments(Arguments&&... arguments)
-noexcept(xieite::types::List<Arguments...>::Reverse::template Prepend<Structure>::template Apply<std::is_nothrow_constructible>::value);
+requires(/* ... */)
+constexpr /* ... */ reverseArguments(Arguments&&... arguments)
+noexcept(/* ... */);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/reverse_arguments.hpp"
+import std;
+import xieite;
 
 void foo(int x, char y, double z) {
     std::println("{} {} {}", x, y, z);

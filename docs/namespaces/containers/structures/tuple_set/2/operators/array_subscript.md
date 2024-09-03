@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleSet<Container, std::tuple<FirstKey, RestKeys...>>](../../../../tuple_set.md)\:\:operator\[\]\<\>\(\)
-Defined in header [<xieite/containers/tuple_set.hpp>](../../../../../../../include/xieite/containers/tuple_set.hpp)
+Defined in fragment [xieite:containers.TupleSet](../../../../../../../src/containers/tuple_set.cpp)
 
 &nbsp;
 
@@ -19,10 +19,8 @@ template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 
 ## Example
 ```cpp
-#include <print>
-#include <tuple>
-#include <unordered_set>
-#include "xieite/containers/tuple_set.hpp"
+import std;
+import xieite;
 
 int main() {
     using TupleSet = xieite::containers::TupleSet<std::unordered_set, std::tuple<int, char>>;

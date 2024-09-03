@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:quote\(\)
-Defined in header [<xieite/strings/quote.hpp>](../../../include/xieite/strings/quote.hpp)
+Defined in fragment [xieite:strings.quote](../../../src/strings/quote.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Replicates `std::quoted` but without streams and more `constexpr`.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/quote.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::quote("Something \"quoted\" and \\escaped"));

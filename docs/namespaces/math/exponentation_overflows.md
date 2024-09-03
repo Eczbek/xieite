@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:exponentationOverflows\<\>\(\)
-Defined in header [<xieite/math/exponentation_overflows.hpp>](../../../include/xieite/math/exponentation_overflows.hpp)
+Defined in fragment [xieite:math.exponentationOverflows](../../../src/math/exponentation_overflows.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <print>
-#include "xieite/math/exponentation_overflows.hpp"
+import std;
+import xieite;
 
 int main() {
     std::print("{}", xieite::math::exponentationOverflows<std::uint8_t>(2, 9));

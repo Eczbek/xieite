@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:additionOverflows\<\>\(\)
-Defined in header [<xieite/math/addition_overflows.hpp>](../../../include/xieite/math/addition_overflows.hpp)
+Defined in fragment [xieite:math.additionOverflows](../../../src/math/addition_overflows.cpp)
 
 &nbsp;
 
@@ -19,9 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <cstdint>
-#include <print>
-#include "xieite/math/addition_overflows.hpp"
+import std;
+import xieite;
 
 int main() {
     std::print("{}", xieite::math::additionOverflows<std::int8_t>(127, 1));

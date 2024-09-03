@@ -1,0 +1,11 @@
+#pragma once
+
+#include "../macros/compiler.hpp"
+
+#if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
+#	define XIEITE_FUNCTION_SIGNATURE __PRETTY_FUNCTION__
+#elif XIEITE_COMPILER_TYPE_MSVC
+#	define XIEITE_FUNCTION_SIGNATURE __FUNCSIG__
+#else
+#	define XIEITE_FUNCTION_SIGNATURE __func__
+#endif

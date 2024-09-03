@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsConstant\<\> \{\}
-Defined in header [<xieite/traits/is_constant.hpp>](../../../include/xieite/traits/is_constant.hpp)
+Defined in fragment [xieite:traits.IsConstant](../../../src/traits/is_constant.cpp)
 
 &nbsp;
 

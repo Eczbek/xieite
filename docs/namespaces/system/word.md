@@ -1,10 +1,10 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:Word
-Defined in header [<xieite/system/word.hpp>](../../../include/xieite/system/word.hpp)
+Defined in fragment [xieite:system.Word](../../../src/system/word.cpp)
 
 &nbsp;
 
 ## Description
-An alias to the system's unsigned "word" integer type. See header file for details.
+An alias to the system's unsigned "word" integer type. See definition for specifics.
 
 &nbsp;
 
@@ -18,9 +18,8 @@ using Word = /* ... */;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/system/word.hpp"
-#include "xieite/types/name.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::types::name<xieite::system::Word>);

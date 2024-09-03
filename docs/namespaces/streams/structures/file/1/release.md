@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[File](../../../file.md)\:\:release\(\)
-Defined in header [<xieite/streams/file.hpp>](../../../../../../include/xieite/streams/file.hpp)
+Defined in fragment [xieite:streams.File](../../../../../../src/streams/file.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ Releases the stored `std::FILE*` and returns it.
 
 ## Example
 ```cpp
-#include <cstdio>
-#include <print>
-#include "xieite/streams/file.hpp"
+import std;
+import xieite;
 
 int main() {
     auto file = xieite::streams::File("test.txt");

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:join\<\>\(\)
-Defined in header [<xieite/strings/join.hpp>](../../../include/xieite/strings/join.hpp)
+Defined in fragment [xieite:strings.join](../../../src/strings/join.cpp)
 
 &nbsp;
 
@@ -62,10 +62,8 @@ requires(std::constructible_from<std::string, std::ranges::range_reference_t<Ran
 
 ## Example
 ```cpp
-#include <print>
-#include <string_view>
-#include <vector>
-#include "xieite/strings/join.hpp"
+import std;
+import xieite;
 
 int main() {
     std::vector<std::string_view> strings = {

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:SignedSize
-Defined in header [<xieite/math/signed_size.hpp>](../../../include/xieite/math/signed_size.hpp)
+Defined in fragment [xieite:math.SignedSize](../../../src/math/signed_size.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ using SignedSize = std::make_signed_t<std::size_t>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/signed_size.hpp"
-#include "xieite/types/name.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::types::name<xieite::math::SignedSize>);

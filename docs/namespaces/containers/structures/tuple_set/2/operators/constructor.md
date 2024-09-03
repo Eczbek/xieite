@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[TupleSet<Container, std::tuple<FirstKey, RestKeys...>>](../../../../tuple_set.md)\:\:TupleSet\(\)
-Defined in header [<xieite/containers/tuple_set.hpp>](../../../../../../../include/xieite/containers/tuple_set.hpp)
+Defined in fragment [xieite:containers.TupleSet](../../../../../../../src/containers/tuple_set.cpp)
 
 &nbsp;
 
@@ -18,10 +18,8 @@ constexpr TupleSet(std::initializer_list<std::pair<FirstKey, xieite::containers:
 
 ## Example
 ```cpp
-#include <print>
-#include <tuple>
-#include <unordered_set>
-#include "xieite/containers/tuple_set.hpp"
+import std;
+import xieite;
 
 int main() {
     using TupleSet = xieite::containers::TupleSet<std::unordered_set, std::tuple<int, char>>;

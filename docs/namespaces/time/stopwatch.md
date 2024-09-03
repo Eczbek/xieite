@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[time](../../time.md)\:\:Stopwatch\<\> \{\}
-Defined in header [<xieite/time/stopwatch.hpp>](../../../include/xieite/time/stopwatch.hpp)
+Defined in fragment [xieite:time.Stopwatch](../../../src/time/stopwatch.cpp)
 
 &nbsp;
 
@@ -36,9 +36,8 @@ struct Stopwatch {
 
 ## Example
 ```cpp
-#include <chrono>
-#include <print>
-#include "xieite/time/stopwatch.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::time::Stopwatch<std::high_resolution_clock> stopwatch;

@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[Integer<bits, sign>](../../../../integer.md)\:\:operator typename\(\)
-Defined in header [<xieite/math/integer.hpp>](../../../../../../../include/xieite/math/integer.hpp)
+Defined in fragment [xieite:math.Integer](../../../../../../../src/math/integer.cpp)
 
 &nbsp;
 
@@ -24,8 +24,8 @@ template<std::size_t otherBits, bool otherSign>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/integer.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", static_cast<xieite::math::Integer<3, false>>(xieite::math::Integer<4, false>(9)).data());

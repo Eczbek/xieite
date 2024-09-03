@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:NoThrowDestructible\<\>
-Defined in header [<xieite/concepts/no_throw_destructible.hpp>](../../../include/xieite/concepts/no_throw_destructible.hpp)
+Defined in fragment [xieite:concepts.NoThrowDestructible](../../../src/concepts/no_throw_destructible.cpp)
 
 &nbsp;
 

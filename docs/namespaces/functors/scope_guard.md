@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:ScopeGuard \{\}
-Defined in header [<xieite/functors/scope_guard.hpp>](../../../include/xieite/functors/scope_guard.hpp)
+Defined in fragment [xieite:functors.ScopeGuard](../../../src/functors/scope_guard.cpp)
 
 &nbsp;
 
@@ -25,8 +25,8 @@ struct ScopeGuard {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/scope_guard.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::functors::ScopeGuard _ = [] {

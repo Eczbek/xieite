@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:WideCharacter\<\>
-Defined in header [<xieite/concepts/wide_character.hpp>](../../../include/xieite/concepts/wide_character.hpp)
+Defined in fragment [xieite:concepts.WideCharacter](../../../src/concepts/wide_character.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept WideCharacter = xieite::concepts::SameAsAny<std::remove_cv_t<Type>, wcha
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/wide_character.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::concepts::WideCharacter<char16_t>);

@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Pipe \{\}
-Defined in header [<xieite/streams/pipe.hpp>](../../../include/xieite/streams/pipe.hpp)
+Defined in fragment [xieite:streams.Pipe](../../../src/streams/pipe.cpp)
 
 &nbsp;
 
@@ -43,8 +43,8 @@ struct Pipe {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/streams/pipe.hpp"
+import std;
+import xieite;
 
 int main() {
     auto _ = xieite::streams::Pipe("echo \"Hello, world!\"", "w");

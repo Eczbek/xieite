@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[geometry](../../../../../geometry.md)\:\:[Ray<Arithmetic>](../../../ray.md)\:\:contains\(\)
-Defined in header [<xieite/geometry/ray.hpp>](../../../../../../include/xieite/geometry/ray.hpp)
+Defined in fragment [xieite:geometry.Ray](../../../../../../src/geometry/ray.cpp)
 
 &nbsp;
 
@@ -35,9 +35,8 @@ Always returns `false`.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/point.hpp"
-#include "xieite/geometry/ray.hpp"
+import std;
+import xieite;
 
 int main() {
     auto ray = xieite::geometry::Ray({ 0.0, 0.0 }, { 1.0, 1.0 });

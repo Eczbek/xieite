@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Timeout](../../../../timeout.md)\:\:operator typename\(\)
-Defined in header [<xieite/threads/timeout.hpp>](../../../../../../../include/xieite/threads/timeout.hpp)
+Defined in fragment [xieite:threads.Timeout](../../../../../../../src/threads/timeout.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ The boolean cast eturns `true` if the timeout is still waiting, and `false` if i
 
 ## Example
 ```cpp
-#include <chrono>
-#include <print>
-#include "xieite/threads/timeout.hpp"
+import std;
+import xieite;
 
 int main() {
     auto timeout = xieite::threads::Timeout([] {

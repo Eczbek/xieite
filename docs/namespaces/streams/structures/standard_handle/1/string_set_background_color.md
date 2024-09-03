@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[StandardHandle](../../../standard_handle.md)\:\:stringSetBackgroundColor\<\>\(\)
-Defined in header [<xieite/streams/standard_handle.hpp>](../../../../../../include/xieite/streams/standard_handle.hpp)
+Defined in fragment [xieite:streams.StandardHandle](../../../../../../src/streams/standard_handle.cpp)
 
 &nbsp;
 
@@ -20,10 +20,8 @@ requires(channels >= 3)
 
 ## Example
 ```cpp
-#include <print>
-#include <string>
-#include "xieite/streams/color.hpp"
-#include "xieite/streams/standard_handle.hpp"
+import std;
+import xieite;
 
 int main() {
     std::string color = xieite::streams::StandardHandle::stringSetBackgroundColor(xieite::streams::Color<3>(255, 0, 0));

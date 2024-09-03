@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_PRAGMA\(\)
-Defined in header [<xieite/macros/pragma.hpp>](../../../include/xieite/macros/pragma.hpp)
+Defined in header ["pragma.hpp"](../../../src/macros/pragma.hpp)
 
 &nbsp;
 
@@ -18,13 +18,13 @@ A simple wrapper around `_Pragma()` or MSVC's `__pragma()`.
 
 ## Example
 ```cpp
-#include "xieite/macros/pragma.hpp"
+#include "pragma.hpp"
 
 XIEITE_PRAGMA(message("Hello, world!"))
 
 int main() {}
 ```
-Compilation output:
+Possible compilation output:
 ```
 Hello, world!
 ```

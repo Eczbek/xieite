@@ -1,10 +1,10 @@
 # [XIEITE](../../macros.md)\_ATTRIBUTE\_...
-Defined in header [<xieite/macros/attribute.hpp>](../../../include/xieite/macros/attribute.hpp)
+Defined in header ["attribute.hpp"](../../../src/macros/attribute.hpp)
 
 &nbsp;
 
 ## Description
-Macros for non-standard compiler-specific statement, label, type, variable, and function attributes. `XIEITE_ATTRIBUTE_PACKED()` has special usage.
+Macros for non-standard compiler-specific statement, label, type, variable, and function attributes. `XIEITE_ATTRIBUTE_PACKED()` has special usage. See header file for specifics.
 
 &nbsp;
 
@@ -102,8 +102,9 @@ Macros for non-standard compiler-specific statement, label, type, variable, and 
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/attribute.hpp"
+#include "attribute.hpp"
+
+import std;
 
 struct Foo {
     bool a;

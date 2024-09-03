@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:Version \{\}
-Defined in header [<xieite/math/version.hpp>](../../../include/xieite/math/version.hpp)
+Defined in fragment [xieite:math.Version](../../../src/math/version.cpp)
 
 &nbsp;
 
@@ -39,8 +39,8 @@ struct Version {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/version.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::Version(1, 43, 998, "alpha").string());

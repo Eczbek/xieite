@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_ENDIAN\_...
-Defined in header [<xieite/macros/endian.hpp>](../../../include/xieite/macros/endian.hpp)
+Defined in header ["endian.hpp"](../../../src/macros/endian.hpp)
 
 &nbsp;
 
@@ -30,8 +30,9 @@ Detects the system's endianness.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/endian.hpp"
+#include "endian.hpp"
+
+import std;
 
 int main() {
 #if XIEITE_ENDIAN_BIG

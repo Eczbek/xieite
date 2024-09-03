@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:recursivelyDistributeArguments\<\>\(\)
-Defined in header [<xieite/functors/recursively_distribute_arguments.hpp>](../../../include/xieite/functors/recursively_distribute_arguments.hpp)
+Defined in fragment [xieite:functors.recursivelyDistributeArguments](../../../src/functors/recursively_distribute_arguments.cpp)
 
 &nbsp;
 
@@ -11,18 +11,18 @@ Distributes arguments among several calls to a functor, but recursively such tha
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t arity, std::size_t previousResultIndex = 0, xieite::concepts::InvocableWithArity<arity> Functor, typename... Arguments>
-requires((arity > previousResultIndex) && (arity <= sizeof...(Arguments)) && ((arity == 1) || (arity > 1) && !((sizeof...(Arguments) - 1) % (arity - 1))))
-constexpr decltype(auto) recursivelyDistributeArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(xieite::concepts::NoThrowInvocableWithArity<Functor, arity>);
+template<std::size_t arity, std::size_t previousResultIndex = 0, typename Functor, typename... Arguments>
+requires(/* ... */ && (arity > previousResultIndex) && (arity <= sizeof...(Arguments)) && ((arity == 1) || ((arity > 1) && !((sizeof...(Arguments) - 1) % (arity - 1)))))
+/* discardable */ constexpr decltype(auto) recursivelyDistributeArguments(Functor&& functor, Arguments&&... arguments)
+noexcept(/* ... */);
 ```
 
 &nbsp;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/recursively_distribute_arguments.hpp"
+import std;
+import xieite;
 
 int main() {
     auto lambda = [](int x, int total) -> int {

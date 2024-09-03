@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[threads](../../../../../../threads.md)\:\:[Interval](../../../../interval.md)\:\:operator typename\(\)
-Defined in header [<xieite/threads/interval.hpp>](../../../../../../../include/xieite/threads/interval.hpp)
+Defined in fragment [xieite:threads.Interval](../../../../../../../src/threads/interval.cpp)
 
 &nbsp;
 
@@ -18,9 +18,8 @@ The boolean cast returns `true` if the interval is still running, and `false` if
 
 ## Example
 ```cpp
-#include <chrono>
-#include <print>
-#include "xieite/threads/interval.hpp"
+import std;
+import xieite;
 
 int main() {
     auto interval = xieite::threads::Interval([] {

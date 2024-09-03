@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[algorithms](../../algorithms.md)\:\:rotate\<\>\(\)
-Defined in header [<xieite/algorithms/rotate.hpp>](../../../include/xieite/algorithms/rotate.hpp)
+Defined in fragment [xieite:algorithms.rotate](../../../src/algorithms/rotate.cpp)
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Rotates individual variables.
 #### 1)
 ```cpp
 template<typename Type, typename... Types>
-requires(!std::is_const_v<Type> && (... && !std::is_const_v<Types>))
+requires(!xieite::concepts::Constant<Type> && (... && !xieite::concepts::Constant<Types>))
 constexpr void rotate(std::size_t distance, Type& first, Types&... rest) noexcept;
 ```
 
@@ -20,8 +20,8 @@ constexpr void rotate(std::size_t distance, Type& first, Types&... rest) noexcep
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/algorithms/rotate.hpp"
+import std;
+import xieite;
 
 int main() {
     int a = 1;

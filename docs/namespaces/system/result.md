@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[system](../../system.md)\:\:Result \{\}
-Defined in header [<xieite/system/result.hpp>](../../../include/xieite/system/result.hpp)
+Defined in fragment [xieite:system.Result](../../../src/system/result.cpp)
 
 &nbsp;
 

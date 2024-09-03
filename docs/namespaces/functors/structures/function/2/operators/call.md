@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Function<Return(Arguments...)>](../../../../function.md)\:\:operator\(\)\<\>\(\)
-Defined in header [<xieite/functors/function.hpp>](../../../../../../../include/xieite/functors/function.hpp)
+Defined in fragment [xieite:functors.Function](../../../../../../../src/functors/function.cpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ constexpr Return operator()(ArgumentReferences&&... arguments) const;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/functors/function.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::functors::Function<void()> foo = [] {

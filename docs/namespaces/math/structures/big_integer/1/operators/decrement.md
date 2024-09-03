@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[math](../../../../../math.md)\:\:[BigInteger<Limb>](../../../../big_integer.md)\:\:operator--\(\)
-Defined in header [<xieite/math/big_integer.hpp>](../../../../../../../include/xieite/math/big_integer.hpp)
+Defined in fragment [xieite:math.BigInteger](../../../../../../../src/math/big_integer.cpp)
 
 &nbsp;
 
@@ -22,8 +22,8 @@ constexpr xieite::math::BigInteger<Limb>& operator--(int) noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/big_integer.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::math::BigInteger bigIntegral = 7;

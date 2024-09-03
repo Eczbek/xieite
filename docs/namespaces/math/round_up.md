@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:roundUp\<\>\(\)
-Defined in header [<xieite/math/round_up.hpp>](../../../include/xieite/math/round_up.hpp)
+Defined in fragment [xieite:math.roundUp](../../../src/math/round_up.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/round_up.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::roundUp(-24, 5));

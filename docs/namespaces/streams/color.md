@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[streams](../../streams.md)\:\:Color\<\> \{\}
-Defined in header [<xieite/streams/color_3.hpp>](../../../include/xieite/streams/color_3.hpp)
+Defined in fragment [xieite:streams.Color](../../../src/streams/color.cpp)
 
 &nbsp;
 
@@ -38,8 +38,8 @@ struct Color {
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/streams/color.hpp"
+import std;
+import xieite;
 
 int main() {
     auto color = xieite::streams::Color<3>(255, 127, 0);

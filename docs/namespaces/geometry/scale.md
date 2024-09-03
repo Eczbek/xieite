@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[geometry](../../geometry.md)\:\:scale\<\>\(\)
-Defined in header [<xieite/geometry/scale.hpp>](../../../include/xieite/geometry/scale.hpp)
+Defined in fragment [xieite:geometry.scale](../../../src/geometry/scale.cpp)
 
 &nbsp;
 
@@ -29,9 +29,8 @@ template<typename Arithmetic = double>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/geometry/point.hpp"
-#include "xieite/geometry/scale.hpp"
+import std;
+import xieite;
 
 int main() {
     auto point = xieite::geometry::Point(1.0, 1.0);

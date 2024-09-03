@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[hashes](../../hashes.md)\:\:djb2\(\)
-Defined in header [<xieite/hashes/djb2.hpp>](../../../include/xieite/hashes/djb2.hpp)
+Defined in fragment [xieite:hashes.djb2](../../../src/hashes/djb2.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Hashes a string using the relatively fast djb2 algorithm.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/hashes/djb2.hpp"
+import std;
+import xieite;
 
 int main() {
     switch (xieite::hashes::djb2("apple")) {

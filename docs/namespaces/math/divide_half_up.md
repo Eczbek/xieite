@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:divideHalfUp\<\>\(\)
-Defined in header [<xieite/math/divide_half_up.hpp>](../../../include/xieite/math/divide_half_up.hpp)
+Defined in fragment [xieite:math.divideHalfUp](../../../src/math/divide_half_up.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/divide_half_up.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::divideHalfUp(5, 2));

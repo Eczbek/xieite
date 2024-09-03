@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[FixedMap<Key, Value, size, Hash, KeyComparator, Allocator>](../../../../fixed_map.md)\:\:operator\[\]\<\>\(\)
-Defined in header [<xieite/containers/fixed_map.hpp>](../../../../../../../include/xieite/containers/fixed_map.hpp)
+Defined in fragment [xieite:containers.FixedMap](../../../../../../../src/containers/fixed_map.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<typename Self, std::convertible_to<Key> KeyReference>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/containers/fixed_map.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::containers::FixedMap<int, double, 3> map = {

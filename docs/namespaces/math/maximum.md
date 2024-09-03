@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:maximum\<\>\(\)
-Defined in header [<xieite/math/maximum.hpp>](../../../include/xieite/math/maximum.hpp)
+Defined in fragment [xieite:math.maximum](../../../src/math/maximum.cpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ requires(sizeof...(Arithmetics) > 0)
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/maximum.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::maximum(1, 3, 2, 4, 5));

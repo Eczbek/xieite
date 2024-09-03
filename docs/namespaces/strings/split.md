@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:split\(\)
-Defined in header [<xieite/strings/split.hpp>](../../../include/xieite/strings/split.hpp)
+Defined in fragment [xieite:strings.split](../../../src/strings/split.cpp)
 
 &nbsp;
 
@@ -22,8 +22,8 @@ Splits a string by a delimiter.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/split.hpp"
+import std;
+import xieite;
 
 int main() {
     for (std::string_view slice : xieite::strings::split("Hello, world!", ' ')) {

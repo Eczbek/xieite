@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Value\<\> \{\}
-Defined in header [<xieite/types/value.hpp>](../../../include/xieite/types/value.hpp)
+Defined in fragment [xieite:types.Value](../../../src/types/value.cpp)
 
 &nbsp;
 
@@ -20,8 +20,8 @@ struct Value
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/types/value.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::types::Value<4>::value);

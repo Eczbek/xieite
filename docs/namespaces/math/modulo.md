@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:modulo\<\>\(\)
-Defined in header [<xieite/math/modulo.hpp>](../../../include/xieite/math/modulo.hpp)
+Defined in fragment [xieite:math.modulo](../../../src/math/modulo.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/modulo.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::modulo(-21, 4));

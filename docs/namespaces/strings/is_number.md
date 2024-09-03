@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[strings](../../strings.md)\:\:isNumber\<\>\(\)
-Defined in header [<xieite/strings/is_number.hpp>](../../../include/xieite/strings/is_number.hpp)
+Defined in fragment [xieite:strings.isNumber](../../../src/strings/is_number.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/strings/is_number.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::strings::isNumber<int>("4"));

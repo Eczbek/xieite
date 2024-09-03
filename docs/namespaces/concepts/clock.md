@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[concepts](../../concepts.md)\:\:Clock\<\>
-Defined in header [<xieite/concepts/clock.hpp>](../../../include/xieite/concepts/clock.hpp)
+Defined in fragment [xieite:concepts.Clock](../../../src/concepts/clock.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ concept Clock = std::chrono::is_clock_v<Type>;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/concepts/clock.hpp"
+import std;
+import xieite;
 
 struct Nope {};
 

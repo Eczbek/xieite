@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[math](../../math.md)\:\:roundHalfDown\<\>\(\)
-Defined in header [<xieite/math/round_half_down.hpp>](../../../include/xieite/math/round_half_down.hpp)
+Defined in fragment [xieite:math.roundHalfDown](../../../src/math/round_half_down.cpp)
 
 &nbsp;
 
@@ -19,8 +19,8 @@ template<xieite::concepts::Arithmetic Arithmetic>
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/math/round_half_down.hpp"
+import std;
+import xieite;
 
 int main() {
     std::println("{}", xieite::math::roundHalfDown(-5, 10));

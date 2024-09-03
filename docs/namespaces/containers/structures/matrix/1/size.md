@@ -1,5 +1,5 @@
 # [xieite](../../../../../../xieite.md)\:\:[containers](../../../../../../containers.md)\:\:[Matrix<Value>](../../../../matrix.md)\:\:size\(\)
-Defined in header [<xieite/containers/matrix.hpp>](../../../../../../../include/xieite/containers/matrix.hpp)
+Defined in fragment [xieite:containers.Matrix](../../../../../../../src/containers/matrix.cpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ Returns the matrix dimensions.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/containers/matrix.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::containers::Matrix<int> matrix = { 1, 2, 3, 4, 5, 6 };

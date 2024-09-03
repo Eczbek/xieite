@@ -1,5 +1,5 @@
 # [xieite](../../../../../xieite.md)\:\:[streams](../../../../../streams.md)\:\:[Pipe](../../../pipe.md)\:\:open\(\)
-Defined in header [<xieite/streams/pipe.hpp>](../../../../../../include/xieite/streams/pipe.hpp)
+Defined in fragment [xieite:streams.Pipe](../../../../../../src/streams/pipe.cpp)
 
 &nbsp;
 
@@ -15,7 +15,8 @@ void open(const std::string& command, const std::string& mode) noexcept;
 ```
 #### 2)
 ```cpp
-#if XIEITE_PLATFORM_TYPE_WINDOWS
+import std;
+import xieite;
 void open(const std::wstring& command, const std::wstring& mode) noexcept;
 #endif
 ```
@@ -24,9 +25,8 @@ void open(const std::wstring& command, const std::wstring& mode) noexcept;
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/streams/pipe.hpp"
-#include "xieite/streams/read.hpp"
+import std;
+import xieite;
 
 int main() {
     xieite::streams::Pipe pipe;

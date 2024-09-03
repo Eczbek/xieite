@@ -1,5 +1,5 @@
 # [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:IsStreamableOut\<\> \{\}
-Defined in header [<xieite/traits/is_streamable_out.hpp>](../../../include/xieite/traits/is_streamable_out.hpp)
+Defined in fragment [xieite:traits.IsStreamableOut](../../../src/traits/is_streamable_out.cpp)
 
 &nbsp;
 
