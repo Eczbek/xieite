@@ -43,47 +43,47 @@ A wrapper for the `<windows.h>` header (if it exists), excluding generally unwan
 ```
 #### 9)
 ```cpp
-#undef IN
+#undef far
 ```
 #### 10)
 ```cpp
-#undef NEAR
+#undef IN
 ```
 #### 11)
 ```cpp
-#undef OPTIONAL
+#undef NEAR
 ```
 #### 12)
 ```cpp
-#undef OUT
+#undef near
 ```
 #### 13)
 ```cpp
-#undef PASCAL
+#undef OPTIONAL
 ```
 #### 14)
 ```cpp
-#undef STRICT
+#undef OUT
 ```
 #### 15)
 ```cpp
-#undef TRUE
+#undef PASCAL
 ```
 #### 16)
 ```cpp
-#undef VOID
+#undef pascal
 ```
 #### 17)
 ```cpp
-#undef far
+#undef STRICT
 ```
 #### 18)
 ```cpp
-#undef near
+#undef TRUE
 ```
 #### 19)
 ```cpp
-#undef pascal
+#undef VOID
 ```
 
 &nbsp;

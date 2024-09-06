@@ -90,17 +90,17 @@
 #	undef CONST
 #	undef FALSE
 #	undef FAR
+#	undef far
 #	undef IN
 #	undef NEAR
+#	undef near
 #	undef OPTIONAL
 #	undef OUT
 #	undef PASCAL
+#	undef pascal
 #	undef STRICT
 #	undef TRUE
 #	undef VOID
-#	undef far
-#	undef near
-#	undef pascal
 #endif
 
 // Thanks to Veeloxfire (https://github.com/Veeloxfire) for original code

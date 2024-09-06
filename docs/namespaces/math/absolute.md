@@ -11,13 +11,8 @@ Returns the unsigned absolute of a value.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr xieite::types::TryUnsigned<Integral> absolute(Integral value) noexcept;
-```
-#### 2)
-```cpp
-template<std::floating_point Fractional>
-[[nodiscard]] constexpr Fractional absolute(Fractional value) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr xieite::types::TryUnsigned<Arithmetic> absolute(Arithmetic value) noexcept;
 ```
 
 &nbsp;
