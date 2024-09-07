@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_VERSION\_...
-Defined in header ["version.hpp"](../../../src/macros/version.hpp)
+Defined in header [<xieite/version.hpp>](../../../src/macros/version.hpp)
 
 &nbsp;
 
@@ -40,7 +40,7 @@ Also provides version checking utilities:
 
 ## Example
 ```cpp
-#include "version.hpp"
+#include <xieite/version.hpp>
 
 import std;
 

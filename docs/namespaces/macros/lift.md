@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_LIFT...\(\)
-Defined in header ["lift.hpp"](../../../src/macros/lift.hpp)
+Defined in header [<xieite/lift.hpp>](../../../src/macros/lift.hpp)
 
 &nbsp;
 
@@ -23,7 +23,7 @@ Exists for special cases where the compiler errors if a fold expression is passe
 
 ## Example
 ```cpp
-#include "lift.hpp"
+#include <xieite/lift.hpp>
 
 import std;
 import xieite;

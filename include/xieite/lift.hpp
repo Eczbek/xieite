@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../macros/forward.hpp"
+#include <xieite/forward.hpp>
 
 #define XIEITE_LIFT(...) \
 	([][[nodiscard]](auto&&... arguments) \

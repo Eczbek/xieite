@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../macros/compiler.hpp"
+#include <xieite/compiler.hpp>
 
 #if XIEITE_COMPILER_TYPE_CLANG
 #	ifdef __has_declspec_attribute

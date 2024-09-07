@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_COMPILER\_...
-Defined in header ["compiler.hpp"](../../../src/macros/compiler.hpp)
+Defined in header [<xieite/compiler.hpp>](../../../src/macros/compiler.hpp)
 
 &nbsp;
 
@@ -589,7 +589,7 @@ Requires `XIEITE_COMPILER_TYPE_##architecture` to be `1`.
 
 ## Example
 ```cpp
-#include "compiler.hpp"
+#include <xieite/compiler.hpp>
 
 import std;
 

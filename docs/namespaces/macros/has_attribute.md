@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_HAS\_ATTRIBUTE\(\)
-Defined in header ["has_attribute.hpp"](../../../src/macros/has_attribute.hpp)
+Defined in header [<xieite/has_attribute.hpp>](../../../src/macros/has_attribute.hpp)
 
 &nbsp;
 
@@ -18,7 +18,7 @@ Expands to a language-specific feature or compiler-specific extension to check i
 
 ## Example
 ```cpp
-#include "has_attribute.hpp"
+#include <xieite/has_attribute.hpp>
 
 import std;
 

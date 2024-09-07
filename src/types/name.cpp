@@ -1,7 +1,7 @@
 module;
 
-#include "../macros/compiler.hpp"
-#include "../macros/function_signature.hpp"
+#include <xieite/compiler.hpp>
+#include <xieite/function_signature.hpp>
 
 export module xieite:types.name;
 

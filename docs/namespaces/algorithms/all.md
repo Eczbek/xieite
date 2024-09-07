@@ -21,7 +21,7 @@ noexcept((... && xieite::concepts::NoThrowInvocable<Functor, bool(Values)>));
 
 ## Example
 ```cpp
-#include "lift.hpp"
+#include <xieite/lift.hpp>
 
 import std;
 import xieite;

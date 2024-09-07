@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../macros/compiler.hpp"
+#include <xieite/compiler.hpp>
 
 #if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 #	define XIEITE_FUNCTION_SIGNATURE __PRETTY_FUNCTION__

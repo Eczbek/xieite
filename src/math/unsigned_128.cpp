@@ -1,6 +1,6 @@
 module;
 
-#include "../macros/compiler.hpp"
+#include <xieite/compiler.hpp>
 
 #if XIEITE_COMPILER_TYPE_MSVC
 #	include <__msvc_int128.hpp>

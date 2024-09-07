@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../macros/compiler.hpp"
-#include "../macros/language_standard.hpp"
+#include <xieite/compiler.hpp>
+#include <xieite/language_standard.hpp>
 
 #if XIEITE_LANGUAGE_STANDARD_CPP_2020
 #	define XIEITE_HAS_ATTRIBUTE(...) __has_cpp_attribute(__VA_ARGS__)

@@ -1,6 +1,6 @@
 module;
 
-#include "../macros/lift.hpp"
+#include <xieite/lift.hpp>
 
 export module xieite:geometry.Polygon;
 

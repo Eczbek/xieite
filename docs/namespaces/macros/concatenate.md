@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_CONCATENATE...\(\)
-Defined in header ["concatenate.hpp"](../../../src/macros/concatenate.hpp)
+Defined in header [<xieite/concatenate.hpp>](../../../src/macros/concatenate.hpp)
 
 &nbsp;
 
@@ -34,7 +34,7 @@ A helper macro which concatenates two expressions.
 
 ## Example
 ```cpp
-#include "concatenate.hpp"
+#include <xieite/concatenate.hpp>
 
 import std;
 

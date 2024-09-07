@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_STRINGIFY...\(\)
-Defined in header ["stringify.hpp"](../../../src/macros/stringify.hpp)
+Defined in header [<xieite/stringify.hpp>](../../../src/macros/stringify.hpp)
 
 &nbsp;
 
@@ -22,7 +22,7 @@ Converts expressions to a string literally.
 
 ## Example
 ```cpp
-#include "stringify.hpp"
+#include <xieite/stringify.hpp>
 
 import std;
 

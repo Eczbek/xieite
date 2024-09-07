@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../macros/compiler.hpp"
-#include "../macros/language_standard.hpp"
-#include "../macros/stringify.hpp"
+#include <xieite/compiler.hpp>
+#include <xieite/language_standard.hpp>
+#include <xieite/stringify.hpp>
 
 #if XIEITE_LANGUAGE_STANDARD_CPP_2011 || XIEITE_LANGUAGE_STANDARD_C_1999
 #	define XIEITE_PRAGMA(...) _Pragma(XIEITE_STRINGIFY(__VA_ARGS__))

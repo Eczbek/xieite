@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_UNIX\_STANDARD\_...
-Defined in header ["unix_standard.hpp"](../../../src/macros/unix_standard.hpp)
+Defined in header [<xieite/unix_standard.hpp>](../../../src/macros/unix_standard.hpp)
 
 &nbsp;
 
@@ -70,7 +70,7 @@ Macros for identifying the current UNIX standard.
 
 ## Example
 ```cpp
-#include "unix_standard.hpp"
+#include <xieite/unix_standard.hpp>
 
 import std;
 

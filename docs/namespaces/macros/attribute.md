@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_ATTRIBUTE\_...
-Defined in header ["attribute.hpp"](../../../src/macros/attribute.hpp)
+Defined in header [<xieite/attribute.hpp>](../../../src/macros/attribute.hpp)
 
 &nbsp;
 
@@ -102,7 +102,7 @@ Macros for non-standard compiler-specific statement, label, type, variable, and 
 
 ## Example
 ```cpp
-#include "attribute.hpp"
+#include <xieite/attribute.hpp>
 
 import std;
 

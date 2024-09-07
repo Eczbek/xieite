@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../macros/eat.hpp"
-#include "../macros/parenthesis.hpp"
-#include "../macros/scan.hpp"
+#include <xieite/eat.hpp>
+#include <xieite/parenthesis.hpp>
+#include <xieite/scan.hpp>
 
 #define XIEITE_CONTINUATION_MACHINE(...) XIEITE_SCAN(XIEITE_EAT XIEITE_PARENTHESIS_LEFT() XIEITE_DETAIL_CONTINUATION_MACHINE_NEXT_0(__VA_ARGS__))
 

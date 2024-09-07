@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../macros/platform.hpp"
+#include <xieite/platform.hpp>
 
 #if XIEITE_PLATFORM_TYPE_UNIX
 #	include <unistd.h>

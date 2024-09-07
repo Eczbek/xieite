@@ -1,6 +1,6 @@
 module;
 
-#include "../macros/architecture.hpp"
+#include <xieite/architecture.hpp>
 
 export module xieite:system.Word;
 

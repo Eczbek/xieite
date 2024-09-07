@@ -1,7 +1,7 @@
 module;
 
-#include "../macros/compiler.hpp"
-#include "../macros/platform.hpp"
+#include <xieite/compiler.hpp>
+#include <xieite/platform.hpp>
 
 #if XIEITE_PLATFORM_TYPE_UNIX
 #	include <fcntl.h>

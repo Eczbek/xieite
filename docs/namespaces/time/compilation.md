@@ -11,27 +11,27 @@ A namespace containing the date and time of the compilation of this translation 
 ## Synopsis
 #### 1)
 ```cpp
-static constexpr int years = /* ... */;
+static constexpr int year = /* ... */;
 ```
 #### 2)
 ```cpp
-static constexpr int months = /* ... */;
+static constexpr int month = /* ... */;
 ```
 #### 3)
 ```cpp
-static constexpr int days = /* ... */;
+static constexpr int day = /* ... */;
 ```
 #### 4)
 ```cpp
-static constexpr int hours = /* ... */;
+static constexpr int hour = /* ... */;
 ```
 #### 5)
 ```cpp
-static constexpr int minutes = /* ... */;
+static constexpr int minute = /* ... */;
 ```
 #### 6)
 ```cpp
-static constexpr int seconds = /* ... */;
+static constexpr int second = /* ... */;
 ```
 
 &nbsp;

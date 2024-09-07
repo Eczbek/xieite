@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_CONTINUATION\_MACHINE\(\)
-Defined in header ["continuation_machine.hpp"](../../../src/macros/continuation_machine.hpp)
+Defined in header [<xieite/continuation_machine.hpp>](../../../src/macros/continuation_machine.hpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ A continuation machine.
 
 ## Example
 ```cpp
-#include "concatenate.hpp"
-#include "continuation_machine.hpp"
+#include <xieite/concatenate.hpp>
+#include <xieite/continuation_machine.hpp>
 
 import std;
 

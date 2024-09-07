@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_FEATURE\_...
-Defined in header ["feature.hpp"](../../../src/macros/feature.hpp)
+Defined in header [<xieite/feature.hpp>](../../../src/macros/feature.hpp)
 
 &nbsp;
 
@@ -82,7 +82,7 @@ Detects whether some features of the language exist.
 
 ## Example
 ```cpp
-#include "feature.hpp"
+#include <xieite/feature.hpp>
 
 import std;
 

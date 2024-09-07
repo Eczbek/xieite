@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_UNREACHABLE\(\)
-Defined in header ["unreachable.hpp"](../../../src/macros/unreachable.hpp)
+Defined in header [<xieite/unreachable.hpp>](../../../src/macros/unreachable.hpp)
 
 &nbsp;
 
@@ -18,7 +18,7 @@ Expands to `std::unreachable()` or a compiler-specific extension to emulate it.
 
 ## Example
 ```cpp
-#include "unreachable.hpp"
+#include <xieite/unreachable.hpp>
 
 import std;
 

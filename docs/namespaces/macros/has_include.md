@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_HAS\_INCLUDE\(\)
-Defined in header ["has_include.hpp"](../../../src/macros/has_include.hpp)
+Defined in header [<xieite/has_include.hpp>](../../../src/macros/has_include.hpp)
 
 &nbsp;
 
@@ -18,7 +18,7 @@ Expands to a language-specific feature or compiler-specific extension to check i
 
 ## Example
 ```cpp
-#include "has_include.hpp"
+#include <xieite/has_include.hpp>
 
 import std;
 

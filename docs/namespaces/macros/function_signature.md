@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_FUNCTION\_SIGNATURE
-Defined in header ["function_signature.hpp"](../../../src/macros/function_signature.hpp)
+Defined in header [<xieite/function_signature.hpp>](../../../src/macros/function_signature.hpp)
 
 &nbsp;
 
@@ -18,8 +18,9 @@ Expands to a function's compiler-specific signature in string form.
 
 ## Example
 ```cpp
-#include <print>
-#include "xieite/macros/function_signature.hpp"
+#include <xieite/function_signature.hpp>
+
+import std;
 
 int main() {
     std::println("{}", XIEITE_FUNCTION_SIGNATURE);

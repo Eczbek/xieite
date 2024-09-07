@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_SCAN\(\)
-Defined in header ["scan.hpp"](../../../src/macros/scan.hpp)
+Defined in header [<xieite/scan.hpp>](../../../src/macros/scan.hpp)
 
 &nbsp;
 
@@ -18,8 +18,8 @@ A helper macro which expands passed expressions.
 
 ## Example
 ```cpp
-#include "scan.md"
-#include "stringify.md"
+#include <xieite/scan.md"
+#include <xieite/stringify.md"
 
 import std;
 

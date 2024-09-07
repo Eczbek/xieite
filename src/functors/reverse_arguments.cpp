@@ -1,6 +1,6 @@
 module;
 
-#include "../macros/forward.hpp"
+#include <xieite/forward.hpp>
 
 export module xieite:functors.reverseArguments;
 

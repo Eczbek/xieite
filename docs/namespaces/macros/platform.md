@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_PLATFORM\_...
-Defined in header ["platform.hpp"](../../../src/macros/platform.hpp)
+Defined in header [<xieite/platform.hpp>](../../../src/macros/platform.hpp)
 
 &nbsp;
 
@@ -470,7 +470,7 @@ Requires `XIEITE_PLATFORM_TYPE_##platform` to be `1`.
 
 ## Example
 ```cpp
-#include "platform.hpp"
+#include <xieite/platform.hpp>
 
 import std;
 

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md) \(No unix\)
-Defined in header ["no_unix.hpp"](../../../src/macros/no_unix.hpp)
+Defined in header [<xieite/no_unix.hpp>](../../../src/macros/no_unix.hpp)
 
 &nbsp;
 
@@ -26,7 +26,7 @@ A header for removing the `unix` macro (if it exists), replacing it with `__unix
 
 ## Example
 ```cpp
-#include "no_unix.hpp"
+#include <xieite/no_unix.hpp>
 
 import std;
 
