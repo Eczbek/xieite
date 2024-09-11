@@ -12,7 +12,7 @@ export namespace xieite::math {
 			if (!(value % 2) || !(value % 3)) {
 				return false;
 			}
-			const Integral limit = std::sqrt(value);
+			const Integral limit = static_cast<Integral>(std::sqrt(value));
 			for (Integral i = 5; i <= limit; i += 6) {
 				if (!(value % i) || !(value % (i + 2))) {
 					return false;
