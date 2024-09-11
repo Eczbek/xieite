@@ -13,7 +13,6 @@ Static containers and other utilities
 - [FixedString\<\> \{\}](./namespaces/containers/fixed_string.md)
 - [forwardTuple\<\>\(\)](./namespaces/containers/forward_tuple.md)
 - [makeArray\<\>\(\)](./namespaces/containers/make_array.md)
-- [Matrix\<\> \{\}](./namespaces/containers/matrix.md)
 - [reverseTuple\<\>\(\)](./namespaces/containers/reverse_tuple.md)
 - [spliceTuple\<\>\(\)](./namespaces/containers/splice_tuple.md)
 - [TupleMap\<\> \{\}](./namespaces/containers/tuple_map.md)
