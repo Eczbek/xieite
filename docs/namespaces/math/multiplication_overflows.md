@@ -4,15 +4,15 @@ Defined in fragment [xieite:math.multiplicationOverflows](../../../src/math/mult
 &nbsp;
 
 ## Description
-Checks if the multiplication of two values will overflow or underflow their type, or is not representable.
+Checks if the multiplication of multiple values will overflow or underflow their type, or is not representable.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr bool multiplicationOverflows(Arithmetic multiplier, Arithmetic multiplicand) noexcept;
+template<xieite::concepts::Arithmetic First, std::convertible_to<First>... Rest>
+[[nodiscard]] constexpr bool multiplicationOverflows(First first, const Rest... rest) noexcept;
 ```
 
 &nbsp;

@@ -5,8 +5,14 @@ import :concepts.Arithmetic;
 import :math.isNegative;
 
 export namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr bool additionOverflows(const Arithmetic augend, const Arithmetic addend) noexcept {
-		return augend && addend && (xieite::math::isNegative(augend) ? ((std::numeric_limits<Arithmetic>::min() - augend) > addend) : ((std::numeric_limits<Arithmetic>::max() - augend) < addend));
+	template<xieite::concepts::Arithmetic First, std::convertible_to<First>... Rest>
+	[[nodiscard]] constexpr bool additionOverflows(First first, const Rest... rest) noexcept {
+		return first && (... || ([&first, rest] {
+			if (rest && (xieite::math::isNegative(first) ? ((std::numeric_limits<First>::min() - first) > rest) : ((std::numeric_limits<First>::max() - first) < rest))) {
+				return true;
+			}
+			first += static_cast<First>(rest);
+			return false;
+		})());
 	}
 }

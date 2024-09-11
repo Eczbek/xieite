@@ -4,15 +4,15 @@ Defined in fragment [xieite:math.additionOverflows](../../../src/math/addition_o
 &nbsp;
 
 ## Description
-Checks if the addition of two values will overflow or underflow their type (therefore causing undefined behavior with signed integers), or is not representable.
+Checks if the addition of multiple values will overflow or underflow their type (therefore causing undefined behavior with signed integers), or is not representable.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr bool additionOverflows(Arithmetic augend, Arithmetic addend) noexcept;
+template<xieite::concepts::Arithmetic First, std::convertible_to<First>... Rest>
+[[nodiscard]] constexpr bool additionOverflows(First first, const Rest... rest) noexcept;
 ```
 
 &nbsp;

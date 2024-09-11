@@ -4,15 +4,15 @@ Defined in fragment [xieite:math.exponentationOverflows](../../../src/math/expon
 &nbsp;
 
 ## Description
-Checks if the power of a base to an exponent will overflow its type.
+Checks if the power of a base to any number of exponents will overflow its type.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr bool exponentationOverflows(Arithmetic base, Arithmetic exponent) noexcept;
+template<xieite::concepts::Arithmetic First, std::convertible_to<First>... Rest>
+[[nodiscard]] constexpr bool exponentiationOverflows(First first, const Rest... rest) noexcept;
 ```
 
 &nbsp;

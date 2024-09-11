@@ -3,10 +3,17 @@ export module xieite:math.multiplicationOverflows;
 import std;
 import :concepts.Arithmetic;
 import :math.absolute;
+import :math.isNegative;
 
 export namespace xieite::math {
-	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr bool multiplicationOverflows(const Arithmetic multiplier, const Arithmetic multiplicand) noexcept {
-		return multiplier && multiplicand && ((xieite::math::absolute(((multiplier < 0) != (multiplicand < 0)) ? std::numeric_limits<Arithmetic>::min() : std::numeric_limits<Arithmetic>::max()) / xieite::math::absolute(multiplier)) < xieite::math::absolute(multiplicand));
+	template<xieite::concepts::Arithmetic First, std::convertible_to<First>... Rest>
+	[[nodiscard]] constexpr bool multiplicationOverflows(First first, const Rest... rest) noexcept {
+		return first && (... || ([&first, rest] {
+			if (rest && ((xieite::math::absolute((xieite::math::isNegative(first) != xieite::math::isNegative(rest)) ? std::numeric_limits<First>::min() : std::numeric_limits<First>::max()) / xieite::math::absolute(first)) < xieite::math::absolute(rest))) {
+				return true;
+			}
+			first *= static_cast<First>(rest);
+			return false;
+		})());
 	}
 }

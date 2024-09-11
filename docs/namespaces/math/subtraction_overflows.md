@@ -4,15 +4,15 @@ Defined in fragment [xieite:math.subtractionOverflows](../../../src/math/subtrac
 &nbsp;
 
 ## Description
-Checks if the subtraction of two values will overflow or underflow their type, or is not representable.
+Checks if the subtraction of multiple values will overflow or underflow their type, or is not representable.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr bool subtractionOverflows(Arithmetic minuend, Arithmetic subtrahend) noexcept;
+template<xieite::concepts::Arithmetic First, std::convertible_to<First>... Rest>
+[[nodiscard]] constexpr bool subtractionOverflows(First first, const Rest... rest) noexcept;
 ```
 
 &nbsp;
