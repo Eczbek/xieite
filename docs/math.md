@@ -67,7 +67,7 @@ Mathematical types and functions
 - [sine\<\>\(\)](./namespaces/math/sine.md)
 - [splitBoolean\(\)](./namespaces/math/split_boolean.md)
 - [stringify\<\>\(\)](./namespaces/math/stringify.md)
-- [subtractionOverflows\<\>\(\)](./namespaces/math/subtraction_overflows.md)
+- [subtractionOverflows\<\>\(\)](./namespaces/math/subtraction_Underflows.md)
 - [tangent\<\>\(\)](./namespaces/math/tangent.md)
 - [tau\<\>](./namespaces/math/tau.md)
 - [Unsigned128](./namespaces/math/unsigned_128.md)

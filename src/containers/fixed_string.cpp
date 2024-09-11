@@ -5,25 +5,18 @@ import std;
 export namespace xieite::containers {
 	template<std::size_t characters, typename Character = char>
 	struct FixedString {
-		std::array<Character, characters + 1> data;
+		static constexpr std::size_t size = characters;
+		std::array<Character, characters> data;
 
-		template<std::size_t otherCharacters>
-		constexpr FixedString(const Character(&data)[otherCharacters]) noexcept {
-			for (std::size_t i = 0; i < otherCharacters; ++i) {
-				this->data[i] = data[i];
-			}
-		}
-
-		[[nodiscard]] static constexpr std::size_t size() noexcept {
-			return characters;
+		constexpr FixedString(const Character(&data)[characters]) noexcept {
+			std::ranges::copy(data, this->data.begin());
 		}
 
 		[[nodiscard]] constexpr std::string_view view() const noexcept {
-			const std::string_view view = std::string_view(this->data, this->data + characters);
-			return view.substr(0, view.find('\0'));
+			return std::string_view(this->data.begin(), this->data.end());
 		}
 	};
 
 	template<std::size_t characters, typename Character>
-	FixedString(const Character(&)[characters]) -> xieite::containers::FixedString<characters - 1, Character>;
+	FixedString(const Character(&)[characters]) -> xieite::containers::FixedString<characters, Character>;
 }

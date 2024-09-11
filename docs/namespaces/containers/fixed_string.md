@@ -13,27 +13,25 @@ Stores a fixed-size string.
 ```cpp
 template<std::size_t characters, typename Character = char>
 struct FixedString {
-    std::array<Character, characters + 1> data;
+    static constexpr std::size_t size = characters;
+    std::array<Character, characters> data;
 
-    template<std::size_t otherCharacters>
-    constexpr FixedString(const Character(&)[otherCharacters]) noexcept;
-
-    static constexpr std::size_t size() noexcept;
+    constexpr FixedString(const Character(&)[characters]) noexcept;
 
     constexpr std::string_view view() const noexcept;
 };
 ```
-- data
 - [FixedString\(\)](./structures/fixed_string/1/operators/constructor.md)
-- [size\(\)](./structures/fixed_string/1/size.md)
 - [view\(\)](./structures/fixed_string/1/view.md)
+- data
+- size
 
 &nbsp;
 
 ### Deduction guides
 ```cpp
 template<std::size_t characters, typename Character>
-FixedString(char Character(&)[characters]) -> xieite::containers::FixedString<characters - 1, Character>;
+FixedString(char Character(&)[characters]) -> xieite::containers::FixedString<characters, Character>;
 ```
 
 &nbsp;
@@ -43,23 +41,18 @@ FixedString(char Character(&)[characters]) -> xieite::containers::FixedString<ch
 import std;
 import xieite;
 
-int main() {
-    constexpr xieite::containers::FixedString<std::string_view, int, 4> map {
-        { "foo", 1 },
-        { "bar", 2 },
-        { "baz", 3 },
-        { "qux", 4 }
-    };
+template<xieite::containers::FixedString string>
+void foo() {
+    std::println("{}", string.view());
+}
 
-    for (auto [key, value] : map) {
-        std::println("{}: {}", key, value);
-    }
+int main() {
+    foo<"abc">();
+    foo<"xyz">();
 }
 ```
 Output:
 ```
-foo: 1
-bar: 2
-baz: 5
-qux: 4
+abc
+xyz
 ```
