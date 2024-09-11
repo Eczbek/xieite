@@ -17,7 +17,7 @@ export namespace xieite::random {
 	public:
 		template<std::ranges::input_range IntervalRange>
 		requires(std::convertible_to<std::ranges::range_value_t<IntervalRange>, xieite::math::Interval<Arithmetic>>)
-		UniformInterruptableDistribution(const xieite::math::Interval<Arithmetic> interval, IntervalRange&& interruptions) noexcept {
+		UniformInterruptableDistribution(const xieite::math::Interval<Arithmetic> interval, IntervalRange&& interruptions) {
 			const Arithmetic minimum = std::min(interval.start, interval.end);
 			const Arithmetic maximum = std::max(interval.start, interval.end);
 			Arithmetic upper = maximum;
@@ -27,7 +27,7 @@ export namespace xieite::random {
 					const Arithmetic end = std::clamp(interruption.end, minimum, maximum);
 					const Arithmetic difference = xieite::math::difference(start, end);
 					if (upper <= (minimum + difference)) {
-						std::unreachable();
+						throw std::out_of_range("must not exclude entire interval");
 					}
 					upper -= difference + std::integral<Arithmetic>;
 					this->interruptions.push_back(xieite::math::Interval<Arithmetic>(std::min(start, end), difference));

@@ -4,19 +4,19 @@ Defined in fragment [xieite:math.BigInteger](../../../../../../src/math/big_inte
 &nbsp;
 
 ## Description
-Raises a `xieite::math::BigInteger<Limb>` to an exponent. Raising zero to a negative exponent invokes undefined behavior.
+Raises a `xieite::math::BigInteger<Limb>` to an exponent. Raising zero to a negative exponent throws `std::out_of_range`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Limb> power(const xieite::math::BigInteger<Limb>& exponent) const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb> power(const xieite::math::BigInteger<Limb>& exponent) const;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr xieite::math::BigInteger<Limb> power(Integral exponent) const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb> power(Integral exponent) const;
 ```
 
 &nbsp;

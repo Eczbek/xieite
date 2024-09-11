@@ -4,7 +4,7 @@ Defined in fragment [xieite:math.BigInteger](../../../../../../../src/math/big_i
 &nbsp;
 
 ## Description
-Assigns the quotient of this big-integer with another. Dividing by zero invokes undefined behavior.
+Assigns the quotient of this big-integer with another. Dividing by zero throws `std::out_of_range`.
 
 &nbsp;
 

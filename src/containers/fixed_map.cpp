@@ -22,7 +22,7 @@ export namespace xieite::containers {
 		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeyReference&& key) noexcept {
+		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeyReference&& key) {
 			if consteval {
 				KeyComparator keyComparator;
 				for (auto&& entry : self.array) {
@@ -30,14 +30,14 @@ export namespace xieite::containers {
 						return std::forward_like<Self>(entry.second);
 					}
 				}
-				std::unreachable();
+				throw std::out_of_range("must not access nonexistent key");
 			} else {
 				return std::forward_like<Self>(*self.getMap().at(XIEITE_FORWARD(key)));
 			}
 		}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr auto&& at(this Self&& self, KeyReference&& key) noexcept {
+		[[nodiscard]] constexpr auto&& at(this Self&& self, KeyReference&& key) {
 			return std::forward_like<Self>(self[XIEITE_FORWARD(key)]);
 		}
 

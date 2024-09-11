@@ -4,7 +4,7 @@ Defined in fragment [xieite:math.BigInteger](../../../../../../../src/math/big_i
 &nbsp;
 
 ## Description
-Assigns the remainder after division of this big-integer with another. Taking the remainder after division by zero invokes undefined behavior.
+Assigns the remainder of division of this big-integer with another. Taking the remainder of division by zero throws `std::out_of_range`.
 
 &nbsp;
 

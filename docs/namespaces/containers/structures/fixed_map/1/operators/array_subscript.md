@@ -4,7 +4,7 @@ Defined in fragment [xieite:containers.FixedMap](../../../../../../../src/contai
 &nbsp;
 
 ## Description
-Accesses a value by its key. Accessing a nonexistent key invokes undefined behavior.
+Accesses a value by its key. Accessing a nonexistent key throws `std::out_of_range`.
 
 &nbsp;
 

@@ -4,19 +4,19 @@ Defined in fragment [xieite:math.BigInteger](../../../../../../src/math/big_inte
 &nbsp;
 
 ## Description
-Computes the logarithm of a `xieite::math::BigInteger<Limb>` to a base. Taking the logarithm of a negative value invokes undefined behavior, as does using a unary or negative base.
+Computes the logarithm of a `xieite::math::BigInteger<Limb>` to a base. Taking the logarithm of a negative value, to a unary base, or to a negative base throws `std::out_of_range`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm(const xieite::math::BigInteger<Limb>& base) const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm(const xieite::math::BigInteger<Limb>& base) const;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm(Integral base) const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm(Integral base) const;
 ```
 
 &nbsp;

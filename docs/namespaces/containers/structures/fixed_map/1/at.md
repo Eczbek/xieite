@@ -4,7 +4,7 @@ Defined in fragment [xieite:containers.FixedMap](../../../../../../src/container
 &nbsp;
 
 ## Description
-Accesses a value by its key. Accessing an invalid key invokes undefined behavior.
+Accesses a value by its key. Accessing an invalid key throws `std::out_of_range`.
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Accesses a value by its key. Accessing an invalid key invokes undefined behavior
 #### 1)
 ```cpp
 template<typename Self, std::convertible_to<Key> KeyReference>
-[[nodiscard]] constexpr auto&& at(this Self&&, KeyReference&& key) noexcept;
+[[nodiscard]] constexpr auto&& at(this Self&&, KeyReference&& key);
 ```
 
 &nbsp;

@@ -9,11 +9,13 @@ import :bits.size;
 import :concepts.Arithmetic;
 import :concepts.Invocable;
 import :math.absolute;
+import :math.additionOverflows;
 import :math.isNegative;
 import :math.multiply;
 import :math.Product;
 import :math.SignedSize;
 import :math.splitBoolean;
+import :math.subtractionOverflows;
 import :strings.NumberComponents;
 import :types.TryUnsigned;
 
@@ -161,7 +163,7 @@ export namespace xieite::math {
 				const Limb augendLimb = (i < augendDataSize) ? augend.data[i] : 0;
 				const Limb addendLimb = (i < addendDataSize) ? addend.data[i] : 0;
 				resultData.push_back(augendLimb + addendLimb + carry);
-				carry = ((std::numeric_limits<Limb>::max() - augendLimb) < carry) || ((std::numeric_limits<Limb>::max() - augendLimb) < addendLimb) || ((std::numeric_limits<Limb>::max() - augendLimb - carry) < addendLimb);
+				carry = xieite::math::additionOverflows(augendLimb, addendLimb, carry);
 			}
 			return xieite::math::BigInteger<Limb>(resultData, augend.negative);
 		}
@@ -221,7 +223,7 @@ export namespace xieite::math {
 			for (std::size_t i = 0; (i < subtrahendDataSize) || borrow; ++i) {
 				const Limb subtrahendLimb = (i < subtrahendDataSize) ? subtrahend.data[i] : 0;
 				resultData.push_back(minuend.data[i] - subtrahendLimb - borrow);
-				borrow = (i < (minuendDataSize - 1)) && ((minuend.data[i] < borrow) || (minuend.data[i] < subtrahendLimb) || ((minuend.data[i] - borrow) < subtrahendLimb));
+				borrow = (i < (minuendDataSize - 1)) && xieite::math::subtractionOverflows(minuend.data[i], subtrahendLimb, borrow);
 			}
 			return xieite::math::BigInteger<Limb>(resultData, minuend.negative);
 		}
@@ -304,9 +306,9 @@ export namespace xieite::math {
 			return *this *= xieite::math::BigInteger<Limb>(multiplicand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator/(const xieite::math::BigInteger<Limb>& dividend, const xieite::math::BigInteger<Limb>& divisor) noexcept {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator/(const xieite::math::BigInteger<Limb>& dividend, const xieite::math::BigInteger<Limb>& divisor) {
 			if (!divisor) {
-				std::unreachable();
+				throw std::out_of_range("must not divide by zero");
 			}
 			if ((dividend.data.size() < 2) && (divisor.data.size() < 2)) {
 				return dividend.data[0] / divisor.data[0];
@@ -334,13 +336,19 @@ export namespace xieite::math {
 			remainder.data.resize(dividend.data.size(), 0);
 			result.data.resize(dividend.data.size(), 0);
 			for (std::size_t i = dividend.data.size(); i--;) {
-				for (std::size_t j = xieite::bits::size<Limb>; j--;) {
-					remainder <<= 1;
-					remainder.data[0] |= (dividend.data[i] >> j) & 1;
-					const bool quotient = remainder >= absoluteDivisor;
-					remainder -= absoluteDivisor * quotient;
-					result.data[i] |= static_cast<Limb>(quotient) << j;
+				remainder.data.insert(remainder.data.begin(), dividend.data[i]);
+				while (remainder >= absoluteDivisor) {
+					remainder -= absoluteDivisor;
+					++result.data[i];
 				}
+
+				// for (std::size_t j = xieite::bits::size<Limb>; j--;) {
+				// 	remainder <<= 1;
+				// 	remainder.data[0] |= (dividend.data[i] >> j) & 1;
+				// 	const bool quotient = remainder >= absoluteDivisor;
+				// 	remainder -= absoluteDivisor * quotient;
+				// 	result.data[i] |= static_cast<Limb>(quotient) << j;
+				// }
 			}
 			result.negative = !sameSign;
 			result.trim();
@@ -348,22 +356,22 @@ export namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator/(const xieite::math::BigInteger<Limb>& dividend, const Integral divisor) noexcept {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator/(const xieite::math::BigInteger<Limb>& dividend, const Integral divisor) {
 			return dividend / xieite::math::BigInteger<Limb>(divisor);
 		}
 
-		constexpr xieite::math::BigInteger<Limb> operator/=(const xieite::math::BigInteger<Limb>& divisor) noexcept {
+		constexpr xieite::math::BigInteger<Limb> operator/=(const xieite::math::BigInteger<Limb>& divisor) {
 			return *this = *this / divisor;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb> operator/=(const Integral divisor) noexcept {
+		constexpr xieite::math::BigInteger<Limb> operator/=(const Integral divisor) {
 			return *this /= xieite::math::BigInteger<Limb>(divisor);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator%(const xieite::math::BigInteger<Limb>& dividend, const xieite::math::BigInteger<Limb>& divisor) noexcept {
+		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator%(const xieite::math::BigInteger<Limb>& dividend, const xieite::math::BigInteger<Limb>& divisor) {
 			if (!divisor) {
-				std::unreachable();
+				throw std::out_of_range("must not take remainder by zero");
 			}
 			const xieite::math::BigInteger<Limb> absoluteDividend = dividend.absolute();
 			const xieite::math::BigInteger<Limb> absoluteDivisor = divisor.absolute();
@@ -550,7 +558,7 @@ export namespace xieite::math {
 			return copy;
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> power(const xieite::math::BigInteger<Limb>& exponent) const noexcept {
+		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> power(xieite::math::BigInteger<Limb> exponent) const {
 			if ((*this == 1) || (exponent == 1)) {
 				return *this;
 			}
@@ -562,23 +570,22 @@ export namespace xieite::math {
 			}
 			if (!*this) {
 				if (exponent.negative) {
-					std::unreachable();
+					throw std::out_of_range("must not take power of zero to negative exponent");
 				}
 				return !exponent;
 			}
-			xieite::math::BigInteger<Limb> foo = *this;
-			xieite::math::BigInteger<Limb> bar = 1;
-			xieite::math::BigInteger<Limb> baz = exponent;
-			while (baz > 1) {
-				if (baz & 1) {
-					bar *= foo;
-					baz = (baz - 1) >> 1;
+			xieite::math::BigInteger<Limb> base = *this;
+			xieite::math::BigInteger<Limb> result = 1;
+			while (exponent > 1) {
+				if (exponent & 1) {
+					result *= base;
+					exponent = (exponent - 1) >> 1;
 				} else {
-					baz >>= 1;
+					exponent >>= 1;
 				}
-				foo *= foo;
+				base *= base;
 			}
-			return foo * bar;
+			return result * base;
 		}
 
 		template<std::integral Integral>
@@ -586,9 +593,12 @@ export namespace xieite::math {
 			return this->power(xieite::math::BigInteger<Limb>(exponent));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(const xieite::math::BigInteger<Limb>& degree) const noexcept {
+		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(const xieite::math::BigInteger<Limb>& degree) const {
 			if (this->negative) {
-				std::unreachable();
+				throw std::out_of_range("must not take root of negative radicand");
+			}
+			if (!degree) {
+				throw std::out_of_range("must not take root to zeroth degree");
 			}
 			if (*this == 1) {
 				return *this;
@@ -611,12 +621,18 @@ export namespace xieite::math {
 			return this->root(xieite::math::BigInteger<Limb>(degree));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm(const xieite::math::BigInteger<Limb>& base) const noexcept {
+		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm(const xieite::math::BigInteger<Limb>& base) const {
 			if (!base) {
 				return 0;
 			}
-			if (this->negative || (base == 1) || base.negative) {
-				std::unreachable();
+			if (this->negative) {
+				throw std::out_of_range("must not take logarithm of negative anti-logarithm");
+			}
+			if (base == 1) {
+				throw std::out_of_range("must not take logarithm to unary base");
+			}
+			if (base.negative) {
+				throw std::out_of_range("must not take logarithm to negative base");
 			}
 			return this->logarithm2() / base.logarithm2();
 		}
@@ -702,7 +718,9 @@ export namespace xieite::math {
 		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm2() const noexcept {
 			return xieite::math::BigInteger<Limb>(xieite::bits::size<Limb>) * (this->data.size() - 1) + std::bit_width(this->data.back()) - 1;
 		}
+
+		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> bitFloor() const noexcept {
+			return xieite::math::BigInteger<Limb>(1) << this->logarithm2();
+		}
 	};
 }
-
-// Thanks to sam_dev (https://github.com/Sam-programs) for fixing the new division algorithm

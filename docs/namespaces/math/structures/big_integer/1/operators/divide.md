@@ -4,7 +4,7 @@ Defined in fragment [xieite:math.BigInteger](../../../../../../../src/math/big_i
 &nbsp;
 
 ## Description
-Returns the quotient of two big-integers. Dividing by zero invokes undefined behavior.
+Returns the quotient of two big-integers. Dividing by zero throws `std::out_of_range`.
 
 &nbsp;
 

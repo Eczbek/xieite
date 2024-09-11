@@ -4,19 +4,19 @@ Defined in fragment [xieite:math.BigInteger](../../../../../../src/math/big_inte
 &nbsp;
 
 ## Description
-Computes any root of a `xieite::math::BigInteger<Limb>`. Taking the root of a negative value invokes undefined behavior.
+Computes any root of a `xieite::math::BigInteger<Limb>`. Taking the root of a negative value throws `std::out_of_range`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(const xieite::math::BigInteger<Limb>& degree) const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(const xieite::math::BigInteger<Limb>& degree) const;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(Integral degree) const noexcept;
+[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(Integral degree) const;
 ```
 
 &nbsp;

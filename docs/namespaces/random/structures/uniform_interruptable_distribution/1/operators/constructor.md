@@ -4,7 +4,7 @@ Defined in fragment [xieite:random.UniformInterruptableDistribution](../../../..
 &nbsp;
 
 ## Description
-Constructs a `xieite::random::UniformInterruptableDistribution<Arithmetic>`. Invokes `std::unreachable()` if all possible values are excluded.
+Constructs a `xieite::random::UniformInterruptableDistribution<Arithmetic>`. Throws `std::out_of_range` if all possible values are excluded.
 
 &nbsp;
 
@@ -13,7 +13,7 @@ Constructs a `xieite::random::UniformInterruptableDistribution<Arithmetic>`. Inv
 ```cpp
 template<std::ranges::input_range IntervalRange>
 requires(std::convertible_to<std::ranges::range_value_t<IntervalRange>, xieite::math::Interval<Arithmetic>>)
-UniformInterruptableDistribution(xieite::math::Interval<Arithmetic> interval, IntervalRange&& interruptions) noexcept;
+UniformInterruptableDistribution(xieite::math::Interval<Arithmetic> interval, IntervalRange&& interruptions);
 ```
 
 &nbsp;
