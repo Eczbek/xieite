@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[traits](../../traits.md)\:\:FunctionPointer\<\> \{\}
-Defined in fragment [xieite:traits.FunctionPointer](../../../src/traits/function_pointer.cpp)
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:FunctionPointerTraits\<\> \{\}
+Defined in fragment [xieite:types.FunctionPointerTraits](../../../src/types/function_pointer_traits.cpp)
 
 &nbsp;
 
@@ -12,12 +12,12 @@ Provides information about function pointers and member function pointers. See d
 #### 1)
 ```cpp
 template<typename>
-struct FunctionPointer;
+struct FunctionPointerTraits;
 ```
 #### 2..5)
 ```cpp
 template<typename Return, typename... Arguments>
-struct FunctionPointer<Return(*)(Arguments... /* , ... */) /* noexcept */> {
+struct FunctionPointerTraits<Return(*)(Arguments... /* , ... */) /* noexcept */> {
     using Function = Return(*)(Arguments... /* , ... */) /* noexcept */;
     using Return = Return;
     using Arguments = std::tuple<Arguments...>;
@@ -29,7 +29,7 @@ struct FunctionPointer<Return(*)(Arguments... /* , ... */) /* noexcept */> {
 #### 6..54)
 ```cpp
 template<typename Return, typename Class, typename... Arguments>
-struct FunctionPointer<Return(Class::*)(Arguments... /* , ... */) /* const */ /* volatile */ /* & */ /* && */ /* noexcept */> {
+struct FunctionPointerTraits<Return(Class::*)(Arguments... /* , ... */) /* const */ /* volatile */ /* & */ /* && */ /* noexcept */> {
     using Class = Class;
     using Reference = /* volatile */ /* const */ Class /* & */ /* && */;
     using Function = Return(Class::*)(Arguments... /* , ... */) /* const */ /* volatile */ /* & */ /* && */ /* noexcept */;
@@ -57,14 +57,14 @@ struct Foo {
 };
 
 int main() {
-    using Info = xieite::traits::FunctionPointer<decltype(&Foo::bar)>;
+    using Traits = xieite::types::FunctionPointerTraits<decltype(&Foo::bar)>;
 
-    std::println("{}", Info::variadic);
-    std::println("{}", Info::constantQualified);
-    std::println("{}", Info::volatileQualified);
-    std::println("{}", Info::leftValueQualified);
-    std::println("{}", Info::rightValueQualified);
-    std::println("{}", Info::NoThrowQualified);
+    std::println("{}", Traits::variadic);
+    std::println("{}", Traits::constantQualified);
+    std::println("{}", Traits::volatileQualified);
+    std::println("{}", Traits::leftValueQualified);
+    std::println("{}", Traits::rightValueQualified);
+    std::println("{}", Traits::NoThrowQualified);
 }
 ```
 Output:

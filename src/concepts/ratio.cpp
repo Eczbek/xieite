@@ -1,9 +1,16 @@
 export module xieite:concepts.Ratio;
 
 import std;
-import :traits.IsRatio;
+
+template<typename>
+struct IsRatio
+: std::false_type {};
+
+template<std::intmax_t numerator, std::intmax_t denominator>
+struct IsRatio<std::ratio<numerator, denominator>>
+: std::true_type {};
 
 export namespace xieite::concepts {
 	template<typename Type>
-	concept Ratio = xieite::traits::IsRatio<std::remove_cv_t<Type>>::value;
+	concept Ratio = IsRatio<std::remove_cv_t<Type>>::value;
 }

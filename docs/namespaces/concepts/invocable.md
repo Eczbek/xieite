@@ -12,7 +12,7 @@ Specifies that a type is invocable with arguments and returns a type; basically 
 #### 1)
 ```cpp
 template<typename Invocable, typename Signature>
-concept Invocable = xieite::traits::IsInvocable<Invocable, Signature>::value;
+concept Invocable = /* ... */;
 ```
 
 &nbsp;

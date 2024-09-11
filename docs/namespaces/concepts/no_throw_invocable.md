@@ -12,7 +12,7 @@ Specifies that a type is invocable with arguments and returns a type without thr
 #### 1)
 ```cpp
 template<typename Functor, typename Signature>
-concept NoThrowInvocable = xieite::traits::IsNoThrowInvocable<Functor, Signature>;
+concept NoThrowInvocable = /* ... */;
 ```
 
 &nbsp;

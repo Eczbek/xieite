@@ -1,9 +1,18 @@
 export module xieite:concepts.Duration;
 
 import std;
-import :traits.IsDuration;
+import :concepts.Arithmetic;
+import :concepts.Ratio;
+
+template<typename>
+struct IsDuration
+: std::false_type {};
+
+template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Ratio Ratio>
+struct IsDuration<std::chrono::duration<Arithmetic, Ratio>>
+: std::true_type {};
 
 export namespace xieite::concepts {
 	template<typename Type>
-	concept Duration = xieite::traits::IsDuration<std::remove_cv_t<Type>>::value;
+	concept Duration = IsDuration<std::remove_cv_t<Type>>::value;
 }

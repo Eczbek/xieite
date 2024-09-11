@@ -9,8 +9,6 @@ A collection of commonly concepts, expanding on the standard library
 
 ## Contents
 - [Aggregate\<\>](./namespaces/concepts/aggregate.md)
-- [All\<\>](./namespaces/concepts/all.md)
-- [Any\<\>](./namespaces/concepts/any.md)
 - [Arithmetic\<\>](./namespaces/concepts/arithmetic.md)
 - [BaseOf\<\>](./namespaces/concepts/base_of.md)
 - [BaseOfAll\<\>](./namespaces/concepts/base_of_all.md)
@@ -52,8 +50,6 @@ A collection of commonly concepts, expanding on the standard library
 - [NoThrowInvocable\<\>](./namespaces/concepts/no_throw_invocable.md)
 - [NoThrowOperableIterator\<\>](./namespaces/concepts/no_throw_operable_iterator.md)
 - [NoThrowOperableRange\<\>](./namespaces/concepts/no_throw_operable_range.md)
-- [None\<\>](./namespaces/concepts/none.md)
-- [NotAll\<\>](./namespaces/concepts/not_all.md)
 - [Numeric\<\>](./namespaces/concepts/numeric.md)
 - [OrdinaryCharacter\<\>](./namespaces/concepts/ordinary_character.md)
 - [OutputStream\<\>](./namespaces/concepts/output_stream.md)

@@ -176,7 +176,7 @@ int main() {
 
 &nbsp;
 
-### [xieite::traits::FunctionPointer\<\> \{\}](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/traits/function_pointer.md)
+### [xieite::types::FunctionPointerTraits\<\> \{\}](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/types/function_pointer_traits.md)
 ```cpp
 import std;
 import xieite;
@@ -186,7 +186,7 @@ struct S {
 };
 
 int main() {
-    using Traits = xieite::traits::FunctionPointer<decltype(&S::f)>;
+    using Traits = xieite::types::FunctionPointerTraits<decltype(&S::f)>;
 
     std::println("{}", Traits::variadic);
     std::println("{}", Traits::constantQualified);

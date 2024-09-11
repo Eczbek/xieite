@@ -12,7 +12,7 @@ Specifies that a type is a `std::chrono::duration`. To be deprecated once `std::
 #### 1)
 ```cpp
 template<typename Type>
-concept Duration = xieite::traits::IsDuration<std::remove_cv_t<Type>>::value;
+concept Duration = /* ... */;
 ```
 
 &nbsp;

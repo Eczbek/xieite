@@ -12,7 +12,7 @@ Specifies that a type is a specialization of `std::ratio`. To be deprecated once
 #### 1)
 ```cpp
 template<typename Type>
-concept Ratio = xieite::traits::IsRatio<std::remove_cv_t<Type>>::value;
+concept Ratio = /* ... */;
 ```
 
 &nbsp;

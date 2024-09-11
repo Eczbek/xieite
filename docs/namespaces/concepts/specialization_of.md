@@ -12,7 +12,7 @@ Specifies that a type is a specialization of a template. To be deprecated once u
 #### 1)
 ```cpp
 template<typename Type, template<typename...> typename Template>
-concept SpecializationOf = xieite::traits::IsSpecializationOf<std::remove_cv_t<Type>, Template>::value;
+concept SpecializationOf = /* ... */;
 ```
 
 &nbsp;
