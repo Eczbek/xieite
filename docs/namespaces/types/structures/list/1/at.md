@@ -13,7 +13,7 @@ Accesses a type by index.
 ```cpp
 template<std::size_t index>
 requires(index < sizeof...(Types))
-using At = /* xieite::types::List<...> */;
+using At = /* ... */;
 ```
 
 &nbsp;

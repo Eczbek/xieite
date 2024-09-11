@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Unique\<\>
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:Deduplicate\<\>
 Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 
 &nbsp;
@@ -11,8 +11,8 @@ Selects one of each type from the stored list of types.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename, typename...> typename Comparator = xieite::traits::IsSameAsAny>
-using Unique = /* xieite::types::List<...> */;
+template<auto comparator = /* lambda */>
+using Deduplicate = /* xieite::types::List<...> */;
 ```
 
 &nbsp;
@@ -23,7 +23,7 @@ import std;
 import xieite;
 
 int main() {
-    using List = xieite::types::List<int, int, char, int, char>::Unique;
+    using List = xieite::types::List<int, int, char, int, char>::Deduplicate;
 
     std::println("{}", xieite::types::name<List>);
 }

@@ -11,10 +11,10 @@ Extends multiple invocable types and overloads its `operator()` for each.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Derivable... Derivables>
+template<typename... Functors>
 struct Overloader
-: Derivables... {
-    using Derivables::operator()...;
+: Functors... {
+    using Functors::operator()...;
 };
 ```
 

@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Value\<\> \{\}
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:Value\<\>
 Defined in fragment [xieite:types.Value](../../../src/types/value.cpp)
 
 &nbsp;
 
 ## Description
-A simple value wrapper for metaprogramming purposes.
+A simple alias for a value wrapper (for metaprogramming purposes).
 
 &nbsp;
 
@@ -12,8 +12,7 @@ A simple value wrapper for metaprogramming purposes.
 #### 1)
 ```cpp
 template<typename value>
-struct Value
-: std::integral_constant<decltype(value), value> {};
+using Value = std::integral_constant<decltype(value), value>;
 ```
 
 &nbsp;

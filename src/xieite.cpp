@@ -198,7 +198,7 @@ export import :math.SignedSize;
 export import :math.sine;
 export import :math.splitBoolean;
 export import :math.stringify;
-export import :math.subtractionUnderflows;
+export import :math.subtractionOverflows;
 export import :math.tangent;
 export import :math.tau;
 export import :math.Unsigned128;

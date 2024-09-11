@@ -1,13 +1,7 @@
-module;
-
-#include <xieite/forward.hpp>
-
 export module xieite:functors.Overloader;
 
-import :concepts.Derivable;
-
 export namespace xieite::functors {
-	template<xieite::concepts::Derivable... Functors>
+	template<typename... Functors>
 	struct Overloader
 	: Functors... {
 		using Functors::operator()...;

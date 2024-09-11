@@ -11,7 +11,7 @@ Applies a transformation to every set amount of types within the list, in order.
 ## Synopsis
 #### 1)
 ```cpp
-template<template<typename...> typename Transformer, std::size_t arity>
+template<auto transformer, std::size_t arity>
 requires((sizeof...(Types) % arity) == 0)
 using Transform = /* xieite::types::List<...> */;
 ```
@@ -26,7 +26,9 @@ import xieite;
 int main() {
     using Foo = xieite::types::List<int, char, long, float, short, bool>;
 
-    using Bar = Foo::Transform<std::pair, 2>;
+    using Bar = Foo::Transform<[]<typename T, typename U> {
+        return std::declval<std::pair<T, U>>();
+    }, 2>;
 
     std::println("{}", xieite::types::name<Bar>);
 }

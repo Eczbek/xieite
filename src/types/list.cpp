@@ -1,185 +1,147 @@
 export module xieite:types.List;
 
 import std;
-import :traits.IsSameAsAny;
+import :functors.Overloader;
+import :types.Value;
 
 export namespace xieite::types {
 	template<typename... Types>
 	struct List {
-	public:
 		static constexpr std::size_t size = sizeof...(Types);
 
-		template<typename Type, template<typename, typename> typename Comparator = std::is_same>
-		static constexpr std::size_t count = (... + Comparator<Type, Types>::value);
+		template<auto selector>
+		static constexpr bool all = (... && selector.template operator()<Types>());
 
-		template<typename Type, template<typename, typename> typename Comparator = std::is_same>
-		static constexpr bool has = (... || Comparator<Type, Types>::value);
+		template<auto selector>
+		static constexpr bool any = (... || selector.template operator()<Types>());
 
-		template<typename Type, template<typename, typename> typename Comparator = std::is_same>
-		requires(xieite::types::List<Types...>::has<Type, Comparator>)
+		template<typename Type, auto comparator = []<typename First, typename Second> { return std::same_as<First, Second>; }>
+		static constexpr bool has = (... || comparator.template operator()<Type, Types>());
+
+		template<auto selector>
+		requires(xieite::types::List<Types...>::any<selector>)
 		static constexpr std::size_t find = ([] -> std::size_t {
 			std::size_t index = 0;
-			(... && (!Comparator<Type, Types>::value && ++index));
+			(... && (!selector.template operator()<Types>() && ++index));
 			return index;
 		})();
 
-	private:
-		template<std::size_t index, typename Type>
-		struct Tagged
-		: std::type_identity<Type> {};
+		template<typename Type, auto comparator = []<typename First, typename Second> { return std::same_as<First, Second>; }>
+		requires(xieite::types::List<Types...>::has<Type, comparator>)
+		static constexpr std::size_t get = xieite::types::List<Types...>::find<[]<typename OtherType> { return comparator.template operator()<Type, OtherType>(); }>;
 
-		template<typename>
-		struct AtHelper;
-
-		template<std::size_t... indices>
-		struct AtHelper<std::index_sequence<indices...>>
-		: Tagged<indices, Types>... {};
-
-	public:
 		template<std::size_t index>
 		requires(index < sizeof...(Types))
-		using At = decltype(([]<typename Type>(Tagged<index, Type>) -> Type {})(AtHelper<std::index_sequence_for<Types...>>()));
+		using At = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> auto {
+			return xieite::functors::Overloader([](xieite::types::Value<i>) -> auto {
+				return std::type_identity<Types>();
+			}...)(xieite::types::Value<index>());
+		})(std::index_sequence_for<Types...>()))::type;
 
-		template<template<typename...> typename Template>
-		using Apply = Template<Types...>;
+		template<auto callback>
+		using Apply = decltype(callback.template operator()<Types...>());
 
 		template<typename Type>
-		using Signature = Type(Types...);
+		using Signature = decltype(([] {
+			if constexpr ((... && !std::same_as<std::remove_cv_t<Types>, void>)) {
+				return std::type_identity_t<Type(Types...)>();
+			} else {
+				static_assert(false, "must not evaluate function signature with void parameters");
+			}
+		})());
 
 		template<typename... OtherTypes>
 		using Append = xieite::types::List<Types..., OtherTypes...>;
 
+		template<typename Range>
+		using AppendRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(Template<OtherTypes...>) -> auto {
+			return xieite::types::List<Types...>::Append<OtherTypes...>();
+		})(std::declval<Range>()));
+
 		template<typename... OtherTypes>
 		using Prepend = xieite::types::List<OtherTypes..., Types...>;
 
+		template<typename Range>
+		using PrependRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(Template<OtherTypes...>) -> auto {
+			return xieite::types::List<Types...>::Prepend<OtherTypes...>();
+		})(std::declval<Range>()));
+
+		using Reverse = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> auto {
+			return std::type_identity<xieite::types::List<xieite::types::List<Types...>::At<sizeof...(Types) - i - 1>...>>();
+		})(std::index_sequence_for<Types...>()))::type;
+
 		template<std::size_t start, std::size_t end = sizeof...(Types)>
-		using Slice = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> xieite::types::List<xieite::types::List<Types...>::At<i + std::min(start, end)>...> {})(std::make_index_sequence<std::min(std::max(start, end), sizeof...(Types)) - std::min(std::min(start, end), sizeof...(Types))>()));
-
-		using Reverse = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> xieite::types::List<xieite::types::List<Types...>::At<sizeof...(Types) - i - 1>...> {})(std::index_sequence_for<Types...>()));
-
-	private:
-		template<template<typename...> typename Operator, typename... OtherTypes>
-		struct RangeTypesHelper {
-			using Type = Operator<OtherTypes...>;
-		};
-
-		template<template<typename...> typename Operator, template<typename...> typename Range, typename... OtherTypes>
-		struct RangeTypesHelper<Operator, Range<OtherTypes...>>
-		: xieite::types::List<Types...>::RangeTypesHelper<Operator, OtherTypes...> {};
-
-	public:
-		template<typename Range>
-		using AppendRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::Append, Range>::Type;
-
-		template<typename Range>
-		using PrependRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::Prepend, Range>::Type;
+		using Slice = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> auto {
+			return xieite::types::List<xieite::types::List<Types...>::At<i + std::min(start, end)>...>();
+		})(std::make_index_sequence<std::min(std::max(start, end), sizeof...(Types)) - std::min(std::min(start, end), sizeof...(Types))>()));
 
 		template<std::size_t start, std::size_t end = start + 1>
 		using Erase = xieite::types::List<Types...>::Slice<0, start>::template AppendRange<xieite::types::List<Types...>::Slice<end>>;
 
-		template<std::size_t index, typename... OtherTypes>
-		using Insert = xieite::types::List<Types...>::Slice<0, index>::template Append<OtherTypes...>::template AppendRange<xieite::types::List<Types...>::Slice<index>>;
+		template<std::size_t start, std::size_t end, typename... OtherTypes>
+		using Replace = xieite::types::List<Types...>::Slice<0, start>::template Append<OtherTypes...>::template AppendRange<xieite::types::List<Types...>::Slice<end>>;
 
-		template<std::size_t index, typename OtherType>
-		using Set = xieite::types::List<Types...>::Erase<index>::template Insert<index, OtherType>;
+		template<std::size_t start, std::size_t end, typename Range>
+		using ReplaceRange = xieite::types::List<Types...>::Slice<0, start>::template AppendRange<Range>::template AppendRange<xieite::types::List<Types...>::Slice<end>>;
+
+		template<std::size_t index, typename... OtherTypes>
+		using Insert = xieite::types::List<Types...>::Replace<index, index, OtherTypes...>;
+
+		template<std::size_t index, typename Range>
+		using InsertRange = xieite::types::List<Types...>::ReplaceRange<index, index, Range>;
+
+		template<std::size_t index, typename Type>
+		using Set = xieite::types::List<Types...>::Replace<index, index + 1, Type>;
 
 		template<std::size_t index1, std::size_t index2>
-		using Swap = xieite::types::List<Types...>::template Set<index1, xieite::types::List<Types...>::At<index2>>::template Set<index2, xieite::types::List<Types...>::At<index1>>;
+		using Swap = xieite::types::List<Types...>::Set<index1, xieite::types::List<Types...>::At<index2>>::template Set<index2, xieite::types::List<Types...>::At<index1>>;
 
-	private:
-		template<std::size_t index>
-		struct InsertRangeHelper {
-			template<typename... OtherTypes>
-			using Type = xieite::types::List<Types...>::Insert<index, OtherTypes...>;
-		};
-
-	public:
-		template<std::size_t index, typename Range>
-		using InsertRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::InsertRangeHelper<index>::template Type, Range>::Type;
-
-		template<std::size_t start, std::size_t end, typename... OtherTypes>
-		using Replace = xieite::types::List<Types...>::Erase<start, end>::template Insert<start, OtherTypes...>;
-
-	private:
-		template<std::size_t start, std::size_t end>
-		struct ReplaceRangeHelper {
-			template<typename... OtherTypes>
-			using Type = xieite::types::List<Types...>::Replace<start, end, OtherTypes...>;
-		};
-
-	public:
-		template<std::size_t start, std::size_t end, typename Range>
-		using ReplaceRange = xieite::types::List<Types...>::RangeTypesHelper<xieite::types::List<Types...>::ReplaceRangeHelper<start, end>::template Type, Range>::Type;
-
-		template<std::size_t start1_, std::size_t end1_, std::size_t start2_, std::size_t end2_>
-		using SwapRanges = xieite::types::List<Types...>::ReplaceRange<start1_, end1_, xieite::types::List<Types...>::Slice<start2_, end2_>>::template ReplaceRange<start2_, end2_, xieite::types::List<Types...>::Slice<start1_, end1_>>;
-
-	private:
-		template<template<typename, typename...> typename Selector, typename... OtherTypes>
-		struct FilterHelper {
-			using Type = xieite::types::List<OtherTypes...>;
-
-			template<typename Type>
-			std::conditional_t<Selector<Type, OtherTypes...>::value, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes..., Type>, xieite::types::List<Types...>::FilterHelper<Selector, OtherTypes...>> operator->*(xieite::types::List<Types...>::FilterHelper<Selector, Type>) const noexcept;
-		};
-
-	public:
-		template<template<typename, typename...> typename Selector>
-		using Filter = decltype((xieite::types::List<Types...>::FilterHelper<Selector>()->*...->*xieite::types::List<Types...>::FilterHelper<Selector, Types>()))::Type;
-
-	private:
-		template<template<typename, typename...> typename Comparator>
-		struct UniqueHelper {
-			template<typename Type, typename... OtherTypes>
-			using Selector = std::bool_constant<!Comparator<Type, OtherTypes...>::value>;
-		};
-
-	public:
-		template<template<typename, typename...> typename Comparator = xieite::traits::IsSameAsAny>
-		using Unique = typename xieite::types::List<Types...>::Filter<xieite::types::List<Types...>::UniqueHelper<Comparator>::template Selector>;
+		template<std::size_t start1, std::size_t end1, std::size_t start2, std::size_t end2>
+		using SwapRanges = xieite::types::List<Types...>::ReplaceRange<start1, end1, xieite::types::List<Types...>::Slice<start2, end2>>::template ReplaceRange<start2, end2, xieite::types::List<Types...>::Slice<start1, end1>>;
 
 		template<std::size_t... indices>
-		using Rearrange = xieite::types::List<xieite::types::List<Types...>::At<indices>...>;
-
-		template<template<typename...> typename Transformer, std::size_t arity>
-		requires((sizeof...(Types) % arity) == 0)
-		using Transform = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> xieite::types::List<typename xieite::types::List<Types...>::Slice<i * arity, (i + 1) * arity>::Apply<Transformer>...> {})(std::make_index_sequence<sizeof...(Types) / arity>()));
+		using Arrange = xieite::types::List<xieite::types::List<Types...>::At<indices>...>;
 
 	private:
-		template<std::size_t count>
-		struct RepeatHelper {
-			using Type = xieite::types::List<Types...>::template AppendRange<typename xieite::types::List<Types...>::RepeatHelper<count - 1>::Type>;
-		};
-
-		template<std::size_t count>
-		requires(count == 0)
-		struct RepeatHelper<count> {
-			using Type = xieite::types::List<>;
+		template<auto conditional, typename... Results>
+		struct FilterHelper
+		: std::type_identity<xieite::types::List<Results...>> {
+			template<typename Type>
+			std::conditional_t<conditional.template operator()<Type, Results...>(), xieite::types::List<Types...>::FilterHelper<conditional, Results..., Type>, xieite::types::List<Types...>::FilterHelper<conditional, Results...>> operator->*(xieite::types::List<Types...>::FilterHelper<conditional, Type>) const noexcept;
 		};
 
 	public:
-		template<std::size_t count>
-		using Repeat = xieite::types::List<Types...>::RepeatHelper<count>::Type;
+		template<auto selector>
+		using Filter = decltype((xieite::types::List<Types...>::FilterHelper<selector>()->*...->*xieite::types::List<Types...>::FilterHelper<selector, Types>()));
 
-	private:
+		template<auto comparator = []<typename Type, typename... Results> { return (... && !std::same_as<Type, Results>); }>
+		using Deduplicate = xieite::types::List<Types...>::Filter<comparator>;
+
+		template<std::size_t repetitions>
+		using Repeat = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> auto {
+			return xieite::functors::Overloader([]<typename... Results>(this auto self, xieite::types::Value<i>) -> auto {
+				return self.template operator()<Results..., Types...>(xieite::types::Value<i + 1>());
+			}..., []<typename... Results>(xieite::types::Value<repetitions>) -> auto {
+				return xieite::types::List<Results...>();
+			})(xieite::types::Value<0uz>());
+		})(std::make_index_sequence<repetitions>()))::type;
+
+		template<auto transformer, std::size_t arity>
+		requires((sizeof...(Types) % arity) == 0)
+		using Transform = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> auto {
+			return xieite::types::List<decltype(transformer.template operator()<xieite::types::List<Types...>::Slice<arity * i, arity * (i + 1)>>())...>();
+		})(std::make_index_sequence<sizeof...(Types) / arity>()));
+
 		template<typename... OtherTypes>
 		requires(sizeof...(Types) == sizeof...(OtherTypes))
-		struct ZipHelper {
-			using Type = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-				return xieite::types::List<xieite::types::List<xieite::types::List<Types...>::At<i>, typename xieite::types::List<OtherTypes...>::template At<i>>...>();
-			})(std::make_index_sequence<sizeof...(OtherTypes)>()));
-		};
-
-		template<template<typename...> typename Range, typename... OtherTypes>
-		struct ZipHelper<Range<OtherTypes...>>
-		: xieite::types::List<Types...>::ZipHelper<OtherTypes...> {};
-
-	public:
-		template<typename... OtherTypes>
-		using Zip = xieite::types::List<Types...>::ZipHelper<OtherTypes...>::Type;
+		using Zip = decltype(([]<std::size_t... i>(std::index_sequence<i...>) -> auto {
+			return xieite::types::List<xieite::types::List<xieite::types::List<Types...>::At<i>, OtherTypes>...>();
+		})(std::index_sequence_for<Types...>()));
 
 		template<typename Range>
-		using ZipRange = xieite::types::List<Types...>::ZipHelper<Range>::Type;
+		using ZipRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(Template<OtherTypes...>) -> auto {
+			return xieite::types::List<Types...>::Zip<OtherTypes...>();
+		})(std::declval<Range>()));
 	};
 }
 

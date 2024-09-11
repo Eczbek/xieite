@@ -4,15 +4,15 @@ Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 &nbsp;
 
 ## Description
-Finds the index of a type.
+Finds the index of a type for which a callback returns `true`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, template<typename, typename> typename Comparator = std::is_same>
-requires(xieite::types::List<Types...>::has<Type, Comparator>)
+template<auto selector>
+requires(xieite::types::List<Types...>::any<selector>)
 static constexpr std::size_t find = /* ... */;
 ```
 
@@ -24,9 +24,13 @@ import std;
 import xieite;
 
 int main() {
+    static constexpr auto callback = []<typename Type> {
+        return std::same_as<Type, double>;
+    };
+
     using List = xieite::types::List<int, char, float, double, void, short, long, bool>;
 
-    std::println("{}", List::find<double>);
+    std::println("{}", List::find<callback>);
 }
 ```
 Possible output:
