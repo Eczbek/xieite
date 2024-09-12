@@ -42,13 +42,13 @@ struct Segment {
 ```
 - start
 - end
-- [Segment](./structures/segment/1/operators/constructor.md)
-- [operator typename](./structures/segment/1/operators/cast.md)
-- [operator==](./structures/segment/1/operators/equal.md)
-- [angle](./structures/segment/1/angle.md)
-- [length](./structures/segment/1/length.md)
-- [slope](./structures/segment/1/slope.md)
-- [contains](./structures/segment/1/contains.md)
+- [Segment\(\)](./structures/segment/1/operators/constructor.md)
+- [operator typename\<\>\(\)](./structures/segment/1/operators/cast.md)
+- [operator==\(\)](./structures/segment/1/operators/equal.md)
+- [angle\(\)](./structures/segment/1/angle.md)
+- [length\(\)](./structures/segment/1/length.md)
+- [slope\(\)](./structures/segment/1/slope.md)
+- [contains\(\)](./structures/segment/1/contains.md)
 
 &nbsp;
 

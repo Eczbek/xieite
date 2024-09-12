@@ -4,14 +4,14 @@ Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 &nbsp;
 
 ## Description
-Filters types according to a selector callback.
+Filters types according to whether or not they satisfy a lambda.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<auto selector = /* lambda */>
+template<auto selector>
 using Filter = /* xieite::types::List<...> */;
 ```
 
@@ -23,13 +23,9 @@ import std;
 import xieite;
 
 int main() {
-    static constexpr auto callback = []<typename Type> {
-        return std::integral<Type>;
-    };
-
     using List = xieite::types::List<int, float, short, double, long>;
 
-    std::println("{}", xieite::types::name<List::Filter<callback>>);
+    std::println("{}", xieite::types::name<List::Filter<[]<std::integral> {}>>);
 }
 ```
 Possible output:

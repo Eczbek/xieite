@@ -12,7 +12,7 @@ import :strings.between;
 
 template<typename _>
 [[nodiscard]] consteval std::string_view getName() noexcept {
-	static constexpr auto get = [string = std::string_view(XIEITE_FUNCTION_SIGNATURE)] -> std::string_view {
+	static constexpr auto get = [string = std::string_view(XIEITE_FUNCTION_SIGNATURE)] {
 #if XIEITE_COMPILER_TYPE_GCC
 		return xieite::strings::between(string, "= ", ';');
 #elif XIEITE_COMPILER_TYPE_CLANG

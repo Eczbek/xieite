@@ -33,7 +33,7 @@ int multiply(int x, int y) {
     return x * y;
 }
 
-auto subtract = [](int x, int y) -> int {
+auto subtract = [](int x, int y) {
     std::print("{} - {} = ", x, y);
     return x - y;
 };

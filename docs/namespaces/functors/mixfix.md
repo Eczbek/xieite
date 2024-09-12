@@ -57,11 +57,11 @@ import std;
 import xieite;
 
 int main() {
-    xieite::functors::Mixfix<int(int, int)> multiply = [](int x, int y) -> int {
+    xieite::functors::Mixfix<int(int, int)> multiply = [](int x, int y) {
         return x * y;
     };
 
-    xieite::functors::Mixfix<int(int)> increment = [](int x) -> int {
+    xieite::functors::Mixfix<int(int)> increment = [](int x) {
         return x + 1;
     };
 

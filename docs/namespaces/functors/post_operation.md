@@ -26,7 +26,7 @@ import xieite;
 int main() {
     int x = 5;
 
-    auto increment = [](int& y) -> void {
+    auto increment = [](int& y) {
         y += 5;
     };
 

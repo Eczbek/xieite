@@ -4,7 +4,7 @@ Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 &nbsp;
 
 ## Description
-Finds the index of a type for which a callback returns `true`.
+Finds the first index of a type that satisfies a lambda.
 
 &nbsp;
 
@@ -24,13 +24,9 @@ import std;
 import xieite;
 
 int main() {
-    static constexpr auto callback = []<typename Type> {
-        return std::same_as<Type, double>;
-    };
-
     using List = xieite::types::List<int, char, float, double, void, short, long, bool>;
 
-    std::println("{}", List::find<callback>);
+    std::println("{}", List::find<[]<std::same_as<double>> {}>);
 }
 ```
 Possible output:

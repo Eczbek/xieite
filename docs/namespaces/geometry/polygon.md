@@ -44,14 +44,14 @@ struct Polygon {
 };
 ```
 - points
-- [Polygon](./structures/polygon/1/operators/constructor.md)
-- [operator typename](./structures/polygon/1/operators/cast.md)
-- [operator==](./structures/polygon/1/operators/equal.md)
-- [rectangle](./structures/polygon/1/rectangle.md)
-- [area](./structures/polygon/1/area.md)
-- [perimeter](./structures/polygon/1/perimeter.md)
-- [sides](./structures/polygon/1/sides.md)
-- [contains](./structures/polygon/1/contains.md)
+- [Polygon\(\)](./structures/polygon/1/operators/constructor.md)
+- [operator typename\<\>\(\)](./structures/polygon/1/operators/cast.md)
+- [operator==\(\)](./structures/polygon/1/operators/equal.md)
+- [rectangle\(\)](./structures/polygon/1/rectangle.md)
+- [area\(\)](./structures/polygon/1/area.md)
+- [perimeter\(\)](./structures/polygon/1/perimeter.md)
+- [sides\(\)](./structures/polygon/1/sides.md)
+- [contains\(\)](./structures/polygon/1/contains.md)
 
 &nbsp;
 

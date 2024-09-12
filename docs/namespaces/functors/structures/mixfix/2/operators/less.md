@@ -23,7 +23,7 @@ import std;
 import xieite;
 
 int main() {
-    xieite::functors::Mixfix<int(int)> square = [](int x) -> int {
+    xieite::functors::Mixfix<int(int)> square = [](int x) {
         return x * x;
     };
 

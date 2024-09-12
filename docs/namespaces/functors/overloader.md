@@ -32,10 +32,10 @@ import std;
 import xieite;
 
 int main() {
-    auto foo = [](int) -> void {
+    auto foo = [](int) {
         std::println("foo");
     };
-    auto bar = [](double) -> void {
+    auto bar = [](double) {
         std::println("bar");
     };
 

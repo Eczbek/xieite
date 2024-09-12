@@ -11,7 +11,7 @@ Selects one of each type from the stored list of types.
 ## Synopsis
 #### 1)
 ```cpp
-template<auto comparator = /* lambda */>
+template<auto comparator = []<typename Type, std::same_as<Type>> {}>
 using Deduplicate = /* xieite::types::List<...> */;
 ```
 
@@ -23,7 +23,7 @@ import std;
 import xieite;
 
 int main() {
-    using List = xieite::types::List<int, int, char, int, char>::Deduplicate;
+    using List = xieite::types::List<int, int, char, int, char>::Deduplicate<>;
 
     std::println("{}", xieite::types::name<List>);
 }

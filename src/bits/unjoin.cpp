@@ -8,8 +8,8 @@ export namespace xieite::bits {
 	requires(bits >= (... + xieite::bits::size<Integrals>))
 	[[nodiscard]] constexpr std::tuple<Integrals...> unjoin(std::bitset<bits> value) noexcept {
 		std::tuple<Integrals...> result;
-		([&value, &result]<std::size_t... i>(std::index_sequence<i...>) -> void {
-			(..., ([&value, &result] -> void {
+		([&value, &result]<std::size_t... i>(std::index_sequence<i...>) {
+			(..., ([&value, &result] {
 				std::get<i>(result) = static_cast<Integrals>(value.to_ullong());
 				value >>= xieite::bits::size<Integrals>;
 			})());

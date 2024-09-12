@@ -12,7 +12,7 @@ export namespace xieite::bits {
 
 		template<typename Type>
 		[[nodiscard]] constexpr operator Type() const noexcept {
-			return std::bit_cast<Type>(([this]<std::size_t... i>(std::index_sequence<i...>) -> std::array<std::byte, sizeof(Type)> {
+			return std::bit_cast<Type>(([this]<std::size_t... i>(std::index_sequence<i...>) {
 				return std::array<std::byte, sizeof(Type)> {
 					(void(i), this->value)...
 				};

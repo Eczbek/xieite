@@ -336,19 +336,13 @@ export namespace xieite::math {
 			remainder.data.resize(dividend.data.size(), 0);
 			result.data.resize(dividend.data.size(), 0);
 			for (std::size_t i = dividend.data.size(); i--;) {
-				remainder.data.insert(remainder.data.begin(), dividend.data[i]);
-				while (remainder >= absoluteDivisor) {
-					remainder -= absoluteDivisor;
-					++result.data[i];
+				for (std::size_t j = xieite::bits::size<Limb>; j--;) {
+					remainder <<= 1;
+					remainder.data[0] |= (dividend.data[i] >> j) & 1;
+					const bool quotient = remainder >= absoluteDivisor;
+					remainder -= absoluteDivisor * quotient;
+					result.data[i] |= static_cast<Limb>(quotient) << j;
 				}
-
-				// for (std::size_t j = xieite::bits::size<Limb>; j--;) {
-				// 	remainder <<= 1;
-				// 	remainder.data[0] |= (dividend.data[i] >> j) & 1;
-				// 	const bool quotient = remainder >= absoluteDivisor;
-				// 	remainder -= absoluteDivisor * quotient;
-				// 	result.data[i] |= static_cast<Limb>(quotient) << j;
-				// }
 			}
 			result.negative = !sameSign;
 			result.trim();
@@ -415,7 +409,7 @@ export namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator&(const xieite::math::BigInteger<Limb>& leftOperand, const xieite::math::BigInteger<Limb>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Limb>::bitwiseOperation(leftOperand, rightOperand, [](const Limb left, const Limb right) -> Limb {
+			return xieite::math::BigInteger<Limb>::bitwiseOperation(leftOperand, rightOperand, [](const Limb left, const Limb right) {
 				return left & right;
 			});
 		}
@@ -435,7 +429,7 @@ export namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator|(const xieite::math::BigInteger<Limb>& leftOperand, const xieite::math::BigInteger<Limb>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Limb>::bitwiseOperation(leftOperand, rightOperand, [](const Limb left, const Limb right) -> Limb {
+			return xieite::math::BigInteger<Limb>::bitwiseOperation(leftOperand, rightOperand, [](const Limb left, const Limb right) {
 				return left | right;
 			});
 		}
@@ -455,7 +449,7 @@ export namespace xieite::math {
 		}
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator^(const xieite::math::BigInteger<Limb>& leftOperand, const xieite::math::BigInteger<Limb>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Limb>::bitwiseOperation(leftOperand, rightOperand, [](const Limb left, const Limb right) -> Limb {
+			return xieite::math::BigInteger<Limb>::bitwiseOperation(leftOperand, rightOperand, [](const Limb left, const Limb right) {
 				return left ^ right;
 			});
 		}

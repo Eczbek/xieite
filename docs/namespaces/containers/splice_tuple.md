@@ -28,7 +28,7 @@ int main() {
 
     auto bar = std::make_tuple(6.28318, 'h');
 
-    std::apply([](auto... values) -> void {
+    std::apply([](auto... values) {
         (..., std::println("{}", values));
     }, xieite::containers::spliceTuple<1, 1>(foo, bar));
 }

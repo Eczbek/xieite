@@ -27,10 +27,10 @@ export namespace xieite::threads {
 				return;
 			}
 			while (threadCount-- > currentThreadCount) {
-				this->threads.emplace_back([this](const std::stop_token stopToken) -> void {
+				this->threads.emplace_back([this](const std::stop_token stopToken) {
 					while (true) {
 						auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
-						this->condition.wait(jobsLock, [this, stopToken] -> bool {
+						this->condition.wait(jobsLock, [this, stopToken] {
 							return this->jobs.size() || stopToken.stop_requested();
 						});
 						if (!this->jobs.size() && stopToken.stop_requested()) {

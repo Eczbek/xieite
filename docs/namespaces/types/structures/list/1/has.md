@@ -11,7 +11,7 @@ Checks if the list contains a particular type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, auto comparator = /* lambda */>
+template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
 static constexpr bool has = /* ... */;
 ```
 

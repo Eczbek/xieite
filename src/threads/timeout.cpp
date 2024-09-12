@@ -13,7 +13,7 @@ export namespace xieite::threads {
 	public:
 		template<std::invocable<> Functor, xieite::concepts::Duration Duration>
 		Timeout(Functor&& callback, const Duration duration) noexcept
-		: interval([this, &callback] -> void {
+		: interval([this, &callback] {
 			this->stop();
 			std::invoke(XIEITE_FORWARD(callback));
 		}, duration) {}

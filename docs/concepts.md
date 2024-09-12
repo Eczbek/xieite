@@ -60,6 +60,7 @@ A collection of commonly concepts, expanding on the standard library
 - [RightValueReference\<\>](./namespaces/concepts/right_value_reference.md)
 - [SameAsAll\<\>](./namespaces/concepts/same_as_all.md)
 - [SameAsAny\<\>](./namespaces/concepts/same_as_any.md)
+- [Satisfies\<\>](./namespaces/concepts/satisfies.md)
 - [ScopedEnumeration\<\>](./namespaces/concepts/scoped_enumeration.md)
 - [SimilarTo\<\>](./namespaces/concepts/similar_to.md)
 - [SimilarToAll\<\>](./namespaces/concepts/similar_to_all.md)

@@ -23,11 +23,11 @@ Written manually :)
 git clone https://github.com/Eczbek/xieite
 cd xieite
 ```
-good luck; nothing supports modules
+good luck; nothing supports modules yet
 
 &nbsp;
 
-## Features
+## Examples
 ### [xieite::math::BigInteger\<\> \{\}](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/math/big_integer.md)
 ```cpp
 import std;

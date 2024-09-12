@@ -1,8 +1,9 @@
-export module xieite:units.Angle;
+export module xieite:units.angle;
+
+import std;
+import :units.Unit;
 
 export namespace xieite::units {
-	enum struct Angle {
-		Radian,
-		Degree
-	};
+	using Radian = xieite::units::Unit<"angle">;
+	using Degree = xieite::units::Unit<"angle", '*', std::numbers::pi, '/', 180.0>;
 }

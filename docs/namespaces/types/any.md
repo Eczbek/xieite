@@ -18,8 +18,8 @@ struct Any {
     explicit(false) operator Type() const noexcept;
 };
 ```
-- Any\<\>()
-- operator typename\<\>()
+- Any\<\>\(\)
+- operator typename\<\>\(\)
 
 &nbsp;
 

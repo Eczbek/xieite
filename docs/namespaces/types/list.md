@@ -21,14 +21,14 @@ struct List {
     template<auto selector>
     static constexpr bool any = /* xieite::types::List<...> */;
 
-    template<typename Type, auto comparator = /* ... */>
+    template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
     static constexpr bool has = /* xieite::types::List<...> */;
 
     template<auto selector>
     requires(xieite::types::List<Types...>::any<selector>)
-    static constexpr std::size_t find = /* lambda */;
+    static constexpr std::size_t find = /* ... */;
 
-    template<typename Type, auto comparator = /* lambda */>
+    template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
     requires(xieite::types::List<Types...>::has<Type, comparator>)
     static constexpr std::size_t get = /* ... */;
 
@@ -36,8 +36,7 @@ struct List {
     requires(index < sizeof...(Types))
     using At = /* ... */;
 
-    template<auto callback>
-    using Apply = /* ... */;
+    static constexpr auto apply(auto) noexcept;
 
     template<typename Type>
     using Signature = /* Type(Types...) */;
@@ -89,7 +88,7 @@ struct List {
     template<auto selector>
     using Filter = /* xieite::types::List<...> */;
 
-    template<auto comparator = /* lambda */>
+    template<auto comparator = []<typename Type, std::same_as<Type>> {}>
     using Deduplicate = /* xieite::types::List<...> */;
 
     template<std::size_t repetitions>
@@ -109,7 +108,6 @@ struct List {
 ```
 - [Append\<\>](./structures/list/1/append.md)
 - [AppendRange\<\>](./structures/list/1/append_range_of.md)
-- [Apply\<\>](./structures/list/1/apply.md)
 - [Arrange\<\>](./structures/list/1/arrange.md)
 - [At\<\>](./structures/list/1/at.md)
 - [Deduplicate\<\>](./structures/list/1/deduplicate.md)
@@ -130,6 +128,7 @@ struct List {
 - [Transform\<\>](./structures/list/1/transform.md)
 - [Zip\<\>](./structures/list/1/zip.md)
 - [ZipRange\<\>](./structures/list/1/zip_range.md)
+- [apply\<\>\(\)](./structures/list/1/apply.md)
 - size
 - [all\<\>](./structures/list/1/all.md)
 - [any\<\>](./structures/list/1/any.md)

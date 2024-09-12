@@ -14,7 +14,7 @@ export namespace xieite::containers {
 	requires(std::convertible_to<std::ranges::range_value_t<Range>, Value>)
 	[[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
 	noexcept(xieite::concepts::NoThrowInvocable<Functor, Value(std::ranges::range_common_reference_t<Range>)> && xieite::concepts::NoThrowOperableRange<Range>) {
-		return ([&range, &converter]<std::size_t... i>(std::index_sequence<i...>) -> std::array<Value, size> {
+		return ([&range, &converter]<std::size_t... i>(std::index_sequence<i...>) {
 			auto iterator = std::ranges::begin(range);
 			return std::array<Value, size> {
 				([&converter, &iterator] -> decltype(auto) {

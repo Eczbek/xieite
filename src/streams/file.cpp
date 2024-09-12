@@ -92,7 +92,7 @@ export namespace xieite::streams {
 
 		template<xieite::concepts::Stream Stream>
 		void open(Stream& stream) noexcept {
-			this->stream = ([&stream] -> std::FILE* {
+			this->stream = ([&stream] {
 				static constexpr bool isInput = xieite::concepts::InputStream<Stream>;
 				static constexpr bool isOutput = xieite::concepts::OutputStream<Stream>;
 				if constexpr (isInput) {
@@ -107,9 +107,7 @@ export namespace xieite::streams {
 						return stderr;
 					}
 				}
-				if constexpr (requires {
-					stream.native_handle();
-				}) {
+				if constexpr (requires { stream.native_handle(); }) {
 					const typename Stream::native_handle_type descriptor = stream.native_handle();
 					std::string mode;
 					mode.reserve(3);

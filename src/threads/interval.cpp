@@ -9,7 +9,7 @@ export namespace xieite::threads {
 	public:
 		template<std::invocable<> Functor, xieite::concepts::Duration Duration>
 		Interval(Functor&& callback, const Duration duration) noexcept
-		: loop([&callback, duration] -> void {
+		: loop([&callback, duration] {
 			static bool first = true;
 			if (first) {
 				first = false;

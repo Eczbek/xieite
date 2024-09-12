@@ -8,7 +8,8 @@ export namespace xieite::bits {
 	template<std::integral... Integrals>
 	[[nodiscard]] constexpr std::bitset<(... + xieite::bits::size<Integrals>)> join(const Integrals... values) noexcept {
 		std::bitset<(... + xieite::bits::size<Integrals>)> result;
-		return (..., (result = (result >> xieite::bits::size<Integrals>) | (std::bitset<(... + xieite::bits::size<Integrals>)>(static_cast<xieite::types::TryUnsigned<Integrals>>(values)) << ((... + xieite::bits::size<Integrals>) - xieite::bits::size<Integrals>))));
+		(..., (result = (result >> xieite::bits::size<Integrals>) | (std::bitset<(... + xieite::bits::size<Integrals>)>(static_cast<xieite::types::TryUnsigned<Integrals>>(values)) << ((... + xieite::bits::size<Integrals>) - xieite::bits::size<Integrals>))));
+		return result;
 	}
 
 	template<std::integral Integral, std::size_t size>

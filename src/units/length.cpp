@@ -1,50 +1,50 @@
-export module xieite:units.Length;
+export module xieite:units.length;
+
+import :units.Unit;
 
 export namespace xieite::units {
-	enum struct Length {
-		Quectometre,
-		Rontometre,
-		Yoctometre,
-		Zeptometre,
-		Attometre,
-		Femtometre,
-		Picometre,
-		Nanometre,
-		Micrometre,
-		Millimetre,
-		Centimetre,
-		Decimetre,
-		Metre,
-		Decametre,
-		Hectometre,
-		Kilometre,
-		Megametre,
-		Gigametre,
-		Terametre,
-		Petametre,
-		Exametre,
-		Zettametre,
-		Yottametre,
-		Ronnametre,
-		Quettametre,
-		Twip,
-		Thou,
-		Barleycorn,
-		Inch,
-		Foot,
-		Yard,
-		Chain,
-		Furlong,
-		Mile,
-		League,
-		Fathom,
-		Cable,
-		NauticalMile,
-		NauticalLeague,
-		Link,
-		Rod,
-		Perch,
-		Pole,
-		Lug
-	};
+	using Quectometre = xieite::units::Unit<"length", '/', 1000000000000000000000000000000.0>;
+	using Rontometre = xieite::units::Unit<"length", '/', 1000000000000000000000000000.0>;
+	using Yoctometre = xieite::units::Unit<"length", '/', 1000000000000000000000000.0>;
+	using Zeptometre = xieite::units::Unit<"length", '/', 1000000000000000000000.0>;
+	using Attometre = xieite::units::Unit<"length", '/', 1000000000000000000.0>;
+	using Femtometre = xieite::units::Unit<"length", '/', 1000000000000000.0>;
+	using Picometre = xieite::units::Unit<"length", '/', 1000000000000.0>;
+	using Nanometre = xieite::units::Unit<"length", '/', 1000000000.0>;
+	using Micrometre = xieite::units::Unit<"length", '/', 1000000.0>;
+	using Millimetre = xieite::units::Unit<"length", '/', 1000.0>;
+	using Centimetre = xieite::units::Unit<"length", '/', 100.0>;
+	using Decimetre = xieite::units::Unit<"length", '/', 10.0>;
+	using Metre = xieite::units::Unit<"length">;
+	using Decametre = xieite::units::Unit<"length", '*', 10.0>;
+	using Hectometre = xieite::units::Unit<"length", '*', 100.0>;
+	using Kilometre = xieite::units::Unit<"length", '*', 1000.0>;
+	using Megametre = xieite::units::Unit<"length", '*', 1000000.0>;
+	using Gigametre = xieite::units::Unit<"length", '*', 1000000000.0>;
+	using Terametre = xieite::units::Unit<"length", '*', 1000000000000.0>;
+	using Petametre = xieite::units::Unit<"length", '*', 1000000000000000.0>;
+	using Exametre = xieite::units::Unit<"length", '*', 1000000000000000000.0>;
+	using Zettametre = xieite::units::Unit<"length", '*', 1000000000000000000000.0>;
+	using Yottametre = xieite::units::Unit<"length", '*', 1000000000000000000000000.0>;
+	using Ronnametre = xieite::units::Unit<"length", '*', 1000000000000000000000000000.0>;
+	using Quettametre = xieite::units::Unit<"length", '*', 1000000000000000000000000000000.0>;
+	using Twip = xieite::units::Unit<"length", '/', 0.0254 / 1440.0>;
+	using Thou = xieite::units::Unit<"length", '/', 0.0000254>;
+	using Barleycorn = xieite::units::Unit<"length", '/', 0.0254 / 3.0>;
+	using Inch = xieite::units::Unit<"length", '/', 0.0254>;
+	using Foot = xieite::units::Unit<"length", '*', 0.3048>;
+	using Yard = xieite::units::Unit<"length", '*', 0.9144>;
+	using Chain = xieite::units::Unit<"length", '*', 20.1168>;
+	using Furlong = xieite::units::Unit<"length", '*', 201.168>;
+	using Mile = xieite::units::Unit<"length", '*', 1609.344>;
+	using League = xieite::units::Unit<"length", '*', 4828.032>;
+	using Fathom = xieite::units::Unit<"length", '/', 1.8288>;
+	using Cable = xieite::units::Unit<"length", '*', 185.2>;
+	using NauticalMile = xieite::units::Unit<"length", '*', 1852.0>;
+	using NauticalLeague = xieite::units::Unit<"length", '*', 5556.0>;
+	using Link = xieite::units::Unit<"length", '/', 0.201168>;
+	using Rod = xieite::units::Unit<"length", '*', 5.0292>;
+	using Perch = xieite::units::Rod;
+	using Pole = xieite::units::Rod;
+	using Lug = xieite::units::Rod;
 }

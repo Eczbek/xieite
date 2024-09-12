@@ -13,7 +13,7 @@ export namespace xieite::bits {
 
 	template<std::size_t... sizes, std::integral Integral>
 	[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(const std::array<Integral, sizeof...(sizes)>& values) noexcept {
-		return ([&values]<std::size_t... i>(std::index_sequence<i...>) -> std::bitset<(... + sizes)> {
+		return ([&values]<std::size_t... i>(std::index_sequence<i...>) {
 			std::bitset<(... + sizes)> result;
 			(..., (result = (result >> sizes) | (std::bitset<(... + sizes)>(static_cast<xieite::types::TryUnsigned<Integral>>(values[i])) << ((... + sizes) - sizes))));
 			return result;

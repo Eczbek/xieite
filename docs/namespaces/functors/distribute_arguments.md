@@ -25,7 +25,7 @@ import std;
 import xieite;
 
 int main() {
-    auto lambda = [](int x, int y, int z) -> void {
+    auto lambda = [](int x, int y, int z) {
         std::println("{} {} {}", x, y, z);
     };
 

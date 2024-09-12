@@ -1,66 +1,66 @@
-export module xieite:units.Volume;
+export module xieite:units.volume;
+
+import :units.Unit;
 
 export namespace xieite::units {
-	enum struct Volume {
-		CubicQuectometre,
-		CubicRontometre,
-		CubicYoctometre,
-		CubicZeptometre,
-		CubicAttometre,
-		CubicFemtometre,
-		CubicPicometre,
-		CubicNanometre,
-		CubicMicrometre,
-		CubicMillimetre,
-		CubicCentimetre,
-		CubicDecimetre,
-		CubicMetre,
-		CubicDecametre,
-		CubicHectometre,
-		CubicKilometre,
-		CubicMegametre,
-		CubicGigametre,
-		CubicTerametre,
-		CubicPetametre,
-		CubicExametre,
-		CubicZettametre,
-		CubicYottametre,
-		CubicRonnametre,
-		CubicQuettametre,
-		CubicInch,
-		CubicFoot,
-		CubicYard,
-		CubicMile,
-		Quectolitre,
-		Rontolitre,
-		Yoctolitre,
-		Zeptolitre,
-		Attolitre,
-		Femtolitre,
-		Picolitre,
-		Nanolitre,
-		Microlitre,
-		Millilitre,
-		Centilitre,
-		Decilitre,
-		Litre,
-		Decalitre,
-		Hectolitre,
-		Kilolitre,
-		Megalitre,
-		Gigalitre,
-		Teralitre,
-		Petalitre,
-		Exalitre,
-		Zettalitre,
-		Yottalitre,
-		Ronnalitre,
-		Quettalitre,
-		FluidOunce,
-		Gill,
-		Cup,
-		Pint,
-		Quart,
-		Gallon
-	};
+	using CubicQuectometre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0>;
+	using CubicRontometre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000000000000000000000000000000000000000000000000000000000.0>;
+	using CubicYoctometre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000000000000000000000000000000000000000000000000.0>;
+	using CubicZeptometre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000000000000000000000000000000000000000.0>;
+	using CubicAttometre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000000000000000000000000000000.0>;
+	using CubicFemtometre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000000000000000000000.0>;
+	using CubicPicometre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000000000000.0>;
+	using CubicNanometre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000.0>;
+	using CubicMicrometre = xieite::units::Unit<"volume", '/', 1000000000000000000.0>;
+	using CubicMillimetre = xieite::units::Unit<"volume", '/', 1000000000.0>;
+	using CubicCentimetre = xieite::units::Unit<"volume", '/', 1000000.0>;
+	using CubicDecimetre = xieite::units::Unit<"volume", '/', 1000.0>;
+	using CubicMetre = xieite::units::Unit<"volume">;
+	using CubicDecametre = xieite::units::Unit<"volume", '*', 1000.0>;
+	using CubicHectometre = xieite::units::Unit<"volume", '*', 1000000.0>;
+	using CubicKilometre = xieite::units::Unit<"volume", '*', 1000000000.0>;
+	using CubicMegametre = xieite::units::Unit<"volume", '*', 1000000000000000000.0>;
+	using CubicGigametre = xieite::units::Unit<"volume", '*', 1000000000000000000000000000.0>;
+	using CubicTerametre = xieite::units::Unit<"volume", '*', 1000000000000000000000000000000000000.0>;
+	using CubicPetametre = xieite::units::Unit<"volume", '*', 1000000000000000000000000000000000000000000000.0>;
+	using CubicExametre = xieite::units::Unit<"volume", '*', 1000000000000000000000000000000000000000000000000000000.0>;
+	using CubicZettametre = xieite::units::Unit<"volume", '*', 1000000000000000000000000000000000000000000000000000000000000000.0>;
+	using CubicYottametre = xieite::units::Unit<"volume", '*', 1000000000000000000000000000000000000000000000000000000000000000000000000.0>;
+	using CubicRonnametre = xieite::units::Unit<"volume", '*', 1000000000000000000000000000000000000000000000000000000000000000000000000000000000.0>;
+	using CubicQuettametre = xieite::units::Unit<"volume", '*', 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0>;
+	using CubicInch = xieite::units::Unit<"volume", '/', 61023.744095>;
+	using CubicFoot = xieite::units::Unit<"volume", '/', 35.314666721>;
+	using CubicYard = xieite::units::Unit<"volume", '/', 1.3079506193>;
+	using CubicMile = xieite::units::Unit<"volume", '*', 4168181825.440579584>;
+	using Quectolitre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000000000.0>;
+	using Rontolitre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000000.0>;
+	using Yoctolitre = xieite::units::Unit<"volume", '/', 1000000000000000000000000000.0>;
+	using Zeptolitre = xieite::units::Unit<"volume", '/', 1000000000000000000000000.0>;
+	using Attolitre = xieite::units::Unit<"volume", '/', 1000000000000000000000.0>;
+	using Femtolitre = xieite::units::Unit<"volume", '/', 1000000000000000000.0>;
+	using Picolitre = xieite::units::Unit<"volume", '/', 1000000000000000.0>;
+	using Nanolitre = xieite::units::Unit<"volume", '/', 1000000000000.0>;
+	using Microlitre = xieite::units::Unit<"volume", '/', 1000000000.0>;
+	using Millilitre = xieite::units::Unit<"volume", '/', 1000000.0>;
+	using Centilitre = xieite::units::Unit<"volume", '/', 100000.0>;
+	using Decilitre = xieite::units::Unit<"volume", '/', 10000.0>;
+	using Litre = xieite::units::Unit<"volume", '/', 1000.0>;
+	using Decalitre = xieite::units::Unit<"volume", '/', 100.0>;
+	using Hectolitre = xieite::units::Unit<"volume", '/', 10.0>;
+	using Kilolitre = xieite::units::CubicMetre;
+	using Megalitre = xieite::units::Unit<"volume", '*', 1000.0>;
+	using Gigalitre = xieite::units::Unit<"volume", '*', 1000000.0>;
+	using Teralitre = xieite::units::Unit<"volume", '*', 1000000000.0>;
+	using Petalitre = xieite::units::Unit<"volume", '*', 1000000000000.0>;
+	using Exalitre = xieite::units::Unit<"volume", '*', 1000000000000000.0>;
+	using Zettalitre = xieite::units::Unit<"volume", '*', 1000000000000000000.0>;
+	using Yottalitre = xieite::units::Unit<"volume", '*', 1000000000000000000000.0>;
+	using Ronnalitre = xieite::units::Unit<"volume", '*', 1000000000000000000000000.0>;
+	using Quettalitre = xieite::units::Unit<"volume", '*', 1000000000000000000000000000.0>;
+	using FluidOunce = xieite::units::Unit<"volume", '/', 33814.022702>;
+	using Gill = xieite::units::Unit<"volume", '/', 7039.0159455708>;
+	using Cup = xieite::units::Unit<"volume", '/', 3519.5079727854>;
+	using Pint = xieite::units::Unit<"volume", '/', 1759.7539863927>;
+	using Quart = xieite::units::Unit<"volume", '/', 879.87699319635>;
+	using Gallon = xieite::units::Unit<"volume", '/', 219.9691574>;
 }

@@ -10,7 +10,7 @@ export namespace xieite::algorithms {
 		distance %= sizeof...(Types) + 1;
 		while (distance--) {
 			Type last = std::move(first);
-			([](this auto self, auto& first, auto& second, auto&... rest) -> void {
+			([](this auto self, auto& first, auto& second, auto&... rest) {
 				first = std::move(second);
 				if constexpr (sizeof...(rest)) {
 					self(second, rest...);

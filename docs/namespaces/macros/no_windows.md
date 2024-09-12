@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md) \(No windows\)
+# [XIEITE](../../macros.md)\_ \(no windows\)
 Defined in header [<xieite/no_windows.hpp>](../../../src/macros/no_windows.hpp)
 
 &nbsp;

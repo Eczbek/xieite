@@ -4,7 +4,7 @@ Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 &nbsp;
 
 ## Description
-Creates a function signature type if none of the parameters are (possibly `const` or `volatile` qualified) `void`.
+Creates a function signature type if none of the parameters satisfy `std::is_void_v`.
 
 &nbsp;
 

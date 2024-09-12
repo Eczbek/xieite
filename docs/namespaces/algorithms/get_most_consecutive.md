@@ -29,7 +29,7 @@ int main() {
     std::vector<int> values { 1, 0, 1, 1, 1, 0, 1, 1 };
     //           consecutive: 1     1  2  3     1  2
 
-    auto result = xieite::algorithms::getMostConsecutive(values, [](int value) -> bool {
+    auto result = xieite::algorithms::getMostConsecutive(values, [](int value) {
         return value == 1;
     });
 

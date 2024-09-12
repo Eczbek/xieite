@@ -52,7 +52,7 @@ int main() {
     xieite::functors::Function<int(int, int)> foo = &add;
 
     int x = 4;
-    xieite::functors::Function<int(int)> bar = [&x](int a) -> int {
+    xieite::functors::Function<int(int)> bar = [&x](int a) {
         return a * x;
     };
 

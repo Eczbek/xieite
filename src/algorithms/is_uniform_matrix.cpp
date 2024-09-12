@@ -24,7 +24,7 @@ export namespace xieite::algorithms {
 			return std::ranges::all_of(matrix, XIEITE_LIFT(xieite::algorithms::isUniformMatrix));
 		} else {
 			const std::size_t firstSize = std::ranges::size(*std::ranges::begin(matrix));
-			return std::ranges::all_of(matrix, [firstSize](const std::ranges::range_common_reference_t<Range> item) -> bool {
+			return std::ranges::all_of(matrix, [firstSize](const std::ranges::range_common_reference_t<Range> item) {
 				return std::ranges::size(item) == firstSize;
 			});
 		}

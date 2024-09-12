@@ -27,7 +27,7 @@ int main() {
 
     auto result = xieite::containers::reverseTuple(tuple);
 
-    std::apply([](auto... values) -> void {
+    std::apply([](auto... values) {
         (..., std::println("{}", values));
     }, result);
 }

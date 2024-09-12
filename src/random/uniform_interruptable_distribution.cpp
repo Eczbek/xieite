@@ -34,7 +34,7 @@ export namespace xieite::random {
 				}
 			}
 			this->distribution = xieite::random::UniformDistribution<Arithmetic>(minimum, upper);
-			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Arithmetic> interruption1, const xieite::math::Interval<Arithmetic> interruption2) -> bool {
+			std::ranges::sort(this->interruptions.begin(), this->interruptions.end(), [](const xieite::math::Interval<Arithmetic> interruption1, const xieite::math::Interval<Arithmetic> interruption2) {
 				return interruption1.start < interruption2.start;
 			});
 		}

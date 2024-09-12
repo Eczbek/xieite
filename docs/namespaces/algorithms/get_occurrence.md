@@ -29,7 +29,7 @@ int main() {
     std::vector<int> values { 1, 2, 1, 3, 1, 4, 1 };
     //           occurrences: 0     1     2     3
 
-    auto result = xieite::algorithms::occurrence(values, 3, [](int value) -> bool {
+    auto result = xieite::algorithms::occurrence(values, 3, [](int value) {
         return value == 1;
     });
 

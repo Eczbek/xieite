@@ -25,7 +25,7 @@ import std;
 import xieite;
 
 int main() {
-    auto lambda = [](int x, int total) -> int {
+    auto lambda = [](int x, int total) {
         std::println("total: {}", total);
         return total + x;
     };

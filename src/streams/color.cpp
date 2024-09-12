@@ -17,7 +17,7 @@ export namespace xieite::streams {
 		: data { static_cast<std::uint8_t>(arguments)... } {}
 
 		explicit constexpr Color(const xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value = 0) noexcept
-		: data(([value]<std::size_t... i>(std::index_sequence<i...>) -> std::array<std::uint8_t, channels> {
+		: data(([value]<std::size_t... i>(std::index_sequence<i...>) {
 			const auto values = xieite::bits::unjoin<std::uint8_t, channels>(xieite::bits::join(value));
 			return std::array<std::uint8_t, channels> {
 				values[channels - i - 1]...
@@ -33,7 +33,7 @@ export namespace xieite::streams {
 
 		[[nodiscard]] constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value() const noexcept {
 			using Result = xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels>;
-			return ([this]<std::size_t... i>(std::index_sequence<i...>) -> Result {
+			return ([this]<std::size_t... i>(std::index_sequence<i...>) {
 				return static_cast<Result>(xieite::bits::join(this->data[i]...).to_ullong());
 			})(std::make_index_sequence<channels>());
 		}

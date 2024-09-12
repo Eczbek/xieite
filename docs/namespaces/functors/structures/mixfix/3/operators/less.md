@@ -23,7 +23,7 @@ import std;
 import xieite;
 
 int main() {
-    xieite::types::Mixfix<int(int, int)> add = [](int x, int y) -> int {
+    xieite::types::Mixfix<int(int, int)> add = [](int x, int y) {
         return x + y;
     };
 

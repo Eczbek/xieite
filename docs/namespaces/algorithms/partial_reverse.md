@@ -27,7 +27,7 @@ import xieite;
 int main() {
     std::array<int, 5> values { 1, 2, 3, 4, 5 };
 
-    auto callback = [](int value) -> bool {
+    auto callback = [](int value) {
         return value <= 3;
     };
 

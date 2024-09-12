@@ -65,7 +65,7 @@ export namespace xieite::containers {
 
 		[[nodiscard]] std::unordered_map<Key, Value*, Hash, KeyComparator, Allocator>& getMap() const noexcept {
 			using Map = std::unordered_map<Key, Value*, Hash, KeyComparator, Allocator>;
-			static Map map = ([this] -> Map {
+			static Map map = ([this] {
 				Map map;
 				map.reserve(this->array.size());
 				for (const std::pair<Key, Value>& entry : this->array) {

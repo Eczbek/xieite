@@ -44,13 +44,13 @@ struct Line {
 ```
 - start
 - end
-- [Line](./structures/line/1/operators/constructor.md)
-- [operator typename](./structures/line/1/operators/cast.md)
-- [operator==](./structures/line/1/operators/equal.md)
-- [angle](./structures/line/1/angle.md)
-- [length](./structures/line/1/length.md)
-- [slope](./structures/line/1/slope.md)
-- [contains](./structures/line/1/contains.md)
+- [Line\(\)](./structures/line/1/operators/constructor.md)
+- [operator typename\<\>\(\)](./structures/line/1/operators/cast.md)
+- [operator==\(\)](./structures/line/1/operators/equal.md)
+- [angle\(\)](./structures/line/1/angle.md)
+- [length\(\)](./structures/line/1/length.md)
+- [slope\(\)](./structures/line/1/slope.md)
+- [contains\(\)](./structures/line/1/contains.md)
 
 &nbsp;
 

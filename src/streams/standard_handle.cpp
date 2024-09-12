@@ -344,7 +344,7 @@ export namespace xieite::streams {
 		}
 
 		xieite::streams::Key readKey() noexcept {
-			const xieite::functors::ScopeGuard _ = xieite::functors::ScopeGuard([this, blocking = this->blocking] -> void {
+			const xieite::functors::ScopeGuard _ = xieite::functors::ScopeGuard([this, blocking = this->blocking] {
 				this->setInputBlocking(blocking);
 			});
 			const char first = this->readCharacter();

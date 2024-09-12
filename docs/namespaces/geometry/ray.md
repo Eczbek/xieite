@@ -44,13 +44,13 @@ struct Ray {
 ```
 - start
 - end
-- [Ray](./structures/ray/1/operators/constructor.md)
-- [operator typename](./structures/ray/1/operators/cast.md)
-- [operator==](./structures/ray/1/operators/equal.md)
-- [angle](./structures/ray/1/angle.md)
-- [length](./structures/ray/1/length.md)
-- [slope](./structures/ray/1/slope.md)
-- [contains](./structures/ray/1/contains.md)
+- [Ray\(\)](./structures/ray/1/operators/constructor.md)
+- [operator typename\<\>\(\)](./structures/ray/1/operators/cast.md)
+- [operator==\(\)](./structures/ray/1/operators/equal.md)
+- [angle\(\)](./structures/ray/1/angle.md)
+- [length\(\)](./structures/ray/1/length.md)
+- [slope\(\)](./structures/ray/1/slope.md)
+- [contains\(\)](./structures/ray/1/contains.md)
 
 &nbsp;
 

@@ -36,7 +36,7 @@ export namespace xieite::math {
 			}
 		} else {
 			[[maybe_unused]] std::size_t point = 0;
-			const auto nextDigit = [&value, radix, components, &result](Radix index) -> void {
+			const auto nextDigit = [&value, radix, components, &result](Radix index) {
 				value = static_cast<Arithmetic>(value / static_cast<Arithmetic>(radix));
 				if (xieite::math::isNegative(index)) {
 					index = xieite::math::isNegative(radix) ? (index - radix) : (index + radix);

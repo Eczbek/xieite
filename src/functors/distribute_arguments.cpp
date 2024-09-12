@@ -24,10 +24,10 @@ export namespace xieite::functors {
 			std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...);
 		} else {
 			const std::tuple<Arguments&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
-			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) -> void {
+			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) {
 				std::invoke(functor, std::get<i>(std::move(argumentsTuple))...);
 			})(std::make_index_sequence<arity>());
-			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) -> void {
+			([&functor, &argumentsTuple]<std::size_t... i>(std::index_sequence<i...>) {
 				xieite::functors::distributeArguments<arity>(XIEITE_FORWARD(functor), std::get<i + arity>(std::move(argumentsTuple))...);
 			})(std::make_index_sequence<sizeof...(Arguments) - arity>());
 		}

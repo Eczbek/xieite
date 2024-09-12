@@ -23,7 +23,7 @@ struct Fill {
 ```
 - value
 - [Fill\(\)](./structures/fill/1/operators/constructor.md)
-- [operator typename\(\)](./structures/fill/1/operators/cast.md)
+- [operator typename\<\>\(\)](./structures/fill/1/operators/cast.md)
 
 &nbsp;
 

@@ -25,14 +25,14 @@ export namespace xieite::containers {
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
 		constexpr void insert(KeysReference&& keys, ValueReference&& value) {
-			([this, &keys, &value]<std::size_t... i>(std::index_sequence<i...>) -> void {
+			([this, &keys, &value]<std::size_t... i>(std::index_sequence<i...>) {
 				this->map[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...), XIEITE_FORWARD(value));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 		[[nodiscard]] constexpr bool contains(KeysReference&& keys) const {
-			return this->map.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... i>(std::index_sequence<i...>) -> bool {
+			return this->map.contains(std::get<0>(keys)) && ([this, &keys]<std::size_t... i>(std::index_sequence<i...>) {
 				return this->map.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...));
 			})(std::make_index_sequence<sizeof...(RestKeys)>());
 		}

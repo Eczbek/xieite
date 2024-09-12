@@ -34,7 +34,7 @@ bool checkCollision(double x) {
 }
 
 int main() {
-    std::println("{}", xieite::algorithms::numberSearch([](double x) -> bool {
+    std::println("{}", xieite::algorithms::numberSearch([](double x) {
         return !checkCollision(x);
     }));;
 }

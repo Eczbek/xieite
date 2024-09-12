@@ -11,7 +11,7 @@ using ReverseTupleHelper = decltype(([]<std::size_t... i>(std::index_sequence<i.
 export namespace xieite::containers {
 	template<typename... Types>
 	[[nodiscard]] constexpr ReverseTupleHelper<Types...> reverseTuple(const std::tuple<Types...>& tuple) noexcept {
-		return ([&tuple]<std::size_t... i>(std::index_sequence<i...>) -> ReverseTupleHelper<Types...> {
+		return ([&tuple]<std::size_t... i>(std::index_sequence<i...>) {
 			return ReverseTupleHelper<Types...>(std::get<sizeof...(Types) - i - 1>(tuple)...);
 		})(std::make_index_sequence<sizeof...(Types)>());
 	}

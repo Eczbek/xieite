@@ -44,13 +44,13 @@ struct Point {
 ```
 - x
 - y
-- [Point](./structures/point/1/operators/constructor.md)
-- [operator typename](./structures/point/1/operators/cast.md)
-- [operator==](./structures/point/1/operators/equal.md)
-- [angleTo](./structures/point/1/angle_to.md)
-- [distanceTo](./structures/point/1/distance_to.md)
-- [slopeTo](./structures/point/1/slope_to.md)
-- [contains](./structures/point/1/contains.md)
+- [Point\(\)](./structures/point/1/operators/constructor.md)
+- [operator typename\<\>\(\)](./structures/point/1/operators/cast.md)
+- [operator==\(\)](./structures/point/1/operators/equal.md)
+- [angleTo\(\)](./structures/point/1/angle_to.md)
+- [distanceTo\(\)](./structures/point/1/distance_to.md)
+- [slopeTo\(\)](./structures/point/1/slope_to.md)
+- [contains\(\)](./structures/point/1/contains.md)
 
 &nbsp;
 
