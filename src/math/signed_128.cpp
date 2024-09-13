@@ -14,6 +14,6 @@ export namespace xieite::math {
 #if XIEITE_COMPILER_TYPE_MSVC
 	using Signed128 = std::_Signed128;
 #else
-	using Signed128 = __int128;
+	__extension__ using Signed128 = __int128;
 #endif
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#define XIEITE_VERSION_MAJOR 29
+#define XIEITE_VERSION_MAJOR 30
 #define XIEITE_VERSION_MINOR 0
 #define XIEITE_VERSION_PATCH 0
 

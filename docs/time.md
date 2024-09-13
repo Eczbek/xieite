@@ -9,7 +9,6 @@ Things to work with time
 
 ## Contents
 - [Centuries](./namespaces/time/centuries.md)
-- [compilation](./namespaces/time/compilation.md)
 - [Decades](./namespaces/time/decades.md)
 - [Eons](./namespaces/time/eons.md)
 - [Epochs](./namespaces/time/epochs.md)

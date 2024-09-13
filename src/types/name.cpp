@@ -27,7 +27,5 @@ template<typename _>
 
 export namespace xieite::types {
 	template<typename Type>
-	inline constexpr std::string_view name = getName<Type>();
+	constexpr std::string_view name = getName<Type>();
 }
-
-// TODO: Remove `inline` once wreien fixes related bug next week

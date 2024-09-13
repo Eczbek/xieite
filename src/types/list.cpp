@@ -16,7 +16,7 @@ export namespace xieite::types {
 		template<auto selector>
 		static constexpr bool any = (... || xieite::concepts::Satisfies<selector, Types>);
 
-		template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
+		template<typename Type, auto comparator = []<typename First, typename Second> requires(std::same_as<First, Second>) {}>
 		static constexpr bool has = (... || xieite::concepts::Satisfies<comparator, Type, Types>);
 
 		template<auto selector>
@@ -27,7 +27,7 @@ export namespace xieite::types {
 			return index;
 		})();
 
-		template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
+		template<typename Type, auto comparator = []<typename First, typename Second> requires(std::same_as<First, Second>) {}>
 		requires(xieite::types::List<Types...>::has<Type, comparator>)
 		static constexpr std::size_t get = xieite::types::List<Types...>::find<[]<typename OtherType> requires(xieite::concepts::Satisfies<comparator, Type, OtherType>) {}>;
 
@@ -45,7 +45,7 @@ export namespace xieite::types {
 
 		template<typename Type>
 		using Signature = decltype(([] {
-			if constexpr ((... && !std::is_void_v<Types>>)) {
+			if constexpr ((... && !std::is_void_v<Types>)) {
 				return std::type_identity_t<Type(Types...)>();
 			} else {
 				static_assert(false, "must not evaluate function signature with void parameters");
@@ -116,7 +116,7 @@ export namespace xieite::types {
 		template<auto selector>
 		using Filter = decltype((xieite::types::List<Types...>::FilterHelper<selector>()->*...->*xieite::types::List<Types...>::FilterHelper<selector, Types>()));
 
-		template<auto comparator = []<typename Type, typename... Results> requires((... && !std::same_as<Type, Results...>)) {}>
+		template<auto comparator = []<typename First, typename... Rest> requires((... && !std::same_as<First, Rest>)) {}>
 		using Deduplicate = xieite::types::List<Types...>::Filter<comparator>;
 
 		template<std::size_t repetitions>
@@ -148,3 +148,4 @@ export namespace xieite::types {
 }
 
 // Thanks to Eisenwave (https://github.com/Eisenwave) for the filtering algorithm, and eightfold (https://github.com/8ightfold) for helping compact the slicer
+// TODO: Shorten comparator lambdas to `[]<typename T, std::same_as<T>> {}`

@@ -38,11 +38,11 @@ export namespace xieite::functors {
 			constexpr Intermediate(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>& mixfix, LeftArgumentReference&& leftArgument) noexcept
 			: mixfix(mixfix), leftArgument(XIEITE_FORWARD(leftArgument)) {}
 
-			auto operator=(const xieite::functors::Mixfix<Return(LeftArgument, RightARgument)>::Intermediate<LeftArgumentReference>&) = delete;
+			auto operator=(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&) = delete;
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
 			/* discardable */ friend constexpr Return operator>(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.Mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
+				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
 			}
 
 		private:

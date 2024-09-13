@@ -3,12 +3,12 @@ export module xieite:streams.read;
 import std;
 
 export namespace xieite::streams {
-	inline std::string read(std::istream& inputStream) noexcept {
+	std::string read(std::istream& inputStream) noexcept {
 		using Iterator = std::istreambuf_iterator<char>;
 		return std::string(Iterator(inputStream), Iterator());
 	}
 
-	inline std::string read(std::FILE* const inputFile) noexcept {
+	std::string read(std::FILE* const inputFile) noexcept {
 		std::string result;
 		std::size_t chunkSize = 1024;
 		while (true) {
@@ -25,4 +25,3 @@ export namespace xieite::streams {
 }
 
 // TODO: Research best initial chunk size
-// TODO: Remove `inline` once wreien fixes related bug next week

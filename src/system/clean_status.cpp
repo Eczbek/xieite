@@ -9,7 +9,7 @@ module;
 export module xieite:system.cleanStatus;
 
 export namespace xieite::system {
-	inline int cleanStatus(const int status) noexcept {
+	int cleanStatus(const int status) noexcept {
 #if XIEITE_PLATFORM_TYPE_UNIX
 		if (WIFEXITED(status)) {
 			return WEXITSTATUS(status);
@@ -24,5 +24,3 @@ export namespace xieite::system {
 		return status;
 	}
 }
-
-// TODO: Remove `inline` once wreien fixes related bug next week

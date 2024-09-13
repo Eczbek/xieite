@@ -216,6 +216,7 @@ export namespace xieite::streams {
 			if (difference.column) {
 				return "\x1B[" + xieite::math::stringify(std::abs(difference.column)) + "BA"[difference.column < 0];
 			}
+			return "";
 		}
 
 		void moveCursorPosition(const xieite::streams::Position difference) noexcept {

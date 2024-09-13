@@ -14,6 +14,6 @@ export namespace xieite::math {
 #if XIEITE_COMPILER_TYPE_MSVC
 	using Unsigned128 = std::_Unsigned128;
 #else
-	using Unsigned128 = unsigned __int128;
+	__extension__ using Unsigned128 = unsigned __int128;
 #endif
 }

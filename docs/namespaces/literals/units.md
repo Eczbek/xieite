@@ -8,8 +8,8 @@ A namespace of literals for constructing various units.
 
 &nbsp;
 
-## Synopsis
-
+## [Sy](../units/angle.md#Synopsis)[n](../units/area.md#Synopsis)[op](../units/length.md#Synopsis)[s](../units/temperature.md#Synopsis)[is](../units/volume.md#Synopsis)
+:)
 
 &nbsp;
 
