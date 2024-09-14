@@ -2,7 +2,7 @@ export module xieite:types.List;
 
 import std;
 import :concepts.Satisfies;
-import :functors.Overloader;
+import :functors.Visitor;
 import :types.Value;
 
 export namespace xieite::types {
@@ -34,7 +34,7 @@ export namespace xieite::types {
 		template<std::size_t index>
 		requires(index < sizeof...(Types))
 		using At = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return xieite::functors::Overloader([](xieite::types::Value<i>) {
+			return xieite::functors::Visitor([](xieite::types::Value<i>) {
 				return std::type_identity<Types>();
 			}...)(xieite::types::Value<index>());
 		})(std::index_sequence_for<Types...>()))::type;
@@ -121,7 +121,7 @@ export namespace xieite::types {
 
 		template<std::size_t repetitions>
 		using Repeat = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return xieite::functors::Overloader([]<typename... Results>(this auto self, xieite::types::Value<i>) {
+			return xieite::functors::Visitor([]<typename... Results>(this auto self, xieite::types::Value<i>) {
 				return self.template operator()<Results..., Types...>(xieite::types::Value<i + 1>());
 			}..., []<typename... Results>(xieite::types::Value<repetitions>) {
 				return std::type_identity<xieite::types::List<Results...>>();

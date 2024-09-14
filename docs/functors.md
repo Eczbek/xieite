@@ -14,7 +14,6 @@ Utilities relating to functors and arguments
 - [Function\<\> \{\}](./namespaces/functors/function.md)
 - [memoize\<\>\(\)](./namespaces/functors/memoize.md)
 - [Mixfix\<\> \{\}](./namespaces/functors/mixfix.md)
-- [Overloader\<\> \{\}](./namespaces/functors/overloader.md)
 - [postOperation\<\>\(\)](./namespaces/functors/post_operation.md)
 - [ProcessGuard \{\}](./namespaces/functors/process_guard.md)
 - [recursivelyDistributeArguments\<\>\(\)](./namespaces/functors/recursively_distribute_arguments.md)
@@ -22,3 +21,4 @@ Utilities relating to functors and arguments
 - [ScopeGuard \{\}](./namespaces/functors/scope_guard.md)
 - [templatify\<\>\(\)](./namespaces/functors/templatify.md)
 - [time\<\>\(\)](./namespaces/functors/time.md)
+- [Visitor\<\> \{\}](./namespaces/functors/visitor.md)
