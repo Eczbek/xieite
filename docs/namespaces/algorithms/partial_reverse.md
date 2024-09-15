@@ -11,8 +11,8 @@ Selects iterators and then reverses them only between themselves.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::ranges::forward_range Range, xieite::concepts::Invocable<bool(std::ranges::range_common_reference_t<Range>)> Functor>
-requires(std::ranges::sized_range<Range> && !std::is_const_v<std::ranges::iterator_t<Range>>)
+template<std::ranges::bidirectional_range Range, xieite::concepts::Invocable<bool(std::ranges::range_common_reference_t<Range>)> Functor>
+requires(std::indirectly_swappable<std::ranges::iterator_t<Range>>)
 constexpr void partialReverse(Range& range, Functor&& selector)
 noexcept(xieite::concepts::NoThrowInvocable<Functor, bool(std::ranges::range_common_reference_t<Range>)> && xieite::concepts::NoThrowOperableRange<Range>);
 ```
