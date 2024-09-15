@@ -10,8 +10,8 @@ export namespace xieite::math {
 	constexpr auto factorial = ([] {
 		static constexpr auto get = [] {
 			std::vector<Arithmetic> result = { 1 };
-			for (Arithmetic i = 1; !xieite::math::multiplicationOverflows(i, result[i - 1]); ++i) {
-				result.push_back(i * result[i - 1]);
+			for (std::size_t i = 1; !xieite::math::multiplicationOverflows(static_cast<Arithmetic>(i), result[i - 1]); ++i) {
+				result.push_back(static_cast<Arithmetic>(i) * result[i - 1]);
 			}
 			return result;
 		};
