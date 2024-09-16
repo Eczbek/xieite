@@ -5,9 +5,14 @@ import :concepts.Satisfies;
 import :functors.Visitor;
 import :types.Value;
 
+namespace {
+	constexpr auto defaultComparator = []<typename Type, std::same_as<Type>> {};
+}
+
 export namespace xieite::types {
 	template<typename... Types>
 	struct List {
+	public:
 		static constexpr std::size_t size = sizeof...(Types);
 
 		template<auto selector>
@@ -16,7 +21,7 @@ export namespace xieite::types {
 		template<auto selector>
 		static constexpr bool any = (... || xieite::concepts::Satisfies<selector, Types>);
 
-		template<typename Type, auto comparator = []<typename First, typename Second> requires(std::same_as<First, Second>) {}>
+		template<typename Type, auto comparator = defaultComparator>
 		static constexpr bool has = (... || xieite::concepts::Satisfies<comparator, Type, Types>);
 
 		template<auto selector>
@@ -27,7 +32,7 @@ export namespace xieite::types {
 			return index;
 		})();
 
-		template<typename Type, auto comparator = []<typename First, typename Second> requires(std::same_as<First, Second>) {}>
+		template<typename Type, auto comparator = defaultComparator>
 		requires(xieite::types::List<Types...>::has<Type, comparator>)
 		static constexpr std::size_t get = xieite::types::List<Types...>::find<[]<typename OtherType> requires(xieite::concepts::Satisfies<comparator, Type, OtherType>) {}>;
 
@@ -42,6 +47,9 @@ export namespace xieite::types {
 		static constexpr auto apply(auto callback) noexcept {
 			return callback.template operator()<Types...>();
 		}
+
+		template<template<typename...> typename Template>
+		using ApplyRange = Template<Types...>;
 
 		template<typename Type>
 		using Signature = decltype(([] {
@@ -128,8 +136,8 @@ export namespace xieite::types {
 			})(xieite::types::Value<0uz>());
 		})(std::make_index_sequence<repetitions>()))::type;
 
-		template<auto transformer, std::size_t arity>
-		requires((sizeof...(Types) % arity) == 0)
+		template<std::size_t arity, auto transformer>
+		requires(!(sizeof...(Types) % arity))
 		using Transform = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
 			return std::type_identity<xieite::types::List<decltype(transformer.template operator()<xieite::types::List<Types...>::Slice<arity * i, arity * (i + 1)>>())...>>();
 		})(std::make_index_sequence<sizeof...(Types) / arity>()))::type;
@@ -148,4 +156,3 @@ export namespace xieite::types {
 }
 
 // Thanks to Eisenwave (https://github.com/Eisenwave) for the filtering algorithm, and eightfold (https://github.com/8ightfold) for helping compact the slicer
-// TODO: Shorten comparator lambdas to `[]<typename T, std::same_as<T>> {}`

@@ -12,9 +12,9 @@ Distributes arguments among several calls to a functor, but recursively such tha
 #### 1)
 ```cpp
 template<std::size_t arity, std::size_t previousResultIndex = 0, typename Functor, typename... Arguments>
-requires(/* ... */ && (arity > previousResultIndex) && (arity <= sizeof...(Arguments)) && ((arity == 1) || ((arity > 1) && !((sizeof...(Arguments) - 1) % (arity - 1)))))
+requires((arity > previousResultIndex) && (arity <= sizeof...(Arguments)) && ((arity == 1) || ((arity > 1) && !((sizeof...(Arguments) - 1) % (arity - 1)))) && xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_invocable>::value)
 /* discardable */ constexpr decltype(auto) recursivelyDistributeArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(/* ... */);
+noexcept(xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_nothrow_invocable>::value);
 ```
 
 &nbsp;

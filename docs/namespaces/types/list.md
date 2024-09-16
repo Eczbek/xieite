@@ -38,6 +38,9 @@ struct List {
 
     static constexpr auto apply(auto) noexcept;
 
+    template<template<typename...> typename Template>
+    using ApplyRange = Template<Types...>;
+
     template<typename Type>
     using Signature = /* Type(Types...) */;
 
@@ -94,7 +97,7 @@ struct List {
     template<std::size_t repetitions>
     using Repeat = /* xieite::types::List<...> */;
 
-    template<auto transformer, std::size_t arity>
+    template<std::size_t arity, auto transformer>
     requires((sizeof...(Types) % arity) == 0)
     using Transform = /* xieite::types::List<...> */;
 
@@ -108,6 +111,7 @@ struct List {
 ```
 - [Append\<\>](./structures/list/1/append.md)
 - [AppendRange\<\>](./structures/list/1/append_range_of.md)
+- [ApplyRange\<\>](./structures/list/1/apply_range.md)
 - [Arrange\<\>](./structures/list/1/arrange.md)
 - [At\<\>](./structures/list/1/at.md)
 - [Deduplicate\<\>](./structures/list/1/deduplicate.md)

@@ -7,20 +7,13 @@ export module xieite:functors.recursivelyDistributeArguments;
 import std;
 import :containers.spliceTuple;
 import :types.Any;
-
-template<std::size_t>
-using RecursivelyDistributeArgumentsAny = xieite::types::Any;
-
-template<template<typename...> typename Template, typename Functor, std::size_t arity>
-using RecursivelyDistributeArgumentsArity = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-	return Template<Functor, RecursivelyDistributeArgumentsAny<i>...>();
-})(std::make_index_sequence<arity>()));
+import :types.List;
 
 export namespace xieite::functors {
 	template<std::size_t arity, std::size_t previousResultIndex = 0, typename Functor, typename... Arguments>
-	requires(RecursivelyDistributeArgumentsArity<std::is_invocable, Functor, arity>::value && (arity > previousResultIndex) && (arity <= sizeof...(Arguments)) && ((arity == 1) || ((arity > 1) && !((sizeof...(Arguments) - 1) % (arity - 1)))))
+	requires((arity > previousResultIndex) && (arity <= sizeof...(Arguments)) && ((arity == 1) || ((arity > 1) && !((sizeof...(Arguments) - 1) % (arity - 1)))) && xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_invocable>::value)
 	/* discardable */ constexpr decltype(auto) recursivelyDistributeArguments(Functor&& functor, Arguments&&... arguments)
-	noexcept(RecursivelyDistributeArgumentsArity<std::is_nothrow_invocable, Functor, arity>::value) {
+	noexcept(xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_nothrow_invocable>::value) {
 		if constexpr (sizeof...(Arguments) == arity) {
 			return std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...);
 		} else {
@@ -31,5 +24,3 @@ export namespace xieite::functors {
 		}
 	}
 }
-
-// TODO: Replace helpers with `xieite::types::List`

@@ -4,7 +4,7 @@ Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 &nbsp;
 
 ## Description
-Rearranges the types within a list by their indices
+Rearranges the types within a list by their indices.
 
 &nbsp;
 
