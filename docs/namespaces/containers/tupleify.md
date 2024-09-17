@@ -36,7 +36,6 @@ int main() {
 ```
 Output:
 ```
-
 1
 2.5
 a
