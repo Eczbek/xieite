@@ -264,7 +264,7 @@ import :types.CollapseReference;
 #define XIEITE_DETAIL_256(x) _##x
 #define XIEITE_DETAIL_257(x) std::forward_like<xieite::types::CollapseReference<decltype(_##x), Structure>>(_##x)
 #define XIEITE_DETAIL_258(x) \
-	else if constexpr (arity == (x + 1)) { \
+	else if constexpr (xieite::concepts::arity<Structure> == (x + 1)) { \
 		auto&& [XIEITE_DETAIL_##x(256)] = value; \
 		return std::make_tuple(XIEITE_DETAIL_##x(257)); \
 	}
@@ -272,8 +272,7 @@ import :types.CollapseReference;
 export namespace xieite::containers {
 	template<xieite::concepts::Aggregate Structure>
 	[[nodiscard]] constexpr auto tupleify(Structure&& value) noexcept {
-		static constexpr std::size_t arity = xieite::types::arity<Structure>;
-		if constexpr (!arity) {
+		if constexpr (std::is_empty_v<Structure>) {
 			return std::make_tuple();
 		}
 		XIEITE_DETAIL_258(0)

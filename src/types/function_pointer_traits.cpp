@@ -2,33 +2,31 @@ export module xieite:types.FunctionPointerTraits;
 
 import std;
 
-namespace {
-	template<typename Function_, typename Return_, typename Arguments_, bool variadic_, bool noThrowQualified_>
-	struct FreeFunctionPointerTraits {
-		using Function = Function_;
-		using Return = Return_;
-		using Arguments = Arguments_;
+template<typename Function_, typename Return_, typename Arguments_, bool variadic_, bool noThrowQualified_>
+struct FreeFunctionPointerTraits {
+	using Function = Function_;
+	using Return = Return_;
+	using Arguments = Arguments_;
 
-		static constexpr bool variadic = variadic_;
-		static constexpr bool noThrowQualified = noThrowQualified_;
-	};
+	static constexpr bool variadic = variadic_;
+	static constexpr bool noThrowQualified = noThrowQualified_;
+};
 
-	template<typename Class_, typename Reference_, typename Function_, typename Return_, typename Arguments_, bool variadic_, bool constantQualified_, bool volatileQualified_, bool leftValueQualified_, bool rightValueQualified_, bool noThrowQualified_>
-	struct MemberFunctionPointerTraits {
-		using Class = Class_;
-		using Reference = Reference_;
-		using Function = Function_;
-		using Return = Return_;
-		using Arguments = Arguments_;
+template<typename Class_, typename Reference_, typename Function_, typename Return_, typename Arguments_, bool variadic_, bool constantQualified_, bool volatileQualified_, bool leftValueQualified_, bool rightValueQualified_, bool noThrowQualified_>
+struct MemberFunctionPointerTraits {
+	using Class = Class_;
+	using Reference = Reference_;
+	using Function = Function_;
+	using Return = Return_;
+	using Arguments = Arguments_;
 
-		static constexpr bool variadic = variadic_;
-		static constexpr bool constantQualified = constantQualified_;
-		static constexpr bool volatileQualified = volatileQualified_;
-		static constexpr bool leftValueQualified = leftValueQualified_;
-		static constexpr bool rightValueQualified = rightValueQualified_;
-		static constexpr bool noThrowQualified = noThrowQualified_;
-	};
-}
+	static constexpr bool variadic = variadic_;
+	static constexpr bool constantQualified = constantQualified_;
+	static constexpr bool volatileQualified = volatileQualified_;
+	static constexpr bool leftValueQualified = leftValueQualified_;
+	static constexpr bool rightValueQualified = rightValueQualified_;
+	static constexpr bool noThrowQualified = noThrowQualified_;
+};
 
 export namespace xieite::types {
 	template<typename>
