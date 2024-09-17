@@ -11,8 +11,8 @@ Casts one unit to another of the same type.
 ## Synopsis
 #### 1)
 ```cpp
-template</* ... */>
-[[nodiscard]] explicit(false) constexpr operator xieite::units::Unit<type, /* ... */>() const noexcept;
+template<auto... otherOperations>
+[[nodiscard]] explicit(false) constexpr operator xieite::units::Unit<type, otherOperations...>() const noexcept;
 ```
 
 &nbsp;

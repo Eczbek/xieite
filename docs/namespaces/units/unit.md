@@ -4,7 +4,7 @@ Defined in fragment [xieite:units.Unit](../../../src/units/unit.cpp)
 &nbsp;
 
 ## Description
-A type alias for defining units.
+A base structure for defining units.
 
 &nbsp;
 
@@ -13,14 +13,12 @@ A type alias for defining units.
 ```cpp
 template<xieite::containers::FixedString type, auto... operations>
 requires(/* ... */)
-using Unit = /*
-    struct {
-        double value;
+struct Unit {
+    double value;
 
-        template<...>
-        explicit(false) constexpr operator xieite::units::Unit<type, ...>() const noexcept;
-    }
-*/;
+    template<auto... otherOperations>
+    explicit(false) constexpr operator xieite::units::Unit<type, otherOperations...>() const noexcept;
+};
 ```
 - [operator typename\<\>\(\)](./structures/unit/1/operators/cast.md)
 - value
