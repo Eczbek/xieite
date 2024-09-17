@@ -10,7 +10,7 @@
 			struct Chainable { \
 				constexpr void operator+() const noexcept {} \
 				\
-				/* discardable */ constexpr auto&& operator+(auto&& value, Chainable) noexcept { \
+				/* discardable */ friend constexpr auto&& operator+(auto&& value, Chainable) noexcept { \
 					return XIEITE_FORWARD(value); \
 				} \
 			}; \
