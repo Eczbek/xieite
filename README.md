@@ -152,13 +152,18 @@ int main() {
 
 &nbsp;
 
-### [xieite::time::compilation \{\}](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/time/compilation.md)
+### [xieite::types::arity\<\>](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/types/arity.md)
 ```cpp
 import std;
 import xieite;
 
+struct Foo {
+    int x;
+    int y;
+};
+
 int main() {
-    std::println("Compiled in {}", xieite::time::compilation::year);
+    std::println("{}", xieite::types::arity<Foo>);
 }
 ```
 

@@ -259,6 +259,7 @@ export import :time.Epochs;
 export import :time.Millenniums;
 export import :time.Stopwatch;
 export import :types.Any;
+export import :types.arity;
 export import :types.Boolean;
 export import :types.CollapseReference;
 export import :types.CopyConstant;

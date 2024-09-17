@@ -9,6 +9,7 @@ Utilities for type information and metaprogramming
 
 ## Contents
 - [Any \{\}](./namespaces/types/any.md)
+- [arity\<\>](./namespaces/types/arity.md)
 - [Boolean \{\}](./namespaces/types/boolean.md)
 - [CollapseReference\<\>](./namespaces/types/collapse_reference.md)
 - [CopyConstant\<\>](./namespaces/types/copy_constant.md)
