@@ -3,6 +3,7 @@ export module xieite:containers.tupleify;
 import std;
 import :concepts.Aggregate;
 import :types.arity;
+import :types.CollapseReference;
 
 #define XIEITE_DETAIL_0(x) XIEITE_DETAIL_##x(0)
 #define XIEITE_DETAIL_1(x) XIEITE_DETAIL_0(x), XIEITE_DETAIL_##x(1)
