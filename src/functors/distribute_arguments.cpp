@@ -10,7 +10,7 @@ import :types.List;
 
 export namespace xieite::functors {
 	template<std::size_t arity, typename Functor, typename... Arguments>
-	requires((arity > 0) && !(sizeof...(Arguments) % arity) && xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_invocable>::value)
+	requires(!!arity && !(sizeof...(Arguments) % arity) && xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_invocable>::value)
 	constexpr void distributeArguments(Functor&& functor, Arguments&&... arguments)
 	noexcept(xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_nothrow_invocable>::value) {
 		if constexpr (sizeof...(Arguments) == arity) {

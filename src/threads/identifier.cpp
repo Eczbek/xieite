@@ -2,8 +2,10 @@ export module xieite:threads.identifier;
 
 import std;
 
-std::atomic<std::size_t> next = 0;
+namespace {
+	std::atomic<std::size_t> nextThreadIdentifier = 0;
+}
 
 export namespace xieite::threads {
-	thread_local const std::size_t identifier = next++;
+	thread_local const std::size_t identifier = nextThreadIdentifier++;
 }
