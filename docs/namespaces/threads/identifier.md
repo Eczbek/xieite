@@ -11,7 +11,7 @@ Gives an identifier to each unique thread.
 ## Synopsis
 #### 1)
 ```cpp
-inline thread_local const std::size_t identifier = /* ... */;
+thread_local const std::size_t identifier = /* ... */;
 ```
 
 &nbsp;

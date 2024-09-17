@@ -12,7 +12,7 @@ Extracts the stringified name of a type at compile-time without additional forma
 #### 1)
 ```cpp
 template<typename Type>
-inline constexpr std::string_view name = /* ... */;
+constexpr std::string_view name = /* ... */;
 ```
 
 &nbsp;

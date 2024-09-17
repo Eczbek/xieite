@@ -11,7 +11,7 @@ Gets the system's total amount of memory. Requires at least one of `XIEITE_PLATF
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] inline std::size_t getTotal() noexcept;
+[[nodiscard]] std::size_t getTotal() noexcept;
 ```
 
 &nbsp;

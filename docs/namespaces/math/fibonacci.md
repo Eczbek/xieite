@@ -12,7 +12,7 @@ A lookup table of all representable values of the fibonacci sequence.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-inline constexpr std::array<Arithmetic, /* size */> fibonacci = /* ... */
+constexpr std::array<Arithmetic, /* size */> fibonacci = /* ... */
 ```
 
 &nbsp;

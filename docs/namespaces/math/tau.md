@@ -12,7 +12,7 @@ Defines a constant for tau.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-inline constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2;
+constexpr Arithmetic tau = xieite::math::pi<Arithmetic> * 2;
 ```
 
 &nbsp;

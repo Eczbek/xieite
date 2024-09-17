@@ -11,7 +11,7 @@ Cleans the exit status code of a process.
 ## Synopsis
 #### 1)
 ```cpp
-inline int cleanStatus(int status) noexcept;
+int cleanStatus(int status) noexcept;
 ```
 
 &nbsp;

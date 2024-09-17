@@ -11,7 +11,7 @@ Detects rare cosmic rays or a faulty memory. Even if you do intercept something,
 ## Synopsis
 #### 1)
 ```cpp
-inline void detectCosmicRay(std::size_t bytes) noexcept;
+void detectCosmicRay(std::size_t bytes) noexcept;
 ```
 
 &nbsp;

@@ -11,7 +11,7 @@ Causes a segmentation fault. Why would you use this?
 ## Synopsis
 #### 1)
 ```cpp
-inline void segmentationFault() noexcept;
+void segmentationFault() noexcept;
 ```
 
 &nbsp;

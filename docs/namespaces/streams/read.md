@@ -11,11 +11,11 @@ Reads the entire contents of an input stream, including whitespace.
 ## Synopsis
 #### 1)
 ```cpp
-inline std::string read(std::istream& inputStream) noexcept;
+std::string read(std::istream& inputStream) noexcept;
 ```
 #### 2)
 ```cpp
-inline std::string read(std::FILE* inputFile) noexcept;
+std::string read(std::FILE* inputFile) noexcept;
 ```
 
 &nbsp;

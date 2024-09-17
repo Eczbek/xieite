@@ -12,7 +12,7 @@ A lookup table of all representable factorial values.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-inline constexpr std::array<Arithmetic, /* size */> factorial = /* ... */
+constexpr std::array<Arithmetic, /* size */> factorial = /* ... */
 ```
 
 &nbsp;

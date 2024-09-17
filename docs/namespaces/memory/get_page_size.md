@@ -11,7 +11,7 @@ Gets the system's page size in bytes. Requires at least one of `XIEITE_PLATFORM_
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] inline std::size_t getPageSize() noexcept;
+[[nodiscard]] std::size_t getPageSize() noexcept;
 ```
 
 &nbsp;

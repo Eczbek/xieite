@@ -12,12 +12,12 @@ Defines the number of bits in a type.
 #### 1)
 ```cpp
 template<typename Type>
-inline constexpr std::size_t size = sizeof(Type) * std::numeric_limits<unsigned char>::digits;
+constexpr std::size_t size = sizeof(Type) * std::numeric_limits<unsigned char>::digits;
 ```
 #### 2)
 ```cpp
 template<std::integral Integral>
-inline constexpr std::size_t size<Integral> = std::numeric_limits<Integral>::digits + std::numeric_limits<Integral>::is_signed;
+constexpr std::size_t size<Integral> = std::numeric_limits<Integral>::digits + std::numeric_limits<Integral>::is_signed;
 ```
 
 &nbsp;

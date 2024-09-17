@@ -13,7 +13,7 @@ export module xieite:types.demangle;
 import std;
 
 export namespace xieite::types {
-	[[nodiscard]] inline std::string demangle(const std::string& mangled) noexcept {
+	[[nodiscard]] std::string demangle(const std::string& mangled) noexcept {
 		int status;
 		char* const buffer = abi::__cxa_demangle(mangled.data(), nullptr, nullptr, &status);
 		if (buffer) {

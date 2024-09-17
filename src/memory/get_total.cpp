@@ -16,7 +16,7 @@ import std;
 import :memory.getPageSize;
 
 export namespace xieite::memory {
-	[[nodiscard]] inline std::size_t getTotal() noexcept {
+	[[nodiscard]] std::size_t getTotal() noexcept {
 #if XIEITE_PLATFORM_TYPE_UNIX
 		return static_cast<std::size_t>(::sysconf(_SC_PHYS_PAGES)) * xieite::memory::getPageSize();
 #elif XIEITE_PLATFORM_TYPE_WINDOWS
