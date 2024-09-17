@@ -7,7 +7,7 @@ import :math.difference;
 
 export namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr bool almostEqual(const Arithmetic value1, const Arithmetic value2) noexcept {
+	[[nodiscard]] constexpr bool almostEqual(const Arithmetic value1, const std::common_type_t<Arithmetic> value2) noexcept {
 		if constexpr (std::floating_point<Arithmetic>) {
 			const Arithmetic scale = std::abs(value1) + std::abs(value2);
 			return std::abs(value1 - value2) <= (std::numeric_limits<Arithmetic>::epsilon() * ((scale < 1.0) ? (1.0 / scale) : scale));
@@ -17,7 +17,7 @@ export namespace xieite::math {
 	}
 
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr bool almostEqual(const Arithmetic value1, const Arithmetic value2, const Arithmetic epsilon) noexcept {
+	[[nodiscard]] constexpr bool almostEqual(const Arithmetic value1, const std::common_type_t<Arithmetic> value2, const std::common_type_t<Arithmetic> epsilon) noexcept {
 		if constexpr (std::floating_point<Arithmetic>) {
 			return std::abs(value1 - value2) <= std::abs(epsilon);
 		} else {

@@ -12,7 +12,7 @@ Computes a quotient and rounds up.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic divideUp(Arithmetic dividend, Arithmetic divisor) noexcept;
+[[nodiscard]] constexpr Arithmetic divideUp(Arithmetic dividend, std::common_type_t<Arithmetic> divisor) noexcept;
 ```
 
 &nbsp;

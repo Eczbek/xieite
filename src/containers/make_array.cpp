@@ -18,7 +18,7 @@ export namespace xieite::containers {
 			auto iterator = std::ranges::begin(range);
 			return std::array<Value, size> {
 				([&converter, &iterator] -> decltype(auto) {
-					if constexpr (i > 0) {
+					if constexpr (!!i) {
 						++iterator;
 					}
 					return std::invoke(converter, *iterator);

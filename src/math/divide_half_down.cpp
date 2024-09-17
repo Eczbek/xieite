@@ -6,7 +6,7 @@ import :math.sign;
 
 export namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr Arithmetic divideHalfDown(const Arithmetic dividend, const Arithmetic divisor) noexcept {
+	[[nodiscard]] constexpr Arithmetic divideHalfDown(const Arithmetic dividend, const std::common_type_t<Arithmetic> divisor) noexcept {
 		if constexpr (std::floating_point<Arithmetic>) {
 			const Arithmetic result = dividend / divisor;
 			const Arithmetic fractional = std::fmod(result, 1);

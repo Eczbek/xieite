@@ -12,7 +12,7 @@ Defined in fragment [xieite:math.wrap](../../../src/math/wrap.cpp)
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic wrap(Arithmetic value, Arithmetic limit1, Arithmetic limit2) noexcept;
+[[nodiscard]] constexpr Arithmetic wrap(Arithmetic value, std::common_type_t<Arithmetic> limit1, std::common_type_t<Arithmetic> limit2) noexcept;
 ```
 
 &nbsp;

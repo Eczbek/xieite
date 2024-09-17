@@ -22,7 +22,7 @@ export namespace xieite::math {
 	}
 
 	template<xieite::concepts::Arithmetic... Arithmetics>
-	requires(sizeof...(Arithmetics) > 0)
+	requires(!!sizeof...(Arithmetics))
 	[[nodiscard]] constexpr std::vector<std::common_type_t<Arithmetics...>> modes(const Arithmetics... values) noexcept {
 		return xieite::math::modes(std::array<std::common_type_t<Arithmetics...>, sizeof...(Arithmetics)> {
 			static_cast<std::common_type_t<Arithmetics...>>(values)...

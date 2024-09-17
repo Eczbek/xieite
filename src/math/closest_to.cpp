@@ -1,18 +1,17 @@
 export module xieite:math.closestTo;
 
+import std;
 import :concepts.Arithmetic;
 import :math.difference;
 
 export namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr Arithmetic& closestTo(const Arithmetic target, Arithmetic& value1, Arithmetic& value2) noexcept {
+	[[nodiscard]] constexpr Arithmetic& closestTo(const Arithmetic target, std::common_type_t<Arithmetic>& value1, std::common_type_t<Arithmetic>& value2) noexcept {
 		return (xieite::math::difference(target, value1) > xieite::math::difference(target, value2)) ? value2 : value1;
 	}
 
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr Arithmetic closestTo(const Arithmetic target, const Arithmetic& value1, const Arithmetic& value2) noexcept {
-		Arithmetic copy1 = value1;
-		Arithmetic copy2 = value2;
-		return xieite::math::closestTo(target, copy1, copy2);
+	[[nodiscard]] constexpr Arithmetic closestTo(const Arithmetic target, const std::common_type_t<Arithmetic>& value1, const std::common_type_t<Arithmetic>& value2) noexcept {
+		return xieite::math::closestTo(target, static_cast<Arithmetic>(value1), static_cast<Arithmetic>(value2));
 	}
 }

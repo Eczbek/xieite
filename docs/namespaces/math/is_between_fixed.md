@@ -12,7 +12,7 @@ Checks whether a number is between two limits, where the floor and ceiling limit
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr bool isBetweenFixed(Arithmetic value, Arithmetic limit1, Arithmetic limit2, bool floorInclusive = true, bool ceilingInclusive = true) noexcept;
+[[nodiscard]] constexpr bool isBetweenFixed(Arithmetic value, std::common_type_t<Arithmetic> limit1, std::common_type_t<Arithmetic> limit2, bool floorInclusive = true, bool ceilingInclusive = true) noexcept;
 ```
 
 &nbsp;

@@ -12,7 +12,7 @@ Computes a quotient and rounds toward zero.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic divideTowardZero(Arithmetic dividend, Arithmetic divisor) noexcept;
+[[nodiscard]] constexpr Arithmetic divideTowardZero(Arithmetic dividend, std::common_type_t<Arithmetic> divisor) noexcept;
 ```
 
 &nbsp;

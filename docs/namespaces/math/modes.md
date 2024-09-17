@@ -18,7 +18,7 @@ requires(xieite::concepts::Arithmetic<std::ranges::range_value_t<Range>>)
 #### 2)
 ```cpp
 template<xieite::concepts::Arithmetic... Arithmetics>
-requires(sizeof...(Number) > 0)
+requires(!!sizeof...(Number))
 [[nodiscard]] constexpr std::vector<std::common_type_t<double, Arithmetics...>> modes(Arithmetics... values) noexcept;
 ```
 

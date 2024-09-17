@@ -7,7 +7,7 @@ import :math.sign;
 
 export namespace xieite::math {
 	template<std::integral Integral>
-	[[nodiscard]] constexpr Integral reverse(Integral value, const Integral radix = 10) noexcept {
+	[[nodiscard]] constexpr Integral reverse(Integral value, const std::common_type_t<Integral> radix = 10) noexcept {
 		const Integral sign = static_cast<Integral>(xieite::math::sign(value));
 		value *= sign;
 		Integral result = 0;

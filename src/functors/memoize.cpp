@@ -14,11 +14,11 @@ namespace {
 		constexpr Memo(const Functor& functor, const std::tuple<Arguments...>& arguments) noexcept
 		: functor(functor), arguments(arguments) {}
 
-		bool operator==(const Memo<Functor, Arguments...>&) const noexcept = default;
+		friend bool operator==(const Memo<Functor, Arguments...>&, const Memo<Functor, Arguments...>&) = default;
 
 		template<typename... OtherArguments>
-		bool operator==(const Memo<Functor, OtherArguments...>& memo) const noexcept {
-			return (this->functor == memo.functor) && (this->arguments == memo.arguments);
+		friend bool operator==(const Memo<Functor, Arguments...>& memo1, const Memo<Functor, OtherArguments...>& memo2) noexcept {
+			return (memo1.functor == memo2.functor) && (memo1.arguments == memo2.arguments);
 		}
 	};
 

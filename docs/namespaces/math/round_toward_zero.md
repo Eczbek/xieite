@@ -12,7 +12,7 @@ Rounds a value to the nearest multiple of a step toward zero.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic roundTowardZero(Arithmetic value, Arithmetic step = 1) noexcept;
+[[nodiscard]] constexpr Arithmetic roundTowardZero(Arithmetic value, std::common_type_t<Arithmetic> step = 1) noexcept;
 ```
 
 &nbsp;

@@ -12,7 +12,7 @@ Checks whether a number is between two limits, where the limits approaching zero
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr bool isBetweenMagnitude(Arithmetic value, Arithmetic limit1, Arithmetic limit2, bool downInclusive = true, bool upInclusive = true) noexcept;
+[[nodiscard]] constexpr bool isBetweenMagnitude(Arithmetic value, std::common_type_t<Arithmetic> limit1, std::common_type_t<Arithmetic> limit2, bool downInclusive = true, bool upInclusive = true) noexcept;
 ```
 
 &nbsp;

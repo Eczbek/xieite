@@ -284,7 +284,7 @@ export namespace xieite::math {
 					if (!multiplicand.data[j]) {
 						continue;
 					}
-					const xieite::math::Product<Limb> product = xieite::math::multiply<Limb>(multiplier.data[i], multiplicand.data[j]);
+					const xieite::math::Product<Limb> product = xieite::math::multiply(multiplier.data[i], multiplicand.data[j]);
 					result += ((xieite::math::BigInteger<Limb>(product.upper) << xieite::bits::size<Limb>) | product.lower) << (xieite::math::BigInteger<Limb>(i) << std::bit_width(xieite::bits::size<Limb> - 1)) << (xieite::math::BigInteger<Limb>(j) << std::bit_width(xieite::bits::size<Limb> - 1));
 				}
 			}

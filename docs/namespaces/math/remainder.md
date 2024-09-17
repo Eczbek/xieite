@@ -11,16 +11,9 @@ Computes the remainder after division.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr Integral remainder(Integral dividend, Integral divisor) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic remainder(Arithmetic dividend, std::common_type_t<Arithmetic> divisor) noexcept;
 ```
-Uses `%`.
-#### 2)
-```cpp
-template<std::floating_point Fractional>
-[[nodiscard]] constexpr Fractional remainder(Fractional dividend, Fractional divisor) noexcept;
-```
-Uses `std::fmod`.
 
 &nbsp;
 

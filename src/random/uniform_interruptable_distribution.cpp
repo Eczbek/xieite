@@ -21,7 +21,7 @@ export namespace xieite::random {
 			const Arithmetic minimum = std::min(interval.start, interval.end);
 			const Arithmetic maximum = std::max(interval.start, interval.end);
 			Arithmetic upper = maximum;
-			for (const xieite::math::Interval<Arithmetic> interruption : xieite::math::mergeIntervals<Arithmetic>(XIEITE_FORWARD(interruptions))) {
+			for (const xieite::math::Interval<Arithmetic> interruption : xieite::math::mergeIntervals(XIEITE_FORWARD(interruptions))) {
 				if (((interruption.start >= minimum) || (interruption.end >= minimum)) && ((interruption.start <= maximum) || (interruption.end <= maximum))) {
 					const Arithmetic start = std::clamp(interruption.start, minimum, maximum);
 					const Arithmetic end = std::clamp(interruption.end, minimum, maximum);

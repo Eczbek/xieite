@@ -18,7 +18,7 @@ export namespace xieite::math {
 	}
 
 	template<xieite::concepts::Arithmetic... Arithmetics>
-	requires(sizeof...(Arithmetics) > 0)
+	requires(!!sizeof...(Arithmetics))
 	[[nodiscard]] constexpr std::common_type_t<double, Arithmetics...> mean(const Arithmetics... values) noexcept {
 		return (... + (static_cast<std::common_type_t<double, Arithmetics...>>(values) / sizeof...(Arithmetics)));
 	}

@@ -6,7 +6,7 @@ import :math.sign;
 
 export namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr Arithmetic divideUp(const Arithmetic dividend, const Arithmetic divisor) {
+	[[nodiscard]] constexpr Arithmetic divideUp(const Arithmetic dividend, const std::common_type_t<Arithmetic> divisor) {
 		if constexpr (std::floating_point<Arithmetic>) {
 			return std::ceil(dividend / divisor);
 		} else {

@@ -15,7 +15,7 @@ export namespace xieite::math {
 	[[nodiscard]] constexpr std::string stringify(Arithmetic value, const std::conditional_t<std::floating_point<Arithmetic>, xieite::math::SignedSize, Arithmetic> radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) noexcept {
 		using Radix = std::conditional_t<std::floating_point<Arithmetic>, xieite::math::SignedSize, Arithmetic>;
 		std::string result;
-		if (!radix || xieite::math::almostEqual<Arithmetic>(value, 0)) {
+		if (!radix || xieite::math::almostEqual(value, 0)) {
 			result += components.digits[0];
 			if constexpr (std::floating_point<Arithmetic>) {
 				result += components.points[0];
@@ -49,7 +49,7 @@ export namespace xieite::math {
 				do {
 					value *= static_cast<Arithmetic>(radix);
 					++point;
-				} while ((components.precision - point) && !xieite::math::almostEqual<Arithmetic>(std::fmod(value, 1), 0));
+				} while ((components.precision - point) && !xieite::math::almostEqual(std::fmod(value, 1), 0));
 				value = std::round(value);
 			} else {
 				if (value == std::numeric_limits<Arithmetic>::min()) {

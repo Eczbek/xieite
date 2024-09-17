@@ -1,15 +1,15 @@
 export module xieite:math.remainder;
 
 import std;
+import :concepts.Arithmetic;
 
 export namespace xieite::math {
-	template<std::integral Integral>
-	[[nodiscard]] constexpr Integral remainder(const Integral dividend, const Integral divisor) noexcept {
-		return dividend % divisor;
-	}
-
-	template<std::floating_point Fractional>
-	[[nodiscard]] constexpr Fractional remainder(const Fractional dividend, const Fractional divisor) noexcept {
-		return std::fmod(dividend, divisor);
+	template<xieite::concepts::Arithmetic Arithmetic>
+	[[nodiscard]] constexpr Arithmetic remainder(const Arithmetic dividend, const std::common_type_t<Arithmetic> divisor) noexcept {
+		if constexpr (std::floating_point<Arithmetic>) {
+			return std::fmod(dividend, divisor);
+		} else {
+			return dividend % divisor;
+		}
 	}
 }

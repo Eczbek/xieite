@@ -21,7 +21,7 @@ export namespace xieite::math {
 	}
 
 	template<xieite::concepts::Arithmetic... Arithmetics>
-	requires(sizeof...(Arithmetics) > 0)
+	requires(!!sizeof...(Arithmetics))
 	[[nodiscard]] constexpr std::common_type_t<double, Arithmetics...> median(const Arithmetics... values) noexcept {
 		using Result = std::common_type_t<double, Arithmetics...>;
 		return xieite::math::median(std::array<Result, sizeof...(Arithmetics)> {

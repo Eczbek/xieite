@@ -12,7 +12,7 @@ Reverses the digits of an integral of any radix. Allows negative radices.
 #### 1)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr Integral reverse(Integral value, Integral radix = 10) noexcept;
+[[nodiscard]] constexpr Integral reverse(Integral value, std::common_type_t<Integral> radix = 10) noexcept;
 ```
 
 &nbsp;

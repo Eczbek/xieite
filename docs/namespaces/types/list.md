@@ -98,7 +98,7 @@ struct List {
     using Repeat = /* xieite::types::List<...> */;
 
     template<std::size_t arity, auto transformer>
-    requires((sizeof...(Types) % arity) == 0)
+    requires(!(sizeof...(Types) % arity))
     using Transform = /* xieite::types::List<...> */;
 
     template<typename... OtherTypes>

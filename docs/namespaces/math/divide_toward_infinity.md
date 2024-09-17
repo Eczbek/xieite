@@ -12,7 +12,7 @@ Computes a quotient and rounds toward infinity.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic divideTowardInfinity(Arithmetic dividend, Arithmetic divisor) noexcept;
+[[nodiscard]] constexpr Arithmetic divideTowardInfinity(Arithmetic dividend, std::common_type_t<Arithmetic> divisor) noexcept;
 ```
 
 &nbsp;
