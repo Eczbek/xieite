@@ -18,7 +18,7 @@ struct Function;
 ```cpp
 template<typename Return, typename... Arguments>
 struct Function<Return(Arguments...)> {
-    constexpr Function() noexcept;
+    Function() = default;
 
     explicit(false) constexpr Function(const xieite::functors::Function<Return(Arguments...)>&) noexcept;
 

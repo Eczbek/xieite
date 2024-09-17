@@ -11,7 +11,7 @@ Constructs a `xieite::functors::Function<Return(Arguments...)>`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr Function() noexcept;
+Function() = default;
 ```
 #### 2)
 ```cpp

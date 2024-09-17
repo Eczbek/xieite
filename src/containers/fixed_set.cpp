@@ -11,7 +11,7 @@ export namespace xieite::containers {
 	template<typename Key, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::equal_to<Key>, typename Allocator = std::allocator<Key>>
 	struct FixedSet {
 	public:
-		constexpr FixedSet() noexcept = default;
+		FixedSet() = default;
 
 		template<std::ranges::input_range Range>
 		requires(std::convertible_to<std::ranges::range_value_t<Range>, Key>)

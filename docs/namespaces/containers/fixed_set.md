@@ -13,7 +13,7 @@ A `constexpr` wrapper-like structure for `std::unordered_set`.
 ```cpp
 template<typename Key, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::equal_to<Key>, typename Allocator = std::allocator<Key>>
 struct FixedSet {
-    constexpr FixedSet() noexcept;
+    FixedSet() = default;
 
     template<std::ranges::input_range Range>
     requires(std::convertible_to<std::ranges::range_value_t<Range>, Key>)

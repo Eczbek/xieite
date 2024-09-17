@@ -15,7 +15,7 @@ struct Position {
     int row = 0;
     int column = 0;
 
-    friend constexpr bool operator==(xieite::streams::Position, xieite::streams::Position) noexcept = default;
+    friend bool operator==(xieite::streams::Position, xieite::streams::Position) = default;
 };
 ```
 - row

@@ -24,7 +24,7 @@ export namespace xieite::streams {
 			};
 		})(std::make_index_sequence<channels>())) {}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::streams::Color<channels>&, const xieite::streams::Color<channels>&) noexcept = default;
+		friend bool operator==(const xieite::streams::Color<channels>&, const xieite::streams::Color<channels>&) = default;
 
 		template<typename Self>
 		[[nodiscard]] constexpr auto&& operator[](this Self&& self, const std::size_t index) noexcept {

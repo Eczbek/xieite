@@ -21,7 +21,7 @@ struct Color {
 
     constexpr Color(xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> = 0) noexcept;
 
-    friend constexpr bool operator==(const xieite::streams::Color<channels>&, const xieite::streams::Color<channels>&) noexcept = default;
+    friend bool operator==(const xieite::streams::Color<channels>&, const xieite::streams::Color<channels>&) = default;
 
     template<typename Self>
     constexpr auto&& operator[](this Self&&, std::size_t) noexcept;

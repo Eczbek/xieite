@@ -11,7 +11,7 @@ Constructs a `xieite::containers::FixedSet`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr FixedSet() noexcept;
+FixedSet() = default;
 ```
 #### 2)
 ```cpp

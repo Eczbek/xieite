@@ -23,12 +23,12 @@ A continuation machine.
 
 import std;
 
-#define AT_1(first, second, ...) second
-#define CAT_END(lazy, total, ...) )lazy##total
-#define CAT_NEXT(lazy, total, value, ...) (, CAT, XIEITE_CONCATENATE(total, value), lazy##__VA_ARGS__)
+#define AT_1($first, $second, ...) $second
+#define CAT_END($lazy, $total, ...) )$lazy##$total
+#define CAT_NEXT($lazy, $total, $value, ...) (, CAT, XIEITE_CONCATENATE($total, $value), $lazy##__VA_ARGS__)
 #define CAT_PROBE(...) ,CAT_END
 #define CAT_CHECK(...) AT_1(__VA_ARGS__)
-#define XIEITE_CONTINUATION_MACHINE_CALLBACK_CAT(lazy, total, value, ...) CAT_CHECK(CAT_PROBE value, CAT_NEXT)(, lazy##total, value, lazy##__VA_ARGS__)
+#define XIEITE_CONTINUATION_MACHINE_CALLBACK_CAT($lazy, $total, $value, ...) CAT_CHECK(CAT_PROBE $value, CAT_NEXT)(, $lazy##$total, $value, $lazy##__VA_ARGS__)
 #define CAT_ALL(...) XIEITE_CONTINUATION_MACHINE(, CAT, , __VA_ARGS__, ())
 
 int main() {

@@ -5,6 +5,6 @@ export namespace xieite::streams {
 		int row = 0;
 		int column = 0;
 
-		[[nodiscard]] friend constexpr bool operator==(xieite::streams::Position, xieite::streams::Position) noexcept = default;
+		[[nodiscard]] friend bool operator==(xieite::streams::Position, xieite::streams::Position) = default;
 	};
 }

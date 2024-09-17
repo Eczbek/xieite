@@ -14,7 +14,7 @@ export namespace xieite::functors {
 	template<typename Return, typename... Arguments>
 	struct Function<Return(Arguments...)> {
 	public:
-		constexpr Function() noexcept = default;
+		Function() = default;
 
 		explicit(false) constexpr Function(const xieite::functors::Function<Return(Arguments...)>& function) noexcept
 		: pointer(function.pointer->clone()) {}

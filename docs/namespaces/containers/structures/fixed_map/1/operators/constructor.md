@@ -11,7 +11,7 @@ Constructs a `xieite::containers::FixedMap`.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr FixedMap() noexcept;
+FixedMap() = default;
 ```
 #### 2)
 ```cpp
