@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_COUNT\(\)
-Defined in header [<xieite/count.hpp>](../../../src/macros/count.hpp)
+Defined in header [<xieite/count.hpp>](../../../include/xieite/count.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_LIFT...\(\)
-Defined in header [<xieite/lift.hpp>](../../../src/macros/lift.hpp)
+Defined in header [<xieite/lift.hpp>](../../../include/xieite/lift.hpp)
 
 &nbsp;
 

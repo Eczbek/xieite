@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_CONTINUATION\_MACHINE\(\)
-Defined in header [<xieite/continuation_machine.hpp>](../../../src/macros/continuation_machine.hpp)
+Defined in header [<xieite/continuation_machine.hpp>](../../../include/xieite/continuation_machine.hpp)
 
 &nbsp;
 

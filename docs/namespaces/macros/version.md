@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_VERSION\_...
-Defined in header [<xieite/version.hpp>](../../../src/macros/version.hpp)
+Defined in header [<xieite/version.hpp>](../../../include/xieite/version.hpp)
 
 &nbsp;
 

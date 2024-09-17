@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_ATTRIBUTE\_...
-Defined in header [<xieite/attribute.hpp>](../../../src/macros/attribute.hpp)
+Defined in header [<xieite/attribute.hpp>](../../../include/xieite/attribute.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_FEATURE\_...
-Defined in header [<xieite/feature.hpp>](../../../src/macros/feature.hpp)
+Defined in header [<xieite/feature.hpp>](../../../include/xieite/feature.hpp)
 
 &nbsp;
 

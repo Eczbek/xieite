@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_HAS\_INCLUDE\(\)
-Defined in header [<xieite/has_include.hpp>](../../../src/macros/has_include.hpp)
+Defined in header [<xieite/has_include.hpp>](../../../include/xieite/has_include.hpp)
 
 &nbsp;
 

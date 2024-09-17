@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_CONCATENATE...\(\)
-Defined in header [<xieite/concatenate.hpp>](../../../src/macros/concatenate.hpp)
+Defined in header [<xieite/concatenate.hpp>](../../../include/xieite/concatenate.hpp)
 
 &nbsp;
 

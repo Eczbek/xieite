@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_PARENTHESIS\_...\(\)
-Defined in header [<xieite/parenthesis.hpp>](../../../src/macros/parenthesis.hpp)
+Defined in header [<xieite/parenthesis.hpp>](../../../include/xieite/parenthesis.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_FORWARD\(\)
-Defined in header [<xieite/forward.hpp>](../../../src/macros/forward.hpp)
+Defined in header [<xieite/forward.hpp>](../../../include/xieite/forward.hpp)
 
 &nbsp;
 

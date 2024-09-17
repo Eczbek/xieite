@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_RESTRICT
-Defined in header [<xieite/restrict.hpp>](../../../src/macros/restrict.hpp)
+Defined in header [<xieite/restrict.hpp>](../../../include/xieite/restrict.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_PLATFORM\_...
-Defined in header [<xieite/platform.hpp>](../../../src/macros/platform.hpp)
+Defined in header [<xieite/platform.hpp>](../../../include/xieite/platform.hpp)
 
 &nbsp;
 

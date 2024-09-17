@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_COMMA\(\)
-Defined in header [<xieite/comma.hpp>](../../../src/macros/comma.hpp)
+Defined in header [<xieite/comma.hpp>](../../../include/xieite/comma.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_PRAGMA\(\)
-Defined in header [<xieite/pragma.hpp>](../../../src/macros/pragma.hpp)
+Defined in header [<xieite/pragma.hpp>](../../../include/xieite/pragma.hpp)
 
 &nbsp;
 

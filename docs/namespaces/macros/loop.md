@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_LOOP\_...\(\)
-Defined in header [<xieite/loop.hpp>](../../../src/macros/loop.hpp)
+Defined in header [<xieite/loop.hpp>](../../../include/xieite/loop.hpp)
 
 &nbsp;
 

@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_DEBUG\_MODE
-Defined in header [<xieite/debug_mode.hpp>](../../../src/macros/debug_mode.hpp)
+Defined in header [<xieite/debug_mode.hpp>](../../../include/xieite/debug_mode.hpp)
 
 &nbsp;
 

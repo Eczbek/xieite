@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_TRY\_RETURN\(\)
-Defined in header [<xieite/try_return.hpp>](../../../src/macros/try_return.hpp)
+Defined in header [<xieite/try_return.hpp>](../../../include/xieite/try_return.hpp)
 
 &nbsp;
 

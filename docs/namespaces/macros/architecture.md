@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_ARCHITECTURE\_...
-Defined in header [<xieite/architecture.hpp>](../../../src/macros/architecture.hpp)
+Defined in header [<xieite/architecture.hpp>](../../../include/xieite/architecture.hpp)
 
 &nbsp;
 

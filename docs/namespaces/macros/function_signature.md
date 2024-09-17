@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_FUNCTION\_SIGNATURE
-Defined in header [<xieite/function_signature.hpp>](../../../src/macros/function_signature.hpp)
+Defined in header [<xieite/function_signature.hpp>](../../../include/xieite/function_signature.hpp)
 
 &nbsp;
 

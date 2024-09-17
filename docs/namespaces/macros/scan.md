@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_SCAN\(\)
-Defined in header [<xieite/scan.hpp>](../../../src/macros/scan.hpp)
+Defined in header [<xieite/scan.hpp>](../../../include/xieite/scan.hpp)
 
 &nbsp;
 

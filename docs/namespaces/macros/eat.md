@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_EAT\(\)
-Defined in header [<xieite/eat.hpp>](../../../src/macros/eat.hpp)
+Defined in header [<xieite/eat.hpp>](../../../include/xieite/eat.hpp)
 
 &nbsp;
 

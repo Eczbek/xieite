@@ -1,5 +1,5 @@
 # [XIEITE](../../macros.md)\_ENDIAN\_...
-Defined in header [<xieite/endian.hpp>](../../../src/macros/endian.hpp)
+Defined in header [<xieite/endian.hpp>](../../../include/xieite/endian.hpp)
 
 &nbsp;
 
