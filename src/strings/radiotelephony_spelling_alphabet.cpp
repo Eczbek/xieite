@@ -2,11 +2,9 @@ export module xieite:strings.radiotelephonySpellingAlphabet;
 
 import std;
 
-constexpr std::size_t size = static_cast<std::size_t>(std::numeric_limits<unsigned char>::max()) + 1;
-
 export namespace xieite::strings {
-	constexpr std::array<std::string_view, size> radiotelephonySpellingAlphabet = ([] {
-		std::array<std::string_view, size> result;
+	constexpr std::array<std::string_view, (1uz << std::numeric_limits<unsigned char>::digits)> radiotelephonySpellingAlphabet = ([] {
+		std::array<std::string_view, (1uz << std::numeric_limits<unsigned char>::digits)> result;
 		result['A'] = result['a'] = "Alfa"; // This is not a typo
 		result['B'] = result['b'] = "Bravo";
 		result['C'] = result['c'] = "Charlie";
