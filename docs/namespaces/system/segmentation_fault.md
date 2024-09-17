@@ -4,7 +4,7 @@ Defined in fragment [xieite:system.segmentationFault](../../../src/system/segmen
 &nbsp;
 
 ## Description
-Creates a segmentation fault. Why would you use this?
+Causes a segmentation fault. Why would you use this?
 
 &nbsp;
 
