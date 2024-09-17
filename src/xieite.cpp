@@ -106,6 +106,7 @@ export import :containers.reverseTuple;
 export import :containers.spliceTuple;
 export import :containers.TupleMap;
 export import :containers.TupleSet;
+export import :containers.tupleify;
 export import :functors.BraceInitialize;
 export import :functors.counter;
 export import :functors.distributeArguments;
