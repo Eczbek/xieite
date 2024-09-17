@@ -27,10 +27,10 @@ export namespace xieite::units {
 
 	private:
 		using Wrap = xieite::types::List<xieite::types::Value<operations>...>::Transform<2, []<typename Operation, typename Value> {
-			static constexpr auto add = [](auto other) { return Value::value + other; };
-			static constexpr auto subtract = [](auto other) { return Value::value - other; };
-			static constexpr auto multiply = [](auto other) { return Value::value * other; };
-			static constexpr auto divide = [](auto other) { return Value::value / other; };
+			static constexpr auto add = [](const double other) { return Value::value + other; };
+			static constexpr auto subtract = [](const double other) { return Value::value - other; };
+			static constexpr auto multiply = [](const double other) { return Value::value * other; };
+			static constexpr auto divide = [](const double other) { return Value::value / other; };
 			if constexpr (Operation::value == '+') {
 				return std::make_pair(add, subtract);
 			} else if constexpr (Operation::value == '-') {

@@ -12,7 +12,7 @@ Enqueues a job to be executed when a thread is available.
 #### 1)
 ```cpp
 template<std::invocable<> Functor>
-void enqueue(Functor&& callback) noexcept;
+/* discardable */ std::future<void> enqueue(Functor&& functor) noexcept;
 ```
 
 &nbsp;

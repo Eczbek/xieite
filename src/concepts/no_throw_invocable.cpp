@@ -2,13 +2,15 @@ export module xieite:concepts.NoThrowInvocable;
 
 import std;
 
-template<typename, typename>
-struct IsNoThrowInvocable
-: std::false_type {};
+namespace {
+	template<typename, typename>
+	struct IsNoThrowInvocable
+	: std::false_type {};
 
-template<typename Type, typename Return, typename... Arguments>
-struct IsNoThrowInvocable<Type, Return(Arguments...)>
-: std::is_nothrow_invocable_r<Return, Type, Arguments...> {};
+	template<typename Type, typename Return, typename... Arguments>
+	struct IsNoThrowInvocable<Type, Return(Arguments...)>
+	: std::is_nothrow_invocable_r<Return, Type, Arguments...> {};
+}
 
 export namespace xieite::concepts {
 	template<typename Functor, typename Signature>

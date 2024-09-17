@@ -19,7 +19,7 @@ struct Pool {
     std::size_t getThreadCount() const noexcept;
 
     template<std::invocable<> Functor>
-    void enqueue(Functor&&) noexcept;
+    std::future<void> enqueue(Functor&&) noexcept;
 };
 ```
 - [Pool\(\)](./structures/pool/1/operators/constructor.md)

@@ -29,17 +29,17 @@ export namespace xieite::threads {
 			while (threadCount-- > currentThreadCount) {
 				this->threads.emplace_back([this](const std::stop_token stopToken) {
 					while (true) {
-						auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
-						this->condition.wait(jobsLock, [this, stopToken] {
-							return this->jobs.size() || stopToken.stop_requested();
+						auto tasksLock = std::unique_lock<std::mutex>(this->mutex);
+						this->condition.wait(tasksLock, [this, stopToken] {
+							return this->tasks.size() || stopToken.stop_requested();
 						});
-						if (!this->jobs.size() && stopToken.stop_requested()) {
+						if (!this->tasks.size() && stopToken.stop_requested()) {
 							break;
 						}
-						const xieite::functors::Function<void()> job = this->jobs.front();
-						this->jobs.pop();
-						jobsLock.unlock();
-						job();
+						const xieite::functors::Function<void()> task = this->tasks.front();
+						this->tasks.pop();
+						tasksLock.unlock();
+						task();
 					}
 				});
 			}
@@ -51,16 +51,19 @@ export namespace xieite::threads {
 		}
 
 		template<std::invocable<> Functor>
-		void enqueue(Functor&& job) noexcept {
-			auto jobsLock = std::unique_lock<std::mutex>(this->mutex);
-			this->jobs.emplace(job);
-			jobsLock.unlock();
+		/* discardable */ std::future<void> enqueue(Functor&& functor) noexcept {
+			auto task = std::packaged_task<void()>(functor);
+			std::future<void> future = task.get_future();
+			auto tasksLock = std::unique_lock<std::mutex>(this->mutex);
+			this->tasks.emplace(task);
+			tasksLock.unlock();
 			this->condition.notify_one();
+			return future;
 		}
 
 	private:
 		// Destruction order is important!!!
-		std::queue<xieite::functors::Function<void()>> jobs;
+		std::queue<xieite::functors::Function<void()>> tasks;
 		std::vector<std::jthread> threads;
 		mutable std::mutex mutex;
 		std::condition_variable condition;

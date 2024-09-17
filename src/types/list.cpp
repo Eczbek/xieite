@@ -39,7 +39,7 @@ export namespace xieite::types {
 		template<std::size_t index>
 		requires(index < sizeof...(Types))
 		using At = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return xieite::functors::Visitor([](xieite::types::Value<i>) {
+			return xieite::functors::Visitor([](const xieite::types::Value<i>) {
 				return std::type_identity<Types>();
 			}...)(xieite::types::Value<index>());
 		})(std::index_sequence_for<Types...>()))::type;
