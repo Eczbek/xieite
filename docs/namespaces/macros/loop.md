@@ -22,7 +22,7 @@ Creates a Python-style loop that allows appending an `else` block, except it onl
 
 ## Example
 ```cpp
-#include <xieite/for.hpp>
+#include <xieite/loop.hpp>
 
 import std;
 
