@@ -253,9 +253,9 @@
 #define XIEITE_PLATFORM_VERSION_MINOR_Z_OS 0
 #define XIEITE_PLATFORM_VERSION_PATCH_Z_OS 0
 
-#define XIEITE_PLATFORM_VERSION_EQUAL(platform, major, minor, patch) (XIEITE_PLATFORM_TYPE_##platform && (XIEITE_PLATFORM_VERSION_MAJOR_##platform == (major)) && (XIEITE_PLATFORM_VERSION_MINOR_##platform == (minor)) && (XIEITE_PLATFORM_VERSION_PATCH_##platform == (patch)))
-#define XIEITE_PLATFORM_VERSION_LEAST(platform, major, minor, patch) (XIEITE_COMPILER_TYPE_##platform && ((XIEITE_PLATFORM_VERSION_MAJOR_##platform > (major)) || (XIEITE_PLATFORM_VERSION_MAJOR_##platform == (major)) && ((XIEITE_PLATFORM_VERSION_MINOR_##platform > (minor)) || (XIEITE_PLATFORM_VERSION_MINOR_##platform == (minor)) && (XIEITE_PLATFORM_VERSION_PATCH_##platform >= (patch)))))
-#define XIEITE_PLATFORM_VERSION_MOST(platform, major, minor, patch) (XIEITE_COMPILER_TYPE_##platform && ((XIEITE_PLATFORM_VERSION_MAJOR_##platform < (major)) || (XIEITE_PLATFORM_VERSION_MAJOR_##platform == (major)) && ((XIEITE_PLATFORM_VERSION_MINOR_##platform < (minor)) || (XIEITE_PLATFORM_VERSION_MINOR_##platform == (minor)) && (XIEITE_PLATFORM_VERSION_PATCH_##platform <= (patch)))))
+#define XIEITE_PLATFORM_VERSION_EQUAL($platform, $major, $minor, $patch) (XIEITE_PLATFORM_TYPE_##$platform && (XIEITE_PLATFORM_VERSION_MAJOR_##$platform == ($major)) && (XIEITE_PLATFORM_VERSION_MINOR_##$platform == ($minor)) && (XIEITE_PLATFORM_VERSION_PATCH_##$platform == ($patch)))
+#define XIEITE_PLATFORM_VERSION_LEAST($platform, $major, $minor, $patch) (XIEITE_COMPILER_TYPE_##$platform && ((XIEITE_PLATFORM_VERSION_MAJOR_##$platform > ($major)) || (XIEITE_PLATFORM_VERSION_MAJOR_##$platform == ($major)) && ((XIEITE_PLATFORM_VERSION_MINOR_##$platform > ($minor)) || (XIEITE_PLATFORM_VERSION_MINOR_##$platform == ($minor)) && (XIEITE_PLATFORM_VERSION_PATCH_##$platform >= ($patch)))))
+#define XIEITE_PLATFORM_VERSION_MOST($platform, $major, $minor, $patch) (XIEITE_COMPILER_TYPE_##$platform && ((XIEITE_PLATFORM_VERSION_MAJOR_##$platform < ($major)) || (XIEITE_PLATFORM_VERSION_MAJOR_##$platform == ($major)) && ((XIEITE_PLATFORM_VERSION_MINOR_##$platform < ($minor)) || (XIEITE_PLATFORM_VERSION_MINOR_##$platform == ($minor)) && (XIEITE_PLATFORM_VERSION_PATCH_##$platform <= ($patch)))))
 
 #ifdef aegis
 #	undef XIEITE_PLATFORM_TYPE_AEGIS
