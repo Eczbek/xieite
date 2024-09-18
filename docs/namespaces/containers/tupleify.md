@@ -23,9 +23,9 @@ import std;
 import xieite;
 
 struct Foo {
-	int x;
-	double y;
-	char z;
+    int x;
+    double y;
+    char z;
 };
 
 int main() {
