@@ -4,9 +4,7 @@ Defined in header [<xieite/version.hpp>](../../../include/xieite/version.hpp)
 &nbsp;
 
 ## Description
-Macros for xieite's current version (major, minor, patch). See header file for definitions.
-
-Also provides version checking utilities:
+Macros for xieite's current version (major, minor, patch). See header file for definitions. Also provides version comparing utilities.
 
 &nbsp;
 

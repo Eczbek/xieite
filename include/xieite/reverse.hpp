@@ -1,0 +1,9 @@
+#pragma once
+
+#include <xieite/defer.hpp>
+#include <xieite/evaluate.hpp>
+
+#define XIEITE_REVERSE(...) __VA_OPT__(XIEITE_EVALUATE(XIEITE_DETAIL_REVERSE_HELPER(__VA_ARGS__)))
+
+#define XIEITE_DETAIL_REVERSE_HELPER($first, ...) __VA_OPT__(XIEITE_DEFER(XIEITE_DETAIL_REVERSE_INDIRECT)()(__VA_ARGS__),) $first
+#define XIEITE_DETAIL_REVERSE_INDIRECT() XIEITE_DETAIL_REVERSE_HELPER

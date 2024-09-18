@@ -11,11 +11,11 @@ Converts expressions to a string literally.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_STRINGIFY(...) XIEITE_STRINGIFY_DIRECT(__VA_ARGS__)
+#define XIEITE_STRINGIFY(...) XIEITE_STRINGIFY_PRIMITIVE(__VA_ARGS__)
 ```
 #### 2)
 ```cpp
-#define XIEITE_STRINGIFY_DIRECT(...) #__VA_ARGS__
+#define XIEITE_STRINGIFY_PRIMITIVE(...) #__VA_ARGS__
 ```
 
 &nbsp;

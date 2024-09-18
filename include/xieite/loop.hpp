@@ -24,4 +24,4 @@
 
 #define XIEITE_LOOP_WHILE(...) XIEITE_LOOP_FOR(; static_cast<bool>(__VA_ARGS__);)
 
-// Blatantly stolen from m1lkweed (https://gist.github.com/m1lkweed/3be672402c43ac5697f1e29bcb79e004)
+// Stolen from m1lkweed (https://gist.github.com/m1lkweed/3be672402c43ac5697f1e29bcb79e004)
