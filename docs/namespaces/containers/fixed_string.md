@@ -30,7 +30,7 @@ struct FixedString {
 
 ### Deduction guides
 ```cpp
-template<std::size_t characters, typename Character>
+template<auto characters, typename Character>
 FixedString(char Character(&)[characters]) -> xieite::containers::FixedString<characters, Character>;
 ```
 

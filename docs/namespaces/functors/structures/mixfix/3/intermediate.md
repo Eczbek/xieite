@@ -4,7 +4,7 @@ Defined in fragment [xieite:functors.Mixfix](../../../../../../src/functors/mixf
 &nbsp;
 
 ## Description
-An intermediate state for an mixfix thingamabob.
+An intermediate state for a mixfix thingamabob.
 
 &nbsp;
 
@@ -12,10 +12,9 @@ An intermediate state for an mixfix thingamabob.
 #### 1)
 ```cpp
 template<typename LeftArgumentReference>
-struct Intermediate {
+struct Intermediate
+: xieite::containers::MaybeCopyAssignable<false>, xieite::containers::MaybeMoveAssignable<false> {
     constexpr Intermediate(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>&, LeftArgumentReference&&) noexcept;
-
-    auto operator=(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&) = delete;
 
     template<std::convertible_to<RightArgument> RightArgumentReference>
     friend constexpr Return operator>(xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&&, RightArgumentReference&&);

@@ -6,6 +6,8 @@ export module xieite:functors.Mixfix;
 
 import std;
 import :concepts.Invocable;
+import :containers.MaybeCopyAssignable;
+import :containers.MaybeMoveAssignable;
 import :functors.Function;
 
 export namespace xieite::functors {
@@ -33,12 +35,11 @@ export namespace xieite::functors {
 	: xieite::functors::Function<Return(LeftArgument, RightArgument)> {
 	private:
 		template<typename LeftArgumentReference>
-		struct Intermediate {
+		struct Intermediate
+		: xieite::containers::MaybeCopyAssignable<false>, xieite::containers::MaybeMoveAssignable<false> {
 		public:
 			constexpr Intermediate(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>& mixfix, LeftArgumentReference&& leftArgument) noexcept
 			: mixfix(mixfix), leftArgument(XIEITE_FORWARD(leftArgument)) {}
-
-			auto operator=(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&) = delete;
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
 			/* discardable */ friend constexpr Return operator>(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {

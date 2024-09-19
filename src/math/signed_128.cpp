@@ -5,7 +5,7 @@ module;
 #if XIEITE_COMPILER_TYPE_MSVC
 #	include <__msvc_int128.hpp>
 #elif !XIEITE_COMPILER_TYPE_GCC && !XIEITE_COMPILER_TYPE_CLANG
-#	warning "Compiler not supported"
+#	warning "unsupported compiler"
 #endif
 
 export module xieite:math.Signed128;

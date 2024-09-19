@@ -10,6 +10,7 @@ export namespace xieite::math {
 	[[nodiscard]] constexpr bool almostEqual(const Arithmetic value1, const std::common_type_t<Arithmetic> value2) noexcept {
 		if constexpr (std::floating_point<Arithmetic>) {
 			const Arithmetic scale = std::abs(value1) + std::abs(value2);
+			// If `scale` is less than 1, take its reciprocal to account for precision loss
 			return std::abs(value1 - value2) <= (std::numeric_limits<Arithmetic>::epsilon() * ((scale < 1.0) ? (1.0 / scale) : scale));
 		} else {
 			return value1 == value2;

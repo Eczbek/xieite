@@ -8,3 +8,5 @@ export namespace xieite::math {
 		return value && !(value & (value - 1));
 	}
 }
+
+// https://graphics.stanford.edu/~seander/bithacks.html#DetermineIfPowerOf2

@@ -4,7 +4,7 @@ Defined in fragment [xieite:functors.Mixfix](../../../../../../../src/functors/m
 &nbsp;
 
 ## Description
-Constructs an mixfix thingamabob.
+Constructs a mixfix thingamabob.
 
 &nbsp;
 

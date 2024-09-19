@@ -56,7 +56,7 @@ export namespace xieite::types {
 			if constexpr ((... && !std::is_void_v<Types>)) {
 				return std::type_identity_t<Type(Types...)>();
 			} else {
-				static_assert(false, "must not evaluate function signature with void parameters");
+				static_assert(false, "must not create function signature with void parameters");
 			}
 		})())::type;
 

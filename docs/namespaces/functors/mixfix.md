@@ -4,7 +4,7 @@ Defined in fragment [xieite:functors.Mixfix](../../../src/functors/mixfix.cpp)
 &nbsp;
 
 ## Description
-An mixfix operator thingamabob.
+A mixfix operator thingamabob.
 
 &nbsp;
 

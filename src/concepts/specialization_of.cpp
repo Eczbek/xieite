@@ -16,3 +16,5 @@ export namespace xieite::concepts {
 	template<typename Type, template<typename...> typename Template>
 	concept SpecializationOf = IsSpecializationOf<std::remove_cvref_t<Type>, Template>::value;
 }
+
+// TODO: Remove after `std::specialization_of` is implemented

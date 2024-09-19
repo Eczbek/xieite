@@ -365,7 +365,7 @@ export namespace xieite::math {
 
 		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator%(const xieite::math::BigInteger<Limb>& dividend, const xieite::math::BigInteger<Limb>& divisor) {
 			if (!divisor) {
-				throw std::out_of_range("must not take remainder by zero");
+				throw std::out_of_range("must not take remainder of division by zero");
 			}
 			const xieite::math::BigInteger<Limb> absoluteDividend = dividend.absolute();
 			const xieite::math::BigInteger<Limb> absoluteDivisor = divisor.absolute();
@@ -559,10 +559,7 @@ export namespace xieite::math {
 			if (*this == -1) {
 				return *this * xieite::math::splitBoolean(!!(exponent & 1));
 			}
-			if (!exponent) {
-				return 1;
-			}
-			if (!*this) {
+			if (!*this || !exponent) {
 				if (exponent.negative) {
 					throw std::out_of_range("must not take power of zero to negative exponent");
 				}

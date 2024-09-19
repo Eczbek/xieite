@@ -5,7 +5,7 @@ module;
 #if XIEITE_COMPILER_TYPE_GCC
 #	include <cxxabi.h>
 #else
-#	warning "Compiler not supported"
+#	warning "unsupported compiler"
 #endif
 
 export module xieite:types.demangle;

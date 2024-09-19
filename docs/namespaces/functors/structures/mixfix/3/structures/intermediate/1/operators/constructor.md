@@ -4,7 +4,7 @@ Defined in fragment [xieite:functors.Mixfix](../../../../../../../../../../src/f
 &nbsp;
 
 ## Description
-Constructs an intermediate state of an mixfix thingamabob.
+Constructs an intermediate state of a mixfix thingamabob.
 
 &nbsp;
 
