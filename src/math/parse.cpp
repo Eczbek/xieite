@@ -2,6 +2,7 @@ export module xieite:math.parse;
 
 import std;
 import :concepts.Arithmetic;
+import :math.power;
 import :math.SignedSize;
 import :math.splitBoolean;
 import :strings.NumberComponents;
@@ -37,7 +38,7 @@ export namespace xieite::math {
 				part = part * static_cast<Arithmetic>(radix) + static_cast<Arithmetic>(index);
 				point += !!point;
 			}
-			return xieite::math::splitBoolean(!negative) * (integral + fractional / std::pow(radix, point - 1)) * std::pow(radix, power);
+			return xieite::math::splitBoolean(!negative) * (integral + fractional / xieite::math::power(radix, point - 1)) * xieite::math::power(radix, power);
 		} else {
 			Arithmetic result = 0;
 			for (std::size_t i = negative || components.positives.contains(value[0]); i < valueSize; ++i) {

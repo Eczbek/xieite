@@ -1,6 +1,7 @@
 export module xieite:strings.fromRomanNumerals;
 
 import std;
+import :math.power;
 import :strings.uppercase;
 
 export namespace xieite::strings {
@@ -17,7 +18,7 @@ export namespace xieite::strings {
 			if (index == std::string_view::npos) {
 				continue;
 			}
-			const Integral addend = ((index % 2) ? 5 : 1) * std::pow(10, index / 2);
+			const Integral addend = ((index % 2) ? 5 : 1) * xieite::math::power(10, index / 2);
 			result += (addend < previous) ? -addend : addend;
 			previous = addend;
 		}

@@ -4,15 +4,15 @@ Defined in fragment [xieite:math.power](../../../src/math/power.cpp)
 &nbsp;
 
 ## Description
-Computes a power of an integer.
+A wrapper for `std::pow()` and a specialization for integer types.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Integral>
-[[nodiscard]] constexpr Integral power(Integral base, std::size_t exponent) noexcept;
+template<xieite::concepts::Arithmetic Arithmetic>
+[[nodiscard]] constexpr Arithmetic power(Arithmetic base, std::common_type_t<Arithmetic> exponent) noexcept;
 ```
 
 &nbsp;
