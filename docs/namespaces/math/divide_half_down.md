@@ -12,7 +12,7 @@ Computes a quotient and rounds [half down](https://en.wikipedia.org/wiki/Roundin
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic divideHalfDown(Arithmetic dividend, std::common_type_t<Arithmetic> divisor) noexcept;
+[[nodiscard]] constexpr Arithmetic divideHalfDown(Arithmetic dividend, std::type_identity_t<Arithmetic> divisor) noexcept;
 ```
 
 &nbsp;

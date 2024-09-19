@@ -12,7 +12,7 @@ Takes the logarithm of a value in any base.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Arithmetic Result = std::common_type_t<double, Arithmetic>>
-[[nodiscard]] constexpr Result logarithm(Arithmetic base, std::common_type_t<Arithmetic> value) noexcept;
+[[nodiscard]] constexpr Result logarithm(Arithmetic base, std::type_identity_t<Arithmetic> value) noexcept;
 ```
 
 &nbsp;

@@ -6,7 +6,7 @@ import :math.isNegative;
 
 export namespace xieite::math {
 	template<std::integral Integral>
-	[[nodiscard]] constexpr std::size_t digits(Integral value, const std::common_type_t<Integral> radix = 10) noexcept {
+	[[nodiscard]] constexpr std::size_t digits(Integral value, const std::type_identity_t<Integral> radix = 10) noexcept {
 		if (!radix) {
 			return 1;
 		}

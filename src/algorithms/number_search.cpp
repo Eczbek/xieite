@@ -9,7 +9,7 @@ import :math.isNegative;
 
 export namespace xieite::algorithms {
 	template<xieite::concepts::Arithmetic Arithmetic, xieite::concepts::Invocable<bool(Arithmetic)> Functor>
-	[[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector, Arithmetic minimum, std::common_type_t<Arithmetic> maximum)
+	[[nodiscard]] constexpr Arithmetic numberSearch(Functor&& selector, Arithmetic minimum, std::type_identity_t<Arithmetic> maximum)
 	noexcept(xieite::concepts::NoThrowInvocable<Functor, bool(Arithmetic)>) {
 		while (true) {
 			const Arithmetic middle = static_cast<Arithmetic>((minimum + maximum) / 2);

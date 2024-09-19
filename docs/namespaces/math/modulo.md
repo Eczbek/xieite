@@ -12,7 +12,7 @@ Computes modulus better.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic modulo(Arithmetic dividend, std::common_type_t<Arithmetic> divisor) noexcept;
+[[nodiscard]] constexpr Arithmetic modulo(Arithmetic dividend, std::type_identity_t<Arithmetic> divisor) noexcept;
 ```
 
 &nbsp;

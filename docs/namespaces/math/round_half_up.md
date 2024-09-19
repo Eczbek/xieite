@@ -12,7 +12,7 @@ Rounds a value to the nearest multiple of a step [like so](https://en.wikipedia.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic roundHalfUp(Arithmetic value, std::common_type_t<Arithmetic> step = 1) noexcept;
+[[nodiscard]] constexpr Arithmetic roundHalfUp(Arithmetic value, std::type_identity_t<Arithmetic> step = 1) noexcept;
 ```
 
 &nbsp;

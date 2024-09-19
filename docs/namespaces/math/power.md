@@ -4,7 +4,7 @@ Defined in fragment [xieite:math.power](../../../src/math/power.cpp)
 &nbsp;
 
 ## Description
-A wrapper for `std::pow()` and a specialization for integer types.
+A wrapper for `std::pow()` and a specialization for integer types. For integers, raising zero to a negative exponent throws `std::out_of_range`.
 
 &nbsp;
 
@@ -12,7 +12,7 @@ A wrapper for `std::pow()` and a specialization for integer types.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic power(Arithmetic base, std::common_type_t<Arithmetic> exponent) noexcept;
+[[nodiscard]] constexpr Arithmetic power(Arithmetic base, std::type_identity_t<Arithmetic> exponent) noexcept;
 ```
 
 &nbsp;

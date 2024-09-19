@@ -12,7 +12,7 @@ Computes the product of two unsigned integers in two parts. Intended for avoidin
 #### 1)
 ```cpp
 template<std::unsigned_integral UnsignedIntegral>
-[[nodiscard]] constexpr xieite::math::Product<UnsignedIntegral> multiply(UnsignedIntegral multiplier, std::common_type_t<UnsignedIntegral> multiplicand) noexcept;
+[[nodiscard]] constexpr xieite::math::Product<UnsignedIntegral> multiply(UnsignedIntegral multiplier, std::type_identity_t<UnsignedIntegral> multiplicand) noexcept;
 ```
 
 &nbsp;

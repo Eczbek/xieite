@@ -12,7 +12,7 @@ Computes the remainder after division.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic remainder(Arithmetic dividend, std::common_type_t<Arithmetic> divisor) noexcept;
+[[nodiscard]] constexpr Arithmetic remainder(Arithmetic dividend, std::type_identity_t<Arithmetic> divisor) noexcept;
 ```
 
 &nbsp;

@@ -6,7 +6,7 @@ import :types.TryUnsigned;
 
 export namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr xieite::types::TryUnsigned<Arithmetic> difference(const Arithmetic value1, const std::common_type_t<Arithmetic> value2) noexcept {
+	[[nodiscard]] constexpr xieite::types::TryUnsigned<Arithmetic> difference(const Arithmetic value1, const std::type_identity_t<Arithmetic> value2) noexcept {
 		return (value1 > value2) ? (static_cast<xieite::types::TryUnsigned<Arithmetic>>(value1) - static_cast<xieite::types::TryUnsigned<Arithmetic>>(value2)) : (static_cast<xieite::types::TryUnsigned<Arithmetic>>(value2) - static_cast<xieite::types::TryUnsigned<Arithmetic>>(value1));
 	}
 }

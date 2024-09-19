@@ -6,7 +6,7 @@ import :math.isNegative;
 
 export namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
-	[[nodiscard]] constexpr Arithmetic power(Arithmetic base, std::common_type_t<Arithmetic> exponent) {
+	[[nodiscard]] constexpr Arithmetic power(Arithmetic base, std::type_identity_t<Arithmetic> exponent) {
 		if constexpr (std::floating_point<Arithmetic>) {
 			return std::pow(base, exponent);
 		} else {

@@ -12,12 +12,12 @@ Selects the value farthest from a target.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic& farthestFrom(Arithmetic target, std::common_type_t<Arithmetic>& value1, std::common_type_t<Arithmetic>& value2) noexcept;
+[[nodiscard]] constexpr Arithmetic& farthestFrom(Arithmetic target, std::type_identity_t<Arithmetic>& value1, std::type_identity_t<Arithmetic>& value2) noexcept;
 ```
 #### 2)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic farthestFrom(Arithmetic target, const std::common_type_t<Arithmetic>& value1, const std::common_type_t<Arithmetic>& value2) noexcept;
+[[nodiscard]] constexpr Arithmetic farthestFrom(Arithmetic target, const std::type_identity_t<Arithmetic>& value1, const std::type_identity_t<Arithmetic>& value2) noexcept;
 ```
 
 &nbsp;

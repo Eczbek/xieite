@@ -12,7 +12,7 @@ Computes the number of integral digits in a value of any radix.
 #### 1)
 ```cpp
 template<std::integral Integral>
-[[nodiscard]] constexpr std::size_t digits(Integral value, std::common_type_t<Integral> radix = 10) noexcept;
+[[nodiscard]] constexpr std::size_t digits(Integral value, std::type_identity_t<Integral> radix = 10) noexcept;
 ```
 
 &nbsp;

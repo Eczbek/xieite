@@ -7,7 +7,7 @@ import :math.TryUnsigned;
 
 export namespace xieite::math {
 	template<std::integral Integral>
-	[[nodiscard]] constexpr Integral reverse(Integral value, const std::common_type_t<Integral> radix = 10) noexcept {
+	[[nodiscard]] constexpr Integral reverse(Integral value, const std::type_identity_t<Integral> radix = 10) noexcept {
 		if (!radix) {
 			return 0;
 		} else if ((radix == 1) || (!std::unsigned_integral<Integral> && (radix == static_cast<Integral>(-1)))) {
