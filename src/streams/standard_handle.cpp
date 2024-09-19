@@ -8,7 +8,7 @@ module;
 #	include <termios.h>
 #	include <unistd.h>
 #else
-#	warning "Platform not supported"
+#	warning "unsupported platform"
 #endif
 
 export module xieite:streams.StandardHandle;
@@ -273,7 +273,7 @@ export namespace xieite::streams {
 
 		[[nodiscard]] xieite::streams::Position getScreenSize() noexcept {
 			::winsize size;
-			::ioctl(::fileno(this->inputFile), TIOCGWINSZ, &size);
+			::ioctl(::fileno(this->inputFile), TIOCGWINSZ, std::addressof(size));
 			return xieite::streams::Position(size.ws_row, size.ws_col);
 		}
 
@@ -704,7 +704,7 @@ export namespace xieite::streams {
 			rawMode.c_iflag &= ~static_cast<::tcflag_t>((ICRNL * !this->signals) | (IXON * !this->signals));
 			rawMode.c_lflag &= ~static_cast<::tcflag_t>((ECHO * !this->echo) | (ICANON * !this->canon) | (IEXTEN * !this->signals) | (ISIG * !this->signals));
 			rawMode.c_oflag &= ~static_cast<::tcflag_t>(OPOST * !this->processing);
-			::tcsetattr(::fileno(this->inputFile), TCSANOW, &rawMode);
+			::tcsetattr(::fileno(this->inputFile), TCSANOW, std::addressof(rawMode));
 		}
 	};
 }

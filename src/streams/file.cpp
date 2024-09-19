@@ -7,7 +7,7 @@ module;
 #	include <fcntl.h>
 #	include <unistd.h>
 #elif !XIEITE_PLATFORM_TYPE_WINDOWS
-#	warning "Platform not supported"
+#	warning "unsupported platform"
 #endif
 
 #if XIEITE_COMPILER_TYPE_GCC
@@ -95,15 +95,16 @@ export namespace xieite::streams {
 			this->stream = ([&stream] {
 				static constexpr bool isInput = xieite::concepts::InputStream<Stream>;
 				static constexpr bool isOutput = xieite::concepts::OutputStream<Stream>;
+				const Stream* address = std::addressof(stream);
 				if constexpr (isInput) {
-					if (&stream == &std::cin) {
+					if (address == std::addressof(std::cin)) {
 						return stdin;
 					}
 				} else if constexpr (isOutput) {
-					if (&stream == &std::cout) {
+					if (address == std::addressof(std::cout)) {
 						return stdout;
 					}
-					if ((&stream == &std::cerr) || (&stream == &std::clog)) {
+					if ((address == std::addressof(std::cerr)) || (address == std::addressof(std::clog))) {
 						return stderr;
 					}
 				}

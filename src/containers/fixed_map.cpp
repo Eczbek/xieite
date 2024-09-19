@@ -69,7 +69,8 @@ export namespace xieite::containers {
 				Map map;
 				map.reserve(this->array.size());
 				for (const std::pair<Key, Value>& entry : this->array) {
-					map.emplace(std::make_pair(entry.first, const_cast<Value*>(&entry.second)));
+					// Disregard constness here; It is properly handled in `operator[]`
+					map.emplace(std::make_pair(entry.first, const_cast<Value*>(std::addressof(entry.second))));
 				}
 				return map;
 			})();

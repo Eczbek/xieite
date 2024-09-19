@@ -22,7 +22,7 @@ export namespace xieite::memory {
 #elif XIEITE_PLATFORM_TYPE_WINDOWS
 		::MEMORYSTATUSEX status;
 		status.dwLength = sizeof(status);
-		::GlobalMemoryStatusEx(&status);
+		::GlobalMemoryStatusEx(std::addressof(status));
 		return status.ullTotalPhys;
 #endif
 	}

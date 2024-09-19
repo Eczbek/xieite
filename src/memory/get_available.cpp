@@ -7,7 +7,7 @@ module;
 #elif XIEITE_PlATFORM_TYPE_WINDOWS
 #	include <windows.h>
 #else
-#	warning "Platform not supported"
+#	warning "unsupported platform"
 #endif
 
 export module xieite:memory.getAvailable;
@@ -22,7 +22,7 @@ export namespace xieite::memory {
 #elif XIEITE_PLATFORM_TYPE_WINDOWS
 		::MEMORYSTATUSEX status;
 		status.dwLength = sizeof(status);
-		::GlobalMemoryStatusEx(&status);
+		::GlobalMemoryStatusEx(std::addressof(status));
 		return status.ullAvailPhys;
 #endif
 	}

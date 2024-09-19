@@ -27,7 +27,7 @@ export namespace xieite::memory {
 
 		constexpr void shred() noexcept {
 			if !consteval {
-				const auto byte = reinterpret_cast<volatile std::byte*>(&this->value);
+				const auto byte = reinterpret_cast<volatile std::byte*>(std::addressof(this->value));
 				for (std::size_t i = 0; i < sizeof(Type); ++i) {
 					byte[i] = static_cast<std::byte>(0);
 				}

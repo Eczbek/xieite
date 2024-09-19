@@ -7,7 +7,7 @@ module;
 #elif XIEITE_PLATFORM_TYPE_WINDOWS
 #	include <windows.h>
 #else
-#	warning "Platform not supported"
+#	warning "unsupported platform"
 #endif
 
 export module xieite:memory.getPageSize;
@@ -20,7 +20,7 @@ export namespace xieite::memory {
 		return static_cast<std::size_t>(::sysconf(_SC_PAGE_SIZE));
 #elif XIEITE_PLATFORM_TYPE_WINDOWS
 		::SYSTEM_INFO info;
-		::GetSystemInfo(&info);
+		::GetSystemInfo(std::addressof(info));
 		return info.dwPageSize;
 #endif
 	}
