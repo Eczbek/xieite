@@ -168,6 +168,7 @@ export import :math.divideHalfUp;
 export import :math.divideTowardInfinity;
 export import :math.divideTowardZero;
 export import :math.divideUp;
+export import :math.Exponent;
 export import :math.exponentationOverflows;
 export import :math.factorial;
 export import :math.farthestFrom;
