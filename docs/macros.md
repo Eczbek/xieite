@@ -8,6 +8,7 @@ Macros and special headers
 &nbsp;
 
 ## Contents
+- [ANY\(\)](./namespaces/macros/any.md)
 - [ARCHITECTURE_...](./namespaces/macros/architecture.md)
 - [ASCII_SUPPORT](./namespaces/macros/ascii_support.md)
 - [AT\(\)](./namespaces/macros/at.md)
