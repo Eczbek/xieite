@@ -4,20 +4,57 @@ Defined in header [<xieite/lift.hpp>](../../../include/xieite/lift.hpp)
 &nbsp;
 
 ## Description
-"Lifts" a template function, allowing it to be invoked like a lambda. See definitions for specifics. [I found this blog post about it](https://devcodef1.com/news/1167084/lift-f-macro-behavior).
+"Lifts" a template function, allowing it to be invoked like a lambda. See definitions for specifics. Also, I found [this blog post](https://devcodef1.com/news/1167084/lift-f-macro-behavior) about it.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_LIFT(...) /* ... */
+#define XIEITE_LIFT(...) XIEITE_LIFT_CAPTURE(&, __VA_ARGS__)
 ```
 #### 2)
 ```cpp
-#define XIEITE_LIFT_UNARY(...) /* ... */
+#define XIEITE_LIFT_CAPTURE(captures_, ...) /* ... */
 ```
-Exists for special cases where the compiler errors if a fold expression is passed to `__VA_ARGS__`.
+`captures_` may optionally be wrapped in parentheses
+#### 3)
+```cpp
+#define XIEITE_LIFT_PREFIX(...) XIEITE_LIFT_PREFIX_CAPTURE(&, __VA_ARGS__)
+```
+#### 4)
+```cpp
+#define XIEITE_LIFT_PREFIX_CAPTURE(captures_, ...) /* ... */
+```
+`captures_` may optionally be wrapped in parentheses
+#### 5)
+```cpp
+#define XIEITE_LIFT_SUFFIX(...) XIEITE_LIFT_SUFFIX_CAPTURE(&, __VA_ARGS__)
+```
+#### 6)
+```cpp
+#define XIEITE_LIFT_SUFFIX_CAPTURE(captures_, ...) /* ... */
+```
+`captures_` may optionally be wrapped in parentheses
+#### 7)
+```cpp
+#define XIEITE_LIFT_INFIX(...) XIEITE_LIFT_INFIX_CAPTURE(&, __VA_ARGS__)
+```
+#### 8)
+```cpp
+#define XIEITE_LIFT_INFIX_CAPTURE(captures_, ...) /* ... */
+```
+`captures_` may optionally be wrapped in parentheses
+#### 9)
+```cpp
+#define XIEITE_LIFT_CONFIX(left_, right_) XIEITE_LIFT_CONFIG_CAPTURE(&, left_, right_)
+```
+either of `left_` and `right_` may optionally be wrapped in parentheses
+#### 10)
+```cpp
+#define XIEITE_LIFT_CONFIX_CAPTURE(captures_, left_, right_) /* ... */
+```
+any of `captures_`, `left_`, and `right_` may optionally be wrapped in parentheses
 
 &nbsp;
 
