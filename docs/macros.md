@@ -54,6 +54,7 @@ Macros and special headers
 - [UNIX_STANDARD_...](./namespaces/macros/unix_standard.md)
 - [UNREACHABLE\(\)](./namespaces/macros/unreachable.md)
 - [UNTIL\(\)](./namespaces/macros/until.md)
+- [UNWRAP\(\)](./namespaces/macros/unwrap.md)
 - [VERSION_...](./namespaces/macros/version.md)
 - [WHEN\(\)](./namespaces/macros/when.md)
 - [WRAP\(\)](./namespaces/macros/wrap.md)
