@@ -11,7 +11,7 @@ A helper macro that does magic. See definition for specifics.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_DEFER($macro) /* ... */
+#define XIEITE_DEFER(macro_) /* ... */
 ```
 
 &nbsp;

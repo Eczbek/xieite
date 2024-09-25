@@ -11,7 +11,7 @@ A helper macro, expands to `1` for `0` and `0` for everything else.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_NOT($value) /* ... */
+#define XIEITE_NOT(value_) /* ... */
 ```
 
 &nbsp;

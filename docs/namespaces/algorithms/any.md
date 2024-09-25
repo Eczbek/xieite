@@ -27,7 +27,7 @@ import std;
 import xieite;
 
 int main() {
-    auto predicate = XIEITE_LIFT_UNARY(static_cast<bool>);
+    auto predicate = XIEITE_LIFT_PREFIX(static_cast<bool>);
 
     std::println("{}", xieite::algorithms::any(predicate, false, 0, '\0'));
 }

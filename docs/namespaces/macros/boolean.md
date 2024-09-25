@@ -11,7 +11,7 @@ Expands to `1` for any value except for `0`.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_BOOLEAN($value) /* ... */
+#define XIEITE_BOOLEAN(value_) /* ... */
 ```
 
 &nbsp;

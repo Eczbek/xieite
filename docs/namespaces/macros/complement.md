@@ -11,7 +11,7 @@ Expands to `1` for `0` and `0` for `1`.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_COMPLEMENT($boolean) /* ... */
+#define XIEITE_COMPLEMENT(boolean_) /* ... */
 ```
 
 &nbsp;

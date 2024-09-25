@@ -11,7 +11,7 @@ Selects all arguments until an index, exclusively.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_UNTIL($index, ...) /* ... */
+#define XIEITE_UNTIL(index_, ...) /* ... */
 ```
 
 &nbsp;

@@ -321,9 +321,9 @@
 #define XIEITE_COMPILER_VERSION_MINOR_ZORTECH_CPP 0
 #define XIEITE_COMPILER_VERSION_PATCH_ZORTECH_CPP 0
 
-#define XIEITE_COMPILER_VERSION_EQUAL($compiler, $major, $minor, $patch) (XIEITE_COMPILER_TYPE_##$compiler && (XIEITE_COMPILER_VERSION_MAJOR_##$compiler == ($major)) && (XIEITE_COMPILER_VERSION_MINOR_##$compiler == ($minor)) && (XIEITE_COMPILER_VERSION_PATCH_##$compiler == ($patch)))
-#define XIEITE_COMPILER_VERSION_LEAST($compiler, $major, $minor, $patch) (XIEITE_COMPILER_TYPE_##$compiler && ((XIEITE_COMPILER_VERSION_MAJOR_##$compiler > ($major)) || (XIEITE_COMPILER_VERSION_MAJOR_##$compiler == ($major)) && ((XIEITE_COMPILER_VERSION_MINOR_##$compiler > ($minor)) || (XIEITE_COMPILER_VERSION_MINOR_##$compiler == ($minor)) && (XIEITE_COMPILER_VERSION_PATCH_##$compiler >= ($patch)))))
-#define XIEITE_COMPILER_VERSION_MOST($compiler, $major, $minor, $patch) (XIEITE_COMPILER_TYPE_##$compiler && ((XIEITE_COMPILER_VERSION_MAJOR_##$compiler < ($major)) || (XIEITE_COMPILER_VERSION_MAJOR_##$compiler == ($major)) && ((XIEITE_COMPILER_VERSION_MINOR_##$compiler < ($minor)) || (XIEITE_COMPILER_VERSION_MINOR_##$compiler == ($minor)) && (XIEITE_COMPILER_VERSION_PATCH_##$compiler <= ($patch)))))
+#define XIEITE_COMPILER_VERSION_EQUAL(compiler_, major_, minor_, patch_) (XIEITE_COMPILER_TYPE_##compiler_ && (XIEITE_COMPILER_VERSION_MAJOR_##compiler_ == (major_)) && (XIEITE_COMPILER_VERSION_MINOR_##compiler_ == (minor_)) && (XIEITE_COMPILER_VERSION_PATCH_##compiler_ == (patch_)))
+#define XIEITE_COMPILER_VERSION_LEAST(compiler_, major_, minor_, patch_) (XIEITE_COMPILER_TYPE_##compiler_ && ((XIEITE_COMPILER_VERSION_MAJOR_##compiler_ > (major_)) || (XIEITE_COMPILER_VERSION_MAJOR_##compiler_ == (major_)) && ((XIEITE_COMPILER_VERSION_MINOR_##compiler_ > (minor_)) || (XIEITE_COMPILER_VERSION_MINOR_##compiler_ == (minor_)) && (XIEITE_COMPILER_VERSION_PATCH_##compiler_ >= (patch_)))))
+#define XIEITE_COMPILER_VERSION_MOST(compiler_, major_, minor_, patch_) (XIEITE_COMPILER_TYPE_##compiler_ && ((XIEITE_COMPILER_VERSION_MAJOR_##compiler_ < (major_)) || (XIEITE_COMPILER_VERSION_MAJOR_##compiler_ == (major_)) && ((XIEITE_COMPILER_VERSION_MINOR_##compiler_ < (minor_)) || (XIEITE_COMPILER_VERSION_MINOR_##compiler_ == (minor_)) && (XIEITE_COMPILER_VERSION_PATCH_##compiler_ <= (patch_)))))
 
 #ifdef _ACC_
 #	undef XIEITE_COMPILER_TYPE_ACC

@@ -11,27 +11,27 @@ Helper macros which concatenate two values.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_CONCATENATE($first, $second) XIEITE_CONCATENATE_PRIMITIVE($first, $second)
+#define XIEITE_CONCATENATE(first_, ...) XIEITE_CONCATENATE_PRIMITIVE(first_, __VA_ARGS__)
 ```
 #### 2)
 ```cpp
-#define XIEITE_CONCATENATE_REVERSE($first, $second) XIEITE_CONCATENATE_PRIMITIVE_REVERSE($first, $second)
+#define XIEITE_CONCATENATE_REVERSE(first_, ...) XIEITE_CONCATENATE_PRIMITIVE_REVERSE(first_, __VA_ARGS__)
 ```
 #### 3)
 ```cpp
-#define XIEITE_CONCATENATE_PRIMITIVE($first, $second) $first##$second
+#define XIEITE_CONCATENATE_PRIMITIVE(first_, ...) first_##__VA_ARGS__
 ```
 #### 4)
 ```cpp
-#define XIEITE_CONCATENATE_PRIMITIVE_REVERSE($first, $second) $second##$first
+#define XIEITE_CONCATENATE_PRIMITIVE_REVERSE(first_, ...) __VA_ARGS__##first_
 ```
 #### 5)
 ```cpp
-#define XIEITE_CONCATENATE_FIRST($first) XIEITE_CONCATENATE_PRIMITIVE($first,
+#define XIEITE_CONCATENATE_FIRST(first_) XIEITE_CONCATENATE_PRIMITIVE(first_,
 ```
 #### 6)
 ```cpp
-#define XIEITE_CONCATENATE_SECOND($second) XIEITE_CONCATENATE_PRIMITIVE_REVERSE($second,
+#define XIEITE_CONCATENATE_SECOND(second_) XIEITE_CONCATENATE_PRIMITIVE_REVERSE(second_,
 ```
 
 &nbsp;

@@ -11,7 +11,7 @@ Some sort of component for `XIEITE_SCAN`?
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_PROBE($value) $value, 1,
+#define XIEITE_PROBE(value_) value_, 1,
 ```
 
 &nbsp;

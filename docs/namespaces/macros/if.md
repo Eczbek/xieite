@@ -11,19 +11,19 @@ Defined in header [<xieite/if.hpp>](../../../include/xieite/if.hpp)
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_IF($condition) XIEITE_IF_PRIMITIVE(XIEITE_BOOLEAN($condition))
+#define XIEITE_IF(condition_) XIEITE_IF_PRIMITIVE(XIEITE_BOOLEAN(condition_))
 ```
 #### 2)
 ```cpp
-#define XIEITE_IF_PRIMITIVE($boolean) XIEITE_CONCATENATE_PRIMITIVE(XIEITE_IF_PRIMITIVE_, $boolean)
+#define XIEITE_IF_PRIMITIVE(boolean_) XIEITE_CONCATENATE_PRIMITIVE(XIEITE_IF_PRIMITIVE_, boolean_)
 ```
 #### 3)
 ```cpp
-#define XIEITE_IF_PRIMITIVE_0($then, ...) __VA_ARGS__
+#define XIEITE_IF_PRIMITIVE_0(then_, ...) __VA_ARGS__
 ```
 #### 4)
 ```cpp
-#define XIEITE_IF_PRIMITIVE_1($then, ...) $then
+#define XIEITE_IF_PRIMITIVE_1(then_, ...) then_
 ```
 
 &nbsp;

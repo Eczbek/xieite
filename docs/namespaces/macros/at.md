@@ -11,7 +11,7 @@ Selects an argument by index.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_AT($index, ...) /* ... */
+#define XIEITE_AT(index_, ...) /* ... */
 ```
 
 &nbsp;

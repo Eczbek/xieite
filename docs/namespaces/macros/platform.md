@@ -452,19 +452,19 @@ Macros for identifying the current platform or operating system and its version 
 ```
 #### 64)
 ```cpp
-#define XIEITE_PLATFORM_VERSION_EQUAL(platform, major, minor, patch) /* boolean */
+#define XIEITE_PLATFORM_VERSION_EQUAL(platform_, major_, minor_, patch_) /* boolean */
 ```
-Requires `XIEITE_PLATFORM_TYPE_##platform` to be `1`.
+Requires `XIEITE_PLATFORM_TYPE_##platform_` to be `1`.
 #### 65)
 ```cpp
-#define XIEITE_PLATFORM_VERSION_LEAST(platform, major, minor, patch) /* boolean */
+#define XIEITE_PLATFORM_VERSION_LEAST(platform_, major_, minor_, patch_) /* boolean */
 ```
-Requires `XIEITE_PLATFORM_TYPE_##platform` to be `1`.
+Requires `XIEITE_PLATFORM_TYPE_##platform_` to be `1`.
 #### 66)
 ```cpp
-#define XIEITE_PLATFORM_VERSION_MOST(platform, major, minor, patch) /* boolean */
+#define XIEITE_PLATFORM_VERSION_MOST(platform_, major_, minor_, patch_) /* boolean */
 ```
-Requires `XIEITE_PLATFORM_TYPE_##platform` to be `1`.
+Requires `XIEITE_PLATFORM_TYPE_##platform_` to be `1`.
 
 &nbsp;
 

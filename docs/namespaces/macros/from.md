@@ -11,7 +11,7 @@ Selects all arguments from an index, inclusively.
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_FROM($index, ...) /* ... */
+#define XIEITE_FROM(index_, ...) /* ... */
 ```
 
 &nbsp;

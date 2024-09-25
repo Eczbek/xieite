@@ -4,14 +4,14 @@ Defined in header [<xieite/when.hpp>](../../../include/xieite/when.hpp)
 &nbsp;
 
 ## Description
-A utility for `XIEITE_IF`.
+A utility for `XIEITE_IF()`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_WHEN($value) XIEITE_IF($value)(XIEITE_SCAN, XIEITE_EAT)
+#define XIEITE_WHEN(value_) XIEITE_IF(value_)(XIEITE_SCAN, XIEITE_EAT)
 ```
 
 &nbsp;

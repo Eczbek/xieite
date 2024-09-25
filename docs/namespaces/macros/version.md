@@ -23,15 +23,15 @@ Macros for xieite's current version (major, minor, patch). See header file for d
 ```
 #### 4)
 ```cpp
-#define XIEITE_VERSION_EQUAL(major, minor, patch) /* boolean */
+#define XIEITE_VERSION_EQUAL(major_, minor_, patch_) /* boolean */
 ```
 #### 5)
 ```cpp
-#define XIEITE_VERSION_LEAST(major, minor, patch) /* boolean */
+#define XIEITE_VERSION_LEAST(major_, minor_, patch_) /* boolean */
 ```
 #### 6)
 ```cpp
-#define XIEITE_VERSION_MOST(major, minor, patch) /* boolean */
+#define XIEITE_VERSION_MOST(major_, minor_, patch_) /* boolean */
 ```
 
 &nbsp;
