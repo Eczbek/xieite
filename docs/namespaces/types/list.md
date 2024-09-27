@@ -21,14 +21,14 @@ struct List {
     template<auto selector>
     static constexpr bool any = /* xieite::types::List<...> */;
 
-    template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
+    template<typename Type, auto comparator = /* std::same_as */>
     static constexpr bool has = /* xieite::types::List<...> */;
 
     template<auto selector>
     requires(xieite::types::List<Types...>::any<selector>)
     static constexpr std::size_t find = /* ... */;
 
-    template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
+    template<typename Type, auto comparator = /* std::same_as */>
     requires(xieite::types::List<Types...>::has<Type, comparator>)
     static constexpr std::size_t get = /* ... */;
 
@@ -91,7 +91,7 @@ struct List {
     template<auto selector>
     using Filter = /* xieite::types::List<...> */;
 
-    template<auto comparator = []<typename Type, std::same_as<Type>> {}>
+    template<auto comparator = /* !xieite::concepts::SameAsAny */>
     using Deduplicate = /* xieite::types::List<...> */;
 
     template<std::size_t repetitions>

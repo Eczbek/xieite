@@ -11,7 +11,7 @@ Selects one of each type from the stored list of types.
 ## Synopsis
 #### 1)
 ```cpp
-template<auto comparator = []<typename Type, std::same_as<Type>> {}>
+template<auto comparator = /* !xieite::concepts::SameAsAny */>
 using Deduplicate = /* xieite::types::List<...> */;
 ```
 

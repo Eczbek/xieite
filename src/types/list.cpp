@@ -1,6 +1,7 @@
 export module xieite:types.List;
 
 import std;
+import :concepts.SameAsAny;
 import :concepts.SatisfiedBy;
 import :concepts.SatisfiedByAll;
 import :concepts.SatisfiedByAny;
@@ -134,7 +135,7 @@ export namespace xieite::types {
 		template<auto selector>
 		using Filter = decltype((List::TransformHelper<selector, []<typename Type> { return std::type_identity<Type>(); }>()->*...->*std::type_identity<Types>()))::type;
 
-		template<auto comparator = []<typename First, typename... Rest> requires((... && !std::same_as<First, Rest>)) {}>
+		template<auto comparator = []<typename First, typename... Rest> requires(!xieite::concepts::SameAsAny<First, Rest...>) {}>
 		using Deduplicate = List::Filter<comparator>;
 
 		template<std::size_t repetitions>
@@ -149,13 +150,13 @@ export namespace xieite::types {
 		template<std::size_t arity, auto transformer>
 		requires(!(sizeof...(Types) % arity))
 		using Transform = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return std::type_identity<List<decltype(transformer.template operator()<List::Slice<arity * i, arity * (i + 1)>>())...>>();
+			return std::type_identity<List<decltype(List::template Slice<arity * i, arity * (i + 1)>::apply(transformer))::type...>>();
 		})(std::make_index_sequence<sizeof...(Types) / arity>()))::type;
 
 		template<std::size_t arity, auto transformer>
 		requires(!(sizeof...(Types) % arity))
 		using TransformFlat = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return std::type_identity<decltype((List::TransformHelper<[]<typename...> {}, []<typename Value> { return std::type_identity<List::Slice<arity * Value::value, arity * (Value::value + 1)>>(); }>()->*...->*std::type_identity<xieite::types::Value<i>>()))>();
+			return (List::TransformHelper<[]<typename...> {}, []<typename Value, typename...> { return std::type_identity<decltype(List::template Slice<arity * Value::value, arity * (Value::value + 1)>::apply(transformer))::type>(); }>()->*...->*std::type_identity<xieite::types::Value<i>>());
 		})(std::make_index_sequence<sizeof...(Types) / arity>()))::type;
 
 		template<typename... OtherTypes>

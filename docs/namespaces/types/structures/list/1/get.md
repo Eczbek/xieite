@@ -11,7 +11,7 @@ Gets the index of a type.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
+template<typename Type, auto comparator = /* std::same_as */>
 requires(xieite::types::List<Types...>::has<Type, Comparator>)
 static constexpr std::size_t get = /* ... */;
 ```
