@@ -1,18 +1,13 @@
-module;
-
-#include <xieite/forward.hpp>
-
 export module xieite:math.BigInteger;
 
 import std;
 import :bits.size;
 import :concepts.Arithmetic;
-import :concepts.Invocable;
 import :math.absolute;
 import :math.additionOverflows;
+import :math.DoubleInteger;
 import :math.isNegative;
 import :math.multiply;
-import :math.Product;
 import :math.SignedSize;
 import :math.splitBoolean;
 import :math.subtractionOverflows;
@@ -39,7 +34,7 @@ export namespace xieite::math {
 		}
 
 		template<typename OtherLimb>
-		explicit constexpr BigInteger(const xieite::math::BigInteger<OtherLimb>& value) noexcept
+		explicit constexpr BigInteger(const BigInteger<OtherLimb>& value) noexcept
 		: negative(value.negative) {
 			if constexpr (sizeof(Limb) == sizeof(OtherLimb)) {
 				this->data = value.data;
@@ -109,7 +104,7 @@ export namespace xieite::math {
 			}
 		}
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Limb>& leftComparand, const xieite::math::BigInteger<Limb>& rightComparand) noexcept {
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const BigInteger& leftComparand, const BigInteger& rightComparand) noexcept {
 			if (leftComparand.negative != rightComparand.negative) {
 				return rightComparand.negative <=> leftComparand.negative;
 			}
@@ -117,35 +112,33 @@ export namespace xieite::math {
 				if (leftComparand.data.size() != rightComparand.data.size()) {
 					return rightComparand.data.size() <=> leftComparand.data.size();
 				} else {
-					return std::lexicographical_compare_three_way(rightComparand.data.rbegin(), rightComparand.data.rend(), leftComparand.data.rbegin(), leftComparand.data.rend());
+					return std::ranges::lexicographical_compare_three_way(rightComparand.data, leftComparand.data);
 				}
 			}
 			if (leftComparand.data.size() != rightComparand.data.size()) {
 				return leftComparand.data.size() <=> rightComparand.data.size();
 			} else {
-				return std::lexicographical_compare_three_way(leftComparand.data.rbegin(), leftComparand.data.rend(), rightComparand.data.rbegin(), rightComparand.data.rend());
+				return std::ranges::lexicographical_compare_three_way(leftComparand.data, rightComparand.data);
 			}
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::BigInteger<Limb>& leftComparand, const Integral rightComparand) noexcept {
-			return leftComparand <=> xieite::math::BigInteger<Limb>(rightComparand);
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const BigInteger& leftComparand, const Integral rightComparand) noexcept {
+			return leftComparand <=> BigInteger(rightComparand);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Limb>& leftComparand, const xieite::math::BigInteger<Limb>& rightComparand) noexcept {
-			return std::is_eq(leftComparand <=> rightComparand);
-		}
+		[[nodiscard]] friend bool operator==(const BigInteger&, const BigInteger&) = default;
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr bool operator==(const xieite::math::BigInteger<Limb>& leftComparand, const Integral rightComparand) noexcept {
-			return leftComparand == xieite::math::BigInteger<Limb>(rightComparand);
+		[[nodiscard]] friend constexpr bool operator==(const BigInteger& leftComparand, const Integral rightComparand) noexcept {
+			return leftComparand == BigInteger(rightComparand);
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> operator+() const noexcept {
+		[[nodiscard]] constexpr BigInteger operator+() const noexcept {
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator+(const xieite::math::BigInteger<Limb>& augend, const xieite::math::BigInteger<Limb>& addend) noexcept {
+		[[nodiscard]] friend constexpr BigInteger operator+(const BigInteger& augend, const BigInteger& addend) noexcept {
 			if (!augend) {
 				return addend;
 			}
@@ -165,42 +158,42 @@ export namespace xieite::math {
 				resultData.push_back(augendLimb + addendLimb + carry);
 				carry = xieite::math::additionOverflows(augendLimb, addendLimb, carry);
 			}
-			return xieite::math::BigInteger<Limb>(resultData, augend.negative);
+			return BigInteger(resultData, augend.negative);
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator+(const xieite::math::BigInteger<Limb>& augend, const Integral addend) noexcept {
-			return augend + xieite::math::BigInteger<Limb>(addend);
+		[[nodiscard]] friend constexpr BigInteger operator+(const BigInteger& augend, const Integral addend) noexcept {
+			return augend + BigInteger(addend);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator+=(const xieite::math::BigInteger<Limb>& addend) noexcept {
+		constexpr BigInteger& operator+=(const BigInteger& addend) noexcept {
 			return *this = *this + addend;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb>& operator+=(const Integral addend) noexcept {
-			return *this += xieite::math::BigInteger<Limb>(addend);
+		constexpr BigInteger& operator+=(const Integral addend) noexcept {
+			return *this += BigInteger(addend);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator++() noexcept {
+		constexpr BigInteger& operator++() noexcept {
 			return *this += 1;
 		}
 
-		constexpr xieite::math::BigInteger<Limb> operator++(int) noexcept {
-			xieite::math::BigInteger<Limb> copy = *this;
+		constexpr BigInteger operator++(int) noexcept {
+			const BigInteger copy = *this;
 			++*this;
 			return copy;
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> operator-() const noexcept {
-			xieite::math::BigInteger<Limb> copy = *this;
+		[[nodiscard]] constexpr BigInteger operator-() const noexcept {
+			BigInteger copy = *this;
 			if (copy) {
 				copy.negative = !copy.negative;
 			}
 			return copy;
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator-(const xieite::math::BigInteger<Limb>& minuend, const xieite::math::BigInteger<Limb>& subtrahend) noexcept {
+		[[nodiscard]] friend constexpr BigInteger operator-(const BigInteger& minuend, const BigInteger& subtrahend) noexcept {
 			if (!subtrahend) {
 				return minuend;
 			}
@@ -225,34 +218,34 @@ export namespace xieite::math {
 				resultData.push_back(minuend.data[i] - subtrahendLimb - borrow);
 				borrow = (i < (minuendDataSize - 1)) && xieite::math::subtractionOverflows(minuend.data[i], subtrahendLimb, borrow);
 			}
-			return xieite::math::BigInteger<Limb>(resultData, minuend.negative);
+			return BigInteger(resultData, minuend.negative);
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator-(const xieite::math::BigInteger<Limb>& minuend, const Integral subtrahend) noexcept {
-			return minuend - xieite::math::BigInteger<Limb>(subtrahend);
+		[[nodiscard]] friend constexpr BigInteger operator-(const BigInteger& minuend, const Integral subtrahend) noexcept {
+			return minuend - BigInteger(subtrahend);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator-=(const xieite::math::BigInteger<Limb>& subtrahend) noexcept {
+		constexpr BigInteger& operator-=(const BigInteger& subtrahend) noexcept {
 			return *this = *this - subtrahend;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb>& operator-=(const Integral subtrahend) noexcept {
-			return *this -= xieite::math::BigInteger<Limb>(subtrahend);
+		constexpr BigInteger& operator-=(const Integral subtrahend) noexcept {
+			return *this -= BigInteger(subtrahend);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator--() noexcept {
+		constexpr BigInteger& operator--() noexcept {
 			return *this -= 1;
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator--(int) noexcept {
-			xieite::math::BigInteger<Limb> copy = *this;
+		constexpr BigInteger& operator--(int) noexcept {
+			const BigInteger copy = *this;
 			--*this;
 			return copy;
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator*(const xieite::math::BigInteger<Limb>& multiplier, const xieite::math::BigInteger<Limb>& multiplicand) noexcept {
+		[[nodiscard]] friend constexpr BigInteger operator*(const BigInteger& multiplier, const BigInteger& multiplicand) noexcept {
 			if (!multiplier || !multiplicand) {
 				return 0;
 			}
@@ -275,7 +268,7 @@ export namespace xieite::math {
 				}
 				return -(multiplier.absolute() << multiplicand.logarithm2());
 			}
-			xieite::math::BigInteger<Limb> result;
+			BigInteger result;
 			for (std::size_t i = multiplier.data.size(); i--;) {
 				if (!multiplier.data[i]) {
 					continue;
@@ -284,8 +277,8 @@ export namespace xieite::math {
 					if (!multiplicand.data[j]) {
 						continue;
 					}
-					const xieite::math::Product<Limb> product = xieite::math::multiply(multiplier.data[i], multiplicand.data[j]);
-					result += ((xieite::math::BigInteger<Limb>(product.upper) << xieite::bits::size<Limb>) | product.lower) << (xieite::math::BigInteger<Limb>(i) << std::bit_width(xieite::bits::size<Limb> - 1)) << (xieite::math::BigInteger<Limb>(j) << std::bit_width(xieite::bits::size<Limb> - 1));
+					const xieite::math::DoubleInteger<Limb> product = xieite::math::multiply(multiplier.data[i], multiplicand.data[j]);
+					result += ((BigInteger(product.upper) << xieite::bits::size<Limb>) | product.lower) << (BigInteger(i) << std::bit_width(xieite::bits::size<Limb> - 1)) << (BigInteger(j) << std::bit_width(xieite::bits::size<Limb> - 1));
 				}
 			}
 			result.negative = !sameSign;
@@ -293,20 +286,20 @@ export namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator*(const xieite::math::BigInteger<Limb>& multiplier, const Integral multiplicand) noexcept {
-			return multiplier * xieite::math::BigInteger<Limb>(multiplicand);
+		[[nodiscard]] friend constexpr BigInteger operator*(const BigInteger& multiplier, const Integral multiplicand) noexcept {
+			return multiplier * BigInteger(multiplicand);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator*=(const xieite::math::BigInteger<Limb>& multiplicand) noexcept {
+		constexpr BigInteger& operator*=(const BigInteger& multiplicand) noexcept {
 			return *this = *this * multiplicand;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb>& operator*=(const Integral multiplicand) noexcept {
-			return *this *= xieite::math::BigInteger<Limb>(multiplicand);
+		constexpr BigInteger& operator*=(const Integral multiplicand) noexcept {
+			return *this *= BigInteger(multiplicand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator/(const xieite::math::BigInteger<Limb>& dividend, const xieite::math::BigInteger<Limb>& divisor) {
+		[[nodiscard]] friend constexpr BigInteger operator/(const BigInteger& dividend, const BigInteger& divisor) {
 			if (!divisor) {
 				throw std::out_of_range("must not divide by zero");
 			}
@@ -317,8 +310,8 @@ export namespace xieite::math {
 			if ((divisor == 1) || (divisor == -1)) {
 				return sameSign ? dividend : -dividend;
 			}
-			const xieite::math::BigInteger<Limb> absoluteDividend = dividend.absolute();
-			const xieite::math::BigInteger<Limb> absoluteDivisor = divisor.absolute();
+			const BigInteger absoluteDividend = dividend.absolute();
+			const BigInteger absoluteDivisor = divisor.absolute();
 			if (!dividend || (absoluteDividend < absoluteDivisor)) {
 				return 0;
 			}
@@ -331,8 +324,8 @@ export namespace xieite::math {
 				}
 				return -(absoluteDividend >> divisor.logarithm2());
 			}
-			xieite::math::BigInteger<Limb> remainder;
-			xieite::math::BigInteger<Limb> result;
+			BigInteger remainder;
+			BigInteger result;
 			remainder.data.resize(dividend.data.size(), 0);
 			result.data.resize(dividend.data.size(), 0);
 			for (std::size_t i = dividend.data.size(); i--;) {
@@ -350,25 +343,25 @@ export namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator/(const xieite::math::BigInteger<Limb>& dividend, const Integral divisor) {
-			return dividend / xieite::math::BigInteger<Limb>(divisor);
+		[[nodiscard]] friend constexpr BigInteger operator/(const BigInteger& dividend, const Integral divisor) {
+			return dividend / BigInteger(divisor);
 		}
 
-		constexpr xieite::math::BigInteger<Limb> operator/=(const xieite::math::BigInteger<Limb>& divisor) {
+		constexpr BigInteger operator/=(const BigInteger& divisor) {
 			return *this = *this / divisor;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb> operator/=(const Integral divisor) {
-			return *this /= xieite::math::BigInteger<Limb>(divisor);
+		constexpr BigInteger operator/=(const Integral divisor) {
+			return *this /= BigInteger(divisor);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator%(const xieite::math::BigInteger<Limb>& dividend, const xieite::math::BigInteger<Limb>& divisor) {
+		[[nodiscard]] friend constexpr BigInteger operator%(const BigInteger& dividend, const BigInteger& divisor) {
 			if (!divisor) {
 				throw std::out_of_range("must not take remainder of division by zero");
 			}
-			const xieite::math::BigInteger<Limb> absoluteDividend = dividend.absolute();
-			const xieite::math::BigInteger<Limb> absoluteDivisor = divisor.absolute();
+			const BigInteger absoluteDividend = dividend.absolute();
+			const BigInteger absoluteDivisor = divisor.absolute();
 			if (!dividend || (absoluteDivisor == 1) || (absoluteDividend == absoluteDivisor)) {
 				return 0;
 			}
@@ -378,7 +371,7 @@ export namespace xieite::math {
 			if (absoluteDividend < absoluteDivisor) {
 				return dividend;
 			}
-			xieite::math::BigInteger<Limb> remainder;
+			BigInteger remainder;
 			for (const Limb dividendLimb : std::views::reverse(dividend.data)) {
 				for (std::size_t j = xieite::bits::size<Limb>; j--;) {
 					remainder <<= 1;
@@ -391,84 +384,78 @@ export namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator%(const xieite::math::BigInteger<Limb>& dividend, const Integral divisor) {
-			return dividend % xieite::math::BigInteger<Limb>(divisor);
+		[[nodiscard]] friend constexpr BigInteger operator%(const BigInteger& dividend, const Integral divisor) {
+			return dividend % BigInteger(divisor);
 		}
 
-		constexpr xieite::math::BigInteger<Limb> operator%=(const xieite::math::BigInteger<Limb>& divisor) {
+		constexpr BigInteger operator%=(const BigInteger& divisor) {
 			return *this = *this % divisor;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb> operator%=(const Integral divisor) {
-			return *this %= xieite::math::BigInteger<Limb>(divisor);
+		constexpr BigInteger operator%=(const Integral divisor) {
+			return *this %= BigInteger(divisor);
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> operator~() const noexcept {
+		[[nodiscard]] constexpr BigInteger operator~() const noexcept {
 			return -(*this + 1);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator&(const xieite::math::BigInteger<Limb>& leftOperand, const xieite::math::BigInteger<Limb>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Limb>::bitwiseOperation(leftOperand, rightOperand, [](const Limb left, const Limb right) {
-				return left & right;
-			});
+		[[nodiscard]] friend constexpr BigInteger operator&(const BigInteger& leftOperand, const BigInteger& rightOperand) noexcept {
+			return BigInteger::bitwiseOperation(leftOperand, rightOperand, std::bit_and());
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator&(const xieite::math::BigInteger<Limb>& leftOperand, const Integral rightOperand) noexcept {
-			return leftOperand & xieite::math::BigInteger<Limb>(rightOperand);
+		[[nodiscard]] friend constexpr BigInteger operator&(const BigInteger& leftOperand, const Integral rightOperand) noexcept {
+			return leftOperand & BigInteger(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator&=(const xieite::math::BigInteger<Limb>& operand) noexcept {
+		constexpr BigInteger& operator&=(const BigInteger& operand) noexcept {
 			return *this = *this & operand;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb>& operator&=(const Integral operand) noexcept {
-			return *this &= xieite::math::BigInteger<Limb>(operand);
+		constexpr BigInteger& operator&=(const Integral operand) noexcept {
+			return *this &= BigInteger(operand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator|(const xieite::math::BigInteger<Limb>& leftOperand, const xieite::math::BigInteger<Limb>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Limb>::bitwiseOperation(leftOperand, rightOperand, [](const Limb left, const Limb right) {
-				return left | right;
-			});
+		[[nodiscard]] friend constexpr BigInteger operator|(const BigInteger& leftOperand, const BigInteger& rightOperand) noexcept {
+			return BigInteger::bitwiseOperation(leftOperand, rightOperand, std::bit_or());
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator|(const xieite::math::BigInteger<Limb>& leftOperand, const Integral rightOperand) noexcept {
-			return leftOperand | xieite::math::BigInteger<Limb>(rightOperand);
+		[[nodiscard]] friend constexpr BigInteger operator|(const BigInteger& leftOperand, const Integral rightOperand) noexcept {
+			return leftOperand | BigInteger(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator|=(const xieite::math::BigInteger<Limb>& operand) noexcept {
+		constexpr BigInteger& operator|=(const BigInteger& operand) noexcept {
 			return *this = *this | operand;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb>& operator|=(const Integral operand) noexcept {
-			return *this |= xieite::math::BigInteger<Limb>(operand);
+		constexpr BigInteger& operator|=(const Integral operand) noexcept {
+			return *this |= BigInteger(operand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator^(const xieite::math::BigInteger<Limb>& leftOperand, const xieite::math::BigInteger<Limb>& rightOperand) noexcept {
-			return xieite::math::BigInteger<Limb>::bitwiseOperation(leftOperand, rightOperand, [](const Limb left, const Limb right) {
-				return left ^ right;
-			});
+		[[nodiscard]] friend constexpr BigInteger operator^(const BigInteger& leftOperand, const BigInteger& rightOperand) noexcept {
+			return BigInteger::bitwiseOperation(leftOperand, rightOperand, std::bit_xor());
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator^(const xieite::math::BigInteger<Limb>& leftOperand, const Integral rightOperand) noexcept {
-			return leftOperand ^ xieite::math::BigInteger<Limb>(rightOperand);
+		[[nodiscard]] friend constexpr BigInteger operator^(const BigInteger& leftOperand, const Integral rightOperand) noexcept {
+			return leftOperand ^ BigInteger(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator^=(const xieite::math::BigInteger<Limb>& operand) noexcept {
+		constexpr BigInteger& operator^=(const BigInteger& operand) noexcept {
 			return *this = *this ^ operand;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb>& operator^=(const Integral operand) noexcept {
-			return *this ^= xieite::math::BigInteger<Limb>(operand);
+		constexpr BigInteger& operator^=(const Integral operand) noexcept {
+			return *this ^= BigInteger(operand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator<<(const xieite::math::BigInteger<Limb>& leftOperand, const xieite::math::BigInteger<Limb>& rightOperand) noexcept {
+		[[nodiscard]] friend constexpr BigInteger operator<<(const BigInteger& leftOperand, const BigInteger& rightOperand) noexcept {
 			if (!leftOperand || !rightOperand) {
 				return leftOperand;
 			}
@@ -490,24 +477,24 @@ export namespace xieite::math {
 					resultData.push_back(carry);
 				}
 			}
-			return xieite::math::BigInteger<Limb>(resultData, leftOperand.negative);
+			return BigInteger(resultData, leftOperand.negative);
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator<<(const xieite::math::BigInteger<Limb>& leftOperand, const Integral rightOperand) noexcept {
-			return leftOperand << xieite::math::BigInteger<Limb>(rightOperand);
+		[[nodiscard]] friend constexpr BigInteger operator<<(const BigInteger& leftOperand, const Integral rightOperand) noexcept {
+			return leftOperand << BigInteger(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator<<=(const xieite::math::BigInteger<Limb>& operand) noexcept {
+		constexpr BigInteger& operator<<=(const BigInteger& operand) noexcept {
 			return *this = *this << operand;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb>& operator<<=(const Integral operand) noexcept {
-			return *this <<= xieite::math::BigInteger<Limb>(operand);
+		constexpr BigInteger& operator<<=(const Integral operand) noexcept {
+			return *this <<= BigInteger(operand);
 		}
 
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator>>(const xieite::math::BigInteger<Limb>& leftOperand, const xieite::math::BigInteger<Limb>& rightOperand) noexcept {
+		[[nodiscard]] friend constexpr BigInteger operator>>(const BigInteger& leftOperand, const BigInteger& rightOperand) noexcept {
 			if (!leftOperand || !rightOperand) {
 				return leftOperand;
 			}
@@ -529,30 +516,30 @@ export namespace xieite::math {
 					carry = copy << (xieite::bits::size<Limb> - bitsShift);
 				}
 			}
-			return xieite::math::BigInteger<Limb>(resultData, leftOperand.negative) - leftOperand.negative;
+			return BigInteger(resultData, leftOperand.negative) - leftOperand.negative;
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] friend constexpr xieite::math::BigInteger<Limb> operator>>(const xieite::math::BigInteger<Limb>& leftOperand, const Integral rightOperand) noexcept {
-			return leftOperand >> xieite::math::BigInteger<Limb>(rightOperand);
+		[[nodiscard]] friend constexpr BigInteger operator>>(const BigInteger& leftOperand, const Integral rightOperand) noexcept {
+			return leftOperand >> BigInteger(rightOperand);
 		}
 
-		constexpr xieite::math::BigInteger<Limb>& operator>>=(const xieite::math::BigInteger<Limb>& operand) noexcept {
+		constexpr BigInteger& operator>>=(const BigInteger& operand) noexcept {
 			return *this = *this >> operand;
 		}
 
 		template<std::integral Integral>
-		constexpr xieite::math::BigInteger<Limb>& operator>>=(const Integral operand) noexcept {
-			return *this >>= xieite::math::BigInteger<Limb>(operand);
+		constexpr BigInteger& operator>>=(const Integral operand) noexcept {
+			return *this >>= BigInteger(operand);
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> absolute() const noexcept {
-			xieite::math::BigInteger<Limb> copy = *this;
+		[[nodiscard]] constexpr BigInteger absolute() const noexcept {
+			BigInteger copy = *this;
 			copy.negative = false;
 			return copy;
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> power(xieite::math::BigInteger<Limb> exponent) const {
+		[[nodiscard]] constexpr BigInteger power(BigInteger exponent) const {
 			if ((*this == 1) || (exponent == 1)) {
 				return *this;
 			}
@@ -565,8 +552,8 @@ export namespace xieite::math {
 				}
 				return !exponent;
 			}
-			xieite::math::BigInteger<Limb> base = *this;
-			xieite::math::BigInteger<Limb> result = 1;
+			BigInteger base = *this;
+			BigInteger result = 1;
 			while (exponent > 1) {
 				if (exponent & 1) {
 					result *= base;
@@ -580,11 +567,11 @@ export namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> power(const Integral exponent) const {
-			return this->power(xieite::math::BigInteger<Limb>(exponent));
+		[[nodiscard]] constexpr BigInteger power(const Integral exponent) const {
+			return this->power(BigInteger(exponent));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(const xieite::math::BigInteger<Limb>& degree) const {
+		[[nodiscard]] constexpr BigInteger root(const BigInteger& degree) const {
 			if (this->negative) {
 				throw std::out_of_range("must not take root of negative radicand");
 			}
@@ -597,9 +584,9 @@ export namespace xieite::math {
 			if (degree.negative) {
 				return 0;
 			}
-			xieite::math::BigInteger<Limb> foo = degree - 1;
-			xieite::math::BigInteger<Limb> bar = *this;
-			xieite::math::BigInteger<Limb> baz = bar + 1;
+			BigInteger foo = degree - 1;
+			BigInteger bar = *this;
+			BigInteger baz = bar + 1;
 			while (bar < baz) {
 				baz = bar;
 				bar = (foo * bar + *this / bar.power(foo)) / degree;
@@ -608,11 +595,11 @@ export namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> root(const Integral degree) const {
-			return this->root(xieite::math::BigInteger<Limb>(degree));
+		[[nodiscard]] constexpr BigInteger root(const Integral degree) const {
+			return this->root(BigInteger(degree));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm(const xieite::math::BigInteger<Limb>& base) const {
+		[[nodiscard]] constexpr BigInteger logarithm(const BigInteger& base) const {
 			if (!base) {
 				return 0;
 			}
@@ -629,8 +616,8 @@ export namespace xieite::math {
 		}
 
 		template<std::integral Integral>
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm(const Integral base) const {
-			return this->logarithm(xieite::math::BigInteger<Limb>(base));
+		[[nodiscard]] constexpr BigInteger logarithm(const Integral base) const {
+			return this->logarithm(BigInteger(base));
 		}
 
 		[[nodiscard]] constexpr std::string string(const xieite::math::SignedSize radix = 10, const xieite::strings::NumberComponents components = xieite::strings::NumberComponents()) const noexcept {
@@ -638,7 +625,7 @@ export namespace xieite::math {
 				return std::string(1, components.digits[0]);
 			}
 			std::string result;
-			xieite::math::BigInteger<Limb> value = this->absolute();
+			BigInteger value = this->absolute();
 			if (radix == 1) {
 				result = std::string(static_cast<std::size_t>(value), components.digits[1]);
 			} else if (radix == -1) {
@@ -666,22 +653,21 @@ export namespace xieite::math {
 		}
 
 	private:
-		std::vector<Limb> data;
 		bool negative;
+		std::vector<Limb> data;
 
-		template<xieite::concepts::Invocable<bool(Limb, Limb)> Functor>
-		[[nodiscard]] static constexpr xieite::math::BigInteger<Limb> bitwiseOperation(xieite::math::BigInteger<Limb> leftOperand, xieite::math::BigInteger<Limb> rightOperand, Functor&& callback) noexcept {
+		[[nodiscard]] static constexpr BigInteger bitwiseOperation(BigInteger leftOperand, BigInteger rightOperand, const auto callback) noexcept {
 			const bool leftNegative = leftOperand.negative;
 			const bool rightNegative = rightOperand.negative;
 			leftOperand += leftNegative;
 			rightOperand += rightNegative;
-			xieite::math::BigInteger<Limb> result;
+			BigInteger result;
 			result.data.clear();
-			result.negative = std::invoke_r<bool>(callback, leftNegative, rightNegative);
+			result.negative = static_cast<bool>(callback(leftNegative, rightNegative));
 			const std::size_t leftDataSize = leftOperand.data.size();
 			const std::size_t rightDataSize = rightOperand.data.size();
 			for (std::size_t i = 0; (i < leftDataSize) || (i < rightDataSize); ++i) {
-				const Limb word = std::invoke_r<Limb>(callback, (i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Limb>::max() * leftNegative), (i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Limb>::max() * rightNegative));
+				const Limb word = callback((i < leftDataSize) ? (leftNegative ? ~leftOperand.data[i] : leftOperand.data[i]) : (std::numeric_limits<Limb>::max() * leftNegative), (i < rightDataSize) ? (rightNegative ? ~rightOperand.data[i] : rightOperand.data[i]) : (std::numeric_limits<Limb>::max() * rightNegative));
 				result.data.push_back(result.negative ? ~word : word);
 			}
 			return result - result.negative;
@@ -702,16 +688,12 @@ export namespace xieite::math {
 		}
 
 		[[nodiscard]] constexpr bool isPowerOf2() const noexcept {
-			const xieite::math::BigInteger<Limb> absolute = this->absolute();
+			const BigInteger absolute = this->absolute();
 			return absolute && !(absolute & (absolute - 1));
 		}
 
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> logarithm2() const noexcept {
-			return xieite::math::BigInteger<Limb>(xieite::bits::size<Limb>) * (this->data.size() - 1) + std::bit_width(this->data.back()) - 1;
-		}
-
-		[[nodiscard]] constexpr xieite::math::BigInteger<Limb> bitFloor() const noexcept {
-			return xieite::math::BigInteger<Limb>(1) << this->logarithm2();
+		[[nodiscard]] constexpr BigInteger logarithm2() const noexcept {
+			return BigInteger(xieite::bits::size<Limb>) * (this->data.size() - 1) + std::bit_width(this->data.back()) - 1;
 		}
 	};
 }
