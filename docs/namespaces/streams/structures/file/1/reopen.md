@@ -15,8 +15,7 @@ void reopen(const std::string& path, const std::string& mode, xieite::streams::F
 ```
 #### 2)
 ```cpp
-import std;
-import xieite;
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 void reopen(const std::wstring& path, const std::wstring& mode, xieite::streams::File other) noexcept;
 #endif
 ```

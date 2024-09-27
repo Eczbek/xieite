@@ -11,10 +11,7 @@ Returns the underlying file descriptor.
 ## Synopsis
 #### 1)
 ```cpp
-import std;
-import xieite;
 [[nodiscard]] int descriptor() const noexcept;
-#endif
 ```
 
 &nbsp;

@@ -15,8 +15,7 @@ void open(const std::string& path, const std::string& mode) noexcept;
 ```
 #### 2)
 ```cpp
-import std;
-import xieite;
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 void open(const std::wstring& path, const std::wstring& mode) noexcept;
 #endif
 ```
@@ -26,8 +25,7 @@ void open(int descriptor, const std::string& mode) noexcept;
 ```
 #### 4)
 ```cpp
-import std;
-import xieite;
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 void open(int descriptor, const std::wstring& mode) noexcept;
 #endif
 ```

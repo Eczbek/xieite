@@ -19,8 +19,7 @@ File(const std::string& path, const std::string& mode) noexcept;
 ```
 #### 3)
 ```cpp
-import std;
-import xieite;
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 File(const std::wstring& path, const std::wstring& mode) noexcept;
 #endif
 ```
@@ -30,8 +29,7 @@ File(int descriptor, const std::string& mode) noexcept;
 ```
 #### 5)
 ```cpp
-import std;
-import xieite;
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 File(int descriptor, const std::wstring& mode) noexcept;
 #endif
 ```
@@ -46,8 +44,7 @@ File(const std::string& path, const std::string& mode, xieite::streams::File oth
 ```
 #### 8)
 ```cpp
-import std;
-import xieite;
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 File(const std::wstring& path, const std::wstring& mode, xieite::streams::File other) noexcept;
 #endif
 ```

@@ -15,8 +15,7 @@ void open(const std::string& command, const std::string& mode) noexcept;
 ```
 #### 2)
 ```cpp
-import std;
-import xieite;
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 void open(const std::wstring& command, const std::wstring& mode) noexcept;
 #endif
 ```
