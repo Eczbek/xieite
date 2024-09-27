@@ -10,6 +10,7 @@ Macros and special headers
 ## Contents
 - [ANY\(\)](./namespaces/macros/any.md)
 - [ARCHITECTURE_...](./namespaces/macros/architecture.md)
+- [ARROW\(\)](./namespaces/macros/arrow.md)
 - [ASCII_SUPPORT](./namespaces/macros/ascii_support.md)
 - [AT\(\)](./namespaces/macros/at.md)
 - [ATTRIBUTE_...](./namespaces/macros/attribute.md)
