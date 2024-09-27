@@ -8,6 +8,7 @@ Fixed-size containers and other utilities
 &nbsp;
 
 ## Contents
+- [applyArray\<\>\(\)](./namespaces/containers/apply_array.md)
 - [CopyCopyAssignable\<\>](./namespaces/containers/copy_copy_assignable.md)
 - [CopyCopyConstructible\<\>](./namespaces/containers/copy_copy_constructible.md)
 - [CopyDefaultConstructible\<\>](./namespaces/containers/copy_default_constructible.md)

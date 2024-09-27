@@ -97,6 +97,7 @@ export import :concepts.UnscopedEnumeration;
 export import :concepts.UnsignedIntegral;
 export import :concepts.Volatile;
 export import :concepts.WideCharacter;
+export import :containers.applyArray;
 export import :containers.CopyCopyAssignable;
 export import :containers.CopyCopyConstructible;
 export import :containers.CopyDefaultConstructible;

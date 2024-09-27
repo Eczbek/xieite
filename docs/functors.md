@@ -8,7 +8,6 @@ Utilities relating to functors and arguments
 &nbsp;
 
 ## Contents
-- [BraceInitialize\<\> \{\}](./namespaces/functors/brace_initialize.md)
 - [counter\<\>\(\)](./namespaces/functors/counter.md)
 - [distributeArguments\<\>\(\)](./namespaces/functors/distribute_arguments.md)
 - [Function\<\> \{\}](./namespaces/functors/function.md)
