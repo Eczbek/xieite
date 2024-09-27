@@ -48,6 +48,7 @@ Mathematical types and functions
 - [modulo\<\>\(\)](./namespaces/math/modulo.md)
 - [multiplicationOverflows\<\>\(\)](./namespaces/math/multiplication_overflows.md)
 - [multiply\<\>\(\)](./namespaces/math/multiply.md)
+- [Number\<\> \{\}](./namespaces/math/number.md)
 - [parse\<\>\(\)](./namespaces/math/parse.md)
 - [pi\<\>](./namespaces/math/pi.md)
 - [power\<\>\(\)](./namespaces/math/power.md)

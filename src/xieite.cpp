@@ -191,6 +191,7 @@ export import :math.modes;
 export import :math.modulo;
 export import :math.multiplicationOverflows;
 export import :math.multiply;
+export import :math.Number;
 export import :math.parse;
 export import :math.pi;
 export import :math.power;

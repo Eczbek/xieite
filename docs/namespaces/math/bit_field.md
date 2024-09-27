@@ -19,8 +19,6 @@ struct BitField
     template<std::integral Integral = int>
     explicit(false) constexpr BitField(Integral = 0) noexcept;
 
-    constexpr BitField& operator=(BitField) noexcept;
-
     template<std::integral Integral>
     explicit constexpr operator Integral() const noexcept;
 
@@ -88,7 +86,6 @@ struct BitField
 ```
 - value
 - [BitField\<\>\(\)](./structures/bit_field/1/operators/constructor.md)
-- [operator=\(\)](./structures/bit_field/1/operators/assign.md)
 - [operator typename\<\>\(\)](./structures/bit_field/1/operators/cast.md)
 - [operator<=>\(\)](./structures/bit_field/1/operators/spaceship.md)
 - [operator+\(\)](./structures/bit_field/1/operators/add.md)
