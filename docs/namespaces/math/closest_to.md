@@ -12,12 +12,7 @@ Selects the value closest to a target.
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic& closestTo(Arithmetic target, std::type_identity_t<Arithmetic>& value1, std::type_identity_t<Arithmetic>& value2) noexcept;
-```
-#### 2)
-```cpp
-template<xieite::concepts::Arithmetic Arithmetic>
-[[nodiscard]] constexpr Arithmetic closestTo(Arithmetic target, const std::type_identity_t<Arithmetic>& value1, const std::type_identity_t<Arithmetic>& value2) noexcept;
+[[nodiscard]] constexpr Arithmetic closestTo(Arithmetic target, std::type_identity_t<Arithmetic> value1, std::type_identity_t<Arithmetic> value2) noexcept;
 ```
 
 &nbsp;
