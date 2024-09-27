@@ -115,16 +115,24 @@ export namespace xieite::types {
 		using Arrange = List<List::At<indices>...>;
 
 	private:
-		template<auto conditional, typename... Results>
-		struct FilterHelper
+		template<auto condition, auto transformer, typename... Results>
+		struct TransformHelper
 		: std::type_identity<List<Results...>> {
 			template<typename Type>
-			std::conditional_t<xieite::concepts::SatisfiedBy<conditional, Type, Results...>, List::FilterHelper<conditional, Results..., Type>, List::FilterHelper<conditional, Results...>> operator->*(List::FilterHelper<conditional, Type>) const noexcept;
+			auto operator->*(std::type_identity<Type>) const noexcept {
+				if constexpr (xieite::concepts::SatisfiedBy<condition, Type, Results...>) {
+					return decltype(transformer.template operator()<Type, Results...>())::type::apply(([]<typename... Additions> {
+						return TransformHelper<condition, transformer, Results..., Additions...>();
+					}));
+				} else {
+					return TransformHelper<condition, transformer, Results...>();
+				}
+			}
 		};
 
 	public:
 		template<auto selector>
-		using Filter = decltype((List::FilterHelper<selector>()->*...->*List::FilterHelper<selector, Types>()));
+		using Filter = decltype((List::TransformHelper<selector, []<typename Type> { return std::type_identity<Type>(); }>()->*...->*std::type_identity<Types>()))::type;
 
 		template<auto comparator = []<typename First, typename... Rest> requires((... && !std::same_as<First, Rest>)) {}>
 		using Deduplicate = List::Filter<comparator>;
@@ -142,6 +150,12 @@ export namespace xieite::types {
 		requires(!(sizeof...(Types) % arity))
 		using Transform = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
 			return std::type_identity<List<decltype(transformer.template operator()<List::Slice<arity * i, arity * (i + 1)>>())...>>();
+		})(std::make_index_sequence<sizeof...(Types) / arity>()))::type;
+
+		template<std::size_t arity, auto transformer>
+		requires(!(sizeof...(Types) % arity))
+		using TransformFlat = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
+			return std::type_identity<decltype((List::TransformHelper<[]<typename...> {}, []<typename Value> { return std::type_identity<List::Slice<arity * Value::value, arity * (Value::value + 1)>>(); }>()->*...->*std::type_identity<xieite::types::Value<i>>()))>();
 		})(std::make_index_sequence<sizeof...(Types) / arity>()))::type;
 
 		template<typename... OtherTypes>

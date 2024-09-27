@@ -4,7 +4,7 @@ Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 &nbsp;
 
 ## Description
-Applies a transformation to every set amount of types within the list, in order.
+Applies a transformation to every set amount of types within the list, in order. The transformation **must** return a `std::type_identity`.
 
 &nbsp;
 
@@ -27,7 +27,7 @@ int main() {
     using Foo = xieite::types::List<int, char, long, float, short, bool>;
 
     using Bar = Foo::Transform<2, []<typename T, typename U> {
-        return std::declval<std::pair<T, U>>();
+        return std::type_identity<std::pair<T, U>>();
     }>;
 
     std::println("{}", xieite::types::name<Bar>);

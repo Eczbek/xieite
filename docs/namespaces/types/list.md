@@ -101,6 +101,10 @@ struct List {
     requires(!(sizeof...(Types) % arity))
     using Transform = /* xieite::types::List<...> */;
 
+    template<std::size_t arity, auto transformer>
+    requires(!(sizeof...(Types) % arity))
+    using TransformFlat = /* xieite::types::List<...> */;
+
     template<typename... OtherTypes>
     requires(sizeof...(Types) == sizeof...(OtherTypes))
     using Zip = /* xieite::types::List<...> */;
@@ -130,6 +134,7 @@ struct List {
 - [Swap\<\>](./structures/list/1/swap.md)
 - [SwapRanges\<\>](./structures/list/1/swap_ranges.md)
 - [Transform\<\>](./structures/list/1/transform.md)
+- [TransformFlat\<\>](./structures/list/1/transform_flat.md)
 - [Zip\<\>](./structures/list/1/zip.md)
 - [ZipRange\<\>](./structures/list/1/zip_range.md)
 - [apply\<\>\(\)](./structures/list/1/apply.md)
