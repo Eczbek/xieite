@@ -112,13 +112,13 @@ export namespace xieite::math {
 				if (left.data.size() != right.data.size()) {
 					return right.data.size() <=> left.data.size();
 				} else {
-					return std::ranges::lexicographical_compare_three_way(right.data, left.data);
+					return std::lexicographical_compare_three_way(right.data.rbegin(), right.data.rend(), left.data.rbegin(), left.data.rend());
 				}
 			}
 			if (left.data.size() != right.data.size()) {
 				return left.data.size() <=> right.data.size();
 			} else {
-				return std::ranges::lexicographical_compare_three_way(left.data, right.data);
+				return std::lexicographical_compare_three_way(left.data.rbegin(), left.data.rend(), right.data.rbegin(), right.data.rend());
 			}
 		}
 
