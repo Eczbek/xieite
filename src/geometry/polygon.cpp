@@ -28,19 +28,19 @@ export namespace xieite::geometry {
 		: points(std::ranges::begin(points), std::ranges::end(points)) {}
 
 		template<typename OtherArithmetic>
-		[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Polygon<OtherArithmetic>() const noexcept {
+		[[nodiscard]] explicit(false) constexpr operator Polygon<OtherArithmetic>() const noexcept {
 			using OtherPoint = xieite::geometry::Point<OtherArithmetic>;
 			std::vector<OtherPoint> otherPoints = std::vector<OtherPoint>(this->points.size());
-			std::ranges::transform(this->points, otherPoints.begin(), XIEITE_LIFT_UNARY(static_cast<OtherPoint>));
-			return xieite::geometry::Polygon<OtherArithmetic>(otherPoints);
+			std::ranges::transform(this->points, otherPoints.begin(), XIEITE_LIFT_PREFIX(static_cast<OtherPoint>));
+			return Polygon<OtherArithmetic>(otherPoints);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Polygon<Arithmetic>& polygon1, const xieite::geometry::Polygon<Arithmetic>& polygon2) noexcept {
-			return xieite::algorithms::isRotated(polygon1.points, polygon2.points) || xieite::algorithms::isRotated(polygon1.points, std::views::reverse(polygon2.points));
+		[[nodiscard]] friend constexpr bool operator==(const Polygon& left, const Polygon& right) noexcept {
+			return xieite::algorithms::isRotated(left.points, right.points) || xieite::algorithms::isRotated(left.points, std::views::reverse(right.points));
 		}
 
-		[[nodiscard]] static constexpr xieite::geometry::Polygon<Arithmetic> rectangle(const xieite::geometry::Point<Arithmetic> start, const xieite::geometry::Point<Arithmetic> end) noexcept {
-			return xieite::geometry::Polygon<Arithmetic>(std::vector<xieite::geometry::Point<Arithmetic>> {
+		[[nodiscard]] static constexpr Polygon rectangle(const xieite::geometry::Point<Arithmetic> start, const xieite::geometry::Point<Arithmetic> end) noexcept {
+			return Polygon(std::vector<xieite::geometry::Point<Arithmetic>> {
 				start,
 				xieite::geometry::Point<Arithmetic>(start.x, end.y),
 				end,
@@ -106,7 +106,7 @@ export namespace xieite::geometry {
 			return this->contains(segment.start) && this->contains(segment.end) && (xieite::geometry::intersections(*this, segment).size() < 2);
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::geometry::Polygon<Arithmetic>& polygon) const noexcept {
+		[[nodiscard]] constexpr bool contains(const Polygon& polygon) const noexcept {
 			return polygon.points.size() && this->contains(polygon.points[0]) && (xieite::geometry::intersections(*this, polygon).size() < 2);
 		}
 	};

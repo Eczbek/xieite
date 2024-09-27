@@ -12,7 +12,7 @@ Casts one polygon type to another.
 #### 1)
 ```cpp
 template<typename OtherArithmetic>
-[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Polygon<OtherArithmetic>() const noexcept;
+[[nodiscard]] explicit(false) constexpr operator Polygon<OtherArithmetic>() const noexcept;
 ```
 
 &nbsp;

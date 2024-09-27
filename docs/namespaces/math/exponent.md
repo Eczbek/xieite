@@ -22,7 +22,7 @@ public:
     template<xieite::concepts::Arithmetic OtherArithmetic>
     explicit(false) constexpr operator std::common_type_t<Arithmetic, OtherArithmetic>() const noexcept;
 
-    constexpr xieite::math::Exponent<Arithmetic>::Intermediate operator*() const noexcept;
+    constexpr Exponent::Intermediate operator*() const noexcept;
 };
 ```
 - [Intermediate \{\}](./structures/exponent/1/intermediate.md)

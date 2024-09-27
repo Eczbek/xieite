@@ -11,7 +11,7 @@ Computes the distance between two points.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> distanceTo(xieite::geometry::Point<Arithmetic> point) const noexcept;
+[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> distanceTo(Point point) const noexcept;
 ```
 
 &nbsp;

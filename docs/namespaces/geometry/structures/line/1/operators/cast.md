@@ -12,7 +12,7 @@ Casts one line type to another.
 #### 1)
 ```cpp
 template<typename OtherArithmetic>
-[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Line<OtherArithmetic>() const noexcept;
+[[nodiscard]] explicit(false) constexpr operator Line<OtherArithmetic>() const noexcept;
 ```
 
 &nbsp;

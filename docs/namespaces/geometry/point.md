@@ -21,17 +21,17 @@ struct Point {
     constexpr Point(Arithmetic, Arithmetic) noexcept;
 
     template<typename OtherArithmetic>
-    explicit(false) constexpr operator xieite::geometry::Point<OtherArithmetic>() const noexcept;
+    explicit(false) constexpr operator Point<OtherArithmetic>() const noexcept;
 
-    friend constexpr bool operator==(xieite::geometry::Point<Arithmetic>, xieite::geometry::Point<Arithmetic>) noexcept;
+    friend constexpr bool operator==(Point, Point) noexcept;
 
-    constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angleTo(xieite::geometry::Point<Arithmetic>) const noexcept;
+    constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angleTo(Point) const noexcept;
 
-    constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> distanceTo(xieite::geometry::Point<Arithmetic>) const noexcept;
+    constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> distanceTo(Point) const noexcept;
 
-    constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> slopeTo(xieite::geometry::Point<Arithmetic>) const noexcept;
+    constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> slopeTo(Point) const noexcept;
 
-    constexpr bool contains(xieite::geometry::Point<Arithmetic>) const noexcept;
+    constexpr bool contains(Point) const noexcept;
 
     constexpr bool contains(const xieite::geometry::Line<Arithmetic>&) const noexcept;
 

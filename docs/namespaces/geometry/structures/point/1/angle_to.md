@@ -11,7 +11,7 @@ Computes the angle between two points.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angleTo(xieite::geometry::Point<Arithmetic> point) const noexcept;
+[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angleTo(Point point) const noexcept;
 ```
 
 &nbsp;

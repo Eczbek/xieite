@@ -20,11 +20,11 @@ struct Polygon {
     explicit constexpr Polygon(PointRange&&) noexcept;
 
     template<typename OtherArithmetic>
-    explicit(false) constexpr operator xieite::geometry::Polygon<OtherArithmetic>() const noexcept;
+    explicit(false) constexpr operator Polygon<OtherArithmetic>() const noexcept;
 
-    friend constexpr bool operator==(const xieite::geometry::Polygon<Arithmetic>&, const xieite::geometry::Polygon<Arithmetic>&) noexcept;
+    friend constexpr bool operator==(const Polygon&, const Polygon&) noexcept;
 
-    static constexpr xieite::geometry::Polygon<Arithmetic> rectangle(xieite::geometry::Point<Arithmetic>, xieite::geometry::Point<Arithmetic>) noexcept;
+    static constexpr Polygon rectangle(xieite::geometry::Point<Arithmetic>, xieite::geometry::Point<Arithmetic>) noexcept;
 
     constexpr double area() const noexcept;
 
@@ -40,7 +40,7 @@ struct Polygon {
 
     constexpr bool contains(const xieite::geometry::Segment<Arithmetic>&) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Polygon<Arithmetic>&) const noexcept;
+    constexpr bool contains(const Polygon&) const noexcept;
 };
 ```
 - points

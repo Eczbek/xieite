@@ -11,7 +11,7 @@ Compares two rays.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Ray<Arithmetic>& ray1, const xieite::geometry::Ray<Arithmetic>& ray2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const Ray& left, const Ray& right) noexcept;
 ```
 
 &nbsp;

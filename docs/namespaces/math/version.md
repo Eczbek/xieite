@@ -19,9 +19,9 @@ struct Version {
 
     constexpr Version(std::size_t = 0, std::size_t = 0, std::size_t = 0, std::string_view = "") noexcept;
 
-    friend constexpr std::strong_ordering operator<=>(const xieite::math::Version&, const xieite::math::Version&) noexcept;
+    friend constexpr std::strong_ordering operator<=>(const Version&, const Version&) noexcept;
 
-    friend constexpr bool operator==(const xieite::math::Version&, const xieite::math::Version&) noexcept;
+    friend bool operator==(const Version&, const Version&) = default;
 
     constexpr std::string string() const noexcept;
 };
@@ -32,7 +32,6 @@ struct Version {
 - label
 - [Version\(\)](./structures/version/1/operators/constructor.md)
 - [operator<=>\(\)](./structures/version/1/operators/spaceship.md)
-- [operator==\(\)](./structures/version/1/operators/equal.md)
 - [string\(\)](./structures/version/1/string.md)
 
 &nbsp;

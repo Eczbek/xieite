@@ -29,7 +29,7 @@ Always returns `false`.
 ```
 #### 5)
 ```cpp
-[[nodiscard]] constexpr bool contains(const xieite::geometry::Polygon<Arithmetic>& polygon) const noexcept;
+[[nodiscard]] constexpr bool contains(const Polygon& polygon) const noexcept;
 ```
 
 &nbsp;

@@ -25,7 +25,7 @@ Always returns `false`.
 Always returns `false`.
 #### 4)
 ```cpp
-[[nodiscard]] constexpr bool contains(const xieite::geometry::Segment<Arithmetic>& segment) const noexcept;
+[[nodiscard]] constexpr bool contains(const Segment& segment) const noexcept;
 ```
 #### 5)
 ```cpp

@@ -12,7 +12,7 @@ Casts one point type to another.
 #### 1)
 ```cpp
 template<typename OtherArithmetic>
-[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Point<OtherArithmetic>() const noexcept;
+[[nodiscard]] explicit(false) constexpr operator Point<OtherArithmetic>() const noexcept;
 ```
 
 &nbsp;

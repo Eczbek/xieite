@@ -11,7 +11,7 @@ Compares two points.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(xieite::geometry::Point<Arithmetic> point1, xieite::geometry::Point<Arithmetic> point2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(Point left, Point right) noexcept;
 ```
 
 &nbsp;

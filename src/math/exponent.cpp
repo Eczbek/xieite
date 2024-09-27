@@ -17,7 +17,7 @@ namespace xieite::math {
 			: value(value) {}
 
 			template<xieite::concepts::Arithmetic OtherArithmetic>
-			[[nodiscard]] friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(const OtherArithmetic base, const xieite::math::Exponent<Arithmetic>::Intermediate exponent) noexcept {
+			[[nodiscard]] friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(const OtherArithmetic base, const Intermediate exponent) noexcept {
 				return static_cast<std::common_type_t<Arithmetic, OtherArithmetic>>(xieite::math::power(base, exponent.value));
 			}
 
@@ -34,8 +34,8 @@ namespace xieite::math {
 			return static_cast<std::common_type_t<Arithmetic, OtherArithmetic>>(this->value);
 		}
 
-		[[nodiscard]] constexpr xieite::math::Exponent<Arithmetic>::Intermediate operator*() const noexcept {
-			return xieite::math::Exponent<Arithmetic>::Intermediate(this->value);
+		[[nodiscard]] constexpr Exponent::Intermediate operator*() const noexcept {
+			return Exponent::Intermediate(this->value);
 		}
 
 	private:
@@ -43,5 +43,5 @@ namespace xieite::math {
 	};
 
 	template<typename Type>
-	Exponent(Type) -> xieite::math::Exponent<Type>;
+	Exponent(Type) -> Exponent<Type>;
 }

@@ -8,25 +8,25 @@ import :types.Value;
 
 export namespace xieite::units {
 	template<xieite::containers::FixedString type, auto... operations>
-	requires(!(sizeof...(operations) % 2) && xieite::types::List<xieite::types::Value<operations>...>::Transform<2, []<typename Operation, typename Value> { return xieite::types::Value<std::convertible_to<Operation, char> && std::convertible_to<Value, double>>(); }>::all<[]<xieite::concepts::True> {}>)
+	requires(!(sizeof...(operations) % 2) && xieite::types::List<xieite::types::Value<operations>...>::template Transform<2, []<typename Operation, typename Value> { return xieite::types::Value<std::convertible_to<Operation, char> && std::convertible_to<Value, double>>(); }>::all<[]<xieite::concepts::True> {}>)
 	struct Unit {
 	public:
 		double value;
 
 		template<auto... otherOperations>
-		[[nodiscard]] explicit(false) constexpr operator xieite::types::Unit<type, otherOperations...>() const noexcept {
+		[[nodiscard]] explicit(false) constexpr operator Unit<type, otherOperations...>() const noexcept {
 			double result = this->value;
-			xieite::units::Unit<type, operations...>::Wrap::apply([&result]<typename... Operations> {
+			Unit::Wrap::apply([&result]<typename... Operations> {
 				(..., (result = Operations().first(result)));
 			});
-			xieite::units::Unit<type, otherOperations...>::Wrap::Reverse::apply([&result]<typename... OtherOperations> {
+			Unit<type, otherOperations...>::Wrap::Reverse::apply([&result]<typename... OtherOperations> {
 				(..., (result = OtherOperations().second(result)));
 			});
-			return xieite::types::Unit<type, otherOperations...>(result);
+			return Unit<type, otherOperations...>(result);
 		}
 
 	private:
-		using Wrap = xieite::types::List<xieite::types::Value<operations>...>::Transform<2, []<typename Operation, typename Value> {
+		using Wrap = xieite::types::List<xieite::types::Value<operations>...>::template Transform<2, []<typename Operation, typename Value> {
 			static constexpr auto add = [](const double other) { return Value::value + other; };
 			static constexpr auto subtract = [](const double other) { return Value::value - other; };
 			static constexpr auto multiply = [](const double other) { return Value::value * other; };

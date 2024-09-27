@@ -12,7 +12,7 @@ Casts one ray type to another.
 #### 1)
 ```cpp
 template<typename OtherArithmetic>
-[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Ray<OtherArithmetic>() const noexcept;
+[[nodiscard]] explicit(false) constexpr operator Ray<OtherArithmetic>() const noexcept;
 ```
 
 &nbsp;

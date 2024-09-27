@@ -20,12 +20,12 @@ export namespace xieite::functors {
 		using xieite::functors::Function<Return(Argument)>::Function;
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator>(const xieite::functors::Mixfix<Return(Argument)>& mixfix, ArgumentReference&& argument) noexcept(false) {
+		/* discardable */ friend constexpr Return operator>(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
 			return mixfix(XIEITE_FORWARD(argument));
 		}
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<(ArgumentReference&& argument, const xieite::functors::Mixfix<Return(Argument)>& mixfix) noexcept(false) {
+		/* discardable */ friend constexpr Return operator<(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
 			return mixfix(XIEITE_FORWARD(argument));
 		}
 	};
@@ -38,16 +38,16 @@ export namespace xieite::functors {
 		struct Intermediate
 		: xieite::containers::MaybeCopyAssignable<false>, xieite::containers::MaybeMoveAssignable<false> {
 		public:
-			constexpr Intermediate(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>& mixfix, LeftArgumentReference&& leftArgument) noexcept
+			constexpr Intermediate(const Mixfix& mixfix, LeftArgumentReference&& leftArgument) noexcept
 			: mixfix(mixfix), leftArgument(XIEITE_FORWARD(leftArgument)) {}
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator>(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
+			/* discardable */ friend constexpr Return operator>(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
 				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
 			}
 
 		private:
-			const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>& mixfix;
+			const Mixfix& mixfix;
 			LeftArgumentReference&& leftArgument;
 		};
 
@@ -55,10 +55,10 @@ export namespace xieite::functors {
 		using xieite::functors::Function<Return(LeftArgument, RightArgument)>::Function;
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference> operator<(LeftArgumentReference&& leftArgument, const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>& mixfix) noexcept {
-			return xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
+		[[nodiscard]] friend constexpr Mixfix::Intermediate<LeftArgumentReference> operator<(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept {
+			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
 		}
 	};
 }
 
-// `xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>::Intermediate` must only exist as a temporary
+// `Mixfix::Intermediate` must only exist as a temporary

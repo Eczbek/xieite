@@ -16,7 +16,7 @@ struct Intermediate
     constexpr Intermediate(Arithmetic) noexcept;
 
     template<xieite::concepts::Arithmetic OtherArithmetic>
-    friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(OtherArithmetic, xieite::math::Exponent<Arithmetic>::Intermediate) noexcept;
+    friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(OtherArithmetic, Intermediate) noexcept;
 };
 ```
 - [Intermediate\(\)](./structures/intermediate/1/operators/constructor.md)

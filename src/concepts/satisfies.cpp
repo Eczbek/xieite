@@ -1,6 +1,8 @@
 export module xieite:concepts.Satisfies;
 
+import :concepts.SatisfiedBy;
+
 export namespace xieite::concepts {
-	template<auto validator, typename... Types>
-	concept Satisfies = requires { validator.template operator()<Types...>(); };
+	template<typename Type, auto validator>
+	concept Satisfies = xieite::concepts::SatisfiedBy<validator, Type>;
 }

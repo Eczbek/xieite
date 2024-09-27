@@ -19,9 +19,9 @@ struct Segment {
     constexpr Segment(xieite::geometry::Point<Arithmetic>, xieite::geometry::Point<Arithmetic>) noexcept;
 
     template<typename OtherArithmetic>
-    explicit(false) constexpr operator xieite::geometry::Segment<OtherArithmetic>() const noexcept;
+    explicit(false) constexpr operator Segment<OtherArithmetic>() const noexcept;
 
-    friend constexpr bool operator==(const xieite::geometry::Segment<Arithmetic>&, const xieite::geometry::Segment<Arithmetic>&) noexcept;
+    friend constexpr bool operator==(const Segment&, const Segment&) noexcept;
 
     constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angle() const noexcept;
 
@@ -35,7 +35,7 @@ struct Segment {
 
     constexpr bool contains(const xieite::geometry::Ray<Arithmetic>&) const noexcept;
 
-    constexpr bool contains(const xieite::geometry::Segment<Arithmetic>&) const noexcept;
+    constexpr bool contains(const Segment&) const noexcept;
 
     constexpr bool contains(const xieite::geometry::Polygon<Arithmetic>&) const noexcept;
 };

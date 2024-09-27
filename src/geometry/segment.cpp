@@ -24,12 +24,12 @@ export namespace xieite::geometry {
 		: start(start), end(end) {}
 
 		template<typename OtherArithmetic>
-		[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Segment<OtherArithmetic>() const noexcept {
-			return xieite::geometry::Segment<OtherArithmetic>(this->start, this->end);
+		[[nodiscard]] explicit(false) constexpr operator Segment<OtherArithmetic>() const noexcept {
+			return Segment<OtherArithmetic>(this->start, this->end);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Segment<Arithmetic>& segment1, const xieite::geometry::Segment<Arithmetic>& segment2) noexcept {
-			return (segment1.start == segment2.start) && (segment1.end == segment2.end) || (segment1.start == segment2.end) && (segment1.end == segment2.start);
+		[[nodiscard]] friend constexpr bool operator==(const Segment& left, const Segment& right) noexcept {
+			return ((left.start == right.start) && (left.end == right.end)) || ((left.start == right.end) && (left.end == right.start));
 		}
 
 		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angle() const noexcept {
@@ -56,7 +56,7 @@ export namespace xieite::geometry {
 			return false;
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::geometry::Segment<Arithmetic>& segment) const noexcept {
+		[[nodiscard]] constexpr bool contains(const Segment& segment) const noexcept {
 			return this->contains(segment.start) && this->contains(segment.end);
 		}
 

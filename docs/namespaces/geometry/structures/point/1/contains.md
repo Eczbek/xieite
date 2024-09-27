@@ -11,7 +11,7 @@ Checks if a point contains another geometrical element.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr bool contains(xieite::geometry::Point<Arithmetic> point) const noexcept;
+[[nodiscard]] constexpr bool contains(Point point) const noexcept;
 ```
 #### 2)
 ```cpp

@@ -15,7 +15,7 @@ Checks whether a line contains another geometrical element.
 ```
 #### 2)
 ```cpp
-[[nodiscard]] constexpr bool contains(const xieite::geometry::Line<Arithmetic>& line) const noexcept;
+[[nodiscard]] constexpr bool contains(const Line& line) const noexcept;
 ```
 #### 3)
 ```cpp

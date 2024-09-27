@@ -11,7 +11,7 @@ Compares two `xieite::math::Version`s, ingoring the label member object.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::math::Version& version1, const xieite::math::Version& version2) noexcept;
+[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const Version& version1, const Version& version2) noexcept;
 ```
 
 &nbsp;

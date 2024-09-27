@@ -27,12 +27,12 @@ export namespace xieite::geometry {
 		: start(start), end(std::cos(angle), std::sin(angle)) {}
 
 		template<typename OtherArithmetic>
-		[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Ray<OtherArithmetic>() const noexcept {
-			return xieite::geometry::Ray<OtherArithmetic>(this->start, this->end);
+		[[nodiscard]] explicit(false) constexpr operator Ray<OtherArithmetic>() const noexcept {
+			return Ray<OtherArithmetic>(this->start, this->end);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Ray<Arithmetic>& ray1, const xieite::geometry::Ray<Arithmetic>& ray2) noexcept {
-			return (ray1.start == ray2.start) && xieite::math::almostEqual(ray1.angle(), ray2.angle());
+		[[nodiscard]] friend constexpr bool operator==(const Ray& left, const Ray& right) noexcept {
+			return (left.start == right.start) && xieite::math::almostEqual(left.angle(), right.angle());
 		}
 
 		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angle() const noexcept {
@@ -55,7 +55,7 @@ export namespace xieite::geometry {
 			return false;
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::geometry::Ray<Arithmetic>& ray) const noexcept {
+		[[nodiscard]] constexpr bool contains(const Ray& ray) const noexcept {
 			return this->contains(ray.start) && xieite::math::almostEqual(this->angle(), ray.angle());
 		}
 

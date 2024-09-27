@@ -16,13 +16,13 @@ export namespace xieite::functors {
 	public:
 		Function() = default;
 
-		explicit(false) constexpr Function(const xieite::functors::Function<Return(Arguments...)>& function) noexcept
+		explicit(false) constexpr Function(const Function& function) noexcept
 		: pointer(function.pointer->clone()) {}
 
 		template<xieite::concepts::Invocable<Return(Arguments...)> Functor>
-		requires(!std::same_as<std::remove_cvref_t<Functor>, xieite::functors::Function<Return(Arguments...)>>)
+		requires(!std::same_as<std::remove_cvref_t<Functor>, Function>)
 		explicit(false) constexpr Function(Functor&& functor) noexcept
-		: pointer(std::make_unique<xieite::functors::Function<Return(Arguments...)>::Derived<std::remove_cvref_t<Functor>>>(XIEITE_FORWARD(functor))) {}
+		: pointer(std::make_unique<Function::Derived<std::remove_cvref_t<Functor>>>(XIEITE_FORWARD(functor))) {}
 
 		[[nodiscard]] explicit constexpr operator bool() const noexcept {
 			return static_cast<bool>(this->pointer);
@@ -41,12 +41,12 @@ export namespace xieite::functors {
 
 			virtual constexpr Return operator()(Arguments...) const noexcept(false) = 0;
 
-			virtual constexpr std::unique_ptr<xieite::functors::Function<Return(Arguments...)>::Base> clone() const noexcept = 0;
+			virtual constexpr std::unique_ptr<Function::Base> clone() const noexcept = 0;
 		};
 
 		template<typename Functor>
 		struct Derived
-		: xieite::functors::Function<Return(Arguments...)>::Base {
+		: Function::Base {
 			mutable Functor functor;
 
 			template<std::convertible_to<Functor> FunctorReference>
@@ -57,11 +57,11 @@ export namespace xieite::functors {
 				return std::invoke(this->functor, XIEITE_FORWARD(arguments)...);
 			}
 
-			[[nodiscard]] constexpr std::unique_ptr<xieite::functors::Function<Return(Arguments...)>::Base> clone() const noexcept override {
-				return std::make_unique<xieite::functors::Function<Return(Arguments...)>::Derived<Functor>>(this->functor);
+			[[nodiscard]] constexpr std::unique_ptr<Function::Base> clone() const noexcept override {
+				return std::make_unique<Derived>(this->functor);
 			}
 		};
 
-		std::unique_ptr<xieite::functors::Function<Return(Arguments...)>::Base> pointer;
+		std::unique_ptr<Function::Base> pointer;
 	};
 }

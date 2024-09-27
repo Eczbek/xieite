@@ -5,11 +5,11 @@ export namespace xieite::containers {
 	struct MaybeCopyAssignable {};
 
 	template<>
-	struct MaybeCopyAssignable<false> {
+	struct MaybeCopyAssignable {
 		MaybeCopyAssignable() = default;
-		MaybeCopyAssignable(const xieite::containers::MaybeCopyAssignable<false>&) = default;
-		MaybeCopyAssignable(xieite::containers::MaybeCopyAssignable<false>&&) = default;
-		auto operator=(const xieite::containers::MaybeCopyAssignable<false>&) = delete;
-		xieite::containers::MaybeCopyAssignable<false>& operator=(xieite::containers::MaybeCopyAssignable<false>&&) = default;
+		MaybeCopyAssignable(const MaybeCopyAssignable&) = default;
+		MaybeCopyAssignable(MaybeCopyAssignable&&) = default;
+		auto operator=(const MaybeCopyAssignable&) = delete;
+		MaybeCopyAssignable& operator=(MaybeCopyAssignable&&) = default;
 	};
 }

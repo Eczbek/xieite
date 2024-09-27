@@ -11,7 +11,7 @@ Compares two segments.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Segment<Arithmetic>& segment1, const xieite::geometry::Segment<Arithmetic>& segment2) noexcept;
+[[nodiscard]] friend constexpr bool operator==(const Segment& left, const Segment& right) noexcept;
 ```
 
 &nbsp;

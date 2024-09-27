@@ -7,9 +7,9 @@ export namespace xieite::containers {
 	template<>
 	struct MaybeMoveAssignable<false> {
 		MaybeMoveAssignable() = default;
-		MaybeMoveAssignable(const xieite::containers::MaybeMoveAssignable<false>&) = default;
-		MaybeMoveAssignable(xieite::containers::MaybeMoveAssignable<false>&&) = default;
-		xieite::containers::MaybeMoveAssignable<false>& operator=(const xieite::containers::MaybeMoveAssignable<false>&) = default;
-		auto operator=(xieite::containers::MaybeMoveAssignable<false>&&) = delete;
+		MaybeMoveAssignable(const MaybeMoveAssignable&) = default;
+		MaybeMoveAssignable(MaybeMoveAssignable&&) = default;
+		MaybeMoveAssignable& operator=(const MaybeMoveAssignable&) = default;
+		auto operator=(MaybeMoveAssignable&&) = delete;
 	};
 }

@@ -20,7 +20,7 @@ Checks whether a ray contains another geometrical element.
 Always returns `false`.
 #### 3)
 ```cpp
-[[nodiscard]] constexpr bool contains(const xieite::geometry::Ray<Arithmetic>& ray) const noexcept;
+[[nodiscard]] constexpr bool contains(const Ray& ray) const noexcept;
 ```
 #### 4)
 ```cpp

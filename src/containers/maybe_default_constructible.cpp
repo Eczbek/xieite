@@ -7,9 +7,9 @@ export namespace xieite::containers {
 	template<>
 	struct MaybeDefaultConstructible<false> {
 		MaybeDefaultConstructible() = delete;
-		MaybeDefaultConstructible(const xieite::containers::MaybeDefaultConstructible<false>&) = default;
-		MaybeDefaultConstructible(xieite::containers::MaybeDefaultConstructible<false>&&) = default;
-		xieite::containers::MaybeDefaultConstructible<false>& operator=(const xieite::containers::MaybeDefaultConstructible<false>&) = default;
-		xieite::containers::MaybeDefaultConstructible<false>& operator=(xieite::containers::MaybeDefaultConstructible<false>&&) = default;
+		MaybeDefaultConstructible(const MaybeDefaultConstructible&) = default;
+		MaybeDefaultConstructible(MaybeDefaultConstructible&&) = default;
+		MaybeDefaultConstructible& operator=(const MaybeDefaultConstructible&) = default;
+		MaybeDefaultConstructible& operator=(MaybeDefaultConstructible&&) = default;
 	};
 }

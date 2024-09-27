@@ -11,7 +11,7 @@ Creates a rectangle from two points.
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] static constexpr xieite::geometry::Polygon<Arithmetic> rectangle(xieite::geometry::Point<Arithmetic> start, xieite::geometry::Point<Arithmetic> end) noexcept;
+[[nodiscard]] static constexpr Polygon rectangle(xieite::geometry::Point<Arithmetic> start, xieite::geometry::Point<Arithmetic> end) noexcept;
 ```
 
 &nbsp;

@@ -21,9 +21,9 @@ struct Line {
     constexpr Line(xieite::geometry::Point<Arithmetic>, std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double>) noexcept;
 
     template<typename OtherArithmetic>
-    explicit(false) constexpr operator xieite::geometry::Line<OtherArithmetic>() const noexcept;
+    explicit(false) constexpr operator Line<OtherArithmetic>() const noexcept;
 
-    friend constexpr bool operator==(const xieite::geometry::Line<Arithmetic>&, const xieite::geometry::Line<Arithmetic>&) noexcept;
+    friend constexpr bool operator==(const Line&, const Line&) noexcept;
 
     constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angle() const noexcept;
 
@@ -33,7 +33,7 @@ struct Line {
 
     constexpr bool contains(xieite::geometry::Point<Arithmetic>) const noexcept;
 
-    constexpr bool contains(xieite::geometry::Line<Arithmetic>&) const noexcept;
+    constexpr bool contains(Line&) const noexcept;
 
     constexpr bool contains(xieite::geometry::Ray<Arithmetic>&) const noexcept;
 

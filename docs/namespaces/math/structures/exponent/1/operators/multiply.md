@@ -11,7 +11,7 @@ Defined in fragment [xieite:math.Exponent](../../../../../../../src/math/exponen
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr xieite::math::Exponent<Arithmetic>::Intermediate operator*() const noexcept;
+[[nodiscard]] constexpr Exponent::Intermediate operator*() const noexcept;
 ```
 
 &nbsp;

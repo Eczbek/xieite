@@ -52,12 +52,12 @@ export namespace xieite::streams {
 			this->open(stream);
 		}
 
-		File(const std::string& path, const std::string& mode, const xieite::streams::File other) noexcept {
+		File(const std::string& path, const std::string& mode, const File other) noexcept {
 			this->reopen(path, mode, other);
 		}
 
 #if XIEITE_PLATFORM_TYPE_WINDOWS
-		File(const std::wstring& path, const std::wstring& mode, const xieite::streams::File other) noexcept {
+		File(const std::wstring& path, const std::wstring& mode, const File other) noexcept {
 			this->reopen(path, mode, other);
 		}
 #endif
@@ -123,7 +123,7 @@ export namespace xieite::streams {
 						mode += 'a';
 					}
 #endif
-					return xieite::streams::File(descriptor, mode).release();
+					return File(descriptor, mode).release();
 				} else {
 #if XIEITE_COMPILER_TYPE_GCC
 					return static_cast<__gnu_cxx::stdio_filebuf<typename Stream::char_type, typename Stream::traits_type>*>(stream.rdbuf())->file();
@@ -134,12 +134,12 @@ export namespace xieite::streams {
 			})();
 		}
 
-		void reopen(const std::string& path, const std::string& mode, const xieite::streams::File other) noexcept {
+		void reopen(const std::string& path, const std::string& mode, const File other) noexcept {
 			this->stream = std::freopen(path.c_str(), mode.c_str(), other.file());
 		}
 
 #if XIEITE_PLATFORM_TYPE_WINDOWS
-		void reopen(const std::wstring& path, const std::wstring& mode, const xieite::streams::File other) noexcept {
+		void reopen(const std::wstring& path, const std::wstring& mode, const File other) noexcept {
 			this->stream = ::_wfreopen(path.c_str(), mode.c_str(), other.file());
 		}
 #endif

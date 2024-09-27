@@ -11,9 +11,9 @@ import :types.List;
 
 export namespace xieite::functors {
 	template<std::size_t arity, std::size_t previousResultIndex = 0, typename Functor, typename... Arguments>
-	requires((arity > previousResultIndex) && (arity <= sizeof...(Arguments)) && ((arity == 1) || ((arity > 1) && !((sizeof...(Arguments) - 1) % (arity - 1)))) && xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_invocable>::value)
+	requires((arity > previousResultIndex) && (arity <= sizeof...(Arguments)) && ((arity == 1) || ((arity > 1) && !((sizeof...(Arguments) - 1) % (arity - 1)))) && xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template ApplyRange<std::is_invocable>::value)
 	/* discardable */ constexpr decltype(auto) recursivelyDistributeArguments(Functor&& functor, Arguments&&... arguments)
-	noexcept(xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_nothrow_invocable>::value) {
+	noexcept(xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template ApplyRange<std::is_nothrow_invocable>::value) {
 		if constexpr (sizeof...(Arguments) == arity) {
 			return std::invoke(XIEITE_FORWARD(functor), XIEITE_FORWARD(arguments)...);
 		} else {

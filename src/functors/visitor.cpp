@@ -8,5 +8,5 @@ export namespace xieite::functors {
 	};
 
 	template<typename... Bases>
-	Visitor(Bases...) -> xieite::functors::Visitor<Bases...>;
+	Visitor(Bases...) -> Visitor<Bases...>;
 }

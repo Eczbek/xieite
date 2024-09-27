@@ -88,7 +88,7 @@ export namespace xieite::streams {
 		template<std::size_t channels>
 		requires(channels >= 3)
 		void setForegroundColor(const xieite::streams::Color<channels>& color) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetForegroundColor(color));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetForegroundColor(color));
 		}
 
 		[[nodiscard]] static constexpr std::string stringResetForegroundColor() noexcept {
@@ -96,7 +96,7 @@ export namespace xieite::streams {
 		}
 
 		void resetForegroundColor() noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringResetForegroundColor());
+			std::print(this->outputFile, "{}", StandardHandle::stringResetForegroundColor());
 		}
 
 		template<std::size_t channels>
@@ -108,7 +108,7 @@ export namespace xieite::streams {
 		template<std::size_t channels>
 		requires(channels >= 3)
 		void setBackgroundColor(const xieite::streams::Color<channels>& color) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetForegroundColor(color));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetForegroundColor(color));
 		}
 
 		[[nodiscard]] static constexpr std::string stringResetBackgroundColor() noexcept {
@@ -116,7 +116,7 @@ export namespace xieite::streams {
 		}
 
 		void resetBackgroundColor() noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringResetBackgroundColor());
+			std::print(this->outputFile, "{}", StandardHandle::stringResetBackgroundColor());
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetTextBold(const bool value) noexcept {
@@ -124,7 +124,7 @@ export namespace xieite::streams {
 		}
 
 		void setTextBold(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetTextBold(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetTextBold(value));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetTextItalic(const bool value) noexcept {
@@ -132,7 +132,7 @@ export namespace xieite::streams {
 		}
 
 		void setTextItalic(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetTextItalic(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetTextItalic(value));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetTextUnderlined(const bool value) noexcept {
@@ -140,7 +140,7 @@ export namespace xieite::streams {
 		}
 
 		void setTextUnderlined(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetTextUnderlined(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetTextUnderlined(value));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetTextBlinking(const bool value) noexcept {
@@ -148,7 +148,7 @@ export namespace xieite::streams {
 		}
 
 		void setTextBlinking(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetTextBlinking(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetTextBlinking(value));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetTextInvisible(const bool value) noexcept {
@@ -156,7 +156,7 @@ export namespace xieite::streams {
 		}
 
 		void setTextInvisible(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetTextInvisible(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetTextInvisible(value));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetTextStriked(const bool value) noexcept {
@@ -164,7 +164,7 @@ export namespace xieite::streams {
 		}
 
 		void setTextStriked(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetTextStriked(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetTextStriked(value));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetColorsSwapped(const bool value) noexcept {
@@ -172,7 +172,7 @@ export namespace xieite::streams {
 		}
 		
 		void setColorsSwapped(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetColorsSwapped(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetColorsSwapped(value));
 		}
 
 		[[nodiscard]] static constexpr std::string stringResetStyles() noexcept {
@@ -183,7 +183,7 @@ export namespace xieite::streams {
 			this->setCursorInvisible(false);
 			this->setCursorAlternate(false);
 			this->setScreenAlternate(false);
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringResetStyles());
+			std::print(this->outputFile, "{}", StandardHandle::stringResetStyles());
 		}
 		
 		void resetModes() noexcept {
@@ -206,7 +206,7 @@ export namespace xieite::streams {
 		}
 
 		void setCursorPosition(const xieite::streams::Position position) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetCursorPosition(position));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetCursorPosition(position));
 		}
 
 		[[nodiscard]] constexpr std::string stringMoveCursorPosition(const xieite::streams::Position difference) noexcept {
@@ -220,7 +220,7 @@ export namespace xieite::streams {
 		}
 
 		void moveCursorPosition(const xieite::streams::Position difference) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringMoveCursorPosition(difference));
+			std::print(this->outputFile, "{}", StandardHandle::stringMoveCursorPosition(difference));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetCursorInvisible(const bool value) noexcept {
@@ -228,7 +228,7 @@ export namespace xieite::streams {
 		}
 
 		void setCursorInvisible(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetCursorInvisible(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetCursorInvisible(value));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetCursorShapeBlock(const bool blink) noexcept {
@@ -236,7 +236,7 @@ export namespace xieite::streams {
 		}
 
 		void setCursorShapeBlock(const bool blink) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetCursorShapeBlock(blink));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetCursorShapeBlock(blink));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetCursorShapeUnderscore(const bool blink) noexcept {
@@ -244,7 +244,7 @@ export namespace xieite::streams {
 		}
 
 		void setCursorShapeUnderscore(const bool blink) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetCursorShapeUnderscore(blink));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetCursorShapeUnderscore(blink));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetCursorShapePipe(const bool blink) noexcept {
@@ -252,7 +252,7 @@ export namespace xieite::streams {
 		}
 
 		void setCursorShapePipe(const bool blink) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetCursorShapePipe(blink));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetCursorShapePipe(blink));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetCursorAlternate(const bool value) noexcept {
@@ -260,7 +260,7 @@ export namespace xieite::streams {
 		}
 
 		void setCursorAlternate(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetCursorAlternate(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetCursorAlternate(value));
 		}
 
 		[[nodiscard]] static constexpr std::string stringSetScreenAlternate(const bool value) noexcept {
@@ -268,7 +268,7 @@ export namespace xieite::streams {
 		}
 
 		void setScreenAlternate(const bool value) noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringSetScreenAlternate(value));
+			std::print(this->outputFile, "{}", StandardHandle::stringSetScreenAlternate(value));
 		}
 
 		[[nodiscard]] xieite::streams::Position getScreenSize() noexcept {
@@ -282,7 +282,7 @@ export namespace xieite::streams {
 		}
 
 		void clearScreen() noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringClearScreen());
+			std::print(this->outputFile, "{}", StandardHandle::stringClearScreen());
 		}
 
 		[[nodiscard]] static constexpr std::string stringClearScreenUntil() noexcept {
@@ -290,7 +290,7 @@ export namespace xieite::streams {
 		}
 		
 		void clearScreenUntil() noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringClearScreenUntil());
+			std::print(this->outputFile, "{}", StandardHandle::stringClearScreenUntil());
 		}
 
 		[[nodiscard]] static constexpr std::string stringClearScreenFrom() noexcept {
@@ -298,7 +298,7 @@ export namespace xieite::streams {
 		}
 		
 		void clearScreenFrom() noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringClearScreenFrom());
+			std::print(this->outputFile, "{}", StandardHandle::stringClearScreenFrom());
 		}
 
 		[[nodiscard]] static constexpr std::string stringClearLine() noexcept {
@@ -306,7 +306,7 @@ export namespace xieite::streams {
 		}
 
 		void clearLine() noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringClearLine());
+			std::print(this->outputFile, "{}", StandardHandle::stringClearLine());
 		}
 
 		[[nodiscard]] static constexpr std::string stringClearLineUntil() noexcept {
@@ -314,7 +314,7 @@ export namespace xieite::streams {
 		}
 
 		void clearLineUntil() noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringClearLineUntil());
+			std::print(this->outputFile, "{}", StandardHandle::stringClearLineUntil());
 		}
 
 		[[nodiscard]] static constexpr std::string stringClearLineFrom() noexcept {
@@ -322,7 +322,7 @@ export namespace xieite::streams {
 		}
 
 		void clearLineFrom() noexcept {
-			std::print(this->outputFile, "{}", xieite::streams::StandardHandle::stringClearLineFrom());
+			std::print(this->outputFile, "{}", StandardHandle::stringClearLineFrom());
 		}
 
 		char readCharacter() noexcept {

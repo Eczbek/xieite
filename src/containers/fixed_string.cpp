@@ -18,5 +18,5 @@ export namespace xieite::containers {
 	};
 
 	template<auto characters, typename Character>
-	FixedString(const Character(&)[characters]) -> xieite::containers::FixedString<characters, Character>;
+	FixedString(const Character(&)[characters]) -> FixedString<characters, Character>;
 }

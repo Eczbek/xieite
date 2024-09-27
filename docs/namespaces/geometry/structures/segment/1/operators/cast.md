@@ -12,7 +12,7 @@ Casts one segment type to another.
 #### 1)
 ```cpp
 template<typename OtherArithmetic>
-[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Segment<OtherArithmetic>() const noexcept;
+[[nodiscard]] explicit(false) constexpr operator Segment<OtherArithmetic>() const noexcept;
 ```
 
 &nbsp;

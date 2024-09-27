@@ -21,7 +21,7 @@ struct Visitor
 ### Deduction guide
 ```cpp
 template<typename... Bases>
-Visitor(Bases...) -> xieite::functors::Visitor<Bases...>;
+Visitor(Bases...) -> Visitor<Bases...>;
 ```
 
 &nbsp;

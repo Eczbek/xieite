@@ -30,28 +30,28 @@ export namespace xieite::geometry {
 		: x(x), y(y) {}
 
 		template<typename OtherArithmetic>
-		[[nodiscard]] explicit(false) constexpr operator xieite::geometry::Point<OtherArithmetic>() const noexcept {
-			return xieite::geometry::Point<OtherArithmetic>(static_cast<OtherArithmetic>(this->x), static_cast<OtherArithmetic>(this->y));
+		[[nodiscard]] explicit(false) constexpr operator Point<OtherArithmetic>() const noexcept {
+			return Point<OtherArithmetic>(static_cast<OtherArithmetic>(this->x), static_cast<OtherArithmetic>(this->y));
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::geometry::Point<Arithmetic> point1, const xieite::geometry::Point<Arithmetic> point2) noexcept {
-			return xieite::math::almostEqual(point1.x, point2.x) && xieite::math::almostEqual(point1.y, point2.y);
+		[[nodiscard]] friend constexpr bool operator==(const Point left, const Point right) noexcept {
+			return xieite::math::almostEqual(left.x, right.x) && xieite::math::almostEqual(left.y, right.y);
 		}
 
-		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angleTo(const xieite::geometry::Point<Arithmetic> point) const noexcept {
+		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angleTo(const Point point) const noexcept {
 			return std::fmod(std::atan2(this->y - point.y, this->x - point.x) + xieite::math::pi<std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double>>, xieite::math::tau<Arithmetic>);
 		}
 
-		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> distanceTo(const xieite::geometry::Point<Arithmetic> point) const noexcept {
+		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> distanceTo(const Point point) const noexcept {
 			return std::hypot(this->x - point.x, this->y - point.y);
 		}
 
-		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> slopeTo(const xieite::geometry::Point<Arithmetic> point) const noexcept {
+		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> slopeTo(const Point point) const noexcept {
 			using Result = std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double>;
 			return xieite::math::almostEqual(this->x, point.x) ? std::numeric_limits<Result>::infinity() : (static_cast<Result>(point.y - this->y) / static_cast<Result>(point.x - this->x));
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::geometry::Point<Arithmetic> point) const noexcept {
+		[[nodiscard]] constexpr bool contains(const Point point) const noexcept {
 			return *this == point;
 		}
 
@@ -68,7 +68,7 @@ export namespace xieite::geometry {
 		}
 
 		[[nodiscard]] constexpr bool contains(const xieite::geometry::Polygon<Arithmetic>& polygon) const noexcept {
-			for (const xieite::geometry::Point<Arithmetic> point : polygon) {
+			for (const Point point : polygon) {
 				if (*this != point) {
 					return false;
 				}

@@ -19,7 +19,9 @@ namespace {
 
 	template<auto tag, auto unique, std::size_t current = 0>
 	[[nodiscard]] constexpr std::size_t counterAdvance() noexcept {
-		if constexpr (requires(CounterReader<tag, current> reader) { counterFlag<void>(reader); }) { return counterAdvance<tag, unique, current + 1>(); } else {
+		if constexpr (requires(CounterReader<tag, current> reader) { counterFlag<void>(reader); }) {
+			return counterAdvance<tag, unique, current + 1>();
+		} else {
 			return CounterWriter<tag, current>::value;
 		}
 	}

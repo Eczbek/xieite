@@ -14,19 +14,17 @@ namespace {
 		constexpr Memo(const Functor& functor, const std::tuple<Arguments...>& arguments) noexcept
 		: functor(functor), arguments(arguments) {}
 
-		friend bool operator==(const Memo<Functor, Arguments...>&, const Memo<Functor, Arguments...>&) = default;
+		[[nodiscard]] friend bool operator==(const Memo&, const Memo&) = default;
 
 		template<typename... OtherArguments>
-		friend bool operator==(const Memo<Functor, Arguments...>& memo1, const Memo<Functor, OtherArguments...>& memo2) noexcept {
-			return (memo1.functor == memo2.functor) && (memo1.arguments == memo2.arguments);
-		}
+		[[nodiscard]] friend bool operator==(const Memo&, const Memo<Functor, OtherArguments...>&) = default;
 	};
 
 	struct MemoHash {
 		using is_transparent = void; // For use in `std::unordered_map`
 
 		template<typename Functor, typename... Arguments>
-		static std::size_t operator()(const Memo<Functor, Arguments...>& memo) noexcept(false) {
+		[[nodiscard]] static std::size_t operator()(const Memo<Functor, Arguments...>& memo) noexcept(false) {
 			return ([&memo]<std::size_t... i>(std::index_sequence<i...>) {
 				return xieite::hashes::combine(([&memo] {
 					if constexpr (xieite::concepts::Hashable<Functor>) {

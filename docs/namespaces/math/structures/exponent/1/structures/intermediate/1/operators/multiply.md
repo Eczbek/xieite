@@ -12,7 +12,7 @@ Defined in fragment [xieite:math.Exponent](../../../../../../../../../../src/mat
 #### 1)
 ```cpp
 template<xieite::concepts::Arithmetic OtherArithmetic>
-[[nodiscard]] friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(OtherArithmetic base, xieite::math::Exponent<Arithmetic>::Intermediate exponent) noexcept
+[[nodiscard]] friend constexpr std::common_type_t<Arithmetic, OtherArithmetic> operator*(OtherArithmetic base, Intermediate exponent) noexcept
 ```
 
 &nbsp;

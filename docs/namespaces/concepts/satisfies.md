@@ -11,8 +11,8 @@ Specifies that a type satisfies a lambda.
 ## Synopsis
 #### 1)
 ```cpp
-template<auto validator, typename... Types>
-concept Satisfies = requires { validator.template operator()<Types...>(); };
+template<typename Type, auto validator>
+concept Satisfies = xieite::concepts::SatisfiedBy<validator, Type>;
 ```
 
 &nbsp;
@@ -23,8 +23,8 @@ import std;
 import xieite;
 
 int main() {
-    std::println("{}", xieite::concepts::Satisfies<[]<std::integral> {}, int>);
-    std::println("{}", xieite::concepts::Satisfies<[]<std::integral> {}, double>);
+    std::println("{}", xieite::concepts::Satisfies<int, []<std::integral> {}>);
+    std::println("{}", xieite::concepts::Satisfies<double, []<std::integral> {}>);
 }
 ```
 Output:
