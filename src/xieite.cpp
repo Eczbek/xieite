@@ -286,6 +286,7 @@ export import :types.demangle;
 export import :types.DynamicMatrix;
 export import :types.FixedMatrix;
 export import :types.FunctionPointerTraits;
+export import :types.identifier;
 export import :types.LeastInteger;
 export import :types.List;
 export import :types.MaybeConstant;
