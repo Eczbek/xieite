@@ -269,6 +269,7 @@ export import :threads.Loop;
 export import :threads.Pool;
 export import :threads.Timeout;
 export import :time.Centuries;
+export import :time.convertDurations;
 export import :time.Decades;
 export import :time.Eons;
 export import :time.Epochs;
