@@ -1,3 +1,7 @@
+module;
+
+#include <xieite/sequence.hpp>
+
 export module xieite:functors.memoize;
 
 import std;
@@ -25,22 +29,20 @@ namespace {
 
 		template<typename Functor, typename... Arguments>
 		[[nodiscard]] static std::size_t operator()(const Memo<Functor, Arguments...>& memo) noexcept(false) {
-			return ([&memo]<std::size_t... i>(std::index_sequence<i...>) {
-				return xieite::hashes::combine(([&memo] {
-					if constexpr (xieite::concepts::Hashable<Functor>) {
-						return std::hash<Functor>()(memo.functor);
-					} else {
-						return 0;
-					}
-				})(), std::hash<std::decay_t<std::tuple_element_t<i, std::tuple<Arguments...>>>>()(std::get<i>(memo.arguments))...);
-			})(std::make_index_sequence<sizeof...(Arguments)>());
+			return XIEITE_SEQUENCE(i, sizeof...(Arguments), xieite::hashes::combine(([&memo] {
+				if constexpr (xieite::concepts::Hashable<Functor>) {
+					return std::hash<Functor>()(memo.functor);
+				} else {
+					return 0;
+				}
+			})(), std::hash<std::decay_t<std::tuple_element_t<i, std::tuple<Arguments...>>>>()(std::get<i>(memo.arguments))...));
 		}
 	};
 }
 
 export namespace xieite::functors {
 	template<typename... Arguments, std::invocable<Arguments...> Functor>
-	std::invoke_result_t<Functor, Arguments...> memoize(Functor functor, const Arguments&... arguments)
+	/* discardable */ std::invoke_result_t<Functor, Arguments...> memoize(Functor functor, const Arguments&... arguments)
 	noexcept(std::is_nothrow_invocable_v<Functor, Arguments...>) {
 		if constexpr (!std::same_as<std::invoke_result_t<Functor, Arguments...>, void> && (xieite::concepts::Hashable<Functor> || std::is_empty_v<Functor>) && std::equality_comparable<Functor> && (... && xieite::concepts::Hashable<Arguments>)) {
 			static std::unordered_map<Memo<Functor, std::decay_t<Arguments>...>, std::invoke_result_t<Functor&, Arguments...>, MemoHash, std::ranges::equal_to> map;

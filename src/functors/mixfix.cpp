@@ -60,5 +60,3 @@ export namespace xieite::functors {
 		}
 	};
 }
-
-// `Mixfix::Intermediate` must only exist as a temporary

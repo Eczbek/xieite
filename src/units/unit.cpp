@@ -8,7 +8,7 @@ import :types.Value;
 
 export namespace xieite::units {
 	template<xieite::containers::FixedString type, auto... operations>
-	requires(!(sizeof...(operations) % 2) && xieite::types::List<xieite::types::Value<operations>...>::template Transform<2, []<typename Operation, typename Value> { return xieite::types::Value<std::convertible_to<Operation, char> && std::convertible_to<Value, double>>(); }>::all<[]<xieite::concepts::True> {}>)
+	requires(xieite::types::List<xieite::types::Value<operations>...>::template Transform<2, []<typename Operation, typename Value> { return xieite::types::Value<std::convertible_to<Operation, char> && std::convertible_to<Value, double>>(); }>::all<[]<xieite::concepts::True> {}>)
 	struct Unit {
 	public:
 		double value;

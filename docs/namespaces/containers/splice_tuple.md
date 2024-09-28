@@ -11,8 +11,7 @@ Can be used to insert, replace, and remove elements from a tuple.
 ## Synopsis
 #### 1)
 ```cpp
-template<std::size_t start, std::size_t count = 0, xieite::concepts::SpecializationOf<std::tuple> Tuple1, xieite::concepts::SpecializationOf<std::tuple> Tuple2 = std::tuple<>>
-requires((start <= std::tuple_size_v<std::remove_cvref_t<Tuple1>>) && (count <= (std::tuple_size_v<std::remove_cvref_t<Tuple1>> - start)))
+template<std::size_t start, std::size_t end = start, xieite::concepts::SpecializationOf<std::tuple> Tuple1, xieite::concepts::SpecializationOf<std::tuple> Tuple2 = std::tuple<>>
 [[nodiscard]] constexpr auto spliceTuple(Tuple1&& tuple1, Tuple2&& tuple2 = Tuple2()) noexcept;
 ```
 
@@ -30,7 +29,7 @@ int main() {
 
     std::apply([](auto... values) {
         (..., std::println("{}", values));
-    }, xieite::containers::spliceTuple<1, 1>(foo, bar));
+    }, xieite::containers::spliceTuple<1, 2>(foo, bar));
 }
 ```
 Output:

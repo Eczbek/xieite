@@ -1,3 +1,7 @@
+module;
+
+#include <xieite/sequence.hpp>
+
 export module xieite:types.List;
 
 import std;
@@ -41,11 +45,7 @@ export namespace xieite::types {
 
 		template<std::size_t index>
 		requires(index < sizeof...(Types))
-		using At = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return xieite::functors::Visitor([](const xieite::types::Value<i>) {
-				return std::type_identity<Types>();
-			}...)(xieite::types::Value<index>());
-		})(std::index_sequence_for<Types...>()))::type;
+		using At = XIEITE_SEQUENCE_FOR(i, sizeof...(Types), xieite::functors::Visitor([](const xieite::types::Value<i>) { return std::type_identity<Types>(); }...)(xieite::types::Value<index>()))::type;
 
 		static constexpr auto apply(auto callback) noexcept {
 			return callback.template operator()<Types...>();
@@ -59,7 +59,7 @@ export namespace xieite::types {
 			if constexpr ((... && !std::is_void_v<Types>)) {
 				return std::type_identity_t<Type(Types...)>();
 			} else {
-				static_assert(false, "must not create function signature with void parameters");
+				static_assert(false, "function signature must not have void parameters");
 			}
 		})())::type;
 
@@ -79,14 +79,10 @@ export namespace xieite::types {
 			return std::type_identity<List::Prepend<OtherTypes...>>();
 		})(std::declval<Range>()))::type;
 
-		using Reverse = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return std::type_identity<List<List::At<sizeof...(Types) - i - 1>...>>();
-		})(std::index_sequence_for<Types...>()))::type;
+		using Reverse = XIEITE_SEQUENCE_TYPE(i, sizeof...(Types), std::type_identity<List<List::At<sizeof...(Types) - i - 1>...>>())::type;
 
 		template<std::size_t start, std::size_t end = sizeof...(Types)>
-		using Slice = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return std::type_identity<List<List::At<i + std::min(start, end)>...>>();
-		})(std::make_index_sequence<std::min(std::max(start, end), sizeof...(Types)) - std::min(std::min(start, end), sizeof...(Types))>()))::type;
+		using Slice = XIEITE_SEQUENCE_TYPE(i, (std::min(std::max(start, end), sizeof...(Types)) - std::min(std::min(start, end), sizeof...(Types))), std::type_identity<List<List::At<i + std::min(start, end)>...>>())::type;
 
 		template<std::size_t start, std::size_t end = start + 1>
 		using Erase = List::Slice<0, start>::template AppendRange<List::Slice<end>>;
@@ -139,31 +135,19 @@ export namespace xieite::types {
 		using Deduplicate = List::Filter<comparator>;
 
 		template<std::size_t repetitions>
-		using Repeat = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return xieite::functors::Visitor([]<typename... Results>(this auto self, xieite::types::Value<i>) {
-				return self.template operator()<Results..., Types...>(xieite::types::Value<i + 1>());
-			}..., []<typename... Results>(xieite::types::Value<repetitions>) {
-				return std::type_identity<List<Results...>>();
-			})(xieite::types::Value<0uz>());
-		})(std::make_index_sequence<repetitions>()))::type;
+		using Repeat = XIEITE_SEQUENCE_TYPE(i, repetitions, xieite::functors::Visitor([]<typename... Results>(this auto self, xieite::types::Value<i>) { return self.template operator()<Results..., Types...>(xieite::types::Value<i + 1>()); }..., []<typename... Results>(xieite::types::Value<repetitions>) { return std::type_identity<List<Results...>>(); })(xieite::types::Value<0uz>()))::type;
 
 		template<std::size_t arity, auto transformer>
 		requires(!(sizeof...(Types) % arity))
-		using Transform = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return std::type_identity<List<decltype(List::template Slice<arity * i, arity * (i + 1)>::apply(transformer))::type...>>();
-		})(std::make_index_sequence<sizeof...(Types) / arity>()))::type;
+		using Transform = XIEITE_SEQUENCE_TYPE(i, (sizeof...(Types) / arity), std::type_identity<List<decltype(List::template Slice<arity * i, arity * (i + 1)>::apply(transformer))::type...>>())::type;
 
 		template<std::size_t arity, auto transformer>
 		requires(!(sizeof...(Types) % arity))
-		using TransformFlat = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return (List::TransformHelper<[]<typename...> {}, []<typename Value, typename...> { return std::type_identity<decltype(List::template Slice<arity * Value::value, arity * (Value::value + 1)>::apply(transformer))::type>(); }>()->*...->*std::type_identity<xieite::types::Value<i>>());
-		})(std::make_index_sequence<sizeof...(Types) / arity>()))::type;
+		using TransformFlat = XIEITE_SEQUENCE_TYPE(i, (sizeof...(Types) / arity), (List::TransformHelper<[]<typename...> {}, []<typename Value, typename...> { return std::type_identity<decltype(List::template Slice<arity * Value::value, arity * (Value::value + 1)>::apply(transformer))::type>(); }>()->*...->*std::type_identity<xieite::types::Value<i>>()))::type;
 
 		template<typename... OtherTypes>
 		requires(sizeof...(Types) == sizeof...(OtherTypes))
-		using Zip = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
-			return std::type_identity<List<List<List::At<i>, OtherTypes>...>>();
-		})(std::index_sequence_for<Types...>()))::type;
+		using Zip = XIEITE_SEQUENCE_TYPE(i, sizeof...(Types), std::type_identity<List<List<List::At<i>, OtherTypes>...>>())::type;
 
 		template<typename Range>
 		using ZipRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(Template<OtherTypes...>) {

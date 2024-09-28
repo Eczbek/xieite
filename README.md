@@ -67,14 +67,14 @@ int main() {
 
 &nbsp;
 
-### [xieite::functors::recursivelyDistributeArguments\<\>\(\)](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/functors/recursively_distribute_arguments.md)
+### [xieite::functors::distributeArgumentsRecursively\<\>\(\)](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/functors/distribute_arguments_recursively.md)
 ```cpp
 import std;
 import xieite;
 
 int main() {
     auto add = [](int x, int y) { return x + y; };
-    int sum = xieite::functors::recursivelyDistributeArguments<2>(add, 1, 2, 3, 4, 5);
+    int sum = xieite::functors::distributeArgumentsRecursively<2>(add, 1, 2, 3, 4, 5);
     std::println("{}", sum);
 }
 ```
