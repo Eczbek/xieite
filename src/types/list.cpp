@@ -116,7 +116,7 @@ export namespace xieite::types {
 		struct TransformHelper
 		: std::type_identity<List<Results...>> {
 			template<typename Type>
-			auto operator->*(std::type_identity<Type>) const noexcept {
+			auto operator->*(Type) const noexcept {
 				if constexpr (xieite::concepts::SatisfiedBy<condition, Type, Results...>) {
 					return decltype(transformer.template operator()<Type, Results...>())::type::apply(([]<typename... Additions> {
 						return TransformHelper<condition, transformer, Results..., Additions...>();
@@ -129,7 +129,7 @@ export namespace xieite::types {
 
 	public:
 		template<auto selector>
-		using Filter = decltype((List::TransformHelper<selector, []<typename Type> { return std::type_identity<Type>(); }>()->*...->*std::type_identity<Types>()))::type;
+		using Filter = decltype((List::TransformHelper<selector, []<typename Type> { return std::type_identity<Type>(); }>()->*...->*std::declval<Types>()))::type;
 
 		template<auto comparator = []<typename First, typename... Rest> requires(!xieite::concepts::SameAsAny<First, Rest...>) {}>
 		using Deduplicate = List::Filter<comparator>;
@@ -143,7 +143,7 @@ export namespace xieite::types {
 
 		template<std::size_t arity, auto transformer>
 		requires(!(sizeof...(Types) % arity))
-		using TransformFlat = XIEITE_SEQUENCE_TYPE(i, (sizeof...(Types) / arity), (List::TransformHelper<[]<typename...> {}, []<typename Value, typename...> { return std::type_identity<decltype(List::template Slice<arity * Value::value, arity * (Value::value + 1)>::apply(transformer))::type>(); }>()->*...->*std::type_identity<xieite::types::Value<i>>()))::type;
+		using TransformFlat = XIEITE_SEQUENCE_TYPE(i, (sizeof...(Types) / arity), (List::TransformHelper<[]<typename...> {}, []<typename Value, typename...> { return std::type_identity<decltype(List::template Slice<arity * Value::value, arity * (Value::value + 1)>::apply(transformer))::type>(); }>()->*...->*xieite::types::Value<i>()))::type;
 
 		template<typename... OtherTypes>
 		requires(sizeof...(Types) == sizeof...(OtherTypes))
