@@ -45,7 +45,7 @@ export namespace xieite::types {
 
 		template<std::size_t index>
 		requires(index < sizeof...(Types))
-		using At = XIEITE_SEQUENCE_FOR(i, sizeof...(Types), xieite::functors::Visitor([](const xieite::types::Value<i>) { return std::type_identity<Types>(); }...)(xieite::types::Value<index>()))::type;
+		using At = XIEITE_SEQUENCE_TYPE(i, sizeof...(Types), xieite::functors::Visitor([](const xieite::types::Value<i>) { return std::type_identity<Types>(); }...)(xieite::types::Value<index>()))::type;
 
 		static constexpr auto apply(auto callback) noexcept {
 			return callback.template operator()<Types...>();
