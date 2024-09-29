@@ -14,3 +14,5 @@
 #else
 #	define XIEITE_STATIC_ASSERT(...)
 #endif
+
+// https://github.com/isar/libmdbx/blob/master/src/preface.h
