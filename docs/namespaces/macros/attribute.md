@@ -11,79 +11,79 @@ Macros for non-standard compiler-specific statement, label, type, variable, and 
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_ATTRIBUTE_ASSUME(...) /* ... */
+#define XIEITE_ATTRIBUTE_ALIGN_AS(...) /* ... */
 ```
 #### 2)
 ```cpp
-#define XIEITE_ATTRIBUTE_FALLTHROUGH() /* ... */
+#define XIEITE_ATTRIBUTE_ASSUME(...) /* ... */
 ```
 #### 3)
 ```cpp
-#define XIEITE_ATTRIBUTE_PACKED(...) /* ... */
+#define XIEITE_ATTRIBUTE_COLD /* ... */
 ```
 #### 4)
 ```cpp
-#define XIEITE_ATTRIBUTE_FORCE_INLINE /* ... */
+#define XIEITE_ATTRIBUTE_DEPRECATED /* ... */
 ```
 #### 5)
 ```cpp
-#define XIEITE_ATTRIBUTE_LIKELY /* ... */
+#define XIEITE_ATTRIBUTE_EXPORT /* ... */
 ```
 #### 6)
 ```cpp
-#define XIEITE_ATTRIBUTE_UNLIKELY /* ... */
+#define XIEITE_ATTRIBUTE_FALLTHROUGH() /* ... */
 ```
 #### 7)
 ```cpp
-#define XIEITE_ATTRIBUTE_MAYBE_UNUSED /* ... */
+#define XIEITE_ATTRIBUTE_FLATTEN /* ... */
 ```
 #### 8)
 ```cpp
-#define XIEITE_ATTRIBUTE_NO_DEBUG /* ... */
+#define XIEITE_ATTRIBUTE_FORCE_INLINE /* ... */
 ```
 #### 9)
 ```cpp
-#define XIEITE_ATTRIBUTE_NO_DISCARD /* ... */
+#define XIEITE_ATTRIBUTE_HOT /* ... */
 ```
 #### 10)
 ```cpp
-#define XIEITE_ATTRIBUTE_NO_INLINE /* ... */
+#define XIEITE_ATTRIBUTE_IMPORT /* ... */
 ```
 #### 11)
 ```cpp
-#define XIEITE_ATTRIBUTE_NO_RETURN /* ... */
+#define XIEITE_ATTRIBUTE_LIKELY /* ... */
 ```
 #### 12)
 ```cpp
-#define XIEITE_ATTRIBUTE_STANDARD_CALL /* ... */
+#define XIEITE_ATTRIBUTE_MAYBE_UNUSED /* ... */
 ```
 #### 13)
 ```cpp
-#define XIEITE_ATTRIBUTE_USED /* ... */
+#define XIEITE_ATTRIBUTE_NO_DEBUG /* ... */
 ```
 #### 14)
 ```cpp
-#define XIEITE_ATTRIBUTE_EXPORT /* ... */
+#define XIEITE_ATTRIBUTE_NO_DISCARD /* ... */
 ```
 #### 15)
 ```cpp
-#define XIEITE_ATTRIBUTE_IMPORT /* ... */
+#define XIEITE_ATTRIBUTE_NO_EXPORT /* ... */
 ```
 #### 16)
 ```cpp
-#define XIEITE_ATTRIBUTE_NO_EXPORT /* ... */
+#define XIEITE_ATTRIBUTE_NO_INLINE /* ... */
 ```
 #### 17)
 ```cpp
-#define XIEITE_ATTRIBUTE_DEPRECATED /* ... */
+#define XIEITE_ATTRIBUTE_NO_RETURN /* ... */
 ```
 #### 18)
 ```cpp
-#define XIEITE_ATTRIBUTE_HOT /* ... */
+#define XIEITE_ATTRIBUTE_NO_THROW /* ... */
 ```
 #### 19)
 ```cpp
-#define XIEITE_ATTRIBUTE_COLD /* ... */
+#define XIEITE_ATTRIBUTE_NO_UNIQUE_ADDRESS /* ... */
 ```
 #### 20)
 ```cpp
@@ -91,11 +91,35 @@ Macros for non-standard compiler-specific statement, label, type, variable, and 
 ```
 #### 21)
 ```cpp
-#define XIEITE_ATTRIBUTE_RETURNS_NON_NULL /* ... */
+#define XIEITE_ATTRIBUTE_OPTIMIZE /* ... */
 ```
 #### 22)
 ```cpp
-#define XIEITE_ATTRIBUTE_NO_UNIQUE_ADDRESS /* ... */
+#define XIEITE_ATTRIBUTE_PACKED(...) /* ... */
+```
+#### 23)
+```cpp
+#define XIEITE_ATTRIBUTE_RETURNS_NON_NULL /* ... */
+```
+#### 34)
+```cpp
+#define XIEITE_ATTRIBUTE_STANDARD_CALL /* ... */
+```
+#### 35)
+```cpp
+#define XIEITE_ATTRIBUTE_THREAD /* ... */
+```
+#### 36)
+```cpp
+#define XIEITE_ATTRIBUTE_UNLIKELY /* ... */
+```
+#### 37)
+```cpp
+#define XIEITE_ATTRIBUTE_USED /* ... */
+```
+#### 38)
+```cpp
+#define XIEITE_ATTRIBUTE_WEAK /* ... */
 ```
 
 &nbsp;
