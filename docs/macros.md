@@ -51,6 +51,7 @@ Macros and special headers
 - [REVERSE\(\)](./namespaces/macros/reverse.md)
 - [SCAN\(\)](./namespaces/macros/scan.md)
 - [SEQUENCE...\(\)](./namespaces/macros/sequence.md)
+- [STATIC\_ASSERT\(\)](./namespaces/macros/static_assert.md)
 - [STRINGIFY...\(\)](./namespaces/macros/stringify.md)
 - [TRY\_RETURN\(\)](./namespaces/macros/try_return.md)
 - [UNIX\_STANDARD\_...](./namespaces/macros/unix_standard.md)
