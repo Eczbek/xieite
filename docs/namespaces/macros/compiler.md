@@ -571,15 +571,22 @@ Macros for identifying the current compiler type and version (major, minor, patc
 ```
 #### 81)
 ```cpp
+#define XIEITE_COMPILER_TYPE_Z88DK /* boolean */
+#define XIEITE_COMPILER_VERSION_MAJOR_Z88DK /* integer */
+#define XIEITE_COMPILER_VERSION_MINOR_Z88DK /* integer */
+#define XIEITE_COMPILER_VERSION_PATCH_Z88DK /* integer */
+```
+#### 82)
+```cpp
 #define XIEITE_COMPILER_VERSION_EQUAL(compiler_, major_, minor_, patch_) /* boolean */
 ```
 Requires `XIEITE_COMPILER_TYPE_##architecture` to be `1`.
-#### 82)
+#### 83)
 ```cpp
 #define XIEITE_COMPILER_VERSION_LEAST(compiler_, major_, minor_, patch_) /* boolean */
 ```
 Requires `XIEITE_COMPILER_TYPE_##architecture` to be `1`.
-#### 83)
+#### 84)
 ```cpp
 #define XIEITE_COMPILER_VERSION_MOST(compiler_, major_, minor_, patch_) /* boolean */
 ```
