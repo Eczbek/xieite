@@ -53,113 +53,155 @@ Macros for identifying the current architecture type and version (major, minor, 
 ```
 #### 7)
 ```cpp
+#define XIEITE_ARCHITECTURE_TYPE_ELBRUS_2000 /* boolean */
+#define XIEITE_ARCHITECTURE_VERSION_MAJOR_ELBRUS_2000 /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_MINOR_ELBRUS_2000 /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_PATCH_ELBRUS_2000 /* integer */
+```
+#### 8)
+```cpp
 #define XIEITE_ARCHITECTURE_TYPE_ITANIUM /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_ITANIUM /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_ITANIUM /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_ITANIUM /* integer */
 ```
-#### 8)
+#### 9)
+```cpp
+#define XIEITE_ARCHITECTURE_TYPE_LOONGARCH /* boolean */
+#define XIEITE_ARCHITECTURE_VERSION_MAJOR_LOONGARCH /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_MINOR_LOONGARCH /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_PATCH_LOONGARCH /* integer */
+```
+#### 10)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_MIPS /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_MIPS /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_MIPS /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_MIPS /* integer */
 ```
-#### 9)
+#### 11)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_MOTOROLA_68000 /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_MOTOROLA_68000 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_MOTOROLA_68000 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_MOTOROLA_68000 /* integer */
 ```
-#### 10)
+#### 12)
+```cpp
+#define XIEITE_ARCHITECTURE_TYPE_NEC_SX_AURORA_TSUBASA /* boolean */
+#define XIEITE_ARCHITECTURE_VERSION_MAJOR_NEC_SX_AURORA_TSUBASA /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_MINOR_NEC_SX_AURORA_TSUBASA /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_PATCH_NEC_SX_AURORA_TSUBASA /* integer */
+```
+#### 13)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_PA_RISC /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_PA_RISC /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_PA_RISC /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_PA_RISC /* integer */
 ```
-#### 11)
+#### 14)
+```cpp
+#define XIEITE_ARCHITECTURE_TYPE_PNACL /* boolean */
+#define XIEITE_ARCHITECTURE_VERSION_MAJOR_PNACL /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_MINOR_PNACL /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_PATCH_PNACL /* integer */
+```
+#### 15)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_POWERPC /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_POWERPC /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_POWERPC /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_POWERPC /* integer */
 ```
-#### 12)
+#### 16)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_PYRAMID_9810 /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_PYRAMID_9810 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_PYRAMID_9810 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_PYRAMID_9810 /* integer */
 ```
-#### 13)
+#### 17)
+```cpp
+#define XIEITE_ARCHITECTURE_TYPE_RISC_V /* boolean */
+#define XIEITE_ARCHITECTURE_VERSION_MAJOR_RISC_V /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_MINOR_RISC_V /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_PATCH_RISC_V /* integer */
+```
+#### 18)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_RS_6000 /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_RS_6000 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_RS_6000 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_RS_6000 /* integer */
 ```
-#### 14)
+#### 19)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_SPARC /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_SPARC /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_SPARC /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_SPARC /* integer */
 ```
-#### 15)
+#### 20)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_SUPERH /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_SUPERH /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_SUPERH /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_SUPERH /* integer */
 ```
-#### 16)
+#### 21)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_TMS320 /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_TMS320 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_TMS320 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_TMS320 /* integer */
 ```
-#### 17)
+#### 22)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_TMS470 /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_TMS470 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_TMS470 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_TMS470 /* integer */
 ```
-#### 18)
+#### 23)
+```cpp
+#define XIEITE_ARCHITECTURE_TYPE_X80 /* boolean */
+#define XIEITE_ARCHITECTURE_VERSION_MAJOR_X80 /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_MINOR_X80 /* integer */
+#define XIEITE_ARCHITECTURE_VERSION_PATCH_X80 /* integer */
+```
+#### 24)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_X86_32 /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_X86_32 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_X86_32 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_X86_32 /* integer */
 ```
-#### 19)
+#### 25)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_X86_64 /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_X86_64 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_X86_64 /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_X86_64 /* integer */
 ```
-#### 20)
+#### 26)
 ```cpp
 #define XIEITE_ARCHITECTURE_TYPE_Z /* boolean */
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_Z /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_Z /* integer */
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_Z /* integer */
 ```
-#### 21)
+#### 27)
 ```cpp
 #define XIEITE_ARCHITECTURE_VERSION_EQUAL(architecture_, major_, minor_, patch_) /* boolean */
 ```
 Requires `XIEITE_ARCHITECTURE_TYPE_##architecture_` to be `1`.
-#### 22)
+#### 28)
 ```cpp
 #define XIEITE_ARCHITECTURE_VERSION_LEAST(architecture_, major_, minor_, patch_) /* boolean */
 ```
 Requires `XIEITE_ARCHITECTURE_TYPE_##architecture_` to be `1`.
-#### 23)
+#### 29)
 ```cpp
 #define XIEITE_ARCHITECTURE_VERSION_MOST(architecture_, major_, minor_, patch_) /* boolean */
 ```
