@@ -4,7 +4,7 @@ Defined in fragment [xieite:algorithms.modes](../../../src/algorithms/modes.cpp)
 &nbsp;
 
 ## Description
-Computes the modes (or antimodes) of a set of data.
+Finds the modes (or antimodes) of a range of numbers.
 
 &nbsp;
 
@@ -25,7 +25,9 @@ import std;
 import xieite;
 
 int main() {
-    std::vector<int> data { 1, 3, 2, 4, 5 };
+    std::vector<int> data = { 1, 3, 2, 4, 5 };
+    // 3 is greater than both 1 and 2
+    // 5 is greater than 4 and is at the end of the array
 
     for (auto iterator : xieite::algorithms::modes(data)) {
         std::println("{}", *iterator);

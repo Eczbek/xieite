@@ -17,6 +17,8 @@ Somewhat useful algorithms
 - [isPalindrome\<\>\(\)](./namespaces/algorithms/is_palindrome.md)
 - [isRotated\<\>\(\)](./namespaces/algorithms/is_rotated.md)
 - [isUniformMatrix\<\>\(\)](./namespaces/algorithms/is_uniform_matrix.md)
+- [mean\<\>\(\)](./namespaces/algorithms/mean.md)
+- [median\<\>\(\)](./namespaces/algorithms/median.md)
 - [modes\<\>\(\)](./namespaces/algorithms/modes.md)
 - [numberSearch\<\>\(\)](./namespaces/algorithms/number_search.md)
 - [partialReverse\<\>\(\)](./namespaces/algorithms/partial_reverse.md)
