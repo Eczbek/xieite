@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_ \(no unix\)
+# [XIEITE](../../macros.md) \(no unix\)
 Defined in header [<xieite/no_unix.hpp>](../../../include/xieite/no_unix.hpp)
 
 &nbsp;

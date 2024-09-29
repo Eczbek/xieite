@@ -1,10 +1,10 @@
-# [XIEITE](../../macros.md)\_ \(no windows\)
+# [XIEITE](../../macros.md) \(no windows\)
 Defined in header [<xieite/no_windows.hpp>](../../../include/xieite/no_windows.hpp)
 
 &nbsp;
 
 ## Description
-A wrapper for the `<windows.h>` header (if it exists), excluding generally unwanted features. See header file for specifics. Intentionally lacks inclusion guards.
+A wrapper for the `<windows.h>` header (if it exists), excluding a lot of its features. See header file for specifics. Intentionally lacks inclusion guards.
 
 &nbsp;
 
