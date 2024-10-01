@@ -11,9 +11,9 @@ Returns a copy of a value before passing it to a functor.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, std::invocable<Type&> Functor>
-[[nodiscard]] constexpr Type postOperation(Type& value, Functor&& functor)
-noexcept(std::is_nothrow_invocable_v<Functor, Type&>);
+template<xieite::concepts::CopyConstructible Type, std::invocable<Type&&> Functor>
+[[nodiscard]] constexpr Type postOperation(Type&& value, Functor&& functor)
+noexcept(std::is_nothrow_copy_constructible_v<Type> && std::is_nothrow_invocable_v<Functor, Type&&>);
 ```
 
 &nbsp;
