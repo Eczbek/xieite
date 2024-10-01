@@ -182,17 +182,11 @@ export namespace xieite::math {
 		}
 
 		constexpr BigInteger operator++(int) noexcept {
-			const BigInteger copy = *this;
-			++*this;
-			return copy;
+			return std::exchange(*this, *this + 1);
 		}
 
 		[[nodiscard]] constexpr BigInteger operator-() const noexcept {
-			BigInteger copy = *this;
-			if (copy) {
-				copy.negative = !copy.negative;
-			}
-			return copy;
+			return BigInteger(this->data, !this->negative);
 		}
 
 		[[nodiscard]] friend constexpr BigInteger operator-(const BigInteger& minuend, const BigInteger& subtrahend) noexcept {
@@ -242,9 +236,7 @@ export namespace xieite::math {
 		}
 
 		constexpr BigInteger& operator--(int) noexcept {
-			const BigInteger copy = *this;
-			--*this;
-			return copy;
+			return std::exchange(*this, *this - 1);
 		}
 
 		[[nodiscard]] friend constexpr BigInteger operator*(const BigInteger& multiplier, const BigInteger& multiplicand) noexcept {
@@ -536,9 +528,7 @@ export namespace xieite::math {
 		}
 
 		[[nodiscard]] constexpr BigInteger absolute() const noexcept {
-			BigInteger copy = *this;
-			copy.negative = false;
-			return copy;
+			return BigInteger(this->data);
 		}
 
 		[[nodiscard]] constexpr BigInteger power(BigInteger exponent) const {
