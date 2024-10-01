@@ -19,5 +19,6 @@ Utilities relating to functors and arguments
 - [reverseArguments\<\>\(\)](./namespaces/functors/reverse_arguments.md)
 - [ScopeGuard \{\}](./namespaces/functors/scope_guard.md)
 - [templatify\<\>\(\)](./namespaces/functors/templatify.md)
+- [temporary\<\>\(\)](./namespaces/functors/temporary.md)
 - [time\<\>\(\)](./namespaces/functors/time.md)
 - [Visitor\<\> \{\}](./namespaces/functors/visitor.md)
