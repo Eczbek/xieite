@@ -21,4 +21,5 @@ Utilities relating to functors and arguments
 - [templatify\<\>\(\)](./namespaces/functors/templatify.md)
 - [temporary\<\>\(\)](./namespaces/functors/temporary.md)
 - [time\<\>\(\)](./namespaces/functors/time.md)
+- [tryConstantArguments\<\>\(\)](./namespaces/functors/try_constant_arguments.md)
 - [Visitor\<\> \{\}](./namespaces/functors/visitor.md)
