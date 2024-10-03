@@ -12,9 +12,9 @@ import :types.List;
 
 export namespace xieite::functors {
 	template<std::size_t arity, std::size_t previousResultIndex = 0, typename Functor, typename... Arguments>
-	requires(xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template ApplyRange<std::is_invocable>::value)
+	requires(xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template To<std::is_invocable>::value)
 	/* discardable */ constexpr decltype(auto) distributeArgumentsRecursively(Functor&& functor, Arguments&&... arguments)
-	noexcept(xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template ApplyRange<std::is_nothrow_invocable>::value) {
+	noexcept(xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template To<std::is_nothrow_invocable>::value) {
 		static_assert(previousResultIndex < arity, "index of previous result must be within functor arity");
 		static_assert((arity > 1) || !sizeof...(Arguments), "arguments must be distributable across functor calls");
 		static_assert(sizeof...(Arguments) >= arity, "number of arguments must not be less than functor arity");

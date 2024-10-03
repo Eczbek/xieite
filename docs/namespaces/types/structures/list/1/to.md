@@ -1,4 +1,4 @@
-# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:ApplyRange\<\>
+# [xieite](../../../../../xieite.md)\:\:[types](../../../../../types.md)\:\:[List<Types...>](../../../list.md)\:\:To\<\>
 Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 
 &nbsp;
@@ -12,7 +12,7 @@ Applies `Types...` to a template.
 #### 1)
 ```cpp
 template<template<typename...> typename Template>
-using ApplyRange = Template<Types...>;
+using To = Template<Types...>;
 ```
 
 &nbsp;
@@ -25,7 +25,7 @@ import xieite;
 int main() {
     using List = xieite::types::List<int, float, char>;
 
-    std::println("{}", xieite::types::name<List::ApplyRange<std::tuple>>);
+    std::println("{}", xieite::types::name<List::To<std::tuple>>);
 }
 ```
 Possible output:

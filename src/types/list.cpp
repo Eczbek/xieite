@@ -5,16 +5,12 @@ module;
 export module xieite:types.List;
 
 import std;
-import :concepts.SameAsAny;
+import :concepts.Dissatisfies;
 import :concepts.SatisfiedBy;
 import :concepts.SatisfiedByAll;
 import :concepts.SatisfiedByAny;
 import :functors.Visitor;
 import :types.Value;
-
-namespace {
-	constexpr auto defaultComparator = []<typename Type, std::same_as<Type>> {};
-}
 
 export namespace xieite::types {
 	template<typename... Types>
@@ -28,7 +24,7 @@ export namespace xieite::types {
 		template<auto condition>
 		static constexpr bool any = xieite::concepts::SatisfiedByAny<condition, Types...>;
 
-		template<typename Type, auto comparator = defaultComparator>
+		template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
 		static constexpr bool has = (... || xieite::concepts::SatisfiedBy<comparator, Type, Types>);
 
 		template<auto selector>
@@ -39,7 +35,7 @@ export namespace xieite::types {
 			return index;
 		})();
 
-		template<typename Type, auto comparator = defaultComparator>
+		template<typename Type, auto comparator = []<typename Type, std::same_as<Type>> {}>
 		requires(List::has<Type, comparator>)
 		static constexpr std::size_t get = List::find<[]<typename OtherType> requires(xieite::concepts::SatisfiedBy<comparator, Type, OtherType>) {}>;
 
@@ -51,8 +47,11 @@ export namespace xieite::types {
 			return callback.template operator()<Types...>();
 		}
 
+		template<auto validator>
+		static constexpr bool satisfies = xieite::concepts::SatisfiedBy<validator, Types...>;
+
 		template<template<typename...> typename Template>
-		using ApplyRange = Template<Types...>;
+		using To = Template<Types...>;
 
 		template<typename Type>
 		using Signature = decltype(([] {
@@ -131,7 +130,7 @@ export namespace xieite::types {
 		template<auto selector>
 		using Filter = decltype((List::TransformHelper<selector, []<typename Type> { return std::type_identity<Type>(); }>()->*...->*std::declval<Types>()))::type;
 
-		template<auto comparator = []<typename First, typename... Rest> requires(!xieite::concepts::SameAsAny<First, Rest...>) {}>
+		template<auto comparator = []<typename First, xieite::concepts::Dissatisfies<[]<std::same_as<First>> {}>...> {}>
 		using Deduplicate = List::Filter<comparator>;
 
 		template<std::size_t repetitions>

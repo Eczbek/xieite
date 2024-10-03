@@ -11,9 +11,9 @@ import :types.List;
 
 export namespace xieite::functors {
 	template<std::size_t arity, typename Functor, typename... Arguments>
-	requires(xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template ApplyRange<std::is_invocable>::value)
+	requires(xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template To<std::is_invocable>::value)
 	constexpr void distributeArguments(Functor&& functor, Arguments&&... arguments)
-	noexcept(xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template ApplyRange<std::is_nothrow_invocable>::value) {
+	noexcept(xieite::types::List<xieite::types::Any>::template Repeat<arity>::template Prepend<Functor>::template To<std::is_nothrow_invocable>::value) {
 		static_assert(!!arity || !sizeof...(Arguments), "arguments must be distributable across functor calls");
 		static_assert(sizeof...(Arguments) >= arity, "number of arguments must not be less than functor arity");
 		if constexpr (sizeof...(Arguments) == arity) {

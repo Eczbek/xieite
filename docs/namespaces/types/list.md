@@ -38,8 +38,11 @@ struct List {
 
     static constexpr auto apply(auto) noexcept;
 
+    template<auto validator>
+    static constexpr bool satisfies = xieite::concepts::SatisfiedBy<validator, Types...>;
+
     template<template<typename...> typename Template>
-    using ApplyRange = Template<Types...>;
+    using To = Template<Types...>;
 
     template<typename Type>
     using Signature = /* Type(Types...) */;
@@ -115,7 +118,6 @@ struct List {
 ```
 - [Append\<\>](./structures/list/1/append.md)
 - [AppendRange\<\>](./structures/list/1/append_range_of.md)
-- [ApplyRange\<\>](./structures/list/1/apply_range.md)
 - [Arrange\<\>](./structures/list/1/arrange.md)
 - [At\<\>](./structures/list/1/at.md)
 - [Deduplicate\<\>](./structures/list/1/deduplicate.md)
@@ -133,6 +135,7 @@ struct List {
 - [Slice\<\>](./structures/list/1/slice.md)
 - [Swap\<\>](./structures/list/1/swap.md)
 - [SwapRanges\<\>](./structures/list/1/swap_ranges.md)
+- [To\<\>](./structures/list/1/to.md)
 - [Transform\<\>](./structures/list/1/transform.md)
 - [TransformFlat\<\>](./structures/list/1/transform_flat.md)
 - [Zip\<\>](./structures/list/1/zip.md)

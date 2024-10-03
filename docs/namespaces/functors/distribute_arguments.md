@@ -12,9 +12,9 @@ Distributes arguments among several calls to a functor.
 #### 1)
 ```cpp
 template<std::size_t arity, typename Functor, typename... Arguments>
-requires(!!arity && !(sizeof...(Arguments) % arity) && xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_invocable>::value)
+requires(!!arity && !(sizeof...(Arguments) % arity) && xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::To<std::is_invocable>::value)
 constexpr void distributeArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::ApplyRange<std::is_nothrow_invocable>::value);
+noexcept(xieite::types::List<xieite::types::Any>::Repeat<arity>::Prepend<Functor>::To<std::is_nothrow_invocable>::value);
 ```
 
 &nbsp;

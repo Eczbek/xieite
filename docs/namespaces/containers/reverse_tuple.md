@@ -12,7 +12,7 @@ Reverses the order of elements in a `std::tuple`.
 #### 1)
 ```cpp
 template<typename... Types>
-[[nodiscard]] constexpr xieite::types::List<Types...>::Reverse::ApplyRange<std::tuple> reverseTuple(const std::tuple<Types...>& tuple) noexcept;
+[[nodiscard]] constexpr xieite::types::List<Types...>::Reverse::To<std::tuple> reverseTuple(const std::tuple<Types...>& tuple) noexcept;
 ```
 
 &nbsp;
