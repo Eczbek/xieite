@@ -12,9 +12,9 @@ Attempts to invoke a function with arguments made constant, if possible.
 #### 1)
 ```cpp
 template<typename Functor, typename... Arguments>
-requires(std::invocable<Functor, xieite::types::MaybeConstant<Arguments, true>...> || std::invocable<Functor, Arguments...>)
-constexpr decltype(auto) tryConstantArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(std::invocable<Functor, xieite::types::MaybeConstant<Arguments, true>...> ? std::is_nothrow_invocable_v<Functor, xieite::types::MaybeConstant<Arguments, true>...> : std::is_nothrow_invocable_v<Functor, Arguments...>);
+requires(xieite::types::List<Arguments...>::template Transform<1, []<typename Argument, typename... First> { return std::type_identity<std::conditional_t<xieite::types::List<Arguments...>::template Slice<sizeof...(First) + 1>::template Prepend<Functor, First..., xieite::types::MaybeConstant<Argument, true>>::template To<std::is_invocable>::value, xieite::types::MaybeConstant<Argument, true>, Argument>>(); }>::template Prepend<Functor>::template To<std::is_invocable>::value)
+/* discardable */ constexpr typename xieite::types::List<Arguments...>::template Transform<1, []<typename Argument, typename... First> { return std::type_identity<std::conditional_t<xieite::types::List<Arguments...>::template Slice<sizeof...(First) + 1>::template Prepend<Functor, First..., xieite::types::MaybeConstant<Argument, true>>::template To<std::is_invocable>::value, xieite::types::MaybeConstant<Argument, true>, Argument>>(); }>::template Prepend<Functor>::template To<std::invoke_result_t> tryConstantArguments(Functor&& functor, Arguments&&... arguments)
+noexcept(xieite::types::List<Arguments...>::template Transform<1, []<typename Argument, typename... First> { return std::type_identity<std::conditional_t<xieite::types::List<Arguments...>::template Slice<sizeof...(First) + 1>::template Prepend<Functor, First..., xieite::types::MaybeConstant<Argument, true>>::template To<std::is_invocable>::value, xieite::types::MaybeConstant<Argument, true>, Argument>>(); }>::template Prepend<Functor>::template To<std::is_nothrow_invocable>::value);
 ```
 
 &nbsp;

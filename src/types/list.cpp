@@ -43,7 +43,7 @@ export namespace xieite::types {
 		requires(index < sizeof...(Types))
 		using At = XIEITE_SEQUENCE_TYPE(i, sizeof...(Types), xieite::functors::Visitor([](const xieite::types::Value<i>) { return std::type_identity<Types>(); }...)(xieite::types::Value<index>()))::type;
 
-		static constexpr auto apply(auto callback) noexcept {
+		static constexpr decltype(auto) apply(auto callback) noexcept {
 			return callback.template operator()<Types...>();
 		}
 
@@ -138,11 +138,11 @@ export namespace xieite::types {
 
 		template<std::size_t arity, auto transformer>
 		requires(!(sizeof...(Types) % arity))
-		using Transform = XIEITE_SEQUENCE_TYPE(i, (sizeof...(Types) / arity), std::type_identity<List<decltype(List::template Slice<arity * i, arity * (i + 1)>::apply(transformer))::type...>>())::type;
+		using Transform = XIEITE_SEQUENCE_TYPE(i, (sizeof...(Types) / arity), std::type_identity<List<typename decltype(List::template Slice<arity * i, arity * (i + 1)>::template AppendRange<List::template Slice<0, arity * i>>::apply(transformer))::type...>>())::type;
 
 		template<std::size_t arity, auto transformer>
 		requires(!(sizeof...(Types) % arity))
-		using TransformFlat = XIEITE_SEQUENCE_TYPE(i, (sizeof...(Types) / arity), (List::TransformHelper<[]<typename...> {}, []<typename Value, typename...> { return std::type_identity<decltype(List::template Slice<arity * Value::value, arity * (Value::value + 1)>::apply(transformer))::type>(); }>()->*...->*xieite::types::Value<i>()))::type;
+		using TransformFlat = XIEITE_SEQUENCE_TYPE(i, (sizeof...(Types) / arity), (List::TransformHelper<[]<typename...> {}, []<typename Value, typename...> { return std::type_identity<typename decltype(List::template Slice<arity * Value::value, arity * (Value::value + 1)>::template AppendRange<List::template Slice<0, arity * Value::value>>::apply(transformer))::type>(); }>()->*...->*xieite::types::Value<i>()))::type;
 
 		template<typename... OtherTypes>
 		requires(sizeof...(Types) == sizeof...(OtherTypes))

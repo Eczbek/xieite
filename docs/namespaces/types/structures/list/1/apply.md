@@ -4,14 +4,14 @@ Defined in fragment [xieite:types.List](../../../../../../src/types/list.cpp)
 &nbsp;
 
 ## Description
-Applies `Types...` to a callback.
+Applies `Types...` to a lambda callback.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-static constexpr auto apply(auto callback) noexcept;
+static constexpr decltype(auto) apply(auto callback) noexcept;
 ```
 
 &nbsp;

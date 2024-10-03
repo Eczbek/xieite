@@ -36,7 +36,7 @@ struct List {
     requires(index < sizeof...(Types))
     using At = /* ... */;
 
-    static constexpr auto apply(auto) noexcept;
+    static constexpr decltype(auto) apply(auto) noexcept;
 
     template<auto validator>
     static constexpr bool satisfies = xieite::concepts::SatisfiedBy<validator, Types...>;

@@ -26,7 +26,7 @@ import xieite;
 int main() {
     using Foo = xieite::types::List<int, char, long, float, short, bool>;
 
-    using Bar = Foo::TransformFlat<2, []<typename T, typename U> {
+    using Bar = Foo::TransformFlat<2, []<typename T, typename U, typename...> {
         return std::type_identity<xieite::types::List<U, T>>();
     }>;
 
