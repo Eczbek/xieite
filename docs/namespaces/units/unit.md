@@ -11,13 +11,12 @@ A base structure for defining units.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::containers::FixedString type, auto... operations>
-requires(/* ... */)
+template<xieite::containers::FixedString type, auto toBase, auto fromBase>
 struct Unit {
     double value;
 
-    template<auto... otherOperations>
-    explicit(false) constexpr operator xieite::units::Unit<type, otherOperations...>() const noexcept;
+    template<auto otherToBase, auto otherFromBase>
+    explicit(false) constexpr operator xieite::units::Unit<type, otherToBase, otherFromBase>() const noexcept;
 };
 ```
 - [operator typename\<\>\(\)](./structures/unit/1/operators/cast.md)
@@ -32,7 +31,7 @@ import xieite;
 
 using Base = xieite::units::Unit<"test">;
 
-using Derived = xieite::units::Unit<"test", '/', 100.0>;
+using Derived = xieite::units::Unit<"test", [](auto x) { return x / 100; }, [](auto x) { return x * 100; }>;
 // i.e. to convert from Derived to Base, divide by 100
 
 int main() {

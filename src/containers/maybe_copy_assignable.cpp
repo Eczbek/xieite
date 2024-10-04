@@ -5,7 +5,7 @@ export namespace xieite::containers {
 	struct MaybeCopyAssignable {};
 
 	template<>
-	struct MaybeCopyAssignable {
+	struct MaybeCopyAssignable<false> {
 		MaybeCopyAssignable() = default;
 		MaybeCopyAssignable(const MaybeCopyAssignable&) = default;
 		MaybeCopyAssignable(MaybeCopyAssignable&&) = default;

@@ -1,7 +1,6 @@
 module;
 
 #include <xieite/forward.hpp>
-#include <xieite/sequence.hpp>
 
 export module xieite:containers.TupleSet;
 
@@ -24,12 +23,16 @@ export namespace xieite::containers {
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 		constexpr void insert(KeysReference&& keys) {
-			XIEITE_SEQUENCE(i, sizeof...(RestKeys), this->set[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...)));
+			([&keys]<std::size_t... i>(std::index_sequence<i...>) {
+				this->set[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...));
+			})(std::index_sequence_for<RestKeys...>());
 		}
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 		[[nodiscard]] constexpr bool contains(KeysReference&& keys) const {
-			return this->set.contains(std::get<0>(keys)) && XIEITE_SEQUENCE(i, sizeof...(RestKeys), this->set.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...)));
+			return this->set.contains(std::get<0>(keys)) && ([&keys]<std::size_t... i>(std::index_sequence<i...>) {
+				return this->set.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...));
+			})(std::index_sequence_for<RestKeys...>());
 		}
 
 	private:

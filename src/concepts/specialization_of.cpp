@@ -1,20 +1,10 @@
 export module xieite:concepts.SpecializationOf;
 
-import std;
-
-namespace {
-	template<typename, template<typename...> typename>
-	struct IsSpecializationOf
-	: std::false_type {};
-
-	template<template<typename...> typename Template, typename... Arguments>
-	struct IsSpecializationOf<Template<Arguments...>, Template>
-	: std::true_type {};
-}
+import std
 
 export namespace xieite::concepts {
 	template<typename Type, template<typename...> typename Template>
-	concept SpecializationOf = IsSpecializationOf<std::remove_cvref_t<Type>, Template>::value;
+	concept SpecializationOf = requires { ([]<typename... Arguments>(std::type_identity<Template<Arguments...>>) {})(std::type_identity<std::remove_cv_t<Type>>()); };
 }
 
 // TODO: Remove after `std::specialization_of` is implemented

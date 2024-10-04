@@ -11,8 +11,8 @@ Specifies that a type satisfies any of several lambdas.
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Type, auto validator>
-concept SatisfiesAny = (... || xieite::concepts::SatisfiedBy<validator, Type>);
+template<typename Type, auto... validators>
+concept SatisfiesAny = (... || xieite::concepts::Satisfies<Type, validator>);
 ```
 
 &nbsp;

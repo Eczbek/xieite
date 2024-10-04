@@ -1,44 +1,45 @@
-module;
-
-#include <xieite/sequence.hpp>
-
 export module xieite:functors.memoize;
 
 import std;
 import :concepts.Hashable;
 import :hashes.combine;
 
-namespace {
+template<typename Functor, typename... Arguments>
+requires(std::invocable<Functor, Arguments...>)
+struct Memo {
+	Functor functor;
+	std::tuple<Arguments...> arguments;
+
+	constexpr Memo(const Functor& functor, const std::tuple<Arguments...>& arguments) noexcept
+	: functor(functor), arguments(arguments) {}
+
+	[[nodiscard]] friend bool operator==(const Memo&, const Memo&) = default;
+
+	template<typename... OtherArguments>
+	[[nodiscard]] friend bool operator==(const Memo& left, const Memo<Functor, OtherArguments...>& right) noexcept {
+		return (left.functor == right.functor) && (left.arguments == right.arguments);
+	}
+};
+
+struct MemoHash {
+	using is_transparent = void; // For use in `std::unordered_map`
+
 	template<typename Functor, typename... Arguments>
-	requires(std::invocable<Functor, Arguments...>)
-	struct Memo {
-		Functor functor;
-		std::tuple<Arguments...> arguments;
-
-		constexpr Memo(const Functor& functor, const std::tuple<Arguments...>& arguments) noexcept
-		: functor(functor), arguments(arguments) {}
-
-		[[nodiscard]] friend bool operator==(const Memo&, const Memo&) = default;
-
-		template<typename... OtherArguments>
-		[[nodiscard]] friend bool operator==(const Memo&, const Memo<Functor, OtherArguments...>&) = default;
-	};
-
-	struct MemoHash {
-		using is_transparent = void; // For use in `std::unordered_map`
-
-		template<typename Functor, typename... Arguments>
-		[[nodiscard]] static std::size_t operator()(const Memo<Functor, Arguments...>& memo) noexcept(false) {
-			return XIEITE_SEQUENCE(i, sizeof...(Arguments), xieite::hashes::combine(([&memo] {
-				if constexpr (xieite::concepts::Hashable<Functor>) {
-					return std::hash<Functor>()(memo.functor);
-				} else {
-					return 0;
-				}
-			})(), std::hash<std::decay_t<std::tuple_element_t<i, std::tuple<Arguments...>>>>()(std::get<i>(memo.arguments))...));
-		}
-	};
-}
+	[[nodiscard]] static std::size_t operator()(const Memo<Functor, Arguments...>& memo) noexcept(false) {
+		return ([&memo]<std::size_t... i>(std::index_sequence<i...>) {
+			return xieite::hashes::combine(
+				([&memo] {
+					if constexpr (xieite::concepts::Hashable<Functor>) {
+						return std::hash<Functor>()(memo.functor);
+					} else {
+						return 0;
+					}
+				})(),
+				std::hash<std::decay_t<std::tuple_element_t<i, std::tuple<Arguments...>>>>()(std::get<i>(memo.arguments))...
+			);
+		})(std::index_sequence_for<Arguments...>());
+	}
+};
 
 export namespace xieite::functors {
 	template<typename... Arguments, std::invocable<Arguments...> Functor>

@@ -3,6 +3,7 @@ export module xieite:math.power;
 import std;
 import :concepts.Arithmetic;
 import :math.isNegative;
+import :math.splitBoolean;
 
 export namespace xieite::math {
 	template<xieite::concepts::Arithmetic Arithmetic>
@@ -22,7 +23,7 @@ export namespace xieite::math {
 				}
 				return !exponent;
 			}
-			Integral result = 1;
+			Arithmetic result = 1;
 			while (exponent) {
 				if (exponent & 1) {
 					result *= base;

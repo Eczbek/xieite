@@ -2,7 +2,7 @@ export module xieite:math.mergeIntervals;
 
 import std;
 import :concepts.Arithmetic;
-import :math.betweenFixed;
+import :math.isBetweenFixed;
 import :math.Interval;
 
 export namespace xieite::math {
@@ -16,7 +16,7 @@ export namespace xieite::math {
 			bool overlaps = false;
 			for (xieite::math::Interval<Arithmetic>& interval2 : result) {
 				const auto [start, end] = interval2;
-				if (xieite::math::betweenFixed(lower, start, end) || xieite::math::betweenFixed(upper, start, end)) {
+				if (xieite::math::isBetweenFixed(lower, start, end) || xieite::math::isBetweenFixed(upper, start, end)) {
 					overlaps = true;
 					interval2 = xieite::math::limitsFixed(lower, upper, start, end);
 				}

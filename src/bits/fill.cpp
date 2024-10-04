@@ -1,7 +1,3 @@
-module;
-
-#include <xieite/sequence.hpp>
-
 export module xieite:bits.Fill;
 
 import std;
@@ -16,11 +12,11 @@ export namespace xieite::bits {
 
 		template<typename Type>
 		[[nodiscard]] constexpr operator Type() const noexcept {
-			return XIEITE_SEQUENCE(i, sizeof(Type), {
+			return ([this]<std::size_t... i>(std::index_sequence<i...>) {
 				return std::bit_cast<Type>(std::array<std::byte, sizeof(Type)> {
 					(void(i), this->value)...
 				});
-			});
+			})(std::make_index_sequence<sizeof(Type)>());
 		}
 	};
 }

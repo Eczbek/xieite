@@ -1,7 +1,6 @@
 module;
 
 #include <xieite/lift.hpp>
-#include <xieite/sequence.hpp>
 
 export module xieite:containers.makeArray;
 
@@ -16,13 +15,15 @@ export namespace xieite::containers {
 	[[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
 	noexcept(xieite::concepts::NoThrowInvocable<Functor, Value(std::ranges::range_common_reference_t<Range>)> && xieite::concepts::NoThrowOperableRange<Range>) {
 		auto iterator = std::ranges::begin(range);
-		return XIEITE_SEQUENCE(i, size, std::array<Value, size> {
-			([&converter, &iterator] -> decltype(auto) {
-				if constexpr (!!i) {
-					++iterator;
-				}
-				return std::invoke(converter, *iterator);
-			})()...
-		});
+		return ([&converter, &iterator]<std::size_t... i>(std::index_sequence<i...>) {
+			return std::array<Value, size> {
+				([&converter, &iterator] -> decltype(auto) {
+					if constexpr (!!i) {
+						++iterator;
+					}
+					return std::invoke(converter, *iterator);
+				})()...
+			};
+		})(std::make_index_sequence<size>());
 	}
 }

@@ -1,7 +1,3 @@
-module;
-
-#include <xieite/sequence.hpp>
-
 export module xieite:streams.Color;
 
 import std;
@@ -22,7 +18,7 @@ export namespace xieite::streams {
 		: data { static_cast<std::uint8_t>(arguments)... } {}
 
 		explicit constexpr Color(const xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value = 0) noexcept
-		: data(xieite::containers::makeArray<std::uint8_t, channels>(std::views::reverse(xieite::bits::unjoin(std::uint8_t, channels>(xieite::bits::join(value)))))) {}
+		: data(xieite::containers::makeArray<std::uint8_t, channels>(std::views::reverse(xieite::bits::unjoin<std::uint8_t, channels>(xieite::bits::join(value))))) {}
 
 		[[nodiscard]] friend bool operator==(const Color&, const Color&) = default;
 
@@ -32,8 +28,9 @@ export namespace xieite::streams {
 		}
 
 		[[nodiscard]] constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value() const noexcept {
-			using Result = xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels>;
-			return XIEITE_SEQUENCE(i, channels, static_cast<Result>(xieite::bits::join(this->data[i]...).to_ullong()));
+			return ([this]<std::size_t... i>(std::index_sequence<i...>) {
+				return static_cast<xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels>>(xieite::bits::join(this->data[i]...).to_ullong());
+			})(std::make_index_sequence<channels>());
 		}
 	};
 }

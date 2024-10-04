@@ -15,7 +15,7 @@ import :types.CollapseReference;
 
 #define XIEITE_TEMPORARY_LOOP_OUTER(type_, value_, ...) XIEITE_TEMPORARY_LOOP_OUTER_HELPER(type_, value_, __VA_ARGS__)
 #define XIEITE_TEMPORARY_LOOP_OUTER_HELPER(type_, value_, first_, ...) \
-	__VA_OPT__(XIEITE_TEMPORARY_LOOP_OUTER_INDIRECT SCAN(()) (type_, value_, __VA_ARGS__)) \
+	__VA_OPT__(XIEITE_TEMPORARY_LOOP_OUTER_INDIRECT XIEITE_SCAN(()) (type_, value_, __VA_ARGS__)) \
 	else if constexpr (xieite::types::arity<type_> == (first_ + 1)) { \
 		auto&& [XIEITE_TEMPORARY_LOOP_INNER(XIEITE_TEMPORARY_GET, type_, first_, __VA_ARGS__)] = value_; \
 		return std::make_tuple(XIEITE_TEMPORARY_LOOP_INNER(XIEITE_TEMPORARY_SET, type_, first_, __VA_ARGS__)); \
@@ -23,7 +23,7 @@ import :types.CollapseReference;
 #define XIEITE_TEMPORARY_LOOP_OUTER_INDIRECT() XIEITE_TEMPORARY_LOOP_OUTER_HELPER
 
 #define XIEITE_TEMPORARY_LOOP_INNER(macro_, type_, ...) XIEITE_TEMPORARY_LOOP_INNER_HELPER(macro_, type_, __VA_ARGS__)
-#define XIEITE_TEMPORARY_LOOP_INNER_HELPER(macro_, type_, first_, ...) __VA_OPT__(XIEITE_TEMPORARY_LOOP_INNER_INDIRECT SCAN(()) (macro_, type_, __VA_ARGS__),) macro_(type_, first_)
+#define XIEITE_TEMPORARY_LOOP_INNER_HELPER(macro_, type_, first_, ...) __VA_OPT__(XIEITE_TEMPORARY_LOOP_INNER_INDIRECT XIEITE_SCAN(()) (macro_, type_, __VA_ARGS__),) macro_(type_, first_)
 #define XIEITE_TEMPORARY_LOOP_INNER_INDIRECT() XIEITE_TEMPORARY_LOOP_INNER_HELPER
 
 namespace xieite::containers {

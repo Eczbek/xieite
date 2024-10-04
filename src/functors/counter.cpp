@@ -2,28 +2,26 @@ export module xieite:functors.counter;
 
 import std;
 
-namespace {
-	template<auto tag, std::size_t current>
-	struct CounterReader {
-		template<typename>
-		friend auto counterFlag(CounterReader<tag, current>) noexcept;
-	};
+template<auto tag, std::size_t current>
+struct CounterReader {
+	template<typename>
+	friend auto counterFlag(CounterReader<tag, current>) noexcept;
+};
 
-	template<auto tag, std::size_t current>
-	struct CounterWriter {
-		template<typename>
-		friend auto counterFlag(CounterReader<tag, current>) noexcept {}
+template<auto tag, std::size_t current>
+struct CounterWriter {
+	template<typename>
+	friend auto counterFlag(CounterReader<tag, current>) noexcept {}
 
-		static constexpr std::size_t value = current;
-	};
+	static constexpr std::size_t value = current;
+};
 
-	template<auto tag, auto unique, std::size_t current = 0>
-	[[nodiscard]] constexpr std::size_t counterAdvance() noexcept {
-		if constexpr (requires(CounterReader<tag, current> reader) { counterFlag<void>(reader); }) {
-			return counterAdvance<tag, unique, current + 1>();
-		} else {
-			return CounterWriter<tag, current>::value;
-		}
+template<auto tag, auto unique, std::size_t current = 0>
+[[nodiscard]] constexpr std::size_t counterAdvance() noexcept {
+	if constexpr (requires(CounterReader<tag, current> reader) { counterFlag<void>(reader); }) {
+		return counterAdvance<tag, unique, current + 1>();
+	} else {
+		return CounterWriter<tag, current>::value;
 	}
 }
 

@@ -11,10 +11,7 @@ Performs a slight bit of spacetime manipulation. `Functor` must be default-const
 ## Synopsis
 #### 1)
 ```cpp
-template<template<std::uint8_t> typename Functor>
-requires(/* ... */)
-constexpr void templatify(const std::uint8_t value)
-noexcept(/* ... */);
+constexpr void templatify(auto functor, const std::uint8_t value) noexcept;
 ```
 
 &nbsp;
@@ -24,15 +21,10 @@ noexcept(/* ... */);
 import std;
 import xieite;
 
-template<std::uint8_t value>
-struct Functor {
-    void operator()() {
-        std::println("{}", value);
-    }
-};
-
 int main() {
-    xieite::functors::templatify<Functor>(14);
+    auto functor = []<std::uint8_t x> { std::println("{}", x); };
+
+    xieite::functors::templatify(functor, 14);
 }
 ```
 Output:

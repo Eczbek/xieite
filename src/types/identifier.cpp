@@ -3,9 +3,7 @@ export module xieite:types.identifier;
 import std;
 import :functors.counter;
 
-namespace {
-	constexpr auto identifierCounterTag = [] {};
-}
+constexpr auto identifierCounterTag = [] {};
 
 export namespace xieite::types {
 	template<typename>

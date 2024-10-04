@@ -51,7 +51,6 @@ Macros and special headers
 - [XIEITE\_RESTRICT](./namespaces/macros/restrict.md)
 - [XIEITE\_REVERSE\(\)](./namespaces/macros/reverse.md)
 - [XIEITE\_SCAN\(\)](./namespaces/macros/scan.md)
-- [XIEITE\_SEQUENCE...\(\)](./namespaces/macros/sequence.md)
 - [XIEITE\_STATIC\_ASSERT\(\)](./namespaces/macros/static_assert.md)
 - [XIEITE\_STRINGIFY...\(\)](./namespaces/macros/stringify.md)
 - [XIEITE\_TRY\_RETURN\(\)](./namespaces/macros/try_return.md)

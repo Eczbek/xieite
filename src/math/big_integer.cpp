@@ -326,14 +326,14 @@ export namespace xieite::math {
 				for (std::size_t j = xieite::bits::size<Limb>; j--;) {
 					remainder <<= 1;
 					remainder.data[0] |= (dividend.data[i] >> j) & 1;
-					const bool quotient = remainder >= absoluteDivisor;
-					remainder -= absoluteDivisor * quotient;
-					quotient.data[i] |= static_cast<Limb>(quotient) << j;
+					const bool bit = remainder >= absoluteDivisor;
+					remainder -= absoluteDivisor * bit;
+					quotient.data[i] |= static_cast<Limb>(bit) << j;
 				}
 			}
 			quotient.negative = !sameSign;
 			quotient.trim();
-			return result;
+			return quotient;
 		}
 
 		template<std::integral Integral>

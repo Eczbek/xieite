@@ -1,7 +1,3 @@
-module;
-
-#include <xieite/sequence.hpp>
-
 export module xieite:bits.unjoin;
 
 import std;
@@ -12,10 +8,10 @@ export namespace xieite::bits {
 	requires(bits >= (... + xieite::bits::size<Integrals>))
 	[[nodiscard]] constexpr std::tuple<Integrals...> unjoin(std::bitset<bits> value) noexcept {
 		std::tuple<Integrals...> result;
-		XIEITE_SEQUENCE(i, sizeof...(Integrals), (..., ([&value, &result] {
+		([&value, &result]<std::size_t... i>(std::index_sequence<i...>) {
 			std::get<i>(result) = static_cast<Integrals>(value.to_ullong());
 			value >>= xieite::bits::size<Integrals>;
-		})()));
+		})(std::index_sequence_for<Integrals...>());
 		return result;
 	}
 

@@ -11,7 +11,7 @@ Returns the minimum and maximum of the magnitudes of multiple values, in order.
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::math::Arithmetic First, std::convertible_to<First>... Rest>
+template<xieite::concepts::Arithmetic First, std::convertible_to<First>... Rest>
 [[nodiscard]] constexpr xieite::math::Interval<First> limitsMagnitude(First first, Rest... rest) noexcept;
 ```
 

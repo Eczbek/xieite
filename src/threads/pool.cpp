@@ -1,7 +1,6 @@
 export module xieite:threads.Pool;
 
 import std;
-import :functors.Function;
 
 export namespace xieite::threads {
 	struct Pool {
@@ -36,7 +35,7 @@ export namespace xieite::threads {
 						if (!this->tasks.size() && stopToken.stop_requested()) {
 							break;
 						}
-						const xieite::functors::Function<void()> task = this->tasks.front();
+						std::packaged_task<void()> task = std::move(this->tasks.front());
 						this->tasks.pop();
 						tasksLock.unlock();
 						task();
@@ -55,7 +54,7 @@ export namespace xieite::threads {
 			auto task = std::packaged_task<void()>(functor);
 			std::future<void> future = task.get_future();
 			auto tasksLock = std::unique_lock<std::mutex>(this->mutex);
-			this->tasks.emplace(task);
+			this->tasks.emplace(std::move(task));
 			tasksLock.unlock();
 			this->condition.notify_one();
 			return future;
@@ -63,7 +62,7 @@ export namespace xieite::threads {
 
 	private:
 		// Destruction order is important!!!
-		std::queue<xieite::functors::Function<void()>> tasks;
+		std::queue<std::packaged_task<void()>> tasks;
 		std::vector<std::jthread> threads;
 		mutable std::mutex mutex;
 		std::condition_variable condition;
