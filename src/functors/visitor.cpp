@@ -1,12 +1,12 @@
 export module xieite:functors.Visitor;
 
 export namespace xieite::functors {
-	template<typename... Bases>
+	template<typename... Functors>
 	struct Visitor
-	: Bases... {
-		using Bases::operator()...;
+	: Functors... {
+		using Functors::operator()...;
 	};
 
-	template<typename... Bases>
-	Visitor(Bases...) -> Visitor<Bases...>;
+	template<typename... Functors>
+	Visitor(Functors...) -> Visitor<Functors...>;
 }

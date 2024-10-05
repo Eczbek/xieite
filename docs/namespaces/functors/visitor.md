@@ -4,24 +4,24 @@ Defined in fragment [xieite:functors.Visitor](../../../src/functors/visitor.cpp)
 &nbsp;
 
 ## Description
-Derives from multiple bases and uses their `operator()`s.
+Derives from multiple functors and inherits their call operators.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename... Bases>
+template<typename... Functors>
 struct Visitor
-: Bases... {
-    using Bases::operator()...;
+: Functors... {
+    using Functors::operator()...;
 };
 ```
 
 ### Deduction guide
 ```cpp
-template<typename... Bases>
-Visitor(Bases...) -> Visitor<Bases...>;
+template<typename... Functors>
+Visitor(Functors...) -> Visitor<Functors...>;
 ```
 
 &nbsp;
