@@ -11,15 +11,15 @@ export namespace xieite::algorithms {
 	template<std::ranges::input_range Range>
 	requires(std::ranges::input_range<std::ranges::range_value_t<Range>>)
 	[[nodiscard]] constexpr bool isUniformMatrix(Range&& matrix)
-	noexcept(([]<typename Self, typename Subrange>(this Self self, Subrange) {
+	noexcept(([]<typename Subrange, typename Self>(this Self self) {
 		if constexpr (!std::ranges::input_range<Subrange>) {
 			return true;
 		} else if constexpr (!xieite::concepts::NoThrowOperableRange<Subrange>) {
 			return false;
 		} else {
-			return self(std::declval<std::ranges::range_value_t<Range>>());
+			return self.template operator()<std::ranges::range_value_t<Range>>();
 		}
-	})(std::declval<Range>())) {
+	}).template operator()<Range>()) {
 		if constexpr (std::ranges::input_range<std::ranges::range_value_t<std::ranges::range_value_t<Range>>>) {
 			return std::ranges::all_of(matrix, XIEITE_LIFT(xieite::algorithms::isUniformMatrix));
 		} else {

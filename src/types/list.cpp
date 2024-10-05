@@ -69,17 +69,17 @@ export namespace xieite::types {
 		using Append = List<Types..., OtherTypes...>;
 
 		template<typename Range>
-		using AppendRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(Template<OtherTypes...>) {
+		using AppendRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(std::type_identity<Template<OtherTypes...>>) {
 			return std::type_identity<List::Append<OtherTypes...>>();
-		})(std::declval<Range>()))::type;
+		})(std::type_identity<Range>()))::type;
 
 		template<typename... OtherTypes>
 		using Prepend = List<OtherTypes..., Types...>;
 
 		template<typename Range>
-		using PrependRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(Template<OtherTypes...>) {
+		using PrependRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(std::type_identity<Template<OtherTypes...>>) {
 			return std::type_identity<List::Prepend<OtherTypes...>>();
-		})(std::declval<Range>()))::type;
+		})(std::type_identity<Range>()))::type;
 
 		using Reverse = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
 			return std::type_identity<List<List::At<sizeof...(Types) - i - 1>...>>();
@@ -122,7 +122,7 @@ export namespace xieite::types {
 		struct TransformHelper
 		: std::type_identity<List<Results...>> {
 			template<typename Type>
-			auto operator->*(Type) const noexcept {
+			auto operator->*(std::type_identity<Type>) const noexcept {
 				if constexpr (xieite::concepts::SatisfiedBy<condition, Type, Results...>) {
 					return decltype(transformer.template operator()<Type, Results...>())::type::apply(([]<typename... Additions> {
 						return TransformHelper<condition, transformer, Results..., Additions...>();
@@ -135,7 +135,7 @@ export namespace xieite::types {
 
 	public:
 		template<auto selector>
-		using Filter = decltype((List::TransformHelper<selector, []<typename Type> { return std::type_identity<Type>(); }>()->*...->*std::declval<Types>()))::type;
+		using Filter = decltype((List::TransformHelper<selector, []<typename Type> { return std::type_identity<Type>(); }>()->*...->*std::type_identity<Types>()))::type;
 
 		template<auto comparator = []<typename First, typename... Rest> requires(... && !std::same_as<First, Rest>) {}>
 		using Deduplicate = List::Filter<comparator>;
@@ -163,7 +163,7 @@ export namespace xieite::types {
 		using TransformFlat = decltype(([]<std::size_t... i>(std::index_sequence<i...>) {
 			return (List::TransformHelper<[]<typename...> {}, []<typename Value, typename...> {
 				return List::template Slice<arity * Value::value, arity * (Value::value + 1)>::template AppendRange<List::template Slice<0, arity * Value::value>>::apply(transformer);
-			}>()->*...->*xieite::types::Value<i>());
+			}>()->*...->*std::type_identity<xieite::types::Value<i>>());
 		})(std::make_index_sequence<sizeof...(Types) / arity>()))::type;
 
 		template<typename... OtherTypes>
@@ -173,9 +173,9 @@ export namespace xieite::types {
 		})(std::index_sequence_for<Types...>()))::type;
 
 		template<typename Range>
-		using ZipRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(Template<OtherTypes...>) {
+		using ZipRange = decltype(([]<template<typename...> typename Template, typename... OtherTypes>(std::type_identity<Template<OtherTypes...>>) {
 			return std::type_identity<List::Zip<OtherTypes...>>();
-		})(std::declval<Range>()))::type;
+		})(std::type_identity<Range>()))::type;
 	};
 }
 
