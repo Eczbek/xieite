@@ -7,204 +7,204 @@ import :units.temperature;
 import :units.volume;
 
 export namespace xieite::literals::units {
-	[[nodiscard]] constexpr xieite::units::Quectometre operator""_quectometres(const unsigned long long int value) noexcept {
-		return xieite::units::Quectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Quectometer operator""_quectometers(const unsigned long long int value) noexcept {
+		return xieite::units::Quectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Quectometre operator""_quectometres(const long double value) noexcept {
-		return xieite::units::Quectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Quectometer operator""_quectometers(const long double value) noexcept {
+		return xieite::units::Quectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Rontometre operator""_rontometres(const unsigned long long int value) noexcept {
-		return xieite::units::Rontometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Rontometer operator""_rontometers(const unsigned long long int value) noexcept {
+		return xieite::units::Rontometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Rontometre operator""_rontometres(const long double value) noexcept {
-		return xieite::units::Rontometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Rontometer operator""_rontometers(const long double value) noexcept {
+		return xieite::units::Rontometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Yoctometre operator""_yoctometres(const unsigned long long int value) noexcept {
-		return xieite::units::Yoctometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Yoctometer operator""_yoctometers(const unsigned long long int value) noexcept {
+		return xieite::units::Yoctometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Yoctometre operator""_yoctometres(const long double value) noexcept {
-		return xieite::units::Yoctometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Yoctometer operator""_yoctometers(const long double value) noexcept {
+		return xieite::units::Yoctometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Zeptometre operator""_zeptometres(const unsigned long long int value) noexcept {
-		return xieite::units::Zeptometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Zeptometer operator""_zeptometers(const unsigned long long int value) noexcept {
+		return xieite::units::Zeptometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Zeptometre operator""_zeptometres(const long double value) noexcept {
-		return xieite::units::Zeptometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Zeptometer operator""_zeptometers(const long double value) noexcept {
+		return xieite::units::Zeptometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Attometre operator""_attometres(const unsigned long long int value) noexcept {
-		return xieite::units::Attometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Attometer operator""_attometers(const unsigned long long int value) noexcept {
+		return xieite::units::Attometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Attometre operator""_attometres(const long double value) noexcept {
-		return xieite::units::Attometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Attometer operator""_attometers(const long double value) noexcept {
+		return xieite::units::Attometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Femtometre operator""_femtometres(const unsigned long long int value) noexcept {
-		return xieite::units::Femtometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Femtometer operator""_femtometers(const unsigned long long int value) noexcept {
+		return xieite::units::Femtometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Femtometre operator""_femtometres(const long double value) noexcept {
-		return xieite::units::Femtometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Femtometer operator""_femtometers(const long double value) noexcept {
+		return xieite::units::Femtometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Picometre operator""_picometres(const unsigned long long int value) noexcept {
-		return xieite::units::Picometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Picometer operator""_picometers(const unsigned long long int value) noexcept {
+		return xieite::units::Picometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Picometre operator""_picometres(const long double value) noexcept {
-		return xieite::units::Picometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Picometer operator""_picometers(const long double value) noexcept {
+		return xieite::units::Picometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Nanometre operator""_nanometres(const unsigned long long int value) noexcept {
-		return xieite::units::Nanometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Nanometer operator""_nanometers(const unsigned long long int value) noexcept {
+		return xieite::units::Nanometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Nanometre operator""_nanometres(const long double value) noexcept {
-		return xieite::units::Nanometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Nanometer operator""_nanometers(const long double value) noexcept {
+		return xieite::units::Nanometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Micrometre operator""_micrometres(const unsigned long long int value) noexcept {
-		return xieite::units::Micrometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Micrometer operator""_micrometers(const unsigned long long int value) noexcept {
+		return xieite::units::Micrometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Micrometre operator""_micrometres(const long double value) noexcept {
-		return xieite::units::Micrometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Micrometer operator""_micrometers(const long double value) noexcept {
+		return xieite::units::Micrometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Millimetre operator""_millimetres(const unsigned long long int value) noexcept {
-		return xieite::units::Millimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Millimeter operator""_millimeters(const unsigned long long int value) noexcept {
+		return xieite::units::Millimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Millimetre operator""_millimetres(const long double value) noexcept {
-		return xieite::units::Millimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Millimeter operator""_millimeters(const long double value) noexcept {
+		return xieite::units::Millimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Centimetre operator""_centimetres(const unsigned long long int value) noexcept {
-		return xieite::units::Centimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Centimeter operator""_centimeters(const unsigned long long int value) noexcept {
+		return xieite::units::Centimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Centimetre operator""_centimetres(const long double value) noexcept {
-		return xieite::units::Centimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Centimeter operator""_centimeters(const long double value) noexcept {
+		return xieite::units::Centimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Decimetre operator""_decimetres(const unsigned long long int value) noexcept {
-		return xieite::units::Decimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Decimeter operator""_decimeters(const unsigned long long int value) noexcept {
+		return xieite::units::Decimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Decimetre operator""_decimetres(const long double value) noexcept {
-		return xieite::units::Decimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Decimeter operator""_decimeters(const long double value) noexcept {
+		return xieite::units::Decimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Metre operator""_metres(const unsigned long long int value) noexcept {
-		return xieite::units::Metre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Meter operator""_meters(const unsigned long long int value) noexcept {
+		return xieite::units::Meter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Metre operator""_metres(const long double value) noexcept {
-		return xieite::units::Metre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Meter operator""_meters(const long double value) noexcept {
+		return xieite::units::Meter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Decametre operator""_decametres(const unsigned long long int value) noexcept {
-		return xieite::units::Decametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Decameter operator""_decameters(const unsigned long long int value) noexcept {
+		return xieite::units::Decameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Decametre operator""_decametres(const long double value) noexcept {
-		return xieite::units::Decametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Decameter operator""_decameters(const long double value) noexcept {
+		return xieite::units::Decameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Hectometre operator""_hectometres(const unsigned long long int value) noexcept {
-		return xieite::units::Hectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Hectometer operator""_hectometers(const unsigned long long int value) noexcept {
+		return xieite::units::Hectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Hectometre operator""_hectometres(const long double value) noexcept {
-		return xieite::units::Hectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Hectometer operator""_hectometers(const long double value) noexcept {
+		return xieite::units::Hectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Kilometre operator""_kilometres(const unsigned long long int value) noexcept {
-		return xieite::units::Kilometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Kilometer operator""_kilometers(const unsigned long long int value) noexcept {
+		return xieite::units::Kilometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Kilometre operator""_kilometres(const long double value) noexcept {
-		return xieite::units::Kilometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Kilometer operator""_kilometers(const long double value) noexcept {
+		return xieite::units::Kilometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Megametre operator""_megametres(const unsigned long long int value) noexcept {
-		return xieite::units::Megametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Megameter operator""_megameters(const unsigned long long int value) noexcept {
+		return xieite::units::Megameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Megametre operator""_megametres(const long double value) noexcept {
-		return xieite::units::Megametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Megameter operator""_megameters(const long double value) noexcept {
+		return xieite::units::Megameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Gigametre operator""_gigametres(const unsigned long long int value) noexcept {
-		return xieite::units::Gigametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Gigameter operator""_gigameters(const unsigned long long int value) noexcept {
+		return xieite::units::Gigameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Gigametre operator""_gigametres(const long double value) noexcept {
-		return xieite::units::Gigametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Gigameter operator""_gigameters(const long double value) noexcept {
+		return xieite::units::Gigameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Terametre operator""_terametres(const unsigned long long int value) noexcept {
-		return xieite::units::Terametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Terameter operator""_terameters(const unsigned long long int value) noexcept {
+		return xieite::units::Terameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Terametre operator""_terametres(const long double value) noexcept {
-		return xieite::units::Terametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Terameter operator""_terameters(const long double value) noexcept {
+		return xieite::units::Terameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Petametre operator""_petametres(const unsigned long long int value) noexcept {
-		return xieite::units::Petametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Petameter operator""_petameters(const unsigned long long int value) noexcept {
+		return xieite::units::Petameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Petametre operator""_petametres(const long double value) noexcept {
-		return xieite::units::Petametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Petameter operator""_petameters(const long double value) noexcept {
+		return xieite::units::Petameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Exametre operator""_exametres(const unsigned long long int value) noexcept {
-		return xieite::units::Exametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Exameter operator""_exameters(const unsigned long long int value) noexcept {
+		return xieite::units::Exameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Exametre operator""_exametres(const long double value) noexcept {
-		return xieite::units::Exametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Exameter operator""_exameters(const long double value) noexcept {
+		return xieite::units::Exameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Zettametre operator""_zettametres(const unsigned long long int value) noexcept {
-		return xieite::units::Zettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Zettameter operator""_zettameters(const unsigned long long int value) noexcept {
+		return xieite::units::Zettameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Zettametre operator""_zettametres(const long double value) noexcept {
-		return xieite::units::Zettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Zettameter operator""_zettameters(const long double value) noexcept {
+		return xieite::units::Zettameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Yottametre operator""_yottametres(const unsigned long long int value) noexcept {
-		return xieite::units::Yottametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Yottameter operator""_yottameters(const unsigned long long int value) noexcept {
+		return xieite::units::Yottameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Yottametre operator""_yottametres(const long double value) noexcept {
-		return xieite::units::Yottametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Yottameter operator""_yottameters(const long double value) noexcept {
+		return xieite::units::Yottameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Ronnametre operator""_ronnametres(const unsigned long long int value) noexcept {
-		return xieite::units::Ronnametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Ronnameter operator""_ronnameters(const unsigned long long int value) noexcept {
+		return xieite::units::Ronnameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Ronnametre operator""_ronnametres(const long double value) noexcept {
-		return xieite::units::Ronnametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Ronnameter operator""_ronnameters(const long double value) noexcept {
+		return xieite::units::Ronnameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Quettametre operator""_quettametres(const unsigned long long int value) noexcept {
-		return xieite::units::Quettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Quettameter operator""_quettameters(const unsigned long long int value) noexcept {
+		return xieite::units::Quettameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Quettametre operator""_quettametres(const long double value) noexcept {
-		return xieite::units::Quettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Quettameter operator""_quettameters(const long double value) noexcept {
+		return xieite::units::Quettameter(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr xieite::units::Twip operator""_twips(const unsigned long long int value) noexcept {
@@ -351,204 +351,204 @@ export namespace xieite::literals::units {
 		return xieite::units::Lug(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareQuectometre operator""_squareQuectometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareQuectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareQuectometer operator""_squareQuectometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareQuectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareQuectometre operator""_squareQuectometres(const long double value) noexcept {
-		return xieite::units::SquareQuectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareQuectometer operator""_squareQuectometers(const long double value) noexcept {
+		return xieite::units::SquareQuectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareRontometre operator""_squareRontometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareRontometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareRontometer operator""_squareRontometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareRontometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareRontometre operator""_squareRontometres(const long double value) noexcept {
-		return xieite::units::SquareRontometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareRontometer operator""_squareRontometers(const long double value) noexcept {
+		return xieite::units::SquareRontometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareYoctometre operator""_squareYoctometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareYoctometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareYoctometer operator""_squareYoctometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareYoctometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareYoctometre operator""_squareYoctometres(const long double value) noexcept {
-		return xieite::units::SquareYoctometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareYoctometer operator""_squareYoctometers(const long double value) noexcept {
+		return xieite::units::SquareYoctometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareZeptometre operator""_squareZeptometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareZeptometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareZeptometer operator""_squareZeptometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareZeptometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareZeptometre operator""_squareZeptometres(const long double value) noexcept {
-		return xieite::units::SquareZeptometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareZeptometer operator""_squareZeptometers(const long double value) noexcept {
+		return xieite::units::SquareZeptometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareAttometre operator""_squareAttometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareAttometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareAttometer operator""_squareAttometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareAttometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareAttometre operator""_squareAttometres(const long double value) noexcept {
-		return xieite::units::SquareAttometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareAttometer operator""_squareAttometers(const long double value) noexcept {
+		return xieite::units::SquareAttometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareFemtometre operator""_squareFemtometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareFemtometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareFemtometer operator""_squareFemtometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareFemtometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareFemtometre operator""_squareFemtometres(const long double value) noexcept {
-		return xieite::units::SquareFemtometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareFemtometer operator""_squareFemtometers(const long double value) noexcept {
+		return xieite::units::SquareFemtometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquarePicometre operator""_squarePicometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquarePicometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquarePicometer operator""_squarePicometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquarePicometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquarePicometre operator""_squarePicometres(const long double value) noexcept {
-		return xieite::units::SquarePicometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquarePicometer operator""_squarePicometers(const long double value) noexcept {
+		return xieite::units::SquarePicometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareNanometre operator""_squareNanometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareNanometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareNanometer operator""_squareNanometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareNanometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareNanometre operator""_squareNanometres(const long double value) noexcept {
-		return xieite::units::SquareNanometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareNanometer operator""_squareNanometers(const long double value) noexcept {
+		return xieite::units::SquareNanometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareMicrometre operator""_squareMicrometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareMicrometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareMicrometer operator""_squareMicrometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareMicrometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareMicrometre operator""_squareMicrometres(const long double value) noexcept {
-		return xieite::units::SquareMicrometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareMicrometer operator""_squareMicrometers(const long double value) noexcept {
+		return xieite::units::SquareMicrometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareMillimetre operator""_squareMillimetres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareMillimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareMillimeter operator""_squareMillimeters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareMillimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareMillimetre operator""_squareMillimetres(const long double value) noexcept {
-		return xieite::units::SquareMillimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareMillimeter operator""_squareMillimeters(const long double value) noexcept {
+		return xieite::units::SquareMillimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareCentimetre operator""_squareCentimetres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareCentimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareCentimeter operator""_squareCentimeters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareCentimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareCentimetre operator""_squareCentimetres(const long double value) noexcept {
-		return xieite::units::SquareCentimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareCentimeter operator""_squareCentimeters(const long double value) noexcept {
+		return xieite::units::SquareCentimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareDecimetre operator""_squareDecimetres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareDecimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareDecimeter operator""_squareDecimeters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareDecimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareDecimetre operator""_squareDecimetres(const long double value) noexcept {
-		return xieite::units::SquareDecimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareDecimeter operator""_squareDecimeters(const long double value) noexcept {
+		return xieite::units::SquareDecimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareMetre operator""_squareMetres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareMetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareMeter operator""_squareMeters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareMeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareMetre operator""_squareMetres(const long double value) noexcept {
-		return xieite::units::SquareMetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareMeter operator""_squareMeters(const long double value) noexcept {
+		return xieite::units::SquareMeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareDecametre operator""_squareDecametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareDecametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareDecameter operator""_squareDecameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareDecameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareDecametre operator""_squareDecametres(const long double value) noexcept {
-		return xieite::units::SquareDecametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareDecameter operator""_squareDecameters(const long double value) noexcept {
+		return xieite::units::SquareDecameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareHectometre operator""_squareHectometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareHectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareHectometer operator""_squareHectometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareHectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareHectometre operator""_squareHectometres(const long double value) noexcept {
-		return xieite::units::SquareHectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareHectometer operator""_squareHectometers(const long double value) noexcept {
+		return xieite::units::SquareHectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareKilometre operator""_squareKilometres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareKilometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareKilometer operator""_squareKilometers(const unsigned long long int value) noexcept {
+		return xieite::units::SquareKilometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareKilometre operator""_squareKilometres(const long double value) noexcept {
-		return xieite::units::SquareKilometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareKilometer operator""_squareKilometers(const long double value) noexcept {
+		return xieite::units::SquareKilometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareMegametre operator""_squareMegametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareMegametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareMegameter operator""_squareMegameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareMegameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareMegametre operator""_squareMegametres(const long double value) noexcept {
-		return xieite::units::SquareMegametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareMegameter operator""_squareMegameters(const long double value) noexcept {
+		return xieite::units::SquareMegameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareGigametre operator""_squareGigametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareGigametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareGigameter operator""_squareGigameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareGigameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareGigametre operator""_squareGigametres(const long double value) noexcept {
-		return xieite::units::SquareGigametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareGigameter operator""_squareGigameters(const long double value) noexcept {
+		return xieite::units::SquareGigameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareTerametre operator""_squareTerametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareTerametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareTerameter operator""_squareTerameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareTerameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareTerametre operator""_squareTerametres(const long double value) noexcept {
-		return xieite::units::SquareTerametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareTerameter operator""_squareTerameters(const long double value) noexcept {
+		return xieite::units::SquareTerameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquarePetametre operator""_squarePetametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquarePetametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquarePetameter operator""_squarePetameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquarePetameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquarePetametre operator""_squarePetametres(const long double value) noexcept {
-		return xieite::units::SquarePetametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquarePetameter operator""_squarePetameters(const long double value) noexcept {
+		return xieite::units::SquarePetameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareExametre operator""_squareExametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareExametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareExameter operator""_squareExameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareExameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareExametre operator""_squareExametres(const long double value) noexcept {
-		return xieite::units::SquareExametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareExameter operator""_squareExameters(const long double value) noexcept {
+		return xieite::units::SquareExameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareZettametre operator""_squareZettametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareZettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareZettameter operator""_squareZettameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareZettameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareZettametre operator""_squareZettametres(const long double value) noexcept {
-		return xieite::units::SquareZettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareZettameter operator""_squareZettameters(const long double value) noexcept {
+		return xieite::units::SquareZettameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareYottametre operator""_squareYottametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareYottametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareYottameter operator""_squareYottameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareYottameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareYottametre operator""_squareYottametres(const long double value) noexcept {
-		return xieite::units::SquareYottametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareYottameter operator""_squareYottameters(const long double value) noexcept {
+		return xieite::units::SquareYottameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareRonnametre operator""_squareRonnametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareRonnametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareRonnameter operator""_squareRonnameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareRonnameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareRonnametre operator""_squareRonnametres(const long double value) noexcept {
-		return xieite::units::SquareRonnametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareRonnameter operator""_squareRonnameters(const long double value) noexcept {
+		return xieite::units::SquareRonnameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareQuettametre operator""_squareQuettametres(const unsigned long long int value) noexcept {
-		return xieite::units::SquareQuettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareQuettameter operator""_squareQuettameters(const unsigned long long int value) noexcept {
+		return xieite::units::SquareQuettameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::SquareQuettametre operator""_squareQuettametres(const long double value) noexcept {
-		return xieite::units::SquareQuettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::SquareQuettameter operator""_squareQuettameters(const long double value) noexcept {
+		return xieite::units::SquareQuettameter(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr xieite::units::SquareInch operator""_squareInches(const unsigned long long int value) noexcept {
@@ -647,204 +647,204 @@ export namespace xieite::literals::units {
 		return xieite::units::Hectare(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicQuectometre operator""_cubicQuectometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicQuectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicQuectometer operator""_cubicQuectometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicQuectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicQuectometre operator""_cubicQuectometres(const long double value) noexcept {
-		return xieite::units::CubicQuectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicQuectometer operator""_cubicQuectometers(const long double value) noexcept {
+		return xieite::units::CubicQuectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicRontometre operator""_cubicRontometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicRontometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicRontometer operator""_cubicRontometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicRontometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicRontometre operator""_cubicRontometres(const long double value) noexcept {
-		return xieite::units::CubicRontometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicRontometer operator""_cubicRontometers(const long double value) noexcept {
+		return xieite::units::CubicRontometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicYoctometre operator""_cubicYoctometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicYoctometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicYoctometer operator""_cubicYoctometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicYoctometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicYoctometre operator""_cubicYoctometres(const long double value) noexcept {
-		return xieite::units::CubicYoctometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicYoctometer operator""_cubicYoctometers(const long double value) noexcept {
+		return xieite::units::CubicYoctometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicZeptometre operator""_cubicZeptometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicZeptometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicZeptometer operator""_cubicZeptometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicZeptometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicZeptometre operator""_cubicZeptometres(const long double value) noexcept {
-		return xieite::units::CubicZeptometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicZeptometer operator""_cubicZeptometers(const long double value) noexcept {
+		return xieite::units::CubicZeptometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicAttometre operator""_cubicAttometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicAttometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicAttometer operator""_cubicAttometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicAttometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicAttometre operator""_cubicAttometres(const long double value) noexcept {
-		return xieite::units::CubicAttometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicAttometer operator""_cubicAttometers(const long double value) noexcept {
+		return xieite::units::CubicAttometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicFemtometre operator""_cubicFemtometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicFemtometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicFemtometer operator""_cubicFemtometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicFemtometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicFemtometre operator""_cubicFemtometres(const long double value) noexcept {
-		return xieite::units::CubicFemtometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicFemtometer operator""_cubicFemtometers(const long double value) noexcept {
+		return xieite::units::CubicFemtometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicPicometre operator""_cubicPicometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicPicometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicPicometer operator""_cubicPicometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicPicometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicPicometre operator""_cubicPicometres(const long double value) noexcept {
-		return xieite::units::CubicPicometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicPicometer operator""_cubicPicometers(const long double value) noexcept {
+		return xieite::units::CubicPicometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicNanometre operator""_cubicNanometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicNanometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicNanometer operator""_cubicNanometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicNanometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicNanometre operator""_cubicNanometres(const long double value) noexcept {
-		return xieite::units::CubicNanometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicNanometer operator""_cubicNanometers(const long double value) noexcept {
+		return xieite::units::CubicNanometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicMicrometre operator""_cubicMicrometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicMicrometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicMicrometer operator""_cubicMicrometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicMicrometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicMicrometre operator""_cubicMicrometres(const long double value) noexcept {
-		return xieite::units::CubicMicrometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicMicrometer operator""_cubicMicrometers(const long double value) noexcept {
+		return xieite::units::CubicMicrometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicMillimetre operator""_cubicMillimetres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicMillimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicMillimeter operator""_cubicMillimeters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicMillimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicMillimetre operator""_cubicMillimetres(const long double value) noexcept {
-		return xieite::units::CubicMillimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicMillimeter operator""_cubicMillimeters(const long double value) noexcept {
+		return xieite::units::CubicMillimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicCentimetre operator""_cubicCentimetres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicCentimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicCentimeter operator""_cubicCentimeters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicCentimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicCentimetre operator""_cubicCentimetres(const long double value) noexcept {
-		return xieite::units::CubicCentimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicCentimeter operator""_cubicCentimeters(const long double value) noexcept {
+		return xieite::units::CubicCentimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicDecimetre operator""_cubicDecimetres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicDecimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicDecimeter operator""_cubicDecimeters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicDecimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicDecimetre operator""_cubicDecimetres(const long double value) noexcept {
-		return xieite::units::CubicDecimetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicDecimeter operator""_cubicDecimeters(const long double value) noexcept {
+		return xieite::units::CubicDecimeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicMetre operator""_cubicMetres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicMetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicMeter operator""_cubicMeters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicMeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicMetre operator""_cubicMetres(const long double value) noexcept {
-		return xieite::units::CubicMetre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicMeter operator""_cubicMeters(const long double value) noexcept {
+		return xieite::units::CubicMeter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicDecametre operator""_cubicDecametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicDecametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicDecameter operator""_cubicDecameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicDecameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicDecametre operator""_cubicDecametres(const long double value) noexcept {
-		return xieite::units::CubicDecametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicDecameter operator""_cubicDecameters(const long double value) noexcept {
+		return xieite::units::CubicDecameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicHectometre operator""_cubicHectometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicHectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicHectometer operator""_cubicHectometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicHectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicHectometre operator""_cubicHectometres(const long double value) noexcept {
-		return xieite::units::CubicHectometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicHectometer operator""_cubicHectometers(const long double value) noexcept {
+		return xieite::units::CubicHectometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicKilometre operator""_cubicKilometres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicKilometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicKilometer operator""_cubicKilometers(const unsigned long long int value) noexcept {
+		return xieite::units::CubicKilometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicKilometre operator""_cubicKilometres(const long double value) noexcept {
-		return xieite::units::CubicKilometre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicKilometer operator""_cubicKilometers(const long double value) noexcept {
+		return xieite::units::CubicKilometer(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicMegametre operator""_cubicMegametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicMegametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicMegameter operator""_cubicMegameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicMegameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicMegametre operator""_cubicMegametres(const long double value) noexcept {
-		return xieite::units::CubicMegametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicMegameter operator""_cubicMegameters(const long double value) noexcept {
+		return xieite::units::CubicMegameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicGigametre operator""_cubicGigametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicGigametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicGigameter operator""_cubicGigameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicGigameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicGigametre operator""_cubicGigametres(const long double value) noexcept {
-		return xieite::units::CubicGigametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicGigameter operator""_cubicGigameters(const long double value) noexcept {
+		return xieite::units::CubicGigameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicTerametre operator""_cubicTerametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicTerametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicTerameter operator""_cubicTerameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicTerameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicTerametre operator""_cubicTerametres(const long double value) noexcept {
-		return xieite::units::CubicTerametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicTerameter operator""_cubicTerameters(const long double value) noexcept {
+		return xieite::units::CubicTerameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicPetametre operator""_cubicPetametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicPetametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicPetameter operator""_cubicPetameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicPetameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicPetametre operator""_cubicPetametres(const long double value) noexcept {
-		return xieite::units::CubicPetametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicPetameter operator""_cubicPetameters(const long double value) noexcept {
+		return xieite::units::CubicPetameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicExametre operator""_cubicExametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicExametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicExameter operator""_cubicExameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicExameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicExametre operator""_cubicExametres(const long double value) noexcept {
-		return xieite::units::CubicExametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicExameter operator""_cubicExameters(const long double value) noexcept {
+		return xieite::units::CubicExameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicZettametre operator""_cubicZettametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicZettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicZettameter operator""_cubicZettameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicZettameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicZettametre operator""_cubicZettametres(const long double value) noexcept {
-		return xieite::units::CubicZettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicZettameter operator""_cubicZettameters(const long double value) noexcept {
+		return xieite::units::CubicZettameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicYottametre operator""_cubicYottametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicYottametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicYottameter operator""_cubicYottameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicYottameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicYottametre operator""_cubicYottametres(const long double value) noexcept {
-		return xieite::units::CubicYottametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicYottameter operator""_cubicYottameters(const long double value) noexcept {
+		return xieite::units::CubicYottameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicRonnametre operator""_cubicRonnametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicRonnametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicRonnameter operator""_cubicRonnameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicRonnameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicRonnametre operator""_cubicRonnametres(const long double value) noexcept {
-		return xieite::units::CubicRonnametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicRonnameter operator""_cubicRonnameters(const long double value) noexcept {
+		return xieite::units::CubicRonnameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicQuettametre operator""_cubicQuettametres(const unsigned long long int value) noexcept {
-		return xieite::units::CubicQuettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicQuettameter operator""_cubicQuettameters(const unsigned long long int value) noexcept {
+		return xieite::units::CubicQuettameter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::CubicQuettametre operator""_cubicQuettametres(const long double value) noexcept {
-		return xieite::units::CubicQuettametre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::CubicQuettameter operator""_cubicQuettameters(const long double value) noexcept {
+		return xieite::units::CubicQuettameter(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr xieite::units::CubicInch operator""_cubicInches(const unsigned long long int value) noexcept {
@@ -879,204 +879,204 @@ export namespace xieite::literals::units {
 		return xieite::units::CubicMile(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Quectolitre operator""_quectolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Quectolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Quectoliter operator""_quectoliters(const unsigned long long int value) noexcept {
+		return xieite::units::Quectoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Quectolitre operator""_quectolitres(const long double value) noexcept {
-		return xieite::units::Quectolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Quectoliter operator""_quectoliters(const long double value) noexcept {
+		return xieite::units::Quectoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Rontolitre operator""_rontolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Rontolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Rontoliter operator""_rontoliters(const unsigned long long int value) noexcept {
+		return xieite::units::Rontoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Rontolitre operator""_rontolitres(const long double value) noexcept {
-		return xieite::units::Rontolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Rontoliter operator""_rontoliters(const long double value) noexcept {
+		return xieite::units::Rontoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Yoctolitre operator""_yoctolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Yoctolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Yoctoliter operator""_yoctoliters(const unsigned long long int value) noexcept {
+		return xieite::units::Yoctoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Yoctolitre operator""_yoctolitres(const long double value) noexcept {
-		return xieite::units::Yoctolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Yoctoliter operator""_yoctoliters(const long double value) noexcept {
+		return xieite::units::Yoctoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Zeptolitre operator""_zeptolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Zeptolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Zeptoliter operator""_zeptoliters(const unsigned long long int value) noexcept {
+		return xieite::units::Zeptoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Zeptolitre operator""_zeptolitres(const long double value) noexcept {
-		return xieite::units::Zeptolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Zeptoliter operator""_zeptoliters(const long double value) noexcept {
+		return xieite::units::Zeptoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Attolitre operator""_attolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Attolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Attoliter operator""_attoliters(const unsigned long long int value) noexcept {
+		return xieite::units::Attoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Attolitre operator""_attolitres(const long double value) noexcept {
-		return xieite::units::Attolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Attoliter operator""_attoliters(const long double value) noexcept {
+		return xieite::units::Attoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Femtolitre operator""_femtolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Femtolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Femtoliter operator""_femtoliters(const unsigned long long int value) noexcept {
+		return xieite::units::Femtoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Femtolitre operator""_femtolitres(const long double value) noexcept {
-		return xieite::units::Femtolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Femtoliter operator""_femtoliters(const long double value) noexcept {
+		return xieite::units::Femtoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Picolitre operator""_picolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Picolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Picoliter operator""_picoliters(const unsigned long long int value) noexcept {
+		return xieite::units::Picoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Picolitre operator""_picolitres(const long double value) noexcept {
-		return xieite::units::Picolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Picoliter operator""_picoliters(const long double value) noexcept {
+		return xieite::units::Picoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Nanolitre operator""_nanolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Nanolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Nanoliter operator""_nanoliters(const unsigned long long int value) noexcept {
+		return xieite::units::Nanoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Nanolitre operator""_nanolitres(const long double value) noexcept {
-		return xieite::units::Nanolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Nanoliter operator""_nanoliters(const long double value) noexcept {
+		return xieite::units::Nanoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Microlitre operator""_microlitres(const unsigned long long int value) noexcept {
-		return xieite::units::Microlitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Microliter operator""_microliters(const unsigned long long int value) noexcept {
+		return xieite::units::Microliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Microlitre operator""_microlitres(const long double value) noexcept {
-		return xieite::units::Microlitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Microliter operator""_microliters(const long double value) noexcept {
+		return xieite::units::Microliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Millilitre operator""_millilitres(const unsigned long long int value) noexcept {
-		return xieite::units::Millilitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Milliliter operator""_milliliters(const unsigned long long int value) noexcept {
+		return xieite::units::Milliliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Millilitre operator""_millilitres(const long double value) noexcept {
-		return xieite::units::Millilitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Milliliter operator""_milliliters(const long double value) noexcept {
+		return xieite::units::Milliliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Centilitre operator""_centilitres(const unsigned long long int value) noexcept {
-		return xieite::units::Centilitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Centiliter operator""_centiliters(const unsigned long long int value) noexcept {
+		return xieite::units::Centiliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Centilitre operator""_centilitres(const long double value) noexcept {
-		return xieite::units::Centilitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Centiliter operator""_centiliters(const long double value) noexcept {
+		return xieite::units::Centiliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Decilitre operator""_decilitres(const unsigned long long int value) noexcept {
-		return xieite::units::Decilitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Deciliter operator""_deciliters(const unsigned long long int value) noexcept {
+		return xieite::units::Deciliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Decilitre operator""_decilitres(const long double value) noexcept {
-		return xieite::units::Decilitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Deciliter operator""_deciliters(const long double value) noexcept {
+		return xieite::units::Deciliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Litre operator""_litres(const unsigned long long int value) noexcept {
-		return xieite::units::Litre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Liter operator""_liters(const unsigned long long int value) noexcept {
+		return xieite::units::Liter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Litre operator""_litres(const long double value) noexcept {
-		return xieite::units::Litre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Liter operator""_liters(const long double value) noexcept {
+		return xieite::units::Liter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Decalitre operator""_decalitres(const unsigned long long int value) noexcept {
-		return xieite::units::Decalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Decaliter operator""_decaliters(const unsigned long long int value) noexcept {
+		return xieite::units::Decaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Decalitre operator""_decalitres(const long double value) noexcept {
-		return xieite::units::Decalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Decaliter operator""_decaliters(const long double value) noexcept {
+		return xieite::units::Decaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Hectolitre operator""_hectolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Hectolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Hectoliter operator""_hectoliters(const unsigned long long int value) noexcept {
+		return xieite::units::Hectoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Hectolitre operator""_hectolitres(const long double value) noexcept {
-		return xieite::units::Hectolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Hectoliter operator""_hectoliters(const long double value) noexcept {
+		return xieite::units::Hectoliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Kilolitre operator""_kilolitres(const unsigned long long int value) noexcept {
-		return xieite::units::Kilolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Kiloliter operator""_kiloliters(const unsigned long long int value) noexcept {
+		return xieite::units::Kiloliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Kilolitre operator""_kilolitres(const long double value) noexcept {
-		return xieite::units::Kilolitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Kiloliter operator""_kiloliters(const long double value) noexcept {
+		return xieite::units::Kiloliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Megalitre operator""_megalitres(const unsigned long long int value) noexcept {
-		return xieite::units::Megalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Megaliter operator""_megaliters(const unsigned long long int value) noexcept {
+		return xieite::units::Megaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Megalitre operator""_megalitres(const long double value) noexcept {
-		return xieite::units::Megalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Megaliter operator""_megaliters(const long double value) noexcept {
+		return xieite::units::Megaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Gigalitre operator""_gigalitres(const unsigned long long int value) noexcept {
-		return xieite::units::Gigalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Gigaliter operator""_gigaliters(const unsigned long long int value) noexcept {
+		return xieite::units::Gigaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Gigalitre operator""_gigalitres(const long double value) noexcept {
-		return xieite::units::Gigalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Gigaliter operator""_gigaliters(const long double value) noexcept {
+		return xieite::units::Gigaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Teralitre operator""_teralitres(const unsigned long long int value) noexcept {
-		return xieite::units::Teralitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Teraliter operator""_teraliters(const unsigned long long int value) noexcept {
+		return xieite::units::Teraliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Teralitre operator""_teralitres(const long double value) noexcept {
-		return xieite::units::Teralitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Teraliter operator""_teraliters(const long double value) noexcept {
+		return xieite::units::Teraliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Petalitre operator""_petalitres(const unsigned long long int value) noexcept {
-		return xieite::units::Petalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Petaliter operator""_petaliters(const unsigned long long int value) noexcept {
+		return xieite::units::Petaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Petalitre operator""_petalitres(const long double value) noexcept {
-		return xieite::units::Petalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Petaliter operator""_petaliters(const long double value) noexcept {
+		return xieite::units::Petaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Exalitre operator""_exalitres(const unsigned long long int value) noexcept {
-		return xieite::units::Exalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Exaliter operator""_exaliters(const unsigned long long int value) noexcept {
+		return xieite::units::Exaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Exalitre operator""_exalitres(const long double value) noexcept {
-		return xieite::units::Exalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Exaliter operator""_exaliters(const long double value) noexcept {
+		return xieite::units::Exaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Zettalitre operator""_zettalitres(const unsigned long long int value) noexcept {
-		return xieite::units::Zettalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Zettaliter operator""_zettaliters(const unsigned long long int value) noexcept {
+		return xieite::units::Zettaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Zettalitre operator""_zettalitres(const long double value) noexcept {
-		return xieite::units::Zettalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Zettaliter operator""_zettaliters(const long double value) noexcept {
+		return xieite::units::Zettaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Yottalitre operator""_yottalitres(const unsigned long long int value) noexcept {
-		return xieite::units::Yottalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Yottaliter operator""_yottaliters(const unsigned long long int value) noexcept {
+		return xieite::units::Yottaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Yottalitre operator""_yottalitres(const long double value) noexcept {
-		return xieite::units::Yottalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Yottaliter operator""_yottaliters(const long double value) noexcept {
+		return xieite::units::Yottaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Ronnalitre operator""_ronnalitres(const unsigned long long int value) noexcept {
-		return xieite::units::Ronnalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Ronnaliter operator""_ronnaliters(const unsigned long long int value) noexcept {
+		return xieite::units::Ronnaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Ronnalitre operator""_ronnalitres(const long double value) noexcept {
-		return xieite::units::Ronnalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Ronnaliter operator""_ronnaliters(const long double value) noexcept {
+		return xieite::units::Ronnaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Quettalitre operator""_quettalitres(const unsigned long long int value) noexcept {
-		return xieite::units::Quettalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Quettaliter operator""_quettaliters(const unsigned long long int value) noexcept {
+		return xieite::units::Quettaliter(static_cast<double>(value));
 	}
 
-	[[nodiscard]] constexpr xieite::units::Quettalitre operator""_quettalitres(const long double value) noexcept {
-		return xieite::units::Quettalitre(static_cast<double>(value));
+	[[nodiscard]] constexpr xieite::units::Quettaliter operator""_quettaliters(const long double value) noexcept {
+		return xieite::units::Quettaliter(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr xieite::units::FluidOunce operator""_fluidOunces(const unsigned long long int value) noexcept {

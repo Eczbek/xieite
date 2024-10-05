@@ -11,103 +11,103 @@ A collection of type aliases for volume units.
 ## Synopsis
 #### 1)
 ```cpp
-using CubicQuectometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicQuectometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 2)
 ```cpp
-using CubicRontometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicRontometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 3)
 ```cpp
-using CubicYoctometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicYoctometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 4)
 ```cpp
-using CubicZeptometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicZeptometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 5)
 ```cpp
-using CubicAttometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicAttometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 6)
 ```cpp
-using CubicFemtometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicFemtometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 7)
 ```cpp
-using CubicPicometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicPicometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 8)
 ```cpp
-using CubicNanometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicNanometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 9)
 ```cpp
-using CubicMicrometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicMicrometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 10)
 ```cpp
-using CubicMillimetre = xieite::units::Unit<"volume", /* ... */>;
+using CubicMillimeter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 11)
 ```cpp
-using CubicCentimetre = xieite::units::Unit<"volume", /* ... */>;
+using CubicCentimeter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 12)
 ```cpp
-using CubicDecimetre = xieite::units::Unit<"volume", /* ... */>;
+using CubicDecimeter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 13)
 ```cpp
-using CubicMetre = xieite::units::Unit<"volume", /* ... */>;
+using CubicMeter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 14)
 ```cpp
-using CubicDecametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicDecameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 15)
 ```cpp
-using CubicHectometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicHectometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 16)
 ```cpp
-using CubicKilometre = xieite::units::Unit<"volume", /* ... */>;
+using CubicKilometer = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 17)
 ```cpp
-using CubicMegametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicMegameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 18)
 ```cpp
-using CubicGigametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicGigameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 19)
 ```cpp
-using CubicTerametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicTerameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 20)
 ```cpp
-using CubicPetametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicPetameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 21)
 ```cpp
-using CubicExametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicExameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 22)
 ```cpp
-using CubicZettametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicZettameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 23)
 ```cpp
-using CubicYottametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicYottameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 24)
 ```cpp
-using CubicRonnametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicRonnameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 25)
 ```cpp
-using CubicQuettametre = xieite::units::Unit<"volume", /* ... */>;
+using CubicQuettameter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 26)
 ```cpp
@@ -127,103 +127,103 @@ using CubicMile = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 30)
 ```cpp
-using Quectolitre = xieite::units::Unit<"volume", /* ... */>;
+using Quectoliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 31)
 ```cpp
-using Rontolitre = xieite::units::Unit<"volume", /* ... */>;
+using Rontoliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 32)
 ```cpp
-using Yoctolitre = xieite::units::Unit<"volume", /* ... */>;
+using Yoctoliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 33)
 ```cpp
-using Zeptolitre = xieite::units::Unit<"volume", /* ... */>;
+using Zeptoliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 34)
 ```cpp
-using Attolitre = xieite::units::Unit<"volume", /* ... */>;
+using Attoliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 35)
 ```cpp
-using Femtolitre = xieite::units::Unit<"volume", /* ... */>;
+using Femtoliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 36)
 ```cpp
-using Picolitre = xieite::units::Unit<"volume", /* ... */>;
+using Picoliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 37)
 ```cpp
-using Nanolitre = xieite::units::Unit<"volume", /* ... */>;
+using Nanoliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 38)
 ```cpp
-using Microlitre = xieite::units::Unit<"volume", /* ... */>;
+using Microliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 39)
 ```cpp
-using Millilitre = xieite::units::Unit<"volume", /* ... */>;
+using Milliliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 40)
 ```cpp
-using Centilitre = xieite::units::Unit<"volume", /* ... */>;
+using Centiliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 41)
 ```cpp
-using Decilitre = xieite::units::Unit<"volume", /* ... */>;
+using Deciliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 42)
 ```cpp
-using Litre = xieite::units::Unit<"volume", /* ... */>;
+using Liter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 43)
 ```cpp
-using Decalitre = xieite::units::Unit<"volume", /* ... */>;
+using Decaliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 44)
 ```cpp
-using Hectolitre = xieite::units::Unit<"volume", /* ... */>;
+using Hectoliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 45)
 ```cpp
-using Kilolitre = xieite::units::CubicMetre;
+using Kiloliter = xieite::units::CubicMeter;
 ```
 #### 46)
 ```cpp
-using Megalitre = xieite::units::Unit<"volume", /* ... */>;
+using Megaliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 47)
 ```cpp
-using Gigalitre = xieite::units::Unit<"volume", /* ... */>;
+using Gigaliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 48)
 ```cpp
-using Teralitre = xieite::units::Unit<"volume", /* ... */>;
+using Teraliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 49)
 ```cpp
-using Petalitre = xieite::units::Unit<"volume", /* ... */>;
+using Petaliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 50)
 ```cpp
-using Exalitre = xieite::units::Unit<"volume", /* ... */>;
+using Exaliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 51)
 ```cpp
-using Zettalitre = xieite::units::Unit<"volume", /* ... */>;
+using Zettaliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 52)
 ```cpp
-using Yottalitre = xieite::units::Unit<"volume", /* ... */>;
+using Yottaliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 53)
 ```cpp
-using Ronnalitre = xieite::units::Unit<"volume", /* ... */>;
+using Ronnaliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 54)
 ```cpp
-using Quettalitre = xieite::units::Unit<"volume", /* ... */>;
+using Quettaliter = xieite::units::Unit<"volume", /* ... */>;
 ```
 #### 55)
 ```cpp
@@ -258,10 +258,10 @@ import std;
 import xieite;
 
 int main() {
-    auto litres = xieite::units::Litre(5);
-    auto gallons = static_cast<xieite::units::Gallon>(litres);
+    auto liters = xieite::units::Liter(5);
+    auto gallons = static_cast<xieite::units::Gallon>(liters);
 
-    std::println("{} L", litres.value);
+    std::println("{} L", liters.value);
     std::println("{} gal", gallons.value);
 }
 ```
