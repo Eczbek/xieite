@@ -11,11 +11,11 @@ A namespace of literals for converting numeric literals to specific integer or f
 ## Synopsis
 #### 1)
 ```cpp
-[[nodiscard]] constexpr signed int operator""_i(unsigned long long int value) noexcept;
+[[nodiscard]] constexpr int operator""_i(unsigned long long int value) noexcept;
 ```
 #### 2)
 ```cpp
-[[nodiscard]] constexpr signed int operator""_i(long double value) noexcept;
+[[nodiscard]] constexpr int operator""_i(long double value) noexcept;
 ```
 #### 3)
 ```cpp
@@ -27,11 +27,11 @@ A namespace of literals for converting numeric literals to specific integer or f
 ```
 #### 5)
 ```cpp
-[[nodiscard]] constexpr signed long int operator""_il(unsigned long long int value) noexcept;
+[[nodiscard]] constexpr long int operator""_il(unsigned long long int value) noexcept;
 ```
 #### 6)
 ```cpp
-[[nodiscard]] constexpr signed long int operator""_il(long double value) noexcept;
+[[nodiscard]] constexpr long int operator""_il(long double value) noexcept;
 ```
 #### 7)
 ```cpp
@@ -43,11 +43,11 @@ A namespace of literals for converting numeric literals to specific integer or f
 ```
 #### 9)
 ```cpp
-[[nodiscard]] constexpr signed long long int operator""_ill(unsigned long long int value) noexcept;
+[[nodiscard]] constexpr long long int operator""_ill(unsigned long long int value) noexcept;
 ```
 #### 10)
 ```cpp
-[[nodiscard]] constexpr signed long long int operator""_ill(long double value) noexcept;
+[[nodiscard]] constexpr long long int operator""_ill(long double value) noexcept;
 ```
 #### 11)
 ```cpp

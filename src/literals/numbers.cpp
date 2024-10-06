@@ -16,11 +16,11 @@ import :math.Signed128;
 #endif
 
 export namespace xieite::literals::numbers {
-	[[nodiscard]] constexpr signed int operator""_i(const unsigned long long int value) noexcept {
+	[[nodiscard]] constexpr int operator""_i(const unsigned long long int value) noexcept {
 		return static_cast<int>(value);
 	}
 
-	[[nodiscard]] constexpr signed int operator""_i(const long double value) noexcept {
+	[[nodiscard]] constexpr int operator""_i(const long double value) noexcept {
 		return static_cast<signed int>(value);
 	}
 
