@@ -49,6 +49,7 @@ Mathematical types and functions
 - [parse\<\>\(\)](./namespaces/math/parse.md)
 - [pi\<\>](./namespaces/math/pi.md)
 - [power\<\>\(\)](./namespaces/math/power.md)
+- [range\<\>](./namespaces/math/range.md)
 - [remainder\<\>\(\)](./namespaces/math/remainder.md)
 - [reverse\<\>\(\)](./namespaces/math/reverse.md)
 - [roundDown\<\>\(\)](./namespaces/math/round_down.md)
