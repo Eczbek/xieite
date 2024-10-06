@@ -11,7 +11,9 @@ export namespace xieite::math {
 		if constexpr (std::floating_point<Arithmetic>) {
 			return std::abs(value);
 		} else {
-			return xieite::math::isNegative(value) ? -static_cast<xieite::types::TryUnsigned<Arithmetic>>(value) : static_cast<xieite::types::TryUnsigned<Arithmetic>>(value);
+			return xieite::math::isNegative(value)
+				? -static_cast<xieite::types::TryUnsigned<Arithmetic>>(value)
+				: static_cast<xieite::types::TryUnsigned<Arithmetic>>(value);
 		}
 	}
 }

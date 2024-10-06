@@ -17,6 +17,8 @@ export namespace xieite::algorithms {
 		}
 		std::ranges::sort(iterators, std::ranges::less());
 		const std::size_t rangeSize = std::ranges::size(range);
-		return (rangeSize % 2) ? *iterators[(rangeSize - 1) / 2] : xieite::algorithms::mean(*iterators[rangeSize / 2 - 1], *iterators[rangeSize / 2]);
+		return (rangeSize % 2)
+			? *iterators[(rangeSize - 1) / 2]
+			: xieite::algorithms::mean(*iterators[rangeSize / 2 - 1], *iterators[rangeSize / 2]);
 	}
 }

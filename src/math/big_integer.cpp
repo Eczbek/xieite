@@ -155,8 +155,8 @@ export namespace xieite::math {
 			const std::size_t augendDataSize = augend.data.size();
 			const std::size_t addendDataSize = addend.data.size();
 			for (std::size_t i = 0; (i < augendDataSize) || (i < addendDataSize) || carry; ++i) {
-				const Limb augendLimb = (i < augendDataSize) ? augend.data[i] : 0;
-				const Limb addendLimb = (i < addendDataSize) ? addend.data[i] : 0;
+				const Limb augendLimb = (i < augendDataSize) * augend.data[i];
+				const Limb addendLimb = (i < addendDataSize) * addend.data[i];
 				sumData.push_back(augendLimb + addendLimb + carry);
 				carry = xieite::math::additionOverflows(augendLimb, addendLimb, carry);
 			}
@@ -210,7 +210,7 @@ export namespace xieite::math {
 			const std::size_t minuendDataSize = minuend.data.size();
 			const std::size_t subtrahendDataSize = subtrahend.data.size();
 			for (std::size_t i = 0; (i < subtrahendDataSize) || borrow; ++i) {
-				const Limb subtrahendLimb = (i < subtrahendDataSize) ? subtrahend.data[i] : 0;
+				const Limb subtrahendLimb = (i < subtrahendDataSize) * subtrahend.data[i];
 				differenceData.push_back(minuend.data[i] - subtrahendLimb - borrow);
 				borrow = (i < (minuendDataSize - 1)) && xieite::math::subtractionOverflows(minuend.data[i], subtrahendLimb, borrow);
 			}
@@ -659,7 +659,14 @@ export namespace xieite::math {
 			const std::size_t leftDataSize = left.data.size();
 			const std::size_t rightDataSize = right.data.size();
 			for (std::size_t i = 0; (i < leftDataSize) || (i < rightDataSize); ++i) {
-				const Limb word = callback((i < leftDataSize) ? (leftNegative ? ~left.data[i] : left.data[i]) : (std::numeric_limits<Limb>::max() * leftNegative), (i < rightDataSize) ? (rightNegative ? ~right.data[i] : right.data[i]) : (std::numeric_limits<Limb>::max() * rightNegative));
+				const Limb word = callback(
+					(i < leftDataSize)
+						? (leftNegative ? ~left.data[i] : left.data[i])
+						: (std::numeric_limits<Limb>::max() * leftNegative),
+					(i < rightDataSize)
+						? (rightNegative ? ~right.data[i] : right.data[i])
+						: (std::numeric_limits<Limb>::max() * rightNegative)
+				);
 				result.data.push_back(result.negative ? ~word : word);
 			}
 			return result - result.negative;

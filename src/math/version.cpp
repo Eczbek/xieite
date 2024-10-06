@@ -14,7 +14,11 @@ export namespace xieite::math {
 		: major(major), minor(minor), patch(patch), label(label) {}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const Version& left, const Version& right) noexcept {
-			return (left.major != right.major) ? (left.major <=> right.major) : ((left.minor != right.minor) ? (left.minor <=> right.minor) : (left.patch <=> right.patch));
+			return (left.major != right.major)
+				? (left.major <=> right.major)
+				: ((left.minor != right.minor)
+					? (left.minor <=> right.minor)
+					: (left.patch <=> right.patch));
 		}
 
 		[[nodiscard]] friend bool operator==(const Version&, const Version&) = default;

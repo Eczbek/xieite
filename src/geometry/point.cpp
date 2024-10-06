@@ -48,7 +48,9 @@ export namespace xieite::geometry {
 
 		[[nodiscard]] constexpr std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> slopeTo(const Point point) const noexcept {
 			using Result = std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double>;
-			return xieite::math::almostEqual(this->x, point.x) ? std::numeric_limits<Result>::infinity() : (static_cast<Result>(point.y - this->y) / static_cast<Result>(point.x - this->x));
+			return xieite::math::almostEqual(this->x, point.x)
+				? std::numeric_limits<Result>::infinity()
+				: (static_cast<Result>(point.y - this->y) / static_cast<Result>(point.x - this->x));
 		}
 
 		[[nodiscard]] constexpr bool contains(const Point point) const noexcept {

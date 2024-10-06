@@ -11,16 +11,16 @@ export namespace xieite::geometry {
 
 	template<typename Arithmetic = double>
 	[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic>> intersections(const xieite::geometry::Point<Arithmetic> point1, const xieite::geometry::Point<Arithmetic> point2) noexcept {
-		return (point1 == point2) ? std::vector<xieite::geometry::Point<Arithmetic>> {
-			point1
-		} : std::vector<xieite::geometry::Point<Arithmetic>>();
+		return (point1 == point2)
+			? std::vector<xieite::geometry::Point<Arithmetic>> { point1 }
+			: std::vector<xieite::geometry::Point<Arithmetic>>();
 	}
 
 	template<typename Arithmetic = double, xieite::concepts::LinearShape<Arithmetic> LinearShape>
 	[[nodiscard]] constexpr std::vector<xieite::geometry::Point<Arithmetic>> intersections(const xieite::geometry::Point<Arithmetic> point, const LinearShape& linearShape) noexcept {
-		return linearShape.contains(point) ? std::vector<xieite::geometry::Point<Arithmetic>> {
-			point
-		} : std::vector<xieite::geometry::Point<Arithmetic>>();
+		return linearShape.contains(point)
+			? std::vector<xieite::geometry::Point<Arithmetic>> { point }
+			: std::vector<xieite::geometry::Point<Arithmetic>>();
 	}
 
 	template<typename Arithmetic = double>
