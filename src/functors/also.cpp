@@ -15,4 +15,15 @@ export namespace xieite::functors {
 		std::invoke(XIEITE_FORWARD(functor), value);
 		return copy;
 	}
+
+	template<xieite::concepts::CopyConstructible Type, std::invocable<> Functor>
+	[[nodiscard]] constexpr Type also(Type&& value, Functor&& functor)
+	noexcept(std::is_nothrow_invocable_v<Functor>) {
+		return xieite::functors::also(
+			XIEITE_FORWARD(value),
+			[&functor](auto&&) {
+				std::invoke(XIEITE_FORWARD(functor));
+			}
+		);
+	}
 }
