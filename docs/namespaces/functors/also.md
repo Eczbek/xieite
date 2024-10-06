@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:postOperation\<\>\(\)
-Defined in fragment [xieite:functors.postOperation](../../../src/functors/post_operation.cpp)
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:also\<\>\(\)
+Defined in fragment [xieite:functors.also](../../../src/functors/also.cpp)
 
 &nbsp;
 
@@ -12,7 +12,7 @@ Returns a copy of a value before passing it to a functor.
 #### 1)
 ```cpp
 template<xieite::concepts::CopyConstructible Type, std::invocable<Type&&> Functor>
-[[nodiscard]] constexpr Type postOperation(Type&& value, Functor&& functor)
+[[nodiscard]] constexpr Type also(Type&& value, Functor&& functor)
 noexcept(std::is_nothrow_copy_constructible_v<Type> && std::is_nothrow_invocable_v<Functor, Type&&>);
 ```
 
@@ -30,7 +30,7 @@ int main() {
         y += 5;
     };
 
-    std::println("{}", xieite::functors::postOperation(x, increment));
+    std::println("{}", xieite::functors::also(x, increment));
     std::println("{}", x);
 }
 ```
