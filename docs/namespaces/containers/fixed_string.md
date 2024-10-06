@@ -18,6 +18,11 @@ struct FixedString {
 
     constexpr FixedString(const Character(&)[characters]) noexcept;
 
+    template<std::ranges::input_range Range>
+    requires(std::same_as<std::ranges::range_value_t<Range>, Character>)
+    constexpr FixedString(Range&&)
+    noexcept(xieite::concepts::NoThrowOperableRange<Range>);
+
     constexpr std::string_view view() const noexcept;
 };
 ```
