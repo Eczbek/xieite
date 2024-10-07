@@ -10,6 +10,7 @@ A namespace of namespaces containing various user-defined literals for general u
 ## Contents
 - [durations](./namespaces/literals/durations.md)
 - [exponent](./namespaces/literals/exponent.md)
+- [fixed](./namespaces/literals/fixed.md)
 - [numbers](./namespaces/literals/numbers.md)
 - [radix](./namespaces/literals/radix.md)
 - [units](./namespaces/literals/units.md)
