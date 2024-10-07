@@ -86,7 +86,7 @@ struct XIEITE_DETAIL_OPERATOR {
 #define nand_eq &= XIEITE_DETAIL_OPERATOR<[](auto& x, auto y) { return x = !x || !y; }>() &=
 #define nor_eq |= XIEITE_DETAIL_OPERATOR<[](auto& x, auto y) { return x = !x && !y; }>() |=
 #define xnor_eq ^= XIEITE_DETAIL_OPERATOR<[](auto& x, auto y) { return x = x == y; }>() ^=
-#define bitand & XIEITE_DETAIL_OPERATOR<[](auto x, auto y) { return ~x | ~y; }>() &
+#define bitnand & XIEITE_DETAIL_OPERATOR<[](auto x, auto y) { return ~x | ~y; }>() &
 #define bitnor | XIEITE_DETAIL_OPERATOR<[](auto x, auto y) { return ~x & ~y; }>() |
 #define bitxor ^ XIEITE_DETAIL_OPERATOR<[](auto x, auto y) { return x ^ y; }>() ^
 #define bitxnor ^ XIEITE_DETAIL_OPERATOR<[](auto x, auto y) { return ~(~x ^ ~y); }>() ^

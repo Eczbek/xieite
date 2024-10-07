@@ -35,7 +35,7 @@ Defines additional logical and bitwise operators, for fun.
 ```
 #### 7)
 ```cpp
-#define bitand & /* ... */ &
+#define bitnand & /* ... */ &
 ```
 #### 8)
 ```cpp
