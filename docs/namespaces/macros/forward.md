@@ -4,7 +4,7 @@ Defined in header [<xieite/forward.hpp>](../../../include/xieite/forward.hpp)
 &nbsp;
 
 ## Description
-A general utility for forwarding values. Includes a special case for avoiding unnecessarily materializing a temporary in `T x = XIEITE_FORWARD(T())`.
+A general utility for forwarding values. Includes a special case for avoiding unnecessarily materializing a temporary, like in `T x = XIEITE_FORWARD(T())`.
 
 &nbsp;
 
