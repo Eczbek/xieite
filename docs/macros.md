@@ -8,6 +8,7 @@ Macros and special headers
 &nbsp;
 
 ## Contents
+- [\(loops\)](./namespaces/macros/loops.md)
 - [\(no unix\)](./namespaces/macros/no_unix.md)
 - [\(no windows\)](./namespaces/macros/no_windows.md)
 - [XIEITE\_ANY\(\)](./namespaces/macros/any.md)
@@ -41,7 +42,6 @@ Macros and special headers
 - [XIEITE\_IS\_CONSTANT\(\)](./namespaces/macros/is_constant.md)
 - [XIEITE\_LANGUAGE\_STANDARD\_...](./namespaces/macros/language_standard.md)
 - [XIEITE\_LIFT...\(\)](./namespaces/macros/lift.md)
-- [XIEITE\_LOOP\_...\(\)](./namespaces/macros/loop.md)
 - [XIEITE\_NOT\(\)](./namespaces/macros/not.md)
 - [XIEITE\_OBSTRUCT\(\)](./namespaces/macros/obstruct.md)
 - [XIEITE\_PARENTHESIS\_...\(\)](./namespaces/macros/parenthesis.md)
