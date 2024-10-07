@@ -65,17 +65,17 @@ struct XIEITE_DETAIL_OPERATOR {
 	}
 
 	template<typename Type>
-	[[nodiscard]] friend constexpr auto operator&=(const Type left) const noexcept {
+	[[nodiscard]] constexpr auto operator&=(const Type left) const noexcept {
 		return XIEITE_DETAIL_OPERATOR::Intermediate<Type>(left);
 	}
 
 	template<typename Type>
-	[[nodiscard]] friend constexpr auto operator|=(const Type left) const noexcept {
+	[[nodiscard]] constexpr auto operator|=(const Type left) const noexcept {
 		return XIEITE_DETAIL_OPERATOR::Intermediate<Type>(left);
 	}
 
 	template<typename Type>
-	[[nodiscard]] friend constexpr auto operator^=(const Type left) const noexcept {
+	[[nodiscard]] constexpr auto operator^=(const Type left) const noexcept {
 		return XIEITE_DETAIL_OPERATOR::Intermediate<Type>(left);
 	}
 };
