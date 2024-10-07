@@ -4,6 +4,7 @@ Defined in fragment [xieite:types.CollapseReference](../../../src/types/collapse
 &nbsp;
 
 ## [Description](https://en.cppreference.com/w/cpp/language/reference#Reference_collapsing)
+Also copies constness and volatileness.
 
 &nbsp;
 

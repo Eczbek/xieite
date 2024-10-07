@@ -11,7 +11,7 @@ import :types.arity;
 import :types.CollapseReference;
 
 #define XIEITE_TEMPORARY_GET(type_, count_) _##count_
-#define XIEITE_TEMPORARY_SET(type_, count_) std::forward_like<xieite::types::CollapseReference<decltype(_##count_), type_>>(_##count_)
+#define XIEITE_TEMPORARY_SET(type_, count_) std::forward_like<xieite::types::CollapseReference<type_, decltype(_##count_)>>(_##count_)
 
 #define XIEITE_TEMPORARY_LOOP_OUTER(type_, value_, ...) XIEITE_TEMPORARY_LOOP_OUTER_HELPER(type_, value_, __VA_ARGS__)
 #define XIEITE_TEMPORARY_LOOP_OUTER_HELPER(type_, value_, first_, ...) \
@@ -26,7 +26,7 @@ import :types.CollapseReference;
 #define XIEITE_TEMPORARY_LOOP_INNER_HELPER(macro_, type_, first_, ...) __VA_OPT__(XIEITE_TEMPORARY_LOOP_INNER_INDIRECT XIEITE_SCAN(()) (macro_, type_, __VA_ARGS__),) macro_(type_, first_)
 #define XIEITE_TEMPORARY_LOOP_INNER_INDIRECT() XIEITE_TEMPORARY_LOOP_INNER_HELPER
 
-namespace xieite::containers {
+export namespace xieite::containers {
 	template<xieite::concepts::Aggregate Type>
 	[[nodiscard]] constexpr auto tupleify(Type&& value) noexcept {
 		if constexpr (std::is_empty_v<Type>) {
