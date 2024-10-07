@@ -30,7 +30,7 @@ import xieite;
 int main() {
     std::bitset<8> foo = 0b11001010;
 
-    std::println("{}", xieite::bits::reverse(foo).toString());
+    std::println("{}", xieite::bits::reverse(foo).to_string());
 }
 ```
 Output:

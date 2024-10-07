@@ -27,7 +27,7 @@ int main() {
 
     std::uint32_t bar = xieite::bits::bigEndify(foo);
 
-    std::println("{}", std::bitset<32>(bar).toString());
+    std::println("{}", std::bitset<32>(bar).to_string());
 }
 ```
 Output:

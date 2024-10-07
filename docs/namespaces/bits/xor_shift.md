@@ -27,7 +27,7 @@ int main() {
 
     std::uint16_t bar = xieite::bits::xorShift(foo, 9);
 
-    std::println("{}", std::bitset<16>(bar).toString());
+    std::println("{}", std::bitset<16>(bar).to_string());
 }
 ```
 Output:

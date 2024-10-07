@@ -27,8 +27,8 @@ int main() {
 
     std::uint32_t bar = xieite::hashes::distribute(foo);
 
-    std::println("{}", std::bitset<32>(foo).toString());
-    std::println("{}", std::bitset<32>(bar).toString());
+    std::println("{}", std::bitset<32>(foo).to_string());
+    std::println("{}", std::bitset<32>(bar).to_string());
 }
 ```
 Possible output:

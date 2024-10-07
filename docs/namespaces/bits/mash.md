@@ -31,7 +31,7 @@ int main() {
     std::uint8_t foo = 0b101;
     std::uint16_t bar = 0b11000111;
 
-    std::println("{}", xieite::bits::mash<3, 9>(foo, bar).toString());
+    std::println("{}", xieite::bits::mash<3, 9>(foo, bar).to_string());
 }
 ```
 Output:
