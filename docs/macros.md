@@ -11,6 +11,7 @@ Macros and special headers
 - [\(loops\)](./namespaces/macros/loops.md)
 - [\(no unix\)](./namespaces/macros/no_unix.md)
 - [\(no windows\)](./namespaces/macros/no_windows.md)
+- [\(operators\)](./namespaces/macros/operators.md)
 - [XIEITE\_ANY\(\)](./namespaces/macros/any.md)
 - [XIEITE\_ARCHITECTURE\_...](./namespaces/macros/architecture.md)
 - [XIEITE\_ARROW\(\)](./namespaces/macros/arrow.md)
