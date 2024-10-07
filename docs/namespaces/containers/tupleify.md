@@ -4,15 +4,15 @@ Defined in fragment [xieite:containers.tupleify](../../../src/containers/tupleif
 &nbsp;
 
 ## Description
-Constructs a tuple from an aggregate structure.
+Constructs a tuple from an aggregate structure. Current implementation automatically generates code to support up to 256 members in a structure.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Aggregate Structure>
-[[nodiscard]] constexpr auto tupleify(Structure&& value) noexcept;
+template<xieite::concepts::Aggregate Type>
+[[nodiscard]] constexpr auto tupleify(Type&& value) noexcept;
 ```
 
 &nbsp;
