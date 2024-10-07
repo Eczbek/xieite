@@ -7,18 +7,19 @@ export module xieite:containers.tupleify;
 
 import std;
 import :concepts.Aggregate;
+import :containers.decayAsTuple;
 import :types.arity;
 import :types.CollapseReference;
 
-#define XIEITE_TEMPORARY_GET(type_, count_) _##count_
-#define XIEITE_TEMPORARY_SET(type_, count_) std::forward_like<xieite::types::CollapseReference<type_, decltype(_##count_)>>(_##count_)
+#define XIEITE_TEMPORARY_BIND(type_, count_) _##count_
+#define XIEITE_TEMPORARY_FORWARD_COLLAPSE(type_, count_) std::forward_like<xieite::types::CollapseReference<type_, decltype(_##count_)>>(_##count_)
 
 #define XIEITE_TEMPORARY_LOOP_OUTER(type_, value_, ...) XIEITE_TEMPORARY_LOOP_OUTER_HELPER(type_, value_, __VA_ARGS__)
 #define XIEITE_TEMPORARY_LOOP_OUTER_HELPER(type_, value_, first_, ...) \
 	__VA_OPT__(XIEITE_TEMPORARY_LOOP_OUTER_INDIRECT XIEITE_SCAN(()) (type_, value_, __VA_ARGS__)) \
 	else if constexpr (xieite::types::arity<type_> == (first_ + 1)) { \
-		auto&& [XIEITE_TEMPORARY_LOOP_INNER(XIEITE_TEMPORARY_GET, type_, first_, __VA_ARGS__)] = value_; \
-		return std::make_tuple(XIEITE_TEMPORARY_LOOP_INNER(XIEITE_TEMPORARY_SET, type_, first_, __VA_ARGS__)); \
+		auto&& [XIEITE_TEMPORARY_LOOP_INNER(XIEITE_TEMPORARY_BIND, type_, first_, __VA_ARGS__)] = value_; \
+		return xieite::containers::decayAsTuple(XIEITE_TEMPORARY_LOOP_INNER(XIEITE_TEMPORARY_FORWARD_COLLAPSE, type_, first_, __VA_ARGS__)); \
 	}
 #define XIEITE_TEMPORARY_LOOP_OUTER_INDIRECT() XIEITE_TEMPORARY_LOOP_OUTER_HELPER
 
@@ -35,8 +36,8 @@ export namespace xieite::containers {
 	}
 }
 
-#undef XIEITE_TEMPORARY_GET
-#undef XIEITE_TEMPORARY_SET
+#undef XIEITE_TEMPORARY_BIND
+#undef XIEITE_TEMPORARY_FORWARD_COLLAPSE
 #undef XIEITE_TEMPORARY_LOOP_OUTER
 #undef XIEITE_TEMPORARY_LOOP_OUTER_HELPER
 #undef XIEITE_TEMPORARY_LOOP_OUTER_INDIRECT

@@ -14,6 +14,7 @@ Fixed-size containers and other utilities
 - [CopyDefaultConstructible\<\>](./namespaces/containers/copy_default_constructible.md)
 - [CopyMoveAssignable\<\>](./namespaces/containers/copy_move_assignable.md)
 - [CopyMoveConstructible\<\>](./namespaces/containers/copy_move_constructible.md)
+- [decayAsTuple\<\>\(\)](./namespaces/containers/decay_as_tuple.md)
 - [FixedMap\<\> \{\}](./namespaces/containers/fixed_map.md)
 - [FixedSet\<\> \{\}](./namespaces/containers/fixed_set.md)
 - [FixedString\<\> \{\}](./namespaces/containers/fixed_string.md)
