@@ -4,14 +4,14 @@ Defined in header [<xieite/forward.hpp>](../../../include/xieite/forward.hpp)
 &nbsp;
 
 ## Description
-A general utility for forwarding values.
+A general utility for forwarding values. Includes a special case for avoiding unnecessarily materializing a temporary in `T x = XIEITE_FORWARD(T())`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_FORWARD(...) static_cast<decltype(__VA_ARGS__)&&>(__VA_ARGS__)
+#define XIEITE_FORWARD(...) /* ... */
 ```
 
 &nbsp;
