@@ -8,10 +8,9 @@ Macros and special headers
 &nbsp;
 
 ## Contents
-- [\(loops\)](./namespaces/macros/loops.md)
+- [\(keywords\)](./namespaces/macros/keywords.md)
 - [\(no unix\)](./namespaces/macros/no_unix.md)
 - [\(no windows\)](./namespaces/macros/no_windows.md)
-- [\(operators\)](./namespaces/macros/operators.md)
 - [XIEITE\_ANY\(\)](./namespaces/macros/any.md)
 - [XIEITE\_ARCHITECTURE\_...](./namespaces/macros/architecture.md)
 - [XIEITE\_ARROW\(\)](./namespaces/macros/arrow.md)
@@ -28,6 +27,7 @@ Macros and special headers
 - [XIEITE\_COUNT\(\)](./namespaces/macros/count.md)
 - [XIEITE\_DEBUG\_MODE](./namespaces/macros/debug_mode.md)
 - [XIEITE\_DEFER\(\)](./namespaces/macros/defer.md)
+- [XIEITE\_EACH\(\)](./namespaces/macros/each.md)
 - [XIEITE\_EAT\(\)](./namespaces/macros/eat.md)
 - [XIEITE\_ENDIAN\_...](./namespaces/macros/endian.md)
 - [XIEITE\_EVALUATE\(\)](./namespaces/macros/evaluate.md)
@@ -54,7 +54,6 @@ Macros and special headers
 - [XIEITE\_SCAN\(\)](./namespaces/macros/scan.md)
 - [XIEITE\_STATIC\_ASSERT\(\)](./namespaces/macros/static_assert.md)
 - [XIEITE\_STRINGIFY...\(\)](./namespaces/macros/stringify.md)
-- [XIEITE\_TRY\_RETURN\(\)](./namespaces/macros/try_return.md)
 - [XIEITE\_UNIX\_STANDARD\_...](./namespaces/macros/unix_standard.md)
 - [XIEITE\_UNREACHABLE\(\)](./namespaces/macros/unreachable.md)
 - [XIEITE\_UNTIL\(\)](./namespaces/macros/until.md)
