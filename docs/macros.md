@@ -50,6 +50,7 @@ Macros and special headers
 - [XIEITE\_PRAGMA\(\)](./namespaces/macros/pragma.md)
 - [XIEITE\_PROBE\(\)](./namespaces/macros/probe.md)
 - [XIEITE\_RESTRICT](./namespaces/macros/restrict.md)
+- [XIEITE\_RETURN\_STRUCTURE\(\)](./namespaces/macros/return_structure.md)
 - [XIEITE\_REVERSE\(\)](./namespaces/macros/reverse.md)
 - [XIEITE\_SCAN\(\)](./namespaces/macros/scan.md)
 - [XIEITE\_STATIC\_ASSERT\(\)](./namespaces/macros/static_assert.md)
