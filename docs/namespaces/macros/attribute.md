@@ -101,23 +101,27 @@ Macros for non-standard compiler-specific statement, label, type, variable, and 
 ```cpp
 #define XIEITE_ATTRIBUTE_RETURNS_NON_NULL /* ... */
 ```
-#### 34)
+#### 24)
+```cpp
+#define XIETIE_ATTRIBUTE_SECTION(...) /* ... */
+```
+#### 25)
 ```cpp
 #define XIEITE_ATTRIBUTE_STANDARD_CALL /* ... */
 ```
-#### 35)
+#### 26)
 ```cpp
 #define XIEITE_ATTRIBUTE_THREAD /* ... */
 ```
-#### 36)
+#### 27)
 ```cpp
 #define XIEITE_ATTRIBUTE_UNLIKELY /* ... */
 ```
-#### 37)
+#### 28)
 ```cpp
 #define XIEITE_ATTRIBUTE_USED /* ... */
 ```
-#### 38)
+#### 29)
 ```cpp
 #define XIEITE_ATTRIBUTE_WEAK /* ... */
 ```

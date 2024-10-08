@@ -194,6 +194,14 @@
 #	define XIEITE_ATTRIBUTE_RETURNS_NON_NULL
 #endif
 
+#if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
+#	define XIETIE_ATTRIBUTE_SECTION(...) __attribute__((__section__(__VA_ARGS__)))
+#elif XIEITE_COMPILER_TYPE_MSVC
+#	define XIEITE_ATTRIBUTE_SECTION(...) __declspec(allocate(__VA_ARGS__))
+#else
+#	define XIEITE_ATTRIBUTE_SECTION(...)
+#endif
+
 #if XIEITE_COMPILER_TYPE_GCC
 #	define XIEITE_ATTRIBUTE_STANDARD_CALL __attribute__((__stdcall__))
 #elif XIEITE_COMPILER_TYPE_CLANG
