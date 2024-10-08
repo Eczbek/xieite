@@ -1,4 +1,4 @@
-# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Mixfix<Return(Argument)>](../../../../mixfix.md)\:\:operator<\(\)
+# [xieite](../../../../../../xieite.md)\:\:[functors](../../../../../../functors.md)\:\:[Mixfix<Return(Argument)>](../../../../mixfix.md)\:\:operator???\<\>\(\)
 Defined in fragment [xieite:functors.Mixfix](../../../../../../../src/functors/mixfix.cpp)
 
 &nbsp;
@@ -12,7 +12,7 @@ Calls the underlying functor with one argument.
 #### 1)
 ```cpp
 template<std::convertible_to<Argument> ArgumentReference>
-friend constexpr Return operator<(ArgumentReference&& argument, const xieite::functors::Mixfix<Return(Argument)>& mixfix);
+friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(ArgumentReference&& argument, const Mixfix& mixfix);
 ```
 
 &nbsp;

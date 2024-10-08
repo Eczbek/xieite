@@ -11,7 +11,7 @@ Constructs an intermediate state of a mixfix thingamabob.
 ## Synopsis
 #### 1)
 ```cpp
-constexpr Intermediate(const xieite::functors::Mixfix<Return(LeftArgument, RightArgument)>& mixfix, LeftArgumentReference&& leftArgument) noexcept;
+constexpr Intermediate(const Mixfix& mixfix, LeftArgumentReference&& leftArgument) noexcept;
 ```
 
 &nbsp;
