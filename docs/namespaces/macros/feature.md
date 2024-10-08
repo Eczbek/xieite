@@ -51,23 +51,23 @@ Detects whether some features of the language exist.
 ```
 #### 11)
 ```cpp
-#define XIEITE_FEATURE_FLOATING_16 /* boolean */
+#define XIEITE_FEATURE_FLOAT_16 /* boolean */
 ```
 #### 12)
 ```cpp
-#define XIEITE_FEATURE_FLOATING_32 /* boolean */
+#define XIEITE_FEATURE_FLOAT_32 /* boolean */
 ```
 #### 13)
 ```cpp
-#define XIEITE_FEATURE_FLOATING_64 /* boolean */
+#define XIEITE_FEATURE_FLOAT_64 /* boolean */
 ```
 #### 14)
 ```cpp
-#define XIEITE_FEATURE_FLOATING_128 /* boolean */
+#define XIEITE_FEATURE_FLOAT_128 /* boolean */
 ```
 #### 15)
 ```cpp
-#define XIEITE_FEATURE_FLOATING_BRAIN /* boolean */
+#define XIEITE_FEATURE_FLOAT_BRAIN /* boolean */
 ```
 #### 16)
 ```cpp

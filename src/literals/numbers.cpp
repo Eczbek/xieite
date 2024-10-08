@@ -452,7 +452,7 @@ export namespace xieite::literals::numbers {
 		return static_cast<long double>(value);
 	}
 
-#if XIEITE_FEATURE_FLOATING_16
+#if XIEITE_FEATURE_FLOAT_16
 	[[nodiscard]] constexpr std::float16_t operator""_f16(const unsigned long long int value) noexcept {
 		return static_cast<std::float16_t>(value);
 	}
@@ -462,7 +462,7 @@ export namespace xieite::literals::numbers {
 	}
 #endif
 
-#if XIEITE_FEATURE_FLOATING_32
+#if XIEITE_FEATURE_FLOAT_32
 	[[nodiscard]] constexpr std::float32_t operator""_f32(const unsigned long long int value) noexcept {
 		return static_cast<std::float32_t>(value);
 	}
@@ -472,7 +472,7 @@ export namespace xieite::literals::numbers {
 	}
 #endif
 
-#if XIEITE_FEATURE_FLOATING_64
+#if XIEITE_FEATURE_FLOAT_64
 	[[nodiscard]] constexpr std::float64_t operator""_f64(const unsigned long long int value) noexcept {
 		return static_cast<std::float64_t>(value);
 	}
@@ -482,7 +482,7 @@ export namespace xieite::literals::numbers {
 	}
 #endif
 
-#if XIEITE_FEATURE_FLOATING_128
+#if XIEITE_FEATURE_FLOAT_128
 	[[nodiscard]] constexpr std::float128_t operator""_f128(const unsigned long long int value) noexcept {
 		return static_cast<std::float128_t>(value);
 	}
@@ -492,7 +492,7 @@ export namespace xieite::literals::numbers {
 	}
 #endif
 
-#if XIEITE_FEATURE_FLOATING_BRAIN
+#if XIEITE_FEATURE_FLOAT_BRAIN
 	[[nodiscard]] constexpr std::bfloat16_t operator""_fb(const unsigned long long int value) noexcept {
 		return static_cast<std::bfloat16_t>(value);
 	}

@@ -467,61 +467,61 @@ A namespace of literals for converting numeric literals to specific integer or f
 ```
 #### 105)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_16
+#if XIEITE_FEATURE_FLOAT_16
 [[nodiscard]] constexpr std::float16_t operator""_f16(unsigned long long int value) noexcept;
 #endif
 ```
 #### 106)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_16
+#if XIEITE_FEATURE_FLOAT_16
 [[nodiscard]] constexpr std::float16_t operator""_f16(long double value) noexcept;
 #endif
 ```
 #### 107)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_32
+#if XIEITE_FEATURE_FLOAT_32
 [[nodiscard]] constexpr std::float32_t operator""_f32(unsigned long long int value) noexcept;
 #endif
 ```
 #### 108)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_32
+#if XIEITE_FEATURE_FLOAT_32
 [[nodiscard]] constexpr std::float32_t operator""_f32(long double value) noexcept;
 #endif
 ```
 #### 109)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_64
+#if XIEITE_FEATURE_FLOAT_64
 [[nodiscard]] constexpr std::float64_t operator""_f64(unsigned long long int value) noexcept;
 #endif
 ```
 #### 110)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_64
+#if XIEITE_FEATURE_FLOAT_64
 [[nodiscard]] constexpr std::float64_t operator""_f64(long double value) noexcept;
 #endif
 ```
 #### 111)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_128
+#if XIEITE_FEATURE_FLOAT_128
 [[nodiscard]] constexpr std::float128_t operator""_f128(unsigned long long int value) noexcept;
 #endif
 ```
 #### 112)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_128
+#if XIEITE_FEATURE_FLOAT_128
 [[nodiscard]] constexpr std::float128_t operator""_f128(long double value) noexcept;
 #endif
 ```
 #### 113)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_BRAIN
+#if XIEITE_FEATURE_FLOAT_BRAIN
 [[nodiscard]] constexpr std::bfloat16_t operator""_f16b(unsigned long long int value) noexcept;
 #endif
 ```
 #### 114)
 ```cpp
-#if XIEITE_FEATURE_FLOATING_BRAIN
+#if XIEITE_FEATURE_FLOAT_BRAIN
 [[nodiscard]] constexpr std::bfloat16_t operator""_f16b(long double value) noexcept;
 #endif
 ```
