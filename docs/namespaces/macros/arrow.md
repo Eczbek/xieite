@@ -13,6 +13,10 @@ Deduplicates the repetition required for defining the body, return type, and `no
 ```cpp
 #define XIEITE_ARROW(...) noexcept(noexcept(__VA_ARGS__)) -> decltype(__VA_ARGS__) { return __VA_ARGS__; }
 ```
+#### 2)
+```cpp
+#define XIEITE_ARROW_BASE(...) noexcept(noexcept(__VA_ARGS__)) { return __VA_ARGS__; }
+```
 
 &nbsp;
 
@@ -23,7 +27,8 @@ Deduplicates the repetition required for defining the body, return type, and `no
 import std;
 
 template<typename T>
-T add(T a, T b) XIEITE_ARROW(a + b)
+T add(T a, T b)
+XIEITE_ARROW(a + b)
 
 int main() {
     std::println("{}", add(1, 2));
