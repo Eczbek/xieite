@@ -130,7 +130,7 @@
 #	endif
 #endif
 
-#if defined(__arm) || defined(__arm__) || defined(__thumb__) || defined(__TARGET_ARCH_ARM) || defined(__TARGET_ARCH_THUMB) || defined(_ARM) || defined(_M_ARM) || defined(_ARMT) || defined(__ARM_ARCH) || defined(__ARM_ARCH__) || defined(__CC_ARM)
+#if defined(__arm) || defined(__arm__) || defined(__thumb__) || defined(__TARGET_ARCH_ARM) || defined(__TARGET_ARCH_THUMB) || defined(_ARM) || defined(_M_ARM) || defined(_ARMT) || defined(_M_ARMT) || defined(__ARM_ARCH) || defined(__ARM_ARCH__) || defined(__CC_ARM)
 #	undef XIEITE_ARCHITECTURE_TYPE_ARM
 #	define XIEITE_ARCHITECTURE_TYPE_ARM 1
 
