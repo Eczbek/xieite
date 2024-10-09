@@ -22,10 +22,12 @@ struct Mixfix<Return(Argument)>
     using xieite::functors::Function<Return(Argument)>::Function;
 
     template<std::convertible_to<Argument> ArgumentReference>
-    friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(const Mixfix&, ArgumentReference&&);
+    friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(const Mixfix&, ArgumentReference&&)
+    XIEITE_ARROW_BASE(/* ... */)
 
     template<std::convertible_to<Argument> ArgumentReference>
-    friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(ArgumentReference&&, const Mixfix&);
+    friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(ArgumentReference&&, const Mixfix&)
+    XIEITE_ARROW_BASE(/* ... */)
 };
 ```
 - [operator???\<\>\(\)](./structures/mixfix/2/operators/hhhhhhh.md)
@@ -43,7 +45,8 @@ public:
     using xieite::functors::Function<Return(LeftArgument, RightArgument)>::Function;
 
     template<std::convertible_to<LeftArgument> LeftArgumentReference>
-    friend constexpr Mixfix::Intermediate<LeftArgumentReference> operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(LeftArgumentReference&&, const Mixfix&) noexcept;
+    friend constexpr auto operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(LeftArgumentReference&&, const Mixfix&)
+    XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(/* ... */))
 };
 ```
 - [Intermediate \{\}](./structures/mixfix/3/intermediate.md)

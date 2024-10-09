@@ -12,7 +12,8 @@ Extracts a value by a key.
 #### 1)
 ```cpp
 template<typename Self, std::convertible_to<std::tuple<Key>> KeyReference>
-[[nodiscard]] constexpr auto&& operator[](this Self&&, KeyReference&& key);
+[[nodiscard]] constexpr auto&& operator[](this Self&&, KeyReference&& key)
+XIEITE_ARROW_BASE(/* ... */)
 ```
 
 &nbsp;

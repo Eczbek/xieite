@@ -6,6 +6,7 @@ export module xieite:functors.distributeArgumentsRecursively;
 
 import std;
 import :containers.spliceTuple;
+import :functors.unroll;
 import :types.Any;
 import :types.List;
 
@@ -22,9 +23,9 @@ export namespace xieite::functors {
 		} else {
 			const std::tuple<Arguments&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
 			const auto resultsTuple = xieite::containers::spliceTuple<previousResultIndex + arity>(argumentsTuple, std::forward_as_tuple(std::apply(functor, xieite::containers::spliceTuple<arity, sizeof...(Arguments) - arity>(argumentsTuple))));
-			return ([&functor, &resultsTuple]<std::size_t... i>(std::index_sequence<i...>) {
+			return xieite::functors::unroll<sizeof...(Arguments) - arity + 1>([&functor, &resultsTuple]<std::size_t... i> {
 				return this->set.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...));
-			})(std::make_index_sequence<sizeof...(Arguments) - arity + 1>());
+			});
 		}
 	}
 }

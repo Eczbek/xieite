@@ -12,101 +12,83 @@ namespace XIEITE_DETAIL {
 		struct Intermediate {
 			Type&& left;
 
-			[[nodiscard]] constexpr decltype(auto) operator->*(Type&& right) const noexcept {
-				return functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right));
-			}
+			[[nodiscard]] constexpr auto operator->*(Type&& right) const
+			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
 
-			[[nodiscard]] constexpr decltype(auto) operator*(Type&& right) const noexcept {
-				return functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right));
-			}
+			[[nodiscard]] constexpr auto operator*(Type&& right) const
+			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
 
-			[[nodiscard]] constexpr decltype(auto) operator&(Type&& right) const noexcept {
-				return functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right));
-			}
+			[[nodiscard]] constexpr auto operator&(Type&& right) const
+			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
 
-			[[nodiscard]] constexpr decltype(auto) operator^(Type&& right) const noexcept {
-				return functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right));
-			}
+			[[nodiscard]] constexpr auto operator^(Type&& right) const
+			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
 
-			[[nodiscard]] constexpr decltype(auto) operator|(Type&& right) const noexcept {
-				return functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right));
-			}
+			[[nodiscard]] constexpr auto operator|(Type&& right) const
+			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
 
-			[[nodiscard]] constexpr decltype(auto) operator&&(Type&& right) const noexcept {
-				return functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right));
-			}
+			[[nodiscard]] constexpr auto operator&&(Type&& right) const
+			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
 
-			[[nodiscard]] constexpr decltype(auto) operator||(Type&& right) const noexcept {
-				return functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right));
-			}
+			[[nodiscard]] constexpr auto operator||(Type&& right) const
+			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
 
-			[[nodiscard]] friend constexpr decltype(auto) operator+=(Type&& right, const Intermediate self) noexcept {
-				return functor(XIEITE_FORWARD(self.left), XIEITE_FORWARD(right));
-			}
+			[[nodiscard]] friend constexpr auto operator+=(Type&& right, const Intermediate self)
+			XIEITE_ARROW(functor(XIEITE_FORWARD(self.left), XIEITE_FORWARD(right)))
 
-			[[nodiscard]] friend constexpr decltype(auto) operator*=(Type&& right, const Intermediate self) noexcept {
-				return functor(XIEITE_FORWARD(self.left), XIEITE_FORWARD(right));
-			}
+			[[nodiscard]] friend constexpr auto operator*=(Type&& right, const Intermediate self)
+			XIEITE_ARROW(functor(XIEITE_FORWARD(self.left), XIEITE_FORWARD(right)))
 		};
 
 		template<typename Type>
-		[[nodiscard]] friend constexpr Infix::Intermediate<Type> operator->*(Type&& left, Infix) noexcept {
-			return Infix::Intermediate<Type>(XIEITE_FORWARD(left));
-		}
+		[[nodiscard]] friend constexpr auto operator->*(Type&& left, Infix)
+		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
 
 		template<typename Type>
-		[[nodiscard]] friend constexpr Infix::Intermediate<Type> operator*(Type&& left, Infix) noexcept {
-			return Infix::Intermediate<Type>(XIEITE_FORWARD(left));
-		}
+		[[nodiscard]] friend constexpr auto operator*(Type&& left, Infix)
+		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
 
 		template<typename Type>
-		[[nodiscard]] friend constexpr Infix::Intermediate<Type> operator&(Type&& left, Infix) noexcept {
-			return Infix::Intermediate<Type>(XIEITE_FORWARD(left));
-		}
+		[[nodiscard]] friend constexpr auto operator&(Type&& left, Infix)
+		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
 
 		template<typename Type>
-		[[nodiscard]] friend constexpr Infix::Intermediate<Type> operator^(Type&& left, Infix) noexcept {
-			return Infix::Intermediate<Type>(XIEITE_FORWARD(left));
-		}
+		[[nodiscard]] friend constexpr auto operator^(Type&& left, Infix)
+		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
 
 		template<typename Type>
-		[[nodiscard]] friend constexpr Infix::Intermediate<Type> operator|(Type&& left, Infix) noexcept {
-			return Infix::Intermediate<Type>(XIEITE_FORWARD(left));
-		}
+		[[nodiscard]] friend constexpr auto operator|(Type&& left, Infix)
+		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
 
 		template<typename Type>
-		[[nodiscard]] friend constexpr Infix::Intermediate<Type> operator&&(Type&& left, Infix) noexcept {
-			return Infix::Intermediate<Type>(XIEITE_FORWARD(left));
-		}
+		[[nodiscard]] friend constexpr auto operator&&(Type&& left, Infix)
+		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
 
 		template<typename Type>
-		[[nodiscard]] friend constexpr Infix::Intermediate<Type> operator||(Type&& left, Infix) noexcept {
-			return Infix::Intermediate<Type>(XIEITE_FORWARD(left));
-		}
+		[[nodiscard]] friend constexpr auto operator||(Type&& left, Infix)
+		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
 
-		[[nodiscard]] constexpr auto operator+=(auto&& left) const noexcept {
-			return Infix::Intermediate<decltype(left)>(XIEITE_FORWARD(left));
-		}
+		[[nodiscard]] constexpr auto operator+=(auto&& left) const
+		XIEITE_ARROW(Infix::Intermediate<decltype(left)>(XIEITE_FORWARD(left)))
 	};
 
 	template<auto functor>
 	struct Prefix {
-		[[nodiscard]] constexpr decltype(auto) operator->*(auto&& right) noexcept {
-			return functor(XIEITE_FORWARD(right));
-		}
+		[[nodiscard]] constexpr auto operator->*(auto&& right)
+		XIEITE_ARROW(functor(XIEITE_FORWARD(right)))
 	};
 
 	struct Negate {
-		[[nodiscard]] constexpr auto operator,(auto&& value, Negate) XIEITE_ARROW(static_cast<bool>(!XIEITE_FORWARD(value)))
+		[[nodiscard]] constexpr auto operator,(auto&& value, Negate)
+		XIEITE_ARROW(static_cast<bool>(!XIEITE_FORWARD(value)))
 	};
 
 	struct LoopState {
 		struct Chainable {
 			constexpr void operator+() const noexcept {}
 
-			/* discardable */ friend constexpr auto&& operator+(auto&& value, Chainable) noexcept {
-				return XIEITE_FORWARD(value);
-			}
+			/* discardable */ friend constexpr auto operator+(auto&& value, Chainable)
+			XIEITE_ARROW(XIEITE_FORWARD(value))
 		};
 
 		int flag = 2;
@@ -149,11 +131,11 @@ namespace XIEITE_DETAIL {
 			return false; \
 		} \
 	})())
-#define ifn_try(...) if_try(__VA_ARGS__, XIEITE_DETAIL::Negate())
+#define ifn_try(...) if_try (__VA_ARGS__, XIEITE_DETAIL::Negate())
 #define elif_try else if_try
 #define elifn_try else ifn_try
 #define if_requires(...) if constexpr (requires { __VA_ARGS__; })
-#define ifn_requires(...) if_requires(__VA_ARGS__) {} elif(true)
+#define ifn_requires(...) if_requires (__VA_ARGS__) {} elif (true)
 #define elif_requires else if_requires
 #define elifn_requires else ifn_requires
 #define if_for(...) \
@@ -163,12 +145,12 @@ namespace XIEITE_DETAIL {
 				if ((XIEITE_DETAIL_LOOP_STATE.broke = false)); \
 				else
 #define elif_for else if_for
-#define if_while(...) if_for(; __VA_ARGS__;)
+#define if_while(...) if_for (; __VA_ARGS__;)
 #define elif_while else if_while
 
-#define of : // Range-based `for` loop, Underlying type of enumeration
-#define extends : // Inheritance
-#define inits : // Member initializer list
+#define of :
+#define extends :
+#define inits :
 
 #define lest break; case
 #define yet break; default

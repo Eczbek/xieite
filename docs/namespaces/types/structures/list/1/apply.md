@@ -11,7 +11,8 @@ Applies `Types...` to a lambda callback.
 ## Synopsis
 #### 1)
 ```cpp
-static constexpr decltype(auto) apply(auto callback) noexcept;
+static constexpr auto apply(auto&& callback)
+XIEITE_ARROW(XIEITE_FORWARD(callback).template operator()<Types...>())
 ```
 
 &nbsp;

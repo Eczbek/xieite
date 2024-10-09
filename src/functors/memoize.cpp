@@ -2,6 +2,7 @@ export module xieite:functors.memoize;
 
 import std;
 import :concepts.Hashable;
+import :functors.unroll;
 import :hashes.combine;
 
 template<typename Functor, typename... Arguments>
@@ -26,7 +27,7 @@ struct MemoHash {
 
 	template<typename Functor, typename... Arguments>
 	[[nodiscard]] static std::size_t operator()(const Memo<Functor, Arguments...>& memo) noexcept(false) {
-		return ([&memo]<std::size_t... i>(std::index_sequence<i...>) {
+		return xieite::functors::unroll<Arguments...>([&memo]<std::size_t... i> {
 			return xieite::hashes::combine(
 				([&memo] {
 					if constexpr (xieite::concepts::Hashable<Functor>) {
@@ -37,7 +38,7 @@ struct MemoHash {
 				})(),
 				std::hash<std::decay_t<std::tuple_element_t<i, std::tuple<Arguments...>>>>()(std::get<i>(memo.arguments))...
 			);
-		})(std::index_sequence_for<Arguments...>());
+		});
 	}
 };
 

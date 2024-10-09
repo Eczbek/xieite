@@ -12,7 +12,8 @@ Checks if an entry exists.
 #### 1)
 ```cpp
 template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-[[nodiscard]] constexpr bool contains(KeysReference&& keys) const;
+[[nodiscard]] constexpr bool contains(KeysReference&& keys) const
+XIEITE_ARROW_BASE(/* ... */)
 ```
 
 &nbsp;

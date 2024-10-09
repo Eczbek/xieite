@@ -55,6 +55,7 @@ int main() {
 ### [xieite::streams::StandardHandle \{\}](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/streams/standard_handle.md)
 ```cpp
 #include <cstdio>
+
 import std;
 import xieite;
 
@@ -172,6 +173,7 @@ int main() {
 ### [XIEITE_COMPILER_...\(\)](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/macros/compiler.md)
 ```cpp
 #include <xieite/compiler.hpp>
+
 import std;
 
 int main() {

@@ -12,7 +12,8 @@ Adds a tuple to the set.
 #### 1)
 ```cpp
 template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-constexpr void insert(KeysReference&& keys);
+constexpr void insert(KeysReference&& keys)
+XIEITE_ARROW_BASE(/* ... */)
 ```
 
 &nbsp;

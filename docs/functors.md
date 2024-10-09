@@ -22,4 +22,5 @@ Utilities relating to functors and arguments
 - [temporary\<\>\(\)](./namespaces/functors/temporary.md)
 - [time\<\>\(\)](./namespaces/functors/time.md)
 - [tryConstantArguments\<\>\(\)](./namespaces/functors/try_constant_arguments.md)
+- [unroll\<\>\(\)](./namespaces/functors/unroll.md)
 - [Visitor\<\> \{\}](./namespaces/functors/visitor.md)

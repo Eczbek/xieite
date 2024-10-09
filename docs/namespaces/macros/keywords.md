@@ -115,7 +115,7 @@ Defines additional logical and bitwise operators, various else-if abbreviations,
 ```
 #### 27)
 ```cpp
-#define ifn_requires(...) if_requires(__VA_ARGS__) {} elif(true)
+#define ifn_requires(...) if_requires (__VA_ARGS__) {} elif(true)
 ```
 #### 28)
 ```cpp
@@ -136,7 +136,7 @@ Allows appending an `else` block to detect `break`s.
 ```
 #### 32)
 ```cpp
-#define if_while(...) if_for(; __VA_ARGS__;)
+#define if_while(...) if_for (; __VA_ARGS__;)
 ```
 Allows appending an `else` block to detect `break`s.
 #### 33)

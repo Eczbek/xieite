@@ -12,7 +12,8 @@ Returns an intermediate state which must be used immediately.
 #### 1)
 ```cpp
 template<std::convertible_to<LeftArgument> LeftArgumentReference>
-[[nodiscard]] friend constexpr Mixfix::Intermediate<LeftArgumentReference> operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept;
+[[nodiscard]] friend constexpr auto operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(/* ... */))
 ```
 
 &nbsp;

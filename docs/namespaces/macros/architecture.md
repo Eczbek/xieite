@@ -16,6 +16,7 @@ See header for definitions.
 ## Example
 ```cpp
 #include <xieite/architecture.hpp>
+
 import std;
 
 int main() {

@@ -12,7 +12,8 @@ Calls the underlying functor with both arguments.
 #### 1)
 ```cpp
 template<std::convertible_to<RightArgument> RightArgumentReference>
-friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false);
+friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+XIEITE_ARROW_BASE(/* ... */)
 ```
 
 &nbsp;

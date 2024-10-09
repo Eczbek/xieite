@@ -12,9 +12,8 @@ Checks whether a functor invoked with each following argument evaluates to `true
 #### 1)
 ```cpp
 template<typename... Values, typename Functor>
-requires((... && xieite::concepts::Invocable<Functor, bool(Values)>))
 [[nodiscard]] constexpr bool all(Functor&& functor, Values&&... values)
-noexcept((... && xieite::concepts::NoThrowInvocable<Functor, bool(Values)>));
+XIEITE_ARROW_BASE((... && std::invoke_r<bool>(functor, XIEITE_FORWARD(values))))
 ```
 
 &nbsp;

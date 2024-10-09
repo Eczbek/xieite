@@ -14,7 +14,7 @@ Finds the subrange of greatest length containing the maximum number of consecuti
 template<std::ranges::forward_range Range, xieite::concepts::Invocable<bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> Functor = std::ranges::equal_to>
 requires(std::ranges::sized_range<Range>)
 [[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> findMostConsecutive(Range& range, const std::ranges::range_common_reference_t<Range> value, Functor&& comparator = Functor())
-noexcept(xieite::concepts::NoThrowInvocable<Functor, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> && xieite::concepts::NoThrowOperableRange<Range>);
+XIEITE_ARROW_BASE(xieite::algorithms::getMostConsecutive(/* ... */))
 ```
 
 &nbsp;

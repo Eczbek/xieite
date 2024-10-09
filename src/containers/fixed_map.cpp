@@ -22,38 +22,22 @@ export namespace xieite::containers {
 		: array(xieite::containers::makeArray<std::pair<Key, Value>, size>(entries)) {}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeyReference&& key) {
-			if consteval {
-				KeyComparator keyComparator;
-				for (auto&& entry : self.array) {
-					if (std::invoke(keyComparator, entry.first, key)) {
-						return std::forward_like<Self>(entry.second);
-					}
-				}
+		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeyReference&& key) noexcept(false) {
+			auto* value = this->getValue(XIEITE_FORWARD(key));
+			if (!value) {
 				throw std::out_of_range("must not access nonexistent key");
-			} else {
-				return std::forward_like<Self>(*self.getMap().at(XIEITE_FORWARD(key)));
 			}
+			return std::forward_like<Self>(*value);
 		}
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
-		[[nodiscard]] constexpr auto&& at(this Self&& self, KeyReference&& key) {
+		[[nodiscard]] constexpr auto&& at(this Self&& self, KeyReference&& key) noexcept(false) {
 			return std::forward_like<Self>(self[XIEITE_FORWARD(key)]);
 		}
 
 		template<std::convertible_to<Key> KeyReference>
 		[[nodiscard]] constexpr bool contains(KeyReference&& key) const noexcept {
-			if consteval {
-				KeyComparator keyComparator;
-				for (const std::pair<Key, Value>& entry : this->array) {
-					if (std::invoke(keyComparator, entry.first, key)) {
-						return true;
-					}
-				}
-				return false;
-			} else {
-				return this->getMap().contains(XIEITE_FORWARD(key));
-			}
+			return !!this->getValue(XIEITE_FORWARD(key));
 		}
 
 		[[nodiscard]] constexpr const std::array<std::pair<Key, Value>, size>& data() const noexcept {
@@ -75,6 +59,21 @@ export namespace xieite::containers {
 				return map;
 			})();
 			return map;
+		}
+
+		template<typename Self, std::convertible_to<Key> KeyReference>
+		[[nodiscard]] constexpr auto* getValue(this Self&& self, KeyReference&& key) noexcept {
+			if consteval {
+				KeyComparator keyComparator;
+				for (auto&& entry : self.array) {
+					if (std::invoke(keyComparator, entry.first, key)) {
+						return &entry.second;
+					}
+				}
+				return nullptr;
+			} else {
+				return self.getMap().at(XIEITE_FORWARD(key));
+			}
 		}
 	};
 }

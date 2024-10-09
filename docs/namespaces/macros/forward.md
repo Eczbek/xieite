@@ -4,7 +4,12 @@ Defined in header [<xieite/forward.hpp>](../../../include/xieite/forward.hpp)
 &nbsp;
 
 ## Description
-A general utility for forwarding values. Includes a special case for avoiding unnecessarily materializing a temporary, like in `T x = XIEITE_FORWARD(T())`.
+A terrible (improved) replacement for `std::forward`.
+
+Includes special cases:  
+\- Avoids unnecessarily materializing a temporary: `T x = XIEITE_FORWARD(T())`  
+\- Does nothing for a prvalue lambda argument: `XIEITE_FORWARD([] {})`  
+\- Does nothing for a prvalue void argument: `XIEITE_FORWARD(void())`
 
 &nbsp;
 

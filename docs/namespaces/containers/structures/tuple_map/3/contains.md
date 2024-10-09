@@ -12,7 +12,8 @@ Checks if a value exists by a key.
 #### 1)
 ```cpp
 template<std::convertible_to<std::tuple<Key>> KeyReference>
-[[nodiscard]] constexpr bool contains(KeyReference&& key) const;
+[[nodiscard]] constexpr bool contains(KeyReference&& key) const
+XIEITE_ARROW_BASE(/* ... */)
 ```
 
 &nbsp;

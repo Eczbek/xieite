@@ -12,7 +12,8 @@ Assigns a value to a key.
 #### 1)
 ```cpp
 template<std::convertible_to<std::tuple<Key>> KeyReference, std::convertible_to<Value> ValueReference>
-constexpr void insert(KeyReference&& key, ValueReference&& value);
+constexpr void insert(KeyReference&& key, ValueReference&& value)
+XIEITE_ARROW_BASE(/* ... */)
 ```
 
 &nbsp;

@@ -12,7 +12,8 @@ Assigns a value to a specific combination of keys.
 #### 1)
 ```cpp
 template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
-constexpr void insert(KeysReference&& keys, ValueReference&& value);
+constexpr void insert(KeysReference&& keys, ValueReference&& value)
+XIEITE_ARROW_BASE(/* ... */)
 ```
 
 &nbsp;

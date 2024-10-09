@@ -2,16 +2,17 @@ export module xieite:bits.unjoin;
 
 import std;
 import :bits.size;
+import :functors.unroll;
 
 export namespace xieite::bits {
 	template<std::integral... Integrals, std::size_t bits>
 	requires(bits >= (... + xieite::bits::size<Integrals>))
 	[[nodiscard]] constexpr std::tuple<Integrals...> unjoin(std::bitset<bits> value) noexcept {
 		std::tuple<Integrals...> result;
-		([&value, &result]<std::size_t... i>(std::index_sequence<i...>) {
+		xieite::functors::unroll<Integrals...>([&value, &result]<std::size_t... i> {
 			std::get<i>(result) = static_cast<Integrals>(value.to_ullong());
 			value >>= xieite::bits::size<Integrals>;
-		})(std::index_sequence_for<Integrals...>());
+		});
 		return result;
 	}
 

@@ -1,6 +1,7 @@
 export module xieite:bits.Fill;
 
 import std;
+import :functors.unroll;
 
 export namespace xieite::bits {
 	struct Fill {
@@ -12,9 +13,9 @@ export namespace xieite::bits {
 
 		template<typename Type>
 		[[nodiscard]] constexpr operator Type() const noexcept {
-			return ([this]<std::size_t... i>(std::index_sequence<i...>) {
+			return xieite::functors::unroll<sizeof(Type)>([this]<std::size_t... i> {
 				return std::bit_cast<Type>(std::array<std::byte, sizeof(Type)> { (void(i), this->value)... });
-			})(std::make_index_sequence<sizeof(Type)>());
+			});
 		}
 	};
 }

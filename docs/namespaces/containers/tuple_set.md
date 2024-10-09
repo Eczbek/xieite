@@ -21,13 +21,16 @@ struct TupleSet<Container, std::tuple<FirstKey, RestKeys...>> {
     constexpr TupleSet(const std::initializer_list<std::pair<FirstKey, TupleSet<Container, std::tuple<RestKeys...>>>> = {}) noexcept;
 
     template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-    constexpr bool operator[](KeysReference&&) const;
+    constexpr bool operator[](KeysReference&&) const
+    XIEITE_ARROW_BASE(/* ... */)
 
     template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-    constexpr void insert(KeysReference&&);
+    constexpr void insert(KeysReference&&)
+    XIEITE_ARROW_BASE(/* ... */)
 
     template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-    constexpr bool contains(KeysReference&&) const;
+    constexpr bool contains(KeysReference&&) const
+    XIEITE_ARROW_BASE(/* ... */)
 };
 ```
 - [TupleSet\(\)](./structures/tuple_set/2/operators/constructor.md)
@@ -41,13 +44,16 @@ struct TupleSet<Container, std::tuple<Key>> {
     constexpr TupleSet(const std::initializer_list<Key> = {}) noexcept;
 
     template<std::convertible_to<std::tuple<Key>> KeyReference>
-    constexpr bool operator[](KeyReference&&) const;
+    constexpr bool operator[](KeyReference&&) const
+    XIEITE_ARROW_BASE(/* ... */)
 
     template<std::convertible_to<std::tuple<Key>> KeyReference>
-    constexpr void insert(KeyReference&&);
+    constexpr void insert(KeyReference&&)
+    XIEITE_ARROW_BASE(/* ... */)
 
     template<std::convertible_to<std::tuple<Key>> KeyReference>
-    constexpr bool contains(KeyReference&&) const;
+    constexpr bool contains(KeyReference&&) const
+    XIEITE_ARROW_BASE(/* ... */)
 };
 ```
 - [TupleSet\(\)](./structures/tuple_set/3/operators/constructor.md)

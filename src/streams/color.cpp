@@ -5,6 +5,7 @@ import :bits.join;
 import :bits.size;
 import :bits.unjoin;
 import :containers.makeArray;
+import :functors.unroll;
 import :types.LeastInteger;
 
 export namespace xieite::streams {
@@ -28,9 +29,9 @@ export namespace xieite::streams {
 		}
 
 		[[nodiscard]] constexpr xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels> value() const noexcept {
-			return ([this]<std::size_t... i>(std::index_sequence<i...>) {
+			return xieite::functors::unroll<channels>([this]<std::size_t... i> {
 				return static_cast<xieite::types::LeastInteger<xieite::bits::size<std::uint8_t> * channels>>(xieite::bits::join(this->data[i]...).to_ullong());
-			})(std::make_index_sequence<channels>());
+			});
 		}
 	};
 }

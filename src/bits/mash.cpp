@@ -1,10 +1,7 @@
-module;
-
-#include <xieite/sequence.hpp>
-
 export module xieite:bits.mash;
 
 import std;
+import :functors.unroll;
 import :types.TryUnsigned;
 
 export namespace xieite::bits {
@@ -18,9 +15,9 @@ export namespace xieite::bits {
 	template<std::size_t... sizes, std::integral Integral>
 	[[nodiscard]] constexpr std::bitset<(... + sizes)> mash(const std::array<Integral, sizeof...(sizes)>& values) noexcept {
 		std::bitset<(... + sizes)> result;
-		([&values, &result]<std::size_t... i>(std::index_sequence<i...>) {
+		xieite::functors::unroll<sizes...>([&values, &result]<std::size_t... i> {
 			(..., (result = (result >> sizes) | (std::bitset<(... + sizes)>(static_cast<xieite::types::TryUnsigned<Integral>>(values[i])) << ((... + sizes) - sizes))));
-		})(std::make_index_sequence<sizeof...(sizes)>());
+		});
 		return result;
 	}
 }

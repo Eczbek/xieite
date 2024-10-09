@@ -1,5 +1,6 @@
 module;
 
+#include <xieite/arrow.hpp>
 #include <xieite/forward.hpp>
 
 export module xieite:functors.also;
@@ -18,12 +19,10 @@ export namespace xieite::functors {
 
 	template<xieite::concepts::CopyConstructible Type, std::invocable<> Functor>
 	[[nodiscard]] constexpr Type also(Type&& value, Functor&& functor)
-	noexcept(std::is_nothrow_copy_constructible_v<Type> && std::is_nothrow_invocable_v<Functor>) {
-		return xieite::functors::also(
-			XIEITE_FORWARD(value),
-			[&functor](auto&&) {
-				std::invoke(XIEITE_FORWARD(functor));
-			}
-		);
-	}
+	XIEITE_ARROW_BASE(xieite::functors::also(
+		XIEITE_FORWARD(value),
+		[&functor](auto&&) {
+			std::invoke(XIEITE_FORWARD(functor));
+		}
+	))
 }

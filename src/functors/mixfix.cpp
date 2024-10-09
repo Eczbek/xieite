@@ -1,5 +1,6 @@
 module;
 
+#include <xieite/arrow.hpp>
 #include <xieite/forward.hpp>
 
 export module xieite:functors.Mixfix;
@@ -20,314 +21,252 @@ export namespace xieite::functors {
 		using xieite::functors::Function<Return(Argument)>::Function;
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator->*(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator->*(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator*(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator*(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator/(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator/(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator%(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator%(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator+(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator+(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator-(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator-(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<<(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<<(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator>>(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator>>(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<=>(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<=>(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator>(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator>(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator>=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator>=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator==(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator==(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator!=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator!=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator&(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator&(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator^(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator^(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator|(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator|(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator&&(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator&&(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator||(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator||(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator*=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator*=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator/=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator/=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator%=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator%=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator+=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator+=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator-=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator-=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<<=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<<=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator>>=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator>>=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator&=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator&=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator^=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator^=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator|=(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator|=(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator,(ArgumentReference&& argument, const Mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator,(const Mixfix& mixfix, ArgumentReference&& argument)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator->*(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator->*(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator*(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator*(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator/(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator/(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator%(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator%(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator+(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator+(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator-(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator-(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<<(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<<(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator>>(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator>>(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<=>(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<=>(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator>(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator>(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator>=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator>=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator==(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator==(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator!=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator!=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator&(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator&(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator^(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator^(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator|(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator|(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator&&(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator&&(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator||(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator||(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator*=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator*=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator/=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator/=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator%=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator%=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator+=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator+=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator-=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator-=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator<<=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator<<=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator>>=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator>>=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator&=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator&=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator^=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator^=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator|=(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator|=(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 
 		template<std::convertible_to<Argument> ArgumentReference>
-		/* discardable */ friend constexpr Return operator,(const Mixfix& mixfix, ArgumentReference&& argument) noexcept(false) {
-			return mixfix(XIEITE_FORWARD(argument));
-		}
+		/* discardable */ friend constexpr Return operator,(ArgumentReference&& argument, const Mixfix& mixfix)
+		XIEITE_ARROW_BASE(mixfix(XIEITE_FORWARD(argument)))
 	};
 
 	template<typename Return, typename LeftArgument, typename RightArgument>
@@ -342,159 +281,128 @@ export namespace xieite::functors {
 			: mixfix(mixfix), leftArgument(XIEITE_FORWARD(leftArgument)) {}
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-		/* discardable */ friend constexpr Return operator->*(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator->*(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator*(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator*(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator/(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator/(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator%(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator%(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator+(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator+(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator-(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator-(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator<<(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator<<(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator>>(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator>>(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator<=>(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator<=>(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator<(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator<(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator<=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator<=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator>(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator>(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator>=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator>=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator==(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator==(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator!=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator!=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator&(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator&(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator^(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator^(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator|(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator|(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator&&(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator&&(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator||(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator||(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator*=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator*=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator/=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator/=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator%=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator%=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator+=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator+=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator-=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator-=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator<<=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator<<=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator>>=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator>>=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator&=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator&=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator^=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator^=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator|=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator|=(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 			template<std::convertible_to<RightArgument> RightArgumentReference>
-			/* discardable */ friend constexpr Return operator,(const Intermediate&& intermediate, RightArgumentReference&& rightArgument) noexcept(false) {
-				return intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument));
-			}
+			/* discardable */ friend constexpr Return operator,(const Intermediate&& intermediate, RightArgumentReference&& rightArgument)
+			XIEITE_ARROW_BASE(intermediate.mixfix(XIEITE_FORWARD(intermediate.leftArgument), XIEITE_FORWARD(rightArgument)))
 
 		private:
 			const Mixfix& mixfix;
@@ -505,158 +413,127 @@ export namespace xieite::functors {
 		using xieite::functors::Function<Return(LeftArgument, RightArgument)>::Function;
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator->*(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator->*(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator*(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator*(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator/(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator/(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator%(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator%(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator+(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator+(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator-(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator-(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator<<(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator<<(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator>>(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator>>(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator<=>(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator<=>(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator<(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator<(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator<=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator<=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator>(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator>(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator>=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator>=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator==(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator==(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator!=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator!=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator&(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator&(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator^(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator^(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator|(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator|(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator&&(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator&&(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator||(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator||(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator*=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator*=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator/=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator/=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator%=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator%=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator+=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator+=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator-=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator-=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator<<=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator<<=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator>>=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator>>=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator&=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator&=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator^=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator^=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator|=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator|=(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 
 		template<std::convertible_to<LeftArgument> LeftArgumentReference>
-		[[nodiscard]] friend constexpr Return operator,(LeftArgumentReference&& leftArgument, const Mixfix& mixfix) noexcept(false) {
-			return Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument));
-		}
+		[[nodiscard]] friend constexpr auto operator,(LeftArgumentReference&& leftArgument, const Mixfix& mixfix)
+		XIEITE_ARROW(Mixfix::Intermediate<LeftArgumentReference>(mixfix, XIEITE_FORWARD(leftArgument)))
 	};
 }

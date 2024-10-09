@@ -12,16 +12,14 @@ Passes arguments to a functor or a constructor in reversed order.
 #### 1)
 ```cpp
 template<typename Functor, typename... Arguments>
-requires(xieite::types::List<Arguments...>::Reverse::Prepend<Functor>::To<std::is_invocable>::value)
-constexpr typename xieite::types::List<Arguments...>::Reverse::Prepend<Functor>::To<std::invoke_result>::type reverseArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(xieite::types::List<Arguments...>::Reverse::Prepend<Functor>::To<std::is_nothrow_invocable>::value);
+constexpr auto reverseArguments(Functor&& functor, Arguments&&... arguments)
+XIEITE_ARROW(/* ... */)
 ```
 #### 2)
 ```cpp
 template<typename Structure, typename... Arguments>
-requires(xieite::types::List<Arguments...>::Reverse::Prepend<Structure>::To<std::is_constructible>::value)
 [[nodiscard]] constexpr Structure reverseArguments(Arguments&&... arguments)
-noexcept(xieite::types::List<Arguments...>::Reverse::Prepend<Structure>::To<std::is_nothrow_constructible>::value);
+XIEITE_ARROW_BASE(/* ... */)
 ```
 
 &nbsp;

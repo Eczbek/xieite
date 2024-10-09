@@ -19,7 +19,7 @@ noexcept(std::is_nothrow_copy_constructible_v<Type> && std::is_nothrow_invocable
 ```cpp
 template<xieite::concepts::CopyConstructible Type, std::invocable<> Functor>
 [[nodiscard]] constexpr Type also(Type&& value, Functor&& functor)
-noexcept(std::is_nothrow_copy_constructible_v<Type> && std::is_nothrow_invocable_v<Functor>);
+XIEITE_ARROW_BASE(xieite::functors::also(/* ... */))
 ```
 
 &nbsp;

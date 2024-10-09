@@ -12,9 +12,8 @@ Attempts to invoke a function with arguments made constant, if possible.
 #### 1)
 ```cpp
 template<typename Functor, typename... Arguments>
-requires(xieite::types::List<Arguments...>::template Transform<1, []<typename Argument, typename... First> { return std::type_identity<std::conditional_t<xieite::types::List<Arguments...>::template Slice<sizeof...(First) + 1>::template Prepend<Functor, First..., xieite::types::MaybeConstant<Argument, true>>::template To<std::is_invocable>::value, xieite::types::MaybeConstant<Argument, true>, Argument>>(); }>::template Prepend<Functor>::template To<std::is_invocable>::value)
-/* discardable */ constexpr typename xieite::types::List<Arguments...>::template Transform<1, []<typename Argument, typename... First> { return std::type_identity<std::conditional_t<xieite::types::List<Arguments...>::template Slice<sizeof...(First) + 1>::template Prepend<Functor, First..., xieite::types::MaybeConstant<Argument, true>>::template To<std::is_invocable>::value, xieite::types::MaybeConstant<Argument, true>, Argument>>(); }>::template Prepend<Functor>::template To<std::invoke_result_t> tryConstantArguments(Functor&& functor, Arguments&&... arguments)
-noexcept(xieite::types::List<Arguments...>::template Transform<1, []<typename Argument, typename... First> { return std::type_identity<std::conditional_t<xieite::types::List<Arguments...>::template Slice<sizeof...(First) + 1>::template Prepend<Functor, First..., xieite::types::MaybeConstant<Argument, true>>::template To<std::is_invocable>::value, xieite::types::MaybeConstant<Argument, true>, Argument>>(); }>::template Prepend<Functor>::template To<std::is_nothrow_invocable>::value);
+/* discardable */ constexpr auto tryConstantArguments(Functor&& functor, Arguments&&... arguments)
+XIEITE_ARROW(/* ... */)
 ```
 
 &nbsp;
@@ -22,6 +21,7 @@ noexcept(xieite::types::List<Arguments...>::template Transform<1, []<typename Ar
 ## Example
 ```cpp
 #include <xieite/lift.hpp>
+
 import std;
 import xieite;
 
