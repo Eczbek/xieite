@@ -28,13 +28,11 @@ Includes special cases:
 import std;
 import xieite;
 
-template<typename T>
-void foo(T&&) {
-    std::println("{}", xieite::types::name<T>);
+void foo(int&&) {
+    std::print("Done\n");
 }
 
-template<typename T>
-void bar(T&& value) {
+void bar(auto&& value) {
     foo(XIEITE_FORWARD(value));
 }
 
@@ -42,7 +40,7 @@ int main() {
     bar(5);
 }
 ```
-Output:
+Possible output:
 ```
-int
+Done
 ```

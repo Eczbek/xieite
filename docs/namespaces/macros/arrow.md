@@ -1,4 +1,4 @@
-# [XIEITE](../../macros.md)\_ARROW\(\)
+# [XIEITE](../../macros.md)\_ARROW...\(\)
 Defined in header [<xieite/arrow.hpp>](../../../include/xieite/arrow.hpp)
 
 &nbsp;

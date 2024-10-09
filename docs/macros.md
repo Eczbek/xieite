@@ -13,7 +13,7 @@ Macros and special headers
 - [\(no windows\)](./namespaces/macros/no_windows.md)
 - [XIEITE\_ANY\(\)](./namespaces/macros/any.md)
 - [XIEITE\_ARCHITECTURE\_...](./namespaces/macros/architecture.md)
-- [XIEITE\_ARROW\(\)](./namespaces/macros/arrow.md)
+- [XIEITE\_ARROW...\(\)](./namespaces/macros/arrow.md)
 - [XIEITE\_ASCII\_SUPPORT](./namespaces/macros/ascii_support.md)
 - [XIEITE\_AT\(\)](./namespaces/macros/at.md)
 - [XIEITE\_ATTRIBUTE\_...](./namespaces/macros/attribute.md)
