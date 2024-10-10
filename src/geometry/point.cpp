@@ -1,6 +1,7 @@
 export module xieite:geometry.Point;
 
 import std;
+import :concepts.Arithmetic;
 import :math.almostEqual;
 import :math.pi;
 import :math.tau;

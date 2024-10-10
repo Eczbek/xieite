@@ -3,7 +3,7 @@ module;
 #include <xieite/platform.hpp>
 
 #if !XIEITE_PLATFORM_TYPE_UNIX && !XIEITE_PLATFORM_TYPE_WINDOWS
-#	warning "Platform not supported"
+#	warning "unsupported platform"
 #endif
 
 export module xieite:streams.Pipe;

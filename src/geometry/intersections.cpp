@@ -1,5 +1,6 @@
 export module xieite:geometry.intersections;
 
+import std;
 import :concepts.Arithmetic;
 import :concepts.LinearShape;
 import :geometry.Point;

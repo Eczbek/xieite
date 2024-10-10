@@ -7,7 +7,7 @@ module;
 #elif XIEITE_PLATFORM_TYPE_WINDOWS
 #	include <windows.h>
 #else
-#	warning "Platform not supported"
+#	warning "unsupported platform"
 #endif
 
 export module xieite:memory.getTotal;

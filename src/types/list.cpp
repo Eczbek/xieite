@@ -60,7 +60,7 @@ export namespace xieite::types {
 		template<typename Type>
 		using Signature = decltype(([] {
 			if constexpr ((... && !std::is_void_v<Types>)) {
-				return std::type_identity_t<Type(Types...)>();
+				return std::type_identity<Type(Types...)>();
 			} else {
 				static_assert(false, "function signature must not have void parameters");
 			}

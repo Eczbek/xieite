@@ -8,7 +8,7 @@ import std;
 import :containers.makeArray;
 
 export namespace xieite::containers {
-	template<typename Key, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::equal_to<Key>, typename Allocator = std::allocator<Key>>
+	template<typename Key, std::size_t size, typename Hash = std::hash<Key>, typename KeyComparator = std::ranges::equal_to, typename Allocator = std::allocator<Key>>
 	struct FixedSet {
 	public:
 		FixedSet() = default;

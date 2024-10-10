@@ -1,8 +1,8 @@
 export module xieite:algorithms.median;
 
 import std;
-import :algorithms.mean;
 import :concepts.Arithmetic;
+import :math.average;
 
 export namespace xieite::algorithms {
 	template<std::ranges::forward_range Range>
@@ -19,6 +19,6 @@ export namespace xieite::algorithms {
 		const std::size_t rangeSize = std::ranges::size(range);
 		return (rangeSize % 2)
 			? *iterators[(rangeSize - 1) / 2]
-			: xieite::algorithms::mean(*iterators[rangeSize / 2 - 1], *iterators[rangeSize / 2]);
+			: xieite::math::average(*iterators[rangeSize / 2 - 1], *iterators[rangeSize / 2]);
 	}
 }

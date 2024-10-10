@@ -1,6 +1,5 @@
 export module xieite:units.Unit;
 
-import std;
 import :containers.FixedString;
 
 export namespace xieite::units {

@@ -1,6 +1,5 @@
 export module xieite:math.sign;
 
-import std;
 import :concepts.Arithmetic;
 import :math.isNegative;
 

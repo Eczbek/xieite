@@ -4,7 +4,7 @@ module;
 
 #if XIEITE_PLATFORM_TYPE_UNIX
 #	include <unistd.h>
-#elif XIEITE_PlATFORM_TYPE_WINDOWS
+#elif XIEITE_PLATFORM_TYPE_WINDOWS
 #	include <windows.h>
 #else
 #	warning "unsupported platform"

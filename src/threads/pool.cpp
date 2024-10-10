@@ -29,9 +29,12 @@ export namespace xieite::threads {
 				this->threads.emplace_back([this](const std::stop_token stopToken) {
 					while (true) {
 						auto tasksLock = std::unique_lock<std::mutex>(this->mutex);
-						this->condition.wait(tasksLock, [this, stopToken] {
-							return this->tasks.size() || stopToken.stop_requested();
-						});
+						this->condition.wait(
+							tasksLock,
+							[this, stopToken] {
+								return this->tasks.size() || stopToken.stop_requested();
+							}
+						);
 						if (!this->tasks.size() && stopToken.stop_requested()) {
 							break;
 						}
