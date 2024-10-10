@@ -24,11 +24,11 @@ export namespace xieite::containers {
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
 		constexpr void insert(KeysReference&& keys, ValueReference&& value)
-		XIEITE_ARROW_BASE(xieite::functors::unroll<RestKeys...>([&keys, &value]<std::size_t... i> XIEITE_ARROW(this->map[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...), XIEITE_FORWARD(value)))))
+		XIEITE_ARROW_BASE(xieite::functors::unroll<RestKeys...>([this, &keys, &value]<std::size_t... i> XIEITE_ARROW(this->map[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...), XIEITE_FORWARD(value)))))
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
 		[[nodiscard]] constexpr bool contains(KeysReference&& keys) const
-		XIEITE_ARROW_BASE(this->map.contains(std::get<0>(keys)) && xieite::functors::unroll<RestKeys...>([&keys]<std::size_t... i> XIEITE_ARROW(this->map.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...)))))
+		XIEITE_ARROW_BASE(this->map.contains(std::get<0>(keys)) && xieite::functors::unroll<RestKeys...>([this, &keys]<std::size_t... i> XIEITE_ARROW(this->map.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...)))))
 
 	private:
 		Container<FirstKey, xieite::containers::TupleMap<Container, std::tuple<RestKeys...>, Value>> map;

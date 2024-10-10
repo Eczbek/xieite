@@ -23,8 +23,9 @@ Defines additional logical and bitwise operators, various else-if abbreviations,
 ```
 #### 4)
 ```cpp
-#define not_eq /* ... */
+#define eq_not /* ... */
 ```
+`eq_not x` -> `x = !x`
 #### 5)
 ```cpp
 #define nand_eq /* ... */
@@ -51,8 +52,9 @@ Defines additional logical and bitwise operators, various else-if abbreviations,
 ```
 #### 11)
 ```cpp
-#define compl_eq /* ... */
+#define eq_compl /* ... */
 ```
+`eq_compl x` -> `x = ~x`
 #### 12)
 ```cpp
 #define bitand_eq /* ... */

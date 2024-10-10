@@ -24,7 +24,7 @@ export namespace xieite::functors {
 			const std::tuple<Arguments&&...> argumentsTuple = std::forward_as_tuple(XIEITE_FORWARD(arguments)...);
 			const auto resultsTuple = xieite::containers::spliceTuple<previousResultIndex + arity>(argumentsTuple, std::forward_as_tuple(std::apply(functor, xieite::containers::spliceTuple<arity, sizeof...(Arguments) - arity>(argumentsTuple))));
 			return xieite::functors::unroll<sizeof...(Arguments) - arity + 1>([&functor, &resultsTuple]<std::size_t... i> {
-				return this->set.at(std::get<0>(keys)).contains(std::make_tuple(std::get<i + 1>(keys)...));
+				return xieite::functors::distributeArgumentsRecursively<arity, previousResultIndex>(XIEITE_FORWARD(functor), std::get<i + arity>(std::move(resultsTuple))...);
 			});
 		}
 	}

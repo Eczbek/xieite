@@ -16,7 +16,7 @@ export namespace xieite::bits {
 				using Integral = xieite::types::LeastInteger<sizes>;
 				std::get<i>(result) = static_cast<Integral>(value.to_ullong()) & (std::numeric_limits<Integral>::max() >> (xieite::bits::size<Integral> - sizes));
 				value >>= sizes;
-			})())
+			})());
 		});
 		return result;
 	}

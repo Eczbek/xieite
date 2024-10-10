@@ -10,8 +10,10 @@ export namespace xieite::bits {
 	[[nodiscard]] constexpr std::tuple<Integrals...> unjoin(std::bitset<bits> value) noexcept {
 		std::tuple<Integrals...> result;
 		xieite::functors::unroll<Integrals...>([&value, &result]<std::size_t... i> {
-			std::get<i>(result) = static_cast<Integrals>(value.to_ullong());
-			value >>= xieite::bits::size<Integrals>;
+			(..., ([&value, &result] {
+				std::get<i>(result) = static_cast<Integrals>(value.to_ullong());
+				value >>= xieite::bits::size<Integrals>;
+			})());
 		});
 		return result;
 	}

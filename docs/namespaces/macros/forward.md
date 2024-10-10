@@ -4,20 +4,24 @@ Defined in header [<xieite/forward.hpp>](../../../include/xieite/forward.hpp)
 &nbsp;
 
 ## Description
-A terrible (improved) replacement for `std::forward`.
-
-Includes special cases:  
-\- Avoids unnecessarily materializing a temporary: `T x = XIEITE_FORWARD(T())`  
-\- Does nothing for a prvalue lambda argument: `XIEITE_FORWARD([] {})`  
-\- Does nothing for a prvalue void argument: `XIEITE_FORWARD(void())`
+Replacements for `std::forward`.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_FORWARD(...) /* ... */
+#define XIEITE_FORWARD(...) static_cast<decltype(__VA_ARGS__)&&>(__VA_ARGS__)
 ```
+Equivalent to `std::forward<decltype(__VA_ARGS__)>(__VA_ARGS__)`.
+#### 2)
+```cpp
+#define XIEITE_FORWARD_BETTER(...) /* ... */
+```
+Includes special cases:  
+\- Avoids unnecessarily materializing a temporary: `T x = XIEITE_FORWARD(T())`  
+\- Does nothing for a prvalue lambda argument: `XIEITE_FORWARD([] {})`  
+\- Does nothing for a prvalue void argument: `XIEITE_FORWARD(void())`
 
 &nbsp;
 

@@ -79,8 +79,8 @@ namespace XIEITE_DETAIL {
 	};
 
 	struct Negate {
-		[[nodiscard]] constexpr auto operator,(auto&& value, Negate)
-		XIEITE_ARROW(static_cast<bool>(!XIEITE_FORWARD(value)))
+		[[nodiscard]] friend constexpr bool operator,(auto&& value, Negate)
+		XIEITE_ARROW_BASE(static_cast<bool>(!XIEITE_FORWARD(value)))
 	};
 
 	struct LoopState {
@@ -94,7 +94,7 @@ namespace XIEITE_DETAIL {
 		int flag = 2;
 		bool broke = false;
 
-		[[nodiscard]] constexpr auto operator*() const noexcept {
+		[[nodiscard]] constexpr auto operator*() noexcept {
 			this->broke = true;
 			return LoopState::Chainable();
 		}
@@ -104,14 +104,14 @@ namespace XIEITE_DETAIL {
 #define nand && XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return !XIEITE_FORWARD(x) || !XIEITE_FORWARD(y); }>() &&
 #define nor || XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return !XIEITE_FORWARD(x) && !XIEITE_FORWARD(y); }>() ||
 #define xnor ^ XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return XIEITE_FORWARD(x) == XIEITE_FORWARD(y); }>() ^
-#define not_eq XIEITE_DETAIL::Prefix<[](auto& x) { return x = !x; }>() ->*
+#define eq_not XIEITE_DETAIL::Prefix<[](auto& x) { return x = !x; }>() ->*
 #define nand_eq = XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = !x || !XIEITE_FORWARD(y); }>() +=
 #define nor_eq = XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = !x && !XIEITE_FORWARD(y); }>() +=
 #define xnor_eq = XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x == XIEITE_FORWARD(y); }>() +=
 #define bitnand & XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return ~XIEITE_FORWARD(x) | ~XIEITE_FORWARD(y); }>() &
 #define bitnor | XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return ~XIEITE_FORWARD(x) & ~XIEITE_FORWARD(y); }>() |
 #define bitxnor ^ XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return ~(~XIEITE_FORWARD(x) ^ ~XIEITE_FORWARD(y)); }>() ^
-#define compl_eq XIEITE_DETAIL::Prefix<[](auto& x) { return x = ~x; }>() ->*
+#define eq_compl XIEITE_DETAIL::Prefix<[](auto& x) { return x = ~x; }>() ->*
 #define bitand_eq += XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x & XIEITE_FORWARD(y); }>() +=
 #define bitnand_eq += XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x bitnand XIEITE_FORWARD(y); }>() +=
 #define bitor_eq += XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x | XIEITE_FORWARD(y); }>() +=

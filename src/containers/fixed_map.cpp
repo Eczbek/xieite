@@ -23,7 +23,7 @@ export namespace xieite::containers {
 
 		template<typename Self, std::convertible_to<Key> KeyReference>
 		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeyReference&& key) noexcept(false) {
-			auto* value = this->getValue(XIEITE_FORWARD(key));
+			auto* value = XIEITE_FORWARD(self).getValue(XIEITE_FORWARD(key));
 			if (!value) {
 				throw std::out_of_range("must not access nonexistent key");
 			}
