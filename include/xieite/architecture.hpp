@@ -24,6 +24,10 @@
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_ELBRUS_2000 0
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_ELBRUS_2000 0
 #define XIEITE_ARCHITECTURE_VERSION_PATCH_ELBRUS_2000 0
+#define XIEITE_ARCHITECTURE_TYPE_HEXAGON 0
+#define XIEITE_ARCHITECTURE_VERSION_MAJOR_HEXAGON 0
+#define XIEITE_ARCHITECTURE_VERSION_MINOR_HEXAGON 0
+#define XIEITE_ARCHITECTURE_VERSION_PATCH_HEXAGON 0
 #define XIEITE_ARCHITECTURE_TYPE_ITANIUM 0
 #define XIEITE_ARCHITECTURE_VERSION_MAJOR_ITANIUM 0
 #define XIEITE_ARCHITECTURE_VERSION_MINOR_ITANIUM 0
@@ -565,6 +569,16 @@
 #	endif
 #endif
 
+#ifdef __hexagon__
+#	undef XIEITE_ARCHITECTURE_TYPE_HEXAGON
+#	define XIEITE_ARCHITECTURE_TYPE_HEXAGON 1
+
+#	ifdef __HVX_ARCH__
+#		undef XIEITE_ARCHITECTURE_VERSION_MAJOR_HEXAGON
+#		define XIEITE_ARCHITECTURE_VERSION_MAJOR_HEXAGON __HVX_ARCH___
+#	endif
+#endif
+
 #if defined(__ia64__) || defined(_IA64) || defined(__IA64__) || defined(__ia64) || defined(_M_IA64) || defined(__itanium__)
 #	undef XIEITE_ARCHITECTURE_TYPE_ITANIUM
 #	define XIEITE_ARCHITECTURE_TYPE_ITANIUM 1
@@ -680,11 +694,6 @@
 #		undef XIEITE_ARCHITECTURE_VERSION_MAJOR_PA_RISC
 #		define XIEITE_ARCHITECTURE_VERSION_MAJOR_PA_RISC 2
 #	endif
-#endif
-
-#ifdef __pnacl__
-#	undef XIEITE_ARCHITECTURE_TYPE_PNACL
-#	define XIEITE_ARCHITECTURE_TYPE_PNACL 1
 #endif
 
 #if defined(__powerpc) || defined(__powerpc__) || defined(__powerpc64__) || defined(__POWERPC__) || defined(__ppc__) || defined(__ppc64) || defined(__ppc64__) || defined(__PPC__) || defined(__PPC64__) || defined(_ARCH_PPC) || defined(_ARCH_PPC64) || defined(_M_PPC) || defined(__ppc) || defined(_ARCH_PRW) || defined(_ARCH_COM) || defined(_M_PPC) || defined(_M_MPPC) || defined(_LP64) || defined(__LP64__) || defined(__64BIT__)
