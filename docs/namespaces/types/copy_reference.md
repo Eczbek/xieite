@@ -23,15 +23,15 @@ import std;
 import xieite;
 
 int main() {
-    std::println("{}", xieite::types::name<xieite::types::CopyReference<float, int>>);
-    std::println("{}", xieite::types::name<xieite::types::CopyReference<float, int&>>);
-    std::println("{}", xieite::types::name<xieite::types::CopyReference<float, int&&>>);
-    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&, int>>);
-    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&, int&>>);
-    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&, int&&>>);
-    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&&, int>>);
-    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&&, int&>>);
-    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&&, int&&>>);
+    std::println("{}", xieite::types::name<xieite::types::CopyReference<float, int>>());
+    std::println("{}", xieite::types::name<xieite::types::CopyReference<float, int&>>());
+    std::println("{}", xieite::types::name<xieite::types::CopyReference<float, int&&>>());
+    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&, int>>());
+    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&, int&>>());
+    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&, int&&>>());
+    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&&, int>>());
+    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&&, int&>>());
+    std::println("{}", xieite::types::name<xieite::types::CopyReference<float&&, int&&>>());
 }
 ```
 Possible output:

@@ -4,7 +4,7 @@ Defined in header [<xieite/count.hpp>](../../../include/xieite/count.hpp)
 &nbsp;
 
 ## Description
-Counts the number of arguments passed, up to 255.
+Counts the number of arguments passed, up to 256.
 
 &nbsp;
 

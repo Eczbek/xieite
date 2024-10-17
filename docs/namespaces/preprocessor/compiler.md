@@ -20,7 +20,7 @@ See header for definitions.
 import std;
 
 int main() {
-#if XIEITE_COMPILER_VERSION_LEAST(GCC, 6, 39, 2000)
+#if XIEITE_COMPILER_LEAST(GCC, 6, 39, 2000)
     std::println("yep");
 #else
     std::println("nope");

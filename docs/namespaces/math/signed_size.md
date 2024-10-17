@@ -22,7 +22,7 @@ import std;
 import xieite;
 
 int main() {
-    std::println("{}", xieite::types::name<xieite::math::SignedSize>);
+    std::println("{}", xieite::types::name<xieite::math::SignedSize>());
 }
 ```
 Possible output:

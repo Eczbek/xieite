@@ -4,7 +4,7 @@ Defined in header [<xieite/attribute.hpp>](../../../include/xieite/attribute.hpp
 &nbsp;
 
 ## Description
-Macros for non-standard compiler-specific statement, label, type, variable, and function attributes. `XIEITE_ATTRIBUTE_PACKED()` has special usage. See header file for specifics.
+Macros for non-standard compiler-specific statement, label, type, variable, and function attributes. `XIEITE_ATTRIBUTE_PACKED()` has special usage. See header for specifics.
 
 &nbsp;
 
@@ -55,19 +55,19 @@ Macros for non-standard compiler-specific statement, label, type, variable, and 
 ```
 #### 12)
 ```cpp
-#define XIEITE_ATTRIBUTE_MAYBE_UNUSED /* ... */
+#define XIEITE_ATTRIBUTE_LOCAL /* ... */
 ```
 #### 13)
 ```cpp
-#define XIEITE_ATTRIBUTE_NO_DEBUG /* ... */
+#define XIEITE_ATTRIBUTE_MAYBE_UNUSED /* ... */
 ```
 #### 14)
 ```cpp
-#define XIEITE_ATTRIBUTE_NO_DISCARD /* ... */
+#define XIEITE_ATTRIBUTE_NO_DEBUG /* ... */
 ```
 #### 15)
 ```cpp
-#define XIEITE_ATTRIBUTE_NO_EXPORT /* ... */
+#define XIEITE_ATTRIBUTE_NO_DISCARD /* ... */
 ```
 #### 16)
 ```cpp

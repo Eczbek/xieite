@@ -25,7 +25,7 @@ import xieite;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Slice<1, 3>;
 
-    std::println("{}", xieite::types::name<List>);
+    std::println("{}", xieite::types::name<List>());
 }
 ```
 Possible output:

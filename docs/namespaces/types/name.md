@@ -1,10 +1,10 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:name\<\>
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:name\<\>\(\)
 Defined in fragment [xieite:types.name](../../../src/types/name.cpp)
 
 &nbsp;
 
 ## Description
-Extracts the stringified name of a type at compile-time without additional formatting (very compiler-dependant).
+Extracts the stringified name of a type at compile-time without additional formatting (very compiler-dependent).
 
 &nbsp;
 
@@ -12,7 +12,12 @@ Extracts the stringified name of a type at compile-time without additional forma
 #### 1)
 ```cpp
 template<typename Type>
-constexpr std::string_view name = /* ... */;
+[[nodiscard]] consteval std::string_view name() noexcept;
+```
+#### 2)
+```cpp
+template<auto value>
+[[nodiscard]] consteval std::string_view name() noexcept;
 ```
 
 &nbsp;
@@ -23,7 +28,7 @@ import std;
 import xieite;
 
 int main() {
-    std::println("{}", xieite::types::name<std::vector<int>>);
+    std::println("{}", xieite::types::name<std::vector<int>>());
 }
 ```
 Possible output:

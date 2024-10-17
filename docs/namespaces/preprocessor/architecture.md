@@ -20,7 +20,7 @@ See header for definitions.
 import std;
 
 int main() {
-#if XIEITE_ARCHITECTURE_VERSION_LEAST(MIPS, 4, 0, 0)
+#if XIEITE_ARCHITECTURE_LEAST(MIPS, 4, 0, 0)
     std::println("yep");
 #else
     std::println("nope");

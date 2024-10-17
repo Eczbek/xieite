@@ -25,7 +25,7 @@ import xieite;
 int main() {
     using List = xieite::types::List<int, char, short, long>::Insert<2, float, double>;
 
-    std::println("{}", xieite::types::name<List>);
+    std::println("{}", xieite::types::name<List>());
 }
 ```
 Possible output:

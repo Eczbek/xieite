@@ -30,7 +30,7 @@ int main() {
         return std::type_identity<std::pair<T, U>>();
     }>;
 
-    std::println("{}", xieite::types::name<Bar>);
+    std::println("{}", xieite::types::name<Bar>());
 }
 ```
 Possible output:

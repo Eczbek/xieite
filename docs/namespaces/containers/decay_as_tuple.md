@@ -25,7 +25,7 @@ import xieite;
 int main() {
     auto foo = xieite::containers::decayAsTuple(1, 2.5, 'a');
 
-    std::println("{}", xieite::types::name<decltype(foo)>);
+    std::println("{}", xieite::types::name<decltype(foo)>());
 }
 ```
 Output:

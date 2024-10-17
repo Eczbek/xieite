@@ -27,7 +27,7 @@ int main() {
 
     using Bar = Foo::Arrange<3, 0, 2>;
 
-    std::println("{}", xieite::types::name<Bar>);
+    std::println("{}", xieite::types::name<Bar>());
 }
 ```
 Possible output:

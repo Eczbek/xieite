@@ -3,6 +3,8 @@ C++ utility library
 
 This project extends the standard library without external dependencies and provides a somewhat organized collection of questionably useful tools for assisting in various shenanigans
 
+The `include` directory consists exclusively of preprocessor directives
+
 &nbsp;
 
 ## [Documentation](https://github.com/Eczbek/xieite/tree/main/docs/xieite.md)
@@ -13,7 +15,7 @@ Written manually :)
 ## Requirements
 - C++26
 - GCC 15
-- Clang 18
+- Clang 20
 - MSVC 19.34
 
 &nbsp;
@@ -23,7 +25,8 @@ Written manually :)
 git clone https://github.com/Eczbek/xieite
 cd xieite
 ```
-good luck; nothing supports modules yet
+good luck; nothing supports modules yet  
+https://github.com/Eczbek/xieite/tree/headers
 
 &nbsp;
 
@@ -40,13 +43,13 @@ int main() {
 
 &nbsp;
 
-### [xieite::types::name\<\>](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/types/name.md)
+### [xieite::types::name\<\>\(\)](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/types/name.md)
 ```cpp
 import std;
 import xieite;
 
 int main() {
-    std::println("{}", xieite::types::name<float>);
+    std::println("{}", xieite::types::name<float>());
 }
 ```
 
@@ -95,7 +98,7 @@ int main() {
 
 &nbsp;
 
-### [XIEITE_ATTRIBUTE_...\(\)](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/macros/attribute.md)
+### [XIEITE_ATTRIBUTE_...\(\)](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/preprocessor/attribute.md)
 ```cpp
 #include <xieite/attribute.hpp>
 
@@ -170,14 +173,14 @@ int main() {
 
 &nbsp;
 
-### [XIEITE_COMPILER_...\(\)](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/macros/compiler.md)
+### [XIEITE_COMPILER_...\(\)](https://github.com/Eczbek/xieite/blob/main/docs/namespaces/preprocessor/compiler.md)
 ```cpp
 #include <xieite/compiler.hpp>
 
 import std;
 
 int main() {
-    std::println("{}", XIEITE_COMPILER_VERSION_LEAST(GCC, 15, 0, 0));
+    std::println("{}", XIEITE_COMPILER_LEAST(GCC, 15, 0, 0));
 }
 ```
 

@@ -28,7 +28,7 @@ int main() {
 
     using Bar = Foo::Zip<float, short, bool>;
 
-    std::println("{}", xieite::types::name<Bar>);
+    std::println("{}", xieite::types::name<Bar>());
 }
 ```
 Possible output:

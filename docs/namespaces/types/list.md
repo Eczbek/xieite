@@ -162,7 +162,7 @@ int main() {
     using Baz = Bar::Reverse;
     using Qux = Baz::Erase<3>;
 
-    std::println("{}", xieite::types::name<Qux>);
+    std::println("{}", xieite::types::name<Qux>());
 }
 ```
 Possible output:

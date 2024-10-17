@@ -25,7 +25,7 @@ import xieite;
 int main() {
     using List = xieite::types::List<int, char>;
 
-    std::println("{}", xieite::types::name<List::Repeat<3>>);
+    std::println("{}", xieite::types::name<List::Repeat<3>>());
 }
 ```
 Possible output:

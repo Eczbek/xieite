@@ -26,7 +26,7 @@ int main() {
     using List = xieite::types::List<int, char, short, long>;
 
     auto callback = []<typename... Types> {
-        (..., std::println("{}", xieite::types::name<Types>));
+        (..., std::println("{}", xieite::types::name<Types>()));
     };
 
     List::apply(callback);

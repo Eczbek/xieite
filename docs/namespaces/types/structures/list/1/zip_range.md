@@ -27,7 +27,7 @@ int main() {
 
     using Bar = xieite::types::List<float, short, bool>;
 
-    std::println("{}", xieite::types::name<Foo::ZipRange<Bar>>);
+    std::println("{}", xieite::types::name<Foo::ZipRange<Bar>>());
 }
 ```
 Possible output:

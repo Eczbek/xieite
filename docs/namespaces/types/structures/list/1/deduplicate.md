@@ -25,7 +25,7 @@ import xieite;
 int main() {
     using List = xieite::types::List<int, int, char, int, char>::Deduplicate<>;
 
-    std::println("{}", xieite::types::name<List>);
+    std::println("{}", xieite::types::name<List>());
 }
 ```
 Possible output:

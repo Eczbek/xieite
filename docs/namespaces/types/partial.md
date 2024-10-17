@@ -36,7 +36,7 @@ struct List {};
 int main() {
     using Partial = xieite::types::Partial<List, int, char, bool>;
 
-    std::println("{}", xieite::types::name<Partial::Append<float, double>>);
+    std::println("{}", xieite::types::name<Partial::Append<float, double>>());
 }
 ```
 Possible output:

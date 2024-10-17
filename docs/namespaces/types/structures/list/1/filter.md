@@ -25,7 +25,7 @@ import xieite;
 int main() {
     using List = xieite::types::List<int, float, short, double, long>;
 
-    std::println("{}", xieite::types::name<List::Filter<[]<std::integral> {}>>);
+    std::println("{}", xieite::types::name<List::Filter<[]<std::integral> {}>>());
 }
 ```
 Possible output:

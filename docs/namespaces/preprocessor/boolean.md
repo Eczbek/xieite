@@ -22,11 +22,13 @@ Expands to `1` for any value except for `0`.
 
 XIEITE_BOOLEAN(1)
 XIEITE_BOOLEAN(true)
+XIEITE_BOOLEAN(false)
 XIEITE_BOOLEAN(abcdef)
 XIEITE_BOOLEAN(0)
 ```
 Preprocessor output:
 ```
+1
 1
 1
 1

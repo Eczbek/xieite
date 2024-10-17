@@ -26,7 +26,7 @@ import xieite;
 int main() {
     using Type = xieite::types::List<int, char, short, long>::At<2>;
 
-    std::println("{}", xieite::types::name<Type>);
+    std::println("{}", xieite::types::name<Type>());
 }
 ```
 Possible output:

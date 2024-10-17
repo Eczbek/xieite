@@ -25,7 +25,7 @@ import xieite;
 int main() {
     using List = xieite::types::List<int, float, char>;
 
-    std::println("{}", xieite::types::name<List::To<std::tuple>>);
+    std::println("{}", xieite::types::name<List::To<std::tuple>>());
 }
 ```
 Possible output:

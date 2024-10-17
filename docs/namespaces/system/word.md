@@ -22,7 +22,7 @@ import std;
 import xieite;
 
 int main() {
-    std::println("{}", xieite::types::name<xieite::system::Word>);
+    std::println("{}", xieite::types::name<xieite::system::Word>());
 }
 ```
 Possible output:
