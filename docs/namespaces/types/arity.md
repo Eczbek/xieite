@@ -1,17 +1,17 @@
-# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:arity \{\}
+# [xieite](../../xieite.md)\:\:[types](../../types.md)\:\:arity\<\>
 Defined in fragment [xieite:types.arity](../../../src/types/arity.cpp)
 
 &nbsp;
 
 ## Description
-An enumeration of arity values.
+Detects the arity of some type. The type must be usable in `std::tuple_size` or be an aggregate.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<xieite::concepts::Aggregate Type>
+template<typename Type>
 constexpr std::size_t arity = /* ... */;
 ```
 
