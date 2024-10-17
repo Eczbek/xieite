@@ -11,7 +11,7 @@ export namespace xieite::bits {
 	requires(bits >= (... + sizes))
 	[[nodiscard]] constexpr std::tuple<xieite::types::LeastInteger<sizes>...> unmash(std::bitset<bits> value) noexcept {
 		std::tuple<xieite::types::LeastInteger<sizes>...> result;
-		xieite::functors::unroll<sizes...>([&value, &result]<std::size_t... i> {
+		xieite::functors::unroll<sizeof...(sizes)>([&value, &result]<std::size_t... i> {
 			(..., ([&value, &result] {
 				using Integral = xieite::types::LeastInteger<sizes>;
 				std::get<i>(result) = static_cast<Integral>(value.to_ullong()) & (std::numeric_limits<Integral>::max() >> (xieite::bits::size<Integral> - sizes));

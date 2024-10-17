@@ -133,6 +133,7 @@ export import :functors.Function;
 export import :functors.memoize;
 export import :functors.Mixfix;
 export import :functors.ProcessGuard;
+export import :functors.repeat;
 export import :functors.reverseArguments;
 export import :functors.ScopeGuard;
 export import :functors.templatify;
