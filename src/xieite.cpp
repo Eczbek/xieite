@@ -114,6 +114,7 @@ export import :containers.FixedSet;
 export import :containers.FixedString;
 export import :containers.forwardTuple;
 export import :containers.makeArray;
+export import :containers.makeSparseArray;
 export import :containers.MaybeCopyAssignable;
 export import :containers.MaybeCopyConstructible;
 export import :containers.MaybeDefaultConstructible;

@@ -20,6 +20,7 @@ Fixed-size containers and other utilities
 - [FixedString\<\> \{\}](./namespaces/containers/fixed_string.md)
 - [forwardTuple\<\>\(\)](./namespaces/containers/forward_tuple.md)
 - [makeArray\<\>\(\)](./namespaces/containers/make_array.md)
+- [makeSparseArray\<\>\(\)](./namespaces/containers/make_sparse_array.md)
 - [MaybeCopyAssignable\<\>](./namespaces/containers/maybe_copy_assignable.md)
 - [MaybeCopyConstructible\<\>](./namespaces/containers/maybe_copy_constructible.md)
 - [MaybeDefaultConstructible\<\>](./namespaces/containers/maybe_default_constructible.md)

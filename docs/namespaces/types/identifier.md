@@ -4,7 +4,7 @@ Defined in fragment [xieite:types.identifier](../../../src/types/identifier.cpp)
 &nbsp;
 
 ## Description
-Assigns an identifier to each unique type. Not guaranteed to give the same identifier to unique types across translation units or time. Same rules apply as [`xieite::functors::counter<>()`](../functors/counter.md#Description).
+Assigns an identifier to each unique type. Not guaranteed to give the same identifier to unique types across translation units or time. Same rules apply as [`xieite::functors::Counter`](../functors/counter.md#Description).
 
 &nbsp;
 
