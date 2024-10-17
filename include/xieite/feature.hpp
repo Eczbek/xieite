@@ -1,9 +1,8 @@
 #pragma once
 
 #include <xieite/compiler.hpp>
-#include <xieite/language_standard.hpp>
 
-#if XIEITE_LANGUAGE_STANDARD_CPP_2011
+#if __has_include(<cstdint>)
 #	include <cstdint>
 #else
 #	include <stdint.h>
@@ -66,7 +65,7 @@
 #	define XIEITE_FEATURE_SIGNED_64 1
 #endif
 
-#if defined(__SIZEOF_INT128__) || __has_include(<__msvc_int128.hpp>)
+#if defined(__SIZEOF_INT128__) || XIEITE_COMPILER_TYPE_MSVC
 #	undef XIEITE_FEATURE_UNSIGNED_128
 #	define XIEITE_FEATURE_UNSIGNED_128 1
 #	undef XIEITE_FEATURE_SIGNED_128

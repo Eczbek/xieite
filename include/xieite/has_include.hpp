@@ -1,8 +1,8 @@
 #pragma once
 
-#include <xieite/language_standard.hpp>
+#include <xieite/language.hpp>
 
-#if XIEITE_LANGUAGE_STANDARD_CPP_2017 || XIEITE_LANGUAGE_STANDARD_C_2023 || defined(__has_include)
+#if defined(__has_include) || (XIEITE_LANGUAGE_CPP >= XIEITE_LANGUAGE_CPP_2017) || (XIEITE_LANGUAGE_C >= XIEITE_LANGUAGE_C_2023)
 #	define XIEITE_HAS_INCLUDE(...) __has_include(__VA_ARGS__)
 #else
 #	define XEIITE_HAS_INCLUDE(...) 0

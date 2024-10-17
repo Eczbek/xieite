@@ -1,9 +1,9 @@
 #pragma once
 
 #include <xieite/compiler.hpp>
-#include <xieite/language_standard.hpp>
+#include <xieite/language.hpp>
 
-#if XIEITE_LANGUAGE_STANDARD_C_1999
+#if XIEITE_LANGUAGE_C >= XIEITE_LANGUAGE_C_1999
 #	define XIEITE_RESTRICT restrict
 #elif XIEITE_COMPILER_TYPE_GCC
 #	define XIEITE_RESTRICT __restrict__

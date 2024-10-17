@@ -1,0 +1,65 @@
+#pragma once
+
+#define XIEITE_LANGUAGE_C 0
+#define XIEITE_LANGUAGE_CPP 0
+#define XIEITE_LANGUAGE_CPP_CLI 0
+#define XIEITE_LANGUAGE_CPP_CX 0
+#define XIEITE_LANGUAGE_CPP_EMBEDDED 0
+#define XIEITE_LANGUAGE_CPP_WINRT 0
+
+#define XIEITE_LANGUAGE_C_1978 0
+#define XIEITE_LANGUAGE_C_1989 1
+#define XIEITE_LANGUAGE_C_1990 1
+#define XIEITE_LANGUAGE_C_1994 199409
+#define XIEITE_LANGUAGE_C_1999 199901
+#define XIEITE_LANGUAGE_C_2011 201112
+#define XIEITE_LANGUAGE_C_2017 201710
+#define XIEITE_LANGUAGE_C_2023 202000
+#define XIEITE_LANGUAGE_CPP_1998 199711
+#define XIEITE_LANGUAGE_CPP_2011 201103
+#define XIEITE_LANGUAGE_CPP_2014 201402
+#define XIEITE_LANGUAGE_CPP_2017 201703
+#define XIEITE_LANGUAGE_CPP_2020 202002
+#define XIEITE_LANGUAGE_CPP_2023 202302
+#define XIEITE_LANGUAGE_CPP_2026 202400
+
+#ifdef __STDC__
+#	undef XIEITE_LANGUAGE_C
+
+#	ifdef __STDC_VERSION__
+#		define XIEITE_LANGUAGE_C __STDC_VERSION__
+#	else
+#		define XIEITE_LANGUAGE_C 1
+#	endif
+#endif
+
+#ifdef _MSVC_LANG
+#	undef XIEITE_LANGUAGE_CPP
+#	define XIEITE_LANGUAGE_CPP _MSVC_LANG
+#elifdef __cplusplus
+#	undef XIEITE_LANGUAGE_CPP
+#	define XIEITE_LANGUAGE_CPP __cplusplus
+#endif
+
+#ifdef __cplusplus_cli
+#	undef XIEITE_LANGUAGE_CPP_CLI
+#	define XIEITE_LANGUAGE_CPP_CLI 1
+#endif
+
+#ifdef __cplusplus_winrt
+#	undef XIEITE_LANGUAGE_CPP_CX
+#	define XIEITE_LANGUAGE_CPP_CX 1
+#endif
+
+#ifdef __embedded_cplusplus
+#	undef XIEITE_LANGUAGE_CPP_EMBEDDED
+#	define XIEITE_LANGUAGE_CPP_EMBEDDED 1
+#endif
+
+#ifdef CPPWINRT_VERSION
+#	undef XIEITE_LANGUAGE_CPP_WINRT
+#	define XIEITE_LANGUAGE_CPP_WINRT 1
+#endif
+
+// https://github.com/cpredef/predef/blob/master/Standards.md
+// https://github.com/Microsoft/cppwinrt/issues/338

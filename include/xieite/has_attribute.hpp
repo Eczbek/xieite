@@ -1,11 +1,11 @@
 #pragma once
 
 #include <xieite/compiler.hpp>
-#include <xieite/language_standard.hpp>
+#include <xieite/language.hpp>
 
-#if XIEITE_LANGUAGE_STANDARD_CPP_2020
+#if XIEITE_LANGUAGE_CPP >= XIEITE_LANGUAGE_CPP_2020
 #	define XIEITE_HAS_ATTRIBUTE(...) __has_cpp_attribute(__VA_ARGS__)
-#elif XIEITE_LANGUAGE_STANDARD_C_2023
+#elif XIEITE_LANGUAGE_C >= XIEITE_LANGUAGE_C_2023
 #	define XIEITE_HAS_ATTRIBUTE(...) __has_c_attribute(__VA_ARGS__)
 #elif XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 #	define XIEITE_HAS_ATTRIBUTE(...) __has_attribute(__VA_ARGS__)
