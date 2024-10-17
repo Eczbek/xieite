@@ -1,5 +1,5 @@
-# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:counter\<\>\(\)
-Defined in fragment [xieite:functors.counter](../../../src/functors/counter.cpp)
+# [xieite](../../xieite.md)\:\:[functors](../../functors.md)\:\:Counter\<\> \{\}
+Defined in fragment [xieite:functors.Counter](../../../src/functors/counter.cpp)
 
 &nbsp;
 
@@ -11,9 +11,21 @@ A compile-time counter thingamabob. Technically not ill-formed ([yet](https://ww
 ## Synopsis
 #### 1)
 ```cpp
-template<auto tag = /* ... */, auto = [] {}>
-[[nodiscard]] constexpr std::size_t counter() noexcept;
+template<auto identifier = [] {}, std::integral Integral = std::size_t>
+struct Counter {
+    template<auto = [] {}>
+    static consteval Integral get() noexcept;
+
+    template<auto = [] {}>
+    static consteval Integral advance() noexcept;
+
+    template<auto = [] {}>
+    static consteval Integral next() noexcept;
+};
 ```
+- [get\<\>\(\)](./structures/counter/1/get.md)
+- [advance\<\>\(\)](./structures/counter/1/advance.md)
+- [next\<\>\(\)](./structures/counter/1/next.md)
 
 &nbsp;
 
@@ -22,15 +34,14 @@ template<auto tag = /* ... */, auto = [] {}>
 import std;
 import xieite;
 
-int main() {
-    static constexpr std::size_t x = xieite::functors::counter();
-    static constexpr std::size_t y = xieite::functors::counter();
-    static constexpr std::size_t z = xieite::functors::counter();
+using C = xieite::functors::Counter<>;
+static_assert(C::get() == 0);
+static_assert(C::advance() == 0);
+static_assert(C::advance() == 1);
+static_assert(C::advance() == 2);
+static_assert(C::get() == 3);
+static_assert(C::next() == 4);
+static_assert(C::next() == 5);
 
-    std::println("{} {} {}", x, y, z);
-}
-```
-Output:
-```
-0 1 2
+int main() {}
 ```

@@ -9,7 +9,7 @@ Utilities relating to functors and arguments
 
 ## Contents
 - [also\<\>\(\)](./namespaces/functors/also.md)
-- [counter\<\>\(\)](./namespaces/functors/counter.md)
+- [Counter\<\> \{\}](./namespaces/functors/counter.md)
 - [distributeArguments\<\>\(\)](./namespaces/functors/distribute_arguments.md)
 - [distributeArgumentsRecursively\<\>\(\)](./namespaces/functors/distribute_arguments_recursively.md)
 - [Function\<\> \{\}](./namespaces/functors/function.md)

@@ -1,39 +1,47 @@
-export module xieite:functors.counter;
+export module xieite:functors.Counter;
 
 import std;
-
-template<auto tag, std::size_t current>
-struct CounterReader {
-	template<typename>
-	friend auto counterFlag(CounterReader<tag, current>) noexcept;
-};
-
-template<auto tag, std::size_t current>
-struct CounterWriter {
-	template<typename>
-	friend auto counterFlag(CounterReader<tag, current>) noexcept {}
-
-	static constexpr std::size_t value = current;
-};
-
-template<auto tag, auto unique, std::size_t current = 0>
-[[nodiscard]] constexpr std::size_t counterAdvance() noexcept {
-	if constexpr (requires(CounterReader<tag, current> reader) { counterFlag<void>(reader); }) {
-		return counterAdvance<tag, unique, current + 1>();
-	} else {
-		return CounterWriter<tag, current>::value;
-	}
-}
-
-constexpr auto defaultCounterTag = [] {};
+import :types.Value;
 
 export namespace xieite::functors {
-	template<auto tag = defaultCounterTag, auto unique = [] {}>
-	[[nodiscard]] constexpr std::size_t counter() noexcept {
-		return counterAdvance<tag, unique>();
-	}
+	template<auto = [] {}, std::integral Integral = std::size_t>
+	struct Counter {
+	private:
+		template<Integral count>
+		struct Value {
+			template<auto>
+			friend auto flag(Value);
+
+			struct Set
+			: xieite::types::Value<count> {
+				template<auto>
+				friend auto flag(Value) {}
+			};
+		};
+
+	public:
+		template<auto = [] {}>
+		static consteval Integral get() noexcept {
+			return ([]<Integral count = 0>(this auto self) {
+				if constexpr (requires { flag<0>(Counter::Value<count>()); }) {
+					return self.template operator()<count + 1>();
+				} else {
+					return count;
+				}
+			})();
+		}
+
+		template<auto tag = [] {}>
+		static consteval Integral advance() noexcept {
+			return Counter::Value<Counter::get<tag>()>::Set::value;
+		}
+
+		template<auto tag = [] {}>
+		static consteval Integral next() noexcept {
+			return Counter::advance<tag>() + 1;
+		}
+	};
 }
 
 // https://mc-deltat.github.io/articles/stateful-metaprogramming-cpp20
-// `counterFlag` is a template to avoid warnings when compiled with GCC
-// `counterAdvance` is a separate function (rather than a lambda inside `counter`) likely because of Clang warnings/errors
+// `flag` is a template to avoid GCC warnings
