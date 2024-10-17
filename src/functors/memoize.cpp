@@ -46,7 +46,12 @@ export namespace xieite::functors {
 	template<typename... Arguments, std::invocable<Arguments...> Functor>
 	/* discardable */ std::invoke_result_t<Functor, Arguments...> memoize(Functor functor, const Arguments&... arguments)
 	noexcept(std::is_nothrow_invocable_v<Functor, Arguments...>) {
-		if constexpr (!std::same_as<std::invoke_result_t<Functor, Arguments...>, void> && (xieite::concepts::Hashable<Functor> || std::is_empty_v<Functor>) && std::equality_comparable<Functor> && (... && xieite::concepts::Hashable<Arguments>)) {
+		if constexpr (
+			!std::same_as<std::invoke_result_t<Functor, Arguments...>, void>
+			&& (xieite::concepts::Hashable<Functor> || std::is_empty_v<Functor>)
+			&& std::equality_comparable<Functor>
+			&& (... && xieite::concepts::Hashable<Arguments>)
+		) {
 			static std::unordered_map<Memo<Functor, std::decay_t<Arguments>...>, std::invoke_result_t<Functor&, Arguments...>, MemoHash, std::ranges::equal_to> map;
 			const auto iterator = map.find(Memo<Functor, const Arguments&...>(functor, std::tie(arguments...)));
 			if (iterator != map.end()) {
