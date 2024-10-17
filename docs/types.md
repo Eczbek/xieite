@@ -21,6 +21,7 @@ Utilities for type information and metaprogramming
 - [demangle\(\)](./namespaces/types/demangle.md)
 - [DynamicMatrix\<\>](./namespaces/types/dynamic_matrix.md)
 - [FixedMatrix\<\>](./namespaces/types/fixed_matrix.md)
+- [Fold\<\>](./namespaces/types/fold.md)
 - [FunctionPointerTraits\<\> \{\}](./namespaces/types/function_pointer_traits.md)
 - [identifier\<\>](./namespaces/types/identifier.md)
 - [LeastInteger\<\>](./namespaces/types/least_integer.md)
