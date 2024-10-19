@@ -11,7 +11,7 @@ Creates a sparse (map-like?) `std::array`. The key type is constrained to 2^16 p
 ## Synopsis
 #### 1)
 ```cpp
-template<std::integral Key, typename Value, typename Range = std::initializer_list<Pair<Key, Value>>>
+template<std::integral Key, typename Value, typename Range = std::initializer_list<std::pair<Key, Value>>>
 requires((std::numeric_limits<Key>::digits <= 16) && (xieite::types::arity<std::ranges::range_value_t<Range>> == 2))
 [[nodiscard]] constexpr auto makeSparseArray(Range&& entries) noexcept;
 ```

@@ -269,7 +269,6 @@ export import :system.cleanStatus;
 export import :system.execute;
 export import :system.Result;
 export import :system.segmentationFault;
-export import :system.Word;
 export import :threads.identifier;
 export import :threads.Interval;
 export import :threads.Loop;

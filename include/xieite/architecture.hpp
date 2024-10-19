@@ -48,10 +48,26 @@
 #define XIEITE_ARCHITECTURE_MAJOR_HP_9000 0
 #define XIEITE_ARCHITECTURE_MINOR_HP_9000 0
 #define XIEITE_ARCHITECTURE_PATCH_HP_9000 0
-#define XIEITE_ARCHITECTURE_TYPE_ITANIUM 0
-#define XIEITE_ARCHITECTURE_MAJOR_ITANIUM 0
-#define XIEITE_ARCHITECTURE_MINOR_ITANIUM 0
-#define XIEITE_ARCHITECTURE_PATCH_ITANIUM 0
+#define XIEITE_ARCHITECTURE_TYPE_IA64 0
+#define XIEITE_ARCHITECTURE_MAJOR_IA64 0
+#define XIEITE_ARCHITECTURE_MINOR_IA64 0
+#define XIEITE_ARCHITECTURE_PATCH_IA64 0
+#define XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_32 0
+#define XIEITE_ARCHITECTURE_MAJOR_IBM_SYSTEM_32 0
+#define XIEITE_ARCHITECTURE_MINOR_IBM_SYSTEM_32 0
+#define XIEITE_ARCHITECTURE_PATCH_IBM_SYSTEM_32 0
+#define XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_370 0
+#define XIEITE_ARCHITECTURE_MAJOR_IBM_SYSTEM_370 0
+#define XIEITE_ARCHITECTURE_MINOR_IBM_SYSTEM_370 0
+#define XIEITE_ARCHITECTURE_PATCH_IBM_SYSTEM_370 0
+#define XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_390 0
+#define XIEITE_ARCHITECTURE_MAJOR_IBM_SYSTEM_390 0
+#define XIEITE_ARCHITECTURE_MINOR_IBM_SYSTEM_390 0
+#define XIEITE_ARCHITECTURE_PATCH_IBM_SYSTEM_390 0
+#define XIEITE_ARCHITECTURE_TYPE_IBM_Z 0
+#define XIEITE_ARCHITECTURE_MAJOR_IBM_Z 0
+#define XIEITE_ARCHITECTURE_MINOR_IBM_Z 0
+#define XIEITE_ARCHITECTURE_PATCH_IBM_Z 0
 #define XIEITE_ARCHITECTURE_TYPE_LOONGARCH 0
 #define XIEITE_ARCHITECTURE_MAJOR_LOONGARCH 0
 #define XIEITE_ARCHITECTURE_MINOR_LOONGARCH 0
@@ -116,6 +132,10 @@
 #define XIEITE_ARCHITECTURE_MAJOR_POWERPC 0
 #define XIEITE_ARCHITECTURE_MINOR_POWERPC 0
 #define XIEITE_ARCHITECTURE_PATCH_POWERPC 0
+#define XIEITE_ARCHITECTURE_TYPE_PTX 0
+#define XIEITE_ARCHITECTURE_MAJOR_PTX 0
+#define XIEITE_ARCHITECTURE_MINOR_PTX 0
+#define XIEITE_ARCHITECTURE_PATCH_PTX 0
 #define XIEITE_ARCHITECTURE_TYPE_PYRAMID_9810 0
 #define XIEITE_ARCHITECTURE_MAJOR_PYRAMID_9810 0
 #define XIEITE_ARCHITECTURE_MINOR_PYRAMID_9810 0
@@ -176,16 +196,12 @@
 #define XIEITE_ARCHITECTURE_MAJOR_XTENSA 0
 #define XIEITE_ARCHITECTURE_MINOR_XTENSA 0
 #define XIEITE_ARCHITECTURE_PATCH_XTENSA 0
-#define XIEITE_ARCHITECTURE_TYPE_Z 0
-#define XIEITE_ARCHITECTURE_MAJOR_Z 0
-#define XIEITE_ARCHITECTURE_MINOR_Z 0
-#define XIEITE_ARCHITECTURE_PATCH_Z 0
 
 #define XIEITE_ARCHITECTURE_EQUAL(architecture_, major_, minor_, patch_) (XIEITE_ARCHITECTURE_TYPE_##architecture_ && (XIEITE_ARCHITECTURE_MAJOR_##architecture_ == (major_)) && (XIEITE_ARCHITECTURE_MINOR_##architecture_ == (minor_)) && (XIEITE_ARCHITECTURE_PATCH_##architecture_ == (patch_)))
 #define XIEITE_ARCHITECTURE_LEAST(architecture_, major_, minor_, patch_) (XIEITE_ARCHITECTURE_TYPE_##architecture_ && ((XIEITE_ARCHITECTURE_MAJOR_##architecture_ > (major_)) || (XIEITE_ARCHITECTURE_MAJOR_##architecture_ == (major_)) && ((XIEITE_ARCHITECTURE_MINOR_##architecture_ > (minor_)) || (XIEITE_ARCHITECTURE_MINOR_##architecture_ == (minor_)) && (XIEITE_ARCHITECTURE_PATCH_##architecture_ >= (patch_)))))
 #define XIEITE_ARCHITECTURE_MOST(architecture_, major_, minor_, patch_) (XIEITE_ARCHITECTURE_TYPE_##architecture_ && ((XIEITE_ARCHITECTURE_MAJOR_##architecture_ < (major_)) || (XIEITE_ARCHITECTURE_MAJOR_##architecture_ == (major_)) && ((XIEITE_ARCHITECTURE_MINOR_##architecture_ < (minor_)) || (XIEITE_ARCHITECTURE_MINOR_##architecture_ == (minor_)) && (XIEITE_ARCHITECTURE_PATCH_##architecture_ <= (patch_)))))
 
-#if defined(__alpha) || defined(__alpha__) || defined(__ALPHA) || defined(_M_ALPHA)
+#if defined(_M_ALPHA) || defined(__ALPHA) || defined(__alpha) || defined(__alpha__)
 #	undef XIEITE_ARCHITECTURE_TYPE_ALPHA
 #	define XIEITE_ARCHITECTURE_TYPE_ALPHA 1
 
@@ -210,23 +226,29 @@
 #	endif
 #endif
 
-#if defined(__arm) || defined(__arm__) || defined(__thumb__) || defined(__TARGET_ARCH_ARM) || defined(__TARGET_ARCH_THUMB) || defined(_ARM) || defined(_M_ARM) || defined(_ARMT) || defined(_M_ARMT) || defined(__ARM_ARCH) || defined(__ARM_ARCH__) || defined(__CC_ARM) || defined(_M_ARM_NT)
+#if defined(_ARM) || defined(_ARMT) || defined(_M_ARM) || defined(_M_ARMT) || defined(_M_ARM_NT) || defined(__AARCH64EB__) || defined(__AARCH64EL__) || defined(__ARM_ARCH) || defined(__ARM_ARCH__) || defined(__CC_ARM) || defined(__TARGET_ARCH_ARM) || defined(__TARGET_ARCH_THUMB) || defined(__arm) || defined(__arm64) || defined(__arm__) || defined(__thumb__)
 #	undef XIEITE_ARCHITECTURE_TYPE_ARM
 #	define XIEITE_ARCHITECTURE_TYPE_ARM 1
 
-#	ifdef __ARM_ARCH
+#	if defined(_M_ARM) && (_M_ARM > 0)
+#		undef XIEITE_ARCHITECTURE_MAJOR_ARM
+#		define XIEITE_ARCHITECTURE_MAJOR_ARM _M_ARM
+#	elif defined(__ARM_ARCH) && (__ARM_ARCH > 0)
 #		undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #		define XIEITE_ARCHITECTURE_MAJOR_ARM __ARM_ARCH
-#	elif !defined(__ARM_ARCH__) && defined(__CC_ARM)
+#	elif defined(__TARGET_ARCH_ARM) && (__TARGET_ARCH_ARM > 0)
 #		undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #		define XIEITE_ARCHITECTURE_MAJOR_ARM __TARGET_ARCH_ARM
+#	elif defined(__TARGET_ARCH_THUMB) && (__TARGET_ARCH_THUMB > 0)
+#		undef XIEITE_ARCHITECTURE_MAJOR_ARM
+#		define XIEITE_ARCHITECTURE_MAJOR_ARM __TARGET_ARCH_THUMB
 #	else
 #		ifdef __ARM_ARCH_2__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 2
 #		endif
 
-#		if defined(__ARM_ARCH_3__) || defined(__ARM_ARCH_3M__)
+#		if defined(__ARM_ARCH_3M__) || defined(__ARM_ARCH_3__)
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 3
 #		endif
@@ -236,27 +258,27 @@
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 4
 #		endif
 
-#		if defined(__ARM_ARCH_5__) || defined(__ARM_ARCH_5E__) || defined(__ARM_ARCH_5T__) || defined(__ARM_ARCH_5TE__) || defined(__ARM_ARCH_5TEJ__)
+#		if defined(__ARM_ARCH_5E__) || defined(__ARM_ARCH_5TEJ__) || defined(__ARM_ARCH_5TE__) || defined(__ARM_ARCH_5T__) || defined(__ARM_ARCH_5__)
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 5
 #		endif
 
-#		if defined(__ARM_ARCH_6__) || defined(__ARM_ARCH_6J__) || defined(__ARM_ARCH_6K__) || defined(__ARM_ARCH_6M__) || defined(__ARM_ARCH_6Z__) || defined(__ARM_ARCH_6ZK__) || defined(__ARM_ARCH_6T2__)
+#		if defined(__ARM_ARCH_6J__) || defined(__ARM_ARCH_6K__) || defined(__ARM_ARCH_6M__) || defined(__ARM_ARCH_6T2__) || defined(__ARM_ARCH_6ZK__) || defined(__ARM_ARCH_6Z__) || defined(__ARM_ARCH_6__)
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 6
 #		endif
 
-#		if defined(__ARM_ARCH_7__) || defined(__ARM_ARCH_7A__) || defined(__ARM_ARCH_7EM__) || defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7R__) || defined(__ARM_ARCH_7S__)
+#		if defined(__ARM_ARCH_7A__) || defined(__ARM_ARCH_7EM__) || defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7R__) || defined(__ARM_ARCH_7S__) || defined(__ARM_ARCH_7__)
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 7
 #		endif
 
-#		if defined(__ARM_ARCH_8__) || defined(__ARM_ARCH_8A__) || defined(__arch64) || defined(__aarch64__) || defined(__arm64) || defined(_M_ARM64) || defined(__ARMv8__) || defined(__ARMv8_A__) || defined(__CORE_CORTEXAV8__)
+#		if defined(_M_ARM64) || defined(__AARCH64EB__) || defined(__AARCH64EL__) || defined(__ARM_ARCH_8A__) || defined(__ARM_ARCH_8__) || defined(__ARMv8_A__) || defined(__ARMv8__) || defined(__CORE_CORTEXAV8__) || defined(__aarch64__) || defined(__arch64) || defined(__arm64)
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 #		endif
 
-#		if defined(__ARM_ARCH_8_1A__)
+#		ifdef __ARM_ARCH_8_1A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 
@@ -264,7 +286,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 1
 #		endif
 
-#		if defined(__ARM_ARCH_8_2A__)
+#		ifdef __ARM_ARCH_8_2A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 
@@ -272,7 +294,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 2
 #		endif
 
-#		if defined(__ARM_ARCH_8_3A__)
+#		ifdef __ARM_ARCH_8_3A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 
@@ -280,7 +302,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 3
 #		endif
 
-#		if defined(__ARM_ARCH_8_4A__)
+#		ifdef __ARM_ARCH_8_4A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 
@@ -288,7 +310,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 4
 #		endif
 
-#		if defined(__ARM_ARCH_8_5A__)
+#		ifdef __ARM_ARCH_8_5A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 
@@ -296,7 +318,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 5
 #		endif
 
-#		if defined(__ARM_ARCH_8_6A__)
+#		ifdef __ARM_ARCH_8_6A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 
@@ -304,7 +326,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 6
 #		endif
 
-#		if defined(__ARM_ARCH_8_7A__)
+#		ifdef __ARM_ARCH_8_7A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 
@@ -312,7 +334,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 7
 #		endif
 
-#		if defined(__ARM_ARCH_8_8A__)
+#		ifdef __ARM_ARCH_8_8A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 
@@ -320,7 +342,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 8
 #		endif
 
-#		if defined(__ARM_ARCH_8_9A__)
+#		ifdef __ARM_ARCH_8_9A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 8
 
@@ -328,12 +350,12 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 9
 #		endif
 
-#		if defined(__ARM_ARCH_9A__)
+#		ifdef __ARM_ARCH_9A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 9
 #		endif
 
-#		if defined(__ARM_ARCH_9_1A__)
+#		ifdef __ARM_ARCH_9_1A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 9
 
@@ -341,7 +363,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 1
 #		endif
 
-#		if defined(__ARM_ARCH_9_2A__)
+#		ifdef __ARM_ARCH_9_2A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 9
 
@@ -349,7 +371,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 2
 #		endif
 
-#		if defined(__ARM_ARCH_9_3A__)
+#		ifdef __ARM_ARCH_9_3A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 9
 
@@ -357,7 +379,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 3
 #		endif
 
-#		if defined(__ARM_ARCH_9_4A__)
+#		ifdef __ARM_ARCH_9_4A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 9
 
@@ -365,7 +387,7 @@
 #			define XIEITE_ARCHITECTURE_MINOR_ARM 4
 #		endif
 
-#		if defined(__ARM_ARCH_9_5A__)
+#		ifdef __ARM_ARCH_9_5A__
 #			undef XIEITE_ARCHITECTURE_MAJOR_ARM
 #			define XIEITE_ARCHITECTURE_MAJOR_ARM 9
 
@@ -375,7 +397,7 @@
 #	endif
 #endif
 
-#if defined(bfin) || defined(__bfin) || defined(__bfin__) || defined(BFIN) || defined(__BFIN) || defined(__BFIN__) || defined(__ADSPBLACKFIN__)
+#if defined(BFIN) || defined(__ADSPBLACKFIN__) || defined(__BFIN) || defined(__BFIN__) || defined(__bfin) || defined(__bfin__) || defined(bfin)
 #	undef XIEITE_ARCHITECTURE_TYPE_BLACKFIN
 #	define XIEITE_ARCHITECTURE_TYPE_BLACKFIN 1
 
@@ -429,12 +451,7 @@
 #		define XIEITE_ARCHITECTURE_MAJOR_BLACKFIN 526
 #	endif
 
-#	ifdef __ADSPBF527C__
-#		undef XIEITE_ARCHITECTURE_MAJOR_BLACKFIN
-#		define XIEITE_ARCHITECTURE_MAJOR_BLACKFIN 527
-#	endif
-
-#	ifdef __ADSPBF527__
+#	if defined(__ADSPBF527__) || defined(__ADSPBF527C__)
 #		undef XIEITE_ARCHITECTURE_MAJOR_BLACKFIN
 #		define XIEITE_ARCHITECTURE_MAJOR_BLACKFIN 527
 #	endif
@@ -605,7 +622,7 @@
 #	define XIEITE_ARCHITECTURE_TYPE_CRAY 1
 #endif
 
-#if defined(__csky__) || defined(__CSKY__)
+#if defined(__CSKY__) || defined(__csky__)
 #	undef XIEITE_ARCHITECTURE_TYPE_CSKY
 #	define XIEITE_ARCHITECTURE_TYPE_CSKY 1
 #endif
@@ -619,43 +636,43 @@
 #	undef XIEITE_ARCHITECTURE_TYPE_ELBRUS_2000
 #	define XIEITE_ARCHITECTURE_TYPE_ELBRUS_2000 1
 
-#	if defined(__elbrus__) || defined(__iset__) && (__iset__ == 1)
+#	if defined(__elbrus__) || (defined(__iset__) && (__iset__ == 1))
 #		undef XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000
 #		define XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000 1
 #	endif
 
-#	if defined(__elbrus_s__) || defined(__elbrus_2cplus__) || defined(__iset__) && (__iset__ == 2)
+#	if defined(__elbrus_2cplus__) || defined(__elbrus_s__) || (defined(__iset__) && (__iset__ == 2))
 #		undef XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000
 #		define XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000 2
 #	endif
 
-#	if defined(__elbrus_4c__) || defined(__iset__) && (__iset__ == 3)
+#	if defined(__elbrus_4c__) || (defined(__iset__) && (__iset__ == 3))
 #		undef XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000
 #		define XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000 3
 #	endif
 
-#	if defined(__elbrus_1cplus__) || defined(__elbrus_8c__) || defined(__elbrus_1ck__) || defined(__elbrus_8c1__) || defined(__iset__) && (__iset__ == 4)
+#	if defined(__elbrus_1ck__) || defined(__elbrus_1cplus__) || defined(__elbrus_8c__) || defined(__elbrus_8c1__) || (defined(__iset__) && (__iset__ == 4))
 #		undef XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000
 #		define XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000 4
 #	endif
 
-#	if defined(__elbrus_8cb__) || defined(__iset__) && (__iset__ == 5)
+#	if defined(__elbrus_8cb__) || (defined(__iset__) && (__iset__ == 5))
 #		undef XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000
 #		define XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000 5
 #	endif
 
-#	if defined(__elbrus_2c3__) || defined(__elbrus_12c__) || defined(__iset__) && (__iset__ == 6)
+#	if defined(__elbrus_12c__) || defined(__elbrus_2c3__) || (defined(__iset__) && (__iset__ == 6))
 #		undef XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000
 #		define XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000 6
 #	endif
 
-#	if defined(__elbrus_32c__) || defined(__iset__) && (__iset__ == 7)
+#	if defined(__elbrus_32c__) || (defined(__iset__) && (__iset__ == 7))
 #		undef XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000
 #		define XIEITE_ARCHITECTURE_MAJOR_ELBRUS_2000 7
 #	endif
 #endif
 
-#if defined(fr30) || defined(__fr30) || defined(__fr30__)
+#if defined(__fr30) || defined(__fr30__) || defined(fr30)
 #	undef XIEITE_ARCHITECTURE_TYPE_FR30
 #	define XIEITE_ARCHITECTURE_TYPE_FR30 1
 #endif
@@ -670,7 +687,7 @@
 #	endif
 #endif
 
-#if defined(hp800) || defined(__hp800) || defined(__hp800__)
+#if defined(__hp800) || defined(__hp800__) || defined(hp800)
 #	undef XIEITE_ARCHITECTURE_TYPE_HP_800
 #	define XIEITE_ARCHITECTURE_TYPE_HP_800 1
 #endif
@@ -679,172 +696,197 @@
 #	undef XIEITE_ARCHITECTURE_TYPE_HP_9000
 #	define XIEITE_ARCHITECTURE_TYPE_HP_9000 1
 
-#	if defined(hp9000s200) || defined(__hp9000s200) || defined(__hp9000s200__)
+#	if defined(__hp9000s200) || defined(__hp9000s200__) || defined(hp9000s200)
 #		undef XIEITE_ARCHITECTURE_MAJOR_HP_9000
 #		define XIEITE_ARCHITECTURE_MAJOR_HP_9000 200
 #	endif
 
-#	if defined(hp9000s300) || defined(__hp9000s300) || defined(__hp9000s300__)
+#	if defined(__hp9000s300) || defined(__hp9000s300__) || defined(hp9000s300)
 #		undef XIEITE_ARCHITECTURE_MAJOR_HP_9000
 #		define XIEITE_ARCHITECTURE_MAJOR_HP_9000 300
 #	endif
 
-#	if defined(hp9000s400) || defined(__hp9000s400) || defined(__hp9000s400__)
+#	if defined(__hp9000s400) || defined(__hp9000s400__) || defined(hp9000s400)
 #		undef XIEITE_ARCHITECTURE_MAJOR_HP_9000
 #		define XIEITE_ARCHITECTURE_MAJOR_HP_9000 400
 #	endif
 
-#	if defined(hp9000s500) || defined(__hp9000s500) || defined(__hp9000s400__)
+#	if defined(__hp9000s500) || defined(__hp9000s400__) || defined(hp9000s500)
 #		undef XIEITE_ARCHITECTURE_MAJOR_HP_9000
 #		define XIEITE_ARCHITECTURE_MAJOR_HP_9000 500
 #	endif
 
-#	if defined(hp9000s700) || defined(__hp9000s700) || defined(__hp9000s700__)
+#	if defined(__hp9000s700) || defined(__hp9000s700__) || defined(hp9000s700)
 #		undef XIEITE_ARCHITECTURE_MAJOR_HP_9000
 #		define XIEITE_ARCHITECTURE_MAJOR_HP_9000 700
 #	endif
 
-#	if defined(hp9000s800) || defined(__hp9000s800) || defined(__hp9000s800__) || defined(hp9k8) || defined(__hp9k8) || defined(__hp9k8__)
+#	if defined(__hp9000s800) || defined(__hp9000s800__) || defined(__hp9k8) || defined(__hp9k8__) || defined(hp9000s800) || defined(hp9k8)
 #		undef XIEITE_ARCHITECTURE_MAJOR_HP_9000
 #		define XIEITE_ARCHITECTURE_MAJOR_HP_9000 800
 #	endif
 #endif
 
-#if defined(ia64) || defined(__ia64) || defined(__ia64__) || defined(_IA64) || defined(__IA64__) || defined(_M_IA64) || defined(__itanium__)
-#	undef XIEITE_ARCHITECTURE_TYPE_ITANIUM
-#	define XIEITE_ARCHITECTURE_TYPE_ITANIUM 1
+#if defined(_IA64) || defined(_M_IA64) || defined(__IA64__) || defined(__ia64) || defined(__ia64__) || defined(__itanium__) || defined(ia64)
+#	undef XIEITE_ARCHITECTURE_TYPE_IA64
+#	define XIEITE_ARCHITECTURE_TYPE_IA64 1
 
-#	undef XIEITE_ARCHITECTURE_MAJOR_ITANIUM
-#	define XIEITE_ARCHITECTURE_MAJOR_ITANIUM (_M_IA64 % 64000 / 100)
+#	undef XIEITE_ARCHITECTURE_MAJOR_IA64
+#	define XIEITE_ARCHITECTURE_MAJOR_IA64 (_M_IA64 % 64000 / 100)
 
-#	undef XIEITE_ARCHITECTURE_MINOR_ITANIUM
-#	define XIEITE_ARCHITECTURE_MINOR_ITANIUM (_M_IA64 % 100)
+#	undef XIEITE_ARCHITECTURE_MINOR_IA64
+#	define XIEITE_ARCHITECTURE_MINOR_IA64 (_M_IA64 % 100)
 #endif
 
-#if defined(__loongarch__)
+#ifdef ibm032
+#	undef XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_32
+#	define XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_32 1
+#endif
+
+#if defined(__370__) || defined(__THW_370__) || defined(ibm370)
+#	undef XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_370
+#	define XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_370 1
+#endif
+
+#if defined(__s390__) || defined(__s390x__)
+#	undef XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_390
+#	define XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_390 1
+#endif
+
+#if defined(__SYSC_ZARCH__) || defined(__zarch__)
+#	undef XIEITE_ARCHITECTURE_TYPE_IBM_Z
+#	define XIEITE_ARCHITECTURE_TYPE_IBM_Z 1
+#endif
+
+#ifdef __loongarch__
 #	undef XIEITE_ARCHITECTURE_TYPE_LOONGARCH
 #	define XIEITE_ARCHITECTURE_TYPE_LOONGARCH 1
 
 #	undef XIEITE_ARCHITECTURE_MAJOR_LOONGARCH
 #	define XIEITE_ARCHITECTURE_MAJOR_LOONGARCH 32
 
-#	if defined(__loongarch64) || defined(__loongarch_grlen) && (__loongarchgrlen == 64)
+#	if defined(__loongarch_grlen) || (defined(__loongarch64) && (__loongarchgrlen == 64))
 #		undef XIEITE_ARCHITECTURE_MAJOR_LOONGARCH
 #		define XIEITE_ARCHITECTURE_MAJOR_LOONGARCH 64
 #	endif
 #endif
 
-#if defined(__mcore__) || defined(__MCORE__)
+#if defined(__MCORE__) || defined(__mcore__)
 #	undef XIEITE_ARCHITECTURE_TYPE_M_CORE
 #	define XIEITE_ARCHITECTURE_TYPE_M_CORE 1
 #endif
 
-#if defined(__m32r__) || defined(__M32R__)
+#if defined(__M32R__) || defined(__m32r__)
 #	undef XIEITE_ARCHITECTURE_TYPE_M32R
 #	define XIEITE_ARCHITECTURE_TYPE_M32R 1
 #endif
 
-#if defined(__mmix__) || defined(__MMIX__)
+#if defined(__MMIX__) || defined(__mmix__)
 #	undef XIEITE_ARCHITECTURE_TYPE_MMIX
 #	define XIEITE_ARCHITECTURE_TYPE_MMIX 1
 #endif
 
-#if defined(__mn10300__) || defined(__MN10300__)
+#if defined(__MN10300__) || defined(__mn10300__)
 #	undef XIEITE_ARCHITECTURE_TYPE_MN103
 #	define XIEITE_ARCHITECTURE_TYPE_MN103
 #endif
 
-#if defined(mips) || defined(__mips) || defined(__mips__) || defined(MIPS) || defined(__MIPS) || defined(__MIPS__) || defined(_M_MRX000)
+#if defined(MIPS) || defined(_M_MRX000) || defined(__MIPS) || defined(__MIPS__) || defined(__mips) || defined(__mips__) || defined(mips)
 #	undef XIEITE_ARCHITECTURE_TYPE_MIPS
 #	define XIEITE_ARCHITECTURE_TYPE_MIPS 1
 
-#	if defined(_MIPS_ARCH_MIPS1) || defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS1) || defined(__mips) && (__mips == 1)
+#	ifdef __mips
 #		undef XIEITE_ARCHITECTURE_MAJOR_MIPS
-#		define XIEITE_ARCHITECTURE_MAJOR_MIPS 1
-#	endif
+#		define XIEITE_ARCHITECTURE_MAJOR_MIPS __mips
+#	else
+#		if defined(_MIPS_ARCH_MIPS1) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS1))
+#			undef XIEITE_ARCHITECTURE_MAJOR_MIPS
+#			define XIEITE_ARCHITECTURE_MAJOR_MIPS 1
+#		endif
 
-#	if defined(_MIPS_ARCH_MIPS2) || defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS2) || defined(__mips) && (__mips == 2) || defined(__MIPS_ISA2__) || defined(_R3000)
-#		undef XIEITE_ARCHITECTURE_MAJOR_MIPS
-#		define XIEITE_ARCHITECTURE_MAJOR_MIPS 2
-#	endif
+#		if  defined(_MIPS_ARCH_MIPS2) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS2)) || defined(_R3000) || defined(__MIPS_ISA2__)
+#			undef XIEITE_ARCHITECTURE_MAJOR_MIPS
+#			define XIEITE_ARCHITECTURE_MAJOR_MIPS 2
+#		endif
 
-#	if defined(_MIPS_ARCH_MIPS3) || defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS3) || defined(__mips) && (__mips == 3) || defined(__MIPS_ISA3__) || defined(_R4000) || defined(_M_MRX000) && (_M_MRX000 < 10000)
-#		undef XIEITE_ARCHITECTURE_MAJOR_MIPS
-#		define XIEITE_ARCHITECTURE_MAJOR_MIPS 3
-#	endif
+#		if defined(_MIPS_ARCH_MIPS3) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS3)) || (defined(_M_MRX000) && (_M_MRX000 < 10000)) || defined(_R4000) || defined(__MIPS_ISA3__)
+#			undef XIEITE_ARCHITECTURE_MAJOR_MIPS
+#			define XIEITE_ARCHITECTURE_MAJOR_MIPS 3
+#		endif
 
-#	if defined(_MIPS_ARCH_MIPS4) || defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS4) || defined(__mips) && (__mips == 4) || defined(__MIPS_ISA4__) || defined(_M_MRX000) && (_M_MRX000 >= 10000)
-#		undef XIEITE_ARCHITECTURE_MAJOR_MIPS
-#		define XIEITE_ARCHITECTURE_MAJOR_MIPS 4
-#	endif
+#		if defined(_MIPS_ARCH_MIPS4) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS4)) || (defined(_M_MRX000) && (_M_MRX000 >= 10000)) || defined(__MIPS_ISA4__)
+#			undef XIEITE_ARCHITECTURE_MAJOR_MIPS
+#			define XIEITE_ARCHITECTURE_MAJOR_MIPS 4
+#		endif
 
-#	if defined(_MIPS_ARCH_MIPS5) || defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS5) || defined(__mips) && (__mips == 5) || defined(__MIPS_ISA5__)
-#		undef XIEITE_ARCHITECTURE_MAJOR_MIPS
-#		define XIEITE_ARCHITECTURE_MAJOR_MIPS 5
-#	endif
+#		if defined(_MIPS_ARCH_MIPS5) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS5)) || defined(__MIPS_ISA5__)
+#			undef XIEITE_ARCHITECTURE_MAJOR_MIPS
+#			define XIEITE_ARCHITECTURE_MAJOR_MIPS 5
+#		endif
 
-#	if defined(_MIPS_ARCH_MIPS32) || defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS32) || defined(__mips) && (__mips == 32) || defined(__mips32)
-#		undef XIEITE_ARCHITECTURE_MAJOR_MIPS
-#		define XIEITE_ARCHITECTURE_MAJOR_MIPS 6
-#	endif
+#		if defined(_MIPS_ARCH_MIPS32) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS32)) || defined(__mips32)
+#			undef XIEITE_ARCHITECTURE_MAJOR_MIPS
+#			define XIEITE_ARCHITECTURE_MAJOR_MIPS 32
+#		endif
 
-#	if defined(_MIPS_ARCH_MIPS64) || defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS64) || defined(__mips) && (__mips == 64) || defined(__mips64)
-#		undef XIEITE_ARCHITECTURE_MAJOR_MIPS
-#		define XIEITE_ARCHITECTURE_MAJOR_MIPS 7
+#		if defined(_MIPS_ARCH_MIPS64) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS64)) || defined(__mips64)
+#			undef XIEITE_ARCHITECTURE_MAJOR_MIPS
+#			define XIEITE_ARCHITECTURE_MAJOR_MIPS 64
+#		endif
 #	endif
 #endif
 
-#if defined(__m68k__) || defined(M68000) || defined(__MC68K__) || defined(mc68000) || defined(__mc68000) || defined(__mc68000__) || defined(is68k) || defined(_M_M68K)
+#if defined(M68000) || defined(_M_M68K) || defined(__MC68K__) || defined(__m68k__) || defined(__mc68000) || defined(__mc68000__) || defined(is68k) || defined(mc68000)
 #	undef XIEITE_ARCHITECTURE_TYPE_MOTOROLA_68000
 #	define XIEITE_ARCHITECTURE_TYPE_MOTOROLA_68000 1
 
-#	if defined(__mc68000__) || defined(__mc68000) || defined(mc68000) || defined(__MC68000__) || defined(__mc68010__) || defined(__mc68010) || defined(mc68010) || defined(__MC68010__)
+#	if defined(__MC68000__) || defined(__MC68010__) || defined(__mc68000) || defined(__mc68000__) || defined(__mc68010) || defined(__mc68010__) || defined(mc68000) || defined(mc68010)
 #		undef XIEITE_ARCHITECTURE_MAJOR_MOTOROLA_68000
 #		define XIEITE_ARCHITECTURE_MAJOR_MOTOROLA_68000 1
 #	endif
 
-#	if defined(__mc68020__) || defined(__mc68020) || defined(mc68020) || defined(__MC68020__) || defined(__mc68030__) || defined(__mc68030) || defined(mc68030) || defined(__MC68030__)
+#	if defined(__MC68020__) || defined(__MC68030__) || defined(__mc68020) || defined(__mc68020__) || defined(__mc68030) || defined(__mc68030__) || defined(mc68020) || defined(mc68030)
 #		undef XIEITE_ARCHITECTURE_MAJOR_MOTOROLA_68000
 #		define XIEITE_ARCHITECTURE_MAJOR_MOTOROLA_68000 2
 #	endif
 
-#	if defined(__mc68040__) || defined(__mc68040) || defined(mc68040) || defined(__MC68040__)
+#	if defined(__MC68040__) || defined(__mc68040) || defined(__mc68040__) || defined(mc68040)
 #		undef XIEITE_ARCHITECTURE_MAJOR_MOTOROLA_68000
 #		define XIEITE_ARCHITECTURE_MAJOR_MOTOROLA_68000 3
 #	endif
 
-#	if defined(__mc68060__) || defined(__mc68060) || defined(mc68060) || defined(__MC68060__)
+#	if defined(__MC68060__) || defined(__mc68060) || defined(__mc68060__) || defined(mc68060)
 #		undef XIEITE_ARCHITECTURE_MAJOR_MOTOROLA_68000
 #		define XIEITE_ARCHITECTURE_MAJOR_MOTOROLA_68000 4
 #	endif
 #endif
 
-#if defined(moxie) || defined(__moxie) || defined(__moxie__) || defined(MOXIE) || defined(__MOXIE) || defined(__MOXIE__)
+#if defined(MOXIE) || defined(__MOXIE) || defined(__MOXIE__) || defined(__moxie) || defined(__moxie__) || defined(moxie)
 #	undef XIEITE_ARCHITECTURE_TYPE_MOXIE
 #	define XIEITE_ARCHITECTURE_TYPE_MOXIE 1
 #endif
 
-#if defined(__nds32__) || defined(__NDS32__)
+#if defined(__NDS32__) || defined(__nds32__)
 #	undef XIEITE_ARCHITECTURE_TYPE_NDS32
 #	define XIEITE_ARCHITECTURE_TYPE_NDS32 1
 #endif
 
-#if defined(__ve) || defined(__ve__) || defined(__NEC__)
+#if defined(__NEC__) || defined(__ve) || defined(__ve__)
 #	undef XIEITE_ARCHITECTURE_TYPE_NEC_SX_AURORA_TSUBASA
 #	define XIEITE_ARCHITECTURE_TYPE_NEC_SX_AURORA_TSUBASA 1
 #endif
 
-#if defined(nios2) || defined(__nios2) || defined(__nios2__) || defined(NIOS2) || defined(__NIOS2) || defined(__NIOS2__)
+#if defined(NIOS2) || defined(__NIOS2) || defined(__NIOS2__) || defined(__nios2) || defined(__nios2__) || defined(nios2)
 #	undef XIEITE_ARCHITECTURE_TYPE_NIOS_II
 #	define XIEITE_ARCHITECTURE_TYPE_NIOS_II 1
 #endif
 
-#if defined(__or1k__) || defined(__OR1K__)
+#if defined(__OR1K__) || defined(__or1k__)
 #	undef XIEITE_ARCHITECTURE_TYPE_OR1K
 #	define XIEITE_ARCHITECTURE_TYPE_OR1K 1
 #endif
 
-#if defined(__hppa__) || defined(__HPPA__) || defined(__hppa)
+#if defined(__HPPA__) || defined(__hppa) || defined(__hppa__)
 #	undef XIEITE_ARCHITECTURE_TYPE_PA_RISC
 #	define XIEITE_ARCHITECTURE_TYPE_PA_RISC 1
 
@@ -861,18 +903,18 @@
 #		define XIEITE_ARCHITECTURE_MINOR_PA_RISC 1
 #	endif
 
-#	if defined(_PA_RISC2_0) || defined(__RISC2_0__) || defined(__HPPA20__) || defined(__PA8000__)
+#	if defined(_PA_RISC2_0) || defined(__HPPA20__) || defined(__PA8000__) || defined(__RISC2_0__)
 #		undef XIEITE_ARCHITECTURE_MAJOR_PA_RISC
 #		define XIEITE_ARCHITECTURE_MAJOR_PA_RISC 2
 #	endif
 #endif
 
-#if defined(pdp11) || defined(__pdp11) || defined(__pdp11__)
+#if defined(__pdp11) || defined(__pdp11__) || defined(pdp11)
 #	undef XIEITE_ARCHITECTURE_TYPE_PDP_11
 #	define XIEITE_ARCHITECTURE_TYPE_PDP_11 1
 #endif
 
-#if defined(powerpc) || defined(__powerpc) || defined(__powerpc__) || defined(__powerpc64__) || defined(__POWERPC__) || defined(__ppc__) || defined(__ppc64) || defined(__ppc64__) || defined(PPC) || defined(__PPC) || defined(__PPC__) || defined(__PPC64__) || defined(_ARCH_PPC) || defined(_ARCH_PPC64) || defined(_M_PPC) || defined(__ppc) || defined(_ARCH_PRW) || defined(_ARCH_COM) || defined(_M_PPC) || defined(_M_MPPC) || defined(_LP64) || defined(__LP64__) || defined(__64BIT__)
+#if defined(PPC) || defined(_ARCH_COM) || defined(_ARCH_PPC) || defined(_ARCH_PPC64) || defined(_ARCH_PRW) || defined(_LP64) || defined(_M_MPPC) || defined(_M_PPC) || defined(_M_PPC) || defined(__64BIT__) || defined(__LP64__) || defined(__POWERPC__) || defined(__PPC) || defined(__PPC64__) || defined(__PPC__) || defined(__powerpc) || defined(__powerpc64__) || defined(__powerpc__) || defined(__ppc) || defined(__ppc64) || defined(__ppc64__) || defined(__ppc__) || defined(powerpc)
 #	undef XIEITE_ARCHITECTURE_TYPE_POWERPC
 #	define XIEITE_ARCHITECTURE_TYPE_POWERPC 1
 
@@ -947,22 +989,27 @@
 #	endif
 #endif
 
+#ifdef __CUDA_ARCH__
+#	undef XIEITE_ARCHITECTURE_TYPE_PTX
+#	define XIEITE_ARCHITECTURE_TYPE_PTX 1
+#endif
+
 #ifdef pyr
 #	undef XIEITE_ARCHITECTURE_TYPE_PYRAMID_9810
 #	define XIEITE_ARCHITECTURE_TYPE_PYRAMID_9810 1
 #endif
 
-#if defined(__riscv) || defined(__riscv__) || defined(__riscv_xlen) || defined(__riscv64)
+#if defined(__riscv) || defined(__riscv64) || defined(__riscv__) || defined(__riscv_xlen)
 #	undef XIEITE_ARCHITECTURE_TYPE_RISC_V
 #	define XIEITE_ARCHITECTURE_TYPE_RISC_V 1
 #endif
 
-#if defined(__THW_RS6000) || defined(_IBMR2) || defined(_POWER) || defined(_ARCH_PWR) || defined(_ARCH_PWR2) || defined(_ARCH_PWR3) || defined(_ARCH_PWR4)
+#if defined(_ARCH_PWR) || defined(_ARCH_PWR2) || defined(_ARCH_PWR3) || defined(_ARCH_PWR4) || defined(_IBMR2) || defined(_POWER) || defined(__THW_RS6000)
 #	undef XIEITE_ARCHITECTURE_TYPE_RS_6000
 #	define XIEITE_ARCHITECTURE_TYPE_RS_6000 1
 #endif
 
-#if defined(__sparc__) || defined(__sparc) || defined(sparc)
+#if defined(__sparc) || defined(__sparc__) || defined(sparc)
 #	undef XIEITE_ARCHITECTURE_TYPE_SPARC
 #	define XIEITE_ARCHITECTURE_TYPE_SPARC 1
 
@@ -1016,27 +1063,27 @@
 #	undef XIEITE_ARCHITECTURE_TYPE_SUPERH
 #	define XIEITE_ARCHITECTURE_TYPE_SUPERH 1
 
-#	if defined(__sh1__) || defined(__SH1__)
+#	if defined(__SH1__) || defined(__sh1__)
 #		undef XIEITE_ARCHITECTURE_MAJOR_SUPERH
 #		define XIEITE_ARCHITECTURE_MAJOR_SUPERH 1
 #	endif
 
-#	if defined(__sh2__) || defined(__SH2__)
+#	if defined(__SH2__) || defined(__sh2__)
 #		undef XIEITE_ARCHITECTURE_MAJOR_SUPERH
 #		define XIEITE_ARCHITECTURE_MAJOR_SUPERH 2
 #	endif
 
-#	if defined(__sh3__) || defined(__SH3__)
+#	if defined(__SH3__) || defined(__sh3__)
 #		undef XIEITE_ARCHITECTURE_MAJOR_SUPERH
 #		define XIEITE_ARCHITECTURE_MAJOR_SUPERH 3
 #	endif
 
-#	if defined(__sh4__) || defined(__SH4__)
+#	if defined(__SH4__) || defined(__sh4__)
 #		undef XIEITE_ARCHITECTURE_MAJOR_SUPERH
 #		define XIEITE_ARCHITECTURE_MAJOR_SUPERH 4
 #	endif
 
-#	if defined(__sh5__) || defined(__SH5__)
+#	if defined(__SH5__) || defined(__sh5__)
 #		undef XIEITE_ARCHITECTURE_MAJOR_SUPERH
 #		define XIEITE_ARCHITECTURE_MAJOR_SUPERH 5
 #	endif
@@ -1047,7 +1094,7 @@
 #	define XIEITE_ARCHITECTURE_TYPE_TAHOE 1
 #endif
 
-#if defined(_TMS320C2XX) || defined(__TMS320C2000__) || defined(_TMS320C5X) || defined(__TMS320C55X__) || defined(_TMS320C6X) || defined(__TMS320C6X__)
+#if defined(_TMS320C2XX) || defined(_TMS320C5X) || defined(_TMS320C6X) || defined(__TMS320C2000__) || defined(__TMS320C55X__) || defined(__TMS320C6X__)
 #	undef XIEITE_ARCHITECTURE_TYPE_TMS320
 #	define XIEITE_ARCHITECTURE_TYPE_TMS320 1
 
@@ -1119,17 +1166,17 @@
 #	define XIEITE_ARCHITECTURE_TYPE_V850 1
 #endif
 
-#if defined(vax) || defined(__vax) || defined(VAX) || defined(__VAX)
+#if defined(VAX) || defined(__VAX) || defined(__vax) || defined(vax)
 #	undef XIEITE_ARCHITECTURE_TYPE_VAX
 #	define XIEITE_ARCHITECTURE_TYPE_VAX 1
 #endif
 
-#if defined(__8080__) || defined(__8085__) || defined(__Z80) || defined(__Z180)
+#if defined(__8080__) || defined(__8085__) || defined(__Z180) || defined(__Z80)
 #	undef XIEITE_ARCHITECTURE_TYPE_X80
 #	define XIEITE_ARCHITECTURE_TYPE_X80 1
 #endif
 
-#if defined(i386) || defined(__i386) || defined(__i386__) || defined(__IA32__) || defined(_M_I86) || defined(_M_IX86) || defined(__X86__) || defined(_X86_) || defined(__THW_INTEL__) || defined(__I86__) || defined(__INTEL__) || defined(__386) || defined(__80486__) || defined(__pentium__) || defined(__k6__) || defined(__athlon__) || defined(__SSE__)
+#if defined(_M_I86) || defined(_M_IX86) || defined(_X86_) || defined(__386) || defined(__80486__) || defined(__I86__) || defined(__IA32__) || defined(__INTEL__) || defined(__SSE__) || defined(__THW_INTEL__) || defined(__X86__) || defined(__athlon__) || defined(__i386) || defined(__i386__) || defined(__k6__) || defined(__pentium__) || defined(i386)
 #	undef XIEITE_ARCHITECTURE_TYPE_X86_32
 #	define XIEITE_ARCHITECTURE_TYPE_X86_32 1
 
@@ -1145,7 +1192,7 @@
 #			define XIEITE_ARCHITECTURE_MAJOR_X86_32 3
 #		endif
 
-#		if defined(__i486__) || defined(__80486__)
+#		if defined(__80486__) || defined(__i486__)
 #			undef XIEITE_ARCHITECTURE_MAJOR_X86_32
 #			define XIEITE_ARCHITECTURE_MAJOR_X86_32 4
 #		endif
@@ -1155,31 +1202,26 @@
 #			define XIEITE_ARCHITECTURE_MAJOR_X86_32 5
 #		endif
 
-#		if defined(__i686__) || defined(__athlon__) || defined(__SSE__) || defined(__pentiumpro__)
+#		if defined(__SSE__) || defined(__athlon__) || defined(__i686__) || defined(__pentiumpro__)
 #			undef XIEITE_ARCHITECTURE_MAJOR_X86_32
 #			define XIEITE_ARCHITECTURE_MAJOR_X86_32 6
 #		endif
 #	endif
 #endif
 
-#if defined(__amd64__) || defined(__amd64) || defined(__amd_64__amd64__) || defined(__x86_64__) || defined(__x86_64) || defined(_M_AMD64) || defined(_M_X64) || defined(__k8) || defined(__k8__)
+#if defined(_M_AMD64) || defined(_M_X64) || defined(__amd64) || defined(__amd64__) || defined(__amd_64__amd64__) || defined(__k8) || defined(__k8__) || defined(__x86_64) || defined(__x86_64__)
 #	undef XIEITE_ARCHITECTURE_TYPE_X86_64
 #	define XIEITE_ARCHITECTURE_TYPE_X86_64 1
 #endif
 
-#if defined(xstormy16) || defined(__xstormy16) || defined(__xstormy16__)
+#if defined(__xstormy16) || defined(__xstormy16__) || defined(xstormy16)
 #	undef XIEITE_ARCHITECTURE_TYPE_XSTORMY16
 #	define XIEITE_ARCHITECTURE_TYPE_XSTORMY16 1
 #endif
 
-#if defined(__xtensa__) || defined(__XTENSA__)
+#if defined(__XTENSA__) || defined(__xtensa__)
 #	undef XIEITE_ARCHITECTURE_TYPE_XTENSA
 #	define XIEITE_ARCHITECTURE_TYPE_XTENSA 1
-#endif
-
-#if defined(__370__) || defined(__THW_370__) || defined(__s390__) || defined(__s390x__) || defined(__zarch__) || defined(__SYSC_ZARCH__) || defined(ibm032) || defined(ibm370)
-#	undef XIEITE_ARCHITECTURE_TYPE_Z
-#	define XIEITE_ARCHITECTURE_TYPE_Z 1
 #endif
 
 // https://github.com/cpredef/predef/blob/master/Architectures.md

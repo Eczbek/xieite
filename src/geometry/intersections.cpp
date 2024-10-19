@@ -45,7 +45,7 @@ export namespace xieite::geometry {
 		if (!xieite::math::almostEqual<Arithmetic>(discriminator, 0)) {
 			const auto intersection = xieite::geometry::Point<Arithmetic>(((linearShape2.start.x - linearShape2.end.x) * (linearShape1.start.x * linearShape1.end.y - linearShape1.start.y * linearShape1.end.x) - (linearShape1.start.x - linearShape1.end.x) * (linearShape2.start.x * linearShape2.end.y - linearShape2.start.y * linearShape2.end.x)) / discriminator, ((linearShape2.start.y - linearShape2.end.y) * (linearShape1.start.x * linearShape1.end.y - linearShape1.start.y * linearShape1.end.x) - (linearShape1.start.y - linearShape1.end.y) * (linearShape2.start.x * linearShape2.end.y - linearShape2.start.y * linearShape2.end.x)) / discriminator);
 			if (linearShape1.contains(intersection) && linearShape2.contains(intersection)) {
-				return std::vector { intersection };
+				return std::vector<xieite::geometry::Point<Arithmetic>> { intersection };
 			}
 		}
 		return std::vector<xieite::geometry::Point<Arithmetic>>();

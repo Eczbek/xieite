@@ -16,7 +16,10 @@ export namespace xieite::geometry {
 
 	template<typename Arithmetic = double, xieite::concepts::LinearShape<Arithmetic> LinearShape>
 	[[nodiscard]] constexpr LinearShape rotate(const LinearShape& linearShape, const std::conditional_t<std::floating_point<Arithmetic>, Arithmetic, double> angle, const xieite::geometry::Point<Arithmetic> pivot = xieite::geometry::Point<Arithmetic>()) noexcept {
-		return LinearShape(xieite::geometry::rotate(linearShape.start, angle, pivot), xieite::geometry::rotate(linearShape.end, angle, pivot));
+		return LinearShape(
+			xieite::geometry::rotate(linearShape.start, angle, pivot),
+			xieite::geometry::rotate(linearShape.end, angle, pivot)
+		);
 	}
 
 	template<typename Arithmetic = double>
