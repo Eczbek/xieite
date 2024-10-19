@@ -12,4 +12,3 @@ Tools for interacting with the system
 - [execute\(\)](./namespaces/system/execute.md)
 - [Result \{\}](./namespaces/system/result.md)
 - [segmentationFault\(\)](./namespaces/system/segmentation_fault.md)
-- [Word](./namespaces/system/word.md)

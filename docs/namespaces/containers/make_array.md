@@ -4,16 +4,16 @@ Defined in fragment [xieite:containers.makeArray](../../../src/containers/make_a
 &nbsp;
 
 ## Description
-Attempts to create `std::array`s from other ranges.
+Attempts to create a `std::array` from another other range.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-template<typename Value, std::size_t size, std::ranges::input_range Range, xieite::concepts::Invocable<Value(std::ranges::range_common_reference_t<Range>)> Functor = decltype(XIEITE_LIFT_PREFIX_GLOBAL(static_cast<Value>))>
+template<typename Value, std::size_t size, std::ranges::input_range Range = std::initializer_list<Value>, xieite::concepts::Invocable<Value(std::ranges::range_common_reference_t<Range>)> Functor = decltype(XIEITE_LIFT_PREFIX_GLOBAL(static_cast<Value>))>
 [[nodiscard]] constexpr std::array<Value, size> makeArray(Range&& range, Functor&& converter = Functor())
-XIEITE_ARROW_BASE(/* ... */)
+noexcept(xieite::concepts::NoThrowInvocable<Functor, Value(std::ranges::range_common_reference_t<Range>)>)
 ```
 
 &nbsp;
