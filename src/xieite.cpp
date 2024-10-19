@@ -244,6 +244,7 @@ export import :strings.after;
 export import :strings.before;
 export import :strings.between;
 export import :strings.characters;
+export import :strings.compareIgnoreCase;
 export import :strings.findNumber;
 export import :strings.fromRomanNumerals;
 export import :strings.isDigit;

@@ -12,6 +12,7 @@ String manipulation functions
 - [before\(\)](./namespaces/strings/before.md)
 - [between\(\)](./namespaces/strings/between.md)
 - [characters](./namespaces/strings/characters.md)
+- [compareIgnoreCase\(\)](./namespaces/strings/compare_ignore_case.md)
 - [findNumber\(\)](./namespaces/strings/find_number.md)
 - [fromRomanNumerals\<\>\(\)](./namespaces/strings/from_roman_numerals.md)
 - [isDigit\(\)](./namespaces/strings/is_digit.md)

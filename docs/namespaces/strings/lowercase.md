@@ -26,7 +26,7 @@ import std;
 import xieite;
 
 int main() {
-    std::println("{}", xieite::strings::lowercase("HELLO, WORLD!\n");
+    std::println("{}", xieite::strings::lowercase("HELLO, WORLD!"));
 }
 ```
 Output:
