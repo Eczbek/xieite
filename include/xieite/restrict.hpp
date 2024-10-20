@@ -3,7 +3,7 @@
 #include <xieite/compiler.hpp>
 #include <xieite/language.hpp>
 
-#if XIEITE_LANGUAGE_C >= XIEITE_LANGUAGE_C_1999
+#if XIEITE_LANGUAGE_C >= 1999
 #	define XIEITE_RESTRICT restrict
 #elif XIEITE_COMPILER_TYPE_GCC
 #	define XIEITE_RESTRICT __restrict__

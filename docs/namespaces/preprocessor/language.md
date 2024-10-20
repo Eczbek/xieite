@@ -17,7 +17,7 @@ See header for definitions.
 ```cpp
 #include <xieite/language.hpp>
 
-#if XIEITE_LANGUAGE_CPP >= XIEITE_LANGUAGE_CPP_2023
+#if XIEITE_LANGUAGE_CPP >= 2023
 #    include <print>
 
 int main() {

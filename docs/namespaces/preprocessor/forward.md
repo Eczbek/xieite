@@ -4,19 +4,14 @@ Defined in header [<xieite/forward.hpp>](../../../include/xieite/forward.hpp)
 &nbsp;
 
 ## Description
-Replacements for `std::forward`.
+A (terrible) replacement for `std::forward`. See definition.
 
 &nbsp;
 
 ## Synopsis
 #### 1)
 ```cpp
-#define XIEITE_FORWARD(...) static_cast<decltype(__VA_ARGS__)&&>(__VA_ARGS__)
-```
-Equivalent to `std::forward<decltype(__VA_ARGS__)>(__VA_ARGS__)`.
-#### 2)
-```cpp
-#define XIEITE_FORWARD_BETTER(...) /* ... */
+#define XIEITE_FORWARD(...) /* ... */
 ```
 Includes special cases:  
 \- Avoids unnecessarily materializing a temporary: `T x = XIEITE_FORWARD(T())`  

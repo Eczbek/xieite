@@ -62,4 +62,5 @@ Preprocessor directives
 - [XIEITE\_UNWRAP\(\)](./namespaces/preprocessor/unwrap.md)
 - [XIEITE\_VERSION\_...](./namespaces/preprocessor/version.md)
 - [XIEITE\_WHEN\(\)](./namespaces/preprocessor/when.md)
+- [XIEITE\_WORD\_BITS](./namespaces/preprocessor/word_bits.md)
 - [XIEITE\_WRAP\(\)](./namespaces/preprocessor/wrap.md)

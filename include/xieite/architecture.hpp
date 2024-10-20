@@ -743,12 +743,12 @@
 #	define XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_32 1
 #endif
 
-#if defined(__370__) || defined(__THW_370__) || defined(ibm370)
+#if defined(_370) || defined(__370__) || defined(__THW_370__) || defined(ibm370)
 #	undef XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_370
 #	define XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_370 1
 #endif
 
-#if defined(__s390__) || defined(__s390x__)
+#if defined(_390) || defined(__s390__) || defined(__s390x__)
 #	undef XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_390
 #	define XIEITE_ARCHITECTURE_TYPE_IBM_SYSTEM_390 1
 #endif
