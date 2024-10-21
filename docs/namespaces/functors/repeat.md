@@ -12,14 +12,14 @@ Repeats something a fixed number of times.
 #### 1)
 ```cpp
 template<std::integral auto count>
-constexpr void repeat(auto&& functor, auto&&... arguments)
-XIEITE_ARROW_BASE(/* ... */)
+constexpr auto repeat(auto&& functor, auto&&... arguments)
+XIEITE_ARROW(/* ... */)
 ```
 #### 2)
 ```cpp
 template<typename... Types>
-constexpr void repeat(auto&& functor, auto&&... arguments)
-XIEITE_ARROW_BASE(/* ... */)
+constexpr auto repeat(auto&& functor, auto&&... arguments)
+XIEITE_ARROW(/* ... */)
 ```
 
 &nbsp;

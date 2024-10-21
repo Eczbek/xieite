@@ -12,8 +12,8 @@ Extracts a value by a specific combination of keys.
 #### 1)
 ```cpp
 template<typename Self, std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-[[nodiscard]] constexpr auto&& operator[](this Self&&, KeysReference&& keys)
-XIEITE_ARROW_BASE(/* ... */)
+[[nodiscard]] constexpr auto operator[](this Self&&, KeysReference&& keys)
+XIEITE_ARROW(/* ... */)
 ```
 
 &nbsp;

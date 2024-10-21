@@ -18,8 +18,8 @@ XIEITE_ARROW(/* ... */)
 #### 2)
 ```cpp
 template<typename Structure, typename... Arguments>
-[[nodiscard]] constexpr Structure reverseArguments(Arguments&&... arguments)
-XIEITE_ARROW_BASE(/* ... */)
+[[nodiscard]] constexpr auto reverseArguments(Arguments&&... arguments)
+XIEITE_ARROW(/* ... */)
 ```
 
 &nbsp;

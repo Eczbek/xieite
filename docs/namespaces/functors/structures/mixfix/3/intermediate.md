@@ -17,8 +17,8 @@ struct Intermediate
 	constexpr Intermediate(const Mixfix&, LeftArgumentReference&&) noexcept
 
     template<std::convertible_to<RightArgument> RightArgumentReference>
-    friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(const Intermediate&&, RightArgumentReference&&)
-    XIEITE_ARROW_BASE(/* ... */)
+    friend constexpr auto operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(const Intermediate&&, RightArgumentReference&&)
+    XIEITE_ARROW(/* ... */)
 };
 ```
 - [Intermediate\(\)](./structures/intermediate/1/operators/constructor.md)

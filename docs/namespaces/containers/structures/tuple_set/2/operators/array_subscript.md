@@ -12,8 +12,8 @@ Checks if the set contains a tuple.
 #### 1)
 ```cpp
 template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-[[nodiscard]] constexpr bool operator[](KeysReference&& keys) const
-XIEITE_ARROW_BASE(/* ... */)
+[[nodiscard]] constexpr auto operator[](KeysReference&& keys) const
+XIEITE_ARROW(/* ... */)
 ```
 
 &nbsp;

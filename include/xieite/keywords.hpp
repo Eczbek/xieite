@@ -79,8 +79,8 @@ namespace XIEITE_DETAIL {
 	};
 
 	struct Negate {
-		[[nodiscard]] friend constexpr bool operator,(auto&& value, Negate)
-		XIEITE_ARROW_BASE(static_cast<bool>(!XIEITE_FORWARD(value)))
+		[[nodiscard]] friend constexpr auto operator,(auto&& value, Negate)
+		XIEITE_ARROW(static_cast<bool>(!XIEITE_FORWARD(value)))
 	};
 
 	struct LoopState {

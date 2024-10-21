@@ -22,12 +22,12 @@ struct Mixfix<Return(Argument)>
     using xieite::functors::Function<Return(Argument)>::Function;
 
     template<std::convertible_to<Argument> ArgumentReference>
-    friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(const Mixfix&, ArgumentReference&&)
-    XIEITE_ARROW_BASE(/* ... */)
+    friend constexpr auto operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(const Mixfix&, ArgumentReference&&)
+    XIEITE_ARROW(/* ... */)
 
     template<std::convertible_to<Argument> ArgumentReference>
-    friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(ArgumentReference&&, const Mixfix&)
-    XIEITE_ARROW_BASE(/* ... */)
+    friend constexpr auto operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(ArgumentReference&&, const Mixfix&)
+    XIEITE_ARROW(/* ... */)
 };
 ```
 - [operator???\<\>\(\)](./structures/mixfix/2/operators/hhhhhhh.md)

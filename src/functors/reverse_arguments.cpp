@@ -15,6 +15,6 @@ export namespace xieite::functors {
 	XIEITE_ARROW(std::apply(XIEITE_FORWARD(functor), xieite::containers::reverseTuple(std::forward_as_tuple(XIEITE_FORWARD(arguments)...))))
 
 	template<typename Structure, typename... Arguments>
-	[[nodiscard]] constexpr Structure reverseArguments(Arguments&&... arguments)
-	XIEITE_ARROW_BASE(std::make_from_tuple<Structure>(xieite::containers::reverseTuple(std::forward_as_tuple(XIEITE_FORWARD(arguments)...))))
+	[[nodiscard]] constexpr auto reverseArguments(Arguments&&... arguments)
+	XIEITE_ARROW(std::make_from_tuple<Structure>(xieite::containers::reverseTuple(std::forward_as_tuple(XIEITE_FORWARD(arguments)...))))
 }

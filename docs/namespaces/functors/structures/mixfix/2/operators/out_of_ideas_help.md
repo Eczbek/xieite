@@ -12,8 +12,8 @@ Calls the underlying functor with one argument.
 #### 1)
 ```cpp
 template<std::convertible_to<Argument> ArgumentReference>
-friend constexpr Return operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(ArgumentReference&& argument, const Mixfix& mixfix)
-XIEITE_ARROW_BASE(/* ... */)
+friend constexpr auto operator/*   ->* * / % + - << >> <=> < <= > >= == != & ^ | && || *= /= %= += -= <<= >>= &= ^= |= ,   */(ArgumentReference&& argument, const Mixfix& mixfix)
+XIEITE_ARROW(/* ... */)
 ```
 
 &nbsp;

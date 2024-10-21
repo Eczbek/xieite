@@ -21,16 +21,16 @@ struct TupleMap<Container, std::tuple<FirstKey, RestKeys...>, Value> {
     constexpr TupleMap(std::initializer_list<std::pair<FirstKey, TupleMap<std::tuple<RestKeys...>, Value>>> = {}) noexcept;
 
     template<typename Self>
-    constexpr auto&& operator[](this Self&&, const std::tuple<FirstKey, RestKeys...>&)
-    XIEITE_ARROW_BASE(/* ... */)
+    constexpr auto operator[](this Self&&, const std::tuple<FirstKey, RestKeys...>&)
+    XIEITE_ARROW(/* ... */)
 
     template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
-    constexpr void insert(KeysReference&&, ValueReference&&)
-    XIEITE_ARROW_BASE(/* ... */)
+    constexpr auto insert(KeysReference&&, ValueReference&&)
+    XIEITE_ARROW(/* ... */)
 
     template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-    constexpr bool contains(KeysReference&&) const
-    XIEITE_ARROW_BASE(/* ... */)
+    constexpr auto contains(KeysReference&&) const
+    XIEITE_ARROW(/* ... */)
 };
 ```
 - [TupleMap\(\)](./structures/tuple_map/2/operators/constructor.md)
@@ -44,16 +44,16 @@ struct TupleMap<Container, std::tuple<Key>, Value> {
     constexpr TupleMap(std::initializer_list<std::pair<Key, Value>> = {}) noexcept;
 
     template<typename Self, std::convertible_to<std::tuple<Key>> KeyReference>
-    constexpr auto&& operator[](this Self&&, KeyReference&&)
-    XIEITE_ARROW_BASE(/* ... */)
+    constexpr auto operator[](this Self&&, KeyReference&&)
+    XIEITE_ARROW(/* ... */)
 
     template<std::convertible_to<std::tuple<Key>> KeyReference, std::convertible_to<Value> ValueReference>
-    constexpr void insert(KeyReference&&, ValueReference&&)
-    XIEITE_ARROW_BASE(/* ... */)
+    constexpr auto insert(KeyReference&&, ValueReference&&)
+    XIEITE_ARROW(/* ... */)
 
     template<std::convertible_to<std::tuple<Key>> KeyReference>
-    constexpr bool contains(KeyReference&&) const
-    XIEITE_ARROW_BASE(/* ... */)
+    constexpr auto contains(KeyReference&&) const
+    XIEITE_ARROW(/* ... */)
 };
 ```
 - [TupleMap\(\)](./structures/tuple_map/3/operators/constructor.md)

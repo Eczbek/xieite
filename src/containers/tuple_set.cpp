@@ -19,16 +19,16 @@ export namespace xieite::containers {
 		: set(list.begin(), list.end()) {}
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		[[nodiscard]] constexpr bool operator[](KeysReference&& keys) const
-		XIEITE_ARROW_BASE(this->contains(XIEITE_FORWARD(keys)))
+		[[nodiscard]] constexpr auto operator[](KeysReference&& keys) const
+		XIEITE_ARROW(this->contains(XIEITE_FORWARD(keys)))
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		constexpr void insert(KeysReference&& keys)
-		XIEITE_ARROW_BASE(xieite::functors::unroll<RestKeys...>([this, &keys]<std::size_t... i> XIEITE_ARROW(this->set[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...)))))
+		constexpr auto insert(KeysReference&& keys)
+		XIEITE_ARROW(xieite::functors::unroll<RestKeys...>([this, &keys]<std::size_t... i> XIEITE_ARROW(this->set[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...)))))
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		[[nodiscard]] constexpr bool contains(KeysReference&& keys) const
-		XIEITE_ARROW_BASE(
+		[[nodiscard]] constexpr auto contains(KeysReference&& keys) const
+		XIEITE_ARROW(
 			this->set.contains(std::get<0>(keys))
 			&& xieite::functors::unroll<RestKeys...>(
 				[this, &keys]<std::size_t... i>
@@ -47,16 +47,16 @@ export namespace xieite::containers {
 		: set(list.begin(), list.end()) {}
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr bool operator[](KeyReference&& key) const
-		XIEITE_ARROW_BASE(this->contains(XIEITE_FORWARD(key)))
+		[[nodiscard]] constexpr auto operator[](KeyReference&& key) const
+		XIEITE_ARROW(this->contains(XIEITE_FORWARD(key)))
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		constexpr void insert(KeyReference&& key)
-		XIEITE_ARROW_BASE(this->set.emplace(std::get<0>(XIEITE_FORWARD(key))))
+		constexpr auto insert(KeyReference&& key)
+		XIEITE_ARROW(this->set.emplace(std::get<0>(XIEITE_FORWARD(key))))
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr bool contains(KeyReference&& key) const
-		XIEITE_ARROW_BASE(this->set.contains(std::get<0>(XIEITE_FORWARD(key))))
+		[[nodiscard]] constexpr auto contains(KeyReference&& key) const
+		XIEITE_ARROW(this->set.contains(std::get<0>(XIEITE_FORWARD(key))))
 
 	private:
 		Container<Key> set;

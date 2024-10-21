@@ -19,22 +19,22 @@ export namespace xieite::containers {
 		: map(list.begin(), list.end()) {}
 
 		template<typename Self, std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeysReference&& keys)
-		XIEITE_ARROW_BASE(xieite::functors::unroll<RestKeys...>(
+		[[nodiscard]] constexpr auto operator[](this Self&& self, KeysReference&& keys)
+		XIEITE_ARROW(xieite::functors::unroll<RestKeys...>(
 			[&self, &keys]<std::size_t... i>
 			XIEITE_ARROW(std::forward_like<Self>(self.map.at(std::get<0>(keys))[std::make_tuple(std::get<i + 1>(keys)...)]))
 		))
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference, std::convertible_to<Value> ValueReference>
-		constexpr void insert(KeysReference&& keys, ValueReference&& value)
-		XIEITE_ARROW_BASE(xieite::functors::unroll<RestKeys...>(
+		constexpr auto insert(KeysReference&& keys, ValueReference&& value)
+		XIEITE_ARROW(xieite::functors::unroll<RestKeys...>(
 			[this, &keys, &value]<std::size_t... i>
 			XIEITE_ARROW(this->map[std::get<0>(keys)].insert(std::make_tuple(std::get<i + 1>(keys)...), XIEITE_FORWARD(value)))
 		))
 
 		template<std::convertible_to<std::tuple<FirstKey, RestKeys...>> KeysReference>
-		[[nodiscard]] constexpr bool contains(KeysReference&& keys) const
-		XIEITE_ARROW_BASE(
+		[[nodiscard]] constexpr auto contains(KeysReference&& keys) const
+		XIEITE_ARROW(
 			this->map.contains(std::get<0>(keys))
 			&& xieite::functors::unroll<RestKeys...>(
 				[this, &keys]<std::size_t... i>
@@ -53,16 +53,16 @@ export namespace xieite::containers {
 		: map(list.begin(), list.end()) {}
 
 		template<typename Self, std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KeyReference&& key)
-		XIEITE_ARROW_BASE(std::forward_like<Self>(self.map.at(std::get<0>(XIEITE_FORWARD(key)))))
+		[[nodiscard]] constexpr auto operator[](this Self&& self, KeyReference&& key)
+		XIEITE_ARROW(std::forward_like<Self>(self.map.at(std::get<0>(XIEITE_FORWARD(key)))))
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference, std::convertible_to<Value> ValueReference>
-		constexpr void insert(KeyReference&& key, ValueReference&& value)
-		XIEITE_ARROW_BASE(this->map.emplace(std::make_pair(std::get<0>(XIEITE_FORWARD(key)), XIEITE_FORWARD(value))))
+		constexpr auto insert(KeyReference&& key, ValueReference&& value)
+		XIEITE_ARROW(this->map.emplace(std::make_pair(std::get<0>(XIEITE_FORWARD(key)), XIEITE_FORWARD(value))))
 
 		template<std::convertible_to<std::tuple<Key>> KeyReference>
-		[[nodiscard]] constexpr bool contains(KeyReference&& key) const
-		XIEITE_ARROW_BASE(this->map.contains(std::get<0>(XIEITE_FORWARD(key))))
+		[[nodiscard]] constexpr auto contains(KeyReference&& key) const
+		XIEITE_ARROW(this->map.contains(std::get<0>(XIEITE_FORWARD(key))))
 
 	private:
 		Container<Key, Value> map;

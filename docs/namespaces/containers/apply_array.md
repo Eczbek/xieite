@@ -18,8 +18,8 @@ XIEITE_ARROW(/* ... */)
 #### 2)
 ```cpp
 template<typename Structure, typename Value, std::size_t size, std::convertible_to<std::array<Value, size>> Array>
-[[nodiscard]] constexpr Structure applyArray(Array&& array)
-XIEITE_ARROW_BASE(/* ... */)
+[[nodiscard]] constexpr auto applyArray(Array&& array)
+XIEITE_ARROW(/* ... */)
 ```
 
 &nbsp;

@@ -12,8 +12,8 @@ Checks whether a functor invoked with each following argument evaluates to `true
 #### 1)
 ```cpp
 template<typename... Values, typename Functor>
-[[nodiscard]] constexpr bool all(Functor&& functor, Values&&... values)
-XIEITE_ARROW_BASE((... && std::invoke_r<bool>(functor, XIEITE_FORWARD(values))))
+[[nodiscard]] constexpr auto all(Functor&& functor, Values&&... values)
+XIEITE_ARROW((... && std::invoke_r<bool>(functor, XIEITE_FORWARD(values))))
 ```
 
 &nbsp;

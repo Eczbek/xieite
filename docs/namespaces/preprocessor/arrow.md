@@ -15,7 +15,7 @@ Deduplicates the repetition required for defining the body, return type, and `no
 ```
 #### 2)
 ```cpp
-#define XIEITE_ARROW_BASE(...) noexcept(noexcept(__VA_ARGS__)) { return __VA_ARGS__; }
+#define XIEITE_ARROW_CONSTRUCTOR(...) noexcept(noexcept(__VA_ARGS__)) : __VA_ARGS__ {}
 ```
 
 &nbsp;
