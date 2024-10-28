@@ -1,4 +1,4 @@
-#include "test.hpp"
+#include "../test.hpp"
 
 import std;
 import xieite;
