@@ -1,13 +1,13 @@
 #pragma once
 
-#include <xieite/compiler.hpp>
-#include <xieite/language.hpp>
+#include <xieite/cplr.hpp>
+#include <xieite/lang.hpp>
 
-#if (XIEITE_LANGUAGE_CPP >= 2011) || (XIEITE_LANGUAGE_C >= 2023)
+#if XIEITE_LANG_LEAST(CPP, 2011) || XIEITE_LANG_LEAST(C, 2023)
 #	define XIEITE_STATIC_ASSERT(...) static_assert(__VA_ARGS__)
-#elif XIEITE_LANGUAGE_C >= 2011
+#elif XIEITE_LANG_LEAST(C, 2011)
 #	define XIEITE_STATIC_ASSERT(...) _Static_assert(__VA_ARGS__)
-#elif XIEITE_COMPILER_TYPE_MSVC
+#elif XIEITE_CPLR_TYPE_MSVC
 #	include <crtdbg.h>
 
 #	define XIEITE_STATIC_ASSERT(...) _STATIC_ASSERT(__VA_ARGS__)

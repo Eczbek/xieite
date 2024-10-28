@@ -1,125 +1,28 @@
 #pragma once
 
-#include <cmath>
-#include <type_traits>
 #include <xieite/arrow.hpp>
-#include <xieite/forward.hpp>
+#include <xieite/fn.hpp>
+#include <xieite/fwd.hpp>
 
-namespace XIEITE_DETAIL {
-	template<auto functor>
-	struct Infix {
-		template<typename Type>
-		struct Intermediate {
-			Type&& left;
+#define nand && XIEITE_DETAIL::ifx<XIEITE_FN(!XIEITE_FWD($0) || !XIEITE_FWD($1))>() &&
+#define nor || XIEITE_DETAIL::ifx<XIEITE_FN(!XIEITE_FWD($0) && !XIEITE_FWD($1))>() ||
+#define xnor ^ XIEITE_DETAIL::ifx<XIEITE_FN(XIEITE_FWD($0) == XIEITE_FWD($1))>() ^
+#define eq_not XIEITE_DETAIL::pfx<XIEITE_FN($0 = !$0)>() ->*
+#define nand_eq = XIEITE_DETAIL::ifx<XIEITE_FN($0 = !$0 || !XIEITE_FWD($1))>() +=
+#define nor_eq = XIEITE_DETAIL::ifx<XIEITE_FN($0 = !$0 && !XIEITE_FWD($1))>() +=
+#define xnor_eq = XIEITE_DETAIL::ifx<XIEITE_FN($0 = $0 == XIEITE_FWD($1))>() +=
+#define bitnand & XIEITE_DETAIL::ifx<XIEITE_FN(~XIEITE_FWD($0) | ~XIEITE_FWD($1))>() &
+#define bitnor | XIEITE_DETAIL::ifx<XIEITE_FN(~XIEITE_FWD($0) & ~XIEITE_FWD($1))>() |
+#define bitxnor ^ XIEITE_DETAIL::ifx<XIEITE_FN(~(~XIEITE_FWD($0) ^ ~XIEITE_FWD($1)))>() ^
+#define eq_compl XIEITE_DETAIL::pfx<XIEITE_FN($0 = ~$0)>() ->*
+#define bitand_eq += XIEITE_DETAIL::ifx<XIEITE_FN($0 = $0 & XIEITE_FWD($1))>() +=
+#define bitnand_eq += XIEITE_DETAIL::ifx<XIEITE_FN($0 = $0 bitnand XIEITE_FWD($1))>() +=
+#define bitor_eq += XIEITE_DETAIL::ifx<XIEITE_FN($0 = $0 | XIEITE_FWD($1))>() +=
+#define bitnor_eq += XIEITE_DETAIL::ifx<XIEITE_FN($0 = $0 bitnor XIEITE_FWD($1))>() +=
+#define bitxor_eq += XIEITE_DETAIL::ifx<XIEITE_FN($0 = $0 ^ XIEITE_FWD($1))>() +=
+#define bitxnor_eq += XIEITE_DETAIL::ifx<XIEITE_FN($0 = $0 bitxnor XIEITE_FWD($1))>() +=
 
-			[[nodiscard]] constexpr auto operator->*(Type&& right) const
-			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
-
-			[[nodiscard]] constexpr auto operator*(Type&& right) const
-			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
-
-			[[nodiscard]] constexpr auto operator&(Type&& right) const
-			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
-
-			[[nodiscard]] constexpr auto operator^(Type&& right) const
-			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
-
-			[[nodiscard]] constexpr auto operator|(Type&& right) const
-			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
-
-			[[nodiscard]] constexpr auto operator&&(Type&& right) const
-			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
-
-			[[nodiscard]] constexpr auto operator||(Type&& right) const
-			XIEITE_ARROW(functor(XIEITE_FORWARD(this->left), XIEITE_FORWARD(right)))
-
-			[[nodiscard]] friend constexpr auto operator+=(Type&& right, const Intermediate self)
-			XIEITE_ARROW(functor(XIEITE_FORWARD(self.left), XIEITE_FORWARD(right)))
-
-			[[nodiscard]] friend constexpr auto operator*=(Type&& right, const Intermediate self)
-			XIEITE_ARROW(functor(XIEITE_FORWARD(self.left), XIEITE_FORWARD(right)))
-		};
-
-		template<typename Type>
-		[[nodiscard]] friend constexpr auto operator->*(Type&& left, Infix)
-		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
-
-		template<typename Type>
-		[[nodiscard]] friend constexpr auto operator*(Type&& left, Infix)
-		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
-
-		template<typename Type>
-		[[nodiscard]] friend constexpr auto operator&(Type&& left, Infix)
-		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
-
-		template<typename Type>
-		[[nodiscard]] friend constexpr auto operator^(Type&& left, Infix)
-		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
-
-		template<typename Type>
-		[[nodiscard]] friend constexpr auto operator|(Type&& left, Infix)
-		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
-
-		template<typename Type>
-		[[nodiscard]] friend constexpr auto operator&&(Type&& left, Infix)
-		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
-
-		template<typename Type>
-		[[nodiscard]] friend constexpr auto operator||(Type&& left, Infix)
-		XIEITE_ARROW(Infix::Intermediate<Type>(XIEITE_FORWARD(left)))
-
-		[[nodiscard]] constexpr auto operator+=(auto&& left) const
-		XIEITE_ARROW(Infix::Intermediate<decltype(left)>(XIEITE_FORWARD(left)))
-	};
-
-	template<auto functor>
-	struct Prefix {
-		[[nodiscard]] constexpr auto operator->*(auto&& right)
-		XIEITE_ARROW(functor(XIEITE_FORWARD(right)))
-	};
-
-	struct Negate {
-		[[nodiscard]] friend constexpr auto operator,(auto&& value, Negate)
-		XIEITE_ARROW(static_cast<bool>(!XIEITE_FORWARD(value)))
-	};
-
-	struct LoopState {
-		struct Chainable {
-			constexpr void operator+() const noexcept {}
-
-			/* discardable */ friend constexpr auto operator+(auto&& value, Chainable)
-			XIEITE_ARROW(XIEITE_FORWARD(value))
-		};
-
-		int flag = 2;
-		bool broke = false;
-
-		[[nodiscard]] constexpr auto operator*() noexcept {
-			this->broke = true;
-			return LoopState::Chainable();
-		}
-	};
-}
-
-#define nand && XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return !XIEITE_FORWARD(x) || !XIEITE_FORWARD(y); }>() &&
-#define nor || XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return !XIEITE_FORWARD(x) && !XIEITE_FORWARD(y); }>() ||
-#define xnor ^ XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return XIEITE_FORWARD(x) == XIEITE_FORWARD(y); }>() ^
-#define eq_not XIEITE_DETAIL::Prefix<[](auto& x) { return x = !x; }>() ->*
-#define nand_eq = XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = !x || !XIEITE_FORWARD(y); }>() +=
-#define nor_eq = XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = !x && !XIEITE_FORWARD(y); }>() +=
-#define xnor_eq = XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x == XIEITE_FORWARD(y); }>() +=
-#define bitnand & XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return ~XIEITE_FORWARD(x) | ~XIEITE_FORWARD(y); }>() &
-#define bitnor | XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return ~XIEITE_FORWARD(x) & ~XIEITE_FORWARD(y); }>() |
-#define bitxnor ^ XIEITE_DETAIL::Infix<[](auto&& x, auto&& y) { return ~(~XIEITE_FORWARD(x) ^ ~XIEITE_FORWARD(y)); }>() ^
-#define eq_compl XIEITE_DETAIL::Prefix<[](auto& x) { return x = ~x; }>() ->*
-#define bitand_eq += XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x & XIEITE_FORWARD(y); }>() +=
-#define bitnand_eq += XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x bitnand XIEITE_FORWARD(y); }>() +=
-#define bitor_eq += XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x | XIEITE_FORWARD(y); }>() +=
-#define bitnor_eq += XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x bitnor XIEITE_FORWARD(y); }>() +=
-#define bitxor_eq += XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x ^ XIEITE_FORWARD(y); }>() +=
-#define bitxnor_eq += XIEITE_DETAIL::Infix<[](auto& x, auto&& y) { return x = x bitxnor XIEITE_FORWARD(y); }>() +=
-
-#define ifn(...) if (__VA_ARGS__, XIEITE_DETAIL::Negate())
+#define ifn(...) if (__VA_ARGS__, XIEITE_DETAIL::negate())
 #define elif else if
 #define elifn(...) else ifn
 #define if_try(...) \
@@ -131,7 +34,7 @@ namespace XIEITE_DETAIL {
 			return false; \
 		} \
 	})())
-#define ifn_try(...) if_try (__VA_ARGS__, XIEITE_DETAIL::Negate())
+#define ifn_try(...) if_try (__VA_ARGS__, XIEITE_DETAIL::negate())
 #define elif_try else if_try
 #define elifn_try else ifn_try
 #define if_requires(...) if constexpr (requires { __VA_ARGS__; })
@@ -139,7 +42,7 @@ namespace XIEITE_DETAIL {
 #define elif_requires else if_requires
 #define elifn_requires else ifn_requires
 #define if_for(...) \
-	for (XIEITE_DETAIL::LoopState XIEITE_DETAIL_LOOP_STATE; XIEITE_DETAIL_LOOP_STATE.flag && !XIEITE_DETAIL_LOOP_STATE.broke; --XIEITE_DETAIL_LOOP_STATE.flag) \
+	for (XIEITE_DETAIL::loop_state XIEITE_DETAIL_LOOP_STATE; XIEITE_DETAIL_LOOP_STATE.flag && !XIEITE_DETAIL_LOOP_STATE.broke; --XIEITE_DETAIL_LOOP_STATE.flag) \
 		if ((XIEITE_DETAIL_LOOP_STATE.flag == 2) && !XIEITE_DETAIL_LOOP_STATE.broke) \
 			for (__VA_ARGS__ + *XIEITE_DETAIL_LOOP_STATE) \
 				if ((XIEITE_DETAIL_LOOP_STATE.broke = false)); \
@@ -156,5 +59,98 @@ namespace XIEITE_DETAIL {
 #define yet break; default
 #define perchance continue; case
 #define otherwise continue; default
+
+#define implicit explicit(false)
+#define except noexcept(false)
+
+namespace XIEITE_DETAIL {
+	template<auto fn>
+	struct ifx {
+		template<typename Type>
+		struct inter {
+			Type&& left;
+
+			[[nodiscard]] constexpr auto operator->*(Type&& right) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->left), XIEITE_FWD(right)))
+
+			[[nodiscard]] constexpr auto operator*(Type&& right) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->left), XIEITE_FWD(right)))
+
+			[[nodiscard]] constexpr auto operator&(Type&& right) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->left), XIEITE_FWD(right)))
+
+			[[nodiscard]] constexpr auto operator^(Type&& right) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->left), XIEITE_FWD(right)))
+
+			[[nodiscard]] constexpr auto operator|(Type&& right) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->left), XIEITE_FWD(right)))
+
+			[[nodiscard]] constexpr auto operator&&(Type&& right) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->left), XIEITE_FWD(right)))
+
+			[[nodiscard]] constexpr auto operator||(Type&& right) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->left), XIEITE_FWD(right)))
+
+			[[nodiscard]] friend constexpr auto operator+=(Type&& right, inter self)
+			XIEITE_ARROW(fn(XIEITE_FWD(self.left), XIEITE_FWD(right)))
+		};
+
+		template<typename Type>
+		[[nodiscard]] friend constexpr auto operator->*(Type&& left, ifx)
+		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+
+		template<typename Type>
+		[[nodiscard]] friend constexpr auto operator*(Type&& left, ifx)
+		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+
+		template<typename Type>
+		[[nodiscard]] friend constexpr auto operator&(Type&& left, ifx)
+		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+
+		template<typename Type>
+		[[nodiscard]] friend constexpr auto operator^(Type&& left, ifx)
+		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+
+		template<typename Type>
+		[[nodiscard]] friend constexpr auto operator|(Type&& left, ifx)
+		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+
+		template<typename Type>
+		[[nodiscard]] friend constexpr auto operator&&(Type&& left, ifx)
+		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+
+		template<typename Type>
+		[[nodiscard]] friend constexpr auto operator||(Type&& left, ifx)
+		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+
+		[[nodiscard]] constexpr auto operator+=(auto&& left) const
+		XIEITE_ARROW(ifx::inter<decltype(left)>(XIEITE_FWD(left)))
+	};
+
+	template<auto fn>
+	struct pfx {
+		[[nodiscard]] constexpr auto operator->*(auto&& right)
+		XIEITE_ARROW(fn(XIEITE_FWD(right)))
+	};
+
+	struct negate {
+		[[nodiscard]] friend constexpr auto operator,(auto&& value, negate)
+		XIEITE_ARROW(static_cast<bool>(!XIEITE_FWD(value)))
+	};
+
+	struct loop_state {
+		int flag = 2;
+		bool broke = false;
+
+		constexpr void operator+() noexcept {
+			this->broke = true;
+		}
+
+		friend constexpr auto&& operator+(auto&& value, XIEITE_DETAIL::loop_state) noexcept {
+			this->broke = true;
+			return XIEITE_FWD(value);
+		}
+	};
+}
 
 // Loop macros originally stolen from m1lkweed (https://gist.github.com/m1lkweed/3be672402c43ac5697f1e29bcb79e004)

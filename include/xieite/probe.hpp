@@ -1,3 +1,3 @@
 #pragma once
 
-#define XIEITE_PROBE(value_) value_, 1,
+#define XIEITE_PROBE(x) x, 1,

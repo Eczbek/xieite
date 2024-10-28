@@ -4,4 +4,4 @@
 #include <xieite/if.hpp>
 #include <xieite/scan.hpp>
 
-#define XIEITE_WHEN(value_) XIEITE_IF(value_)(XIEITE_SCAN, XIEITE_EAT)
+#define XIEITE_WHEN(x) XIEITE_IF(x)(XIEITE_SCAN, XIEITE_EAT)

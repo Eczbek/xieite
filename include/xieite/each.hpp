@@ -1,9 +1,9 @@
 #pragma once
 
-#include <xieite/evaluate.hpp>
+#include <xieite/eval.hpp>
 #include <xieite/scan.hpp>
 
-#define XIEITE_EACH(macro_, ...) __VA_OPT__(XIEITE_EVALUATE(XIEITE_DETAIL_EACH_HELPER(macro_, __VA_ARGS__)))
+#define XIEITE_EACH(m, ...) __VA_OPT__(XIEITE_EVAL(XIEITE_DETAIL_EACH_HELPER(m, __VA_ARGS__)))
 
-#define XIEITE_DETAIL_EACH_HELPER(macro_, first_, ...) macro_(first_) __VA_OPT__(XIEITE_DETAIL_EACH_INDIRECT XIEITE_SCAN(()) (macro_, __VA_ARGS__))
-#define XIEITE_DETAIL_EACH_INDIRECT() XIEITE_DETAIL_EACH_HELPER
+#define XIEITE_DETAIL_EACH_HELPER(m, x, ...) m(x) __VA_OPT__(XIEITE_DETAIL_EACH_NEXT XIEITE_SCAN(()) (m, __VA_ARGS__))
+#define XIEITE_DETAIL_EACH_NEXT() XIEITE_DETAIL_EACH_HELPER

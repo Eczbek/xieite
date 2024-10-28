@@ -1,0 +1,8 @@
+#pragma once
+
+#define XIEITE_CAT(a, ...) XIEITE_CAT_PRIM(a, __VA_ARGS__)
+#define XIEITE_CAT_REVERSE(a, ...) XIEITE_CAT_PRIM_REVERSE(a, __VA_ARGS__)
+#define XIEITE_CAT_PRIM(a, ...) a##__VA_ARGS__
+#define XIEITE_CAT_PRIM_REVERSE(a, ...) __VA_ARGS__##a
+#define XIEITE_CAT_FIRST(a) XIEITE_CAT_PRIM(a,
+#define XIEITE_CAT_SECOND(b) XIEITE_CAT_PRIM_REVERSE(b,

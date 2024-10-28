@@ -1,8 +1,8 @@
 #pragma once
 
-#include <xieite/concatenate.hpp>
+#include <xieite/cat.hpp>
 
-#define XIEITE_FROM(index_, ...) XIEITE_CONCATENATE_PRIMITIVE(XIEITE_DETAIL_FROM_, index_)(__VA_ARGS__)
+#define XIEITE_FROM(n, ...) XIEITE_CAT_PRIM(XIEITE_DETAIL_FROM_, n)(__VA_ARGS__)
 
 #define XIEITE_DETAIL_FROM_0(...) __VA_ARGS__
 #define XIEITE_DETAIL_FROM_1(_, ...) XIEITE_DETAIL_FROM_0(__VA_ARGS__)

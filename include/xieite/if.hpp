@@ -1,9 +1,9 @@
 #pragma once
 
-#include <xieite/boolean.hpp>
-#include <xieite/concatenate.hpp>
+#include <xieite/bool.hpp>
+#include <xieite/cat.hpp>
 
-#define XIEITE_IF(condition_) XIEITE_IF_PRIMITIVE(XIEITE_BOOLEAN(condition_))
-#define XIEITE_IF_PRIMITIVE(boolean_) XIEITE_CONCATENATE_PRIMITIVE(XIEITE_IF_PRIMITIVE_, boolean_)
-#define XIEITE_IF_PRIMITIVE_0(then_, ...) __VA_ARGS__
-#define XIEITE_IF_PRIMITIVE_1(then_, ...) then_
+#define XIEITE_IF(x) XIEITE_IF_PRIM(XIEITE_BOOL(x))
+#define XIEITE_IF_PRIM(B) XIEITE_CAT_PRIM(XIEITE_IF_PRIM_, B)
+#define XIEITE_IF_PRIM_0(x, ...) __VA_ARGS__
+#define XIEITE_IF_PRIM_1(x, ...) x

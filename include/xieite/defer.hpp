@@ -2,4 +2,4 @@
 
 #include <xieite/scan.hpp>
 
-#define XIEITE_DEFER(macro_) macro_ XIEITE_SCAN()
+#define XIEITE_DEFER(m) m XIEITE_SCAN()

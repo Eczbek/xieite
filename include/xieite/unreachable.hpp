@@ -1,17 +1,17 @@
 #pragma once
 
-#include <xieite/language.hpp>
+#include <xieite/lang.hpp>
 
-#if XIEITE_LANGUAGE_CPP >= 2023
+#if XIEITE_LANG_LEAST(CPP, 2023)
 #	include <utility>
 
 #	define XIEITE_UNREACHABLE() ::std::unreachable()
 #else
-#	include <xieite/compiler.hpp>
+#	include <xieite/cplr.hpp>
 
-#	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
+#	if XIEITE_CPLR_TYPE_GCC || XIEITE_CPLR_TYPE_CLANG
 #		define XIEITE_UNREACHABLE() __builtin_unreachable()
-#	elif XIEITE_COMPILER_TYPE_MSVC
+#	elif XIEITE_CPLR_TYPE_MSVC
 #		define XIEITE_UNREACHABLE() __assume(false)
 #	else
 #		define XIEITE_UNREACHABLE() void(0 / 0)

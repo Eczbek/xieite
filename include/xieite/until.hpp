@@ -1,9 +1,9 @@
 #pragma once
 
 #include <xieite/at.hpp>
-#include <xieite/concatenate.hpp>
+#include <xieite/cat.hpp>
 
-#define XIEITE_UNTIL(index_, ...) XIEITE_CONCATENATE_PRIMITIVE(XIEITE_DETAIL_UNTIL_, index_)(__VA_ARGS__)
+#define XIEITE_UNTIL(idx_, ...) XIEITE_CAT_PRIM(XIEITE_DETAIL_UNTIL_, idx_)(__VA_ARGS__)
 
 #define XIEITE_DETAIL_UNTIL_0(...)
 #define XIEITE_DETAIL_UNTIL_1(...) XIEITE_AT(0, __VA_ARGS__)

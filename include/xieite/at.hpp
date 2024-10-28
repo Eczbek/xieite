@@ -1,8 +1,8 @@
 #pragma once
 
-#define XIEITE_AT(index_, ...) XIEITE_DETAIL_AT_##index_(__VA_ARGS__)
+#define XIEITE_AT(n, ...) XIEITE_DETAIL_AT_##n(__VA_ARGS__)
 
-#define XIEITE_DETAIL_AT_0(first_, ...) first_
+#define XIEITE_DETAIL_AT_0(x, ...) x
 #define XIEITE_DETAIL_AT_1(_, ...) XIEITE_DETAIL_AT_0(__VA_ARGS__)
 #define XIEITE_DETAIL_AT_2(_, ...) XIEITE_DETAIL_AT_1(__VA_ARGS__)
 #define XIEITE_DETAIL_AT_3(_, ...) XIEITE_DETAIL_AT_2(__VA_ARGS__)
