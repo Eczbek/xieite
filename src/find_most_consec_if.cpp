@@ -8,7 +8,7 @@ import :is_nothrow_range;
 export namespace xieite {
 	template<std::ranges::forward_range R, xieite::is_invoc<bool(std::ranges::range_reference_t<R>)> F>
 	requires(std::ranges::sized_range<R>)
-	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<R>> find_most_consec_if(R& range, F&& sel = {})
+	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<R>> find_most_consec_if(R& range, F&& cond = {})
 	noexcept(xieite::is_nothrow_invoc<F, bool(std::ranges::range_reference_t<R>)> && xieite::is_nothrow_range<R>) {
 		auto it = std::ranges::begin(range);
 		auto curr_begin = it;
@@ -17,7 +17,7 @@ export namespace xieite {
 		auto result_end = curr_end;
 		bool prev = false;
 		for (; it != std::ranges::end(range); ++it) {
-			const bool curr = std::invoke_r<bool>(sel, *it);
+			const bool curr = std::invoke_r<bool>(cond, *it);
 			if (curr) {
 				if (!prev) {
 					curr_begin = it;

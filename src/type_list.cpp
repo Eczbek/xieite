@@ -13,8 +13,6 @@ import :is_satisfied_by_all;
 import :is_satisfied_by_any;
 import :is_satisfies;
 import :unroll;
-import :value_const;
-import :visitor;
 
 export namespace xieite {
 	template<typename... Ts>
@@ -45,14 +43,7 @@ export namespace xieite {
 			::find<[]<typename U> requires(xieite::is_satisfied_by<comp, T, U>) {}>;
 
 		template<std::size_t idx>
-		requires(idx < sizeof...(Ts))
-		using at = decltype(xieite::unroll<Ts...>([]<std::size_t... i> {
-			return xieite::visitor(
-				[](xieite::value_const<i>) {
-					return std::type_identity<Ts>();
-				}...
-			)(xieite::value_const<idx>());
-		}))::type;
+		using at = Ts...[idx];
 
 		static constexpr auto apply(auto&& fn)
 		XIEITE_ARROW(XIEITE_FWD(fn).template operator()<Ts...>())
@@ -157,36 +148,36 @@ export namespace xieite {
 				xieite::type_list<Ts...>::at<indices>...
 			>;
 
-		template<auto fn>
+		template<auto cond>
 		using filter =
 			xieite::fold<
 				[]<typename T, typename List> {
-					if constexpr (xieite::is_satisfies<fn, T>) {
-						return std::type_identity<List::append<T>>();
-					} else {
-						return std::type_identity<List>();
-					}
+					return std::type_identity<std::conditional_t<xieite::is_satisfies<cond, T>, List::append<T>, List>>();
 				},
 				xieite::type_list<>,
 				Ts...
 			>;
 
 		template<auto comp = []<typename U, std::same_as<U>> {}>
-		using deduplicate = xieite::type_list<Ts...>::filter<[]<typename U, typename... Ret>;
+		using deduplicate =
+			xieite::fold<
+				[]<typename T, typename List> {
+					return std::type_identity<std::conditional_t<!xieite::type_list<Ts...>::has<T, comp>, List::append<T>, List>>();
+				},
+				xieite::type_list<>,
+				Ts...
+			>;
 
 		template<std::size_t n>
-		using repeat =
-			decltype(xieite::unroll<n>([]<std::size_t... i> {
-				return xieite::visitor(
-					[]<typename... Us>(this auto self, xieite::value_const<i>) {
-						return self.template operator()<Us..., Ts...>(xieite::value_const<i + 1>());
-					}...,
-					[]<typename... Us>(xieite::value_const<n>) {
-						return std::type_identity<type_list<Us...>>();
-					}
-				)(xieite::value_const<0uz>());
-			}))
-			::type;
+		using repeat = decltype(xieite::unroll<n>([]<std::size_t... i> {
+			return xieite::fold<
+				[]<auto, typename List> {
+					return std::type_identity<List::append<Ts...>>();
+				},
+				xieite::type_list<>,
+				xieite::value_identity<i>...
+			>();
+		}))::type;
 
 		template<std::size_t arity, auto fn>
 		requires(!(sizeof...(Ts) % arity))

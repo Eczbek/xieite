@@ -1,7 +1,7 @@
+#include "test.hpp"
+
 import std;
 import xieite;
-
-#define TEST(...) ([] { return (__VA_ARGS__) ? "\x1B[92mPASSED\x1B[0m "sv #__VA_ARGS__ : "\x1B[91mFAILED\x1B[0m "sv #__VA_ARGS__; })()
 
 constexpr std::array tests = {
 	TEST(std::same_as<xieite::try_unsigned<bool>, bool>),
@@ -36,6 +36,8 @@ constexpr std::array tests = {
 	TEST(std::same_as<xieite::try_unsigned<std::float64_t>, std::float64_t>),
 	TEST(std::same_as<xieite::try_unsigned<std::float128_t>, std::float128_t>),
 	TEST(std::same_as<xieite::try_unsigned<std::bfloat16_t>, std::bfloat16_t>),
+
+	// Other random types
 	TEST(std::same_as<xieite::try_unsigned<void>, void>),
 	TEST(std::same_as<xieite::try_unsigned<int&>, int&>),
 	TEST(std::same_as<xieite::try_unsigned<char***>, char***>),
