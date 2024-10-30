@@ -6,7 +6,7 @@ import :least_uint;
 
 export namespace xieite {
 	template<std::size_t bits, bool sign>
-	struct bit_field : std::type_identity<std::conditional_t<sign, xieite::least_int<bits>, xieite::least_uint<bits>>> {
+	struct bit_field : std::conditional<sign, xieite::least_int<bits>, xieite::least_uint<bits>> {
 		typename xieite::bit_field<bits, sign>::type value : bits;
 
 		template<std::integral T = int>

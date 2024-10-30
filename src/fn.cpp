@@ -28,11 +28,9 @@ export namespace xieite {
 			return static_cast<bool>(this->ptr);
 		}
 
-		template<typename... ArgsRef>
-		requires((... && std::convertible_to<ArgsRef, Args>))
-		constexpr Ret operator()(ArgsRef&&... args) const noexcept(false) {
+		constexpr Ret operator()(Args... args) const noexcept(false) {
 			// Explicitly not handling possible nullptr dereference
-			return (*this->ptr)(XIEITE_FWD(args)...);
+			return (*this->ptr)(args...);
 		}
 
 	private:
