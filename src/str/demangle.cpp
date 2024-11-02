@@ -5,11 +5,10 @@ module;
 export module xieite:demangle;
 
 import std;
-import :temp;
 
 export namespace xieite {
 	[[nodiscard]] std::string demangle(std::string_view mangled) noexcept {
-		char* const buf = abi::__cxa_demangle(mangled.data(), nullptr, &xieite::temp(mangled.size()), &xieite::temp(0));
+		char* const buf = abi::__cxa_demangle(std::string(mangled).c_str(), nullptr, nullptr, nullptr);
 		if (buf) {
 			const std::string demangled = std::string(buf);
 			std::free(buf);
