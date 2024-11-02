@@ -11,8 +11,8 @@ import :thread_interval;
 export namespace xieite {
 	struct thread_timeout {
 	public:
-		template<std::invocable<> Fn, xieite::is_duration Duration>
-		thread_timeout(Fn&& callback, Duration duration) noexcept
+		template<std::invocable<> F, xieite::is_duration Duration>
+		thread_timeout(F&& callback, Duration duration) noexcept
 		: interval([this, &callback] {
 			this->stop();
 			std::invoke(XIEITE_FWD(callback));

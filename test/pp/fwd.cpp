@@ -4,8 +4,8 @@
 import std;
 
 constexpr std::array tests = {
-	TEST(requires { XIEITE_FWD([] {}); }),
-	TEST(std::same_as<decltype(XIEITE_FWD(void())), void>)
+	TEST(requires { XIEITE_FWD_PRVALUE([] {}); }),
+	TEST(std::same_as<decltype(XIEITE_FWD_PRVALUE(void())), void>)
 };
 
 int main() {

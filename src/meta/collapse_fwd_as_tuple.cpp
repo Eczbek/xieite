@@ -4,11 +4,12 @@ module;
 
 export module xieite:collapse_fwd_as_tuple;
 
+import std;
 import :collapse_fwd;
-import :decay_as_tuple;
 
 export namespace xieite {
-	template<typename T>
-	[[nodiscard]] constexpr auto collapse_fwd_as_tuple(auto&&... args)
-	XIEITE_ARROW(xieite::decay_as_tuple(xieite::collapse_fwd<T>(XIEITE_FWD(args))...))
+	template<typename T, typename... Args>
+	[[nodiscard]] constexpr auto collapse_fwd_as_tuple(Args&&... args) noexcept {
+		return std::forward_as_tuple(xieite::collapse_fwd<T>(XIEITE_FWD(args))...);
+	}
 }

@@ -2,9 +2,9 @@ export module xieite:fn_ptr;
 
 import std;
 
-template<typename Fn, typename Ret, typename Args, bool is_variadic, bool is_nothrow>
+template<typename F, typename Ret, typename Args, bool is_variadic, bool is_nothrow>
 struct free_fn_ptr {
-	using fn = Fn;
+	using fn = F;
 	using ret = Ret;
 	using args = Args;
 
@@ -12,11 +12,11 @@ struct free_fn_ptr {
 	static constexpr bool nothrow = is_nothrow;
 };
 
-template<typename C, typename Ref, typename Fn, typename Ret, typename Args, bool is_variadic, bool is_const_qual, bool is_volatile_qual, bool is_lvalue_qual, bool is_rvalue_qual, bool is_nothrow>
+template<typename C, typename Ref, typename F, typename Ret, typename Args, bool is_variadic, bool is_const_qual, bool is_volatile_qual, bool is_lvalue_qual, bool is_rvalue_qual, bool is_nothrow>
 struct member_fn_ptr {
 	using type = C;
 	using ref = Ref;
-	using fn = Fn;
+	using fn = F;
 	using ret = Ret;
 	using args = Args;
 

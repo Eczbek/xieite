@@ -4,7 +4,7 @@ import std;
 import :sv;
 
 export namespace xieite {
-	[[nodiscard]] constexpr std::string trunc(std::string_view str, std::size_t size, xieite::sv sfx = "") noexcept {
+	[[nodiscard]] constexpr std::string trunc(std::string_view str, std::size_t size, xieite::sv<> sfx = "") noexcept {
 		return (str.size() <= size)
 			? std::string(str)
 			: ((sfx.size() > size)

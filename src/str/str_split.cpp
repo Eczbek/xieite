@@ -4,7 +4,7 @@ import std;
 import :sv;
 
 export namespace xieite {
-	[[nodiscard]] constexpr std::vector<std::string_view> str_split(std::string_vie, xieite::sv delim, bool discard_empty = false) noexcept {
+	[[nodiscard]] constexpr std::vector<std::string_view> str_split(std::string_view str, xieite::sv<> delim, bool discard_empty = false) noexcept {
 		std::vector<std::string_view> result;
 		std::size_t i = 0;
 		while (true) {

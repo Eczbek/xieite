@@ -3,13 +3,13 @@ export module xieite:num_parse;
 import std;
 import :is_arith;
 import :pow;
-import :ssize_if_float;
+import :ssize;
 import :split_bool;
 import :str_num_config;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T num_parse(std::string_view str, xieite::ssize_if_float<T> radix = 10, xieite::str_num_config config = {}) noexcept {
+	[[nodiscard]] constexpr T num_parse(std::string_view str, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_config config = {}) noexcept {
 		if (!radix) {
 			return 0;
 		}

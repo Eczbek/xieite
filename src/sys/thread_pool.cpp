@@ -52,9 +52,9 @@ export namespace xieite {
 			return this->threads.size();
 		}
 
-		template<std::invocable<> Fn>
-		std::future<void> enqueue(Fn&& fn) noexcept {
-			auto task = std::packaged_task<void()>(fn);
+		template<std::invocable<> F>
+		std::future<void> enqueue(F&& task) noexcept {
+			auto task = std::packaged_task<void()>(task);
 			std::future<void> future = task.get_future();
 			auto lock = std::unique_lock<std::mutex>(this->mutex);
 			this->tasks.emplace(std::move(task));

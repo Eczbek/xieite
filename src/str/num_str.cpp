@@ -6,14 +6,14 @@ import :abs;
 import :almost_eq;
 import :neg;
 import :rem;
-import :ssize_if_float;
+import :ssize;
 import :str_num_config;
 import :try_unsigned;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr std::string stringify(T value, xieite::ssize_if_float<T> radix = 10, xieite::str_num_config config = {}) noexcept {
-		using Radix = xieite::ssize_if_float<T>;
+	[[nodiscard]] constexpr std::string stringify(T value, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_config config = {}) noexcept {
+		using Radix = decltype(radix);
 		std::string result;
 		if (!radix || xieite::almost_eq(value, 0)) {
 			result += config.digits[0];

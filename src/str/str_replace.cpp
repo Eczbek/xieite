@@ -1,10 +1,10 @@
-export module xieite:replace;
+export module xieite:str_replace;
 
 import std;
 import :sv;
 
 export namespace xieite {
-	[[nodiscard]] constexpr std::string replace(std::string_view str, xieite::sv orig, xieite::sv replc) noexcept {
+	[[nodiscard]] constexpr std::string str_replace(std::string_view str, xieite::sv<> orig, xieite::sv<> replc) noexcept {
 		std::string result = str;
 		std::size_t i = 0;
 		while (true) {

@@ -31,10 +31,10 @@ export namespace xieite {
 		template<auto fn>
 		requires(xieite::type_list<Ts...>::any<fn>)
 		static constexpr std::size_t find = ([] {
-				std::size_t idx = 0;
-				(... && (!xieite::is_satisfied_by<fn, Ts> && ++idx));
-				return idx;
-			})();
+			std::size_t idx = 0;
+			(... && (!xieite::is_satisfied_by<fn, Ts> && ++idx));
+			return idx;
+		})();
 
 		template<typename T, auto comp = []<typename U, std::same_as<U>> {}>
 		requires(xieite::type_list<Ts...>::has<T, comp>)
@@ -158,7 +158,7 @@ export namespace xieite {
 				Ts...
 			>;
 
-		template<auto comp = []<typename U, std::same_as<U>> {}>
+		template<auto comp = []<typename T, std::same_as<T>> {}>
 		using deduplicate =
 			xieite::fold<
 				[]<typename T, typename List> {
