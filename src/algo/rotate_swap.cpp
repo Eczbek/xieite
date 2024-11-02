@@ -5,7 +5,7 @@ import :repeat;
 
 export namespace xieite {
 	template<std::size_t n = 1, typename... Args>
-	constexpr auto rotate_swap(Args&... args)
+	constexpr std::tuple<Args&...> rotate_swap(Args&... args)
 	noexcept((... && (std::is_nothrow_move_constructible_v<Args> && std::is_nothrow_move_assignable_v<Args>))) {
 		static constexpr std::size_t size = sizeof...(Args);
 		auto args_tuple = std::tie(args...);
