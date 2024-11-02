@@ -4,6 +4,16 @@
 #include <xieite/fn.hpp>
 #include <xieite/fwd.hpp>
 
+namespace std_ = std::placeholders;
+namespace stdc = std::chrono;
+namespace stde = std::execution;
+namespace stdf = std::filesystem;
+namespace stdn = std::numbers;
+namespace stdr = std::ranges;
+namespace stdt = std::this_thread;
+namespace stdv = std::views;
+namespace stdx = std::experimental;
+
 #define nand && XIEITE_DETAIL::ifx<XIEITE_FN(!XIEITE_FWD($0) || !XIEITE_FWD($1))>() &&
 #define nor || XIEITE_DETAIL::ifx<XIEITE_FN(!XIEITE_FWD($0) && !XIEITE_FWD($1))>() ||
 #define xnor ^ XIEITE_DETAIL::ifx<XIEITE_FN(XIEITE_FWD($0) == XIEITE_FWD($1))>() ^
