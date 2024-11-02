@@ -6,14 +6,14 @@ import :try_unsigned;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr xieite::try_unsigned<T> diff(T val1, std::type_identity_t<T> val2) noexcept {
+	[[nodiscard]] constexpr xieite::try_unsigned<T> diff(T value0, std::type_identity_t<T> value1) noexcept {
 		if constexpr (std::floating_point<T>) {
-			return std::abs(val1 - val2);
+			return std::abs(value0 - value1);
 		} else {
 			using Result = xieite::try_unsigned<T>;
-			return (val1 > val2)
-				? (static_cast<Result>(val1) - static_cast<Result>(val2))
-				: (static_cast<Result>(val2) - static_cast<Result>(val1));
+			return (value0 > value1)
+				? (static_cast<Result>(value0) - static_cast<Result>(value1))
+				: (static_cast<Result>(value1) - static_cast<Result>(value0));
 		}
 	}
 }

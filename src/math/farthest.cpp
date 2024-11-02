@@ -6,7 +6,7 @@ import :diff;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T farthest(T target, std::type_identity_t<T> val1, std::type_identity_t<T> val2) noexcept {
-		return (xieite::diff(target, val1) > xieite::diff(target, val2)) ? val1 : val2;
+	[[nodiscard]] constexpr T farthest(T target, std::type_identity_t<T> value0, std::type_identity_t<T> value1) noexcept {
+		return (xieite::diff(target, value0) > xieite::diff(target, value1)) ? value0 : value1;
 	}
 }

@@ -130,17 +130,17 @@ export namespace xieite {
 		template<std::size_t idx, typename T>
 		using set = xieite::type_list<Ts...>::replace<idx, idx + 1, T>;
 
-		template<std::size_t idx1, std::size_t idx2>
+		template<std::size_t idx0, std::size_t idx1>
 		using swap =
 			xieite::type_list<Ts...>
-			::set<idx1, xieite::type_list<Ts...>::at<idx2>>
-			::template set<idx2, xieite::type_list<Ts...>::at<idx1>>;
+			::set<idx0, xieite::type_list<Ts...>::at<idx1>>
+			::template set<idx1, xieite::type_list<Ts...>::at<idx0>>;
 
-		template<std::size_t start1, std::size_t end1, std::size_t start2, std::size_t end2>
+		template<std::size_t start0, std::size_t end0, std::size_t start1, std::size_t end1>
 		using swap_ranges =
 			xieite::type_list<Ts...>
-			::replace_range<start1, end1, type_list::slice<start2, end2>>
-			::template replace_range<start2, end2, type_list::slice<start1, end1>>;
+			::replace_range<start0, end0, type_list::slice<start1, end1>>
+			::template replace_range<start1, end1, type_list::slice<start0, end0>>;
 
 		template<std::size_t... indices>
 		using arrange =

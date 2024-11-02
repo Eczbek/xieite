@@ -11,9 +11,9 @@ export namespace xieite {
 		return xieite::rotate2d(point, (mirror.angle() - mirror.start.angle_to(point)) * 2);
 	}
 
-	template<typename T = double, xieite::is_linear2d<T> L1, xieite::is_linear2d<T> L2>
-	[[nodiscard]] constexpr L1 refl2d(const L1& line, const L2& mirror) noexcept {
-		return L1(
+	template<typename T = double, xieite::is_linear2d<T> L0, xieite::is_linear2d<T> L1>
+	[[nodiscard]] constexpr L0 refl2d(const L0& line, const L1& mirror) noexcept {
+		return L0(
 			xieite::rotate2d(line.start, (mirror.angle() - mirror.start.angle_to(line.start)) * 2),
 			xieite::rotate2d(line.end, (mirror.angle() - mirror.start.angle_to(line.end)) * 2)
 		);

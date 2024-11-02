@@ -11,7 +11,7 @@ export namespace xieite::chars {
 
 	constexpr std::string_view digits = "0123456789";
 
-	constexpr std::string_view whitesp = "\t\n\v\f\r ";
+	constexpr std::string_view whitesp = " \t\n\v\f\r";
 
 	constexpr std::string_view alphanum = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
