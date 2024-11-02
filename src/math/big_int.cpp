@@ -8,6 +8,7 @@ import :dbl_mul;
 import :dbl_uint;
 import :is_arith;
 import :neg;
+import :ops;
 import :split_bool;
 import :ssize;
 import :str_num_config;
@@ -103,21 +104,12 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<T>& left, const xieite::big_int<T>& right) noexcept {
-			if (left.neg != right.neg) {
-				return right.neg <=> left.neg;
-			}
-			if (left.neg) {
-				if (left.data.size() != right.data.size()) {
-					return right.data.size() <=> left.data.size();
-				} else {
-					return std::lexicographical_compare_three_way(right.data.rbegin(), right.data.rend(), left.data.rbegin(), left.data.rend());
-				}
-			}
-			if (left.data.size() != right.data.size()) {
-				return left.data.size() <=> right.data.size();
-			} else {
-				return std::lexicographical_compare_three_way(left.data.rbegin(), left.data.rend(), right.data.rbegin(), right.data.rend());
-			}
+			return (right.neg <=> left.neg)
+				|| (left.neg
+					? ((right.data.size() <=> left.data.size())
+						|| (std::views::reverse(right) <=> std::views::reverse(left)))
+					: ((left.data.size() <=> right.data.size())
+						|| (std::views::reverse(left) <=> std::views::reverse(right))));
 		}
 
 		template<std::integral U>

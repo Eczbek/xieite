@@ -264,6 +264,7 @@ export import :num_reverse;
 export import :num_search;
 export import :num_str;
 export import :num;
+export import :ops;
 export import :pad;
 export import :pad_back;
 export import :pad_front;
