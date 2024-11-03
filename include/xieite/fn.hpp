@@ -532,19 +532,23 @@ XIEITE_DIAG_OFF_CLANG(-Wdollar-in-identifier-extension)
 	}
 
 namespace XIEITE_DETAIL {
-	template<std::size_t idx>
-	[[nodiscard]] constexpr decltype(auto) at(auto&&... args) noexcept {
-		if constexpr (idx < sizeof...(args)) {
-			return std::get<idx>(std::forward_as_tuple(XIEITE_FWD(args)...));
-		} else {
-			struct nit {
-				nit() = default;
-				nit(const nit&) = delete;
-				nit(nit&&) = delete;
-				auto operator=(const nit&) = delete;
-				auto operator=(nit&&) = delete;
-			};
-			return nit();
+	// Template parameter must be named here due to GCC bug
+	// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117422
+	template<std::size_t idx> // <--
+	constexpr auto&& at(auto&&...) noexcept;
+
+	struct unusable {
+		template<std::size_t idx>
+		[[nodiscard]] friend constexpr auto&& at(auto&&... args) noexcept {
+			if constexpr (idx < sizeof...(args)) {
+				return std::get<idx>(std::forward_as_tuple(XIEITE_FWD(args)...));
+			} else {
+				static constexpr XIEITE_DETAIL::unusable unusable;
+				return unusable;
+			}
 		}
-	}
+
+	private:
+		~unusable() = default;
+	};
 }

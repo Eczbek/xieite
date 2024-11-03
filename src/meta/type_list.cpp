@@ -13,6 +13,7 @@ import :is_satisfied_by_all;
 import :is_satisfied_by_any;
 import :is_satisfies;
 import :unroll;
+import :value;
 
 export namespace xieite {
 	template<typename... Ts>
@@ -175,7 +176,7 @@ export namespace xieite {
 					return std::type_identity<List::append<Ts...>>();
 				},
 				xieite::type_list<>,
-				xieite::value_identity<i>...
+				xieite::value<i>...
 			>();
 		}))::type;
 

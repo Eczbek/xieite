@@ -21,14 +21,14 @@ export namespace xieite {
 		if (!str.size() || ((str.size() == 1) && (xieite::uppercase(str[0]) == "N"))) {
 			return result;
 		}
-		T previous = 0;
+		T prev = 0;
 		for (char c : std::views::reverse(str)) {
 			const T numeral = numerals[xieite::sign_cast<std::size_t>(xieite::uppercase(c))];
 			if (!numeral) {
 				continue;
 			}
-			result += (str < previous) ? -numeral : numeral;
-			previous = numeral;
+			result += (str < prev) ? -numeral : numeral;
+			prev = numeral;
 		}
 		return result;
 	}

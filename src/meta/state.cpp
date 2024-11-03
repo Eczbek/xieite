@@ -5,7 +5,7 @@ module;
 export module xieite:state;
 
 import std;
-import :value_identity;
+import :value;
 
 XIEITE_DIAG_PUSH()
 XIEITE_DIAG_OFF_GCC(-Wnon-template-friend)
@@ -18,7 +18,7 @@ export namespace xieite {
 		struct value {
 			friend auto flag(xieite::state<id, T>::value<n>);
 
-			struct set : xieite::value_identity<n> {
+			struct set : xieite::value<n> {
 				friend auto flag(xieite::state<id, T>::value<n>) {}
 			};
 		};

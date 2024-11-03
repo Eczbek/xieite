@@ -15,12 +15,12 @@ export module xieite:io_handle;
 
 import std.compat;
 import :abs;
-import :scope_guard;
-import :num_str;
 import :color;
 import :keyboard;
-import :vec;
+import :num_str;
 import :read;
+import :scope_guard;
+import :vec;
 
 export namespace xieite {
 	struct io_handle {
@@ -34,7 +34,7 @@ export namespace xieite {
 			blocking_mode(::fcntl(::fileno(this->input), F_GETFL))
 		{
 			::tcgetattr(::fileno(this->input), &this->cooked_mode);
-			this->blocking_enabled = !(this->blocking_mode & O_NONBLOCK);
+			this->block_enabled = !(this->blocking_mode & O_NONBLOCK);
 			this->echo_enabled = this->cooked_mode.c_lflag & ECHO;
 			this->canon_enabled = this->cooked_mode.c_lflag & ICANON;
 			this->signals_enabled = (this->cooked_mode.c_iflag & IXON) || (this->cooked_mode.c_iflag & ICRNL) || (this->cooked_mode.c_lflag & IEXTEN) || (this->cooked_mode.c_lflag & ISIG);
@@ -49,8 +49,8 @@ export namespace xieite {
 		}
 
 		void blocking(bool value) noexcept {
-			if (this->blocking_enabled != value) {
-				this->blocking_enabled = value;
+			if (this->block_enabled != value) {
+				this->block_enabled = value;
 				this->update();
 			}
 		}
@@ -195,14 +195,14 @@ export namespace xieite {
 			tcsetattr(::fileno(this->input), TCSANOW, &this->cooked_mode);
 		}
 
-		[[nodiscard]] xieite::vec<int, 2> get_cursor() noexcept {
-			const bool canon_previous = this->canon_enabled;
+		[[nodiscard]] xieite::vec2<int> get_cursor() noexcept {
+			const bool canon_prev = this->canon_enabled;
 			this->canon(false);
 			std::print(this->output, "\x1B[6n");
-			xieite::vec<int, 2> pos;
+			xieite::vec2<int> pos;
 			std::fscanf(this->input, "\x1B[%i;%iR", &pos[0], &pos[1]);
-			this->scanon(canon_previous);
-			return pos - xieite::vec(-1, -1);
+			this->canon(canon_prev);
+			return pos - xieite::vec2(-1, -1);
 		}
 
 		[[nodiscard]] constexpr std::string set_cursor_code(xieite::vec<int, 2> pos) noexcept {
@@ -330,27 +330,27 @@ export namespace xieite {
 		}
 
 		char read_char() noexcept {
-			const bool canon_previous = this->canon_enabled;
+			const bool canon_prev = this->canon_enabled;
 			this->canon(false);
 			const char input = static_cast<char>(std::fgetc(this->input));
-			this->canon(canon_previous);
+			this->canon(canon_prev);
 			return input;
 		}
 
 		std::string read_str() noexcept {
-			const bool blocking_previous = this->blocking_enabled;
-			const bool canon_previous = this->canon_enabled;
+			const bool block_prev = this->block_enabled;
+			const bool canon_prev = this->canon_enabled;
 			this->blocking(false);
 			this->canon(false);
 			const std::string input = xieite::read(this->input);
-			this->blocking(blocking_previous);
-			this->canon(canon_previous);
+			this->blocking(block_prev);
+			this->canon(canon_prev);
 			return input;
 		}
 
 		xieite::keyboard read_key() noexcept {
-			const xieite::scope_guard _ = xieite::scope_guard([this, blocking_previous = this->blocking_enabled] {
-				this->blocking(blocking_previous);
+			const xieite::scope_guard _ = xieite::scope_guard([this, block_prev = this->block_enabled] {
+				this->blocking(block_prev);
 			});
 			const char c = this->read_char();
 			this->blocking(false);
@@ -696,14 +696,14 @@ export namespace xieite {
 		const int blocking_mode;
 		::termios cooked_mode;
 
-		bool blocking_enabled;
+		bool block_enabled;
 		bool echo_enabled;
 		bool canon_enabled;
 		bool signals_enabled;
 		bool processing_enabled;
 
 		void update() noexcept {
-			::fcntl(::fileno(this->input), F_SETFL, this->blocking_mode | (O_NONBLOCK * !this->blocking_enabled));
+			::fcntl(::fileno(this->input), F_SETFL, this->blocking_mode | (O_NONBLOCK * !this->block_enabled));
 			::termios raw_mode = this->cooked_mode;
 			raw_mode.c_iflag &= ~static_cast<::tcflag_t>((ICRNL * !this->signals_enabled) | (IXON * !this->signals_enabled));
 			raw_mode.c_lflag &= ~static_cast<::tcflag_t>((ECHO * !this->echo_enabled) | (ICANON * !this->canon_enabled) | (IEXTEN * !this->signals_enabled) | (ISIG * !this->signals_enabled));
