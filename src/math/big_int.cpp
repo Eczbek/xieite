@@ -38,9 +38,7 @@ export namespace xieite {
 		: neg(value.neg) {
 			if constexpr (sizeof(T) == sizeof(U)) {
 				this->data = value.data;
-				return;
-			}
-			if constexpr (sizeof(T) > sizeof(U)) {
+			} else if constexpr (sizeof(T) > sizeof(U)) {
 				std::size_t shift_bytes = sizeof(T);
 				for (U limb : value.data) {
 					if (shift_bytes >= sizeof(T)) {
@@ -50,16 +48,16 @@ export namespace xieite {
 					this->data.back() |= limb << (shift_bytes * std::numeric_limits<unsigned char>::digits);
 					shift_bytes += sizeof(U);
 				}
-				return;
+			} else {
+				for (U limb : value.data) {
+					std::size_t shift_bytes = 0;
+					do {
+						this->data.push_back(static_cast<T>(limb >> (shift_bytes * std::numeric_limits<unsigned char>::digits)));
+						shift_bytes += sizeof(T);
+					} while (shift_bytes < sizeof(U));
+				}
+				this->trim();
 			}
-			for (U limb : value.data) {
-				std::size_t shift_bytes = 0;
-				do {
-					this->data.push_back(static_cast<T>(limb >> (shift_bytes * std::numeric_limits<unsigned char>::digits)));
-					shift_bytes += sizeof(T);
-				} while (shift_bytes < sizeof(U));
-			}
-			this->trim();
 		}
 
 		template<std::ranges::input_range R>

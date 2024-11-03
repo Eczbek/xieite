@@ -19,10 +19,6 @@ export namespace xieite {
 
 	template<xieite::is_arith T>
 	[[nodiscard]] constexpr bool almost_eq(T value0, std::type_identity_t<T> value1, std::type_identity_t<T> epsilon) noexcept {
-		if constexpr (std::floating_point<T>) {
-			return std::abs(value0 - value1) <= std::abs(epsilon);
-		} else {
-			return xieite::diff(value0, value1) <= xieite::abs(epsilon);
-		}
+		return xieite::diff(value0, value1) <= xieite::abs(epsilon);
 	}
 }

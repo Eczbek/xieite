@@ -5,8 +5,8 @@
 #include <xieite/diag.hpp>
 #include <xieite/fwd.hpp>
 
-#define XIEITE_FN(...) XIEITE_DETAIL_FN(&, __VA_ARGS__)
-#define XIEITE_GFN(...) XIEITE_DETAIL_FN(, __VA_ARGS__)
+#define XIEITE_FN(...) XIEITE_DETAIL_FN(, __VA_ARGS__)
+#define XIEITE_FN_LOCAL(...) XIEITE_DETAIL_FN(&, __VA_ARGS__)
 
 XIEITE_DIAG_OFF_CLANG(-Wdollar-in-identifier-extension)
 

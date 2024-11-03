@@ -12,7 +12,7 @@ export namespace xieite {
 	constexpr auto repeat(auto&& fn, auto&&... args)
 	XIEITE_ARROW((
 		[&fn, &args...]<auto... i>(std::integer_sequence<decltype(n), i...>)
-		XIEITE_ARROW((..., fn.template operator()<i>(XIEITE_FWD(args)...)))
+		XIEITE_ARROW(..., fn.template operator()<i>(XIEITE_FWD(args)...))
 	)(std::make_integer_sequence<decltype(n), n>()))
 
 	template<typename... Ts>

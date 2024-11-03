@@ -4,8 +4,11 @@
 #include <type_traits>
 
 #define XIEITE_FWD(...) static_cast<decltype(__VA_ARGS__)&&>(__VA_ARGS__)
-#define XIEITE_FWD_PRVALUE(...) \
-	([&]<int = 0> -> decltype(auto) { \
+#define XIEITE_FWD_PRVALUE(...) XIETIE_DETAIL_FWD_PRVALUE(, __VA_ARGS__)
+#define XIEITE_FWD_PRVALUE_LOCAL(...) XIEITE_DETAIL_FWD_PRVALUE(&, __VA_ARGS__)
+
+#define XIEITE_DETAIL_FWD_PRVALUE(capture, ...) \
+	([capture]<int = 0> -> decltype(auto) { \
 		if constexpr (!::std::same_as<decltype(__VA_ARGS__), decltype((__VA_ARGS__))> && ::std::same_as<decltype(__VA_ARGS__), decltype(__VA_ARGS__)>) { \
 			return static_cast<::std::add_rvalue_reference_t<decltype(__VA_ARGS__)>>(__VA_ARGS__); \
 		} else { \
