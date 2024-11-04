@@ -4,7 +4,8 @@ import std;
 import :sv;
 
 export namespace xieite {
-	[[nodiscard]] constexpr std::string_view trim_back(std::string_view str, xieite::sv<> chars) noexcept {
+	template<typename C = char, typename Traits = std::char_traits<C>>
+	[[nodiscard]] constexpr std::basic_string_view<C, Traits> trim_back(std::basic_string_view<C, Traits> str, xieite::sv<C, Traits> chars) noexcept {
 		const std::size_t end = str.find_last_not_of(chars);
 		return (end == std::string::npos) ? "" : str.substr(0, end + 1);
 	}

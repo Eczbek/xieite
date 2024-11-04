@@ -8,7 +8,7 @@ import :read;
 
 export namespace xieite {
 	xieite::proc_result exec(std::string_view cmd) noexcept {
-		auto pipe = xieite::file_pipe(std::string(cmd), "r");
+		auto pipe = xieite::file_pipe(cmd, "r");
 		const std::string output = xieite::read(pipe.get());
 		return xieite::proc_result(output, xieite::proc_status(pipe.close()));
 	}

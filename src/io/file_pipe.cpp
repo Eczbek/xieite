@@ -16,13 +16,13 @@ export namespace xieite {
 	public:
 		file_pipe() noexcept : stream(nullptr) {}
 
-		file_pipe(std::string_view command, std::string_view mode) noexcept {
-			this->open(command, mode);
+		file_pipe(std::string_view cmd, std::string_view mode) noexcept {
+			this->open(cmd, mode);
 		}
 		
 #if XIEITE_PLTF_TYPE_WINDOWS
-		file_pipe(std::wstring_view command, std::wstring_view mode) noexcept {
-			this->open(command, mode);
+		file_pipe(std::wstring_view cmd, std::wstring_view mode) noexcept {
+			this->open(cmd, mode);
 		}
 #endif
 
@@ -30,17 +30,17 @@ export namespace xieite {
 			this->close();
 		}
 
-		void open(std::string_view command, std::string_view mode) noexcept {
+		void open(std::string_view cmd, std::string_view mode) noexcept {
 #if XIEITE_PLTF_TYPE_WINDOWS
-			this->stream = ::_popen(std::string(command).c_str(), std::string(mode).c_str());
+			this->stream = ::_popen(std::string(cmd).c_str(), std::string(mode).c_str());
 #else
-			this->stream = ::popen(std::string(command).c_str(), std::string(mode).c_str());
+			this->stream = ::popen(std::string(cmd).c_str(), std::string(mode).c_str());
 #endif
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		void open(std::wstring_view command, std::wstring_view mode) noexcept {
-			this->stream = ::_wpopen(std::wstring(command).c_str(), std::wstring(mode).c_str());
+		void open(std::wstring_view cmd, std::wstring_view mode) noexcept {
+			this->stream = ::_wpopen(std::wstring(cmd).c_str(), std::wstring(mode).c_str());
 		}
 #endif
 

@@ -4,18 +4,18 @@ import std;
 import :sv;
 
 export namespace xieite {
-	template<std::ranges::input_range R>
-	requires(std::constructible_from<std::string, std::ranges::range_common_reference_t<R>>)
-	[[nodiscard]] constexpr std::string str_join(R&& range, xieite::sv<> delim = "", xieite::sv<> pfx = "", xieite::sv<> sfx = "") noexcept {
+	template<std::ranges::input_range R, typename C = char, typename Traits = std::char_traits<C>, typename Alloc = std::allocator<C>>
+	requires(std::constructible_from<std::basic_string<C, Traits, Alloc>, std::ranges::range_common_reference_t<R>>)
+	[[nodiscard]] constexpr std::basic_string<C, Traits, Alloc> str_join(R&& range, xieite::sv<C, Traits> delim = "", xieite::sv<C, Traits> pfx = "", xieite::sv<C, Traits>> sfx = "") noexcept {
 		auto iterator = std::ranges::begin(range);
 		const auto end = std::ranges::end(range);
 		if (iterator == end) {
 			return "";
 		}
-		std::string result = std::string(*iterator);
+		auto result = std::basic_string<C, Traits, Alloc>(*iterator);
 		while (++iterator != end) {
 			result += delim;
-			result += std::string(*iterator);
+			result += std::basic_string<C, Traits, Alloc>(*iterator);
 		}
 		return pfx + result + sfx;
 	}

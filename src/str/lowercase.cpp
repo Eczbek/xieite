@@ -1,25 +1,29 @@
 export module xieite:lowercase;
 
 import std;
-import :sign_cast;
+import :bit_size;
 import :chars;
+import :is_char;
+import :sign_cast;
 
 export namespace xieite {
-	[[nodiscard]] constexpr char lowercase(char c) noexcept {
+	template<xieite::is_char C = char>
+	[[nodiscard]] constexpr C lowercase(C c) noexcept {
 		static constexpr auto lookup = ([] {
-			std::array<char, (1uz << std::numeric_limits<unsigned char>::digits)> lookup;
+			std::array<C, (1uz << xieite::bit_size<C>)> lookup;
 			std::ranges::iota(lookup, '\0');
 			for (std::size_t i = 0; i < xieite::chars::alphabet_size; ++i) {
-				lookup[xieite::sign_cast<std::size_t>(xieite::chars::upper[i])] = xieite::chars::lower[i];
+				lookup[xieite::sign_cast<std::size_t>(xieite::chars::upper[i])] = static_cast<C>(xieite::chars::lower[i]);
 			}
 			return lookup;
 		})();
 		return lookup[xieite::sign_cast<std::size_t>(c)];
 	}
 
-	[[nodiscard]] constexpr std::string lowercase(std::string_view str) noexcept {
-		std::string result = std::string(str);
-		for (char& c : result) {
+	template<typename C = char, typename Traits = std::char_traits<C>, typename Alloc = std::allocator<C>>
+	[[nodiscard]] constexpr std::basic_string<C, Traits, Alloc> lowercase(std::basic_string_view<C, Traits> str) noexcept {
+		auto result = std::basic_string<C, Traits, Alloc>(str);
+		for (C& c : result) {
 			c = xieite::lowercase(c);
 		}
 		return result;

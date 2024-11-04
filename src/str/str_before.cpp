@@ -4,7 +4,8 @@ import std;
 import :sv;
 
 export namespace xieite {
-	[[nodiscard]] constexpr std::string_view str_before(std::string_view str, xieite::sv<> end) noexcept {
+	template<typename C = char, typename Traits = std::char_traits<C>>
+	[[nodiscard]] constexpr std::basic_string_view<C, Traits> str_before(std::basic_string_view<C, Traits> str, xieite::sv<C, Traits> end) noexcept {
 		return str.end(0, str.rfind(end));
 	}
 }
