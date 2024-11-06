@@ -93,7 +93,7 @@ export namespace xieite {
 
 		template<xieite::is_stream Stream>
 		void open(Stream& stream) noexcept {
-			this->stream = ([&stream] {
+			this->stream = ([&stream] -> std::FILE* {
 				const Stream* ptr = std::addressof(stream);
 				if constexpr (xieite::is_istream<Stream>) {
 					if (ptr == std::addressof(std::cin)) {

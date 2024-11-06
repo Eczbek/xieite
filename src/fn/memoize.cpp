@@ -32,7 +32,7 @@ struct memo_hash {
 
 	template<typename F, typename... Args>
 	[[nodiscard]] static std::size_t operator()(const memo<F, Args...>& memo) noexcept(false) {
-		return xieite::unroll<Args...>([&memo]<std::size_t... i> {
+		return xieite::unroll<Args...>([&memo]<std::size_t... i> -> std::size_t {
 			return xieite::hash_combine(
 				xieite::cond<xieite::is_hashable<F>>(std::hash<F>(), XIEITE_FN(0))(memo.fn),
 				std::hash<std::decay_t<std::tuple_element_t<i, std::tuple<Args...>>>>()(std::get<i>(memo.args))...

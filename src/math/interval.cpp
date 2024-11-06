@@ -4,7 +4,7 @@ import :is_arith;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	struct Interval {
+	struct interval {
 		T start;
 		T end;
 	};

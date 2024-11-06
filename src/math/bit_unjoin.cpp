@@ -2,18 +2,17 @@ export module xieite:bit_unjoin;
 
 import std;
 import :bit_size;
-import :unroll;
+import :repeat;
 
 export namespace xieite {
 	template<std::integral... Ts, std::size_t bits>
 	requires(bits >= (... + xieite::bit_size<Ts>))
 	[[nodiscard]] constexpr std::tuple<Ts...> bit_unjoin(std::bitset<bits> value) noexcept {
 		std::tuple<Ts...> result;
-		xieite::unroll<Ts...>([&value, &result]<std::size_t... i> {
-			(..., ([&value, &result] {
-				std::get<i>(result) = static_cast<Ts>(value.to_ullong());
-				value >>= xieite::bit_size<Ts>;
-			})());
+		xieite::repeat<Ts...>([&value, &result]<std::size_t i> -> void {
+			using T = std::tuple_element_t<i, std::tuple<Ts...>>;
+			std::get<i>(result) = static_cast<T>(value.to_ullong());
+			value >>= xieite::bit_size<T>;
 		});
 		return result;
 	}

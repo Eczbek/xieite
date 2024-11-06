@@ -5,7 +5,7 @@ module;
 export module xieite:poly2d;
 
 import std;
-import :ranges_rotated;
+import :rotated;
 import :is_arith;
 import :intxn2d;
 import :point2d;
@@ -35,7 +35,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(const xieite::poly2d<T>& left, const xieite::poly2d<T>& right) noexcept {
-			return xieite::ranges_rotated(left.points, right.points) || xieite::ranges_rotated(left.points, std::views::reverse(right.points));
+			return xieite::rotated(left.points, right.points) || xieite::rotated(left.points, std::views::reverse(right.points));
 		}
 
 		[[nodiscard]] static constexpr xieite::poly2d<T> rect(xieite::point2d<T> start, xieite::point2d<T> end) noexcept {
@@ -72,7 +72,7 @@ export namespace xieite {
 			bool odd = false;
 			for (std::size_t i = 0; i < this->points.size(); ++i) {
 				const std::size_t j = (i + 1) % this->points.size();
-				odd ^= ((this->points[i].y < point.y) && (this->points[j].y >= point.y) || (this->points[j].y < point.y) && (this->points[i].y >= point.y)) && ((this->points[i].x <= point.x) || (this->points[j].x <= point.x)) && (this->points[i].x + (point.y - this->points[i].y) / (this->points[j].y - this->points[i].y) * (this->points[j].x - this->points[i].x) < point.x);
+				odd ^= (((this->points[i].y < point.y) && (this->points[j].y >= point.y)) || ((this->points[j].y < point.y) && (this->points[i].y >= point.y))) && ((this->points[i].x <= point.x) || (this->points[j].x <= point.x)) && (this->points[i].x + (point.y - this->points[i].y) / (this->points[j].y - this->points[i].y) * (this->points[j].x - this->points[i].x) < point.x);
 			}
 			if (odd) {
 				return true;

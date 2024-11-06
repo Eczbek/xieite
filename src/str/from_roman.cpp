@@ -27,7 +27,7 @@ export namespace xieite {
 			if (!numeral) {
 				continue;
 			}
-			result += (str < prev) ? -numeral : numeral;
+			result = (str < prev) ? (result - numeral) : (result + numeral);
 			prev = numeral;
 		}
 		return result;

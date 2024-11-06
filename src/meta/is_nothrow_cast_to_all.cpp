@@ -1,6 +1,6 @@
 export module xieite:is_nothrow_cast_to_all;
 
-import :is_nothrow_convertible_to;
+import :is_nothrow_cast_to;
 
 export namespace xieite {
 	template<typename T, typename... Us>

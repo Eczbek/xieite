@@ -20,7 +20,7 @@ export namespace xieite {
 		: ptr(fn.ptr->clone()) {}
 
 		template<xieite::is_invoc<Ret(Args...)> F>
-		requires(!std::same_as<std::remove_cvref_t<F>, fn>)
+		requires(!std::same_as<std::remove_cvref_t<F>, xieite::fn<Ret(Args...)>>)
 		explicit(false) constexpr fn(F&& fn) noexcept
 		: ptr(std::make_unique<xieite::fn<Ret(Args...)>::derived<std::remove_cvref_t<F>>>(XIEITE_FWD(fn))) {}
 

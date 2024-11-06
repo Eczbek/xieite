@@ -11,7 +11,7 @@ export namespace xieite {
 			&& (first != 1)
 			&& (std::unsigned_integral<T>
 				|| (first != static_cast<T>(-1)))
-			&& (... || ([&first, rest] {
+			&& (... || ([&first, rest] -> bool {
 				// Store power in some deduced fractional type
 				const auto pow = std::pow(first, rest);
 				if ((pow > std::numeric_limits<T>::max()) || (!std::unsigned_integral<T> && (pow < std::numeric_limits<T>::min()))) {

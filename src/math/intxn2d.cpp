@@ -1,10 +1,10 @@
 export module xieite:intxn2d;
 
 import std;
+import :almost_eq;
 import :is_arith;
 import :is_linear2d;
 import :point2d;
-import :almost_eq;
 
 export namespace xieite {
 	template<xieite::is_arith>

@@ -1,15 +1,15 @@
-export module xieite:maybe_copy_assignable;
+export module xieite:maybe_copy_assign;
 
 export namespace xieite {
 	template<bool>
-	struct maybe_copy_assignable {};
+	struct maybe_copy_assign {};
 
 	template<>
-	struct maybe_copy_assignable<false> {
-		maybe_copy_assignable() = default;
-		maybe_copy_assignable(const xieite::maybe_copy_assignable<false>&) = default;
-		maybe_copy_assignable(xieite::maybe_copy_assignable<false>&&) = default;
-		auto operator=(const xieite::maybe_copy_assignable<false>&) = delete;
-		xieite::maybe_copy_assignable<false>& operator=(xieite::maybe_copy_assignable<false>&&) = default;
+	struct maybe_copy_assign<false> {
+		maybe_copy_assign() = default;
+		maybe_copy_assign(const xieite::maybe_copy_assign<false>&) = default;
+		maybe_copy_assign(xieite::maybe_copy_assign<false>&&) = default;
+		auto operator=(const xieite::maybe_copy_assign<false>&) = delete;
+		xieite::maybe_copy_assign<false>& operator=(xieite::maybe_copy_assign<false>&&) = default;
 	};
 }

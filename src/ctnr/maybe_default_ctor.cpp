@@ -1,15 +1,15 @@
-export module xieite:maybe_default_constructible;
+export module xieite:maybe_default_ctor;
 
 export namespace xieite {
 	template<bool>
-	struct maybe_default_constructible {};
+	struct maybe_default_ctor {};
 
 	template<>
-	struct maybe_default_constructible<false> {
-		maybe_default_constructible() = delete;
-		maybe_default_constructible(const xieite::maybe_default_constructible<false>&) = default;
-		maybe_default_constructible(xieite::maybe_default_constructible<false>&&) = default;
-		xieite::maybe_default_constructible<false>& operator=(const xieite::maybe_default_constructible<false>&) = default;
-		xieite::maybe_default_constructible<false>& operator=(xieite::maybe_default_constructible<false>&&) = default;
+	struct maybe_default_ctor<false> {
+		maybe_default_ctor() = delete;
+		maybe_default_ctor(const xieite::maybe_default_ctor<false>&) = default;
+		maybe_default_ctor(xieite::maybe_default_ctor<false>&&) = default;
+		xieite::maybe_default_ctor<false>& operator=(const xieite::maybe_default_ctor<false>&) = default;
+		xieite::maybe_default_ctor<false>& operator=(xieite::maybe_default_ctor<false>&&) = default;
 	};
 }

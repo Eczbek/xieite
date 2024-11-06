@@ -14,6 +14,6 @@ export namespace xieite {
 				return it;
 			}
 		}
-		return end;
+		return std::ranges::end(range);
 	}
 }

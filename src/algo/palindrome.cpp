@@ -24,7 +24,7 @@ export namespace xieite {
 	}
 
 	template<std::integral T>
-	[[nodiscard]] constexpr bool palindrome(T value, std::type_identity<T> radix = 10) noexcept {
+	[[nodiscard]] constexpr bool palindrome(T value, std::type_identity_t<T> radix = 10) noexcept {
 		return value == xieite::num_reverse(value, radix);
 	}
 }

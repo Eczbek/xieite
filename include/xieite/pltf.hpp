@@ -353,6 +353,7 @@
 #	ifdef _AIX3
 #		undef XIEITE_PLTF_MAJOR_AIX
 #		define XIEITE_PLTF_MAJOR_AIX 3
+#	endif
 
 #	ifdef _AIX32
 #		undef XIEITE_PLTF_MAJOR_AIX

@@ -13,7 +13,6 @@ import :is_satisfied_by_all;
 import :is_satisfied_by_any;
 import :is_satisfies;
 import :unroll;
-import :value;
 
 export namespace xieite {
 	template<typename... Ts>
@@ -31,7 +30,7 @@ export namespace xieite {
 
 		template<auto fn>
 		requires(xieite::type_list<Ts...>::any<fn>)
-		static constexpr std::size_t find = ([] {
+		static constexpr std::size_t find = ([] -> std::size_t {
 			std::size_t idx = 0;
 			(... && (!xieite::is_satisfied_by<fn, Ts> && ++idx));
 			return idx;
@@ -153,7 +152,7 @@ export namespace xieite {
 		using filter =
 			xieite::fold<
 				[]<typename T, typename List> {
-					return std::type_identity<std::conditional_t<xieite::is_satisfies<cond, T>, List::append<T>, List>>();
+					return std::type_identity<std::conditional_t<xieite::is_satisfies<T, cond>, typename List::append<T>, List>>();
 				},
 				xieite::type_list<>,
 				Ts...
@@ -163,7 +162,7 @@ export namespace xieite {
 		using deduplicate =
 			xieite::fold<
 				[]<typename T, typename List> {
-					return std::type_identity<std::conditional_t<!xieite::type_list<Ts...>::has<T, comp>, List::append<T>, List>>();
+					return std::type_identity<std::conditional_t<!xieite::type_list<Ts...>::has<T, comp>, typename List::append<T>, List>>();
 				},
 				xieite::type_list<>,
 				Ts...
@@ -171,13 +170,13 @@ export namespace xieite {
 
 		template<std::size_t n>
 		using repeat = decltype(xieite::unroll<n>([]<std::size_t... i> {
-			return xieite::fold<
-				[]<auto, typename List> {
-					return std::type_identity<List::append<Ts...>>();
+			return std::type_identity<xieite::fold<
+				[]<typename List, typename Lists> {
+					return std::type_identity<typename Lists::template append_range<List>>();
 				},
 				xieite::type_list<>,
-				xieite::value<i>...
-			>();
+				typename decltype(i, std::type_identity<xieite::type_list<Ts...>>())::type...
+			>>();
 		}))::type;
 
 		template<std::size_t arity, auto fn>

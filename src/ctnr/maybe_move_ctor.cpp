@@ -1,15 +1,15 @@
-export module xieite:maybe_move_constructible;
+export module xieite:maybe_move_ctor;
 
 export namespace xieite {
 	template<bool>
-	struct maybe_move_constructible {};
+	struct maybe_move_ctor {};
 
 	template<>
-	struct maybe_move_constructible<false> {
-		maybe_move_constructible() = default;
-		maybe_move_constructible(const xieite::maybe_move_constructible<false>&) = default;
-		maybe_move_constructible(xieite::maybe_move_constructible<false>&&) = delete;
-		xieite::maybe_move_constructible<false>& operator=(const xieite::maybe_move_constructible<false>&) = default;
-		xieite::maybe_move_constructible<false>& operator=(xieite::maybe_move_constructible<false>&&) = default;
+	struct maybe_move_ctor<false> {
+		maybe_move_ctor() = default;
+		maybe_move_ctor(const xieite::maybe_move_ctor<false>&) = default;
+		maybe_move_ctor(xieite::maybe_move_ctor<false>&&) = delete;
+		xieite::maybe_move_ctor<false>& operator=(const xieite::maybe_move_ctor<false>&) = default;
+		xieite::maybe_move_ctor<false>& operator=(xieite::maybe_move_ctor<false>&&) = default;
 	};
 }

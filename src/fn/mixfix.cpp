@@ -1,12 +1,10 @@
 module;
 
-#include <xieite/arrow.hpp>
 #include <xieite/fwd.hpp>
 
 export module xieite:mixfix;
 
 import std;
-import :is_invoc;
 import :maybe_copy_assignable;
 import :maybe_move_assignable;
 import :fn;
@@ -495,7 +493,7 @@ export namespace xieite {
 			}
 
 		private:
-			const mixfix& mixfix;
+			const xieite::mixfix<Ret(LeftArg, RightArg)>& mixfix;
 			LeftArgRef&& left;
 		};
 

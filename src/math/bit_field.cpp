@@ -10,7 +10,7 @@ export namespace xieite {
 		typename xieite::bit_field<bits, sign>::type value : bits;
 
 		template<std::integral T = int>
-		explicit(false) constexpr xieite::bit_field<bits, sign>(T value = 0) noexcept
+		explicit(false) constexpr bit_field(T value = 0) noexcept
 		: value(static_cast<typename xieite::bit_field<bits, sign>::type>(value)) {}
 
 		template<std::integral T>

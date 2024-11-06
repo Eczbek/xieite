@@ -9,7 +9,7 @@ module;
 export module xieite:proc_status;
 
 export namespace xieite {
-	int proc_status(int status) noexcept {
+	[[nodiscard]] int proc_status(int status) noexcept {
 #if XIEITE_PLTF_TYPE_UNIX
 		if (WIFEXITED(status)) {
 			return WEXITSTATUS(status);

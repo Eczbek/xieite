@@ -31,7 +31,7 @@ export namespace xieite {
 						point = true;
 						continue;
 					}
-				} else if ((i < (size - 1)) && config.exponents.contains(str[i])) {
+				} else if ((i < (size - 1)) && config.exp.contains(str[i])) {
 					return str.substr(start, i - start + xieite::find_num<int>(str.substr(i + 1)).size() + 1);
 				}
 				break;

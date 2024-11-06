@@ -3,7 +3,7 @@ export module xieite:radiotelephony_spelling_alphabet;
 import std;
 
 export namespace xieite {
-	constexpr std::array<std::string_view, (1uz << std::numeric_limits<unsigned char>::digits)> radiotelephony_spelling_alphabet = ([] {
+	constexpr auto radiotelephony_spelling_alphabet = ([] {
 		std::array<std::string_view, (1uz << std::numeric_limits<unsigned char>::digits)> result;
 		result['A'] = result['a'] = "Alfa"; // This is not a typo
 		result['B'] = result['b'] = "Bravo";

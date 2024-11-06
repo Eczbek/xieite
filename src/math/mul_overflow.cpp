@@ -10,7 +10,7 @@ export namespace xieite {
 	[[nodiscard]] constexpr bool mul_overflow(T first, Ts... rest) noexcept {
 		return sizeof...(Ts)
 			&& first
-			&& (... || ([&first, rest] {
+			&& (... || ([&first, rest] -> bool {
 				if (rest && ((xieite::abs((xieite::neg(first) != xieite::neg(rest)) ? std::numeric_limits<T>::min() : std::numeric_limits<T>::max()) / xieite::abs(first)) < xieite::abs(rest))) {
 					return true;
 				}

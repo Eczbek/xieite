@@ -4,5 +4,5 @@ import std;
 
 export namespace xieite {
 	template<typename T>
-	concept is_tuple_like = requires { std::tuple_size<T>::value };
+	concept is_tuple_like = requires { std::tuple_size<T>::value; };
 }

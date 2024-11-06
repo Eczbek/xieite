@@ -11,7 +11,7 @@ export namespace xieite {
 	template<std::ranges::input_range R>
 	requires(std::ranges::input_range<std::ranges::range_value_t<R>>)
 	[[nodiscard]] constexpr bool md_range_uniform(R&& range)
-	noexcept(([]<typename S>(this auto self) {
+	noexcept(([]<typename S>(this auto self) -> bool {
 		if constexpr (!std::ranges::input_range<S>) {
 			return true;
 		} else if constexpr (!xieite::is_nothrow_range<S>) {
@@ -25,7 +25,7 @@ export namespace xieite {
 		} else {
 			return std::ranges::all_of(
 				range,
-				[first = std::ranges::size(*std::ranges::begin(range))](std::ranges::range_common_reference_t<R> item) {
+				[first = std::ranges::size(*std::ranges::begin(range))](std::ranges::range_common_reference_t<R> item) -> bool {
 					return std::ranges::size(item) == first;
 				}
 			);

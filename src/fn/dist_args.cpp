@@ -19,11 +19,11 @@ export namespace xieite {
 		if constexpr (sizeof...(Args) == arity) {
 			std::invoke(XIEITE_FWD(fn), XIEITE_FWD(args)...);
 		} else {
-			const std::tuple<Args&&...> args_tuple = std::forward_as_tuple(XIEITE_FWD(args)...);
+			const auto args_tuple = std::forward_as_tuple(XIEITE_FWD(args)...);
 			xieite::unroll<arity>([&fn, &args_tuple]<std::size_t... i> {
 				std::invoke(fn, std::get<i>(std::move(args_tuple))...);
 			});
-			xieite::unroll<sizeof...(Args) - arity>([&fn, &args_tuple]<std::size_t... i> {
+			xieite::unroll<sizeof...(Args) - arity>([&fn, &args_tuple]<std::size_t... i> -> void {
 				xieite::dist_args<arity>(XIEITE_FWD(fn), std::get<i + arity>(std::move(args_tuple))...);
 			});
 		}

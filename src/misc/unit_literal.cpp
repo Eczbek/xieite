@@ -204,27 +204,27 @@ export namespace xieite::unit_literal {
 	}
 
 	[[nodiscard]] constexpr auto operator""_twips(unsigned long long int value) noexcept {
-		return xieite::unit::twip(static_cast<double>(value));
+		return xieite::unit::twips(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr auto operator""_twips(long double value) noexcept {
-		return xieite::unit::twip(static_cast<double>(value));
+		return xieite::unit::twips(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr auto operator""_thous(unsigned long long int value) noexcept {
-		return xieite::unit::thou(static_cast<double>(value));
+		return xieite::unit::thous(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr auto operator""_thous(long double value) noexcept {
-		return xieite::unit::thou(static_cast<double>(value));
+		return xieite::unit::thous(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr auto operator""_barleycorns(unsigned long long int value) noexcept {
-		return xieite::unit::barleycorn(static_cast<double>(value));
+		return xieite::unit::barleycorns(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr auto operator""_barleycorns(long double value) noexcept {
-		return xieite::unit::barleycorn(static_cast<double>(value));
+		return xieite::unit::barleycorns(static_cast<double>(value));
 	}
 
 	[[nodiscard]] constexpr auto operator""_in(unsigned long long int value) noexcept {

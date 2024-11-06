@@ -10,7 +10,7 @@ export namespace xieite {
 	public:
 		T value;
 
-		explicit(false) constexpr xieite::num<T>(T value = 0) noexcept
+		explicit(false) constexpr num(T value = 0) noexcept
 		: value(value) {}
 
 		explicit constexpr operator T() const noexcept {

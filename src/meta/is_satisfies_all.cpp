@@ -1,6 +1,6 @@
 export module xieite:is_satisfies_all;
 
-import :is_satisfies;;
+import :is_satisfies;
 
 export namespace xieite {
 	template<typename T, auto... fns>

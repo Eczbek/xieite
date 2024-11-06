@@ -7,7 +7,7 @@ export namespace xieite {
 	template<xieite::is_duration T, xieite::is_duration... Us>
 	[[nodiscard]] constexpr std::tuple<Us...> convert_duration(T duration) noexcept {
 		std::tuple<Us...> results;
-		(..., ([&duration, &results] {
+		(..., ([&duration, &results] -> void {
 			const Us result = std::chrono::duration_cast<Us>(duration);
 			std::get<Us>(results) = result;
 			duration -= result;

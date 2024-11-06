@@ -26,7 +26,7 @@ export namespace xieite {
 	public:
 		template<auto = [] {}>
 		static consteval T get() noexcept {
-			return ([]<T n = 0>(this auto self) {
+			return ([]<T n = 0>(this auto self) -> T {
 				if constexpr (requires { flag(xieite::state<id, T>::value<n>()); }) {
 					return self.template operator()<n + 1>();
 				} else {

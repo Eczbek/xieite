@@ -10,8 +10,8 @@ export namespace xieite {
 		std::size_t patch;
 		std::string label;
 
-		constexpr version(std::size_t major = 0, std::size_t minor = 0, std::size_t patch = 0, std::string_view label = "") noexcept
-		: major(major), minor(minor), patch(patch), label(label) {}
+		constexpr version(std::size_t major = 0, std::size_t minor = 0, std::size_t patch = 0, std::string label = "") noexcept
+		: major(major), minor(minor), patch(patch), label(std::move(label)) {}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::version& left, const xieite::version& right) noexcept {
 			return (left.major != right.major)

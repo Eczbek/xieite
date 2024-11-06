@@ -7,20 +7,21 @@ import :bit_size;
 import :dbl_mul;
 import :dbl_uint;
 import :is_arith;
+import :order_bitor;
 import :neg;
-import :ops;
 import :split_bool;
 import :ssize;
 import :str_num_config;
 import :sub_overflow;
 import :try_unsigned;
+import :view_comp;
 
 export namespace xieite {
 	template<std::unsigned_integral T = std::uint64_t>
-	struct xieite::big_int<T> : std::type_identity<T> {
+	struct big_int : std::type_identity<T> {
 	public:
 		template<std::integral U = int>
-		explicit(false) constexpr xieite::big_int<T>(U value = 0) noexcept
+		explicit(false) constexpr big_int(U value = 0) noexcept
 		: neg(xieite::neg(value)) {
 			xieite::try_unsigned<U> abs = xieite::abs(value);
 			do {
@@ -34,7 +35,7 @@ export namespace xieite {
 		}
 
 		template<typename U>
-		explicit constexpr xieite::big_int<T>(const xieite::big_int<U>& value) noexcept
+		explicit constexpr big_int(const xieite::big_int<U>& value) noexcept
 		: neg(value.neg) {
 			if constexpr (sizeof(T) == sizeof(U)) {
 				this->data = value.data;
@@ -62,19 +63,20 @@ export namespace xieite {
 
 		template<std::ranges::input_range R>
 		requires(std::same_as<std::ranges::range_value_t<R>, T>)
-		explicit constexpr xieite::big_int<T>(R&& range, bool neg = false) noexcept
+		explicit constexpr big_int(R&& range, bool neg = false) noexcept
 		: data(std::ranges::begin(range), std::ranges::end(range)), neg(neg) {
 			this->trim();
 		}
 
-		explicit(false) constexpr xieite::big_int<T>(std::string_view str, xieite::ssize radix = 10, xieite::str_num_config config = {}) noexcept
+		explicit(false) constexpr big_int(std::string_view str, xieite::ssize radix = 10, xieite::str_num_config config = {}) noexcept
 		: neg(false) {
 			*this = 0;
 			if (!radix) {
 				return;
 			}
 			const bool neg = config.neg.contains(str[0]);
-			for (char c : str.remove_prefix(neg || config.pos.contains(str[0]))) {
+			str.remove_prefix(neg || config.pos.contains(str[0]));
+			for (char c : str) {
 				const std::size_t digit = config.digits.find(c);
 				if (digit == std::string::npos) {
 					break;
@@ -102,12 +104,14 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<T>& left, const xieite::big_int<T>& right) noexcept {
+			using namespace xieite::order_bitor;
+			using namespace xieite::view_comp;
 			return (right.neg <=> left.neg)
-				|| (left.neg
+				| (left.neg
 					? ((right.data.size() <=> left.data.size())
-						|| (std::views::reverse(right) <=> std::views::reverse(left)))
+						| (std::views::reverse(right) <=> std::views::reverse(left)))
 					: ((left.data.size() <=> right.data.size())
-						|| (std::views::reverse(left) <=> std::views::reverse(right))));
+						| (std::views::reverse(left) <=> std::views::reverse(right))));
 		}
 
 		template<std::integral U>
@@ -256,7 +260,7 @@ export namespace xieite {
 						continue;
 					}
 					const xieite::dbl_uint<T> prod = xieite::dbl_mul(multiplier.data[i], multiplicand.data[j]);
-					prod += ((xieite::bit_int<T>(prod.upper) << xieite::bit_size<T>) | prod.lower) << (xieite::bit_int<T>(i) << std::bit_width(xieite::bit_size<T> - 1)) << (xieite::bit_int<T>(j) << std::bit_width(xieite::bit_size<T> - 1));
+					prod += ((xieite::big_int<T>(prod.upper) << xieite::bit_size<T>) | prod.lower) << (xieite::big_int<T>(i) << std::bit_width(xieite::bit_size<T> - 1)) << (xieite::big_int<T>(j) << std::bit_width(xieite::bit_size<T> - 1));
 				}
 			}
 			prod.neg = multiplier.neg != multiplicand.neg;
@@ -511,7 +515,7 @@ export namespace xieite {
 			return xieite::big_int<T>(this->data);
 		}
 
-		[[nodiscard]] constexpr xieite::big_int<T> pow(xieite::bit_int<T> exp) const {
+		[[nodiscard]] constexpr xieite::big_int<T> pow(xieite::big_int<T> exp) const {
 			if ((*this == 1) || (exp == 1)) {
 				return *this;
 			}
@@ -540,7 +544,7 @@ export namespace xieite {
 
 		template<std::integral U>
 		[[nodiscard]] constexpr xieite::big_int<T> pow(U exp) const {
-			return this->pow(xieite::bit_int<T>(exp));
+			return this->pow(xieite::big_int<T>(exp));
 		}
 
 		[[nodiscard]] constexpr xieite::big_int<T> root(const xieite::big_int<T>& deg) const {
@@ -568,7 +572,7 @@ export namespace xieite {
 
 		template<std::integral U>
 		[[nodiscard]] constexpr xieite::big_int<T> root(U deg) const {
-			return this->root(xieite::bit_int<T>(deg));
+			return this->root(xieite::big_int<T>(deg));
 		}
 
 		[[nodiscard]] constexpr xieite::big_int<T> log(const xieite::big_int<T>& base) const {
@@ -589,7 +593,7 @@ export namespace xieite {
 
 		template<std::integral U>
 		[[nodiscard]] constexpr xieite::big_int<T> log(U base) const {
-			return this->log(xieite::bit_int<T>(base));
+			return this->log(xieite::big_int<T>(base));
 		}
 
 		[[nodiscard]] constexpr std::string str(xieite::ssize radix = 10, xieite::str_num_config config = {}) const noexcept {
@@ -628,7 +632,7 @@ export namespace xieite {
 		std::vector<T> data;
 		bool neg;
 
-		[[nodiscard]] static constexpr xieite::big_int<T> bit_op(xieite::bit_int<T> left, xieite::big_int<T> right, auto fn) noexcept {
+		[[nodiscard]] static constexpr xieite::big_int<T> bit_op(xieite::big_int<T> left, xieite::big_int<T> right, auto fn) noexcept {
 			const bool left_neg = left.neg;
 			const bool right_neg = right.neg;
 			left += left_neg;

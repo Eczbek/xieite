@@ -1,7 +1,7 @@
 export module xieite:sin;
 
 import std;
-import :is_airth;
+import :is_arith;
 
 export namespace xieite {
 	template<xieite::is_arith T, xieite::is_arith U = std::common_type_t<T, double>>

@@ -5,11 +5,11 @@ module;
 export module xieite:make_sparse_array;
 
 import std;
+import :arity;
 import :bit_size;
 import :is_invoc;
 import :is_nothrow_invoc;
 import :sign_cast;
-import :arity;
 
 export namespace xieite {
 	template<std::integral K, typename V, std::ranges::input_range R = std::initializer_list<std::pair<K, V>>, xieite::is_invoc<V(std::ranges::range_common_reference_t<R>)> F = decltype(XIEITE_FN(static_cast<V>($0)))>

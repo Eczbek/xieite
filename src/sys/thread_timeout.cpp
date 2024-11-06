@@ -13,7 +13,7 @@ export namespace xieite {
 	public:
 		template<std::invocable<> F, xieite::is_duration Duration>
 		thread_timeout(F&& callback, Duration duration) noexcept
-		: interval([this, &callback] {
+		: interval([this, &callback] -> void {
 			this->stop();
 			std::invoke(XIEITE_FWD(callback));
 		}, duration) {}

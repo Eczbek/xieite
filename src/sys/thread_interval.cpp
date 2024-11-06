@@ -9,7 +9,7 @@ export namespace xieite {
 	public:
 		template<std::invocable<> F, xieite::is_duration Duration>
 		thread_interval(F&& fn, Duration duration) noexcept
-		: loop([&fn, duration] {
+		: loop([&fn, duration] -> void {
 			static bool first = true;
 			if (first) {
 				first = false;

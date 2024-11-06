@@ -1,10 +1,11 @@
 export module xieite:num_str;
 
 import std;
-import :is_arith;
 import :abs;
 import :almost_eq;
+import :is_arith;
 import :neg;
+import :pad_front;
 import :rem;
 import :ssize;
 import :str_num_config;
@@ -12,7 +13,7 @@ import :try_unsigned;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr std::string stringify(T value, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_config config = {}) noexcept {
+	[[nodiscard]] constexpr std::string num_str(T value, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_config config = {}, std::size_t padding = 0) noexcept {
 		using Radix = decltype(radix);
 		std::string result;
 		if (!radix || xieite::almost_eq(value, 0)) {
@@ -36,7 +37,7 @@ export namespace xieite {
 			}
 		} else {
 			[[maybe_unused]] std::size_t point = 0;
-			const auto next = [&value, radix, config, &result](Radix index) {
+			const auto next = [&value, radix, config, &result](Radix index) -> void {
 				value = static_cast<T>(value / static_cast<T>(radix));
 				if (xieite::neg(index)) {
 					index = xieite::neg(radix) ? (index - radix) : (index + radix);
@@ -70,6 +71,6 @@ export namespace xieite {
 		if (neg) {
 			result.insert(0, 1, config.neg[0]);
 		}
-		return result;
+		return xieite::pad_front(result, size, config.digits[0]);
 	}
 }

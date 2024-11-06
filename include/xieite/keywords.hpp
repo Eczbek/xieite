@@ -4,6 +4,15 @@
 #include <xieite/fn.hpp>
 #include <xieite/fwd.hpp>
 
+namespace std::chrono {}
+namespace std::execution {}
+namespace std::filesystem {}
+namespace std::numbers {}
+namespace std::placeholders {}
+namespace std::ranges {}
+namespace std::this_thread {}
+namespace std::views {}
+namespace std::experimental {}
 namespace stdc = std::chrono;
 namespace stde = std::execution;
 namespace stdf = std::filesystem;
@@ -44,7 +53,7 @@ namespace stdx = std::experimental;
 #define elif else if
 #define elifn(...) else ifn
 #define if_try(...) \
-	if (([&] { \
+	if (([&] -> bool { \
 		try { \
 			__VA_ARGS__; \
 			return true; \

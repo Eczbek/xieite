@@ -2,7 +2,7 @@ export module xieite:tuple_reverse;
 
 import std;
 import :unroll;
-import :type_ist;
+import :type_list;
 
 export namespace xieite {
 	template<typename... Ts>

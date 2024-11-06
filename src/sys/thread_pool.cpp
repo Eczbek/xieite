@@ -26,12 +26,12 @@ export namespace xieite {
 				return;
 			}
 			while (threads-- > curr) {
-				this->threads.emplace_back([this](std::stop_token token) {
+				this->threads.emplace_back([this](std::stop_token token) -> void {
 					while (true) {
 						auto lock = std::unique_lock<std::mutex>(this->mutex);
 						this->cond.wait(
 							lock,
-							[this, token] {
+							[this, token] -> bool {
 								return this->tasks.size() || token.stop_requested();
 							}
 						);
@@ -53,8 +53,8 @@ export namespace xieite {
 		}
 
 		template<std::invocable<> F>
-		std::future<void> enqueue(F&& task) noexcept {
-			auto task = std::packaged_task<void()>(task);
+		std::future<void> enqueue(F&& fn) noexcept {
+			auto task = std::packaged_task<void()>(fn);
 			std::future<void> future = task.get_future();
 			auto lock = std::unique_lock<std::mutex>(this->mutex);
 			this->tasks.emplace(std::move(task));

@@ -14,7 +14,7 @@ export namespace xieite {
 		}
 		const bool neg = xieite::neg(value);
 		T result = 0;
-		const auto next = [&value, radix, &result](T digit) {
+		const auto next = [&value, radix, &result](T digit) -> void {
 			value /= radix;
 			if (xieite::neg(digit)) {
 				digit = xieite::neg(radix) ? (digit - radix) : (digit + radix);

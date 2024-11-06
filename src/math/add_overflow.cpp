@@ -9,7 +9,7 @@ export namespace xieite {
 	[[nodiscard]] constexpr bool add_overflow(T first, Ts... rest) noexcept {
 		return sizeof...(Ts)
 			&& first
-			&& (... || ([&first, rest] {
+			&& (... || ([&first, rest] -> bool {
 				if (rest && (xieite::neg(first) ? ((std::numeric_limits<T>::min() - first) > rest) : ((std::numeric_limits<T>::max() - first) < rest))) {
 					return true;
 				}

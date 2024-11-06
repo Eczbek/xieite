@@ -1,15 +1,15 @@
-export module xieite:maybe_copy_constructible;
+export module xieite:maybe_copy_ctor;
 
 export namespace xieite {
 	template<bool>
-	struct maybe_copy_constructible {};
+	struct maybe_copy_ctor {};
 
 	template<>
-	struct maybe_copy_constructible<false> {
-		maybe_copy_constructible() = default;
-		maybe_copy_constructible(const xieite::maybe_copy_constructible<false>&) = delete;
-		maybe_copy_constructible(xieite::maybe_copy_constructible<false>&&) = default;
-		xieite::maybe_copy_constructible<false>& operator=(const xieite::maybe_copy_constructible<false>&) = default;
-		xieite::maybe_copy_constructible<false>& operator=(xieite::maybe_copy_constructible<false>&&) = default;
+	struct maybe_copy_ctor<false> {
+		maybe_copy_ctor() = default;
+		maybe_copy_ctor(const xieite::maybe_copy_ctor<false>&) = delete;
+		maybe_copy_ctor(xieite::maybe_copy_ctor<false>&&) = default;
+		xieite::maybe_copy_ctor<false>& operator=(const xieite::maybe_copy_ctor<false>&) = default;
+		xieite::maybe_copy_ctor<false>& operator=(xieite::maybe_copy_ctor<false>&&) = default;
 	};
 }

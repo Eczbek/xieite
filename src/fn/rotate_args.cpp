@@ -19,3 +19,5 @@ export namespace xieite {
 		))
 	))
 }
+
+// Note: the `std::move` is necessary

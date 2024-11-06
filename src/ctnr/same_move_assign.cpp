@@ -1,9 +1,9 @@
-export module xieite:same_move_assignable;
+export module xieite:same_move_assign;
 
 import std;
-import :maybe_move_assignable;
+import :maybe_move_assign;
 
 export namespace xieite {
 	template<typename T>
-	using same_move_assignable = xieite::maybe_move_assignable<std::is_move_assignable_v<T>>;
+	using same_move_assign = xieite::maybe_move_assign<std::is_move_assignable_v<T>>;
 }
