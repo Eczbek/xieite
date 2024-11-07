@@ -23,8 +23,8 @@ export namespace xieite {
 				}
 			};
 
-			static guard temp = guard(XIEITE_FWD(fn));
-			this->released = &temp.released;
+			static guard guard = guard(XIEITE_FWD(fn));
+			this->released = &guard.released;
 		}
 
 		void release() noexcept {
