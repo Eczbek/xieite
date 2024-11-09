@@ -4,7 +4,7 @@ import std;
 import :bit_size;
 import :least_uint;
 import :repeat;
-import :try_unsigned;
+import :try_unsign;
 
 export namespace xieite {
 	template<std::size_t... sizes, std::size_t bits>
@@ -24,7 +24,7 @@ export namespace xieite {
 	[[nodiscard]] constexpr std::array<T, sizeof...(sizes)> bit_unmash(std::bitset<bits> value) noexcept {
 		return std::array<T, sizeof...(sizes)> {
 			([&value] -> T {
-				const T item = static_cast<T>(value.to_ullong()) & (std::numeric_limits<xieite::try_unsigned<T>>::max() >> (xieite::bit_size<T> - sizes));
+				const T item = static_cast<T>(value.to_ullong()) & (std::numeric_limits<xieite::try_unsign<T>>::max() >> (xieite::bit_size<T> - sizes));
 				value >>= sizes;
 				return item;
 			})()...

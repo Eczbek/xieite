@@ -5,10 +5,10 @@ module;
 export module xieite:shredder;
 
 import std;
-import :is_trivial_dtor;
+import :is_triv_dtor;
 
 export namespace xieite {
-	template<xieite::is_trivial_dtor T>
+	template<xieite::is_triv_dtor T>
 	struct shredder {
 	public:
 		constexpr shredder() noexcept {

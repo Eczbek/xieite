@@ -12,10 +12,10 @@ export namespace xieite {
 	template<template<typename, typename> typename, typename, typename>
 	struct tuple_map;
 
-	template<template<typename, typename> typename C, typename V, typename K, typename... Ks>
-	struct tuple_map<C, std::tuple<K, Ks...>, V> {
+	template<template<typename, typename> typename Map, typename V, typename K, typename... Ks>
+	struct tuple_map<Map, std::tuple<K, Ks...>, V> {
 	public:
-		constexpr tuple_map(std::initializer_list<std::pair<K, xieite::tuple_map<C, std::tuple<Ks...>, V>>> list = {}) noexcept
+		constexpr tuple_map(std::initializer_list<std::pair<K, xieite::tuple_map<Map, std::tuple<Ks...>, V>>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
 
 		template<typename Self, std::convertible_to<std::tuple<K, Ks...>> KsRef>
@@ -43,11 +43,11 @@ export namespace xieite {
 		)
 
 	private:
-		C<K, xieite::tuple_map<C, std::tuple<Ks...>, V>> map;
+		Map<K, xieite::tuple_map<Map, std::tuple<Ks...>, V>> map;
 	};
 
-	template<template<typename, typename> typename C, typename V, typename Key>
-	struct tuple_map<C, std::tuple<Key>, V> {
+	template<template<typename, typename> typename Map, typename V, typename Key>
+	struct tuple_map<Map, std::tuple<Key>, V> {
 	public:
 		constexpr tuple_map(std::initializer_list<std::pair<Key, V>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
@@ -65,6 +65,6 @@ export namespace xieite {
 		XIEITE_ARROW(this->map.contains(std::get<0>(XIEITE_FWD(key))))
 
 	private:
-		C<Key, V> map;
+		Map<Key, V> map;
 	};
 }

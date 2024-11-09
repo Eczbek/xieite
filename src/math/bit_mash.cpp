@@ -2,13 +2,13 @@ export module xieite:bit_mash;
 
 import std;
 import :unroll;
-import :try_unsigned;
+import :try_unsign;
 
 export namespace xieite {
 	template<std::size_t... sizes, std::integral... Ts>
 	[[nodiscard]] constexpr std::bitset<(... + sizes)> bit_mash(Ts... values) noexcept {
 		std::bitset<(... + sizes)> result;
-		(..., (result = (result >> sizes) | (std::bitset<(... + sizes)>(static_cast<xieite::try_unsigned<Ts>>(values)) << ((... + sizes) - sizes))));
+		(..., (result = (result >> sizes) | (std::bitset<(... + sizes)>(static_cast<xieite::try_unsign<Ts>>(values)) << ((... + sizes) - sizes))));
 		return result;
 	}
 
@@ -16,7 +16,7 @@ export namespace xieite {
 	[[nodiscard]] constexpr std::bitset<(... + sizes)> bit_mash(const std::array<T, sizeof...(sizes)>& values) noexcept {
 		std::bitset<(... + sizes)> result;
 		xieite::unroll<sizeof...(sizes)>([&values, &result]<std::size_t... i> -> void {
-			(..., (result = (result >> sizes) | (std::bitset<(... + sizes)>(static_cast<xieite::try_unsigned<T>>(values[i])) << ((... + sizes) - sizes))));
+			(..., (result = (result >> sizes) | (std::bitset<(... + sizes)>(static_cast<xieite::try_unsign<T>>(values[i])) << ((... + sizes) - sizes))));
 		});
 		return result;
 	}

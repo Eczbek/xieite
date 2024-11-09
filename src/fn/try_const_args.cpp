@@ -6,7 +6,7 @@ module;
 export module xieite:try_const_args;
 
 import std;
-import :maybe_const;
+import :set_const;
 import :type_list;
 
 export namespace xieite {
@@ -21,10 +21,10 @@ export namespace xieite {
 					std::conditional_t<
 						xieite::type_list<Args...>
 						::template slice<sizeof...(Rest) + 1>
-						::template prepend<F, Rest..., xieite::maybe_const<Arg, true>>
+						::template prepend<F, Rest..., xieite::set_const<Arg, true>>
 						::template to<std::is_invocable>
 						::value,
-						xieite::maybe_const<Arg, true>,
+						xieite::set_const<Arg, true>,
 						Arg
 					>
 				>();

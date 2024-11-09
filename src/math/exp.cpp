@@ -2,15 +2,15 @@ export module xieite:exp;
 
 import std;
 import :is_arith;
-import :maybe_copy_assignable;
-import :maybe_move_assignable;
+import :set_cp_assign;
+import :set_mv_assign;
 import :pow;
 
 namespace xieite {
 	template<xieite::is_arith T>
 	struct exp {
 	private:
-		struct inter : xieite::maybe_copy_assignable<false>, xieite::maybe_move_assignable<false> {
+		struct inter : xieite::set_cp_assign<false>, xieite::set_mv_assign<false> {
 		public:
 			explicit constexpr inter(T value) noexcept
 			: value(value) {}

@@ -4,9 +4,9 @@ import std;
 import :sv;
 
 export namespace xieite {
-	template<typename C = char, typename Traits = std::char_traits<C>, typename Alloc = std::allocator<C>>
-	[[nodiscard]] constexpr std::basic_string<C, Traits, Alloc> trunc(std::basic_string<C, Traits, Alloc> str, std::size_t size, xieite::sv<C, Traits> sfx = "") noexcept {
-		using Str = std::basic_string<C, Traits, Alloc>;
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
+	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> trunc(std::basic_string<Ch, Traits, Alloc> str, std::size_t size, xieite::sv<Ch, Traits> sfx = "") noexcept {
+		using Str = std::basic_string<Ch, Traits, Alloc>;
 		return (str.size() <= size)
 			? str
 			: ((sfx.size() > size)

@@ -3,7 +3,7 @@ export module xieite:line2d;
 import std;
 import :is_arith;
 import :almost_eq;
-import :point2d;
+import :pt2d;
 
 export namespace xieite {
 	template<xieite::is_arith>
@@ -17,40 +17,42 @@ export namespace xieite {
 
 	template<xieite::is_arith T = double>
 	struct line2d {
-		xieite::point2d<T> start;
-		xieite::point2d<T> end;
+		xieite::pt2d<T> a;
+		xieite::pt2d<T> b;
 
-		constexpr line2d(xieite::point2d<T> start, xieite::point2d<T> end) noexcept
-		: start(start), end(end) {}
+		line2d() = default;
 
-		constexpr line2d(xieite::point2d<T> start, std::common_type_t<T, double> angle) noexcept
-		: start(start), end(std::cos(angle), std::sin(angle)) {}
+		constexpr line2d(xieite::pt2d<T> a, xieite::pt2d<T> b) noexcept
+		: a(a), b(b) {}
+
+		constexpr line2d(xieite::pt2d<T> a, std::common_type_t<T, double> angle) noexcept
+		: a(a), b(std::cos(angle), std::sin(angle)) {}
 
 		template<typename U>
 		[[nodiscard]] explicit(false) constexpr operator xieite::line2d<U>() const noexcept {
-			return xieite::line2d<U>(this->start, this->end);
+			return xieite::line2d<U>(this->a, this->b);
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(const xieite::line2d<T>& left, const xieite::line2d<T>& right) noexcept {
-			return left.contains(right.start) && left.contains(right.end);
+			return left.contains(right.a) && left.contains(right.b);
 		}
 
 		[[nodiscard]] constexpr std::common_type_t<T, double> angle() const noexcept {
-			return this->start.angle_to(this->end);
+			return this->a.angle_to(this->b);
 		}
 
-		[[nodiscard]] constexpr std::common_type_t<T, double> length() const noexcept {
+		[[nodiscard]] constexpr std::common_type_t<T, double> len() const noexcept {
 			return std::numeric_limits<std::common_type_t<T, double>>::infinity();
 		}
 
 		[[nodiscard]] constexpr std::common_type_t<T, double> slope() const noexcept {
-			return this->start.slope_to(this->end);
+			return this->a.slope_to(this->b);
 		}
 
-		[[nodiscard]] constexpr bool contains(xieite::point2d<T> point) const noexcept {
+		[[nodiscard]] constexpr bool contains(xieite::pt2d<T> pt) const noexcept {
 			return xieite::almost_eq(
-				(this->end.x - this->start.x) * (point.y - this->start.y),
-				(this->end.y - this->start.y) * (point.x - this->start.x)
+				(this->b.x - this->a.x) * (pt.y - this->a.y),
+				(this->b.y - this->a.y) * (pt.x - this->a.x)
 			);
 		}
 
@@ -59,16 +61,16 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] constexpr bool contains(const xieite::ray2d<T>& ray) const noexcept {
-			return *this == xieite::line2d<T>(ray.start, ray.end);
+			return *this == xieite::line2d<T>(ray.a, ray.b);
 		}
 
 		[[nodiscard]] constexpr bool contains(const xieite::segm2d<T>& segm) const noexcept {
-			return *this == xieite::line2d<T>(segm.start, segm.end);
+			return *this == xieite::line2d<T>(segm.a, segm.b);
 		}
 
 		[[nodiscard]] constexpr bool contains(const xieite::poly2d<T>& poly) const noexcept {
-			for (xieite::point2d<T> point : poly.points) {
-				if (!this->contains(point)) {
+			for (xieite::pt2d<T> pt : poly.pts) {
+				if (!this->contains(pt)) {
 					return false;
 				}
 			}

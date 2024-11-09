@@ -2,30 +2,30 @@ export module xieite:fn_ptr;
 
 import std;
 
-template<typename F, typename Ret, typename Args, bool is_variadic, bool is_nothrow>
+template<typename F, typename Ret, typename Args, bool is_var_, bool is_nothrow_>
 struct free_fn_ptr {
 	using fn = F;
 	using ret = Ret;
 	using args = Args;
 
-	static constexpr bool variadic = is_variadic;
-	static constexpr bool nothrow = is_nothrow;
+	static constexpr bool is_var = is_var_;
+	static constexpr bool nothrow = is_nothrow_;
 };
 
-template<typename C, typename Ref, typename F, typename Ret, typename Args, bool is_variadic, bool is_const_qual, bool is_volatile_qual, bool is_lvalue_qual, bool is_rvalue_qual, bool is_nothrow>
+template<typename Class, typename Ref, typename F, typename Ret, typename Args, bool is_var_, bool is_const_, bool is_volat_, bool is_lvalue_, bool is_rvalue_, bool is_nothrow_>
 struct member_fn_ptr {
-	using type = C;
+	using type = Class;
 	using ref = Ref;
 	using fn = F;
 	using ret = Ret;
 	using args = Args;
 
-	static constexpr bool variadic = is_variadic;
-	static constexpr bool const_qual = is_const_qual;
-	static constexpr bool volatile_qual = is_volatile_qual;
-	static constexpr bool lvalue_qual = is_lvalue_qual;
-	static constexpr bool rvalue_qual = is_rvalue_qual;
-	static constexpr bool nothrow = is_nothrow;
+	static constexpr bool is_var = is_var_;
+	static constexpr bool is_const = is_const_;
+	static constexpr bool is_volat = is_volat_;
+	static constexpr bool is_lvalue = is_lvalue_;
+	static constexpr bool is_rvalue = is_rvalue_;
+	static constexpr bool nothrow = is_nothrow_;
 };
 
 export namespace xieite {

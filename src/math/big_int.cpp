@@ -13,7 +13,7 @@ import :split_bool;
 import :ssize;
 import :str_num_config;
 import :sub_overflow;
-import :try_unsigned;
+import :try_unsign;
 import :view_comp;
 
 export namespace xieite {
@@ -23,7 +23,7 @@ export namespace xieite {
 		template<std::integral U = int>
 		explicit(false) constexpr big_int(U value = 0) noexcept
 		: neg(xieite::neg(value)) {
-			xieite::try_unsigned<U> abs = xieite::abs(value);
+			xieite::try_unsign<U> abs = xieite::abs(value);
 			do {
 				this->data.push_back(static_cast<T>(abs));
 				if constexpr (sizeof(U) > sizeof(T)) {

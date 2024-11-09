@@ -1,9 +1,0 @@
-#pragma once
-
-#include <xieite/eval.hpp>
-#include <xieite/scan.hpp>
-
-#define XIEITE_REVERSE(...) __VA_OPT__(XIEITE_EVAL(XIEITE_DETAIL_REVERSE_HELPER(__VA_ARGS__)))
-
-#define XIEITE_DETAIL_REVERSE_HELPER(x, ...) __VA_OPT__(XIEITE_DETAIL_REVERSE_NEXT XIEITE_SCAN(()) (__VA_ARGS__),) x
-#define XIEITE_DETAIL_REVERSE_NEXT() XIEITE_DETAIL_REVERSE_HELPER

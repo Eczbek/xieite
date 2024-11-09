@@ -4,7 +4,7 @@ import std;
 import :bit_join;
 import :bit_unjoin;
 import :sign_cast;
-import :num_str;
+import :str_num;
 
 export namespace xieite {
 	[[nodiscard]] constexpr std::string md5(std::string_view str) noexcept {
@@ -54,7 +54,7 @@ export namespace xieite {
 		}
 		std::string result;
 		for (std::uint32_t item : foo) {
-			result += xieite::num_str((item >> 24) | ((item & 16711680) >> 8) | ((item & 65280) << 8) | (item << 24), 16, {}, 8);
+			result += xieite::str_num((item >> 24) | ((item & 16711680) >> 8) | ((item & 65280) << 8) | (item << 24), 16, {}, 8);
 		}
 		return result;
 	}

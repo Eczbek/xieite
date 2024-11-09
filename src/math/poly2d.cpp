@@ -20,33 +20,35 @@ export namespace xieite {
 
 	template<xieite::is_arith T = double>
 	struct poly2d {
-		std::vector<xieite::point2d<T>> points;
+		std::vector<xieite::pt2d<T>> pts;
 
-		template<std::ranges::input_range R = std::vector<xieite::point2d<T>>>
-		requires(std::convertible_to<std::ranges::range_value_t<R>, xieite::point2d<T>>)
-		explicit constexpr poly2d(R&& points) noexcept
-		: points(std::ranges::begin(points), std::ranges::end(points)) {}
+		poly2d() = default;
+
+		template<std::ranges::input_range R = std::vector<xieite::pt2d<T>>>
+		requires(std::convertible_to<std::ranges::range_value_t<R>, xieite::pt2d<T>>)
+		explicit constexpr poly2d(R&& pts) noexcept
+		: pts(std::ranges::begin(pts), std::ranges::end(pts)) {}
 
 		template<typename U>
 		[[nodiscard]] explicit(false) constexpr operator xieite::poly2d<U>() const noexcept {
-			auto other_points = std::vector<xieite::point2d<U>>(this->points.size());
-			std::ranges::transform(this->points, other_points.begin(), XIEITE_FN(static_cast<xieite::point2d<U>>($0)));
-			return xieite::poly2d<U>(other_points);
+			auto other_pts = std::vector<xieite::pt2d<U>>(this->pts.size());
+			std::ranges::transform(this->pts, other_pts.begin(), XIEITE_FN(static_cast<xieite::pt2d<U>>($0)));
+			return xieite::poly2d<U>(other_pts);
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(const xieite::poly2d<T>& left, const xieite::poly2d<T>& right) noexcept {
-			return xieite::rotated(left.points, right.points) || xieite::rotated(left.points, std::views::reverse(right.points));
+			return xieite::rotd(left.pts, right.pts) || xieite::rotd(left.pts, std::views::reverse(right.pts));
 		}
 
-		[[nodiscard]] static constexpr xieite::poly2d<T> rect(xieite::point2d<T> start, xieite::point2d<T> end) noexcept {
-			return xieite::poly2d<T>(std::vector<xieite::point2d<T>> { start, xieite::point2d<T>(start.x, end.y), end, xieite::point2d<T>(end.x, start.y) });
+		[[nodiscard]] static constexpr xieite::poly2d<T> rect(xieite::pt2d<T> start, xieite::pt2d<T> end) noexcept {
+			return xieite::poly2d<T>(std::vector<xieite::pt2d<T>> { start, xieite::pt2d<T>(start.x, end.y), end, xieite::pt2d<T>(end.x, start.y) });
 		}
 
 		[[nodiscard]] constexpr std::common_type_t<T, double> area() const noexcept {
 			std::common_type_t<T, double> area = 0;
-			for (std::size_t i = 0; i < this->points.size(); ++i) {
-				const std::size_t j = (i + 1) % this->points.size();
-				area += this->points[i].x * this->points[j].y - this->points[j].x * this->points[i].y;
+			for (std::size_t i = 0; i < this->pts.size(); ++i) {
+				const std::size_t j = (i + 1) % this->pts.size();
+				area += this->pts[i].x * this->pts[j].y - this->pts[j].x * this->pts[i].y;
 			}
 			return area / 2;
 		}
@@ -61,24 +63,24 @@ export namespace xieite {
 
 		[[nodiscard]] constexpr std::vector<xieite::segm2d<T>> sides() const noexcept {
 			std::vector<xieite::segm2d<T>> sides;
-			sides.reserve(this->points.size());
-			for (std::size_t i = 0; i < this->points.size(); ++i) {
-				sides.push_back(xieite::segm2d<T>(this->points[i], this->points[(i + 1) % this->points.size()]));
+			sides.reserve(this->pts.size());
+			for (std::size_t i = 0; i < this->pts.size(); ++i) {
+				sides.push_back(xieite::segm2d<T>(this->pts[i], this->pts[(i + 1) % this->pts.size()]));
 			}
 			return sides;
 		}
 
-		[[nodiscard]] constexpr bool contains(xieite::point2d<T> point) const noexcept {
+		[[nodiscard]] constexpr bool contains(xieite::pt2d<T> pt) const noexcept {
 			bool odd = false;
-			for (std::size_t i = 0; i < this->points.size(); ++i) {
-				const std::size_t j = (i + 1) % this->points.size();
-				odd ^= (((this->points[i].y < point.y) && (this->points[j].y >= point.y)) || ((this->points[j].y < point.y) && (this->points[i].y >= point.y))) && ((this->points[i].x <= point.x) || (this->points[j].x <= point.x)) && (this->points[i].x + (point.y - this->points[i].y) / (this->points[j].y - this->points[i].y) * (this->points[j].x - this->points[i].x) < point.x);
+			for (std::size_t i = 0; i < this->pts.size(); ++i) {
+				const std::size_t j = (i + 1) % this->pts.size();
+				odd ^= (((this->pts[i].y < pt.y) && (this->pts[j].y >= pt.y)) || ((this->pts[j].y < pt.y) && (this->pts[i].y >= pt.y))) && ((this->pts[i].x <= pt.x) || (this->pts[j].x <= pt.x)) && (this->pts[i].x + (pt.y - this->pts[i].y) / (this->pts[j].y - this->pts[i].y) * (this->pts[j].x - this->pts[i].x) < pt.x);
 			}
 			if (odd) {
 				return true;
 			}
 			for (const xieite::segm2d<T>& side : this->sides()) {
-				if (side.contains(point)) {
+				if (side.contains(pt)) {
 					return true;
 				}
 			}
@@ -98,7 +100,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] constexpr bool contains(const xieite::poly2d<T>& poly) const noexcept {
-			return poly.points.size() && this->contains(poly.points[0]) && (xieite::intxn2d(*this, poly).size() < 2);
+			return poly.pts.size() && this->contains(poly.pts[0]) && (xieite::intxn2d(*this, poly).size() < 2);
 		}
 	};
 }
