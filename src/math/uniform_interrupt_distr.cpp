@@ -35,13 +35,13 @@ export namespace xieite {
 				upper -= diff + std::integral<T>;
 				this->interruptions.push_back(xieite::intv<T>(std::min(start, end), diff));
 			}
-			this->dist = xieite::uniform_distr<T>(min, upper);
+			this->distr = xieite::uniform_distr<T>(min, upper);
 			std::ranges::sort(this->interruptions, std::ranges::less(), &xieite::intv<T>::start);
 		}
 
 		template<std::uniform_random_bit_generator G>
 		[[nodiscard]] T operator()(G& gen) noexcept {
-			T result = this->dist(gen);
+			T result = this->distr(gen);
 			for (auto [start, end] : this->interruptions) {
 				if (result >= start) {
 					result += end + std::integral<T>;
@@ -51,7 +51,7 @@ export namespace xieite {
 		}
 
 	private:
-		xieite::uniform_distr<T> dist;
+		xieite::uniform_distr<T> distr;
 		std::vector<xieite::intv<T>> interruptions;
 	};
 }

@@ -11,7 +11,7 @@ namespace std::numbers {}
 namespace std::placeholders {}
 namespace std::ranges {}
 namespace std::this_thread {}
-namespace std::views {}
+namespace std::ranges::views {}
 namespace std::experimental {}
 namespace stdc = std::chrono;
 namespace stde = std::execution;
@@ -20,7 +20,7 @@ namespace stdn = std::numbers;
 namespace stdp = std::placeholders;
 namespace stdr = std::ranges;
 namespace stdt = std::this_thread;
-namespace stdv = std::views;
+namespace stdv = std::ranges::views;
 namespace stdx = std::experimental;
 
 #define nand && XIEITE_DETAIL::ifx<XIEITE_FN(!XIEITE_FWD($0) || !XIEITE_FWD($1))>() &&

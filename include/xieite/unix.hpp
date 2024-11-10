@@ -27,7 +27,9 @@
 
 #ifdef _POSIX_VERSION
 #	undef XIEITE_UNIX_TYPE_POSIX
+#	define XIEITE_UNIX_TYPE_POSIX 1
 
+#	undef XIEITE_UNIX_MAJOR_POSIX
 #	if defined(_POSIX2_C_VERSION) && (_POSIX2_C_VERSION > _POSIX_VERSION)
 #		define XIEITE_UNIX_MAJOR_POSIX (_POSIX2_C_VERSION / 100)
 #	else
@@ -37,7 +39,9 @@
 
 #ifdef _XOPEN_VERSION
 #	undef XIEITE_UNIX_TYPE_X_OPEN
+#	define XIEITE_UNIX_TYPE_X_OPEN 1
 
+#	undef XIEITE_UNIX_MAJOR_X_OPEN
 #	if _XOPEN_VERSION >= 3
 #		define XIEITE_UNIX_MAJOR_X_OPEN 1989
 #	elif _XOPEN_VERSION >= 4
@@ -62,6 +66,6 @@
 
 #	undef XIEITE_UNIX_MINOR_LSB
 #	define XIEITE_UNIX_MINOR_LSB (__LSB_VERSION__ % 10)
-#else
+#endif
 
 // https://github.com/cpredef/predef/blob/master/Standards.md#unix-standards

@@ -82,12 +82,12 @@ export namespace xieite {
 			}
 		}
 
-		[[nodiscard]] static constexpr std::string fg_code(const xieite::color3& color3) noexcept {
-			return "\x1B[48;2;" + xieite::str_num(color3.r) + ";" + xieite::str_num(color3.g) + ";" + xieite::str_num(color3.b) + "m";
+		[[nodiscard]] static constexpr std::string fg_code(const xieite::color3& color) noexcept {
+			return "\x1B[48;2;" + xieite::str_num(color.r) + ";" + xieite::str_num(color.g) + ";" + xieite::str_num(color.b) + "m";
 		}
 
-		void fg(xieite::color3 color3) noexcept {
-			std::print(this->out, "{}", xieite::term::fg_code(std::move(color3)));
+		void fg(xieite::color3 color) noexcept {
+			std::print(this->out, "{}", xieite::term::fg_code(std::move(color)));
 		}
 
 		[[nodiscard]] static constexpr std::string fg_reset_code() noexcept {
@@ -98,12 +98,12 @@ export namespace xieite {
 			std::print(this->out, "{}", xieite::term::fg_reset_code());
 		}
 
-		[[nodiscard]] static constexpr std::string bg_code(const xieite::color3& color3) noexcept {
-			return "\x1B[38;2;" + xieite::str_num(color3.r) + ";" + xieite::str_num(color3.g) + ";" + xieite::str_num(color3.b) + "m";
+		[[nodiscard]] static constexpr std::string bg_code(const xieite::color3& color) noexcept {
+			return "\x1B[38;2;" + xieite::str_num(color.r) + ";" + xieite::str_num(color.g) + ";" + xieite::str_num(color.b) + "m";
 		}
 
-		void bg(xieite::color3 color3) noexcept {
-			std::print(this->out, "{}", xieite::term::bg_code(std::move(color3)));
+		void bg(xieite::color3 color) noexcept {
+			std::print(this->out, "{}", xieite::term::bg_code(std::move(color)));
 		}
 
 		[[nodiscard]] static constexpr std::string bg_reset_code() noexcept {
@@ -348,15 +348,17 @@ export namespace xieite {
 			const xieite::scope_guard _ = xieite::scope_guard([this, block_prev = this->is_block] -> void {
 				this->block(block_prev);
 			});
-			const char c = this->read_ch();
+			const char c0 = this->read_ch();
 			this->block(false);
-			switch (c) {
+			switch (c0) {
 			case '\x00':
-				switch (this->read_ch()) {
+				switch (const char c1 = this->read_ch(); c1) {
 				case '\x00':
 					return xieite::kb::pause;
 				case '\x03':
 					return xieite::kb::null;
+				default:
+					std::ungetc(c1, this->in);
 				}
 				break;
 			case '\x01':
@@ -412,7 +414,7 @@ export namespace xieite {
 			case '\x1A':
 				return xieite::kb::ctrl_z;
 			case '\x1B':
-				switch (this->read_ch()) {
+				switch (const char c1 = this->read_ch(); c1) {
 				case '\x01':
 					return xieite::kb::ctrl_alt_a;
 				case '\x02':
@@ -560,6 +562,18 @@ export namespace xieite {
 				case '\x4E':
 					return xieite::kb::alt_N;
 				case '\x4F':
+					switch (const char c2 = this->read_ch(); c2) {
+					case '\x50':
+						return xieite::kb::f1;
+					case '\x51':
+						return xieite::kb::f2;
+					case '\x52':
+						return xieite::kb::f3;
+					case '\x53':
+						return xieite::kb::f4;
+					default:
+						std::ungetc(c2, this->in);
+					}
 					return xieite::kb::alt_O;
 				case '\x50':
 					return xieite::kb::alt_P;
@@ -584,6 +598,84 @@ export namespace xieite {
 				case '\x5A':
 					return xieite::kb::alt_Z;
 				case '\x5B':
+					{
+						const char c2 = this->read_ch();
+						const char c3 = this->read_ch();
+						if (c3 == '\x7E') {
+							switch (c2) {
+							case '\x20':
+								return xieite::kb::np_0;
+							case '\x21':
+								return xieite::kb::np_dot;
+							case '\x23':
+								return xieite::kb::np_9;
+							case '\x24':
+								return xieite::kb::np_3;
+							}
+						}
+						switch (c2) {
+						case '\x29':
+							return xieite::kb::np_8;
+						case '\x2A':
+							return xieite::kb::np_2;
+						case '\x2B':
+							return xieite::kb::np_6;
+						case '\x2C':
+							return xieite::kb::np_4;
+						case '\x2D':
+							return xieite::kb::np_5;
+						case '\x2E':
+							return xieite::kb::np_1;
+						case '\x30':
+							return xieite::kb::np_7;
+						case '\x31':
+							if (const char c4 = this->read_ch(); c4 == '\x7E') {
+								switch (c3) {
+								case '\x35':
+									return xieite::kb::f5;
+								case '\x37':
+									return xieite::kb::f6;
+								case '\x38':
+									return xieite::kb::f7;
+								case '\x39':
+									return xieite::kb::f8;
+								}
+								std::ungetc(c4, this->in);
+							}
+							break;
+						case '\x32':
+							if (const char c4 = this->read_ch(); c4 == '\x7E') {
+								switch (c3) {
+								case '\x30':
+									return xieite::kb::f9;
+								case '\x31':
+									return xieite::kb::f10;
+								case '\x33':
+									return xieite::kb::f11;
+								case '\x34':
+									return xieite::kb::f12;
+								}
+								std::ungetc(c4, this->in);
+							}
+							break;
+						case '\x5B':
+							switch (c3) {
+							case '\x41':
+								return xieite::kb::f1;
+							case '\x42':
+								return xieite::kb::f2;
+							case '\x43':
+								return xieite::kb::f3;
+							case '\x44':
+								return xieite::kb::f4;
+							case '\x45':
+								return xieite::kb::f5;
+							}
+							break;
+						}
+						std::ungetc(c3, this->in);
+						std::ungetc(c2, this->in);
+					}
 					return xieite::kb::alt_lbrack;
 				case '\x5C':
 					return xieite::kb::alt_backsl;
@@ -657,86 +749,11 @@ export namespace xieite {
 					return xieite::kb::alt_tilde;
 				case '\x7F':
 					return xieite::kb::alt_backsp;
-				case '\x4F':
-					switch (this->read_ch()) {
-					case '\x50':
-						return xieite::kb::fn_1;
-					case '\x51':
-						return xieite::kb::fn_2;
-					case '\x52':
-						return xieite::kb::fn_3;
-					case '\x53':
-						return xieite::kb::fn_4;
-					}
-					break;
-				case '\x5B':
-					switch (this->read_ch()) {
-					case '\x20':
-						if (this->read_ch() == '\x7E') {
-							return xieite::kb::np_0;
-						}
-						break;
-					case '\x21':
-						if (this->read_ch() == '\x7E') {
-							return xieite::kb::np_dot;
-						}
-						break;
-					case '\x23':
-						if (this->read_ch() == '\x7E') {
-							return xieite::kb::np_9;
-						}
-						break;
-					case '\x24':
-						if (this->read_ch() == '\x7E') {
-							return xieite::kb::np_3;
-						}
-						break;
-					case '\x29':
-						return xieite::kb::np_8;
-					case '\x2A':
-						return xieite::kb::np_2;
-					case '\x2B':
-						return xieite::kb::np_6;
-					case '\x2C':
-						return xieite::kb::np_4;
-					case '\x2D':
-						return xieite::kb::np_5;
-					case '\x2E':
-						return xieite::kb::np_1;
-					case '\x30':
-						return xieite::kb::np_7;
-					case '\x31':
-						if (char c = this->read_ch(); this->read_ch() == '\x7E') {
-							switch (c) {
-							case '\x35':
-								return xieite::kb::fn_5;
-							case '\x37':
-								return xieite::kb::fn_6;
-							case '\x38':
-								return xieite::kb::fn_7;
-							case '\x39':
-								return xieite::kb::fn_8;
-							}
-						}
-						break;
-					case '\x32':
-						if (char c = this->read_ch(); this->read_ch() == '\x7E') {
-							switch (c) {
-							case '\x30':
-								return xieite::kb::fn_9;
-							case '\x32':
-								return xieite::kb::fn_10;
-							case '\x34':
-								return xieite::kb::fn_11;
-							case '\x35':
-								return xieite::kb::fn_12;
-							}
-						}
-						break;
-					}
+				default:
+					std::ungetc(c1, this->in);
 				}
+				// TODO: Detect keys F13 through F24
 				break;
-			// TODO: Detect keys F13 through F24
 			case '\x20':
 				return xieite::kb::sp;
 			case '\x21':
@@ -930,6 +947,7 @@ export namespace xieite {
 			case '\x7F':
 				return xieite::kb::backsp;
 			}
+			std::ungetc(c0, this->in);
 			return xieite::kb::unknown;
 		}
 
