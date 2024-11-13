@@ -4,7 +4,8 @@ import std;
 import :chv;
 
 export namespace xieite {
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<std::basic_string_view<Ch, Traits>>, xieite::end...,
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<std::basic_string_view<Ch, Traits>>,
+		xieite::end...,
 		typename StrV = std::basic_string_view<Ch, Traits>,
 		typename Vec = std::vector<StrV, Alloc>>
 	[[nodiscard]] constexpr Vec str_split(StrV str, xieite::chv<Ch, Traits> delim, bool discard_empty = false) noexcept {

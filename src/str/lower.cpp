@@ -22,7 +22,8 @@ export namespace xieite {
 		return lookup[xieite::sign_cast<std::size_t>(c)];
 	}
 
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, xieite::end...,
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>,
+		xieite::end...,
 		typename Str = std::basic_string<Ch, Traits, Alloc>>
 	[[nodiscard]] constexpr Str lower(Str str) noexcept {
 		for (Ch& c : str) {

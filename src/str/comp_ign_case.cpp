@@ -7,7 +7,8 @@ import :id;
 import :upper;
 
 export namespace xieite {
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>, xieite::end...,
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>,
+		xieite::end...,
 		typename ChV = xieite::chv<Ch, Traits>>
 	[[nodiscard]] constexpr std::strong_ordering comp_ign_case(ChV left, xieite::id<ChV> right) noexcept {
 		const std::size_t size = std::min(left.view.size(), right.view.size());

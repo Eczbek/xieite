@@ -14,7 +14,8 @@ export namespace xieite {
 		return result;
 	}
 
-	template<std::integral T, std::size_t size, xieite::end...,
+	template<std::integral T, std::size_t size,
+		xieite::end...,
 		std::size_t bits = xieite::bit_size<T> * size>
 	[[nodiscard]] constexpr std::bitset<bits> bit_join(const std::array<T, size>& values) noexcept {
 		std::bitset<bits> result;

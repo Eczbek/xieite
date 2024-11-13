@@ -11,7 +11,8 @@ import :type_list;
 import :unroll;
 
 export namespace xieite {
-	template<std::size_t arity, typename F, typename... Args, xieite::end...,
+	template<std::size_t arity, typename F, typename... Args,
+		xieite::end...,
 		typename List = xieite::type_list<xieite::any>::template repeat<arity>::template prepend<F>>
 	requires(List::template to<std::is_invocable>::value)
 	constexpr void distr_args(F&& fn, Args&&... args)

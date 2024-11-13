@@ -13,7 +13,8 @@ import :str_num_config;
 import :try_unsign;
 
 export namespace xieite {
-	template<xieite::is_arith T, xieite::end...,
+	template<xieite::is_arith T,
+		xieite::end...,
 		typename Radix = std::conditional_t<std::floating_point<T>, xieite::ssize, T>>
 	[[nodiscard]] constexpr std::string str_num(T value, Radix radix = 10, xieite::str_num_config config = {}, std::size_t padding = 0) noexcept {
 		std::string result;

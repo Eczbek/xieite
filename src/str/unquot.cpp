@@ -5,7 +5,8 @@ import :end;
 import :str_rplc;
 
 export namespace xieite {
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, xieite::end...,
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>,
+		xieite::end...,
 		typename Str = std::basic_string<Ch, Traits, Alloc>>
 	[[nodiscard]] constexpr Str unquot(Str str, Ch delim = '"', Ch esc = '\\') noexcept {
 		str = str.substr(str[0] == delim, str.size() - (str[str.size() - 1] == delim));

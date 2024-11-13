@@ -27,7 +27,8 @@ export namespace xieite {
 		noexcept(xieite::is_nothrow_range<R>)
 		: data(xieite::make_array<Ch, chars>(XIEITE_FWD(data))) {}
 
-		template<typename Traits = std::char_traits<Ch>, xieite::end...,
+		template<typename Traits = std::char_traits<Ch>,
+		xieite::end...,
 			typename StrV = std::basic_string_view<Ch, Traits>>
 		[[nodiscard]] constexpr StrV view() const noexcept {
 			return StrV(this->data.begin(), this->data.end());

@@ -6,7 +6,8 @@ import :chv;
 import :end;
 
 export namespace xieite {
-	template<std::integral T, typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, xieite::end...,
+	template<std::integral T, typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>,
+		xieite::end...,
 		typename Str = std::basic_string<Ch, Traits, Alloc>>
 	[[nodiscard]] constexpr Str to_roman(T value) noexcept {
 		using Array = std::array<xieite::chv<Ch, Traits>, 10>;
