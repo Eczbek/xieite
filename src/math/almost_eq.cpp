@@ -7,7 +7,7 @@ import :is_arith;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr bool almost_eq(T value0, std::type_identity_t<T> value1) noexcept {
+	[[nodiscard]] constexpr bool almost_eq(T value0, T value1) noexcept {
 		if constexpr (std::floating_point<T>) {
 			const T scale = std::abs(value0) + std::abs(value1);
 			// To account for precision loss, take reciprocal of `scale` if it is less than 1
@@ -18,7 +18,7 @@ export namespace xieite {
 	}
 
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr bool almost_eq(T value0, std::type_identity_t<T> value1, std::type_identity_t<T> epsilon) noexcept {
+	[[nodiscard]] constexpr bool almost_eq(T value0, T value1, T epsilon) noexcept {
 		return xieite::diff(value0, value1) <= xieite::abs(epsilon);
 	}
 }

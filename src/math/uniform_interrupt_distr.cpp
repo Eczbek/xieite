@@ -9,7 +9,7 @@ import :betw;
 import :diff;
 import :intv;
 import :is_arith;
-import :limits;
+import :minmax;
 import :merge_intv;
 import :uniform_distr;
 
@@ -20,7 +20,7 @@ export namespace xieite {
 		template<std::ranges::input_range R>
 		requires(std::convertible_to<std::ranges::range_value_t<R>, xieite::intv<T>>)
 		uniform_interrupt_distr(xieite::intv<T> intv, R&& interruptions) {
-			const auto [min, max] = xieite::limits(intv.start, intv.end);
+			const auto [min, max] = xieite::minmax(intv.start, intv.end);
 			T upper = max;
 			for (auto [start, end] : xieite::merge_intv(XIEITE_FWD(interruptions))) {
 				if (!xieite::betw(start, min, max) || !xieite::betw(end, min, max)) {

@@ -6,7 +6,7 @@ import :neg;
 
 export namespace xieite {
 	template<std::integral T>
-	[[nodiscard]] constexpr std::size_t num_digits(T value, std::type_identity_t<T> radix = 10) noexcept {
+	[[nodiscard]] constexpr std::size_t num_digits(T value, T radix = 10) noexcept {
 		if (!radix) {
 			return 1;
 		}

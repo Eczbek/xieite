@@ -6,7 +6,7 @@ import :try_unsign;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr xieite::try_unsign<T> diff(T value0, std::type_identity_t<T> value1) noexcept {
+	[[nodiscard]] constexpr xieite::try_unsign<T> diff(T value0, T value1) noexcept {
 		if constexpr (std::floating_point<T>) {
 			return std::abs(value0 - value1);
 		} else {

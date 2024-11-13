@@ -2,8 +2,8 @@ export module xieite:rot2d;
 
 import std;
 import :is_linear2d;
-import :pt2d;
 import :poly2d;
+import :pt2d;
 
 export namespace xieite {
 	template<typename T = double>
@@ -14,9 +14,9 @@ export namespace xieite {
 		);
 	}
 
-	template<typename T = double, xieite::is_linear2d<T> L>
-	[[nodiscard]] constexpr L rot2d(const L& line, std::common_type_t<T, double> angle, xieite::pt2d<T> pivot = {}) noexcept {
-		return L(
+	template<typename T = double, xieite::is_linear2d<T> Line>
+	[[nodiscard]] constexpr Line rot2d(const Line& line, std::common_type_t<T, double> angle, xieite::pt2d<T> pivot = {}) noexcept {
+		return Line(
 			xieite::rot2d(line.a, angle, pivot),
 			xieite::rot2d(line.b, angle, pivot)
 		);

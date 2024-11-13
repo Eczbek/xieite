@@ -1,9 +1,9 @@
 export module xieite:segm2d;
 
 import std;
-import :is_arith;
-import :point2d;
 import :almost_eq;
+import :is_arith;
+import :pt2d;
 
 export namespace xieite {
 	template<xieite::is_arith>

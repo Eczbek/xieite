@@ -8,7 +8,7 @@ import std;
 import :rotated;
 import :is_arith;
 import :intxn2d;
-import :point2d;
+import :pt2d;
 import :segm2d;
 
 export namespace xieite {

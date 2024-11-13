@@ -6,7 +6,7 @@ import :neg;
 
 export namespace xieite {
 	template<std::integral T>
-	[[nodiscard]] constexpr T num_rev(T value, std::type_identity_t<T> radix = 10) noexcept {
+	[[nodiscard]] constexpr T num_rev(T value, T radix = 10) noexcept {
 		if (!radix) {
 			return 0;
 		} else if ((radix == 1) || (!std::unsigned_integral<T> && (radix == static_cast<T>(-1)))) {

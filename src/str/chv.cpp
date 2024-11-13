@@ -1,21 +1,21 @@
-export module xieite:sv;
+export module xieite:chv;
 
 import std;
 import :is_ch;
 
 export namespace xieite {
 	template<typename Ch = char, typename Traits = std::char_traits<Ch>>
-	struct sv : std::basic_string_view<Ch, Traits> {
+	struct chv : std::basic_string_view<Ch, Traits> {
 		using std::basic_string_view<Ch, Traits>::basic_string_view;
 
-		explicit(false) constexpr sv(std::basic_string_view<Ch, Traits> str) noexcept
+		explicit(false) constexpr chv(std::basic_string_view<Ch, Traits> str) noexcept
 		: std::basic_string_view<Ch, Traits>(str) {}
 
 		template<typename Alloc = std::allocator<Ch>>
-		explicit(false) constexpr sv(const std::basic_string<Ch, Traits, Alloc>& str) noexcept
+		explicit(false) constexpr chv(const std::basic_string<Ch, Traits, Alloc>& str) noexcept
 		: std::basic_string_view<Ch, Traits>(str) {}
 
-		explicit(false) constexpr sv(const Ch& c) noexcept
+		explicit(false) constexpr chv(const Ch& c) noexcept
 		: std::basic_string_view<Ch, Traits>(&c, 1) {}
 
 		template<typename Alloc = std::allocator<Ch>>
@@ -25,11 +25,11 @@ export namespace xieite {
 	};
 
 	template<typename Ch, typename Traits>
-	sv(std::basic_string_view<Ch, Traits>) -> sv<Ch, Traits>;
+	chv(std::basic_string_view<Ch, Traits>) -> chv<Ch, Traits>;
 
 	template<typename Ch, typename Traits, typename Alloc>
-	sv(const std::basic_string<Ch, Traits, Alloc>&) -> sv<Ch, Traits>;
+	chv(const std::basic_string<Ch, Traits, Alloc>&) -> chv<Ch, Traits>;
 
 	template<xieite::is_ch Ch>
-	sv(const Ch&) -> sv<Ch>;
+	chv(const Ch&) -> chv<Ch>;
 }

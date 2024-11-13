@@ -3,7 +3,9 @@ export module xieite:fold;
 import std;
 
 template<auto fn, typename T>
-struct fold_helper : std::type_identity<T> {
+struct fold_helper {
+	using type = T;
+
 	template<typename U>
 	fold_helper<fn, decltype(fn.template operator()<U, T>())> operator->*(const U&) const;
 };

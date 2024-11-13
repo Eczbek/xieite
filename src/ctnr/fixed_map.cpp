@@ -47,8 +47,8 @@ export namespace xieite {
 	private:
 		std::array<std::pair<K, V>, size> array;
 
-		[[nodiscard]] std::unordered_map<K, V*, Hash, Comp, Alloc>& get_map() const noexcept {
-			using Map = std::unordered_map<K, V*, Hash, Comp, Alloc>;
+		template<typename Map = std::unordered_map<K, V*, Hash, Comp, Alloc>;
+		[[nodiscard]] Map& get_map() const noexcept {
 			static Map map = ([this] -> Map {
 				Map map;
 				map.reserve(this->array.size());

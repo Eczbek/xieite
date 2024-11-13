@@ -5,6 +5,7 @@ module;
 export module xieite:fixed_str;
 
 import std;
+import :end;
 import :is_nothrow_range;
 import :make_array;
 
@@ -26,9 +27,10 @@ export namespace xieite {
 		noexcept(xieite::is_nothrow_range<R>)
 		: data(xieite::make_array<Ch, chars>(XIEITE_FWD(data))) {}
 
-		template<typename Traits = std::char_traits<Ch>>
-		[[nodiscard]] constexpr std::basic_string_view<Ch, Traits> view() const noexcept {
-			return std::basic_string_view<Ch, Traits>(this->data.begin(), this->data.end());
+		template<typename Traits = std::char_traits<Ch>, xieite::end...,
+			typename StrV = std::basic_string_view<Ch, Traits>>
+		[[nodiscard]] constexpr StrV view() const noexcept {
+			return StrV(this->data.begin(), this->data.end());
 		}
 	};
 

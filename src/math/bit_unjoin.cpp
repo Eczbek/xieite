@@ -2,6 +2,7 @@ export module xieite:bit_unjoin;
 
 import std;
 import :bit_size;
+import :end;
 import :repeat;
 
 export namespace xieite {

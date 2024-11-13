@@ -6,12 +6,11 @@ import :neg;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	struct num : std::type_identity<T> {
+	struct num {
 	public:
-		T value;
+		using type = T;
 
-		explicit(false) constexpr num(T value = 0) noexcept
-		: value(value) {}
+		T value = 0;
 
 		explicit constexpr operator T() const noexcept {
 			return this->value;

@@ -9,7 +9,7 @@ import :neg;
 
 export namespace xieite {
 	template<xieite::is_arith T, xieite::is_invoc<bool(T)> F>
-	[[nodiscard]] constexpr T num_search(F&& cond, T min, std::type_identity_t<T> max)
+	[[nodiscard]] constexpr T num_search(F&& cond, T min, T max)
 	noexcept(xieite::is_nothrow_invoc<F, bool(T)>) {
 		while (true) {
 			const T mid = static_cast<T>((min + max) / 2);

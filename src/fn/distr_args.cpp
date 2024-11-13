@@ -5,15 +5,17 @@ module;
 export module xieite:distr_args;
 
 import std;
-import :unroll;
 import :any;
+import :end;
 import :type_list;
+import :unroll;
 
 export namespace xieite {
-	template<std::size_t arity, typename F, typename... Args>
-	requires(xieite::type_list<xieite::any>::template repeat<arity>::template prepend<F>::template to<std::is_invocable>::value)
+	template<std::size_t arity, typename F, typename... Args, xieite::end...,
+		typename List = xieite::type_list<xieite::any>::template repeat<arity>::template prepend<F>>
+	requires(List::template to<std::is_invocable>::value)
 	constexpr void distr_args(F&& fn, Args&&... args)
-	noexcept(xieite::type_list<xieite::any>::template repeat<arity>::template prepend<F>::template to<std::is_nothrow_invocable>::value) {
+	noexcept(List::template to<std::is_nothrow_invocable>::value) {
 		static_assert(!!arity || !sizeof...(Args), "arguments must be distributable across functor calls");
 		static_assert(sizeof...(Args) >= arity, "number of arguments must not be less than functor arity");
 		if constexpr (sizeof...(Args) == arity) {

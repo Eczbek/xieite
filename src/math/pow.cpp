@@ -7,7 +7,7 @@ import :split_bool;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T pow(T base, std::type_identity_t<T> exp) {
+	[[nodiscard]] constexpr T pow(T base, T exp) {
 		if constexpr (std::floating_point<T>) {
 			return std::pow(base, exp);
 		} else {

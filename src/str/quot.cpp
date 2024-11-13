@@ -1,12 +1,13 @@
 export module xieite:quot;
 
 import std;
+import :end;
 import :str_rplc;
 
 export namespace xieite {
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
-	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> quot(std::basic_string<Ch, Traits, Alloc> str, Ch delim = '"', Ch esc = '\\') noexcept {
-		using Str = std::basic_string<Ch, Traits, Alloc>;
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, xieite::end...,
+		typename Str = std::basic_string<Ch, Traits, Alloc>>
+	[[nodiscard]] constexpr Str quot(Str str, Ch delim = '"', Ch esc = '\\') noexcept {
 		const Str esc_delim = Str(1, esc) + delim;
 		if (delim == esc) {
 			return delim + xieite::str_rplc(str, delim, esc_delim) + delim;

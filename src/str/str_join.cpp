@@ -1,21 +1,25 @@
 export module xieite:str_join;
 
 import std;
-import :sv;
+import :chv;
+import :end;
+import :id;
 
 export namespace xieite {
-	template<std::ranges::input_range R, typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
-	requires(std::constructible_from<std::basic_string<Ch, Traits, Alloc>, std::ranges::range_common_reference_t<R>>)
-	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> str_join(R&& range, xieite::sv<Ch, Traits> delim = "", xieite::sv<Ch, Traits> pfx = "", xieite::sv<Ch, Traits> sfx = "") noexcept {
+	template<std::ranges::input_range R, typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, xieite::end...,
+		typename Str = std::basic_string<Ch, Traits, Alloc>,
+		typename ChV = xieite::chv<Ch, Traits>>
+	requires(std::constructible_from<Str, std::ranges::range_common_reference_t<R>>)
+	[[nodiscard]] constexpr Str str_join(R&& range, ChV delim = "", xieite::id<ChV> pfx = "", xieite::id<ChV> sfx = "") noexcept {
 		auto iterator = std::ranges::begin(range);
 		const auto end = std::ranges::end(range);
 		if (iterator == end) {
 			return "";
 		}
-		auto result = std::basic_string<Ch, Traits, Alloc>(*iterator);
+		auto result = Str(*iterator);
 		while (++iterator != end) {
 			result += delim;
-			result += std::basic_string<Ch, Traits, Alloc>(*iterator);
+			result += Str(*iterator);
 		}
 		return pfx + result + sfx;
 	}

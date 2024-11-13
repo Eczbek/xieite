@@ -17,8 +17,8 @@ export namespace xieite {
 			: std::vector<xieite::pt2d<T>>();
 	}
 
-	template<typename T = double, xieite::is_linear2d<T> L>
-	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(xieite::pt2d<T> pt, const L& line) noexcept {
+	template<typename T = double, xieite::is_linear2d<T> Line>
+	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(xieite::pt2d<T> pt, const Line& line) noexcept {
 		return line.contains(pt)
 			? std::vector<xieite::pt2d<T>> { pt }
 			: std::vector<xieite::pt2d<T>>();
@@ -33,13 +33,13 @@ export namespace xieite {
 		return result;
 	}
 
-	template<typename T = double, xieite::is_linear2d<T> L>
-	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(const L& line, xieite::pt2d<T> pt) noexcept {
+	template<typename T = double, xieite::is_linear2d<T> Line>
+	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(const Line& line, xieite::pt2d<T> pt) noexcept {
 		return xieite::intxn2d(pt, line);
 	}
 
-	template<typename T = double, xieite::is_linear2d<T> L0, xieite::is_linear2d<T> L1>
-	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(const L0& line0, const L1& line1) noexcept {
+	template<typename T = double, xieite::is_linear2d<T> Line0, xieite::is_linear2d<T> Line1>
+	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(const Line0& line0, const Line1& line1) noexcept {
 		const double d = (line0.a.x - line0.b.x) * (line1.a.y - line1.b.y) - (line0.a.y - line0.b.y) * (line1.a.x - line1.b.x);
 		if (!xieite::almost_eq<T>(d, 0)) {
 			if (const auto intxn = xieite::pt2d<T>(((line1.a.x - line1.b.x) * (line0.a.x * line0.b.y - line0.a.y * line0.b.x) - (line0.a.x - line0.b.x) * (line1.a.x * line1.b.y - line1.a.y * line1.b.x)) / d, ((line1.a.y - line1.b.y) * (line0.a.x * line0.b.y - line0.a.y * line0.b.x) - (line0.a.y - line0.b.y) * (line1.a.x * line1.b.y - line1.a.y * line1.b.x)) / d); line0.contains(intxn) && line1.contains(intxn)) {
@@ -49,8 +49,8 @@ export namespace xieite {
 		return std::vector<xieite::pt2d<T>>();
 	}
 
-	template<typename T = double, xieite::is_linear2d<T> L>
-	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(const L& line, const xieite::pt2d<T>& poly) noexcept {
+	template<typename T = double, xieite::is_linear2d<T> Line>
+	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(const Line& line, const xieite::pt2d<T>& poly) noexcept {
 		std::vector<xieite::pt2d<T>> result;
 		for (const xieite::segm2d<T>& side : poly.sides()) {
 			result.insert_range(result.end(), xieite::intxn2d(line, side));
@@ -63,8 +63,8 @@ export namespace xieite {
 		return xieite::intxn2d(pt, poly);
 	}
 
-	template<typename T = double, xieite::is_linear2d<T> L>
-	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(const xieite::pt2d<T>& poly, const L& line) noexcept {
+	template<typename T = double, xieite::is_linear2d<T> Line>
+	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(const xieite::pt2d<T>& poly, const Line& line) noexcept {
 		return xieite::intxn2d(line, poly);
 	}
 

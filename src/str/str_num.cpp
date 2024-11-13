@@ -3,6 +3,7 @@ export module xieite:num_str;
 import std;
 import :abs;
 import :almost_eq;
+import :end;
 import :is_arith;
 import :neg;
 import :pad_front;
@@ -12,11 +13,11 @@ import :str_num_config;
 import :try_unsign;
 
 export namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr std::string num_str(T value, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_config config = {}, std::size_t padding = 0) noexcept {
-		using Radix = decltype(radix);
+	template<xieite::is_arith T, xieite::end...,
+		typename Radix = std::conditional_t<std::floating_point<T>, xieite::ssize, T>>
+	[[nodiscard]] constexpr std::string str_num(T value, Radix radix = 10, xieite::str_num_config config = {}, std::size_t padding = 0) noexcept {
 		std::string result;
-		if (!radix || xieite::almost_eq(value, 0)) {
+		if (!radix || xieite::almost_eq(value, static_cast<T>(0))) {
 			result += config.digits[0];
 			if constexpr (std::floating_point<T>) {
 				result += config.pts[0];
@@ -50,7 +51,7 @@ export namespace xieite {
 				do {
 					value *= static_cast<T>(radix);
 					++point;
-				} while ((config.precision - point) && !xieite::almost_eq(std::fmod(value, 1), 0));
+				} while ((config.prec - point) && !xieite::almost_eq(std::fmod(value, 1), static_cast<T>(0)));
 				value = std::round(value);
 			} else {
 				if (value == std::numeric_limits<T>::min()) {
@@ -71,6 +72,6 @@ export namespace xieite {
 		if (neg) {
 			result.insert(0, 1, config.neg[0]);
 		}
-		return xieite::pad_front(result, size, config.digits[0]);
+		return xieite::pad_front(result, padding, config.digits[0]);
 	}
 }

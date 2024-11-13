@@ -1,6 +1,6 @@
 module;
 
-#include <xieite/fn.hpp>
+#include <xieite/lift.hpp>
 
 export module xieite:make_sparse_array;
 
@@ -12,7 +12,7 @@ import :is_nothrow_invoc;
 import :sign_cast;
 
 export namespace xieite {
-	template<std::integral K, typename V, std::ranges::input_range R = std::initializer_list<std::pair<K, V>>, xieite::is_invoc<V(std::ranges::range_common_reference_t<R>)> F = decltype(XIEITE_FN(static_cast<V>(XIEITE_FWD($0))))>
+	template<std::integral K, typename V, std::ranges::input_range R = std::initializer_list<std::pair<K, V>>, xieite::is_invoc<V(std::ranges::range_common_reference_t<R>)> F = decltype(XIEITE_LIFT_ONE(static_cast<V>))>
 	[[nodiscard]] constexpr std::array<V, (1uz << xieite::bit_size<K>)> make_sparse_array(R&& entries, F&& fn = {})
 	noexcept(xieite::is_nothrow_invoc<F, V(std::ranges::range_common_reference_t<R>)>) {
 		static_assert(std::numeric_limits<K>::digits <= 16, "key type must be reasonably small");

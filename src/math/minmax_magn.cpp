@@ -1,14 +1,14 @@
-export module xieite:limits_magn;
+export module xieite:minmax_magn;
 
 import std;
-import :is_arith;
 import :closest;
 import :farthest;
 import :intv;
+import :is_arith;
 
 export namespace xieite {
 	template<xieite::is_arith T, std::convertible_to<T>... Ts>
-	[[nodiscard]] constexpr xieite::intv<T> limits_magn(T first, Ts... rest) noexcept {
+	[[nodiscard]] constexpr xieite::intv<T> minmax_magn(T first, Ts... rest) noexcept {
 		auto result = xieite::intv<T>(first, first);
 		(..., (result =
 			xieite::intv<T>(

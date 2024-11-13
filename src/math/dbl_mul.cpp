@@ -6,9 +6,9 @@ import :dbl_uint;
 
 export namespace xieite {
 	template<std::unsigned_integral T>
-	[[nodiscard]] constexpr xieite::dbl_uint<T> dbl_mul(T multiplier, std::type_identity_t<T> multiplicand) noexcept {
+	[[nodiscard]] constexpr xieite::dbl_uint<T> dbl_mul(T multiplier, T multiplicand) noexcept {
 		static constexpr T half_size = xieite::bit_size<T> / 2;
-		static constexpr T half_bits = std::numeric_limits<T>::max() >> half_size;
+		static constexpr T half_bits = static_cast<T>(-1) >> half_size;
 		const T low0 = multiplier & half_bits;
 		const T high0 = multiplier >> half_size;
 		const T low1 = multiplicand & half_bits;

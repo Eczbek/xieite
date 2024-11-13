@@ -1,8 +1,8 @@
-export module xieite:chars;
+export module xieite:ch;
 
 import std;
 
-export namespace xieite::chars {
+export namespace xieite::ch {
 	constexpr std::size_t alphabet_size = 26;
 
 	constexpr std::string_view upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

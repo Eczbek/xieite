@@ -1051,6 +1051,8 @@ XIEITE_DIAG_OFF_CLANG(-Wdollar-in-identifier-extension)
 		return (__VA_ARGS__); \
 	}
 
+// What did you expect?
+
 namespace XIEITE_DETAIL {
 	// Template parameter must be named here due to GCC bug
 	// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117422
@@ -1070,8 +1072,6 @@ namespace XIEITE_DETAIL {
 
 	private:
 		unusable() = default;
-	
-		~unusable() = default;
 	};
 
 	template<typename... Fs>

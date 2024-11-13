@@ -151,6 +151,8 @@ export namespace xieite {
 		alt_rbrace,
 		alt_tilde,
 		alt_backsp,
+		alt_tab = xieite::kb::ctrl_alt_i,
+		alt_enter = xieite::kb::ctrl_alt_m,
 		sp,
 		exclam,
 		quot,

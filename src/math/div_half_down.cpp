@@ -6,7 +6,7 @@ import :sign;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T div_half_down(T dividend, std::type_identity_t<T> divisor) noexcept {
+	[[nodiscard]] constexpr T div_half_down(T dividend, T divisor) noexcept {
 		if constexpr (std::floating_point<T>) {
 			const T result = dividend / divisor;
 			const T fractional = std::fmod(result, 1);
