@@ -530,7 +530,7 @@ XIEITE_DIAG_OFF_CLANG(-Wdollar-in-identifier-extension)
 		decltype(XIEITE_DETAIL::at0<254>(XIEITE_FWD($$)...)) $254, \
 		decltype(XIEITE_DETAIL::at0<255>(XIEITE_FWD($$)...)) $255, \
 		decltype(XIEITE_DETAIL::at0<256>(XIEITE_FWD($$)...)) $256 \
-	) { requires(noexcept(__VA_ARGS__)); }) \
+	) { requires(noexcept((__VA_ARGS__))); }) \
 	-> decltype(auto) \
 	requires(requires( \
 		decltype(XIEITE_DETAIL::at0<0>(XIEITE_FWD($$)...)) $0, \

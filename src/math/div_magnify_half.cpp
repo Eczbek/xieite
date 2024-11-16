@@ -1,4 +1,4 @@
-export module xieite:div_half_to_inf;
+export module xieite:div_magnify_half;
 
 import std;
 import :is_arith;
@@ -6,12 +6,12 @@ import :sign;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T div_half_to_inf(T dividend, T divisor) noexcept {
+	[[nodiscard]] constexpr T div_magnify_half(T left, T right) noexcept {
 		if constexpr (std::floating_point<T>) {
-			const T result = dividend / divisor;
+			const T result = left / right;
 			return std::floor(result) + (result < 0) + (std::fmod(std::abs(result), 1) >= 0.5) * xieite::sign(result);
 		} else {
-			return static_cast<T>(dividend / divisor + ((dividend % divisor * xieite::sign(dividend)) >= (divisor / 2 * xieite::sign(divisor) + !!(divisor % 2))) * xieite::sign(dividend, divisor));
+			return static_cast<T>(left / right + ((left % right * xieite::sign(left)) >= (right / 2 * xieite::sign(right) + !!(right % 2))) * xieite::sign(left, right));
 		}
 	}
 }

@@ -1,6 +1,7 @@
 export module xieite:wrap;
 
 import :is_arith;
+import :minmax;
 import :mod;
 
 export namespace xieite {

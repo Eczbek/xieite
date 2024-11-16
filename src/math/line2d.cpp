@@ -22,10 +22,10 @@ export namespace xieite {
 
 		line2d() = default;
 
-		constexpr line2d(xieite::pt2d<T> a, xieite::pt2d<T> b) noexcept
+		[[nodiscard]] constexpr line2d(xieite::pt2d<T> a, xieite::pt2d<T> b) noexcept
 		: a(a), b(b) {}
 
-		constexpr line2d(xieite::pt2d<T> a, std::common_type_t<T, double> angle) noexcept
+		[[nodiscard]] constexpr line2d(xieite::pt2d<T> a, std::common_type_t<T, double> angle) noexcept
 		: a(a), b(std::cos(angle), std::sin(angle)) {}
 
 		template<typename U>

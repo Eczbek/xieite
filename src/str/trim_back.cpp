@@ -1,16 +1,16 @@
 export module xieite:trim_back;
 
 import std;
-import :chv;
-import :end;
-import :id;
+import :substr;
 
 export namespace xieite {
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>,
-		xieite::end...,
-		typename StrV = std::basic_string_view<Ch, Traits>>
-	[[nodiscard]] constexpr StrV trim_back(StrV str, xieite::id<xieite::chv<Ch, Traits>> chars) noexcept {
-		const std::size_t end = str.find_last_not_of(chars);
-		return (end == std::string::npos) ? "" : str.substr(0, end + 1);
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>>
+	[[nodiscard]] constexpr std::basic_string_view<Ch, Traits> trim_back(std::basic_string_view<Ch, Traits> strv, std::basic_string_view<Ch, Traits> chars) noexcept {
+		return xieite::substr(strv, 0, strv.find_last_not_of(chars), 0, 1);
+	}
+
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>>
+	[[nodiscard]] constexpr std::basic_string_view<Ch, Traits> trim_back(std::basic_string_view<Ch, Traits> strv, Ch c) noexcept {
+		return xieite::trim_back(strv, std::basic_string_view<Ch, Traits>(&c, 1));
 	}
 }

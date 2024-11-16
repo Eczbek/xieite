@@ -15,7 +15,7 @@ export namespace xieite {
 	template<template<typename, typename> typename Map, typename V, typename K, typename... Ks>
 	struct tuple_map<Map, std::tuple<K, Ks...>, V> {
 	public:
-		constexpr tuple_map(std::initializer_list<std::pair<K, xieite::tuple_map<Map, std::tuple<Ks...>, V>>> list = {}) noexcept
+		[[nodiscard]] constexpr tuple_map(std::initializer_list<std::pair<K, xieite::tuple_map<Map, std::tuple<Ks...>, V>>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
 
 		template<typename Self, std::convertible_to<std::tuple<K, Ks...>> KsRef>
@@ -49,7 +49,7 @@ export namespace xieite {
 	template<template<typename, typename> typename Map, typename V, typename Key>
 	struct tuple_map<Map, std::tuple<Key>, V> {
 	public:
-		constexpr tuple_map(std::initializer_list<std::pair<Key, V>> list = {}) noexcept
+		[[nodiscard]] constexpr tuple_map(std::initializer_list<std::pair<Key, V>> list = {}) noexcept
 		: map(list.begin(), list.end()) {}
 
 		template<typename Self, std::convertible_to<std::tuple<Key>> KRef>

@@ -11,7 +11,7 @@ export namespace xieite {
 	struct proc_guard {
 	public:
 		template<std::invocable<> F, auto = [] {}>
-		proc_guard(F&& fn) noexcept {
+		[[nodiscard]] explicit(false) proc_guard(F&& fn) noexcept {
 			struct guard {
 				const xieite::fn<void()> fn;
 				bool released = false;

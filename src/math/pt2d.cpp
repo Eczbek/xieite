@@ -24,9 +24,9 @@ export namespace xieite {
 		T x = 0;
 		T y = 0;
 
-		pt2d() = default;
+		[[nodiscard]] pt2d() = default;
 
-		constexpr pt2d(T x, T y) noexcept
+		[[nodiscard]] constexpr pt2d(T x, T y) noexcept
 		: x(x), y(y) {}
 
 		template<typename U>

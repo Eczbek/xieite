@@ -14,14 +14,14 @@ import :proc_status;
 export namespace xieite {
 	struct file_pipe {
 	public:
-		file_pipe() noexcept : stream(nullptr) {}
+		[[nodiscard]] file_pipe() noexcept : stream(nullptr) {}
 
-		file_pipe(std::string_view cmd, std::string_view mode) noexcept {
+		[[nodiscard]] file_pipe(std::string_view cmd, std::string_view mode) noexcept {
 			this->open(cmd, mode);
 		}
 		
 #if XIEITE_PLTF_TYPE_WINDOWS
-		file_pipe(std::wstring_view cmd, std::wstring_view mode) noexcept {
+		[[nodiscard]] file_pipe(std::wstring_view cmd, std::wstring_view mode) noexcept {
 			this->open(cmd, mode);
 		}
 #endif

@@ -20,9 +20,9 @@ export namespace xieite {
 		xieite::pt2d<T> start;
 		xieite::pt2d<T> end;
 
-		segm2d() = default;
+		[[nodiscard]] segm2d() = default;
 
-		constexpr segm2d(xieite::pt2d<T> start, xieite::pt2d<T> end) noexcept
+		[[nodiscard]] constexpr segm2d(xieite::pt2d<T> start, xieite::pt2d<T> end) noexcept
 		: start(start), end(end) {}
 
 		template<typename U>

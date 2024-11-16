@@ -11,13 +11,13 @@ export namespace xieite {
 	template<xieite::is_triv_dtor T>
 	struct shredder {
 	public:
-		constexpr shredder() noexcept {
+		[[nodiscard]] constexpr shredder() noexcept {
 			this->shred();
 		}
 
 		template<typename... Args>
 		requires(std::constructible_from<T, Args...>)
-		constexpr shredder(Args&&... args) noexcept
+		[[nodiscard]] explicit(false) constexpr shredder(Args&&... args) noexcept
 		: value(XIEITE_FWD(args)...) {}
 
 		template<typename Self>

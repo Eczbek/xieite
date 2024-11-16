@@ -3,12 +3,12 @@ export module xieite:find_num;
 import std;
 import :is_arith;
 import :abs;
-import :str_num_config;
+import :str_num_cfg;
 import :ssize;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr std::string_view find_num(std::string_view str, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_config config = {}) noexcept {
+	[[nodiscard]] constexpr std::string_view find_num(std::string_view str, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_cfg config = {}) noexcept {
 		const std::size_t size = str.size();
 		const std::string_view digits = config.digits.substr(0, xieite::abs(radix));
 		std::size_t i = 0;

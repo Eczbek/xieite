@@ -8,7 +8,7 @@ export namespace xieite {
 	struct thread_interval {
 	public:
 		template<std::invocable<> F, xieite::is_duration Duration>
-		thread_interval(F&& fn, Duration duration) noexcept
+		[[nodiscard]] thread_interval(F&& fn, Duration duration) noexcept
 		: loop([&fn, duration] -> void {
 			static bool first = true;
 			if (first) {

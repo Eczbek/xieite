@@ -3,20 +3,18 @@ export module xieite:num_str;
 import std;
 import :abs;
 import :almost_eq;
-import :end;
 import :is_arith;
 import :neg;
 import :pad_front;
 import :rem;
 import :ssize;
-import :str_num_config;
+import :str_num_cfg;
 import :try_unsign;
 
 export namespace xieite {
-	template<xieite::is_arith T,
-		xieite::end...,
-		typename Radix = std::conditional_t<std::floating_point<T>, xieite::ssize, T>>
-	[[nodiscard]] constexpr std::string str_num(T value, Radix radix = 10, xieite::str_num_config config = {}, std::size_t padding = 0) noexcept {
+	template<xieite::is_arith T>
+	[[nodiscard]] constexpr std::string str_num(T value, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_cfg config = {}, std::size_t padding = 0) noexcept {
+		using Radix = std::conditional_t<std::floating_point<T>, xieite::ssize, T>;
 		std::string result;
 		if (!radix || xieite::almost_eq(value, static_cast<T>(0))) {
 			result += config.digits[0];

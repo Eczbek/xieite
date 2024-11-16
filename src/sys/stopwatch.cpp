@@ -12,7 +12,7 @@ export namespace xieite {
 	template<xieite::is_clock Clock>
 	struct stopwatch {
 	public:
-		stopwatch() noexcept {
+		[[nodiscard]] stopwatch() noexcept {
 			this->reset();
 		}
 

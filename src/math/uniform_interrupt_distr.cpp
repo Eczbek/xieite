@@ -19,7 +19,7 @@ export namespace xieite {
 	public:
 		template<std::ranges::input_range R>
 		requires(std::convertible_to<std::ranges::range_value_t<R>, xieite::intv<T>>)
-		uniform_interrupt_distr(xieite::intv<T> intv, R&& interruptions) {
+		[[nodiscard]] uniform_interrupt_distr(xieite::intv<T> intv, R&& interruptions) {
 			const auto [min, max] = xieite::minmax(intv.start, intv.end);
 			T upper = max;
 			for (auto [start, end] : xieite::merge_intv(XIEITE_FWD(interruptions))) {

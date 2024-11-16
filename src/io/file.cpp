@@ -24,41 +24,40 @@ import :is_stream;
 export namespace xieite {
 	struct file {
 	public:
-		file(std::FILE* const stream = nullptr) noexcept :
-			stream(stream)
-		{}
+		[[nodiscard]] file(std::FILE* const stream = nullptr) noexcept
+		: stream(stream) {}
 
-		file(std::string_view path, std::string_view mode) noexcept {
+		[[nodiscard]] file(std::string_view path, std::string_view mode) noexcept {
 			this->open(path, mode);
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		file(std::wstring_view path, std::wstring_view mode) noexcept {
+		[[nodiscard]] file(std::wstring_view path, std::wstring_view mode) noexcept {
 			this->open(path, mode);
 		}
 #endif
 
-		file(int desc, std::string_view mode) noexcept {
+		[[nodiscard]] file(int desc, std::string_view mode) noexcept {
 			this->open(desc, mode);
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		file(int desc, std::wstring_view mode) noexcept {
+		[[nodiscard]] file(int desc, std::wstring_view mode) noexcept {
 			this->open(desc, mode);
 		}
 #endif
 
 		template<xieite::is_stream Stream>
-		file(Stream& stream) noexcept {
+		[[nodiscard]] file(Stream& stream) noexcept {
 			this->open(stream);
 		}
 
-		file(std::string_view path, std::string_view mode, xieite::file other) noexcept {
+		[[nodiscard]] file(std::string_view path, std::string_view mode, xieite::file other) noexcept {
 			this->reopen(path, mode, other);
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		file(std::wstring_view path, std::wstring_view mode, xieite::file other) noexcept {
+		[[nodiscard]] file(std::wstring_view path, std::wstring_view mode, xieite::file other) noexcept {
 			this->reopen(path, mode, other);
 		}
 #endif

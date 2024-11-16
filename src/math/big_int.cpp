@@ -11,7 +11,7 @@ import :order_bitor;
 import :neg;
 import :split_bool;
 import :ssize;
-import :str_num_config;
+import :str_num_cfg;
 import :sub_overflow;
 import :try_unsign;
 import :view_comp;
@@ -21,7 +21,7 @@ export namespace xieite {
 	struct big_int : std::type_identity<T> {
 	public:
 		template<std::integral U = int>
-		explicit(false) constexpr big_int(U value = 0) noexcept
+		[[nodiscard]] explicit(false) constexpr big_int(U value = 0) noexcept
 		: neg(xieite::neg(value)) {
 			xieite::try_unsign<U> abs = xieite::abs(value);
 			do {
@@ -35,7 +35,7 @@ export namespace xieite {
 		}
 
 		template<typename U>
-		explicit constexpr big_int(const xieite::big_int<U>& value) noexcept
+		[[nodiscard]] explicit constexpr big_int(const xieite::big_int<U>& value) noexcept
 		: neg(value.neg) {
 			if constexpr (sizeof(T) == sizeof(U)) {
 				this->data = value.data;
@@ -63,12 +63,12 @@ export namespace xieite {
 
 		template<std::ranges::input_range R>
 		requires(std::same_as<std::ranges::range_value_t<R>, T>)
-		explicit constexpr big_int(R&& range, bool neg = false) noexcept
+		[[nodiscard]] explicit constexpr big_int(R&& range, bool neg = false) noexcept
 		: data(std::ranges::begin(range), std::ranges::end(range)), neg(neg) {
 			this->trim();
 		}
 
-		explicit(false) constexpr big_int(std::string_view str, xieite::ssize radix = 10, xieite::str_num_config config = {}) noexcept
+		[[nodiscard]] explicit(false) constexpr big_int(std::string_view str, xieite::ssize radix = 10, xieite::str_num_cfg config = {}) noexcept
 		: neg(false) {
 			*this = 0;
 			if (!radix) {
@@ -596,7 +596,7 @@ export namespace xieite {
 			return this->log(xieite::big_int<T>(base));
 		}
 
-		[[nodiscard]] constexpr std::string str(xieite::ssize radix = 10, xieite::str_num_config config = {}) const noexcept {
+		[[nodiscard]] constexpr std::string str(xieite::ssize radix = 10, xieite::str_num_cfg config = {}) const noexcept {
 			if (!*this || !radix) {
 				return std::string(1, config.digits[0]);
 			}

@@ -20,12 +20,12 @@ export namespace xieite {
 		xieite::pt2d<T> a;
 		xieite::pt2d<T> b;
 
-		ray2d() = default;
+		[[nodiscard]] ray2d() = default;
 
-		constexpr ray2d(xieite::pt2d<T> a, xieite::pt2d<T> b) noexcept
+		[[nodiscard]] constexpr ray2d(xieite::pt2d<T> a, xieite::pt2d<T> b) noexcept
 		: a(a), b(b) {}
 
-		constexpr ray2d(xieite::pt2d<T> a, std::common_type_t<T, double> angle) noexcept
+		[[nodiscard]] constexpr ray2d(xieite::pt2d<T> a, std::common_type_t<T, double> angle) noexcept
 		: a(a), b(std::cos(angle), std::sin(angle)) {}
 
 		template<typename U>

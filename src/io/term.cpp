@@ -28,15 +28,21 @@ export namespace xieite {
 		std::FILE* in;
 		std::FILE* out;
 
-		term(std::FILE* in, std::FILE* out) noexcept
-		: in(in), out(out), block_mode(::fcntl(::fileno(this->in), F_GETFL)) {
+		bool is_block;
+		bool is_echo;
+		bool is_canon;
+		bool is_signal;
+		bool is_process;
+
+		[[nodiscard]] term(std::FILE* in, std::FILE* out) noexcept
+		: in(in), out(out), block_mode(::fcntl(::fileno(in), F_GETFL)) {
 			::tcgetattr(::fileno(this->in), &this->cooked_mode);
 			this->is_block = !(this->block_mode & O_NONBLOCK);
 			this->is_echo = this->cooked_mode.c_lflag & ECHO;
 			this->is_canon = this->cooked_mode.c_lflag & ICANON;
 			this->is_signal = (this->cooked_mode.c_iflag & IXON) || (this->cooked_mode.c_iflag & ICRNL) || (this->cooked_mode.c_lflag & IEXTEN) || (this->cooked_mode.c_lflag & ISIG);
 			this->is_process = this->cooked_mode.c_oflag & OPOST;
-			this->update();
+			this->flush();
 		}
 
 		term(const xieite::term&) = delete;
@@ -50,64 +56,80 @@ export namespace xieite {
 		void block(bool value) noexcept {
 			if (this->is_block != value) {
 				this->is_block = value;
-				this->update();
+				this->flush();
 			}
 		}
 
 		void echo(bool value) noexcept {
 			if (this->is_echo != value) {
 				this->is_echo = value;
-				this->update();
+				this->flush();
 			}
 		}
 
 		void canon(bool value) noexcept {
-			if (this->is_canon != value) {
+		if (this->is_canon != value) {
 				this->is_canon = value;
-				this->update();
+				this->flush();
 			}
 		}
 
 		void signal(bool value) noexcept {
 			if (this->is_signal != value) {
 				this->is_signal = value;
-				this->update();
+				this->flush();
 			}
 		}
 
 		void process(bool value) noexcept {
 			if (this->is_process != value) {
 				this->is_process = value;
-				this->update();
+				this->flush();
 			}
 		}
 
-		[[nodiscard]] static constexpr std::string fg_code(const xieite::color3& color) noexcept {
-			return "\x1B[48;2;" + xieite::str_num(color.r) + ";" + xieite::str_num(color.g) + ";" + xieite::str_num(color.b) + "m";
+		[[nodiscard]] static constexpr std::string fg_code(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept {
+			return "\x1B[38;2;" + xieite::str_num(r) + ";" + xieite::str_num(g) + ";" + xieite::str_num(b) + "m";
 		}
 
-		void fg(xieite::color3 color) noexcept {
-			std::print(this->out, "{}", xieite::term::fg_code(std::move(color)));
+		[[nodiscard]] static constexpr std::string fg_code(const xieite::color3& color) noexcept {
+			return xieite::term::fg_code(color.r, color.g, color.b);
+		}
+
+		void fg(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept {
+			std::print(this->out, "{}", r, g, b);
+		}
+
+		void fg(const xieite::color3& color) noexcept {
+			this->fg(color.r, color.g, color.b);
 		}
 
 		[[nodiscard]] static constexpr std::string fg_reset_code() noexcept {
-			return "\x1B[48m";
+			return "\x1B[38m";
 		}
 
 		void fg_reset() noexcept {
 			std::print(this->out, "{}", xieite::term::fg_reset_code());
 		}
 
-		[[nodiscard]] static constexpr std::string bg_code(const xieite::color3& color) noexcept {
-			return "\x1B[38;2;" + xieite::str_num(color.r) + ";" + xieite::str_num(color.g) + ";" + xieite::str_num(color.b) + "m";
+		[[nodiscard]] static constexpr std::string bg_code(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept {
+			return "\x1B[48;2;" + xieite::str_num(r) + ";" + xieite::str_num(g) + ";" + xieite::str_num(b) + "m";
 		}
 
-		void bg(xieite::color3 color) noexcept {
-			std::print(this->out, "{}", xieite::term::bg_code(std::move(color)));
+		[[nodiscard]] static constexpr std::string bg_code(const xieite::color3& color) noexcept {
+			return xieite::term::bg_code(color.r, color.g, color.b);
+		}
+
+		void bg(std::uint8_t r, std::uint8_t g, std::uint8_t b) {
+			std::print(this->out, "{}", xieite::term::bg_code(r, g, b));
+		}
+
+		void bg(const xieite::color3& color) noexcept {
+			this->bg(color.r, color.g, color.b);
 		}
 
 		[[nodiscard]] static constexpr std::string bg_reset_code() noexcept {
-			return "\x1B[38m";
+			return "\x1B[48m";
 		}
 
 		void bg_reset() noexcept {
@@ -115,7 +137,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string bold_code(bool value) noexcept {
-			return "\x1B[" + xieite::str_num(21 - value * 20) + "m";
+			return value ? "\x1B[1m" : "\x1B[21m";
 		}
 
 		void bold(bool value) noexcept {
@@ -123,7 +145,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string italic_code(bool value) noexcept {
-			return "\x1B[" + xieite::str_num(23 - value * 20) + "m";
+			return value ? "\x1B[3m" : "\x1B[23m";
 		}
 
 		void italic(bool value) noexcept {
@@ -131,7 +153,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string underl_code(bool value) noexcept {
-			return "\x1B[" + xieite::str_num(24 - value * 20) + "m";
+			return value ? "\x1B[4m" : "\x1B[24m";
 		}
 
 		void underl(bool value) noexcept {
@@ -139,7 +161,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string blink_code(bool value) noexcept {
-			return "\x1B[" + xieite::str_num(25 - value * 20) + "m";
+			return value ? "\x1B[5m" : "\x1B[25m";
 		}
 
 		void blink(bool value) noexcept {
@@ -147,7 +169,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string invis_code(bool value) noexcept {
-			return "\x1B[" + xieite::str_num(28 - value * 20) + "m";
+			return value ? "\x1B[8m" : "\x1B[28m";
 		}
 
 		void invis(bool value) noexcept {
@@ -155,7 +177,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string strike_code(bool value) noexcept {
-			return "\x1B[" + xieite::str_num(29 - value * 20) + "m";
+			return value ? "\x1B[9m" : "\x1B[29m";
 		}
 
 		void strike(bool value) noexcept {
@@ -163,7 +185,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string invert_code(bool value) noexcept {
-			return "\x1B[" + xieite::str_num(27 - value * 20) + "m";
+			return value ? "\x1B[7m" : "\x1B[27m";
 		}
 		
 		void invert(bool value) noexcept {
@@ -191,36 +213,52 @@ export namespace xieite {
 			this->canon(false);
 			std::print(this->out, "\x1B[6n");
 			xieite::vec2<int> pos;
-			std::fscanf(this->in, "\x1B[%i;%iR", &pos.x, &pos.y);
+			std::fscanf(this->in, "\x1B[%i;%iR", &pos.y, &pos.x);
 			this->canon(canon_prev);
-			return pos - xieite::vec2(-1, -1);
+			return pos - 1;
+		}
+
+		[[nodiscard]] constexpr std::string set_curs_code(int x, int y) noexcept {
+			return "\x1B[" + xieite::str_num(y + 1) + ";" + xieite::str_num(x + 1) + "H";
 		}
 
 		[[nodiscard]] constexpr std::string set_curs_code(xieite::vec2<int> pos) noexcept {
-			return "\x1B[" + xieite::str_num(pos.x + 1) + ";" + xieite::str_num(pos.y + 1) + "H";
+			return xieite::term::set_curs_code(pos.x, pos.y);
+		}
+
+		void set_curs(int x, int y) noexcept {
+			std::print(this->out, "{}", xieite::term::set_curs_code(x, y));
 		}
 
 		void set_curs(xieite::vec2<int> pos) noexcept {
-			std::print(this->out, "{}", xieite::term::set_curs_code(pos));
+			this->set_curs(pos.x, pos.y);
 		}
 
-		[[nodiscard]] constexpr std::string move_curs_code(xieite::vec2<int> diff) noexcept {
+		[[nodiscard]] constexpr std::string mv_curs_code(int x, int y) noexcept {
 			std::string code;
-			if (diff.x) {
+			if (x) {
 				code += "\x1B[";
-				code += xieite::str_num(xieite::abs(diff.x));
-				code += "CD"[diff.x < 0];
+				code += xieite::str_num(xieite::abs(x));
+				code += "CD"[x < 0];
 			}
-			if (diff.y) {
+			if (y) {
 				code += "\x1B[";
-				code += xieite::str_num(xieite::abs(diff.y));
-				code += "BA"[diff.y < 0];
+				code += xieite::str_num(xieite::abs(y));
+				code += "BA"[y < 0];
 			}
 			return code;
 		}
 
-		void move_curs(xieite::vec2<int> diff) noexcept {
-			std::print(this->out, "{}", xieite::term::move_curs_code(diff));
+		[[nodiscard]] constexpr std::string mv_curs_code(xieite::vec2<int> diff) noexcept {
+			return xieite::term::mv_curs_code(diff.x, diff.y);
+		}
+
+		void mv_curs(int x, int y) noexcept {
+			std::print(this->out, "{}", xieite::term::mv_curs_code(x, y));
+		}
+
+		void mv_curs(xieite::vec2<int> diff) noexcept {
+			this->mv_curs(diff.x, diff.y);
 		}
 
 		[[nodiscard]] static constexpr std::string curs_invis_code(bool value) noexcept {
@@ -274,55 +312,55 @@ export namespace xieite {
 		[[nodiscard]] xieite::vec2<int> scr_size() noexcept {
 			::winsize size;
 			::ioctl(::fileno(this->in), TIOCGWINSZ, std::addressof(size));
-			return xieite::vec2<int>(size.ws_row, size.ws_col);
+			return xieite::vec2<int>(size.ws_col, size.ws_row);
 		}
 
-		[[nodiscard]] static constexpr std::string clear_scr_code() noexcept {
+		[[nodiscard]] static constexpr std::string clr_scr_code() noexcept {
 			return "\x1B[2J";
 		}
 
-		void clear_scr() noexcept {
-			std::print(this->out, "{}", xieite::term::clear_scr_code());
+		void clr_scr() noexcept {
+			std::print(this->out, "{}", xieite::term::clr_scr_code());
 		}
 
-		[[nodiscard]] static constexpr std::string clear_scr_until_code() noexcept {
+		[[nodiscard]] static constexpr std::string clr_scr_until_code() noexcept {
 			return "\x1B[1J";
 		}
 		
-		void clear_scr_until() noexcept {
-			std::print(this->out, "{}", xieite::term::clear_scr_until_code());
+		void clr_scr_until() noexcept {
+			std::print(this->out, "{}", xieite::term::clr_scr_until_code());
 		}
 
-		[[nodiscard]] static constexpr std::string clear_scr_from_code() noexcept {
+		[[nodiscard]] static constexpr std::string clr_scr_from_code() noexcept {
 			return "\x1B[0J";
 		}
 		
-		void clear_scr_from() noexcept {
-			std::print(this->out, "{}", xieite::term::clear_scr_from_code());
+		void clr_scr_from() noexcept {
+			std::print(this->out, "{}", xieite::term::clr_scr_from_code());
 		}
 
-		[[nodiscard]] static constexpr std::string clear_line_code() noexcept {
+		[[nodiscard]] static constexpr std::string clr_line_code() noexcept {
 			return "\x1B[2K";
 		}
 
-		void clear_line() noexcept {
-			std::print(this->out, "{}", xieite::term::clear_line_code());
+		void clr_line() noexcept {
+			std::print(this->out, "{}", xieite::term::clr_line_code());
 		}
 
-		[[nodiscard]] static constexpr std::string clear_line_until_code() noexcept {
+		[[nodiscard]] static constexpr std::string clr_line_until_code() noexcept {
 			return "\x1B[1K";
 		}
 
-		void clear_line_until() noexcept {
-			std::print(this->out, "{}", xieite::term::clear_line_until_code());
+		void clr_line_until() noexcept {
+			std::print(this->out, "{}", xieite::term::clr_line_until_code());
 		}
 
-		[[nodiscard]] static constexpr std::string clear_line_from_code() noexcept {
+		[[nodiscard]] static constexpr std::string clr_line_from_code() noexcept {
 			return "\x1B[0K";
 		}
 
-		void clear_line_from() noexcept {
-			std::print(this->out, "{}", xieite::term::clear_line_from_code());
+		void clr_line_from() noexcept {
+			std::print(this->out, "{}", xieite::term::clr_line_from_code());
 		}
 
 		char read_ch() noexcept {
@@ -345,9 +383,9 @@ export namespace xieite {
 		}
 
 		xieite::kb read_key() noexcept {
-			const xieite::scope_guard _ = xieite::scope_guard([this, block_prev = this->is_block] -> void {
+			const xieite::scope_guard _ = [this, block_prev = this->is_block] -> void {
 				this->block(block_prev);
-			});
+			};
 			const char c0 = this->read_ch();
 			this->block(false);
 			switch (c0) {
@@ -955,13 +993,7 @@ export namespace xieite {
 		const int block_mode;
 		::termios cooked_mode;
 
-		bool is_block;
-		bool is_echo;
-		bool is_canon;
-		bool is_signal;
-		bool is_process;
-
-		void update() noexcept {
+		void flush() noexcept {
 			::fcntl(::fileno(this->in), F_SETFL, this->block_mode | (O_NONBLOCK * !this->is_block));
 			::termios raw_mode = this->cooked_mode;
 			raw_mode.c_iflag &= ~static_cast<::tcflag_t>((ICRNL * !this->is_signal) | (IXON * !this->is_signal));

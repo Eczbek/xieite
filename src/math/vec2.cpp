@@ -6,12 +6,12 @@ import :is_arith;
 export namespace xieite {
 	template<xieite::is_arith T>
 	struct vec2 {
-		T x;
-		T y;
+		T x = 0;
+		T y = 0;
 
-		vec2() = default;
+		[[nodiscard]] vec2() = default;
 
-		constexpr vec2(T x, T y) noexcept
+		[[nodiscard]] constexpr vec2(T x, T y) noexcept
 		: x(x), y(y) {}
 
 		[[nodiscard]] constexpr xieite::vec2<T> operator+() const noexcept {

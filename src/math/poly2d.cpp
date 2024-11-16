@@ -22,11 +22,11 @@ export namespace xieite {
 	struct poly2d {
 		std::vector<xieite::pt2d<T>> pts;
 
-		poly2d() = default;
+		[[nodiscard]] poly2d() = default;
 
 		template<std::ranges::input_range R = std::vector<xieite::pt2d<T>>>
 		requires(std::convertible_to<std::ranges::range_value_t<R>, xieite::pt2d<T>>)
-		explicit constexpr poly2d(R&& pts) noexcept
+		[[nodiscard]] explicit constexpr poly2d(R&& pts) noexcept
 		: pts(std::ranges::begin(pts), std::ranges::end(pts)) {}
 
 		template<typename U>

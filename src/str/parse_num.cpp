@@ -5,11 +5,11 @@ import :is_arith;
 import :pow;
 import :ssize;
 import :split_bool;
-import :str_num_config;
+import :str_num_cfg;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T parse_num(std::string_view str, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_config config = {}) noexcept {
+	[[nodiscard]] constexpr T parse_num(std::string_view str, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_cfg config = {}) noexcept {
 		if (!radix) {
 			return 0;
 		}

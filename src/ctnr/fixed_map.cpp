@@ -11,14 +11,14 @@ export namespace xieite {
 	template<typename K, typename V, std::size_t size, typename Hash = std::hash<K>, typename Comp = std::ranges::equal_to, typename Alloc = std::allocator<std::pair<const K, V*>>>
 	struct fixed_map {
 	public:
-		fixed_map() = default;
+		[[nodiscard]] fixed_map() = default;
 
 		template<std::ranges::input_range R>
 		requires(std::convertible_to<std::ranges::range_value_t<R>, std::pair<K, V>>)
-		explicit constexpr fixed_map(R&& entries) noexcept
+		[[nodiscard]] explicit constexpr fixed_map(R&& entries) noexcept
 		: array(xieite::make_array<std::pair<K, V>, size>(XIEITE_FWD(entries))) {}
 
-		explicit(false) constexpr fixed_map(std::initializer_list<std::pair<K, V>> entries) noexcept
+		[[nodiscard]] explicit(false) constexpr fixed_map(std::initializer_list<std::pair<K, V>> entries) noexcept
 		: array(xieite::make_array<std::pair<K, V>, size>(entries)) {}
 
 		template<typename Self, std::convertible_to<K> KRef>
@@ -47,7 +47,7 @@ export namespace xieite {
 	private:
 		std::array<std::pair<K, V>, size> array;
 
-		template<typename Map = std::unordered_map<K, V*, Hash, Comp, Alloc>;
+		template<typename Map = std::unordered_map<K, V*, Hash, Comp, Alloc>>
 		[[nodiscard]] Map& get_map() const noexcept {
 			static Map map = ([this] -> Map {
 				Map map;

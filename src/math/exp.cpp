@@ -10,14 +10,14 @@ namespace xieite {
 	template<xieite::is_arith T>
 	struct exp {
 	private:
-		struct inter : xieite::set_cp_assign<false>, xieite::set_mv_assign<false> {
+		struct proxy : xieite::set_cp_assign<false>, xieite::set_mv_assign<false> {
 		public:
-			explicit constexpr inter(T value) noexcept
+			[[nodiscard]] explicit constexpr proxy(T value) noexcept
 			: value(value) {}
 
 			template<xieite::is_arith U>
-			[[nodiscard]] friend constexpr std::common_type_t<T, U> operator*(U base, xieite::exp<T>::inter inter) noexcept {
-				return static_cast<std::common_type_t<T, U>>(xieite::pow(base, inter.value));
+			[[nodiscard]] friend constexpr std::common_type_t<T, U> operator*(U base, xieite::exp<T>::proxy proxy) noexcept {
+				return static_cast<std::common_type_t<T, U>>(xieite::pow(base, proxy.value));
 			}
 
 		private:
@@ -25,7 +25,7 @@ namespace xieite {
 		};
 
 	public:
-		explicit constexpr exp(T value) noexcept
+		[[nodiscard]] explicit constexpr exp(T value) noexcept
 		: value(value) {}
 
 		template<xieite::is_arith U>
@@ -33,8 +33,8 @@ namespace xieite {
 			return static_cast<std::common_type_t<T, U>>(this->value);
 		}
 
-		[[nodiscard]] constexpr xieite::exp<T>::inter operator*() const noexcept {
-			return xieite::exp<T>::inter(this->value);
+		[[nodiscard]] constexpr xieite::exp<T>::proxy operator*() const noexcept {
+			return xieite::exp<T>::proxy(this->value);
 		}
 
 	private:

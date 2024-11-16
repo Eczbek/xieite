@@ -14,14 +14,14 @@ export namespace xieite {
 	template<typename Ret, typename... Args>
 	struct fn<Ret(Args...)> {
 	public:
-		fn() = default;
+		[[nodiscard]] fn() = default;
 
-		explicit(false) constexpr fn(const xieite::fn<Ret(Args...)>& fn) noexcept
+		[[nodiscard]] explicit(false) constexpr fn(const xieite::fn<Ret(Args...)>& fn) noexcept
 		: ptr(fn.ptr->clone()) {}
 
 		template<xieite::is_invoc<Ret(Args...)> F>
 		requires(!std::same_as<std::remove_cvref_t<F>, xieite::fn<Ret(Args...)>>)
-		explicit(false) constexpr fn(F&& fn) noexcept
+		[[nodiscard]] explicit(false) constexpr fn(F&& fn) noexcept
 		: ptr(std::make_unique<xieite::fn<Ret(Args...)>::derived<std::remove_cvref_t<F>>>(XIEITE_FWD(fn))) {}
 
 		[[nodiscard]] explicit constexpr operator bool() const noexcept {
@@ -47,7 +47,7 @@ export namespace xieite {
 			mutable F fn;
 
 			template<std::convertible_to<F> FRef>
-			explicit(false) constexpr derived(FRef&& fn) noexcept
+			[[nodiscard]] explicit(false) constexpr derived(FRef&& fn) noexcept
 			: fn(XIEITE_FWD(fn)) {}
 
 			constexpr Ret operator()(Args... args) const noexcept(false) override {

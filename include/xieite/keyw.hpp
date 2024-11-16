@@ -94,7 +94,7 @@ namespace XIEITE_DETAIL {
 	template<auto fn>
 	struct ifx {
 		template<typename Type>
-		struct inter {
+		struct proxy {
 			Type&& left;
 
 			[[nodiscard]] constexpr auto operator->*(Type&& right) const
@@ -118,40 +118,40 @@ namespace XIEITE_DETAIL {
 			[[nodiscard]] constexpr auto operator||(Type&& right) const
 			XIEITE_ARROW(fn(XIEITE_FWD(this->left), XIEITE_FWD(right)))
 
-			[[nodiscard]] friend constexpr auto operator+=(Type&& right, inter self)
+			[[nodiscard]] friend constexpr auto operator+=(Type&& right, proxy self)
 			XIEITE_ARROW(fn(XIEITE_FWD(self.left), XIEITE_FWD(right)))
 		};
 
 		template<typename Type>
 		[[nodiscard]] friend constexpr auto operator->*(Type&& left, ifx)
-		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+		XIEITE_ARROW(ifx::proxy<Type>(XIEITE_FWD(left)))
 
 		template<typename Type>
 		[[nodiscard]] friend constexpr auto operator*(Type&& left, ifx)
-		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+		XIEITE_ARROW(ifx::proxy<Type>(XIEITE_FWD(left)))
 
 		template<typename Type>
 		[[nodiscard]] friend constexpr auto operator&(Type&& left, ifx)
-		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+		XIEITE_ARROW(ifx::proxy<Type>(XIEITE_FWD(left)))
 
 		template<typename Type>
 		[[nodiscard]] friend constexpr auto operator^(Type&& left, ifx)
-		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+		XIEITE_ARROW(ifx::proxy<Type>(XIEITE_FWD(left)))
 
 		template<typename Type>
 		[[nodiscard]] friend constexpr auto operator|(Type&& left, ifx)
-		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+		XIEITE_ARROW(ifx::proxy<Type>(XIEITE_FWD(left)))
 
 		template<typename Type>
 		[[nodiscard]] friend constexpr auto operator&&(Type&& left, ifx)
-		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+		XIEITE_ARROW(ifx::proxy<Type>(XIEITE_FWD(left)))
 
 		template<typename Type>
 		[[nodiscard]] friend constexpr auto operator||(Type&& left, ifx)
-		XIEITE_ARROW(ifx::inter<Type>(XIEITE_FWD(left)))
+		XIEITE_ARROW(ifx::proxy<Type>(XIEITE_FWD(left)))
 
 		[[nodiscard]] constexpr auto operator+=(auto&& left) const
-		XIEITE_ARROW(ifx::inter<decltype(left)>(XIEITE_FWD(left)))
+		XIEITE_ARROW(ifx::proxy<decltype(left)>(XIEITE_FWD(left)))
 	};
 
 	template<auto fn>

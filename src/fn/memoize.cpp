@@ -16,7 +16,7 @@ struct memo {
 	F fn;
 	std::tuple<Args...> args;
 
-	constexpr memo(const F& fn, const std::tuple<Args...>& args) noexcept
+	[[nodiscard]] constexpr memo(const F& fn, const std::tuple<Args...>& args) noexcept
 	: fn(fn), args(args) {}
 
 	[[nodiscard]] friend bool operator==(const memo<F, Args...>&, const memo<F, Args...>&) = default;

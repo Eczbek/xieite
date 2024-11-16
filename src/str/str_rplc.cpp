@@ -1,25 +1,35 @@
 export module xieite:str_rplc;
 
 import std;
-import :chv;
-import :end;
-import :id;
 
 export namespace xieite {
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>,
-		xieite::end...,
-		typename Str = std::basic_string<Ch, Traits, Alloc>,
-		typename ChV = xieite::chv<Ch, Traits>>
-	[[nodiscard]] constexpr Str str_rplc(Str str, xieite::id<ChV> orig, xieite::id<ChV> replc) noexcept {
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
+	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> str_rplc(std::basic_string_view<Ch, Traits> strv, std::basic_string_view<Ch, Traits> orig, std::basic_string_view<Ch, Traits> rplcmt) noexcept {
+		auto result = std::basic_string<Ch, Traits, Alloc>(strv);
 		std::size_t i = 0;
 		while (true) {
-			i = str.find(orig, i);
+			i = result.find(orig, i);
 			if (i == std::string::npos) {
 				break;
 			}
-			str.replace(i, orig.size(), replc);
+			result.replace(i, orig.size(), rplcmt);
 			++i;
 		}
-		return str;
+		return result;
+	}
+
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
+	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> str_rplc(std::basic_string_view<Ch, Traits> strv, Ch orig, std::basic_string_view<Ch, Traits> rplcmt = "") noexcept {
+		return xieite::str_rplc(strv, std::basic_string_view<Ch, Traits>(&orig, 1), rplcmt);
+	}
+
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
+	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> str_rplc(std::basic_string_view<Ch, Traits> strv, std::basic_string_view<Ch, Traits> orig, Ch rplcmt) noexcept {
+		return xieite::str_rplc(strv, orig, std::basic_string_view<Ch, Traits>(&rplcmt, 1));
+	}
+
+	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
+	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> str_rplc(std::basic_string_view<Ch, Traits> strv, Ch orig, Ch rplcmt) noexcept {
+		return xieite::str_rplc(strv, std::basic_string_view<Ch, Traits>(&orig, 1), std::basic_string_view<Ch, Traits>(&rplcmt, 1));
 	}
 }

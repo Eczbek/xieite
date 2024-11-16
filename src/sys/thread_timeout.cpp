@@ -12,7 +12,7 @@ export namespace xieite {
 	struct thread_timeout {
 	public:
 		template<std::invocable<> F, xieite::is_dur Dur>
-		thread_timeout(F&& callback, Dur dur) noexcept
+		[[nodiscard]] thread_timeout(F&& callback, Dur dur) noexcept
 		: intv([this, &callback] -> void {
 			this->stop();
 			std::invoke(XIEITE_FWD(callback));
