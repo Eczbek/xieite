@@ -28,12 +28,6 @@ export namespace xieite {
 		std::FILE* in;
 		std::FILE* out;
 
-		bool is_block;
-		bool is_echo;
-		bool is_canon;
-		bool is_signal;
-		bool is_process;
-
 		[[nodiscard]] term(std::FILE* in, std::FILE* out) noexcept
 		: in(in), out(out), block_mode(::fcntl(::fileno(in), F_GETFL)) {
 			::tcgetattr(::fileno(this->in), &this->cooked_mode);
@@ -992,6 +986,12 @@ export namespace xieite {
 	private:
 		const int block_mode;
 		::termios cooked_mode;
+
+		bool is_block;
+		bool is_echo;
+		bool is_canon;
+		bool is_signal;
+		bool is_process;
 
 		void flush() noexcept {
 			::fcntl(::fileno(this->in), F_SETFL, this->block_mode | (O_NONBLOCK * !this->is_block));
