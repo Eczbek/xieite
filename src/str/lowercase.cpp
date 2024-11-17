@@ -14,7 +14,7 @@ export namespace xieite {
 			Lookup lookup;
 			std::ranges::iota(lookup, '\0');
 			for (std::size_t i = 0; i < xieite::ch::alphabet_size; ++i) {
-				lookup[xieite::sign_cast<std::size_t>(xieite::ch::upper[i])] = static_cast<Ch>(xieite::ch::lowercase[i]);
+				lookup[xieite::sign_cast<std::size_t>(xieite::ch::upper[i])] = static_cast<Ch>(xieite::ch::lower[i]);
 			}
 			return lookup;
 		})();

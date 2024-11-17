@@ -1,10 +1,11 @@
 export module xieite:radiotelephony_spelling_alphabet;
 
 import std;
+import :bit_size;
 
 export namespace xieite {
-	constexpr auto radiotelephony_spelling_alphabet = ([] {
-		std::array<std::string_view, (1uz << std::numeric_limits<unsigned char>::digits)> result;
+	inline constexpr auto radiotelephony_spelling_alphabet = ([] -> std::array<std::string_view, (1uz << xieite::bit_size<char>)> {
+		std::array<std::string_view, (1uz << xieite::bit_size<char>)> result;
 		result['A'] = result['a'] = "Alfa"; // This is not a typo
 		result['B'] = result['b'] = "Bravo";
 		result['C'] = result['c'] = "Charlie";

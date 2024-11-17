@@ -1,10 +1,11 @@
 export module xieite:str_split;
 
 import std;
+import :id;
 
 export namespace xieite {
 	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename VecAlloc = std::allocator<std::basic_string_view<Ch, Traits>>>
-	[[nodiscard]] constexpr std::vector<std::basic_string_view<Ch, Traits>, VecAlloc>> str_split(std::basic_string_view<Ch, Traits> strv, std::basic_string_view<Ch, Traits> delim, bool discard_empty = false) noexcept {
+	[[nodiscard]] constexpr std::vector<std::basic_string_view<Ch, Traits>, VecAlloc>> str_split(std::basic_string_view<Ch, Traits> strv, xieite::id<std::basic_string_view<Ch, Traits>> delim, bool discard_empty = false) noexcept {
 		std::vector<std::basic_string_view<Ch, Traits>, VecAlloc>> result;
 		std::size_t i = 0;
 		while (true) {

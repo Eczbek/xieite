@@ -46,14 +46,14 @@ export namespace xieite {
 						shift_bytes = 0;
 						this->data.push_back(0);
 					}
-					this->data.back() |= limb << (shift_bytes * std::numeric_limits<unsigned char>::digits);
+					this->data.back() |= limb << (shift_bytes * xieite::bit_size<char>);
 					shift_bytes += sizeof(U);
 				}
 			} else {
 				for (U limb : value.data) {
 					std::size_t shift_bytes = 0;
 					do {
-						this->data.push_back(static_cast<T>(limb >> (shift_bytes * std::numeric_limits<unsigned char>::digits)));
+						this->data.push_back(static_cast<T>(limb >> (shift_bytes * xieite::bit_size<char>)));
 						shift_bytes += sizeof(T);
 					} while (shift_bytes < sizeof(U));
 				}

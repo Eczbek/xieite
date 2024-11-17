@@ -323,6 +323,7 @@ export import :sin;
 export import :split_bool;
 export import :ssize;
 export import :state;
+export import :static_str;
 export import :stopwatch;
 export import :str_after;
 export import :str_before;

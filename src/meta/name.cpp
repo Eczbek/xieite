@@ -33,13 +33,13 @@ template<auto>
 namespace xieite {
 	template<typename T>
 	[[nodiscard]] consteval std::string_view name() noexcept {
-		static constexpr auto data = xieite::make_array<char, get_name<T>().size()>(get_name<T>());
+		static constexpr auto data = xieite::make_array<char, XIEITE_DETAIL::get_name<T>().size()>(XIEITE_DETAIL::get_name<T>());
 		return std::string_view(data.begin(), data.end());
 	}
 
 	template<auto v>
 	[[nodiscard]] consteval std::string_view name() noexcept {
-		static constexpr auto data = xieite::make_array<char, get_name<v>().size()>(get_name<v>());
+		static constexpr auto data = xieite::make_array<char, XIEITE_DETAIL::get_name<v>().size()>(XIEITE_DETAIL::get_name<v>());
 		return std::string_view(data.begin(), data.end());
 	}
 }

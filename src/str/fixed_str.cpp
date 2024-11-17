@@ -11,6 +11,8 @@ import :make_array;
 export namespace xieite {
 	template<std::size_t size_, typename Ch = char>
 	struct fixed_str {
+		using value_type = Ch;
+
 		static constexpr std::size_t size = size_;
 		std::array<Ch, size_> data;
 
@@ -19,7 +21,7 @@ export namespace xieite {
 		}
 
 		template<std::ranges::input_range R>
-		requires(std::same_as<std::ranges::range_value_t<R>, Ch>)
+		requires(std::convertible_to<std::ranges::range_value_t<R>, Ch>)
 		[[nodiscard]] explicit(false) constexpr fixed_str(R&& data)
 		noexcept(xieite::is_nothrow_range<R>)
 		: data(xieite::make_array<Ch, size_>(XIEITE_FWD(data))) {}
