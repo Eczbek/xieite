@@ -63,11 +63,8 @@ export namespace xieite {
 
 		template<typename Ret>
 		using as_fn = decltype(([] {
-			if constexpr ((sizeof...(Ts) < 2) || (... && !std::is_void_v<Ts>)) {
-				return std::type_identity<Ret(Ts...)>();
-			} else {
-				static_assert(false, "function signature must not have void parameters");
-			}
+			static_assert((... && !std::is_void_v<Ts>), "function signature must not have void parameters");
+			return std::type_identity<Ret(Ts...)>();
 		})())::type;
 
 		template<typename... Us>
