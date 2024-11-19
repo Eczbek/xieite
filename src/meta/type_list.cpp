@@ -63,8 +63,11 @@ export namespace xieite {
 
 		template<typename Ret>
 		using as_fn = decltype(([] {
-			static_assert((... && !std::is_void_v<Ts>), "function signature must not have void parameters");
-			return std::type_identity<Ret(Ts...)>();
+			if constexpr ((... && !std::is_void_v<Ts>)) {
+				return std::type_identity<Ret(Ts...)>();
+			} else {
+				static_assert(false, "function signature must not have void parameters");
+			}
 		})())::type;
 
 		template<typename... Us>
@@ -87,7 +90,7 @@ export namespace xieite {
 			return std::type_identity<xieite::type_list<xieite::type_list<Ts...>::at<sizeof...(Ts) - i - 1>...>>();
 		}))::type;
 
-		template<std::size_t start, std::size_t end = sizeof...(Ts), auto = [] {}> // Lambda argument is a temporary workaround for GCC
+		template<std::size_t start, std::size_t end = sizeof...(Ts)>
 		using slice = decltype(xieite::unroll<xieite::diff(start, end)>([]<std::size_t... i> {
 			return xieite::type_list<xieite::type_list<Ts...>::at<i + std::min(start, end)>...>();
 		}));
@@ -137,7 +140,7 @@ export namespace xieite {
 			::template set<idx1, xieite::type_list<Ts...>::at<idx0>>;
 
 		template<std::size_t start0, std::size_t end0, std::size_t start1, std::size_t end1>
-		using swap_lists =
+		using swap_slices =
 			xieite::type_list<Ts...>
 			::rplc_list<start0, end0, xieite::type_list<Ts...>::slice<start1, end1>>
 			::template rplc_list<start1, end1, xieite::type_list<Ts...>::slice<start0, end0>>;
@@ -187,7 +190,7 @@ export namespace xieite {
 		template<std::size_t arity, auto fn>
 		requires(!(sizeof...(Ts) % arity))
 		using xform = decltype(xieite::unroll<sizeof...(Ts) / arity>([]<std::size_t... i> {
-			return type_list<
+			return xieite::type_list<
 				typename decltype(
 					xieite::type_list<Ts...>
 					::template slice<arity * i, arity * (i + 1)>
@@ -204,24 +207,26 @@ export namespace xieite {
 		requires(!(sizeof...(Ts) % arity))
 		using xform_flat = decltype(xieite::unroll<sizeof...(Ts) / arity>([]<std::size_t... i> {
 			return xieite::fold<
-				[]<typename Index, typename> {
-					return xieite::type_list<Ts...>
-					::template slice<arity * Index::value, arity * (Index::value + 1)>
-					::template append_list<
+				[]<typename Index, typename List> {
+					return typename List::template append_list<decltype(
 						xieite::type_list<Ts...>
-						::template slice<0, arity * Index::value>
-					>
-					::apply(fn);
+						::template slice<arity * Index::value, arity * (Index::value + 1)>
+						::template append_list<
+							xieite::type_list<Ts...>
+							::template slice<0, arity * Index::value>
+						>
+						::apply(fn)
+					)>();
 				},
-				type_list<>,
+				xieite::type_list<>,
 				xieite::value<i>...
 			>();
-		}))::type;
+		}));
 
 		template<typename... Us>
 		requires(sizeof...(Ts) == sizeof...(Us))
 		using zip = decltype(xieite::unroll<Ts...>([]<std::size_t... i> {
-			return type_list<type_list<xieite::type_list<Ts...>::at<i>, Us>...>();
+			return xieite::type_list<xieite::type_list<xieite::type_list<Ts...>::at<i>, Us>...>();
 		}));
 
 		template<typename List>
