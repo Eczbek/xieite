@@ -208,15 +208,18 @@ export namespace xieite {
 		using xform_flat = decltype(xieite::unroll<sizeof...(Ts) / arity>([]<std::size_t... i> {
 			return xieite::fold<
 				[]<typename Index, typename List> {
-					return typename List::template append_list<decltype(
-						xieite::type_list<Ts...>
-						::template slice<arity * Index::value, arity * (Index::value + 1)>
-						::template append_list<
+					return typename List::template append_list<
+						typename decltype(
 							xieite::type_list<Ts...>
-							::template slice<0, arity * Index::value>
-						>
-						::apply(fn)
-					)>();
+							::template slice<arity * Index::value, arity * (Index::value + 1)>
+							::template append_list<
+								xieite::type_list<Ts...>
+								::template slice<0, arity * Index::value>
+							>
+							::apply(fn)
+						)
+						::type
+					>();
 				},
 				xieite::type_list<>,
 				xieite::value<i>...
