@@ -7,7 +7,7 @@ export namespace xieite {
 		constexpr any(auto&&...) noexcept {}
 
 		template<typename T>
-		explicit(false) operator T() const noexcept {
+		operator T() const noexcept {
 			static_assert(false, "must not be evaluated");
 		}
 	};

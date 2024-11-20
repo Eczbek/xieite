@@ -21,7 +21,7 @@ export namespace xieite {
 	struct big_int : std::type_identity<T> {
 	public:
 		template<std::integral U = int>
-		[[nodiscard]] explicit(false) constexpr big_int(U value = 0) noexcept
+		[[nodiscard]] constexpr big_int(U value = 0) noexcept
 		: neg(xieite::neg(value)) {
 			xieite::try_unsign<U> abs = xieite::abs(value);
 			do {
@@ -68,7 +68,7 @@ export namespace xieite {
 			this->trim();
 		}
 
-		[[nodiscard]] explicit(false) constexpr big_int(std::string_view str, xieite::ssize radix = 10, xieite::str_num_cfg config = {}) noexcept
+		[[nodiscard]] constexpr big_int(std::string_view str, xieite::ssize radix = 10, xieite::str_num_cfg config = {}) noexcept
 		: neg(false) {
 			*this = 0;
 			if (!radix) {

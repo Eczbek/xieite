@@ -18,7 +18,7 @@ export namespace xieite {
 		[[nodiscard]] explicit constexpr fixed_map(R&& entries) noexcept
 		: array(xieite::make_array<std::pair<K, V>, size>(XIEITE_FWD(entries))) {}
 
-		[[nodiscard]] explicit(false) constexpr fixed_map(std::initializer_list<std::pair<K, V>> entries) noexcept
+		[[nodiscard]] constexpr fixed_map(std::initializer_list<std::pair<K, V>> entries) noexcept
 		: array(xieite::make_array<std::pair<K, V>, size>(entries)) {}
 
 		template<typename Self, std::convertible_to<K> KRef>

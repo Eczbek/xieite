@@ -29,7 +29,7 @@ export namespace xieite {
 		: a(a), b(std::cos(angle), std::sin(angle)) {}
 
 		template<typename U>
-		[[nodiscard]] explicit(false) constexpr operator xieite::line2d<U>() const noexcept {
+		[[nodiscard]] constexpr operator xieite::line2d<U>() const noexcept {
 			return xieite::line2d<U>(this->a, this->b);
 		}
 

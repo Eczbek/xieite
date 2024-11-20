@@ -6,7 +6,7 @@ export namespace xieite {
 	struct thread_loop {
 	public:
 		template<std::invocable<> F>
-		[[nodiscard]] explicit thread_loop(F&& fn) noexcept
+		[[nodiscard]] thread_loop(F&& fn) noexcept
 		: thread([&fn](std::stop_token token) -> void {
 			while (!token.stop_requested()) {
 				std::invoke(fn);

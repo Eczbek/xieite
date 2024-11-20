@@ -14,7 +14,7 @@ namespace xieite {
 		double value;
 
 		template<auto other_to, auto other_from>
-		[[nodiscard]] explicit(false) constexpr operator xieite::base_unit<type, other_to, other_from>() const noexcept {
+		[[nodiscard]] constexpr operator xieite::base_unit<type, other_to, other_from>() const noexcept {
 			return xieite::base_unit<type, other_to, other_from>(other_from(to(this->value)));
 		}
 	};

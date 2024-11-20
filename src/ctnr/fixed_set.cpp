@@ -18,7 +18,7 @@ export namespace xieite {
 		[[nodiscard]] explicit constexpr fixed_set(R&& keys) noexcept
 		: array(xieite::make_array<K, size>(XIEITE_FWD(keys))) {}
 
-		[[nodiscard]] explicit(false) constexpr fixed_set(std::initializer_list<K> keys) noexcept
+		[[nodiscard]] constexpr fixed_set(std::initializer_list<K> keys) noexcept
 		: array(xieite::make_array<K, size>(keys)) {}
 
 		template<std::convertible_to<K> KRef>

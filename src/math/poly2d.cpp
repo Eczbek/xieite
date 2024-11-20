@@ -30,7 +30,7 @@ export namespace xieite {
 		: pts(std::ranges::begin(pts), std::ranges::end(pts)) {}
 
 		template<typename U>
-		[[nodiscard]] explicit(false) constexpr operator xieite::poly2d<U>() const noexcept {
+		[[nodiscard]] constexpr operator xieite::poly2d<U>() const noexcept {
 			auto other_pts = std::vector<xieite::pt2d<U>>(this->pts.size());
 			std::ranges::transform(this->pts, other_pts.begin(), XIEITE_FN(static_cast<xieite::pt2d<U>>($0)));
 			return xieite::poly2d<U>(other_pts);

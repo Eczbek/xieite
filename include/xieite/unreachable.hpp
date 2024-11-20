@@ -14,7 +14,7 @@
 #	elif XIEITE_CPLR_TYPE_MSVC
 #		define XIEITE_UNREACHABLE() __assume(false)
 #	else
-#		define XIEITE_UNREACHABLE() void(0 / 0)
+#		define XIEITE_UNREACHABLE() (void)(0 / 0)
 #	endif
 #endif
 

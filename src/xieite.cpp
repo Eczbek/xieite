@@ -333,6 +333,7 @@ export import :str_num;
 export import :str_num_cfg;
 export import :str_repeat;
 export import :str_rplc;
+export import :str_size;
 export import :str_split;
 export import :str_trunc;
 export import :sub_overflow;

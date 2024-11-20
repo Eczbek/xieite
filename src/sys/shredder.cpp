@@ -17,7 +17,7 @@ export namespace xieite {
 
 		template<typename... Args>
 		requires(std::constructible_from<T, Args...>)
-		[[nodiscard]] explicit(false) constexpr shredder(Args&&... args) noexcept
+		[[nodiscard]] constexpr shredder(Args&&... args) noexcept
 		: value(XIEITE_FWD(args)...) {}
 
 		template<typename Self>

@@ -29,7 +29,7 @@ namespace xieite {
 		: value(value) {}
 
 		template<xieite::is_arith U>
-		[[nodiscard]] explicit(false) constexpr operator std::common_type_t<T, U>() const noexcept {
+		[[nodiscard]] constexpr operator std::common_type_t<T, U>() const noexcept {
 			return static_cast<std::common_type_t<T, U>>(this->value);
 		}
 

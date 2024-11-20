@@ -26,7 +26,7 @@ export namespace xieite {
 		: start(start), end(end) {}
 
 		template<typename U>
-		[[nodiscard]] explicit(false) constexpr operator xieite::segm2d<U>() const noexcept {
+		[[nodiscard]] constexpr operator xieite::segm2d<U>() const noexcept {
 			return xieite::segm2d<U>(this->start, this->end);
 		}
 
