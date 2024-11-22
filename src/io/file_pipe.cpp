@@ -61,7 +61,7 @@ export namespace xieite {
 			return this->stream;
 		}
 
-		[[nodiscard]] int descriptor() const noexcept {
+		[[nodiscard]] int desc() const noexcept {
 #if XIEITE_PLTF_TYPE_WINDOWS
 			return ::_fileno(this->stream);
 #else
