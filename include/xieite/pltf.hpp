@@ -224,6 +224,10 @@
 #define XIEITE_PLTF_MAJOR_PALM_OS 0
 #define XIEITE_PLTF_MINOR_PALM_OS 0
 #define XIEITE_PLTF_PATCH_PALM_OS 0
+#define XIEITE_PLTF_TYPE_PDOS 0
+#define XIEITE_PLTF_MAJOR_PDOS 0
+#define XIEITE_PLTF_MINOR_PDOS 0
+#define XIEITE_PLTF_PATCH_PDOS 0
 #define XIEITE_PLTF_TYPE_PHOENIX 0
 #define XIEITE_PLTF_MAJOR_PHOENIX 0
 #define XIEITE_PLTF_MINOR_PHOENIX 0
@@ -1054,6 +1058,11 @@
 #ifdef __palmos__
 #	undef XIEITE_PLTF_TYPE_PALM_OS
 #	define XIEITE_PLTF_TYPE_PALM_OS 1
+#endif
+
+#ifdef __PDOS386__
+#	undef XIEITE_PLTF_TYPE_PDOS
+#	define XIEITE_PLTF_TYPE_PDOS 1
 #endif
 
 #if defined(__phoenix) || defined(__phoenix__) || defined(phoenix)

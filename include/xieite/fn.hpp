@@ -1074,21 +1074,10 @@ namespace XIEITE_DETAIL {
 		unusable() = default;
 	};
 
-	template<typename... Fs>
-	struct visitor : Fs... {
-		using Fs::operator()...;
-	};
-
 	template<std::size_t idx, typename... Ts>
 	using at1 = decltype(([] {
 		if constexpr (idx < sizeof...(Ts)) {
-			return ([]<std::size_t... i>(std::index_sequence<i...>) {
-				return XIEITE_DETAIL::visitor(
-					[](std::integral_constant<std::size_t, i>) {
-						return std::type_identity<Ts>();
-					}...
-				)(std::integral_constant<std::size_t, idx>());
-			})(std::index_sequence_for<Ts...>());
+			return std::tuple_element_t<idx, std::tuple<std::type_identity<Ts>...>>();
 		} else {
 			return std::type_identity<XIEITE_DETAIL::unusable>();
 		}
