@@ -6,7 +6,7 @@
 #define XIEITE_LIFT(...) XIEITE_DETAIL_LIFT(, ..., __VA_ARGS__)
 #define XIEITE_LIFT_LOCAL(...) XIEITE_DETAIL_LIFT(&, ..., __VA_ARGS__)
 #define XIEITE_LIFT_ONE(...) XIEITE_DETAIL_LIFT(,, __VA_ARGS__)
-#define XIEITE_LIFT_LOCAL_ONE(...) XIEITE_DETAIL_LIFT(&,, __VA_ARGS__)
+#define XIEITE_LIFT_ONE_LOCAL(...) XIEITE_DETAIL_LIFT(&,, __VA_ARGS__)
 
 #define XIEITE_DETAIL_LIFT(capture, ellipsis, ...) \
 	[capture][[nodiscard]](auto&& ellipsis XIEITE_DETAIL_ARGS \
