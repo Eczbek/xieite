@@ -9,7 +9,7 @@ import :fixed_str;
 import :pi;
 
 namespace xieite {
-	template<xieite::fixed_str type, auto to = [](auto x) { return x; }, auto from = [](auto x) { return x; }>
+	template<xieite::fixed_str type, auto to = std::identity(), auto from = std::identity()>
 	struct base_unit {
 		double value;
 
