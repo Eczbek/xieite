@@ -268,7 +268,6 @@ export import :partial_rev;
 export import :pi;
 export import :poly2d;
 export import :pow;
-export import :pow_of_2;
 export import :prime;
 export import :proc_guard;
 export import :proc_result;
