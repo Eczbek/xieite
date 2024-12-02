@@ -11,9 +11,8 @@ export namespace xieite {
 	[[nodiscard]] constexpr std::tuple<Ts...> bit_unjoin(std::bitset<bits> value) noexcept {
 		std::tuple<Ts...> result;
 		xieite::repeat<Ts...>([&value, &result]<std::size_t i> -> void {
-			using T = std::tuple_element_t<i, std::tuple<Ts...>>;
-			std::get<i>(result) = static_cast<T>(value.to_ullong());
-			value >>= xieite::bit_size<T>;
+			std::get<i>(result) = static_cast<Ts...[i]>(value.to_ullong());
+			value >>= xieite::bit_size<Ts...[i]>;
 		});
 		return result;
 	}

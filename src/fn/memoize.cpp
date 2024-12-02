@@ -35,7 +35,7 @@ struct memo_hash {
 		return xieite::unroll<Args...>([&memo]<std::size_t... i> -> std::size_t {
 			return xieite::hash_combine(
 				xieite::cond<xieite::is_hashable<F>>(std::hash<F>(), XIEITE_FN(0))(memo.fn),
-				std::hash<std::decay_t<std::tuple_element_t<i, std::tuple<Args...>>>>()(std::get<i>(memo.args))...
+				std::hash<std::decay_t<Args...[i]>>()(std::get<i>(memo.args))...
 			);
 		});
 	}
