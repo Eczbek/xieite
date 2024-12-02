@@ -61,6 +61,7 @@ export import :exec;
 export import :exp;
 export import :exp_lit;
 export import :exp_overflow;
+export import :ext_bit_cast;
 export import :factorial;
 export import :farthest;
 export import :fib;
