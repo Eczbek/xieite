@@ -11,7 +11,7 @@ import :str_after;
 import :str_between;
 
 [[nodiscard]] consteval std::string_view get_name(std::string_view strv) noexcept {
-#if XIEITE_CPLR_TYPE_CLANG
+#if XIEITE_CPLR_TYPE_CLANG || XIEITE_CPLR_TYPE_ICC
 	return xieite::str_betw(strv, "= ", ']');
 #elif XIEITE_CPLR_TYPE_GCC
 	return xieite::str_betw(strv, "= ", ';');
