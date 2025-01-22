@@ -1,9 +1,9 @@
 export module xieite:ray2d;
 
 import std;
+import :almost_eq;
 import :is_arith;
 import :pt2d;
-import :almost_eq;
 
 export namespace xieite {
 	template<xieite::is_arith>

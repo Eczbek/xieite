@@ -6,8 +6,8 @@ import :is_arith;
 export namespace xieite {
 	template<xieite::is_arith T>
 	struct vec2 {
-		T x = 0;
-		T y = 0;
+		T x;
+		T y;
 
 		[[nodiscard]] vec2() = default;
 

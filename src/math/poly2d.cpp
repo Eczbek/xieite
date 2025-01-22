@@ -5,10 +5,10 @@ module;
 export module xieite:poly2d;
 
 import std;
-import :rotated;
-import :is_arith;
 import :intxn2d;
+import :is_arith;
 import :pt2d;
+import :rotated;
 import :segm2d;
 
 export namespace xieite {
@@ -37,7 +37,7 @@ export namespace xieite {
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(const xieite::poly2d<T>& left, const xieite::poly2d<T>& right) noexcept {
-			return xieite::rotd(left.pts, right.pts) || xieite::rotd(left.pts, std::views::reverse(right.pts));
+			return xieite::rotated(left.pts, right.pts) || xieite::rotated(left.pts, std::views::reverse(right.pts));
 		}
 
 		[[nodiscard]] static constexpr xieite::poly2d<T> rect(xieite::pt2d<T> start, xieite::pt2d<T> end) noexcept {

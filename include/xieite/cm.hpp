@@ -38,4 +38,4 @@
 #define XIEITE_DETAIL_CM_PASS_E(x) XIEITE_DETAIL_CM_NEXT_E x
 #define XIEITE_DETAIL_CM_PASS_F(x) XIEITE_DETAIL_CM_NEXT_F x
 
-// Note: I have no idea how to use this
+// NOTE: I have no idea how to use this

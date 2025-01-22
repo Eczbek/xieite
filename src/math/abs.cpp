@@ -2,18 +2,21 @@ export module xieite:abs;
 
 import std;
 import :is_arith;
-import :neg;
 import :try_unsign;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr xieite::try_unsign<T> abs(T value) noexcept {
+	[[nodiscard]] constexpr xieite::try_unsign<T> abs(T n) noexcept {
 		if constexpr (std::floating_point<T>) {
-			return std::abs(value);
+			return std::abs(n);
+		} else if constexpr (std::unsigned_integral<T>) {
+			return n;
 		} else {
-			return xieite::neg(value)
-				? -static_cast<xieite::try_unsign<T>>(value)
-				: static_cast<xieite::try_unsign<T>>(value);
+			return (n < 0)
+				? -static_cast<xieite::try_unsign<T>>(n)
+				: static_cast<xieite::try_unsign<T>>(n);
 		}
 	}
 }
+
+// NOTE: Making the return type `auto` allows the negated value to promote

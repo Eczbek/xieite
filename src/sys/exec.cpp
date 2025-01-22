@@ -2,8 +2,8 @@ export module xieite:exec;
 
 import std;
 import :file_pipe;
-import :proc_status;
 import :proc_result;
+import :proc_status;
 import :read;
 
 export namespace xieite {

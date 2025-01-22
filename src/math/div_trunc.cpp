@@ -6,11 +6,11 @@ import :sign;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T div_trunc(T left, T right) noexcept {
+	[[nodiscard]] constexpr T div_trunc(T dividend, T divisor) noexcept {
 		if constexpr (std::floating_point<T>) {
-			return std::floor(left / right) + ((left < 0) != (right < 0));
+			return std::floor(dividend / divisor) + ((dividend < 0) != (divisor < 0));
 		} else {
-			return left / right;
+			return dividend / divisor;
 		}
 	}
 }

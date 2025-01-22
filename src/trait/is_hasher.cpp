@@ -1,5 +1,6 @@
 export module xieite:is_hasher;
 
+import std;
 import :is_invoc;
 
 export namespace xieite {

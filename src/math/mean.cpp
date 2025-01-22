@@ -8,8 +8,8 @@ export namespace xieite {
 	requires(std::ranges::sized_range<R> && xieite::is_arith<std::ranges::range_value_t<R>>)
 	[[nodiscard]] constexpr T mean(R&& range) noexcept {
 		T result = 0;
-		for (auto it = std::ranges::begin(range); it != std::ranges::end(range); ++it) {
-			result += static_cast<T>(*it);
+		for (auto&& n : range) {
+			result += static_cast<T>(n);
 		}
 		return result / std::ranges::size(range);
 	}

@@ -7,23 +7,25 @@ import :bit_size;
 import :dbl_mul;
 import :dbl_uint;
 import :is_arith;
-import :order_bitor;
 import :neg;
+import :order_op;
 import :split_bool;
 import :ssize;
 import :str_num_cfg;
 import :sub_overflow;
 import :try_unsign;
-import :view_comp;
+import :view_cmp_op;
 
 export namespace xieite {
 	template<std::unsigned_integral T = std::uint64_t>
-	struct big_int : std::type_identity<T> {
+	struct big_int {
 	public:
+		using type = T;
+
 		template<std::integral U = int>
-		[[nodiscard]] constexpr big_int(U value = 0) noexcept
-		: neg(xieite::neg(value)) {
-			xieite::try_unsign<U> abs = xieite::abs(value);
+		[[nodiscard]] constexpr big_int(U x = 0) noexcept
+		: neg(xieite::neg(x)) {
+			xieite::try_unsign<U> abs = xieite::abs(x);
 			do {
 				this->data.push_back(static_cast<T>(abs));
 				if constexpr (sizeof(U) > sizeof(T)) {
@@ -35,13 +37,13 @@ export namespace xieite {
 		}
 
 		template<typename U>
-		[[nodiscard]] explicit constexpr big_int(const xieite::big_int<U>& value) noexcept
-		: neg(value.neg) {
+		[[nodiscard]] explicit constexpr big_int(const xieite::big_int<U>& x) noexcept
+		: neg(x.neg) {
 			if constexpr (sizeof(T) == sizeof(U)) {
-				this->data = value.data;
+				this->data = x.data;
 			} else if constexpr (sizeof(T) > sizeof(U)) {
 				std::size_t shift_bytes = sizeof(T);
-				for (U limb : value.data) {
+				for (U limb : x.data) {
 					if (shift_bytes >= sizeof(T)) {
 						shift_bytes = 0;
 						this->data.push_back(0);
@@ -50,7 +52,7 @@ export namespace xieite {
 					shift_bytes += sizeof(U);
 				}
 			} else {
-				for (U limb : value.data) {
+				for (U limb : x.data) {
 					std::size_t shift_bytes = 0;
 					do {
 						this->data.push_back(static_cast<T>(limb >> (shift_bytes * xieite::bit_size<char>)));
@@ -68,16 +70,16 @@ export namespace xieite {
 			this->trim();
 		}
 
-		[[nodiscard]] constexpr big_int(std::string_view str, xieite::ssize radix = 10, xieite::str_num_cfg config = {}) noexcept
+		[[nodiscard]] constexpr big_int(std::string_view str, xieite::ssize radix = 10, xieite::str_num_cfg cfg = {}) noexcept
 		: neg(false) {
 			*this = 0;
 			if (!radix) {
 				return;
 			}
-			const bool neg = config.neg.contains(str[0]);
-			str.remove_prefix(neg || config.pos.contains(str[0]));
+			const bool neg = cfg.neg.contains(str[0]);
+			str.remove_prefix(neg || cfg.pos.contains(str[0]));
 			for (char c : str) {
-				const std::size_t digit = config.digits.find(c);
+				const std::size_t digit = cfg.digits.find(c);
 				if (digit == std::string::npos) {
 					break;
 				}
@@ -103,68 +105,68 @@ export namespace xieite {
 			}
 		}
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<T>& left, const xieite::big_int<T>& right) noexcept {
-			using namespace xieite::order_bitor;
-			using namespace xieite::view_comp;
-			return (right.neg <=> left.neg)
-				| (left.neg
-					? ((right.data.size() <=> left.data.size())
-						| (std::views::reverse(right) <=> std::views::reverse(left)))
-					: ((left.data.size() <=> right.data.size())
-						| (std::views::reverse(left) <=> std::views::reverse(right))));
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			using namespace xieite::order_op;
+			using namespace xieite::view_cmp_op;
+			return (r.neg <=> l.neg)
+				|| (l.neg
+					? ((r.data.size() <=> l.data.size())
+						|| (std::views::reverse(r) <=> std::views::reverse(l)))
+					: ((l.data.size() <=> r.data.size())
+						|| (std::views::reverse(l) <=> std::views::reverse(r))));
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<T>& left, U right) noexcept {
-			return left <=> xieite::big_int<T>(right);
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<T>& l, U r) noexcept {
+			return l <=> xieite::big_int<T>(r);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::big_int<T>& left, const xieite::big_int<T>& right) noexcept {
-			return std::is_eq(left <=> right);
+		[[nodiscard]] friend constexpr bool operator==(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			return std::is_eq(l <=> r);
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr bool operator==(const xieite::big_int<T>& left, U right) noexcept {
-			return left == xieite::big_int<T>(right);
+		[[nodiscard]] friend constexpr bool operator==(const xieite::big_int<T>& l, U r) noexcept {
+			return l == xieite::big_int<T>(r);
 		}
 
 		[[nodiscard]] constexpr xieite::big_int<T> operator+() const noexcept {
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator+(const xieite::big_int<T>& augend, const xieite::big_int<T>& addend) noexcept {
-			if (!augend) {
-				return addend;
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator+(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			if (!l) {
+				return r;
 			}
-			if (!addend) {
-				return augend;
+			if (!r) {
+				return l;
 			}
-			if (augend.neg != addend.neg) {
-				return augend - (-addend);
+			if (l.neg != r.neg) {
+				return l - (-r);
 			}
 			std::vector<T> sum_data;
 			bool carry = false;
-			for (std::size_t i = 0; (i < augend.data.size()) || (i < addend.data.size()) || carry; ++i) {
-				const T limb0 = (i < augend.data.size()) * augend.data[i];
-				const T limb1 = (i < addend.data.size()) * addend.data[i];
+			for (std::size_t i = 0; (i < l.data.size()) || (i < r.data.size()) || carry; ++i) {
+				const T limb0 = (i < l.data.size()) * l.data[i];
+				const T limb1 = (i < r.data.size()) * r.data[i];
 				sum_data.push_back(limb0 + limb1 + carry);
 				carry = xieite::add_overflow(limb0, limb1, carry);
 			}
-			return xieite::big_int<T>(sum_data, augend.neg);
+			return xieite::big_int<T>(sum_data, l.neg);
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator+(const xieite::big_int<T>& augend, U addend) noexcept {
-			return augend + xieite::big_int<T>(addend);
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator+(const xieite::big_int<T>& l, U r) noexcept {
+			return l + xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T>& operator+=(const xieite::big_int<T>& addend) noexcept {
-			return *this = *this + addend;
+		constexpr xieite::big_int<T>& operator+=(const xieite::big_int<T>& r) noexcept {
+			return *this = *this + r;
 		}
 
 		template<std::integral U>
-		constexpr xieite::big_int<T>& operator+=(U addend) noexcept {
-			return *this += xieite::big_int<T>(addend);
+		constexpr xieite::big_int<T>& operator+=(U r) noexcept {
+			return *this += xieite::big_int<T>(r);
 		}
 
 		constexpr xieite::big_int<T>& operator++() noexcept {
@@ -179,44 +181,44 @@ export namespace xieite {
 			return xieite::big_int<T>(this->data, !this->neg);
 		}
 
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator-(const xieite::big_int<T>& minuend, const xieite::big_int<T>& subtrahend) noexcept {
-			if (!subtrahend) {
-				return minuend;
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator-(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			if (!r) {
+				return l;
 			}
-			if (!minuend) {
-				return -subtrahend;
+			if (!l) {
+				return -r;
 			}
-			if (minuend.neg != subtrahend.neg) {
-				return minuend + (-subtrahend);
+			if (l.neg != r.neg) {
+				return l + (-r);
 			}
-			if (minuend.neg ? (minuend > subtrahend) : (minuend < subtrahend)) {
-				return -(subtrahend - minuend);
+			if (l.neg ? (l > r) : (l < r)) {
+				return -(r - l);
 			}
-			if (minuend == subtrahend) {
+			if (l == r) {
 				return 0;
 			}
 			std::vector<T> diff_data;
 			bool borrow = false;
-			for (std::size_t i = 0; (i < subtrahend.data.size()) || borrow; ++i) {
-				const T limb = (i < subtrahend.data.size()) * subtrahend.data[i];
-				diff_data.push_back(minuend.data[i] - limb - borrow);
-				borrow = (i < (minuend.data.size() - 1)) && xieite::sub_overflow(minuend.data[i], limb, borrow);
+			for (std::size_t i = 0; (i < r.data.size()) || borrow; ++i) {
+				const T limb = (i < r.data.size()) * r.data[i];
+				diff_data.push_back(l.data[i] - limb - borrow);
+				borrow = (i < (l.data.size() - 1)) && xieite::sub_overflow(l.data[i], limb, borrow);
 			}
-			return xieite::big_int<T>(diff_data, minuend.neg);
+			return xieite::big_int<T>(diff_data, l.neg);
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator-(const xieite::big_int<T>& minuend, U subtrahend) noexcept {
-			return minuend - xieite::big_int<T>(subtrahend);
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator-(const xieite::big_int<T>& l, U r) noexcept {
+			return l - xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T>& operator-=(const xieite::big_int<T>& subtrahend) noexcept {
-			return *this = *this - subtrahend;
+		constexpr xieite::big_int<T>& operator-=(const xieite::big_int<T>& r) noexcept {
+			return *this = *this - r;
 		}
 
 		template<std::integral U>
-		constexpr xieite::big_int<T>& operator-=(U subtrahend) noexcept {
-			return *this -= xieite::big_int<T>(subtrahend);
+		constexpr xieite::big_int<T>& operator-=(U r) noexcept {
+			return *this -= xieite::big_int<T>(r);
 		}
 
 		constexpr xieite::big_int<T>& operator--() noexcept {
@@ -227,93 +229,93 @@ export namespace xieite {
 			return std::exchange(*this, *this - 1);
 		}
 
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator*(const xieite::big_int<T>& multiplier, const xieite::big_int<T>& multiplicand) noexcept {
-			if (!multiplier || !multiplicand) {
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator*(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			if (!l || !r) {
 				return 0;
 			}
-			const bool same_sign = multiplier.neg == multiplicand.neg;
-			if ((multiplier == 1) || (multiplier == -1)) {
-				return same_sign ? multiplicand : -multiplicand;
+			const bool same_sign = l.neg == r.neg;
+			if ((l == 1) || (l == -1)) {
+				return same_sign ? r : -r;
 			}
-			if ((multiplicand == 1) || (multiplicand == -1)) {
-				return same_sign ? multiplier : -multiplier;
+			if ((r == 1) || (r == -1)) {
+				return same_sign ? l : -l;
 			}
-			if (multiplier.pow_of_2()) {
+			if (l.pow_of_2()) {
 				if (same_sign) {
-					return multiplicand.abs() << multiplier.log2();
+					return r.abs() << l.log2();
 				}
-				return -(multiplicand.abs() << multiplier.log2());
+				return -(r.abs() << l.log2());
 			}
-			if (multiplicand.pow_of_2()) {
+			if (r.pow_of_2()) {
 				if (same_sign) {
-					return multiplier.abs() << multiplicand.log2();
+					return l.abs() << r.log2();
 				}
-				return -(multiplier.abs() << multiplicand.log2());
+				return -(l.abs() << r.log2());
 			}
 			xieite::big_int<T> prod;
-			for (std::size_t i = multiplier.data.size(); i--;) {
-				if (!multiplier.data[i]) {
+			for (std::size_t i = l.data.size(); i--;) {
+				if (!l.data[i]) {
 					continue;
 				}
-				for (std::size_t j = multiplicand.data.size(); j--;) {
-					if (!multiplicand.data[j]) {
+				for (std::size_t j = r.data.size(); j--;) {
+					if (!r.data[j]) {
 						continue;
 					}
-					const xieite::dbl_uint<T> prod = xieite::dbl_mul(multiplier.data[i], multiplicand.data[j]);
+					const xieite::dbl_uint<T> prod = xieite::dbl_mul(l.data[i], r.data[j]);
 					prod += ((xieite::big_int<T>(prod.upper) << xieite::bit_size<T>) | prod.lower) << (xieite::big_int<T>(i) << std::bit_width(xieite::bit_size<T> - 1)) << (xieite::big_int<T>(j) << std::bit_width(xieite::bit_size<T> - 1));
 				}
 			}
-			prod.neg = multiplier.neg != multiplicand.neg;
+			prod.neg = l.neg != r.neg;
 			return prod;
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator*(const xieite::big_int<T>& multiplier, U multiplicand) noexcept {
-			return multiplier * xieite::big_int<T>(multiplicand);
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator*(const xieite::big_int<T>& l, U r) noexcept {
+			return l * xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T>& operator*=(const xieite::big_int<T>& multiplicand) noexcept {
-			return *this = *this * multiplicand;
+		constexpr xieite::big_int<T>& operator*=(const xieite::big_int<T>& r) noexcept {
+			return *this = *this * r;
 		}
 
 		template<std::integral U>
-		constexpr xieite::big_int<T>& operator*=(U multiplicand) noexcept {
-			return *this *= xieite::big_int<T>(multiplicand);
+		constexpr xieite::big_int<T>& operator*=(U r) noexcept {
+			return *this *= xieite::big_int<T>(r);
 		}
 
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator/(const xieite::big_int<T>& dividend, const xieite::big_int<T>& divisor) {
-			if (!divisor) {
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator/(const xieite::big_int<T>& l, const xieite::big_int<T>& r) {
+			if (!r) {
 				throw std::out_of_range("must not divide by zero");
 			}
-			if ((dividend.data.size() < 2) && (divisor.data.size() < 2)) {
-				return dividend.data[0] / divisor.data[0];
+			if ((l.data.size() < 2) && (r.data.size() < 2)) {
+				return l.data[0] / r.data[0];
 			}
-			const bool same_sign = dividend.neg == divisor.neg;
-			if ((divisor == 1) || (divisor == -1)) {
-				return same_sign ? dividend : -dividend;
+			const bool same_sign = l.neg == r.neg;
+			if ((r == 1) || (r == -1)) {
+				return same_sign ? l : -l;
 			}
-			const xieite::big_int<T> dividend_abs = dividend.abs();
-			const xieite::big_int<T> divisor_abs = divisor.abs();
-			if (!dividend || (dividend_abs < divisor_abs)) {
+			const xieite::big_int<T> dividend_abs = l.abs();
+			const xieite::big_int<T> divisor_abs = r.abs();
+			if (!l || (dividend_abs < divisor_abs)) {
 				return 0;
 			}
 			if (dividend_abs == divisor_abs) {
 				return xieite::split_bool(same_sign);
 			}
-			if (divisor.pow_of_2()) {
+			if (r.pow_of_2()) {
 				if (same_sign) {
-					return dividend_abs >> divisor.log2();
+					return dividend_abs >> r.log2();
 				}
-				return -(dividend_abs >> divisor.log2());
+				return -(dividend_abs >> r.log2());
 			}
 			xieite::big_int<T> rem;
 			xieite::big_int<T> quot;
-			rem.data.resize(dividend.data.size(), 0);
-			quot.data.resize(dividend.data.size(), 0);
-			for (std::size_t i = dividend.data.size(); i--;) {
+			rem.data.resize(l.data.size(), 0);
+			quot.data.resize(l.data.size(), 0);
+			for (std::size_t i = l.data.size(); i--;) {
 				for (std::size_t j = xieite::bit_size<T>; j--;) {
 					rem <<= 1;
-					rem.data[0] |= (dividend.data[i] >> j) & 1;
+					rem.data[0] |= (l.data[i] >> j) & 1;
 					const bool bit = rem >= divisor_abs;
 					rem -= divisor_abs * bit;
 					quot.data[i] |= static_cast<T>(bit) << j;
@@ -325,190 +327,190 @@ export namespace xieite {
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator/(const xieite::big_int<T>& dividend, U divisor) {
-			return dividend / xieite::big_int<T>(divisor);
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator/(const xieite::big_int<T>& l, U r) {
+			return l / xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T> operator/=(const xieite::big_int<T>& divisor) {
-			return *this = *this / divisor;
+		constexpr xieite::big_int<T> operator/=(const xieite::big_int<T>& r) {
+			return *this = *this / r;
 		}
 
 		template<std::integral U>
-		constexpr xieite::big_int<T> operator/=(U divisor) {
-			return *this /= xieite::big_int<T>(divisor);
+		constexpr xieite::big_int<T> operator/=(U r) {
+			return *this /= xieite::big_int<T>(r);
 		}
 
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator%(const xieite::big_int<T>& dividend, const xieite::big_int<T>& divisor) {
-			if (!divisor) {
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator%(const xieite::big_int<T>& l, const xieite::big_int<T>& r) {
+			if (!r) {
 				throw std::out_of_range("must not take rem of division by zero");
 			}
-			const xieite::big_int<T> dividend_abs = dividend.abs();
-			const xieite::big_int<T> divisor_abs = divisor.abs();
-			if (!dividend || (divisor_abs == 1) || (dividend_abs == divisor_abs)) {
+			const xieite::big_int<T> dividend_abs = l.abs();
+			const xieite::big_int<T> divisor_abs = r.abs();
+			if (!l || (divisor_abs == 1) || (dividend_abs == divisor_abs)) {
 				return 0;
 			}
 			if (divisor_abs.pow_of_2()) {
-				return (dividend_abs & (divisor_abs - 1)) * xieite::split_bool(!dividend.neg);
+				return (dividend_abs & (divisor_abs - 1)) * xieite::split_bool(!l.neg);
 			}
 			if (dividend_abs < divisor_abs) {
-				return dividend;
+				return l;
 			}
 			xieite::big_int<T> rem;
-			for (T limb : std::views::reverse(dividend.data)) {
+			for (T limb : std::views::reverse(l.data)) {
 				for (std::size_t j = xieite::bit_size<T>; j--;) {
 					rem <<= 1;
 					rem.data[0] |= (limb >> j) & 1;
 					rem -= divisor_abs * (rem >= divisor_abs);
 				}
 			}
-			rem.neg = dividend.neg;
+			rem.neg = l.neg;
 			return rem;
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator%(const xieite::big_int<T>& dividend, U divisor) {
-			return dividend % xieite::big_int<T>(divisor);
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator%(const xieite::big_int<T>& l, U r) {
+			return l % xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T> operator%=(const xieite::big_int<T>& divisor) {
-			return *this = *this % divisor;
+		constexpr xieite::big_int<T> operator%=(const xieite::big_int<T>& r) {
+			return *this = *this % r;
 		}
 
 		template<std::integral U>
-		constexpr xieite::big_int<T> operator%=(U divisor) {
-			return *this %= xieite::big_int<T>(divisor);
+		constexpr xieite::big_int<T> operator%=(U r) {
+			return *this %= xieite::big_int<T>(r);
 		}
 
 		[[nodiscard]] constexpr xieite::big_int<T> operator~() const noexcept {
 			return -(*this + 1);
 		}
 
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator&(const xieite::big_int<T>& left, const xieite::big_int<T>& right) noexcept {
-			return xieite::big_int<T>::bit_op(left, right, std::bit_and());
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator&(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			return xieite::big_int<T>::bit_op(l, r, std::bit_and());
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator&(const xieite::big_int<T>& left, U right) noexcept {
-			return left & xieite::big_int<T>(right);
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator&(const xieite::big_int<T>& l, U r) noexcept {
+			return l & xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T>& operator&=(const xieite::big_int<T>& operand) noexcept {
-			return *this = *this & operand;
-		}
-
-		template<std::integral U>
-		constexpr xieite::big_int<T>& operator&=(U operand) noexcept {
-			return *this &= xieite::big_int<T>(operand);
-		}
-
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator|(const xieite::big_int<T>& left, const xieite::big_int<T>& right) noexcept {
-			return xieite::big_int<T>::bit_op(left, right, std::bit_or());
+		constexpr xieite::big_int<T>& operator&=(const xieite::big_int<T>& r) noexcept {
+			return *this = *this & r;
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator|(const xieite::big_int<T>& left, U right) noexcept {
-			return left | xieite::big_int<T>(right);
+		constexpr xieite::big_int<T>& operator&=(U r) noexcept {
+			return *this &= xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T>& operator|=(const xieite::big_int<T>& operand) noexcept {
-			return *this = *this | operand;
-		}
-
-		template<std::integral U>
-		constexpr xieite::big_int<T>& operator|=(U operand) noexcept {
-			return *this |= xieite::big_int<T>(operand);
-		}
-
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator^(const xieite::big_int<T>& left, const xieite::big_int<T>& right) noexcept {
-			return xieite::big_int<T>::bit_op(left, right, std::bit_xor());
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator|(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			return xieite::big_int<T>::bit_op(l, r, std::bit_or());
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator^(const xieite::big_int<T>& left, U right) noexcept {
-			return left ^ xieite::big_int<T>(right);
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator|(const xieite::big_int<T>& l, U r) noexcept {
+			return l | xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T>& operator^=(const xieite::big_int<T>& operand) noexcept {
-			return *this = *this ^ operand;
+		constexpr xieite::big_int<T>& operator|=(const xieite::big_int<T>& r) noexcept {
+			return *this = *this | r;
 		}
 
 		template<std::integral U>
-		constexpr xieite::big_int<T>& operator^=(U operand) noexcept {
-			return *this ^= xieite::big_int<T>(operand);
+		constexpr xieite::big_int<T>& operator|=(U r) noexcept {
+			return *this |= xieite::big_int<T>(r);
 		}
 
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator<<(const xieite::big_int<T>& left, const xieite::big_int<T>& right) noexcept {
-			if (!left || !right) {
-				return left;
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator^(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			return xieite::big_int<T>::bit_op(l, r, std::bit_xor());
+		}
+
+		template<std::integral U>
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator^(const xieite::big_int<T>& l, U r) noexcept {
+			return l ^ xieite::big_int<T>(r);
+		}
+
+		constexpr xieite::big_int<T>& operator^=(const xieite::big_int<T>& r) noexcept {
+			return *this = *this ^ r;
+		}
+
+		template<std::integral U>
+		constexpr xieite::big_int<T>& operator^=(U r) noexcept {
+			return *this ^= xieite::big_int<T>(r);
+		}
+
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator<<(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			if (!l || !r) {
+				return l;
 			}
-			if (right.neg) {
-				return left >> -right;
+			if (r.neg) {
+				return l >> -r;
 			}
-			const std::size_t data_shift = static_cast<std::size_t>(right) >> static_cast<std::size_t>(std::bit_width(xieite::bit_size<T>) - 1);
-			const std::size_t bits_shift = static_cast<std::size_t>(right) & (xieite::bit_size<T> - 1);
+			const std::size_t data_shift = static_cast<std::size_t>(r) >> static_cast<std::size_t>(std::bit_width(xieite::bit_size<T>) - 1);
+			const std::size_t bits_shift = static_cast<std::size_t>(r) & (xieite::bit_size<T> - 1);
 			auto result_data = std::vector<T>(data_shift, 0);
-			result_data.insert(result_data.end(), left.data.begin(), left.data.end());
+			result_data.insert(result_data.end(), l.data.begin(), l.data.end());
 			if (bits_shift) {
 				T carry = 0;
-				for (std::size_t i = 0; i < left.data.size(); ++i) {
-					result_data[i + data_shift] = (left.data[i] << bits_shift) | carry;
-					carry = left.data[i] >> (xieite::bit_size<T> - bits_shift);
+				for (std::size_t i = 0; i < l.data.size(); ++i) {
+					result_data[i + data_shift] = (l.data[i] << bits_shift) | carry;
+					carry = l.data[i] >> (xieite::bit_size<T> - bits_shift);
 				}
 				if (carry) {
 					result_data.push_back(carry);
 				}
 			}
-			return xieite::big_int<T>(result_data, left.neg);
+			return xieite::big_int<T>(result_data, l.neg);
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator<<(const xieite::big_int<T>& left, U right) noexcept {
-			return left << xieite::big_int<T>(right);
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator<<(const xieite::big_int<T>& l, U r) noexcept {
+			return l << xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T>& operator<<=(const xieite::big_int<T>& operand) noexcept {
-			return *this = *this << operand;
+		constexpr xieite::big_int<T>& operator<<=(const xieite::big_int<T>& r) noexcept {
+			return *this = *this << r;
 		}
 
 		template<std::integral U>
-		constexpr xieite::big_int<T>& operator<<=(U operand) noexcept {
-			return *this <<= xieite::big_int<T>(operand);
+		constexpr xieite::big_int<T>& operator<<=(U r) noexcept {
+			return *this <<= xieite::big_int<T>(r);
 		}
 
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator>>(const xieite::big_int<T>& left, const xieite::big_int<T>& right) noexcept {
-			if (!left || !right) {
-				return left;
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator>>(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
+			if (!l || !r) {
+				return l;
 			}
-			if (right.neg) {
-				return left >> -right;
+			if (r.neg) {
+				return l >> -r;
 			}
-			const std::size_t data_shift = static_cast<std::size_t>(right) >> static_cast<std::size_t>(std::bit_width(xieite::bit_size<T>) - 1);
-			const std::size_t bits_shift = static_cast<std::size_t>(right) & (xieite::bit_size<T> - 1);
-			if (data_shift >= left.data.size()) {
+			const std::size_t data_shift = static_cast<std::size_t>(r) >> static_cast<std::size_t>(std::bit_width(xieite::bit_size<T>) - 1);
+			const std::size_t bits_shift = static_cast<std::size_t>(r) & (xieite::bit_size<T> - 1);
+			if (data_shift >= l.data.size()) {
 				return 0;
 			}
-			auto result_data = std::vector<T>(std::ranges::next(left.data.begin(), static_cast<xieite::ssize>(data_shift), left.data.end()), left.data.end());
+			auto result_data = std::vector<T>(std::ranges::next(l.data.begin(), static_cast<xieite::ssize>(data_shift), l.data.end()), l.data.end());
 			if (bits_shift) {
 				T carry = 0;
 				for (T& limb : std::views::reverse(result_data)) {
 					carry = std::exchange(limb, (limb >> bits_shift) | carry) << (xieite::bit_size<T> - bits_shift);
 				}
 			}
-			return xieite::big_int<T>(result_data, left.neg) - left.neg;
+			return xieite::big_int<T>(result_data, l.neg) - l.neg;
 		}
 
 		template<std::integral U>
-		[[nodiscard]] friend constexpr xieite::big_int<T> operator>>(const xieite::big_int<T>& left, U right) noexcept {
-			return left >> xieite::big_int<T>(right);
+		[[nodiscard]] friend constexpr xieite::big_int<T> operator>>(const xieite::big_int<T>& l, U r) noexcept {
+			return l >> xieite::big_int<T>(r);
 		}
 
-		constexpr xieite::big_int<T>& operator>>=(const xieite::big_int<T>& operand) noexcept {
-			return *this = *this >> operand;
+		constexpr xieite::big_int<T>& operator>>=(const xieite::big_int<T>& r) noexcept {
+			return *this = *this >> r;
 		}
 
 		template<std::integral U>
-		constexpr xieite::big_int<T>& operator>>=(U operand) noexcept {
-			return *this >>= xieite::big_int<T>(operand);
+		constexpr xieite::big_int<T>& operator>>=(U r) noexcept {
+			return *this >>= xieite::big_int<T>(r);
 		}
 
 		[[nodiscard]] constexpr xieite::big_int<T> abs() const noexcept {
@@ -596,34 +598,34 @@ export namespace xieite {
 			return this->log(xieite::big_int<T>(base));
 		}
 
-		[[nodiscard]] constexpr std::string str(xieite::ssize radix = 10, xieite::str_num_cfg config = {}) const noexcept {
+		[[nodiscard]] constexpr std::string str(xieite::ssize radix = 10, xieite::str_num_cfg cfg = {}) const noexcept {
 			if (!*this || !radix) {
-				return std::string(1, config.digits[0]);
+				return std::string(1, cfg.digits[0]);
 			}
 			std::string result;
-			xieite::big_int<T> value = this->abs();
+			xieite::big_int<T> x = this->abs();
 			if (radix == 1) {
-				result = std::string(static_cast<std::size_t>(value), config.digits[1]);
+				result = std::string(static_cast<std::size_t>(x), cfg.digits[1]);
 			} else if (radix == -1) {
-				result = config.digits[1];
-				std::size_t length = static_cast<std::size_t>(value);
+				result = cfg.digits[1];
+				std::size_t length = static_cast<std::size_t>(x);
 				while (--length) {
-					result += config.digits[0];
-					result += config.digits[1];
+					result += cfg.digits[0];
+					result += cfg.digits[1];
 				}
 			} else {
 				do {
-					xieite::ssize index = static_cast<xieite::ssize>(value % radix);
-					value /= radix;
-					if (index < 0) {
-						index += radix;
-						++value;
+					xieite::ssize idx = static_cast<xieite::ssize>(x % radix);
+					x /= radix;
+					if (idx < 0) {
+						idx += radix;
+						++x;
 					}
-					result.insert(0, 1, config.digits[static_cast<std::size_t>(index) * (static_cast<std::size_t>(index) < config.digits.size())]);
-				} while (value);
+					result.insert(0, 1, cfg.digits[static_cast<std::size_t>(idx) * (static_cast<std::size_t>(idx) < cfg.digits.size())]);
+				} while (x);
 			}
 			if (*this < 0) {
-				result.insert(0, 1, config.neg[0]);
+				result.insert(0, 1, cfg.neg[0]);
 			}
 			return result;
 		}
@@ -632,21 +634,21 @@ export namespace xieite {
 		std::vector<T> data;
 		bool neg;
 
-		[[nodiscard]] static constexpr xieite::big_int<T> bit_op(xieite::big_int<T> left, xieite::big_int<T> right, auto fn) noexcept {
-			const bool left_neg = left.neg;
-			const bool right_neg = right.neg;
-			left += left_neg;
-			right += right_neg;
+		[[nodiscard]] static constexpr xieite::big_int<T> bit_op(xieite::big_int<T> l, xieite::big_int<T> r, auto fn) noexcept {
+			const bool left_neg = l.neg;
+			const bool right_neg = r.neg;
+			l += left_neg;
+			r += right_neg;
 			xieite::big_int<T> result;
 			result.data.clear();
 			result.neg = static_cast<bool>(fn(left_neg, right_neg));
-			for (std::size_t i = 0; (i < left.data.size()) || (i < right.data.size()); ++i) {
+			for (std::size_t i = 0; (i < l.data.size()) || (i < r.data.size()); ++i) {
 				const T limb = fn(
-					(i < left.data.size())
-						? (left_neg ? ~left.data[i] : left.data[i])
+					(i < l.data.size())
+						? (left_neg ? ~l.data[i] : l.data[i])
 						: (std::numeric_limits<T>::max() * left_neg),
-					(i < right.data.size())
-						? (right_neg ? ~right.data[i] : right.data[i])
+					(i < r.data.size())
+						? (right_neg ? ~r.data[i] : r.data[i])
 						: (std::numeric_limits<T>::max() * right_neg)
 				);
 				result.data.push_back(result.neg ? ~limb : limb);

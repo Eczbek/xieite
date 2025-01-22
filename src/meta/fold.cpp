@@ -1,16 +1,18 @@
 export module xieite:fold;
 
-import std;
+import :t;
 
-template<auto fn, typename T>
-struct fold_helper {
-	using type = T;
+namespace detail::fold {
+	template<auto fn, typename T>
+	struct impl {
+		using type = T;
 
-	template<typename U>
-	fold_helper<fn, decltype(fn.template operator()<U, T>())> operator->*(std::type_identity<U>) const;
-};
+		template<typename U>
+		detail::fold::impl<fn, decltype(fn.template operator()<U, T>())> operator->*(xieite::t<U>) const;
+	};
+}
 
 export namespace xieite {
 	template<auto fn, typename T, typename... Ts>
-	using fold = decltype((fold_helper<fn, T>()->*...->*std::type_identity<Ts>()))::type;
+	using fold = decltype((detail::fold::impl<fn, T>()->*...->*xieite::t<Ts>()))::type;
 }

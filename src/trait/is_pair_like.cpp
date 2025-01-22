@@ -1,6 +1,5 @@
 export module xieite:is_pair_like;
 
-import std;
 import :arity;
 import :is_tuple_like;
 

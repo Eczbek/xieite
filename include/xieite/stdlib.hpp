@@ -61,10 +61,10 @@
 #define XIEITE_STDLIB_MINOR_Z_C 0
 #define XIEITE_STDLIB_PATCH_Z_C 0
 
-#define XIEITE_STDLIB_EQ(type, major, ...) XIEITE_DETAIL_STDLIB_SEL(__VA_ARGS__, XIEITE_DETAIL_STDLIB_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_STDLIB_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_STDLIB_EQ(type, major, 0, 0))
-#define XIEITE_STDLIB_LEAST(type, major, ...) XIEITE_DETAIL_STDLIB_SEL(__VA_ARGS__, XIEITE_DETAIL_STDLIB_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_STDLIB_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_STDLIB_LEAST(type, major, 0, 0))
-#define XIEITE_STDLIB_MOST(type, major, ...) XIEITE_DETAIL_STDLIB_SEL(__VA_ARGS__, XIEITE_DETAIL_STDLIB_MOST(type, major, __VA_ARGS__), XIEITE_DETAIL_STDLIB_MOST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_STDLIB_MOST(type, major, 0, 0))
-#define XIEITE_DETAIL_STDLIB_SEL(_0, _1, _2, x, ...) x
+#define XIEITE_STDLIB_EQ(type, major, ...) XIEITE_DETAIL_STDLIB(__VA_ARGS__, XIEITE_DETAIL_STDLIB_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_STDLIB_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_STDLIB_EQ(type, major, 0, 0))
+#define XIEITE_STDLIB_LEAST(type, major, ...) XIEITE_DETAIL_STDLIB(__VA_ARGS__, XIEITE_DETAIL_STDLIB_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_STDLIB_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_STDLIB_LEAST(type, major, 0, 0))
+#define XIEITE_STDLIB_MOST(type, major, ...) XIEITE_DETAIL_STDLIB(__VA_ARGS__, XIEITE_DETAIL_STDLIB_MOST(type, major, __VA_ARGS__), XIEITE_DETAIL_STDLIB_MOST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_STDLIB_MOST(type, major, 0, 0))
+#define XIEITE_DETAIL_STDLIB(_0, _1, _2, x, ...) x
 #define XIEITE_DETAIL_STDLIB_EQ(type, major, minor, patch) (XIEITE_STDLIB_TYPE_##type && (XIEITE_STDLIB_MAJOR_##type == (major)) && (XIEITE_STDLIB_MINOR_##type == (minor)) && (XIEITE_STDLIB_PATCH_##type == (patch)))
 #define XIEITE_DETAIL_STDLIB_LEAST(type, major, minor, patch) (XIEITE_STDLIB_TYPE_##type && ((XIEITE_STDLIB_MAJOR_##type > (major)) || (XIEITE_STDLIB_MAJOR_##type == (major)) && ((XIEITE_STDLIB_MINOR_##type > (minor)) || (XIEITE_STDLIB_MINOR_##type == (minor)) && (XIEITE_STDLIB_PATCH_##type >= (patch)))))
 #define XIEITE_DETAIL_STDLIB_MOST(type, major, minor, patch) (XIEITE_STDLIB_TYPE_##type && ((XIEITE_STDLIB_MAJOR_##type < (major)) || (XIEITE_STDLIB_MAJOR_##type == (major)) && ((XIEITE_STDLIB_MINOR_##type < (minor)) || (XIEITE_STDLIB_MINOR_##type == (minor)) && (XIEITE_STDLIB_PATCH_##type <= (patch)))))

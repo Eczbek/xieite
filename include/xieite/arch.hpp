@@ -197,10 +197,10 @@
 #define XIEITE_ARCH_MINOR_XTENSA 0
 #define XIEITE_ARCH_PATCH_XTENSA 0
 
-#define XIEITE_ARCH_EQ(type, major, ...) XIEITE_DETAIL_ARCH_SEL(__VA_ARGS__, XIEITE_DETAIL_ARCH_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_ARCH_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_ARCH_EQ(type, major, 0, 0))
-#define XIEITE_ARCH_LEAST(type, major, ...) XIEITE_DETAIL_ARCH_SEL(__VA_ARGS__, XIEITE_DETAIL_ARCH_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_ARCH_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_ARCH_LEAST(type, major, 0, 0))
-#define XIEITE_ARCH_MOST(type, major, ...) XIEITE_DETAIL_ARCH_SEL(__VA_ARGS__, XIEITE_DETAIL_ARCH_MOST(type, major, __VA_ARGS__), XIEITE_DETAIL_ARCH_MOST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_ARCH_MOST(type, major, 0, 0))
-#define XIEITE_DETAIL_ARCH_SEL(_0, _1, _2, x, ...) x
+#define XIEITE_ARCH_EQ(type, major, ...) XIEITE_DETAIL_ARCH(__VA_ARGS__, XIEITE_DETAIL_ARCH_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_ARCH_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_ARCH_EQ(type, major, 0, 0))
+#define XIEITE_ARCH_LEAST(type, major, ...) XIEITE_DETAIL_ARCH(__VA_ARGS__, XIEITE_DETAIL_ARCH_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_ARCH_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_ARCH_LEAST(type, major, 0, 0))
+#define XIEITE_ARCH_MOST(type, major, ...) XIEITE_DETAIL_ARCH(__VA_ARGS__, XIEITE_DETAIL_ARCH_MOST(type, major, __VA_ARGS__), XIEITE_DETAIL_ARCH_MOST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_ARCH_MOST(type, major, 0, 0))
+#define XIEITE_DETAIL_ARCH(_0, _1, _2, x, ...) x
 #define XIEITE_DETAIL_ARCH_EQ(type, major, minor, patch) (XIEITE_ARCH_TYPE_##type && (XIEITE_ARCH_MAJOR_##type == (major)) && (XIEITE_ARCH_MINOR_##type == (minor)) && (XIEITE_ARCH_PATCH_##type == (patch)))
 #define XIEITE_DETAIL_ARCH_LEAST(type, major, minor, patch) (XIEITE_ARCH_TYPE_##type && ((XIEITE_ARCH_MAJOR_##type > (major)) || (XIEITE_ARCH_MAJOR_##type == (major)) && ((XIEITE_ARCH_MINOR_##type > (minor)) || (XIEITE_ARCH_MINOR_##type == (minor)) && (XIEITE_ARCH_PATCH_##type >= (patch)))))
 #define XIEITE_DETAIL_ARCH_MOST(type, major, minor, patch) (XIEITE_ARCH_TYPE_##type && ((XIEITE_ARCH_MAJOR_##type < (major)) || (XIEITE_ARCH_MAJOR_##type == (major)) && ((XIEITE_ARCH_MINOR_##type < (minor)) || (XIEITE_ARCH_MINOR_##type == (minor)) && (XIEITE_ARCH_PATCH_##type <= (patch)))))

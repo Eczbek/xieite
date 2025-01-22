@@ -1,45 +1,48 @@
-module;
-
-#include <xieite/fn.hpp>
-
 export module xieite:memoize;
 
 import std;
-import :cond;
 import :hash_combine;
 import :is_hashable;
 import :unroll;
 
-template<typename F, typename... Args>
-requires(std::invocable<F, Args...>)
-struct memo {
-	F fn;
-	std::tuple<Args...> args;
-
-	[[nodiscard]] constexpr memo(const F& fn, const std::tuple<Args...>& args) noexcept
-	: fn(fn), args(args) {}
-
-	[[nodiscard]] friend bool operator==(const memo<F, Args...>&, const memo<F, Args...>&) = default;
-
-	template<typename... OtherArgs>
-	[[nodiscard]] friend bool operator==(const memo<F, Args...>& left, const memo<F, OtherArgs...>& right) noexcept {
-		return (left.fn == right.fn) && (left.args == right.args);
-	}
-};
-
-struct memo_hash {
-	using is_transparent = void;
-
+namespace detail::memoize {
 	template<typename F, typename... Args>
-	[[nodiscard]] static std::size_t operator()(const memo<F, Args...>& memo) noexcept(false) {
-		return xieite::unroll<Args...>([&memo]<std::size_t... i> -> std::size_t {
-			return xieite::hash_combine(
-				xieite::cond<xieite::is_hashable<F>>(std::hash<F>(), XIEITE_FN(0))(memo.fn),
-				std::hash<std::decay_t<Args...[i]>>()(std::get<i>(memo.args))...
-			);
-		});
-	}
-};
+	requires(std::invocable<F, Args...>)
+	struct memo {
+		F fn;
+		std::tuple<Args...> args;
+
+		[[nodiscard]] constexpr memo(const F& fn, const std::tuple<Args...>& args) noexcept
+		: fn(fn), args(args) {}
+
+		[[nodiscard]] friend bool operator==(const memo<F, Args...>&, const memo<F, Args...>&) = default;
+
+		template<typename... OtherArgs>
+		[[nodiscard]] friend bool operator==(const memo<F, Args...>& left, const memo<F, OtherArgs...>& right) noexcept {
+			return (left.fn == right.fn) && (left.args == right.args);
+		}
+	};
+
+	struct hash {
+		using is_transparent = void;
+
+		template<typename F, typename... Args>
+		[[nodiscard]] static std::size_t operator()(const memo<F, Args...>& memo) noexcept(false) {
+			return xieite::unroll<Args...>([&memo]<std::size_t... i> -> std::size_t {
+				return xieite::hash_combine(
+					([&memo] {
+						if constexpr (xieite::is_hashable<F>) {
+							return std::hash<F>()(memo.fn);
+						} else {
+							return 0;
+						}
+					})(),
+					std::hash<std::decay_t<Args...[i]>>()(std::get<i>(memo.args))...
+				);
+			});
+		}
+	};
+}
 
 export namespace xieite {
 	template<typename F, typename... Args>
@@ -52,7 +55,7 @@ export namespace xieite {
 			&& std::equality_comparable<F>
 			&& (... && xieite::is_hashable<Args>)
 		) {
-			static std::unordered_map<memo<F, std::decay_t<Args>...>, std::invoke_result_t<F&, Args...>, memo_hash, std::ranges::equal_to> map;
+			static std::unordered_map<detail::memoize::memo<F, std::decay_t<Args>...>, std::invoke_result_t<F&, Args...>, detail::memoize::hash, std::ranges::equal_to> map;
 			const auto iterator = map.find(memo<F, const Args&...>(fn, std::tie(args...)));
 			if (iterator != map.end()) {
 				return iterator->second;

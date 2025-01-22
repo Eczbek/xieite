@@ -1,9 +1,10 @@
 export module xieite:set_ptr;
 
 import std;
-import :same_ref;
+import :add_ptr;
+import :rm_ptr;
 
 export namespace xieite {
-	template<typename T, bool cond>
-	using set_ptr = xieite::same_ref<T, std::conditional_t<cond, std::remove_pointer_t<std::remove_reference_t<T>>*, std::remove_pointer_t<std::remove_reference_t<T>>>>;
+	template<typename T, std::size_t n = 1>
+	using set_ptr = xieite::add_ptr<xieite::rm_ptr<T, -1uz>, n>;
 }

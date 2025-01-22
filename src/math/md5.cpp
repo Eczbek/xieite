@@ -1,10 +1,11 @@
 export module xieite:md5;
 
 import std;
-import :bit_join;
-import :bit_unjoin;
+import :join_bits;
+import :pad_front;
 import :sign_cast;
 import :str_num;
+import :unjoin_bits;
 
 export namespace xieite {
 	[[nodiscard]] constexpr std::string md5(std::string_view str) noexcept {
@@ -14,7 +15,7 @@ export namespace xieite {
 		auto data = std::vector<char>(str.begin(), str.end());
 		data.emplace_back(128);
 		const auto padding = std::vector<char>((120 - data.size() % 64) % 64, '\0');
-		const auto size_bytes = xieite::bit_unjoin<char, 8>(xieite::bit_join(static_cast<std::uint64_t>(data.size()) * 8));
+		const auto size_bytes = xieite::unjoin_bits<char, 8>(xieite::join_bits(static_cast<std::uint64_t>(data.size()) * 8));
 		data.insert(data.end(), padding.begin(), padding.end());
 		data.insert(data.end(), size_bytes.rbegin(), size_bytes.rend());
 		for (std::size_t i = 0; i < data.size(); i += 64) {

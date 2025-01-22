@@ -1,7 +1,7 @@
 export module xieite:version;
 
 import std;
-import :num_str;
+import :str_num;
 
 export namespace xieite {
 	struct version {
@@ -23,8 +23,8 @@ export namespace xieite {
 
 		[[nodiscard]] friend bool operator==(const xieite::version&, const xieite::version&) = default;
 
-		[[nodiscard]] constexpr std::string string() const noexcept {
-			std::string result = 'v' + xieite::num_str(this->major) + '.' + xieite::num_str(this->minor) + '.' + xieite::num_str(this->patch);
+		[[nodiscard]] constexpr std::string str() const noexcept {
+			std::string result = 'v' + xieite::str_num(this->major) + '.' + xieite::str_num(this->minor) + '.' + xieite::str_num(this->patch);
 			if (this->label.size()) {
 				result += '-';
 				result += this->label;

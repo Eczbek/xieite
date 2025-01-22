@@ -1,8 +1,8 @@
 export module xieite:pt2d;
 
 import std;
-import :is_arith;
 import :almost_eq;
+import :is_arith;
 import :pi;
 import :tau;
 

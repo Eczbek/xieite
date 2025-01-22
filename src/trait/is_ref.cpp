@@ -1,8 +1,9 @@
 export module xieite:is_ref;
 
-import std;
+import :is_lref;
+import :is_rref;
 
 export namespace xieite {
 	template<typename T>
-	concept is_ref = std::is_reference_v<T>;
+	concept is_ref = xieite::is_lref<T> || xieite::is_rref<T>;
 }

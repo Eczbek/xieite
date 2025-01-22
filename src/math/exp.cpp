@@ -2,18 +2,18 @@ export module xieite:exp;
 
 import std;
 import :is_arith;
-import :set_cp_assign;
-import :set_mv_assign;
 import :pow;
+import :rm_cp_assign;
+import :rm_mv_assign;
 
-namespace xieite {
+export namespace xieite {
 	template<xieite::is_arith T>
 	struct exp {
 	private:
-		struct proxy : xieite::set_cp_assign<false>, xieite::set_mv_assign<false> {
+		struct proxy : xieite::rm_cp_assign, xieite::rm_mv_assign {
 		public:
-			[[nodiscard]] explicit constexpr proxy(T value) noexcept
-			: value(value) {}
+			[[nodiscard]] explicit constexpr proxy(T n) noexcept
+			: value(n) {}
 
 			template<xieite::is_arith U>
 			[[nodiscard]] friend constexpr std::common_type_t<T, U> operator*(U base, xieite::exp<T>::proxy proxy) noexcept {
@@ -25,8 +25,8 @@ namespace xieite {
 		};
 
 	public:
-		[[nodiscard]] explicit constexpr exp(T value) noexcept
-		: value(value) {}
+		[[nodiscard]] explicit constexpr exp(T n) noexcept
+		: value(n) {}
 
 		template<xieite::is_arith U>
 		[[nodiscard]] constexpr operator std::common_type_t<T, U>() const noexcept {

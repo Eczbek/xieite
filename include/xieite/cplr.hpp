@@ -369,10 +369,10 @@
 #define XIEITE_CPLR_MINOR_Z88DK 0
 #define XIEITE_CPLR_PATCH_Z88DK 0
 
-#define XIEITE_CPLR_EQ(type, major, ...) XIEITE_DETAIL_CPLR_SEL(__VA_ARGS__, XIEITE_DETAIL_CPLR_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_CPLR_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_CPLR_EQ(type, major, 0, 0))
-#define XIEITE_CPLR_LEAST(type, major, ...) XIEITE_DETAIL_CPLR_SEL(__VA_ARGS__, XIEITE_DETAIL_CPLR_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_CPLR_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_CPLR_LEAST(type, major, 0, 0))
-#define XIEITE_CPLR_MOST(type, major, ...) XIEITE_DETAIL_CPLR_SEL(__VA_ARGS__, XIEITE_DETAIL_CPLR_MOST(type, major, __VA_ARGS__), XIEITE_DETAIL_CPLR_MOST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_CPLR_MOST(type, major, 0, 0))
-#define XIEITE_DETAIL_CPLR_SEL(_0, _1, _2, x, ...) x
+#define XIEITE_CPLR_EQ(type, major, ...) XIEITE_DETAIL_CPLR(__VA_ARGS__, XIEITE_DETAIL_CPLR_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_CPLR_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_CPLR_EQ(type, major, 0, 0))
+#define XIEITE_CPLR_LEAST(type, major, ...) XIEITE_DETAIL_CPLR(__VA_ARGS__, XIEITE_DETAIL_CPLR_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_CPLR_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_CPLR_LEAST(type, major, 0, 0))
+#define XIEITE_CPLR_MOST(type, major, ...) XIEITE_DETAIL_CPLR(__VA_ARGS__, XIEITE_DETAIL_CPLR_MOST(type, major, __VA_ARGS__), XIEITE_DETAIL_CPLR_MOST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_CPLR_MOST(type, major, 0, 0))
+#define XIEITE_DETAIL_CPLR(_0, _1, _2, x, ...) x
 #define XIEITE_DETAIL_CPLR_EQ(type, major, minor, patch) (XIEITE_CPLR_TYPE_##type && (XIEITE_CPLR_MAJOR_##type == (major)) && (XIEITE_CPLR_MINOR_##type == (minor)) && (XIEITE_CPLR_PATCH_##type == (patch)))
 #define XIEITE_DETAIL_CPLR_LEAST(type, major, minor, patch) (XIEITE_CPLR_TYPE_##type && ((XIEITE_CPLR_MAJOR_##type > (major)) || (XIEITE_CPLR_MAJOR_##type == (major)) && ((XIEITE_CPLR_MINOR_##type > (minor)) || (XIEITE_CPLR_MINOR_##type == (minor)) && (XIEITE_CPLR_PATCH_##type >= (patch)))))
 #define XIEITE_DETAIL_CPLR_MOST(type, major, minor, patch) (XIEITE_CPLR_TYPE_##type && ((XIEITE_CPLR_MAJOR_##type < (major)) || (XIEITE_CPLR_MAJOR_##type == (major)) && ((XIEITE_CPLR_MINOR_##type < (minor)) || (XIEITE_CPLR_MINOR_##type == (minor)) && (XIEITE_CPLR_PATCH_##type <= (patch)))))
@@ -429,14 +429,14 @@
 #	define XIEITE_CPLR_TYPE_AOCC 1
 
 #	ifdef __aocc_major__
-#		undef XIETIE_CPLR_MAJOR_AOCC
-#		define XIETIE_CPLR_MAJOR_AOCC __aocc_major__
+#		undef XIEITE_CPLR_MAJOR_AOCC
+#		define XIEITE_CPLR_MAJOR_AOCC __aocc_major__
 
-#		undef XIETIE_CPLR_MAJOR_AOCC
-#		define XIETIE_CPLR_MAJOR_AOCC __aocc_minor__
+#		undef XIEITE_CPLR_MAJOR_AOCC
+#		define XIEITE_CPLR_MAJOR_AOCC __aocc_minor__
 
-#		undef XIETIE_CPLR_MAJOR_AOCC
-#		define XIETIE_CPLR_MAJOR_AOCC __aocc_patchlevel__
+#		undef XIEITE_CPLR_MAJOR_AOCC
+#		define XIEITE_CPLR_MAJOR_AOCC __aocc_patchlevel__
 #	endif
 #endif
 
@@ -1455,4 +1455,4 @@
 
 // https://github.com/cpredef/predef/blob/master/Compilers.md
 // https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-identification-macro
-// Note: `XIEITE_CPLR_TYPE_OPENACC` detects a compiler standard
+// NOTE: `XIEITE_CPLR_TYPE_OPENACC` detects a compiler standard

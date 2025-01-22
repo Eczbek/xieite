@@ -8,7 +8,7 @@ import std;
 import :make_array;
 
 export namespace xieite {
-	template<typename K, typename V, std::size_t size, typename Hash = std::hash<K>, typename Comp = std::ranges::equal_to, typename Alloc = std::allocator<std::pair<const K, V*>>>
+	template<typename K, typename V, std::size_t size, typename Hash = std::hash<K>, typename Cmp = std::ranges::equal_to, typename Alloc = std::allocator<std::pair<const K, V*>>>
 	struct fixed_map {
 	public:
 		[[nodiscard]] fixed_map() = default;
@@ -18,7 +18,7 @@ export namespace xieite {
 		[[nodiscard]] explicit constexpr fixed_map(R&& entries) noexcept
 		: array(xieite::make_array<std::pair<K, V>, size>(XIEITE_FWD(entries))) {}
 
-		[[nodiscard]] constexpr fixed_map(std::initializer_list<std::pair<K, V>> entries) noexcept
+		[[nodiscard]] explicit(false) constexpr fixed_map(std::initializer_list<std::pair<K, V>> entries) noexcept
 		: array(xieite::make_array<std::pair<K, V>, size>(entries)) {}
 
 		template<typename Self, std::convertible_to<K> KRef>
@@ -47,7 +47,7 @@ export namespace xieite {
 	private:
 		std::array<std::pair<K, V>, size> array;
 
-		template<typename Map = std::unordered_map<K, V*, Hash, Comp, Alloc>>
+		template<typename Map = std::unordered_map<K, V*, Hash, Cmp, Alloc>>
 		[[nodiscard]] Map& get_map() const noexcept {
 			static Map map = ([this] -> Map {
 				Map map;
@@ -64,9 +64,9 @@ export namespace xieite {
 		template<typename Self, std::convertible_to<K> KRef>
 		[[nodiscard]] constexpr auto* get_val(this Self&& self, KRef&& key) noexcept {
 			if consteval {
-				Comp comp;
+				Cmp cmp;
 				for (auto&& entry : self.array) {
-					if (std::invoke(comp, entry.first, key)) {
+					if (std::invoke(cmp, entry.first, key)) {
 						return &entry.second;
 					}
 				}

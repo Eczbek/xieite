@@ -4,8 +4,8 @@ import std;
 
 export namespace xieite {
 	template<typename T>
-	concept is_streamable_out = requires(T value, std::ostream ostream) {
-		{ ostream << value } -> std::convertible_to<std::ostream&>;
+	concept is_streamable_out = requires (T x, std::ostream ostream) {
+		{ ostream << x } -> std::convertible_to<std::ostream&>;
 	};
 }
 

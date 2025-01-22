@@ -3,12 +3,13 @@ export module xieite:arity;
 import std;
 import :any;
 import :is_tuple_like;
+import :tuple_size;
 
 export namespace xieite {
 	template<typename T>
 	constexpr std::size_t arity = ([] -> std::size_t {
 		if constexpr (xieite::is_tuple_like<T>) {
-			return std::tuple_size_v<T>;
+			return xieite::tuple_size<T>;
 		} else if constexpr (std::is_aggregate_v<T>) {
 			return ([](this auto self, std::size_t offset = 0, auto... curr) -> std::size_t {
 				if constexpr (requires { T { curr..., xieite::any() }; } || requires { T { curr..., { xieite::any(), xieite::any() } }; }) {
@@ -42,4 +43,4 @@ export namespace xieite {
 	})();
 }
 
-// Stolen from lapinozz (https://github.com/lapinozz)
+// Originally stolen from lapinozz (https://github.com/lapinozz)

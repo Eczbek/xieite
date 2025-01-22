@@ -4,17 +4,17 @@ import std;
 
 export namespace xieite {
 	template<std::integral T>
-	[[nodiscard]] constexpr bool prime(T value) noexcept {
+	[[nodiscard]] constexpr bool prime(T n) noexcept {
 		if constexpr (!std::same_as<T, bool>) {
-			if (value < 4) {
-				return value > 1;
+			if (n < 4) {
+				return n > 1;
 			}
-			if (!(value % 2) || !(value % 3)) {
+			if (!(n % 2) || !(n % 3)) {
 				return false;
 			}
-			const T sqrt = static_cast<T>(std::sqrt(value));
+			const T sqrt = static_cast<T>(std::sqrt(n));
 			for (T i = 5; i <= sqrt; i += 6) {
-				if (!(value % i) || !(value % (i + 2))) {
+				if (!(n % i) || !(n % (i + 2))) {
 					return false;
 				}
 			}

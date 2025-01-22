@@ -5,9 +5,9 @@ module;
 export module xieite:mixfix;
 
 import std;
-import :set_cp_assign;
-import :set_mv_assign;
 import :fn;
+import :rm_cp_assign;
+import :rm_mv_assign;
 
 export namespace xieite {
 	template<typename>
@@ -18,641 +18,641 @@ export namespace xieite {
 		using xieite::fn<Ret(Arg)>::fn;
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator->*(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator->*(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator*(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator*(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator/(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator/(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator%(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator%(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator+(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator+(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator-(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator-(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<<(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<<(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator>>(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator>>(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<=>(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<=>(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator>(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator>(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator>=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator>=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator==(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator==(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator!=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator!=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator&(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator&(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator^(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator^(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator|(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator|(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator&&(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator&&(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator||(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator||(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator*=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator*=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator/=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator/=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator%=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator%=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator+=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator+=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator-=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator-=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<<=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<<=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator>>=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator>>=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator&=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator&=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator^=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator^=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator|=(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator|=(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator,(const mixfix& mixfix, ArgRef&& arg) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator,(auto&& self, ArgRef&& arg) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator->*(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator->*(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator*(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator*(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator/(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator/(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator%(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator%(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator+(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator+(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator-(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator-(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<<(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<<(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator>>(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator>>(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<=>(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<=>(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator>(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator>(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator>=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator>=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator==(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator==(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator!=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator!=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator&(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator&(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator^(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator^(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator|(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator|(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator&&(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator&&(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator||(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator||(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator*=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator*=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator/=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator/=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator%=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator%=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator+=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator+=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator-=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator-=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator<<=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator<<=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator>>=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator>>=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator&=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator&=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator^=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator^=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator|=(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator|=(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 
 		template<std::convertible_to<Arg> ArgRef>
-		friend constexpr decltype(auto) operator,(ArgRef&& arg, const mixfix& mixfix) noexcept(false) {
-			return mixfix(XIEITE_FWD(arg));
+		friend constexpr decltype(auto) operator,(ArgRef&& arg, const xieite::mixfix<Ret(Arg)>& self) noexcept(false) {
+			return self(XIEITE_FWD(arg));
 		}
 	};
 
-	template<typename Ret, typename LeftArg, typename RightArg>
-	struct mixfix<Ret(LeftArg, RightArg)> : xieite::fn<Ret(LeftArg, RightArg)> {
+	template<typename Ret, typename Arg0, typename Arg1>
+	struct mixfix<Ret(Arg0, Arg1)> : xieite::fn<Ret(Arg0, Arg1)> {
 	private:
-		template<typename LeftArgRef>
-		struct proxy : xieite::set_cp_assign<false>, xieite::set_mv_assign<false> {
+		template<typename ArgRef0>
+		struct proxy : xieite::rm_cp_assign, xieite::rm_mv_assign {
 		public:
-			constexpr proxy(const mixfix& mixfix, LeftArgRef&& left) noexcept
-			: mixfix(mixfix), left(XIEITE_FWD(left)) {}
+			constexpr proxy(const auto& parent, ArgRef0&& l) noexcept
+			: parent(parent), value(XIEITE_FWD(l)) {}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator->*(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator->*(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator*(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator*(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator/(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator/(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator%(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator%(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator+(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator+(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator-(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator-(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator<<(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator<<(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator>>(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator>>(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator<=>(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator<=>(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator<(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator<(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator<=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator<=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator>(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator>(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator>=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator>=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator==(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator==(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator!=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator!=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator&(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator&(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator^(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator^(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator|(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator|(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator&&(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator&&(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator||(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator||(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator*=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator*=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator/=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator/=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator%=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator%=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator+=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator+=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator-=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator-=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator<<=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator<<=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator>>=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator>>=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator&=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator&=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator^=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator^=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator|=(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator|=(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
-			template<std::convertible_to<RightArg> RightArgRef>
-			friend constexpr decltype(auto) operator,(const proxy&& proxy, RightArgRef&& right) noexcept(false) {
-				return proxy.mixfix(XIEITE_FWD(proxy.left), XIEITE_FWD(right));
+			template<std::convertible_to<Arg1> ArgRef1>
+			friend constexpr decltype(auto) operator,(this auto&& self, ArgRef1&& r) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(r));
 			}
 
 		private:
-			const xieite::mixfix<Ret(LeftArg, RightArg)>& mixfix;
-			LeftArgRef&& left;
+			const xieite::mixfix<Ret(Arg0, Arg1)>& parent;
+			ArgRef0&& value;
 		};
 
 	public:
-		using xieite::fn<Ret(LeftArg, RightArg)>::fn;
+		using xieite::fn<Ret(Arg0, Arg1)>::fn;
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator->*(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator->*(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator*(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator*(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator/(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator/(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator%(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator%(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator+(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator+(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator-(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator-(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator<<(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator<<(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator>>(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator>>(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator<=>(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator<=>(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator<(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator<(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator<=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator<=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator>(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator>(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator>=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator>=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator==(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator==(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator!=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator!=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator&(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator&(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator^(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator^(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator|(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator|(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator&&(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator&&(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator||(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator||(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator*=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator*=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator/=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator/=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator%=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator%=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator+=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator+=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator-=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator-=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator<<=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator<<=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator>>=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator>>=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator&=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator&=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator^=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator^=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator|=(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator|=(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 
-		template<std::convertible_to<LeftArg> LeftArgRef>
-		[[nodiscard]] friend constexpr decltype(auto) operator,(LeftArgRef&& left, const mixfix& mixfix) noexcept(false) {
-			return mixfix::proxy<LeftArgRef>(mixfix, XIEITE_FWD(left));
+		template<std::convertible_to<Arg0> ArgRef0>
+		[[nodiscard]] friend constexpr decltype(auto) operator,(ArgRef0&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy<ArgRef0>(self, XIEITE_FWD(l));
 		}
 	};
 }

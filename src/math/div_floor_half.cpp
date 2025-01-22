@@ -6,14 +6,14 @@ import :sign;
 
 export namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T div_floor_half(T left, T right) noexcept {
+	[[nodiscard]] constexpr T div_floor_half(T dividend, T divisor) noexcept {
 		if constexpr (std::floating_point<T>) {
-			const T result = left / right;
+			const T result = dividend / divisor;
 			const T fractional = std::fmod(result, 1);
 			return std::floor(result) + (result < 0) + (fractional > 0.5) - (fractional <= -0.5);
 		} else {
-			const int quot_sign = xieite::sign(left, right);
-			return static_cast<T>(left / right + ((left % right * xieite::sign(left)) >= (right / 2 * xieite::sign(right) + ((right % 2) || (quot_sign >= 0)))) * quot_sign);
+			const int quot_sign = xieite::sign(dividend, divisor);
+			return static_cast<T>(dividend / divisor + ((dividend % divisor * xieite::sign(dividend)) >= (divisor / 2 * xieite::sign(divisor) + ((divisor % 2) || (quot_sign >= 0)))) * quot_sign);
 		}
 	}
 }

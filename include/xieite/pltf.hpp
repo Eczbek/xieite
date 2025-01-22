@@ -226,7 +226,7 @@
 #define XIEITE_PLTF_PATCH_PALM_OS 0
 #define XIEITE_PLTF_TYPE_PDOS 0
 #define XIEITE_PLTF_MAJOR_PDOS 0
-#define XIEITE_PLTF_MINOR_PDOS 0
+#define XIEITE_PLTF_MINOR_PDOS
 #define XIEITE_PLTF_PATCH_PDOS 0
 #define XIEITE_PLTF_TYPE_PHOENIX 0
 #define XIEITE_PLTF_MAJOR_PHOENIX 0
@@ -337,10 +337,10 @@
 #define XIEITE_PLTF_MINOR_Z 0
 #define XIEITE_PLTF_PATCH_Z 0
 
-#define XIEITE_PLTF_EQ(type, major, ...) XIEITE_DETAIL_PLTF_SEL(__VA_ARGS__, XIEITE_DETAIL_PLTF_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_PLTF_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_PLTF_EQ(type, major, 0, 0))
-#define XIEITE_PLTF_LEAST(type, major, ...) XIEITE_DETAIL_PLTF_SEL(__VA_ARGS__, XIEITE_DETAIL_PLTF_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_PLTF_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_PLTF_LEAST(type, major, 0, 0))
-#define XIEITE_PLTF_MOST(type, major, ...) XIEITE_DETAIL_PLTF_SEL(__VA_ARGS__, XIEITE_DETAIL_PLTF_MOST(type, major, __VA_ARGS__), XIEITE_DETAIL_PLTF_MOST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_PLTF_MOST(type, major, 0, 0))
-#define XIEITE_DETAIL_PLTF_SEL(_0, _1, _2, x, ...) x
+#define XIEITE_PLTF_EQ(type, major, ...) XIEITE_DETAIL_PLTF(__VA_ARGS__, XIEITE_DETAIL_PLTF_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_PLTF_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_PLTF_EQ(type, major, 0, 0))
+#define XIEITE_PLTF_LEAST(type, major, ...) XIEITE_DETAIL_PLTF(__VA_ARGS__, XIEITE_DETAIL_PLTF_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_PLTF_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_PLTF_LEAST(type, major, 0, 0))
+#define XIEITE_PLTF_MOST(type, major, ...) XIEITE_DETAIL_PLTF(__VA_ARGS__, XIEITE_DETAIL_PLTF_MOST(type, major, __VA_ARGS__), XIEITE_DETAIL_PLTF_MOST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_PLTF_MOST(type, major, 0, 0))
+#define XIEITE_DETAIL_PLTF(_0, _1, _2, x, ...) x
 #define XIEITE_DETAIL_PLTF_EQ(type, major, minor, patch) (XIEITE_PLTF_TYPE_##type && (XIEITE_PLTF_MAJOR_##type == (major)) && (XIEITE_PLTF_MINOR_##type == (minor)) && (XIEITE_PLTF_PATCH_##type == (patch)))
 #define XIEITE_DETAIL_PLTF_LEAST(type, major, minor, patch) (XIEITE_PLTF_TYPE_##type && ((XIEITE_PLTF_MAJOR_##type > (major)) || (XIEITE_PLTF_MAJOR_##type == (major)) && ((XIEITE_PLTF_MINOR_##type > (minor)) || (XIEITE_PLTF_MINOR_##type == (minor)) && (XIEITE_PLTF_PATCH_##type >= (patch)))))
 #define XIEITE_DETAIL_PLTF_MOST(type, major, minor, patch) (XIEITE_PLTF_TYPE_##type && ((XIEITE_PLTF_MAJOR_##type < (major)) || (XIEITE_PLTF_MAJOR_##type == (major)) && ((XIEITE_PLTF_MINOR_##type < (minor)) || (XIEITE_PLTF_MINOR_##type == (minor)) && (XIEITE_PLTF_PATCH_##type <= (patch)))))
@@ -990,7 +990,7 @@
 #	define XIEITE_PLTF_MINOR_MINGW64 __MING64_VERSION_MINOR
 #endif
 
-#ifdef __minix
+#if defined(_MINIX) || defined(__minix) || defined(__minix__)
 #	undef XIEITE_PLTF_TYPE_MINIX
 #	define XIEITE_PLTF_TYPE_MINIX 1
 #endif

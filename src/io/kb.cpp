@@ -1,4 +1,4 @@
-export module xieite:keyboard;
+export module xieite:kb;
 
 export namespace xieite {
 	enum struct kb {
@@ -286,7 +286,7 @@ export namespace xieite {
 		f24,
 		pause,
 		tab = xieite::kb::ctrl_i,
-		newl = xieite::kb::ctrl_m,
+		enter = xieite::kb::ctrl_m,
 		insert = xieite::kb::np_0,
 		del = xieite::kb::np_dot,
 		pg_up = xieite::kb::np_9,

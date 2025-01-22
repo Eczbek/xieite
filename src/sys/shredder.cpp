@@ -5,10 +5,10 @@ module;
 export module xieite:shredder;
 
 import std;
-import :is_triv_dtor;
+import :has_trivial_dtor;
 
 export namespace xieite {
-	template<xieite::is_triv_dtor T>
+	template<xieite::has_trivial_dtor T>
 	struct shredder {
 	public:
 		[[nodiscard]] constexpr shredder() noexcept {
@@ -27,9 +27,9 @@ export namespace xieite {
 
 		constexpr void shred() noexcept {
 			if !consteval {
-				const auto byte = reinterpret_cast<volatile unsigned char*>(std::addressof(this->value));
+				const auto byte = reinterpret_cast<volatile char*>(std::addressof(this->value));
 				for (std::size_t i = 0; i < sizeof(T); ++i) {
-					byte[i] = static_cast<unsigned char>(0);
+					byte[i] = '\0';
 				}
 			}
 		}

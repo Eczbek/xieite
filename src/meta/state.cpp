@@ -5,10 +5,10 @@ module;
 export module xieite:state;
 
 import std;
-import :value;
+import :v;
 
 XIEITE_DIAG_PUSH()
-XIEITE_DIAG_OFF_GCC(-Wnon-template-friend)
+XIEITE_DIAG_OFF_GCC("-Wnon-template-friend")
 
 export namespace xieite {
 	template<auto id = [] {}, std::integral T = std::size_t>
@@ -18,7 +18,7 @@ export namespace xieite {
 		struct value {
 			friend auto flag(xieite::state<id, T>::value<n>);
 
-			struct set : xieite::value<n> {
+			struct set : xieite::v<n> {
 				friend auto flag(xieite::state<id, T>::value<n>) {}
 			};
 		};
@@ -50,4 +50,3 @@ export namespace xieite {
 XIEITE_DIAG_POP()
 
 // https://mc-deltat.github.io/articles/stateful-metaprogramming-cpp20
-// `flag` is a template to avoid GCC warnings

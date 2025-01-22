@@ -6,32 +6,41 @@ module;
 export module xieite:name;
 
 import std;
-import :make_array;
 import :str_after;
-import :str_between;
+import :str_betw;
 
-[[nodiscard]] consteval std::string_view get_name(std::string_view strv) noexcept {
+namespace detail::name {
+	[[nodiscard]] consteval std::string_view parse(std::string_view name) noexcept {
 #if XIEITE_CPLR_TYPE_CLANG || XIEITE_CPLR_TYPE_ICC
-	return xieite::str_betw(strv, "= ", ']');
+		return xieite::str_betw(name, "= ", ']');
 #elif XIEITE_CPLR_TYPE_GCC
-	return xieite::str_betw(strv, "= ", ';');
-#elif XIEITE_CPLR_TYPE_WINDOWS
-	return xieite::str_betw(xieite::str_after(strv, " __"), '<', ">(");
+		return xieite::str_betw(name, "= ", ';');
+#elif XIEITE_CPLR_TYPE_MSVC
+		return xieite::str_betw(xieite::str_after(name, " __"), '<', ">(");
+#else
+		return "???";
 #endif
+	}
+
+	template<typename _>
+	[[nodiscard]] consteval std::string_view get() noexcept {
+		return detail::name::parse(XIEITE_FN_SIG);
+	}
+
+	template<auto _>
+	[[nodiscard]] consteval std::string_view get() noexcept {
+		return detail::name::parse(XIEITE_FN_SIG);
+	}
 }
 
-namespace xieite {
+export namespace xieite {
 	template<typename T>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
-		static constexpr auto data = xieite::make_array<char, get_name(XIEITE_FN_SIG).size()>(get_name(XIEITE_FN_SIG));
-		return std::string_view(data.begin(), data.end());
+	[[nodiscard]] consteval std::string_view name() noexcept {
+		return detail::name::get<T>();
 	}
 
-	template<auto v>
-	[[nodiscard]] constexpr std::string_view name() noexcept {
-		static constexpr auto data = xieite::make_array<char, get_name(XIEITE_FN_SIG).size()>(get_name(XIEITE_FN_SIG));
-		return std::string_view(data.begin(), data.end());
+	template<auto x>
+	[[nodiscard]] consteval std::string_view name() noexcept {
+		return detail::name::get<x>();
 	}
 }
-
-// TODO: Mark functions `consteval`

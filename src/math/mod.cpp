@@ -1,6 +1,5 @@
 export module xieite:mod;
 
-import std;
 import :is_arith;
 import :rem;
 import :sign;

@@ -5,15 +5,15 @@
 #include <xieite/lang.hpp>
 
 #if XIEITE_LANG_LEAST(CPP, 2011)
-#	define XIEITE_ATTR_ALIGN_AS(...) alignas(__VA_ARGS__)
+#	define XIEITE_ATTR_ALIGN(...) alignas(__VA_ARGS__)
 #elif XIEITE_LANG_LEAST(C, 2011)
-#	define XIEITE_ATTR_ALIGN_AS(...) _Alignas(__VA_ARGS__)
+#	define XIEITE_ATTR_ALIGN(...) _Alignas(__VA_ARGS__)
 #elif XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_ALIGN_AS(...) __declspec(align(__VA_ARGS__))
+#	define XIEITE_ATTR_ALIGN(...) __declspec(align(__VA_ARGS__))
 #elif XIEITE_HAS_ATTR(__aligned__)
-#	define XIEITE_ATTR_ALIGN_AS(...) __attribute__((__aligned__(__VA_ARGS__)))
+#	define XIEITE_ATTR_ALIGN(...) __attribute__((__aligned__(__VA_ARGS__)))
 #else
-#	define XIEITE_ATTR_ALIGN_AS(...)
+#	define XIEITE_ATTR_ALIGN(...)
 #endif
 
 #if XIEITE_LANG_LEAST(CPP, 2023)
@@ -35,13 +35,13 @@
 #endif
 
 #if XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_DEPRECATED __declspec(deprecated)
+#	define XIEITE_ATTR_DEPREC __declspec(deprecated)
 #elif XIEITE_LANG_LEAST(CPP, 2014) || XIEITE_LANG_LEAST(C, 2023)
-#	define XIEITE_ATTR_DEPRECATED [[deprecated]]
+#	define XIEITE_ATTR_DEPREC [[deprecated]]
 #elif XIEITE_HAS_ATTR(__deprecated__)
-#	define XIEITE_ATTR_DEPRECATED __attribute__((__deprecated__))
+#	define XIEITE_ATTR_DEPREC __attribute__((__deprecated__))
 #else
-#	define XIEITE_ATTR_DEPRECATED
+#	define XIEITE_ATTR_DEPREC
 #endif
 
 #if XIEITE_CPLR_TYPE_MSVC
@@ -53,29 +53,29 @@
 #endif
 
 #if XIEITE_LANG_LEAST(CPP, 2017) || (XIEITE_CPLR_LEAST(GCC, 8) && XIEITE_LANG_LEAST(CPP, 2011))
-#	define XIEITE_ATTR_FALLTHROUGH() [[fallthrough]]
+#	define XIEITE_ATTR_FALLTHR() [[fallthrough]]
 #elif XIEITE_CPLR_LEAST(GCC, 7) && (!XIEITE_CPLR_TYPE_LCC || ((XIEITE_CPLR_MAJOR_LCC == 124) && (XIEITE_CPLR_MINOR_LCC >= 12)) || ((XIEITE_CPLR_MAJOR_LCC == 125) && (XIEITE_CPLR_MINOR_LCC >= 5)) || (XIEITE_CPLR_MAJOR_LCC >= 126))
-#	define XIEITE_ATTR_FALLTHROUGH() __attribute__((__fallthrough__))
+#	define XIEITE_ATTR_FALLTHR() __attribute__((__fallthrough__))
 #elif XIEITE_CPLR_TYPE_CLANG && XIEITE_LANG_LEAST(CPP, 2011)
-#	define XIEITE_ATTR_FALLTHROUGH() [[clang::fallthrough]]
+#	define XIEITE_ATTR_FALLTHR() [[clang::fallthrough]]
 #elif XIEITE_XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_FALLTHROUGH() __fallthrough
+#	define XIEITE_ATTR_FALLTHR() __fallthrough
 #else
-#	define XIEITE_ATTR_FALLTHROUGH() void()
+#	define XIEITE_ATTR_FALLTHR() void()
 #endif
 
 #if XIEITE_HAS_ATTR(__flatten__)
-#	define XIEITE_ATTR_FLATTEN __attribute__((__flatten__))
+#	define XIEITE_ATTR_FLAT __attribute__((__flatten__))
 #else
-#	define XIEITE_ATTR_FLATTEN
+#	define XIEITE_ATTR_FLAT
 #endif
 
 #if XIEITE_HAS_ATTR(__always_inline__)
-#	define XIEITE_ATTR_FORCE_INLINE __attribute__((__always_inline__)) inline
+#	define XIEITE_ATTR_FORCEINL __attribute__((__always_inline__)) inline
 #elif XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_FORCE_INLINE __forceinline
+#	define XIEITE_ATTR_FORCEINL __forceinline
 #else
-#	define XIEITE_ATTR_FORCE_INLINE inline
+#	define XIEITE_ATTR_FORCEINL inline
 #endif
 
 #if XIEITE_HAS_ATTR(__hot__)
@@ -104,72 +104,64 @@
 #	define XIEITE_ATTR_LOCAL
 #endif
 
-#if XIEITE_LANG_LEAST(CPP, 2017)
-#	define XIEITE_ATTR_MAYBE_UNUSED [[maybe_unused]]
-#elif XIEITE_HAS_ATTR(__unused__)
-#	define XIEITE_ATTR_MAYBE_UNUSED __attribute__((__unused__))
-#else
-#	define XIEITE_ATTR_MAYBE_UNUSED
-#endif
-
 #if XIEITE_HAS_ATTR(__nodebug__)
-#	define XIEITE_ATTR_NO_DEBUG __attribute__((__nodebug__))
+#	define XIEITE_ATTR_NODEBUG __attribute__((__nodebug__))
 #else
-#	define XIEITE_ATTR_NO_DEBUG
+#	define XIEITE_ATTR_NODEBUG
 #endif
 
 #if XIEITE_LANG_LEAST(CPP, 2017)
-#	define XIEITE_ATTR_NO_DISCARD [[nodiscard]]
+#	define XIEITE_ATTR_NODISCARD [[nodiscard]]
 #elif XIEITE_HAS_ATTR(__warn_unused_result__)
-#	define XIEITE_NO_DISCARD __attribute__((__warn_unused_result__))
+#	define XIEITE_ATTR_NODISCARD __attribute__((__warn_unused_result__))
 #elif XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_NO_DISCARD __checkReturn
+#	define XIEITE_ATTR_NODISCARD __checkReturn
 #else
-#	define XIEITE_ATTR_NO_DISCARD
+#	define XIEITE_ATTR_NODISCARD
+#endif
+
+#if XIEITE_LANG_LEAST(CPP, 2017)
+#	define XIEITE_ATTR_NOEX noexcept(true)
+#elif XIEITE_LANG_LEAST(CPP, 2011)
+#	define XIEITE_ATTR_NOEX throw()
+#elif XIEITE_HAS_ATTR(__nothrow__)
+#	define XIEITE_ATTR_NOEX __attribute__((__nothrow__))
+#elif XIEITE_CPLR_TYPE_MSVC
+#	define XIEITE_ATTR_NOEX __declspec(nothrow)
+#else
+#	define XIEITE_ATTR_NOEX
 #endif
 
 #if XIEITE_HAS_ATTR(__noinline__)
-#	define XIEITE_ATTR_NO_INLINE __attribute__((__noinline__))
+#	define XIEITE_ATTR_NOINL __attribute__((__noinline__))
 #elif XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_NO_INLINE __declspec(noinline)
+#	define XIEITE_ATTR_NOINL __declspec(noinline)
 #else
-#	define XIEITE_ATTR_NO_INLINE
-#endif
-
-#if XIEITE_LANG_LEAST(CPP, 2011) || XIEITE_LANG_LEAST(C, 2023)
-#	define XIEITE_ATTR_NO_RETURN [[noreturn]]
-#elif XIEITE_LANG_C >= 2011
-#	define XIEITE_ATTR_NO_RETURN _Noreturn
-#elif XIEITE_HAS_ATTR(__noreturn__)
-#	define XIEITE_ATTR_NO_RETURN __attribute__((__noreturn__))
-#else
-#	define XIEITE_ATTR_NO_RETURN
-#endif
-
-#if XIEITE_LANG_LEAST(CPP, 2017)
-#	define XIEITE_ATTR_NO_THROW noexcept(true)
-#elif XIEITE_LANG_LEAST(CPP, 2011)
-#	define XIEITE_ATTR_NO_THROW throw()
-#elif XIEITE_HAS_ATTR(__nothrow__)
-#	define XIEITE_ATTR_NO_THROW __attribute__((__nothrow__))
-#elif XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_NO_THROW __declspec(nothrow)
-#else
-#	define XIEITE_ATTR_NO_THROW
-#endif
-
-#if XIEITE_CPLR_LEAST(MSVC, 16, 9)
-#	define XIEITE_ATTR_NO_UNIQUE_ADDRESS [[msvc::no_unique_address]]
-#elif XIEITE_LANG_LEAST(CPP, 2020)
-#	define XIEITE_ATTR_NO_UNIQUE_ADDRESS [[no_unique_address]]
-#else
-#	define XIEITE_ATTR_NO_UNIQUE_ADDRESS
+#	define XIEITE_ATTR_NOINL
 #endif
 
 #if XIEITE_HAS_ATTR(__nonnull__)
-#	define XIEITE_ATTR_NON_NULL __attribute__((__nonnull__))
+#	define XIEITE_ATTR_NONNULL __attribute__((__nonnull__))
 #else
-#	define XIEITE_ATTR_NON_NULL
+#	define XIEITE_ATTR_NONNULL
+#endif
+
+#if XIEITE_LANG_LEAST(CPP, 2011) || XIEITE_LANG_LEAST(C, 2023)
+#	define XIEITE_ATTR_NORET [[noreturn]]
+#elif XIEITE_LANG_LEAST(C, 2011)
+#	define XIEITE_ATTR_NORET _Noreturn
+#elif XIEITE_HAS_ATTR(__noreturn__)
+#	define XIEITE_ATTR_NORET __attribute__((__noreturn__))
+#else
+#	define XIEITE_ATTR_NORET
+#endif
+
+#if XIEITE_CPLR_LEAST(MSVC, 16, 9)
+#	define XIEITE_ATTR_NOUNIQADDR [[msvc::no_unique_address]]
+#elif XIEITE_LANG_LEAST(CPP, 2020)
+#	define XIEITE_ATTR_NOUNIQADDR [[no_unique_address]]
+#else
+#	define XIEITE_ATTR_NOUNIQADDR
 #endif
 
 #if XIEITE_CPLR_TYPE_GCC
@@ -179,23 +171,23 @@
 #endif
 
 #if XIEITE_HAS_ATTR(__packed__)
-#	define XIEITE_ATTR_PACKED(...) __attribute__((__packed__)) __VA_ARGS__
+#	define XIEITE_ATTR_PACK(...) __attribute__((__packed__)) __VA_ARGS__
 #elif XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_PACKED(...) __pragma(pack(push, 1)) __VA_ARGS__ __pragma(pack(pop))
+#	define XIEITE_ATTR_PACK(...) __pragma(pack(push, 1)) __VA_ARGS__ __pragma(pack(pop))
 #else
-#	define XIEITE_ATTR_PACKED(...) __VA_ARGS__
+#	define XIEITE_ATTR_PACK(...) __VA_ARGS__
 #endif
 
 #if XIEITE_HAS_ATTR(__returns_nonnull__)
-#	define XIEITE_ATTR_RETURNS_NON_NULL __attribute__((__returns_nonnull__))
+#	define XIEITE_ATTR_RETNONNULL __attribute__((__returns_nonnull__))
 #elif XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_RETURNS_NON_NULL _Ret_notnull_
+#	define XIEITE_ATTR_RETNONNULL _Ret_notnull_
 #else
-#	define XIEITE_ATTR_RETURNS_NON_NULL
+#	define XIEITE_ATTR_RETNONNULL
 #endif
 
 #if XIEITE_CPLR_TYPE_GCC || XIEITE_CPLR_TYPE_CLANG
-#	define XIETIE_ATTRIBUTE_SECTION(...) __attribute__((__section__(__VA_ARGS__)))
+#	define XIEITE_ATTR_SECTION(...) __attribute__((__section__(__VA_ARGS__)))
 #elif XIEITE_CPLR_TYPE_MSVC
 #	define XIEITE_ATTR_SECTION(...) __declspec(allocate(__VA_ARGS__))
 #else
@@ -203,13 +195,19 @@
 #endif
 
 #if XIEITE_HAS_ATTR(__stdcall__)
-#	define XIEITE_ATTR_STANDARD_CALL __attribute__((__stdcall__))
+#	define XIEITE_ATTR_STDCALL __attribute__((__stdcall__))
 #elif XIEITE_CPLR_TYPE_CLANG
-#	define XIEITE_ATTR_STANDARD_CALL __stdcall
+#	define XIEITE_ATTR_STDCALL __stdcall
 #elif XIEITE_CPLR_TYPE_MSVC
-#	define XIEITE_ATTR_STANDARD_CALL __cdecl
+#	define XIEITE_ATTR_STDCALL __cdecl
 #else
-#	define XIEITE_ATTR_STANDARD_CALL
+#	define XIEITE_ATTR_STDCALL
+#endif
+
+#if XIEITE_CPLR_TYPE_GCC || XIEITE_CPLR_TYPE_CLANG
+#	define XIEITE_ATTR_TAIL __attribute__((__musttail__))
+#else
+#	define XIEITE_ATTR_TAIL
 #endif
 
 #if XIEITE_CPLR_TYPE_MSVC || XIEITE_CPLR_TYPE_DATALIGHT_C
@@ -222,6 +220,14 @@
 #	define XIEITE_ATTR_UNLIKELY [[unlikely]]
 #else
 #	define XIEITE_ATTR_UNLIKELY
+#endif
+
+#if XIEITE_LANG_LEAST(CPP, 2017)
+#	define XIEITE_ATTR_UNUSED [[maybe_unused]]
+#elif XIEITE_HAS_ATTR(__unused__)
+#	define XIEITE_ATTR_UNUSED __attribute__((__unused__))
+#else
+#	define XIEITE_ATTR_UNUSED
 #endif
 
 #if XIEITE_HAS_ATTR(__used__)

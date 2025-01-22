@@ -5,6 +5,7 @@ import :almost_eq;
 import :is_arith;
 import :is_linear2d;
 import :pt2d;
+import :segm2d;
 
 export namespace xieite {
 	template<xieite::is_arith>
@@ -40,8 +41,8 @@ export namespace xieite {
 
 	template<typename T = double, xieite::is_linear2d<T> Line0, xieite::is_linear2d<T> Line1>
 	[[nodiscard]] constexpr std::vector<xieite::pt2d<T>> intxn2d(const Line0& line0, const Line1& line1) noexcept {
-		const double d = (line0.a.x - line0.b.x) * (line1.a.y - line1.b.y) - (line0.a.y - line0.b.y) * (line1.a.x - line1.b.x);
-		if (!xieite::almost_eq<T>(d, 0)) {
+		const T d = (line0.a.x - line0.b.x) * (line1.a.y - line1.b.y) - (line0.a.y - line0.b.y) * (line1.a.x - line1.b.x);
+		if (!xieite::almost_eq(d, static_cast<T>(0))) {
 			if (const auto intxn = xieite::pt2d<T>(((line1.a.x - line1.b.x) * (line0.a.x * line0.b.y - line0.a.y * line0.b.x) - (line0.a.x - line0.b.x) * (line1.a.x * line1.b.y - line1.a.y * line1.b.x)) / d, ((line1.a.y - line1.b.y) * (line0.a.x * line0.b.y - line0.a.y * line0.b.x) - (line0.a.y - line0.b.y) * (line1.a.x * line1.b.y - line1.a.y * line1.b.x)) / d); line0.contains(intxn) && line1.contains(intxn)) {
 				return std::vector<xieite::pt2d<T>> { intxn };
 			}

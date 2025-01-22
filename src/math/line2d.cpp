@@ -2,7 +2,6 @@ export module xieite:line2d;
 
 import std;
 import :is_arith;
-import :almost_eq;
 import :pt2d;
 
 export namespace xieite {

@@ -16,10 +16,10 @@ export module xieite:term;
 import std.compat;
 import :abs;
 import :color3;
-import :keyboard;
-import :str_num;
+import :kb;
 import :read;
 import :scope_guard;
+import :str_num;
 import :vec2;
 
 export namespace xieite {
@@ -47,37 +47,37 @@ export namespace xieite {
 			std::fflush(this->out);
 		}
 
-		void block(bool value) noexcept {
-			if (this->is_block != value) {
-				this->is_block = value;
+		void block(bool x) noexcept {
+			if (this->is_block != x) {
+				this->is_block = x;
 				this->flush();
 			}
 		}
 
-		void echo(bool value) noexcept {
-			if (this->is_echo != value) {
-				this->is_echo = value;
+		void echo(bool x) noexcept {
+			if (this->is_echo != x) {
+				this->is_echo = x;
 				this->flush();
 			}
 		}
 
-		void canon(bool value) noexcept {
-		if (this->is_canon != value) {
-				this->is_canon = value;
+		void canon(bool x) noexcept {
+		if (this->is_canon != x) {
+				this->is_canon = x;
 				this->flush();
 			}
 		}
 
-		void signal(bool value) noexcept {
-			if (this->is_signal != value) {
-				this->is_signal = value;
+		void signal(bool x) noexcept {
+			if (this->is_signal != x) {
+				this->is_signal = x;
 				this->flush();
 			}
 		}
 
-		void process(bool value) noexcept {
-			if (this->is_process != value) {
-				this->is_process = value;
+		void process(bool x) noexcept {
+			if (this->is_process != x) {
+				this->is_process = x;
 				this->flush();
 			}
 		}
@@ -130,60 +130,60 @@ export namespace xieite {
 			std::print(this->out, "{}", xieite::term::bg_reset_code());
 		}
 
-		[[nodiscard]] static constexpr std::string bold_code(bool value) noexcept {
-			return value ? "\x1B[1m" : "\x1B[21m";
+		[[nodiscard]] static constexpr std::string bold_code(bool x) noexcept {
+			return x ? "\x1B[1m" : "\x1B[21m";
 		}
 
-		void bold(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::bold_code(value));
+		void bold(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::bold_code(x));
 		}
 
-		[[nodiscard]] static constexpr std::string italic_code(bool value) noexcept {
-			return value ? "\x1B[3m" : "\x1B[23m";
+		[[nodiscard]] static constexpr std::string italic_code(bool x) noexcept {
+			return x ? "\x1B[3m" : "\x1B[23m";
 		}
 
-		void italic(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::italic_code(value));
+		void italic(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::italic_code(x));
 		}
 
-		[[nodiscard]] static constexpr std::string underl_code(bool value) noexcept {
-			return value ? "\x1B[4m" : "\x1B[24m";
+		[[nodiscard]] static constexpr std::string underl_code(bool x) noexcept {
+			return x ? "\x1B[4m" : "\x1B[24m";
 		}
 
-		void underl(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::underl_code(value));
+		void underl(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::underl_code(x));
 		}
 
-		[[nodiscard]] static constexpr std::string blink_code(bool value) noexcept {
-			return value ? "\x1B[5m" : "\x1B[25m";
+		[[nodiscard]] static constexpr std::string blink_code(bool x) noexcept {
+			return x ? "\x1B[5m" : "\x1B[25m";
 		}
 
-		void blink(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::blink_code(value));
+		void blink(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::blink_code(x));
 		}
 
-		[[nodiscard]] static constexpr std::string invis_code(bool value) noexcept {
-			return value ? "\x1B[8m" : "\x1B[28m";
+		[[nodiscard]] static constexpr std::string invis_code(bool x) noexcept {
+			return x ? "\x1B[8m" : "\x1B[28m";
 		}
 
-		void invis(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::invis_code(value));
+		void invis(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::invis_code(x));
 		}
 
-		[[nodiscard]] static constexpr std::string strike_code(bool value) noexcept {
-			return value ? "\x1B[9m" : "\x1B[29m";
+		[[nodiscard]] static constexpr std::string strike_code(bool x) noexcept {
+			return x ? "\x1B[9m" : "\x1B[29m";
 		}
 
-		void strike(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::strike_code(value));
+		void strike(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::strike_code(x));
 		}
 
-		[[nodiscard]] static constexpr std::string invert_code(bool value) noexcept {
-			return value ? "\x1B[7m" : "\x1B[27m";
+		[[nodiscard]] static constexpr std::string invert_code(bool x) noexcept {
+			return x ? "\x1B[7m" : "\x1B[27m";
 		}
 		
-		void invert(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::invert_code(value));
+		void invert(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::invert_code(x));
 		}
 
 		[[nodiscard]] static constexpr std::string reset_style_code() noexcept {
@@ -255,12 +255,12 @@ export namespace xieite {
 			this->mv_curs(diff.x, diff.y);
 		}
 
-		[[nodiscard]] static constexpr std::string curs_invis_code(bool value) noexcept {
-			return std::string("\x1B[?25") + "hl"[value];
+		[[nodiscard]] static constexpr std::string curs_invis_code(bool x) noexcept {
+			return std::string("\x1B[?25") + "hl"[x];
 		}
 
-		void curs_invis(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::curs_invis_code(value));
+		void curs_invis(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::curs_invis_code(x));
 		}
 
 		[[nodiscard]] static constexpr std::string curs_block_code(bool blink = false) noexcept {
@@ -287,20 +287,20 @@ export namespace xieite {
 			std::print(this->out, "{}", xieite::term::curs_pipe_code(blink));
 		}
 
-		[[nodiscard]] static constexpr std::string curs_alt_code(bool value) noexcept {
-			return std::string("\x1B[") + "us"[value];
+		[[nodiscard]] static constexpr std::string curs_alt_code(bool x) noexcept {
+			return std::string("\x1B[") + "us"[x];
 		}
 
-		void curs_alt(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::curs_alt_code(value));
+		void curs_alt(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::curs_alt_code(x));
 		}
 
-		[[nodiscard]] static constexpr std::string scr_alt_code(bool value) noexcept {
-			return std::string("\x1B[?47") + "lh"[value];
+		[[nodiscard]] static constexpr std::string scr_alt_code(bool x) noexcept {
+			return std::string("\x1B[?47") + "lh"[x];
 		}
 
-		void scr_alt(bool value) noexcept {
-			std::print(this->out, "{}", xieite::term::scr_alt_code(value));
+		void scr_alt(bool x) noexcept {
+			std::print(this->out, "{}", xieite::term::scr_alt_code(x));
 		}
 
 		[[nodiscard]] xieite::vec2<int> scr_size() noexcept {

@@ -8,7 +8,7 @@ import std;
 import :fixed_str;
 import :pi;
 
-namespace xieite {
+export namespace xieite {
 	template<xieite::fixed_str type, auto to = std::identity(), auto from = std::identity()>
 	struct base_unit {
 		double value;
@@ -20,7 +20,7 @@ namespace xieite {
 	};
 }
 
-namespace xieite::unit {
+export namespace xieite::unit {
 	// Lengths
 	using qm = xieite::base_unit<"length", XIEITE_FN($0 / 1e30), XIEITE_FN($0 * 1e30)>;
 	using rm = xieite::base_unit<"length", XIEITE_FN($0 / 1e27), XIEITE_FN($0 * 1e27)>;

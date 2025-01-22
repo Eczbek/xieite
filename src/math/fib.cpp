@@ -1,9 +1,9 @@
 export module xieite:fib;
 
 import std;
+import :add_overflow;
 import :is_arith;
 import :make_array;
-import :add_overflow;
 
 export namespace xieite {
 	template<xieite::is_arith T>

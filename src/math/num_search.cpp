@@ -1,16 +1,16 @@
 export module xieite:num_search;
 
 import std;
+import :almost_eq;
 import :is_arith;
 import :is_invoc;
-import :is_nothrow_invoc;
-import :almost_eq;
+import :is_noex_invoc;
 import :neg;
 
 export namespace xieite {
 	template<xieite::is_arith T, xieite::is_invoc<bool(T)> F>
 	[[nodiscard]] constexpr T num_search(F&& cond, T min, T max)
-	noexcept(xieite::is_nothrow_invoc<F, bool(T)>) {
+	noexcept(xieite::is_noex_invoc<F, bool(T)>) {
 		while (true) {
 			const T mid = static_cast<T>((min + max) / 2);
 			if (xieite::almost_eq(mid, min) || xieite::almost_eq(mid, max)) {
@@ -22,7 +22,7 @@ export namespace xieite {
 
 	template<xieite::is_arith T, xieite::is_invoc<bool(T)> F>
 	[[nodiscard]] constexpr T num_search(F&& cond)
-	noexcept(xieite::is_nothrow_invoc<F, bool(T)>) {
+	noexcept(xieite::is_noex_invoc<F, bool(T)>) {
 		if constexpr (!std::unsigned_integral<T>) {
 			if (std::invoke_r<bool>(cond, static_cast<T>(0))) {
 				T min = -1;

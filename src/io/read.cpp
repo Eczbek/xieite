@@ -7,7 +7,7 @@ export namespace xieite {
 		return std::string(std::istreambuf_iterator<char>(stream), {});
 	}
 
-	std::string read(std::FILE* const stream) noexcept {
+	std::string read(std::FILE* stream) noexcept {
 		std::string result;
 		std::size_t chunk = 1024;
 		while (stream) {
