@@ -1,7 +1,7 @@
 #pragma once
 
 #define XIEITE_VER_MAJOR 0
-#define XIEITE_VER_MINOR 0
+#define XIEITE_VER_MINOR 1
 #define XIEITE_VER_PATCH 0
 
 #define XIEITE_VER_EQ(major, ...) XIEITE_DETAIL_VER(__VA_ARGS__, XIEITE_DETAIL_VER_EQ(major, __VA_ARGS__), XIEITE_DETAIL_VER_EQ(major, __VA_ARGS__, 0), XIEITE_DETAIL_VER_EQ(major, 0, 0))

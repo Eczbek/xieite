@@ -9,12 +9,12 @@ import :dbl_uint;
 import :is_arith;
 import :neg;
 import :order_op;
+import :range_cmp_op;
 import :split_bool;
 import :ssize;
 import :str_num_cfg;
 import :sub_overflow;
 import :try_unsign;
-import :view_cmp_op;
 
 export namespace xieite {
 	template<std::unsigned_integral T = std::uint64_t>
@@ -107,13 +107,13 @@ export namespace xieite {
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
 			using namespace xieite::order_op;
-			using namespace xieite::view_cmp_op;
+			using namespace xieite::range_cmp_op;
 			return (r.neg <=> l.neg)
-				|| (l.neg
+				| (l.neg
 					? ((r.data.size() <=> l.data.size())
-						|| (std::views::reverse(r) <=> std::views::reverse(l)))
+						| (std::views::reverse(r) <=> std::views::reverse(l)))
 					: ((l.data.size() <=> r.data.size())
-						|| (std::views::reverse(l) <=> std::views::reverse(r))));
+						| (std::views::reverse(l) <=> std::views::reverse(r))));
 		}
 
 		template<std::integral U>

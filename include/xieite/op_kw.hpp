@@ -20,8 +20,6 @@
 #define bitxnor ^ XIEITE_DETAIL::OP_KW::ifx<XIEITE_FN(~(~XIEITE_FWD($0) ^ ~XIEITE_FWD($1)))>() ^
 #define bitimply | XIEITE_DETAIL::OP_KW::ifx<XIEITE_FN(~XIEITE_FWD($0) | XIEITE_FWD($1))>() |
 #define bitnimply & XIEITE_DETAIL::OP_KW::ifx<XIEITE_FN(XIEITE_FWD($0) & ~XIEITE_FWD($1))>() &
-#define bitimply | XIEITE_DETAIL::OP_KW::ifx<XIEITE_FN(~XIEITE_FWD($0) | XIEITE_FWD($1))>() |
-#define bitnimply & XIEITE_DETAIL::OP_KW::ifx<XIEITE_FN(XIEITE_FWD($0) & ~XIEITE_FWD($1))>() &
 #define eq_compl XIEITE_DETAIL::OP_KW::pfx<XIEITE_FN($0 = ~$0)>() ->*
 #define bitand_eq += XIEITE_DETAIL::OP_KW::ifx<XIEITE_FN($0 = $0 & XIEITE_FWD($1))>() +=
 #define bitnand_eq += XIEITE_DETAIL::OP_KW::ifx<XIEITE_FN($0 = $0 bitnand XIEITE_FWD($1))>() +=

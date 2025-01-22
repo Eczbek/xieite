@@ -12,12 +12,13 @@ export namespace xieite {
 	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<R>> find_most_consec_if(R& range, F&& cond = {})
 	noexcept(xieite::is_noex_invoc<F, bool(std::ranges::range_common_reference_t<R>)> && xieite::is_noex_range<R>) {
 		auto curr_begin = std::ranges::begin(range);
-		auto curr_end = std::ranges::begin(range);
+		auto curr_end = curr_begin;
 		auto result_begin = curr_begin;
 		auto result_end = curr_end;
 		bool prev = false;
 		for (auto iter : xieite::iters(range)) {
-			if (prev = std::invoke_r<bool>(cond, *iter)) { // Is this intentional? We'll never know
+			const bool curr = std::invoke_r<bool>(cond, *iter);
+			if (curr) {
 				if (!prev) {
 					curr_begin = iter;
 					curr_end = iter;
@@ -27,6 +28,7 @@ export namespace xieite {
 				result_begin = curr_begin;
 				result_end = curr_end;
 			}
+			prev = curr;
 		}
 		if (prev && (std::ranges::distance(curr_begin, curr_end) > std::ranges::distance(result_begin, result_end))) {
 			return std::ranges::subrange<std::ranges::iterator_t<R>>(curr_begin, curr_end);
