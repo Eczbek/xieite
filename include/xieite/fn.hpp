@@ -6,6 +6,7 @@
 #include <xieite/diag.hpp>
 #include <xieite/fwd.hpp>
 #include <xieite/if.hpp>
+#include <xieite/unwrap.hpp>
 
 #define XIEITE_FN(...) []XIEITE_DETAIL_FN(0, __VA_ARGS__)
 #define XIEITE_FN_LOCAL(...) [&]XIEITE_DETAIL_FN(1, __VA_ARGS__)
