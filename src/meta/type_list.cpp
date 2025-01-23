@@ -7,6 +7,7 @@ export module xieite:type_list;
 
 import std;
 import :diff;
+import :end;
 import :fold;
 import :is_satisf;
 import :is_satisfd;
@@ -78,19 +79,20 @@ export namespace xieite {
 		template<typename... Us>
 		using append = xieite::type_list<Ts..., Us...>;
 
-		template<typename List>
+		template<typename R>
 		using append_range = decltype(([]<template<typename...> typename M, typename... Us>(const M<Us...>&) {
 			return xieite::type_list<Ts...>::append<Us...>();
-		})(std::declval<List>()));
+		})(std::declval<R>()));
 
 		template<typename... Us>
 		using prepend = xieite::type_list<Us..., Ts...>;
 
-		template<typename List>
+		template<typename R>
 		using prepend_range = decltype(([]<template<typename...> typename M, typename... Us>(const M<Us...>&) {
 			return xieite::type_list<Ts...>::prepend<Us...>();
-		})(std::declval<List>()));
+		})(std::declval<R>()));
 
+		template<xieite::end...>
 		using reverse = decltype(xieite::unroll<Ts...>([]<std::size_t... i> {
 			return xieite::t<xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>>();
 		}))::type;
@@ -119,11 +121,11 @@ export namespace xieite {
 				::slice<end>
 			>;
 
-		template<std::size_t start, std::size_t end, typename List>
+		template<std::size_t start, std::size_t end, typename R>
 		using replace_range =
 			xieite::type_list<Ts...>
 			::slice<0, start>
-			::template append_range<List>
+			::template append_range<R>
 			::template append_range<
 				xieite::type_list<Ts...>
 				::slice<end>
@@ -132,8 +134,8 @@ export namespace xieite {
 		template<std::size_t idx, typename... Us>
 		using insert = xieite::type_list<Ts...>::replace<idx, idx, Us...>;
 
-		template<std::size_t idx, typename List>
-		using insert_range = xieite::type_list<Ts...>::replace_range<idx, idx, List>;
+		template<std::size_t idx, typename R>
+		using insert_range = xieite::type_list<Ts...>::replace_range<idx, idx, R>;
 
 		template<std::size_t idx, typename T>
 		using set = xieite::type_list<Ts...>::replace<idx, idx + 1, T>;
@@ -232,10 +234,10 @@ export namespace xieite {
 			return xieite::type_list<xieite::type_list<xieite::type_list<Ts...>::at<i>, Us>...>();
 		}));
 
-		template<typename List>
+		template<typename R>
 		using zip_range = decltype(([]<template<typename...> typename M, typename... Us>(const M<Us...>&) {
 			return xieite::type_list<Ts...>::zip<Us...>();
-		})(std::declval<List>()));
+		})(std::declval<R>()));
 	};
 }
 
