@@ -107,6 +107,7 @@ import :big_int;
 import :bit_field;
 import :bit_size;
 import :byte_fill;
+import :cast;
 import :ceil;
 import :ceil_half;
 import :ch;

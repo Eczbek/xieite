@@ -1,18 +1,15 @@
-module;
-
-#include <xieite/lift.hpp>
-
 export module xieite:make_sparse_array;
 
 import std;
 import :arity;
 import :bit_size;
+import :cast;
 import :is_invoc;
 import :is_noex_invoc;
 import :sign_cast;
 
 export namespace xieite {
-	template<std::integral K, typename V, std::ranges::input_range R = std::initializer_list<std::pair<K, V>>, xieite::is_invoc<V(std::ranges::range_common_reference_t<R>)> F = decltype(XIEITE_LIFT_ONE(static_cast<V>))>
+	template<std::integral K, typename V, std::ranges::input_range R = std::initializer_list<std::pair<K, V>>, xieite::is_invoc<V(std::ranges::range_common_reference_t<R>)> F = xieite::cast<V>>
 	[[nodiscard]] constexpr std::array<V, (1uz << xieite::bit_size<K>)> make_sparse_array(R&& entries, F&& fn = {})
 	noexcept(xieite::is_noex_invoc<F, V(std::ranges::range_common_reference_t<R>)>) {
 		static_assert(xieite::bit_size<K> <= 16, "key type must be reasonably small");
