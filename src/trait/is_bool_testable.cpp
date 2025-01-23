@@ -15,4 +15,4 @@ export namespace xieite {
 }
 
 // TODO: Check `operator&&` and `operator||` to best ability
-// https://eel.is/c++draft/concept.booleantestable
+// https://timsong-cpp.github.io/cppwp/n4950/concept.booleantestable
