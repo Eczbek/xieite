@@ -6,5 +6,5 @@ import :rm_ptr;
 
 export namespace xieite {
 	template<typename T, typename U>
-	using cp_ptr = xieite::add_ptr<xieite::get_ptr<T>, xieite::rm_ptr<U>>;
+	using cp_ptr = xieite::add_ptr<xieite::rm_ptr<U>, xieite::get_ptr<T>>;
 }

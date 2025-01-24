@@ -13,7 +13,7 @@ export namespace xieite {
 	template<typename F, typename... Args>
 	constexpr auto try_c_args(F&& fn, Args&&... args)
 		XIEITE_ARROW(typename xieite::type_list<Args...>
-			::xform<1, []<typename Arg, typename... Rest> {
+			::template xform<1, []<typename Arg, typename... Rest> {
 				return std::conditional<
 					xieite::type_list<Args...>
 						::template slice<sizeof...(Rest) + 1>

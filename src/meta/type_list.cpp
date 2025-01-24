@@ -36,7 +36,7 @@ export namespace xieite {
 			if constexpr (idx < sizeof...(Ts)) {
 				return xieite::t<Ts...[idx]>();
 			} else {
-				static_assert(false, "index is greater than number of types in pack");
+				static_assert(false, "index must be within pack range");
 			}
 		})())::type;
 
@@ -97,7 +97,7 @@ export namespace xieite {
 			return xieite::t<xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>>();
 		}))::type;
 
-		template<std::size_t start, std::size_t end = sizeof...(Ts), auto /* temporary workaround */ = [] {}>
+		template<std::size_t start, std::size_t end = sizeof...(Ts)>
 		using slice = decltype(xieite::unroll<xieite::diff(start, end)>([]<std::size_t... i> {
 			return xieite::type_list<xieite::type_list<Ts...>::at<(i + std::min(start, end))>...>();
 		}));
