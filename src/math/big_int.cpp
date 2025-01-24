@@ -90,7 +90,7 @@ export namespace xieite {
 
 		template<std::integral U>
 		[[nodiscard]] explicit constexpr operator U() const noexcept {
-			if constexpr (std::same_as<U, bool>) {
+			if constexpr (std::same_as<xieite::rm_cv<U>, bool>) {
 				return (this->data.size() > 1) || this->data[0];
 			} else {
 				U result = 0;
@@ -111,9 +111,9 @@ export namespace xieite {
 			return (r.neg <=> l.neg)
 				| (l.neg
 					? ((r.data.size() <=> l.data.size())
-						| (std::views::reverse(r) <=> std::views::reverse(l)))
+						| (std::views::reverse(r.data) <=> std::views::reverse(l.data)))
 					: ((l.data.size() <=> r.data.size())
-						| (std::views::reverse(l) <=> std::views::reverse(r))));
+						| (std::views::reverse(l.data) <=> std::views::reverse(r.data))));
 		}
 
 		template<std::integral U>
@@ -147,8 +147,8 @@ export namespace xieite {
 			std::vector<T> sum_data;
 			bool carry = false;
 			for (std::size_t i = 0; (i < l.data.size()) || (i < r.data.size()) || carry; ++i) {
-				const T limb0 = (i < l.data.size()) * l.data[i];
-				const T limb1 = (i < r.data.size()) * r.data[i];
+				const T limb0 = (i < l.data.size()) ? l.data[i] : 0;
+				const T limb1 = (i < r.data.size()) ? r.data[i] : 0;
 				sum_data.push_back(limb0 + limb1 + carry);
 				carry = xieite::add_overflow(limb0, limb1, carry);
 			}
@@ -200,7 +200,7 @@ export namespace xieite {
 			std::vector<T> diff_data;
 			bool borrow = false;
 			for (std::size_t i = 0; (i < r.data.size()) || borrow; ++i) {
-				const T limb = (i < r.data.size()) * r.data[i];
+				const T limb = (i < r.data.size()) ? r.data[i] : 0;
 				diff_data.push_back(l.data[i] - limb - borrow);
 				borrow = (i < (l.data.size() - 1)) && xieite::sub_overflow(l.data[i], limb, borrow);
 			}
@@ -252,7 +252,7 @@ export namespace xieite {
 				}
 				return -(l.abs() << r.log2());
 			}
-			xieite::big_int<T> prod;
+			xieite::big_int<T> result;
 			for (std::size_t i = l.data.size(); i--;) {
 				if (!l.data[i]) {
 					continue;
@@ -262,11 +262,11 @@ export namespace xieite {
 						continue;
 					}
 					const xieite::dbl_uint<T> prod = xieite::dbl_mul(l.data[i], r.data[j]);
-					prod += ((xieite::big_int<T>(prod.upper) << xieite::bit_size<T>) | prod.lower) << (xieite::big_int<T>(i) << std::bit_width(xieite::bit_size<T> - 1)) << (xieite::big_int<T>(j) << std::bit_width(xieite::bit_size<T> - 1));
+					result += ((xieite::big_int<T>(prod.upper) << xieite::bit_size<T>) | prod.lower) << (xieite::big_int<T>(i) << std::bit_width(xieite::bit_size<T> - 1)) << (xieite::big_int<T>(j) << std::bit_width(xieite::bit_size<T> - 1));
 				}
 			}
-			prod.neg = l.neg != r.neg;
-			return prod;
+			result.neg = l.neg != r.neg;
+			return result;
 		}
 
 		template<std::integral U>
