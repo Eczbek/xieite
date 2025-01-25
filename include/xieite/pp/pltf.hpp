@@ -1217,7 +1217,7 @@
 #	define XIEITE_PLTF_PATCH_VXWORKS _WRS_VXWORKS_MAINT
 #endif
 
-#if defined(WIN16) || defined(WIN32) || defined(WIN64) || defined(_WIN16) || defined(_WIN32) || defined(_WIN64) || defined(__TOS_WIN__) || defined(__WIN16) || defined(__WIN16__) || defined(__WIN32) || defined(__WIN32__) || defined(__WIN64) || defined(__WIN64__) || defined(__WINDOWS__)
+#if defined(WIN16) || defined(WIN32) || defined(WIN64) || defined(_WIN16) || defined(_WIN32) || defined(_WIN64) || defined(__NT__) || defined(__TOS_WIN__) || defined(__WIN16) || defined(__WIN16__) || defined(__WIN32) || defined(__WIN32__) || defined(__WIN64) || defined(__WIN64__) || defined(__WINDOWS__)
 #	undef XIEITE_PLTF_TYPE_WINDOWS
 #	define XIEITE_PLTF_TYPE_WINDOWS 1
 #endif
