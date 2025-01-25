@@ -158,11 +158,11 @@ namespace xieite {
 		template<auto cond>
 		using filter =
 			xieite::fold<
-				[]<typename T, typename List> {
+				[]<typename List, typename T> {
 					if constexpr (xieite::is_satisf<T, cond>) {
 						return xieite::t<typename List::type::template append<T>>();
 					} else {
-						return List();
+						return xieite::t<List>();
 					}
 				},
 				xieite::t<xieite::type_list<>>,
@@ -172,27 +172,27 @@ namespace xieite {
 		template<auto cmp = []<typename T, std::same_as<T>> {}>
 		using dedup =
 			xieite::fold<
-				[]<typename T, typename List> {
+				[]<typename List, typename T> {
 					if constexpr (!List::template has<T, cmp>) {
-						return typename List::template append<T>();
+						return xieite::t<typename List::type::template append<T>>();
 					} else {
-						return List();
+						return xieite::t<List>();
 					}
 				},
-				xieite::type_list<>,
-				Ts...
-			>;
+				xieite::t<xieite::type_list<>>,
+				xieite::t<Ts>...
+			>::type;
 
 		template<std::size_t n>
 		using repeat = decltype(xieite::unroll<n>([]<std::size_t... i> {
 			return xieite::fold<
-				[]<typename, typename List> {
-					return typename List::template append<Ts...>();
+				[]<typename List, typename> {
+					return xieite::t<typename List::type::template append<Ts...>>();
 				},
-				xieite::type_list<>,
+				xieite::t<xieite::type_list<>>,
 				decltype(i)...
 			>();
-		}));
+		}))::type;
 
 		template<std::size_t arity, auto fn>
 		requires(!(sizeof...(Ts) % arity))
@@ -212,21 +212,21 @@ namespace xieite {
 		requires(!(sizeof...(Ts) % arity))
 		using xform_flat = decltype(xieite::unroll<sizeof...(Ts) / arity>([]<std::size_t... i> {
 			return xieite::fold<
-				[]<typename Index, typename List> {
-					return typename List::template append_range<
+				[]<typename List, typename Idx> {
+					return xieite::t<typename List::template append_range<
 						typename decltype(xieite::type_list<Ts...>
-							::template slice<arity * Index::value, arity * (Index::value + 1)>
+							::template slice<arity * Idx::value, arity * (Idx::value + 1)>
 							::template append_range<
 								xieite::type_list<Ts...>
-								::template slice<0, arity * Index::value>
+								::template slice<0, arity * Idx::value>
 							>::apply(fn)
 						)::type
-					>();
+					>>();
 				},
-				xieite::type_list<>,
+				xieite::t<xieite::type_list<>>,
 				xieite::v<i>...
 			>();
-		}));
+		}))::type;
 
 		template<typename... Us>
 		requires(sizeof...(Ts) == sizeof...(Us))

@@ -8,7 +8,7 @@ namespace XIEITE_DETAIL::fold {
 		using type = T;
 
 		template<typename U>
-		XIEITE_DETAIL::fold::impl<fn, decltype(fn.template operator()<U, T>())> operator->*(xieite::t<U>) const;
+		XIEITE_DETAIL::fold::impl<fn, decltype(fn.template operator()<T, U>())> operator->*(xieite::t<U>) const;
 	};
 }
 
