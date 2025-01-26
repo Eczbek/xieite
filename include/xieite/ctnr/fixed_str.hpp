@@ -18,8 +18,10 @@ namespace xieite {
 		static constexpr std::size_t size = size_;
 		std::array<Ch, size_> data;
 
-		[[nodiscard]] explicit(false) constexpr fixed_str(const Ch(&data)[size_]) noexcept {
-			std::ranges::copy_n(data, size_, this->data.begin());
+		[[nodiscard]] explicit(false) constexpr fixed_str(const Ch(&data)[size_ + 1]) noexcept {
+			for (std::size_t i = 0; i < size_; ++i) {
+				this->data[i] = data[i];
+			}
 		}
 
 		template<std::ranges::input_range R>
@@ -35,5 +37,5 @@ namespace xieite {
 	};
 
 	template<std::size_t size, typename Ch>
-	fixed_str(const Ch(&)[size]) -> fixed_str<size, Ch>;
+	fixed_str(const Ch(&)[size]) -> fixed_str<(size - 1), Ch>;
 }

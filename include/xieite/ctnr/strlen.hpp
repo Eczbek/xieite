@@ -1,12 +1,13 @@
 #pragma once
 
 #include <cstddef>
-#include <type_traits>
 #include "../trait/is_ch.hpp"
+#include "../trait/is_ptr.hpp"
+#include "../trait/rm_ptr.hpp"
 
 namespace xieite {
-	template<typename Str>
-	requires(std::is_pointer_v<Str> && xieite::is_ch<std::remove_pointer_t<Str>>)
+	template<xieite::is_ptr Str>
+	requires(xieite::is_ch<xieite::rm_ptr<Str>>)
 	[[nodiscard]] constexpr std::size_t strlen(Str str) noexcept {
 		std::size_t size = 0;
 		while (str[size]) {

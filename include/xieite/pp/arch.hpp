@@ -188,6 +188,10 @@
 #define XIEITE_ARCH_MAJOR_X86_64 0
 #define XIEITE_ARCH_MINOR_X86_64 0
 #define XIEITE_ARCH_PATCH_X86_64 0
+#define XIEITE_ARCH_TYPE_XENON 0
+#define XIEITE_ARCH_MAJOR_XENON 0
+#define XIEITE_ARCH_MINOR_XENON 0
+#define XIEITE_ARCH_PATCH_XENON 0
 #define XIEITE_ARCH_TYPE_XSTORMY16 0
 #define XIEITE_ARCH_MAJOR_XSTORMY16 0
 #define XIEITE_ARCH_MINOR_XSTORMY16 0
@@ -918,7 +922,7 @@
 #	define XIEITE_ARCH_TYPE_PDP_11 1
 #endif
 
-#if defined(PPC) || defined(_ARCH_COM) || defined(_ARCH_PPC) || defined(_ARCH_PPC64) || defined(_ARCH_PRW) || defined(_LP64) || defined(_M_MPPC) || defined(_M_PPC) || defined(_M_PPC) || defined(__64BIT__) || defined(__LP64__) || defined(__POWERPC__) || defined(__PPC) || defined(__PPC64__) || defined(__PPC__) || defined(__powerpc) || defined(__powerpc64__) || defined(__powerpc__) || defined(__ppc) || defined(__ppc64) || defined(__ppc64__) || defined(__ppc__) || defined(powerpc)
+#if defined(PPC) || defined(_ARCH_COM) || defined(_ARCH_PPC) || defined(_ARCH_PPC64) || defined(_ARCH_PRW) || defined(_LP64) || defined(_M_MPPC) || defined(_M_PPC) || defined(_M_PPC) || defined(__64BIT__) || defined(__LP64__) || defined(__POWERPC__) || defined(__PPC) || defined(__PPC64__) || defined(__PPC__) || defined(__powerpc) || defined(__powerpc__) || defined(__powerpc64__) || defined(__ppc) || defined(__ppc64) || defined(__ppc64__) || defined(__ppc__) || defined(powerpc)
 #	undef XIEITE_ARCH_TYPE_POWERPC
 #	define XIEITE_ARCH_TYPE_POWERPC 1
 
@@ -1216,6 +1220,11 @@
 #if defined(_M_AMD64) || defined(_M_X64) || defined(__amd64) || defined(__amd64__) || defined(__amd_64__amd64__) || defined(__k8) || defined(__k8__) || defined(__x86_64) || defined(__x86_64__)
 #	undef XIEITE_ARCH_TYPE_X86_64
 #	define XIEITE_ARCH_TYPE_X86_64 1
+#endif
+
+#if defined(_XBOX_VER) && (_XBOX_VER >= 200)
+#	undef XIEITE_ARCH_TYPE_XENON
+#	define XIEITE_ARCH_TYPE_XENON 1
 #endif
 
 #if defined(__xstormy16) || defined(__xstormy16__) || defined(xstormy16)

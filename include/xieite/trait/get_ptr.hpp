@@ -1,14 +1,13 @@
 #pragma once
 
 #include <cstddef>
-#include "../trait/is_ptr.hpp"
-#include "../trait/rm_ptr.hpp"
+#include <type_traits>
 
 namespace xieite {
 	template<typename T>
-	inline constexpr std::size_t get_ptr = ([]<typename U = T>(this auto self) -> std::size_t {
-		if constexpr (xieite::is_ptr<U>) {
-			return 1 + self.template operator()<xieite::rm_ptr<U>>();
+	constexpr std::size_t get_ptr = ([]<typename U = std::remove_reference_t<T>>(this auto self) -> std::size_t {
+		if constexpr (std::is_pointer_v<U>) {
+			return 1 + self.template operator()<std::remove_pointer_v<U>>();
 		} else {
 			return 0;
 		}

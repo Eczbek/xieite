@@ -25,12 +25,17 @@ namespace xieite {
 		return lookup[xieite::sign_cast<std::size_t>(c)];
 	}
 
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
+	template<typename Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
 	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> toupper(std::basic_string_view<Ch, Traits> strv) noexcept {
 		auto result = std::basic_string<Ch, Traits, Alloc>(strv);
 		for (Ch& c : result) {
 			c = xieite::toupper(c);
 		}
 		return result;
+	}
+
+	template<typename Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
+	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> tolower(Ch* str) noexcept {
+		return xieite::tolower<Ch, Traits, Alloc>(std::basic_string_view<Ch, Traits>(str));
 	}
 }
