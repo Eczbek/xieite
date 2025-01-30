@@ -50,7 +50,7 @@ namespace xieite {
 			XIEITE_ARROW(~this->value)
 
 		template<typename U>
-		[[nodiscard]] constexpr operator U() const
+		[[nodiscard]] explicit constexpr operator U() const
 			XIEITE_ARROW_RET(static_cast<U>(this->value))
 
 		[[nodiscard]] constexpr auto operator*() const
@@ -139,10 +139,6 @@ namespace xieite {
 
 		[[nodiscard]] constexpr auto operator,(auto&& x)
 			XIEITE_ARROW(this->value, XIEITE_FWD(x))
-
-		[[nodiscard]] constexpr T&& get() const noexcept {
-			return this->value;
-		}
 	};
 
 	template<typename T>

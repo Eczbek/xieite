@@ -5,5 +5,5 @@
 
 namespace xieite {
 	template<xieite::is_arith T>
-	inline constexpr T tau = xieite::pi<T> * 2;
+	constexpr T tau = xieite::pi<T> * 2;
 }
