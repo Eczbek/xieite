@@ -2,12 +2,10 @@
 
 #include <cstdint>
 #include <ratio>
-#include <type_traits>
-#include <utility>
+#include "../meta/t.hpp"
+#include "../trait/rm_cv.hpp"
 
 namespace xieite {
 	template<typename T>
-	concept is_ratio = requires {
-		([]<std::intmax_t numer, std::intmax_t denom>(std::ratio<numer, denom>) {})(std::declval<std::remove_cv_t<T>>());
-	};
+	concept is_ratio = requires { ([]<std::intmax_t numer, std::intmax_t denom>(xieite::t<std::ratio<numer, denom>>) {})(xieite::t<xieite::rm_cv<T>>()); };
 }

@@ -1,10 +1,10 @@
 #pragma once
 
-#include <utility>
+#include "../meta/t.hpp"
 
 namespace xieite {
 	template<typename T, template<typename...> typename... Ms>
-	concept is_spec = (... && requires { ([]<typename... Args>(const Ms<Args...>&) {})(std::declval<T>()); });
+	concept is_spec = (... && requires { ([]<typename... Args>(xieite::t<Ms<Args...>>) {})(xieite::t<T>()); });
 }
 
 // TODO: Remove after `std::specialization_of` is implemented
