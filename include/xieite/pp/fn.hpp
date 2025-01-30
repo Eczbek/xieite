@@ -2,6 +2,7 @@
 
 #include <cstddef>
 #include <type_traits>
+#include "../pp/arrow.hpp"
 #include "../pp/comma.hpp"
 #include "../pp/diag.hpp"
 #include "../pp/fwd.hpp"
@@ -1094,8 +1095,8 @@ namespace XIEITE_DETAIL::FN {
 	template<typename F>
 	struct indirect : F {
 		template<typename... Ts>
-		[[nodiscard]] constexpr auto operator()(auto&&... args)
-			XIEITE_ARROW((*static_cast<F*>(this))().template operator()<Ts...>(XIEITE_FWD(args)...))
+		[[nodiscard]] constexpr auto operator()(this F& super, auto&&... args)
+			XIEITE_ARROW(super().template operator()<Ts...>(XIEITE_FWD(args)...))
 	};
 
 	template<typename F>
