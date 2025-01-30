@@ -12,16 +12,32 @@
 #	include <endian.h>
 #endif
 
+#if __has_include(<libkern/OSByteOrder.h>)
+#	include <libkern/OSByteOrder.h>
+#endif
+
 #if __has_include(<machine/endian.h>)
 #	include <machine/endian.h>
+#endif
+
+#if __has_include(<sys/endian.h>)
+#	include <sys/endian.h>
+#endif
+
+#if __has_include(<sys/_endian.h>)
+#	include <sys/_endian.h>
 #endif
 
 #if __has_include(<sys/param.h>)
 #	include <sys/param.h>
 #endif
 
-#if __has_include(<sys/_endian.h>)
-#	include <sys/_endian.h>
+#if __has_include(<sys/types.h>)
+#	include <sys/types.h>
+#endif
+
+#if __has_include(<winsock2.h>)
+#	include <winsock2.h>
 #endif
 
 #if defined(BIG_ENDIAN) || defined(_BIG_ENDIAN) || defined(_MIPSEB) || defined(__AARCH64EB__) || defined(__ARMEB__) || defined(__BIG_ENDIAN__) || (defined(__BYTE_ORDER) && (__BYTE_ORDER == __BIG_ENDIAN)) || (defined(__BYTE_ORDER__) && (__BYTE_ORDER__ == __ORDER_BIG_ENDIAN__)) || (defined(__FLOAT_WORD_ORDER__) && (__FLOAT_WORD_ORDER__ == __ORDER_BIG_ENDIAN__)) || defined(__MIPSEB) || defined(__MIPSEB__) || defined(__THUMBEB__) || defined(sel) || XIEITE_ARCH_TYPE_ELBRUS_2000 || XIEITE_ARCH_TYPE_IBM_SYSTEM_370 || XIEITE_ARCH_TYPE_IBM_SYSTEM_390 || XIEITE_ARCH_TYPE_IBM_Z || XIEITE_ARCH_TYPE_MOTOROLA_68000 || XIEITE_ARCH_TYPE_PA_RISC || XIEITE_ARCH_TYPE_POWERPC || XIEITE_ARCH_TYPE_SPARC || XIEITE_PLTF_TYPE_AIX || XIEITE_PLTF_TYPE_CYGWIN || XIEITE_PLTF_TYPE_HP_UX || XIEITE_PLTF_TYPE_IRIX || XIEITE_PLTF_TYPE_SOLARIS || XIEITE_PLTF_TYPE_WINDOWS
