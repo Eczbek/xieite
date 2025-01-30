@@ -204,6 +204,10 @@
 #define XIEITE_PLTF_MAJOR_NINTENDO_GAMECUBE 0
 #define XIEITE_PLTF_MINOR_NINTENDO_GAMECUBE 0
 #define XIEITE_PLTF_PATCH_NINTENDO_GAMECUBE 0
+#define XIEITE_PLTF_TYPE_NINTENDO_SWITCH 0
+#define XIEITE_PLTF_MAJOR_NINTENDO_SWITCH 0
+#define XIEITE_PLTF_MINOR_NINTENDO_SWITCH 0
+#define XIEITE_PLTF_PATCH_NINTENDO_SWITCH 0
 #define XIEITE_PLTF_TYPE_NONSTOP 0
 #define XIEITE_PLTF_MAJOR_NONSTOP 0
 #define XIEITE_PLTF_MINOR_NONSTOP 0
@@ -1085,9 +1089,14 @@
 #	define XIEITE_PLTF_TYPE_NINTENDO_3DS 1
 #endif
 
-#if (defined(__PPC__) || defined(__ppc__)) && defined(_GC)
+#if (defined(__PPC__) || defined(__ppc__)) && defined(_GC) || defined(__GAMECUBE__)
 #	undef XIEITE_PLTF_TYPE_NINTENDO_GAMECUBE
 #	define XIEITE_PLTF_TYPE_NINTENDO_GAMECUBE 1
+#endif
+
+#ifdef __NX__
+#	undef XIEITE_PLTF_TYPE_NINTENDO_SWITCH
+#	define XIEITE_PLTF_TYPE_NINTENDO_SWITCH 1
 #endif
 
 #ifdef __TANDEM
@@ -1171,7 +1180,7 @@
 #	endif
 #endif
 
-#if defined(__GNUC__) && !defined(__SNC__) && defined(__SH4_SINGLE_ONLY__)
+#if (defined(__GNUC__) && !defined(__SNC__) && defined(__SH4_SINGLE_ONLY__)) || defined(_arch_dreamcast)
 #	undef XIEITE_PLTF_TYPE_SEGA_DREAMCAST
 #	define XIEITE_PLTF_TYPE_SEGA_DREAMCAST 1
 #endif
@@ -1414,3 +1423,4 @@
 
 // https://github.com/cpredef/predef/blob/master/OperatingSystems.md
 // NOTE: `__SCE__` detects any PlayStation device
+// Thanks to Ian Pike (https://github.com/Rinzii) for some console detection macros
