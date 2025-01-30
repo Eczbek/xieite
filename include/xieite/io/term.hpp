@@ -30,7 +30,7 @@ namespace xieite {
 		std::FILE* in;
 		std::FILE* out;
 
-		[[nodiscard]] term(std::FILE* in, std::FILE* out) noexcept
+		[[nodiscard]] term(std::FILE* in = stdin, std::FILE* out = stdout) noexcept
 		: in(in), out(out), block_mode(::fcntl(::fileno(in), F_GETFL)) {
 			::tcgetattr(::fileno(this->in), &this->cooked_mode);
 			this->is_block = !(this->block_mode & O_NONBLOCK);
@@ -64,7 +64,7 @@ namespace xieite {
 		}
 
 		void canon(bool x) noexcept {
-		if (this->is_canon != x) {
+			if (this->is_canon != x) {
 				this->is_canon = x;
 				this->flush();
 			}
