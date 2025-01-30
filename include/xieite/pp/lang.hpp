@@ -28,10 +28,26 @@
 #define XIEITE_LANG_MAJOR_CUDA 0
 #define XIEITE_LANG_MINOR_CUDA 0
 #define XIEITE_LANG_PATCH_CUDA 0
+#define XIEITE_LANG_TYPE_GLSL 0
+#define XIEITE_LANG_MAJOR_GLSL 0
+#define XIEITE_LANG_MINOR_GLSL 0
+#define XIEITE_LANG_PATCH_GLSL 0
+#define XIEITE_LANG_TYPE_HLSL 0
+#define XIEITE_LANG_MAJOR_HLSL 0
+#define XIEITE_LANG_MINOR_HLSL 0
+#define XIEITE_LANG_PATCH_HLSL 0
+#define XIEITE_LANG_TYPE_METAL 0
+#define XIEITE_LANG_MAJOR_METAL 0
+#define XIEITE_LANG_MINOR_METAL 0
+#define XIEITE_LANG_PATCH_METAL 0
 #define XIEITE_LANG_TYPE_OBJECTIVE_C 0
 #define XIEITE_LANG_MAJOR_OBJECTIVE_C 0
 #define XIEITE_LANG_MINOR_OBJECTIVE_C 0
 #define XIEITE_LANG_PATCH_OBJECTIVE_C 0
+#define XIEITE_LANG_TYPE_PSSL 0
+#define XIEITE_LANG_MAJOR_PSSL 0
+#define XIEITE_LANG_MINOR_PSSL 0
+#define XIEITE_LANG_PATCH_PSSL 0
 
 #define XIEITE_LANG_EQ(type, major, ...) XIEITE_DETAIL_LANG(__VA_ARGS__, XIEITE_DETAIL_LANG_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_LANG_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_LANG_EQ(type, major, 0, 0))
 #define XIEITE_LANG_LEAST(type, major, ...) XIEITE_DETAIL_LANG(__VA_ARGS__, XIEITE_DETAIL_LANG_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_LANG_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_LANG_LEAST(type, major, 0, 0))
@@ -58,7 +74,7 @@
 #	define XIEITE_LANG_TYPE_CPP 1
 
 #	undef XIEITE_LANG_MAJOR_CPP
-#	if _MSVC_LANG
+#	ifdef _MSVC_LANG
 #		define XIEITE_LANG_MAJOR_CPP (_MSVC_LANG / 100)
 #	else
 #		define XIEITE_LANG_MAJOR_CPP (__cplusplus / 100)
@@ -103,10 +119,36 @@
 #	endif
 #endif
 
+#ifdef __GLSL__
+#	undef XIEITE_LANG_TYPE_GLSL
+#	define XIEITE_LANG_TYPE_GLSL 1
+#endif
+
+#ifdef __HLSL__
+#	undef XIEITE_LANG_TYPE_HLSL
+#	define XIEITE_LANG_TYPE_HLSL 1
+
+#	ifdef __HLSL_VERSION
+#		undef XIEITE_LANG_MAJOR_HLSL
+#		define XIEITE_LANG_MAJOR_HLSL __HLSL_VERSION
+#	endif
+#endif
+
+#ifdef __METAL__
+#	undef XIEITE_LANG_TYPE_METAL
+#	define XIEITE_LANG_TYPE_METAL 1
+#endif
+
 #ifdef __OBJC__
-#	undef XIEITE_LANG_OBJECTIVE_C
-#	define XIEITE_LANG_OBJECTIVE_C 1
+#	undef XIEITE_LANG_TYPE_OBJECTIVE_C
+#	define XIEITE_LANG_TYPE_OBJECTIVE_C 1
+#endif
+
+#ifdef __PSSL__
+#	undef XIEITE_LANG_TYPE_PSSL
+#	define XIEITE_LANG_TYPE_PSSL 1
 #endif
 
 // https://github.com/cpredef/predef/blob/master/Standards.md#language-standards
 // https://github.com/Microsoft/cppwinrt/issues/338
+// https://github.com/Pikachuxxxx/Razix/blob/dd04eebd52c5989835d233bc59d0e2f18ecd3bb2/Engine/content/Shaders/ShaderCommon/ShaderInclude.Builtin.ShaderLangCommon.h
