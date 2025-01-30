@@ -7,13 +7,13 @@
 #include <type_traits>
 #include "../ctnr/str_num_cfg.hpp"
 #include "../math/pow.hpp"
-#include "../math/ssize.hpp"
+#include "../math/ssize_t.hpp"
 #include "../math/split_bool.hpp"
 #include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T parse_num(std::string_view str, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_cfg cfg = {}) noexcept {
+	[[nodiscard]] constexpr T parse_num(std::string_view str, std::conditional_t<std::floating_point<T>, xieite::ssize_t, T> radix = 10, xieite::str_num_cfg cfg = {}) noexcept {
 		if (!radix) {
 			return 0;
 		}
@@ -41,7 +41,7 @@ namespace xieite {
 				part = part * static_cast<T>(radix) + static_cast<T>(digit);
 				point += !!point;
 			}
-			return xieite::split_bool(!neg) * (integral + fractional / xieite::pow(radix, point - 1)) * xieite::pow(radix, pow);
+			return xieite::split_bool(!neg) * (integral + fractional / xieite::pow(radix, static_cast<xieite::ssize_t>(point - 1))) * xieite::pow(radix, pow);
 		} else {
 			T result = 0;
 			for (std::size_t i = neg || cfg.pos.contains(str[0]); i < str.size(); ++i) {

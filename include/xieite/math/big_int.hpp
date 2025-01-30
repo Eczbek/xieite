@@ -25,7 +25,7 @@
 #include "../math/dbl_uint.hpp"
 #include "../math/neg.hpp"
 #include "../math/split_bool.hpp"
-#include "../math/ssize.hpp"
+#include "../math/ssize_t.hpp"
 #include "../math/sub_overflow.hpp"
 #include "../meta/try_unsign.hpp"
 #include "../trait/is_arith.hpp"
@@ -85,7 +85,7 @@ namespace xieite {
 			this->trim();
 		}
 
-		[[nodiscard]] constexpr big_int(std::string_view str, xieite::ssize radix = 10, xieite::str_num_cfg cfg = {}) noexcept
+		[[nodiscard]] constexpr big_int(std::string_view str, xieite::ssize_t radix = 10, xieite::str_num_cfg cfg = {}) noexcept
 		: neg(false) {
 			*this = 0;
 			if (!radix) {
@@ -504,7 +504,7 @@ namespace xieite {
 			if (data_shift >= l.data.size()) {
 				return 0;
 			}
-			auto result_data = std::vector<T>(std::ranges::next(l.data.begin(), static_cast<xieite::ssize>(data_shift), l.data.end()), l.data.end());
+			auto result_data = std::vector<T>(std::ranges::next(l.data.begin(), static_cast<xieite::ssize_t>(data_shift), l.data.end()), l.data.end());
 			if (bits_shift) {
 				T carry = 0;
 				for (T& limb : std::views::reverse(result_data)) {
@@ -613,7 +613,7 @@ namespace xieite {
 			return this->log(xieite::big_int<T>(base));
 		}
 
-		[[nodiscard]] constexpr std::string str(xieite::ssize radix = 10, xieite::str_num_cfg cfg = {}) const noexcept {
+		[[nodiscard]] constexpr std::string str(xieite::ssize_t radix = 10, xieite::str_num_cfg cfg = {}) const noexcept {
 			if (!*this || !radix) {
 				return std::string(1, cfg.digits[0]);
 			}
@@ -630,7 +630,7 @@ namespace xieite {
 				}
 			} else {
 				do {
-					xieite::ssize idx = static_cast<xieite::ssize>(x % radix);
+					xieite::ssize_t idx = static_cast<xieite::ssize_t>(x % radix);
 					x /= radix;
 					if (idx < 0) {
 						idx += radix;

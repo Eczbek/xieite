@@ -2,11 +2,11 @@
 
 #include <cstddef>
 #include <cstdint>
-#include "../math/ssize.hpp"
+#include "../math/ssize_t.hpp"
 #include "../pp/feat.hpp"
 
 #if XIEITE_FEAT_I128
-#	include "../math/int128.hpp"
+#	include "../math/int128_t.hpp"
 #endif
 
 #if XIEITE_FEAT_F16 || XIEITE_FEAT_F32 || XIEITE_FEAT_F64 || XIEITE_FEAT_F128
@@ -344,19 +344,19 @@ namespace xieite::num_lit {
 
 #if XIEITE_FEAT_I128
 	[[nodiscard]] constexpr auto operator""_u128(unsigned long long int n) noexcept {
-		return static_cast<xieite::uint128>(n);
+		return static_cast<xieite::uint128_t>(n);
 	}
 
 	[[nodiscard]] constexpr auto operator""_u128(long double n) noexcept {
-		return static_cast<xieite::uint128>(n);
+		return static_cast<xieite::uint128_t>(n);
 	}
 
 	[[nodiscard]] constexpr auto operator""_i128(unsigned long long int n) noexcept {
-		return static_cast<xieite::int128>(n);
+		return static_cast<xieite::int128_t>(n);
 	}
 
 	[[nodiscard]] constexpr auto operator""_i128(long double n) noexcept {
-		return static_cast<xieite::int128>(n);
+		return static_cast<xieite::int128_t>(n);
 	}
 #endif
 
@@ -409,11 +409,11 @@ namespace xieite::num_lit {
 	}
 
 	[[nodiscard]] constexpr auto operator""_iz(unsigned long long int n) noexcept {
-		return static_cast<xieite::ssize>(n);
+		return static_cast<xieite::ssize_t>(n);
 	}
 
 	[[nodiscard]] constexpr auto operator""_iz(long double n) noexcept {
-		return static_cast<xieite::ssize>(n);
+		return static_cast<xieite::ssize_t>(n);
 	}
 
 	[[nodiscard]] constexpr auto operator""_f(unsigned long long int n) noexcept {

@@ -11,14 +11,14 @@
 #include "../math/almost_eq.hpp"
 #include "../math/neg.hpp"
 #include "../math/rem.hpp"
-#include "../math/ssize.hpp"
+#include "../math/ssize_t.hpp"
 #include "../meta/try_unsign.hpp"
 #include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr std::string str_num(T n, std::conditional_t<std::floating_point<T>, xieite::ssize, T> radix = 10, xieite::str_num_cfg cfg = {}, std::size_t pad = 0) noexcept {
-		using Radix = std::conditional_t<std::floating_point<T>, xieite::ssize, T>;
+	[[nodiscard]] constexpr std::string str_num(T n, std::conditional_t<std::floating_point<T>, xieite::ssize_t, T> radix = 10, xieite::str_num_cfg cfg = {}, std::size_t pad = 0) noexcept {
+		using Radix = std::conditional_t<std::floating_point<T>, xieite::ssize_t, T>;
 		std::string result;
 		if (!radix || xieite::almost_eq(n, static_cast<T>(0))) {
 			result += cfg.digits[0];
