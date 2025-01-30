@@ -10,7 +10,7 @@
 
 namespace xieite {
 	template<typename F, typename... Args>
-	constexpr auto try_c_args(F&& fn, Args&&... args)
+	[[nodiscard]] constexpr auto try_c_args(F&& fn, Args&&... args)
 		XIEITE_ARROW(typename xieite::type_list<Args...>
 			::template xform<1, []<typename Arg, typename... Rest> {
 				return std::conditional<

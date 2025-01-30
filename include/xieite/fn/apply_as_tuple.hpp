@@ -9,7 +9,7 @@
 
 namespace xieite {
 	template<typename F, typename V>
-	constexpr auto apply_as_tuple(F&& fn, V&& x)
+	[[nodiscard]] constexpr auto apply_as_tuple(F&& fn, V&& x)
 		XIEITE_ARROW(std::apply(XIEITE_FWD(fn), xieite::make_tuple(XIEITE_FWD(x))))
 
 	template<typename T, typename V>

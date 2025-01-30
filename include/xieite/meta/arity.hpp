@@ -9,7 +9,7 @@
 
 namespace xieite {
 	template<typename T>
-	inline constexpr std::size_t arity = ([] -> std::size_t {
+	constexpr std::size_t arity = ([] -> std::size_t {
 		if constexpr (xieite::is_tuple_like<T>) {
 			return xieite::tuple_size<T>;
 		} else if constexpr (std::is_aggregate_v<T>) {

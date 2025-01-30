@@ -8,7 +8,7 @@
 
 namespace xieite {
 	template<typename F, typename... Args>
-	constexpr auto reverse_args(F&& fn, Args&&... args)
+	[[nodiscard]] constexpr auto reverse_args(F&& fn, Args&&... args)
 		XIEITE_ARROW(std::apply(XIEITE_FWD(fn), xieite::reverse_tuple(std::forward_as_tuple(XIEITE_FWD(args)...))))
 
 	template<typename T, typename... Args>

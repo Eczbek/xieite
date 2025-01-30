@@ -10,7 +10,7 @@
 
 namespace xieite {
 	template<std::size_t arity, std::size_t prev_idx = 0, typename F, typename... Args>
-	constexpr decltype(auto) distr_args_recurs(F&& fn, Args&&... args) noexcept(false) {
+	[[nodiscard]] constexpr decltype(auto) distr_args_recurs(F&& fn, Args&&... args) noexcept(false) {
 		static_assert(prev_idx < arity, "index of previous result must be within functor arity");
 		static_assert((arity > 1) || !sizeof...(Args), "arguments must be distributable across functor calls");
 		static_assert(sizeof...(Args) >= arity, "number of arguments must not be less than functor arity");
