@@ -1,6 +1,8 @@
 #pragma once
 
 #include <cstddef>
+#include <cstdint>
+#include <memory>
 
 namespace xieite {
 	inline void detect_cosmic_ray(std::size_t bytes) noexcept {
