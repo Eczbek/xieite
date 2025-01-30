@@ -9,7 +9,7 @@
 
 namespace xieite {
 	template<std::integral T, typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
-	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> to_roman(T n) noexcept {
+	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> to_roman(T n, Alloc&& alloc = {}) noexcept {
 		using Str = std::basic_string<Ch, Traits, Alloc>;
 		using Array = std::array<std::basic_string_view<Ch, Traits>, 10>;
 		static constexpr Array ones = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
@@ -19,6 +19,6 @@ namespace xieite {
 			return "N";
 		}
 		const auto abs = xieite::abs(n);
-		return Str(abs / 1000, 'M') + Str(hundreds[abs % 1000 / 100]) + Str(tens[abs % 100 / 10]) + Str(ones[abs % 10]);
+		return Str(abs / 1000, 'M', alloc) + Str(hundreds[abs % 1000 / 100], alloc) + Str(tens[abs % 100 / 10], alloc) + Str(ones[abs % 10], alloc);
 	}
 }

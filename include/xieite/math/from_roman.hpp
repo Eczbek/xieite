@@ -6,11 +6,12 @@
 #include <string>
 #include <string_view>
 #include "../ctnr/make_sparse_array.hpp"
+#include "../ctnr/str_view.hpp"
 #include "../ctnr/toupper.hpp"
 #include "../math/sign_cast.hpp"
 
 namespace xieite {
-	template<std::integral T = int, typename Ch = char, typename Traits = std::char_traits<Ch>>
+	template<std::integral T = int, typename Ch, typename Traits = std::char_traits<Ch>>
 	[[nodiscard]] constexpr T from_roman(std::basic_string_view<Ch, Traits> strv) noexcept {
 		static constexpr auto numerals = xieite::make_sparse_array<Ch, T>({
 			{ 'I', 1 },
@@ -35,5 +36,15 @@ namespace xieite {
 			prev = numeral;
 		}
 		return result;
+	}
+
+	template<std::integral T = int, typename Ch, typename Traits = std::char_traits<Ch>>
+	[[nodiscard]] constexpr T from_roman(const std::basic_string<Ch, Traits>& str) noexcept {
+		return xieite::from_roman<T>(xieite::str_view(str));
+	}
+
+	template<std::integral T = int, typename Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
+	[[nodiscard]] constexpr T from_roman(const Ch(& str)[n]) noexcept {
+		return xieite::from_roman<T>(xieite::str_view(str, n));
 	}
 }

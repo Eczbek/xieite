@@ -8,18 +8,19 @@
 #include <string_view>
 #include "../ctnr/make_array.hpp"
 #include "../pp/fwd.hpp"
+#include "../trait/is_ch.hpp"
 #include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<std::size_t size_, typename Ch = char>
+	template<std::size_t n, xieite::is_ch Ch = char>
 	struct fixed_str {
 		using value_type = Ch;
 
-		static constexpr std::size_t size = size_;
-		std::array<Ch, size_> data;
+		static constexpr std::size_t size = n;
+		std::array<Ch, n> data;
 
-		[[nodiscard]] explicit(false) constexpr fixed_str(const Ch(&data)[size_ + 1]) noexcept {
-			for (std::size_t i = 0; i < size_; ++i) {
+		[[nodiscard]] explicit(false) constexpr fixed_str(const Ch(& data)[n + 1]) noexcept {
+			for (std::size_t i = 0; i < n; ++i) {
 				this->data[i] = data[i];
 			}
 		}
@@ -28,7 +29,7 @@ namespace xieite {
 		requires(std::convertible_to<std::ranges::range_value_t<R>, Ch>)
 		[[nodiscard]] explicit(false) constexpr fixed_str(R&& data)
 		noexcept(xieite::is_noex_range<R>)
-		: data(xieite::make_array<Ch, size_>(XIEITE_FWD(data))) {}
+		: data(xieite::make_array<Ch, n>(XIEITE_FWD(data))) {}
 
 		template<typename Traits = std::char_traits<Ch>>
 		[[nodiscard]] constexpr std::basic_string_view<Ch, Traits> view() const noexcept {
@@ -36,6 +37,6 @@ namespace xieite {
 		}
 	};
 
-	template<std::size_t size, typename Ch>
-	fixed_str(const Ch(&)[size]) -> fixed_str<(size - 1), Ch>;
+	template<std::size_t n, typename Ch>
+	fixed_str(const Ch(&)[n]) -> fixed_str<(n - 1), Ch>;
 }

@@ -1,18 +1,25 @@
 #pragma once
 
+#include <cstddef>
 #include <string>
 #include <string_view>
-#include "../ctnr/substr.hpp"
-#include "../meta/id.hpp"
+#include "../ctnr/str_view.hpp"
+#include "../ctnr/trim_back.hpp"
+#include "../ctnr/trim_front.hpp"
+#include "../pp/arrow.hpp"
+#include "../pp/fwd.hpp"
+#include "../trait/is_ch.hpp"
 
 namespace xieite {
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>>
-	[[nodiscard]] constexpr std::basic_string_view<Ch, Traits> trim(std::basic_string_view<Ch, Traits> strv, xieite::id<std::basic_string_view<Ch, Traits>> chars) noexcept {
-		return xieite::substr(strv, strv.find_first_not_of(chars), strv.find_last_not_of(chars), 0, 1);
-	}
+	template<typename Ch, typename Traits = std::char_traits<Ch>>
+	[[nodiscard]] constexpr auto trim(std::basic_string_view<Ch, Traits> strv, auto&& chars)
+		XIEITE_ARROW(xieite::trim_back(xieite::trim_front(strv, chars), chars))
 
-	template<typename Ch = char, typename Traits = std::char_traits<Ch>>
-	[[nodiscard]] constexpr std::basic_string_view<Ch, Traits> trim(std::basic_string_view<Ch, Traits> strv, Ch c) noexcept {
-		return xieite::trim(strv, std::basic_string_view<Ch, Traits>(&c, 1));
-	}
+	template<typename Ch, typename Traits = std::char_traits<Ch>>
+	[[nodiscard]] constexpr auto trim(const std::basic_string<Ch, Traits>& str, auto&& chars)
+		XIEITE_ARROW(xieite::trim(xieite::str_view(str), XIEITE_FWD(chars)))
+
+	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
+	[[nodiscard]] constexpr auto trim(const Ch(& str)[n], auto&& chars)
+		XIEITE_ARROW(xieite::trim(xieite::str_view(str), XIEITE_FWD(chars)))
 }
