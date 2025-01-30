@@ -7,7 +7,13 @@
 #define XIEITE_DIAG_WARN(_)
 #define XIEITE_DIAG_ERR(_)
 #define XIEITE_DIAG_PUSH()
+#define XIEITE_DIAG_PUSH_GCC()
+#define XIEITE_DIAG_PUSH_CLANG()
+#define XIEITE_DIAG_PUSH_MSVC()
 #define XIEITE_DIAG_POP()
+#define XIEITE_DIAG_POP_GCC()
+#define XIEITE_DIAG_POP_CLANG()
+#define XIEITE_DIAG_POP_MSVC()
 #define XIEITE_DIAG_ON_GCC(_)
 #define XIEITE_DIAG_ON_CLANG(_)
 #define XIEITE_DIAG_ON_MSVC(_)
@@ -31,8 +37,14 @@
 #	undef XIEITE_DIAG_PUSH
 #	define XIEITE_DIAG_PUSH() XIEITE_PRAGMA(GCC diagnostic push)
 
+#	undef XIEITE_DIAG_PUSH_GCC
+#	define XIEITE_DIAG_PUSH_GCC() XIEITE_DIAG_PUSH()
+
 #	undef XIEITE_DIAG_POP
 #	define XIEITE_DIAG_POP() XIEITE_PRAGMA(GCC diagnostic pop)
+
+#	undef XIEITE_DIAG_POP_GCC
+#	define XIEITE_DIAG_POP_GCC() XIEITE_DIAG_POP()
 
 #	undef XIEITE_DIAG_ON_GCC
 #	define XIEITE_DIAG_ON_GCC(s_) XIEITE_PRAGMA(GCC diagnostic warning s_)
@@ -55,8 +67,14 @@
 #	undef XIEITE_DIAG_PUSH
 #	define XIEITE_DIAG_PUSH() XIEITE_PRAGMA(clang diagnostic push)
 
+#	undef XIEITE_DIAG_PUSH_CLANG
+#	define XIEITE_DIAG_PUSH_CLANG() XIEITE_DIAG_PUSH()
+
 #	undef XIEITE_DIAG_POP
 #	define XIEITE_DIAG_POP() XIEITE_PRAGMA(clang diagnostic pop)
+
+#	undef XIEITE_DIAG_POP_CLANG
+#	define XIEITE_DIAG_POP_CLANG() XIEITE_DIAG_POP()
 
 #	undef XIEITE_DIAG_ON_CLANG
 #	define XIEITE_DIAG_ON_CLANG(s_) XIEITE_PRAGMA(clang diagnostic warning s_)
@@ -79,8 +97,14 @@
 #	undef XIEITE_DIAG_PUSH
 #	define XIEITE_DIAG_PUSH() XIEITE_PRAGMA(warning(push))
 
+#	undef XIEITE_DIAG_PUSH_MSVC
+#	define XIEITE_DIAG_PUSH_MSVC() XIEITE_DIAG_PUSH()
+
 #	undef XIEITE_DIAG_POP
 #	define XIEITE_DIAG_POP() XIEITE_PRAGMA(warning(pop))
+
+#	undef XIEITE_DIAG_POP_MSVC
+#	define XIEITE_DIAG_POP_MSVC() XIEITE_DIAG_POP()
 
 #	undef XIEITE_DIAG_ON_MSVC
 #	define XIEITE_DIAG_ON_MSVC(n_) XIEITE_PRAGMA(warning(default: n_))
