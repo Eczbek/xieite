@@ -1,6 +1,5 @@
 #pragma once
 
-#include <cstddef>
 #include <cstdio>
 #include <memory>
 #include <print>
@@ -32,7 +31,7 @@ namespace xieite {
 
 		[[nodiscard]] term(std::FILE* in = stdin, std::FILE* out = stdout) noexcept
 		: in(in), out(out), block_mode(::fcntl(::fileno(in), F_GETFL)) {
-			::tcgetattr(::fileno(this->in), &this->cooked_mode);
+			::tcgetattr(::fileno(this->in), std::addressof(this->cooked_mode));
 			this->is_block = !(this->block_mode & O_NONBLOCK);
 			this->is_echo = this->cooked_mode.c_lflag & ECHO;
 			this->is_canon = this->cooked_mode.c_lflag & ICANON;
@@ -201,7 +200,7 @@ namespace xieite {
 		
 		void reset_mode() noexcept {
 			::fcntl(::fileno(this->in), F_SETFL, this->block_mode);
-			::tcsetattr(::fileno(this->in), TCSANOW, &this->cooked_mode);
+			::tcsetattr(::fileno(this->in), TCSANOW, std::addressof(this->cooked_mode));
 		}
 
 		[[nodiscard]] xieite::vec2<int> get_curs() noexcept {
