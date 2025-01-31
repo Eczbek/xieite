@@ -21,5 +21,5 @@ namespace xieite {
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
 	[[nodiscard]] constexpr auto trim(const Ch(& str)[n], auto&& chars)
-		XIEITE_ARROW(xieite::trim(xieite::str_view(str), XIEITE_FWD(chars)))
+		XIEITE_ARROW(xieite::trim(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(chars)))
 }

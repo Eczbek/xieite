@@ -44,5 +44,5 @@ namespace xieite {
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, std::size_t n>
 	[[nodiscard]] constexpr auto tolower(const Ch(& str)[n], Alloc&& alloc = {})
-		XIEITE_ARROW(xieite::tolower(xieite::str_view(str), XIEITE_FWD(alloc)))
+		XIEITE_ARROW(xieite::tolower(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(alloc)))
 }

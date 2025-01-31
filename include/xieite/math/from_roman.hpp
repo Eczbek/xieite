@@ -45,6 +45,6 @@ namespace xieite {
 
 	template<std::integral T = int, typename Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
 	[[nodiscard]] constexpr T from_roman(const Ch(& str)[n]) noexcept {
-		return xieite::from_roman<T>(xieite::str_view(str, n));
+		return xieite::from_roman<T>(xieite::str_view<Ch, Traits>(str, n));
 	}
 }

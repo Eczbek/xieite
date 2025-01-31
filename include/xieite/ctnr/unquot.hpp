@@ -30,5 +30,5 @@ namespace xieite {
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, std::size_t n>
 	[[nodiscard]] constexpr auto unquot(const Ch(& str)[n], Ch delim = '"', Ch esc = '\\', Alloc&& alloc = {})
-		XIEITE_ARROW(xieite::unquot(xieite::str_view(str), delim, esc, XIEITE_FWD(alloc)))
+		XIEITE_ARROW(xieite::unquot(xieite::str_view<Ch, Traits>(str), delim, esc, XIEITE_FWD(alloc)))
 }
