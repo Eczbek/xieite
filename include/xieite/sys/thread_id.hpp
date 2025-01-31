@@ -4,7 +4,7 @@
 #include <cstddef>
 
 namespace XIEITE_DETAIL::thread_id {
-	std::atomic<std::size_t> state = 0;
+	inline std::atomic<std::size_t> state = 0;
 }
 
 namespace xieite {
