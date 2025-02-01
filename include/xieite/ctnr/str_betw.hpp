@@ -20,6 +20,6 @@ namespace xieite {
 		XIEITE_ARROW(xieite::str_betw(xieite::str_view(str), XIEITE_FWD(a), XIEITE_FWD(b)))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
-	[[nodiscard]] constexpr auto str_betw(Ch(& str)[n], auto&& a, auto&& b)
+	[[nodiscard]] constexpr auto str_betw(const Ch(& str)[n], auto&& a, auto&& b)
 		XIEITE_ARROW(xieite::str_betw(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(a), XIEITE_FWD(b)))
 }
