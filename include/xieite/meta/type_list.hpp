@@ -46,7 +46,6 @@ namespace xieite {
 		})();
 
 		template<typename T, auto cmp = []<typename U, std::same_as<U>> {}>
-		requires(xieite::type_list<Ts...>::has<T, cmp>)
 		static constexpr std::size_t idx_of =
 			xieite::type_list<Ts...>
 			::find_idx<[]<typename U> requires(xieite::is_satisfd<cmp, T, U>) {}>;
