@@ -253,6 +253,7 @@
 #include "./pp/no_unix.hpp"
 #include "./pp/no_windows.hpp"
 #include "./pp/not.hpp"
+#include "./pp/obj.hpp"
 #include "./pp/obstruct.hpp"
 #include "./pp/op_kw.hpp"
 #include "./pp/paren.hpp"
