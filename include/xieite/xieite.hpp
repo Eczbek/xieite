@@ -507,7 +507,6 @@
 #include "./trait/is_c_noex.hpp"
 #include "./trait/is_c_referent.hpp"
 #include "./trait/is_ch.hpp"
-#include "./trait/is_ch_ptr.hpp"
 #include "./trait/is_class.hpp"
 #include "./trait/is_clock.hpp"
 #include "./trait/is_clref.hpp"
