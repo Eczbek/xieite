@@ -11,7 +11,7 @@ namespace xieite {
 	template<std::size_t n, typename F, typename... Args>
 	[[nodiscard]] constexpr auto rot_args(F&& fn, Args&&... args)
 		XIEITE_ARROW(xieite::unroll<Args...>(
-			[]<std::size_t... i>(F&& fn, Args&&... args)
+			[]<std::size_t... i>(F&& fn, Args&&... args) static
 				XIEITE_ARROW(std::invoke(XIEITE_FWD(fn), XIEITE_FWD(args...[(i + n % sizeof...(Args)) % sizeof...(Args)])...)),
 			XIEITE_FWD(fn),
 			XIEITE_FWD(args)...

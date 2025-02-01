@@ -5,7 +5,7 @@
 #include "../math/bit_size.hpp"
 
 namespace xieite {
-	inline constexpr auto radiotelephony_spelling_alphabet = ([] -> std::array<std::string_view, (1uz << xieite::bit_size<char>)> {
+	inline constexpr auto radiotelephony_spelling_alphabet = ([] static -> std::array<std::string_view, (1uz << xieite::bit_size<char>)> {
 		std::array<std::string_view, (1uz << xieite::bit_size<char>)> result;
 		result['A'] = result['a'] = "Alfa"; // This is not a typo
 		result['B'] = result['b'] = "Bravo";

@@ -5,7 +5,7 @@
 
 namespace xieite {
 	template<auto n>
-	constexpr decltype(([]<typename T, T... i>(std::integer_sequence<T, i...>) {
+	constexpr decltype(([]<typename T, T... i>(std::integer_sequence<T, i...>) static {
 		return xieite::seq<i...>();
 	})(std::make_integer_sequence<decltype(n), n>())) make_seq;
 }

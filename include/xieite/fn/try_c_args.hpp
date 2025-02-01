@@ -23,7 +23,7 @@ namespace xieite {
 					Arg
 				>();
 			}>::apply(
-				[]<typename... CArgs>(F&& fn, Args&&... args)
+				[]<typename... CArgs>(F&& fn, Args&&... args) static
 					XIEITE_ARROW(std::invoke(XIEITE_FWD(fn), std::forward_like<CArgs>(args)...)),
 				XIEITE_FWD(fn),
 				XIEITE_FWD(args)...

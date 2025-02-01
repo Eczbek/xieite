@@ -18,7 +18,7 @@ namespace xieite {
 	template<xieite::is_ch Ch>
 	[[nodiscard]] constexpr Ch tolower(Ch c) noexcept {
 		using Lookup = std::array<Ch, (1uz << xieite::bit_size<Ch>)>;
-		static constexpr Lookup lookup = ([] -> Lookup {
+		static constexpr Lookup lookup = ([] static -> Lookup {
 			Lookup lookup;
 			std::ranges::iota(lookup, '\0');
 			for (std::size_t i = 0; i < xieite::ch::alphabet_size; ++i) {

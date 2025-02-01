@@ -11,7 +11,7 @@ namespace xieite {
 	template<typename F, typename V, std::size_t size>
 	[[nodiscard]] constexpr auto apply_array(F&& fn, const std::array<V, size>& array)
 		XIEITE_ARROW(xieite::unroll<size>(
-			[]<std::size_t... i>(F&& fn, const auto& array)
+			[]<std::size_t... i>(F&& fn, const auto& array) static
 				XIEITE_ARROW(std::invoke(XIEITE_FWD(fn), array[i]...)),
 			XIEITE_FWD(fn),
 			array
