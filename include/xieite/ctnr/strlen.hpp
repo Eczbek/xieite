@@ -4,6 +4,8 @@
 #include <string>
 #include <string_view>
 #include "../trait/is_ch.hpp"
+#include "../trait/rm_ptr.hpp"
+#include "../trait/rm_ref.hpp"
 
 namespace xieite {
 	template<typename Ch>
@@ -22,7 +24,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_ch Ch, typename Str>
-	requires(std::same_as<Ch, std::remove_pointer_t<std::remove_reference_t<Str>>>)
+	requires(std::same_as<Ch, xieite::rm_ptr<xieite::rm_ref<Str>>>)
 	[[nodiscard]] constexpr std::size_t strlen(Str str) noexcept {
 		std::size_t i = 0;
 		while (str && str[i]) {
