@@ -35,8 +35,8 @@ namespace xieite {
 			return xieite::ray2d<U>(this->a, this->b);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::ray2d<T>& left, const xieite::ray2d<T>& right) noexcept {
-			return (left.a == right.a) && xieite::almost_eq(left.angle(), right.angle());
+		[[nodiscard]] friend constexpr bool operator==(const xieite::ray2d<T>& l, const xieite::ray2d<T>& r) noexcept {
+			return (l.a == r.a) && xieite::almost_eq(l.angle(), r.angle());
 		}
 
 		[[nodiscard]] constexpr std::common_type_t<T, double> angle() const noexcept {

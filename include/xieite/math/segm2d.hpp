@@ -30,8 +30,8 @@ namespace xieite {
 			return xieite::segm2d<U>(this->start, this->end);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::segm2d<T>& left, const xieite::segm2d<T>& right) noexcept {
-			return ((left.start == right.start) && (left.end == right.end)) || ((left.start == right.end) && (left.end == right.start));
+		[[nodiscard]] friend constexpr bool operator==(const xieite::segm2d<T>& l, const xieite::segm2d<T>& r) noexcept {
+			return ((l.start == r.start) && (l.end == r.end)) || ((l.start == r.end) && (l.end == r.start));
 		}
 
 		[[nodiscard]] constexpr std::common_type_t<T, double> angle() const noexcept {

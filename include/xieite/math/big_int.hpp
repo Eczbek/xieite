@@ -29,6 +29,7 @@
 #include "../math/sub_overflow.hpp"
 #include "../meta/try_unsign.hpp"
 #include "../trait/is_arith.hpp"
+#include "../trait/is_input_range.hpp"
 #include "../trait/rm_cv.hpp"
 
 namespace xieite {
@@ -38,7 +39,7 @@ namespace xieite {
 		using type = T;
 
 		template<std::integral U = int>
-		[[nodiscard]] constexpr big_int(U x = 0) noexcept
+		[[nodiscard]] explicit(false) constexpr big_int(U x = 0) noexcept
 		: neg(xieite::neg(x)) {
 			xieite::try_unsign<U> abs = xieite::abs(x);
 			do {
@@ -78,14 +79,13 @@ namespace xieite {
 			}
 		}
 
-		template<std::ranges::input_range R>
-		requires(std::same_as<std::ranges::range_value_t<R>, T>)
+		template<xieite::is_input_range<[]<std::same_as<T>> {}> R>
 		[[nodiscard]] explicit constexpr big_int(R&& range, bool neg = false) noexcept
 		: data(std::ranges::begin(range), std::ranges::end(range)), neg(neg) {
 			this->trim();
 		}
 
-		[[nodiscard]] constexpr big_int(std::string_view str, xieite::ssize_t radix = 10, xieite::str_num_cfg cfg = {}) noexcept
+		[[nodiscard]] explicit constexpr big_int(std::string_view str, xieite::ssize_t radix = 10, xieite::str_num_cfg cfg = {}) noexcept
 		: neg(false) {
 			*this = 0;
 			if (!radix) {
@@ -650,21 +650,21 @@ namespace xieite {
 		bool neg;
 
 		[[nodiscard]] static constexpr xieite::big_int<T> bit_op(xieite::big_int<T> l, xieite::big_int<T> r, auto fn) noexcept {
-			const bool left_neg = l.neg;
-			const bool right_neg = r.neg;
-			l += left_neg;
-			r += right_neg;
+			const bool l_neg = l.neg;
+			const bool r_neg = r.neg;
+			l += l_neg;
+			r += r_neg;
 			xieite::big_int<T> result;
 			result.data.clear();
-			result.neg = static_cast<bool>(fn(left_neg, right_neg));
+			result.neg = static_cast<bool>(fn(l_neg, r_neg));
 			for (std::size_t i = 0; (i < l.data.size()) || (i < r.data.size()); ++i) {
 				const T limb = fn(
 					(i < l.data.size())
-						? (left_neg ? ~l.data[i] : l.data[i])
-						: (std::numeric_limits<T>::max() * left_neg),
+						? (l_neg ? ~l.data[i] : l.data[i])
+						: (std::numeric_limits<T>::max() * l_neg),
 					(i < r.data.size())
-						? (right_neg ? ~r.data[i] : r.data[i])
-						: (std::numeric_limits<T>::max() * right_neg)
+						? (r_neg ? ~r.data[i] : r.data[i])
+						: (std::numeric_limits<T>::max() * r_neg)
 				);
 				result.data.push_back(result.neg ? ~limb : limb);
 			}

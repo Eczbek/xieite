@@ -6,10 +6,10 @@
 #include <type_traits>
 #include <vector>
 #include "../ctnr/rotated.hpp"
+#include "../fn/cast.hpp"
 #include "../math/intxn2d.hpp"
 #include "../math/pt2d.hpp"
 #include "../math/segm2d.hpp"
-#include "../pp/fn.hpp"
 #include "../trait/is_arith.hpp"
 
 namespace xieite {
@@ -33,12 +33,12 @@ namespace xieite {
 		template<typename U>
 		[[nodiscard]] constexpr operator xieite::poly2d<U>() const noexcept {
 			auto other_pts = std::vector<xieite::pt2d<U>>(this->pts.size());
-			std::ranges::transform(this->pts, other_pts.begin(), XIEITE_FN(static_cast<xieite::pt2d<U>>($0)));
+			std::ranges::transform(this->pts, other_pts.begin(), xieite::cast<xieite::pt2d<U>>());
 			return xieite::poly2d<U>(other_pts);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::poly2d<T>& left, const xieite::poly2d<T>& right) noexcept {
-			return xieite::rotated(left.pts, right.pts) || xieite::rotated(left.pts, std::views::reverse(right.pts));
+		[[nodiscard]] friend constexpr bool operator==(const xieite::poly2d<T>& l, const xieite::poly2d<T>& r) noexcept {
+			return xieite::rotated(l.pts, r.pts) || xieite::rotated(l.pts, std::views::reverse(r.pts));
 		}
 
 		[[nodiscard]] static constexpr xieite::poly2d<T> rect(xieite::pt2d<T> start, xieite::pt2d<T> end) noexcept {

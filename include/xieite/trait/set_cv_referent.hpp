@@ -5,5 +5,5 @@
 
 namespace xieite {
 	template<bool qual, typename T>
-	using set_cv = xieite::set_c_referent<qual, xieite::set_v_referent<qual, T>>;
+	using set_cv_referent = xieite::set_c_referent<qual, xieite::set_v_referent<qual, T>>;
 }

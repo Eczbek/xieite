@@ -24,8 +24,8 @@ namespace XIEITE_DETAIL::memoize {
 		[[nodiscard]] friend bool operator==(const memo<F, Args...>&, const memo<F, Args...>&) = default;
 
 		template<typename... OtherArgs>
-		[[nodiscard]] friend bool operator==(const memo<F, Args...>& left, const memo<F, OtherArgs...>& right) noexcept {
-			return (left.fn == right.fn) && (left.args == right.args);
+		[[nodiscard]] friend bool operator==(const memo<F, Args...>& l, const memo<F, OtherArgs...>& r) noexcept {
+			return (l.fn == r.fn) && (l.args == r.args);
 		}
 	};
 

@@ -7,24 +7,24 @@
 #include "../math/str_num.hpp"
 
 namespace xieite {
-	struct version {
+	struct ver {
 		std::size_t major;
 		std::size_t minor;
 		std::size_t patch;
 		std::string label;
 
-		[[nodiscard]] constexpr version(std::size_t major = 0, std::size_t minor = 0, std::size_t patch = 0, std::string label = "") noexcept
+		[[nodiscard]] constexpr ver(std::size_t major = 0, std::size_t minor = 0, std::size_t patch = 0, std::string label = "") noexcept
 		: major(major), minor(minor), patch(patch), label(std::move(label)) {}
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::version& left, const xieite::version& right) noexcept {
-			return (left.major != right.major)
-				? (left.major <=> right.major)
-				: ((left.minor != right.minor)
-					? (left.minor <=> right.minor)
-					: (left.patch <=> right.patch));
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::ver& l, const xieite::ver& r) noexcept {
+			return (l.major != r.major)
+				? (l.major <=> r.major)
+				: ((l.minor != r.minor)
+					? (l.minor <=> r.minor)
+					: (l.patch <=> r.patch));
 		}
 
-		[[nodiscard]] friend bool operator==(const xieite::version&, const xieite::version&) = default;
+		[[nodiscard]] friend bool operator==(const xieite::ver&, const xieite::ver&) = default;
 
 		[[nodiscard]] constexpr std::string str() const noexcept {
 			std::string result = 'v' + xieite::str_num(this->major) + '.' + xieite::str_num(this->minor) + '.' + xieite::str_num(this->patch);

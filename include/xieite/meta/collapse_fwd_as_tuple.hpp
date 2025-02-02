@@ -1,8 +1,8 @@
 #pragma once
 
 #include <tuple>
+#include "../meta/collapse_fwd.hpp"
 #include "../pp/fwd.hpp"
-#include "../trait/collapse_fwd.hpp"
 
 namespace xieite {
 	template<typename T, typename... Args>

@@ -3,8 +3,8 @@
 #include <tuple>
 #include <type_traits>
 #include "../meta/arity.hpp"
+#include "../meta/collapse_fwd_as_tuple.hpp"
 #include "../pp/fwd.hpp"
-#include "../trait/collapse_fwd_as_tuple.hpp"
 #include "../trait/is_tuple_like.hpp"
 
 namespace xieite {

@@ -18,20 +18,20 @@ namespace xieite {
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator+(xieite::vec2<T> left, xieite::vec2<T> right) noexcept {
-			return xieite::vec2<T>(left.x + right.x, left.y + right.y);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator+(xieite::vec2<T> l, xieite::vec2<T> r) noexcept {
+			return xieite::vec2<T>(l.x + r.x, l.y + r.y);
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator+(xieite::vec2<T> left, T right) noexcept {
-			return left + xieite::vec2<T>(right, right);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator+(xieite::vec2<T> l, T r) noexcept {
+			return l + xieite::vec2<T>(r, r);
 		}
 
-		constexpr xieite::vec2<T>& operator+=(xieite::vec2<T> right) noexcept {
-			return *this = *this + right;
+		constexpr xieite::vec2<T>& operator+=(xieite::vec2<T> r) noexcept {
+			return *this = *this + r;
 		}
 
-		constexpr xieite::vec2<T>& operator+=(T right) noexcept {
-			return *this = *this + right;
+		constexpr xieite::vec2<T>& operator+=(T r) noexcept {
+			return *this = *this + r;
 		}
 
 		constexpr xieite::vec2<T>& operator++() noexcept {
@@ -46,20 +46,20 @@ namespace xieite {
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator-(xieite::vec2<T> left, xieite::vec2<T> right) noexcept {
-			return xieite::vec2<T>(left.x - right.x, left.y - right.y);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator-(xieite::vec2<T> l, xieite::vec2<T> r) noexcept {
+			return xieite::vec2<T>(l.x - r.x, l.y - r.y);
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator-(xieite::vec2<T> left, T right) noexcept {
-			return left - xieite::vec2<T>(right, right);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator-(xieite::vec2<T> l, T r) noexcept {
+			return l - xieite::vec2<T>(r, r);
 		}
 
-		constexpr xieite::vec2<T>& operator-=(xieite::vec2<T> right) noexcept {
-			return *this = *this - right;
+		constexpr xieite::vec2<T>& operator-=(xieite::vec2<T> r) noexcept {
+			return *this = *this - r;
 		}
 
-		constexpr xieite::vec2<T>& operator-=(T right) noexcept {
-			return *this = *this - right;
+		constexpr xieite::vec2<T>& operator-=(T r) noexcept {
+			return *this = *this - r;
 		}
 
 		constexpr xieite::vec2<T>& operator--() noexcept {
@@ -70,52 +70,52 @@ namespace xieite {
 			return std::exchange(*this, *this - 1);
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator*(xieite::vec2<T> left, xieite::vec2<T> right) noexcept {
-			return xieite::vec2<T>(left.x * right.x, left.y * right.y);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator*(xieite::vec2<T> l, xieite::vec2<T> r) noexcept {
+			return xieite::vec2<T>(l.x * r.x, l.y * r.y);
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator*(xieite::vec2<T> left, T right) noexcept {
-			return left * xieite::vec2<T>(right, right);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator*(xieite::vec2<T> l, T r) noexcept {
+			return l * xieite::vec2<T>(r, r);
 		}
 
-		constexpr xieite::vec2<T>& operator*=(xieite::vec2<T> right) noexcept {
-			return *this = *this * right;
+		constexpr xieite::vec2<T>& operator*=(xieite::vec2<T> r) noexcept {
+			return *this = *this * r;
 		}
 
-		constexpr xieite::vec2<T>& operator*=(T right) noexcept {
-			return *this = *this * right;
+		constexpr xieite::vec2<T>& operator*=(T r) noexcept {
+			return *this = *this * r;
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator/(xieite::vec2<T> left, xieite::vec2<T> right) noexcept {
-			return xieite::vec2<T>(left.x / right.x, left.y / right.y);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator/(xieite::vec2<T> l, xieite::vec2<T> r) noexcept {
+			return xieite::vec2<T>(l.x / r.x, l.y / r.y);
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator/(xieite::vec2<T> left, T right) noexcept {
-			return left / xieite::vec2<T>(right, right);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator/(xieite::vec2<T> l, T r) noexcept {
+			return l / xieite::vec2<T>(r, r);
 		}
 
-		constexpr xieite::vec2<T>& operator/=(xieite::vec2<T> right) noexcept {
-			return *this = *this / right;
+		constexpr xieite::vec2<T>& operator/=(xieite::vec2<T> r) noexcept {
+			return *this = *this / r;
 		}
 
-		constexpr xieite::vec2<T>& operator/=(T right) noexcept {
-			return *this = *this / right;
+		constexpr xieite::vec2<T>& operator/=(T r) noexcept {
+			return *this = *this / r;
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator%(xieite::vec2<T> left, xieite::vec2<T> right) noexcept {
-			return xieite::vec2<T>(left.x % right.x, left.y % right.y);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator%(xieite::vec2<T> l, xieite::vec2<T> r) noexcept {
+			return xieite::vec2<T>(l.x % r.x, l.y % r.y);
 		}
 
-		[[nodiscard]] friend constexpr xieite::vec2<T> operator%(xieite::vec2<T> left, T right) noexcept {
-			return left % xieite::vec2<T>(right, right);
+		[[nodiscard]] friend constexpr xieite::vec2<T> operator%(xieite::vec2<T> l, T r) noexcept {
+			return l % xieite::vec2<T>(r, r);
 		}
 
-		constexpr xieite::vec2<T>& operator%=(xieite::vec2<T> right) noexcept {
-			return *this = *this % right;
+		constexpr xieite::vec2<T>& operator%=(xieite::vec2<T> r) noexcept {
+			return *this = *this % r;
 		}
 
-		constexpr xieite::vec2<T>& operator%=(T right) noexcept {
-			return *this = *this % right;
+		constexpr xieite::vec2<T>& operator%=(T r) noexcept {
+			return *this = *this % r;
 		}
 	};
 

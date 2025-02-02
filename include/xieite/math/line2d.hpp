@@ -33,8 +33,8 @@ namespace xieite {
 			return xieite::line2d<U>(this->a, this->b);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::line2d<T>& left, const xieite::line2d<T>& right) noexcept {
-			return left.contains(right.a) && left.contains(right.b);
+		[[nodiscard]] friend constexpr bool operator==(const xieite::line2d<T>& l, const xieite::line2d<T>& r) noexcept {
+			return l.contains(r.a) && l.contains(r.b);
 		}
 
 		[[nodiscard]] constexpr std::common_type_t<T, double> angle() const noexcept {

@@ -25,8 +25,8 @@ namespace xieite {
 			return xieite::num<U>(static_cast<U>(this->value));
 		}
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::num<T> left, xieite::num<T> right) noexcept {
-			return left.value <=> right.value;
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::num<T> l, xieite::num<T> r) noexcept {
+			return l.value <=> r.value;
 		}
 
 		[[nodiscard]] friend bool operator==(xieite::num<T>, xieite::num<T>) = default;
@@ -35,12 +35,12 @@ namespace xieite {
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator+(xieite::num<T> augend, xieite::num<T> addend) noexcept {
-			return xieite::num<T>(augend.value + addend.value);
+		[[nodiscard]] friend constexpr xieite::num<T> operator+(xieite::num<T> l, xieite::num<T> r) noexcept {
+			return xieite::num<T>(l.value + r.value);
 		}
 
-		constexpr xieite::num<T>& operator+=(xieite::num<T> addend) noexcept {
-			return *this = *this + addend;
+		constexpr xieite::num<T>& operator+=(xieite::num<T> r) noexcept {
+			return *this = *this + r;
 		}
 
 		constexpr xieite::num<T>& operator++() noexcept {
@@ -55,12 +55,12 @@ namespace xieite {
 			return xieite::num<T>(-this->value);
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator-(xieite::num<T> minuend, xieite::num<T> subtrahend) noexcept {
-			return xieite::num<T>(minuend.value - subtrahend.value);
+		[[nodiscard]] friend constexpr xieite::num<T> operator-(xieite::num<T> l, xieite::num<T> r) noexcept {
+			return xieite::num<T>(l.value - r.value);
 		}
 
-		constexpr xieite::num<T>& operator-=(xieite::num<T> addend) noexcept {
-			return *this = *this - addend;
+		constexpr xieite::num<T>& operator-=(xieite::num<T> r) noexcept {
+			return *this = *this - r;
 		}
 
 		constexpr xieite::num<T>& operator--() noexcept {
@@ -71,32 +71,32 @@ namespace xieite {
 			return xieite::num<T>(this->value--);
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator*(xieite::num<T> augend, xieite::num<T> addend) noexcept {
-			return xieite::num<T>(augend.value * addend.value);
+		[[nodiscard]] friend constexpr xieite::num<T> operator*(xieite::num<T> l, xieite::num<T> r) noexcept {
+			return xieite::num<T>(l.value * r.value);
 		}
 
-		constexpr xieite::num<T>& operator*=(xieite::num<T> addend) noexcept {
-			return *this = *this * addend;
+		constexpr xieite::num<T>& operator*=(xieite::num<T> r) noexcept {
+			return *this = *this * r;
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator/(xieite::num<T> augend, xieite::num<T> addend) noexcept {
-			return xieite::num<T>(augend.value / addend.value);
+		[[nodiscard]] friend constexpr xieite::num<T> operator/(xieite::num<T> l, xieite::num<T> r) noexcept {
+			return xieite::num<T>(l.value / r.value);
 		}
 
-		constexpr xieite::num<T>& operator/=(xieite::num<T> addend) noexcept {
-			return *this = *this / addend;
+		constexpr xieite::num<T>& operator/=(xieite::num<T> r) noexcept {
+			return *this = *this / r;
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator%(xieite::num<T> augend, xieite::num<T> addend) noexcept {
+		[[nodiscard]] friend constexpr xieite::num<T> operator%(xieite::num<T> l, xieite::num<T> r) noexcept {
 			if constexpr (std::floating_point<T>) {
-				return xieite::num<T>(std::fmod(augend.value, addend.value));
+				return xieite::num<T>(std::fmod(l.value, r.value));
 			} else {
-				return xieite::num<T>(augend.value % addend.value);
+				return xieite::num<T>(l.value % r.value);
 			}
 		}
 
-		constexpr xieite::num<T>& operator%=(xieite::num<T> addend) noexcept {
-			return *this = *this % addend;
+		constexpr xieite::num<T>& operator%=(xieite::num<T> r) noexcept {
+			return *this = *this % r;
 		}
 
 		[[nodiscard]] constexpr xieite::num<T> operator~() const noexcept {
@@ -107,72 +107,72 @@ namespace xieite {
 			}
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator&(xieite::num<T> left, xieite::num<T> right) noexcept {
-			return xieite::num<T>::bit_op(left, right, std::bit_and());
+		[[nodiscard]] friend constexpr xieite::num<T> operator&(xieite::num<T> l, xieite::num<T> r) noexcept {
+			return xieite::num<T>::bit_op(l, r, std::bit_and());
 		}
 
-		constexpr xieite::num<T>& operator&=(xieite::num<T> right) noexcept {
-			return *this = *this & right;
+		constexpr xieite::num<T>& operator&=(xieite::num<T> r) noexcept {
+			return *this = *this & r;
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator|(xieite::num<T> left, xieite::num<T> right) noexcept {
-			return xieite::num<T>::bit_op(left, right, std::bit_or());
+		[[nodiscard]] friend constexpr xieite::num<T> operator|(xieite::num<T> l, xieite::num<T> r) noexcept {
+			return xieite::num<T>::bit_op(l, r, std::bit_or());
 		}
 
-		constexpr xieite::num<T>& operator|=(xieite::num<T> right) noexcept {
-			return *this = *this | right;
+		constexpr xieite::num<T>& operator|=(xieite::num<T> r) noexcept {
+			return *this = *this | r;
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator^(xieite::num<T> left, xieite::num<T> right) noexcept {
-			return xieite::num<T>::bit_op(left, right, std::bit_xor());
+		[[nodiscard]] friend constexpr xieite::num<T> operator^(xieite::num<T> l, xieite::num<T> r) noexcept {
+			return xieite::num<T>::bit_op(l, r, std::bit_xor());
 		}
 
-		constexpr xieite::num<T>& operator^=(xieite::num<T> right) noexcept {
-			return *this = *this ^ right;
+		constexpr xieite::num<T>& operator^=(xieite::num<T> r) noexcept {
+			return *this = *this ^ r;
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator<<(xieite::num<T> left, T right) noexcept {
+		[[nodiscard]] friend constexpr xieite::num<T> operator<<(xieite::num<T> l, T r) noexcept {
 			if constexpr (std::floating_point<T>) {
-				return xieite::num<T>(left.value * std::pow(2, right));
-			} else if (xieite::neg(right)) {
-				return left >> -right;
+				return xieite::num<T>(l.value * std::pow(2, r));
+			} else if (xieite::neg(r)) {
+				return l >> -r;
 			} else {
-				return xieite::num<T>(left.value << right);
+				return xieite::num<T>(l.value << r);
 			}
 		}
 
-		constexpr xieite::num<T>& operator<<=(T right) noexcept {
-			return *this = *this << right;
+		constexpr xieite::num<T>& operator<<=(T r) noexcept {
+			return *this = *this << r;
 		}
 
-		[[nodiscard]] friend constexpr xieite::num<T> operator>>(xieite::num<T> left, T right) noexcept {
+		[[nodiscard]] friend constexpr xieite::num<T> operator>>(xieite::num<T> l, T r) noexcept {
 			if constexpr (std::floating_point<T>) {
-				return xieite::num<T>(left.value / std::pow(2, right));
-			} else if (xieite::neg(right)) {
-				return left << -right;
+				return xieite::num<T>(l.value / std::pow(2, r));
+			} else if (xieite::neg(r)) {
+				return l << -r;
 			} else {
-				return xieite::num<T>(left.value >> right);
+				return xieite::num<T>(l.value >> r);
 			}
 		}
 
-		constexpr xieite::num<T>& operator>>=(T right) noexcept {
-			return *this = *this >> right;
+		constexpr xieite::num<T>& operator>>=(T r) noexcept {
+			return *this = *this >> r;
 		}
 
 	private:
-		[[nodiscard]] static constexpr xieite::num<T> bit_op(xieite::num<T> left, xieite::num<T> right, auto fn) noexcept {
+		[[nodiscard]] static constexpr xieite::num<T> bit_op(xieite::num<T> l, xieite::num<T> r, auto fn) noexcept {
 			if constexpr (std::floating_point<T>) {
 				T result = 0;
 				T mask = std::numeric_limits<T>::min();
 				while (mask <= std::numeric_limits<T>::max()) {
-					if (fn(std::fmod(left.value, mask * 2) >= mask, std::fmod(right.value, mask * 2) >= mask)) {
+					if (fn(std::fmod(l.value, mask * 2) >= mask, std::fmod(r.value, mask * 2) >= mask)) {
 						result += mask;
 					}
 					mask *= 2;
 				}
 				return xieite::num<T>(result);
 			} else {
-				return xieite::num<T>(fn(left.value, right.value));
+				return xieite::num<T>(fn(l.value, r.value));
 			}
 		}
 	};
