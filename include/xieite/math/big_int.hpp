@@ -29,7 +29,6 @@
 #include "../math/sub_overflow.hpp"
 #include "../meta/try_unsign.hpp"
 #include "../trait/is_arith.hpp"
-#include "../trait/is_input_range.hpp"
 #include "../trait/rm_cv.hpp"
 
 namespace xieite {
@@ -79,7 +78,8 @@ namespace xieite {
 			}
 		}
 
-		template<xieite::is_input_range<[]<std::same_as<T>> {}> R>
+		template<std::ranges::input_range R>
+		requires(std::same_as<T, std::ranges::range_value_t<R>>)
 		[[nodiscard]] explicit constexpr big_int(R&& range, bool neg = false) noexcept
 		: data(std::ranges::begin(range), std::ranges::end(range)), neg(neg) {
 			this->trim();
