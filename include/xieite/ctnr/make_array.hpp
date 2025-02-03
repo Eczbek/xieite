@@ -12,7 +12,7 @@
 #include "../trait/is_noex_invoc.hpp"
 
 namespace xieite {
-	template<typename V, std::size_t size, std::ranges::input_range R = std::initializer_list<V>, xieite::is_invoc<V(std::ranges::range_common_reference_t<R>)> F = xieite::cast<V>>
+	template<typename V, std::size_t size, std::ranges::input_range R = std::initializer_list<V>, xieite::is_invoc<V(std::ranges::range_common_reference_t<R>)> F = decltype(xieite::cast<V>)>
 	[[nodiscard]] constexpr std::array<V, size> make_array(R&& range, F&& conv = {})
 	noexcept(xieite::is_noex_invoc<F, V(std::ranges::range_common_reference_t<R>)>) {
 		return xieite::unroll<size>([&range, &conv]<std::size_t... i> -> std::array<V, size> {

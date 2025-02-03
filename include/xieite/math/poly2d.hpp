@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <concepts>
 #include <cstddef>
 #include <ranges>
@@ -33,7 +34,7 @@ namespace xieite {
 		template<typename U>
 		[[nodiscard]] constexpr operator xieite::poly2d<U>() const noexcept {
 			auto other_pts = std::vector<xieite::pt2d<U>>(this->pts.size());
-			std::ranges::transform(this->pts, other_pts.begin(), xieite::cast<xieite::pt2d<U>>());
+			std::ranges::transform(this->pts, other_pts.begin(), xieite::cast<xieite::pt2d<U>>);
 			return xieite::poly2d<U>(other_pts);
 		}
 
