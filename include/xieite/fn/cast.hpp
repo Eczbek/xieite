@@ -5,6 +5,7 @@
 
 namespace xieite {
 	template<typename T>
-	constexpr auto cast = [](auto&& x)
+	constexpr auto cast =
+		[][[nodiscard]](auto&& x)
 		XIEITE_ARROW(static_cast<T>(XIEITE_FWD(x)));
 }
