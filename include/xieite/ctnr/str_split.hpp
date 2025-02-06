@@ -4,16 +4,16 @@
 #include <memory>
 #include <string>
 #include <string_view>
+#include <type_traits>
 #include <vector>
 #include "../ctnr/str_view.hpp"
-#include "../meta/id.hpp"
 #include "../pp/arrow.hpp"
 #include "../pp/fwd.hpp"
 #include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch, typename Traits = std::char_traits<Ch>, typename VecAlloc = std::allocator<std::basic_string_view<Ch, Traits>>>
-	[[nodiscard]] constexpr std::vector<std::basic_string_view<Ch, Traits>, VecAlloc> str_split(std::basic_string_view<Ch, Traits> strv, xieite::id<std::basic_string_view<Ch, Traits>> delim, bool discard_empty = false, VecAlloc&& vec_alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::vector<std::basic_string_view<Ch, Traits>, VecAlloc> str_split(std::basic_string_view<Ch, Traits> strv, std::type_identity_t<std::basic_string_view<Ch, Traits>> delim, bool discard_empty = false, VecAlloc&& vec_alloc = {}) noexcept(false) {
 		auto result = std::vector<std::basic_string_view<Ch, Traits>, VecAlloc>(XIEITE_FWD(vec_alloc));
 		std::size_t i = 0;
 		while (true) {

@@ -3,15 +3,15 @@
 #include <cstddef>
 #include <memory>
 #include <string>
+#include <type_traits>
 #include "../ctnr/str_view.hpp"
-#include "../meta/id.hpp"
 #include "../pp/arrow.hpp"
 #include "../pp/fwd.hpp"
 #include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
-	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> str_trunc(const std::basic_string<Ch, Traits, Alloc>& str, std::size_t size, xieite::id<std::basic_string_view<Ch, Traits>> sfx, Alloc&& alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::basic_string<Ch, Traits, Alloc> str_trunc(const std::basic_string<Ch, Traits, Alloc>& str, std::size_t size, std::type_identity_t<std::basic_string_view<Ch, Traits>> sfx, Alloc&& alloc = {}) noexcept(false) {
 		using Str = std::basic_string<Ch, Traits, Alloc>;
 		return (str.size() <= size)
 			? str

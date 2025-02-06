@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../meta/t.hpp"
+#include <type_traits>
 
 namespace xieite {
 	template<typename T, auto = [] {}>
-	concept is_complete = requires { ([]<typename U, auto = sizeof(U)>(xieite::t<U>) {})(xieite::t<T>()); };
+	concept is_complete = requires { ([]<typename U, auto = sizeof(U)>(std::type_identity<U>) {})(std::type_identity<T>()); };
 }
 
 // TODO: Check for correctness

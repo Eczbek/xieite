@@ -10,8 +10,7 @@
 #include "../math/str_num.hpp"
 #include "../meta/end.hpp"
 #include "../meta/fold.hpp"
-#include "../meta/t.hpp"
-#include "../meta/v.hpp"
+#include "../meta/value.hpp"
 #include "../pp/arrow.hpp"
 #include "../pp/fwd.hpp"
 #include "../trait/is_satisfd.hpp"
@@ -35,7 +34,7 @@ namespace xieite {
 		template<std::size_t idx>
 		requires(idx < sizeof...(Ts))
 		using at = decltype(([]<typename... Us> static {
-			return xieite::t<Us...[idx]>();
+			return std::type_identity<Us...[idx]>();
 		}).template operator()<Ts...>())::type;
 
 		template<auto cond>
@@ -66,7 +65,7 @@ namespace xieite {
 		template<typename Ret>
 		using as_fn = decltype(([] static {
 			if constexpr ((... && !std::is_void_v<Ts>)) {
-				return xieite::t<Ret(Ts...)>();
+				return std::type_identity<Ret(Ts...)>();
 			} else {
 				static_assert(false, "function signature must not have void parameters");
 			}
@@ -76,26 +75,26 @@ namespace xieite {
 		using append = xieite::type_list<Ts..., Us...>;
 
 		template<typename R>
-		using append_range = decltype(([]<template<typename...> typename M, typename... Us>(xieite::t<M<Us...>>) static {
-			return xieite::t<xieite::type_list<Ts...>::append<Us...>>();
-		})(xieite::t<R>()))::type;
+		using append_range = decltype(([]<template<typename...> typename M, typename... Us>(std::type_identity<M<Us...>>) static {
+			return std::type_identity<xieite::type_list<Ts...>::append<Us...>>();
+		})(std::type_identity<R>()))::type;
 
 		template<typename... Us>
 		using prepend = xieite::type_list<Us..., Ts...>;
 
 		template<typename R>
-		using prepend_range = decltype(([]<template<typename...> typename M, typename... Us>(xieite::t<M<Us...>>) static {
-			return xieite::t<xieite::type_list<Ts...>::prepend<Us...>>();
-		})(xieite::t<R>()))::type;
+		using prepend_range = decltype(([]<template<typename...> typename M, typename... Us>(std::type_identity<M<Us...>>) static {
+			return std::type_identity<xieite::type_list<Ts...>::prepend<Us...>>();
+		})(std::type_identity<R>()))::type;
 
 		template<xieite::end...>
 		using reverse = decltype(xieite::unroll<Ts...>([]<std::size_t... i> static {
-			return xieite::t<xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>>();
+			return std::type_identity<xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>>();
 		}))::type;
 
 		template<std::size_t start, std::size_t end = sizeof...(Ts)>
 		using slice = decltype(xieite::unroll<xieite::diff(start, end)>([]<std::size_t... i> static {
-			return xieite::t<xieite::type_list<xieite::type_list<Ts...>::at<(i + std::min(start, end))>...>>();
+			return std::type_identity<xieite::type_list<xieite::type_list<Ts...>::at<(i + std::min(start, end))>...>>();
 		}))::type;
 
 		template<std::size_t start, std::size_t end = start + 1>
@@ -156,13 +155,13 @@ namespace xieite {
 			xieite::fold<
 				[]<typename List, typename T> static {
 					if constexpr (xieite::is_satisfd<cond, T>) {
-						return xieite::t<typename List::type::template append<T>>();
+						return std::type_identity<typename List::type::template append<T>>();
 					} else {
-						return xieite::t<List>();
+						return std::type_identity<List>();
 					}
 				},
-				xieite::t<xieite::type_list<>>,
-				xieite::t<Ts>...
+				std::type_identity<xieite::type_list<>>,
+				std::type_identity<Ts>...
 			>::type;
 
 		template<auto cmp = []<typename T, std::same_as<T>> {}>
@@ -170,22 +169,22 @@ namespace xieite {
 			xieite::fold<
 				[]<typename List, typename T> static {
 					if constexpr (!List::template has<T, cmp>) {
-						return xieite::t<typename List::type::template append<T>>();
+						return std::type_identity<typename List::type::template append<T>>();
 					} else {
-						return xieite::t<List>();
+						return std::type_identity<List>();
 					}
 				},
-				xieite::t<xieite::type_list<>>,
-				xieite::t<Ts>...
+				std::type_identity<xieite::type_list<>>,
+				std::type_identity<Ts>...
 			>::type;
 
 		template<std::size_t n>
 		using repeat = decltype(xieite::unroll<n>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename> static {
-					return xieite::t<typename List::type::template append<Ts...>>();
+					return std::type_identity<typename List::type::template append<Ts...>>();
 				},
-				xieite::t<xieite::type_list<>>,
+				std::type_identity<xieite::type_list<>>,
 				decltype(i)...
 			>();
 		}))::type;
@@ -209,7 +208,7 @@ namespace xieite {
 		using xform_flat = decltype(xieite::unroll<sizeof...(Ts) / arity>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename Idx> static {
-					return xieite::t<typename List::template append_range<
+					return std::type_identity<typename List::template append_range<
 						typename decltype(xieite::type_list<Ts...>
 							::template slice<arity * Idx::value, arity * (Idx::value + 1)>
 							::template append_range<
@@ -219,8 +218,8 @@ namespace xieite {
 						)::type
 					>>();
 				},
-				xieite::t<xieite::type_list<>>,
-				xieite::v<i>...
+				std::type_identity<xieite::type_list<>>,
+				xieite::value<i>...
 			>();
 		}))::type;
 
@@ -231,9 +230,9 @@ namespace xieite {
 		}));
 
 		template<typename R>
-		using zip_range = decltype(([]<template<typename...> typename M, typename... Us>(xieite::t<M<Us...>>) static {
+		using zip_range = decltype(([]<template<typename...> typename M, typename... Us>(std::type_identity<M<Us...>>) static {
 			return xieite::type_list<Ts...>::zip<Us...>();
-		})(xieite::t<R>()));
+		})(std::type_identity<R>()));
 	};
 }
 

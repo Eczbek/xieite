@@ -2,7 +2,6 @@
 
 #include <cstddef>
 #include <type_traits>
-#include "../meta/t.hpp"
 #include "../trait/cp_ref.hpp"
 
 namespace xieite {
@@ -11,7 +10,7 @@ namespace xieite {
 		if constexpr (m) {
 			return self.template operator()<xieite::cp_ref<U, std::remove_reference_t<U>*>, (m - 1)>();
 		} else {
-			return xieite::t<U>();
+			return std::type_identity<U>();
 		}
 	})())::type;
 }

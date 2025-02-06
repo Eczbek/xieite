@@ -2,7 +2,7 @@
 
 #include <concepts>
 #include <cstddef>
-#include "../meta/v.hpp"
+#include "../meta/value.hpp"
 #include "../pp/diag.hpp"
 
 XIEITE_DIAG_PUSH()
@@ -16,7 +16,7 @@ namespace xieite {
 		struct value {
 			friend auto flag(xieite::state<id, T>::value<n>);
 
-			struct set : xieite::v<n> {
+			struct set : xieite::value<n> {
 				friend auto flag(xieite::state<id, T>::value<n>) {}
 			};
 		};

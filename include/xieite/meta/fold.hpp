@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../meta/t.hpp"
+#include <type_traits>
 
 namespace XIEITE_DETAIL::fold {
 	template<auto fn, typename T>
@@ -8,11 +8,11 @@ namespace XIEITE_DETAIL::fold {
 		using type = T;
 
 		template<typename U>
-		XIEITE_DETAIL::fold::impl<fn, decltype(fn.template operator()<T, U>())> operator->*(xieite::t<U>) const;
+		XIEITE_DETAIL::fold::impl<fn, decltype(fn.template operator()<T, U>())> operator->*(std::type_identity<U>) const;
 	};
 }
 
 namespace xieite {
 	template<auto fn, typename T, typename... Ts>
-	using fold = decltype((XIEITE_DETAIL::fold::impl<fn, T>()->*...->*xieite::t<Ts>()))::type;
+	using fold = decltype((XIEITE_DETAIL::fold::impl<fn, T>()->*...->*std::type_identity<Ts>()))::type;
 }
