@@ -157,7 +157,7 @@ namespace xieite {
 					if constexpr (xieite::is_satisfd<cond, T>) {
 						return std::type_identity<typename List::type::template append<T>>();
 					} else {
-						return std::type_identity<List>();
+						return List();
 					}
 				},
 				std::type_identity<xieite::type_list<>>,
@@ -171,7 +171,7 @@ namespace xieite {
 					if constexpr (!List::template has<T, cmp>) {
 						return std::type_identity<typename List::type::template append<T>>();
 					} else {
-						return std::type_identity<List>();
+						return List();
 					}
 				},
 				std::type_identity<xieite::type_list<>>,
