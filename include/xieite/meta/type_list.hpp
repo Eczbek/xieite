@@ -1,13 +1,9 @@
 #pragma once
 
-#include <algorithm>
 #include <concepts>
 #include <cstddef>
-#include <string_view>
 #include <type_traits>
 #include "../fn/unroll.hpp"
-#include "../math/diff.hpp"
-#include "../math/str_num.hpp"
 #include "../meta/end.hpp"
 #include "../meta/fold.hpp"
 #include "../meta/value.hpp"
@@ -63,13 +59,9 @@ namespace xieite {
 		using to = M<Ts...>;
 
 		template<typename Ret>
-		using as_fn = decltype(([] static {
-			if constexpr ((... && !std::is_void_v<Ts>)) {
-				return std::type_identity<Ret(Ts...)>();
-			} else {
-				static_assert(false, "function signature must not have void parameters");
-			}
-		})())::type;
+		using as_fn = decltype(([]<typename... Us> static {
+			return std::type_identity<Ret(Us...)>();
+		}).template operator()<Ts...>())::type;
 
 		template<typename... Us>
 		using append = xieite::type_list<Ts..., Us...>;
@@ -93,8 +85,9 @@ namespace xieite {
 		}))::type;
 
 		template<std::size_t start, std::size_t end = sizeof...(Ts)>
-		using slice = decltype(xieite::unroll<xieite::diff(start, end)>([]<std::size_t... i> static {
-			return std::type_identity<xieite::type_list<xieite::type_list<Ts...>::at<(i + std::min(start, end))>...>>();
+		requires((start <= end) && (end <= sizeof...(Ts)))
+		using slice = decltype(xieite::unroll<(end - start)>([]<std::size_t... i> static {
+			return std::type_identity<xieite::type_list<xieite::type_list<Ts...>::at<(start + i)>...>>();
 		}))::type;
 
 		template<std::size_t start, std::size_t end = start + 1>
@@ -193,12 +186,10 @@ namespace xieite {
 		requires(!(sizeof...(Ts) % arity))
 		using xform = decltype(xieite::unroll<sizeof...(Ts) / arity>([]<std::size_t... i> static {
 			return xieite::type_list<
-				typename decltype(xieite::type_list<Ts...>
-					::template slice<arity * i, arity * (i + 1)>
-					::template append_range<
-						xieite::type_list<Ts...>
-							::template slice<0, arity * i>
-					>::apply(fn)
+				typename decltype(
+					xieite::type_list<Ts...>
+					::slice<arity * i, arity * (i + 1)>
+					::apply(fn)
 				)::type...
 			>();
 		}));
@@ -208,13 +199,11 @@ namespace xieite {
 		using xform_flat = decltype(xieite::unroll<sizeof...(Ts) / arity>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename Idx> static {
-					return std::type_identity<typename List::template append_range<
-						typename decltype(xieite::type_list<Ts...>
-							::template slice<arity * Idx::value, arity * (Idx::value + 1)>
-							::template append_range<
-								xieite::type_list<Ts...>
-								::template slice<0, arity * Idx::value>
-							>::apply(fn)
+					return std::type_identity<typename List::type::template append_range<
+						typename decltype(
+							xieite::type_list<Ts...>
+							::slice<arity * Idx::value, arity * (Idx::value + 1)>
+							::apply(fn)
 						)::type
 					>>();
 				},
