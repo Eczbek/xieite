@@ -26,8 +26,8 @@ namespace xieite {
 		: start(start), end(end) {}
 
 		template<typename U>
-		[[nodiscard]] constexpr operator xieite::segm2d<U>() const noexcept {
-			return xieite::segm2d<U>(this->start, this->end);
+		[[nodiscard]] explicit constexpr operator xieite::segm2d<U>() const noexcept {
+			return xieite::segm2d<U>(static_cast<U>(this->start), static_cast<U>(this->end));
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(const xieite::segm2d<T>& l, const xieite::segm2d<T>& r) noexcept {

@@ -16,7 +16,7 @@ namespace xieite {
 
 		T value = 0;
 
-		explicit constexpr operator T() const noexcept {
+		[[nodiscard]] explicit constexpr operator T() const noexcept {
 			return this->value;
 		}
 

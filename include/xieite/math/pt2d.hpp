@@ -32,7 +32,7 @@ namespace xieite {
 		: x(x), y(y) {}
 
 		template<typename U>
-		[[nodiscard]] constexpr operator xieite::pt2d<U>() const noexcept {
+		[[nodiscard]] explicit constexpr operator xieite::pt2d<U>() const noexcept {
 			return xieite::pt2d<U>(static_cast<U>(this->x), static_cast<U>(this->y));
 		}
 

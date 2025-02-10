@@ -29,8 +29,8 @@ namespace xieite {
 		: a(a), b(std::cos(angle), std::sin(angle)) {}
 
 		template<typename U>
-		[[nodiscard]] constexpr operator xieite::line2d<U>() const noexcept {
-			return xieite::line2d<U>(this->a, this->b);
+		[[nodiscard]] explicit constexpr operator xieite::line2d<U>() const noexcept {
+			return xieite::line2d<U>(static_cast<U>(this->a), static_cast<U>(this->b));
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(const xieite::line2d<T>& l, const xieite::line2d<T>& r) noexcept {

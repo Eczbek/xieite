@@ -13,7 +13,7 @@ namespace xieite {
 		: value(static_cast<char>(n)) {}
 
 		template<typename T>
-		[[nodiscard]] constexpr operator T() const noexcept {
+		[[nodiscard]] explicit(false) constexpr operator T() const noexcept {
 			return xieite::unroll<sizeof(T)>([this]<std::size_t... i> -> std::array<char, sizeof(T)> {
 				return std::bit_cast<T>(std::array<char, sizeof(T)> { (i, this->value)... });
 			});

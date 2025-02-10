@@ -1083,13 +1083,13 @@ namespace XIEITE_DETAIL::FN {
 	};
 
 	template<std::size_t idx, typename... Ts>
-	using t = decltype(([] {
-		if constexpr (idx < sizeof...(Ts)) {
-			return std::type_identity<Ts...[idx]>();
+	using t = decltype(([]<typename... Us> {
+		if constexpr (idx < sizeof...(Us)) {
+			return std::type_identity<Us...[idx]>();
 		} else {
 			return std::type_identity<XIEITE_DETAIL::FN::unusable>();
 		}
-	})())::type;
+	}).template operator()<Ts...>())::type;
 
 	// TODO: Remove this wrapper once GCC accepts `[x = 0] noexcept(noexcept(x)) {}`
 	template<typename F>
