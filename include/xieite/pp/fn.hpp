@@ -1095,7 +1095,7 @@ namespace XIEITE_DETAIL::FN {
 	template<typename F>
 	struct indirect : F {
 		template<typename... Ts>
-		[[nodiscard]] constexpr auto operator()(this F& super, auto&&... args)
+		constexpr auto operator()(this F&& super, auto&&... args)
 			XIEITE_ARROW(super().template operator()<Ts...>(XIEITE_FWD(args)...))
 	};
 
