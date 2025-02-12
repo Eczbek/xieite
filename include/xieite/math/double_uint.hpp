@@ -5,6 +5,7 @@
 #include <concepts>
 #include <cstddef>
 #include <stdexcept>
+#include <utility>
 #include "../fn/order_op.hpp"
 #include "../math/add_overflow.hpp"
 #include "../math/bit_size.hpp"
@@ -56,9 +57,7 @@ namespace xieite {
 		}
 
 		constexpr xieite::double_uint<T> operator++(int) noexcept {
-			auto tmp = *this;
-			*this += 1;
-			return tmp;
+			return std::exchange(*this, *this + 1);
 		}
 
 		[[nodiscard]] constexpr xieite::double_uint<T> operator-() const noexcept {
@@ -79,9 +78,7 @@ namespace xieite {
 		}
 
 		constexpr xieite::double_uint<T> operator--(int) noexcept {
-			auto tmp = *this;
-			*this -= 1;
-			return tmp;
+			return std::exchange(*this, *this - 1);
 		}
 
 		[[nodiscard]] friend constexpr xieite::double_uint<T> operator*(xieite::double_uint<T> l, xieite::double_uint<T> r) noexcept {
