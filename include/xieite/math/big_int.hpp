@@ -12,7 +12,6 @@
 #include <stdexcept>
 #include <string>
 #include <string_view>
-#include <type_traits>
 #include <utility>
 #include <vector>
 #include "../ctnr/str_num_cfg.hpp"
@@ -21,14 +20,12 @@
 #include "../math/abs.hpp"
 #include "../math/add_overflow.hpp"
 #include "../math/bit_size.hpp"
-#include "../math/dbl_mul.hpp"
-#include "../math/dbl_uint.hpp"
+#include "../math/double_uint.hpp"
 #include "../math/neg.hpp"
 #include "../math/split_bool.hpp"
 #include "../math/ssize_t.hpp"
 #include "../math/sub_overflow.hpp"
 #include "../meta/try_unsign.hpp"
-#include "../trait/is_arith.hpp"
 #include "../trait/rm_cv.hpp"
 
 namespace xieite {
@@ -276,8 +273,8 @@ namespace xieite {
 					if (!r.data[j]) {
 						continue;
 					}
-					const xieite::dbl_uint<T> prod = xieite::dbl_mul(l.data[i], r.data[j]);
-					result += ((xieite::big_int<T>(prod.upper) << xieite::bit_size<T>) | prod.lower) << (xieite::big_int<T>(i) << std::bit_width(xieite::bit_size<T> - 1)) << (xieite::big_int<T>(j) << std::bit_width(xieite::bit_size<T> - 1));
+					const auto prod = xieite::double_uint<T>(l.data[i]) * r.data[j];
+					result += ((xieite::big_int<T>(prod.hi) << xieite::bit_size<T>) | prod.lo) << (xieite::big_int<T>(i) << std::bit_width(xieite::bit_size<T> - 1)) << (xieite::big_int<T>(j) << std::bit_width(xieite::bit_size<T> - 1));
 				}
 			}
 			result.neg = l.neg != r.neg;
@@ -309,19 +306,19 @@ namespace xieite {
 			if ((r == 1) || (r == -1)) {
 				return same_sign ? l : -l;
 			}
-			const xieite::big_int<T> dividend_abs = l.abs();
-			const xieite::big_int<T> divisor_abs = r.abs();
-			if (!l || (dividend_abs < divisor_abs)) {
+			const xieite::big_int<T> l_abs = l.abs();
+			const xieite::big_int<T> r_abs = r.abs();
+			if (!l || (l_abs < r_abs)) {
 				return 0;
 			}
-			if (dividend_abs == divisor_abs) {
+			if (l_abs == r_abs) {
 				return xieite::split_bool(same_sign);
 			}
 			if (r.pow_of_2()) {
 				if (same_sign) {
-					return dividend_abs >> r.log2();
+					return l_abs >> r.log2();
 				}
-				return -(dividend_abs >> r.log2());
+				return -(l_abs >> r.log2());
 			}
 			xieite::big_int<T> rem;
 			xieite::big_int<T> quot;
@@ -331,8 +328,8 @@ namespace xieite {
 				for (std::size_t j = xieite::bit_size<T>; j--;) {
 					rem <<= 1;
 					rem.data[0] |= (l.data[i] >> j) & 1;
-					const bool bit = rem >= divisor_abs;
-					rem -= divisor_abs * bit;
+					const bool bit = rem >= r_abs;
+					rem -= r_abs * bit;
 					quot.data[i] |= static_cast<T>(bit) << j;
 				}
 			}
@@ -357,17 +354,17 @@ namespace xieite {
 
 		[[nodiscard]] friend constexpr xieite::big_int<T> operator%(const xieite::big_int<T>& l, const xieite::big_int<T>& r) {
 			if (!r) {
-				throw std::out_of_range("must not take rem of division by zero");
+				throw std::out_of_range("must not take remainder of division by zero");
 			}
-			const xieite::big_int<T> dividend_abs = l.abs();
-			const xieite::big_int<T> divisor_abs = r.abs();
-			if (!l || (divisor_abs == 1) || (dividend_abs == divisor_abs)) {
+			const xieite::big_int<T> l_abs = l.abs();
+			const xieite::big_int<T> r_abs = r.abs();
+			if (!l || (r_abs == 1) || (l_abs == r_abs)) {
 				return 0;
 			}
-			if (divisor_abs.pow_of_2()) {
-				return (dividend_abs & (divisor_abs - 1)) * xieite::split_bool(!l.neg);
+			if (r_abs.pow_of_2()) {
+				return (l_abs & (r_abs - 1)) * xieite::split_bool(!l.neg);
 			}
-			if (dividend_abs < divisor_abs) {
+			if (l_abs < r_abs) {
 				return l;
 			}
 			xieite::big_int<T> rem;
@@ -375,7 +372,7 @@ namespace xieite {
 				for (std::size_t j = xieite::bit_size<T>; j--;) {
 					rem <<= 1;
 					rem.data[0] |= (limb >> j) & 1;
-					rem -= divisor_abs * (rem >= divisor_abs);
+					rem -= r_abs * (rem >= r_abs);
 				}
 			}
 			rem.neg = l.neg;
@@ -603,7 +600,7 @@ namespace xieite {
 				throw std::out_of_range("must not take logarithm to unary base");
 			}
 			if (base.neg) {
-				throw std::out_of_range("must not take logarithm to neg base");
+				throw std::out_of_range("must not take logarithm to negative base");
 			}
 			return this->log2() / base.log2();
 		}
