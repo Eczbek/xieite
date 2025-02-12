@@ -219,7 +219,7 @@ namespace xieite {
 		[[nodiscard]] friend constexpr xieite::double_uint<T> operator<<(xieite::double_uint<T> l, xieite::double_uint<T> r) noexcept {
 			if (!r.hi) {
 				const std::size_t shift = static_cast<std::size_t>(r.lo);
-				if (shift == 0) {
+				if (!shift) {
 					return l;
 				}
 				if (shift < xieite::bit_size<T>) {
@@ -239,7 +239,7 @@ namespace xieite {
 		[[nodiscard]] friend constexpr xieite::double_uint<T> operator>>(xieite::double_uint<T> l, xieite::double_uint<T> r) noexcept {
 			if (!r.hi) {
 				const std::size_t shift = static_cast<std::size_t>(r.lo);
-				if (shift == 0) {
+				if (!shift) {
 					return l;
 				}
 				if (shift < xieite::bit_size<T>) {

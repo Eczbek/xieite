@@ -79,11 +79,11 @@ namespace xieite::num_lit {
 	}
 
 	[[nodiscard]] constexpr auto operator""_b(unsigned long long int n) noexcept {
-		return static_cast<bool>(n);
+		return !!n;
 	}
 
 	[[nodiscard]] constexpr auto operator""_b(long double n) noexcept {
-		return static_cast<bool>(n);
+		return !!n;
 	}
 
 	[[nodiscard]] constexpr auto operator""_c(unsigned long long int n) noexcept {

@@ -653,7 +653,7 @@ namespace xieite {
 			r += r_neg;
 			xieite::big_int<T> result;
 			result.data.clear();
-			result.neg = static_cast<bool>(fn(l_neg, r_neg));
+			result.neg = fn(l_neg, r_neg);
 			for (std::size_t i = 0; (i < l.data.size()) || (i < r.data.size()); ++i) {
 				const T limb = fn(
 					(i < l.data.size())
