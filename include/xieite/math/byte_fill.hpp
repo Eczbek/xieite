@@ -2,6 +2,7 @@
 
 #include <array>
 #include <bit>
+#include <cstddef>
 #include "../fn/unroll.hpp"
 
 namespace xieite {

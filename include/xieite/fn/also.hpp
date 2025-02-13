@@ -2,7 +2,6 @@
 
 #include <concepts>
 #include <functional>
-#include <type_traits>
 #include "../pp/fn.hpp"
 #include "../pp/fwd.hpp"
 #include "../trait/has_cp_ctor.hpp"

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <utility>
 #include "../trait/is_enum.hpp"
 
 namespace xieite::enum_op {

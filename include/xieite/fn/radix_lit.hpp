@@ -1,6 +1,5 @@
 #pragma once
 
-#include <array>
 #include <cstddef>
 
 namespace xieite::radix_lit {

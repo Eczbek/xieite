@@ -1,12 +1,8 @@
 #pragma once
 
-#include <compare>
-#include <functional>
 #include <memory>
 #include "../pp/arrow.hpp"
 #include "../pp/fwd.hpp"
-#include "../trait/is_conv_from.hpp"
-#include "../trait/is_noex_conv.hpp"
 
 namespace xieite {
 	template<typename T>

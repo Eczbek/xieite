@@ -1,5 +1,7 @@
 #pragma once
 
+#include <concepts>
+#include <cstddef>
 #include <limits>
 
 namespace xieite {

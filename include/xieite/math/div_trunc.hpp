@@ -2,7 +2,6 @@
 
 #include <cmath>
 #include <concepts>
-#include "../math/sign.hpp"
 #include "../trait/is_arith.hpp"
 
 namespace xieite {

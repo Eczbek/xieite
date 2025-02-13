@@ -1,7 +1,6 @@
 #pragma once
 
 #include <chrono>
-#include "../pp/fwd.hpp"
 #include "../trait/is_clock.hpp"
 #include "../trait/is_dur.hpp"
 

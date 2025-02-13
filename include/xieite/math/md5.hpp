@@ -7,7 +7,6 @@
 #include <string>
 #include <string_view>
 #include <vector>
-#include "../ctnr/pad_front.hpp"
 #include "../math/join_bits.hpp"
 #include "../math/sign_cast.hpp"
 #include "../math/str_num.hpp"

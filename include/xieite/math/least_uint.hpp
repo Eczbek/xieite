@@ -12,5 +12,5 @@ namespace xieite {
 		std::uint_least16_t,
 		std::uint_least32_t,
 		std::uint_least64_t
-	>::find<[]<typename T> requires(bits <= xieite::bit_size<T>) {}>;
+	>::find<[]<typename T> requires(xieite::bit_size<T> >= bits) {}>;
 }

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstddef>
-#include <tuple>
 #include <type_traits>
 #include "../meta/any.hpp"
 #include "../meta/tuple_size.hpp"

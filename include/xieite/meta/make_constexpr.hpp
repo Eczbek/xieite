@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstddef>
-#include <cstdint>
 #include "../fn/repeat.hpp"
 #include "../math/bit_size.hpp"
 #include "../pp/fwd.hpp"
