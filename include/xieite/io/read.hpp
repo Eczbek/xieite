@@ -13,18 +13,21 @@ namespace xieite {
 
 	[[nodiscard]] inline std::string read(std::FILE* stream) noexcept {
 		std::string result;
-		std::size_t chunk = 1024;
 		while (stream) {
-			std::string buffer = std::string(chunk, '\0');
-			const std::size_t bytes = std::fread(buffer.data(), 1, chunk, stream);
-			result += buffer.substr(0, bytes);
-			if (bytes != chunk) {
+			const std::size_t orig_size = result.size();
+			const std::size_t next_size = orig_size ? (orig_size * 2) : 8192;
+			result.resize_and_overwrite(
+				next_size,
+				[stream, orig_size](char* buf, std::size_t buf_size) -> std::size_t {
+					return orig_size + std::fread(buf + orig_size, 1, buf_size - orig_size, stream);
+				}
+			);
+			if (result.size() != next_size) {
 				break;
 			}
-			chunk *= 2;
 		}
 		return result;
 	}
 }
 
-// TODO: Research best initial chunk size
+// https://vitaut.net/posts/2020/optimal-file-buffer-size/
