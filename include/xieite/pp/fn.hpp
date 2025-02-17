@@ -9,10 +9,10 @@
 #include "../pp/if.hpp"
 #include "../pp/unwrap.hpp"
 
-#define XIEITE_FN(...) []XIEITE_DETAIL_FN(0, __VA_ARGS__)
-#define XIEITE_FN_LOCAL(...) [&]XIEITE_DETAIL_FN(1, __VA_ARGS__)
-#define XIEITE_FN_THIS(...) []XIEITE_DETAIL_FN(1, __VA_ARGS__)
-#define XIEITE_FN_MUT(captures_, ...) XIEITE_DETAIL::FN::indirect([XIEITE_UNWRAP(captures_)] mutable { return [&]XIEITE_DETAIL_FN(1, __VA_ARGS__); })
+#define XIEITE_FN(...) ([]XIEITE_DETAIL_FN(0, __VA_ARGS__))
+#define XIEITE_FN_THIS(...) ([]XIEITE_DETAIL_FN(1, __VA_ARGS__))
+#define XIEITE_FN_LOCAL(...) ([&]XIEITE_DETAIL_FN(1, __VA_ARGS__))
+#define XIEITE_FN_MUT(captures_, ...) (XIEITE_DETAIL::FN::indirect { [XIEITE_UNWRAP(captures_)] mutable { return [&]XIEITE_DETAIL_FN(1, __VA_ARGS__); } })
 
 XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 
@@ -1095,10 +1095,7 @@ namespace XIEITE_DETAIL::FN {
 	template<typename F>
 	struct indirect : F {
 		template<typename... Ts>
-		constexpr auto operator()(this F&& super, auto&&... args)
-			XIEITE_ARROW(super().template operator()<Ts...>(XIEITE_FWD(args)...))
+		constexpr auto operator()(this auto&& self, auto&&... args)
+			XIEITE_ARROW(static_cast<F&>(self)().template operator()<Ts...>(XIEITE_FWD(args)...))
 	};
-
-	template<typename F>
-	indirect(F) -> indirect<F>;
 }

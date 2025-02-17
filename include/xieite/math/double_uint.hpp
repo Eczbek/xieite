@@ -61,8 +61,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] constexpr xieite::double_uint<T> operator-() const noexcept {
-			xieite::double_uint<T> comp(~this->lo, ~this->hi);
-			return comp + 1;
+			return xieite::double_uint<T>(~this->lo, ~this->hi) + 1;
 		}
 
 		[[nodiscard]] friend constexpr xieite::double_uint<T> operator-(xieite::double_uint<T> l, xieite::double_uint<T> r) noexcept {
