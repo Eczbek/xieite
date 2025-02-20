@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string>
 #include "../fn/scope_guard.hpp"
-#include "../io/kb.hpp"
+#include "../io/keys.hpp"
 #include "../io/read.hpp"
 #include "../math/abs.hpp"
 #include "../math/color3.hpp"
@@ -192,10 +192,10 @@ namespace xieite {
 		}
 
 		void reset_style() noexcept {
+			std::print(this->out, "{}", xieite::term::reset_style_code());
 			this->curs_invis(false);
 			this->curs_alt(false);
 			this->scr_alt(false);
-			std::print(this->out, "{}", xieite::term::reset_style_code());
 		}
 		
 		void reset_mode() noexcept {
@@ -213,47 +213,47 @@ namespace xieite {
 			return pos - 1;
 		}
 
-		[[nodiscard]] constexpr std::string set_curs_code(int x, int y) noexcept {
-			return "\x1B[" + xieite::str_num(y + 1) + ";" + xieite::str_num(x + 1) + "H";
+		[[nodiscard]] constexpr std::string set_curs_code(int row, int col) noexcept {
+			return "\x1B[" + xieite::str_num(row + 1) + ";" + xieite::str_num(col + 1) + "H";
 		}
 
 		[[nodiscard]] constexpr std::string set_curs_code(xieite::vec2<int> pos) noexcept {
-			return xieite::term::set_curs_code(pos.x, pos.y);
+			return xieite::term::set_curs_code(pos.y, pos.x);
 		}
 
-		void set_curs(int x, int y) noexcept {
-			std::print(this->out, "{}", xieite::term::set_curs_code(x, y));
+		void set_curs(int row, int col) noexcept {
+			std::print(this->out, "{}", xieite::term::set_curs_code(row, col));
 		}
 
 		void set_curs(xieite::vec2<int> pos) noexcept {
-			this->set_curs(pos.x, pos.y);
+			this->set_curs(pos.y, pos.x);
 		}
 
-		[[nodiscard]] constexpr std::string mv_curs_code(int x, int y) noexcept {
+		[[nodiscard]] constexpr std::string mv_curs_code(int row, int col) noexcept {
 			std::string code;
-			if (x) {
+			if (row) {
 				code += "\x1B[";
-				code += xieite::str_num(xieite::abs(x));
-				code += "CD"[x < 0];
+				code += xieite::str_num(xieite::abs(row));
+				code += "BA"[row < 0];
 			}
-			if (y) {
+			if (col) {
 				code += "\x1B[";
-				code += xieite::str_num(xieite::abs(y));
-				code += "BA"[y < 0];
+				code += xieite::str_num(xieite::abs(col));
+				code += "CD"[col < 0];
 			}
 			return code;
 		}
 
 		[[nodiscard]] constexpr std::string mv_curs_code(xieite::vec2<int> diff) noexcept {
-			return xieite::term::mv_curs_code(diff.x, diff.y);
+			return xieite::term::mv_curs_code(diff.y, diff.x);
 		}
 
-		void mv_curs(int x, int y) noexcept {
-			std::print(this->out, "{}", xieite::term::mv_curs_code(x, y));
+		void mv_curs(int row, int col) noexcept {
+			std::print(this->out, "{}", xieite::term::mv_curs_code(row, col));
 		}
 
 		void mv_curs(xieite::vec2<int> diff) noexcept {
-			this->mv_curs(diff.x, diff.y);
+			this->mv_curs(diff.y, diff.x);
 		}
 
 		[[nodiscard]] static constexpr std::string curs_invis_code(bool x) noexcept {
@@ -377,7 +377,7 @@ namespace xieite {
 			return input;
 		}
 
-		[[nodiscard]] xieite::kb read_key() noexcept {
+		[[nodiscard]] xieite::keys read_key() noexcept {
 			const xieite::scope_guard _ = [this, block_prev = this->is_block] -> void {
 				this->block(block_prev);
 			};
@@ -387,249 +387,249 @@ namespace xieite {
 			case 0x00:
 				switch (const int c1 = this->read_ch()) {
 				case 0x00:
-					return xieite::kb::pause;
+					return xieite::keys::pause;
 				case 0x03:
-					return xieite::kb::null;
+					return xieite::keys::null;
 				default:
 					std::ungetc(c1, this->in);
 				}
 				break;
 			case 0x01:
-				return xieite::kb::ctrl_a;
+				return xieite::keys::ctrl_a;
 			case 0x02:
-				return xieite::kb::ctrl_b;
+				return xieite::keys::ctrl_b;
 			case 0x03:
-				return xieite::kb::ctrl_c;
+				return xieite::keys::ctrl_c;
 			case 0x04:
-				return xieite::kb::ctrl_d;
+				return xieite::keys::ctrl_d;
 			case 0x05:
-				return xieite::kb::ctrl_e;
+				return xieite::keys::ctrl_e;
 			case 0x06:
-				return xieite::kb::ctrl_f;
+				return xieite::keys::ctrl_f;
 			case 0x07:
-				return xieite::kb::ctrl_g;
+				return xieite::keys::ctrl_g;
 			case 0x08:
-				return xieite::kb::ctrl_h;
+				return xieite::keys::ctrl_h;
 			case 0x09:
-				return xieite::kb::ctrl_i;
+				return xieite::keys::ctrl_i;
 			case 0x0A:
-				return xieite::kb::ctrl_j;
+				return xieite::keys::ctrl_j;
 			case 0x0B:
-				return xieite::kb::ctrl_k;
+				return xieite::keys::ctrl_k;
 			case 0x0C:
-				return xieite::kb::ctrl_l;
+				return xieite::keys::ctrl_l;
 			case 0x0D:
-				return xieite::kb::ctrl_m;
+				return xieite::keys::ctrl_m;
 			case 0x0E:
-				return xieite::kb::ctrl_n;
+				return xieite::keys::ctrl_n;
 			case 0x0F:
-				return xieite::kb::ctrl_o;
+				return xieite::keys::ctrl_o;
 			case 0x10:
-				return xieite::kb::ctrl_p;
+				return xieite::keys::ctrl_p;
 			case 0x11:
-				return xieite::kb::ctrl_q;
+				return xieite::keys::ctrl_q;
 			case 0x12:
-				return xieite::kb::ctrl_r;
+				return xieite::keys::ctrl_r;
 			case 0x13:
-				return xieite::kb::ctrl_s;
+				return xieite::keys::ctrl_s;
 			case 0x14:
-				return xieite::kb::ctrl_t;
+				return xieite::keys::ctrl_t;
 			case 0x15:
-				return xieite::kb::ctrl_u;
+				return xieite::keys::ctrl_u;
 			case 0x16:
-				return xieite::kb::ctrl_v;
+				return xieite::keys::ctrl_v;
 			case 0x17:
-				return xieite::kb::ctrl_w;
+				return xieite::keys::ctrl_w;
 			case 0x18:
-				return xieite::kb::ctrl_x;
+				return xieite::keys::ctrl_x;
 			case 0x19:
-				return xieite::kb::ctrl_y;
+				return xieite::keys::ctrl_y;
 			case 0x1A:
-				return xieite::kb::ctrl_z;
+				return xieite::keys::ctrl_z;
 			case 0x1B:
 				switch (const int c1 = this->read_ch()) {
 				case 0x01:
-					return xieite::kb::ctrl_alt_a;
+					return xieite::keys::ctrl_alt_a;
 				case 0x02:
-					return xieite::kb::ctrl_alt_b;
+					return xieite::keys::ctrl_alt_b;
 				case 0x03:
-					return xieite::kb::ctrl_alt_c;
+					return xieite::keys::ctrl_alt_c;
 				case 0x04:
-					return xieite::kb::ctrl_alt_d;
+					return xieite::keys::ctrl_alt_d;
 				case 0x05:
-					return xieite::kb::ctrl_alt_e;
+					return xieite::keys::ctrl_alt_e;
 				case 0x06:
-					return xieite::kb::ctrl_alt_f;
+					return xieite::keys::ctrl_alt_f;
 				case 0x07:
-					return xieite::kb::ctrl_alt_g;
+					return xieite::keys::ctrl_alt_g;
 				case 0x08:
-					return xieite::kb::ctrl_alt_h;
+					return xieite::keys::ctrl_alt_h;
 				case 0x09:
-					return xieite::kb::ctrl_alt_i;
+					return xieite::keys::ctrl_alt_i;
 				case 0x0A:
-					return xieite::kb::ctrl_alt_j;
+					return xieite::keys::ctrl_alt_j;
 				case 0x0B:
-					return xieite::kb::ctrl_alt_k;
+					return xieite::keys::ctrl_alt_k;
 				case 0x0C:
-					return xieite::kb::ctrl_alt_l;
+					return xieite::keys::ctrl_alt_l;
 				case 0x0D:
-					return xieite::kb::ctrl_alt_m;
+					return xieite::keys::ctrl_alt_m;
 				case 0x0E:
-					return xieite::kb::ctrl_alt_n;
+					return xieite::keys::ctrl_alt_n;
 				case 0x0F:
-					return xieite::kb::ctrl_alt_o;
+					return xieite::keys::ctrl_alt_o;
 				case 0x10:
-					return xieite::kb::ctrl_alt_p;
+					return xieite::keys::ctrl_alt_p;
 				case 0x11:
-					return xieite::kb::ctrl_alt_q;
+					return xieite::keys::ctrl_alt_q;
 				case 0x12:
-					return xieite::kb::ctrl_alt_r;
+					return xieite::keys::ctrl_alt_r;
 				case 0x13:
-					return xieite::kb::ctrl_alt_s;
+					return xieite::keys::ctrl_alt_s;
 				case 0x14:
-					return xieite::kb::ctrl_alt_t;
+					return xieite::keys::ctrl_alt_t;
 				case 0x15:
-					return xieite::kb::ctrl_alt_u;
+					return xieite::keys::ctrl_alt_u;
 				case 0x16:
-					return xieite::kb::ctrl_alt_v;
+					return xieite::keys::ctrl_alt_v;
 				case 0x17:
-					return xieite::kb::ctrl_alt_w;
+					return xieite::keys::ctrl_alt_w;
 				case 0x18:
-					return xieite::kb::ctrl_alt_x;
+					return xieite::keys::ctrl_alt_x;
 				case 0x19:
-					return xieite::kb::ctrl_alt_y;
+					return xieite::keys::ctrl_alt_y;
 				case 0x1A:
-					return xieite::kb::ctrl_alt_z;
+					return xieite::keys::ctrl_alt_z;
 				case 0x20:
-					return xieite::kb::alt_sp;
+					return xieite::keys::alt_sp;
 				case 0x21:
-					return xieite::kb::alt_exclam;
+					return xieite::keys::alt_exclam;
 				case 0x22:
-					return xieite::kb::alt_quot;
+					return xieite::keys::alt_quot;
 				case 0x23:
-					return xieite::kb::alt_hash;
+					return xieite::keys::alt_hash;
 				case 0x24:
-					return xieite::kb::alt_dollar;
+					return xieite::keys::alt_dollar;
 				case 0x25:
-					return xieite::kb::alt_pc;
+					return xieite::keys::alt_pc;
 				case 0x26:
-					return xieite::kb::alt_et;
+					return xieite::keys::alt_et;
 				case 0x27:
-					return xieite::kb::alt_apos;
+					return xieite::keys::alt_apos;
 				case 0x28:
-					return xieite::kb::alt_lparen;
+					return xieite::keys::alt_lparen;
 				case 0x29:
-					return xieite::kb::alt_rparen;
+					return xieite::keys::alt_rparen;
 				case 0x2A:
-					return xieite::kb::alt_star;
+					return xieite::keys::alt_star;
 				case 0x2B:
-					return xieite::kb::alt_plus;
+					return xieite::keys::alt_plus;
 				case 0x2C:
-					return xieite::kb::alt_comma;
+					return xieite::keys::alt_comma;
 				case 0x2D:
-					return xieite::kb::alt_dash;
+					return xieite::keys::alt_dash;
 				case 0x2E:
-					return xieite::kb::alt_dot;
+					return xieite::keys::alt_dot;
 				case 0x2F:
-					return xieite::kb::alt_sl;
+					return xieite::keys::alt_sl;
 				case 0x30:
-					return xieite::kb::alt_0;
+					return xieite::keys::alt_0;
 				case 0x31:
-					return xieite::kb::alt_1;
+					return xieite::keys::alt_1;
 				case 0x32:
-					return xieite::kb::alt_2;
+					return xieite::keys::alt_2;
 				case 0x33:
-					return xieite::kb::alt_3;
+					return xieite::keys::alt_3;
 				case 0x34:
-					return xieite::kb::alt_4;
+					return xieite::keys::alt_4;
 				case 0x35:
-					return xieite::kb::alt_5;
+					return xieite::keys::alt_5;
 				case 0x36:
-					return xieite::kb::alt_6;
+					return xieite::keys::alt_6;
 				case 0x37:
-					return xieite::kb::alt_7;
+					return xieite::keys::alt_7;
 				case 0x38:
-					return xieite::kb::alt_8;
+					return xieite::keys::alt_8;
 				case 0x39:
-					return xieite::kb::alt_9;
+					return xieite::keys::alt_9;
 				case 0x3A:
-					return xieite::kb::alt_col;
+					return xieite::keys::alt_col;
 				case 0x3B:
-					return xieite::kb::alt_semicol;
+					return xieite::keys::alt_semicol;
 				case 0x3C:
-					return xieite::kb::alt_lt;
+					return xieite::keys::alt_lt;
 				case 0x3D:
-					return xieite::kb::alt_eq;
+					return xieite::keys::alt_eq;
 				case 0x3E:
-					return xieite::kb::alt_gt;
+					return xieite::keys::alt_gt;
 				case 0x3F:
-					return xieite::kb::alt_question;
+					return xieite::keys::alt_question;
 				case 0x40:
-					return xieite::kb::alt_at;
+					return xieite::keys::alt_at;
 				case 0x41:
-					return xieite::kb::alt_A;
+					return xieite::keys::alt_A;
 				case 0x42:
-					return xieite::kb::alt_B;
+					return xieite::keys::alt_B;
 				case 0x43:
-					return xieite::kb::alt_C;
+					return xieite::keys::alt_C;
 				case 0x44:
-					return xieite::kb::alt_D;
+					return xieite::keys::alt_D;
 				case 0x45:
-					return xieite::kb::alt_E;
+					return xieite::keys::alt_E;
 				case 0x46:
-					return xieite::kb::alt_F;
+					return xieite::keys::alt_F;
 				case 0x47:
-					return xieite::kb::alt_G;
+					return xieite::keys::alt_G;
 				case 0x48:
-					return xieite::kb::alt_H;
+					return xieite::keys::alt_H;
 				case 0x49:
-					return xieite::kb::alt_I;
+					return xieite::keys::alt_I;
 				case 0x4A:
-					return xieite::kb::alt_J;
+					return xieite::keys::alt_J;
 				case 0x4B:
-					return xieite::kb::alt_K;
+					return xieite::keys::alt_K;
 				case 0x4C:
-					return xieite::kb::alt_L;
+					return xieite::keys::alt_L;
 				case 0x4D:
-					return xieite::kb::alt_M;
+					return xieite::keys::alt_M;
 				case 0x4E:
-					return xieite::kb::alt_N;
+					return xieite::keys::alt_N;
 				case 0x4F:
 					switch (const int c2 = this->read_ch()) {
 					case 0x50:
-						return xieite::kb::f1;
+						return xieite::keys::f1;
 					case 0x51:
-						return xieite::kb::f2;
+						return xieite::keys::f2;
 					case 0x52:
-						return xieite::kb::f3;
+						return xieite::keys::f3;
 					case 0x53:
-						return xieite::kb::f4;
+						return xieite::keys::f4;
 					default:
 						std::ungetc(c2, this->in);
 					}
-					return xieite::kb::alt_O;
+					return xieite::keys::alt_O;
 				case 0x50:
-					return xieite::kb::alt_P;
+					return xieite::keys::alt_P;
 				case 0x51:
-					return xieite::kb::alt_Q;
+					return xieite::keys::alt_Q;
 				case 0x52:
-					return xieite::kb::alt_R;
+					return xieite::keys::alt_R;
 				case 0x53:
-					return xieite::kb::alt_S;
+					return xieite::keys::alt_S;
 				case 0x54:
-					return xieite::kb::alt_T;
+					return xieite::keys::alt_T;
 				case 0x55:
-					return xieite::kb::alt_U;
+					return xieite::keys::alt_U;
 				case 0x56:
-					return xieite::kb::alt_V;
+					return xieite::keys::alt_V;
 				case 0x57:
-					return xieite::kb::alt_W;
+					return xieite::keys::alt_W;
 				case 0x58:
-					return xieite::kb::alt_X;
+					return xieite::keys::alt_X;
 				case 0x59:
-					return xieite::kb::alt_Y;
+					return xieite::keys::alt_Y;
 				case 0x5A:
-					return xieite::kb::alt_Z;
+					return xieite::keys::alt_Z;
 				case 0x5B:
 					{
 						const int c2 = this->read_ch();
@@ -637,41 +637,41 @@ namespace xieite {
 						if (c3 == 0x7E) {
 							switch (c2) {
 							case 0x20:
-								return xieite::kb::np_0;
+								return xieite::keys::np_0;
 							case 0x21:
-								return xieite::kb::np_dot;
+								return xieite::keys::np_dot;
 							case 0x23:
-								return xieite::kb::np_9;
+								return xieite::keys::np_9;
 							case 0x24:
-								return xieite::kb::np_3;
+								return xieite::keys::np_3;
 							}
 						}
 						switch (c2) {
 						case 0x29:
-							return xieite::kb::np_8;
+							return xieite::keys::np_8;
 						case 0x2A:
-							return xieite::kb::np_2;
+							return xieite::keys::np_2;
 						case 0x2B:
-							return xieite::kb::np_6;
+							return xieite::keys::np_6;
 						case 0x2C:
-							return xieite::kb::np_4;
+							return xieite::keys::np_4;
 						case 0x2D:
-							return xieite::kb::np_5;
+							return xieite::keys::np_5;
 						case 0x2E:
-							return xieite::kb::np_1;
+							return xieite::keys::np_1;
 						case 0x30:
-							return xieite::kb::np_7;
+							return xieite::keys::np_7;
 						case 0x31:
 							if (const int c4 = this->read_ch(); c4 == 0x7E) {
 								switch (c3) {
 								case 0x35:
-									return xieite::kb::f5;
+									return xieite::keys::f5;
 								case 0x37:
-									return xieite::kb::f6;
+									return xieite::keys::f6;
 								case 0x38:
-									return xieite::kb::f7;
+									return xieite::keys::f7;
 								case 0x39:
-									return xieite::kb::f8;
+									return xieite::keys::f8;
 								}
 								std::ungetc(c4, this->in);
 							}
@@ -680,308 +680,316 @@ namespace xieite {
 							if (const int c4 = this->read_ch(); c4 == 0x7E) {
 								switch (c3) {
 								case 0x30:
-									return xieite::kb::f9;
+									return xieite::keys::f9;
 								case 0x31:
-									return xieite::kb::f10;
+									return xieite::keys::f10;
 								case 0x33:
-									return xieite::kb::f11;
+									return xieite::keys::f11;
 								case 0x34:
-									return xieite::kb::f12;
+									return xieite::keys::f12;
 								}
 								std::ungetc(c4, this->in);
 							}
 							break;
+						case 0x41:
+							return xieite::keys::up;
+						case 0x42:
+							return xieite::keys::down;
+						case 0x43:
+							return xieite::keys::right;
+						case 0x44:
+							return xieite::keys::left;
 						case 0x5B:
 							switch (c3) {
 							case 0x41:
-								return xieite::kb::f1;
+								return xieite::keys::f1;
 							case 0x42:
-								return xieite::kb::f2;
+								return xieite::keys::f2;
 							case 0x43:
-								return xieite::kb::f3;
+								return xieite::keys::f3;
 							case 0x44:
-								return xieite::kb::f4;
+								return xieite::keys::f4;
 							case 0x45:
-								return xieite::kb::f5;
+								return xieite::keys::f5;
 							}
 							break;
 						}
 						std::ungetc(c3, this->in);
 						std::ungetc(c2, this->in);
 					}
-					return xieite::kb::alt_lbrack;
+					return xieite::keys::alt_lbrack;
 				case 0x5C:
-					return xieite::kb::alt_backsl;
+					return xieite::keys::alt_backsl;
 				case 0x5D:
-					return xieite::kb::alt_rbrack;
+					return xieite::keys::alt_rbrack;
 				case 0x5E:
-					return xieite::kb::alt_caret;
+					return xieite::keys::alt_caret;
 				case 0x5F:
-					return xieite::kb::alt_undersc;
+					return xieite::keys::alt_undersc;
 				case 0x60:
-					return xieite::kb::alt_grave;
+					return xieite::keys::alt_grave;
 				case 0x61:
-					return xieite::kb::alt_a;
+					return xieite::keys::alt_a;
 				case 0x62:
-					return xieite::kb::alt_b;
+					return xieite::keys::alt_b;
 				case 0x63:
-					return xieite::kb::alt_c;
+					return xieite::keys::alt_c;
 				case 0x64:
-					return xieite::kb::alt_d;
+					return xieite::keys::alt_d;
 				case 0x65:
-					return xieite::kb::alt_e;
+					return xieite::keys::alt_e;
 				case 0x66:
-					return xieite::kb::alt_f;
+					return xieite::keys::alt_f;
 				case 0x67:
-					return xieite::kb::alt_g;
+					return xieite::keys::alt_g;
 				case 0x68:
-					return xieite::kb::alt_h;
+					return xieite::keys::alt_h;
 				case 0x69:
-					return xieite::kb::alt_i;
+					return xieite::keys::alt_i;
 				case 0x6A:
-					return xieite::kb::alt_j;
+					return xieite::keys::alt_j;
 				case 0x6B:
-					return xieite::kb::alt_k;
+					return xieite::keys::alt_k;
 				case 0x6C:
-					return xieite::kb::alt_l;
+					return xieite::keys::alt_l;
 				case 0x6D:
-					return xieite::kb::alt_m;
+					return xieite::keys::alt_m;
 				case 0x6E:
-					return xieite::kb::alt_n;
+					return xieite::keys::alt_n;
 				case 0x6F:
-					return xieite::kb::alt_o;
+					return xieite::keys::alt_o;
 				case 0x70:
-					return xieite::kb::alt_p;
+					return xieite::keys::alt_p;
 				case 0x71:
-					return xieite::kb::alt_q;
+					return xieite::keys::alt_q;
 				case 0x72:
-					return xieite::kb::alt_r;
+					return xieite::keys::alt_r;
 				case 0x73:
-					return xieite::kb::alt_s;
+					return xieite::keys::alt_s;
 				case 0x74:
-					return xieite::kb::alt_t;
+					return xieite::keys::alt_t;
 				case 0x75:
-					return xieite::kb::alt_u;
+					return xieite::keys::alt_u;
 				case 0x76:
-					return xieite::kb::alt_v;
+					return xieite::keys::alt_v;
 				case 0x77:
-					return xieite::kb::alt_w;
+					return xieite::keys::alt_w;
 				case 0x78:
-					return xieite::kb::alt_x;
+					return xieite::keys::alt_x;
 				case 0x79:
-					return xieite::kb::alt_y;
+					return xieite::keys::alt_y;
 				case 0x7A:
-					return xieite::kb::alt_z;
+					return xieite::keys::alt_z;
 				case 0x7B:
-					return xieite::kb::alt_lbrace;
+					return xieite::keys::alt_lbrace;
 				case 0x7C:
-					return xieite::kb::alt_pipe;
+					return xieite::keys::alt_pipe;
 				case 0x7D:
-					return xieite::kb::alt_rbrace;
+					return xieite::keys::alt_rbrace;
 				case 0x7E:
-					return xieite::kb::alt_tilde;
+					return xieite::keys::alt_tilde;
 				case 0x7F:
-					return xieite::kb::alt_backsp;
+					return xieite::keys::alt_backsp;
 				default:
 					std::ungetc(c1, this->in);
 				}
 				// TODO: Detect keys F13 through F24
 				break;
 			case 0x20:
-				return xieite::kb::sp;
+				return xieite::keys::sp;
 			case 0x21:
-				return xieite::kb::exclam;
+				return xieite::keys::exclam;
 			case 0x22:
-				return xieite::kb::quot;
+				return xieite::keys::quot;
 			case 0x23:
-				return xieite::kb::hash;
+				return xieite::keys::hash;
 			case 0x24:
-				return xieite::kb::dollar;
+				return xieite::keys::dollar;
 			case 0x25:
-				return xieite::kb::pc;
+				return xieite::keys::pc;
 			case 0x26:
-				return xieite::kb::et;
+				return xieite::keys::et;
 			case 0x27:
-				return xieite::kb::apos;
+				return xieite::keys::apos;
 			case 0x28:
-				return xieite::kb::lparen;
+				return xieite::keys::lparen;
 			case 0x29:
-				return xieite::kb::rparen;
+				return xieite::keys::rparen;
 			case 0x2A:
-				return xieite::kb::star;
+				return xieite::keys::star;
 			case 0x2B:
-				return xieite::kb::plus;
+				return xieite::keys::plus;
 			case 0x2C:
-				return xieite::kb::comma;
+				return xieite::keys::comma;
 			case 0x2D:
-				return xieite::kb::dash;
+				return xieite::keys::dash;
 			case 0x2E:
-				return xieite::kb::dot;
+				return xieite::keys::dot;
 			case 0x2F:
-				return xieite::kb::sl;
+				return xieite::keys::sl;
 			case 0x30:
-				return xieite::kb::_0;
+				return xieite::keys::_0;
 			case 0x31:
-				return xieite::kb::_1;
+				return xieite::keys::_1;
 			case 0x32:
-				return xieite::kb::_2;
+				return xieite::keys::_2;
 			case 0x33:
-				return xieite::kb::_3;
+				return xieite::keys::_3;
 			case 0x34:
-				return xieite::kb::_4;
+				return xieite::keys::_4;
 			case 0x35:
-				return xieite::kb::_5;
+				return xieite::keys::_5;
 			case 0x36:
-				return xieite::kb::_6;
+				return xieite::keys::_6;
 			case 0x37:
-				return xieite::kb::_7;
+				return xieite::keys::_7;
 			case 0x38:
-				return xieite::kb::_8;
+				return xieite::keys::_8;
 			case 0x39:
-				return xieite::kb::_9;
+				return xieite::keys::_9;
 			case 0x3A:
-				return xieite::kb::col;
+				return xieite::keys::col;
 			case 0x3B:
-				return xieite::kb::semicol;
+				return xieite::keys::semicol;
 			case 0x3C:
-				return xieite::kb::lt;
+				return xieite::keys::lt;
 			case 0x3D:
-				return xieite::kb::eq;
+				return xieite::keys::eq;
 			case 0x3E:
-				return xieite::kb::gt;
+				return xieite::keys::gt;
 			case 0x3F:
-				return xieite::kb::question;
+				return xieite::keys::question;
 			case 0x40:
-				return xieite::kb::at;
+				return xieite::keys::at;
 			case 0x41:
-				return xieite::kb::A;
+				return xieite::keys::A;
 			case 0x42:
-				return xieite::kb::B;
+				return xieite::keys::B;
 			case 0x43:
-				return xieite::kb::C;
+				return xieite::keys::C;
 			case 0x44:
-				return xieite::kb::D;
+				return xieite::keys::D;
 			case 0x45:
-				return xieite::kb::E;
+				return xieite::keys::E;
 			case 0x46:
-				return xieite::kb::F;
+				return xieite::keys::F;
 			case 0x47:
-				return xieite::kb::G;
+				return xieite::keys::G;
 			case 0x48:
-				return xieite::kb::H;
+				return xieite::keys::H;
 			case 0x49:
-				return xieite::kb::I;
+				return xieite::keys::I;
 			case 0x4A:
-				return xieite::kb::J;
+				return xieite::keys::J;
 			case 0x4B:
-				return xieite::kb::K;
+				return xieite::keys::K;
 			case 0x4C:
-				return xieite::kb::L;
+				return xieite::keys::L;
 			case 0x4D:
-				return xieite::kb::M;
+				return xieite::keys::M;
 			case 0x4E:
-				return xieite::kb::N;
+				return xieite::keys::N;
 			case 0x4F:
-				return xieite::kb::O;
+				return xieite::keys::O;
 			case 0x50:
-				return xieite::kb::P;
+				return xieite::keys::P;
 			case 0x51:
-				return xieite::kb::Q;
+				return xieite::keys::Q;
 			case 0x52:
-				return xieite::kb::R;
+				return xieite::keys::R;
 			case 0x53:
-				return xieite::kb::S;
+				return xieite::keys::S;
 			case 0x54:
-				return xieite::kb::T;
+				return xieite::keys::T;
 			case 0x55:
-				return xieite::kb::U;
+				return xieite::keys::U;
 			case 0x56:
-				return xieite::kb::V;
+				return xieite::keys::V;
 			case 0x57:
-				return xieite::kb::W;
+				return xieite::keys::W;
 			case 0x58:
-				return xieite::kb::X;
+				return xieite::keys::X;
 			case 0x59:
-				return xieite::kb::Y;
+				return xieite::keys::Y;
 			case 0x5A:
-				return xieite::kb::Z;
+				return xieite::keys::Z;
 			case 0x5B:
-				return xieite::kb::lbrack;
+				return xieite::keys::lbrack;
 			case 0x5C:
-				return xieite::kb::backsl;
+				return xieite::keys::backsl;
 			case 0x5D:
-				return xieite::kb::rbrack;
+				return xieite::keys::rbrack;
 			case 0x5E:
-				return xieite::kb::caret;
+				return xieite::keys::caret;
 			case 0x5F:
-				return xieite::kb::undersc;
+				return xieite::keys::undersc;
 			case 0x60:
-				return xieite::kb::grave;
+				return xieite::keys::grave;
 			case 0x61:
-				return xieite::kb::a;
+				return xieite::keys::a;
 			case 0x62:
-				return xieite::kb::b;
+				return xieite::keys::b;
 			case 0x63:
-				return xieite::kb::c;
+				return xieite::keys::c;
 			case 0x64:
-				return xieite::kb::d;
+				return xieite::keys::d;
 			case 0x65:
-				return xieite::kb::e;
+				return xieite::keys::e;
 			case 0x66:
-				return xieite::kb::f;
+				return xieite::keys::f;
 			case 0x67:
-				return xieite::kb::g;
+				return xieite::keys::g;
 			case 0x68:
-				return xieite::kb::h;
+				return xieite::keys::h;
 			case 0x69:
-				return xieite::kb::i;
+				return xieite::keys::i;
 			case 0x6A:
-				return xieite::kb::j;
+				return xieite::keys::j;
 			case 0x6B:
-				return xieite::kb::k;
+				return xieite::keys::k;
 			case 0x6C:
-				return xieite::kb::l;
+				return xieite::keys::l;
 			case 0x6D:
-				return xieite::kb::m;
+				return xieite::keys::m;
 			case 0x6E:
-				return xieite::kb::n;
+				return xieite::keys::n;
 			case 0x6F:
-				return xieite::kb::o;
+				return xieite::keys::o;
 			case 0x70:
-				return xieite::kb::p;
+				return xieite::keys::p;
 			case 0x71:
-				return xieite::kb::q;
+				return xieite::keys::q;
 			case 0x72:
-				return xieite::kb::r;
+				return xieite::keys::r;
 			case 0x73:
-				return xieite::kb::s;
+				return xieite::keys::s;
 			case 0x74:
-				return xieite::kb::t;
+				return xieite::keys::t;
 			case 0x75:
-				return xieite::kb::u;
+				return xieite::keys::u;
 			case 0x76:
-				return xieite::kb::v;
+				return xieite::keys::v;
 			case 0x77:
-				return xieite::kb::w;
+				return xieite::keys::w;
 			case 0x78:
-				return xieite::kb::x;
+				return xieite::keys::x;
 			case 0x79:
-				return xieite::kb::y;
+				return xieite::keys::y;
 			case 0x7A:
-				return xieite::kb::z;
+				return xieite::keys::z;
 			case 0x7B:
-				return xieite::kb::lbrace;
+				return xieite::keys::lbrace;
 			case 0x7C:
-				return xieite::kb::pipe;
+				return xieite::keys::pipe;
 			case 0x7D:
-				return xieite::kb::rbrace;
+				return xieite::keys::rbrace;
 			case 0x7E:
-				return xieite::kb::tilde;
+				return xieite::keys::tilde;
 			case 0x7F:
-				return xieite::kb::backsp;
+				return xieite::keys::backsp;
 			}
 			std::ungetc(c0, this->in);
-			return xieite::kb::unknown;
+			return xieite::keys::unknown;
 		}
 
 	private:
