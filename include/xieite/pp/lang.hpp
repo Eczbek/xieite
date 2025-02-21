@@ -122,6 +122,14 @@
 #ifdef __GLSL__
 #	undef XIEITE_LANG_TYPE_GLSL
 #	define XIEITE_LANG_TYPE_GLSL 1
+
+#	ifdef GLSL_VERSION
+#		undef XIEITE_LANG_MAJOR_GLSL
+#		define XIEITE_LANG_MAJOR_GLSL (GLSL_VERSION / 100)
+
+#		undef XIEITE_LANG_MINOR_GLSL
+#		define XIEITE_LANG_MINOR_GLSL (GLSL_VERSION % 100 / 10)
+#	endif
 #endif
 
 #ifdef __HLSL__
