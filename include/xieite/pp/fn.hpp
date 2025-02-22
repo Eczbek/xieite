@@ -1068,6 +1068,7 @@ namespace XIEITE_DETAIL::FN {
 	constexpr auto&& v(auto&&...) noexcept;
 
 	struct unusable {
+	public:
 		template<std::size_t idx>
 		[[nodiscard]] friend constexpr auto&& v(auto&&... args) noexcept {
 			if constexpr (idx < sizeof...(args)) {
@@ -1083,7 +1084,7 @@ namespace XIEITE_DETAIL::FN {
 	};
 
 	template<std::size_t idx, typename... Ts>
-	using t = decltype(([]<typename... Us> {
+	using t = decltype(([]<typename... Us> static {
 		if constexpr (idx < sizeof...(Us)) {
 			return std::type_identity<Us...[idx]>();
 		} else {
@@ -1091,7 +1092,8 @@ namespace XIEITE_DETAIL::FN {
 		}
 	}).template operator()<Ts...>())::type;
 
-	// TODO: Remove this wrapper once GCC accepts `[x = 0] noexcept(noexcept(x)) {}`
+	// Wrapper required due to GCC bug
+	// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117061
 	template<typename F>
 	struct indirect : F {
 		template<typename... Ts>

@@ -8,6 +8,7 @@
 #	define NODRAWTEXT
 #	define NOGDI
 #	define NOGDICAPMASKS
+#	define NOHELP
 #	define NOICONS
 #	define NOKANJI
 #	define NOKERNEL
@@ -36,8 +37,6 @@
 #	define NOWINMESSAGES
 #	define NOWINOFFSETS
 #	define NOWINSTYLES
-#	define OEMRESOURCE
-#	define OHELP
 #	define WIN32_LEAN_AND_MEAN
 
 #	include <windows.h>
@@ -51,6 +50,7 @@
 #	undef NODRAWTEXT
 #	undef NOGDI
 #	undef NOGDICAPMASKS
+#	undef NOHELP
 #	undef NOICONS
 #	undef NOKANJI
 #	undef NOKERNEL
@@ -79,8 +79,6 @@
 #	undef NOWINMESSAGES
 #	undef NOWINOFFSETS
 #	undef NOWINSTYLES
-#	undef OEMRESOURCE
-#	undef OHELP
 #	undef WIN32_LEAN_AND_MEAN
 
 #	undef APIENTRY
