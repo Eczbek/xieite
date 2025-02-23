@@ -21,10 +21,8 @@ namespace XIEITE_DETAIL::memoize {
 		[[nodiscard]] constexpr memo(const F& fn, const std::tuple<Args...>& args) noexcept
 		: fn(fn), args(args) {}
 
-		[[nodiscard]] friend bool operator==(const memo<F, Args...>&, const memo<F, Args...>&) = default;
-
 		template<typename... OtherArgs>
-		[[nodiscard]] friend bool operator==(const memo<F, Args...>& l, const memo<F, OtherArgs...>& r) noexcept {
+		[[nodiscard]] friend constexpr bool operator==(const XIEITE_DETAIL::memoize::memo<F, Args...>& l, const XIEITE_DETAIL::memoize::memo<F, OtherArgs...>& r) noexcept {
 			return (l.fn == r.fn) && (l.args == r.args);
 		}
 	};
@@ -33,14 +31,14 @@ namespace XIEITE_DETAIL::memoize {
 		using is_transparent = void;
 
 		template<typename F, typename... Args>
-		[[nodiscard]] static std::size_t operator()(const memo<F, Args...>& memo) noexcept(false) {
+		[[nodiscard]] static std::size_t operator()(const XIEITE_DETAIL::memoize::memo<F, Args...>& memo) noexcept(false) {
 			return xieite::unroll<Args...>([&memo]<std::size_t... i> -> std::size_t {
 				return xieite::hash_combine(
-					([&memo] {
+					([&memo] -> std::size_t {
 						if constexpr (xieite::is_hashable<F>) {
 							return std::hash<F>()(memo.fn);
 						} else {
-							return 0;
+							return void(memo), 0;
 						}
 					})(),
 					std::hash<std::decay_t<Args...[i]>>()(std::get<i>(memo.args))...
@@ -61,10 +59,9 @@ namespace xieite {
 			&& std::equality_comparable<F>
 			&& (... && xieite::is_hashable<Args>)
 		) {
-			static std::unordered_map<XIEITE_DETAIL::memoize::memo<F, std::decay_t<Args>...>, std::invoke_result_t<F&, Args...>, XIEITE_DETAIL::memoize::hash, std::ranges::equal_to> map;
-			const auto iterator = map.find(memo<F, const Args&...>(fn, std::tie(args...)));
-			if (iterator != map.end()) {
-				return iterator->second;
+			static std::unordered_map<XIEITE_DETAIL::memoize::memo<F, std::decay_t<Args>...>, std::invoke_result_t<F&, Args...>, XIEITE_DETAIL::memoize::hash, std::equal_to<>> map;
+			if (const auto iter = map.find(XIEITE_DETAIL::memoize::memo<F, const Args&...>(fn, std::tie(args...))); iter != map.end()) {
+				return iter->second;
 			} else {
 				const auto tuple = std::make_tuple(args...);
 				std::invoke_result_t<F, Args...> result = std::invoke(fn, args...);

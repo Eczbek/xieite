@@ -14,8 +14,8 @@
 			(decltype(XIEITE_DETAIL_args)&&... XIEITE_DETAIL_args), \
 			__VA_ARGS__(XIEITE_FWD(XIEITE_DETAIL_args)...) \
 		)
-#define XIEITE_DETAIL_LIFT_M(access_, ...) static \
-	[][[nodiscard]](auto&& XIEITE_DETAIL_obj, auto&&... XIEITE_DETAIL_args) \
+#define XIEITE_DETAIL_LIFT_M(access_, ...) \
+	[][[nodiscard]](auto&& XIEITE_DETAIL_obj, auto&&... XIEITE_DETAIL_args) static \
 		XIEITE_ARROW_PARAM( \
 			(decltype(XIEITE_DETAIL_obj)&& XIEITE_DETAIL_obj, decltype(XIEITE_DETAIL_args)&&... XIEITE_DETAIL_args), \
 			(XIEITE_FWD(XIEITE_DETAIL_obj) access_ __VA_ARGS__(XIEITE_FWD(XIEITE_DETAIL_args)...)) \
