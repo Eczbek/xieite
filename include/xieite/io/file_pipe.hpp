@@ -3,7 +3,6 @@
 #include <cstdio>
 #include <stdio.h>
 #include <string>
-#include <string_view>
 #include "../pp/pltf.hpp"
 #include "../sys/proc_status.hpp"
 
@@ -16,12 +15,12 @@ namespace xieite {
 	public:
 		[[nodiscard]] file_pipe() noexcept : stream(nullptr) {}
 
-		[[nodiscard]] file_pipe(std::string_view cmd, std::string_view mode) noexcept {
+		[[nodiscard]] file_pipe(const std::string& cmd, const std::string& mode) noexcept {
 			this->open(cmd, mode);
 		}
 		
 #if XIEITE_PLTF_TYPE_WINDOWS
-		[[nodiscard]] file_pipe(std::wstring_view cmd, std::wstring_view mode) noexcept {
+		[[nodiscard]] file_pipe(const std::wstring& cmd, const std::wstring& mode) noexcept {
 			this->open(cmd, mode);
 		}
 #endif
@@ -30,17 +29,17 @@ namespace xieite {
 			this->close();
 		}
 
-		void open(std::string_view cmd, std::string_view mode) noexcept {
+		void open(const std::string& cmd, const std::string& mode) noexcept {
 #if XIEITE_PLTF_TYPE_WINDOWS
-			this->stream = ::_popen(std::string(cmd).c_str(), std::string(mode).c_str());
+			this->stream = ::_popen(cmd.c_str(), mode.c_str());
 #else
-			this->stream = ::popen(std::string(cmd).c_str(), std::string(mode).c_str());
+			this->stream = ::popen(cmd.c_str(), mode.c_str());
 #endif
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		void open(std::wstring_view cmd, std::wstring_view mode) noexcept {
-			this->stream = ::_wpopen(std::wstring(cmd).c_str(), std::wstring(mode).c_str());
+		void open(const std::wstring& cmd, const std::wstring& mode) noexcept {
+			this->stream = ::_wpopen(cmd.c_str(), mode.c_str());
 		}
 #endif
 

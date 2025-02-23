@@ -5,7 +5,6 @@
 #include <memory>
 #include <stdio.h>
 #include <string>
-#include <string_view>
 #include "../pp/cplr.hpp"
 #include "../pp/pltf.hpp"
 #include "../trait/is_istream.hpp"
@@ -29,22 +28,22 @@ namespace xieite {
 		[[nodiscard]] file(std::FILE* const stream = nullptr) noexcept
 		: stream(stream) {}
 
-		[[nodiscard]] file(std::string_view path, std::string_view mode) noexcept {
+		[[nodiscard]] file(const std::string& path, const std::string& mode) noexcept {
 			this->open(path, mode);
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		[[nodiscard]] file(std::wstring_view path, std::wstring_view mode) noexcept {
+		[[nodiscard]] file(const std::wstring& path, const std::wstring& mode) noexcept {
 			this->open(path, mode);
 		}
 #endif
 
-		[[nodiscard]] file(int desc, std::string_view mode) noexcept {
+		[[nodiscard]] file(int desc, const std::string& mode) noexcept {
 			this->open(desc, mode);
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		[[nodiscard]] file(int desc, std::wstring_view mode) noexcept {
+		[[nodiscard]] file(int desc, const std::wstring& mode) noexcept {
 			this->open(desc, mode);
 		}
 #endif
@@ -54,12 +53,12 @@ namespace xieite {
 			this->open(stream);
 		}
 
-		[[nodiscard]] file(std::string_view path, std::string_view mode, xieite::file other) noexcept {
+		[[nodiscard]] file(const std::string& path, const std::string& mode, xieite::file other) noexcept {
 			this->reopen(path, mode, other);
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		[[nodiscard]] file(std::wstring_view path, std::wstring_view mode, xieite::file other) noexcept {
+		[[nodiscard]] file(const std::wstring& path, const std::wstring& mode, xieite::file other) noexcept {
 			this->reopen(path, mode, other);
 		}
 #endif
@@ -68,27 +67,29 @@ namespace xieite {
 			this->close();
 		}
 
-		void open(std::string_view path, std::string_view mode) noexcept {
-			this->stream = std::fopen(std::string(path).c_str(), std::string(mode).c_str());
+		void open(const std::string& path, const std::string& mode) noexcept {
+			this->stream = std::fopen(path.c_str(), mode.c_str());
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		void open(std::wstring_view path, std::wstring_view mode) noexcept {
-			this->stream = ::_wfopen(std::wstring(path).c_str(), std::wstring(mode).c_str());
+		void open(const std::wstring& path, const std::wstring& mode) noexcept {
+			this->stream = ::_wfopen(path.c_str(), mode.c_str());
 		}
 #endif
 
-		void open(int desc, std::string_view mode) noexcept {
+		
+
+		void open(int desc, const std::string& mode) noexcept {
 #if XIEITE_PLTF_TYPE_WINDOWS
-			this->stream = ::_fdopen(desc, std::string(mode).c_str());
+			this->stream = ::_fdopen(desc, mode.c_str());
 #else
-			this->stream = ::fdopen(desc, std::string(mode).c_str());
+			this->stream = ::fdopen(desc, mode.c_str());
 #endif
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		void open(int desc, std::wstring_view mode) noexcept {
-			this->stream = ::_wfdopen(desc, std::wstring(mode).c_str());
+		void open(int desc, const std::wstring& mode) noexcept {
+			this->stream = ::_wfdopen(desc, mode.c_str());
 		}
 #endif
 
@@ -134,13 +135,13 @@ namespace xieite {
 			})();
 		}
 
-		void reopen(std::string_view path, std::string_view mode, xieite::file other) noexcept {
-			this->stream = std::freopen(std::string(path).c_str(), std::string(mode).c_str(), other.get());
+		void reopen(const std::string& path, const std::string& mode, xieite::file other) noexcept {
+			this->stream = std::freopen(path.c_str(), mode.c_str(), other.get());
 		}
 
 #if XIEITE_PLTF_TYPE_WINDOWS
-		void reopen(std::wstring_view path, std::wstring_view mode, xieite::file other) noexcept {
-			this->stream = ::_wfreopen(std::wstring(path).c_str(), std::wstring(mode).c_str(), other.get());
+		void reopen(const std::wstring& path, const std::wstring& mode, xieite::file other) noexcept {
+			this->stream = ::_wfreopen(path.c_str(), mode.c_str(), other.get());
 		}
 #endif
 

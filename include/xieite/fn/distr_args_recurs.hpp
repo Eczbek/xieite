@@ -18,9 +18,9 @@ namespace xieite {
 			return std::invoke(XIEITE_FWD(fn), XIEITE_FWD(args)...);
 		} else {
 			const auto args_tuple = std::forward_as_tuple(XIEITE_FWD(args)...);
-			const auto result = xieite::splice_tuple<prev_idx + arity>(args_tuple, std::forward_as_tuple(std::apply(fn, xieite::splice_tuple<arity, sizeof...(Args) - arity>(args_tuple))));
-			return xieite::unroll<sizeof...(Args) - arity + 1>([&fn, &result]<std::size_t... i> -> decltype(auto) {
-				return xieite::distr_args_recurs<arity, prev_idx>(XIEITE_FWD(fn), std::get<i + arity>(std::move(result))...);
+			const auto result = xieite::splice_tuple<(prev_idx + arity)>(args_tuple, std::forward_as_tuple(std::apply(fn, xieite::splice_tuple<arity, (sizeof...(Args) - arity)>(args_tuple))));
+			return xieite::unroll<(sizeof...(Args) - arity + 1)>([&fn, &result]<std::size_t... i> -> decltype(auto) {
+				return xieite::distr_args_recurs<arity, prev_idx>(XIEITE_FWD(fn), std::get<(i + arity)>(std::move(result))...);
 			});
 		}
 	}

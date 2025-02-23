@@ -23,6 +23,8 @@
 #include <termios.h>
 #include <unistd.h>
 
+using namespace std::literals;
+
 namespace xieite {
 	struct term {
 	public:
@@ -84,7 +86,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string fg_code(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept {
-			return "\x1B[38;2;" + xieite::str_num(r) + ";" + xieite::str_num(g) + ";" + xieite::str_num(b) + "m";
+			return "\x1B[38;2;"s + xieite::str_num(r) + ";"s + xieite::str_num(g) + ";"s + xieite::str_num(b) + "m"s;
 		}
 
 		[[nodiscard]] static constexpr std::string fg_code(const xieite::color3& color) noexcept {
@@ -108,7 +110,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string bg_code(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept {
-			return "\x1B[48;2;" + xieite::str_num(r) + ";" + xieite::str_num(g) + ";" + xieite::str_num(b) + "m";
+			return "\x1B[48;2;"s + xieite::str_num(r) + ";"s + xieite::str_num(g) + ";"s + xieite::str_num(b) + "m"s;
 		}
 
 		[[nodiscard]] static constexpr std::string bg_code(const xieite::color3& color) noexcept {
@@ -214,7 +216,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] constexpr std::string set_curs_code(int row, int col) noexcept {
-			return "\x1B[" + xieite::str_num(row + 1) + ";" + xieite::str_num(col + 1) + "H";
+			return "\x1B["s + xieite::str_num(row + 1) + ";"s + xieite::str_num(col + 1) + "H"s;
 		}
 
 		[[nodiscard]] constexpr std::string set_curs_code(xieite::vec2<int> pos) noexcept {
@@ -257,7 +259,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string curs_invis_code(bool x) noexcept {
-			return std::string("\x1B[?25") + "hl"[x];
+			return "\x1B[?25"s + "hl"[x];
 		}
 
 		void curs_invis(bool x) noexcept {
@@ -265,7 +267,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string curs_block_code(bool blink = false) noexcept {
-			return "\1\x1B[" + xieite::str_num(2 - blink) + "q\2";
+			return "\1\x1B["s + xieite::str_num(2 - blink) + "q\2"s;
 		}
 
 		void curs_block(bool blink = false) noexcept {
@@ -273,7 +275,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string curs_undersc_code(bool blink = false) noexcept {
-			return "\1\x1B[" + xieite::str_num(4 - blink) + "q\2";
+			return "\1\x1B["s + xieite::str_num(4 - blink) + "q\2"s;
 		}
 
 		void curs_undersc(bool blink = false) noexcept {
@@ -281,7 +283,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string curs_pipe_code(bool blink = false) noexcept {
-			return "\1\x1B[" + xieite::str_num(6 - blink) + "q\2";
+			return "\1\x1B["s + xieite::str_num(6 - blink) + "q\2"s;
 		}
 
 		void curs_pipe(bool blink = false) noexcept {
@@ -289,7 +291,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string curs_alt_code(bool x) noexcept {
-			return std::string("\x1B[") + "us"[x];
+			return "\x1B["s + "us"[x];
 		}
 
 		void curs_alt(bool x) noexcept {
@@ -297,7 +299,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string scr_alt_code(bool x) noexcept {
-			return std::string("\x1B[?47") + "lh"[x];
+			return "\x1B[?47"s + "lh"[x];
 		}
 
 		void scr_alt(bool x) noexcept {
