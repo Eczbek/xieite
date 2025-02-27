@@ -7,7 +7,8 @@
 #include "../trait/is_fwd_input_range.hpp"
 
 namespace xieite {
-	template<xieite::is_fwd_input_range<[]<xieite::is_ch> {}> R0, xieite::is_fwd_input_range<[]<xieite::is_ch> {}> R1>
+	template<typename R0, typename R1>
+	requires(xieite::is_fwd_input_range<R0, []<xieite::is_ch> {}> && xieite::is_fwd_input_range<R1, []<xieite::is_ch> {}>)
 	[[nodiscard]] constexpr std::strong_ordering cmp_ignore_case(R0&& l, R1&& r) noexcept {
 		auto iter0 = std::ranges::begin(l);
 		auto iter1 = std::ranges::begin(r);
@@ -27,4 +28,3 @@ namespace xieite {
 		return std::strong_ordering::equal;
 	}
 }
-

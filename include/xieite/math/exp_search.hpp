@@ -10,7 +10,7 @@
 
 namespace xieite {
 	template<xieite::is_arith T, xieite::is_invoc<bool(T)> F>
-	[[nodiscard]] constexpr T num_search(F&& cond, T min, T max)
+	[[nodiscard]] constexpr T exp_search(F&& cond, T min, T max)
 	noexcept(xieite::is_noex_invoc<F, bool(T)>) {
 		while (true) {
 			const T mid = static_cast<T>((min + max) / 2);
@@ -22,7 +22,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_arith T, xieite::is_invoc<bool(T)> F>
-	[[nodiscard]] constexpr T num_search(F&& cond)
+	[[nodiscard]] constexpr T exp_search(F&& cond)
 	noexcept(xieite::is_noex_invoc<F, bool(T)>) {
 		if constexpr (!std::unsigned_integral<T>) {
 			if (std::invoke_r<bool>(cond, static_cast<T>(0))) {
@@ -30,13 +30,13 @@ namespace xieite {
 				while (std::invoke_r<bool>(cond, min)) {
 					min *= 2;
 				}
-				return xieite::num_search(cond, min, 0);
+				return xieite::exp_search(cond, min, 0);
 			}
 		}
 		T max = 1;
 		while (!std::invoke_r<bool>(cond, max)) {
 			max *= 2;
 		}
-		return xieite::num_search(cond, static_cast<T>(0), max);
+		return xieite::exp_search(cond, static_cast<T>(0), max);
 	}
 }
