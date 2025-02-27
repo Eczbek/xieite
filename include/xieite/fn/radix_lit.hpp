@@ -4,7 +4,7 @@
 
 namespace xieite::radix_lit {
 	template<char... chars>
-	[[nodiscard]] constexpr std::size_t operator""_radix() noexcept {
+	[[nodiscard]] consteval std::size_t operator""_radix() noexcept {
 		if constexpr ((sizeof...(chars) > 1) && (chars...[0] == '0')) {
 			switch (chars...[1]) {
 			case 'x':
