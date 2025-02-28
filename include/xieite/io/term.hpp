@@ -100,7 +100,7 @@ namespace xieite {
 			this->fg(color.r, color.g, color.b);
 		}
 
-		[[nodiscard]] static consteval std::string fg_reset_code() noexcept {
+		[[nodiscard]] static constexpr std::string fg_reset_code() noexcept {
 			return "\x1B[38m";
 		}
 
@@ -124,7 +124,7 @@ namespace xieite {
 			this->bg(color.r, color.g, color.b);
 		}
 
-		[[nodiscard]] static consteval std::string bg_reset_code() noexcept {
+		[[nodiscard]] static constexpr std::string bg_reset_code() noexcept {
 			return "\x1B[48m";
 		}
 
@@ -188,7 +188,7 @@ namespace xieite {
 			std::fputs(xieite::term::invert_code(x).c_str(), this->out);
 		}
 
-		[[nodiscard]] static consteval std::string reset_style_code() noexcept {
+		[[nodiscard]] static constexpr std::string reset_style_code() noexcept {
 			return "\x1B[0m";
 		}
 
@@ -308,7 +308,7 @@ namespace xieite {
 			return xieite::vec2<int>(size.ws_col, size.ws_row);
 		}
 
-		[[nodiscard]] static consteval std::string clear_screen_code() noexcept {
+		[[nodiscard]] static constexpr std::string clear_screen_code() noexcept {
 			return "\x1B[2J";
 		}
 
@@ -316,7 +316,7 @@ namespace xieite {
 			std::fputs(xieite::term::clear_screen_code().c_str(), this->out);
 		}
 
-		[[nodiscard]] static consteval std::string clear_screen_until_code() noexcept {
+		[[nodiscard]] static constexpr std::string clear_screen_until_code() noexcept {
 			return "\x1B[1J";
 		}
 		
@@ -324,7 +324,7 @@ namespace xieite {
 			std::fputs(xieite::term::clear_screen_until_code().c_str(), this->out);
 		}
 
-		[[nodiscard]] static consteval std::string clear_screen_from_code() noexcept {
+		[[nodiscard]] static constexpr std::string clear_screen_from_code() noexcept {
 			return "\x1B[0J";
 		}
 		
@@ -332,7 +332,7 @@ namespace xieite {
 			std::fputs(xieite::term::clear_screen_from_code().c_str(), this->out);
 		}
 
-		[[nodiscard]] static consteval std::string clear_line_code() noexcept {
+		[[nodiscard]] static constexpr std::string clear_line_code() noexcept {
 			return "\x1B[2K";
 		}
 
@@ -340,7 +340,7 @@ namespace xieite {
 			std::fputs(xieite::term::clear_line_code().c_str(), this->out);
 		}
 
-		[[nodiscard]] static consteval std::string clear_line_until_code() noexcept {
+		[[nodiscard]] static constexpr std::string clear_line_until_code() noexcept {
 			return "\x1B[1K";
 		}
 
@@ -348,7 +348,7 @@ namespace xieite {
 			std::fputs(xieite::term::clear_line_until_code().c_str(), this->out);
 		}
 
-		[[nodiscard]] static consteval std::string clear_line_from_code() noexcept {
+		[[nodiscard]] static constexpr std::string clear_line_from_code() noexcept {
 			return "\x1B[0K";
 		}
 
