@@ -29,6 +29,10 @@ namespace xieite {
 			this->close();
 		}
 
+		[[nodiscard]] explicit(false) operator bool() const noexcept {
+			return this->stream;
+		}
+
 		void open(const std::string& cmd, const std::string& mode) noexcept {
 #if XIEITE_PLTF_TYPE_WINDOWS
 			this->stream = ::_popen(cmd.c_str(), mode.c_str());

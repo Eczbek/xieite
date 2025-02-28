@@ -67,6 +67,10 @@ namespace xieite {
 			this->close();
 		}
 
+		[[nodiscard]] explicit(false) operator bool() const noexcept {
+			return this->stream;
+		}
+
 		void open(const std::string& path, const std::string& mode) noexcept {
 			this->stream = std::fopen(path.c_str(), mode.c_str());
 		}
