@@ -305,7 +305,7 @@ namespace xieite {
 		[[nodiscard]] xieite::vec2<int> screen_size() noexcept {
 			::winsize size;
 			::ioctl(::fileno(this->in), TIOCGWINSZ, std::addressof(size));
-			return xieite::vec2<int>(size.ws_col, size.ws_row);
+			return xieite::vec2<int>(size.ws_row, size.ws_col);
 		}
 
 		[[nodiscard]] static constexpr std::string clear_screen_code() noexcept {
