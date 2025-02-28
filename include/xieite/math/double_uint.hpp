@@ -9,6 +9,8 @@
 #include "../fn/order_op.hpp"
 #include "../math/add_overflow.hpp"
 #include "../math/bit_size.hpp"
+#include "../math/lshift.hpp"
+#include "../math/rshift.hpp"
 
 namespace xieite {
 	template<std::unsigned_integral T>
@@ -24,11 +26,11 @@ namespace xieite {
 
 		template<std::integral U>
 		[[nodiscard]] explicit(false) constexpr double_uint(U x) noexcept
-		: lo(static_cast<T>(x & static_cast<T>(-1))), hi(static_cast<T>(x >> xieite::bit_size<T>)) {}
+		: lo(static_cast<T>(x & static_cast<T>(-1))), hi(static_cast<T>(xieite::rshift(x, xieite::bit_size<T>))) {}
 
 		template<std::integral U>
 		[[nodiscard]] explicit constexpr operator U() const noexcept {
-			return static_cast<U>(this->lo) | (static_cast<U>(this->hi) << xieite::bit_size<T>);
+			return static_cast<U>(this->lo) | xieite::lshift(static_cast<U>(this->hi), xieite::bit_size<T>);
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::double_uint<T> l, xieite::double_uint<T> r) noexcept {

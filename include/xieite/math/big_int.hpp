@@ -14,7 +14,7 @@
 #include <string_view>
 #include <utility>
 #include <vector>
-#include "../ctnr/str_num_cfg.hpp"
+#include "../ctnr/num_str_config.hpp"
 #include "../fn/order_op.hpp"
 #include "../fn/range_cmp_op.hpp"
 #include "../math/abs.hpp"
@@ -82,16 +82,16 @@ namespace xieite {
 			this->trim();
 		}
 
-		[[nodiscard]] explicit constexpr big_int(std::string_view str, xieite::ssize_t radix = 10, xieite::str_num_cfg cfg = {}) noexcept
+		[[nodiscard]] explicit constexpr big_int(std::string_view str, xieite::ssize_t radix = 10, xieite::num_str_config config = {}) noexcept
 		: neg(false) {
 			*this = 0;
 			if (!radix) {
 				return;
 			}
-			const bool neg = cfg.neg.contains(str[0]);
-			str.remove_prefix(neg || cfg.pos.contains(str[0]));
+			const bool neg = config.minus.contains(str[0]);
+			str.remove_prefix(neg || config.plus.contains(str[0]));
 			for (char c : str) {
-				const std::size_t digit = cfg.digits.find(c);
+				const std::size_t digit = config.digit.find(c);
 				if (digit == std::string::npos) {
 					break;
 				}
@@ -610,20 +610,19 @@ namespace xieite {
 			return this->log(xieite::big_int<T>(base));
 		}
 
-		[[nodiscard]] constexpr std::string str(xieite::ssize_t radix = 10, xieite::str_num_cfg cfg = {}) const noexcept {
+		[[nodiscard]] constexpr std::string str(xieite::ssize_t radix = 10, xieite::num_str_config config = {}) const noexcept {
 			if (!*this || !radix) {
-				return std::string(1, cfg.digits[0]);
+				return std::string(1, config.digit[0]);
 			}
 			std::string result;
 			xieite::big_int<T> x = this->abs();
 			if (radix == 1) {
-				result = std::string(static_cast<std::size_t>(x), cfg.digits[1]);
+				result = std::string(static_cast<std::size_t>(x), config.digit[1]);
 			} else if (radix == -1) {
-				result = cfg.digits[1];
-				std::size_t length = static_cast<std::size_t>(x);
-				while (--length) {
-					result += cfg.digits[0];
-					result += cfg.digits[1];
+				result = config.digit[1];
+				for (std::size_t length = static_cast<std::size_t>(x); --length;) {
+					result += config.digit[0];
+					result += config.digit[1];
 				}
 			} else {
 				do {
@@ -633,11 +632,11 @@ namespace xieite {
 						idx += radix;
 						++x;
 					}
-					result.insert(0, 1, cfg.digits[static_cast<std::size_t>(idx) * (static_cast<std::size_t>(idx) < cfg.digits.size())]);
+					result.insert(0, 1, config.digit[static_cast<std::size_t>(idx) * (static_cast<std::size_t>(idx) < config.digit.size())]);
 				} while (x);
 			}
 			if (*this < 0) {
-				result.insert(0, 1, cfg.neg[0]);
+				result.insert(0, 1, config.minus[0]);
 			}
 			return result;
 		}
