@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 
-set(PROJECT_NAME xieite)
+set(PROJECT_NAME x4)
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/pp/ver.hpp" PROJECT_VERSION_FILE)
 string(REGEX MATCH "#define [A-Z_]+_MAJOR ([0-9]+)" _ ${PROJECT_VERSION_FILE})
 set(PROJECT_VERSION_MAJOR ${CMAKE_MATCH_1})

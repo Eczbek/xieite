@@ -1,0 +1,11 @@
+#pragma once
+
+#include "../math/divtrunchlf.hpp"
+#include "../trait/isarith.hpp"
+
+namespace x4 {
+	template<x4::isarith T>
+	[[nodiscard]] constexpr T trunchlf(T n, T step = 1) noexcept {
+		return x4::divtrunchlf(n, step) * step;
+	}
+}

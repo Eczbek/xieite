@@ -1,0 +1,1422 @@
+#pragma once
+
+#define X4PLTF_AEGIS 0
+#define X4PLTFMAJOR_AEGIS 0
+#define X4PLTFMINOR_AEGIS 0
+#define X4PLTFPATCH_AEGIS 0
+#define X4PLTF_AIX 0
+#define X4PLTFMAJOR_AIX 0
+#define X4PLTFMINOR_AIX 0
+#define X4PLTFPATCH_AIX 0
+#define X4PLTF_AKAROS 0
+#define X4PLTFMAJOR_AKAROS 0
+#define X4PLTFMINOR_AKAROS 0
+#define X4PLTFPATCH_AKAROS 0
+#define X4PLTF_AMIGAOS 0
+#define X4PLTFMAJOR_AMIGAOS 0
+#define X4PLTFMINOR_AMIGAOS 0
+#define X4PLTFPATCH_AMIGAOS 0
+#define X4PLTF_ANDROID 0
+#define X4PLTFMAJOR_ANDROID 0
+#define X4PLTFMINOR_ANDROID 0
+#define X4PLTFPATCH_ANDROID 0
+#define X4PLTF_ASMJS 0
+#define X4PLTFMAJOR_ASMJS 0
+#define X4PLTFMINOR_ASMJS 0
+#define X4PLTFPATCH_ASMJS 0
+#define X4PLTF_BEOS 0
+#define X4PLTFMAJOR_BEOS 0
+#define X4PLTFMINOR_BEOS 0
+#define X4PLTFPATCH_BEOS 0
+#define X4PLTF_BLUE_GENE 0
+#define X4PLTFMAJOR_BLUE_GENE 0
+#define X4PLTFMINOR_BLUE_GENE 0
+#define X4PLTFPATCH_BLUE_GENE 0
+#define X4PLTF_BSD 0
+#define X4PLTFMAJOR_BSD 0
+#define X4PLTFMINOR_BSD 0
+#define X4PLTFPATCH_BSD 0
+#define X4PLTF_BSD_BSDI 0
+#define X4PLTFMAJOR_BSD_BSDI 0
+#define X4PLTFMINOR_BSD_BSDI 0
+#define X4PLTFPATCH_BSD_BSDI 0
+#define X4PLTF_BSD_DRAGONFLY 0
+#define X4PLTFMAJOR_BSD_DRAGONFLY 0
+#define X4PLTFMINOR_BSD_DRAGONFLY 0
+#define X4PLTFPATCH_BSD_DRAGONFLY 0
+#define X4PLTF_BSD_FREE 0
+#define X4PLTFMAJOR_BSD_FREE 0
+#define X4PLTFMINOR_BSD_FREE 0
+#define X4PLTFPATCH_BSD_FREE 0
+#define X4PLTF_BSD_NET 0
+#define X4PLTFMAJOR_BSD_NET 0
+#define X4PLTFMINOR_BSD_NET 0
+#define X4PLTFPATCH_BSD_NET 0
+#define X4PLTF_BSD_OPEN 0
+#define X4PLTFMAJOR_BSD_OPEN 0
+#define X4PLTFMINOR_BSD_OPEN 0
+#define X4PLTFPATCH_BSD_OPEN 0
+#define X4PLTF_CLOUDABI 0
+#define X4PLTFMAJOR_CLOUDABI 0
+#define X4PLTFMINOR_CLOUDABI 0
+#define X4PLTFPATCH_CLOUDABI 0
+#define X4PLTF_CONVEXOS 0
+#define X4PLTFMAJOR_CONVEXOS 0
+#define X4PLTFMINOR_CONVEXOS 0
+#define X4PLTFPATCH_CONVEXOS 0
+#define X4PLTF_CYGWIN 0
+#define X4PLTFMAJOR_CYGWIN 0
+#define X4PLTFMINOR_CYGWIN 0
+#define X4PLTFPATCH_CYGWIN 0
+#define X4PLTF_DC_OSX 0
+#define X4PLTFMAJOR_DC_OSX 0
+#define X4PLTFMINOR_DC_OSX 0
+#define X4PLTFPATCH_DC_OSX 0
+#define X4PLTF_DG_UX 0
+#define X4PLTFMAJOR_DG_UX 0
+#define X4PLTFMINOR_DG_UX 0
+#define X4PLTFPATCH_DG_UX 0
+#define X4PLTF_DOMAIN_OS 0
+#define X4PLTFMAJOR_DOMAIN_OS 0
+#define X4PLTFMINOR_DOMAIN_OS 0
+#define X4PLTFPATCH_DOMAIN_OS 0
+#define X4PLTF_DRAGONFLY 0
+#define X4PLTFMAJOR_DRAGONFLY 0
+#define X4PLTFMINOR_DRAGONFLY 0
+#define X4PLTFPATCH_DRAGONFLY 0
+#define X4PLTF_DYNIX 0
+#define X4PLTFMAJOR_DYNIX 0
+#define X4PLTFMINOR_DYNIX 0
+#define X4PLTFPATCH_DYNIX 0
+#define X4PLTF_ECOS 0
+#define X4PLTFMAJOR_ECOS 0
+#define X4PLTFMINOR_ECOS 0
+#define X4PLTFPATCH_ECOS 0
+#define X4PLTF_EMX 0
+#define X4PLTFMAJOR_EMX 0
+#define X4PLTFMINOR_EMX 0
+#define X4PLTFPATCH_EMX 0
+#define X4PLTF_FREEBSD 0
+#define X4PLTFMAJOR_FREEBSD 0
+#define X4PLTFMINOR_FREEBSD 0
+#define X4PLTFPATCH_FREEBSD 0
+#define X4PLTF_FUCHSIA 0
+#define X4PLTFMAJOR_FUCHSIA 0
+#define X4PLTFMINOR_FUCHSIA 0
+#define X4PLTFPATCH_FUCHSIA 0
+#define X4PLTF_GNU_HURD 0
+#define X4PLTFMAJOR_GNU_HURD 0
+#define X4PLTFMINOR_GNU_HURD 0
+#define X4PLTFPATCH_GNU_HURD 0
+#define X4PLTF_GNU_KFREEBSD 0
+#define X4PLTFMAJOR_GNU_KFREEBSD 0
+#define X4PLTFMINOR_GNU_KFREEBSD 0
+#define X4PLTFPATCH_GNU_KFREEBSD 0
+#define X4PLTF_GNU_LINUX 0
+#define X4PLTFMAJOR_GNU_LINUX 0
+#define X4PLTFMINOR_GNU_LINUX 0
+#define X4PLTFPATCH_GNU_LINUX 0
+#define X4PLTF_HAIKU 0
+#define X4PLTFMAJOR_HAIKU 0
+#define X4PLTFMINOR_HAIKU 0
+#define X4PLTFPATCH_HAIKU 0
+#define X4PLTF_HI_UX_MPP 0
+#define X4PLTFMAJOR_HI_UX_MPP 0
+#define X4PLTFMINOR_HI_UX_MPP 0
+#define X4PLTFPATCH_HI_UX_MPP 0
+#define X4PLTF_HP_UX 0
+#define X4PLTFMAJOR_HP_UX 0
+#define X4PLTFMINOR_HP_UX 0
+#define X4PLTFPATCH_HP_UX 0
+#define X4PLTF_INTEGRITY 0
+#define X4PLTFMAJOR_INTEGRITY 0
+#define X4PLTFMINOR_INTEGRITY 0
+#define X4PLTFPATCH_INTEGRITY 0
+#define X4PLTF_INTERIX 0
+#define X4PLTFMAJOR_INTERIX 0
+#define X4PLTFMINOR_INTERIX 0
+#define X4PLTFPATCH_INTERIX 0
+#define X4PLTF_IOS_SIMULATOR 0
+#define X4PLTFMAJOR_IOS_SIMULATOR 0
+#define X4PLTFMINOR_IOS_SIMULATOR 0
+#define X4PLTFPATCH_IOS_SIMULATOR 0
+#define X4PLTF_IRIX 0
+#define X4PLTFMAJOR_IRIX 0
+#define X4PLTFMINOR_IRIX 0
+#define X4PLTFPATCH_IRIX 0
+#define X4PLTF_KALLISTI 0
+#define X4PLTFMAJOR_KALLISTI 0
+#define X4PLTFMINOR_KALLISTI 0
+#define X4PLTFPATCH_KALLISTI 0
+#define X4PLTF_LINUX 0
+#define X4PLTFMAJOR_LINUX 0
+#define X4PLTFMINOR_LINUX 0
+#define X4PLTFPATCH_LINUX 0
+#define X4PLTF_LYNXOS 0
+#define X4PLTFMAJOR_LYNXOS 0
+#define X4PLTFMINOR_LYNXOS 0
+#define X4PLTFPATCH_LYNXOS 0
+#define X4PLTF_MACINTOSH 0
+#define X4PLTFMAJOR_MACINTOSH 0
+#define X4PLTFMINOR_MACINTOSH 0
+#define X4PLTFPATCH_MACINTOSH 0
+#define X4PLTF_MACINTOSH_DYLD 0
+#define X4PLTFMAJOR_MACINTOSH_DYLD 0
+#define X4PLTFMINOR_MACINTOSH_DYLD 0
+#define X4PLTFPATCH_MACINTOSH_DYLD 0
+#define X4PLTF_MINGW32 0
+#define X4PLTFMAJOR_MINGW32 0
+#define X4PLTFMINOR_MINGW32 0
+#define X4PLTFPATCH_MINGW32 0
+#define X4PLTF_MINGW64 0
+#define X4PLTFMAJOR_MINGW64 0
+#define X4PLTFMINOR_MINGW64 0
+#define X4PLTFPATCH_MINGW64 0
+#define X4PLTF_MINIX 0
+#define X4PLTFMAJOR_MINIX 0
+#define X4PLTFMINOR_MINIX 0
+#define X4PLTFPATCH_MINIX 0
+#define X4PLTF_MORPHOS 0
+#define X4PLTFMAJOR_MORPHOS 0
+#define X4PLTFMINOR_MORPHOS 0
+#define X4PLTFPATCH_MORPHOS 0
+#define X4PLTF_MPE_IX 0
+#define X4PLTFMAJOR_MPE_IX 0
+#define X4PLTFMINOR_MPE_IX 0
+#define X4PLTFPATCH_MPE_IX 0
+#define X4PLTF_MS_DOS 0
+#define X4PLTFMAJOR_MS_DOS 0
+#define X4PLTFMINOR_MS_DOS 0
+#define X4PLTFPATCH_MS_DOS 0
+#define X4PLTF_NACL 0
+#define X4PLTFMAJOR_NACL 0
+#define X4PLTFMINOR_NACL 0
+#define X4PLTFPATCH_NACL 0
+#define X4PLTF_NEXT 0
+#define X4PLTFMAJOR_NEXT 0
+#define X4PLTFMINOR_NEXT 0
+#define X4PLTFPATCH_NEXT 0
+#define X4PLTF_NINTENDO_3DS 0
+#define X4PLTFMAJOR_NINTENDO_3DS 0
+#define X4PLTFMINOR_NINTENDO_3DS 0
+#define X4PLTFPATCH_NINTENDO_3DS 0
+#define X4PLTF_NINTENDO_GAMECUBE 0
+#define X4PLTFMAJOR_NINTENDO_GAMECUBE 0
+#define X4PLTFMINOR_NINTENDO_GAMECUBE 0
+#define X4PLTFPATCH_NINTENDO_GAMECUBE 0
+#define X4PLTF_NINTENDO_SWITCH 0
+#define X4PLTFMAJOR_NINTENDO_SWITCH 0
+#define X4PLTFMINOR_NINTENDO_SWITCH 0
+#define X4PLTFPATCH_NINTENDO_SWITCH 0
+#define X4PLTF_NONSTOP 0
+#define X4PLTFMAJOR_NONSTOP 0
+#define X4PLTFMINOR_NONSTOP 0
+#define X4PLTFPATCH_NONSTOP 0
+#define X4PLTF_NUCLEUS_RTOS 0
+#define X4PLTFMAJOR_NUCLEUS_RTOS 0
+#define X4PLTFMINOR_NUCLEUS_RTOS 0
+#define X4PLTFPATCH_NUCLEUS_RTOS 0
+#define X4PLTF_OPENSERVER 0
+#define X4PLTFMAJOR_OPENSERVER 0
+#define X4PLTFMINOR_OPENSERVER 0
+#define X4PLTFPATCH_OPENSERVER 0
+#define X4PLTF_OS_2 0
+#define X4PLTFMAJOR_OS_2 0
+#define X4PLTFMINOR_OS_2 0
+#define X4PLTFPATCH_OS_2 0
+#define X4PLTF_OS_400 0
+#define X4PLTFMAJOR_OS_400 0
+#define X4PLTFMINOR_OS_400 0
+#define X4PLTFPATCH_OS_400 0
+#define X4PLTF_OS_9 0
+#define X4PLTFMAJOR_OS_9 0
+#define X4PLTFMINOR_OS_9 0
+#define X4PLTFPATCH_OS_9 0
+#define X4PLTF_PALM_OS 0
+#define X4PLTFMAJOR_PALM_OS 0
+#define X4PLTFMINOR_PALM_OS 0
+#define X4PLTFPATCH_PALM_OS 0
+#define X4PLTF_PDOS 0
+#define X4PLTFMAJOR_PDOS 0
+#define X4PLTFMINOR_PDOS 0
+#define X4PLTFPATCH_PDOS 0
+#define X4PLTF_PHOENIX 0
+#define X4PLTFMAJOR_PHOENIX 0
+#define X4PLTFMINOR_PHOENIX 0
+#define X4PLTFPATCH_PHOENIX 0
+#define X4PLTF_PLAN_9 0
+#define X4PLTFMAJOR_PLAN_9 0
+#define X4PLTFMINOR_PLAN_9 0
+#define X4PLTFPATCH_PLAN_9 0
+#define X4PLTF_PNACL 0
+#define X4PLTFMAJOR_PNACL 0
+#define X4PLTFMINOR_PNACL 0
+#define X4PLTFPATCH_PNACL 0
+#define X4PLTF_QNX 0
+#define X4PLTFMAJOR_QNX 0
+#define X4PLTFMINOR_QNX 0
+#define X4PLTFPATCH_QNX 0
+#define X4PLTF_SEGA_DREAMCAST 0
+#define X4PLTFMAJOR_SEGA_DREAMCAST 0
+#define X4PLTFMINOR_SEGA_DREAMCAST 0
+#define X4PLTFPATCH_SEGA_DREAMCAST 0
+#define X4PLTF_SINIX 0
+#define X4PLTFMAJOR_SINIX 0
+#define X4PLTFMINOR_SINIX 0
+#define X4PLTFPATCH_SINIX 0
+#define X4PLTF_SOLARIS 0
+#define X4PLTFMAJOR_SOLARIS 0
+#define X4PLTFMINOR_SOLARIS 0
+#define X4PLTFPATCH_SOLARIS 0
+#define X4PLTF_SONY_PS2 0
+#define X4PLTFMAJOR_SONY_PS2 0
+#define X4PLTFMINOR_SONY_PS2 0
+#define X4PLTFPATCH_SONY_PS2 0
+#define X4PLTF_SONY_PS3 0
+#define X4PLTFMAJOR_SONY_PS3 0
+#define X4PLTFMINOR_SONY_PS3 0
+#define X4PLTFPATCH_SONY_PS3 0
+#define X4PLTF_SONY_PS4 0
+#define X4PLTFMAJOR_SONY_PS4 0
+#define X4PLTFMINOR_SONY_PS4 0
+#define X4PLTFPATCH_SONY_PS4 0
+#define X4PLTF_SONY_PS5 0
+#define X4PLTFMAJOR_SONY_PS5 0
+#define X4PLTFMINOR_SONY_PS5 0
+#define X4PLTFPATCH_SONY_PS5 0
+#define X4PLTF_SONY_PSP 0
+#define X4PLTFMAJOR_SONY_PSP 0
+#define X4PLTFMINOR_SONY_PSP 0
+#define X4PLTFPATCH_SONY_PSP 0
+#define X4PLTF_SONY_VITA 0
+#define X4PLTFMAJOR_SONY_VITA 0
+#define X4PLTFMINOR_SONY_VITA 0
+#define X4PLTFPATCH_SONY_VITA 0
+#define X4PLTF_SYGWIN 0
+#define X4PLTFMAJOR_SYGWIN 0
+#define X4PLTFMINOR_SYGWIN 0
+#define X4PLTFPATCH_SYGWIN 0
+#define X4PLTF_SYLLABLE 0
+#define X4PLTFMAJOR_SYLLABLE 0
+#define X4PLTFMINOR_SYLLABLE 0
+#define X4PLTFPATCH_SYLLABLE 0
+#define X4PLTF_SYMBIAN 0
+#define X4PLTFMAJOR_SYMBIAN 0
+#define X4PLTFMINOR_SYMBIAN 0
+#define X4PLTFPATCH_SYMBIAN 0
+#define X4PLTF_SYSTEM_V 0
+#define X4PLTFMAJOR_SYSTEM_V 0
+#define X4PLTFMINOR_SYSTEM_V 0
+#define X4PLTFPATCH_SYSTEM_V 0
+#define X4PLTF_TRU64 0
+#define X4PLTFMAJOR_TRU64 0
+#define X4PLTFMINOR_TRU64 0
+#define X4PLTFPATCH_TRU64 0
+#define X4PLTF_UCLINUX 0
+#define X4PLTFMAJOR_UCLINUX 0
+#define X4PLTFMINOR_UCLINUX 0
+#define X4PLTFPATCH_UCLINUX 0
+#define X4PLTF_ULTRIX 0
+#define X4PLTFMAJOR_ULTRIX 0
+#define X4PLTFMINOR_ULTRIX 0
+#define X4PLTFPATCH_ULTRIX 0
+#define X4PLTF_UNICOS 0
+#define X4PLTFMAJOR_UNICOS 0
+#define X4PLTFMINOR_UNICOS 0
+#define X4PLTFPATCH_UNICOS 0
+#define X4PLTF_UNICOS_MP 0
+#define X4PLTFMAJOR_UNICOS_MP 0
+#define X4PLTFMINOR_UNICOS_MP 0
+#define X4PLTFPATCH_UNICOS_MP 0
+#define X4PLTF_UNIX 0
+#define X4PLTFMAJOR_UNIX 0
+#define X4PLTFMINOR_UNIX 0
+#define X4PLTFPATCH_UNIX 0
+#define X4PLTF_UNIXWARE 0
+#define X4PLTFMAJOR_UNIXWARE 0
+#define X4PLTFMINOR_UNIXWARE 0
+#define X4PLTFPATCH_UNIXWARE 0
+#define X4PLTF_UTS 0
+#define X4PLTFMAJOR_UTS 0
+#define X4PLTFMINOR_UTS 0
+#define X4PLTFPATCH_UTS 0
+#define X4PLTF_UWIN 0
+#define X4PLTFMAJOR_UWIN 0
+#define X4PLTFMINOR_UWIN 0
+#define X4PLTFPATCH_UWIN 0
+#define X4PLTF_VMS 0
+#define X4PLTFMAJOR_VMS 0
+#define X4PLTFMINOR_VMS 0
+#define X4PLTFPATCH_VMS 0
+#define X4PLTF_VOS 0
+#define X4PLTFMAJOR_VOS 0
+#define X4PLTFMINOR_VOS 0
+#define X4PLTFPATCH_VOS 0
+#define X4PLTF_VXWORKS 0
+#define X4PLTFMAJOR_VXWORKS 0
+#define X4PLTFMINOR_VXWORKS 0
+#define X4PLTFPATCH_VXWORKS 0
+#define X4PLTF_WINDOWS 0
+#define X4PLTFMAJOR_WINDOWS 0
+#define X4PLTFMINOR_WINDOWS 0
+#define X4PLTFPATCH_WINDOWS 0
+#define X4PLTF_WINDOWS_CE 0
+#define X4PLTFMAJOR_WINDOWS_CE 0
+#define X4PLTFMINOR_WINDOWS_CE 0
+#define X4PLTFPATCH_WINDOWS_CE 0
+#define X4PLTF_WINDOWS_DESKTOP 0
+#define X4PLTFMAJOR_WINDOWS_DESKTOP 0
+#define X4PLTFMINOR_WINDOWS_DESKTOP 0
+#define X4PLTFPATCH_WINDOWS_DESKTOP 0
+#define X4PLTF_WINDOWS_GDK 0
+#define X4PLTFMAJOR_WINDOWS_GDK 0
+#define X4PLTFMINOR_WINDOWS_GDK 0
+#define X4PLTFPATCH_WINDOWS_GDK 0
+#define X4PLTF_WINDOWS_NT 0
+#define X4PLTFMAJOR_WINDOWS_NT 0
+#define X4PLTFMINOR_WINDOWS_NT 0
+#define X4PLTFPATCH_WINDOWS_NT 0
+#define X4PLTF_WIND_U 0
+#define X4PLTFMAJOR_WIND_U 0
+#define X4PLTFMINOR_WIND_U 0
+#define X4PLTFPATCH_WIND_U 0
+#define X4PLTF_XBOX 0
+#define X4PLTFMAJOR_XBOX 0
+#define X4PLTFMINOR_XBOX 0
+#define X4PLTFPATCH_XBOX 0
+#define X4PLTF_XBOX_360 0
+#define X4PLTFMAJOR_XBOX_360 0
+#define X4PLTFMINOR_XBOX_360 0
+#define X4PLTFPATCH_XBOX_360 0
+#define X4PLTF_XBOX_ONE 0
+#define X4PLTFMAJOR_XBOX_ONE 0
+#define X4PLTFMINOR_XBOX_ONE 0
+#define X4PLTFPATCH_XBOX_ONE 0
+#define X4PLTF_XBOX_SERIES 0
+#define X4PLTFMAJOR_XBOX_SERIES 0
+#define X4PLTFMINOR_XBOX_SERIES 0
+#define X4PLTFPATCH_XBOX_SERIES 0
+#define X4PLTF_Z 0
+#define X4PLTFMAJOR_Z 0
+#define X4PLTFMINOR_Z 0
+#define X4PLTFPATCH_Z 0
+
+#define X4PLTFEQ(type, major, ...) DETAIL_X4PLTF(__VA_ARGS__, DETAIL_X4PLTFEQ(type, major, __VA_ARGS__), DETAIL_X4PLTFEQ(type, major, __VA_ARGS__, 0), DETAIL_X4PLTFEQ(type, major, 0, 0))
+#define X4PLTFLEAST(type, major, ...) DETAIL_X4PLTF(__VA_ARGS__, DETAIL_X4PLTFLEAST(type, major, __VA_ARGS__), DETAIL_X4PLTFLEAST(type, major, __VA_ARGS__, 0), DETAIL_X4PLTFLEAST(type, major, 0, 0))
+#define X4PLTFMOST(type, major, ...) DETAIL_X4PLTF(__VA_ARGS__, DETAIL_X4PLTFMOST(type, major, __VA_ARGS__), DETAIL_X4PLTFMOST(type, major, __VA_ARGS__, 0), DETAIL_X4PLTFMOST(type, major, 0, 0))
+#define DETAIL_X4PLTF(_0, _1, _2, x, ...) x
+#define DETAIL_X4PLTFEQ(type, major, minor, patch) (X4PLTF_##type && (X4PLTFMAJOR_##type == (major)) && (X4PLTFMINOR_##type == (minor)) && (X4PLTFPATCH_##type == (patch)))
+#define DETAIL_X4PLTFLEAST(type, major, minor, patch) (X4PLTF_##type && ((X4PLTFMAJOR_##type > (major)) || (X4PLTFMAJOR_##type == (major)) && ((X4PLTFMINOR_##type > (minor)) || (X4PLTFMINOR_##type == (minor)) && (X4PLTFPATCH_##type >= (patch)))))
+#define DETAIL_X4PLTFMOST(type, major, minor, patch) (X4PLTF_##type && ((X4PLTFMAJOR_##type < (major)) || (X4PLTFMAJOR_##type == (major)) && ((X4PLTFMINOR_##type < (minor)) || (X4PLTFMINOR_##type == (minor)) && (X4PLTFPATCH_##type <= (patch)))))
+
+#ifdef aegis
+#	undef X4PLTF_AEGIS
+#	define X4PLTF_AEGIS 1
+#endif
+
+#if defined(_AIX) || defined(__TOS_AIX__)
+#	undef X4PLTF_AIX
+#	define X4PLTF_AIX 1
+
+#	ifdef _AIX3
+#		undef X4PLTFMAJOR_AIX
+#		define X4PLTFMAJOR_AIX 3
+#	endif
+
+#	ifdef _AIX32
+#		undef X4PLTFMAJOR_AIX
+#		define X4PLTFMAJOR_AIX 3
+
+#		undef X4PLTFMINOR_AIX
+#		define X4PLTFMINOR_AIX 2
+#	endif
+
+#	ifdef _AIX41
+#		undef X4PLTFMAJOR_AIX
+#		define X4PLTFMAJOR_AIX 4
+
+#		undef X4PLTFMINOR_AIX
+#		define X4PLTFMINOR_AIX 1
+#	endif
+
+#	ifdef _AIX43
+#		undef X4PLTFMAJOR_AIX
+#		define X4PLTFMAJOR_AIX 4
+
+#		undef X4PLTFMINOR_AIX
+#		define X4PLTFMINOR_AIX 3
+#	endif
+#endif
+
+#ifdef __ros__
+#	undef X4PLTF_AKAROS
+#	define X4PLTF_AKAROS 1
+#endif
+
+#if defined(AMIGA) || defined(__amigaos__)
+#	undef X4PLTF_AMIGAOS
+#	define X4PLTF_AMIGAOS 1
+#endif
+
+#ifdef __ANDROID__
+#	include <android/api-level.h>
+
+#	undef X4PLTF_ANDROID
+#	define X4PLTF_ANDROID 1
+
+#	undef X4PLTFMAJOR_ANDROID
+#	define X4PLTFMAJOR_ANDROID __ANDROID_API__
+#endif
+
+#ifdef __asmjs__
+#	undef X4PLTF_ASMJS
+#	define X4PLTF_ASMJS 1
+#endif
+
+#ifdef __BEOS__
+#	undef X4PLTF_BEOS
+#	define X4PLTF_BEOS 1
+#endif
+
+#if defined(__THW_BLUEGENE__) || defined(__bg__)
+#	undef X4PLTF_BLUE_GENE
+#	define X4PLTF_BLUE_GENE 1
+#endif
+
+#if defined(BSD) || defined(_SYSTYPE_BSD) || defined(__DragonFly__) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__bsdi__)
+#	include <sys/param.h>
+
+#	undef X4PLTF_BSD
+#	define X4PLTF_BSD 1
+
+#	undef X4PLTFMAJOR_BSD
+#	define X4PLTFMAJOR_BSD (BSD / 100)
+
+#	undef X4PLTFMINOR_BSD
+#	define X4PLTFMINOR_BSD (BSD % 100)
+#endif
+
+#ifdef __bsdi__
+#	undef X4PLTF_BSD_BSDI
+#	define X4PLTF_BSD_BSDI 1
+#endif
+
+#ifdef __DragonFly__
+#	undef X4PLTF_DRAGONFLY
+#	define X4PLTF_DRAGONFLY 1
+#endif
+
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
+#	include <sys/param.h>
+
+#	undef X4PLTF_BSD_FREE
+#	define X4PLTF_BSD_FREE 1
+
+#	undef X4PLTFMAJOR_BSD_FREE
+#	define X4PLTFMAJOR_BSD_FREE (__FreeBSD_version / 100000)
+
+#	undef X4PLTFMINOR_BSD_FREE
+#	define X4PLTFMINOR_BSD_FREE (__FreeBSD_version / 10000 % 10)
+
+#	undef X4PLTFPATCH_BSD_FREE
+#	define X4PLTFPATCH_BSD_FREE (__FreeBSD_version % 10000)
+#endif
+
+#ifdef __NetBSD__
+#	include <sys/param.h>
+
+#	undef X4PLTF_BSD_NET
+#	define X4PLTF_BSD_NET 1
+
+#	ifdef __NetBSD_Version
+#		undef X4PLTFMAJOR_BSD_NET
+#		define X4PLTFMAJOR_BSD_NET (__NetBSD_Version / 100000000)
+
+#		undef X4PLTFMINOR_BSD_NET
+#		define X4PLTFMINOR_BSD_NET (__NetBSD_Version / 1000000 % 100)
+
+#		undef X4PLTFPATCH_BSD_NET
+#		define X4PLTFPATCH_BSD_NET (__NetBSD_Version / 100 % 100)
+#	elifdef __NetBSD_version
+#		undef X4PLTFMAJOR_BSD_NET
+#		define X4PLTFMAJOR_BSD_NET (__NetBSD_version / 100000000)
+
+#		undef X4PLTFMINOR_BSD_NET
+#		define X4PLTFMINOR_BSD_NET (__NetBSD_version / 1000000 % 100)
+
+#		undef X4PLTFPATCH_BSD_NET
+#		define X4PLTFPATCH_BSD_NET (__NetBSD_version / 100 % 100)
+#	elifdef NetBSD1_0
+#		undef X4PLTFMAJOR_BSD_NET
+#		define X4PLTFMAJOR_BSD_NET 1
+#	elifdef NetBSD0_9
+#		undef X4PLTFMINOR_BSD_NET
+#		define X4PLTFMINOR_BSD_NET 9
+#	elifdef NetBSD0_8
+#		undef X4PLTFMINOR_BSD_NET
+#		define X4PLTFMINOR_BSD_NET 8
+#	endif
+#endif
+
+#ifdef __OpenBSD__
+#	undef X4PLTF_BSD_OPEN
+#	define X4PLTF_BSD_OPEN 1
+
+#	ifdef OpenBSD2_0
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+#	elifdef OpenBSD2_1
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 1
+#	elifdef OpenBSD2_2
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 2
+#	elifdef OpenBSD2_3
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 3
+#	elifdef OpenBSD2_4
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 4
+#	elifdef OpenBSD2_5
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 5
+#	elifdef OpenBSD2_6
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 6
+#	elifdef OpenBSD2_7
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 7
+#	elifdef OpenBSD2_8
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 8
+#	elifdef OpenBSD2_9
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 2
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 9
+#	elifdef OpenBSD3_0
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+#	elifdef OpenBSD3_1
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 1
+#	elifdef OpenBSD3_2
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 2
+#	elifdef OpenBSD3_3
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 3
+#	elifdef OpenBSD3_4
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 4
+#	elifdef OpenBSD3_5
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 5
+#	elifdef OpenBSD3_6
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 6
+#	elifdef OpenBSD3_7
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 7
+#	elifdef OpenBSD3_8
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 8
+#	elifdef OpenBSD3_9
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 3
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 9
+#	elifdef OpenBSD4_0
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+#	elifdef OpenBSD4_1
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 1
+#	elifdef OpenBSD4_2
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 2
+#	elifdef OpenBSD4_3
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 3
+#	elifdef OpenBSD4_4
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 4
+#	elifdef OpenBSD4_5
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 5
+#	elifdef OpenBSD4_6
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 6
+#	elifdef OpenBSD4_7
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 7
+#	elifdef OpenBSD4_8
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 8
+#	elifdef OpenBSD4_9
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 4
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 9
+#	elifdef OpenBSD5_0
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+#	elifdef OpenBSD5_1
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 1
+#	elifdef OpenBSD5_2
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 2
+#	elifdef OpenBSD5_3
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 3
+#	elifdef OpenBSD5_4
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 4
+#	elifdef OpenBSD5_5
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 5
+#	elifdef OpenBSD5_6
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 6
+#	elifdef OpenBSD5_7
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 7
+#	elifdef OpenBSD5_8
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 8
+#	elifdef OpenBSD5_9
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 5
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 9
+#	elifdef OpenBSD6_0
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+#	elifdef OpenBSD6_1
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 1
+#	elifdef OpenBSD6_2
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 2
+#	elifdef OpenBSD6_3
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 3
+#	elifdef OpenBSD6_4
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 4
+#	elifdef OpenBSD6_5
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 5
+#	elifdef OpenBSD6_6
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 6
+#	elifdef OpenBSD6_7
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 7
+#	elifdef OpenBSD6_8
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 8
+#	elifdef OpenBSD6_9
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 6
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 9
+#	elifdef OpenBSD7_0
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 7
+#	elifdef OpenBSD7_1
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 7
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 1
+#	elifdef OpenBSD7_2
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 7
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 2
+#	elifdef OpenBSD7_3
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 7
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 3
+#	elifdef OpenBSD7_4
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 7
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 4
+#	elifdef OpenBSD7_5
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 7
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 5
+#	elifdef OpenBSD7_6
+#		undef X4PLTFMAJOR_BSD_OPEN
+#		define X4PLTFMAJOR_BSD_OPEN 7
+
+#		undef X4PLTFMINOR_BSD_OPEN
+#		define X4PLTFMINOR_BSD_OPEN 6
+#	endif
+#endif
+
+#ifdef __CloudABI__
+#	undef X4PLTF_CLOUDABI
+#	define X4PLTF_CLOUDABI 1
+#endif
+
+#ifdef __convex__
+#	undef X4PLTF_CONVEXOS
+#	define X4PLTF_CONVEXOS 1
+#endif
+
+#ifdef __CYGWIN__
+#	undef X4PLTF_CYGWIN
+#	define X4PLTF_CYGWIN 1
+
+#	undef X4PLTFMAJOR_CYGWIN
+#	define X4PLTFMAJOR_CYGWIN CYGWIN_VERSION_API_MAJOR
+
+#	undef X4PLTFMINOR_CYGWIN
+#	define X4PLTFMINOR_CYGWIN CYGWIN_VERSION_API_MINOR
+#endif
+
+#ifdef pyr
+#	undef X4PLTF_DC_OSX
+#	define X4PLTF_DC_OSX 1
+#endif
+
+#if defined(DGUX) || defined(__DGUX__) || defined(__dgux__)
+#	undef X4PLTF_DG_UX
+#	define X4PLTF_DG_UX 1
+#endif
+
+#ifdef apollo
+#	undef X4PLTF_DOMAIN_OS
+#	define X4PLTF_DOMAIN_OS 1
+#endif
+
+#ifdef __DragonFly__
+#	undef X4PLTF_DRAGONFLY
+#	define X4PLTF_DRAGONFLY 1
+#endif
+
+#if defined(_SEQUENT_) || defined(sequent)
+#	undef X4PLTF_DYNIX
+#	define X4PLTF_DYNIX 1
+#endif
+
+#ifdef __ECOS
+#	undef X4PLTF_ECOS
+#	define X4PLTF_ECOS 1
+#endif
+
+#ifdef __EMX__
+#	undef X4PLTF_EMX
+#	define X4PLTF_EMX 1
+#endif
+
+#ifdef __Fuchsia__
+#	undef X4PLTF_FUCHSIA
+#	define X4PLTF_FUCHSIA 1
+#endif
+
+#if defined(__GNU__) || defined(__gnu_hurd__)
+#	undef X4PLTF_GNU_HURD
+#	define X4PLTF_GNU_HURD 1
+#endif
+
+#if defined(__FreeBSD_kernel__) && defined(__GLIBC__)
+#	undef X4PLTF_GNU_KFREEBSD
+#	define X4PLTF_GNU_KFREEBSD 1
+#endif
+
+#ifdef __gnu_linux__
+#	undef X4PLTF_GNU_LINUX
+#	define X4PLTF_GNU_LINUX 1
+#endif
+
+#ifdef __HAIKU__
+#	undef X4PLTF_HAIKU
+#	define X4PLTF_HAIKU 1
+#endif
+
+#ifdef __hiuxmpp
+#	undef X4PLTF_HI_UX_MPP
+#	define X4PLTF_HI_UX_MPP 1
+#endif
+
+#if defined(__hpux) || defined(__hpux__) || defined(_hpux) || defined(hpux)
+#	undef X4PLTF_HP_UX
+#	define X4PLTF_HP_UX 1
+#endif
+
+#ifdef __INTEGRITY
+#	undef X4PLTF_INTEGRITY
+#	define X4PLTF_INTEGRITY 1
+#endif
+
+#if defined(TARGET_IPHONE_SIMULATOR) || defined(TARGET_OS_SIMULATOR)
+#	undef X4PLTF_IOS_SIMULATOR
+#	define X4PLTF_IOS_SIMULATOR 1
+#endif
+
+#ifdef __INTERIX
+#	undef X4PLTF_INTERIX
+#	define X4PLTF_INTERIX 1
+#endif
+
+#if defined(__sgi) || defined(sgi)
+#	undef X4PLTF_IRIX
+#	define X4PLTF_IRIX 1
+#endif
+
+#ifdef __KOS__
+#	undef X4PLTF_KALLISTI
+#	define X4PLTF_KALLISTI 1
+#endif
+
+#if defined(__gnu_linux__) || defined(__linux) || defined(__linux__) || defined(linux)
+#	undef X4PLTF_LINUX
+#	define X4PLTF_LINUX 1
+#endif
+
+#ifdef __Lynx__
+#	undef X4PLTF_LYNXOS
+#	define X4PLTF_LYNXOS 1
+#endif
+
+#if defined(Macintosh) || defined(__APPLE__) || defined(__MACH__) || defined(macintosh)
+#	undef X4PLTF_MACINTOSH
+#	define X4PLTF_MACINTOSH 1
+
+#	undef X4PLTFMAJOR_MACINTOSH
+#	if defined(__APPLE__) && defined(__MACH__)
+#		define X4PLTFMAJOR_MACINTOSH 10
+#	else
+#		define X4PLTFMAJOR_MACINTOSH 9
+#	endif
+#endif
+
+#ifdef MACOSX_DYLD
+#	undef X4PLTF_MACINTOSH_DYLD
+#	define X4PLTF_MACINTOSH_DYLD 1
+#endif
+
+#ifdef __MINGW32__
+#	undef X4PLTF_MINGW32
+#	define X4PLTF_MINGW32 1
+
+#	undef X4PLTFMAJOR_MINGW32
+#	define X4PLTFMAJOR_MINGW32 __MING32_VERSION_MAJOR
+
+#	undef X4PLTFMINOR_MINGW32
+#	define X4PLTFMINOR_MINGW32 __MING32_VERSION_MINOR
+#endif
+
+#ifdef __MINGW64__
+#	undef X4PLTF_MINGW64
+#	define X4PLTF_MINGW64 1
+
+#	undef X4PLTFMAJOR_MINGW64
+#	define X4PLTFMAJOR_MINGW64 __MING64_VERSION_MAJOR
+
+#	undef X4PLTFMINOR_MINGW64
+#	define X4PLTFMINOR_MINGW64 __MING64_VERSION_MINOR
+#endif
+
+#if defined(_MINIX) || defined(__minix) || defined(__minix__)
+#	undef X4PLTF_MINIX
+#	define X4PLTF_MINIX 1
+#endif
+
+#ifdef __MORPHOS__
+#	undef X4PLTF_MORPHOS
+#	define X4PLTF_MORPHOS 1
+#endif
+
+#if defined(mpeix) || defined(__mpexl)
+#	undef X4PLTF_MPE_IX
+#	define X4PLTF_MPE_IX 1
+#endif
+
+#if defined(MSDOS) || defined(_MSDOS) || defined(__DOS__) || defined(__MSDOS) || defined(__MSDOS__)
+#	undef X4PLTF_MS_DOS
+#	define X4PLTF_MS_DOS 1
+#endif
+
+#ifdef __native_client__
+#	undef X4PLTF_NACL
+#	define X4PLTF_NACL 1
+#endif
+
+#ifdef NeXT
+#	undef X4PLTF_NEXT
+#	define X4PLTF_NEXT 1
+#endif
+
+#ifdef __3DS__
+#	undef X4PLTF_NINTENDO_3DS
+#	define X4PLTF_NINTENDO_3DS 1
+#endif
+
+#if (defined(__PPC__) || defined(__ppc__)) && defined(_GC) || defined(__GAMECUBE__)
+#	undef X4PLTF_NINTENDO_GAMECUBE
+#	define X4PLTF_NINTENDO_GAMECUBE 1
+#endif
+
+#ifdef __NX__
+#	undef X4PLTF_NINTENDO_SWITCH
+#	define X4PLTF_NINTENDO_SWITCH 1
+#endif
+
+#ifdef __TANDEM
+#	undef X4PLTF_NONSTOP
+#	define X4PLTF_NONSTOP 1
+#endif
+
+#ifdef __nucleus__
+#	undef X4PLTF_NUCLEUS_RTOS
+#	define X4PLTF_NUCLEUS_RTOS 1
+#endif
+
+#ifdef __OpenBSD__
+#	undef X4PLTF_OPENBSD
+#	define X4PLTF_OPENBSD 1
+#endif
+
+#if defined(M_I386) || defined(M_XENIX) || defined(_SCO_DS)
+#	undef X4PLTF_OPENSERVER
+#	define X4PLTF_OPENSERVER 1
+#endif
+
+#if defined(OS2) || defined(_OS2) || defined(__OS2__) || defined(__TOS_OS2__)
+#	undef X4PLTF_OS_2
+#	define X4PLTF_OS_2 1
+#endif
+
+#ifdef __OS400__
+#	undef X4PLTF_OS_400
+#	define X4PLTF_OS_400 1
+#endif
+
+#if defined(_OSK) || defined(__OS9000)
+#	undef X4PLTF_OS_9
+#	define X4PLTF_OS_9 1
+#endif
+
+#ifdef __palmos__
+#	undef X4PLTF_PALM_OS
+#	define X4PLTF_PALM_OS 1
+#endif
+
+#ifdef __PDOS386__
+#	undef X4PLTF_PDOS
+#	define X4PLTF_PDOS 1
+#endif
+
+#if defined(__phoenix) || defined(__phoenix__) || defined(phoenix)
+#	undef X4PLTF_PHOENIX
+#	define X4PLTF_PHOENIX 1
+#endif
+
+#ifdef EPLAN9
+#	undef X4PLTF_PLAN_9
+#	define X4PLTF_PLAN_9 1
+#endif
+
+#ifdef __pnacl__
+#	undef X4PLTF_PNACL
+#	define X4PLTF_PNACL 1
+#endif
+
+#if defined(__QNXNTO__) || defined(__QNX__)
+#	include <sys/neutrino.h>
+
+#	undef X4PLTF_QNX
+#	define X4PLTF_QNX 1
+
+#	ifdef __QNXNTO__
+#		undef X4PLTFMAJOR_QNX
+#		define X4PLTFMAJOR_QNX (_NTO_VERSION / 100)
+
+#		undef X4PLTFMINOR_QNX
+#		define X4PLTFMINOR_QNX (_NTO_VERSION / 10 % 10)
+
+#		undef X4PLTFPATCH_QNX
+#		define X4PLTFPATCH_QNX (_NTO_VERSION % 10)
+#	elifdef __QNX__
+#		undef X4PLTFMAJOR_QNX
+#		define X4PLTFMAJOR_QNX 4
+#	endif
+#endif
+
+#if (defined(__GNUC__) && !defined(__SNC__) && defined(__SH4_SINGLE_ONLY__)) || defined(_arch_dreamcast)
+#	undef X4PLTF_SEGA_DREAMCAST
+#	define X4PLTF_SEGA_DREAMCAST 1
+#endif
+
+#ifdef sinux
+#	undef X4PLTF_SINIX
+#	define X4PLTF_SINIX 1
+#endif
+
+#if defined(sun) || defined(__sun)
+#	undef X4PLTF_SOLARIS
+#	define X4PLTF_SOLARIS 1
+#endif
+
+#if defined(PS2) || defined(__PS2__)
+#	undef X4PLTF_SONY_PS2
+#	define X4PLTF_SONY_PS2 1
+#endif
+
+#ifdef __CELLOS_LV2__
+#	undef X4PLTF_SONY_PS3
+#	define X4PLTF_SONY_PS3 1
+#endif
+
+#ifdef __ORBIS__
+#	undef X4PLTF_SONY_PS4
+#	define X4PLTF_SONY_PS4 1
+#endif
+
+#ifdef __PROSPERO__
+#	undef X4PLTF_SONY_PS5
+#	define X4PLTF_SONY_PS5 1
+#endif
+
+#if defined(__psp__) || defined(__PSP__)
+#	undef X4PLTF_SONY_PSP
+#	define X4PLTF_SONY_PSP 1
+#endif
+
+#if defined(__psp2__) || defined(__vita__)
+#	undef X4PLTF_SONY_VITA
+#	define X4PLTF_SONY_VITA 1
+#endif
+
+#ifdef __SYGWIN__
+#	undef X4PLTF_SYGWIN
+#	define X4PLTF_SYGWIN 1
+#endif
+
+#ifdef __SYLLABLE__
+#	undef X4PLTF_SYLLABLE
+#	define X4PLTF_SYLLABLE 1
+#endif
+
+#ifdef __SYMBIAN32__
+#	undef X4PLTF_SYMBIAN
+#	define X4PLTF_SYMBIAN 1
+#endif
+
+#if defined(_SYSTYPE_SVR4) || defined(__SVR4) || defined(__svr4__) || defined(__sysv__)
+#	undef X4PLTF_SYSTEM_V
+#	define X4PLTF_SYSTEM_V 1
+#endif
+
+#if defined(__OSF__) || defined(__osf) || defined(__osf__)
+#	undef X4PLTF_TRU64
+#	define X4PLTF_TRU64 1
+#endif
+
+#ifdef __uClinux__
+#	undef X4PLTF_UCLINUX
+#	define X4PLTF_UCLINUX 1
+#endif
+
+#if defined(__ultrix) || defined(__ultrix__) || defined(ultrix) || (defined(unix) && defined(vax))
+#	undef X4PLTF_ULTRIX
+#	define X4PLTF_ULTRIX 1
+#endif
+
+#ifdef _UNICOS
+#	undef X4PLTF_UNICOS
+#	define X4PLTF_UNICOS 1
+
+#	undef X4PLTFMAJOR_UNICOS
+#	define X4PLTFMAJOR_UNICOS _UNICOS
+#endif
+
+#if defined(_CRAY) || defined(_UNICOSMP) || defined(__crayx1)
+#	undef X4PLTF_UNICOS_MP
+#	define X4PLTF_UNICOS_MP 1
+#endif
+
+#if defined(_POSIX_SOURCE) || defined(_XOPEN_SOURCE) || defined(__unix) || defined(__unix__) || defined(unix)
+#	undef X4PLTF_UNIX
+#	define X4PLTF_UNIX 1
+#endif
+
+#if defined(_UNIXWARE7) || defined(sco)
+#	undef X4PLTF_UNIXWARE
+#	define X4PLTF_UNIXWARE 1
+#endif
+
+#ifdef UTS
+#	undef X4PLTF_UTS
+#	define X4PLTF_UTS 1
+#endif
+
+#ifdef _UWIN
+#	undef X4PLTF_UWIN
+#	define X4PLTF_UWIN 1
+#endif
+
+#if defined(VMS) || defined(__VMS) || defined(__VMS__) || defined(__vms) || defined(__vms__)
+#	undef X4PLTF_VMS
+#	define X4PLTF_VMS 1
+
+#	undef X4PLTFMAJOR_VMS
+#	define X4PLTFMAJOR_VMS (__VMS_VER / 10000000)
+
+#	undef X4PLTFMINOR_VMS
+#	define X4PLTFMINOR_VMS (__VMS_VER / 100000 % 100)
+
+#	undef X4PLTFPATCH_VMS
+#	define X4PLTFPATCH_VMS (__VMS_VER / 100 % 100)
+#endif
+
+#ifdef __VOS__
+#	undef X4PLTF_VOS
+#	define X4PLTF_VOS 1
+
+#	undef X4PALTFORM_VERSION_MAJOR_VOS
+#	define X4PLTFMAJOR_VOS __VOS__
+#endif
+
+#if defined(__VXWORKS__) || defined(__vxworks)
+#	include <version.h>
+
+#	undef X4PLTF_VXWORKS
+#	define X4PLTF_VXWORKS 1
+
+#	undef X4PLTFMAJOR_VXWORKS
+#	define X4PLTFMAJOR_VXWORKS _WRS_VXWORKS_MAJOR
+
+#	undef X4PLTFMINOR_VXWORKS
+#	define X4PLTFMINOR_VXWORKS _WRS_VXWORKS_MINOR
+
+#	undef X4PLTFPATCH_VXWORKS
+#	define X4PLTFPATCH_VXWORKS _WRS_VXWORKS_MAINT
+#endif
+
+#if defined(WIN16) || defined(WIN32) || defined(WIN64) || defined(_WIN16) || defined(_WIN32) || defined(_WIN64) || defined(__TOS_WIN__) || defined(__WIN16) || defined(__WIN16__) || defined(__WIN32) || defined(__WIN32__) || defined(__WIN64) || defined(__WIN64__) || defined(__WINDOWS__)
+#	undef X4PLTF_WINDOWS
+#	define X4PLTF_WINDOWS 1
+#endif
+
+#ifdef _WIN32_WCE
+#	undef X4PLTF_WINDOWS_CE
+#	define X4PLTF_WINDOWS_CE 1
+
+#	undef X4PLTFMAJOR_WINDOWS_CE
+#	define X4PLTFMAJOR_WINDOWS_CE (_WIN32_WCE / 100)
+
+#	undef X4PLTFMINOR_WINDOWS_CE
+#	define X4PLTFMINOR_WINDOWS_CE (_WIN32_WCE % 100)
+#endif
+
+#if defined(WINAPI_FAMILY) && defined(WINAPI_FAMILY_DESKTOP_APP) && (WINAPI_FAMILY == WINAPI_FAMILY_DESKTOP_APP)
+#	undef X4PLTF_WINDOWS_DESKTOP
+#	define X4PLTF_WINDOWS_DESKTOP 1
+#endif
+
+#ifdef _GAMING_DESKTOP
+#	undef X4PLTF_WINDOWS_GDK
+#	define X4PLTF_WINDOWS_GDK 1
+#endif
+
+#if defined(__WINNT__) || defined(__NT__)
+#	undef X4PLTF_WINDOWS_NT
+#	define X4PLTF_WINDOWS_NT 1
+#endif
+
+#if defined(WINAPI_FAMILY) && defined(WINAPI_FAMILY_PHONE_APP) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
+#	undef X4PLTF_WINDOWS_PHONE
+#	define X4PLTF_WINDOWS_PHONE 1
+#endif
+
+#if defined(WINAPI_FAMILY) && defined(WINAPI_FAMILY_SERVER) && (WINAPI_FAMILY == WINAPI_FAMILY_SERVER)
+#	undef X4PLTF_WINDOWS_SERVER
+#	define X4PLTF_WINDOWS_SERVER 1
+#endif
+
+#if defined(WINAPI_FAMILY) && (defined(WINAPI_FAMILY_APP) || defined(WINAPI_FAMILY_PC_APP)) && ((WINAPI_FAMILY == WINAPI_FAMILY_APP) || (WINAPI_FAMILY == WINAPI_FAMILY_PC_APP))
+#	undef X4PLTF_WINDOWS_STORE
+#	define X4PLTF_WINDOWS_STORE 1
+#endif
+
+#if defined(WINAPI_FAMILY) && defined(WINAPI_FAMILY_SYSTEM) && (WINAPI_FAMILY == WINAPI_FAMILY_SYSTEM)
+#	undef X4PLTF_WINDOWS_SYSTEM
+#	define X4PLTF_WINDOWS_SYSTEM 1
+#endif
+
+#ifdef _WINDU_SOURCE
+#	undef X4PLTF_WIND_U
+#	define X4PLTF_WIND_U 1
+
+#	undef X4PLTFMAJOR_WIND_U
+#	define X4PLTFMAJOR_WIND_U (_WINDU_SOURCE / 0x10000)
+
+#	undef X4PLTFMINOR_WIND_U
+#	define X4PLTFMINOR_WIND_U (_WINDU_SOURCE / 0x100 % 0x100)
+
+#	undef X4PLTFPATCH_WIND_U
+#	define X4PLTFPATCH_WIND_U (_WINDU_SOURCE % 0x100)
+#endif
+
+#ifdef _XBOX_VER
+#	undef X4PLTF_XBOX
+#	define X4PLTF_XBOX 1
+#endif
+
+#if defined(_XBOX_VER) && (_XBOX_VER >= 200)
+#	undef X4PLTF_XBOX_360
+#	define X4PLTF_XBOX_360 1
+#endif
+
+#if defined(_DURANGO) || defined(_GAMING_XBOX_XBOXONE) || defined(_XBOX_ONE)
+#	undef X4PLTF_XBOX_ONE
+#	define X4PLTF_XBOX_ONE 1
+#endif
+
+#ifdef _GAMING_XBOX_SCARLETT
+#	undef X4PLTF_XBOX_SERIES
+#	define X4PLTF_XBOX_SERIES 1
+#endif
+
+#if defined(__HOS_MVS__) || defined(__MVS__) || defined(__TOS_MVS__)
+#	undef X4PLTF_Z
+#	define X4PLTF_Z 1
+#endif

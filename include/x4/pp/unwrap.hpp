@@ -1,0 +1,8 @@
+#pragma once
+
+#include "../pp/cat.hpp"
+
+#define X4UNWRAP(x) X4CAT(DETAIL_X4UNWRAP, DETAIL_X4UNWRAP x)
+
+#define DETAIL_X4UNWRAP(...) DETAIL_X4UNWRAP __VA_ARGS__
+#define DETAIL_X4UNWRAPDETAIL_X4UNWRAP
