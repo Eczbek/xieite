@@ -9,5 +9,5 @@ namespace DETAIL_XIEITE::type_id {
 
 namespace xieite {
 	template<typename>
-	constexpr std::size_t type_id = DETAIL_XIEITE::type_id::state::advance();
+	constexpr std::size_t type_id = DETAIL_XIEITE::type_id::state::advance<[] {}>();
 }

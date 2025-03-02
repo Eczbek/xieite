@@ -2,7 +2,6 @@
 
 #include <concepts>
 #include <cstddef>
-#include "../meta/value.hpp"
 #include "../pp/diag.hpp"
 
 XIEITE_DIAG_PUSH()
@@ -16,13 +15,15 @@ namespace xieite {
 		struct value {
 			friend auto flag(xieite::state<id, T>::value<n>);
 
-			struct set : xieite::value<n> {
+			struct set {
+				static constexpr T value = n;
+
 				friend auto flag(xieite::state<id, T>::value<n>) {}
 			};
 		};
 
 	public:
-		template<auto = [] {}>
+		template<auto tag = [] {}>
 		static consteval T get() noexcept {
 			return ([]<T n = 0>(this auto self) -> T {
 				if constexpr (requires { flag(xieite::state<id, T>::value<n>()); }) {
