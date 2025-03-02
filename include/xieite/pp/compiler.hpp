@@ -482,10 +482,7 @@
 #	define XIEITE_COMPILER_MAJOR_CC65 (__CC65__ / 0x100)
 
 #	undef XIEITE_COMPILER_MINOR_CC65
-#	define XIEITE_COMPILER_MINOR_CC65 (__CC65__ % 0x100 / 0x10)
-
-#	undef XIEITE_COMPILER_PATCH_CC65
-#	define XIEITE_COMPILER_PATCH_CC65 (__CC65__ % 0x10)
+#	define XIEITE_COMPILER_MINOR_CC65 (__CC65__ % 0x100)
 #endif
 
 #if defined(__circle__) || defined(__circle_lang__) || defined(__circle_build__)
