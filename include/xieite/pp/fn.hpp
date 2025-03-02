@@ -22,18 +22,18 @@ XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 	< \
 		typename... $$, \
 		XIEITE_IF(this_)(typename $$this XIEITE_COMMA()) \
-		XIEITE_EACH(DETAIL_XIEITE_FN_TEMPLATE_PARAM, XIEITE_SEQ(256)) \
+		XIEITE_SEQ(256, DETAIL_XIEITE_FN_TEMPLATE_PARAM) \
 	>[[nodiscard]]( \
 		XIEITE_IF(this_)([[maybe_unused]] this $$this&& $this XIEITE_COMMA()) \
 		auto&&... $ \
 	) XIEITE_IF(this_)(, static) noexcept(requires ( \
 		XIEITE_IF(this_)($$this&& $this XIEITE_COMMA()) \
-		XIEITE_EACH(DETAIL_XIEITE_FN_PARAM, XIEITE_SEQ(256)) \
+		XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM) \
 	) { requires(noexcept(__VA_ARGS__)); }) \
 	-> decltype(auto) \
 	requires(requires ( \
 		XIEITE_IF(this_)($$this&& $this XIEITE_COMMA()) \
-		XIEITE_EACH(DETAIL_XIEITE_FN_PARAM, XIEITE_SEQ(256)) \
+		XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM) \
 	) { __VA_ARGS__; }) { \
 		XIEITE_EACH_DELIM(DETAIL_XIEITE_FN_REF,, XIEITE_SEQ(256)) \
 		return __VA_ARGS__; \
