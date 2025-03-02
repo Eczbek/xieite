@@ -11,7 +11,7 @@
 #include "../math/hash_combine.hpp"
 #include "../trait/is_hashable.hpp"
 
-namespace XIEITE_DETAIL::memoize {
+namespace DETAIL_XIEITE::memoize {
 	template<typename F, typename... Args>
 	requires(std::invocable<F, Args...>)
 	struct memo {
@@ -22,7 +22,7 @@ namespace XIEITE_DETAIL::memoize {
 		: fn(fn), args(args) {}
 
 		template<typename... OtherArgs>
-		[[nodiscard]] friend constexpr bool operator==(const XIEITE_DETAIL::memoize::memo<F, Args...>& l, const XIEITE_DETAIL::memoize::memo<F, OtherArgs...>& r) noexcept {
+		[[nodiscard]] friend constexpr bool operator==(const DETAIL_XIEITE::memoize::memo<F, Args...>& l, const DETAIL_XIEITE::memoize::memo<F, OtherArgs...>& r) noexcept {
 			return (l.fn == r.fn) && (l.args == r.args);
 		}
 	};
@@ -31,7 +31,7 @@ namespace XIEITE_DETAIL::memoize {
 		using is_transparent = void;
 
 		template<typename F, typename... Args>
-		[[nodiscard]] static std::size_t operator()(const XIEITE_DETAIL::memoize::memo<F, Args...>& memo) noexcept(false) {
+		[[nodiscard]] static std::size_t operator()(const DETAIL_XIEITE::memoize::memo<F, Args...>& memo) noexcept(false) {
 			return xieite::unroll<Args...>([&memo]<std::size_t... i> -> std::size_t {
 				return xieite::hash_combine(
 					([&memo] -> std::size_t {
@@ -59,8 +59,8 @@ namespace xieite {
 			&& std::equality_comparable<F>
 			&& (... && xieite::is_hashable<Args>)
 		) {
-			static std::unordered_map<XIEITE_DETAIL::memoize::memo<F, std::decay_t<Args>...>, std::invoke_result_t<F&, Args...>, XIEITE_DETAIL::memoize::hash, std::equal_to<>> map;
-			if (const auto iter = map.find(XIEITE_DETAIL::memoize::memo<F, const Args&...>(fn, std::tie(args...))); iter != map.end()) {
+			static std::unordered_map<DETAIL_XIEITE::memoize::memo<F, std::decay_t<Args>...>, std::invoke_result_t<F&, Args...>, DETAIL_XIEITE::memoize::hash, std::equal_to<>> map;
+			if (const auto iter = map.find(DETAIL_XIEITE::memoize::memo<F, const Args&...>(fn, std::tie(args...))); iter != map.end()) {
 				return iter->second;
 			} else {
 				const auto tuple = std::make_tuple(args...);

@@ -6,6 +6,6 @@
 
 namespace xieite {
 	template<typename F, typename... Args>
-	[[nodiscard]] constexpr auto any_true(F&& fn, Args&&... args)
-		XIEITE_ARROW((... || std::invoke_r<bool>(fn, XIEITE_FWD(args))))
+	[[nodiscard]] constexpr bool any_true(F&& fn, Args&&... args)
+		XIEITE_ARROW_RET((... || std::invoke_r<bool>(fn, XIEITE_FWD(args))))
 }

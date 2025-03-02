@@ -3,7 +3,7 @@
 #include <concepts>
 #include <type_traits>
 
-namespace XIEITE_DETAIL::is_same_any {
+namespace DETAIL_XIEITE::is_same_any {
 	template<typename...>
 	struct impl : std::true_type {};
 
@@ -13,5 +13,5 @@ namespace XIEITE_DETAIL::is_same_any {
 
 namespace xieite {
 	template<typename... Ts>
-	concept is_same_any = XIEITE_DETAIL::is_same_any::impl<Ts...>::value;
+	concept is_same_any = DETAIL_XIEITE::is_same_any::impl<Ts...>::value;
 }

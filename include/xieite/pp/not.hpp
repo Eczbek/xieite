@@ -4,6 +4,6 @@
 #include "../pp/cat.hpp"
 #include "../pp/probe.hpp"
 
-#define XIEITE_NOT(x) XIEITE_CHECK(XIEITE_CAT_PRIM(XIEITE_DETAIL_NOT_, x))
+#define XIEITE_NOT(x) XIEITE_CHECK(XIEITE_PCAT(DETAIL_XIEITE_NOT_, x))
 
-#define XIEITE_DETAIL_NOT_0 XIEITE_PROBE(~)
+#define DETAIL_XIEITE_NOT_0 XIEITE_PROBE(~)

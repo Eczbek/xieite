@@ -13,7 +13,7 @@
 #include "../pp/fwd.hpp"
 
 namespace xieite {
-	template<typename K, std::size_t size, typename Hash = std::hash<K>, typename Comp = std::ranges::equal_to, typename Alloc = std::allocator<K>>
+	template<typename K, std::size_t size, typename Hash = std::hash<K>, typename Cmp = std::ranges::equal_to, typename Alloc = std::allocator<K>>
 	struct fixed_set {
 	public:
 		[[nodiscard]] fixed_set() = default;
@@ -36,7 +36,7 @@ namespace xieite {
 			if consteval {
 				return std::ranges::contains(this->array, XIEITE_FWD(key));
 			} else {
-				static const auto set = std::unordered_set<K, Hash, Comp, Alloc>(this->array.begin(), this->array.end());
+				static const auto set = std::unordered_set<K, Hash, Cmp, Alloc>(std::from_range, this->array);
 				return set.has(XIEITE_FWD(key));
 			}
 		}

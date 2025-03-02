@@ -49,13 +49,13 @@
 #define XIEITE_LANG_MINOR_PSSL 0
 #define XIEITE_LANG_PATCH_PSSL 0
 
-#define XIEITE_LANG_EQ(type, major, ...) XIEITE_DETAIL_LANG(__VA_ARGS__, XIEITE_DETAIL_LANG_EQ(type, major, __VA_ARGS__), XIEITE_DETAIL_LANG_EQ(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_LANG_EQ(type, major, 0, 0))
-#define XIEITE_LANG_LEAST(type, major, ...) XIEITE_DETAIL_LANG(__VA_ARGS__, XIEITE_DETAIL_LANG_LEAST(type, major, __VA_ARGS__), XIEITE_DETAIL_LANG_LEAST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_LANG_LEAST(type, major, 0, 0))
-#define XIEITE_LANG_MOST(type, major, ...) XIEITE_DETAIL_LANG(__VA_ARGS__, XIEITE_DETAIL_LANG_MOST(type, major, __VA_ARGS__), XIEITE_DETAIL_LANG_MOST(type, major, __VA_ARGS__, 0), XIEITE_DETAIL_LANG_MOST(type, major, 0, 0))
-#define XIEITE_DETAIL_LANG(_0, _1, _2, x, ...) x
-#define XIEITE_DETAIL_LANG_EQ(type, major, minor, patch) (XIEITE_LANG_TYPE_##type && (XIEITE_LANG_MAJOR_##type == (major)) && (XIEITE_LANG_MINOR_##type == (minor)) && (XIEITE_LANG_PATCH_##type == (patch)))
-#define XIEITE_DETAIL_LANG_LEAST(type, major, minor, patch) (XIEITE_LANG_TYPE_##type && ((XIEITE_LANG_MAJOR_##type > (major)) || (XIEITE_LANG_MAJOR_##type == (major)) && ((XIEITE_LANG_MINOR_##type > (minor)) || (XIEITE_LANG_MINOR_##type == (minor)) && (XIEITE_LANG_PATCH_##type >= (patch)))))
-#define XIEITE_DETAIL_LANG_MOST(type, major, minor, patch) (XIEITE_LANG_TYPE_##type && ((XIEITE_LANG_MAJOR_##type < (major)) || (XIEITE_LANG_MAJOR_##type == (major)) && ((XIEITE_LANG_MINOR_##type < (minor)) || (XIEITE_LANG_MINOR_##type == (minor)) && (XIEITE_LANG_PATCH_##type <= (patch)))))
+#define XIEITE_LANG_EQ(type, major, ...) DETAIL_XIEITE_LANG(__VA_ARGS__, DETAIL_XIEITE_LANG_EQ(type, major, __VA_ARGS__), DETAIL_XIEITE_LANG_EQ(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_LANG_EQ(type, major, 0, 0))
+#define XIEITE_LANG_LEAST(type, major, ...) DETAIL_XIEITE_LANG(__VA_ARGS__, DETAIL_XIEITE_LANG_LEAST(type, major, __VA_ARGS__), DETAIL_XIEITE_LANG_LEAST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_LANG_LEAST(type, major, 0, 0))
+#define XIEITE_LANG_MOST(type, major, ...) DETAIL_XIEITE_LANG(__VA_ARGS__, DETAIL_XIEITE_LANG_MOST(type, major, __VA_ARGS__), DETAIL_XIEITE_LANG_MOST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_LANG_MOST(type, major, 0, 0))
+#define DETAIL_XIEITE_LANG(_0, _1, _2, x, ...) x
+#define DETAIL_XIEITE_LANG_EQ(type, major, minor, patch) (XIEITE_LANG_TYPE_##type && (XIEITE_LANG_MAJOR_##type == (major)) && (XIEITE_LANG_MINOR_##type == (minor)) && (XIEITE_LANG_PATCH_##type == (patch)))
+#define DETAIL_XIEITE_LANG_LEAST(type, major, minor, patch) (XIEITE_LANG_TYPE_##type && ((XIEITE_LANG_MAJOR_##type > (major)) || (XIEITE_LANG_MAJOR_##type == (major)) && ((XIEITE_LANG_MINOR_##type > (minor)) || (XIEITE_LANG_MINOR_##type == (minor)) && (XIEITE_LANG_PATCH_##type >= (patch)))))
+#define DETAIL_XIEITE_LANG_MOST(type, major, minor, patch) (XIEITE_LANG_TYPE_##type && ((XIEITE_LANG_MAJOR_##type < (major)) || (XIEITE_LANG_MAJOR_##type == (major)) && ((XIEITE_LANG_MINOR_##type < (minor)) || (XIEITE_LANG_MINOR_##type == (minor)) && (XIEITE_LANG_PATCH_##type <= (patch)))))
 
 #if defined(__STDC__) || defined(__STDC_VERSION__)
 #	undef XIEITE_LANG_TYPE_C

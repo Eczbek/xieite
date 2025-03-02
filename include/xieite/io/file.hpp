@@ -5,20 +5,20 @@
 #include <memory>
 #include <stdio.h>
 #include <string>
-#include "../pp/cplr.hpp"
-#include "../pp/pltf.hpp"
+#include "../pp/compiler.hpp"
+#include "../pp/platform.hpp"
 #include "../trait/is_istream.hpp"
 #include "../trait/is_ostream.hpp"
 #include "../trait/is_stream.hpp"
 
-#if XIEITE_PLTF_TYPE_UNIX
+#if XIEITE_PLATFORM_TYPE_UNIX
 #	include <fcntl.h>
 #	include <unistd.h>
-#elif !XIEITE_PLTF_TYPE_WINDOWS
+#elif !XIEITE_PLATFORM_TYPE_WINDOWS
 #	warning "unsupported platform"
 #endif
 
-#if XIEITE_CPLR_TYPE_GCC
+#if XIEITE_COMPILER_TYPE_GCC
 #	include <ext/stdio_filebuf.h>
 #endif
 
@@ -32,7 +32,7 @@ namespace xieite {
 			this->open(path, mode);
 		}
 
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 		[[nodiscard]] file(const std::wstring& path, const std::wstring& mode) noexcept {
 			this->open(path, mode);
 		}
@@ -42,7 +42,7 @@ namespace xieite {
 			this->open(desc, mode);
 		}
 
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 		[[nodiscard]] file(int desc, const std::wstring& mode) noexcept {
 			this->open(desc, mode);
 		}
@@ -57,7 +57,7 @@ namespace xieite {
 			this->reopen(path, mode, other);
 		}
 
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 		[[nodiscard]] file(const std::wstring& path, const std::wstring& mode, xieite::file other) noexcept {
 			this->reopen(path, mode, other);
 		}
@@ -75,7 +75,7 @@ namespace xieite {
 			this->stream = std::fopen(path.c_str(), mode.c_str());
 		}
 
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 		void open(const std::wstring& path, const std::wstring& mode) noexcept {
 			this->stream = ::_wfopen(path.c_str(), mode.c_str());
 		}
@@ -84,14 +84,14 @@ namespace xieite {
 		
 
 		void open(int desc, const std::string& mode) noexcept {
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 			this->stream = ::_fdopen(desc, mode.c_str());
 #else
 			this->stream = ::fdopen(desc, mode.c_str());
 #endif
 		}
 
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 		void open(int desc, const std::wstring& mode) noexcept {
 			this->stream = ::_wfdopen(desc, mode.c_str());
 		}
@@ -123,14 +123,14 @@ namespace xieite {
 					if constexpr (xieite::is_ostream<Stream>) {
 						mode += "w";
 					}
-#if XIEITE_PLTF_TYPE_UNIX
+#if XIEITE_PLATFORM_TYPE_UNIX
 					if (::fcntl(desc, F_GETFL) & O_APPEND) {
 						mode += "a";
 					}
 #endif
 					return file(desc, mode).release();
 				} else {
-#if XIEITE_CPLR_TYPE_GCC
+#if XIEITE_COMPILER_TYPE_GCC
 					return static_cast<__gnu_cxx::stdio_filebuf<typename Stream::char_type, typename Stream::traits_type>*>(stream.rdbuf())->file();
 #else
 					return nullptr;
@@ -143,7 +143,7 @@ namespace xieite {
 			this->stream = std::freopen(path.c_str(), mode.c_str(), other.get());
 		}
 
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 		void reopen(const std::wstring& path, const std::wstring& mode, xieite::file other) noexcept {
 			this->stream = ::_wfreopen(path.c_str(), mode.c_str(), other.get());
 		}
@@ -161,7 +161,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] int desc() const noexcept {
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 			return ::_fileno(this->stream);
 #else
 			return ::fileno(this->stream);

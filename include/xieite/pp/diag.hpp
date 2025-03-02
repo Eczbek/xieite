@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../pp/cplr.hpp"
+#include "../pp/compiler.hpp"
 #include "../pp/pragma.hpp"
 
 #define XIEITE_DIAG_MSG(_)
@@ -33,7 +33,7 @@
 #define XIEITE_DIAG_OFF_CLANG(_)
 #define XIEITE_DIAG_OFF_MSVC(_)
 
-#if XIEITE_CPLR_TYPE_GCC && !XIEITE_CPLR_TYPE_CLANG
+#if XIEITE_COMPILER_TYPE_GCC && !XIEITE_COMPILER_TYPE_CLANG
 #	undef XIEITE_DIAG_MSG
 #	define XIEITE_DIAG_MSG(s_) XIEITE_PRAGMA(message s_)
 
@@ -72,7 +72,7 @@
 
 #	undef XIEITE_DIAG_OFF_GCC
 #	define XIEITE_DIAG_OFF_GCC(s_) XIEITE_PRAGMA(GCC diagnostic ignored s_)
-#elif XIEITE_CPLR_TYPE_CLANG
+#elif XIEITE_COMPILER_TYPE_CLANG
 #	undef XIEITE_DIAG_MSG
 #	define XIEITE_DIAG_MSG(s_) XIEITE_PRAGMA(message s_)
 
@@ -111,7 +111,7 @@
 
 #	undef XIEITE_DIAG_OFF_CLANG
 #	define XIEITE_DIAG_OFF_CLANG(s_) XIEITE_PRAGMA(clang diagnostic ignored s_)
-#elif XIEITE_CPLR_TYPE_MSVC
+#elif XIEITE_COMPILER_TYPE_MSVC
 #	undef XIEITE_DIAG_MSG
 #	define XIEITE_DIAG_MSG(s_) XIEITE_PRAGMA(message(s_))
 

@@ -3,10 +3,10 @@
 #include <cstdio>
 #include <stdio.h>
 #include <string>
-#include "../pp/pltf.hpp"
+#include "../pp/platform.hpp"
 #include "../sys/proc_status.hpp"
 
-#if !XIEITE_PLTF_TYPE_UNIX && !XIEITE_PLTF_TYPE_WINDOWS
+#if !XIEITE_PLATFORM_TYPE_UNIX && !XIEITE_PLATFORM_TYPE_WINDOWS
 #	warning "unsupported platform"
 #endif
 
@@ -19,7 +19,7 @@ namespace xieite {
 			this->open(cmd, mode);
 		}
 		
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 		[[nodiscard]] file_pipe(const std::wstring& cmd, const std::wstring& mode) noexcept {
 			this->open(cmd, mode);
 		}
@@ -34,14 +34,14 @@ namespace xieite {
 		}
 
 		void open(const std::string& cmd, const std::string& mode) noexcept {
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 			this->stream = ::_popen(cmd.c_str(), mode.c_str());
 #else
 			this->stream = ::popen(cmd.c_str(), mode.c_str());
 #endif
 		}
 
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 		void open(const std::wstring& cmd, const std::wstring& mode) noexcept {
 			this->stream = ::_wpopen(cmd.c_str(), mode.c_str());
 		}
@@ -51,7 +51,7 @@ namespace xieite {
 			if (!this->stream) {
 				return EOF;
 			}
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 			const int status = ::_pclose(this->stream);
 #else
 			const int status = ::pclose(this->stream);
@@ -65,7 +65,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] int desc() const noexcept {
-#if XIEITE_PLTF_TYPE_WINDOWS
+#if XIEITE_PLATFORM_TYPE_WINDOWS
 			return ::_fileno(this->stream);
 #else
 			return ::fileno(this->stream);

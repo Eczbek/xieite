@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../pp/cplr.hpp"
+#include "../pp/compiler.hpp"
 
-#if XIEITE_CPLR_TYPE_GCC || XIEITE_CPLR_TYPE_CLANG
+#if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 #	define XIEITE_FN_SIG __PRETTY_FUNCTION__
-#elif XIEITE_CPLR_TYPE_MSVC
+#elif XIEITE_COMPILER_TYPE_MSVC
 #	define XIEITE_FN_SIG __FUNCSIG__
 #else
 #	define XIEITE_FN_SIG __func__

@@ -1,14 +1,14 @@
 #pragma once
 
-#include "../pp/pltf.hpp"
+#include "../pp/platform.hpp"
 
-#if XIEITE_PLTF_TYPE_UNIX
+#if XIEITE_PLATFORM_TYPE_UNIX
 #	include <sys/wait.h>
 #endif
 
 namespace xieite {
 	[[nodiscard]] inline int proc_status(int status) noexcept {
-#if XIEITE_PLTF_TYPE_UNIX
+#if XIEITE_PLATFORM_TYPE_UNIX
 		if (WIFEXITED(status)) {
 			return WEXITSTATUS(status);
 		}

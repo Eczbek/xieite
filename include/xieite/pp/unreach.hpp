@@ -11,18 +11,18 @@
 
 #	define XIEITE_UNREACH() (unreachable())
 #else
-#	include "../pp/cplr.hpp"
+#	include "../pp/compiler.hpp"
 
-#	if XIEITE_CPLR_TYPE_GCC || XIEITE_CPLR_TYPE_CLANG
+#	if XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 #		define XIEITE_UNREACH() (__builtin_unreachable())
-#	elif XIEITE_CPLR_TYPE_MSVC
+#	elif XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_UNREACH() (__assume(false))
 #	else
 #		include "../pp/attr.hpp"
 
-XIEITE_ATTR_NORET inline void XIEITE_DETAIL_unreach() {}
+XIEITE_ATTR_NORET inline void DETAIL_XIEITE_unreach() {}
 
-#		define XIEITE_UNREACH() (XIEITE_DETAIL_unreach())
+#		define XIEITE_UNREACH() (DETAIL_XIEITE_unreach())
 #	endif
 #endif
 

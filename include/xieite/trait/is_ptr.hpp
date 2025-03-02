@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <type_traits>
 
-namespace XIEITE_DETAIL::is_ptr {
+namespace DETAIL_XIEITE::is_ptr {
 	// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=118620
 	template<typename T, std::size_t depth>
 	constexpr bool impl = ([]<typename U = std::remove_reference_t<T>, std::size_t curr = depth>(this auto self) -> bool {
@@ -17,5 +17,5 @@ namespace XIEITE_DETAIL::is_ptr {
 
 namespace xieite {
 	template<typename T, std::size_t depth = 0>
-	concept is_ptr = XIEITE_DETAIL::is_ptr::impl<T, depth>;
+	concept is_ptr = DETAIL_XIEITE::is_ptr::impl<T, depth>;
 }

@@ -11,9 +11,9 @@
 #include "../math/color3.hpp"
 #include "../math/str_num.hpp"
 #include "../math/vec2.hpp"
-#include "../pp/pltf.hpp"
+#include "../pp/platform.hpp"
 
-#if !XIEITE_PLTF_TYPE_UNIX
+#if !XIEITE_PLATFORM_TYPE_UNIX
 #	warning "unsupported platform"
 #endif
 

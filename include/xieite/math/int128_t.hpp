@@ -1,15 +1,15 @@
 #pragma once
 
-#include "../pp/cplr.hpp"
+#include "../pp/compiler.hpp"
 
-#if XIEITE_CPLR_TYPE_MSVC
+#if XIEITE_COMPILER_TYPE_MSVC
 #	include <__msvc_int128.hpp>
-#elif !XIEITE_CPLR_TYPE_GCC && !XIEITE_CPLR_TYPE_CLANG
+#elif !XIEITE_COMPILER_TYPE_GCC && !XIEITE_COMPILER_TYPE_CLANG
 #	warning "unsupported compiler"
 #endif
 
 namespace xieite {
-#if XIEITE_CPLR_TYPE_MSVC
+#if XIEITE_COMPILER_TYPE_MSVC
 	using int128_t = std::_Signed128;
 	using uint128_t = std::_Unsigned128;
 #else

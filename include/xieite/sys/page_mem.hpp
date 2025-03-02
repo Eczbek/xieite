@@ -2,21 +2,21 @@
 
 #include <cstddef>
 #include <memory>
-#include "../pp/pltf.hpp"
+#include "../pp/platform.hpp"
 
-#if XIEITE_PLTF_TYPE_UNIX
+#if XIEITE_PLATFORM_TYPE_UNIX
 #	include <unistd.h>
-#elif XIEITE_PLTF_TYPE_WINDOWS
+#elif XIEITE_PLATFORM_TYPE_WINDOWS
 #	include <windows.h>
 #else
 #	warning "unsupported platform"
 #endif
 
 namespace xieite {
-	[[nodiscard]] inline std::size_t mem_page_size() noexcept {
-#if XIEITE_PLTF_TYPE_UNIX
+	[[nodiscard]] inline std::size_t mem_page() noexcept {
+#if XIEITE_PLATFORM_TYPE_UNIX
 		return static_cast<std::size_t>(::sysconf(_SC_PAGE_SIZE));
-#elif XIEITE_PLTF_TYPE_WINDOWS
+#elif XIEITE_PLATFORM_TYPE_WINDOWS
 		::SYSTEM_INFO info;
 		::GetSystemInfo(std::addressof(info));
 		return info.dwPageSize;

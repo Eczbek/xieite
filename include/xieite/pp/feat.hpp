@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../pp/cplr.hpp"
+#include "../pp/compiler.hpp"
 
 #if __has_include(<cstdint>)
 #	include <cstdint>
@@ -46,7 +46,7 @@
 #	define XIEITE_FEAT_I64 1
 #endif
 
-#if defined(__SIZEOF_INT128__) || XIEITE_CPLR_TYPE_MSVC
+#if defined(__SIZEOF_INT128__) || XIEITE_COMPILER_TYPE_MSVC
 #	undef XIEITE_FEAT_I128
 #	define XIEITE_FEAT_I128 1
 #endif
@@ -76,7 +76,7 @@
 #	define XIEITE_FEAT_FBRAIN 1
 #endif
 
-#if XIEITE_CPLR_TYPE_MSVC
+#if XIEITE_COMPILER_TYPE_MSVC
 #	undef XIEITE_FEAT_BASED_PTR
 #	define XIEITE_FEAT_BASED_PTR 1
 #endif

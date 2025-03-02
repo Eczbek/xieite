@@ -4,5 +4,5 @@
 
 namespace xieite {
 	template<typename T, typename U>
-	concept is_ref_ctor_from_temp = std::reference_constructs_from_temporary_v<T, U>;
+	concept is_ref_conv_from_tmp = std::reference_converts_from_temporary_v<T, U>;
 }
