@@ -5,7 +5,7 @@
 
 #define XIEITE_LIFT(...) []DETAIL_XIEITE_LIFT(static, __VA_ARGS__)
 #define XIEITE_LIFT_LOCAL(...) [&]DETAIL_XIEITE_LIFT(, __VA_ARGS__)
-#define XIEITE_LIFT_M(...) DETAIL_XIEITE_LIFT_M(.,  __VA_ARGS__)
+#define XIEITE_LIFT_M(...) DETAIL_XIEITE_LIFT_M(., __VA_ARGS__)
 #define XIEITE_LIFT_M_PTR(...) DETAIL_XIEITE_LIFT_M(->, __VA_ARGS__)
 
 #define DETAIL_XIEITE_LIFT(specs_, ...) \

@@ -812,7 +812,7 @@
 #			define XIEITE_ARCH_MAJOR_MIPS 1
 #		endif
 
-#		if  defined(_MIPS_ARCH_MIPS2) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS2)) || defined(_R3000) || defined(__MIPS_ISA2__)
+#		if defined(_MIPS_ARCH_MIPS2) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS2)) || defined(_R3000) || defined(__MIPS_ISA2__)
 #			undef XIEITE_ARCH_MAJOR_MIPS
 #			define XIEITE_ARCH_MAJOR_MIPS 2
 #		endif
