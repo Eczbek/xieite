@@ -26,17 +26,21 @@ namespace xieite {
 	noexcept(xieite::is_noex_invoc<F, bool(T)>) {
 		if constexpr (!std::unsigned_integral<T>) {
 			if (std::invoke_r<bool>(cond, static_cast<T>(0))) {
+				T mid;
 				T min = -1;
 				while (std::invoke_r<bool>(cond, min)) {
+					mid = min;
 					min *= 2;
 				}
-				return xieite::exp_search(cond, min, 0);
+				return xieite::exp_search(cond, min, mid);
 			}
 		}
+		T mid;
 		T max = 1;
 		while (!std::invoke_r<bool>(cond, max)) {
+			mid = max;
 			max *= 2;
 		}
-		return xieite::exp_search(cond, static_cast<T>(0), max);
+		return xieite::exp_search(cond, mid, max);
 	}
 }
