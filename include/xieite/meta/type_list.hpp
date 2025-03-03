@@ -135,7 +135,7 @@ namespace xieite {
 		using filter = xieite::fold<
 			[]<typename List, typename T> static {
 				if constexpr (xieite::is_satisfd<cond, T>) {
-					return List::template append<T>();
+					return typename List::template append<T>();
 				} else {
 					return List();
 				}
@@ -148,7 +148,7 @@ namespace xieite {
 		using dedup = xieite::fold<
 			[]<typename List, typename T> static {
 				if constexpr (!List::template has<T, cmp>) {
-					return List::template append<T>();
+					return typename List::template append<T>();
 				} else {
 					return List();
 				}
@@ -161,7 +161,7 @@ namespace xieite {
 		using repeat = decltype(xieite::unroll<n>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename> static {
-					return List::template append<Ts...>();
+					return typename List::template append<Ts...>();
 				},
 				xieite::type_list<>,
 				decltype(i)...
@@ -183,7 +183,7 @@ namespace xieite {
 		using xform_flat = decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename Idx> static {
-					return List::template append_range<typename decltype(
+					return typename List::template append_range<typename decltype(
 						xieite::type_list<Ts...>
 						::slice<arity * Idx::value, arity * (Idx::value + 1)>
 						::apply(fn)
