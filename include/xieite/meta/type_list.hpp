@@ -68,56 +68,44 @@ namespace xieite {
 
 		template<typename R>
 		using append_range = decltype(([]<template<typename...> typename M, typename... Us>(std::type_identity<M<Us...>>) static {
-			return std::type_identity<xieite::type_list<Ts...>::append<Us...>>();
-		})(std::type_identity<R>()))::type;
+			return xieite::type_list<Ts...>::append<Us...>();
+		})(std::type_identity<R>()));
 
 		template<typename... Us>
 		using prepend = xieite::type_list<Us..., Ts...>;
 
 		template<typename R>
 		using prepend_range = decltype(([]<template<typename...> typename M, typename... Us>(std::type_identity<M<Us...>>) static {
-			return std::type_identity<xieite::type_list<Ts...>::prepend<Us...>>();
-		})(std::type_identity<R>()))::type;
+			return xieite::type_list<Ts...>::prepend<Us...>();
+		})(std::type_identity<R>()));
 
 		template<xieite::end...>
 		using reverse = decltype(xieite::unroll<Ts...>([]<std::size_t... i> static {
-			return std::type_identity<xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>>();
-		}))::type;
+			return xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>();
+		}));
 
 		template<std::size_t start, std::size_t end = sizeof...(Ts)>
 		requires((start <= end) && (end <= sizeof...(Ts)))
 		using slice = decltype(xieite::unroll<(end - start)>([]<std::size_t... i> static {
-			return std::type_identity<xieite::type_list<xieite::type_list<Ts...>::at<(start + i)>...>>();
-		}))::type;
+			return xieite::type_list<xieite::type_list<Ts...>::at<(start + i)>...>();
+		}));
 
 		template<std::size_t start, std::size_t end = start + 1>
 		using erase =
-			xieite::type_list<Ts...>
-			::slice<0, start>
-			::template append_range<
-				xieite::type_list<Ts...>
-				::slice<end>
-			>;
+			xieite::type_list<Ts...>::slice<0, start>
+			::template append_range<xieite::type_list<Ts...>::slice<end>>;
 
 		template<std::size_t start, std::size_t end, typename... Us>
 		using replace =
-			xieite::type_list<Ts...>
-			::slice<0, start>
+			xieite::type_list<Ts...>::slice<0, start>
 			::template append<Us...>
-			::template append_range<
-				xieite::type_list<Ts...>
-				::slice<end>
-			>;
+			::template append_range<xieite::type_list<Ts...>::slice<end>>;
 
 		template<std::size_t start, std::size_t end, typename R>
 		using replace_range =
-			xieite::type_list<Ts...>
-			::slice<0, start>
+			xieite::type_list<Ts...>::slice<0, start>
 			::template append_range<R>
-			::template append_range<
-				xieite::type_list<Ts...>
-				::slice<end>
-			>;
+			::template append_range<xieite::type_list<Ts...>::slice<end>>;
 
 		template<std::size_t idx, typename... Us>
 		using insert = xieite::type_list<Ts...>::replace<idx, idx, Us...>;
@@ -144,73 +132,67 @@ namespace xieite {
 		using arrange = xieite::type_list<xieite::type_list<Ts...>::at<idxs>...>;
 
 		template<auto cond>
-		using filter =
-			xieite::fold<
-				[]<typename List, typename T> static {
-					if constexpr (xieite::is_satisfd<cond, T>) {
-						return std::type_identity<typename List::type::template append<T>>();
-					} else {
-						return List();
-					}
-				},
-				std::type_identity<xieite::type_list<>>,
-				std::type_identity<Ts>...
-			>::type;
+		using filter = xieite::fold<
+			[]<typename List, typename T> static {
+				if constexpr (xieite::is_satisfd<cond, T>) {
+					return List::template append<T>();
+				} else {
+					return List();
+				}
+			},
+			xieite::type_list<>,
+			Ts...
+		>;
 
 		template<auto cmp = []<typename T, std::same_as<T>> {}>
-		using dedup =
-			xieite::fold<
-				[]<typename List, typename T> static {
-					if constexpr (!List::template has<T, cmp>) {
-						return std::type_identity<typename List::type::template append<T>>();
-					} else {
-						return List();
-					}
-				},
-				std::type_identity<xieite::type_list<>>,
-				std::type_identity<Ts>...
-			>::type;
+		using dedup = xieite::fold<
+			[]<typename List, typename T> static {
+				if constexpr (!List::template has<T, cmp>) {
+					return List::template append<T>();
+				} else {
+					return List();
+				}
+			},
+			xieite::type_list<>,
+			Ts...
+		>;
 
 		template<std::size_t n>
 		using repeat = decltype(xieite::unroll<n>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename> static {
-					return std::type_identity<typename List::type::template append<Ts...>>();
+					return List::template append<Ts...>();
 				},
-				std::type_identity<xieite::type_list<>>,
+				xieite::type_list<>,
 				decltype(i)...
-			>();
-		}))::type;
-
-		template<std::size_t arity, auto fn>
-		requires(!(sizeof...(Ts) % arity))
-		using xform = decltype(xieite::unroll<sizeof...(Ts) / arity>([]<std::size_t... i> static {
-			return xieite::type_list<
-				typename decltype(
-					xieite::type_list<Ts...>
-					::slice<arity * i, arity * (i + 1)>
-					::apply(fn)
-				)::type...
 			>();
 		}));
 
 		template<std::size_t arity, auto fn>
 		requires(!(sizeof...(Ts) % arity))
-		using xform_flat = decltype(xieite::unroll<sizeof...(Ts) / arity>([]<std::size_t... i> static {
+		using xform = decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
+			return xieite::type_list<typename decltype(
+				xieite::type_list<Ts...>
+				::slice<arity * i, arity * (i + 1)>
+				::apply(fn)
+			)::type...>();
+		}));
+
+		template<std::size_t arity, auto fn>
+		requires(!(sizeof...(Ts) % arity))
+		using xform_flat = decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename Idx> static {
-					return std::type_identity<typename List::type::template append_range<
-						typename decltype(
-							xieite::type_list<Ts...>
-							::slice<arity * Idx::value, arity * (Idx::value + 1)>
-							::apply(fn)
-						)::type
-					>>();
+					return List::template append_range<typename decltype(
+						xieite::type_list<Ts...>
+						::slice<arity * Idx::value, arity * (Idx::value + 1)>
+						::apply(fn)
+					)::type>>();
 				},
-				std::type_identity<xieite::type_list<>>,
+				xieite::type_list<>,
 				xieite::value<i>...
 			>();
-		}))::type;
+		}));
 
 		template<typename... Us>
 		requires(sizeof...(Ts) == sizeof...(Us))
