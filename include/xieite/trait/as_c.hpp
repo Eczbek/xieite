@@ -5,6 +5,6 @@
 
 namespace xieite {
 	constexpr auto as_c =
-		[]<typename T>[[nodiscard]](T&& x)
+		[]<typename T>[[nodiscard]](T&& x) static
 			XIEITE_ARROW(const_cast<xieite::add_c<T&&>>(x));
 }

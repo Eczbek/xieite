@@ -41,7 +41,7 @@ namespace xieite {
 				XIEITE_ARROW(void(++this->value), *this)
 
 			constexpr auto operator++(int)
-				XIEITE_ARROW(([this](auto copy) XIEITE_ARROW_RET(void(this->value++), copy))(*this))
+				XIEITE_ARROW(([this](auto copy) XIEITE_ARROW(void(this->value++), auto(copy)))(*this))
 
 			[[nodiscard]] friend constexpr auto operator-(xieite::iters<R>::proxy<Iter> l, std::iter_difference_t<Iter> r)
 				XIEITE_ARROW(xieite::iters<R>::proxy(l.value - r))
@@ -53,7 +53,7 @@ namespace xieite {
 				XIEITE_ARROW(void(--this->value), *this)
 
 			constexpr auto operator--(int)
-				XIEITE_ARROW(([this](auto copy) XIEITE_ARROW_RET(void(this->value--), copy))(*this))
+				XIEITE_ARROW(([this](auto copy) XIEITE_ARROW(void(this->value--), auto(copy)))(*this))
 		};
 
 		template<typename Iter>

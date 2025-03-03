@@ -6,6 +6,6 @@
 namespace xieite {
 	template<typename T>
 	constexpr auto as =
-		[][[nodiscard]](std::type_identity_t<T> x)
+		[][[nodiscard]](std::type_identity_t<T> x) static
 			XIEITE_ARROW(x);
 }

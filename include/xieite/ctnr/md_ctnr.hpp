@@ -2,15 +2,19 @@
 
 #include <cstddef>
 #include <type_traits>
+#include "../fn/unroll.hpp"
+#include "../meta/fold.hpp"
 #include "../meta/value.hpp"
 
 namespace xieite {
 	template<template<typename> typename Ctnr, typename V, std::size_t rank>
-	using md_ctnr = decltype(([]<std::size_t rest>(this auto self, xieite::value<rest>) {
-		if constexpr (rest) {
-			return std::type_identity<Ctnr<typename decltype(self(xieite::value<(rest - 1)>()))::type>>();
-		} else {
-			return std::type_identity<V>();
-		}
-	})(xieite::value<rank>()))::type;
+	using md_ctnr = decltype(xieite::unroll<rank>([]<std::size_t... i> static {
+		return xieite::fold<
+			[]<typename T, typename> static {
+				return std::type_identity<Ctnr<typename T::type>>();
+			},
+			std::type_identity<V>,
+			decltype(i)...
+		>();
+	}))::type;
 }

@@ -5,6 +5,6 @@
 
 namespace xieite {
 	constexpr auto as_not_cv_referent =
-		[]<typename T>[[nodiscard]](T&& x)
+		[]<typename T>[[nodiscard]](T&& x) static
 			XIEITE_ARROW(const_cast<xieite::rm_cv_referent<T&&>>(x));
 }
