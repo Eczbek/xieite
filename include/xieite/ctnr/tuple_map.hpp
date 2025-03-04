@@ -19,8 +19,8 @@ namespace xieite {
 		Map<K, xieite::tuple_map<Map, std::tuple<Ks...>, V>> map;
 
 	public:
-		[[nodiscard]] constexpr tuple_map(std::initializer_list<std::pair<K, xieite::tuple_map<Map, std::tuple<Ks...>, V>>> list = {}) noexcept
-		: map(std::from_range, list) {}
+		[[nodiscard]] constexpr tuple_map(std::initializer_list<std::pair<K, xieite::tuple_map<Map, std::tuple<Ks...>, V>>> list = {})
+			XIEITE_ARROW_INIT(map, ((std::from_range, list))) {}
 
 		template<typename Self, std::convertible_to<std::tuple<K, Ks...>> KsRef>
 		[[nodiscard]] constexpr auto operator[](this Self&& self, KsRef&& keys)
@@ -41,8 +41,8 @@ namespace xieite {
 		Map<Key, V> map;
 
 	public:
-		[[nodiscard]] constexpr tuple_map(std::initializer_list<std::pair<Key, V>> list = {}) noexcept
-		: map(std::from_range, list) {}
+		[[nodiscard]] constexpr tuple_map(std::initializer_list<std::pair<Key, V>> list = {})
+			XIEITE_ARROW_INIT(map, ((std::from_range, list))) {}
 
 		template<typename Self, std::convertible_to<std::tuple<Key>> KRef>
 		[[nodiscard]] constexpr auto operator[](this Self&& self, KRef&& key)
@@ -58,4 +58,4 @@ namespace xieite {
 	};
 }
 
-// NOTE: GCC insists on the private member variable being defined above its usage
+// NOTE: GCC insists on the private member variable being defined before its usage

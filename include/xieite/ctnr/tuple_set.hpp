@@ -2,6 +2,7 @@
 
 #include <concepts>
 #include <initializer_list>
+#include <ranges>
 #include <tuple>
 #include <utility>
 #include "../meta/splice_tuple.hpp"
@@ -19,8 +20,7 @@ namespace xieite {
 
 	public:
 		[[nodiscard]] constexpr tuple_set(std::initializer_list<std::pair<K, xieite::tuple_set<Ctnr, std::tuple<Ks...>>>> list = {})
-		noexcept(noexcept(decltype(this->set)(list.begin(), list.end())))
-		: set(list.begin(), list.end()) {}
+			XIEITE_ARROW_INIT(set, ((std::from_range, list))) {}
 
 		template<std::convertible_to<std::tuple<K, Ks...>> KsRef>
 		[[nodiscard]] constexpr auto operator[](KsRef&& keys) const
@@ -42,8 +42,7 @@ namespace xieite {
 
 	public:
 		[[nodiscard]] constexpr tuple_set(std::initializer_list<Key> list = {})
-		noexcept(noexcept(decltype(this->set)(list.begin(), list.end())))
-		: set(list.begin(), list.end()) {}
+			XIEITE_ARROW_INIT(set, ((std::from_range, list))) {}
 
 		template<std::convertible_to<std::tuple<Key>> KRef>
 		[[nodiscard]] constexpr auto operator[](KRef&& key) const
@@ -59,4 +58,4 @@ namespace xieite {
 	};
 }
 
-// NOTE: GCC insists on the private member variable being defined above its usage
+// NOTE: GCC insists on the private member variable being defined before its usage

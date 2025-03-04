@@ -2,4 +2,4 @@
 
 #include "../pp/pragma.hpp"
 
-#define XIEITE_REVIVE(m) XIEITE_PRAGMA(push_macro(#m)) XIEITE_PRAGMA(pop_macro(#m))
+#define XIEITE_REVIVE(f) XIEITE_PRAGMA(push_macro(#f)) XIEITE_PRAGMA(pop_macro(#f))

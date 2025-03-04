@@ -10,13 +10,7 @@
 
 #define DETAIL_XIEITE_LIFT(specs_, ...) \
 	[[nodiscard]](auto&&... DETAIL_XIEITE_args) specs_ \
-		XIEITE_ARROW_PARAM( \
-			(decltype(DETAIL_XIEITE_args)&&... DETAIL_XIEITE_args), \
-			__VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_args)...) \
-		)
+		XIEITE_ARROW_DECL(DETAIL_XIEITE_args, __VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_args)...))
 #define DETAIL_XIEITE_LIFT_M(access_, ...) \
 	[][[nodiscard]](auto&& DETAIL_XIEITE_obj, auto&&... DETAIL_XIEITE_args) static \
-		XIEITE_ARROW_PARAM( \
-			(decltype(DETAIL_XIEITE_obj)&& DETAIL_XIEITE_obj, decltype(DETAIL_XIEITE_args)&&... DETAIL_XIEITE_args), \
-			(XIEITE_FWD(DETAIL_XIEITE_obj) access_ __VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_args)...)) \
-		)
+		XIEITE_ARROW_DECL((DETAIL_XIEITE_obj, (DETAIL_XIEITE_args)), (XIEITE_FWD(DETAIL_XIEITE_obj) access_ __VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_args)...)))
