@@ -1,6 +1,6 @@
 #pragma once
 
-#define XIEITE_AT(n, ...) DETAIL_XIEITE_AT_##n(__VA_ARGS__)
+#define XIEITE_AT(n, ...) XIEITE_PCAT(DETAIL_XIEITE_AT_, n)(__VA_ARGS__)
 
 #define DETAIL_XIEITE_AT_0(x, ...) x
 #define DETAIL_XIEITE_AT_1(_, ...) DETAIL_XIEITE_AT_0(__VA_ARGS__)
