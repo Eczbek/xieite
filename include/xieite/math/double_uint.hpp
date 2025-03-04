@@ -18,19 +18,20 @@ namespace xieite {
 		T lo;
 		T hi;
 
-		[[nodiscard]] constexpr double_uint() noexcept
-		: lo(0), hi(0) {}
-
 		[[nodiscard]] constexpr double_uint(T lo, T hi) noexcept
 		: lo(lo), hi(hi) {}
 
-		template<std::integral U>
-		[[nodiscard]] explicit(false) constexpr double_uint(U x) noexcept
+		template<std::integral U = T>
+		[[nodiscard]] explicit(false) constexpr double_uint(U x = 0) noexcept
 		: lo(static_cast<T>(x & static_cast<T>(-1))), hi(static_cast<T>(xieite::rshift(x, xieite::bit_size<T>))) {}
 
 		template<std::integral U>
 		[[nodiscard]] explicit constexpr operator U() const noexcept {
 			return static_cast<U>(this->lo) | xieite::lshift(static_cast<U>(this->hi), xieite::bit_size<T>);
+		}
+		
+		[[nodiscard]] explicit(false) constexpr operator bool() const noexcept {
+			return this->lo || this->hi;
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::double_uint<T> l, xieite::double_uint<T> r) noexcept {
@@ -85,6 +86,15 @@ namespace xieite {
 		[[nodiscard]] friend constexpr xieite::double_uint<T> operator*(xieite::double_uint<T> l, xieite::double_uint<T> r) noexcept {
 			static constexpr T half_size = xieite::bit_size<T> / 2;
 			static constexpr T half_bits = static_cast<T>(-1) >> half_size;
+			if (!l || !r) {
+				return 0;
+			}
+			if (std::has_single_bit(r.lo) && !r.hi) {
+				return l << xieite::double_uint<T>(std::countr_zero(r.lo));
+			}
+			if (!r.lo && std::has_single_bit(r.hi)) {
+				return l << xieite::double_uint<T>(static_cast<std::size_t>(std::countr_zero(r.hi)) + xieite::bit_size<T>);
+			}
 			xieite::double_uint<T> prod;
 			if (l.lo && r.lo) {
 				const T l_lo_lo = l.lo & half_bits;
@@ -122,11 +132,11 @@ namespace xieite {
 			if (l == r) {
 				return 1;
 			}
-			if ((std::has_single_bit(r.lo) && !r.hi) || (!r.lo && std::has_single_bit(r.hi))) {
-				if (std::has_single_bit(r.lo)) {
-					return l >> std::countr_zero(r.lo);
-				}
-				return l.hi >> std::countr_zero(r.hi);
+			if (std::has_single_bit(r.lo) && !r.hi) {
+				return l >> xieite::double_uint<T>(std::countr_zero(r.lo));
+			}
+			if (!r.lo && std::has_single_bit(r.hi)) {
+				return l.hi >> static_cast<T>(std::countr_zero(r.hi));
 			}
 			xieite::double_uint<T> rem;
 			xieite::double_uint<T> quot;
