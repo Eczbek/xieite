@@ -3,9 +3,8 @@
 #include <cstddef>
 #include <string>
 #include <string_view>
+#include <type_traits>
 #include "../trait/is_ch.hpp"
-#include "../trait/rm_ptr.hpp"
-#include "../trait/rm_ref.hpp"
 
 namespace xieite {
 	template<typename Ch>
@@ -23,8 +22,8 @@ namespace xieite {
 		return n - !!n;
 	}
 
-	template<xieite::is_ch Ch, typename Str>
-	requires(std::same_as<Ch, xieite::rm_ptr<xieite::rm_ref<Str>>>)
+	template<typename Str>
+	requires(xieite::is_ch<std::remove_pointer_t<Str>>)
 	[[nodiscard]] constexpr std::size_t strlen(Str str) noexcept {
 		std::size_t i = 0;
 		while (str && str[i]) {
