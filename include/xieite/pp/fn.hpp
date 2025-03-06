@@ -12,27 +12,28 @@
 #include "../pp/seq.hpp"
 #include "../pp/unwrap.hpp"
 
-#define XIEITE_FN(n_, ...) ([]DETAIL_XIEITE_FN(0, XIEITE_IF(XIEITE_ANY(n_))(n_, 0), __VA_ARGS__))
-#define XIEITE_FN_THIS(n_, ...) ([]DETAIL_XIEITE_FN(1, XIEITE_IF(XIEITE_ANY(n_))(n_, 0), __VA_ARGS__))
-#define XIEITE_FN_LOCAL(captures_, n_, ...) ([XIEITE_UNWRAP(captures_)]DETAIL_XIEITE_FN(1, XIEITE_IF(XIEITE_ANY(n_))(n_, 0), __VA_ARGS__))
-#define XIEITE_FN_MUT(captures_, n_, ...) (DETAIL_XIEITE::FN::indirect { [XIEITE_UNWRAP(captures_)] mutable { return [&]DETAIL_XIEITE_FN(1, XIEITE_IF(XIEITE_ANY(n_))(n_, 0), __VA_ARGS__); } })
+#define XIEITE_FN(...) ([]DETAIL_XIEITE_FN(0, __VA_ARGS__))
+#define XIEITE_FN_THIS(...) ([]DETAIL_XIEITE_FN(1, __VA_ARGS__))
+#define XIEITE_FN_LOCAL(captures_, ...) ([XIEITE_UNWRAP(captures_)]DETAIL_XIEITE_FN(1, __VA_ARGS__))
+#define XIEITE_FN_MUT(captures_, ...) (DETAIL_XIEITE::FN::indirect { [XIEITE_UNWRAP(captures_)] mutable { return [&]DETAIL_XIEITE_FN(1, __VA_ARGS__); } })
 
 XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 
-#define DETAIL_XIEITE_FN(this_, n_, ...) \
+#define DETAIL_XIEITE_FN(this_, ...) \
 	< \
 		typename... __VA_OPT__($$ XIEITE_IF(this_)(XIEITE_COMMA() \
-		typename $$this XIEITE_IF(n_)(XIEITE_COMMA())) \
-		XIEITE_SEQ(n_, DETAIL_XIEITE_FN_TEMPLATE_PARAM)) \
+		typename $$this), \
+		XIEITE_SEQ(256, DETAIL_XIEITE_FN_TEMPLATE_PARAM)) \
 	>__VA_OPT__([[nodiscard]])(__VA_OPT__( \
 		XIEITE_IF(this_)([[maybe_unused]] this $$this&& $this XIEITE_COMMA()) \
-		[[maybe_unused]]) auto&&... __VA_OPT__($)
+		[[maybe_unused]]) auto&&... __VA_OPT__($) \
 	) XIEITE_IF(XIEITE_ANY(__VA_ARGS__))(XIEITE_IF(this_)(, static), static) \
-	noexcept __VA_OPT__((DETAIL_XIEITE_FN_REQ(this_, n_) { requires(noexcept(__VA_ARGS__)); }) \
+	noexcept __VA_OPT__((requires (XIEITE_IF(this_)($$this&& $this XIEITE_COMMA()) XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM)) { requires(noexcept(__VA_ARGS__)); }) \
 	-> decltype(auto) \
-	requires(DETAIL_XIEITE_FN_REQ(this_, n_) { __VA_ARGS__; })) \
-	{ __VA_OPT__(XIEITE_EACH_DELIM(DETAIL_XIEITE_FN_REF,, XIEITE_SEQ(n_)) return __VA_ARGS__;) }
-#define DETAIL_XIEITE_FN_REQ(this_, n_) requires XIEITE_IF(n_)((XIEITE_IF(this_)($$this&& $this XIEITE_COMMA()) XIEITE_SEQ(n_, DETAIL_XIEITE_FN_PARAM)), XIEITE_IF(this_)(($$this&& $this)))
+	requires(requires (XIEITE_IF(this_)($$this&& $this XIEITE_COMMA()) XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM)) { __VA_ARGS__; })) { \
+		__VA_OPT__(XIEITE_EACH_DELIM(DETAIL_XIEITE_FN_REF,, XIEITE_SEQ(256)) \
+		return __VA_ARGS__;) \
+	}
 #define DETAIL_XIEITE_FN_TEMPLATE_PARAM(i_) typename $$##i_ = DETAIL_XIEITE::FN::t<i_, $$...>
 #define DETAIL_XIEITE_FN_PARAM(i_) decltype(DETAIL_XIEITE::FN::v<i_>(XIEITE_FWD($)...)) $##i_
 #define DETAIL_XIEITE_FN_REF(i_) [[maybe_unused]] auto&& $##i_ = DETAIL_XIEITE::FN::v<i_>(XIEITE_FWD($)...);
