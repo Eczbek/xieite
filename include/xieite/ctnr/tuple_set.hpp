@@ -20,7 +20,7 @@ namespace xieite {
 
 	public:
 		[[nodiscard]] constexpr tuple_set(std::initializer_list<std::pair<K, xieite::tuple_set<Ctnr, std::tuple<Ks...>>>> list = {})
-			XIEITE_ARROW_INIT(set, ((std::from_range, list))) {}
+			XIEITE_ARROW_CTOR(, set, ((std::from_range, list)))
 
 		template<std::convertible_to<std::tuple<K, Ks...>> KsRef>
 		[[nodiscard]] constexpr auto operator[](KsRef&& keys) const
@@ -42,7 +42,7 @@ namespace xieite {
 
 	public:
 		[[nodiscard]] constexpr tuple_set(std::initializer_list<Key> list = {})
-			XIEITE_ARROW_INIT(set, ((std::from_range, list))) {}
+			XIEITE_ARROW_CTOR(, set, ((std::from_range, list)))
 
 		template<std::convertible_to<std::tuple<Key>> KRef>
 		[[nodiscard]] constexpr auto operator[](KRef&& key) const

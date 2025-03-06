@@ -20,7 +20,7 @@ namespace xieite {
 
 	public:
 		[[nodiscard]] constexpr tuple_map(std::initializer_list<std::pair<K, xieite::tuple_map<Map, std::tuple<Ks...>, V>>> list = {})
-			XIEITE_ARROW_INIT(map, ((std::from_range, list))) {}
+			XIEITE_ARROW_CTOR(, map, ((std::from_range, list)))
 
 		template<typename Self, std::convertible_to<std::tuple<K, Ks...>> KsRef>
 		[[nodiscard]] constexpr auto operator[](this Self&& self, KsRef&& keys)
@@ -42,7 +42,7 @@ namespace xieite {
 
 	public:
 		[[nodiscard]] constexpr tuple_map(std::initializer_list<std::pair<Key, V>> list = {})
-			XIEITE_ARROW_INIT(map, ((std::from_range, list))) {}
+			XIEITE_ARROW_CTOR(, map, ((std::from_range, list)))
 
 		template<typename Self, std::convertible_to<std::tuple<Key>> KRef>
 		[[nodiscard]] constexpr auto operator[](this Self&& self, KRef&& key)
