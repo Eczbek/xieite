@@ -46,6 +46,7 @@ namespace xieite {
 		~term() {
 			this->reset_mode();
 			this->reset_style();
+			this->reset_screen();
 			std::fflush(this->out);
 		}
 
@@ -199,6 +200,12 @@ namespace xieite {
 		void reset_mode() noexcept {
 			::fcntl(::fileno(this->in), F_SETFL, this->block_mode);
 			::tcsetattr(::fileno(this->in), TCSANOW, std::addressof(this->cooked_mode));
+		}
+
+		void reset_screen() noexcept {
+			this->cursor_invis(false);
+			this->screen_alt(false);
+			this->cursor_alt(false);
 		}
 
 		[[nodiscard]] xieite::vec2<int> get_cursor() noexcept {

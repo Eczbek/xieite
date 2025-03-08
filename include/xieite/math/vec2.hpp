@@ -9,10 +9,13 @@ namespace xieite {
 		T x;
 		T y;
 
-		[[nodiscard]] vec2() = default;
+		[[nodiscard]] constexpr vec2() noexcept
+		: x(0), y(0) {}
 
 		[[nodiscard]] constexpr vec2(T x, T y) noexcept
 		: x(x), y(y) {}
+
+		[[nodiscard]] friend bool operator==(const xieite::vec2<T>&, const xieite::vec2<T>&) = default;
 
 		[[nodiscard]] constexpr xieite::vec2<T> operator+() const noexcept {
 			return *this;
