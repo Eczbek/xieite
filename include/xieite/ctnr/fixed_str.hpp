@@ -31,6 +31,10 @@ namespace xieite {
 		noexcept(xieite::is_noex_range<R>)
 		: data(xieite::make_array<Ch, n>(XIEITE_FWD(data))) {}
 
+		[[nodiscard]] constexpr auto&& operator[](this auto&& self, std::size_t idx) noexcept {
+			return XIEITE_FWD(self).data[idx];
+		}
+
 		template<typename Traits = std::char_traits<Ch>>
 		[[nodiscard]] constexpr std::basic_string_view<Ch, Traits> view() const noexcept {
 			return std::basic_string_view<Ch, Traits>(this->data.begin(), this->data.end());
