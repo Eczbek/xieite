@@ -14,7 +14,7 @@
 #include "../pp/platform.hpp"
 
 #if !XIEITE_PLATFORM_TYPE_UNIX
-#	warning "unsupported platform"
+#	warning unsupported platform
 #endif
 
 #include <fcntl.h>

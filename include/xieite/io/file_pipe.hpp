@@ -7,7 +7,7 @@
 #include "../sys/proc_status.hpp"
 
 #if !XIEITE_PLATFORM_TYPE_UNIX && !XIEITE_PLATFORM_TYPE_WINDOWS
-#	warning "unsupported platform"
+#	warning unsupported platform
 #endif
 
 namespace xieite {

@@ -15,7 +15,7 @@
 #	include <fcntl.h>
 #	include <unistd.h>
 #elif !XIEITE_PLATFORM_TYPE_WINDOWS
-#	warning "unsupported platform"
+#	warning unsupported platform
 #endif
 
 #if XIEITE_COMPILER_TYPE_GCC

@@ -9,7 +9,7 @@
 #elif XIEITE_PLATFORM_TYPE_WINDOWS
 #	include <windows.h>
 #else
-#	warning "unsupported platform"
+#	warning unsupported platform
 #endif
 
 namespace xieite {
