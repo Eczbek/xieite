@@ -10,7 +10,6 @@
 #include "../fn/unroll.hpp"
 #include "../pp/arrow.hpp"
 #include "../pp/fwd.hpp"
-#include "../trait/is_noex_iter.hpp"
 
 namespace xieite {
 	template<typename T, std::size_t n>
@@ -121,12 +120,7 @@ namespace xieite {
 			XIEITE_ARROW(xieite::unroll<n>(
 				[]<std::size_t... i>(auto iter) static
 					XIEITE_ARROW(xieite::fixed_array<T, n> {
-						([]<typename I>(I& iter) static noexcept(xieite::is_noex_iter<I>) -> decltype(auto) {
-							if constexpr (i) {
-								++iter;
-							}
-							return *iter;
-						})(iter)...
+						([]<std::size_t j>(auto& iter) static XIEITE_ARROW_IF(j, ++iter, *iter)).template operator()<i>(iter)...
 					}),
 				std::ranges::begin(range)
 			))

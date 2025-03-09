@@ -17,6 +17,16 @@
 	noexcept(noexcept(__VA_ARGS__)) \
 	requires(requires { __VA_ARGS__; }) \
 	{ return __VA_ARGS__; }
+#define XIEITE_ARROW_IF(cond_, then_, ...) \
+	noexcept((!static_cast<bool>(cond_) || noexcept(then_)) __VA_OPT__(&& noexcept(__VA_ARGS__))) \
+	-> decltype(auto) \
+	requires((!static_cast<bool>(cond_) || requires { then_; }) __VA_OPT__(&& requires { __VA_ARGS__; })) \
+	{ if constexpr (static_cast<bool>(cond_)) { then_; } return __VA_ARGS__; }
+#define XIEITE_ARROW_CHOOSE(cond_, then_, ...) \
+	noexcept((static_cast<bool>(cond_) && noexcept(then_)) __VA_OPT__(|| (!static_cast<bool>(cond_) && noexcept(__VA_ARGS__)))) \
+	-> decltype(auto) \
+	requires((static_cast<bool>(cond_) && requires { then_; }) __VA_OPT__(|| (!static_cast<bool>(cond_) && requires { __VA_ARGS__; }))) \
+	{ if constexpr (static_cast<bool>(cond_)) { return XIEITE_UNWRAP(then_); } else { return __VA_ARGS__; } }
 #define XIEITE_ARROW_DECL(params_, ...) \
 	XIEITE_EVAL( \
 		noexcept(DETAIL_XIEITE_ARROW_PARAMS(XIEITE_UNWRAP(params_)) { requires(noexcept(__VA_ARGS__)); }) \
@@ -27,7 +37,7 @@
 #define XIEITE_ARROW_CTOR(body_, ...) \
 	XIEITE_EVAL( \
 		noexcept(XIEITE_IF(XIEITE_ANY(body_))(noexcept(XIEITE_UNWRAP(body_)) &&) DETAIL_XIEITE_ARROW_NOEX(&&, __VA_ARGS__)) \
-		requires(requires { XIEITE_IF(XIEITE_ANY(body_))(XIEITE_UNWRAP(body_);) DETAIL_XIEITE_ARROW_NOEX(;, __VA_ARGS__); }) \
+		requires(requires { XIEITE_UNWRAP(body_); DETAIL_XIEITE_ARROW_NOEX(;, __VA_ARGS__); }) \
 		: DETAIL_XIEITE_ARROW_INIT(__VA_ARGS__) \
 		{ XIEITE_UNWRAP(body_); } \
 	)
