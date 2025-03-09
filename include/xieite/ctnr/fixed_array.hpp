@@ -14,7 +14,6 @@
 namespace xieite {
 	template<typename T, std::size_t n>
 	struct fixed_array {
-	public:
 		using value_type = T;
 		using reference =  xieite::fixed_array<T, n>::value_type&;
 		using const_reference = const xieite::fixed_array<T, n>::value_type&;
