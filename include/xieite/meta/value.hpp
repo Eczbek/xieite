@@ -1,8 +1,13 @@
 #pragma once
 
-#include <type_traits>
+namespace DETAIL_XIEITE::value {
+	template<decltype(auto) x>
+	struct impl {
+		static constexpr decltype(auto) value = x;
+	};
+}
 
 namespace xieite {
-	template<auto x>
-	using value = std::integral_constant<decltype(x), x>;
+	template<decltype(auto) x>
+	using value = DETAIL_XIEITE::value::impl<x>;
 }

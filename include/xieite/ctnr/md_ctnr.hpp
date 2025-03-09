@@ -4,7 +4,6 @@
 #include <type_traits>
 #include "../fn/unroll.hpp"
 #include "../meta/fold.hpp"
-#include "../meta/value.hpp"
 
 namespace xieite {
 	template<template<typename> typename Ctnr, typename V, std::size_t rank>
