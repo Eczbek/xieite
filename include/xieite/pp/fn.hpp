@@ -12,14 +12,14 @@
 #include "../pp/seq.hpp"
 #include "../pp/unwrap.hpp"
 
-#define XIEITE_FN(...) ([]DETAIL_XIEITE_FN(0, __VA_ARGS__))
-#define XIEITE_FN_THIS(...) ([]DETAIL_XIEITE_FN(1, __VA_ARGS__))
-#define XIEITE_FN_LOCAL(captures_, ...) ([XIEITE_UNWRAP(captures_)]DETAIL_XIEITE_FN(1, __VA_ARGS__))
-#define XIEITE_FN_MUT(captures_, ...) (DETAIL_XIEITE::FN::indirect { [XIEITE_UNWRAP(captures_)] mutable { return [&]DETAIL_XIEITE_FN(1, __VA_ARGS__); } })
+#define XIEITE_FN(...) ([]DETAIL_XIEITE_FN(0, 0, __VA_ARGS__))
+#define XIEITE_FN_THIS(...) ([]DETAIL_XIEITE_FN(0, 1, __VA_ARGS__))
+#define XIEITE_FN_LOCAL(captures_, ...) ([XIEITE_UNWRAP(captures_)]DETAIL_XIEITE_FN(XIEITE_ANY(captures_), 1, __VA_ARGS__))
+#define XIEITE_FN_MUT(captures_, ...) (DETAIL_XIEITE::FN::indirect { [XIEITE_UNWRAP(captures_)] mutable { return [&]DETAIL_XIEITE_FN(1, 1, __VA_ARGS__); } })
 
 XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 
-#define DETAIL_XIEITE_FN(this_, ...) \
+#define DETAIL_XIEITE_FN(has_captures_, this_, ...) \
 	< \
 		typename... __VA_OPT__($$ XIEITE_IF(this_)(XIEITE_COMMA() \
 		typename $$this), \
@@ -27,7 +27,7 @@ XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 	>__VA_OPT__([[nodiscard]])(__VA_OPT__( \
 		XIEITE_IF(this_)([[maybe_unused]] this $$this&& $this XIEITE_COMMA()) \
 		[[maybe_unused]]) auto&&... __VA_OPT__($) \
-	) XIEITE_IF(XIEITE_ANY(__VA_ARGS__))(XIEITE_IF(this_)(, static), static) \
+	) XIEITE_IF(has_captures_)(, XIEITE_IF(XIEITE_ANY(__VA_ARGS__))(XIEITE_IF(this_)(, static), static)) \
 	noexcept __VA_OPT__((requires (XIEITE_IF(this_)($$this&& $this XIEITE_COMMA()) XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM)) { requires(noexcept(__VA_ARGS__)); }) \
 	-> decltype(auto) \
 	requires(requires (XIEITE_IF(this_)($$this&& $this XIEITE_COMMA()) XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM)) { __VA_ARGS__; })) { \
@@ -74,7 +74,7 @@ namespace DETAIL_XIEITE::FN {
 	template<typename F>
 	struct indirect : F {
 		template<typename... Ts>
-		constexpr auto operator()(this auto&& self, auto&&... args)
+		[[nodiscard]] constexpr auto operator()(this auto&& self, auto&&... args)
 			XIEITE_ARROW(static_cast<F&>(self)().template operator()<Ts...>(XIEITE_FWD(args)...))
 	};
 }
