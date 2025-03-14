@@ -37,7 +37,7 @@
 #define XIEITE_ARROW_CTOR(body_, ...) \
 	XIEITE_EVAL( \
 		noexcept(XIEITE_IF(XIEITE_ANY(body_))(noexcept(XIEITE_UNWRAP(body_)) &&) DETAIL_XIEITE_ARROW_NOEX(&&, __VA_ARGS__)) \
-		requires(requires { XIEITE_UNWRAP(body_); DETAIL_XIEITE_ARROW_NOEX(;, __VA_ARGS__); }) \
+		requires(requires { XIEITE_IF(XIEITE_ANY(body_))(XIEITE_UNWRAP(body_);) DETAIL_XIEITE_ARROW_NOEX(;, __VA_ARGS__); }) \
 		: DETAIL_XIEITE_ARROW_INIT(__VA_ARGS__) \
 		{ XIEITE_UNWRAP(body_); } \
 	)
