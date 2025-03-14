@@ -4,7 +4,7 @@
 #include <bitset>
 #include <concepts>
 #include "../math/bit_size.hpp"
-#include "../meta/try_unsign.hpp"
+#include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<std::integral... Ts>

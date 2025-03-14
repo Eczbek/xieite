@@ -4,7 +4,7 @@
 #include <limits>
 #include <numbers>
 #include "../math/xor_shift.hpp"
-#include "../meta/try_unsign.hpp"
+#include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<std::integral T, std::floating_point Phi = double>

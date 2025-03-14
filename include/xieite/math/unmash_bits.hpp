@@ -9,7 +9,7 @@
 #include "../fn/repeat.hpp"
 #include "../math/bit_size.hpp"
 #include "../math/least_uint.hpp"
-#include "../meta/try_unsign.hpp"
+#include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<std::size_t... sizes, std::size_t bits>

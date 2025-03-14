@@ -1,8 +1,8 @@
 #pragma once
 
 #include <cmath>
-#include "../meta/try_unsign.hpp"
 #include "../trait/is_arith.hpp"
+#include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
