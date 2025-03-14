@@ -82,7 +82,7 @@ namespace xieite {
 			this->trim();
 		}
 
-		[[nodiscard]] explicit constexpr big_int(std::string_view str, xieite::ssize_t radix = 10, xieite::num_str_config config = {}) noexcept
+		[[nodiscard]] explicit constexpr big_int(std::string_view str, xieite::ssize_t radix = 10, const xieite::num_str_config& config = {}) noexcept
 		: neg(false) {
 			*this = 0;
 			if (!radix) {
