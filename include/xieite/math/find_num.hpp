@@ -12,6 +12,9 @@
 namespace xieite {
 	template<xieite::is_arith T>
 	[[nodiscard]] constexpr std::string_view find_num(std::string_view str, std::conditional_t<std::floating_point<T>, xieite::ssize_t, T> radix = 10, xieite::num_str_config config = {}) noexcept {
+		if (!radix) {
+			return "";
+		}
 		const std::size_t size = str.size();
 		const std::string_view digits = config.digit.substr(0, xieite::abs(radix));
 		std::size_t i = 0;
