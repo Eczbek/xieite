@@ -1,202 +1,107 @@
 #pragma once
 
+#include "../ctnr/make_sparse_array.hpp"
 #include "../io/keys.hpp"
 
 namespace xieite {
 	[[nodiscard]] constexpr char keys_ch(xieite::keys key) noexcept {
-		switch (key) {
-		case xieite::keys::sp:
-			return ' ';
-		case xieite::keys::exclam:
-			return '!';
-		case xieite::keys::quot:
-			return '\"';
-		case xieite::keys::hash:
-			return '#';
-		case xieite::keys::dollar:
-			return '$';
-		case xieite::keys::pc:
-			return '%';
-		case xieite::keys::et:
-			return '&';
-		case xieite::keys::apos:
-			return '\'';
-		case xieite::keys::lparen:
-			return '(';
-		case xieite::keys::rparen:
-			return ')';
-		case xieite::keys::star:
-			return '*';
-		case xieite::keys::plus:
-			return '+';
-		case xieite::keys::comma:
-			return ',';
-		case xieite::keys::dash:
-			return '-';
-		case xieite::keys::dot:
-			return '.';
-		case xieite::keys::sl:
-			return '/';
-		case xieite::keys::_0:
-			return '0';
-		case xieite::keys::_1:
-			return '1';
-		case xieite::keys::_2:
-			return '2';
-		case xieite::keys::_3:
-			return '3';
-		case xieite::keys::_4:
-			return '4';
-		case xieite::keys::_5:
-			return '5';
-		case xieite::keys::_6:
-			return '6';
-		case xieite::keys::_7:
-			return '7';
-		case xieite::keys::_8:
-			return '8';
-		case xieite::keys::_9:
-			return '9';
-		case xieite::keys::col:
-			return ':';
-		case xieite::keys::semicol:
-			return ';';
-		case xieite::keys::lt:
-			return '<';
-		case xieite::keys::eq:
-			return '=';
-		case xieite::keys::gt:
-			return '>';
-		case xieite::keys::question:
-			return '?';
-		case xieite::keys::at:
-			return '@';
-		case xieite::keys::A:
-			return 'A';
-		case xieite::keys::B:
-			return 'B';
-		case xieite::keys::C:
-			return 'C';
-		case xieite::keys::D:
-			return 'D';
-		case xieite::keys::E:
-			return 'E';
-		case xieite::keys::F:
-			return 'F';
-		case xieite::keys::G:
-			return 'G';
-		case xieite::keys::H:
-			return 'H';
-		case xieite::keys::I:
-			return 'I';
-		case xieite::keys::J:
-			return 'J';
-		case xieite::keys::K:
-			return 'K';
-		case xieite::keys::L:
-			return 'L';
-		case xieite::keys::M:
-			return 'M';
-		case xieite::keys::N:
-			return 'N';
-		case xieite::keys::O:
-			return 'O';
-		case xieite::keys::P:
-			return 'P';
-		case xieite::keys::Q:
-			return 'Q';
-		case xieite::keys::R:
-			return 'R';
-		case xieite::keys::S:
-			return 'S';
-		case xieite::keys::T:
-			return 'T';
-		case xieite::keys::U:
-			return 'U';
-		case xieite::keys::V:
-			return 'V';
-		case xieite::keys::W:
-			return 'W';
-		case xieite::keys::X:
-			return 'X';
-		case xieite::keys::Y:
-			return 'Y';
-		case xieite::keys::Z:
-			return 'Z';
-		case xieite::keys::lbrack:
-			return '[';
-		case xieite::keys::backsl:
-			return '\\';
-		case xieite::keys::rbrack:
-			return ']';
-		case xieite::keys::caret:
-			return '^';
-		case xieite::keys::undersc:
-			return '_';
-		case xieite::keys::grave:
-			return '`';
-		case xieite::keys::a:
-			return 'a';
-		case xieite::keys::b:
-			return 'b';
-		case xieite::keys::c:
-			return 'c';
-		case xieite::keys::d:
-			return 'd';
-		case xieite::keys::e:
-			return 'e';
-		case xieite::keys::f:
-			return 'f';
-		case xieite::keys::g:
-			return 'g';
-		case xieite::keys::h:
-			return 'h';
-		case xieite::keys::i:
-			return 'i';
-		case xieite::keys::j:
-			return 'j';
-		case xieite::keys::k:
-			return 'k';
-		case xieite::keys::l:
-			return 'l';
-		case xieite::keys::m:
-			return 'm';
-		case xieite::keys::n:
-			return 'n';
-		case xieite::keys::o:
-			return 'o';
-		case xieite::keys::p:
-			return 'p';
-		case xieite::keys::q:
-			return 'q';
-		case xieite::keys::r:
-			return 'r';
-		case xieite::keys::s:
-			return 's';
-		case xieite::keys::t:
-			return 't';
-		case xieite::keys::u:
-			return 'u';
-		case xieite::keys::v:
-			return 'v';
-		case xieite::keys::w:
-			return 'w';
-		case xieite::keys::x:
-			return 'x';
-		case xieite::keys::y:
-			return 'y';
-		case xieite::keys::z:
-			return 'z';
-		case xieite::keys::lbrace:
-			return '{';
-		case xieite::keys::pipe:
-			return '|';
-		case xieite::keys::rbrace:
-			return '}';
-		case xieite::keys::tilde:
-			return '~';
-		default:
-			return '\0';
-		}
+		static constexpr auto map = xieite::make_sparse_array<char, 95>({
+			{ xieite::keys::sp, ' ' },
+			{ xieite::keys::bang, '!' },
+			{ xieite::keys::quot, '\"' },
+			{ xieite::keys::hash, '#' },
+			{ xieite::keys::dollar, '$' },
+			{ xieite::keys::pc, '%' },
+			{ xieite::keys::et, '&' },
+			{ xieite::keys::apos, '\'' },
+			{ xieite::keys::lparen, '(' },
+			{ xieite::keys::rparen, ')' },
+			{ xieite::keys::star, '*' },
+			{ xieite::keys::plus, '+' },
+			{ xieite::keys::comma, ',' },
+			{ xieite::keys::dash, '-' },
+			{ xieite::keys::dot, '.' },
+			{ xieite::keys::sl, '/' },
+			{ xieite::keys::_0, '0' },
+			{ xieite::keys::_1, '1' },
+			{ xieite::keys::_2, '2' },
+			{ xieite::keys::_3, '3' },
+			{ xieite::keys::_4, '4' },
+			{ xieite::keys::_5, '5' },
+			{ xieite::keys::_6, '6' },
+			{ xieite::keys::_7, '7' },
+			{ xieite::keys::_8, '8' },
+			{ xieite::keys::_9, '9' },
+			{ xieite::keys::col, ':' },
+			{ xieite::keys::semicol, ';' },
+			{ xieite::keys::lt, '<' },
+			{ xieite::keys::eq, '=' },
+			{ xieite::keys::gt, '>' },
+			{ xieite::keys::hook, '?' },
+			{ xieite::keys::at, '@' },
+			{ xieite::keys::A, 'A' },
+			{ xieite::keys::B, 'B' },
+			{ xieite::keys::C, 'C' },
+			{ xieite::keys::D, 'D' },
+			{ xieite::keys::E, 'E' },
+			{ xieite::keys::F, 'F' },
+			{ xieite::keys::G, 'G' },
+			{ xieite::keys::H, 'H' },
+			{ xieite::keys::I, 'I' },
+			{ xieite::keys::J, 'J' },
+			{ xieite::keys::K, 'K' },
+			{ xieite::keys::L, 'L' },
+			{ xieite::keys::M, 'M' },
+			{ xieite::keys::N, 'N' },
+			{ xieite::keys::O, 'O' },
+			{ xieite::keys::P, 'P' },
+			{ xieite::keys::Q, 'Q' },
+			{ xieite::keys::R, 'R' },
+			{ xieite::keys::S, 'S' },
+			{ xieite::keys::T, 'T' },
+			{ xieite::keys::U, 'U' },
+			{ xieite::keys::V, 'V' },
+			{ xieite::keys::W, 'W' },
+			{ xieite::keys::X, 'X' },
+			{ xieite::keys::Y, 'Y' },
+			{ xieite::keys::Z, 'Z' },
+			{ xieite::keys::lbrack, '[' },
+			{ xieite::keys::backsl, '\\' },
+			{ xieite::keys::rbrack, ']' },
+			{ xieite::keys::caret, '^' },
+			{ xieite::keys::undersc, '_' },
+			{ xieite::keys::grave, '`' },
+			{ xieite::keys::a, 'a' },
+			{ xieite::keys::b, 'b' },
+			{ xieite::keys::c, 'c' },
+			{ xieite::keys::d, 'd' },
+			{ xieite::keys::e, 'e' },
+			{ xieite::keys::f, 'f' },
+			{ xieite::keys::g, 'g' },
+			{ xieite::keys::h, 'h' },
+			{ xieite::keys::i, 'i' },
+			{ xieite::keys::j, 'j' },
+			{ xieite::keys::k, 'k' },
+			{ xieite::keys::l, 'l' },
+			{ xieite::keys::m, 'm' },
+			{ xieite::keys::n, 'n' },
+			{ xieite::keys::o, 'o' },
+			{ xieite::keys::p, 'p' },
+			{ xieite::keys::q, 'q' },
+			{ xieite::keys::r, 'r' },
+			{ xieite::keys::s, 's' },
+			{ xieite::keys::t, 't' },
+			{ xieite::keys::u, 'u' },
+			{ xieite::keys::v, 'v' },
+			{ xieite::keys::w, 'w' },
+			{ xieite::keys::x, 'x' },
+			{ xieite::keys::y, 'y' },
+			{ xieite::keys::z, 'z' },
+			{ xieite::keys::lbrace, '{' },
+			{ xieite::keys::pipe, '|' },
+			{ xieite::keys::rbrace, '}' },
+			{ xieite::keys::tilde, '~' }
+		});
+		return map[key];
 	}
 }

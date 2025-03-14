@@ -506,7 +506,7 @@ namespace xieite {
 				case 0x20:
 					return xieite::keys::alt_sp;
 				case 0x21:
-					return xieite::keys::alt_exclam;
+					return xieite::keys::alt_bang;
 				case 0x22:
 					return xieite::keys::alt_quot;
 				case 0x23:
@@ -566,7 +566,7 @@ namespace xieite {
 				case 0x3E:
 					return xieite::keys::alt_gt;
 				case 0x3F:
-					return xieite::keys::alt_question;
+					return xieite::keys::alt_hook;
 				case 0x40:
 					return xieite::keys::alt_at;
 				case 0x41:
@@ -801,7 +801,7 @@ namespace xieite {
 			case 0x20:
 				return xieite::keys::sp;
 			case 0x21:
-				return xieite::keys::exclam;
+				return xieite::keys::b;
 			case 0x22:
 				return xieite::keys::quot;
 			case 0x23:
@@ -861,7 +861,7 @@ namespace xieite {
 			case 0x3E:
 				return xieite::keys::gt;
 			case 0x3F:
-				return xieite::keys::question;
+				return xieite::keys::hook;
 			case 0x40:
 				return xieite::keys::at;
 			case 0x41:

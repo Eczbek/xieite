@@ -1,7 +1,9 @@
 #pragma once
 
+#include <cstdint>
+
 namespace xieite {
-	enum struct keys {
+	enum struct keys : std::uint_least16_t {
 		null,
 		ctrl_a,
 		ctrl_b,
@@ -56,7 +58,7 @@ namespace xieite {
 		ctrl_alt_y,
 		ctrl_alt_z,
 		alt_sp,
-		alt_exclam,
+		alt_bang,
 		alt_quot,
 		alt_hash,
 		alt_dollar,
@@ -86,7 +88,7 @@ namespace xieite {
 		alt_lt,
 		alt_eq,
 		alt_gt,
-		alt_question,
+		alt_hook,
 		alt_at,
 		alt_A,
 		alt_B,
@@ -154,7 +156,7 @@ namespace xieite {
 		alt_tab,
 		alt_enter,
 		sp,
-		exclam,
+		bang,
 		quot,
 		hash,
 		dollar,
@@ -184,7 +186,7 @@ namespace xieite {
 		lt,
 		eq,
 		gt,
-		question,
+		hook,
 		at,
 		A,
 		B,
