@@ -17,7 +17,7 @@ namespace xieite {
 				return base;
 			}
 			if (!std::unsigned_integral<T> && (base == static_cast<T>(-1))) {
-				return base * xieite::split_bool(!!(exp & 1));
+				return base * xieite::split_bool(exp & 1);
 			}
 			if (!base || !exp) {
 				if (xieite::neg(exp)) {

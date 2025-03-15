@@ -10,7 +10,7 @@
 namespace xieite {
 	template<std::size_t arity, typename F, typename... Args>
 	constexpr void distr_args(F&& fn, Args&&... args) noexcept(false) {
-		static_assert(!!arity || !sizeof...(Args), "arguments must be distributable across functor calls");
+		static_assert(arity || !sizeof...(Args), "arguments must be distributable across functor calls");
 		static_assert(sizeof...(Args) >= arity, "number of arguments must not be less than functor arity");
 		if constexpr (sizeof...(Args) == arity) {
 			std::invoke(XIEITE_FWD(fn), XIEITE_FWD(args)...);

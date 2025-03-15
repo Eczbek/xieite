@@ -78,12 +78,12 @@ namespace xieite::num_lit {
 		return static_cast<unsigned short int>(n);
 	}
 
-	[[nodiscard]] consteval auto operator""_b(unsigned long long int n) noexcept {
-		return !!n;
+	[[nodiscard]] consteval bool operator""_b(unsigned long long int n) noexcept {
+		return n;
 	}
 
-	[[nodiscard]] consteval auto operator""_b(long double n) noexcept {
-		return !!n;
+	[[nodiscard]] consteval bool operator""_b(long double n) noexcept {
+		return n;
 	}
 
 	[[nodiscard]] consteval auto operator""_c(unsigned long long int n) noexcept {

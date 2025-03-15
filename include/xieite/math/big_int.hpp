@@ -102,19 +102,19 @@ namespace xieite {
 
 		template<std::integral U>
 		[[nodiscard]] explicit constexpr operator U() const noexcept {
-			if constexpr (std::same_as<xieite::rm_cv<U>, bool>) {
-				return (this->data.size() > 1) || this->data[0];
-			} else {
-				U result = 0;
-				std::size_t i = 0;
-				std::size_t j = 0;
-				while (j < xieite::bit_size<U>) {
-					result |= static_cast<U>(this->data[i]) << j;
-					++i;
-					j += xieite::bit_size<T>;
-				}
-				return this->neg ? -result : result;
+			U result = 0;
+			std::size_t i = 0;
+			std::size_t j = 0;
+			while (j < xieite::bit_size<U>) {
+				result |= static_cast<U>(this->data[i]) << j;
+				++i;
+				j += xieite::bit_size<T>;
 			}
+			return this->neg ? -result : result;
+		}
+
+		[[nodiscard]] explicit(false) constexpr operator bool() const noexcept {
+			return (this->data.size() > 1) || this->data[0];
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<T>& l, const xieite::big_int<T>& r) noexcept {
@@ -534,7 +534,7 @@ namespace xieite {
 				return *this;
 			}
 			if (*this == -1) {
-				return *this * xieite::split_bool(!!(exp & 1));
+				return *this * xieite::split_bool(exp & 1);
 			}
 			if (!*this || !exp) {
 				if (exp.neg) {

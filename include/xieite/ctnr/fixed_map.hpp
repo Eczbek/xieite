@@ -42,7 +42,7 @@ namespace xieite {
 
 		template<std::convertible_to<K> KRef>
 		[[nodiscard]] constexpr bool has(KRef&& key) const noexcept {
-			return !!this->get_val(XIEITE_FWD(key));
+			return this->get_val(XIEITE_FWD(key));
 		}
 
 		[[nodiscard]] constexpr const std::array<std::pair<K, V>, size>& data() const noexcept {

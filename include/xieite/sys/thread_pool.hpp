@@ -73,7 +73,7 @@ namespace xieite {
 		}
 
 	private:
-		// Destruction order is important!!!
+		// NOTE: Destruction order is important!
 		std::queue<std::packaged_task<void()>> tasks;
 		std::vector<std::jthread> threads;
 		mutable std::mutex mutex;
