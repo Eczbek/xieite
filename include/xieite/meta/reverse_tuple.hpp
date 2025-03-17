@@ -2,14 +2,16 @@
 
 #include <cstddef>
 #include <tuple>
+#include <utility>
 #include "../fn/unroll.hpp"
-#include "../meta/type_list.hpp"
+#include "../meta/tuple_size.hpp"
+#include "../trait/is_tuple_like.hpp"
 
 namespace xieite {
-	template<typename... Ts>
-	[[nodiscard]] constexpr typename xieite::type_list<Ts...>::reverse::template to<std::tuple> reverse_tuple(const std::tuple<Ts...>& tuple) noexcept {
-		return xieite::unroll<Ts...>([&tuple]<std::size_t... i> {
-			return xieite::type_list<Ts...>::reverse::template to<std::tuple>(std::get<sizeof...(Ts) - i - 1>(tuple)...);
+	[[nodiscard]] constexpr auto reverse_tuple(xieite::is_tuple_like auto&& tuple) noexcept {
+		static constexpr std::size_t size = xieite::tuple_size<decltype(tuple)>;
+		return xieite::unroll<size>([&tuple]<std::size_t... i> {
+			return std::forward_as_tuple(std::get<(size - i - 1)>(std::move(tuple))...);
 		});
 	}
 }
