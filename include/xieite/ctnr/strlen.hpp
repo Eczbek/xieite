@@ -4,6 +4,7 @@
 #include <string>
 #include <string_view>
 #include <type_traits>
+#include "../meta/group.hpp"
 #include "../trait/is_ch.hpp"
 
 namespace xieite {
@@ -18,7 +19,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_ch Ch, std::size_t n>
-	[[nodiscard]] constexpr std::size_t strlen(const Ch(&)[n]) noexcept {
+	[[nodiscard]] constexpr std::size_t strlen(const xieite::group<Ch[n]>&) noexcept {
 		return n - !!n;
 	}
 

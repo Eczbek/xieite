@@ -11,6 +11,7 @@
 #include <utility>
 #include "../ctnr/make_array.hpp"
 #include "../pp/fwd.hpp"
+#include "../trait/is_ref_to.hpp"
 
 namespace xieite {
 	template<typename K, typename V, std::size_t size, typename Hash = std::hash<K>, typename Cmp = std::ranges::equal_to, typename Alloc = std::allocator<std::pair<const K, V*>>>
@@ -26,22 +27,19 @@ namespace xieite {
 		[[nodiscard]] explicit(false) constexpr fixed_map(std::initializer_list<std::pair<K, V>> entries) noexcept
 		: array(xieite::make_array<std::pair<K, V>, size>(entries)) {}
 
-		template<typename Self, std::convertible_to<K> KRef>
-		[[nodiscard]] constexpr auto&& operator[](this Self&& self, KRef&& key) noexcept(false) {
+		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xieite::is_ref_to<K> auto&& key) noexcept(false) {
 			auto* value = XIEITE_FWD(self).get_val(XIEITE_FWD(key));
 			if (!value) {
 				throw std::out_of_range("must not access nonexistent key");
 			}
-			return std::forward_like<Self>(*value);
+			return std::forward_like<decltype(self)>(*value);
 		}
 
-		template<typename Self, std::convertible_to<K> KRef>
-		[[nodiscard]] constexpr auto&& at(this Self&& self, KRef&& key) noexcept(false) {
-			return std::forward_like<Self>(self[XIEITE_FWD(key)]);
+		[[nodiscard]] constexpr auto&& at(this auto&& self, xieite::is_ref_to<K> auto&& key) noexcept(false) {
+			return std::forward_like<decltype(self)>(self[XIEITE_FWD(key)]);
 		}
 
-		template<std::convertible_to<K> KRef>
-		[[nodiscard]] constexpr bool has(KRef&& key) const noexcept {
+		[[nodiscard]] constexpr bool has(xieite::is_ref_to<K> auto&& key) const noexcept {
 			return this->get_val(XIEITE_FWD(key));
 		}
 
@@ -58,7 +56,7 @@ namespace xieite {
 				Map map;
 				map.reserve(this->array.size());
 				for (const std::pair<K, V>& entry : this->array) {
-					// Disregard constness here; It is properly handled in `operator[]`
+					// Disregard constness here; it is properly handled in `operator[]`
 					map.emplace(std::make_pair(entry.first, const_cast<V*>(std::addressof(entry.second))));
 				}
 				return map;
@@ -66,8 +64,7 @@ namespace xieite {
 			return map;
 		}
 
-		template<typename Self, std::convertible_to<K> KRef>
-		[[nodiscard]] constexpr auto* get_val(this Self&& self, KRef&& key) noexcept {
+		[[nodiscard]] constexpr auto* get_val(this auto&& self, xieite::is_ref_to<K> auto&& key) noexcept {
 			if consteval {
 				Cmp cmp;
 				for (auto&& entry : self.array) {

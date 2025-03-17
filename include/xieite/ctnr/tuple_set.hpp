@@ -1,13 +1,13 @@
 #pragma once
 
-#include <concepts>
 #include <initializer_list>
 #include <ranges>
 #include <tuple>
 #include <utility>
-#include "../meta/splice_tuple.hpp"
+#include "../meta/subtuple.hpp"
 #include "../pp/arrow.hpp"
 #include "../pp/fwd.hpp"
+#include "../trait/is_ref_to.hpp"
 
 namespace xieite {
 	template<template<typename> typename, typename>
@@ -22,40 +22,34 @@ namespace xieite {
 		[[nodiscard]] constexpr tuple_set(std::initializer_list<std::pair<K, xieite::tuple_set<Ctnr, std::tuple<Ks...>>>> list = {})
 			XIEITE_ARROW_CTOR(, set, ((std::from_range, list)))
 
-		template<std::convertible_to<std::tuple<K, Ks...>> KsRef>
-		[[nodiscard]] constexpr auto operator[](KsRef&& keys) const
-			XIEITE_ARROW(this->set.has(std::get<0>(std::move(keys))) && this->set.at(std::get<0>(keys)).has(xieite::splice_tuple<0, 1>(XIEITE_FWD(keys))))
+		[[nodiscard]] constexpr auto operator[](xieite::is_ref_to<std::tuple<K, Ks...>> auto&& keys) const
+			XIEITE_ARROW(this->set.has(std::get<0>(std::move(keys))) && this->set.at(std::get<0>(keys)).has(xieite::subtuple<1>(XIEITE_FWD(keys))))
 
-		template<std::convertible_to<std::tuple<K, Ks...>> KsRef>
-		constexpr auto insert(KsRef&& keys)
-			XIEITE_ARROW(this->set[std::get<0>(std::move(keys))].insert(xieite::splice_tuple<0, 1>(XIEITE_FWD(keys))))
+		constexpr auto insert(xieite::is_ref_to<std::tuple<K, Ks...>> auto&& keys)
+			XIEITE_ARROW(this->set[std::get<0>(std::move(keys))].insert(xieite::subtuple<1>(XIEITE_FWD(keys))))
 
-		template<std::convertible_to<std::tuple<K, Ks...>> KsRef>
-		[[nodiscard]] constexpr auto has(KsRef&& keys) const
+		[[nodiscard]] constexpr auto has(xieite::is_ref_to<std::tuple<K, Ks...>> auto&& keys) const
 			XIEITE_ARROW((*this)[XIEITE_FWD(keys)])
 	};
 
-	template<template<typename> typename Ctnr, typename Key>
-	struct tuple_set<Ctnr, std::tuple<Key>> {
+	template<template<typename> typename Ctnr, typename K>
+	struct tuple_set<Ctnr, std::tuple<K>> {
 	private:
-		Ctnr<Key> set;
+		Ctnr<K> set;
 
 	public:
-		[[nodiscard]] constexpr tuple_set(std::initializer_list<Key> list = {})
+		[[nodiscard]] constexpr tuple_set(std::initializer_list<K> list = {})
 			XIEITE_ARROW_CTOR(, set, ((std::from_range, list)))
 
-		template<std::convertible_to<std::tuple<Key>> KRef>
-		[[nodiscard]] constexpr auto operator[](KRef&& key) const
+		[[nodiscard]] constexpr auto operator[](xieite::is_ref_to<std::tuple<K>> auto&& key) const
 			XIEITE_ARROW(this->set.contains(std::get<0>(XIEITE_FWD(key))))
 
-		template<std::convertible_to<std::tuple<Key>> KRef>
-		constexpr auto insert(KRef&& key)
+		constexpr auto insert(xieite::is_ref_to<std::tuple<K>> auto&& key)
 			XIEITE_ARROW(this->set.emplace(std::get<0>(XIEITE_FWD(key))))
 
-		template<std::convertible_to<std::tuple<Key>> KRef>
-		[[nodiscard]] constexpr auto has(KRef&& key) const
+		[[nodiscard]] constexpr auto has(xieite::is_ref_to<std::tuple<K>> auto&& key) const
 			XIEITE_ARROW((*this)[XIEITE_FWD(key)])
 	};
 }
 
-// NOTE: GCC insists on the private member variable being defined before its usage
+// NOTE: GCC insists on private member variables being defined above their usage

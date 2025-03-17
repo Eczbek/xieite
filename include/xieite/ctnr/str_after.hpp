@@ -6,6 +6,7 @@
 #include "../ctnr/str_view.hpp"
 #include "../ctnr/strlen.hpp"
 #include "../ctnr/substr.hpp"
+#include "../meta/group.hpp"
 #include "../pp/arrow.hpp"
 #include "../pp/fwd.hpp"
 #include "../trait/is_ch.hpp"
@@ -20,6 +21,6 @@ namespace xieite {
 		XIEITE_ARROW(xieite::str_after(xieite::str_view(str), XIEITE_FWD(delim)))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
-	[[nodiscard]] constexpr auto str_after(const Ch(& str)[n], auto&& delim)
+	[[nodiscard]] constexpr auto str_after(const xieite::group<Ch[n]>& str, auto&& delim)
 		XIEITE_ARROW(xieite::str_after(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(delim)))
 }

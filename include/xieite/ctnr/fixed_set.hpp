@@ -11,6 +11,7 @@
 #include <unordered_set>
 #include "../ctnr/make_array.hpp"
 #include "../pp/fwd.hpp"
+#include "../trait/is_ref_to.hpp"
 
 namespace xieite {
 	template<typename K, std::size_t size, typename Hash = std::hash<K>, typename Cmp = std::ranges::equal_to, typename Alloc = std::allocator<K>>
@@ -26,13 +27,11 @@ namespace xieite {
 		[[nodiscard]] explicit(false) constexpr fixed_set(std::initializer_list<K> keys) noexcept
 		: array(xieite::make_array<K, size>(keys)) {}
 
-		template<std::convertible_to<K> KRef>
-		[[nodiscard]] constexpr bool operator[](KRef&& key) const noexcept {
+		[[nodiscard]] constexpr bool operator[](xieite::is_ref_to<K> auto&& key) const noexcept {
 			return this->has(XIEITE_FWD(key));
 		}
 
-		template<std::convertible_to<K> KRef>
-		[[nodiscard]] constexpr bool has(KRef&& key) const noexcept {
+		[[nodiscard]] constexpr bool has(xieite::is_ref_to<K> auto&& key) const noexcept {
 			if consteval {
 				return std::ranges::contains(this->array, XIEITE_FWD(key));
 			} else {

@@ -7,6 +7,7 @@
 #include <string>
 #include <string_view>
 #include "../ctnr/make_array.hpp"
+#include "../meta/group.hpp"
 #include "../pp/fwd.hpp"
 #include "../trait/is_ch.hpp"
 #include "../trait/is_noex_range.hpp"
@@ -19,7 +20,7 @@ namespace xieite {
 		static constexpr std::size_t size = n;
 		std::array<Ch, n> data;
 
-		[[nodiscard]] explicit(false) constexpr fixed_str(const Ch(& data)[n + 1]) noexcept {
+		[[nodiscard]] explicit(false) constexpr fixed_str(const xieite::group<Ch[n + 1]>& data) noexcept {
 			for (std::size_t i = 0; i < n; ++i) {
 				this->data[i] = data[i];
 			}
@@ -42,5 +43,5 @@ namespace xieite {
 	};
 
 	template<std::size_t n, typename Ch>
-	fixed_str(const Ch(&)[n]) -> fixed_str<(n - 1), Ch>;
+	fixed_str(const xieite::group<Ch[n]>&) -> fixed_str<(n - 1), Ch>;
 }

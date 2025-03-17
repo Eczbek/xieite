@@ -10,6 +10,7 @@
 #include "../ctnr/str_view.hpp"
 #include "../math/bit_size.hpp"
 #include "../math/sign_cast.hpp"
+#include "../meta/group.hpp"
 #include "../pp/arrow.hpp"
 #include "../pp/fwd.hpp"
 #include "../trait/is_ch.hpp"
@@ -43,6 +44,6 @@ namespace xieite {
 		XIEITE_ARROW(xieite::tolower(xieite::str_view(str), XIEITE_FWD(alloc)))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, std::size_t n>
-	[[nodiscard]] constexpr auto tolower(const Ch(& str)[n], Alloc&& alloc = {})
+	[[nodiscard]] constexpr auto tolower(const xieite::group<Ch[n]>& str, Alloc&& alloc = {})
 		XIEITE_ARROW(xieite::tolower(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(alloc)))
 }

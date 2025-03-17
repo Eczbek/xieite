@@ -6,6 +6,7 @@
 #include <type_traits>
 #include "../pp/fwd.hpp"
 #include "../trait/is_invoc.hpp"
+#include "../trait/is_ref_to.hpp"
 
 namespace xieite {
 	template<typename>
@@ -46,8 +47,7 @@ namespace xieite {
 		struct derived : xieite::fn<Ret(Args...)>::base {
 			mutable F fn;
 
-			template<std::convertible_to<F> FRef>
-			[[nodiscard]] constexpr derived(FRef&& fn) noexcept
+			[[nodiscard]] constexpr derived(xieite::is_ref_to<F> auto&& fn) noexcept
 			: fn(XIEITE_FWD(fn)) {}
 
 			constexpr Ret operator()(Args... args) const noexcept(false) override {

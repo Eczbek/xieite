@@ -7,6 +7,7 @@
 #include <type_traits>
 #include <vector>
 #include "../ctnr/str_view.hpp"
+#include "../meta/group.hpp"
 #include "../pp/arrow.hpp"
 #include "../pp/fwd.hpp"
 #include "../trait/is_ch.hpp"
@@ -41,6 +42,6 @@ namespace xieite {
 		XIEITE_ARROW(xieite::str_split(xieite::str_view(str), XIEITE_FWD(delim), discard_empty, XIEITE_FWD(vec_alloc)))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, typename VecAlloc = std::allocator<std::basic_string_view<Ch, Traits>>, std::size_t n>
-	[[nodiscard]] constexpr auto str_split(const Ch(& str)[n], auto&& delim, bool discard_empty = false, VecAlloc&& vec_alloc = {})
+	[[nodiscard]] constexpr auto str_split(const xieite::group<Ch[n]>& str, auto&& delim, bool discard_empty = false, VecAlloc&& vec_alloc = {})
 		XIEITE_ARROW(xieite::str_split(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(delim), discard_empty, XIEITE_FWD(vec_alloc)))
 }
