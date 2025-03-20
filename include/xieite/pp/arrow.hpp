@@ -42,25 +42,6 @@
 		: DETAIL_XIEITE_ARROW_INIT(__VA_ARGS__) \
 		{ XIEITE_UNWRAP(body_); } \
 	)
-#define XIEITE_ARROW_NEW(vars_, params_, ...) \
-	XIEITE_EVAL( \
-		noexcept(requires DETAIL_XIEITE_ARROW_PARAMS(XIEITE_UNWRAP(params_)) { \
-			requires(( \
-				[]<DETAIL_XIEITE_ARROW_VARS(XIEITE_UNWRAP(vars_))> \
-				DETAIL_XIEITE_ARROW_PARAMS(XIEITE_UNWRAP(params_)) \
-				{ return noexcept(__VA_ARGS__); } \
-			)(DETAIL_XIEITE_ARROW_ARGS(XIEITE_UNWRAP(params_)))); \
-		}) \
-		-> decltype(auto) \
-		requires(requires DETAIL_XIEITE_ARROW_PARAMS(XIEITE_UNWRAP(params_)) { \
-			requires(( \
-				[]<DETAIL_XIEITE_ARROW_VARS(XIEITE_UNWRAP(vars_))> \
-				DETAIL_XIEITE_ARROW_PARAMS(XIEITE_UNWRAP(params_)) \
-				{ return requires { __VA_ARGS__; }; } \
-			)(DETAIL_XIEITE_ARROW_ARGS(XIEITE_UNWRAP(params_)))); \
-		}) \
-		{ return __VA_ARGS__; } \
-	)
 
 #define DETAIL_XIEITE_ARROW_PARAMS(...) __VA_OPT__((DETAIL_XIEITE_EACH_HELPER(DETAIL_XIEITE_ARROW_PARAM, __VA_ARGS__)))
 #define DETAIL_XIEITE_ARROW_PARAM(param_) XIEITE_IF(XIEITE_WRAPPED(param_))(decltype param_&&... XIEITE_UNWRAP(param_), decltype(param_)&& param_)

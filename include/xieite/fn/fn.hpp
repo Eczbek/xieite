@@ -4,6 +4,7 @@
 #include <functional>
 #include <memory>
 #include <type_traits>
+#include "../pp/debug.hpp"
 #include "../pp/fwd.hpp"
 #include "../trait/is_invoc.hpp"
 #include "../trait/is_ref_to.hpp"
@@ -30,7 +31,11 @@ namespace xieite {
 		}
 
 		constexpr Ret operator()(Args... args) const noexcept(false) {
-			// Explicitly not handling possible nullptr dereference
+			if constexpr (XIEITE_DEBUG) {
+				if (!*this->ptr) {
+					throw std::bad_function_call();
+				}
+			}
 			return (*this->ptr)(args...);
 		}
 
