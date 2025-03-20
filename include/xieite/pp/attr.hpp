@@ -44,6 +44,12 @@
 #	define XIEITE_ATTR_DEPREC
 #endif
 
+#ifdef XIEITE_COMPILER_TYPE_MSVC
+#	define XIEITE_ATTR_EMPTY_BASES __declspec(empty_bases)
+#else
+#	define XIEITE_ATTR_EMPTY_BASES
+#endif
+
 #if XIEITE_COMPILER_TYPE_MSVC
 #	define XIEITE_ATTR_EXPORT __declspec(dllexport)
 #elif XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
