@@ -1041,7 +1041,7 @@
 
 #		undef XIEITE_PLATFORM_MINOR_BSD_OPEN
 #		define XIEITE_PLATFORM_MINOR_BSD_OPEN 6
-#	endif // TODO: Add recent versions (seems to update frequently)
+#	endif // TODO: Detect more versions
 #endif
 
 #ifdef __CloudABI__

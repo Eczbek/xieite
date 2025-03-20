@@ -772,7 +772,7 @@
 #	endif
 #endif
 
-#if defined(__HIPCC__) || defined(__HIP__)
+#if defined(__HCC__) || defined(__HIPCC_PLATFORM_HCC) || defined(__HIP__) || defined(__HIPCC__)
 #	undef XIEITE_COMPILER_TYPE_HIPCC
 #	define XIEITE_COMPILER_TYPE_HIPCC 1
 #endif
@@ -1050,7 +1050,7 @@
 #	define XIEITE_COMPILER_MINOR_NVIDIA_HPC __NVCOMPILER_MINOR__
 #endif
 
-#ifdef __NVCC__
+#if defined(HIPCC_PLATFORM_NVCC) || defined(__NVCC__)
 #	undef XIEITE_COMPILER_TYPE_NVCC
 #	define XIEITE_COMPILER_TYPE_NVCC 1
 
