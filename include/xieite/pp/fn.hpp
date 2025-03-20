@@ -9,6 +9,7 @@
 #include "../pp/each.hpp"
 #include "../pp/fwd.hpp"
 #include "../pp/if.hpp"
+#include "../pp/opt.hpp"
 #include "../pp/seq.hpp"
 #include "../pp/unwrap.hpp"
 
@@ -27,7 +28,7 @@ XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 	>__VA_OPT__([[nodiscard]])(__VA_OPT__( \
 		XIEITE_IF(this_)([[maybe_unused]] this $$this&& $this XIEITE_COMMA()) \
 		[[maybe_unused]]) auto&&... __VA_OPT__($) \
-	) XIEITE_IF(has_captures_)(, XIEITE_IF(XIEITE_ANY(__VA_ARGS__))(XIEITE_IF(this_)(, static), static)) \
+	) XIEITE_IF(has_captures_)(, XIEITE_OPT(__VA_ARGS__)(XIEITE_IF(this_)(, static), static)) \
 	noexcept __VA_OPT__((requires (XIEITE_IF(this_)($$this&& $this XIEITE_COMMA()) XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM)) { requires(noexcept(__VA_ARGS__)); }) \
 	-> decltype(auto) \
 	requires(requires (XIEITE_IF(this_)($$this&& $this XIEITE_COMMA()) XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM)) { __VA_ARGS__; })) { \
