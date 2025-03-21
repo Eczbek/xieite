@@ -832,7 +832,7 @@
 #	endif
 #endif
 
-#ifdef __INTEL_CLANG_COMPILER
+#if defined(__INTEL_CLANG_COMPILER) || defined(__INTEL_LLVM_COMPILER)
 #	undef XIEITE_COMPILER_TYPE_ICX
 #	define XIEITE_COMPILER_TYPE_ICX 1
 
