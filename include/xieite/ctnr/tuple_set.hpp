@@ -35,7 +35,7 @@ namespace xieite {
 	template<template<typename> typename Ctnr, typename K>
 	struct tuple_set<Ctnr, std::tuple<K>> {
 	private:
-		Ctnr<K> set;
+		Ctnr<K> set; // GCC insists on this being defined above its usage
 
 	public:
 		[[nodiscard]] constexpr tuple_set(std::initializer_list<K> list = {})
@@ -51,5 +51,3 @@ namespace xieite {
 			XIEITE_ARROW((*this)[XIEITE_FWD(key)])
 	};
 }
-
-// NOTE: GCC insists on private member variables being defined above their usage

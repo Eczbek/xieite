@@ -56,7 +56,7 @@ namespace xieite {
 				Map map;
 				map.reserve(this->array.size());
 				for (const std::pair<K, V>& entry : this->array) {
-					// Disregard constness here; it is properly handled in `operator[]`
+					// Disregard constness here; it is properly handled in `operator[]()`
 					map.emplace(std::make_pair(entry.first, const_cast<V*>(std::addressof(entry.second))));
 				}
 				return map;

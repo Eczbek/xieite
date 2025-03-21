@@ -5,7 +5,7 @@
 namespace xieite {
 	template<typename T>
 	concept is_bitset_ref = requires (T x) {
-		x.~T(); // TODO: Use `std::is_destructible`?
+		x.~T(); // TODO: Use `std::is_destructible_v<>`?
 		{ x = true } -> std::same_as<T&>;
 		{ x = x } -> std::same_as<T&>;
 		x.operator bool();

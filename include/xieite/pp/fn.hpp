@@ -40,9 +40,7 @@ XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 #define DETAIL_XIEITE_FN_REF(i_) [[maybe_unused]] auto&& $##i_ = DETAIL_XIEITE::FN::v<i_>(XIEITE_FWD($)...);
 
 namespace DETAIL_XIEITE::FN {
-	// Template parameter must be named here due to GCC bug
-	// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117422
-	template<std::size_t idx> // <--
+	template<std::size_t idx> // Template parameter must be named here due to GCC bug (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117422)
 	constexpr auto&& v(auto&&...) noexcept;
 
 	struct unusable {
@@ -70,8 +68,7 @@ namespace DETAIL_XIEITE::FN {
 		}
 	}).template operator()<Ts...>())::type;
 
-	// Workaround for GCC bug
-	// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117061
+	// Workaround for GCC bug (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117061)
 	template<typename F>
 	struct indirect : F {
 		template<typename... Ts>

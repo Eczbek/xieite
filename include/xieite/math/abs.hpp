@@ -20,4 +20,4 @@ namespace xieite {
 	}
 }
 
-// NOTE: Making the return type `auto` allows the negated value to promote
+// Making the return type `auto` allows the negated value to promote

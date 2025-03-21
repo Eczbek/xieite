@@ -1693,4 +1693,4 @@
 
 // https://github.com/cpredef/predef/blob/master/OperatingSystems.md
 // https://cc65.github.io/doc/cc65.html#s6
-// Thanks to Ian Pike (https://github.com/Rinzii) for some console detection macros
+// Thanks to Ian Pike (https://github.com/Rinzii) for some detection macros

@@ -11,7 +11,7 @@ namespace xieite {
 	[[nodiscard]] constexpr bool almost_eq(T n, T m) noexcept {
 		if constexpr (std::floating_point<T>) {
 			const T scale = std::abs(n) + std::abs(m);
-			// To account for precision loss, take reciprocal of `scale` if it is less than 1
+			// To account for precision loss, take the reciprocal of `scale` if it is less than 1
 			return std::abs(n - m) <= (std::numeric_limits<T>::epsilon() * ((scale < 1.0) ? (1.0 / scale) : scale));
 		} else {
 			return n == m;

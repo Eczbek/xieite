@@ -35,7 +35,7 @@ namespace xieite {
 	template<template<typename, typename> typename Map, typename V, typename K>
 	struct tuple_map<Map, std::tuple<K>, V> {
 	private:
-		Map<K, V> map;
+		Map<K, V> map; // GCC insists on this being defined above its usage
 
 	public:
 		[[nodiscard]] constexpr tuple_map(std::initializer_list<std::pair<K, V>> list = {})
@@ -51,5 +51,3 @@ namespace xieite {
 			XIEITE_ARROW(this->map.contains(std::get<0>(std::move(key))))
 	};
 }
-
-// NOTE: GCC insists on private member variables being defined above their usage

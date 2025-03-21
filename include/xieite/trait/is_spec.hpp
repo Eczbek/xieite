@@ -7,4 +7,4 @@ namespace xieite {
 	concept is_spec = (... && requires { ([]<typename... Args>(std::type_identity<Ms<Args...>>) {})(std::type_identity<T>()); });
 }
 
-// TODO: Remove after `std::specialization_of` is implemented
+// TODO: Remove after `std::specialization_of<>` is implemented

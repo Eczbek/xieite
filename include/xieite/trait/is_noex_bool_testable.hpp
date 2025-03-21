@@ -9,7 +9,6 @@ namespace xieite {
 		{ static_cast<bool>(!XIEITE_FWD(x)) } noexcept;
 		{ static_cast<void(*)(bool) noexcept>(nullptr)(XIEITE_FWD(x)) } noexcept;
 		{ static_cast<void(*)(bool) noexcept>(nullptr)(!XIEITE_FWD(x)) } noexcept;
+		// TODO: Check `operator&&()` and `operator||()` to best ability
 	};
 }
-
-// TODO: Update when `xieite::is_bool_testable<>` is fixed

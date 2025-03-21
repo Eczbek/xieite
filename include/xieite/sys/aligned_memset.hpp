@@ -16,4 +16,4 @@ namespace xieite {
 	}
 }
 
-// NOTE: Compile with `-fno-builtin-memset` lest the function be recognized and eliminated
+// Compile with `-fno-builtin-memset` lest the function be optimized out

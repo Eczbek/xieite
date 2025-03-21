@@ -18,4 +18,4 @@ namespace xieite {
 	}
 }
 
-// NOTE: Compile with `-fno-builtin-memcpy` lest the function be recognized and eliminated
+// Compile with `-fno-builtin-memcpy` lest the function be optimized out

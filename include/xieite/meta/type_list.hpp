@@ -207,4 +207,4 @@ namespace xieite {
 	};
 }
 
-// Thanks to Eisenwave (https://github.com/Eisenwave) for the filtering algorithm, and eightfold (https://github.com/8ightfold) for helping compact the slicer
+// Thanks to eightfold (https://github.com/8ightfold) for helping compact the slicer

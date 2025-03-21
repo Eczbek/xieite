@@ -66,5 +66,3 @@
 // XIEITE_ARROW_DECL()
 // - https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117061
 // - https://github.com/llvm/llvm-project/issues/111840
-// XIEITE_ARROW_NEW()
-// - https://gcc.gnu.org/bugzilla/show_bug.cgi?id=119316

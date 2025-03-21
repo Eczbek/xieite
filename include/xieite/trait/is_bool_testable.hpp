@@ -9,8 +9,8 @@ namespace xieite {
 		static_cast<bool>(!XIEITE_FWD(x));
 		static_cast<void(*)(bool)>(nullptr)(XIEITE_FWD(x));
 		static_cast<void(*)(bool)>(nullptr)(!XIEITE_FWD(x));
+		// TODO: Check `operator&&()` and `operator||()` to best ability
 	};
 }
 
-// TODO: Check `operator&&` and `operator||` to best ability
 // https://timsong-cpp.github.io/cppwp/n4950/concept.booleantestable

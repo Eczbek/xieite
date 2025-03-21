@@ -1461,4 +1461,3 @@
 
 // https://github.com/cpredef/predef/blob/master/Compilers.md
 // https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-identification-macro
-// NOTE: `XIEITE_COMPILER_TYPE_OPENACC` detects a compiler standard

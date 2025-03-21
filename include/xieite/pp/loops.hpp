@@ -23,4 +23,4 @@
 						XIEITE_DIAG_POP_CLANG()
 #define XIEITE_WHL(...) XIEITE_FOR (; (__VA_ARGS__);)
 
-// CREDIT: https://gist.github.com/m1lkweed/4339f3c1196ec3acf995e3d671c1927b
+// https://gist.github.com/m1lkweed/4339f3c1196ec3acf995e3d671c1927b
