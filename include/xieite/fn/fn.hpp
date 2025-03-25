@@ -32,7 +32,7 @@ namespace xieite {
 
 		constexpr Ret operator()(Args... args) const noexcept(false) {
 			if constexpr (XIEITE_DEBUG) {
-				if (!*this->ptr) {
+				if (!this->ptr) {
 					throw std::bad_function_call();
 				}
 			}
