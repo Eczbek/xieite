@@ -6,11 +6,11 @@
 #include <string>
 #include "../fn/scope_guard.hpp"
 #include "../io/keys.hpp"
+#include "../io/pos.hpp"
 #include "../io/read.hpp"
 #include "../math/abs.hpp"
 #include "../math/color3.hpp"
 #include "../math/str_num.hpp"
-#include "../math/vec2.hpp"
 #include "../pp/platform.hpp"
 
 #if !XIEITE_PLATFORM_TYPE_UNIX
@@ -208,30 +208,31 @@ namespace xieite {
 			this->cursor_alt(false);
 		}
 
-		[[nodiscard]] xieite::vec2<int> get_cursor() noexcept {
+		[[nodiscard]] xieite::pos get_cursor() noexcept {
 			const bool canon_prev = this->is_canon;
 			this->canon(false);
 			std::fputs("\x1B[6n", this->out);
-			xieite::vec2<int> pos;
-			std::fscanf(this->in, "\x1B[%i;%iR", &pos.y, &pos.x);
+			int row;
+			int col;
+			std::fscanf(this->in, "\x1B[%i;%iR", &row, &col);
 			this->canon(canon_prev);
-			return pos - 1;
+			return xieite::pos(row - 1, col - 1);
 		}
 
 		[[nodiscard]] constexpr std::string set_cursor_code(int row, int col) noexcept {
 			return "\x1B["s + xieite::str_num(row + 1) + ";"s + xieite::str_num(col + 1) + "H"s;
 		}
 
-		[[nodiscard]] constexpr std::string set_cursor_code(xieite::vec2<int> pos) noexcept {
-			return xieite::term::set_cursor_code(pos.y, pos.x);
+		[[nodiscard]] constexpr std::string set_cursor_code(xieite::pos pos) noexcept {
+			return xieite::term::set_cursor_code(pos.row, pos.col);
 		}
 
 		void set_cursor(int row, int col) noexcept {
 			std::fputs(xieite::term::set_cursor_code(row, col).c_str(), this->out);
 		}
 
-		void set_cursor(xieite::vec2<int> pos) noexcept {
-			this->set_cursor(pos.y, pos.x);
+		void set_cursor(xieite::pos pos) noexcept {
+			this->set_cursor(pos.row, pos.col);
 		}
 
 		[[nodiscard]] constexpr std::string mv_cursor_code(int row, int col) noexcept {
@@ -249,16 +250,16 @@ namespace xieite {
 			return code;
 		}
 
-		[[nodiscard]] constexpr std::string mv_cursor_code(xieite::vec2<int> diff) noexcept {
-			return xieite::term::mv_cursor_code(diff.y, diff.x);
+		[[nodiscard]] constexpr std::string mv_cursor_code(xieite::pos diff) noexcept {
+			return xieite::term::mv_cursor_code(diff.row, diff.col);
 		}
 
 		void mv_cursor(int row, int col) noexcept {
 			std::fputs(xieite::term::mv_cursor_code(row, col).c_str(), this->out);
 		}
 
-		void mv_cursor(xieite::vec2<int> diff) noexcept {
-			this->mv_cursor(diff.y, diff.x);
+		void mv_cursor(xieite::pos diff) noexcept {
+			this->mv_cursor(diff.row, diff.col);
 		}
 
 		[[nodiscard]] static constexpr std::string cursor_invis_code(bool x) noexcept {
@@ -309,10 +310,10 @@ namespace xieite {
 			std::fputs(xieite::term::screen_alt_code(x).c_str(), this->out);
 		}
 
-		[[nodiscard]] xieite::vec2<int> screen_size() noexcept {
+		[[nodiscard]] xieite::pos screen_size() noexcept {
 			::winsize size;
 			::ioctl(::fileno(this->in), TIOCGWINSZ, std::addressof(size));
-			return xieite::vec2<int>(size.ws_col, size.ws_row);
+			return xieite::pos(size.ws_row, size.ws_col);
 		}
 
 		[[nodiscard]] static constexpr std::string clear_screen_code() noexcept {
