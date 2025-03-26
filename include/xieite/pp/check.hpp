@@ -3,5 +3,5 @@
 #
 #	include "../pp/at.hpp"
 #
-#	define XIEITE_CHECK(...) XIEITE_AT(1, __VA_ARGS__, 0,)
+#	define XIEITE_CHECK(...) XIEITE_AT_1(__VA_ARGS__, 0,)
 #endif
