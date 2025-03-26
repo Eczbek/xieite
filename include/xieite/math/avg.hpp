@@ -1,8 +1,9 @@
-#pragma once
-
-#include <concepts>
-#include <type_traits>
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_AVG
+#	define DETAIL_XIEITE_HEADER_MATH_AVG
+#
+#	include <concepts>
+#	include <type_traits>
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T, std::common_with<T>... Ts>
@@ -16,3 +17,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

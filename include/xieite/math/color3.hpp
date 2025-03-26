@@ -1,6 +1,7 @@
-#pragma once
-
-#include <cstdint>
+#ifndef DETAIL_XIEITE_HEADER_MATH_COLOR3
+#	define DETAIL_XIEITE_HEADER_MATH_COLOR3
+#
+#	include <cstdint>
 
 namespace xieite {
 	struct color3 {
@@ -23,3 +24,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

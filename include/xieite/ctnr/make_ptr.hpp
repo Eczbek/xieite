@@ -1,12 +1,13 @@
-#pragma once
-
-#include <cstddef>
-#include <new>
-#include <type_traits>
-#include "../ctnr/ptr.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_unbounded_array.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_MAKE_PTR
+#	define DETAIL_XIEITE_HEADER_CTNR_MAKE_PTR
+#
+#	include <cstddef>
+#	include <new>
+#	include <type_traits>
+#	include "../ctnr/ptr.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_unbounded_array.hpp"
 
 namespace xieite {
 	template<typename T>
@@ -45,3 +46,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto make_ptr_noex_init(std::size_t n, auto&&... args)
 		XIEITE_ARROW(xieite::ptr<A>(new(std::nothrow) std::remove_extent_t<A>[n] { XIEITE_FWD(args)... }))
 }
+
+#endif

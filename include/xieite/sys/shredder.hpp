@@ -1,11 +1,12 @@
-#pragma once
-
-#include <concepts>
-#include <cstddef>
-#include <memory>
-#include <utility>
-#include "../pp/fwd.hpp"
-#include "../trait/has_trivial_dtor.hpp"
+#ifndef DETAIL_XIEITE_HEADER_SYS_SHREDDER
+#	define DETAIL_XIEITE_HEADER_SYS_SHREDDER
+#
+#	include <concepts>
+#	include <cstddef>
+#	include <memory>
+#	include <utility>
+#	include "../pp/fwd.hpp"
+#	include "../trait/has_trivial_dtor.hpp"
 
 namespace xieite {
 	template<xieite::has_trivial_dtor T>
@@ -42,3 +43,5 @@ namespace xieite {
 		mutable T value;
 	};
 }
+
+#endif

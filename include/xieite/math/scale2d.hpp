@@ -1,9 +1,10 @@
-#pragma once
-
-#include <type_traits>
-#include "../math/poly2d.hpp"
-#include "../math/pt2d.hpp"
-#include "../trait/is_linear2d.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_SCALE2D
+#	define DETAIL_XIEITE_HEADER_MATH_SCALE2D
+#
+#	include <type_traits>
+#	include "../math/poly2d.hpp"
+#	include "../math/pt2d.hpp"
+#	include "../trait/is_linear2d.hpp"
 
 namespace xieite {
 	template<typename T = double>
@@ -24,3 +25,5 @@ namespace xieite {
 		return poly;
 	}
 }
+
+#endif

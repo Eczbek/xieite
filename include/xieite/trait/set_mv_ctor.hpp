@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_SET_MV_CTOR
+#	define DETAIL_XIEITE_HEADER_TRAIT_SET_MV_CTOR
 
 namespace xieite {
 	template<bool>
@@ -13,3 +14,5 @@ namespace xieite {
 		xieite::set_mv_ctor<false>& operator=(xieite::set_mv_ctor<false>&&) = default;
 	};
 }
+
+#endif

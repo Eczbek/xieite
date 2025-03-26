@@ -1,6 +1,7 @@
-#pragma once
-
-#include <concepts>
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_BITSET_REF
+#	define DETAIL_XIEITE_HEADER_TRAIT_IS_BITSET_REF
+#
+#	include <concepts>
 
 namespace xieite {
 	template<typename T>
@@ -13,3 +14,5 @@ namespace xieite {
 		{ x.flip() } -> std::same_as<T&>;
 	};
 }
+
+#endif

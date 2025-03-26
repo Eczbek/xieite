@@ -1,10 +1,11 @@
-#pragma once
-
-#include <concepts>
-#include "../meta/make_seq.hpp"
-#include "../meta/seq.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_UNROLL
+#	define DETAIL_XIEITE_HEADER_FN_UNROLL
+#
+#	include <concepts>
+#	include "../meta/make_seq.hpp"
+#	include "../meta/seq.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<std::integral auto n>
@@ -18,3 +19,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto unroll(auto&& fn, auto&&... args)
 		XIEITE_ARROW(xieite::unroll<sizeof...(Ts)>(XIEITE_FWD(fn), XIEITE_FWD(args)...))
 }
+
+#endif

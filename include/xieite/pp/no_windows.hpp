@@ -38,9 +38,9 @@
 #	define NOWINOFFSETS
 #	define NOWINSTYLES
 #	define WIN32_LEAN_AND_MEAN
-
+#
 #	include <windows.h>
-
+#
 #	undef NOATOM
 #	undef NOCLIPBOARD
 #	undef NOCOLOR
@@ -80,7 +80,7 @@
 #	undef NOWINOFFSETS
 #	undef NOWINSTYLES
 #	undef WIN32_LEAN_AND_MEAN
-
+#
 #	undef APIENTRY
 #	undef APIPRIVATE
 #	undef CALLBACK

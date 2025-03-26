@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_META_ANY
+#	define DETAIL_XIEITE_HEADER_META_ANY
 
 namespace xieite {
 	struct any {
@@ -12,3 +13,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

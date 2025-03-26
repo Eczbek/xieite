@@ -1,7 +1,8 @@
-#pragma once
-
-#include "../math/minmax.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_BETW
+#	define DETAIL_XIEITE_HEADER_MATH_BETW
+#
+#	include "../math/minmax.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -11,3 +12,5 @@ namespace xieite {
 			&& (upper_incl ? (n <= upper) : (n < upper));
 	}
 }
+
+#endif

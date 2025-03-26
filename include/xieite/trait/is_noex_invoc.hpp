@@ -1,6 +1,7 @@
-#pragma once
-
-#include <type_traits>
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_INVOC
+#	define DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_INVOC
+#
+#	include <type_traits>
 
 namespace xieite {
 	template<typename T, typename Sig = void()>
@@ -8,3 +9,5 @@ namespace xieite {
 		return std::is_nothrow_invocable_r_v<Ret, T, Args...>;
 	})(std::type_identity<Sig>());
 }
+
+#endif

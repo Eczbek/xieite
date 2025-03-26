@@ -1,11 +1,12 @@
-#pragma once
-
-#include <concepts>
-#include "../fn/fn.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ref_to.hpp"
-#include "../trait/rm_cp_assign.hpp"
-#include "../trait/rm_mv_assign.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_MIXFIX
+#	define DETAIL_XIEITE_HEADER_FN_MIXFIX
+#
+#	include <concepts>
+#	include "../fn/fn.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ref_to.hpp"
+#	include "../trait/rm_cp_assign.hpp"
+#	include "../trait/rm_mv_assign.hpp"
 
 namespace xieite {
 	template<typename>
@@ -529,3 +530,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

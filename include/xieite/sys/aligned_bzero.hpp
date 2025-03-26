@@ -1,8 +1,9 @@
-#pragma once
-
-#include <bit>
-#include <cstddef>
-#include <memory>
+#ifndef DETAIL_XIEITE_HEADER_SYS_ALIGNED_BZERO
+#	define DETAIL_XIEITE_HEADER_SYS_ALIGNED_BZERO
+#
+#	include <bit>
+#	include <cstddef>
+#	include <memory>
 
 namespace xieite {
 	template<std::size_t align = 1, typename T>
@@ -15,3 +16,5 @@ namespace xieite {
 		}
 	}
 }
+
+#endif

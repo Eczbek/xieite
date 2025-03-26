@@ -1,9 +1,10 @@
-#pragma once
-
-#include "../math/poly2d.hpp"
-#include "../math/pt2d.hpp"
-#include "../math/rot2d.hpp"
-#include "../trait/is_linear2d.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_REFL2D
+#	define DETAIL_XIEITE_HEADER_MATH_REFL2D
+#
+#	include "../math/poly2d.hpp"
+#	include "../math/pt2d.hpp"
+#	include "../math/rot2d.hpp"
+#	include "../trait/is_linear2d.hpp"
 
 namespace xieite {
 	template<typename T = double, xieite::is_linear2d<T> Line>
@@ -27,3 +28,5 @@ namespace xieite {
 		return poly;
 	}
 }
+
+#endif

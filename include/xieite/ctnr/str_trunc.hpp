@@ -1,14 +1,15 @@
-#pragma once
-
-#include <cstddef>
-#include <memory>
-#include <string>
-#include <type_traits>
-#include "../ctnr/str_view.hpp"
-#include "../meta/group.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_STR_TRUNC
+#	define DETAIL_XIEITE_HEADER_CTNR_STR_TRUNC
+#
+#	include <cstddef>
+#	include <memory>
+#	include <string>
+#	include <type_traits>
+#	include "../ctnr/str_view.hpp"
+#	include "../meta/group.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
@@ -33,3 +34,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto str_trunc(const xieite::group<Ch[n]>& str, std::size_t size, auto&& sfx, Alloc&& alloc = {})
 		XIEITE_ARROW(xieite::str_trunc(std::basic_string<Ch, Traits, Alloc>(str, n, alloc), size, XIEITE_FWD(sfx), alloc))
 }
+
+#endif

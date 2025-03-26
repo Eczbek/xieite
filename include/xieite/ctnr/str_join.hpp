@@ -1,16 +1,17 @@
-#pragma once
-
-#include <concepts>
-#include <memory>
-#include <ranges>
-#include <string>
-#include <string_view>
-#include <type_traits>
-#include "../ctnr/str_view.hpp"
-#include "../meta/group.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_STR_JOIN
+#	define DETAIL_XIEITE_HEADER_CTNR_STR_JOIN
+#
+#	include <concepts>
+#	include <memory>
+#	include <ranges>
+#	include <string>
+#	include <string_view>
+#	include <type_traits>
+#	include "../ctnr/str_view.hpp"
+#	include "../meta/group.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<std::ranges::input_range R, typename Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
@@ -74,3 +75,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto str_join(R&& range, const xieite::group<Ch[n]>& delim, Ch pfx, Ch sfx, Alloc&& alloc = {})
 		XIEITE_ARROW(xieite::str_join(XIEITE_FWD(range), xieite::str_view<Ch, Traits>(delim), xieite::str_view(pfx), xieite::str_view(sfx), XIEITE_FWD(alloc)))
 }
+
+#endif

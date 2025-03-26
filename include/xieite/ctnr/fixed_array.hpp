@@ -1,15 +1,16 @@
-#pragma once
-
-#include <compare>
-#include <cstddef>
-#include <iterator>
-#include <ranges>
-#include <stdexcept>
-#include "../fn/range_cmp_op.hpp"
-#include "../fn/repeat.hpp"
-#include "../fn/unroll.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_FIXED_ARRAY
+#	define DETAIL_XIEITE_HEADER_CTNR_FIXED_ARRAY
+#
+#	include <compare>
+#	include <cstddef>
+#	include <iterator>
+#	include <ranges>
+#	include <stdexcept>
+#	include "../fn/range_cmp_op.hpp"
+#	include "../fn/repeat.hpp"
+#	include "../fn/unroll.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<typename T, std::size_t n>
@@ -206,3 +207,5 @@ namespace xieite {
 	template<typename T, typename... Ts>
 	fixed_array(T, Ts...) -> fixed_array<T, (sizeof...(Ts) + 1)>;
 }
+
+#endif

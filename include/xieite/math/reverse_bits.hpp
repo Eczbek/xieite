@@ -1,10 +1,11 @@
-#pragma once
-
-#include <bitset>
-#include <concepts>
-#include <cstddef>
-#include "../fn/unroll.hpp"
-#include "../math/bit_size.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_REVERSE_BITS
+#	define DETAIL_XIEITE_HEADER_MATH_REVERSE_BITS
+#
+#	include <bitset>
+#	include <concepts>
+#	include <cstddef>
+#	include "../fn/unroll.hpp"
+#	include "../math/bit_size.hpp"
 
 namespace xieite {
 	template<std::integral T>
@@ -21,3 +22,5 @@ namespace xieite {
 		});
 	}
 }
+
+#endif

@@ -1,10 +1,11 @@
-#pragma once
-
-#include <tuple>
-#include "../meta/reverse_tuple.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../pp/lift.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_REVERSE_ARGS
+#	define DETAIL_XIEITE_HEADER_FN_REVERSE_ARGS
+#
+#	include <tuple>
+#	include "../meta/reverse_tuple.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../pp/lift.hpp"
 
 namespace xieite {
 	template<typename F, typename... Args>
@@ -15,3 +16,5 @@ namespace xieite {
 	[[nodiscard]] constexpr T reverse_args(Args&&... args)
 		XIEITE_ARROW_RET(xieite::reverse_args(XIEITE_LIFT(T), XIEITE_FWD(args)...))
 }
+
+#endif

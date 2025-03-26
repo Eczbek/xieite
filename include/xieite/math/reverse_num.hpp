@@ -1,9 +1,10 @@
-#pragma once
-
-#include <concepts>
-#include <limits>
-#include "../math/abs.hpp"
-#include "../math/neg.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_REVERSE_NUM
+#	define DETAIL_XIEITE_HEADER_MATH_REVERSE_NUM
+#
+#	include <concepts>
+#	include <limits>
+#	include "../math/abs.hpp"
+#	include "../math/neg.hpp"
 
 namespace xieite {
 	template<std::integral T>
@@ -33,3 +34,5 @@ namespace xieite {
 		return neg ? -result : result;
 	}
 }
+
+#endif

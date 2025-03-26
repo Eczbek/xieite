@@ -1,9 +1,10 @@
-#pragma once
-
-#include <concepts>
-#include <functional>
-#include <stop_token>
-#include <thread>
+#ifndef DETAIL_XIEITE_HEADER_SYS_THREAD_LOOP
+#	define DETAIL_XIEITE_HEADER_SYS_THREAD_LOOP
+#
+#	include <concepts>
+#	include <functional>
+#	include <stop_token>
+#	include <thread>
 
 namespace xieite {
 	struct thread_loop {
@@ -35,5 +36,7 @@ namespace xieite {
 		std::jthread thread;
 	};
 }
+
+#endif
 
 // Thanks to uno20001 (https://github.com/uno20001) for help

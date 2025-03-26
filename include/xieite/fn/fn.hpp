@@ -1,13 +1,14 @@
-#pragma once
-
-#include <concepts>
-#include <functional>
-#include <memory>
-#include <type_traits>
-#include "../pp/debug.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_invoc.hpp"
-#include "../trait/is_ref_to.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_FN
+#	define DETAIL_XIEITE_HEADER_FN_FN
+#
+#	include <concepts>
+#	include <functional>
+#	include <memory>
+#	include <type_traits>
+#	include "../pp/debug.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_invoc.hpp"
+#	include "../trait/is_ref_to.hpp"
 
 namespace xieite {
 	template<typename>
@@ -67,3 +68,5 @@ namespace xieite {
 		std::unique_ptr<xieite::fn<Ret(Args...)>::base> ptr;
 	};
 }
+
+#endif

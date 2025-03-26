@@ -1,10 +1,11 @@
-#pragma once
-
-#include <type_traits>
-#include "../math/pow.hpp"
-#include "../trait/is_arith.hpp"
-#include "../trait/rm_cp_assign.hpp"
-#include "../trait/rm_mv_assign.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_EXP
+#	define DETAIL_XIEITE_HEADER_MATH_EXP
+#
+#	include <type_traits>
+#	include "../math/pow.hpp"
+#	include "../trait/is_arith.hpp"
+#	include "../trait/rm_cp_assign.hpp"
+#	include "../trait/rm_mv_assign.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -44,3 +45,5 @@ namespace xieite {
 	template<typename T>
 	exp(T) -> exp<T>;
 }
+
+#endif

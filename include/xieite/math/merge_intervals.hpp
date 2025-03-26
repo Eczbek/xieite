@@ -1,12 +1,13 @@
-#pragma once
-
-#include <concepts>
-#include <ranges>
-#include <vector>
-#include "../math/betw.hpp"
-#include "../math/minmax.hpp"
-#include "../math/interval.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_MERGE_INTERVALS
+#	define DETAIL_XIEITE_HEADER_MATH_MERGE_INTERVALS
+#
+#	include <concepts>
+#	include <ranges>
+#	include <vector>
+#	include "../math/betw.hpp"
+#	include "../math/minmax.hpp"
+#	include "../math/interval.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T, std::ranges::input_range R>
@@ -31,3 +32,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

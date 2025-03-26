@@ -1,26 +1,27 @@
-#pragma once
-
-#include <cstdio>
-#include <memory>
-#include <stdio.h>
-#include <string>
-#include "../fn/scope_guard.hpp"
-#include "../io/keys.hpp"
-#include "../io/pos.hpp"
-#include "../io/read.hpp"
-#include "../math/abs.hpp"
-#include "../math/color3.hpp"
-#include "../math/str_num.hpp"
-#include "../pp/platform.hpp"
-
-#if !XIEITE_PLATFORM_TYPE_UNIX
-#	warning unsupported platform
-#endif
-
-#include <fcntl.h>
-#include <sys/ioctl.h>
-#include <termios.h>
-#include <unistd.h>
+#ifndef DETAIL_XIEITE_HEADER_IO_TERM
+#	define DETAIL_XIEITE_HEADER_IO_TERM
+#
+#	include <cstdio>
+#	include <memory>
+#	include <stdio.h>
+#	include <string>
+#	include "../fn/scope_guard.hpp"
+#	include "../io/keys.hpp"
+#	include "../io/pos.hpp"
+#	include "../io/read.hpp"
+#	include "../math/abs.hpp"
+#	include "../math/color3.hpp"
+#	include "../math/str_num.hpp"
+#	include "../pp/platform.hpp"
+#
+#	if !XIEITE_PLATFORM_TYPE_UNIX
+#		warning unsupported platform
+#	endif
+#
+#	include <fcntl.h>
+#	include <sys/ioctl.h>
+#	include <termios.h>
+#	include <unistd.h>
 
 using namespace std::literals;
 
@@ -1016,3 +1017,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

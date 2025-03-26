@@ -1,26 +1,27 @@
-#pragma once
-
-#include <cstddef>
-#include <type_traits>
-#include "../pp/any.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/comma.hpp"
-#include "../pp/diag.hpp"
-#include "../pp/each.hpp"
-#include "../pp/fwd.hpp"
-#include "../pp/if.hpp"
-#include "../pp/opt.hpp"
-#include "../pp/seq.hpp"
-#include "../pp/unwrap.hpp"
-
-#define XIEITE_FN(...) ([]DETAIL_XIEITE_FN(0, 0, __VA_ARGS__))
-#define XIEITE_FN_THIS(...) ([]DETAIL_XIEITE_FN(0, 1, __VA_ARGS__))
-#define XIEITE_FN_LOCAL(captures_, ...) ([XIEITE_UNWRAP(captures_)]DETAIL_XIEITE_FN(XIEITE_ANY(captures_), 1, __VA_ARGS__))
-#define XIEITE_FN_MUT(captures_, ...) (DETAIL_XIEITE::FN::indirect { [XIEITE_UNWRAP(captures_)] mutable { return [&]DETAIL_XIEITE_FN(1, 1, __VA_ARGS__); } })
+#ifndef DETAIL_XIEITE_HEADER_PP_FN
+#	define DETAIL_XIEITE_HEADER_PP_FN
+#
+#	include <cstddef>
+#	include <type_traits>
+#	include "../pp/any.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/comma.hpp"
+#	include "../pp/diag.hpp"
+#	include "../pp/each.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../pp/if.hpp"
+#	include "../pp/opt.hpp"
+#	include "../pp/seq.hpp"
+#	include "../pp/unwrap.hpp"
+#
+#	define XIEITE_FN(...) ([]DETAIL_XIEITE_FN(0, 0, __VA_ARGS__))
+#	define XIEITE_FN_THIS(...) ([]DETAIL_XIEITE_FN(0, 1, __VA_ARGS__))
+#	define XIEITE_FN_LOCAL(captures_, ...) ([XIEITE_UNWRAP(captures_)]DETAIL_XIEITE_FN(XIEITE_ANY(captures_), 1, __VA_ARGS__))
+#	define XIEITE_FN_MUT(captures_, ...) (DETAIL_XIEITE::FN::indirect { [XIEITE_UNWRAP(captures_)] mutable { return [&]DETAIL_XIEITE_FN(1, 1, __VA_ARGS__); } })
 
 XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 
-#define DETAIL_XIEITE_FN(has_captures_, this_, ...) \
+#	define DETAIL_XIEITE_FN(has_captures_, this_, ...) \
 	< \
 		typename... __VA_OPT__($$ XIEITE_IF(this_)(XIEITE_COMMA() \
 		typename $$this), \
@@ -35,9 +36,9 @@ XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 		__VA_OPT__(XIEITE_EACH_DELIM(DETAIL_XIEITE_FN_REF,, XIEITE_SEQ(256)) \
 		return __VA_ARGS__;) \
 	}
-#define DETAIL_XIEITE_FN_TEMPLATE_PARAM(i_) typename $$##i_ = DETAIL_XIEITE::FN::t<i_, $$...>
-#define DETAIL_XIEITE_FN_PARAM(i_) decltype(DETAIL_XIEITE::FN::v<i_>(XIEITE_FWD($)...)) $##i_
-#define DETAIL_XIEITE_FN_REF(i_) [[maybe_unused]] auto&& $##i_ = DETAIL_XIEITE::FN::v<i_>(XIEITE_FWD($)...);
+#	define DETAIL_XIEITE_FN_TEMPLATE_PARAM(i_) typename $$##i_ = DETAIL_XIEITE::FN::t<i_, $$...>
+#	define DETAIL_XIEITE_FN_PARAM(i_) decltype(DETAIL_XIEITE::FN::v<i_>(XIEITE_FWD($)...)) $##i_
+#	define DETAIL_XIEITE_FN_REF(i_) [[maybe_unused]] auto&& $##i_ = DETAIL_XIEITE::FN::v<i_>(XIEITE_FWD($)...);
 
 namespace DETAIL_XIEITE::FN {
 	template<std::size_t idx> // Template parameter must be named here due to GCC bug (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117422)
@@ -76,3 +77,5 @@ namespace DETAIL_XIEITE::FN {
 			XIEITE_ARROW(self.template operator()<Ts...>(XIEITE_FWD(args)...))
 	};
 }
+
+#endif

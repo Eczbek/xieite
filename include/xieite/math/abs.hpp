@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cmath>
-#include <concepts>
-#include "../trait/is_arith.hpp"
-#include "../trait/try_unsign.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_ABS
+#	define DETAIL_XIEITE_HEADER_MATH_ABS
+#
+#	include <cmath>
+#	include <concepts>
+#	include "../trait/is_arith.hpp"
+#	include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -19,5 +20,7 @@ namespace xieite {
 		}
 	}
 }
+
+#endif
 
 // Making the return type `auto` allows the negated value to promote

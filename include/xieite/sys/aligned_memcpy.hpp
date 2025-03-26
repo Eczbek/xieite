@@ -1,9 +1,10 @@
-#pragma once
-
-#include <bit>
-#include <cstddef>
-#include <memory>
-#include "../pp/restrict.hpp"
+#ifndef DETAIL_XIEITE_HEADER_SYS_ALIGNED_MEMCPY
+#	define DETAIL_XIEITE_HEADER_SYS_ALIGNED_MEMCPY
+#
+#	include <bit>
+#	include <cstddef>
+#	include <memory>
+#	include "../pp/restrict.hpp"
 
 namespace xieite {
 	template<std::size_t align = 1, typename T>
@@ -17,5 +18,7 @@ namespace xieite {
 		}
 	}
 }
+
+#endif
 
 // Compile with `-fno-builtin-memcpy` lest the function be optimized out

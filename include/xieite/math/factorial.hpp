@@ -1,10 +1,11 @@
-#pragma once
-
-#include <cstddef>
-#include <vector>
-#include "../ctnr/make_array.hpp"
-#include "../math/mul_overflow.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_FACTORIAL
+#	define DETAIL_XIEITE_HEADER_MATH_FACTORIAL
+#
+#	include <cstddef>
+#	include <vector>
+#	include "../ctnr/make_array.hpp"
+#	include "../math/mul_overflow.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -19,3 +20,5 @@ namespace xieite {
 		return xieite::make_array<T, get().size()>(get());
 	})();
 }
+
+#endif

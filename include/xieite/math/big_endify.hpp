@@ -1,7 +1,8 @@
-#pragma once
-
-#include <bit>
-#include <concepts>
+#ifndef DETAIL_XIEITE_HEADER_MATH_BIG_ENDIFY
+#	define DETAIL_XIEITE_HEADER_MATH_BIG_ENDIFY
+#
+#	include <bit>
+#	include <concepts>
 
 namespace xieite {
 	template<std::integral T>
@@ -9,3 +10,5 @@ namespace xieite {
 		return (std::endian::native == std::endian::little) ? std::byteswap(n) : n;
 	}
 }
+
+#endif

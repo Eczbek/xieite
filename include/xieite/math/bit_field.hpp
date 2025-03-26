@@ -1,11 +1,12 @@
-#pragma once
-
-#include <compare>
-#include <cstddef>
-#include <type_traits>
-#include "../math/least_int.hpp"
-#include "../math/least_uint.hpp"
-#include "../math/ssize_t.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_BIT_FIELD
+#	define DETAIL_XIEITE_HEADER_MATH_BIT_FIELD
+#
+#	include <compare>
+#	include <cstddef>
+#	include <type_traits>
+#	include "../math/least_int.hpp"
+#	include "../math/least_uint.hpp"
+#	include "../math/ssize_t.hpp"
 
 namespace xieite {
 	template<std::size_t bits, bool sign>
@@ -145,3 +146,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

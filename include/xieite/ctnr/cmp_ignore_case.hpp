@@ -1,10 +1,11 @@
-#pragma once
-
-#include <compare>
-#include <ranges>
-#include "../ctnr/toupper.hpp"
-#include "../trait/is_ch.hpp"
-#include "../trait/is_fwd_input_range.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_CMP_IGNORE_CASE
+#	define DETAIL_XIEITE_HEADER_CTNR_CMP_IGNORE_CASE
+#
+#	include <compare>
+#	include <ranges>
+#	include "../ctnr/toupper.hpp"
+#	include "../trait/is_ch.hpp"
+#	include "../trait/is_fwd_input_range.hpp"
 
 namespace xieite {
 	template<typename R0, typename R1>
@@ -28,3 +29,5 @@ namespace xieite {
 		return std::strong_ordering::equal;
 	}
 }
+
+#endif

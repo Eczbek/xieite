@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_SYS_EXIT
+#	define DETAIL_XIEITE_HEADER_SYS_EXIT
 
 namespace xieite::exit {
 	inline constexpr int ok = 0;
@@ -33,3 +34,5 @@ namespace xieite::exit {
 	
 	inline constexpr int err_config = 78;
 }
+
+#endif

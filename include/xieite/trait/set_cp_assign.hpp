@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_SET_CP_ASSIGN
+#	define DETAIL_XIEITE_HEADER_TRAIT_SET_CP_ASSIGN
 
 namespace xieite {
 	template<bool>
@@ -13,3 +14,5 @@ namespace xieite {
 		xieite::set_cp_assign<false>& operator=(xieite::set_cp_assign<false>&&) = default;
 	};
 }
+
+#endif

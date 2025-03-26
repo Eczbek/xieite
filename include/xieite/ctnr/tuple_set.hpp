@@ -1,13 +1,14 @@
-#pragma once
-
-#include <initializer_list>
-#include <ranges>
-#include <tuple>
-#include <utility>
-#include "../meta/subtuple.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ref_to.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_TUPLE_SET
+#	define DETAIL_XIEITE_HEADER_CTNR_TUPLE_SET
+#
+#	include <initializer_list>
+#	include <ranges>
+#	include <tuple>
+#	include <utility>
+#	include "../meta/subtuple.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ref_to.hpp"
 
 namespace xieite {
 	template<template<typename> typename, typename>
@@ -51,3 +52,5 @@ namespace xieite {
 			XIEITE_ARROW((*this)[XIEITE_FWD(key)])
 	};
 }
+
+#endif

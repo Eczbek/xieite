@@ -1,19 +1,20 @@
-#pragma once
-
-#include <cmath>
-#include <concepts>
-#include <cstddef>
-#include <string>
-#include <type_traits>
-#include "../ctnr/num_str_config.hpp"
-#include "../ctnr/pad_front.hpp"
-#include "../math/abs.hpp"
-#include "../math/almost_eq.hpp"
-#include "../math/neg.hpp"
-#include "../math/rem.hpp"
-#include "../math/ssize_t.hpp"
-#include "../trait/is_arith.hpp"
-#include "../trait/try_unsign.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_STR_NUM
+#	define DETAIL_XIEITE_HEADER_MATH_STR_NUM
+#
+#	include <cmath>
+#	include <concepts>
+#	include <cstddef>
+#	include <string>
+#	include <type_traits>
+#	include "../ctnr/num_str_config.hpp"
+#	include "../ctnr/pad_front.hpp"
+#	include "../math/abs.hpp"
+#	include "../math/almost_eq.hpp"
+#	include "../math/neg.hpp"
+#	include "../math/rem.hpp"
+#	include "../math/ssize_t.hpp"
+#	include "../trait/is_arith.hpp"
+#	include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -78,3 +79,5 @@ namespace xieite {
 		return xieite::pad_front(result, pad, config.digit[0]);
 	}
 }
+
+#endif

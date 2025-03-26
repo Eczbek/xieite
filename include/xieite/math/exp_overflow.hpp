@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cmath>
-#include <concepts>
-#include <limits>
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_EXP_OVERFLOW
+#	define DETAIL_XIEITE_HEADER_MATH_EXP_OVERFLOW
+#
+#	include <cmath>
+#	include <concepts>
+#	include <limits>
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T, std::convertible_to<T>... Ts>
@@ -23,3 +24,5 @@ namespace xieite {
 			})());
 	}
 }
+
+#endif

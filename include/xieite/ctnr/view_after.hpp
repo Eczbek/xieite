@@ -1,10 +1,11 @@
-#pragma once
-
-#include <algorithm>
-#include <iterator>
-#include <ranges>
-#include "../trait/is_fwd_input_range.hpp"
-#include "../trait/is_noex_range.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_VIEW_AFTER
+#	define DETAIL_XIEITE_HEADER_CTNR_VIEW_AFTER
+#
+#	include <algorithm>
+#	include <iterator>
+#	include <ranges>
+#	include "../trait/is_fwd_input_range.hpp"
+#	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
 	template<xieite::is_fwd_input_range R0, xieite::is_fwd_input_range R1>
@@ -19,3 +20,5 @@ namespace xieite {
 		return std::ranges::subrange(std::ranges::next(std::ranges::find(range, x), 1, std::ranges::end(range)), std::ranges::end(range));
 	}
 }
+
+#endif

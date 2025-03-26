@@ -1,11 +1,12 @@
-#pragma once
-
-#include <cmath>
-#include <concepts>
-#include <stdexcept>
-#include "../math/neg.hpp"
-#include "../math/split_bool.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_POW
+#	define DETAIL_XIEITE_HEADER_MATH_POW
+#
+#	include <cmath>
+#	include <concepts>
+#	include <stdexcept>
+#	include "../math/neg.hpp"
+#	include "../math/split_bool.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -37,3 +38,5 @@ namespace xieite {
 		}
 	}
 }
+
+#endif

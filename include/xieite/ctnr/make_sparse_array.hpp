@@ -1,18 +1,19 @@
-#pragma once
-
-#include <array>
-#include <concepts>
-#include <cstddef>
-#include <functional>
-#include <initializer_list>
-#include <ranges>
-#include <utility>
-#include "../fn/cast.hpp"
-#include "../math/bit_size.hpp"
-#include "../math/sign_cast.hpp"
-#include "../meta/arity.hpp"
-#include "../trait/is_invoc.hpp"
-#include "../trait/is_noex_invoc.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_MAKE_SPARSE_ARRAY
+#	define DETAIL_XIEITE_HEADER_CTNR_MAKE_SPARSE_ARRAY
+#
+#	include <array>
+#	include <concepts>
+#	include <cstddef>
+#	include <functional>
+#	include <initializer_list>
+#	include <ranges>
+#	include <utility>
+#	include "../fn/cast.hpp"
+#	include "../math/bit_size.hpp"
+#	include "../math/sign_cast.hpp"
+#	include "../meta/arity.hpp"
+#	include "../trait/is_invoc.hpp"
+#	include "../trait/is_noex_invoc.hpp"
 
 namespace xieite {
 	template<std::integral K, typename V, std::ranges::input_range R = std::initializer_list<std::pair<K, V>>, xieite::is_invoc<V(std::ranges::range_common_reference_t<R>)> F = decltype(xieite::cast<V>)>
@@ -27,3 +28,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

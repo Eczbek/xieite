@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_SET_DEFAULT_CTOR
+#	define DETAIL_XIEITE_HEADER_TRAIT_SET_DEFAULT_CTOR
 
 namespace xieite {
 	template<bool>
@@ -13,3 +14,5 @@ namespace xieite {
 		xieite::set_default_ctor<false>& operator=(xieite::set_default_ctor<false>&&) = default;
 	};
 }
+
+#endif

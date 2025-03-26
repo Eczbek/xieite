@@ -1,8 +1,9 @@
-#pragma once
-
-#include <ranges>
-#include <type_traits>
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_MEAN
+#	define DETAIL_XIEITE_HEADER_MATH_MEAN
+#
+#	include <ranges>
+#	include <type_traits>
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<std::ranges::forward_range R, typename T = std::common_type_t<std::ranges::range_value_t<R>, double>>
@@ -15,3 +16,5 @@ namespace xieite {
 		return result / std::ranges::size(range);
 	}
 }
+
+#endif

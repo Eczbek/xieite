@@ -1,9 +1,10 @@
-#pragma once
-
-#include <algorithm>
-#include <ranges>
-#include "../fn/synth_three_way.hpp"
-#include "../trait/is_noex_range.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_RANGE_CMP_OP
+#	define DETAIL_XIEITE_HEADER_FN_RANGE_CMP_OP
+#
+#	include <algorithm>
+#	include <ranges>
+#	include "../fn/synth_three_way.hpp"
+#	include "../trait/is_noex_range.hpp"
 
 namespace xieite::range_cmp_op {
 	template<std::ranges::input_range R0, std::ranges::input_range R1>
@@ -12,3 +13,5 @@ namespace xieite::range_cmp_op {
 		return std::lexicographical_compare_three_way(l.begin(), l.end(), r.begin(), r.end(), xieite::synth_three_way);
 	}
 }
+
+#endif

@@ -1,12 +1,13 @@
-#pragma once
-
-#include <functional>
-#include <iterator>
-#include <ranges>
-#include "../ctnr/iters.hpp"
-#include "../trait/is_invoc.hpp"
-#include "../trait/is_noex_invoc.hpp"
-#include "../trait/is_noex_range.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_FIND_MOST_CONSEC_IF
+#	define DETAIL_XIEITE_HEADER_CTNR_FIND_MOST_CONSEC_IF
+#
+#	include <functional>
+#	include <iterator>
+#	include <ranges>
+#	include "../ctnr/iters.hpp"
+#	include "../trait/is_invoc.hpp"
+#	include "../trait/is_noex_invoc.hpp"
+#	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
 	template<std::ranges::forward_range R, xieite::is_invoc<bool(std::ranges::range_common_reference_t<R>)> F>
@@ -38,3 +39,5 @@ namespace xieite {
 		return std::ranges::subrange<std::ranges::iterator_t<R>>(result_begin, result_end);
 	}
 }
+
+#endif

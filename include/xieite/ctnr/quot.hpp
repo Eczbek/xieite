@@ -1,13 +1,14 @@
-#pragma once
-
-#include <cstddef>
-#include <memory>
-#include <string>
-#include <string_view>
-#include "../ctnr/str_replace.hpp"
-#include "../meta/group.hpp"
-#include "../pp/arrow.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_QUOT
+#	define DETAIL_XIEITE_HEADER_CTNR_QUOT
+#
+#	include <cstddef>
+#	include <memory>
+#	include <string>
+#	include <string_view>
+#	include "../ctnr/str_replace.hpp"
+#	include "../meta/group.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
@@ -26,3 +27,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto pad(const xieite::group<Ch[n]>& str, Ch delim = '"', Ch esc = '\\', Alloc&& alloc = {})
 		XIEITE_ARROW(xieite::quot(std::basic_string<Ch, Traits, Alloc>(str, n, alloc), delim, esc, alloc))
 }
+
+#endif

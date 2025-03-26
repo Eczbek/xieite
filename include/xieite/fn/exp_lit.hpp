@@ -1,6 +1,7 @@
-#pragma once
-
-#include "../math/exp.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_EXP_LIT
+#	define DETAIL_XIEITE_HEADER_FN_EXP_LIT
+#
+#	include "../math/exp.hpp"
 
 namespace xieite::exp_lit {
 	[[nodiscard]] consteval auto operator""_exp(unsigned long long int n) noexcept {
@@ -11,3 +12,5 @@ namespace xieite::exp_lit {
 		return xieite::exp(n);
 	}
 }
+
+#endif

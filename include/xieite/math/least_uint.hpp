@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cstddef>
-#include <cstdint>
-#include "../math/bit_size.hpp"
-#include "../meta/type_list.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_LEAST_UINT
+#	define DETAIL_XIEITE_HEADER_MATH_LEAST_UINT
+#
+#	include <cstddef>
+#	include <cstdint>
+#	include "../math/bit_size.hpp"
+#	include "../meta/type_list.hpp"
 
 namespace xieite {
 	template<std::size_t bits>
@@ -14,3 +15,5 @@ namespace xieite {
 		std::uint_least64_t
 	>::find<[]<typename T> requires(xieite::bit_size<T> >= bits) {}>;
 }
+
+#endif

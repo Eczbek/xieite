@@ -1,32 +1,33 @@
-#pragma once
-
-#include <bit>
-#include <compare>
-#include <concepts>
-#include <cstddef>
-#include <cstdint>
-#include <functional>
-#include <iterator>
-#include <limits>
-#include <ranges>
-#include <stdexcept>
-#include <string>
-#include <string_view>
-#include <utility>
-#include <vector>
-#include "../ctnr/num_str_config.hpp"
-#include "../fn/order_op.hpp"
-#include "../fn/range_cmp_op.hpp"
-#include "../math/abs.hpp"
-#include "../math/add_overflow.hpp"
-#include "../math/bit_size.hpp"
-#include "../math/double_uint.hpp"
-#include "../math/neg.hpp"
-#include "../math/split_bool.hpp"
-#include "../math/ssize_t.hpp"
-#include "../math/sub_overflow.hpp"
-#include "../trait/rm_cv.hpp"
-#include "../trait/try_unsign.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_BIG_INT
+#	define DETAIL_XIEITE_HEADER_MATH_BIG_INT
+#
+#	include <bit>
+#	include <compare>
+#	include <concepts>
+#	include <cstddef>
+#	include <cstdint>
+#	include <functional>
+#	include <iterator>
+#	include <limits>
+#	include <ranges>
+#	include <stdexcept>
+#	include <string>
+#	include <string_view>
+#	include <utility>
+#	include <vector>
+#	include "../ctnr/num_str_config.hpp"
+#	include "../fn/order_op.hpp"
+#	include "../fn/range_cmp_op.hpp"
+#	include "../math/abs.hpp"
+#	include "../math/add_overflow.hpp"
+#	include "../math/bit_size.hpp"
+#	include "../math/double_uint.hpp"
+#	include "../math/neg.hpp"
+#	include "../math/split_bool.hpp"
+#	include "../math/ssize_t.hpp"
+#	include "../math/sub_overflow.hpp"
+#	include "../trait/rm_cv.hpp"
+#	include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<std::unsigned_integral T = std::uint64_t>
@@ -691,3 +692,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

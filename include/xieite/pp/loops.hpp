@@ -1,8 +1,9 @@
-#pragma once
-
-#include "../pp/diag.hpp"
-
-#define XIEITE_FOR(...) \
+#ifndef DETAIL_XIEITE_HEADER_PP_LOOPS
+#	define DETAIL_XIEITE_HEADER_PP_LOOPS
+#
+#	include "../pp/diag.hpp"
+#
+#	define XIEITE_FOR(...) \
 	for (struct { \
 		int count; \
 		bool check; \
@@ -21,6 +22,7 @@
 					for (DETAIL_XIEITE_i.once = true; (DETAIL_XIEITE_i.broke = DETAIL_XIEITE_i.check, DETAIL_XIEITE_i.check = DETAIL_XIEITE_i.once), DETAIL_XIEITE_i.once && !DETAIL_XIEITE_i.broke; DETAIL_XIEITE_i.check = DETAIL_XIEITE_i.once = false) \
 						XIEITE_DIAG_POP_GCC() \
 						XIEITE_DIAG_POP_CLANG()
-#define XIEITE_WHL(...) XIEITE_FOR (; (__VA_ARGS__);)
+#	define XIEITE_WHL(...) XIEITE_FOR (; (__VA_ARGS__);)
+#endif
 
 // https://gist.github.com/m1lkweed/4339f3c1196ec3acf995e3d671c1927b

@@ -1,8 +1,9 @@
-#pragma once
-
-#include <cmath>
-#include "../trait/is_arith.hpp"
-#include "../trait/try_unsign.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_DIFF
+#	define DETAIL_XIEITE_HEADER_MATH_DIFF
+#
+#	include <cmath>
+#	include "../trait/is_arith.hpp"
+#	include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -17,3 +18,5 @@ namespace xieite {
 		}
 	}
 }
+
+#endif

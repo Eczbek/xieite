@@ -1,6 +1,7 @@
-#pragma once
-
-#include "../math/bit_size.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_RSHIFT
+#	define DETAIL_XIEITE_HEADER_MATH_RSHIFT
+#
+#	include "../math/bit_size.hpp"
 
 namespace xieite {
 	template<std::integral T>
@@ -11,3 +12,5 @@ namespace xieite {
 		return 0;
 	}
 }
+
+#endif

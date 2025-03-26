@@ -1,9 +1,10 @@
-#pragma once
-
-#include <algorithm>
-#include <array>
-#include <bit>
-#include "../fn/unroll.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_EXT_BIT_CAST
+#	define DETAIL_XIEITE_HEADER_MATH_EXT_BIT_CAST
+#
+#	include <algorithm>
+#	include <array>
+#	include <bit>
+#	include "../fn/unroll.hpp"
 
 namespace xieite {
 	template<typename T, typename U>
@@ -14,3 +15,5 @@ namespace xieite {
 		});
 	}
 }
+
+#endif

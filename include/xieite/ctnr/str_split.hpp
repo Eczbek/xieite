@@ -1,16 +1,17 @@
-#pragma once
-
-#include <cstddef>
-#include <memory>
-#include <string>
-#include <string_view>
-#include <type_traits>
-#include <vector>
-#include "../ctnr/str_view.hpp"
-#include "../meta/group.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_STR_SPLIT
+#	define DETAIL_XIEITE_HEADER_CTNR_STR_SPLIT
+#
+#	include <cstddef>
+#	include <memory>
+#	include <string>
+#	include <string_view>
+#	include <type_traits>
+#	include <vector>
+#	include "../ctnr/str_view.hpp"
+#	include "../meta/group.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch, typename Traits = std::char_traits<Ch>, typename VecAlloc = std::allocator<std::basic_string_view<Ch, Traits>>>
@@ -45,3 +46,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto str_split(const xieite::group<Ch[n]>& str, auto&& delim, bool discard_empty = false, VecAlloc&& vec_alloc = {})
 		XIEITE_ARROW(xieite::str_split(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(delim), discard_empty, XIEITE_FWD(vec_alloc)))
 }
+
+#endif

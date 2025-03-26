@@ -1,7 +1,8 @@
-#pragma once
-
-#include <utility>
-#include "../meta/seq.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_MAKE_SEQ
+#	define DETAIL_XIEITE_HEADER_META_MAKE_SEQ
+#
+#	include <utility>
+#	include "../meta/seq.hpp"
 
 namespace xieite {
 	template<auto n>
@@ -9,3 +10,5 @@ namespace xieite {
 		return xieite::seq<i...>();
 	})(std::make_integer_sequence<decltype(n), n>())) make_seq;
 }
+
+#endif

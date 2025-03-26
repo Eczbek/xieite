@@ -1,9 +1,10 @@
-#pragma once
-
-#include <iterator>
-#include <ranges>
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_ITERS
+#	define DETAIL_XIEITE_HEADER_CTNR_ITERS
+#
+#	include <iterator>
+#	include <ranges>
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<std::ranges::range R>
@@ -90,3 +91,5 @@ namespace xieite {
 	template<typename R>
 	iters(R) -> iters<R>;
 }
+
+#endif

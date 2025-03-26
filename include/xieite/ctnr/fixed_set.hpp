@@ -1,17 +1,18 @@
-#pragma once
-
-#include <algorithm>
-#include <array>
-#include <concepts>
-#include <cstddef>
-#include <functional>
-#include <initializer_list>
-#include <memory>
-#include <ranges>
-#include <unordered_set>
-#include "../ctnr/make_array.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ref_to.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_FIXED_SET
+#	define DETAIL_XIEITE_HEADER_CTNR_FIXED_SET
+#
+#	include <algorithm>
+#	include <array>
+#	include <concepts>
+#	include <cstddef>
+#	include <functional>
+#	include <initializer_list>
+#	include <memory>
+#	include <ranges>
+#	include <unordered_set>
+#	include "../ctnr/make_array.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ref_to.hpp"
 
 namespace xieite {
 	template<typename K, std::size_t size, typename Hash = std::hash<K>, typename Cmp = std::ranges::equal_to, typename Alloc = std::allocator<K>>
@@ -48,3 +49,5 @@ namespace xieite {
 		std::array<K, size> array;
 	};
 }
+
+#endif

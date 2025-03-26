@@ -1,8 +1,9 @@
-#pragma once
-
-#include <ranges>
-#include "../trait/is_noex_iter.hpp"
-#include "../trait/is_noex_sentinel.hpp"
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_RANGE
+#	define DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_RANGE
+#
+#	include <ranges>
+#	include "../trait/is_noex_iter.hpp"
+#	include "../trait/is_noex_sentinel.hpp"
 
 namespace xieite {
 	template<typename T>
@@ -26,3 +27,5 @@ namespace xieite {
 			requires(noexcept(std::ranges::cdata(range)));
 		};
 }
+
+#endif

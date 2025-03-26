@@ -1,7 +1,8 @@
-#pragma once
-
-#include <concepts>
-#include <istream>
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_STREAMABLE_IN
+#	define DETAIL_XIEITE_HEADER_TRAIT_IS_STREAMABLE_IN
+#
+#	include <concepts>
+#	include <istream>
 
 namespace xieite {
 	template<typename T>
@@ -9,3 +10,5 @@ namespace xieite {
 		{ istream >> x } -> std::convertible_to<std::istream&>;
 	};
 }
+
+#endif

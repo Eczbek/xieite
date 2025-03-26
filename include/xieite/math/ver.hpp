@@ -1,10 +1,11 @@
-#pragma once
-
-#include <compare>
-#include <cstddef>
-#include <string>
-#include <utility>
-#include "../math/str_num.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_VER
+#	define DETAIL_XIEITE_HEADER_MATH_VER
+#
+#	include <compare>
+#	include <cstddef>
+#	include <string>
+#	include <utility>
+#	include "../math/str_num.hpp"
 
 namespace xieite {
 	struct ver {
@@ -36,3 +37,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

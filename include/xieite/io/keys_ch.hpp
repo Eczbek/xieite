@@ -1,7 +1,8 @@
-#pragma once
-
-#include "../ctnr/make_sparse_array.hpp"
-#include "../io/keys.hpp"
+#ifndef DETAIL_XIEITE_HEADER_IO_KEYS_CH
+#	define DETAIL_XIEITE_HEADER_IO_KEYS_CH
+#
+#	include "../ctnr/make_sparse_array.hpp"
+#	include "../io/keys.hpp"
 
 namespace xieite {
 	[[nodiscard]] constexpr char keys_ch(xieite::keys key) noexcept {
@@ -105,3 +106,5 @@ namespace xieite {
 		return map[key];
 	}
 }
+
+#endif

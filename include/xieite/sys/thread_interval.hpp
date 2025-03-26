@@ -1,10 +1,11 @@
-#pragma once
-
-#include <concepts>
-#include <functional>
-#include <thread>
-#include "../sys/thread_loop.hpp"
-#include "../trait/is_dur.hpp"
+#ifndef DETAIL_XIEITE_HEADER_SYS_THREAD_INTERVAL
+#	define DETAIL_XIEITE_HEADER_SYS_THREAD_INTERVAL
+#
+#	include <concepts>
+#	include <functional>
+#	include <thread>
+#	include "../sys/thread_loop.hpp"
+#	include "../trait/is_dur.hpp"
 
 namespace xieite {
 	struct thread_interval {
@@ -33,3 +34,5 @@ namespace xieite {
 		xieite::thread_loop loop;
 	};
 }
+
+#endif

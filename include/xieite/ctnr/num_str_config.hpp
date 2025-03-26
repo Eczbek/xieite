@@ -1,8 +1,9 @@
-#pragma once
-
-#include <cstddef>
-#include <string_view>
-#include "../ctnr/ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_NUM_STR_CONFIG
+#	define DETAIL_XIEITE_HEADER_CTNR_NUM_STR_CONFIG
+#
+#	include <cstddef>
+#	include <string_view>
+#	include "../ctnr/ch.hpp"
 
 namespace xieite {
 	struct num_str_config {
@@ -14,3 +15,5 @@ namespace xieite {
 		std::size_t prec = 50;
 	};
 }
+
+#endif

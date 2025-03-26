@@ -1,8 +1,9 @@
-#pragma once
-
-#include <concepts>
-#include <cstddef>
-#include "../pp/diag.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_STATE
+#	define DETAIL_XIEITE_HEADER_META_STATE
+#
+#	include <concepts>
+#	include <cstddef>
+#	include "../pp/diag.hpp"
 
 XIEITE_DIAG_PUSH()
 XIEITE_DIAG_OFF_GCC("-Wnon-template-friend")
@@ -47,5 +48,7 @@ namespace xieite {
 }
 
 XIEITE_DIAG_POP()
+
+#endif
 
 // https://mc-deltat.github.io/articles/stateful-metaprogramming-cpp20

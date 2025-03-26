@@ -1,15 +1,16 @@
-#pragma once
-
-#include <array>
-#include <bitset>
-#include <concepts>
-#include <cstddef>
-#include <tuple>
-#include <utility>
-#include "../fn/repeat.hpp"
-#include "../math/bit_size.hpp"
-#include "../math/least_uint.hpp"
-#include "../trait/try_unsign.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_UNMASH_BITS
+#	define DETAIL_XIEITE_HEADER_MATH_UNMASH_BITS
+#
+#	include <array>
+#	include <bitset>
+#	include <concepts>
+#	include <cstddef>
+#	include <tuple>
+#	include <utility>
+#	include "../fn/repeat.hpp"
+#	include "../math/bit_size.hpp"
+#	include "../math/least_uint.hpp"
+#	include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<std::size_t... sizes, std::size_t bits>
@@ -35,3 +36,5 @@ namespace xieite {
 		};
 	}
 }
+
+#endif

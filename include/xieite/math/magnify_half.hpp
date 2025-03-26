@@ -1,7 +1,8 @@
-#pragma once
-
-#include "../math/div_magnify_half.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_MAGNIFY_HALF
+#	define DETAIL_XIEITE_HEADER_MATH_MAGNIFY_HALF
+#
+#	include "../math/div_magnify_half.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -9,3 +10,5 @@ namespace xieite {
 		return xieite::div_magnify_half(n, step) * step;
 	}
 }
+
+#endif

@@ -1,11 +1,12 @@
-#pragma once
-
-#include <cstddef>
-#include <string>
-#include <string_view>
-#include <type_traits>
-#include "../meta/group.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_STRLEN
+#	define DETAIL_XIEITE_HEADER_CTNR_STRLEN
+#
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
+#	include <type_traits>
+#	include "../meta/group.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch>
@@ -38,3 +39,5 @@ namespace xieite {
 		return 1;
 	}
 }
+
+#endif

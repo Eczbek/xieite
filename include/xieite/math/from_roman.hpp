@@ -1,16 +1,17 @@
-#pragma once
-
-#include <concepts>
-#include <cstddef>
-#include <ranges>
-#include <string>
-#include <string_view>
-#include "../ctnr/make_sparse_array.hpp"
-#include "../ctnr/str_view.hpp"
-#include "../ctnr/toupper.hpp"
-#include "../math/sign_cast.hpp"
-#include "../math/ssize_t.hpp"
-#include "../meta/group.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_FROM_ROMAN
+#	define DETAIL_XIEITE_HEADER_MATH_FROM_ROMAN
+#
+#	include <concepts>
+#	include <cstddef>
+#	include <ranges>
+#	include <string>
+#	include <string_view>
+#	include "../ctnr/make_sparse_array.hpp"
+#	include "../ctnr/str_view.hpp"
+#	include "../ctnr/toupper.hpp"
+#	include "../math/sign_cast.hpp"
+#	include "../math/ssize_t.hpp"
+#	include "../meta/group.hpp"
 
 namespace xieite {
 	template<std::integral T = xieite::ssize_t, typename Ch, typename Traits = std::char_traits<Ch>>
@@ -50,3 +51,5 @@ namespace xieite {
 		return xieite::from_roman<T>(xieite::str_view<Ch, Traits>(str, n));
 	}
 }
+
+#endif

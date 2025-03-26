@@ -1,13 +1,14 @@
-#pragma once
-
-#include <cstddef>
-#include <functional>
-#include <ranges>
-#include <vector>
-#include "../trait/is_arith.hpp"
-#include "../trait/is_invoc.hpp"
-#include "../trait/is_noex_invoc.hpp"
-#include "../trait/is_noex_range.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_MODES
+#	define DETAIL_XIEITE_HEADER_MATH_MODES
+#
+#	include <cstddef>
+#	include <functional>
+#	include <ranges>
+#	include <vector>
+#	include "../trait/is_arith.hpp"
+#	include "../trait/is_invoc.hpp"
+#	include "../trait/is_noex_invoc.hpp"
+#	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
 	template<std::ranges::forward_range R, xieite::is_invoc<bool(std::ranges::range_common_reference_t<R>, std::ranges::range_common_reference_t<R>)> F = std::ranges::greater>
@@ -43,3 +44,5 @@ namespace xieite {
 		return its;
 	}
 }
+
+#endif

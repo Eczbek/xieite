@@ -1,10 +1,11 @@
-#pragma once
-
-#include <bitset>
-#include <concepts>
-#include <cstddef>
-#include "../fn/unroll.hpp"
-#include "../trait/try_unsign.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_MASH_BITS
+#	define DETAIL_XIEITE_HEADER_MATH_MASH_BITS
+#
+#	include <bitset>
+#	include <concepts>
+#	include <cstddef>
+#	include "../fn/unroll.hpp"
+#	include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<std::size_t... sizes, std::integral... Ts>
@@ -25,3 +26,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

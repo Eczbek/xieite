@@ -1,12 +1,13 @@
-#pragma once
-
-#include <concepts>
-#include <functional>
-#include "../math/almost_eq.hpp"
-#include "../math/neg.hpp"
-#include "../trait/is_arith.hpp"
-#include "../trait/is_invoc.hpp"
-#include "../trait/is_noex_invoc.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_EXP_SEARCH
+#	define DETAIL_XIEITE_HEADER_MATH_EXP_SEARCH
+#
+#	include <concepts>
+#	include <functional>
+#	include "../math/almost_eq.hpp"
+#	include "../math/neg.hpp"
+#	include "../trait/is_arith.hpp"
+#	include "../trait/is_invoc.hpp"
+#	include "../trait/is_noex_invoc.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T, xieite::is_invoc<bool(T)> F>
@@ -44,3 +45,5 @@ namespace xieite {
 		return xieite::exp_search(cond, mid, max);
 	}
 }
+
+#endif

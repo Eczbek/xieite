@@ -1,9 +1,10 @@
-#pragma once
-
-#include <concepts>
-#include <cstddef>
-#include "../math/abs.hpp"
-#include "../math/neg.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_NUM_DIGITS
+#	define DETAIL_XIEITE_HEADER_MATH_NUM_DIGITS
+#
+#	include <concepts>
+#	include <cstddef>
+#	include "../math/abs.hpp"
+#	include "../math/neg.hpp"
 
 namespace xieite {
 	template<std::integral T>
@@ -25,3 +26,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

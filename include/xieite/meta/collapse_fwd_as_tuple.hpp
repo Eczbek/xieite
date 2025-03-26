@@ -1,8 +1,9 @@
-#pragma once
-
-#include <tuple>
-#include "../meta/collapse_fwd.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_COLLAPSE_FWD_AS_TUPLE
+#	define DETAIL_XIEITE_HEADER_META_COLLAPSE_FWD_AS_TUPLE
+#
+#	include <tuple>
+#	include "../meta/collapse_fwd.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<typename T, typename... Args>
@@ -10,3 +11,5 @@ namespace xieite {
 		return std::forward_as_tuple(xieite::collapse_fwd<T>(XIEITE_FWD(args))...);
 	}
 }
+
+#endif

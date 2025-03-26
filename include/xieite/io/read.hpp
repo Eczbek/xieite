@@ -1,10 +1,11 @@
-#pragma once
-
-#include <cstddef>
-#include <cstdio>
-#include <istream>
-#include <iterator>
-#include <string>
+#ifndef DETAIL_XIEITE_HEADER_IO_READ
+#	define DETAIL_XIEITE_HEADER_IO_READ
+#
+#	include <cstddef>
+#	include <cstdio>
+#	include <istream>
+#	include <iterator>
+#	include <string>
 
 namespace xieite {
 	[[nodiscard]] inline std::string read(std::istream& stream) noexcept {
@@ -29,5 +30,7 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif
 
 // https://vitaut.net/posts/2020/optimal-file-buffer-size/

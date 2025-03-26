@@ -1,8 +1,9 @@
-#pragma once
-
-#include <cstddef>
-#include <string_view>
-#include "../math/sign_cast.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_DJB2
+#	define DETAIL_XIEITE_HEADER_MATH_DJB2
+#
+#	include <cstddef>
+#	include <string_view>
+#	include "../math/sign_cast.hpp"
 
 namespace xieite {
 	[[nodiscard]] constexpr std::size_t djb2(std::string_view str) noexcept {
@@ -13,3 +14,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

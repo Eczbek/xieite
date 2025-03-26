@@ -1,12 +1,13 @@
-#pragma once
-
-#include <array>
-#include <bitset>
-#include <concepts>
-#include <cstddef>
-#include <tuple>
-#include "../fn/repeat.hpp"
-#include "../math/bit_size.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_UNJOIN_BITS
+#	define DETAIL_XIEITE_HEADER_MATH_UNJOIN_BITS
+#
+#	include <array>
+#	include <bitset>
+#	include <concepts>
+#	include <cstddef>
+#	include <tuple>
+#	include "../fn/repeat.hpp"
+#	include "../math/bit_size.hpp"
 
 namespace xieite {
 	template<std::integral... Ts, std::size_t bits>
@@ -31,3 +32,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

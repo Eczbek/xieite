@@ -1,4 +1,6 @@
-#pragma once
-
-#define XIEITE_LPAREN(...) (
-#define XIEITE_RPAREN(...) )
+#ifndef DETAIL_XIEITE_HEADER_PP_PAREN
+#	define DETAIL_XIEITE_HEADER_PP_PAREN
+#
+#	define XIEITE_LPAREN(...) (
+#	define XIEITE_RPAREN(...) )
+#endif

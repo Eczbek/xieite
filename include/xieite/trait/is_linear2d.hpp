@@ -1,8 +1,9 @@
-#pragma once
-
-#include <type_traits>
-#include "../trait/is_arith.hpp"
-#include "../trait/is_same_any.hpp"
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_LINEAR2D
+#	define DETAIL_XIEITE_HEADER_TRAIT_IS_LINEAR2D
+#
+#	include <type_traits>
+#	include "../trait/is_arith.hpp"
+#	include "../trait/is_same_any.hpp"
 
 namespace xieite {
 	template<xieite::is_arith>
@@ -23,3 +24,5 @@ namespace xieite {
 			xieite::segm2d<U>
 		>;
 }
+
+#endif

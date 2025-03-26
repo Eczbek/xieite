@@ -1,10 +1,11 @@
-#pragma once
-
-#include <chrono>
-#include <cstdint>
-#include <functional>
-#include "../ctnr/fixed_str.hpp"
-#include "../math/pi.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_UNIT
+#	define DETAIL_XIEITE_HEADER_MATH_UNIT
+#
+#	include <chrono>
+#	include <cstdint>
+#	include <functional>
+#	include "../ctnr/fixed_str.hpp"
+#	include "../math/pi.hpp"
 
 namespace xieite {
 	template<xieite::fixed_str type, auto to = std::identity(), auto from = std::identity()>
@@ -183,3 +184,5 @@ namespace xieite::unit {
 	using epochs = std::chrono::duration<std::intmax_t, std::ratio<31556952000000>>;
 	using eons = std::chrono::duration<std::intmax_t, std::ratio<31556952000000000>>;
 }
+
+#endif

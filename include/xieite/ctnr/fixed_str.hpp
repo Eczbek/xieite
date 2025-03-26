@@ -1,16 +1,17 @@
-#pragma once
-
-#include <array>
-#include <concepts>
-#include <cstddef>
-#include <ranges>
-#include <string>
-#include <string_view>
-#include "../ctnr/make_array.hpp"
-#include "../meta/group.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ch.hpp"
-#include "../trait/is_noex_range.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_FIXED_STR
+#	define DETAIL_XIEITE_HEADER_CTNR_FIXED_STR
+#
+#	include <array>
+#	include <concepts>
+#	include <cstddef>
+#	include <ranges>
+#	include <string>
+#	include <string_view>
+#	include "../ctnr/make_array.hpp"
+#	include "../meta/group.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ch.hpp"
+#	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
 	template<std::size_t n, xieite::is_ch Ch = char>
@@ -45,3 +46,5 @@ namespace xieite {
 	template<std::size_t n, typename Ch>
 	fixed_str(const xieite::group<Ch[n]>&) -> fixed_str<(n - 1), Ch>;
 }
+
+#endif

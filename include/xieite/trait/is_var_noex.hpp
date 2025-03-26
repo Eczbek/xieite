@@ -1,9 +1,12 @@
-#pragma once
-
-#include "../trait/is_noex.hpp"
-#include "../trait/is_var.hpp"
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_VAR_NOEX
+#	define DETAIL_XIEITE_HEADER_TRAIT_IS_VAR_NOEX
+#
+#	include "../trait/is_noex.hpp"
+#	include "../trait/is_var.hpp"
 
 namespace xieite {
 	template<typename T>
 	concept is_var_noex = xieite::is_var<T> && xieite::is_noex<T>;
 }
+
+#endif

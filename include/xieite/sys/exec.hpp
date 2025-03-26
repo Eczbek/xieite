@@ -1,10 +1,11 @@
-#pragma once
-
-#include <string>
-#include "../io/file_pipe.hpp"
-#include "../io/read.hpp"
-#include "../sys/proc_status.hpp"
-#include "../sys/proc_result.hpp"
+#ifndef DETAIL_XIEITE_HEADER_SYS_EXEC
+#	define DETAIL_XIEITE_HEADER_SYS_EXEC
+#
+#	include <string>
+#	include "../io/file_pipe.hpp"
+#	include "../io/read.hpp"
+#	include "../sys/proc_status.hpp"
+#	include "../sys/proc_result.hpp"
 
 namespace xieite {
 	inline xieite::proc_result exec(const std::string& cmd) noexcept {
@@ -13,3 +14,5 @@ namespace xieite {
 		return xieite::proc_result(output, xieite::proc_status(pipe.close()));
 	}
 }
+
+#endif

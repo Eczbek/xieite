@@ -1,7 +1,8 @@
-#pragma once
-
-#include <concepts>
-#include <type_traits>
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_SAME_ANY
+#	define DETAIL_XIEITE_HEADER_TRAIT_IS_SAME_ANY
+#
+#	include <concepts>
+#	include <type_traits>
 
 namespace DETAIL_XIEITE::is_same_any {
 	template<typename...>
@@ -15,3 +16,5 @@ namespace xieite {
 	template<typename... Ts>
 	concept is_same_any = DETAIL_XIEITE::is_same_any::impl<Ts...>::value;
 }
+
+#endif

@@ -1,6 +1,7 @@
-#pragma once
-
-#include <type_traits>
+#ifndef DETAIL_XIEITE_HEADER_META_FOLD
+#	define DETAIL_XIEITE_HEADER_META_FOLD
+#
+#	include <type_traits>
 
 namespace DETAIL_XIEITE::fold {
 	template<auto fn, typename T>
@@ -16,3 +17,5 @@ namespace xieite {
 	template<auto fn, typename T, typename... Ts>
 	using fold = decltype((DETAIL_XIEITE::fold::impl<fn, T>()->*...->*std::type_identity<Ts>()))::type;
 }
+
+#endif

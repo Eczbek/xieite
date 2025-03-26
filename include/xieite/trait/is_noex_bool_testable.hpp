@@ -1,6 +1,7 @@
-#pragma once
-
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_BOOL_TESTABLE
+#	define DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_BOOL_TESTABLE
+#
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<typename T>
@@ -12,3 +13,5 @@ namespace xieite {
 		// TODO: Check `operator&&()` and `operator||()` to best ability
 	};
 }
+
+#endif

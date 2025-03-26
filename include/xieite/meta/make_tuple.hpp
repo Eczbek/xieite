@@ -1,12 +1,13 @@
-#pragma once
-
-#include <tuple>
-#include <type_traits>
-#include "../meta/arity.hpp"
-#include "../meta/collapse_fwd_as_tuple.hpp"
-#include "../pp/fwd.hpp"
-#include "../meta/fwd_tuple.hpp"
-#include "../trait/is_tuple_like.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_MAKE_TUPLE
+#	define DETAIL_XIEITE_HEADER_META_MAKE_TUPLE
+#
+#	include <tuple>
+#	include <type_traits>
+#	include "../meta/arity.hpp"
+#	include "../meta/collapse_fwd_as_tuple.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../meta/fwd_tuple.hpp"
+#	include "../trait/is_tuple_like.hpp"
 
 namespace xieite {
 	template<typename T>
@@ -790,3 +791,5 @@ namespace xieite {
 		}
 	}
 }
+
+#endif

@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cmath>
-#include <type_traits>
-#include <utility>
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_SIN
+#	define DETAIL_XIEITE_HEADER_MATH_SIN
+#
+#	include <cmath>
+#	include <type_traits>
+#	include <utility>
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T, xieite::is_arith U = std::common_type_t<T, double>>
@@ -29,3 +30,5 @@ namespace xieite {
 		std::unreachable();
 	}
 }
+
+#endif

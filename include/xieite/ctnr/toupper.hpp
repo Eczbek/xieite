@@ -1,19 +1,20 @@
-#pragma once
-
-#include <array>
-#include <cstddef>
-#include <memory>
-#include <numeric>
-#include <string>
-#include <string_view>
-#include "../ctnr/ch.hpp"
-#include "../ctnr/str_view.hpp"
-#include "../math/bit_size.hpp"
-#include "../math/sign_cast.hpp"
-#include "../meta/group.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_TOUPPER
+#	define DETAIL_XIEITE_HEADER_CTNR_TOUPPER
+#
+#	include <array>
+#	include <cstddef>
+#	include <memory>
+#	include <numeric>
+#	include <string>
+#	include <string_view>
+#	include "../ctnr/ch.hpp"
+#	include "../ctnr/str_view.hpp"
+#	include "../math/bit_size.hpp"
+#	include "../math/sign_cast.hpp"
+#	include "../meta/group.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<xieite::is_ch Ch>
@@ -47,3 +48,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto toupper(const xieite::group<Ch[n]>& str, Alloc&& alloc = {})
 		XIEITE_ARROW(xieite::toupper(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(alloc)))
 }
+
+#endif

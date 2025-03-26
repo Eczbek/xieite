@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_HAS_NOEX_BRACE_INIT
+#	define DETAIL_XIEITE_HEADER_TRAIT_HAS_NOEX_BRACE_INIT
 
 namespace xieite {
 	template<typename T, typename... Args>
@@ -6,3 +7,5 @@ namespace xieite {
 		requires(noexcept(T { args... }));
 	};
 }
+
+#endif

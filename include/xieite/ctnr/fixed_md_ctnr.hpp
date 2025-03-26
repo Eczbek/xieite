@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cstddef>
-#include <type_traits>
-#include "../meta/fold.hpp"
-#include "../meta/value.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_FIXED_MD_CTNR
+#	define DETAIL_XIEITE_HEADER_CTNR_FIXED_MD_CTNR
+#
+#	include <cstddef>
+#	include <type_traits>
+#	include "../meta/fold.hpp"
+#	include "../meta/value.hpp"
 
 namespace xieite {
 	template<template<typename, std::size_t> typename Ctnr, typename V, std::size_t... sizes>
@@ -15,3 +16,5 @@ namespace xieite {
 		xieite::value<sizes>...
 	>;
 }
+
+#endif

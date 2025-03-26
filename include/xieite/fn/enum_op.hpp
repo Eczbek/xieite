@@ -1,7 +1,8 @@
-#pragma once
-
-#include <utility>
-#include "../trait/is_enum.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_ENUM_OP
+#	define DETAIL_XIEITE_HEADER_FN_ENUM_OP
+#
+#	include <utility>
+#	include "../trait/is_enum.hpp"
 
 namespace xieite::enum_op {
 	template<xieite::is_enum T>
@@ -264,3 +265,5 @@ namespace xieite::enum_op {
 		return l || std::to_underlying(r);
 	}
 }
+
+#endif

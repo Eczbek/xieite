@@ -1,3 +1,5 @@
-#pragma once
-
-#define XIEITE_EAT(...)
+#ifndef DETAIL_XIEITE_HEADER_PP_EAT
+#	define DETAIL_XIEITE_HEADER_PP_EAT
+#
+#	define XIEITE_EAT(...)
+#endif

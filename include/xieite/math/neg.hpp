@@ -1,8 +1,9 @@
-#pragma once
-
-#include <cmath>
-#include <concepts>
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_NEG
+#	define DETAIL_XIEITE_HEADER_MATH_NEG
+#
+#	include <cmath>
+#	include <concepts>
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -16,3 +17,5 @@ namespace xieite {
 		}
 	}
 }
+
+#endif

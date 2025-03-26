@@ -1,11 +1,12 @@
-#pragma once
-
-#include <vector>
-#include "../math/almost_eq.hpp"
-#include "../math/pt2d.hpp"
-#include "../math/segm2d.hpp"
-#include "../trait/is_arith.hpp"
-#include "../trait/is_linear2d.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_INTXN2D
+#	define DETAIL_XIEITE_HEADER_MATH_INTXN2D
+#
+#	include <vector>
+#	include "../math/almost_eq.hpp"
+#	include "../math/pt2d.hpp"
+#	include "../math/segm2d.hpp"
+#	include "../trait/is_arith.hpp"
+#	include "../trait/is_linear2d.hpp"
 
 namespace xieite {
 	template<xieite::is_arith>
@@ -81,3 +82,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

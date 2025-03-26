@@ -1,12 +1,13 @@
-#pragma once
-
-#include <cstddef>
-#include <functional>
-#include <ranges>
-#include "../ctnr/iters.hpp"
-#include "../trait/is_invoc.hpp"
-#include "../trait/is_noex_invoc.hpp"
-#include "../trait/is_noex_range.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_FIND_OCCUR_IF
+#	define DETAIL_XIEITE_HEADER_CTNR_FIND_OCCUR_IF
+#
+#	include <cstddef>
+#	include <functional>
+#	include <ranges>
+#	include "../ctnr/iters.hpp"
+#	include "../trait/is_invoc.hpp"
+#	include "../trait/is_noex_invoc.hpp"
+#	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
 	template<std::ranges::forward_range R, xieite::is_invoc<bool(std::ranges::range_common_reference_t<R>)> F>
@@ -20,3 +21,5 @@ namespace xieite {
 		return std::ranges::end(range);
 	}
 }
+
+#endif

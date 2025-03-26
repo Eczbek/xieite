@@ -1,11 +1,12 @@
-#pragma once
-
-#include <cstddef>
-#include <tuple>
-#include <utility>
-#include "../fn/unroll.hpp"
-#include "../meta/tuple_size.hpp"
-#include "../trait/is_tuple_like.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_REVERSE_TUPLE
+#	define DETAIL_XIEITE_HEADER_META_REVERSE_TUPLE
+#
+#	include <cstddef>
+#	include <tuple>
+#	include <utility>
+#	include "../fn/unroll.hpp"
+#	include "../meta/tuple_size.hpp"
+#	include "../trait/is_tuple_like.hpp"
 
 namespace xieite {
 	[[nodiscard]] constexpr auto reverse_tuple(xieite::is_tuple_like auto&& tuple) noexcept {
@@ -15,3 +16,5 @@ namespace xieite {
 		});
 	}
 }
+
+#endif

@@ -1,7 +1,9 @@
-#pragma once
-
-#include "../pp/none.hpp"
-
-#define XIEITE_WRAPPED(x) XIEITE_NONE(DETAIL_XIEITE_WRAPPED x)
-
-#define DETAIL_XIEITE_WRAPPED(...)
+#ifndef DETAIL_XIEITE_HEADER_PP_WRAPPED
+#	define DETAIL_XIEITE_HEADER_PP_WRAPPED
+#
+#	include "../pp/none.hpp"
+#
+#	define XIEITE_WRAPPED(x) XIEITE_NONE(DETAIL_XIEITE_WRAPPED x)
+#
+#	define DETAIL_XIEITE_WRAPPED(...)
+#endif

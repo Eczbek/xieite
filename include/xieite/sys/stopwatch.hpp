@@ -1,8 +1,9 @@
-#pragma once
-
-#include <chrono>
-#include "../trait/is_clock.hpp"
-#include "../trait/is_dur.hpp"
+#ifndef DETAIL_XIEITE_HEADER_SYS_STOPWATCH
+#	define DETAIL_XIEITE_HEADER_SYS_STOPWATCH
+#
+#	include <chrono>
+#	include "../trait/is_clock.hpp"
+#	include "../trait/is_dur.hpp"
 
 namespace xieite {
 	template<xieite::is_clock Clock>
@@ -57,3 +58,5 @@ namespace xieite {
 		std::chrono::nanoseconds total_dur;
 	};
 }
+
+#endif

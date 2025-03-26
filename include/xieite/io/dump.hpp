@@ -1,12 +1,13 @@
-#pragma once
-
-#include <array>
-#include <cstddef>
-#include <format>
-#include <print>
-#include <string_view>
-#include "../fn/unroll.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_IO_DUMP
+#	define DETAIL_XIEITE_HEADER_IO_DUMP
+#
+#	include <array>
+#	include <cstddef>
+#	include <format>
+#	include <print>
+#	include <string_view>
+#	include "../fn/unroll.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<typename... Args>
@@ -18,3 +19,5 @@ namespace xieite {
 		std::println(std::format_string<Args...>(std::string_view(data.data(), size)), XIEITE_FWD(args)...);
 	}
 }
+
+#endif

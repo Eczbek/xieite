@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cstddef>
-#include <type_traits>
-#include "../fn/unroll.hpp"
-#include "../meta/fold.hpp"
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_ADD_PTR
+#	define DETAIL_XIEITE_HEADER_TRAIT_ADD_PTR
+#
+#	include <cstddef>
+#	include <type_traits>
+#	include "../fn/unroll.hpp"
+#	include "../meta/fold.hpp"
 
 namespace xieite {
 	template<typename T, std::size_t n = 1>
@@ -17,3 +18,5 @@ namespace xieite {
 		>();
 	}))::type;
 }
+
+#endif

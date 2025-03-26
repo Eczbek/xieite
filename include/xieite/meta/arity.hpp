@@ -1,11 +1,12 @@
-#pragma once
-
-#include <cstddef>
-#include <type_traits>
-#include "../meta/any.hpp"
-#include "../meta/tuple_size.hpp"
-#include "../pp/diag.hpp"
-#include "../trait/is_tuple_like.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_ARITY
+#	define DETAIL_XIEITE_HEADER_META_ARITY
+#
+#	include <cstddef>
+#	include <type_traits>
+#	include "../meta/any.hpp"
+#	include "../meta/tuple_size.hpp"
+#	include "../pp/diag.hpp"
+#	include "../trait/is_tuple_like.hpp"
 
 XIEITE_DIAG_PUSH_CLANG()
 XIEITE_DIAG_OFF_CLANG("-Wunused-lambda-capture")
@@ -49,5 +50,7 @@ namespace xieite {
 }
 
 XIEITE_DIAG_POP_CLANG()
+
+#endif
 
 // Algorithm stolen from lapinozz (https://github.com/lapinozz)

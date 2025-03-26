@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cmath>
-#include <concepts>
-#include "../math/sign.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_DIV_CEIL
+#	define DETAIL_XIEITE_HEADER_MATH_DIV_CEIL
+#
+#	include <cmath>
+#	include <concepts>
+#	include "../math/sign.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -15,3 +16,5 @@ namespace xieite {
 		}
 	}
 }
+
+#endif

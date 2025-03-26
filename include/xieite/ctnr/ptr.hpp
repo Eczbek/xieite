@@ -1,12 +1,13 @@
-#pragma once
-
-#include <cstddef>
-#include <stdexcept>
-#include <type_traits>
-#include <utility>
-#include "../pp/arrow.hpp"
-#include "../pp/debug.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_PTR
+#	define DETAIL_XIEITE_HEADER_CTNR_PTR
+#
+#	include <cstddef>
+#	include <stdexcept>
+#	include <type_traits>
+#	include <utility>
+#	include "../pp/arrow.hpp"
+#	include "../pp/debug.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<typename T>
@@ -132,3 +133,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

@@ -1,17 +1,18 @@
-#pragma once
-
-#include <array>
-#include <concepts>
-#include <functional>
-#include <initializer_list>
-#include <memory>
-#include <stdexcept>
-#include <ranges>
-#include <unordered_map>
-#include <utility>
-#include "../ctnr/make_array.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ref_to.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_FIXED_MAP
+#	define DETAIL_XIEITE_HEADER_CTNR_FIXED_MAP
+#
+#	include <array>
+#	include <concepts>
+#	include <functional>
+#	include <initializer_list>
+#	include <memory>
+#	include <stdexcept>
+#	include <ranges>
+#	include <unordered_map>
+#	include <utility>
+#	include "../ctnr/make_array.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ref_to.hpp"
 
 namespace xieite {
 	template<typename K, typename V, std::size_t size, typename Hash = std::hash<K>, typename Cmp = std::ranges::equal_to, typename Alloc = std::allocator<std::pair<const K, V*>>>
@@ -79,3 +80,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

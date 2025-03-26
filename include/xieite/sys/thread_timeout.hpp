@@ -1,10 +1,11 @@
-#pragma once
-
-#include <concepts>
-#include <functional>
-#include "../pp/fwd.hpp"
-#include "../sys/thread_interval.hpp"
-#include "../trait/is_dur.hpp"
+#ifndef DETAIL_XIEITE_HEADER_SYS_THREAD_TIMEOUT
+#	define DETAIL_XIEITE_HEADER_SYS_THREAD_TIMEOUT
+#
+#	include <concepts>
+#	include <functional>
+#	include "../pp/fwd.hpp"
+#	include "../sys/thread_interval.hpp"
+#	include "../trait/is_dur.hpp"
 
 namespace xieite {
 	struct thread_timeout {
@@ -28,3 +29,5 @@ namespace xieite {
 		xieite::thread_interval interval;
 	};
 }
+
+#endif

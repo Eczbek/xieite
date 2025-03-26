@@ -1,6 +1,7 @@
-#pragma once
-
-#include "../trait/collapse_ref.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_COLLAPSE_FWD
+#	define DETAIL_XIEITE_HEADER_META_COLLAPSE_FWD
+#
+#	include "../trait/collapse_ref.hpp"
 
 namespace xieite {
 	template<typename T, typename U>
@@ -8,3 +9,5 @@ namespace xieite {
 		return static_cast<xieite::collapse_ref<T, U>>(x);
 	}
 }
+
+#endif

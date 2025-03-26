@@ -1,13 +1,14 @@
-#pragma once
-
-#include <concepts>
-#include <cstddef>
-#include <string_view>
-#include <type_traits>
-#include "../ctnr/num_str_config.hpp"
-#include "../math/abs.hpp"
-#include "../math/ssize_t.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_FIND_NUM
+#	define DETAIL_XIEITE_HEADER_MATH_FIND_NUM
+#
+#	include <concepts>
+#	include <cstddef>
+#	include <string_view>
+#	include <type_traits>
+#	include "../ctnr/num_str_config.hpp"
+#	include "../math/abs.hpp"
+#	include "../math/ssize_t.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -50,3 +51,5 @@ namespace xieite {
 		return str.substr(start, i - start);
 	}
 }
+
+#endif

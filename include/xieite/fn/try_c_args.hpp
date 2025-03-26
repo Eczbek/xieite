@@ -1,12 +1,13 @@
-#pragma once
-
-#include <functional>
-#include <type_traits>
-#include <utility>
-#include "../meta/type_list.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/add_c.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_TRY_C_ARGS
+#	define DETAIL_XIEITE_HEADER_FN_TRY_C_ARGS
+#
+#	include <functional>
+#	include <type_traits>
+#	include <utility>
+#	include "../meta/type_list.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/add_c.hpp"
 
 namespace xieite {
 	template<typename F, typename... Args>
@@ -30,3 +31,5 @@ namespace xieite {
 			)
 		)
 }
+
+#endif

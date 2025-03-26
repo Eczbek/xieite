@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_SET_CP_CTOR
+#	define DETAIL_XIEITE_HEADER_TRAIT_SET_CP_CTOR
 
 namespace xieite {
 	template<bool>
@@ -13,3 +14,5 @@ namespace xieite {
 		xieite::set_cp_ctor<false>& operator=(xieite::set_cp_ctor<false>&&) = default;
 	};
 }
+
+#endif

@@ -1,11 +1,12 @@
-#pragma once
-
-#include <array>
-#include <concepts>
-#include <memory>
-#include <string>
-#include <string_view>
-#include "../math/abs.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_TO_ROMAN
+#	define DETAIL_XIEITE_HEADER_MATH_TO_ROMAN
+#
+#	include <array>
+#	include <concepts>
+#	include <memory>
+#	include <string>
+#	include <string_view>
+#	include "../math/abs.hpp"
 
 namespace xieite {
 	template<std::integral T, typename Ch = char, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
@@ -22,3 +23,5 @@ namespace xieite {
 		return Str(abs / 1000, 'M', alloc) + Str(hundreds[abs % 1000 / 100], alloc) + Str(tens[abs % 100 / 10], alloc) + Str(ones[abs % 10], alloc);
 	}
 }
+
+#endif

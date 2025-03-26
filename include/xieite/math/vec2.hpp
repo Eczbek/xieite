@@ -1,7 +1,8 @@
-#pragma once
-
-#include <utility>
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_VEC2
+#	define DETAIL_XIEITE_HEADER_MATH_VEC2
+#
+#	include <utility>
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -125,3 +126,5 @@ namespace xieite {
 	template<typename T>
 	vec2(T, T) -> vec2<T>;
 }
+
+#endif

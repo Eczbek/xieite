@@ -1,8 +1,9 @@
-#pragma once
-
-#include <memory>
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_REF
+#	define DETAIL_XIEITE_HEADER_CTNR_REF
+#
+#	include <memory>
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<typename T>
@@ -140,3 +141,5 @@ namespace xieite {
 	template<typename T>
 	ref(T) -> ref<T>;
 }
+
+#endif

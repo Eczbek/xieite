@@ -1,8 +1,9 @@
-#pragma once
-
-#include <concepts>
-#include "../fn/fn.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_PROC_GUARD
+#	define DETAIL_XIEITE_HEADER_FN_PROC_GUARD
+#
+#	include <concepts>
+#	include "../fn/fn.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	struct proc_guard {
@@ -32,3 +33,5 @@ namespace xieite {
 		bool* released;
 	};
 }
+
+#endif

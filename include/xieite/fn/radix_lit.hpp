@@ -1,6 +1,7 @@
-#pragma once
-
-#include <cstddef>
+#ifndef DETAIL_XIEITE_HEADER_FN_RADIX_LIT
+#	define DETAIL_XIEITE_HEADER_FN_RADIX_LIT
+#
+#	include <cstddef>
 
 namespace xieite::radix_lit {
 	template<char... chars>
@@ -21,3 +22,5 @@ namespace xieite::radix_lit {
 		}
 	}
 }
+
+#endif

@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cmath>
-#include <type_traits>
-#include "../math/pt2d.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_LINE2D
+#	define DETAIL_XIEITE_HEADER_MATH_LINE2D
+#
+#	include <cmath>
+#	include <type_traits>
+#	include "../math/pt2d.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith>
@@ -78,3 +79,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

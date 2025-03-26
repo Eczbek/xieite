@@ -1,15 +1,16 @@
-#pragma once
-
-#include <cstddef>
-#include <memory>
-#include <string>
-#include <string_view>
-#include "../ctnr/str_replace.hpp"
-#include "../ctnr/str_view.hpp"
-#include "../meta/group.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_UNQUOT
+#	define DETAIL_XIEITE_HEADER_CTNR_UNQUOT
+#
+#	include <cstddef>
+#	include <memory>
+#	include <string>
+#	include <string_view>
+#	include "../ctnr/str_replace.hpp"
+#	include "../ctnr/str_view.hpp"
+#	include "../meta/group.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
@@ -33,3 +34,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto unquot(const xieite::group<Ch[n]>& str, Ch delim = '"', Ch esc = '\\', Alloc&& alloc = {})
 		XIEITE_ARROW(xieite::unquot(xieite::str_view<Ch, Traits>(str), delim, esc, XIEITE_FWD(alloc)))
 }
+
+#endif

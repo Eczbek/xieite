@@ -1,7 +1,8 @@
-#pragma once
-
-#include <type_traits>
-#include <utility>
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_CONV
+#	define DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_CONV
+#
+#	include <type_traits>
+#	include <utility>
 
 namespace xieite {
 	template<typename T, typename... Us>
@@ -10,3 +11,5 @@ namespace xieite {
 		&& requires { { static_cast<Us>(std::declval<T>()) } noexcept; }
 	));
 }
+
+#endif

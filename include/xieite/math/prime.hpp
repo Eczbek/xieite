@@ -1,7 +1,8 @@
-#pragma once
-
-#include <cmath>
-#include <concepts>
+#ifndef DETAIL_XIEITE_HEADER_MATH_PRIME
+#	define DETAIL_XIEITE_HEADER_MATH_PRIME
+#
+#	include <cmath>
+#	include <concepts>
 
 namespace xieite {
 	template<std::integral T>
@@ -23,3 +24,5 @@ namespace xieite {
 		return true;
 	}
 }
+
+#endif

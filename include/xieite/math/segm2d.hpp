@@ -1,9 +1,10 @@
-#pragma once
-
-#include <type_traits>
-#include "../math/almost_eq.hpp"
-#include "../math/pt2d.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_SEGM2D
+#	define DETAIL_XIEITE_HEADER_MATH_SEGM2D
+#
+#	include <type_traits>
+#	include "../math/almost_eq.hpp"
+#	include "../math/pt2d.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith>
@@ -72,3 +73,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

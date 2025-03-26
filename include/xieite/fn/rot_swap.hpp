@@ -1,11 +1,12 @@
-#pragma once
-
-#include <cstddef>
-#include <tuple>
-#include <utility>
-#include "../fn/repeat.hpp"
-#include "../trait/has_noex_mv_assign.hpp"
-#include "../trait/has_noex_mv_ctor.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_ROT_SWAP
+#	define DETAIL_XIEITE_HEADER_FN_ROT_SWAP
+#
+#	include <cstddef>
+#	include <tuple>
+#	include <utility>
+#	include "../fn/repeat.hpp"
+#	include "../trait/has_noex_mv_assign.hpp"
+#	include "../trait/has_noex_mv_ctor.hpp"
 
 namespace xieite {
 	template<std::size_t n = 1, typename... Args>
@@ -33,3 +34,5 @@ namespace xieite {
 		return std::tie(args...);
 	}
 }
+
+#endif

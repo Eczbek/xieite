@@ -1,12 +1,13 @@
-#pragma once
-
-#include <algorithm>
-#include <cstddef>
-#include <tuple>
-#include <utility>
-#include "../fn/unroll.hpp"
-#include "../meta/tuple_size.hpp"
-#include "../trait/is_tuple_like.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_SUBTUPLE
+#	define DETAIL_XIEITE_HEADER_META_SUBTUPLE
+#
+#	include <algorithm>
+#	include <cstddef>
+#	include <tuple>
+#	include <utility>
+#	include "../fn/unroll.hpp"
+#	include "../meta/tuple_size.hpp"
+#	include "../trait/is_tuple_like.hpp"
 
 namespace xieite {
 	template<std::size_t start, std::size_t end = -1uz>
@@ -19,3 +20,5 @@ namespace xieite {
 		);
 	}
 }
+
+#endif

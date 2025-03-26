@@ -1,8 +1,9 @@
-#pragma once
-
-#include <bit>
-#include <cstddef>
-#include <memory>
+#ifndef DETAIL_XIEITE_HEADER_SYS_ALIGNED_MEMSET
+#	define DETAIL_XIEITE_HEADER_SYS_ALIGNED_MEMSET
+#
+#	include <bit>
+#	include <cstddef>
+#	include <memory>
 
 namespace xieite {
 	template<std::size_t align = 1, typename T>
@@ -15,5 +16,7 @@ namespace xieite {
 		}
 	}
 }
+
+#endif
 
 // Compile with `-fno-builtin-memset` lest the function be optimized out

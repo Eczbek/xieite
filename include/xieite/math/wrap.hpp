@@ -1,8 +1,9 @@
-#pragma once
-
-#include "../math/minmax.hpp"
-#include "../math/mod.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_WRAP
+#	define DETAIL_XIEITE_HEADER_MATH_WRAP
+#
+#	include "../math/minmax.hpp"
+#	include "../math/mod.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -11,3 +12,5 @@ namespace xieite {
 		return xieite::mod(n - min, max - min) + min;
 	}
 }
+
+#endif

@@ -1,9 +1,10 @@
-#pragma once
-
-#include <array>
-#include <bit>
-#include <cstddef>
-#include "../fn/unroll.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_BYTE_FILL
+#	define DETAIL_XIEITE_HEADER_MATH_BYTE_FILL
+#
+#	include <array>
+#	include <bit>
+#	include <cstddef>
+#	include "../fn/unroll.hpp"
 
 namespace xieite {
 	struct byte_fill {
@@ -21,3 +22,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

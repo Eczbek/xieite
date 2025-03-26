@@ -1,6 +1,8 @@
-#pragma once
-
-#define XIEITE_ANY(...) DETAIL_XIEITE_ANY_##__VA_OPT__(1)
-
-#define DETAIL_XIEITE_ANY_ 0
-#define DETAIL_XIEITE_ANY_1 1
+#ifndef DETAIL_XIEITE_HEADER_PP_ANY
+#	define DETAIL_XIEITE_HEADER_PP_ANY
+#
+#	define XIEITE_ANY(...) DETAIL_XIEITE_ANY_##__VA_OPT__(1)
+#
+#	define DETAIL_XIEITE_ANY_ 0
+#	define DETAIL_XIEITE_ANY_1 1
+#endif

@@ -1,14 +1,15 @@
-#pragma once
-
-#include "../pp/platform.hpp"
-
-#if XIEITE_PLATFORM_TYPE_UNIX
-#	include <sys/wait.h>
-#endif
+#ifndef DETAIL_XIEITE_HEADER_SYS_PROC_STATUS
+#	define DETAIL_XIEITE_HEADER_SYS_PROC_STATUS
+#
+#	include "../pp/platform.hpp"
+#
+#	if XIEITE_PLATFORM_TYPE_UNIX
+#		include <sys/wait.h>
+#	endif
 
 namespace xieite {
 	[[nodiscard]] inline int proc_status(int status) noexcept {
-#if XIEITE_PLATFORM_TYPE_UNIX
+#	if XIEITE_PLATFORM_TYPE_UNIX
 		if (WIFEXITED(status)) {
 			return WEXITSTATUS(status);
 		}
@@ -18,7 +19,9 @@ namespace xieite {
 		if (WIFSTOPPED(status)) {
 			return WSTOPSIG(status);
 		}
-#endif
+#	endif
 		return status;
 	}
 }
+
+#endif

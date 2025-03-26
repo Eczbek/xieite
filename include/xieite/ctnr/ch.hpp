@@ -1,7 +1,8 @@
-#pragma once
-
-#include <cstddef>
-#include <string_view>
+#ifndef DETAIL_XIEITE_HEADER_CTNR_CH
+#	define DETAIL_XIEITE_HEADER_CTNR_CH
+#
+#	include <cstddef>
+#	include <string_view>
 
 namespace xieite::ch {
 	inline constexpr std::size_t alphabet_size = 26;
@@ -20,3 +21,5 @@ namespace xieite::ch {
 
 	inline constexpr std::string_view consonants = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz";
 }
+
+#endif

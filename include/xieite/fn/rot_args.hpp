@@ -1,11 +1,12 @@
-#pragma once
-
-#include <cstddef>
-#include <functional>
-#include "../fn/unroll.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../pp/lift.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_ROT_ARGS
+#	define DETAIL_XIEITE_HEADER_FN_ROT_ARGS
+#
+#	include <cstddef>
+#	include <functional>
+#	include "../fn/unroll.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../pp/lift.hpp"
 
 namespace xieite {
 	template<std::size_t n, typename F, typename... Args>
@@ -21,3 +22,5 @@ namespace xieite {
 	[[nodiscard]] constexpr T rot_args(Args&&... args)
 		XIEITE_ARROW_RET(xieite::rot_args<n>(XIEITE_LIFT(T), XIEITE_FWD(args)...))
 }
+
+#endif

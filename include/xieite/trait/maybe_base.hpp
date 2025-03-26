@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_MAYBE_BASE
+#	define DETAIL_XIEITE_HEADER_TRAIT_MAYBE_BASE
 
 namespace DETAIL_XIEITE::maybe_base {
 	template<typename>
@@ -9,3 +10,5 @@ namespace xieite {
 	template<bool x, typename T>
 	using maybe_base = std::conditional_t<x, T, DETAIL_XIEITE::maybe_base::dummy<T>>;
 }
+
+#endif

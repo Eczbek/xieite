@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cstddef>
-#include "../fn/repeat.hpp"
-#include "../math/bit_size.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_MAKE_CXPR
+#	define DETAIL_XIEITE_HEADER_META_MAKE_CXPR
+#
+#	include <cstddef>
+#	include "../fn/repeat.hpp"
+#	include "../math/bit_size.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	constexpr void make_cxpr(auto&& fn, unsigned char x) {
@@ -15,3 +16,5 @@ namespace xieite {
 		});
 	}
 }
+
+#endif

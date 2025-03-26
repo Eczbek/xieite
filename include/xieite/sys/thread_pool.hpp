@@ -1,15 +1,16 @@
-#pragma once
-
-#include <concepts>
-#include <condition_variable>
-#include <cstddef>
-#include <future>
-#include <mutex>
-#include <queue>
-#include <stop_token>
-#include <thread>
-#include <utility>
-#include <vector>
+#ifndef DETAIL_XIEITE_HEADER_SYS_THREAD_POOL
+#	define DETAIL_XIEITE_HEADER_SYS_THREAD_POOL
+#
+#	include <concepts>
+#	include <condition_variable>
+#	include <cstddef>
+#	include <future>
+#	include <mutex>
+#	include <queue>
+#	include <stop_token>
+#	include <thread>
+#	include <utility>
+#	include <vector>
 
 namespace xieite {
 	struct thread_pool {
@@ -74,5 +75,7 @@ namespace xieite {
 		std::condition_variable cond;
 	};
 }
+
+#endif
 
 // Thanks to Evan for help

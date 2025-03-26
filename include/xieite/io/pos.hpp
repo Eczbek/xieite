@@ -1,6 +1,7 @@
-#pragma once
-
-#include "../math/ssize_t.hpp"
+#ifndef DETAIL_XIEITE_HEADER_IO_POS
+#	define DETAIL_XIEITE_HEADER_IO_POS
+#
+#	include "../math/ssize_t.hpp"
 
 namespace xieite {
 	struct pos {
@@ -10,3 +11,5 @@ namespace xieite {
 		[[nodiscard]] friend bool operator==(const xieite::pos&, const xieite::pos&) = default;
 	};
 }
+
+#endif

@@ -1,19 +1,20 @@
-#pragma once
-
-#include <algorithm>
-#include <concepts>
-#include <functional>
-#include <stdexcept>
-#include <ranges>
-#include <vector>
-#include "../math/betw.hpp"
-#include "../math/diff.hpp"
-#include "../math/interval.hpp"
-#include "../math/merge_intervals.hpp"
-#include "../math/minmax.hpp"
-#include "../math/uniform_distr.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_UNIFORM_INTERRUPT_DISTR
+#	define DETAIL_XIEITE_HEADER_MATH_UNIFORM_INTERRUPT_DISTR
+#
+#	include <algorithm>
+#	include <concepts>
+#	include <functional>
+#	include <stdexcept>
+#	include <ranges>
+#	include <vector>
+#	include "../math/betw.hpp"
+#	include "../math/diff.hpp"
+#	include "../math/interval.hpp"
+#	include "../math/merge_intervals.hpp"
+#	include "../math/minmax.hpp"
+#	include "../math/uniform_distr.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -57,3 +58,5 @@ namespace xieite {
 		std::vector<xieite::interval<T>> interrupts;
 	};
 }
+
+#endif

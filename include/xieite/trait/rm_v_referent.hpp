@@ -1,9 +1,10 @@
-#pragma once
-
-#include <type_traits>
-#include "../fn/visitor.hpp"
-#include "../trait/cp_cvref.hpp"
-#include "../trait/rm_cvref.hpp"
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_RM_V_REFERENT
+#	define DETAIL_XIEITE_HEADER_TRAIT_RM_V_REFERENT
+#
+#	include <type_traits>
+#	include "../fn/visitor.hpp"
+#	include "../trait/cp_cvref.hpp"
+#	include "../trait/rm_cvref.hpp"
 
 namespace xieite {
 	template<typename T>
@@ -24,3 +25,5 @@ namespace xieite {
 		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const volatile && noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args..., ...) const && noexcept(noex)>(); }
 	)(std::type_identity<xieite::rm_cvref<T>>()))::type>;
 }
+
+#endif

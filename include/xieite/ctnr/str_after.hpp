@@ -1,15 +1,16 @@
-#pragma once
-
-#include <cstddef>
-#include <string>
-#include <string_view>
-#include "../ctnr/str_view.hpp"
-#include "../ctnr/strlen.hpp"
-#include "../ctnr/substr.hpp"
-#include "../meta/group.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_STR_AFTER
+#	define DETAIL_XIEITE_HEADER_CTNR_STR_AFTER
+#
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
+#	include "../ctnr/str_view.hpp"
+#	include "../ctnr/strlen.hpp"
+#	include "../ctnr/substr.hpp"
+#	include "../meta/group.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch, typename Traits = std::char_traits<Ch>>
@@ -24,3 +25,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto str_after(const xieite::group<Ch[n]>& str, auto&& delim)
 		XIEITE_ARROW(xieite::str_after(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(delim)))
 }
+
+#endif

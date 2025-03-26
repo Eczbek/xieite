@@ -1,3 +1,5 @@
-#pragma once
-
-#define XIEITE_COMMA(...) ,
+#ifndef DETAIL_XIEITE_HEADER_PP_COMMA
+#	define DETAIL_XIEITE_HEADER_PP_COMMA
+#
+#	define XIEITE_COMMA(...) ,
+#endif

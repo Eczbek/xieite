@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_FN_VISITOR
+#	define DETAIL_XIEITE_HEADER_FN_VISITOR
 
 namespace xieite {
 	template<typename... Fs>
@@ -9,3 +10,5 @@ namespace xieite {
 	template<typename... Fs>
 	visitor(Fs...) -> visitor<Fs...>;
 }
+
+#endif

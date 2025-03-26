@@ -1,7 +1,8 @@
-#pragma once
-
-#include <compare>
-#include "../trait/is_order.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_ORDER_OP
+#	define DETAIL_XIEITE_HEADER_FN_ORDER_OP
+#
+#	include <compare>
+#	include "../trait/is_order.hpp"
 
 namespace xieite::order_op {
 	template<xieite::is_order Order>
@@ -14,3 +15,5 @@ namespace xieite::order_op {
 		return std::is_eq(l) ? r : l;
 	}
 }
+
+#endif

@@ -1,11 +1,12 @@
-#pragma once
-
-#include <cstddef>
-#include <string>
-#include <string_view>
-#include "../meta/group.hpp"
-#include "../pp/arrow.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_STR_VIEW
+#	define DETAIL_XIEITE_HEADER_CTNR_STR_VIEW
+#
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
+#	include "../meta/group.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch>
@@ -28,3 +29,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto str_view(Ch&& c = {})
 		XIEITE_ARROW(std::basic_string_view<Ch, Traits>(&c, 1))
 }
+
+#endif

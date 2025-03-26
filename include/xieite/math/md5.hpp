@@ -1,16 +1,17 @@
-#pragma once
-
-#include <array>
-#include <bit>
-#include <cstddef>
-#include <cstdint>
-#include <string>
-#include <string_view>
-#include <vector>
-#include "../math/join_bits.hpp"
-#include "../math/sign_cast.hpp"
-#include "../math/str_num.hpp"
-#include "../math/unjoin_bits.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_MD5
+#	define DETAIL_XIEITE_HEADER_MATH_MD5
+#
+#	include <array>
+#	include <bit>
+#	include <cstddef>
+#	include <cstdint>
+#	include <string>
+#	include <string_view>
+#	include <vector>
+#	include "../math/join_bits.hpp"
+#	include "../math/sign_cast.hpp"
+#	include "../math/str_num.hpp"
+#	include "../math/unjoin_bits.hpp"
 
 namespace xieite {
 	[[nodiscard]] constexpr std::string md5(std::string_view str) noexcept {
@@ -65,3 +66,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

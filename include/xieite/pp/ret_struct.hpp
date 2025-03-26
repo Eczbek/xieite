@@ -1,9 +1,11 @@
-#pragma once
-
-#include "../pp/cat.hpp"
-
-#define XIEITE_RET_STRUCT(...) DETAIL_XIEITE_RET_STRUCT(XIEITE_CAT(DETAIL_XIEITE_struct_, __COUNTER__), __VA_ARGS__)
-
-#define DETAIL_XIEITE_RET_STRUCT(name_, ...) \
+#ifndef DETAIL_XIEITE_HEADER_PP_RET_STRUCT
+#	define DETAIL_XIEITE_HEADER_PP_RET_STRUCT
+#
+#	include "../pp/cat.hpp"
+#
+#	define XIEITE_RET_STRUCT(...) DETAIL_XIEITE_RET_STRUCT(XIEITE_CAT(DETAIL_XIEITE_struct_, __COUNTER__), __VA_ARGS__)
+#
+#	define DETAIL_XIEITE_RET_STRUCT(name_, ...) \
 	struct name_ __VA_ARGS__; \
 	return name_
+#endif

@@ -1,17 +1,18 @@
-#pragma once
-
-#include <algorithm>
-#include <concepts>
-#include <cstddef>
-#include <ranges>
-#include <type_traits>
-#include <vector>
-#include "../ctnr/rotated.hpp"
-#include "../fn/cast.hpp"
-#include "../math/intxn2d.hpp"
-#include "../math/pt2d.hpp"
-#include "../math/segm2d.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_POLY2D
+#	define DETAIL_XIEITE_HEADER_MATH_POLY2D
+#
+#	include <algorithm>
+#	include <concepts>
+#	include <cstddef>
+#	include <ranges>
+#	include <type_traits>
+#	include <vector>
+#	include "../ctnr/rotated.hpp"
+#	include "../fn/cast.hpp"
+#	include "../math/intxn2d.hpp"
+#	include "../math/pt2d.hpp"
+#	include "../math/segm2d.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith>
@@ -106,3 +107,5 @@ namespace xieite {
 		}
 	};
 }
+
+#endif

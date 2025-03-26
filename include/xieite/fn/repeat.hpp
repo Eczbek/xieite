@@ -1,10 +1,11 @@
-#pragma once
-
-#include <concepts>
-#include "../meta/make_seq.hpp"
-#include "../meta/seq.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_REPEAT
+#	define DETAIL_XIEITE_HEADER_FN_REPEAT
+#
+#	include <concepts>
+#	include "../meta/make_seq.hpp"
+#	include "../meta/seq.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<std::integral auto n>
@@ -18,3 +19,5 @@ namespace xieite {
 	constexpr void repeat(auto&& fn, auto&&... args)
 		XIEITE_ARROW_RET(xieite::repeat<sizeof...(Ts)>(XIEITE_FWD(fn), XIEITE_FWD(args)...))
 }
+
+#endif

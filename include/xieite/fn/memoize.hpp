@@ -1,15 +1,16 @@
-#pragma once
-
-#include <concepts>
-#include <cstddef>
-#include <functional>
-#include <tuple>
-#include <type_traits>
-#include <unordered_map>
-#include <utility>
-#include "../fn/unroll.hpp"
-#include "../math/hash_combine.hpp"
-#include "../trait/is_hashable.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_MEMOIZE
+#	define DETAIL_XIEITE_HEADER_FN_MEMOIZE
+#
+#	include <concepts>
+#	include <cstddef>
+#	include <functional>
+#	include <tuple>
+#	include <type_traits>
+#	include <unordered_map>
+#	include <utility>
+#	include "../fn/unroll.hpp"
+#	include "../math/hash_combine.hpp"
+#	include "../trait/is_hashable.hpp"
 
 namespace DETAIL_XIEITE::memoize {
 	template<typename F, typename... Args>
@@ -73,5 +74,7 @@ namespace xieite {
 		}
 	}
 }
+
+#endif
 
 // Thanks to wreien (https://github.com/wreien) for rewriting everything entirely

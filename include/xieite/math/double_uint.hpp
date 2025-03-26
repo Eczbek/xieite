@@ -1,16 +1,17 @@
-#pragma once
-
-#include <bit>
-#include <compare>
-#include <concepts>
-#include <cstddef>
-#include <stdexcept>
-#include <utility>
-#include "../fn/order_op.hpp"
-#include "../math/add_overflow.hpp"
-#include "../math/bit_size.hpp"
-#include "../math/lshift.hpp"
-#include "../math/rshift.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_DOUBLE_UINT
+#	define DETAIL_XIEITE_HEADER_MATH_DOUBLE_UINT
+#
+#	include <bit>
+#	include <compare>
+#	include <concepts>
+#	include <cstddef>
+#	include <stdexcept>
+#	include <utility>
+#	include "../fn/order_op.hpp"
+#	include "../math/add_overflow.hpp"
+#	include "../math/bit_size.hpp"
+#	include "../math/lshift.hpp"
+#	include "../math/rshift.hpp"
 
 namespace xieite {
 	template<std::unsigned_integral T>
@@ -268,5 +269,7 @@ namespace xieite {
 		}
 	};
 }
+
+#endif
 
 // Thanks to Ian Pike (https://github.com/Rinzii) for fixing subtraction, division, and bitwise shifting operators

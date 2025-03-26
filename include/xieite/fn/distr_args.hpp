@@ -1,14 +1,15 @@
-#pragma once
-
-#include <cstddef>
-#include <tuple>
-#include <utility>
-#include "../fn/unroll.hpp"
-#include "../meta/splice_tuple.hpp"
-#include "../meta/subtuple.hpp"
-#include "../meta/tuple_size.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_DISTR_ARGS
+#	define DETAIL_XIEITE_HEADER_FN_DISTR_ARGS
+#
+#	include <cstddef>
+#	include <tuple>
+#	include <utility>
+#	include "../fn/unroll.hpp"
+#	include "../meta/splice_tuple.hpp"
+#	include "../meta/subtuple.hpp"
+#	include "../meta/tuple_size.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	template<std::size_t arity, std::size_t prev = 0>
@@ -52,3 +53,5 @@ namespace xieite {
 		})(XIEITE_FWD(fn), std::forward_as_tuple(XIEITE_FWD(args)...));
 	}
 }
+
+#endif

@@ -1,6 +1,7 @@
-#pragma once
-
-#include <cstdint>
+#ifndef DETAIL_XIEITE_HEADER_IO_KEYS
+#	define DETAIL_XIEITE_HEADER_IO_KEYS
+#
+#	include <cstdint>
 
 namespace xieite {
 	enum struct keys : std::uint_least16_t {
@@ -302,3 +303,5 @@ namespace xieite {
 		unknown
 	};
 }
+
+#endif

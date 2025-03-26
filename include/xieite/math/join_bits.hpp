@@ -1,10 +1,11 @@
-#pragma once
-
-#include <array>
-#include <bitset>
-#include <concepts>
-#include "../math/bit_size.hpp"
-#include "../trait/try_unsign.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_JOIN_BITS
+#	define DETAIL_XIEITE_HEADER_MATH_JOIN_BITS
+#
+#	include <array>
+#	include <bitset>
+#	include <concepts>
+#	include "../math/bit_size.hpp"
+#	include "../trait/try_unsign.hpp"
 
 namespace xieite {
 	template<std::integral... Ts>
@@ -25,3 +26,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

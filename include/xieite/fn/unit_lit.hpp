@@ -1,6 +1,7 @@
-#pragma once
-
-#include "../math/unit.hpp"
+#ifndef DETAIL_XIEITE_HEADER_FN_UNIT_LIT
+#	define DETAIL_XIEITE_HEADER_FN_UNIT_LIT
+#
+#	include "../math/unit.hpp"
 
 namespace xieite::unit_lit {
 	[[nodiscard]] consteval auto operator""_qm(unsigned long long int n) noexcept {
@@ -1199,3 +1200,5 @@ namespace xieite::unit_lit {
 		return xieite::unit::eons(n);
 	}
 }
+
+#endif

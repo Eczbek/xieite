@@ -1,17 +1,18 @@
-#pragma once
-
-#include <concepts>
-#include <cstddef>
-#include <type_traits>
-#include "../fn/unroll.hpp"
-#include "../meta/end.hpp"
-#include "../meta/fold.hpp"
-#include "../meta/value.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_satisfd.hpp"
-#include "../trait/is_satisfd_all.hpp"
-#include "../trait/is_satisfd_any.hpp"
+#ifndef DETAIL_XIEITE_HEADER_META_TYPE_LIST
+#	define DETAIL_XIEITE_HEADER_META_TYPE_LIST
+#
+#	include <concepts>
+#	include <cstddef>
+#	include <type_traits>
+#	include "../fn/unroll.hpp"
+#	include "../meta/end.hpp"
+#	include "../meta/fold.hpp"
+#	include "../meta/value.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_satisfd.hpp"
+#	include "../trait/is_satisfd_all.hpp"
+#	include "../trait/is_satisfd_any.hpp"
 
 namespace xieite {
 	template<typename... Ts>
@@ -206,5 +207,7 @@ namespace xieite {
 		})(std::type_identity<R>()));
 	};
 }
+
+#endif
 
 // Thanks to eightfold (https://github.com/8ightfold) for helping compact the slicer

@@ -1,10 +1,11 @@
-#pragma once
-
-#include <cmath>
-#include <limits>
-#include "../math/abs.hpp"
-#include "../math/diff.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_ALMOST_EQ
+#	define DETAIL_XIEITE_HEADER_MATH_ALMOST_EQ
+#
+#	include <cmath>
+#	include <limits>
+#	include "../math/abs.hpp"
+#	include "../math/diff.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T>
@@ -23,3 +24,5 @@ namespace xieite {
 		return xieite::diff(n, m) <= xieite::abs(epsilon);
 	}
 }
+
+#endif

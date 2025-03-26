@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DETAIL_XIEITE_HEADER_META_VALUE
+#	define DETAIL_XIEITE_HEADER_META_VALUE
 
 namespace DETAIL_XIEITE::value {
 	template<decltype(auto) x>
@@ -11,3 +12,5 @@ namespace xieite {
 	template<decltype(auto) x>
 	using value = DETAIL_XIEITE::value::impl<x>;
 }
+
+#endif

@@ -1,9 +1,10 @@
-#pragma once
-
-#include <cstddef>
-#include <type_traits>
-#include "../fn/unroll.hpp"
-#include "../meta/fold.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_MD_CTNR
+#	define DETAIL_XIEITE_HEADER_CTNR_MD_CTNR
+#
+#	include <cstddef>
+#	include <type_traits>
+#	include "../fn/unroll.hpp"
+#	include "../meta/fold.hpp"
 
 namespace xieite {
 	template<template<typename> typename Ctnr, typename V, std::size_t rank>
@@ -17,3 +18,5 @@ namespace xieite {
 		>();
 	}))::type;
 }
+
+#endif

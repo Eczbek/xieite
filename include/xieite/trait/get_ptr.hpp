@@ -1,7 +1,8 @@
-#pragma once
-
-#include <cstddef>
-#include <type_traits>
+#ifndef DETAIL_XIEITE_HEADER_TRAIT_GET_PTR
+#	define DETAIL_XIEITE_HEADER_TRAIT_GET_PTR
+#
+#	include <cstddef>
+#	include <type_traits>
 
 namespace xieite {
 	template<typename T>
@@ -13,3 +14,5 @@ namespace xieite {
 		}
 	})();
 }
+
+#endif

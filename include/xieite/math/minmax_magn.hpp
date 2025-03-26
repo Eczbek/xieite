@@ -1,10 +1,11 @@
-#pragma once
-
-#include <concepts>
-#include "../math/closest.hpp"
-#include "../math/farthest.hpp"
-#include "../math/interval.hpp"
-#include "../trait/is_arith.hpp"
+#ifndef DETAIL_XIEITE_HEADER_MATH_MINMAX_MAGN
+#	define DETAIL_XIEITE_HEADER_MATH_MINMAX_MAGN
+#
+#	include <concepts>
+#	include "../math/closest.hpp"
+#	include "../math/farthest.hpp"
+#	include "../math/interval.hpp"
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith T, std::convertible_to<T>... Ts>
@@ -19,3 +20,5 @@ namespace xieite {
 		return result;
 	}
 }
+
+#endif

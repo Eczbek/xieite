@@ -1,15 +1,16 @@
-#pragma once
-
-#include <cstddef>
-#include <string>
-#include <string_view>
-#include "../ctnr/str_view.hpp"
-#include "../ctnr/trim_back.hpp"
-#include "../ctnr/trim_front.hpp"
-#include "../meta/group.hpp"
-#include "../pp/arrow.hpp"
-#include "../pp/fwd.hpp"
-#include "../trait/is_ch.hpp"
+#ifndef DETAIL_XIEITE_HEADER_CTNR_TRIM
+#	define DETAIL_XIEITE_HEADER_CTNR_TRIM
+#
+#	include <cstddef>
+#	include <string>
+#	include <string_view>
+#	include "../ctnr/str_view.hpp"
+#	include "../ctnr/trim_back.hpp"
+#	include "../ctnr/trim_front.hpp"
+#	include "../meta/group.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../trait/is_ch.hpp"
 
 namespace xieite {
 	template<typename Ch, typename Traits = std::char_traits<Ch>>
@@ -24,3 +25,5 @@ namespace xieite {
 	[[nodiscard]] constexpr auto trim(const xieite::group<Ch[n]>& str, auto&& chars)
 		XIEITE_ARROW(xieite::trim(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(chars)))
 }
+
+#endif

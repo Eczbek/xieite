@@ -1,7 +1,8 @@
-#pragma once
-
-#include <concepts>
-#include <cstddef>
+#ifndef DETAIL_XIEITE_HEADER_MATH_XOR_SHIFT
+#	define DETAIL_XIEITE_HEADER_MATH_XOR_SHIFT
+#
+#	include <concepts>
+#	include <cstddef>
 
 namespace xieite {
 	template<std::integral T>
@@ -9,3 +10,5 @@ namespace xieite {
 		return n ^ (n >> bits);
 	}
 }
+
+#endif
