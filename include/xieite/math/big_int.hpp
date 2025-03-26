@@ -34,7 +34,7 @@ namespace xieite {
 	public:
 		using type = T;
 
-		template<std::integral U = int>
+		template<std::integral U = xieite::ssize_t>
 		[[nodiscard]] explicit(false) constexpr big_int(U x = 0) noexcept
 		: neg(xieite::neg(x)) {
 			xieite::try_unsign<U> abs = xieite::abs(x);

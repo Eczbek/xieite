@@ -38,7 +38,7 @@ namespace xieite {
 						continue;
 					}
 				} else if ((i < (size - 1)) && config.e.contains(str[i])) {
-					return str.substr(start, i - start + xieite::find_num<int>(str.substr(i + 1)).size() + 1);
+					return str.substr(start, i - start + xieite::find_num<xieite::ssize_t>(str.substr(i + 1)).size() + 1);
 				}
 				break;
 			}

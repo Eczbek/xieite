@@ -30,7 +30,7 @@ namespace xieite {
 			T integral = 0;
 			T fractional = 0;
 			std::size_t point = 0;
-			int pow = 0;
+			xieite::ssize_t pow = 0;
 			for (; i < str.size(); ++i) {
 				const std::size_t digit = digits.find(str[i]);
 				if (digit == std::string::npos) {
@@ -40,7 +40,7 @@ namespace xieite {
 						}
 						point = 1;
 					} else if (config.e.contains(str[i])) {
-						pow = xieite::parse_num<int>(str.substr(i + 1), radix, config);
+						pow = xieite::parse_num<xieite::ssize_t>(str.substr(i + 1), radix, config);
 						break;
 					}
 					continue;

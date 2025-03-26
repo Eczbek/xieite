@@ -5,6 +5,7 @@
 #include <type_traits>
 #include "../math/least_int.hpp"
 #include "../math/least_uint.hpp"
+#include "../math/ssize_t.hpp"
 
 namespace xieite {
 	template<std::size_t bits, bool sign>
@@ -13,7 +14,7 @@ namespace xieite {
 
 		typename xieite::bit_field<bits, sign>::type value : bits;
 
-		template<std::integral T = int>
+		template<std::integral T = xieite::ssize_t>
 		[[nodiscard]] constexpr bit_field(T n = 0) noexcept
 		: value(static_cast<typename xieite::bit_field<bits, sign>::type>(n)) {}
 

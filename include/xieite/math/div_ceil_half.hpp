@@ -3,6 +3,7 @@
 #include <cmath>
 #include <concepts>
 #include "../math/sign.hpp"
+#include "../math/ssize_t.hpp"
 #include "../trait/is_arith.hpp"
 
 namespace xieite {
@@ -13,7 +14,7 @@ namespace xieite {
 			const T fractional = std::fmod(result, 1);
 			return std::floor(result) + (result < 0) + (fractional >= 0.5) - (fractional < -0.5);
 		} else {
-			const int quot_sign = xieite::sign(dividend, divisor);
+			const xieite::ssize_t quot_sign = xieite::sign(dividend, divisor);
 			return static_cast<T>(dividend / divisor + ((dividend % divisor * xieite::sign(dividend)) >= (divisor / 2 * xieite::sign(divisor) + ((divisor % 2) || (quot_sign < 0)))) * quot_sign);
 		}
 	}

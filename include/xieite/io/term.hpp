@@ -216,10 +216,10 @@ namespace xieite {
 			int col;
 			std::fscanf(this->in, "\x1B[%i;%iR", &row, &col);
 			this->canon(canon_prev);
-			return xieite::pos(row - 1, col - 1);
+			return xieite::pos(static_cast<xieite::ssize_t>(row - 1), static_cast<xieite::ssize_t>(col - 1));
 		}
 
-		[[nodiscard]] constexpr std::string set_cursor_code(int row, int col) noexcept {
+		[[nodiscard]] constexpr std::string set_cursor_code(xieite::ssize_t row, xieite::ssize_t col) noexcept {
 			return "\x1B["s + xieite::str_num(row + 1) + ";"s + xieite::str_num(col + 1) + "H"s;
 		}
 
@@ -227,7 +227,7 @@ namespace xieite {
 			return xieite::term::set_cursor_code(pos.row, pos.col);
 		}
 
-		void set_cursor(int row, int col) noexcept {
+		void set_cursor(xieite::ssize_t row, xieite::ssize_t col) noexcept {
 			std::fputs(xieite::term::set_cursor_code(row, col).c_str(), this->out);
 		}
 
@@ -235,7 +235,7 @@ namespace xieite {
 			this->set_cursor(pos.row, pos.col);
 		}
 
-		[[nodiscard]] constexpr std::string mv_cursor_code(int row, int col) noexcept {
+		[[nodiscard]] constexpr std::string mv_cursor_code(xieite::ssize_t row, xieite::ssize_t col) noexcept {
 			std::string code;
 			if (row) {
 				code += "\x1B[";
@@ -254,7 +254,7 @@ namespace xieite {
 			return xieite::term::mv_cursor_code(diff.row, diff.col);
 		}
 
-		void mv_cursor(int row, int col) noexcept {
+		void mv_cursor(xieite::ssize_t row, xieite::ssize_t col) noexcept {
 			std::fputs(xieite::term::mv_cursor_code(row, col).c_str(), this->out);
 		}
 
