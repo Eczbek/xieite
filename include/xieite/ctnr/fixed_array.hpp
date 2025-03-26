@@ -119,7 +119,9 @@ namespace xieite {
 			XIEITE_ARROW(xieite::unroll<n>(
 				[]<std::size_t... i>(auto iter) static
 					XIEITE_ARROW(xieite::fixed_array<T, n> {
-						([]<std::size_t j>(auto& iter) static XIEITE_ARROW_IF(j, ++iter, *iter)).template operator()<i>(iter)...
+						([]<std::size_t j>(auto& iter) static
+							XIEITE_ARROW_IF(j, ++iter, *iter)
+						).template operator()<i>(iter)...
 					}),
 				std::ranges::begin(range)
 			))
