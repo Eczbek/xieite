@@ -1,9 +1,9 @@
-#ifndef DETAIL_XIEITE_HEADER_FN_UNIT_LIT
-#	define DETAIL_XIEITE_HEADER_FN_UNIT_LIT
+#ifndef DETAIL_XIEITE_HEADER_FN_UNIT
+#	define DETAIL_XIEITE_HEADER_FN_UNIT
 #
 #	include "../math/unit.hpp"
 
-namespace xieite::unit_lit {
+namespace xieite::_unit {
 	[[nodiscard]] consteval auto operator""_qm(unsigned long long int n) noexcept {
 		return xieite::unit::qm(static_cast<double>(n));
 	}

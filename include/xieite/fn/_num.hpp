@@ -1,5 +1,5 @@
-#ifndef DETAIL_XIEITE_HEADER_FN_NUM_LIT
-#	define DETAIL_XIEITE_HEADER_FN_NUM_LIT
+#ifndef DETAIL_XIEITE_HEADER_FN_NUM
+#	define DETAIL_XIEITE_HEADER_FN_NUM
 #
 #	include <cstddef>
 #	include <cstdint>
@@ -14,7 +14,7 @@
 #		include <stdfloat>
 #	endif
 
-namespace xieite::num_lit {
+namespace xieite::_num {
 	[[nodiscard]] consteval auto operator""_i(unsigned long long int n) noexcept {
 		return static_cast<int>(n);
 	}

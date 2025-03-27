@@ -1,9 +1,9 @@
-#ifndef DETAIL_XIEITE_HEADER_FN_RADIX_LIT
-#	define DETAIL_XIEITE_HEADER_FN_RADIX_LIT
+#ifndef DETAIL_XIEITE_HEADER_FN_RADIX
+#	define DETAIL_XIEITE_HEADER_FN_RADIX
 #
 #	include <cstddef>
 
-namespace xieite::radix_lit {
+namespace xieite::_radix {
 	template<char... chars>
 	[[nodiscard]] consteval std::size_t operator""_radix() noexcept {
 		if constexpr ((sizeof...(chars) > 1) && (chars...[0] == '0')) {
