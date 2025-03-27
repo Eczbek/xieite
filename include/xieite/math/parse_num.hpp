@@ -8,6 +8,7 @@
 #	include <type_traits>
 #	include "../ctnr/num_str_config.hpp"
 #	include "../fn/tmp.hpp"
+#	include "../math/abs.hpp"
 #	include "../math/pow.hpp"
 #	include "../math/ssize_t.hpp"
 #	include "../math/split_bool.hpp"
@@ -68,7 +69,7 @@ namespace xieite {
 
 	template<xieite::is_arith T>
 	[[nodiscard]] constexpr T parse_num(std::string_view str, std::conditional_t<std::floating_point<T>, xieite::ssize_t, T> radix = 10, const xieite::num_str_config& config = {}) noexcept {
-		return xieite::parse_num(xieite::tmp(0), str, radix, config);
+		return xieite::parse_num<T>(xieite::tmp(0uz), str, radix, config);
 	}
 }
 
