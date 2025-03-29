@@ -8,7 +8,7 @@ namespace DETAIL_XIEITE::is_spec {
 	template<typename, template<typename...> typename>
 	constexpr bool impl = false;
 
-	template<typename T, template<typename...> typename M, typename... Args>
+	template<template<typename...> typename M, typename... Args>
 	constexpr bool impl<M<Args...>, M> = true;
 }
 
