@@ -2,13 +2,13 @@
 #	define DETAIL_XIEITE_HEADER_SYS_AVAIL_MEM
 #
 #	include <cstddef>
-#	include <memory>
 #	include "../pp/platform.hpp"
-#	include "../sys/page_mem.hpp"
 #
 #	if XIEITE_PLATFORM_TYPE_UNIX
 #		include <unistd.h>
+#		include "../sys/page_mem.hpp"
 #	elif XIEITE_PLATFORM_TYPE_WINDOWS
+#		include <memory>
 #		include <windows.h>
 #	else
 #		warning unsupported platform
