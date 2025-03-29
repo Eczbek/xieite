@@ -36,7 +36,7 @@ XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 		__VA_OPT__(XIEITE_EACH_DELIM(DETAIL_XIEITE_FN_REF,, XIEITE_SEQ(256)) \
 		return __VA_ARGS__;) \
 	}
-#	define DETAIL_XIEITE_FN_TEMPLATE_PARAM(i_) typename $$##i_ = DETAIL_XIEITE::FN::t<i_, $$...>
+#	define DETAIL_XIEITE_FN_TEMPLATE_PARAM(i_) typename $$##i_ = DETAIL_XIEITE::FN::t<i_, $$...>::type
 #	define DETAIL_XIEITE_FN_PARAM(i_) decltype(DETAIL_XIEITE::FN::v<i_>(XIEITE_FWD($)...)) $##i_
 #	define DETAIL_XIEITE_FN_REF(i_) [[maybe_unused]] auto&& $##i_ = DETAIL_XIEITE::FN::v<i_>(XIEITE_FWD($)...);
 
@@ -61,13 +61,13 @@ namespace DETAIL_XIEITE::FN {
 	};
 
 	template<std::size_t idx, typename... Ts>
-	using t = decltype(([]<typename... Us> static {
+	struct t : decltype(([]<typename... Us> static {
 		if constexpr (idx < sizeof...(Us)) {
 			return std::type_identity<Us...[idx]>();
 		} else {
 			return std::type_identity<DETAIL_XIEITE::FN::unusable>();
 		}
-	}).template operator()<Ts...>())::type;
+	}).template operator()<Ts...>()) {};
 
 	// Workaround for GCC bug (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117061)
 	template<typename F>

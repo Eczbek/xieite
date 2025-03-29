@@ -7,8 +7,7 @@
 #	include "../trait/is_noex_bool_testable.hpp"
 
 namespace xieite {
-	inline constexpr auto synth_three_way =
-		[]<typename T, typename U>(const T& l, const U& r)
+	inline constexpr auto synth_three_way = []<typename T, typename U>(const T& l, const U& r)
 		noexcept(requires {
 			{ l < r } -> xieite::is_noex_bool_testable;
 			{ r < l } -> xieite::is_noex_bool_testable;

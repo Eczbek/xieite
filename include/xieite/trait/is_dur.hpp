@@ -7,9 +7,17 @@
 #	include "../trait/is_ratio.hpp"
 #	include "../trait/rm_cv.hpp"
 
+namespace DETAIL_XIEITE::is_dur {
+	template<typename>
+	constexpr bool impl = false;
+
+	template<xieite::is_arith T, xieite::is_ratio U>
+	constexpr bool impl<std::chrono::duration<T, U>> = true;
+}
+
 namespace xieite {
 	template<typename T>
-	concept is_dur = requires { ([]<xieite::is_arith U, xieite::is_ratio V>(std::type_identity<std::chrono::duration<U, V>>) {})(std::type_identity<xieite::rm_cv<T>>()); };
+	concept is_dur = DETAIL_XIEITE::is_dur::impl<xieite::rm_cv<T>>;
 }
 
 #endif

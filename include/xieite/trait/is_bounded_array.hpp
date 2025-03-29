@@ -2,13 +2,21 @@
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_BOUNDED_ARRAY
 #
 #	include <cstddef>
-#	include <type_traits>
+
+namespace DETAIL_XIEITE::is_bounded_array {
+	template<typename, std::size_t>
+	constexpr bool impl = false;
+
+	template<typename T, std::size_t n>
+	constexpr bool impl<T[n], n> = true;
+
+	template<typename T, std::size_t n>
+	constexpr bool impl<T[n], -1uz> = true;
+}
 
 namespace xieite {
 	template<typename T, std::size_t n = -1uz>
-	concept is_bounded_array = (n == -1uz)
-		? requires { ([]<typename U, std::size_t m>(std::type_identity<U[m]>) {})(std::type_identity<T>()); }
-		: requires { ([]<typename U>(std::type_identity<U[n]>) {})(std::type_identity<T>()); };
+	concept is_bounded_array = DETAIL_XIEITE::is_bounded_array::impl<T, n>;
 }
 
 #endif

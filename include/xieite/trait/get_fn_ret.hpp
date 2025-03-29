@@ -5,9 +5,9 @@
 #	include "../fn/visitor.hpp"
 #	include "../trait/rm_cvref.hpp"
 
-namespace xieite {
+namespace DETAIL_XIEITE::get_fn_ret {
 	template<typename T>
-	using get_fn_ret = decltype(xieite::visitor(
+	struct impl : decltype(xieite::visitor(
 		[]<typename U, typename S>(std::type_identity<U S::*>) static { return std::type_identity<U>(); },
 		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args...) noexcept(noex)>) static { return std::type_identity<Ret>(); },
 		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args..., ...) noexcept(noex)>) static { return std::type_identity<Ret>(); },
@@ -37,7 +37,12 @@ namespace xieite {
 		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) volatile && noexcept(noex)>) static { return std::type_identity<Ret>(); },
 		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const volatile && noexcept(noex)>) static { return std::type_identity<Ret>(); },
 		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const volatile && noexcept(noex)>) static { return std::type_identity<Ret>(); }
-	)(std::type_identity<xieite::rm_cvref<T>>()))::type;
+	)(std::type_identity<xieite::rm_cvref<T>>())) {};
+}
+
+namespace xieite {
+	template<typename T>
+	using get_fn_ret = DETAIL_XIEITE::get_fn_ret::impl<T>::type;
 }
 
 #endif
