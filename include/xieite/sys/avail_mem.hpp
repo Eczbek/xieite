@@ -22,7 +22,7 @@ namespace xieite {
 		::MEMORYSTATUSEX status;
 		status.dwLength = sizeof(status);
 		::GlobalMemoryStatusEx(std::addressof(status));
-		return status.ullAvailPhys;
+		return static_cast<std::size_t>(status.ullAvailPhys);
 #	else
 		return 0;
 #	endif
