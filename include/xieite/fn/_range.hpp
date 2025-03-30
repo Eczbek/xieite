@@ -5,50 +5,55 @@
 #	include <cstddef>
 #	include <string_view>
 #	include <type_traits>
+#	include "../math/closest.hpp"
 #	include "../math/neg.hpp"
 #	include "../math/parse_num.hpp"
 #	include "../math/ssize_t.hpp"
 
 namespace DETAIL_XIEITE::_range {
-	template<auto one_past, decltype(one_past) inc>
+	template<auto one_past>
 	struct iter {
 		decltype(one_past) i;
+		const decltype(one_past) step = 0;
 
 		[[nodiscard]] constexpr auto operator*() const noexcept {
 			return this->i;
 		}
 
-		[[nodiscard]] friend bool operator==(const DETAIL_XIEITE::_range::iter<one_past, inc>&, const DETAIL_XIEITE::_range::iter<one_past, inc>&) = default;
+		[[nodiscard]] friend constexpr bool operator==(DETAIL_XIEITE::_range::iter<one_past> l, DETAIL_XIEITE::_range::iter<one_past> r) noexcept {
+			return l.i == r.i;
+		}
 
 		constexpr auto& operator++() noexcept {
-			return *this = DETAIL_XIEITE::_range::iter<one_past, inc>(this->i + inc);
+			this->i = xieite::closest(this->i, one_past, this->i + this->step);
+			return *this;
 		}
 	};
 
 	template<auto first, decltype(first) last>
 	struct range {
+		const decltype(first) step = 1;
+
 		[[nodiscard]] constexpr auto operator-() const noexcept {
 			using type = std::conditional_t<
 				(xieite::neg(last) || std::is_unsigned_v<decltype(first)>),
 				std::make_signed<decltype(first)>,
 				std::make_unsigned<decltype(first)>
 			>::type;
-			return DETAIL_XIEITE::_range::range<-static_cast<type>(first), static_cast<type>(last)>();
+			return DETAIL_XIEITE::_range::range<-static_cast<type>(first), static_cast<type>(last)>(this->step);
+		}
+
+		[[nodiscard]] friend constexpr auto operator*(DETAIL_XIEITE::_range::range<first, last>, decltype(first) step) noexcept {
+			return DETAIL_XIEITE::_range::range<first, last>(step);
 		}
 
 		[[nodiscard]] constexpr auto begin() const noexcept {
-			return DETAIL_XIEITE::_range::iter<
-				(last + ((first <= last) * 2 - 1)),
-				((first <= last) * 2 - 1)
-			>(first);
+			return DETAIL_XIEITE::_range::iter<(last + ((first <= last) * 2 - 1))>(first, this->step * ((first <= last) * 2 - 1));
 		}
 
 		[[nodiscard]] constexpr auto end() const noexcept {
 			static constexpr auto one_past = (last + ((first <= last) * 2 - 1));
-			return DETAIL_XIEITE::_range::iter<
-				one_past,
-				((first <= last) * 2 - 1)
-			>(one_past);
+			return DETAIL_XIEITE::_range::iter<one_past>(one_past);
 		}
 	};
 }
