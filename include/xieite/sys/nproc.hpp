@@ -1,5 +1,5 @@
-#ifndef DETAIL_XIEITE_HEADER_SYS_CPU_CORES
-#	define DETAIL_XIEITE_HEADER_SYS_CPU_CORES
+#ifndef DETAIL_XIEITE_HEADER_SYS_NPROC
+#	define DETAIL_XIEITE_HEADER_SYS_NPROC
 #
 #	include <cstddef>
 #	include "../pp/platform.hpp"
@@ -14,7 +14,7 @@
 #	endif
 
 namespace xieite {
-	inline std::size_t cpu_cores() noexcept {
+	inline std::size_t nproc() noexcept {
 #	if XIEITE_PLATFORM_TYPE_UNIX
 		return static_cast<std::size_t>(::sysconf(_SC_NPROCESSORS_ONLN));
 #	elif XIEITE_PLATFORM_TYPE_WINDOWS
