@@ -59,7 +59,7 @@ namespace xieite {
 				n = std::round(n);
 			} else {
 				if (n == std::numeric_limits<T>::min()) {
-					next(-static_cast<T>(n % radix));
+					next(static_cast<Radix>(-(n % static_cast<T>(radix))));
 				}
 				n = static_cast<T>(xieite::abs(n));
 			}
