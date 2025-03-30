@@ -35,12 +35,8 @@ namespace DETAIL_XIEITE::_range {
 		const decltype(first) step = 1;
 
 		[[nodiscard]] constexpr auto operator-() const noexcept {
-			using type = std::conditional_t<
-				(xieite::neg(last) || std::is_unsigned_v<decltype(first)>),
-				std::make_signed<decltype(first)>,
-				std::make_unsigned<decltype(first)>
-			>::type;
-			return DETAIL_XIEITE::_range::range<-static_cast<type>(first), static_cast<type>(last)>(this->step);
+			using type = std::conditional_t<(xieite::neg(last) || std::is_unsigned_v<decltype(first)>), xieite::ssize_t, std::size_t>;
+			return DETAIL_XIEITE::_range::range<-static_cast<type>(first), static_cast<type>(last)>(static_cast<type>(this->step));
 		}
 
 		[[nodiscard]] friend constexpr auto operator*(DETAIL_XIEITE::_range::range<first, last>, decltype(first) step) noexcept {
