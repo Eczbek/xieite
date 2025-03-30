@@ -8,7 +8,6 @@
 #	include "../meta/fwd_tuple.hpp"
 #	include "../meta/tuple_size.hpp"
 #	include "../pp/fwd.hpp"
-#	include "../trait/is_spec.hpp"
 
 namespace xieite {
 	template<std::size_t start, std::size_t end = start, xieite::is_tuple_like Tuple0, xieite::is_tuple_like Tuple1 = std::tuple<>>
