@@ -31,7 +31,7 @@ namespace DETAIL_XIEITE::add_lref_referent {
 
 namespace xieite {
 	template<typename T>
-	using add_lref_referent = xieite::cp_cvref<T, DETAIL_XIEITE::add_lref_referent::impl<T>::type>;
+	using add_lref_referent = xieite::cp_cvref<T, typename DETAIL_XIEITE::add_lref_referent::impl<T>::type>;
 }
 
 #endif

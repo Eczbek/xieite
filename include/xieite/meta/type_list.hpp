@@ -5,6 +5,7 @@
 #	include <cstddef>
 #	include <type_traits>
 #	include "../fn/unroll.hpp"
+#	include "../meta/end.hpp"
 #	include "../meta/fold.hpp"
 #	include "../meta/value.hpp"
 #	include "../pp/arrow.hpp"
@@ -46,7 +47,7 @@ namespace xieite {
 
 	private:
 		template<typename T, auto cmp>
-		struct idx_of_impl : decltype([]<typename U> requires(xieite::is_satisfd<cmp, T, U>) {}) {};
+		static constexpr auto idx_of_impl = []<typename U> requires(xieite::is_satisfd<cmp, T, U>) {};
 
 	public:
 		template<typename T, auto cmp = []<typename U, std::same_as<U>> {}>
@@ -102,15 +103,13 @@ namespace xieite {
 		using prepend_range = xieite::type_list<Ts...>::prepend_range_impl<R>::type;
 
 	private:
-		struct reverse_param {};
-
 		template<int = 0>
 		struct reverse_impl : decltype(xieite::unroll<Ts...>([]<std::size_t... i> static {
 			return std::type_identity<xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>>();
 		})) {};
 	
 	public:
-		template<xieite::type_list<Ts...>::reverse_param...>
+		template<xieite::end...>
 		using reverse = xieite::type_list<Ts...>::reverse_impl<>::type;
 
 	private:
@@ -156,7 +155,7 @@ namespace xieite {
 			::set<idx0, xieite::type_list<Ts...>::at<idx1>>
 			::template set<idx1, xieite::type_list<Ts...>::at<idx0>>;
 
-		template<std::size_t start0, std::size_t end0, std::size_t start1, std::size_t end1>s
+		template<std::size_t start0, std::size_t end0, std::size_t start1, std::size_t end1>
 		using swap_slices =
 			xieite::type_list<Ts...>
 			::replace_range<start0, end0, xieite::type_list<Ts...>::slice<start1, end1>>
@@ -241,7 +240,7 @@ namespace xieite {
 						xieite::type_list<Ts...>
 						::slice<arity * Idx::value, arity * (Idx::value + 1)>
 						::apply(fn)
-					)::type>>();
+					)::type>();
 				},
 				xieite::type_list<>,
 				xieite::value<i>...
@@ -256,7 +255,7 @@ namespace xieite {
 	private:
 		template<typename... Us>
 		struct zip_impl : decltype(xieite::unroll<Ts...>([]<std::size_t... i> static {
-			return std::type_list<xieite::type_list<xieite::type_list<xieite::type_list<Ts...>::at<i>, Us>...>>();
+			return xieite::type_list<xieite::type_list<xieite::type_list<xieite::type_list<Ts...>::at<i>, Us>...>>();
 		})) {};
 
 	public:
@@ -269,7 +268,7 @@ namespace xieite {
 		struct zip_range_impl;
 
 		template<template<typename...> typename M, typename... Us>
-		struct zip_range_impl : std::type_identity<xieite::type_list<Ts...>::zip<Us...>> {};
+		struct zip_range_impl<M<Us...>> : std::type_identity<xieite::type_list<Ts...>::zip<Us...>> {};
 
 	public:
 		template<typename R>

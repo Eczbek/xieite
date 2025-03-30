@@ -29,7 +29,7 @@ namespace DETAIL_XIEITE::add_variadic_referent {
 
 namespace xieite {
 	template<typename T>
-	using add_variadic_referent = xieite::cp_cvref<T, DETAIL_XIEITE::add_variadic_referent::impl<T>::type>;
+	using add_variadic_referent = xieite::cp_cvref<T, typename DETAIL_XIEITE::add_variadic_referent::impl<T>::type>;
 }
 
 #endif

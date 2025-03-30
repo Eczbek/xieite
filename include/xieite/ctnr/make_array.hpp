@@ -7,7 +7,6 @@
 #	include <initializer_list>
 #	include <ranges>
 #	include <utility>
-#	include "../fn/cast.hpp"
 #	include "../fn/unroll.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
@@ -16,7 +15,7 @@
 #	include "../trait/is_bounded_array.hpp"
 
 namespace xieite {
-	template<typename T, std::size_t n, std::ranges::input_range R = std::initializer_list<T>, xieite::is_invoc<T(std::ranges::range_common_reference_t<R>)> F = decltype(xieite::cast<T>)>
+	template<typename T, std::size_t n, std::ranges::input_range R = std::initializer_list<T>, xieite::is_invoc<T(std::ranges::range_common_reference_t<R>)> F = std::identity>
 	[[nodiscard]] constexpr std::array<T, n> make_array(R&& range, F&& conv = {})
 	noexcept(xieite::is_noex_invoc<F, T(std::ranges::range_common_reference_t<R>)>) {
 		return xieite::unroll<n>([&range, &conv]<std::size_t... i> -> std::array<T, n> {
@@ -32,8 +31,8 @@ namespace xieite {
 		});
 	}
 
-	template<typename T, std::size_t n, xieite::is_bounded_array<n> R, xieite::is_invoc<T(std::ranges::range_common_reference_t<R>)> F = decltype(xieite::cast<T>)>
-	[[nodiscard]] constexpr std::array<T, n> make_array(R&& range, F&& conv = {})
+	template<typename T, std::size_t n, xieite::is_bounded_array<n> R, xieite::is_invoc<T(std::ranges::range_common_reference_t<R>)> F = std::identity>
+	[[nodiscard]] constexpr auto make_array(R&& range, F&& conv = {})
 		XIEITE_ARROW(xieite::make_array<T, n>(std::forward_like<R>(std::ranges::ref_view(range), XIEITE_FWD(conv))))
 }
 

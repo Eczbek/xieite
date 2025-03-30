@@ -17,7 +17,7 @@ namespace xieite {
 		if constexpr (xieite::is_tuple_like<T>) {
 			return xieite::tuple_size<T>;
 		} else if constexpr (using U = std::remove_cvref_t<T>; std::is_aggregate_v<U>) {
-			return ([](this auto self, std::size_t offset = 0, auto... curr) /* -> std::size_t */ {
+			return ([](this auto self, std::size_t offset = 0, auto... curr) -> std::size_t {
 				if constexpr (requires { U { curr..., xieite::any() }; } || requires { U { curr..., { xieite::any(), xieite::any() } }; }) {
 					([&offset, curr...](this auto self, auto... pre) -> void {
 						if constexpr (requires { U { curr..., pre..., xieite::any() }; }) {

@@ -21,7 +21,8 @@ namespace xieite {
 	template<xieite::has_cp_ctor T, std::invocable<> F>
 	[[nodiscard]] constexpr T also(T&& x, F&& fn = {})
 	noexcept(xieite::has_noex_cp_ctor<T> && xieite::is_noex_invoc<F>) {
-		return xieite::also(XIEITE_FWD(x), [&] XIEITE_ARROW(std::invoke(XIEITE_FWD(fn))));
+		// Explicitly write empty parameter list because Clang
+		return xieite::also(XIEITE_FWD(x), [&]() XIEITE_ARROW(std::invoke(XIEITE_FWD(fn))));
 	}
 }
 

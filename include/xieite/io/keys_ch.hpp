@@ -1,12 +1,15 @@
 #ifndef DETAIL_XIEITE_HEADER_IO_KEYS_CH
 #	define DETAIL_XIEITE_HEADER_IO_KEYS_CH
 #
+#	include <cstddef>
+#	include <utility>
 #	include "../ctnr/make_sparse_array.hpp"
 #	include "../io/keys.hpp"
+#	include "../math/sign_cast.hpp"
 
 namespace xieite {
 	[[nodiscard]] constexpr char keys_ch(xieite::keys key) noexcept {
-		static constexpr auto map = xieite::make_sparse_array<char, 95>({
+		static constexpr auto map = xieite::make_sparse_array<xieite::keys, char>({
 			{ xieite::keys::sp, ' ' },
 			{ xieite::keys::bang, '!' },
 			{ xieite::keys::quot, '\"' },
@@ -103,7 +106,7 @@ namespace xieite {
 			{ xieite::keys::rbrace, '}' },
 			{ xieite::keys::tilde, '~' }
 		});
-		return map[key];
+		return map[xieite::sign_cast<std::size_t>(std::to_underlying(key))];
 	}
 }
 

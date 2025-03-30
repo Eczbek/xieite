@@ -17,6 +17,7 @@ namespace DETAIL_XIEITE::md_ctnr {
 			decltype(i)...
 		>();
 	})) {};
+}
 
 namespace xieite {
 	template<template<typename> typename Ctnr, typename V, std::size_t rank>

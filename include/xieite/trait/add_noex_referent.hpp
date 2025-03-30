@@ -43,7 +43,7 @@ namespace DETAIL_XIEITE::add_noex_referent {
 
 namespace xieite {
 	template<typename T>
-	using add_noex_referent = xieite::cp_cvref<T, DETAIL_XIEITE::add_noex_referent::impl<T>::type>;
+	using add_noex_referent = xieite::cp_cvref<T, typename DETAIL_XIEITE::add_noex_referent::impl<T>::type>;
 }
 
 #endif
