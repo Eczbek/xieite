@@ -5,9 +5,9 @@
 #	include "../fn/visitor.hpp"
 #	include "../trait/rm_cvref.hpp"
 
-namespace DETAIL_XIEITE::is_noex_referent {
+namespace xieite {
 	template<typename T>
-	constexpr bool impl = xieite::visitor(
+	concept is_noex_referent = xieite::visitor(
 		[](...) static { return false; },
 		[]<typename Ret, typename... Args>(std::type_identity<Ret(Args...) noexcept>) static { return true; },
 		[]<typename Ret, typename... Args>(std::type_identity<Ret(Args..., ...) noexcept>) static { return true; },
@@ -40,9 +40,6 @@ namespace DETAIL_XIEITE::is_noex_referent {
 	)(std::type_identity<xieite::rm_cvref<T>>());
 }
 
-namespace xieite {
-	template<typename T>
-	concept is_noex_referent = DETAIL_XIEITE::is_noex_referent::impl<T>;
-}
-
 #endif
+
+// https://cplusplus.github.io/CWG/issues/2988.html

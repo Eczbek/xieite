@@ -3,17 +3,13 @@
 #
 #	include <type_traits>
 
-namespace DETAIL_XIEITE::is_invoc {
-	template<typename, typename>
-	constexpr bool impl = false;
-
-	template<typename T, typename Ret, typename... Args>
-	constexpr bool impl<T, Ret(Args...)> = std::is_invocable_r_v<Ret, T, Args...>;
-}
-
 namespace xieite {
 	template<typename T, typename Sig = void()>
-	concept is_invoc = DETAIL_XIEITE::is_invoc::impl<T, Sig>;
+	concept is_invoc = ([]<typename Ret, typename... Args>(std::type_identity<Ret(Args...)>) static {
+		return std::is_invocable_r_v<Ret, T, Args...>;
+	})(std::type_identity<Sig>());
 }
 
 #endif
+
+// https://cplusplus.github.io/CWG/issues/2988.html

@@ -3,14 +3,11 @@
 #
 #	include <type_traits>
 
-namespace DETAIL_XIEITE::is_complete {
-	template<typename T, auto>
-	constexpr bool impl = requires { ([]<typename U, auto = sizeof(U)>(std::type_identity<U>) {})(std::type_identity<T>()); };
-}
-
 namespace xieite {
 	template<typename T, auto = [] {}>
-	concept is_complete = DETAIL_XIEITE::is_complete::impl<T, [] {}>;
+	concept is_complete = requires { ([]<typename U, auto = sizeof(U)>(std::type_identity<U>) {})(std::type_identity<T>()); };
 }
 
 #endif
+
+// https://cplusplus.github.io/CWG/issues/2988.html

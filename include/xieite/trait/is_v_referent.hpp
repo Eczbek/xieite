@@ -5,9 +5,9 @@
 #	include "../fn/visitor.hpp"
 #	include "../trait/rm_cvref.hpp"
 
-namespace DETAIL_XIEITE::is_v_referent {
+namespace xieite {
 	template<typename T>
-	constexpr bool impl = xieite::visitor(
+	concept is_v_referent = xieite::visitor(
 		[](...) static { return false; },
 		[]<typename U>(std::type_identity<volatile U*>) static { return true; },
 		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) volatile noexcept(noex)>) static { return true; },
@@ -25,9 +25,6 @@ namespace DETAIL_XIEITE::is_v_referent {
 	)(std::type_identity<xieite::rm_cvref<T>>());
 }
 
-namespace xieite {
-	template<typename T>
-	concept is_v_referent = DETAIL_XIEITE::is_v_referent::impl<T>;
-}
-
 #endif
+
+// https://cplusplus.github.io/CWG/issues/2988.html

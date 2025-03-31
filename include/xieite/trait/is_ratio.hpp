@@ -6,17 +6,11 @@
 #	include <type_traits>
 #	include "../trait/rm_cv.hpp"
 
-namespace DETAIL_XIEITE::is_ratio {
-	template<typename>
-	constexpr bool impl = false;
-
-	template<std::intmax_t numer, std::intmax_t denom>
-	constexpr bool impl<std::ratio<numer, denom>> = true;
-}
-
 namespace xieite {
 	template<typename T>
-	concept is_ratio = DETAIL_XIEITE::is_ratio::impl<xieite::rm_cv<T>>;
+	concept is_ratio = requires { ([]<std::intmax_t numer, std::intmax_t denom>(std::type_identity<std::ratio<numer, denom>>) {})(std::type_identity<xieite::rm_cv<T>>()); };
 }
 
 #endif
+
+// https://cplusplus.github.io/CWG/issues/2988.html
