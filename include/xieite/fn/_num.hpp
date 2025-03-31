@@ -84,7 +84,7 @@ namespace xieite::_num {
 	}
 
 	[[nodiscard]] consteval bool operator""_b(long double n) noexcept {
-		return n;
+		return static_cast<bool>(n);
 	}
 
 	[[nodiscard]] consteval auto operator""_c(unsigned long long int n) noexcept {
