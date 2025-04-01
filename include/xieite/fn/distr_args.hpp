@@ -8,7 +8,6 @@
 #	include "../meta/splice_tuple.hpp"
 #	include "../meta/subtuple.hpp"
 #	include "../meta/tuple_size.hpp"
-#	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 
 namespace xieite {
