@@ -102,14 +102,6 @@ namespace xieite {
 			this->fg(color.r, color.g, color.b);
 		}
 
-		[[nodiscard]] static constexpr std::string fg_reset_code() noexcept {
-			return "\x1B[38m";
-		}
-
-		void fg_reset() noexcept {
-			std::fputs(xieite::term::fg_reset_code().c_str(), this->out);
-		}
-
 		[[nodiscard]] static constexpr std::string bg_code(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept {
 			return "\x1B[48;2;"s + xieite::str_num(r) + ";"s + xieite::str_num(g) + ";"s + xieite::str_num(b) + "m"s;
 		}
@@ -124,14 +116,6 @@ namespace xieite {
 
 		void bg(const xieite::color3& color) noexcept {
 			this->bg(color.r, color.g, color.b);
-		}
-
-		[[nodiscard]] static constexpr std::string bg_reset_code() noexcept {
-			return "\x1B[48m";
-		}
-
-		void bg_reset() noexcept {
-			std::fputs(xieite::term::bg_reset_code().c_str(), this->out);
 		}
 
 		[[nodiscard]] static constexpr std::string bold_code(bool x) noexcept {
@@ -268,7 +252,10 @@ namespace xieite {
 		}
 
 		void cursor_invis(bool x) noexcept {
-			std::fputs(xieite::term::cursor_invis_code(x).c_str(), this->out);
+			if (this->is_cursor_invis != x) {
+				this->is_cursor_invis = x;
+				std::fputs(xieite::term::cursor_invis_code(x).c_str(), this->out);
+			}
 		}
 
 		[[nodiscard]] static constexpr std::string cursor_block_code(bool blink = false) noexcept {
@@ -300,7 +287,10 @@ namespace xieite {
 		}
 
 		void cursor_alt(bool x) noexcept {
-			std::fputs(xieite::term::cursor_alt_code(x).c_str(), this->out);
+			if (this->is_cursor_alt != x) {
+				this->is_cursor_alt = x;
+				std::fputs(xieite::term::cursor_alt_code(x).c_str(), this->out);
+			}
 		}
 
 		[[nodiscard]] static constexpr std::string screen_alt_code(bool x) noexcept {
@@ -308,7 +298,10 @@ namespace xieite {
 		}
 
 		void screen_alt(bool x) noexcept {
-			std::fputs(xieite::term::screen_alt_code(x).c_str(), this->out);
+			if (this->is_screen_alt != x) {
+				this->is_screen_alt = x;
+				std::fputs(xieite::term::screen_alt_code(x).c_str(), this->out);
+			}
 		}
 
 		[[nodiscard]] xieite::pos screen_size() noexcept {
@@ -1001,11 +994,15 @@ namespace xieite {
 		const int block_mode;
 		::termios cooked_mode;
 
-		bool is_block;
-		bool is_echo;
-		bool is_canon;
-		bool is_signal;
-		bool is_proc;
+		bool is_block = false;
+		bool is_echo = false;
+		bool is_canon = false;
+		bool is_signal = false;
+		bool is_proc = false;
+
+		bool is_cursor_invis = false;
+		bool is_cursor_alt = false;
+		bool is_screen_alt = false;
 
 		void flush() noexcept {
 			::fcntl(::fileno(this->in), F_SETFL, this->block_mode | (O_NONBLOCK * !this->is_block));
