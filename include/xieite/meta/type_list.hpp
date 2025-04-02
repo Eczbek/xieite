@@ -100,14 +100,14 @@ namespace xieite {
 		using prepend_range = xieite::type_list<Ts...>::prepend_range_impl<R>::type;
 
 	private:
-		template<int = 0>
+		template<auto>
 		struct reverse_impl : std::type_identity<decltype(xieite::unroll<Ts...>([]<std::size_t... i> static {
 			return xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>();
 		}))> {};
 	
 	public:
 		template<xieite::end...>
-		using reverse = xieite::type_list<Ts...>::reverse_impl<>::type;
+		using reverse = xieite::type_list<Ts...>::reverse_impl<[] {}>::type;
 
 	private:
 		template<std::size_t start, std::size_t end>
