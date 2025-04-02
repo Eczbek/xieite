@@ -134,12 +134,12 @@ namespace xieite {
 			std::fputs(xieite::term::italic_code(x).c_str(), this->out);
 		}
 
-		[[nodiscard]] static constexpr std::string underl_code(bool x) noexcept {
+		[[nodiscard]] static constexpr std::string underln_code(bool x) noexcept {
 			return x ? "\x1B[4m" : "\x1B[24m";
 		}
 
-		void underl(bool x) noexcept {
-			std::fputs(xieite::term::underl_code(x).c_str(), this->out);
+		void underln(bool x) noexcept {
+			std::fputs(xieite::term::underln_code(x).c_str(), this->out);
 		}
 
 		[[nodiscard]] static constexpr std::string blink_code(bool x) noexcept {
