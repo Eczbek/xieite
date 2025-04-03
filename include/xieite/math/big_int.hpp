@@ -26,7 +26,6 @@
 #	include "../math/split_bool.hpp"
 #	include "../math/ssize_t.hpp"
 #	include "../math/sub_overflow.hpp"
-#	include "../trait/rm_cv.hpp"
 #	include "../trait/try_unsign.hpp"
 
 namespace xieite {
