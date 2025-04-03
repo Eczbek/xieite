@@ -7,9 +7,9 @@
 #	include <numeric>
 #	include <string>
 #	include <string_view>
-#	include "../ctnr/ch.hpp"
 #	include "../ctnr/str_view.hpp"
 #	include "../math/bit_size.hpp"
+#	include "../math/ch.hpp"
 #	include "../math/sign_cast.hpp"
 #	include "../meta/group.hpp"
 #	include "../pp/arrow.hpp"

@@ -3,7 +3,7 @@
 #
 #	include <cstddef>
 #	include <string_view>
-#	include "../ctnr/ch.hpp"
+#	include "../math/ch.hpp"
 
 namespace xieite {
 	struct num_str_config {
