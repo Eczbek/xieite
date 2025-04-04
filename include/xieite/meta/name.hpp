@@ -2,10 +2,13 @@
 #	define DETAIL_XIEITE_HEADER_META_NAME
 #
 #	include <string_view>
-#	include "../ctnr/str_after.hpp"
 #	include "../ctnr/str_betw.hpp"
 #	include "../pp/compiler.hpp"
 #	include "../pp/fn_sig.hpp"
+#
+#	if XIEITE_COMPILER_TYPE_MSVC
+#		include "../ctnr/str_after.hpp"
+#	endif
 
 namespace DETAIL_XIEITE::name {
 	[[nodiscard]] consteval std::string_view parse(std::string_view name) noexcept {
