@@ -6,7 +6,7 @@
 
 namespace xieite {
 	template<typename T>
-	concept is_streamable_out = requires (T x, std::ostream ostream) {
+	concept is_streamable_out = requires(T x, std::ostream ostream) {
 		{ ostream << x } -> std::convertible_to<std::ostream&>;
 	};
 }

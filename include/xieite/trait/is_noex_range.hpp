@@ -11,7 +11,7 @@ namespace xieite {
 		std::ranges::range<T>
 		&& xieite::is_noex_iter<std::ranges::iterator_t<T>>
 		&& xieite::is_noex_sentinel<std::ranges::sentinel_t<T>, std::ranges::iterator_t<T>>
-		&& requires (T range) {
+		&& requires(T range) {
 			requires(noexcept(std::ranges::begin(range)));
 			requires(noexcept(std::ranges::end(range)));
 			requires(noexcept(std::ranges::cbegin(range)));
