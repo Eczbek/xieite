@@ -1,7 +1,6 @@
 #ifndef DETAIL_XIEITE_HEADER_PP_ARROW
 #	define DETAIL_XIEITE_HEADER_PP_ARROW
 #
-#	include "../pp/any.hpp"
 #	include "../pp/each.hpp"
 #	include "../pp/eval.hpp"
 #	include "../pp/if.hpp"
