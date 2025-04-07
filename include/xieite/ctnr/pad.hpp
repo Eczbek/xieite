@@ -20,11 +20,11 @@ namespace xieite {
 
 	template<typename Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>>
 	[[nodiscard]] constexpr auto pad(std::basic_string_view<Ch, Traits> strv, std::size_t size, Ch c = ' ', bool align_front = true, Alloc&& alloc = {})
-		XIEITE_ARROW(xieite::pad(std::basic_string<Ch, Traits, Alloc>(strv, alloc), size, c, alloc))
+		XIEITE_ARROW(xieite::pad(std::basic_string<Ch, Traits, Alloc>(strv, alloc), size, c, align_front, alloc))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, std::size_t n>
 	[[nodiscard]] constexpr auto pad(const xieite::group<Ch[n]>& str, std::size_t size, Ch c = ' ', bool align_front = true, Alloc&& alloc = {})
-		XIEITE_ARROW(xieite::pad(std::basic_string<Ch, Traits, Alloc>(str, n, alloc), size, c, alloc))
+		XIEITE_ARROW(xieite::pad(std::basic_string<Ch, Traits, Alloc>(str, n, alloc), size, c, align_front, alloc))
 }
 
 #endif

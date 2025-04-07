@@ -2,7 +2,6 @@
 #	define DETAIL_XIEITE_HEADER_CTNR_STATIC_STR
 #
 #	include <string>
-#	include <string_view>
 #	include "../ctnr/fixed_str.hpp"
 
 namespace xieite {

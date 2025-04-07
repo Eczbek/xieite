@@ -12,15 +12,15 @@
 namespace xieite {
 	template<typename T>
 	struct ptr {
-		T* _data;
+		T* data;
 
 		[[nodiscard]] explicit(false) constexpr ptr(T* data = nullptr) noexcept
-		: _data(data) {}
+		: data(data) {}
 
 		ptr(const xieite::ptr<T>&) = delete;
 
 		[[nodiscard]] explicit(false) constexpr ptr(xieite::ptr<T>&& other) noexcept
-		: _data(other.release()) {}
+		: data(other.release()) {}
 
 		constexpr ~ptr() {
 			this->reset();
@@ -39,10 +39,10 @@ namespace xieite {
 		}
 
 		constexpr xieite::ptr<T>& operator=(auto&& x)
-			XIEITE_ARROW_RET(*this ? void(*this->_data = XIEITE_FWD(x)) : void(), *this)
+			XIEITE_ARROW_RET(*this ? void(*this->data = XIEITE_FWD(x)) : void(), *this)
 
 		[[nodiscard]] constexpr operator bool() const noexcept {
-			return this->_data;
+			return this->data;
 		}
 
 		// https://cplusplus.github.io/LWG/issue673
@@ -52,7 +52,7 @@ namespace xieite {
 					throw std::logic_error("nullptr dereference");
 				}
 			}
-			return *this->_data;
+			return *this->data;
 		}
 
 		[[nodiscard]] constexpr T* operator->() const noexcept(!XIEITE_DEBUG) {
@@ -61,34 +61,34 @@ namespace xieite {
 					throw std::logic_error("nullptr dereference");
 				}
 			}
-			return this->_data;
+			return this->data;
 		}
 
 		[[nodiscard]] constexpr T* get() const noexcept {
-			return this->_data;
+			return this->data;
 		}
 
 		constexpr void reset(T* data = nullptr) noexcept {
-			delete this->_data;
-			this->_data = data;
+			delete this->data;
+			this->data = data;
 		}
 
 		[[nodiscard]] constexpr T* release() noexcept {
-			return std::exchange(this->_data, nullptr);
+			return std::exchange(this->data, nullptr);
 		}
 	};
 
 	template<typename T>
 	struct ptr<T[]> {
-		T* _data;
+		T* data;
 		
 		[[nodiscard]] explicit(false) constexpr ptr(T* data = nullptr) noexcept
-		: _data(data) {}
+		: data(data) {}
 
 		ptr(const xieite::ptr<T[]>&) = delete;
 
 		[[nodiscard]] explicit(false) constexpr ptr(xieite::ptr<T[]>&& other) noexcept
-		: _data(other.release()) {}
+		: data(other.release()) {}
 
 		constexpr ~ptr() {
 			this->reset();
@@ -107,7 +107,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] constexpr operator bool() const noexcept {
-			return this->_data;
+			return this->data;
 		}
 
 		[[nodiscard]] constexpr T& operator[](std::size_t idx) const noexcept(!XIEITE_DEBUG) {
@@ -116,20 +116,20 @@ namespace xieite {
 					throw std::logic_error("nullptr dereference");
 				}
 			}
-			return this->_data[idx];
+			return this->data[idx];
 		}
 
 		[[nodiscard]] constexpr T* get() const noexcept {
-			return this->_data;
+			return this->data;
 		}
 
 		constexpr void reset(T* data = nullptr) noexcept {
-			delete[] this->_data;
-			this->_data = data;
+			delete[] this->data;
+			this->data = data;
 		}
 
 		[[nodiscard]] constexpr T* release() noexcept {
-			return std::exchange(this->_data, nullptr);
+			return std::exchange(this->data, nullptr);
 		}
 	};
 }
