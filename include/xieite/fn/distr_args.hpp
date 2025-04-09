@@ -13,12 +13,12 @@
 
 namespace xieite {
 	template<std::size_t arity>
-	constexpr auto distr_args(auto&& fn, auto&&... args)
-		XIEITE_ARROW((void)xieite::unroll<(sizeof...(args) / arity)>(
-			[]<std::size_t... i>(const auto& fn, const auto& args) static
-				XIEITE_ARROW((..., std::apply(
+	constexpr void distr_args(auto&& fn, auto&&... args)
+		XIEITE_ARROW_RET(xieite::unroll<(sizeof...(args) / arity)>(
+			[]<std::size_t... i>(const auto& fn, const auto& args_tuple) static
+				XIEITE_ARROW((..., (void)std::apply(
 					fn,
-					xieite::subtuple<(i * arity), ((i + 1) * arity)>(std::move(args))
+					xieite::subtuple<(i * arity), ((i + 1) * arity)>(std::move(args_tuple))
 				))),
 			fn,
 			std::forward_as_tuple(XIEITE_FWD(args)...)
@@ -26,27 +26,27 @@ namespace xieite {
 
 	template<std::size_t arity, std::size_t prev>
 	[[nodiscard]] constexpr decltype(auto) distr_args(auto&& fn, auto&&... args) noexcept(false) {
-		return ([]<typename Args>(this auto next, auto&& fn, const Args& args) -> decltype(auto) {
+		return ([]<typename Args>(this auto next, auto&& fn, const Args& args_tuple) -> decltype(auto) {
 			if constexpr (xieite::tuple_size<Args> == arity) {
-				return std::apply(XIEITE_FWD(fn), args);
+				return std::apply(XIEITE_FWD(fn), args_tuple);
 			} else {
 				return std::apply(
 					fn,
 					xieite::splice_tuple<0, (xieite::tuple_size<Args> - (arity - prev))>(
-						std::move(args),
+						std::move(args_tuple),
 						xieite::unroll<prev>(
-							[]<std::size_t... i>(auto next, const auto& fn, const auto& args) {
+							[]<std::size_t... i>(auto next, const auto& fn, const auto& args_tuple) {
 								return std::make_tuple(next(
 									fn,
 									xieite::subtuple<
 										((xieite::tuple_size<Args> - (arity - prev)) / prev * i),
 										((xieite::tuple_size<Args> - (arity - prev)) / prev * (i + 1))
-									>(std::move(args))
+									>(std::move(args_tuple))
 								)...);
 							},
 							next,
 							fn,
-							args
+							args_tuple
 						)
 					)
 				);
