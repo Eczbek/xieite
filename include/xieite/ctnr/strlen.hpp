@@ -7,6 +7,7 @@
 #	include <type_traits>
 #	include "../meta/group.hpp"
 #	include "../trait/is_ch.hpp"
+#	include "../trait/is_ptr.hpp"
 
 namespace xieite {
 	template<typename Ch>
@@ -25,7 +26,7 @@ namespace xieite {
 	}
 
 	template<typename Str>
-	requires(xieite::is_ch<std::remove_pointer_t<Str>>)
+	requires(xieite::is_ptr<Str> && xieite::is_ch<std::remove_pointer_t<Str>>)
 	[[nodiscard]] constexpr std::size_t strlen(Str str) noexcept {
 		std::size_t i = 0;
 		while (str && str[i]) {
