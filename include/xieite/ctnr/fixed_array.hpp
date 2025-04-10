@@ -11,6 +11,7 @@
 #	include "../fn/unroll.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
+#	include "../trait/has_cp_ctor.hpp"
 
 namespace xieite {
 	template<typename T, std::size_t n>
@@ -34,6 +35,22 @@ namespace xieite {
 
 		[[nodiscard]] constexpr auto&& operator[](this auto&& self, const xieite::fixed_array<T, n>::size_type idx) noexcept {
 			return XIEITE_FWD(self).array[idx];
+		}
+
+		template<std::size_t m>
+		[[nodiscard]] friend constexpr xieite::fixed_array<T, (n + m)> operator+(const xieite::fixed_array<T, n>& l, const xieite::fixed_array<T, m>& r)
+		noexcept(xieite::has_cp_ctor<T>) {
+			return xieite::unroll<(n + m)>([&]<std::size_t... i> {
+				return xieite::fixed_array<T, (n + m)> {
+					([&] {
+						if constexpr (i < n) {
+							return l[i];
+						} else {
+							return r[i - n];
+						}
+					})()...
+				};
+			});
 		}
 
 		[[nodiscard]] constexpr auto&& at(this auto&& self, const xieite::fixed_array<T, n>::size_type idx) {
