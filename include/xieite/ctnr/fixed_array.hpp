@@ -119,7 +119,7 @@ namespace xieite {
 		constexpr void fill(const T& value)
 			XIEITE_ARROW_RET(xieite::unroll<n>(
 				[]<std::size_t... i>(auto& array, const T& value) static
-					XIEITE_ARROW(void((..., (array[i] = value)))),
+					XIEITE_ARROW((..., void(array[i] = value))),
 				this->array,
 				value
 			))

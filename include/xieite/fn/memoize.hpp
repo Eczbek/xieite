@@ -39,7 +39,7 @@ namespace DETAIL_XIEITE::memoize {
 						if constexpr (xieite::is_hashable<F>) {
 							return std::hash<F>()(memo.fn);
 						} else {
-							return void(memo), 0;
+							return memo, throw, 0;
 						}
 					})(),
 					std::hash<std::decay_t<Args...[i]>>()(std::get<i>(memo.args))...
