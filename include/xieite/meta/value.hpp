@@ -10,7 +10,7 @@ namespace DETAIL_XIEITE::value {
 
 namespace xieite {
 	template<decltype(auto) x>
-	using value = DETAIL_XIEITE::value::impl<x>;
+	struct value : DETAIL_XIEITE::value::impl<x> {};
 }
 
 #endif
