@@ -16,7 +16,7 @@
 
 namespace xieite {
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T parse_num(std::string_view& strv, std::conditional_t<std::floating_point<T>, xieite::ssize_t, T> radix = 10, const xieite::num_str_config& config = {}) noexcept {
+	[[nodiscard]] constexpr T parse_num(std::string_view strv, std::size_t& idx, std::conditional_t<std::floating_point<T>, xieite::ssize_t, T> radix = 10, const xieite::num_str_config& config = {}) noexcept {
 		if (!radix) {
 			return 0;
 		}
@@ -51,7 +51,7 @@ namespace xieite {
 				part = part * static_cast<T>(radix) + static_cast<T>(digit);
 				point += !!point;
 			}
-			strv.remove_prefix(i);
+			idx += i;
 			return xieite::split_bool(!neg) * (integral + fractional / xieite::pow(radix, static_cast<xieite::ssize_t>(point - 1))) * xieite::pow(radix, pow);
 		} else {
 			T result = 0;
@@ -62,14 +62,14 @@ namespace xieite {
 				}
 				result = static_cast<T>(result * static_cast<T>(radix) + static_cast<T>(digit));
 			}
-			strv.remove_prefix(i);
+			idx += i;
 			return neg ? -result : result;
 		}
 	}
 
 	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T parse_num(const std::convertible_to<std::string_view> auto& strv, std::conditional_t<std::floating_point<T>, xieite::ssize_t, T> radix = 10, const xieite::num_str_config& config = {}) noexcept {
-		return xieite::parse_num<T>(xieite::tmp<std::string_view>(strv), radix, config);
+	[[nodiscard]] constexpr T parse_num(std::string_view strv, std::conditional_t<std::floating_point<T>, xieite::ssize_t, T> radix = 10, const xieite::num_str_config& config = {}) noexcept {
+		return xieite::parse_num<T>(strv, xieite::tmp(0uz), radix, config);
 	}
 }
 
