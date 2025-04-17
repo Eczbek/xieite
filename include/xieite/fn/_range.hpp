@@ -11,45 +11,36 @@
 #	include "../math/ssize_t.hpp"
 
 namespace DETAIL_XIEITE::_range {
-	template<auto one_past>
+	template<auto one_past, decltype(one_past) step>
 	struct iter {
-		decltype(one_past) i;
-		const decltype(one_past) step = 0;
+		decltype(one_past) value;
 
 		[[nodiscard]] constexpr auto operator*() const noexcept {
-			return this->i;
+			return this->value;
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(DETAIL_XIEITE::_range::iter<one_past> l, DETAIL_XIEITE::_range::iter<one_past> r) noexcept {
-			return l.i == r.i;
-		}
+		[[nodiscard]] friend bool operator==(const DETAIL_XIEITE::_range::iter<one_past, step>&, const DETAIL_XIEITE::_range::iter<one_past, step>&) = default;
 
 		constexpr auto& operator++() noexcept {
-			this->i = xieite::closest(this->i, one_past, this->i + this->step);
+			this->value = xieite::closest(this->value, one_past, step + this->value);
 			return *this;
 		}
 	};
 
-	template<auto first, decltype(first) last>
+	template<auto first, decltype(first) last, decltype(first) step>
 	struct range {
-		const decltype(first) step = 1;
-
 		[[nodiscard]] constexpr auto operator-() const noexcept {
-			using type = std::conditional_t<(xieite::neg(last) || std::is_unsigned_v<decltype(first)>), xieite::ssize_t, std::size_t>;
-			return DETAIL_XIEITE::_range::range<-static_cast<type>(first), static_cast<type>(last)>(static_cast<type>(this->step));
-		}
-
-		[[nodiscard]] friend constexpr auto operator*(DETAIL_XIEITE::_range::range<first, last>, decltype(first) step) noexcept {
-			return DETAIL_XIEITE::_range::range<first, last>(step);
+			using Type = std::conditional_t<(xieite::neg(last) || std::is_unsigned_v<decltype(first)>), xieite::ssize_t, std::size_t>;
+			return DETAIL_XIEITE::_range::range<-static_cast<Type>(first), static_cast<Type>(last), static_cast<Type>(step)>();
 		}
 
 		[[nodiscard]] constexpr auto begin() const noexcept {
-			return DETAIL_XIEITE::_range::iter<(last + ((first <= last) * 2 - 1))>(first, this->step * ((first <= last) * 2 - 1));
+			return DETAIL_XIEITE::_range::iter<(last + ((first <= last) * 2 - 1)), (step * ((first <= last) * 2 - 1))>(first);
 		}
 
 		[[nodiscard]] constexpr auto end() const noexcept {
 			static constexpr auto one_past = (last + ((first <= last) * 2 - 1));
-			return DETAIL_XIEITE::_range::iter<one_past>(one_past);
+			return DETAIL_XIEITE::_range::iter<one_past, step>(one_past);
 		}
 	};
 }
@@ -59,13 +50,15 @@ namespace xieite::_range {
 	[[nodiscard]] constexpr auto operator""_range() noexcept {
 		static constexpr std::array data { digits... };
 		static constexpr auto str = std::string_view(data.begin(), data.end());
-		static constexpr std::size_t delim = str.find('.');
-		static constexpr bool has_last = delim != std::string_view::npos;
-		static constexpr bool last_sign = has_last && (delim < (sizeof...(digits) - 1)) && (digits...[delim + 1] == '0');
-		using type = std::conditional_t<last_sign, xieite::ssize_t, std::size_t>;
+		static constexpr std::size_t end_delim = str.find('.');
+		static constexpr bool has_end = end_delim != std::string_view::npos;
+		static constexpr bool end_sign = has_end && (end_delim < (sizeof...(digits) - 1)) && (digits...[end_delim + 1] == '0');
+		static constexpr std::size_t step_delim = str.find('e');
+		using Type = std::conditional_t<end_sign, xieite::ssize_t, std::size_t>;
 		return DETAIL_XIEITE::_range::range<
-			xieite::parse_num<type>(str),
-			(has_last ? (xieite::parse_num<type>(str.substr(delim)) * (1 - last_sign * 2)) : 0)
+			xieite::parse_num<Type>(str),
+			(has_end ? (xieite::parse_num<Type>(str.substr(end_delim)) * (1 - end_sign * 2)) : 0),
+			((step_delim != std::string_view::npos) ? xieite::parse_num<Type>(str.substr(step_delim + (str[step_delim + 1] == '-'))) : 1)
 		>();
 	}
 }
