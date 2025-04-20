@@ -283,7 +283,7 @@
 #
 #			undef XIEITE_STDLIB_PATCH_MSVC_CPP
 #			define XIEITE_STDLIB_PATCH_MSVC_CPP 14
-#		elif _MSVC_STL_UPDATE >= 202104 // Indistinguishable from 16.10, but 16.11 is more likely as it is a long-term support release
+#		elif _MSVC_STL_UPDATE >= 202104 // Indistinguishable from 16.10, but 16.11 is a long-term support release
 #			define XIEITE_STDLIB_MAJOR_MSVC_CPP 16
 #			define XIEITE_STDLIB_MINOR_MSVC_CPP 11
 #		elif _MSVC_STL_UPDATE >= 202011
@@ -331,7 +331,7 @@
 #		elif _MSVC_STL_UPDATE >= 201709
 #			define XIEITE_STDLIB_MAJOR_MSVC_CPP 15
 #			define XIEITE_STDLIB_MINOR_MSVC_CPP 5
-#		elif _MSC_VER >= 1911
+#		elif _MSC_VER >= 1911 // Probably safe to assume that old compiler and library versions correspond
 #			define XIEITE_STDLIB_MAJOR_MSVC_CPP 15
 #			define XIEITE_STDLIB_MINOR_MSVC_CPP 3
 #		elif _MSC_VER >= 1910
