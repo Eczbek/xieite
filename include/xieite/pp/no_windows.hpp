@@ -106,6 +106,8 @@
 #	undef OUT
 #	undef PASCAL
 #	undef pascal
+#	undef POINTER_SIGNED
+#	undef POINTER_UNSIGNED
 #	undef STRICT
 #	undef TRUE
 #	undef VOID
