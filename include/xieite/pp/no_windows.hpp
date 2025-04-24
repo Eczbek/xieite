@@ -109,6 +109,7 @@
 #	undef STRICT
 #	undef TRUE
 #	undef VOID
+#	undef WINAPI
 #endif
 
 // Thanks to Veeloxfire (https://github.com/Veeloxfire) for original code
