@@ -63,10 +63,20 @@
 #		define XIEITE_LANG_TYPE_C 1
 #
 #		undef XIEITE_LANG_MAJOR_C
-#		ifdef __STDC_VERSION__
-#			define XIEITE_LANG_MAJOR_C (__STDC_VERSION__ / 100)
-#		else
+#		ifndef __STDC_VERSION__
 #			define XIEITE_LANG_MAJOR_C 1989 // C89 and C90 are indistinguishable
+#		elif __STDC_VERSION__ <= 199409
+#			define XIEITE_LANG_MAJOR_C 1995
+#		elif __STDC_VERSION__ <= 199901
+#			define XIEITE_LANG_MAJOR_C 1999
+#		elif __STDC_VERSION__ <= 201112
+#			define XIEITE_LANG_MAJOR_C 2011
+#		elif __STDC_VERSION__ <= 201710
+#			define XIEITE_LANG_MAJOR_C 2017
+#		elif __STDC_VERSION__ <= 202311
+#			define XIEITE_LANG_MAJOR_C 2023
+#		else
+#			define XIEITE_LANG_MAJOR_C 2026
 #		endif
 #	endif
 #
@@ -74,11 +84,26 @@
 #		undef XIEITE_LANG_TYPE_CPP
 #		define XIEITE_LANG_TYPE_CPP 1
 #
-#		undef XIEITE_LANG_MAJOR_CPP
 #		ifdef _MSVC_LANG
-#			define XIEITE_LANG_MAJOR_CPP (_MSVC_LANG / 100)
+#			define DETAIL_XIEITE_LANG_CPP _MSVC_LANG
 #		else
-#			define XIEITE_LANG_MAJOR_CPP (__cplusplus / 100)
+#			define DETAIL_XIEITE_LANG_CPP __cplusplus
+#		endif
+#		undef XIEITE_LANG_MAJOR_CPP
+#		if DETAIL_XIEITE_LANG_CPP <= 199711
+#			define XIEITE_LANG_MAJOR_CPP 2003
+#		elif DETAIL_XIEITE_LANG_CPP <= 201103
+#			define XIEITE_LANG_MAJOR_CPP 2011
+#		elif DETAIL_XIEITE_LANG_CPP <= 201402
+#			define XIEITE_LANG_MAJOR_CPP 2014
+#		elif DETAIL_XIEITE_LANG_CPP <= 201703
+#			define XIEITE_LANG_MAJOR_CPP 2017
+#		elif DETAIL_XIEITE_LANG_CPP <= 202002
+#			define XIEITE_LANG_MAJOR_CPP 2020
+#		elif DETAIL_XIEITE_LANG_CPP <= 202302
+#			define XIEITE_LANG_MAJOR_CPP 2023
+#		else
+#			define XIEITE_LANG_MAJOR_CPP 2026
 #		endif
 #	endif
 #
