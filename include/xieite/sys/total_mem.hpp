@@ -7,8 +7,7 @@
 #	if XIEITE_PLATFORM_TYPE_UNIX
 #		include <unistd.h>
 #		include "../sys/page_mem.hpp"
-#	elif XIEITE_PLATFORM_TYPE_WINDOWS
-#		include <memory>
+#	elif XIEITE_PLATFORM_TYPE_WINDOWSs
 #		include <windows.h>
 #	else
 #		warning unsupported platform
@@ -21,7 +20,7 @@ namespace xieite {
 #	elif XIEITE_PLATFORM_TYPE_WINDOWS
 		::MEMORYSTATUSEX status;
 		status.dwLength = sizeof(status);
-		::GlobalMemoryStatusEx(std::addressof(status));
+		::GlobalMemoryStatusEx(&status);
 		return static_cast<std::size_t>(status.ullTotalPhys);
 #	else
 		return 0;

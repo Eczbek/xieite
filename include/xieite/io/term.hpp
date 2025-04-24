@@ -2,7 +2,6 @@
 #	define DETAIL_XIEITE_HEADER_IO_TERM
 #
 #	include <cstdio>
-#	include <memory>
 #	include <stdio.h>
 #	include <string>
 #	include "../fn/scope_guard.hpp"
@@ -12,16 +11,17 @@
 #	include "../math/abs.hpp"
 #	include "../math/color3.hpp"
 #	include "../math/str_num.hpp"
+#	include "../pp/out.hpp"
 #	include "../pp/platform.hpp"
 #
-#	if !XIEITE_PLATFORM_TYPE_UNIX
+#	if XIEITE_PLATFORM_TYPE_UNIX
+#		include <fcntl.h>
+#		include <sys/ioctl.h>
+#		include <termios.h>
+#		include <unistd.h>
+#	else
 #		warning unsupported platform
 #	endif
-#
-#	include <fcntl.h>
-#	include <sys/ioctl.h>
-#	include <termios.h>
-#	include <unistd.h>
 
 using namespace std::literals;
 
@@ -32,15 +32,16 @@ namespace xieite {
 		std::FILE* out;
 
 		[[nodiscard]] term(std::FILE* in = stdin, std::FILE* out = stdout) noexcept
-		: in(in), out(out), block_mode(::fcntl(::fileno(in), F_GETFL)) {
-			::tcgetattr(::fileno(this->in), std::addressof(this->cooked_mode));
-			this->is_block = !(this->block_mode & O_NONBLOCK);
-			this->is_echo = this->cooked_mode.c_lflag & ECHO;
-			this->is_canon = this->cooked_mode.c_lflag & ICANON;
-			this->is_signal = (this->cooked_mode.c_iflag & IXON) || (this->cooked_mode.c_iflag & ICRNL) || (this->cooked_mode.c_lflag & IEXTEN) || (this->cooked_mode.c_lflag & ISIG);
-			this->is_proc = this->cooked_mode.c_oflag & OPOST;
-			this->flush();
-		}
+		: in(in)
+		, out(out)
+		, block_mode(::fcntl(::fileno(in), F_GETFL))
+		, cooked_mode(XIEITE_OUT_LOCAL(::tcgetattr(::fileno(in), &$))(::termios()))
+		, is_block(!(this->block_mode & O_NONBLOCK))
+		, is_echo(this->cooked_mode.c_lflag & ECHO)
+		, is_canon(this->cooked_mode.c_lflag & ICANON)
+		, is_signal((this->cooked_mode.c_iflag & (IXON | ICRNL)) || (this->cooked_mode.c_lflag & (IEXTEN | ISIG)))
+		, is_proc(this->cooked_mode.c_oflag & OPOST)
+		{ this->flush(); }
 
 		term(const xieite::term&) = delete;
 
@@ -184,7 +185,7 @@ namespace xieite {
 		
 		void reset_mode() noexcept {
 			::fcntl(::fileno(this->in), F_SETFL, this->block_mode);
-			::tcsetattr(::fileno(this->in), TCSANOW, std::addressof(this->cooked_mode));
+			::tcsetattr(::fileno(this->in), TCSANOW, &this->cooked_mode);
 		}
 
 		void reset_screen() noexcept {
@@ -306,7 +307,7 @@ namespace xieite {
 
 		[[nodiscard]] xieite::pos screen_size() noexcept {
 			::winsize size;
-			::ioctl(::fileno(this->in), TIOCGWINSZ, std::addressof(size));
+			::ioctl(::fileno(this->in), TIOCGWINSZ, &size);
 			return xieite::pos(size.ws_row, size.ws_col);
 		}
 
@@ -1010,7 +1011,7 @@ namespace xieite {
 			raw_mode.c_iflag &= ~static_cast<::tcflag_t>((ICRNL * !this->is_signal) | (IXON * !this->is_signal));
 			raw_mode.c_lflag &= ~static_cast<::tcflag_t>((ECHO * !this->is_echo) | (ICANON * !this->is_canon) | (IEXTEN * !this->is_signal) | (ISIG * !this->is_signal));
 			raw_mode.c_oflag &= ~static_cast<::tcflag_t>(OPOST * !this->is_proc);
-			::tcsetattr(::fileno(this->in), TCSANOW, std::addressof(raw_mode));
+			::tcsetattr(::fileno(this->in), TCSANOW, &raw_mode);
 		}
 	};
 }

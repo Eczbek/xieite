@@ -24,7 +24,9 @@ namespace xieite {
 
 		template<std::integral U = T>
 		[[nodiscard]] explicit(false) constexpr double_uint(U x = 0) noexcept
-		: lo(static_cast<T>(x & static_cast<T>(-1))), hi(static_cast<T>(xieite::rshift(x, xieite::bit_size<T>))) {}
+		: lo(static_cast<T>(x & static_cast<T>(-1)))
+		, hi(static_cast<T>(xieite::rshift(x, xieite::bit_size<T>)))
+		{}
 
 		template<std::integral U>
 		[[nodiscard]] explicit constexpr operator U() const noexcept {

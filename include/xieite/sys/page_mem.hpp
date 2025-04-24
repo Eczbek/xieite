@@ -7,7 +7,6 @@
 #	if XIEITE_PLATFORM_TYPE_UNIX
 #		include <unistd.h>
 #	elif XIEITE_PLATFORM_TYPE_WINDOWS
-#		include <memory>
 #		include <windows.h>
 #	else
 #		warning unsupported platform
@@ -19,7 +18,7 @@ namespace xieite {
 		return static_cast<std::size_t>(::sysconf(_SC_PAGE_SIZE));
 #	elif XIEITE_PLATFORM_TYPE_WINDOWS
 		::SYSTEM_INFO info;
-		::GetSystemInfo(std::addressof(info));
+		::GetSystemInfo(&info);
 		return static_cast<std::size_t>(info.dwPageSize);
 #	else
 		return 0;

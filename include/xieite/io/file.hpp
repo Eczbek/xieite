@@ -103,14 +103,14 @@ namespace xieite {
 			this->stream = ([&stream] -> std::FILE* {
 				const Stream* ptr = std::addressof(stream);
 				if constexpr (xieite::is_istream<Stream>) {
-					if (ptr == std::addressof(std::cin)) {
+					if (ptr == &std::cin) {
 						return stdin;
 					}
 				} else if constexpr (xieite::is_ostream<Stream>) {
-					if (ptr == std::addressof(std::cout)) {
+					if (ptr == &std::cout) {
 						return stdout;
 					}
-					if ((ptr == std::addressof(std::cerr)) || (ptr == std::addressof(std::clog))) {
+					if ((ptr == &std::cerr) || (ptr == &std::clog)) {
 						return stderr;
 					}
 				}
