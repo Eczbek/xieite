@@ -7,7 +7,6 @@
 #	include <string>
 #	include <string_view>
 #	include "../ctnr/fixed_array.hpp"
-#	include "../ctnr/make_array.hpp"
 #	include "../meta/group.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_ch.hpp"
