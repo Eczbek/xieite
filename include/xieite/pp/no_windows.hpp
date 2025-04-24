@@ -3,6 +3,7 @@
 #	define NOCLIPBOARD
 #	define NOCOLOR
 #	define NOCOMM
+#	define NOCRYPT
 #	define NOCTLMGR
 #	define NODEFERWINDOWPOS
 #	define NODRAWTEXT
@@ -10,6 +11,7 @@
 #	define NOGDICAPMASKS
 #	define NOHELP
 #	define NOICONS
+#	define NOIMAGE
 #	define NOKANJI
 #	define NOKERNEL
 #	define NOKEYSTATES
@@ -23,13 +25,16 @@
 #	define NONLS
 #	define NOOPENFILE
 #	define NOPROFILER
+#	define NOPROXYSTUB
 #	define NORASTEROPS
+#	define NORPC
 #	define NOSCROLL
 #	define NOSERVICE
 #	define NOSHOWWINDOW
 #	define NOSOUND
 #	define NOSYSCOMMANDS
 #	define NOSYSMETRICS
+#	define NOTAPE
 #	define NOTEXTMETRIC
 #	define NOUSER
 #	define NOVIRTUALKEYCODES
@@ -45,6 +50,7 @@
 #	undef NOCLIPBOARD
 #	undef NOCOLOR
 #	undef NOCOMM
+#	undef NOCRYPT
 #	undef NOCTLMGR
 #	undef NODEFERWINDOWPOS
 #	undef NODRAWTEXT
@@ -52,6 +58,7 @@
 #	undef NOGDICAPMASKS
 #	undef NOHELP
 #	undef NOICONS
+#	undef NOIMAGE
 #	undef NOKANJI
 #	undef NOKERNEL
 #	undef NOKEYSTATES
@@ -65,13 +72,16 @@
 #	undef NONLS
 #	undef NOOPENFILE
 #	undef NOPROFILER
+#	undef NOPROXYSTUB
 #	undef NORASTEROPS
+#	undef NORPC
 #	undef NOSCROLL
 #	undef NOSERVICE
 #	undef NOSHOWWINDOW
 #	undef NOSOUND
 #	undef NOSYSCOMMANDS
 #	undef NOSYSMETRICS
+#	undef NOTAPE
 #	undef NOTEXTMETRIC
 #	undef NOUSER
 #	undef NOVIRTUALKEYCODES

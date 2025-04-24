@@ -1,13 +1,13 @@
 #ifndef DETAIL_XIEITE_HEADER_PP_ENDIAN
 #	define DETAIL_XIEITE_HEADER_PP_ENDIAN
 #
-#	include "../pp/arch.hpp"
-#	include "../pp/platform.hpp"
-#
 #	define XIEITE_ENDIAN_BIG 0
 #	define XIEITE_ENDIAN_LITTLE 0
 #	define XIEITE_ENDIAN_BIG_WORD 0
 #	define XIEITE_ENDIAN_LITTLE_WORD 0
+#
+#	include "../pp/arch.hpp"
+#	include "../pp/platform.hpp"
 #
 #	if __has_include(<endian.h>)
 #		include <endian.h>
