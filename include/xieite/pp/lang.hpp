@@ -64,7 +64,7 @@
 #
 #		undef XIEITE_LANG_MAJOR_C
 #		ifndef __STDC_VERSION__
-#			define XIEITE_LANG_MAJOR_C 1989 // C89 and C90 are indistinguishable
+#			define XIEITE_LANG_MAJOR_C 1990
 #		elif __STDC_VERSION__ <= 199409
 #			define XIEITE_LANG_MAJOR_C 1995
 #		elif __STDC_VERSION__ <= 199901
