@@ -3,8 +3,8 @@
 #
 #	define XIEITE_ENDIAN_BIG 0
 #	define XIEITE_ENDIAN_LITTLE 0
-#	define XIEITE_ENDIAN_BIG_WORD 0
-#	define XIEITE_ENDIAN_LITTLE_WORD 0
+#	define XIEITE_ENDIAN_BIG_WORD 0 // Honeywell 316
+#	define XIEITE_ENDIAN_LITTLE_WORD 0 // PDP-11
 #
 #	include "../pp/arch.hpp"
 #	include "../pp/platform.hpp"
