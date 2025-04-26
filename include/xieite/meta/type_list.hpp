@@ -31,12 +31,12 @@ namespace xieite {
 
 	private:
 		template<std::size_t idx, typename... Us>
-		using at_impl = Us...[idx];
+		static std::type_identity<Us...[idx]> at_impl(std::type_identity<Us>...);
 
 	public:
 		template<std::size_t idx>
 		requires(idx < sizeof...(Ts))
-		using at = xieite::type_list<Ts...>::at_impl<idx, Ts...>;
+		using at = decltype(xieite::type_list<Ts...>::at_impl<idx>(std::type_identity<Ts>()...))::type;
 
 		template<auto cond>
 		static constexpr std::size_t find_idx = ([] static -> std::size_t {
@@ -65,11 +65,11 @@ namespace xieite {
 
 	private:
 		template<typename Ret, typename... Us>
-		using as_fn_impl = Ret(typename Us::type...);
+		static std::type_identity<Ret(Us...)> as_fn_impl(std::type_identity<Us>...);
 
 	public:
 		template<typename Ret>
-		using as_fn = xieite::type_list<Ts...>::as_fn_impl<Ret, std::type_identity<Ts>...>;
+		using as_fn = decltype(xieite::type_list<Ts...>::as_fn_impl<Ret>(std::type_identity<Ts>()...))::type;
 
 		template<typename... Us>
 		using append = xieite::type_list<Ts..., Us...>;
@@ -233,9 +233,10 @@ namespace xieite {
 		struct transform_flat_impl : std::type_identity<decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename Idx> static {
+					static constexpr std::size_t idx = ([]<std::size_t idx>(xieite::value<idx>) static { return idx; })(Idx());
 					return typename List::template append_range<typename decltype(
 						xieite::type_list<Ts...>
-						::slice<arity * Idx::value, arity * (Idx::value + 1)>
+						::slice<(arity * idx), (arity * idx + arity)>
 						::apply(fn)
 					)::type>();
 				},
