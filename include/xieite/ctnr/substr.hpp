@@ -5,7 +5,7 @@
 #	include <string>
 #	include <string_view>
 #	include "../ctnr/str_view.hpp"
-#	include "../meta/group.hpp"
+#	include "../meta/paren.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../trait/is_ch.hpp"
 
@@ -26,7 +26,7 @@ namespace xieite {
 		XIEITE_ARROW(xieite::substr(xieite::str_view(str), start, end, start_offset, end_offset))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
-	[[nodiscard]] constexpr auto substr(const xieite::group<Ch[n]>& str, std::size_t start, std::size_t end = std::string::npos, std::size_t start_offset = 0, std::size_t end_offset = 0)
+	[[nodiscard]] constexpr auto substr(const xieite::paren<Ch[n]>& str, std::size_t start, std::size_t end = std::string::npos, std::size_t start_offset = 0, std::size_t end_offset = 0)
 		XIEITE_ARROW(xieite::substr(xieite::str_view<Ch, Traits>(str), start, end, start_offset, end_offset))
 }
 

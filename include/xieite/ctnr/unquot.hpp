@@ -7,7 +7,7 @@
 #	include <string_view>
 #	include "../ctnr/str_replace.hpp"
 #	include "../ctnr/str_view.hpp"
-#	include "../meta/group.hpp"
+#	include "../meta/paren.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_ch.hpp"
@@ -31,7 +31,7 @@ namespace xieite {
 		XIEITE_ARROW(xieite::unquot(xieite::str_view(str), delim, esc, XIEITE_FWD(alloc)))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, std::size_t n>
-	[[nodiscard]] constexpr auto unquot(const xieite::group<Ch[n]>& str, Ch delim = '"', Ch esc = '\\', Alloc&& alloc = {})
+	[[nodiscard]] constexpr auto unquot(const xieite::paren<Ch[n]>& str, Ch delim = '"', Ch esc = '\\', Alloc&& alloc = {})
 		XIEITE_ARROW(xieite::unquot(xieite::str_view<Ch, Traits>(str), delim, esc, XIEITE_FWD(alloc)))
 }
 

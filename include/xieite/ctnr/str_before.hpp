@@ -5,7 +5,7 @@
 #	include <string>
 #	include <string_view>
 #	include "../ctnr/str_view.hpp"
-#	include "../meta/group.hpp"
+#	include "../meta/paren.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_ch.hpp"
@@ -20,7 +20,7 @@ namespace xieite {
 		XIEITE_ARROW(xieite::str_before(xieite::str_view(str), XIEITE_FWD(delim)))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
-	[[nodiscard]] constexpr auto str_before(const xieite::group<Ch[n]>& str, auto&& delim)
+	[[nodiscard]] constexpr auto str_before(const xieite::paren<Ch[n]>& str, auto&& delim)
 		XIEITE_ARROW(xieite::str_before(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(delim)))
 }
 

@@ -5,7 +5,7 @@
 #	include <memory>
 #	include <string>
 #	include <string_view>
-#	include "../meta/group.hpp"
+#	include "../meta/paren.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_ch.hpp"
@@ -27,7 +27,7 @@ namespace xieite {
 		XIEITE_ARROW(xieite::str_repeat(n, std::basic_string<Ch, Traits, Alloc>(strv, alloc), alloc))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, std::size_t m>
-	[[nodiscard]] constexpr auto str_repeat(std::size_t n, const xieite::group<Ch[m]>& str, Alloc&& alloc = {})
+	[[nodiscard]] constexpr auto str_repeat(std::size_t n, const xieite::paren<Ch[m]>& str, Alloc&& alloc = {})
 		XIEITE_ARROW(xieite::str_repeat(n, std::basic_string<Ch, Traits, Alloc>(str, m, alloc), alloc))
 }
 

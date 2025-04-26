@@ -6,7 +6,7 @@
 #	include <string>
 #	include <type_traits>
 #	include "../ctnr/str_view.hpp"
-#	include "../meta/group.hpp"
+#	include "../meta/paren.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_ch.hpp"
@@ -31,7 +31,7 @@ namespace xieite {
 		XIEITE_ARROW(xieite::str_trunc(std::basic_string<Ch, Traits, Alloc>(strv, alloc), size, XIEITE_FWD(sfx), alloc))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, typename Alloc = std::allocator<Ch>, std::size_t n>
-	[[nodiscard]] constexpr auto str_trunc(const xieite::group<Ch[n]>& str, std::size_t size, auto&& sfx, Alloc&& alloc = {})
+	[[nodiscard]] constexpr auto str_trunc(const xieite::paren<Ch[n]>& str, std::size_t size, auto&& sfx, Alloc&& alloc = {})
 		XIEITE_ARROW(xieite::str_trunc(std::basic_string<Ch, Traits, Alloc>(str, n, alloc), size, XIEITE_FWD(sfx), alloc))
 }
 

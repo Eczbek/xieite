@@ -7,7 +7,7 @@
 #	include "../ctnr/str_view.hpp"
 #	include "../ctnr/trim_back.hpp"
 #	include "../ctnr/trim_front.hpp"
-#	include "../meta/group.hpp"
+#	include "../meta/paren.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_ch.hpp"
@@ -22,7 +22,7 @@ namespace xieite {
 		XIEITE_ARROW(xieite::trim(xieite::str_view(str), XIEITE_FWD(chars)))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
-	[[nodiscard]] constexpr auto trim(const xieite::group<Ch[n]>& str, auto&& chars)
+	[[nodiscard]] constexpr auto trim(const xieite::paren<Ch[n]>& str, auto&& chars)
 		XIEITE_ARROW(xieite::trim(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(chars)))
 }
 

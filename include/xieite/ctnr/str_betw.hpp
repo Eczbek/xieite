@@ -7,7 +7,7 @@
 #	include "../ctnr/str_after.hpp"
 #	include "../ctnr/str_before.hpp"
 #	include "../ctnr/str_view.hpp"
-#	include "../meta/group.hpp"
+#	include "../meta/paren.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_ch.hpp"
@@ -22,7 +22,7 @@ namespace xieite {
 		XIEITE_ARROW(xieite::str_betw(xieite::str_view(str), XIEITE_FWD(a), XIEITE_FWD(b)))
 
 	template<xieite::is_ch Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
-	[[nodiscard]] constexpr auto str_betw(const xieite::group<Ch[n]>& str, auto&& a, auto&& b)
+	[[nodiscard]] constexpr auto str_betw(const xieite::paren<Ch[n]>& str, auto&& a, auto&& b)
 		XIEITE_ARROW(xieite::str_betw(xieite::str_view<Ch, Traits>(str), XIEITE_FWD(a), XIEITE_FWD(b)))
 }
 

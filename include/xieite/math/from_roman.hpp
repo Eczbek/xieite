@@ -11,7 +11,7 @@
 #	include "../ctnr/toupper.hpp"
 #	include "../math/sign_cast.hpp"
 #	include "../math/ssize_t.hpp"
-#	include "../meta/group.hpp"
+#	include "../meta/paren.hpp"
 
 namespace xieite {
 	template<std::integral T = xieite::ssize_t, typename Ch, typename Traits = std::char_traits<Ch>>
@@ -47,7 +47,7 @@ namespace xieite {
 	}
 
 	template<std::integral T = xieite::ssize_t, typename Ch, typename Traits = std::char_traits<Ch>, std::size_t n>
-	[[nodiscard]] constexpr T from_roman(const xieite::group<Ch[n]>& str) noexcept {
+	[[nodiscard]] constexpr T from_roman(const xieite::paren<Ch[n]>& str) noexcept {
 		return xieite::from_roman<T>(xieite::str_view<Ch, Traits>(str, n));
 	}
 }

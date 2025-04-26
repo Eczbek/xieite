@@ -5,7 +5,7 @@
 #	include <string>
 #	include <string_view>
 #	include <type_traits>
-#	include "../meta/group.hpp"
+#	include "../meta/paren.hpp"
 #	include "../trait/is_ch.hpp"
 #	include "../trait/is_ptr.hpp"
 
@@ -21,7 +21,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_ch Ch, std::size_t n>
-	[[nodiscard]] constexpr std::size_t strlen(const xieite::group<Ch[n]>&) noexcept {
+	[[nodiscard]] constexpr std::size_t strlen(const xieite::paren<Ch[n]>&) noexcept {
 		return n - !!n;
 	}
 
