@@ -1,25 +1,27 @@
 #ifndef DETAIL_XIEITE_HEADER_IO_TERM
 #	define DETAIL_XIEITE_HEADER_IO_TERM
 #
+#	include <cstdio>
+#	include <string>
+#	include "../io/keys.hpp"
+#	include "../io/pos.hpp"
+#	include "../io/read.hpp"
+#	include "../math/abs.hpp"
+#	include "../math/color3.hpp"
+#	include "../math/str_number.hpp"
 #	include "../pp/platform.hpp"
 #
 #	if XIEITE_PLATFORM_TYPE_UNIX
-#		include <cstdio>
-#		include <fcntl.h>
 #		include <stdio.h>
-#		include <string>
+#		include <fcntl.h>
 #		include <sys/ioctl.h>
 #		include <termios.h>
 #		include <unistd.h>
 #		include "../fn/scope_guard.hpp"
-#		include "../io/keys.hpp"
-#		include "../io/pos.hpp"
-#		include "../io/read.hpp"
-#		include "../math/abs.hpp"
-#		include "../math/color3.hpp"
-#		include "../math/str_number.hpp"
 #		include "../pp/out.hpp"
-
+#	else
+#		warning unsupported platform
+#	endif
 
 using namespace std::literals;
 
@@ -32,6 +34,7 @@ namespace xieite {
 		[[nodiscard]] term(std::FILE* in = stdin, std::FILE* out = stdout) noexcept
 		: in(in)
 		, out(out)
+#	if XIEITE_PLATFORM_TYPE_UNIX
 		, block_mode(::fcntl(::fileno(in), F_GETFL))
 		, cooked_mode(XIEITE_OUT_LOCAL(::tcgetattr(::fileno(in), &$))(::termios()))
 		, is_block(!(this->block_mode & O_NONBLOCK))
@@ -39,6 +42,7 @@ namespace xieite {
 		, is_canon(this->cooked_mode.c_lflag & ICANON)
 		, is_signal((this->cooked_mode.c_iflag & (IXON | ICRNL)) || (this->cooked_mode.c_lflag & (IEXTEN | ISIG)))
 		, is_proc(this->cooked_mode.c_oflag & OPOST)
+#	endif
 		{ this->flush(); }
 
 		term(const xieite::term&) = delete;
@@ -50,39 +54,49 @@ namespace xieite {
 			std::fflush(this->out);
 		}
 
-		void block(bool x) noexcept {
+		void block([[maybe_unused]] bool x) noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			if (this->is_block != x) {
 				this->is_block = x;
 				this->flush();
 			}
+#	endif
 		}
 
-		void echo(bool x) noexcept {
+		void echo([[maybe_unused]] bool x) noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			if (this->is_echo != x) {
 				this->is_echo = x;
 				this->flush();
 			}
+#	endif
 		}
 
-		void canon(bool x) noexcept {
+		void canon([[maybe_unused]] bool x) noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			if (this->is_canon != x) {
 				this->is_canon = x;
 				this->flush();
 			}
+#	endif
 		}
 
-		void signal(bool x) noexcept {
+		void signal([[maybe_unused]] bool x) noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			if (this->is_signal != x) {
 				this->is_signal = x;
 				this->flush();
 			}
+#	endif
 		}
 
-		void proc(bool x) noexcept {
+		void proc([[maybe_unused]] bool x) noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			if (this->is_proc != x) {
 				this->is_proc = x;
 				this->flush();
 			}
+#	endif
 		}
 
 		[[nodiscard]] static constexpr std::string fg_code(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept {
@@ -182,8 +196,10 @@ namespace xieite {
 		}
 		
 		void reset_mode() noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			::fcntl(::fileno(this->in), F_SETFL, this->block_mode);
 			::tcsetattr(::fileno(this->in), TCSANOW, &this->cooked_mode);
+#	endif
 		}
 
 		void reset_screen() noexcept {
@@ -193,14 +209,18 @@ namespace xieite {
 		}
 
 		[[nodiscard]] xieite::pos get_cursor() noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			const bool canon_prev = this->is_canon;
 			this->canon(false);
 			std::fputs("\x1B[6n", this->out);
-			int row;
-			int col;
+			int row = 1;
+			int col = 1;
 			std::fscanf(this->in, "\x1B[%i;%iR", &row, &col);
 			this->canon(canon_prev);
 			return xieite::pos(static_cast<xieite::ssize_t>(row - 1), static_cast<xieite::ssize_t>(col - 1));
+#	else
+			return xieite::pos(0, 0);
+#	endif
 		}
 
 		[[nodiscard]] constexpr std::string set_cursor_code(xieite::ssize_t row, xieite::ssize_t col) noexcept {
@@ -304,9 +324,13 @@ namespace xieite {
 		}
 
 		[[nodiscard]] xieite::pos screen_size() noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			::winsize size;
 			::ioctl(::fileno(this->in), TIOCGWINSZ, &size);
 			return xieite::pos(size.ws_row, size.ws_col);
+#	else
+			return xieite::pos(0, 0);
+#	endif
 		}
 
 		[[nodiscard]] static constexpr std::string clear_screen_code() noexcept {
@@ -358,14 +382,19 @@ namespace xieite {
 		}
 
 		[[nodiscard]] int read_char() noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			const bool canon_prev = this->is_canon;
 			this->canon(false);
 			const int c = std::fgetc(this->in);
 			this->canon(canon_prev);
 			return c;
+#	else
+			return std::fgetc(this->in);
+#	endif
 		}
 
 		[[nodiscard]] std::string read_str() noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			const bool block_prev = this->is_block;
 			const bool canon_prev = this->is_canon;
 			this->block(false);
@@ -374,10 +403,15 @@ namespace xieite {
 			this->block(block_prev);
 			this->canon(canon_prev);
 			return input;
+#	else
+			return xieite::read(this->in);
+#	endif
 		}
 
 		[[nodiscard]] xieite::keys read_key() noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			const xieite::scope_guard _ = [this, block_prev = this->is_block] { this->block(block_prev); };
+#	endif
 			const int c0 = this->read_char();
 			this->block(false);
 			switch (c0) {
@@ -990,6 +1024,7 @@ namespace xieite {
 		}
 
 	private:
+#	if XIEITE_PLATFORM_TYPE_UNIX
 		const int block_mode;
 		::termios cooked_mode;
 
@@ -998,21 +1033,23 @@ namespace xieite {
 		bool is_canon = false;
 		bool is_signal = false;
 		bool is_proc = false;
+#	endif
 
 		bool is_cursor_invis = false;
 		bool is_cursor_alt = false;
 		bool is_screen_alt = false;
 
 		void flush() noexcept {
+#	if XIEITE_PLATFORM_TYPE_UNIX
 			::fcntl(::fileno(this->in), F_SETFL, this->block_mode | (O_NONBLOCK * !this->is_block));
 			::termios raw_mode = this->cooked_mode;
 			raw_mode.c_iflag &= ~static_cast<::tcflag_t>((ICRNL * !this->is_signal) | (IXON * !this->is_signal));
 			raw_mode.c_lflag &= ~static_cast<::tcflag_t>((ECHO * !this->is_echo) | (ICANON * !this->is_canon) | (IEXTEN * !this->is_signal) | (ISIG * !this->is_signal));
 			raw_mode.c_oflag &= ~static_cast<::tcflag_t>(OPOST * !this->is_proc);
 			::tcsetattr(::fileno(this->in), TCSANOW, &raw_mode);
+#	endif
 		}
 	};
 }
 
-#	endif
 #endif

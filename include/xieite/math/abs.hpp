@@ -11,7 +11,7 @@ namespace xieite {
 	[[nodiscard]] constexpr xieite::try_unsigned<Arith> abs(Arith x) noexcept {
 		if constexpr (std::floating_point<Arith>) {
 			return std::abs(x);
-		} else if constexpr (std::unsigneded_integral<Arith>) {
+		} else if constexpr (std::unsigned_integral<Arith>) {
 			return x;
 		} else {
 			return (x < 0)
