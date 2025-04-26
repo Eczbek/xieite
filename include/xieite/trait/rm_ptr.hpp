@@ -7,8 +7,8 @@
 #	include "../meta/fold.hpp"
 
 namespace DETAIL_XIEITE::rm_ptr {
-	template<typename T, std::size_t n>
-	struct impl : decltype(xieite::unroll<n>([]<std::size_t... i> static {
+	template<typename T, std::size_t depth>
+	struct impl : decltype(xieite::unroll<depth>([]<std::size_t... i> static {
 		return xieite::fold<
 			[]<typename U, typename> static {
 				return std::remove_pointer<typename U::type>();
@@ -29,8 +29,8 @@ namespace DETAIL_XIEITE::rm_ptr {
 }
 
 namespace xieite {
-	template<typename T, std::size_t n = 1>
-	using rm_ptr = DETAIL_XIEITE::rm_ptr::impl<T, n>::type;
+	template<typename T, std::size_t depth = 1>
+	using rm_ptr = DETAIL_XIEITE::rm_ptr::impl<T, depth>::type;
 }
 
 #endif

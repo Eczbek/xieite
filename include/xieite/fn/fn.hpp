@@ -22,10 +22,10 @@ namespace xieite {
 		[[nodiscard]] constexpr fn(const xieite::fn<Ret(Args...)>& fn) noexcept
 		: ptr(fn.ptr->clone()) {}
 
-		template<xieite::is_invoc<Ret(Args...)> F>
-		requires(!std::same_as<std::remove_cvref_t<F>, xieite::fn<Ret(Args...)>>)
-		[[nodiscard]] constexpr fn(F&& fn) noexcept
-		: ptr(std::make_unique<xieite::fn<Ret(Args...) noexcept(noex)>::derived<std::remove_cvref_t<F>>>(XIEITE_FWD(fn))) {}
+		template<xieite::is_invoc<Ret(Args...)> Fn>
+		requires(!std::same_as<std::remove_cvref_t<Fn>, xieite::fn<Ret(Args...)>>)
+		[[nodiscard]] constexpr fn(Fn&& fn) noexcept
+		: ptr(std::make_unique<xieite::fn<Ret(Args...) noexcept(noex)>::derived<std::remove_cvref_t<Fn>>>(XIEITE_FWD(fn))) {}
 
 		[[nodiscard]] explicit constexpr operator bool() const noexcept {
 			return static_cast<bool>(this->ptr);
@@ -49,11 +49,11 @@ namespace xieite {
 			virtual constexpr std::unique_ptr<xieite::fn<Ret(Args...) noexcept(noex)>::base> clone() const noexcept = 0;
 		};
 
-		template<typename F>
+		template<typename Fn>
 		struct derived : xieite::fn<Ret(Args...)>::base {
-			mutable F fn;
+			mutable Fn fn;
 
-			[[nodiscard]] constexpr derived(xieite::is_ref_to<F> auto&& fn) noexcept
+			[[nodiscard]] constexpr derived(xieite::is_ref_to<Fn> auto&& fn) noexcept
 			: fn(XIEITE_FWD(fn)) {}
 
 			constexpr Ret operator()(Args... args) const noexcept(noex) override {

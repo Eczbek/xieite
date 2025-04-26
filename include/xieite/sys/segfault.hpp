@@ -3,7 +3,7 @@
 
 namespace xieite {
 	inline void segfault() noexcept {
-		*static_cast<volatile int*>(nullptr); // NOLINT
+		*static_cast<volatile int*>(nullptr);
 	}
 }
 

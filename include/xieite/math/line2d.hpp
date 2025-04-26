@@ -3,75 +3,75 @@
 #
 #	include <cmath>
 #	include <type_traits>
-#	include "../math/pt2d.hpp"
+#	include "../math/point2d.hpp"
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith>
-	struct poly2d;
+	struct polygon2d;
 
 	template<xieite::is_arith>
 	struct ray2d;
 
 	template<xieite::is_arith>
-	struct segm2d;
+	struct segment2d;
 
-	template<xieite::is_arith T = double>
+	template<xieite::is_arith Arith = double>
 	struct line2d {
-		xieite::pt2d<T> a;
-		xieite::pt2d<T> b;
+		xieite::point2d<Arith> a;
+		xieite::point2d<Arith> b;
 
 		line2d() = default;
 
-		[[nodiscard]] constexpr line2d(xieite::pt2d<T> a, xieite::pt2d<T> b) noexcept
+		[[nodiscard]] constexpr line2d(xieite::point2d<Arith> a, xieite::point2d<Arith> b) noexcept
 		: a(a), b(b) {}
 
-		[[nodiscard]] constexpr line2d(xieite::pt2d<T> a, std::common_type_t<T, double> angle) noexcept
+		[[nodiscard]] constexpr line2d(xieite::point2d<Arith> a, std::common_type_t<Arith, double> angle) noexcept
 		: a(a), b(std::cos(angle), std::sin(angle)) {}
 
-		template<typename U>
-		[[nodiscard]] explicit constexpr operator xieite::line2d<U>() const noexcept {
-			return xieite::line2d<U>(static_cast<U>(this->a), static_cast<U>(this->b));
+		template<typename OtherArith>
+		[[nodiscard]] explicit constexpr operator xieite::line2d<OtherArith>() const noexcept {
+			return xieite::line2d<OtherArith>(static_cast<OtherArith>(this->a), static_cast<OtherArith>(this->b));
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xieite::line2d<T>& l, const xieite::line2d<T>& r) noexcept {
-			return l.contains(r.a) && l.contains(r.b);
+		[[nodiscard]] friend constexpr bool operator==(const xieite::line2d<Arith>& lhs, const xieite::line2d<Arith>& rhs) noexcept {
+			return lhs.contains(rhs.a) && lhs.contains(rhs.b);
 		}
 
-		[[nodiscard]] constexpr std::common_type_t<T, double> angle() const noexcept {
+		[[nodiscard]] constexpr std::common_type_t<Arith, double> angle() const noexcept {
 			return this->a.angle_to(this->b);
 		}
 
-		[[nodiscard]] constexpr std::common_type_t<T, double> len() const noexcept {
-			return std::numeric_limits<std::common_type_t<T, double>>::infinity();
+		[[nodiscard]] constexpr std::common_type_t<Arith, double> length() const noexcept {
+			return std::numeric_limits<std::common_type_t<Arith, double>>::infinity();
 		}
 
-		[[nodiscard]] constexpr std::common_type_t<T, double> slope() const noexcept {
+		[[nodiscard]] constexpr std::common_type_t<Arith, double> slope() const noexcept {
 			return this->a.slope_to(this->b);
 		}
 
-		[[nodiscard]] constexpr bool contains(xieite::pt2d<T> pt) const noexcept {
-			return xieite::almost_eq(
-				(this->b.x - this->a.x) * (pt.y - this->a.y),
-				(this->b.y - this->a.y) * (pt.x - this->a.x)
+		[[nodiscard]] constexpr bool contains(xieite::point2d<Arith> point) const noexcept {
+			return xieite::almost_equal(
+				(this->b.x - this->a.x) * (point.y - this->a.y),
+				(this->b.y - this->a.y) * (point.x - this->a.x)
 			);
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::line2d<T>& line) const noexcept {
+		[[nodiscard]] constexpr bool contains(const xieite::line2d<Arith>& line) const noexcept {
 			return *this == line;
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::ray2d<T>& ray) const noexcept {
-			return *this == xieite::line2d<T>(ray.a, ray.b);
+		[[nodiscard]] constexpr bool contains(const xieite::ray2d<Arith>& ray) const noexcept {
+			return *this == xieite::line2d<Arith>(ray.a, ray.b);
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::segm2d<T>& segm) const noexcept {
-			return *this == xieite::line2d<T>(segm.a, segm.b);
+		[[nodiscard]] constexpr bool contains(const xieite::segment2d<Arith>& segm) const noexcept {
+			return *this == xieite::line2d<Arith>(segm.a, segm.b);
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::poly2d<T>& poly) const noexcept {
-			for (xieite::pt2d<T> pt : poly.pts) {
-				if (!this->contains(pt)) {
+		[[nodiscard]] constexpr bool contains(const xieite::polygon2d<Arith>& polygon) const noexcept {
+			for (xieite::point2d<Arith> point : polygon.points) {
+				if (!this->contains(point)) {
 					return false;
 				}
 			}

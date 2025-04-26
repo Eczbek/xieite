@@ -10,18 +10,17 @@
 #	include "../trait/is_noex_invoc.hpp"
 
 namespace xieite {
-	template<xieite::has_cp_ctor T, std::invocable<T&&> F>
-	[[nodiscard]] constexpr T also(T&& x, F&& fn = {})
-	noexcept(xieite::has_noex_cp_ctor<T> && xieite::is_noex_invoc<F, void(T&&)>) {
+	template<xieite::has_cp_ctor T, std::invocable<T&&> Fn>
+	[[nodiscard]] constexpr T also(T&& x, Fn&& fn = {})
+	noexcept(xieite::has_noex_cp_ctor<T> && xieite::is_noex_invoc<Fn, void(T&&)>) {
 		const T copy = x;
 		std::invoke(XIEITE_FWD(fn), x);
 		return copy;
 	}
 
-	template<xieite::has_cp_ctor T, std::invocable<> F>
-	[[nodiscard]] constexpr T also(T&& x, F&& fn = {})
-	noexcept(xieite::has_noex_cp_ctor<T> && xieite::is_noex_invoc<F>) {
-		// Explicitly write empty parameter list because Clang
+	template<xieite::has_cp_ctor T, std::invocable<> Fn>
+	[[nodiscard]] constexpr T also(T&& x, Fn&& fn = {})
+	noexcept(xieite::has_noex_cp_ctor<T> && xieite::is_noex_invoc<Fn>) {
 		return xieite::also(XIEITE_FWD(x), [&]() XIEITE_ARROW(std::invoke(XIEITE_FWD(fn))));
 	}
 }

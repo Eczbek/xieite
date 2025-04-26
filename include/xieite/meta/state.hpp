@@ -3,51 +3,51 @@
 #
 #	include <concepts>
 #	include <cstddef>
-#	include "../pp/diag.hpp"
+#	include "../pp/diagnostic.hpp"
 
-XIEITE_DIAG_PUSH()
-XIEITE_DIAG_OFF_GCC("-Wnon-template-friend")
+XIEITE_DIAGNOSTIC_PUSH()
+XIEITE_DIAGNOSTIC_OFF_GCC("-Wnon-template-friend")
 
 namespace xieite {
-	template<auto id = [] {}, std::integral T = std::size_t>
+	template<auto id = [] {}, std::integral Int = std::size_t>
 	struct state {
 	private:
-		template<T n>
+		template<Int x>
 		struct value {
-			friend auto flag(xieite::state<id, T>::value<n>);
+			friend auto flag(xieite::state<id, Int>::value<x>);
 
 			struct set {
-				static constexpr T value = n;
+				static constexpr Int value = x;
 
-				friend auto flag(xieite::state<id, T>::value<n>) {}
+				friend auto flag(xieite::state<id, Int>::value<x>) {}
 			};
 		};
 
 	public:
 		template<auto tag = [] {}>
-		static consteval T get() noexcept {
-			return ([]<T n = 0>(this auto self) -> T {
-				if constexpr (requires { flag(xieite::state<id, T>::value<n>()); }) {
-					return self.template operator()<n + 1>();
+		static consteval Int get() noexcept {
+			return ([]<Int x = 0>(this auto self) -> Int {
+				if constexpr (requires { flag(xieite::state<id, Int>::value<x>()); }) {
+					return self.template operator()<x + 1>();
 				} else {
-					return n;
+					return x;
 				}
 			})();
 		}
 
 		template<auto tag = [] {}>
-		static consteval T advance() noexcept {
-			return xieite::state<id, T>::value<xieite::state<id, T>::get<tag>()>::set::value;
+		static consteval Int advance() noexcept {
+			return xieite::state<id, Int>::value<xieite::state<id, Int>::get<tag>()>::set::value;
 		}
 
 		template<auto tag = [] {}>
-		static consteval T next() noexcept {
-			return xieite::state<id, T>::advance<tag>() + 1;
+		static consteval Int next() noexcept {
+			return xieite::state<id, Int>::advance<tag>() + 1;
 		}
 	};
 }
 
-XIEITE_DIAG_POP()
+XIEITE_DIAGNOSTIC_POP()
 
 #endif
 

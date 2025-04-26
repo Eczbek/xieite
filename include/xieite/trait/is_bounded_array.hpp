@@ -5,8 +5,8 @@
 #	include <type_traits>
 
 namespace xieite {
-	template<typename T, std::size_t n = -1uz>
-	concept is_bounded_array = ((n == -1uz) ? std::is_bounded_array_v<T> : requires { ([]<typename U>(std::type_identity<U[n]>) {})(std::type_identity<T>()); });
+	template<typename T, std::size_t length = -1uz>
+	concept is_bounded_array = ((length == -1uz) ? std::is_bounded_array_v<T> : requires { ([]<typename U>(std::type_identity<U[length]>) {})(std::type_identity<T>()); });
 }
 
 #endif

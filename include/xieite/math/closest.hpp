@@ -6,9 +6,9 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T, std::convertible_to<T>... Us>
-	[[nodiscard]] constexpr T closest(T target, T first, Us... rest) noexcept {
-		T result = first;
+	template<xieite::is_arith Arith, std::convertible_to<Arith>... Ariths>
+	[[nodiscard]] constexpr Arith closest(Arith target, Arith first, Ariths... rest) noexcept {
+		Arith result = first;
 		(..., (result = (xieite::diff(target, rest) < xieite::diff(target, result)) ? rest : result));
 		return result;
 	}

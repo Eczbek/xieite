@@ -3,18 +3,18 @@
 #
 #	include <cmath>
 #	include "../trait/is_arith.hpp"
-#	include "../trait/try_unsign.hpp"
+#	include "../trait/try_unsigned.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr xieite::try_unsign<T> diff(T n, T m) noexcept {
-		if constexpr (std::floating_point<T>) {
-			return std::abs(n - m);
+	template<xieite::is_arith Arith>
+	[[nodiscard]] constexpr xieite::try_unsigned<Arith> diff(Arith a, Arith b) noexcept {
+		if constexpr (std::floating_point<Arith>) {
+			return std::abs(a - b);
 		} else {
-			using Result = xieite::try_unsign<T>;
-			return (n > m)
-				? (static_cast<Result>(n) - static_cast<Result>(m))
-				: (static_cast<Result>(m) - static_cast<Result>(n));
+			using Result = xieite::try_unsigned<Arith>;
+			return (a > b)
+				? (static_cast<Result>(a) - static_cast<Result>(b))
+				: (static_cast<Result>(b) - static_cast<Result>(a));
 		}
 	}
 }

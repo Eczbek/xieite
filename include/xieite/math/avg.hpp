@@ -6,13 +6,13 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T, std::common_with<T>... Ts>
-	[[nodiscard]] constexpr T avg(T first, Ts... rest) noexcept {
-		using U = std::common_type_t<T, Ts...>;
-		static constexpr U size = static_cast<U>(sizeof...(rest) + 1);
-		U result = static_cast<U>(first) / size + (... + (static_cast<U>(rest) / size));
-		if constexpr (std::integral<U>) {
-			result += (static_cast<U>(first) % size + (... + (static_cast<U>(rest) % size))) / size;
+	template<xieite::is_arith Arith, std::common_with<Arith>... Ariths>
+	[[nodiscard]] constexpr auto avg(Arith first, Ariths... rest) noexcept {
+		using Common = std::common_type_t<Arith, Ariths...>;
+		static constexpr Common size = static_cast<Common>(sizeof...(rest) + 1);
+		Common result = static_cast<Common>(first) / size + (... + (static_cast<Common>(rest) / size));
+		if constexpr (std::integral<Common>) {
+			result += (static_cast<Common>(first) % size + (... + (static_cast<Common>(rest) % size))) / size;
 		}
 		return result;
 	}

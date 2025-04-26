@@ -5,12 +5,12 @@
 #	include <concepts>
 #	include <cstddef>
 #	include "../math/bit_size.hpp"
-#	include "../math/hash_dist.hpp"
+#	include "../math/hash_distribute.hpp"
 
 namespace xieite {
-	template<std::integral T = std::size_t, std::convertible_to<T>... Ts>
-	[[nodiscard]] constexpr T hash_combine(T first, Ts... rest) noexcept {
-		(..., (first = std::rotl(first, static_cast<int>(xieite::bit_size<T> / 3)) ^ xieite::hash_dist(static_cast<T>(rest))));
+	template<std::integral Int = std::size_t, std::convertible_to<Int>... Ints>
+	[[nodiscard]] constexpr Int hash_combine(Int first, Ints... rest) noexcept {
+		(..., (first = std::rotl(first, static_cast<int>(xieite::bit_size<Int> / 3)) ^ xieite::hash_distribute(static_cast<Int>(rest))));
 		return first;
 	}
 }

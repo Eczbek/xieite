@@ -7,12 +7,12 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T div_ceil(T dividend, T divisor) {
-		if constexpr (std::floating_point<T>) {
-			return std::ceil(dividend / divisor);
+	template<xieite::is_arith Arith>
+	[[nodiscard]] constexpr Arith div_ceil(Arith lhs, Arith rhs) {
+		if constexpr (std::floating_point<Arith>) {
+			return std::ceil(lhs / rhs);
 		} else {
-			return static_cast<T>(dividend / divisor + !!(dividend % divisor) * (xieite::sign(dividend, divisor) > 0));
+			return static_cast<Arith>(lhs / rhs + !!(lhs % rhs) * (xieite::sign(lhs, rhs) > 0));
 		}
 	}
 }

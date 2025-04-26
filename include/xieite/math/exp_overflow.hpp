@@ -7,19 +7,19 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T, std::convertible_to<T>... Ts>
-	[[nodiscard]] constexpr bool exp_overflow(T first, Ts... rest) noexcept {
-		return sizeof...(Ts)
+	template<xieite::is_arith Arith, std::convertible_to<Arith>... Ariths>
+	[[nodiscard]] constexpr bool exp_overflow(Arith first, Ariths... rest) noexcept {
+		return sizeof...(Ariths)
 			&& first
 			&& (first != 1)
-			&& (std::unsigned_integral<T> || (first != static_cast<T>(-1)))
+			&& (std::unsigned_integral<Arith> || (first != static_cast<Arith>(-1)))
 			&& (... || ([&first, rest] -> bool {
 				// Store power in some deduced fractional type
 				const auto pow = std::pow(first, rest);
-				if ((pow > std::numeric_limits<T>::max()) || (!std::unsigned_integral<T> && (pow < std::numeric_limits<T>::min()))) {
+				if ((pow > std::numeric_limits<Arith>::max()) || (!std::unsigned_integral<Arith> && (pow < std::numeric_limits<Arith>::min()))) {
 					return true;
 				}
-				first = static_cast<T>(pow);
+				first = static_cast<Arith>(pow);
 				return false;
 			})());
 	}

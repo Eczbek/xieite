@@ -7,8 +7,7 @@
 #	include "../trait/is_tuple_like.hpp"
 
 namespace xieite {
-	template<xieite::is_tuple_like Tuple>
-	[[nodiscard]] constexpr auto fwd_tuple(Tuple&& x) noexcept {
+	[[nodiscard]] constexpr auto fwd_tuple(xieite::is_tuple_like auto&& x) noexcept {
 		return std::apply(XIEITE_LIFT(std::forward_as_tuple), XIEITE_FWD(x));
 	}
 }

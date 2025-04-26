@@ -3,21 +3,21 @@
 #
 #	include <cstddef>
 #	include <vector>
-#	include "../ctnr/make_array.hpp"
+#	include "../data/make_array.hpp"
 #	include "../math/mul_overflow.hpp"
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
+	template<xieite::is_arith Arith>
 	constexpr auto factorial = ([] static {
-		static constexpr auto get = [] static -> std::vector<T> {
-			std::vector<T> result = { 1 };
-			for (std::size_t i = 1; !xieite::mul_overflow(static_cast<T>(i), result[i - 1]); ++i) {
-				result.push_back(static_cast<T>(i) * result[i - 1]);
+		static constexpr auto get = [] static -> std::vector<Arith> {
+			std::vector<Arith> result = { 1 };
+			for (std::size_t i = 1; !xieite::mul_overflow(static_cast<Arith>(i), result[i - 1]); ++i) {
+				result.push_back(static_cast<Arith>(i) * result[i - 1]);
 			}
 			return result;
 		};
-		return xieite::make_array<T, get().size()>(get());
+		return xieite::make_array<Arith, get().size()>(get());
 	})();
 }
 

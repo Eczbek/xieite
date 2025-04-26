@@ -3,13 +3,13 @@
 #
 #	include <concepts>
 #	include <type_traits>
-#	include "../trait/try_sign.hpp"
-#	include "../trait/try_unsign.hpp"
+#	include "../trait/try_signed.hpp"
+#	include "../trait/try_unsigned.hpp"
 
 namespace xieite {
-	template<std::integral T>
-	constexpr auto sign_cast = []<std::integral U>(U n) static noexcept {
-		return static_cast<T>(static_cast<std::conditional_t<std::signed_integral<T>, xieite::try_sign<U>, xieite::try_unsign<U>>>(n));
+	template<std::integral Int>
+	constexpr auto sign_cast = []<std::integral OtherInt>(OtherInt x) static noexcept {
+		return static_cast<Int>(static_cast<std::conditional_t<std::signed_integral<Int>, xieite::try_signed<OtherInt>, xieite::try_unsigned<OtherInt>>>(x));
 	};
 }
 

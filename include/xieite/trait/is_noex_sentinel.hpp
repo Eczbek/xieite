@@ -13,9 +13,9 @@
 #	include "../trait/is_noex_swap.hpp"
 
 namespace xieite {
-	template<typename T, typename U>
+	template<typename T, typename Iter>
 	concept is_noex_sentinel =
-		std::sentinel_for<T, U>
+		std::sentinel_for<T, Iter>
 		&& xieite::has_noex_default_ctor<T>
 		&& xieite::has_noex_cp_ctor<T>
 		&& xieite::has_noex_mv_ctor<T>
@@ -23,7 +23,7 @@ namespace xieite {
 		&& xieite::has_noex_cp_assign<T>
 		&& xieite::has_noex_mv_assign<T>
 		&& xieite::is_noex_swap<T>
-		&& requires(T s0, const T s1, U i0, const U i1) {
+		&& requires(T s0, const T s1, Iter i0, const Iter i1) {
 			{ s0 == i0 } noexcept -> xieite::is_noex_bool_testable;
 			{ s0 == i1 } noexcept -> xieite::is_noex_bool_testable;
 			{ s1 == i0 } noexcept -> xieite::is_noex_bool_testable;
@@ -88,8 +88,8 @@ namespace xieite {
 			{ std::move(i0) != std::move(s1) } noexcept -> xieite::is_noex_bool_testable;
 			{ std::move(i1) != std::move(s0) } noexcept -> xieite::is_noex_bool_testable;
 			{ std::move(i1) != std::move(s1) } noexcept -> xieite::is_noex_bool_testable;
-		} && (!std::sized_sentinel_for<T, U>
-			|| requires(T s0, const T s1, U i0, const U i1) {
+		} && (!std::sized_sentinel_for<T, Iter>
+			|| requires(T s0, const T s1, Iter i0, const Iter i1) {
 				{ s0 - i0 } noexcept;
 				{ s0 - i1 } noexcept;
 				{ s1 - i0 } noexcept;

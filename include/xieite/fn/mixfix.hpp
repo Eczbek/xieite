@@ -1,7 +1,6 @@
 #ifndef DETAIL_XIEITE_HEADER_FN_MIXFIX
 #	define DETAIL_XIEITE_HEADER_FN_MIXFIX
 #
-#	include <concepts>
 #	include "../fn/fn.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_ref_to.hpp"
@@ -270,131 +269,131 @@ namespace xieite {
 	private:
 		struct proxy : xieite::rm_cp_assign, xieite::rm_mv_assign {
 		public:
-			[[nodiscard]] constexpr proxy(const auto& parent, Arg0&& l) noexcept
-			: parent(parent), value(XIEITE_FWD(l)) {}
+			[[nodiscard]] constexpr proxy(const auto& parent, Arg0&& lhs) noexcept
+			: parent(parent), value(XIEITE_FWD(lhs)) {}
 
-			[[nodiscard]] constexpr decltype(auto) operator->*(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator->*(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator*(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator*(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator/(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator/(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator%(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator%(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator+(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator+(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator-(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator-(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator<<(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator<<(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator>>(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator>>(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator<=>(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator<=>(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator<(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator<(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator<=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator<=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator>(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator>(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator>=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator>=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator==(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator==(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator!=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator!=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator&(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator&(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator^(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator^(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator|(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator|(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator&&(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator&&(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator||(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator||(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator*=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator*=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator/=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator/=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator%=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator%=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator+=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator+=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator-=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator-=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator<<=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator<<=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator>>=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator>>=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator&=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator&=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator^=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator^=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			constexpr decltype(auto) operator|=(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			constexpr decltype(auto) operator|=(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
-			[[nodiscard]] constexpr decltype(auto) operator,(this auto&& self, xieite::is_ref_to<Arg1> auto&& r) noexcept(false) {
-				return self.parent(self.value, XIEITE_FWD(r));
+			[[nodiscard]] constexpr decltype(auto) operator,(this auto&& self, xieite::is_ref_to<Arg1> auto&& rhs) noexcept(false) {
+				return self.parent(self.value, XIEITE_FWD(rhs));
 			}
 
 		private:
@@ -405,128 +404,128 @@ namespace xieite {
 	public:
 		using xieite::fn<Ret(Arg0, Arg1)>::fn;
 
-		[[nodiscard]] friend constexpr auto operator->*(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator->*(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator*(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator*(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator/(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator/(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator%(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator%(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator+(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator+(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator-(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator-(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator<<(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator<<(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator>>(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator>>(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator<=>(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator<=>(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator<(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator<(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator<=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator<=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator>(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator>(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator>=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator>=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator==(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator==(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator!=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator!=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator&(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator&(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator^(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator^(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator|(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator|(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator&&(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator&&(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator||(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator||(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator*=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator*=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator/=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator/=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator%=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator%=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator+=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator+=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator-=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator-=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator<<=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator<<=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator>>=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator>>=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator&=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator&=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator^=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator^=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		friend constexpr auto operator|=(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		friend constexpr auto operator|=(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 
-		[[nodiscard]] friend constexpr auto operator,(xieite::is_ref_to<Arg0> auto&& l, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
-			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(l));
+		[[nodiscard]] friend constexpr auto operator,(xieite::is_ref_to<Arg0> auto&& lhs, const xieite::mixfix<Ret(Arg0, Arg1)>& self) noexcept(false) {
+			return xieite::mixfix<Ret(Arg0, Arg1)>::proxy(self, XIEITE_FWD(lhs));
 		}
 	};
 }

@@ -5,9 +5,9 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T, xieite::is_arith U = std::common_type_t<T, double>>
-	[[nodiscard]] constexpr U log(T base, T n) noexcept {
-		return static_cast<U>(std::log(n) / std::log(base));
+	template<xieite::is_arith Arith, xieite::is_arith Result = std::common_type_t<Arith, double>>
+	[[nodiscard]] constexpr Result log(Arith base, Arith x) noexcept {
+		return static_cast<Result>(std::log(x) / std::log(base));
 	}
 }
 

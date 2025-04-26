@@ -13,15 +13,15 @@ namespace xieite {
 	struct ray2d;
 
 	template<xieite::is_arith>
-	struct segm2d;
+	struct segment2d;
 
-	template<typename T, typename U = double>
+	template<typename T, typename Arith = double>
 	concept is_linear2d =
 		xieite::is_same_any<
 			std::remove_cv_t<T>,
-			xieite::line2d<U>,
-			xieite::ray2d<U>,
-			xieite::segm2d<U>
+			xieite::line2d<Arith>,
+			xieite::ray2d<Arith>,
+			xieite::segment2d<Arith>
 		>;
 }
 

@@ -6,12 +6,12 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T rem(T dividend, T divisor) noexcept {
-		if constexpr (std::floating_point<T>) {
-			return std::fmod(dividend, divisor);
+	template<xieite::is_arith Arith>
+	[[nodiscard]] constexpr Arith rem(Arith lhs, Arith rhs) noexcept {
+		if constexpr (std::floating_point<Arith>) {
+			return std::fmod(lhs, rhs);
 		} else {
-			return dividend % divisor;
+			return lhs % rhs;
 		}
 	}
 }

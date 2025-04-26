@@ -6,13 +6,13 @@
 
 namespace xieite::order_op {
 	template<xieite::is_order Order>
-	[[nodiscard]] constexpr Order operator&(Order l, Order r) noexcept {
-		return !std::is_eq(l) && !std::is_eq(r);
+	[[nodiscard]] constexpr Order operator&&(Order lhs, Order rhs) noexcept {
+		return !std::is_eq(lhs) && !std::is_eq(rhs);
 	}
 
 	template<xieite::is_order Order>
-	[[nodiscard]] constexpr Order operator|(Order l, Order r) noexcept {
-		return std::is_eq(l) ? r : l;
+	[[nodiscard]] constexpr Order operator||(Order lhs, Order rhs) noexcept {
+		return std::is_eq(lhs) ? rhs : lhs;
 	}
 }
 

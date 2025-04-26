@@ -2,22 +2,22 @@
 #	define DETAIL_XIEITE_HEADER_META_NAME
 #
 #	include <string_view>
-#	include "../ctnr/str_betw.hpp"
+#	include "../data/str_between.hpp"
 #	include "../pp/compiler.hpp"
 #	include "../pp/fn_sig.hpp"
 #
 #	if XIEITE_COMPILER_TYPE_MSVC
-#		include "../ctnr/str_after.hpp"
+#		include "../data/str_after.hpp"
 #	endif
 
 namespace DETAIL_XIEITE::name {
 	[[nodiscard]] consteval std::string_view parse(std::string_view name) noexcept {
 #	if XIEITE_COMPILER_TYPE_CLANG || XIEITE_COMPILER_TYPE_ICC
-		return xieite::str_betw(name, "= ", ']');
+		return xieite::str_between(name, "= ", ']');
 #	elif XIEITE_COMPILER_TYPE_GCC
-		return xieite::str_betw(name, "= ", ';');
+		return xieite::str_between(name, "= ", ';');
 #	elif XIEITE_COMPILER_TYPE_MSVC
-		return xieite::str_betw(xieite::str_after(name, " __"), '<', ">(");
+		return xieite::str_between(xieite::str_after(name, " __"), '<', ">(");
 #	else
 		return "???";
 #	endif

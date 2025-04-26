@@ -7,23 +7,23 @@
 #	include "../trait/is_noex_bool_testable.hpp"
 
 namespace xieite {
-	inline constexpr auto synth_three_way = []<typename T, typename U>(const T& l, const U& r)
+	inline constexpr auto synth_three_way = []<typename T, typename U>(const T& lhs, const U& rhs)
 		noexcept(requires {
-			{ l < r } -> xieite::is_noex_bool_testable;
-			{ r < l } -> xieite::is_noex_bool_testable;
+			{ lhs < rhs } -> xieite::is_noex_bool_testable;
+			{ rhs < lhs } -> xieite::is_noex_bool_testable;
 		})
 		-> decltype(auto)
 		requires(requires {
-			{ l < r } -> xieite::is_bool_testable;
-			{ r < l } -> xieite::is_bool_testable;
+			{ lhs < rhs } -> xieite::is_bool_testable;
+			{ rhs < lhs } -> xieite::is_bool_testable;
 		}) {
 			if constexpr (std::three_way_comparable_with<T, U>) {
-				return l <=> r;
+				return lhs <=> rhs;
 			} else {
-				if (l < r) {
+				if (lhs < rhs) {
 					return std::weak_ordering::less;
 				}
-				if (r < l) {
+				if (rhs < lhs) {
 					return std::weak_ordering::greater;
 				}
 				return std::weak_ordering::equivalent;

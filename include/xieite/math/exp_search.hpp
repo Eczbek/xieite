@@ -3,32 +3,31 @@
 #
 #	include <concepts>
 #	include <functional>
-#	include "../math/almost_eq.hpp"
-#	include "../math/neg.hpp"
+#	include "../math/almost_equal.hpp"
 #	include "../trait/is_arith.hpp"
 #	include "../trait/is_invoc.hpp"
 #	include "../trait/is_noex_invoc.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T, xieite::is_invoc<bool(T)> F>
-	[[nodiscard]] constexpr T exp_search(F&& cond, T min, T max)
-	noexcept(xieite::is_noex_invoc<F, bool(T)>) {
+	template<xieite::is_arith Arith, xieite::is_invoc<bool(Arith)> Fn>
+	[[nodiscard]] constexpr Arith exp_search(Fn&& cond, Arith min, Arith max)
+	noexcept(xieite::is_noex_invoc<Fn, bool(Arith)>) {
 		while (true) {
-			const T mid = static_cast<T>((min + max) / 2);
-			if (xieite::almost_eq(mid, min) || xieite::almost_eq(mid, max)) {
+			const Arith mid = static_cast<Arith>((min + max) / 2);
+			if (xieite::almost_equal(mid, min) || xieite::almost_equal(mid, max)) {
 				return mid;
 			}
 			(std::invoke_r<bool>(cond, mid) ? max : min) = mid;
 		}
 	}
 
-	template<xieite::is_arith T, xieite::is_invoc<bool(T)> F>
-	[[nodiscard]] constexpr T exp_search(F&& cond)
-	noexcept(xieite::is_noex_invoc<F, bool(T)>) {
-		if constexpr (!std::unsigned_integral<T>) {
-			if (std::invoke_r<bool>(cond, static_cast<T>(0))) {
-				T mid;
-				T min = -1;
+	template<xieite::is_arith Arith, xieite::is_invoc<bool(Arith)> Fn>
+	[[nodiscard]] constexpr Arith exp_search(Fn&& cond)
+	noexcept(xieite::is_noex_invoc<Fn, bool(Arith)>) {
+		if constexpr (!std::unsigned_integral<Arith>) {
+			if (std::invoke_r<bool>(cond, static_cast<Arith>(0))) {
+				Arith mid;
+				Arith min = -1;
 				while (std::invoke_r<bool>(cond, min)) {
 					mid = min;
 					min *= 2;
@@ -36,8 +35,8 @@ namespace xieite {
 				return xieite::exp_search(cond, min, mid);
 			}
 		}
-		T mid;
-		T max = 1;
+		Arith mid;
+		Arith max = 1;
 		while (!std::invoke_r<bool>(cond, max)) {
 			mid = max;
 			max *= 2;

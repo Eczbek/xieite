@@ -30,74 +30,74 @@
 #	define bitnimply_eq += DETAIL_XIEITE::KEYWORDS::bitnimply_eq_impl +=
 
 namespace DETAIL_XIEITE::KEYWORDS {
-	template<auto fn, typename T>
+	template<auto fn, typename Arg>
 	struct proxy {
-		T&& l;
+		Arg&& lhs;
 
-		[[nodiscard]] constexpr auto operator->*(T&& r) const
-			XIEITE_ARROW(fn(XIEITE_FWD(this->l), XIEITE_FWD(r)))
+		[[nodiscard]] constexpr auto operator->*(Arg&& rhs) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->lhs), XIEITE_FWD(rhs)))
 
-		[[nodiscard]] constexpr auto operator*(T&& r) const
-			XIEITE_ARROW(fn(XIEITE_FWD(this->l), XIEITE_FWD(r)))
+		[[nodiscard]] constexpr auto operator*(Arg&& rhs) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->lhs), XIEITE_FWD(rhs)))
 
-		[[nodiscard]] constexpr auto operator&(T&& r) const
-			XIEITE_ARROW(fn(XIEITE_FWD(this->l), XIEITE_FWD(r)))
+		[[nodiscard]] constexpr auto operator&(Arg&& rhs) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->lhs), XIEITE_FWD(rhs)))
 
-		[[nodiscard]] constexpr auto operator^(T&& r) const
-			XIEITE_ARROW(fn(XIEITE_FWD(this->l), XIEITE_FWD(r)))
+		[[nodiscard]] constexpr auto operator^(Arg&& rhs) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->lhs), XIEITE_FWD(rhs)))
 
-		[[nodiscard]] constexpr auto operator|(T&& r) const
-			XIEITE_ARROW(fn(XIEITE_FWD(this->l), XIEITE_FWD(r)))
+		[[nodiscard]] constexpr auto operator|(Arg&& rhs) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->lhs), XIEITE_FWD(rhs)))
 
-		[[nodiscard]] constexpr auto operator&&(T&& r) const
-			XIEITE_ARROW(fn(XIEITE_FWD(this->l), XIEITE_FWD(r)))
+		[[nodiscard]] constexpr auto operator&&(Arg&& rhs) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->lhs), XIEITE_FWD(rhs)))
 
-		[[nodiscard]] constexpr auto operator||(T&& r) const
-			XIEITE_ARROW(fn(XIEITE_FWD(this->l), XIEITE_FWD(r)))
+		[[nodiscard]] constexpr auto operator||(Arg&& rhs) const
+			XIEITE_ARROW(fn(XIEITE_FWD(this->lhs), XIEITE_FWD(rhs)))
 
-		[[nodiscard]] friend constexpr auto operator+=(T&& r, DETAIL_XIEITE::KEYWORDS::proxy<fn, T>&& self)
-			XIEITE_ARROW(fn(XIEITE_FWD(self.l), XIEITE_FWD(r)))
+		[[nodiscard]] friend constexpr auto operator+=(Arg&& rhs, DETAIL_XIEITE::KEYWORDS::proxy<fn, Arg>&& self)
+			XIEITE_ARROW(fn(XIEITE_FWD(self.lhs), XIEITE_FWD(rhs)))
 	};
 
 	template<auto fn>
 	struct ifx {
-		template<typename T>
-		[[nodiscard]] friend constexpr auto operator->*(T&& l, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
-			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, T>(XIEITE_FWD(l)))
+		template<typename Arg>
+		[[nodiscard]] friend constexpr auto operator->*(Arg&& lhs, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
+			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, Arg>(XIEITE_FWD(lhs)))
 
-		template<typename T>
-		[[nodiscard]] friend constexpr auto operator*(T&& l, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
-			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, T>(XIEITE_FWD(l)))
+		template<typename Arg>
+		[[nodiscard]] friend constexpr auto operator*(Arg&& lhs, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
+			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, Arg>(XIEITE_FWD(lhs)))
 
-		template<typename T>
-		[[nodiscard]] friend constexpr auto operator&(T&& l, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
-			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, T>(XIEITE_FWD(l)))
+		template<typename Arg>
+		[[nodiscard]] friend constexpr auto operator&(Arg&& lhs, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
+			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, Arg>(XIEITE_FWD(lhs)))
 
-		template<typename T>
-		[[nodiscard]] friend constexpr auto operator^(T&& l, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
-			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, T>(XIEITE_FWD(l)))
+		template<typename Arg>
+		[[nodiscard]] friend constexpr auto operator^(Arg&& lhs, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
+			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, Arg>(XIEITE_FWD(lhs)))
 
-		template<typename T>
-		[[nodiscard]] friend constexpr auto operator|(T&& l, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
-			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, T>(XIEITE_FWD(l)))
+		template<typename Arg>
+		[[nodiscard]] friend constexpr auto operator|(Arg&& lhs, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
+			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, Arg>(XIEITE_FWD(lhs)))
 
-		template<typename T>
-		[[nodiscard]] friend constexpr auto operator&&(T&& l, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
-			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, T>(XIEITE_FWD(l)))
+		template<typename Arg>
+		[[nodiscard]] friend constexpr auto operator&&(Arg&& lhs, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
+			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, Arg>(XIEITE_FWD(lhs)))
 
-		template<typename T>
-		[[nodiscard]] friend constexpr auto operator||(T&& l, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
-			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, T>(XIEITE_FWD(l)))
+		template<typename Arg>
+		[[nodiscard]] friend constexpr auto operator||(Arg&& lhs, DETAIL_XIEITE::KEYWORDS::ifx<fn>)
+			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, Arg>(XIEITE_FWD(lhs)))
 
-		template<typename T>
-		[[nodiscard]] constexpr auto operator+=(T&& l) const
-			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, T>(XIEITE_FWD(l)))
+		template<typename Arg>
+		[[nodiscard]] constexpr auto operator+=(Arg&& lhs) const
+			XIEITE_ARROW(DETAIL_XIEITE::KEYWORDS::proxy<fn, Arg>(XIEITE_FWD(lhs)))
 	};
 
 	template<auto fn>
 	struct pfx {
-		[[nodiscard]] constexpr auto operator->*(auto&& r)
-			XIEITE_ARROW(fn(XIEITE_FWD(r)))
+		[[nodiscard]] constexpr auto operator->*(auto&& rhs)
+			XIEITE_ARROW(fn(XIEITE_FWD(rhs)))
 	};
 
 	inline constexpr auto nand_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return !XIEITE_FWD(x) || !XIEITE_FWD(y); })>();

@@ -4,8 +4,8 @@
 #	include "../trait/is_special.hpp"
 
 namespace xieite {
-	template<typename T, template<typename...> typename... Ms>
-	concept is_special_any = (... || xieite::is_special<T, Ms>);
+	template<typename T, template<typename...> typename... Templates>
+	concept is_special_any = (... || xieite::is_special<T, Templates>);
 }
 
 #endif

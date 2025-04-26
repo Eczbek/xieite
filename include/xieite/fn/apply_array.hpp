@@ -9,17 +9,17 @@
 #	include "../pp/lift.hpp"
 
 namespace xieite {
-	template<typename F, typename V, std::size_t size>
-	[[nodiscard]] constexpr auto apply_array(F&& fn, const std::array<V, size>& array)
-		XIEITE_ARROW(xieite::unroll<size>(
-			[]<std::size_t... i>(F&& fn, const auto& array) static
+	template<typename Value, std::size_t length>
+	[[nodiscard]] constexpr auto apply_array(auto&& fn, const std::array<Value, length>& array)
+		XIEITE_ARROW(xieite::unroll<length>(
+			[]<std::size_t... i>(auto&& fn, const auto& array) static
 				XIEITE_ARROW(std::invoke(XIEITE_FWD(fn), array[i]...)),
 			XIEITE_FWD(fn),
 			array
 		))
 
-	template<typename T, typename V, std::size_t size>
-	[[nodiscard]] constexpr T apply_array(const std::array<V, size>& array)
+	template<typename T, typename Value, std::size_t length>
+	[[nodiscard]] constexpr T apply_array(const std::array<Value, length>& array)
 		XIEITE_ARROW_RET(xieite::apply_array(XIEITE_LIFT(T), array))
 }
 

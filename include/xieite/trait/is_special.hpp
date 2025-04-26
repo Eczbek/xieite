@@ -5,8 +5,8 @@
 #	include "../trait/rm_cv.hpp"
 
 namespace xieite {
-	template<typename T, template<typename...> typename... Ms>
-	concept is_special = (... && requires { ([]<typename... Args>(std::type_identity<Ms<Args...>>) {})(std::type_identity<xieite::rm_cv<T>>()); });
+	template<typename T, template<typename...> typename... Templates>
+	concept is_special = (... && requires { ([]<typename... Args>(std::type_identity<Templates<Args...>>) {})(std::type_identity<xieite::rm_cv<T>>()); });
 }
 
 #endif

@@ -5,18 +5,18 @@
 #	include <concepts>
 
 namespace xieite {
-	template<std::integral T>
-	[[nodiscard]] constexpr bool prime(T n) noexcept {
-		if constexpr (!std::same_as<T, bool>) {
-			if (n < 4) {
-				return n > 1;
+	template<std::integral Int>
+	[[nodiscard]] constexpr bool prime(Int x) noexcept {
+		if constexpr (!std::same_as<Int, bool>) {
+			if (x < 4) {
+				return x > 1;
 			}
-			if (!(n % 2) || !(n % 3)) {
+			if (!(x % 2) || !(x % 3)) {
 				return false;
 			}
-			const T sqrt = static_cast<T>(std::sqrt(n));
-			for (T i = 5; i <= sqrt; i += 6) {
-				if (!(n % i) || !(n % (i + 2))) {
+			const Int sqrt = static_cast<Int>(std::sqrt(x));
+			for (Int i = 5; i <= sqrt; i += 6) {
+				if (!(x % i) || !(x % (i + 2))) {
 					return false;
 				}
 			}

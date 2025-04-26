@@ -8,8 +8,8 @@
 namespace xieite {
 	struct scope_guard {
 	public:
-		template<std::invocable<> F>
-		[[nodiscard]] constexpr scope_guard(F&& fn) noexcept
+		template<std::invocable<> Fn>
+		[[nodiscard]] constexpr scope_guard(Fn&& fn) noexcept
 		: fn(XIEITE_FWD(fn)) {}
 
 		constexpr ~scope_guard() {

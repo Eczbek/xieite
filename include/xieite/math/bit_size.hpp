@@ -9,8 +9,8 @@ namespace xieite {
 	template<typename T>
 	constexpr std::size_t bit_size = sizeof(T) * std::numeric_limits<unsigned char>::digits;
 
-	template<std::integral T>
-	constexpr std::size_t bit_size<T> = std::numeric_limits<T>::digits + std::numeric_limits<T>::is_signed;
+	template<std::integral Int>
+	constexpr std::size_t bit_size<Int> = std::numeric_limits<Int>::digits + std::numeric_limits<Int>::is_signed;
 }
 
 #endif

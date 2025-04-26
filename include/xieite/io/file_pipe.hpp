@@ -5,7 +5,7 @@
 #	include <stdio.h>
 #	include <string>
 #	include "../pp/platform.hpp"
-#	include "../sys/proc_status.hpp"
+#	include "../sys/process_status.hpp"
 #
 #	if !XIEITE_PLATFORM_TYPE_UNIX && !XIEITE_PLATFORM_TYPE_WINDOWS
 #		warning unsupported platform
@@ -58,7 +58,7 @@ namespace xieite {
 			const int status = ::pclose(this->stream);
 #	endif
 			this->stream = nullptr;
-			return xieite::proc_status(status);
+			return xieite::process_status(status);
 		}
 
 		[[nodiscard]] std::FILE* get() const noexcept {

@@ -5,21 +5,20 @@
 #	include <functional>
 #	include <thread>
 #	include "../sys/thread_loop.hpp"
-#	include "../trait/is_dur.hpp"
+#	include "../trait/is_duration.hpp"
 
 namespace xieite {
 	struct thread_interval {
 	public:
-		template<std::invocable<> F, xieite::is_dur Dur>
-		[[nodiscard]] thread_interval(F&& fn, Dur dur) noexcept
-		: loop([&fn, dur] -> void {
+		[[nodiscard]] thread_interval(std::invocable<> auto&& fn, xieite::is_duration auto duration) noexcept
+		: loop([&fn, duration] -> void {
 			static bool first = true;
 			if (first) {
 				first = false;
 			} else {
 				std::invoke(fn);
 			}
-			std::this_thread::sleep_for(dur);
+			std::this_thread::sleep_for(duration);
 		}) {}
 
 		[[nodiscard]] explicit operator bool() const noexcept {

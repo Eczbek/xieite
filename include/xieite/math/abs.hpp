@@ -4,19 +4,19 @@
 #	include <cmath>
 #	include <concepts>
 #	include "../trait/is_arith.hpp"
-#	include "../trait/try_unsign.hpp"
+#	include "../trait/try_unsigned.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr xieite::try_unsign<T> abs(T n) noexcept {
-		if constexpr (std::floating_point<T>) {
-			return std::abs(n);
-		} else if constexpr (std::unsigned_integral<T>) {
-			return n;
+	template<xieite::is_arith Arith>
+	[[nodiscard]] constexpr xieite::try_unsigned<Arith> abs(Arith x) noexcept {
+		if constexpr (std::floating_point<Arith>) {
+			return std::abs(x);
+		} else if constexpr (std::unsigneded_integral<Arith>) {
+			return x;
 		} else {
-			return (n < 0)
-				? -static_cast<xieite::try_unsign<T>>(n)
-				: static_cast<xieite::try_unsign<T>>(n);
+			return (x < 0)
+				? -static_cast<xieite::try_unsigned<Arith>>(x)
+				: static_cast<xieite::try_unsigned<Arith>>(x);
 		}
 	}
 }

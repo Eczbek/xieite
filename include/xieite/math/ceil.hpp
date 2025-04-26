@@ -5,9 +5,9 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T ceil(T n, T step = 1) noexcept {
-		return xieite::div_ceil(n, step) * step;
+	template<xieite::is_arith Arith>
+	[[nodiscard]] constexpr Arith ceil(Arith x, Arith step = 1) noexcept {
+		return xieite::div_ceil(x, step) * step;
 	}
 }
 

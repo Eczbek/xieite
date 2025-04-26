@@ -6,9 +6,9 @@
 #	include "../pp/fwd.hpp"
 
 namespace xieite {
-	template<typename F, typename... Args>
-	requires(std::invocable<F, Args...>)
-	[[nodiscard]] constexpr decltype(auto) noex(F&& fn, Args&&... args) noexcept {
+	template<typename Fn, typename... Args>
+	requires(std::invocable<Fn, Args...>)
+	[[nodiscard]] constexpr decltype(auto) noex(Fn&& fn, Args&&... args) noexcept {
 		return std::invoke(XIEITE_FWD(fn), XIEITE_FWD(args)...);
 	}
 

@@ -7,10 +7,10 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T, std::convertible_to<T>... Ts>
-	[[nodiscard]] constexpr xieite::interval<T> minmax(T first, Ts... rest) noexcept {
-		auto result = xieite::interval<T>(first, first);
-		(..., (result = xieite::interval<T>(std::min(result.start, rest), std::max(result.end, rest))));
+	template<xieite::is_arith Arith, std::convertible_to<Arith>... Ariths>
+	[[nodiscard]] constexpr xieite::interval<Arith> minmax(Arith first, Ariths... rest) noexcept {
+		auto result = xieite::interval<Arith>(first, first);
+		(..., (result = xieite::interval<Arith>(std::min(result.start, rest), std::max(result.end, rest))));
 		return result;
 	}
 }

@@ -10,9 +10,8 @@ namespace xieite {
 	struct byte_fill {
 		char value;
 
-		template<std::integral T>
-		[[nodiscard]] explicit constexpr byte_fill(T n) noexcept
-		: value(static_cast<char>(n)) {}
+		[[nodiscard]] explicit constexpr byte_fill(std::integral auto byte) noexcept
+		: value(static_cast<char>(byte)) {}
 
 		template<typename T>
 		[[nodiscard]] explicit(false) constexpr operator T() const noexcept {

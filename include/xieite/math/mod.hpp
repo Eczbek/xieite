@@ -6,9 +6,9 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T mod(T dividend, T divisor) noexcept {
-		return xieite::rem(xieite::rem(dividend, divisor) + divisor * (xieite::sign(dividend) != xieite::sign(divisor)), divisor);
+	template<xieite::is_arith Arith>
+	[[nodiscard]] constexpr Arith mod(Arith lhs, Arith rhs) noexcept {
+		return xieite::rem(xieite::rem(lhs, rhs) + rhs * (xieite::sign(lhs) != xieite::sign(rhs)), rhs);
 	}
 }
 

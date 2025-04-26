@@ -6,10 +6,10 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T wrap(T n, T limit0, T limit1) noexcept {
+	template<xieite::is_arith Arith>
+	[[nodiscard]] constexpr Arith wrap(Arith x, Arith limit0, Arith limit1) noexcept {
 		const auto [min, max] = xieite::minmax(limit0, limit1);
-		return xieite::mod(n - min, max - min) + min;
+		return xieite::mod(x - min, max - min) + min;
 	}
 }
 

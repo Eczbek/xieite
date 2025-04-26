@@ -6,7 +6,6 @@
 #	include <type_traits>
 #	include "../math/least_int.hpp"
 #	include "../math/least_uint.hpp"
-#	include "../math/ssize_t.hpp"
 
 namespace xieite {
 	template<std::size_t bits, bool sign>
@@ -15,13 +14,12 @@ namespace xieite {
 
 		typename xieite::bit_field<bits, sign>::type value : bits;
 
-		template<std::integral T = xieite::ssize_t>
-		[[nodiscard]] constexpr bit_field(T n = 0) noexcept
-		: value(static_cast<typename xieite::bit_field<bits, sign>::type>(n)) {}
+		[[nodiscard]] constexpr bit_field(std::integral auto x = 0z) noexcept
+		: value(static_cast<typename xieite::bit_field<bits, sign>::type>(x)) {}
 
-		template<std::integral T>
-		[[nodiscard]] explicit constexpr operator T() const noexcept {
-			return static_cast<T>(this->value);
+		template<std::integral Int>
+		[[nodiscard]] explicit constexpr operator Int() const noexcept {
+			return static_cast<Int>(this->value);
 		}
 
 		template<std::size_t other_bits, bool other_sign>
@@ -29,8 +27,8 @@ namespace xieite {
 			return xieite::bit_field<other_bits, other_sign>(this->value);
 		}
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::bit_field<bits, sign> l, xieite::bit_field<bits, sign> r) noexcept {
-			return l.value <=> r.value;
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::bit_field<bits, sign> lhs, xieite::bit_field<bits, sign> rhs) noexcept {
+			return lhs.value <=> rhs.value;
 		}
 
 		[[nodiscard]] friend bool operator==(xieite::bit_field<bits, sign>, xieite::bit_field<bits, sign>) = default;
@@ -39,12 +37,12 @@ namespace xieite {
 			return this->value;
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator+(xieite::bit_field<bits, sign> l, xieite::bit_field<bits, sign> r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value + r.value);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator+(xieite::bit_field<bits, sign> lhs, xieite::bit_field<bits, sign> rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value + rhs.value);
 		}
 
-		constexpr xieite::bit_field<bits, sign>& operator+=(xieite::bit_field<bits, sign> r) noexcept {
-			return *this = *this + r;
+		constexpr xieite::bit_field<bits, sign>& operator+=(xieite::bit_field<bits, sign> rhs) noexcept {
+			return *this = *this + rhs;
 		}
 
 		constexpr xieite::bit_field<bits, sign>& operator++() noexcept {
@@ -60,12 +58,12 @@ namespace xieite {
 			return xieite::bit_field<bits, sign>(-this->value);
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator-(xieite::bit_field<bits, sign> l, xieite::bit_field<bits, sign> r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value - r.value);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator-(xieite::bit_field<bits, sign> lhs, xieite::bit_field<bits, sign> rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value - rhs.value);
 		}
 
-		constexpr xieite::bit_field<bits, sign>& operator-=(xieite::bit_field<bits, sign> r) noexcept {
-			return *this = *this - r;
+		constexpr xieite::bit_field<bits, sign>& operator-=(xieite::bit_field<bits, sign> rhs) noexcept {
+			return *this = *this - rhs;
 		}
 
 		constexpr xieite::bit_field<bits, sign>& operator--() noexcept {
@@ -77,72 +75,72 @@ namespace xieite {
 			return xieite::bit_field<bits, sign>(this->value--);
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator*(xieite::bit_field<bits, sign> l, xieite::bit_field<bits, sign> r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value * r.value);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator*(xieite::bit_field<bits, sign> lhs, xieite::bit_field<bits, sign> rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value * rhs.value);
 		}
 
-		constexpr xieite::bit_field<bits, sign>& operator*=(xieite::bit_field<bits, sign> r) noexcept {
-			return *this = *this * r;
+		constexpr xieite::bit_field<bits, sign>& operator*=(xieite::bit_field<bits, sign> rhs) noexcept {
+			return *this = *this * rhs;
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator/(xieite::bit_field<bits, sign> l, xieite::bit_field<bits, sign> r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value / r.value);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator/(xieite::bit_field<bits, sign> lhs, xieite::bit_field<bits, sign> rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value / rhs.value);
 		}
 
-		constexpr xieite::bit_field<bits, sign>& operator/=(xieite::bit_field<bits, sign> r) noexcept {
-			return *this = *this / r;
+		constexpr xieite::bit_field<bits, sign>& operator/=(xieite::bit_field<bits, sign> rhs) noexcept {
+			return *this = *this / rhs;
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator%(xieite::bit_field<bits, sign> l, xieite::bit_field<bits, sign> r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value % r.value);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator%(xieite::bit_field<bits, sign> lhs, xieite::bit_field<bits, sign> rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value % rhs.value);
 		}
 
-		constexpr xieite::bit_field<bits, sign>& operator%=(xieite::bit_field<bits, sign> r) noexcept {
-			return *this = *this % r;
+		constexpr xieite::bit_field<bits, sign>& operator%=(xieite::bit_field<bits, sign> rhs) noexcept {
+			return *this = *this % rhs;
 		}
 
 		[[nodiscard]] constexpr xieite::bit_field<bits, sign> operator~() const noexcept {
 			return ~this->value;
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator&(xieite::bit_field<bits, sign> l, xieite::bit_field<bits, sign> r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value & r.value);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator&(xieite::bit_field<bits, sign> lhs, xieite::bit_field<bits, sign> rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value & rhs.value);
 		}
 
-		constexpr xieite::bit_field<bits, sign>& operator&=(xieite::bit_field<bits, sign> r) noexcept {
-			return *this = *this & r;
+		constexpr xieite::bit_field<bits, sign>& operator&=(xieite::bit_field<bits, sign> rhs) noexcept {
+			return *this = *this & rhs;
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator|(xieite::bit_field<bits, sign> l, xieite::bit_field<bits, sign> r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value | r.value);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator|(xieite::bit_field<bits, sign> lhs, xieite::bit_field<bits, sign> rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value | rhs.value);
 		}
 
-		constexpr xieite::bit_field<bits, sign>& operator|=(xieite::bit_field<bits, sign> r) noexcept {
-			return *this = *this | r;
+		constexpr xieite::bit_field<bits, sign>& operator|=(xieite::bit_field<bits, sign> rhs) noexcept {
+			return *this = *this | rhs;
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator^(xieite::bit_field<bits, sign> l, xieite::bit_field<bits, sign> r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value ^ r.value);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator^(xieite::bit_field<bits, sign> lhs, xieite::bit_field<bits, sign> rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value ^ rhs.value);
 		}
 
-		constexpr xieite::bit_field<bits, sign>& operator^=(xieite::bit_field<bits, sign> r) noexcept {
-			return *this = *this ^ r;
+		constexpr xieite::bit_field<bits, sign>& operator^=(xieite::bit_field<bits, sign> rhs) noexcept {
+			return *this = *this ^ rhs;
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator<<(xieite::bit_field<bits, sign> l, std::size_t r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value << r);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator<<(xieite::bit_field<bits, sign> lhs, std::size_t rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value << rhs);
 		}
 
-		constexpr xieite::bit_field<bits, sign> operator<<=(std::size_t r) noexcept {
-			return *this = *this << r;
+		constexpr xieite::bit_field<bits, sign> operator<<=(std::size_t rhs) noexcept {
+			return *this = *this << rhs;
 		}
 
-		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator>>(xieite::bit_field<bits, sign> l, std::size_t r) noexcept {
-			return xieite::bit_field<bits, sign>(l.value >> r);
+		[[nodiscard]] friend constexpr xieite::bit_field<bits, sign> operator>>(xieite::bit_field<bits, sign> lhs, std::size_t rhs) noexcept {
+			return xieite::bit_field<bits, sign>(lhs.value >> rhs);
 		}
 
-		constexpr xieite::bit_field<bits, sign> operator>>=(std::size_t r) noexcept {
-			return *this = *this >> r;
+		constexpr xieite::bit_field<bits, sign> operator>>=(std::size_t rhs) noexcept {
+			return *this = *this >> rhs;
 		}
 	};
 }

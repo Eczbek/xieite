@@ -11,11 +11,11 @@
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<std::ranges::forward_range R, xieite::is_invoc<bool(std::ranges::range_common_reference_t<R>, std::ranges::range_common_reference_t<R>)> F = std::ranges::greater>
-	requires(std::ranges::sized_range<R> && xieite::is_arith<std::ranges::range_value_t<R>>)
-	[[nodiscard]] constexpr std::vector<std::ranges::iterator_t<R>> modes(R& range, F&& cmp = {})
-	noexcept(xieite::is_noex_invoc<F, bool(std::ranges::range_common_reference_t<R>, std::ranges::range_common_reference_t<R>)> && xieite::is_noex_range<R>) {
-		std::vector<std::ranges::iterator_t<R>> its;
+	template<std::ranges::forward_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> Fn = std::ranges::greater>
+	requires(std::ranges::sized_range<Range> && xieite::is_arith<std::ranges::range_value_t<Range>>)
+	[[nodiscard]] constexpr std::vector<std::ranges::iterator_t<Range>> modes(Range& range, Fn&& cmp = {})
+	noexcept(xieite::is_noex_invoc<Fn, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> && xieite::is_noex_range<Range>) {
+		std::vector<std::ranges::iterator_t<Range>> its;
 		const std::size_t size = std::ranges::size(range);
 		if (size == 1) {
 			its.push_back(std::ranges::begin(range));

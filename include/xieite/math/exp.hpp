@@ -8,42 +8,42 @@
 #	include "../trait/rm_mv_assign.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
+	template<xieite::is_arith Arith>
 	struct exp {
 	private:
 		struct proxy : xieite::rm_cp_assign, xieite::rm_mv_assign {
 		public:
-			[[nodiscard]] explicit constexpr proxy(T n) noexcept
-			: value(n) {}
+			[[nodiscard]] explicit constexpr proxy(Arith value) noexcept
+			: value(value) {}
 
-			template<xieite::is_arith U>
-			[[nodiscard]] friend constexpr std::common_type_t<T, U> operator*(U base, xieite::exp<T>::proxy proxy) noexcept {
-				return static_cast<std::common_type_t<T, U>>(xieite::pow(base, proxy.value));
+			template<xieite::is_arith OtherArith>
+			[[nodiscard]] friend constexpr std::common_type_t<Arith, OtherArith> operator*(OtherArith base, xieite::exp<Arith>::proxy proxy) noexcept {
+				return static_cast<std::common_type_t<Arith, OtherArith>>(xieite::pow(base, proxy.value));
 			}
 
 		private:
-			T value;
+			Arith value;
 		};
 
 	public:
-		[[nodiscard]] explicit constexpr exp(T n) noexcept
-		: value(n) {}
+		[[nodiscard]] explicit constexpr exp(Arith value) noexcept
+		: value(value) {}
 
-		template<xieite::is_arith U>
-		[[nodiscard]] explicit(false) constexpr operator std::common_type_t<T, U>() const noexcept {
-			return static_cast<std::common_type_t<T, U>>(this->value);
+		template<xieite::is_arith OtherArith>
+		[[nodiscard]] explicit(false) constexpr operator std::common_type_t<Arith, OtherArith>() const noexcept {
+			return static_cast<std::common_type_t<Arith, OtherArith>>(this->value);
 		}
 
-		[[nodiscard]] constexpr xieite::exp<T>::proxy operator*() const noexcept {
-			return xieite::exp<T>::proxy(this->value);
+		[[nodiscard]] constexpr xieite::exp<Arith>::proxy operator*() const noexcept {
+			return xieite::exp<Arith>::proxy(this->value);
 		}
 
 	private:
-		T value;
+		Arith value;
 	};
 
-	template<typename T>
-	exp(T) -> exp<T>;
+	template<typename Arith>
+	exp(Arith) -> exp<Arith>;
 }
 
 #endif

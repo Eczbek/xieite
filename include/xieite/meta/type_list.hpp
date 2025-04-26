@@ -10,9 +10,9 @@
 #	include "../meta/value.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
-#	include "../trait/is_satisfd.hpp"
-#	include "../trait/is_satisfd_all.hpp"
-#	include "../trait/is_satisfd_any.hpp"
+#	include "../trait/is_satisfied.hpp"
+#	include "../trait/is_satisfied_all.hpp"
+#	include "../trait/is_satisfied_any.hpp"
 
 namespace xieite {
 	template<typename... Ts>
@@ -21,13 +21,13 @@ namespace xieite {
 		static constexpr std::size_t size = sizeof...(Ts);
 
 		template<auto cond>
-		static constexpr bool all = xieite::is_satisfd_all<cond, Ts...>;
+		static constexpr bool all = xieite::is_satisfied_all<cond, Ts...>;
 
 		template<auto cond>
-		static constexpr bool any = xieite::is_satisfd_any<cond, Ts...>;
+		static constexpr bool any = xieite::is_satisfied_any<cond, Ts...>;
 
 		template<typename T, auto cmp = []<typename U, std::same_as<U>> {}>
-		static constexpr bool has = (... || xieite::is_satisfd<cmp, T, Ts>);
+		static constexpr bool has = (... || xieite::is_satisfied<cmp, T, Ts>);
 
 	private:
 		template<std::size_t idx, typename... Us>
@@ -41,35 +41,35 @@ namespace xieite {
 		template<auto cond>
 		static constexpr std::size_t find_idx = ([] static -> std::size_t {
 			std::size_t idx = 0;
-			(... && (!xieite::is_satisfd<cond, Ts> && ++idx));
+			(... && (!xieite::is_satisfied<cond, Ts> && ++idx));
 			return idx;
 		})();
 
 		template<typename T, auto cmp = []<typename U, std::same_as<U>> {}>
 		static constexpr std::size_t idx_of =
 			xieite::type_list<Ts...>
-			::find_idx<[]<typename U> requires(xieite::is_satisfd<cmp, T, U>) {}>;
+			::find_idx<[]<typename U> requires(xieite::is_satisfied<cmp, T, U>) {}>;
 	
 		template<auto cond>
-		requires(xieite::is_satisfd_any<cond, Ts...>)
+		requires(xieite::is_satisfied_any<cond, Ts...>)
 		using find = xieite::type_list<Ts...>::at<xieite::type_list<Ts...>::find_idx<cond>>;
 
 		static constexpr auto apply(auto&& fn, auto&&... args)
 			XIEITE_ARROW(XIEITE_FWD(fn).template operator()<Ts...>(XIEITE_FWD(args)...))
 
 		template<auto cond>
-		static constexpr bool satisf = xieite::is_satisfd<cond, Ts...>;
+		static constexpr bool satisfies = xieite::is_satisfied<cond, Ts...>;
 
-		template<template<typename...> typename M>
-		using to = M<Ts...>;
+		template<template<typename...> typename Template>
+		using to = Template<Ts...>;
 
 	private:
 		template<typename Ret, typename... Us>
-		using as_fn_impl = Ret(Us...);
+		using as_fn_impl = Ret(typename Us::type...);
 
 	public:
 		template<typename Ret>
-		using as_fn = xieite::type_list<Ts...>::as_fn_impl<Ret, Ts...>;
+		using as_fn = xieite::type_list<Ts...>::as_fn_impl<Ret, std::type_identity<Ts>...>;
 
 		template<typename... Us>
 		using append = xieite::type_list<Ts..., Us...>;
@@ -78,12 +78,12 @@ namespace xieite {
 		template<typename>
 		struct append_range_impl;
 
-		template<template<typename...> typename M, typename... Us>
-		struct append_range_impl<M<Us...>> : std::type_identity<xieite::type_list<Ts...>::append<Us...>> {};
+		template<template<typename...> typename Template, typename... Us>
+		struct append_range_impl<Template<Us...>> : std::type_identity<xieite::type_list<Ts...>::append<Us...>> {};
 	
 	public:
-		template<typename R>
-		using append_range = xieite::type_list<Ts...>::append_range_impl<R>::type;
+		template<typename Range>
+		using append_range = xieite::type_list<Ts...>::append_range_impl<Range>::type;
 
 		template<typename... Us>
 		using prepend = xieite::type_list<Us..., Ts...>;
@@ -92,12 +92,12 @@ namespace xieite {
 		template<typename>
 		struct prepend_range_impl;
 
-		template<template<typename...> typename M, typename... Us>
-		struct prepend_range_impl<M<Us...>> : std::type_identity<xieite::type_list<Ts...>::prepend<Us...>> {};
+		template<template<typename...> typename Template, typename... Us>
+		struct prepend_range_impl<Template<Us...>> : std::type_identity<xieite::type_list<Ts...>::prepend<Us...>> {};
 
 	public:
-		template<typename R>
-		using prepend_range = xieite::type_list<Ts...>::prepend_range_impl<R>::type;
+		template<typename Range>
+		using prepend_range = xieite::type_list<Ts...>::prepend_range_impl<Range>::type;
 
 	private:
 		template<typename...>
@@ -131,17 +131,17 @@ namespace xieite {
 			::template append<Us...>
 			::template append_range<xieite::type_list<Ts...>::slice<end>>;
 
-		template<std::size_t start, std::size_t end, typename R>
+		template<std::size_t start, std::size_t end, typename Range>
 		using replace_range =
 			xieite::type_list<Ts...>::slice<0, start>
-			::template append_range<R>
+			::template append_range<Range>
 			::template append_range<xieite::type_list<Ts...>::slice<end>>;
 
 		template<std::size_t idx, typename... Us>
 		using insert = xieite::type_list<Ts...>::replace<idx, idx, Us...>;
 
-		template<std::size_t idx, typename R>
-		using insert_range = xieite::type_list<Ts...>::replace_range<idx, idx, R>;
+		template<std::size_t idx, typename Range>
+		using insert_range = xieite::type_list<Ts...>::replace_range<idx, idx, Range>;
 
 		template<std::size_t idx, typename T>
 		using set = xieite::type_list<Ts...>::replace<idx, (idx + 1), T>;
@@ -165,7 +165,7 @@ namespace xieite {
 		template<auto cond>
 		struct filter_impl : std::type_identity<xieite::fold<
 			[]<typename List, typename T> static {
-				if constexpr (xieite::is_satisfd<cond, T>) {
+				if constexpr (xieite::is_satisfied<cond, T>) {
 					return typename List::template append<T>();
 				} else {
 					return List();
@@ -198,8 +198,8 @@ namespace xieite {
 		using dedup = xieite::type_list<Ts...>::dedup_impl<cmp>::type;
 
 	private:
-		template<std::size_t n>
-		struct repeat_impl : std::type_identity<decltype(xieite::unroll<n>([]<std::size_t... i> static {
+		template<std::size_t count>
+		struct repeat_impl : std::type_identity<decltype(xieite::unroll<count>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename> static {
 					return typename List::template append<Ts...>();
@@ -210,12 +210,12 @@ namespace xieite {
 		}))> {};
 
 	public:
-		template<std::size_t n>
-		using repeat = xieite::type_list<Ts...>::repeat_impl<n>::type;
+		template<std::size_t count>
+		using repeat = xieite::type_list<Ts...>::repeat_impl<count>::type;
 
 	private:
 		template<std::size_t arity, auto fn>
-		struct xform_impl : std::type_identity<decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
+		struct transform_impl : std::type_identity<decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
 			return xieite::type_list<typename decltype(
 				xieite::type_list<Ts...>
 				::slice<arity * i, arity * (i + 1)>
@@ -226,11 +226,11 @@ namespace xieite {
 	public:
 		template<std::size_t arity, auto fn>
 		requires(!(sizeof...(Ts) % arity))
-		using xform = xieite::type_list<Ts...>::xform_impl<arity, fn>::type;
+		using transform = xieite::type_list<Ts...>::transform_impl<arity, fn>::type;
 
 	private:
 		template<std::size_t arity, auto fn>
-		struct xform_flat_impl : std::type_identity<decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
+		struct transform_flat_impl : std::type_identity<decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename Idx> static {
 					return typename List::template append_range<typename decltype(
@@ -247,7 +247,7 @@ namespace xieite {
 	public:
 		template<std::size_t arity, auto fn>
 		requires(!(sizeof...(Ts) % arity))
-		using xform_flat = xieite::type_list<Ts...>::xform_flat_impl<arity, fn>::type;
+		using transform_flat = xieite::type_list<Ts...>::transform_flat_impl<arity, fn>::type;
 
 	private:
 		template<typename... Us>
@@ -264,12 +264,12 @@ namespace xieite {
 		template<typename>
 		struct zip_range_impl;
 
-		template<template<typename...> typename M, typename... Us>
-		struct zip_range_impl<M<Us...>> : std::type_identity<xieite::type_list<Ts...>::zip<Us...>> {};
+		template<template<typename...> typename Template, typename... Us>
+		struct zip_range_impl<Template<Us...>> : std::type_identity<xieite::type_list<Ts...>::zip<Us...>> {};
 
 	public:
-		template<typename R>
-		using zip_range = xieite::type_list<Ts...>::zip_range_impl<R>::type;
+		template<typename Range>
+		using zip_range = xieite::type_list<Ts...>::zip_range_impl<Range>::type;
 	};
 }
 

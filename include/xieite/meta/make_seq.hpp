@@ -5,10 +5,10 @@
 #	include "../meta/seq.hpp"
 
 namespace xieite {
-	template<auto n>
-	constexpr decltype(([]<typename T, T... i>(std::integer_sequence<T, i...>) static {
+	template<auto count>
+	constexpr auto make_seq = ([]<typename Int, Int... i>(std::integer_sequence<Int, i...>) static {
 		return xieite::seq<i...>();
-	})(std::make_integer_sequence<decltype(n), n>())) make_seq;
+	})(std::make_integer_sequence<decltype(count), count>());
 }
 
 #endif

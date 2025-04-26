@@ -8,9 +8,9 @@
 
 namespace xieite::range_cmp_op {
 	template<std::ranges::input_range R0, std::ranges::input_range R1>
-	[[nodiscard]] constexpr auto operator<=>(R0&& l, R1&& r)
-	noexcept(xieite::is_noex_range<R0> && xieite::is_noex_range<R1> && noexcept(xieite::synth_three_way(*l.begin(), *r.begin()))) {
-		return std::lexicographical_compare_three_way(l.begin(), l.end(), r.begin(), r.end(), xieite::synth_three_way);
+	[[nodiscard]] constexpr auto operator<=>(R0&& lhs, R1&& rhs)
+	noexcept(xieite::is_noex_range<R0> && xieite::is_noex_range<R1> && noexcept(xieite::synth_three_way(*lhs.begin(), *rhs.begin()))) {
+		return std::lexicographical_compare_three_way(lhs.begin(), lhs.end(), rhs.begin(), rhs.end(), xieite::synth_three_way);
 	}
 }
 

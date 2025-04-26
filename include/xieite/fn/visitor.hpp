@@ -2,13 +2,13 @@
 #	define DETAIL_XIEITE_HEADER_FN_VISITOR
 
 namespace xieite {
-	template<typename... Fs>
-	struct visitor : Fs... {
-		using Fs::operator()...;
+	template<typename... Fns>
+	struct visitor : Fns... {
+		using Fns::operator()...;
 	};
 
-	template<typename... Fs>
-	visitor(Fs...) -> visitor<Fs...>;
+	template<typename... Fns>
+	visitor(Fns...) -> visitor<Fns...>;
 }
 
 #endif

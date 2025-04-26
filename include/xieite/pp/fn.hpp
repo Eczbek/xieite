@@ -6,7 +6,7 @@
 #	include "../pp/any.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/comma.hpp"
-#	include "../pp/diag.hpp"
+#	include "../pp/diagnostic.hpp"
 #	include "../pp/each.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../pp/if.hpp"
@@ -19,7 +19,7 @@
 #	define XIEITE_FN_LOCAL(captures_, ...) ([XIEITE_UNWRAP(captures_)]DETAIL_XIEITE_FN(XIEITE_ANY(captures_), 1, __VA_ARGS__))
 #	define XIEITE_FN_MUT(captures_, ...) (DETAIL_XIEITE::FN::indirect { [XIEITE_UNWRAP(captures_)] mutable { return [&]DETAIL_XIEITE_FN(1, 1, __VA_ARGS__); } })
 
-XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
+XIEITE_DIAGNOSTIC_OFF_CLANG("-Wdollar-in-identifier-extension")
 
 #	define DETAIL_XIEITE_FN(has_captures_, this_, ...) \
 	< \
@@ -29,7 +29,7 @@ XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
 	>__VA_OPT__([[nodiscard]])(__VA_OPT__( \
 		XIEITE_IF(this_)([[maybe_unused]] this $$this&& $this XIEITE_COMMA())() \
 		[[maybe_unused]]) auto&&... __VA_OPT__($) \
-	) XIEITE_IF(has_captures_)()(XIEITE_OPT(__VA_ARGS__)(XIEITE_IF(this_)(, static), static)) \
+	) XIEITE_IF(has_captures_)()(XIEITE_OPT(__VA_ARGS__)(XIEITE_IF(this_)(, static), static)()) \
 	noexcept __VA_OPT__((requires(XIEITE_IF(this_)($$this&& $this XIEITE_COMMA())() XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM)) { requires(noexcept(__VA_ARGS__)); }) \
 	-> decltype(auto) \
 	requires(requires(XIEITE_IF(this_)($$this&& $this XIEITE_COMMA())() XIEITE_SEQ(256, DETAIL_XIEITE_FN_PARAM)) { __VA_ARGS__; })) { \
@@ -70,10 +70,10 @@ namespace DETAIL_XIEITE::FN {
 	}).template operator()<Ts...>()) {};
 
 	// Workaround for GCC bug (https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117061)
-	template<typename F>
-	struct indirect : F {
+	template<typename Fn>
+	struct indirect : Fn {
 		template<typename... Ts>
-		[[nodiscard]] constexpr auto operator()(this F& self, auto&&... args)
+		[[nodiscard]] constexpr auto operator()(this Fn& self, auto&&... args)
 			XIEITE_ARROW(self.template operator()<Ts...>(XIEITE_FWD(args)...))
 	};
 }

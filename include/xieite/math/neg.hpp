@@ -6,12 +6,12 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr bool neg(T n) noexcept {
-		if constexpr (std::floating_point<T>) {
-			return std::signbit(n);
-		} else if constexpr (!std::unsigned_integral<T>) {
-			return n < 0;
+	template<xieite::is_arith Arith>
+	[[nodiscard]] constexpr bool neg(Arith x) noexcept {
+		if constexpr (std::floating_point<Arith>) {
+			return std::signbit(x);
+		} else if constexpr (!std::unsigned_integral<Arith>) {
+			return x < 0;
 		} else {
 			return false;
 		}

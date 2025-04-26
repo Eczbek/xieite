@@ -5,11 +5,11 @@
 #	include <type_traits>
 #	include "../meta/any.hpp"
 #	include "../meta/tuple_size.hpp"
-#	include "../pp/diag.hpp"
+#	include "../pp/diagnostic.hpp"
 #	include "../trait/is_tuple_like.hpp"
 
-XIEITE_DIAG_PUSH_CLANG()
-XIEITE_DIAG_OFF_CLANG("-Wunused-lambda-capture")
+XIEITE_DIAGNOSTIC_PUSH_CLANG()
+XIEITE_DIAGNOSTIC_OFF_CLANG("-Wunused-lambda-capture")
 
 namespace xieite {
 	template<typename T>
@@ -49,7 +49,7 @@ namespace xieite {
 	})();
 }
 
-XIEITE_DIAG_POP_CLANG()
+XIEITE_DIAGNOSTIC_POP_CLANG()
 
 #endif
 

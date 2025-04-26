@@ -1,27 +1,25 @@
 #ifndef DETAIL_XIEITE_HEADER_IO_TERM
 #	define DETAIL_XIEITE_HEADER_IO_TERM
 #
-#	include <cstdio>
-#	include <stdio.h>
-#	include <string>
-#	include "../fn/scope_guard.hpp"
-#	include "../io/keys.hpp"
-#	include "../io/pos.hpp"
-#	include "../io/read.hpp"
-#	include "../math/abs.hpp"
-#	include "../math/color3.hpp"
-#	include "../math/str_num.hpp"
-#	include "../pp/out.hpp"
 #	include "../pp/platform.hpp"
 #
 #	if XIEITE_PLATFORM_TYPE_UNIX
+#		include <cstdio>
 #		include <fcntl.h>
+#		include <stdio.h>
+#		include <string>
 #		include <sys/ioctl.h>
 #		include <termios.h>
 #		include <unistd.h>
-#	else
-#		warning unsupported platform
-#	endif
+#		include "../fn/scope_guard.hpp"
+#		include "../io/keys.hpp"
+#		include "../io/pos.hpp"
+#		include "../io/read.hpp"
+#		include "../math/abs.hpp"
+#		include "../math/color3.hpp"
+#		include "../math/str_number.hpp"
+#		include "../pp/out.hpp"
+
 
 using namespace std::literals;
 
@@ -88,7 +86,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string fg_code(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept {
-			return "\x1B[38;2;"s + xieite::str_num(r) + ";"s + xieite::str_num(g) + ";"s + xieite::str_num(b) + "m"s;
+			return "\x1B[38;2;"s + xieite::str_number(r) + ";"s + xieite::str_number(g) + ";"s + xieite::str_number(b) + "m"s;
 		}
 
 		[[nodiscard]] static constexpr std::string fg_code(const xieite::color3& color) noexcept {
@@ -104,7 +102,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string bg_code(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept {
-			return "\x1B[48;2;"s + xieite::str_num(r) + ";"s + xieite::str_num(g) + ";"s + xieite::str_num(b) + "m"s;
+			return "\x1B[48;2;"s + xieite::str_number(r) + ";"s + xieite::str_number(g) + ";"s + xieite::str_number(b) + "m"s;
 		}
 
 		[[nodiscard]] static constexpr std::string bg_code(const xieite::color3& color) noexcept {
@@ -135,12 +133,12 @@ namespace xieite {
 			std::fputs(xieite::term::italic_code(x).c_str(), this->out);
 		}
 
-		[[nodiscard]] static constexpr std::string underln_code(bool x) noexcept {
+		[[nodiscard]] static constexpr std::string underline_code(bool x) noexcept {
 			return x ? "\x1B[4m" : "\x1B[24m";
 		}
 
-		void underln(bool x) noexcept {
-			std::fputs(xieite::term::underln_code(x).c_str(), this->out);
+		void underline(bool x) noexcept {
+			std::fputs(xieite::term::underline_code(x).c_str(), this->out);
 		}
 
 		[[nodiscard]] static constexpr std::string blink_code(bool x) noexcept {
@@ -206,7 +204,7 @@ namespace xieite {
 		}
 
 		[[nodiscard]] constexpr std::string set_cursor_code(xieite::ssize_t row, xieite::ssize_t col) noexcept {
-			return "\x1B["s + xieite::str_num(row + 1) + ";"s + xieite::str_num(col + 1) + "H"s;
+			return "\x1B["s + xieite::str_number(row + 1) + ";"s + xieite::str_number(col + 1) + "H"s;
 		}
 
 		[[nodiscard]] constexpr std::string set_cursor_code(xieite::pos pos) noexcept {
@@ -225,12 +223,12 @@ namespace xieite {
 			std::string code;
 			if (row) {
 				code += "\x1B[";
-				code += xieite::str_num(xieite::abs(row));
+				code += xieite::str_number(xieite::abs(row));
 				code += "BA"[row < 0];
 			}
 			if (col) {
 				code += "\x1B[";
-				code += xieite::str_num(xieite::abs(col));
+				code += xieite::str_number(xieite::abs(col));
 				code += "CD"[col < 0];
 			}
 			return code;
@@ -260,23 +258,23 @@ namespace xieite {
 		}
 
 		[[nodiscard]] static constexpr std::string cursor_block_code(bool blink = false) noexcept {
-			return "\1\x1B["s + xieite::str_num(2 - blink) + "q\2"s;
+			return "\1\x1B["s + xieite::str_number(2 - blink) + "q\2"s;
 		}
 
 		void cursor_block(bool blink = false) noexcept {
 			std::fputs(xieite::term::cursor_block_code(blink).c_str(), this->out);
 		}
 
-		[[nodiscard]] static constexpr std::string cursor_undersc_code(bool blink = false) noexcept {
-			return "\1\x1B["s + xieite::str_num(4 - blink) + "q\2"s;
+		[[nodiscard]] static constexpr std::string cursor_underscore_code(bool blink = false) noexcept {
+			return "\1\x1B["s + xieite::str_number(4 - blink) + "q\2"s;
 		}
 
-		void cursor_undersc(bool blink = false) noexcept {
-			std::fputs(xieite::term::cursor_undersc_code(blink).c_str(), this->out);
+		void cursor_underscore(bool blink = false) noexcept {
+			std::fputs(xieite::term::cursor_underscore_code(blink).c_str(), this->out);
 		}
 
 		[[nodiscard]] static constexpr std::string cursor_pipe_code(bool blink = false) noexcept {
-			return "\1\x1B["s + xieite::str_num(6 - blink) + "q\2"s;
+			return "\1\x1B["s + xieite::str_number(6 - blink) + "q\2"s;
 		}
 
 		void cursor_pipe(bool blink = false) noexcept {
@@ -359,7 +357,7 @@ namespace xieite {
 			std::fputs(xieite::term::clear_line_from_code().c_str(), this->out);
 		}
 
-		[[nodiscard]] int read_ch() noexcept {
+		[[nodiscard]] int read_char() noexcept {
 			const bool canon_prev = this->is_canon;
 			this->canon(false);
 			const int c = std::fgetc(this->in);
@@ -380,11 +378,11 @@ namespace xieite {
 
 		[[nodiscard]] xieite::keys read_key() noexcept {
 			const xieite::scope_guard _ = [this, block_prev = this->is_block] { this->block(block_prev); };
-			const int c0 = this->read_ch();
+			const int c0 = this->read_char();
 			this->block(false);
 			switch (c0) {
 			case 0x00:
-				switch (const int c1 = this->read_ch()) {
+				switch (const int c1 = this->read_char()) {
 				case 0x00:
 					return xieite::keys::pause;
 				case 0x03:
@@ -446,7 +444,7 @@ namespace xieite {
 			case 0x1A:
 				return xieite::keys::ctrl_z;
 			case 0x1B:
-				switch (const int c1 = this->read_ch()) {
+				switch (const int c1 = this->read_char()) {
 				case 0x01:
 					return xieite::keys::ctrl_alt_a;
 				case 0x02:
@@ -500,25 +498,25 @@ namespace xieite {
 				case 0x1A:
 					return xieite::keys::ctrl_alt_z;
 				case 0x20:
-					return xieite::keys::alt_sp;
+					return xieite::keys::alt_space;
 				case 0x21:
 					return xieite::keys::alt_bang;
 				case 0x22:
-					return xieite::keys::alt_quot;
+					return xieite::keys::alt_quote;
 				case 0x23:
 					return xieite::keys::alt_hash;
 				case 0x24:
 					return xieite::keys::alt_dollar;
 				case 0x25:
-					return xieite::keys::alt_pc;
+					return xieite::keys::alt_percent;
 				case 0x26:
-					return xieite::keys::alt_et;
+					return xieite::keys::alt_ampersand;
 				case 0x27:
-					return xieite::keys::alt_apos;
+					return xieite::keys::alt_apostrophe;
 				case 0x28:
-					return xieite::keys::alt_lparen;
+					return xieite::keys::alt_left_paren;
 				case 0x29:
-					return xieite::keys::alt_rparen;
+					return xieite::keys::alt_right_paren;
 				case 0x2A:
 					return xieite::keys::alt_star;
 				case 0x2B:
@@ -530,7 +528,7 @@ namespace xieite {
 				case 0x2E:
 					return xieite::keys::alt_dot;
 				case 0x2F:
-					return xieite::keys::alt_sl;
+					return xieite::keys::alt_slash;
 				case 0x30:
 					return xieite::keys::alt_0;
 				case 0x31:
@@ -552,19 +550,19 @@ namespace xieite {
 				case 0x39:
 					return xieite::keys::alt_9;
 				case 0x3A:
-					return xieite::keys::alt_col;
+					return xieite::keys::alt_colon;
 				case 0x3B:
-					return xieite::keys::alt_semicol;
+					return xieite::keys::alt_semicolon;
 				case 0x3C:
-					return xieite::keys::alt_lt;
+					return xieite::keys::alt_less;
 				case 0x3D:
-					return xieite::keys::alt_eq;
+					return xieite::keys::alt_equal;
 				case 0x3E:
-					return xieite::keys::alt_gt;
+					return xieite::keys::alt_greater;
 				case 0x3F:
 					return xieite::keys::alt_hook;
 				case 0x40:
-					return xieite::keys::alt_at;
+					return xieite::keys::alt_strudel;
 				case 0x41:
 					return xieite::keys::alt_A;
 				case 0x42:
@@ -594,7 +592,7 @@ namespace xieite {
 				case 0x4E:
 					return xieite::keys::alt_N;
 				case 0x4F:
-					switch (const int c2 = this->read_ch()) {
+					switch (const int c2 = this->read_char()) {
 					case 0x50:
 						return xieite::keys::f1;
 					case 0x51:
@@ -631,37 +629,37 @@ namespace xieite {
 					return xieite::keys::alt_Z;
 				case 0x5B:
 					{
-						const int c2 = this->read_ch();
-						const int c3 = this->read_ch();
+						const int c2 = this->read_char();
+						const int c3 = this->read_char();
 						if (c3 == 0x7E) {
 							switch (c2) {
 							case 0x20:
-								return xieite::keys::np_0;
+								return xieite::keys::numpad_0;
 							case 0x21:
-								return xieite::keys::np_dot;
+								return xieite::keys::numpad_dot;
 							case 0x23:
-								return xieite::keys::np_9;
+								return xieite::keys::numpad_9;
 							case 0x24:
-								return xieite::keys::np_3;
+								return xieite::keys::numpad_3;
 							}
 						}
 						switch (c2) {
 						case 0x29:
-							return xieite::keys::np_8;
+							return xieite::keys::numpad_8;
 						case 0x2A:
-							return xieite::keys::np_2;
+							return xieite::keys::numpad_2;
 						case 0x2B:
-							return xieite::keys::np_6;
+							return xieite::keys::numpad_6;
 						case 0x2C:
-							return xieite::keys::np_4;
+							return xieite::keys::numpad_4;
 						case 0x2D:
-							return xieite::keys::np_5;
+							return xieite::keys::numpad_5;
 						case 0x2E:
-							return xieite::keys::np_1;
+							return xieite::keys::numpad_1;
 						case 0x30:
-							return xieite::keys::np_7;
+							return xieite::keys::numpad_7;
 						case 0x31:
-							if (const int c4 = this->read_ch(); c4 == 0x7E) {
+							if (const int c4 = this->read_char(); c4 == 0x7E) {
 								switch (c3) {
 								case 0x35:
 									return xieite::keys::f5;
@@ -676,7 +674,7 @@ namespace xieite {
 							}
 							break;
 						case 0x32:
-							if (const int c4 = this->read_ch(); c4 == 0x7E) {
+							if (const int c4 = this->read_char(); c4 == 0x7E) {
 								switch (c3) {
 								case 0x30:
 									return xieite::keys::f9;
@@ -716,15 +714,15 @@ namespace xieite {
 						std::ungetc(c3, this->in);
 						std::ungetc(c2, this->in);
 					}
-					return xieite::keys::alt_lbrack;
+					return xieite::keys::alt_left_bracket;
 				case 0x5C:
-					return xieite::keys::alt_backsl;
+					return xieite::keys::alt_backslash;
 				case 0x5D:
-					return xieite::keys::alt_rbrack;
+					return xieite::keys::alt_right_bracket;
 				case 0x5E:
 					return xieite::keys::alt_caret;
 				case 0x5F:
-					return xieite::keys::alt_undersc;
+					return xieite::keys::alt_underscore;
 				case 0x60:
 					return xieite::keys::alt_grave;
 				case 0x61:
@@ -780,40 +778,40 @@ namespace xieite {
 				case 0x7A:
 					return xieite::keys::alt_z;
 				case 0x7B:
-					return xieite::keys::alt_lbrace;
+					return xieite::keys::alt_left_brace;
 				case 0x7C:
 					return xieite::keys::alt_pipe;
 				case 0x7D:
-					return xieite::keys::alt_rbrace;
+					return xieite::keys::alt_right_brace;
 				case 0x7E:
 					return xieite::keys::alt_tilde;
 				case 0x7F:
-					return xieite::keys::alt_backsp;
+					return xieite::keys::alt_backspace;
 				default:
 					std::ungetc(c1, this->in);
 				}
 				// TODO: Detect keys F13 through F24
 				break;
 			case 0x20:
-				return xieite::keys::sp;
+				return xieite::keys::space;
 			case 0x21:
 				return xieite::keys::b;
 			case 0x22:
-				return xieite::keys::quot;
+				return xieite::keys::quote;
 			case 0x23:
 				return xieite::keys::hash;
 			case 0x24:
 				return xieite::keys::dollar;
 			case 0x25:
-				return xieite::keys::pc;
+				return xieite::keys::percent;
 			case 0x26:
-				return xieite::keys::et;
+				return xieite::keys::ampersand;
 			case 0x27:
-				return xieite::keys::apos;
+				return xieite::keys::apostrophe;
 			case 0x28:
-				return xieite::keys::lparen;
+				return xieite::keys::left_paren;
 			case 0x29:
-				return xieite::keys::rparen;
+				return xieite::keys::right_paren;
 			case 0x2A:
 				return xieite::keys::star;
 			case 0x2B:
@@ -825,7 +823,7 @@ namespace xieite {
 			case 0x2E:
 				return xieite::keys::dot;
 			case 0x2F:
-				return xieite::keys::sl;
+				return xieite::keys::slash;
 			case 0x30:
 				return xieite::keys::_0;
 			case 0x31:
@@ -847,19 +845,19 @@ namespace xieite {
 			case 0x39:
 				return xieite::keys::_9;
 			case 0x3A:
-				return xieite::keys::col;
+				return xieite::keys::colon;
 			case 0x3B:
-				return xieite::keys::semicol;
+				return xieite::keys::semicolon;
 			case 0x3C:
-				return xieite::keys::lt;
+				return xieite::keys::less;
 			case 0x3D:
-				return xieite::keys::eq;
+				return xieite::keys::equal;
 			case 0x3E:
-				return xieite::keys::gt;
+				return xieite::keys::greater;
 			case 0x3F:
 				return xieite::keys::hook;
 			case 0x40:
-				return xieite::keys::at;
+				return xieite::keys::strudel;
 			case 0x41:
 				return xieite::keys::A;
 			case 0x42:
@@ -913,15 +911,15 @@ namespace xieite {
 			case 0x5A:
 				return xieite::keys::Z;
 			case 0x5B:
-				return xieite::keys::lbrack;
+				return xieite::keys::left_bracket;
 			case 0x5C:
-				return xieite::keys::backsl;
+				return xieite::keys::backslash;
 			case 0x5D:
-				return xieite::keys::rbrack;
+				return xieite::keys::right_bracket;
 			case 0x5E:
 				return xieite::keys::caret;
 			case 0x5F:
-				return xieite::keys::undersc;
+				return xieite::keys::underscore;
 			case 0x60:
 				return xieite::keys::grave;
 			case 0x61:
@@ -977,15 +975,15 @@ namespace xieite {
 			case 0x7A:
 				return xieite::keys::z;
 			case 0x7B:
-				return xieite::keys::lbrace;
+				return xieite::keys::left_brace;
 			case 0x7C:
 				return xieite::keys::pipe;
 			case 0x7D:
-				return xieite::keys::rbrace;
+				return xieite::keys::right_brace;
 			case 0x7E:
 				return xieite::keys::tilde;
 			case 0x7F:
-				return xieite::keys::backsp;
+				return xieite::keys::backspace;
 			}
 			std::ungetc(c0, this->in);
 			return xieite::keys::unknown;
@@ -1016,4 +1014,5 @@ namespace xieite {
 	};
 }
 
+#	endif
 #endif

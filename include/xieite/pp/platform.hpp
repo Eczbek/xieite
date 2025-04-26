@@ -1561,7 +1561,7 @@
 #		endif
 #	endif
 #
-#	if  defined(M_I386) || defined(SCO_SV) || defined(_SCO_DS) || defined(_SCO_SV) || defined(sco_sv)
+#	if defined(M_I386) || defined(SCO_SV) || defined(_SCO_DS) || defined(_SCO_SV) || defined(sco_sv)
 #		undef XIEITE_PLATFORM_TYPE_OPENSERVER
 #		define XIEITE_PLATFORM_TYPE_OPENSERVER 1
 #	endif

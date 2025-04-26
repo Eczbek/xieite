@@ -8,6 +8,9 @@ namespace xieite {
 		xieite::ssize_t row;
 		xieite::ssize_t col;
 
+		[[nodiscard]] constexpr pos(xieite::ssize_t row, xieite::ssize_t col) noexcept
+		: row(row), col(col) {}
+
 		[[nodiscard]] friend bool operator==(const xieite::pos&, const xieite::pos&) = default;
 	};
 }

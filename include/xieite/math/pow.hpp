@@ -9,15 +9,15 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	[[nodiscard]] constexpr T pow(T base, T exp) {
-		if constexpr (std::floating_point<T>) {
+	template<xieite::is_arith Arith>
+	[[nodiscard]] constexpr Arith pow(Arith base, Arith exp) {
+		if constexpr (std::floating_point<Arith>) {
 			return std::pow(base, exp);
 		} else {
 			if ((base == 1) || (exp == 1)) {
 				return base;
 			}
-			if (!std::unsigned_integral<T> && (base == static_cast<T>(-1))) {
+			if (!std::unsigned_integral<Arith> && (base == static_cast<Arith>(-1))) {
 				return base * xieite::split_bool(exp & 1);
 			}
 			if (!base || !exp) {
@@ -26,7 +26,7 @@ namespace xieite {
 				}
 				return !exp;
 			}
-			T result = 1;
+			Arith result = 1;
 			while (exp) {
 				if (exp & 1) {
 					result *= base;

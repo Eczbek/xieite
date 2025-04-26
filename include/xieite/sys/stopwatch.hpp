@@ -3,7 +3,7 @@
 #
 #	include <chrono>
 #	include "../trait/is_clock.hpp"
-#	include "../trait/is_dur.hpp"
+#	include "../trait/is_duration.hpp"
 
 namespace xieite {
 	template<xieite::is_clock Clock>
@@ -33,22 +33,22 @@ namespace xieite {
 			this->lap_dur = std::chrono::nanoseconds(0);
 		}
 
-		template<xieite::is_dur T = std::chrono::nanoseconds>
-		T lap() const noexcept {
+		template<xieite::is_duration Duration = std::chrono::nanoseconds>
+		Duration lap() const noexcept {
 			std::chrono::nanoseconds lap_dur = this->lap_dur;
 			if (this->running) {
 				lap_dur += Clock::now() - this->started;
 			}
-			return std::chrono::duration_cast<T>(lap_dur);
+			return std::chrono::duration_cast<Duration>(lap_dur);
 		}
 
-		template<xieite::is_dur T = std::chrono::nanoseconds>
-		T total() const noexcept {
+		template<xieite::is_duration Duration = std::chrono::nanoseconds>
+		Duration total() const noexcept {
 			std::chrono::nanoseconds total_dur = this->total_dur;
 			if (this->running) {
 				total_dur += Clock::now() - this->started;
 			}
-			return std::chrono::duration_cast<T>(total_dur);
+			return std::chrono::duration_cast<Duration>(total_dur);
 		}
 
 	private:

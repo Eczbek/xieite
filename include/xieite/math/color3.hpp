@@ -12,8 +12,8 @@ namespace xieite {
 		[[nodiscard]] constexpr color3(std::uint8_t r, std::uint8_t g, std::uint8_t b) noexcept
 		: r(r), g(g), b(b) {}
 
-		[[nodiscard]] explicit(false) constexpr color3(std::uint_least32_t n = 0) noexcept
-		: r((n >> 16) & 0xFF), g((n >> 8) & 0xFF), b(n & 0xFF) {}
+		[[nodiscard]] explicit(false) constexpr color3(std::uint_least32_t x = 0) noexcept
+		: r((x >> 16) & 0xFF), g((x >> 8) & 0xFF), b(x & 0xFF) {}
 
 		[[nodiscard]] friend bool operator==(const xieite::color3&, const xieite::color3&) = default;
 

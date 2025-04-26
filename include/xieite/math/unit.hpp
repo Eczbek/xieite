@@ -4,7 +4,7 @@
 #	include <chrono>
 #	include <cstdint>
 #	include <functional>
-#	include "../ctnr/fixed_str.hpp"
+#	include "../data/fixed_str.hpp"
 #	include "../math/pi.hpp"
 
 namespace xieite {

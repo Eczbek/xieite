@@ -5,8 +5,8 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
-	constexpr T tau = xieite::pi<T> * 2;
+	template<xieite::is_arith Arith>
+	constexpr Arith tau = xieite::pi<Arith> * 2;
 }
 
 #endif

@@ -5,264 +5,264 @@
 #	include "../trait/is_enum.hpp"
 
 namespace xieite::enum_op {
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator+(T l) noexcept {
-		return l;
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator+(Enum lhs) noexcept {
+		return lhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator+(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) + r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator+(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) + rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator+(T l, T r) noexcept {
-		return l + std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator+(Enum lhs, Enum rhs) noexcept {
+		return lhs + std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator+=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l + r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator+=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs + rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator+=(T& l, T r) noexcept {
-		return l = l + r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator+=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs + rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator++(T& l) noexcept {
-		return l += 1;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator++(Enum& lhs) noexcept {
+		return lhs += 1;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T operator++(T& l, int) noexcept {
-		return std::exchange(l, l + 1);
+	template<xieite::is_enum Enum>
+	constexpr Enum operator++(Enum& lhs, int) noexcept {
+		return std::exchange(lhs, lhs + 1);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator-(T l) noexcept {
-		return static_cast<T>(-std::to_underlying(l));
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator-(Enum lhs) noexcept {
+		return static_cast<Enum>(-std::to_underlying(lhs));
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator-(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) - r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator-(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) - rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator-(T l, T r) noexcept {
-		return l - std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator-(Enum lhs, Enum rhs) noexcept {
+		return lhs - std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator-=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l - r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator-=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs - rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator-=(T& l, T r) noexcept {
-		return l = l - r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator-=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs - rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator--(T& l) noexcept {
-		return l -= 1;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator--(Enum& lhs) noexcept {
+		return lhs -= 1;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T operator--(T& l, int) noexcept {
-		return std::exchange(l, l - 1);
+	template<xieite::is_enum Enum>
+	constexpr Enum operator--(Enum& lhs, int) noexcept {
+		return std::exchange(lhs, lhs - 1);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator*(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) * r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator*(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) * rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator*(T l, T r) noexcept {
-		return l * std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator*(Enum lhs, Enum rhs) noexcept {
+		return lhs * std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator*=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l * r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator*=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs * rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator*=(T& l, T r) noexcept {
-		return l = l * r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator*=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs * rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator/(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) / r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator/(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) / rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator/(T l, T r) noexcept {
-		return l / std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator/(Enum lhs, Enum rhs) noexcept {
+		return lhs / std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator/=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l / r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator/=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs / rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator/=(T& l, T r) noexcept {
-		return l = l / r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator/=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs / rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator%(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) % r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator%(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) % rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator%(T l, T r) noexcept {
-		return l % std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator%(Enum lhs, Enum rhs) noexcept {
+		return lhs % std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator%=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l % r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator%=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs % rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator%=(T& l, T r) noexcept {
-		return l = l % r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator%=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs % rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator&(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) & r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator&(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) & rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator&(T l, T r) noexcept {
-		return l & std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator&(Enum lhs, Enum rhs) noexcept {
+		return lhs & std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator&=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l & r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator&=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs & rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator&=(T& l, T r) noexcept {
-		return l = l & r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator&=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs & rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator|(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) | r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator|(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) | rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator|(T l, T r) noexcept {
-		return l | std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator|(Enum lhs, Enum rhs) noexcept {
+		return lhs | std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator|=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l | r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator|=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs | rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator|=(T& l, T r) noexcept {
-		return l = l | r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator|=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs | rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator^(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) ^ r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator^(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) ^ rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator^(T l, T r) noexcept {
-		return l ^ std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator^(Enum lhs, Enum rhs) noexcept {
+		return lhs ^ std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator^=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l ^ r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator^=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs ^ rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator^=(T& l, T r) noexcept {
-		return l = l ^ r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator^=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs ^ rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator<<(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) << r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator<<(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) << rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator<<(T l, T r) noexcept {
-		return l << std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator<<(Enum lhs, Enum rhs) noexcept {
+		return lhs << std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator<<=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l << r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator<<=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs << rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator<<=(T& l, T r) noexcept {
-		return l = l << r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator<<=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs << rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator>>(T l, std::underlying_type_t<T> r) noexcept {
-		return static_cast<T>(std::to_underlying(l) >> r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator>>(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return static_cast<Enum>(std::to_underlying(lhs) >> rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator>>(T l, T r) noexcept {
-		return l >> std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator>>(Enum lhs, Enum rhs) noexcept {
+		return lhs >> std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator>>=(T& l, std::underlying_type_t<T> r) noexcept {
-		return l = l >> r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator>>=(Enum& lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return lhs = lhs >> rhs;
 	}
 
-	template<xieite::is_enum T>
-	constexpr T& operator>>=(T& l, T r) noexcept {
-		return l = l >> r;
+	template<xieite::is_enum Enum>
+	constexpr Enum& operator>>=(Enum& lhs, Enum rhs) noexcept {
+		return lhs = lhs >> rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr T operator~(T l) noexcept {
-		return static_cast<T>(~std::to_underlying(l));
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr Enum operator~(Enum lhs) noexcept {
+		return static_cast<Enum>(~std::to_underlying(lhs));
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr bool operator!(T l) noexcept {
-		return !std::to_underlying(l);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr bool operator!(Enum lhs) noexcept {
+		return !std::to_underlying(lhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr bool operator&&(T l, std::underlying_type_t<T> r) noexcept {
-		return std::to_underlying(l) && r;
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr bool operator&&(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return std::to_underlying(lhs) && rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr bool operator&&(T l, T r) noexcept {
-		return l && std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr bool operator&&(Enum lhs, Enum rhs) noexcept {
+		return lhs && std::to_underlying(rhs);
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr bool operator||(T l, std::underlying_type_t<T> r) noexcept {
-		return std::to_underlying(l) || r;
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr bool operator||(Enum lhs, std::underlying_type_t<Enum> rhs) noexcept {
+		return std::to_underlying(lhs) || rhs;
 	}
 
-	template<xieite::is_enum T>
-	[[nodiscard]] constexpr bool operator||(T l, T r) noexcept {
-		return l || std::to_underlying(r);
+	template<xieite::is_enum Enum>
+	[[nodiscard]] constexpr bool operator||(Enum lhs, Enum rhs) noexcept {
+		return lhs || std::to_underlying(rhs);
 	}
 }
 

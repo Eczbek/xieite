@@ -2,10 +2,10 @@
 #	define DETAIL_XIEITE_HEADER_PP_REVERSE
 #
 #	include "../pp/eval.hpp"
-#	include "../pp/scan.hpp"
+#	include "../pp/paren.hpp"
 #
 #	define XIEITE_REVERSE(...) __VA_OPT__(XIEITE_EVAL(DETAIL_XIEITE_REVERSE_HELPER(__VA_ARGS__)))
 #
-#	define DETAIL_XIEITE_REVERSE_HELPER(x, ...) __VA_OPT__(DETAIL_XIEITE_REVERSE_NEXT XIEITE_SCAN(()) (__VA_ARGS__),) x
+#	define DETAIL_XIEITE_REVERSE_HELPER(x, ...) __VA_OPT__(DETAIL_XIEITE_REVERSE_NEXT XIEITE_PAREN() (__VA_ARGS__),) x
 #	define DETAIL_XIEITE_REVERSE_NEXT() DETAIL_XIEITE_REVERSE_HELPER
 #endif

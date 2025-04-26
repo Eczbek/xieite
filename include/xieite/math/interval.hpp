@@ -4,10 +4,13 @@
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<xieite::is_arith T>
+	template<xieite::is_arith Arith>
 	struct interval {
-		T start;
-		T end;
+		Arith start;
+		Arith end;
+
+		[[nodiscard]] constexpr interval(Arith start, Arith end) noexcept
+		: start(start), end(end) {}
 	};
 }
 

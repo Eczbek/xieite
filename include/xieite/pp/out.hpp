@@ -2,9 +2,9 @@
 #	define DETAIL_XIEITE_HEADER_PP_OUT
 #
 #	include "../pp/arrow.hpp"
-#	include "../pp/diag.hpp"
+#	include "../pp/diagnostic.hpp"
 
-XIEITE_DIAG_OFF_CLANG("-Wdollar-in-identifier-extension")
+XIEITE_DIAGNOSTIC_OFF_CLANG("-Wdollar-in-identifier-extension")
 
 #	define XIEITE_OUT(...) \
 		[](auto&& $ = {}) mutable \

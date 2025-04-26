@@ -5,17 +5,16 @@
 #	include <functional>
 #	include "../pp/fwd.hpp"
 #	include "../sys/thread_interval.hpp"
-#	include "../trait/is_dur.hpp"
+#	include "../trait/is_duration.hpp"
 
 namespace xieite {
 	struct thread_timeout {
 	public:
-		template<std::invocable<> F, xieite::is_dur Dur>
-		[[nodiscard]] thread_timeout(F&& callback, Dur dur) noexcept
+		[[nodiscard]] thread_timeout(std::invocable<> auto&& callback, xieite::is_duration auto duration) noexcept
 		: interval([this, &callback] -> void {
 			this->stop();
 			std::invoke(XIEITE_FWD(callback));
-		}, dur) {}
+		}, duration) {}
 
 		[[nodiscard]] explicit operator bool() const noexcept {
 			return static_cast<bool>(this->interval);
