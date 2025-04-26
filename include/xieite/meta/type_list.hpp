@@ -233,10 +233,9 @@ namespace xieite {
 		struct transform_flat_impl : std::type_identity<decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
 			return xieite::fold<
 				[]<typename List, typename Idx> static {
-					static constexpr std::size_t idx = ([]<std::size_t idx>(xieite::value<idx>) static { return idx; })(Idx());
 					return typename List::template append_range<typename decltype(
 						xieite::type_list<Ts...>
-						::slice<(arity * idx), (arity * idx + arity)>
+						::slice<(arity * Idx::value), (arity * Idx::value + arity)>
 						::apply(fn)
 					)::type>();
 				},
