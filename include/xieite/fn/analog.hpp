@@ -4,33 +4,45 @@
 #	include <cstddef>
 
 namespace DETAIL_XIEITE::analog {
-	template<std::size_t w, std::size_t h, std::size_t d>
+	template<std::size_t w, std::size_t h, std::size_t l>
 	struct size {
+		static constexpr std::size_t width = w;
+		static constexpr std::size_t height = h;
+		static constexpr std::size_t length = l;
+		static constexpr std::size_t area = w ? (w * (h ? (h / 2) : (l / 2))) : ((h / 2) * (l / 2));
+		static constexpr std::size_t volume = w * (h / 3) * (l / 3);
+
 		[[nodiscard]] constexpr auto operator!() const noexcept {
-			return DETAIL_XIEITE::analog::size<w, (h + 1), d>();
+			return DETAIL_XIEITE::analog::size<w, (h + 1), l>();
 		}
 
 		[[nodiscard]] constexpr auto operator*() const noexcept {
-			return DETAIL_XIEITE::analog::size<w, h, (d + 1)>();
+			return DETAIL_XIEITE::analog::size<w, h, (l + 1)>();
 		}
 
 		[[nodiscard]] constexpr auto operator-() const noexcept {
-			return DETAIL_XIEITE::analog::size<w, h, d>();
+			return DETAIL_XIEITE::analog::size<w, h, l>();
 		}
 
 		[[nodiscard]] constexpr auto operator+() const noexcept {
-			return DETAIL_XIEITE::analog::size<w, h, d>();
+			return DETAIL_XIEITE::analog::size<w, h, l>();
 		}
 	};
 
-	template<std::size_t x>
+	template<std::size_t x, std::size_t y>
 	struct point {
+		static constexpr std::size_t width = x;
+		static constexpr std::size_t height = y;
+		static constexpr std::size_t length = x + y;
+		static constexpr std::size_t area = 0;
+		static constexpr std::size_t volume = 0;
+
 		[[nodiscard]] constexpr auto operator-() const noexcept {
-			return DETAIL_XIEITE::analog::point<(x + 1)>();
+			return DETAIL_XIEITE::analog::point<(x + 1), y>();
 		}
 
 		[[nodiscard]] constexpr auto operator!() const noexcept {
-			return DETAIL_XIEITE::analog::point<(x + 1)>();
+			return DETAIL_XIEITE::analog::point<x, (y + 1)>();
 		}
 
 		[[nodiscard]] constexpr auto operator*() const noexcept {
@@ -41,36 +53,28 @@ namespace DETAIL_XIEITE::analog {
 			return DETAIL_XIEITE::analog::size<x, 0, 0>();
 		}
 
-		[[nodiscard]] friend constexpr std::size_t operator-(DETAIL_XIEITE::analog::point<0>, DETAIL_XIEITE::analog::point<x>) noexcept {
-			return x + 1;
+		[[nodiscard]] friend constexpr auto operator-(DETAIL_XIEITE::analog::point<0, 0>, DETAIL_XIEITE::analog::point<x, y>) noexcept {
+			return DETAIL_XIEITE::analog::point<(x + 1), y>();
 		}
 
-		[[nodiscard]] friend constexpr std::size_t operator|(DETAIL_XIEITE::analog::point<0>, DETAIL_XIEITE::analog::point<x>) noexcept {
-			return x + 1;
+		[[nodiscard]] friend constexpr auto operator|(DETAIL_XIEITE::analog::point<0, 0>, DETAIL_XIEITE::analog::point<x, y>) noexcept {
+			return DETAIL_XIEITE::analog::point<x, (y + 1)>();
 		}
 
-		template<std::size_t w, std::size_t h, std::size_t d>
-		[[nodiscard]] friend constexpr std::size_t operator-(DETAIL_XIEITE::analog::point<x>, DETAIL_XIEITE::analog::size<w, h, d>) noexcept {
-			if constexpr (h) {
-				if constexpr (d) {
-					return w * (h / 3) * (d / 3);
-				} else {
-					return w * (h / 2);
-				}
-			} else {
-				return w * (d / 2);
-			}
+		template<std::size_t w, std::size_t h, std::size_t l>
+		[[nodiscard]] friend constexpr auto operator-(DETAIL_XIEITE::analog::point<x, y>, DETAIL_XIEITE::analog::size<w, h, l>) noexcept {
+			return DETAIL_XIEITE::analog::size<w, h, l>();
 		}
 
-		template<std::size_t w, std::size_t h, std::size_t d>
-		[[nodiscard]] friend constexpr std::size_t operator|(DETAIL_XIEITE::analog::point<x>, DETAIL_XIEITE::analog::size<w, h, d>) noexcept {
-			return (h / 2 + 1) * (d / 2);
+		template<std::size_t w, std::size_t h, std::size_t l>
+		[[nodiscard]] friend constexpr auto operator|(DETAIL_XIEITE::analog::point<x, y>, DETAIL_XIEITE::analog::size<w, h, l>) noexcept {
+			return DETAIL_XIEITE::analog::size<w, (h + 1), l>();
 		}
 	};
 }
 
 namespace xieite::analog {
-	inline constexpr DETAIL_XIEITE::analog::point<0> x;
+	inline constexpr DETAIL_XIEITE::analog::point<0, 0> x;
 }
 
 #endif
