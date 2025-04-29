@@ -8,14 +8,17 @@
 #	include <string>
 #	include <string_view>
 #	include "../data/fixed_array.hpp"
+#	include "../meta/make_seq.hpp"
 #	include "../meta/paren.hpp"
+#	include "../meta/seq.hpp"
+#	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_char.hpp"
-#	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<std::size_t length, xieite::is_char Char = char>
+	template<xieite::is_char Char, std::size_t length>
 	struct fixed_str {
+	public:
 		using value_type = Char;
 		using reference = Char&;
 		using const_reference = const Char&;
@@ -30,25 +33,21 @@ namespace xieite {
 
 		xieite::fixed_array<Char, length> array;
 
-		[[nodiscard]] explicit(false) constexpr fixed_str(const xieite::paren<Char[length + 1]>& array) noexcept {
-			for (std::size_t i = 0; i < length; ++i) {
-				this->array[i] = array[i];
-			}
-		}
+		[[nodiscard]] explicit(false) constexpr fixed_str(const xieite::paren<Char[length + 1]>& array)
+			XIEITE_ARROW_CTOR(, (fixed_str), ((array, xieite::make_seq<length>)))
 
 		template<std::ranges::input_range Range>
 		requires(std::convertible_to<std::ranges::range_value_t<Range>, Char>)
 		[[nodiscard]] explicit(false) constexpr fixed_str(Range&& array)
-		noexcept(xieite::is_noex_range<Range>)
-		: array(xieite::fixed_array<Char, length>::from(XIEITE_FWD(array))) {}
+			XIEITE_ARROW_CTOR(, (fixed_str), ((std::ranges::begin(array), xieite::make_seq<length>)))
 
 		[[nodiscard]] constexpr auto&& operator[](this auto&& self, std::size_t idx) noexcept {
 			return XIEITE_FWD(self).array[idx];
 		}
 
 		template<std::size_t other_length>
-		[[nodiscard]] friend constexpr auto operator+(const xieite::fixed_str<length, Char>& lhs, const xieite::fixed_str<other_length, Char>& rhs) noexcept {
-			return xieite::fixed_str<(length + other_length), Char>(lhs.array + rhs.array);
+		[[nodiscard]] friend constexpr auto operator+(const xieite::fixed_str<Char, length>& lhs, const xieite::fixed_str<Char, other_length>& rhs) noexcept {
+			return xieite::fixed_str<Char, (length + other_length)>(lhs.array + rhs.array);
 		}
 
 		[[nodiscard]] static constexpr std::size_t size() noexcept {
@@ -59,10 +58,15 @@ namespace xieite {
 		[[nodiscard]] constexpr std::basic_string_view<Char, Traits> view() const noexcept {
 			return std::basic_string_view<Char, Traits>(this->array.begin(), this->array.end());
 		}
+
+	private:
+		template<std::size_t... i>
+		[[nodiscard]] constexpr fixed_str(auto iter, xieite::seq<i...>)
+			XIEITE_ARROW_CTOR(, array, ({ ([](auto& iter) static XIEITE_ARROW_IF(i, ++iter, *iter))(iter)... }))
 	};
 
-	template<std::size_t length, typename Char>
-	fixed_str(const xieite::paren<Char[length]>&) -> fixed_str<(length - 1), Char>;
+	template<typename Char, std::size_t length>
+	fixed_str(const xieite::paren<Char[length]>&) -> fixed_str<Char, (length - 1)>;
 }
 
 #endif
