@@ -8,6 +8,9 @@ namespace xieite {
 		xieite::ssize_t row;
 		xieite::ssize_t col;
 
+		[[nodiscard]] explicit(false) constexpr pos() noexcept
+		: row(0), col(0) {}
+
 		[[nodiscard]] constexpr pos(xieite::ssize_t row, xieite::ssize_t col) noexcept
 		: row(row), col(col) {}
 
