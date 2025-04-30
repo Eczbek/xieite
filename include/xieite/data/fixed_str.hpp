@@ -62,7 +62,7 @@ namespace xieite {
 	private:
 		template<std::size_t... i>
 		[[nodiscard]] constexpr fixed_str(auto iter, xieite::seq<i...>)
-			XIEITE_ARROW_CTOR(, array, ({ ([](auto& iter) static XIEITE_ARROW_IF(i, ++iter, *iter))(iter)... }))
+			XIEITE_ARROW_CTOR(, array, ({ ([]<std::size_t j>(auto& iter) static XIEITE_ARROW_IF(j, ++iter, *iter)).template operator()<i>(iter)... }))
 	};
 
 	template<typename Char, std::size_t length>
@@ -70,3 +70,5 @@ namespace xieite {
 }
 
 #endif
+
+// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=120041

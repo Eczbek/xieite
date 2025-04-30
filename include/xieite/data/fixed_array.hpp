@@ -144,7 +144,7 @@ namespace xieite {
 		[[nodiscard]] static constexpr auto from(std::ranges::input_range auto&& range)
 			XIEITE_ARROW(xieite::unroll<length>(
 				[]<std::size_t... i>(auto iter) static
-					XIEITE_ARROW(xieite::fixed_array { ([](auto& iter) static XIEITE_ARROW_IF(i, ++iter, *iter))(iter)... }),
+					XIEITE_ARROW(xieite::fixed_array { ([]<std::size_t j>(auto& iter) static XIEITE_ARROW_IF(j, ++iter, *iter)).template operator()<i>(iter)... }),
 				std::ranges::begin(range)
 			))
 	};
@@ -232,3 +232,5 @@ namespace xieite {
 }
 
 #endif
+
+// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=120041
