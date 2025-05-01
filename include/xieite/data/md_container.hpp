@@ -3,25 +3,18 @@
 #
 #	include <cstddef>
 #	include <type_traits>
-#	include "../fn/unroll.hpp"
-#	include "../meta/fold.hpp"
+#	include "../meta/fold_for.hpp"
 
 namespace DETAIL_XIEITE::md_container {
-	template<template<typename> typename Container, typename Value, std::size_t rank>
-	struct impl : decltype(xieite::unroll<rank>([]<std::size_t... i> static {
-		return xieite::fold<
-			[]<typename Prev, typename> static {
-				return std::type_identity<Container<typename Prev::type>>();
-			},
-			std::type_identity<Value>,
-			decltype(i)...
-		>();
-	})) {};
+	template<template<typename> typename Container>
+	constexpr auto impl = []<typename Prev, auto> static {
+		return std::type_identity<Container<typename Prev::type>>();
+	};
 }
 
 namespace xieite {
 	template<template<typename> typename Container, typename Value, std::size_t rank>
-	using md_container = DETAIL_XIEITE::md_container::impl<Container, Value, rank>::type;
+	using md_container = xieite::fold_for<DETAIL_XIEITE::md_container::impl<Container>, std::type_identity<Value>, rank>;
 }
 
 #endif

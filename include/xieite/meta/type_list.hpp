@@ -7,6 +7,7 @@
 #	include "../fn/unroll.hpp"
 #	include "../meta/end.hpp"
 #	include "../meta/fold.hpp"
+#	include "../meta/fold_for.hpp"
 #	include "../meta/value.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
@@ -100,25 +101,24 @@ namespace xieite {
 		using prepend_range = xieite::type_list<Ts...>::prepend_range_impl<Range>::type;
 
 	private:
-		template<typename...>
-		struct reverse_impl : std::type_identity<decltype(xieite::unroll<Ts...>([]<std::size_t... i> static {
+		static constexpr auto reverse_impl = []<std::size_t... i> static {
 			return xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>();
-		}))> {};
+		};
 	
 	public:
-		template<xieite::end... _>
-		using reverse = xieite::type_list<Ts...>::reverse_impl<_...>::type;
+		template<xieite::end...>
+		using reverse = decltype(xieite::unroll<Ts...>(xieite::type_list<Ts...>::reverse_impl));
 
 	private:
-		template<std::size_t start, std::size_t end>
-		struct slice_impl : std::type_identity<decltype(xieite::unroll<(end - start)>([]<std::size_t... i> static {
+		template<std::size_t start>
+		static constexpr auto slice_impl = []<std::size_t... i> static {
 			return xieite::type_list<xieite::type_list<Ts...>::at<(start + i)>...>();
-		}))> {};
+		};
 
 	public:
 		template<std::size_t start, std::size_t end = sizeof...(Ts)>
 		requires((start <= end) && (end <= sizeof...(Ts)))
-		using slice = xieite::type_list<Ts...>::slice_impl<start, end>::type;
+		using slice = decltype(xieite::unroll<(end - start)>(xieite::type_list<Ts...>::slice_impl<start>));
 
 		template<std::size_t start, std::size_t end = start + 1>
 		using erase =
@@ -162,103 +162,81 @@ namespace xieite {
 		using arrange = xieite::type_list<xieite::type_list<Ts...>::at<idxs>...>;
 
 	private:
-		template<auto cond>
-		struct filter_impl : std::type_identity<xieite::fold<
-			[]<typename List, typename T> static {
-				if constexpr (xieite::is_satisfied<cond, T>) {
-					return typename List::template append<T>();
-				} else {
-					return List();
-				}
-			},
-			xieite::type_list<>,
-			Ts...
-		>> {};
+		static constexpr auto filter_impl = []<typename List, typename T> static {
+			if constexpr (xieite::is_satisfied<cond, T>) {
+				return typename List::template append<T>();
+			} else {
+				return List();
+			}
+		};
 	
 	public:
 		template<auto cond>
-		using filter = xieite::type_list<Ts...>::filter_impl<cond>::type;
+		using filter = xieite::fold<xieite::type_list<Ts...>::filter_impl, xieite::type_list<>, Ts...>;
 
 	private:
 		template<auto cmp>
-		struct dedup_impl : std::type_identity<xieite::fold<
-			[]<typename List, typename T> static {
-				if constexpr (!List::template has<T, cmp>) {
-					return typename List::template append<T>();
-				} else {
-					return List();
-				}
-			},
-			xieite::type_list<>,
-			Ts...
-		>> {};
+		static constexpr auto dedup_impl = []<typename List, typename T> static {
+			if constexpr (!List::template has<T, cmp>) {
+				return typename List::template append<T>();
+			} else {
+				return List();
+			}
+		};
 
 	public:
 		template<auto cmp = []<typename T, std::same_as<T>> {}>
-		using dedup = xieite::type_list<Ts...>::dedup_impl<cmp>::type;
+		using dedup = xieite::fold<xieite::type_list<Ts...>::dedup_impl<cmp>, xieite::type_list<>, Ts...>;
 
 	private:
-		template<std::size_t count>
-		struct repeat_impl : std::type_identity<decltype(xieite::unroll<count>([]<std::size_t... i> static {
-			return xieite::fold<
-				[]<typename List, typename> static {
-					return typename List::template append<Ts...>();
-				},
-				xieite::type_list<>,
-				decltype(i)...
-			>();
-		}))> {};
+		static constexpr auto repeat_impl = []<typename List, auto> static {
+			return typename List::template append<Ts...>();
+		};
 
 	public:
 		template<std::size_t count>
-		using repeat = xieite::type_list<Ts...>::repeat_impl<count>::type;
+		using repeat = xieite::fold_for<xieite::type_list<Ts...>::repeat_impl, xieite::type_list<>, count>;
 
 	private:
 		template<std::size_t arity, auto fn>
-		struct transform_impl : std::type_identity<decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
+		static constexpr auto transform_impl = []<std::size_t... i> static {
 			return xieite::type_list<typename decltype(
 				xieite::type_list<Ts...>
-				::slice<arity * i, arity * (i + 1)>
+				::slice<(arity * i), (arity * i + arity)>
 				::apply(fn)
 			)::type...>();
-		}))> {};
+		};
 
 	public:
 		template<std::size_t arity, auto fn>
 		requires(!(sizeof...(Ts) % arity))
-		using transform = xieite::type_list<Ts...>::transform_impl<arity, fn>::type;
+		using transform = decltype(xieite::unroll<(sizeof...(Ts) / arity)>(xieite::type_list<Ts...>::transform_impl<arity, fn>));
 
 	private:
 		template<std::size_t arity, auto fn>
-		struct transform_flat_impl : std::type_identity<decltype(xieite::unroll<(sizeof...(Ts) / arity)>([]<std::size_t... i> static {
-			return xieite::fold<
-				[]<typename List, typename Idx> static {
-					return typename List::template append_range<typename decltype(
-						xieite::type_list<Ts...>
-						::slice<(arity * Idx::value), (arity * Idx::value + arity)>
-						::apply(fn)
-					)::type>();
-				},
-				xieite::type_list<>,
-				xieite::value<i>...
-			>();
-		}))> {};
+		static constexpr auto transform_flat_impl = []<typename List, std::size_t i> static {
+			return typename List::template append_range<typename decltype(
+				xieite::type_list<Ts...>
+				::slice<(arity * i), (arity * i + arity)>
+				::apply(fn)
+			)::type>();
+		};
 
 	public:
 		template<std::size_t arity, auto fn>
 		requires(!(sizeof...(Ts) % arity))
-		using transform_flat = xieite::type_list<Ts...>::transform_flat_impl<arity, fn>::type;
+		using transform_flat = xieite::fold_for<xieite::type_list<Ts...>::transform_flat_impl<arity, fn>, xieite::type_list<>, (sizeof...(Ts) / arity)>;
 
 	private:
 		template<typename... Us>
-		struct zip_impl : std::type_identity<decltype(xieite::unroll<Ts...>([]<std::size_t... i> static {
+		static constexpr auto zip_impl = []<std::size_t... i> static {
 			return xieite::type_list<xieite::type_list<xieite::type_list<Ts...>::at<i>, Us>...>();
-		}))> {};
+		};
 
 	public:
 		template<typename... Us>
 		requires(sizeof...(Ts) == sizeof...(Us))
-		using zip = xieite::type_list<Ts...>::zip_impl<Us...>::type;
+		using zip = decltype(xieite::unroll<Ts...>(xieite::type_list<Ts...>::zip_impl<Us...>));
 
 	private:
 		template<typename>

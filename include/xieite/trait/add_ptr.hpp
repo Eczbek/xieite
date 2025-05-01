@@ -3,25 +3,17 @@
 #
 #	include <cstddef>
 #	include <type_traits>
-#	include "../fn/unroll.hpp"
-#	include "../meta/fold.hpp"
+#	include "../meta/fold_for.hpp"
 
 namespace DETAIL_XIEITE::add_ptr {
-	template<typename T, std::size_t depth>
-	struct impl : decltype(xieite::unroll<depth>([]<std::size_t... i> static {
-		return xieite::fold<
-			[]<typename U, typename> static {
-				return std::add_pointer<typename U::type>();
-			},
-			std::remove_reference<T>,
-			decltype(i)...
-		>();
-	})) {};
+	inline constexpr auto impl = []<typename U, auto> static {
+		return std::add_pointer<typename U::type>();
+	};
 }
 
 namespace xieite {
 	template<typename T, std::size_t depth = 1>
-	using add_ptr = DETAIL_XIEITE::add_ptr::impl<T, depth>::type;
+	using add_ptr = xieite::fold_for<DETAIL_XIEITE::add_ptr::impl, std::remove_reference<T>, depth>;
 }
 
 #endif
