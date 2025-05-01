@@ -7,13 +7,13 @@
 
 namespace DETAIL_XIEITE::rm_ptr {
 	template<typename T, std::size_t depth>
-	struct impl : decltype(xieite::fold_for<
+	struct impl : xieite::fold_for<
 		[]<typename U, auto> static {
 			return std::remove_pointer<typename U::type>();
 		},
 		std::remove_reference<T>,
 		depth
-	>) {};
+	> {};
 
 	template<typename T>
 	struct impl<T, -1uz> : decltype(([]<typename U = std::remove_reference_t<T>>(this auto self) {
