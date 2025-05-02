@@ -1,16 +1,16 @@
-#ifndef DETAIL_XIEITE_HEADER_META_NAME
-#	define DETAIL_XIEITE_HEADER_META_NAME
+#ifndef DETAIL_XIEITE_HEADER_META_TYPE_NAME
+#	define DETAIL_XIEITE_HEADER_META_TYPE_NAME
 #
 #	include <string_view>
 #	include "../data/str_between.hpp"
 #	include "../pp/compiler.hpp"
-#	include "../pp/fn_sig.hpp"
+#	include "../pp/signature.hpp"
 #
 #	if XIEITE_COMPILER_TYPE_MSVC
 #		include "../data/str_after.hpp"
 #	endif
 
-namespace DETAIL_XIEITE::name {
+namespace DETAIL_XIEITE::type_name {
 	[[nodiscard]] consteval std::string_view parse(std::string_view name) noexcept {
 #	if XIEITE_COMPILER_TYPE_CLANG || XIEITE_COMPILER_TYPE_ICC
 		return xieite::str_between(name, "= ", ']');
@@ -25,25 +25,13 @@ namespace DETAIL_XIEITE::name {
 
 	template<typename _>
 	[[nodiscard]] consteval std::string_view get() noexcept {
-		return DETAIL_XIEITE::name::parse(XIEITE_FN_SIG);
-	}
-
-	template<auto _>
-	[[nodiscard]] consteval std::string_view get() noexcept {
-		return DETAIL_XIEITE::name::parse(XIEITE_FN_SIG);
+		return DETAIL_XIEITE::type_name::parse(XIEITE_SIGNATURE);
 	}
 }
 
 namespace xieite {
 	template<typename T>
-	[[nodiscard]] consteval std::string_view name() noexcept {
-		return DETAIL_XIEITE::name::get<T>();
-	}
-
-	template<auto x>
-	[[nodiscard]] consteval std::string_view name() noexcept {
-		return DETAIL_XIEITE::name::get<x>();
-	}
+	constexpr std::string_view type_name = DETAIL_XIEITE::type_name::get<T>();
 }
 
 #endif
