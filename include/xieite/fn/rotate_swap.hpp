@@ -17,14 +17,14 @@ namespace xieite {
 			static constexpr std::size_t wrapped = distance % size;
 			if constexpr ((wrapped == 1) || (size % wrapped)) {
 				auto temp = std::move(args...[0]);
-				xieite::repeat<size - 1>([&args...]<std::size_t i> -> void {
+				xieite::repeat<(size - 1)>([&args...]<std::size_t i> -> void {
 					args...[i * wrapped % size] = std::move(args...[(i * wrapped % size + wrapped) % size]);
 				});
 				args...[size - wrapped] = std::move(temp);
 			} else {
 				xieite::repeat<wrapped>([&args...]<std::size_t i> -> void {
 					auto temp = std::move(args...[i]);
-					xieite::repeat<size / wrapped>([&args...]<std::size_t j> -> void {
+					xieite::repeat<(size / wrapped)>([&args...]<std::size_t j> -> void {
 						args...[i + j * wrapped] = std::move(args...[(i + j * wrapped + wrapped) % size]);
 					});
 					args...[size - wrapped + i] = std::move(temp);
