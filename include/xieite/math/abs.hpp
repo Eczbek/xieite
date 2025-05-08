@@ -15,7 +15,7 @@ namespace xieite {
 			return x;
 		} else {
 			return (x < 0)
-				? -static_cast<xieite::try_unsigned<Arith>>(x)
+				? static_cast<xieite::try_unsigned<Arith>>(-static_cast<xieite::try_unsigned<Arith>>(x))
 				: static_cast<xieite::try_unsigned<Arith>>(x);
 		}
 	}
