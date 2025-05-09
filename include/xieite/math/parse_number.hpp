@@ -18,7 +18,7 @@ namespace xieite {
 	template<xieite::is_arith Arith>
 	[[nodiscard]] constexpr Arith parse_number(std::string_view strv, std::size_t& idx, std::conditional_t<std::floating_point<Arith>, xieite::ssize_t, Arith> radix = 10, const xieite::number_str_config& config = {}) noexcept {
 		if (!radix) {
-			return 0;
+			return static_cast<Arith>(0);
 		}
 		const std::size_t size = strv.size();
 		const std::string_view digits = config.digits.substr(0, xieite::abs(radix));
@@ -63,7 +63,7 @@ namespace xieite {
 				result = static_cast<Arith>(result * static_cast<Arith>(radix) + static_cast<Arith>(digit));
 			}
 			idx += i;
-			return neg ? -result : result;
+			return neg ? static_cast<Arith>(-result) : result;
 		}
 	}
 
