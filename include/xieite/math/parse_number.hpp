@@ -9,7 +9,6 @@
 #	include "../data/number_str_config.hpp"
 #	include "../fn/tmp.hpp"
 #	include "../math/abs.hpp"
-#	include "../math/pow.hpp"
 #	include "../math/ssize_t.hpp"
 #	include "../math/split_bool.hpp"
 #	include "../trait/is_arith.hpp"
@@ -20,50 +19,59 @@ namespace xieite {
 		if (!radix) {
 			return static_cast<Arith>(0);
 		}
-		const std::size_t size = strv.size();
 		const std::string_view digits = config.digits.substr(0, xieite::abs(radix));
 		std::size_t i = 0;
-		while ((i < size) && !digits.contains(strv[i]) && !((i < (size - 1)) && (config.minus.contains(strv[i]) || config.plus.contains(strv[i])) && digits.contains(strv[i + 1]))) {
-			++i;
-		}
-		const bool neg = (i < (size - 1)) && config.minus.contains(strv[i]) && digits.contains(strv[i + 1]);
-		i += neg || ((i < (size - 1)) && config.plus.contains(strv[i]) && digits.contains(strv[i + 1]));
-		if constexpr (std::floating_point<Arith>) {
-			Arith integral = 0;
-			Arith fractional = 0;
-			std::size_t point = 0;
-			xieite::ssize_t pow = 0;
-			for (; i < strv.size(); ++i) {
-				const std::size_t digit = digits.find(strv[i]);
-				if (digit == std::string::npos) {
-					if (config.point.contains(strv[i])) {
-						if (point) {
-							break;
-						}
-						point = 1;
-					} else if (config.exp.contains(strv[i])) {
-						pow = xieite::parse_number<xieite::ssize_t>(strv.substr(i + 1), radix, config);
-						break;
-					}
-					continue;
-				}
-				Arith& part = (point ? fractional : integral);
-				part = part * static_cast<Arith>(radix) + static_cast<Arith>(digit);
-				point += !!point;
-			}
-			idx += i;
-			return xieite::split_bool(!neg) * (integral + fractional / xieite::pow(radix, static_cast<xieite::ssize_t>(point - 1))) * xieite::pow(radix, pow);
-		} else {
-			Arith result = 0;
+		auto parse_neg = [strv, &config, &i, digits] mutable -> bool {
+			const bool neg = (i < (strv.size() - 1)) && config.minus.contains(strv[i]) && digits.contains(strv[i + 1]);
+			i += neg || ((i < (strv.size() - 1)) && config.plus.contains(strv[i]) && digits.contains(strv[i + 1]));
+			return neg;
+		};
+		auto parse_int = [strv, &idx, radix, &i, digits, parse_neg]<typename Int>(Int& result) mutable -> void {
+			const bool neg = parse_neg();
 			for (; i < strv.size(); ++i) {
 				const std::size_t digit = digits.find(strv[i]);
 				if (digit == std::string::npos) {
 					break;
 				}
-				result = static_cast<Arith>(result * static_cast<Arith>(radix) + static_cast<Arith>(digit));
+				result = static_cast<Int>(result * static_cast<Int>(radix) + static_cast<Int>(digit));
 			}
 			idx += i;
-			return neg ? static_cast<Arith>(-result) : result;
+			if (neg) {
+				result = static_cast<Int>(-result);
+			}
+		};
+		while ((i < strv.size()) && !digits.contains(strv[i]) && !((i < (strv.size() - 1)) && (config.minus.contains(strv[i]) || config.plus.contains(strv[i])) && digits.contains(strv[i + 1]))) {
+			++i;
+		}
+		Arith value = 0;
+		if constexpr (std::floating_point<Arith>) {
+			bool integral = true;
+			Arith fractional = 0;
+			Arith fractional_exp = 1;
+			xieite::ssize_t exp = 0;
+			const bool neg = parse_neg();
+			for (; i < strv.size(); ++i) {
+				const std::size_t digit = digits.find(strv[i]);
+				if (digit == std::string::npos) {
+					if (config.point.contains(strv[i]) && (integral ^= 1)) {
+						break;
+					} else if (config.exp.contains(strv[i])) {
+						++i;
+						parse_int(exp);
+						break;
+					}
+					continue;
+				}
+				if (integral) {
+					value = value * static_cast<Arith>(radix) + static_cast<Arith>(digit);
+				} else {
+					value += static_cast<Arith>(digit) * (fractional_exp /= static_cast<Arith>(radix));
+				}
+			}
+			return xieite::split_bool<Arith>(!neg) * (value + fractional) * std::pow(static_cast<Arith>(radix), static_cast<Arith>(exp));
+		} else {
+			parse_int(value);
+			return value;
 		}
 	}
 
