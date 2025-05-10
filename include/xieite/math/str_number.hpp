@@ -42,7 +42,7 @@ namespace xieite {
 			}
 		} else {
 			[[maybe_unused]] std::size_t point = 0;
-			const auto next = [&x, radix, config, &result](Radix idx) -> void {
+			auto next = [&x, radix, config, &result](Radix idx) mutable -> void {
 				x = static_cast<Arith>(x / static_cast<Arith>(radix));
 				if (xieite::neg(idx)) {
 					idx = xieite::neg(radix) ? (idx - radix) : (idx + radix);
