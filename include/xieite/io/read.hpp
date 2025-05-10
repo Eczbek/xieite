@@ -8,26 +8,39 @@
 #	include <string>
 
 namespace xieite {
-	[[nodiscard]] inline std::string read(std::istream& stream) noexcept {
-		return std::string(std::istreambuf_iterator<char>(stream), {});
+	[[nodiscard]] inline std::string read(std::istream& stream, int delim = EOF) noexcept {
+		if (delim == EOF) {
+			return std::string(std::istreambuf_iterator<char>(stream), {});
+		}
+		std::string input;
+		std::getline(stream, input, static_cast<char>(delim));
+		return input;
 	}
 
-	[[nodiscard]] inline std::string read(std::FILE* stream) noexcept {
-		std::string result;
+	[[nodiscard]] inline std::string read(std::FILE* stream, int delim = EOF) noexcept {
+		std::string input;
 		while (stream) {
-			const std::size_t orig_size = result.size();
-			const std::size_t next_size = orig_size ? (orig_size * 2) : 8192;
-			result.resize_and_overwrite(
+			const std::size_t prev_size = input.size();
+			const std::size_t next_size = prev_size + 32768;
+			input.resize_and_overwrite(
 				next_size,
-				[stream, orig_size](char* buf, std::size_t buf_size) -> std::size_t {
-					return orig_size + std::fread(buf + orig_size, 1, buf_size - orig_size, stream);
+				[stream, delim, prev_size](char* buf, std::size_t buf_size) -> std::size_t {
+					if (delim == EOF) {
+						return prev_size + std::fread(buf + prev_size, 1, buf_size - prev_size, stream);
+					}
+					int input;
+					std::size_t count = prev_size;
+					while ((input = std::fgetc(stream)) != delim) {
+						buf[count++] = static_cast<char>(input);
+					}
+					return count;
 				}
 			);
-			if (result.size() != next_size) {
+			if (input.size() != next_size) {
 				break;
 			}
 		}
-		return result;
+		return input;
 	}
 }
 
