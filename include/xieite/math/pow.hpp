@@ -17,8 +17,13 @@ namespace xieite {
 			if ((base == 1) || (exp == 1)) {
 				return base;
 			}
-			if (!std::unsigned_integral<Arith> && (base == static_cast<Arith>(-1))) {
-				return base * xieite::split_bool(exp & 1);
+			if constexpr (!std::unsigned_integral<Arith>) {
+				if (base == static_cast<Arith>(-1)) {
+					return base * xieite::split_bool(exp & 1);
+				}
+				if (exp < 0) {
+					return static_cast<Arith>(0);
+				}
 			}
 			if (!base || !exp) {
 				if (xieite::neg(exp)) {
