@@ -7,7 +7,7 @@
 #	include <type_traits>
 #	include "../math/closest.hpp"
 #	include "../math/neg.hpp"
-#	include "../math/parse_num.hpp"
+#	include "../math/parse_number.hpp"
 #	include "../math/ssize_t.hpp"
 
 namespace DETAIL_XIEITE::range_udl {
@@ -56,9 +56,9 @@ namespace xieite::range_udl {
 		static constexpr std::size_t step_delim = str.find('e');
 		using Type = std::conditional_t<end_sign, xieite::ssize_t, std::size_t>;
 		return DETAIL_XIEITE::range_udl::range<
-			xieite::parse_num<Type>(str),
-			(has_end ? (xieite::parse_num<Type>(str.substr(end_delim)) * (1 - end_sign * 2)) : 0),
-			((step_delim != std::string_view::npos) ? xieite::parse_num<Type>(str.substr(step_delim + (str[step_delim + 1] == '-'))) : 1)
+			xieite::parse_number<Type>(str),
+			(has_end ? (xieite::parse_number<Type>(str.substr(end_delim)) * (1 - end_sign * 2)) : 0),
+			((step_delim != std::string_view::npos) ? xieite::parse_number<Type>(str.substr(step_delim + (str[step_delim + 1] == '-'))) : 1)
 		>();
 	}
 }

@@ -3,7 +3,6 @@
 #
 #	include <concepts>
 #	include "../meta/obj_name.hpp"
-#	include "../meta/value.hpp"
 #	include "../trait/is_enum.hpp"
 
 namespace xieite {
