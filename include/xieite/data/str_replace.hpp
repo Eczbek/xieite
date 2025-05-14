@@ -41,7 +41,7 @@ namespace xieite {
 		XIEITE_ARROW(xieite::str_replace(strv, xieite::str_view(orig), xieite::str_view(with), alloc))
 
 	template<typename Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>>
-	[[nodiscard]] constexpr auto str_replace(const std::basic_string<Char, Traits>& str, auto&& orig, auto&& with, const Alloc& alloc = {})
+	[[nodiscard]] constexpr auto str_replace(const std::basic_string<Char, Traits, Alloc>& str, auto&& orig, auto&& with, const Alloc& alloc = {})
 		XIEITE_ARROW(xieite::str_replace(xieite::str_view(str), XIEITE_FWD(orig), XIEITE_FWD(with), alloc))
 
 	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
