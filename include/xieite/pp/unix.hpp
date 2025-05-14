@@ -1,9 +1,7 @@
 #ifndef DETAIL_XIEITE_HEADER_PP_UNIX
 #	define DETAIL_XIEITE_HEADER_PP_UNIX
 #
-#	if __has_include(<unistd.h>)
-#		include <unistd.h>
-#	endif
+#	include "../pp/ver_cmp.hpp"
 #
 #	define XIEITE_UNIX_TYPE_POSIX 0
 #	define XIEITE_UNIX_MAJOR_POSIX 0
@@ -18,13 +16,11 @@
 #	define XIEITE_UNIX_MINOR_LSB 0
 #	define XIEITE_UNIX_PATCH_LSB 0
 #
-#	define XIEITE_UNIX_EQ(type, major, ...) DETAIL_XIEITE_UNIX(__VA_ARGS__, DETAIL_XIEITE_UNIX_EQ(type, major, __VA_ARGS__), DETAIL_XIEITE_UNIX_EQ(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_UNIX_EQ(type, major, 0, 0))
-#	define XIEITE_UNIX_LEAST(type, major, ...) DETAIL_XIEITE_UNIX(__VA_ARGS__, DETAIL_XIEITE_UNIX_LEAST(type, major, __VA_ARGS__), DETAIL_XIEITE_UNIX_LEAST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_UNIX_LEAST(type, major, 0, 0))
-#	define XIEITE_UNIX_MOST(type, major, ...) DETAIL_XIEITE_UNIX(__VA_ARGS__, DETAIL_XIEITE_UNIX_MOST(type, major, __VA_ARGS__), DETAIL_XIEITE_UNIX_MOST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_UNIX_MOST(type, major, 0, 0))
-#	define DETAIL_XIEITE_UNIX(_0, _1, _2, x, ...) x
-#	define DETAIL_XIEITE_UNIX_EQ(type, major, minor, patch) (XIEITE_UNIX_TYPE_##type && (XIEITE_UNIX_MAJOR_##type == (major)) && (XIEITE_UNIX_MINOR_##type == (minor)) && (XIEITE_UNIX_PATCH_##type == (patch)))
-#	define DETAIL_XIEITE_UNIX_LEAST(type, major, minor, patch) (XIEITE_UNIX_TYPE_##type && ((XIEITE_UNIX_MAJOR_##type > (major)) || (XIEITE_UNIX_MAJOR_##type == (major)) && ((XIEITE_UNIX_MINOR_##type > (minor)) || (XIEITE_UNIX_MINOR_##type == (minor)) && (XIEITE_UNIX_PATCH_##type >= (patch)))))
-#	define DETAIL_XIEITE_UNIX_MOST(type, major, minor, patch) (XIEITE_UNIX_TYPE_##type && ((XIEITE_UNIX_MAJOR_##type < (major)) || (XIEITE_UNIX_MAJOR_##type == (major)) && ((XIEITE_UNIX_MINOR_##type < (minor)) || (XIEITE_UNIX_MINOR_##type == (minor)) && (XIEITE_UNIX_PATCH_##type <= (patch)))))
+#	define XIEITE_UNIX_VER(type, cmp, major, ...) XIEITE_VER_CMP(cmp, XIEITE_UNIX_MAJOR_##type, XIEITE_UNIX_MINOR_##type, XIEITE_UNIX_PATCH_##type, major, __VA_ARGS__)
+#
+#	if __has_include(<unistd.h>)
+#		include <unistd.h>
+#	endif
 #
 #	ifdef _POSIX_VERSION
 #		undef XIEITE_UNIX_TYPE_POSIX

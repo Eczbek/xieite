@@ -4,9 +4,9 @@
 #	include "../pp/compiler.hpp"
 #	include "../pp/lang.hpp"
 #
-#	if XIEITE_LANG_LEAST(C, 1999)
+#	if XIEITE_LANG_VER(C, >=, 1999)
 #		define XIEITE_RESTRICT restrict
-#	elif XIEITE_COMPILER_LEAST(GCC, 3)
+#	elif XIEITE_COMPILER_VER(GCC, >=, 3)
 #		define XIEITE_RESTRICT __restrict__
 #	elif XIEITE_COMPILER_TYPE_CLANG || XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_RESTRICT __restrict

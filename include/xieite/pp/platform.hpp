@@ -1,6 +1,8 @@
 #ifndef DETAIL_XIEITE_HEADER_PP_PLATFORM
 #	define DETAIL_XIEITE_HEADER_PP_PLATFORM
 #
+#	include "../pp/ver_cmp.hpp"
+#
 #	define XIEITE_PLATFORM_TYPE_AEGIS 0
 #	define XIEITE_PLATFORM_MAJOR_AEGIS 0
 #	define XIEITE_PLATFORM_MINOR_AEGIS 0
@@ -698,13 +700,7 @@
 #	define XIEITE_PLATFORM_MINOR_ZETA 0
 #	define XIEITE_PLATFORM_PATCH_ZETA 0
 #
-#	define XIEITE_PLATFORM_EQ(type, major, ...) DETAIL_XIEITE_PLATFORM(__VA_ARGS__, DETAIL_XIEITE_PLATFORM_EQ(type, major, __VA_ARGS__), DETAIL_XIEITE_PLATFORM_EQ(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_PLATFORM_EQ(type, major, 0, 0))
-#	define XIEITE_PLATFORM_LEAST(type, major, ...) DETAIL_XIEITE_PLATFORM(__VA_ARGS__, DETAIL_XIEITE_PLATFORM_LEAST(type, major, __VA_ARGS__), DETAIL_XIEITE_PLATFORM_LEAST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_PLATFORM_LEAST(type, major, 0, 0))
-#	define XIEITE_PLATFORM_MOST(type, major, ...) DETAIL_XIEITE_PLATFORM(__VA_ARGS__, DETAIL_XIEITE_PLATFORM_MOST(type, major, __VA_ARGS__), DETAIL_XIEITE_PLATFORM_MOST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_PLATFORM_MOST(type, major, 0, 0))
-#	define DETAIL_XIEITE_PLATFORM(_0, _1, _2, x, ...) x
-#	define DETAIL_XIEITE_PLATFORM_EQ(type, major, minor, patch) (XIEITE_PLATFORM_TYPE_##type && (XIEITE_PLATFORM_MAJOR_##type == (major)) && (XIEITE_PLATFORM_MINOR_##type == (minor)) && (XIEITE_PLATFORM_PATCH_##type == (patch)))
-#	define DETAIL_XIEITE_PLATFORM_LEAST(type, major, minor, patch) (XIEITE_PLATFORM_TYPE_##type && ((XIEITE_PLATFORM_MAJOR_##type > (major)) || (XIEITE_PLATFORM_MAJOR_##type == (major)) && ((XIEITE_PLATFORM_MINOR_##type > (minor)) || (XIEITE_PLATFORM_MINOR_##type == (minor)) && (XIEITE_PLATFORM_PATCH_##type >= (patch)))))
-#	define DETAIL_XIEITE_PLATFORM_MOST(type, major, minor, patch) (XIEITE_PLATFORM_TYPE_##type && ((XIEITE_PLATFORM_MAJOR_##type < (major)) || (XIEITE_PLATFORM_MAJOR_##type == (major)) && ((XIEITE_PLATFORM_MINOR_##type < (minor)) || (XIEITE_PLATFORM_MINOR_##type == (minor)) && (XIEITE_PLATFORM_PATCH_##type <= (patch)))))
+#	define XIEITE_PLATFORM_VER(type, cmp, major, ...) XIEITE_VER_CMP(cmp, XIEITE_PLATFORM_MAJOR_##type, XIEITE_PLATFORM_MINOR_##type, XIEITE_PLATFORM_PATCH_##type, major, __VA_ARGS__)
 #
 #	include "../pp/has_incl.hpp"
 #

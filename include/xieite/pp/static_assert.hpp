@@ -4,9 +4,9 @@
 #	include "../pp/compiler.hpp"
 #	include "../pp/lang.hpp"
 #
-#	if XIEITE_LANG_LEAST(CPP, 2011) || XIEITE_LANG_LEAST(C, 2023)
+#	if XIEITE_LANG_VER(CPP, >=, 2011) || XIEITE_LANG_VER(C, >=, 2023)
 #		define XIEITE_STATIC_ASSERT(...) static_assert(__VA_ARGS__)
-#	elif XIEITE_LANG_LEAST(C, 2011)
+#	elif XIEITE_LANG_VER(C, >=, 2011)
 #		define XIEITE_STATIC_ASSERT(...) _Static_assert(__VA_ARGS__)
 #	elif XIEITE_COMPILER_TYPE_MSVC
 #		include <crtdbg.h>

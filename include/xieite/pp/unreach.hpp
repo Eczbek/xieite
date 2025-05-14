@@ -3,11 +3,11 @@
 #
 #	include "../pp/lang.hpp"
 #
-#	if XIEITE_LANG_LEAST(CPP, 2023)
+#	if XIEITE_LANG_VER(CPP, >=, 2023)
 #		include <utility>
 #
 #		define XIEITE_UNREACH() (::std::unreachable())
-#	elif XIEITE_LANG_LEAST(C, 2023)
+#	elif XIEITE_LANG_VER(C, >=, 2023)
 #		include <stddef.h>
 #
 #		define XIEITE_UNREACH() (unreachable())

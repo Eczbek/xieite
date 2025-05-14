@@ -1,6 +1,8 @@
 #ifndef DETAIL_XIEITE_HEADER_PP_STDLIB
 #	define DETAIL_XIEITE_HEADER_PP_STDLIB
 #
+#	include "../pp/ver_cmp.hpp"
+#
 #	define XIEITE_STDLIB_TYPE_BIONIC_C 0
 #	define XIEITE_STDLIB_MAJOR_BIONIC_C 0
 #	define XIEITE_STDLIB_MINOR_BIONIC_C 0
@@ -82,13 +84,7 @@
 #	define XIEITE_STDLIB_MINOR_Z88DK_C 0
 #	define XIEITE_STDLIB_PATCH_Z88DK_C 0
 #
-#	define XIEITE_STDLIB_EQ(type, major, ...) DETAIL_XIEITE_STDLIB(__VA_ARGS__, DETAIL_XIEITE_STDLIB_EQ(type, major, __VA_ARGS__), DETAIL_XIEITE_STDLIB_EQ(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_STDLIB_EQ(type, major, 0, 0))
-#	define XIEITE_STDLIB_LEAST(type, major, ...) DETAIL_XIEITE_STDLIB(__VA_ARGS__, DETAIL_XIEITE_STDLIB_LEAST(type, major, __VA_ARGS__), DETAIL_XIEITE_STDLIB_LEAST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_STDLIB_LEAST(type, major, 0, 0))
-#	define XIEITE_STDLIB_MOST(type, major, ...) DETAIL_XIEITE_STDLIB(__VA_ARGS__, DETAIL_XIEITE_STDLIB_MOST(type, major, __VA_ARGS__), DETAIL_XIEITE_STDLIB_MOST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_STDLIB_MOST(type, major, 0, 0))
-#	define DETAIL_XIEITE_STDLIB(_0, _1, _2, x, ...) x
-#	define DETAIL_XIEITE_STDLIB_EQ(type, major, minor, patch) (XIEITE_STDLIB_TYPE_##type && (XIEITE_STDLIB_MAJOR_##type == (major)) && (XIEITE_STDLIB_MINOR_##type == (minor)) && (XIEITE_STDLIB_PATCH_##type == (patch)))
-#	define DETAIL_XIEITE_STDLIB_LEAST(type, major, minor, patch) (XIEITE_STDLIB_TYPE_##type && ((XIEITE_STDLIB_MAJOR_##type > (major)) || (XIEITE_STDLIB_MAJOR_##type == (major)) && ((XIEITE_STDLIB_MINOR_##type > (minor)) || (XIEITE_STDLIB_MINOR_##type == (minor)) && (XIEITE_STDLIB_PATCH_##type >= (patch)))))
-#	define DETAIL_XIEITE_STDLIB_MOST(type, major, minor, patch) (XIEITE_STDLIB_TYPE_##type && ((XIEITE_STDLIB_MAJOR_##type < (major)) || (XIEITE_STDLIB_MAJOR_##type == (major)) && ((XIEITE_STDLIB_MINOR_##type < (minor)) || (XIEITE_STDLIB_MINOR_##type == (minor)) && (XIEITE_STDLIB_PATCH_##type <= (patch)))))
+#	define XIEITE_STDLIB_VER(type, cmp, major, ...) XIEITE_VER_CMP(cmp, XIEITE_STDLIB_MAJOR_##type, XIEITE_STDLIB_MINOR_##type, XIEITE_STDLIB_PATCH_##type, major, __VA_ARGS__)
 #
 #	ifdef __BIONIC__
 #		undef XIEITE_STDLIB_TYPE_BIONIC_C

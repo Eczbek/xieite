@@ -1,6 +1,8 @@
 #ifndef DETAIL_XIEITE_HEADER_PP_COMPILER
 #	define DETAIL_XIEITE_HEADER_PP_COMPILER
 #
+#	include "../pp/ver_cmp.hpp"
+#
 #	define XIEITE_COMPILER_TYPE_ACC 0
 #	define XIEITE_COMPILER_MAJOR_ACC 0
 #	define XIEITE_COMPILER_MINOR_ACC 0
@@ -390,13 +392,7 @@
 #	define XIEITE_COMPILER_MINOR_Z88DK 0
 #	define XIEITE_COMPILER_PATCH_Z88DK 0
 #
-#	define XIEITE_COMPILER_EQ(type, major, ...) DETAIL_XIEITE_COMPILER(__VA_ARGS__, DETAIL_XIEITE_COMPILER_EQ(type, major, __VA_ARGS__), DETAIL_XIEITE_COMPILER_EQ(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_COMPILER_EQ(type, major, 0, 0))
-#	define XIEITE_COMPILER_LEAST(type, major, ...) DETAIL_XIEITE_COMPILER(__VA_ARGS__, DETAIL_XIEITE_COMPILER_LEAST(type, major, __VA_ARGS__), DETAIL_XIEITE_COMPILER_LEAST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_COMPILER_LEAST(type, major, 0, 0))
-#	define XIEITE_COMPILER_MOST(type, major, ...) DETAIL_XIEITE_COMPILER(__VA_ARGS__, DETAIL_XIEITE_COMPILER_MOST(type, major, __VA_ARGS__), DETAIL_XIEITE_COMPILER_MOST(type, major, __VA_ARGS__, 0), DETAIL_XIEITE_COMPILER_MOST(type, major, 0, 0))
-#	define DETAIL_XIEITE_COMPILER(_0, _1, _2, x, ...) x
-#	define DETAIL_XIEITE_COMPILER_EQ(type, major, minor, patch) (XIEITE_COMPILER_TYPE_##type && (XIEITE_COMPILER_MAJOR_##type == (major)) && (XIEITE_COMPILER_MINOR_##type == (minor)) && (XIEITE_COMPILER_PATCH_##type == (patch)))
-#	define DETAIL_XIEITE_COMPILER_LEAST(type, major, minor, patch) (XIEITE_COMPILER_TYPE_##type && ((XIEITE_COMPILER_MAJOR_##type > (major)) || (XIEITE_COMPILER_MAJOR_##type == (major)) && ((XIEITE_COMPILER_MINOR_##type > (minor)) || (XIEITE_COMPILER_MINOR_##type == (minor)) && (XIEITE_COMPILER_PATCH_##type >= (patch)))))
-#	define DETAIL_XIEITE_COMPILER_MOST(type, major, minor, patch) (XIEITE_COMPILER_TYPE_##type && ((XIEITE_COMPILER_MAJOR_##type < (major)) || (XIEITE_COMPILER_MAJOR_##type == (major)) && ((XIEITE_COMPILER_MINOR_##type < (minor)) || (XIEITE_COMPILER_MINOR_##type == (minor)) && (XIEITE_COMPILER_PATCH_##type <= (patch)))))
+#	define XIEITE_COMPILER_VER(type, cmp, major, ...) XIEITE_VER_CMP(cmp, XIEITE_COMPILER_MAJOR_##type, XIEITE_COMPILER_MINOR_##type, XIEITE_COMPILER_PATCH_##type, major, __VA_ARGS__)
 #
 #	ifdef _ACC_
 #		undef XIEITE_COMPILER_TYPE_ACC

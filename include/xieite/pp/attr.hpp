@@ -5,9 +5,9 @@
 #	include "../pp/has_attr.hpp"
 #	include "../pp/lang.hpp"
 #
-#	if XIEITE_LANG_LEAST(CPP, 2011)
+#	if XIEITE_LANG_VER(CPP, >=, 2011)
 #		define XIEITE_ATTR_ALIGN(...) alignas(__VA_ARGS__)
-#	elif XIEITE_LANG_LEAST(C, 2011)
+#	elif XIEITE_LANG_VER(C, >=, 2011)
 #		define XIEITE_ATTR_ALIGN(...) _Alignas(__VA_ARGS__)
 #	elif XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_ATTR_ALIGN(...) __declspec(align(__VA_ARGS__))
@@ -17,11 +17,11 @@
 #		define XIEITE_ATTR_ALIGN(...)
 #	endif
 #
-#	if XIEITE_LANG_LEAST(CPP, 2023)
+#	if XIEITE_LANG_VER(CPP, >=, 2023)
 #		define XIEITE_ATTR_ASSUME(...) [[assume(__VA_ARGS__)]]
-#	elif XIEITE_COMPILER_LEAST(GCC, 12, 1)
+#	elif XIEITE_COMPILER_VER(GCC, >=, 12, 1)
 #		define XIEITE_ATTR_ASSUME(...) __attribute__((__assume__(__VA_ARGS__)))
-#	elif XIEITE_COMPILER_LEAST(CLANG, 4)
+#	elif XIEITE_COMPILER_VER(CLANG, >=, 4)
 #		define XIEITE_ATTR_ASSUME(...) __builtin_assume(__VA_ARGS__)
 #	elif XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_ATTR_ASSUME(...) __assume(__VA_ARGS__)
@@ -37,7 +37,7 @@
 #
 #	if XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_ATTR_DEPREC __declspec(deprecated)
-#	elif XIEITE_LANG_LEAST(CPP, 2014) || XIEITE_LANG_LEAST(C, 2023)
+#	elif XIEITE_LANG_VER(CPP, >=, 2014) || XIEITE_LANG_VER(C, >=, 2023)
 #		define XIEITE_ATTR_DEPREC [[deprecated]]
 #	elif XIEITE_HAS_ATTR(__deprecated__)
 #		define XIEITE_ATTR_DEPREC __attribute__((__deprecated__))
@@ -59,11 +59,11 @@
 #		define XIEITE_ATTR_EXPORT
 #	endif
 #
-#	if XIEITE_LANG_LEAST(CPP, 2017) || (XIEITE_COMPILER_LEAST(GCC, 8) && XIEITE_LANG_LEAST(CPP, 2011))
+#	if XIEITE_LANG_VER(CPP, >=, 2017) || (XIEITE_COMPILER_VER(GCC, >=, 8) && XIEITE_LANG_VER(CPP, >=, 2011))
 #		define XIEITE_ATTR_FALLTHR() [[fallthrough]]
-#	elif XIEITE_COMPILER_LEAST(GCC, 7) && (!XIEITE_COMPILER_TYPE_LCC || ((XIEITE_COMPILER_MAJOR_LCC == 124) && (XIEITE_COMPILER_MINOR_LCC >= 12)) || ((XIEITE_COMPILER_MAJOR_LCC == 125) && (XIEITE_COMPILER_MINOR_LCC >= 5)) || (XIEITE_COMPILER_MAJOR_LCC >= 126))
+#	elif XIEITE_COMPILER_VER(GCC, >=, 7) || XIEITE_COMPILER_VER(LLC, >=, 125, 5) || (XIEITE_COMPILER_VER(LLC, <, 125) && XIEITE_COMPILER_VER(LLC, >=, 124, 12))
 #		define XIEITE_ATTR_FALLTHR() __attribute__((__fallthrough__))
-#	elif XIEITE_COMPILER_TYPE_CLANG && XIEITE_LANG_LEAST(CPP, 2011)
+#	elif XIEITE_COMPILER_TYPE_CLANG && XIEITE_LANG_VER(CPP, >=, 2011)
 #		define XIEITE_ATTR_FALLTHR() [[clang::fallthrough]]
 #	elif XIEITE_XIEITE_COMPILER_TYPE_MSVC
 #		define XIEITE_ATTR_FALLTHR() __fallthrough
@@ -99,7 +99,7 @@
 #		define XIEITE_ATTR_IMPORT
 #	endif
 #
-#	if XIEITE_LANG_LEAST(CPP, 2020)
+#	if XIEITE_LANG_VER(CPP, >=, 2020)
 #		define XIEITE_ATTR_LIKELY [[likely]]
 #	else
 #		define XIEITE_ATTR_LIKELY
@@ -117,7 +117,7 @@
 #		define XIEITE_ATTR_NODEBUG
 #	endif
 #
-#	if XIEITE_LANG_LEAST(CPP, 2017)
+#	if XIEITE_LANG_VER(CPP, >=, 2017)
 #		define XIEITE_ATTR_NODISCARD [[nodiscard]]
 #	elif XIEITE_HAS_ATTR(__warn_unused_result__)
 #		define XIEITE_ATTR_NODISCARD __attribute__((__warn_unused_result__))
@@ -127,9 +127,9 @@
 #		define XIEITE_ATTR_NODISCARD
 #	endif
 #
-#	if XIEITE_LANG_LEAST(CPP, 2017)
+#	if XIEITE_LANG_VER(CPP, >=, 2017)
 #		define XIEITE_ATTR_NOEX noexcept(true)
-#	elif XIEITE_LANG_LEAST(CPP, 2011)
+#	elif XIEITE_LANG_VER(CPP, >=, 2011)
 #		define XIEITE_ATTR_NOEX throw()
 #	elif XIEITE_HAS_ATTR(__nothrow__)
 #		define XIEITE_ATTR_NOEX __attribute__((__nothrow__))
@@ -153,9 +153,9 @@
 #		define XIEITE_ATTR_NONNULL
 #	endif
 #
-#	if XIEITE_LANG_LEAST(CPP, 2011) || XIEITE_LANG_LEAST(C, 2023)
+#	if XIEITE_LANG_VER(CPP, >=, 2011) || XIEITE_LANG_VER(C, >=, 2023)
 #		define XIEITE_ATTR_NORET [[noreturn]]
-#	elif XIEITE_LANG_LEAST(C, 2011)
+#	elif XIEITE_LANG_VER(C, >=, 2011)
 #		define XIEITE_ATTR_NORET _Noreturn
 #	elif XIEITE_HAS_ATTR(__noreturn__)
 #		define XIEITE_ATTR_NORET __attribute__((__noreturn__))
@@ -163,9 +163,9 @@
 #		define XIEITE_ATTR_NORET
 #	endif
 #
-#	if XIEITE_COMPILER_LEAST(MSVC, 16, 9)
+#	if XIEITE_COMPILER_VER(MSVC, >=, 16, 9)
 #		define XIEITE_ATTR_NOUNIQADDR [[msvc::no_unique_address]]
-#	elif XIEITE_LANG_LEAST(CPP, 2020)
+#	elif XIEITE_LANG_VER(CPP, >=, 2020)
 #		define XIEITE_ATTR_NOUNIQADDR [[no_unique_address]]
 #	else
 #		define XIEITE_ATTR_NOUNIQADDR
@@ -223,13 +223,13 @@
 #		define XIEITE_ATTR_THREAD
 #	endif
 #
-#	if XIEITE_LANG_LEAST(CPP, 2020)
+#	if XIEITE_LANG_VER(CPP, >=, 2020)
 #		define XIEITE_ATTR_UNLIKELY [[unlikely]]
 #	else
 #		define XIEITE_ATTR_UNLIKELY
 #	endif
 #
-#	if XIEITE_LANG_LEAST(CPP, 2017)
+#	if XIEITE_LANG_VER(CPP, >=, 2017)
 #		define XIEITE_ATTR_UNUSED [[maybe_unused]]
 #	elif XIEITE_HAS_ATTR(__unused__)
 #		define XIEITE_ATTR_UNUSED __attribute__((__unused__))

@@ -4,9 +4,9 @@
 #	include "../pp/compiler.hpp"
 #	include "../pp/lang.hpp"
 #
-#	if XIEITE_LANG_LEAST(CPP, 2020)
+#	if XIEITE_LANG_VER(CPP, >=, 2020)
 #		define XIEITE_HAS_ATTR(...) __has_cpp_attribute(__VA_ARGS__)
-#	elif XIEITE_LANG_LEAST(C, 2023)
+#	elif XIEITE_LANG_VER(C, >=, 2023)
 #		define XIEITE_HAS_ATTR(...) __has_c_attribute(__VA_ARGS__)
 #	elif XIEITE_COMPILER_TYPE_GCC || XIEITE_COMPILER_TYPE_CLANG
 #		define XIEITE_HAS_ATTR(...) __has_attribute(__VA_ARGS__)
