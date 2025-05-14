@@ -8,7 +8,6 @@
 #	include "../meta/end.hpp"
 #	include "../meta/fold.hpp"
 #	include "../meta/fold_for.hpp"
-#	include "../meta/value.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_satisfied.hpp"
@@ -101,13 +100,14 @@ namespace xieite {
 		using prepend_range = xieite::type_list<Ts...>::prepend_range_impl<Range>::type;
 
 	private:
+		template<auto>
 		static constexpr auto reverse_impl = []<std::size_t... i> static {
 			return xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>();
 		};
 	
 	public:
 		template<xieite::end...>
-		using reverse = decltype(xieite::unroll<Ts...>(xieite::type_list<Ts...>::reverse_impl));
+		using reverse = decltype(xieite::unroll<Ts...>(xieite::type_list<Ts...>::reverse_impl<[] {}>));
 
 	private:
 		template<std::size_t start>
@@ -162,6 +162,7 @@ namespace xieite {
 		using arrange = xieite::type_list<xieite::type_list<Ts...>::at<idxs>...>;
 
 	private:
+		template<auto cond>
 		static constexpr auto filter_impl = []<typename List, typename T> static {
 			if constexpr (xieite::is_satisfied<cond, T>) {
 				return typename List::template append<T>();
@@ -172,7 +173,7 @@ namespace xieite {
 	
 	public:
 		template<auto cond>
-		using filter = xieite::fold<xieite::type_list<Ts...>::filter_impl, xieite::type_list<>, Ts...>;
+		using filter = xieite::fold<xieite::type_list<Ts...>::filter_impl<cond>, xieite::type_list<>, Ts...>;
 
 	private:
 		template<auto cmp>
