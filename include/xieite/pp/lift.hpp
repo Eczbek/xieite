@@ -6,7 +6,7 @@
 #
 #	define XIEITE_LIFT(...) []DETAIL_XIEITE_LIFT(static, __VA_ARGS__)
 #	define XIEITE_LIFT_LOCAL(...) [&]DETAIL_XIEITE_LIFT(, __VA_ARGS__)
-#	define XIEITE_LIFT_M(...) \
+#	define XIEITE_LIFT_MEMBER(...) \
 	[][[nodiscard]](auto&& DETAIL_XIEITE_obj, auto&&... DETAIL_XIEITE_args) static \
 		XIEITE_ARROW((XIEITE_FWD(DETAIL_XIEITE_obj) __VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_args)...)))
 #
