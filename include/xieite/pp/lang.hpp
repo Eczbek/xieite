@@ -173,14 +173,28 @@
 #		define XIEITE_LANG_TYPE_METAL 1
 #	endif
 #
-#	ifdef __OBJC__
+#	if defined(__OBJC__) || defined(__OBJC2__)
 #		undef XIEITE_LANG_TYPE_OBJ_C
 #		define XIEITE_LANG_TYPE_OBJ_C 1
+#
+#		undef XIEITE_LANG_MAJOR_OBJ_C
+#		ifdef __OBJC2__
+#			define XIEITE_LANG_MAJOR_OBJ_C 2
+#		else
+#			define XIEITE_LANG_MAJOR_OBJ_C 1
+#		endif
 #	endif
 #
-#	if (defined(__OBJC__) && defined(__cplusplus)) || defined(__OBJCPP__)
+#	if ((defined(__OBJC__) || defined(__OBJC2__)) && defined(__cplusplus)) || defined(__OBJCPP__)
 #		undef XIEITE_LANG_TYPE_OBJ_CPP
 #		define XIEITE_LANG_TYPE_OBJ_CPP 1
+#
+#		undef XIEITE_LANG_MAJOR_OBJ_CPP
+#		ifdef __OBJC2__
+#			define XIEITE_LANG_MAJOR_OBJ_CPP 2
+#		else
+#			define XIEITE_LANG_MAJOR_OBJ_CPP 1
+#		endif
 #	endif
 #
 #	ifdef __PSSL__
