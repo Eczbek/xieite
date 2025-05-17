@@ -27,9 +27,9 @@ XIEITE_DIAGNOSTIC_OFF_CLANG("-Wdollar-in-identifier-extension")
 		typename $$this)(), \
 		XIEITE_SEQ(16, DETAIL_XIEITE_FN_TEMPLATE_PARAM)) \
 	>__VA_OPT__([[nodiscard]])(__VA_OPT__( \
-		XIEITE_IF(this_)([[maybe_unused]] this $$this&& $this XIEITE_COMMA())() \
+		XIEITE_IF(this_)([[maybe_unused]] this $$this&&F $this XIEITE_COMMA())() \
 		[[maybe_unused]]) auto&&... __VA_OPT__($) \
-	) XIEITE_IF(has_captures_)()(XIEITE_OPT(__VA_ARGS__)(XIEITE_IF(this_)(, static), static)()) \
+	) XIEITE_IF(has_captures_)()(XIEITE_OPT(__VA_ARGS__)(XIEITE_IF(this_)()(static))(static)()) \
 	noexcept __VA_OPT__((requires(XIEITE_IF(this_)($$this&& $this XIEITE_COMMA())() XIEITE_SEQ(16, DETAIL_XIEITE_FN_PARAM)) { requires(noexcept(__VA_ARGS__)); }) \
 	-> decltype(auto) \
 	requires(requires(XIEITE_IF(this_)($$this&& $this XIEITE_COMMA())() XIEITE_SEQ(16, DETAIL_XIEITE_FN_PARAM)) { __VA_ARGS__; })) { \
