@@ -2059,7 +2059,7 @@
 #		define XIEITE_PLATFORM_TYPE_XBOX 1
 #	endif
 #
-#	if defined(_XBOX_VER) && (_XBOX_VER >= 200)
+#	if _XBOX_VER >= 200
 #		undef XIEITE_PLATFORM_TYPE_XBOX_360
 #		define XIEITE_PLATFORM_TYPE_XBOX_360 1
 #	endif
