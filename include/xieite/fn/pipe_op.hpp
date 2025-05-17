@@ -10,8 +10,8 @@ namespace xieite::pipe_op {
 		XIEITE_ARROW(std::invoke(XIEITE_FWD(fn), XIEITE_FWD(arg)))
 
 	[[nodiscard]] constexpr auto operator*(auto&& fn0, auto&& fn1) noexcept {
-		return [&fn0, &fn1][[nodiscard]](auto&&... args) mutable
-			XIEITE_ARROW(std::invoke(XIEITE_FWD(fn1), std::invoke(XIEITE_FWD(fn0), XIEITE_FWD(args)...)));
+		return [fn0 = XIEITE_FWD(fn0), fn1 = XIEITE_FWD(fn1)][[nodiscard]](auto&&... args) mutable
+			XIEITE_ARROW(std::invoke(fn1, std::invoke(fn0, XIEITE_FWD(args)...)));
 	}
 }
 
