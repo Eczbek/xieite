@@ -3,13 +3,11 @@
 #
 #	include <concepts>
 #	include <numbers>
+#	include "../trait/is_arith.hpp"
 
 namespace xieite {
-	template<typename>
-	constexpr double pi = std::numbers::pi;
-
-	template<std::floating_point Float>
-	constexpr Float pi<Float> = std::numbers::pi_v<Float>;
+	template<xieite::is_arith Arith = double>
+	constexpr Arith pi = std::numbers::pi_v<Arith>;
 
 	template<std::integral Int>
 	constexpr Int pi<Int> = static_cast<Int>(std::numbers::pi);
