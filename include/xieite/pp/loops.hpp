@@ -16,7 +16,7 @@
 		XIEITE_DIAGNOSTIC_OFF_CLANG("-Wdangling-else") \
 		if (!DETAIL_XIEITE_i.count++) \
 			for (__VA_ARGS__) \
-				if (XIEITE_DETAI_i.check) { \
+				if (DETAIL_XIEITE_i.check) { \
 					break; \
 				} else \
 					for (DETAIL_XIEITE_i.once = true; (DETAIL_XIEITE_i.broke = DETAIL_XIEITE_i.check, DETAIL_XIEITE_i.check = DETAIL_XIEITE_i.once), DETAIL_XIEITE_i.once && !DETAIL_XIEITE_i.broke; DETAIL_XIEITE_i.check = DETAIL_XIEITE_i.once = false) \
