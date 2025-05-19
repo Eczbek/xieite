@@ -1,5 +1,5 @@
-#ifndef DETAIL_XIEITE_HEADER_PP_LOOPS
-#	define DETAIL_XIEITE_HEADER_PP_LOOPS
+#ifndef DETAIL_XIEITE_HEADER_PP_FOR
+#	define DETAIL_XIEITE_HEADER_PP_FOR
 #
 #	include "../pp/diagnostic.hpp"
 #
@@ -22,7 +22,7 @@
 					for (DETAIL_XIEITE_i.once = true; (DETAIL_XIEITE_i.broke = DETAIL_XIEITE_i.check, DETAIL_XIEITE_i.check = DETAIL_XIEITE_i.once), DETAIL_XIEITE_i.once && !DETAIL_XIEITE_i.broke; DETAIL_XIEITE_i.check = DETAIL_XIEITE_i.once = false) \
 						XIEITE_DIAGNOSTIC_POP_GCC() \
 						XIEITE_DIAGNOSTIC_POP_CLANG()
-#	define XIEITE_WHL(...) XIEITE_FOR (; (__VA_ARGS__);)
+#	define XIEITE_WHILE(...) XIEITE_FOR (; (__VA_ARGS__);)
 #endif
 
 // https://gist.github.com/m1lkweed/4339f3c1196ec3acf995e3d671c1927b
