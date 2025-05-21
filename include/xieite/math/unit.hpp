@@ -64,7 +64,7 @@ namespace xieite::unit {
 	using thous = xieite::base_unit<"len", DETAIL_XIEITE::unit::mul<0.0000254>, DETAIL_XIEITE::unit::div<0.0000254>>;
 	using barleycorns = xieite::base_unit<"len", DETAIL_XIEITE::unit::mul<(0.0254 / 3.0)>, DETAIL_XIEITE::unit::mul<(3.0 / 0.0254)>>;
 	using in = xieite::base_unit<"len", DETAIL_XIEITE::unit::mul<0.0254>, DETAIL_XIEITE::unit::div<0.0254>>;
-	using ft = xieite::base_unit<"len", DETAIL_XIEITE::unit::div<0.3048>, DETAIL_XIEITE::unit::mul<0.3048>>;
+	using ft = xieite::base_unit<"len", DETAIL_XIEITE::unit::mul<0.3048>, DETAIL_XIEITE::unit::div<0.3048>>;
 	using yd = xieite::base_unit<"len", DETAIL_XIEITE::unit::mul<0.9144>, DETAIL_XIEITE::unit::div<0.9144>>;
 	using chains = xieite::base_unit<"len", DETAIL_XIEITE::unit::mul<20.1168>, DETAIL_XIEITE::unit::div<20.1168>>;
 	using furlongs = xieite::base_unit<"len", DETAIL_XIEITE::unit::mul<201.168>, DETAIL_XIEITE::unit::div<201.168>>;
