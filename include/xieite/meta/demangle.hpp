@@ -3,21 +3,22 @@
 #
 #	include <cstdlib>
 #	include <string>
+#	include <string_view>
 #
 #	if __has_include(<cxxabi.h>)
 #		include <cxxabi.h>
 #	endif
 
 namespace xieite {
-	[[nodiscard]] inline std::string demangle(const std::string& mangled) noexcept {
+	[[nodiscard]] inline std::string demangle(std::string_view name) noexcept {
 #	if __has_include(<cxxabi.h>)
-		if (char* const buf = abi::__cxa_demangle(mangled.c_str(), nullptr, nullptr, nullptr)) {
-			const std::string demangled = std::string(buf);
+		auto result = std::string(name);
+		if (char* const buf = abi::__cxa_demangle(result.c_str(), nullptr, nullptr, nullptr)) {
+			result = std::string(buf);
 			std::free(buf);
-			return demangled;
 		}
 #	endif
-		return mangled;
+		return result;
 	}
 }
 
