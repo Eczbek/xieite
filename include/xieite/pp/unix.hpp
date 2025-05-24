@@ -1,8 +1,6 @@
 #ifndef DETAIL_XIEITE_HEADER_PP_UNIX
 #	define DETAIL_XIEITE_HEADER_PP_UNIX
 #
-#	include "../pp/ver_cmp.hpp"
-#
 #	define XIEITE_UNIX_TYPE_POSIX 0
 #	define XIEITE_UNIX_MAJOR_POSIX 0
 #	define XIEITE_UNIX_MINOR_POSIX 0
@@ -15,8 +13,9 @@
 #	define XIEITE_UNIX_MAJOR_LSB 0
 #	define XIEITE_UNIX_MINOR_LSB 0
 #	define XIEITE_UNIX_PATCH_LSB 0
+#	define XIEITE_UNIX_VER(type, cmp, major, ...) DETAIL_XIEITE_UNIX_VER(cmp, XIEITE_UNIX_MAJOR_##type, XIEITE_UNIX_MINOR_##type, XIEITE_UNIX_PATCH_##type, major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
 #
-#	define XIEITE_UNIX_VER(type, cmp, major, ...) XIEITE_VER_CMP(cmp, XIEITE_UNIX_MAJOR_##type, XIEITE_UNIX_MINOR_##type, XIEITE_UNIX_PATCH_##type, major, __VA_ARGS__)
+#	define DETAIL_XIEITE_UNIX_VER(cmp, major0, minor0, patch0, major1, minor1, patch1, ...) (((((0 cmp 0) && !(0 cmp 1) && !(1 cmp 0)) || (!(0 cmp 0) && (0 cmp 1) && (1 cmp 0))) && (((major0) cmp (major1)) && ((minor0) cmp (minor1)) && ((patch0) cmp (patch1)))) || ((major0) cmp (major1)) || (((major0) == (major1)) && ((minor0) cmp (minor1))) || (((minor0) == (minor1)) && ((patch0) cmp (patch1))))
 #
 #	if __has_include(<unistd.h>)
 #		include <unistd.h>
