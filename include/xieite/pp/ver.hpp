@@ -2,7 +2,7 @@
 #	define DETAIL_XIEITE_HEADER_PP_VER
 #
 #	define XIEITE_VER_MAJOR 0
-#	define XIEITE_VER_MINOR 87
+#	define XIEITE_VER_MINOR 88
 #	define XIEITE_VER_PATCH 0
 #	define XIEITE_VER(type, cmp, major, ...) DETAIL_XIEITE_VER(cmp, major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
 #
