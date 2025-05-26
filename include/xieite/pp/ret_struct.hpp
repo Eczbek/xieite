@@ -6,6 +6,6 @@
 #	define XIEITE_RET_STRUCT(...) DETAIL_XIEITE_RET_STRUCT(XIEITE_CAT(DETAIL_XIEITE_struct_, __COUNTER__), __VA_ARGS__)
 #
 #	define DETAIL_XIEITE_RET_STRUCT(name_, ...) \
-	struct name_ __VA_ARGS__; \
-	return name_
+		struct name_ __VA_ARGS__; \
+		return name_
 #endif

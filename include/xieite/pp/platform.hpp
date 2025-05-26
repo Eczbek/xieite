@@ -1600,7 +1600,7 @@
 #
 #	ifdef __ATMOS__
 #		undef XIEITE_PLATFORM_TYPE_ORIC_ATMOS
-#		define XIETIE_PLATFORM_TYPE_ORIC_ATMOS 1
+#		define XIEITE_PLATFORM_TYPE_ORIC_ATMOS 1
 #	endif
 #
 #	if defined(OS2) || defined(_OS2) || defined(__OS2__) || defined(__TOS_OS2__)
