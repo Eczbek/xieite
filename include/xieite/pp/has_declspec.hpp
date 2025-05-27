@@ -9,10 +9,8 @@
 #		else
 #			define XIEITE_HAS_DECLSPEC(...) 0
 #		endif
-#	elif XIEITE_COMPILER_TYPE_MSVC
-#		define XIEITE_HAS_DECLSPEC(...) 1
 #	else
-#		define XIEITE_HAS_DECLSPEC(...) 0
+#		define XIEITE_HAS_DECLSPEC(...) XIEITE_COMPILER_TYPE_MSVC
 #	endif
 #endif
 
