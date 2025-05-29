@@ -3,5 +3,5 @@
 #
 #	include "../pp/pragma.hpp"
 #
-#	define XIEITE_REVIVE(f) XIEITE_PRAGMA(push_macro(#f)) XIEITE_PRAGMA(pop_macro(#f))
+#	define XIEITE_REVIVE(_fn) XIEITE_PRAGMA(push_macro(#_fn)) XIEITE_PRAGMA(pop_macro(#_fn))
 #endif

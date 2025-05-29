@@ -4,8 +4,8 @@
 #	include "../pp/lang.hpp"
 #
 #	if XIEITE_LANG_VER(CPP, >=, 2026)
-#		define XIEITE_DEL(s_) delete(s_)
+#		define XIEITE_DEL(_msg) delete(_msg)
 #	else
-#		define XIEITE_DEL(_) delete
+#		define XIEITE_DEL(_msg) delete
 #	endif
 #endif

@@ -3,7 +3,7 @@
 #
 #	include "../pp/cat.hpp"
 #
-#	define XIEITE_REPEAT(n, ...) XIEITE_PCAT(DETAIL_XIEITE_REPEAT_, n)(__VA_ARGS__)
+#	define XIEITE_REPEAT(_n, ...) XIEITE_PCAT(DETAIL_XIEITE_REPEAT_, _n)(__VA_ARGS__)
 #
 #	define DETAIL_XIEITE_REPEAT_0(...)
 #	define DETAIL_XIEITE_REPEAT_1(...) __VA_ARGS__

@@ -4,7 +4,7 @@
 #	include "../pp/at.hpp"
 #	include "../pp/cat.hpp"
 #
-#	define XIEITE_UNTIL(n) XIEITE_PCAT(XIEITE_UNTIL_, n)
+#	define XIEITE_UNTIL(_n) XIEITE_PCAT(XIEITE_UNTIL_, _n)
 #	define XIEITE_UNTIL_0(...)
 #	define XIEITE_UNTIL_1(...) XIEITE_AT_0(__VA_ARGS__)
 #	define XIEITE_UNTIL_2(...) XIEITE_UNTIL_1(__VA_ARGS__), XIEITE_AT_1(__VA_ARGS__)

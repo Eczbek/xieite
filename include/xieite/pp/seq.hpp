@@ -5,7 +5,7 @@
 #	include "../pp/call.hpp"
 #	include "../pp/scan.hpp"
 #
-#	define XIEITE_SEQ(n, ...) XIEITE_SCAN(XIEITE_PCAT(DETAIL_XIEITE_SEQ_, n)(__VA_ARGS__))
+#	define XIEITE_SEQ(_n, ...) XIEITE_SCAN(XIEITE_PCAT(DETAIL_XIEITE_SEQ_, _n)(__VA_ARGS__))
 #
 #	define DETAIL_XIEITE_SEQ_0(...)
 #	define DETAIL_XIEITE_SEQ_1(...) XIEITE_CALL(__VA_ARGS__)(0)

@@ -4,5 +4,5 @@
 #	include "../pp/compl.hpp"
 #	include "../pp/not.hpp"
 #
-#	define XIEITE_BOOL(x) XIEITE_COMPL(XIEITE_NOT(x))
+#	define XIEITE_BOOL(_x) XIEITE_COMPL(XIEITE_NOT(_x))
 #endif

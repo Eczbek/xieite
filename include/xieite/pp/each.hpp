@@ -5,11 +5,11 @@
 #	include "../pp/eval.hpp"
 #	include "../pp/paren.hpp"
 #
-#	define XIEITE_EACH(f, ...) __VA_OPT__(XIEITE_EVAL(DETAIL_XIEITE_EACH_HELPER(f, __VA_ARGS__)))
-#	define XIEITE_EACH_DELIM(f, delim, ...) __VA_OPT__(XIEITE_EVAL(DETAIL_XIEITE_EACH_DELIM_HELPER(f, delim, __VA_ARGS__)))
+#	define XIEITE_EACH(_fn, ...) __VA_OPT__(XIEITE_EVAL(DETAIL_XIEITE_EACH_HELPER(_fn, __VA_ARGS__)))
+#	define XIEITE_EACH_DELIM(_fn, delim, ...) __VA_OPT__(XIEITE_EVAL(DETAIL_XIEITE_EACH_DELIM_HELPER(_fn, delim, __VA_ARGS__)))
 #
-#	define DETAIL_XIEITE_EACH_HELPER(f, x, ...) f(x)__VA_OPT__(, DETAIL_XIEITE_EACH_NEXT XIEITE_PAREN() (f, __VA_ARGS__))
-#	define DETAIL_XIEITE_EACH_DELIM_HELPER(f, delim, x, ...) XIEITE_CALL(f)(x) __VA_OPT__(delim DETAIL_XIEITE_EACH_DELIM_NEXT XIEITE_PAREN() (f, delim, __VA_ARGS__))
+#	define DETAIL_XIEITE_EACH_HELPER(_fn, x, ...) _fn(x)__VA_OPT__(, DETAIL_XIEITE_EACH_NEXT XIEITE_PAREN() (_fn, __VA_ARGS__))
+#	define DETAIL_XIEITE_EACH_DELIM_HELPER(_fn, delim, x, ...) XIEITE_CALL(_fn)(x) __VA_OPT__(delim DETAIL_XIEITE_EACH_DELIM_NEXT XIEITE_PAREN() (_fn, delim, __VA_ARGS__))
 #	define DETAIL_XIEITE_EACH_NEXT() DETAIL_XIEITE_EACH_HELPER
 #	define DETAIL_XIEITE_EACH_DELIM_NEXT() DETAIL_XIEITE_EACH_DELIM_HELPER
 #endif

@@ -205,9 +205,9 @@
 #	define XIEITE_ARCH_MAJOR_XTENSA 0
 #	define XIEITE_ARCH_MINOR_XTENSA 0
 #	define XIEITE_ARCH_PATCH_XTENSA 0
-#	define XIEITE_ARCH_VER(type, cmp, major, ...) DETAIL_XIEITE_ARCH_VER(cmp, XIEITE_ARCH_MAJOR_##type, XIEITE_ARCH_MINOR_##type, XIEITE_ARCH_PATCH_##type, major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
+#	define XIEITE_ARCH_VER(_type, _cmp, _major, ...) DETAIL_XIEITE_ARCH_VER(_cmp, XIEITE_ARCH_MAJOR_##_type, XIEITE_ARCH_MINOR_##_type, XIEITE_ARCH_PATCH_##_type, _major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
 #
-#	define DETAIL_XIEITE_ARCH_VER(cmp, major0, minor0, patch0, major1, minor1, patch1, ...) (((((0 cmp 0) && !(0 cmp 1) && !(1 cmp 0)) || (!(0 cmp 0) && (0 cmp 1) && (1 cmp 0))) && (((major0) cmp (major1)) && ((minor0) cmp (minor1)) && ((patch0) cmp (patch1)))) || ((major0) cmp (major1)) || (((major0) == (major1)) && ((minor0) cmp (minor1))) || (((minor0) == (minor1)) && ((patch0) cmp (patch1))))
+#	define DETAIL_XIEITE_ARCH_VER(_cmp, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) (((((0 _cmp 0) && !(0 _cmp 1) && !(1 _cmp 0)) || (!(0 _cmp 0) && (0 _cmp 1) && (1 _cmp 0))) && (((_major0) _cmp (_major1)) && ((_minor0) _cmp (_minor1)) && ((_patch0) _cmp (_patch1)))) || ((_major0) _cmp (_major1)) || (((_major0) == (_major1)) && ((_minor0) _cmp (_minor1))) || (((_minor0) == (_minor1)) && ((_patch0) _cmp (_patch1))))
 #
 #	if defined(_ARM) || defined(_M_ARM) || defined(_M_ARM_NT) || defined(_M_ARMT) || defined(__ARM_ARCH) || defined(__ARM_ARCH__) || defined(__TARGET_ARM_ARCH) || defined(__TARGET_ARM_THUMB) || defined(__THUMBEB__) || defined(__THUMBEL__) || defined(__aarch32__) || defined(__arm) || defined(__arm__) || defined(__thumb__)
 #		undef XIEITE_ARCH_TYPE_AARCH32

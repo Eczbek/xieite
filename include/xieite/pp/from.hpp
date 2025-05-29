@@ -3,7 +3,7 @@
 #
 #	include "../pp/cat.hpp"
 #
-#	define XIEITE_FROM(n) XIEITE_PCAT(XIEITE_FROM_, n)
+#	define XIEITE_FROM(_n) XIEITE_PCAT(XIEITE_FROM_, _n)
 #	define XIEITE_FROM_0(...) __VA_ARGS__
 #	define XIEITE_FROM_1(_, ...) XIEITE_FROM_0(__VA_ARGS__)
 #	define XIEITE_FROM_2(_, ...) XIEITE_FROM_1(__VA_ARGS__)

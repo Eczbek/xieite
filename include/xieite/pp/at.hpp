@@ -3,8 +3,8 @@
 #
 #	include "../pp/cat.hpp"
 #
-#	define XIEITE_AT(n) XIEITE_PCAT(XIEITE_AT_, n)
-#	define XIEITE_AT_0(x, ...) x
+#	define XIEITE_AT(_n) XIEITE_PCAT(XIEITE_AT_, _n)
+#	define XIEITE_AT_0(_x, ...) _x
 #	define XIEITE_AT_1(_, ...) XIEITE_AT_0(__VA_ARGS__)
 #	define XIEITE_AT_2(_, ...) XIEITE_AT_1(__VA_ARGS__)
 #	define XIEITE_AT_3(_, ...) XIEITE_AT_2(__VA_ARGS__)

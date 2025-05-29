@@ -10,7 +10,7 @@
 		([][[nodiscard]](auto&& DETAIL_XIEITE_obj, auto&&... DETAIL_XIEITE_args) static \
 			XIEITE_ARROW(XIEITE_FWD(DETAIL_XIEITE_obj)__VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_args)...)))
 #
-#	define DETAIL_XIEITE_LIFT(specs_, ...) \
-		[[nodiscard]](auto&&... DETAIL_XIEITE_args) specs_ \
+#	define DETAIL_XIEITE_LIFT(_specs, ...) \
+		[[nodiscard]](auto&&... DETAIL_XIEITE_args) _specs \
 			XIEITE_ARROW(__VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_args)...))
 #endif

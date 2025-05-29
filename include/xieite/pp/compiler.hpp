@@ -393,9 +393,9 @@
 #	define XIEITE_COMPILER_MAJOR_Z88DK 0
 #	define XIEITE_COMPILER_MINOR_Z88DK 0
 #	define XIEITE_COMPILER_PATCH_Z88DK 0
-#	define XIEITE_COMPILER_VER(type, cmp, major, ...) DETAIL_XIEITE_COMPILER_VER(cmp, XIEITE_COMPILER_MAJOR_##type, XIEITE_COMPILER_MINOR_##type, XIEITE_COMPILER_PATCH_##type, major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
+#	define XIEITE_COMPILER_VER(_type, _cmp, _major, ...) DETAIL_XIEITE_COMPILER_VER(_cmp, XIEITE_COMPILER_MAJOR_##_type, XIEITE_COMPILER_MINOR_##_type, XIEITE_COMPILER_PATCH_##_type, _major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
 #
-#	define DETAIL_XIEITE_COMPILER_VER(cmp, major0, minor0, patch0, major1, minor1, patch1, ...) (((((0 cmp 0) && !(0 cmp 1) && !(1 cmp 0)) || (!(0 cmp 0) && (0 cmp 1) && (1 cmp 0))) && (((major0) cmp (major1)) && ((minor0) cmp (minor1)) && ((patch0) cmp (patch1)))) || ((major0) cmp (major1)) || (((major0) == (major1)) && ((minor0) cmp (minor1))) || (((minor0) == (minor1)) && ((patch0) cmp (patch1))))
+#	define DETAIL_XIEITE_COMPILER_VER(_cmp, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) (((((0 _cmp 0) && !(0 _cmp 1) && !(1 _cmp 0)) || (!(0 _cmp 0) && (0 _cmp 1) && (1 _cmp 0))) && (((_major0) _cmp (_major1)) && ((_minor0) _cmp (_minor1)) && ((_patch0) _cmp (_patch1)))) || ((_major0) _cmp (_major1)) || (((_major0) == (_major1)) && ((_minor0) _cmp (_minor1))) || (((_minor0) == (_minor1)) && ((_patch0) _cmp (_patch1))))
 #
 #	ifdef _ACC_
 #		undef XIEITE_COMPILER_TYPE_ACC
