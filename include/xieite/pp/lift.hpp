@@ -6,11 +6,13 @@
 #
 #	define XIEITE_LIFT(...) ([]DETAIL_XIEITE_LIFT(static, __VA_ARGS__))
 #	define XIEITE_LIFT_LOCAL(...) ([&]DETAIL_XIEITE_LIFT(, __VA_ARGS__))
-#	define XIEITE_LIFT_MEMBER(...) \
-		([][[nodiscard]](auto&& DETAIL_XIEITE_obj, auto&&... DETAIL_XIEITE_args) static \
-			XIEITE_ARROW(XIEITE_FWD(DETAIL_XIEITE_obj)__VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_args)...)))
+#	define XIEITE_LIFT_IFX(...) DETAIL_XIEITE_LIFT_IFX(, __VA_ARGS__)
+#	define XIEITE_LIFT_MEMBER(...) DETAIL_XIEITE_LIFT_IFX(..., __VA_ARGS__)
 #
 #	define DETAIL_XIEITE_LIFT(_specs, ...) \
 		[[nodiscard]](auto&&... DETAIL_XIEITE_args) _specs \
 			XIEITE_ARROW(__VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_args)...))
+#	define DETAIL_XIEITE_LIFT_IFX(_ellipsis, ...) \
+		([][[nodiscard]](auto&& lhs, auto&&_ellipsis DETAIL_XIEITE_rhs) static \
+			XIEITE_ARROW(XIEITE_FWD(lhs)__VA_ARGS__(XIEITE_FWD(DETAIL_XIEITE_rhs)_ellipsis)))
 #endif
