@@ -65,8 +65,8 @@ namespace xieite {
 			return *this == xieite::line2d<Arith>(ray.a, ray.b);
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::segment2d<Arith>& segm) const noexcept {
-			return *this == xieite::line2d<Arith>(segm.a, segm.b);
+		[[nodiscard]] constexpr bool contains(const xieite::segment2d<Arith>& segment) const noexcept {
+			return *this == xieite::line2d<Arith>(segment.a, segment.b);
 		}
 
 		[[nodiscard]] constexpr bool contains(const xieite::polygon2d<Arith>& polygon) const noexcept {

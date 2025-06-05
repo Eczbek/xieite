@@ -98,8 +98,8 @@ namespace xieite {
 			return false;
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::segment2d<Arith>& segm) const noexcept {
-			return this->contains(segm.start) && this->contains(segm.end) && (xieite::intersection2d(*this, segm).size() < 2);
+		[[nodiscard]] constexpr bool contains(const xieite::segment2d<Arith>& segment) const noexcept {
+			return this->contains(segment.start) && this->contains(segment.end) && (xieite::intersection2d(*this, segment).size() < 2);
 		}
 
 		[[nodiscard]] constexpr bool contains(const xieite::polygon2d<Arith>& polygon) const noexcept {

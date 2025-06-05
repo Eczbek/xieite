@@ -64,8 +64,8 @@ namespace xieite {
 			return this->contains(ray.a) && xieite::almost_equal(this->angle(), ray.angle());
 		}
 
-		[[nodiscard]] constexpr bool contains(const xieite::segment2d<Arith>& segm) const noexcept {
-			return this->contains(segm.a) && this->contains(segm.b);
+		[[nodiscard]] constexpr bool contains(const xieite::segment2d<Arith>& segment) const noexcept {
+			return this->contains(segment.a) && this->contains(segment.b);
 		}
 
 		[[nodiscard]] constexpr bool contains(const xieite::polygon2d<Arith>& polygon) const noexcept {
