@@ -16,7 +16,7 @@ namespace xieite {
 			return xieite::fwd_tuple(XIEITE_FWD(x));
 		} else if constexpr (using U = std::remove_cvref_t<T>; !std::is_aggregate_v<U>) {
 			static_assert(false, "must not make tuple from non-tuple-like nor aggregate type");
-		} else if constexpr (std::is_empty_v<U>) {
+		} else if constexpr (xieite::arity<T> == 0) {
 			return std::tuple();
 		} else if constexpr (xieite::arity<T> == 1) {
 			auto&& [_0] = x;

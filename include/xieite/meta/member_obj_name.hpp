@@ -15,7 +15,7 @@ XIEITE_DIAGNOSTIC_PUSH_CLANG()
 XIEITE_DIAGNOSTIC_OFF_CLANG("-Wundefined-var-template")
 
 namespace xieite {
-	template<typename Class, std::size_t idx>
+	template<std::size_t idx, typename Class>
 	constexpr std::string_view member_obj_name = ([] static {
 		std::string_view name = xieite::obj_name<std::addressof(std::get<0>(xieite::make_tuple(xieite::fake_obj<Class>)))>;
 #	if XIEITE_COMPILER_TYPE_CLANG || XIEITE_COMPILER_TYPE_ICC
