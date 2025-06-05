@@ -2,6 +2,7 @@
 #	define DETAIL_XIEITE_HEADER_PP_FEAT
 #
 #	include "../pp/compiler.hpp"
+#	include "../pp/diagnostic.hpp"
 #
 #	if __has_include(<cstdint>)
 #		include <cstdint>
@@ -9,6 +10,7 @@
 #		include <stdint.h>
 #	endif
 #
+#	define XIEITE_FEAT_TRIGRAPHS 0
 #	define XIEITE_FEAT_I8 0
 #	define XIEITE_FEAT_U8 0
 #	define XIEITE_FEAT_I16 0
@@ -25,7 +27,18 @@
 #	define XIEITE_FEAT_F128 0
 #	define XIEITE_FEAT_FBRAIN 0
 #	define XIEITE_FEAT_BASED_PTR 0
-#
+
+XIEITE_DIAGNOSTIC_PUSH_GCC()
+XIEITE_DIAGNOSTIC_OFF_GCC("-Wtrigraphs")
+XIEITE_DIAGNOSTIC_OFF_GCC("-Wcomment")
+#	if 1 // ??/
+#	else
+#		undef XIEITE_FEAT_TRIGRAPHS
+#		define XIEITE_FEAT_TRIGRAPHS 1
+#	endif
+XIEITE_DIAGNOSTIC_POP_GCC()
+
+
 #	ifdef INT8_MAX
 #		undef XIEITE_FEAT_I8
 #		define XIEITE_FEAT_I8 1
