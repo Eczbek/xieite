@@ -5,8 +5,8 @@
 
 namespace xieite {
 	template<typename T, typename U>
-	[[nodiscard]] constexpr auto&& collapse_fwd(U&& x) noexcept {
-		return static_cast<xieite::collapse_ref<T, U&&>>(x);
+	[[nodiscard]] constexpr decltype(auto) collapse_fwd(U&& x) noexcept {
+		return static_cast<xieite::collapse_ref<T, U>>(x);
 	}
 }
 
