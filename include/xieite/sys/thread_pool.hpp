@@ -11,6 +11,7 @@
 #	include <thread>
 #	include <utility>
 #	include <vector>
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
 	struct thread_pool {
@@ -59,7 +60,7 @@ namespace xieite {
 
 		template<std::invocable<> Fn>
 		std::future<void> enqueue(Fn&& fn) noexcept {
-			auto task = std::packaged_task<void()>(fn);
+			auto task = std::packaged_task<void()>(XIEITE_FWD(fn));
 			std::future<void> future = task.get_future();
 			auto lock = std::unique_lock<std::mutex>(this->mutex);
 			this->tasks.emplace(std::move(task));
