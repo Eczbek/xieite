@@ -14,7 +14,6 @@
 
 namespace DETAIL_XIEITE::memoize {
 	template<typename Fn, typename... Args>
-	requires(std::invocable<Fn, Args...>)
 	struct memo {
 		Fn fn;
 		std::tuple<Args...> args;
@@ -51,7 +50,7 @@ namespace DETAIL_XIEITE::memoize {
 
 namespace xieite {
 	template<typename Fn, typename... Args>
-	requires(std::invocable<Fn, Args...>)
+	requires(std::regular_invocable<Fn, Args...>)
 	std::invoke_result_t<Fn, Args...> memoize(Fn fn, const Args&... args)
 	noexcept(std::is_nothrow_invocable_v<Fn, Args...>) {
 		if constexpr (
