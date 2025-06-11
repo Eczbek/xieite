@@ -1102,7 +1102,7 @@
 #		define XIEITE_PLATFORM_TYPE_HI_UX_MPP 1
 #	endif
 #
-#	if defined(__hpux) || defined(__hpux__) || defined(_hpux) || defined(hpux)
+#	if defined(__hpua) || defined(__hpux) || defined(__hpux__) || defined(_hpux) || defined(hpux)
 #		undef XIEITE_PLATFORM_TYPE_HP_UX
 #		define XIEITE_PLATFORM_TYPE_HP_UX 1
 #	endif
