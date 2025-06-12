@@ -778,7 +778,7 @@
 #		endif
 #	endif
 #
-#	if defined(F2C) || defined(F2CFotran) || defined(f2cFortran)
+#	if defined(F2C) || defined(F2CFortran) || defined(f2cFortran)
 #		undef XIEITE_COMPILER_TYPE_F2C
 #		define XIEITE_COMPILER_TYPE_F2C 1
 #	endif
@@ -1569,7 +1569,7 @@
 #		endif
 #	endif
 #
-#	if defined(C30) || defined(XC16) || defined(__C30) || defined(__C30__) || defined(__XC16) || defined(__XC16__) || defined(__dsPIC30__) || defined(__dsPICC30) || defined(dsPIC30)
+#	if defined(C30) || defined(XC16) || defined(__C30) || defined(__C30__) || defined(__XC16) || defined(__XC16__) || defined(dsPICC30) || defined(__dsPICC30__) || defined(__dsPICC30) || defined(dsPIC30)
 #		undef XIEITE_COMPILER_TYPE_XC16
 #		define XIEITE_COMPILER_TYPE_XC16 1
 #
