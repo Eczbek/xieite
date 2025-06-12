@@ -2,6 +2,6 @@
 #	define DETAIL_XIEITE_HEADER_PP_PAREN
 #
 #	define XIEITE_PAREN(...) ()
-#	define XIEITE_LEFT_PAREN(...) (
-#	define XIEITE_RIGHT_PAREN(...) )
+#	define XIEITE_PAREN_LEFT(...) (
+#	define XIEITE_PAREN_RIGHT(...) )
 #endif
