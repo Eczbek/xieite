@@ -70,6 +70,11 @@ namespace DETAIL_XIEITE::analog {
 		[[nodiscard]] friend constexpr auto operator|(DETAIL_XIEITE::analog::point<x, y>, DETAIL_XIEITE::analog::size<w, h, l>) noexcept {
 			return DETAIL_XIEITE::analog::size<w, (h + 1), l>();
 		}
+
+		template<std::size_t h, std::size_t l>
+		[[nodiscard]] friend constexpr auto operator*(DETAIL_XIEITE::analog::point<x, y>, DETAIL_XIEITE::analog::size<0, h, l>) noexcept {
+			return DETAIL_XIEITE::analog::point<(x + y + h + l), 0>();
+		}
 	};
 }
 
