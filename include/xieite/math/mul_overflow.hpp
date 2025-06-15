@@ -3,6 +3,7 @@
 #
 #	include <concepts>
 #	include <limits>
+#	include "../fn/unroll.hpp"
 #	include "../math/abs.hpp"
 #	include "../math/neg.hpp"
 #	include "../trait/is_arith.hpp"
@@ -12,13 +13,17 @@ namespace xieite {
 	[[nodiscard]] constexpr bool mul_overflow(Arith first, Ariths... rest) noexcept {
 		return sizeof...(Ariths)
 			&& first
-			&& (... || ([&first, rest] -> bool {
-				if (rest && ((xieite::abs((xieite::neg(first) != xieite::neg(rest)) ? std::numeric_limits<Arith>::min() : std::numeric_limits<Arith>::max()) / xieite::abs(first)) < xieite::abs(rest))) {
-					return true;
-				}
-				first *= static_cast<Arith>(rest);
-				return false;
-			})());
+			&& xieite::unroll<sizeof...(Ariths)>([&first, rest...]<std::size_t... i> -> bool {
+				return (... || ([&first, rest] -> bool {
+					if (rest && ((xieite::abs((xieite::neg(first) != xieite::neg(rest)) ? std::numeric_limits<Arith>::min() : std::numeric_limits<Arith>::max()) / xieite::abs(first)) < xieite::abs(rest))) {
+						return true;
+					}
+					if constexpr (i < (sizeof...(Ariths) - 1)) {
+						first *= static_cast<Arith>(rest);
+					}
+					return false;
+				})());
+			});
 	}
 }
 
