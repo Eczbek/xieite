@@ -612,9 +612,20 @@
 #		define XIEITE_COMPILER_MINOR_CC65 (__CC65__ % 0x100)
 #	endif
 #
-#	if defined(CIL) || defined(__CILLY__)
+#	if defined(CIL) && defined(_GNUCC)
 #		undef XIEITE_COMPILER_TYPE_CILLY
 #		define XIEITE_COMPILER_TYPE_CILLY 1
+#
+#		ifdef __CILLY__
+#			undef XIEITE_COMPILER_MAJOR_CILLY
+#			define XIEITE_COMPILER_MAJOR_CILLY (__CILLY__ / 0x10000)
+#
+#			undef XIEITE_COMPILER_MINOR_CILLY
+#			define XIEITE_COMPILER_MINOR_CILLY (__CILLY__ % 0x10000 / 0x100)
+#
+#			undef XIEITE_COMPILER_PATCH_CILLY
+#			define XIEITE_COMPILER_PATCH_CILLY (__CILLY__ % 0x100)
+#		endif
 #	endif
 #
 #	if defined(__circle__) || defined(__circle_lang__) || defined(__circle_build__)
