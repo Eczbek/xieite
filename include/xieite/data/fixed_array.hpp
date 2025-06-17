@@ -7,7 +7,7 @@
 #	include <iterator>
 #	include <ranges>
 #	include <stdexcept>
-#	include "../fn/range_cmp_op.hpp"
+#	include "../fn/range_cmp.hpp"
 #	include "../fn/repeat.hpp"
 #	include "../fn/unroll.hpp"
 #	include "../pp/arrow.hpp"
@@ -32,7 +32,7 @@ namespace xieite {
 		Value array[length];
 
 		[[nodiscard]] friend constexpr auto operator<=>(const xieite::fixed_array<Value, length>& lhs, const xieite::fixed_array<Value, length>& rhs)
-			XIEITE_ARROW(xieite::range_cmp_op::operator<=>(lhs, rhs))
+			XIEITE_ARROW(xieite::range_cmp(lhs, rhs))
 
 		[[nodiscard]] constexpr auto&& operator[](this auto&& self, const xieite::fixed_array<Value, length>::size_type idx) noexcept {
 			return XIEITE_FWD(self).array[idx];

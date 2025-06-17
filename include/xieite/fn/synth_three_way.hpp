@@ -20,13 +20,11 @@ namespace xieite {
 			if constexpr (std::three_way_comparable_with<T, U>) {
 				return lhs <=> rhs;
 			} else {
-				if (lhs < rhs) {
-					return std::weak_ordering::less;
-				}
-				if (rhs < lhs) {
-					return std::weak_ordering::greater;
-				}
-				return std::weak_ordering::equivalent;
+				return (lhs < rhs)
+					? std::weak_ordering::less
+					: (rhs < lhs)
+						? std::weak_ordering::greater
+						: std::weak_ordering::equivalent;
 			}
 		};
 

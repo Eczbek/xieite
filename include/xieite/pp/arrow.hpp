@@ -56,7 +56,7 @@
 #	define DETAIL_XIEITE_ARROW_PARAM(_param) XIEITE_IF(XIEITE_WRAPPED(_param))(decltype _param&&... XIEITE_UNWRAP(_param))(decltype(_param)&& _param)
 #	define DETAIL_XIEITE_ARROW_TRY(_noex, _except, _body, ...) XIEITE_OPT(_body)(requires XIEITE_OPT(_except)((XIEITE_UNWRAP(_except)))() { _noex(XIEITE_UNWRAP(_body)); })(true) __VA_OPT__(&& DETAIL_XIEITE_ARROW_TRY_NEXT XIEITE_PAREN() (_noex, __VA_ARGS__))
 #	define DETAIL_XIEITE_ARROW_TRY_NEXT() DETAIL_XIEITE_ARROW_TRY
-#	define DETAIL_XIEITE_ARROW_CATCH(_except, _body, ...) catch (XIEITE_UNWRAP(XIEITE_OPT(_except)(_except, ...)())) { return XIEITE_UNWRAP(_body); } __VA_OPT__(DETAIL_XIEITE_ARROW_CATCH_NEXT XIEITE_PAREN() (__VA_ARGS__))
+#	define DETAIL_XIEITE_ARROW_CATCH(_except, _body, ...) catch (XIEITE_UNWRAP(XIEITE_OPT(_except)(_except)(...))) { return XIEITE_UNWRAP(_body); } __VA_OPT__(DETAIL_XIEITE_ARROW_CATCH_NEXT XIEITE_PAREN() (__VA_ARGS__))
 #	define DETAIL_XIEITE_ARROW_CATCH_NEXT() DETAIL_XIEITE_ARROW_CATCH
 #	define DETAIL_XIEITE_ARROW_NOEX(_delim, _var, _value, ...) XIEITE_IF(XIEITE_WRAPPED(_var))(XIEITE_IF(XIEITE_WRAPPED(XIEITE_UNWRAP(_var)))((... && noexcept(XIEITE_UNWRAP(XIEITE_UNWRAP(_var)) XIEITE_UNWRAP(_value))))(noexcept(XIEITE_UNWRAP(_var) XIEITE_UNWRAP(_value))))(noexcept(decltype(this->_var) XIEITE_UNWRAP(_value))) __VA_OPT__(_delim DETAIL_XIEITE_ARROW_NOEX_NEXT XIEITE_PAREN() (_delim, __VA_ARGS__))
 #	define DETAIL_XIEITE_ARROW_NOEX_NEXT() DETAIL_XIEITE_ARROW_NOEX

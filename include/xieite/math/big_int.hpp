@@ -16,8 +16,7 @@
 #	include <utility>
 #	include <vector>
 #	include "../data/number_str_config.hpp"
-#	include "../fn/order_op.hpp"
-#	include "../fn/range_cmp_op.hpp"
+#	include "../fn/range_cmp.hpp"
 #	include "../math/abs.hpp"
 #	include "../math/add_overflow.hpp"
 #	include "../math/bit_size.hpp"
@@ -116,14 +115,14 @@ namespace xieite {
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<UInt>& lhs, const xieite::big_int<UInt>& rhs) noexcept {
-			using namespace xieite::order_op;
-			using namespace xieite::range_cmp_op;
-			return (rhs.neg <=> lhs.neg)
+			std::strong_ordering order = lhs.neg <=> rhs.neg;
+			return !std::is_eq(order)
 				|| (lhs.neg
-					? ((rhs.data.size() <=> lhs.data.size())
-						|| (std::views::reverse(rhs.data) <=> std::views::reverse(lhs.data)))
-					: ((lhs.data.size() <=> rhs.data.size())
-						|| (std::views::reverse(lhs.data) <=> std::views::reverse(rhs.data))));
+					? (!std::is_eq(order = rhs.data.size() <=> lhs.data.size())
+						|| (order = xieite::range_cmp(std::views::reverse(rhs.data), std::views::reverse(lhs.data)), true))
+					: (!std::is_eq(order = lhs.data.size() <=> rhs.data.size())
+						|| (order = xieite::range_cmp(std::views::reverse(lhs.data), std::views::reverse(rhs.data)), true))),
+				order;
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<UInt>& lhs, std::integral auto rhs) noexcept {

@@ -7,7 +7,6 @@
 #	include <cstddef>
 #	include <stdexcept>
 #	include <utility>
-#	include "../fn/order_op.hpp"
 #	include "../math/add_overflow.hpp"
 #	include "../math/bit_size.hpp"
 #	include "../math/left_shift.hpp"
@@ -38,8 +37,8 @@ namespace xieite {
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::double_uint<UInt> lhs, xieite::double_uint<UInt> rhs) noexcept {
-			using namespace xieite::order_op;
-			return (lhs.hi <=> rhs.hi) || (lhs.lo <=> rhs.lo);
+			std::strong_ordering order = lhs.hi <=> rhs.hi;
+			return !std::is_eq(order) || (order = lhs.lo <=> rhs.lo, true), order;
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(xieite::double_uint<UInt> lhs, xieite::double_uint<UInt> rhs) noexcept {
