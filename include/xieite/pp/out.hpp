@@ -7,7 +7,7 @@
 XIEITE_DIAGNOSTIC_OFF_CLANG("-Wdollar-in-identifier-extension")
 
 #	define XIEITE_OUT(...) \
-		[](auto&& $ = {}) mutable \
+		[](auto&& $ = {}) static \
 			XIEITE_ARROW(void(__VA_ARGS__), $)
 #	define XIEITE_OUT_LOCAL(...) \
 		[&](auto&& $ = {}) mutable \
