@@ -9,20 +9,32 @@
 namespace DETAIL_XIEITE::rm_c_referent {
 	template<typename T>
 	struct impl : decltype(xieite::visitor(
-		[](...) static { return std::type_identity<T>(); },
-		[]<typename U>(std::type_identity<const U*>) static { return std::type_identity<U*>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args...) noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args..., ...) noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const volatile noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args...) volatile noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const volatile noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args..., ...) volatile noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const & noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args...) & noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const & noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args..., ...) & noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const volatile & noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args...) volatile & noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const volatile & noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args..., ...) volatile & noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const && noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args...) && noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const && noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args..., ...) && noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const volatile && noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args...) volatile && noexcept(noex)>(); },
-		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const volatile && noexcept(noex)>) static { return std::type_identity<Ret(S::*)(Args..., ...) volatile && noexcept(noex)>(); }
+		[](...) { return std::type_identity<T>(); },
+		[]<typename U>(std::type_identity<const U*>) { return std::type_identity<U*>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args...) const noexcept(noex)>) { return std::type_identity<Ret(Args...) noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args...) const volatile noexcept(noex)>) { return std::type_identity<Ret(Args...) volatile noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args...) const & noexcept(noex)>) { return std::type_identity<Ret(Args...) & noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args...) const volatile & noexcept(noex)>) { return std::type_identity<Ret(Args...) volatile & noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args...) const && noexcept(noex)>) { return std::type_identity<Ret(Args...) && noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args...) const volatile && noexcept(noex)>) { return std::type_identity<Ret(Args...) volatile && noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args..., ...) const noexcept(noex)>) { return std::type_identity<Ret(Args..., ...) noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args..., ...) const volatile noexcept(noex)>) { return std::type_identity<Ret(Args..., ...) volatile noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args..., ...) const & noexcept(noex)>) { return std::type_identity<Ret(Args..., ...) & noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args..., ...) const volatile & noexcept(noex)>) { return std::type_identity<Ret(Args..., ...) volatile & noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args..., ...) const && noexcept(noex)>) { return std::type_identity<Ret(Args..., ...) && noexcept(noex)>(); },
+		[]<typename Ret, typename... Args, bool noex>(std::type_identity<Ret(Args..., ...) const volatile && noexcept(noex)>) { return std::type_identity<Ret(Args..., ...) volatile && noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args...) noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const volatile noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args...) volatile noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const & noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args...) & noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const volatile & noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args...) volatile & noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const && noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args...) && noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args...) const volatile && noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args...) volatile && noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args..., ...) noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const volatile noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args..., ...) volatile noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const & noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args..., ...) & noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const volatile & noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args..., ...) volatile & noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const && noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args..., ...) && noexcept(noex)>(); },
+		[]<typename Ret, typename S, typename... Args, bool noex>(std::type_identity<Ret(S::*)(Args..., ...) const volatile && noexcept(noex)>) { return std::type_identity<Ret(S::*)(Args..., ...) volatile && noexcept(noex)>(); }
 	)(std::type_identity<xieite::rm_cvref<T>>())) {};
 }
 
