@@ -9,9 +9,7 @@
 namespace DETAIL_XIEITE::rm_ptr {
 	template<typename T, std::size_t depth>
 	struct impl : xieite::fold_for<
-		[]<typename U, auto> static {
-			return std::remove_pointer<typename U::type>();
-		},
+		[]<typename U, auto> { return std::remove_pointer<typename U::type>(); },
 		std::remove_reference<T>,
 		depth
 	> {};

@@ -6,8 +6,8 @@
 #	include "../meta/fold_for.hpp"
 
 namespace DETAIL_XIEITE::add_ptr {
-	inline constexpr auto impl = []<typename U, auto> static {
-		return std::add_pointer<typename U::type>();
+	inline constexpr auto impl = []<typename T, auto> {
+		return std::add_pointer<typename T::type>();
 	};
 }
 

@@ -8,9 +8,7 @@
 
 namespace DETAIL_XIEITE::fixed_md_container {
 	template<template<typename, std::size_t> typename Container>
-	constexpr auto impl = []<typename Prev, typename Size> static {
-		return xieite::type<Container<typename Prev::type, Size::value>>();
-	};
+	constexpr auto impl = []<typename Prev, typename Size> { return xieite::type<Container<typename Prev::type, Size::value>>(); };
 }
 
 namespace xieite {

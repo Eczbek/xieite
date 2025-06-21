@@ -163,7 +163,7 @@ namespace xieite {
 
 	private:
 		template<auto cond>
-		static constexpr auto filter_impl = []<typename List, typename T> static {
+		static constexpr auto filter_impl = []<typename List, typename T> {
 			if constexpr (xieite::is_satisfied<cond, T>) {
 				return typename List::template append<T>();
 			} else {
@@ -177,7 +177,7 @@ namespace xieite {
 
 	private:
 		template<auto cmp>
-		static constexpr auto dedup_impl = []<typename List, typename T> static {
+		static constexpr auto dedup_impl = []<typename List, typename T> {
 			if constexpr (!List::template has<T, cmp>) {
 				return typename List::template append<T>();
 			} else {
@@ -190,7 +190,7 @@ namespace xieite {
 		using dedup = xieite::fold<xieite::type_list<Ts...>::dedup_impl<cmp>, xieite::type_list<>, Ts...>;
 
 	private:
-		static constexpr auto repeat_impl = []<typename List, auto> static {
+		static constexpr auto repeat_impl = []<typename List, auto> {
 			return typename List::template append<Ts...>();
 		};
 
@@ -215,7 +215,7 @@ namespace xieite {
 
 	private:
 		template<std::size_t arity, auto fn>
-		static constexpr auto transform_flat_impl = []<typename List, std::size_t i> static {
+		static constexpr auto transform_flat_impl = []<typename List, std::size_t i> {
 			return typename List::template append_range<typename decltype(
 				xieite::type_list<Ts...>
 				::slice<(arity * i), (arity * i + arity)>

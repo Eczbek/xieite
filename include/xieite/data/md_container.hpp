@@ -7,9 +7,7 @@
 
 namespace DETAIL_XIEITE::md_container {
 	template<template<typename> typename Container>
-	constexpr auto impl = []<typename Prev, auto> static {
-		return xieite::type<Container<typename Prev::type>>();
-	};
+	constexpr auto impl = []<typename Prev, auto> { return xieite::type<Container<typename Prev::type>>(); };
 }
 
 namespace xieite {
