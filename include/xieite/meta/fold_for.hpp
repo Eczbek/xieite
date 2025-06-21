@@ -2,9 +2,9 @@
 #	define DETAIL_XIEITE_HEADER_META_FOLD_FOR
 #
 #	include <cstddef>
-#	include <type_traits>
 #	include "../fn/unroll.hpp"
 #	include "../meta/fold.hpp"
+#	include "../meta/type.hpp"
 #	include "../meta/value.hpp"
 
 namespace DETAIL_XIEITE::fold_for {
@@ -12,9 +12,9 @@ namespace DETAIL_XIEITE::fold_for {
 	constexpr auto impl = []<std::size_t... i> static {
 		return xieite::fold<
 			[]<typename Prev, typename Idx> static {
-				return std::type_identity<decltype(fn.template operator()<typename Prev::type, Idx::value>())>();
+				return xieite::type<decltype(fn.template operator()<typename Prev::type, Idx::value>())>();
 			},
-			std::type_identity<T>,
+			xieite::type<T>,
 			xieite::value<i>...
 		>();
 	};

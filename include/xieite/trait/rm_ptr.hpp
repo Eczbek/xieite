@@ -4,6 +4,7 @@
 #	include <cstddef>
 #	include <type_traits>
 #	include "../meta/fold_for.hpp"
+#	include "../meta/type.hpp"
 
 namespace DETAIL_XIEITE::rm_ptr {
 	template<typename T, std::size_t depth>
@@ -20,7 +21,7 @@ namespace DETAIL_XIEITE::rm_ptr {
 		if constexpr (std::is_pointer_v<U>) {
 			return self.template operator()<std::remove_pointer_t<U>>();
 		} else {
-			return std::type_identity<U>();
+			return xieite::type<U>();
 		}
 	})()) {};
 }

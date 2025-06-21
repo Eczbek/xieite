@@ -1,12 +1,12 @@
 #ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_SPECIAL
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_SPECIAL
 #
-#	include <type_traits>
+#	include "../meta/type.hpp"
 #	include "../trait/rm_cv.hpp"
 
 namespace xieite {
 	template<typename T, template<typename...> typename... Templates>
-	concept is_special = (... && requires { ([]<typename... Args>(std::type_identity<Templates<Args...>>) {})(std::type_identity<xieite::rm_cv<T>>()); });
+	concept is_special = (... && requires { ([]<typename... Args>(xieite::type<Templates<Args...>>) {})(xieite::type<xieite::rm_cv<T>>()); });
 }
 
 #endif
