@@ -35,12 +35,12 @@ namespace DETAIL_XIEITE::range_udl {
 		}
 
 		[[nodiscard]] constexpr auto begin() const noexcept {
-			return DETAIL_XIEITE::range_udl::iter<(last + ((first <= last) * 2 - 1)), (step * ((first <= last) * 2 - 1))>(first);
+			return DETAIL_XIEITE::range_udl::iter<(last + ((first <= last) * 2 - 1)), (first <= last) ? step : -step>(first);
 		}
 
 		[[nodiscard]] constexpr auto end() const noexcept {
 			static constexpr auto one_past = (last + ((first <= last) * 2 - 1));
-			return DETAIL_XIEITE::range_udl::iter<one_past, step>(one_past);
+			return DETAIL_XIEITE::range_udl::iter<one_past, (first <= last) ? step : -step>(one_past);
 		}
 	};
 }
@@ -51,14 +51,13 @@ namespace xieite::range_udl {
 		static constexpr std::array array { digits... };
 		static constexpr auto str = std::string_view(array.begin(), array.end());
 		static constexpr std::size_t end_delim = str.find('.');
-		static constexpr bool has_end = end_delim != std::string_view::npos;
-		static constexpr bool end_sign = has_end && (end_delim < (sizeof...(digits) - 1)) && (digits...[end_delim + 1] == '0');
 		static constexpr std::size_t step_delim = str.find('e');
+		static constexpr bool end_sign = (end_delim != std::string_view::npos) && (end_delim < (sizeof...(digits) - 1)) && (digits...[end_delim + 1] == '0');
 		using Type = std::conditional_t<end_sign, xieite::ssize_t, std::size_t>;
 		return DETAIL_XIEITE::range_udl::range<
 			xieite::parse_number<Type>(str),
-			(has_end ? (xieite::parse_number<Type>(str.substr(end_delim)) * (1 - end_sign * 2)) : 0),
-			((step_delim != std::string_view::npos) ? xieite::parse_number<Type>(str.substr(step_delim + (str[step_delim + 1] == '-'))) : 1)
+			((end_delim == std::string_view::npos) ? 0 : (xieite::parse_number<Type>(str.substr(end_delim)) * (1 - end_sign * 2))),
+			((step_delim == std::string_view::npos) ? 1 : xieite::parse_number<Type>(str.substr(step_delim + (str[step_delim + 1] == '-'))))
 		>();
 	}
 }
