@@ -5,7 +5,7 @@
 
 namespace xieite {
 	template<typename T>
-	concept is_polygonmorphic = std::is_polygonmorphic_v<T>;
+	concept is_polymorphic = std::is_polymorphic_v<T>;
 }
 
 #endif
