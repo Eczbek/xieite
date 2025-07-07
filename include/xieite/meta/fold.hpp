@@ -9,13 +9,13 @@ namespace DETAIL_XIEITE::fold {
 		using type = T;
 
 		template<typename U>
-		DETAIL_XIEITE::fold::impl<fn, decltype(fn.template operator()<T, U>())> operator->*(xieite::type<U>) const;
+		DETAIL_XIEITE::fold::impl<fn, decltype(fn.template operator()<T, U>())> operator->*(xieite::type_id<U>) const;
 	};
 }
 
 namespace xieite {
 	template<auto fn, typename T, typename... Ts>
-	using fold = decltype((DETAIL_XIEITE::fold::impl<fn, T>()->*...->*xieite::type<Ts>()))::type;
+	using fold = decltype((DETAIL_XIEITE::fold::impl<fn, T>()->*...->*xieite::type_id<Ts>()))::type;
 }
 
 #endif

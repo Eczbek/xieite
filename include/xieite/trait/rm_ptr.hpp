@@ -19,7 +19,7 @@ namespace DETAIL_XIEITE::rm_ptr {
 		if constexpr (std::is_pointer_v<U>) {
 			return self.template operator()<std::remove_pointer_t<U>>();
 		} else {
-			return xieite::type<U>();
+			return xieite::type_id<U>();
 		}
 	})()) {};
 }

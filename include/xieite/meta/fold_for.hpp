@@ -11,8 +11,8 @@ namespace DETAIL_XIEITE::fold_for {
 	template<auto fn, typename T>
 	constexpr auto impl = []<std::size_t... i> static {
 		return xieite::fold<
-			[]<typename Prev, typename Idx> { return xieite::type<decltype(fn.template operator()<typename Prev::type, Idx::value>())>(); },
-			xieite::type<T>,
+			[]<typename Prev, typename Idx> { return xieite::type_id<decltype(fn.template operator()<typename Prev::type, Idx::value>())>(); },
+			xieite::type_id<T>,
 			xieite::value<i>...
 		>();
 	};

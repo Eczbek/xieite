@@ -7,7 +7,7 @@
 
 namespace xieite {
 	template<typename T, std::size_t length = -1uz>
-	concept is_bounded_array = ((length == -1uz) ? std::is_bounded_array_v<T> : requires { ([]<typename U>(xieite::type<U[length]>) {})(xieite::type<T>()); });
+	concept is_bounded_array = ((length == -1uz) ? std::is_bounded_array_v<T> : requires { ([]<typename U>(xieite::type_id<U[length]>) {})(xieite::type_id<T>()); });
 }
 
 #endif

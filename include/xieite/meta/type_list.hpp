@@ -31,12 +31,12 @@ namespace xieite {
 
 	private:
 		template<std::size_t idx, typename... Us>
-		static xieite::type<Us...[idx]> at_impl(xieite::type<Us>...);
+		static xieite::type_id<Us...[idx]> at_impl(xieite::type_id<Us>...);
 
 	public:
 		template<std::size_t idx>
 		requires(idx < sizeof...(Ts))
-		using at = decltype(xieite::type_list<Ts...>::at_impl<idx>(xieite::type<Ts>()...))::type;
+		using at = decltype(xieite::type_list<Ts...>::at_impl<idx>(xieite::type_id<Ts>()...))::type;
 
 		template<auto cond>
 		static constexpr std::size_t find_idx = ([] static -> std::size_t {
@@ -65,11 +65,11 @@ namespace xieite {
 
 	private:
 		template<typename Ret, typename... Us>
-		static xieite::type<Ret(Us...)> as_fn_impl(xieite::type<Us>...);
+		static xieite::type_id<Ret(Us...)> as_fn_impl(xieite::type_id<Us>...);
 
 	public:
 		template<typename Ret>
-		using as_fn = decltype(xieite::type_list<Ts...>::as_fn_impl<Ret>(xieite::type<Ts>()...))::type;
+		using as_fn = decltype(xieite::type_list<Ts...>::as_fn_impl<Ret>(xieite::type_id<Ts>()...))::type;
 
 		template<typename... Us>
 		using append = xieite::type_list<Ts..., Us...>;
@@ -79,7 +79,7 @@ namespace xieite {
 		struct append_range_impl;
 
 		template<template<typename...> typename Template, typename... Us>
-		struct append_range_impl<Template<Us...>> : xieite::type<xieite::type_list<Ts...>::append<Us...>> {};
+		struct append_range_impl<Template<Us...>> : xieite::type_id<xieite::type_list<Ts...>::append<Us...>> {};
 	
 	public:
 		template<typename Range>
@@ -93,7 +93,7 @@ namespace xieite {
 		struct prepend_range_impl;
 
 		template<template<typename...> typename Template, typename... Us>
-		struct prepend_range_impl<Template<Us...>> : xieite::type<xieite::type_list<Ts...>::prepend<Us...>> {};
+		struct prepend_range_impl<Template<Us...>> : xieite::type_id<xieite::type_list<Ts...>::prepend<Us...>> {};
 
 	public:
 		template<typename Range>
@@ -244,7 +244,7 @@ namespace xieite {
 		struct zip_range_impl;
 
 		template<template<typename...> typename Template, typename... Us>
-		struct zip_range_impl<Template<Us...>> : xieite::type<xieite::type_list<Ts...>::zip<Us...>> {};
+		struct zip_range_impl<Template<Us...>> : xieite::type_id<xieite::type_list<Ts...>::zip<Us...>> {};
 
 	public:
 		template<typename Range>

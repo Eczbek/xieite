@@ -6,7 +6,7 @@
 
 namespace xieite {
 	template<typename T, template<typename...> typename... Templates>
-	concept is_special = (... && requires { ([]<typename... Args>(xieite::type<Templates<Args...>>) {})(xieite::type<xieite::rm_cv<T>>()); });
+	concept is_special = (... && requires { ([]<typename... Args>(xieite::type_id<Templates<Args...>>) {})(xieite::type_id<xieite::rm_cv<T>>()); });
 }
 
 #endif

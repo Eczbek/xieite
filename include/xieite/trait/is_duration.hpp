@@ -9,7 +9,7 @@
 
 namespace xieite {
 	template<typename T>
-	concept is_duration = requires { ([]<xieite::is_arith Arith0, xieite::is_ratio Arith1>(xieite::type<std::chrono::duration<Arith0, Arith1>>) {})(xieite::type<xieite::rm_cv<T>>()); };
+	concept is_duration = requires { ([]<xieite::is_arith Arith0, xieite::is_ratio Arith1>(xieite::type_id<std::chrono::duration<Arith0, Arith1>>) {})(xieite::type_id<xieite::rm_cv<T>>()); };
 }
 
 #endif
