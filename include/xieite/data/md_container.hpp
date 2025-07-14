@@ -2,7 +2,7 @@
 #	define DETAIL_XIEITE_HEADER_DATA_MD_CONTAINER
 #
 #	include <cstddef>
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 #	include "../meta/fold_for.hpp"
 
 namespace DETAIL_XIEITE::md_container {

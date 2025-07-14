@@ -3,7 +3,7 @@
 #
 #	include <cstddef>
 #	include <type_traits>
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 
 namespace xieite {
 	template<typename T, std::size_t length = -1uz>

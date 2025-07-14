@@ -4,8 +4,8 @@
 #	include <cstddef>
 #	include "../fn/unroll.hpp"
 #	include "../meta/fold.hpp"
-#	include "../meta/type.hpp"
-#	include "../meta/value.hpp"
+#	include "../meta/type_id.hpp"
+#	include "../meta/value_id.hpp"
 
 namespace DETAIL_XIEITE::fold_for {
 	template<auto fn, typename T>
@@ -13,7 +13,7 @@ namespace DETAIL_XIEITE::fold_for {
 		return xieite::fold<
 			[]<typename Prev, typename Idx> { return xieite::type_id<decltype(fn.template operator()<typename Prev::type, Idx::value>())>(); },
 			xieite::type_id<T>,
-			xieite::value<i>...
+			xieite::value_id<i>...
 		>();
 	};
 }

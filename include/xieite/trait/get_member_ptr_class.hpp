@@ -1,7 +1,7 @@
 #ifndef DETAIL_XIEITE_HEADER_TRAIT_GET_MEMBER_PTR_CLASS
 #	define DETAIL_XIEITE_HEADER_TRAIT_GET_MEMBER_PTR_CLASS
 #
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 #	include "../trait/rm_cvref.hpp"
 
 namespace DETAIL_XIEITE::get_member_ptr_class {

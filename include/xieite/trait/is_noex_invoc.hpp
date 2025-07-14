@@ -2,7 +2,7 @@
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_INVOC
 #
 #	include <type_traits>
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 
 namespace xieite {
 	template<typename T, typename Sig = void()>

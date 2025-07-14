@@ -5,12 +5,12 @@
 #	include "../meta/state.hpp"
 
 namespace DETAIL_XIEITE::type_counter {
-	struct impl : xieite::state<> {};
+	inline constexpr xieite::state<> impl;
 }
 
 namespace xieite {
 	template<typename>
-	constexpr std::size_t type_counter = DETAIL_XIEITE::type_counter::impl::advance<[] {}>();
+	constexpr std::size_t type_counter = DETAIL_XIEITE::type_counter::impl.advance<[] {}>();
 }
 
 #endif

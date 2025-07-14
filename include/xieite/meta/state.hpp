@@ -7,6 +7,7 @@
 
 XIEITE_DIAGNOSTIC_PUSH()
 XIEITE_DIAGNOSTIC_OFF_GCC("-Wnon-template-friend")
+XIEITE_DIAGNOSTIC_OFF_GCC("-Wsfinae-incomplete")
 
 namespace xieite {
 	template<auto id = [] {}, std::integral Int = std::size_t>

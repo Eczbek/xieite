@@ -2,7 +2,7 @@
 #	define DETAIL_XIEITE_HEADER_TRAIT_GET_FN_ARGS
 #
 #	include <tuple>
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 #	include "../trait/rm_cvref.hpp"
 
 namespace DETAIL_XIEITE::get_fn_args {

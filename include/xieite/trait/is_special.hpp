@@ -1,7 +1,7 @@
 #ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_SPECIAL
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_SPECIAL
 #
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 #	include "../trait/rm_cv.hpp"
 
 namespace xieite {

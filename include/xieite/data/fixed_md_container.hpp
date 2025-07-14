@@ -3,8 +3,8 @@
 #
 #	include <cstddef>
 #	include "../meta/fold.hpp"
-#	include "../meta/type.hpp"
-#	include "../meta/value.hpp"
+#	include "../meta/type_id.hpp"
+#	include "../meta/value_id.hpp"
 
 namespace DETAIL_XIEITE::fixed_md_container {
 	template<template<typename, std::size_t> typename Container>
@@ -13,7 +13,7 @@ namespace DETAIL_XIEITE::fixed_md_container {
 
 namespace xieite {
 	template<template<typename, std::size_t> typename Container, typename Value, std::size_t... lengths>
-	using fixed_md_container = xieite::fold<DETAIL_XIEITE::fixed_md_container::impl<Container>, xieite::type_id<Value>, xieite::value<lengths>...>;
+	using fixed_md_container = xieite::fold<DETAIL_XIEITE::fixed_md_container::impl<Container>, xieite::type_id<Value>, xieite::value_id<lengths>...>;
 }
 
 #endif

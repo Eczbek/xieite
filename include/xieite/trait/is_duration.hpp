@@ -2,7 +2,7 @@
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_DURATION
 #
 #	include <chrono>
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 #	include "../trait/is_arith.hpp"
 #	include "../trait/is_ratio.hpp"
 #	include "../trait/rm_cv.hpp"

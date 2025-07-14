@@ -4,7 +4,7 @@
 #	include <cstddef>
 #	include <type_traits>
 #	include "../meta/fold_for.hpp"
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 
 namespace DETAIL_XIEITE::rm_ptr {
 	template<typename T, std::size_t depth>

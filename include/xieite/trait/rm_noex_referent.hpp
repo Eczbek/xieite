@@ -1,7 +1,7 @@
 #ifndef DETAIL_XIEITE_HEADER_TRAIT_RM_NOEX_REFERENT
 #	define DETAIL_XIEITE_HEADER_TRAIT_RM_NOEX_REFERENT
 #
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 #	include "../trait/cp_cvref.hpp"
 #	include "../trait/rm_cvref.hpp"
 

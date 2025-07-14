@@ -7,7 +7,7 @@
 #	include "../meta/end.hpp"
 #	include "../meta/fold.hpp"
 #	include "../meta/fold_for.hpp"
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_satisfied.hpp"

@@ -10,6 +10,7 @@
 #	include "../pp/if.hpp"
 #	include "../pp/lang.hpp"
 #	include "../pp/none.hpp"
+#	include "../pp/opt.hpp"
 #	include "../pp/or.hpp"
 #	include "../pp/pragma.hpp"
 #
@@ -634,7 +635,12 @@
 #	define XIEITE_ATTR_XRAY_NEVER_INSTRUMENT DETAIL_XIEITE_ATTR(CLANG, clang, xray_log_args)
 #	define XIEITE_ATTR_ZERO_REGS(_choice) DETAIL_XIEITE_ATTR(GCC, gnu, zero_call_used_regs, (_choice))
 #
-#	define DETAIL_XIEITE_ATTR(_compiler, _ns, _attr, ...) XIEITE_IF(XIEITE_AND(XIEITE_ANY(_compiler))(XIEITE_NONE(_ns)))(XIEITE_IF(XIEITE_COMPILER_TYPE_##_compiler)(_attr)())(XIEITE_IF(XIEITE_HAS_ATTR(_attr))(XIEITE_IF(XIEITE_AND(XIEITE_ANY(_ns))(XIEITE_OR(XIEITE_LANG_VER(CPP, >=, 2011))(XIEITE_LANG_VER(C, >=, 2023))))([[_ns::_attr __VA_ARGS__]])(__attribute__((_attr __VA_ARGS__))))(XIEITE_IF(XIEITE_HAS_DECLSPEC(_attr))(__declspec(_attr))()))
+#	define DETAIL_XIEITE_ATTR(_compiler, _ns, _attr, ...) XIEITE_IF(XIEITE_AND(XIEITE_ANY(_compiler))(XIEITE_NONE(_ns)))(XIEITE_IF(XIEITE_COMPILER_TYPE_##_compiler)(_attr)())(XIEITE_IF(XIEITE_HAS_ATTR(_attr))(DETAIL_XIEITE_ATTR_IMPL(_ns, _attr, __VA_ARGS__))(XIEITE_IF(XIEITE_HAS_DECLSPEC(_attr))(__declspec(_attr))()))
+#	if XIEITE_LANG_VER(CPP, >=, 2011) || XIEITE_LANG_VER(C, >=, 2023)
+#		define DETAIL_XIEITE_ATTR_IMPL(_ns, _attr, ...) XIEITE_OPT(_ns)([[_ns::_attr __VA_ARGS__]])(__attribute__((_attr __VA_ARGS__)))
+#	else
+#		define DETAIL_XIEITE_ATTR_IMPL(_ns, _attr, ...) __attribute__((_attr __VA_ARGS__))
+#	endif
 #endif
 
 // https://gcc.gnu.org/onlinedocs/gcc/Function-Attributes.html

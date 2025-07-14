@@ -4,7 +4,7 @@
 #	include "../pp/compiler.hpp"
 #	include "../pp/lang.hpp"
 #
-#	if XIEITE_LANG_VER(C, >=, 1999)
+#	if XIEITE_LANG_VER(C, >=, 1999) && !defined(__cplusplus)
 #		define XIEITE_RESTRICT restrict
 #	elif XIEITE_COMPILER_VER(GCC, >=, 3)
 #		define XIEITE_RESTRICT __restrict__

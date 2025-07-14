@@ -1,7 +1,7 @@
 #ifndef DETAIL_XIEITE_HEADER_TRAIT_GET_FN_RET
 #	define DETAIL_XIEITE_HEADER_TRAIT_GET_FN_RET
 #
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 #	include "../trait/rm_cvref.hpp"
 
 namespace DETAIL_XIEITE::get_fn_ret {

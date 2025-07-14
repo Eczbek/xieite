@@ -3,7 +3,7 @@
 #
 #	include <cstdint>
 #	include <ratio>
-#	include "../meta/type.hpp"
+#	include "../meta/type_id.hpp"
 #	include "../trait/rm_cv.hpp"
 
 namespace xieite {
