@@ -15,7 +15,7 @@
 #	include "../trait/is_ref_to.hpp"
 
 namespace xieite {
-	template<typename Key, typename Value, std::size_t length, typename Hash = std::hash<Key>, typename Cmp = std::ranges::equal_to, typename Alloc = std::allocator<std::pair<const Key, Value*>>>
+	template<typename Key, typename Value, std::size_t length, typename Hash = std::hash<Key>, typename Cmp = std::equal_to<>, typename Alloc = std::allocator<std::pair<const Key, Value*>>>
 	struct fixed_map {
 	public:
 		[[nodiscard]] fixed_map() = default;

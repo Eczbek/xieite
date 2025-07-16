@@ -5,15 +5,15 @@
 #	include <iterator>
 #	include <ranges>
 #	include "../data/iters.hpp"
+#	include "../trait/is_fwd_input_sized_range.hpp"
 #	include "../trait/is_invoc.hpp"
 #	include "../trait/is_noex_invoc.hpp"
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<std::ranges::forward_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>)> Fn>
-	requires(std::ranges::sized_range<Range>)
+	template<xieite::is_fwd_input_sized_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>)> Fn = std::identity>
 	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> find_most_consec_if(Range& range, Fn&& cond = {})
-	noexcept(xieite::is_noex_invoc<Fn, bool(std::ranges::range_common_reference_t<Range>)> && xieite::is_noex_range<Range>) {
+	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_invoc<Fn, bool(std::ranges::range_common_reference_t<Range>)>) {
 		auto curr_begin = std::ranges::begin(range);
 		auto curr_end = curr_begin;
 		auto result_begin = curr_begin;
@@ -33,10 +33,9 @@ namespace xieite {
 			}
 			prev = curr;
 		}
-		if (prev && (std::ranges::distance(curr_begin, curr_end) > std::ranges::distance(result_begin, result_end))) {
-			return std::ranges::subrange<std::ranges::iterator_t<Range>>(curr_begin, curr_end);
-		}
-		return std::ranges::subrange<std::ranges::iterator_t<Range>>(result_begin, result_end);
+		return (prev && (std::ranges::distance(curr_begin, curr_end) > std::ranges::distance(result_begin, result_end)))
+			? std::ranges::subrange<std::ranges::iterator_t<Range>>(curr_begin, curr_end)
+			: std::ranges::subrange<std::ranges::iterator_t<Range>>(result_begin, result_end);
 	}
 }
 

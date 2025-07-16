@@ -21,7 +21,7 @@ namespace xieite {
 		for (auto iter : xieite::iters(range)) {
 			its.push_back(iter);
 		}
-		std::ranges::sort(its, std::ranges::less());
+		std::ranges::sort(its, std::less());
 		return (size % 2)
 			? static_cast<Result>(*its[size / 2])
 			: static_cast<Result>(xieite::avg(*its[size / 2 - 1], *its[size / 2]));

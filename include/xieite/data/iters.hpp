@@ -89,7 +89,7 @@ namespace xieite {
 	};
 
 	template<typename Range>
-	iters(Range) -> iters<Range>;
+	iters(Range&&) -> iters<Range>;
 }
 
 #endif

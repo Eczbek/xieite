@@ -39,7 +39,7 @@ namespace xieite {
 				this->interruptions.push_back(xieite::interval<Arith>(std::min(start, end), diff));
 			}
 			this->distribution = xieite::uniform_distribution<Arith>(min, upper);
-			std::ranges::sort(this->interruptions, std::ranges::less(), &xieite::interval<Arith>::start);
+			std::ranges::sort(this->interruptions, std::less(), &xieite::interval<Arith>::start);
 		}
 
 		template<std::uniform_random_bit_generator Generator>
