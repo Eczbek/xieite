@@ -20,11 +20,11 @@
 #	include "../math/abs.hpp"
 #	include "../math/add_overflow.hpp"
 #	include "../math/bit_size.hpp"
-#	include "../math/double_uint.hpp"
 #	include "../math/neg.hpp"
 #	include "../math/split_bool.hpp"
 #	include "../math/ssize_t.hpp"
 #	include "../math/sub_overflow.hpp"
+#	include "../math/wide_uint.hpp"
 
 namespace xieite {
 	template<std::unsigned_integral UInt = std::uint64_t>
@@ -264,7 +264,7 @@ namespace xieite {
 					if (!rhs.data[j]) {
 						continue;
 					}
-					const auto prod = xieite::double_uint<UInt>(lhs.data[i]) * rhs.data[j];
+					const auto prod = xieite::wide_uint<UInt>(lhs.data[i]) * rhs.data[j];
 					result += ((xieite::big_int<UInt>(prod.hi) << xieite::bit_size<UInt>) | prod.lo) << (xieite::big_int<UInt>(i) << std::bit_width(xieite::bit_size<UInt> - 1)) << (xieite::big_int<UInt>(j) << std::bit_width(xieite::bit_size<UInt> - 1));
 				}
 			}
