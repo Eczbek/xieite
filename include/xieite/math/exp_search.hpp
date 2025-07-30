@@ -3,6 +3,7 @@
 #
 #	include <concepts>
 #	include <functional>
+#	include <type_traits>
 #	include "../math/almost_equal.hpp"
 #	include "../trait/is_arith.hpp"
 #	include "../trait/is_invoc.hpp"
@@ -10,7 +11,7 @@
 
 namespace xieite {
 	template<xieite::is_arith Arith, xieite::is_invoc<bool(Arith)> Fn>
-	[[nodiscard]] constexpr Arith exp_search(Fn&& cond, Arith min, Arith max)
+	[[nodiscard]] constexpr Arith exp_search(Fn&& cond, Arith min, std::type_identity_t<Arith> max)
 	noexcept(xieite::is_noex_invoc<Fn, bool(Arith)>) {
 		while (true) {
 			const Arith mid = static_cast<Arith>((min + max) / 2);

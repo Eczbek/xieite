@@ -3,12 +3,13 @@
 #
 #	include <cmath>
 #	include <concepts>
+#	include <type_traits>
 #	include "../math/sign.hpp"
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith Arith>
-	[[nodiscard]] constexpr Arith div_magnify_half(Arith lhs, Arith rhs) noexcept {
+	[[nodiscard]] constexpr Arith div_magnify_half(Arith lhs, std::type_identity_t<Arith> rhs) noexcept {
 		if constexpr (std::floating_point<Arith>) {
 			const Arith result = lhs / rhs;
 			return std::floor(result) + (result < 0) + (std::fmod(std::abs(result), 1) >= 0.5) * xieite::sign(result);

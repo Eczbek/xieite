@@ -4,13 +4,14 @@
 #	include <cmath>
 #	include <concepts>
 #	include <stdexcept>
+#	include <type_traits>
 #	include "../math/neg.hpp"
 #	include "../math/split_bool.hpp"
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith Arith>
-	[[nodiscard]] constexpr Arith pow(Arith base, Arith exp) {
+	[[nodiscard]] constexpr Arith pow(Arith base, std::type_identity_t<Arith> exp) {
 		if constexpr (std::floating_point<Arith>) {
 			return std::pow(base, exp);
 		} else {

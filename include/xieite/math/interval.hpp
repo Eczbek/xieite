@@ -9,8 +9,7 @@ namespace xieite {
 		Arith start;
 		Arith end;
 
-		[[nodiscard]] constexpr interval(Arith start, Arith end) noexcept
-		: start(start), end(end) {}
+		[[nodiscard]] friend bool operator==(const xieite::interval<Arith>&, const xieite::interval<Arith>&) = default;
 	};
 }
 

@@ -4,8 +4,7 @@
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
-	template<xieite::is_char Char = char>
-	[[nodiscard]] constexpr bool isdigit(Char c) noexcept {
+	[[nodiscard]] constexpr bool isdigit(xieite::is_char auto c) noexcept {
 		return (c >= '0') && (c <= '9');
 	}
 }

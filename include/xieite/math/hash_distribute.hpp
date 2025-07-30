@@ -10,7 +10,8 @@
 namespace xieite {
 	template<std::integral Int, std::floating_point Phi = double>
 	[[nodiscard]] constexpr Int hash_distribute(Int x) noexcept {
-		return static_cast<Int>(static_cast<Phi>(std::numeric_limits<xieite::try_unsigned<Int>>::max()) / std::numbers::phi_v<Phi>) * xieite::xor_shift(std::numeric_limits<xieite::try_unsigned<Int>>::max() / 3 * xieite::xor_shift(x, sizeof(Int) * 4), sizeof(Int) * 4);
+		static constexpr auto max = std::numeric_limits<xieite::try_unsigned<Int>>::max();
+		return static_cast<Int>(static_cast<Phi>(max) / std::numbers::phi_v<Phi>) * xieite::xor_shift(max / 3 * xieite::xor_shift(x, sizeof(Int) * 4), sizeof(Int) * 4);
 	}
 }
 

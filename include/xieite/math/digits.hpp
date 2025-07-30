@@ -9,7 +9,7 @@
 
 namespace xieite {
 	template<std::integral Int>
-	[[nodiscard]] constexpr std::size_t digits(Int x, Int radix = 10) noexcept {
+	[[nodiscard]] constexpr std::size_t digits(Int x, std::type_identity_t<Int> radix = 10) noexcept {
 		if (!x || !radix) {
 			return 1;
 		}
@@ -34,15 +34,15 @@ namespace xieite {
 	}
 
 	template<std::floating_point Float>
-	[[nodiscard]] constexpr std::size_t digits(Float x, Float radix = 10) noexcept {
+	[[nodiscard]] constexpr std::size_t digits(Float x, std::type_identity_t<Float> radix = 10) noexcept {
 		x = std::abs(x);
-		if ((x - std::abs(radix) < 1) || xieite::almost_equal(radix, static_cast<Float>(0))) {
+		if ((x - std::abs(radix) < 1) || xieite::almost_equal(radix, 0)) {
 			return 1;
 		}
-		if (xieite::almost_equal(radix, static_cast<Float>(1))) {
+		if (xieite::almost_equal(radix, 1)) {
 			return static_cast<std::size_t>(x);
 		}
-		if (xieite::almost_equal(radix, static_cast<Float>(-1))) {
+		if (xieite::almost_equal(radix, -1)) {
 			return static_cast<std::size_t>(x) * 2 + 1;
 		}
 		std::size_t result = 1;

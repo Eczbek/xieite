@@ -3,13 +3,14 @@
 #
 #	include <cmath>
 #	include <concepts>
+#	include <type_traits>
 #	include "../math/sign.hpp"
 #	include "../math/ssize_t.hpp"
 #	include "../trait/is_arith.hpp"
 
 namespace xieite {
 	template<xieite::is_arith Arith>
-	[[nodiscard]] constexpr Arith div_ceil_half(Arith lhs, Arith rhs) noexcept {
+	[[nodiscard]] constexpr Arith div_ceil_half(Arith lhs, std::type_identity_t<Arith> rhs) noexcept {
 		if constexpr (std::floating_point<Arith>) {
 			const Arith result = lhs / rhs;
 			const Arith fractional = std::fmod(result, 1);

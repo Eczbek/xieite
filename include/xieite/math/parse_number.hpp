@@ -21,12 +21,12 @@ namespace xieite {
 		}
 		const std::string_view digits = config.digits.substr(0, xieite::abs(radix));
 		std::size_t i = 0;
-		auto parse_neg = [strv, &config, &i, digits] mutable -> bool {
+		auto parse_neg = [&] mutable -> bool {
 			const bool neg = (i < (strv.size() - 1)) && config.minus.contains(strv[i]) && digits.contains(strv[i + 1]);
 			i += neg || ((i < (strv.size() - 1)) && config.plus.contains(strv[i]) && digits.contains(strv[i + 1]));
 			return neg;
 		};
-		auto parse_int = [strv, &idx, radix, &i, digits, parse_neg]<typename Int>(Int& result) mutable -> void {
+		auto parse_int = [&]<typename Int>(Int& result) mutable -> void {
 			const bool neg = parse_neg();
 			for (; i < strv.size(); ++i) {
 				const std::size_t digit = digits.find(strv[i]);

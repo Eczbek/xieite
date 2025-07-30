@@ -21,7 +21,7 @@ namespace xieite {
 	[[nodiscard]] constexpr std::string str_number(Arith x, std::conditional_t<std::floating_point<Arith>, xieite::ssize_t, Arith> radix = 10, const xieite::number_str_config& config = {}, std::size_t pad = 0) noexcept {
 		using Radix = std::conditional_t<std::floating_point<Arith>, xieite::ssize_t, Arith>;
 		std::string result;
-		if (!radix || xieite::almost_equal(x, static_cast<Arith>(0))) {
+		if (!radix || xieite::almost_equal(x, 0)) {
 			result += config.digits[0];
 			if constexpr (std::floating_point<Arith>) {
 				result += config.point[0];
@@ -55,7 +55,7 @@ namespace xieite {
 				do {
 					x *= static_cast<Arith>(radix);
 					++point;
-				} while ((config.precision - point) && !xieite::almost_equal(std::fmod(x, 1), static_cast<Arith>(0)));
+				} while ((config.precision - point) && !xieite::almost_equal(std::fmod(x, 1), 0));
 				x = std::round(x);
 			} else {
 				if (x == std::numeric_limits<Arith>::min()) {
@@ -64,7 +64,7 @@ namespace xieite {
 				x = static_cast<Arith>(xieite::abs(x));
 			}
 			while ((x >= 1) || (!std::unsigned_integral<Arith> && (x <= static_cast<Arith>(-1)))) {
-				next(static_cast<Radix>(xieite::rem(x, static_cast<Arith>(radix))));
+				next(static_cast<Radix>(xieite::rem(x, radix)));
 			}
 			if constexpr (std::floating_point<Arith>) {
 				if (point >= result.size()) {

@@ -24,7 +24,7 @@ namespace xieite {
 			const std::size_t next_size = prev_size + 32768;
 			input.resize_and_overwrite(
 				next_size,
-				[stream, delim, prev_size](char* buf, std::size_t buf_size) -> std::size_t {
+				[&](char* buf, std::size_t buf_size) -> std::size_t {
 					if (delim == EOF) {
 						return prev_size + std::fread(buf + prev_size, 1, buf_size - prev_size, stream);
 					}

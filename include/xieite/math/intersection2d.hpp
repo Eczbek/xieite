@@ -43,7 +43,7 @@ namespace xieite {
 	template<typename Arith = double, xieite::is_linear2d<Arith> Line0, xieite::is_linear2d<Arith> Line1>
 	[[nodiscard]] constexpr std::vector<xieite::point2d<Arith>> intersection2d(const Line0& line0, const Line1& line1) noexcept {
 		const Arith d = (line0.a.x - line0.b.x) * (line1.a.y - line1.b.y) - (line0.a.y - line0.b.y) * (line1.a.x - line1.b.x);
-		if (!xieite::almost_equal(d, static_cast<Arith>(0))) {
+		if (!xieite::almost_equal(d, 0)) {
 			if (const auto intxn = xieite::point2d<Arith>(((line1.a.x - line1.b.x) * (line0.a.x * line0.b.y - line0.a.y * line0.b.x) - (line0.a.x - line0.b.x) * (line1.a.x * line1.b.y - line1.a.y * line1.b.x)) / d, ((line1.a.y - line1.b.y) * (line0.a.x * line0.b.y - line0.a.y * line0.b.x) - (line0.a.y - line0.b.y) * (line1.a.x * line1.b.y - line1.a.y * line1.b.x)) / d); line0.contains(intxn) && line1.contains(intxn)) {
 				return std::vector<xieite::point2d<Arith>> { intxn };
 			}
