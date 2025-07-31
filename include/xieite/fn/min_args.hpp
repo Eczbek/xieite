@@ -4,12 +4,11 @@
 #	include <cstddef>
 #	include <functional>
 #	include <tuple>
-#	include <utility>
-#	include <xieite/fn/unroll.hpp>
-#	include <xieite/meta/subtuple.hpp>
-#	include <xieite/pp/arrow.hpp>
-#	include <xieite/pp/fwd.hpp>
-#	include <xieite/pp/lift.hpp>
+#	include "../fn/unroll.hpp"
+#	include "../meta/subtuple.hpp"
+#	include "../pp/arrow.hpp"
+#	include "../pp/fwd.hpp"
+#	include "../pp/lift.hpp"
 
 namespace xieite {
 	[[nodiscard]] constexpr auto min_args(auto&& fn, auto&&... args)
