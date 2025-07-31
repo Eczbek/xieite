@@ -386,8 +386,29 @@
 #		elif _MSC_VER >= 1300
 #			define XIEITE_STDLIB_MAJOR_MSVC_CPP 7
 #			define XIEITE_STDLIB_MINOR_MSVC_CPP 0
-#		else // _MSC_VER >= 1200
+#		elif _MSC_VER >= 1200
 #			define XIEITE_STDLIB_MAJOR_MSVC_CPP 6
+#			define XIEITE_STDLIB_MINOR_MSVC_CPP 0
+#		elif _MSC_VER >= 1100
+#			define XIEITE_STDLIB_MAJOR_MSVC_CPP 5
+#			define XIEITE_STDLIB_MINOR_MSVC_CPP 0
+#		elif _MSC_VER >= 1020
+#			define XIEITE_STDLIB_MAJOR_MSVC_CPP 4
+#			define XIEITE_STDLIB_MINOR_MSVC_CPP 2
+#		elif _MSC_VER >= 1010
+#			define XIEITE_STDLIB_MAJOR_MSVC_CPP 4
+#			define XIEITE_STDLIB_MINOR_MSVC_CPP 1
+#		elif _MSC_VER >= 1000
+#			define XIEITE_STDLIB_MAJOR_MSVC_CPP 4
+#			define XIEITE_STDLIB_MINOR_MSVC_CPP 0
+#		elif _MSC_VER >= 900
+#			define XIEITE_STDLIB_MAJOR_MSVC_CPP 2
+#			define XIEITE_STDLIB_MINOR_MSVC_CPP 0
+#		elif _MSC_VER >= 800
+#			define XIEITE_STDLIB_MAJOR_MSVC_CPP 1
+#			define XIEITE_STDLIB_MINOR_MSVC_CPP 0
+#		else
+#			define XIEITE_STDLIB_MAJOR_MSVC_CPP 0
 #			define XIEITE_STDLIB_MINOR_MSVC_CPP 0
 #		endif
 #	endif
@@ -493,3 +514,4 @@
 // https://github.com/cpredef/predef/blob/master/Libraries.md
 // https://github.com/microsoft/STL/wiki/Macro-_MSVC_STL_UPDATE
 // https://learn.microsoft.com/en-us/cpp/overview/compiler-versions
+// https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B#Internal_version_numbering
