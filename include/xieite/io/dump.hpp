@@ -28,7 +28,7 @@ namespace xieite {
 
 	template<xieite::fixed_str delim = " ", bool newline = true>
 	void dump(auto&&... args) noexcept {
-		return xieite::dump(stdout, XIEITE_FWD(args)...);
+		return xieite::dump<delim, newline>(stdout, XIEITE_FWD(args)...);
 	}
 }
 
