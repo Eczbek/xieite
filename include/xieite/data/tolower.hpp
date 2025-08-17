@@ -1,16 +1,11 @@
 #ifndef DETAIL_XIEITE_HEADER_DATA_TOLOWER
 #	define DETAIL_XIEITE_HEADER_DATA_TOLOWER
 #
-#	include <array>
 #	include <cstddef>
 #	include <memory>
-#	include <numeric>
 #	include <string>
 #	include <string_view>
-#	include "../data/chars.hpp"
 #	include "../data/str_view.hpp"
-#	include "../math/bit_size.hpp"
-#	include "../math/sign_cast.hpp"
 #	include "../meta/paren.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../trait/is_char.hpp"
@@ -18,16 +13,35 @@
 namespace xieite {
 	template<xieite::is_char Char>
 	[[nodiscard]] constexpr Char tolower(Char c) noexcept {
-		using Lookup = std::array<Char, (1uz << xieite::bit_size<Char>)>;
-		static constexpr Lookup lookup = ([] static -> Lookup {
-			Lookup lookup;
-			std::ranges::iota(lookup, '\0');
-			for (std::size_t i = 0; i < xieite::chars::alphabet_size; ++i) {
-				lookup[xieite::sign_cast<std::size_t>(xieite::chars::upper[i])] = static_cast<Char>(xieite::chars::lower[i]);
-			}
-			return lookup;
-		})();
-		return lookup[xieite::sign_cast<std::size_t>(c)];
+		switch (c) {
+		case 'A': return 'a';
+		case 'B': return 'b';
+		case 'C': return 'c';
+		case 'D': return 'd';
+		case 'E': return 'e';
+		case 'F': return 'f';
+		case 'G': return 'g';
+		case 'H': return 'h';
+		case 'I': return 'i';
+		case 'J': return 'j';
+		case 'K': return 'k';
+		case 'L': return 'l';
+		case 'M': return 'm';
+		case 'N': return 'n';
+		case 'O': return 'o';
+		case 'P': return 'p';
+		case 'Q': return 'q';
+		case 'R': return 'r';
+		case 'S': return 's';
+		case 'T': return 't';
+		case 'U': return 'u';
+		case 'V': return 'v';
+		case 'W': return 'w';
+		case 'X': return 'x';
+		case 'Y': return 'y';
+		case 'Z': return 'z';
+		}
+		return c;
 	}
 
 	template<typename Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>>

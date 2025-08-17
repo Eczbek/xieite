@@ -8,18 +8,12 @@ namespace xieite::radix_udl {
 	[[nodiscard]] consteval std::size_t operator""_radix() noexcept {
 		if constexpr ((sizeof...(chars) > 1) && (chars...[0] == '0')) {
 			switch (chars...[1]) {
-			case 'x':
-			case 'X':
-				return 16;
-			case 'b':
-			case 'B':
-				return 2;
-			default:
-				return 8;
+			case 'X': case 'x': return 16;
+			case 'B': case 'b': return 2;
 			}
-		} else {
-			return 10;
+			return 8;
 		}
+		return 10;
 	}
 }
 
