@@ -4,21 +4,20 @@
 #	include <algorithm>
 #	include <bit>
 #	include "../fn/unroll.hpp"
-#	include "../pp/attr.hpp"
-
-namespace DETAIL_XIEITE::ext_bit_cast {
-	template<typename T>
-	struct XIEITE_ATTR_PACK(array {
-		char data[sizeof(T)];
-	});
-}
+#	include "../pp/fwd.hpp"
 
 namespace xieite {
-	template<typename T, typename U>
-	[[nodiscard]] constexpr T ext_bit_cast(const U& x) noexcept {
-		return xieite::unroll<std::min(sizeof(T), sizeof(U))>([&x]<std::size_t... i> -> T {
-			const auto bits = std::bit_cast<DETAIL_XIEITE::ext_bit_cast::array<U>>(x);
-			return std::bit_cast<T>(DETAIL_XIEITE::ext_bit_cast::array<T> { bits[i]... });
+	template<typename T>
+	[[nodiscard]] constexpr T ext_bit_cast(auto&& x) noexcept {
+		return xieite::unroll<std::min(sizeof(T), sizeof(x))>([&x]<std::size_t... i> -> T {
+			struct Array0 {
+				unsigned char data[sizeof(x)];
+			};
+			struct Array1 {
+				unsigned char data[sizeof(T)];
+			};
+			const auto bits = std::bit_cast<Array0>(XIEITE_FWD(x));
+			return std::bit_cast<T>(Array1 { bits[i]... });
 		});
 	}
 }
