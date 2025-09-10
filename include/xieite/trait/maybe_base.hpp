@@ -1,5 +1,7 @@
 #ifndef DETAIL_XIEITE_HEADER_TRAIT_MAYBE_BASE
 #	define DETAIL_XIEITE_HEADER_TRAIT_MAYBE_BASE
+#
+#	include <type_traits>
 
 namespace DETAIL_XIEITE::maybe_base {
 	template<typename>

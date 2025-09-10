@@ -9,6 +9,7 @@
 #	include "../trait/is_tuple_like.hpp"
 
 XIEITE_DIAGNOSTIC_PUSH_CLANG()
+XIEITE_DIAGNOSTIC_OFF_CLANG("-Wunused-but-set-variable")
 XIEITE_DIAGNOSTIC_OFF_CLANG("-Wunused-lambda-capture")
 
 namespace xieite {
@@ -17,32 +18,32 @@ namespace xieite {
 		if constexpr (xieite::is_tuple_like<T>) {
 			return xieite::tuple_size<T>;
 		} else if constexpr (using U = std::remove_cvref_t<T>; std::is_aggregate_v<U>) {
-			return ([](this auto self, std::size_t offset = 0, auto... curr) /* -> std::size_t */ {
-				if constexpr (requires { U { curr..., { xieite::any(), xieite::any() } }; }) {
-					([&offset, curr...](this auto self, auto... pre) -> void {
-						if constexpr (requires { U { curr..., pre..., xieite::any() }; }) {
-							self(pre..., xieite::any());
+			return ([offset = 0uz](this auto self0, auto... args0) -> std::size_t {
+				if constexpr (requires { T { args0..., { xieite::any(), xieite::any() } }; }) {
+					([&offset](this auto self1, auto... args1) -> void {
+						if constexpr (requires { T { args1..., xieite::any() }; }) {
+							self1(args1..., xieite::any());
 						} else {
-							([&offset, curr..., pre...](this auto self, auto... post) -> void {
-								if constexpr (requires { U { curr..., { xieite::any(), xieite::any() }, post..., xieite::any() }; }) {
-									self(post..., xieite::any());
-								} else if constexpr (sizeof...(pre) != (sizeof...(post) + 1)) {
-									([&offset, curr...](this auto self, auto... inner) -> void {
-										if constexpr (requires { U { curr..., { inner..., xieite::any() } }; }) {
-											self(inner..., xieite::any());
+							([&offset](this auto self2, auto... args2) -> void {
+								if constexpr (requires { T { args0..., { xieite::any(), xieite::any() }, args2..., xieite::any() }; }) {
+									self2(args2..., xieite::any());
+								} else if constexpr (sizeof...(args1) != (sizeof...(args0) + sizeof...(args2) + 1)) {
+									([&offset](this auto self3, auto... args3) -> void {
+										if constexpr (requires { T { args0..., { args3..., xieite::any() } }; }) {
+											self3(args3..., xieite::any());
 										} else {
-											offset += sizeof...(inner) - 1;
+											offset += sizeof...(args3) - 1;
 										}
 									})();
 								}
 							})();
 						}
 					})();
-					return self(offset, curr..., xieite::any());
-				} else if constexpr (requires { U { curr..., xieite::any() }; }) {
-					return self(offset, curr..., xieite::any());
+					return self0(args0..., xieite::any());
+				} else if constexpr (requires { T { args0..., xieite::any() }; }) {
+					return self0(args0..., xieite::any());
 				} else {
-					return sizeof...(curr) - offset;
+					return sizeof...(args0) - offset;
 				}
 			})();
 		} else {
@@ -56,4 +57,3 @@ XIEITE_DIAGNOSTIC_POP_CLANG()
 #endif
 
 // Algorithm borrowed from lapinozz (https://github.com/lapinozz)
-// https://github.com/llvm/llvm-project/issues/115118
