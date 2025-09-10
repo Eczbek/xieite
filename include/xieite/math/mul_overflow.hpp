@@ -10,21 +10,18 @@
 
 namespace xieite {
 	[[nodiscard]] constexpr bool mul_overflow(xieite::is_arith auto first, xieite::is_arith auto... rest) noexcept {
-		if constexpr (using Type = decltype(first); std::floating_point<Type>) {
-			return false;
-		} else {
-			return xieite::unroll<sizeof...(rest)>([&first, rest...]<std::size_t... i> -> bool {
-				return (... || ([&first](auto next) -> bool {
-					if (next && ((xieite::abs((xieite::neg(first) != xieite::neg(next)) ? std::numeric_limits<Type>::min() : std::numeric_limits<Type>::max()) / xieite::abs(first)) < xieite::abs(next))) {
-						return true;
-					}
-					if constexpr (i < (sizeof...(rest) - 1)) {
-						first = static_cast<Type>(first * next);
-					}
-					return false;
-				}(rest)));
-			});
-		}
+		using Type = decltype(first);
+		return xieite::unroll<sizeof...(rest)>([&first, rest...]<std::size_t... i> -> bool {
+			return (... || ([&first](auto next) -> bool {
+				if (next && ((xieite::abs((xieite::neg(first) != xieite::neg(next)) ? std::numeric_limits<Type>::min() : std::numeric_limits<Type>::max()) / xieite::abs(first)) < xieite::abs(next))) {
+					return true;
+				}
+				if constexpr (i < (sizeof...(rest) - 1)) {
+					first = static_cast<Type>(first * next);
+				}
+				return false;
+			}(rest)));
+		});
 	}
 }
 
