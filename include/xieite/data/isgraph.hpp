@@ -1,0 +1,36 @@
+#ifndef DETAIL_XIEITE_HEADER_DATA_ISGRAPH
+#	define DETAIL_XIEITE_HEADER_DATA_ISGRAPH
+#
+#	include <string>
+#	include <string_view>
+#	include "../data/isalnum.hpp"
+#	include "../data/ispunct.hpp"
+#	include "../data/str_view.hpp"
+#	include "../meta/paren.hpp"
+#	include "../trait/is_char.hpp"
+
+namespace xieite {
+	[[nodiscard]] constexpr bool isgraph(xieite::is_char auto c) noexcept {
+		return xieite::isalnum(c) || xieite::ispunct(c);
+	}
+
+	template<xieite::is_char Char, typename Traits>
+	[[nodiscard]] constexpr bool isgraph(std::basic_string_view<Char, Traits> strv) noexcept {
+		for (Char c : strv) {
+			if (!xieite::isgraph(c)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	template<xieite::is_char Char, typename Traits, typename Alloc>
+	[[nodiscard]] constexpr auto isgraph(const std::basic_string<Char, Traits, Alloc>& str)
+		XIEITE_ARROW(xieite::isgraph(xieite::str_view(str)))
+
+	template<xieite::is_char Char, std::size_t length>
+	[[nodiscard]] constexpr auto isgraph(const xieite::paren<Char[length]>& str)
+		XIEITE_ARROW(xieite::isgraph(xieite::str_view(str)))
+}
+
+#endif
