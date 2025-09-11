@@ -16,7 +16,7 @@ namespace xieite {
 	void dump(std::FILE* file, Args&&... args) noexcept {
 		static constexpr auto segment = xieite::fixed_str("{}") + delim;
 		static constexpr std::size_t size = sizeof...(Args) * segment.size() - (!!sizeof...(Args) * delim.size());
-		static constexpr auto fmt = xieite::unroll<size>([]<std::size_t... i> static {
+		static constexpr auto fmt = xieite::unroll<size>([]<std::size_t... i> {
 			return xieite::fixed_array { segment[i % segment.size()]... };
 		});
 		if constexpr (newline) {

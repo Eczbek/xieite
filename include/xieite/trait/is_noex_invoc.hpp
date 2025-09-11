@@ -6,7 +6,7 @@
 
 namespace xieite {
 	template<typename T, typename Sig = void()>
-	concept is_noex_invoc = ([]<typename Ret, typename... Args>(xieite::type_id<Ret(Args...)>) static {
+	concept is_noex_invoc = ([]<typename Ret, typename... Args>(xieite::type_id<Ret(Args...)>) {
 		return std::is_nothrow_invocable_r_v<Ret, T, Args...>;
 	})(xieite::type_id<Sig>());
 }

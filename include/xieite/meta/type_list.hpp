@@ -39,7 +39,7 @@ namespace xieite {
 		using at = decltype(xieite::type_list<Ts...>::at_impl<idx>(xieite::type_id<Ts>()...))::type;
 
 		template<auto cond>
-		static constexpr std::size_t find_idx = ([] static -> std::size_t {
+		static constexpr std::size_t find_idx = ([] -> std::size_t {
 			std::size_t idx = 0;
 			(... && (!xieite::is_satisfied<cond, Ts> && ++idx));
 			return idx;
@@ -101,7 +101,7 @@ namespace xieite {
 
 	private:
 		template<auto>
-		static constexpr auto reverse_impl = []<std::size_t... i> static {
+		static constexpr auto reverse_impl = []<std::size_t... i> {
 			return xieite::type_list<xieite::type_list<Ts...>::at<(sizeof...(Ts) - i - 1)>...>();
 		};
 	
@@ -111,7 +111,7 @@ namespace xieite {
 
 	private:
 		template<std::size_t start>
-		static constexpr auto slice_impl = []<std::size_t... i> static {
+		static constexpr auto slice_impl = []<std::size_t... i> {
 			return xieite::type_list<xieite::type_list<Ts...>::at<(start + i)>...>();
 		};
 
@@ -200,7 +200,7 @@ namespace xieite {
 
 	private:
 		template<std::size_t arity, auto fn>
-		static constexpr auto transform_impl = []<std::size_t... i> static {
+		static constexpr auto transform_impl = []<std::size_t... i> {
 			return xieite::type_list<typename decltype(
 				xieite::type_list<Ts...>
 				::slice<(arity * i), (arity * i + arity)>
@@ -230,7 +230,7 @@ namespace xieite {
 
 	private:
 		template<typename... Us>
-		static constexpr auto zip_impl = []<std::size_t... i> static {
+		static constexpr auto zip_impl = []<std::size_t... i> {
 			return xieite::type_list<xieite::type_list<xieite::type_list<Ts...>::at<i>, Us>...>();
 		};
 

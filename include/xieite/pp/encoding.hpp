@@ -19,5 +19,4 @@
 #		undef XIEITE_ENCODING_CP1036
 #		define XIEITE_ENCODING_CP1036 1
 #	endif
-#
 #endif

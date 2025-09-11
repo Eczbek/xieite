@@ -9,8 +9,8 @@
 
 namespace xieite {
 	template<xieite::is_arith Arith>
-	constexpr auto fib = ([] static {
-		static constexpr auto get = [] static -> std::vector<Arith> {
+	constexpr auto fib = ([] {
+		static constexpr auto get = [] -> std::vector<Arith> {
 			std::vector<Arith> result = { 0, 1 };
 			for (std::size_t i = 2; !xieite::add_overflow(result[i - 1], result[i - 2]); ++i) {
 				result.push_back(result[i - 1] + result[i - 2]);

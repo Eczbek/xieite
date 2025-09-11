@@ -5,9 +5,11 @@
 #	include "../trait/try_unsigned.hpp"
 
 namespace xieite {
-	inline constexpr auto as_unsigned = []<xieite::is_arith Arith>(Arith x) static noexcept {
+	inline constexpr auto as_unsigned = []<xieite::is_arith Arith>(Arith x) /* static */ noexcept {
 		return static_cast<xieite::try_unsigned<Arith>>(x);
 	};
 }
 
 #endif
+
+// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=121900

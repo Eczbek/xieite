@@ -18,7 +18,7 @@ XIEITE_DIAGNOSTIC_OFF_GCC("-Wconversion")
 namespace xieite {
 	template<xieite::is_enum Enum>
 	constexpr std::size_t enum_size = xieite::fold_for<
-		[]<typename Pair, auto> static {
+		[]<typename Pair, auto> {
 			static constexpr std::size_t min = Pair::first_type::value;
 			static constexpr std::size_t max = Pair::second_type::value;
 			static constexpr std::size_t mid = min / 2 + max / 2;

@@ -6,7 +6,7 @@
 
 namespace xieite {
 	template<typename T, typename Sig = void()>
-	concept is_invoc = ([]<typename Ret, typename... Args>(xieite::type_id<Ret(Args...)>) static {
+	concept is_invoc = ([]<typename Ret, typename... Args>(xieite::type_id<Ret(Args...)>) {
 		return std::is_invocable_r_v<Ret, T, Args...>;
 	})(xieite::type_id<Sig>());
 }

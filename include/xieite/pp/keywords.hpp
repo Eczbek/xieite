@@ -100,30 +100,30 @@ namespace DETAIL_XIEITE::KEYWORDS {
 			XIEITE_ARROW(fn(XIEITE_FWD(rhs)))
 	};
 
-	inline constexpr auto nand_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return !XIEITE_FWD(x) || !XIEITE_FWD(y); })>();
-	inline constexpr auto nor_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return !XIEITE_FWD(x) && !XIEITE_FWD(y); })>();
-	inline constexpr auto xnor_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return XIEITE_FWD(x) == XIEITE_FWD(y); })>();
-	inline constexpr auto imply_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return !XIEITE_FWD(x) || XIEITE_FWD(y); })>();
-	inline constexpr auto nimply_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return XIEITE_FWD(x) && !XIEITE_FWD(y); })>();
-	inline constexpr auto eq_not_impl = DETAIL_XIEITE::KEYWORDS::sfx<([](auto&& x) static { return x = !x; })>();
-	inline constexpr auto nand_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = !x || !XIEITE_FWD(y); })>();
-	inline constexpr auto nor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = !x && !XIEITE_FWD(y); })>();
-	inline constexpr auto xnor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = x == XIEITE_FWD(y); })>();
-	inline constexpr auto imply_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = !x || XIEITE_FWD(y); })>();
-	inline constexpr auto nimply_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = x && !XIEITE_FWD(y); })>();
-	inline constexpr auto bitnand_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return ~XIEITE_FWD(x) | ~XIEITE_FWD(y); })>();
-	inline constexpr auto bitnor_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return ~XIEITE_FWD(x) & ~XIEITE_FWD(y); })>();
-	inline constexpr auto bitxnor_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return ~(~XIEITE_FWD(x) ^ ~XIEITE_FWD(y)); })>();
-	inline constexpr auto bitimply_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return ~XIEITE_FWD(x) | XIEITE_FWD(y); })>();
-	inline constexpr auto bitnimply_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return XIEITE_FWD(x) & ~XIEITE_FWD(y); })>();
-	inline constexpr auto eq_compl_impl = DETAIL_XIEITE::KEYWORDS::sfx<([](auto&& x) static { return x = ~x; })>();
-	inline constexpr auto bitand_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = x & XIEITE_FWD(y); })>();
-	inline constexpr auto bitnand_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = x bitnand XIEITE_FWD(y); })>();
-	inline constexpr auto bitor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = x | XIEITE_FWD(y); })>();
-	inline constexpr auto bitnor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = x bitnor XIEITE_FWD(y); })>();
-	inline constexpr auto bitxnor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = x bitxnor XIEITE_FWD(y); })>();
-	inline constexpr auto bitimply_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = ~x | XIEITE_FWD(y); })>();
-	inline constexpr auto bitnimply_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) static { return x = x & ~XIEITE_FWD(y); })>();
+	inline constexpr auto nand_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return !XIEITE_FWD(x) || !XIEITE_FWD(y); })>();
+	inline constexpr auto nor_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return !XIEITE_FWD(x) && !XIEITE_FWD(y); })>();
+	inline constexpr auto xnor_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return XIEITE_FWD(x) == XIEITE_FWD(y); })>();
+	inline constexpr auto imply_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return !XIEITE_FWD(x) || XIEITE_FWD(y); })>();
+	inline constexpr auto nimply_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return XIEITE_FWD(x) && !XIEITE_FWD(y); })>();
+	inline constexpr auto eq_not_impl = DETAIL_XIEITE::KEYWORDS::sfx<([](auto&& x) { return x = !x; })>();
+	inline constexpr auto nand_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = !x || !XIEITE_FWD(y); })>();
+	inline constexpr auto nor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = !x && !XIEITE_FWD(y); })>();
+	inline constexpr auto xnor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = x == XIEITE_FWD(y); })>();
+	inline constexpr auto imply_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = !x || XIEITE_FWD(y); })>();
+	inline constexpr auto nimply_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = x && !XIEITE_FWD(y); })>();
+	inline constexpr auto bitnand_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return ~XIEITE_FWD(x) | ~XIEITE_FWD(y); })>();
+	inline constexpr auto bitnor_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return ~XIEITE_FWD(x) & ~XIEITE_FWD(y); })>();
+	inline constexpr auto bitxnor_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return ~(~XIEITE_FWD(x) ^ ~XIEITE_FWD(y)); })>();
+	inline constexpr auto bitimply_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return ~XIEITE_FWD(x) | XIEITE_FWD(y); })>();
+	inline constexpr auto bitnimply_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return XIEITE_FWD(x) & ~XIEITE_FWD(y); })>();
+	inline constexpr auto eq_compl_impl = DETAIL_XIEITE::KEYWORDS::sfx<([](auto&& x) { return x = ~x; })>();
+	inline constexpr auto bitand_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = x & XIEITE_FWD(y); })>();
+	inline constexpr auto bitnand_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = x bitnand XIEITE_FWD(y); })>();
+	inline constexpr auto bitor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = x | XIEITE_FWD(y); })>();
+	inline constexpr auto bitnor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = x bitnor XIEITE_FWD(y); })>();
+	inline constexpr auto bitxnor_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = x bitxnor XIEITE_FWD(y); })>();
+	inline constexpr auto bitimply_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = ~x | XIEITE_FWD(y); })>();
+	inline constexpr auto bitnimply_eq_impl = DETAIL_XIEITE::KEYWORDS::ifx<([](auto&& x, auto&& y) { return x = x & ~XIEITE_FWD(y); })>();
 }
 
 #endif

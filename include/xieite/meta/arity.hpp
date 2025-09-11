@@ -14,7 +14,7 @@ XIEITE_DIAGNOSTIC_OFF_CLANG("-Wunused-lambda-capture")
 
 namespace xieite {
 	template<typename T>
-	constexpr std::size_t arity = ([] static -> std::size_t {
+	constexpr std::size_t arity = ([] -> std::size_t {
 		if constexpr (xieite::is_tuple_like<T>) {
 			return xieite::tuple_size<T>;
 		} else if constexpr (using U = std::remove_cvref_t<T>; std::is_aggregate_v<U>) {

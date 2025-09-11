@@ -4,9 +4,11 @@
 #	include "../trait/rm_cv.hpp"
 
 namespace xieite {
-	inline constexpr auto as_not_cv = []<typename T>[[nodiscard]](T&& x) static noexcept {
+	inline constexpr auto as_not_cv = []<typename T>[[nodiscard]](T&& x) /* static */ noexcept {
 		return const_cast<xieite::rm_cv<T&&>>(x);
 	};
 }
 
 #endif
+
+// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=121900

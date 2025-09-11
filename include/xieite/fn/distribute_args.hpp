@@ -15,7 +15,7 @@ namespace xieite {
 	template<std::size_t arity>
 	constexpr void distribute_args(auto&& fn, auto&&... args)
 		XIEITE_ARROW_RET(xieite::unroll<(sizeof...(args) / arity)>(
-			[]<std::size_t... i>(const auto& fn, const auto& args_tuple) static
+			[]<std::size_t... i>(const auto& fn, const auto& args_tuple)
 				XIEITE_ARROW((..., (void)std::apply(
 					fn,
 					xieite::subtuple<(i * arity), ((i + 1) * arity)>(std::move(args_tuple))

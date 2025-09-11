@@ -11,7 +11,7 @@ namespace xieite {
 	template<std::integral auto count>
 	constexpr void repeat(auto&& fn, auto&&... args)
 		XIEITE_ARROW_RET((
-			[]<auto... i>(xieite::seq<i...>, auto&& fn, auto&&... args) static
+			[]<auto... i>(xieite::seq<i...>, auto&& fn, auto&&... args)
 				XIEITE_ARROW((..., fn.template operator()<i>(args...)))
 		)(xieite::make_seq<count>, XIEITE_FWD(fn), XIEITE_FWD(args)...))
 

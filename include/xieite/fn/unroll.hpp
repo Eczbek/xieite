@@ -11,7 +11,7 @@ namespace xieite {
 	template<std::integral auto count>
 	[[nodiscard]] constexpr auto unroll(auto&& fn, auto&&... args)
 		XIEITE_ARROW((
-			[]<auto... i>(xieite::seq<i...>, auto&& fn, auto&&... args) static
+			[]<auto... i>(xieite::seq<i...>, auto&& fn, auto&&... args)
 				XIEITE_ARROW(XIEITE_FWD(fn).template operator()<i...>(XIEITE_FWD(args)...))
 		)(xieite::make_seq<count>, XIEITE_FWD(fn), XIEITE_FWD(args)...))
 

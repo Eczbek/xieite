@@ -62,7 +62,7 @@ namespace xieite {
 	private:
 		template<std::size_t... i>
 		[[nodiscard]] constexpr fixed_str(auto iter, xieite::seq<i...>)
-			XIEITE_ARROW_CTOR(, array, ({ ([]<std::size_t j>(auto& iter) static XIEITE_ARROW_IF(j, ++iter, *iter)).template operator()<i>(iter)... }))
+			XIEITE_ARROW_CTOR(, array, ({ ([]<std::size_t j>(auto& iter) XIEITE_ARROW_IF(j, ++iter, *iter)).template operator()<i>(iter)... }))
 	};
 
 	template<typename Char, std::size_t length>

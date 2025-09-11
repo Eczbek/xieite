@@ -21,16 +21,16 @@ namespace xieite {
 
 namespace DETAIL_XIEITE::unit {
 	template<double x>
-	constexpr auto mul = [](double y) static { return y * x; };
+	constexpr auto mul = [](double y) { return y * x; };
 
 	template<double x>
-	constexpr auto div = [](double y) static { return y / x; };
+	constexpr auto div = [](double y) { return y / x; };
 
 	template<double x>
-	constexpr auto add = [](double y) static { return y + x; };
+	constexpr auto add = [](double y) { return y + x; };
 
 	template<double x, double y, double z>
-	constexpr auto fahrenheit = [](double w) static { return (w - x) * y + z; };
+	constexpr auto fahrenheit = [](double w) { return (w - x) * y + z; };
 }
 
 namespace xieite::unit {

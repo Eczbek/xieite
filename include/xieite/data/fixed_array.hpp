@@ -119,7 +119,7 @@ namespace xieite {
 
 		constexpr void fill(const Value& value)
 			XIEITE_ARROW_RET(xieite::unroll<length>(
-				[]<std::size_t... i>(auto& array, const Value& value) static
+				[]<std::size_t... i>(auto& array, const Value& value)
 					XIEITE_ARROW((..., void(array[i] = value))),
 				this->array,
 				value
@@ -127,7 +127,7 @@ namespace xieite {
 
 		constexpr void swap(auto&& range)
 			XIEITE_ARROW_RET(xieite::repeat<length>(
-				[]<std::size_t>(auto& iter0, auto& iter1) static
+				[]<std::size_t>(auto& iter0, auto& iter1)
 					XIEITE_ARROW(std::ranges::iter_swap(iter0++, iter1++)),
 				this->begin(),
 				std::ranges::begin(range)
@@ -135,7 +135,7 @@ namespace xieite {
 
 		[[nodiscard]] constexpr auto apply(this auto&& self, auto&& fn)
 			XIEITE_ARROW(xieite::unroll<length>(
-				[]<std::size_t... i>(auto&& fn, Value* array) static
+				[]<std::size_t... i>(auto&& fn, Value* array)
 					XIEITE_ARROW(std::invoke(XIEITE_FWD(fn), std::forward_like<decltype(self)>(array[i])...)),
 				XIEITE_FWD(fn),
 				self.array
@@ -143,8 +143,8 @@ namespace xieite {
 
 		[[nodiscard]] static constexpr auto from(std::ranges::input_range auto&& range)
 			XIEITE_ARROW(xieite::unroll<length>(
-				[]<std::size_t... i>(auto iter) static
-					XIEITE_ARROW(xieite::fixed_array { ([]<std::size_t j>(auto& iter) static XIEITE_ARROW_IF(j, ++iter, *iter)).template operator()<i>(iter)... }),
+				[]<std::size_t... i>(auto iter)
+					XIEITE_ARROW(xieite::fixed_array { ([]<std::size_t j>(auto& iter) XIEITE_ARROW_IF(j, ++iter, *iter)).template operator()<i>(iter)... }),
 				std::ranges::begin(range)
 			))
 	};

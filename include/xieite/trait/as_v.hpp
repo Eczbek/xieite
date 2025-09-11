@@ -4,9 +4,11 @@
 #	include "../trait/add_v.hpp"
 
 namespace xieite {
-	inline constexpr auto as_v = []<typename T>[[nodiscard]](T&& x) static noexcept {
+	inline constexpr auto as_v = []<typename T>[[nodiscard]](T&& x) /* static */ noexcept {
 		return const_cast<xieite::add_v<T&&>>(x);
 	};
 }
 
 #endif
+
+// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=121900

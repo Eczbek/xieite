@@ -5,9 +5,11 @@
 
 namespace xieite {
 	template<typename T>
-	constexpr auto as = [][[nodiscard]](std::type_identity_t<T> x) static noexcept {
+	constexpr auto as = [][[nodiscard]](std::type_identity_t<T> x) /* static */ noexcept {
 		return x;
 	};
 }
 
 #endif
+
+// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=121900
