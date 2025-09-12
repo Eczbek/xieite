@@ -68,7 +68,3 @@
 #	define DETAIL_XIEITE_ARROW_INIT(_var, _value, ...) XIEITE_UNWRAP(XIEITE_UNWRAP(_var)) XIEITE_UNWRAP(_value)XIEITE_IF(XIEITE_WRAPPED(XIEITE_UNWRAP(_var)))(...)()__VA_OPT__(, DETAIL_XIEITE_ARROW_INIT_NEXT XIEITE_PAREN() (__VA_ARGS__))
 #	define DETAIL_XIEITE_ARROW_INIT_NEXT() DETAIL_XIEITE_ARROW_INIT
 #endif
-
-// XIEITE_ARROW_DECL()
-// - https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117061
-// - https://github.com/llvm/llvm-project/issues/111840
