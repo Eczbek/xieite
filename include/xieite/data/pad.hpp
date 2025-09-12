@@ -10,7 +10,7 @@
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
-	template<typename Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>>
+	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>>
 	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad(const std::basic_string<Char, Traits, Alloc>& str, std::size_t target_length, Char c = ' ', bool align_front = true, const Alloc& alloc = {}) noexcept(false) {
 		using Str = std::basic_string<Char, Traits, Alloc>;
 		return (str.size() < target_length)
@@ -18,7 +18,7 @@ namespace xieite {
 			: str;
 	}
 
-	template<typename Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>>
+	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>>
 	[[nodiscard]] constexpr auto pad(std::basic_string_view<Char, Traits> strv, std::size_t target_length, Char c = ' ', bool align_front = true, const Alloc& alloc = {})
 		XIEITE_ARROW(xieite::pad(std::basic_string<Char, Traits, Alloc>(strv, alloc), target_length, c, align_front, alloc))
 

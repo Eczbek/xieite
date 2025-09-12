@@ -3,7 +3,7 @@
 #
 #	include <string>
 #	include <string_view>
-#	include "../data/str_view.hpp"
+#	include "../data/make_str_view.hpp"
 #	include "../meta/paren.hpp"
 #	include "../trait/is_char.hpp"
 
@@ -24,11 +24,11 @@ namespace xieite {
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
 	[[nodiscard]] constexpr auto isdigit(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::isdigit(xieite::str_view(str)))
+		XIEITE_ARROW(xieite::isdigit(xieite::make_str_view(str)))
 
 	template<xieite::is_char Char, std::size_t length>
 	[[nodiscard]] constexpr auto isdigit(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::isdigit(xieite::str_view(str)))
+		XIEITE_ARROW(xieite::isdigit(xieite::make_str_view(str)))
 }
 
 #endif

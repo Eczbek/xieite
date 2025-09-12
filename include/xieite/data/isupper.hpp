@@ -3,7 +3,7 @@
 #
 #	include <string>
 #	include <string_view>
-#	include "../data/str_view.hpp"
+#	include "../data/make_str_view.hpp"
 #	include "../meta/paren.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/cases.hpp"
@@ -30,11 +30,11 @@ namespace xieite {
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
 	[[nodiscard]] constexpr auto isupper(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::isupper(xieite::str_view(str)))
+		XIEITE_ARROW(xieite::isupper(xieite::make_str_view(str)))
 
 	template<xieite::is_char Char, std::size_t length>
 	[[nodiscard]] constexpr auto isupper(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::isupper(xieite::str_view(str)))
+		XIEITE_ARROW(xieite::isupper(xieite::make_str_view(str)))
 }
 
 #endif

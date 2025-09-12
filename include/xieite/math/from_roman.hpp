@@ -7,14 +7,15 @@
 #	include <string>
 #	include <string_view>
 #	include "../data/make_sparse_array.hpp"
-#	include "../data/str_view.hpp"
+#	include "../data/make_str_view.hpp"
 #	include "../data/toupper.hpp"
 #	include "../math/sign_cast.hpp"
 #	include "../math/ssize_t.hpp"
 #	include "../meta/paren.hpp"
+#	include "../trait/is_char.hpp"
 
 namespace xieite {
-	template<std::integral Int = xieite::ssize_t, typename Char, typename Traits = std::char_traits<Char>>
+	template<std::integral Int = xieite::ssize_t, xieite::is_char Char, typename Traits = std::char_traits<Char>>
 	[[nodiscard]] constexpr Int from_roman(std::basic_string_view<Char, Traits> strv) noexcept {
 		static constexpr auto numerals = xieite::make_sparse_array<Char, Int>({
 			{ 'I', 1 },
@@ -41,14 +42,14 @@ namespace xieite {
 		return result;
 	}
 
-	template<std::integral Int = xieite::ssize_t, typename Char, typename Traits = std::char_traits<Char>>
+	template<std::integral Int = xieite::ssize_t, xieite::is_char Char, typename Traits = std::char_traits<Char>>
 	[[nodiscard]] constexpr Int from_roman(const std::basic_string<Char, Traits>& str) noexcept {
-		return xieite::from_roman<Int>(xieite::str_view(str));
+		return xieite::from_roman<Int>(xieite::make_str_view(str));
 	}
 
-	template<std::integral Int = xieite::ssize_t, typename Char, typename Traits = std::char_traits<Char>, std::size_t length>
+	template<std::integral Int = xieite::ssize_t, xieite::is_char Char, typename Traits = std::char_traits<Char>, std::size_t length>
 	[[nodiscard]] constexpr Int from_roman(const xieite::paren<Char[length]>& str) noexcept {
-		return xieite::from_roman<Int>(xieite::str_view<Char, Traits>(str, length));
+		return xieite::from_roman<Int>(xieite::make_str_view<Char, Traits>(str, length));
 	}
 }
 

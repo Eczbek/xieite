@@ -7,9 +7,10 @@
 #	include <string>
 #	include <string_view>
 #	include "../math/abs.hpp"
+#	include "../trait/is_char.hpp"
 
 namespace xieite {
-	template<typename Char = char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>>
+	template<xieite::is_char Char = char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>>
 	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> to_roman(std::integral auto x, const Alloc& alloc = {}) noexcept {
 		using Str = std::basic_string<Char, Traits, Alloc>;
 		using Array = std::array<std::basic_string_view<Char, Traits>, 10>;

@@ -10,12 +10,12 @@
 #	include "../trait/is_ptr.hpp"
 
 namespace xieite {
-	template<typename Char>
+	template<xieite::is_char Char>
 	[[nodiscard]] constexpr std::size_t strlen(std::basic_string_view<Char> strv) noexcept {
 		return strv.size();
 	}
 
-	template<typename Char>
+	template<xieite::is_char Char>
 	[[nodiscard]] constexpr std::size_t strlen(const std::basic_string<Char>& str) noexcept {
 		return str.size();
 	}
