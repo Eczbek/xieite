@@ -20,6 +20,11 @@
 			(noexcept(__VA_ARGS__)) \
 			requires(requires { __VA_ARGS__; }) \
 		) { return __VA_ARGS__; }
+#	define XIEITE_ARROW_NOEX(...) \
+		noexcept __VA_OPT__( \
+			-> decltype(auto) \
+			requires(requires { __VA_ARGS__; }) \
+		) { return __VA_ARGS__; }
 #	define XIEITE_ARROW_IF(_cond, _then, ...) \
 		noexcept((!static_cast<bool>(_cond) || noexcept(_then)) __VA_OPT__(&& noexcept(__VA_ARGS__))) \
 		-> decltype(auto) \
