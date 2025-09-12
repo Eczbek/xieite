@@ -33,7 +33,7 @@ namespace xieite {
 				if (digit == std::string::npos) {
 					break;
 				}
-				result = static_cast<Int>(result * static_cast<Int>(radix) + static_cast<Int>(digit));
+				(result *= static_cast<Int>(radix)) += static_cast<Int>(digit);
 			}
 			idx += i;
 			if (neg) {
@@ -63,7 +63,7 @@ namespace xieite {
 					continue;
 				}
 				if (integral) {
-					value = value * static_cast<Arith>(radix) + static_cast<Arith>(digit);
+					(value *= static_cast<Arith>(radix)) += static_cast<Artih>(digit);
 				} else {
 					value += static_cast<Arith>(digit) * (fractional_exp /= static_cast<Arith>(radix));
 				}

@@ -92,7 +92,7 @@ namespace xieite {
 				if (digit == std::string::npos) {
 					break;
 				}
-				*this = *this * radix + digit;
+				(*this *= radix) += digit;
 			}
 			this->neg = neg;
 		}
