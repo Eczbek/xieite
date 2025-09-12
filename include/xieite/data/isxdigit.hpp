@@ -29,12 +29,14 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr auto isxdigit(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::isxdigit(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isxdigit(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+		return xieite::isxdigit(xieite::make_str_view(str));
+	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr auto isxdigit(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::isxdigit(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isxdigit(const xieite::paren<Char[length]>& str) noexcept {
+		return xieite::isxdigit(xieite::make_str_view(str));
+	}
 }
 
 #endif

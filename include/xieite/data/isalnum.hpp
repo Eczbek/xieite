@@ -25,12 +25,14 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr auto isalnum(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::isalnum(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isalnum(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+		return xieite::isalnum(xieite::make_str_view(str));
+	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr auto isalnum(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::isalnum(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isalnum(const xieite::paren<Char[length]>& str) noexcept {
+		return xieite::isalnum(xieite::make_str_view(str));
+	}
 }
 
 #endif

@@ -5,7 +5,6 @@
 #	include <string_view>
 #	include "../data/make_str_view.hpp"
 #	include "../meta/paren.hpp"
-#	include "../pp/arrow.hpp"
 #	include "../pp/cases.hpp"
 #	include "../trait/is_char.hpp"
 
@@ -29,12 +28,14 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr auto islower(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::islower(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool islower(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+		return xieite::islower(xieite::make_str_view(str));
+	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr auto islower(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::islower(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool islower(const xieite::paren<Char[length]>& str) noexcept {
+		return xieite::islower(xieite::make_str_view(str));
+	}
 }
 
 #endif

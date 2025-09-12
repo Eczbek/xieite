@@ -25,12 +25,14 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr auto isgraph(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::isgraph(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isgraph(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+		return xieite::isgraph(xieite::make_str_view(str));
+	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr auto isgraph(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::isgraph(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isgraph(const xieite::paren<Char[length]>& str) noexcept {
+		return xieite::isgraph(xieite::make_str_view(str));
+	}
 }
 
 #endif

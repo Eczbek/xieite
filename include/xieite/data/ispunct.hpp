@@ -28,12 +28,14 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr auto ispunct(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::ispunct(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool ispunct(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+		return xieite::ispunct(xieite::make_str_view(str));
+	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr auto ispunct(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::ispunct(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool ispunct(const xieite::paren<Char[length]>& str) noexcept {
+		return xieite::ispunct(xieite::make_str_view(str));
+	}
 }
 
 #endif

@@ -25,12 +25,14 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr auto isalpha(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::isalpha(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isalpha(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+		return xieite::isalpha(xieite::make_str_view(str));
+	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr auto isalpha(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::isalpha(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isalpha(const xieite::paren<Char[length]>& str) noexcept {
+		return xieite::isalpha(xieite::make_str_view(str));
+	}
 }
 
 #endif

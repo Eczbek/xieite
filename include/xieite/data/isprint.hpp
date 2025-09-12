@@ -24,12 +24,14 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr auto isprint(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::isprint(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isprint(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+		return xieite::isprint(xieite::make_str_view(str));
+	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr auto isprint(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::isprint(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isprint(const xieite::paren<Char[length]>& str) noexcept {
+		return xieite::isprint(xieite::make_str_view(str));
+	}
 }
 
 #endif

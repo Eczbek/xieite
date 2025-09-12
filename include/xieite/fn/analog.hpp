@@ -1,6 +1,6 @@
 #ifndef DETAIL_XIEITE_HEADER_FN_ANALOG
 #	define DETAIL_XIEITE_HEADER_FN_ANALOG
-
+#
 #	include <cstddef>
 
 namespace DETAIL_XIEITE::analog {

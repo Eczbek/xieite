@@ -29,12 +29,14 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr auto isspace(const std::basic_string<Char, Traits, Alloc>& str)
-		XIEITE_ARROW(xieite::isspace(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isspace(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+		return xieite::isspace(xieite::make_str_view(str));
+	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr auto isspace(const xieite::paren<Char[length]>& str)
-		XIEITE_ARROW(xieite::isspace(xieite::make_str_view(str)))
+	[[nodiscard]] constexpr bool isspace(const xieite::paren<Char[length]>& str) noexcept {
+		return xieite::isspace(xieite::make_str_view(str));
+	}
 }
 
 #endif
