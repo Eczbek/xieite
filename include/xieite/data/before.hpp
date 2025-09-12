@@ -3,11 +3,11 @@
 #
 #	include <algorithm>
 #	include <ranges>
-#	include "../trait/is_fwd_input_range.hpp"
+#	include "../trait/is_fwd_range.hpp"
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<xieite::is_fwd_input_range Range0, xieite::is_fwd_input_range Range1>
+	template<xieite::is_fwd_range Range0, xieite::is_fwd_range Range1>
 	[[nodiscard]] constexpr auto before(Range0&& range, Range1&& subrange)
 	noexcept(xieite::is_noex_range<Range0> && xieite::is_noex_range<Range1>) {
 		return std::ranges::subrange(std::ranges::begin(range), std::ranges::search(range, subrange).begin());

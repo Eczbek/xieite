@@ -5,13 +5,13 @@
 #	include <iterator>
 #	include <ranges>
 #	include "../data/iters.hpp"
-#	include "../trait/is_fwd_input_sized_range.hpp"
+#	include "../trait/is_fwd_sized_range.hpp"
 #	include "../trait/is_invoc.hpp"
 #	include "../trait/is_noex_invoc.hpp"
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<xieite::is_fwd_input_sized_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>)> Fn = std::identity>
+	template<xieite::is_fwd_sized_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>)> Fn = std::identity>
 	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> find_most_consec_if(Range& range, Fn&& cond = {})
 	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_invoc<Fn, bool(std::ranges::range_common_reference_t<Range>)>) {
 		auto curr_begin = std::ranges::begin(range);

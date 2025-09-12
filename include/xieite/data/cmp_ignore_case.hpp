@@ -5,10 +5,10 @@
 #	include <ranges>
 #	include "../data/toupper.hpp"
 #	include "../trait/is_char.hpp"
-#	include "../trait/is_fwd_input_range.hpp"
+#	include "../trait/is_fwd_range.hpp"
 
 namespace xieite {
-	[[nodiscard]] constexpr std::strong_ordering cmp_ignore_case(xieite::is_fwd_input_range<[]<xieite::is_char> {}> auto&& lhs, xieite::is_fwd_input_range<[]<xieite::is_char> {}> auto&& rhs) noexcept {
+	[[nodiscard]] constexpr std::strong_ordering cmp_ignore_case(xieite::is_fwd_range<[]<xieite::is_char> {}> auto&& lhs, xieite::is_fwd_range<[]<xieite::is_char> {}> auto&& rhs) noexcept {
 		auto iter0 = std::ranges::begin(lhs);
 		auto iter1 = std::ranges::begin(rhs);
 		const auto end0 = std::ranges::end(lhs);
