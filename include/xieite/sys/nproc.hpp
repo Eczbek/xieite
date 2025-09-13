@@ -13,7 +13,7 @@
 #	endif
 
 namespace xieite {
-	inline std::size_t nproc() noexcept {
+	[[nodiscard]] inline std::size_t nproc() noexcept {
 #	if XIEITE_PLATFORM_TYPE_UNIX
 		return static_cast<std::size_t>(::sysconf(_SC_NPROCESSORS_ONLN));
 #	elif XIEITE_PLATFORM_TYPE_WINDOWS

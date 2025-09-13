@@ -9,6 +9,7 @@
 #	include <source_location>
 #	include "../data/fixed_str.hpp"
 #	include "../pp/fwd.hpp"
+#	include "../sys/isatty.hpp"
 
 namespace DETAIL_XIEITE::log {
 	template<int color, xieite::fixed_str tag, typename... Args>
@@ -23,7 +24,7 @@ namespace DETAIL_XIEITE::log {
 	private:
 		explicit impl(std::source_location src, std::FILE* file, std::format_string<Args...> fmt, Args&&... args) noexcept {
 			const std::string msg = std::format("{} [{:%F %T}] {}:{}:{}: {}", tag.view(), std::chrono::floor<std::chrono::seconds>(std::chrono::system_clock::now()), src.file_name(), src.function_name(), src.line(), std::format(fmt, XIEITE_FWD(args)...));
-			if ((file == stdout) || (file == stderr)) {
+			if (xieite::isatty(file)) {
 				std::println(file, "\x1B[{}m{}\x1B[0m", color, msg);
 			} else {
 				std::println(file, "{}", msg);
