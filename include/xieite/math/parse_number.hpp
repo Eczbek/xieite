@@ -30,7 +30,7 @@ namespace xieite {
 			const bool neg = parse_neg();
 			for (; i < strv.size(); ++i) {
 				const std::size_t digit = digits.find(strv[i]);
-				if (digit == std::string::npos) {
+				if (digit == std::string_view::npos) {
 					break;
 				}
 				(result *= static_cast<Int>(radix)) += static_cast<Int>(digit);
@@ -52,7 +52,7 @@ namespace xieite {
 			const bool neg = parse_neg();
 			for (; i < strv.size(); ++i) {
 				const std::size_t digit = digits.find(strv[i]);
-				if (digit == std::string::npos) {
+				if (digit == std::string_view::npos) {
 					if (config.point.contains(strv[i]) && (integral ^= 1)) {
 						break;
 					} else if (config.exp.contains(strv[i])) {
@@ -63,7 +63,7 @@ namespace xieite {
 					continue;
 				}
 				if (integral) {
-					(value *= static_cast<Arith>(radix)) += static_cast<Artih>(digit);
+					(value *= static_cast<Arith>(radix)) += static_cast<Arith>(digit);
 				} else {
 					value += static_cast<Arith>(digit) * (fractional_exp /= static_cast<Arith>(radix));
 				}

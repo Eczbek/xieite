@@ -89,7 +89,7 @@ namespace xieite {
 			str.remove_prefix(neg || config.plus.contains(str[0]));
 			for (char c : str) {
 				const std::size_t digit = config.digits.find(c);
-				if (digit == std::string::npos) {
+				if (digit == std::string_view::npos) {
 					break;
 				}
 				(*this *= radix) += digit;

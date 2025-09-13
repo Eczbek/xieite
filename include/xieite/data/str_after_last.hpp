@@ -14,7 +14,7 @@
 namespace xieite {
 	template<xieite::is_char Char, typename Traits>
 	[[nodiscard]] constexpr std::basic_string_view<Char, Traits> str_after_last(std::basic_string_view<Char, Traits> strv, auto&& delim) noexcept {
-		return xieite::substr(strv, strv.rfind(delim), std::string::npos, xieite::strlen(delim));
+		return xieite::substr(strv, strv.rfind(delim), std::string_view::npos, xieite::strlen(delim));
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>

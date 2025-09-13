@@ -19,7 +19,7 @@ namespace xieite {
 		std::size_t i = 0;
 		while (true) {
 			const std::size_t j = strv.find(delim, i);
-			if (j == std::string::npos) {
+			if (j == std::string_view::npos) {
 				break;
 			}
 			if (!discard_empty || (j - i)) {
