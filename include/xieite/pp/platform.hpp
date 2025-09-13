@@ -1370,7 +1370,7 @@
 #
 #	ifdef __DS__
 #		undef XIEITE_PLATFORM_TYPE_NINTENDO_DS
-#		define XIEITE_PLATFORM_TYPE_NINTENDO_DS
+#		define XIEITE_PLATFORM_TYPE_NINTENDO_DS 1
 #	endif
 #
 #	if (defined(__PPC__) || defined(__ppc__)) && defined(_GC) || defined(__GAMECUBE__)
@@ -1418,7 +1418,7 @@
 #		define XIEITE_PLATFORM_TYPE_OPENBSD 1
 #
 #		undef XIEITE_PLATFORM_MAJOR_OPENBSD
-#		define XIEITE_PLATFORM_MINOR_OPENBSD
+#		undef XIEITE_PLATFORM_MINOR_OPENBSD
 #		ifdef OpenBSD7_6
 #			define XIEITE_PLATFORM_MAJOR_OPENBSD 7
 #			define XIEITE_PLATFORM_MINOR_OPENBSD 6

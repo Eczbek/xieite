@@ -1219,9 +1219,6 @@
 #
 #		undef XIEITE_COMPILER_MINOR_MINGW_W64
 #		define XIEITE_COMPILER_MINOR_MINGW_W64 __MINGW64_VERSION_MINOR
-#
-#		undef XIEITE_COMPILER_PATCH_MINGW_W64
-#		define XIEITE_COMPILER_PATCH_MINGW_W64
 #	endif
 #
 #	if defined(mipsFortran) || defined(sgi) || defined(__sgi)

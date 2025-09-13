@@ -581,7 +581,7 @@
 #
 #	if defined(__MN10300__) || defined(__mn10300__)
 #		undef XIEITE_ARCH_TYPE_MN103
-#		define XIEITE_ARCH_TYPE_MN103
+#		define XIEITE_ARCH_TYPE_MN103 1
 #	endif
 #
 #	if defined(MIPS) || defined(_M_MRX000) || defined(__MIPS) || defined(__MIPS__) || defined(__mips) || defined(__mips__) || defined(mips)
