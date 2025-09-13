@@ -11,6 +11,7 @@
 #	include "../meta/make_seq.hpp"
 #	include "../meta/paren.hpp"
 #	include "../meta/seq.hpp"
+#	include "../meta/value_id.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_char.hpp"
@@ -50,9 +51,7 @@ namespace xieite {
 			return xieite::fixed_str<Char, (length + other_length)>(lhs.array + rhs.array);
 		}
 
-		[[nodiscard]] static constexpr std::size_t size() noexcept {
-			return length;
-		}
+		static constexpr auto size = xieite::value_id<length>();
 
 		template<typename Traits = std::char_traits<Char>>
 		[[nodiscard]] constexpr std::basic_string_view<Char, Traits> view() const noexcept {

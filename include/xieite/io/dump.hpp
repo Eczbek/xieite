@@ -16,22 +16,21 @@ using namespace std::literals;
 namespace xieite {
 	template<xieite::fixed_str delim = " ", bool newline = true, typename... Args>
 	void dump(std::FILE* file, Args&&... args) noexcept {
-		static constexpr std::size_t fmt_size = ([] -> std::size_t {
+		static constexpr auto fmt = xieite::unroll<([] -> std::size_t {
 			std::size_t offset = 0;
 			for (char c : delim.view()) {
 				offset += "{}"sv.contains(c);
 			}
-			return sizeof...(Args) * 2 + (sizeof...(Args) - !!sizeof...(Args)) * (delim.size() + offset);
-		})();
-		static constexpr auto fmt = xieite::unroll<fmt_size>([]<std::size_t... i> {
+			return sizeof...(Args) * 2 + (sizeof...(Args) - !!sizeof...(Args)) * (delim.size + offset);
+		})()>([]<std::size_t... i> {
 			std::size_t j = -1uz;
-			bool flag = false;
-			return xieite::fixed_array { (void(i), (((j += !flag) %= (2 + delim.size())) < 2) ? "{}"[j] : delim[j - 2 - (flag = !flag && (j > 2) && "{}"sv.contains(delim[j - 3]))])... };
+			bool ok = true;
+			return xieite::fixed_array { (void(i), (((j += ok) %= (2 + delim.size)) < 2) ? "{}"[j] : (void(ok = !ok || !"{}"sv.contains(delim[j - 2])), delim[j - 2]))... };
 		});
 		if constexpr (newline) {
-			std::println(file, std::format_string<Args...>(std::string_view(fmt.data(), fmt_size)), XIEITE_FWD(args)...);
+			std::println(file, std::format_string<Args...>(std::string_view(fmt.data(), fmt.size)), XIEITE_FWD(args)...);
 		} else {
-			std::print(file, std::format_string<Args...>(std::string_view(fmt.data(), fmt_size)), XIEITE_FWD(args)...);
+			std::print(file, std::format_string<Args...>(std::string_view(fmt.data(), fmt.size)), XIEITE_FWD(args)...);
 		}
 	}
 

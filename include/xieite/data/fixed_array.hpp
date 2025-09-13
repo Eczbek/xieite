@@ -10,6 +10,7 @@
 #	include "../fn/range_cmp.hpp"
 #	include "../fn/repeat.hpp"
 #	include "../fn/unroll.hpp"
+#	include "../meta/value_id.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/has_cp_ctor.hpp"
@@ -109,9 +110,7 @@ namespace xieite {
 			return false;
 		}
 
-		[[nodiscard]] static constexpr std::size_t size() noexcept {
-			return length;
-		}
+		static constexpr auto size = xieite::value_id<length>();
 
 		[[nodiscard]] static constexpr std::size_t max_size() noexcept {
 			return length;
@@ -207,9 +206,7 @@ namespace xieite {
 			return true;
 		}
 
-		[[nodiscard]] static constexpr std::size_t size() noexcept {
-			return 0;
-		}
+		static constexpr auto size = xieite::value_id<0uz>();
 
 		[[nodiscard]] static constexpr std::size_t max_size() noexcept {
 			return 0;
