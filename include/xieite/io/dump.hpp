@@ -7,8 +7,6 @@
 #	include "../data/fmt_join.hpp"
 #	include "../pp/fwd.hpp"
 
-using namespace std::literals;
-
 namespace xieite {
 	template<xieite::fixed_str delim = " ", bool newline = true, typename... Args>
 	void dump(std::FILE* file, Args&&... args) noexcept {
