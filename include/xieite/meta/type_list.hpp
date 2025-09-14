@@ -26,8 +26,8 @@ namespace xieite {
 		template<auto cond>
 		static constexpr bool any = xieite::is_satisfied_any<cond, Ts...>;
 
-		template<typename T, auto cmp = []<typename U, std::same_as<U>> {}>
-		static constexpr bool has = (... || xieite::is_satisfied<cmp, T, Ts>);
+		template<typename T, auto pred = []<typename U, std::same_as<U>> {}>
+		static constexpr bool has = (... || xieite::is_satisfied<pred, T, Ts>);
 
 	private:
 		template<std::size_t idx, typename... Us>
@@ -45,10 +45,10 @@ namespace xieite {
 			return idx;
 		})();
 
-		template<typename T, auto cmp = []<typename U, std::same_as<U>> {}>
+		template<typename T, auto pred = []<typename U, std::same_as<U>> {}>
 		static constexpr std::size_t idx_of =
 			xieite::type_list<Ts...>
-			::find_idx<[]<typename U> requires(xieite::is_satisfied<cmp, T, U>) {}>;
+			::find_idx<[]<typename U> requires(xieite::is_satisfied<pred, T, U>) {}>;
 	
 		template<auto cond>
 		requires(xieite::is_satisfied_any<cond, Ts...>)
@@ -176,9 +176,9 @@ namespace xieite {
 		using filter = xieite::fold<xieite::type_list<Ts...>::filter_impl<cond>, xieite::type_list<>, Ts...>;
 
 	private:
-		template<auto cmp>
+		template<auto pred>
 		static constexpr auto dedup_impl = []<typename List, typename T> {
-			if constexpr (!List::template has<T, cmp>) {
+			if constexpr (!List::template has<T, pred>) {
 				return typename List::template append<T>();
 			} else {
 				return List();
@@ -186,8 +186,8 @@ namespace xieite {
 		};
 
 	public:
-		template<auto cmp = []<typename T, std::same_as<T>> {}>
-		using dedup = xieite::fold<xieite::type_list<Ts...>::dedup_impl<cmp>, xieite::type_list<>, Ts...>;
+		template<auto pred = []<typename T, std::same_as<T>> {}>
+		using dedup = xieite::fold<xieite::type_list<Ts...>::dedup_impl<pred>, xieite::type_list<>, Ts...>;
 
 	private:
 		static constexpr auto repeat_impl = []<typename List, auto> {

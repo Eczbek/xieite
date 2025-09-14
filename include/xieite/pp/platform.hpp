@@ -697,9 +697,9 @@
 #	define XIEITE_PLATFORM_MAJOR_ZETA 0
 #	define XIEITE_PLATFORM_MINOR_ZETA 0
 #	define XIEITE_PLATFORM_PATCH_ZETA 0
-#	define XIEITE_PLATFORM_VER(_type, _cmp, _major, ...) DETAIL_XIEITE_PLATFORM_VER(_cmp, XIEITE_PLATFORM_MAJOR_##_type, XIEITE_PLATFORM_MINOR_##_type, XIEITE_PLATFORM_PATCH_##_type, _major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
+#	define XIEITE_PLATFORM_VER(_type, _op, _major, ...) DETAIL_XIEITE_PLATFORM_VER(_op, XIEITE_PLATFORM_MAJOR_##_type, XIEITE_PLATFORM_MINOR_##_type, XIEITE_PLATFORM_PATCH_##_type, _major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
 #
-#	define DETAIL_XIEITE_PLATFORM_VER(_cmp, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) (((((0 _cmp 0) && !(0 _cmp 1) && !(1 _cmp 0)) || (!(0 _cmp 0) && (0 _cmp 1) && (1 _cmp 0))) && (((_major0) _cmp (_major1)) && ((_minor0) _cmp (_minor1)) && ((_patch0) _cmp (_patch1)))) || ((_major0) _cmp (_major1)) || (((_major0) == (_major1)) && ((_minor0) _cmp (_minor1))) || (((_minor0) == (_minor1)) && ((_patch0) _cmp (_patch1))))
+#	define DETAIL_XIEITE_PLATFORM_VER(_op, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) (((((0 _op 0) && !(0 _op 1) && !(1 _op 0)) || (!(0 _op 0) && (0 _op 1) && (1 _op 0))) && (((_major0) _op (_major1)) && ((_minor0) _op (_minor1)) && ((_patch0) _op (_patch1)))) || ((_major0) _op (_major1)) || (((_major0) == (_major1)) && ((_minor0) _op (_minor1))) || (((_minor0) == (_minor1)) && ((_patch0) _op (_patch1))))
 #
 #	include "../pp/has_incl.hpp"
 #

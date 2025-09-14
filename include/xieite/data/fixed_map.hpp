@@ -15,7 +15,7 @@
 #	include "../trait/is_ref_to.hpp"
 
 namespace xieite {
-	template<typename Key, typename Value, std::size_t length, typename Hash = std::hash<Key>, typename Cmp = std::equal_to<>, typename Alloc = std::allocator<std::pair<const Key, Value*>>>
+	template<typename Key, typename Value, std::size_t length, typename Hash = std::hash<Key>, typename Pred = std::equal_to<>, typename Alloc = std::allocator<std::pair<const Key, Value*>>>
 	struct fixed_map {
 	public:
 		[[nodiscard]] fixed_map() = default;
@@ -51,7 +51,7 @@ namespace xieite {
 	private:
 		std::array<std::pair<Key, Value>, length> array;
 
-		template<typename Map = std::unordered_map<Key, Value*, Hash, Cmp, Alloc>>
+		template<typename Map = std::unordered_map<Key, Value*, Hash, Pred, Alloc>>
 		[[nodiscard]] Map& get_map() const noexcept {
 			static Map map = ([this] -> Map {
 				Map map;
@@ -67,9 +67,9 @@ namespace xieite {
 
 		[[nodiscard]] constexpr auto* get_val(this auto&& self, xieite::is_ref_to<Key> auto&& key) noexcept {
 			if consteval {
-				Cmp cmp;
+				Pred pred;
 				for (auto&& entry : self.array) {
-					if (std::invoke(cmp, entry.first, key)) {
+					if (std::invoke(pred, entry.first, key)) {
 						return &entry.second;
 					}
 				}

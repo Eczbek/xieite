@@ -89,9 +89,9 @@
 #	define XIEITE_STDLIB_MAJOR_Z88DK_C 0
 #	define XIEITE_STDLIB_MINOR_Z88DK_C 0
 #	define XIEITE_STDLIB_PATCH_Z88DK_C 0
-#	define XIEITE_STDLIB_VER(_type, _cmp, _major, ...) DETAIL_XIEITE_STDLIB_VER(_cmp, XIEITE_STDLIB_MAJOR_##_type, XIEITE_STDLIB_MINOR_##_type, XIEITE_STDLIB_PATCH_##_type, _major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
+#	define XIEITE_STDLIB_VER(_type, _op, _major, ...) DETAIL_XIEITE_STDLIB_VER(_op, XIEITE_STDLIB_MAJOR_##_type, XIEITE_STDLIB_MINOR_##_type, XIEITE_STDLIB_PATCH_##_type, _major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
 #
-#	define DETAIL_XIEITE_STDLIB_VER(_cmp, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) (((((0 _cmp 0) && !(0 _cmp 1) && !(1 _cmp 0)) || (!(0 _cmp 0) && (0 _cmp 1) && (1 _cmp 0))) && (((_major0) _cmp (_major1)) && ((_minor0) _cmp (_minor1)) && ((_patch0) _cmp (_patch1)))) || ((_major0) _cmp (_major1)) || (((_major0) == (_major1)) && ((_minor0) _cmp (_minor1))) || (((_minor0) == (_minor1)) && ((_patch0) _cmp (_patch1))))
+#	define DETAIL_XIEITE_STDLIB_VER(_op, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) (((((0 _op 0) && !(0 _op 1) && !(1 _op 0)) || (!(0 _op 0) && (0 _op 1) && (1 _op 0))) && (((_major0) _op (_major1)) && ((_minor0) _op (_minor1)) && ((_patch0) _op (_patch1)))) || ((_major0) _op (_major1)) || (((_major0) == (_major1)) && ((_minor0) _op (_minor1))) || (((_minor0) == (_minor1)) && ((_patch0) _op (_patch1))))
 #
 #	ifdef __BIONIC__
 #		undef XIEITE_STDLIB_TYPE_BIONIC_C

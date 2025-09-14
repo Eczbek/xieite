@@ -15,7 +15,7 @@
 #	include "../trait/is_ref_to.hpp"
 
 namespace xieite {
-	template<typename Key, std::size_t length, typename Hash = std::hash<Key>, typename Cmp = std::equal_to<>, typename Alloc = std::allocator<Key>>
+	template<typename Key, std::size_t length, typename Hash = std::hash<Key>, typename Pred = std::equal_to<>, typename Alloc = std::allocator<Key>>
 	struct fixed_set {
 	public:
 		[[nodiscard]] fixed_set() = default;
@@ -36,7 +36,7 @@ namespace xieite {
 			if consteval {
 				return std::ranges::contains(this->array, XIEITE_FWD(key));
 			} else {
-				static const auto set = std::unordered_set<Key, Hash, Cmp, Alloc>(std::from_range, this->array);
+				static const auto set = std::unordered_set<Key, Hash, Pred, Alloc>(std::from_range, this->array);
 				return set.has(XIEITE_FWD(key));
 			}
 		}

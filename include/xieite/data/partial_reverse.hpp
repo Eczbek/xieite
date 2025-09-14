@@ -9,15 +9,15 @@
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<std::ranges::bidirectional_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>)> Fn>
+	template<std::ranges::bidirectional_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>)> Pred>
 	requires(std::indirectly_swappable<std::ranges::iterator_t<Range>>)
-	constexpr void partial_reverse(Range& range, Fn&& cond)
-	noexcept(xieite::is_noex_invoc<Fn, bool(std::ranges::range_common_reference_t<Range>)> && xieite::is_noex_range<Range>) {
+	constexpr void partial_reverse(Range& range, Pred&& pred)
+	noexcept(xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>)> && xieite::is_noex_range<Range>) {
 		auto first = std::ranges::begin(range);
 		auto last = std::ranges::end(range);
 		while (true) {
-			first = std::ranges::find_if(first, last, cond);
-			last = std::ranges::find_last_if(first, last, cond);
+			first = std::ranges::find_if(first, last, pred);
+			last = std::ranges::find_last_if(first, last, pred);
 			if (first == last) {
 				break;
 			}
