@@ -8,7 +8,7 @@
 
 namespace xieite {
 	template<xieite::is_arith Arith>
-	[[nodiscard]] constexpr Arith diff(Arith a, std::type_identity_t<Arith> b) noexcept {
+	[[nodiscard]] constexpr xieite::try_unsigned<Arith> diff(Arith a, std::type_identity_t<Arith> b) noexcept {
 		if constexpr (std::floating_point<Arith>) {
 			return std::abs(a - b);
 		} else {
