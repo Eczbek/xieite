@@ -18,7 +18,7 @@ namespace xieite {
 	template<std::ranges::input_range Range>
 	[[nodiscard]] constexpr auto before_last(Range&& range, std::ranges::range_common_reference_t<Range> x)
 	noexcept(xieite::is_noex_range<Range>) {
-		return std::ranges::subrange(std::ranges::begin(range), std::ranges::find_last(range, x));
+		return std::ranges::subrange(std::ranges::begin(range), std::ranges::find_last(range, x).begin());
 	}
 }
 
