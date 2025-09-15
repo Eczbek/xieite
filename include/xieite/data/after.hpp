@@ -5,15 +5,14 @@
 #	include <functional>
 #	include <iterator>
 #	include <ranges>
-#	include "../trait/is_fwd_range.hpp"
 #	include "../trait/is_invoc.hpp"
 #	include "../trait/is_noex_invoc.hpp"
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<xieite::is_fwd_range Range0, xieite::is_fwd_range Range1, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range0>, std::ranges::range_common_reference_t<Range1>)> Pred = std::ranges::equal_to>
-	[[nodiscard]] constexpr auto after(Range0&& range, Range1&& subrange, Pred&& pred = {})
-	noexcept(xieite::is_noex_range<Range0> && xieite::is_noex_range<Range1> && xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range0>, std::ranges::range_common_reference_t<Range1>)>) {
+	template<std::ranges::forward_range Range, std::ranges::forward_range Subrange, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Subrange>)> Pred = std::ranges::equal_to>
+	[[nodiscard]] constexpr auto after(Range&& range, Subrange&& subrange, Pred&& pred = {})
+	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_range<Subrange> && xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Subrange>)>) {
 		return std::ranges::subrange(std::ranges::search(range, subrange, pred).end(), std::ranges::end(range));
 	}
 
