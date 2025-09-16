@@ -11,7 +11,6 @@
 #	include "../pp/lang.hpp"
 #	include "../pp/none.hpp"
 #	include "../pp/opt.hpp"
-#	include "../pp/or.hpp"
 #	include "../pp/pragma.hpp"
 #
 #	define XIEITE_ATTR_8_BIT_DATA DETAIL_XIEITE_ATTR(GCC, gnu, eightbit_data)
