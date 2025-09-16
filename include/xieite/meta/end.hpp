@@ -13,3 +13,5 @@ namespace xieite {
 }
 
 #endif
+
+// https://timsong-cpp.github.io/cppwp/n4950/temp#res.general-6.2
