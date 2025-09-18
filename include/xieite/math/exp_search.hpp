@@ -23,7 +23,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_arith Arith, xieite::is_invoc<bool(Arith)> Pred>
-	[[nodiscard]] constexpr Arith exp_search(Pred&& pred)
+	[[nodiscard]] constexpr Arith exp_search(Pred&& pred = {})
 	noexcept(xieite::is_noex_invoc<Pred, bool(Arith)>) {
 		if constexpr (!std::unsigned_integral<Arith>) {
 			if (std::invoke_r<bool>(pred, static_cast<Arith>(0))) {

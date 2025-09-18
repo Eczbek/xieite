@@ -31,12 +31,12 @@ namespace xieite {
 
 		void set_threads(std::size_t threads) noexcept {
 			const auto _ = std::unique_lock<std::mutex>(this->mutex);
-			const std::size_t curr = this->threads.size();
-			if (threads < curr) {
+			const std::size_t current = this->threads.size();
+			if (threads < current) {
 				this->threads.resize(threads);
 				return;
 			}
-			while (threads-- > curr) {
+			while (threads-- > current) {
 				this->threads.emplace_back([this](std::stop_token token) -> void {
 					while (true) {
 						auto lock = std::unique_lock<std::mutex>(this->mutex);

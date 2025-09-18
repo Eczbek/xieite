@@ -11,8 +11,8 @@
 namespace xieite {
 	template<std::ranges::bidirectional_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>)> Pred>
 	requires(std::indirectly_swappable<std::ranges::iterator_t<Range>>)
-	constexpr void partial_reverse(Range& range, Pred&& pred)
-	noexcept(xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>)> && xieite::is_noex_range<Range>) {
+	constexpr void partial_reverse(Range& range, Pred&& pred = {})
+	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>)>) {
 		auto first = std::ranges::begin(range);
 		auto last = std::ranges::end(range);
 		while (true) {

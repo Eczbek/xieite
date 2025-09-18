@@ -13,7 +13,7 @@ namespace xieite {
 	template<std::ranges::forward_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> Pred = std::equal_to<>>
 	requires(std::ranges::sized_range<Range>)
 	[[nodiscard]] constexpr bool palindrome(Range&& range, Pred&& pred = {})
-	noexcept(xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> && xieite::is_noex_range<Range>) {
+	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)>) {
 		auto iter0 = std::ranges::begin(range);
 		auto iter1 = std::ranges::end(range);
 		for (std::size_t i = std::ranges::size(range) / 2; i--;) {
