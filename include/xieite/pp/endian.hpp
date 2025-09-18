@@ -57,5 +57,5 @@
 #	endif
 #endif
 
-// https://sourceforge.net/p/predef/wiki/Endianness/
+// https://github.com/cpredef/predef/blob/master/Endianness.md
 // https://github.com/isar/libmdbx/blob/9fa76a56fcb548f539094d2168e5cb3406d4e7e1/src/preface.h#L520-L541
