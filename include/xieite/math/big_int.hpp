@@ -32,7 +32,8 @@ namespace xieite {
 	public:
 		using type = UInt;
 
-		[[nodiscard]] explicit(false) constexpr big_int(std::integral auto x = 0) noexcept
+		template<std::integral Int = UInt>
+		[[nodiscard]] explicit(false) constexpr big_int(Int x = 0) noexcept
 		: neg(xieite::neg(x)) {
 			auto abs = xieite::abs(x);
 			do {
@@ -79,20 +80,20 @@ namespace xieite {
 			this->trim();
 		}
 
-		[[nodiscard]] explicit constexpr big_int(std::string_view str, xieite::ssize_t radix = 10, const xieite::number_str_config& config = {}) noexcept
+		[[nodiscard]] explicit constexpr big_int(std::string_view strv, xieite::ssize_t radix = 10, const xieite::number_str_config& config = {}) noexcept
 		: neg(false) {
 			*this = 0;
 			if (!radix) {
 				return;
 			}
-			const bool neg = config.minus.contains(str[0]);
-			str.remove_prefix(neg || config.plus.contains(str[0]));
-			for (char c : str) {
-				const std::size_t digit = config.digits.find(c);
-				if (digit == std::string_view::npos) {
-					break;
+			const bool neg = config.minus.contains(strv[0]);
+			strv.remove_prefix(neg || config.plus.contains(strv[0]));
+			for (char c : strv) {
+				if (const std::size_t digit = config.digits.find(c); digit != std::string_view::npos) {
+					(*this *= radix) += digit;
+					continue;
 				}
-				(*this *= radix) += digit;
+				break;
 			}
 			this->neg = neg;
 		}
@@ -116,13 +117,12 @@ namespace xieite {
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<UInt>& lhs, const xieite::big_int<UInt>& rhs) noexcept {
 			std::strong_ordering order = lhs.neg <=> rhs.neg;
-			return !std::is_eq(order)
-				|| (lhs.neg
-					? (!std::is_eq(order = rhs.data.size() <=> lhs.data.size())
-						|| (order = xieite::range_cmp(std::views::reverse(rhs.data), std::views::reverse(lhs.data)), true))
-					: (!std::is_eq(order = lhs.data.size() <=> rhs.data.size())
-						|| (order = xieite::range_cmp(std::views::reverse(lhs.data), std::views::reverse(rhs.data)), true))),
-				order;
+			void(!std::is_eq(order) || (lhs.neg
+				? (!std::is_eq(order = rhs.data.size() <=> lhs.data.size())
+					|| (void(order = xieite::range_cmp(std::views::reverse(rhs.data), std::views::reverse(lhs.data))), true))
+				: (!std::is_eq(order = lhs.data.size() <=> rhs.data.size())
+					|| (void(order = xieite::range_cmp(std::views::reverse(lhs.data), std::views::reverse(rhs.data))), true))));
+			return order;
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<UInt>& lhs, std::integral auto rhs) noexcept {

@@ -23,8 +23,8 @@ namespace xieite {
 
 		template<std::integral Int = UInt>
 		[[nodiscard]] explicit(false) constexpr wide_uint(Int x = 0) noexcept
-		: lo(static_cast<UInt>(x & static_cast<UInt>(-1)))
-		, hi(static_cast<UInt>(xieite::right_shift(x, xieite::bit_size<UInt>)))
+		: lo(static_cast<UInt>(x) & static_cast<UInt>(-1))
+		, hi(xieite::right_shift(static_cast<UInt>(x), xieite::bit_size<UInt>))
 		{}
 
 		template<std::integral Int>
@@ -32,7 +32,7 @@ namespace xieite {
 			return static_cast<Int>(this->lo) | xieite::left_shift(static_cast<Int>(this->hi), xieite::bit_size<UInt>);
 		}
 		
-		[[nodiscard]] explicit(false) constexpr operator bool() const noexcept {
+		[[nodiscard]] explicit constexpr operator bool() const noexcept {
 			return this->lo || this->hi;
 		}
 
