@@ -8,13 +8,13 @@
 #	include <ranges>
 #	include <utility>
 #	include "../fn/unroll.hpp"
-#	include "../trait/is_invoc.hpp"
-#	include "../trait/is_noex_invoc.hpp"
+#	include "../trait/is_lref_invoc.hpp"
+#	include "../trait/is_noex_lref_invoc.hpp"
 
 namespace xieite {
-	template<typename Value, std::size_t length, std::ranges::input_range Range = std::initializer_list<Value>, xieite::is_invoc<Value(std::ranges::range_common_reference_t<Range>)> Conv = std::identity>
+	template<typename Value, std::size_t length, std::ranges::input_range Range = std::initializer_list<Value>, xieite::is_lref_invoc<Value(std::ranges::range_common_reference_t<Range>)> Conv = std::identity>
 	[[nodiscard]] constexpr std::array<Value, length> make_array(Range&& range, Conv&& conv = {})
-	noexcept(xieite::is_noex_invoc<Conv, Value(std::ranges::range_common_reference_t<Range>)>) {
+	noexcept(xieite::is_noex_lref_invoc<Conv, Value(std::ranges::range_common_reference_t<Range>)>) {
 		return xieite::unroll<length>([&range, &conv]<std::size_t... i> -> std::array<Value, length> {
 			auto iter = std::ranges::begin(range);
 			return std::array<Value, length> {

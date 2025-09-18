@@ -3,14 +3,14 @@
 #
 #	include <functional>
 #	include <ranges>
-#	include "../trait/is_invoc.hpp"
-#	include "../trait/is_noex_invoc.hpp"
+#	include "../trait/is_lref_invoc.hpp"
+#	include "../trait/is_noex_lref_invoc.hpp"
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<std::ranges::forward_range Range, xieite::is_invoc<bool(std::ranges::subrange<std::ranges::iterator_t<Range>>)> Pred>
+	template<std::ranges::forward_range Range, xieite::is_lref_invoc<bool(std::ranges::subrange<std::ranges::iterator_t<Range>>)> Pred>
 	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> find_most_consec_if(Range& range, std::ranges::range_size_t<Range> subrange_size, Pred&& pred = {})
-	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_invoc<Pred, bool(std::ranges::subrange<std::ranges::iterator_t<Range>>)>) {
+	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_lref_invoc<Pred, bool(std::ranges::subrange<std::ranges::iterator_t<Range>>)>) {
 		auto most_begin = std::ranges::end(range);
 		auto most_end = most_begin;
 		std::ranges::range_size_t<Range> most_consec = 0;
@@ -46,9 +46,9 @@ namespace xieite {
 		};
 	}
 
-	template<std::ranges::forward_range Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>)> Pred>
+	template<std::ranges::forward_range Range, xieite::is_lref_invoc<bool(std::ranges::range_common_reference_t<Range>)> Pred>
 	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> find_most_consec_if(Range& range, Pred&& pred = {})
-	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>)>) {
+	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_lref_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>)>) {
 		return xieite::find_most_consec_if(range, 1, [&](auto&& subrange) { return std::invoke_r<bool>(pred, subrange.front()); });
 	}
 }

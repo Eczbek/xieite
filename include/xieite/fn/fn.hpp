@@ -7,7 +7,7 @@
 #	include <type_traits>
 #	include "../pp/debug.hpp"
 #	include "../pp/fwd.hpp"
-#	include "../trait/is_invoc.hpp"
+#	include "../trait/is_lref_invoc.hpp"
 #	include "../trait/is_ref_to.hpp"
 
 namespace xieite {
@@ -22,7 +22,7 @@ namespace xieite {
 		[[nodiscard]] constexpr fn(const xieite::fn<Ret(Args...)>& fn) noexcept
 		: ptr(fn.ptr->clone()) {}
 
-		template<xieite::is_invoc<Ret(Args...)> Fn>
+		template<xieite::is_lref_invoc<Ret(Args...)> Fn>
 		requires(!std::same_as<std::remove_cvref_t<Fn>, xieite::fn<Ret(Args...)>>)
 		[[nodiscard]] constexpr fn(Fn&& fn) noexcept
 		: ptr(std::make_unique<xieite::fn<Ret(Args...) noexcept(noex)>::derived<std::remove_cvref_t<Fn>>>(XIEITE_FWD(fn))) {}

@@ -2,11 +2,11 @@
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_HASHER
 #
 #	include <cstddef>
-#	include "../trait/is_invoc.hpp"
+#	include "../trait/is_lref_invoc.hpp"
 
 namespace xieite {
 	template<typename T, typename Arg>
-	concept is_hasher = xieite::is_invoc<T, std::size_t(Arg)>;
+	concept is_hasher = xieite::is_lref_invoc<T, std::size_t(Arg)>;
 }
 
 #endif

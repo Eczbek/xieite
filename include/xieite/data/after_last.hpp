@@ -5,6 +5,7 @@
 #	include <functional>
 #	include <iterator>
 #	include <ranges>
+#	include "../pp/fwd.hpp"
 #	include "../trait/is_invoc.hpp"
 #	include "../trait/is_noex_invoc.hpp"
 #	include "../trait/is_noex_range.hpp"
@@ -13,7 +14,7 @@ namespace xieite {
 	template<std::ranges::forward_range Range, std::ranges::forward_range Subrange, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Subrange>)> Pred = std::ranges::equal_to>
 	[[nodiscard]] constexpr auto after_last(Range&& range, Subrange&& subrange, Pred&& pred = {})
 	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_range<Subrange> && xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Subrange>)>) {
-		return std::ranges::subrange(std::ranges::find_end(range, subrange, pred).end(), std::ranges::end(range));
+		return std::ranges::subrange(std::ranges::find_end(range, subrange, XIEITE_FWD(pred)).end(), std::ranges::end(range));
 	}
 
 	template<std::ranges::input_range Range>

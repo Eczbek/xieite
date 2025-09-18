@@ -7,14 +7,14 @@
 #	include <vector>
 #	include "../trait/is_arith.hpp"
 #	include "../trait/is_fwd_sized_range.hpp"
-#	include "../trait/is_invoc.hpp"
-#	include "../trait/is_noex_invoc.hpp"
+#	include "../trait/is_lref_invoc.hpp"
+#	include "../trait/is_noex_lref_invoc.hpp"
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<xieite::is_fwd_sized_range<[]<xieite::is_arith> {}> Range, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> Pred = std::greater<>>
+	template<xieite::is_fwd_sized_range<[]<xieite::is_arith> {}> Range, xieite::is_lref_invoc<bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)> Pred = std::greater<>>
 	[[nodiscard]] constexpr std::vector<std::ranges::iterator_t<Range>> modes(Range& range, Pred&& pred = {})
-	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)>) {
+	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_lref_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Range>)>) {
 		std::vector<std::ranges::iterator_t<Range>> iters;
 		auto prev = std::ranges::begin(range);
 		auto current = prev;

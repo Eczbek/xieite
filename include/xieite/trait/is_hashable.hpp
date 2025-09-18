@@ -3,11 +3,11 @@
 #
 #	include <cstddef>
 #	include <functional>
-#	include "../trait/is_invoc.hpp"
+#	include "../trait/is_lref_invoc.hpp"
 
 namespace xieite {
 	template<typename T, typename Hasher = std::hash<T>>
-	concept is_hashable = xieite::is_invoc<Hasher, std::size_t(T)>;
+	concept is_hashable = xieite::is_lref_invoc<Hasher, std::size_t(T)>;
 }
 
 #endif
