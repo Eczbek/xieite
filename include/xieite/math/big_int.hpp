@@ -111,7 +111,7 @@ namespace xieite {
 			return this->neg ? -result : result;
 		}
 
-		[[nodiscard]] explicit(false) constexpr operator bool() const noexcept {
+		[[nodiscard]] explicit constexpr operator bool() const noexcept {
 			return (this->data.size() > 1) || this->data[0];
 		}
 
