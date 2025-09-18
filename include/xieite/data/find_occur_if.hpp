@@ -26,7 +26,7 @@ namespace xieite {
 		return std::ranges::subrange(end, end);
 	}
 
-	template<std::ranges::forward_range Range, xieite::is_lref_invoc<bool(std::ranges::range_common_reference_t<Range>)> Pred>
+	template<std::ranges::forward_range Range, xieite::is_lref_invoc<bool(std::ranges::range_common_reference_t<Range>)> Pred = std::identity>
 	[[nodiscard]] constexpr std::ranges::iterator_t<Range> find_occur_if(Range& range, std::ranges::range_size_t<Range> n, Pred&& pred = {})
 	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_lref_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>)>) {
 		return xieite::find_occur_if(range, n, 1, [&](auto&& subrange) { return std::invoke_r<bool>(pred, subrange.front()); }).begin();

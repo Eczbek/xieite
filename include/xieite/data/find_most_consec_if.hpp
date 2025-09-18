@@ -46,7 +46,7 @@ namespace xieite {
 		};
 	}
 
-	template<std::ranges::forward_range Range, xieite::is_lref_invoc<bool(std::ranges::range_common_reference_t<Range>)> Pred>
+	template<std::ranges::forward_range Range, xieite::is_lref_invoc<bool(std::ranges::range_common_reference_t<Range>)> Pred = std::identity>
 	[[nodiscard]] constexpr std::ranges::subrange<std::ranges::iterator_t<Range>> find_most_consec_if(Range& range, Pred&& pred = {})
 	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_lref_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>)>) {
 		return xieite::find_most_consec_if(range, 1, [&](auto&& subrange) { return std::invoke_r<bool>(pred, subrange.front()); });
