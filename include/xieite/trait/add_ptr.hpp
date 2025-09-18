@@ -13,7 +13,7 @@ namespace DETAIL_XIEITE::add_ptr {
 
 namespace xieite {
 	template<typename T, std::size_t depth = 1>
-	using add_ptr = xieite::fold_for<DETAIL_XIEITE::add_ptr::impl, std::remove_reference<T>, depth>;
+	using add_ptr = xieite::fold_for<DETAIL_XIEITE::add_ptr::impl, std::remove_reference<T>, depth>::type;
 }
 
 #endif

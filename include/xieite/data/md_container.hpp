@@ -12,7 +12,7 @@ namespace DETAIL_XIEITE::md_container {
 
 namespace xieite {
 	template<template<typename> typename Container, typename Value, std::size_t rank>
-	using md_container = xieite::fold_for<DETAIL_XIEITE::md_container::impl<Container>, xieite::type_id<Value>, rank>;
+	using md_container = xieite::fold_for<DETAIL_XIEITE::md_container::impl<Container>, xieite::type_id<Value>, rank>::type;
 }
 
 #endif
