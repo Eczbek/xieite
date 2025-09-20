@@ -20,8 +20,8 @@ namespace xieite {
 		[[nodiscard]] friend constexpr auto operator<=>(xieite::value_id<x>, auto&& rhs)
 			XIEITE_ARROW(x <=> XIEITE_FWD(rhs))
 
-		[[nodiscard]] friend constexpr bool operator==(xieite::value_id<x>, auto&& rhs)
-			XIEITE_ARROW_RET(x == XIEITE_FWD(rhs))
+		[[nodiscard]] friend constexpr auto operator==(xieite::value_id<x>, auto&& rhs)
+			XIEITE_ARROW(x == XIEITE_FWD(rhs))
 	};
 }
 
