@@ -37,8 +37,10 @@ namespace xieite {
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xieite::wide_uint<UInt> lhs, xieite::wide_uint<UInt> rhs) noexcept {
-			std::strong_ordering order = lhs.hi <=> rhs.hi;
-			return !std::is_eq(order) || (order = lhs.lo <=> rhs.lo, true), order;
+			if (const std::strong_ordering order = lhs.hi <=> rhs.hi; !std::is_eq(order)) {
+				return order;
+			}
+			return lhs.lo <=> rhs.lo;
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(xieite::wide_uint<UInt> lhs, xieite::wide_uint<UInt> rhs) noexcept {

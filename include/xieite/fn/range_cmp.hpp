@@ -20,7 +20,7 @@ namespace xieite {
 		bool exhaust0 = (begin0 == end0);
 		bool exhaust1 = (begin1 == end1);
 		for (; !exhaust0 && !exhaust1; exhaust0 = (++begin0 == end0), exhaust1 = (++begin1 == end1)) {
-			if (auto result = std::invoke(cmp, std::invoke(proj, *begin0), std::invoke(proj, *begin1)); !std::is_eq(result)) {
+			if (const auto result = std::invoke(cmp, std::invoke(proj, *begin0), std::invoke(proj, *begin1)); !std::is_eq(result)) {
 				return result;
 			}
 		}

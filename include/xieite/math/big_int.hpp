@@ -117,11 +117,15 @@ namespace xieite {
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::big_int<UInt>& lhs, const xieite::big_int<UInt>& rhs) noexcept {
 			std::strong_ordering order = lhs.neg <=> rhs.neg;
-			void(!std::is_eq(order) || (lhs.neg
-				? (!std::is_eq(order = rhs.data.size() <=> lhs.data.size())
-					|| (void(order = xieite::range_cmp(std::views::reverse(rhs.data), std::views::reverse(lhs.data))), true))
-				: (!std::is_eq(order = lhs.data.size() <=> rhs.data.size())
-					|| (void(order = xieite::range_cmp(std::views::reverse(lhs.data), std::views::reverse(rhs.data))), true))));
+			if (std::is_eq(order)) {
+				if (lhs.neg) {
+					if (std::is_eq(order = rhs.data.size() <=> lhs.data.size())) {
+						return xieite::range_cmp(std::views::reverse(rhs.data), std::views::reverse(lhs.data));
+					}
+				} else if (std::is_eq(order = lhs.data.size() <=> rhs.data.size())) {
+					return xieite::range_cmp(std::views::reverse(lhs.data), std::views::reverse(rhs.data));
+				}
+			}
 			return order;
 		}
 
