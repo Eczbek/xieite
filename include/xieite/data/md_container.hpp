@@ -2,17 +2,17 @@
 #	define DETAIL_XIEITE_HEADER_DATA_MD_CONTAINER
 #
 #	include <cstddef>
-#	include "../meta/type_id.hpp"
+#	include "../meta/wrap_type.hpp"
 #	include "../meta/fold_for.hpp"
 
 namespace DETAIL_XIEITE::md_container {
 	template<template<typename> typename Container>
-	constexpr auto impl = []<typename Prev, auto> { return xieite::type_id<Container<typename Prev::type>>(); };
+	constexpr auto impl = []<typename Prev, auto> { return xieite::wrap_type<Container<typename Prev::type>>(); };
 }
 
 namespace xieite {
 	template<template<typename> typename Container, typename Value, std::size_t rank>
-	using md_container = xieite::fold_for<DETAIL_XIEITE::md_container::impl<Container>, xieite::type_id<Value>, rank>::type;
+	using md_container = xieite::fold_for<DETAIL_XIEITE::md_container::impl<Container>, xieite::wrap_type<Value>, rank>::type;
 }
 
 #endif

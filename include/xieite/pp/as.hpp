@@ -9,8 +9,9 @@
 namespace DETAIL_XIEITE::AS {
 	template<typename T>
 	struct impl {
-		[[nodiscard]] friend constexpr auto operator->*(auto&& x, DETAIL_XIEITE::AS::impl<T>)
-			XIEITE_ARROW(static_cast<T>(XIEITE_FWD(x)))
+		[[nodiscard]] friend constexpr auto operator->*(auto&& x, DETAIL_XIEITE::AS::impl<T>) XIEITE_ARROW(
+			static_cast<T>(XIEITE_FWD(x))
+		)
 	};
 }
 

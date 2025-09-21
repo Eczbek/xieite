@@ -28,16 +28,19 @@ namespace xieite {
 	}
 
 	template<std::ranges::input_range Range, std::input_iterator Iter, typename Cmp = decltype(xieite::synth_three_way), typename Proj = std::identity>
-	[[nodiscard]] constexpr auto range_cmp(Range&& lhs, Iter begin, std::sentinel_for<Iter> auto end, Cmp&& cmp = {}, Proj&& proj = {})
-		XIEITE_ARROW(xieite::range_cmp(std::ranges::begin(lhs), std::ranges::end(lhs), begin, end, XIEITE_FWD(cmp), XIEITE_FWD(proj)))
+	[[nodiscard]] constexpr auto range_cmp(Range&& lhs, Iter begin, std::sentinel_for<Iter> auto end, Cmp&& cmp = {}, Proj&& proj = {}) XIEITE_ARROW(
+		xieite::range_cmp(std::ranges::begin(lhs), std::ranges::end(lhs), begin, end, XIEITE_FWD(cmp), XIEITE_FWD(proj))
+	)
 
 	template<std::input_iterator Iter, typename Cmp = decltype(xieite::synth_three_way), typename Proj = std::identity>
-	[[nodiscard]] constexpr auto range_cmp(Iter begin, std::sentinel_for<Iter> auto end, std::ranges::input_range auto&& rhs, Cmp&& cmp = {}, Proj&& proj = {})
-		XIEITE_ARROW(xieite::range_cmp(begin, end, std::ranges::begin(rhs), std::ranges::end(rhs), XIEITE_FWD(cmp), XIEITE_FWD(proj)))
+	[[nodiscard]] constexpr auto range_cmp(Iter begin, std::sentinel_for<Iter> auto end, std::ranges::input_range auto&& rhs, Cmp&& cmp = {}, Proj&& proj = {}) XIEITE_ARROW(
+		xieite::range_cmp(begin, end, std::ranges::begin(rhs), std::ranges::end(rhs), XIEITE_FWD(cmp), XIEITE_FWD(proj))
+	)
 
 	template<std::ranges::input_range Range0, std::ranges::input_range Range1, typename Cmp = decltype(xieite::synth_three_way), typename Proj = std::identity>
-	[[nodiscard]] constexpr auto range_cmp(Range0&& lhs, Range1&& rhs, Cmp&& cmp = {}, Proj&& proj = {})
-		XIEITE_ARROW(xieite::range_cmp(std::ranges::begin(lhs), std::ranges::end(lhs), std::ranges::begin(rhs), std::ranges::end(rhs), XIEITE_FWD(cmp), XIEITE_FWD(proj)))
+	[[nodiscard]] constexpr auto range_cmp(Range0&& lhs, Range1&& rhs, Cmp&& cmp = {}, Proj&& proj = {}) XIEITE_ARROW(
+		xieite::range_cmp(std::ranges::begin(lhs), std::ranges::end(lhs), std::ranges::begin(rhs), std::ranges::end(rhs), XIEITE_FWD(cmp), XIEITE_FWD(proj))
+	)
 }
 
 #endif

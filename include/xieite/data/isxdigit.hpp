@@ -5,7 +5,7 @@
 #	include <string_view>
 #	include "../data/isdigit.hpp"
 #	include "../data/make_str_view.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../pp/cases.hpp"
 #	include "../trait/is_char.hpp"
 
@@ -34,7 +34,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr bool isxdigit(const xieite::paren<Char[length]>& str) noexcept {
+	[[nodiscard]] constexpr bool isxdigit(const xieite::type<Char[length]>& str) noexcept {
 		return xieite::isxdigit(xieite::make_str_view(str));
 	}
 }

@@ -6,8 +6,11 @@
 #	include "../pp/fwd.hpp"
 
 namespace xieite {
-	[[nodiscard]] constexpr auto y_combinator(auto&& fn)
-		XIEITE_ARROW([fn = XIEITE_FWD(fn)](auto&&... args) mutable XIEITE_ARROW(std::invoke(fn, fn, XIEITE_FWD(args)...)))
+	[[nodiscard]] constexpr auto y_combinator(auto&& fn) XIEITE_ARROW(
+		[fn = XIEITE_FWD(fn)](auto&&... args) mutable XIEITE_ARROW(
+			std::invoke(fn, fn, XIEITE_FWD(args)...)
+		)
+	)
 }
 
 #endif

@@ -6,7 +6,7 @@
 #	include <string>
 #	include <type_traits>
 #	include "../data/make_str_view.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_char.hpp"
 
@@ -32,7 +32,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_truncate(const xieite::paren<Char[length]>& str, std::size_t target_length, auto&& sfx, const Alloc& alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_truncate(const xieite::type<Char[length]>& str, std::size_t target_length, auto&& sfx, const Alloc& alloc = {}) noexcept(false) {
 		return xieite::str_truncate(std::basic_string<Char, Traits, Alloc>(str, length, alloc), target_length, XIEITE_FWD(sfx), alloc);
 	}
 }

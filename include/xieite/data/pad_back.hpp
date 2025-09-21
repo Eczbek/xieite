@@ -5,7 +5,7 @@
 #	include <memory>
 #	include <string>
 #	include <string_view>
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
@@ -22,7 +22,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad_back(const xieite::paren<Char[length]>& str, std::size_t target_length, Char c = ' ', const Alloc& alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad_back(const xieite::type<Char[length]>& str, std::size_t target_length, Char c = ' ', const Alloc& alloc = {}) noexcept(false) {
 		return xieite::pad_back(std::basic_string<Char, Traits, Alloc>(str, length, alloc), target_length, c, alloc);
 	}
 }

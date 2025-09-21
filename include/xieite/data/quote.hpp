@@ -6,7 +6,7 @@
 #	include <string>
 #	include <string_view>
 #	include "../data/str_replace.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
@@ -24,7 +24,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad(const xieite::paren<Char[length]>& str, Char delim = '"', Char esc = '\\', const Alloc& alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad(const xieite::type<Char[length]>& str, Char delim = '"', Char esc = '\\', const Alloc& alloc = {}) noexcept(false) {
 		return xieite::quote(std::basic_string<Char, Traits, Alloc>(str, length, alloc), delim, esc, alloc);
 	}
 }

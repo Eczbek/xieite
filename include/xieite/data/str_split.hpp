@@ -8,7 +8,7 @@
 #	include <type_traits>
 #	include <vector>
 #	include "../data/make_str_view.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_char.hpp"
 
@@ -44,7 +44,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, typename VecAlloc = std::allocator<std::basic_string_view<Char, Traits>>, std::size_t length>
-	[[nodiscard]] constexpr std::vector<std::basic_string_view<Char, Traits>, VecAlloc> str_split(const xieite::paren<Char[length]>& str, auto&& delim, bool discard_empty = false, const VecAlloc& vec_alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::vector<std::basic_string_view<Char, Traits>, VecAlloc> str_split(const xieite::type<Char[length]>& str, auto&& delim, bool discard_empty = false, const VecAlloc& vec_alloc = {}) noexcept(false) {
 		return xieite::str_split(xieite::make_str_view<Char, Traits>(str), XIEITE_FWD(delim), discard_empty, XIEITE_FWD(vec_alloc));
 	}
 }

@@ -38,8 +38,10 @@ namespace xieite {
 			return *this;
 		}
 
-		constexpr xieite::ptr<Value>& operator=(auto&& x)
-			XIEITE_ARROW_RET(*this ? void(*this->value = XIEITE_FWD(x)) : void(), *this)
+		constexpr xieite::ptr<Value>& operator=(auto&& x) XIEITE_ARROW_RET(
+			*this ? void(*this->value = XIEITE_FWD(x)) : void(),
+			*this
+		)
 
 		[[nodiscard]] constexpr operator bool() const noexcept {
 			return this->value;

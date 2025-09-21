@@ -7,7 +7,7 @@
 #	include "../meta/end.hpp"
 #	include "../meta/fold.hpp"
 #	include "../meta/fold_for.hpp"
-#	include "../meta/type_id.hpp"
+#	include "../meta/wrap_type.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_satisfied.hpp"
@@ -31,12 +31,12 @@ namespace xieite {
 
 	private:
 		template<std::size_t idx, typename... Us>
-		static xieite::type_id<Us...[idx]> at_impl(xieite::type_id<Us>...);
+		static xieite::wrap_type<Us...[idx]> at_impl(xieite::wrap_type<Us>...);
 
 	public:
 		template<std::size_t idx>
 		requires(idx < sizeof...(Ts))
-		using at = decltype(xieite::type_list<Ts...>::at_impl<idx>(xieite::type_id<Ts>()...))::type;
+		using at = decltype(xieite::type_list<Ts...>::at_impl<idx>(xieite::wrap_type<Ts>()...))::type;
 
 		template<auto cond>
 		static constexpr std::size_t find_idx = ([] -> std::size_t {
@@ -54,8 +54,9 @@ namespace xieite {
 		requires(xieite::is_satisfied_any<cond, Ts...>)
 		using find = xieite::type_list<Ts...>::at<xieite::type_list<Ts...>::find_idx<cond>>;
 
-		static constexpr auto apply(auto&& fn, auto&&... args)
-			XIEITE_ARROW(XIEITE_FWD(fn).template operator()<Ts...>(XIEITE_FWD(args)...))
+		static constexpr auto apply(auto&& fn, auto&&... args) XIEITE_ARROW(
+			XIEITE_FWD(fn).template operator()<Ts...>(XIEITE_FWD(args)...)
+		)
 
 		template<auto cond>
 		static constexpr bool satisfies = xieite::is_satisfied<cond, Ts...>;
@@ -65,11 +66,11 @@ namespace xieite {
 
 	private:
 		template<typename Ret, typename... Us>
-		static xieite::type_id<Ret(Us...)> as_fn_impl(xieite::type_id<Us>...);
+		static xieite::wrap_type<Ret(Us...)> as_fn_impl(xieite::wrap_type<Us>...);
 
 	public:
 		template<typename Ret>
-		using as_fn = decltype(xieite::type_list<Ts...>::as_fn_impl<Ret>(xieite::type_id<Ts>()...))::type;
+		using as_fn = decltype(xieite::type_list<Ts...>::as_fn_impl<Ret>(xieite::wrap_type<Ts>()...))::type;
 
 		template<typename... Us>
 		using append = xieite::type_list<Ts..., Us...>;
@@ -79,7 +80,7 @@ namespace xieite {
 		struct append_range_impl;
 
 		template<template<typename...> typename Template, typename... Us>
-		struct append_range_impl<Template<Us...>> : xieite::type_id<xieite::type_list<Ts...>::append<Us...>> {};
+		struct append_range_impl<Template<Us...>> : xieite::wrap_type<xieite::type_list<Ts...>::append<Us...>> {};
 	
 	public:
 		template<typename Range>
@@ -93,7 +94,7 @@ namespace xieite {
 		struct prepend_range_impl;
 
 		template<template<typename...> typename Template, typename... Us>
-		struct prepend_range_impl<Template<Us...>> : xieite::type_id<xieite::type_list<Ts...>::prepend<Us...>> {};
+		struct prepend_range_impl<Template<Us...>> : xieite::wrap_type<xieite::type_list<Ts...>::prepend<Us...>> {};
 
 	public:
 		template<typename Range>
@@ -244,7 +245,7 @@ namespace xieite {
 		struct zip_range_impl;
 
 		template<template<typename...> typename Template, typename... Us>
-		struct zip_range_impl<Template<Us...>> : xieite::type_id<xieite::type_list<Ts...>::zip<Us...>> {};
+		struct zip_range_impl<Template<Us...>> : xieite::wrap_type<xieite::type_list<Ts...>::zip<Us...>> {};
 
 	public:
 		template<typename Range>

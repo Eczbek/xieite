@@ -7,7 +7,7 @@
 #	include <string_view>
 #	include "../data/make_str_view.hpp"
 #	include "../data/str_replace.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
@@ -30,7 +30,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> unquote(const xieite::paren<Char[length]>& str, Char delim = '"', Char esc = '\\', const Alloc& alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> unquote(const xieite::type<Char[length]>& str, Char delim = '"', Char esc = '\\', const Alloc& alloc = {}) noexcept(false) {
 		return xieite::unquote(xieite::make_str_view<Char, Traits>(str), delim, esc, alloc);
 	}
 }

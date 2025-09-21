@@ -6,7 +6,7 @@
 #	include "../data/isalnum.hpp"
 #	include "../data/ispunct.hpp"
 #	include "../data/make_str_view.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
@@ -30,7 +30,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr bool isgraph(const xieite::paren<Char[length]>& str) noexcept {
+	[[nodiscard]] constexpr bool isgraph(const xieite::type<Char[length]>& str) noexcept {
 		return xieite::isgraph(xieite::make_str_view(str));
 	}
 }

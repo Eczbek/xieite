@@ -1,163 +1,163 @@
 #ifndef DETAIL_XIEITE_HEADER_TRAIT_RM_NOEX_REFERENT
 #	define DETAIL_XIEITE_HEADER_TRAIT_RM_NOEX_REFERENT
 #
-#	include "../meta/type_id.hpp"
+#	include "../meta/wrap_type.hpp"
 #	include "../trait/cp_cvref.hpp"
 #	include "../trait/rm_cvref.hpp"
 
 namespace DETAIL_XIEITE::rm_noex_referent {
 	template<typename T>
-	struct impl : xieite::type_id<T> {};
+	struct impl : xieite::wrap_type<T> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(*)(Args...) noexcept> : xieite::type_id<Ret(*)(Args...)> {};
+	struct impl<Ret(*)(Args...) noexcept> : xieite::wrap_type<Ret(*)(Args...)> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(*)(Args..., ...) noexcept> : xieite::type_id<Ret(*)(Args..., ...)> {};
+	struct impl<Ret(*)(Args..., ...) noexcept> : xieite::wrap_type<Ret(*)(Args..., ...)> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) noexcept> : xieite::type_id<Ret(Args...)> {};
+	struct impl<Ret(Args...) noexcept> : xieite::wrap_type<Ret(Args...)> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) const noexcept> : xieite::type_id<Ret(Args...) const> {};
+	struct impl<Ret(Args...) const noexcept> : xieite::wrap_type<Ret(Args...) const> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) volatile noexcept> : xieite::type_id<Ret(Args...) volatile> {};
+	struct impl<Ret(Args...) volatile noexcept> : xieite::wrap_type<Ret(Args...) volatile> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) const volatile noexcept> : xieite::type_id<Ret(Args...) const volatile> {};
+	struct impl<Ret(Args...) const volatile noexcept> : xieite::wrap_type<Ret(Args...) const volatile> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) & noexcept> : xieite::type_id<Ret(Args...) &> {};
+	struct impl<Ret(Args...) & noexcept> : xieite::wrap_type<Ret(Args...) &> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) const & noexcept> : xieite::type_id<Ret(Args...) const &> {};
+	struct impl<Ret(Args...) const & noexcept> : xieite::wrap_type<Ret(Args...) const &> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) volatile & noexcept> : xieite::type_id<Ret(Args...) volatile &> {};
+	struct impl<Ret(Args...) volatile & noexcept> : xieite::wrap_type<Ret(Args...) volatile &> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) const volatile & noexcept> : xieite::type_id<Ret(Args...) const volatile &> {};
+	struct impl<Ret(Args...) const volatile & noexcept> : xieite::wrap_type<Ret(Args...) const volatile &> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) && noexcept> : xieite::type_id<Ret(Args...) &&> {};
+	struct impl<Ret(Args...) && noexcept> : xieite::wrap_type<Ret(Args...) &&> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) const && noexcept> : xieite::type_id<Ret(Args...) const &&> {};
+	struct impl<Ret(Args...) const && noexcept> : xieite::wrap_type<Ret(Args...) const &&> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) volatile && noexcept> : xieite::type_id<Ret(Args...) volatile &&> {};
+	struct impl<Ret(Args...) volatile && noexcept> : xieite::wrap_type<Ret(Args...) volatile &&> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args...) const volatile && noexcept> : xieite::type_id<Ret(Args...) const volatile &&> {};
+	struct impl<Ret(Args...) const volatile && noexcept> : xieite::wrap_type<Ret(Args...) const volatile &&> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) noexcept> : xieite::type_id<Ret(Args..., ...)> {};
+	struct impl<Ret(Args..., ...) noexcept> : xieite::wrap_type<Ret(Args..., ...)> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) const noexcept> : xieite::type_id<Ret(Args..., ...) const> {};
+	struct impl<Ret(Args..., ...) const noexcept> : xieite::wrap_type<Ret(Args..., ...) const> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) volatile noexcept> : xieite::type_id<Ret(Args..., ...) volatile> {};
+	struct impl<Ret(Args..., ...) volatile noexcept> : xieite::wrap_type<Ret(Args..., ...) volatile> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) const volatile noexcept> : xieite::type_id<Ret(Args..., ...) const volatile> {};
+	struct impl<Ret(Args..., ...) const volatile noexcept> : xieite::wrap_type<Ret(Args..., ...) const volatile> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) & noexcept> : xieite::type_id<Ret(Args..., ...) &> {};
+	struct impl<Ret(Args..., ...) & noexcept> : xieite::wrap_type<Ret(Args..., ...) &> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) const & noexcept> : xieite::type_id<Ret(Args..., ...) const &> {};
+	struct impl<Ret(Args..., ...) const & noexcept> : xieite::wrap_type<Ret(Args..., ...) const &> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) volatile & noexcept> : xieite::type_id<Ret(Args..., ...) volatile &> {};
+	struct impl<Ret(Args..., ...) volatile & noexcept> : xieite::wrap_type<Ret(Args..., ...) volatile &> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) const volatile & noexcept> : xieite::type_id<Ret(Args..., ...) const volatile &> {};
+	struct impl<Ret(Args..., ...) const volatile & noexcept> : xieite::wrap_type<Ret(Args..., ...) const volatile &> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) && noexcept> : xieite::type_id<Ret(Args..., ...) &&> {};
+	struct impl<Ret(Args..., ...) && noexcept> : xieite::wrap_type<Ret(Args..., ...) &&> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) const && noexcept> : xieite::type_id<Ret(Args..., ...) const &&> {};
+	struct impl<Ret(Args..., ...) const && noexcept> : xieite::wrap_type<Ret(Args..., ...) const &&> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) volatile && noexcept> : xieite::type_id<Ret(Args..., ...) volatile &&> {};
+	struct impl<Ret(Args..., ...) volatile && noexcept> : xieite::wrap_type<Ret(Args..., ...) volatile &&> {};
 
 	template<typename Ret, typename... Args>
-	struct impl<Ret(Args..., ...) const volatile && noexcept> : xieite::type_id<Ret(Args..., ...) const volatile &&> {};
+	struct impl<Ret(Args..., ...) const volatile && noexcept> : xieite::wrap_type<Ret(Args..., ...) const volatile &&> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) noexcept> : xieite::type_id<Ret(S::*)(Args...)> {};
+	struct impl<Ret(S::*)(Args...) noexcept> : xieite::wrap_type<Ret(S::*)(Args...)> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) const noexcept> : xieite::type_id<Ret(S::*)(Args...) const> {};
+	struct impl<Ret(S::*)(Args...) const noexcept> : xieite::wrap_type<Ret(S::*)(Args...) const> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) volatile noexcept> : xieite::type_id<Ret(S::*)(Args...) volatile> {};
+	struct impl<Ret(S::*)(Args...) volatile noexcept> : xieite::wrap_type<Ret(S::*)(Args...) volatile> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) const volatile noexcept> : xieite::type_id<Ret(S::*)(Args...) const volatile> {};
+	struct impl<Ret(S::*)(Args...) const volatile noexcept> : xieite::wrap_type<Ret(S::*)(Args...) const volatile> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) & noexcept> : xieite::type_id<Ret(S::*)(Args...) &> {};
+	struct impl<Ret(S::*)(Args...) & noexcept> : xieite::wrap_type<Ret(S::*)(Args...) &> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) const & noexcept> : xieite::type_id<Ret(S::*)(Args...) const &> {};
+	struct impl<Ret(S::*)(Args...) const & noexcept> : xieite::wrap_type<Ret(S::*)(Args...) const &> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) volatile & noexcept> : xieite::type_id<Ret(S::*)(Args...) volatile &> {};
+	struct impl<Ret(S::*)(Args...) volatile & noexcept> : xieite::wrap_type<Ret(S::*)(Args...) volatile &> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) const volatile & noexcept> : xieite::type_id<Ret(S::*)(Args...) const volatile &> {};
+	struct impl<Ret(S::*)(Args...) const volatile & noexcept> : xieite::wrap_type<Ret(S::*)(Args...) const volatile &> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) && noexcept> : xieite::type_id<Ret(S::*)(Args...) &&> {};
+	struct impl<Ret(S::*)(Args...) && noexcept> : xieite::wrap_type<Ret(S::*)(Args...) &&> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) const && noexcept> : xieite::type_id<Ret(S::*)(Args...) const &&> {};
+	struct impl<Ret(S::*)(Args...) const && noexcept> : xieite::wrap_type<Ret(S::*)(Args...) const &&> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) volatile && noexcept> : xieite::type_id<Ret(S::*)(Args...) volatile &&> {};
+	struct impl<Ret(S::*)(Args...) volatile && noexcept> : xieite::wrap_type<Ret(S::*)(Args...) volatile &&> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args...) const volatile && noexcept> : xieite::type_id<Ret(S::*)(Args...) const volatile &&> {};
+	struct impl<Ret(S::*)(Args...) const volatile && noexcept> : xieite::wrap_type<Ret(S::*)(Args...) const volatile &&> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) noexcept> : xieite::type_id<Ret(S::*)(Args..., ...)> {};
+	struct impl<Ret(S::*)(Args..., ...) noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...)> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) const noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) const> {};
+	struct impl<Ret(S::*)(Args..., ...) const noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) const> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) volatile noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) volatile> {};
+	struct impl<Ret(S::*)(Args..., ...) volatile noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) volatile> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) const volatile noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) const volatile> {};
+	struct impl<Ret(S::*)(Args..., ...) const volatile noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) const volatile> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) & noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) &> {};
+	struct impl<Ret(S::*)(Args..., ...) & noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) &> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) const & noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) const &> {};
+	struct impl<Ret(S::*)(Args..., ...) const & noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) const &> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) volatile & noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) volatile &> {};
+	struct impl<Ret(S::*)(Args..., ...) volatile & noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) volatile &> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) const volatile & noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) const volatile &> {};
+	struct impl<Ret(S::*)(Args..., ...) const volatile & noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) const volatile &> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) && noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) &&> {};
+	struct impl<Ret(S::*)(Args..., ...) && noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) &&> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) const && noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) const &&> {};
+	struct impl<Ret(S::*)(Args..., ...) const && noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) const &&> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) volatile && noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) volatile &&> {};
+	struct impl<Ret(S::*)(Args..., ...) volatile && noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) volatile &&> {};
 
 	template<typename Ret, typename S, typename... Args>
-	struct impl<Ret(S::*)(Args..., ...) const volatile && noexcept> : xieite::type_id<Ret(S::*)(Args..., ...) const volatile &&> {};
+	struct impl<Ret(S::*)(Args..., ...) const volatile && noexcept> : xieite::wrap_type<Ret(S::*)(Args..., ...) const volatile &&> {};
 }
 
 namespace xieite {

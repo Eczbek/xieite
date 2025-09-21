@@ -11,8 +11,8 @@
 #	include "../pp/lift.hpp"
 
 namespace xieite {
-	[[nodiscard]] constexpr auto min_args(auto&& fn, auto&&... args)
-		XIEITE_ARROW(XIEITE_LIFT(std::apply)(
+	[[nodiscard]] constexpr auto min_args(auto&& fn, auto&&... args) XIEITE_ARROW(
+		XIEITE_LIFT(std::apply)(
 			XIEITE_FWD(fn),
 			xieite::subtuple<0, xieite::unroll<sizeof...(args)>([]<std::size_t... count> -> std::size_t {
 				std::size_t min = 0;
@@ -21,7 +21,8 @@ namespace xieite {
 				}) || !++min));
 				return min;
 			})>(std::make_tuple(XIEITE_FWD(args)...))
-		))
+		)
+	)
 }
 
 #endif

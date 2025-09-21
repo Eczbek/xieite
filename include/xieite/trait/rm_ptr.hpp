@@ -4,7 +4,7 @@
 #	include <cstddef>
 #	include <type_traits>
 #	include "../meta/fold_for.hpp"
-#	include "../meta/type_id.hpp"
+#	include "../meta/wrap_type.hpp"
 
 namespace DETAIL_XIEITE::rm_ptr {
 	template<typename T, std::size_t depth>
@@ -19,7 +19,7 @@ namespace DETAIL_XIEITE::rm_ptr {
 		if constexpr (std::is_pointer_v<U>) {
 			return self.template operator()<std::remove_pointer_t<U>>();
 		} else {
-			return xieite::type_id<U>();
+			return xieite::wrap_type<U>();
 		}
 	})()) {};
 }

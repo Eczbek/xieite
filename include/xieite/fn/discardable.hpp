@@ -6,8 +6,9 @@
 #	include "../pp/fwd.hpp"
 
 namespace xieite {
-	constexpr auto discardable(auto&& fn, auto&&... args)
-		XIEITE_ARROW(std::invoke(XIEITE_FWD(fn), XIEITE_FWD(args)...))
+	constexpr auto discardable(auto&& fn, auto&&... args) XIEITE_ARROW(
+		std::invoke(XIEITE_FWD(fn), XIEITE_FWD(args)...)
+	)
 }
 
 #endif

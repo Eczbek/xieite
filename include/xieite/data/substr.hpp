@@ -5,7 +5,7 @@
 #	include <string>
 #	include <string_view>
 #	include "../data/make_str_view.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
@@ -26,7 +26,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string_view<Char, Traits> substr(const xieite::paren<Char[length]>& str, std::size_t start, std::size_t end = std::string_view::npos, std::size_t start_offset = 0, std::size_t end_offset = 0) noexcept {
+	[[nodiscard]] constexpr std::basic_string_view<Char, Traits> substr(const xieite::type<Char[length]>& str, std::size_t start, std::size_t end = std::string_view::npos, std::size_t start_offset = 0, std::size_t end_offset = 0) noexcept {
 		return xieite::substr(xieite::make_str_view<Char, Traits>(str), start, end, start_offset, end_offset);
 	}
 }

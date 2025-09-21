@@ -3,11 +3,11 @@
 #
 #	include <cstddef>
 #	include <type_traits>
-#	include "../meta/type_id.hpp"
+#	include "../meta/wrap_type.hpp"
 
 namespace xieite {
 	template<typename T, std::size_t length = -1uz>
-	concept is_bounded_array = ((length == -1uz) ? std::is_bounded_array_v<T> : requires { ([]<typename U>(xieite::type_id<U[length]>) {})(xieite::type_id<T>()); });
+	concept is_bounded_array = ((length == -1uz) ? std::is_bounded_array_v<T> : requires { ([]<typename U>(xieite::wrap_type<U[length]>) {})(xieite::wrap_type<T>()); });
 }
 
 #endif

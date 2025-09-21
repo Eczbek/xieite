@@ -27,8 +27,9 @@ namespace DETAIL_XIEITE::FN {
 	template<typename Fn>
 	struct indirect : Fn {
 		template<typename... Ts>
-		[[nodiscard]] constexpr auto operator()(this Fn& self, auto&&... args)
-			XIEITE_ARROW(self.template operator()<Ts...>(XIEITE_FWD(args)...))
+		[[nodiscard]] constexpr auto operator()(this Fn& self, auto&&... args) XIEITE_ARROW(
+			self.template operator()<Ts...>(XIEITE_FWD(args)...)
+		)
 	};
 }
 

@@ -5,7 +5,7 @@
 #	include <string_view>
 #	include "../data/isprint.hpp"
 #	include "../data/make_str_view.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
@@ -29,7 +29,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr bool iscntrl(const xieite::paren<Char[length]>& str) {
+	[[nodiscard]] constexpr bool iscntrl(const xieite::type<Char[length]>& str) {
 		return xieite::iscntrl(xieite::make_str_view(str));
 	}
 }

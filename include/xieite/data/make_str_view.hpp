@@ -4,7 +4,7 @@
 #	include <cstddef>
 #	include <string>
 #	include <string_view>
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
@@ -24,7 +24,7 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string_view<Char, Traits> make_str_view(const xieite::paren<Char[length]>& str) noexcept {
+	[[nodiscard]] constexpr std::basic_string_view<Char, Traits> make_str_view(const xieite::type<Char[length]>& str) noexcept {
 		return xieite::make_str_view<Char, Traits>(*&str, length);
 	}
 

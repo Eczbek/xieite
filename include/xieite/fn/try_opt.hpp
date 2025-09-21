@@ -6,8 +6,10 @@
 #	include "../pp/arrow.hpp"
 
 namespace xieite {
-	[[nodiscard]] constexpr auto try_opt(auto&& fn, auto&&... args)
-		XIEITE_ARROW_TRY(std::optional(std::invoke(XIEITE_FWD(fn), XIEITE_FWD(args)...)),, std::nullopt)
+	[[nodiscard]] constexpr auto try_opt(auto&& fn, auto&&... args) XIEITE_ARROW_TRY(
+		std::optional(std::invoke(XIEITE_FWD(fn), XIEITE_FWD(args)...)),
+		, std::nullopt
+	)
 }
 
 #endif

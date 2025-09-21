@@ -11,7 +11,7 @@
 #	include "../data/toupper.hpp"
 #	include "../math/sign_cast.hpp"
 #	include "../math/ssize_t.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
@@ -48,7 +48,7 @@ namespace xieite {
 	}
 
 	template<std::integral Int = xieite::ssize_t, xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr Int from_roman(const xieite::paren<Char[length]>& str) noexcept {
+	[[nodiscard]] constexpr Int from_roman(const xieite::type<Char[length]>& str) noexcept {
 		return xieite::from_roman<Int>(xieite::make_str_view(str, length));
 	}
 }

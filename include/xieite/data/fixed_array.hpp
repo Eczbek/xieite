@@ -10,7 +10,7 @@
 #	include "../fn/range_cmp.hpp"
 #	include "../fn/repeat.hpp"
 #	include "../fn/unroll.hpp"
-#	include "../meta/value_id.hpp"
+#	include "../meta/wrap_value.hpp"
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/has_cp_ctor.hpp"
@@ -32,8 +32,9 @@ namespace xieite {
 
 		Value array[length];
 
-		[[nodiscard]] friend constexpr auto operator<=>(const xieite::fixed_array<Value, length>& lhs, const xieite::fixed_array<Value, length>& rhs)
-			XIEITE_ARROW(xieite::range_cmp(lhs, rhs))
+		[[nodiscard]] friend constexpr auto operator<=>(const xieite::fixed_array<Value, length>& lhs, const xieite::fixed_array<Value, length>& rhs) XIEITE_ARROW(
+			xieite::range_cmp(lhs, rhs)
+		)
 
 		[[nodiscard]] constexpr auto&& operator[](this auto&& self, const xieite::fixed_array<Value, length>::size_type idx) noexcept {
 			return XIEITE_FWD(self).array[idx];
@@ -110,42 +111,39 @@ namespace xieite {
 			return false;
 		}
 
-		static constexpr auto size = xieite::value_id<length>();
+		static constexpr auto size = xieite::wrap_value<length>();
 
 		[[nodiscard]] static constexpr std::size_t max_size() noexcept {
 			return length;
 		}
 
-		constexpr void fill(const Value& value)
-			XIEITE_ARROW_RET(xieite::unroll<length>(
-				[]<std::size_t... i>(auto& array, const Value& value)
-					XIEITE_ARROW((..., void(array[i] = value))),
-				this->array,
-				value
-			))
+		constexpr void fill(const Value& value) XIEITE_ARROW_RET(
+			xieite::unroll<length>([]<std::size_t... i>(auto& array, const Value& value) XIEITE_ARROW(
+				(..., void(array[i] = value))
+			), this->array, value)
+		)
 
-		constexpr void swap(auto&& range)
-			XIEITE_ARROW_RET(xieite::repeat<length>(
-				[]<std::size_t>(auto& iter0, auto& iter1)
-					XIEITE_ARROW(std::ranges::iter_swap(iter0++, iter1++)),
-				this->begin(),
-				std::ranges::begin(range)
-			))
+		constexpr void swap(auto&& range) XIEITE_ARROW_RET(
+			xieite::repeat<length>([]<std::size_t>(auto& iter0, auto& iter1) XIEITE_ARROW(
+				std::ranges::iter_swap(iter0++, iter1++)
+			), this->begin(), std::ranges::begin(range))
+		)
 
-		[[nodiscard]] constexpr auto apply(this auto&& self, auto&& fn)
-			XIEITE_ARROW(xieite::unroll<length>(
-				[]<std::size_t... i>(auto&& fn, Value* array)
-					XIEITE_ARROW(std::invoke(XIEITE_FWD(fn), std::forward_like<decltype(self)>(array[i])...)),
-				XIEITE_FWD(fn),
-				self.array
-			))
+		[[nodiscard]] constexpr auto apply(this auto&& self, auto&& fn) XIEITE_ARROW(
+			xieite::unroll<length>([]<std::size_t... i>(auto&& fn, Value* array) XIEITE_ARROW(
+				std::invoke(XIEITE_FWD(fn), std::forward_like<decltype(self)>(array[i])...)
+			), XIEITE_FWD(fn), self.array)
+		)
 
-		[[nodiscard]] static constexpr auto from(std::ranges::input_range auto&& range)
-			XIEITE_ARROW(xieite::unroll<length>(
-				[]<std::size_t... i>(auto iter)
-					XIEITE_ARROW(xieite::fixed_array { ([]<std::size_t j>(auto& iter) XIEITE_ARROW_IF(j, ++iter, *iter)).template operator()<i>(iter)... }),
-				std::ranges::begin(range)
-			))
+		[[nodiscard]] static constexpr auto from(std::ranges::input_range auto&& range) XIEITE_ARROW(
+			xieite::unroll<length>([]<std::size_t... i>(auto iter) XIEITE_ARROW(
+				xieite::fixed_array {
+					([]<std::size_t j>(auto& iter) XIEITE_ARROW_IF(
+						j, ++iter, *iter
+					)).template operator()<i>(iter)...
+				}
+			), std::ranges::begin(range))
+		)
 	};
 
 	template<typename Value>
@@ -206,7 +204,7 @@ namespace xieite {
 			return true;
 		}
 
-		static constexpr auto size = xieite::value_id<0uz>();
+		static constexpr auto size = xieite::wrap_value<0uz>();
 
 		[[nodiscard]] static constexpr std::size_t max_size() noexcept {
 			return 0;
@@ -216,8 +214,9 @@ namespace xieite {
 
 		constexpr void swap(auto&&) const noexcept {}
 
-		[[nodiscard]] constexpr auto apply(auto&& fn)
-			XIEITE_ARROW(std::invoke(XIEITE_FWD(fn)))
+		[[nodiscard]] constexpr auto apply(auto&& fn) XIEITE_ARROW(
+			std::invoke(XIEITE_FWD(fn))
+		)
 
 		[[nodiscard]] static constexpr auto from(std::ranges::input_range auto&&) noexcept {
 			return xieite::fixed_array<Value, 0>();

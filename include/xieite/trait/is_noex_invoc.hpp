@@ -2,13 +2,13 @@
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_INVOC
 #
 #	include <type_traits>
-#	include "../meta/type_id.hpp"
+#	include "../meta/wrap_type.hpp"
 
 namespace xieite {
 	template<typename T, typename Sig = void()>
-	concept is_noex_invoc = ([]<typename Ret, typename... Args>(xieite::type_id<Ret(Args...)>) {
+	concept is_noex_invoc = ([]<typename Ret, typename... Args>(xieite::wrap_type<Ret(Args...)>) {
 		return std::is_nothrow_invocable_r_v<Ret, T, Args...>;
-	})(xieite::type_id<Sig>());
+	})(xieite::wrap_type<Sig>());
 }
 
 #endif

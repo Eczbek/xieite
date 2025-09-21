@@ -3,12 +3,12 @@
 #
 #	include <cstdint>
 #	include <ratio>
-#	include "../meta/type_id.hpp"
+#	include "../meta/wrap_type.hpp"
 #	include "../trait/rm_cv.hpp"
 
 namespace xieite {
 	template<typename T>
-	concept is_ratio = requires { ([]<std::intmax_t numer, std::intmax_t denom>(xieite::type_id<std::ratio<numer, denom>>) {})(xieite::type_id<xieite::rm_cv<T>>()); };
+	concept is_ratio = requires { ([]<std::intmax_t numer, std::intmax_t denom>(xieite::wrap_type<std::ratio<numer, denom>>) {})(xieite::wrap_type<xieite::rm_cv<T>>()); };
 }
 
 #endif

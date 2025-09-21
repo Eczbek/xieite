@@ -8,7 +8,7 @@
 #	include <string_view>
 #	include <type_traits>
 #	include "../data/make_str_view.hpp"
-#	include "../meta/paren.hpp"
+#	include "../meta/type.hpp"
 #	include "../pp/fwd.hpp"
 #	include "../trait/is_char.hpp"
 
@@ -66,22 +66,22 @@ namespace xieite {
 	}
 
 	template<std::ranges::input_range Range, xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_join(Range&& range, const xieite::paren<Char[length]>& delim, std::type_identity_t<std::basic_string_view<Char, Traits>> pfx, std::type_identity_t<std::basic_string_view<Char, Traits>> sfx = "", const Alloc& alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_join(Range&& range, const xieite::type<Char[length]>& delim, std::type_identity_t<std::basic_string_view<Char, Traits>> pfx, std::type_identity_t<std::basic_string_view<Char, Traits>> sfx = "", const Alloc& alloc = {}) noexcept(false) {
 		return xieite::str_join(XIEITE_FWD(range), xieite::make_str_view<Char, Traits>(delim), pfx, sfx, alloc);
 	}
 
 	template<std::ranges::input_range Range, xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_join(Range&& range, const xieite::paren<Char[length]>& delim, Char pfx, std::type_identity_t<std::basic_string_view<Char, Traits>> sfx = "", const Alloc& alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_join(Range&& range, const xieite::type<Char[length]>& delim, Char pfx, std::type_identity_t<std::basic_string_view<Char, Traits>> sfx = "", const Alloc& alloc = {}) noexcept(false) {
 		return xieite::str_join(XIEITE_FWD(range), xieite::make_str_view<Char, Traits>(delim), xieite::make_str_view(pfx), sfx, alloc);
 	}
 
 	template<std::ranges::input_range Range, xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_join(Range&& range, const xieite::paren<Char[length]>& delim, std::type_identity_t<std::basic_string_view<Char, Traits>> pfx, Char sfx, const Alloc& alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_join(Range&& range, const xieite::type<Char[length]>& delim, std::type_identity_t<std::basic_string_view<Char, Traits>> pfx, Char sfx, const Alloc& alloc = {}) noexcept(false) {
 		return xieite::str_join(XIEITE_FWD(range), xieite::make_str_view<Char, Traits>(delim), pfx, xieite::make_str_view(sfx), alloc);
 	}
 
 	template<std::ranges::input_range Range, xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_join(Range&& range, const xieite::paren<Char[length]>& delim, Char pfx, Char sfx, const Alloc& alloc = {}) noexcept(false) {
+	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> str_join(Range&& range, const xieite::type<Char[length]>& delim, Char pfx, Char sfx, const Alloc& alloc = {}) noexcept(false) {
 		return xieite::str_join(XIEITE_FWD(range), xieite::make_str_view<Char, Traits>(delim), xieite::make_str_view(pfx), xieite::make_str_view(sfx), alloc);
 	}
 }
