@@ -9,7 +9,7 @@ namespace xieite {
 	struct wrap_value {
 		static constexpr decltype(auto) value = x;
 
-		[[nodiscard]] constexpr operator decltype(auto)() const noexcept {
+		[[nodiscard]] explicit(false) constexpr operator decltype(auto)() const noexcept {
 			return x;
 		}
 
