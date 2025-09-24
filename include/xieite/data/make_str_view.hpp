@@ -6,6 +6,7 @@
 #	include <string_view>
 #	include "../meta/type.hpp"
 #	include "../trait/is_char.hpp"
+#	include "../trait/rm_ref.hpp"
 
 namespace xieite {
 	template<xieite::is_char Char, typename Traits>
@@ -28,9 +29,10 @@ namespace xieite {
 		return xieite::make_str_view<Char, Traits>(*&str, length);
 	}
 
-	template<xieite::is_char Char, typename Traits = std::char_traits<Char>>
-	[[nodiscard]] constexpr std::basic_string_view<Char, Traits> make_str_view(Char&& c = {}) noexcept {
-		return std::basic_string_view<Char, Traits>(&c, 1);
+	template<typename Char, typename Traits = std::char_traits<xieite::rm_ref<Char>>>
+	requires(xieite::is_char<xieite::rm_ref<Char>>)
+	[[nodiscard]] constexpr std::basic_string_view<xieite::rm_ref<Char>, Traits> make_str_view(Char&& c = {}) noexcept {
+		return std::basic_string_view<xieite::rm_ref<Char>, Traits>(&c, 1);
 	}
 }
 
