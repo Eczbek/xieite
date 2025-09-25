@@ -11,16 +11,36 @@
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<std::ranges::forward_range Range, std::ranges::forward_range Subrange, xieite::is_invoc<bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Subrange>)> Pred = std::ranges::equal_to>
-	[[nodiscard]] constexpr auto after(Range&& range, Subrange&& subrange, Pred&& pred = {})
-	noexcept(xieite::is_noex_range<Range> && xieite::is_noex_range<Subrange> && xieite::is_noex_invoc<Pred, bool(std::ranges::range_common_reference_t<Range>, std::ranges::range_common_reference_t<Subrange>)>) {
-		return std::ranges::subrange(std::ranges::search(range, subrange, XIEITE_FWD(pred)).end(), std::ranges::end(range));
+	namespace {
+		template <
+			std::ranges::forward_range Range,
+			std::ranges::forward_range Subrange>
+		using BinaryPredicate = bool(
+			std::ranges::range_common_reference_t<Range>,
+			std::ranges::common_reference_t<Subrange>);
+	}
+	template<
+		std::ranges::forward_range Range,
+		std::ranges::forward_range Subrange,
+		xieite::is_invoc<BinaryPredicate> Pred = std::ranges::equal_to>
+	[[nodiscard]] constexpr auto
+	after(Range&& range, Subrange&& subrange, Pred&& pred = {})
+	noexcept(
+		xieite::is_noex_range<Range>    &&
+		xieite::is_noex_range<Subrange> &&
+		xieite::is_noex_invoc<Pred, BinaryPredicate>) {
+		return std::ranges::subrange(
+			std::ranges::search(range, subrange, XIEITE_FWD(pred)).end(),
+			std::ranges::end(range));
 	}
 
-	template<std::ranges::input_range Range>
-	[[nodiscard]] constexpr auto after(Range&& range, std::ranges::range_common_reference_t<Range> x)
+	template <std::ranges::input_range Range>
+	[[nodiscard]] constexpr auto
+	after(Range&& range, std::ranges::range_common_reference_t<Range> x)
 	noexcept(xieite::is_noex_range<Range>) {
-		return std::ranges::subrange(std::ranges::next(std::ranges::find(range, x), 1, std::ranges::end(range)), std::ranges::end(range));
+		return std::ranges::subrange(
+			std::ranges::next(std::ranges::find(range, x), 1, std::ranges::end(range)),
+			std::ranges::end(range));
 	}
 }
 
