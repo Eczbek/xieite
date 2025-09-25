@@ -3,7 +3,6 @@
 #
 #	include <concepts>
 #	include <cstddef>
-#	include <string>
 #	include <string_view>
 #	include <type_traits>
 #	include "../data/number_str_config.hpp"
@@ -20,7 +19,7 @@ namespace xieite {
 			return static_cast<Arith>(0);
 		}
 		const std::string_view digits = config.digits.substr(0, xieite::abs(radix));
-		std::size_t i = 0;
+		std::size_t i = idx;
 		auto parse_neg = [&] mutable -> bool {
 			const bool neg = (i < (strv.size() - 1)) && config.minus.contains(strv[i]) && digits.contains(strv[i + 1]);
 			i += neg || ((i < (strv.size() - 1)) && config.plus.contains(strv[i]) && digits.contains(strv[i + 1]));
@@ -35,7 +34,7 @@ namespace xieite {
 				}
 				(result *= static_cast<Int>(radix)) += static_cast<Int>(digit);
 			}
-			idx += i;
+			idx += i - idx;
 			if (neg) {
 				result = static_cast<Int>(-result);
 			}
