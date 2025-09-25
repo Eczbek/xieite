@@ -17,18 +17,18 @@ namespace xieite {
 			std::ranges::forward_range Subrange>
 		using BinaryPredicate = bool(
 			std::ranges::range_common_reference_t<Range>,
-			std::ranges::common_reference_t<Subrange>);
+			std::ranges::range_common_reference_t<Subrange>);
 	}
 	template<
 		std::ranges::forward_range Range,
 		std::ranges::forward_range Subrange,
-		xieite::is_invoc<BinaryPredicate> Pred = std::ranges::equal_to>
+		xieite::is_invoc<BinaryPredicate<Range, Subrange>> Pred = std::ranges::equal_to>
 	[[nodiscard]] constexpr auto
 	after(Range&& range, Subrange&& subrange, Pred&& pred = {})
 	noexcept(
 		xieite::is_noex_range<Range>    &&
 		xieite::is_noex_range<Subrange> &&
-		xieite::is_noex_invoc<Pred, BinaryPredicate>) {
+		xieite::is_noex_invoc<Pred, BinaryPredicate<Range, Subrange>>) {
 		return std::ranges::subrange(
 			std::ranges::search(range, subrange, XIEITE_FWD(pred)).end(),
 			std::ranges::end(range));
