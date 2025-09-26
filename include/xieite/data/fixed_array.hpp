@@ -18,31 +18,42 @@
 namespace xieite {
 	template<typename Value, std::size_t length>
 	struct fixed_array {
-		using value_type = Value;
-		using reference = xieite::fixed_array<Value, length>::value_type&;
-		using const_reference = const xieite::fixed_array<Value, length>::value_type&;
-		using pointer = xieite::fixed_array<Value, length>::value_type*;
-		using const_pointer = const xieite::fixed_array<Value, length>::value_type*;
-		using size_type = std::size_t;
-		using difference_type = std::ptrdiff_t;
-		using iterator = xieite::fixed_array<Value, length>::pointer;
-		using const_iterator = xieite::fixed_array<Value, length>::const_pointer;
-		using reverse_iterator = std::reverse_iterator<xieite::fixed_array<Value, length>::pointer>;
-		using const_reverse_iterator = std::reverse_iterator<xieite::fixed_array<Value, length>::const_pointer>;
+		using value_type             = Value;
+		using reference              = Value&;
+		using const_reference        = const Value&;
+		using pointer                = Value*;
+		using const_pointer          = const Value*;
+		using size_type              = std::size_t;
+		using difference_type        = std::ptrdiff_t;
+		using iterator               = Value*;
+		using const_iterator         = const Value*;
+		using reverse_iterator       = std::reverse_iterator<Value*>;
+		using const_reverse_iterator = std::reverse_iterator<const Value*>;
 
 		Value array[length];
 
-		[[nodiscard]] friend constexpr auto operator<=>(const xieite::fixed_array<Value, length>& lhs, const xieite::fixed_array<Value, length>& rhs) XIEITE_ARROW(
-			xieite::range_cmp(lhs, rhs)
-		)
+		// NOTE(Hurubon): Can this be (conditionally) `noexcept`?
+		[[nodiscard]] friend constexpr auto operator<=>(
+			const xieite::fixed_array<Value, length>& lhs,
+			const xieite::fixed_array<Value, length>& rhs
+		) {
+			return xieite::range_cmp(lhs, rhs);
+		}
 
-		[[nodiscard]] constexpr auto&& operator[](this auto&& self, const xieite::fixed_array<Value, length>::size_type idx) noexcept {
+		[[nodiscard]] constexpr auto&& operator[](
+			this auto&& self,
+			const xieite::fixed_array<Value, length>::size_type idx
+		) noexcept {
 			return XIEITE_FWD(self).array[idx];
 		}
 
+		// TODO(Hurubon): Significantly refactor this function.
 		template<std::size_t other_length>
-		[[nodiscard]] friend constexpr xieite::fixed_array<Value, (length + other_length)> operator+(const xieite::fixed_array<Value, length>& lhs, const xieite::fixed_array<Value, other_length>& rhs)
-		noexcept(xieite::has_cp_ctor<Value>) {
+		[[nodiscard]] friend constexpr xieite::fixed_array<Value, (length + other_length)>
+		operator+(
+			const xieite::fixed_array<Value, length>& lhs,
+			const xieite::fixed_array<Value, other_length>& rhs
+		) noexcept(xieite::has_cp_ctor<Value>) {
 			return xieite::unroll<(length + other_length)>([&]<std::size_t... i> {
 				return xieite::fixed_array<Value, (length + other_length)> {
 					([&] {
@@ -56,7 +67,10 @@ namespace xieite {
 			});
 		}
 
-		[[nodiscard]] constexpr auto&& at(this auto&& self, const xieite::fixed_array<Value, length>::size_type idx) {
+		[[nodiscard]] constexpr auto&& at(
+			this auto&& self,
+			const xieite::fixed_array<Value, length>::size_type idx
+		) {
 			if (idx >= length) {
 				throw std::out_of_range("index must be within range");
 			}
@@ -75,11 +89,14 @@ namespace xieite {
 			return *std::ranges::prev(XIEITE_FWD(self).end());
 		}
 
+		// FIXME(Hurubon): For consistency, break on each function name?
 		[[nodiscard]] constexpr auto begin(this auto&& self) noexcept {
 			return std::ranges::begin(XIEITE_FWD(self).array);
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, length>::const_iterator cbegin() const noexcept {
+		// FIXME(Hurubon): Make this just `const_iterator`?
+		[[nodiscard]] constexpr xieite::fixed_array<Value, length>::const_iterator
+		cbegin() const noexcept {
 			return std::ranges::cbegin(this->array);
 		}
 
@@ -87,7 +104,8 @@ namespace xieite {
 			return std::ranges::rbegin(XIEITE_FWD(self).array);
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, length>::const_reverse_iterator crbegin() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, length>::const_reverse_iterator
+		crbegin() const noexcept {
 			return std::ranges::crbegin(this->array);
 		}
 
@@ -95,7 +113,8 @@ namespace xieite {
 			return std::ranges::end(XIEITE_FWD(self).array);
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, length>::const_iterator cend() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, length>::const_iterator
+		cend() const noexcept {
 			return std::ranges::cend(this->array);
 		}
 
@@ -103,7 +122,8 @@ namespace xieite {
 			return std::ranges::rend(XIEITE_FWD(self).array);
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, length>::const_reverse_iterator crend() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, length>::const_reverse_iterator
+		crend() const noexcept {
 			return std::ranges::crend(this->array);
 		}
 
@@ -113,54 +133,82 @@ namespace xieite {
 
 		static constexpr auto size = xieite::wrap_value<length>();
 
+		// FIXME(Hurubon): Make this `size_type`?
 		[[nodiscard]] static constexpr std::size_t max_size() noexcept {
 			return length;
 		}
 
+		// FIXME(Hurubon): Make this `const_reference`?
 		constexpr void fill(const Value& value) XIEITE_ARROW_RET(
-			xieite::unroll<length>([]<std::size_t... i>(auto& array, const Value& value) XIEITE_ARROW(
-				(..., void(array[i] = value))
-			), this->array, value)
+			xieite::unroll<length>(
+				[]<std::size_t... i>(auto& array, const Value& value) XIEITE_ARROW(
+					(..., void(array[i] = value))
+				),
+				this->array,
+				value
+			)
 		)
 
 		constexpr void swap(auto&& range) XIEITE_ARROW_RET(
-			xieite::repeat<length>([]<std::size_t>(auto& iter0, auto& iter1) XIEITE_ARROW(
-				std::ranges::iter_swap(iter0++, iter1++)
-			), this->begin(), std::ranges::begin(range))
+			xieite::repeat<length>(
+				[]<std::size_t>(auto& iter0, auto& iter1) XIEITE_ARROW(
+					std::ranges::iter_swap(iter0++, iter1++)
+				),
+				this->begin(),
+				std::ranges::begin(range)
+			)
 		)
 
-		[[nodiscard]] constexpr auto apply(this auto&& self, auto&& fn) XIEITE_ARROW(
-			xieite::unroll<length>([]<std::size_t... i>(auto&& fn, Value* array) XIEITE_ARROW(
-				std::invoke(XIEITE_FWD(fn), std::forward_like<decltype(self)>(array[i])...)
-			), XIEITE_FWD(fn), self.array)
+		[[nodiscard]] constexpr auto apply(
+			this auto&& self,
+			auto&& fn
+		) XIEITE_ARROW(
+			xieite::unroll<length>(
+				[]<std::size_t... i>(auto&& fn, Value* array) XIEITE_ARROW(
+					std::invoke(
+						XIEITE_FWD(fn),
+						std::forward_like<decltype(self)>(array[i])...
+					)
+				),
+				XIEITE_FWD(fn),
+				self.array
+			)
 		)
 
-		[[nodiscard]] static constexpr auto from(std::ranges::input_range auto&& range) XIEITE_ARROW(
-			xieite::unroll<length>([]<std::size_t... i>(auto iter) XIEITE_ARROW(
-				xieite::fixed_array {
-					([]<std::size_t j>(auto& iter) XIEITE_ARROW_IF(
-						j, ++iter, *iter
-					)).template operator()<i>(iter)...
-				}
-			), std::ranges::begin(range))
+		[[nodiscard]] static constexpr auto from(
+			std::ranges::input_range auto&& range
+		) XIEITE_ARROW(
+			xieite::unroll<length>(
+				[]<std::size_t... i>(auto iter) XIEITE_ARROW(
+					xieite::fixed_array {
+						([]<std::size_t j>(auto& iter) XIEITE_ARROW_IF(
+							j, ++iter, *iter
+						)).template operator()<i>(iter)...
+					}
+				),
+				std::ranges::begin(range)
+			)
 		)
 	};
 
 	template<typename Value>
 	struct fixed_array<Value, 0> {
-		using value_type = Value;
-		using reference = xieite::fixed_array<Value, 0>::value_type&;
-		using const_reference = const xieite::fixed_array<Value, 0>::value_type&;
-		using pointer = xieite::fixed_array<Value, 0>::value_type*;
-		using const_pointer = const xieite::fixed_array<Value, 0>::value_type*;
-		using size_type = std::size_t;
-		using difference_type = std::ptrdiff_t;
-		using iterator = xieite::fixed_array<Value, 0>::pointer;
-		using const_iterator = xieite::fixed_array<Value, 0>::const_pointer;
-		using reverse_iterator = std::reverse_iterator<xieite::fixed_array<Value, 0>::pointer>;
-		using const_reverse_iterator = std::reverse_iterator<xieite::fixed_array<Value, 0>::const_pointer>;
+		using value_type             = Value;
+		using reference              = Value&;
+		using const_reference        = const Value&;
+		using pointer                = Value*;
+		using const_pointer          = const Value*;
+		using size_type              = std::size_t;
+		using difference_type        = std::ptrdiff_t;
+		using iterator               = Value*;
+		using const_iterator         = const Value*;
+		using reverse_iterator       = std::reverse_iterator<Value*>;
+		using const_reverse_iterator = std::reverse_iterator<const Value*>;
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xieite::fixed_array<Value, 0>&, const xieite::fixed_array<Value, 0>&) noexcept {
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(
+			const xieite::fixed_array<Value, 0>&,
+			const xieite::fixed_array<Value, 0>&
+		) noexcept {
 			return std::strong_ordering::equal;
 		}
 
@@ -168,35 +216,43 @@ namespace xieite {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_iterator begin() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_iterator
+		begin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_iterator cbegin() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_iterator
+		cbegin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_reverse_iterator rbegin() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_reverse_iterator
+		rbegin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_reverse_iterator crbegin() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_reverse_iterator
+		crbegin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_iterator end() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_iterator
+		end() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_iterator cend() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_iterator
+		cend() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_reverse_iterator rend() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_reverse_iterator
+		rend() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_reverse_iterator crend() const noexcept {
+		[[nodiscard]] constexpr xieite::fixed_array<Value, 0>::const_reverse_iterator
+		crend() const noexcept {
 			return nullptr;
 		}
 
@@ -206,10 +262,12 @@ namespace xieite {
 
 		static constexpr auto size = xieite::wrap_value<0uz>();
 
+		// FIXME(Hurubon): Make this `size_type`?
 		[[nodiscard]] static constexpr std::size_t max_size() noexcept {
 			return 0;
 		}
 
+		// FIXME(Hurubon): Make this `const_reference`?
 		constexpr void fill(const Value&) const noexcept {}
 
 		constexpr void swap(auto&&) const noexcept {}
@@ -218,7 +276,9 @@ namespace xieite {
 			std::invoke(XIEITE_FWD(fn))
 		)
 
-		[[nodiscard]] static constexpr auto from(std::ranges::input_range auto&&) noexcept {
+		[[nodiscard]] static constexpr auto from(
+			std::ranges::input_range auto&&
+		) noexcept {
 			return xieite::fixed_array<Value, 0>();
 		}
 	};
