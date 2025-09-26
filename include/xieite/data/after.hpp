@@ -44,7 +44,8 @@ namespace xieite {
 		const auto& first = std::ranges::find(range, x);
 		return std::ranges::subrange(
 			std::ranges::next(first, 1, std::ranges::end(range)),
-			std::ranges::end(range));
+			std::ranges::end(range)
+		);
 	}
 }
 
