@@ -10,7 +10,10 @@
 namespace xieite {
 	template<xieite::fixed_str delim = " ", typename... Args>
 	[[nodiscard]] constexpr std::string intersperse(Args&&... args) noexcept {
-		return std::format(xieite::fmt_join<delim, Args...>, XIEITE_FWD(args)...);
+		return std::format(
+			xieite::fmt_join<delim, Args...>,
+			XIEITE_FWD(args)...
+		);
 	}
 }
 
