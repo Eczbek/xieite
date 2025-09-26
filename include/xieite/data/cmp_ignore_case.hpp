@@ -8,20 +8,28 @@
 #	include "../trait/is_fwd_range.hpp"
 
 namespace xieite {
-	[[nodiscard]] constexpr std::strong_ordering cmp_ignore_case(xieite::is_fwd_range<[]<xieite::is_char> {}> auto&& lhs, xieite::is_fwd_range<[]<xieite::is_char> {}> auto&& rhs) noexcept {
-		auto iter0 = std::ranges::begin(lhs);
-		auto iter1 = std::ranges::begin(rhs);
-		const auto end0 = std::ranges::end(lhs);
-		const auto end1 = std::ranges::end(rhs);
+	[[nodiscard]] constexpr std::strong_ordering cmp_ignore_case(
+		xieite::is_fwd_range<[]<xieite::is_char> {}> auto&& lhs_range,
+		xieite::is_fwd_range<[]<xieite::is_char> {}> auto&& rhs_range
+	) noexcept {
+		auto lhs = std::ranges::begin(lhs_range);
+		auto rhs = std::ranges::begin(rhs_range);
+		// FIXME: Make these references?
+		const auto lhs_end = std::ranges::end(lhs_range);
+		const auto rhs_end = std::ranges::end(rhs_range);
 		while (true) {
-			if ((iter0 == end0) || (iter1 == end1)) {
-				return (iter0 == end0) <=> (iter1 == end1);
+			if ((lhs == lhs_end) || (rhs == rhs_end)) {
+				return (lhs == lhs_end) <=> (rhs == rhs_end);
 			}
-			if (const std::strong_ordering order = xieite::toupper(*iter0) <=> xieite::toupper(*iter1); !std::is_eq(order)) {
+			// FIXME: Make this auto? Then it could be one line.
+			if (const std::strong_ordering order
+					= xieite::toupper(*lhs) <=> xieite::toupper(*rhs);
+				!std::is_eq(order)
+			) {
 				return order;
 			}
-			++iter0;
-			++iter1;
+			++lhs;
+			++rhs;
 		}
 	}
 }
