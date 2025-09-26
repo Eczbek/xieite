@@ -3,6 +3,7 @@
 #
 #	include <iterator>
 #	include <ranges>
+#   include <functional>
 #	include "../pp/arrow.hpp"
 #	include "../pp/fwd.hpp"
 
@@ -20,23 +21,38 @@ namespace xieite {
 				return self.value;
 			}
 
-			[[nodiscard]] friend constexpr auto operator==(xieite::iters<Range>::iter<Iter> lhs, xieite::iters<Range>::iter<Iter> rhs) XIEITE_ARROW(
+			[[nodiscard]] friend constexpr auto operator==(
+				xieite::iters<Range>::iter<Iter> lhs,
+				xieite::iters<Range>::iter<Iter> rhs
+			) XIEITE_ARROW(
 				lhs.value == rhs.value
 			)
 
-			[[nodiscard]] friend constexpr auto operator==(xieite::iters<Range>::iter<Iter> lhs, Iter rhs) XIEITE_ARROW(
+			[[nodiscard]] friend constexpr auto operator==(
+				xieite::iters<Range>::iter<Iter> lhs,
+				Iter rhs
+			) XIEITE_ARROW(
 				lhs.value == rhs
 			)
 
-			[[nodiscard]] friend constexpr auto operator!=(xieite::iters<Range>::iter<Iter> lhs, xieite::iters<Range>::iter<Iter> rhs) XIEITE_ARROW(
+			[[nodiscard]] friend constexpr auto operator!=(
+				xieite::iters<Range>::iter<Iter> lhs,
+				xieite::iters<Range>::iter<Iter> rhs
+			) XIEITE_ARROW(
 				lhs.value != rhs.value
 			)
 
-			[[nodiscard]] friend constexpr auto operator!=(xieite::iters<Range>::iter<Iter> lhs, Iter rhs) XIEITE_ARROW(
+			[[nodiscard]] friend constexpr auto operator!=(
+				xieite::iters<Range>::iter<Iter> lhs,
+				Iter rhs
+			) XIEITE_ARROW(
 				lhs.value != rhs
 			)
 
-			[[nodiscard]] friend constexpr auto operator+(xieite::iters<Range>::iter<Iter> lhs, std::iter_difference_t<Iter> rhs) XIEITE_ARROW(
+			[[nodiscard]] friend constexpr auto operator+(
+				xieite::iters<Range>::iter<Iter> lhs,
+				std::iter_difference_t<Iter> rhs
+			) XIEITE_ARROW(
 				xieite::iters<Range>::iter(lhs.value + rhs)
 			)
 
@@ -51,13 +67,16 @@ namespace xieite {
 			)
 
 			constexpr auto operator++(int) XIEITE_ARROW(
-				([this](auto copy) XIEITE_ARROW(
+				std::invoke([this](auto copy) XIEITE_ARROW(
 					void(this->value++),
 					auto(copy)
-				))(*this)
+				), *this);
 			)
 
-			[[nodiscard]] friend constexpr auto operator-(xieite::iters<Range>::iter<Iter> lhs, std::iter_difference_t<Iter> rhs) XIEITE_ARROW(
+			[[nodiscard]] friend constexpr auto operator-(
+				xieite::iters<Range>::iter<Iter> lhs,
+				std::iter_difference_t<Iter> rhs
+			) XIEITE_ARROW(
 				xieite::iters<Range>::iter(lhs.value - rhs)
 			)
 
