@@ -9,9 +9,26 @@
 #	include "../trait/is_noex_range.hpp"
 
 namespace xieite {
-	template<std::ranges::input_range Range0, std::ranges::input_range Range1, xieite::is_lref_invoc<bool(std::ranges::range_common_reference_t<Range0>, std::ranges::range_common_reference_t<Range1>)> Pred = std::equal_to<>>
-	[[nodiscard]] constexpr bool rotated(Range0&& range0, Range1&& range1, Pred&& pred = {})
-	noexcept(xieite::is_noex_range<Range0> && xieite::is_noex_range<Range1> && xieite::is_noex_lref_invoc<Pred, bool(std::ranges::range_common_reference_t<Range0>, std::ranges::range_common_reference_t<Range1>)>) {
+	// FIXME(Hurubon): Better naming?
+	template<
+		std::ranges::input_range Range0,
+		std::ranges::input_range Range1,
+		xieite::is_lref_invoc<bool(
+			std::ranges::range_common_reference_t<Range0>,
+			std::ranges::range_common_reference_t<Range1>
+		)> Pred = std::equal_to<>
+	> [[nodiscard]] constexpr bool rotated(
+		Range0&& range0,
+		Range1&& range1,
+		Pred&& pred = {}
+	) noexcept(
+		xieite::is_noex_range<Range0>
+		&& xieite::is_noex_range<Range1>
+		&& xieite::is_noex_lref_invoc<Pred, bool(
+			std::ranges::range_common_reference_t<Range0>,
+			std::ranges::range_common_reference_t<Range1>
+		)>
+	) {
 		if (std::ranges::size(range0) == std::ranges::size(range1)) {
 			for (auto iter : xieite::iters(range0)) {
 				auto copy0 = iter;
