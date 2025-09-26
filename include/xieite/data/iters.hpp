@@ -70,7 +70,7 @@ namespace xieite {
 				std::invoke([this](auto copy) XIEITE_ARROW(
 					void(this->value++),
 					auto(copy)
-				), *this);
+				), *this)
 			)
 
 			[[nodiscard]] friend constexpr auto operator-(
@@ -91,10 +91,10 @@ namespace xieite {
 			)
 
 			constexpr auto operator--(int) XIEITE_ARROW(
-				([this](auto copy) XIEITE_ARROW(
+				std::invoke([this](auto copy) XIEITE_ARROW(
 					void(this->value--),
 					auto(copy)
-				))(*this)
+				), *this)
 			)
 		};
 
