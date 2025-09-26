@@ -9,22 +9,58 @@
 #	include "../trait/is_char.hpp"
 
 namespace xieite {
-	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad(const std::basic_string<Char, Traits, Alloc>& str, std::size_t target_length, Char c = ' ', bool align_front = true, const Alloc& alloc = {}) noexcept(false) {
-		using Str = std::basic_string<Char, Traits, Alloc>;
+	template<
+		xieite::is_char Char,
+		typename Traits,
+		typename Alloc
+	> [[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad(
+		const std::basic_string<Char, Traits, Alloc>& str,
+		std::size_t target_length,
+		Char c = ' ',
+		bool align_front = true,
+		const Alloc& alloc = {}
+	) noexcept(false) {
+		using String = std::basic_string<Char, Traits, Alloc>;
+		const auto padding_l = (target_length - str.size() + !align_front) / 2;
+		const auto padding_r = (target_length - str.size() +  align_front) / 2;
 		return (str.size() < target_length)
-			? Str((target_length - str.size() + !align_front) / 2, c, alloc) + str + Str((target_length - str.size() + align_front) / 2, c, alloc)
+			? String(padding_l, c, alloc) + str + String(padding_r, c, alloc)
 			: str;
 	}
 
-	template<xieite::is_char Char, typename Traits, typename Alloc = std::allocator<Char>>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad(std::basic_string_view<Char, Traits> strv, std::size_t target_length, Char c = ' ', bool align_front = true, const Alloc& alloc = {}) noexcept(false) {
-		return xieite::pad(std::basic_string<Char, Traits, Alloc>(strv, alloc), target_length, c, align_front, alloc);
+	template<
+		xieite::is_char Char,
+		typename Traits,
+		typename Alloc = std::allocator<Char>
+	> [[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad(
+		std::basic_string_view<Char, Traits> strv,
+		std::size_t target_length,
+		Char c = ' ',
+		bool align_front = true,
+		const Alloc& alloc = {}
+	) noexcept(false) {
+		using String = std::basic_string<Char, Traits, Alloc>;
+		return xieite::pad(
+			String(strv, alloc), target_length, c, align_front, alloc
+		);
 	}
 
-	template<xieite::is_char Char, typename Traits = std::char_traits<Char>, typename Alloc = std::allocator<Char>, std::size_t length>
-	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad(const xieite::type<Char[length]>& str, std::size_t target_length, Char c = ' ', bool align_front = true, const Alloc& alloc = {}) noexcept(false) {
-		return xieite::pad(std::basic_string<Char, Traits, Alloc>(str, length, alloc), target_length, c, align_front, alloc);
+	template<
+		xieite::is_char Char,
+		typename Traits = std::char_traits<Char>,
+		typename Alloc = std::allocator<Char>,
+		std::size_t length
+	> [[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> pad(
+		const xieite::type<Char[length]>& str,
+		std::size_t target_length,
+		Char c = ' ',
+		bool align_front = true,
+		const Alloc& alloc = {}
+	) noexcept(false) {
+		using String = std::basic_string<Char, Traits, Alloc>;
+		return xieite::pad(
+			String(str, length, alloc), target_length, c, align_front, alloc
+		);
 	}
 }
 
