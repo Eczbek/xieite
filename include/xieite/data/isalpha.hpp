@@ -15,7 +15,9 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits>
-	[[nodiscard]] constexpr bool isalpha(std::basic_string_view<Char, Traits> strv) noexcept {
+	[[nodiscard]] constexpr bool isalpha(
+		std::basic_string_view<Char, Traits> strv
+	) noexcept {
 		for (Char c : strv) {
 			if (!xieite::isalpha(c)) {
 				return false;
@@ -25,12 +27,16 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr bool isalpha(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+	[[nodiscard]] constexpr bool isalpha(
+		const std::basic_string<Char, Traits, Alloc>& str
+	) noexcept {
 		return xieite::isalpha(xieite::make_str_view(str));
 	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr bool isalpha(const xieite::type<Char[length]>& str) noexcept {
+	[[nodiscard]] constexpr bool isalpha(
+		const xieite::type<Char[length]>& str
+	) noexcept {
 		return xieite::isalpha(xieite::make_str_view(str));
 	}
 }
