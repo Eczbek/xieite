@@ -14,7 +14,7 @@ namespace xieite {
 	[[nodiscard]] constexpr std::basic_string<Char, Traits, Alloc> quote(const std::basic_string<Char, Traits, Alloc>& str, Char delim = '"', Char esc = '\\', const Alloc& alloc = {}) noexcept(false) {
 		using Str = std::basic_string<Char, Traits, Alloc>;
 		return (delim == esc)
-			? (delim + xieite::str_replace(str, delim, Str(1, esc, alloc) + delim, alloc) + delim, alloc)
+			? (delim + xieite::str_replace(str, delim, Str(1, esc, alloc) + delim, alloc) + delim)
 			: (delim + xieite::str_replace(xieite::str_replace(str, esc, Str(2, esc, alloc), alloc), delim, Str(1, esc, alloc) + delim, alloc) + delim);
 	}
 
