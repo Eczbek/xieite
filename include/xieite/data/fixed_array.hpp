@@ -32,13 +32,12 @@ namespace xieite {
 
 		Value array[length];
 
-		// NOTE(Hurubon): Can this be (conditionally) `noexcept`?
 		[[nodiscard]] friend constexpr auto operator<=>(
 			const xieite::fixed_array<Value, length>& lhs,
 			const xieite::fixed_array<Value, length>& rhs
-		) {
-			return xieite::range_cmp(lhs, rhs);
-		}
+		) XIEITE_ARROW(
+			xieite::range_cmp(lhs, rhs)
+		)
 
 		[[nodiscard]] constexpr auto&& operator[](
 			this auto&& self,
