@@ -15,7 +15,13 @@
 #	include "../trait/is_ref_to.hpp"
 
 namespace xieite {
-	template<typename Key, std::size_t length, typename Hash = std::hash<Key>, typename Pred = std::equal_to<>, typename Alloc = std::allocator<Key>>
+	template<
+		typename Key,
+		std::size_t length,
+		typename Hash = std::hash<Key>,
+		typename Pred = std::equal_to<>,
+		typename Alloc = std::allocator<Key>
+	>
 	struct fixed_set {
 	public:
 		[[nodiscard]] fixed_set() = default;
@@ -25,23 +31,31 @@ namespace xieite {
 		[[nodiscard]] explicit constexpr fixed_set(Range&& keys) noexcept
 		: array(xieite::make_array<Key, length>(XIEITE_FWD(keys))) {}
 
-		[[nodiscard]] explicit(false) constexpr fixed_set(std::initializer_list<Key> keys) noexcept
+		[[nodiscard]] explicit(false) constexpr fixed_set(
+			std::initializer_list<Key> keys
+		) noexcept
 		: array(xieite::make_array<Key, length>(keys)) {}
 
-		[[nodiscard]] constexpr bool operator[](xieite::is_ref_to<Key> auto&& key) const noexcept {
+		[[nodiscard]] constexpr bool operator[](
+			xieite::is_ref_to<Key> auto&& key
+		) const noexcept {
 			return this->has(XIEITE_FWD(key));
 		}
 
-		[[nodiscard]] constexpr bool has(xieite::is_ref_to<Key> auto&& key) const noexcept {
+		[[nodiscard]] constexpr bool has(
+			xieite::is_ref_to<Key> auto&& key
+		) const noexcept {
 			if consteval {
 				return std::ranges::contains(this->array, XIEITE_FWD(key));
 			} else {
-				static const auto set = std::unordered_set<Key, Hash, Pred, Alloc>(std::from_range, this->array);
+				using Set = std::unordered_set<Key, Hash, Pred, Alloc>;
+				static const auto set = Set(std::from_range, this->array);
 				return set.has(XIEITE_FWD(key));
 			}
 		}
 
-		[[nodiscard]] constexpr const std::array<Key, length>& data() const noexcept {
+		[[nodiscard]] constexpr const std::array<Key, length>&
+		data() const noexcept {
 			return this->array;
 		}
 
