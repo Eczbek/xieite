@@ -8,11 +8,11 @@
 namespace xieite {
 	struct number_str_config {
 		std::string_view digits = xieite::chars::alphanumeric;
-		std::string_view minus = "-";
-		std::string_view plus = "+";
-		std::string_view point = ".";
-		std::string_view exp = "EePp";
-		std::size_t precision = 50;
+		std::string_view minus  = "-";
+		std::string_view plus   = "+";
+		std::string_view point  = ".";
+		std::string_view exp    = "EePp";
+		std::size_t precision   = 50;
 	};
 }
 
