@@ -52,10 +52,7 @@ namespace xieite {
 		auto&& before_pred = std::ranges::equal_to()
 	) XIEITE_ARROW(
 		xieite::before_last(
-			xieite::after(
-				XIEITE_FWD(range),
-				XIEITE_FWD(after)
-			),
+			xieite::after(XIEITE_FWD(range), XIEITE_FWD(after)),
 			XIEITE_FWD(before),
 			XIEITE_FWD(before_pred)
 		)
