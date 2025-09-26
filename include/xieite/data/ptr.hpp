@@ -84,12 +84,16 @@ namespace xieite {
 	struct ptr<Value[]> {
 		Value* array;
 		
-		[[nodiscard]] explicit(false) constexpr ptr(Value* array = nullptr) noexcept
-		: array(array) {}
-
 		ptr(const xieite::ptr<Value[]>&) = delete;
 
-		[[nodiscard]] explicit(false) constexpr ptr(xieite::ptr<Value[]>&& other) noexcept
+		[[nodiscard]] explicit(false) constexpr ptr(
+			Value* array = nullptr
+		) noexcept
+		: array(array) {}
+
+		[[nodiscard]] explicit(false) constexpr ptr(
+			xieite::ptr<Value[]>&& other
+		) noexcept
 		: array(other.release()) {}
 
 		constexpr ~ptr() {
@@ -98,7 +102,9 @@ namespace xieite {
 
 		void operator=(const xieite::ptr<Value[]>&) = delete;
 
-		constexpr xieite::ptr<Value[]>& operator=(xieite::ptr<Value[]>&& other) noexcept {
+		constexpr xieite::ptr<Value[]>& operator=(
+			xieite::ptr<Value[]>&& other
+		) noexcept {
 			this->reset(other.release());
 			return *this;
 		}
@@ -112,7 +118,9 @@ namespace xieite {
 			return this->array;
 		}
 
-		[[nodiscard]] constexpr Value& operator[](std::size_t idx) const noexcept(!XIEITE_DEBUG) {
+		[[nodiscard]] constexpr Value& operator[](
+			std::size_t idx
+		) const noexcept(!XIEITE_DEBUG) {
 			if constexpr (XIEITE_DEBUG) {
 				if (!*this) {
 					throw std::logic_error("nullptr dereference");
