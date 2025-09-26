@@ -13,7 +13,9 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits>
-	[[nodiscard]] constexpr bool isdigit(std::basic_string_view<Char, Traits> strv) noexcept {
+	[[nodiscard]] constexpr bool isdigit(
+		std::basic_string_view<Char, Traits> strv
+	) noexcept {
 		for (Char c : strv) {
 			if (!xieite::isdigit(c)) {
 				return false;
@@ -23,12 +25,16 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr bool isdigit(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+	[[nodiscard]] constexpr bool isdigit(
+		const std::basic_string<Char, Traits, Alloc>& str
+	) noexcept {
 		return xieite::isdigit(xieite::make_str_view(str));
 	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr bool isdigit(const xieite::type<Char[length]>& str) noexcept {
+	[[nodiscard]] constexpr bool isdigit(
+		const xieite::type<Char[length]>& str
+	) noexcept {
 		return xieite::isdigit(xieite::make_str_view(str));
 	}
 }

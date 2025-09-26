@@ -15,7 +15,9 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits>
-	[[nodiscard]] constexpr bool isgraph(std::basic_string_view<Char, Traits> strv) noexcept {
+	[[nodiscard]] constexpr bool isgraph(
+		std::basic_string_view<Char, Traits> strv
+	) noexcept {
 		for (Char c : strv) {
 			if (!xieite::isgraph(c)) {
 				return false;
@@ -25,12 +27,16 @@ namespace xieite {
 	}
 
 	template<xieite::is_char Char, typename Traits, typename Alloc>
-	[[nodiscard]] constexpr bool isgraph(const std::basic_string<Char, Traits, Alloc>& str) noexcept {
+	[[nodiscard]] constexpr bool isgraph(
+		const std::basic_string<Char, Traits, Alloc>& str
+	) noexcept {
 		return xieite::isgraph(xieite::make_str_view(str));
 	}
 
 	template<xieite::is_char Char, std::size_t length>
-	[[nodiscard]] constexpr bool isgraph(const xieite::type<Char[length]>& str) noexcept {
+	[[nodiscard]] constexpr bool isgraph(
+		const xieite::type<Char[length]>& str
+	) noexcept {
 		return xieite::isgraph(xieite::make_str_view(str));
 	}
 }
