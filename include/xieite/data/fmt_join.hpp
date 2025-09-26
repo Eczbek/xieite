@@ -4,6 +4,7 @@
 #	include <cstddef>
 #	include <format>
 #	include <string_view>
+#   include <functional>
 #	include "../data/fixed_array.hpp"
 #	include "../data/fixed_str.hpp"
 #	include "../fn/unroll.hpp"
