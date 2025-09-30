@@ -1,6 +1,4 @@
-# **XIEITE**
-C++ utility library
+# XIEITE
+General-purpose C++ utility library
 
-&nbsp;
-
-### [\[Documentation\]](https://xieite.github.io)
+### [Documentation](https://xieite.github.io)

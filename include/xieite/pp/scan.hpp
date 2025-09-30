@@ -1,5 +1,0 @@
-#ifndef DETAIL_XIEITE_HEADER_PP_SCAN
-#	define DETAIL_XIEITE_HEADER_PP_SCAN
-#
-#	define XIEITE_SCAN(...) __VA_ARGS__
-#endif
