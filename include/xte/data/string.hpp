@@ -5,6 +5,8 @@
 #	include "../data/lowercase.hpp"
 #	include "../data/uppercase.hpp"
 #	include "../util/types.hpp"
+#	include <algorithm>
+#	include <format>
 #	include <ranges>
 
 namespace xte {
@@ -39,5 +41,16 @@ namespace xte::literal::string {
 		return xte::string(data, size);
 	}
 }
+
+template<>
+struct std::formatter<xte::string> {
+	constexpr auto parse(std::format_parse_context& ctx) {
+		return ctx.begin();
+	}
+
+	auto format(const xte::string& string, std::format_context& ctx) const {
+		return std::ranges::copy(string, ctx.out()).out;
+	}
+};
 
 #endif

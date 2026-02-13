@@ -11,7 +11,9 @@
 #	include "../trait/is_contiguous_input_range.hpp"
 #	include "../trait/is_implicit_castable.hpp"
 #	include "../util/types.hpp"
+#	include <algorithm>
 #	include <compare>
+#	include <format>
 #	include <ranges>
 
 namespace xte {
@@ -198,5 +200,16 @@ namespace xte::literal::string_view {
 		return xte::string_view(data, size);
 	}
 }
+
+template<>
+struct std::formatter<xte::string_view> {
+	constexpr auto parse(std::format_parse_context& ctx) {
+		return ctx.begin();
+	}
+
+	auto format(xte::string_view string, std::format_context& ctx) const {
+		return std::ranges::copy(string, ctx.out()).out;
+	}
+};
 
 #endif

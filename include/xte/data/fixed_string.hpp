@@ -9,6 +9,8 @@
 #	include "../meta/seq.hpp"
 #	include "../meta/type.hpp"
 #	include "../util/types.hpp"
+#	include <algorithm>
+#	include <format>
 
 namespace xte {
 	template<xte::uz n>
@@ -37,5 +39,16 @@ namespace xte::literal::fixed_string {
 		return string;
 	}
 }
+
+template<xte::uz n>
+struct std::formatter<xte::fixed_string<n>> {
+	constexpr auto parse(std::format_parse_context& ctx) {
+		return ctx.begin();
+	}
+
+	auto format(const xte::fixed_string<n>& string, std::format_context& ctx) const {
+		return std::ranges::copy(string, ctx.out()).out;
+	}
+};
 
 #endif
