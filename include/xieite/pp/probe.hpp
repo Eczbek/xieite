@@ -1,5 +1,0 @@
-#ifndef DETAIL_XIEITE_HEADER_PP_PROBE
-#	define DETAIL_XIEITE_HEADER_PP_PROBE
-#
-#	define XIEITE_PROBE(_x) _x, 1,
-#endif

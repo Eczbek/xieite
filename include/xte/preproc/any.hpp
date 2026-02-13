@@ -1,0 +1,8 @@
+#ifndef DETAIL_XTE_HEADER_PREPROC_ANY
+#	define DETAIL_XTE_HEADER_PREPROC_ANY
+#
+#	define XTE_ANY(...) DETAIL_XTE_ANY##__VA_OPT__(_)
+#
+#	define DETAIL_XTE_ANY 0
+#	define DETAIL_XTE_ANY_ 1
+#endif

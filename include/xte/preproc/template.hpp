@@ -1,0 +1,5 @@
+#ifndef DETAIL_XTE_HEADER_PREPROC_TEMPLATE
+#	define DETAIL_XTE_HEADER_PREPROC_TEMPLATE
+#
+#	define XTE_TEMPLATE template for (char DETAIL_XTE_ : "")
+#endif

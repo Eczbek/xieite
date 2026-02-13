@@ -1,0 +1,497 @@
+#ifndef DETAIL_XTE_HEADER_PREPROC_STDLIB
+#	define DETAIL_XTE_HEADER_PREPROC_STDLIB
+#
+#	define XTE_STDLIB_BIONIC_C 0
+#	define XTE_STDLIB_BIONIC_C_MAJOR 0
+#	define XTE_STDLIB_BIONIC_C_MINOR 0
+#	define XTE_STDLIB_BIONIC_C_PATCH 0
+#	define XTE_STDLIB_CLOUDABI_C 0
+#	define XTE_STDLIB_CLOUDABI_C_MAJOR 0
+#	define XTE_STDLIB_CLOUDABI_C_MINOR 0
+#	define XTE_STDLIB_CLOUDABI_C_PATCH 0
+#	define XTE_STDLIB_COMO_CPP 0
+#	define XTE_STDLIB_COMO_CPP_MAJOR 0
+#	define XTE_STDLIB_COMO_CPP_MINOR 0
+#	define XTE_STDLIB_COMO_CPP_PATCH 0
+#	define XTE_STDLIB_DINKUMWARE_CPP 0
+#	define XTE_STDLIB_DINKUMWARE_CPP_MAJOR 0
+#	define XTE_STDLIB_DINKUMWARE_CPP_MINOR 0
+#	define XTE_STDLIB_DINKUMWARE_CPP_PATCH 0
+#	define XTE_STDLIB_GNU_C 0
+#	define XTE_STDLIB_GNU_C_MAJOR 0
+#	define XTE_STDLIB_GNU_C_MINOR 0
+#	define XTE_STDLIB_GNU_C_PATCH 0
+#	define XTE_STDLIB_GNU_CPP 0
+#	define XTE_STDLIB_GNU_CPP_MAJOR 0
+#	define XTE_STDLIB_GNU_CPP_MINOR 0
+#	define XTE_STDLIB_GNU_CPP_PATCH 0
+#	define XTE_STDLIB_IBM_VA_CPP 0
+#	define XTE_STDLIB_IBM_VA_CPP_MAJOR 0
+#	define XTE_STDLIB_IBM_VA_CPP_MINOR 0
+#	define XTE_STDLIB_IBM_VA_CPP_PATCH 0
+#	define XTE_STDLIB_KLIBC 0
+#	define XTE_STDLIB_KLIBC_MAJOR 0
+#	define XTE_STDLIB_KLIBC_MINOR 0
+#	define XTE_STDLIB_KLIBC_PATCH 0
+#	define XTE_STDLIB_LLVM_C 0
+#	define XTE_STDLIB_LLVM_C_MAJOR 0
+#	define XTE_STDLIB_LLVM_C_MINOR 0
+#	define XTE_STDLIB_LLVM_C_PATCH 0
+#	define XTE_STDLIB_LLVM_CPP 0
+#	define XTE_STDLIB_LLVM_CPP_MAJOR 0
+#	define XTE_STDLIB_LLVM_CPP_MINOR 0
+#	define XTE_STDLIB_LLVM_CPP_PATCH 0
+#	define XTE_STDLIB_METROWERKS_CPP 0
+#	define XTE_STDLIB_METROWERKS_CPP_MAJOR 0
+#	define XTE_STDLIB_METROWERKS_CPP_MINOR 0
+#	define XTE_STDLIB_METROWERKS_CPP_PATCH 0
+#	define XTE_STDLIB_MFC_CPP 0
+#	define XTE_STDLIB_MFC_CPP_MAJOR 0
+#	define XTE_STDLIB_MFC_CPP_MINOR 0
+#	define XTE_STDLIB_MFC_CPP_PATCH 0
+#	define XTE_STDLIB_MODENA_CPP 0
+#	define XTE_STDLIB_MODENA_CPP_MAJOR 0
+#	define XTE_STDLIB_MODENA_CPP_MINOR 0
+#	define XTE_STDLIB_MODENA_CPP_PATCH 0
+#	define XTE_STDLIB_MSVC_C 0
+#	define XTE_STDLIB_MSVC_C_MAJOR 0
+#	define XTE_STDLIB_MSVC_C_MINOR 0
+#	define XTE_STDLIB_MSVC_C_PATCH 0
+#	define XTE_STDLIB_MSVC_CPP 0
+#	define XTE_STDLIB_MSVC_CPP_MAJOR 0
+#	define XTE_STDLIB_MSVC_CPP_MINOR 0
+#	define XTE_STDLIB_MSVC_CPP_PATCH 0
+#	define XTE_STDLIB_PDP_C 0
+#	define XTE_STDLIB_PDP_C_MAJOR 0
+#	define XTE_STDLIB_PDP_C_MINOR 0
+#	define XTE_STDLIB_PDP_C_PATCH 0
+#	define XTE_STDLIB_ROGUEWAVE_CPP 0
+#	define XTE_STDLIB_ROGUEWAVE_CPP_MAJOR 0
+#	define XTE_STDLIB_ROGUEWAVE_CPP_MINOR 0
+#	define XTE_STDLIB_ROGUEWAVE_CPP_PATCH 0
+#	define XTE_STDLIB_SGI_CPP 0
+#	define XTE_STDLIB_SGI_CPP_MAJOR 0
+#	define XTE_STDLIB_SGI_CPP_MINOR 0
+#	define XTE_STDLIB_SGI_CPP_PATCH 0
+#	define XTE_STDLIB_UCLIBC 0
+#	define XTE_STDLIB_UCLIBC_MAJOR 0
+#	define XTE_STDLIB_UCLIBC_MINOR 0
+#	define XTE_STDLIB_UCLIBC_PATCH 0
+#	define XTE_STDLIB_VMS_C 0
+#	define XTE_STDLIB_VMS_C_MAJOR 0
+#	define XTE_STDLIB_VMS_C_MINOR 0
+#	define XTE_STDLIB_VMS_C_PATCH 0
+#	define XTE_STDLIB_Z_C 0
+#	define XTE_STDLIB_Z_C_MAJOR 0
+#	define XTE_STDLIB_Z_C_MINOR 0
+#	define XTE_STDLIB_Z_C_PATCH 0
+#	define XTE_STDLIB_Z88DK_C 0
+#	define XTE_STDLIB_Z88DK_C_MAJOR 0
+#	define XTE_STDLIB_Z88DK_C_MINOR 0
+#	define XTE_STDLIB_Z88DK_C_PATCH 0
+#	define XTE_STDLIB_VER(_type, _op, _major, ...) DETAIL_XTE_STDLIB_VER(_op, XTE_STDLIB__MAJOR##_type, XTE_STDLIB__MINOR##_type, XTE_STDLIB__PATCH##_type, _major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
+#
+#	define DETAIL_XTE_STDLIB_VER(_op, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) (((((0 _op 0) && !(0 _op 1) && !(1 _op 0)) || (!(0 _op 0) && (0 _op 1) && (1 _op 0))) && (((_major0) _op (_major1)) && ((_minor0) _op (_minor1)) && ((_patch0) _op (_patch1)))) || ((_major0) _op (_major1)) || (((_major0) == (_major1)) && ((_minor0) _op (_minor1))) || (((_minor0) == (_minor1)) && ((_patch0) _op (_patch1))))
+#
+#	ifdef __BIONIC__
+#		undef XTE_STDLIB_BIONIC_C
+#		define XTE_STDLIB_BIONIC_C 1
+#	endif
+#
+#	ifdef __cloudlibc__
+#		undef XTE_STDLIB_CLOUDABI_C
+#		define XTE_STDLIB_CLOUDABI_C 1
+#
+#		undef XTE_STDLIB_CLOUDABI_C_MAJOR
+#		define XTE_STDLIB_CLOUDABI_C_MAJOR __cloudlibc_major__
+#
+#		undef XTE_STDLIB_CLOUDABI_C_MINOR
+#		define XTE_STDLIB_CLOUDABI_C_MINOR __cloudlibc_minor__
+#	endif
+#
+#	ifdef __LIBCOMO__
+#		undef XTE_STDLIB_COMO_CPP
+#		define XTE_STDLIB_COMO_CPP 1
+#
+#		undef XTE_STDLIB_COMO_CPP_MAJOR
+#		define XTE_STDLIB_COMO_CPP_MAJOR __LIBCOMO_VERSION__
+#	endif
+#
+#	if defined(_CPPLIB_VER) || (defined(_YVALS) && !defined(__IBMCPP__))
+#		undef XTE_STDLIB_DINKUMWARE_CPP
+#		define XTE_STDLIB_DINKUMWARE_CPP 1
+#
+#		ifdef _CPPLIB_VER
+#			undef XTE_STDLIB_DINKUMWARE_CPP_MAJOR
+#			define XTE_STDLIB_DINKUMWARE_CPP_MAJOR (_CPPLIB_VER / 100)
+#
+#			undef XTE_STDLIB_DINKUMWARE_CPP_MINOR
+#			define XTE_STDLIB_DINKUMWARE_CPP_MINOR (_CPPLIB_VER % 100)
+#		endif
+#	endif
+#
+#	if defined(__GLIBC__) || defined(__GNU_LIBRARY__)
+#		undef XTE_STDLIB_GNU_C
+#		define XTE_STDLIB_GNU_C 1
+#
+#		undef XTE_STDLIB_GNU_C_MAJOR
+#		undef XTE_STDLIB_GNU_C_MINOR
+#		ifdef __GLIBC__
+#			define XTE_STDLIB_GNU_C_MAJOR __GLIBC__
+#			define XTE_LIBRARY_MINOR_GNU_C __GLIBC_MINOR__
+#		else
+#			define XTE_STDLIB_GNU_C_MAJOR __GNU_LIBRARY__
+#			define XTE_STDLIB_GNU_C_MINOR __GNU_LIBRARY_MINOR__
+#		endif
+#	endif
+#
+#	ifdef __GLIBCXX__
+#		undef XTE_STDLIB_GNU_CPP
+#		define XTE_STDLIB_GNU_CPP 1
+#
+#		undef XTE_STDLIB_GNU_CPP_MAJOR
+#		ifdef _GLIBCXX_RELEASE
+#			define XTE_STDLIB_GNU_CPP_MAJOR _GLIBCXX_RELEASE
+#		else
+#			define XTE_STDLIB_GNU_CPP_MINOR __GLIBCXX__ // Why not?
+#		endif
+#	endif
+#
+#	ifdef __IBMCPP__
+#		undef XTE_STDLIB_IBM_VA_CPP
+#		define XTE_STDLIB_IBM_VA_CPP 1
+#	endif
+#
+#	ifdef __KLIBC__
+#		undef XTE_STDLIB_KLIBC
+#		define XTE_STDLIB_KLIBC 1
+#
+#		undef XTE_STDLIB_KLIBC_MAJOR
+#		undef XTE_STDLIB_KLIBC_MINOR
+#		undef XTE_STDLIB_KLIBC_PATCH
+#		if defined(__KLIBC_MINOR__) && defined(__KLIBC_PATCHLEVEL__)
+#			define XTE_STDLIB_KLIBC_MAJOR __KLIBC__
+#			define XTE_STDLIB_KLIBC_MINOR __KLIBC_MINOR__
+#			define XTE_STDLIB_KLIBC_PATCH __KLIBC_PATCHLEVEL__
+#		elifdef __KLIBC_VERSION__
+#			define XTE_STDLIB_KLIBC_MAJOR (__KLIBC_VERSION__ / 0x1000000)
+#			define XTE_STDLIB_KLIBC_MINOR (__KLIBC_VERSION__ % 0x1000000 / 0x10000)
+#			define XTE_STDLIB_KLIBC_PATCH (__KLIBC_VERSION__ % 0x10000)
+#		endif
+#	endif
+#
+#	ifdef __LLVM_LIBC__
+#		undef XTE_STDLIB_LLVM_C
+#		define XTE_STDLIB_LLVM_C 1
+#	endif
+#
+#	ifdef _LIBCPP_VERSION
+#		undef XTE_STDLIB_LLVM_CPP
+#		define XTE_STDLIB_LLVM_CPP 1
+#
+#		undef XTE_STDLIB_LLVM_CPP_MAJOR
+#		define XTE_STDLIB_LLVM_CPP_MAJOR (_LIBCPP_VERSION / 10000)
+#
+#		undef XTE_STDLIB_LLVM_CPP_MINOR
+#		define XTE_STDLIB_LLVM_CPP_MINOR (_LIBCPP_VERSION % 10000 / 100)
+#
+#		undef XTE_STDLIB_LLVM_CPP_PATCH
+#		define XTE_STDLIB_LLVM_CPP_PATCH (_LIBCPP_VERSION % 100)
+#	endif
+#
+#	if defined(__MSL_CPP__) || defined(__MSL__)
+#		undef XTE_STDLIB_METROWERKS_CPP
+#		define XTE_STDLIB_METROWERKS_CPP 1
+#
+#		undef XTE_STDLIB_METROWERKS_CPP_MAJOR
+#		undef XTE_STDLIB_METROWERKS_CPP_MINOR
+#		undef XTE_STDLIB_METROWERKS_CPP_PATCH
+#		ifdef __MSL_CPP__
+#			define XTE_STDLIB_METROWERKS_CPP_MAJOR (__MSL_CPP__ / 0x1000)
+#			define XTE_STDLIB_METROWERKS_CPP_MINOR (__MSL_CPP__ / 0x1000 / 100)
+#			define XTE_STDLIB_METROWERKS_CPP_PATCH (__MSL_CPP__ / 0x100)
+#		else
+#			define XTE_STDLIB_METROWERKS_CPP_MAJOR (__MSL__ / 0x1000)
+#			define XTE_STDLIB_METROWERKS_CPP_MINOR (__MSL__ / 0x1000 / 100)
+#			define XTE_STDLIB_METROWERKS_CPP_PATCH (__MSL__ / 0x100)
+#		endif
+#	endif
+#
+#	ifdef _MFC_VER
+#		undef XTE_STDLIB_MFC_CPP
+#		define XTE_STDLIB_MFC_CPP 1
+#
+#		undef XTE_STDLIB_MFC_CPP_MAJOR
+#		define XTE_STDLIB_MFC_CPP_MAJOR (_MFC_VER / 0x100)
+#
+#		undef XTE_STDLIB_MFC_CPP_MINOR
+#		define XTE_STDLIB_MFC_CPP_MINOR (_MFC_VER % 0x100)
+#	endif
+#
+#	if defined(MSIPL_COMPILE_H) || defined(__MSIPL_COMPILE_H)
+#		undef XTE_STDLIB_MODENA_CPP
+#		define XTE_STDLIB_MODENA_CPP 1
+#	endif
+#
+#	
+#
+#	if defined(_MSVC_STL_UPDATE) || defined(_MSVC_STL_VERSION)
+#		undef XTE_STDLIB_MSVC_CPP
+#		define XTE_STDLIB_MSVC_CPP 1
+#
+#		undef XTE_STDLIB_MSVC_CPP_MAJOR
+#		undef XTE_STDLIB_MSVC_CPP_MINOR
+#		if _MSVC_STL_UPDATE >= 202503
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 14
+#		elif _MSVC_STL_UPDATE >= 202411
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 13
+#		elif _MSVC_STL_UPDATE >= 202408
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 12
+#		elif _MSVC_STL_UPDATE >= 202405
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 11
+#		elif _MSVC_STL_UPDATE >= 202402
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 10
+#		elif _MSVC_STL_UPDATE >= 202310
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 9
+#		elif _MSVC_STL_UPDATE >= 202308
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 8
+#		elif _MSVC_STL_UPDATE >= 202305
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 7
+#		elif _MSVC_STL_UPDATE >= 202302
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 6
+#		elif _MSVC_STL_UPDATE >= 202210
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 5
+#		elif _MSVC_STL_UPDATE >= 202208
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 4
+#		elif _MSVC_STL_UPDATE >= 202205
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 3
+#		elif _MSVC_STL_UPDATE >= 202203
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 2
+#		elif _MSVC_STL_UPDATE >= 202111
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 1
+#		elif _MSVC_STL_UPDATE >= 202108
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 17
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSVC_STL_UPDATE >= 202105
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 11
+#
+#			undef XTE_STDLIB_MSVC_CPP_PATCH
+#			define XTE_STDLIB_MSVC_CPP_PATCH 14
+#		elif _MSVC_STL_UPDATE >= 202104 // 16.11 is indistinguishable from 16.10, but 16.11 is a long-term support release
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 11
+#		elif _MSVC_STL_UPDATE >= 202011
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 9
+#		elif _MSVC_STL_UPDATE >= 202008
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 8
+#		elif _MSVC_STL_UPDATE >= 202005
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 7
+#		elif _MSVC_STL_UPDATE >= 202002
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 6
+#		elif _MSVC_STL_UPDATE >= 201912
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 5
+#		elif _MSVC_STL_UPDATE >= 201909
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 4
+#		elif _MSVC_STL_UPDATE >= 201906
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 3
+#		elif _MSVC_STL_UPDATE >= 201905
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 2
+#		elif _MSVC_STL_UPDATE >= 201903
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 1
+#		elif _MSVC_STL_UPDATE >= 201811
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 16
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSVC_STL_UPDATE >= 201809
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 15
+#			define XTE_STDLIB_MSVC_CPP_MINOR 9
+#		elif _MSVC_STL_UPDATE >= 201806
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 15
+#			define XTE_STDLIB_MSVC_CPP_MINOR 8
+#		elif _MSVC_STL_UPDATE >= 201803
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 15
+#			define XTE_STDLIB_MSVC_CPP_MINOR 7
+#		elif _MSVC_STL_UPDATE >= 201711
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 15
+#			define XTE_STDLIB_MSVC_CPP_MINOR 6
+#		elif _MSVC_STL_UPDATE >= 201709
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 15
+#			define XTE_STDLIB_MSVC_CPP_MINOR 5
+#		elif _MSC_VER >= 1911 // Probably safe to assume that old compiler and library versions correlate
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 15
+#			define XTE_STDLIB_MSVC_CPP_MINOR 3
+#		elif _MSC_VER >= 1910
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 15
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1900
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 14
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1800
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 12
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1700
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 11
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1600
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 10
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1500
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 9
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1500
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 9
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1400
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 8
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1310
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 7
+#			define XTE_STDLIB_MSVC_CPP_MINOR 1
+#		elif _MSC_VER >= 1300
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 7
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1200
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 6
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1100
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 5
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 1020
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 4
+#			define XTE_STDLIB_MSVC_CPP_MINOR 2
+#		elif _MSC_VER >= 1010
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 4
+#			define XTE_STDLIB_MSVC_CPP_MINOR 1
+#		elif _MSC_VER >= 1000
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 4
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 900
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 2
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		elif _MSC_VER >= 800
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 1
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		else
+#			define XTE_STDLIB_MSVC_CPP_MAJOR 0
+#			define XTE_STDLIB_MSVC_CPP_MINOR 0
+#		endif
+#	endif
+#
+#	ifdef __PDOSGEN__
+#		undef XTE_STDLIB_PDP_C
+#		define XTE_STDLIB_PDP_C 1
+#	endif
+#
+#	if defined(_RWSTD_VER) || defined(__STD_RWCOMPILER_H__)
+#		undef XTE_STDLIB_ROGUEWAVE_CPP
+#		define XTE_STDLIB_ROGUEWAVE_CPP 1
+#
+#		ifdef _RWSTD_VER
+#			undef XTE_STDLIB_ROGUEWAVE_CPP_MAJOR
+#			undef XTE_STDLIB_ROGUEWAVE_CPP_MINOR
+#			undef XTE_STDLIB_ROGUEWAVE_CPP_MINOR
+#			if _RWSTD_VER < 0x10000
+#				define XTE_STDLIB_ROGUEWAVE_CPP_MAJOR (_RWSTD_VER % 0x1000)
+#				define XTE_STDLIB_ROGUEWAVE_CPP_MINOR (_RWSTD_VER % 0x1000 / 10)
+#				define XTE_STDLIB_ROGUEWAVE_CPP_PATCH (_RWSTD_VER % 0x10)
+#			else
+#				define XTE_STDLIB_ROGUEWAVE_CPP_MAJOR (_RWSTD_VER % 0x10000)
+#				define XTE_STDLIB_ROGUEWAVE_CPP_MINOR (_RWSTD_VER % 0x10000 / 100)
+#				define XTE_STDLIB_ROGUEWAVE_CPP_PATCH (_RWSTD_VER % 0x100)
+#			endif
+#		endif
+#	endif
+#
+#	ifdef __SGI_STL
+#		undef XTE_STDLIB_SGI_CPP
+#		define XTE_STDLIB_SGI_CPP 1
+#
+#		undef XTE_STDLIB_SGI_CPP_MAJOR
+#		define XTE_STDLIB_SGI_CPP_MAJOR (__SGI_STL / 100)
+#
+#		undef XTE_STDLIB_SGI_CPP_MINOR
+#		define XTE_STDLIB_SGI_CPP_MINOR (__SGI_STL % 100 / 10)
+#
+#		undef XTE_STDLIB_SGI_CPP_PATCH
+#		define XTE_STDLIB_SGI_CPP_PATCH (__SGI_STL % 10)
+#	endif
+#
+#	ifdef __UCLIBC__
+#		undef XTE_STDLIB_UCLIBC
+#		define XTE_STDLIB_UCLIBC 1
+#
+#		undef XTE_STDLIB_UCLIBC_MAJOR
+#		define XTE_STDLIB_UCLIBC_MAJOR __UCLIBC_MAJOR__
+#
+#		undef XTE_STDLIB_UCLIBC_MINOR
+#		define XTE_STDLIB_UCLIBC_MINOR __UCLIBC_MINOR__
+#
+#		undef XTE_STDLIB_UCLIBC_PATCH
+#		define XTE_STDLIB_UCLIBC_PATCH __UCLIBC_SUBLEVEL__
+#	endif
+#
+#	ifdef __CTRL_VER
+#		undef XTE_STDLIB_VMS_C
+#		define XTE_STDLIB_VMS_C 1
+#
+#		undef XTE_STDLIB_VMS_C_MAJOR
+#		define XTE_STDLIB_VMS_C_MAJOR (__CTRL_VER / 10000000)
+#
+#		undef XTE_STDLIB_VMS_C_MINOR
+#		define XTE_STDLIB_VMS_C_MINOR (__CTRL_VER % 10000000 / 100000)
+#
+#		undef XTE_STDLIB_VMS_C_PATCH
+#		define XTE_STDLIB_VMS_C_PATCH (__CTRL_VER % 100000)
+#	endif
+#
+#	if defined(__LIBREL__) || defined(__TARGET_LIB__)
+#		undef XTE_STDLIB_Z_C
+#		define XTE_STDLIB_Z_C 1
+#
+#		undef XTE_STDLIB_Z_C_MAJOR
+#		undef XTE_STDLIB_Z_C_MINOR
+#		undef XTE_STDLIB_Z_C_PATCH
+#		ifdef __LIBREL__
+#			define XTE_STDLIB_Z_C_MAJOR (__LIBREL__ / 1000000)
+#			define XTE_STDLIB_Z_C_MINOR (__LIBREL__ % 1000000 / 10000)
+#			define XTE_STDLIB_Z_C_PATCH (__LIBREL__ % 10000)
+#		else
+#			define XTE_STDLIB_Z_C_MAJOR (__TARGET_LIB__ / 1000000)
+#			define XTE_STDLIB_Z_C_MINOR (__TARGET_LIB__ % 1000000 / 10000)
+#			define XTE_STDLIB_Z_C_PATCH (__TARGET_LIB__ % 10000)
+#		endif
+#	endif
+#
+#	if defined(__Z88DK) || defined(__Z88DK_NEWLIB)
+#		undef XTE_STDLIB_Z88DK
+#		define XTE_STDLIB_Z88DK 1
+#	endif
+#endif
+
+// https://github.com/cpredef/predef/blob/master/Libraries.md
+// https://github.com/microsoft/STL/wiki/Macro-_MSVC_STL_UPDATE
+// https://learn.microsoft.com/en-us/cpp/overview/compiler-versions
+// https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B#Internal_version_numbering

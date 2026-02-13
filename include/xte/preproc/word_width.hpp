@@ -1,0 +1,39 @@
+#ifndef DETAIL_XTE_HEADER_PREPROC_WORD_WIDTH
+#	define DETAIL_XTE_HEADER_PREPROC_WORD_WIDTH
+#
+#	include <stdint.h>
+#	include "../preproc/arch.hpp"
+#
+#	if XTE_ARCH_AARCH64 \
+		|| XTE_ARCH_ALPHA \
+		|| XTE_ARCH_CONVEX \
+		|| XTE_ARCH_EPIPHANY \
+		|| XTE_ARCH_IBM_Z \
+		|| XTE_ARCH_ITANIUM \
+		|| XTE_ARCH(POWERPC, >=, 620) \
+		|| XTE_ARCH(SPARC, >=, 9) \
+		|| XTE_ARCH_TILEPRO64 \
+		|| XTE_ARCH_X86_64 \
+		|| (UINTPTR_MAX >= 18446744073709551615ull)
+#		define XTE_WORD_WIDTH 64
+#	elif XTE_ARCH_ARM \
+		|| XTE_ARCH_MIPS \
+		|| XTE_ARCH_MOTOROLA_68000 \
+		|| XTE_ARCH_PA_RISC \
+		|| XTE_ARCH_PYRAMID_9810 \
+		|| XTE_ARCH_RS_6000 \
+		|| XTE_ARCH(SPARC, <=, 8) \
+		|| XTE_ARCH_SUPERH \
+		|| XTE_ARCH(TMS320, >=, 5400) \
+		|| XTE_ARCH_TMS470 \
+		|| XTE_ARCH_X86_32 \
+		|| (UINTPTR_MAX >= 4294967295ull)
+#		define XTE_WORD_WIDTH 32
+#	elif XTE_ARCH_BLACKFIN \
+		|| XTE_ARCH(TMS320, <=, 2800) \
+		|| (UINTPTR_MAX >= 65535ull)
+#		define XTE_WORD_WIDTH 16
+#	else
+#		define XTE_WORD_WIDTH 8
+#	endif
+#endif

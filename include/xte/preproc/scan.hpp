@@ -1,0 +1,5 @@
+#ifndef DETAIL_XTE_HEADER_PREPROC_SCAN
+#	define DETAIL_XTE_HEADER_PREPROC_SCAN
+#
+#	define XTE_SCAN(...) __VA_ARGS__
+#endif

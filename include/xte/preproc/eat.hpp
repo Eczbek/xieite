@@ -1,0 +1,5 @@
+#ifndef DETAIL_XTE_HEADER_PREPROC_EAT
+#	define DETAIL_XTE_HEADER_PREPROC_EAT
+#
+#	define XTE_EAT(...)
+#endif

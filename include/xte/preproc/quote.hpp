@@ -1,0 +1,6 @@
+#ifndef DETAIL_XTE_HEADER_PREPROC_QUOTE
+#	define DETAIL_XTE_HEADER_PREPROC_QUOTE
+#
+#	define XTE_QUOTE(...) XTE_PQUOTE(__VA_ARGS__)
+#	define XTE_PQUOTE(...) #__VA_ARGS__
+#endif

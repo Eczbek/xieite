@@ -1,6 +1,0 @@
-#ifndef DETAIL_XIEITE_HEADER_PP_STR
-#	define DETAIL_XIEITE_HEADER_PP_STR
-#
-#	define XIEITE_STR(...) XIEITE_PSTR(__VA_ARGS__)
-#	define XIEITE_PSTR(...) #__VA_ARGS__
-#endif
