@@ -1436,7 +1436,7 @@
 #		define XTE_PLATFORM_NINTENDO_DS 1
 #	endif
 #
-#	if (defined(_GC) && (defined(__PPC__) || defined(__ppc__)) \
+#	if (defined(_GC) && (defined(__PPC__) || defined(__ppc__))) \
 		|| defined(__GAMECUBE__)
 #		undef XTE_PLATFORM_NINTENDO_GAMECUBE
 #		define XTE_PLATFORM_NINTENDO_GAMECUBE 1
