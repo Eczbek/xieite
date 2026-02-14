@@ -18,10 +18,10 @@
 #	define XTE_DIAGNOSTIC_ERROR_GCC(_string)
 #	define XTE_DIAGNOSTIC_ERROR_CLANG(_string)
 #	define XTE_DIAGNOSTIC_ERROR_MSVC(_string)
-#	define XTE_DIAGNOSTIC_PUSH(_op, ...)
-#	define XTE_DIAGNOSTIC_PUSH_GCC(_op, ...)
-#	define XTE_DIAGNOSTIC_PUSH_CLANG(_op, ...)
-#	define XTE_DIAGNOSTIC_PUSH_MSVC(_op, ...)
+#	define XTE_DIAGNOSTIC_PUSH(_operation, ...)
+#	define XTE_DIAGNOSTIC_PUSH_GCC(_operation, ...)
+#	define XTE_DIAGNOSTIC_PUSH_CLANG(_operation, ...)
+#	define XTE_DIAGNOSTIC_PUSH_MSVC(_operation, ...)
 #	define XTE_DIAGNOSTIC_POP()
 #	define XTE_DIAGNOSTIC_POP_GCC()
 #	define XTE_DIAGNOSTIC_POP_CLANG()
@@ -45,15 +45,15 @@
 #	define XTE_DIAGNOSTIC_ERROR_GCC_CLANG(_string) \
 		XTE_DIAGNOSTIC_ERROR_GCC(_string) \
 		XTE_DIAGNOSTIC_ERROR_CLANG(_string)
-#	define XTE_DIAGNOSTIC_PUSH_GCC_CLANG(_op, ...) \
-		XTE_DIAGNOSTIC_PUSH_GCC(_op, __VA_ARGS__) \
-		XTE_DIAGNOSTIC_PUSH_CLANG(_op, __VA_ARGS__)
-#	define XTE_DIAGNOSTIC_PUSH_GCC_MSVC(_op, ...) \
-		XTE_DIAGNOSTIC_PUSH_GCC(_op, __VA_ARGS__) \
-		XTE_DIAGNOSTIC_PUSH_MSVC(_op, __VA_ARGS__)
-#	define XTE_DIAGNOSTIC_PUSH_CLANG_MSVC(_op, ...) \
-		XTE_DIAGNOSTIC_PUSH_CLANG(_op, __VA_ARGS__) \
-		XTE_DIAGNOSTIC_PUSH_MSVC(_op, __VA_ARGS__)
+#	define XTE_DIAGNOSTIC_PUSH_GCC_CLANG(_operation, ...) \
+		XTE_DIAGNOSTIC_PUSH_GCC(_operation, __VA_ARGS__) \
+		XTE_DIAGNOSTIC_PUSH_CLANG(_operation, __VA_ARGS__)
+#	define XTE_DIAGNOSTIC_PUSH_GCC_MSVC(_operation, ...) \
+		XTE_DIAGNOSTIC_PUSH_GCC(_operation, __VA_ARGS__) \
+		XTE_DIAGNOSTIC_PUSH_MSVC(_operation, __VA_ARGS__)
+#	define XTE_DIAGNOSTIC_PUSH_CLANG_MSVC(_operation, ...) \
+		XTE_DIAGNOSTIC_PUSH_CLANG(_operation, __VA_ARGS__) \
+		XTE_DIAGNOSTIC_PUSH_MSVC(_operation, __VA_ARGS__)
 #	define XTE_DIAGNOSTIC_POP_GCC_CLANG() \
 		XTE_DIAGNOSTIC_POP_GCC() \
 		XTE_DIAGNOSTIC_POP_CLANG()
@@ -84,7 +84,7 @@
 #		define XTE_DIAGNOSTIC_ERROR(_string) XTE_DIAGNOSTIC_ERROR_MSVC(_string)
 #
 #		undef XTE_DIAGNOSTIC_PUSH
-#		define XTE_DIAGNOSTIC_PUSH(_op, ...) XTE_DIAGNOSTIC_PUSH_MSVC(_op, __VA_ARGS__)
+#		define XTE_DIAGNOSTIC_PUSH(_operation, ...) XTE_DIAGNOSTIC_PUSH_MSVC(_operation, __VA_ARGS__)
 #
 #		undef XTE_DIAGNOSTIC_POP
 #		define XTE_DIAGNOSTIC_POP() XTE_DIAGNOSTIC_POP_MSVC()
@@ -99,7 +99,7 @@
 #		define XTE_DIAGNOSTIC_ERROR(_string) XTE_DIAGNOSTIC_ERROR_CLANG(_string)
 #
 #		undef XTE_DIAGNOSTIC_PUSH
-#		define XTE_DIAGNOSTIC_PUSH(_op, ...) XTE_DIAGNOSTIC_PUSH_CLANG(_op, __VA_ARGS__)
+#		define XTE_DIAGNOSTIC_PUSH(_operation, ...) XTE_DIAGNOSTIC_PUSH_CLANG(_operation, __VA_ARGS__)
 #
 #		undef XTE_DIAGNOSTIC_POP
 #		define XTE_DIAGNOSTIC_POP() XTE_DIAGNOSTIC_POP_CLANG()
@@ -114,7 +114,7 @@
 #		define XTE_DIAGNOSTIC_ERROR(_string) XTE_DIAGNOSTIC_ERROR_GCC(_string)
 #
 #		undef XTE_DIAGNOSTIC_PUSH
-#		define XTE_DIAGNOSTIC_PUSH(_op, ...) XTE_DIAGNOSTIC_PUSH_GCC(_op, __VA_ARGS__)
+#		define XTE_DIAGNOSTIC_PUSH(_operation, ...) XTE_DIAGNOSTIC_PUSH_GCC(_operation, __VA_ARGS__)
 #
 #		undef XTE_DIAGNOSTIC_POP
 #		define XTE_DIAGNOSTIC_POP() XTE_DIAGNOSTIC_POP_GCC()
@@ -131,8 +131,8 @@
 #		define XTE_DIAGNOSTIC_ERROR_GCC(_string) XTE_PRAGMA(GCC error _string)
 #
 #		undef XTE_DIAGNOSTIC_PUSH_GCC
-#		define XTE_DIAGNOSTIC_PUSH_GCC(_op, ...) XTE_PRAGMA(GCC diagnostic push) \
-			XTE_IF(XTE_ANY(_op))(XTE_DIAGNOSTIC_##_op##_GCC(__VA_ARGS__))()
+#		define XTE_DIAGNOSTIC_PUSH_GCC(_operation, ...) XTE_PRAGMA(GCC diagnostic push) \
+			XTE_IF(XTE_ANY(_operation))(XTE_DIAGNOSTIC_##_operation##_GCC(__VA_ARGS__))()
 #
 #		undef XTE_DIAGNOSTIC_POP_GCC
 #		define XTE_DIAGNOSTIC_POP_GCC() XTE_PRAGMA(GCC diagnostic pop)
@@ -160,8 +160,8 @@
 #		define XTE_DIAGNOSTIC_ERROR_CLANG(_string) XTE_PRAGMA(GCC error _string)
 #
 #		undef XTE_DIAGNOSTIC_PUSH_CLANG
-#		define XTE_DIAGNOSTIC_PUSH_CLANG(_op, ...) XTE_PRAGMA(clang diagnostic push) \
-			XTE_IF(XTE_ANY(_op))(XTE_DIAGNOSTIC_##_op##_CLANG(__VA_ARGS__))()
+#		define XTE_DIAGNOSTIC_PUSH_CLANG(_operation, ...) XTE_PRAGMA(clang diagnostic push) \
+			XTE_IF(XTE_ANY(_operation))(XTE_DIAGNOSTIC_##_operation##_CLANG(__VA_ARGS__))()
 #
 #		undef XTE_DIAGNOSTIC_POP_CLANG
 #		define XTE_DIAGNOSTIC_POP_CLANG() XTE_PRAGMA(clang diagnostic pop)
@@ -187,8 +187,8 @@
 #		define XTE_DIAGNOSTIC_ERROR_MSVC(_string) XTE_PRAGMA(message("\x1B[35m" _string "\x1B[0m"))
 #
 #		undef XTE_DIAGNOSTIC_PUSH_MSVC
-#		define XTE_DIAGNOSTIC_PUSH_MSVC(_op, ...) XTE_PRAGMA(warning(push)) \
-			XTE_IF(XTE_ANY(_op))(XTE_DIAGNOSTIC_##_op##_MSVC(__VA_ARGS__))()
+#		define XTE_DIAGNOSTIC_PUSH_MSVC(_operation, ...) XTE_PRAGMA(warning(push)) \
+			XTE_IF(XTE_ANY(_operation))(XTE_DIAGNOSTIC_##_operation##_MSVC(__VA_ARGS__))()
 #
 #		undef XTE_DIAGNOSTIC_POP_MSVC
 #		define XTE_DIAGNOSTIC_POP_MSVC() XTE_PRAGMA(warning(pop))

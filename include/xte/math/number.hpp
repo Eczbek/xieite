@@ -135,7 +135,7 @@ namespace xte {
 		}
 
 		constexpr auto&& operator&=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::number<T>::bit_op(lhs.value, rhs, XTE_LIFT_INFIX(&));
+			return lhs = xte::number<T>::bitwise(lhs.value, rhs, XTE_LIFT_INFIX(&));
 		}
 
 		[[nodiscard]] friend constexpr xte::number<T> operator&(xte::number<T> lhs, T rhs) noexcept {
@@ -143,7 +143,7 @@ namespace xte {
 		}
 
 		constexpr auto&& operator|=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::number<T>::bit_op(lhs.value, rhs, XTE_LIFT_INFIX(|));
+			return lhs = xte::number<T>::bitwise(lhs.value, rhs, XTE_LIFT_INFIX(|));
 		}
 
 		[[nodiscard]] friend constexpr xte::number<T> operator|(xte::number<T> lhs, T rhs) noexcept {
@@ -151,7 +151,7 @@ namespace xte {
 		}
 
 		constexpr auto&& operator^=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::number<T>::bit_op(lhs.value, rhs, XTE_LIFT_INFIX(^));
+			return lhs = xte::number<T>::bitwise(lhs.value, rhs, XTE_LIFT_INFIX(^));
 		}
 
 		[[nodiscard]] friend constexpr xte::number<T> operator^(xte::number<T> lhs, T rhs) noexcept {
@@ -189,7 +189,7 @@ namespace xte {
 		}
 
 	private:
-		[[nodiscard]] static constexpr xte::number<T> bit_op(xte::number<T> lhs, xte::number<T> rhs, auto op) noexcept {
+		[[nodiscard]] static constexpr xte::number<T> bitwise(xte::number<T> lhs, xte::number<T> rhs, auto op) noexcept {
 			if constexpr (xte::is_float<T>) {
 				T result = 0;
 				T mask = std::numeric_limits<T>::min();
