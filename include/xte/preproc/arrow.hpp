@@ -29,7 +29,7 @@
 		requires((static_cast<bool>(_cond) && requires { _then; }) __VA_OPT__(|| (!static_cast<bool>(_cond) && requires { __VA_ARGS__; }))) \
 		{ if constexpr (static_cast<bool>(_cond)) { return XTE_UNWRAP(_then); } else { return __VA_ARGS__; } }
 #	define XTE_ARROW_CAST(_attr_spec, _arg, ...) \
-		__VA_OPT__(XTE_IF(XTE_ANY(_arg))(template<typename DETAIL_XTE_Arg>)() _attr_spec) operator \
+		__VA_OPT__(XTE_IF(XTE_ANY(_arg))(template<typename DETAIL_XTE_Arg>)() XTE_UNWRAP(_attr_spec)) operator \
 		decltype(XTE_IF(XTE_ANY(__VA_ARGS__))(XTE_IF(XTE_ANY(_arg))(([](XTE_UNWRAP(_arg)) -> decltype(auto) { return __VA_ARGS__; })(static_cast<DETAIL_XTE_Arg(*)()>(nullptr)()))(__VA_ARGS__))(void())) \
 		XTE_IF(XTE_ANY(_arg))((__VA_OPT__(this DETAIL_XTE_Arg&& DETAIL_XTE_arg)))(() const) \
 		noexcept __VA_OPT__((requires { XTE_IF(XTE_ANY(_arg))(([](XTE_UNWRAP(_arg)) requires(noexcept(__VA_ARGS__)) {})(XTE_FWD(DETAIL_XTE_arg)))(__VA_ARGS__); }) \
