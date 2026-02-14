@@ -4,7 +4,6 @@
 #	include "../math/abs.hpp"
 #	include "../math/as_unsigned.hpp"
 #	include "../math/lshift.hpp"
-#	include "../math/neg.hpp"
 #	include "../math/rem.hpp"
 #	include "../math/rshift.hpp"
 #	include "../math/try_signed.hpp"
@@ -162,9 +161,10 @@ namespace xte {
 		constexpr auto&& operator<<=(this auto&& lhs, T rhs) noexcept {
 			if constexpr (xte::is_float<T>) {
 				return lhs = lhs.value * std::pow(2, rhs);
-			} else if (xte::neg(rhs)) {
-				return lhs >>= xte::abs(rhs);
 			} else {
+				if (rhs < 0) {
+					return lhs >>= xte::abs(rhs);
+				}
 				return lhs = xte::lshift(lhs.value, rhs);
 			}
 		}
@@ -176,9 +176,10 @@ namespace xte {
 		constexpr auto&& operator>>=(this auto&& lhs, T rhs) noexcept {
 			if constexpr (xte::is_float<T>) {
 				return lhs = lhs.value / std::pow(2, rhs);
-			} else if (xte::neg(rhs)) {
-				return lhs <<= xte::abs(rhs);
 			} else {
+				if (rhs < 0) {
+					return lhs <<= xte::abs(rhs);
+				}
 				return lhs = xte::rshift(lhs.value, rhs);
 			}
 		}

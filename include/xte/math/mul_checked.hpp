@@ -6,7 +6,6 @@
 #	include "../math/abs.hpp"
 #	include "../math/is_finite.hpp"
 #	include "../math/mul.hpp"
-#	include "../math/neg.hpp"
 #	include "../preproc/has_builtin.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
@@ -24,7 +23,7 @@ namespace xte {
 		}
 #	endif
 		bool overflow;
-		(void)(!xte::is_finite(prod) || ... || ((overflow = !xte::is_finite(ys) || (xte::abs(static_cast<Common>(ys)) > (xte::abs((xte::neg(prod) == xte::neg(static_cast<Common>(ys))) ? std::numeric_limits<Common>::max() : std::numeric_limits<Common>::lowest()) / xte::abs(prod)))) || !xte::assign(prod, prod * static_cast<Common>(ys))));
+		(void)(!xte::is_finite(prod) || ... || ((overflow = !xte::is_finite(ys) || (xte::abs(static_cast<Common>(ys)) > (xte::abs(((prod < 0) == (ys < 0)) ? std::numeric_limits<Common>::max() : std::numeric_limits<Common>::lowest()) / xte::abs(prod)))) || !xte::assign(prod, prod * static_cast<Common>(ys))));
 		return overflow ? xte::null : xte::opt(prod);
 	}
 }

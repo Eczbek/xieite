@@ -22,7 +22,7 @@ namespace xte {
 			return (... || __builtin_sub_overflow(diff, static_cast<Common>(ys), &diff)) ? xte::null : xte::opt(diff);
 		}
 #	endif
-		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(ys) && (xte::neg(static_cast<Common>(ys)) ? ((std::numeric_limits<Common>::max() + static_cast<Common>(ys)) < diff) : ((std::numeric_limits<Common>::lowest() + static_cast<Common>(ys)) < diff))) || (diff -= static_cast<Common>(ys), false))) ? xte::null : xte::opt(diff);
+		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(ys) && ((ys < 0) ? ((std::numeric_limits<Common>::max() + static_cast<Common>(ys)) < diff) : ((std::numeric_limits<Common>::lowest() + static_cast<Common>(ys)) < diff))) || (diff -= static_cast<Common>(ys), false))) ? xte::null : xte::opt(diff);
 	}
 }
 
