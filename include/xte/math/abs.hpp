@@ -3,10 +3,11 @@
 #
 #	include "../math/as_unsigned.hpp"
 #	include "../math/neg.hpp"
+#	include "../math/try_unsigned.hpp"
 #	include "../trait/is_number.hpp"
 
 namespace xte {
-	inline constexpr auto abs = [][[nodiscard]](xte::is_number auto x) static noexcept {
+	inline constexpr auto abs = [][[nodiscard]](xte::is_number auto x) static noexcept -> xte::try_unsigned<decltype(x)> {
 		return xte::neg(x) ? -xte::as_unsigned(x) : xte::as_unsigned(x);
 	};
 }
