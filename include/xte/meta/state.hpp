@@ -1,6 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_META_STATE
 #	define DETAIL_XTE_HEADER_META_STATE
 #
+#	include "../meta/wrap_value.hpp"
 #	include "../preproc/diagnostic.hpp"
 #	include "../util/types.hpp"
 
