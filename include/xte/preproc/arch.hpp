@@ -325,7 +325,7 @@
 #	define XTE_ARCH(_type, _operator, _major, ...) \
 		DETAIL_XTE_ARCH( \
 			_operator, \
-			XTE_ARCH__MAJOR##_type, XTE_ARCH__MINOR##_type, XTE_ARCH__PATCH##_type, \
+			XTE_ARCH_##_type##_MAJOR, XTE_ARCH_##_type##_MINOR, XTE_ARCH_##_type##_PATCH, \
 			_major, __VA_ARGS__ __VA_OPT__(,) 0, 0 \
 		)
 #

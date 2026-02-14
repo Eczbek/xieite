@@ -89,9 +89,13 @@
 #	define XTE_STDLIB_Z88DK_C_MAJOR 0
 #	define XTE_STDLIB_Z88DK_C_MINOR 0
 #	define XTE_STDLIB_Z88DK_C_PATCH 0
-#	define XTE_STDLIB_VER(_type, _op, _major, ...) DETAIL_XTE_STDLIB_VER(_op, XTE_STDLIB__MAJOR##_type, XTE_STDLIB__MINOR##_type, XTE_STDLIB__PATCH##_type, _major, __VA_ARGS__ __VA_OPT__(,) 0, 0)
 #
-#	define DETAIL_XTE_STDLIB_VER(_op, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) (((((0 _op 0) && !(0 _op 1) && !(1 _op 0)) || (!(0 _op 0) && (0 _op 1) && (1 _op 0))) && (((_major0) _op (_major1)) && ((_minor0) _op (_minor1)) && ((_patch0) _op (_patch1)))) || ((_major0) _op (_major1)) || (((_major0) == (_major1)) && ((_minor0) _op (_minor1))) || (((_minor0) == (_minor1)) && ((_patch0) _op (_patch1))))
+#	define XTE_STDLIB(_type, _operator, _major, ...) \
+		DETAIL_XTE_STDLIB( \
+			_operator, \
+			XTE_STDLIB_##_type##_MAJOR, XTE_STDLIB_##_type##_MINOR, XTE_STDLIB_##_type##_PATCH, \
+			_major, __VA_ARGS__ __VA_OPT__(,) 0, 0 \
+		)
 #
 #	ifdef __BIONIC__
 #		undef XTE_STDLIB_BIONIC_C
@@ -489,6 +493,16 @@
 #		undef XTE_STDLIB_Z88DK
 #		define XTE_STDLIB_Z88DK 1
 #	endif
+#
+#	define DETAIL_XTE_STDLIB(_operator, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) \
+		(((((0 _operator 0) && !(0 _operator 1) && !(1 _operator 0)) \
+			|| (!(0 _operator 0) && (0 _operator 1) && (1 _operator 0))) \
+		&& (((_major0) _operator (_major1)) \
+			&& ((_minor0) _operator (_minor1)) \
+			&& ((_patch0) _operator (_patch1)))) \
+		|| ((_major0) _operator (_major1)) \
+			|| (((_major0) == (_major1)) && ((_minor0) _operator (_minor1))) \
+			|| (((_minor0) == (_minor1)) && ((_patch0) _operator (_patch1))))
 #endif
 
 // https://github.com/cpredef/predef/blob/master/Libraries.md

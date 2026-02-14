@@ -709,7 +709,7 @@
 #	define XTE_PLATFORM(_type, _operator, _major, ...) \
 		DETAIL_XTE_PLATFORM( \
 			_operator, \
-			XTE_PLATFORM__MAJOR##_type, XTE_PLATFORM__MINOR##_type, XTE_PLATFORM__PATCH##_type, \
+			XTE_PLATFORM_##_type##_MAJOR, XTE_PLATFORM_##_type##_MINOR, XTE_PLATFORM_##_type##_PATCH, \
 			_major, __VA_ARGS__ __VA_OPT__(,) 0, 0 \
 		)
 #

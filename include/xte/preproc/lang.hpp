@@ -57,7 +57,7 @@
 #	define XTE_LANG(_type, _operator, _major, ...) \
 		DETAIL_XTE_LANG( \
 			_operator, \
-			XTE_LANG__MAJOR##_type, XTE_LANG__MINOR##_type, XTE_LANG__PATCH##_type, \
+			XTE_LANG_##_type##_MAJOR, XTE_LANG_##_type##_MINOR, XTE_LANG_##_type##_PATCH, \
 			_major, __VA_ARGS__ __VA_OPT__(,) 0, 0 \
 		)
 #

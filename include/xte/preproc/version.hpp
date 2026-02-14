@@ -3,12 +3,12 @@
 #
 #	define XTE_VERSION_MAJOR 0
 #	define XTE_VERSION_MINOR 128
-#	define XTE_VERSION_PATCH 5
+#	define XTE_VERSION_PATCH 6
 #
 #	define XTE_VERSION(_operator, _major, ...) \
 		DETAIL_XTE_VERSION( \
 			_operator, \
-			_major, __VA_ARGS__ __VA_OPT__(,) 0, 0\
+			_major, __VA_ARGS__ __VA_OPT__(,) 0, 0 \
 		)
 #
 #	define DETAIL_XTE_VERSION(_operator, _major, _minor, _patch, ...) \
