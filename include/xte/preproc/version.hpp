@@ -3,7 +3,7 @@
 #
 #	define XTE_VERSION_MAJOR 0
 #	define XTE_VERSION_MINOR 128
-#	define XTE_VERSION_PATCH 8
+#	define XTE_VERSION_PATCH 9
 #
 #	define XTE_VERSION(_operator, _major, ...) \
 		DETAIL_XTE_VERSION( \
