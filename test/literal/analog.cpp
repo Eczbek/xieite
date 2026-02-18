@@ -32,6 +32,126 @@ static_assert((x - - - - - x).area == 0);
 
 static_assert((x - - - - - x).volume == 0);
 
+static_assert((x
+               |
+               x).width == 0);
+
+static_assert((x
+               |
+               x).height == 0);
+
+static_assert((x
+               |
+               x).length == 1);
+
+static_assert((x
+               |
+               x).area == 0);
+
+static_assert((x
+               |
+               x).volume == 0);
+
+static_assert((x
+               |
+               !
+               !
+               !
+               !
+               x).width == 0);
+
+static_assert((x
+               |
+               !
+               !
+               !
+               !
+               x).height == 0);
+
+static_assert((x
+               |
+               !
+               !
+               !
+               !
+               x).length == 5);
+
+static_assert((x
+               |
+               !
+               !
+               !
+               !
+               x).area == 0);
+
+static_assert((x
+               |
+               !
+               !
+               !
+               !
+               x).volume == 0);
+
+static_assert((x
+                *
+                 x).width == 0);
+
+static_assert((x
+                *
+                 x).height == 0);
+
+static_assert((x
+                *
+                 x).length == 1);
+
+static_assert((x
+                *
+                 x).area == 0);
+
+static_assert((x
+                *
+                 x).volume == 0);
+
+static_assert((x
+                *
+                 *
+                  *
+                   *
+                    *
+                     x).width == 0);
+
+static_assert((x
+                *
+                 *
+                  *
+                   *
+                    *
+                     x).height == 0);
+
+static_assert((x
+                *
+                 *
+                  *
+                   *
+                    *
+                     x).length == 5);
+
+static_assert((x
+                *
+                 *
+                  *
+                   *
+                    *
+                     x).area == 0);
+
+static_assert((x
+                *
+                 *
+                  *
+                   *
+                    *
+                     x).volume == 0);
+
 static_assert((x - +
                !   !
                + - x).width == 1);
@@ -136,6 +256,281 @@ static_assert((x - - - - - +
                !           !
                !           !
                + - - - - - x).volume == 0);
+
+static_assert((x - +
+                *   *
+                 + - x).width == 1);
+
+static_assert((x - +
+                *   *
+                 + - x).height == 1);
+
+static_assert((x - +
+                *   *
+                 + - x).length == 0);
+
+static_assert((x - +
+                *   *
+                 + - x).area == 1);
+
+static_assert((x - +
+                *   *
+                 + - x).volume == 0);
+
+static_assert((x - - +
+                *     *
+                 + - - x).width == 2);
+
+static_assert((x - - +
+                *     *
+                 + - - x).height == 1);
+
+static_assert((x - - +
+                *     *
+                 + - - x).length == 0);
+
+static_assert((x - - +
+                *     *
+                 + - - x).area == 2);
+
+static_assert((x - - +
+                *     *
+                 + - - x).volume == 0);
+
+static_assert((x - +
+                *   *
+                 *   *
+                  + - x).width == 1);
+
+static_assert((x - +
+                *   *
+                 *   *
+                  + - x).height == 2);
+
+static_assert((x - +
+                *   *
+                 *   *
+                  + - x).length == 0);
+
+static_assert((x - +
+                *   *
+                 *   *
+                  + - x).area == 2);
+
+static_assert((x - +
+                *   *
+                 *   *
+                  + - x).volume == 0);
+
+static_assert((x - - - - - +
+                *           *
+                 *           *
+                  *           *
+                   *           *
+                    *           *
+                     + - - - - - x).width == 5);
+
+static_assert((x - - - - - +
+                *           *
+                 *           *
+                  *           *
+                   *           *
+                    *           *
+                     + - - - - - x).height == 5);
+
+static_assert((x - - - - - +
+                *           *
+                 *           *
+                  *           *
+                   *           *
+                    *           *
+                     + - - - - - x).length == 0);
+
+static_assert((x - - - - - +
+                *           *
+                 *           *
+                  *           *
+                   *           *
+                    *           *
+                     + - - - - - x).area == 25);
+
+static_assert((x - - - - - +
+                *           *
+                 *           *
+                  *           *
+                   *           *
+                    *           *
+                     + - - - - - x).volume == 0);
+
+static_assert((x
+               |*
+               + +
+                *!
+                 x).width == 1);
+
+static_assert((x
+               |*
+               + +
+                *!
+                 x).height == 1);
+
+static_assert((x
+               |*
+               + +
+                *!
+                 x).length == 0);
+
+static_assert((x
+               |*
+               + +
+                *!
+                 x).area == 1);
+
+static_assert((x
+               |*
+               + +
+                *!
+                 x).volume == 0);
+
+static_assert((x
+               |*
+               + *
+                * +
+                 *!
+                  x).width == 2);
+
+static_assert((x
+               |*
+               + *
+                * +
+                 *!
+                  x).height == 1);
+
+static_assert((x
+               |*
+               + *
+                * +
+                 *!
+                  x).length == 0);
+
+static_assert((x
+               |*
+               + *
+                * +
+                 *!
+                  x).area == 2);
+
+static_assert((x
+               |*
+               + *
+                * +
+                 *!
+                  x).volume == 0);
+
+static_assert((x
+               |*
+               ! +
+               + !
+                *!
+                 x).width == 1);
+
+static_assert((x
+               |*
+               ! +
+               + !
+                *!
+                 x).height == 2);
+
+static_assert((x
+               |*
+               ! +
+               + !
+                *!
+                 x).length == 0);
+
+static_assert((x
+               |*
+               ! +
+               + !
+                *!
+                 x).area == 2);
+
+static_assert((x
+               |*
+               ! +
+               + !
+                *!
+                 x).volume == 0);
+
+static_assert((x
+               |*
+               ! *
+               !  *
+               !   *
+               !    *
+               +     +
+                *    !
+                 *   !
+                  *  !
+                   * !
+                    *!
+                     x).width == 5);
+
+static_assert((x
+               |*
+               ! *
+               !  *
+               !   *
+               !    *
+               +     +
+                *    !
+                 *   !
+                  *  !
+                   * !
+                    *!
+                     x).height == 5);
+
+static_assert((x
+               |*
+               ! *
+               !  *
+               !   *
+               !    *
+               +     +
+                *    !
+                 *   !
+                  *  !
+                   * !
+                    *!
+                     x).length == 0);
+
+static_assert((x
+               |*
+               ! *
+               !  *
+               !   *
+               !    *
+               +     +
+                *    !
+                 *   !
+                  *  !
+                   * !
+                    *!
+                     x).area == 25);
+
+static_assert((x
+               |*
+               ! *
+               !  *
+               !   *
+               !    *
+               +     +
+                *    !
+                 *   !
+                  *  !
+                   * !
+                    *!
+                     x).volume == 0);
 
 static_assert((x - +
                !*   *
