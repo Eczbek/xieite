@@ -28,8 +28,10 @@ namespace DETAIL_XTE {
 			if (!string.size() || xte::approx_equal(radix, 0) || !xte::is_finite(radix)) {
 				return result;
 			}
-			xte::string_view digits = config.digits.substr(0, xte::max(2, static_cast<xte::uz>(xte::abs(radix))));
-			auto parse_int = [&] -> T {
+			auto abs_radix = xte::abs(radix);
+			bool radix_is_whole = xte::approx_equal(abs_radix, static_cast<xte::uz>(abs_radix));
+			xte::string_view digits = config.digits.substr(0, xte::max(2, static_cast<xte::uz>(abs_radix) + !radix_is_whole));
+			auto parse_int = [&, radix = radix_is_whole ? radix : static_cast<T>(abs_radix)] -> T {
 				T value = 0;
 				bool neg = config.minus.contains(string[result.index]);
 				for (xte::uz i = result.index + (neg || config.plus.contains(string[result.index])); i < string.size(); result.index = ++i) {
@@ -52,7 +54,11 @@ namespace DETAIL_XTE {
 			result.value = parse_int();
 			if constexpr (xte::is_float<T>) {
 				if (config.point.contains(string[result.index])) {
-					auto pow = static_cast<T>(xte::sign(result.value));
+					T pow = 1;
+					if (!radix_is_whole || (radix > 0)) {
+						pow = static_cast<T>(xte::sign(result.value));
+						radix = abs_radix;
+					}
 					xte::uz digit;
 					while ((++result.index < string.size()) && ~(digit = digits.find(string[result.index]))) {
 						result.value += static_cast<T>(digit) * (pow /= radix);
