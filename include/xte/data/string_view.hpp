@@ -18,11 +18,10 @@
 
 namespace xte {
 	struct string_view : std::ranges::view_base {
-		const char* _data;
-		xte::uz _size;
+		const char* _data = nullptr;
+		xte::uz _size = 0;
 
-		[[nodiscard]] explicit(false) constexpr string_view() noexcept
-		: _data(nullptr), _size(0) {}
+		[[nodiscard]] explicit(false) constexpr string_view() noexcept = default;
 
 		template<xte::uz size>
 		[[nodiscard]] explicit(false) constexpr string_view(const xte::type<char[size]>& data) noexcept
@@ -55,7 +54,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr char operator[](xte::uz index) const noexcept {
-			return this->data()[index];
+			return this->_data[index];
 		}
 
 		[[nodiscard]] constexpr const char* data() const noexcept {
@@ -67,37 +66,37 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr const char* begin() const & noexcept {
-			return this->data();
+			return this->_data;
 		}
 
 		[[nodiscard]] constexpr const char* end() const & noexcept {
-			return this->data() + this->size();
+			return this->_data + this->_size;
 		}
 
 		[[nodiscard]] constexpr char front(xte::uz index = 0) const noexcept {
-			return (*this)[index];
+			return this->_data[index];
 		}
 
 		[[nodiscard]] constexpr char back(xte::uz index = 0) const noexcept {
-			return (*this)[this->size() - index - 1];
+			return this->_data[this->_size - index - 1];
 		}
 
 		[[nodiscard]] constexpr xte::string_view substr(xte::uz index, xte::uz size) const noexcept {
-			return xte::string_view(this->data() + xte::min(this->size(), index), xte::max(xte::min(this->size(), size), index) - index);
+			return xte::string_view(this->_data + xte::min(this->_size, index), xte::max(xte::min(this->_size, size), index) - index);
 		}
 
 		[[nodiscard]] constexpr xte::string_view substr(xte::uz index) const noexcept {
-			return this->substr(index, this->size());
+			return this->substr(index, this->_size);
 		}
 
 		[[nodiscard]] constexpr xte::uz find(xte::string_view substr) const noexcept {
-			if (substr.size() <= this->size()) {
-				for (xte::uz i = 0; i <= this->size() - substr.size(); ++i) {
+			if (substr._size <= this->_size) {
+				for (xte::uz i = 0; i <= this->_size - substr._size; ++i) {
 					xte::uz j = 0;
-					while ((j < substr.size()) && (substr[j] == (*this)[i + j])) {
+					while ((j < substr._size) && (substr[j] == this->_data[i + j])) {
 						++j;
 					}
-					if (j == substr.size()) {
+					if (j == substr._size) {
 						return i;
 					}
 				}
@@ -106,13 +105,13 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::uz find_last(xte::string_view substr) const noexcept {
-			if (substr.size() <= this->size()) {
-				for (xte::uz i = this->size(); i-- >= substr.size();) {
+			if (substr._size <= this->_size) {
+				for (xte::uz i = this->_size; i-- >= substr._size;) {
 					xte::uz j = 0;
-					while ((j < substr.size()) && (substr.back(j) == (*this)[i + j])) {
+					while ((j < substr._size) && (substr.back(j) == this->_data[i + j])) {
 						++j;
 					}
-					if (j == substr.size()) {
+					if (j == substr._size) {
 						return i;
 					}
 				}
@@ -125,8 +124,8 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::uz find_any_of(xte::string_view chars) const noexcept {
-			for (xte::uz i = 0; i < this->size(); ++i) {
-				if (chars.contains((*this)[i])) {
+			for (xte::uz i = 0; i < this->_size; ++i) {
+				if (chars.contains(this->_data[i])) {
 					return i;
 				}
 			}
@@ -134,8 +133,8 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::uz find_last_of(xte::string_view chars) const noexcept {
-			for (xte::uz i = this->size(); i--;) {
-				if (chars.contains((*this)[i])) {
+			for (xte::uz i = this->_size; i--;) {
+				if (chars.contains(this->_data[i])) {
 					return i;
 				}
 			}
@@ -143,8 +142,8 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::uz find_not_of(xte::string_view chars) const noexcept {
-			for (xte::uz i = 0; i < this->size(); ++i) {
-				if (!chars.contains((*this)[i])) {
+			for (xte::uz i = 0; i < this->_size; ++i) {
+				if (!chars.contains(this->_data[i])) {
 					return i;
 				}
 			}
@@ -152,8 +151,8 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::uz find_last_not_of(xte::string_view chars) const noexcept {
-			for (xte::uz i = this->size(); i--;) {
-				if (!chars.contains((*this)[i])) {
+			for (xte::uz i = this->_size; i--;) {
+				if (!chars.contains(this->_data[i])) {
 					return i;
 				}
 			}
@@ -161,7 +160,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::string_view after(xte::string_view substr) const noexcept {
-			return this->substr(this->find(substr)).substr(substr.size());
+			return this->substr(this->find(substr)).substr(substr._size);
 		}
 
 		[[nodiscard]] constexpr xte::string_view before(xte::string_view substr) const noexcept {
@@ -203,11 +202,11 @@ namespace xte::literal::string_view {
 
 template<>
 struct std::formatter<xte::string_view> {
-	constexpr auto parse(std::format_parse_context& ctx) {
+	[[nodiscard]] constexpr auto parse(std::format_parse_context& ctx) noexcept {
 		return ctx.begin();
 	}
 
-	auto format(xte::string_view string, std::format_context& ctx) const {
+	[[nodiscard]] auto format(xte::string_view string, std::format_context& ctx) const noexcept(false) {
 		return std::ranges::copy(string, ctx.out()).out;
 	}
 };

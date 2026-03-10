@@ -33,16 +33,16 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
-			return self.data();
+			return self._data;
 		}
 
 		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
-			return self.data() + n;
+			return self._data + n;
 		}
 
 		template<xte::uz index>
 		[[nodiscard]] constexpr auto&& get(this auto&& self) noexcept {
-			return XTE_FWD(self)[index];
+			return XTE_FWD(self)._data[index];
 		}
 
 		template<xte::is_same_ignore_cvref<xte::fixed_array<T, n>> Lhs, xte::is_instance_of<^^xte::fixed_array> Rhs>
@@ -50,7 +50,7 @@ namespace xte {
 		[[nodiscard]] friend constexpr auto operator+(Lhs&& lhs, Rhs&& rhs) XTE_ARROW(
 			xte::unfold<n>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_ARROW(
 				xte::unfold<Rhs::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_ARROW(
-					xte::fixed_array { XTE_FWD(lhs)[i]..., XTE_FWD(rhs)[j]... }
+					xte::fixed_array { XTE_FWD(lhs)._data[i]..., XTE_FWD(rhs)._data[j]... }
 				), XTE_FWD(lhs), XTE_FWD(rhs))
 			), XTE_FWD(lhs), XTE_FWD(rhs))
 		)
@@ -104,9 +104,7 @@ struct std::tuple_element<index, xte::fixed_array<T, n>> {
 
 namespace DETAIL_XTE::fixed_array {
 	inline constexpr auto make = []<xte::uz... i>(auto&& range, auto iter) static XTE_ARROW(
-		xte::fixed_array {
-			([](auto& iter) XTE_ARROW_IF(i, ++iter, xte::like<decltype(range)&&>(*iter)))(iter)...
-		}
+		xte::fixed_array { ([](auto& iter) XTE_ARROW_IF(i, ++iter, xte::like<decltype(range)&&>(*iter)))(iter)... }
 	);
 }
 
