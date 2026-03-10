@@ -17,7 +17,6 @@
 #	include "../util/types.hpp"
 #	include "../util/xvalue.hpp"
 #	include <compare>
-#	include <initializer_list>
 #	include <limits>
 
 namespace DETAIL_XTE::wide_uint {
