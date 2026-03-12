@@ -3,7 +3,7 @@
 #
 #	include "../preproc/fwd.hpp"
 #	include "../trait/is_callable.hpp"
-#	include "../trait/is_noex_ctor.hpp"
+#	include "../trait/is_noex_constructible.hpp"
 #	include "../trait/non_copyable.hpp"
 #	include "../trait/non_movable.hpp"
 
@@ -16,7 +16,7 @@ namespace xte {
 
 	public:
 		[[nodiscard]] explicit(false) constexpr defer(Func&& func)
-		noexcept(xte::is_noex_ctor<Func, Func&&>)
+		noexcept(xte::is_noex_constructible<Func, Func&&>)
 		: _func(XTE_FWD(func)) {}
 
 		constexpr ~defer() {

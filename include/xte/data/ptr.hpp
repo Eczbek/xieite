@@ -61,7 +61,7 @@ namespace xte {
 		}
 
 		constexpr void reset(T* data = nullptr) noexcept {
-			delete this->_data;
+			::delete this->_data;
 			this->_data = data;
 		}
 
@@ -78,19 +78,19 @@ namespace xte {
 		}
 
 		[[nodiscard]] static constexpr xte::ptr<T> make(auto&&... args) noexcept(false) {
-			return new T(XTE_FWD(args)...);
+			return ::new T(XTE_FWD(args)...);
 		}
 
 		[[nodiscard]] static constexpr auto make_noex(auto&&... args) XTE_ARROW(
-			xte::ptr<T>(new(std::nothrow) T(XTE_FWD(args)...))
+			xte::ptr<T>(::new(std::nothrow) T(XTE_FWD(args)...))
 		)
 
 		[[nodiscard]] static constexpr xte::ptr<T> make_default() noexcept(false) {
-			return new T;
+			return ::new T;
 		}
 
 		[[nodiscard]] static constexpr xte::ptr<T> make_default_noex() noexcept {
-			return new(std::nothrow) T;
+			return ::new(std::nothrow) T;
 		}
 	};
 
