@@ -14,7 +14,7 @@ namespace DETAIL_XTE {
 
 	public:
 		[[nodiscard]] explicit(false) constexpr init_list(auto&& arg) XTE_ARROW_CTOR(,
-			_value,((XTE_FWD(arg)))
+			_value,((T(XTE_FWD(arg))))
 		)
 
 		XTE_ARROW_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
