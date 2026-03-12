@@ -1,26 +1,28 @@
 #ifndef DETAIL_XTE_HEADER_DATA_INIT_LIST
 #	define DETAIL_XTE_HEADER_DATA_INIT_LIST
 #
+#	include "../preproc/arrow.hpp"
+#	include "../preproc/fwd.hpp"
 #	include "../util/address.hpp"
-#	include "../util/lvalue.hpp"
-#	include "../util/xvalue.hpp"
 #	include <initializer_list>
 
 namespace DETAIL_XTE {
 	template<typename T>
 	struct init_list {
 	private:
-		T* ptr;
+		mutable T _value;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr init_list(T&& x) noexcept
-		: ptr(xte::address(x)) {}
+		[[nodiscard]] explicit(false) constexpr init_list(auto&& arg) XTE_ARROW_CTOR(,
+			_value,((XTE_FWD(arg)))
+		)
 
-		[[nodiscard]] explicit(false) constexpr init_list(const T& x) noexcept
-		: ptr(xte::address(xte::lvalue(auto(x)))) {}
+		XTE_ARROW_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
+			XTE_FWD(self)._value
+		)
 
-		[[nodiscard]] explicit(false) constexpr operator T&&() const && noexcept {
-			return xte::xvalue(*this->ptr);
+		[[nodiscard]] constexpr auto* operator->(this auto&& self) noexcept {
+			return xte::address(self._value);
 		}
 	};
 }
