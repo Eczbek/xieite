@@ -7,7 +7,7 @@ namespace xte {
 	template<typename T>
 	constexpr auto destroy(T& object) XTE_ARROW(
 		object.~T()
-	);
+	)
 }
 
 #endif

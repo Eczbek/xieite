@@ -8,8 +8,8 @@
 namespace xte {
 	template<typename T>
 	constexpr auto construct(T& object, auto&&... args) XTE_ARROW(
-		*::new(xte::address(object)) T(XTE_FWD(args)...)
-	);
+		*::new(static_cast<void*>(xte::address(object))) T(XTE_FWD(args)...)
+	)
 }
 
 #endif

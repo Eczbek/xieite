@@ -3,14 +3,14 @@
 #
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../util/address.hpp"
+#	include "../util/construct.hpp"
+#	include "../util/destroy.hpp"
 
 namespace xte {
-	template<typename T>
-	constexpr auto reconstruct(T& object, auto&&... args) XTE_ARROW(
-		object.~T(),
-		*::new(xte::address(object)) T(XTE_FWD(args)...)
-	);
+	constexpr auto reconstruct(auto& object, auto&&... args) XTE_ARROW(
+		xte::destroy(object),
+		xte::construct(object, XTE_FWD(args)...)
+	)
 }
 
 #endif
