@@ -86,7 +86,7 @@ namespace DETAIL_XTE {
 
 namespace xte {
 	template<typename T, typename U>
-	using copy_v = [:DETAIL_XTE::copy_v<T, Y>:];
+	using copy_v = [:DETAIL_XTE::copy_v<T, U>:];
 }
 
 #endif
