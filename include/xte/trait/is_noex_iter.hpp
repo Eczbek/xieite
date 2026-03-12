@@ -2,10 +2,10 @@
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_ITER
 #
 #	include "../trait/is_noex_copy_assignable.hpp"
-#	include "../trait/is_noex_copy_ctor.hpp"
+#	include "../trait/is_noex_copy_constructible.hpp"
 #	include "../trait/is_noex_dtor.hpp"
 #	include "../trait/is_noex_move_assignable.hpp"
-#	include "../trait/is_noex_move_ctor.hpp"
+#	include "../trait/is_noex_move_constructible.hpp"
 #	include "../trait/is_noex_bool_testable.hpp"
 #	include "../trait/is_noex_swappable.hpp"
 #	include "../util/xvalue.hpp"
@@ -15,7 +15,7 @@ namespace xte {
 	template<typename T>
 	concept is_noex_iter =
 		std::input_or_output_iterator<T>
-		&& xte::is_noex_move_ctor<T>
+		&& xte::is_noex_move_constructible<T>
 		&& xte::is_noex_dtor<T>
 		&& xte::is_noex_move_assignable<T>
 		&& xte::is_noex_swappable<T>
@@ -33,8 +33,8 @@ namespace xte {
 				{ std::ranges::iter_move(xte::xvalue(i0)) } noexcept;
 				{ std::ranges::iter_move(xte::xvalue(i1)) } noexcept; })
 		&& (!std::forward_iterator<T>
-			|| (xte::is_noex_ctor<T>
-				&& xte::is_noex_copy_ctor<T>
+			|| (xte::is_noex_constructible<T>
+				&& xte::is_noex_copy_constructible<T>
 				&& xte::is_noex_copy_assignable<T>
 				&& requires(T i0, const T i1) {
 					{ i0 == i0 } noexcept -> xte::is_noex_bool_testable;

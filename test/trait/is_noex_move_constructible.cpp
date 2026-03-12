@@ -1,4 +1,4 @@
-#include <xte/trait/is_implicit_move_ctor.hpp>
+#include <xte/trait/is_noex_move_constructible.hpp>
 
 struct Base {
 	Base() = delete;
@@ -17,11 +17,11 @@ struct F : Base { explicit F(F&&); };
 struct G : Base { explicit G() noexcept; };
 struct H : Base { explicit H(); };
 
-static_assert(xte::is_implicit_move_ctor<A>);
-static_assert(xte::is_implicit_move_ctor<B>);
-static_assert(!xte::is_implicit_move_ctor<C>);
-static_assert(!xte::is_implicit_move_ctor<D>);
-static_assert(!xte::is_implicit_move_ctor<E>);
-static_assert(!xte::is_implicit_move_ctor<F>);
-static_assert(!xte::is_implicit_move_ctor<G>);
-static_assert(!xte::is_implicit_move_ctor<H>);
+static_assert(xte::is_noex_move_constructible<A>);
+static_assert(!xte::is_noex_move_constructible<B>);
+static_assert(!xte::is_noex_move_constructible<C>);
+static_assert(!xte::is_noex_move_constructible<D>);
+static_assert(xte::is_noex_move_constructible<E>);
+static_assert(!xte::is_noex_move_constructible<F>);
+static_assert(!xte::is_noex_move_constructible<G>);
+static_assert(!xte::is_noex_move_constructible<H>);

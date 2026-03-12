@@ -2,10 +2,10 @@
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_NOEX_SENTINEL
 #
 #	include "../trait/is_noex_copy_assignable.hpp"
-#	include "../trait/is_noex_copy_ctor.hpp"
+#	include "../trait/is_noex_copy_constructible.hpp"
 #	include "../trait/is_noex_dtor.hpp"
 #	include "../trait/is_noex_move_assignable.hpp"
-#	include "../trait/is_noex_move_ctor.hpp"
+#	include "../trait/is_noex_move_constructible.hpp"
 #	include "../trait/is_noex_bool_testable.hpp"
 #	include "../trait/is_noex_swappable.hpp"
 #	include "../util/xvalue.hpp"
@@ -15,9 +15,9 @@ namespace xte {
 	template<typename T, typename Iter>
 	concept is_noex_sentinel =
 		std::sentinel_for<T, Iter>
-		&& xte::is_noex_ctor<T>
-		&& xte::is_noex_copy_ctor<T>
-		&& xte::is_noex_move_ctor<T>
+		&& xte::is_noex_constructible<T>
+		&& xte::is_noex_copy_constructible<T>
+		&& xte::is_noex_move_constructible<T>
 		&& xte::is_noex_dtor<T>
 		&& xte::is_noex_copy_assignable<T>
 		&& xte::is_noex_move_assignable<T>
