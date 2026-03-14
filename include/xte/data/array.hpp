@@ -22,6 +22,7 @@
 #	include "../util/types.hpp"
 #	include "../util/xvalue.hpp"
 #	include <compare>
+#	include <cstddef>
 #	include <iterator>
 #	include <memory>
 #	include <new>
@@ -68,7 +69,7 @@ namespace xte {
 		using value_type = T;
 		using allocator_type = std::allocator<T>;
 		using size_type = xte::uz;
-		using difference_type = xte::iz;
+		using difference_type = std::ptrdiff_t;
 		using reference = T&;
 		using const_reference = const T&;
 		using pointer = T*;
@@ -266,10 +267,10 @@ namespace xte {
 			}
 		}
 
-		template<xte::is_castable<T> U = T>
-		constexpr void insert(xte::uz index, U&& x = {}) & noexcept(false)
-		requires(xte::is_assignable<T&, T&&>) {
-			T tmp = T(XTE_FWD(x));
+		template<typename U = T>
+		constexpr void insert(xte::uz index, U&& arg = {}, auto&&... args) & noexcept(false)
+		requires(xte::is_assignable<T&, T&&> && requires { T(XTE_FWD(arg), XTE_FWD(args)...); }) {
+			auto tmp = T(XTE_FWD(arg), XTE_FWD(args)...);
 			this->reserve(this->_size == this->_capacity);
 			if (index == this->_size) {
 				xte::construct(this->_data[this->_size++], xte::xvalue(tmp));
@@ -333,16 +334,15 @@ namespace xte {
 			}
 		}
 
-		template<xte::is_castable<T> U = T>
-		constexpr void push(U&& x = {}) & noexcept(false) {
-			this->insert(this->_size, XTE_FWD(x));
-		}
+		template<typename U = T>
+		constexpr void push(U&& arg = {}, auto&&... args) & XTE_ARROW_RETURN(
+			this->insert(this->_size, XTE_FWD(arg), XTE_FWD(args)...)
+		)
 
-		template<std::ranges::input_range Range = xte::array<T>>
-		requires(xte::is_castable<std::ranges::range_value_t<Range>, T>)
-		constexpr void push_range(Range&& range) & noexcept(false) {
-			this->insert_range(this->_size, XTE_FWD(range));
-		}
+		template<typename Range = xte::array<T>>
+		constexpr void push_range(Range&& range) & XTE_ARROW_RETURN(
+			this->insert_range(this->_size, XTE_FWD(range))
+		)
 
 		constexpr T pop() & noexcept(xte::is_noex_move_constructible<T>) {
 			auto last = T(xte::xvalue(*this).back());
