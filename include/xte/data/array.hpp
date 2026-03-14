@@ -9,7 +9,8 @@
 #	include "../preproc/fwd.hpp"
 #	include "../trait/copy_cvref.hpp"
 #	include "../trait/is_assignable.hpp"
-#	include "../trait/is_castable.hpp"
+#	include "../trait/is_constructible.hpp"
+#	include "../trait/is_copy_constructible.hpp"
 #	include "../trait/is_derived_from.hpp"
 #	include "../trait/is_noex_move_constructible.hpp"
 #	include "../util/address.hpp"
@@ -51,8 +52,7 @@ namespace xte {
 		}
 
 		constexpr void reallocate(xte::uz capacity) & noexcept(false) {
-			if (capacity) {
-				xte::array<T> old = xte::xvalue(*this);
+			if (xte::array<T> old = xte::xvalue(*this); capacity) {
 				this->_data = std::allocator<T>().allocate(capacity);
 				this->_capacity = capacity;
 				try {
@@ -84,33 +84,30 @@ namespace xte {
 		[[nodiscard]] explicit(false) constexpr array() noexcept = default;
 
 		[[nodiscard]] explicit(false) constexpr array(const xte::array<T>& other) noexcept(false)
-		requires(std::is_copy_constructible_v<T>) {
-			this->push_range(other);
-		}
+		requires(xte::is_copy_constructible<T>)
+		: xte::array<T>(std::from_range, other) {}
 
 		[[nodiscard]] explicit(false) constexpr array(xte::array<T>&& other) noexcept
 		: _data(xte::exchange(other._data, nullptr))
 		, _size(xte::exchange(other._size, 0))
 		, _capacity(xte::exchange(other._capacity, 0)) {}
 
-		[[nodiscard]] explicit(false) constexpr array(xte::init_list<T> init_list) noexcept(false) {
-			this->push_range(xte::xvalue(init_list));
-		}
+		[[nodiscard]] explicit(false) constexpr array(xte::init_list<T> init_list) noexcept(false)
+		: xte::array<T>(std::from_range, xte::xvalue(init_list)) {}
 
 		template<std::ranges::input_range Range>
-		requires(!xte::is_derived_from<Range, xte::array<T>>
-			&& xte::is_castable<std::ranges::range_value_t<Range>, T>)
-		[[nodiscard]] explicit constexpr array(std::from_range_t, Range&& range) noexcept(false) {
+		[[nodiscard]] explicit constexpr array(std::from_range_t, Range&& range) noexcept(false)
+		requires(xte::is_assignable<T&, T> && requires { T(xte::like<decltype(range)>(*std::ranges::begin(range))); }) {
 			this->push_range(XTE_FWD(range));
 		}
 
 		[[nodiscard]] explicit constexpr array(xte::uz size) noexcept(false)
-		requires(std::is_default_constructible_v<T>) {
+		requires(xte::is_constructible<T>) {
 			this->resize(size);
 		}
 
 		[[nodiscard]] constexpr array(xte::uz size, const T& fill) noexcept(false)
-		requires(std::is_copy_constructible_v<T>) {
+		requires(xte::is_copy_constructible<T>) {
 			this->resize(size, fill);
 		}
 
@@ -142,9 +139,8 @@ namespace xte {
 		}
 
 		template<std::ranges::input_range Range>
-		requires(!xte::is_derived_from<Range, xte::array<T>>
-			&& xte::is_castable<std::ranges::range_value_t<Range>, T>)
-		constexpr xte::array<T>& operator=(Range&& range) & noexcept(false) {
+		constexpr xte::array<T>& operator=(Range&& range) & noexcept(false)
+		requires(xte::is_assignable<T&, T> && requires { T(xte::like<Range>(*std::ranges::begin(range))); }) {
 			if constexpr (std::ranges::sized_range<Range>) {
 				if (xte::uz range_size = std::ranges::size(range); range_size <= this->_capacity) {
 					auto iter = std::ranges::begin(range);
@@ -230,7 +226,7 @@ namespace xte {
 		)
 
 		constexpr void resize(xte::uz size) & noexcept(false)
-		requires(std::is_default_constructible_v<T>) {
+		requires(xte::is_constructible<T>) {
 			this->reserve_total(size);
 			while (this->_size < size) {
 				this->push();
@@ -239,7 +235,7 @@ namespace xte {
 		}
 
 		constexpr void resize(xte::uz size, const T& fill) & noexcept(false)
-		requires(std::is_copy_constructible_v<T>) {
+		requires(xte::is_copy_constructible<T>) {
 			this->reserve_total(size);
 			while (this->_size < size) {
 				this->push(fill);
@@ -286,9 +282,8 @@ namespace xte {
 		}
 
 		template<std::ranges::input_range Range = xte::array<T>>
-		requires(xte::is_castable<std::ranges::range_value_t<Range>, T>)
 		constexpr void insert_range(xte::uz index, Range&& range) & noexcept(false)
-		requires(xte::is_assignable<T&, T&&> && requires { T(xte::like<Range>(*std::ranges::begin(range))); }) {
+		requires(xte::is_assignable<T&, T> && requires { T(xte::like<Range>(*std::ranges::begin(range))); }) {
 			xte::uz range_size = 0;
 			if constexpr (std::ranges::sized_range<Range>) {
 				range_size = std::ranges::size(range);
@@ -352,18 +347,14 @@ namespace xte {
 			return last;
 		}
 
-		template<std::ranges::input_range Range>
-		requires(xte::is_castable<std::ranges::range_value_t<Range>, T>)
-		constexpr auto& operator+=(this auto& lhs, Range&& rhs) noexcept(false) {
-			lhs.xte::template array<T>::push_range(XTE_FWD(rhs));
-			return lhs;
-		}
+		constexpr auto operator+=(this auto& lhs, auto&& rhs) XTE_ARROW(
+			void(lhs.xte::template array<T>::push_range(XTE_FWD(rhs))),
+			lhs
+		)
 
-		template<xte::is_derived_from<xte::array<T>> Self, std::ranges::input_range Range>
-		requires(xte::is_castable<std::ranges::range_value_t<Range>, T>)
-		[[nodiscard]] friend constexpr auto operator+(Self lhs, Range&& rhs) noexcept(false) {
-			return lhs += XTE_FWD(rhs);
-		}
+		[[nodiscard]] constexpr auto operator+(this auto&& lhs, auto&& rhs) XTE_ARROW(
+			auto(lhs += XTE_FWD(rhs))
+		)
 	};
 }
 
