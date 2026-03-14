@@ -8,8 +8,8 @@ namespace xte {
 	concept is_noex_implicit_constructible = 
 		(sizeof...(Args) < 2)
 		&& (sizeof...(Args)
-			? requires { { xte::fake<int(&)(T) noexcept>()(xte::fake<Args...[0]>()) } noexcept; }
-			: requires { { xte::fake<int(&)(T) noexcept>()({}) } noexcept; });
+			? requires ([:^^int(T) noexcept:]& f) { { f(xte::fake<Args...[0]>()) } noexcept; }
+			: requires ([:^^int(T) noexcept:]& f) { { f({}) } noexcept; });
 }
 
 #endif

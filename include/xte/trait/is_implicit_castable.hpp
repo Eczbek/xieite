@@ -5,7 +5,7 @@
 
 namespace xte {
 	template<typename T, typename U>
-	concept is_implicit_castable = requires { xte::fake<int(&)(U)>()(xte::fake<T>()); };
+	concept is_implicit_castable = requires ([:^^int(U):]& f) { f(xte::fake<T>()); };
 }
 
 #endif

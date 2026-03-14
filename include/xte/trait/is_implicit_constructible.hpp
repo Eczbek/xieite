@@ -8,12 +8,8 @@ namespace xte {
 	concept is_implicit_constructible =
 		(sizeof...(Args) < 2)
 		&& (sizeof...(Args)
-			? requires ([:^^int(T):]& f) {
-				f(xte::fake<Args...[0]>());
-			}
-			: requires ([:^^int(T):]& f) {
-				f({});
-			});
+			? requires ([:^^int(T):]& f) { f(xte::fake<Args...[0]>()); }
+			: requires ([:^^int(T):]& f) { f({}); });
 }
 
 #endif

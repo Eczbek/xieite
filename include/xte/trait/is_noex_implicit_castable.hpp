@@ -5,7 +5,7 @@
 
 namespace xte {
 	template<typename T, typename U>
-	concept is_noex_implicit_castable = requires { { xte::fake<int(&)(U)>()(xte::fake<T>()) } noexcept; };
+	concept is_noex_implicit_castable = requires ([:^^int(U):]& f) { { f(xte::fake<T>()) } noexcept; };
 }
 
 #endif
