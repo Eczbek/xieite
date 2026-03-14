@@ -38,14 +38,16 @@ namespace xte {
 		xte::uz _size = 0;
 		xte::uz _capacity = 0;
 
-		constexpr void reset(T* data = nullptr) & noexcept {
+		constexpr void reset() & noexcept {
 			if (this->_capacity) {
 				for (xte::uz i : std::views::indices(this->_size)) {
 					xte::destroy(this->_data[i]);
 				}
 				std::allocator<T>().deallocate(this->_data, this->_capacity);
 			}
-			this->_data = data;
+			this->_data = nullptr;
+			this->_size = 0;
+			this->_capacity = 0;
 		}
 
 		constexpr void reallocate(xte::uz capacity) & noexcept(false) {
@@ -167,8 +169,8 @@ namespace xte {
 			return xte::like<decltype(self)>(self._data[index]);
 		}
 
-		[[nodiscard]] constexpr T* data() const noexcept {
-			return this->_data;
+		[[nodiscard]] constexpr auto* data(this auto&& self) noexcept {
+			return self._data;
 		}
 
 		[[nodiscard]] constexpr xte::uz size() const noexcept {
@@ -179,12 +181,12 @@ namespace xte {
 			return this->_capacity;
 		}
 
-		[[nodiscard]] constexpr T* begin() const noexcept {
-			return this->_data;
+		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
+			return self._data;
 		}
 
-		[[nodiscard]] constexpr T* end() const noexcept {
-			return this->_data + this->_size;
+		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
+			return self._data + self._size;
 		}
 
 		[[nodiscard]] constexpr const T* cbegin() const noexcept {
@@ -195,28 +197,28 @@ namespace xte {
 			return this->end();
 		}
 
-		[[nodiscard]] constexpr std::reverse_iterator<T*> rbegin() const noexcept {
-			return { this->end() };
+		[[nodiscard]] constexpr auto rbegin(this auto&& self) noexcept {
+			return std::reverse_iterator(self.end());
 		}
 
-		[[nodiscard]] constexpr std::reverse_iterator<T*> rend() const noexcept {
-			return { this->begin() };
+		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
+			return std::reverse_iterator(self.begin());
 		}
 
-		[[nodiscard]] constexpr std::reverse_iterator<const T*> crbegin() const noexcept {
-			return { this->cend() };
+		[[nodiscard]] constexpr auto crbegin() const noexcept {
+			return this->rbegin();
 		}
 
-		[[nodiscard]] constexpr std::reverse_iterator<const T*> crend() const noexcept {
-			return { this->cbegin() };
+		[[nodiscard]] constexpr auto crend() const noexcept {
+			return this->rend();
 		}
 
 		[[nodiscard]] constexpr auto&& front(this auto&& self, xte::uz index = 0) noexcept {
-			return XTE_FWD(self)._data[index];
+			return xte::like<decltype(self)>(self._data[index]);
 		}
 		
 		[[nodiscard]] constexpr auto&& back(this auto&& self, xte::uz index = 0) noexcept {
-			return XTE_FWD(self)._data[self._size - index - 1];
+			return xte::like<decltype(self)>(self._data[self._size - index - 1]);
 		}
 
 		[[nodiscard]] friend constexpr auto operator<=>(const xte::array<T>& lhs, const xte::array<T>& rhs) XTE_ARROW(
