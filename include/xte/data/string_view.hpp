@@ -7,7 +7,6 @@
 #	include "../math/width.hpp"
 #	include "../meta/type.hpp"
 #	include "../preproc/arrow.hpp"
-#	include "../trait/is_castable.hpp"
 #	include "../trait/is_contiguous_input_range.hpp"
 #	include "../trait/is_implicit_castable.hpp"
 #	include "../util/types.hpp"

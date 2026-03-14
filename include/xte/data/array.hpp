@@ -28,7 +28,6 @@
 #	include <memory>
 #	include <new>
 #	include <ranges>
-#	include <type_traits>
 #	include <utility>
 
 namespace xte {
