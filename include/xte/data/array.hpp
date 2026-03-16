@@ -96,7 +96,7 @@ namespace xte {
 
 		template<std::ranges::input_range Range>
 		[[nodiscard]] explicit constexpr array(std::from_range_t, Range&& range) noexcept(false)
-		requires(xte::is_assignable<T&, T> && requires { T(xte::like<decltype(range)>(*std::ranges::begin(range))); }) {
+		requires(requires (T& x) { x = static_cast<T>(xte::like<Range>(*std::ranges::begin(range))); }) {
 			this->push_range(XTE_FWD(range));
 		}
 
@@ -139,7 +139,7 @@ namespace xte {
 
 		template<std::ranges::input_range Range>
 		constexpr xte::array<T>& operator=(Range&& range) & noexcept(false)
-		requires(xte::is_assignable<T&, T> && requires { T(xte::like<Range>(*std::ranges::begin(range))); }) {
+		requires(requires (T& x) { x = static_cast<T>(xte::like<Range>(*std::ranges::begin(range))); }) {
 			if constexpr (std::ranges::sized_range<Range>) {
 				if (xte::uz range_size = std::ranges::size(range); range_size <= this->_capacity) {
 					auto iter = std::ranges::begin(range);
@@ -266,7 +266,7 @@ namespace xte {
 
 		template<typename U = T>
 		constexpr void insert(xte::uz index, U&& arg = {}, auto&&... args) & noexcept(false)
-		requires(xte::is_assignable<T&, T&&> && requires { T(XTE_FWD(arg), XTE_FWD(args)...); }) {
+		requires(requires (T& x) { x = T(XTE_FWD(arg), XTE_FWD(args)...); }) {
 			auto tmp = T(XTE_FWD(arg), XTE_FWD(args)...);
 			this->reserve(this->_size == this->_capacity);
 			if (index == this->_size) {
@@ -282,7 +282,7 @@ namespace xte {
 
 		template<std::ranges::input_range Range = xte::array<T>>
 		constexpr void insert_range(xte::uz index, Range&& range) & noexcept(false)
-		requires(xte::is_assignable<T&, T> && requires { T(xte::like<Range>(*std::ranges::begin(range))); }) {
+		requires(requires (T& x) { x = T(xte::like<Range>(*std::ranges::begin(range))); }) {
 			xte::uz range_size = 0;
 			if constexpr (std::ranges::sized_range<Range>) {
 				range_size = std::ranges::size(range);
