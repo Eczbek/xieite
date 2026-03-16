@@ -20,4 +20,4 @@ namespace xte {
 
 #endif
 
-// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=123081
+// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=123237
