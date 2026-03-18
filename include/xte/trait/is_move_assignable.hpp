@@ -6,7 +6,7 @@
 
 namespace xte {
 	template<typename T>
-	concept is_move_assignable = xte::is_assignable<T&, xte::remove_ref<T>>;
+	concept is_move_assignable = xte::is_assignable<T, xte::remove_ref<T>>;
 }
 
 #endif
