@@ -4,6 +4,7 @@
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../util/address.hpp"
+#	include "../util/xvalue.hpp"
 #	include <initializer_list>
 
 namespace DETAIL_XTE {
@@ -13,9 +14,15 @@ namespace DETAIL_XTE {
 		mutable T _value;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr init_list(auto&& arg) XTE_ARROW_CTOR(,
-			_value,((T(XTE_FWD(arg))))
-		)
+		[[nodiscard]] explicit(false) constexpr init_list(const T& x)
+		noexcept(xte::is_noex_copy_constructible<T>)
+		requires(xte::is_copy_constructible<T>)
+		: _value(x) {}
+
+		[[nodiscard]] explicit(false) constexpr init_list(T&& x)
+		noexcept(xte::is_noex_move_constructible<T>)
+		requires(xte::is_move_constructible<T>)
+		: _value(xte::xvalue(x)) {}
 
 		XTE_ARROW_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
 			XTE_FWD(self)._value
