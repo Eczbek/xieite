@@ -3,6 +3,10 @@
 #
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../trait/is_copy_constructible.hpp"
+#	include "../trait/is_move_constructible.hpp"
+#	include "../trait/is_noex_copy_constructible.hpp"
+#	include "../trait/is_noex_move_constructible.hpp"
 #	include "../util/address.hpp"
 #	include "../util/xvalue.hpp"
 #	include <initializer_list>
