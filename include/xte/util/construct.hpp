@@ -4,6 +4,7 @@
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../util/address.hpp"
+#	include <new>
 
 namespace xte {
 	template<typename T>
