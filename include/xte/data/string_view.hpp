@@ -24,17 +24,25 @@ namespace xte {
 
 		template<xte::uz size>
 		[[nodiscard]] explicit(false) constexpr string_view(const xte::type<char[size]>& data) noexcept
-		: _data(data), _size(size - (size && !data[size - 1])) {}
+		: xte::string_view(data, size) {}
 
 		[[nodiscard]] explicit(false) constexpr string_view(const char& c) noexcept
 		: _data(&c), _size(1) {}
 
-		[[nodiscard]] explicit constexpr string_view(const xte::is_implicit_castable<const char*> auto& data, xte::uz size = -1uz) noexcept
+		[[nodiscard]] explicit constexpr string_view(xte::is_implicit_castable<const char*> auto& range) noexcept
+		: _data(data) {
+			if (const char* data = range) {
+				while (*data) {
+					++this->_size;
+				}
+			}
+		}
+
+		[[nodiscard]] constexpr string_view(const char* data, xte::uz size) noexcept
 		: _data(data), _size(size) {
-			const char* copy = this->_data;
-			if (!~size) do {
-				++this->_size;
-			} while (*copy++);
+			while (this->_size && !this->back()) {
+				--this->_size;
+			}
 		}
 
 		template<xte::is_contiguous_input_range Range>
