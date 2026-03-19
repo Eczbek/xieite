@@ -14,6 +14,7 @@
 #	include "../trait/is_derived_from.hpp"
 #	include "../trait/is_noex_move_constructible.hpp"
 #	include "../util/address.hpp"
+#	include "../util/as.hpp"
 #	include "../util/as_c.hpp"
 #	include "../util/construct.hpp"
 #	include "../util/destroy.hpp"
@@ -144,7 +145,7 @@ namespace xte {
 				if (xte::uz range_size = std::ranges::size(range); range_size <= this->_capacity) {
 					auto iter = std::ranges::begin(range);
 					for (xte::uz i : std::views::indices(xte::min(this->_size, range_size))) {
-						this->_data[i] = T(xte::like<Range>(*iter));
+						this->_data[i] = static_cast<T>(xte::like<Range>(*iter));
 						++iter;
 					}
 					for (xte::uz i = this->_size; i < range_size; ++i) {
@@ -266,8 +267,8 @@ namespace xte {
 
 		template<typename U = T>
 		constexpr void insert(xte::uz index, U&& arg = {}, auto&&... args) & noexcept(false)
-		requires(requires (T& x) { x = T(XTE_FWD(arg), XTE_FWD(args)...); }) {
-			auto tmp = T(XTE_FWD(arg), XTE_FWD(args)...);
+		requires(requires (T& x) { x = xte::as<T>(XTE_FWD(arg), XTE_FWD(args)...); }) {
+			auto tmp = xte::as<T>(XTE_FWD(arg), XTE_FWD(args)...);
 			this->reserve(this->_size == this->_capacity);
 			if (index == this->_size) {
 				xte::construct(this->_data[this->_size++], xte::xvalue(tmp));
@@ -282,7 +283,7 @@ namespace xte {
 
 		template<std::ranges::input_range Range = xte::array<T>>
 		constexpr void insert_range(xte::uz index, Range&& range) & noexcept(false)
-		requires(requires (T& x) { x = T(xte::like<Range>(*std::ranges::begin(range))); }) {
+		requires(requires (T& x) { x = static_cast<T>(xte::like<Range>(*std::ranges::begin(range))); }) {
 			xte::uz range_size = 0;
 			if constexpr (std::ranges::sized_range<Range>) {
 				range_size = std::ranges::size(range);
@@ -295,7 +296,7 @@ namespace xte {
 					}
 					auto iter = std::ranges::begin(range);
 					for (xte::uz i = index; (i < this->_size) && (i < (index + range_size)); ++iter) {
-						this->_data[i++] = T(xte::like<Range>(*iter));
+						this->_data[i++] = static_cast<T>(xte::like<Range>(*iter));
 					}
 					auto end = std::ranges::end(range);
 					for (xte::uz i = this->_size; iter != end; ++iter) {
