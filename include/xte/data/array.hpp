@@ -29,6 +29,7 @@
 #	include <memory>
 #	include <new>
 #	include <ranges>
+#	include <type_traits>
 #	include <utility>
 
 namespace xte {
@@ -356,6 +357,9 @@ namespace xte {
 			auto(lhs += XTE_FWD(rhs))
 		)
 	};
+
+	template<typename T, typename... Ts>
+	array(T&&, Ts&&...) -> array<std::common_type_t<T, Ts...>>;
 }
 
 #endif

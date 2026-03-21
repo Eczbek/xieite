@@ -4,7 +4,7 @@
 #include <xte/trait/is_same.hpp>
 #include <xte/util/as_c.hpp>
 #include <xte/util/lvalue.hpp>
-#include <xte/util/xvalue.hpp>
+#include <xte/util/types.hpp>
 #include <ranges>
 
 static_assert(xte::is_same<xte::array<int>::value_type, int>);
@@ -25,6 +25,9 @@ static_assert(requires { xte::array<int>(std::from_range, typename[:^^int[]:] { 
 static_assert(xte::array<int>(std::from_range, typename[:^^int[]:] { 5 })[0] == 5);
 static_assert(requires { xte::array<int>(3); });
 static_assert(requires { xte::array<int>(3, 0); });
+
+static_assert(requires { xte::array { 0, 1, 2 }; });
+
 static_assert(([] {
 	xte::array<int> a;
 	a = xte::array<int> { 0, 1, 2 };
@@ -113,16 +116,17 @@ static_assert(([] {
 static_assert(([] {
 	xte::array<int> a;
 	a.reserve(10);
+	xte::uz capacity = a.capacity();
 	a.reserve_total(10);
-	return a.capacity() >= 10;
+	return a.capacity() == capacity;
 })());
 
 static_assert(([] {
 	xte::array<int> a;
 	a.reserve(10);
 	a.shrink();
-	return a;
-})().capacity() == 0);
+	return a.capacity() == 0;
+})());
 
 static_assert(([] {
 	xte::array<int> a;
@@ -186,6 +190,11 @@ static_assert(([] {
 	a.erase(1, 3);
 	return a == xte::array<int> { 0, 4 };
 })());
+static_assert(([] {
+	xte::array<int> a = { 0, 1, 2, 3, 4 };
+	a.erase(0, -1uz);
+	return a == xte::array<int> {};
+})());
 
 static_assert(([] {
 	xte::array<int> a = { 0, 1, 2 };
@@ -219,6 +228,4 @@ static_assert(([] {
 	return a == xte::array<int> { 0, 1, 2, 3, 4 };
 })());
 
-static_assert(([] {
-	return (xte::array<int> { 0, 1, 2 } + xte::array<int> { 3, 4 }) == xte::array<int> { 0, 1, 2, 3, 4 };
-})());
+static_assert((xte::array<int> { 0, 1, 2 } + xte::array<int> { 3, 4 }) == xte::array<int> { 0, 1, 2, 3, 4 });
