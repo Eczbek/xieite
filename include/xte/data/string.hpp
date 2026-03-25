@@ -28,7 +28,7 @@ namespace xte {
 
 	public:
 		using value_type = char;
-		using allocator_type = std::allocator<char>;
+		using allocator_type = xte::array<char>::allocator_type;
 		using size_type = xte::uz;
 		using difference_type = std::ptrdiff_t;
 		using reference = char&;
