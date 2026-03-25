@@ -130,6 +130,11 @@ static_assert(([] {
 
 static_assert(([] {
 	xte::array<int> a;
+	a.insert(0);
+	return a == xte::array<int> { 0 };
+})());
+static_assert(([] {
+	xte::array<int> a;
 	a.insert(0, 0);
 	return a == xte::array<int> { 0 };
 })());
