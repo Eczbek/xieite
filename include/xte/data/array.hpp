@@ -57,8 +57,9 @@ namespace xte {
 				this->_data = std::allocator<T>().allocate(capacity);
 				this->_capacity = capacity;
 				try {
-					for (xte::uz i : std::views::indices(this->_size = old._size)) {
-						xte::construct(this->_data[i], std::move_if_noexcept(old._data[i]));
+					for (auto&& item : old._data) {
+						xte::construct(this->_data[this->_size], std::move_if_noexcept(item));
+						++this->_size;
 					}
 				} catch (...) {
 					this->reset();
