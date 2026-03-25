@@ -8,7 +8,7 @@
 #	include "../meta/type.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../trait/is_contiguous_input_range.hpp"
-#	include "../trait/is_implicit_castable.hpp"
+#	include "../trait/is_noex_implicit_castable.hpp"
 #	include "../util/types.hpp"
 #	include <algorithm>
 #	include <compare>
@@ -29,10 +29,10 @@ namespace xte {
 		[[nodiscard]] explicit(false) constexpr string_view(const char& c) noexcept
 		: _data(&c), _size(1) {}
 
-		[[nodiscard]] explicit constexpr string_view(xte::is_implicit_castable<const char*> auto& range) noexcept
-		: _data(data) {
-			if (const char* data = range) {
-				while (*data) {
+		[[nodiscard]] explicit constexpr string_view(xte::is_noex_implicit_castable<const char*> auto&& range) noexcept
+		: _data(range) {
+			if (const char* copy = this->_data) {
+				while (*copy++) {
 					++this->_size;
 				}
 			}
