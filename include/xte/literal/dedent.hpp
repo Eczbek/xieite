@@ -2,7 +2,6 @@
 #	define DETAIL_XTE_HEADER_LITERAL_DEDENT
 #
 #	include "../data/fixed_string.hpp"
-#	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
 #	include "../math/min.hpp"
 #	include "../util/as.hpp"
@@ -30,8 +29,7 @@ namespace xte::literal::dedent {
 			}
 			return lines
 				| std::views::transform([=](auto line) { return line.substr(indent); })
-				| std::views::join_with('\n')
-				| std::ranges::to<xte::string>();
+				| std::views::join_with('\n');
 		})()));
 	}
 }
