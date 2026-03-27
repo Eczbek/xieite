@@ -1,6 +1,7 @@
 #include <xte/math/approx_equal.hpp>
 #include <xte/math/parse_number.hpp>
 #include <xte/math/stringify_number.hpp>
+#include <numbers>
 
 static_assert(xte::stringify_number(123) == "123");
 static_assert(xte::stringify_number(-123) == "-123");
@@ -43,6 +44,7 @@ static_assert(xte::stringify_number(5.0, -2.0) == "101.0");
 static_assert(xte::stringify_number(-5.0, -2.0) == "1111.0");
 static_assert(xte::stringify_number(6.5, -2.0) == "11011.1");
 static_assert(xte::stringify_number(0.5, 0.5) == "10.0");
+#warning static_assert(xte::stringify_number(42.0, std::numbers::phi) == "10100010.00100001");
 static_assert(xte::stringify_number(123.456, 10.0, {}, 0) == "123.");
 static_assert(xte::parse_number<int>(xte::stringify_number(123)) == 123);
 static_assert(xte::parse_number<int>(xte::stringify_number(-123)) == -123);
