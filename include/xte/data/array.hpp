@@ -62,7 +62,6 @@ namespace xte {
 						xte::construct(this->_data[i], std::move_if_noexcept(old._data[i]));
 					}
 				} catch (...) {
-					this->reset();
 					*this = xte::xvalue(old);
 					throw;
 				}
