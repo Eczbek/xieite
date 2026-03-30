@@ -6,10 +6,11 @@
 #	include <meta>
 #
 #	define XTE_LIFT(...) DETAIL_XTE_LIFT(, ..., static, __VA_ARGS__)
-#	define XTE_LIFT_ONE(...) DETAIL_XTE_LIFT(, , static, __VA_ARGS__)
+#	define XTE_LIFT_UNARY(...) DETAIL_XTE_LIFT(, , static, __VA_ARGS__)
 #	define XTE_LIFT_LOCAL(...) DETAIL_XTE_LIFT(&, ..., , __VA_ARGS__)
 #	define XTE_LIFT_INFIX(...) DETAIL_XTE_LIFT_INFIX(, __VA_ARGS__)
 #	define XTE_LIFT_MEMBER(...) DETAIL_XTE_LIFT_INFIX(..., __VA_ARGS__)
+#	define XTE_LIFT_VAR(...) ([][[nodiscard]](auto&& DETAIL_XTE_obj) noexcept { return (XTE_FWD(DETAIL_XTE_obj)__VA_ARGS__); })
 #
 #	define DETAIL_XTE_LIFT(_capture, _ellipsis, _specs, ...) \
 		([_capture][[nodiscard]](auto&&_ellipsis DETAIL_XTE_args) _specs XTE_ARROW( \
