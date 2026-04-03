@@ -8,6 +8,7 @@
 #	include "../trait/is_same_ignore_cvref.hpp"
 #	include "../trait/remove_cvref.hpp"
 #	include "../util/address.hpp"
+#	include "../util/as.hpp"
 #	include "../util/construct.hpp"
 #	include "../util/xvalue.hpp"
 
@@ -27,7 +28,7 @@ namespace xte {
 		[[nodiscard]] explicit(false) constexpr opt(decltype(xte::null)) noexcept {}
 
 		[[nodiscard]] explicit(false) constexpr opt(auto&&... args) XTE_ARROW_CTOR(,
-			_value,((XTE_FWD(args)...)),
+			_value,((xte::as<T>(XTE_FWD(args)...))),
 			_has_value,((true))
 		)
 
