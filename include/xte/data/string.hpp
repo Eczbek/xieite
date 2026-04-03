@@ -271,7 +271,7 @@ namespace xte {
 }
 
 namespace xte::literal::string {
-	[[nodiscard]] constexpr xte::string operator""_string(const char* data, xte::uz size) noexcept(false) {
+	[[nodiscard]] constexpr xte::string operator""_str(const char* data, xte::uz size) noexcept(false) {
 		return xte::string(data, size);
 	}
 }
