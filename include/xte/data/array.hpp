@@ -41,7 +41,7 @@ namespace xte {
 		xte::uz _size = 0;
 		xte::uz _capacity = 0;
 
-		constexpr void reset() & noexcept {
+		constexpr void _reset() & noexcept {
 			if (this->_capacity) {
 				for (xte::uz i : std::views::indices(this->_size)) {
 					xte::destroy(this->_data[i]);
@@ -53,7 +53,7 @@ namespace xte {
 			this->_capacity = 0;
 		}
 
-		constexpr void reallocate(xte::uz capacity) & noexcept(false) {
+		constexpr void _reallocate(xte::uz capacity) & noexcept(false) {
 			if (xte::array<T> old = xte::xvalue(*this); capacity) {
 				this->_data = std::allocator<T>().allocate(capacity);
 				this->_capacity = capacity;
@@ -113,7 +113,7 @@ namespace xte {
 		}
 
 		constexpr ~array() {
-			this->reset();
+			this->_reset();
 		}
 
 		constexpr xte::array<T>& operator=(const xte::array<T>& other) & noexcept(false)
@@ -128,7 +128,7 @@ namespace xte {
 					}
 					this->erase(other._size, -1uz);
 				} else {
-					this->reset();
+					this->_reset();
 					this->push_range(other);
 				}
 				this->_size = other._size;
@@ -159,7 +159,7 @@ namespace xte {
 					return *this;
 				}
 			}
-			this->reset();
+			this->_reset();
 			this->push_range(XTE_FWD(range));
 			return *this;
 		}
@@ -258,13 +258,13 @@ namespace xte {
 				while (capacity < total) {
 					capacity += xte::max(1, capacity / 2);
 				}
-				this->reallocate(capacity);
+				this->_reallocate(capacity);
 			}
 		}
 
 		constexpr void shrink() & noexcept(false) {
 			if (this->_capacity > this->_size) {
-				this->reallocate(this->_size);
+				this->_reallocate(this->_size);
 			}
 		}
 
