@@ -36,7 +36,7 @@ namespace xte {
 		template<xte::is_unsigned>
 		friend struct xte::big_int;
 
-	// private:
+	private:
 		xte::array<T> _data;
 		bool _neg = false;
 
@@ -322,7 +322,7 @@ namespace xte {
 			xte::big_int<T> rem;
 			xte::big_int<T> quot;
 			quot._data.resize(this->_data.size());
-			for (xte::uz i : std::views::indices(this->_data.size())) {
+			for (xte::uz i = this->_data.size(); i--;) {
 				for (xte::uz j = xte::width<T>; j--;) {
 					rem <<= 1;
 					rem._data[0] |= (this->_data[i] >> j) & 1;
@@ -499,7 +499,7 @@ namespace xte {
 			xte::big_int<T> root = tmp + 1;
 			while (tmp < root) {
 				root = tmp;
-				((tmp *= exp) += *this / tmp.pow(exp)) /= degree;
+				(tmp = tmp * exp += *this / tmp.pow(exp)) /= degree;
 			}
 			return root;
 		}
@@ -543,16 +543,16 @@ namespace xte {
 					}
 				}
 				do {
-					auto index = abs % radix;
+					auto rem = abs % radix;
 					abs /= radix;
-					if (index < 0) {
-						index += radix;
+					if (rem < 0) {
+						rem -= radix;
 						++abs;
 					}
-					result += config.digits[static_cast<xte::uz>(index)];
+					result += config.digits[static_cast<xte::uz>(rem)];
 				} while (abs);
 			} while (false);
-			if (*this < 0) {
+			if (this->_neg) {
 				result += config.minus[0];
 			}
 			std::ranges::reverse(result);
