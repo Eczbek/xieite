@@ -1,7 +1,7 @@
 #include <xte/data/fixed_array.hpp>
 #include <xte/trait/is_same.hpp>
 
-static_assert(xte::is_same<int, xte::fixed_array<int, 3>::type>);
+static_assert(xte::is_same<int, xte::fixed_array<int, 3>::value_type>);
 
 static_assert(xte::fixed_array<int, 3>::size == 3);
 static_assert(xte::fixed_array<int, 3>::size() == 3);

@@ -11,6 +11,8 @@
 #	include "../util/like.hpp"
 #	include "../util/types.hpp"
 #	include <concepts>
+#	include <cstddef>
+#	include <iterator>
 #	include <ranges>
 #	include <tuple>
 #	include <type_traits>
@@ -18,7 +20,17 @@
 namespace xte {
 	template<typename T, xte::uz n>
 	struct fixed_array {
-		using type = T;
+		using value_type = T;
+		using size_type = xte::uz;
+		using difference_type = std::ptrdiff_t;
+		using reference = T&;
+		using const_reference = const T&;
+		using pointer = T*;
+		using const_pointer = const T*;
+		using iterator = T*;
+		using const_iterator = const T*;
+		using reverse_iterator = std::reverse_iterator<T*>;
+		using const_reverse_iterator = std::reverse_iterator<const T*>;
 
 		static constexpr auto size = xte::wrap_value<n>();
 
@@ -40,6 +52,30 @@ namespace xte {
 			return self._data + n;
 		}
 
+		[[nodiscard]] constexpr const char* cbegin() const noexcept {
+			return this->begin();
+		}
+
+		[[nodiscard]] constexpr const char* cend() const noexcept {
+			return this->end();
+		}
+
+		[[nodiscard]] constexpr auto rbegin(this auto&& self) noexcept {
+			return std::reverse_iterator(self.end());
+		}
+
+		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
+			return std::reverse_iterator(self.begin());
+		}
+
+		[[nodiscard]] constexpr const char* crbegin() const noexcept {
+			return this->rbegin();
+		}
+
+		[[nodiscard]] constexpr const char* crend() const noexcept {
+			return this->rend();
+		}
+
 		template<xte::uz index>
 		[[nodiscard]] constexpr auto&& get(this auto&& self) noexcept {
 			return XTE_FWD(self)._data[index];
@@ -58,19 +94,53 @@ namespace xte {
 
 	template<typename T>
 	struct fixed_array<T, 0> {
-		using type = T;
+		using value_type = T;
+		using size_type = xte::uz;
+		using difference_type = std::ptrdiff_t;
+		using reference = T&;
+		using const_reference = const T&;
+		using pointer = T*;
+		using const_pointer = const T*;
+		using iterator = T*;
+		using const_iterator = const T*;
+		using reverse_iterator = const T*;
+		using const_reverse_iterator = const T*;
 
 		static constexpr auto size = xte::wrap_value<0uz>();
 
-		[[nodiscard]] constexpr const T* data() noexcept {
+		[[nodiscard]] constexpr const T* data() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* begin() noexcept {
+		[[nodiscard]] constexpr const T* begin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* end() noexcept {
+		[[nodiscard]] constexpr const T* end() const noexcept {
+			return nullptr;
+		}
+
+		[[nodiscard]] constexpr const T* cbegin() const noexcept {
+			return nullptr;
+		}
+
+		[[nodiscard]] constexpr const T* cend() const noexcept {
+			return nullptr;
+		}
+
+		[[nodiscard]] constexpr const T* rbegin() const noexcept {
+			return nullptr;
+		}
+
+		[[nodiscard]] constexpr const T* rend() const noexcept {
+			return nullptr;
+		}
+
+		[[nodiscard]] constexpr const T* crbegin() const noexcept {
+			return nullptr;
+		}
+
+		[[nodiscard]] constexpr const T* crend() const noexcept {
 			return nullptr;
 		}
 
