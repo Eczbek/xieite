@@ -3,6 +3,7 @@
 #
 #	include "../data/array.hpp"
 #	include "../data/init_list.hpp"
+#	include "../data/string_view.hpp"
 #	include "../math/min.hpp"
 #	include "../meta/type.hpp"
 #	include "../preproc/arrow.hpp"
@@ -48,10 +49,14 @@ namespace xte {
 		[[nodiscard]] explicit(false) constexpr string(xte::string&& other) noexcept
 		: _data(xte::xvalue(other._data)) {}
 
-		[[nodiscard]] explicit(false) constexpr string(xte::init_list<char> init_list) noexcept(false)
-		: _data(std::from_range, xte::xvalue(init_list)) {}
+		[[nodiscard]] constexpr string(xte::string_view view) noexcept(false)
+		: xte::string(std::from_range, view) {}
 
-		[[nodiscard]] constexpr string(std::from_range_t, auto&& range) XTE_ARROW_CTOR(,
+		[[nodiscard]] explicit(false) constexpr string(xte::init_list<char> init_list) noexcept(false)
+		: xte::string(std::from_range, xte::xvalue(init_list)) {}
+
+		[[nodiscard]] constexpr string(std::from_range_t, auto&& range) XTE_ARROW_CTOR(
+			((this->_data.size() && this->_data.back()) ? this->_data.push() : void()),
 			_data,((std::from_range, XTE_FWD(range)))
 		)
 
@@ -158,14 +163,6 @@ namespace xte {
 			return XTE_FWD(self)._data.back(index + 1);
 		}
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xte::string& lhs, const xte::string& rhs) noexcept {
-			return lhs._data <=> rhs._data;
-		}
-
-		[[nodiscard]] friend constexpr bool operator==(const xte::string& lhs, const xte::string& rhs) noexcept {
-			return lhs._data == rhs._data;
-		}
-
 		constexpr void resize(xte::uz size, char fill = '\0') & noexcept(false) {
 			this->reserve_total(size + 1);
 			while (this->size() < size) {
@@ -184,6 +181,14 @@ namespace xte {
 
 		constexpr void shrink() & noexcept(false) {
 			this->_data.shrink();
+		}
+
+		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false) {
+			bool was_empty = count && !this->_data.size();
+			this->_data.insert_uninit(index, count + was_empty);
+			if (was_empty) {
+				this->_data.push();
+			}
 		}
 
 		constexpr void insert(xte::uz index, char c = '\0') & noexcept(false) {

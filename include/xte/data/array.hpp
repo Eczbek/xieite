@@ -268,6 +268,22 @@ namespace xte {
 			}
 		}
 
+		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false)
+		requires(requires (T x) { x = T(xte::xvalue(x)); }) {
+			index = xte::min(index, this->_size);
+			this->reserve_total(this->_size + count);
+			for (xte::uz i = count; i-- && ((this->_size - count + i) >= index);) {
+				xte::construct(this->_data[this->_size + i], xte::xvalue(this->_data[this->_size - count + i]));
+			}
+			for (xte::uz i = this->_size; i-- && (i >= (index + count));) {
+				this->_data[i] = xte::xvalue(this->_data[i - count]);
+			}
+			for (xte::uz i = index; (i < this->_size) && (i < (index + count)); ++i) {
+				xte::destroy(this->_data[i]);
+			}
+			this->_size += count;
+		}
+
 		constexpr void insert(xte::uz index) & noexcept(false)
 		requires(requires (T x) { x = T(); }) {
 			this->reserve(this->_size == this->_capacity);
@@ -306,8 +322,8 @@ namespace xte {
 			if constexpr (std::ranges::sized_range<Range>) {
 				range_size = std::ranges::size(range);
 				if ((this->_size + range_size) <= this->_capacity) {
-					for (xte::uz i = range_size; i-- && ((this->_size - (range_size - i)) >= index);) {
-						xte::construct(this->_data[this->_size + i], xte::xvalue(this->_data[this->_size - (range_size - i)]));
+					for (xte::uz i = range_size; i-- && ((this->_size - range_size + i) >= index);) {
+						xte::construct(this->_data[this->_size + i], xte::xvalue(this->_data[this->_size - range_size + i]));
 					}
 					for (xte::uz i = this->_size; i-- && (i >= (index + range_size));) {
 						this->_data[i] = xte::xvalue(this->_data[i - range_size]);

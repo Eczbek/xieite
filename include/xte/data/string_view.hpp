@@ -48,17 +48,8 @@ namespace xte {
 		template<xte::is_contiguous_input_range Range>
 		requires(xte::is_same<std::ranges::range_value_t<Range>, char>)
 		[[nodiscard]] explicit(false) constexpr string_view(const Range& range) XTE_ARROW_CTOR(,
-			_data,((std::ranges::data(range))),
-			_size,((std::ranges::size(range)))
+			(xte::string_view),((std::ranges::data(range), std::ranges::size(range)))
 		)
-
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xte::string_view lhs, xte::string_view rhs) noexcept {
-			return xte::range_cmp(lhs, rhs);
-		}
-
-		[[nodiscard]] friend constexpr bool operator==(xte::string_view lhs, xte::string_view rhs) noexcept {
-			return std::is_eq(lhs <=> rhs);
-		}
 
 		[[nodiscard]] constexpr char operator[](xte::uz index) const noexcept {
 			return this->_data[index];
@@ -199,6 +190,14 @@ namespace xte {
 			return this->between_any_of(chars, chars);
 		}
 	};
+}
+
+[[nodiscard]] constexpr std::strong_ordering operator<=>(xte::string_view lhs, xte::string_view rhs) noexcept {
+	return xte::range_cmp(lhs, rhs);
+}
+
+[[nodiscard]] constexpr bool operator==(xte::string_view lhs, xte::string_view rhs) noexcept {
+	return (lhs.size() == rhs.size()) && std::is_eq(lhs <=> rhs);
 }
 
 namespace xte::literal::string_view {

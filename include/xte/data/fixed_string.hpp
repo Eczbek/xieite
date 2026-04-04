@@ -2,8 +2,6 @@
 #	define DETAIL_XTE_HEADER_DATA_FIXED_STRING
 #
 #	include "../data/fixed_array.hpp"
-#	include "../data/lowercase.hpp"
-#	include "../data/uppercase.hpp"
 #	include "../func/unfold.hpp"
 #	include "../meta/make_seq.hpp"
 #	include "../meta/seq.hpp"
@@ -19,14 +17,6 @@ namespace xte {
 		: xte::fixed_array<char, n>(xte::unfold<n>([&]<xte::uz... i> {
 			return xte::fixed_array { data[i]... };
 		})) {}
-
-		[[nodiscard]] constexpr xte::fixed_string<n> uppercase() const noexcept {
-			return xte::uppercase(*this);
-		}
-
-		[[nodiscard]] constexpr xte::fixed_string<n> lowercase() const noexcept {
-			return xte::lowercase(*this);
-		}
 	};
 
 	template<xte::uz n>
