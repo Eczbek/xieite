@@ -1,12 +1,13 @@
 #ifndef DETAIL_XTE_HEADER_MATH_UPPERCASE
 #	define DETAIL_XTE_HEADER_MATH_UPPERCASE
 #
-#	include "../func/visitor.hpp"
+#	include "../data/string.hpp"
+#	include "../data/string_view.hpp"
 #	include "../trait/is_noex_range.hpp"
 #	include "../trait/is_same.hpp"
 #	include <ranges>
 
-namespace DETAIL_XTE {
+namespace xte {
 	[[nodiscard]] constexpr char uppercase(char c) noexcept {
 		switch (c) {
 			case 'a':
@@ -64,20 +65,24 @@ namespace DETAIL_XTE {
 		}
 		return c;
 	}
-}
 
-namespace xte {
-	inline constexpr auto uppercase = xte::visitor {
-		[][[nodiscard]](char c) static noexcept -> char {
-			return DETAIL_XTE::uppercase(c);
-		},
-		[]<std::ranges::input_range Range>[[nodiscard]](Range range) static noexcept(xte::is_noex_range<Range>) -> Range requires(xte::is_same<std::ranges::range_value_t<Range>, char>) {
-			for (char& c : range) {
-				c = DETAIL_XTE::uppercase(c);
-			}
-			return range;
+	[[nodiscard]] constexpr xte::string uppercase(xte::string_view string) noexcept(false) {
+		auto result = xte::string(string);
+		for (char& c : result) {
+			c = xte::uppercase(c);
 		}
-	};
+		return result;
+	}
+
+	template<std::ranges::input_range Range>
+	[[nodiscard]] constexpr Range uppercase(Range range)
+	noexcept(xte::is_noex_range<Range> && requires (std::ranges::range_value_t<Range> x) { requires(noexcept(x = xte::uppercase(static_cast<char>(x)))); })
+	requires(requires (std::ranges::range_value_t<Range> x) { x = xte::uppercase(static_cast<char>(x)); }) {
+		for (char& c : range) {
+			c = xte::uppercase(static_cast<char>(c));
+		}
+		return range;
+	}
 }
 
 #endif

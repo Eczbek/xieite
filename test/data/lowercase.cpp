@@ -20,4 +20,4 @@ static_assert(xte::lowercase('/') == '/');
 static_assert(xte::lowercase('"') == '"');
 static_assert(xte::lowercase('\0') == '\0');
 
-static_assert(xte::lowercase(xte::string("ABCXYZ abcxyz")) == xte::string("abcxyz abcxyz"));
+static_assert(xte::lowercase("ABCXYZ abcxyz") == "abcxyz abcxyz");

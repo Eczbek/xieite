@@ -1,12 +1,13 @@
 #ifndef DETAIL_XTE_HEADER_MATH_LOWERCASE
 #	define DETAIL_XTE_HEADER_MATH_LOWERCASE
 #
-#	include "../func/visitor.hpp"
+#	include "../data/string.hpp"
+#	include "../data/string_view.hpp"
 #	include "../trait/is_noex_range.hpp"
 #	include "../trait/is_same.hpp"
 #	include <ranges>
 
-namespace DETAIL_XTE {
+namespace xte {
 	[[nodiscard]] constexpr char lowercase(char c) noexcept {
 		switch (c) {
 			case 'A':
@@ -64,20 +65,24 @@ namespace DETAIL_XTE {
 		}
 		return c;
 	}
-}
 
-namespace xte {
-	inline constexpr auto lowercase = xte::visitor {
-		[][[nodiscard]](char c) static noexcept -> char {
-			return DETAIL_XTE::lowercase(c);
-		},
-		[]<std::ranges::input_range Range>[[nodiscard]](Range range) static noexcept(xte::is_noex_range<Range>) -> Range requires(xte::is_same<std::ranges::range_value_t<Range>, char>) {
-			for (char& c : range) {
-				c = DETAIL_XTE::lowercase(c);
-			}
-			return range;
+	[[nodiscard]] constexpr xte::string lowercase(xte::string_view string) noexcept(false) {
+		auto result = xte::string(string);
+		for (char& c : result) {
+			c = xte::lowercase(c);
 		}
-	};
+		return result;
+	}
+
+	template<std::ranges::input_range Range>
+	[[nodiscard]] constexpr Range lowercase(Range range)
+	noexcept(xte::is_noex_range<Range> && requires (std::ranges::range_value_t<Range> x) { requires(noexcept(x = xte::lowercase(static_cast<char>(x)))); })
+	requires(requires (std::ranges::range_value_t<Range> x) { x = xte::lowercase(static_cast<char>(x)); }) {
+		for (char& c : range) {
+			c = xte::lowercase(static_cast<char>(c));
+		}
+		return range;
+	}
 }
 
 #endif
