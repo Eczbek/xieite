@@ -16,7 +16,7 @@ namespace xte {
 			Common fraction;
 			return (..., (fraction = xte::rem(quot /= ys, 1), quot = xte::floor(quot) + (quot < 0) + (fraction >= 0.5) - (fraction < -0.5)));
 		} else {
-			xte::iz sign;
+			[[indeterminate]] xte::iz sign;
 			return (..., (sign = xte::sign(quot, ys), quot = static_cast<Common>(quot / static_cast<Common>(ys) + sign * ((quot % static_cast<Common>(ys) * xte::sign(quot)) >= (ys / 2 * xte::sign(ys) + ((ys % 2) || (sign < 0)))))));
 		}
 	};
