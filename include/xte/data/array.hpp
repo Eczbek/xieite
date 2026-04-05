@@ -41,18 +41,6 @@ namespace xte {
 		xte::uz _size = 0;
 		xte::uz _capacity = 0;
 
-		constexpr void _reset() & noexcept {
-			if (this->_capacity) {
-				for (xte::uz i : std::views::indices(this->_size)) {
-					xte::destroy(this->_data[i]);
-				}
-				std::allocator<T>().deallocate(this->_data, this->_capacity);
-			}
-			this->_data = nullptr;
-			this->_size = 0;
-			this->_capacity = 0;
-		}
-
 		constexpr void _reallocate(xte::uz capacity) & noexcept(false) {
 			if (xte::array<T> old = xte::xvalue(*this); capacity) {
 				this->_data = std::allocator<T>().allocate(capacity);
@@ -113,7 +101,7 @@ namespace xte {
 		}
 
 		constexpr ~array() {
-			this->_reset();
+			this->reset();
 		}
 
 		constexpr xte::array<T>& operator=(const xte::array<T>& other) & noexcept(false)
@@ -123,15 +111,14 @@ namespace xte {
 					for (xte::uz i : std::views::indices(xte::min(this->_size, other._size))) {
 						this->_data[i] = other._data[i];
 					}
-					for (xte::uz i = this->_size; i < other._size; ++i) {
+					for (xte::uz i = this->_size; i < other._size; this->_size = ++i) {
 						xte::construct(this->_data[i], other._data[i]);
 					}
 					this->erase(other._size, -1uz);
 				} else {
-					this->_reset();
+					this->reset();
 					this->push_range(other);
 				}
-				this->_size = other._size;
 			}
 			return *this;
 		}
@@ -150,16 +137,16 @@ namespace xte {
 						this->_data[i] = static_cast<T>(xte::like<Range>(*iter));
 						++iter;
 					}
-					for (xte::uz i = this->_size; i < range_size; ++i) {
-						xte::construct(this->_data[i], xte::like<Range>(*iter));
+					while (this->_size < range_size) {
+						xte::construct(this->_data[this->_size], xte::like<Range>(*iter));
+						++this->_size;
 						++iter;
 					}
 					this->erase(range_size, -1uz);
-					this->_size = range_size;
 					return *this;
 				}
 			}
-			this->_reset();
+			this->reset();
 			this->push_range(XTE_FWD(range));
 			return *this;
 		}
@@ -178,6 +165,18 @@ namespace xte {
 
 		[[nodiscard]] constexpr xte::uz capacity() const noexcept {
 			return this->_capacity;
+		}
+
+		constexpr void reset() & noexcept {
+			if (this->_capacity) {
+				for (xte::uz i : std::views::indices(this->_size)) {
+					xte::destroy(this->_data[i]);
+				}
+				std::allocator<T>().deallocate(this->_data, this->_capacity);
+			}
+			this->_data = nullptr;
+			this->_size = 0;
+			this->_capacity = 0;
 		}
 
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
@@ -355,12 +354,12 @@ namespace xte {
 
 		constexpr void erase(xte::uz index, xte::uz count = 1) & noexcept {
 			if (index < this->_size) {
-				count = xte::min(count, this->_size - index);
-				for (xte::uz i = index; i < (this->_size - count); ++i) {
+				this->_size -= (count = xte::min(count, this->_size - index));
+				for (xte::uz i = index; i < this->_size; ++i) {
 					this->_data[i] = xte::xvalue(this->_data[i + count]);
 				}
 				while (count--) {
-					xte::destroy(this->_data[--this->_size + count]);
+					xte::destroy(this->_data[this->_size + count]);
 				}
 			}
 		}

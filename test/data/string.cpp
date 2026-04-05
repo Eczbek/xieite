@@ -73,6 +73,12 @@ static_assert(([] {
 })());
 
 static_assert(([] {
+	xte::string a = "abc";
+	a.reset();
+	return !a.data() && !a.size() && !a.capacity();
+})());
+
+static_assert(([] {
 	xte::uz sum = 0;
 	for (char c : xte::string("abcdef")) {
 		sum += static_cast<xte::uz>(c);

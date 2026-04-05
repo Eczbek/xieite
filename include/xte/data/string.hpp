@@ -123,6 +123,10 @@ namespace xte {
 			return this->_data.capacity() - !!this->_data.capacity();
 		}
 
+		constexpr void reset() noexcept {
+			this->_data.reset();
+		}
+
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
 			return self._data.begin();
 		}

@@ -129,6 +129,21 @@ static_assert(([] {
 })());
 
 static_assert(([] {
+	xte::array<int> a = { 1, 2, 3 };
+	a.reset();
+	return !a.data() && !a.size() && !a.capacity();
+})());
+
+static_assert(([] {
+	xte::array<int> a = { 1, 2, 3 };
+	a.insert_uninit(1, 3);
+	a[1] = 4;
+	a[2] = 5;
+	a[3] = 6;
+	return a == xte::array<int> { 1, 4, 5, 6, 2, 3 };
+})());
+
+static_assert(([] {
 	xte::array<int> a;
 	a.insert(0);
 	return a == xte::array<int> { 0 };
@@ -194,6 +209,11 @@ static_assert(([] {
 	xte::array<int> a = { 0, 1, 2, 3, 4 };
 	a.erase(1, 3);
 	return a == xte::array<int> { 0, 4 };
+})());
+static_assert(([] {
+	xte::array<int> a = { 0, 1, 2, 3, 4 };
+	a.erase(0, 5);
+	return !a.size();
 })());
 static_assert(([] {
 	xte::array<int> a = { 0, 1, 2, 3, 4 };
