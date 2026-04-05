@@ -6,6 +6,7 @@
 #	include "../trait/non_copyable.hpp"
 #	include "../util/exchange.hpp"
 #	include "../util/types.hpp"
+#	include <iterator>
 #	include <new>
 
 namespace xte {
@@ -75,6 +76,30 @@ namespace xte {
 
 		[[nodiscard]] constexpr const T* end() const noexcept {
 			return this->_data + !!this->_data;
+		}
+		
+		[[nodiscard]] constexpr const T* cbegin() const noexcept {
+			return this->begin();
+		}
+
+		[[nodiscard]] constexpr const T* cend() const noexcept {
+			return this->end();
+		}
+
+		[[nodiscard]] constexpr auto rbegin(this auto&& self) noexcept {
+			return std::reverse_iterator(self.end());
+		}
+
+		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
+			return std::reverse_iterator(self.begin());
+		}
+
+		[[nodiscard]] constexpr auto crbegin() const noexcept {
+			return this->rbegin();
+		}
+
+		[[nodiscard]] constexpr auto crend() const noexcept {
+			return this->rend();
 		}
 
 		[[nodiscard]] static constexpr xte::ptr<T> make(auto&&... args) noexcept(false) {
