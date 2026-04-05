@@ -4,7 +4,7 @@
 #	include "../data/fixed_string.hpp"
 #	include "../data/string_view.hpp"
 #	include "../math/min.hpp"
-#	include "../util/as.hpp"
+#	include "../util/cast.hpp"
 #	include "../util/types.hpp"
 #	include <meta>
 #	include <ranges>
@@ -16,7 +16,7 @@ namespace xte::literal::dedent {
 			auto lines = xte::string_view(raw.data(), raw.size())
 				.between_any_of('\n', " \t\n")
 				| std::views::split('\n')
-				| std::views::transform(xte::as<xte::string_view>);
+				| std::views::transform(xte::cast<xte::string_view>);
 			auto first = lines.front();
 			xte::uz indent = first.find_not_of(" \t");
 			for (xte::string_view line : lines | std::views::drop(1)) {

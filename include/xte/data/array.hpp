@@ -14,8 +14,8 @@
 #	include "../trait/is_derived_from.hpp"
 #	include "../trait/is_noex_move_constructible.hpp"
 #	include "../util/address.hpp"
-#	include "../util/as.hpp"
 #	include "../util/as_c.hpp"
+#	include "../util/cast.hpp"
 #	include "../util/construct.hpp"
 #	include "../util/destroy.hpp"
 #	include "../util/exchange.hpp"
@@ -299,8 +299,8 @@ namespace xte {
 
 		template<typename U = T>
 		constexpr void insert(xte::uz index, U&& arg, auto&&... args) & noexcept(false)
-		requires(requires (T x) { x = xte::as<T>(XTE_FWD(arg), XTE_FWD(args)...); }) {
-			auto tmp = xte::as<T>(XTE_FWD(arg), XTE_FWD(args)...);
+		requires(requires (T x) { x = xte::cast<T>(XTE_FWD(arg), XTE_FWD(args)...); }) {
+			auto tmp = xte::cast<T>(XTE_FWD(arg), XTE_FWD(args)...);
 			this->reserve(this->_size == this->_capacity);
 			if (index >= this->_size) {
 				xte::construct(this->_data[this->_size++], xte::xvalue(tmp));

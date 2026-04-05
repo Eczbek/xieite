@@ -1,5 +1,5 @@
-#ifndef DETAIL_XTE_HEADER_UTIL_AS
-#	define DETAIL_XTE_HEADER_UTIL_AS
+#ifndef DETAIL_XTE_HEADER_UTIL_CAST
+#	define DETAIL_XTE_HEADER_UTIL_CAST
 #
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
@@ -7,7 +7,7 @@
 
 namespace xte {
 	template<typename T>
-	constexpr auto as = [][[nodiscard]](auto&&... args) static XTE_ARROW_CHOOSE(
+	constexpr auto cast = [][[nodiscard]](auto&&... args) static XTE_ARROW_CHOOSE(
 		(sizeof...(args) == 1),
 		static_cast<T>(xte::at<0>(XTE_FWD(args)...)),
 		T(XTE_FWD(args)...)
