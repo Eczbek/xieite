@@ -2,13 +2,13 @@
 #	define DETAIL_XTE_HEADER_MATH_ABS
 #
 #	include "../math/as_unsigned.hpp"
-#	include "../math/neg.hpp"
+#	include "../math/is_neg.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../trait/try_unsigned.hpp"
 
 namespace xte {
 	inline constexpr auto abs = [][[nodiscard]](xte::is_number auto x) static noexcept -> xte::try_unsigned<decltype(x)> {
-		return xte::neg(x) ? -xte::as_unsigned(x) : xte::as_unsigned(x);
+		return xte::is_neg(x) ? -xte::as_unsigned(x) : xte::as_unsigned(x);
 	};
 }
 
