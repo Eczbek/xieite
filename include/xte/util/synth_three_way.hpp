@@ -1,5 +1,5 @@
-#ifndef DETAIL_XTE_HEADER_FUNC_SYNTH_THREE_WAY
-#	define DETAIL_XTE_HEADER_FUNC_SYNTH_THREE_WAY
+#ifndef DETAIL_XTE_HEADER_UTIL_SYNTH_THREE_WAY
+#	define DETAIL_XTE_HEADER_UTIL_SYNTH_THREE_WAY
 #
 #	include "../trait/is_bool_testable.hpp"
 #	include "../trait/is_noex_bool_testable.hpp"

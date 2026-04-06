@@ -2,13 +2,13 @@
 #	define DETAIL_XTE_HEADER_DATA_RANGE_CMP
 #
 #	include "../func/nop.hpp"
-#	include "../func/synth_three_way.hpp"
 #	include "../func/visitor.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../trait/is_noex_iter.hpp"
 #	include "../trait/is_noex_sentinel.hpp"
 #	include "../trait/is_order.hpp"
+#	include "../util/synth_three_way.hpp"
 #	include <compare>
 #	include <functional>
 #	include <iterator>
