@@ -561,13 +561,6 @@ namespace xte {
 	};
 }
 
-namespace xte::literal::big_int {
-	template<char... digits>
-	[[nodiscard]] consteval xte::big_int<> operator""_big() noexcept(false) {
-		return xte::big_int(xte::string { digits... });
-	}
-}
-
 template<typename T>
 struct std::formatter<xte::big_int<T>> {
 	constexpr auto parse(std::format_parse_context& ctx) noexcept {

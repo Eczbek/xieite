@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_PREPROC_VERSION
 #
 #	define XTE_VERSION_MAJOR 0
-#	define XTE_VERSION_MINOR 145
+#	define XTE_VERSION_MINOR 146
 #	define XTE_VERSION_PATCH 0
 #
 #	define XTE_VERSION(_operator, _major, ...) \
