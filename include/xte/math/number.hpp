@@ -6,8 +6,6 @@
 #	include "../math/lshift.hpp"
 #	include "../math/rem.hpp"
 #	include "../math/rshift.hpp"
-#	include "../math/try_signed.hpp"
-#	include "../math/try_unsigned.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/lift.hpp"
@@ -15,6 +13,8 @@
 #	include "../trait/is_number.hpp"
 #	include "../trait/is_same_any.hpp"
 #	include "../trait/is_same_any_ignore_cvref.hpp"
+#	include "../trait/try_signed.hpp"
+#	include "../trait/try_unsigned.hpp"
 #	include "../util/exchange.hpp"
 #	include <cmath>
 #	include <compare>

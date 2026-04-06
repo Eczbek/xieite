@@ -1,5 +1,5 @@
-#ifndef DETAIL_XTE_HEADER_MATH_TRY_UNSIGNED
-#	define DETAIL_XTE_HEADER_MATH_TRY_UNSIGNED
+#ifndef DETAIL_XTE_HEADER_TRAIT_TRY_UNSIGNED
+#	define DETAIL_XTE_HEADER_TRAIT_TRY_UNSIGNED
 #
 #	include "../trait/is_signed.hpp"
 #	include "../meta/type_at.hpp"

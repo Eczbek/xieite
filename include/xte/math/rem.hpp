@@ -1,9 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_MATH_REM
 #	define DETAIL_XTE_HEADER_MATH_REM
 #
-#	include "../math/try_unsigned.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../trait/is_float.hpp"
+#	include "../trait/try_unsigned.hpp"
 #	include <cmath>
 #	include <type_traits>
 

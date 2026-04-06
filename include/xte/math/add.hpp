@@ -1,8 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_MATH_ADD
 #	define DETAIL_XTE_HEADER_MATH_ADD
 #
-#	include "../math/try_unsigned.hpp"
 #	include "../trait/is_number.hpp"
+#	include "../trait/try_unsigned.hpp"
 #	include <type_traits>
 
 namespace xte {
