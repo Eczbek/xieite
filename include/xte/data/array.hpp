@@ -5,6 +5,7 @@
 #	include "../data/range_cmp.hpp"
 #	include "../math/max.hpp"
 #	include "../math/min.hpp"
+#	include "../preproc/arrow.hpp"
 #	include "../preproc/diagnostic.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../trait/copy_cvref.hpp"
@@ -89,6 +90,11 @@ namespace xte {
 		requires(requires (T x) { x = static_cast<T>(xte::like<Range>(*xte::lvalue(std::ranges::begin(range)))); }) {
 			this->push_range(XTE_FWD(range));
 		}
+
+		template<std::input_iterator Iter>
+		[[nodiscard]] explicit constexpr array(Iter begin, std::sentinel_for<Iter> auto end) XTE_ARROW_CTOR(,
+			(xte::array<T>),((std::from_range, std::ranges::subrange(begin, end)))
+		)
 
 		[[nodiscard]] explicit constexpr array(xte::uz size) noexcept(false)
 		requires(xte::is_constructible<T>) {
@@ -217,6 +223,10 @@ namespace xte {
 		
 		[[nodiscard]] constexpr auto&& back(this auto&& self, xte::uz index = 0) noexcept {
 			return xte::like<decltype(self)>(self._data[self._size - index - 1]);
+		}
+
+		[[nodiscard]] constexpr xte::array<T> slice(xte::uz index, xte::uz size) noexcept(false) {
+			return xte::array<T>(this->begin() + index, this->begin() + xte::min(this->_size, index + size));
 		}
 
 		[[nodiscard]] friend constexpr auto operator<=>(const xte::array<T>& lhs, const xte::array<T>& rhs) XTE_ARROW(

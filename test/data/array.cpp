@@ -95,6 +95,9 @@ static_assert(xte::array<int> { 0, 1, 2 } != xte::array<int> { 0, 1, 999 });
 static_assert(xte::array<int> { 0 } < xte::array<int> { 1 });
 static_assert(xte::array<int> { 1 } > xte::array<int> { 0 });
 
+static_assert((xte::array<int> { 0, 1, 2, 3, 4 }).slice(1, 3) == xte::array<int> { 1, 2, 3 });
+static_assert((xte::array<int> { 0, 1, 2, 3, 4 }).slice(0, -1uz) == xte::array<int> { 0, 1, 2, 3, 4 });
+
 static_assert(([] {
 	xte::array<int> a;
 	a.resize(1);
