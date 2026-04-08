@@ -47,7 +47,6 @@ static_assert(([] {
 	return a == "abc";
 })());
 
-
 static_assert(xte::is_same<char&&, decltype(xte::string()[0])>);
 static_assert(xte::is_same<char&, decltype(xte::lvalue(xte::string())[0])>);
 static_assert(xte::is_same<const char&, decltype(xte::as_c(xte::lvalue(xte::string())[0]))>);
@@ -103,6 +102,9 @@ static_assert(xte::string("abc").back(0) == 'c');
 static_assert(xte::string("abc").back(1) == 'b');
 static_assert(xte::string("abc").back(2) == 'a');
 static_assert(xte::string("abc").back(-1uz) == '\0');
+
+static_assert(xte::string("abcdef").slice(1, 4) == "bcde");
+static_assert(xte::string("abcdef").slice(0, -1uz) == "abcdef");
 
 static_assert(xte::string("abc") == "abc");
 static_assert(xte::string("abc") != "xyz");

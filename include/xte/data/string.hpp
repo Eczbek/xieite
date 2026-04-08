@@ -60,6 +60,11 @@ namespace xte {
 			_data,((std::from_range, XTE_FWD(range)))
 		)
 
+		template<std::input_iterator Iter>
+		[[nodiscard]] constexpr string(Iter begin, std::sentinel_for<Iter> auto end) XTE_ARROW_CTOR(,
+			(xte::string),((std::from_range, std::ranges::subrange(begin, end)))
+		)
+
 		[[nodiscard]] explicit constexpr string(xte::is_noex_implicit_castable<const char*> auto&& range) noexcept(false) {
 			if (const char* data = range) do {
 				this->_data.push(*data);
@@ -128,11 +133,11 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
-			return self._data.begin();
+			return self.data();
 		}
 
 		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
-			return self._data.data() + self.size();
+			return self.data() + self.size();
 		}
 
 		[[nodiscard]] constexpr const char* cbegin() const noexcept {
@@ -165,6 +170,10 @@ namespace xte {
 		
 		[[nodiscard]] constexpr auto&& back(this auto&& self, xte::uz index = 0) noexcept {
 			return XTE_FWD(self)._data.back(index + 1);
+		}
+
+		[[nodiscard]] constexpr xte::string slice(xte::uz index, xte::uz size) const noexcept(false) {
+			return (index < this->size()) ? xte::string(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : "";
 		}
 
 		constexpr void resize(xte::uz size, char fill = '\0') & noexcept(false) {
