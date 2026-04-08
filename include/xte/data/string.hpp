@@ -172,7 +172,7 @@ namespace xte {
 			return XTE_FWD(self)._data.back(index + 1);
 		}
 
-		[[nodiscard]] constexpr xte::string slice(xte::uz index, xte::uz size) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string slice(xte::uz index, xte::uz size = -1uz) const noexcept(false) {
 			return (index < this->size()) ? xte::string(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : "";
 		}
 

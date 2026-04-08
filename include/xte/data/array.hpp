@@ -225,7 +225,7 @@ namespace xte {
 			return xte::like<decltype(self)>(self._data[self._size - index - 1]);
 		}
 
-		[[nodiscard]] constexpr xte::array<T> slice(xte::uz index, xte::uz size) const noexcept(false) {
+		[[nodiscard]] constexpr xte::array<T> slice(xte::uz index, xte::uz size = -1uz) const noexcept(false) {
 			return (index < this->_size) ? xte::array<T>(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : xte::array<T>();
 		}
 
