@@ -181,8 +181,8 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator+(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept(false) {
-			return auto(lhs) += rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator+(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
+			return lhs += rhs;
 		}
 
 		constexpr xte::big_int<T>& operator+=(const xte::big_int<T>& rhs) noexcept(false) {
@@ -219,8 +219,8 @@ namespace xte {
 			return xte::big_int<T>(std::from_range, this->_data, !this->_neg);
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator-(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept(false) {
-			return auto(lhs) -= rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator-(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
+			return lhs -= rhs;
 		}
 
 		constexpr xte::big_int<T>& operator-=(const xte::big_int<T>& rhs) noexcept(false) {
@@ -241,12 +241,13 @@ namespace xte {
 			}
 			xte::array<T> diff_data;
 			T borrow = 0;
-			for (xte::uz i = 0; borrow || (i < rhs._data.size()); ++i) {
+			for (xte::uz i = 0; borrow || (i < this->_data.size()); ++i) {
 				T rhs_digit = (i < rhs._data.size()) ? rhs._data[i] : 0;
 				diff_data.push(this->_data[i] - rhs_digit - borrow);
 				borrow = (i < ~-this->_data.size()) && !xte::sub_checked(this->_data[i], rhs_digit, borrow);
 			}
 			this->_data = xte::xvalue(diff_data);
+			this->_trim();
 			return *this;
 		}
 
@@ -258,8 +259,8 @@ namespace xte {
 			return xte::exchange(*this, *this - 1);
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator*(const xte::big_int<T>& lhs, const xte::big_int<T> rhs) noexcept(false) {
-			return auto(lhs) *= rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator*(xte::big_int<T> lhs, const xte::big_int<T> rhs) noexcept(false) {
+			return lhs *= rhs;
 		}
 
 		constexpr xte::big_int<T>& operator*=(const xte::big_int<T>& rhs) noexcept(false) {
@@ -268,34 +269,40 @@ namespace xte {
 			}
 			bool same_sign = this->_neg == rhs._neg;
 			if ((*this == 1) || (*this == -1)) {
-				return *this = same_sign ? rhs : -rhs;
+				return *this = (same_sign ? rhs : -rhs);
 			}
 			if ((rhs == 1) || (rhs == -1)) {
-				return *this = same_sign ? *this : -*this;
+				return *this = (same_sign ? *this : -*this);
 			}
 			if (this->_is_single_bit()) {
-				return *this = same_sign ? (rhs.abs() << this->_log2()) : -(rhs.abs() << this->_log2());
+				return *this = (same_sign ? (rhs.abs() << this->_log2()) : -(rhs.abs() << this->_log2()));
 			}
 			if (rhs._is_single_bit()) {
-				return *this = same_sign ? (this->abs() << rhs._log2()) : -(this->abs() << rhs._log2());
+				return *this = (same_sign ? (this->abs() << rhs._log2()) : -(this->abs() << rhs._log2()));
 			}
-			xte::big_int<T> prod;
-			for (xte::uz i = this->_data.size(); i--;) {
-				if (this->_data[i]) {
-					for (xte::uz j = rhs._data.size(); j--;) {
-						if (rhs._data[j]) {
-							auto [lo, hi] = xte::wide_uint<T>(this->_data[i]) * rhs._data[j];
-							prod += ((xte::big_int<T>(hi) << xte::width<T>) | lo) << (xte::big_int<T>(i) << xte::digits(xte::width<T> - 1, 2)) << (xte::big_int<T>(j) << xte::digits(xte::width<T> - 1, 2));
-						}
-					}
+			if ((this->_data.size() < 2) && (rhs._data.size() < 2)) {
+				auto [lo, hi] = xte::wide_uint<T>(this->_data[0]) * rhs._data[0];
+				this->_data[0] = lo;
+				if (hi) {
+					this->_data.push(hi);
 				}
+			} else {
+				xte::uz half_size = xte::max(this->_data.size(), rhs._data.size()) / 2;
+				auto lhs_lo = xte::big_int<T>(std::from_range, this->_data.slice(0, half_size));
+				auto lhs_hi = xte::big_int<T>(std::from_range, this->_data.slice(half_size));
+				auto rhs_lo = xte::big_int<T>(std::from_range, rhs._data.slice(0, half_size));
+				auto rhs_hi = xte::big_int<T>(std::from_range, rhs._data.slice(half_size));
+				xte::big_int<T> prod0 = lhs_lo * rhs_lo;
+				xte::big_int<T> prod1 = lhs_hi * rhs_hi;
+				xte::big_int<T> prod2 = (lhs_lo + lhs_hi) * (rhs_lo + rhs_hi) - prod0 - prod1;
+				*this = prod0 + (prod1 << (xte::width<T> * half_size * 2)) + (prod2 << (xte::width<T> * half_size));
 			}
-			prod._neg = !same_sign;
-			return *this = xte::xvalue(prod);
+			this->_neg = !same_sign;
+			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator/(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept(false) {
-			return auto(lhs) /= rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator/(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
+			return lhs /= rhs;
 		}
 
 		constexpr xte::big_int<T>& operator/=(const xte::big_int<T>& rhs) noexcept(false) {
@@ -325,7 +332,7 @@ namespace xte {
 			for (xte::uz i = this->_data.size(); i--;) {
 				for (xte::uz j = xte::width<T>; j--;) {
 					rem <<= 1;
-					rem._data[0] |= (this->_data[i] >> j) & 1;
+					rem._data[0] |= static_cast<T>((this->_data[i] >> j) & 1);
 					if (rem >= rhs_abs) {
 						rem -= rhs_abs;
 						quot._data[i] |= static_cast<T>(1) << j;
@@ -337,8 +344,8 @@ namespace xte {
 			return *this = xte::xvalue(quot);
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator%(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept(false) {
-			return auto(lhs) %= rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator%(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
+			return lhs %= rhs;
 		}
 
 		constexpr xte::big_int<T>& operator%=(const xte::big_int<T>& rhs) noexcept(false) {
@@ -374,32 +381,32 @@ namespace xte {
 			return -*this - 1;
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator&(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept(false) {
-			return auto(lhs) &= rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator&(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
+			return lhs &= rhs;
 		}
 
 		constexpr xte::big_int<T>& operator&=(const xte::big_int<T>& rhs) noexcept(false) {
 			return this->_bitwise(rhs, std::bit_and<T>());
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator|(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept(false) {
-			return auto(lhs) |= rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator|(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
+			return lhs |= rhs;
 		}
 
 		constexpr xte::big_int<T>& operator|=(const xte::big_int<T>& rhs) noexcept(false) {
 			return this->_bitwise(rhs, std::bit_or<T>());
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator^(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept(false) {
-			return auto(lhs) ^= rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator^(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
+			return lhs ^= rhs;
 		}
 
 		constexpr xte::big_int<T>& operator^=(const xte::big_int<T>& rhs) noexcept(false) {
 			return this->_bitwise(rhs, std::bit_xor<T>());
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator<<(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept(false) {
-			return auto(lhs) <<= rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator<<(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
+			return lhs <<= rhs;
 		}
 
 		constexpr xte::big_int<T>& operator<<=(const xte::big_int<T>& rhs) noexcept(false) {
@@ -424,8 +431,8 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int<T> operator>>(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept(false) {
-			return auto(lhs) >>= rhs;
+		[[nodiscard]] friend constexpr xte::big_int<T> operator>>(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
+			return lhs >>= rhs;
 		}
 
 		constexpr xte::big_int<T>& operator>>=(const xte::big_int<T>& rhs) noexcept(false) {
