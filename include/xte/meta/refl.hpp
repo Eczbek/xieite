@@ -7,6 +7,7 @@
 #	include "../util/types.hpp"
 #	include <algorithm>
 #	include <meta>
+#	include <ranges>
 #	include <vector>
 
 namespace xte::refl {
@@ -70,6 +71,20 @@ namespace xte::refl {
 	inline constexpr auto add_unbounded_array = [](std::meta::info type) static consteval noexcept -> std::meta::info {
 		return std::meta::dealias(std::meta::substitute(^^xte::add_unbounded_array, { type }));
 	};
+}
+
+namespace xte::literal::refl {
+	[[nodiscard]] consteval std::meta::info operator""_refl(unsigned long long x) noexcept {
+		return std::meta::reflect_constant(x);
+	}
+
+	[[nodiscard]] consteval std::meta::info operator""_refl(long double x) noexcept {
+		return std::meta::reflect_constant(x);
+	}
+
+	[[nodiscard]] consteval std::meta::info operator""_refl(const char* string, xte::uz size) noexcept {
+		return std::meta::reflect_constant_string(std::ranges::subrange(string, string + size));
+	}
 }
 
 #endif
