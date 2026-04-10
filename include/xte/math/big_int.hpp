@@ -65,7 +65,26 @@ namespace xte {
 			return xte::big_int<T>(xte::width<T>) * ~-this->_data.size() + ~-xte::digits(this->_data.back(), 2);
 		}
 
-		constexpr xte::big_int<T>& _bitwise(xte::big_int<T> rhs, auto func) noexcept(false) {
+		constexpr auto _divide(const xte::big_int<T>& rhs) noexcept(false) {
+			bool neg = xte::exchange(this->_neg, false);
+			xte::big_int<T> quot;
+			xte::big_int<T> rhs_abs = rhs.abs();
+			while (*this >= rhs_abs) {
+				auto shift = static_cast<xte::uz>(this->_log2() - rhs_abs._log2());
+				rhs_abs <<= shift;
+				if (rhs_abs > *this) {
+					rhs_abs >>= 1;
+					--shift;
+				}
+				quot += xte::big_int<T>(1) << shift;
+				*this -= rhs_abs;
+				rhs_abs = rhs.abs();
+			}
+			this->_neg = neg;
+			return quot;
+		}
+
+		[[nodiscard]] constexpr xte::big_int<T>& _bitwise(xte::big_int<T> rhs, auto func) noexcept(false) {
 			T lhs_neg = this->_neg;
 			T rhs_neg = rhs._neg;
 			*this += lhs_neg;
@@ -309,39 +328,16 @@ namespace xte {
 			if (!rhs) {
 				throw xte::error("must not divide by zero");
 			}
-			bool same_sign = this->_neg == rhs._neg;
 			if ((this->_data.size() < 2) && (rhs._data.size() < 2)) {
 				this->_data[0] /= rhs._data[0];
-				this->_neg = !same_sign;
-				return *this;
-			}
-			xte::big_int<T> rhs_abs = rhs.abs();
-			this->_neg = false;
-			if (!*this || (*this < rhs_abs)) {
-				return *this = 0;
-			}
-			if (*this == rhs_abs) {
-				return *this = same_sign ? 1 : -1;
-			}
-			if (rhs_abs._is_single_bit()) {
-				return same_sign ? (*this >>= rhs_abs._log2()) : (*this = -(*this >> rhs_abs._log2()));
-			}
-			xte::big_int<T> rem;
-			xte::big_int<T> quot;
-			quot._data.resize(this->_data.size());
-			for (xte::uz i = this->_data.size(); i--;) {
-				for (xte::uz j = xte::width<T>; j--;) {
-					rem <<= 1;
-					rem._data[0] |= static_cast<T>((this->_data[i] >> j) & 1);
-					if (rem >= rhs_abs) {
-						rem -= rhs_abs;
-						quot._data[i] |= static_cast<T>(1) << j;
-					}
+			} else {
+				if (!rhs._is_single_bit()) {
+					return *this = this->_divide(rhs);
 				}
+				*this >>= rhs._log2();
 			}
-			quot._neg = !same_sign;
-			quot._trim();
-			return *this = xte::xvalue(quot);
+			this->_neg ^= rhs._neg;
+			return *this;
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int<T> operator%(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
@@ -352,29 +348,14 @@ namespace xte {
 			if (!rhs) {
 				throw xte::error("must not take remainder of division by zero");
 			}
-			xte::big_int<T> rhs_abs = rhs.abs();
-			if (rhs_abs._is_single_bit()) {
-				return *this &= (rhs_abs - 1);
-			}
-			bool neg = xte::exchange(this->_neg, false);
-			if (!*this || (rhs_abs == 1) || (*this == rhs_abs)) {
+			if (!*this || (this->_data == rhs._data)) {
 				return *this = 0;
 			}
-			if (*this < rhs_abs) {
-				this->_neg = neg;
-				return *this;
+			if (rhs._is_single_bit()) {
+				return *this &= (rhs.abs() - 1);
 			}
-			xte::big_int<T> rem;
-			for (T digit : std::views::reverse(this->_data)) {
-				for (xte::uz j = xte::width<T>; j--;) {
-					(rem <<= 1)._data[0] |= (digit >> j) & 1;
-					if (rem >= rhs_abs) {
-						rem -= rhs_abs;
-					}
-				}
-			}
-			rem._neg = neg;
-			return *this = xte::xvalue(rem);
+			this->_divide(rhs);
+			return *this;
 		}
 
 		[[nodiscard]] constexpr xte::big_int<T> operator~() const noexcept(false) {
