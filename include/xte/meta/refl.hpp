@@ -1,7 +1,10 @@
 #ifndef DETAIL_XTE_HEADER_META_REFL
 #	define DETAIL_XTE_HEADER_META_REFL
 #
+#	include "../trait/add_array.hpp"
+#	include "../trait/add_unbounded_array.hpp"
 #	include "../util/lvalue.hpp"
+#	include "../util/types.hpp"
 #	include <algorithm>
 #	include <meta>
 #	include <vector>
@@ -45,7 +48,7 @@ namespace xte::refl {
 							&& std::meta::can_substitute(member, { args... }); });
 		}
 	})())
-	constexpr std::meta::info subst = ([] static -> std::meta::info {
+	constexpr std::meta::info subst = ([] {
 		if constexpr (std::meta::is_reflection_type(^^decltype(func))) {
 			return std::meta::substitute(func, { args... });
 		} else {
@@ -59,6 +62,14 @@ namespace xte::refl {
 				{ args... });
 		}
 	})();
+
+	inline constexpr auto add_array = [](std::meta::info type, xte::uz size) static consteval noexcept -> std::meta::info {
+		return std::meta::dealias(std::meta::substitute(^^xte::add_array, { type, std::meta::reflect_constant(size) }));
+	};
+
+	inline constexpr auto add_unbounded_array = [](std::meta::info type) static consteval noexcept -> std::meta::info {
+		return std::meta::dealias(std::meta::substitute(^^xte::add_unbounded_array, { type }));
+	};
 }
 
 #endif
