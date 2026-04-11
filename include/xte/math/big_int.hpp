@@ -556,16 +556,7 @@ namespace xte {
 namespace xte::literal::big_int {
 	template<char... digits>
 	[[nodiscard]] constexpr xte::big_int<> operator""_big() noexcept(false) {
-		xte::string string = { digits... };
-		if constexpr (sizeof...(digits) > 2) {
-			switch (digits...[1]) {
-				case 'X': case 'x':
-					return xte::big_int(string.slice(2), 16);
-				case 'B': case 'b':
-					return xte::big_int(string.slice(2), 2);
-			}
-		}
-		return xte::big_int(string);
+		return DETAIL_XTE::wide_uint::parse<xte::big_int<>, digits...>();
 	}
 }
 

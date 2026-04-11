@@ -1,8 +1,12 @@
 #ifndef DETAIL_XTE_HEADER_MATH_WIDE_UINT
 #	define DETAIL_XTE_HEADER_MATH_WIDE_UINT
 #
+#	include "../data/string.hpp"
+#	include "../data/string_view.hpp"
+#	include "../data/uppercase.hpp"
 #	include "../func/visitor.hpp"
 #	include "../math/is_single_bit.hpp"
+#	include "../math/leading_zeros.hpp"
 #	include "../math/lshift.hpp"
 #	include "../math/min.hpp"
 #	include "../math/rshift.hpp"
@@ -16,6 +20,7 @@
 #	include "../util/exchange.hpp"
 #	include "../util/types.hpp"
 #	include "../util/xvalue.hpp"
+#	include <algorithm>
 #	include <compare>
 #	include <limits>
 
@@ -26,42 +31,92 @@ namespace DETAIL_XTE::wide_uint {
 	constexpr xte::uz width = xte::width<T>;
 
 	template<xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> T>
-	constexpr xte::uz width<T> = DETAIL_XTE::wide_uint::width<typename T::type>;
+	constexpr xte::uz width<T> = DETAIL_XTE::wide_uint::width<typename T::value_type>;
 
 	inline constexpr auto rshift = xte::visitor {
 		auto(xte::rshift),
-		[]<xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> T>(T lhs, T rhs) {
+		[]<xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> T>[[nodiscard]](T lhs, T rhs) {
 			return xte::xvalue(lhs) >> xte::xvalue(rhs);
 		}
 	};
 
 	inline constexpr auto lshift = xte::visitor {
 		auto(xte::lshift),
-		[]<xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> T>(T lhs, T rhs) {
+		[]<xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> T>[[nodiscard]](T lhs, T rhs) {
 			return xte::xvalue(lhs) << xte::xvalue(rhs);
 		}
 	};
 
-	inline constexpr auto single_bit = xte::visitor {
+	inline constexpr auto is_single_bit = xte::visitor {
 		auto(xte::is_single_bit),
-		[](this auto single_bit, xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> auto x) {
-			return single_bit(x.lo) != single_bit(x.hi);
+		[][[nodiscard]](this auto is_single_bit, xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> auto x) {
+			return is_single_bit(x.lo) != is_single_bit(x.hi);
+		}
+	};
+
+	inline constexpr auto leading_zeros = xte::visitor {
+		auto(xte::leading_zeros),
+		[][[nodiscard]](this auto leading_zeros, xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> auto x) {
+			return x.hi ? leading_zeros(x.hi) : (leading_zeros(x.lo) + DETAIL_XTE::wide_uint::width<typename decltype(x)::value_type>);
 		}
 	};
 
 	inline constexpr auto trailing_zeros = xte::visitor {
 		auto(xte::trailing_zeros),
-		[](this auto trailing_zeros, xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> auto x) {
-			return x.lo ? trailing_zeros(x.lo) : (trailing_zeros(x.hi) + DETAIL_XTE::wide_uint::width<typename decltype(x)::type>);
+		[][[nodiscard]](this auto trailing_zeros, xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> auto x) {
+			return x.lo ? trailing_zeros(x.lo) : (trailing_zeros(x.hi) + DETAIL_XTE::wide_uint::width<typename decltype(x)::value_type>);
 		}
 	};
+
+	template<typename T, char... digits>
+	[[nodiscard]] static consteval T parse() noexcept(false) {
+		xte::uz radix = 10;
+		if constexpr ((sizeof...(digits) > 2) && (digits...[0] == '0')) {
+			switch (digits...[1]) {
+				case 'X': case 'x':
+					radix = 16;
+					break;
+				case 'B': case 'b':
+					radix = 2;
+					break;
+			}
+		}
+		T result = 0;
+		for (char digit : (xte::string { digits... }).slice((radix != 10) * 2)) {
+			if (digit != '\'') {
+				(result *= radix) += xte::string_view("0123456789ABCDEF").find(xte::uppercase(digit));
+			}
+		}
+		return result;
+	}
 };
 
 namespace xte {
 	template<typename T>
 	requires(xte::is_unsigned<T> || xte::is_privately_derived_from<T, DETAIL_XTE::wide_uint::base>)
 	struct wide_uint : private DETAIL_XTE::wide_uint::base {
-		using type = T;
+	private:
+		constexpr xte::wide_uint<T> _divide(const xte::wide_uint<T>& rhs) noexcept {
+			xte::wide_uint<T> quot;
+			while (true) {
+				xte::wide_uint<T> tmp = rhs;
+				if (*this < tmp) {
+					break;
+				}
+				xte::uz shift = DETAIL_XTE::wide_uint::leading_zeros(tmp) - DETAIL_XTE::wide_uint::leading_zeros(*this);
+				tmp <<= shift;
+				if (tmp > *this) {
+					tmp >>= 1;
+					--shift;
+				}
+				quot |= xte::wide_uint<T>(1) << shift;
+				*this -= tmp;
+			}
+			return quot;
+		}
+
+	public:
+		using value_type = T;
 
 		T lo;
 		T hi;
@@ -142,10 +197,10 @@ namespace xte {
 			if (!*this || !rhs || !(this->lo || rhs.lo)) {
 				return *this = 0;
 			}
-			if (!rhs.hi && DETAIL_XTE::wide_uint::single_bit(rhs.lo)) {
+			if (!rhs.hi && DETAIL_XTE::wide_uint::is_single_bit(rhs.lo)) {
 				return *this <<= DETAIL_XTE::wide_uint::trailing_zeros(rhs.lo);
 			}
-			if (!rhs.lo && DETAIL_XTE::wide_uint::single_bit(rhs.hi)) {
+			if (!rhs.lo && DETAIL_XTE::wide_uint::is_single_bit(rhs.hi)) {
 				return (*this <<= DETAIL_XTE::wide_uint::trailing_zeros(rhs.hi)) <<= DETAIL_XTE::wide_uint::width<T>;
 			}
 			xte::wide_uint<T> prod = 0;
@@ -175,21 +230,12 @@ namespace xte {
 
 		constexpr xte::wide_uint<T>& operator/=(const xte::wide_uint<T>& rhs) & {
 			if (!rhs) {
-				throw xte::error("must not divide by zero");
+				throw xte::error("must not _divide by zero");
 			}
-			if (rhs == 1) {
-				return *this;
-			}
-			if (*this < rhs) {
-				return *this = 0;
-			}
-			if (*this == rhs) {
-				return *this = 1;
-			}
-			if (DETAIL_XTE::wide_uint::single_bit(rhs)) {
+			if (DETAIL_XTE::wide_uint::is_single_bit(rhs)) {
 				return *this >>= DETAIL_XTE::wide_uint::trailing_zeros(rhs);
 			}
-			return *this = xte::wide_uint<T>::divide(*this, rhs).quot;
+			return *this = this->_divide(rhs);
 		}
 
 		[[nodiscard]] friend constexpr xte::wide_uint<T> operator/(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) {
@@ -200,16 +246,11 @@ namespace xte {
 			if (!rhs) {
 				throw xte::error("must not take remainder of division by zero");
 			}
-			if (*this < rhs) {
-				return *this;
-			}
-			if (*this == rhs) {
-				return *this = 0;
-			}
-			if ((!rhs.hi && xte::is_single_bit(rhs.lo)) || (!rhs.lo && xte::is_single_bit(rhs.hi))) {
+			if (DETAIL_XTE::wide_uint::is_single_bit(rhs)) {
 				return *this &= ~-rhs;
 			}
-			return *this = xte::wide_uint<T>::divide(*this, rhs).rem;
+			this->_divide(rhs);
+			return *this;
 		}
 
 		[[nodiscard]] friend constexpr xte::wide_uint<T> operator%(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) {
@@ -281,23 +322,6 @@ namespace xte {
 		[[nodiscard]] friend constexpr xte::wide_uint<T> operator>>(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) noexcept {
 			return lhs >>= rhs;
 		}
-
-	private:
-		[[nodiscard]] static constexpr auto divide(const xte::wide_uint<T>& lhs, const xte::wide_uint<T>& rhs) noexcept {
-			struct {
-				xte::wide_uint<T> quot;
-				xte::wide_uint<T> rem;
-			} result;
-			for (auto half : { &xte::wide_uint<T>::hi, &xte::wide_uint<T>::lo }) {
-				for (xte::uz i = xte::width<T>; i--;) {
-					if (((result.rem <<= 1) |= (lhs.*half >> i) & 1) >= rhs) {
-						result.rem -= rhs;
-						result.quot.*half |= static_cast<T>(1) << i;
-					}
-				}
-			}
-			return result;
-		}
 	};
 }
 
@@ -320,18 +344,30 @@ namespace xte::literal::wide_uint {
 #	if XTE_FEATURE_INT_64
 	template<char... digits>
 	[[nodiscard]] consteval xte::wide_uint<xte::u64> operator""_w128() noexcept {
-		xte::wide_uint<xte::u64> result;
-		(void)(... && ((digits == '\'') || ((digits >= '0') && (digits <= '9') && ((result *= 10) += (digits - '0')))));
-		return result;
+		return DETAIL_XTE::wide_uint::parse<xte::wide_uint<xte::u64>, digits...>();
 	}
 
 	template<char... digits>
 	[[nodiscard]] consteval xte::wide_uint<xte::wide_uint<xte::u64>> operator""_w256() noexcept {
-		xte::wide_uint<xte::wide_uint<xte::u64>> result;
-		(void)(... && ((digits == '\'') || ((digits >= '0') && (digits <= '9') && ((result *= 10) += (digits - '0')))));
-		return result;
+		return DETAIL_XTE::wide_uint::parse<xte::wide_uint<xte::wide_uint<xte::u64>>, digits...>();
 	}
 #	endif
 }
+
+template<typename T>
+struct std::formatter<xte::wide_uint<T>> {
+	constexpr auto parse(std::format_parse_context& ctx) noexcept {
+		return ctx.begin();
+	}
+
+	auto format(xte::wide_uint<T> x, std::format_context& ctx) const noexcept(false) {
+		xte::string result;
+		do {
+			result += static_cast<char>(x.lo % 10) + '0';
+		} while (x /= 10);
+		std::ranges::reverse(result);
+		return std::format_to(ctx.out(), "{}", result);
+	}
+};
 
 #endif
