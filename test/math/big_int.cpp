@@ -88,3 +88,10 @@ static_assert(xte::big_int(256).log(2) == 8);
 static_assert(xte::big_int(256).log(4) == 4);
 static_assert(xte::big_int(12345).str() == "12345");
 static_assert(xte::big_int(-12345).str() == "-12345");
+
+using namespace xte::literal::big_int;
+static_assert(255_big == 255);
+static_assert(0xFF_big == 255);
+static_assert(0XFF_big == 255);
+static_assert(0b11111111_big == 255);
+static_assert(0B11111111_big == 255);

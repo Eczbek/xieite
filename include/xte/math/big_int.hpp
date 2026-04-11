@@ -40,7 +40,7 @@ namespace xte {
 		xte::array<T> _data;
 		bool _neg = false;
 
-		constexpr void _trim() noexcept(false) {
+		constexpr void _normalize() noexcept(false) {
 			if (!this->_data.size()) {
 				this->_data.push(0);
 			} else while ((this->_data.size() > 1) && !this->_data.back()) {
@@ -61,26 +61,30 @@ namespace xte {
 			return true;
 		}
 
-		[[nodiscard]] constexpr xte::big_int<T> _log2() const noexcept {
-			return xte::big_int<T>(xte::width<T>) * ~-this->_data.size() + ~-xte::digits(this->_data.back(), 2);
+		[[nodiscard]] constexpr xte::uz _log2() const noexcept {
+			return xte::width<T> * ~-this->_data.size() + ~-xte::digits(this->_data.back(), 2);
 		}
 
 		constexpr auto _divide(const xte::big_int<T>& rhs) noexcept(false) {
 			bool neg = xte::exchange(this->_neg, false);
 			xte::big_int<T> quot;
-			xte::big_int<T> rhs_abs = rhs.abs();
-			while (*this >= rhs_abs) {
-				auto shift = static_cast<xte::uz>(this->_log2() - rhs_abs._log2());
+			quot._data.resize(this->_log2() / xte::width<T> + 1);
+			while (true) {
+				xte::big_int<T> rhs_abs = rhs.abs();
+				if (*this < rhs_abs) {
+					break;
+				}
+				xte::uz shift = this->_log2() - rhs_abs._log2();
 				rhs_abs <<= shift;
 				if (rhs_abs > *this) {
 					rhs_abs >>= 1;
 					--shift;
 				}
-				quot += xte::big_int<T>(1) << shift;
+				quot._data[shift / xte::width<T>] |= static_cast<T>(1) << (shift % xte::width<T>);
 				*this -= rhs_abs;
-				rhs_abs = rhs.abs();
 			}
 			this->_neg = neg;
+			quot._normalize();
 			return quot;
 		}
 
@@ -134,13 +138,13 @@ namespace xte {
 						this->_data.push(static_cast<T>(digit >> shift));
 					} while ((shift += xte::width<T>) < xte::width<U>);
 				}
-				this->_trim();
+				this->_normalize();
 			}
 		}
 
 		template<typename Range = xte::array<T>>
 		[[nodiscard]] constexpr big_int(std::from_range_t, Range&& range, bool neg = false) XTE_ARROW_CTOR(
-			this->_trim(),
+			this->_normalize(),
 			_data,((std::from_range, XTE_FWD(range))),
 			_neg,((neg))
 		)
@@ -266,7 +270,7 @@ namespace xte {
 				borrow = (i < ~-this->_data.size()) && !xte::sub_checked(this->_data[i], rhs_digit, borrow);
 			}
 			this->_data = xte::xvalue(diff_data);
-			this->_trim();
+			this->_normalize();
 			return *this;
 		}
 
@@ -547,6 +551,22 @@ namespace xte {
 			return result;
 		}
 	};
+}
+
+namespace xte::literal::big_int {
+	template<char... digits>
+	[[nodiscard]] constexpr xte::big_int<> operator""_big() noexcept(false) {
+		xte::string string = { digits... };
+		if constexpr (sizeof...(digits) > 2) {
+			switch (digits...[1]) {
+				case 'X': case 'x':
+					return xte::big_int(string.slice(2), 16);
+				case 'B': case 'b':
+					return xte::big_int(string.slice(2), 2);
+			}
+		}
+		return xte::big_int(string);
+	}
 }
 
 template<typename T>
