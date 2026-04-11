@@ -62,26 +62,26 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::uz _log2() const noexcept {
-			return xte::width<T> * ~-this->_data.size() + ~-xte::digits(this->_data.back(), 2);
+			return xte::width<T> * ~-this->_data.size() + xte::digits(this->_data.back(), 2) - 1;
 		}
 
-		constexpr auto _divide(const xte::big_int<T>& rhs) noexcept(false) {
+		constexpr xte::big_int<T> _divide(const xte::big_int<T>& rhs) noexcept(false) {
 			bool neg = xte::exchange(this->_neg, false);
 			xte::big_int<T> quot;
 			quot._data.resize(this->_log2() / xte::width<T> + 1);
 			while (true) {
-				xte::big_int<T> rhs_abs = rhs.abs();
-				if (*this < rhs_abs) {
+				xte::big_int<T> tmp = rhs.abs();
+				if (*this < tmp) {
 					break;
 				}
-				xte::uz shift = this->_log2() - rhs_abs._log2();
-				rhs_abs <<= shift;
-				if (rhs_abs > *this) {
-					rhs_abs >>= 1;
+				xte::uz shift = this->_log2() - tmp._log2();
+				tmp <<= shift;
+				if (tmp > *this) {
+					tmp >>= 1;
 					--shift;
 				}
 				quot._data[shift / xte::width<T>] |= static_cast<T>(1) << (shift % xte::width<T>);
-				*this -= rhs_abs;
+				*this -= tmp;
 			}
 			this->_neg = neg;
 			quot._normalize();
