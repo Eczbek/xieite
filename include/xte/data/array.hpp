@@ -92,7 +92,7 @@ namespace xte {
 		}
 
 		template<std::input_iterator Iter>
-		[[nodiscard]] explicit constexpr array(Iter begin, std::sentinel_for<Iter> auto end) XTE_ARROW_CTOR(,
+		[[nodiscard]] constexpr array(Iter begin, std::sentinel_for<Iter> auto end) XTE_ARROW_CTOR(,
 			(xte::array<T>),((std::from_range, std::ranges::subrange(begin, end)))
 		)
 
@@ -399,13 +399,13 @@ namespace xte {
 		)
 
 		[[nodiscard]] friend constexpr auto operator+(xte::is_derived_from<xte::array<T>> auto&& lhs, auto&& rhs) XTE_ARROW(
-			auto(lhs.xte::array<T>::operator+=(XTE_FWD(rhs)))
+			auto(lhs.xte::template array<T>::operator+=(XTE_FWD(rhs)))
 		)
 
 		template<typename Lhs>
 		requires(!xte::is_derived_from<Lhs, xte::array<T>>)
 		[[nodiscard]] friend constexpr auto operator+(Lhs&& lhs, xte::is_derived_from<xte::array<T>> auto rhs) XTE_ARROW(
-			rhs.xte::array<T>::insert_range(0, XTE_FWD(lhs)),
+			rhs.xte::template array<T>::insert_range(0, XTE_FWD(lhs)),
 			auto(rhs)
 		)
 	};
