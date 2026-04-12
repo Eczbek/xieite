@@ -50,6 +50,7 @@ static_assert((xte::big_int(360) / 3) == 120);
 static_assert((xte::big_int(360) / 5) == 72);
 static_assert((xte::big_int(360) / 15) == 24);
 static_assert((xte::big_int(12345) / -1) == -12345);
+static_assert((xte::big_int(1575) / 10) == 157);
 static_assert((xte::big_int<unsigned char>(999999999ull) / 13) == 76923076ull);
 static_assert((xte::big_int(12345) % 2) == 1);
 static_assert((xte::big_int(12345) % 3) == 0);

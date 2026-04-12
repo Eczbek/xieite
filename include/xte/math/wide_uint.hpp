@@ -5,6 +5,7 @@
 #	include "../data/string_view.hpp"
 #	include "../data/uppercase.hpp"
 #	include "../func/visitor.hpp"
+#	include "../math/digits.hpp"
 #	include "../math/is_single_bit.hpp"
 #	include "../math/leading_zeros.hpp"
 #	include "../math/lshift.hpp"
@@ -70,7 +71,7 @@ namespace DETAIL_XTE::wide_uint {
 	};
 
 	template<typename T, char... digits>
-	[[nodiscard]] static consteval T parse() noexcept(false) {
+	[[nodiscard]] static constexpr T parse() noexcept(false) {
 		xte::uz radix = 10;
 		if constexpr ((sizeof...(digits) > 2) && (digits...[0] == '0')) {
 			switch (digits...[1]) {
@@ -97,7 +98,7 @@ namespace xte {
 	requires(xte::is_unsigned<T> || xte::is_privately_derived_from<T, DETAIL_XTE::wide_uint::base>)
 	struct wide_uint : private DETAIL_XTE::wide_uint::base {
 	private:
-		[[nodiscard]] constexpr xte::wide_uint<T> _divide(const xte::wide_uint<T>& rhs) noexcept {
+		[[nodiscard]] constexpr xte::wide_uint<T> _div(const xte::wide_uint<T>& rhs) & noexcept {
 			xte::wide_uint<T> quot;
 			while (true) {
 				xte::wide_uint<T> tmp = rhs;
@@ -185,7 +186,7 @@ namespace xte {
 		}
 
 		constexpr xte::wide_uint<T>& operator-=(const xte::wide_uint<T>& rhs) & noexcept {
-			return *this = xte::wide_uint<T>(this->lo - rhs.lo, static_cast<T>(this->hi - rhs.hi + (this->lo < rhs.lo)));
+			return *this = xte::wide_uint<T>(this->lo - rhs.lo, static_cast<T>(this->hi - rhs.hi - (this->lo < rhs.lo)));
 		}
 
 		[[nodiscard]] friend constexpr xte::wide_uint<T> operator-(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) noexcept {
@@ -197,6 +198,14 @@ namespace xte {
 			static constexpr T half_bits = static_cast<T>(-1) >> half_size;
 			if (!*this || !rhs || !(this->lo || rhs.lo)) {
 				return *this = 0;
+			}
+			if (!this->hi && !rhs.hi && ((xte::digits(this->lo, 2) + xte::digits(rhs.lo, 2)) <= DETAIL_XTE::wide_uint::width<T>)) {
+				this->lo *= rhs.lo;
+				return *this;
+			}
+			if (!this->lo && !rhs.lo) {
+				this->hi *= rhs.hi;
+				return *this;
 			}
 			if (!rhs.hi && DETAIL_XTE::wide_uint::is_single_bit(rhs.lo)) {
 				return *this <<= DETAIL_XTE::wide_uint::trailing_zeros(rhs.lo);
@@ -240,7 +249,7 @@ namespace xte {
 			if (DETAIL_XTE::wide_uint::is_single_bit(rhs)) {
 				return *this >>= DETAIL_XTE::wide_uint::trailing_zeros(rhs);
 			}
-			return *this = this->_divide(rhs);
+			return *this = this->_div(rhs);
 		}
 
 		[[nodiscard]] friend constexpr xte::wide_uint<T> operator/(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) noexcept(false) {
@@ -251,16 +260,18 @@ namespace xte {
 			if (!rhs) {
 				throw xte::error("must not take remainder of division by zero");
 			}
-			for (auto part : { &xte::wide_uint<T>::lo, &xte::wide_uint<T>::hi }) {
-				if (!this->*part && !rhs.*part) {
-					this->*part %= rhs.*part;
-					return *this;
-				}
+			if (!this->hi && !rhs.hi) {
+				this->lo %= rhs.lo;
+				return *this;
+			}
+			if (!this->lo && !rhs.lo) {
+				this->hi %= rhs.hi;
+				return *this;
 			}
 			if (DETAIL_XTE::wide_uint::is_single_bit(rhs)) {
 				return *this &= rhs - 1;
 			}
-			(void)this->_divide(rhs);
+			(void)this->_div(rhs);
 			return *this;
 		}
 
@@ -374,7 +385,7 @@ struct std::formatter<xte::wide_uint<T>> {
 	auto format(xte::wide_uint<T> x, std::format_context& ctx) const noexcept(false) {
 		xte::string result;
 		do {
-			result += static_cast<char>(x.lo % 10) + '0';
+			result += static_cast<char>((x % 10).lo + '0');
 		} while (x /= 10);
 		std::ranges::reverse(result);
 		return std::format_to(ctx.out(), "{}", result);

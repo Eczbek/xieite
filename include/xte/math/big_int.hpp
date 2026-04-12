@@ -15,7 +15,6 @@
 #	include "../math/number_format_config.hpp"
 #	include "../math/rshift.hpp"
 #	include "../math/sub_checked.hpp"
-#	include "../math/trailing_zeros.hpp"
 #	include "../math/wide_uint.hpp"
 #	include "../math/width.hpp"
 #	include "../preproc/arrow.hpp"
@@ -108,6 +107,7 @@ namespace xte {
 					this->_data.push(hi);
 				}
 			} else {
+				this->_neg = false;
 				xte::uz half_size = xte::max(this->_data.size(), rhs._data.size()) / 2;
 				auto lhs_hi = xte::big_int<T>(std::from_range, this->_data.slice(half_size));
 				this->_data.erase(half_size, -1uz);
@@ -164,7 +164,7 @@ namespace xte {
 			}
 			xte::uz digit_shift = 0;
 			for (xte::uz i = 0; (i < rhs._data.size()) && ((i * xte::width<T>) <= xte::width<xte::uz>); ++i) {
-				digit_shift |= static_cast<xte::uz>(rhs._data[i]) << (i * xte::width<T> - xte::trailing_zeros(xte::width<T>));
+				digit_shift |= xte::lshift(static_cast<xte::uz>(rhs._data[i]), i * xte::width<T>) / xte::width<T>;
 			}
 			xte::uz bit_shift = rhs._data[0] % xte::width<T>;
 			this->_data.reserve(digit_shift + !!bit_shift);
@@ -187,7 +187,7 @@ namespace xte {
 			}
 			xte::uz digit_shift = 0;
 			for (xte::uz i = 0; (i < rhs._data.size()) && ((i * xte::width<T>) <= xte::width<xte::uz>); ++i) {
-				digit_shift |= static_cast<xte::uz>(rhs._data[i]) << (i * xte::width<T> - xte::trailing_zeros(xte::width<T>));
+				digit_shift |= xte::lshift(static_cast<xte::uz>(rhs._data[i]), i * xte::width<T>) / xte::width<T>;
 			}
 			if (digit_shift >= this->_data.size()) {
 				*this = 0;
@@ -204,8 +204,8 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::big_int<T> _pow(this auto&& base, auto&& exp) noexcept(false) {
-			if (base == 1) {
-				return base;
+			if ((base._data.size() < 2) && (base._data[0] == 1)) {
+				return (base._neg && !(exp._data[0] & 1)) ? -XTE_FWD(base) : base;
 			}
 			if (!base || !exp) {
 				if (exp._neg) {
@@ -278,7 +278,7 @@ namespace xte {
 		[[nodiscard]] explicit constexpr big_int(xte::string_view string, Radix radix = 10uz, const xte::number_format_config& config = {}) noexcept(false)
 		: xte::big_int<T>(0) {
 			bool neg = config.minus.contains(string[0]);
-			for (char c : string | std::views::drop(neg || config.plus.contains(string[0]))) {
+			for (char c : string.slice(neg || config.plus.contains(string[0]))) {
 				xte::uz digit = config.digits.find(c);
 				if (!~digit) {
 					break;
@@ -297,7 +297,7 @@ namespace xte {
 			U result = 0;
 			xte::uz shift = 0;
 			for (T digit : this->_data) {
-				result |= static_cast<U>(xte::lshift(digit, shift));
+				result |= xte::lshift(static_cast<U>(digit), shift);
 				if ((shift += xte::width<T>) >= xte::width<U>) {
 					break;
 				}
@@ -433,7 +433,7 @@ namespace xte {
 			} else if (rhs._is_single_bit()) {
 				*this <<= rhs._log2();
 			} else {
-				this->_mul(rhs);
+				this->_mul(rhs.abs());
 			}
 			this->_neg = !same_sign;
 			return *this;
@@ -449,7 +449,7 @@ namespace xte {
 			} else if (rhs._is_single_bit()) {
 				*this <<= rhs._log2();
 			} else {
-				this->_mul(xte::xvalue(rhs));
+				this->_mul(xte::xvalue(rhs).abs());
 			}
 			this->_neg = !same_sign;
 			return *this;
@@ -465,8 +465,8 @@ namespace xte {
 			}
 			if ((this->_data.size() < 3) && (rhs._data.size() < 3)) {
 				auto [lo, hi] = xte::wide_uint<T>(this->_data[0], (this->_data.size() > 1) ? this->_data[1] : 0) / xte::wide_uint<T>(rhs._data[0], (rhs._data.size() > 1) ? rhs._data[1] : 0);
-				this->_data[0] = lo;
 				this->_data.resize(1 + !!hi);
+				this->_data[0] = lo;
 				if (hi) {
 					this->_data[1] = hi;
 				}
@@ -566,16 +566,10 @@ namespace xte {
 		)
 
 		[[nodiscard]] constexpr xte::big_int<T> pow(this auto&& base, const xte::big_int<T>& exp) noexcept(false) {
-			if (base == -1) {
-				return (exp & 1) ? base : -XTE_FWD(base);
-			}
 			return XTE_FWD(base)._pow(exp);
 		}
 
 		[[nodiscard]] constexpr xte::big_int<T> pow(this auto&& base, xte::big_int<T>&& exp) noexcept(false) {
-			if (base == -1) {
-				return (exp & 1) ? base : -XTE_FWD(base);
-			}
 			return XTE_FWD(base)._pow(xte::xvalue(exp));
 		}
 
