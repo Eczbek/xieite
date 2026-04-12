@@ -223,7 +223,8 @@ namespace xte {
 					base *= base;
 					exp >>= 1;
 				}
-				return power * base;
+				power *= base;
+				return power;
 			})();
 		}
 
