@@ -22,6 +22,7 @@
 #	include "../util/xvalue.hpp"
 #	include <algorithm>
 #	include <compare>
+#	include <initializer_list>
 #	include <limits>
 
 namespace DETAIL_XTE::wide_uint {
@@ -96,7 +97,7 @@ namespace xte {
 	requires(xte::is_unsigned<T> || xte::is_privately_derived_from<T, DETAIL_XTE::wide_uint::base>)
 	struct wide_uint : private DETAIL_XTE::wide_uint::base {
 	private:
-		constexpr xte::wide_uint<T> _divide(const xte::wide_uint<T>& rhs) noexcept {
+		[[nodiscard]] constexpr xte::wide_uint<T> _divide(const xte::wide_uint<T>& rhs) noexcept {
 			xte::wide_uint<T> quot;
 			while (true) {
 				xte::wide_uint<T> tmp = rhs;
@@ -184,7 +185,7 @@ namespace xte {
 		}
 
 		constexpr xte::wide_uint<T>& operator-=(const xte::wide_uint<T>& rhs) & noexcept {
-			return *this = xte::wide_uint<T>(this->lo - rhs.lo, this->hi - rhs.hi + (this->lo < rhs.lo));
+			return *this = xte::wide_uint<T>(this->lo - rhs.lo, static_cast<T>(this->hi - rhs.hi + (this->lo < rhs.lo)));
 		}
 
 		[[nodiscard]] friend constexpr xte::wide_uint<T> operator-(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) noexcept {
@@ -204,21 +205,21 @@ namespace xte {
 				return (*this <<= DETAIL_XTE::wide_uint::trailing_zeros(rhs.hi)) <<= DETAIL_XTE::wide_uint::width<T>;
 			}
 			xte::wide_uint<T> prod = 0;
-			const T lhs_lo_lo = this->lo & half_bits;
-			const T lhs_lo_hi = this->lo >> half_size;
-			const T rhs_lo_lo = rhs.lo & half_bits;
-			const T rhs_lo_hi = rhs.lo >> half_size;
-			const T lo0 = lhs_lo_lo * rhs_lo_lo;
-			const T lo1 = lhs_lo_lo * rhs_lo_hi;
-			const T lo2 = lhs_lo_hi * rhs_lo_lo;
+			T lhs_lo_lo = this->lo & half_bits;
+			T lhs_lo_hi = this->lo >> half_size;
+			T rhs_lo_lo = rhs.lo & half_bits;
+			T rhs_lo_hi = rhs.lo >> half_size;
+			T lo0 = lhs_lo_lo * rhs_lo_lo;
+			T lo1 = lhs_lo_lo * rhs_lo_hi;
+			T lo2 = lhs_lo_hi * rhs_lo_lo;
 			prod.lo = static_cast<T>(lo0 + (lo1 << half_size) + (lo2 << half_size));
 			prod.hi = static_cast<T>(lhs_lo_hi * rhs_lo_hi + (lo1 >> half_size) + (lo2 >> half_size) + ((((lo0 >> half_size) + (lo1 & half_bits) + (lo2 & half_bits)) >> half_size) & half_bits));
 			if (this->lo && rhs.hi) {
-				const T rhs_hi_lo = rhs.hi & half_bits;
+				T rhs_hi_lo = rhs.hi & half_bits;
 				prod.hi += static_cast<T>(lhs_lo_lo * rhs_hi_lo + ((lhs_lo_lo * (rhs.hi >> half_size)) << half_size) + (((this->lo >> half_size) * rhs_hi_lo) << half_size));
 			}
 			if (this->hi && rhs.lo) {
-				const T lhs_hi_lo = this->hi & half_bits;
+				T lhs_hi_lo = this->hi & half_bits;
 				prod.hi += static_cast<T>(lhs_hi_lo * rhs_lo_lo + ((lhs_hi_lo * (rhs.lo >> half_size)) << half_size) + (((this->hi >> half_size) * rhs_lo_lo) << half_size));
 			}
 			return *this = xte::xvalue(prod);
@@ -228,9 +229,13 @@ namespace xte {
 			return lhs *= rhs;
 		}
 
-		constexpr xte::wide_uint<T>& operator/=(const xte::wide_uint<T>& rhs) & {
+		constexpr xte::wide_uint<T>& operator/=(const xte::wide_uint<T>& rhs) & noexcept(false) {
 			if (!rhs) {
-				throw xte::error("must not _divide by zero");
+				throw xte::error("must not divide by zero");
+			}
+			if (!this->hi && !rhs.hi) {
+				this->lo /= rhs.lo;
+				return *this;
 			}
 			if (DETAIL_XTE::wide_uint::is_single_bit(rhs)) {
 				return *this >>= DETAIL_XTE::wide_uint::trailing_zeros(rhs);
@@ -238,22 +243,28 @@ namespace xte {
 			return *this = this->_divide(rhs);
 		}
 
-		[[nodiscard]] friend constexpr xte::wide_uint<T> operator/(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) {
+		[[nodiscard]] friend constexpr xte::wide_uint<T> operator/(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) noexcept(false) {
 			return lhs /= rhs;
 		}
 
-		constexpr xte::wide_uint<T>& operator%=(const xte::wide_uint<T>& rhs) & {
+		constexpr xte::wide_uint<T>& operator%=(const xte::wide_uint<T>& rhs) & noexcept(false) {
 			if (!rhs) {
 				throw xte::error("must not take remainder of division by zero");
 			}
-			if (DETAIL_XTE::wide_uint::is_single_bit(rhs)) {
-				return *this &= ~-rhs;
+			for (auto part : { &xte::wide_uint<T>::lo, &xte::wide_uint<T>::hi }) {
+				if (!this->*part && !rhs.*part) {
+					this->*part %= rhs.*part;
+					return *this;
+				}
 			}
-			this->_divide(rhs);
+			if (DETAIL_XTE::wide_uint::is_single_bit(rhs)) {
+				return *this &= rhs - 1;
+			}
+			(void)this->_divide(rhs);
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xte::wide_uint<T> operator%(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) {
+		[[nodiscard]] friend constexpr xte::wide_uint<T> operator%(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) noexcept(false) {
 			return lhs %= rhs;
 		}
 
