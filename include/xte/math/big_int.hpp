@@ -204,14 +204,20 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::big_int<T> _pow(this auto&& base, auto&& exp) noexcept(false) {
-			if ((base._data.size() < 2) && (base._data[0] == 1)) {
-				return (base._neg && !(exp._data[0] & 1)) ? -XTE_FWD(base) : base;
+			if ((base == 1) || (base == -1) || (exp == 1)) {
+				return (base._neg && !(exp._data[0] & 1)) ? -XTE_FWD(base) : XTE_FWD(base);
 			}
-			if (!base || !exp) {
-				if (exp._neg) {
+			if (exp < 0) {
+				if (!base) {
 					throw xte::error("must not take power of zero to negative exponent");
 				}
-				return +!exp;
+				return 0;
+			}
+			if (!exp) {
+				return 1;
+			}
+			if (!base) {
+				return XTE_FWD(base);
 			}
 			return ([base = XTE_FWD(base), exp = XTE_FWD(exp)] mutable {
 				xte::big_int<T> power = 1;
