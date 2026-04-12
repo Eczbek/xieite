@@ -28,7 +28,7 @@ namespace xte::literal::dedent {
 				}
 			}
 			return lines
-				| std::views::transform([=](auto line) { return line.substr(indent); })
+				| std::views::transform([=](auto line) { return line.slice(indent); })
 				| std::views::join_with('\n');
 		})()));
 	}

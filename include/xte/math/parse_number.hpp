@@ -30,7 +30,7 @@ namespace DETAIL_XTE {
 			}
 			auto abs_radix = xte::abs(radix);
 			bool radix_is_whole = xte::approx_equal(abs_radix, static_cast<xte::uz>(abs_radix));
-			xte::string_view digits = config.digits.substr(0, xte::max(2, static_cast<xte::uz>(abs_radix) + !radix_is_whole));
+			xte::string_view digits = config.digits.slice(0, xte::max(2, static_cast<xte::uz>(abs_radix) + !radix_is_whole));
 			auto parse_int = [&, radix = radix_is_whole ? radix : static_cast<T>(abs_radix)] -> T {
 				T value = 0;
 				bool neg = config.minus.contains(string[result.index]);

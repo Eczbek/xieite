@@ -7,12 +7,12 @@
 #	include "../math/width.hpp"
 #	include "../meta/type.hpp"
 #	include "../preproc/arrow.hpp"
-#	include "../trait/is_contiguous_input_range.hpp"
 #	include "../trait/is_noex_implicit_castable.hpp"
 #	include "../util/types.hpp"
 #	include <algorithm>
 #	include <compare>
 #	include <format>
+#	include <iterator>
 #	include <ranges>
 
 namespace xte {
@@ -45,10 +45,19 @@ namespace xte {
 			}
 		}
 
-		template<xte::is_contiguous_input_range Range>
+		template<std::ranges::contiguous_range Range>
 		requires(xte::is_same<std::ranges::range_value_t<Range>, char>)
-		[[nodiscard]] explicit(false) constexpr string_view(const Range& range) XTE_ARROW_CTOR(,
+		[[nodiscard]] constexpr string_view(std::from_range_t, const Range& range) XTE_ARROW_CTOR(,
 			(xte::string_view),((std::ranges::data(range), std::ranges::size(range)))
+		)
+
+		[[nodiscard]] explicit(false) constexpr string_view(const auto& range) XTE_ARROW_CTOR(,
+			(xte::string_view),((std::from_range, range))
+		)
+
+		template<std::input_iterator Iter>
+		[[nodiscard]] constexpr string_view(Iter begin, std::sentinel_for<Iter> auto end) XTE_ARROW_CTOR(,
+			(xte::string_view),((std::ranges::subrange(begin, end)))
 		)
 
 		[[nodiscard]] constexpr char operator[](xte::uz index) const noexcept {
@@ -79,12 +88,8 @@ namespace xte {
 			return this->_data[this->_size - index - 1];
 		}
 
-		[[nodiscard]] constexpr xte::string_view substr(xte::uz index, xte::uz size) const noexcept {
-			return xte::string_view(this->_data + xte::min(this->_size, index), xte::max(xte::min(this->_size, size), index) - index);
-		}
-
-		[[nodiscard]] constexpr xte::string_view substr(xte::uz index) const noexcept {
-			return this->substr(index, this->_size);
+		[[nodiscard]] constexpr xte::string_view slice(xte::uz index, xte::uz size = -1uz) const noexcept {
+			return (index < this->_size) ? xte::string_view(this->_data + index, xte::min(this->_size - index, size)) : "";
 		}
 
 		[[nodiscard]] constexpr xte::uz find(xte::string_view substr) const noexcept {
@@ -158,11 +163,11 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::string_view after(xte::string_view substr) const noexcept {
-			return this->substr(this->find(substr)).substr(substr._size);
+			return this->slice(this->find(substr)).slice(substr._size);
 		}
 
 		[[nodiscard]] constexpr xte::string_view before(xte::string_view substr) const noexcept {
-			return this->substr(0, this->find_last(substr));
+			return this->slice(0, this->find_last(substr));
 		}
 
 		[[nodiscard]] constexpr xte::string_view between(xte::string_view substr_start, xte::string_view substr_end) const noexcept {
@@ -174,12 +179,12 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::string_view after_any_of(xte::string_view chars) const noexcept {
-			return this->substr(this->find_not_of(chars));
+			return this->slice(this->find_not_of(chars));
 		}
 
 		[[nodiscard]] constexpr xte::string_view before_any_of(xte::string_view chars) const noexcept {
 			xte::uz last = this->find_last_not_of(chars);
-			return this->substr(0, last + !!~last);
+			return this->slice(0, last + !!~last);
 		}
 
 		[[nodiscard]] constexpr xte::string_view between_any_of(xte::string_view chars_start, xte::string_view chars_end) const noexcept {
