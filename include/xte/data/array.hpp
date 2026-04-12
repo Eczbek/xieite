@@ -331,18 +331,17 @@ namespace xte {
 			if constexpr (std::ranges::sized_range<Range>) {
 				range_size = std::ranges::size(range);
 				if ((this->_size + range_size) <= this->_capacity) {
-					for (xte::uz i = range_size; i-- && ((this->_size - range_size + i) >= index);) {
+					for (xte::uz i = range_size; i-- && ((range_size - i) <= (this->_size - index));) {
 						xte::construct(this->_data[this->_size + i], xte::xvalue(this->_data[this->_size - range_size + i]));
 					}
 					for (xte::uz i = this->_size; i-- && (i >= (index + range_size));) {
 						this->_data[i] = xte::xvalue(this->_data[i - range_size]);
 					}
 					auto iter = std::ranges::begin(range);
-					for (xte::uz i = index; (i < this->_size) && (i < (index + range_size)); ++iter) {
+					for (xte::uz i = index; (i < this->_size) && ((i - index) < range_size); ++iter) {
 						this->_data[i++] = static_cast<T>(xte::like<Range>(*iter));
 					}
-					auto end = std::ranges::end(range);
-					for (xte::uz i = this->_size; iter != end; ++iter) {
+					for (xte::uz i = this->_size; (i - index) < range_size; ++iter) {
 						xte::construct(this->_data[i++], xte::like<Range>(*iter));
 					}
 					this->_size += range_size;
