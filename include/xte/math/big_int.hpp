@@ -163,8 +163,8 @@ namespace xte {
 				return;
 			}
 			xte::uz digit_shift = 0;
-			for (xte::uz i = 0; (i < rhs._data.size()) && ((i * xte::width<T>) < xte::width<xte::uz>); ++i) {
-				digit_shift |= static_cast<xte::uz>(rhs._data[i]) << (i * xte::width<T>) >> xte::trailing_zeros(xte::width<T>);
+			for (xte::uz i = 0; (i < rhs._data.size()) && ((i * xte::width<T>) <= xte::width<xte::uz>); ++i) {
+				digit_shift |= static_cast<xte::uz>(rhs._data[i]) << (i * xte::width<T> - xte::trailing_zeros(xte::width<T>));
 			}
 			xte::uz bit_shift = rhs._data[0] % xte::width<T>;
 			this->_data.reserve(digit_shift + !!bit_shift);
@@ -186,8 +186,8 @@ namespace xte {
 				return;
 			}
 			xte::uz digit_shift = 0;
-			for (xte::uz i = 0; (i < rhs._data.size()) && ((i * xte::width<T>) < xte::width<xte::uz>); ++i) {
-				digit_shift |= static_cast<xte::uz>(rhs._data[i]) << (i * xte::width<T>) >> xte::trailing_zeros(xte::width<T>);
+			for (xte::uz i = 0; (i < rhs._data.size()) && ((i * xte::width<T>) <= xte::width<xte::uz>); ++i) {
+				digit_shift |= static_cast<xte::uz>(rhs._data[i]) << (i * xte::width<T> - xte::trailing_zeros(xte::width<T>));
 			}
 			if (digit_shift >= this->_data.size()) {
 				*this = 0;
