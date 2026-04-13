@@ -19,13 +19,13 @@ namespace DETAIL_XTE {
 		explicit logger(std::format_string<Args...> fmt, Args&&... args, xte::sloc sloc = {}) noexcept(false)
 		: logger(sloc, stdout, fmt, XTE_FWD(args)...) {}
 
-		explicit logger(std::FILE* file, std::format_string<Args...> fmt, Args&&... args, xte::sloc sloc = {}) noexcept(false)
-		: logger(sloc, file, fmt, XTE_FWD(args)...) {}
+		explicit logger(std::FILE* stream, std::format_string<Args...> fmt, Args&&... args, xte::sloc sloc = {}) noexcept(false)
+		: logger(sloc, stream, fmt, XTE_FWD(args)...) {}
 
 	private:
-		explicit logger(const xte::sloc& sloc, std::FILE* file, std::format_string<Args...> fmt, Args&&... args) noexcept(false) {
-			bool tty = xte::isatty(file);
-			std::println(file, "{}{:<5} [{:%F %T}] {}:{}:{}: {}{}", (tty ? std::format("\x1B[{}m", color).c_str() : ""), std::define_static_string(tag), std::chrono::floor<std::chrono::seconds>(std::chrono::system_clock::now()), sloc.file, sloc.func, sloc.line, std::format(fmt, XTE_FWD(args)...), (tty ? "\x1B[0m" : ""));
+		explicit logger(const xte::sloc& sloc, std::FILE* stream, std::format_string<Args...> fmt, Args&&... args) noexcept(false) {
+			bool tty = xte::isatty(stream);
+			std::println(stream, "{}{:<5} [{:%F %T}] {}:{}:{}: {}{}", (tty ? std::format("\x1B[{}m", color).c_str() : ""), std::define_static_string(tag), std::chrono::floor<std::chrono::seconds>(std::chrono::system_clock::now()), sloc.file, sloc.func, sloc.line, std::format(fmt, XTE_FWD(args)...), (tty ? "\x1B[0m" : ""));
 		}
 	};
 }

@@ -100,15 +100,15 @@ namespace xte {
 			return *this && (std::to_underlying(this->_mode) & 0b0100);
 		}
 
-		bool write(xte::string_view content) const noexcept {
+		bool write(xte::string_view content) noexcept {
 			return std::fwrite(content.data(), 1, content.size(), *this) == content.size();
 		}
 
-		bool flush() const noexcept {
+		bool flush() noexcept {
 			return !std::fflush(*this);
 		}
 
-		[[nodiscard]] xte::string read() const noexcept(false) {
+		[[nodiscard]] xte::string read() noexcept(false) {
 			static constexpr xte::uz chunk_size = 32768;
 			xte::string content;
 			while (true) {
@@ -122,7 +122,7 @@ namespace xte {
 			return content;
 		}
 
-		[[nodiscard]] xte::string read(char delim) const noexcept(false) {
+		[[nodiscard]] xte::string read(char delim) noexcept(false) {
 			xte::string content;
 			while (true) {
 				int input = std::fgetc(*this);
