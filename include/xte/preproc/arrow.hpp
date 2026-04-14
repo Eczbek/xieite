@@ -14,10 +14,6 @@
 		-> decltype(auto) \
 		requires(requires { __VA_ARGS__; })) \
 		{ __VA_OPT__(return __VA_ARGS__;) }
-#	define XTE_ARROW_RETURN(...) \
-		noexcept __VA_OPT__((noexcept(__VA_ARGS__)) \
-		requires(requires { __VA_ARGS__; })) \
-		{ __VA_OPT__(return __VA_ARGS__;) }
 #	define XTE_ARROW_IF(_cond, _then, ...) \
 		noexcept((!static_cast<bool>(_cond) || noexcept(_then)) __VA_OPT__(&& noexcept(__VA_ARGS__))) \
 		-> decltype(auto) \
