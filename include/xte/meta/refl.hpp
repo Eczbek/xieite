@@ -35,20 +35,16 @@ namespace xte::refl {
 		return std::meta::is_type(dealiased) ? dealiased : std::meta::type_of(x);
 	};
 
-	template<decltype(auto) func, std::meta::info... args>
-	requires(([] {
-		if constexpr (std::meta::is_reflection_type(^^decltype(func))) {
-			return std::meta::is_template(func) && std::meta::can_substitute(func, { args... });
-		} else {
-			return std::meta::is_class_type(^^decltype(func))
-				&& std::ranges::any_of(
-					xte::refl::members_of(^^decltype(func)),
-					[](std::meta::info member) {
-						return std::meta::is_operator_function_template(member)
-							&& (std::meta::operator_of(member) == std::meta::op_parentheses)
-							&& std::meta::can_substitute(member, { args... }); });
-		}
-	})())
+	template<auto func, std::meta::info... args>
+	requires(std::meta::is_reflection_type(^^decltype(func))
+		? std::meta::is_template(func) && std::meta::can_substitute(func, { args... })
+		: std::meta::is_class_type(^^decltype(func))
+			&& std::ranges::any_of(
+				xte::refl::members_of(^^decltype(func)),
+				[](std::meta::info member) {
+					return std::meta::is_operator_function_template(member)
+						&& (std::meta::operator_of(member) == std::meta::op_parentheses)
+						&& std::meta::can_substitute(member, { args... }); }))
 	constexpr std::meta::info subst = ([] {
 		if constexpr (std::meta::is_reflection_type(^^decltype(func))) {
 			return std::meta::substitute(func, { args... });

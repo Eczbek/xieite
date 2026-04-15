@@ -1,11 +1,11 @@
-#ifndef DETAIL_XTE_HEADER_META_REQ
-#	define DETAIL_XTE_HEADER_META_REQ
+#ifndef DETAIL_XTE_HEADER_META_REQ_NOT
+#	define DETAIL_XTE_HEADER_META_REQ_NOT
 #
-#	include "../meta/refl.hpp"
+#	include "../meta/req_any.hpp"
 
 namespace xte {
 	template<typename T, auto... predicates>
-	concept req = (... && requires { xte::refl::subst<predicates, ^^T>; });
+	concept req_not = !xte::req_any<T, predicates...>;
 }
 
 #endif
