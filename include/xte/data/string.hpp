@@ -112,10 +112,6 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
-			return XTE_FWD(self)._data[index];
-		}
-
 		[[nodiscard]] constexpr auto* data(this auto&& self) noexcept {
 			return self._data.data();
 		}
@@ -128,20 +124,16 @@ namespace xte {
 			return this->_data.capacity() - !!this->_data.capacity();
 		}
 
-		constexpr void reset() noexcept {
-			this->_data.reset();
-		}
-
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
 			return self.data();
 		}
 
-		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
-			return self.data() + self.size();
-		}
-
 		[[nodiscard]] constexpr const char* cbegin() const noexcept {
 			return this->begin();
+		}
+
+		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
+			return self.begin() + self.size();
 		}
 
 		[[nodiscard]] constexpr const char* cend() const noexcept {
@@ -152,12 +144,12 @@ namespace xte {
 			return std::reverse_iterator(self.end());
 		}
 
-		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
-			return std::reverse_iterator(self.begin());
-		}
-
 		[[nodiscard]] constexpr auto crbegin() const noexcept {
 			return this->rbegin();
+		}
+
+		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
+			return std::reverse_iterator(self.begin());
 		}
 
 		[[nodiscard]] constexpr auto crend() const noexcept {
@@ -172,8 +164,16 @@ namespace xte {
 			return XTE_FWD(self)._data.back(index + 1);
 		}
 
+		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
+			return XTE_FWD(self)._data[index];
+		}
+
 		[[nodiscard]] constexpr xte::string slice(xte::uz index, xte::uz size = -1uz) const noexcept(false) {
 			return (index < this->size()) ? xte::string(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : "";
+		}
+
+		constexpr void reset() noexcept {
+			this->_data.reset();
 		}
 
 		constexpr void resize(xte::uz size, char fill = '\0') & noexcept(false) {
@@ -260,16 +260,6 @@ namespace xte {
 			return last;
 		}
 
-		constexpr xte::string& operator+=(this auto& lhs, char rhs) noexcept(false) {
-			lhs.xte::string::push(rhs);
-			return lhs;
-		}
-
-		constexpr auto operator+=(this auto& lhs, auto&& rhs) XTE_ARROW(
-			void(lhs.xte::string::push_string(XTE_FWD(rhs))),
-			lhs
-		)
-
 		[[nodiscard]] friend constexpr auto operator+(xte::is_derived_from<xte::string> auto&& lhs, auto&& rhs) XTE_ARROW(
 			auto(lhs.xte::string::operator+=(XTE_FWD(rhs)))
 		)
@@ -284,6 +274,16 @@ namespace xte {
 		[[nodiscard]] friend constexpr auto operator+(Lhs&& lhs, xte::is_derived_from<xte::string> auto rhs) XTE_ARROW(
 			rhs.xte::string::insert_string(0, XTE_FWD(lhs)),
 			auto(rhs)
+		)
+
+		constexpr xte::string& operator+=(this auto& lhs, char rhs) noexcept(false) {
+			lhs.xte::string::push(rhs);
+			return lhs;
+		}
+
+		constexpr auto operator+=(this auto& lhs, auto&& rhs) XTE_ARROW(
+			void(lhs.xte::string::push_string(XTE_FWD(rhs))),
+			lhs
 		)
 	};
 }

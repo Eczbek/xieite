@@ -60,10 +60,6 @@ namespace xte {
 			(xte::string_view),((std::ranges::subrange(begin, end)))
 		)
 
-		[[nodiscard]] constexpr char operator[](xte::uz index) const noexcept {
-			return this->_data[index];
-		}
-
 		[[nodiscard]] constexpr const char* data() const noexcept {
 			return this->_data;
 		}
@@ -72,12 +68,36 @@ namespace xte {
 			return this->_size;
 		}
 
-		[[nodiscard]] constexpr const char* begin() const & noexcept {
+		[[nodiscard]] constexpr const char* begin() const noexcept {
 			return this->_data;
 		}
 
-		[[nodiscard]] constexpr const char* end() const & noexcept {
+		[[nodiscard]] constexpr const char* cbegin() const noexcept {
+			return this->begin();
+		}
+
+		[[nodiscard]] constexpr const char* end() const noexcept {
 			return this->_data + this->_size;
+		}
+
+		[[nodiscard]] constexpr const char* cend() const noexcept {
+			return this->end();
+		}
+
+		[[nodiscard]] constexpr auto rbegin() const noexcept {
+			return std::reverse_iterator(this->end());
+		}
+
+		[[nodiscard]] constexpr auto crbegin() const noexcept {
+			return this->rbegin();
+		}
+
+		[[nodiscard]] constexpr auto rend() const noexcept {
+			return std::reverse_iterator(this->begin());
+		}
+
+		[[nodiscard]] constexpr auto crend() const noexcept {
+			return this->rend();
 		}
 
 		[[nodiscard]] constexpr char front(xte::uz index = 0) const noexcept {
@@ -88,8 +108,17 @@ namespace xte {
 			return this->_data[this->_size - index - 1];
 		}
 
+		[[nodiscard]] constexpr char operator[](xte::uz index) const noexcept {
+			return this->_data[index];
+		}
+
 		[[nodiscard]] constexpr xte::string_view slice(xte::uz index, xte::uz size = -1uz) const noexcept {
 			return (index < this->_size) ? xte::string_view(this->_data + index, xte::min(this->_size - index, size)) : "";
+		}
+
+		constexpr void reset() noexcept {
+			this->_data = nullptr;
+			this->_size = 0;
 		}
 
 		[[nodiscard]] constexpr xte::uz find(xte::string_view substr) const noexcept {

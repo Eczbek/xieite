@@ -86,7 +86,7 @@ namespace xte {
 		: xte::array<T>(std::from_range, xte::xvalue(init_list)) {}
 
 		template<std::ranges::input_range Range>
-		[[nodiscard]] explicit constexpr array(std::from_range_t, Range&& range) noexcept(false)
+		[[nodiscard]] constexpr array(std::from_range_t, Range&& range) noexcept(false)
 		requires(requires (T x) { x = static_cast<T>(xte::like<Range>(*xte::lvalue(std::ranges::begin(range)))); }) {
 			this->push_range(XTE_FWD(range));
 		}
@@ -157,10 +157,6 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
-			return xte::like<decltype(self)>(self._data[index]);
-		}
-
 		[[nodiscard]] constexpr auto* data(this auto&& self) noexcept {
 			return self._data;
 		}
@@ -173,28 +169,24 @@ namespace xte {
 			return this->_capacity;
 		}
 
-		constexpr void reset() & noexcept {
-			if (this->_capacity) {
-				for (xte::uz i : std::views::indices(this->_size)) {
-					xte::destroy(this->_data[i]);
-				}
-				std::allocator<T>().deallocate(this->_data, this->_capacity);
-			}
-			this->_data = nullptr;
-			this->_size = 0;
-			this->_capacity = 0;
-		}
+		[[nodiscard]] friend constexpr auto operator<=>(const xte::array<T>& lhs, const xte::array<T>& rhs) XTE_ARROW(
+			xte::range_cmp(lhs, rhs)
+		)
+
+		[[nodiscard]] friend constexpr auto operator==(const xte::array<T>& lhs, const xte::array<T>& rhs) XTE_ARROW(
+			(lhs._size == rhs._size) && std::is_eq(lhs <=> rhs)
+		)
 
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
 			return self._data;
 		}
 
-		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
-			return self._data + self._size;
-		}
-
 		[[nodiscard]] constexpr const T* cbegin() const noexcept {
 			return this->begin();
+		}
+
+		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
+			return self._data + self._size;
 		}
 
 		[[nodiscard]] constexpr const T* cend() const noexcept {
@@ -205,12 +197,12 @@ namespace xte {
 			return std::reverse_iterator(self.end());
 		}
 
-		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
-			return std::reverse_iterator(self.begin());
-		}
-
 		[[nodiscard]] constexpr auto crbegin() const noexcept {
 			return this->rbegin();
+		}
+
+		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
+			return std::reverse_iterator(self.begin());
 		}
 
 		[[nodiscard]] constexpr auto crend() const noexcept {
@@ -225,17 +217,25 @@ namespace xte {
 			return xte::like<decltype(self)>(self._data[self._size - index - 1]);
 		}
 
+		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
+			return xte::like<decltype(self)>(self._data[index]);
+		}
+
 		[[nodiscard]] constexpr xte::array<T> slice(xte::uz index, xte::uz size = -1uz) const noexcept(false) {
 			return (index < this->_size) ? xte::array<T>(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : xte::array<T>();
 		}
 
-		[[nodiscard]] friend constexpr auto operator<=>(const xte::array<T>& lhs, const xte::array<T>& rhs) XTE_ARROW(
-			xte::range_cmp(lhs, rhs)
-		)
-
-		[[nodiscard]] friend constexpr auto operator==(const xte::array<T>& lhs, const xte::array<T>& rhs) XTE_ARROW(
-			(lhs._size == rhs._size) && std::is_eq(lhs <=> rhs)
-		)
+		constexpr void reset() & noexcept {
+			if (this->_capacity) {
+				for (xte::uz i : std::views::indices(this->_size)) {
+					xte::destroy(this->_data[i]);
+				}
+				std::allocator<T>().deallocate(this->_data, this->_capacity);
+			}
+			this->_data = nullptr;
+			this->_size = 0;
+			this->_capacity = 0;
+		}
 
 		constexpr void resize(xte::uz size) & noexcept(false)
 		requires(xte::is_constructible<T>) {
@@ -393,11 +393,6 @@ namespace xte {
 			return last;
 		}
 
-		constexpr auto operator+=(this auto& lhs, auto&& rhs) XTE_ARROW(
-			void(lhs.xte::template array<T>::push_range(XTE_FWD(rhs))),
-			lhs
-		)
-
 		[[nodiscard]] friend constexpr auto operator+(xte::is_derived_from<xte::array<T>> auto&& lhs, auto&& rhs) XTE_ARROW(
 			auto(lhs.xte::template array<T>::operator+=(XTE_FWD(rhs)))
 		)
@@ -407,6 +402,11 @@ namespace xte {
 		[[nodiscard]] friend constexpr auto operator+(Lhs&& lhs, xte::is_derived_from<xte::array<T>> auto rhs) XTE_ARROW(
 			rhs.xte::template array<T>::insert_range(0, XTE_FWD(lhs)),
 			auto(rhs)
+		)
+
+		constexpr auto operator+=(this auto& lhs, auto&& rhs) XTE_ARROW(
+			void(lhs.xte::template array<T>::push_range(XTE_FWD(rhs))),
+			lhs
 		)
 	};
 

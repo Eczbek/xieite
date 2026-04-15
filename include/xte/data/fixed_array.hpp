@@ -36,10 +36,6 @@ namespace xte {
 
 		[:^^T[n]:] _data;
 
-		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
-			return XTE_FWD(self)._data[index];
-		}
-
 		[[nodiscard]] constexpr auto* data(this auto&& self) noexcept {
 			return self._data;
 		}
@@ -48,15 +44,15 @@ namespace xte {
 			return self._data;
 		}
 
+		[[nodiscard]] constexpr const T* cbegin() const noexcept {
+			return this->begin();
+		}
+
 		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
 			return self._data + n;
 		}
 
-		[[nodiscard]] constexpr const char* cbegin() const noexcept {
-			return this->begin();
-		}
-
-		[[nodiscard]] constexpr const char* cend() const noexcept {
+		[[nodiscard]] constexpr const T* cend() const noexcept {
 			return this->end();
 		}
 
@@ -64,16 +60,28 @@ namespace xte {
 			return std::reverse_iterator(self.end());
 		}
 
+		[[nodiscard]] constexpr auto crbegin() const noexcept {
+			return this->rbegin();
+		}
+
 		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
 			return std::reverse_iterator(self.begin());
 		}
 
-		[[nodiscard]] constexpr const char* crbegin() const noexcept {
-			return this->rbegin();
+		[[nodiscard]] constexpr auto crend() const noexcept {
+			return this->rend();
 		}
 
-		[[nodiscard]] constexpr const char* crend() const noexcept {
-			return this->rend();
+		[[nodiscard]] constexpr auto&& front(this auto&& self, xte::uz index = 0) noexcept {
+			return xte::like<decltype(self)>(self._data[index]);
+		}
+		
+		[[nodiscard]] constexpr auto&& back(this auto&& self, xte::uz index = 0) noexcept {
+			return xte::like<decltype(self)>(self._data[n - index - 1]);
+		}
+
+		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
+			return XTE_FWD(self)._data[index];
 		}
 
 		template<xte::uz index>
@@ -116,15 +124,7 @@ namespace xte {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* end() const noexcept {
-			return nullptr;
-		}
-
 		[[nodiscard]] constexpr const T* cbegin() const noexcept {
-			return nullptr;
-		}
-
-		[[nodiscard]] constexpr const T* cend() const noexcept {
 			return nullptr;
 		}
 
@@ -132,11 +132,19 @@ namespace xte {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* rend() const noexcept {
+		[[nodiscard]] constexpr const T* crbegin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* crbegin() const noexcept {
+		[[nodiscard]] constexpr const T* end() const noexcept {
+			return nullptr;
+		}
+
+		[[nodiscard]] constexpr const T* cend() const noexcept {
+			return nullptr;
+		}
+
+		[[nodiscard]] constexpr const T* rend() const noexcept {
 			return nullptr;
 		}
 

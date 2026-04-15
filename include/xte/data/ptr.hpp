@@ -74,12 +74,12 @@ namespace xte {
 			return self._data;
 		}
 
-		[[nodiscard]] constexpr const T* end() const noexcept {
-			return this->_data + !!this->_data;
-		}
-		
 		[[nodiscard]] constexpr const T* cbegin() const noexcept {
 			return this->begin();
+		}
+
+		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
+			return self._data + !!self._data;
 		}
 
 		[[nodiscard]] constexpr const T* cend() const noexcept {
@@ -90,12 +90,12 @@ namespace xte {
 			return std::reverse_iterator(self.end());
 		}
 
-		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
-			return std::reverse_iterator(self.begin());
-		}
-
 		[[nodiscard]] constexpr auto crbegin() const noexcept {
 			return this->rbegin();
+		}
+
+		[[nodiscard]] constexpr auto rend(this auto&& self) noexcept {
+			return std::reverse_iterator(self.begin());
 		}
 
 		[[nodiscard]] constexpr auto crend() const noexcept {
