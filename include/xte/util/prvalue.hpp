@@ -4,7 +4,7 @@
 #	include "../preproc/lift.hpp"
 
 namespace xte {
-	inline constexpr auto prvalue = XTE_LIFT(auto);
+	inline constexpr auto prvalue = XTE_LIFT_UNARY(auto);
 }
 
 #endif
