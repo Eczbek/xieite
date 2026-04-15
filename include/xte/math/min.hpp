@@ -5,11 +5,11 @@
 #	include <type_traits>
 
 namespace xte {
-	inline constexpr auto min = [][[nodiscard]](xte::is_number auto x, xte::is_number auto... ys) static noexcept {
+	[[nodiscard]] constexpr auto min(xte::is_number auto x, xte::is_number auto... ys) noexcept {
 		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
 		auto min = static_cast<Common>(x);
 		return (..., (min = (static_cast<Common>(ys) < min) ? static_cast<Common>(ys) : min));
-	};
+	}
 }
 
 #endif
