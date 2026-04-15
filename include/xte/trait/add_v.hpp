@@ -5,20 +5,18 @@
 
 namespace DETAIL_XTE {
 	template<typename T>
-	struct add_v : xte::wrap_type<volatile T> {};
+	constexpr auto add_v = ^^volatile T;
 
 	template<typename T>
-	struct add_v<T&> : xte::wrap_type<volatile T&> {};
+	constexpr auto add_v<T&> = ^^volatile T&;
 
 	template<typename T>
-	struct add_v<T&&> : xte::wrap_type<volatile T&&> {};
+	constexpr auto add_v<T&&> = ^^volatile T&&;
 }
 
 namespace xte {
 	template<typename T>
-	using add_v = DETAIL_XTE::add_v<T>::type;
+	using add_v = [:DETAIL_XTE::add_v<T>:];
 }
 
 #endif
-
-// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=123237

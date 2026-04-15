@@ -1,27 +1,23 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_REMOVE_V
 #	define DETAIL_XTE_HEADER_TRAIT_REMOVE_V
-#
-#	include "../meta/wrap_type.hpp"
 
 namespace DETAIL_XTE {
 	template<typename T>
-	struct remove_v : xte::wrap_type<T> {};
+	constexpr auto remove_v = ^^T;
 
 	template<typename T>
-	struct remove_v<volatile T> : xte::wrap_type<T> {};
+	constexpr auto remove_v<volatile T> = ^^T;
 
 	template<typename T>
-	struct remove_v<volatile T&> : xte::wrap_type<T&> {};
+	constexpr auto remove_v<volatile T&> = ^^T&;
 
 	template<typename T>
-	struct remove_v<volatile T&&> : xte::wrap_type<T&&> {};
+	constexpr auto remove_v<volatile T&&> = ^^T&&;
 }
 
 namespace xte {
 	template<typename T>
-	using remove_v = DETAIL_XTE::remove_v<T>::type;
+	using remove_v = [:DETAIL_XTE::remove_v<T>:];
 }
 
 #endif
-
-// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=123237
