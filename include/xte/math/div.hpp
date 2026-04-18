@@ -2,14 +2,12 @@
 #	define DETAIL_XTE_HEADER_MATH_DIV
 #
 #	include "../trait/is_number.hpp"
-#	include "../trait/try_unsigned.hpp"
 #	include <type_traits>
 
 namespace xte {
 	[[nodiscard]] constexpr auto div(xte::is_number auto x, xte::is_number auto... ys) noexcept {
 		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
-		using Unsigned = xte::try_unsigned<Common>;
-		return static_cast<Common>((static_cast<Unsigned>(x) / ... / static_cast<Unsigned>(ys)));
+		return (static_cast<Common>(x) / ... / static_cast<Common>(ys));
 	};
 }
 
