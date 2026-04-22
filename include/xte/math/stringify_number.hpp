@@ -118,10 +118,10 @@ namespace xte {
 				} while (!xte::approx_equal(abs, 0));
 				std::ranges::reverse(result);
 			} else if (!radix_is_whole) {
-				T power = 1;
-				if ((power * abs_radix) > abs) {
+				if (abs < 1) {
 					result.push(config.digits[0]);
 				} else {
+					T power = 1;
 					while ((power *= abs_radix) <= abs);
 					while ((power /= abs_radix) >= 1) {
 						auto digit = static_cast<xte::uz>(abs / power);
@@ -132,7 +132,7 @@ namespace xte {
 				result.push(config.point[0]);
 				for (xte::uz i = 0; (i < max_float_precision) && (!i || !xte::approx_equal(abs, 0)); ++i) {
 					auto digit = static_cast<xte::uz>(abs *= abs_radix);
-					abs -= static_cast<T>(digit);
+					abs -= static_cast<T>(digit += xte::approx_equal(abs, digit + 1));
 					result.push(config.digits[digit]);
 				}
 			} else {
