@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_MATH_WIDTH
 #
 #	include "../trait/is_int.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte {
 	template<xte::is_int Int>

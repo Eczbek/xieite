@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_MATH_NUMBER_FORMAT_CONFIG
 #
 #	include "../data/string_view.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte {
 	struct number_format_config {

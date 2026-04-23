@@ -9,9 +9,8 @@
 #	include "../trait/is_same.hpp"
 #	include "../trait/is_same_ignore_cvref.hpp"
 #	include "../util/like.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include <concepts>
-#	include <cstddef>
 #	include <iterator>
 #	include <ranges>
 #	include <tuple>
@@ -22,7 +21,7 @@ namespace xte {
 	struct fixed_array {
 		using value_type = T;
 		using size_type = xte::uz;
-		using difference_type = std::ptrdiff_t;
+		using difference_type = xte::iptrdiff;
 		using reference = T&;
 		using const_reference = const T&;
 		using pointer = T*;
@@ -104,7 +103,7 @@ namespace xte {
 	struct fixed_array<T, 0> {
 		using value_type = T;
 		using size_type = xte::uz;
-		using difference_type = std::ptrdiff_t;
+		using difference_type = xte::iptrdiff;
 		using reference = T&;
 		using const_reference = const T&;
 		using pointer = T*;

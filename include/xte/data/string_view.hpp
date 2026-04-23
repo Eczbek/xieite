@@ -8,7 +8,7 @@
 #	include "../meta/type.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../trait/is_noex_implicit_castable.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include <algorithm>
 #	include <compare>
 #	include <format>

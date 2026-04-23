@@ -1,5 +1,5 @@
 #include <xte/func/unfold.hpp>
-#include <xte/util/types.hpp>
+#include <xte/util/numbers.hpp>
 
 static_assert(xte::unfold<5>([]<xte::uz... i> {
 	return (... + i);

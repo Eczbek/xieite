@@ -4,7 +4,7 @@
 #	include "../trait/add_array.hpp"
 #	include "../trait/add_unbounded_array.hpp"
 #	include "../util/lvalue.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include <algorithm>
 #	include <meta>
 #	include <ranges>

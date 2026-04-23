@@ -1,12 +1,21 @@
-#ifndef DETAIL_XTE_HEADER_UTIL_TYPES
-#	define DETAIL_XTE_HEADER_UTIL_TYPES
+#ifndef DETAIL_XTE_HEADER_UTIL_NUMBERS
+#	define DETAIL_XTE_HEADER_UTIL_NUMBERS
 #
 #	include "../preproc/feature.hpp"
 #	include <cstdint>
+#	include <type_traits>
 
 namespace xte {
 	using uz = decltype(0uz);
 	using iz = decltype(0z);
+#	if XTE_FEATURE_INT_PTR
+	using uptr = std::uintptr_t;
+	using iptr = std::intptr_t;
+#	endif
+	using uptrdiff = std::make_unsigned_t<decltype(static_cast<int*>(nullptr) - static_cast<int*>(nullptr))>;
+	using iptrdiff = decltype(static_cast<int*>(nullptr) - static_cast<int*>(nullptr));
+	using umax = std::uintmax_t;
+	using imax = std::intmax_t;
 #	if XTE_FEATURE_INT_8
 	using u8 = std::uint8_t;
 	using i8 = std::int8_t;

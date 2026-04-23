@@ -3,7 +3,7 @@
 #
 #	include "../trait/is_c.hpp"
 #	include "../trait/is_v.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte {
 	template<typename T, xte::uz index = -1uz>

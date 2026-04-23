@@ -22,11 +22,10 @@
 #	include "../util/exchange.hpp"
 #	include "../util/like.hpp"
 #	include "../util/lvalue.hpp"
+#	include "../util/numbers.hpp"
 #	include "../util/reconstruct.hpp"
-#	include "../util/types.hpp"
 #	include "../util/xvalue.hpp"
 #	include <compare>
-#	include <cstddef>
 #	include <iterator>
 #	include <memory>
 #	include <new>
@@ -61,7 +60,7 @@ namespace xte {
 		using value_type = T;
 		using allocator_type = std::allocator<T>;
 		using size_type = xte::uz;
-		using difference_type = std::ptrdiff_t;
+		using difference_type = xte::iptrdiff;
 		using reference = T&;
 		using const_reference = const T&;
 		using pointer = T*;

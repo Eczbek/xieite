@@ -4,7 +4,7 @@
 #include <xte/trait/is_same.hpp>
 #include <xte/util/as_c.hpp>
 #include <xte/util/lvalue.hpp>
-#include <xte/util/types.hpp>
+#include <xte/util/numbers.hpp>
 #include <iterator>
 #include <ranges>
 

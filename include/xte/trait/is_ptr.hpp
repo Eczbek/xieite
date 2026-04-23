@@ -3,7 +3,7 @@
 #
 #	include "../trait/remove_cvref.hpp"
 #	include "../trait/remove_ptr.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace DETAIL_XTE {
 	template<typename>

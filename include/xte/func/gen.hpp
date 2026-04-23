@@ -10,7 +10,7 @@
 #	include "../trait/remove_cvref.hpp"
 #	include "../trait/remove_ref.hpp"
 #	include "../util/address.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace DETAIL_XTE {
 	template<typename Func>

@@ -3,7 +3,7 @@
 #
 #	include "../meta/wrap_value.hpp"
 #	include "../preproc/diagnostic.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 XTE_DIAGNOSTIC_PUSH_GCC()
 XTE_DIAGNOSTIC_OFF_GCC("-Wnon-template-friend")

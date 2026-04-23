@@ -5,7 +5,7 @@
 #	include "../meta/sloc.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../sys/isatty.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include <chrono>
 #	include <cstdio>
 #	include <format>

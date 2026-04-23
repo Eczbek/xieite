@@ -3,7 +3,7 @@
 #
 #	include "../func/unfold.hpp"
 #	include "../meta/wrap_value.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace DETAIL_XTE {
 	template<decltype(auto) func, decltype(auto) x>

@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_META_SLOC
 #
 #	include "../data/string_view.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include <meta>
 #	include <source_location>
 

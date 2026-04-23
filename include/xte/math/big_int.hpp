@@ -23,7 +23,7 @@
 #	include "../trait/is_unsigned.hpp"
 #	include "../util/error.hpp"
 #	include "../util/exchange.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include "../util/xvalue.hpp"
 #	include <compare>
 #	include <functional>

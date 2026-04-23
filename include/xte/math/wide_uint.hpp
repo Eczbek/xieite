@@ -1,6 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_MATH_WIDE_UINT
 #	define DETAIL_XTE_HEADER_MATH_WIDE_UINT
 #
+#	include "../data/fixed_array.hpp"
 #	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
 #	include "../data/uppercase.hpp"
@@ -19,7 +20,7 @@
 #	include "../trait/is_unsigned.hpp"
 #	include "../util/error.hpp"
 #	include "../util/exchange.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include "../util/xvalue.hpp"
 #	include <algorithm>
 #	include <compare>
@@ -84,7 +85,7 @@ namespace DETAIL_XTE::wide_uint {
 			}
 		}
 		T result = 0;
-		for (char digit : (xte::string { digits... }).slice((radix != 10) * 2)) {
+		for (char digit : (xte::fixed_array { digits... }).slice((radix != 10) * 2)) {
 			if (digit != '\'') {
 				(result *= radix) += xte::string_view("0123456789ABCDEF").find(xte::uppercase(digit));
 			}

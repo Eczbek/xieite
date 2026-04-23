@@ -1,7 +1,7 @@
 #include <xte/math/approx_equal.hpp>
 #include <xte/math/parse_number.hpp>
 #include <xte/preproc/feature.hpp>
-#include <xte/util/types.hpp>
+#include <xte/util/numbers.hpp>
 
 static_assert(xte::parse_number<int>("123") == 123);
 static_assert(xte::parse_number<int>("+123") == 123);

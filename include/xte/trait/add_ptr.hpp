@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_ADD_PTR
 #	define DETAIL_XTE_HEADER_TRAIT_ADD_PTR
 #
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace DETAIL_XTE {
 	template<typename T, xte::uz n>

@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_META_TYPE_COUNTER
 #
 #	include "../meta/state.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace DETAIL_XTE {
 	inline constexpr auto type_counter = xte::state<>.set<0uz>;

@@ -1,5 +1,5 @@
 #include <xte/func/unroll.hpp>
-#include <xte/util/types.hpp>
+#include <xte/util/numbers.hpp>
 
 static_assert(([] {
 	xte::uz x = 0;

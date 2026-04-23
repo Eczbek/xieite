@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_META_TYPE_AT
 #
 #	include "../meta/value_at.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte {
 	template<xte::uz index, typename... Ts>

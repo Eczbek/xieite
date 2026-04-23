@@ -1,14 +1,15 @@
 #ifndef DETAIL_XTE_HEADER_LITERAL_RADIX
 #	define DETAIL_XTE_HEADER_LITERAL_RADIX
 #
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte::literal::radix {
-	template<char... chars>
+	template<char... digits>
+	requires(!!sizeof...(digits))
 	[[nodiscard]] consteval xte::uz operator""_radix() noexcept {
-		if constexpr (chars...[0] == '0') {
-			if constexpr (sizeof...(chars) > 1) {
-				switch (chars...[1]) {
+		if constexpr (digits...[0] == '0') {
+			if constexpr (sizeof...(digits) > 1) {
+				switch (digits...[1]) {
 					case 'X': case 'x':
 						return 16;
 					case 'B': case 'b':

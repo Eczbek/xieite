@@ -4,7 +4,7 @@
 #	include "../math/rshift.hpp"
 #	include "../math/width.hpp"
 #	include "../trait/is_int.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte {
 	inline constexpr auto trailing_zeros = [][[nodiscard]](xte::is_int auto x) static noexcept -> xte::uz {

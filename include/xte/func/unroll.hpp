@@ -4,7 +4,7 @@
 #	include "../func/unfold.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte {
 	template<xte::uz n>

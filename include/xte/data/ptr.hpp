@@ -5,7 +5,7 @@
 #	include "../preproc/fwd.hpp"
 #	include "../trait/non_copyable.hpp"
 #	include "../util/exchange.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include <iterator>
 #	include <new>
 

@@ -1,7 +1,7 @@
 #include <xte/literal/fixed_int.hpp>
 #include <xte/preproc/feature.hpp>
 #include <xte/trait/is_same.hpp>
-#include <xte/util/types.hpp>
+#include <xte/util/numbers.hpp>
 
 using namespace xte::literal::fixed_int;
 

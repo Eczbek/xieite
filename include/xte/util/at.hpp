@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_FUNC_AT
 #
 #	include "../preproc/fwd.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte {
 	template<xte::uz index>

@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_ADD_ARRAY
 #	define DETAIL_XTE_HEADER_TRAIT_ADD_ARRAY
 #
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte {
 	template<typename T, xte::uz size>

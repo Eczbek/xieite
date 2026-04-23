@@ -12,11 +12,10 @@
 #	include "../trait/is_noex_implicit_castable.hpp"
 #	include "../util/like.hpp"
 #	include "../util/lvalue.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include "../util/xvalue.hpp"
 #	include <algorithm>
 #	include <compare>
-#	include <cstdint>
 #	include <format>
 #	include <iterator>
 #	include <memory>
@@ -31,7 +30,7 @@ namespace xte {
 		using value_type = char;
 		using allocator_type = xte::array<char>::allocator_type;
 		using size_type = xte::uz;
-		using difference_type = std::ptrdiff_t;
+		using difference_type = xte::iptrdiff;
 		using reference = char&;
 		using const_reference = const char&;
 		using pointer = char*;

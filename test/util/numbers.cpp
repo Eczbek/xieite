@@ -1,6 +1,6 @@
 #include <xte/preproc/feature.hpp>
 #include <xte/trait/is_same.hpp>
-#include <xte/util/types.hpp>
+#include <xte/util/numbers.hpp>
 #include <cstddef>
 #include <cstdint>
 #include <stdfloat>
@@ -8,6 +8,17 @@
 
 static_assert(xte::is_same<xte::uz, std::size_t>);
 static_assert(xte::is_same<xte::iz, std::make_signed_t<std::size_t>>);
+
+#if XTE_FEATURE_INT_PTR
+static_assert(xte::is_same<xte::uptr, std::uintptr_t>);
+static_assert(xte::is_same<xte::iptr, std::intptr_t>);
+#endif
+
+static_assert(xte::is_same<xte::uptrdiff, std::make_unsigned_t<std::ptrdiff_t>>);
+static_assert(xte::is_same<xte::iptrdiff, std::ptrdiff_t>);
+
+static_assert(xte::is_same<xte::umax, std::uintmax_t>);
+static_assert(xte::is_same<xte::imax, std::intmax_t>);
 
 #if XTE_FEATURE_INT_8
 static_assert(xte::is_same<xte::u8, std::uint8_t>);

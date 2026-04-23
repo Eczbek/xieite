@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_LITERAL_ANALOG
 #	define DETAIL_XTE_HEADER_LITERAL_ANALOG
 #
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace DETAIL_XTE {
 	template<xte::uz w, xte::uz h, xte::uz l>

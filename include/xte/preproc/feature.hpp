@@ -7,6 +7,7 @@
 #		include <stdint.h>
 #	endif
 #
+#	define XTE_FEATURE_INT_PTR 0
 #	define XTE_FEATURE_INT_8 0
 #	define XTE_FEATURE_INT_16 0
 #	define XTE_FEATURE_INT_32 0
@@ -17,6 +18,11 @@
 #	define XTE_FEATURE_FLOAT_64 0
 #	define XTE_FEATURE_FLOAT_128 0
 #	define XTE_FEATURE_BFLOAT_16 0
+#
+#	ifdef INTPTR_MAX
+#		undef XTE_FEATURE_INT_PTR
+#		define XTE_FEATURE_INT_PTR 1
+#	endif
 #
 #	ifdef INT8_MAX
 #		undef XTE_FEATURE_INT_8

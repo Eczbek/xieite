@@ -3,7 +3,7 @@
 #
 #	include "../data/fixed_string.hpp"
 #	include "../meta/type.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include <exception>
 
 namespace xte {

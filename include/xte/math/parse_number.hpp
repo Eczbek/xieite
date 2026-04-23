@@ -12,7 +12,7 @@
 #	include "../math/sign.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #	include <cmath>
 #	include <limits>
 

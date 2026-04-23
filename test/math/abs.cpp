@@ -1,6 +1,6 @@
 #include <xte/math/abs.hpp>
 #include <xte/preproc/feature.hpp>
-#include <xte/util/types.hpp>
+#include <xte/util/numbers.hpp>
 #include <limits>
 
 static_assert(xte::abs(0) == 0);

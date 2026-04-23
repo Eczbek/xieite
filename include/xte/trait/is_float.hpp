@@ -4,7 +4,7 @@
 #	include "../preproc/feature.hpp"
 #	include "../preproc/if.hpp"
 #	include "../trait/is_same_any_ignore_cv.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 
 namespace xte {
 	template<typename T>

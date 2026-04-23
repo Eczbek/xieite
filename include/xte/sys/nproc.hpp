@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_SYS_NPROC
 #
 #	include "../preproc/platform.hpp"
-#	include "../util/types.hpp"
+#	include "../util/numbers.hpp"
 #
 #	if XTE_PLATFORM_UNIX
 #		include <unistd.h>
