@@ -1,8 +1,8 @@
-#include <xte/literal/fixed_int.hpp>
+#include <xte/literal/numbers.hpp>
 #include <xte/math/sub.hpp>
 #include <xte/preproc/feature.hpp>
 
-using namespace xte::literal::fixed_int;
+using namespace xte::literal::numbers;
 
 static_assert(xte::sub(0) == 0);
 static_assert(xte::sub(1) == 1);

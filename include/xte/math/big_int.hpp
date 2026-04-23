@@ -2,11 +2,14 @@
 #	define DETAIL_XTE_HEADER_MATH_BIG_INT
 #
 #	include "../data/array.hpp"
+#	include "../data/fixed_array.hpp"
 #	include "../data/null.hpp"
 #	include "../data/opt.hpp"
 #	include "../data/range_cmp.hpp"
 #	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
+#	include "../data/uppercase.hpp"
+#	include "../literal/radix.hpp"
 #	include "../math/abs.hpp"
 #	include "../math/add_checked.hpp"
 #	include "../math/digits.hpp"
@@ -663,7 +666,19 @@ namespace xte {
 namespace xte::literal::big_int {
 	template<char... digits>
 	[[nodiscard]] constexpr xte::big_int<> operator""_big() noexcept(false) {
-		return DETAIL_XTE::wide_uint::parse<xte::big_int<>, digits...>();
+		static constexpr xte::uz radix = xte::literal::radix::operator""_radix<digits...>();
+		xte::big_int result;
+		for (char digit : xte::fixed_array { digits... } | std::views::drop(2 * ((radix == 16) || (radix == 2)))) {
+			if (digit == '\'') {
+				continue;
+			}
+			xte::uz index = xte::string_view("0123456789ABCDEF").slice(0, radix).find(xte::uppercase(digit));
+			if (!~index) {
+				break;
+			}
+			(result *= radix) += index;
+		}
+		return result;
 	}
 }
 

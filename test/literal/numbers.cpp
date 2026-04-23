@@ -1,9 +1,9 @@
-#include <xte/literal/fixed_int.hpp>
+#include <xte/literal/numbers.hpp>
 #include <xte/preproc/feature.hpp>
 #include <xte/trait/is_same.hpp>
 #include <xte/util/numbers.hpp>
 
-using namespace xte::literal::fixed_int;
+using namespace xte::literal::numbers;
 
 #if XTE_FEATURE_INT_8
 static_assert(xte::is_same<decltype(0_u8), xte::u8>);

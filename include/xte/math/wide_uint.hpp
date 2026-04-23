@@ -6,6 +6,7 @@
 #	include "../data/string_view.hpp"
 #	include "../data/uppercase.hpp"
 #	include "../func/visitor.hpp"
+#	include "../literal/radix.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/is_single_bit.hpp"
 #	include "../math/leading_zeros.hpp"
@@ -26,6 +27,7 @@
 #	include <compare>
 #	include <initializer_list>
 #	include <limits>
+#	include <ranges>
 
 namespace DETAIL_XTE::wide_uint {
 	struct base {};
@@ -73,22 +75,17 @@ namespace DETAIL_XTE::wide_uint {
 
 	template<typename T, char... digits>
 	[[nodiscard]] static constexpr T parse() noexcept(false) {
-		xte::uz radix = 10;
-		if constexpr ((sizeof...(digits) > 2) && (digits...[0] == '0')) {
-			switch (digits...[1]) {
-				case 'X': case 'x':
-					radix = 16;
-					break;
-				case 'B': case 'b':
-					radix = 2;
-					break;
-			}
-		}
+		static constexpr xte::uz radix = xte::literal::radix::operator""_radix<digits...>();
 		T result = 0;
-		for (char digit : (xte::fixed_array { digits... }).slice((radix != 10) * 2)) {
-			if (digit != '\'') {
-				(result *= radix) += xte::string_view("0123456789ABCDEF").find(xte::uppercase(digit));
+		for (char digit : xte::fixed_array { digits... } | std::views::drop(2 * ((radix == 16) || (radix == 2)))) {
+			if (digit == '\'') {
+				continue;
 			}
+			xte::uz index = xte::string_view("0123456789ABCDEF").slice(0, radix).find(xte::uppercase(digit));
+			if (!~index) {
+				break;
+			}
+			(result *= static_cast<T>(radix)) += static_cast<T>(index);
 		}
 		return result;
 	}

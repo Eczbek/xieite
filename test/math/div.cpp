@@ -1,9 +1,9 @@
-#include <xte/literal/fixed_int.hpp>
+#include <xte/literal/numbers.hpp>
 #include <xte/math/div.hpp>
 #include <xte/preproc/feature.hpp>
 #include <limits>
 
-using namespace xte::literal::fixed_int;
+using namespace xte::literal::numbers;
 
 static_assert(xte::div(0) == 0);
 static_assert(xte::div(1) == 1);

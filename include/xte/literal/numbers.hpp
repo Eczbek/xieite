@@ -142,7 +142,7 @@ namespace xte::literal::numbers {
 	[[nodiscard]] consteval xte::u128 operator""_u128() noexcept {
 		static constexpr xte::uz radix = xte::literal::radix::operator""_radix<digits...>();
 		xte::u128 result = 0;
-		for (xte::uz digit : xte::fixed_array { digits... } | std::views::drop(2 * ((radix == 16) || (radix == 2)))) {
+		for (char digit : xte::fixed_array { digits... } | std::views::drop(2 * ((radix == 16) || (radix == 2)))) {
 			if (digit == '\'') {
 				continue;
 			}
