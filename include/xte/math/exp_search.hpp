@@ -8,6 +8,7 @@
 #	include "../meta/end.hpp"
 #	include "../preproc/feature.hpp"
 #	include "../trait/is_callable_lref.hpp"
+#	include "../trait/is_int.hpp"
 #	include "../trait/is_noex_callable.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../trait/is_unsigned.hpp"
@@ -21,8 +22,12 @@ namespace xte {
 		auto [min, max] = xte::minmax(static_cast<common_type>(limit0), static_cast<common_type>(limit1));
 		while (true) {
 			common_type mid = xte::avg(min, max);
-			if (xte::approx_equal(mid, min)) {
-				return max;
+			if constexpr (xte::is_int<common_type>) {
+				if ((mid == min) && ((max - mid) < 2)) {
+					return max;
+				}
+			} else if (xte::approx_equal(mid, max)) {
+				return mid;
 			}
 			(predicate(mid) ? min : max) = mid;
 		}
