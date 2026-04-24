@@ -10,14 +10,14 @@
 
 namespace xte {
 	[[nodiscard]] constexpr auto div_ceil_half(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
-		auto quot = static_cast<Common>(x);
-		if constexpr (xte::is_float<Common>) {
-			Common fraction;
+		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
+		auto quot = static_cast<common_type>(x);
+		if constexpr (xte::is_float<common_type>) {
+			common_type fraction;
 			return (..., (fraction = xte::rem(quot /= ys, 1), quot = xte::floor(quot) + (quot < 0) + (fraction >= 0.5) - (fraction < -0.5)));
 		} else {
 			[[indeterminate]] xte::iz sign;
-			return (..., (sign = xte::sign(quot, ys), quot = static_cast<Common>(quot / static_cast<Common>(ys) + sign * ((quot % static_cast<Common>(ys) * xte::sign(quot)) >= (ys / 2 * xte::sign(ys) + ((ys % 2) || (sign < 0)))))));
+			return (..., (sign = xte::sign(quot, ys), quot = static_cast<common_type>(quot / static_cast<common_type>(ys) + sign * ((quot % static_cast<common_type>(ys) * xte::sign(quot)) >= (ys / 2 * xte::sign(ys) + ((ys % 2) || (sign < 0)))))));
 		}
 	};
 }

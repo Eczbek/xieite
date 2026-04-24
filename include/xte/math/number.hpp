@@ -23,7 +23,7 @@
 namespace xte {
 	template<xte::is_number T>
 	struct number {
-		using type = T;
+		using value_type = T;
 
 		T value;
 

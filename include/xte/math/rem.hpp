@@ -8,12 +8,12 @@
 
 namespace xte {
 	[[nodiscard]] constexpr auto rem(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
-		if constexpr (xte::is_float<Common>) {
-			auto result = static_cast<Common>(x);
-			return (..., (result = std::fmod(result, static_cast<Common>(ys))));
+		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
+		if constexpr (xte::is_float<common_type>) {
+			auto result = static_cast<common_type>(x);
+			return (..., (result = std::fmod(result, static_cast<common_type>(ys))));
 		} else {
-			return (static_cast<Common>(x) % ... % static_cast<Common>(ys));
+			return (static_cast<common_type>(x) % ... % static_cast<common_type>(ys));
 		}
 	};
 }

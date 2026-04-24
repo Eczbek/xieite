@@ -8,9 +8,9 @@
 
 namespace xte {
 	[[nodiscard]] constexpr auto mod(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
-		auto result = static_cast<Common>(x);
-		return (..., (result = xte::rem(xte::rem(result, ys) + static_cast<Common>(ys) * (xte::sign(result) != xte::sign(ys)), ys)));
+		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
+		auto result = static_cast<common_type>(x);
+		return (..., (result = xte::rem(xte::rem(result, ys) + static_cast<common_type>(ys) * (xte::sign(result) != xte::sign(ys)), ys)));
 	};
 }
 

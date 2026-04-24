@@ -15,14 +15,14 @@
 
 namespace xte {
 	[[nodiscard]] constexpr auto sub_checked(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
-		auto diff = static_cast<Common>(x);
+		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
+		auto diff = static_cast<common_type>(x);
 #	if XTE_HAS_BUILTIN(sub_overflow)
-		if constexpr (!xte::is_float<Common>) {
-			return (... || __builtin_sub_overflow(diff, static_cast<Common>(ys), &diff)) ? xte::null : xte::opt(diff);
+		if constexpr (!xte::is_float<common_type>) {
+			return (... || __builtin_sub_overflow(diff, static_cast<common_type>(ys), &diff)) ? xte::null : xte::opt(diff);
 		}
 #	endif
-		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(ys) && ((ys < 0) ? ((std::numeric_limits<Common>::max() + static_cast<Common>(ys)) < diff) : ((std::numeric_limits<Common>::lowest() + static_cast<Common>(ys)) < diff))) || (diff -= static_cast<Common>(ys), false))) ? xte::null : xte::opt(diff);
+		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(ys) && ((ys < 0) ? ((std::numeric_limits<common_type>::max() + static_cast<common_type>(ys)) < diff) : ((std::numeric_limits<common_type>::lowest() + static_cast<common_type>(ys)) < diff))) || (diff -= static_cast<common_type>(ys), false))) ? xte::null : xte::opt(diff);
 	}
 }
 

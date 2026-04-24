@@ -1,10 +1,10 @@
 #ifndef DETAIL_XTE_HEADER_UTIL_SYNTH_THREE_WAY
 #	define DETAIL_XTE_HEADER_UTIL_SYNTH_THREE_WAY
 #
+#	include "../meta/fake.hpp"
 #	include "../trait/is_bool_testable.hpp"
 #	include "../trait/is_noex_bool_testable.hpp"
 #	include <compare>
-#	include <utility>
 
 namespace xte {
 	inline constexpr auto synth_three_way =
@@ -27,7 +27,7 @@ namespace xte {
 		};
 
 	template<typename T, typename U = T>
-	using synth_three_way_result = decltype(xte::synth_three_way(std::declval<T&>(), std::declval<U&>()));
+	using synth_three_way_result = decltype(xte::synth_three_way(xte::fake<T&>(), xte::fake<U&>()));
 }
 
 #endif

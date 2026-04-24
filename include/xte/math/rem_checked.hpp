@@ -12,8 +12,8 @@
 
 namespace xte {
 	[[nodiscard]] constexpr auto rem_checked(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		if constexpr (using Common = std::common_type_t<decltype(x), decltype(ys)...>; xte::is_signed<Common>) {
-			if (sizeof...(ys) && (x == std::numeric_limits<Common>::lowest()) && (ys...[0] == -1)) {
+		if constexpr (using common_type = std::common_type_t<decltype(x), decltype(ys)...>; xte::is_signed<common_type>) {
+			if (sizeof...(ys) && (x == std::numeric_limits<common_type>::lowest()) && (ys...[0] == -1)) {
 				return xte::null;
 			}
 		}

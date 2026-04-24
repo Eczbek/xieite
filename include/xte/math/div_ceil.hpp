@@ -9,12 +9,12 @@
 
 namespace xte {
 	[[nodiscard]] constexpr auto div_ceil(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
-		auto quot = static_cast<Common>(x);
-		if constexpr (xte::is_float<Common>) {
+		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
+		auto quot = static_cast<common_type>(x);
+		if constexpr (xte::is_float<common_type>) {
 			return (..., (quot = xte::ceil(quot / ys)));
 		} else {
-			return (..., (quot = quot / static_cast<Common>(ys) + !!(quot % static_cast<Common>(ys)) * (xte::sign(quot, ys) > 0)));
+			return (..., (quot = quot / static_cast<common_type>(ys) + !!(quot % static_cast<common_type>(ys)) * (xte::sign(quot, ys) > 0)));
 		}
 	};
 }

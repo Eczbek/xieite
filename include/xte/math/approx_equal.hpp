@@ -12,11 +12,11 @@
 
 namespace xte {
 	[[nodiscard]] constexpr bool approx_equal(xte::is_number auto x, xte::is_number auto y) noexcept {
-		if constexpr (using Common = std::common_type_t<decltype(x), decltype(y)>; xte::is_float<Common>) {
+		if constexpr (using common_type = std::common_type_t<decltype(x), decltype(y)>; xte::is_float<common_type>) {
 			auto diff = xte::diff(x, y);
-			return diff <= (std::numeric_limits<Common>::epsilon() * (xte::between(diff, 0, 1, false, false) ? (1 / diff) : diff));
+			return diff <= (std::numeric_limits<common_type>::epsilon() * (xte::between(diff, 0, 1, false, false) ? (1 / diff) : diff));
 		} else {
-			return static_cast<Common>(x) == static_cast<Common>(y);
+			return static_cast<common_type>(x) == static_cast<common_type>(y);
 		}
 	}
 

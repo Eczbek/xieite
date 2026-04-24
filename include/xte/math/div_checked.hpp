@@ -13,8 +13,8 @@
 namespace xte {
 	[[nodiscard]] constexpr auto div_checked(xte::is_number auto x, xte::is_number auto... ys) noexcept {
 		bool overflow = false;
-		if constexpr (using Common = std::common_type_t<decltype(x), decltype(ys)...>; xte::is_signed<Common>) {
-			(void)(... && ((overflow = !ys || (ys == -(x == std::numeric_limits<Common>::lowest()))), ys == 1));
+		if constexpr (using common_type = std::common_type_t<decltype(x), decltype(ys)...>; xte::is_signed<common_type>) {
+			(void)(... && ((overflow = !ys || (ys == -(x == std::numeric_limits<common_type>::lowest()))), ys == 1));
 		} else {
 			overflow = (!xte::is_finite(x) || ... || (!xte::is_finite(ys) || !static_cast<bool>(ys)));
 		}

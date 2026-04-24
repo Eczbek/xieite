@@ -7,9 +7,9 @@
 
 namespace xte {
 	[[nodiscard]] constexpr auto mul(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
-		using Unsigned = xte::try_unsigned<Common>;
-		return static_cast<Common>((static_cast<Unsigned>(x) * ... * static_cast<Unsigned>(ys)));
+		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
+		using unsigned_type = xte::try_unsigned<common_type>;
+		return static_cast<common_type>((static_cast<unsigned_type>(x) * ... * static_cast<unsigned_type>(ys)));
 	};
 }
 

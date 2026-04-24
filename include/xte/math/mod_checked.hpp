@@ -10,13 +10,13 @@
 
 namespace xte {
 	[[nodiscard]] constexpr auto mod_checked(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
-		auto result = xte::opt(static_cast<Common>(x));
-		(void)(... && (result = ([](Common lhs, Common rhs) {
-			return xte::rem_checked(lhs, rhs).and_then([](Common rem) {
+		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
+		auto result = xte::opt(static_cast<common_type>(x));
+		(void)(... && (result = ([](common_type lhs, common_type rhs) {
+			return xte::rem_checked(lhs, rhs).and_then([](common_type rem) {
 				return xte::rem_checked(rem + rhs * (xte::sign(lhs) != xte::sign(rhs)), rhs);
 			});
-		})(result, static_cast<Common>(ys))));
+		})(result, static_cast<common_type>(ys))));
 		return result;
 	};
 }

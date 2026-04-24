@@ -6,8 +6,8 @@
 
 namespace xte {
 	[[nodiscard]] constexpr auto div(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using Common = std::common_type_t<decltype(x), decltype(ys)...>;
-		return (static_cast<Common>(x) / ... / static_cast<Common>(ys));
+		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
+		return (static_cast<common_type>(x) / ... / static_cast<common_type>(ys));
 	};
 }
 
