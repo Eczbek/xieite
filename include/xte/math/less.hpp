@@ -6,6 +6,7 @@
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/is_noex.hpp"
 #	include "../trait/is_int.hpp"
+#	include "../trait/is_signed.hpp"
 #	include "../trait/is_unsigned.hpp"
 #	include <concepts>
 #	include <type_traits>
