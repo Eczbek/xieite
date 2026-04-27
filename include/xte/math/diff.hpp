@@ -12,10 +12,10 @@ namespace xte {
 		if constexpr (xte::is_float<common_type>) {
 			return xte::abs(static_cast<common_type>(x) - static_cast<common_type>(y));
 		} else {
-			using Unsigned = std::make_unsigned_t<common_type>;
+			using unsigned_type = std::make_unsigned_t<common_type>;
 			return (static_cast<common_type>(x) < static_cast<common_type>(y))
-				? (static_cast<Unsigned>(y) - static_cast<Unsigned>(x))
-				: (static_cast<Unsigned>(x) - static_cast<Unsigned>(y));
+				? static_cast<unsigned_type>(static_cast<unsigned_type>(y) - static_cast<unsigned_type>(x))
+				: static_cast<unsigned_type>(static_cast<unsigned_type>(x) - static_cast<unsigned_type>(y));
 		}
 	};
 }

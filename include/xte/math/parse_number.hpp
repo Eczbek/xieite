@@ -53,7 +53,7 @@ namespace DETAIL_XTE {
 				if (config.point.contains(string[result.index])) {
 					T pow = 1;
 					if (!radix_is_whole || (radix > 0)) {
-						pow = static_cast<T>(xte::sign(result.value));
+						pow = xte::sign(result.value);
 						radix = abs_radix;
 					}
 					xte::uz digit;

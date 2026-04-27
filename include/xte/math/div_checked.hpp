@@ -25,9 +25,9 @@ namespace xte {
 			}
 			using unsigned_type = std::make_unsigned_t<common_type>;
 			auto quot = static_cast<unsigned_type>((static_cast<unsigned_type>(xte::abs(dividend)) / ... / static_cast<unsigned_type>(xte::abs(divisors))));
-			common_type sign = xte::sign(dividend, divisors...);
+			auto sign = xte::sign(dividend, divisors...);
 			if constexpr (xte::is_signed<common_type>) {
-				if ((sign == 1) && (quot == xte::abs(std::numeric_limits<common_type>::min()))) {
+				if ((sign > 0) && (quot == xte::abs(std::numeric_limits<common_type>::min()))) {
 					return xte::opt<common_type>(xte::null);
 				}
 			}
