@@ -12,6 +12,7 @@ static_assert(xte::div(3) == 3);
 static_assert(xte::div(1, 2) == 0);
 static_assert(xte::div(64, 4, 2) == 8);
 static_assert(xte::div(std::numeric_limits<int>::max(), -1) == (std::numeric_limits<int>::min() + 1));
+static_assert(xte::div(std::numeric_limits<int>::min(), -1, -1) == std::numeric_limits<int>::min());
 #if XTE_FEATURE_INT_8
 static_assert(xte::div(255_u8, 2_u8) == 127_u8);
 #endif

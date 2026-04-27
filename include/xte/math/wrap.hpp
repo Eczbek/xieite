@@ -13,17 +13,17 @@ namespace xte {
 		if constexpr (xte::is_float<common_type>) {
 			return xte::mod(static_cast<common_type>(x) - min, max - min + 1) + min;
 		} else {
-			using Unsigned = std::make_unsigned_t<common_type>;
-			auto range = static_cast<Unsigned>(max) - static_cast<Unsigned>(min) + 1;
+			using unsigned_type = std::make_unsigned_t<common_type>;
+			auto range = static_cast<unsigned_type>(max) - static_cast<unsigned_type>(min) + 1;
 			if (!range) {
 				return static_cast<common_type>(x);
 			}
-			auto rem = (static_cast<Unsigned>(x) - static_cast<Unsigned>(min)) % range;
+			auto rem = (static_cast<unsigned_type>(x) - static_cast<unsigned_type>(min)) % range;
 			if (x < min) {
-				auto mod = (static_cast<Unsigned>(-1) % range + 1) % range;
+				auto mod = (static_cast<unsigned_type>(-1) % range + 1) % range;
 				rem += (rem < mod) ? (range - mod) : -mod;
 			}
-			return static_cast<common_type>(static_cast<Unsigned>(min) + rem);
+			return static_cast<common_type>(static_cast<unsigned_type>(min) + rem);
 		}
 	}
 }

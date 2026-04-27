@@ -6,23 +6,12 @@
 #	include "../math/is_finite.hpp"
 #	include "../math/rem.hpp"
 #	include "../trait/is_number.hpp"
-#	include "../trait/is_signed.hpp"
-#	include <limits>
-#	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto rem_checked(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		if constexpr (using common_type = std::common_type_t<decltype(x), decltype(ys)...>; xte::is_signed<common_type>) {
-			if (sizeof...(ys) && (x == std::numeric_limits<common_type>::lowest()) && (ys...[0] == -1)) {
-				return xte::null;
-			}
-		}
-		if ((... && static_cast<bool>(ys))) {
-			if (auto rem = xte::rem(x, ys...); xte::is_finite(rem)) {
-				return xte::opt(rem);
-			}
-		}
-		return xte::null;
+	[[nodiscard]] constexpr auto rem_checked(xte::is_number auto dividend, xte::is_number auto... divisors) noexcept {
+		return (!xte::is_finite(dividend) || ... || (!xte::is_finite(divisors) || xte::approx_equal(divisors, 0)))
+			? xte::null
+			: xte::opt(xte::rem(dividend, divisors...));
 	};
 }
 

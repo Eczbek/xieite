@@ -3,6 +3,7 @@
 #
 #	include "../math/approx_equal.hpp"
 #	include "../math/avg.hpp"
+#	include "../math/diff.hpp"
 #	include "../math/minmax.hpp"
 #	include "../math/mul_checked.hpp"
 #	include "../meta/end.hpp"
@@ -23,7 +24,7 @@ namespace xte {
 		while (true) {
 			common_type mid = xte::avg(min, max);
 			if constexpr (xte::is_int<common_type>) {
-				if ((mid == min) && ((max - mid) < 2)) {
+				if (xte::diff(max, min) < 2) {
 					return max;
 				}
 			} else if (xte::approx_equal(mid, max)) {

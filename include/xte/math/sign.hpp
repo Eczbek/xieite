@@ -3,11 +3,11 @@
 #
 #	include "../math/is_neg.hpp"
 #	include "../trait/is_number.hpp"
-#	include "../util/numbers.hpp"
+#	include <type_traits>
 
 namespace xte {
-	inline constexpr auto sign = [][[nodiscard]](xte::is_number auto x, xte::is_number auto... ys) static noexcept -> xte::iz {
-		return ((!xte::is_neg(x) * 2z - 1z) * ... * (!xte::is_neg(ys) * 2z - 1z));
+	inline constexpr auto sign = [][[nodiscard]](xte::is_number auto... values) static noexcept {
+		return static_cast<std::common_type_t<decltype(values)...>>((1 * ... * (!xte::is_neg(values) * 2 - 1)));
 	};
 }
 

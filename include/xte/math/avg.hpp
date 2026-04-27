@@ -1,20 +1,22 @@
 #ifndef DETAIL_XTE_HEADER_MATH_AVG
 #	define DETAIL_XTE_HEADER_MATH_AVG
 #
+#	include "../math/div.hpp"
+#	include "../math/rem.hpp"
 #	include "../trait/is_int.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../util/numbers.hpp"
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto avg(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using common_type = std::common_type_t<xte::uz, decltype(x), decltype(ys)...>;
-		static constexpr auto size = static_cast<common_type>(sizeof...(ys) + 1);
-		auto result = ((static_cast<common_type>(x) / size) + ... + (static_cast<common_type>(ys) / size));
+	[[nodiscard]] constexpr auto avg(xte::is_number auto first, xte::is_number auto... rest) noexcept {
+		using common_type = std::common_type_t<decltype(first), decltype(rest)...>;
+		static constexpr auto size = sizeof...(rest) + 1;
+		auto result = (static_cast<common_type>(xte::div(first, size)) + ... + static_cast<common_type>(xte::div(rest, size)));
 		if constexpr (xte::is_int<common_type>) {
-			result = static_cast<common_type>(result + ((static_cast<common_type>(x) % size) + ... + (static_cast<common_type>(ys) % size)) / size);
+			result += static_cast<common_type>(xte::div((static_cast<common_type>(xte::rem(first, size)) + ... + static_cast<common_type>(xte::rem(rest, size))), size));
 		}
-		return static_cast<std::common_type_t<decltype(x), decltype(ys)...>>(result);
+		return result;
 	}
 }
 
