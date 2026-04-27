@@ -9,12 +9,11 @@
 #	include "../math/max.hpp"
 #	include "../math/mul_checked.hpp"
 #	include "../math/number_format_config.hpp"
+#	include "../math/pow.hpp"
 #	include "../math/sign.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../util/numbers.hpp"
-#	include <cmath>
-#	include <limits>
 
 namespace DETAIL_XTE {
 	template<xte::is_number T>
@@ -63,7 +62,7 @@ namespace DETAIL_XTE {
 					}
 				}
 				if (result.index += config.exp.contains(string[result.index])) {
-					result.value *= std::pow(radix, parse_int());
+					result.value *= xte::pow(radix, parse_int());
 				}
 			}
 			return result;

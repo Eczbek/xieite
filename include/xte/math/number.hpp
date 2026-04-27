@@ -4,6 +4,7 @@
 #	include "../math/abs.hpp"
 #	include "../math/as_unsigned.hpp"
 #	include "../math/lshift.hpp"
+#	include "../math/pow.hpp"
 #	include "../math/rem.hpp"
 #	include "../math/rshift.hpp"
 #	include "../preproc/arrow.hpp"
@@ -16,7 +17,6 @@
 #	include "../trait/try_signed.hpp"
 #	include "../trait/try_unsigned.hpp"
 #	include "../util/exchange.hpp"
-#	include <cmath>
 #	include <compare>
 #	include <limits>
 
@@ -55,7 +55,7 @@ namespace xte {
 
 		[[nodiscard]] friend constexpr auto operator<=>(xte::number<T> lhs, auto&& rhs) XTE_ARROW(
 			lhs.value <=> rhs
-		}
+		)
 
 		template<typename U>
 		[[nodiscard]] friend constexpr bool operator==(xte::number<T> lhs, xte::number<U> rhs) noexcept {
@@ -160,7 +160,7 @@ namespace xte {
 
 		constexpr auto&& operator<<=(this auto&& lhs, T rhs) noexcept {
 			if constexpr (xte::is_float<T>) {
-				return lhs = lhs.value * std::pow(2, rhs);
+				return lhs = lhs.value * xte::pow(2, rhs);
 			} else {
 				if (rhs < 0) {
 					return lhs >>= xte::abs(rhs);
@@ -175,7 +175,7 @@ namespace xte {
 
 		constexpr auto&& operator>>=(this auto&& lhs, T rhs) noexcept {
 			if constexpr (xte::is_float<T>) {
-				return lhs = lhs.value / std::pow(2, rhs);
+				return lhs = lhs.value / xte::pow(2, rhs);
 			} else {
 				if (rhs < 0) {
 					return lhs <<= xte::abs(rhs);
@@ -195,7 +195,7 @@ namespace xte {
 				T mask = std::numeric_limits<T>::min();
 				while (mask <= std::numeric_limits<T>::max()) {
 					mask <<= 1;
-					if (op(std::fmod(lhs.value, mask) >= mask, std::fmod(rhs.value, mask) >= mask)) {
+					if (op(xte::rem(lhs.value, mask) >= mask, xte::rem(rhs.value, mask) >= mask)) {
 						result += mask >> 1;
 					}
 				}
