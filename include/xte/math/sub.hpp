@@ -6,10 +6,10 @@
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto sub(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
+	[[nodiscard]] constexpr auto sub(xte::is_number auto minuend, xte::is_number auto... subtrahends) noexcept {
+		using common_type = std::common_type_t<decltype(minuend), decltype(subtrahends)...>;
 		using unsigned_type = xte::try_unsigned<common_type>;
-		return static_cast<common_type>((static_cast<unsigned_type>(x) - ... - static_cast<unsigned_type>(ys)));
+		return static_cast<common_type>((static_cast<unsigned_type>(minuend) - ... - static_cast<unsigned_type>(subtrahends)));
 	}
 }
 

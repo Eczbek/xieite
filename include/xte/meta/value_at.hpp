@@ -4,9 +4,9 @@
 #	include "../util/numbers.hpp"
 
 namespace xte {
-	template<xte::uz index, decltype(auto)... xs>
-	requires(index < sizeof...(xs))
-	constexpr decltype(auto) value_at = xs...[index];
+	template<xte::uz index, decltype(auto)... values>
+	requires(index < sizeof...(values))
+	constexpr decltype(auto) value_at = values...[index];
 }
 
 #endif

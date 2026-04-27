@@ -15,16 +15,16 @@
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto mul_checked(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
-		auto prod = static_cast<common_type>(x);
+	[[nodiscard]] constexpr auto mul_checked(xte::is_number auto first, xte::is_number auto... rest) noexcept {
+		using common_type = std::common_type_t<decltype(first), decltype(rest)...>;
+		auto prod = static_cast<common_type>(first);
 #	if XTE_HAS_BUILTIN(mul_overflow)
 		if constexpr (!xte::is_float<common_type>) {
-			return (... || __builtin_mul_overflow(prod, static_cast<common_type>(ys), &prod)) ? xte::null : xte::opt(prod);
+			return (... || __builtin_mul_overflow(prod, static_cast<common_type>(rest), &prod)) ? xte::null : xte::opt(prod);
 		}
 #	endif
 		bool overflow;
-		(void)(!xte::is_finite(prod) || ... || (xte::approx_equal(prod, 0) || (overflow = !xte::is_finite(ys) || (xte::abs(static_cast<common_type>(ys)) > (xte::abs(((prod < 0) == (ys < 0)) ? std::numeric_limits<common_type>::max() : std::numeric_limits<common_type>::lowest()) / xte::abs(prod)))) || !xte::assign(prod, prod * static_cast<common_type>(ys))));
+		(void)(!xte::is_finite(prod) || ... || (xte::approx_equal(prod, 0) || (overflow = !xte::is_finite(rest) || (xte::abs(static_cast<common_type>(rest)) > (xte::abs(((prod < 0) == (rest < 0)) ? std::numeric_limits<common_type>::max() : std::numeric_limits<common_type>::lowest()) / xte::abs(prod)))) || !xte::assign(prod, prod * static_cast<common_type>(rest))));
 		return overflow ? xte::null : xte::opt(prod);
 	}
 }

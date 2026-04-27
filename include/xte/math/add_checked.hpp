@@ -13,15 +13,15 @@
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto add_checked(xte::is_number auto x, xte::is_number auto... ys) noexcept {
-		using common_type = std::common_type_t<decltype(x), decltype(ys)...>;
-		auto sum = static_cast<common_type>(x);
+	[[nodiscard]] constexpr auto add_checked(xte::is_number auto augend, xte::is_number auto... addends) noexcept {
+		using common_type = std::common_type_t<decltype(augend), decltype(addends)...>;
+		auto sum = static_cast<common_type>(augend);
 #	if XTE_HAS_BUILTIN(add_overflow)
 		if constexpr (!xte::is_float<common_type>) {
-			return (... || __builtin_add_overflow(sum, static_cast<common_type>(ys), &sum)) ? xte::null : xte::opt(sum);
+			return (... || __builtin_add_overflow(sum, static_cast<common_type>(addends), &sum)) ? xte::null : xte::opt(sum);
 		}
 #	endif
-		return (!xte::is_finite(x) || ... || (!xte::is_finite(ys) || ((sum < 0) ? ((std::numeric_limits<common_type>::lowest() - sum) > static_cast<common_type>(ys)) : ((std::numeric_limits<common_type>::max() - sum) < static_cast<common_type>(ys))) || (sum += static_cast<common_type>(ys), false))) ? xte::null : xte::opt(sum);
+		return (!xte::is_finite(augend) || ... || (!xte::is_finite(addends) || ((sum < 0) ? ((std::numeric_limits<common_type>::lowest() - sum) > static_cast<common_type>(addends)) : ((std::numeric_limits<common_type>::max() - sum) < static_cast<common_type>(addends))) || (sum += static_cast<common_type>(addends), false))) ? xte::null : xte::opt(sum);
 	};
 }
 

@@ -10,18 +10,18 @@
 namespace xte {
 	template<typename T, typename... Ts,
 		typename common_type = std::common_type_t<T, Ts...>>
-	[[nodiscard]] constexpr common_type max(T&& x, Ts&&... ys)
-	noexcept(noexcept(static_cast<common_type>(XTE_FWD(x)))
-		&& (... && (noexcept(xte::less(ys, xte::fake<common_type&>()))
-			&& noexcept(xte::assign(xte::fake<common_type&>(), XTE_FWD(ys))))))
-	requires(requires { static_cast<common_type>(XTE_FWD(x)); }
+	[[nodiscard]] constexpr common_type max(T&& first, Ts&&... rest)
+	noexcept(noexcept(static_cast<common_type>(XTE_FWD(first)))
+		&& (... && (noexcept(xte::less(rest, xte::fake<common_type&>()))
+			&& noexcept(xte::assign(xte::fake<common_type&>(), XTE_FWD(rest))))))
+	requires(requires { static_cast<common_type>(XTE_FWD(first)); }
 		&& (... && requires (common_type max) {
-			xte::less(ys, max);
-			xte::assign(max, XTE_FWD(ys));
+			xte::less(rest, max);
+			xte::assign(max, XTE_FWD(rest));
 		}))
 	{
-		auto max = static_cast<common_type>(XTE_FWD(x));
-		(void)(..., (xte::less(max, ys) ? xte::assign(max, XTE_FWD(ys)) : max));
+		auto max = static_cast<common_type>(XTE_FWD(first));
+		(void)(..., (xte::less(max, rest) ? xte::assign(max, XTE_FWD(rest)) : max));
 		return max;
 	}
 }
