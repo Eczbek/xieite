@@ -17,7 +17,7 @@ namespace xte {
 		} else {
 			using unsigned_type = std::make_unsigned_t<common_type>;
 			return static_cast<common_type>(static_cast<unsigned_type>((static_cast<unsigned_type>(xte::abs(dividend)) % ... % static_cast<unsigned_type>(xte::abs(divisors))))
-				* static_cast<unsigned_type>(xte::sign(dividend, divisors...)));
+				* static_cast<unsigned_type>(xte::sign(dividend)));
 		}
 	};
 }

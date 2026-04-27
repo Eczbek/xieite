@@ -19,7 +19,7 @@ namespace xte {
 			using unsigned_type = std::make_unsigned_t<common_type>;
 			auto quot = static_cast<unsigned_type>(xte::abs(dividend));
 			auto sign = static_cast<common_type>(xte::sign(dividend));
-			(void)(..., (sign = static_cast<common_type>(xte::sign(sign, divisors)), quot = quot / static_cast<unsigned_type>(xte::abs(divisors)) + static_cast<unsigned_type>(sign * (static_cast<common_type>(xte::rem(quot, divisors) * static_cast<unsigned_type>(xte::sign(sign, divisors))) >= static_cast<common_type>(divisors / 2 * xte::sign(divisors) + ((divisors % 2) || (sign < 0)))))));
+			(void)(..., (sign = xte::sign(sign, divisors), quot = quot / static_cast<unsigned_type>(xte::abs(divisors)) + (xte::rem(quot, divisors) >= (xte::abs(divisors) / 2 + ((divisors % 2) || (sign < 0))))));
 			return static_cast<common_type>(quot * static_cast<unsigned_type>(sign));
 		}
 	};
