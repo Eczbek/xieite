@@ -61,7 +61,7 @@ namespace xte {
 
 		template<std::input_iterator Iter>
 		[[nodiscard]] constexpr string(Iter begin, std::sentinel_for<Iter> auto end) XTE_ARROW_CTOR(,
-			(xte::string),((std::from_range, std::ranges::subrange(begin, end)))
+			(xte::string),((std::from_range, xte::lvalue(std::ranges::subrange(begin, end))))
 		)
 
 		[[nodiscard]] explicit constexpr string(xte::is_noex_implicit_castable<const char*> auto&& range) noexcept(false) {

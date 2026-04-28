@@ -92,7 +92,7 @@ namespace xte {
 
 		template<std::input_iterator Iter>
 		[[nodiscard]] constexpr array(Iter begin, std::sentinel_for<Iter> auto end) XTE_ARROW_CTOR(,
-			(xte::array<T>),((std::from_range, std::ranges::subrange(begin, end)))
+			(xte::array<T>),((std::from_range, xte::lvalue(std::ranges::subrange(begin, end))))
 		)
 
 		[[nodiscard]] explicit constexpr array(xte::uz size) noexcept(false)
