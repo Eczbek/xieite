@@ -102,4 +102,5 @@ static_assert(xte::approx_equal(xte::parse_number<double>(xte::stringify_number(
 static_assert(xte::approx_equal(xte::parse_number<double>(xte::stringify_number(-5.0, -2.0), -2.0), -5.0));
 static_assert(xte::approx_equal(xte::parse_number<double>(xte::stringify_number(6.5, -2.0), -2.0), 6.5));
 static_assert(xte::approx_equal(xte::parse_number<double>(xte::stringify_number(-6.5, -2.0), -2.0), -6.5));
+static_assert(xte::approx_equal(xte::parse_number<double>(xte::stringify_number(374.0, std::numbers::pi), std::numbers::pi), 374.0));
 static_assert(xte::approx_equal(xte::parse_number<double>(xte::stringify_number(42.0, std::numbers::phi), std::numbers::phi), 42.0));

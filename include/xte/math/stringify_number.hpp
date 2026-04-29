@@ -3,7 +3,9 @@
 #
 #	include "../data/array.hpp"
 #	include "../data/string.hpp"
+#	include "../math/approx_greater_equal.hpp"
 #	include "../math/approx_equal.hpp"
+#	include "../math/approx_less_equal.hpp"
 #	include "../math/floor.hpp"
 #	include "../math/is_finite.hpp"
 #	include "../math/mod.hpp"
@@ -80,7 +82,7 @@ namespace xte {
 				xte::iz carry = 0;
 				for (T& digit : buffer | std::views::reverse) {
 					digit += static_cast<T>(carry);
-					if ((carry = (digit < 0) - (digit >= abs_radix))) {
+					if ((carry = (digit < 0) - xte::approx_greater_equal(digit, abs_radix))) {
 						digit += abs_radix * static_cast<T>(carry);
 					}
 					result.push(config.digits[static_cast<xte::uz>(digit)]);
@@ -102,7 +104,7 @@ namespace xte {
 				if ((power / abs_radix) > abs) {
 					result.push(config.digits[0]);
 				} else {
-					while ((power /= abs_radix) <= abs);
+					while (xte::approx_less_equal(power /= abs_radix, abs));
 					while ((power *= abs_radix) > 1) {
 						auto digit = static_cast<xte::uz>(abs / power);
 						abs -= static_cast<T>(digit) * power;
@@ -122,8 +124,8 @@ namespace xte {
 					result.push(config.digits[0]);
 				} else {
 					T power = 1;
-					while ((power *= abs_radix) <= abs);
-					while ((power /= abs_radix) >= 1) {
+					while (xte::approx_less_equal(power *= abs_radix, abs));
+					while (xte::approx_greater_equal(power /= abs_radix, 1)) {
 						auto digit = static_cast<xte::uz>(abs / power);
 						abs -= static_cast<T>(digit) * power;
 						result.push(config.digits[digit]);
@@ -157,5 +159,3 @@ namespace xte {
 }
 
 #endif
-
-// TODO: Revise
