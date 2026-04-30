@@ -41,7 +41,8 @@ namespace xte {
 		xte::uz _size = 0;
 		xte::uz _capacity = 0;
 
-		constexpr void _reallocate(xte::uz capacity) & noexcept(false) {
+		constexpr void _reallocate(xte::uz capacity) & noexcept(false)
+		requires(requires (T x) { T(std::move_if_noexcept(x)); }) {
 			if (xte::array<T> old = xte::xvalue(*this); capacity) {
 				this->_data = std::allocator<T>().allocate(capacity);
 				this->_capacity = capacity;
@@ -254,11 +255,13 @@ namespace xte {
 			this->erase(size, -1uz);
 		}
 
-		constexpr void reserve(xte::uz additional = 1) & noexcept(false) {
+		constexpr void reserve(xte::uz additional = 1) & noexcept(false)
+		requires(requires (T x) { T(std::move_if_noexcept(x)); }) {
 			this->reserve_total(this->_capacity + additional);
 		}
 
-		constexpr void reserve_total(xte::uz total) & noexcept(false) {
+		constexpr void reserve_total(xte::uz total) & noexcept(false)
+		requires(requires (T x) { T(std::move_if_noexcept(x)); }) {
 			if (total > this->_capacity) {
 				XTE_DIAGNOSTIC_PUSH_GCC(OFF, "-Winterference-size")
 				xte::uz capacity = xte::max(this->_capacity, std::hardware_destructive_interference_size / sizeof(T));
@@ -270,7 +273,8 @@ namespace xte {
 			}
 		}
 
-		constexpr void shrink() & noexcept(false) {
+		constexpr void shrink() & noexcept(false)
+		requires(requires (T x) { T(std::move_if_noexcept(x)); }) {
 			if (this->_capacity > this->_size) {
 				this->_reallocate(this->_size);
 			}
