@@ -77,7 +77,9 @@ namespace xte {
 		}
 
 		bool close() noexcept {
-			return (this->_stream && !xte::isatty(*this)) && !std::fclose(this->release());
+			return (this->_stream && !xte::isatty(*this))
+				? !std::fclose(this->release())
+				: !!this->release();
 		}
 
 		bool reopen(xte::string_view path, xte::file::mode mode) noexcept(false) {
@@ -100,7 +102,7 @@ namespace xte {
 			return *this && (std::to_underlying(this->_mode) & 0b0100);
 		}
 
-		bool write(xte::string_view content) noexcept {
+		bool write(xte::string_view content) const noexcept {
 			return std::fwrite(content.data(), 1, content.size(), *this) == content.size();
 		}
 
@@ -108,21 +110,21 @@ namespace xte {
 			return !std::fflush(*this);
 		}
 
-		[[nodiscard]] xte::string read() noexcept(false) {
+		[[nodiscard]] xte::string read() const noexcept(false) {
 			static constexpr xte::uz chunk_size = 32768;
 			xte::string content;
 			while (true) {
 				xte::uz prev_size = content.size();
-				content.insert_uninit(-1uz, chunk_size);
-				content.resize(prev_size + std::fread(content.data() + prev_size, 1, chunk_size, *this));
-				if (content.size() != (prev_size + chunk_size)) {
+				content.resize(prev_size + chunk_size);
+				if (xte::uz bytes_read = std::fread(content.data() + prev_size, 1, chunk_size, *this); bytes_read != chunk_size) {
+					content.resize(prev_size + bytes_read);
 					break;
 				}
 			}
 			return content;
 		}
 
-		[[nodiscard]] xte::string read(char delim) noexcept(false) {
+		[[nodiscard]] xte::string read(char delim) const noexcept(false) {
 			xte::string content;
 			while (true) {
 				int input = std::fgetc(*this);
