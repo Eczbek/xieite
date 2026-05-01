@@ -370,8 +370,8 @@ namespace xte {
 				for (xte::uz i = index; i < this->_size; ++i) {
 					this->_data[i] = xte::xvalue(this->_data[i + count]);
 				}
-				while (count--) {
-					xte::destroy(this->_data[this->_size + count]);
+				for (xte::uz i : std::views::indices(count)) {
+					xte::destroy(this->_data[this->_size + i]);
 				}
 			}
 		}
