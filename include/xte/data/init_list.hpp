@@ -3,10 +3,6 @@
 #
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../trait/is_copy_constructible.hpp"
-#	include "../trait/is_move_constructible.hpp"
-#	include "../trait/is_noex_copy_constructible.hpp"
-#	include "../trait/is_noex_move_constructible.hpp"
 #	include "../util/address.hpp"
 #	include "../util/xvalue.hpp"
 #	include <initializer_list>
@@ -18,15 +14,17 @@ namespace DETAIL_XTE {
 		mutable T _value;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr init_list(const T& x)
-		noexcept(xte::is_noex_copy_constructible<T>)
-		requires(xte::is_copy_constructible<T>)
-		: _value(x) {}
+		[[nodiscard]] explicit(false) constexpr init_list(const T& x) XTE_ARROW_CTOR(,
+			_value,((x))
+		)
 
-		[[nodiscard]] explicit(false) constexpr init_list(T&& x)
-		noexcept(xte::is_noex_move_constructible<T>)
-		requires(xte::is_move_constructible<T>)
-		: _value(xte::xvalue(x)) {}
+		[[nodiscard]] explicit(false) constexpr init_list(T&& x) XTE_ARROW_CTOR(,
+			_value,((xte::xvalue(x)))
+		)
+
+		[[nodiscard]] explicit(false) constexpr init_list(auto&&... args) XTE_ARROW_CTOR(,
+			_value,({ XTE_FWD(args)... })
+		)
 
 		XTE_ARROW_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
 			XTE_FWD(self)._value
