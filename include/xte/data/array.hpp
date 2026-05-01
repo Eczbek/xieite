@@ -12,6 +12,7 @@
 #	include "../trait/is_assignable.hpp"
 #	include "../trait/is_constructible.hpp"
 #	include "../trait/is_copy_constructible.hpp"
+#	include "../trait/is_move_constructible.hpp"
 #	include "../trait/is_derived_from.hpp"
 #	include "../trait/is_noex_move_constructible.hpp"
 #	include "../util/address.hpp"
@@ -390,25 +391,27 @@ namespace xte {
 			this->insert_range(-1uz, XTE_FWD(range))
 		)
 
-		constexpr T pop() & noexcept(xte::is_noex_move_constructible<T>) {
+		constexpr T pop() &
+		noexcept(xte::is_noex_move_constructible<T>)
+		requires(xte::is_move_constructible<T>) {
 			auto last = T(xte::xvalue(*this).back());
 			this->erase(this->_size - 1);
 			return last;
 		}
 
-		[[nodiscard]] friend constexpr auto operator+(xte::is_derived_from<xte::array<T>> auto&& lhs, auto&& rhs) XTE_ARROW(
-			auto(lhs.xte::template array<T>::operator+=(XTE_FWD(rhs)))
+		[[nodiscard]] friend constexpr auto operator+(xte::is_derived_from<xte::array<T>> auto lhs, auto&& rhs) XTE_ARROW(
+			auto(xte::xvalue(lhs.xte::template array<T>::operator+=(XTE_FWD(rhs))))
 		)
 
 		template<typename Lhs>
 		requires(!xte::is_derived_from<Lhs, xte::array<T>>)
 		[[nodiscard]] friend constexpr auto operator+(Lhs&& lhs, xte::is_derived_from<xte::array<T>> auto rhs) XTE_ARROW(
 			rhs.xte::template array<T>::insert_range(0, XTE_FWD(lhs)),
-			auto(rhs)
+			auto(xte::xvalue(rhs))
 		)
 
 		constexpr auto operator+=(this auto& lhs, auto&& rhs) XTE_ARROW(
-			void(lhs.xte::template array<T>::push_range(XTE_FWD(rhs))),
+			lhs.xte::template array<T>::push_range(XTE_FWD(rhs)),
 			lhs
 		)
 	};
