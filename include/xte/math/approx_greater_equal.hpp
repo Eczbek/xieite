@@ -7,11 +7,11 @@
 
 namespace xte {
 	[[nodiscard]] constexpr bool approx_greater_equal(xte::is_number auto x, xte::is_number auto y) noexcept {
-		return !xte::less(x, y) || xte::approx_equal(x, y);
+		return xte::less(y, x) || xte::approx_equal(x, y);
 	}
 
 	[[nodiscard]] constexpr bool approx_greater_equal(xte::is_number auto x, xte::is_number auto y, xte::is_number auto epsilon) noexcept {
-		return !xte::less(x, y) || xte::approx_equal(x, y, epsilon);
+		return xte::less(y, x) || xte::approx_equal(x, y, epsilon);
 	}
 }
 
