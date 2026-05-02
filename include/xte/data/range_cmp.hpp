@@ -25,7 +25,7 @@ namespace xte {
 	requires(xte::is_order<decltype(std::invoke(cmp, std::invoke(proj, *begin0), std::invoke(proj, *begin1)))>) {
 		bool exhaust0 = (begin0 == end0);
 		bool exhaust1 = (begin1 == end1);
-		for (; !exhaust0 && !exhaust1; void(exhaust0 = ++begin0 == end0), void(exhaust1 = ++begin1 == end1)) {
+		for (; !exhaust0 && !exhaust1; exhaust0 = static_cast<bool>(++begin0 == end0), exhaust1 = static_cast<bool>(++begin1 == end1)) {
 			if (auto result = std::invoke(cmp, std::invoke(proj, *begin0), std::invoke(proj, *begin1)); !std::is_eq(result)) {
 				return result;
 			}

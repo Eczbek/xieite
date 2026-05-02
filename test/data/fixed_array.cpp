@@ -22,3 +22,5 @@ static_assert(([] {
 		&& (_1 == 1)
 		&& (_2 == 2);
 })());
+
+static_assert(xte::fixed_array { 0, 1, 2 } < xte::fixed_array { 0, 1, 3 });

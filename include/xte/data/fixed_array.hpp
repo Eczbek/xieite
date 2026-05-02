@@ -1,6 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_DATA_FIXED_ARRAY
 #	define DETAIL_XTE_HEADER_DATA_FIXED_ARRAY
 #
+#	include "../data/range_cmp.hpp"
 #	include "../func/unfold.hpp"
 #	include "../meta/wrap_value.hpp"
 #	include "../preproc/arrow.hpp"
@@ -10,6 +11,7 @@
 #	include "../trait/is_same_ignore_cvref.hpp"
 #	include "../util/like.hpp"
 #	include "../util/numbers.hpp"
+#	include <compare>
 #	include <concepts>
 #	include <iterator>
 #	include <ranges>
@@ -31,13 +33,13 @@ namespace xte {
 		using reverse_iterator = std::reverse_iterator<T*>;
 		using const_reverse_iterator = std::reverse_iterator<const T*>;
 
-		static constexpr auto size = xte::wrap_value<n>();
-
 		[:^^T[n]:] _data;
 
 		[[nodiscard]] constexpr auto* data(this auto&& self) noexcept {
 			return self._data;
 		}
+
+		static constexpr auto size = xte::wrap_value<n>();
 
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
 			return self._data;
@@ -113,11 +115,11 @@ namespace xte {
 		using reverse_iterator = const T*;
 		using const_reverse_iterator = const T*;
 
-		static constexpr auto size = xte::wrap_value<0uz>();
-
 		[[nodiscard]] constexpr const T* data() const noexcept {
 			return nullptr;
 		}
+
+		static constexpr auto size = xte::wrap_value<0uz>();
 
 		[[nodiscard]] constexpr const T* begin() const noexcept {
 			return nullptr;
@@ -161,6 +163,17 @@ namespace xte {
 	template<typename T, typename... Ts>
 	fixed_array(T, Ts...) -> fixed_array<std::common_type_t<T, Ts...>, -~sizeof...(Ts)>;
 }
+
+
+template<typename T, xte::uz n, xte::uz m>
+[[nodiscard]] constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
+	xte::range_cmp(lhs, rhs)
+)
+
+template<typename T, xte::uz n, xte::uz m>
+[[nodiscard]] constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
+	(n == m) && std::is_eq(lhs <=> rhs)
+)
 
 template<typename T, xte::uz n>
 struct std::tuple_size<xte::fixed_array<T, n>> {
