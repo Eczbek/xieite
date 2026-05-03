@@ -194,7 +194,7 @@ struct std::tuple_element<index, xte::fixed_array<T, n>> {
 
 namespace DETAIL_XTE::fixed_array {
 	inline constexpr auto make = []<xte::uz... i>(auto&& range, auto iter) static XTE_ARROW(
-		xte::fixed_array { ([](auto& iter) XTE_ARROW_IF(i, ++iter, xte::like<decltype(range)&&>(*iter)))(iter)... }
+		xte::fixed_array { ([](auto& iter) XTE_ARROW_IF(i, ++iter, xte::like<decltype(range)>(*iter)))(iter)... }
 	);
 }
 

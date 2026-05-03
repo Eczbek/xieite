@@ -28,7 +28,7 @@ namespace DETAIL_XTE {
 		)
 
 		XTE_ARROW_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
-			xte::like<decltype(self)&&>(self._value)
+			xte::like<decltype(self)>(self._value)
 		)
 
 		[[nodiscard]] constexpr auto* operator->(this auto&& self) noexcept {

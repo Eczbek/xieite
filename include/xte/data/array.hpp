@@ -282,14 +282,14 @@ namespace xte {
 		}
 
 		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false)
-		requires(requires (T x) { x = T(xte::xvalue(x)); }) {
+		requires(requires (T x) { x = T(std::move_if_noexcept(x)); }) {
 			index = xte::min(index, this->_size);
 			this->reserve_total(this->_size + count);
 			for (xte::uz i = count; i-- && ((this->_size - count + i) >= index);) {
-				xte::construct(this->_data[this->_size + i], xte::xvalue(this->_data[this->_size - count + i]));
+				xte::construct(this->_data[this->_size + i], std::move_if_noexcept(this->_data[this->_size - count + i]));
 			}
 			for (xte::uz i = this->_size; i-- && (i >= (index + count));) {
-				this->_data[i] = xte::xvalue(this->_data[i - count]);
+				this->_data[i] = std::move_if_noexcept(this->_data[i - count]);
 			}
 			for (xte::uz i = index; (i < this->_size) && (i < (index + count)); ++i) {
 				xte::destroy(this->_data[i]);
@@ -304,9 +304,9 @@ namespace xte {
 				xte::construct(this->_data[this->_size++]);
 				return;
 			}
-			xte::construct(this->_data[this->_size], xte::xvalue(this->_data[this->_size - 1]));
+			xte::construct(this->_data[this->_size], std::move_if_noexcept(this->_data[this->_size - 1]));
 			for (xte::uz i = this->_size++ - 1; i-- > index;) {
-				this->_data[i + 1] = xte::xvalue(this->_data[i]);
+				this->_data[i + 1] = std::move_if_noexcept(this->_data[i]);
 			}
 			this->_data[index] = T();
 		}
@@ -314,17 +314,17 @@ namespace xte {
 		template<typename U = T>
 		constexpr void insert(xte::uz index, U&& arg, auto&&... args) & noexcept(false)
 		requires(requires (T x) { x = xte::cast<T>(XTE_FWD(arg), XTE_FWD(args)...); }) {
-			auto tmp = xte::cast<T>(XTE_FWD(arg), XTE_FWD(args)...);
 			this->reserve(this->_size == this->_capacity);
 			if (index >= this->_size) {
-				xte::construct(this->_data[this->_size++], xte::xvalue(tmp));
+				xte::construct(this->_data[this->_size++], xte::cast<T>(XTE_FWD(arg), XTE_FWD(args)...));
 				return;
 			}
-			xte::construct(this->_data[this->_size], xte::xvalue(this->_data[this->_size - 1]));
+			auto tmp = xte::cast<T>(XTE_FWD(arg), XTE_FWD(args)...);
+			xte::construct(this->_data[this->_size], std::move_if_noexcept(this->_data[this->_size - 1]));
 			for (xte::uz i = this->_size++ - 1; i-- > index;) {
-				this->_data[i + 1] = xte::xvalue(this->_data[i]);
+				this->_data[i + 1] = std::move_if_noexcept(this->_data[i]);
 			}
-			this->_data[index] = xte::xvalue(tmp);
+			this->_data[index] = std::move_if_noexcept(tmp);
 		}
 
 		template<std::ranges::input_range Range = xte::array<T>>
@@ -336,10 +336,10 @@ namespace xte {
 				range_size = std::ranges::size(range);
 				if ((this->_size + range_size) <= this->_capacity) {
 					for (xte::uz i = range_size; i-- && ((range_size - i) <= (this->_size - index));) {
-						xte::construct(this->_data[this->_size + i], xte::xvalue(this->_data[this->_size - range_size + i]));
+						xte::construct(this->_data[this->_size + i], std::move_if_noexcept(this->_data[this->_size - range_size + i]));
 					}
 					for (xte::uz i = this->_size; i-- && (i >= (index + range_size));) {
-						this->_data[i] = xte::xvalue(this->_data[i - range_size]);
+						this->_data[i] = std::move_if_noexcept(this->_data[i - range_size]);
 					}
 					auto iter = std::ranges::begin(range);
 					for (xte::uz i = index; (i < this->_size) && ((i - index) < range_size); ++iter) {
@@ -355,21 +355,23 @@ namespace xte {
 			xte::array<T> old = xte::xvalue(*this);
 			this->reserve_total(old._size + range_size);
 			for (auto&& item : old | std::views::take(index)) {
-				this->push(xte::xvalue(item));
+				this->push(std::move_if_noexcept(item));
 			}
 			for (auto&& item : range) {
 				this->push(xte::like<Range>(item));
 			}
 			for (auto&& item : old | std::views::drop(index)) {
-				this->push(xte::xvalue(item));
+				this->push(std::move_if_noexcept(item));
 			}
 		}
 
-		constexpr void erase(xte::uz index, xte::uz count = 1) & noexcept {
+		constexpr void erase(xte::uz index, xte::uz count = 1) &
+		noexcept(requires (T x) { requires(noexcept(x = std::move_if_noexcept(x))); })
+		requires(requires (T x) { x = std::move_if_noexcept(x); }) {
 			if (index < this->_size) {
 				this->_size -= (count = xte::min(count, this->_size - index));
 				for (xte::uz i = index; i < this->_size; ++i) {
-					this->_data[i] = xte::xvalue(this->_data[i + count]);
+					this->_data[i] = std::move_if_noexcept(this->_data[i + count]);
 				}
 				for (xte::uz i : std::views::indices(count)) {
 					xte::destroy(this->_data[this->_size + i]);
@@ -392,8 +394,8 @@ namespace xte {
 		)
 
 		constexpr T pop() &
-		noexcept(xte::is_noex_move_constructible<T>)
-		requires(xte::is_move_constructible<T>) {
+		noexcept(requires (T x) { requires(noexcept(x = std::move_if_noexcept(x))); })
+		requires(requires (T x) { x = std::move_if_noexcept(x); }) {
 			auto last = T(xte::xvalue(*this).back());
 			this->erase(this->_size - 1);
 			return last;
