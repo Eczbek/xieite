@@ -1,6 +1,6 @@
 #include <xte/preproc/arrow.hpp>
+#include <xte/preproc/fwd.hpp>
 #include <xte/util/as_c.hpp>
-#include <xte/util/like.hpp>
 #include <xte/util/lvalue.hpp>
 
 auto add(auto lhs, auto rhs) XTE_ARROW(lhs + rhs)
@@ -26,7 +26,7 @@ struct Cast {
 	int x;
 
 	XTE_ARROW_CAST(constexpr, auto&& self,
-		xte::like<decltype(self)&&>(self.x)
+		XTE_FWD(self).x
 	)
 };
 
