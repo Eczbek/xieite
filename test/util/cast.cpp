@@ -1,6 +1,7 @@
 #include <xte/util/cast.hpp>
 
 static_assert(xte::cast<int>(1.5) == 1);
+static_assert(xte::cast<unsigned char>(65535.1234) == 255);
 
 struct S {
 	int x;
