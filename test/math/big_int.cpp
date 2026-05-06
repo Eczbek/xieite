@@ -1,4 +1,5 @@
 #include <xte/data/array.hpp>
+#include <xte/math/approx_equal.hpp>
 #include <xte/math/big_int.hpp>
 #include <xte/math/width.hpp>
 #include <xte/preproc/feature.hpp>
@@ -20,6 +21,7 @@ static_assert(xte::big_int("123") == 123);
 static_assert(xte::big_int("FF", 16) == 255);
 static_assert(static_cast<unsigned>(xte::big_int(123)) == 123);
 static_assert(static_cast<unsigned>(xte::big_int("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16)) == -1u);
+static_assert(xte::approx_equal(static_cast<double>(xte::big_int(123)), 123));
 static_assert(!xte::big_int(0));
 static_assert(!!xte::big_int(123));
 static_assert(!(xte::big_int(0) < 0));

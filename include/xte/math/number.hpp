@@ -2,11 +2,15 @@
 #	define DETAIL_XTE_HEADER_MATH_NUMBER
 #
 #	include "../math/abs.hpp"
+#	include "../math/add.hpp"
+#	include "../math/approx_equal.hpp"
 #	include "../math/as_unsigned.hpp"
-#	include "../math/highest.hpp"
+#	include "../math/div.hpp"
 #	include "../math/lshift.hpp"
+#	include "../math/mul.hpp"
 #	include "../math/pow.hpp"
 #	include "../math/rem.hpp"
+#	include "../math/sub.hpp"
 #	include "../math/rshift.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
@@ -17,6 +21,7 @@
 #	include "../trait/is_same_any_ignore_cvref.hpp"
 #	include "../trait/try_signed.hpp"
 #	include "../trait/try_unsigned.hpp"
+#	include "../util/cast.hpp"
 #	include "../util/exchange.hpp"
 #	include <compare>
 #	include <limits>
@@ -24,6 +29,24 @@
 namespace xte {
 	template<xte::is_number T>
 	struct number {
+	private:
+		constexpr void _bitwise(T rhs, auto func) noexcept {
+			if constexpr (xte::is_float<T>) {
+				T result = 0;
+				T mask = std::numeric_limits<T>::min();
+				while ((mask <= xte::abs(this->value)) || (mask <= xte::abs(rhs))) {
+					if (func(xte::rem(xte::abs(this->value), mask * 2) >= mask, xte::rem(xte::abs(rhs), mask * 2) >= mask)) {
+						result += mask;
+					}
+					mask *= 2;
+				}
+				this->value = func(this->value < 0, rhs < 0) ? -result : result;
+			} else {
+				this->value = func(this->value, rhs);
+			}
+		}
+
+	public:
 		using value_type = T;
 
 		T value;
@@ -31,52 +54,54 @@ namespace xte {
 		template<typename U = T>
 		[[nodiscard]] explicit(!xte::is_same_any_ignore_cvref<U, xte::try_unsigned<T>, xte::try_signed<T>>)
 		constexpr number(U&& x = 0) XTE_ARROW_CTOR(,
-			value,((static_cast<T>(XTE_FWD(x))))
+			value,((xte::cast<T>(XTE_FWD(x))))
 		)
 
 		template<typename U>
 		[[nodiscard]] explicit(!xte::is_same_any<U, xte::try_unsigned<T>, xte::try_signed<T>>)
-		constexpr operator U() const XTE_ARROW(
-			static_cast<U>(this->value)
-		)
-
-		constexpr auto&& operator=(this auto&& lhs, T rhs) noexcept {
-			lhs.value = rhs.value;
-			return XTE_FWD(lhs);
+		constexpr operator U() const noexcept {
+			return xte::cast<U>(this->value);
 		}
-
-		constexpr auto&& operator=(this auto&& lhs, auto&& rhs) XTE_ARROW(
-			lhs = xte::number<T>(XTE_FWD(rhs))
-		)
 
 		template<typename U>
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xte::number<T> lhs, xte::number<U> rhs) noexcept {
-			return lhs.value <=> rhs.value;
+			return xte::approx_equal(lhs.value, rhs.value)
+				? std::strong_ordering::equal
+				: xte::less(lhs, rhs)
+					? std::strong_ordering::less
+					: std::strong_ordering::greater;
 		}
-
-		[[nodiscard]] friend constexpr auto operator<=>(xte::number<T> lhs, auto&& rhs) XTE_ARROW(
-			lhs.value <=> rhs
-		)
 
 		template<typename U>
 		[[nodiscard]] friend constexpr bool operator==(xte::number<T> lhs, xte::number<U> rhs) noexcept {
-			return lhs.value == rhs.value;
+			return xte::approx_equal(lhs.value, rhs.value);
 		}
 
 		[[nodiscard]] constexpr xte::number<T> operator+() const noexcept {
 			return *this;
 		}
 
-		constexpr auto&& operator+=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::as_unsigned(lhs.value) + xte::as_unsigned(rhs);
-		}
-
-		[[nodiscard]] friend constexpr xte::number<T> operator+(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator+(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs += rhs;
 		}
 
-		constexpr auto&& operator++(this auto&& lhs) noexcept {
-			return lhs += 1;
+		[[nodiscard]] friend constexpr xte::number<T> operator+(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs += rhs;
+		}
+
+		template<typename U>
+		constexpr xte::number<T>& operator+=(xte::number<U> rhs) & noexcept {
+			return *this += rhs.value;
+		}
+
+		constexpr xte::number<T>& operator+=(xte::is_number auto rhs) & noexcept {
+			this->value = static_cast<T>(xte::add(this->value, rhs));
+			return *this;
+		}
+
+		constexpr xte::number<T>& operator++() & noexcept {
+			return *this += 1;
 		}
 
 		constexpr xte::number<T> operator++(int) noexcept {
@@ -84,47 +109,91 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::number<T> operator-() const noexcept {
-			return -xte::as_unsigned(*this);
+			return -xte::as_unsigned(this->value);
 		}
 
-		constexpr auto&& operator-=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::as_unsigned(lhs.value) - xte::as_unsigned(rhs);
-		}
-
-		[[nodiscard]] friend constexpr xte::number<T> operator-(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator-(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs -= rhs;
 		}
 
-		constexpr auto&& operator--(this auto&& lhs) noexcept {
-			return lhs -= 1;
+		[[nodiscard]] friend constexpr xte::number<T> operator-(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs -= rhs;
+		}
+
+		template<typename U>
+		constexpr xte::number<T>& operator-=(xte::number<U> rhs) & noexcept {
+			return *this -= rhs.value;
+		}
+
+		constexpr xte::number<T>& operator-=(xte::is_number auto rhs) & noexcept {
+			this->value = static_cast<T>(xte::sub(this->value, rhs));
+			return *this;
+		}
+
+		constexpr xte::number<T>& operator--() & noexcept {
+			return *this -= 1;
 		}
 
 		constexpr xte::number<T> operator--(int) noexcept {
 			return xte::exchange(*this, *this - 1);
 		}
 
-		constexpr auto&& operator*=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::as_unsigned(lhs.value) * xte::as_unsigned(rhs);
-		}
-
-		[[nodiscard]] friend constexpr xte::number<T> operator*(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator*(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs *= rhs;
 		}
 
-		constexpr auto&& operator/=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::as_unsigned(lhs.value) / xte::as_unsigned(rhs);
+		[[nodiscard]] friend constexpr xte::number<T> operator*(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs *= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator/(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		constexpr xte::number<T>& operator*=(xte::number<U> rhs) & noexcept {
+			return *this *= rhs.value;
+		}
+
+		constexpr xte::number<T>& operator*=(xte::is_number auto rhs) & noexcept {
+			this->value = xte::cast<T>(xte::mul(this->value, rhs));
+			return *this;
+		}
+
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator/(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs /= rhs;
 		}
 
-		constexpr auto&& operator%=(this auto&& lhs, T rhs) noexcept {
-			return xte::rem(lhs.value, rhs);
+		[[nodiscard]] friend constexpr xte::number<T> operator/(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs /= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator%(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		constexpr xte::number<T>& operator/=(xte::number<U> rhs) & noexcept {
+			return *this /= rhs.value;
+		}
+
+		constexpr xte::number<T>& operator/=(xte::is_number auto rhs) & noexcept {
+			this->value = xte::cast<T>(xte::div(this->value, rhs));
+			return *this;
+		}
+
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator%(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs %= rhs;
+		}
+
+		[[nodiscard]] friend constexpr xte::number<T> operator%(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs %= rhs;
+		}
+
+		template<typename U>
+		constexpr xte::number<T>& operator%=(xte::number<U> rhs) & noexcept {
+			return *this %= rhs.value;
+		}
+
+		constexpr xte::number<T>& operator%=(xte::is_number auto rhs) & noexcept {
+			this->value = xte::cast<T>(xte::rem(this->value, rhs));
+			return *this;
 		}
 
 		[[nodiscard]] constexpr xte::number<T> operator~() const noexcept {
@@ -135,75 +204,113 @@ namespace xte {
 			}
 		}
 
-		constexpr auto&& operator&=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::number<T>::bitwise(lhs.value, rhs, XTE_LIFT_INFIX(&));
-		}
-
-		[[nodiscard]] friend constexpr xte::number<T> operator&(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator&(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs &= rhs;
 		}
 
-		constexpr auto&& operator|=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::number<T>::bitwise(lhs.value, rhs, XTE_LIFT_INFIX(|));
+		[[nodiscard]] friend constexpr xte::number<T> operator&(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs &= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator|(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		constexpr xte::number<T>& operator&=(xte::number<U> rhs) & noexcept {
+			return *this &= rhs.value;
+		}
+
+		constexpr xte::number<T>& operator&=(xte::is_number auto rhs) & noexcept {
+			this->_bitwise(xte::cast<T>(rhs), XTE_LIFT_INFIX(&));
+			return *this;
+		}
+
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator|(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs |= rhs;
 		}
 
-		constexpr auto&& operator^=(this auto&& lhs, T rhs) noexcept {
-			return lhs = xte::number<T>::bitwise(lhs.value, rhs, XTE_LIFT_INFIX(^));
+		[[nodiscard]] friend constexpr xte::number<T> operator|(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs |= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator^(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		constexpr xte::number<T>& operator|=(xte::number<U> rhs) & noexcept {
+			return *this |= rhs.value;
+		}
+
+		constexpr xte::number<T>& operator|=(xte::is_number auto rhs) & noexcept {
+			this->_bitwise(xte::cast<T>(rhs), XTE_LIFT_INFIX(|));
+			return *this;
+		}
+
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator^(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs ^= rhs;
 		}
 
-		constexpr auto&& operator<<=(this auto&& lhs, T rhs) noexcept {
-			if constexpr (xte::is_float<T>) {
-				return lhs = lhs.value * xte::pow(2, rhs);
-			} else {
-				if (rhs < 0) {
-					return lhs >>= xte::abs(rhs);
-				}
-				return lhs = xte::lshift(lhs.value, rhs);
-			}
+		[[nodiscard]] friend constexpr xte::number<T> operator^(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs ^= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator<<(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		constexpr xte::number<T>& operator^=(xte::number<U> rhs) & noexcept {
+			return *this ^= rhs.value;
+		}
+
+		constexpr xte::number<T>& operator^=(xte::is_number auto rhs) & noexcept {
+			this->_bitwise(xte::cast<T>(rhs), XTE_LIFT_INFIX(^));
+			return *this;
+		}
+
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator<<(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs <<= rhs;
 		}
 
-		constexpr auto&& operator>>=(this auto&& lhs, T rhs) noexcept {
-			if constexpr (xte::is_float<T>) {
-				return lhs = lhs.value / xte::pow(2, rhs);
-			} else {
-				if (rhs < 0) {
-					return lhs <<= xte::abs(rhs);
-				}
-				return lhs = xte::rshift(lhs.value, rhs);
-			}
+		[[nodiscard]] friend constexpr xte::number<T> operator<<(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs <<= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator>>(xte::number<T> lhs, T rhs) noexcept {
+		template<typename U>
+		constexpr xte::number<T>& operator<<=(xte::number<U> rhs) & noexcept {
+			return *this <<= rhs.value;
+		}
+
+		constexpr xte::number<T>& operator<<=(xte::is_number auto rhs) & noexcept {
+			if constexpr (xte::is_float<T>) {
+				this->value = xte::cast<T>(this->value * xte::pow(static_cast<T>(2), rhs));
+			} else {
+				if (rhs < 0) {
+					return *this >>= xte::abs(rhs);
+				}
+				this->value = xte::lshift(this->value, xte::cast<xte::uz>(rhs));
+			}
+			return *this;
+		}
+
+		template<typename U>
+		[[nodiscard]] friend constexpr xte::number<T> operator>>(xte::number<T> lhs, xte::number<U> rhs) noexcept {
 			return lhs >>= rhs;
 		}
 
-	private:
-		[[nodiscard]] static constexpr xte::number<T> bitwise(xte::number<T> lhs, xte::number<T> rhs, auto op) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator>>(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+			return lhs >>= rhs;
+		}
+
+		template<typename U>
+		constexpr xte::number<T>& operator>>=(xte::number<U> rhs) & noexcept {
+			return *this >>= rhs.value;
+		}
+
+		constexpr xte::number<T>& operator>>=(xte::is_number auto rhs) & noexcept {
 			if constexpr (xte::is_float<T>) {
-				T result = 0;
-				T mask = std::numeric_limits<T>::min();
-				while (mask <= xte::highest<T>) {
-					mask <<= 1;
-					if (op(xte::rem(lhs.value, mask) >= mask, xte::rem(rhs.value, mask) >= mask)) {
-						result += mask >> 1;
-					}
-				}
-				return result;
+				this->value = xte::cast<T>(this->value / xte::pow(static_cast<T>(2), rhs));
 			} else {
-				return op(lhs.value, rhs.value);
+				if (rhs < 0) {
+					return *this <<= xte::abs(rhs);
+				}
+				this->value = xte::rshift(this->value, xte::cast<xte::uz>(rhs));
 			}
+			return *this;
 		}
 	};
 

@@ -15,6 +15,7 @@
 #	include "../math/digits.hpp"
 #	include "../math/is_single_bit.hpp"
 #	include "../math/max.hpp"
+#	include "../math/number.hpp"
 #	include "../math/number_format_config.hpp"
 #	include "../math/rshift.hpp"
 #	include "../math/sub_checked.hpp"
@@ -22,6 +23,9 @@
 #	include "../math/width.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../preproc/lift.hpp"
+#	include "../trait/is_int.hpp"
+#	include "../trait/is_number.hpp"
 #	include "../trait/is_same.hpp"
 #	include "../trait/is_unsigned.hpp"
 #	include "../util/error.hpp"
@@ -29,7 +33,6 @@
 #	include "../util/numbers.hpp"
 #	include "../util/xvalue.hpp"
 #	include <compare>
-#	include <functional>
 #	include <ranges>
 
 namespace xte {
@@ -301,14 +304,16 @@ namespace xte {
 
 		constexpr xte::big_int<T>& operator=(xte::big_int<T>&&) & noexcept = default;
 
-		template<xte::is_int U>
+		template<xte::is_number U>
 		[[nodiscard]] explicit constexpr operator U() const noexcept {
-			U result = 0;
+			xte::number<U> result;
 			xte::uz shift = 0;
 			for (T digit : this->_data) {
-				result |= xte::lshift(static_cast<U>(digit), shift);
-				if ((shift += xte::width<T>) >= xte::width<U>) {
-					break;
+				result += xte::number<U>(digit) << shift;
+				if constexpr (xte::is_int<U>) {
+					if ((shift += xte::width<T>) >= xte::width<U>) {
+						break;
+					}
 				}
 			}
 			return this->_neg ? -result : result;
@@ -522,7 +527,7 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator&=(xte::big_int<T> rhs) noexcept(false) {
-			this->_bitwise(xte::xvalue(rhs), std::bit_and<T>());
+			this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(&));
 			return *this;
 		}
 
@@ -531,7 +536,7 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator|=(xte::big_int<T> rhs) noexcept(false) {
-			this->_bitwise(xte::xvalue(rhs), std::bit_or<T>());
+			this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(|));
 			return *this;
 		}
 
@@ -540,7 +545,7 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator^=(xte::big_int<T> rhs) noexcept(false) {
-			this->_bitwise(xte::xvalue(rhs), std::bit_xor<T>());
+			this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(^));
 			return *this;
 		}
 
