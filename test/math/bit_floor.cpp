@@ -1,5 +1,5 @@
 #include <xte/math/bit_floor.hpp>
-#include <limits>
+#include <xte/math/lowest.hpp>
 
 static_assert(xte::bit_floor(0) == 0);
 static_assert(xte::bit_floor(1) == 1);
@@ -15,7 +15,7 @@ static_assert(xte::bit_floor(511) == 256);
 static_assert(xte::bit_floor(1023) == 512);
 static_assert(xte::bit_floor(2047) == 1024);
 
-static_assert(xte::bit_floor(-1) == std::numeric_limits<int>::lowest());
-static_assert(xte::bit_floor(-2) == std::numeric_limits<int>::lowest());
-static_assert(xte::bit_floor(-3) == std::numeric_limits<int>::lowest());
-static_assert(xte::bit_floor(-4) == std::numeric_limits<int>::lowest());
+static_assert(xte::bit_floor(-1) == xte::lowest<int>);
+static_assert(xte::bit_floor(-2) == xte::lowest<int>);
+static_assert(xte::bit_floor(-3) == xte::lowest<int>);
+static_assert(xte::bit_floor(-4) == xte::lowest<int>);

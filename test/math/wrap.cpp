@@ -1,6 +1,7 @@
 #include <xte/math/approx_equal.hpp>
+#include <xte/math/highest.hpp>
+#include <xte/math/lowest.hpp>
 #include <xte/math/wrap.hpp>
-#include <limits>
 
 static_assert(xte::wrap(0, 1, 3) == 3);
 static_assert(xte::wrap(1, 1, 3) == 1);
@@ -17,8 +18,8 @@ static_assert(xte::wrap(2, 1, -1) == -1);
 static_assert(xte::approx_equal(xte::wrap(3.5, 3.5, 0), 3.5));
 static_assert(xte::approx_equal(xte::wrap(4.5, 3.5, 0), 0));
 
-constexpr auto min = std::numeric_limits<short>::min();
-constexpr auto max = std::numeric_limits<short>::max();
+constexpr auto min = xte::lowest<short>;
+constexpr auto max = xte::highest<short>;
 static_assert(xte::wrap(0, 0, 0) == 0);
 static_assert(xte::wrap(min, 0, 0) == 0);
 static_assert(xte::wrap(max, 0, 0) == 0);

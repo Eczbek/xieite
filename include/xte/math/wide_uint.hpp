@@ -26,7 +26,6 @@
 #	include <algorithm>
 #	include <compare>
 #	include <initializer_list>
-#	include <limits>
 #	include <ranges>
 
 namespace DETAIL_XTE::wide_uint {

@@ -3,6 +3,7 @@
 #
 #	include "../math/abs.hpp"
 #	include "../math/as_unsigned.hpp"
+#	include "../math/highest.hpp"
 #	include "../math/lshift.hpp"
 #	include "../math/pow.hpp"
 #	include "../math/rem.hpp"
@@ -193,7 +194,7 @@ namespace xte {
 			if constexpr (xte::is_float<T>) {
 				T result = 0;
 				T mask = std::numeric_limits<T>::min();
-				while (mask <= std::numeric_limits<T>::max()) {
+				while (mask <= xte::highest<T>) {
 					mask <<= 1;
 					if (op(xte::rem(lhs.value, mask) >= mask, xte::rem(rhs.value, mask) >= mask)) {
 						result += mask >> 1;

@@ -1,12 +1,13 @@
 #include <xte/math/abs.hpp>
+#include <xte/math/highest.hpp>
+#include <xte/math/lowest.hpp>
 #include <xte/preproc/feature.hpp>
 #include <xte/util/numbers.hpp>
-#include <limits>
 
 static_assert(xte::abs(0) == 0);
 static_assert(xte::abs(-1) == 1);
-static_assert(xte::abs(std::numeric_limits<int>::lowest()) == (std::numeric_limits<int>::max() + 1u));
+static_assert(xte::abs(xte::lowest<int>) == (xte::highest<int> + 1u));
 
 #if XTE_FEATURE_INT_8
-static_assert(xte::abs(std::numeric_limits<xte::i8>::min()) == xte::u8(128));
+static_assert(xte::abs(xte::lowest<xte::i8>) == xte::u8(128));
 #endif

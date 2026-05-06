@@ -5,13 +5,14 @@
 #	include "../data/opt.hpp"
 #	include "../math/abs.hpp"
 #	include "../math/approx_equal.hpp"
+#	include "../math/highest.hpp"
 #	include "../math/is_finite.hpp"
+#	include "../math/lowest.hpp"
 #	include "../math/mul.hpp"
 #	include "../preproc/has_builtin.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../util/assign.hpp"
-#	include <limits>
 #	include <type_traits>
 
 namespace xte {
@@ -24,7 +25,7 @@ namespace xte {
 		}
 #	endif
 		bool overflow;
-		(void)(!xte::is_finite(prod) || ... || (xte::approx_equal(prod, 0) || (overflow = !xte::is_finite(rest) || (xte::abs(static_cast<common_type>(rest)) > (xte::abs(((prod < 0) == (rest < 0)) ? std::numeric_limits<common_type>::max() : std::numeric_limits<common_type>::lowest()) / xte::abs(prod)))) || !xte::assign(prod, prod * static_cast<common_type>(rest))));
+		(void)(!xte::is_finite(prod) || ... || (xte::approx_equal(prod, 0) || (overflow = !xte::is_finite(rest) || (xte::abs(static_cast<common_type>(rest)) > (xte::abs(((prod < 0) == (rest < 0)) ? xte::highest<common_type> : xte::lowest<common_type>) / xte::abs(prod)))) || !xte::assign(prod, prod * static_cast<common_type>(rest))));
 		return overflow ? xte::null : xte::opt(prod);
 	}
 }

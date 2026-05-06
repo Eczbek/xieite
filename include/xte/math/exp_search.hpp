@@ -4,6 +4,8 @@
 #	include "../math/approx_equal.hpp"
 #	include "../math/avg.hpp"
 #	include "../math/diff.hpp"
+#	include "../math/highest.hpp"
+#	include "../math/lowest.hpp"
 #	include "../math/minmax.hpp"
 #	include "../math/mul_checked.hpp"
 #	include "../meta/end.hpp"
@@ -47,7 +49,7 @@ namespace xte {
 						min = *next;
 						continue;
 					}
-					return xte::exp_search(predicate, mid, std::numeric_limits<T>::lowest());
+					return xte::exp_search(predicate, mid, xte::lowest<T>);
 				}
 				return xte::exp_search(predicate, mid, min);
 			}
@@ -59,7 +61,7 @@ namespace xte {
 				max = *next;
 				continue;
 			}
-			return xte::exp_search(predicate, mid, std::numeric_limits<T>::max());
+			return xte::exp_search(predicate, mid, xte::highest<T>);
 		}
 		return xte::exp_search(predicate, mid, max);
 	}

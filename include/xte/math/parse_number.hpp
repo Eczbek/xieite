@@ -34,17 +34,19 @@ namespace DETAIL_XTE {
 				T value = 0;
 				bool neg = config.minus.contains(string[result.index]);
 				for (xte::uz i = result.index + (neg || config.plus.contains(string[result.index])); i < string.size(); result.index = ++i) {
-					xte::uz digit = digits.find(string[i]);
-					if (!~digit) {
-						break;
-					}
-					if (allow_overflow) {
-						value = xte::add(xte::mul(value, radix), static_cast<T>(digit));
-					} else if (auto prod = xte::mul_checked(value, radix)) {
-						if (auto sum = xte::add_checked(*prod, static_cast<T>(digit + neg))) {
-							value = *sum - neg;
+					if (xte::uz digit = digits.find(string[i]); ~digit) {
+						if (allow_overflow) {
+							value = xte::add(xte::mul(value, radix), static_cast<T>(digit));
+							continue;
+						}
+						if (auto prod = xte::mul_checked(value, radix)) {
+							if (auto sum = xte::add_checked(*prod, static_cast<T>(digit + neg))) {
+								value = *sum - neg;
+								continue;
+							}
 						}
 					}
+					break;
 				}
 				return neg ? -value : value;
 			};

@@ -5,11 +5,12 @@
 #	include "../data/opt.hpp"
 #	include "../func/unfold.hpp"
 #	include "../math/add.hpp"
+#	include "../math/highest.hpp"
 #	include "../math/is_finite.hpp"
+#	include "../math/lowest.hpp"
 #	include "../preproc/has_builtin.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
-#	include <limits>
 #	include <type_traits>
 
 namespace xte {
@@ -21,7 +22,7 @@ namespace xte {
 			return (... || __builtin_add_overflow(sum, static_cast<common_type>(addends), &sum)) ? xte::null : xte::opt(sum);
 		}
 #	endif
-		return (!xte::is_finite(augend) || ... || (!xte::is_finite(addends) || ((sum < 0) ? ((std::numeric_limits<common_type>::lowest() - sum) > static_cast<common_type>(addends)) : ((std::numeric_limits<common_type>::max() - sum) < static_cast<common_type>(addends))) || (sum += static_cast<common_type>(addends), false))) ? xte::null : xte::opt(sum);
+		return (!xte::is_finite(augend) || ... || (!xte::is_finite(addends) || ((sum < 0) ? ((xte::lowest<common_type> - sum) > static_cast<common_type>(addends)) : ((xte::highest<common_type> - sum) < static_cast<common_type>(addends))) || (sum += static_cast<common_type>(addends), false))) ? xte::null : xte::opt(sum);
 	};
 }
 

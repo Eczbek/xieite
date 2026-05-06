@@ -11,7 +11,7 @@ namespace xte {
 	struct error : std::exception, xte::fixed_string<n> {
 		using xte::fixed_string<n>::fixed_string;
 
-		virtual constexpr const char* what() const noexcept override {
+		[[nodiscard]] virtual constexpr const char* what() const noexcept override {
 			return this->data();
 		}
 	};

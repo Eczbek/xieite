@@ -6,11 +6,11 @@
 #	include "../math/abs.hpp"
 #	include "../math/approx_equal.hpp"
 #	include "../math/is_finite.hpp"
+#	include "../math/lowest.hpp"
 #	include "../math/sign.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../trait/is_signed.hpp"
-#	include <limits>
 #	include <type_traits>
 
 namespace xte {
@@ -27,7 +27,7 @@ namespace xte {
 			auto quot = static_cast<unsigned_type>((static_cast<unsigned_type>(xte::abs(dividend)) / ... / static_cast<unsigned_type>(xte::abs(divisors))));
 			auto sign = xte::sign(dividend, divisors...);
 			if constexpr (xte::is_signed<common_type>) {
-				if ((sign > 0) && (quot == xte::abs(std::numeric_limits<common_type>::min()))) {
+				if ((sign > 0) && (quot == xte::abs(xte::lowest<common_type>))) {
 					return xte::opt<common_type>(xte::null);
 				}
 			}

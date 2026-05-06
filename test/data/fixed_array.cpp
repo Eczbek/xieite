@@ -24,3 +24,9 @@ static_assert(([] {
 })());
 
 static_assert(xte::fixed_array { 0, 1, 2 } < xte::fixed_array { 0, 1, 3 });
+
+static_assert(([] {
+	xte::fixed_array a = { 1 };
+	a = xte::fixed_array { 2 };
+	return a[0] == 2;
+})());

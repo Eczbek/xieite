@@ -4,13 +4,14 @@
 #	include "../data/null.hpp"
 #	include "../data/opt.hpp"
 #	include "../func/unfold.hpp"
+#	include "../math/highest.hpp"
 #	include "../math/is_finite.hpp"
+#	include "../math/lowest.hpp"
 #	include "../math/sub.hpp"
 #	include "../preproc/has_builtin.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../util/assign.hpp"
-#	include <limits>
 #	include <type_traits>
 
 namespace xte {
@@ -22,7 +23,7 @@ namespace xte {
 			return (... || __builtin_sub_overflow(diff, static_cast<common_type>(subtrahends), &diff)) ? xte::null : xte::opt(diff);
 		}
 #	endif
-		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(subtrahends) && ((subtrahends < 0) ? ((std::numeric_limits<common_type>::max() + static_cast<common_type>(subtrahends)) < diff) : ((std::numeric_limits<common_type>::lowest() + static_cast<common_type>(subtrahends)) < diff))) || (diff -= static_cast<common_type>(subtrahends), false))) ? xte::null : xte::opt(diff);
+		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(subtrahends) && ((subtrahends < 0) ? ((xte::highest<common_type> + static_cast<common_type>(subtrahends)) < diff) : ((xte::lowest<common_type> + static_cast<common_type>(subtrahends)) < diff))) || (diff -= static_cast<common_type>(subtrahends), false))) ? xte::null : xte::opt(diff);
 	}
 }
 
