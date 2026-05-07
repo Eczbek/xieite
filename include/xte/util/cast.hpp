@@ -3,6 +3,7 @@
 #
 #	include "../func/visitor.hpp"
 #	include "../math/highest.hpp"
+#	include "../math/less.hpp"
 #	include "../math/lowest.hpp"
 #	include "../math/wrap.hpp"
 #	include "../preproc/arrow.hpp"
@@ -21,24 +22,24 @@ namespace xte {
 			static_cast<T>(xte::at<0>(XTE_FWD(args)...)),
 			T(XTE_FWD(args)...)
 		),
-		[]<xte::is_number U>[[nodiscard]](U arg) static noexcept {
+		[][[nodiscard]](xte::is_number auto arg) static noexcept requires(xte::is_number<T>) {
 			if constexpr (xte::is_float<T>) {
-				if (arg > xte::highest<U>) {
-					if constexpr (std::numeric_limits<U>::has_infinity) {
-						return std::numeric_limits<U>::infinity();
+				if (xte::less(xte::highest<T>, arg)) {
+					if constexpr (std::numeric_limits<T>::has_infinity) {
+						return std::numeric_limits<T>::infinity();
 					} else {
-						return xte::highest<U>;
+						return xte::highest<T>;
 					}
 				}
-				if (arg < xte::lowest<U>) {
-					if constexpr (std::numeric_limits<U>::has_infinity) {
-						return -std::numeric_limits<U>::infinity();
+				if (xte::less(arg, xte::lowest<T>)) {
+					if constexpr (std::numeric_limits<T>::has_infinity) {
+						return -std::numeric_limits<T>::infinity();
 					} else {
-						return xte::lowest<U>;
+						return xte::lowest<T>;
 					}
 				}
-			} else if constexpr (xte::is_int<T>) {
-				if ((arg > xte::highest<T>) || (arg < xte::lowest<T>)) {
+			} else if constexpr (xte::is_int<T> && xte::is_float<decltype(arg)>) {
+				if (xte::less(xte::highest<T>, arg) || xte::less(arg, xte::lowest<T>)) {
 					return static_cast<T>(xte::wrap(arg, xte::lowest<T>, xte::highest<T>));
 				}
 			}
