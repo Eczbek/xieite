@@ -52,7 +52,7 @@ namespace DETAIL_XTE {
 			};
 			result.value = parse_int();
 			if constexpr (xte::is_float<T>) {
-				if (config.point.contains(string[result.index])) {
+				if ((result.index < string.size()) && config.point.contains(string[result.index])) {
 					T pow = 1;
 					if (!radix_is_whole || (radix > 0)) {
 						pow = xte::sign(result.value);
