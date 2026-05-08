@@ -6,3 +6,5 @@ static_assert(xte::eval<bool>("!0"));
 static_assert(xte::eval<int>("2 + 2 * 2") == 6);
 static_assert(xte::eval<int>("pow(abs(-3.5) * 2, 3) - 1") == 342);
 static_assert(xte::approx_equal(xte::eval<double>("0.1 + 0.2"), 0.3));
+static_assert(xte::eval<bool>("pow(pow(2.3, 58), 1. / 58) == 2.3"));
+static_assert(xte::eval<bool>("pow(25, 25) == 88817841970012523233890533447265625"));
