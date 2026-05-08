@@ -10,3 +10,5 @@ static_assert(xte::eval<bool>("pow(pow(2.3, 58), 1. / 58) == 2.3"));
 static_assert(xte::eval<bool>("pow(33, 33) == 129110040087761027839616029934664535539337183380513"));
 static_assert(xte::eval<bool>("floor(tau + pi) == 9"));
 static_assert(xte::eval<bool>("inf > 9999999"));
+static_assert(xte::eval<int>("true && 5") == 5);
+static_assert(xte::eval<int>("false || 5") == 5);
