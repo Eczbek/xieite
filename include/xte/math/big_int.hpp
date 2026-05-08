@@ -215,7 +215,7 @@ namespace xte {
 			}
 			if (exp < 0) {
 				if (!base) {
-					throw xte::error("must not take power of zero to negative exponent");
+					throw xte::error("power of zero to negative exponent");
 				}
 				return 0;
 			}
@@ -243,13 +243,14 @@ namespace xte {
 	public:
 		using value_type = T;
 
-		template<xte::is_int U = T>
-		[[nodiscard]] explicit(false) constexpr big_int(U x = 0) noexcept(false)
+		template<xte::is_number U = T>
+		[[nodiscard]] explicit(!xte::is_int<U>)
+		constexpr big_int(U x = 0) noexcept(false)
 		: _neg(x < 0) {
-			auto abs = xte::abs(x);
+			auto abs = xte::number(xte::abs(x));
 			do {
 				this->_data.push(static_cast<T>(abs));
-			} while ((abs = xte::rshift(abs, xte::width<T>)));
+			} while (abs >>= xte::width<T>);
 		}
 
 		[[nodiscard]] explicit(false) constexpr big_int(const xte::big_int<T>&) noexcept(false) = default;
@@ -288,17 +289,7 @@ namespace xte {
 
 		template<xte::is_int Radix = xte::uz>
 		[[nodiscard]] explicit constexpr big_int(xte::string_view string, Radix radix = 10uz, const xte::number_format_config& config = {}) noexcept(false)
-		: xte::big_int<T>(0) {
-			bool neg = config.minus.contains(string[0]);
-			for (char c : string.slice(neg || config.plus.contains(string[0]))) {
-				xte::uz digit = config.digits.find(c);
-				if (!~digit) {
-					break;
-				}
-				(*this *= radix) += digit;
-			}
-			this->_neg = neg;
-		}
+		: xte::big_int<T>(xte::big_int<T>::parse(string, radix, config)) {}
 
 		constexpr xte::big_int<T>& operator=(const xte::big_int<T>&) & noexcept(false) = default;
 
@@ -475,7 +466,7 @@ namespace xte {
 
 		constexpr xte::big_int<T>& operator/=(const xte::big_int<T>& rhs) noexcept(false) {
 			if (!rhs) {
-				throw xte::error("must not divide by zero");
+				throw xte::error("division by zero");
 			}
 			if ((this->_data.size() < 3) && (rhs._data.size() < 3)) {
 				auto [lo, hi] = xte::wide_uint<T>(this->_data[0], (this->_data.size() > 1) ? this->_data[1] : 0) / xte::wide_uint<T>(rhs._data[0], (rhs._data.size() > 1) ? rhs._data[1] : 0);
@@ -500,7 +491,7 @@ namespace xte {
 
 		constexpr xte::big_int<T>& operator%=(const xte::big_int<T>& rhs) noexcept(false) {
 			if (!rhs) {
-				throw xte::error("must not take remainder of division by zero");
+				throw xte::error("remainder of division by zero");
 			}
 			if (!*this || (this->_data == rhs._data)) {
 				return *this = 0;
@@ -589,10 +580,10 @@ namespace xte {
 
 		[[nodiscard]] constexpr xte::big_int<T> root(const xte::big_int<T>& degree) const noexcept(false) {
 			if (this->_neg) {
-				throw xte::error("must not take root of negative radicand");
+				throw xte::error("root of negative radicand");
 			}
 			if (!degree) {
-				throw xte::error("must not take root of zeroth degree");
+				throw xte::error("root of zeroth degree");
 			}
 			if (*this == 1) {
 				return *this;
@@ -615,16 +606,41 @@ namespace xte {
 				return 0;
 			}
 			if (this->_neg) {
-				throw xte::error("must not take logarithm of negative anti-logarithm");
+				throw xte::error("logarithm of negative anti-logarithm");
 			}
 			if (base == 1) {
-				throw xte::error("must not take logarithm to unary base");
+				throw xte::error("logarithm to unary base");
 			}
 			if (base._neg) {
-				throw xte::error("must not take logarithm to negative base");
+				throw xte::error("logarithm to negative base");
 			}
 			return this->_log2() / base._log2();
 		}
+
+		static constexpr struct parse {
+			template<xte::is_int Radix = xte::uz>
+			[[nodiscard]] static constexpr xte::big_int<T> operator()(xte::string_view string, Radix radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
+				return xte::big_int<T>::parse::with_index(string, radix, config).value;
+			}
+
+			template<xte::is_int Radix = xte::uz>
+			[[nodiscard]] static constexpr auto with_index(xte::string_view string, Radix radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
+				struct { xte::big_int<T> value = 0; xte::uz index = 0; } result;
+				xte::string_view digits = config.digits.slice(0, xte::max(2, static_cast<xte::uz>(xte::abs(radix))));
+				bool neg = config.minus.contains(string[0]);
+				for (xte::uz i = neg || config.plus.contains(string[0]); i < string.size(); result.index = ++i) {
+					if (xte::uz digit = digits.find(string[i]); ~digit) {
+						(result.value *= radix) += digit;
+						continue;
+					}
+					break;
+				}
+				if (result.value) {
+					result.value._neg = neg;
+				}
+				return result;
+			}
+		} parse {};
 
 		template<xte::is_int Radix = xte::uz>
 		[[nodiscard]] constexpr xte::string str(this auto&& self, Radix radix = 10uz, const xte::number_format_config& config = {}) noexcept(false) {

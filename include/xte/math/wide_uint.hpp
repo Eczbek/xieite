@@ -237,7 +237,7 @@ namespace xte {
 
 		constexpr xte::wide_uint<T>& operator/=(const xte::wide_uint<T>& rhs) & noexcept(false) {
 			if (!rhs) {
-				throw xte::error("must not divide by zero");
+				throw xte::error("division by zero");
 			}
 			if (!this->hi && !rhs.hi) {
 				this->lo /= rhs.lo;
@@ -255,7 +255,7 @@ namespace xte {
 
 		constexpr xte::wide_uint<T>& operator%=(const xte::wide_uint<T>& rhs) & noexcept(false) {
 			if (!rhs) {
-				throw xte::error("must not take remainder of division by zero");
+				throw xte::error("remainder of division by zero");
 			}
 			if (!this->hi && !rhs.hi) {
 				this->lo %= rhs.lo;
