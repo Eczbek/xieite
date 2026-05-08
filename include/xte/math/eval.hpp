@@ -13,6 +13,8 @@
 #	include "../math/approx_greater_equal.hpp"
 #	include "../math/approx_less_equal.hpp"
 #	include "../math/big_int.hpp"
+#	include "../math/ceil.hpp"
+#	include "../math/floor.hpp"
 #	include "../math/less.hpp"
 #	include "../math/mod.hpp"
 #	include "../math/mul_checked.hpp"
@@ -35,6 +37,7 @@
 #	include "../util/reconstruct.hpp"
 #	include "../util/xvalue.hpp"
 #	include <exception>
+#	include <limits>
 #	include <ranges>
 #	include <utility>
 
@@ -269,13 +272,37 @@ namespace xte {
 				return input.slice(tmp, pos - tmp);
 			};
 			auto function = [&] -> DETAIL_XTE::eval::data_type {
+				xte::uz start = pos;
 				xte::string_view id = identifier();
 				if (!id.size()) {
 					return primary();
 				}
 				whitespace();
+				struct var {
+					xte::string_view id;
+					[:^^DETAIL_XTE::eval::data_type():]* get;
+				};
+				static constexpr bool has_inf = std::numeric_limits<DETAIL_XTE::eval::float_type>::has_infinity;
+				for (const var& var : xte::fixed_array {
+					var("true", [] static -> DETAIL_XTE::eval::data_type { return true; }),
+					var("false", [] static -> DETAIL_XTE::eval::data_type { return false; }),
+					var("e", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::e_v<DETAIL_XTE::eval::float_type>; }),
+					var("pi", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::pi_v<DETAIL_XTE::eval::float_type>; }),
+					var("tau", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::pi_v<DETAIL_XTE::eval::float_type> * 2; }),
+					var("phi", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::phi_v<DETAIL_XTE::eval::float_type>; }),
+					has_inf ? var("inf", [] static -> DETAIL_XTE::eval::data_type {
+						if constexpr (has_inf) {
+							return std::numeric_limits<DETAIL_XTE::eval::float_type>::infinity();
+						}
+						std::unreachable();
+					}) : var("", nullptr)
+				}) {
+					if (id == var.id) {
+						return var.get();
+					}
+				}
 				if (input[pos] != '(') {
-					throw DETAIL_XTE::eval::error(pos, input, "argument list");
+					throw DETAIL_XTE::eval::error(start, xte::string("undefined variable: ") + id);
 				}
 				++pos;
 				xte::array<DETAIL_XTE::eval::data_type> args;
@@ -298,10 +325,20 @@ namespace xte {
 				struct func {
 					xte::string_view id;
 					xte::uz args;
-					[:^^DETAIL_XTE::eval::data_type(const xte::array<DETAIL_XTE::eval::data_type>&):]* ptr;
+					[:^^DETAIL_XTE::eval::data_type(xte::array<DETAIL_XTE::eval::data_type>):]* ptr;
 				};
 				for (const func& func : xte::fixed_array {
-					func("abs", 1, [](const xte::array<DETAIL_XTE::eval::data_type>& args) static -> DETAIL_XTE::eval::data_type {
+					func("floor", 1, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
+						return (args[0].tag == DETAIL_XTE::eval::data_type::float_tag)
+							? xte::floor(args[0].float_value)
+							: args[0];
+					}),
+					func("ceil", 1, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
+						return (args[0].tag == DETAIL_XTE::eval::data_type::float_tag)
+							? xte::ceil(args[0].float_value)
+							: args[0];
+					}),
+					func("abs", 1, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
 						switch (args[0].tag) {
 							case DETAIL_XTE::eval::data_type::unsigned_tag:
 							case DETAIL_XTE::eval::data_type::bool_tag:
@@ -315,7 +352,7 @@ namespace xte {
 						}
 						std::unreachable();
 					}),
-					func("pow", 2, [](const xte::array<DETAIL_XTE::eval::data_type>& args) static -> DETAIL_XTE::eval::data_type {
+					func("pow", 2, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
 						if ((args[0].tag == DETAIL_XTE::eval::data_type::float_tag) || (args[1].tag == DETAIL_XTE::eval::data_type::float_tag)) {
 							return xte::pow(static_cast<DETAIL_XTE::eval::float_type>(args[0]), static_cast<DETAIL_XTE::eval::float_type>(args[1]));
 						}
@@ -330,10 +367,10 @@ namespace xte {
 						} else if (args.size() != func.args) {
 							throw DETAIL_XTE::eval::error(pos, "expected " + xte::stringify_number(func.args) + " arguments, found " + xte::stringify_number(args.size()));
 						}
-						return func.ptr(args);
+						return func.ptr(xte::xvalue(args));
 					}
 				}
-				throw DETAIL_XTE::eval::error(pos, xte::string("undefined function: ") + id);
+				throw DETAIL_XTE::eval::error(start, xte::string("undefined function: ") + id);
 			};
 			auto prefix = [&] -> DETAIL_XTE::eval::data_type {
 				xte::uz start = pos;
