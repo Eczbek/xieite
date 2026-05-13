@@ -20,11 +20,11 @@ namespace xte {
 			none = 0b0000,
 			read = 0b0001,
 			write = 0b0010,
-			overwrite = 0b1010,
-			append = 0b0100,
+			overwrite = 0b0110,
+			append = 0b1000,
 			read_write = 0b0011,
-			read_overwrite = 0b1011,
-			read_append = 0b0101
+			read_overwrite = 0b0111,
+			read_append = 0b1001
 		};
 
 		[[nodiscard]] explicit(false) file() noexcept = default;
@@ -95,11 +95,11 @@ namespace xte {
 		}
 
 		[[nodiscard]] bool is_overwritable() const noexcept {
-			return *this && (std::to_underlying(this->_mode) & 0b1010);
+			return *this && (std::to_underlying(this->_mode) & 0b0100);
 		}
 
 		[[nodiscard]] bool is_appendable() const noexcept {
-			return *this && (std::to_underlying(this->_mode) & 0b0100);
+			return *this && (std::to_underlying(this->_mode) & 0b1000);
 		}
 
 		bool write(xte::string_view content) const noexcept {
@@ -139,8 +139,10 @@ namespace xte {
 		[[nodiscard]] int descriptor() const noexcept {
 #	if XTE_PLATFORM_WINDOWS
 			return ::_fileno(this->_stream.data());
-#	else
+#	elif XTE_PLATFORM_UNIX
 			return ::fileno(this->_stream.data());
+#	else
+			return -1;
 #	endif
 		}
 
