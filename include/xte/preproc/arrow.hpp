@@ -2,6 +2,7 @@
 #	define DETAIL_XTE_HEADER_PREPROC_ARROW
 #
 #	include "../preproc/any.hpp"
+#	include "../preproc/each.hpp"
 #	include "../preproc/eval.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/if.hpp"
@@ -24,6 +25,11 @@
 		-> decltype(auto) \
 		requires((static_cast<bool>(_cond) && requires { _then; }) __VA_OPT__(|| (!static_cast<bool>(_cond) && requires { __VA_ARGS__; }))) \
 		{ if constexpr (static_cast<bool>(_cond)) { return (_then); } __VA_OPT__(else { return (__VA_ARGS__); }) }
+#	define XTE_ARROW_FIRST(...) \
+		noexcept(XTE_EACH_DELIM(DETAIL_XTE_ARROW_FIRST_NOEX, ||, __VA_ARGS__)) \
+		-> decltype(auto) \
+		requires(XTE_EACH_DELIM(DETAIL_XTE_ARROW_FIRST_REQ, ||, __VA_ARGS__)) \
+		{ XTE_EVAL(DETAIL_XTE_ARROW_FIRST(__VA_ARGS__)) }
 #	define XTE_ARROW_CAST(_attr_spec, _arg, ...) \
 		__VA_OPT__(XTE_IF(XTE_ANY(_arg))(template<typename DETAIL_XTE_Arg>)() XTE_UNWRAP(_attr_spec)) operator \
 		decltype(XTE_IF(XTE_ANY(_arg))(([](XTE_UNWRAP(_arg)) -> decltype(auto) { return (__VA_ARGS__); })(static_cast<[:^^DETAIL_XTE_Arg():]*>(nullptr)()))(__VA_ARGS__)) \
@@ -45,6 +51,12 @@
 			(noexcept(decltype(this->_target) XTE_UNWRAP(_init))) \
 			__VA_OPT__(_delim DETAIL_XTE_ARROW_NOEX_NEXT XTE_PAREN() (_delim, __VA_ARGS__))
 #	define DETAIL_XTE_ARROW_NOEX_NEXT() DETAIL_XTE_ARROW_NOEX
+#	define DETAIL_XTE_ARROW_FIRST_NOEX(...) requires { requires(noexcept(__VA_ARGS__)); }
+#	define DETAIL_XTE_ARROW_FIRST_REQ(...) requires { __VA_ARGS__; }
+#	define DETAIL_XTE_ARROW_FIRST(_body, ...) \
+		__VA_OPT__(if constexpr (requires { _body; })) return (_body); \
+		__VA_OPT__(else DETAIL_XTE_ARROW_FIRST_NEXT XTE_PAREN() (__VA_ARGS__))
+#	define DETAIL_XTE_ARROW_FIRST_NEXT() DETAIL_XTE_ARROW_FIRST
 #	define DETAIL_XTE_ARROW_INIT(_target, _init, ...) \
 		XTE_UNWRAP(XTE_UNWRAP(_target)) XTE_UNWRAP(_init) XTE_IF(XTE_WRAPPED(XTE_UNWRAP(_target)))(...)() \
 		__VA_OPT__(, DETAIL_XTE_ARROW_INIT_NEXT XTE_PAREN() (__VA_ARGS__))
