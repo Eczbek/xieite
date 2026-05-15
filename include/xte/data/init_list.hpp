@@ -4,7 +4,6 @@
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../util/address.hpp"
-#	include "../util/like.hpp"
 #	include "../util/xvalue.hpp"
 #	include <initializer_list>
 
@@ -28,7 +27,7 @@ namespace DETAIL_XTE {
 		)
 
 		XTE_ARROW_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
-			xte::like<decltype(self)>(self._value)
+			XTE_FWD(self)._value
 		)
 
 		[[nodiscard]] constexpr auto* operator->(this auto&& self) noexcept {
