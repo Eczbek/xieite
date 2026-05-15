@@ -10,7 +10,7 @@ namespace xte {
 	concept is_derived_from_instance_of =
 		std::meta::is_class_type(std::meta::dealias(^^T))
 		&& std::meta::is_class_template(tmpl)
-		&& std::meta::any_of(
+		&& std::ranges::any_of(
 			xte::refl::bases_of(^^T) | std::views::transform(std::meta::type_of),
 			[](std::meta::info base) {
 				return std::meta::has_template_arguments(base)
