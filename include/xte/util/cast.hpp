@@ -6,7 +6,6 @@
 #	include "../math/less.hpp"
 #	include "../math/lowest.hpp"
 #	include "../math/wrap.hpp"
-#	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_int.hpp"
@@ -17,11 +16,15 @@
 namespace xte {
 	template<typename T>
 	constexpr auto cast = xte::visitor {
-		[][[nodiscard]](auto&&... args) static XTE_ARROW_CHOOSE(
-			(sizeof...(args) == 1),
-			static_cast<T>(xte::at<0>(XTE_FWD(args)...)),
-			T(XTE_FWD(args)...)
-		),
+		[][[nodiscard]](auto&&... args) static
+		noexcept(noexcept(T(XTE_FWD(args)...)))
+		requires(requires { T(XTE_FWD(args)...); }) {
+			if constexpr (sizeof...(args) == 1) {
+				return static_cast<T>(xte::at<0>(XTE_FWD(args)...));
+			} else {
+				return T(XTE_FWD(args)...);
+			}
+		},
 		[][[nodiscard]](xte::is_number auto arg) static noexcept requires(xte::is_number<T>) {
 			if constexpr (xte::is_float<T>) {
 				if (xte::less(xte::highest<T>, arg)) {
