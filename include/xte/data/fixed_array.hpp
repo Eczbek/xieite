@@ -149,6 +149,16 @@ namespace xte {
 	template<typename T, typename... Ts>
 	fixed_array(T, Ts...) -> fixed_array<std::common_type_t<T, Ts...>, -~sizeof...(Ts)>;
 
+	template<typename T, xte::uz n, xte::uz m>
+	[[nodiscard]] constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
+		xte::range_cmp(lhs, rhs)
+	)
+
+	template<typename T, xte::uz n, xte::uz m>
+	[[nodiscard]] constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
+		(n == m) && std::is_eq(lhs <=> rhs)
+	)
+
 	template<typename Lhs, typename Rhs>
 	requires(xte::is_derived_from_instance_of<xte::remove_cvref<Lhs>, ^^xte::fixed_array>
 		&& xte::is_derived_from_instance_of<xte::remove_cvref<Rhs>, ^^xte::fixed_array>
@@ -159,16 +169,6 @@ namespace xte {
 				xte::fixed_array { xte::xvalue(lhs)[i]..., xte::xvalue(rhs)[j]... }
 			), XTE_FWD(lhs), XTE_FWD(rhs))
 		), XTE_FWD(lhs), XTE_FWD(rhs))
-	)
-
-	template<typename T, xte::uz n, xte::uz m>
-	[[nodiscard]] constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
-		xte::range_cmp(lhs, rhs)
-	)
-
-	template<typename T, xte::uz n, xte::uz m>
-	[[nodiscard]] constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
-		(n == m) && std::is_eq(lhs <=> rhs)
 	)
 }
 

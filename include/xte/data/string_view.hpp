@@ -116,9 +116,8 @@ namespace xte {
 			return (index < this->_size) ? xte::string_view(this->_data + index, xte::min(this->_size - index, size)) : "";
 		}
 
-		constexpr void reset() noexcept {
-			this->_data = nullptr;
-			this->_size = 0;
+		[[nodiscard]] constexpr bool contains(xte::string_view substr) const noexcept {
+			return ~this->find(substr);
 		}
 
 		[[nodiscard]] constexpr xte::uz find(xte::string_view substr) const noexcept {
@@ -149,10 +148,6 @@ namespace xte {
 				}
 			}
 			return -1uz;
-		}
-
-		[[nodiscard]] constexpr bool contains(xte::string_view substr) const noexcept {
-			return ~this->find(substr);
 		}
 
 		[[nodiscard]] constexpr xte::uz find_any_of(xte::string_view chars) const noexcept {
@@ -222,6 +217,11 @@ namespace xte {
 
 		[[nodiscard]] constexpr xte::string_view between_any_of(xte::string_view chars) const noexcept {
 			return this->between_any_of(chars, chars);
+		}
+
+		constexpr void reset() noexcept {
+			this->_data = nullptr;
+			this->_size = 0;
 		}
 	};
 
