@@ -224,14 +224,14 @@ namespace xte {
 			return this->between_any_of(chars, chars);
 		}
 	};
-}
 
-[[nodiscard]] constexpr std::strong_ordering operator<=>(xte::string_view lhs, xte::string_view rhs) noexcept {
-	return xte::range_cmp(lhs, rhs);
-}
+	[[nodiscard]] constexpr std::strong_ordering operator<=>(xte::string_view lhs, xte::string_view rhs) noexcept {
+		return xte::range_cmp(lhs, rhs);
+	}
 
-[[nodiscard]] constexpr bool operator==(xte::string_view lhs, xte::string_view rhs) noexcept {
-	return (lhs.size() == rhs.size()) && std::is_eq(lhs <=> rhs);
+	[[nodiscard]] constexpr bool operator==(xte::string_view lhs, xte::string_view rhs) noexcept {
+		return (lhs.size() == rhs.size()) && std::is_eq(lhs <=> rhs);
+	}
 }
 
 namespace xte::literal::string_view {

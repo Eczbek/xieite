@@ -6,6 +6,8 @@
 #	include "../meta/wrap_value.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../trait/is_castable.hpp"
+#	include "../trait/is_derived_from_instance_of.hpp"
 #	include "../trait/is_instance_of.hpp"
 #	include "../trait/is_same.hpp"
 #	include "../trait/is_same_ignore_cvref.hpp"
@@ -33,16 +35,16 @@ namespace xte {
 		using reverse_iterator = std::reverse_iterator<T*>;
 		using const_reverse_iterator = std::reverse_iterator<const T*>;
 
-		[:^^T[n]:] _data;
+		[:^^T[n]:] DETAIL_XTE_data;
 
 		[[nodiscard]] constexpr auto* data(this auto&& self) noexcept {
-			return self._data;
+			return self.DETAIL_XTE_data;
 		}
 
 		static constexpr auto size = xte::wrap_value<n>();
 
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
-			return self._data;
+			return self.data();
 		}
 
 		[[nodiscard]] constexpr const T* cbegin() const noexcept {
@@ -50,7 +52,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr auto* end(this auto&& self) noexcept {
-			return self._data + n;
+			return self.data() + n;
 		}
 
 		[[nodiscard]] constexpr const T* cend() const noexcept {
@@ -74,31 +76,21 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr auto&& front(this auto&& self, xte::uz index = 0) noexcept {
-			return xte::like<decltype(self)>(self._data[index]);
+			return xte::like<decltype(self)>(self.data()[index]);
 		}
 		
 		[[nodiscard]] constexpr auto&& back(this auto&& self, xte::uz index = 0) noexcept {
-			return xte::like<decltype(self)>(self._data[n - index - 1]);
+			return xte::like<decltype(self)>(self.data()[n - index - 1]);
 		}
 
 		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
-			return XTE_FWD(self)._data[index];
+			return xte::like<decltype(self)>(self.data()[index]);
 		}
 
 		template<xte::uz index>
 		[[nodiscard]] constexpr auto&& get(this auto&& self) noexcept {
-			return XTE_FWD(self)._data[index];
+			return XTE_FWD(self).data()[index];
 		}
-
-		template<xte::is_same_ignore_cvref<xte::fixed_array<T, n>> Lhs, xte::is_instance_of<^^xte::fixed_array> Rhs>
-		requires(xte::is_same<T, typename Rhs::type>)
-		[[nodiscard]] friend constexpr auto operator+(Lhs&& lhs, Rhs&& rhs) XTE_ARROW(
-			xte::unfold<n>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_ARROW(
-				xte::unfold<Rhs::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_ARROW(
-					xte::fixed_array { XTE_FWD(lhs)._data[i]..., XTE_FWD(rhs)._data[j]... }
-				), XTE_FWD(lhs), XTE_FWD(rhs))
-			), XTE_FWD(lhs), XTE_FWD(rhs))
-		)
 	};
 
 	template<typename T>
@@ -152,28 +144,33 @@ namespace xte {
 		[[nodiscard]] constexpr const T* crend() const noexcept {
 			return nullptr;
 		}
-
-		template<xte::is_same<xte::fixed_array<T, 0>> Lhs, xte::is_instance_of<^^xte::fixed_array> Rhs>
-		requires(xte::is_same<T, typename Rhs::type>)
-		[[nodiscard]] friend constexpr auto operator+(const Lhs&, Rhs&& rhs) XTE_ARROW(
-			auto(XTE_FWD(rhs))
-		)
 	};
 
 	template<typename T, typename... Ts>
 	fixed_array(T, Ts...) -> fixed_array<std::common_type_t<T, Ts...>, -~sizeof...(Ts)>;
+
+	template<typename Lhs, typename Rhs>
+	requires(xte::is_derived_from_instance_of<xte::remove_cvref<Lhs>, ^^xte::fixed_array>
+		&& xte::is_derived_from_instance_of<xte::remove_cvref<Rhs>, ^^xte::fixed_array>
+		&& xte::is_same<typename Lhs::value_type, typename Rhs::value_type>)
+	[[nodiscard]] constexpr auto operator+(Lhs&& lhs, Rhs&& rhs) XTE_ARROW(
+		xte::unfold<decltype(lhs)::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_ARROW(
+			xte::unfold<decltype(rhs)::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_ARROW(
+				xte::fixed_array { xte::xvalue(lhs)[i]..., xte::xvalue(rhs)[j]... }
+			), XTE_FWD(lhs), XTE_FWD(rhs))
+		), XTE_FWD(lhs), XTE_FWD(rhs))
+	)
+
+	template<typename T, xte::uz n, xte::uz m>
+	[[nodiscard]] constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
+		xte::range_cmp(lhs, rhs)
+	)
+
+	template<typename T, xte::uz n, xte::uz m>
+	[[nodiscard]] constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
+		(n == m) && std::is_eq(lhs <=> rhs)
+	)
 }
-
-
-template<typename T, xte::uz n, xte::uz m>
-[[nodiscard]] constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
-	xte::range_cmp(lhs, rhs)
-)
-
-template<typename T, xte::uz n, xte::uz m>
-[[nodiscard]] constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
-	(n == m) && std::is_eq(lhs <=> rhs)
-)
 
 template<typename T, xte::uz n>
 struct std::tuple_size<xte::fixed_array<T, n>> {
@@ -184,18 +181,5 @@ template<xte::uz index, typename T, xte::uz n>
 struct std::tuple_element<index, xte::fixed_array<T, n>> {
 	using type = T;
 };
-
-#	define XTE_MAKE_FIXED_ARRAY(...) \
-		(xte::unfold<std::ranges::size((__VA_ARGS__))>( \
-			DETAIL_XTE::fixed_array::make, \
-			(__VA_ARGS__), \
-			std::ranges::begin((__VA_ARGS__)) \
-		))
-
-namespace DETAIL_XTE::fixed_array {
-	inline constexpr auto make = []<xte::uz... i>(auto&& range, auto iter) static XTE_ARROW(
-		xte::fixed_array { ([](auto& iter) XTE_ARROW_IF(i, ++iter, xte::like<decltype(range)>(*iter)))(iter)... }
-	);
-}
 
 #endif
