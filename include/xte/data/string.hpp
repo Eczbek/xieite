@@ -27,10 +27,9 @@ namespace xte {
 		xte::array<char> _data;
 
 	public:
-		using value_type = char;
-		using allocator_type = xte::array<char>::allocator_type;
 		using size_type = xte::uz;
 		using difference_type = xte::iptrdiff;
+		using value_type = char;
 		using reference = char&;
 		using const_reference = const char&;
 		using pointer = char*;
@@ -39,6 +38,7 @@ namespace xte {
 		using const_iterator = const char*;
 		using reverse_iterator = std::reverse_iterator<char*>;
 		using const_reverse_iterator = std::reverse_iterator<const char*>;
+		using allocator_type = xte::array<char>::allocator_type;
 
 		[[nodiscard]] explicit(false) constexpr string() noexcept = default;
 
