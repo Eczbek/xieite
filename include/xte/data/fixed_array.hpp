@@ -164,9 +164,9 @@ namespace xte {
 		&& xte::is_derived_from_instance_of<xte::remove_cvref<Rhs>, ^^xte::fixed_array>
 		&& xte::is_same<typename Lhs::value_type, typename Rhs::value_type>)
 	[[nodiscard]] constexpr auto operator+(Lhs&& lhs, Rhs&& rhs) XTE_ARROW(
-		xte::unfold<decltype(lhs)::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_ARROW(
-			xte::unfold<decltype(rhs)::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_ARROW(
-				xte::fixed_array { xte::xvalue(lhs)[i]..., xte::xvalue(rhs)[j]... }
+		xte::unfold<Lhs::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_ARROW(
+			xte::unfold<Rhs::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_ARROW(
+				xte::fixed_array { XTE_FWD(lhs)[i]..., XTE_FWD(rhs)[j]... }
 			), XTE_FWD(lhs), XTE_FWD(rhs))
 		), XTE_FWD(lhs), XTE_FWD(rhs))
 	)

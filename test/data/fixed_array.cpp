@@ -30,3 +30,8 @@ static_assert(([] {
 	a = xte::fixed_array { 2 };
 	return a[0] == 2;
 })());
+
+static_assert((xte::fixed_array { 1, 2 } + xte::fixed_array { 3, 4 }) == xte::fixed_array { 1, 2, 3, 4 });
+
+static_assert(xte::is_derived_from_instance_of<xte::remove_cvref<xte::fixed_array<int, 2>&&>, ^^xte::fixed_array>);
+static_assert(xte::is_same<xte::fixed_array<int, 2>::value_type, xte::fixed_array<int, 2>::value_type>);
