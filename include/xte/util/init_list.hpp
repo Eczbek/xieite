@@ -3,7 +3,7 @@
 #
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../trait/remove_cv.hpp"
+#	include "../trait/remove_c.hpp"
 #	include "../util/address.hpp"
 #	include "../util/xvalue.hpp"
 #	include <initializer_list>
@@ -39,7 +39,7 @@ namespace DETAIL_XTE {
 
 namespace xte {
 	template<typename T>
-	using init_list = std::initializer_list<DETAIL_XTE::init_list<xte::remove_cv<T>>>;
+	using init_list = std::initializer_list<DETAIL_XTE::init_list<xte::remove_c<T>>>;
 }
 
 #endif
