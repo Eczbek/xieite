@@ -2,7 +2,6 @@
 #	define DETAIL_XTE_HEADER_DATA_STRING
 #
 #	include "../data/array.hpp"
-#	include "../data/init_list.hpp"
 #	include "../data/string_view.hpp"
 #	include "../math/min.hpp"
 #	include "../meta/type.hpp"
@@ -10,6 +9,7 @@
 #	include "../preproc/fwd.hpp"
 #	include "../trait/is_derived_from.hpp"
 #	include "../trait/is_noex_implicit_castable.hpp"
+#	include "../util/init_list.hpp"
 #	include "../util/like.hpp"
 #	include "../util/lvalue.hpp"
 #	include "../util/numbers.hpp"

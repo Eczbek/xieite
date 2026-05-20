@@ -25,7 +25,6 @@
 #	include "../util/xvalue.hpp"
 #	include <algorithm>
 #	include <compare>
-#	include <initializer_list>
 #	include <ranges>
 
 namespace DETAIL_XTE::wide_uint {

@@ -1,6 +1,6 @@
 #include <xte/data/array.hpp>
-#include <xte/data/init_list.hpp>
 #include <xte/data/ptr.hpp>
+#include <xte/util/init_list.hpp>
 #include <xte/util/xvalue.hpp>
 
 template<typename T>

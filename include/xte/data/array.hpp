@@ -1,7 +1,6 @@
 #ifndef DETAIL_XTE_HEADER_DATA_ARRAY
 #	define DETAIL_XTE_HEADER_DATA_ARRAY
 #
-#	include "../data/init_list.hpp"
 #	include "../data/range_cmp.hpp"
 #	include "../math/max.hpp"
 #	include "../math/min.hpp"
@@ -21,6 +20,7 @@
 #	include "../util/construct.hpp"
 #	include "../util/destroy.hpp"
 #	include "../util/exchange.hpp"
+#	include "../util/init_list.hpp"
 #	include "../util/like.hpp"
 #	include "../util/lvalue.hpp"
 #	include "../util/numbers.hpp"
@@ -59,10 +59,9 @@ namespace xte {
 		}
 
 	public:
-		using value_type = T;
-		using allocator_type = std::allocator<T>;
 		using size_type = xte::uz;
 		using difference_type = xte::iptrdiff;
+		using value_type = T;
 		using reference = T&;
 		using const_reference = const T&;
 		using pointer = T*;
@@ -71,6 +70,7 @@ namespace xte {
 		using const_iterator = const T*;
 		using reverse_iterator = std::reverse_iterator<T*>;
 		using const_reverse_iterator = std::reverse_iterator<const T*>;
+		using allocator_type = std::allocator<T>;
 
 		[[nodiscard]] explicit(false) constexpr array() noexcept = default;
 

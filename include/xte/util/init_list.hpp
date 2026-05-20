@@ -1,5 +1,5 @@
-#ifndef DETAIL_XTE_HEADER_DATA_INIT_LIST
-#	define DETAIL_XTE_HEADER_DATA_INIT_LIST
+#ifndef DETAIL_XTE_HEADER_UTIL_INIT_LIST
+#	define DETAIL_XTE_HEADER_UTIL_INIT_LIST
 #
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"

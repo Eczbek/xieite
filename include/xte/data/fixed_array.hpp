@@ -23,9 +23,9 @@
 namespace xte {
 	template<typename T, xte::uz n>
 	struct fixed_array {
-		using value_type = T;
 		using size_type = xte::uz;
 		using difference_type = xte::iptrdiff;
+		using value_type = T;
 		using reference = T&;
 		using const_reference = const T&;
 		using pointer = T*;
