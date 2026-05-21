@@ -18,7 +18,7 @@ namespace xte {
 		if constexpr (using common_type = std::common_type_t<decltype(dividend), decltype(divisors)...>; xte::is_float<common_type>) {
 			return (!xte::is_finite(dividend) || ... || (!xte::is_finite(divisors) || xte::approx_equal(divisors, 0)))
 				? xte::null
-				: xte::opt<common_type>((static_cast<common_type>(dividend) / ... / static_cast<common_type>(divisors)));
+				: xte::opt<common_type>((xte::cast<common_type>(dividend) / ... / xte::cast<common_type>(divisors)));
 		} else {
 			if ((... || !divisors)) {
 				return xte::opt<common_type>(xte::null);

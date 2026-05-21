@@ -15,14 +15,15 @@
 #	include "../trait/is_noex_callable.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../trait/is_unsigned.hpp"
+#	include "../util/cast.hpp"
 #	include <type_traits>
 
 namespace xte {
 	template<xte::is_number T, xte::is_number U, xte::end...,
 		typename common_type = std::common_type_t<T, U>>
-	[[nodiscard]] constexpr T exp_search(xte::is_callable_lref<bool(common_type)> auto&& predicate, T limit0, U limit1)
+	[[nodiscard]] constexpr common_type exp_search(xte::is_callable_lref<bool(common_type)> auto&& predicate, T limit0, U limit1)
 	noexcept(xte::is_noex_callable<decltype(predicate)&, bool(common_type)>) {
-		auto [min, max] = xte::minmax(static_cast<common_type>(limit0), static_cast<common_type>(limit1));
+		auto [min, max] = xte::minmax(xte::cast<common_type>(limit0), xte::cast<common_type>(limit1));
 		while (true) {
 			common_type mid = xte::avg(min, max);
 			if constexpr (xte::is_int<common_type>) {

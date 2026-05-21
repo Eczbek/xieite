@@ -15,6 +15,7 @@
 #	include "../trait/is_int.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../trait/is_signed.hpp"
+#	include "../util/cast.hpp"
 #	include "../util/numbers.hpp"
 #	include <algorithm>
 #	include <ranges>
@@ -35,10 +36,10 @@ namespace xte {
 		auto abs_radix = xte::abs(radix);
 		if (xte::approx_equal(abs_radix, 1)) {
 			if (radix > 0) {
-				result.resize(static_cast<xte::uz>(abs), config.digits[1]);
+				result.resize(xte::cast<xte::uz>(abs), config.digits[1]);
 			} else {
 				result.push(config.digits[1]);
-				auto length = static_cast<xte::uz>(abs);
+				auto length = xte::cast<xte::uz>(abs);
 				result.reserve_total(length * 2);
 				while (--length) {
 					result.push(config.digits[0]);
@@ -81,14 +82,14 @@ namespace xte {
 				}
 				xte::iz carry = 0;
 				for (T& digit : buffer | std::views::reverse) {
-					digit += static_cast<T>(carry);
+					digit += xte::cast<T>(carry);
 					if ((carry = (digit < 0) - xte::approx_greater_equal(digit, abs_radix))) {
-						digit += abs_radix * static_cast<T>(carry);
+						digit += abs_radix * xte::cast<T>(carry);
 					}
-					result.push(config.digits[static_cast<xte::uz>(digit)]);
+					result.push(config.digits[xte::cast<xte::uz>(digit)]);
 				}
 				result.push(config.point[0]);
-				whole += static_cast<T>(carry);
+				whole += xte::cast<T>(carry);
 				do {
 					T digit = xte::mod(whole, radix);
 					whole = xte::floor(whole / radix);
@@ -96,7 +97,7 @@ namespace xte {
 						digit -= radix;
 						++whole;
 					}
-					result.push(config.digits[static_cast<xte::uz>(digit)]);
+					result.push(config.digits[xte::cast<xte::uz>(digit)]);
 				} while (!xte::approx_equal(whole, 0));
 				std::ranges::reverse(result);
 			} else if (abs_radix < 1) {
@@ -106,16 +107,16 @@ namespace xte {
 				} else {
 					while (xte::approx_less_equal(power /= abs_radix, abs));
 					while ((power *= abs_radix) > 1) {
-						auto digit = static_cast<xte::uz>(abs / power);
-						abs -= static_cast<T>(digit) * power;
+						auto digit = xte::cast<xte::uz>(abs / power);
+						abs -= xte::cast<T>(digit) * power;
 						result.push(config.digits[digit]);
 					}
 				}
 				result.push(config.point[0]);
 				do {
-					auto digit = static_cast<xte::uz>(abs);
+					auto digit = xte::cast<xte::uz>(abs);
 					result.push(config.digits[digit]);
-					abs -= static_cast<T>(digit);
+					abs -= xte::cast<T>(digit);
 					abs /= abs_radix;
 				} while (!xte::approx_equal(abs, 0));
 				std::ranges::reverse(result);
@@ -126,15 +127,15 @@ namespace xte {
 					T power = 1;
 					while (xte::approx_less_equal(power *= abs_radix, abs));
 					while (xte::approx_greater_equal(power /= abs_radix, 1)) {
-						auto digit = static_cast<xte::uz>(abs / power);
-						abs -= static_cast<T>(digit) * power;
+						auto digit = xte::cast<xte::uz>(abs / power);
+						abs -= xte::cast<T>(digit) * power;
 						result.push(config.digits[digit]);
 					}
 				}
 				result.push(config.point[0]);
 				for (xte::uz i = 0; (i < max_float_precision) && (!i || !xte::approx_equal(abs, 0)); ++i) {
-					auto digit = static_cast<xte::uz>(abs *= abs_radix);
-					abs -= static_cast<T>(digit += xte::approx_equal(abs, digit + 1));
+					auto digit = xte::cast<xte::uz>(abs *= abs_radix);
+					abs -= xte::cast<T>(digit += xte::approx_equal(abs, digit + 1));
 					result.push(config.digits[digit]);
 				}
 			} else {
@@ -143,13 +144,13 @@ namespace xte {
 				do {
 					T digit = xte::rem(whole, abs_radix);
 					whole = xte::floor(whole / abs_radix);
-					result.push(config.digits[static_cast<xte::uz>(digit)]);
+					result.push(config.digits[xte::cast<xte::uz>(digit)]);
 				} while (!xte::approx_equal(whole, 0));
 				std::ranges::reverse(result);
 				result.push(config.point[0]);
 				for (xte::uz i = 0; (i < max_float_precision) && (!i || !xte::approx_equal(abs, 0)); ++i) {
-					auto digit = static_cast<xte::uz>(abs *= abs_radix);
-					abs -= static_cast<T>(digit);
+					auto digit = xte::cast<xte::uz>(abs *= abs_radix);
+					abs -= xte::cast<T>(digit);
 					result.push(config.digits[digit]);
 				}
 			}

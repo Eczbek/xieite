@@ -5,6 +5,8 @@
 #	include "../data/string_view.hpp"
 #	include "../trait/is_noex_range.hpp"
 #	include "../trait/is_same.hpp"
+#	include "../util/assign.hpp"
+#	include "../util/cast.hpp"
 #	include <ranges>
 
 namespace xte {
@@ -76,10 +78,10 @@ namespace xte {
 
 	template<std::ranges::input_range Range>
 	[[nodiscard]] constexpr Range lowercase(Range range)
-	noexcept(xte::is_noex_range<Range> && requires (std::ranges::range_value_t<Range> x) { requires(noexcept(x = xte::lowercase(static_cast<char>(x)))); })
-	requires(requires (std::ranges::range_value_t<Range> x) { x = xte::lowercase(static_cast<char>(x)); }) {
-		for (char& c : range) {
-			c = xte::lowercase(static_cast<char>(c));
+	noexcept(xte::is_noex_range<Range> && requires (std::ranges::range_value_t<Range> x) { requires(noexcept(xte::assign(x, xte::lowercase(xte::cast<char>(x))))); })
+	requires(requires (std::ranges::range_value_t<Range> x) { xte::assign(x, xte::lowercase(xte::cast<char>(x))); }) {
+		for (auto& c : range) {
+			xte::assign(c, xte::lowercase(xte::cast<char>(c)));
 		}
 		return range;
 	}

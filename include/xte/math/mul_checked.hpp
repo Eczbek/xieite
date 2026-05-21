@@ -13,19 +13,20 @@
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../util/assign.hpp"
+#	include "../util/cast.hpp"
 #	include <type_traits>
 
 namespace xte {
 	[[nodiscard]] constexpr auto mul_checked(xte::is_number auto first, xte::is_number auto... rest) noexcept {
 		using common_type = std::common_type_t<decltype(first), decltype(rest)...>;
-		auto prod = static_cast<common_type>(first);
+		auto prod = xte::cast<common_type>(first);
 #	if XTE_HAS_BUILTIN(mul_overflow)
 		if constexpr (!xte::is_float<common_type>) {
 			return (... || __builtin_mul_overflow(prod, static_cast<common_type>(rest), &prod)) ? xte::null : xte::opt(prod);
 		}
 #	endif
 		bool overflow;
-		(void)(!xte::is_finite(prod) || ... || (xte::approx_equal(prod, 0) || (overflow = !xte::is_finite(rest) || (xte::abs(static_cast<common_type>(rest)) > (xte::abs(((prod < 0) == (rest < 0)) ? xte::highest<common_type> : xte::lowest<common_type>) / xte::abs(prod)))) || !xte::assign(prod, prod * static_cast<common_type>(rest))));
+		(void)(!xte::is_finite(prod) || ... || (xte::approx_equal(prod, 0) || (overflow = !xte::is_finite(rest) || (xte::abs(xte::cast<common_type>(rest)) > (xte::abs(((prod < 0) == (rest < 0)) ? xte::highest<common_type> : xte::lowest<common_type>) / xte::abs(prod)))) || !xte::assign(prod, prod * xte::cast<common_type>(rest))));
 		return overflow ? xte::null : xte::opt(prod);
 	}
 }

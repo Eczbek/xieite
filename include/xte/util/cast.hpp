@@ -5,50 +5,59 @@
 #	include "../math/highest.hpp"
 #	include "../math/less.hpp"
 #	include "../math/lowest.hpp"
-#	include "../math/wrap.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../preproc/lift.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_int.hpp"
 #	include "../trait/is_number.hpp"
 #	include "../util/at.hpp"
+#	include <cmath>
 #	include <limits>
+
+namespace DETAIL_XTE {
+	template<typename T>
+	[[nodiscard]] constexpr T cast(auto&&... args)
+	noexcept(noexcept(T(XTE_FWD(args)...)))
+	requires(requires { T(XTE_FWD(args)...); }) {
+		if constexpr (sizeof...(args) == 1) {
+			return static_cast<T>(xte::at<0>(XTE_FWD(args)...));
+		} else {
+			return T(XTE_FWD(args)...);
+		}
+	}
+
+	template<xte::is_number T, xte::is_number U>
+	[[nodiscard]] constexpr T cast(U arg) noexcept {
+		if constexpr (xte::is_float<T>) {
+			if (xte::less(xte::highest<T>, arg)) {
+				if constexpr (std::numeric_limits<T>::has_infinity) {
+					return std::numeric_limits<T>::infinity();
+				} else {
+					return xte::highest<T>;
+				}
+			}
+			if (xte::less(arg, xte::lowest<T>)) {
+				if constexpr (std::numeric_limits<T>::has_infinity) {
+					return -std::numeric_limits<T>::infinity();
+				} else {
+					return xte::lowest<T>;
+				}
+			}
+		} else if constexpr (xte::is_int<T> && xte::is_float<U>) {
+			if (xte::less(xte::highest<T>, arg) || xte::less(arg, xte::lowest<T>)) {
+				static constexpr U min = DETAIL_XTE::cast<U>(xte::lowest<T>);
+				static constexpr U max = DETAIL_XTE::cast<U>(xte::highest<T>);
+				static constexpr U range = max - min + 1;
+				return static_cast<T>(std::fmod(std::fmod(arg - min, range) + range * (arg < min), range));
+			}
+		}
+		return static_cast<T>(arg);
+	}
+}
 
 namespace xte {
 	template<typename T>
-	constexpr auto cast = xte::visitor {
-		[][[nodiscard]](auto&&... args) static
-		noexcept(noexcept(T(XTE_FWD(args)...)))
-		requires(requires { T(XTE_FWD(args)...); }) {
-			if constexpr (sizeof...(args) == 1) {
-				return static_cast<T>(xte::at<0>(XTE_FWD(args)...));
-			} else {
-				return T(XTE_FWD(args)...);
-			}
-		},
-		[][[nodiscard]](xte::is_number auto arg) static noexcept requires(xte::is_number<T>) {
-			if constexpr (xte::is_float<T>) {
-				if (xte::less(xte::highest<T>, arg)) {
-					if constexpr (std::numeric_limits<T>::has_infinity) {
-						return std::numeric_limits<T>::infinity();
-					} else {
-						return xte::highest<T>;
-					}
-				}
-				if (xte::less(arg, xte::lowest<T>)) {
-					if constexpr (std::numeric_limits<T>::has_infinity) {
-						return -std::numeric_limits<T>::infinity();
-					} else {
-						return xte::lowest<T>;
-					}
-				}
-			} else if constexpr (xte::is_int<T> && xte::is_float<decltype(arg)>) {
-				if (xte::less(xte::highest<T>, arg) || xte::less(arg, xte::lowest<T>)) {
-					return static_cast<T>(xte::wrap(arg, xte::lowest<T>, xte::highest<T>));
-				}
-			}
-			return static_cast<T>(arg);
-		}
-	};
+	constexpr auto cast = XTE_LIFT(DETAIL_XTE::cast<T>);
 }
 
 #endif

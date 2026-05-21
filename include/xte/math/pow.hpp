@@ -4,6 +4,7 @@
 #	include "../math/abs.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
+#	include "../util/cast.hpp"
 #	include <cmath>
 #	include <type_traits>
 #	include <utility>
@@ -11,7 +12,7 @@
 namespace xte {
 	[[nodiscard]] constexpr auto pow(xte::is_number auto base, xte::is_number auto exp) noexcept {
 		if constexpr (using common_type = std::common_type_t<decltype(base), decltype(exp)>; xte::is_float<common_type>) {
-			return std::pow(static_cast<common_type>(base), static_cast<common_type>(exp));
+			return std::pow(xte::cast<common_type>(base), xte::cast<common_type>(exp));
 		} else {
 			if ((base == 1) || (exp == 1)) {
 				return static_cast<common_type>(base);

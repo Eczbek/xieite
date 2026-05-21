@@ -4,13 +4,13 @@
 #	include "../math/abs.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_number.hpp"
+#	include "../util/cast.hpp"
 #	include <type_traits>
 
 namespace xte {
 	[[nodiscard]] constexpr auto diff(xte::is_number auto x, xte::is_number auto y) noexcept {
-		using common_type = std::common_type_t<decltype(x), decltype(y)>;
-		if constexpr (xte::is_float<common_type>) {
-			return xte::abs(static_cast<common_type>(x) - static_cast<common_type>(y));
+		if constexpr (using common_type = std::common_type_t<decltype(x), decltype(y)>; xte::is_float<common_type>) {
+			return xte::abs(xte::cast<common_type>(x) - xte::cast<common_type>(y));
 		} else {
 			using unsigned_type = std::make_unsigned_t<common_type>;
 			return (static_cast<common_type>(x) < static_cast<common_type>(y))

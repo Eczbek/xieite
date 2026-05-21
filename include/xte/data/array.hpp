@@ -5,6 +5,7 @@
 #	include "../math/max.hpp"
 #	include "../math/min.hpp"
 #	include "../meta/end.hpp"
+#	include "../meta/fake.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/diagnostic.hpp"
 #	include "../preproc/fwd.hpp"
@@ -88,7 +89,7 @@ namespace xte {
 
 		template<std::ranges::input_range Range>
 		[[nodiscard]] constexpr array(std::from_range_t, Range&& range) noexcept(false)
-		requires(requires (T x) { x = static_cast<T>(xte::like<Range>(*xte::lvalue(std::ranges::begin(range)))); }) {
+		requires(requires { xte::cast<T>(xte::like<Range>(*xte::lvalue(std::ranges::begin(range)))); }) {
 			this->push_range(XTE_FWD(range));
 		}
 
@@ -112,11 +113,11 @@ namespace xte {
 		}
 
 		constexpr xte::array<T>& operator=(const xte::array<T>& other) & noexcept(false)
-		requires(requires (T x) { x = xte::lvalue(T(x)); }) {
+		requires(xte::is_copy_constructible<T>) {
 			if (this != xte::address(other)) {
 				if (other._size <= this->_capacity) {
 					for (xte::uz i : std::views::indices(xte::min(this->_size, other._size))) {
-						this->_data[i] = other._data[i];
+						xte::assign(this->_data[i], other._data[i]);
 					}
 					for (xte::uz i = this->_size; i < other._size; this->_size = ++i) {
 						xte::construct(this->_data[i], other._data[i]);
@@ -136,12 +137,12 @@ namespace xte {
 
 		template<std::ranges::input_range Range>
 		constexpr xte::array<T>& operator=(Range&& range) & noexcept(false)
-		requires(!xte::is_derived_from<Range, xte::array<T>> && requires (T x) { x = static_cast<T>(xte::like<Range>(*xte::lvalue(std::ranges::begin(range)))); }) {
+		requires(!xte::is_derived_from<Range, xte::array<T>> && requires (T x) { xte::assign(x, xte::like<Range>(*xte::lvalue(std::ranges::begin(range)))); }) {
 			if constexpr (std::ranges::sized_range<Range>) {
 				if (xte::uz range_size = std::ranges::size(range); range_size <= this->_capacity) {
 					auto iter = std::ranges::begin(range);
 					for (xte::uz i : std::views::indices(xte::min(this->_size, range_size))) {
-						this->_data[i] = static_cast<T>(xte::like<Range>(*iter));
+						xte::assign(this->_data[i], xte::like<Range>(*iter));
 						++iter;
 					}
 					while (this->_size < range_size) {
@@ -349,7 +350,7 @@ namespace xte {
 					}
 					auto iter = std::ranges::begin(range);
 					for (xte::uz i = index; (i < this->_size) && ((i - index) < range_size); ++iter) {
-						xte::assign(this->_data[i++], xte::cast<T>(xte::like<Range>(*iter)));
+						xte::assign(this->_data[i++], xte::like<Range>(*iter));
 					}
 					for (xte::uz i = this->_size; (i - index) < range_size; ++iter) {
 						xte::construct(this->_data[i++], xte::like<Range>(*iter));

@@ -96,7 +96,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator+=(xte::is_number auto rhs) & noexcept {
-			this->value = static_cast<T>(xte::add(this->value, rhs));
+			this->value = xte::cast<T>(xte::add(this->value, rhs));
 			return *this;
 		}
 
@@ -127,7 +127,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator-=(xte::is_number auto rhs) & noexcept {
-			this->value = static_cast<T>(xte::sub(this->value, rhs));
+			this->value = xte::cast<T>(xte::sub(this->value, rhs));
 			return *this;
 		}
 

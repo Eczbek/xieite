@@ -24,3 +24,6 @@ struct B {
 	}
 };
 static_assert(xte::max(B(-5), B(5)).x == 5);
+
+static_assert(xte::max(1, 2, 3) == 3);
+static_assert(xte::max(5, 812, 75, 18, 96, 873, 555, 0, -132657, -74, 72866, 999999, 4) == 999999);

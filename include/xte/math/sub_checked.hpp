@@ -17,13 +17,13 @@
 namespace xte {
 	[[nodiscard]] constexpr auto sub_checked(xte::is_number auto minuend, xte::is_number auto... subtrahends) noexcept {
 		using common_type = std::common_type_t<decltype(minuend), decltype(subtrahends)...>;
-		auto diff = static_cast<common_type>(minuend);
+		auto diff = xte::cast<common_type>(minuend);
 #	if XTE_HAS_BUILTIN(sub_overflow)
 		if constexpr (!xte::is_float<common_type>) {
 			return (... || __builtin_sub_overflow(diff, static_cast<common_type>(subtrahends), &diff)) ? xte::null : xte::opt(diff);
 		}
 #	endif
-		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(subtrahends) && ((subtrahends < 0) ? ((xte::highest<common_type> + static_cast<common_type>(subtrahends)) < diff) : ((xte::lowest<common_type> + static_cast<common_type>(subtrahends)) < diff))) || (diff -= static_cast<common_type>(subtrahends), false))) ? xte::null : xte::opt(diff);
+		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(subtrahends) && ((subtrahends < 0) ? ((xte::highest<common_type> + xte::cast<common_type>(subtrahends)) < diff) : ((xte::lowest<common_type> + xte::cast<common_type>(subtrahends)) < diff))) || (diff -= xte::cast<common_type>(subtrahends), false))) ? xte::null : xte::opt(diff);
 	}
 }
 

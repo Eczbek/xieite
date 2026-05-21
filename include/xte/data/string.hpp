@@ -9,6 +9,7 @@
 #	include "../preproc/fwd.hpp"
 #	include "../trait/is_derived_from.hpp"
 #	include "../trait/is_noex_implicit_castable.hpp"
+#	include "../util/assign.hpp"
 #	include "../util/init_list.hpp"
 #	include "../util/like.hpp"
 #	include "../util/lvalue.hpp"
@@ -103,7 +104,7 @@ namespace xte {
 
 		template<std::ranges::input_range Range>
 		constexpr auto operator=(Range&& range) & noexcept(false)
-		requires(!xte::is_derived_from<Range, xte::string> && requires (char x) { x = static_cast<char>(xte::like<Range>(*xte::lvalue(std::ranges::begin(range)))); }) {
+		requires(!xte::is_derived_from<Range, xte::string> && requires (char x) { xte::assign(x, xte::like<Range>(*xte::lvalue(std::ranges::begin(range)))); }) {
 			this->_data = XTE_FWD(range);
 			if (!this->_data.size() || this->_data.back()) {
 				this->_data.push();
