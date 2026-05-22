@@ -1,6 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_MATH_LESS
 #	define DETAIL_XTE_HEADER_MATH_LESS
 #
+#	include "../math/abs.hpp"
 #	include "../math/highest.hpp"
 #	include "../math/width.hpp"
 #	include "../meta/end.hpp"
@@ -9,7 +10,6 @@
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_int.hpp"
 #	include "../trait/is_number.hpp"
-#	include "../trait/is_unsigned.hpp"
 #	include "../trait/remove_cvref.hpp"
 #	include <cmath>
 #	include <concepts>
@@ -25,27 +25,24 @@ namespace xte {
 		[[nodiscard]](T&& lhs, U&& rhs) static XTE_ARROW_FIRST(
 			([](T lhs, U rhs) noexcept -> bool requires(are_numbers) {
 				if constexpr (are_numbers) {
-					if constexpr (xte::is_unsigned<T>) {
-						if (rhs < 1) {
-							return false;
-						}
-					} else if constexpr (xte::is_unsigned<U>) {
-						if (lhs < 0) {
-							return true;
-						}
+					bool is_neg = (lhs < 0);
+					if (is_neg != (rhs < 0)) {
+						return is_neg;
 					}
 					if constexpr ((xte::is_float<T> != xte::is_float<U>) && !std::numeric_limits<common_type>::has_infinity) {
-						using int_type = [:xte::is_int<T> ? ^^T : ^^U:];
+						using uint_type = std::make_unsigned_t<typename[:xte::is_int<T> ? ^^T : ^^U:]>;
 						if constexpr (([] {
 							xte::uz exp = 0;
-							for (auto max_float = std::numeric_limits<common_type>::max(); (max_float > 1) && (exp < xte::width<int_type>); ++exp) {
+							for (auto max_float = std::numeric_limits<common_type>::max(); (max_float > 1) && (exp < xte::width<uint_type>); ++exp) {
 								max_float /= 2;
 							}
-							return exp < xte::width<int_type>;
+							return exp < xte::width<uint_type>;
 						})()) {
-							return (static_cast<int_type>(lhs) < static_cast<int_type>(rhs))
-								|| ((static_cast<int_type>(lhs) == static_cast<int_type>(rhs))
-									&& (std::fmod(lhs, 1) < std::fmod(rhs, 1)));
+							auto lhs_uint = static_cast<uint_type>(xte::abs(lhs));
+							auto rhs_uint = static_cast<uint_type>(xte::abs(rhs));
+							return (lhs_uint != rhs_uint)
+								? (is_neg ? (lhs_uint > rhs_uint) : (lhs_uint < rhs_uint))
+								: ((xte::is_int<T> ? 0 : std::fmod(lhs, 1)) < (xte::is_int<U> ? 0 : std::fmod(rhs, 1)));
 						}
 					}
 					return static_cast<common_type>(lhs) < static_cast<common_type>(rhs);
