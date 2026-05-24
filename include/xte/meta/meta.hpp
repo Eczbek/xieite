@@ -1,13 +1,16 @@
 #ifndef DETAIL_XTE_HEADER_META_META
 #	define DETAIL_XTE_HEADER_META_META
 #
+#	include "../data/quote.hpp"
 #	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
 #	include "../preproc/feature.hpp"
 #	include "../math/abs.hpp"
+#	include "../math/stringify_number.hpp"
 #	include "../meta/type.hpp"
 #	include "../trait/add_array.hpp"
 #	include "../trait/add_unbounded_array.hpp"
+#	include "../trait/is_char.hpp"
 #	include "../util/numbers.hpp"
 #	include <algorithm>
 #	include <meta>
@@ -72,6 +75,13 @@ namespace xte::meta {
 		return {};
 	};
 
+	[[nodiscard]] consteval std::vector<std::meta::info> nonstatic_data_members_of(std::meta::info info, std::meta::access_context ctx = std::meta::access_context::current()) noexcept(false) {
+		if (xte::meta::is_complete_class_type(info)) {
+			return std::meta::nonstatic_data_members_of(info, ctx);
+		}
+		return {};
+	};
+
 	[[nodiscard]] consteval std::vector<std::meta::info> bases_of(std::meta::info info, std::meta::access_context ctx = std::meta::access_context::current()) noexcept {
 		if (xte::meta::is_complete_class_type(info)) {
 			return std::meta::bases_of(info, ctx);
@@ -87,73 +97,15 @@ namespace xte::meta {
 		return std::meta::dealias(std::meta::substitute(^^xte::add_unbounded_array, { type }));
 	};
 
-		[[nodiscard]] consteval xte::string_view name_of(std::meta::info info) noexcept(false) {
+	[[nodiscard]] consteval xte::string_view name_of(std::meta::info info) noexcept(false) {
 		static constexpr unsigned int ctx_none = 0b0000;
 		static constexpr unsigned int ctx_prefix = 0b0001;
 		static constexpr unsigned int ctx_postfix = 0b0010;
 		static constexpr unsigned int ctx_parent = 0b0100;
 		static constexpr unsigned int ctx_func = 0b1000;
 		return xte::string_view(std::define_static_string(([](this auto name_of, std::meta::info info, unsigned int ctx) -> xte::string {
-			if (std::meta::is_value(info) || std::meta::is_object(info)) {
-				auto type = std::meta::type_of(info);
-				auto unqual = std::meta::remove_cv(type);
-				if (unqual == ^^bool) {
-					return std::meta::extract<bool>(info) ? xte::string("true") : "false";
-				}
-				if (unqual == ^^char) {
-					char c = std::meta::extract<char>(info);
-					switch (c) {
-						case '\'':
-							return "'\\''";
-						case '\\':
-							return "'\\\\'";
-						case '\a':
-							return "'\\a'";
-						case '\b':
-							return "'\\b'";
-						case '\f':
-							return "'\\f'";
-						case '\n':
-							return "'\\n'";
-						case '\r':
-							return "'\\r'";
-						case '\t':
-							return "'\\t'";
-						case '\v':
-							return "'\\v'";
-					}
-					xte::string quoted;
-					if (xte::string_view(" !#$%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~").contains(c)) {
-						quoted += c;
-					} else {
-						auto n = static_cast<unsigned char>(c);
-						do {
-							quoted += "0123456789ABCDEF"[n % 16];
-						} while (n /= 16);
-						quoted += "x\\";
-						std::ranges::reverse(quoted);
-					}
-					return "'" + quoted + "'";
-				}
-				if (std::meta::is_integral_type(type)) {
-					for (auto member : xte::meta::members_of(^^decltype([]<auto n> static -> xte::string {
-						xte::string digits;
-						auto abs = xte::abs(n);
-						do {
-							digits += static_cast<char>(abs % 10 + '0');
-						} while (abs /= 10);
-						if (n < 0) {
-							digits += '-';
-						}
-						std::ranges::reverse(digits);
-						return digits;
-					}))) {
-						if (std::meta::is_operator_function_template(member) && (std::meta::operator_of(member) == std::meta::op_parentheses)) {
-							return std::meta::extract<xte::type<xte::string()>*>(std::meta::substitute(member, { info }))();
-						}
-					}
-				}
-				return "{" + name_of(type, ctx) + "}";
+			if (info == ^^::) {
+				return "::";
 			}
 			xte::string parent_name;
 			if (~ctx & ctx_parent) {
@@ -163,7 +115,7 @@ namespace xte::meta {
 					if (parent == ^^::) {
 						break;
 					}
-					parent_name = name_of(parent, ctx | ctx_parent) + "::" + parent_name;
+					parent_name = name_of(parent, ctx_parent) + "::" + parent_name;
 				}
 			}
 			auto tmpl_args_of = [&](std::meta::info info) -> xte::string {
@@ -282,7 +234,7 @@ namespace xte::meta {
 						xte::string name = name_of(std::meta::remove_extent(info), ctx | ctx_prefix) + "[]";
 						return (ctx & ctx_prefix) ? ("(" + name + ")") : name;
 					}
-					if (std::meta::is_bounded_array_type(info)) {
+					if (std::meta::is_array_type(info)) {
 						xte::string name = name_of(std::meta::remove_extent(info), ctx | ctx_prefix) + "[" + name_of(std::meta::reflect_constant(std::meta::extent(info)), ctx_none) + "]";
 						return (ctx & ctx_prefix) ? ("(" + name + ")") : name;
 					}
@@ -308,9 +260,6 @@ namespace xte::meta {
 					if (info == ^^bool) {
 						return "bool";
 					}
-					if (info == ^^decltype(nullptr)) {
-						return "std::nullptr_t";
-					}
 					if (info == ^^char) {
 						return "char";
 					}
@@ -319,6 +268,9 @@ namespace xte::meta {
 					}
 					if (info == ^^signed char) {
 						return "signed char";
+					}
+					if (info == ^^wchar_t) {
+						return "wchar_t";
 					}
 					if (info == ^^char8_t) {
 						return "char8_t";
@@ -353,14 +305,14 @@ namespace xte::meta {
 					if (info == ^^long long) {
 						return "long long";
 					}
-#ifdef XTE_FEATURE_INT_128
+#	ifdef __SIZEOF_INT128__
 					if (info == std::meta::dealias(^^xte::u128)) {
 						return "unsigned __int128";
 					}
 					if (info == std::meta::dealias(^^xte::i128)) {
 						return "__int128";
 					}
-#endif
+#	endif
 					if (info == ^^float) {
 						return "float";
 					}
@@ -370,33 +322,36 @@ namespace xte::meta {
 					if (info == ^^long double) {
 						return "long double";
 					}
-#ifdef XTE_FEATURE_FLOAT_16
+#	ifdef __STDCPP_FLOAT16_T__
 					if (info == ^^decltype(0.0f16)) {
 						return "std::float16_t";
 					}
-#endif
-#ifdef XTE_FEATURE_FLOAT_32
+#	endif
+#	ifdef __STDCPP_FLOAT32_T__
 					if (info == ^^decltype(0.0f32)) {
 						return "std::float32_t";
 					}
-#endif
-#ifdef XTE_FEATURE_FLOAT_64
+#	endif
+#	ifdef __STDCPP_FLOAT64_T__
 					if (info == ^^decltype(0.0f64)) {
 						return "std::float64_t";
 					}
-#endif
-#ifdef XTE_FEATURE_FLOAT_128
+#	endif
+#	ifdef __STDCPP_FLOAT128_T__
 					if (info == ^^decltype(0.0f128)) {
 						return "std::float128_t";
 					}
-#endif
-#ifdef XTE_FEATURE_BFLOAT_16
+#	endif
+#	ifdef __STDCPP_BFLOAT16_T__
 					if (info == ^^decltype(0.0bf16)) {
 						return "std::bfloat16_t";
 					}
-#endif
+#	endif
+					if (info == ^^decltype(nullptr)) {
+						return "std::nullptr_t";
+					}
 					return (std::meta::is_class_type(info) && std::ranges::all_of(
-						xte::meta::members_of(info, std::meta::access_context::unchecked()),
+						std::meta::members_of(info, std::meta::access_context::unchecked()),
 						[](std::meta::info member) {
 							return std::meta::is_nonstatic_data_member(member)
 								|| ((std::meta::is_operator_function(member) || std::meta::is_operator_function_template(member))
@@ -404,7 +359,54 @@ namespace xte::meta {
 						}
 					)) ? xte::string("<lambda>") : "<unnamed>";
 				}
-				throw std::meta::exception("reflection does not represent a named entity", info);
+				if (std::meta::is_value(info) || std::meta::is_object(info)) {
+					return std::meta::extract<xte::type<xte::string()>*>(std::meta::substitute(
+						xte::meta::members_of(^^decltype([]<auto name_of, auto value, unsigned int ctx> static -> xte::string {
+							static constexpr auto type = std::meta::remove_cv(std::meta::type_of(std::meta::reflect_constant(value)));
+							if constexpr (type == ^^bool) {
+								return value ? xte::string("true") : "false";
+							} else if constexpr (xte::is_char<typename[:type:]>) {
+								return xte::quote(value);
+							} else if constexpr (xte::is_number<typename[:type:]>) {
+								return xte::stringify_number(value);
+							} else if constexpr (std::meta::is_pointer_type(type) || (type == ^^decltype(nullptr))) {
+								if (!value) {
+									return "nullptr";
+								}
+							} else if constexpr (std::meta::is_reflection_type(type)) {
+								xte::string name = "^^" + name_of(value, ctx_postfix);
+								return (ctx & ctx_postfix) ? ("(" + name + ")") : name;
+							}
+							xte::string member_names;
+							template for (constexpr auto member : std::define_static_array(xte::meta::nonstatic_data_members_of(type))) {
+								if (member_names.size()) {
+									member_names += ", ";
+								}
+								if constexpr (using member_type = [:std::meta::type_of(member):]; std::is_array_v<member_type>) {
+									member_names += ([]<typename T, xte::uz n>(this auto name_of_array, const xte::type<T[n]>& array) -> xte::string {
+										xte::string item_names;
+										for (auto&& item : array) {
+											if (item_names.size()) {
+												item_names += ", ";
+											}
+											if constexpr (std::is_array_v<T>) {
+												item_names += name_of_array(item);
+											} else {
+												item_names += name_of(std::meta::reflect_constant(item), ctx_none);
+											}
+										}
+										return "[" + item_names + "]";
+									})(value.[:member:]);
+								} else {
+									member_names += name_of(std::meta::reflect_constant(value.[:member:]), ctx_none);
+								}
+							}
+							return name_of(type, ctx_prefix) + "{" + member_names + "}";
+						}))[0],
+						{ std::meta::reflect_constant(name_of), info, std::meta::reflect_constant(ctx) }
+					))();
+				}
+				throw std::meta::exception("reflection does not represent a nameable entity", info);
 			})();
 		})(info, ctx_none)));
 	}

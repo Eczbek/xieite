@@ -1,5 +1,6 @@
 #include <xte/data/string_view.hpp>
 #include <xte/math/approx_equal.hpp>
+#include <xte/math/parse_number.hpp>
 #include <xte/meta/meta.hpp>
 #include <meta>
 
@@ -75,6 +76,14 @@ template<typename T> void operator+(T, T) noexcept {
 	static_assert(xte::meta::name_of(parent_of(^^add)) == "void operator+<main()::add>(main()::add, main()::add) noexcept");
 	static_assert(xte::meta::name_of(template_of(parent_of(^^add))) == "operator+<...>");
 }
+enum struct E { value };
+struct obj {
+	int x;
+	int y[3];
+};
+struct arr {
+	int a[2][2];
+};
 static_assert(xte::meta::name_of(^^int) == "int");
 static_assert(xte::meta::name_of(^^decltype(nullptr)) == "std::nullptr_t");
 static_assert(xte::meta::name_of(^^int&) == "int&");
@@ -102,11 +111,23 @@ static_assert(xte::meta::name_of(^^int(&)()) == "(int())&");
 static_assert(xte::meta::name_of(^^int(*)()) == "(int())*");
 static_assert(xte::meta::name_of(^^int(*[])()) == "(int())*[]");
 static_assert(xte::meta::name_of(^^int(* const)()) == "const ((int())*)");
+static_assert(xte::meta::name_of(^^::) == "::");
 static_assert(xte::meta::name_of(^^tmpl) == "tmpl<...>");
 static_assert(xte::meta::name_of(^^tmpl<>) == "tmpl<>");
-static_assert(xte::meta::name_of(^^tmpl<true, (tmpl<-5>()), 'h', '\t', '\0'>) == "tmpl<true, {tmpl<-5>}, 'h', '\\t', '\\x0'>");
+static_assert(xte::meta::name_of(^^tmpl<true, (tmpl<-5>()), 'h', '\t', '\0'>) == "tmpl<true, tmpl<-5>{}, 'h', '\\t', '\\x0'>");
 static_assert(xte::meta::name_of(^^func_tmpl) == "func_tmpl<...>");
 static_assert(xte::meta::name_of(^^func_tmpl<0>) == "void func_tmpl<0>()");
+static_assert(xte::meta::name_of(^^E) == "E");
+static_assert(xte::meta::name_of(^^E::value) == "E::value");
+static_assert(xte::meta::name_of(std::meta::reflect_constant(nullptr)) == "nullptr");
+static_assert(xte::meta::name_of(std::meta::reflect_constant(42)) == "42");
+static_assert(xte::meta::name_of(std::meta::reflect_constant('a')) == "'a'");
+static_assert(xte::approx_equal(xte::parse_number<double>(xte::meta::name_of(std::meta::reflect_constant(3.14159))), 3.14159));
+static_assert(xte::meta::name_of(std::meta::reflect_constant(obj(0, {1,2,3}))) == "obj{0, [1, 2, 3]}");
+static_assert(xte::meta::name_of(std::meta::reflect_constant(arr({ { 1, 2 }, { 3, 4 } }))) == "arr{[[1, 2], [3, 4]]}");
+static_assert(xte::meta::name_of(std::meta::reflect_constant(^^int)) == "^^int");
+static_assert(xte::meta::name_of(std::meta::reflect_constant(^^::)) == "^^::");
+static_assert(xte::meta::name_of(std::meta::reflect_constant(std::meta::reflect_constant(std::meta::reflect_constant(42)))) == "^^(^^42)");
 int main() {
 	tmpl<>().template f<0>();
 	123_literal;
