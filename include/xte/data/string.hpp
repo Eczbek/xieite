@@ -65,7 +65,7 @@ namespace xte {
 			(xte::string),((std::from_range, xte::lvalue(std::ranges::subrange(begin, end))))
 		)
 
-		[[nodiscard]] explicit constexpr string(xte::is_noex_implicit_castable<const char*> auto&& range) noexcept(false) {
+		[[nodiscard]] explicit(false) constexpr string(xte::is_noex_implicit_castable<const char*> auto&& range) noexcept(false) {
 			if (const char* data = range) do {
 				this->_data.push(*data);
 			} while (*data++);
