@@ -2,11 +2,10 @@
 #	define DETAIL_XTE_HEADER_DATA_PTR_DIFF
 #
 #	include "../math/highest.hpp"
-#	include "../trait/is_ptr.hpp"
 #	include "../util/numbers.hpp"
 
 namespace xte {
-	[[nodiscard]] constexpr xte::uz ptr_diff(xte::is_ptr auto first, decltype(first) last, xte::uz max) noexcept {
+	[[nodiscard]] constexpr xte::uz ptr_diff(auto* first, decltype(first) last, xte::uz max) noexcept {
 		if (max <= xte::highest<xte::iptrdiff>) {
 			return static_cast<xte::uz>(last - first);
 		}
