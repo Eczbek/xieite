@@ -3,6 +3,8 @@
 #
 #	include "../math/abs.hpp"
 #	include "../math/highest.hpp"
+#	include "../math/is_inf.hpp"
+#	include "../math/is_nan.hpp"
 #	include "../math/width.hpp"
 #	include "../meta/end.hpp"
 #	include "../preproc/arrow.hpp"
@@ -25,9 +27,15 @@ namespace xte {
 		[[nodiscard]](T&& lhs, U&& rhs) static XTE_ARROW_FIRST(
 			([](T lhs, U rhs) noexcept -> bool requires(are_numbers) {
 				if constexpr (are_numbers) {
+					if (xte::is_nan(lhs) || xte::is_nan(rhs)) {
+						return false;
+					}
 					bool is_neg = (lhs < 0);
 					if (is_neg != (rhs < 0)) {
 						return is_neg;
+					}
+					if ((xte::is_inf(lhs) == is_neg) && (xte::is_inf(rhs) != is_neg)) {
+						return true;
 					}
 					if constexpr ((xte::is_float<T> != xte::is_float<U>) && !std::numeric_limits<common_type>::has_infinity) {
 						using uint_type = std::make_unsigned_t<typename[:xte::is_int<T> ? ^^T : ^^U:]>;
