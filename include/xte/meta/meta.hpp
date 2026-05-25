@@ -161,7 +161,7 @@ namespace xte::meta {
 					if (std::meta::is_constructor(info) || std::meta::is_constructor_template(info)) {
 						name = std::meta::identifier_of(parent) + name;
 					} else if (std::meta::is_destructor(info)) {
-						name = xte::string("~") + std::meta::identifier_of(parent) + name;
+						name = "~" + xte::string(std::meta::identifier_of(parent)) + name;
 					} else if (std::meta::is_conversion_function(info)) {
 						name = "operator " + name_of(std::meta::return_type_of(info), ctx_postfix) + name;
 					} else if (std::meta::is_conversion_function_template(info)) {
@@ -181,7 +181,7 @@ namespace xte::meta {
 							}
 						})() + std::meta::symbol_of(op) + name;
 					} else if (auto named = std::meta::has_template_arguments(info) ? std::meta::template_of(info) : info; std::meta::is_literal_operator(info) || std::meta::is_literal_operator_template(info)) {
-						name = xte::string("operator\"\"") + std::meta::identifier_of(named) + name;
+						name = "operator\"\"" + xte::string(std::meta::identifier_of(named)) + name;
 					} else {
 						name = std::meta::identifier_of(named) + name;
 					}
@@ -350,6 +350,9 @@ namespace xte::meta {
 					if (info == ^^decltype(nullptr)) {
 						return "std::nullptr_t";
 					}
+					if (info == ^^decltype(^^::)) {
+						return "std::meta::info";
+					}
 					return (std::meta::is_class_type(info) && std::ranges::all_of(
 						std::meta::members_of(info, std::meta::access_context::unchecked()),
 						[](std::meta::info member) {
@@ -357,22 +360,20 @@ namespace xte::meta {
 								|| ((std::meta::is_operator_function(member) || std::meta::is_operator_function_template(member))
 									&& (std::meta::operator_of(member) == std::meta::op_parentheses));
 						}
-					)) ? xte::string("<lambda>") : "<unnamed>";
+					)) ? "<lambda>" : "<unnamed>";
 				}
 				if (std::meta::is_value(info) || std::meta::is_object(info)) {
 					return std::meta::extract<xte::type<xte::string()>*>(std::meta::substitute(
 						xte::meta::members_of(^^decltype([]<auto name_of, auto value, unsigned int ctx> static -> xte::string {
 							static constexpr auto type = std::meta::remove_cv(std::meta::type_of(std::meta::reflect_constant(value)));
 							if constexpr (type == ^^bool) {
-								return value ? xte::string("true") : "false";
+								return value ? "true" : "false";
 							} else if constexpr (xte::is_char<typename[:type:]>) {
 								return xte::quote(value);
 							} else if constexpr (xte::is_number<typename[:type:]>) {
 								return xte::stringify_number(value);
 							} else if constexpr (std::meta::is_pointer_type(type) || (type == ^^decltype(nullptr))) {
-								if (!value) {
-									return "nullptr";
-								}
+								return "nullptr";
 							} else if constexpr (std::meta::is_reflection_type(type)) {
 								xte::string name = "^^" + name_of(value, ctx_postfix);
 								return (ctx & ctx_postfix) ? ("(" + name + ")") : name;

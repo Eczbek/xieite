@@ -2,6 +2,7 @@
 #include <xte/math/parse_number.hpp>
 #include <xte/math/stringify_number.hpp>
 #include <numbers>
+#include <limits>
 
 static_assert(xte::stringify_number(123) == "123");
 static_assert(xte::stringify_number(-123) == "-123");

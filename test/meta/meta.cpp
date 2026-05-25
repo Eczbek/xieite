@@ -85,7 +85,6 @@ struct arr {
 	int a[2][2];
 };
 static_assert(xte::meta::name_of(^^int) == "int");
-static_assert(xte::meta::name_of(^^decltype(nullptr)) == "std::nullptr_t");
 static_assert(xte::meta::name_of(^^int&) == "int&");
 static_assert(xte::meta::name_of(^^int&&) == "int&&");
 static_assert(xte::meta::name_of(^^int[]) == "int[]");
@@ -112,6 +111,8 @@ static_assert(xte::meta::name_of(^^int(*)()) == "(int())*");
 static_assert(xte::meta::name_of(^^int(*[])()) == "(int())*[]");
 static_assert(xte::meta::name_of(^^int(* const)()) == "const ((int())*)");
 static_assert(xte::meta::name_of(^^::) == "::");
+static_assert(xte::meta::name_of(^^decltype(nullptr)) == "std::nullptr_t");
+static_assert(xte::meta::name_of(^^decltype(^^::)) == "std::meta::info");
 static_assert(xte::meta::name_of(^^tmpl) == "tmpl<...>");
 static_assert(xte::meta::name_of(^^tmpl<>) == "tmpl<>");
 static_assert(xte::meta::name_of(^^tmpl<true, (tmpl<-5>()), 'h', '\t', '\0'>) == "tmpl<true, tmpl<-5>{}, 'h', '\\t', '\\x0'>");
