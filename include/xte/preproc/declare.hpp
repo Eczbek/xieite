@@ -3,10 +3,10 @@
 #
 #	include "../preproc/unwrap.hpp"
 #
-#	define XTE_DECLARE(_declaration, ...) \
+#	define XTE_DECLARE(DECL, ...) \
 		requires(requires { __VA_ARGS__; }) \
-		XTE_UNWRAP(_declaration) = __VA_ARGS__
-#	define XTE_DECLARE_TYPE(_declaration, ...) \
+		XTE_UNWRAP(DECL) = __VA_ARGS__
+#	define XTE_DECLARE_TYPE(DECL, ...) \
 		requires(requires { typename[:^^__VA_ARGS__:]; }) \
-		XTE_UNWRAP(_declaration) : __VA_ARGS__
+		XTE_UNWRAP(DECL) : __VA_ARGS__
 #endif

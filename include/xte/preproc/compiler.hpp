@@ -458,11 +458,10 @@
 #	define XTE_COMPILER_Z88DK_MINOR 0
 #	define XTE_COMPILER_Z88DK_PATCH 0
 #
-#	define XTE_COMPILER(_type, _operator, _major, ...) \
-		DETAIL_XTE_COMPILER( \
-			_operator, \
-			XTE_COMPILER_##_type##_MAJOR, XTE_COMPILER_##_type##_MINOR, XTE_COMPILER_##_type##_PATCH, \
-			_major, __VA_ARGS__ __VA_OPT__(,) 0, 0 \
+#	define XTE_COMPILER(NAME, OP, MAJOR, ...) \
+		DETAIL_XTE_COMPILER(OP, \
+			XTE_COMPILER_##NAME##_MAJOR, XTE_COMPILER_##NAME##_MINOR, XTE_COMPILER_##NAME##_PATCH, \
+			MAJOR, __VA_ARGS__ __VA_OPT__(,) 0, 0 \
 		)
 #
 #	if defined(_ACK) || defined(__ACK__)
@@ -1780,15 +1779,15 @@
 #		define XTE_COMPILER_Z88DK 1
 #	endif
 #
-#	define DETAIL_XTE_COMPILER(_operator, _major0, _minor0, _patch0, _major1, _minor1, _patch1, ...) \
-		(((((0 _operator 0) && !(0 _operator 1) && !(1 _operator 0)) \
-			|| (!(0 _operator 0) && (0 _operator 1) && (1 _operator 0))) \
-		&& (((_major0) _operator (_major1)) \
-			&& ((_minor0) _operator (_minor1)) \
-			&& ((_patch0) _operator (_patch1)))) \
-		|| ((_major0) _operator (_major1)) \
-			|| (((_major0) == (_major1)) && ((_minor0) _operator (_minor1))) \
-			|| (((_minor0) == (_minor1)) && ((_patch0) _operator (_patch1))))
+#	define DETAIL_XTE_COMPILER(OP, LHS_MAJOR, LHS_MINOR, LHS_PATCH, RHS_MAJOR, RHS_MINOR, RHS_PATCH, ...) \
+		(((((0 OP 0) && !(0 OP 1) && !(1 OP 0)) \
+			|| (!(0 OP 0) && (0 OP 1) && (1 OP 0))) \
+		&& (((LHS_MAJOR) OP (RHS_MAJOR)) \
+			&& ((LHS_MINOR) OP (RHS_MINOR)) \
+			&& ((LHS_PATCH) OP (RHS_PATCH)))) \
+		|| ((LHS_MAJOR) OP (RHS_MAJOR)) \
+			|| (((LHS_MAJOR) == (RHS_MAJOR)) && ((LHS_MINOR) OP (RHS_MINOR))) \
+			|| (((LHS_MINOR) == (RHS_MINOR)) && ((LHS_PATCH) OP (RHS_PATCH))))
 #endif
 
 // https://github.com/cpredef/predef/blob/master/Compilers.md

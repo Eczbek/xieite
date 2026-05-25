@@ -30,17 +30,17 @@ namespace DETAIL_XTE {
 	};
 }
 
-#	define DETAIL_XTE_LOGGER(_name, _color, _tag) \
+#	define DETAIL_XTE_LOGGER(NAME, COLOR, TAG) \
 		template<typename... DETAIL_XTE_Args> \
-		struct _name : DETAIL_XTE::logger<(_color), (_tag), DETAIL_XTE_Args...> { \
-			using DETAIL_XTE::logger<(_color), (_tag), DETAIL_XTE_Args...>::logger; \
+		struct NAME : DETAIL_XTE::logger<(COLOR), (TAG), DETAIL_XTE_Args...> { \
+			using DETAIL_XTE::logger<(COLOR), (TAG), DETAIL_XTE_Args...>::logger; \
 		}; \
 		\
 		template<typename... DETAIL_XTE_Args> \
-		_name(std::format_string<DETAIL_XTE_Args...>, DETAIL_XTE_Args&&...) -> _name<DETAIL_XTE_Args...>; \
+		NAME(std::format_string<DETAIL_XTE_Args...>, DETAIL_XTE_Args&&...) -> NAME<DETAIL_XTE_Args...>; \
 		\
 		template<typename... DETAIL_XTE_Args> \
-		_name(std::FILE*, std::format_string<DETAIL_XTE_Args...>, DETAIL_XTE_Args&&...) -> _name<DETAIL_XTE_Args...>
+		NAME(std::FILE*, std::format_string<DETAIL_XTE_Args...>, DETAIL_XTE_Args&&...) -> NAME<DETAIL_XTE_Args...>
 
 namespace xte::logger {
 	DETAIL_XTE_LOGGER(info, 0, "INFO");

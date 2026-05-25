@@ -3,8 +3,8 @@
 #
 #	include "../preproc/cat.hpp"
 #
-#	define XTE_AT(_n) XTE_PCAT(XTE_AT_, _n)
-#	define XTE_AT_0(_x, ...) _x
+#	define XTE_AT(I) XTE_PCAT(XTE_AT_, I)
+#	define XTE_AT_0(X, ...) X
 #	define XTE_AT_1(_, ...) XTE_AT_0(__VA_ARGS__)
 #	define XTE_AT_2(_, ...) XTE_AT_1(__VA_ARGS__)
 #	define XTE_AT_3(_, ...) XTE_AT_2(__VA_ARGS__)

@@ -5,11 +5,11 @@
 #	include "../preproc/eval.hpp"
 #	include "../preproc/paren.hpp"
 #
-#	define XTE_EACH(_func, ...) __VA_OPT__(XTE_EVAL(DETAIL_XTE_EACH(_func, __VA_ARGS__)))
-#	define XTE_EACH_DELIM(_func, _delim, ...) __VA_OPT__(XTE_EVAL(DETAIL_XTE_EACH_DELIM(_func, _delim, __VA_ARGS__)))
+#	define XTE_EACH(FUNC, ...) __VA_OPT__(XTE_EVAL(DETAIL_XTE_EACH(FUNC, __VA_ARGS__)))
+#	define XTE_EACH_DELIM(FUNC, DELIM, ...) __VA_OPT__(XTE_EVAL(DETAIL_XTE_EACH_DELIM(FUNC, DELIM, __VA_ARGS__)))
 #
-#	define DETAIL_XTE_EACH(_func, _x, ...) _func(_x)__VA_OPT__(, DETAIL_XTE_EACH_ XTE_PAREN() (_func, __VA_ARGS__))
-#	define DETAIL_XTE_EACH_DELIM(_func, _delim, _x, ...) XTE_CALL(_func)(_x) __VA_OPT__(_delim DETAIL_XTE_EACH_DELIM_ XTE_PAREN() (_func, _delim, __VA_ARGS__))
+#	define DETAIL_XTE_EACH(FUNC, X, ...) FUNC(X)__VA_OPT__(, DETAIL_XTE_EACH_ XTE_PAREN() (FUNC, __VA_ARGS__))
+#	define DETAIL_XTE_EACH_DELIM(FUNC, DELIM, X, ...) XTE_CALL(FUNC)(X) __VA_OPT__(DELIM DETAIL_XTE_EACH_DELIM_ XTE_PAREN() (FUNC, DELIM, __VA_ARGS__))
 #	define DETAIL_XTE_EACH_() DETAIL_XTE_EACH
 #	define DETAIL_XTE_EACH_DELIM_() DETAIL_XTE_EACH_DELIM
 #endif

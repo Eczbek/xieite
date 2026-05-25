@@ -4,8 +4,8 @@
 #	include "../preproc/compiler.hpp"
 #
 #	if XTE_COMPILER_GCC || XTE_COMPILER_CLANG
-#		define XTE_HAS_BUILTIN(_name) __has_builtin(__builtin_##_name)
+#		define XTE_HAS_BUILTIN(NAME) __has_builtin(__builtin_##NAME)
 #	else
-#		define XTE_HAS_BUILTIN(_name) 0
+#		define XTE_HAS_BUILTIN(NAME) 0
 #	endif
 #endif

@@ -3,21 +3,17 @@
 #
 #	define XTE_VERSION_MAJOR 0
 #	define XTE_VERSION_MINOR 195
-#	define XTE_VERSION_PATCH 3
+#	define XTE_VERSION_PATCH 4
 #
-#	define XTE_VERSION(_operator, _major, ...) \
-		DETAIL_XTE_VERSION( \
-			_operator, \
-			_major, __VA_ARGS__ __VA_OPT__(,) 0, 0 \
-		)
+#	define XTE_VERSION(OP, MAJOR, ...) DETAIL_XTE_VERSION(OP, MAJOR, __VA_ARGS__ __VA_OPT__(,) 0, 0)
 #
-#	define DETAIL_XTE_VERSION(_operator, _major, _minor, _patch, ...) \
-		(((((0 _operator 0) && !(0 _operator 1) && !(1 _operator 0)) \
-			|| (!(0 _operator 0) && (0 _operator 1) && (1 _operator 0))) \
-		&& (((XTE_VERSION_MAJOR) _operator (_major)) \
-			&& ((XTE_VERSION_MINOR) _operator (_minor)) \
-			&& ((XTE_VERSION_PATCH) _operator (_patch)))) \
-		|| ((XTE_VERSION_MAJOR) _operator (_major)) \
-			|| (((XTE_VERSION_MAJOR) == (_major)) && ((XTE_VERSION_MINOR) _operator (_minor))) \
-			|| (((XTE_VERSION_MINOR) == (_minor)) && ((XTE_VERSION_PATCH) _operator (_patch))))
+#	define DETAIL_XTE_VERSION(OP, MAJOR, MINOR, PATCH, ...) \
+		(((((0 OP 0) && !(0 OP 1) && !(1 OP 0)) \
+			|| (!(0 OP 0) && (0 OP 1) && (1 OP 0))) \
+		&& (((XTE_VERSION_MAJOR) OP (MAJOR)) \
+			&& ((XTE_VERSION_MINOR) OP (MINOR)) \
+			&& ((XTE_VERSION_PATCH) OP (PATCH)))) \
+		|| ((XTE_VERSION_MAJOR) OP (MAJOR)) \
+			|| (((XTE_VERSION_MAJOR) == (MAJOR)) && ((XTE_VERSION_MINOR) OP (MINOR))) \
+			|| (((XTE_VERSION_MINOR) == (MINOR)) && ((XTE_VERSION_PATCH) OP (PATCH))))
 #endif

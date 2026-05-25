@@ -12,6 +12,6 @@
 #		include <crtdbg.h>
 #		define XTE_STATIC_ASSERT(...) _STATIC_ASSERT(__VA_ARGS__)
 #	else
-#		define XTE_STATIC_ASSERT(_cond) typedef int XTE_STATIC_ASSERT[!(_cond) * -2 + 1]
+#		define XTE_STATIC_ASSERT(...) typedef int XTE_STATIC_ASSERT[!(__VA_ARGS__) * -2 + 1]
 #	endif
 #endif

@@ -15,12 +15,12 @@
 			return (XTE_FWD(DETAIL_XTE_obj)__VA_ARGS__); \
 		})
 #
-#	define DETAIL_XTE_LIFT(_capture, _ellipsis, _specs, ...) \
-		([_capture][[nodiscard]](auto&&_ellipsis DETAIL_XTE_args) _specs XTE_ARROW( \
-			__VA_ARGS__(XTE_FWD(DETAIL_XTE_args)_ellipsis) \
+#	define DETAIL_XTE_LIFT(CAPTURE, ELLIPSIS, SPEC, ...) \
+		([CAPTURE][[nodiscard]](auto&&ELLIPSIS DETAIL_XTE_args) SPEC XTE_ARROW( \
+			__VA_ARGS__(XTE_FWD(DETAIL_XTE_args)ELLIPSIS) \
 		))
-#	define DETAIL_XTE_LIFT_INFIX(_ellipsis, ...) \
-		([][[nodiscard]](auto&& DETAIL_XTE_lhs, auto&&_ellipsis DETAIL_XTE_rhs) XTE_ARROW( \
-			XTE_FWD(DETAIL_XTE_lhs)__VA_ARGS__(XTE_FWD(DETAIL_XTE_rhs)_ellipsis) \
+#	define DETAIL_XTE_LIFT_INFIX(ELLIPSIS, ...) \
+		([][[nodiscard]](auto&& DETAIL_XTE_lhs, auto&&ELLIPSIS DETAIL_XTE_rhs) XTE_ARROW( \
+			XTE_FWD(DETAIL_XTE_lhs)__VA_ARGS__(XTE_FWD(DETAIL_XTE_rhs)ELLIPSIS) \
 		))
 #endif
