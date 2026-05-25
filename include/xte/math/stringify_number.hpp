@@ -7,7 +7,9 @@
 #	include "../math/approx_equal.hpp"
 #	include "../math/approx_less_equal.hpp"
 #	include "../math/floor.hpp"
+#	include "../math/is_inf.hpp"
 #	include "../math/is_finite.hpp"
+#	include "../math/is_nan.hpp"
 #	include "../math/mod.hpp"
 #	include "../math/number_format_config.hpp"
 #	include "../math/rem.hpp"
@@ -23,7 +25,13 @@
 namespace xte {
 	constexpr auto stringify_number = []<xte::is_number T>[[nodiscard]](T x, T radix = 10, const xte::number_format_config& config = {}, xte::uz max_float_precision = 50) noexcept(false) -> xte::string {
 		xte::string result;
-		if (!xte::is_finite(x) || xte::approx_equal(x, 0) || !xte::is_finite(radix) || xte::approx_equal(radix, 0)) {
+		if (xte::is_nan(x)) {
+			return "nan";
+		}
+		if (xte::is_inf(x)) {
+			return (x < 0) ? "-inf" : "inf";
+		}
+		if (xte::approx_equal(x, 0) || !xte::is_finite(radix) || xte::approx_equal(radix, 0)) {
 			result.push(config.digits[0]);
 			if constexpr (xte::is_float<T>) {
 				result.push(config.point[0]);
