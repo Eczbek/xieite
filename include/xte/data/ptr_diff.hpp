@@ -5,16 +5,16 @@
 #	include "../util/numbers.hpp"
 
 namespace xte {
-	[[nodiscard]] constexpr xte::uz ptr_diff(auto* first, decltype(first) last, xte::uz max) noexcept {
-		if (max <= xte::highest<xte::iptrdiff>) {
-			return static_cast<xte::uz>(last - first);
+	[[nodiscard]] constexpr xte::uz ptr_diff(auto* begin, decltype(begin) end, xte::uz size) noexcept {
+		if (size <= xte::highest<xte::iptrdiff>) {
+			return static_cast<xte::uz>(end - begin);
 		}
-		if (max <= static_cast<xte::uptrdiff>(-1)) {
-			return static_cast<xte::uz>(static_cast<xte::uptrdiff>(last - (first + xte::highest<xte::iptrdiff> + 1)) ^ (static_cast<xte::uptrdiff>(xte::highest<xte::iptrdiff>) + 1));
+		if (size <= static_cast<xte::uptrdiff>(-1)) {
+			return static_cast<xte::uz>(static_cast<xte::uptrdiff>(end - (begin + xte::highest<xte::iptrdiff> + 1)) ^ (static_cast<xte::uptrdiff>(xte::highest<xte::iptrdiff>) + 1));
 		}
-		return ((first + max / 2) < last)
-			? (xte::ptr_diff(first + max / 2 + 1, last, max - max / 2 - 1) + max / 2 + 1)
-			: xte::ptr_diff(first, last, max / 2);
+		return ((begin + size / 2) < end)
+			? (xte::ptr_diff(begin + size / 2 + 1, end, size - size / 2 - 1) + size / 2 + 1)
+			: xte::ptr_diff(begin, end, size / 2);
 	}
 }
 
