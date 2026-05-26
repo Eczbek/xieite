@@ -103,12 +103,12 @@
 #
 #	if XTE_COMPILER_GCC || XTE_COMPILER_CLANG
 #		if XTE_LANG(CPP, >=, 2011) || XTE_LANG(C, >=, 2023)
-#			define XTE_ATTR_VISIBLE(_type)  [[gnu::visibility(#_type)]]
+#			define XTE_ATTR_VISIBLE(NAME)  [[gnu::visibility(#NAME)]]
 #		else
-#			define XTE_ATTR_VISIBLE(_type) __attribute__((visibility(#_type)))
+#			define XTE_ATTR_VISIBLE(NAME) __attribute__((visibility(#NAME)))
 #		endif
 #	else
-#		define XTE_ATTR_VISIBLE(_type)
+#		define XTE_ATTR_VISIBLE(NAME)
 #	endif
 #
 #	if XTE_LANG(CPP, >=, 2020)
@@ -143,9 +143,9 @@
 #
 #	if XTE_COMPILER(GCC, >=, 4,4) && !XTE_COMPILER_CLANG
 #		if XTE_LANG(CPP, >=, 2011) || XTE_LANG(C, >=, 2023)
-#			define XTE_ATTR_OPTIMIZE(_opt) [[gnu::optimize(_opt)]]
+#			define XTE_ATTR_OPTIMIZE(NAME) [[gnu::optimize(NAME)]]
 #		else
-#			define XTE_ATTR_OPTIMIZE(_opt) __attribute__((optimize(_opt)))
+#			define XTE_ATTR_OPTIMIZE(NAME) __attribute__((optimize(NAME)))
 #		endif
 #	else
 #		define XTE_ATTR_OPTIMIZE(...)
@@ -186,15 +186,15 @@
 #	endif
 #
 #	if XTE_COMPILER_MSVC
-#		define XTE_ATTR_SECTION(_name) __declspec(allocate(_name))
+#		define XTE_ATTR_SECTION(NAME) __declspec(allocate(NAME))
 #	elif XTE_COMPILER_GCC || XTE_COMPILER_CLANG
 #		if XTE_LANG(CPP, >=, 2011) || XTE_LANG(C, >=, 2023)
-#			define XTE_ATTR_SECTION(_name) [[gnu::section(_name)]]
+#			define XTE_ATTR_SECTION(NAME) [[gnu::section(NAME)]]
 #		else
-#			define XTE_ATTR_SECTION(_name) __attribute__((section(_name)))
+#			define XTE_ATTR_SECTION(NAME) __attribute__((section(NAME)))
 #		endif
 #	else
-#		define XTE_ATTR_SECTION(_name)
+#		define XTE_ATTR_SECTION(NAME)
 #	endif
 #
 #	if XTE_LANG(CPP, >=, 2011) || XTE_LANG(C, >=, 2023)
