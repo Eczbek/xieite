@@ -6,7 +6,7 @@
 
 namespace xte {
 	[[nodiscard]] constexpr xte::uz ptr_diff(auto* begin, decltype(begin) end, xte::uz size) noexcept {
-		if (size <= xte::highest<xte::iptrdiff>) {
+		if (size <= static_cast<xte::uz>(xte::highest<xte::iptrdiff>)) {
 			return static_cast<xte::uz>(end - begin);
 		}
 		if (size <= static_cast<xte::uptrdiff>(-1)) {
