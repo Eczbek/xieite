@@ -135,23 +135,22 @@ namespace xte::meta {
 						name = "<...>";
 					}
 				} else {
-					if (std::meta::has_template_arguments(info) && !std::meta::is_conversion_function(info)) {
-						name = tmpl_args_of(info);
-					}
-					xte::string param_list;
 					for (auto param : std::meta::parameters_of(info)) {
-						if (param_list.size()) {
-							param_list += ", ";
+						if (name.size()) {
+							name += ", ";
 						}
-						param_list += name_of(xte::meta::type_of(param), ctx_none);
+						name += name_of(xte::meta::type_of(param), ctx_none);
 					}
 					if (std::meta::is_vararg_function(info)) {
-						if (param_list.size()) {
-							param_list += ", ";
+						if (name.size()) {
+							name += ", ";
 						}
-						param_list += "...";
+						name += "...";
 					}
-					name += "(" + param_list + ")";
+					name = "(" + name + ")";
+					if (std::meta::has_template_arguments(info) && !std::meta::is_conversion_function(info)) {
+						name = tmpl_args_of(info) + name;
+					}
 				}
 				if (ctx & (ctx_parent | ctx_func)) {
 					auto parent = std::meta::has_parent(info) ? std::meta::parent_of(info) : ^^::;
@@ -202,7 +201,7 @@ namespace xte::meta {
 					name += " noexcept";
 				}
 				if ((~ctx & ctx_parent) && !std::meta::is_template(info) && !std::meta::is_constructor(info) && !std::meta::is_destructor(info) && ((~ctx & ctx_func) || !std::meta::is_conversion_function(info))) {
-					name = name_of(std::meta::return_type_of(info), ctx_none) + xte::string((ctx & ctx_func) ? " " : "") + name;
+					name = name_of(std::meta::return_type_of(info), ctx_none) + ((ctx & ctx_func) ? xte::string(" ") : "") + name;
 				}
 				return (ctx & ctx_prefix) ? ("(" + name + ")") : name;
 			};
@@ -360,7 +359,7 @@ namespace xte::meta {
 								|| ((std::meta::is_operator_function(member) || std::meta::is_operator_function_template(member))
 									&& (std::meta::operator_of(member) == std::meta::op_parentheses));
 						}
-					)) ? "<lambda>" : "<unnamed>";
+					)) ? xte::string("<lambda>") : "<unnamed>";
 				}
 				if (std::meta::is_value(info) || std::meta::is_object(info)) {
 					return std::meta::extract<xte::type<xte::string()>*>(std::meta::substitute(
