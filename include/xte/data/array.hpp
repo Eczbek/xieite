@@ -373,7 +373,7 @@ namespace xte {
 		}
 
 		constexpr void erase(xte::uz index, xte::uz count = 1) &
-		noexcept(requires (T x) { requires(noexcept(T(std::move_if_noexcept(x)))); }) {
+		noexcept(requires (T x) { { T(std::move_if_noexcept(x)) } noexcept; }) {
 			if (index < this->_size) {
 				this->_size -= (count = xte::min(count, this->_size - index));
 				for (xte::uz i = index; i < this->_size; ++i) {
@@ -400,7 +400,7 @@ namespace xte {
 		)
 
 		constexpr T pop() &
-		noexcept(requires (T x) { requires(noexcept(T(std::move_if_noexcept(x)))); }) {
+		noexcept(requires (T x) { { T(std::move_if_noexcept(x)) } noexcept; }) {
 			auto last = T(std::move_if_noexcept(this->back()));
 			this->erase(this->_size - 1);
 			return last;

@@ -7,6 +7,7 @@
 #	include "../trait/is_same.hpp"
 #	include "../util/assign.hpp"
 #	include "../util/cast.hpp"
+#	include "../util/like.hpp"
 #	include <ranges>
 
 namespace xte {
@@ -78,10 +79,11 @@ namespace xte {
 
 	template<std::ranges::input_range Range>
 	[[nodiscard]] constexpr Range uppercase(Range range)
-	noexcept(xte::is_noex_range<Range> && requires (std::ranges::range_value_t<Range> x) { requires(noexcept(xte::assign(x, xte::uppercase(xte::cast<char>(x))))); })
-	requires(requires (std::ranges::range_value_t<Range> x) { xte::assign(x, xte::uppercase(xte::cast<char>(x))); }) {
+	noexcept(xte::is_noex_range<Range>
+		&& requires (std::ranges::range_value_t<Range> x) { { xte::assign(x, xte::uppercase(xte::cast<char>(xte::like<Range>(x)))) } noexcept; })
+	requires(requires (std::ranges::range_value_t<Range> x) { xte::assign(x, xte::uppercase(xte::cast<char>(xte::like<Range>(x)))); }) {
 		for (auto& c : range) {
-			xte::assign(c, xte::uppercase(xte::cast<char>(c)));
+			xte::assign(c, xte::uppercase(xte::cast<char>(xte::like<Range>(c))));
 		}
 		return range;
 	}
