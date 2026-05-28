@@ -58,13 +58,13 @@ namespace xte {
 				std::unreachable();
 			})(lhs, rhs),
 			static_cast<bool>(XTE_FWD(lhs) < XTE_FWD(rhs)),
-			!static_cast<bool>(XTE_FWD(rhs) < XTE_FWD(lhs)),
 			static_cast<bool>(XTE_FWD(rhs) > XTE_FWD(lhs)),
-			!static_cast<bool>(XTE_FWD(lhs) > XTE_FWD(rhs)),
+			!static_cast<bool>(XTE_FWD(lhs) >= XTE_FWD(rhs)),
+			!static_cast<bool>(XTE_FWD(rhs) <= XTE_FWD(lhs)),
 			static_cast<bool>(static_cast<common_type>(XTE_FWD(lhs)) < static_cast<common_type>(XTE_FWD(rhs))),
-			!static_cast<bool>(static_cast<common_type>(XTE_FWD(rhs)) < static_cast<common_type>(XTE_FWD(lhs))),
 			static_cast<bool>(static_cast<common_type>(XTE_FWD(rhs)) > static_cast<common_type>(XTE_FWD(lhs))),
-			!static_cast<bool>(static_cast<common_type>(XTE_FWD(lhs)) > static_cast<common_type>(XTE_FWD(rhs)))
+			!static_cast<bool>(static_cast<common_type>(XTE_FWD(lhs)) >= static_cast<common_type>(XTE_FWD(rhs))),
+			!static_cast<bool>(static_cast<common_type>(XTE_FWD(rhs)) <= static_cast<common_type>(XTE_FWD(lhs)))
 		);
 }
 
