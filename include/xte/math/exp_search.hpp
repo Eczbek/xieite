@@ -40,8 +40,10 @@ namespace xte {
 	template<xte::is_number T>
 	[[nodiscard]] constexpr T exp_search(xte::is_callable_lref<bool(T)> auto&& predicate)
 	noexcept(xte::is_noex_callable<decltype(predicate)&, bool(T)>) {
-		T mid = 0;
-		if constexpr (!xte::is_unsigned<T>) {
+		if constexpr (xte::is_int<T>) {
+			return xte::exp_search(predicate, xte::lowest<T>, xte::highest<T>);
+		} else {
+			T mid = 0;
 			if (!static_cast<bool>(predicate(static_cast<T>(0)))) {
 				T min = -1;
 				while (!static_cast<bool>(predicate(min))) {
@@ -54,17 +56,17 @@ namespace xte {
 				}
 				return xte::exp_search(predicate, mid, min);
 			}
-		}
-		T max = 1;
-		while (predicate(max)) {
-			mid = max;
-			if (auto next = xte::mul_checked(max, static_cast<T>(2))) {
-				max = *next;
-				continue;
+			T max = 1;
+			while (predicate(max)) {
+				mid = max;
+				if (auto next = xte::mul_checked(max, static_cast<T>(2))) {
+					max = *next;
+					continue;
+				}
+				return xte::exp_search(predicate, mid, xte::highest<T>);
 			}
-			return xte::exp_search(predicate, mid, xte::highest<T>);
+			return xte::exp_search(predicate, mid, max);
 		}
-		return xte::exp_search(predicate, mid, max);
 	}
 }
 
