@@ -8,8 +8,11 @@
 #	include "../trait/is_same_ignore_cvref.hpp"
 #	include "../trait/remove_cvref.hpp"
 #	include "../util/address.hpp"
+#	include "../util/assign.hpp"
 #	include "../util/cast.hpp"
 #	include "../util/construct.hpp"
+#	include "../util/destroy.hpp"
+#	include "../util/exchange.hpp"
 #	include "../util/xvalue.hpp"
 
 namespace xte {
@@ -32,46 +35,27 @@ namespace xte {
 			_has_value,((true))
 		)
 
-		constexpr auto&& emplace(this auto&& self, auto&&... args)
-		noexcept(noexcept(T(XTE_FWD(args)...)))
-		requires(requires { T(XTE_FWD(args)...); }) {
-			self = xte::null;
-			xte::construct(self._value, XTE_FWD(args)...);
-			self._has_value = true;
-			return XTE_FWD(self);
-		}
+		[[nodiscard]] explicit(false) constexpr opt(const xte::opt<T>& other) XTE_ARROW_CTOR((
+			other._has_value ? void(xte::construct(this->_value, other._value)) : void(),
+			this->_has_value = other._has_value
+		))
 
-		[[nodiscard]] explicit(false) constexpr opt(const xte::opt<T>& other)
-		noexcept(noexcept(T(other._value)))
-		requires(requires { T(other._value); })
-		{ other && this->emplace(other._value); }
-
-		[[nodiscard]] explicit(false) constexpr opt(xte::opt<T>&& other)
-		noexcept(noexcept(T(xte::xvalue(other._value))))
-		requires(requires { T(xte::xvalue(other._value)); })
-		{ other && this->emplace(xte::xvalue(other._value)); }
+		[[nodiscard]] explicit(false) constexpr opt(xte::opt<T>&& other) XTE_ARROW_CTOR((
+			other._has_value ? void(xte::construct(this->_value, xte::xvalue(other)._value)) : void(),
+			this->_has_value = xte::exchange(other._has_value, false)
+		))
 
 		constexpr ~opt() {
-			if (this->_has_value) {
-				this->_value.~T();
-			}
+			this->reset();
 		}
 
-		constexpr auto operator=(const xte::opt<T>& other) & XTE_ARROW(
-			this->_has_value ? this->_value.~T() : void(),
-			(this->_has_value = other._has_value) ? void(this->_value = other._value) : void(),
-			*this
-		)
+		constexpr xte::opt<T>& operator=(const xte::opt<T>&) & noexcept = default;
 
-		constexpr auto operator=(xte::opt<T>&& other) & XTE_ARROW(
-			this->_has_value ? this->_value.~T() : void(),
-			(this->_has_value = other._has_value) ? void(this->_value = xte::xvalue(other)._value) : void(),
-			*this
-		)
+		constexpr xte::opt<T>& operator=(xte::opt<T>&&) & noexcept = default;
 
-		constexpr auto operator=(auto&& x) & XTE_ARROW(
-			void(this->_value = XTE_FWD(x)),
-			void(this->_has_value = true),
+		constexpr auto operator=(auto&& arg) & XTE_ARROW(
+			this->_has_value ? void(xte::assign(this->_value, XTE_FWD(arg))) : void(xte::construct(this->_value, XTE_FWD(arg))),
+			this->_has_value = true,
 			*this
 		)
 
@@ -86,17 +70,25 @@ namespace xte {
 		[[nodiscard]] constexpr auto* operator->(this auto&& self) noexcept {
 			return xte::address(self._value);
 		}
-		
-		[[nodiscard]] static constexpr auto make(auto&&... args) XTE_ARROW(
-			xte::opt<T>().emplace(XTE_FWD(args)...)
+
+		constexpr void reset() & noexcept {
+			if (xte::exchange(this->_has_value, false)) {
+				xte::destroy(this->_value);
+			}
+		}
+
+		constexpr auto reset(auto&&... args) & XTE_ARROW(
+			this->reset(),
+			xte::construct(this->_value, XTE_FWD(args)...),
+			void(this->_has_value = true)
 		)
 
 		[[nodiscard]] constexpr auto and_then(this auto&& self, auto&& func) XTE_ARROW(
 			self ? XTE_FWD(func)(XTE_FWD(self)._value) : decltype(XTE_FWD(func)(XTE_FWD(self)._value))()
 		)
 
-		[[nodiscard]] constexpr auto or_else(xte::is_callable<T()> auto&& func) XTE_ARROW(
-			this->_has_value ? this->_value : XTE_FWD(func)()
+		[[nodiscard]] constexpr auto or_else(this auto&& self, xte::is_callable<T()> auto&& func) XTE_ARROW(
+			self._has_value ? XTE_FWD(self)._value : XTE_FWD(func)()
 		)
 	};
 
