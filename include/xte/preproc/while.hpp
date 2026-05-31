@@ -8,7 +8,7 @@
 			XTE_DIAGNOSTIC_PUSH_GCC(OFF, "-Wdangling-else") \
 			if (!XTE_WHILE) \
 				while (__VA_ARGS__) \
-					if (XTE_WHILE) break; \
-					else for (++XTE_WHILE; XTE_WHILE; --XTE_WHILE) \
+					if (XTE_WHILE++) break; \
+					else for (; XTE_WHILE; --XTE_WHILE) \
 						XTE_DIAGNOSTIC_POP_GCC()
 #endif
