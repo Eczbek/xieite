@@ -3,6 +3,8 @@
 
 using namespace xte::literal::wide_uint;
 
+static_assert(xte::wide_uint(42) == 42);
+
 static_assert(xte::wide_uint<xte::u8>(256).hi == 1);
 
 static_assert(static_cast<unsigned>(xte::wide_uint<xte::u32>(1'0)) == 10u);

@@ -19,6 +19,7 @@
 #	include "../trait/is_int.hpp"
 #	include "../trait/is_privately_derived_from.hpp"
 #	include "../trait/is_unsigned.hpp"
+#	include "../trait/try_unsigned.hpp"
 #	include "../util/error.hpp"
 #	include "../util/exchange.hpp"
 #	include "../util/numbers.hpp"
@@ -341,6 +342,9 @@ namespace xte {
 			return lhs >>= rhs;
 		}
 	};
+
+	template<typename T>
+	wide_uint(T) -> wide_uint<xte::try_unsigned<T>>;
 }
 
 namespace xte::literal::wide_uint {
