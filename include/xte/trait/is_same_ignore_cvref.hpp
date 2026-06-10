@@ -5,8 +5,8 @@
 #	include "../trait/remove_cvref.hpp"
 
 namespace xte {
-	template<typename T, typename... Us>
-	concept is_same_ignore_cvref = xte::is_same<xte::remove_cvref<T>, xte::remove_cvref<Us>...>;
+	template<typename T, typename... Ts>
+	concept is_same_ignore_cvref = xte::is_same<xte::remove_cvref<T>, xte::remove_cvref<Ts>...>;
 }
 
 #endif

@@ -4,8 +4,8 @@
 #	include "../trait/is_same_ignore_cvref.hpp"
 
 namespace xte {
-	template<typename T, typename... Us>
-	concept is_same_any_ignore_cvref = (... || xte::is_same_ignore_cvref<T, Us>);
+	template<typename T, typename... Ts>
+	concept is_same_any_ignore_cvref = (... || xte::is_same_ignore_cvref<T, Ts>);
 }
 
 #endif

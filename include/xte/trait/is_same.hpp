@@ -4,8 +4,8 @@
 #	include <concepts>
 
 namespace xte {
-	template<typename T, typename... Us>
-	concept is_same = (... && std::same_as<T, Us>);
+	template<typename T, typename... Ts>
+	concept is_same = (... && std::same_as<T, Ts>);
 }
 
 #endif

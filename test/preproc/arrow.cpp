@@ -8,11 +8,11 @@ auto add(auto lhs, auto rhs) XTE_ARROW(lhs + rhs)
 static_assert(requires { add(0, 0); });
 static_assert(noexcept(add(0, 0)));
 
-template<typename T, typename... Us>
-struct Derived : T, Us... {
+template<typename T, typename... Ts>
+struct Derived : T, Ts... {
 	int x;
 
-	Derived(int x) XTE_ARROW_CTOR(, x, ((x)), (T), ((x)), ((Us)), ((x)))
+	Derived(int x) XTE_ARROW_CTOR(, x, ((x)), (T), ((x)), ((Ts)), ((x)))
 };
 
 struct A { A(int) noexcept {} };

@@ -4,8 +4,8 @@
 #	include "../trait/is_same_ignore_cv.hpp"
 
 namespace xte {
-	template<typename T, typename... Us>
-	concept is_same_any_ignore_cv = (... || xte::is_same_ignore_cv<T, Us>);
+	template<typename T, typename... Ts>
+	concept is_same_any_ignore_cv = (... || xte::is_same_ignore_cv<T, Ts>);
 }
 
 #endif
