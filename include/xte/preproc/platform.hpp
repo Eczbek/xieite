@@ -825,27 +825,27 @@
 #
 #	ifdef __ATARI__
 #		undef XTE_PLATFORM_ATARI
-#		define XTE_PLATfORM_ATARI 1
+#		define XTE_PLATFORM_ATARI 1
 #	endif
 #
 #	ifdef __ATARI2600__
 #		undef XTE_PLATFORM_ATARI_2600
-#		define XTE_PLATfORM_ATARI_2600 1
+#		define XTE_PLATFORM_ATARI_2600 1
 #	endif
 #
 #	ifdef __ATARI5200__
 #		undef XTE_PLATFORM_ATARI_5200
-#		define XTE_PLATfORM_ATARI_5200 1
+#		define XTE_PLATFORM_ATARI_5200 1
 #	endif
 #
 #	ifdef __LYNX__
 #		undef XTE_PLATFORM_ATARI_LYNX
-#		define XTE_PLATfORM_ATARI_LYNX 1
+#		define XTE_PLATFORM_ATARI_LYNX 1
 #	endif
 #
 #	ifdef __ATARIXL__
 #		undef XTE_PLATFORM_ATARI_XL
-#		define XTE_PLATfORM_ATARI_XL 1
+#		define XTE_PLATFORM_ATARI_XL 1
 #	endif
 #
 #	ifdef __BADA__
