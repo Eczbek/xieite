@@ -3,8 +3,12 @@
 #
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../preproc/lift.hpp"
+#	include "../trait/is_member_function.hpp"
+#	include "../trait/is_member_of.hpp"
 #	include "../trait/non_copyable.hpp"
 #	include "../util/exchange.hpp"
+#	include "../util/like.hpp"
 #	include "../util/numbers.hpp"
 #	include <iterator>
 #	include <new>
@@ -51,6 +55,14 @@ namespace xte {
 
 		[[nodiscard]] constexpr auto* operator->(this auto&& self) noexcept {
 			return self._data;
+		}
+
+		[[nodiscard]] constexpr decltype(auto) operator->*(this auto&& self, xte::is_member_of<T> auto&& member) noexcept {
+			if constexpr (xte::is_member_function<decltype(member)>) {
+				return XTE_LIFT_LOCAL((XTE_FWD(self)._data->*member));
+			} else {
+				return xte::like<decltype(self)>(self._data->*member);
+			}
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(const xte::ptr<T>& lhs, const T* rhs) noexcept {

@@ -31,3 +31,10 @@ static_assert(([] {
 	}
 	return x;
 })());
+
+struct A {
+	int x = 1;
+	constexpr int f() { return 2; }
+};
+static_assert(xte::ptr<A>::make()->*&A::x == 1);
+static_assert((xte::ptr<A>::make()->*&A::f)() == 2);
