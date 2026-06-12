@@ -4,7 +4,7 @@
 #	include "../meta/end.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../trait/is_number.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/remove_cvref.hpp"
 #	include "../util/cast.hpp"
 #	include "../util/reconstruct.hpp"
@@ -12,10 +12,10 @@
 
 namespace xte {
 	template<typename T, typename U, xte::end...,
-		bool are_numbers = xte::is_number<xte::remove_cvref<T>> && xte::is_number<xte::remove_cvref<U>>>
+		bool are_arithmetic = xte::is_arithmetic<xte::remove_cvref<T>> && xte::is_arithmetic<xte::remove_cvref<U>>>
 	constexpr auto assign(T&& lhs, U&& rhs) XTE_ARROW_FIRST(
-		([](T& lhs, U rhs) noexcept -> T& requires(are_numbers) {
-			if constexpr (are_numbers) {
+		([](T& lhs, U rhs) noexcept -> T& requires(are_arithmetic) {
+			if constexpr (are_arithmetic) {
 				return lhs = xte::cast<xte::remove_cvref<T>>(rhs);
 			}
 			std::unreachable();

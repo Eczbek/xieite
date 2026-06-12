@@ -10,6 +10,7 @@
 #	include "../meta/type.hpp"
 #	include "../trait/add_array.hpp"
 #	include "../trait/add_unbounded_array.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_char.hpp"
 #	include "../util/numbers.hpp"
 #	include <algorithm>
@@ -369,7 +370,7 @@ namespace xte::meta {
 								return value ? "true" : "false";
 							} else if constexpr (xte::is_char<typename[:type:]>) {
 								return xte::quote(value);
-							} else if constexpr (xte::is_number<typename[:type:]>) {
+							} else if constexpr (xte::is_arithmetic<typename[:type:]>) {
 								return xte::stringify_number(value);
 							} else if constexpr (std::meta::is_pointer_type(type) || (type == ^^decltype(nullptr))) {
 								return "nullptr";

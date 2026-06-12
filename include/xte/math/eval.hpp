@@ -27,8 +27,8 @@
 #	include "../math/sub_checked.hpp"
 #	include "../preproc/feature.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../trait/is_instance_of.hpp"
-#	include "../trait/is_number_or_bool.hpp"
+#	include "../trait/is_arithmetic_or_bool.hpp"
+#	include "../trait/is_specialization_of.hpp"
 #	include "../util/address.hpp"
 #	include "../util/cast.hpp"
 #	include "../util/construct.hpp"
@@ -195,7 +195,7 @@ namespace DETAIL_XTE::eval {
 
 namespace xte {
 	template<typename T>
-	requires(xte::is_number_or_bool<T> || xte::is_instance_of<T, ^^xte::big_int>)
+	requires(xte::is_arithmetic_or_bool<T> || xte::is_specialization_of<T, ^^xte::big_int>)
 	constexpr auto eval = [][[nodiscard]](xte::string_view input) static noexcept(false) -> T {
 		struct [[nodiscard]] error : std::exception {
 			xte::string message;

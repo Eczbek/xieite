@@ -3,14 +3,14 @@
 #
 #	include "../math/abs.hpp"
 #	include "../math/sign.hpp"
-#	include "../trait/is_number.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../util/cast.hpp"
 #	include <cmath>
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto rem(xte::is_number auto dividend, xte::is_number auto... divisors) noexcept {
+	[[nodiscard]] constexpr auto rem(xte::is_arithmetic auto dividend, xte::is_arithmetic auto... divisors) noexcept {
 		using common_type = std::common_type_t<decltype(dividend), decltype(divisors)...>;
 		if constexpr (xte::is_float<common_type>) {
 			auto result = xte::cast<common_type>(dividend);

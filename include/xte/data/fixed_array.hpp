@@ -8,9 +8,9 @@
 #	include "../preproc/fwd.hpp"
 #	include "../trait/is_castable.hpp"
 #	include "../trait/is_derived_from_instance_of.hpp"
-#	include "../trait/is_instance_of.hpp"
 #	include "../trait/is_same.hpp"
 #	include "../trait/is_same_ignore_cvref.hpp"
+#	include "../trait/is_specialization_of.hpp"
 #	include "../util/like.hpp"
 #	include "../util/numbers.hpp"
 #	include <compare>

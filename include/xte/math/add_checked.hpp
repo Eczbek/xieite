@@ -10,12 +10,12 @@
 #	include "../math/lowest.hpp"
 #	include "../preproc/has_builtin.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../util/cast.hpp"
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto add_checked(xte::is_number auto augend, xte::is_number auto... addends) noexcept {
+	[[nodiscard]] constexpr auto add_checked(xte::is_arithmetic auto augend, xte::is_arithmetic auto... addends) noexcept {
 		using common_type = std::common_type_t<decltype(augend), decltype(addends)...>;
 		auto sum = xte::cast<common_type>(augend);
 #	if XTE_HAS_BUILTIN(add_overflow)

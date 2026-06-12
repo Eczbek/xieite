@@ -44,7 +44,7 @@ static_assert(!xte::is_unsigned<volatile const int>);
 static_assert(!xte::is_unsigned<volatile const long>);
 static_assert(!xte::is_unsigned<volatile const long long>);
 
-static_assert(!xte::is_unsigned<char>);
+static_assert(!xte::is_unsigned<bool>);
 static_assert(!xte::is_unsigned<void>);
 static_assert(!xte::is_unsigned<int&>);
 static_assert(!xte::is_unsigned<int&&>);

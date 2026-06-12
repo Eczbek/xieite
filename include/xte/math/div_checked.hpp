@@ -8,13 +8,13 @@
 #	include "../math/is_finite.hpp"
 #	include "../math/lowest.hpp"
 #	include "../math/sign.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../trait/is_signed.hpp"
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto div_checked(xte::is_number auto dividend, xte::is_number auto... divisors) noexcept {
+	[[nodiscard]] constexpr auto div_checked(xte::is_arithmetic auto dividend, xte::is_arithmetic auto... divisors) noexcept {
 		if constexpr (using common_type = std::common_type_t<decltype(dividend), decltype(divisors)...>; xte::is_float<common_type>) {
 			return (!xte::is_finite(dividend) || ... || (!xte::is_finite(divisors) || xte::approx_equal(divisors, 0)))
 				? xte::null

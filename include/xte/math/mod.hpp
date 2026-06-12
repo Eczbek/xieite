@@ -3,12 +3,12 @@
 #
 #	include "../math/rem.hpp"
 #	include "../math/sign.hpp"
-#	include "../trait/is_number.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../util/cast.hpp"
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto mod(xte::is_number auto dividend, xte::is_number auto... divisors) noexcept {
+	[[nodiscard]] constexpr auto mod(xte::is_arithmetic auto dividend, xte::is_arithmetic auto... divisors) noexcept {
 		using common_type = std::common_type_t<decltype(dividend), decltype(divisors)...>;
 		auto result = xte::cast<common_type>(dividend);
 		return (..., (result = xte::rem(xte::rem(result, divisors) + xte::cast<common_type>(divisors) * (xte::sign(result, divisors) < 0), divisors)));

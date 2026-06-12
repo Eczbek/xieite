@@ -9,13 +9,13 @@
 #	include "../math/lowest.hpp"
 #	include "../math/sub.hpp"
 #	include "../preproc/has_builtin.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../util/assign.hpp"
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto sub_checked(xte::is_number auto minuend, xte::is_number auto... subtrahends) noexcept {
+	[[nodiscard]] constexpr auto sub_checked(xte::is_arithmetic auto minuend, xte::is_arithmetic auto... subtrahends) noexcept {
 		using common_type = std::common_type_t<decltype(minuend), decltype(subtrahends)...>;
 		auto diff = xte::cast<common_type>(minuend);
 #	if XTE_HAS_BUILTIN(sub_overflow)

@@ -13,9 +13,9 @@
 #	include "../math/mod.hpp"
 #	include "../math/number_format_config.hpp"
 #	include "../math/rem.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_int.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../trait/is_signed.hpp"
 #	include "../util/cast.hpp"
 #	include "../util/numbers.hpp"
@@ -23,7 +23,7 @@
 #	include <ranges>
 
 namespace xte {
-	constexpr auto stringify_number = []<xte::is_number T>[[nodiscard]](T x, T radix = 10, const xte::number_format_config& config = {}, xte::uz max_float_precision = 50) noexcept(false) -> xte::string {
+	constexpr auto stringify_number = []<xte::is_arithmetic T>[[nodiscard]](T x, T radix = 10, const xte::number_format_config& config = {}, xte::uz max_float_precision = 50) noexcept(false) -> xte::string {
 		xte::string result;
 		if (xte::is_nan(x)) {
 			return "nan";

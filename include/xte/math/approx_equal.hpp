@@ -6,12 +6,12 @@
 #	include "../math/between.hpp"
 #	include "../math/diff.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include <limits>
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr bool approx_equal(xte::is_number auto x, xte::is_number auto y) noexcept {
+	[[nodiscard]] constexpr bool approx_equal(xte::is_arithmetic auto x, xte::is_arithmetic auto y) noexcept {
 		if constexpr (using common_type = std::common_type_t<decltype(x), decltype(y)>; xte::is_float<common_type>) {
 			auto diff = xte::diff(x, y);
 			return diff <= (std::numeric_limits<common_type>::epsilon() * (xte::between(diff, 0, 1, false, false) ? (1 / diff) : diff));
@@ -20,7 +20,7 @@ namespace xte {
 		}
 	}
 
-	[[nodiscard]] constexpr bool approx_equal(xte::is_number auto x, xte::is_number auto y, xte::is_number auto epsilon) noexcept {
+	[[nodiscard]] constexpr bool approx_equal(xte::is_arithmetic auto x, xte::is_arithmetic auto y, xte::is_arithmetic auto epsilon) noexcept {
 		return xte::diff(x, y) <= xte::abs(epsilon);
 	}
 }

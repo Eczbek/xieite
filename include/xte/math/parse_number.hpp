@@ -11,13 +11,13 @@
 #	include "../math/number_format_config.hpp"
 #	include "../math/pow.hpp"
 #	include "../math/sign.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../util/cast.hpp"
 #	include "../util/numbers.hpp"
 
 namespace DETAIL_XTE {
-	template<xte::is_number T>
+	template<xte::is_arithmetic T>
 	struct parse_number {
 		[[nodiscard]] static constexpr T operator()(xte::string_view string, T radix = 10, const xte::number_format_config& config = {}, bool allow_overflow = true) noexcept {
 			return DETAIL_XTE::parse_number<T>::with_index(string, radix, config, allow_overflow).value;
@@ -74,7 +74,7 @@ namespace DETAIL_XTE {
 }
 
 namespace xte {
-	template<xte::is_number T>
+	template<xte::is_arithmetic T>
 	constexpr DETAIL_XTE::parse_number<T> parse_number;
 }
 

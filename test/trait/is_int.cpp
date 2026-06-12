@@ -44,7 +44,9 @@ static_assert(xte::is_int<volatile const int>);
 static_assert(xte::is_int<volatile const long>);
 static_assert(xte::is_int<volatile const long long>);
 
-static_assert(!xte::is_int<char>);
+static_assert(xte::is_int<char>);
+
+static_assert(!xte::is_int<bool>);
 static_assert(!xte::is_int<void>);
 static_assert(!xte::is_int<int&>);
 static_assert(!xte::is_int<int&&>);

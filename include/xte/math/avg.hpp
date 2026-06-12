@@ -6,14 +6,14 @@
 #	include "../math/div.hpp"
 #	include "../math/div_trunc_half.hpp"
 #	include "../math/sign.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../util/cast.hpp"
 #	include "../util/numbers.hpp"
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto avg(xte::is_number auto first, xte::is_number auto... rest) noexcept {
+	[[nodiscard]] constexpr auto avg(xte::is_arithmetic auto first, xte::is_arithmetic auto... rest) noexcept {
 		if constexpr (using common_type = std::common_type_t<decltype(first), decltype(rest)...>; xte::is_float<common_type>) {
 			static constexpr auto count = xte::cast<common_type>(sizeof...(rest) + 1);
 			return ((xte::cast<common_type>(first) / count) + ... + (xte::cast<common_type>(rest) / count));

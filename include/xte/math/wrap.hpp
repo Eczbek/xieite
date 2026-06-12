@@ -3,12 +3,12 @@
 #
 #	include "../math/minmax.hpp"
 #	include "../math/mod.hpp"
-#	include "../trait/is_number.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../util/cast.hpp"
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto wrap(xte::is_number auto x, xte::is_number auto limit0, xte::is_number auto limit1) noexcept {
+	[[nodiscard]] constexpr auto wrap(xte::is_arithmetic auto x, xte::is_arithmetic auto limit0, xte::is_arithmetic auto limit1) noexcept {
 		using common_type = std::common_type_t<decltype(x), decltype(limit0), decltype(limit1)>;
 		auto [min, max] = xte::minmax(xte::cast<common_type>(limit0), xte::cast<common_type>(limit1));
 		if constexpr (xte::is_float<common_type>) {

@@ -6,7 +6,7 @@
 #	include "../meta/fake.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../trait/is_instance_of.hpp"
+#	include "../trait/is_specialization_of.hpp"
 #	include "../trait/remove_cvref.hpp"
 #	include "../trait/remove_ref.hpp"
 #	include "../util/address.hpp"
@@ -14,7 +14,7 @@
 
 namespace DETAIL_XTE {
 	template<typename Func>
-	requires(requires { { xte::fake<Func&>()() } -> xte::is_instance_of<^^xte::opt>; })
+	requires(requires { { xte::fake<Func&>()() } -> xte::is_specialization_of<^^xte::opt>; })
 	struct gen {
 		struct iter {
 			using difference_type = xte::iz;

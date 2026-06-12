@@ -4,14 +4,14 @@
 #	include "../math/abs.hpp"
 #	include "../math/highest.hpp"
 #	include "../math/sub_checked.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../util/cast.hpp"
 #	include <limits>
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto diff(xte::is_number auto x, xte::is_number auto y) noexcept {
+	[[nodiscard]] constexpr auto diff(xte::is_arithmetic auto x, xte::is_arithmetic auto y) noexcept {
 		if constexpr (using common_type = std::common_type_t<decltype(x), decltype(y)>; xte::is_float<common_type>) {
 			if (auto diff = xte::sub_checked(x, y)) {
 				return xte::abs(*diff);

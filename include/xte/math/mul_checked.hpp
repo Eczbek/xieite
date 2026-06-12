@@ -10,14 +10,14 @@
 #	include "../math/lowest.hpp"
 #	include "../math/mul.hpp"
 #	include "../preproc/has_builtin.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../util/assign.hpp"
 #	include "../util/cast.hpp"
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto mul_checked(xte::is_number auto first, xte::is_number auto... rest) noexcept {
+	[[nodiscard]] constexpr auto mul_checked(xte::is_arithmetic auto first, xte::is_arithmetic auto... rest) noexcept {
 		using common_type = std::common_type_t<decltype(first), decltype(rest)...>;
 		auto prod = xte::cast<common_type>(first);
 #	if XTE_HAS_BUILTIN(mul_overflow)

@@ -7,9 +7,9 @@
 #	include "../math/lowest.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/lift.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_int.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../util/at.hpp"
 #	include <cmath>
 #	include <limits>
@@ -26,7 +26,7 @@ namespace DETAIL_XTE {
 		}
 	}
 
-	template<xte::is_number T, xte::is_number U>
+	template<xte::is_arithmetic T, xte::is_arithmetic U>
 	[[nodiscard]] constexpr T cast(U arg) noexcept {
 		if constexpr (xte::is_float<T>) {
 			if (xte::less(xte::highest<T>, arg)) {

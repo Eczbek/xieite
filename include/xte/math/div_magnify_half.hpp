@@ -5,13 +5,13 @@
 #	include "../math/floor.hpp"
 #	include "../math/rem.hpp"
 #	include "../math/sign.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../util/cast.hpp"
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr auto div_magnify_half(xte::is_number auto dividend, xte::is_number auto... divisors) noexcept {
+	[[nodiscard]] constexpr auto div_magnify_half(xte::is_arithmetic auto dividend, xte::is_arithmetic auto... divisors) noexcept {
 		if constexpr (using common_type = std::common_type_t<decltype(dividend), decltype(divisors)...>; xte::is_float<common_type>) {
 			auto quot = xte::cast<common_type>(dividend);
 			common_type fraction = 0;

@@ -24,8 +24,8 @@
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/lift.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_int.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../trait/is_same.hpp"
 #	include "../trait/is_unsigned.hpp"
 #	include "../util/error.hpp"
@@ -243,7 +243,7 @@ namespace xte {
 	public:
 		using value_type = T;
 
-		template<xte::is_number U = T>
+		template<xte::is_arithmetic U = T>
 		[[nodiscard]] explicit(!xte::is_int<U>)
 		constexpr big_int(U x = 0) noexcept(false)
 		: _neg(x < 0) {
@@ -295,7 +295,7 @@ namespace xte {
 
 		constexpr xte::big_int<T>& operator=(xte::big_int<T>&&) & noexcept = default;
 
-		template<xte::is_number U>
+		template<xte::is_arithmetic U>
 		[[nodiscard]] explicit constexpr operator U() const noexcept {
 			xte::number<U> result;
 			xte::uz shift = 0;

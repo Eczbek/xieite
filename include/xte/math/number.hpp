@@ -15,8 +15,8 @@
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/lift.hpp"
+#	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../trait/is_number.hpp"
 #	include "../trait/is_same_any.hpp"
 #	include "../trait/is_same_any_ignore_cvref.hpp"
 #	include "../trait/try_signed.hpp"
@@ -27,7 +27,7 @@
 #	include <limits>
 
 namespace xte {
-	template<xte::is_number T>
+	template<xte::is_arithmetic T>
 	struct number {
 	private:
 		constexpr void _bitwise(T rhs, auto func) noexcept {
@@ -86,7 +86,7 @@ namespace xte {
 			return lhs += rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator+(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator+(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs += rhs;
 		}
 
@@ -95,7 +95,7 @@ namespace xte {
 			return *this += rhs.value;
 		}
 
-		constexpr xte::number<T>& operator+=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator+=(xte::is_arithmetic auto rhs) & noexcept {
 			this->value = xte::cast<T>(xte::add(this->value, rhs));
 			return *this;
 		}
@@ -117,7 +117,7 @@ namespace xte {
 			return lhs -= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator-(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator-(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs -= rhs;
 		}
 
@@ -126,7 +126,7 @@ namespace xte {
 			return *this -= rhs.value;
 		}
 
-		constexpr xte::number<T>& operator-=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator-=(xte::is_arithmetic auto rhs) & noexcept {
 			this->value = xte::cast<T>(xte::sub(this->value, rhs));
 			return *this;
 		}
@@ -144,7 +144,7 @@ namespace xte {
 			return lhs *= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator*(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator*(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs *= rhs;
 		}
 
@@ -153,7 +153,7 @@ namespace xte {
 			return *this *= rhs.value;
 		}
 
-		constexpr xte::number<T>& operator*=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator*=(xte::is_arithmetic auto rhs) & noexcept {
 			this->value = xte::cast<T>(xte::mul(this->value, rhs));
 			return *this;
 		}
@@ -163,7 +163,7 @@ namespace xte {
 			return lhs /= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator/(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator/(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs /= rhs;
 		}
 
@@ -172,7 +172,7 @@ namespace xte {
 			return *this /= rhs.value;
 		}
 
-		constexpr xte::number<T>& operator/=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator/=(xte::is_arithmetic auto rhs) & noexcept {
 			this->value = xte::cast<T>(xte::div(this->value, rhs));
 			return *this;
 		}
@@ -182,7 +182,7 @@ namespace xte {
 			return lhs %= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator%(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator%(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs %= rhs;
 		}
 
@@ -191,7 +191,7 @@ namespace xte {
 			return *this %= rhs.value;
 		}
 
-		constexpr xte::number<T>& operator%=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator%=(xte::is_arithmetic auto rhs) & noexcept {
 			this->value = xte::cast<T>(xte::rem(this->value, rhs));
 			return *this;
 		}
@@ -209,7 +209,7 @@ namespace xte {
 			return lhs &= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator&(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator&(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs &= rhs;
 		}
 
@@ -218,7 +218,7 @@ namespace xte {
 			return *this &= rhs.value;
 		}
 
-		constexpr xte::number<T>& operator&=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator&=(xte::is_arithmetic auto rhs) & noexcept {
 			this->_bitwise(xte::cast<T>(rhs), XTE_LIFT_INFIX(&));
 			return *this;
 		}
@@ -228,7 +228,7 @@ namespace xte {
 			return lhs |= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator|(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator|(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs |= rhs;
 		}
 
@@ -237,7 +237,7 @@ namespace xte {
 			return *this |= rhs.value;
 		}
 
-		constexpr xte::number<T>& operator|=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator|=(xte::is_arithmetic auto rhs) & noexcept {
 			this->_bitwise(xte::cast<T>(rhs), XTE_LIFT_INFIX(|));
 			return *this;
 		}
@@ -247,7 +247,7 @@ namespace xte {
 			return lhs ^= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator^(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator^(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs ^= rhs;
 		}
 
@@ -256,7 +256,7 @@ namespace xte {
 			return *this ^= rhs.value;
 		}
 
-		constexpr xte::number<T>& operator^=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator^=(xte::is_arithmetic auto rhs) & noexcept {
 			this->_bitwise(xte::cast<T>(rhs), XTE_LIFT_INFIX(^));
 			return *this;
 		}
@@ -266,7 +266,7 @@ namespace xte {
 			return lhs <<= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator<<(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator<<(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs <<= rhs;
 		}
 
@@ -275,7 +275,7 @@ namespace xte {
 			return *this <<= rhs.value;
 		}
 
-		constexpr xte::number<T>& operator<<=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator<<=(xte::is_arithmetic auto rhs) & noexcept {
 			if constexpr (xte::is_float<T>) {
 				this->value = xte::cast<T>(this->value * xte::pow(static_cast<T>(2), rhs));
 			} else {
@@ -292,7 +292,7 @@ namespace xte {
 			return lhs >>= rhs;
 		}
 
-		[[nodiscard]] friend constexpr xte::number<T> operator>>(xte::number<T> lhs, xte::is_number auto rhs) noexcept {
+		[[nodiscard]] friend constexpr xte::number<T> operator>>(xte::number<T> lhs, xte::is_arithmetic auto rhs) noexcept {
 			return lhs >>= rhs;
 		}
 
@@ -301,7 +301,7 @@ namespace xte {
 			return *this >>= rhs.value;
 		}
 
-		constexpr xte::number<T>& operator>>=(xte::is_number auto rhs) & noexcept {
+		constexpr xte::number<T>& operator>>=(xte::is_arithmetic auto rhs) & noexcept {
 			if constexpr (xte::is_float<T>) {
 				this->value = xte::cast<T>(this->value / xte::pow(static_cast<T>(2), rhs));
 			} else {
