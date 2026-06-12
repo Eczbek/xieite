@@ -28,10 +28,7 @@ namespace xte {
 		asm volatile("pause" ::: "memory");
 #	elif XTE_ARCH_TYPE_POWERPC
 		asm volatile("or 27,27,27" ::: "memory");
-#	elif XTE_ARCH_TYPE_IBM_SYSTEM_390 \
-		|| XTE_ARCH_TYPE_LOONGARCH \
-		|| XTE_ARCH_TYPE_MIPS \
-		|| XTE_ARCH_TYPE_SPARC
+#	elif XTE_ARCH_TYPE_IBM_SYSTEM_390 || XTE_ARCH_TYPE_LOONGARCH || XTE_ARCH_TYPE_MIPS || XTE_ARCH_TYPE_SPARC
 		asm volatile("nop" ::: "memory");
 #	else
 		std::this_thread::yield();

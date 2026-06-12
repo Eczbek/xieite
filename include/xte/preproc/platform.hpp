@@ -750,13 +750,7 @@
 #		define XTE_PLATFORM_AKAROS 1
 #	endif
 #
-#	if defined(AMIGA) \
-		|| defined(AMIGA_AROS) \
-		|| defined(AMIGA_M68K) \
-		|| defined(AMIGA_MORPHOS) \
-		|| defined(AMIGA_OS4) \
-		|| defined(_AMIGA) \
-		|| defined(__amigaos__)
+#	if defined(AMIGA) || defined(AMIGA_AROS) || defined(AMIGA_M68K) || defined(AMIGA_MORPHOS) || defined(AMIGA_OS4) || defined(_AMIGA) || defined(__amigaos__)
 #		undef XTE_PLATFORM_AMIGAOS
 #		define XTE_PLATFORM_AMIGAOS 1
 #
@@ -868,8 +862,7 @@
 #		define XTE_PLATFORM_BLUE_GENE_Q 1
 #	endif
 #
-#	if defined(__BRIDGE_OS_VERSION_MIN_REQUIRED) \
-		|| defined(__ENVIRONMENT_BRIDGE_OS_VERSION_MIN_REQUIRED__)
+#	if defined(__BRIDGE_OS_VERSION_MIN_REQUIRED) || defined(__ENVIRONMENT_BRIDGE_OS_VERSION_MIN_REQUIRED__)
 #		undef XTE_PLATFORM_BRIDGE_OS
 #		define XTE_PLATFORM_BRIDGE_OS 1
 #
@@ -887,13 +880,7 @@
 #		endif
 #	endif
 #
-#	if defined(BSD) \
-		|| defined(_SYSTYPE_BSD) \
-		|| defined(__DragonFly__) \
-		|| defined(__FreeBSD__) \
-		|| defined(__NetBSD__) \
-		|| defined(__OpenBSD__) \
-		|| defined(__bsdi__)
+#	if defined(BSD) || defined(_SYSTYPE_BSD) || defined(__DragonFly__) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || defined(__bsdi__)
 #		include <sys/param.h>
 #
 #		undef XTE_PLATFORM_BSD
@@ -1007,8 +994,7 @@
 #		define XTE_PLATFORM_DRAGONFLY_BSD 1
 #	endif
 #
-#	if defined(__DRIVERKIT_VERSION_MIN_REQUIRED) \
-		|| defined(__ENVIRONMENT_DRIVERKIT_VERSION_MIN_REQUIRED__)
+#	if defined(__DRIVERKIT_VERSION_MIN_REQUIRED) || defined(__ENVIRONMENT_DRIVERKIT_VERSION_MIN_REQUIRED__)
 #		undef XTE_PLATFORM_DRIVERKIT
 #		define XTE_PLATFORM_DRIVERKIT 1
 #
@@ -1143,11 +1129,7 @@
 #		define XTE_PLATFORM_HI_UX_MPP 1
 #	endif
 #
-#	if defined(__hpua) \
-		|| defined(__hpux) \
-		|| defined(__hpux__) \
-		|| defined(_hpux) \
-		|| defined(hpux)
+#	if defined(__hpua) || defined(__hpux) || defined(__hpux__) || defined(_hpux) || defined(hpux)
 #		undef XTE_PLATFORM_HP_UX
 #		define XTE_PLATFORM_HP_UX 1
 #	endif
@@ -1162,9 +1144,7 @@
 #		define XTE_PLATFORM_INTEGRITY 1
 #	endif
 #
-#	if (defined(__APPLE__) && (defined(TARGET_OS_IOS) || defined(TARGET_OS_IPHONE))) \
-		|| defined(__ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__) \
-		|| defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+#	if (defined(__APPLE__) && (defined(TARGET_OS_IOS) || defined(TARGET_OS_IPHONE))) || defined(__ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__) || defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 #		undef XTE_PLATFORM_IOS
 #		define XTE_PLATFORM_IOS 1
 #
@@ -1230,10 +1210,7 @@
 #		define XTE_PLATFORM_KALLISTI 1
 #	endif
 #
-#	if defined(__gnu_linux__) \
-		|| defined(__linux) \
-		|| defined(__linux__) \
-		|| defined(linux)
+#	if defined(__gnu_linux__) || defined(__linux) || defined(__linux__) || defined(linux)
 #		undef XTE_PLATFORM_LINUX
 #		define XTE_PLATFORM_LINUX 1
 #	endif
@@ -1253,15 +1230,7 @@
 #		define XTE_PLATFORM_MACCATALYST 1
 #	endif
 #
-#	if defined(MAC) \
-		|| defined(Macintosh) \
-		|| (defined(__APPLE__) && (defined(TARGET_OS_EMBEDDED) || defined(TARGET_OS_OSX))) \
-		|| defined(__DARWIN__) \
-		|| defined(__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__) \
-		|| defined(__MAC_OS_X_VERSION_MIN_REQUIRED) \
-		|| defined(__MACH__) \
-		|| defined(applec) \
-		|| defined(macintosh)
+#	if defined(MAC) || defined(Macintosh) || (defined(__APPLE__) && (defined(TARGET_OS_EMBEDDED) || defined(TARGET_OS_OSX))) || defined(__DARWIN__) || defined(__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__) || defined(__MAC_OS_X_VERSION_MIN_REQUIRED) || defined(__MACH__) || defined(applec) || defined(macintosh)
 #		undef XTE_PLATFORM_MACINTOSH
 #		define XTE_PLATFORM_MACINTOSH 1
 #
@@ -1355,11 +1324,7 @@
 #		define XTE_PLATFORM_MPE_IX 1
 #	endif
 #
-#	if defined(MSDOS) \
-		|| defined(_MSDOS) \
-		|| defined(__DOS__) \
-		|| defined(__MSDOS) \
-		|| defined(__MSDOS__)
+#	if defined(MSDOS) || defined(_MSDOS) || defined(__DOS__) || defined(__MSDOS) || defined(__MSDOS__)
 #		undef XTE_PLATFORM_MS_DOS
 #		define XTE_PLATFORM_MS_DOS 1
 #	endif
@@ -1435,8 +1400,7 @@
 #		define XTE_PLATFORM_NINTENDO_DS 1
 #	endif
 #
-#	if (defined(_GC) && (defined(__PPC__) || defined(__ppc__))) \
-		|| defined(__GAMECUBE__)
+#	if (defined(_GC) && (defined(__PPC__) || defined(__ppc__))) || defined(__GAMECUBE__)
 #		undef XTE_PLATFORM_NINTENDO_GAMECUBE
 #		define XTE_PLATFORM_NINTENDO_GAMECUBE 1
 #	endif
@@ -1482,7 +1446,16 @@
 #
 #		undef XTE_PLATFORM_OPENBSD_MAJOR
 #		undef XTE_PLATFORM_OPENBSD_MINOR
-#		ifdef OpenBSD7_6
+#		ifdef OpenBSD7_9
+#			define XTE_PLATFORM_OPENBSD_MAJOR 7
+#			define XTE_PLATFORM_OPENBSD_MINOR 9
+#		elifdef OpenBSD7_8
+#			define XTE_PLATFORM_OPENBSD_MAJOR 7
+#			define XTE_PLATFORM_OPENBSD_MINOR 8
+#		elifdef OpenBSD7_7
+#			define XTE_PLATFORM_OPENBSD_MAJOR 7
+#			define XTE_PLATFORM_OPENBSD_MINOR 7
+#		elifdef OpenBSD7_6
 #			define XTE_PLATFORM_OPENBSD_MAJOR 7
 #			define XTE_PLATFORM_OPENBSD_MINOR 6
 #		elifdef OpenBSD7_5
@@ -1659,11 +1632,7 @@
 #		endif
 #	endif
 #
-#	if defined(M_I386) \
-		|| defined(SCO_SV) \
-		|| defined(_SCO_DS) \
-		|| defined(_SCO_SV) \
-		|| defined(sco_sv)
+#	if defined(M_I386) || defined(SCO_SV) || defined(_SCO_DS) || defined(_SCO_SV) || defined(sco_sv)
 #		undef XTE_PLATFORM_OPENSERVER
 #		define XTE_PLATFORM_OPENSERVER 1
 #	endif
@@ -1673,10 +1642,7 @@
 #		define XTE_PLATFORM_ORIC_ATMOS 1
 #	endif
 #
-#	if defined(OS2) \
-		|| defined(_OS2) \
-		|| defined(__OS2__) \
-		|| defined(__TOS_OS2__)
+#	if defined(OS2) || defined(_OS2) || defined(__OS2__) || defined(__TOS_OS2__)
 #		undef XTE_PLATFORM_OS_2
 #		define XTE_PLATFORM_OS_2 1
 #	endif
@@ -1781,8 +1747,7 @@
 #		define XTE_PLATFORM_RTTHREAD 1
 #	endif
 #
-#	if (defined(__GNUC__) && !defined(__SNC__) && defined(__SH4_SINGLE_ONLY__)) \
-		|| defined(_arch_dreamcast)
+#	if (defined(__GNUC__) && !defined(__SNC__) && defined(__SH4_SINGLE_ONLY__)) || defined(_arch_dreamcast)
 #		undef XTE_PLATFORM_SEGA_DREAMCAST
 #		define XTE_PLATFORM_SEGA_DREAMCAST 1
 #	endif
@@ -1887,10 +1852,7 @@
 #		define XTE_PLATFORM_SYMBIAN 1
 #	endif
 #
-#	if defined(_SYSTYPE_SVR4) \
-		|| defined(__SVR4) \
-		|| defined(__svr4__) \
-		|| defined(__sysv__)
+#	if defined(_SYSTYPE_SVR4) || defined(__SVR4) || defined(__svr4__) || defined(__sysv__)
 #		undef XTE_PLATFORM_SYSTEM_V
 #		define XTE_PLATFORM_SYSTEM_V 1
 #	endif
@@ -1910,19 +1872,12 @@
 #		define XTE_PLATFORM_THREADX 1
 #	endif
 #
-#	if defined(_tru64) \
-		|| defined(__OSF__) \
-		|| defined(__TRU64__) \
-		|| defined(__osf) \
-		|| defined(__osf__) \
-		|| defined(__tru64)
+#	if defined(_tru64) || defined(__OSF__) || defined(__TRU64__) || defined(__osf) || defined(__osf__) || defined(__tru64)
 #		undef XTE_PLATFORM_TRU64
 #		define XTE_PLATFORM_TRU64 1
 #	endif
 #
-#	if (defined(__APPLE__) && defined(TARGET_OS_TV)) \
-		|| defined(__ENVIRONMENT_TV_OS_VERSION_MIN_REQUIRED__) \
-		|| defined(__TV_OS_VERSION_MIN_REQUIRED)
+#	if (defined(__APPLE__) && defined(TARGET_OS_TV)) || defined(__ENVIRONMENT_TV_OS_VERSION_MIN_REQUIRED__) || defined(__TV_OS_VERSION_MIN_REQUIRED)
 #		undef XTE_PLATFORM_TV_OS
 #		define XTE_PLATFORM_TV_OS 1
 #
@@ -1950,11 +1905,7 @@
 #		define XTE_PLATFORM_UCLINUX 1
 #	endif
 #
-#	if defined(_ULTRIX) \
-		|| defined(__ultrix) \
-		|| defined(__ultrix__) \
-		|| defined(ultrix) \
-		|| (defined(unix) && defined(vax))
+#	if defined(_ULTRIX) || defined(__ultrix) || defined(__ultrix__) || defined(ultrix) || (defined(unix) && defined(vax))
 #		undef XTE_PLATFORM_ULTRIX
 #		define XTE_PLATFORM_ULTRIX 1
 #	endif
@@ -1972,11 +1923,7 @@
 #		define XTE_PLATFORM_UNICOS_MP 1
 #	endif
 #
-#	if defined(_POSIX_SOURCE) \
-		|| defined(_XOPEN_SOURCE) \
-		|| defined(__unix) \
-		|| defined(__unix__) \
-		|| defined(unix)
+#	if defined(_POSIX_SOURCE) || defined(_XOPEN_SOURCE) || defined(__unix) || defined(__unix__) || defined(unix)
 #		undef XTE_PLATFORM_UNIX
 #		define XTE_PLATFORM_UNIX 1
 #	endif
@@ -2006,11 +1953,7 @@
 #		define XTE_PLATFORM_UWIN 1
 #	endif
 #
-#	if defined(VMS) \
-		|| defined(__VMS) \
-		|| defined(__VMS__) \
-		|| defined(__vms) \
-		|| defined(__vms__)
+#	if defined(VMS) || defined(__VMS) || defined(__VMS__) || defined(__vms) || defined(__vms__)
 #		undef XTE_PLATFORM_VMS
 #		define XTE_PLATFORM_VMS 1
 #
@@ -2048,8 +1991,7 @@
 #		define XTE_PLATFORM_VXWORKS_PATCH _WRS_VXWORKS_MAINT
 #	endif
 #
-#	if defined(__ENVIRONMENT_VISION_OS_VERSION_MIN_REQUIRED__) \
-		|| defined(__VISION_OS_VERSION_MIN_REQUIRED)
+#	if defined(__ENVIRONMENT_VISION_OS_VERSION_MIN_REQUIRED__) || defined(__VISION_OS_VERSION_MIN_REQUIRED)
 #		undef XTE_PLATFORM_VISION_OS
 #		define XTE_PLATFORM_VISION_OS 1
 #
@@ -2072,9 +2014,7 @@
 #		define XTE_PLATFORM_WASI 1
 #	endif
 #
-#	if (defined(__APPLE__) && defined(TARGET_OS_WATCH)) \
-		|| defined(__ENVIRONMENT_WATCH_OS_VERSION_MIN_REQUIRED__) \
-		|| defined(__WATCH_OS_VERSION_MIN_REQUIRED)
+#	if (defined(__APPLE__) && defined(TARGET_OS_WATCH)) || defined(__ENVIRONMENT_WATCH_OS_VERSION_MIN_REQUIRED__) || defined(__WATCH_OS_VERSION_MIN_REQUIRED)
 #		undef XTE_PLATFORM_WATCH_OS
 #		define XTE_PLATFORM_WATCH_OS 1
 #
@@ -2092,20 +2032,7 @@
 #		endif
 #	endif
 #
-#	if defined(WIN16) \
-		|| defined(WIN32) \
-		|| defined(WIN64) \
-		|| defined(_WIN16) \
-		|| defined(_WIN32) \
-		|| defined(_WIN64) \
-		|| defined(__TOS_WIN__) \
-		|| defined(__WIN16) \
-		|| defined(__WIN16__) \
-		|| defined(__WIN32) \
-		|| defined(__WIN32__) \
-		|| defined(__WIN64) \
-		|| defined(__WIN64__) \
-		|| defined(__WINDOWS__)
+#	if defined(WIN16) || defined(WIN32) || defined(WIN64) || defined(_WIN16) || defined(_WIN32) || defined(_WIN64) || defined(__TOS_WIN__) || defined(__WIN16) || defined(__WIN16__) || defined(__WIN32) || defined(__WIN32__) || defined(__WIN64) || defined(__WIN64__) || defined(__WINDOWS__)
 #		undef XTE_PLATFORM_WINDOWS
 #		define XTE_PLATFORM_WINDOWS 1
 #	endif
@@ -2121,9 +2048,7 @@
 #		define XTE_PLATFORM_WINDOWS_CE_MINOR (_WIN32_WCE % 100)
 #	endif
 #
-#	if defined(WINAPI_FAMILY) \
-		&& defined(WINAPI_FAMILY_DESKTOP_APP) \
-		&& (WINAPI_FAMILY == WINAPI_FAMILY_DESKTOP_APP)
+#	if defined(WINAPI_FAMILY) && defined(WINAPI_FAMILY_DESKTOP_APP) && (WINAPI_FAMILY == WINAPI_FAMILY_DESKTOP_APP)
 #		undef XTE_PLATFORM_WINDOWS_DESKTOP
 #		define XTE_PLATFORM_WINDOWS_DESKTOP 1
 #	endif
@@ -2138,30 +2063,22 @@
 #		define XTE_PLATFORM_WINDOWS_NT 1
 #	endif
 #
-#	if defined(WINAPI_FAMILY) \
-		&& defined(WINAPI_FAMILY_PHONE_APP) \
-		&& (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
+#	if defined(WINAPI_FAMILY) && defined(WINAPI_FAMILY_PHONE_APP) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
 #		undef XTE_PLATFORM_WINDOWS_PHONE
 #		define XTE_PLATFORM_WINDOWS_PHONE 1
 #	endif
 #
-#	if defined(WINAPI_FAMILY) \
-		&& defined(WINAPI_FAMILY_SERVER) \
-		&& (WINAPI_FAMILY == WINAPI_FAMILY_SERVER)
+#	if defined(WINAPI_FAMILY) && defined(WINAPI_FAMILY_SERVER) && (WINAPI_FAMILY == WINAPI_FAMILY_SERVER)
 #		undef XTE_PLATFORM_WINDOWS_SERVER
 #		define XTE_PLATFORM_WINDOWS_SERVER 1
 #	endif
 #
-#	if defined(WINAPI_FAMILY) \
-		&& (defined(WINAPI_FAMILY_APP) || defined(WINAPI_FAMILY_PC_APP)) \
-		&& ((WINAPI_FAMILY == WINAPI_FAMILY_APP) || (WINAPI_FAMILY == WINAPI_FAMILY_PC_APP))
+#	if defined(WINAPI_FAMILY) && (defined(WINAPI_FAMILY_APP) || defined(WINAPI_FAMILY_PC_APP)) && ((WINAPI_FAMILY == WINAPI_FAMILY_APP) || (WINAPI_FAMILY == WINAPI_FAMILY_PC_APP))
 #		undef XTE_PLATFORM_WINDOWS_STORE
 #		define XTE_PLATFORM_WINDOWS_STORE 1
 #	endif
 #
-#	if defined(WINAPI_FAMILY) \
-		&& defined(WINAPI_FAMILY_SYSTEM) \
-		&& (WINAPI_FAMILY == WINAPI_FAMILY_SYSTEM)
+#	if defined(WINAPI_FAMILY) && defined(WINAPI_FAMILY_SYSTEM) && (WINAPI_FAMILY == WINAPI_FAMILY_SYSTEM)
 #		undef XTE_PLATFORM_WINDOWS_SYSTEM
 #		define XTE_PLATFORM_WINDOWS_SYSTEM 1
 #	endif
@@ -2200,10 +2117,7 @@
 #		define XTE_PLATFORM_XBOX_SERIES 1
 #	endif
 #
-#	if defined(M_XENIX) \
-		|| defined(XENIX) \
-		|| defined(_XENIX) \
-		|| defined(__XENIX__)
+#	if defined(M_XENIX) || defined(XENIX) || defined(_XENIX) || defined(__XENIX__)
 #		undef XTE_PLATFORM_XENIX
 #		define XTE_PLATFORM_XENIX 1
 #	endif

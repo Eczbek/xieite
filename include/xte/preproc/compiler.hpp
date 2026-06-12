@@ -826,13 +826,7 @@
 #		endif
 #	endif
 #
-#	if defined(__CLANG_FUJITSU) \
-		|| defined(__FCC__) \
-		|| defined(__FCC_VERSION) \
-		|| defined(__FCC_version__) \
-		|| defined(__FUJITSU) \
-		|| defined(__fcc__) \
-		|| defined(__fcc_version)
+#	if defined(__CLANG_FUJITSU) || defined(__FCC__) || defined(__FCC_VERSION) || defined(__FCC_version__) || defined(__FUJITSU) || defined(__fcc__) || defined(__fcc_version)
 #		undef XTE_COMPILER_FUJITSU_CPP
 #		define XTE_COMPILER_FUJITSU_CPP 1
 #
@@ -941,10 +935,7 @@
 #		endif
 #	endif
 #
-#	if defined(__HCC__) \
-		|| defined(__HIPCC_PLATFORM_HCC) \
-		|| defined(__HIP__) \
-		|| defined(__HIPCC__)
+#	if defined(__HCC__) || defined(__HIPCC_PLATFORM_HCC) || defined(__HIP__) || defined(__HIPCC__)
 #		undef XTE_COMPILER_HIPCC
 #		define XTE_COMPILER_HIPCC 1
 #	endif
@@ -993,11 +984,7 @@
 #		endif
 #	endif
 #
-#	if defined(__ECC) \
-		|| defined(__ECC__) \
-		|| defined(__ICC) \
-		|| defined(__ICL) \
-		|| defined(__INTEL_COMPILER)
+#	if defined(__ECC) || defined(__ECC__) || defined(__ICC) || defined(__ICL) || defined(__INTEL_COMPILER)
 #		undef XTE_COMPILER_ICC
 #		define XTE_COMPILER_ICC 1
 #
@@ -1652,16 +1639,7 @@
 #		endif
 #	endif
 #
-#	if defined(C30) \
-		|| defined(XC16) \
-		|| defined(__C30) \
-		|| defined(__C30__) \
-		|| defined(__XC16) \
-		|| defined(__XC16__) \
-		|| defined(dsPICC30) \
-		|| defined(__dsPICC30__) \
-		|| defined(__dsPICC30) \
-		|| defined(dsPIC30)
+#	if defined(C30) || defined(XC16) || defined(__C30) || defined(__C30__) || defined(__XC16) || defined(__XC16__) || defined(dsPICC30) || defined(__dsPICC30__) || defined(__dsPICC30) || defined(dsPIC30)
 #		undef XTE_COMPILER_XC16
 #		define XTE_COMPILER_XC16 1
 #
@@ -1725,12 +1703,7 @@
 #		define XTE_COMPILER_WIND_RIVER_DIAB_PATCH (__VERSION_NUMBER__ % 100)
 #	endif
 #
-#	if defined(__IBMC__) \
-		|| defined(__IBMCPP__) \
-		|| defined(__ibmxl__) \
-		|| defined(__open_xl__) \
-		|| defined(__xlC__) \
-		|| defined(__xlc__)
+#	if defined(__IBMC__) || defined(__IBMCPP__) || defined(__ibmxl__) || defined(__open_xl__) || defined(__xlC__) || defined(__xlc__)
 #		undef XTE_COMPILER_XL
 #		define XTE_COMPILER_XL 1
 #
