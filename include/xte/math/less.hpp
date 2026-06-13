@@ -9,10 +9,10 @@
 #	include "../meta/end.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../trait/drop_cvref.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_int.hpp"
-#	include "../trait/remove_cvref.hpp"
 #	include <cmath>
 #	include <concepts>
 #	include <limits>
@@ -22,7 +22,7 @@
 namespace xte {
 	constexpr auto less =
 		[]<typename T, typename U, xte::end...,
-			bool are_arithmetic = xte::is_arithmetic<xte::remove_cvref<T>> && xte::is_arithmetic<xte::remove_cvref<U>>,
+			bool are_arithmetic = xte::is_arithmetic<xte::drop_cvref<T>> && xte::is_arithmetic<xte::drop_cvref<U>>,
 			typename common_type = [:std::common_with<T, U> ? ^^std::common_type_t<T, U> : ^^void:]>
 		[[nodiscard]](T&& lhs, U&& rhs) static XTE_ARROW_FIRST(
 			([](T lhs, U rhs) noexcept -> bool requires(are_arithmetic) {

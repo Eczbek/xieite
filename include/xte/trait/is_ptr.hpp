@@ -1,8 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_IS_PTR
 #	define DETAIL_XTE_HEADER_TRAIT_IS_PTR
 #
-#	include "../trait/remove_cvref.hpp"
-#	include "../trait/remove_ptr.hpp"
+#	include "../trait/drop_cvref.hpp"
+#	include "../trait/drop_ptr.hpp"
 #	include "../util/numbers.hpp"
 
 namespace DETAIL_XTE {
@@ -15,7 +15,7 @@ namespace DETAIL_XTE {
 
 namespace xte {
 	template<typename T, xte::uz depth = 0>
-	concept is_ptr = DETAIL_XTE::is_ptr<xte::remove_ptr<xte::remove_cvref<T>, depth>>;
+	concept is_ptr = DETAIL_XTE::is_ptr<xte::drop_ptr<xte::drop_cvref<T>, depth>>;
 }
 
 #endif

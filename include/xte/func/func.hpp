@@ -4,7 +4,7 @@
 #	include "../data/ptr.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../trait/remove_ref.hpp"
+#	include "../trait/drop_ref.hpp"
 
 namespace xte {
 	template<typename>
@@ -19,7 +19,7 @@ namespace xte {
 		: data(other.data->clone()) {}
 
 		[[nodiscard]] explicit(false) constexpr func(auto&& func) XTE_ARROW_CTOR(,
-			data,((xte::ptr<xte::func<Return(Args...) noexcept(noex)>::derived<xte::remove_ref<decltype(func)>>>::make_noex(XTE_FWD(func))))
+			data,((xte::ptr<xte::func<Return(Args...) noexcept(noex)>::derived<xte::drop_ref<decltype(func)>>>::make_noex(XTE_FWD(func))))
 		)
 
 		[[nodiscard]] explicit constexpr operator bool() const noexcept {

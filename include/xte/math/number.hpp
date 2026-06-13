@@ -18,7 +18,7 @@
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_same_any.hpp"
-#	include "../trait/is_same_any_ignore_cvref.hpp"
+#	include "../trait/is_same_any_drop_cvref.hpp"
 #	include "../trait/try_signed.hpp"
 #	include "../trait/try_unsigned.hpp"
 #	include "../util/cast.hpp"
@@ -52,7 +52,7 @@ namespace xte {
 		T value;
 
 		template<typename U = T>
-		[[nodiscard]] explicit(!xte::is_same_any_ignore_cvref<U, xte::try_unsigned<T>, xte::try_signed<T>>)
+		[[nodiscard]] explicit(!xte::is_same_any_drop_cvref<U, xte::try_unsigned<T>, xte::try_signed<T>>)
 		constexpr number(U&& x = 0) XTE_ARROW_CTOR(,
 			value,((xte::cast<T>(XTE_FWD(x))))
 		)

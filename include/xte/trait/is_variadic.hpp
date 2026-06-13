@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_IS_VARIADIC
 #	define DETAIL_XTE_HEADER_TRAIT_IS_VARIADIC
 #
-#	include "../trait/remove_cvref.hpp"
+#	include "../trait/drop_cvref.hpp"
 
 namespace DETAIL_XTE {
 	template<typename>
@@ -82,7 +82,7 @@ namespace DETAIL_XTE {
 
 namespace xte {
 	template<typename T>
-	concept is_variadic = DETAIL_XTE::is_variadic<xte::remove_cvref<T>>;
+	concept is_variadic = DETAIL_XTE::is_variadic<xte::drop_cvref<T>>;
 }
 
 #endif

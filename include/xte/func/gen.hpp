@@ -6,9 +6,9 @@
 #	include "../meta/fake.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../trait/drop_cvref.hpp"
+#	include "../trait/drop_ref.hpp"
 #	include "../trait/is_specialization_of.hpp"
-#	include "../trait/remove_cvref.hpp"
-#	include "../trait/remove_ref.hpp"
 #	include "../util/address.hpp"
 #	include "../util/numbers.hpp"
 
@@ -18,7 +18,7 @@ namespace DETAIL_XTE {
 	struct gen {
 		struct iter {
 			using difference_type = xte::iz;
-			using value_type = xte::remove_cvref<decltype(*xte::fake<Func&>()())>;
+			using value_type = xte::drop_cvref<decltype(*xte::fake<Func&>()())>;
 
 			Func* _func;
 			decltype(xte::fake<Func&>()()) _value;
@@ -87,7 +87,7 @@ namespace DETAIL_XTE {
 
 namespace xte {
 	inline constexpr auto gen = [][[nodiscard]](auto&& func) static XTE_ARROW(
-		DETAIL_XTE::gen<xte::remove_ref<decltype(func)>>(XTE_FWD(func))
+		DETAIL_XTE::gen<xte::drop_ref<decltype(func)>>(XTE_FWD(func))
 	);
 }
 

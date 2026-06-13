@@ -6,10 +6,10 @@
 #	include "../meta/wrap_value.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../trait/drop_cvref.hpp"
 #	include "../trait/is_castable.hpp"
 #	include "../trait/is_derived_from_instance_of.hpp"
 #	include "../trait/is_same.hpp"
-#	include "../trait/is_same_ignore_cvref.hpp"
 #	include "../trait/is_specialization_of.hpp"
 #	include "../util/like.hpp"
 #	include "../util/numbers.hpp"
@@ -160,8 +160,8 @@ namespace xte {
 	)
 
 	template<typename Lhs, typename Rhs>
-	requires(xte::is_derived_from_instance_of<xte::remove_cvref<Lhs>, ^^xte::fixed_array>
-		&& xte::is_derived_from_instance_of<xte::remove_cvref<Rhs>, ^^xte::fixed_array>
+	requires(xte::is_derived_from_instance_of<xte::drop_cvref<Lhs>, ^^xte::fixed_array>
+		&& xte::is_derived_from_instance_of<xte::drop_cvref<Rhs>, ^^xte::fixed_array>
 		&& xte::is_same<typename Lhs::value_type, typename Rhs::value_type>)
 	[[nodiscard]] constexpr auto operator+(Lhs&& lhs, Rhs&& rhs) XTE_ARROW(
 		xte::unfold<Lhs::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_ARROW(

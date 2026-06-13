@@ -4,9 +4,8 @@
 #	include "../data/null.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../trait/drop_cvref.hpp"
 #	include "../trait/is_callable.hpp"
-#	include "../trait/is_same_ignore_cvref.hpp"
-#	include "../trait/remove_cvref.hpp"
 #	include "../util/address.hpp"
 #	include "../util/assign.hpp"
 #	include "../util/cast.hpp"
@@ -93,7 +92,7 @@ namespace xte {
 	};
 
 	template<typename T>
-	opt(T&&) -> opt<xte::remove_cvref<T>>;
+	opt(T&&) -> opt<xte::drop_cvref<T>>;
 }
 
 #endif
