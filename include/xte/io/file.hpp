@@ -6,7 +6,7 @@
 #	include "../data/string_view.hpp"
 #	include "../io/eof.hpp"
 #	include "../preproc/platform.hpp"
-#	include "../sys/isatty.hpp"
+#	include "../sys/is_tty.hpp"
 #	include "../util/exchange.hpp"
 #	include "../util/numbers.hpp"
 #	include <cstdio>
@@ -77,7 +77,7 @@ namespace xte {
 		}
 
 		bool close() noexcept {
-			return (this->_stream && !xte::isatty(*this))
+			return (this->_stream && !xte::is_tty(*this))
 				? !std::fclose(this->release())
 				: !!this->release();
 		}

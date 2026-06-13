@@ -1,5 +1,5 @@
-#ifndef DETAIL_XTE_HEADER_SYS_ISATTY
-#	define DETAIL_XTE_HEADER_SYS_ISATTY
+#ifndef DETAIL_XTE_HEADER_SYS_IS_TTY
+#	define DETAIL_XTE_HEADER_SYS_IS_TTY
 #
 #	include <cstdio>
 #	include <stdio.h>
@@ -14,7 +14,7 @@
 #	endif
 
 namespace xte {
-	[[nodiscard]] inline bool isatty(std::FILE* file) noexcept {
+	[[nodiscard]] inline bool is_tty(std::FILE* file) noexcept {
 #	if XTE_PLATFORM_UNIX
 		return ::isatty(::fileno(file));
 #	elif XTE_PLATFORM_WINDOWS

@@ -4,7 +4,7 @@
 #	include "../data/fixed_string.hpp"
 #	include "../meta/sloc.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../sys/isatty.hpp"
+#	include "../sys/is_tty.hpp"
 #	include "../util/numbers.hpp"
 #	include <chrono>
 #	include <cstdio>
@@ -24,7 +24,7 @@ namespace DETAIL_XTE {
 
 	private:
 		explicit logger(const xte::sloc& sloc, std::FILE* stream, std::format_string<Args...> fmt, Args&&... args) noexcept(false) {
-			bool tty = xte::isatty(stream);
+			bool tty = xte::is_tty(stream);
 			std::println(stream, "{}{:<5} [{:%F %T}] {}:{}:{}: {}{}", (tty ? std::format("\x1B[{}m", color).c_str() : ""), std::define_static_string(tag), std::chrono::floor<std::chrono::seconds>(std::chrono::system_clock::now()), sloc.file, sloc.func, sloc.line, std::format(fmt, XTE_FWD(args)...), (tty ? "\x1B[0m" : ""));
 		}
 	};
