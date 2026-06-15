@@ -76,7 +76,9 @@ template<typename T> void operator+(T, T) noexcept {
 	static_assert(xte::meta::name_of(parent_of(^^add)) == "void operator+<main()::add>(main()::add, main()::add) noexcept");
 	static_assert(xte::meta::name_of(template_of(parent_of(^^add))) == "operator+<...>");
 }
-enum struct E { value };
+enum struct E {
+	value = 1
+};
 struct obj {
 	int x;
 	int y[3];
@@ -129,6 +131,9 @@ static_assert(xte::meta::name_of(std::meta::reflect_constant(arr({ { 1, 2 }, { 3
 static_assert(xte::meta::name_of(std::meta::reflect_constant(^^int)) == "^^int");
 static_assert(xte::meta::name_of(std::meta::reflect_constant(^^::)) == "^^::");
 static_assert(xte::meta::name_of(std::meta::reflect_constant(std::meta::reflect_constant(std::meta::reflect_constant(42)))) == "^^(^^42)");
+static_assert(xte::meta::name_of(std::meta::reflect_constant(E::value)) == "E::value");
+static_assert(xte::meta::name_of(std::meta::reflect_constant(static_cast<E>(1))) == "E::value");
+static_assert(xte::meta::name_of(std::meta::reflect_constant(static_cast<E>(2))) == "E{2}");
 int main() {
 	tmpl<>().template f<0>();
 	123_literal;

@@ -16,6 +16,7 @@
 #	include <algorithm>
 #	include <meta>
 #	include <ranges>
+#	include <utility>
 #	include <vector>
 
 namespace DETAIL_XTE::meta {
@@ -377,32 +378,40 @@ namespace xte::meta {
 							} else if constexpr (std::meta::is_reflection_type(type)) {
 								xte::string name = "^^" + name_of(value, ctx_postfix);
 								return (ctx & ctx_postfix) ? ("(" + name + ")") : name;
-							}
-							xte::string member_names;
-							template for (constexpr auto member : std::define_static_array(xte::meta::nonstatic_data_members_of(type))) {
-								if (member_names.size()) {
-									member_names += ", ";
+							} else if constexpr (std::meta::is_enum_type(type)) {
+								template for (constexpr auto member : std::define_static_array(std::meta::enumerators_of(type))) {
+									if constexpr ([:member:] == value) {
+										return name_of(member, ctx_none);
+									}
 								}
-								if constexpr (using member_type = [:std::meta::type_of(member):]; std::is_array_v<member_type>) {
-									member_names += ([]<typename T, xte::uz n>(this auto name_of_array, const xte::type<T[n]>& array) -> xte::string {
-										xte::string item_names;
-										for (auto&& item : array) {
-											if (item_names.size()) {
-												item_names += ", ";
+								return name_of(type, ctx_prefix) + "{" + xte::stringify_number(std::to_underlying(value)) + "}";
+							} else {
+								xte::string member_names;
+								template for (constexpr auto member : std::define_static_array(xte::meta::nonstatic_data_members_of(type))) {
+									if (member_names.size()) {
+										member_names += ", ";
+									}
+									if constexpr (using member_type = [:std::meta::type_of(member):]; std::is_array_v<member_type>) {
+										member_names += ([]<typename T, xte::uz n>(this auto name_of_array, const xte::type<T[n]>& array) -> xte::string {
+											xte::string item_names;
+											for (auto&& item : array) {
+												if (item_names.size()) {
+													item_names += ", ";
+												}
+												if constexpr (std::is_array_v<T>) {
+													item_names += name_of_array(item);
+												} else {
+													item_names += name_of(std::meta::reflect_constant(item), ctx_none);
+												}
 											}
-											if constexpr (std::is_array_v<T>) {
-												item_names += name_of_array(item);
-											} else {
-												item_names += name_of(std::meta::reflect_constant(item), ctx_none);
-											}
-										}
-										return "[" + item_names + "]";
-									})(value.[:member:]);
-								} else {
-									member_names += name_of(std::meta::reflect_constant(value.[:member:]), ctx_none);
+											return "[" + item_names + "]";
+										})(value.[:member:]);
+									} else {
+										member_names += name_of(std::meta::reflect_constant(value.[:member:]), ctx_none);
+									}
 								}
+								return name_of(type, ctx_prefix) + "{" + member_names + "}";
 							}
-							return name_of(type, ctx_prefix) + "{" + member_names + "}";
 						}))[0],
 						{ std::meta::reflect_constant(name_of), info, std::meta::reflect_constant(ctx) }
 					))();
