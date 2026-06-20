@@ -272,25 +272,14 @@ namespace xte {
 			}
 		}
 
+		constexpr void force_size(xte::uz size) & noexcept {
+			this->_size = size;
+		}
+
 		constexpr void shrink() & noexcept(false) {
 			if (this->_capacity > this->_size) {
 				this->_reallocate(this->_size);
 			}
-		}
-
-		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false) {
-			index = xte::min(index, this->_size);
-			this->reserve_total(this->_size + count);
-			for (xte::uz i = count; i-- && ((this->_size - count + i) >= index);) {
-				xte::construct(this->_data[this->_size + i], std::move_if_noexcept(this->_data[this->_size - count + i]));
-			}
-			for (xte::uz i = this->_size; i-- && (i >= (index + count));) {
-				xte::assign(this->_data[i], std::move_if_noexcept(this->_data[i - count]));
-			}
-			for (xte::uz i = index; (i < this->_size) && (i < (index + count)); ++i) {
-				xte::destroy(this->_data[i]);
-			}
-			this->_size += count;
 		}
 
 		constexpr void insert(xte::uz index) & noexcept(false) requires(xte::is_constructible<T>) {
@@ -370,6 +359,21 @@ namespace xte {
 		constexpr void insert_count(xte::uz index, xte::uz count, const T& fill) & noexcept(false)
 		requires(xte::is_copy_constructible<T>) {
 			this->insert_range(index, xte::array<T>(count, fill));
+		}
+
+		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false) {
+			index = xte::min(index, this->_size);
+			this->reserve_total(this->_size + count);
+			for (xte::uz i = count; i-- && ((this->_size - count + i) >= index);) {
+				xte::construct(this->_data[this->_size + i], std::move_if_noexcept(this->_data[this->_size - count + i]));
+			}
+			for (xte::uz i = this->_size; i-- && (i >= (index + count));) {
+				xte::assign(this->_data[i], std::move_if_noexcept(this->_data[i - count]));
+			}
+			for (xte::uz i = index; (i < this->_size) && (i < (index + count)); ++i) {
+				xte::destroy(this->_data[i]);
+			}
+			this->_size += count;
 		}
 
 		constexpr void erase(xte::uz index, xte::uz count = 1) &

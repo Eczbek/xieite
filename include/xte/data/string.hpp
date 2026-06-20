@@ -288,16 +288,12 @@ namespace xte {
 			this->_data.reserve_total(total + !!total);
 		}
 
-		constexpr void shrink() & noexcept(false) {
-			this->_data.shrink();
+		constexpr void force_size(xte::uz size) & noexcept {
+			this->_data.force_size(size + 1);
 		}
 
-		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false) {
-			bool was_empty = count && !this->_data.size();
-			this->_data.insert_uninit(index, count + was_empty);
-			if (was_empty) {
-				this->_data.push();
-			}
+		constexpr void shrink() & noexcept(false) {
+			this->_data.shrink();
 		}
 
 		constexpr void insert(xte::uz index, char c = '\0') & noexcept(false) {
@@ -332,6 +328,14 @@ namespace xte {
 
 		constexpr void insert_count(xte::uz index, xte::uz count, char c) & noexcept(false) {
 			this->_data.insert_count(xte::min(index, this->size()), count, c);
+		}
+
+		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false) {
+			bool was_empty = count && !this->_data.size();
+			this->_data.insert_uninit(index, count + was_empty);
+			if (was_empty) {
+				this->_data.push();
+			}
 		}
 
 		constexpr void erase(xte::uz index, xte::uz count = 1) & noexcept {

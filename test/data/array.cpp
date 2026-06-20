@@ -3,6 +3,7 @@
 #include <xte/trait/is_noex_move_constructible.hpp>
 #include <xte/trait/is_same.hpp>
 #include <xte/util/as_c.hpp>
+#include <xte/util/construct.hpp>
 #include <xte/util/lvalue.hpp>
 #include <xte/util/numbers.hpp>
 #include <ranges>
@@ -99,6 +100,12 @@ static_assert((xte::array<int> { 0, 1, 2, 3, 4 }).slice(1, 3) == xte::array<int>
 static_assert((xte::array<int> { 0, 1, 2, 3, 4 }).slice(0, -1uz) == xte::array<int> { 0, 1, 2, 3, 4 });
 
 static_assert(([] {
+	xte::array<int> a = { 1, 2, 3 };
+	a.reset();
+	return !a.data() && !a.size() && !a.capacity();
+})());
+
+static_assert(([] {
 	xte::array<int> a;
 	a.resize(1);
 	return a[0] == 0;
@@ -126,24 +133,19 @@ static_assert(([] {
 
 static_assert(([] {
 	xte::array<int> a;
+	a.reserve(5);
+	a.force_size(5);
+	for (xte::uz i = 0; i < 5; ++i) {
+		xte::construct(a[i], static_cast<int>(i));
+	}
+	return a == xte::array<int> { 0, 1, 2, 3, 4 };
+})());
+
+static_assert(([] {
+	xte::array<int> a;
 	a.reserve(10);
 	a.shrink();
 	return a.capacity() == 0;
-})());
-
-static_assert(([] {
-	xte::array<int> a = { 1, 2, 3 };
-	a.reset();
-	return !a.data() && !a.size() && !a.capacity();
-})());
-
-static_assert(([] {
-	xte::array<int> a = { 1, 2, 3 };
-	a.insert_uninit(1, 3);
-	a[1] = 4;
-	a[2] = 5;
-	a[3] = 6;
-	return a == xte::array<int> { 1, 4, 5, 6, 2, 3 };
 })());
 
 static_assert(([] {
@@ -217,6 +219,15 @@ static_assert(([] {
 	xte::array<int> a = { 0, 1, 2 };
 	a.insert_count(1, 0, 999);
 	return a == xte::array<int> { 0, 1, 2 };
+})());
+
+static_assert(([] {
+	xte::array<int> a = { 1, 2, 3 };
+	a.insert_uninit(1, 3);
+	a[1] = 4;
+	a[2] = 5;
+	a[3] = 6;
+	return a == xte::array<int> { 1, 4, 5, 6, 2, 3 };
 })());
 
 static_assert(([] {
