@@ -209,6 +209,17 @@ static_assert(([] {
 })());
 
 static_assert(([] {
+	xte::array<int> a = { 0, 1, 2 };
+	a.insert_count(1, 3, 999);
+	return a == xte::array<int> { 0, 999, 999, 999, 1, 2 };
+})());
+static_assert(([] {
+	xte::array<int> a = { 0, 1, 2 };
+	a.insert_count(1, 0, 999);
+	return a == xte::array<int> { 0, 1, 2 };
+})());
+
+static_assert(([] {
 	xte::array<int> a = { 0, 1, 2, 3, 4 };
 	a.erase(1, 3);
 	return a == xte::array<int> { 0, 4 };

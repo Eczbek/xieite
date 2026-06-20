@@ -187,6 +187,12 @@ static_assert(([] {
 })());
 
 static_assert(([] {
+	xte::string a = "abc";
+	a.insert_count(1, 3, '$');
+	return a == "a$$$bc";
+})());
+
+static_assert(([] {
 	xte::string a = "abcdef";
 	a.erase(1, 3);
 	return a == "aef";

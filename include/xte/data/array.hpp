@@ -43,8 +43,7 @@ namespace xte {
 		xte::uz _size = 0;
 		xte::uz _capacity = 0;
 
-		constexpr void _reallocate(xte::uz capacity) & noexcept(false)
-		requires(requires (T x) { T(std::move_if_noexcept(x)); }) {
+		constexpr void _reallocate(xte::uz capacity) & noexcept(false) {
 			if (xte::array<T> old = xte::xvalue(*this); capacity) {
 				this->_data = std::allocator<T>().allocate(capacity);
 				this->_capacity = capacity;
@@ -257,13 +256,11 @@ namespace xte {
 			this->erase(size, -1uz);
 		}
 
-		constexpr void reserve(xte::uz additional = 1) & noexcept(false)
-		requires(requires (T x) { T(std::move_if_noexcept(x)); }) {
+		constexpr void reserve(xte::uz additional = 1) & noexcept(false) {
 			this->reserve_total(this->_capacity + additional);
 		}
 
-		constexpr void reserve_total(xte::uz total) & noexcept(false)
-		requires(requires (T x) { T(std::move_if_noexcept(x)); }) {
+		constexpr void reserve_total(xte::uz total) & noexcept(false) {
 			if (total > this->_capacity) {
 				XTE_DIAGNOSTIC_PUSH_GCC(OFF, "-Winterference-size")
 				xte::uz capacity = xte::max(this->_capacity, std::hardware_destructive_interference_size / sizeof(T));
@@ -275,15 +272,13 @@ namespace xte {
 			}
 		}
 
-		constexpr void shrink() & noexcept(false)
-		requires(requires (T x) { T(std::move_if_noexcept(x)); }) {
+		constexpr void shrink() & noexcept(false) {
 			if (this->_capacity > this->_size) {
 				this->_reallocate(this->_size);
 			}
 		}
 
-		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false)
-		requires(requires (T x) { T(std::move_if_noexcept(x)); }) {
+		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false) {
 			index = xte::min(index, this->_size);
 			this->reserve_total(this->_size + count);
 			for (xte::uz i = count; i-- && ((this->_size - count + i) >= index);) {
@@ -370,6 +365,11 @@ namespace xte {
 			for (auto&& item : old | std::views::drop(index)) {
 				this->push(std::move_if_noexcept(item));
 			}
+		}
+
+		constexpr void insert_count(xte::uz index, xte::uz count, const T& fill) & noexcept(false)
+		requires(xte::is_copy_constructible<T>) {
+			this->insert_range(index, xte::array<T>(count, fill));
 		}
 
 		constexpr void erase(xte::uz index, xte::uz count = 1) &

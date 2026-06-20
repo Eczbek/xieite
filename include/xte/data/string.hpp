@@ -330,6 +330,10 @@ namespace xte {
 			this->erase(index + i, range_size - i);
 		}
 
+		constexpr void insert_count(xte::uz index, xte::uz count, char c) & noexcept(false) {
+			this->_data.insert_count(xte::min(index, this->size()), count, c);
+		}
+
 		constexpr void erase(xte::uz index, xte::uz count = 1) & noexcept {
 			if (index <= this->size()) {
 				this->_data.erase(index, xte::min(count, this->size() - index));
