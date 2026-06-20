@@ -48,7 +48,7 @@ namespace xte {
 		constexpr void _normalize() & noexcept(false) {
 			if (!this->_data.size()) {
 				this->_data.push();
-			} else while ((this->_data.size() > 1) && !this->_data.back()) {
+			} else while (~-this->_data.size() && !this->_data.back()) {
 				this->_data.pop();
 			}
 			this->_neg &= !!*this;
@@ -66,90 +66,129 @@ namespace xte {
 			return true;
 		}
 
-		[[nodiscard]] constexpr xte::uz _log2() const noexcept {
-			return xte::width<T> * ~-this->_data.size() + xte::digits(this->_data.back(), 2) - 1;
+		[[nodiscard]] constexpr xte::big_int<T>& _add(auto&& rhs) & noexcept(false) {
+			if (!*this) {
+				return *this = XTE_FWD(rhs);
+			}
+			if (this->_neg != rhs._neg) {
+				return *this -= -XTE_FWD(rhs);
+			}
+			if (rhs) {
+				this->_data.resize(xte::max(this->_data.size(), rhs._data.size()) + 1);
+				T carry = 0;
+				for (xte::uz i : std::views::indices(this->_data.size())) {
+					T rhs_digit = 0;
+					if (i < rhs._data.size()) {
+						rhs_digit = rhs._data[i];
+					} else if (!carry) {
+						break;
+					}
+					this->_data[i] += static_cast<T>(rhs_digit + xte::exchange(carry, !xte::add_checked(this->_data[i], rhs_digit, carry)));
+				}
+				this->_normalize();
+			}
+			return *this;
 		}
 
-		constexpr void _add(const xte::big_int<T>& rhs) & noexcept(false) {
-			if (!rhs) {
-				return;
+		[[nodiscard]] constexpr xte::big_int<T>& _sub(auto&& rhs) & noexcept {
+			if (!*this) {
+				return *this = -XTE_FWD(rhs);
 			}
-			this->_data.resize(xte::max(this->_data.size(), rhs._data.size()) + 1);
-			T carry = 0;
-			for (xte::uz i : std::views::indices(this->_data.size())) {
-				T rhs_digit = 0;
-				if (i < rhs._data.size()) {
-					rhs_digit = rhs._data[i];
-				} else if (!carry) {
+			if (this->_neg != rhs._neg) {
+				return *this += -XTE_FWD(rhs);
+			}
+			if (this->_neg ? (*this > rhs) : (*this < rhs)) {
+				return *this = -(XTE_FWD(rhs) - xte::xvalue(*this));
+			}
+			if (rhs) {
+				T borrow = 0;
+				for (xte::uz i : std::views::indices(this->_data.size())) {
+					T rhs_digit = 0;
+					if (i < rhs._data.size()) {
+						rhs_digit = rhs._data[i];
+					} else if (!borrow) {
+						break;
+					}
+					this->_data[i] -= static_cast<T>(rhs_digit + xte::exchange(borrow, !xte::sub_checked(this->_data[i], rhs_digit, borrow)));
+				}
+				this->_normalize();
+			}
+			return *this;
+		}
+
+		[[nodiscard]] constexpr xte::big_int<T>& _mul(auto&& rhs) & noexcept {
+			if (!*this || !rhs) {
+				return *this = 0;
+			}
+			bool same_sign = this->_neg == rhs._neg;
+			do {
+				if (rhs._is_single_bit()) {
+					this->_data.insert_count(0, rhs._data.size() - 1, 0);
+					*this <<= ~-xte::digits(rhs._data.back(), 2);
 					break;
 				}
-				this->_data[i] += static_cast<T>(rhs_digit + xte::exchange(carry, !xte::add_checked(this->_data[i], rhs_digit, carry)));
-			}
-			this->_normalize();
-		}
-
-		constexpr void _sub(const xte::big_int<T>& rhs) & noexcept {
-			if (!rhs) {
-				return;
-			}
-			T borrow = 0;
-			for (xte::uz i : std::views::indices(this->_data.size())) {
-				T rhs_digit = 0;
-				if (i < rhs._data.size()) {
-					rhs_digit = rhs._data[i];
-				} else if (!borrow) {
+				xte::big_int<T> copy = XTE_FWD(rhs).abs();
+				if (this->_is_single_bit()) {
+					copy._data.insert_count(0, this->_data.size() - 1, 0);
+					copy <<= ~-xte::digits(this->_data.back(), 2);
+					*this = xte::xvalue(copy);
 					break;
 				}
-				this->_data[i] -= static_cast<T>(rhs_digit + xte::exchange(borrow, !xte::sub_checked(this->_data[i], rhs_digit, borrow)));
-			}
-			this->_normalize();
-		}
-
-		constexpr void _mul(xte::big_int<T> rhs) & noexcept {
-			if ((this->_data.size() < 2) && (rhs._data.size() < 2)) {
-				auto [lo, hi] = xte::wide_uint<T>(this->_data[0]) * rhs._data[0];
-				this->_data[0] = lo;
-				if (hi) {
-					this->_data.push(hi);
+				if ((this->_data.size() < 2) && (copy._data.size() < 2)) {
+					auto [lo, hi] = xte::wide_uint<T>(this->_data[0]) * copy._data[0];
+					this->_data[0] = lo;
+					if (hi) {
+						this->_data.push(hi);
+					}
+					break;
 				}
-			} else {
 				this->_neg = false;
-				xte::uz half_size = xte::max(this->_data.size(), rhs._data.size()) / 2;
+				xte::uz half_size = xte::max(this->_data.size(), copy._data.size()) / 2;
 				auto lhs_hi = xte::big_int<T>(std::from_range, this->_data.slice(half_size));
 				this->_data.erase(half_size, -1uz);
-				auto rhs_hi = xte::big_int<T>(std::from_range, rhs._data.slice(half_size));
-				rhs._data.erase(half_size, -1uz);
-				xte::big_int<T> prod0 = *this * rhs;
+				auto rhs_hi = xte::big_int<T>(std::from_range, copy._data.slice(half_size));
+				copy._data.erase(half_size, -1uz);
+				xte::big_int<T> prod0 = *this * copy;
 				xte::big_int<T> prod1 = lhs_hi * rhs_hi;
-				xte::big_int<T> prod2 = (*this + lhs_hi) * (rhs + rhs_hi) - prod0 - prod1;
+				xte::big_int<T> prod2 = (*this + lhs_hi) * (copy + rhs_hi) - prod0 - prod1;
 				*this = prod0 + (prod1 << (xte::width<T> * half_size * 2)) + (prod2 << (xte::width<T> * half_size));
-			}
+			} while (false);
+			this->_neg = !same_sign;
+			return *this;
 		}
 
 		[[nodiscard]] constexpr xte::big_int<T> _div(const xte::big_int<T>& rhs) & noexcept(false) {
-			bool neg = xte::exchange(this->_neg, false);
 			xte::big_int<T> quot;
-			quot._data.resize(this->_log2() / xte::width<T> + 1);
+			quot._data.resize(this->_data.size());
+			quot._neg = xte::exchange(this->_neg, false);
 			while (true) {
 				xte::big_int<T> tmp = rhs.abs();
 				if (*this < tmp) {
 					break;
 				}
-				xte::uz shift = this->_log2() - tmp._log2();
-				tmp <<= shift;
-				if (tmp > *this) {
+				xte::uz lhs_last_bits = xte::digits(this->_data.back(), 2);
+				xte::uz rhs_last_bits = xte::digits(rhs._data.back(), 2);
+				xte::uz shift_digits = this->_data.size() - rhs._data.size() - (lhs_last_bits < rhs_last_bits);
+				xte::uz shift_bits = (lhs_last_bits - rhs_last_bits + xte::width<T>) % xte::width<T>;
+				tmp._data.insert_count(0, shift_digits, 0);
+				tmp <<= shift_bits;
+				if (*this < tmp) {
 					tmp >>= 1;
-					--shift;
+					if (!shift_bits--) {
+						shift_bits += xte::width<T>;
+						--shift_digits;
+					}
 				}
-				quot._data[shift / xte::width<T>] |= static_cast<T>(1) << (shift % xte::width<T>);
+				quot._data[shift_digits] |= static_cast<T>(1) << shift_bits;
 				*this -= tmp;
 			}
-			this->_neg = neg;
+			this->_neg = quot._neg;
+			quot._neg ^= rhs._neg;
 			quot._normalize();
 			return quot;
 		}
 
-		constexpr void _bitwise(xte::big_int<T> rhs, auto func) & noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int<T>& _bitwise(xte::big_int<T> rhs, auto func) & noexcept(false) {
 			T lhs_neg = this->_neg;
 			T rhs_neg = rhs._neg;
 			*this += lhs_neg;
@@ -162,51 +201,54 @@ namespace xte {
 				this->_data[i] = func(this->_data[i] ^ -lhs_neg, rhs._data[i] ^ -rhs_neg) ^ -this->_neg;
 			}
 			*this -= +this->_neg;
+			return *this;
 		}
 
-		constexpr void _lshift(const xte::big_int<T>& rhs) & noexcept(false) {
-			if (!*this || !rhs) {
-				return;
-			}
-			xte::uz digit_shift = 0;
-			for (xte::uz i = 0; (i < rhs._data.size()) && ((i * xte::width<T>) <= xte::width<xte::uz>); ++i) {
-				digit_shift |= xte::lshift(static_cast<xte::uz>(rhs._data[i]), i * xte::width<T>) / xte::width<T>;
-			}
-			xte::uz bit_shift = rhs._data[0] % xte::width<T>;
-			this->_data.reserve(digit_shift + !!bit_shift);
-			this->_data.insert_range(0, std::views::repeat(static_cast<T>(0), digit_shift));
-			if (bit_shift) {
-				T carry = 0;
-				for (T& digit : this->_data | std::views::drop(digit_shift)) {
-					carry = xte::exchange(digit, (digit << bit_shift) | carry) >> (xte::width<T> - bit_shift);
+		[[nodiscard]] constexpr xte::big_int<T>& _lshift(const xte::big_int<T>& rhs) & noexcept(false) {
+			if (*this && rhs) {
+				xte::uz shift_digits = 0;
+				for (xte::uz i = 0; (i < rhs._data.size()) && (i <= (xte::width<xte::uz> / xte::width<T>)); ++i) {
+					shift_digits |= xte::lshift(static_cast<xte::uz>(rhs._data[i]), i * xte::width<T>) / xte::width<T>;
 				}
-				if (carry) {
-					this->_data.push(carry);
+				xte::uz shift_bits = rhs._data[0] % xte::width<T>;
+				this->_data.reserve(shift_digits + !!shift_bits);
+				this->_data.insert_count(0, shift_digits, 0);
+				if (shift_bits) {
+					T carry = 0;
+					for (T& digit : this->_data | std::views::drop(shift_digits)) {
+						carry = xte::exchange(digit, (digit << shift_bits) | carry) >> (xte::width<T> - shift_bits);
+					}
+					if (carry) {
+						this->_data.push(carry);
+					}
+					this->_normalize();
+				}
+			}
+			return *this;
+		}
+
+		[[nodiscard]] constexpr xte::big_int<T>& _rshift(const xte::big_int<T>& rhs) & noexcept(false) {
+			if (*this && rhs) {
+				xte::uz shift_digits = 0;
+				for (xte::uz i = 0; (i < rhs._data.size()) && (i <= (xte::width<xte::uz> / xte::width<T>)); ++i) {
+					shift_digits |= xte::lshift(static_cast<xte::uz>(rhs._data[i]), i * xte::width<T>) / xte::width<T>;
+				}
+				if (shift_digits >= this->_data.size()) {
+					return *this = 0;
+				}
+				this->_data.erase(0, shift_digits);
+				if (xte::uz shift_bits = rhs._data[0] % xte::width<T>) {
+					T carry = 0;
+					for (T& digit : std::views::reverse(this->_data)) {
+						carry = xte::exchange(digit, (digit >> shift_bits) | carry) << (xte::width<T> - shift_bits);
+					}
+					if (carry) {
+						*this -= +this->_neg;
+					}
 				}
 				this->_normalize();
 			}
-		}
-
-		constexpr void _rshift(const xte::big_int<T>& rhs) & noexcept(false) {
-			if (!*this || !rhs) {
-				return;
-			}
-			xte::uz digit_shift = 0;
-			for (xte::uz i = 0; (i < rhs._data.size()) && ((i * xte::width<T>) <= xte::width<xte::uz>); ++i) {
-				digit_shift |= xte::lshift(static_cast<xte::uz>(rhs._data[i]), i * xte::width<T>) / xte::width<T>;
-			}
-			if (digit_shift >= this->_data.size()) {
-				*this = 0;
-				return;
-			}
-			this->_data.erase(0, digit_shift);
-			if (xte::uz bit_shift = rhs._data[0] % xte::width<T>) {
-				T carry = 0;
-				for (T& digit : std::views::reverse(this->_data)) {
-					carry = xte::exchange(digit, (digit >> bit_shift) | carry) << (xte::width<T> - bit_shift);
-				}
-			}
-			*this -= +this->_neg;
+			return *this;
 		}
 
 		[[nodiscard]] constexpr xte::big_int<T> _pow(this auto&& base, auto&& exp) noexcept(false) {
@@ -301,8 +343,9 @@ namespace xte {
 			xte::uz shift = 0;
 			for (T digit : this->_data) {
 				result += xte::number<U>(digit) << shift;
+				shift += xte::width<T>;
 				if constexpr (xte::is_int<U>) {
-					if ((shift += xte::width<T>) >= xte::width<U>) {
+					if (shift >= xte::width<U>) {
 						break;
 					}
 				}
@@ -311,7 +354,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] explicit constexpr operator bool() const noexcept {
-			return (this->_data.size() > 1) || this->_data[0];
+			return ~-this->_data.size() || this->_data[0];
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept {
@@ -343,25 +386,11 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator+=(const xte::big_int<T>& rhs) noexcept(false) {
-			if (!*this) {
-				return *this = rhs;
-			}
-			if (this->_neg != rhs._neg) {
-				return *this -= -rhs;
-			}
-			this->_add(rhs);
-			return *this;
+			return this->_add(rhs);
 		}
 
 		constexpr xte::big_int<T>& operator+=(xte::big_int<T>&& rhs) noexcept(false) {
-			if (!*this) {
-				return *this = xte::xvalue(rhs);
-			}
-			if (this->_neg != rhs._neg) {
-				return *this -= -xte::xvalue(rhs);
-			}
-			this->_add(rhs);
-			return *this;
+			return this->_add(xte::xvalue(rhs));
 		}
 
 		constexpr xte::big_int<T>& operator++() & noexcept(false) {
@@ -385,31 +414,11 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator-=(const xte::big_int<T>& rhs) noexcept(false) {
-			if (!*this) {
-				return *this = -rhs;
-			}
-			if (this->_neg != rhs._neg) {
-				return *this += -rhs;
-			}
-			if (this->_neg ? (*this > rhs) : (*this < rhs)) {
-				return *this = -(rhs - xte::xvalue(*this));
-			}
-			this->_sub(rhs);
-			return *this;
+			return this->_sub(rhs);
 		}
 
 		constexpr xte::big_int<T>& operator-=(xte::big_int<T>&& rhs) noexcept(false) {
-			if (!*this) {
-				return *this = -xte::xvalue(rhs);
-			}
-			if (this->_neg != rhs._neg) {
-				return *this += -xte::xvalue(rhs);
-			}
-			if (this->_neg ? (*this > rhs) : (*this < rhs)) {
-				return *this = -(xte::xvalue(rhs) - xte::xvalue(*this));
-			}
-			this->_sub(rhs);
-			return *this;
+			return this->_sub(xte::xvalue(rhs));
 		}
 
 		constexpr xte::big_int<T>& operator--() & noexcept(false) {
@@ -429,35 +438,11 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator*=(const xte::big_int<T>& rhs) noexcept(false) {
-			if (!*this || !rhs) {
-				return *this = 0;
-			}
-			bool same_sign = this->_neg == rhs._neg;
-			if (this->_is_single_bit()) {
-				*this = rhs << this->_log2();
-			} else if (rhs._is_single_bit()) {
-				*this <<= rhs._log2();
-			} else {
-				this->_mul(rhs.abs());
-			}
-			this->_neg = !same_sign;
-			return *this;
+			return this->_mul(rhs);
 		}
 
 		constexpr xte::big_int<T>& operator*=(xte::big_int<T>&& rhs) noexcept(false) {
-			if (!*this || !rhs) {
-				return *this = 0;
-			}
-			bool same_sign = this->_neg == rhs._neg;
-			if (this->_is_single_bit()) {
-				*this = xte::xvalue(rhs) << this->_log2();
-			} else if (rhs._is_single_bit()) {
-				*this <<= rhs._log2();
-			} else {
-				this->_mul(xte::xvalue(rhs).abs());
-			}
-			this->_neg = !same_sign;
-			return *this;
+			return this->_mul(xte::xvalue(rhs));
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int<T> operator/(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
@@ -469,7 +454,7 @@ namespace xte {
 				throw xte::error("division by zero");
 			}
 			if ((this->_data.size() < 3) && (rhs._data.size() < 3)) {
-				auto [lo, hi] = xte::wide_uint<T>(this->_data[0], (this->_data.size() > 1) ? this->_data[1] : 0) / xte::wide_uint<T>(rhs._data[0], (rhs._data.size() > 1) ? rhs._data[1] : 0);
+				auto [lo, hi] = xte::wide_uint<T>(this->_data[0], ~-this->_data.size() ? this->_data[1] : 0) / xte::wide_uint<T>(rhs._data[0], ~-rhs._data.size() ? rhs._data[1] : 0);
 				this->_data.resize(1 + !!hi);
 				this->_data[0] = lo;
 				if (hi) {
@@ -479,9 +464,11 @@ namespace xte {
 				if (!rhs._is_single_bit()) {
 					return *this = this->_div(rhs);
 				}
-				*this >>= rhs._log2();
+				this->_data.erase(0, rhs._data.size() - 1);
+				*this >>= ~-xte::digits(rhs._data.back(), 2);
 			}
 			this->_neg ^= rhs._neg;
+			this->_normalize();
 			return *this;
 		}
 
@@ -499,6 +486,7 @@ namespace xte {
 			if (rhs._is_single_bit()) {
 				this->_data.resize(rhs._data.size());
 				this->_data.back() &= static_cast<T>(rhs._data.back() - 1);
+				this->_normalize();
 				return *this;
 			}
 			(void)this->_div(rhs);
@@ -518,8 +506,7 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator&=(xte::big_int<T> rhs) noexcept(false) {
-			this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(&));
-			return *this;
+			return this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(&));
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int<T> operator|(xte::big_int<T> lhs, xte::big_int<T> rhs) noexcept(false) {
@@ -527,8 +514,7 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator|=(xte::big_int<T> rhs) noexcept(false) {
-			this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(|));
-			return *this;
+			return this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(|));
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int<T> operator^(xte::big_int<T> lhs, xte::big_int<T> rhs) noexcept(false) {
@@ -536,8 +522,7 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator^=(xte::big_int<T> rhs) noexcept(false) {
-			this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(^));
-			return *this;
+			return this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(^));
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int<T> operator<<(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
@@ -545,12 +530,7 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator<<=(const xte::big_int<T>& rhs) noexcept(false) {
-			if (rhs._neg) {
-				this->_rshift(rhs);
-			} else {
-				this->_lshift(rhs);
-			}
-			return *this;
+			return rhs._neg ? this->_rshift(rhs) : this->_lshift(rhs);
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int<T> operator>>(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
@@ -558,12 +538,7 @@ namespace xte {
 		}
 
 		constexpr xte::big_int<T>& operator>>=(const xte::big_int<T>& rhs) noexcept(false) {
-			if (rhs._neg) {
-				this->_lshift(rhs);
-			} else {
-				this->_rshift(rhs);
-			}
-			return *this;
+			return rhs._neg ? this->_lshift(rhs) : this->_rshift(rhs);
 		}
 
 		[[nodiscard]] constexpr auto abs(this auto&& self) XTE_ARROW(
@@ -578,7 +553,7 @@ namespace xte {
 			return XTE_FWD(base)._pow(xte::xvalue(exp));
 		}
 
-		[[nodiscard]] constexpr xte::big_int<T> root(const xte::big_int<T>& degree) const noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int<T> root(const xte::big_int<T>& degree) noexcept(false) {
 			if (this->_neg) {
 				throw xte::error("root of negative radicand");
 			}
@@ -588,7 +563,7 @@ namespace xte {
 			if (*this == 1) {
 				return *this;
 			}
-			if (degree._neg) {
+			if (!*this || degree._neg) {
 				return 0;
 			}
 			xte::big_int<T> tmp = *this;
@@ -596,7 +571,8 @@ namespace xte {
 			xte::big_int<T> root = tmp + 1;
 			while (tmp < root) {
 				root = tmp;
-				(tmp = tmp * exp += *this / tmp.pow(exp)) /= degree;
+				xte::big_int<T> quot = *this / tmp.pow(exp);
+				((tmp *= exp) += xte::xvalue(quot)) /= degree;
 			}
 			return root;
 		}
@@ -614,7 +590,11 @@ namespace xte {
 			if (base._neg) {
 				throw xte::error("logarithm to negative base");
 			}
-			return this->_log2() / base._log2();
+			if (auto cmp = *this <=> base; std::is_lteq(cmp)) {
+				return +std::is_eq(cmp);
+			}
+			xte::uz log = ~-xte::digits(this->_data.back(), 2) / ~-xte::digits(base._data.back(), 2);
+			return (~-base._data.size() ? (log + ~-this->_data.size() / ~-base._data.size()) : log) - (*this < base.pow(log));
 		}
 
 		static constexpr struct parse {
