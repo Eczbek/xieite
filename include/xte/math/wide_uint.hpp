@@ -82,7 +82,7 @@ namespace DETAIL_XTE::wide_uint {
 			}
 			xte::uz index = xte::string_view("0123456789ABCDEF").slice(0, radix).find(xte::uppercase(digit));
 			if (!~index) {
-				break;
+				throw xte::error("digit outside radix");
 			}
 			(result *= static_cast<T>(radix)) += static_cast<T>(index);
 		}

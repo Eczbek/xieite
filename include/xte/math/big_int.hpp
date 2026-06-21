@@ -13,6 +13,7 @@
 #	include "../math/abs.hpp"
 #	include "../math/add_checked.hpp"
 #	include "../math/digits.hpp"
+#	include "../math/is_finite.hpp"
 #	include "../math/is_single_bit.hpp"
 #	include "../math/max.hpp"
 #	include "../math/number.hpp"
@@ -294,6 +295,9 @@ namespace xte {
 		[[nodiscard]] explicit(!xte::is_int<U>)
 		constexpr big_int(U x = 0) noexcept(false)
 		: _neg(x < 0) {
+			if (!xte::is_finite(x)) {
+				throw xte::error("value is not finite");
+			}
 			auto abs = xte::number(xte::abs(x));
 			do {
 				this->_data.push(static_cast<T>(abs));
@@ -667,7 +671,7 @@ namespace xte::literal::big_int {
 			}
 			xte::uz index = xte::string_view("0123456789ABCDEF").slice(0, radix).find(xte::uppercase(digit));
 			if (!~index) {
-				break;
+				throw xte::error("digit outside radix");
 			}
 			(result *= radix) += index;
 		}
