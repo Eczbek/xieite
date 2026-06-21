@@ -12,61 +12,7 @@
 
 namespace xte {
 	[[nodiscard]] constexpr char uppercase(char c) noexcept {
-		switch (c) {
-			case 'a':
-				return 'A';
-			case 'b':
-				return 'B';
-			case 'c':
-				return 'C';
-			case 'd':
-				return 'D';
-			case 'e':
-				return 'E';
-			case 'f':
-				return 'F';
-			case 'g':
-				return 'G';
-			case 'h':
-				return 'H';
-			case 'i':
-				return 'I';
-			case 'j':
-				return 'J';
-			case 'k':
-				return 'K';
-			case 'l':
-				return 'L';
-			case 'm':
-				return 'M';
-			case 'n':
-				return 'N';
-			case 'o':
-				return 'O';
-			case 'p':
-				return 'P';
-			case 'q':
-				return 'Q';
-			case 'r':
-				return 'R';
-			case 's':
-				return 'S';
-			case 't':
-				return 'T';
-			case 'u':
-				return 'U';
-			case 'v':
-				return 'V';
-			case 'w':
-				return 'W';
-			case 'x':
-				return 'X';
-			case 'y':
-				return 'Y';
-			case 'z':
-				return 'Z';
-		}
-		return c;
+		return (c >= 'a' && c <= 'z') ? static_cast<char>(c - ('a' - 'A')) : c;
 	}
 
 	[[nodiscard]] constexpr xte::string uppercase(xte::string_view string) noexcept(false) {
