@@ -66,6 +66,11 @@ namespace xte {
 			return true;
 		}
 
+		[[nodiscard]] constexpr std::strong_ordering _cmp(const xte::big_int<T>& rhs) const noexcept {
+			std::strong_ordering order = this->_data.size() <=> rhs._data.size();
+			return std::is_eq(order) ? xte::range_cmp(std::views::reverse(this->_data), std::views::reverse(rhs._data)) : order;
+		}
+
 		[[nodiscard]] constexpr xte::big_int<T>& _add(auto&& rhs) & noexcept(false) {
 			if (!*this) {
 				return *this = XTE_FWD(rhs);
@@ -330,7 +335,7 @@ namespace xte {
 		)
 
 		template<xte::is_int Radix = xte::uz>
-		[[nodiscard]] explicit constexpr big_int(xte::string_view string, Radix radix = 10uz, const xte::number_format_config& config = {}) noexcept(false)
+		[[nodiscard]] explicit constexpr big_int(xte::string_view string, Radix radix = 10, const xte::number_format_config& config = {}) noexcept(false)
 		: xte::big_int<T>(xte::big_int<T>::parse(string, radix, config)) {}
 
 		constexpr xte::big_int<T>& operator=(const xte::big_int<T>&) & noexcept(false) = default;
@@ -359,16 +364,7 @@ namespace xte {
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xte::big_int<T>& lhs, const xte::big_int<T>& rhs) noexcept {
 			std::strong_ordering order = rhs._neg <=> lhs._neg;
-			if (std::is_eq(order)) {
-				if (lhs._neg) {
-					if (std::is_eq((order = rhs._data.size() <=> lhs._data.size()))) {
-						return xte::range_cmp(std::views::reverse(rhs._data), std::views::reverse(lhs._data));
-					}
-				} else if (std::is_eq((order = lhs._data.size() <=> rhs._data.size()))) {
-					return xte::range_cmp(std::views::reverse(lhs._data), std::views::reverse(rhs._data));
-				}
-			}
-			return order;
+			return std::is_eq(order) ? (lhs._neg ? rhs._cmp(lhs) : lhs._cmp(rhs)) : order;
 		}
 
 		[[nodiscard]] friend constexpr bool operator==(const xte::big_int<T>&, const xte::big_int<T>&) noexcept = default;
@@ -549,7 +545,7 @@ namespace xte {
 			return XTE_FWD(base)._pow(xte::xvalue(exp));
 		}
 
-		[[nodiscard]] constexpr xte::big_int<T> root(const xte::big_int<T>& degree) noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int<T> root(const xte::big_int<T>& degree) const noexcept(false) {
 			if (this->_neg) {
 				throw xte::error("root of negative radicand");
 			}
@@ -619,7 +615,7 @@ namespace xte {
 		} parse {};
 
 		template<xte::is_int Radix = xte::uz>
-		[[nodiscard]] constexpr xte::string str(this auto&& self, Radix radix = 10uz, const xte::number_format_config& config = {}) noexcept(false) {
+		[[nodiscard]] constexpr xte::string str(this auto&& self, Radix radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
 			if (!self || !radix) {
 				return { config.digits[0] };
 			}
