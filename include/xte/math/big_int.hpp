@@ -385,11 +385,11 @@ namespace xte {
 			return lhs += xte::xvalue(rhs);
 		}
 
-		constexpr xte::big_int<T>& operator+=(const xte::big_int<T>& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator+=(const xte::big_int<T>& rhs) & noexcept(false) {
 			return this->_add(rhs);
 		}
 
-		constexpr xte::big_int<T>& operator+=(xte::big_int<T>&& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator+=(xte::big_int<T>&& rhs) & noexcept(false) {
 			return this->_add(xte::xvalue(rhs));
 		}
 
@@ -413,11 +413,11 @@ namespace xte {
 			return lhs -= xte::xvalue(rhs);
 		}
 
-		constexpr xte::big_int<T>& operator-=(const xte::big_int<T>& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator-=(const xte::big_int<T>& rhs) & noexcept(false) {
 			return this->_sub(rhs);
 		}
 
-		constexpr xte::big_int<T>& operator-=(xte::big_int<T>&& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator-=(xte::big_int<T>&& rhs) & noexcept(false) {
 			return this->_sub(xte::xvalue(rhs));
 		}
 
@@ -437,11 +437,11 @@ namespace xte {
 			return lhs *= xte::xvalue(rhs);
 		}
 
-		constexpr xte::big_int<T>& operator*=(const xte::big_int<T>& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator*=(const xte::big_int<T>& rhs) & noexcept(false) {
 			return this->_mul(rhs);
 		}
 
-		constexpr xte::big_int<T>& operator*=(xte::big_int<T>&& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator*=(xte::big_int<T>&& rhs) & noexcept(false) {
 			return this->_mul(xte::xvalue(rhs));
 		}
 
@@ -449,7 +449,7 @@ namespace xte {
 			return lhs /= rhs;
 		}
 
-		constexpr xte::big_int<T>& operator/=(const xte::big_int<T>& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator/=(const xte::big_int<T>& rhs) & noexcept(false) {
 			if (!rhs) {
 				throw xte::error("division by zero");
 			}
@@ -476,7 +476,7 @@ namespace xte {
 			return lhs %= rhs;
 		}
 
-		constexpr xte::big_int<T>& operator%=(const xte::big_int<T>& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator%=(const xte::big_int<T>& rhs) & noexcept(false) {
 			if (!rhs) {
 				throw xte::error("remainder of division by zero");
 			}
@@ -493,19 +493,15 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int<T> operator~() const & noexcept(false) {
-			return -*this - 1;
-		}
-
-		[[nodiscard]] constexpr xte::big_int<T> operator~() && noexcept {
-			return -xte::xvalue(*this) - 1;
+		[[nodiscard]] constexpr xte::big_int<T> operator~(this auto&& self) noexcept(false) {
+			return -XTE_FWD(self) - 1;
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int<T> operator&(xte::big_int<T> lhs, xte::big_int<T> rhs) noexcept(false) {
 			return lhs &= xte::xvalue(rhs);
 		}
 
-		constexpr xte::big_int<T>& operator&=(xte::big_int<T> rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator&=(xte::big_int<T> rhs) & noexcept(false) {
 			return this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(&));
 		}
 
@@ -513,7 +509,7 @@ namespace xte {
 			return lhs |= xte::xvalue(rhs);
 		}
 
-		constexpr xte::big_int<T>& operator|=(xte::big_int<T> rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator|=(xte::big_int<T> rhs) & noexcept(false) {
 			return this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(|));
 		}
 
@@ -521,7 +517,7 @@ namespace xte {
 			return lhs ^= xte::xvalue(rhs);
 		}
 
-		constexpr xte::big_int<T>& operator^=(xte::big_int<T> rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator^=(xte::big_int<T> rhs) & noexcept(false) {
 			return this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(^));
 		}
 
@@ -529,7 +525,7 @@ namespace xte {
 			return lhs <<= rhs;
 		}
 
-		constexpr xte::big_int<T>& operator<<=(const xte::big_int<T>& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator<<=(const xte::big_int<T>& rhs) & noexcept(false) {
 			return rhs._neg ? this->_rshift(rhs) : this->_lshift(rhs);
 		}
 
@@ -537,7 +533,7 @@ namespace xte {
 			return lhs >>= rhs;
 		}
 
-		constexpr xte::big_int<T>& operator>>=(const xte::big_int<T>& rhs) noexcept(false) {
+		constexpr xte::big_int<T>& operator>>=(const xte::big_int<T>& rhs) & noexcept(false) {
 			return rhs._neg ? this->_lshift(rhs) : this->_rshift(rhs);
 		}
 
