@@ -12,6 +12,7 @@
 #	include "../literal/radix.hpp"
 #	include "../math/abs.hpp"
 #	include "../math/add_checked.hpp"
+#	include "../math/approx_equal.hpp"
 #	include "../math/digits.hpp"
 #	include "../math/is_finite.hpp"
 #	include "../math/is_single_bit.hpp"
@@ -35,6 +36,7 @@
 #	include "../util/xvalue.hpp"
 #	include <compare>
 #	include <ranges>
+#	include <type_traits>
 
 namespace xte {
 	template<xte::is_unsigned T = xte::uz>
@@ -371,7 +373,33 @@ namespace xte {
 			return std::is_eq(order) ? (lhs._neg ? rhs._cmp(lhs) : lhs._cmp(rhs)) : order;
 		}
 
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xte::big_int<T>& lhs, xte::is_int auto rhs) noexcept {
+			std::strong_ordering order = (rhs < 0) <=> lhs._neg;
+			if (!std::is_eq(order)) {
+				return order;
+			}
+			if (lhs._data.size() > xte::max(1, xte::width<decltype(rhs)> / xte::width<T>)) {
+				return false <=> lhs._neg;
+			}
+			auto rhs_abs = xte::abs(rhs);
+			using unsigned_type = std::common_type_t<T, decltype(rhs_abs)>;
+			auto lhs_abs = lhs._neg ? -static_cast<unsigned_type>(lhs) : static_cast<unsigned_type>(lhs);
+			return lhs._neg ? (rhs_abs <=> lhs_abs) : (lhs_abs <=> rhs_abs);
+		}
+
+		[[nodiscard]] friend constexpr std::partial_ordering operator<=>(const xte::big_int<T>& lhs, xte::is_float auto rhs) noexcept {
+			return static_cast<decltype(rhs)>(lhs) <=> rhs;
+		}
+
 		[[nodiscard]] friend constexpr bool operator==(const xte::big_int<T>&, const xte::big_int<T>&) noexcept = default;
+
+		[[nodiscard]] friend constexpr bool operator==(const xte::big_int<T>& lhs, xte::is_int auto rhs) noexcept {
+			return std::is_eq(lhs <=> rhs);
+		}
+
+		[[nodiscard]] friend constexpr bool operator==(const xte::big_int<T>& lhs, xte::is_float auto rhs) noexcept {
+			return xte::approx_equal(static_cast<decltype(rhs)>(lhs), rhs);
+		}
 
 		[[nodiscard]] constexpr auto operator+(this auto&& self) XTE_ARROW(
 			auto(XTE_FWD(self))

@@ -26,11 +26,18 @@ static_assert(xte::approx_equal(static_cast<double>(xte::big_int(1) << 64), 1844
 static_assert(!xte::big_int(0));
 static_assert(!!xte::big_int(123));
 static_assert(!(xte::big_int(0) < 0));
+static_assert(xte::big_int(123) == xte::big_int(123));
+static_assert(xte::big_int(-123) == xte::big_int(-123));
+static_assert(xte::big_int(123) != xte::big_int(-123));
+static_assert(xte::big_int(-123) < xte::big_int(123));
+static_assert(xte::big_int(123) > xte::big_int(-123));
 static_assert(xte::big_int(123) == 123);
 static_assert(xte::big_int("FFFFFFFFFFFFFFFFFFF", 16) > xte::big_int("FFFF", 16));
 static_assert(xte::big_int(123) > -123);
 static_assert(xte::big_int(-123) < 0);
 static_assert(xte::big_int(1) != 0);
+static_assert(xte::big_int(1) > 0.5);
+static_assert(xte::big_int(0) < 0.5);
 static_assert(+xte::big_int(123) == 123);
 static_assert((xte::big_int(0) + 0) == 0);
 static_assert((xte::big_int(0) + 123) == 123);
