@@ -190,7 +190,7 @@ namespace xte {
 				quot._data[shift_digits] |= static_cast<T>(1) << shift_bits;
 				*this -= tmp;
 			}
-			this->_neg = quot._neg;
+			this->_neg = quot._neg && *this;
 			quot._neg ^= rhs._neg;
 			quot._normalize();
 			return quot;
@@ -639,9 +639,7 @@ namespace xte {
 					}
 					break;
 				}
-				if (result.value) {
-					result.value._neg = neg;
-				}
+				result.value._neg = neg && result.value;
 				return result;
 			}
 		} parse {};

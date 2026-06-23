@@ -109,7 +109,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::number<T> operator-() const noexcept {
-			return -xte::as_unsigned(this->value);
+			return xte::number<T>(-xte::as_unsigned(this->value));
 		}
 
 		template<typename U>

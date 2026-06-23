@@ -1,6 +1,7 @@
 #include <xte/data/array.hpp>
 #include <xte/math/approx_equal.hpp>
 #include <xte/math/big_int.hpp>
+#include <xte/math/lowest.hpp>
 #include <xte/math/width.hpp>
 #include <xte/preproc/feature.hpp>
 #include <xte/util/numbers.hpp>
@@ -19,8 +20,10 @@ static_assert(xte::big_int("") == 0);
 static_assert(xte::big_int("0") == 0);
 static_assert(xte::big_int("123") == 123);
 static_assert(xte::big_int("FF", 16) == 255);
-static_assert(static_cast<unsigned>(xte::big_int(123)) == 123);
-static_assert(static_cast<unsigned>(xte::big_int("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16)) == -1u);
+static_assert(static_cast<unsigned int>(xte::big_int(123)) == 123);
+static_assert(static_cast<unsigned int>(xte::big_int("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16)) == -1u);
+static_assert(static_cast<unsigned char>(xte::big_int<unsigned long long>(123456789)) == 21);
+static_assert(static_cast<unsigned long long>(xte::big_int<unsigned char>(123456789)) == 123456789);
 static_assert(xte::approx_equal(static_cast<double>(xte::big_int(123)), 123));
 static_assert(xte::approx_equal(static_cast<double>(xte::big_int(1) << 64), 18446744073709551616.0));
 static_assert(!xte::big_int(0));
@@ -32,6 +35,8 @@ static_assert(xte::big_int(123) != xte::big_int(-123));
 static_assert(xte::big_int(-123) < xte::big_int(123));
 static_assert(xte::big_int(123) > xte::big_int(-123));
 static_assert(xte::big_int(123) == 123);
+static_assert(xte::big_int<unsigned char>(123456789) == 123456789);
+static_assert(-xte::big_int(xte::lowest<unsigned long long>) == 0ull);
 static_assert(xte::big_int("FFFFFFFFFFFFFFFFFFF", 16) > xte::big_int("FFFF", 16));
 static_assert(xte::big_int(123) > -123);
 static_assert(xte::big_int(-123) < 0);
@@ -66,6 +71,7 @@ static_assert((xte::big_int<unsigned char>(-1000000) / 7) == -142857);
 static_assert((xte::big_int(-3) / 7) == 0);
 static_assert((xte::big_int(12345) % 2) == 1);
 static_assert((xte::big_int(12345) % 3) == 0);
+static_assert((xte::big_int(-12) % 3) == 0);
 static_assert((xte::big_int(12345) % 17) == 3);
 static_assert((xte::big_int(12345) % -62) == 7);
 static_assert((xte::big_int(-12345) % -904) == -593);
