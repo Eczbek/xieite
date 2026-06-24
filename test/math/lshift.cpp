@@ -12,5 +12,9 @@ static_assert(xte::lshift(std::uint8_t(1), 5) == 32);
 static_assert(xte::lshift(std::uint8_t(1), 6) == 64);
 static_assert(xte::lshift(std::uint8_t(1), 7) == 128);
 static_assert(xte::lshift(std::uint8_t(1), 8) == 0);
-
 static_assert(xte::lshift(1, xte::width<int>) == 0);
+
+static_assert(xte::lshift(255, -1) == 127);
+static_assert(xte::lshift(255, -2) == 63);
+static_assert(xte::lshift(255, -3) == 31);
+static_assert(xte::lshift(255, -static_cast<int>(xte::width<int>)) == 0);
