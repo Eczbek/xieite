@@ -429,9 +429,14 @@ namespace xte {
 			return xte::exchange(*this, *this + 1);
 		}
 
-		[[nodiscard]] constexpr auto operator-(this auto&& self) XTE_ARROW(
-			xte::big_int<T>(std::from_range, XTE_FWD(self)._data, !self._neg)
-		)
+		[[nodiscard]] constexpr xte::big_int<T> operator-() const & noexcept(false) {
+			return xte::big_int<T>(std::from_range, this->_data, !this->_neg);
+		}
+
+		[[nodiscard]] constexpr xte::big_int<T>&& operator-() && noexcept {
+			this->_neg ^= !!*this;
+			return xte::xvalue(*this);
+		}
 
 		[[nodiscard]] friend constexpr xte::big_int<T> operator-(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
 			return lhs -= rhs;
