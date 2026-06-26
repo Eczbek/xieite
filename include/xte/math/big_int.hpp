@@ -401,9 +401,9 @@ namespace xte {
 			return xte::approx_equal(static_cast<decltype(rhs)>(lhs), rhs);
 		}
 
-		[[nodiscard]] constexpr auto operator+(this auto&& self) XTE_ARROW(
-			auto(XTE_FWD(self))
-		)
+		[[nodiscard]] constexpr auto&& operator+(this auto&& self) noexcept {
+			return XTE_FWD(self);
+		}
 
 		[[nodiscard]] friend constexpr xte::big_int<T> operator+(xte::big_int<T> lhs, const xte::big_int<T>& rhs) noexcept(false) {
 			return lhs += rhs;
