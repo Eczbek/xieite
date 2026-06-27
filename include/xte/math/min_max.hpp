@@ -1,5 +1,5 @@
-#ifndef DETAIL_XTE_HEADER_MATH_MINMAX
-#	define DETAIL_XTE_HEADER_MATH_MINMAX
+#ifndef DETAIL_XTE_HEADER_MATH_MIN_MAX
+#	define DETAIL_XTE_HEADER_MATH_MIN_MAX
 #
 #	include "../math/less.hpp"
 #	include "../meta/end.hpp"
@@ -10,7 +10,7 @@
 
 namespace DETAIL_XTE {
 	template<typename T>
-	struct minmax {
+	struct min_max {
 		T min;
 		T max;
 	};
@@ -19,10 +19,10 @@ namespace DETAIL_XTE {
 namespace xte {
 	template<typename T, typename U, xte::end...,
 		typename common_type = std::common_type_t<T, U>>
-	[[nodiscard]] constexpr auto minmax(T&& x, U&& y) XTE_ARROW(
+	[[nodiscard]] constexpr auto min_max(T&& x, U&& y) XTE_ARROW(
 		xte::less(x, y)
-			? DETAIL_XTE::minmax<common_type> { xte::cast<common_type>(XTE_FWD(x)), xte::cast<common_type>(XTE_FWD(y)) }
-			: DETAIL_XTE::minmax<common_type> { xte::cast<common_type>(XTE_FWD(y)), xte::cast<common_type>(XTE_FWD(x)) }
+			? DETAIL_XTE::min_max<common_type> { xte::cast<common_type>(XTE_FWD(x)), xte::cast<common_type>(XTE_FWD(y)) }
+			: DETAIL_XTE::min_max<common_type> { xte::cast<common_type>(XTE_FWD(y)), xte::cast<common_type>(XTE_FWD(x)) }
 	)
 }
 

@@ -1,7 +1,7 @@
-#include <xte/math/minmax.hpp>
+#include <xte/math/min_max.hpp>
 
 consteval {
-	constexpr auto [min, max] = xte::minmax(5, -5);
+	constexpr auto [min, max] = xte::min_max(5, -5);
 	static_assert(min == -5);
 	static_assert(max == 5);
 }
@@ -14,7 +14,7 @@ struct A {
 	}
 };
 consteval {
-	constexpr auto [min, max] = xte::minmax(A(5), A(-5));
+	constexpr auto [min, max] = xte::min_max(A(5), A(-5));
 	static_assert(min.x == -5);
 	static_assert(max.x == 5);
 }
@@ -27,7 +27,7 @@ struct B {
 	}
 };
 consteval {
-	constexpr auto [min, max] = xte::minmax(B(5), B(-5));
+	constexpr auto [min, max] = xte::min_max(B(5), B(-5));
 	static_assert(min.x == -5);
 	static_assert(max.x == 5);
 }

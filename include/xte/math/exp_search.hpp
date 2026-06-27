@@ -6,7 +6,7 @@
 #	include "../math/diff.hpp"
 #	include "../math/highest.hpp"
 #	include "../math/lowest.hpp"
-#	include "../math/minmax.hpp"
+#	include "../math/min_max.hpp"
 #	include "../math/mul_checked.hpp"
 #	include "../meta/end.hpp"
 #	include "../preproc/feature.hpp"
@@ -23,7 +23,7 @@ namespace xte {
 		typename common_type = std::common_type_t<T, U>>
 	[[nodiscard]] constexpr common_type exp_search(xte::is_callable_lref<bool(common_type)> auto&& predicate, T limit0, U limit1)
 	noexcept(xte::is_noex_callable<decltype(predicate)&, bool(common_type)>) {
-		auto [min, max] = xte::minmax(xte::cast<common_type>(limit0), xte::cast<common_type>(limit1));
+		auto [min, max] = xte::min_max(xte::cast<common_type>(limit0), xte::cast<common_type>(limit1));
 		while (true) {
 			common_type mid = xte::avg(min, max);
 			if constexpr (xte::is_int<common_type>) {
