@@ -8,7 +8,7 @@
 #	include "../preproc/fwd.hpp"
 #	include "../trait/drop_cvref.hpp"
 #	include "../trait/is_castable.hpp"
-#	include "../trait/is_derived_from_instance_of.hpp"
+#	include "../trait/is_derived_from_specialization_of.hpp"
 #	include "../trait/is_same.hpp"
 #	include "../trait/is_specialization_of.hpp"
 #	include "../util/like.hpp"
@@ -147,7 +147,7 @@ namespace xte {
 	};
 
 	template<typename T, typename... Ts>
-	fixed_array(T, Ts...) -> fixed_array<std::common_type_t<T, Ts...>, -~sizeof...(Ts)>;
+	fixed_array(T, Ts...) -> fixed_array<std::common_type_t<T, Ts...>, (sizeof...(Ts) + 1)>;
 
 	template<typename T, xte::uz n, xte::uz m>
 	[[nodiscard]] constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
@@ -160,8 +160,8 @@ namespace xte {
 	)
 
 	template<typename Lhs, typename Rhs>
-	requires(xte::is_derived_from_instance_of<xte::drop_cvref<Lhs>, ^^xte::fixed_array>
-		&& xte::is_derived_from_instance_of<xte::drop_cvref<Rhs>, ^^xte::fixed_array>
+	requires(xte::is_derived_from_specialization_of<xte::drop_cvref<Lhs>, ^^xte::fixed_array>
+		&& xte::is_derived_from_specialization_of<xte::drop_cvref<Rhs>, ^^xte::fixed_array>
 		&& xte::is_same<typename Lhs::value_type, typename Rhs::value_type>)
 	[[nodiscard]] constexpr auto operator+(Lhs&& lhs, Rhs&& rhs) XTE_ARROW(
 		xte::unfold<Lhs::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_ARROW(

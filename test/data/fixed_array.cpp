@@ -1,5 +1,6 @@
 #include <xte/data/fixed_array.hpp>
 #include <xte/trait/drop_cvref.hpp>
+#include <xte/trait/is_derived_from_specialization_of.hpp>
 #include <xte/trait/is_same.hpp>
 
 static_assert(xte::is_same<int, xte::fixed_array<int, 3>::value_type>);
@@ -34,5 +35,5 @@ static_assert(([] {
 
 static_assert((xte::fixed_array { 1, 2 } + xte::fixed_array { 3, 4 }) == xte::fixed_array { 1, 2, 3, 4 });
 
-static_assert(xte::is_derived_from_instance_of<xte::drop_cvref<xte::fixed_array<int, 2>&&>, ^^xte::fixed_array>);
+static_assert(xte::is_derived_from_specialization_of<xte::drop_cvref<xte::fixed_array<int, 2>&&>, ^^xte::fixed_array>);
 static_assert(xte::is_same<xte::fixed_array<int, 2>::value_type, xte::fixed_array<int, 2>::value_type>);

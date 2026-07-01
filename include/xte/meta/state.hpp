@@ -32,9 +32,9 @@ namespace DETAIL_XTE {
 		template<auto = [] {}>
 		static constexpr decltype(auto) get = ([]<xte::uz i = 0>(this auto self) -> decltype(auto) {
 			if constexpr (requires { DETAIL_XTE_state(DETAIL_XTE::state<id>::reader<i>()); }) {
-				return self.template operator()<-~i>();
+				return self.template operator()<(i + 1)>();
 			} else if constexpr (i) {
-				return decltype(DETAIL_XTE_state(DETAIL_XTE::state<id>::reader<~-i>()))::value;
+				return decltype(DETAIL_XTE_state(DETAIL_XTE::state<id>::reader<(i - 1)>()))::value;
 			} else {
 				static_assert(false, "must assign state before access");
 			}
@@ -43,7 +43,7 @@ namespace DETAIL_XTE {
 		template<decltype(auto) x, auto = [] {}>
 		static constexpr auto set = ([]<xte::uz i = 0>(this auto self) -> decltype(auto) {
 			if constexpr (requires { DETAIL_XTE_state(DETAIL_XTE::state<id>::reader<i>()); }) {
-				return self.template operator()<-~i>();
+				return self.template operator()<(i + 1)>();
 			} else {
 				return DETAIL_XTE::state<id>::setter<i, x>::self;
 			}

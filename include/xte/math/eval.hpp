@@ -60,7 +60,7 @@ namespace DETAIL_XTE::eval {
 			DETAIL_XTE::eval::unsigned_type unsigned_value;
 			DETAIL_XTE::eval::signed_type signed_value;
 			DETAIL_XTE::eval::float_type float_value;
-			xte::big_int<> big_value;
+			xte::big_int big_value;
 			bool bool_value;
 		};
 		enum {
@@ -77,7 +77,7 @@ namespace DETAIL_XTE::eval {
 		[[nodiscard]] explicit(false) constexpr data_type(DETAIL_XTE::eval::signed_type value) noexcept
 		: signed_value(value), tag(DETAIL_XTE::eval::data_type::signed_tag) {}
 
-		[[nodiscard]] explicit(false) constexpr data_type(xte::big_int<> value) noexcept
+		[[nodiscard]] explicit(false) constexpr data_type(xte::big_int value) noexcept
 		: big_value(xte::xvalue(value)), tag(DETAIL_XTE::eval::data_type::big_tag) {}
 
 		[[nodiscard]] explicit(false) constexpr data_type(DETAIL_XTE::eval::float_type value) noexcept
@@ -162,7 +162,7 @@ namespace DETAIL_XTE::eval {
 			return xte::reconstruct(*this, value);
 		}
 
-		constexpr DETAIL_XTE::eval::data_type& operator=(xte::big_int<> value) noexcept {
+		constexpr DETAIL_XTE::eval::data_type& operator=(xte::big_int value) noexcept {
 			return xte::reconstruct(*this, xte::xvalue(value));
 		}
 
@@ -246,7 +246,7 @@ namespace xte {
 					return result;
 				}
 				if ((input[pos] >= '0') && (input[pos] <= '9')) {
-					auto [whole, index] = xte::big_int<>::parse.with_index(input.slice(start));
+					auto [whole, index] = xte::big_int::parse.with_index(input.slice(start));
 					result = xte::xvalue(whole);
 					pos = start + index;
 				}
@@ -355,7 +355,7 @@ namespace xte {
 						if ((args[0].tag == DETAIL_XTE::eval::data_type::float_tag) || (args[1].tag == DETAIL_XTE::eval::data_type::float_tag)) {
 							return xte::pow(static_cast<DETAIL_XTE::eval::float_type>(args[0]), static_cast<DETAIL_XTE::eval::float_type>(args[1]));
 						}
-						return static_cast<xte::big_int<>>(xte::xvalue(args)[0]).pow(static_cast<xte::big_int<>>(xte::xvalue(args)[1]));
+						return static_cast<xte::big_int>(xte::xvalue(args)[0]).pow(static_cast<xte::big_int>(xte::xvalue(args)[1]));
 					})
 				}) {
 					if (id == func.id) {
@@ -412,7 +412,7 @@ namespace xte {
 						}
 						[[fallthrough]];
 					case DETAIL_XTE::eval::data_type::big_tag:
-						result = -static_cast<xte::big_int<>>(xte::xvalue(result));
+						result = -static_cast<xte::big_int>(xte::xvalue(result));
 						break;
 					case DETAIL_XTE::eval::data_type::signed_tag:
 					case DETAIL_XTE::eval::data_type::bool_tag:
@@ -454,7 +454,7 @@ namespace xte {
 									break;
 								}
 							}
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) * static_cast<xte::big_int<>>(xte::xvalue(multiplicand));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) * static_cast<xte::big_int>(xte::xvalue(multiplicand));
 						} while (false);
 					} else if (match("/")) {
 						xte::uz tmp = pos - 1;
@@ -482,7 +482,7 @@ namespace xte {
 								result = static_cast<DETAIL_XTE::eval::signed_type>(result) / divisor.signed_value;
 								break;
 							}
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) / static_cast<xte::big_int<>>(xte::xvalue(divisor));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) / static_cast<xte::big_int>(xte::xvalue(divisor));
 						} while (false);
 					} else if (match("%")) {
 						xte::uz tmp = pos;
@@ -499,7 +499,7 @@ namespace xte {
 						} else if (((result.tag == DETAIL_XTE::eval::data_type::signed_tag) || (result.tag == DETAIL_XTE::eval::data_type::bool_tag)) && (divisor.tag == DETAIL_XTE::eval::data_type::signed_tag)) {
 							result = xte::rem(static_cast<DETAIL_XTE::eval::signed_type>(result), divisor.signed_value);
 						} else {
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) % static_cast<xte::big_int<>>(xte::xvalue(divisor));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) % static_cast<xte::big_int>(xte::xvalue(divisor));
 						}
 					} else {
 						break;
@@ -533,7 +533,7 @@ namespace xte {
 									break;
 								}
 							}
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) + static_cast<xte::big_int<>>(xte::xvalue(addend));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) + static_cast<xte::big_int>(xte::xvalue(addend));
 						} while (false);
 					} else if (match("-")) {
 						++pos;
@@ -558,7 +558,7 @@ namespace xte {
 									break;
 								}
 							}
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) - static_cast<xte::big_int<>>(xte::xvalue(subtrahend));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) - static_cast<xte::big_int>(xte::xvalue(subtrahend));
 						} while (false);
 					} else {
 						break;
@@ -575,7 +575,7 @@ namespace xte {
 						if ((result.tag == DETAIL_XTE::eval::data_type::float_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::float_tag)) {
 							result = xte::approx_equal(static_cast<DETAIL_XTE::eval::float_type>(result), static_cast<DETAIL_XTE::eval::float_type>(comparand));
 						} else if ((result.tag == DETAIL_XTE::eval::data_type::big_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::big_tag)) {
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) == static_cast<xte::big_int<>>(xte::xvalue(comparand));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) == static_cast<xte::big_int>(xte::xvalue(comparand));
 						} else {
 							result = ((result.tag == DETAIL_XTE::eval::data_type::signed_tag) && (comparand.tag == DETAIL_XTE::eval::data_type::signed_tag))
 								? (result.signed_value == comparand.signed_value)
@@ -588,7 +588,7 @@ namespace xte {
 						if ((result.tag == DETAIL_XTE::eval::data_type::float_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::float_tag)) {
 							result = !xte::approx_equal(static_cast<DETAIL_XTE::eval::float_type>(result), static_cast<DETAIL_XTE::eval::float_type>(comparand));
 						} else if ((result.tag == DETAIL_XTE::eval::data_type::big_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::big_tag)) {
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) != static_cast<xte::big_int<>>(xte::xvalue(comparand));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) != static_cast<xte::big_int>(xte::xvalue(comparand));
 						} else {
 							result = ((result.tag == DETAIL_XTE::eval::data_type::signed_tag) && (comparand.tag == DETAIL_XTE::eval::data_type::signed_tag))
 								? (result.signed_value != comparand.signed_value)
@@ -601,7 +601,7 @@ namespace xte {
 						if ((result.tag == DETAIL_XTE::eval::data_type::float_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::float_tag)) {
 							result = xte::approx_greater_equal(static_cast<DETAIL_XTE::eval::float_type>(result), static_cast<DETAIL_XTE::eval::float_type>(comparand));
 						} else if ((result.tag == DETAIL_XTE::eval::data_type::big_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::big_tag)) {
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) >= static_cast<xte::big_int<>>(xte::xvalue(comparand));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) >= static_cast<xte::big_int>(xte::xvalue(comparand));
 						} else {
 							result = ((result.tag == DETAIL_XTE::eval::data_type::signed_tag) && (comparand.tag == DETAIL_XTE::eval::data_type::signed_tag))
 								? (result.signed_value >= comparand.signed_value)
@@ -614,7 +614,7 @@ namespace xte {
 						if ((result.tag == DETAIL_XTE::eval::data_type::float_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::float_tag)) {
 							result = xte::approx_less_equal(static_cast<DETAIL_XTE::eval::float_type>(result), static_cast<DETAIL_XTE::eval::float_type>(comparand));
 						} else if ((result.tag == DETAIL_XTE::eval::data_type::big_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::big_tag)) {
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) <= static_cast<xte::big_int<>>(xte::xvalue(comparand));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) <= static_cast<xte::big_int>(xte::xvalue(comparand));
 						} else {
 							result = ((result.tag == DETAIL_XTE::eval::data_type::signed_tag) && (comparand.tag == DETAIL_XTE::eval::data_type::signed_tag))
 								? (result.signed_value <= comparand.signed_value)
@@ -627,7 +627,7 @@ namespace xte {
 						if ((result.tag == DETAIL_XTE::eval::data_type::float_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::float_tag)) {
 							result = static_cast<DETAIL_XTE::eval::float_type>(result) > static_cast<DETAIL_XTE::eval::float_type>(comparand);
 						} else if ((result.tag == DETAIL_XTE::eval::data_type::big_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::big_tag)) {
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) > static_cast<xte::big_int<>>(xte::xvalue(comparand));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) > static_cast<xte::big_int>(xte::xvalue(comparand));
 						} else {
 							result = ((result.tag == DETAIL_XTE::eval::data_type::signed_tag) && (comparand.tag == DETAIL_XTE::eval::data_type::signed_tag))
 								? (result.signed_value > comparand.signed_value)
@@ -640,7 +640,7 @@ namespace xte {
 						if ((result.tag == DETAIL_XTE::eval::data_type::float_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::float_tag)) {
 							result = static_cast<DETAIL_XTE::eval::float_type>(result) < static_cast<DETAIL_XTE::eval::float_type>(comparand);
 						} else if ((result.tag == DETAIL_XTE::eval::data_type::big_tag) || (comparand.tag == DETAIL_XTE::eval::data_type::big_tag)) {
-							result = static_cast<xte::big_int<>>(xte::xvalue(result)) < static_cast<xte::big_int<>>(xte::xvalue(comparand));
+							result = static_cast<xte::big_int>(xte::xvalue(result)) < static_cast<xte::big_int>(xte::xvalue(comparand));
 						} else {
 							result = ((result.tag == DETAIL_XTE::eval::data_type::signed_tag) && (comparand.tag == DETAIL_XTE::eval::data_type::signed_tag))
 								? (result.signed_value <= comparand.signed_value)

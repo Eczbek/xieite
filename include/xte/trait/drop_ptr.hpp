@@ -9,15 +9,15 @@ namespace DETAIL_XTE {
 
 	template<typename T, xte::uz n>
 	requires(!!n)
-	constexpr auto remove_ptr<T*, n> = DETAIL_XTE::remove_ptr<T, ~-n>;
+	constexpr auto remove_ptr<T*, n> = DETAIL_XTE::remove_ptr<T, (n - 1)>;
 
 	template<typename T, xte::uz n>
 	requires(!!n)
-	constexpr auto remove_ptr<T*&, n> = DETAIL_XTE::remove_ptr<T&, ~-n>;
+	constexpr auto remove_ptr<T*&, n> = DETAIL_XTE::remove_ptr<T&, (n - 1)>;
 
 	template<typename T, xte::uz n>
 	requires(!!n)
-	constexpr auto remove_ptr<T*&&, n> = DETAIL_XTE::remove_ptr<T&, ~-n>;
+	constexpr auto remove_ptr<T*&&, n> = DETAIL_XTE::remove_ptr<T&, (n - 1)>;
 }
 
 namespace xte {

@@ -13,14 +13,14 @@
 namespace xte {
 	template<xte::uz n>
 	struct fixed_string : xte::fixed_array<char, n> {
-		[[nodiscard]] explicit(false) constexpr fixed_string(const xte::type<char[-~n]>& data) noexcept
+		[[nodiscard]] explicit(false) constexpr fixed_string(const xte::type<char[n + 1]>& data) noexcept
 		: xte::fixed_array<char, n>(xte::unfold<n>([&]<xte::uz... i> {
 			return xte::fixed_array { data[i]... };
 		})) {}
 	};
 
 	template<xte::uz n>
-	fixed_string(const xte::type<char[n]>&) -> fixed_string<~-n>;
+	fixed_string(const xte::type<char[n]>&) -> fixed_string<(n - 1)>;
 }
 
 namespace xte::literal::fixed_string {

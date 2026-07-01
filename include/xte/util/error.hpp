@@ -17,7 +17,7 @@ namespace xte {
 	};
 
 	template<xte::uz n>
-	error(const xte::type<char[n]>&) -> error<~-n>;
+	error(const xte::type<char[n]>&) -> error<(n - 1)>;
 }
 
 #endif

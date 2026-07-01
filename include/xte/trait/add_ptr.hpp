@@ -5,7 +5,7 @@
 
 namespace DETAIL_XTE {
 	template<typename T, xte::uz n>
-	constexpr auto add_ptr = ^^typename[:DETAIL_XTE::add_ptr<T, ~-n>:]*;
+	constexpr auto add_ptr = ^^typename[:DETAIL_XTE::add_ptr<T, (n - 1)>:]*;
 
 	template<typename T>
 	constexpr auto add_ptr<T, 0> = ^^T;

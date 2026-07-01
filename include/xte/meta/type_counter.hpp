@@ -10,7 +10,7 @@ namespace DETAIL_XTE {
 
 namespace xte {
 	template<typename>
-	constexpr xte::uz type_counter = DETAIL_XTE::type_counter.set<-~DETAIL_XTE::type_counter.get<[] {}>>.template get<> - 1;
+	constexpr xte::uz type_counter = DETAIL_XTE::type_counter.set<(DETAIL_XTE::type_counter.get<[] {}> + 1)>.template get<> - 1;
 }
 
 #endif
