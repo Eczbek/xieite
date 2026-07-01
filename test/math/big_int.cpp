@@ -3,28 +3,21 @@
 #include <xte/math/big_int.hpp>
 #include <xte/math/lowest.hpp>
 #include <xte/math/width.hpp>
-#include <xte/preproc/feature.hpp>
 #include <xte/util/lvalue.hpp>
 #include <xte/util/numbers.hpp>
 #include <ranges>
 
 static_assert(xte::big_int() == 0);
 static_assert(xte::big_int(0) == 0);
-static_assert(xte::big_int(123) == 123);
-#if XTE_FEATURE_INT_8
-static_assert(xte::big_int<xte::u8>(257) == 257);
-#endif
-static_assert(xte::big_int<unsigned char>(xte::big_int<unsigned long long>(123456789)) == 123456789);
-static_assert(xte::big_int<unsigned long long>(xte::big_int<unsigned char>(123456789)) == 123456789);
-static_assert((sizeof(int) == sizeof(long long)) || (xte::big_int<unsigned>(std::from_range, { 0u, 1u }) == (-1u + 1ull)));
+static_assert(xte::big_int(123456789) == 123456789);
 static_assert(xte::big_int("") == 0);
 static_assert(xte::big_int("0") == 0);
 static_assert(xte::big_int("123") == 123);
 static_assert(xte::big_int("FF", 16) == 255);
 static_assert(static_cast<unsigned int>(xte::big_int(123)) == 123);
 static_assert(static_cast<unsigned int>(xte::big_int("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16)) == -1u);
-static_assert(static_cast<unsigned char>(xte::big_int<unsigned long long>(123456789)) == 21);
-static_assert(static_cast<unsigned long long>(xte::big_int<unsigned char>(123456789)) == 123456789);
+static_assert(static_cast<unsigned char>(xte::big_int(123456789)) == 21);
+static_assert(static_cast<unsigned long long>(xte::big_int(123456789)) == 123456789);
 static_assert(xte::approx_equal(static_cast<double>(xte::big_int(123)), 123));
 static_assert(xte::approx_equal(static_cast<double>(xte::big_int(1) << 64), 18446744073709551616.0));
 static_assert(!xte::big_int(0));
@@ -36,7 +29,6 @@ static_assert(xte::big_int(123) != xte::big_int(-123));
 static_assert(xte::big_int(-123) < xte::big_int(123));
 static_assert(xte::big_int(123) > xte::big_int(-123));
 static_assert(xte::big_int(123) == 123);
-static_assert(xte::big_int<unsigned char>(123456789) == 123456789);
 static_assert(-xte::big_int(xte::lowest<unsigned long long>) == 0ull);
 static_assert(xte::big_int("FFFFFFFFFFFFFFFFFFF", 16) > xte::big_int("FFFF", 16));
 static_assert(xte::big_int(123) > -123);
@@ -49,7 +41,6 @@ static_assert(+xte::big_int(-123) == -123);
 static_assert(+xte::lvalue(xte::big_int(123)) == 123);
 static_assert((xte::big_int(0) + 0) == 0);
 static_assert((xte::big_int(0) + 123) == 123);
-static_assert((sizeof(char) == sizeof(long long)) || (xte::big_int<unsigned char>(static_cast<unsigned char>(-1)) + 1) == (static_cast<unsigned char>(-1) + 1ull));
 static_assert((xte::big_int(-123) + -1) == -124);
 static_assert((xte::big_int(1 + -2)) == -1);
 static_assert((xte::big_int(-1 - -2)) == 1);
@@ -63,15 +54,15 @@ static_assert((xte::big_int(0) * 0) == 0);
 static_assert((xte::big_int(123) * 0) == 0);
 static_assert((xte::big_int(0) * 123) == 0);
 static_assert((xte::big_int(2) * 2) == 4);
-static_assert((xte::big_int<unsigned char>(999999999ull) * 999999999ull) == 999999998000000001ull);
+static_assert((xte::big_int(999999999ull) * 999999999ull) == 999999998000000001ull);
 static_assert((xte::big_int(360) / 2) == 180);
 static_assert((xte::big_int(360) / 3) == 120);
 static_assert((xte::big_int(360) / 5) == 72);
 static_assert((xte::big_int(360) / 15) == 24);
 static_assert((xte::big_int(12345) / -1) == -12345);
 static_assert((xte::big_int(1575) / 10) == 157);
-static_assert((xte::big_int<unsigned char>(999999999ull) / 13) == 76923076ull);
-static_assert((xte::big_int<unsigned char>(-1000000) / 7) == -142857);
+static_assert((xte::big_int(999999999ull) / 13) == 76923076ull);
+static_assert((xte::big_int(-1000000) / 7) == -142857);
 static_assert((xte::big_int(-3) / 7) == 0);
 static_assert((xte::big_int(12345) % 2) == 1);
 static_assert((xte::big_int(12345) % 3) == 0);
@@ -79,7 +70,7 @@ static_assert((xte::big_int(-12) % 3) == 0);
 static_assert((xte::big_int(12345) % 17) == 3);
 static_assert((xte::big_int(12345) % -62) == 7);
 static_assert((xte::big_int(-12345) % -904) == -593);
-static_assert((xte::big_int<unsigned char>(999999999ull) % 6217) == 1766);
+static_assert((xte::big_int(999999999ull) % 6217) == 1766);
 static_assert((xte::big_int(-8) % 4) == 0);
 static_assert(~xte::big_int(345) == -346);
 static_assert(~xte::big_int(1) == -2);
@@ -90,12 +81,12 @@ static_assert((xte::big_int(19634) ^ 27592) == 10106);
 static_assert((xte::big_int(1) << 0) == 1);
 static_assert((xte::big_int(1) << 1) == 2);
 static_assert((xte::big_int(1) << 2) == 4);
-static_assert((xte::big_int<unsigned>(1) << xte::width<unsigned>) == xte::big_int<unsigned>(std::from_range, { 0u, 1u }));
+static_assert((xte::big_int(1) << xte::width<xte::umax>) == xte::big_int(std::from_range, { 0u, 1u }));
 static_assert((xte::big_int(1) >> -1) == 2);
 static_assert((xte::big_int(256) >> 0) == 256);
 static_assert((xte::big_int(256) >> 1) == 128);
 static_assert((xte::big_int(256) >> 2) == 64);
-static_assert((xte::big_int<unsigned>(std::from_range, { 0u, 1u }) >> xte::width<unsigned>) == 1);
+static_assert((xte::big_int(std::from_range, { 0u, 1u }) >> xte::width<xte::umax>) == 1);
 static_assert((xte::big_int(-8) >> 1) == -4);
 static_assert((xte::big_int(256) << -1) == 128);
 static_assert((xte::big_int(1) << 64 >> 1) == (xte::big_int(1) << 63));
