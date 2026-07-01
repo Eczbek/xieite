@@ -47,7 +47,8 @@ namespace xte {
 		constexpr void _normalize() {
 			if (!this->_data.size()) {
 				this->_data.push();
-			} else while ((this->_data.size() > 1) && !this->_data.back()) {
+			}
+			while ((this->_data.size() > 1) && !this->_data.back()) {
 				this->_data.pop();
 			}
 			this->_neg &= !!*this;
@@ -545,9 +546,9 @@ namespace xte {
 			return xte::big_int(std::from_range, this->_data);
 		}
 
-		[[nodiscard]] constexpr xte::big_int abs() && noexcept {
+		[[nodiscard]] constexpr xte::big_int&& abs() && noexcept {
 			this->_neg = false;
-			return *this;
+			return xte::xvalue(*this);
 		}
 
 		[[nodiscard]] constexpr xte::big_int pow(this auto&& base, const xte::big_int& exp) noexcept(false) {
