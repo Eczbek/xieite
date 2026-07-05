@@ -193,19 +193,18 @@ namespace xte {
 			return quot;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _bitwise(xte::big_int rhs, auto func) {
+		[[nodiscard]] constexpr xte::big_int& _bitwise(const xte::big_int& rhs, auto func) {
 			xte::umax lhs_neg = this->_neg;
 			xte::umax rhs_neg = rhs._neg;
-			*this += lhs_neg;
-			rhs += rhs_neg;
-			xte::uz size = xte::max(this->_data.size(), rhs._data.size());
-			this->_data.resize(size);
-			rhs._data.resize(size);
-			this->_neg = func(lhs_neg, rhs_neg);
-			for (xte::uz i : std::views::indices(size)) {
-				this->_data[i] = func(this->_data[i] ^ -lhs_neg, rhs._data[i] ^ -rhs_neg) ^ -this->_neg;
+			xte::umax lhs_borrow = lhs_neg;
+			xte::umax rhs_borrow = rhs_neg;
+			this->_data.resize(xte::max(this->_data.size(), rhs._data.size()));
+			xte::umax lhs_carry = this->_neg = func(lhs_neg, rhs_neg);
+			for (xte::uz i : std::views::indices(this->_data.size())) {
+				xte::umax rhs_digit = (i < rhs._data.size()) ? rhs._data[i] : 0;
+				lhs_carry &= !(this->_data[i] = (func((this->_data[i] - xte::exchange(lhs_borrow, this->_data[i] < lhs_borrow)) ^ -lhs_neg, (rhs_digit - xte::exchange(rhs_borrow, rhs_digit < rhs_borrow)) ^ -rhs_neg) ^ -this->_neg) + lhs_carry);
 			}
-			*this -= +this->_neg;
+			this->_normalize();
 			return *this;
 		}
 
@@ -378,11 +377,11 @@ namespace xte {
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int operator+(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
-			return lhs += rhs;
+			return xte::xvalue(lhs += rhs);
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int operator+(xte::big_int lhs, xte::big_int&& rhs) noexcept(false) {
-			return lhs += xte::xvalue(rhs);
+			return xte::xvalue(lhs += xte::xvalue(rhs));
 		}
 
 		constexpr xte::big_int& operator+=(const xte::big_int& rhs) & noexcept(false) {
@@ -405,7 +404,7 @@ namespace xte {
 			return xte::big_int(std::from_range, this->_data, !this->_neg);
 		}
 
-		[[nodiscard]] constexpr xte::big_int&& operator-() && noexcept {
+		[[nodiscard]] constexpr xte::big_int operator-() && noexcept {
 			this->_neg ^= !!*this;
 			return xte::xvalue(*this);
 		}
@@ -435,11 +434,11 @@ namespace xte {
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int operator*(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
-			return lhs *= rhs;
+			return xte::xvalue(lhs *= rhs);
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int operator*(xte::big_int lhs, xte::big_int&& rhs) noexcept(false) {
-			return lhs *= xte::xvalue(rhs);
+			return xte::xvalue(lhs *= xte::xvalue(rhs));
 		}
 
 		constexpr xte::big_int& operator*=(const xte::big_int& rhs) & noexcept(false) {
@@ -451,7 +450,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int operator/(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
-			return lhs /= rhs;
+			return xte::xvalue(lhs /= rhs);
 		}
 
 		constexpr xte::big_int& operator/=(const xte::big_int& rhs) & noexcept(false) {
@@ -478,7 +477,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int operator%(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
-			return lhs %= rhs;
+			return xte::xvalue(lhs %= rhs);
 		}
 
 		constexpr xte::big_int& operator%=(const xte::big_int& rhs) & noexcept(false) {
@@ -502,32 +501,32 @@ namespace xte {
 			return -XTE_FWD(self) - 1;
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator&(xte::big_int lhs, xte::big_int rhs) noexcept(false) {
-			return lhs &= xte::xvalue(rhs);
+		[[nodiscard]] friend constexpr xte::big_int operator&(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+			return xte::xvalue(lhs &= xte::xvalue(rhs));
 		}
 
-		constexpr xte::big_int& operator&=(xte::big_int rhs) & noexcept(false) {
+		constexpr xte::big_int& operator&=(const xte::big_int& rhs) & noexcept(false) {
 			return this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(&));
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator|(xte::big_int lhs, xte::big_int rhs) noexcept(false) {
-			return lhs |= xte::xvalue(rhs);
+		[[nodiscard]] friend constexpr xte::big_int operator|(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+			return xte::xvalue(lhs |= xte::xvalue(rhs));
 		}
 
-		constexpr xte::big_int& operator|=(xte::big_int rhs) & noexcept(false) {
+		constexpr xte::big_int& operator|=(const xte::big_int& rhs) & noexcept(false) {
 			return this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(|));
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator^(xte::big_int lhs, xte::big_int rhs) noexcept(false) {
-			return lhs ^= xte::xvalue(rhs);
+		[[nodiscard]] friend constexpr xte::big_int operator^(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+			return xte::xvalue(lhs ^= xte::xvalue(rhs));
 		}
 
-		constexpr xte::big_int& operator^=(xte::big_int rhs) & noexcept(false) {
+		constexpr xte::big_int& operator^=(const xte::big_int& rhs) & noexcept(false) {
 			return this->_bitwise(xte::xvalue(rhs), XTE_LIFT_INFIX(^));
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int operator<<(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
-			return lhs <<= rhs;
+			return xte::xvalue(lhs <<= rhs);
 		}
 
 		constexpr xte::big_int& operator<<=(const xte::big_int& rhs) & noexcept(false) {
@@ -535,7 +534,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] friend constexpr xte::big_int operator>>(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
-			return lhs >>= rhs;
+			return xte::xvalue(lhs >>= rhs);
 		}
 
 		constexpr xte::big_int& operator>>=(const xte::big_int& rhs) & noexcept(false) {
@@ -546,7 +545,7 @@ namespace xte {
 			return xte::big_int(std::from_range, this->_data);
 		}
 
-		[[nodiscard]] constexpr xte::big_int&& abs() && noexcept {
+		[[nodiscard]] constexpr xte::big_int abs() && noexcept {
 			this->_neg = false;
 			return xte::xvalue(*this);
 		}
@@ -642,7 +641,7 @@ namespace xte {
 				if constexpr (xte::is_signed<decltype(radix)>) {
 					if (radix == -1) {
 						result += config.digits[1];
-						for (xte::uz i : std::views::indices(static_cast<xte::uz>(abs - 1))) {
+						for (xte::uz i = static_cast<xte::uz>(abs - 1); i--;) {
 							result += config.digits[0];
 							result += config.digits[1];
 						}
