@@ -3,7 +3,6 @@
 
 struct A {
 	A(int) {}
-
 	A(A&&) = delete;
 };
 
@@ -25,3 +24,10 @@ static_assert(([] {
 
 static_assert(xte::opt(5).and_then([](int x) { return x; }) == 5);
 static_assert(xte::opt<int>().or_else([] { return 5; }) == 5);
+
+struct B {
+	int x = 1;
+	constexpr int f() { return 2; }
+};
+static_assert(xte::opt<B>(B())->*&B::x == 1);
+static_assert((xte::opt<B>(B())->*&B::f)() == 2);

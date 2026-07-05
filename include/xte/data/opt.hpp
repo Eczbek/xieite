@@ -4,14 +4,18 @@
 #	include "../data/null.hpp"
 #	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../preproc/lift.hpp"
 #	include "../trait/drop_cvref.hpp"
 #	include "../trait/is_callable.hpp"
+#	include "../trait/is_member_function.hpp"
+#	include "../trait/is_member_of.hpp"
 #	include "../util/address.hpp"
 #	include "../util/assign.hpp"
 #	include "../util/cast.hpp"
 #	include "../util/construct.hpp"
 #	include "../util/destroy.hpp"
 #	include "../util/exchange.hpp"
+#	include "../util/like.hpp"
 #	include "../util/xvalue.hpp"
 
 namespace xte {
@@ -68,6 +72,14 @@ namespace xte {
 
 		[[nodiscard]] constexpr auto* operator->(this auto&& self) noexcept {
 			return xte::address(self._value);
+		}
+
+		[[nodiscard]] constexpr decltype(auto) operator->*(this auto&& self, xte::is_member_of<T> auto&& member) noexcept {
+			if constexpr (xte::is_member_function<decltype(member)>) {
+				return XTE_LIFT_LOCAL((XTE_FWD(self)._value.*member));
+			} else {
+				return xte::like<decltype(self)>(self._value.*member);
+			}
 		}
 
 		constexpr void reset() & noexcept {
