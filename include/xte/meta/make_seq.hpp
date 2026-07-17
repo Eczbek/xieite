@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_META_MAKE_SEQ
 #
 #	include "../meta/seq.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 #	include <utility>
 
 namespace xte {

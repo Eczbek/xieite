@@ -3,86 +3,88 @@
 #
 #	include "../trait/drop_cvref.hpp"
 
-namespace DETAIL_XTE {
+namespace DETAIL_XTE::is_variadic {
 	template<typename>
-	constexpr bool is_variadic = false;
+	constexpr bool impl = false;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) const noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) const noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) volatile noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) volatile noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) const volatile noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) const volatile noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) & noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) & noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) const & noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) const & noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) volatile & noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) volatile & noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) const volatile & noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) const volatile & noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) && noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) && noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) const && noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) const && noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) volatile && noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) volatile && noexcept(noex)> = true;
 
 	template<typename Return, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Args..., ...) const volatile && noexcept(noex)> = true;
+	constexpr bool impl<Return(Args..., ...) const volatile && noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) const noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) const noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) volatile noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) volatile noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) const volatile noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) const volatile noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) & noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) & noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) const & noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) const & noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) volatile & noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) volatile & noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) const volatile & noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) const volatile & noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) && noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) && noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) const && noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) const && noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) volatile && noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) volatile && noexcept(noex)> = true;
 
 	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool is_variadic<Return(Class::*)(Args..., ...) const volatile && noexcept(noex)> = true;
+	constexpr bool impl<Return(Class::*)(Args..., ...) const volatile && noexcept(noex)> = true;
 }
 
 namespace xte {
 	template<typename T>
-	concept is_variadic = DETAIL_XTE::is_variadic<xte::drop_cvref<T>>;
+	concept is_variadic = DETAIL_XTE::is_variadic::impl<xte::drop_cvref<T>>;
 }
 
 #endif
+
+// TODO: `xte::type<Return(Args..., ...) &> Class::*`

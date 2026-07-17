@@ -51,4 +51,4 @@ static_assert(!xte::is_int<void>);
 static_assert(!xte::is_int<int&>);
 static_assert(!xte::is_int<int&&>);
 static_assert(!xte::is_int<char***&&>);
-static_assert(!xte::is_int<int(decltype([] {})::*)(...) const volatile && noexcept>);
+static_assert(!xte::is_int<int(decltype([]{})::*)(...) const volatile && noexcept>);

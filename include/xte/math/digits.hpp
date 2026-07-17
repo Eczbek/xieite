@@ -4,7 +4,7 @@
 #	include "../math/abs.hpp"
 #	include "../trait/is_int.hpp"
 #	include "../trait/is_signed.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 
 namespace xte {
 	[[nodiscard]] constexpr xte::uz digits(xte::is_int auto x, decltype(x) radix = 10) noexcept {

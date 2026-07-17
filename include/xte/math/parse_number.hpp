@@ -13,14 +13,14 @@
 #	include "../math/sign.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../util/cast.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/make.hpp"
+#	include "../util/number_types.hpp"
 
-namespace DETAIL_XTE {
+namespace DETAIL_XTE::parse_number {
 	template<xte::is_arithmetic T>
-	struct parse_number {
+	struct impl {
 		[[nodiscard]] static constexpr T operator()(xte::string_view string, T radix = 10, const xte::number_format_config& config = {}, bool allow_overflow = true) noexcept {
-			return DETAIL_XTE::parse_number<T>::with_index(string, radix, config, allow_overflow).value;
+			return impl::with_index(string, radix, config, allow_overflow).value;
 		}
 
 		[[nodiscard]] static constexpr auto with_index(xte::string_view string, T radix = 10, const xte::number_format_config& config = {}, bool allow_overflow = true) noexcept {
@@ -29,19 +29,19 @@ namespace DETAIL_XTE {
 				return result;
 			}
 			auto abs_radix = xte::abs(radix);
-			bool radix_is_whole = xte::approx_equal(abs_radix, xte::cast<xte::uz>(abs_radix));
-			xte::string_view digits = config.digits.slice(0, xte::max(2, xte::cast<xte::uz>(abs_radix) + !radix_is_whole));
-			auto parse_int = [&, radix = radix_is_whole ? radix : xte::cast<T>(abs_radix)] -> T {
+			bool radix_is_whole = xte::approx_equal(abs_radix, xte::make<xte::uz>(abs_radix));
+			xte::string_view digits = config.digits.slice(0, xte::max(2, xte::make<xte::uz>(abs_radix) + !radix_is_whole));
+			auto parse_int = [&, radix = radix_is_whole ? radix : xte::make<T>(abs_radix)] -> T {
 				T value = 0;
 				bool neg = config.minus.contains(string[result.index]);
 				for (xte::uz i = result.index + (neg || config.plus.contains(string[result.index])); i < string.size(); result.index = ++i) {
 					if (xte::uz digit = digits.find(string[i]); ~digit) {
 						if (allow_overflow) {
-							value = xte::add(xte::mul(value, radix), xte::cast<T>(digit));
+							value = xte::add(xte::mul(value, radix), xte::make<T>(digit));
 							continue;
 						}
 						if (auto prod = xte::mul_checked(value, radix)) {
-							if (auto sum = xte::add_checked(*prod, xte::cast<T>(digit + neg))) {
+							if (auto sum = xte::add_checked(*prod, xte::make<T>(digit + neg))) {
 								value = *sum - neg;
 								continue;
 							}
@@ -61,7 +61,7 @@ namespace DETAIL_XTE {
 					}
 					xte::uz digit;
 					while ((++result.index < string.size()) && ~(digit = digits.find(string[result.index]))) {
-						result.value += xte::cast<T>(digit) * (pow /= radix);
+						result.value += xte::make<T>(digit) * (pow /= radix);
 					}
 				}
 				if (result.index += config.exp.contains(string[result.index])) {
@@ -75,7 +75,7 @@ namespace DETAIL_XTE {
 
 namespace xte {
 	template<xte::is_arithmetic T>
-	constexpr DETAIL_XTE::parse_number<T> parse_number;
+	constexpr DETAIL_XTE::parse_number::impl<T> parse_number;
 }
 
 #endif

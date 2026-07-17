@@ -4,7 +4,7 @@
 #	include "../data/fixed_array.hpp"
 #	include "../func/unfold.hpp"
 #	include "../math/min.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 #	include <bit>
 
 namespace xte {

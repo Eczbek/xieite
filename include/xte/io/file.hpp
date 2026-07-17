@@ -8,7 +8,7 @@
 #	include "../preproc/platform.hpp"
 #	include "../sys/is_tty.hpp"
 #	include "../util/exchange.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 #	include <cstdio>
 #	include <stdio.h>
 #	include <utility>

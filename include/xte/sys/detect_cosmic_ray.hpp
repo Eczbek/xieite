@@ -3,7 +3,7 @@
 #
 #	include "../data/ptr.hpp"
 #	include "../sys/available_memory.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 
 namespace xte {
 	inline void detect_cosmic_ray() noexcept(false) {

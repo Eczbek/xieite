@@ -2,15 +2,15 @@
 #	define DETAIL_XTE_HEADER_META_TYPE_COUNTER
 #
 #	include "../meta/state.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 
-namespace DETAIL_XTE {
-	inline constexpr auto type_counter = xte::state<>.set<0uz>;
+namespace DETAIL_XTE::type_counter {
+	inline constexpr auto impl = xte::state<>.set<0uz>;
 }
 
 namespace xte {
 	template<typename>
-	constexpr xte::uz type_counter = DETAIL_XTE::type_counter.set<(DETAIL_XTE::type_counter.get<[] {}> + 1)>.template get<> - 1;
+	constexpr xte::uz type_counter = DETAIL_XTE::type_counter::impl.set<(DETAIL_XTE::type_counter::impl.get<[]{}> + 1)>.template get<> - 1;
 }
 
 #endif

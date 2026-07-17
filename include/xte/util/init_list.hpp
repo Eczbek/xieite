@@ -1,33 +1,34 @@
 #ifndef DETAIL_XTE_HEADER_UTIL_INIT_LIST
 #	define DETAIL_XTE_HEADER_UTIL_INIT_LIST
 #
-#	include "../preproc/arrow.hpp"
+#	include "../preproc/constructs.hpp"
+#	include "../preproc/define_cast.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../trait/drop_c.hpp"
+#	include "../trait/drop_const.hpp"
 #	include "../util/address.hpp"
-#	include "../util/xvalue.hpp"
+#	include "../util/as_xvalue.hpp"
 #	include <initializer_list>
 
-namespace DETAIL_XTE {
+namespace DETAIL_XTE::init_list {
 	template<typename T>
-	struct init_list {
+	struct impl {
 	private:
 		mutable T _value;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr init_list(const T& x) XTE_ARROW_CTOR(,
+		[[nodiscard]] explicit(false) constexpr impl(const T& x) XTE_CONSTRUCTS(,
 			_value,((x))
 		)
 
-		[[nodiscard]] explicit(false) constexpr init_list(T&& x) XTE_ARROW_CTOR(,
-			_value,((xte::xvalue(x)))
+		[[nodiscard]] explicit(false) constexpr impl(T&& x) XTE_CONSTRUCTS(,
+			_value,((xte::as_xvalue(x)))
 		)
 
-		[[nodiscard]] explicit(false) constexpr init_list(auto&&... args) XTE_ARROW_CTOR(,
+		[[nodiscard]] explicit(false) constexpr impl(auto&&... args) XTE_CONSTRUCTS(,
 			_value,({ XTE_FWD(args)... })
 		)
 
-		XTE_ARROW_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
+		XTE_DEFINE_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
 			XTE_FWD(self)._value
 		)
 
@@ -39,7 +40,7 @@ namespace DETAIL_XTE {
 
 namespace xte {
 	template<typename T>
-	using init_list = std::initializer_list<DETAIL_XTE::init_list<xte::drop_c<T>>>;
+	using init_list = std::initializer_list<DETAIL_XTE::init_list::impl<xte::drop_const<T>>>;
 }
 
 #endif

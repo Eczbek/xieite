@@ -12,7 +12,7 @@
 #	include "../trait/add_unbounded_array.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_char.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 #	include <algorithm>
 #	include <meta>
 #	include <ranges>
@@ -392,7 +392,7 @@ namespace xte::meta {
 										member_names += ", ";
 									}
 									if constexpr (using member_type = [:std::meta::type_of(member):]; std::is_array_v<member_type>) {
-										member_names += ([]<typename T, xte::uz n>(this auto name_of_array, const xte::type<T[n]>& array) -> xte::string {
+										member_names += ([]<typename T, xte::uz n>(this auto name_of_array, xte::type<const T[n]>& array) -> xte::string {
 											xte::string item_names;
 											for (auto&& item : array) {
 												if (item_names.size()) {
@@ -419,20 +419,6 @@ namespace xte::meta {
 				throw std::meta::exception("reflection does not represent a nameable entity", info);
 			})();
 		})(info, ctx_none)));
-	}
-}
-
-namespace xte::literal::info {
-	[[nodiscard]] consteval std::meta::info operator""_info(unsigned long long x) noexcept {
-		return std::meta::reflect_constant(x);
-	}
-
-	[[nodiscard]] consteval std::meta::info operator""_info(long double x) noexcept {
-		return std::meta::reflect_constant(x);
-	}
-
-	[[nodiscard]] consteval std::meta::info operator""_info(const char* string, xte::uz size) noexcept {
-		return std::meta::reflect_constant_string(std::ranges::subrange(string, string + size));
 	}
 }
 

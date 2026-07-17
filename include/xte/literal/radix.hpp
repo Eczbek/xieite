@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_LITERAL_RADIX
 #	define DETAIL_XTE_HEADER_LITERAL_RADIX
 #
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 
 namespace xte::literal::radix {
 	template<char... digits>

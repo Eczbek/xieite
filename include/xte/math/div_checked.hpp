@@ -11,6 +11,7 @@
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_signed.hpp"
+#	include "../util/make.hpp"
 #	include <type_traits>
 
 namespace xte {
@@ -18,7 +19,7 @@ namespace xte {
 		if constexpr (using common_type = std::common_type_t<decltype(dividend), decltype(divisors)...>; xte::is_float<common_type>) {
 			return (!xte::is_finite(dividend) || ... || (!xte::is_finite(divisors) || xte::approx_equal(divisors, 0)))
 				? xte::null
-				: xte::opt<common_type>((xte::cast<common_type>(dividend) / ... / xte::cast<common_type>(divisors)));
+				: xte::opt<common_type>((xte::make<common_type>(dividend) / ... / xte::make<common_type>(divisors)));
 		} else {
 			if ((... || !divisors)) {
 				return xte::opt<common_type>(xte::null);

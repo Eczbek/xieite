@@ -2,27 +2,21 @@
 #	define DETAIL_XTE_HEADER_MATH_MIN_MAX
 #
 #	include "../math/less.hpp"
+#	include "../meta/define_struct.hpp"
 #	include "../meta/end.hpp"
-#	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../util/cast.hpp"
+#	include "../preproc/returns.hpp"
+#	include "../util/make.hpp"
 #	include <type_traits>
-
-namespace DETAIL_XTE {
-	template<typename T>
-	struct min_max {
-		T min;
-		T max;
-	};
-}
 
 namespace xte {
 	template<typename T, typename U, xte::end...,
-		typename common_type = std::common_type_t<T, U>>
-	[[nodiscard]] constexpr auto min_max(T&& x, U&& y) XTE_ARROW(
+		typename common_type = std::common_type_t<T, U>,
+		typename result_type = xte::define_struct<{ ^^common_type, "min" }, { ^^common_type, "max" }>>
+	[[nodiscard]] constexpr auto min_max(T&& x, U&& y) XTE_RETURNS(
 		xte::less(x, y)
-			? DETAIL_XTE::min_max<common_type> { xte::cast<common_type>(XTE_FWD(x)), xte::cast<common_type>(XTE_FWD(y)) }
-			: DETAIL_XTE::min_max<common_type> { xte::cast<common_type>(XTE_FWD(y)), xte::cast<common_type>(XTE_FWD(x)) }
+			? result_type { xte::make<common_type>(XTE_FWD(x)), xte::make<common_type>(XTE_FWD(y)) }
+			: result_type { xte::make<common_type>(XTE_FWD(y)), xte::make<common_type>(XTE_FWD(x)) }
 	)
 }
 

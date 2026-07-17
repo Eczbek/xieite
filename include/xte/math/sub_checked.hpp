@@ -12,18 +12,19 @@
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../util/assign.hpp"
+#	include "../util/make.hpp"
 #	include <type_traits>
 
 namespace xte {
 	[[nodiscard]] constexpr auto sub_checked(xte::is_arithmetic auto minuend, xte::is_arithmetic auto... subtrahends) noexcept {
 		using common_type = std::common_type_t<decltype(minuend), decltype(subtrahends)...>;
-		auto diff = xte::cast<common_type>(minuend);
+		auto diff = xte::make<common_type>(minuend);
 #	if XTE_HAS_BUILTIN(sub_overflow)
 		if constexpr (!xte::is_float<common_type>) {
 			return (... || __builtin_sub_overflow(diff, static_cast<common_type>(subtrahends), &diff)) ? xte::null : xte::opt(diff);
 		}
 #	endif
-		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(subtrahends) && ((subtrahends < 0) ? ((xte::highest<common_type> + xte::cast<common_type>(subtrahends)) < diff) : ((xte::lowest<common_type> + xte::cast<common_type>(subtrahends)) < diff))) || (diff -= xte::cast<common_type>(subtrahends), false))) ? xte::null : xte::opt(diff);
+		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(subtrahends) && ((subtrahends < 0) ? ((xte::highest<common_type> + xte::make<common_type>(subtrahends)) < diff) : ((xte::lowest<common_type> + xte::make<common_type>(subtrahends)) < diff))) || (diff -= xte::make<common_type>(subtrahends), false))) ? xte::null : xte::opt(diff);
 	}
 }
 

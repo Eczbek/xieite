@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_META_SEQ
 #	define DETAIL_XTE_HEADER_META_SEQ
 #
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 #	include <tuple>
 
 namespace xte {

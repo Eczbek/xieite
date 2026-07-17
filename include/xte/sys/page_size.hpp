@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_SYS_PAGE_SIZE
 #
 #	include "../preproc/platform.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 #
 #	if XTE_PLATFORM_UNIX
 #		include <unistd.h>

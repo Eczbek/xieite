@@ -4,15 +4,15 @@
 #	include "../data/range_cmp.hpp"
 #	include "../func/unfold.hpp"
 #	include "../meta/wrap_value.hpp"
-#	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../preproc/returns.hpp"
 #	include "../trait/drop_cvref.hpp"
 #	include "../trait/is_castable.hpp"
 #	include "../trait/is_derived_from_specialization_of.hpp"
 #	include "../trait/is_same.hpp"
 #	include "../trait/is_specialization_of.hpp"
-#	include "../util/like.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/as.hpp"
+#	include "../util/number_types.hpp"
 #	include <compare>
 #	include <concepts>
 #	include <iterator>
@@ -27,7 +27,7 @@ namespace xte {
 		using difference_type = xte::iptrdiff;
 		using value_type = T;
 		using reference = T&;
-		using const_reference = const T&;
+		using creference = const T&;
 		using pointer = T*;
 		using const_pointer = const T*;
 		using iterator = T*;
@@ -35,10 +35,10 @@ namespace xte {
 		using reverse_iterator = std::reverse_iterator<T*>;
 		using const_reverse_iterator = std::reverse_iterator<const T*>;
 
-		[:^^T[n]:] DETAIL_XTE_data;
+		[:^^T[n]:] _data;
 
 		[[nodiscard]] constexpr auto* data(this auto&& self) noexcept {
-			return self.DETAIL_XTE_data;
+			return self._data;
 		}
 
 		static constexpr auto size = xte::wrap_value<n>();
@@ -76,15 +76,15 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr auto&& front(this auto&& self, xte::uz index = 0) noexcept {
-			return xte::like<decltype(self)>(self.data()[index]);
+			return xte::as<decltype(self)>(self.data()[index]);
 		}
 		
 		[[nodiscard]] constexpr auto&& back(this auto&& self, xte::uz index = 0) noexcept {
-			return xte::like<decltype(self)>(self.data()[n - index - 1]);
+			return xte::as<decltype(self)>(self.data()[n - index - 1]);
 		}
 
 		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
-			return xte::like<decltype(self)>(self.data()[index]);
+			return xte::as<decltype(self)>(self.data()[index]);
 		}
 
 		template<xte::uz index>
@@ -99,7 +99,7 @@ namespace xte {
 		using difference_type = xte::iptrdiff;
 		using value_type = T;
 		using reference = T&;
-		using const_reference = const T&;
+		using creference = const T&;
 		using pointer = T*;
 		using const_pointer = const T*;
 		using iterator = T*;
@@ -150,12 +150,12 @@ namespace xte {
 	fixed_array(T, Ts...) -> fixed_array<std::common_type_t<T, Ts...>, (sizeof...(Ts) + 1)>;
 
 	template<typename T, xte::uz n, xte::uz m>
-	[[nodiscard]] constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
+	[[nodiscard]] constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_RETURNS(
 		xte::range_cmp(lhs, rhs)
 	)
 
 	template<typename T, xte::uz n, xte::uz m>
-	[[nodiscard]] constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_ARROW(
+	[[nodiscard]] constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_RETURNS(
 		(n == m) && std::is_eq(lhs <=> rhs)
 	)
 
@@ -163,9 +163,9 @@ namespace xte {
 	requires(xte::is_derived_from_specialization_of<xte::drop_cvref<Lhs>, ^^xte::fixed_array>
 		&& xte::is_derived_from_specialization_of<xte::drop_cvref<Rhs>, ^^xte::fixed_array>
 		&& xte::is_same<typename Lhs::value_type, typename Rhs::value_type>)
-	[[nodiscard]] constexpr auto operator+(Lhs&& lhs, Rhs&& rhs) XTE_ARROW(
-		xte::unfold<Lhs::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_ARROW(
-			xte::unfold<Rhs::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_ARROW(
+	[[nodiscard]] constexpr auto operator+(Lhs&& lhs, Rhs&& rhs) XTE_RETURNS(
+		xte::unfold<Lhs::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_RETURNS(
+			xte::unfold<Rhs::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_RETURNS(
 				xte::fixed_array { XTE_FWD(lhs)[i]..., XTE_FWD(rhs)[j]... }
 			), XTE_FWD(lhs), XTE_FWD(rhs))
 		), XTE_FWD(lhs), XTE_FWD(rhs))

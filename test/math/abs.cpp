@@ -2,7 +2,7 @@
 #include <xte/math/highest.hpp>
 #include <xte/math/lowest.hpp>
 #include <xte/preproc/feature.hpp>
-#include <xte/util/numbers.hpp>
+#include <xte/util/number_types.hpp>
 
 static_assert(xte::abs(0) == 0);
 static_assert(xte::abs(-1) == 1);

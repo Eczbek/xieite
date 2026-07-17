@@ -1,8 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_META_WRAP_VALUE
 #	define DETAIL_XTE_HEADER_META_WRAP_VALUE
 #
-#	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../preproc/returns.hpp"
 
 namespace xte {
 	template<decltype(auto) x>
@@ -17,11 +17,11 @@ namespace xte {
 			return x;
 		}
 
-		[[nodiscard]] friend constexpr auto operator<=>(xte::wrap_value<x>, auto&& rhs) XTE_ARROW(
+		[[nodiscard]] friend constexpr auto operator<=>(xte::wrap_value<x>, auto&& rhs) XTE_RETURNS(
 			x <=> XTE_FWD(rhs)
 		)
 
-		[[nodiscard]] friend constexpr auto operator==(xte::wrap_value<x>, auto&& rhs) XTE_ARROW(
+		[[nodiscard]] friend constexpr auto operator==(xte::wrap_value<x>, auto&& rhs) XTE_RETURNS(
 			x == XTE_FWD(rhs)
 		)
 	};

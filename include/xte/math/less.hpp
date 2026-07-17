@@ -7,9 +7,9 @@
 #	include "../math/is_nan.hpp"
 #	include "../math/width.hpp"
 #	include "../meta/end.hpp"
-#	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../trait/drop_cvref.hpp"
+#	include "../preproc/returns.hpp"
+#	include "../trait/drop_ref.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_int.hpp"
@@ -22,9 +22,9 @@
 namespace xte {
 	constexpr auto less =
 		[]<typename T, typename U, xte::end...,
-			bool are_arithmetic = xte::is_arithmetic<xte::drop_cvref<T>> && xte::is_arithmetic<xte::drop_cvref<U>>,
+			bool are_arithmetic = xte::is_arithmetic<xte::drop_ref<T>> && xte::is_arithmetic<xte::drop_ref<U>>,
 			typename common_type = [:std::common_with<T, U> ? ^^std::common_type_t<T, U> : ^^void:]>
-		[[nodiscard]](T&& lhs, U&& rhs) static XTE_ARROW_FIRST(
+		[[nodiscard]](T&& lhs, U&& rhs) static XTE_RETURNS_FIRST(
 			([](T lhs, U rhs) noexcept -> bool requires(are_arithmetic) {
 				if constexpr (are_arithmetic) {
 					if (xte::is_nan(lhs) || xte::is_nan(rhs)) {

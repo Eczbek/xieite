@@ -1,4 +1,4 @@
-#include <xte/literal/numbers.hpp>
+#include <xte/literal/number_types.hpp>
 #include <xte/math/add.hpp>
 #include <xte/preproc/feature.hpp>
 

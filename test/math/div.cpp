@@ -1,4 +1,4 @@
-#include <xte/literal/numbers.hpp>
+#include <xte/literal/number_types.hpp>
 #include <xte/math/div.hpp>
 #include <xte/math/highest.hpp>
 #include <xte/math/lowest.hpp>

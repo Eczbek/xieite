@@ -1,7 +1,7 @@
 #include <xte/data/array.hpp>
 #include <xte/data/ptr.hpp>
 #include <xte/util/init_list.hpp>
-#include <xte/util/xvalue.hpp>
+#include <xte/util/as_xvalue.hpp>
 
 template<typename T>
 struct test_array {
@@ -9,7 +9,7 @@ struct test_array {
 
 	constexpr test_array(xte::init_list<T> list) {
 		for (auto&& item : list) {
-			this->data.push(xte::xvalue(item));
+			this->data.push(xte::as_xvalue(item));
 		}
 	}
 };

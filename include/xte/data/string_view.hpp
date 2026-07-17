@@ -6,14 +6,16 @@
 #	include "../math/min.hpp"
 #	include "../math/width.hpp"
 #	include "../meta/type.hpp"
-#	include "../preproc/arrow.hpp"
+#	include "../preproc/constructs.hpp"
 #	include "../trait/is_noex_implicit_castable.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 #	include <algorithm>
 #	include <compare>
 #	include <format>
 #	include <iterator>
 #	include <ranges>
+#	include <string_view>
+#	include <type_traits>
 
 namespace xte {
 	struct string_view : std::ranges::view_base {
@@ -23,8 +25,8 @@ namespace xte {
 		[[nodiscard]] explicit(false) constexpr string_view() noexcept = default;
 
 		template<xte::uz size>
-		[[nodiscard]] explicit(false) constexpr string_view(const xte::type<char[size]>& data) noexcept
-		: xte::string_view(data, size) {}
+		[[nodiscard]] explicit(false) constexpr string_view(xte::type<const char[size]>& data) noexcept
+		: xte::string_view(std::is_constant_evaluated() ? std::define_static_string(data) : data, size) {}
 
 		[[nodiscard]] explicit(false) constexpr string_view(const char& c) noexcept
 		: _data(&c), _size(1) {}
@@ -47,18 +49,22 @@ namespace xte {
 
 		template<std::ranges::contiguous_range Range>
 		requires(xte::is_same<std::ranges::range_value_t<Range>, char>)
-		[[nodiscard]] constexpr string_view(std::from_range_t, const Range& range) XTE_ARROW_CTOR(,
+		[[nodiscard]] constexpr string_view(std::from_range_t, const Range& range) XTE_CONSTRUCTS(,
 			(xte::string_view),((std::ranges::data(range), std::ranges::size(range)))
 		)
 
-		[[nodiscard]] explicit(false) constexpr string_view(const auto& range) XTE_ARROW_CTOR(,
+		[[nodiscard]] explicit(false) constexpr string_view(const auto& range) XTE_CONSTRUCTS(,
 			(xte::string_view),((std::from_range, range))
 		)
 
 		template<std::input_iterator Iter>
-		[[nodiscard]] constexpr string_view(Iter begin, std::sentinel_for<Iter> auto end) XTE_ARROW_CTOR(,
+		[[nodiscard]] constexpr string_view(Iter begin, std::sentinel_for<Iter> auto end) XTE_CONSTRUCTS(,
 			(xte::string_view),((std::ranges::subrange(begin, end)))
 		)
+
+		[[nodiscard]] explicit(false) constexpr operator std::string_view() const noexcept {
+			return std::string_view(this->_data, this->_size);
+		}
 
 		[[nodiscard]] constexpr const char* data() const noexcept {
 			return this->_data;

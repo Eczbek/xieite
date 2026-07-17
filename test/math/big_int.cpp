@@ -3,8 +3,8 @@
 #include <xte/math/big_int.hpp>
 #include <xte/math/lowest.hpp>
 #include <xte/math/width.hpp>
-#include <xte/util/lvalue.hpp>
-#include <xte/util/numbers.hpp>
+#include <xte/util/as_lvalue.hpp>
+#include <xte/util/number_types.hpp>
 #include <ranges>
 
 static_assert(xte::big_int() == 0);
@@ -38,7 +38,7 @@ static_assert(xte::big_int(1) > 0.5);
 static_assert(xte::big_int(0) < 0.5);
 static_assert(+xte::big_int(123) == 123);
 static_assert(+xte::big_int(-123) == -123);
-static_assert(+xte::lvalue(xte::big_int(123)) == 123);
+static_assert(+xte::as_lvalue(xte::big_int(123)) == 123);
 static_assert((xte::big_int(0) + 0) == 0);
 static_assert((xte::big_int(0) + 123) == 123);
 static_assert((xte::big_int(-123) + -1) == -124);
@@ -46,7 +46,7 @@ static_assert((xte::big_int(1 + -2)) == -1);
 static_assert((xte::big_int(-1 - -2)) == 1);
 static_assert(-xte::big_int(0) == 0);
 static_assert(-xte::big_int(123) == -123);
-static_assert(-xte::lvalue(xte::big_int(-123)) == 123);
+static_assert(-xte::as_lvalue(xte::big_int(-123)) == 123);
 static_assert((xte::big_int(123) - 123) == 0);
 static_assert((xte::big_int(1) - 123) == -122);
 static_assert((xte::big_int(-5) + 4) == -1);

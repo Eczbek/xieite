@@ -6,13 +6,13 @@
 #	include "../trait/is_move_constructible.hpp"
 #	include "../trait/is_noex_assignable.hpp"
 #	include "../trait/is_noex_move_constructible.hpp"
+#	include "../util/as_xvalue.hpp"
 #	include "../util/assign.hpp"
-#	include "../util/xvalue.hpp"
 
 namespace xte {
 	template<xte::is_move_constructible T, xte::is_assignable_to<T&> U = T>
 	[[nodiscard]] constexpr T exchange(T& lhs, U&& rhs) noexcept(xte::is_noex_move_constructible<T> && xte::is_noex_assignable<T&, U>) {
-		T old = T(xte::xvalue(lhs));
+		T old = T(xte::as_xvalue(lhs));
 		xte::assign(lhs, XTE_FWD(rhs));
 		return old;
 	}

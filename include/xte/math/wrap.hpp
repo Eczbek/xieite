@@ -4,15 +4,15 @@
 #	include "../math/min_max.hpp"
 #	include "../math/mod.hpp"
 #	include "../trait/is_arithmetic.hpp"
-#	include "../util/cast.hpp"
+#	include "../util/make.hpp"
 #	include <type_traits>
 
 namespace xte {
 	[[nodiscard]] constexpr auto wrap(xte::is_arithmetic auto x, xte::is_arithmetic auto limit0, xte::is_arithmetic auto limit1) noexcept {
 		using common_type = std::common_type_t<decltype(x), decltype(limit0), decltype(limit1)>;
-		auto [min, max] = xte::min_max(xte::cast<common_type>(limit0), xte::cast<common_type>(limit1));
+		auto [min, max] = xte::min_max(xte::make<common_type>(limit0), xte::make<common_type>(limit1));
 		if constexpr (xte::is_float<common_type>) {
-			return xte::mod(xte::cast<common_type>(x) - min, max - min + 1) + min;
+			return xte::mod(xte::make<common_type>(x) - min, max - min + 1) + min;
 		} else {
 			using unsigned_type = std::make_unsigned_t<common_type>;
 			auto range = static_cast<unsigned_type>(max) - static_cast<unsigned_type>(min) + 1;

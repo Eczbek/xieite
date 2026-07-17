@@ -3,11 +3,11 @@
 #
 #	include "../math/less.hpp"
 #	include "../meta/fake.hpp"
-#	include "../preproc/arrow.hpp"
+#	include "../preproc/returns.hpp"
 #	include <compare>
 
 namespace xte {
-	inline constexpr auto synth_three_way = [](const auto& lhs, const auto& rhs) static XTE_ARROW_CHOOSE(
+	inline constexpr auto synth_three_way = [](const auto& lhs, const auto& rhs) static XTE_RETURNS_CHOOSE(
 		(std::three_way_comparable_with<decltype(lhs), decltype(rhs)>),
 		lhs <=> rhs,
 		xte::less(lhs, rhs)

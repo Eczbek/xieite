@@ -1,15 +1,15 @@
 #ifndef DETAIL_XTE_HEADER_LITERAL_FMT
 #	define DETAIL_XTE_HEADER_LITERAL_FMT
 #
-#	include "../data/fixed_string.hpp"
-#	include "../preproc/arrow.hpp"
+#	include "../data/string_view.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../preproc/returns.hpp"
 #	include <format>
 
 namespace xte::literal::fmt {
-	template<xte::fixed_string string>
+	template<xte::string_view string>
 	[[nodiscard]] consteval auto operator""_fmt() noexcept {
-		return [](auto&&... args) XTE_ARROW(
+		return [](auto&&... args) XTE_RETURNS(
 			std::format(string.data(), FWD(args)...)
 		);
 	}

@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_DATA_PTR_DIFF
 #
 #	include "../math/highest.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 
 namespace xte {
 	[[nodiscard]] constexpr xte::uz ptr_diff(auto* begin, decltype(begin) end, xte::uz size) noexcept {

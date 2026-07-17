@@ -1,15 +1,15 @@
 #ifndef DETAIL_XTE_HEADER_DATA_PTR
 #	define DETAIL_XTE_HEADER_DATA_PTR
 #
-#	include "../preproc/arrow.hpp"
+#	include "../data/non_copyable.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/lift.hpp"
+#	include "../preproc/returns.hpp"
 #	include "../trait/is_member_function.hpp"
 #	include "../trait/is_member_of.hpp"
-#	include "../trait/non_copyable.hpp"
+#	include "../util/as.hpp"
 #	include "../util/exchange.hpp"
-#	include "../util/like.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 #	include <iterator>
 #	include <new>
 
@@ -40,7 +40,7 @@ namespace xte {
 			return *this;
 		}
 
-		constexpr auto operator=(auto&& x) XTE_ARROW(
+		constexpr auto operator=(auto&& x) XTE_RETURNS(
 			(this->_data ? void(*this->_data = XTE_FWD(x)) : void()),
 			*this
 		)
@@ -61,7 +61,7 @@ namespace xte {
 			if constexpr (xte::is_member_function<decltype(member)>) {
 				return XTE_LIFT_LOCAL((XTE_FWD(self)._data->*member));
 			} else {
-				return xte::like<decltype(self)>(self._data->*member);
+				return xte::as<decltype(self)>(self._data->*member);
 			}
 		}
 
@@ -118,7 +118,7 @@ namespace xte {
 			return ::new T(XTE_FWD(args)...);
 		}
 
-		[[nodiscard]] static constexpr auto make_noex(auto&&... args) XTE_ARROW(
+		[[nodiscard]] static constexpr auto make_noex(auto&&... args) XTE_RETURNS(
 			xte::ptr<T>(::new(std::nothrow) T(XTE_FWD(args)...))
 		)
 
@@ -194,7 +194,7 @@ namespace xte {
 			return ::new T[size] { XTE_FWD(args)... };
 		}
 
-		[[nodiscard]] static constexpr auto make_noex(xte::uz size, auto&&... args) XTE_ARROW(
+		[[nodiscard]] static constexpr auto make_noex(xte::uz size, auto&&... args) XTE_RETURNS(
 			xte::ptr<T[]>(::new(std::nothrow) T[size] { XTE_FWD(args)... })
 		)
 

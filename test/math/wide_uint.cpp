@@ -1,5 +1,5 @@
 #include <xte/math/wide_uint.hpp>
-#include <xte/util/numbers.hpp>
+#include <xte/util/number_types.hpp>
 
 using namespace xte::literal::wide_uint;
 

@@ -2,15 +2,15 @@
 #include <xte/trait/is_copy_constructible.hpp>
 #include <xte/trait/is_noex_move_constructible.hpp>
 #include <xte/trait/is_same.hpp>
-#include <xte/util/as_c.hpp>
+#include <xte/util/as_const.hpp>
 #include <xte/util/construct.hpp>
-#include <xte/util/lvalue.hpp>
-#include <xte/util/numbers.hpp>
+#include <xte/util/as_lvalue.hpp>
+#include <xte/util/number_types.hpp>
 #include <ranges>
 
 static_assert(xte::is_same<xte::array<int>::value_type, int>);
 static_assert(xte::is_same<xte::array<int>::reference, int&>);
-static_assert(xte::is_same<xte::array<int>::const_reference, const int&>);
+static_assert(xte::is_same<xte::array<int>::creference, const int&>);
 static_assert(xte::is_same<xte::array<int>::pointer, int*>);
 static_assert(xte::is_same<xte::array<int>::const_pointer, const int*>);
 static_assert(xte::is_same<xte::array<int>::iterator, int*>);
@@ -36,7 +36,7 @@ static_assert(([] {
 })());
 static_assert(([] {
 	xte::array<int> a;
-	a = xte::lvalue(xte::array<int> { 0, 1, 2 });
+	a = xte::as_lvalue(xte::array<int> { 0, 1, 2 });
 	return a == xte::array<int> { 0, 1, 2 };
 })());
 static_assert(([] {
@@ -46,8 +46,8 @@ static_assert(([] {
 })());
 
 static_assert(xte::is_same<int&&, decltype(xte::array<int>()[0])>);
-static_assert(xte::is_same<int&, decltype(xte::lvalue(xte::array<int>())[0])>);
-static_assert(xte::is_same<const int&, decltype(xte::as_c(xte::lvalue(xte::array<int>())[0]))>);
+static_assert(xte::is_same<int&, decltype(xte::as_lvalue(xte::array<int>())[0])>);
+static_assert(xte::is_same<const int&, decltype(xte::as_const(xte::as_lvalue(xte::array<int>())[0]))>);
 static_assert((xte::array<int> { 0, 1, 2 })[0] == 0);
 static_assert((xte::array<int> { 0, 1, 2 })[1] == 1);
 static_assert((xte::array<int> { 0, 1, 2 })[2] == 2);
@@ -76,16 +76,16 @@ static_assert(([] {
 })());
 
 static_assert(xte::is_same<int&&, decltype(xte::array<int>().front())>);
-static_assert(xte::is_same<int&, decltype(xte::lvalue(xte::array<int>()).front())>);
-static_assert(xte::is_same<const int&, decltype(xte::as_c(xte::lvalue(xte::array<int>()).front()))>);
+static_assert(xte::is_same<int&, decltype(xte::as_lvalue(xte::array<int>()).front())>);
+static_assert(xte::is_same<const int&, decltype(xte::as_const(xte::as_lvalue(xte::array<int>()).front()))>);
 static_assert((xte::array<int> { 0, 1, 2 }).front() == 0);
 static_assert((xte::array<int> { 0, 1, 2 }).front(0) == 0);
 static_assert((xte::array<int> { 0, 1, 2 }).front(1) == 1);
 static_assert((xte::array<int> { 0, 1, 2 }).front(2) == 2);
 
 static_assert(xte::is_same<int&&, decltype(xte::array<int>().back())>);
-static_assert(xte::is_same<int&, decltype(xte::lvalue(xte::array<int>()).back())>);
-static_assert(xte::is_same<const int&, decltype(xte::as_c(xte::lvalue(xte::array<int>()).back()))>);
+static_assert(xte::is_same<int&, decltype(xte::as_lvalue(xte::array<int>()).back())>);
+static_assert(xte::is_same<const int&, decltype(xte::as_const(xte::as_lvalue(xte::array<int>()).back()))>);
 static_assert((xte::array<int> { 0, 1, 2 }).back() == 2);
 static_assert((xte::array<int> { 0, 1, 2 }).back(0) == 2);
 static_assert((xte::array<int> { 0, 1, 2 }).back(1) == 1);

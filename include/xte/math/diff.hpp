@@ -6,7 +6,6 @@
 #	include "../math/sub_checked.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../util/cast.hpp"
 #	include <limits>
 #	include <type_traits>
 

@@ -1,8 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_LIFT
 #	define DETAIL_XTE_HEADER_PREPROC_LIFT
 #
-#	include "../preproc/arrow.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../preproc/returns.hpp"
 #	include <meta>
 #
 #	define XTE_LIFT(...) DETAIL_XTE_LIFT(, ..., static, __VA_ARGS__)
@@ -16,11 +16,11 @@
 		})
 #
 #	define DETAIL_XTE_LIFT(CAPTURE, ELLIPSIS, SPEC, ...) \
-		([CAPTURE][[nodiscard]](auto&&ELLIPSIS DETAIL_XTE_args) SPEC XTE_ARROW( \
+		([CAPTURE][[nodiscard]](auto&&ELLIPSIS DETAIL_XTE_args) SPEC XTE_RETURNS( \
 			__VA_ARGS__(XTE_FWD(DETAIL_XTE_args)ELLIPSIS) \
 		))
 #	define DETAIL_XTE_LIFT_INFIX(ELLIPSIS, ...) \
-		([][[nodiscard]](auto&& DETAIL_XTE_lhs, auto&&ELLIPSIS DETAIL_XTE_rhs) XTE_ARROW( \
+		([][[nodiscard]](auto&& DETAIL_XTE_lhs, auto&&ELLIPSIS DETAIL_XTE_rhs) XTE_RETURNS( \
 			XTE_FWD(DETAIL_XTE_lhs)__VA_ARGS__(XTE_FWD(DETAIL_XTE_rhs)ELLIPSIS) \
 		))
 #endif

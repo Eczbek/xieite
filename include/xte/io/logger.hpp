@@ -1,29 +1,29 @@
 #ifndef DETAIL_XTE_HEADER_IO_LOGGER
 #	define DETAIL_XTE_HEADER_IO_LOGGER
 #
-#	include "../data/fixed_string.hpp"
+#	include "../data/string_view.hpp"
 #	include "../meta/sloc.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../sys/is_tty.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 #	include <chrono>
 #	include <cstdio>
 #	include <format>
 #	include <meta>
 #	include <print>
 
-namespace DETAIL_XTE {
-	template<xte::uz color, xte::fixed_string tag, typename... Args>
-	struct logger {
+namespace DETAIL_XTE::logger {
+	template<xte::uz color, xte::string_view tag, typename... Args>
+	struct impl {
 	public:
-		explicit logger(std::format_string<Args...> fmt, Args&&... args, xte::sloc sloc = {}) noexcept(false)
-		: logger(sloc, stdout, fmt, XTE_FWD(args)...) {}
+		explicit impl(std::format_string<Args...> fmt, Args&&... args, xte::sloc sloc = {}) noexcept(false)
+		: impl(sloc, stdout, fmt, XTE_FWD(args)...) {}
 
-		explicit logger(std::FILE* stream, std::format_string<Args...> fmt, Args&&... args, xte::sloc sloc = {}) noexcept(false)
-		: logger(sloc, stream, fmt, XTE_FWD(args)...) {}
+		explicit impl(std::FILE* stream, std::format_string<Args...> fmt, Args&&... args, xte::sloc sloc = {}) noexcept(false)
+		: impl(sloc, stream, fmt, XTE_FWD(args)...) {}
 
 	private:
-		explicit logger(const xte::sloc& sloc, std::FILE* stream, std::format_string<Args...> fmt, Args&&... args) noexcept(false) {
+		explicit impl(const xte::sloc& sloc, std::FILE* stream, std::format_string<Args...> fmt, Args&&... args) noexcept(false) {
 			bool tty = xte::is_tty(stream);
 			std::println(stream, "{}{:<5} [{:%F %T}] {}:{}:{}: {}{}", (tty ? std::format("\x1B[{}m", color).c_str() : ""), std::define_static_string(tag), std::chrono::floor<std::chrono::seconds>(std::chrono::system_clock::now()), sloc.file, sloc.func, sloc.line, std::format(fmt, XTE_FWD(args)...), (tty ? "\x1B[0m" : ""));
 		}
@@ -32,8 +32,8 @@ namespace DETAIL_XTE {
 
 #	define DETAIL_XTE_LOGGER(NAME, COLOR, TAG) \
 		template<typename... DETAIL_XTE_Args> \
-		struct NAME : DETAIL_XTE::logger<(COLOR), (TAG), DETAIL_XTE_Args...> { \
-			using DETAIL_XTE::logger<(COLOR), (TAG), DETAIL_XTE_Args...>::logger; \
+		struct NAME : DETAIL_XTE::logger::impl<(COLOR), (TAG), DETAIL_XTE_Args...> { \
+			using DETAIL_XTE::logger::impl<(COLOR), (TAG), DETAIL_XTE_Args...>::logger::impl; \
 		}; \
 		\
 		template<typename... DETAIL_XTE_Args> \

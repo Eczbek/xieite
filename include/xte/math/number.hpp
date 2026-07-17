@@ -12,7 +12,7 @@
 #	include "../math/rem.hpp"
 #	include "../math/sub.hpp"
 #	include "../math/rshift.hpp"
-#	include "../preproc/arrow.hpp"
+#	include "../preproc/constructs.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/lift.hpp"
 #	include "../trait/is_arithmetic.hpp"
@@ -21,7 +21,7 @@
 #	include "../trait/is_same_any_drop_cvref.hpp"
 #	include "../trait/try_signed.hpp"
 #	include "../trait/try_unsigned.hpp"
-#	include "../util/cast.hpp"
+#	include "../util/make.hpp"
 #	include "../util/exchange.hpp"
 #	include <compare>
 #	include <limits>
@@ -53,14 +53,14 @@ namespace xte {
 
 		template<typename U = T>
 		[[nodiscard]] explicit(!xte::is_same_any_drop_cvref<U, xte::try_unsigned<T>, xte::try_signed<T>>)
-		constexpr number(U&& x = 0) XTE_ARROW_CTOR(,
-			value,((xte::cast<T>(XTE_FWD(x))))
+		constexpr number(U&& x = 0) XTE_CONSTRUCTS(,
+			value,((xte::make<T>(XTE_FWD(x))))
 		)
 
 		template<typename U>
 		[[nodiscard]] explicit(!xte::is_same_any<U, xte::try_unsigned<T>, xte::try_signed<T>>)
 		constexpr operator U() const noexcept {
-			return xte::cast<U>(this->value);
+			return xte::make<U>(this->value);
 		}
 
 		template<typename U>
@@ -96,7 +96,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator+=(xte::is_arithmetic auto rhs) & noexcept {
-			this->value = xte::cast<T>(xte::add(this->value, rhs));
+			this->value = xte::make<T>(xte::add(this->value, rhs));
 			return *this;
 		}
 
@@ -127,7 +127,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator-=(xte::is_arithmetic auto rhs) & noexcept {
-			this->value = xte::cast<T>(xte::sub(this->value, rhs));
+			this->value = xte::make<T>(xte::sub(this->value, rhs));
 			return *this;
 		}
 
@@ -154,7 +154,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator*=(xte::is_arithmetic auto rhs) & noexcept {
-			this->value = xte::cast<T>(xte::mul(this->value, rhs));
+			this->value = xte::make<T>(xte::mul(this->value, rhs));
 			return *this;
 		}
 
@@ -173,7 +173,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator/=(xte::is_arithmetic auto rhs) & noexcept {
-			this->value = xte::cast<T>(xte::div(this->value, rhs));
+			this->value = xte::make<T>(xte::div(this->value, rhs));
 			return *this;
 		}
 
@@ -192,7 +192,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator%=(xte::is_arithmetic auto rhs) & noexcept {
-			this->value = xte::cast<T>(xte::rem(this->value, rhs));
+			this->value = xte::make<T>(xte::rem(this->value, rhs));
 			return *this;
 		}
 
@@ -219,7 +219,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator&=(xte::is_arithmetic auto rhs) & noexcept {
-			this->_bitwise(xte::cast<T>(rhs), XTE_LIFT_INFIX(&));
+			this->_bitwise(xte::make<T>(rhs), XTE_LIFT_INFIX(&));
 			return *this;
 		}
 
@@ -238,7 +238,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator|=(xte::is_arithmetic auto rhs) & noexcept {
-			this->_bitwise(xte::cast<T>(rhs), XTE_LIFT_INFIX(|));
+			this->_bitwise(xte::make<T>(rhs), XTE_LIFT_INFIX(|));
 			return *this;
 		}
 
@@ -257,7 +257,7 @@ namespace xte {
 		}
 
 		constexpr xte::number<T>& operator^=(xte::is_arithmetic auto rhs) & noexcept {
-			this->_bitwise(xte::cast<T>(rhs), XTE_LIFT_INFIX(^));
+			this->_bitwise(xte::make<T>(rhs), XTE_LIFT_INFIX(^));
 			return *this;
 		}
 
@@ -277,12 +277,12 @@ namespace xte {
 
 		constexpr xte::number<T>& operator<<=(xte::is_arithmetic auto rhs) & noexcept {
 			if constexpr (xte::is_float<T>) {
-				this->value = xte::cast<T>(this->value * xte::pow(static_cast<T>(2), rhs));
+				this->value = xte::make<T>(this->value * xte::pow(static_cast<T>(2), rhs));
 			} else {
 				if (rhs < 0) {
 					return *this >>= xte::abs(rhs);
 				}
-				this->value = xte::lshift(this->value, xte::cast<xte::uz>(rhs));
+				this->value = xte::lshift(this->value, xte::make<xte::uz>(rhs));
 			}
 			return *this;
 		}
@@ -303,12 +303,12 @@ namespace xte {
 
 		constexpr xte::number<T>& operator>>=(xte::is_arithmetic auto rhs) & noexcept {
 			if constexpr (xte::is_float<T>) {
-				this->value = xte::cast<T>(this->value / xte::pow(static_cast<T>(2), rhs));
+				this->value = xte::make<T>(this->value / xte::pow(static_cast<T>(2), rhs));
 			} else {
 				if (rhs < 0) {
 					return *this <<= xte::abs(rhs);
 				}
-				this->value = xte::rshift(this->value, xte::cast<xte::uz>(rhs));
+				this->value = xte::rshift(this->value, xte::make<xte::uz>(rhs));
 			}
 			return *this;
 		}

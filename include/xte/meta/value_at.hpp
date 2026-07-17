@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_META_VALUE_AT
 #	define DETAIL_XTE_HEADER_META_VALUE_AT
 #
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 
 namespace xte {
 	template<xte::uz index, decltype(auto)... values>

@@ -20,10 +20,10 @@
 #	include "../trait/is_privately_derived_from.hpp"
 #	include "../trait/is_unsigned.hpp"
 #	include "../trait/try_unsigned.hpp"
+#	include "../util/as_xvalue.hpp"
 #	include "../util/error.hpp"
 #	include "../util/exchange.hpp"
-#	include "../util/numbers.hpp"
-#	include "../util/xvalue.hpp"
+#	include "../util/number_types.hpp"
 #	include <algorithm>
 #	include <compare>
 #	include <ranges>
@@ -34,41 +34,41 @@ namespace DETAIL_XTE::wide_uint {
 	template<typename T>
 	constexpr xte::uz width = xte::width<T>;
 
-	template<xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> T>
-	constexpr xte::uz width<T> = DETAIL_XTE::wide_uint::width<typename T::value_type>;
+	template<xte::is_privately_derived_from<base> T>
+	constexpr xte::uz width<T> = width<typename T::value_type>;
 
 	inline constexpr auto rshift = xte::visitor {
 		auto(xte::rshift),
-		[]<xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> T>[[nodiscard]](T lhs, T rhs) {
-			return xte::xvalue(lhs) >> xte::xvalue(rhs);
+		[]<xte::is_privately_derived_from<base> T>[[nodiscard]](T lhs, T rhs) {
+			return xte::as_xvalue(lhs) >> xte::as_xvalue(rhs);
 		}
 	};
 
 	inline constexpr auto lshift = xte::visitor {
 		auto(xte::lshift),
-		[]<xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> T>[[nodiscard]](T lhs, T rhs) {
-			return xte::xvalue(lhs) << xte::xvalue(rhs);
+		[]<xte::is_privately_derived_from<base> T>[[nodiscard]](T lhs, T rhs) {
+			return xte::as_xvalue(lhs) << xte::as_xvalue(rhs);
 		}
 	};
 
 	inline constexpr auto is_single_bit = xte::visitor {
 		auto(xte::is_single_bit),
-		[][[nodiscard]](this auto is_single_bit, xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> auto x) {
+		[][[nodiscard]](this auto is_single_bit, xte::is_privately_derived_from<base> auto x) {
 			return is_single_bit(x.lo) != is_single_bit(x.hi);
 		}
 	};
 
 	inline constexpr auto leading_zeros = xte::visitor {
 		auto(xte::leading_zeros),
-		[][[nodiscard]](this auto leading_zeros, xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> auto x) {
-			return x.hi ? leading_zeros(x.hi) : (leading_zeros(x.lo) + DETAIL_XTE::wide_uint::width<typename decltype(x)::value_type>);
+		[][[nodiscard]](this auto leading_zeros, xte::is_privately_derived_from<base> auto x) {
+			return x.hi ? leading_zeros(x.hi) : (leading_zeros(x.lo) + width<typename decltype(x)::value_type>);
 		}
 	};
 
 	inline constexpr auto trailing_zeros = xte::visitor {
 		auto(xte::trailing_zeros),
-		[][[nodiscard]](this auto trailing_zeros, xte::is_privately_derived_from<DETAIL_XTE::wide_uint::base> auto x) {
-			return x.lo ? trailing_zeros(x.lo) : (trailing_zeros(x.hi) + DETAIL_XTE::wide_uint::width<typename decltype(x)::value_type>);
+		[][[nodiscard]](this auto trailing_zeros, xte::is_privately_derived_from<base> auto x) {
+			return x.lo ? trailing_zeros(x.lo) : (trailing_zeros(x.hi) + width<typename decltype(x)::value_type>);
 		}
 	};
 
@@ -121,13 +121,13 @@ namespace xte {
 		T hi;
 
 		[[nodiscard]] constexpr wide_uint(T lo, T hi) noexcept
-		: lo(xte::xvalue(lo)), hi(xte::xvalue(hi)) {}
+		: lo(xte::as_xvalue(lo)), hi(xte::as_xvalue(hi)) {}
 
 		template<typename U = T>
 		requires(xte::is_int<U> || xte::is_privately_derived_from<U, DETAIL_XTE::wide_uint::base>)
 		[[nodiscard]] explicit(false) constexpr wide_uint(U x = 0) noexcept
 		: lo(static_cast<T>(x))
-		, hi(static_cast<T>(DETAIL_XTE::wide_uint::rshift(xte::xvalue(x), DETAIL_XTE::wide_uint::width<T>))) {}
+		, hi(static_cast<T>(DETAIL_XTE::wide_uint::rshift(xte::as_xvalue(x), DETAIL_XTE::wide_uint::width<T>))) {}
 
 		template<typename U>
 		requires(xte::is_int<U> || xte::is_privately_derived_from<U, DETAIL_XTE::wide_uint::base>)
@@ -228,7 +228,7 @@ namespace xte {
 				T lhs_hi_lo = this->hi & half_bits;
 				prod.hi += static_cast<T>(lhs_hi_lo * rhs_lo_lo + ((lhs_hi_lo * (rhs.lo >> half_size)) << half_size) + (((this->hi >> half_size) * rhs_lo_lo) << half_size));
 			}
-			return *this = xte::xvalue(prod);
+			return *this = xte::as_xvalue(prod);
 		}
 
 		[[nodiscard]] friend constexpr xte::wide_uint<T> operator*(xte::wide_uint<T> lhs, const xte::wide_uint<T>& rhs) noexcept {

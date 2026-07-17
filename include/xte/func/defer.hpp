@@ -1,11 +1,11 @@
 #ifndef DETAIL_XTE_HEADER_FUNC_DEFER
 #	define DETAIL_XTE_HEADER_FUNC_DEFER
 #
+#	include "../data/non_copyable.hpp"
+#	include "../data/non_movable.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../trait/is_callable.hpp"
 #	include "../trait/is_noex_constructible.hpp"
-#	include "../trait/non_copyable.hpp"
-#	include "../trait/non_movable.hpp"
 
 namespace xte {
 	template<xte::is_callable<void()> Func>

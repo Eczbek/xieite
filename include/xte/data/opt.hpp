@@ -2,21 +2,22 @@
 #	define DETAIL_XTE_HEADER_DATA_OPT
 #
 #	include "../data/null.hpp"
-#	include "../preproc/arrow.hpp"
+#	include "../preproc/constructs.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/lift.hpp"
+#	include "../preproc/returns.hpp"
 #	include "../trait/drop_cvref.hpp"
 #	include "../trait/is_callable.hpp"
 #	include "../trait/is_member_function.hpp"
 #	include "../trait/is_member_of.hpp"
 #	include "../util/address.hpp"
+#	include "../util/as.hpp"
+#	include "../util/as_xvalue.hpp"
 #	include "../util/assign.hpp"
-#	include "../util/cast.hpp"
 #	include "../util/construct.hpp"
 #	include "../util/destroy.hpp"
 #	include "../util/exchange.hpp"
-#	include "../util/like.hpp"
-#	include "../util/xvalue.hpp"
+#	include "../util/make.hpp"
 
 namespace xte {
 	template<typename T>
@@ -33,18 +34,18 @@ namespace xte {
 
 		[[nodiscard]] explicit(false) constexpr opt(decltype(xte::null)) noexcept {}
 
-		[[nodiscard]] explicit(false) constexpr opt(auto&&... args) XTE_ARROW_CTOR(,
-			_value,((xte::cast<T>(XTE_FWD(args)...))),
+		[[nodiscard]] explicit(false) constexpr opt(auto&&... args) XTE_CONSTRUCTS(,
+			_value,((xte::make<T>(XTE_FWD(args)...))),
 			_has_value,((true))
 		)
 
-		[[nodiscard]] explicit(false) constexpr opt(const xte::opt<T>& other) XTE_ARROW_CTOR((
+		[[nodiscard]] explicit(false) constexpr opt(const xte::opt<T>& other) XTE_CONSTRUCTS((
 			other._has_value ? void(xte::construct(this->_value, other._value)) : void(),
 			this->_has_value = other._has_value
 		))
 
-		[[nodiscard]] explicit(false) constexpr opt(xte::opt<T>&& other) XTE_ARROW_CTOR((
-			other._has_value ? void(xte::construct(this->_value, xte::xvalue(other)._value)) : void(),
+		[[nodiscard]] explicit(false) constexpr opt(xte::opt<T>&& other) XTE_CONSTRUCTS((
+			other._has_value ? void(xte::construct(this->_value, xte::as_xvalue(other)._value)) : void(),
 			this->_has_value = xte::exchange(other._has_value, false)
 		))
 
@@ -56,7 +57,7 @@ namespace xte {
 
 		constexpr xte::opt<T>& operator=(xte::opt<T>&&) & noexcept = default;
 
-		constexpr auto operator=(auto&& arg) & XTE_ARROW(
+		constexpr auto operator=(auto&& arg) & XTE_RETURNS(
 			this->_has_value ? void(xte::assign(this->_value, XTE_FWD(arg))) : void(xte::construct(this->_value, XTE_FWD(arg))),
 			this->_has_value = true,
 			*this
@@ -78,7 +79,7 @@ namespace xte {
 			if constexpr (xte::is_member_function<decltype(member)>) {
 				return XTE_LIFT_LOCAL((XTE_FWD(self)._value.*member));
 			} else {
-				return xte::like<decltype(self)>(self._value.*member);
+				return xte::as<decltype(self)>(self._value.*member);
 			}
 		}
 
@@ -88,17 +89,17 @@ namespace xte {
 			}
 		}
 
-		constexpr auto reset(auto&&... args) & XTE_ARROW(
+		constexpr auto reset(auto&&... args) & XTE_RETURNS(
 			this->reset(),
 			xte::construct(this->_value, XTE_FWD(args)...),
 			void(this->_has_value = true)
 		)
 
-		[[nodiscard]] constexpr auto and_then(this auto&& self, auto&& func) XTE_ARROW(
+		[[nodiscard]] constexpr auto and_then(this auto&& self, auto&& func) XTE_RETURNS(
 			self ? XTE_FWD(func)(XTE_FWD(self)._value) : decltype(XTE_FWD(func)(XTE_FWD(self)._value))()
 		)
 
-		[[nodiscard]] constexpr auto or_else(this auto&& self, xte::is_callable<T()> auto&& func) XTE_ARROW(
+		[[nodiscard]] constexpr auto or_else(this auto&& self, xte::is_callable<T()> auto&& func) XTE_RETURNS(
 			self._has_value ? XTE_FWD(self)._value : XTE_FWD(func)()
 		)
 	};

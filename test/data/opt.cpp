@@ -1,5 +1,5 @@
 #include <xte/data/opt.hpp>
-#include <xte/util/xvalue.hpp>
+#include <xte/util/as_xvalue.hpp>
 
 struct A {
 	A(int) {}
@@ -18,7 +18,7 @@ static_assert(([] {
 })());
 static_assert(([] {
 	xte::opt<int> x = 5;
-	xte::opt<int> y = xte::xvalue(x);
+	xte::opt<int> y = xte::as_xvalue(x);
 	return !x && y;
 })());
 

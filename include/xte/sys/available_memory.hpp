@@ -4,7 +4,7 @@
 #	include "../data/ptr.hpp"
 #	include "../math/exp_search.hpp"
 #	include "../preproc/diagnostic.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 
 namespace xte {
 	[[nodiscard]] constexpr xte::uz available_memory() noexcept {

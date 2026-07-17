@@ -2,15 +2,15 @@
 #include <xte/trait/is_copy_constructible.hpp>
 #include <xte/trait/is_noex_move_constructible.hpp>
 #include <xte/trait/is_same.hpp>
-#include <xte/util/as_c.hpp>
-#include <xte/util/lvalue.hpp>
-#include <xte/util/numbers.hpp>
+#include <xte/util/as_const.hpp>
+#include <xte/util/as_lvalue.hpp>
+#include <xte/util/number_types.hpp>
 #include <iterator>
 #include <ranges>
 
 static_assert(xte::is_same<xte::string::value_type, char>);
 static_assert(xte::is_same<xte::string::reference, char&>);
-static_assert(xte::is_same<xte::string::const_reference, const char&>);
+static_assert(xte::is_same<xte::string::creference, const char&>);
 static_assert(xte::is_same<xte::string::pointer, char*>);
 static_assert(xte::is_same<xte::string::const_pointer, const char*>);
 static_assert(xte::is_same<xte::string::iterator, char*>);
@@ -33,7 +33,7 @@ static_assert(([] {
 })());
 static_assert(([] {
 	xte::string a;
-	a = xte::lvalue(xte::string("abc"));
+	a = xte::as_lvalue(xte::string("abc"));
 	return a == "abc";
 })());
 static_assert(([] {
@@ -48,8 +48,8 @@ static_assert(([] {
 })());
 
 static_assert(xte::is_same<char&&, decltype(xte::string()[0])>);
-static_assert(xte::is_same<char&, decltype(xte::lvalue(xte::string())[0])>);
-static_assert(xte::is_same<const char&, decltype(xte::as_c(xte::lvalue(xte::string())[0]))>);
+static_assert(xte::is_same<char&, decltype(xte::as_lvalue(xte::string())[0])>);
+static_assert(xte::is_same<const char&, decltype(xte::as_const(xte::as_lvalue(xte::string())[0]))>);
 static_assert(xte::string("abc")[0] == 'a');
 static_assert(xte::string("abc")[1] == 'b');
 static_assert(xte::string("abc")[2] == 'c');
@@ -86,8 +86,8 @@ static_assert(([] {
 })());
 
 static_assert(xte::is_same<char&&, decltype(xte::string().front())>);
-static_assert(xte::is_same<char&, decltype(xte::lvalue(xte::string()).front())>);
-static_assert(xte::is_same<const char&, decltype(xte::as_c(xte::lvalue(xte::string()).front()))>);
+static_assert(xte::is_same<char&, decltype(xte::as_lvalue(xte::string()).front())>);
+static_assert(xte::is_same<const char&, decltype(xte::as_const(xte::as_lvalue(xte::string()).front()))>);
 static_assert(xte::string("abc").front() == 'a');
 static_assert(xte::string("abc").front(0) == 'a');
 static_assert(xte::string("abc").front(1) == 'b');
@@ -95,8 +95,8 @@ static_assert(xte::string("abc").front(2) == 'c');
 static_assert(xte::string("abc").front(3) == '\0');
 
 static_assert(xte::is_same<char&&, decltype(xte::string().back())>);
-static_assert(xte::is_same<char&, decltype(xte::lvalue(xte::string()).back())>);
-static_assert(xte::is_same<const char&, decltype(xte::as_c(xte::lvalue(xte::string()).back()))>);
+static_assert(xte::is_same<char&, decltype(xte::as_lvalue(xte::string()).back())>);
+static_assert(xte::is_same<const char&, decltype(xte::as_const(xte::as_lvalue(xte::string()).back()))>);
 static_assert(xte::string("abc").back() == 'c');
 static_assert(xte::string("abc").back(0) == 'c');
 static_assert(xte::string("abc").back(1) == 'b');

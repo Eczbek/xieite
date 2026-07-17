@@ -3,7 +3,7 @@
 #
 #	include "../trait/drop_ptr.hpp"
 #	include "../trait/is_ptr.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/number_types.hpp"
 
 namespace xte {
 	template<typename T>

@@ -7,14 +7,14 @@
 #	include "../math/sign.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
-#	include "../util/cast.hpp"
+#	include "../util/make.hpp"
 #	include <type_traits>
 
 namespace xte {
 	[[nodiscard]] constexpr auto div_ceil(xte::is_arithmetic auto dividend, xte::is_arithmetic auto... divisors) noexcept {
 		if constexpr (using common_type = std::common_type_t<decltype(dividend), decltype(divisors)...>; xte::is_float<common_type>) {
-			auto quot = xte::cast<common_type>(dividend);
-			return (..., (quot = xte::ceil(quot / xte::cast<common_type>(divisors))));
+			auto quot = xte::make<common_type>(dividend);
+			return (..., (quot = xte::ceil(quot / xte::make<common_type>(divisors))));
 		} else {
 			using unsigned_type = std::make_unsigned_t<common_type>;
 			auto quot = static_cast<unsigned_type>(xte::abs(dividend));

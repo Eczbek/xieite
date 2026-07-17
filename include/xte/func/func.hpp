@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_FUNC_FUNC
 #
 #	include "../data/ptr.hpp"
-#	include "../preproc/arrow.hpp"
+#	include "../preproc/constructs.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../trait/drop_ref.hpp"
 
@@ -18,7 +18,7 @@ namespace xte {
 		[[nodiscard]] explicit(false) constexpr func(const xte::func<Return(Args...) noexcept(noex)>& other) noexcept(false)
 		: data(other.data->clone()) {}
 
-		[[nodiscard]] explicit(false) constexpr func(auto&& func) XTE_ARROW_CTOR(,
+		[[nodiscard]] explicit(false) constexpr func(auto&& func) XTE_CONSTRUCTS(,
 			data,((xte::ptr<xte::func<Return(Args...) noexcept(noex)>::derived<xte::drop_ref<decltype(func)>>>::make_noex(XTE_FWD(func))))
 		)
 
@@ -43,7 +43,7 @@ namespace xte {
 		struct derived : xte::func<Return(Args...) noexcept(noex)>::base {
 			mutable Func func;
 
-			[[nodiscard]] explicit constexpr derived(auto&& func) XTE_ARROW_CTOR(,
+			[[nodiscard]] explicit constexpr derived(auto&& func) XTE_CONSTRUCTS(,
 				func,((XTE_FWD(func)))
 			)
 

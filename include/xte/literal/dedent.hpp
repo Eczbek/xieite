@@ -1,22 +1,22 @@
 #ifndef DETAIL_XTE_HEADER_LITERAL_DEDENT
 #	define DETAIL_XTE_HEADER_LITERAL_DEDENT
 #
-#	include "../data/fixed_string.hpp"
+#	include "../data/string_view.hpp"
 #	include "../data/string_view.hpp"
 #	include "../math/min.hpp"
-#	include "../util/cast.hpp"
-#	include "../util/numbers.hpp"
+#	include "../util/make.hpp"
+#	include "../util/number_types.hpp"
 #	include <meta>
 #	include <ranges>
 
 namespace xte::literal::dedent {
-	template<xte::fixed_string raw>
+	template<xte::string_view raw>
 	[[nodiscard]] consteval xte::string_view operator""_dedent() noexcept {
 		return xte::string_view(std::define_static_string(([] {
 			auto lines = xte::string_view(raw.data(), raw.size())
 				.between_any_of('\n', " \t\n")
 				| std::views::split('\n')
-				| std::views::transform(xte::cast<xte::string_view>);
+				| std::views::transform(xte::make<xte::string_view>);
 			auto first = lines.front();
 			xte::uz indent = first.find_not_of(" \t");
 			for (xte::string_view line : lines | std::views::drop(1)) {

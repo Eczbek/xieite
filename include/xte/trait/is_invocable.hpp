@@ -3,17 +3,17 @@
 #
 #	include <type_traits>
 
-namespace DETAIL_XTE {
+namespace DETAIL_XTE::is_invocable {
 	template<typename, typename>
-	constexpr bool is_invocable = false;
+	constexpr bool impl = false;
 
 	template<typename Func, typename Return, typename... Args>
-	constexpr bool is_invocable<Func, Return(Args...)> = std::is_invocable_r_v<Return, Func, Args...>;
+	constexpr bool impl<Func, Return(Args...)> = std::is_invocable_r_v<Return, Func, Args...>;
 }
 
 namespace xte {
 	template<typename Func, typename Signature>
-	concept is_invocable = DETAIL_XTE::is_invocable<Func, Signature>;
+	concept is_invocable = DETAIL_XTE::is_invocable::impl<Func, Signature>;
 }
 
 #endif

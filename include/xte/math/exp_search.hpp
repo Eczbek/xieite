@@ -11,19 +11,18 @@
 #	include "../meta/end.hpp"
 #	include "../preproc/feature.hpp"
 #	include "../trait/is_arithmetic.hpp"
-#	include "../trait/is_callable_lref.hpp"
+#	include "../trait/is_callable_lvalue.hpp"
 #	include "../trait/is_int.hpp"
-#	include "../trait/is_noex_callable.hpp"
 #	include "../trait/is_unsigned.hpp"
-#	include "../util/cast.hpp"
+#	include "../util/make.hpp"
 #	include <type_traits>
 
 namespace xte {
 	template<xte::is_arithmetic T, xte::is_arithmetic U, xte::end...,
 		typename common_type = std::common_type_t<T, U>>
-	[[nodiscard]] constexpr common_type exp_search(xte::is_callable_lref<bool(common_type)> auto&& predicate, T limit0, U limit1)
-	noexcept(xte::is_noex_callable<decltype(predicate)&, bool(common_type)>) {
-		auto [min, max] = xte::min_max(xte::cast<common_type>(limit0), xte::cast<common_type>(limit1));
+	[[nodiscard]] constexpr common_type exp_search(xte::is_callable_lvalue<bool(common_type)> auto&& predicate, T limit0, U limit1)
+	noexcept(xte::is_callable_lvalue<decltype(predicate), bool(common_type) noexcept>) {
+		auto [min, max] = xte::min_max(xte::make<common_type>(limit0), xte::make<common_type>(limit1));
 		while (true) {
 			common_type mid = xte::avg(min, max);
 			if constexpr (xte::is_int<common_type>) {
@@ -38,8 +37,8 @@ namespace xte {
 	}
 
 	template<xte::is_arithmetic T>
-	[[nodiscard]] constexpr T exp_search(xte::is_callable_lref<bool(T)> auto&& predicate)
-	noexcept(xte::is_noex_callable<decltype(predicate)&, bool(T)>) {
+	[[nodiscard]] constexpr T exp_search(xte::is_callable_lvalue<bool(T)> auto&& predicate)
+	noexcept(xte::is_callable_lvalue<decltype(predicate), bool(T) noexcept>) {
 		if constexpr (xte::is_int<T>) {
 			return xte::exp_search(predicate, xte::lowest<T>, xte::highest<T>);
 		} else {

@@ -1,7 +1,7 @@
-#include <xte/literal/numbers.hpp>
+#include <xte/literal/number_types.hpp>
 #include <xte/preproc/feature.hpp>
 #include <xte/trait/is_same.hpp>
-#include <xte/util/numbers.hpp>
+#include <xte/util/number_types.hpp>
 
 using namespace xte::literal::numbers;
 

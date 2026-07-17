@@ -49,4 +49,4 @@ static_assert(!xte::is_unsigned<void>);
 static_assert(!xte::is_unsigned<int&>);
 static_assert(!xte::is_unsigned<int&&>);
 static_assert(!xte::is_unsigned<char***&&>);
-static_assert(!xte::is_unsigned<int(decltype([] {})::*)(...) const volatile && noexcept>);
+static_assert(!xte::is_unsigned<int(decltype([]{})::*)(...) const volatile && noexcept>);
