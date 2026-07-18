@@ -7,6 +7,7 @@
 #include <xte/util/as_lvalue.hpp>
 #include <xte/util/number_types.hpp>
 #include <ranges>
+#include <vector>
 
 static_assert(xte::is_same<xte::array<int>::value_type, int>);
 static_assert(xte::is_same<xte::array<int>::reference, int&>);
@@ -279,3 +280,5 @@ static_assert(([] {
 })());
 
 static_assert((xte::array<int> { 0, 1, 2 } + xte::array<int> { 3, 4 }) == xte::array<int> { 0, 1, 2, 3, 4 });
+static_assert((xte::array<int> { 0, 1, 2 } + std::vector<int> { 3, 4}) == xte::array<int> { 0, 1, 2, 3, 4 });
+static_assert((std::vector<int> { 0, 1, 2 } + xte::array<int> { 3, 4 }) == xte::array<int> { 0, 1, 2, 3, 4 });

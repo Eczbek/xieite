@@ -6,6 +6,7 @@
 #	include "../math/min.hpp"
 #	include "../meta/end.hpp"
 #	include "../meta/fake.hpp"
+#	include "../meta/req_not.hpp"
 #	include "../preproc/constructs.hpp"
 #	include "../preproc/diagnostic.hpp"
 #	include "../preproc/fwd.hpp"
@@ -85,14 +86,14 @@ namespace xte {
 		[[nodiscard]] explicit(false) constexpr array(xte::init_list<T> init_list) noexcept(false)
 		: xte::array<T>(std::from_range, xte::as_xvalue(init_list)) {}
 
-		template<std::ranges::input_range Range>
-		[[nodiscard]] constexpr array(std::from_range_t, Range&& range) noexcept(false)
-		requires(requires { xte::make<T>(xte::as<Range>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
+		template<std::ranges::input_range range_type>
+		[[nodiscard]] constexpr array(std::from_range_t, range_type&& range) noexcept(false)
+		requires(requires { xte::make<T>(xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
 			this->push_range(XTE_FWD(range));
 		}
 
-		template<std::input_iterator Iter>
-		[[nodiscard]] constexpr array(Iter begin, std::sentinel_for<Iter> auto end) XTE_CONSTRUCTS(,
+		template<std::input_iterator iter_type>
+		[[nodiscard]] constexpr array(iter_type begin, std::sentinel_for<iter_type> auto end) XTE_CONSTRUCTS(,
 			(xte::array<T>),((std::from_range, xte::as_lvalue(std::ranges::subrange(begin, end))))
 		)
 
@@ -133,18 +134,18 @@ namespace xte {
 			return (this == xte::address(other)) ? *this : xte::reconstruct(*this, xte::as_xvalue(other));
 		}
 
-		template<std::ranges::input_range Range>
-		constexpr xte::array<T>& operator=(Range&& range) & noexcept(false)
-		requires(!xte::is_derived_from<Range, xte::array<T>> && requires (T x) { xte::assign(x, xte::as<Range>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
-			if constexpr (std::ranges::sized_range<Range>) {
+		template<std::ranges::input_range range_type>
+		constexpr xte::array<T>& operator=(range_type&& range) & noexcept(false)
+		requires(!xte::is_derived_from<range_type, xte::array<T>> && requires (T x) { xte::assign(x, xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
+			if constexpr (std::ranges::sized_range<range_type>) {
 				if (xte::uz range_size = std::ranges::size(range); range_size <= this->_capacity) {
 					auto iter = std::ranges::begin(range);
 					for (xte::uz i : std::views::indices(xte::min(this->_size, range_size))) {
-						xte::assign(this->_data[i], xte::as<Range>(*iter));
+						xte::assign(this->_data[i], xte::as<range_type>(*iter));
 						++iter;
 					}
 					while (this->_size < range_size) {
-						xte::construct(this->_data[this->_size], xte::as<Range>(*iter));
+						xte::construct(this->_data[this->_size], xte::as<range_type>(*iter));
 						++this->_size;
 						++iter;
 					}
@@ -317,12 +318,12 @@ namespace xte {
 			xte::assign(this->_data[index], std::move_if_noexcept(tmp));
 		}
 
-		template<std::ranges::input_range Range = xte::array<T>>
-		constexpr void insert_range(xte::uz index, Range&& range) & noexcept(false)
-		requires(requires { xte::make<T>(xte::as<Range>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
+		template<std::ranges::input_range range_type = xte::array<T>>
+		constexpr void insert_range(xte::uz index, range_type&& range) & noexcept(false)
+		requires(requires { xte::make<T>(xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
 			index = xte::min(index, this->_size);
 			xte::uz range_size = 0;
-			if constexpr (std::ranges::sized_range<Range>) {
+			if constexpr (std::ranges::sized_range<range_type>) {
 				range_size = std::ranges::size(range);
 				if ((this->_size + range_size) <= this->_capacity) {
 					for (xte::uz i = range_size; i-- && ((range_size - i) <= (this->_size - index));) {
@@ -333,10 +334,10 @@ namespace xte {
 					}
 					auto iter = std::ranges::begin(range);
 					for (xte::uz i = index; (i < this->_size) && ((i - index) < range_size); ++iter) {
-						xte::assign(this->_data[i++], xte::as<Range>(*iter));
+						xte::assign(this->_data[i++], xte::as<range_type>(*iter));
 					}
 					for (xte::uz i = this->_size; (i - index) < range_size; ++iter) {
-						xte::construct(this->_data[i++], xte::as<Range>(*iter));
+						xte::construct(this->_data[i++], xte::as<range_type>(*iter));
 					}
 					this->_size += range_size;
 					return;
@@ -348,7 +349,7 @@ namespace xte {
 				this->push(std::move_if_noexcept(item));
 			}
 			for (auto&& item : range) {
-				this->push(xte::as<Range>(item));
+				this->push(xte::as<range_type>(item));
 			}
 			for (auto&& item : old | std::views::drop(index)) {
 				this->push(std::move_if_noexcept(item));
@@ -397,8 +398,8 @@ namespace xte {
 			this->insert(-1uz, XTE_FWD(arg), XTE_FWD(args)...)
 		)
 
-		template<typename Range = xte::array<T>>
-		constexpr auto push_range(Range&& range) & XTE_RETURNS(
+		template<typename range_type = xte::array<T>>
+		constexpr auto push_range(range_type&& range) & XTE_RETURNS(
 			this->insert_range(-1uz, XTE_FWD(range))
 		)
 
@@ -409,14 +410,12 @@ namespace xte {
 			return last;
 		}
 
-		[[nodiscard]] friend constexpr auto operator+(xte::is_derived_from<xte::array<T>> auto lhs, auto&& rhs) XTE_RETURNS(
-			auto(xte::as_xvalue(lhs.xte::template array<T>::operator+=(XTE_FWD(rhs))))
+		[[nodiscard]] friend constexpr auto operator+(xte::array<T> lhs, auto&& rhs) XTE_RETURNS(
+			auto(xte::as_xvalue(lhs += XTE_FWD(rhs)))
 		)
 
-		template<typename Lhs>
-		requires(!xte::is_derived_from<Lhs, xte::array<T>>)
-		[[nodiscard]] friend constexpr auto operator+(Lhs&& lhs, xte::is_derived_from<xte::array<T>> auto rhs) XTE_RETURNS(
-			rhs.xte::template array<T>::insert_range(0, XTE_FWD(lhs)),
+		[[nodiscard]] friend constexpr auto operator+(xte::req_not<[]<xte::is_derived_from<xte::array<T>>>{}> auto&& lhs, xte::array<T> rhs) XTE_RETURNS(
+			rhs.insert_range(0, XTE_FWD(lhs)),
 			auto(xte::as_xvalue(rhs))
 		)
 
