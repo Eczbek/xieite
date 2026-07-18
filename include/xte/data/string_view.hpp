@@ -13,6 +13,7 @@
 #	include <compare>
 #	include <format>
 #	include <iterator>
+#	include <meta>
 #	include <ranges>
 #	include <string_view>
 #	include <type_traits>
@@ -26,7 +27,13 @@ namespace xte {
 
 		template<xte::uz size>
 		[[nodiscard]] explicit(false) constexpr string_view(xte::type<const char[size]>& data) noexcept
-		: xte::string_view(std::is_constant_evaluated() ? std::define_static_string(data) : data, size) {}
+		: xte::string_view(([&] {
+			if consteval {
+				return std::define_static_string(data);
+			} else {
+				return data;
+			}
+		})(), size) {}
 
 		[[nodiscard]] explicit(false) constexpr string_view(const char& c) noexcept
 		: _data(&c), _size(1) {}

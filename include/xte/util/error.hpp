@@ -3,12 +3,14 @@
 #
 #	include "../data/string_view.hpp"
 #	include <exception>
+#	include <meta>
 
 namespace xte {
-	struct error : std::exception, xte::string_view {
-		using xte::string_view::string_view;
+	struct [[nodiscard]] error : std::exception, xte::string_view {
+		consteval error(xte::string_view message) noexcept
+		: xte::string_view(std::define_static_string(message)) {}
 
-		[[nodiscard]] virtual constexpr const char* what() const noexcept override {
+		virtual constexpr const char* what() const noexcept override {
 			return this->data();
 		}
 	};
