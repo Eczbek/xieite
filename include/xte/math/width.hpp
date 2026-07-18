@@ -5,10 +5,10 @@
 #	include "../util/number_types.hpp"
 
 namespace xte {
-	template<xte::is_int Int>
+	template<xte::is_int T>
 	constexpr xte::uz width = ([] {
 		xte::uz width = 8;
-		for (auto x = static_cast<Int>(128); (x = static_cast<Int>(x << 1)); ++width);
+		for (auto x = static_cast<T>(128); (x = static_cast<T>(x << 1)); ++width);
 		return width;
 	})();
 }

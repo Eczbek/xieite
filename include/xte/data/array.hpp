@@ -419,9 +419,9 @@ namespace xte {
 			auto(xte::as_xvalue(rhs))
 		)
 
-		constexpr auto operator+=(this auto& lhs, auto&& rhs) XTE_RETURNS(
-			lhs.xte::template array<T>::push_range(XTE_FWD(rhs)),
-			lhs
+		constexpr auto operator+=(auto&& rhs) XTE_RETURNS(
+			this->push_range(XTE_FWD(rhs)),
+			*this
 		)
 	};
 

@@ -6,11 +6,11 @@
 #	include "../trait/is_callable.hpp"
 
 namespace DETAIL_XTE::cast_result {
-	template<typename Func>
+	template<typename func_type>
 	struct impl {
-		Func&& func;
+		func_type&& func;
 
-		[[nodiscard]] explicit constexpr impl(Func&& func) XTE_CONSTRUCTS(,
+		[[nodiscard]] explicit constexpr impl(func_type&& func) XTE_CONSTRUCTS(,
 			func,((XTE_FWD(func)))
 		)
 

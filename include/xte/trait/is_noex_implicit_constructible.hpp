@@ -4,11 +4,11 @@
 #	include "../meta/fake.hpp"
 
 namespace xte {
-	template<typename T, typename... Args>
+	template<typename T, typename... arg_types>
 	concept is_noex_implicit_constructible = 
-		(sizeof...(Args) < 2)
-		&& (sizeof...(Args)
-			? requires ([:^^int(T) noexcept:]& f) { { f(xte::fake<Args...[0]>()) } noexcept; }
+		(sizeof...(arg_types) < 2)
+		&& (sizeof...(arg_types)
+			? requires ([:^^int(T) noexcept:]& f) { { f(xte::fake<arg_types...[0]>()) } noexcept; }
 			: requires ([:^^int(T) noexcept:]& f) { { f({}) } noexcept; });
 }
 

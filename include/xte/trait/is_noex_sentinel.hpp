@@ -12,17 +12,17 @@
 #	include <iterator>
 
 namespace xte {
-	template<typename T, typename Iter>
+	template<typename sentinel_type, typename iter_type>
 	concept is_noex_sentinel =
-		std::sentinel_for<T, Iter>
-		&& xte::is_noex_constructible<T>
-		&& xte::is_noex_copy_constructible<T>
-		&& xte::is_noex_move_constructible<T>
-		&& xte::is_noex_dtor<T>
-		&& xte::is_noex_copy_assignable<T>
-		&& xte::is_noex_move_assignable<T>
-		&& xte::is_noex_swappable<T>
-		&& requires(T s0, const T s1, Iter i0, const Iter i1) {
+		std::sentinel_for<sentinel_type, iter_type>
+		&& xte::is_noex_constructible<sentinel_type>
+		&& xte::is_noex_copy_constructible<sentinel_type>
+		&& xte::is_noex_move_constructible<sentinel_type>
+		&& xte::is_noex_dtor<sentinel_type>
+		&& xte::is_noex_copy_assignable<sentinel_type>
+		&& xte::is_noex_move_assignable<sentinel_type>
+		&& xte::is_noex_swappable<sentinel_type>
+		&& requires(sentinel_type s0, const sentinel_type s1, iter_type i0, const iter_type i1) {
 			{ s0 == i0 } noexcept -> xte::is_noex_bool_testable;
 			{ s0 == i1 } noexcept -> xte::is_noex_bool_testable;
 			{ s1 == i0 } noexcept -> xte::is_noex_bool_testable;
@@ -87,8 +87,8 @@ namespace xte {
 			{ xte::as_xvalue(i0) != xte::as_xvalue(s1) } noexcept -> xte::is_noex_bool_testable;
 			{ xte::as_xvalue(i1) != xte::as_xvalue(s0) } noexcept -> xte::is_noex_bool_testable;
 			{ xte::as_xvalue(i1) != xte::as_xvalue(s1) } noexcept -> xte::is_noex_bool_testable; }
-		&& (!std::sized_sentinel_for<T, Iter>
-			|| requires(T s0, const T s1, Iter i0, const Iter i1) {
+		&& (!std::sized_sentinel_for<sentinel_type, iter_type>
+			|| requires(sentinel_type s0, const sentinel_type s1, iter_type i0, const iter_type i1) {
 				{ s0 - i0 } noexcept;
 				{ s0 - i1 } noexcept;
 				{ s1 - i0 } noexcept;

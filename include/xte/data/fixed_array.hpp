@@ -43,6 +43,16 @@ namespace xte {
 
 		static constexpr auto size = xte::wrap_value<n>();
 
+		template<xte::uz m>
+		[[nodiscard]] friend constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_RETURNS(
+			xte::range_cmp(lhs, rhs)
+		)
+
+		template<xte::uz m>
+		[[nodiscard]] friend constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_RETURNS(
+			(n == m) && std::is_eq(lhs <=> rhs)
+		)
+
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
 			return self.data();
 		}
@@ -149,23 +159,13 @@ namespace xte {
 	template<typename T, typename... Ts>
 	fixed_array(T, Ts...) -> fixed_array<std::common_type_t<T, Ts...>, (sizeof...(Ts) + 1)>;
 
-	template<typename T, xte::uz n, xte::uz m>
-	[[nodiscard]] constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_RETURNS(
-		xte::range_cmp(lhs, rhs)
-	)
-
-	template<typename T, xte::uz n, xte::uz m>
-	[[nodiscard]] constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_RETURNS(
-		(n == m) && std::is_eq(lhs <=> rhs)
-	)
-
-	template<typename Lhs, typename Rhs>
-	requires(xte::is_derived_from_specialization_of<xte::drop_cvref<Lhs>, ^^xte::fixed_array>
-		&& xte::is_derived_from_specialization_of<xte::drop_cvref<Rhs>, ^^xte::fixed_array>
-		&& xte::is_same<typename Lhs::value_type, typename Rhs::value_type>)
-	[[nodiscard]] constexpr auto operator+(Lhs&& lhs, Rhs&& rhs) XTE_RETURNS(
-		xte::unfold<Lhs::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_RETURNS(
-			xte::unfold<Rhs::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_RETURNS(
+	template<typename lhs_type, typename rhs_type>
+	requires(xte::is_derived_from_specialization_of<xte::drop_cvref<lhs_type>, ^^xte::fixed_array>
+		&& xte::is_derived_from_specialization_of<xte::drop_cvref<rhs_type>, ^^xte::fixed_array>
+		&& xte::is_same<typename lhs_type::value_type, typename rhs_type::value_type>)
+	[[nodiscard]] constexpr auto operator+(lhs_type&& lhs, rhs_type&& rhs) XTE_RETURNS(
+		xte::unfold<lhs_type::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_RETURNS(
+			xte::unfold<rhs_type::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_RETURNS(
 				xte::fixed_array { XTE_FWD(lhs)[i]..., XTE_FWD(rhs)[j]... }
 			), XTE_FWD(lhs), XTE_FWD(rhs))
 		), XTE_FWD(lhs), XTE_FWD(rhs))

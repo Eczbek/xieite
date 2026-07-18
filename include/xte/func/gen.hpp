@@ -15,20 +15,20 @@
 #	include "../util/number_types.hpp"
 
 namespace DETAIL_XTE::gen {
-	template<typename Func>
-	requires(requires { { xte::fake<Func&>()() } -> xte::is_specialization_of<^^xte::opt>; })
+	template<typename func_type>
+	requires(requires { { xte::fake<func_type&>()() } -> xte::is_specialization_of<^^xte::opt>; })
 	struct impl {
 		struct iter {
 			using difference_type = xte::iz;
-			using value_type = xte::drop_cvref<decltype(*xte::fake<Func&>()())>;
+			using value_type = xte::drop_cvref<decltype(*xte::fake<func_type&>()())>;
 
-			Func* _func;
-			decltype(xte::fake<Func&>()()) _value;
+			func_type* _func;
+			decltype(xte::fake<func_type&>()()) _value;
 
 			[[nodiscard]] explicit(false) constexpr iter() noexcept
 			: _func(nullptr), _value(xte::null) {}
 
-			[[nodiscard]] constexpr iter(Func* func, decltype(xte::fake<Func&>()()) value) XTE_CONSTRUCTS(,
+			[[nodiscard]] constexpr iter(func_type* func, decltype(xte::fake<func_type&>()()) value) XTE_CONSTRUCTS(,
 				_func,((func)),
 				_value,((xte::as_xvalue(value)))
 			)
@@ -71,7 +71,7 @@ namespace DETAIL_XTE::gen {
 			constexpr void operator++(int) const & noexcept {}
 		};
 
-		Func _func;
+		func_type _func;
 
 		[[nodiscard]] constexpr impl(auto&& func) XTE_CONSTRUCTS(,
 			_func,((XTE_FWD(func)))

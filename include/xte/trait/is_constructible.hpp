@@ -4,11 +4,11 @@
 #	include "../meta/fake.hpp"
 
 namespace xte {
-	template<typename T, typename... Args>
+	template<typename T, typename... arg_types>
 	concept is_constructible =
-		((sizeof...(Args) == 1)
-			? requires { static_cast<T>(xte::fake<Args...[0]>()); }
-			: requires { T(xte::fake<Args>()...); });
+		((sizeof...(arg_types) == 1)
+			? requires { static_cast<T>(xte::fake<arg_types...[0]>()); }
+			: requires { T(xte::fake<arg_types>()...); });
 }
 
 #endif

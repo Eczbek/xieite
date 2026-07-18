@@ -8,8 +8,8 @@
 #	include <type_traits>
 
 namespace xte {
-	inline constexpr auto bit_floor = []<xte::is_int Int>[[nodiscard]](Int x) static noexcept -> Int {
-		return xte::lshift(static_cast<Int>(1), xte::width<Int> - xte::leading_zeros(x) - 1);
+	inline constexpr auto bit_floor = []<xte::is_int T>[[nodiscard]](T x) static noexcept -> T {
+		return xte::lshift(static_cast<T>(1), xte::width<T> - xte::leading_zeros(x) - 1);
 	};
 }
 

@@ -54,9 +54,9 @@ namespace xte {
 			}
 		}
 
-		template<std::ranges::contiguous_range Range>
-		requires(xte::is_same<std::ranges::range_value_t<Range>, char>)
-		[[nodiscard]] constexpr string_view(std::from_range_t, const Range& range) XTE_CONSTRUCTS(,
+		template<std::ranges::contiguous_range range_type>
+		requires(xte::is_same<std::ranges::range_value_t<range_type>, char>)
+		[[nodiscard]] constexpr string_view(std::from_range_t, const range_type& range) XTE_CONSTRUCTS(,
 			(xte::string_view),((std::ranges::data(range), std::ranges::size(range)))
 		)
 
@@ -64,8 +64,8 @@ namespace xte {
 			(xte::string_view),((std::from_range, range))
 		)
 
-		template<std::input_iterator Iter>
-		[[nodiscard]] constexpr string_view(Iter begin, std::sentinel_for<Iter> auto end) XTE_CONSTRUCTS(,
+		template<std::input_iterator iter_type>
+		[[nodiscard]] constexpr string_view(iter_type begin, std::sentinel_for<iter_type> auto end) XTE_CONSTRUCTS(,
 			(xte::string_view),((std::ranges::subrange(begin, end)))
 		)
 

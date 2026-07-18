@@ -1,21 +1,21 @@
 #include <xte/trait/is_noex_move_constructible.hpp>
 
-struct Base {
-	Base() = delete;
-	Base(const Base&) = delete;
-	Base(Base&&) = delete;
-	void operator=(const Base&) = delete;
-	void operator=(Base&&) = delete;
+struct base {
+	base() = delete;
+	base(const base&) = delete;
+	base(base&&) = delete;
+	void operator=(const base&) = delete;
+	void operator=(base&&) = delete;
 };
 
-struct A : Base { explicit(false) A(A&&) noexcept; };
-struct B : Base { explicit(false) B(B&&); };
-struct C : Base { explicit(false) C() noexcept; };
-struct D : Base { explicit(false) D(); };
-struct E : Base { explicit E(E&&) noexcept; };
-struct F : Base { explicit F(F&&); };
-struct G : Base { explicit G() noexcept; };
-struct H : Base { explicit H(); };
+struct A : base { explicit(false) A(A&&) noexcept; };
+struct B : base { explicit(false) B(B&&); };
+struct C : base { explicit(false) C() noexcept; };
+struct D : base { explicit(false) D(); };
+struct E : base { explicit E(E&&) noexcept; };
+struct F : base { explicit F(F&&); };
+struct G : base { explicit G() noexcept; };
+struct H : base { explicit H(); };
 
 static_assert(xte::is_noex_move_constructible<A>);
 static_assert(!xte::is_noex_move_constructible<B>);

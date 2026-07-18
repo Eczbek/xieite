@@ -8,20 +8,20 @@ namespace DETAIL_XTE::is_callable {
 	template<typename, typename>
 	constexpr bool impl = false;
 
-	template<typename T, typename Return, typename... Args>
-	constexpr bool impl<T, Return(Args...)> = requires {
-		{ xte::fake<T>()(xte::fake<Args>()...) } -> xte::is_castable<Return>;
+	template<typename T, typename return_type, typename... arg_types>
+	constexpr bool impl<T, return_type(arg_types...)> = requires {
+		{ xte::fake<T>()(xte::fake<arg_types>()...) } -> xte::is_castable<return_type>;
 	};
 
-	template<typename T, typename Return, typename... Args>
-	constexpr bool impl<T, Return(Args...) noexcept> = requires {
-		{ xte::fake<T>()(xte::fake<Args>()...) } noexcept -> xte::is_castable<Return>;
+	template<typename T, typename return_type, typename... arg_types>
+	constexpr bool impl<T, return_type(arg_types...) noexcept> = requires {
+		{ xte::fake<T>()(xte::fake<arg_types>()...) } noexcept -> xte::is_castable<return_type>;
 	};
 }
 
 namespace xte {
-	template<typename T, typename Signature>
-	concept is_callable = DETAIL_XTE::is_callable::impl<T, Signature>;
+	template<typename T, typename signature_type>
+	concept is_callable = DETAIL_XTE::is_callable::impl<T, signature_type>;
 }
 
 #endif

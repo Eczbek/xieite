@@ -5,18 +5,18 @@
 #	include "../data/non_movable.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../trait/is_callable.hpp"
-#	include "../trait/is_noex_constructible.hpp"
+#	include "../trait/is_noex_move_constructible.hpp"
 
 namespace xte {
-	template<xte::is_callable<void()> Func>
+	template<xte::is_callable<void()> func_type>
 	struct defer : xte::non_copyable, xte::non_movable {
 	private:
-		Func _func;
+		func_type _func;
 		bool _released = false;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr defer(Func&& func)
-		noexcept(xte::is_noex_constructible<Func, Func&&>)
+		[[nodiscard]] explicit(false) constexpr defer(func_type&& func)
+		noexcept(xte::is_noex_move_constructible<func_type>)
 		: _func(XTE_FWD(func)) {}
 
 		constexpr ~defer() {
@@ -30,8 +30,8 @@ namespace xte {
 		}
 	};
 
-	template<typename Func>
-	defer(Func&&) -> defer<Func>;
+	template<typename func_type>
+	defer(func_type&&) -> defer<func_type>;
 }
 
 #endif

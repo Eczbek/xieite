@@ -77,13 +77,13 @@ namespace xte {
 		return result;
 	}
 
-	template<std::ranges::input_range Range>
-	[[nodiscard]] constexpr Range uppercase(Range range)
-	noexcept(xte::is_noex_range<Range>
-		&& requires (std::ranges::range_value_t<Range> x) { { xte::assign(x, xte::uppercase(xte::make<char>(xte::as<Range>(x)))) } noexcept; })
-	requires(requires (std::ranges::range_value_t<Range> x) { xte::assign(x, xte::uppercase(xte::make<char>(xte::as<Range>(x)))); }) {
+	template<std::ranges::input_range range_type>
+	[[nodiscard]] constexpr range_type uppercase(range_type range)
+	noexcept(xte::is_noex_range<range_type>
+		&& requires (std::ranges::range_value_t<range_type> x) { { xte::assign(x, xte::uppercase(xte::make<char>(xte::as<range_type>(x)))) } noexcept; })
+	requires(requires (std::ranges::range_value_t<range_type> x) { xte::assign(x, xte::uppercase(xte::make<char>(xte::as<range_type>(x)))); }) {
 		for (auto& c : range) {
-			xte::assign(c, xte::uppercase(xte::make<char>(xte::as<Range>(c))));
+			xte::assign(c, xte::uppercase(xte::make<char>(xte::as<range_type>(c))));
 		}
 		return range;
 	}

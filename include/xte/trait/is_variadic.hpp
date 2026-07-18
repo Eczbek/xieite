@@ -7,77 +7,77 @@ namespace DETAIL_XTE::is_variadic {
 	template<typename>
 	constexpr bool impl = false;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) const noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) const noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) volatile noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) volatile noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) const volatile noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) const volatile noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) & noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) & noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) const & noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) const & noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) volatile & noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) volatile & noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) const volatile & noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) const volatile & noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) && noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) && noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) const && noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) const && noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) volatile && noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) volatile && noexcept(noex)> = true;
 
-	template<typename Return, typename... Args, bool noex>
-	constexpr bool impl<Return(Args..., ...) const volatile && noexcept(noex)> = true;
+	template<typename return_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(arg_types..., ...) const volatile && noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) const noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) const noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) volatile noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) volatile noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) const volatile noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) const volatile noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) & noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) & noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) const & noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) const & noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) volatile & noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) volatile & noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) const volatile & noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) const volatile & noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) && noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) && noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) const && noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) const && noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) volatile && noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) volatile && noexcept(noex)> = true;
 
-	template<typename Return, typename Class, typename... Args, bool noex>
-	constexpr bool impl<Return(Class::*)(Args..., ...) const volatile && noexcept(noex)> = true;
+	template<typename return_type, typename class_type, typename... arg_types, bool noex>
+	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) const volatile && noexcept(noex)> = true;
 }
 
 namespace xte {
@@ -87,4 +87,4 @@ namespace xte {
 
 #endif
 
-// TODO: `xte::type<Return(Args..., ...) &> Class::*`
+// TODO: `xte::type<return_type(arg_types..., ...) &> class_type::*`

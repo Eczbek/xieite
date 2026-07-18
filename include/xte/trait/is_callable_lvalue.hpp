@@ -4,8 +4,8 @@
 #	include "../trait/is_callable.hpp"
 
 namespace xte {
-	template<typename T, typename Signature>
-	concept is_callable_lvalue = xte::is_callable<T&, Signature>;
+	template<typename T, typename signature_type>
+	concept is_callable_lvalue = xte::is_callable<T&, signature_type>;
 }
 
 #endif

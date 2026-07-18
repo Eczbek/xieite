@@ -4,8 +4,8 @@
 #	include "../meta/fake.hpp"
 
 namespace xte {
-	template<typename T, typename... Args>
-	concept is_brace_constructible = requires { T { xte::fake<Args>()... }; };
+	template<typename T, typename... arg_types>
+	concept is_brace_constructible = requires { T { xte::fake<arg_types>()... }; };
 }
 
 #endif

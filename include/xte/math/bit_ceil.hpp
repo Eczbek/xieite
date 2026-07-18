@@ -7,11 +7,11 @@
 #	include "../trait/is_int.hpp"
 
 namespace xte {
-	inline constexpr auto bit_ceil = []<xte::is_int Int>[[nodiscard]](Int x) static noexcept -> Int {
+	inline constexpr auto bit_ceil = []<xte::is_int T>[[nodiscard]](T x) static noexcept -> T {
 		if (xte::is_single_bit(x |= !x)) {
 			return x;
 		}
-		return xte::lshift(static_cast<Int>(1), xte::width<Int> - xte::leading_zeros(x));
+		return xte::lshift(static_cast<T>(1), xte::width<T> - xte::leading_zeros(x));
 	};
 }
 

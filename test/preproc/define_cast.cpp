@@ -3,7 +3,7 @@
 #include <xte/util/as_const.hpp>
 #include <xte/util/as_lvalue.hpp>
 
-struct Cast {
+struct castable {
 	int x;
 
 	XTE_DEFINE_CAST(constexpr, auto&& self,
@@ -11,7 +11,7 @@ struct Cast {
 	)
 };
 
-static_assert(requires { static_cast<int&&>(Cast()); });
-static_assert(requires { static_cast<const int&&>(xte::as_const(Cast())); });
-static_assert(requires { static_cast<int&>(xte::as_lvalue(Cast())); });
-static_assert(requires { static_cast<const int&>(xte::as_const(xte::as_lvalue(Cast()))); });
+static_assert(requires { static_cast<int&&>(castable()); });
+static_assert(requires { static_cast<const int&&>(xte::as_const(castable())); });
+static_assert(requires { static_cast<int&>(xte::as_lvalue(castable())); });
+static_assert(requires { static_cast<const int&>(xte::as_const(xte::as_lvalue(castable()))); });

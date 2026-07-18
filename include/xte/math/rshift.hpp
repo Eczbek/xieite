@@ -7,11 +7,11 @@
 #	include "../trait/is_int.hpp"
 
 namespace xte {
-	inline constexpr auto rshift = []<xte::is_int Int, xte::is_int Count = xte::uz>[[nodiscard]](Int x, Count count = 1) static noexcept -> Int {
-		if (xte::abs(count) >= xte::width<Int>) {
+	inline constexpr auto rshift = []<xte::is_int value_type, xte::is_int count_type = xte::uz>[[nodiscard]](value_type x, count_type count = 1) static noexcept -> value_type {
+		if (xte::abs(count) >= xte::width<value_type>) {
 			return 0;
 		}
-		return static_cast<Int>((count < 0) ? (xte::as_unsigned(x) << -count) : (xte::as_unsigned(x) >> count));
+		return static_cast<value_type>((count < 0) ? (xte::as_unsigned(x) << -count) : (xte::as_unsigned(x) >> count));
 	};
 }
 

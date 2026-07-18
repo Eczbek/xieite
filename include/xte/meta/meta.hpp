@@ -23,26 +23,26 @@ namespace DETAIL_XTE::meta {
 	template<typename>
 	inline constexpr std::meta::info class_type_of;
 
-	template<typename Class, typename T>
-	inline constexpr std::meta::info class_type_of<T Class::*> = ^^Class;
+	template<typename class_type, typename T>
+	inline constexpr std::meta::info class_type_of<T class_type::*> = ^^class_type;
 
-	template<typename Class, typename T>
-	inline constexpr std::meta::info class_type_of<T Class::*&> = ^^Class;
+	template<typename class_type, typename T>
+	inline constexpr std::meta::info class_type_of<T class_type::*&> = ^^class_type;
 
-	template<typename Class, typename T>
-	inline constexpr std::meta::info class_type_of<T Class::*&&> = ^^Class;
+	template<typename class_type, typename T>
+	inline constexpr std::meta::info class_type_of<T class_type::*&&> = ^^class_type;
 
 	template<typename>
 	inline constexpr std::meta::info member_type_of;
 
-	template<typename Class, typename T>
-	inline constexpr std::meta::info member_type_of<T Class::*> = ^^T;
+	template<typename class_type, typename T>
+	inline constexpr std::meta::info member_type_of<T class_type::*> = ^^T;
 
-	template<typename Class, typename T>
-	inline constexpr std::meta::info member_type_of<T Class::*&> = ^^T&;
+	template<typename class_type, typename T>
+	inline constexpr std::meta::info member_type_of<T class_type::*&> = ^^T&;
 
-	template<typename Class, typename T>
-	inline constexpr std::meta::info member_type_of<T Class::*&&> = ^^T&&;
+	template<typename class_type, typename T>
+	inline constexpr std::meta::info member_type_of<T class_type::*&&> = ^^T&&;
 }
 
 namespace xte::meta {

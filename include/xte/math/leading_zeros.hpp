@@ -7,12 +7,12 @@
 #	include "../util/number_types.hpp"
 
 namespace xte {
-	inline constexpr auto leading_zeros = []<xte::is_int Int>[[nodiscard]](Int x) static noexcept -> xte::uz {
+	inline constexpr auto leading_zeros = []<xte::is_int T>[[nodiscard]](T x) static noexcept -> xte::uz {
 		xte::uz count = 0;
 		for (; x; x = xte::rshift(x)) {
 			++count;
 		}
-		return xte::width<Int> - count;
+		return xte::width<T> - count;
 	};
 }
 

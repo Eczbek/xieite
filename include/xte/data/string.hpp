@@ -4,6 +4,7 @@
 #	include "../data/array.hpp"
 #	include "../data/string_view.hpp"
 #	include "../math/min.hpp"
+#	include "../meta/req_not.hpp"
 #	include "../meta/type.hpp"
 #	include "../preproc/constructs.hpp"
 #	include "../preproc/fwd.hpp"
@@ -61,8 +62,8 @@ namespace xte {
 			_data,((std::from_range, XTE_FWD(range)))
 		)
 
-		template<std::input_iterator Iter>
-		[[nodiscard]] constexpr string(Iter begin, std::sentinel_for<Iter> auto end) XTE_CONSTRUCTS(,
+		template<std::input_iterator iter_type>
+		[[nodiscard]] constexpr string(iter_type begin, std::sentinel_for<iter_type> auto end) XTE_CONSTRUCTS(,
 			(xte::string),((std::from_range, xte::as_lvalue(std::ranges::subrange(begin, end))))
 		)
 
@@ -103,9 +104,9 @@ namespace xte {
 			return *this;
 		}
 
-		template<std::ranges::input_range Range>
-		constexpr auto operator=(Range&& range) & noexcept(false)
-		requires(!xte::is_derived_from<Range, xte::string> && requires (char x) { xte::assign(x, xte::as<Range>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
+		template<std::ranges::input_range range_type>
+		constexpr auto operator=(range_type&& range) & noexcept(false)
+		requires(!xte::is_derived_from<range_type, xte::string> && requires (char x) { xte::assign(x, xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
 			this->_data = XTE_FWD(range);
 			if (!this->_data.size() || this->_data.back()) {
 				this->_data.push();
@@ -304,18 +305,18 @@ namespace xte {
 			}
 		}
 
-		template<std::ranges::input_range Range = xte::string>
-		constexpr void insert_range(xte::uz index, Range&& range) noexcept(false)
-		requires(xte::is_constructible<char, decltype(xte::as<Range>(*xte::as_lvalue(std::ranges::begin(range))))>) {
+		template<std::ranges::input_range range_type = xte::string>
+		constexpr void insert_range(xte::uz index, range_type&& range) noexcept(false)
+		requires(xte::is_constructible<char, decltype(xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>) {
 			this->_data.insert_range(xte::min(index, this->size()), XTE_FWD(range));
 			if (!this->_data.size() || this->_data.back()) {
 				this->_data.push();
 			}
 		}
 
-		template<std::ranges::input_range Range = xte::string>
-		constexpr void insert_string(xte::uz index, Range&& range) & noexcept(false)
-		requires(xte::is_constructible<char, decltype(xte::as<Range>(*xte::as_lvalue(std::ranges::begin(range))))>) {
+		template<std::ranges::input_range range_type = xte::string>
+		constexpr void insert_string(xte::uz index, range_type&& range) & noexcept(false)
+		requires(xte::is_constructible<char, decltype(xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>) {
 			index = xte::min(index, this->size());
 			xte::uz old_size = this->size();
 			this->insert_range(index, XTE_FWD(range));
@@ -349,13 +350,13 @@ namespace xte {
 			this->insert(-1uz, c);
 		}
 
-		template<typename Range = xte::string>
-		constexpr auto push_range(Range&& range) & XTE_RETURNS(
+		template<typename range_type = xte::string>
+		constexpr auto push_range(range_type&& range) & XTE_RETURNS(
 			this->insert_range(-1uz, XTE_FWD(range))
 		)
 
-		template<typename Range = xte::string>
-		constexpr auto push_string(Range&& range) & XTE_RETURNS(
+		template<typename range_type = xte::string>
+		constexpr auto push_string(range_type&& range) & XTE_RETURNS(
 			this->insert_string(-1uz, XTE_FWD(range))
 		)
 
@@ -365,30 +366,28 @@ namespace xte {
 			return last;
 		}
 
-		[[nodiscard]] friend constexpr auto operator+(xte::is_derived_from<xte::string> auto&& lhs, auto&& rhs) XTE_RETURNS(
-			auto(lhs.xte::string::operator+=(XTE_FWD(rhs)))
+		[[nodiscard]] friend constexpr auto operator+(xte::string lhs, auto&& rhs) XTE_RETURNS(
+			auto(xte::as_xvalue(lhs += XTE_FWD(rhs)))
 		)
 
-		[[nodiscard]] friend constexpr auto operator+(char lhs, xte::is_derived_from<xte::string> auto rhs) XTE_RETURNS(
-			rhs.xte::string::insert(0, lhs),
-			auto(rhs)
-		)
-
-		template<typename Lhs>
-		requires(!xte::is_derived_from<Lhs, xte::string>)
-		[[nodiscard]] friend constexpr auto operator+(Lhs&& lhs, xte::is_derived_from<xte::string> auto rhs) XTE_RETURNS(
-			rhs.xte::string::insert_string(0, XTE_FWD(lhs)),
-			auto(rhs)
-		)
-
-		constexpr xte::string& operator+=(this auto& lhs, char rhs) noexcept(false) {
-			lhs.xte::string::push(rhs);
-			return lhs;
+		[[nodiscard]] friend constexpr xte::string operator+(char lhs, xte::string rhs) noexcept(false) {
+			rhs.insert(0, lhs);
+			return xte::as_xvalue(rhs);
 		}
 
-		constexpr auto operator+=(this auto& lhs, auto&& rhs) XTE_RETURNS(
-			void(lhs.xte::string::push_string(XTE_FWD(rhs))),
-			lhs
+		[[nodiscard]] friend constexpr auto operator+(xte::req_not<[]<xte::is_derived_from<xte::string>>{}> auto&& lhs, xte::string rhs) XTE_RETURNS(
+			rhs.insert_string(0, XTE_FWD(lhs)),
+			auto(xte::as_xvalue(rhs))
+		)
+
+		constexpr xte::string& operator+=(char rhs) noexcept(false) {
+			this->push(rhs);
+			return *this;
+		}
+
+		constexpr auto operator+=(auto&& rhs) XTE_RETURNS(
+			this->push_string(XTE_FWD(rhs)),
+			*this
 		)
 	};
 }

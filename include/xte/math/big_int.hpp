@@ -304,15 +304,15 @@ namespace xte {
 
 		[[nodiscard]] explicit(false) constexpr big_int(xte::big_int&&) noexcept = default;
 
-		template<typename Range = xte::array<xte::umax>>
-		[[nodiscard]] constexpr big_int(std::from_range_t, Range&& range, bool neg = false) XTE_CONSTRUCTS(
+		template<typename range_type = xte::array<xte::umax>>
+		[[nodiscard]] constexpr big_int(std::from_range_t, range_type&& range, bool neg = false) XTE_CONSTRUCTS(
 			this->_normalize(),
 			_data,((std::from_range, XTE_FWD(range))),
 			_neg,((neg))
 		)
 
-		template<xte::is_int Radix = xte::uz>
-		[[nodiscard]] explicit constexpr big_int(xte::string_view string, Radix radix = 10, const xte::number_format_config& config = {}) noexcept(false)
+		template<xte::is_int radix_type = xte::uz>
+		[[nodiscard]] explicit constexpr big_int(xte::string_view string, radix_type radix = 10, const xte::number_format_config& config = {}) noexcept(false)
 		: xte::big_int(xte::big_int::parse(string, radix, config)) {}
 
 		constexpr xte::big_int& operator=(const xte::big_int&) & noexcept(false) = default;
@@ -603,13 +603,13 @@ namespace xte {
 		}
 
 		static constexpr struct parse {
-			template<xte::is_int Radix = xte::uz>
-			[[nodiscard]] static constexpr xte::big_int operator()(xte::string_view string, Radix radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
+			template<xte::is_int radix_type = xte::uz>
+			[[nodiscard]] static constexpr xte::big_int operator()(xte::string_view string, radix_type radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
 				return xte::big_int::parse::with_index(string, radix, config).value;
 			}
 
-			template<xte::is_int Radix = xte::uz>
-			[[nodiscard]] static constexpr auto with_index(xte::string_view string, Radix radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
+			template<xte::is_int radix_type = xte::uz>
+			[[nodiscard]] static constexpr auto with_index(xte::string_view string, radix_type radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
 				struct { xte::big_int value = 0; xte::uz index = 0; } result;
 				xte::string_view digits = config.digits.slice(0, xte::max(2, static_cast<xte::uz>(xte::abs(radix))));
 				bool neg = config.minus.contains(string[0]);
@@ -625,8 +625,8 @@ namespace xte {
 			}
 		} parse {};
 
-		template<xte::is_int Radix = xte::uz>
-		[[nodiscard]] constexpr xte::string str(this auto&& self, Radix radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
+		template<xte::is_int radix_type = xte::uz>
+		[[nodiscard]] constexpr xte::string str(this auto&& self, radix_type radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
 			if (!self || !radix) {
 				return { config.digits[0] };
 			}
