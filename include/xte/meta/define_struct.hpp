@@ -13,25 +13,23 @@ namespace DETAIL_XTE::define_struct {
 		xte::string_view name;
 	};
 
-	template<member...>
-	struct type;
-
 	template<member... members>
-	consteval std::meta::info impl() {
+	struct impl {
+		struct type;
+
 		consteval {
-			std::meta::define_aggregate(^^type<members...>, {
+			std::meta::define_aggregate(^^impl::type, {
 				std::meta::data_member_spec(members.type, { .name = members.name })...
 			});
 		}
-		return ^^type<members...>;
-	}
+	};
 }
 
 XTE_DIAGNOSTIC_POP_GCC()
 
 namespace xte {
 	template<DETAIL_XTE::define_struct::member... members>
-	using define_struct = [:DETAIL_XTE::define_struct::impl<members...>():];
+	using define_struct = DETAIL_XTE::define_struct::impl<members...>::type;
 }
 
 #endif
