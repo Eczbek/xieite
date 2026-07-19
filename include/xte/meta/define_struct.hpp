@@ -13,15 +13,17 @@ namespace DETAIL_XTE::define_struct {
 		xte::string_view name;
 	};
 
-	template<DETAIL_XTE::define_struct::member... members>
+	template<member...>
+	struct type;
+
+	template<member... members>
 	consteval std::meta::info impl() {
-		struct type;
 		consteval {
-			std::meta::define_aggregate(^^type, {
+			std::meta::define_aggregate(^^type<members...>, {
 				std::meta::data_member_spec(members.type, { .name = members.name })...
 			});
 		}
-		return ^^type;
+		return ^^type<members...>;
 	}
 }
 
