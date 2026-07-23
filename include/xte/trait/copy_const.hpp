@@ -1,95 +1,13 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_COPY_CONST
 #	define DETAIL_XTE_HEADER_TRAIT_COPY_CONST
-
-namespace DETAIL_XTE::copy_const {
-	template<typename, typename U>
-	constexpr auto impl = ^^U;
-
-	template<typename T, typename U>
-	constexpr auto impl<T, const U> = ^^U;
-
-	template<typename T, typename U>
-	constexpr auto impl<T, const U&> = ^^U&;
-
-	template<typename T, typename U>
-	constexpr auto impl<T, const U&&> = ^^U&&;
-
-	template<typename T, typename U>
-	constexpr auto impl<T&, const U> = ^^U;
-
-	template<typename T, typename U>
-	constexpr auto impl<T&, const U&> = ^^U&;
-
-	template<typename T, typename U>
-	constexpr auto impl<T&, const U&&> = ^^U&&;
-
-	template<typename T, typename U>
-	constexpr auto impl<T&&, const U> = ^^U;
-
-	template<typename T, typename U>
-	constexpr auto impl<T&&, const U&> = ^^U&;
-
-	template<typename T, typename U>
-	constexpr auto impl<T&&, const U&&> = ^^U&&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T, U> = ^^const U;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T, U&> = ^^const U&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T, U&&> = ^^const U&&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&, U> = ^^const U;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&, U&> = ^^const U&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&, U&&> = ^^const U&&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&&, U> = ^^const U;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&&, U&> = ^^const U&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&&, U&&> = ^^const U&&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T, const U> = ^^const U;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T, const U&> = ^^const U&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T, const U&&> = ^^const U&&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&, const U> = ^^const U;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&, const U&> = ^^const U&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&, const U&&> = ^^const U&&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&&, const U> = ^^const U;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&&, const U&> = ^^const U&;
-
-	template<typename T, typename U>
-	constexpr auto impl<const T&&, const U&&> = ^^const U&&;
-}
+#
+#	include "../trait/add_const.hpp"
+#	include "../trait/drop_const.hpp"
+#	include "../trait/is_const.hpp"
 
 namespace xte {
 	template<typename T, typename U>
-	using copy_const = [:DETAIL_XTE::copy_const::impl<T, U>:];
+	using copy_const = [:xte::is_const<T> ? ^^xte::add_const<U> : ^^xte::drop_const<U>:];
 }
 
 #endif
