@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_DATA_STRING_VIEW
 #	define DETAIL_XTE_HEADER_DATA_STRING_VIEW
 #
-#	include "../data/range_cmp.hpp"
+#	include "../data/range_compare.hpp"
 #	include "../math/max.hpp"
 #	include "../math/min.hpp"
 #	include "../math/width.hpp"
@@ -239,7 +239,7 @@ namespace xte {
 	};
 
 	[[nodiscard]] constexpr std::strong_ordering operator<=>(xte::string_view lhs, xte::string_view rhs) noexcept {
-		return xte::range_cmp(lhs, rhs);
+		return xte::range_compare(lhs, rhs);
 	}
 
 	[[nodiscard]] constexpr bool operator==(xte::string_view lhs, xte::string_view rhs) noexcept {

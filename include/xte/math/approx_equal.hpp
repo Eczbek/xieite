@@ -1,12 +1,11 @@
 #ifndef DETAIL_XTE_HEADER_MATH_APPROX_EQUAL
 #	define DETAIL_XTE_HEADER_MATH_APPROX_EQUAL
 #
-#	include "../func/visitor.hpp"
 #	include "../math/abs.hpp"
-#	include "../math/between.hpp"
 #	include "../math/diff.hpp"
-#	include "../trait/is_float.hpp"
+#	include "../math/equal.hpp"
 #	include "../trait/is_arithmetic.hpp"
+#	include "../trait/is_float.hpp"
 #	include <limits>
 #	include <type_traits>
 
@@ -14,9 +13,9 @@ namespace xte {
 	[[nodiscard]] constexpr bool approx_equal(xte::is_arithmetic auto x, xte::is_arithmetic auto y) noexcept {
 		if constexpr (using common_type = std::common_type_t<decltype(x), decltype(y)>; xte::is_float<common_type>) {
 			auto diff = xte::diff(x, y);
-			return diff <= (std::numeric_limits<common_type>::epsilon() * (xte::between(diff, 0, 1, false, false) ? (1 / diff) : diff));
+			return diff <= (std::numeric_limits<common_type>::epsilon() * (((0 < diff) && (diff < 1)) ? (1 / diff) : diff));
 		} else {
-			return static_cast<common_type>(x) == static_cast<common_type>(y);
+			return xte::equal(x, y);
 		}
 	}
 

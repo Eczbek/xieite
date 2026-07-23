@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_DATA_FIXED_ARRAY
 #	define DETAIL_XTE_HEADER_DATA_FIXED_ARRAY
 #
-#	include "../data/range_cmp.hpp"
+#	include "../data/range_compare.hpp"
 #	include "../func/unfold.hpp"
 #	include "../meta/wrap_value.hpp"
 #	include "../preproc/fwd.hpp"
@@ -45,7 +45,7 @@ namespace xte {
 
 		template<xte::uz m>
 		[[nodiscard]] friend constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_RETURNS(
-			xte::range_cmp(lhs, rhs)
+			xte::range_compare(lhs, rhs)
 		)
 
 		template<xte::uz m>

@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_DATA_ARRAY
 #	define DETAIL_XTE_HEADER_DATA_ARRAY
 #
-#	include "../data/range_cmp.hpp"
+#	include "../data/range_compare.hpp"
 #	include "../math/max.hpp"
 #	include "../math/min.hpp"
 #	include "../meta/end.hpp"
@@ -171,7 +171,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] friend constexpr auto operator<=>(const xte::array<T>& lhs, const xte::array<T>& rhs) XTE_RETURNS(
-			xte::range_cmp(lhs, rhs)
+			xte::range_compare(lhs, rhs)
 		)
 
 		[[nodiscard]] friend constexpr auto operator==(const xte::array<T>& lhs, const xte::array<T>& rhs) XTE_RETURNS(

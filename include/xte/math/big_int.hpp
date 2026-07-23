@@ -5,7 +5,7 @@
 #	include "../data/fixed_array.hpp"
 #	include "../data/null.hpp"
 #	include "../data/opt.hpp"
-#	include "../data/range_cmp.hpp"
+#	include "../data/range_compare.hpp"
 #	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
 #	include "../data/uppercase.hpp"
@@ -66,9 +66,9 @@ namespace xte {
 			return true;
 		}
 
-		[[nodiscard]] constexpr std::strong_ordering _cmp(const xte::big_int& rhs) const {
+		[[nodiscard]] constexpr std::strong_ordering _compare(const xte::big_int& rhs) const {
 			std::strong_ordering order = this->_data.size() <=> rhs._data.size();
-			return std::is_eq(order) ? xte::range_cmp(std::views::reverse(this->_data), std::views::reverse(rhs._data)) : order;
+			return std::is_eq(order) ? xte::range_compare(std::views::reverse(this->_data), std::views::reverse(rhs._data)) : order;
 		}
 
 		[[nodiscard]] constexpr xte::big_int& _add(auto&& rhs) {
@@ -341,7 +341,7 @@ namespace xte {
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xte::big_int& lhs, const xte::big_int& rhs) noexcept {
 			std::strong_ordering order = rhs._neg <=> lhs._neg;
-			return std::is_eq(order) ? (lhs._neg ? rhs._cmp(lhs) : lhs._cmp(rhs)) : order;
+			return std::is_eq(order) ? (lhs._neg ? rhs._compare(lhs) : lhs._compare(rhs)) : order;
 		}
 
 		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xte::big_int& lhs, xte::is_int auto rhs) noexcept {
@@ -400,7 +400,7 @@ namespace xte {
 			return xte::exchange(*this, *this + 1);
 		}
 
-		[[nodiscard]] constexpr xte::big_int operator-() const & noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int operator-() const& noexcept(false) {
 			return xte::big_int(std::from_range, this->_data, !this->_neg);
 		}
 
@@ -541,7 +541,7 @@ namespace xte {
 			return rhs._neg ? this->_lshift(rhs) : this->_rshift(rhs);
 		}
 
-		[[nodiscard]] constexpr xte::big_int abs() const & noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int abs() const& noexcept(false) {
 			return xte::big_int(std::from_range, this->_data);
 		}
 
@@ -595,8 +595,8 @@ namespace xte {
 			if (base._neg) {
 				throw xte::error("logarithm to negative base");
 			}
-			if (auto cmp = *this <=> base; std::is_lteq(cmp)) {
-				return +std::is_eq(cmp);
+			if (auto order = *this <=> base; std::is_lteq(order)) {
+				return +std::is_eq(order);
 			}
 			xte::uz log = (xte::digits(this->_data.back(), 2) - 1) / (xte::digits(base._data.back(), 2) - 1);
 			return ((base._data.size() > 1) ? (log + (this->_data.size() - 1) / (base._data.size() - 1)) : log) - (*this < base.pow(log));
