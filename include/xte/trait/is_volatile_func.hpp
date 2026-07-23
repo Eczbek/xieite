@@ -1,8 +1,6 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_IS_CONST_FUNC
 #	define DETAIL_XTE_HEADER_TRAIT_IS_CONST_FUNC
 #
-#	include "../trait/drop_cvref.hpp"
-#	include "../trait/drop_ptr.hpp"
 #	include "../trait/is_func.hpp"
 
 namespace DETAIL_XTE::is_volatile_func {
@@ -84,7 +82,7 @@ namespace DETAIL_XTE::is_volatile_func {
 
 namespace xte {
 	template<typename func_type>
-	concept is_volatile_func = xte::is_func<func_type> && DETAIL_XTE::is_volatile_func::impl<xte::drop_cvref<xte::drop_ptr<func_type>>>;
+	concept is_volatile_func = xte::is_func<func_type> && DETAIL_XTE::is_volatile_func::impl<func_type>;
 }
 
 #endif

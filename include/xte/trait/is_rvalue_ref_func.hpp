@@ -1,8 +1,6 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_IS_RVALUE_REF_FUNC
 #	define DETAIL_XTE_HEADER_TRAIT_IS_RVALUE_REF_FUNC
 #
-#	include "../trait/drop_cvref.hpp"
-#	include "../trait/drop_ptr.hpp"
 #	include "../trait/is_func.hpp"
 
 namespace DETAIL_XTE::is_rvalue_ref_func {
@@ -60,7 +58,7 @@ namespace DETAIL_XTE::is_rvalue_ref_func {
 
 namespace xte {
 	template<typename func_type>
-	concept is_rvalue_ref_func = xte::is_func<func_type> && DETAIL_XTE::is_rvalue_ref_func::impl<xte::drop_cvref<xte::drop_ptr<func_type>>>;
+	concept is_rvalue_ref_func = xte::is_func<func_type> && DETAIL_XTE::is_rvalue_ref_func::impl<func_type>;
 }
 
 #endif

@@ -1,8 +1,5 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_IS_FUNC
 #	define DETAIL_XTE_HEADER_TRAIT_IS_FUNC
-#
-#	include "../trait/drop_cvref.hpp"
-#	include "../trait/drop_ptr.hpp"
 
 namespace DETAIL_XTE::is_func {
 	template<typename>
@@ -155,7 +152,7 @@ namespace DETAIL_XTE::is_func {
 
 namespace xte {
 	template<typename func_type>
-	concept is_func = DETAIL_XTE::is_func::impl<xte::drop_cvref<xte::drop_ptr<func_type>>>;
+	concept is_func = DETAIL_XTE::is_func::impl<func_type>;
 }
 
 #endif
