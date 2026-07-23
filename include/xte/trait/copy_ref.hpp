@@ -18,6 +18,9 @@ namespace DETAIL_XTE::copy_ref {
 	constexpr auto impl<T&, U&> = ^^U&;
 
 	template<typename T, typename U>
+	constexpr auto impl<T&, U&&> = ^^U&;
+
+	template<typename T, typename U>
 	constexpr auto impl<T&&, U> = ^^U&&;
 
 	template<typename T, typename U>
