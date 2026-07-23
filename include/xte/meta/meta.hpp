@@ -52,17 +52,23 @@ namespace xte::meta {
 	}
 
 	[[nodiscard]] consteval std::meta::info class_type_of(std::meta::info info) noexcept(false) {
+		if (!std::meta::is_type(info)) {
+			info = std::meta::type_of(info);
+		}
 		if (auto type = std::meta::extract<std::meta::info>(std::meta::substitute(^^DETAIL_XTE::meta::class_type_of, { info })); type != ^^::) {
 			return type;
 		}
-		throw std::meta::exception("reflection does not represent member pointer type", info);
+		throw std::meta::exception("reflection does not represent member pointer or member pointer type", info);
 	};
 
 	[[nodiscard]] consteval std::meta::info member_type_of(std::meta::info info) noexcept(false) {
+		if (!std::meta::is_type(info)) {
+			info = std::meta::type_of(info);
+		}
 		if (auto type = std::meta::extract<std::meta::info>(std::meta::substitute(^^DETAIL_XTE::meta::member_type_of, { info })); type != ^^::) {
 			return type;
 		}
-		throw std::meta::exception("reflection does not represent member pointer type", info);
+		throw std::meta::exception("reflection does not represent member pointer or member pointer type", info);
 	};
 
 	[[nodiscard]] consteval bool is_complete_class_type(std::meta::info info) noexcept {
@@ -98,6 +104,16 @@ namespace xte::meta {
 	[[nodiscard]] consteval std::meta::info add_unbounded_array(std::meta::info type) noexcept(false) {
 		return std::meta::dealias(std::meta::substitute(^^xte::add_unbounded_array, { type }));
 	};
+
+	[[nodiscard]] consteval std::meta::info return_type_of(std::meta::info info) noexcept(false) {
+		if (!std::meta::is_type(info)) {
+			info = std::meta::type_of(info);
+		}
+		if (std::meta::is_member_function_pointer_type(info)) {
+			info = xte::meta::member_type_of(info);
+		}
+		return std::meta::return_type_of(info);
+	}
 
 	[[nodiscard]] consteval xte::string_view name_of(std::meta::info info) noexcept(false) {
 		static constexpr unsigned int ctx_none = 0b0000;
@@ -195,9 +211,15 @@ namespace xte::meta {
 					name += " volatile";
 				}
 				if (std::meta::is_lvalue_reference_qualified(info)) {
-					name += " &";
+					if (!std::meta::is_const(info) && !std::meta::is_volatile(info)) {
+						name += " ";
+					}
+					name += "&";
 				} else if (std::meta::is_rvalue_reference_qualified(info)) {
-					name += " &&";
+					if (!std::meta::is_const(info) && !std::meta::is_volatile(info)) {
+						name += " ";
+					}
+					name += "&&";
 				}
 				if ((~ctx & ctx_parent) && std::meta::is_noexcept(info)) {
 					name += " noexcept";
@@ -392,7 +414,7 @@ namespace xte::meta {
 										member_names += ", ";
 									}
 									if constexpr (using member_type = [:std::meta::type_of(member):]; std::is_array_v<member_type>) {
-										member_names += ([]<typename T, xte::uz n>(this auto name_of_array, xte::type<const T[n]>& array) -> xte::string {
+										member_names += ([]<typename T, xte::uz size>(this auto name_of_array, xte::type<const T[size]>& array) -> xte::string {
 											xte::string item_names;
 											for (auto&& item : array) {
 												if (item_names.size()) {

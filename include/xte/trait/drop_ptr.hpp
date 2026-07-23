@@ -4,25 +4,25 @@
 #	include "../util/number_types.hpp"
 
 namespace DETAIL_XTE::drop_ptr {
-	template<typename T, xte::uz n>
+	template<typename T, xte::uz depth>
 	constexpr auto impl = ^^T;
 
-	template<typename T, xte::uz n>
-	requires(!!n)
-	constexpr auto impl<T*, n> = impl<T, (n - 1)>;
+	template<typename T, xte::uz depth>
+	requires(!!depth)
+	constexpr auto impl<T*, depth> = impl<T, (depth - 1)>;
 
-	template<typename T, xte::uz n>
-	requires(!!n)
-	constexpr auto impl<T*&, n> = impl<T&, (n - 1)>;
+	template<typename T, xte::uz depth>
+	requires(!!depth)
+	constexpr auto impl<T*&, depth> = impl<T&, (depth - 1)>;
 
-	template<typename T, xte::uz n>
-	requires(!!n)
-	constexpr auto impl<T*&&, n> = impl<T&, (n - 1)>;
+	template<typename T, xte::uz depth>
+	requires(!!depth)
+	constexpr auto impl<T*&&, depth> = impl<T&, (depth - 1)>;
 }
 
 namespace xte {
-	template<typename T, xte::uz n = 1>
-	using drop_ptr = [:DETAIL_XTE::drop_ptr::impl<T, n>:];
+	template<typename T, xte::uz depth = 1>
+	using drop_ptr = [:DETAIL_XTE::drop_ptr::impl<T, depth>:];
 }
 
 #endif

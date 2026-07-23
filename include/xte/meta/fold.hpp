@@ -16,8 +16,8 @@ namespace DETAIL_XTE::fold {
 }
 
 namespace xte {
-	template<decltype(auto) func, decltype(auto) x, xte::uz n>
-	constexpr decltype(auto) fold = xte::unfold<n>([]<xte::uz... i> -> decltype(auto) {
+	template<decltype(auto) func, decltype(auto) x, xte::uz count>
+	constexpr decltype(auto) fold = xte::unfold<count>([]<xte::uz... i> -> decltype(auto) {
 		return decltype((DETAIL_XTE::fold::impl<func, x>()->*...->*xte::wrap_value<i>()))::value;
 	});
 }

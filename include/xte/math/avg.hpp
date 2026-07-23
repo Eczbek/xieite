@@ -23,7 +23,7 @@ namespace xte {
 			auto sign = xte::sign(first);
 			xte::uz count = 1;
 			unsigned_type tmp = 0;
-			(void)(..., (++count, (xte::sign(sign, rest) < 0) ? (((tmp = static_cast<unsigned_type>(xte::div(avg, count) + xte::div(xte::abs(rest), count) + ((avg % count) >= (count - xte::abs(rest) % count)))) > avg) && (sign *= -1), avg = xte::diff(avg, tmp)) : (avg += static_cast<unsigned_type>(static_cast<unsigned_type>(sign) * xte::div_trunc_half(xte::diff(xte::abs(rest), avg), count)))));
+			(void)(..., (++count, (0 < xte::sign(sign, rest)) ? (avg += static_cast<unsigned_type>(static_cast<unsigned_type>(sign) * xte::div_trunc_half(xte::diff(xte::abs(rest), avg), count))) : (((tmp = static_cast<unsigned_type>(xte::div(avg, count) + xte::div(xte::abs(rest), count) + ((avg % count) >= (count - xte::abs(rest) % count)))) > avg) && (sign *= -1), avg = xte::diff(avg, tmp))));
 			return static_cast<common_type>(avg * static_cast<unsigned_type>(sign));
 		}
 	}

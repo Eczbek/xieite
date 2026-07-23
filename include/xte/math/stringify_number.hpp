@@ -30,7 +30,7 @@ namespace xte {
 			return "nan";
 		}
 		if (xte::is_inf(x)) {
-			return (x < 0) ? "-inf" : "inf";
+			return (0 < x) ? "inf" : "-inf";
 		}
 		if (xte::approx_equal(x, 0) || !xte::is_finite(radix) || xte::approx_equal(radix, 0)) {
 			result.push(config.digits[0]);

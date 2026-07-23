@@ -23,7 +23,7 @@ namespace xte {
 			return (... || __builtin_add_overflow(sum, static_cast<common_type>(addends), &sum)) ? xte::null : xte::opt(sum);
 		}
 #	endif
-		return (!xte::is_finite(augend) || ... || (!xte::is_finite(addends) || ((sum < 0) ? ((xte::lowest<common_type> - sum) > xte::make<common_type>(addends)) : ((xte::highest<common_type> - sum) < xte::make<common_type>(addends))) || (sum += xte::make<common_type>(addends), false))) ? xte::null : xte::opt(sum);
+		return (!xte::is_finite(augend) || ... || (!xte::is_finite(addends) || ((0 < sum) ? ((xte::highest<common_type> - sum) < xte::make<common_type>(addends)) : ((xte::lowest<common_type> - sum) > xte::make<common_type>(addends))) || (sum += xte::make<common_type>(addends), false))) ? xte::null : xte::opt(sum);
 	};
 }
 

@@ -68,7 +68,7 @@ namespace DETAIL_XTE::gen {
 				*this
 			)
 
-			constexpr void operator++(int) const & noexcept {}
+			constexpr void operator++(int) const& noexcept {}
 		};
 
 		func_type _func;

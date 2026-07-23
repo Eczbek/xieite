@@ -7,9 +7,9 @@
 #	include "../util/number_types.hpp"
 
 namespace xte {
-	template<xte::uz n>
+	template<xte::uz count>
 	constexpr auto unroll(auto&& func, auto&&... args) XTE_RETURNS(
-		xte::unfold<n>([]<xte::uz... i>(auto&& func, auto&&... args) XTE_RETURNS(
+		xte::unfold<count>([]<xte::uz... i>(auto&& func, auto&&... args) XTE_RETURNS(
 			(..., void(func.template operator()<i>(args...)))
 		), XTE_FWD(func), XTE_FWD(args)...)
 	)

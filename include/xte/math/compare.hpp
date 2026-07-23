@@ -83,7 +83,7 @@ namespace xte {
 					lhs_abs = xte::rshift(lhs_abs, std::numeric_limits<float_type>::digits);
 					rhs_abs = std::floor(rhs_abs / chunk_size);
 				}
-				if (order_type rest_order = (lhs_abs != 0) <=> (rhs_abs != 0); !std::is_eq(rest_order)) {
+				if (order_type rest_order = !rhs_abs <=> !lhs_abs; !std::is_eq(rest_order)) {
 					order = rest_order;
 				}
 				return (0 < lhs) ? order : xte::flip_order(order);

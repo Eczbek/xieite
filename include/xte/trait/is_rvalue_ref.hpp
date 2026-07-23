@@ -6,7 +6,7 @@ namespace DETAIL_XTE::is_rvalue_ref {
 	constexpr bool impl = false;
 
 	template<typename T>
-	constexpr bool impl<T&> = true;
+	constexpr bool impl<T&&> = true;
 }
 
 namespace xte {

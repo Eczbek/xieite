@@ -15,7 +15,7 @@ template<int> void func_tmpl();
 namespace ns {
 	namespace {
 		struct T {
-			auto f() const volatile && noexcept {
+			auto f() const volatile&& noexcept {
 				struct {} _;
 				return _;
 			}
@@ -31,8 +31,8 @@ template<char...> void operator""_literal() {
 struct conv {
 	template<typename T> operator T() {
 		struct U {};
-		static_assert(xte::meta::name_of(^^U) == "conv::operator ns::<anonymous>::T::f() const volatile &&::<unnamed>()::U");
-		static_assert(xte::meta::name_of(parent_of(^^U)) == "conv::operator ns::<anonymous>::T::f() const volatile &&::<unnamed>()");
+		static_assert(xte::meta::name_of(^^U) == "conv::operator ns::<anonymous>::T::f() const volatile&&::<unnamed>()::U");
+		static_assert(xte::meta::name_of(parent_of(^^U)) == "conv::operator ns::<anonymous>::T::f() const volatile&&::<unnamed>()");
 		static_assert(xte::meta::name_of(template_of(parent_of(^^U))) == "conv::operator <...>");
 		return {};
 	}

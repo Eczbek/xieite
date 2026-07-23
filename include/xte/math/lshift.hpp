@@ -11,7 +11,7 @@ namespace xte {
 		if (xte::abs(count) >= xte::width<value_type>) {
 			return 0;
 		}
-		return static_cast<value_type>((count < 0) ? (xte::as_unsigned(x) >> -count) : (xte::as_unsigned(x) << count));
+		return static_cast<value_type>((0 < count) ? (xte::as_unsigned(x) << count) : (xte::as_unsigned(x) >> -count));
 	};
 }
 

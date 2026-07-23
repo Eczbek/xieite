@@ -49,4 +49,4 @@ static_assert(!xte::is_signed<void>);
 static_assert(!xte::is_signed<int&>);
 static_assert(!xte::is_signed<int&&>);
 static_assert(!xte::is_signed<char***&&>);
-static_assert(!xte::is_signed<int(decltype([]{})::*)(...) const volatile && noexcept>);
+static_assert(!xte::is_signed<int(decltype([]{})::*)(...) const volatile&& noexcept>);

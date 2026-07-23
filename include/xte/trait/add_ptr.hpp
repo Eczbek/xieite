@@ -4,8 +4,8 @@
 #	include "../util/number_types.hpp"
 
 namespace DETAIL_XTE::add_ptr {
-	template<typename T, xte::uz n>
-	constexpr auto impl = ^^typename[:impl<T, (n - 1)>:]*;
+	template<typename T, xte::uz depth>
+	constexpr auto impl = ^^typename[:impl<T, (depth - 1)>:]*;
 
 	template<typename T>
 	constexpr auto impl<T, 0> = ^^T;
@@ -18,8 +18,8 @@ namespace DETAIL_XTE::add_ptr {
 }
 
 namespace xte {
-	template<typename T, xte::uz n = 1>
-	using add_ptr = [:DETAIL_XTE::add_ptr::impl<T, n>:];
+	template<typename T, xte::uz depth = 1>
+	using add_ptr = [:DETAIL_XTE::add_ptr::impl<T, depth>:];
 }
 
 #endif

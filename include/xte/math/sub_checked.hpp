@@ -24,7 +24,7 @@ namespace xte {
 			return (... || __builtin_sub_overflow(diff, static_cast<common_type>(subtrahends), &diff)) ? xte::null : xte::opt(diff);
 		}
 #	endif
-		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(subtrahends) && ((subtrahends < 0) ? ((xte::highest<common_type> + xte::make<common_type>(subtrahends)) < diff) : ((xte::lowest<common_type> + xte::make<common_type>(subtrahends)) < diff))) || (diff -= xte::make<common_type>(subtrahends), false))) ? xte::null : xte::opt(diff);
+		return (!xte::is_finite(diff) || ... || ((!xte::is_finite(subtrahends) && ((0 < subtrahends) ? ((xte::lowest<common_type> + xte::make<common_type>(subtrahends)) < diff) : ((xte::highest<common_type> + xte::make<common_type>(subtrahends)) < diff))) || (diff -= xte::make<common_type>(subtrahends), false))) ? xte::null : xte::opt(diff);
 	}
 }
 

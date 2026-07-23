@@ -26,7 +26,7 @@ namespace xte {
 		}
 #	endif
 		bool overflow;
-		(void)(!xte::is_finite(prod) || ... || (xte::approx_equal(prod, 0) || (overflow = !xte::is_finite(rest) || (xte::abs(xte::make<common_type>(rest)) > (xte::abs(((prod < 0) == (rest < 0)) ? xte::highest<common_type> : xte::lowest<common_type>) / xte::abs(prod)))) || !xte::assign(prod, prod * xte::make<common_type>(rest))));
+		(void)(!xte::is_finite(prod) || ... || (xte::approx_equal(prod, 0) || (overflow = !xte::is_finite(rest) || (xte::abs(xte::make<common_type>(rest)) > (xte::abs(((0 < prod) == (0 < rest)) ? xte::highest<common_type> : xte::lowest<common_type>) / xte::abs(prod)))) || !xte::assign(prod, prod * xte::make<common_type>(rest))));
 		return overflow ? xte::null : xte::opt(prod);
 	}
 }
