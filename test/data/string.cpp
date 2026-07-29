@@ -238,3 +238,54 @@ static_assert(([] {
 static_assert((xte::string("abc") + 'x') == "abcx");
 static_assert((xte::string("abc") + "xyz") == "abcxyz");
 static_assert((xte::string("abc") + xte::string("xyz")) == "abcxyz");
+
+static_assert(([] {
+	xte::string a = "hello";
+	a.quote();
+	return a == "\"hello\"";
+})());
+static_assert(([] {
+	xte::string a = "hello";
+	a.quote();
+	a.quote();
+	return a == "\"\\\"hello\\\"\"";
+})());
+static_assert(([] {
+	xte::string a = "hello";
+	a.quote();
+	a.quote();
+	a.quote();
+	return a == "\"\\\"\\\\\\\"hello\\\\\\\"\\\"\"";
+})());
+static_assert(([] {
+	xte::string a = "hello";
+	a.quote();
+	a.quote();
+	a.quote();
+	a.unquote();
+	return a == "\"\\\"hello\\\"\"";
+})());
+static_assert(([] {
+	xte::string a = "hello";
+	a.quote();
+	a.quote();
+	a.quote();
+	a.unquote();
+	a.unquote();
+	return a == "\"hello\"";
+})());
+static_assert(([] {
+	xte::string a = "hello";
+	a.quote();
+	a.quote();
+	a.quote();
+	a.unquote();
+	a.unquote();
+	a.unquote();
+	return a == "hello";
+})());
+static_assert(([] {
+	xte::string a = "hello";
+	a.unquote();
+	return a == "hello";
+})());

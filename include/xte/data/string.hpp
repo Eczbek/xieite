@@ -174,7 +174,7 @@ namespace xte {
 			return (index < this->size()) ? xte::string(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : "";
 		}
 
-		[[nodiscard]] constexpr xte::string_view view_slice(xte::uz index, xte::uz size = -1uz) const noexcept {
+		[[nodiscard]] constexpr xte::string_view slice_view(xte::uz index, xte::uz size = -1uz) const noexcept {
 			return xte::string_view(*this).slice(index, size);
 		}
 
@@ -389,6 +389,40 @@ namespace xte {
 			this->push_string(XTE_FWD(rhs)),
 			*this
 		)
+
+		constexpr void replace(xte::string_view current, xte::string_view with) noexcept(false) {
+			xte::string result;
+			xte::uz start = 0;
+			while (true) {
+				auto rest = this->slice_view(start);
+				xte::uz next = rest.find(current);
+				result += rest.slice(0, next);
+				if (!~next) {
+					break;
+				}
+				result += with;
+				start += next + current.size();
+			}
+			*this = xte::as_xvalue(result);
+		}
+
+		constexpr void quote(char delim = '"', char escape = '\\') noexcept(false) {
+			if (delim != escape) {
+				this->replace(escape, xte::string { escape, escape });
+			}
+			this->replace(delim, xte::string { escape, delim });
+			*this = delim + xte::as_xvalue(*this) + delim;
+		}
+
+		constexpr void unquote(char delim = '"', char escape = '\\') noexcept(false) {
+			if ((this->size() > 1) && (this->front() == delim) && (this->back() == delim)) {
+				*this = this->slice_view(1, this->size() - 2);
+			}
+			if (delim != escape) {
+				this->replace(xte::string { escape, escape }, escape);
+			}
+			this->replace(xte::string { escape, delim }, delim);
+		}
 	};
 }
 
