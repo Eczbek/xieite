@@ -58,12 +58,12 @@ namespace xte {
 					return std::partial_ordering::unordered;
 				}
 			}
-			order_type sign_order = (0 < lhs) <=> (0 < rhs);
+			order_type sign_order = (rhs < 0) <=> (lhs < 0);
 			if (!std::is_eq(sign_order)) {
 				return sign_order;
 			}
 			if (order_type inf_order = xte::is_inf(lhs) <=> xte::is_inf(rhs); !std::is_eq(inf_order)) {
-				return (0 < lhs) ? inf_order : xte::flip_order(inf_order);
+				return (lhs < 0) ? xte::flip_order(inf_order) : inf_order;
 			}
 			static constexpr auto compare_int_float = [](xte::is_int auto lhs, xte::is_float auto rhs) noexcept -> order_type {
 				using unsigned_type = std::common_type_t<unsigned long long, std::make_unsigned_t<decltype(lhs)>>;
@@ -86,7 +86,7 @@ namespace xte {
 				if (order_type rest_order = !rhs_abs <=> !lhs_abs; !std::is_eq(rest_order)) {
 					order = rest_order;
 				}
-				return (0 < lhs) ? order : xte::flip_order(order);
+				return (lhs < 0) ? xte::flip_order(order) : order;
 			};
 			if constexpr (xte::is_int<lhs_type> && xte::is_float<rhs_type>) {
 				return compare_int_float(lhs, rhs);

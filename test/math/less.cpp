@@ -19,6 +19,8 @@ static_assert(xte::less(0, 1));
 static_assert(!xte::less(0, 0));
 static_assert(xte::less(-5, 5));
 static_assert(xte::less(-5, 5u));
+static_assert(xte::less(-1, 0u));
+static_assert(!xte::less(0u, -1));
 
 static_assert(xte::less(1, INFINITY));
 static_assert(xte::less(-1, INFINITY));
@@ -51,7 +53,9 @@ static_assert(!xte::less(LLONG_MIN, std::nextafter(LLONG_MIN, -INFINITY)));
 
 static_assert(xte::less(ULLONG_MAX, static_cast<double>(ULLONG_MAX)));
 
+static_assert(!xte::less(std::numeric_limits<double>::max(), 0));
 static_assert(!xte::less(std::numeric_limits<double>::max(), 1));
+static_assert(xte::less(0, 1.0));
 
 struct A {
 	int x;
