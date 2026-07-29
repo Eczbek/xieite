@@ -1,18 +1,19 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_PTR_DEPTH
 #	define DETAIL_XTE_HEADER_TRAIT_PTR_DEPTH
 #
-#	include "../trait/drop_ptr.hpp"
-#	include "../trait/is_ptr.hpp"
 #	include "../util/number_types.hpp"
+#	include <meta>
 
 namespace xte {
 	template<typename T>
-	constexpr xte::uz ptr_depth = ([]<typename U = T>(this auto self) -> xte::uz {
-		if constexpr (xte::is_ptr<U>) {
-			return 1 + self.template operator()<xte::drop_ptr<U>>();
-		} else {
-			return 0;
+	constexpr xte::uz ptr_depth = ([] {
+		auto type = std::meta::remove_reference(^^T);
+		xte::uz depth = 0;
+		while (std::meta::is_pointer_type(type)) {
+			type = std::meta::remove_pointer(type);
+			++depth;
 		}
+		return depth;
 	})();
 }
 
