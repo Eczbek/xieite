@@ -5,9 +5,9 @@
 #	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
 #	include "../io/eof.hpp"
+#	include "../io/file_mode.hpp"
 #	include "../preproc/platform.hpp"
 #	include "../sys/is_tty.hpp"
-#	include "../util/exchange.hpp"
 #	include "../util/number_types.hpp"
 #	include <cstdio>
 #	include <stdio.h>
@@ -16,28 +16,23 @@
 namespace xte {
 	struct file {
 	public:
-		enum struct mode : xte::uz {
-			none = 0b0000,
-			read = 0b0001,
-			write = 0b0010,
-			overwrite = 0b0110,
-			append = 0b1000,
-			read_write = 0b0011,
-			read_overwrite = 0b0111,
-			read_append = 0b1001
-		};
-
 		[[nodiscard]] explicit(false) file() noexcept = default;
 
-		[[nodiscard]] file(std::FILE* stream, xte::file::mode mode) noexcept
+		[[nodiscard]] file(std::FILE* stream, xte::file_mode mode) noexcept
 		: _stream(stream), _mode(mode) {}
 
-		[[nodiscard]] file(xte::string_view path, xte::file::mode mode) noexcept(false) {
+		[[nodiscard]] file(xte::string_view path, xte::file_mode mode) noexcept(false) {
 			this->open(path, mode);
 		}
 
 		~file() {
 			this->close();
+		}
+
+		xte::file& operator=(xte::file&& other) noexcept {
+			this->_stream = other._stream.release();
+			this->_mode = other._mode;
+			return *this;
 		}
 
 		[[nodiscard]] explicit(false) operator std::FILE*() const noexcept {
@@ -49,31 +44,12 @@ namespace xte {
 		}
 
 		[[nodiscard]] std::FILE* release() noexcept {
-			return xte::exchange(this->_stream, nullptr).release();
+			return this->_stream.release();
 		}
 
-		bool open(xte::string_view path, xte::file::mode mode) noexcept(false) {
+		bool open(xte::string_view path, xte::file_mode mode) noexcept(false) {
 			this->_mode = mode;
-			return !!(this->_stream = std::fopen(xte::string(path).data(), ([mode] {
-				switch (mode) {
-					case xte::file::mode::read:
-						return "r";
-					case xte::file::mode::write:
-						return "wx";
-					case xte::file::mode::overwrite:
-						return "w";
-					case xte::file::mode::append:
-						return "a";
-					case xte::file::mode::read_write:
-						return "r+";
-					case xte::file::mode::read_overwrite:
-						return "wx+";
-					case xte::file::mode::read_append:
-						return "a+";
-					default:
-						std::unreachable();
-				}
-			})()));
+			return !!(this->_stream = std::fopen(xte::string(path).data(), mode));
 		}
 
 		bool close() noexcept {
@@ -82,24 +58,24 @@ namespace xte {
 				: !!this->release();
 		}
 
-		bool reopen(xte::string_view path, xte::file::mode mode) noexcept(false) {
+		bool reopen(xte::string_view path, xte::file_mode mode) noexcept(false) {
 			return this->close() && this->open(path, mode);
 		}
 
 		[[nodiscard]] bool is_readable() const noexcept {
-			return *this && (std::to_underlying(this->_mode) & 0b0001);
+			return *this && (this->_mode & xte::file_mode::read);
 		}
 
 		[[nodiscard]] bool is_writable() const noexcept {
-			return *this && (std::to_underlying(this->_mode) & 0b0010);
+			return *this && (this->_mode & xte::file_mode::write);
 		}
 
 		[[nodiscard]] bool is_overwritable() const noexcept {
-			return *this && (std::to_underlying(this->_mode) & 0b0100);
+			return *this && (this->_mode & xte::file_mode::overwrite);
 		}
 
 		[[nodiscard]] bool is_appendable() const noexcept {
-			return *this && (std::to_underlying(this->_mode) & 0b1000);
+			return *this && (this->_mode & xte::file_mode::append);
 		}
 
 		bool write(xte::string_view content) const noexcept {
@@ -148,7 +124,7 @@ namespace xte {
 
 	private:
 		xte::ptr<std::FILE> _stream;
-		xte::file::mode _mode = xte::file::mode::none;
+		xte::file_mode _mode = xte::file_mode::none;
 	};
 }
 
