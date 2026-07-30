@@ -406,22 +406,23 @@ namespace xte {
 			*this = xte::as_xvalue(result);
 		}
 
-		constexpr void quote(char delim = '"', char escape = '\\') noexcept(false) {
+		[[nodiscard]] constexpr xte::string quoted(this auto quoted, char delim = '"', char escape = '\\') noexcept(false) {
 			if (delim != escape) {
-				this->replace(escape, xte::string { escape, escape });
+				quoted.replace(escape, xte::string { escape, escape });
 			}
-			this->replace(delim, xte::string { escape, delim });
-			*this = delim + xte::as_xvalue(*this) + delim;
+			quoted.replace(delim, xte::string { escape, delim });
+			return delim + xte::as_xvalue(quoted) + delim;
 		}
 
-		constexpr void unquote(char delim = '"', char escape = '\\') noexcept(false) {
-			if ((this->size() > 1) && (this->front() == delim) && (this->back() == delim)) {
-				*this = this->slice_view(1, this->size() - 2);
+		[[nodiscard]] constexpr xte::string unquoted(this auto unquoted, char delim = '"', char escape = '\\') noexcept(false) {
+			if ((unquoted.size() > 1) && (unquoted.front() == delim) && (unquoted.back() == delim)) {
+				unquoted = unquoted.slice_view(1, unquoted.size() - 2);
 			}
 			if (delim != escape) {
-				this->replace(xte::string { escape, escape }, escape);
+				unquoted.replace(xte::string { escape, escape }, escape);
 			}
-			this->replace(xte::string { escape, delim }, delim);
+			unquoted.replace(xte::string { escape, delim }, delim);
+			return unquoted;
 		}
 	};
 }
