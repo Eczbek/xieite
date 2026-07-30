@@ -9,8 +9,11 @@
 
 namespace xte {
 	inline xte::define_struct<{ ^^xte::string, "output" }, { ^^int, "status" }> exec(xte::string_view command) noexcept(false) {
-		auto pipe = xte::file_pipe(command, xte::file_mode::read);
-		return { pipe.read(), pipe.close() };
+		if (auto pipe = xte::file_pipe(command, xte::file_mode::read)) {
+			return { pipe.read(), pipe.close() };
+		} else {
+			return { "", pipe.close() };
+		}
 	}
 }
 
