@@ -303,10 +303,9 @@ namespace xte {
 					xte::construct(this->_data[this->_size++], xte::make<T>(XTE_FWD(arg), XTE_FWD(args)...));
 					return;
 				}
-			} else {
-				this->reserve();
 			}
 			auto tmp = xte::make<T>(XTE_FWD(arg), XTE_FWD(args)...);
+			this->reserve(this->_size == this->_capacity);
 			if (index >= this->_size) {
 				xte::construct(this->_data[this->_size++], std::move_if_noexcept(tmp));
 				return;
@@ -364,7 +363,7 @@ namespace xte {
 		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false) {
 			index = xte::min(index, this->_size);
 			this->reserve_total(this->_size + count);
-			for (xte::uz i = count; i-- && ((this->_size - count + i) >= index);) {
+			for (xte::uz i = count; i-- && ((this->_size + i) >= (index + count));) {
 				xte::construct(this->_data[this->_size + i], std::move_if_noexcept(this->_data[this->_size - count + i]));
 			}
 			for (xte::uz i = this->_size; i-- && (i >= (index + count));) {
