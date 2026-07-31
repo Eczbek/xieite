@@ -25,6 +25,9 @@ static_assert(xte::parse_number<int>("123abc") == 123);
 #if XTE_FEATURE_INT_8
 static_assert(xte::parse_number<xte::u8>("256") == 0);
 static_assert(xte::parse_number<xte::u8>("256", 10, {}, false) == 25);
+static_assert(xte::parse_number<xte::i8>("128") == -128);
+static_assert(xte::parse_number<xte::i8>("-128") == -128);
+static_assert(xte::parse_number<xte::i8>("-129", 10, {}, false) == -12);
 #endif
 static_assert(xte::parse_number<unsigned>("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16) == -1u);
 static_assert(xte::parse_number<int>("190", -10) == 10);

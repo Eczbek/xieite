@@ -5,6 +5,7 @@
 #	include "../math/abs.hpp"
 #	include "../math/add_checked.hpp"
 #	include "../math/approx_equal.hpp"
+#	include "../math/as_unsigned.hpp"
 #	include "../math/is_finite.hpp"
 #	include "../math/max.hpp"
 #	include "../math/mul_checked.hpp"
@@ -32,24 +33,24 @@ namespace DETAIL_XTE::parse_number {
 			bool radix_is_whole = xte::approx_equal(abs_radix, xte::make<xte::uz>(abs_radix));
 			xte::string_view digits = config.digits.slice(0, xte::max(2, xte::make<xte::uz>(abs_radix) + !radix_is_whole));
 			auto parse_int = [&, radix = radix_is_whole ? radix : xte::make<T>(abs_radix)] -> T {
-				T value = 0;
+				xte::try_unsigned<T> value = 0;
 				bool neg = config.minus.contains(string[result.index]);
 				for (xte::uz i = result.index + (neg || config.plus.contains(string[result.index])); i < string.size(); result.index = ++i) {
 					if (xte::uz digit = digits.find(string[i]); ~digit) {
 						if (allow_overflow) {
-							value = xte::add(xte::mul(value, radix), xte::make<T>(digit));
+							value = xte::as_unsigned(xte::add(xte::mul(static_cast<T>(value), radix), xte::make<T>(digit)));
 							continue;
 						}
-						if (auto prod = xte::mul_checked(value, radix)) {
-							if (auto sum = xte::add_checked(*prod, xte::make<T>(digit + neg))) {
-								value = *sum - neg;
+						if (auto prod = xte::mul_checked(static_cast<T>(value), radix)) {
+							if (auto sum = xte::add_checked(*prod, xte::make<T>(digit + !neg))) {
+								value = xte::as_unsigned(*sum) - !neg;
 								continue;
 							}
 						}
 					}
 					break;
 				}
-				return neg ? -value : value;
+				return static_cast<T>(neg ? -value : value);
 			};
 			result.value = parse_int();
 			if constexpr (xte::is_float<T>) {
