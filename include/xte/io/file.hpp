@@ -48,6 +48,9 @@ namespace xte {
 		}
 
 		bool open(xte::string_view path, xte::file_mode mode) noexcept(false) {
+			if (*this) {
+				return false;
+			}
 			this->_mode = mode;
 			return !!(this->_stream = std::fopen(xte::string(path).data(), mode));
 		}
