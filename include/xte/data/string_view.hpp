@@ -38,7 +38,7 @@ namespace xte {
 		[[nodiscard]] explicit(false) constexpr string_view(const char& c) noexcept
 		: _data(&c), _size(1) {}
 
-		[[nodiscard]] explicit constexpr string_view(xte::is_noex_implicit_castable<const char*> auto&& range) noexcept
+		[[nodiscard]] explicit constexpr string_view(const xte::is_noex_implicit_castable<const char*> auto& range) noexcept
 		: _data(range) {
 			if (const char* copy = this->_data) {
 				while (*copy++) {
@@ -121,7 +121,7 @@ namespace xte {
 			return this->_data[this->_size - index - 1];
 		}
 
-		[[nodiscard]] constexpr char operator[](xte::uz index) const noexcept {
+		[[nodiscard]] constexpr const char& operator[](xte::uz index) const noexcept {
 			return this->_data[index];
 		}
 
@@ -150,7 +150,7 @@ namespace xte {
 
 		[[nodiscard]] constexpr xte::uz find_last(xte::string_view substr) const noexcept {
 			if (substr._size <= this->_size) {
-				for (xte::uz i = this->_size; i-- >= substr._size;) {
+				for (xte::uz i = this->_size - substr._size; i--;) {
 					xte::uz j = 0;
 					while ((j < substr._size) && (substr.back(j) == this->_data[i + j])) {
 						++j;
@@ -207,8 +207,8 @@ namespace xte {
 			return this->slice(0, this->find_last(substr));
 		}
 
-		[[nodiscard]] constexpr xte::string_view between(xte::string_view substr_start, xte::string_view substr_end) const noexcept {
-			return this->after(substr_start).before(substr_end);
+		[[nodiscard]] constexpr xte::string_view between(xte::string_view start, xte::string_view end) const noexcept {
+			return this->after(start).before(end);
 		}
 
 		[[nodiscard]] constexpr xte::string_view between(xte::string_view substr) const noexcept {
