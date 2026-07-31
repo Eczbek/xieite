@@ -146,10 +146,6 @@ namespace DETAIL_XTE::eval {
 			}
 		}
 
-		constexpr data_type& operator=(const data_type& other) noexcept(false) {
-			return (this == xte::address(other)) ? *this : xte::reconstruct(*this, other);
-		}
-
 		constexpr data_type& operator=(data_type&& other) noexcept {
 			return (this == xte::address(other)) ? *this : xte::reconstruct(*this, xte::as_xvalue(other));
 		}
@@ -661,7 +657,7 @@ namespace xte {
 					if (match("&&")) {
 						DETAIL_XTE::eval::data_type rhs = comparison();
 						if (result) {
-							result = rhs;
+							result = xte::as_xvalue(rhs);
 						}
 					} else {
 						break;
@@ -676,7 +672,7 @@ namespace xte {
 					if (match("||")) {
 						DETAIL_XTE::eval::data_type rhs = logic_and();
 						if (!result) {
-							result = rhs;
+							result = xte::as_xvalue(rhs);
 						}
 					} else {
 						break;
