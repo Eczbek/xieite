@@ -45,7 +45,10 @@ namespace xte {
 		))
 
 		[[nodiscard]] explicit(false) constexpr opt(xte::opt<T>&& other) XTE_CONSTRUCTS((
-			other._has_value ? void(xte::construct(this->_value, xte::as_xvalue(other)._value)) : void(),
+			other._has_value ? (
+				xte::construct(this->_value, xte::as_xvalue(other)._value),
+				xte::destroy(other._value)
+			) : void(),
 			this->_has_value = xte::exchange(other._has_value, false)
 		))
 
