@@ -12,24 +12,6 @@ namespace xte {
 
 	template<typename return_type, typename... arg_types, bool noex_spec>
 	struct func<return_type(arg_types...) noexcept(noex_spec)> {
-	public:
-		[[nodiscard]] explicit(false) constexpr func() noexcept = default;
-
-		[[nodiscard]] explicit(false) constexpr func(const xte::func<return_type(arg_types...) noexcept(noex_spec)>& other) noexcept(false)
-		: data(other.data->clone()) {}
-
-		[[nodiscard]] explicit(false) constexpr func(auto&& func) XTE_CONSTRUCTS(,
-			data,((xte::ptr<xte::func<return_type(arg_types...) noexcept(noex_spec)>::derived<xte::drop_ref<decltype(func)>>>::make_noex(XTE_FWD(func))))
-		)
-
-		[[nodiscard]] explicit constexpr operator bool() const noexcept {
-			return !!this->data;
-		}
-
-		[[nodiscard]] constexpr return_type operator()(arg_types... args) const noexcept(noex_spec) {
-			return (*this->data)(XTE_FWD(args)...);
-		}
-
 	private:
 		struct base {
 			virtual constexpr ~base() = default;
@@ -57,6 +39,24 @@ namespace xte {
 		};
 
 		xte::ptr<xte::func<return_type(arg_types...) noexcept(noex_spec)>::base> data;
+
+	public:
+		[[nodiscard]] explicit(false) constexpr func() noexcept = default;
+
+		[[nodiscard]] explicit(false) constexpr func(const xte::func<return_type(arg_types...) noexcept(noex_spec)>& other) noexcept(false)
+		: data(other.data->clone()) {}
+
+		[[nodiscard]] explicit(false) constexpr func(auto&& func) XTE_CONSTRUCTS(,
+			data,((xte::ptr<xte::func<return_type(arg_types...) noexcept(noex_spec)>::derived<xte::drop_ref<decltype(func)>>>::make_noex(XTE_FWD(func))))
+		)
+
+		[[nodiscard]] explicit constexpr operator bool() const noexcept {
+			return !!this->data;
+		}
+
+		[[nodiscard]] constexpr return_type operator()(arg_types... args) const noexcept(noex_spec) {
+			return (*this->data)(XTE_FWD(args)...);
+		}
 	};
 }
 
