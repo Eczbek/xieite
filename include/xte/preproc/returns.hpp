@@ -11,15 +11,15 @@
 		requires(requires { __VA_ARGS__; })) \
 		{ __VA_OPT__(return (__VA_ARGS__);) }
 #	define XTE_RETURNS_IF(COND, THEN, ...) \
-		noexcept((!static_cast<bool>(COND) || noexcept(THEN)) __VA_OPT__(&& noexcept(__VA_ARGS__))) \
+		noexcept(([] { if constexpr (COND) if constexpr (!noexcept(THEN)) return false; return true __VA_OPT__(&& noexcept(__VA_ARGS__)); })()) \
 		-> decltype(auto) \
-		requires((!static_cast<bool>(COND) || requires { THEN; }) __VA_OPT__(&& requires { __VA_ARGS__; })) \
-		{ if constexpr (static_cast<bool>(COND)) { THEN; } __VA_OPT__(return (__VA_ARGS__);) }
+		requires(([] { if constexpr (COND) if constexpr (!requires { THEN; }) return false; return true __VA_OPT__(&& requires { __VA_ARGS__; }); })()) \
+		{ if constexpr (COND) { THEN; } __VA_OPT__(return (__VA_ARGS__);) }
 #	define XTE_RETURNS_CHOOSE(COND, THEN, ...) \
-		noexcept((static_cast<bool>(COND) && noexcept(THEN)) __VA_OPT__(|| (!static_cast<bool>(COND) && noexcept(__VA_ARGS__)))) \
+		noexcept(([] { if constexpr (COND) return noexcept(THEN); else return true __VA_OPT__(&& noexcept(__VA_ARGS__)); })()) \
 		-> decltype(auto) \
-		requires((static_cast<bool>(COND) && requires { THEN; }) __VA_OPT__(|| (!static_cast<bool>(COND) && requires { __VA_ARGS__; }))) \
-		{ if constexpr (static_cast<bool>(COND)) { return (THEN); } __VA_OPT__(else { return (__VA_ARGS__); }) }
+		requires(([] { if constexpr (COND) return requires { THEN; }; else return true __VA_OPT__(&& requires { __VA_ARGS__; }); })()) \
+		{ if constexpr (COND) return (THEN); __VA_OPT__(else return (__VA_ARGS__);) }
 #	define XTE_RETURNS_FIRST(...) \
 		noexcept(XTE_EACH_DELIM(DETAIL_XTE_RETURNS_FIRST_NOEX, ||, __VA_ARGS__)) \
 		-> decltype(auto) \
