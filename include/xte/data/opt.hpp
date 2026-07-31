@@ -92,7 +92,7 @@ namespace xte {
 			}
 		}
 
-		constexpr auto reset(auto&&... args) & XTE_RETURNS(
+		constexpr auto replace(auto&&... args) & XTE_RETURNS(
 			this->reset(),
 			xte::construct(this->_value, XTE_FWD(args)...),
 			void(this->_has_value = true)
