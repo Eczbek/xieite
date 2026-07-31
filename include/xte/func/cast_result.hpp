@@ -14,7 +14,7 @@ namespace DETAIL_XTE::cast_result {
 			func,((XTE_FWD(func)))
 		)
 
-		XTE_DEFINE_CAST([[nodiscard]] constexpr, auto&& self,
+		XTE_DEFINE_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
 			XTE_FWD(self).func()
 		)
 	};
