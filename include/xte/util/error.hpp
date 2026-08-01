@@ -6,12 +6,14 @@
 #	include <meta>
 
 namespace xte {
-	struct [[nodiscard]] error : std::exception, xte::string_view {
-		consteval error(xte::string_view message) noexcept
-		: xte::string_view(std::define_static_string(message)) {}
+	template<xte::string_view message>
+	struct [[nodiscard]] error : std::exception {
+	private:
+		static constexpr const char* _data = std::define_static_string(message);
 
+	public:
 		virtual constexpr const char* what() const noexcept override {
-			return this->data();
+			return message.data();
 		}
 	};
 }

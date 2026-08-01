@@ -261,7 +261,7 @@ namespace xte {
 			}
 			if (exp < 0) {
 				if (!base) {
-					throw xte::error("power of zero to negative exponent");
+					throw xte::error<"power of zero to negative exponent">();
 				}
 				return 0;
 			}
@@ -292,7 +292,7 @@ namespace xte {
 		constexpr big_int(T x = 0) noexcept(false)
 		: _neg(x < 0) {
 			if (!xte::is_finite(x)) {
-				throw xte::error("value is not finite");
+				throw xte::error<"value is not finite">();
 			}
 			auto abs = xte::number(xte::abs(x));
 			do {
@@ -455,7 +455,7 @@ namespace xte {
 
 		constexpr xte::big_int& operator/=(const xte::big_int& rhs) & noexcept(false) {
 			if (!rhs) {
-				throw xte::error("division by zero");
+				throw xte::error<"division by zero">();
 			}
 			if ((this->_data.size() < 3) && (rhs._data.size() < 3)) {
 				auto [lo, hi] = xte::wide_uint<xte::umax>(this->_data[0], (this->_data.size() > 1) ? this->_data[1] : 0) / xte::wide_uint<xte::umax>(rhs._data[0], (rhs._data.size() > 1) ? rhs._data[1] : 0);
@@ -482,7 +482,7 @@ namespace xte {
 
 		constexpr xte::big_int& operator%=(const xte::big_int& rhs) & noexcept(false) {
 			if (!rhs) {
-				throw xte::error("remainder of division by zero");
+				throw xte::error<"remainder of division by zero">();
 			}
 			if (!*this || (this->_data == rhs._data)) {
 				return *this = 0;
@@ -560,10 +560,10 @@ namespace xte {
 
 		[[nodiscard]] constexpr xte::big_int root(const xte::big_int& degree) const noexcept(false) {
 			if (this->_neg) {
-				throw xte::error("root of negative radicand");
+				throw xte::error<"root of negative radicand">();
 			}
 			if (!degree) {
-				throw xte::error("root of zeroth degree");
+				throw xte::error<"root of zeroth degree">();
 			}
 			if (*this == 1) {
 				return *this;
@@ -587,13 +587,13 @@ namespace xte {
 				return 0;
 			}
 			if (this->_neg) {
-				throw xte::error("logarithm of negative anti-logarithm");
+				throw xte::error<"logarithm of negative anti-logarithm">();
 			}
 			if (base == 1) {
-				throw xte::error("logarithm to unary base");
+				throw xte::error<"logarithm to unary base">();
 			}
 			if (base._neg) {
-				throw xte::error("logarithm to negative base");
+				throw xte::error<"logarithm to negative base">();
 			}
 			if (auto order = *this <=> base; std::is_lteq(order)) {
 				return +std::is_eq(order);
@@ -678,7 +678,7 @@ namespace xte::literal::big_int {
 			}
 			xte::uz index = xte::string_view("0123456789ABCDEF").slice(0, radix).find(xte::uppercase(digit));
 			if (!~index) {
-				throw xte::error("digit outside radix");
+				throw xte::error<"digit outside radix">();
 			}
 			(result *= radix) += index;
 		}
