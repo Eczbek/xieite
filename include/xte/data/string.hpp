@@ -82,7 +82,7 @@ namespace xte {
 				this->_data.push();
 				return;
 			}
-			while ((this->_data.size() > 1) && !this->_data.back(1)) {
+			if ((this->_data.size() > 1) && !this->_data.back(1)) {
 				this->_data.pop();
 			}
 		}
@@ -92,7 +92,9 @@ namespace xte {
 		: xte::string(data, size) {}
 
 		[[nodiscard]] explicit(false) constexpr string(xte::uz size, char c = '\0') noexcept(false)
-		: _data(size, c) {}
+		: _data(size, c) {
+			this->_data.push();
+		}
 
 		constexpr xte::string& operator=(const xte::string& other) & noexcept(false) {
 			this->_data = other._data;
@@ -170,12 +172,12 @@ namespace xte {
 			return XTE_FWD(self)._data[index];
 		}
 
-		[[nodiscard]] constexpr xte::string slice(xte::uz index, xte::uz size = -1uz) const noexcept(false) {
-			return (index < this->size()) ? xte::string(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : "";
+		[[nodiscard]] constexpr xte::string_view subview(xte::uz index, xte::uz size = -1uz) const noexcept {
+			return xte::string_view(*this).subview(index, size);
 		}
 
-		[[nodiscard]] constexpr xte::string_view slice_view(xte::uz index, xte::uz size = -1uz) const noexcept {
-			return xte::string_view(*this).slice(index, size);
+		[[nodiscard]] constexpr xte::string substr(xte::uz index, xte::uz size = -1uz) const noexcept(false) {
+			return (index < this->size()) ? xte::string(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : "";
 		}
 
 		[[nodiscard]] constexpr bool contains(xte::string_view substr) const noexcept {
@@ -321,11 +323,9 @@ namespace xte {
 			xte::uz old_size = this->size();
 			this->insert_range(index, XTE_FWD(range));
 			xte::uz range_size = this->size() - old_size;
-			xte::uz i = range_size;
-			while (i && !this->_data[index + i - 1]) {
-				--i;
+			if (range_size && !this->_data[index + range_size - 1]) {
+				this->erase(index + range_size - 1);
 			}
-			this->erase(index + i, range_size - i);
 		}
 
 		constexpr void insert_count(xte::uz index, xte::uz count, char c) & noexcept(false) {
@@ -394,9 +394,9 @@ namespace xte {
 			xte::string result;
 			xte::uz start = 0;
 			while (true) {
-				auto rest = this->slice_view(start);
+				auto rest = this->subview(start);
 				xte::uz next = rest.find(current);
-				result += rest.slice(0, next);
+				result += rest.subview(0, next);
 				if (!~next) {
 					break;
 				}
@@ -416,7 +416,7 @@ namespace xte {
 
 		[[nodiscard]] constexpr xte::string unquoted(this auto unquoted, char delim = '"', char escape = '\\') noexcept(false) {
 			if ((unquoted.size() > 1) && (unquoted.front() == delim) && (unquoted.back() == delim)) {
-				unquoted = unquoted.slice_view(1, unquoted.size() - 2);
+				unquoted = unquoted.subview(1, unquoted.size() - 2);
 			}
 			if (delim != escape) {
 				unquoted.replace(xte::string { escape, escape }, escape);

@@ -30,6 +30,7 @@
 #	include "../trait/is_int.hpp"
 #	include "../trait/is_same.hpp"
 #	include "../trait/is_unsigned.hpp"
+#	include "../util/address.hpp"
 #	include "../util/as_xvalue.hpp"
 #	include "../util/error.hpp"
 #	include "../util/exchange.hpp"
@@ -75,6 +76,9 @@ namespace xte {
 			if (!*this) {
 				return *this = XTE_FWD(rhs);
 			}
+			if (this == xte::address(rhs)) {
+				return *this <<= 1;
+			}
 			if (this->_neg != rhs._neg) {
 				return *this -= -XTE_FWD(rhs);
 			}
@@ -98,6 +102,9 @@ namespace xte {
 		[[nodiscard]] constexpr xte::big_int& _sub(auto&& rhs) {
 			if (!*this) {
 				return *this = -XTE_FWD(rhs);
+			}
+			if (this == xte::address(rhs)) {
+				return *this = 0;
 			}
 			if (this->_neg != rhs._neg) {
 				return *this += -XTE_FWD(rhs);
@@ -128,11 +135,13 @@ namespace xte {
 			bool same_sign = this->_neg == rhs._neg;
 			do {
 				if (rhs._is_single_bit()) {
-					this->_data.insert_count(0, rhs._data.size() - 1, 0);
-					*this <<= xte::digits(rhs._data.back(), 2) - 1;
+					xte::uz shift_digits = rhs._data.size() - 1;
+					xte::uz shift_bits = xte::digits(rhs._data.back(), 2) - 1;
+					this->_data.insert_count(0, shift_digits, 0);
+					*this <<= shift_bits;
 					break;
 				}
-				xte::big_int copy = XTE_FWD(rhs).abs();
+				xte::big_int copy = (this == xte::address(rhs)) ? rhs.abs() : auto(XTE_FWD(rhs).abs());
 				if (this->_is_single_bit()) {
 					copy._data.insert_count(0, this->_data.size() - 1, 0);
 					copy <<= xte::digits(this->_data.back(), 2) - 1;
@@ -149,9 +158,9 @@ namespace xte {
 				}
 				this->_neg = false;
 				xte::uz half_size = xte::max(this->_data.size(), copy._data.size()) / 2;
-				auto lhs_hi = xte::big_int(std::from_range, this->_data.slice(half_size));
+				auto lhs_hi = xte::big_int(std::from_range, this->_data.subrange(half_size));
 				this->_data.erase(half_size, -1uz);
-				auto rhs_hi = xte::big_int(std::from_range, copy._data.slice(half_size));
+				auto rhs_hi = xte::big_int(std::from_range, copy._data.subrange(half_size));
 				copy._data.erase(half_size, -1uz);
 				xte::big_int prod0 = *this * copy;
 				xte::big_int prod1 = lhs_hi * rhs_hi;
@@ -611,7 +620,10 @@ namespace xte {
 			template<xte::is_int radix_type = xte::uz>
 			[[nodiscard]] static constexpr auto with_index(xte::string_view string, radix_type radix = 10, const xte::number_format_config& config = {}) noexcept(false) {
 				struct { xte::big_int value = 0; xte::uz index = 0; } result;
-				xte::string_view digits = config.digits.slice(0, xte::max(2, static_cast<xte::uz>(xte::abs(radix))));
+				if (!string.size() || !radix) {
+					return result;
+				}
+				xte::string_view digits = config.digits.subview(0, xte::max(2, static_cast<xte::uz>(xte::abs(radix))));
 				bool neg = config.minus.contains(string[0]);
 				for (xte::uz i = neg || config.plus.contains(string[0]); i < string.size(); result.index = ++i) {
 					if (xte::uz digit = digits.find(string[i]); ~digit) {
@@ -676,7 +688,7 @@ namespace xte::literal::big_int {
 			if (digit == '\'') {
 				continue;
 			}
-			xte::uz index = xte::string_view("0123456789ABCDEF").slice(0, radix).find(xte::uppercase(digit));
+			xte::uz index = xte::string_view("0123456789ABCDEF").subview(0, radix).find(xte::uppercase(digit));
 			if (!~index) {
 				throw xte::error<"digit outside radix">();
 			}

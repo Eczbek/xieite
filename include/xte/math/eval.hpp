@@ -208,7 +208,7 @@ namespace xte {
 		};
 		xte::uz pos = 0;
 		auto match = [&](xte::string_view lexeme) -> bool {
-			while (input.slice(pos, lexeme.size()) == lexeme) {
+			while (input.subview(pos, lexeme.size()) == lexeme) {
 				pos += lexeme.size();
 				return true;
 			}
@@ -235,14 +235,14 @@ namespace xte {
 					return result;
 				}
 				xte::uz start = pos;
-				auto [whole, index] = xte::parse_number<DETAIL_XTE::eval::unsigned_type>.with_index(input.slice(pos), 10, {}, false);
+				auto [whole, index] = xte::parse_number<DETAIL_XTE::eval::unsigned_type>.with_index(input.subview(pos), 10, {}, false);
 				DETAIL_XTE::eval::data_type result = whole;
 				pos += index;
 				if (pos >= input.size()) {
 					return result;
 				}
 				if ((input[pos] >= '0') && (input[pos] <= '9')) {
-					auto [whole, index] = xte::big_int::parse.with_index(input.slice(start));
+					auto [whole, index] = xte::big_int::parse.with_index(input.subview(start));
 					result = xte::as_xvalue(whole);
 					pos = start + index;
 				}
@@ -250,11 +250,11 @@ namespace xte {
 					if (!xte::number_format_config().exp.contains(input[pos])) {
 						return result;
 					}
-					auto [fraction, index] = xte::parse_number<DETAIL_XTE::eval::float_type>.with_index(input.slice(start));
+					auto [fraction, index] = xte::parse_number<DETAIL_XTE::eval::float_type>.with_index(input.subview(start));
 					result = fraction;
 					pos = start + index;
 				} else {
-					auto [fraction, index] = xte::parse_number<DETAIL_XTE::eval::float_type>.with_index(input.slice(pos));
+					auto [fraction, index] = xte::parse_number<DETAIL_XTE::eval::float_type>.with_index(input.subview(pos));
 					result = static_cast<DETAIL_XTE::eval::float_type>(result) + fraction;
 					pos += index;
 				}
@@ -270,7 +270,7 @@ namespace xte {
 				}
 				xte::uz tmp = pos;
 				while ((++pos < input.size()) && (((input[pos] >= '0') && (input[pos] <= '9')) || is_word(input[pos])));
-				return input.slice(tmp, pos - tmp);
+				return input.subview(tmp, pos - tmp);
 			};
 			auto function = [&] -> DETAIL_XTE::eval::data_type {
 				xte::uz start = pos;
@@ -360,7 +360,7 @@ namespace xte {
 								throw error(pos, "expected at least one argument");
 							}
 						} else if (args.size() != func.args) {
-							throw error(pos, "expected " + xte::stringify_number(func.args) + " arguments, found " + xte::stringify_number(args.size()));
+							throw error(pos, "expected " + xte::stringify_number(func.args) + " argument(s), found " + xte::stringify_number(args.size()));
 						}
 						return func.ptr(xte::as_xvalue(args));
 					}

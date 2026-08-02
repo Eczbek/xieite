@@ -31,8 +31,8 @@ namespace DETAIL_XTE::parse_number {
 			}
 			auto abs_radix = xte::abs(radix);
 			bool radix_is_whole = xte::approx_equal(abs_radix, xte::make<xte::uz>(abs_radix));
-			xte::string_view digits = config.digits.slice(0, xte::max(2, xte::make<xte::uz>(abs_radix) + !radix_is_whole));
-			auto parse_int = [&, radix = radix_is_whole ? radix : xte::make<T>(abs_radix)] -> T {
+			xte::string_view digits = config.digits.subview(0, xte::max(2, xte::make<xte::uz>(abs_radix) + !radix_is_whole));
+			auto parse_int = [&, radix = (radix_is_whole ? radix : xte::make<T>(abs_radix))] -> T {
 				xte::try_unsigned<T> value = 0;
 				bool neg = config.minus.contains(string[result.index]);
 				for (xte::uz i = result.index + (neg || config.plus.contains(string[result.index])); i < string.size(); result.index = ++i) {
@@ -65,7 +65,8 @@ namespace DETAIL_XTE::parse_number {
 						result.value += xte::make<T>(digit) * (pow /= radix);
 					}
 				}
-				if (result.index += config.exp.contains(string[result.index])) {
+				if (((result.index + 1) < string.size()) && config.exp.contains(string[result.index]) && (digits.contains(string[result.index + 1]) || ((result.index + 2 < string.size()) && (config.minus.contains(string[result.index + 1]) || config.plus.contains(string[result.index + 1])) && digits.contains(string[result.index + 2])))) {
+					++result.index;
 					result.value *= xte::pow(radix, parse_int());
 				}
 			}

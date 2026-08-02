@@ -103,8 +103,8 @@ static_assert(xte::string("abc").back(1) == 'b');
 static_assert(xte::string("abc").back(2) == 'a');
 static_assert(xte::string("abc").back(-1uz) == '\0');
 
-static_assert(xte::string("abcdef").slice(1, 4) == "bcde");
-static_assert(xte::string("abcdef").slice(0, -1uz) == "abcdef");
+static_assert(xte::string("abcdef").substr(1, 4) == "bcde");
+static_assert(xte::string("abcdef").substr(0, -1uz) == "abcdef");
 
 static_assert(xte::string("abc") == "abc");
 static_assert(xte::string("abc") != "xyz");

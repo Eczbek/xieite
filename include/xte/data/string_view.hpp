@@ -49,7 +49,7 @@ namespace xte {
 
 		[[nodiscard]] constexpr string_view(const char* data, xte::uz size) noexcept
 		: _data(data), _size(size) {
-			while (this->_size && !this->back()) {
+			if (this->_size && !this->back()) {
 				--this->_size;
 			}
 		}
@@ -125,7 +125,7 @@ namespace xte {
 			return this->_data[index];
 		}
 
-		[[nodiscard]] constexpr xte::string_view slice(xte::uz index, xte::uz size = -1uz) const noexcept {
+		[[nodiscard]] constexpr xte::string_view subview(xte::uz index, xte::uz size = -1uz) const noexcept {
 			return (index < this->_size) ? xte::string_view(this->_data + index, xte::min(this->_size - index, size)) : "";
 		}
 
@@ -200,11 +200,11 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::string_view after(xte::string_view substr) const noexcept {
-			return this->slice(this->find(substr)).slice(substr._size);
+			return this->subview(this->find(substr)).subview(substr._size);
 		}
 
 		[[nodiscard]] constexpr xte::string_view before(xte::string_view substr) const noexcept {
-			return this->slice(0, this->find_last(substr));
+			return this->subview(0, this->find_last(substr));
 		}
 
 		[[nodiscard]] constexpr xte::string_view between(xte::string_view start, xte::string_view end) const noexcept {
@@ -216,12 +216,12 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr xte::string_view after_any_of(xte::string_view chars) const noexcept {
-			return this->slice(this->find_not_of(chars));
+			return this->subview(this->find_not_of(chars));
 		}
 
 		[[nodiscard]] constexpr xte::string_view before_any_of(xte::string_view chars) const noexcept {
 			xte::uz last = this->find_last_not_of(chars);
-			return this->slice(0, last + !!~last);
+			return this->subview(0, last + !!~last);
 		}
 
 		[[nodiscard]] constexpr xte::string_view between_any_of(xte::string_view chars_start, xte::string_view chars_end) const noexcept {

@@ -39,6 +39,7 @@ static_assert(xte::approx_equal(xte::parse_number<double>("1."), 1.0));
 static_assert(xte::approx_equal(xte::parse_number<double>("123.456e78"), 123.456e78));
 static_assert(xte::approx_equal(xte::parse_number<double>("123.456e+78"), 123.456e78));
 static_assert(xte::approx_equal(xte::parse_number<double>("123.456e-78"), 123.456e-78));
+static_assert(xte::approx_equal(xte::parse_number<double>("123.456e"), 123.456));
 static_assert(xte::approx_equal(xte::parse_number<double>("FF.FF", 16), 255.0 + 255.0 / 256.0));
 static_assert(xte::approx_equal(xte::parse_number<double>("10", 2.5), 2.5));
 static_assert(xte::approx_equal(xte::parse_number<double>("11", 2.5), 3.5));

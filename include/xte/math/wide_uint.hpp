@@ -80,7 +80,7 @@ namespace DETAIL_XTE::wide_uint {
 			if (digit == '\'') {
 				continue;
 			}
-			xte::uz index = xte::string_view("0123456789ABCDEF").slice(0, radix).find(xte::uppercase(digit));
+			xte::uz index = xte::string_view("0123456789ABCDEF").subview(0, radix).find(xte::uppercase(digit));
 			if (!~index) {
 				throw xte::error<"digit outside radix">();
 			}
