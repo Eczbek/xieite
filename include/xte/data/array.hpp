@@ -84,6 +84,7 @@ namespace xte {
 		, _capacity(xte::exchange(other._capacity, 0)) {}
 
 		[[nodiscard]] explicit(false) constexpr array(xte::init_list<T> init_list) noexcept(false)
+		requires(xte::is_move_constructible<T>)
 		: xte::array<T>(std::from_range, xte::as_xvalue(init_list)) {}
 
 		template<std::ranges::input_range range_type>
@@ -300,7 +301,7 @@ namespace xte {
 		requires(requires { xte::make<T>(XTE_FWD(arg), XTE_FWD(args)...); }) {
 			if (this->_size < this->_capacity) {
 				if (index >= this->_size) {
-					xte::construct(this->_data[this->_size++], xte::make<T>(XTE_FWD(arg), XTE_FWD(args)...));
+					xte::construct(this->_data[this->_size++], XTE_FWD(arg), XTE_FWD(args)...);
 					return;
 				}
 			}
