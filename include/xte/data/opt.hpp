@@ -11,12 +11,12 @@
 #	include "../trait/is_member_function.hpp"
 #	include "../trait/is_member_of.hpp"
 #	include "../util/address.hpp"
-#	include "../util/as.hpp"
 #	include "../util/as_xvalue.hpp"
 #	include "../util/assign.hpp"
 #	include "../util/construct.hpp"
 #	include "../util/destroy.hpp"
 #	include "../util/exchange.hpp"
+#	include "../util/like.hpp"
 #	include "../util/make.hpp"
 
 namespace xte {
@@ -82,7 +82,7 @@ namespace xte {
 			if constexpr (xte::is_member_function<decltype(member)>) {
 				return XTE_LIFT_LOCAL((XTE_FWD(self)._value.*member));
 			} else {
-				return xte::as<decltype(self)>(self._value.*member);
+				return xte::like<decltype(self)>(self._value.*member);
 			}
 		}
 

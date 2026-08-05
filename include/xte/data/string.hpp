@@ -11,11 +11,11 @@
 #	include "../preproc/returns.hpp"
 #	include "../trait/is_derived_from.hpp"
 #	include "../trait/is_implicit_castable_noex.hpp"
-#	include "../util/as.hpp"
 #	include "../util/as_lvalue.hpp"
 #	include "../util/as_xvalue.hpp"
 #	include "../util/assign.hpp"
 #	include "../util/init_list.hpp"
+#	include "../util/like.hpp"
 #	include "../util/number_types.hpp"
 #	include <algorithm>
 #	include <compare>
@@ -108,7 +108,7 @@ namespace xte {
 
 		template<std::ranges::input_range range_type>
 		constexpr auto operator=(range_type&& range) & noexcept(false)
-		requires(!xte::is_derived_from<range_type, xte::string> && requires (char x) { xte::assign(x, xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
+		requires(!xte::is_derived_from<range_type, xte::string> && requires (char x) { xte::assign(x, xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
 			this->_data = XTE_FWD(range);
 			if (!this->_data.size() || this->_data.back()) {
 				this->_data.push();
@@ -309,7 +309,7 @@ namespace xte {
 
 		template<std::ranges::input_range range_type = xte::string>
 		constexpr void insert_range(xte::uz index, range_type&& range) noexcept(false)
-		requires(xte::is_constructible<char, decltype(xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>) {
+		requires(xte::is_constructible<char, decltype(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>) {
 			this->_data.insert_range(xte::min(index, this->size()), XTE_FWD(range));
 			if (!this->_data.size() || this->_data.back()) {
 				this->_data.push();
@@ -318,7 +318,7 @@ namespace xte {
 
 		template<std::ranges::input_range range_type = xte::string>
 		constexpr void insert_string(xte::uz index, range_type&& range) & noexcept(false)
-		requires(xte::is_constructible<char, decltype(xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>) {
+		requires(xte::is_constructible<char, decltype(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>) {
 			index = xte::min(index, this->size());
 			xte::uz old_size = this->size();
 			this->insert_range(index, XTE_FWD(range));

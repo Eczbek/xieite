@@ -16,7 +16,6 @@
 #	include "../trait/is_makeable.hpp"
 #	include "../trait/is_same_drop_cvref.hpp"
 #	include "../util/address.hpp"
-#	include "../util/as.hpp"
 #	include "../util/as_lvalue.hpp"
 #	include "../util/as_xvalue.hpp"
 #	include "../util/assign.hpp"
@@ -24,6 +23,7 @@
 #	include "../util/destroy.hpp"
 #	include "../util/exchange.hpp"
 #	include "../util/init_list.hpp"
+#	include "../util/like.hpp"
 #	include "../util/make.hpp"
 #	include "../util/number_types.hpp"
 #	include "../util/reconstruct.hpp"
@@ -89,7 +89,7 @@ namespace xte {
 
 		template<std::ranges::input_range range_type>
 		[[nodiscard]] constexpr array(std::from_range_t, range_type&& range) noexcept(false)
-		requires(requires { xte::make<T>(xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
+		requires(requires { xte::make<T>(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
 			this->push_range(XTE_FWD(range));
 		}
 
@@ -116,20 +116,9 @@ namespace xte {
 		}
 
 		constexpr xte::array<T>& operator=(const xte::array<T>& other) & noexcept(false)
-		requires(xte::is_copy_constructible<T>) {
+		requires(requires (T x) { xte::construct(x, x); }) {
 			if (this != xte::address(other)) {
-				if (other._size <= this->_capacity) {
-					for (xte::uz i : std::views::indices(xte::min(this->_size, other._size))) {
-						xte::assign(this->_data[i], other._data[i]);
-					}
-					for (xte::uz i = this->_size; i < other._size; this->_size = ++i) {
-						xte::construct(this->_data[i], other._data[i]);
-					}
-					this->erase(other._size, -1uz);
-				} else {
-					this->reset();
-					this->push_range(other);
-				}
+				*this = std::ranges::subrange(other);
 			}
 			return *this;
 		}
@@ -140,16 +129,18 @@ namespace xte {
 
 		template<std::ranges::input_range range_type>
 		constexpr xte::array<T>& operator=(range_type&& range) & noexcept(false)
-		requires(!xte::is_derived_from<range_type, xte::array<T>> && requires (T x) { xte::assign(x, xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
+		requires(!xte::is_derived_from<range_type, xte::array<T>>
+			&& requires (T x) { xte::construct(x, xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); })
+		{
 			if constexpr (std::ranges::sized_range<range_type>) {
 				if (xte::uz range_size = std::ranges::size(range); range_size <= this->_capacity) {
 					auto iter = std::ranges::begin(range);
 					for (xte::uz i : std::views::indices(xte::min(this->_size, range_size))) {
-						xte::assign(this->_data[i], xte::as<range_type>(*iter));
+						xte::assign(this->_data[i], xte::like<range_type>(*iter));
 						++iter;
 					}
 					while (this->_size < range_size) {
-						xte::construct(this->_data[this->_size], xte::as<range_type>(*iter));
+						xte::construct(this->_data[this->_size], xte::like<range_type>(*iter));
 						++this->_size;
 						++iter;
 					}
@@ -215,19 +206,19 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr auto&& front(this auto&& self, xte::uz index = 0) noexcept {
-			return xte::as<decltype(self)>(self._data[index]);
+			return xte::like<decltype(self)>(self._data[index]);
 		}
 		
 		[[nodiscard]] constexpr auto&& back(this auto&& self, xte::uz index = 0) noexcept {
-			return xte::as<decltype(self)>(self._data[self._size - index - 1]);
+			return xte::like<decltype(self)>(self._data[self._size - index - 1]);
 		}
 
 		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
-			return xte::as<decltype(self)>(self._data[index]);
+			return xte::like<decltype(self)>(self._data[index]);
 		}
 
 		[[nodiscard]] constexpr xte::array<T> subrange(this auto&& self, xte::uz index, xte::uz size = -1uz) noexcept(false) {
-			return (index < self._size) ? xte::array<T>(std::from_range, xte::as<decltype(self)>(std::ranges::subrange(self.begin() + index, self.begin() + index + xte::min(self.size() - index, size)))) : xte::array<T>();
+			return (index < self._size) ? xte::array<T>(std::from_range, xte::like<decltype(self)>(std::ranges::subrange(self.begin() + index, self.begin() + index + xte::min(self.size() - index, size)))) : xte::array<T>();
 		}
 
 		constexpr void reset() & noexcept {
@@ -286,7 +277,8 @@ namespace xte {
 			}
 		}
 
-		constexpr void insert(xte::uz index) & noexcept(false) requires(xte::is_constructible<T>) {
+		constexpr void insert(xte::uz index) & noexcept(false)
+		requires(xte::is_constructible<T>) {
 			this->reserve(this->_size == this->_capacity);
 			if (index >= this->_size) {
 				xte::construct(this->_data[this->_size++]);
@@ -323,7 +315,7 @@ namespace xte {
 
 		template<std::ranges::input_range range_type = xte::array<T>>
 		constexpr void insert_range(xte::uz index, range_type&& range) & noexcept(false)
-		requires(requires { xte::make<T>(xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
+		requires(requires { xte::make<T>(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
 			index = xte::min(index, this->_size);
 			xte::uz range_size = 0;
 			if constexpr (std::ranges::sized_range<range_type>) {
@@ -337,10 +329,10 @@ namespace xte {
 					}
 					auto iter = std::ranges::begin(range);
 					for (xte::uz i = index; (i < this->_size) && ((i - index) < range_size); ++iter) {
-						xte::assign(this->_data[i++], xte::as<range_type>(*iter));
+						xte::assign(this->_data[i++], xte::like<range_type>(*iter));
 					}
 					for (xte::uz i = this->_size; (i - index) < range_size; ++iter) {
-						xte::construct(this->_data[i++], xte::as<range_type>(*iter));
+						xte::construct(this->_data[i++], xte::like<range_type>(*iter));
 					}
 					this->_size += range_size;
 					return;
@@ -352,7 +344,7 @@ namespace xte {
 				this->push(std::move_if_noexcept(item));
 			}
 			for (auto&& item : range) {
-				this->push(xte::as<range_type>(item));
+				this->push(xte::like<range_type>(item));
 			}
 			for (auto&& item : old | std::views::drop(index)) {
 				this->push(std::move_if_noexcept(item));

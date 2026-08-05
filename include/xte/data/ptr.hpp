@@ -7,8 +7,8 @@
 #	include "../preproc/returns.hpp"
 #	include "../trait/is_member_function.hpp"
 #	include "../trait/is_member_of.hpp"
-#	include "../util/as.hpp"
 #	include "../util/exchange.hpp"
+#	include "../util/like.hpp"
 #	include "../util/number_types.hpp"
 #	include <iterator>
 #	include <new>
@@ -61,7 +61,7 @@ namespace xte {
 			if constexpr (xte::is_member_function<decltype(member)>) {
 				return XTE_LIFT_LOCAL((XTE_FWD(self)._data->*member));
 			} else {
-				return xte::as<decltype(self)>(self._data->*member);
+				return xte::like<decltype(self)>(self._data->*member);
 			}
 		}
 

@@ -11,7 +11,7 @@
 #	include "../trait/is_derived_from_specialization_of.hpp"
 #	include "../trait/is_same.hpp"
 #	include "../trait/is_specialization_of.hpp"
-#	include "../util/as.hpp"
+#	include "../util/like.hpp"
 #	include "../util/number_types.hpp"
 #	include <compare>
 #	include <concepts>
@@ -86,15 +86,15 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr auto&& front(this auto&& self, xte::uz index = 0) noexcept {
-			return xte::as<decltype(self)>(self.data()[index]);
+			return xte::like<decltype(self)>(self.data()[index]);
 		}
 		
 		[[nodiscard]] constexpr auto&& back(this auto&& self, xte::uz index = 0) noexcept {
-			return xte::as<decltype(self)>(self.data()[n - index - 1]);
+			return xte::like<decltype(self)>(self.data()[n - index - 1]);
 		}
 
 		[[nodiscard]] constexpr auto&& operator[](this auto&& self, xte::uz index) noexcept {
-			return xte::as<decltype(self)>(self.data()[index]);
+			return xte::like<decltype(self)>(self.data()[index]);
 		}
 
 		template<xte::uz index>

@@ -5,8 +5,8 @@
 #	include "../data/string_view.hpp"
 #	include "../trait/is_range_noex.hpp"
 #	include "../trait/is_same.hpp"
-#	include "../util/as.hpp"
 #	include "../util/assign.hpp"
+#	include "../util/like.hpp"
 #	include "../util/make.hpp"
 #	include <ranges>
 
@@ -80,10 +80,10 @@ namespace xte {
 	template<std::ranges::input_range range_type>
 	[[nodiscard]] constexpr range_type lowercase(range_type range)
 	noexcept(xte::is_range_noex<range_type>
-		&& requires (std::ranges::range_value_t<range_type> x) { { xte::assign(x, xte::lowercase(xte::make<char>(xte::as<range_type>(x)))) } noexcept; })
-	requires(requires (std::ranges::range_value_t<range_type> x) { xte::assign(x, xte::lowercase(xte::make<char>(xte::as<range_type>(x)))); }) {
+		&& requires (std::ranges::range_value_t<range_type> x) { { xte::assign(x, xte::lowercase(xte::make<char>(xte::like<range_type>(x)))) } noexcept; })
+	requires(requires (std::ranges::range_value_t<range_type> x) { xte::assign(x, xte::lowercase(xte::make<char>(xte::like<range_type>(x)))); }) {
 		for (auto& c : range) {
-			xte::assign(c, xte::lowercase(xte::make<char>(xte::as<range_type>(c))));
+			xte::assign(c, xte::lowercase(xte::make<char>(xte::like<range_type>(c))));
 		}
 		return range;
 	}
