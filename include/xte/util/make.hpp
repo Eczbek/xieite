@@ -8,24 +8,26 @@
 #	include "../math/lowest.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/lift.hpp"
+#	include "../preproc/returns.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_int.hpp"
-#	include "../util/at.hpp"
+#	include "../util/as_const.hpp"
 #	include <cmath>
 #	include <limits>
 
 namespace DETAIL_XTE::make {
 	template<typename to_type>
-	[[nodiscard]] constexpr to_type impl(auto&&... args)
-	noexcept(noexcept(to_type(XTE_FWD(args)...)))
-	requires(requires { to_type(XTE_FWD(args)...); }) {
-		if constexpr (sizeof...(args) == 1) {
-			return static_cast<to_type>(xte::at<0>(XTE_FWD(args)...));
-		} else {
-			return to_type(XTE_FWD(args)...);
-		}
-	}
+	[[nodiscard]] constexpr auto cast_one(auto&& arg) XTE_RETURNS(
+		static_cast<to_type>(XTE_FWD(arg))
+	)
+
+	template<typename to_type>
+	[[nodiscard]] constexpr auto impl(auto&&... args) XTE_RETURNS_FIRST(
+		cast_one<to_type>(XTE_FWD(args)...),
+		cast_one<to_type>(xte::as_const(args)...),
+		to_type(XTE_FWD(args)...)
+	)
 
 	template<xte::is_arithmetic to_type, xte::is_arithmetic from_type>
 	[[nodiscard]] constexpr to_type impl(from_type arg) noexcept {
