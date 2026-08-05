@@ -7,9 +7,9 @@
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/lift.hpp"
 #	include "../preproc/returns.hpp"
-#	include "../trait/is_noex_iter.hpp"
-#	include "../trait/is_noex_sentinel.hpp"
+#	include "../trait/is_iter_noex.hpp"
 #	include "../trait/is_order.hpp"
+#	include "../trait/is_sentinel_noex.hpp"
 #	include <compare>
 #	include <functional>
 #	include <iterator>
@@ -18,10 +18,10 @@
 namespace xte {
 	template<std::input_iterator lhs_iter_type, std::sentinel_for<lhs_iter_type> lhs_sentinel_type, std::input_iterator rhs_iter_type, std::sentinel_for<rhs_iter_type> rhs_sentinel_type, typename compare_type = decltype(XTE_LIFT(xte::compare)), typename proj_type = decltype(xte::noop)>
 	[[nodiscard]] constexpr auto range_compare(lhs_iter_type begin0, lhs_sentinel_type end0, rhs_iter_type begin1, rhs_sentinel_type end1, compare_type&& compare = {}, proj_type&& proj = {})
-	noexcept(xte::is_noex_iter<lhs_iter_type>
-		&& xte::is_noex_sentinel<lhs_sentinel_type, lhs_iter_type>
-		&& xte::is_noex_iter<rhs_iter_type>
-		&& xte::is_noex_sentinel<rhs_sentinel_type, rhs_iter_type>
+	noexcept(xte::is_iter_noex<lhs_iter_type>
+		&& xte::is_sentinel_noex<lhs_sentinel_type, lhs_iter_type>
+		&& xte::is_iter_noex<rhs_iter_type>
+		&& xte::is_sentinel_noex<rhs_sentinel_type, rhs_iter_type>
 		&& noexcept(std::invoke(compare, std::invoke(proj, *begin0), std::invoke(proj, *begin1))))
 	requires(xte::is_order<decltype(std::invoke(compare, std::invoke(proj, *begin0), std::invoke(proj, *begin1)))>) {
 		bool exhaust0 = (begin0 == end0);

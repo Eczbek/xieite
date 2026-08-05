@@ -27,7 +27,7 @@ namespace xte {
 		using difference_type = xte::iptrdiff;
 		using value_type = T;
 		using reference = T&;
-		using creference = const T&;
+		using const_reference = const T&;
 		using pointer = T*;
 		using const_pointer = const T*;
 		using iterator = T*;
@@ -109,7 +109,7 @@ namespace xte {
 		using difference_type = xte::iptrdiff;
 		using value_type = T;
 		using reference = T&;
-		using creference = const T&;
+		using const_reference = const T&;
 		using pointer = T*;
 		using const_pointer = const T*;
 		using iterator = T*;

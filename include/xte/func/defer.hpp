@@ -5,7 +5,7 @@
 #	include "../data/non_movable.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../trait/is_callable.hpp"
-#	include "../trait/is_noex_move_constructible.hpp"
+#	include "../trait/is_move_constructible_noex.hpp"
 
 namespace xte {
 	template<xte::is_callable<void()> func_type>
@@ -16,7 +16,7 @@ namespace xte {
 
 	public:
 		[[nodiscard]] explicit(false) constexpr defer(func_type&& func)
-		noexcept(xte::is_noex_move_constructible<func_type>)
+		noexcept(xte::is_move_constructible_noex<func_type>)
 		: _func(XTE_FWD(func)) {}
 
 		constexpr ~defer() {

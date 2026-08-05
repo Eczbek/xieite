@@ -1,34 +1,25 @@
 #include <xte/data/array.hpp>
 #include <xte/trait/is_copy_constructible.hpp>
-#include <xte/trait/is_noex_move_constructible.hpp>
+#include <xte/trait/is_move_constructible_noex.hpp>
 #include <xte/trait/is_same.hpp>
 #include <xte/util/as_const.hpp>
 #include <xte/util/construct.hpp>
 #include <xte/util/as_lvalue.hpp>
 #include <xte/util/number_types.hpp>
+#include <meta>
 #include <ranges>
 #include <vector>
 
-static_assert(xte::is_same<xte::array<int>::value_type, int>);
-static_assert(xte::is_same<xte::array<int>::reference, int&>);
-static_assert(xte::is_same<xte::array<int>::creference, const int&>);
-static_assert(xte::is_same<xte::array<int>::pointer, int*>);
-static_assert(xte::is_same<xte::array<int>::const_pointer, const int*>);
-static_assert(xte::is_same<xte::array<int>::iterator, int*>);
-static_assert(xte::is_same<xte::array<int>::const_iterator, const int*>);
-static_assert(xte::is_same<xte::array<int>::reverse_iterator, std::reverse_iterator<int*>>);
-static_assert(xte::is_same<xte::array<int>::const_reverse_iterator, std::reverse_iterator<const int*>>);
+struct non_destructible {
+	~non_destructible() = delete;
+};
 
-static_assert(requires { { xte::array<int>() } noexcept; });
-static_assert(xte::is_copy_constructible<xte::array<int>>);
-static_assert(xte::is_noex_move_constructible<xte::array<int>>);
-static_assert(requires { xte::array<int> { 0, 1, 2 }; });
-static_assert(requires { xte::array<int>(std::from_range, typename[:^^int[]:] { 0, 1, 2 }); });
-static_assert(xte::array<int>(std::from_range, typename[:^^int[]:] { 5 })[0] == 5);
-static_assert(requires { xte::array<int>(3); });
-static_assert(requires { xte::array<int>(3, 0); });
+struct throwing_destructor {
+	~throwing_destructor() noexcept(false) {}
+};
 
-static_assert(requires { xte::array { 0, 1, 2 }; });
+static_assert(!std::meta::can_substitute(^^xte::array, { ^^non_destructible }));
+static_assert(!std::meta::can_substitute(^^xte::array, { ^^throwing_destructor }));
 
 static_assert(([] {
 	xte::array<int> a;

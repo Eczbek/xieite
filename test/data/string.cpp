@@ -1,6 +1,6 @@
 #include <xte/data/string.hpp>
 #include <xte/trait/is_copy_constructible.hpp>
-#include <xte/trait/is_noex_move_constructible.hpp>
+#include <xte/trait/is_move_constructible_noex.hpp>
 #include <xte/trait/is_same.hpp>
 #include <xte/util/as_const.hpp>
 #include <xte/util/as_lvalue.hpp>
@@ -10,7 +10,7 @@
 
 static_assert(xte::is_same<xte::string::value_type, char>);
 static_assert(xte::is_same<xte::string::reference, char&>);
-static_assert(xte::is_same<xte::string::creference, const char&>);
+static_assert(xte::is_same<xte::string::const_reference, const char&>);
 static_assert(xte::is_same<xte::string::pointer, char*>);
 static_assert(xte::is_same<xte::string::const_pointer, const char*>);
 static_assert(xte::is_same<xte::string::iterator, char*>);
@@ -20,7 +20,7 @@ static_assert(xte::is_same<xte::string::const_reverse_iterator, std::reverse_ite
 
 static_assert(requires { { xte::string() } noexcept; });
 static_assert(xte::is_copy_constructible<xte::string>);
-static_assert(xte::is_noex_move_constructible<xte::string>);
+static_assert(xte::is_move_constructible_noex<xte::string>);
 static_assert(requires { xte::string { 'a', 'b', 'c' }; });
 static_assert(requires { xte::string(std::from_range, typename[:^^char[]:] { 'a', 'b', 'c' }); });
 static_assert(requires { xte::string(3, 'a'); });

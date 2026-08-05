@@ -4,17 +4,17 @@
 #	include "../data/range_compare.hpp"
 #	include "../math/max.hpp"
 #	include "../math/min.hpp"
-#	include "../meta/end.hpp"
-#	include "../meta/fake.hpp"
 #	include "../meta/req_not.hpp"
 #	include "../preproc/constructs.hpp"
 #	include "../preproc/diagnostic.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/returns.hpp"
-#	include "../trait/is_assignable.hpp"
 #	include "../trait/is_constructible.hpp"
 #	include "../trait/is_copy_constructible.hpp"
 #	include "../trait/is_derived_from.hpp"
+#	include "../trait/is_destructible_noex.hpp"
+#	include "../trait/is_makeable.hpp"
+#	include "../trait/is_same_drop_cvref.hpp"
 #	include "../util/address.hpp"
 #	include "../util/as.hpp"
 #	include "../util/as_lvalue.hpp"
@@ -36,7 +36,7 @@
 #	include <utility>
 
 namespace xte {
-	template<typename T>
+	template<xte::is_destructible_noex T>
 	struct array {
 	private:
 		T* _data = nullptr;
@@ -63,7 +63,7 @@ namespace xte {
 		using difference_type = xte::iptrdiff;
 		using value_type = T;
 		using reference = T&;
-		using creference = const T&;
+		using const_reference = const T&;
 		using pointer = T*;
 		using const_pointer = const T*;
 		using iterator = T*;
@@ -84,7 +84,7 @@ namespace xte {
 		, _capacity(xte::exchange(other._capacity, 0)) {}
 
 		[[nodiscard]] explicit(false) constexpr array(xte::init_list<T> init_list) noexcept(false)
-		requires(xte::is_move_constructible<T>)
+		requires(xte::is_makeable<T, T>)
 		: xte::array<T>(std::from_range, xte::as_xvalue(init_list)) {}
 
 		template<std::ranges::input_range range_type>
@@ -92,6 +92,9 @@ namespace xte {
 		requires(requires { xte::make<T>(xte::as<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
 			this->push_range(XTE_FWD(range));
 		}
+
+		[[nodiscard]] constexpr array(std::from_range_t, xte::array<T>&& other) noexcept
+		: xte::array<T>(xte::as_xvalue(other)) {}
 
 		template<std::input_iterator iter_type>
 		[[nodiscard]] constexpr array(iter_type begin, std::sentinel_for<iter_type> auto end) XTE_CONSTRUCTS(,
@@ -223,8 +226,8 @@ namespace xte {
 			return xte::as<decltype(self)>(self._data[index]);
 		}
 
-		[[nodiscard]] constexpr xte::array<T> subrange(xte::uz index, xte::uz size = -1uz) const noexcept(false) {
-			return (index < this->_size) ? xte::array<T>(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : xte::array<T>();
+		[[nodiscard]] constexpr xte::array<T> subrange(this auto&& self, xte::uz index, xte::uz size = -1uz) noexcept(false) {
+			return (index < self._size) ? xte::array<T>(std::from_range, xte::as<decltype(self)>(std::ranges::subrange(self.begin() + index, self.begin() + index + xte::min(self.size() - index, size)))) : xte::array<T>();
 		}
 
 		constexpr void reset() & noexcept {

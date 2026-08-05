@@ -10,7 +10,7 @@
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/returns.hpp"
 #	include "../trait/is_derived_from.hpp"
-#	include "../trait/is_noex_implicit_castable.hpp"
+#	include "../trait/is_implicit_castable_noex.hpp"
 #	include "../util/as.hpp"
 #	include "../util/as_lvalue.hpp"
 #	include "../util/as_xvalue.hpp"
@@ -34,7 +34,7 @@ namespace xte {
 		using difference_type = xte::iptrdiff;
 		using value_type = char;
 		using reference = char&;
-		using creference = const char&;
+		using const_reference = const char&;
 		using pointer = char*;
 		using const_pointer = const char*;
 		using iterator = char*;
@@ -67,7 +67,7 @@ namespace xte {
 			(xte::string),((std::from_range, xte::as_lvalue(std::ranges::subrange(begin, end))))
 		)
 
-		[[nodiscard]] explicit(false) constexpr string(xte::is_noex_implicit_castable<const char*> auto&& range) noexcept(false) {
+		[[nodiscard]] explicit(false) constexpr string(xte::is_implicit_castable_noex<const char*> auto&& range) noexcept(false) {
 			if (const char* data = range) do {
 				this->_data.push(*data);
 			} while (*data++);

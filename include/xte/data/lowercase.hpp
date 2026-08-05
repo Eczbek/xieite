@@ -3,7 +3,7 @@
 #
 #	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
-#	include "../trait/is_noex_range.hpp"
+#	include "../trait/is_range_noex.hpp"
 #	include "../trait/is_same.hpp"
 #	include "../util/as.hpp"
 #	include "../util/assign.hpp"
@@ -79,7 +79,7 @@ namespace xte {
 
 	template<std::ranges::input_range range_type>
 	[[nodiscard]] constexpr range_type lowercase(range_type range)
-	noexcept(xte::is_noex_range<range_type>
+	noexcept(xte::is_range_noex<range_type>
 		&& requires (std::ranges::range_value_t<range_type> x) { { xte::assign(x, xte::lowercase(xte::make<char>(xte::as<range_type>(x)))) } noexcept; })
 	requires(requires (std::ranges::range_value_t<range_type> x) { xte::assign(x, xte::lowercase(xte::make<char>(xte::as<range_type>(x)))); }) {
 		for (auto& c : range) {
