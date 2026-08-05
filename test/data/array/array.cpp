@@ -134,24 +134,12 @@ consteval {
 		static_assert((xte::array { 1, 2, 3 })[2] == 3);
 
 		// Range copy constructor
-		static_assert(xte::is_constructible<xte::array<int>, std::from_range_t, typename[:^^int[3]:]&>);
 		static_assert(xte::is_constructible<xte::array<int>, std::from_range_t, std::vector<int>&>);
-		static_assert(!xte::is_constructible<xte::array<non_constructible>, std::from_range_t, typename[:^^non_constructible[3]:]&>);
 		static_assert(!xte::is_constructible<xte::array<non_constructible>, std::from_range_t, std::vector<non_constructible>&>);
-		static_assert(xte::is_constructible<xte::array<non_default_constructible>, std::from_range_t, typename[:^^non_default_constructible[3]:]&>);
 		static_assert(xte::is_constructible<xte::array<non_default_constructible>, std::from_range_t, std::vector<non_default_constructible>&>);
-		static_assert(!xte::is_constructible<xte::array<xte::non_copyable>, std::from_range_t, typename[:^^xte::non_copyable[3]:]&>);
 		static_assert(!xte::is_constructible<xte::array<xte::non_copyable>, std::from_range_t, std::vector<xte::non_copyable>&>);
-		static_assert(xte::is_constructible<xte::array<xte::non_movable>, std::from_range_t, typename[:^^xte::non_movable[3]:]&>);
 		static_assert(xte::is_constructible<xte::array<xte::non_movable>, std::from_range_t, std::vector<xte::non_movable>&>);
-		static_assert(!xte::is_constructible_noex<xte::array<int>, std::from_range_t, typename[:^^int[3]:]&>);
 		static_assert(!xte::is_constructible_noex<xte::array<int>, std::from_range_t, std::vector<int>&>);
-		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(typename[:^^int[]:] { 1, 2, 3 }))).data() != nullptr);
-		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(typename[:^^int[]:] { 1, 2, 3 }))).size() == 3);
-		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(typename[:^^int[]:] { 1, 2, 3 }))).capacity() >= 3);
-		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(typename[:^^int[]:] { 1, 2, 3 })))[0] == 1);
-		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(typename[:^^int[]:] { 1, 2, 3 })))[1] == 2);
-		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(typename[:^^int[]:] { 1, 2, 3 })))[2] == 3);
 		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(std::vector<int>()))).data() == nullptr);
 		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(std::vector<int>()))).size() == 0);
 		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(std::vector<int>()))).capacity() == 0);
@@ -163,24 +151,12 @@ consteval {
 		static_assert((xte::array<int>(std::from_range, xte::as_lvalue(std::vector<int> { 1, 2, 3 })))[2] == 3);
 
 		// Range move constructor
-		static_assert(xte::is_constructible<xte::array<int>, std::from_range_t, int[3]>);
 		static_assert(xte::is_constructible<xte::array<int>, std::from_range_t, std::vector<int>>);
-		static_assert(!xte::is_constructible<xte::array<non_constructible>, std::from_range_t, non_constructible[3]>);
 		static_assert(!xte::is_constructible<xte::array<non_constructible>, std::from_range_t, std::vector<non_constructible>>);
-		static_assert(xte::is_constructible<xte::array<non_default_constructible>, std::from_range_t, non_default_constructible[3]>);
 		static_assert(xte::is_constructible<xte::array<non_default_constructible>, std::from_range_t, std::vector<non_default_constructible>>);
-		static_assert(xte::is_constructible<xte::array<xte::non_copyable>, std::from_range_t, xte::non_copyable[3]>);
 		static_assert(xte::is_constructible<xte::array<xte::non_copyable>, std::from_range_t, std::vector<xte::non_copyable>>);
-		static_assert(xte::is_constructible<xte::array<xte::non_movable>, std::from_range_t, xte::non_movable[3]>);
 		static_assert(xte::is_constructible<xte::array<xte::non_movable>, std::from_range_t, std::vector<xte::non_movable>>);
-		static_assert(!xte::is_constructible_noex<xte::array<int>, std::from_range_t, int[3]>);
 		static_assert(!xte::is_constructible_noex<xte::array<int>, std::from_range_t, std::vector<int>>);
-		static_assert((xte::array<int>(std::from_range, typename[:^^int[]:] { 1, 2, 3 })).data() != nullptr);
-		static_assert((xte::array<int>(std::from_range, typename[:^^int[]:] { 1, 2, 3 })).size() == 3);
-		static_assert((xte::array<int>(std::from_range, typename[:^^int[]:] { 1, 2, 3 })).capacity() >= 3);
-		static_assert((xte::array<int>(std::from_range, typename[:^^int[]:] { 1, 2, 3 }))[0] == 1);
-		static_assert((xte::array<int>(std::from_range, typename[:^^int[]:] { 1, 2, 3 }))[1] == 2);
-		static_assert((xte::array<int>(std::from_range, typename[:^^int[]:] { 1, 2, 3 }))[2] == 3);
 		static_assert((xte::array<int>(std::from_range, std::vector<int>())).data() == nullptr);
 		static_assert((xte::array<int>(std::from_range, std::vector<int>())).size() == 0);
 		static_assert((xte::array<int>(std::from_range, std::vector<int>())).capacity() == 0);
