@@ -1,4 +1,9 @@
+#include <xte/util/as_const.hpp>
+#include <xte/util/as_lvalue.hpp>
 #include <xte/util/assign.hpp>
+
+static_assert(xte::assign(xte::as_lvalue(false), true));
+static_assert(xte::assign(xte::as_lvalue(0), xte::as_const(xte::as_lvalue(1))) == 1);
 
 static_assert(([] {
 	int x;

@@ -1,6 +1,10 @@
 #include <xte/math/highest.hpp>
 #include <xte/math/lowest.hpp>
 #include <xte/math/min.hpp>
+#include <xte/util/as_const.hpp>
+#include <xte/util/as_lvalue.hpp>
+
+static_assert(xte::min(xte::as_lvalue(0), xte::as_const(xte::as_lvalue(0))) == 0);
 
 static_assert(xte::min(0, 0) == 0);
 static_assert(xte::min(0, 5) == 0);
