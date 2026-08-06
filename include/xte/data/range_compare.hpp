@@ -17,31 +17,33 @@
 
 namespace xte {
 	template<std::input_iterator lhs_iter_type, std::sentinel_for<lhs_iter_type> lhs_sentinel_type, std::input_iterator rhs_iter_type, std::sentinel_for<rhs_iter_type> rhs_sentinel_type, typename compare_type = decltype(XTE_LIFT(xte::compare)), typename proj_type = decltype(xte::noop)>
-	[[nodiscard]] constexpr auto range_compare(lhs_iter_type begin0, lhs_sentinel_type end0, rhs_iter_type begin1, rhs_sentinel_type end1, compare_type&& compare = {}, proj_type&& proj = {})
+	[[nodiscard]] constexpr auto range_compare(lhs_iter_type lhs_begin, lhs_sentinel_type lhs_end, rhs_iter_type rhs_begin, rhs_sentinel_type rhs_end, compare_type&& compare = {}, proj_type&& proj = {})
 	noexcept(xte::is_iter_noex<lhs_iter_type>
 		&& xte::is_sentinel_noex<lhs_sentinel_type, lhs_iter_type>
 		&& xte::is_iter_noex<rhs_iter_type>
 		&& xte::is_sentinel_noex<rhs_sentinel_type, rhs_iter_type>
-		&& noexcept(std::invoke(compare, std::invoke(proj, *begin0), std::invoke(proj, *begin1))))
-	requires(xte::is_order<decltype(std::invoke(compare, std::invoke(proj, *begin0), std::invoke(proj, *begin1)))>) {
-		bool exhaust0 = (begin0 == end0);
-		bool exhaust1 = (begin1 == end1);
-		for (; !exhaust0 && !exhaust1; exhaust0 = static_cast<bool>(++begin0 == end0), exhaust1 = static_cast<bool>(++begin1 == end1)) {
-			if (auto result = std::invoke(compare, std::invoke(proj, *begin0), std::invoke(proj, *begin1)); !std::is_eq(result)) {
+		&& noexcept(std::invoke(compare, std::invoke(proj, *lhs_begin), std::invoke(proj, *rhs_begin))))
+	requires(xte::is_order<decltype(std::invoke(compare, std::invoke(proj, *lhs_begin), std::invoke(proj, *rhs_begin)))>) {
+		bool exhaust0 = (lhs_begin == lhs_end);
+		bool exhaust1 = (rhs_begin == rhs_end);
+		while (!exhaust0 && !exhaust1) {
+			if (auto result = std::invoke(compare, std::invoke(proj, *lhs_begin), std::invoke(proj, *rhs_begin)); !std::is_eq(result)) {
 				return result;
 			}
+			exhaust0 = static_cast<bool>(++lhs_begin == lhs_end);
+			exhaust1 = static_cast<bool>(++rhs_begin == rhs_end);
 		}
 		return exhaust0 <=> exhaust1;
 	}
 
 	template<std::ranges::input_range lhs_range_type, std::input_iterator rhs_iter_type, std::sentinel_for<rhs_iter_type> rhs_sentinel_type, typename compare_type = decltype(XTE_LIFT(xte::compare)), typename proj_type = decltype(xte::noop)>
-	[[nodiscard]] constexpr auto range_compare(lhs_range_type&& lhs, rhs_iter_type begin, rhs_sentinel_type end, compare_type&& compare = {}, proj_type&& proj = {}) XTE_RETURNS(
-		xte::range_compare(std::ranges::begin(lhs), std::ranges::end(lhs), begin, end, XTE_FWD(compare), XTE_FWD(proj))
+	[[nodiscard]] constexpr auto range_compare(lhs_range_type&& lhs, rhs_iter_type rhs_begin, rhs_sentinel_type rhs_end, compare_type&& compare = {}, proj_type&& proj = {}) XTE_RETURNS(
+		xte::range_compare(std::ranges::begin(lhs), std::ranges::end(lhs), rhs_begin, rhs_end, XTE_FWD(compare), XTE_FWD(proj))
 	)
 
 	template<std::input_iterator lhs_iter_type, std::sentinel_for<lhs_iter_type> lhs_sentinel_type, std::ranges::input_range rhs_range_type, typename compare_type = decltype(XTE_LIFT(xte::compare)), typename proj_type = decltype(xte::noop)>
-	[[nodiscard]] constexpr auto range_compare(lhs_iter_type begin, lhs_sentinel_type end, rhs_range_type&& rhs, compare_type&& compare = {}, proj_type&& proj = {}) XTE_RETURNS(
-		xte::range_compare(begin, end, std::ranges::begin(rhs), std::ranges::end(rhs), XTE_FWD(compare), XTE_FWD(proj))
+	[[nodiscard]] constexpr auto range_compare(lhs_iter_type lhs_begin, lhs_sentinel_type lhs_end, rhs_range_type&& rhs, compare_type&& compare = {}, proj_type&& proj = {}) XTE_RETURNS(
+		xte::range_compare(lhs_begin, lhs_end, std::ranges::begin(rhs), std::ranges::end(rhs), XTE_FWD(compare), XTE_FWD(proj))
 	)
 
 	template<std::ranges::input_range lhs_range_type, std::ranges::input_range rhs_range_type, typename compare_type = decltype(XTE_LIFT(xte::compare)), typename proj_type = decltype(xte::noop)>
