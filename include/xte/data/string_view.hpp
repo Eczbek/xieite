@@ -15,7 +15,6 @@
 #	include <iterator>
 #	include <meta>
 #	include <ranges>
-#	include <string_view>
 #	include <type_traits>
 
 namespace xte {
@@ -68,10 +67,6 @@ namespace xte {
 		[[nodiscard]] constexpr string_view(iter_type begin, std::sentinel_for<iter_type> auto end) XTE_CONSTRUCTS(,
 			(xte::string_view),((std::ranges::subrange(begin, end)))
 		)
-
-		[[nodiscard]] explicit(false) constexpr operator std::string_view() const noexcept {
-			return std::string_view(this->_data, this->_size);
-		}
 
 		[[nodiscard]] constexpr const char* data() const noexcept {
 			return this->_data;

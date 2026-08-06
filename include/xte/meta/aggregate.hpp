@@ -7,6 +7,7 @@
 #	include "../preproc/diagnostic.hpp"
 #	include "../util/number_types.hpp"
 #	include <meta>
+#	include <string_view>
 
 XTE_DIAGNOSTIC_PUSH_GCC(OFF, "-Wmissing-field-initializers")
 
@@ -30,7 +31,7 @@ namespace DETAIL_XTE::aggregate {
 		consteval {
 			xte::unfold<(sizeof...(args) / 2)>([]<xte::uz... i> {
 				std::meta::define_aggregate(^^impl::type, {
-					std::meta::data_member_spec(args...[i * 2].type, { .name = args...[i * 2 + 1].name })...
+					std::meta::data_member_spec(args...[i * 2].type, { .name = std::string_view(args...[i * 2 + 1].name) })...
 				});
 			});
 		}
