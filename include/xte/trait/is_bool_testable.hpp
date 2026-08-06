@@ -5,11 +5,11 @@
 
 namespace xte {
 	template<typename T>
-	concept is_bool_testable = requires (T&& x) {
+	concept is_bool_testable = requires (T&& x, [:^^int(bool):]& f) {
 		static_cast<bool>(XTE_FWD(x));
 		static_cast<bool>(!XTE_FWD(x));
-		static_cast<void(*)(bool)>(nullptr)(XTE_FWD(x));
-		static_cast<void(*)(bool)>(nullptr)(!XTE_FWD(x));
+		f(XTE_FWD(x));
+		f(!XTE_FWD(x));
 		// TODO: Check `operator&&()` and `operator||()` to best ability
 	};
 }

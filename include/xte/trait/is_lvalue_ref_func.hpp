@@ -1,6 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_IS_LVALUE_REF_FUNC
 #	define DETAIL_XTE_HEADER_TRAIT_IS_LVALUE_REF_FUNC
 #
+#	include "../meta/member_type.hpp"
 #	include "../trait/is_func.hpp"
 
 namespace DETAIL_XTE::is_lvalue_ref_func {
@@ -32,28 +33,28 @@ namespace DETAIL_XTE::is_lvalue_ref_func {
 	constexpr bool impl<return_type(arg_types..., ...) const volatile& noexcept(noex_spec)> = true;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr bool impl<return_type(class_type::*)(arg_types...) & noexcept(noex_spec)> = true;
+	constexpr bool impl<xte::member_type<class_type, return_type(arg_types...) & noexcept(noex_spec)>> = true;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) & noexcept(noex_spec)> = true;
+	constexpr bool impl<xte::member_type<class_type, return_type(arg_types..., ...) & noexcept(noex_spec)>> = true;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr bool impl<return_type(class_type::*)(arg_types...) const& noexcept(noex_spec)> = true;
+	constexpr bool impl<xte::member_type<class_type, return_type(arg_types...) const& noexcept(noex_spec)>> = true;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) const& noexcept(noex_spec)> = true;
+	constexpr bool impl<xte::member_type<class_type, return_type(arg_types..., ...) const& noexcept(noex_spec)>> = true;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr bool impl<return_type(class_type::*)(arg_types...) volatile& noexcept(noex_spec)> = true;
+	constexpr bool impl<xte::member_type<class_type, return_type(arg_types...) volatile& noexcept(noex_spec)>> = true;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) volatile& noexcept(noex_spec)> = true;
+	constexpr bool impl<xte::member_type<class_type, return_type(arg_types..., ...) volatile& noexcept(noex_spec)>> = true;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr bool impl<return_type(class_type::*)(arg_types...) const volatile& noexcept(noex_spec)> = true;
+	constexpr bool impl<xte::member_type<class_type, return_type(arg_types...) const volatile& noexcept(noex_spec)>> = true;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr bool impl<return_type(class_type::*)(arg_types..., ...) const volatile& noexcept(noex_spec)> = true;
+	constexpr bool impl<xte::member_type<class_type, return_type(arg_types..., ...) const volatile& noexcept(noex_spec)>> = true;
 }
 
 namespace xte {
@@ -62,5 +63,3 @@ namespace xte {
 }
 
 #endif
-
-// TODO: `xte::type<return_type(arg_types...) &> class_type::*`

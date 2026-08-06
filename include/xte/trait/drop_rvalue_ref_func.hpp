@@ -1,5 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_DROP_LVALUE_REF_FUNC
 #	define DETAIL_XTE_HEADER_TRAIT_DROP_LVALUE_REF_FUNC
+#
+#	include "../meta/member_type.hpp"
 
 namespace DETAIL_XTE::drop_lvalue_ref_func {
 	template<typename func_type>
@@ -30,28 +32,28 @@ namespace DETAIL_XTE::drop_lvalue_ref_func {
 	constexpr auto impl<return_type(arg_types..., ...) const volatile&& noexcept(noex_spec)> = ^^return_type(arg_types..., ...) const volatile noexcept(noex_spec);
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr auto impl<return_type(class_type::*)(arg_types...) && noexcept(noex_spec)> = ^^return_type(class_type::*)(arg_types...) noexcept(noex_spec);
+	constexpr auto impl<xte::member_type<class_type, return_type(arg_types...) && noexcept(noex_spec)>> = ^^xte::member_type<class_type, return_type(arg_types...) noexcept(noex_spec)>;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr auto impl<return_type(class_type::*)(arg_types..., ...) && noexcept(noex_spec)> = ^^return_type(class_type::*)(arg_types..., ...) noexcept(noex_spec);
+	constexpr auto impl<xte::member_type<class_type, return_type(arg_types..., ...) && noexcept(noex_spec)>> = ^^xte::member_type<class_type, return_type(arg_types..., ...) noexcept(noex_spec)>;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr auto impl<return_type(class_type::*)(arg_types...) const&& noexcept(noex_spec)> = ^^return_type(class_type::*)(arg_types...) const noexcept(noex_spec);
+	constexpr auto impl<xte::member_type<class_type, return_type(arg_types...) const&& noexcept(noex_spec)>> = ^^xte::member_type<class_type, return_type(arg_types...) const noexcept(noex_spec)>;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr auto impl<return_type(class_type::*)(arg_types..., ...) const&& noexcept(noex_spec)> = ^^return_type(class_type::*)(arg_types..., ...) const noexcept(noex_spec);
+	constexpr auto impl<xte::member_type<class_type, return_type(arg_types..., ...) const&& noexcept(noex_spec)>> = ^^xte::member_type<class_type, return_type(arg_types..., ...) const noexcept(noex_spec)>;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr auto impl<return_type(class_type::*)(arg_types...) volatile&& noexcept(noex_spec)> = ^^return_type(class_type::*)(arg_types...) volatile noexcept(noex_spec);
+	constexpr auto impl<xte::member_type<class_type, return_type(arg_types...) volatile&& noexcept(noex_spec)>> = ^^xte::member_type<class_type, return_type(arg_types...) volatile noexcept(noex_spec)>;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr auto impl<return_type(class_type::*)(arg_types..., ...) volatile&& noexcept(noex_spec)> = ^^return_type(class_type::*)(arg_types..., ...) volatile noexcept(noex_spec);
+	constexpr auto impl<xte::member_type<class_type, return_type(arg_types..., ...) volatile&& noexcept(noex_spec)>> = ^^xte::member_type<class_type, return_type(arg_types..., ...) volatile noexcept(noex_spec)>;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr auto impl<return_type(class_type::*)(arg_types...) const volatile&& noexcept(noex_spec)> = ^^return_type(class_type::*)(arg_types...) const volatile noexcept(noex_spec);
+	constexpr auto impl<xte::member_type<class_type, return_type(arg_types...) const volatile&& noexcept(noex_spec)>> = ^^xte::member_type<class_type, return_type(arg_types...) const volatile noexcept(noex_spec)>;
 
 	template<typename return_type, typename... arg_types, bool noex_spec, typename class_type>
-	constexpr auto impl<return_type(class_type::*)(arg_types..., ...) const volatile&& noexcept(noex_spec)> = ^^return_type(class_type::*)(arg_types..., ...) const volatile noexcept(noex_spec);
+	constexpr auto impl<xte::member_type<class_type, return_type(arg_types..., ...) const volatile&& noexcept(noex_spec)>> = ^^xte::member_type<class_type, return_type(arg_types..., ...) const volatile noexcept(noex_spec)>;
 }
 
 namespace xte {
@@ -60,5 +62,3 @@ namespace xte {
 }
 
 #endif
-
-// TODO: `xte::type<return_type(arg_types...) &> class_type::*`
