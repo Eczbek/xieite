@@ -1,0 +1,145 @@
+#include <xte/data/array.hpp>
+#include <compare>
+
+static_assert(std::is_eq(xte::array<int> {} <=> xte::array<int> {}));
+static_assert(std::is_lteq(xte::array<int> {} <=> xte::array<int> {}));
+static_assert(std::is_gteq(xte::array<int> {} <=> xte::array<int> {}));
+static_assert(!std::is_neq(xte::array<int> {} <=> xte::array<int> {}));
+static_assert(!std::is_lt(xte::array<int> {} <=> xte::array<int> {}));
+static_assert(!std::is_gt(xte::array<int> {} <=> xte::array<int> {}));
+static_assert(xte::array<int> {} == xte::array<int> {});
+static_assert(xte::array<int> {} <= xte::array<int> {});
+static_assert(xte::array<int> {} >= xte::array<int> {});
+static_assert(!(xte::array<int> {} != xte::array<int> {}));
+static_assert(!(xte::array<int> {} < xte::array<int> {}));
+static_assert(!(xte::array<int> {} > xte::array<int> {}));
+
+static_assert(std::is_eq(xte::array<int> { 0 } <=> xte::array<int> { 0 }));
+static_assert(std::is_lteq(xte::array<int> { 0 } <=> xte::array<int> { 0 }));
+static_assert(std::is_gteq(xte::array<int> { 0 } <=> xte::array<int> { 0 }));
+static_assert(!std::is_neq(xte::array<int> { 0 } <=> xte::array<int> { 0 }));
+static_assert(!std::is_lt(xte::array<int> { 0 } <=> xte::array<int> { 0 }));
+static_assert(!std::is_gt(xte::array<int> { 0 } <=> xte::array<int> { 0 }));
+static_assert(xte::array<int> { 0 } == xte::array<int> { 0 });
+static_assert(xte::array<int> { 0 } <= xte::array<int> { 0 });
+static_assert(xte::array<int> { 0 } >= xte::array<int> { 0 });
+static_assert(!(xte::array<int> { 0 } != xte::array<int> { 0 }));
+static_assert(!(xte::array<int> { 0 } < xte::array<int> { 0 }));
+static_assert(!(xte::array<int> { 0 } > xte::array<int> { 0 }));
+
+static_assert(std::is_neq(xte::array<int> { 0 } <=> xte::array<int> { 1 }));
+static_assert(std::is_lt(xte::array<int> { 0 } <=> xte::array<int> { 1 }));
+static_assert(std::is_lteq(xte::array<int> { 0 } <=> xte::array<int> { 1 }));
+static_assert(!std::is_eq(xte::array<int> { 0 } <=> xte::array<int> { 1 }));
+static_assert(!std::is_gt(xte::array<int> { 0 } <=> xte::array<int> { 1 }));
+static_assert(!std::is_gteq(xte::array<int> { 0 } <=> xte::array<int> { 1 }));
+static_assert(xte::array<int> { 0 } != xte::array<int> { 1 });
+static_assert(xte::array<int> { 0 } < xte::array<int> { 1 });
+static_assert(xte::array<int> { 0 } <= xte::array<int> { 1 });
+static_assert(!(xte::array<int> { 0 } == xte::array<int> { 1 }));
+static_assert(!(xte::array<int> { 0 } > xte::array<int> { 1 }));
+static_assert(!(xte::array<int> { 0 } >= xte::array<int> { 1 }));
+
+static_assert(std::is_neq(xte::array<int> { 1 } <=> xte::array<int> { 0 }));
+static_assert(std::is_gt(xte::array<int> { 1 } <=> xte::array<int> { 0 }));
+static_assert(std::is_gteq(xte::array<int> { 1 } <=> xte::array<int> { 0 }));
+static_assert(!std::is_eq(xte::array<int> { 1 } <=> xte::array<int> { 0 }));
+static_assert(!std::is_lt(xte::array<int> { 1 } <=> xte::array<int> { 0 }));
+static_assert(!std::is_lteq(xte::array<int> { 1 } <=> xte::array<int> { 0 }));
+static_assert(xte::array<int> { 1 } != xte::array<int> { 0 });
+static_assert(xte::array<int> { 1 } > xte::array<int> { 0 });
+static_assert(xte::array<int> { 1 } >= xte::array<int> { 0 });
+static_assert(!(xte::array<int> { 1 } == xte::array<int> { 0 }));
+static_assert(!(xte::array<int> { 1 } < xte::array<int> { 0 }));
+static_assert(!(xte::array<int> { 1 } <= xte::array<int> { 0 }));
+
+static_assert(std::is_eq(xte::array<int> { 1 } <=> xte::array<int> { 1 }));
+static_assert(std::is_lteq(xte::array<int> { 1 } <=> xte::array<int> { 1 }));
+static_assert(std::is_gteq(xte::array<int> { 1 } <=> xte::array<int> { 1 }));
+static_assert(!std::is_neq(xte::array<int> { 1 } <=> xte::array<int> { 1 }));
+static_assert(!std::is_lt(xte::array<int> { 1 } <=> xte::array<int> { 1 }));
+static_assert(!std::is_gt(xte::array<int> { 1 } <=> xte::array<int> { 1 }));
+static_assert(xte::array<int> { 1 } == xte::array<int> { 1 });
+static_assert(xte::array<int> { 1 } <= xte::array<int> { 1 });
+static_assert(xte::array<int> { 1 } >= xte::array<int> { 1 });
+static_assert(!(xte::array<int> { 1 } != xte::array<int> { 1 }));
+static_assert(!(xte::array<int> { 1 } < xte::array<int> { 1 }));
+static_assert(!(xte::array<int> { 1 } > xte::array<int> { 1 }));
+
+static_assert(std::is_eq(xte::array<int> { 0, 0 } <=> xte::array<int> { 0, 0 }));
+static_assert(std::is_lteq(xte::array<int> { 0, 0 } <=> xte::array<int> { 0, 0 }));
+static_assert(std::is_gteq(xte::array<int> { 0, 0 } <=> xte::array<int> { 0, 0 }));
+static_assert(!std::is_neq(xte::array<int> { 0, 0 } <=> xte::array<int> { 0, 0 }));
+static_assert(!std::is_lt(xte::array<int> { 0, 0 } <=> xte::array<int> { 0, 0 }));
+static_assert(!std::is_gt(xte::array<int> { 0, 0 } <=> xte::array<int> { 0, 0 }));
+static_assert(xte::array<int> { 0, 0 } == xte::array<int> { 0, 0 });
+static_assert(xte::array<int> { 0, 0 } <= xte::array<int> { 0, 0 });
+static_assert(xte::array<int> { 0, 0 } >= xte::array<int> { 0, 0 });
+static_assert(!(xte::array<int> { 0, 0 } != xte::array<int> { 0, 0 }));
+static_assert(!(xte::array<int> { 0, 0 } < xte::array<int> { 0, 0 }));
+static_assert(!(xte::array<int> { 0, 0 } > xte::array<int> { 0, 0 }));
+
+static_assert(std::is_eq(xte::array<int> { 0, 1 } <=> xte::array<int> { 0, 1 }));
+static_assert(std::is_lteq(xte::array<int> { 0, 1 } <=> xte::array<int> { 0, 1 }));
+static_assert(std::is_gteq(xte::array<int> { 0, 1 } <=> xte::array<int> { 0, 1 }));
+static_assert(!std::is_neq(xte::array<int> { 0, 1 } <=> xte::array<int> { 0, 1 }));
+static_assert(!std::is_lt(xte::array<int> { 0, 1 } <=> xte::array<int> { 0, 1 }));
+static_assert(!std::is_gt(xte::array<int> { 0, 1 } <=> xte::array<int> { 0, 1 }));
+static_assert(xte::array<int> { 0, 1 } == xte::array<int> { 0, 1 });
+static_assert(xte::array<int> { 0, 1 } <= xte::array<int> { 0, 1 });
+static_assert(xte::array<int> { 0, 1 } >= xte::array<int> { 0, 1 });
+static_assert(!(xte::array<int> { 0, 1 } != xte::array<int> { 0, 1 }));
+static_assert(!(xte::array<int> { 0, 1 } < xte::array<int> { 0, 1 }));
+static_assert(!(xte::array<int> { 0, 1 } > xte::array<int> { 0, 1 }));
+
+static_assert(std::is_neq(xte::array<int> { 0, 1 } <=> xte::array<int> { 1, 0 }));
+static_assert(std::is_lt(xte::array<int> { 0, 1 } <=> xte::array<int> { 1, 0 }));
+static_assert(std::is_lteq(xte::array<int> { 0, 1 } <=> xte::array<int> { 1, 0 }));
+static_assert(!std::is_eq(xte::array<int> { 0, 1 } <=> xte::array<int> { 1, 0 }));
+static_assert(!std::is_gt(xte::array<int> { 0, 1 } <=> xte::array<int> { 1, 0 }));
+static_assert(!std::is_gteq(xte::array<int> { 0, 1 } <=> xte::array<int> { 1, 0 }));
+static_assert(xte::array<int> { 0, 1 } != xte::array<int> { 1, 0 });
+static_assert(xte::array<int> { 0, 1 } < xte::array<int> { 1, 0 });
+static_assert(xte::array<int> { 0, 1 } <= xte::array<int> { 1, 0 });
+static_assert(!(xte::array<int> { 0, 1 } == xte::array<int> { 1, 0 }));
+static_assert(!(xte::array<int> { 0, 1 } > xte::array<int> { 1, 0 }));
+static_assert(!(xte::array<int> { 0, 1 } >= xte::array<int> { 1, 0 }));
+
+static_assert(std::is_neq(xte::array<int> { 1, 0 } <=> xte::array<int> { 0, 1 }));
+static_assert(std::is_gt(xte::array<int> { 1, 0 } <=> xte::array<int> { 0, 1 }));
+static_assert(std::is_gteq(xte::array<int> { 1, 0 } <=> xte::array<int> { 0, 1 }));
+static_assert(!std::is_eq(xte::array<int> { 1, 0 } <=> xte::array<int> { 0, 1 }));
+static_assert(!std::is_lt(xte::array<int> { 1, 0 } <=> xte::array<int> { 0, 1 }));
+static_assert(!std::is_lteq(xte::array<int> { 1, 0 } <=> xte::array<int> { 0, 1 }));
+static_assert(xte::array<int> { 1, 0 } != xte::array<int> { 0, 1 });
+static_assert(xte::array<int> { 1, 0 } > xte::array<int> { 0, 1 });
+static_assert(xte::array<int> { 1, 0 } >= xte::array<int> { 0, 1 });
+static_assert(!(xte::array<int> { 1, 0 } == xte::array<int> { 0, 1 }));
+static_assert(!(xte::array<int> { 1, 0 } < xte::array<int> { 0, 1 }));
+static_assert(!(xte::array<int> { 1, 0 } <= xte::array<int> { 0, 1 }));
+
+static_assert(std::is_eq(xte::array<int> { 1, 0 } <=> xte::array<int> { 1, 0 }));
+static_assert(std::is_lteq(xte::array<int> { 1, 0 } <=> xte::array<int> { 1, 0 }));
+static_assert(std::is_gteq(xte::array<int> { 1, 0 } <=> xte::array<int> { 1, 0 }));
+static_assert(!std::is_neq(xte::array<int> { 1, 0 } <=> xte::array<int> { 1, 0 }));
+static_assert(!std::is_lt(xte::array<int> { 1, 0 } <=> xte::array<int> { 1, 0 }));
+static_assert(!std::is_gt(xte::array<int> { 1, 0 } <=> xte::array<int> { 1, 0 }));
+static_assert(xte::array<int> { 1, 0 } == xte::array<int> { 1, 0 });
+static_assert(xte::array<int> { 1, 0 } <= xte::array<int> { 1, 0 });
+static_assert(xte::array<int> { 1, 0 } >= xte::array<int> { 1, 0 });
+static_assert(!(xte::array<int> { 1, 0 } != xte::array<int> { 1, 0 }));
+static_assert(!(xte::array<int> { 1, 0 } < xte::array<int> { 1, 0 }));
+static_assert(!(xte::array<int> { 1, 0 } > xte::array<int> { 1, 0 }));
+
+static_assert(std::is_eq(xte::array<int> { 1, 1 } <=> xte::array<int> { 1, 1 }));
+static_assert(std::is_lteq(xte::array<int> { 1, 1 } <=> xte::array<int> { 1, 1 }));
+static_assert(std::is_gteq(xte::array<int> { 1, 1 } <=> xte::array<int> { 1, 1 }));
+static_assert(!std::is_neq(xte::array<int> { 1, 1 } <=> xte::array<int> { 1, 1 }));
+static_assert(!std::is_lt(xte::array<int> { 1, 1 } <=> xte::array<int> { 1, 1 }));
+static_assert(!std::is_gt(xte::array<int> { 1, 1 } <=> xte::array<int> { 1, 1 }));
+static_assert(xte::array<int> { 1, 1 } == xte::array<int> { 1, 1 });
+static_assert(xte::array<int> { 1, 1 } <= xte::array<int> { 1, 1 });
+static_assert(xte::array<int> { 1, 1 } >= xte::array<int> { 1, 1 });
+static_assert(!(xte::array<int> { 1, 1 } != xte::array<int> { 1, 1 }));
+static_assert(!(xte::array<int> { 1, 1 } < xte::array<int> { 1, 1 }));
+static_assert(!(xte::array<int> { 1, 1 } > xte::array<int> { 1, 1 }));
