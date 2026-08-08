@@ -6,7 +6,7 @@
 
 namespace xte {
 	template<typename T>
-	concept is_swappable_noex = noexcept(std::ranges::swap(xte::fake<T>(), xte::fake<T>()));
+	concept is_swappable_noex = noexcept(std::ranges::swap(xte::fake<T&>(), xte::fake<T&>()));
 }
 
 #endif
