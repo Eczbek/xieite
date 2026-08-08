@@ -4,11 +4,11 @@
 #include <xte/trait/is_brace_constructible.hpp>
 #include <xte/trait/is_brace_constructible_noex.hpp>
 #include <xte/trait/is_constructible.hpp>
+#include <xte/trait/is_constructible_implicit_noex.hpp>
 #include <xte/trait/is_constructible_noex.hpp>
-#include <xte/trait/is_implicit_constructible_noex.hpp>
-#include <xte/trait/is_implicit_copy_constructible.hpp>
-#include <xte/trait/is_implicit_copy_constructible_noex.hpp>
-#include <xte/trait/is_implicit_move_constructible_noex.hpp>
+#include <xte/trait/is_copy_constructible_implicit.hpp>
+#include <xte/trait/is_copy_constructible_implicit_noex.hpp>
+#include <xte/trait/is_move_constructible_implicit_noex.hpp>
 #include <xte/util/as_lvalue.hpp>
 #include <xte/util/as_xvalue.hpp>
 #include <xte/util/number_types.hpp>
@@ -49,12 +49,12 @@ struct throwing_copy_and_move_constructor {
 };
 
 // Default constructor
-static_assert(xte::is_implicit_constructible_noex<xte::array<int>>);
-static_assert(xte::is_implicit_constructible_noex<xte::array<non_constructible>>);
-static_assert(xte::is_implicit_constructible_noex<xte::array<non_default_constructible>>);
-static_assert(xte::is_implicit_constructible_noex<xte::array<xte::non_copyable>>);
-static_assert(xte::is_implicit_constructible_noex<xte::array<xte::non_movable>>);
-static_assert(xte::is_implicit_constructible_noex<xte::array<throwing_default_constructor>>);
+static_assert(xte::is_constructible_implicit_noex<xte::array<int>>);
+static_assert(xte::is_constructible_implicit_noex<xte::array<non_constructible>>);
+static_assert(xte::is_constructible_implicit_noex<xte::array<non_default_constructible>>);
+static_assert(xte::is_constructible_implicit_noex<xte::array<xte::non_copyable>>);
+static_assert(xte::is_constructible_implicit_noex<xte::array<xte::non_movable>>);
+static_assert(xte::is_constructible_implicit_noex<xte::array<throwing_default_constructor>>);
 static_assert(xte::is_brace_constructible_noex<xte::array<int>>);
 static_assert(xte::is_brace_constructible_noex<xte::array<non_constructible>>);
 static_assert(xte::is_brace_constructible_noex<xte::array<non_default_constructible>>);
@@ -69,12 +69,12 @@ static_assert((xte::array<int> {}).size() == 0);
 static_assert((xte::array<int> {}).capacity() == 0);
 
 // Copy constructor
-static_assert(xte::is_implicit_copy_constructible<xte::array<int>>);
-static_assert(!xte::is_implicit_copy_constructible<xte::array<non_constructible>>);
-static_assert(xte::is_implicit_copy_constructible<xte::array<non_default_constructible>>);
-static_assert(!xte::is_implicit_copy_constructible<xte::array<xte::non_copyable>>);
-static_assert(xte::is_implicit_copy_constructible<xte::array<xte::non_movable>>);
-static_assert(!xte::is_implicit_copy_constructible_noex<xte::array<int>>);
+static_assert(xte::is_copy_constructible_implicit<xte::array<int>>);
+static_assert(!xte::is_copy_constructible_implicit<xte::array<non_constructible>>);
+static_assert(xte::is_copy_constructible_implicit<xte::array<non_default_constructible>>);
+static_assert(!xte::is_copy_constructible_implicit<xte::array<xte::non_copyable>>);
+static_assert(xte::is_copy_constructible_implicit<xte::array<xte::non_movable>>);
+static_assert(!xte::is_copy_constructible_implicit_noex<xte::array<int>>);
 static_assert(auto(xte::as_lvalue(xte::array<int>())).data() == nullptr);
 static_assert(auto(xte::as_lvalue(xte::array<int>())).size() == 0);
 static_assert(auto(xte::as_lvalue(xte::array<int>())).capacity() == 0);
@@ -86,15 +86,15 @@ static_assert(auto(xte::as_lvalue(xte::array<int> { 1, 2, 3 }))[1] == 2);
 static_assert(auto(xte::as_lvalue(xte::array<int> { 1, 2, 3 }))[2] == 3);
 
 // Move constructor
-static_assert(xte::is_implicit_move_constructible_noex<xte::array<int>>);
-static_assert(xte::is_implicit_move_constructible_noex<xte::array<non_constructible>>);
-static_assert(xte::is_implicit_move_constructible_noex<xte::array<non_default_constructible>>);
-static_assert(xte::is_implicit_move_constructible_noex<xte::array<xte::non_copyable>>);
-static_assert(xte::is_implicit_move_constructible_noex<xte::array<xte::non_movable>>);
-static_assert(xte::is_implicit_move_constructible_noex<xte::array<throwing_default_constructor>>);
-static_assert(xte::is_implicit_move_constructible_noex<xte::array<throwing_copy_constructor>>);
-static_assert(xte::is_implicit_move_constructible_noex<xte::array<throwing_move_constructor>>);
-static_assert(xte::is_implicit_move_constructible_noex<xte::array<throwing_copy_and_move_constructor>>);
+static_assert(xte::is_move_constructible_implicit_noex<xte::array<int>>);
+static_assert(xte::is_move_constructible_implicit_noex<xte::array<non_constructible>>);
+static_assert(xte::is_move_constructible_implicit_noex<xte::array<non_default_constructible>>);
+static_assert(xte::is_move_constructible_implicit_noex<xte::array<xte::non_copyable>>);
+static_assert(xte::is_move_constructible_implicit_noex<xte::array<xte::non_movable>>);
+static_assert(xte::is_move_constructible_implicit_noex<xte::array<throwing_default_constructor>>);
+static_assert(xte::is_move_constructible_implicit_noex<xte::array<throwing_copy_constructor>>);
+static_assert(xte::is_move_constructible_implicit_noex<xte::array<throwing_move_constructor>>);
+static_assert(xte::is_move_constructible_implicit_noex<xte::array<throwing_copy_and_move_constructor>>);
 static_assert(auto(xte::as_xvalue(xte::array<int>())).data() == nullptr);
 static_assert(auto(xte::as_xvalue(xte::array<int>())).size() == 0);
 static_assert(auto(xte::as_xvalue(xte::array<int>())).capacity() == 0);
@@ -152,7 +152,7 @@ static_assert(xte::is_constructible<xte::array<int>, std::from_range_t, std::vec
 static_assert(!xte::is_constructible<xte::array<non_constructible>, std::from_range_t, std::vector<non_constructible>>);
 static_assert(xte::is_constructible<xte::array<non_default_constructible>, std::from_range_t, std::vector<non_default_constructible>>);
 static_assert(xte::is_constructible<xte::array<xte::non_copyable>, std::from_range_t, std::vector<xte::non_copyable>>);
-static_assert(xte::is_constructible<xte::array<xte::non_movable>, std::from_range_t, std::vector<xte::non_movable>>);
+static_assert(!xte::is_constructible<xte::array<xte::non_movable>, std::from_range_t, std::vector<xte::non_movable>>);
 static_assert(!xte::is_constructible_noex<xte::array<int>, std::from_range_t, std::vector<int>>);
 static_assert((xte::array<int>(std::from_range, std::vector<int>())).data() == nullptr);
 static_assert((xte::array<int>(std::from_range, std::vector<int>())).size() == 0);

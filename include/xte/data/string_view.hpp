@@ -7,7 +7,7 @@
 #	include "../math/width.hpp"
 #	include "../meta/type.hpp"
 #	include "../preproc/constructs.hpp"
-#	include "../trait/is_implicit_castable_noex.hpp"
+#	include "../trait/is_castable_implicit_noex.hpp"
 #	include "../util/number_types.hpp"
 #	include <algorithm>
 #	include <compare>
@@ -37,7 +37,7 @@ namespace xte {
 		[[nodiscard]] explicit(false) constexpr string_view(const char& c) noexcept
 		: _data(&c), _size(1) {}
 
-		[[nodiscard]] explicit constexpr string_view(const xte::is_implicit_castable_noex<const char*> auto& range) noexcept
+		[[nodiscard]] explicit constexpr string_view(const xte::is_castable_implicit_noex<const char*> auto& range) noexcept
 		: _data(range) {
 			if (const char* copy = this->_data) {
 				while (*copy++) {

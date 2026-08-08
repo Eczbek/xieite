@@ -135,7 +135,7 @@ static_assert(([] {
 static_assert(([] {
 	xte::string a;
 	a.reserve(10);
-	a.shrink();
+	a.shrink_to_fit();
 	return a.capacity() == 0;
 })());
 
@@ -188,7 +188,7 @@ static_assert(([] {
 
 static_assert(([] {
 	xte::string a = "abc";
-	a.insert_count(1, 3, '$');
+	a.insert_fill(1, 3, '$');
 	return a == "a$$$bc";
 })());
 
@@ -205,23 +205,23 @@ static_assert(([] {
 
 static_assert(([] {
 	xte::string a = "abc";
-	a.push('x');
+	a.append('x');
 	return a == "abcx";
 })());
 
 static_assert(([] {
 	xte::string a = "abc";
-	a.push_string("xyz");
+	a.append_string("xyz");
 	return a == "abcxyz";
 })());
 
 static_assert(([] {
 	xte::string a = "a";
-	return (a.pop() == 'a') && (a.size() == 0);
+	return (a.pop_back() == 'a') && (a.size() == 0);
 })());
 static_assert(([] {
 	xte::string a = "abc";
-	return (a.pop() == 'c') && (a.size() == 2);
+	return (a.pop_back() == 'c') && (a.size() == 2);
 })());
 
 static_assert(([] {

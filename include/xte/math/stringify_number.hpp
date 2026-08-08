@@ -33,10 +33,10 @@ namespace xte {
 			return (x < 0) ? "-inf" : "inf";
 		}
 		if (xte::approx_equal(x, 0) || !xte::is_finite(radix) || xte::approx_equal(radix, 0)) {
-			result.push(config.digits[0]);
+			result.append(config.digits[0]);
 			if constexpr (xte::is_float<T>) {
-				result.push(config.point[0]);
-				result.push(config.digits[0]);
+				result.append(config.point[0]);
+				result.append(config.digits[0]);
 			}
 			return result;
 		}
@@ -47,12 +47,12 @@ namespace xte {
 			if (radix > 0) {
 				result.resize(xte::make<xte::uz>(abs), config.digits[1]);
 			} else {
-				result.push(config.digits[1]);
+				result.append(config.digits[1]);
 				auto length = xte::make<xte::uz>(abs);
 				result.reserve_total(length * 2);
 				while (--length) {
-					result.push(config.digits[0]);
-					result.push(config.digits[1]);
+					result.append(config.digits[0]);
+					result.append(config.digits[1]);
 				}
 			}
 			return neg ? (config.minus[0] + xte::as_xvalue(result)) : xte::as_xvalue(result);
@@ -69,13 +69,13 @@ namespace xte {
 								rem -= radix;
 								++x;
 							}
-							result.push(config.digits[static_cast<xte::uz>(rem)]);
+							result.append(config.digits[static_cast<xte::uz>(rem)]);
 						} while (x);
 						break;
 					}
 				}
 				do {
-					result.push(config.digits[static_cast<xte::uz>(abs % abs_radix)]);
+					result.append(config.digits[static_cast<xte::uz>(abs % abs_radix)]);
 				} while (abs /= abs_radix);
 			} while (false);
 			std::ranges::reverse(result);
@@ -87,7 +87,7 @@ namespace xte {
 				for (xte::uz i = 0; (i < max_float_precision) && (!i || !xte::approx_equal(fraction, 0)); ++i) {
 					T digit = xte::floor(fraction *= radix);
 					fraction -= digit;
-					buffer.push(digit);
+					buffer.append(digit);
 				}
 				xte::iz carry = 0;
 				for (T& digit : buffer | std::views::reverse) {
@@ -95,9 +95,9 @@ namespace xte {
 					if ((carry = (digit < 0) - xte::approx_greater_equal(digit, abs_radix))) {
 						digit += abs_radix * xte::make<T>(carry);
 					}
-					result.push(config.digits[xte::make<xte::uz>(digit)]);
+					result.append(config.digits[xte::make<xte::uz>(digit)]);
 				}
-				result.push(config.point[0]);
+				result.append(config.point[0]);
 				whole += xte::make<T>(carry);
 				do {
 					T digit = xte::mod(whole, radix);
@@ -106,46 +106,46 @@ namespace xte {
 						digit -= radix;
 						++whole;
 					}
-					result.push(config.digits[xte::make<xte::uz>(digit)]);
+					result.append(config.digits[xte::make<xte::uz>(digit)]);
 				} while (!xte::approx_equal(whole, 0));
 				std::ranges::reverse(result);
 			} else if (abs_radix < 1) {
 				T power = 1;
 				if ((power / abs_radix) > abs) {
-					result.push(config.digits[0]);
+					result.append(config.digits[0]);
 				} else {
 					while (xte::approx_less_equal(power /= abs_radix, abs));
 					while ((power *= abs_radix) > 1) {
 						auto digit = xte::make<xte::uz>(abs / power);
 						abs -= xte::make<T>(digit) * power;
-						result.push(config.digits[digit]);
+						result.append(config.digits[digit]);
 					}
 				}
-				result.push(config.point[0]);
+				result.append(config.point[0]);
 				do {
 					auto digit = xte::make<xte::uz>(abs);
-					result.push(config.digits[digit]);
+					result.append(config.digits[digit]);
 					abs -= xte::make<T>(digit);
 					abs /= abs_radix;
 				} while (!xte::approx_equal(abs, 0));
 				std::ranges::reverse(result);
 			} else if (!radix_is_whole) {
 				if (abs < 1) {
-					result.push(config.digits[0]);
+					result.append(config.digits[0]);
 				} else {
 					T power = 1;
 					while (xte::approx_less_equal(power *= abs_radix, abs));
 					while (xte::approx_greater_equal(power /= abs_radix, 1)) {
 						auto digit = xte::make<xte::uz>(abs / power);
 						abs -= xte::make<T>(digit) * power;
-						result.push(config.digits[digit]);
+						result.append(config.digits[digit]);
 					}
 				}
-				result.push(config.point[0]);
+				result.append(config.point[0]);
 				for (xte::uz i = 0; (i < max_float_precision) && (!i || !xte::approx_equal(abs, 0)); ++i) {
 					auto digit = xte::make<xte::uz>(abs *= abs_radix);
 					abs -= xte::make<T>(digit += xte::approx_equal(abs, digit + 1));
-					result.push(config.digits[digit]);
+					result.append(config.digits[digit]);
 				}
 			} else {
 				T whole = xte::floor(abs);
@@ -153,14 +153,14 @@ namespace xte {
 				do {
 					T digit = xte::rem(whole, abs_radix);
 					whole = xte::floor(whole / abs_radix);
-					result.push(config.digits[xte::make<xte::uz>(digit)]);
+					result.append(config.digits[xte::make<xte::uz>(digit)]);
 				} while (!xte::approx_equal(whole, 0));
 				std::ranges::reverse(result);
-				result.push(config.point[0]);
+				result.append(config.point[0]);
 				for (xte::uz i = 0; (i < max_float_precision) && (!i || !xte::approx_equal(abs, 0)); ++i) {
 					auto digit = xte::make<xte::uz>(abs *= abs_radix);
 					abs -= xte::make<T>(digit);
-					result.push(config.digits[digit]);
+					result.append(config.digits[digit]);
 				}
 			}
 		}

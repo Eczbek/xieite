@@ -107,7 +107,7 @@ static_assert(xte::is_assignable<xte::array<int>&, std::vector<int>>);
 static_assert(!xte::is_assignable<xte::array<non_constructible>&, std::vector<non_constructible>>);
 static_assert(xte::is_assignable<xte::array<non_default_constructible>&, std::vector<non_default_constructible>>);
 static_assert(xte::is_assignable<xte::array<xte::non_copyable>&, std::vector<xte::non_copyable>>);
-static_assert(xte::is_assignable<xte::array<xte::non_movable>&, std::vector<xte::non_movable>>);
+static_assert(!xte::is_assignable<xte::array<xte::non_movable>&, std::vector<xte::non_movable>>);
 static_assert(!xte::is_assignable_noex<xte::array<int>&, std::vector<int>>);
 static_assert((xte::as_lvalue(xte::array<int>()) = std::vector<int>()).data() == nullptr);
 static_assert((xte::as_lvalue(xte::array<int>()) = std::vector<int>()).size() == 0);

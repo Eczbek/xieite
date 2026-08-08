@@ -9,7 +9,7 @@ struct test_array {
 
 	constexpr test_array(xte::init_list<T> list) {
 		for (auto&& item : list) {
-			this->data.push(xte::as_xvalue(item));
+			this->data.append(xte::as_xvalue(item));
 		}
 	}
 };

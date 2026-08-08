@@ -9,8 +9,9 @@
 #	include "../preproc/constructs.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/returns.hpp"
+#	include "../trait/is_castable_implicit_noex.hpp"
 #	include "../trait/is_derived_from.hpp"
-#	include "../trait/is_implicit_castable_noex.hpp"
+#	include "../trait/is_invocable.hpp"
 #	include "../util/as_lvalue.hpp"
 #	include "../util/as_xvalue.hpp"
 #	include "../util/assign.hpp"
@@ -30,8 +31,6 @@ namespace xte {
 		xte::array<char> _data;
 
 	public:
-		using size_type = xte::uz;
-		using difference_type = xte::iptrdiff;
 		using value_type = char;
 		using reference = char&;
 		using const_reference = const char&;
@@ -42,6 +41,8 @@ namespace xte {
 		using reverse_iterator = std::reverse_iterator<char*>;
 		using const_reverse_iterator = std::reverse_iterator<const char*>;
 		using allocator_type = xte::array<char>::allocator_type;
+		using size_type = xte::uz;
+		using difference_type = xte::iptrdiff;
 
 		[[nodiscard]] explicit(false) constexpr string() noexcept = default;
 
@@ -58,7 +59,7 @@ namespace xte {
 		: xte::string(std::from_range, xte::as_xvalue(init_list)) {}
 
 		[[nodiscard]] constexpr string(std::from_range_t, auto&& range) XTE_CONSTRUCTS(
-			((this->_data.size() && this->_data.back()) ? this->_data.push() : void()),
+			((this->_data.size() && this->_data.back()) ? this->_data.append() : void()),
 			_data,((std::from_range, XTE_FWD(range)))
 		)
 
@@ -67,23 +68,23 @@ namespace xte {
 			(xte::string),((std::from_range, xte::as_lvalue(std::ranges::subrange(begin, end))))
 		)
 
-		[[nodiscard]] explicit(false) constexpr string(xte::is_implicit_castable_noex<const char*> auto&& range) noexcept(false) {
+		[[nodiscard]] explicit(false) constexpr string(xte::is_castable_implicit_noex<const char*> auto&& range) noexcept(false) {
 			if (const char* data = range) do {
-				this->_data.push(*data);
+				this->_data.append(*data);
 			} while (*data++);
 		}
 
 		[[nodiscard]] constexpr string(const char* data, xte::uz size) noexcept(false) {
 			this->_data.reserve_total(size);
 			while (size--) {
-				this->_data.push(*data++);
+				this->_data.append(*data++);
 			}
 			if (!this->_data.size() || this->_data.back()) {
-				this->_data.push();
+				this->_data.append();
 				return;
 			}
 			if ((this->_data.size() > 1) && !this->_data.back(1)) {
-				this->_data.pop();
+				this->_data.pop_back();
 			}
 		}
 
@@ -93,7 +94,7 @@ namespace xte {
 
 		[[nodiscard]] explicit(false) constexpr string(xte::uz size, char c = '\0') noexcept(false)
 		: _data(size, c) {
-			this->_data.push();
+			this->_data.append();
 		}
 
 		constexpr xte::string& operator=(const xte::string& other) & noexcept(false) {
@@ -111,7 +112,7 @@ namespace xte {
 		requires(!xte::is_derived_from<range_type, xte::string> && requires (char x) { xte::assign(x, xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
 			this->_data = XTE_FWD(range);
 			if (!this->_data.size() || this->_data.back()) {
-				this->_data.push();
+				this->_data.append();
 			}
 			return *this;
 		}
@@ -279,7 +280,7 @@ namespace xte {
 		constexpr void resize(xte::uz size, char fill = '\0') & noexcept(false) {
 			this->reserve_total(size + 1);
 			while (this->size() < size) {
-				this->push(fill);
+				this->append(fill);
 			}
 			this->erase(size, -1uz);
 		}
@@ -292,18 +293,21 @@ namespace xte {
 			this->_data.reserve_total(total + !!total);
 		}
 
-		constexpr void force_size(xte::uz size) & noexcept {
-			this->_data.force_size(size + 1);
+		constexpr void reserve_and_init(xte::uz additional, xte::is_invocable<xte::uz(char*, xte::uz)> auto&& op) & noexcept(false) {
+			this->_data.reserve_and_init(additional, XTE_FWD(op));
+			if (this->_data.size() && this->_data.back()) {
+				this->_data.append();
+			}
 		}
 
-		constexpr void shrink() & noexcept(false) {
-			this->_data.shrink();
+		constexpr void shrink_to_fit() & noexcept(false) {
+			this->_data.shrink_to_fit();
 		}
 
 		constexpr void insert(xte::uz index, char c = '\0') & noexcept(false) {
 			this->_data.insert(xte::min(index, this->size()), c);
 			if (this->_data.back()) {
-				this->_data.push();
+				this->_data.append();
 			}
 		}
 
@@ -312,7 +316,7 @@ namespace xte {
 		requires(xte::is_constructible<char, decltype(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>) {
 			this->_data.insert_range(xte::min(index, this->size()), XTE_FWD(range));
 			if (!this->_data.size() || this->_data.back()) {
-				this->_data.push();
+				this->_data.append();
 			}
 		}
 
@@ -328,16 +332,8 @@ namespace xte {
 			}
 		}
 
-		constexpr void insert_count(xte::uz index, xte::uz count, char c) & noexcept(false) {
-			this->_data.insert_count(xte::min(index, this->size()), count, c);
-		}
-
-		constexpr void insert_uninit(xte::uz index, xte::uz count = 1) & noexcept(false) {
-			bool was_empty = count && !this->_data.size();
-			this->_data.insert_uninit(index, count + was_empty);
-			if (was_empty) {
-				this->_data.push();
-			}
+		constexpr void insert_fill(xte::uz index, xte::uz count, char c) & noexcept(false) {
+			this->_data.insert_fill(xte::min(index, this->size()), count, c);
 		}
 
 		constexpr void erase(xte::uz index, xte::uz count = 1) & noexcept {
@@ -346,21 +342,21 @@ namespace xte {
 			}
 		}
 
-		constexpr void push(char c = '\0') & noexcept(false) {
+		constexpr void append(char c = '\0') & noexcept(false) {
 			this->insert(-1uz, c);
 		}
 
 		template<typename range_type = xte::string>
-		constexpr auto push_range(range_type&& range) & XTE_RETURNS(
+		constexpr auto append_range(range_type&& range) & XTE_RETURNS(
 			this->insert_range(-1uz, XTE_FWD(range))
 		)
 
 		template<typename range_type = xte::string>
-		constexpr auto push_string(range_type&& range) & XTE_RETURNS(
+		constexpr auto append_string(range_type&& range) & XTE_RETURNS(
 			this->insert_string(-1uz, XTE_FWD(range))
 		)
 
-		constexpr char pop() noexcept {
+		constexpr char pop_back() noexcept {
 			char last = this->back();
 			this->erase(this->size() - 1);
 			return last;
@@ -381,12 +377,12 @@ namespace xte {
 		)
 
 		constexpr xte::string& operator+=(char rhs) noexcept(false) {
-			this->push(rhs);
+			this->append(rhs);
 			return *this;
 		}
 
 		constexpr auto operator+=(auto&& rhs) XTE_RETURNS(
-			this->push_string(XTE_FWD(rhs)),
+			this->append_string(XTE_FWD(rhs)),
 			*this
 		)
 

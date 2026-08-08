@@ -125,18 +125,19 @@ static_assert(([] {
 
 static_assert(([] {
 	xte::array<int> a;
-	a.reserve(5);
-	a.force_size(5);
-	for (xte::uz i = 0; i < 5; ++i) {
-		xte::construct(a[i], static_cast<int>(i));
-	}
+	a.reserve_and_init(5, [](int* buffer, xte::uz size) {
+		for (xte::uz i = 0; i < 5; ++i) {
+			xte::construct(buffer[i], static_cast<int>(i));
+		}
+		return size;
+	});
 	return a == xte::array<int> { 0, 1, 2, 3, 4 };
 })());
 
 static_assert(([] {
 	xte::array<int> a;
 	a.reserve(10);
-	a.shrink();
+	a.shrink_to_fit();
 	return a.capacity() == 0;
 })());
 
@@ -204,22 +205,24 @@ static_assert(([] {
 
 static_assert(([] {
 	xte::array<int> a = { 0, 1, 2 };
-	a.insert_count(1, 3, 999);
+	a.insert_fill(1, 3, 999);
 	return a == xte::array<int> { 0, 999, 999, 999, 1, 2 };
 })());
 static_assert(([] {
 	xte::array<int> a = { 0, 1, 2 };
-	a.insert_count(1, 0, 999);
+	a.insert_fill(1, 0, 999);
 	return a == xte::array<int> { 0, 1, 2 };
 })());
 
 static_assert(([] {
 	xte::array<int> a = { 1, 2, 3 };
-	a.insert_uninit(1, 3);
-	a[1] = 4;
-	a[2] = 5;
-	a[3] = 6;
-	return a == xte::array<int> { 1, 4, 5, 6, 2, 3 };
+	a.reserve_and_init(3, [](int* buffer, xte::uz size) {
+		xte::construct(buffer[0], 4);
+		xte::construct(buffer[1], 5);
+		xte::construct(buffer[2], 6);
+		return size;
+	});
+	return a == xte::array<int> { 1, 2, 3, 4, 5, 6 };
 })());
 
 static_assert(([] {
@@ -240,28 +243,28 @@ static_assert(([] {
 
 static_assert(([] {
 	xte::array<int> a = { 0, 1, 2 };
-	a.push();
+	a.append();
 	return a == xte::array<int> { 0, 1, 2, 0 };
 })());
 static_assert(([] {
 	xte::array<int> a = { 0, 1, 2 };
-	a.push(3);
+	a.append(3);
 	return a == xte::array<int> { 0, 1, 2, 3 };
 })());
 
 static_assert(([] {
 	xte::array<int> a = { 0, 1, 2 };
-	a.push_range({ 3, 4 });
+	a.append_range({ 3, 4 });
 	return a == xte::array<int> { 0, 1, 2, 3, 4 };
 })());
 
 static_assert(([] {
 	xte::array<int> a { 5 };
-	return (a.pop() == 5) && (a.size() == 0);
+	return (a.pop_back() == 5) && (a.size() == 0);
 })());
 static_assert(([] {
 	xte::array<int> a { 0, 1, 2 };
-	return (a.pop() == 2) && (a.size() == 2);
+	return (a.pop_back() == 2) && (a.size() == 2);
 })());
 
 static_assert(([] {

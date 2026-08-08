@@ -110,7 +110,7 @@ namespace xte {
 				if ((input == xte::eof) || (input == delim)) {
 					break;
 				}
-				content.push(static_cast<char>(input));
+				content.append(static_cast<char>(input));
 			}
 			return content;
 		}

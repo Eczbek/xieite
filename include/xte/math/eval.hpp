@@ -308,7 +308,7 @@ namespace xte {
 				xte::array<DETAIL_XTE::eval::data_type> args;
 				while (true) {
 					whitespace();
-					args.push(expression());
+					args.append(expression());
 					if (match(",")) {
 						continue;
 					}

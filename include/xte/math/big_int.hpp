@@ -47,10 +47,10 @@ namespace xte {
 
 		constexpr void _normalize() {
 			if (!this->_data.size()) {
-				this->_data.push();
+				this->_data.append();
 			}
 			while ((this->_data.size() > 1) && !this->_data.back()) {
-				this->_data.pop();
+				this->_data.pop_back();
 			}
 			this->_neg &= !!*this;
 		}
@@ -137,13 +137,13 @@ namespace xte {
 				if (rhs._is_single_bit()) {
 					xte::uz shift_digits = rhs._data.size() - 1;
 					xte::uz shift_bits = xte::digits(rhs._data.back(), 2) - 1;
-					this->_data.insert_count(0, shift_digits, 0);
+					this->_data.insert_fill(0, shift_digits, 0);
 					*this <<= shift_bits;
 					break;
 				}
 				xte::big_int copy = (this == xte::address(rhs)) ? rhs.abs() : auto(XTE_FWD(rhs).abs());
 				if (this->_is_single_bit()) {
-					copy._data.insert_count(0, this->_data.size() - 1, 0);
+					copy._data.insert_fill(0, this->_data.size() - 1, 0);
 					copy <<= xte::digits(this->_data.back(), 2) - 1;
 					*this = xte::as_xvalue(copy);
 					break;
@@ -152,7 +152,7 @@ namespace xte {
 					auto [lo, hi] = xte::wide_uint<xte::umax>(this->_data[0]) * copy._data[0];
 					this->_data[0] = lo;
 					if (hi) {
-						this->_data.push(hi);
+						this->_data.append(hi);
 					}
 					break;
 				}
@@ -184,7 +184,7 @@ namespace xte {
 				xte::uz rhs_last_bits = xte::digits(rhs._data.back(), 2);
 				xte::uz shift_digits = this->_data.size() - rhs._data.size() - (lhs_last_bits < rhs_last_bits);
 				xte::uz shift_bits = (lhs_last_bits - rhs_last_bits + xte::width<xte::umax>) % xte::width<xte::umax>;
-				tmp._data.insert_count(0, shift_digits, 0);
+				tmp._data.insert_fill(0, shift_digits, 0);
 				tmp <<= shift_bits;
 				if (*this < tmp) {
 					tmp >>= 1;
@@ -225,14 +225,14 @@ namespace xte {
 				}
 				xte::uz shift_bits = rhs._data[0] % xte::width<xte::umax>;
 				this->_data.reserve(shift_digits + !!shift_bits);
-				this->_data.insert_count(0, shift_digits, 0);
+				this->_data.insert_fill(0, shift_digits, 0);
 				if (shift_bits) {
 					xte::umax carry = 0;
 					for (xte::umax& digit : this->_data | std::views::drop(shift_digits)) {
 						carry = xte::exchange(digit, (digit << shift_bits) | carry) >> (xte::width<xte::umax> - shift_bits);
 					}
 					if (carry) {
-						this->_data.push(carry);
+						this->_data.append(carry);
 					}
 					this->_normalize();
 				}
@@ -305,7 +305,7 @@ namespace xte {
 			}
 			auto abs = xte::number(xte::abs(x));
 			do {
-				this->_data.push(static_cast<xte::umax>(abs));
+				this->_data.append(static_cast<xte::umax>(abs));
 			} while (abs >>= xte::width<xte::umax>);
 		}
 
