@@ -4,11 +4,11 @@
 #	include "../meta/fake.hpp"
 
 namespace xte {
-	template<typename T, typename... arg_types>
+	template<typename target_type, typename... arg_types>
 	concept is_constructible_noex =
 		((sizeof...(arg_types) == 1)
-			? requires { { static_cast<T>(xte::fake<arg_types...[0]>()) } noexcept; }
-			: requires { { T(xte::fake<arg_types>()...) } noexcept; });
+			? requires { { static_cast<target_type>(xte::fake<arg_types...[0]>()) } noexcept; }
+			: requires { { target_type(xte::fake<arg_types>()...) } noexcept; });
 }
 
 #endif

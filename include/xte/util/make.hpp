@@ -1,7 +1,6 @@
 #ifndef DETAIL_XTE_HEADER_UTIL_MAKE
 #	define DETAIL_XTE_HEADER_UTIL_MAKE
 #
-#	include "../func/visitor.hpp"
 #	include "../math/highest.hpp"
 #	include "../math/is_finite.hpp"
 #	include "../math/less.hpp"
@@ -17,52 +16,52 @@
 #	include <limits>
 
 namespace DETAIL_XTE::make {
-	template<typename to_type>
+	template<typename target_type>
 	[[nodiscard]] constexpr auto cast_one(auto&& arg) XTE_RETURNS(
-		static_cast<to_type>(XTE_FWD(arg))
+		static_cast<target_type>(XTE_FWD(arg))
 	)
 
-	template<typename to_type>
+	template<typename target_type>
 	[[nodiscard]] constexpr auto impl(auto&&... args) XTE_RETURNS_FIRST(
-		cast_one<to_type>(XTE_FWD(args)...),
-		cast_one<to_type>(xte::as_const(args)...),
-		to_type(XTE_FWD(args)...)
+		cast_one<target_type>(XTE_FWD(args)...),
+		cast_one<target_type>(xte::as_const(args)...),
+		target_type(XTE_FWD(args)...)
 	)
 
-	template<xte::is_arithmetic to_type, xte::is_arithmetic from_type>
-	[[nodiscard]] constexpr to_type impl(from_type arg) noexcept {
-		if constexpr (xte::is_float<to_type>) {
-			if (xte::less(xte::highest<to_type>, arg)) {
-				if constexpr (std::numeric_limits<to_type>::has_infinity) {
-					return std::numeric_limits<to_type>::infinity();
+	template<xte::is_arithmetic target_type, xte::is_arithmetic source_type>
+	[[nodiscard]] constexpr target_type impl(source_type arg) noexcept {
+		if constexpr (xte::is_float<target_type>) {
+			if (xte::less(xte::highest<target_type>, arg)) {
+				if constexpr (std::numeric_limits<target_type>::has_infinity) {
+					return std::numeric_limits<target_type>::infinity();
 				} else {
-					return xte::highest<to_type>;
+					return xte::highest<target_type>;
 				}
-			} else if (xte::less(arg, xte::lowest<to_type>)) {
-				if constexpr (std::numeric_limits<to_type>::has_infinity) {
-					return -std::numeric_limits<to_type>::infinity();
+			} else if (xte::less(arg, xte::lowest<target_type>)) {
+				if constexpr (std::numeric_limits<target_type>::has_infinity) {
+					return -std::numeric_limits<target_type>::infinity();
 				} else {
-					return xte::lowest<to_type>;
+					return xte::lowest<target_type>;
 				}
 			}
-		} else if constexpr (xte::is_int<to_type> && xte::is_float<from_type>) {
+		} else if constexpr (xte::is_int<target_type> && xte::is_float<source_type>) {
 			if (!xte::is_finite(arg)) {
 				return 0;
 			}
-			if (xte::less(xte::highest<to_type>, arg) || xte::less(arg, xte::lowest<to_type>)) {
-				static constexpr from_type min = impl<from_type>(xte::lowest<to_type>);
-				static constexpr from_type max = impl<from_type>(xte::highest<to_type>);
-				static constexpr from_type range = max - min + 1;
-				return static_cast<to_type>(std::fmod(std::fmod(arg - min, range) + range * (arg < min), range));
+			if (xte::less(xte::highest<target_type>, arg) || xte::less(arg, xte::lowest<target_type>)) {
+				static constexpr source_type min = impl<source_type>(xte::lowest<target_type>);
+				static constexpr source_type max = impl<source_type>(xte::highest<target_type>);
+				static constexpr source_type range = max - min + 1;
+				return static_cast<target_type>(std::fmod(std::fmod(arg - min, range) + range * (arg < min), range));
 			}
 		}
-		return static_cast<to_type>(arg);
+		return static_cast<target_type>(arg);
 	}
 }
 
 namespace xte {
-	template<typename to_type>
-	constexpr auto make = XTE_LIFT(DETAIL_XTE::make::impl<to_type>);
+	template<typename target_type>
+	constexpr auto make = XTE_LIFT(DETAIL_XTE::make::impl<target_type>);
 }
 
 #endif
