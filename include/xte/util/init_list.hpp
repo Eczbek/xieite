@@ -4,28 +4,41 @@
 #	include "../preproc/constructs.hpp"
 #	include "../preproc/define_cast.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../preproc/returns.hpp"
 #	include "../trait/drop_const.hpp"
+#	include "../trait/is_constructible_implicit.hpp"
 #	include "../util/address.hpp"
 #	include "../util/as_xvalue.hpp"
+#	include "../util/make.hpp"
 #	include <initializer_list>
 
 namespace DETAIL_XTE::init_list {
-	template<typename T>
+	template<typename arg_type>
+	struct explicit_cast {
+		arg_type&& arg;
+
+		template<xte::is_constructible_implicit<arg_type> item_type>
+		[[nodiscard]] explicit(false) constexpr operator item_type() const XTE_RETURNS_FIXED(
+			xte::make<item_type>(XTE_FWD(this->arg))
+		)
+	};
+
+	template<typename item_type>
 	struct impl {
 	private:
-		mutable T _value;
+		mutable item_type _value;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr impl(const T& x) XTE_CONSTRUCTS(,
-			_value,((x))
+		[[nodiscard]] explicit(false) constexpr impl(const item_type& arg) XTE_CONSTRUCTS(,
+			_value,((arg))
 		)
 
-		[[nodiscard]] explicit(false) constexpr impl(T&& x) XTE_CONSTRUCTS(,
-			_value,((xte::as_xvalue(x)))
+		[[nodiscard]] explicit(false) constexpr impl(item_type&& arg) XTE_CONSTRUCTS(,
+			_value,((xte::as_xvalue(arg)))
 		)
 
 		[[nodiscard]] explicit(false) constexpr impl(auto&&... args) XTE_CONSTRUCTS(,
-			_value,({ XTE_FWD(args)... })
+			_value,((explicit_cast(XTE_FWD(args))...))
 		)
 
 		XTE_DEFINE_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
@@ -39,8 +52,8 @@ namespace DETAIL_XTE::init_list {
 }
 
 namespace xte {
-	template<typename T>
-	using init_list = std::initializer_list<DETAIL_XTE::init_list::impl<xte::drop_const<T>>>;
+	template<typename item_type>
+	using init_list = std::initializer_list<DETAIL_XTE::init_list::impl<xte::drop_const<item_type>>>;
 }
 
 #endif

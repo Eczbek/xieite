@@ -220,7 +220,7 @@ static_assert(xte::is_constructible<xte::array<int>, xte::uz, int>);
 static_assert(!xte::is_constructible<xte::array<non_constructible>, xte::uz, non_constructible>);
 static_assert(xte::is_constructible<xte::array<non_default_constructible>, xte::uz, non_default_constructible>);
 static_assert(!xte::is_constructible<xte::array<xte::non_copyable>, xte::uz, xte::non_copyable>);
-static_assert(xte::is_constructible<xte::array<xte::non_movable>, xte::uz>);
+static_assert(xte::is_constructible<xte::array<xte::non_movable>, xte::uz, xte::non_movable>);
 static_assert(!xte::is_constructible_noex<xte::array<int>, xte::uz, int>);
 static_assert(xte::array<int>(0, 9).data() == nullptr);
 static_assert(xte::array<int>(0, 9).size() == 0);
