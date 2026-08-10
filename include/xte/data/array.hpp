@@ -114,11 +114,11 @@ namespace xte {
 			(xte::array<item_type>),((std::from_range, xte::as_lvalue(std::ranges::subrange(begin, end))))
 		)
 
-		[[nodiscard]] explicit constexpr array(xte::uz size) noexcept(false)
-		requires(xte::is_constructible<item_type>) {
+		[[nodiscard]] explicit constexpr array(xte::uz size, auto&&... args) noexcept(false)
+		requires(requires { item_type(args...); }) {
 			this->reserve_total(size);
 			while (this->_size < size) {
-				xte::construct(this->_data[this->_size]);
+				xte::construct(this->_data[this->_size], args...);
 				++this->_size;
 			}
 		}
@@ -324,7 +324,7 @@ namespace xte {
 
 		template<typename arg_type = item_type>
 		constexpr void insert(xte::uz index, arg_type&& arg, auto&&... args) & noexcept(false)
-		requires(requires { xte::make<item_type>(XTE_FWD(arg), XTE_FWD(args)...); }
+		requires(requires { item_type(XTE_FWD(arg), XTE_FWD(args)...); }
 			&& requires (item_type x) { { item_type(xte::as_xvalue_if_noex(x)) } noexcept; }
 			&& requires (item_type x) { { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; })
 		{
@@ -427,13 +427,16 @@ namespace xte {
 			}
 		}
 
-		constexpr void insert_fill(xte::uz index, xte::uz count, const item_type& fill) & noexcept(false)
-		requires(xte::is_copy_constructible_noex<item_type>
-			&& requires (item_type x) { { xte::assign(x, fill) } noexcept; }
+		template<typename arg_type = item_type>
+		constexpr void insert_fill(xte::uz index, xte::uz count, arg_type&& arg, auto&&... args) & noexcept(false)
+		requires(requires { item_type(XTE_FWD(arg), XTE_FWD(args)...); }
+			&& xte::is_copy_constructible_noex<item_type>
+			&& requires (item_type x, const item_type fill) { { xte::assign(x, fill) } noexcept; }
 			&& requires (item_type x) { { item_type(xte::as_xvalue_if_noex(x)) } noexcept; }
 			&& requires (item_type x) { { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; })
 		{
 			index = xte::min(index, this->_size);
+			const auto fill = xte::make<item_type>(XTE_FWD(arg), XTE_FWD(args)...);
 			if ((this->_size + count) <= this->_capacity) {
 				for (xte::uz i = count; i-- && ((count - i) <= (this->_size - index));) {
 					xte::construct(this->_data[this->_size + i], xte::as_xvalue_if_noex(this->_data[this->_size - count + i]));

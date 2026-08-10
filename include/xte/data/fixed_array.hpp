@@ -23,8 +23,6 @@
 namespace xte {
 	template<typename T, xte::uz n>
 	struct fixed_array {
-		using size_type = xte::uz;
-		using difference_type = xte::iptrdiff;
 		using value_type = T;
 		using reference = T&;
 		using const_reference = const T&;
@@ -34,6 +32,8 @@ namespace xte {
 		using const_iterator = const T*;
 		using reverse_iterator = std::reverse_iterator<T*>;
 		using const_reverse_iterator = std::reverse_iterator<const T*>;
+		using size_type = xte::uz;
+		using difference_type = xte::iptrdiff;
 
 		[:^^T[n]:] _data;
 
