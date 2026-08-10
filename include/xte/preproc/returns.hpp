@@ -10,6 +10,10 @@
 		-> decltype(auto) \
 		requires(requires { __VA_ARGS__; })) \
 		{ __VA_OPT__(return (__VA_ARGS__);) }
+#	define XTE_RETURNS_FIXED(...) \
+		noexcept __VA_OPT__((noexcept(__VA_ARGS__)) \
+		requires(requires { __VA_ARGS__; })) \
+		{ __VA_OPT__(return (__VA_ARGS__);) }
 #	define XTE_RETURNS_IF(COND, THEN, ...) \
 		noexcept(([] { if constexpr (COND) if constexpr (!noexcept(THEN)) return false; return true __VA_OPT__(&& noexcept(__VA_ARGS__)); })()) \
 		-> decltype(auto) \
