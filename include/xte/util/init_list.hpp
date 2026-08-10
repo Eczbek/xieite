@@ -38,7 +38,7 @@ namespace DETAIL_XTE::init_list {
 		)
 
 		[[nodiscard]] explicit(false) constexpr impl(auto&&... args) XTE_CONSTRUCTS(,
-			_value,((explicit_cast(XTE_FWD(args))...))
+			_value,((explicit_cast<decltype(args)>(XTE_FWD(args))...))
 		)
 
 		XTE_DEFINE_CAST([[nodiscard]] explicit(false) constexpr, auto&& self,
