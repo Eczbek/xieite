@@ -17,6 +17,7 @@
 #	include "../trait/is_range_noex.hpp"
 #	include "../trait/is_same_drop_cvref.hpp"
 #	include "../util/address.hpp"
+#	include "../util/as_const_lvalue.hpp"
 #	include "../util/as_lvalue.hpp"
 #	include "../util/as_xvalue.hpp"
 #	include "../util/as_xvalue_if_noex.hpp"
@@ -111,7 +112,7 @@ namespace xte {
 
 		template<std::input_iterator iter_type>
 		[[nodiscard]] constexpr array(iter_type begin, std::sentinel_for<iter_type> auto end) XTE_CONSTRUCTS(,
-			(xte::array<item_type>),((std::from_range, xte::as_lvalue(std::ranges::subrange(begin, end))))
+			(xte::array<item_type>),((std::from_range, xte::as_const_lvalue(std::ranges::subrange(begin, end))))
 		)
 
 		[[nodiscard]] explicit constexpr array(xte::uz size, auto&&... args) noexcept(false)
