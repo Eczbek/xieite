@@ -13,6 +13,7 @@
 #	include "../trait/is_float.hpp"
 #	include "../trait/is_int.hpp"
 #	include "../trait/is_order.hpp"
+#	include <algorithm>
 #	include <cmath>
 #	include <concepts>
 #	include <compare>
