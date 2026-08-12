@@ -11,6 +11,8 @@
 #include <xte/trait/is_move_constructible_implicit_noex.hpp>
 #include <xte/util/as_lvalue.hpp>
 #include <xte/util/as_xvalue.hpp>
+#include <xte/util/construct.hpp>
+#include <xte/util/destroy.hpp>
 #include <xte/util/number_types.hpp>
 #include <iterator>
 #include <ranges>
@@ -231,3 +233,25 @@ static_assert(xte::array<int>(3, 9).capacity() >= 3);
 static_assert(xte::array<int>(3, 9)[0] == 9);
 static_assert(xte::array<int>(3, 9)[1] == 9);
 static_assert(xte::array<int>(3, 9)[2] == 9);
+
+// Throw while copy-constructing
+struct maybe_throwing_copy {
+	int& count;
+	constexpr maybe_throwing_copy(int& count) : count(count) {}
+	constexpr maybe_throwing_copy(const maybe_throwing_copy& other) : count(other.count) {
+		if (++this->count == 3) {
+			throw 0;
+		}
+	}
+	maybe_throwing_copy(maybe_throwing_copy&&) = default;
+};
+static_assert(([] {
+	int x = 0;
+	xte::array<maybe_throwing_copy> a = { x, x, x, x, x };
+	try {
+		xte::array<maybe_throwing_copy> b = a;
+	} catch (...) {
+		return x;
+	}
+	return 0;
+})() == 3);

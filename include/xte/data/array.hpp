@@ -94,7 +94,7 @@ namespace xte {
 		requires(requires { item_type(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }
 			&& (std::ranges::sized_range<range_type>
 				|| requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); }))
-		{
+		try {
 			if constexpr (std::ranges::sized_range<range_type>) {
 				this->reserve_total(std::ranges::size(range));
 			}
@@ -105,6 +105,8 @@ namespace xte {
 				xte::construct(this->_data[this->_size], xte::like<range_type>(item));
 				++this->_size;
 			}
+		} catch (...) {
+			this->reset();
 		}
 
 		[[nodiscard]] constexpr array(std::from_range_t, xte::array<item_type>&& other) noexcept
@@ -116,21 +118,27 @@ namespace xte {
 		)
 
 		[[nodiscard]] explicit constexpr array(xte::uz size, auto&&... args) noexcept(false)
-		requires(requires { item_type(args...); }) {
+		requires(requires { item_type(args...); })
+		try {
 			this->reserve_total(size);
 			while (this->_size < size) {
 				xte::construct(this->_data[this->_size], args...);
 				++this->_size;
 			}
+		} catch (...) {
+			this->reset();
 		}
 
 		[[nodiscard]] constexpr array(xte::uz size, const item_type& fill) noexcept(false)
-		requires(xte::is_copy_constructible<item_type>) {
+		requires(xte::is_copy_constructible<item_type>)
+		try {
 			this->reserve_total(size);
 			while (this->_size < size) {
 				xte::construct(this->_data[this->_size], fill);
 				++this->_size;
 			}
+		} catch (...) {
+			this->reset();
 		}
 
 		constexpr ~array() {
@@ -245,8 +253,8 @@ namespace xte {
 
 		constexpr void reset() & noexcept {
 			if (this->_capacity) {
-				for (xte::uz i : std::views::indices(this->_size)) {
-					xte::destroy(this->_data[i]);
+				for (item_type& item : *this) {
+					xte::destroy(item);
 				}
 				std::allocator<item_type>().deallocate(this->_data, this->_capacity);
 			}
