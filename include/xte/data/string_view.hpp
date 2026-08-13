@@ -118,22 +118,40 @@ namespace xte {
 			return (index < this->_size) ? xte::string_view(this->_data + index, xte::min(this->_size - index, size)) : "";
 		}
 
-		[[nodiscard]] constexpr bool contains(xte::string_view substr) const noexcept {
-			return ~this->find(substr);
+		[[nodiscard]] constexpr bool contains(xte::string_view pattern) const noexcept {
+			return ~this->find(pattern);
 		}
 
 		[[nodiscard]] constexpr bool contains(char c) const noexcept {
 			return ~this->find(c);
 		}
 
-		[[nodiscard]] constexpr xte::uz find(xte::string_view substr) const noexcept {
-			if (substr._size <= this->_size) {
-				for (xte::uz i = 0; i <= this->_size - substr._size; ++i) {
-					xte::uz j = 0;
-					while ((j < substr._size) && (substr[j] == this->_data[i + j])) {
-						++j;
+		[[nodiscard]] constexpr xte::uz find(xte::string_view pattern) const noexcept {
+			if (pattern.size() <= this->size()) {
+				xte::uz period = ([&] -> xte::uz {
+					xte::uz critical = 0;
+					xte::uz repeat = 0;
+					for (xte::uz i = 0; (i + repeat) < pattern.size(); ++i) {
+						if (pattern[i + repeat] == pattern[critical + repeat]) {
+							++repeat;
+							continue;
+						}
+						if (pattern[i + repeat] > pattern[critical + repeat]) {
+							critical = i;
+						} else {
+							i += repeat;
+						}
+						repeat = 0;
 					}
-					if (j == substr._size) {
+					for (xte::uz i = 1; i < pattern.size(); ++i) {
+						if (pattern[i] != pattern[(i + critical) % pattern.size()]) {
+							return i;
+						}
+					}
+					return 1;
+				})();
+				for (xte::uz i = 0; i <= (this->size() - pattern.size()); i += period) {
+					if (std::is_eq(xte::range_compare(this->subview(i, pattern.size()), pattern))) {
 						return i;
 					}
 				}
@@ -150,15 +168,33 @@ namespace xte {
 			return -1uz;
 		}
 
-		[[nodiscard]] constexpr xte::uz find_last(xte::string_view substr) const noexcept {
-			if (substr._size <= this->_size) {
-				for (xte::uz i = this->_size - substr._size; i--;) {
-					xte::uz j = 0;
-					while ((j < substr._size) && (substr.back(j) == this->_data[i + j])) {
-						++j;
+		[[nodiscard]] constexpr xte::uz find_last(xte::string_view pattern) const noexcept {
+			if (pattern.size() <= this->size()) {
+				xte::uz period = ([&] -> xte::uz {
+					xte::uz critical = 0;
+					xte::uz repeat = 0;
+					for (xte::uz i = 0; (i + repeat) < pattern.size(); ++i) {
+						if (pattern.back(i + repeat) == pattern.back(critical + repeat)) {
+							++repeat;
+							continue;
+						}
+						if (pattern.back(i + repeat) > pattern.back(critical + repeat)) {
+							critical = i;
+						} else {
+							i += repeat;
+						}
+						repeat = 0;
 					}
-					if (j == substr._size) {
-						return i;
+					for (xte::uz i = 1; i < pattern.size(); ++i) {
+						if (pattern.back(i) != pattern.back((i + critical) % pattern.size())) {
+							return i;
+						}
+					}
+					return 1;
+				})();
+				for (xte::uz i = this->size(); i >= pattern.size(); i -= period) {
+					if (std::is_eq(xte::range_compare(this->subview(i - pattern.size(), pattern.size()), pattern))) {
+						return i - pattern.size();
 					}
 				}
 			}
@@ -236,16 +272,16 @@ namespace xte {
 			return -1uz;
 		}
 
-		[[nodiscard]] constexpr xte::string_view after(xte::string_view substr) const noexcept {
-			return this->subview(this->find(substr));
+		[[nodiscard]] constexpr xte::string_view after(xte::string_view pattern) const noexcept {
+			return this->subview(this->find(pattern));
 		}
 
 		[[nodiscard]] constexpr xte::string_view after(char c) const noexcept {
 			return this->subview(this->find(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view after_last(xte::string_view substr) const noexcept {
-			return this->subview(this->find_last(substr));
+		[[nodiscard]] constexpr xte::string_view after_last(xte::string_view pattern) const noexcept {
+			return this->subview(this->find_last(pattern));
 		}
 
 		[[nodiscard]] constexpr xte::string_view after_last(char c) const noexcept {
@@ -260,16 +296,16 @@ namespace xte {
 			return this->subview(this->find_not_of(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view before(xte::string_view substr) const noexcept {
-			return this->subview(0, this->find(substr));
+		[[nodiscard]] constexpr xte::string_view before(xte::string_view pattern) const noexcept {
+			return this->subview(0, this->find(pattern));
 		}
 
 		[[nodiscard]] constexpr xte::string_view before(char c) const noexcept {
 			return this->subview(0, this->find(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view before_last(xte::string_view substr) const noexcept {
-			return this->subview(0, this->find_last(substr));
+		[[nodiscard]] constexpr xte::string_view before_last(xte::string_view pattern) const noexcept {
+			return this->subview(0, this->find_last(pattern));
 		}
 
 		[[nodiscard]] constexpr xte::string_view before_last(char c) const noexcept {
@@ -302,8 +338,8 @@ namespace xte {
 			return this->after(start).before_last(end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between(xte::string_view substr) const noexcept {
-			return this->between(substr, substr);
+		[[nodiscard]] constexpr xte::string_view between(xte::string_view pattern) const noexcept {
+			return this->between(pattern, pattern);
 		}
 
 		[[nodiscard]] constexpr xte::string_view between(char c) const noexcept {
@@ -326,9 +362,9 @@ namespace xte {
 			return this->after(start).before(end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_first(xte::string_view substr) const noexcept {
-			xte::uz start = this->find(substr);
-			return this->subview(start, this->subview(start).find(substr));
+		[[nodiscard]] constexpr xte::string_view between_first(xte::string_view pattern) const noexcept {
+			xte::uz start = this->find(pattern);
+			return this->subview(start, this->subview(start).find(pattern));
 		}
 
 		[[nodiscard]] constexpr xte::string_view between_first(char c) const noexcept {
@@ -352,9 +388,9 @@ namespace xte {
 			return this->after_last(start).before_last(end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_last(xte::string_view substr) const noexcept {
-			xte::uz end = this->find_last(substr);
-			return this->subview(this->subview(0, end).find_last(substr), end);
+		[[nodiscard]] constexpr xte::string_view between_last(xte::string_view pattern) const noexcept {
+			xte::uz end = this->find_last(pattern);
+			return this->subview(this->subview(0, end).find_last(pattern), end);
 		}
 
 		[[nodiscard]] constexpr xte::string_view between_last(char c) const noexcept {

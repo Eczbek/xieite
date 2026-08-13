@@ -181,24 +181,24 @@ namespace xte {
 			return (index < this->size()) ? xte::string(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : "";
 		}
 
-		[[nodiscard]] constexpr bool contains(xte::string_view substr) const noexcept {
-			return xte::string_view(*this).contains(substr);
+		[[nodiscard]] constexpr bool contains(xte::string_view pattern) const noexcept {
+			return xte::string_view(*this).contains(pattern);
 		}
 
 		[[nodiscard]] constexpr bool contains(char c) const noexcept {
 			return xte::string_view(*this).contains(c);
 		}
 
-		[[nodiscard]] constexpr xte::uz find(xte::string_view substr) const noexcept {
-			return xte::string_view(*this).find(substr);
+		[[nodiscard]] constexpr xte::uz find(xte::string_view pattern) const noexcept {
+			return xte::string_view(*this).find(pattern);
 		}
 
 		[[nodiscard]] constexpr xte::uz find(char c) const noexcept {
 			return xte::string_view(*this).find(c);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_last(xte::string_view substr) const noexcept {
-			return xte::string_view(*this).find_last(substr);
+		[[nodiscard]] constexpr xte::uz find_last(xte::string_view pattern) const noexcept {
+			return xte::string_view(*this).find_last(pattern);
 		}
 
 		[[nodiscard]] constexpr xte::uz find_last(char c) const noexcept {
@@ -237,32 +237,32 @@ namespace xte {
 			return xte::string_view(*this).find_last_not_of(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view after(xte::string_view substr) const noexcept {
-			return xte::string_view(*this).after(substr);
+		[[nodiscard]] constexpr xte::string_view after(xte::string_view pattern) const noexcept {
+			return xte::string_view(*this).after(pattern);
 		}
 
 		[[nodiscard]] constexpr xte::string_view after(char c) const noexcept {
 			return xte::string_view(*this).after(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_after(xte::string_view substr) const noexcept(false) {
-			return xte::string(this->after(substr));
+		[[nodiscard]] constexpr xte::string_view str_after(xte::string_view pattern) const noexcept(false) {
+			return xte::string(this->after(pattern));
 		}
 
 		[[nodiscard]] constexpr xte::string_view str_after(char c) const noexcept(false) {
 			return xte::string(this->after(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view after_last(xte::string_view substr) const noexcept {
-			return xte::string_view(*this).after_last(substr);
+		[[nodiscard]] constexpr xte::string_view after_last(xte::string_view pattern) const noexcept {
+			return xte::string_view(*this).after_last(pattern);
 		}
 
 		[[nodiscard]] constexpr xte::string_view after_last(char c) const noexcept {
 			return xte::string_view(*this).after_last(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_after_last(xte::string_view substr) const noexcept(false) {
-			return xte::string(this->after_last(substr));
+		[[nodiscard]] constexpr xte::string_view str_after_last(xte::string_view pattern) const noexcept(false) {
+			return xte::string(this->after_last(pattern));
 		}
 
 		[[nodiscard]] constexpr xte::string_view str_after_last(char c) const noexcept(false) {
@@ -285,32 +285,32 @@ namespace xte {
 			return xte::string(this->after_any_of(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view before(xte::string_view substr) const noexcept {
-			return xte::string_view(*this).before(substr);
+		[[nodiscard]] constexpr xte::string_view before(xte::string_view pattern) const noexcept {
+			return xte::string_view(*this).before(pattern);
 		}
 
 		[[nodiscard]] constexpr xte::string_view before(char c) const noexcept {
 			return xte::string_view(*this).before(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_before(xte::string_view substr) const noexcept(false) {
-			return xte::string(this->before(substr));
+		[[nodiscard]] constexpr xte::string_view str_before(xte::string_view pattern) const noexcept(false) {
+			return xte::string(this->before(pattern));
 		}
 
 		[[nodiscard]] constexpr xte::string_view str_before(char c) const noexcept(false) {
 			return xte::string(this->before(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view before_last(xte::string_view substr) const noexcept {
-			return xte::string_view(*this).before_last(substr);
+		[[nodiscard]] constexpr xte::string_view before_last(xte::string_view pattern) const noexcept {
+			return xte::string_view(*this).before_last(pattern);
 		}
 
 		[[nodiscard]] constexpr xte::string_view before_last(char c) const noexcept {
 			return xte::string_view(*this).before_last(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_before_last(xte::string_view substr) const noexcept(false) {
-			return xte::string(this->before_last(substr));
+		[[nodiscard]] constexpr xte::string_view str_before_last(xte::string_view pattern) const noexcept(false) {
+			return xte::string(this->before_last(pattern));
 		}
 
 		[[nodiscard]] constexpr xte::string_view str_before_last(char c) const noexcept(false) {
