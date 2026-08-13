@@ -26,16 +26,10 @@ namespace xte {
 
 		template<xte::uz size>
 		[[nodiscard]] explicit(false) constexpr string_view(xte::type<const char[size]>& data) noexcept
-		: xte::string_view(([&] {
-			if consteval {
-				return std::define_static_string(data);
-			} else {
-				return data;
-			}
-		})(), size) {}
+		: xte::string_view(data, size) {}
 
 		[[nodiscard]] explicit(false) constexpr string_view(const char& c) noexcept
-		: _data(&c), _size(1) {}
+		: xte::string_view(&c, 1) {}
 
 		[[nodiscard]] explicit constexpr string_view(const xte::is_castable_implicit_noex<const char*> auto& range) noexcept
 		: _data(range) {
