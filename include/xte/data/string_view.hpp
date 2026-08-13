@@ -9,12 +9,12 @@
 #	include "../preproc/constructs.hpp"
 #	include "../trait/is_castable_implicit_noex.hpp"
 #	include "../util/number_types.hpp"
-#	include <algorithm>
 #	include <compare>
 #	include <format>
 #	include <iterator>
 #	include <meta>
 #	include <ranges>
+#	include <string_view>
 #	include <type_traits>
 
 namespace xte {
@@ -408,13 +408,13 @@ namespace xte::literal::string_view {
 }
 
 template<>
-struct std::formatter<xte::string_view> {
+struct std::formatter<xte::string_view> : std::formatter<std::string_view> {
 	[[nodiscard]] constexpr auto parse(std::format_parse_context& ctx) noexcept {
-		return ctx.begin();
+		return std::formatter<std::string_view>::parse(ctx);
 	}
 
 	[[nodiscard]] auto format(xte::string_view string, std::format_context& ctx) const noexcept(false) {
-		return std::ranges::copy(string, ctx.out()).out;
+		return std::formatter<std::string_view>::format(std::string_view(string), ctx);
 	}
 };
 

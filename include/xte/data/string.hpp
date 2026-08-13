@@ -18,12 +18,12 @@
 #	include "../util/init_list.hpp"
 #	include "../util/like.hpp"
 #	include "../util/number_types.hpp"
-#	include <algorithm>
 #	include <compare>
 #	include <format>
 #	include <iterator>
 #	include <memory>
 #	include <ranges>
+#	include <string_view>
 
 namespace xte {
 	struct string {
@@ -618,13 +618,13 @@ namespace xte::literal::string {
 }
 
 template<>
-struct std::formatter<xte::string> {
+struct std::formatter<xte::string> : std::formatter<std::string_view> {
 	[[nodiscard]] constexpr auto parse(std::format_parse_context& ctx) noexcept {
-		return ctx.begin();
+		return std::formatter<std::string_view>::parse(ctx);
 	}
 
 	[[nodiscard]] auto format(const xte::string& string, std::format_context& ctx) const noexcept(false) {
-		return std::ranges::copy(string, ctx.out()).out;
+		return std::formatter<std::string_view>::format(std::string_view(string), ctx);
 	}
 };
 

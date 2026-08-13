@@ -8,6 +8,7 @@
 #	include "../trait/is_same.hpp"
 #	include <meta>
 #	include <ranges>
+#	include <string_view>
 
 namespace xte {
 	struct static_string_view : xte::string_view {
@@ -23,5 +24,16 @@ namespace xte {
 		: xte::static_string_view(xte::string_view(data, size)) {}
 	};
 }
+
+template<>
+struct std::formatter<xte::static_string_view> : std::formatter<std::string_view> {
+	[[nodiscard]] constexpr auto parse(std::format_parse_context& ctx) noexcept {
+		return std::formatter<std::string_view>::parse(ctx);
+	}
+
+	[[nodiscard]] auto format(xte::static_string_view string, std::format_context& ctx) const noexcept(false) {
+		return std::formatter<std::string_view>::format(std::string_view(string), ctx);
+	}
+};
 
 #endif
