@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_LITERAL_DEDENT
 #	define DETAIL_XTE_HEADER_LITERAL_DEDENT
 #
-#	include "../data/string_view.hpp"
+#	include "../data/static_string_view.hpp"
 #	include "../data/string_view.hpp"
 #	include "../math/min.hpp"
 #	include "../util/make.hpp"
@@ -10,11 +10,10 @@
 #	include <ranges>
 
 namespace xte::literal::dedent {
-	template<xte::string_view raw>
+	template<xte::static_string_view raw>
 	[[nodiscard]] consteval xte::string_view operator""_dedent() noexcept {
 		return xte::string_view(std::define_static_string(([] {
-			auto lines = xte::string_view(raw.data(), raw.size())
-				.between_any_of('\n', " \t\n")
+			auto lines = raw.between_any_of('\n', " \t\n")
 				| std::views::split('\n')
 				| std::views::transform(xte::make<xte::string_view>);
 			auto first = lines.front();

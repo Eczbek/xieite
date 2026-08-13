@@ -14,14 +14,14 @@ XTE_DIAGNOSTIC_PUSH_GCC(OFF, "-Wmissing-field-initializers")
 namespace DETAIL_XTE::aggregate {
 	struct arg_type {
 		std::meta::info type = ^^::;
-		xte::string_view name = "";
+		xte::string_view name = {};
 
 		explicit(false) consteval arg_type(std::meta::info type) noexcept
 		: type(type) {}
 
 		template<xte::uz size>
 		explicit(false) consteval arg_type(xte::type<const char[size]>& name) noexcept
-		: name(name) {}
+		: name(std::define_static_string(name)) {}
 	};
 
 	template<arg_type... args>
