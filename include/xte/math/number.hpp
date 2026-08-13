@@ -104,7 +104,7 @@ namespace xte {
 			return *this += 1;
 		}
 
-		constexpr xte::number<T> operator++(int) noexcept {
+		[[nodiscard]] constexpr xte::number<T> operator++(int) noexcept {
 			return xte::exchange(*this, *this + 1);
 		}
 
@@ -135,7 +135,7 @@ namespace xte {
 			return *this -= 1;
 		}
 
-		constexpr xte::number<T> operator--(int) noexcept {
+		[[nodiscard]] constexpr xte::number<T> operator--(int) noexcept {
 			return xte::exchange(*this, *this - 1);
 		}
 

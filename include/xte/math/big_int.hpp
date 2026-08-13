@@ -405,7 +405,7 @@ namespace xte {
 			return *this += 1;
 		}
 
-		constexpr xte::big_int operator++(int) & noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int operator++(int) & noexcept(false) {
 			return xte::exchange(*this, *this + 1);
 		}
 
@@ -438,7 +438,7 @@ namespace xte {
 			return *this -= 1;
 		}
 
-		constexpr xte::big_int operator--(int) & noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int operator--(int) & noexcept(false) {
 			return xte::exchange(*this, *this - 1);
 		}
 

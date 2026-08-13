@@ -158,7 +158,7 @@ namespace xte {
 			return *this += 1;
 		}
 
-		constexpr xte::wide_uint<T> operator++(int) & noexcept {
+		[[nodiscard]] constexpr xte::wide_uint<T> operator++(int) & noexcept {
 			return xte::exchange(*this, *this + 1);
 		}
 
@@ -178,7 +178,7 @@ namespace xte {
 			return *this -= 1;
 		}
 
-		constexpr xte::wide_uint<T> operator--(int) & noexcept {
+		[[nodiscard]] constexpr xte::wide_uint<T> operator--(int) & noexcept {
 			return xte::exchange(*this, *this - 1);
 		}
 
