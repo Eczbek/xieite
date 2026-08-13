@@ -1,5 +1,5 @@
-#ifndef DETAIL_XTE_HEADER_DATA_QUOTE
-#	define DETAIL_XTE_HEADER_DATA_QUOTE
+#ifndef DETAIL_XTE_HEADER_DATA_ESCAPE
+#	define DETAIL_XTE_HEADER_DATA_ESCAPE
 #
 #	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
@@ -8,7 +8,7 @@
 #	include <type_traits>
 
 namespace xte {
-	[[nodiscard]] constexpr xte::string quote(xte::is_char auto c) noexcept(false) {
+	[[nodiscard]] constexpr xte::string escape(xte::is_char auto c) noexcept(false) {
 		switch (c) {
 			case '\'':
 				return "'\\''";
@@ -33,13 +33,13 @@ namespace xte {
 			return xte::string("'") + c + "'";
 		}
 		auto n = static_cast<std::make_unsigned_t<decltype(c)>>(c);
-		xte::string quoted = "'";
+		xte::string escaped = "'";
 		do {
-			quoted += "0123456789ABCDEF"[n % 16];
+			escaped += "0123456789ABCDEF"[n % 16];
 		} while (n /= 16);
-		quoted += "x\\'";
-		std::ranges::reverse(quoted);
-		return quoted;
+		escaped += "x\\'";
+		std::ranges::reverse(escaped);
+		return escaped;
 	}
 }
 

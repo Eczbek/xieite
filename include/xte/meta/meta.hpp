@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_META_META
 #	define DETAIL_XTE_HEADER_META_META
 #
-#	include "../data/quote.hpp"
+#	include "../data/escape.hpp"
 #	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
 #	include "../preproc/feature.hpp"
@@ -392,7 +392,7 @@ namespace xte::meta {
 							if constexpr (type == ^^bool) {
 								return value ? "true" : "false";
 							} else if constexpr (xte::is_char<typename[:type:]>) {
-								return xte::quote(value);
+								return xte::escape(value);
 							} else if constexpr (xte::is_arithmetic<typename[:type:]>) {
 								return xte::stringify_number(value);
 							} else if constexpr (std::meta::is_pointer_type(type) || (type == ^^decltype(nullptr))) {
