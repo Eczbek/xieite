@@ -12,6 +12,8 @@
 
 namespace xte {
 	struct static_string_view : xte::string_view {
+		[[nodiscard]] explicit(false) constexpr static_string_view() noexcept = default;
+
 		template<std::ranges::contiguous_range range_type>
 		requires(xte::is_same<std::ranges::range_value_t<range_type>, char>)
 		[[nodiscard]] explicit(false) consteval static_string_view(std::from_range_t, const range_type& range) XTE_CONSTRUCTS(,
