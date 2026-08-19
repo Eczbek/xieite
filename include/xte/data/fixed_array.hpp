@@ -105,8 +105,6 @@ namespace xte {
 
 	template<typename T>
 	struct fixed_array<T, 0> {
-		using size_type = xte::uz;
-		using difference_type = xte::iptrdiff;
 		using value_type = T;
 		using reference = T&;
 		using const_reference = const T&;
@@ -116,6 +114,8 @@ namespace xte {
 		using const_iterator = const T*;
 		using reverse_iterator = const T*;
 		using const_reverse_iterator = const T*;
+		using size_type = xte::uz;
+		using difference_type = xte::iptrdiff;
 
 		[[nodiscard]] constexpr const T* data() const noexcept {
 			return nullptr;

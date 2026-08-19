@@ -37,3 +37,8 @@ static_assert((xte::fixed_array { 1, 2 } + xte::fixed_array { 3, 4 }) == xte::fi
 
 static_assert(xte::is_derived_from_specialization_of<xte::drop_cvref<xte::fixed_array<int, 2>&&>, ^^xte::fixed_array>);
 static_assert(xte::is_same<xte::fixed_array<int, 2>::value_type, xte::fixed_array<int, 2>::value_type>);
+
+constexpr auto arr = ([] {
+	auto arr = xte::fixed_array<int, 3>();
+	return arr;
+})();
