@@ -24,7 +24,6 @@ namespace xte {
 	struct opt {
 	private:
 		union {
-			char _empty = {};
 			T _value;
 		};
 		bool _has_value = false;

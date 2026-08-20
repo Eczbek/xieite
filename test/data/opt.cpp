@@ -31,3 +31,8 @@ struct B {
 };
 static_assert(xte::opt<B>(B())->*&B::x == 1);
 static_assert((xte::opt<B>(B())->*&B::f)() == 2);
+
+struct C {
+	C() = delete;
+};
+static_assert(!xte::opt<C>());
