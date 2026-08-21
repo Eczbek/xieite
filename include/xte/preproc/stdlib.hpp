@@ -236,8 +236,6 @@
 #		define XTE_STDLIB_MODENA_CPP 1
 #	endif
 #
-#	
-#
 #	if defined(_MSVC_STL_UPDATE) || defined(_MSVC_STL_VERSION)
 #		undef XTE_STDLIB_MSVC_CPP
 #		define XTE_STDLIB_MSVC_CPP 1
