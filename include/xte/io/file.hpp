@@ -2,7 +2,6 @@
 #	define DETAIL_XTE_HEADER_IO_FILE
 #
 #	include "../data/ptr.hpp"
-#	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
 #	include "../io/eof.hpp"
 #	include "../io/file_mode.hpp"
@@ -52,7 +51,7 @@ namespace xte {
 				return false;
 			}
 			this->_mode = mode;
-			return !!(this->_stream = std::fopen(xte::string(path).data(), mode));
+			return !!(this->_stream = std::fopen(path.c_str(), mode));
 		}
 
 		bool close() noexcept {

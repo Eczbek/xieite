@@ -1,7 +1,6 @@
 #ifndef DETAIL_XTE_HEADER_IO_FILE_PIPE
 #	define DETAIL_XTE_HEADER_IO_FILE_PIPE
 #
-#	include "../data/string.hpp"
 #	include "../data/string_view.hpp"
 #	include "../io/eof.hpp"
 #	include "../io/file.hpp"
@@ -28,10 +27,11 @@ namespace xte {
 
 		bool open(xte::string_view command, xte::file_mode mode) noexcept(false) {
 #	if XTE_PLATFORM_WINDOWS
-			return (*this = xte::file_pipe(::_popen(xte::string(command).data(), mode), mode));
+			std::FILE* pipe = ::_popen(command.c_str(), mode);
 #	else
-			return (*this = xte::file_pipe(::popen(xte::string(command).data(), mode), mode));
+			std::FILE* pipe = ::popen(command.c_str(), mode);
 #	endif
+			return (*this = xte::file_pipe(pipe, mode));
 		}
 
 		int close() noexcept {

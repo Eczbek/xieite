@@ -129,6 +129,10 @@ namespace xte {
 			return this->_data.capacity() - !!this->_data.capacity();
 		}
 
+		[[nodiscard]] constexpr const char* c_str() const noexcept {
+			return this->_data.data();
+		}
+
 		[[nodiscard]] constexpr auto* begin(this auto&& self) noexcept {
 			return self.data();
 		}
@@ -245,11 +249,11 @@ namespace xte {
 			return xte::string_view(*this).after(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_after(xte::string_view pattern) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_after(xte::string_view pattern) const noexcept(false) {
 			return xte::string(this->after(pattern));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_after(char c) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_after(char c) const noexcept(false) {
 			return xte::string(this->after(c));
 		}
 
@@ -261,11 +265,11 @@ namespace xte {
 			return xte::string_view(*this).after_last(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_after_last(xte::string_view pattern) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_after_last(xte::string_view pattern) const noexcept(false) {
 			return xte::string(this->after_last(pattern));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_after_last(char c) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_after_last(char c) const noexcept(false) {
 			return xte::string(this->after_last(c));
 		}
 
@@ -277,11 +281,11 @@ namespace xte {
 			return xte::string_view(*this).after_any_of(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_after_any_of(xte::string_view chars) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_after_any_of(xte::string_view chars) const noexcept(false) {
 			return xte::string(this->after_any_of(chars));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_after_any_of(char c) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_after_any_of(char c) const noexcept(false) {
 			return xte::string(this->after_any_of(c));
 		}
 
@@ -293,11 +297,11 @@ namespace xte {
 			return xte::string_view(*this).before(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_before(xte::string_view pattern) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_before(xte::string_view pattern) const noexcept(false) {
 			return xte::string(this->before(pattern));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_before(char c) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_before(char c) const noexcept(false) {
 			return xte::string(this->before(c));
 		}
 
@@ -309,11 +313,11 @@ namespace xte {
 			return xte::string_view(*this).before_last(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_before_last(xte::string_view pattern) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_before_last(xte::string_view pattern) const noexcept(false) {
 			return xte::string(this->before_last(pattern));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_before_last(char c) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_before_last(char c) const noexcept(false) {
 			return xte::string(this->before_last(c));
 		}
 
@@ -325,11 +329,11 @@ namespace xte {
 			return xte::string_view(*this).before_any_of(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_before_any_of(xte::string_view chars) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_before_any_of(xte::string_view chars) const noexcept(false) {
 			return xte::string(this->before_any_of(chars));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_before_any_of(char c) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_before_any_of(char c) const noexcept(false) {
 			return xte::string(this->before_any_of(c));
 		}
 
@@ -349,19 +353,19 @@ namespace xte {
 			return xte::string_view(*this).between(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between(xte::string_view start, xte::string_view end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between(xte::string_view start, xte::string_view end) const noexcept(false) {
 			return xte::string(this->between(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between(char start, xte::string_view end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between(char start, xte::string_view end) const noexcept(false) {
 			return xte::string(this->between(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between(xte::string_view start, char end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between(xte::string_view start, char end) const noexcept(false) {
 			return xte::string(this->between(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between(char start, char end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between(char start, char end) const noexcept(false) {
 			return xte::string(this->between(start, end));
 		}
 
@@ -381,19 +385,19 @@ namespace xte {
 			return xte::string_view(*this).between_first(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_first(xte::string_view start, xte::string_view end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_first(xte::string_view start, xte::string_view end) const noexcept(false) {
 			return xte::string(this->between_first(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_first(char start, xte::string_view end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_first(char start, xte::string_view end) const noexcept(false) {
 			return xte::string(this->between_first(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_first(xte::string_view start, char end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_first(xte::string_view start, char end) const noexcept(false) {
 			return xte::string(this->between_first(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_first(char start, char end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_first(char start, char end) const noexcept(false) {
 			return xte::string(this->between_first(start, end));
 		}
 
@@ -413,19 +417,19 @@ namespace xte {
 			return xte::string_view(*this).between_last(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_last(xte::string_view start, xte::string_view end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_last(xte::string_view start, xte::string_view end) const noexcept(false) {
 			return xte::string(this->between_last(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_last(char start, xte::string_view end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_last(char start, xte::string_view end) const noexcept(false) {
 			return xte::string(this->between_last(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_last(xte::string_view start, char end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_last(xte::string_view start, char end) const noexcept(false) {
 			return xte::string(this->between_last(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_last(char start, char end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_last(char start, char end) const noexcept(false) {
 			return xte::string(this->between_last(start, end));
 		}
 
@@ -445,19 +449,19 @@ namespace xte {
 			return xte::string_view(*this).between_any_of(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_any_of(xte::string_view start, xte::string_view end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_any_of(xte::string_view start, xte::string_view end) const noexcept(false) {
 			return xte::string(this->between_any_of(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_any_of(char start, xte::string_view end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_any_of(char start, xte::string_view end) const noexcept(false) {
 			return xte::string(this->between_any_of(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_any_of(xte::string_view start, char end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_any_of(xte::string_view start, char end) const noexcept(false) {
 			return xte::string(this->between_any_of(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view str_between_any_of(char start, char end) const noexcept(false) {
+		[[nodiscard]] constexpr xte::string str_between_any_of(char start, char end) const noexcept(false) {
 			return xte::string(this->between_any_of(start, end));
 		}
 

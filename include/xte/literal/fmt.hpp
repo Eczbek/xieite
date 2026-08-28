@@ -10,7 +10,7 @@ namespace xte::literal::fmt {
 	template<xte::static_string_view string>
 	[[nodiscard]] consteval auto operator""_fmt() noexcept {
 		return [](auto&&... args) XTE_RETURNS(
-			std::format(string.data(), FWD(args)...)
+			std::format(string.c_str(), FWD(args)...)
 		);
 	}
 }

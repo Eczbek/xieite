@@ -13,7 +13,7 @@ namespace xte {
 
 	public:
 		virtual constexpr const char* what() const noexcept override {
-			return message.data();
+			return message.c_str();
 		}
 	};
 }

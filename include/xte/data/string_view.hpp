@@ -1,6 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_DATA_STRING_VIEW
 #	define DETAIL_XTE_HEADER_DATA_STRING_VIEW
 #
+#	include "../data/ptr.hpp"
 #	include "../data/range_compare.hpp"
 #	include "../math/max.hpp"
 #	include "../math/min.hpp"
@@ -8,6 +9,7 @@
 #	include "../meta/type.hpp"
 #	include "../preproc/constructs.hpp"
 #	include "../trait/is_castable_implicit_noex.hpp"
+#	include "../util/destroy.hpp"
 #	include "../util/number_types.hpp"
 #	include <compare>
 #	include <format>
@@ -21,6 +23,7 @@ namespace xte {
 	struct string_view : std::ranges::view_base {
 		const char* _data = nullptr;
 		xte::uz _size = 0;
+		bool _terminated = false;
 
 		[[nodiscard]] explicit(false) constexpr string_view() noexcept = default;
 
@@ -32,7 +35,7 @@ namespace xte {
 		: xte::string_view(&c, 1) {}
 
 		[[nodiscard]] explicit constexpr string_view(const xte::is_castable_implicit_noex<const char*> auto& range) noexcept
-		: _data(range) {
+		: _data(range), _terminated(true) {
 			if (const char* copy = this->_data) {
 				while (*copy++) {
 					++this->_size;
@@ -44,12 +47,14 @@ namespace xte {
 		: _data(data), _size(size) {
 			if (this->_size && !this->back()) {
 				--this->_size;
+				this->_terminated = true;
 			}
 		}
 
 		template<std::ranges::contiguous_range range_type>
 		requires(xte::is_same<std::ranges::range_value_t<range_type>, char>)
-		[[nodiscard]] constexpr string_view(std::from_range_t, const range_type& range) XTE_CONSTRUCTS(,
+		[[nodiscard]] constexpr string_view(std::from_range_t, const range_type& range) XTE_CONSTRUCTS(
+			this->_terminated = requires { range.c_str(); },
 			(xte::string_view),((std::ranges::data(range), std::ranges::size(range)))
 		)
 
@@ -68,6 +73,44 @@ namespace xte {
 
 		[[nodiscard]] constexpr xte::uz size() const noexcept {
 			return this->_size;
+		}
+
+		[[nodiscard]] constexpr auto c_str() const noexcept(false) {
+			struct [[nodiscard]] result_type {
+				friend struct xte::string_view;
+
+			private:
+				union {
+					const char* _view;
+					xte::ptr<char[]> _copy;
+				};
+				bool _is_view;
+
+				constexpr result_type(xte::string_view string, bool is_terminated) noexcept
+				: _is_view(is_terminated) {
+					if (is_terminated) {
+						this->_view = string.data();
+					} else {
+						this->_copy = xte::ptr<char[]>::make(string.size() + 1);
+						for (xte::uz i = 0; i < string.size(); ++i) {
+							this->_copy[i] = string[i];
+						}
+					}
+				}
+
+			public:
+				constexpr ~result_type() {
+					if (!this->_is_view) {
+						xte::destroy(this->_copy);
+					}
+				}
+
+				constexpr operator const char*() const noexcept {
+					return this->_is_view ? this->_view : this->_copy.data();
+				}
+			};
+
+			return result_type(*this, this->_terminated);
 		}
 
 		[[nodiscard]] constexpr const char* begin() const noexcept {

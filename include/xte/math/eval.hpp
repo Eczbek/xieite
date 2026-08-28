@@ -203,7 +203,7 @@ namespace xte {
 			: message("at " + xte::stringify_number(pos) + ": expected " + expected + ((pos < input.size()) ? (xte::string(", found: ") + input[pos]) : "")) {}
 
 			[[nodiscard]] virtual constexpr const char* what() const noexcept override {
-				return this->message.data();
+				return this->message.c_str();
 			}
 		};
 		xte::uz pos = 0;
