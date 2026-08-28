@@ -49,6 +49,10 @@ namespace xte {
 			return this->_data;
 		}
 
+		[[nodiscard]] explicit constexpr operator T*() const noexcept {
+			return this->_data;
+		}
+
 		[[nodiscard]] constexpr T& operator*() const noexcept {
 			return *this->_data;
 		}
@@ -157,7 +161,11 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] explicit(false) constexpr operator bool() const noexcept {
+		[[nodiscard]] explicit constexpr operator bool() const noexcept {
+			return this->_data;
+		}
+
+		[[nodiscard]] explicit constexpr operator T*() const noexcept {
 			return this->_data;
 		}
 

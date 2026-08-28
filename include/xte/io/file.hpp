@@ -5,6 +5,7 @@
 #	include "../data/string_view.hpp"
 #	include "../io/eof.hpp"
 #	include "../io/file_mode.hpp"
+#	include "../preproc/lift.hpp"
 #	include "../preproc/platform.hpp"
 #	include "../sys/is_tty.hpp"
 #	include "../util/number_types.hpp"
@@ -51,7 +52,7 @@ namespace xte {
 				return false;
 			}
 			this->_mode = mode;
-			return !!(this->_stream = std::fopen(path.c_str(), mode));
+			return !!(this->_stream = path.make_c_str_for(XTE_LIFT(std::fopen), mode));
 		}
 
 		bool close() noexcept {

@@ -5,6 +5,7 @@
 #	include "../io/eof.hpp"
 #	include "../io/file.hpp"
 #	include "../io/file_mode.hpp"
+#	include "../preproc/lift.hpp"
 #	include "../preproc/platform.hpp"
 #	include <cstdio>
 #	include <stdio.h>
@@ -27,9 +28,9 @@ namespace xte {
 
 		bool open(xte::string_view command, xte::file_mode mode) noexcept(false) {
 #	if XTE_PLATFORM_WINDOWS
-			std::FILE* pipe = ::_popen(command.c_str(), mode);
+			std::FILE* pipe = command.make_c_str_for(XTE_LIFT(::_popen), mode);
 #	else
-			std::FILE* pipe = ::popen(command.c_str(), mode);
+			std::FILE* pipe = command.make_c_str_for(XTE_LIFT(::popen), mode);
 #	endif
 			return (*this = xte::file_pipe(pipe, mode));
 		}

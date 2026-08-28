@@ -5,12 +5,13 @@
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/returns.hpp"
 #	include <format>
+#	include <meta>
 
 namespace xte::literal::fmt {
 	template<xte::static_string_view string>
-	[[nodiscard]] consteval auto operator""_fmt() noexcept {
+	[[nodiscard]] consteval auto operator""_fmt() noexcept(false) {
 		return [](auto&&... args) XTE_RETURNS(
-			std::format(string.c_str(), FWD(args)...)
+			std::format(std::define_static_string(string), XTE_FWD(args)...)
 		);
 	}
 }
