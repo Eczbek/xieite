@@ -7,45 +7,46 @@
 #	define XTE_ENDIAN_LITTLE_WORD 0 // PDP-11
 #
 #	include "../preproc/arch.hpp"
+#	include "../preproc/has_include.hpp"
 #	include "../preproc/platform.hpp"
 #
-#	if __has_include(<endian.h>)
+#	if XTE_HAS_INCLUDE(<endian.h>)
 #		include <endian.h>
 #	endif
 #
-#	if __has_include(<gulliver.h>)
+#	if XTE_HAS_INCLUDE(<gulliver.h>)
 #		include <gulliver.h>
 #	endif
 #
-#	if __has_include(<libkern/OSByteOrder.h>)
+#	if XTE_HAS_INCLUDE(<libkern/OSByteOrder.h>)
 #		include <libkern/OSByteOrder.h>
 #	endif
 #
-#	if __has_include(<machine/endian.h>)
+#	if XTE_HAS_INCLUDE(<machine/endian.h>)
 #		include <machine/endian.h>
 #	endif
 #
-#	if __has_include(<sys/endian.h>)
+#	if XTE_HAS_INCLUDE(<sys/endian.h>)
 #		include <sys/endian.h>
 #	endif
 #
-#	if __has_include(<sys/isa_defs.h>)
+#	if XTE_HAS_INCLUDE(<sys/isa_defs.h>)
 #		include <sys/isa_defs.h>
 #	endif
 #
-#	if __has_include(<sys/param.h>)
+#	if XTE_HAS_INCLUDE(<sys/param.h>)
 #		include <sys/param.h>
 #	endif
 #
-#	if __has_include(<sys/types.h>)
+#	if XTE_HAS_INCLUDE(<sys/types.h>)
 #		include <sys/types.h>
 #	endif
 #
-#	if __has_include(<sys/_endian.h>)
+#	if XTE_HAS_INCLUDE(<sys/_endian.h>)
 #		include <sys/_endian.h>
 #	endif
 #
-#	if __has_include(<winsock2.h>)
+#	if XTE_HAS_INCLUDE(<winsock2.h>)
 #		include <winsock2.h>
 #	endif
 #

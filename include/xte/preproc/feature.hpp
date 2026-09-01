@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_FEATURE
 #	define DETAIL_XTE_HEADER_PREPROC_FEATURE
 #
-#	if __has_include(<cstdint>)
+#	if defined(__has_include) && __has_include(<cstdint>)
 #		include <cstdint>
 #	else
 #		include <stdint.h>
