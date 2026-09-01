@@ -62,47 +62,42 @@
 #
 #	if defined(__STDC__) || defined(__STDC_VERSION__)
 #		undef XTE_LANG_C
-#		define XTE_LANG_C 1
-#
 #		undef XTE_LANG_C_MAJOR
-#		if __STDC_VERSION__ > 202311
+#		define XTE_LANG_C 1
+#		if (__STDC_VERSION__) > 202311
 #			define XTE_LANG_C_MAJOR 2026
-#		elif __STDC_VERSION__ > 201710
+#		elif (__STDC_VERSION__) > 201710
 #			define XTE_LANG_C_MAJOR 2023
-#		elif __STDC_VERSION__ > 201112
+#		elif (__STDC_VERSION__) > 201112
 #			define XTE_LANG_C_MAJOR 2017
-#		elif __STDC_VERSION__ > 199901
+#		elif (__STDC_VERSION__) > 199901
 #			define XTE_LANG_C_MAJOR 2011
-#		elif __STDC_VERSION__ > 199409
+#		elif (__STDC_VERSION__) > 199409
 #			define XTE_LANG_C_MAJOR 1999
-#		elifdef __STDC_VERSION__
+#		elif defined(__STDC_VERSION__)
 #			define XTE_LANG_C_MAJOR 1995
-#		else
+#		elif !defined(__CLASSIC_C__)
 #			define XTE_LANG_C_MAJOR 1990
+#		else
+#			define XTE_LANG_C_MAJOR 1978
 #		endif
 #	endif
 #
 #	ifdef __cplusplus
 #		undef XTE_LANG_CPP
-#		define XTE_LANG_CPP 1
-#
-#		ifdef _MSVC_LANG
-#			define DETAIL_XTE_LANG_CPP _MSVC_LANG
-#		else
-#			define DETAIL_XTE_LANG_CPP __cplusplus
-#		endif
 #		undef XTE_LANG_CPP_MAJOR
-#		if DETAIL_XTE_LANG_CPP > 202302
+#		define XTE_LANG_CPP 1
+#		if (defined(_MSVC_LANG) ? (_MSVC_LANG) : (__cplusplus)) > 202302
 #			define XTE_LANG_CPP_MAJOR 2026
-#		elif DETAIL_XTE_LANG_CPP > 202002
+#		elif (defined(_MSVC_LANG) ? (_MSVC_LANG) : (__cplusplus)) > 202002
 #			define XTE_LANG_CPP_MAJOR 2023
-#		elif DETAIL_XTE_LANG_CPP > 201703
+#		elif (defined(_MSVC_LANG) ? (_MSVC_LANG) : (__cplusplus)) > 201703
 #			define XTE_LANG_CPP_MAJOR 2020
-#		elif DETAIL_XTE_LANG_CPP > 201402
+#		elif (defined(_MSVC_LANG) ? (_MSVC_LANG) : (__cplusplus)) > 201402
 #			define XTE_LANG_CPP_MAJOR 2017
-#		elif DETAIL_XTE_LANG_CPP > 201103
+#		elif (defined(_MSVC_LANG) ? (_MSVC_LANG) : (__cplusplus)) > 201103
 #			define XTE_LANG_CPP_MAJOR 2014
-#		elif DETAIL_XTE_LANG_CPP > 199711
+#		elif (defined(_MSVC_LANG) ? (_MSVC_LANG) : (__cplusplus)) > 199711
 #			define XTE_LANG_CPP_MAJOR 2011
 #		else
 #			define XTE_LANG_CPP_MAJOR 1998
@@ -131,18 +126,14 @@
 #
 #	if defined(__CUDA__) || defined(__CUDACC__)
 #		include <cuda.h>
-#
 #		undef XTE_LANG_CUDA
 #		define XTE_LANG_CUDA 1
-#
 #		ifdef CUDA_VERSION
 #			undef XTE_LANG_CUDA_MAJOR
-#			define XTE_LANG_CUDA_MAJOR (CUDA_VERSION / 1000)
-#
 #			undef XTE_LANG_CUDA_MINOR
-#			define XTE_LANG_CUDA_MINOR (CUDA_VERSION % 1000 / 10)
-#
 #			undef XTE_LANG_CUDA_PATCH
+#			define XTE_LANG_CUDA_MAJOR (CUDA_VERSION / 1000)
+#			define XTE_LANG_CUDA_MINOR (CUDA_VERSION / 10 % 100)
 #			define XTE_LANG_CUDA_PATCH (CUDA_VERSION % 10)
 #		endif
 #	endif
@@ -150,20 +141,17 @@
 #	ifdef __GLSL__
 #		undef XTE_LANG_GLSL
 #		define XTE_LANG_GLSL 1
-#
 #		ifdef GLSL_VERSION
 #			undef XTE_LANG_GLSL_MAJOR
-#			define XTE_LANG_GLSL_MAJOR (GLSL_VERSION / 100)
-#
 #			undef XTE_LANG_GLSL_MINOR
-#			define XTE_LANG_GLSL_MINOR (GLSL_VERSION % 100 / 10)
+#			define XTE_LANG_GLSL_MAJOR (GLSL_VERSION / 100)
+#			define XTE_LANG_GLSL_MINOR (GLSL_VERSION % 100)
 #		endif
 #	endif
 #
 #	ifdef __HLSL__
 #		undef XTE_LANG_HLSL
 #		define XTE_LANG_HLSL 1
-#
 #		ifdef __HLSL_VERSION
 #			undef XTE_LANG_HLSL_MAJOR
 #			define XTE_LANG_HLSL_MAJOR __HLSL_VERSION
@@ -177,9 +165,8 @@
 #
 #	if defined(__OBJC__) || defined(__OBJC2__)
 #		undef XTE_LANG_OBJ_C
-#		define XTE_LANG_OBJ_C 1
-#
 #		undef XTE_LANG_OBJ_C_MAJOR
+#		define XTE_LANG_OBJ_C 1
 #		ifdef __OBJC2__
 #			define XTE_LANG_OBJ_C_MAJOR 2
 #		else
@@ -189,9 +176,8 @@
 #
 #	if ((defined(__OBJC__) || defined(__OBJC2__)) && defined(__cplusplus)) || defined(__OBJCPP__)
 #		undef XTE_LANG_OBJ_CPP
-#		define XTE_LANG_OBJ_CPP 1
-#
 #		undef XTE_LANG_OBJ_CPP_MAJOR
+#		define XTE_LANG_OBJ_CPP 1
 #		ifdef __OBJC2__
 #			define XTE_LANG_OBJ_CPP_MAJOR 2
 #		else

@@ -4,343 +4,262 @@
 #	define XTE_ARCH_AARCH32 0
 #	define XTE_ARCH_AARCH32_MAJOR 0
 #	define XTE_ARCH_AARCH32_MINOR 0
-#	define XTE_ARCH_AARCH32_PATCH 0
 #	define XTE_ARCH_AARCH64 0
 #	define XTE_ARCH_AARCH64_MAJOR 0
 #	define XTE_ARCH_AARCH64_MINOR 0
-#	define XTE_ARCH_AARCH64_PATCH 0
 #	define XTE_ARCH_ALPHA 0
 #	define XTE_ARCH_ALPHA_MAJOR 0
 #	define XTE_ARCH_ALPHA_MINOR 0
-#	define XTE_ARCH_ALPHA_PATCH 0
 #	define XTE_ARCH_AM29000 0
 #	define XTE_ARCH_AM29000_MAJOR 0
 #	define XTE_ARCH_AM29000_MINOR 0
-#	define XTE_ARCH_AM29000_PATCH 0
 #	define XTE_ARCH_ATMEL_AVR 0
 #	define XTE_ARCH_ATMEL_AVR_MAJOR 0
 #	define XTE_ARCH_ATMEL_AVR_MINOR 0
-#	define XTE_ARCH_ATMEL_AVR_PATCH 0
 #	define XTE_ARCH_BLACKFIN 0
 #	define XTE_ARCH_BLACKFIN_MAJOR 0
 #	define XTE_ARCH_BLACKFIN_MINOR 0
-#	define XTE_ARCH_BLACKFIN_PATCH 0
 #	define XTE_ARCH_COMPACTRISC 0
 #	define XTE_ARCH_COMPACTRISC_MAJOR 0
 #	define XTE_ARCH_COMPACTRISC_MINOR 0
-#	define XTE_ARCH_COMPACTRISC_PATCH 0
 #	define XTE_ARCH_CONVEX 0
 #	define XTE_ARCH_CONVEX_MAJOR 0
 #	define XTE_ARCH_CONVEX_MINOR 0
-#	define XTE_ARCH_CONVEX_PATCH 0
 #	define XTE_ARCH_CRAY 0
 #	define XTE_ARCH_CRAY_MAJOR 0
 #	define XTE_ARCH_CRAY_MINOR 0
-#	define XTE_ARCH_CRAY_PATCH 0
 #	define XTE_ARCH_CRAY_T3D 0
 #	define XTE_ARCH_CRAY_T3D_MAJOR 0
 #	define XTE_ARCH_CRAY_T3D_MINOR 0
-#	define XTE_ARCH_CRAY_T3D_PATCH 0
 #	define XTE_ARCH_CRAY_T3E 0
 #	define XTE_ARCH_CRAY_T3E_MAJOR 0
 #	define XTE_ARCH_CRAY_T3E_MINOR 0
-#	define XTE_ARCH_CRAY_T3E_PATCH 0
 #	define XTE_ARCH_CSKY 0
 #	define XTE_ARCH_CSKY_MAJOR 0
 #	define XTE_ARCH_CSKY_MINOR 0
-#	define XTE_ARCH_CSKY_PATCH 0
 #	define XTE_ARCH_D10V 0
 #	define XTE_ARCH_D10V_MAJOR 0
 #	define XTE_ARCH_D10V_MINOR 0
-#	define XTE_ARCH_D10V_PATCH 0
 #	define XTE_ARCH_D30V 0
 #	define XTE_ARCH_D30V_MAJOR 0
 #	define XTE_ARCH_D30V_MINOR 0
-#	define XTE_ARCH_D30V_PATCH 0
 #	define XTE_ARCH_EPIPHANY 0
 #	define XTE_ARCH_EPIPHANY_MAJOR 0
 #	define XTE_ARCH_EPIPHANY_MINOR 0
-#	define XTE_ARCH_EPIPHANY_PATCH 0
 #	define XTE_ARCH_ELBRUS_2000 0
 #	define XTE_ARCH_ELBRUS_2000_MAJOR 0
 #	define XTE_ARCH_ELBRUS_2000_MINOR 0
-#	define XTE_ARCH_ELBRUS_2000_PATCH 0
 #	define XTE_ARCH_FUJITSU_FR_V 0
 #	define XTE_ARCH_FUJITSU_FR_V_MAJOR 0
 #	define XTE_ARCH_FUJITSU_FR_V_MINOR 0
-#	define XTE_ARCH_FUJITSU_FR_V_PATCH 0
 #	define XTE_ARCH_FR30 0
 #	define XTE_ARCH_FR30_MAJOR 0
 #	define XTE_ARCH_FR30_MINOR 0
-#	define XTE_ARCH_FR30_PATCH 0
 #	define XTE_ARCH_FT32 0
 #	define XTE_ARCH_FT32_MAJOR 0
 #	define XTE_ARCH_FT32_MINOR 0
-#	define XTE_ARCH_FT32_PATCH 0
 #	define XTE_ARCH_H8300 0
 #	define XTE_ARCH_H8300_MAJOR 0
 #	define XTE_ARCH_H8300_MINOR 0
-#	define XTE_ARCH_H8300_PATCH 0
 #	define XTE_ARCH_HEXAGON 0
 #	define XTE_ARCH_HEXAGON_MAJOR 0
 #	define XTE_ARCH_HEXAGON_MINOR 0
-#	define XTE_ARCH_HEXAGON_PATCH 0
 #	define XTE_ARCH_HP_800 0
 #	define XTE_ARCH_HP_800_MAJOR 0
 #	define XTE_ARCH_HP_800_MINOR 0
-#	define XTE_ARCH_HP_800_PATCH 0
 #	define XTE_ARCH_HP_9000 0
 #	define XTE_ARCH_HP_9000_MAJOR 0
 #	define XTE_ARCH_HP_9000_MINOR 0
-#	define XTE_ARCH_HP_9000_PATCH 0
 #	define XTE_ARCH_I960 0
 #	define XTE_ARCH_I960_MAJOR 0
 #	define XTE_ARCH_I960_MINOR 0
-#	define XTE_ARCH_I960_PATCH 0
 #	define XTE_ARCH_IA64 0
 #	define XTE_ARCH_IA64_MAJOR 0
 #	define XTE_ARCH_IA64_MINOR 0
-#	define XTE_ARCH_IA64_PATCH 0
 #	define XTE_ARCH_IBM_SYSTEM_32 0
 #	define XTE_ARCH_IBM_SYSTEM_32_MAJOR 0
 #	define XTE_ARCH_IBM_SYSTEM_32_MINOR 0
-#	define XTE_ARCH_IBM_SYSTEM_32_PATCH 0
 #	define XTE_ARCH_IBM_SYSTEM_370 0
 #	define XTE_ARCH_IBM_SYSTEM_370_MAJOR 0
 #	define XTE_ARCH_IBM_SYSTEM_370_MINOR 0
-#	define XTE_ARCH_IBM_SYSTEM_370_PATCH 0
 #	define XTE_ARCH_IBM_SYSTEM_390 0
 #	define XTE_ARCH_IBM_SYSTEM_390_MAJOR 0
 #	define XTE_ARCH_IBM_SYSTEM_390_MINOR 0
-#	define XTE_ARCH_IBM_SYSTEM_390_PATCH 0
 #	define XTE_ARCH_IBM_Z 0
 #	define XTE_ARCH_IBM_Z_MAJOR 0
 #	define XTE_ARCH_IBM_Z_MINOR 0
-#	define XTE_ARCH_IBM_Z_PATCH 0
 #	define XTE_ARCH_IP2000 0
 #	define XTE_ARCH_IP2000_MAJOR 0
 #	define XTE_ARCH_IP2000_MINOR 0
-#	define XTE_ARCH_IP2000_PATCH 0
 #	define XTE_ARCH_IQ2000 0
 #	define XTE_ARCH_IQ2000_MAJOR 0
 #	define XTE_ARCH_IQ2000_MINOR 0
-#	define XTE_ARCH_IQ2000_PATCH 0
 #	define XTE_ARCH_LATTICEMICO32 0
 #	define XTE_ARCH_LATTICEMICO32_MAJOR 0
 #	define XTE_ARCH_LATTICEMICO32_MINOR 0
-#	define XTE_ARCH_LATTICEMICO32_PATCH 0
 #	define XTE_ARCH_LOONGARCH 0
 #	define XTE_ARCH_LOONGARCH_MAJOR 0
 #	define XTE_ARCH_LOONGARCH_MINOR 0
-#	define XTE_ARCH_LOONGARCH_PATCH 0
 #	define XTE_ARCH_M_CORE 0
 #	define XTE_ARCH_M_CORE_MAJOR 0
 #	define XTE_ARCH_M_CORE_MINOR 0
-#	define XTE_ARCH_M_CORE_PATCH 0
 #	define XTE_ARCH_M32C 0
 #	define XTE_ARCH_M32C_MAJOR 0
 #	define XTE_ARCH_M32C_MINOR 0
-#	define XTE_ARCH_M32C_PATCH 0
 #	define XTE_ARCH_M32R 0
 #	define XTE_ARCH_M32R_MAJOR 0
 #	define XTE_ARCH_M32R_MINOR 0
-#	define XTE_ARCH_M32R_PATCH 0
 #	define XTE_ARCH_MIPS 0
 #	define XTE_ARCH_MIPS_MAJOR 0
 #	define XTE_ARCH_MIPS_MINOR 0
-#	define XTE_ARCH_MIPS_PATCH 0
 #	define XTE_ARCH_MMIX 0
 #	define XTE_ARCH_MMIX_MAJOR 0
 #	define XTE_ARCH_MMIX_MINOR 0
-#	define XTE_ARCH_MMIX_PATCH 0
 #	define XTE_ARCH_MN10200 0
 #	define XTE_ARCH_MN10200_MAJOR 0
 #	define XTE_ARCH_MN10200_MINOR 0
-#	define XTE_ARCH_MN10200_PATCH 0
 #	define XTE_ARCH_MN10300 0
 #	define XTE_ARCH_MN10300_MAJOR 0
 #	define XTE_ARCH_MN10300_MINOR 0
-#	define XTE_ARCH_MN10300_PATCH 0
 #	define XTE_ARCH_MOTOROLA_68000 0
 #	define XTE_ARCH_MOTOROLA_68000_MAJOR 0
 #	define XTE_ARCH_MOTOROLA_68000_MINOR 0
-#	define XTE_ARCH_MOTOROLA_68000_PATCH 0
 #	define XTE_ARCH_MOTOROLA_88000 0
 #	define XTE_ARCH_MOTOROLA_88000_MAJOR 0
 #	define XTE_ARCH_MOTOROLA_88000_MINOR 0
-#	define XTE_ARCH_MOTOROLA_88000_PATCH 0
 #	define XTE_ARCH_MOTOROLA_HC11 0
 #	define XTE_ARCH_MOTOROLA_HC11_MAJOR 0
 #	define XTE_ARCH_MOTOROLA_HC11_MINOR 0
-#	define XTE_ARCH_MOTOROLA_HC11_PATCH 0
 #	define XTE_ARCH_MOTOROLA_M_CORE 0
 #	define XTE_ARCH_MOTOROLA_M_CORE_MAJOR 0
 #	define XTE_ARCH_MOTOROLA_M_CORE_MINOR 0
-#	define XTE_ARCH_MOTOROLA_M_CORE_PATCH 0
 #	define XTE_ARCH_MOXIE 0
 #	define XTE_ARCH_MOXIE_MAJOR 0
 #	define XTE_ARCH_MOXIE_MINOR 0
-#	define XTE_ARCH_MOXIE_PATCH 0
 #	define XTE_ARCH_MSP430 0
 #	define XTE_ARCH_MSP430_MAJOR 0
 #	define XTE_ARCH_MSP430_MINOR 0
-#	define XTE_ARCH_MSP430_PATCH 0
 #	define XTE_ARCH_NDS32 0
 #	define XTE_ARCH_NDS32_MAJOR 0
 #	define XTE_ARCH_NDS32_MINOR 0
-#	define XTE_ARCH_NDS32_PATCH 0
 #	define XTE_ARCH_NEC_SX_AURORA_TSUBASA 0
 #	define XTE_ARCH_NEC_SX_AURORA_TSUBASA_MAJOR 0
 #	define XTE_ARCH_NEC_SX_AURORA_TSUBASA_MINOR 0
-#	define XTE_ARCH_NEC_SX_AURORA_TSUBASA_PATCH 0
 #	define XTE_ARCH_NIOS_II 0
 #	define XTE_ARCH_NIOS_II_MAJOR 0
 #	define XTE_ARCH_NIOS_II_MINOR 0
-#	define XTE_ARCH_NIOS_II_PATCH 0
 #	define XTE_ARCH_OPENRISC 0
 #	define XTE_ARCH_OPENRISC_MAJOR 0
 #	define XTE_ARCH_OPENRISC_MINOR 0
-#	define XTE_ARCH_OPENRISC_PATCH 0
 #	define XTE_ARCH_PA_RISC 0
 #	define XTE_ARCH_PA_RISC_MAJOR 0
 #	define XTE_ARCH_PA_RISC_MINOR 0
-#	define XTE_ARCH_PA_RISC_PATCH 0
 #	define XTE_ARCH_PDP_11 0
 #	define XTE_ARCH_PDP_11_MAJOR 0
 #	define XTE_ARCH_PDP_11_MINOR 0
-#	define XTE_ARCH_PDP_11_PATCH 0
 #	define XTE_ARCH_PNACL 0
 #	define XTE_ARCH_PNACL_MAJOR 0
 #	define XTE_ARCH_PNACL_MINOR 0
-#	define XTE_ARCH_PNACL_PATCH 0
 #	define XTE_ARCH_POWERPC 0
 #	define XTE_ARCH_POWERPC_MAJOR 0
 #	define XTE_ARCH_POWERPC_MINOR 0
-#	define XTE_ARCH_POWERPC_PATCH 0
 #	define XTE_ARCH_PTX 0
 #	define XTE_ARCH_PTX_MAJOR 0
 #	define XTE_ARCH_PTX_MINOR 0
-#	define XTE_ARCH_PTX_PATCH 0
 #	define XTE_ARCH_PYRAMID_9810 0
 #	define XTE_ARCH_PYRAMID_9810_MAJOR 0
 #	define XTE_ARCH_PYRAMID_9810_MINOR 0
-#	define XTE_ARCH_PYRAMID_9810_PATCH 0
 #	define XTE_ARCH_RENESAS_RX 0
 #	define XTE_ARCH_RENESAS_RX_MAJOR 0
 #	define XTE_ARCH_RENESAS_RX_MINOR 0
-#	define XTE_ARCH_RENESAS_RX_PATCH 0
 #	define XTE_ARCH_RISC_V 0
 #	define XTE_ARCH_RISC_V_MAJOR 0
 #	define XTE_ARCH_RISC_V_MINOR 0
-#	define XTE_ARCH_RISC_V_PATCH 0
 #	define XTE_ARCH_RL78 0
 #	define XTE_ARCH_RL78_MAJOR 0
 #	define XTE_ARCH_RL78_MINOR 0
-#	define XTE_ARCH_RL78_PATCH 0
 #	define XTE_ARCH_RS_6000 0
 #	define XTE_ARCH_RS_6000_MAJOR 0
 #	define XTE_ARCH_RS_6000_MINOR 0
-#	define XTE_ARCH_RS_6000_PATCH 0
 #	define XTE_ARCH_SPARC 0
 #	define XTE_ARCH_SPARC_MAJOR 0
 #	define XTE_ARCH_SPARC_MINOR 0
-#	define XTE_ARCH_SPARC_PATCH 0
 #	define XTE_ARCH_SUPERH 0
 #	define XTE_ARCH_SUPERH_MAJOR 0
 #	define XTE_ARCH_SUPERH_MINOR 0
-#	define XTE_ARCH_SUPERH_PATCH 0
 #	define XTE_ARCH_SYNOPSYS_ARC 0
 #	define XTE_ARCH_SYNOPSYS_ARC_MAJOR 0
 #	define XTE_ARCH_SYNOPSYS_ARC_MINOR 0
-#	define XTE_ARCH_SYNOPSYS_ARC_PATCH 0
 #	define XTE_ARCH_TAHOE 0
 #	define XTE_ARCH_TAHOE_MAJOR 0
 #	define XTE_ARCH_TAHOE_MINOR 0
-#	define XTE_ARCH_TAHOE_PATCH 0
 #	define XTE_ARCH_TIC_80 0
 #	define XTE_ARCH_TIC_80_MAJOR 0
 #	define XTE_ARCH_TIC_80_MINOR 0
-#	define XTE_ARCH_TIC_80_PATCH 0
 #	define XTE_ARCH_TILERA_TILEPRO64 0
 #	define XTE_ARCH_TILERA_TILEPRO64_MAJOR 0
 #	define XTE_ARCH_TILERA_TILEPRO64_MINOR 0
-#	define XTE_ARCH_TILERA_TILEPRO64_PATCH 0
 #	define XTE_ARCH_TILERA_TILE_GX 0
 #	define XTE_ARCH_TILERA_TILE_GX_MAJOR 0
 #	define XTE_ARCH_TILERA_TILE_GX_MINOR 0
-#	define XTE_ARCH_TILERA_TILE_GX_PATCH 0
 #	define XTE_ARCH_TMS320 0
 #	define XTE_ARCH_TMS320_MAJOR 0
 #	define XTE_ARCH_TMS320_MINOR 0
-#	define XTE_ARCH_TMS320_PATCH 0
 #	define XTE_ARCH_TMS470 0
 #	define XTE_ARCH_TMS470_MAJOR 0
 #	define XTE_ARCH_TMS470_MINOR 0
-#	define XTE_ARCH_TMS470_PATCH 0
 #	define XTE_ARCH_V850 0
 #	define XTE_ARCH_V850_MAJOR 0
 #	define XTE_ARCH_V850_MINOR 0
-#	define XTE_ARCH_V850_PATCH 0
 #	define XTE_ARCH_VAX 0
 #	define XTE_ARCH_VAX_MAJOR 0
 #	define XTE_ARCH_VAX_MINOR 0
-#	define XTE_ARCH_VAX_PATCH 0
 #	define XTE_ARCH_WASM 0
 #	define XTE_ARCH_WASM_MAJOR 0
 #	define XTE_ARCH_WASM_MINOR 0
-#	define XTE_ARCH_WASM_PATCH 0
 #	define XTE_ARCH_WDC_65C02 0
 #	define XTE_ARCH_WDC_65C02_MAJOR 0
 #	define XTE_ARCH_WDC_65C02_MINOR 0
-#	define XTE_ARCH_WDC_65C02_PATCH 0
 #	define XTE_ARCH_X80 0
 #	define XTE_ARCH_X80_MAJOR 0
 #	define XTE_ARCH_X80_MINOR 0
-#	define XTE_ARCH_X80_PATCH 0
 #	define XTE_ARCH_X86_32 0
 #	define XTE_ARCH_X86_32_MAJOR 0
 #	define XTE_ARCH_X86_32_MINOR 0
-#	define XTE_ARCH_X86_32_PATCH 0
 #	define XTE_ARCH_X86_64 0
 #	define XTE_ARCH_X86_64_MAJOR 0
 #	define XTE_ARCH_X86_64_MINOR 0
-#	define XTE_ARCH_X86_64_PATCH 0
 #	define XTE_ARCH_XENON 0
 #	define XTE_ARCH_XENON_MAJOR 0
 #	define XTE_ARCH_XENON_MINOR 0
-#	define XTE_ARCH_XENON_PATCH 0
 #	define XTE_ARCH_XSTORMY16 0
 #	define XTE_ARCH_XSTORMY16_MAJOR 0
 #	define XTE_ARCH_XSTORMY16_MINOR 0
-#	define XTE_ARCH_XSTORMY16_PATCH 0
 #	define XTE_ARCH_XTENSA 0
 #	define XTE_ARCH_XTENSA_MAJOR 0
 #	define XTE_ARCH_XTENSA_MINOR 0
-#	define XTE_ARCH_XTENSA_PATCH 0
 #	define XTE_ARCH_ZILOG_Z8000 0
 #	define XTE_ARCH_ZILOG_Z8000_MAJOR 0
 #	define XTE_ARCH_ZILOG_Z8000_MINOR 0
-#	define XTE_ARCH_ZILOG_Z8000_PATCH 0
 #
 #	define XTE_ARCH(NAME, OP, MAJOR, ...) \
 		DETAIL_XTE_ARCH(OP, \
-			XTE_ARCH_##NAME##_MAJOR, XTE_ARCH_##NAME##_MINOR, XTE_ARCH_##NAME##_PATCH, \
-			MAJOR, __VA_ARGS__ __VA_OPT__(,) 0, 0 \
+			XTE_ARCH_##NAME##_MAJOR, XTE_ARCH_##NAME##_MINOR, \
+			MAJOR, __VA_ARGS__ __VA_OPT__(,) 0 \
 		)
 #
 #	if defined(_ARM) || defined(_M_ARM) || defined(_M_ARM_NT) || defined(_M_ARMT) || defined(__ARM_ARCH) || defined(__ARM_ARCH__) || defined(__TARGET_ARM_ARCH) || defined(__TARGET_ARM_THUMB) || defined(__THUMBEB__) || defined(__THUMBEL__) || defined(__aarch32__) || defined(__arm) || defined(__arm__) || defined(__thumb__)
 #		undef XTE_ARCH_AARCH32
-#		define XTE_ARCH_AARCH32 1
-#
 #		undef XTE_ARCH_AARCH32_MAJOR
-#		if _M_ARM
-#			define XTE_ARCH_AARCH32_MAJOR _M_ARM
-#		elif __ARM_ARCH
-#			define XTE_ARCH_AARCH32_MAJOR __ARM_ARCH
-#		elif __TARGET_ARCH_ARM
-#			define XTE_ARCH_AARCH32_MAJOR __TARGET_ARCH_ARM
-#		elif __TARGET_ARCH_THUMB
-#			define XTE_ARCH_AARCH32_MAJOR __TARGET_ARCH_THUMB
+#		define XTE_ARCH_AARCH32 1
+#		if defined(_M_ARM) && ((_M_ARM) > 0)
+#			define XTE_ARCH_AARCH32_MAJOR (_M_ARM)
+#		elif defined(__ARM_ARCH) && ((__ARM_ARCH) > 0)
+#			define XTE_ARCH_AARCH32_MAJOR (__ARM_ARCH)
+#		elif defined(__TARGET_ARCH_ARM) && ((__TARGET_ARCH_ARM) > 0)
+#			define XTE_ARCH_AARCH32_MAJOR (__TARGET_ARCH_ARM)
+#		elif defined(__TARGET_ARCH_THUMB) && ((__TARGET_ARCH_THUMB) > 0)
+#			define XTE_ARCH_AARCH32_MAJOR (__TARGET_ARCH_THUMB)
 #		elif defined(__ARM_ARCH_7A__) || defined(__ARM_ARCH_7EM__) || defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7R__) || defined(__ARM_ARCH_7S__) || defined(__ARM_ARCH_7__)
 #			define XTE_ARCH_AARCH32_MAJOR 7
 #		elif defined(__ARM_ARCH_6J__) || defined(__ARM_ARCH_6K__) || defined(__ARM_ARCH_6M__) || defined(__ARM_ARCH_6T2__) || defined(__ARM_ARCH_6ZK__) || defined(__ARM_ARCH_6Z__) || defined(__ARM_ARCH_6__)
@@ -351,68 +270,67 @@
 #			define XTE_ARCH_AARCH32_MAJOR 4
 #		elif defined(__ARM_ARCH_3M__) || defined(__ARM_ARCH_3__)
 #			define XTE_ARCH_AARCH32_MAJOR 3
-#		elifdef __ARM_ARCH_2__
+#		elif defined(__ARM_ARCH_2__)
 #			define XTE_ARCH_AARCH32_MAJOR 2
 #		else
 #			define XTE_ARCH_AARCH32_MAJOR 1
 #		endif
 #	endif
 #
-#	if (_M_ARM >= 8) || defined(_M_ARM64) || defined(__AARCH64EB__) || defined(__AARCH64EL__) || (__ARM_ARCH >= 8) || defined(__ARM_ARCH_8__) || defined(__ARM_ARCH_8A__) || defined(__ARMv8__) || defined(__ARMv8_A__) || defined(__CORE_CORTEXAV8__) || defined(__aarch64__) || defined(__arm64) || defined(__arm64__)
+#	if ((_M_ARM) >= 8) || defined(_M_ARM64) || defined(__AARCH64EB__) || defined(__AARCH64EL__) || ((__ARM_ARCH) >= 8) || defined(__ARM_ARCH_8__) || defined(__ARM_ARCH_8A__) || defined(__ARMv8__) || defined(__ARMv8_A__) || defined(__CORE_CORTEXAV8__) || defined(__aarch64__) || defined(__arm64) || defined(__arm64__)
 #		undef XTE_ARCH_AARCH64
-#		define XTE_ARCH_AARCH64 1
-#
 #		undef XTE_ARCH_AARCH64_MAJOR
 #		undef XTE_ARCH_AARCH64_MINOR
-#		if _M_ARM
-#			define XTE_ARCH_AARCH64_MAJOR _M_ARM
+#		define XTE_ARCH_AARCH64 1
+#		if (_M_ARM) > 0
+#			define XTE_ARCH_AARCH64_MAJOR (_M_ARM)
 #			define XTE_ARCH_AARCH64_MINOR 0
-#		elif __ARM_ARCH
-#			define XTE_ARCH_AARCH64_MAJOR __ARM_ARCH
+#		elif (__ARM_ARCH) > 0
+#			define XTE_ARCH_AARCH64_MAJOR (__ARM_ARCH)
 #			define XTE_ARCH_AARCH64_MINOR 0
-#		elifdef __ARM_ARCH_9_5A__
+#		elif defined(__ARM_ARCH_9_5A__)
 #			define XTE_ARCH_AARCH64_MAJOR 9
 #			define XTE_ARCH_AARCH64_MINOR 5
-#		elifdef __ARM_ARCH_9_4A__
+#		elif defined(__ARM_ARCH_9_4A__)
 #			define XTE_ARCH_AARCH64_MAJOR 9
 #			define XTE_ARCH_AARCH64_MINOR 4
-#		elifdef __ARM_ARCH_9_3A__
+#		elif defined(__ARM_ARCH_9_3A__)
 #			define XTE_ARCH_AARCH64_MAJOR 9
 #			define XTE_ARCH_AARCH64_MINOR 3
-#		elifdef __ARM_ARCH_9_2A__
+#		elif defined(__ARM_ARCH_9_2A__)
 #			define XTE_ARCH_AARCH64_MAJOR 9
 #			define XTE_ARCH_AARCH64_MINOR 2
-#		elifdef __ARM_ARCH_9_1A__
+#		elif defined(__ARM_ARCH_9_1A__)
 #			define XTE_ARCH_AARCH64_MAJOR 9
 #			define XTE_ARCH_AARCH64_MINOR 1
-#		elifdef __ARM_ARCH_9__
+#		elif defined(__ARM_ARCH_9__)
 #			define XTE_ARCH_AARCH64_MAJOR 9
 #			define XTE_ARCH_AARCH64_MINOR 0
-#		elifdef __ARM_ARCH_8_9A__
+#		elif defined(__ARM_ARCH_8_9A__)
 #			define XTE_ARCH_AARCH64_MAJOR 8
 #			define XTE_ARCH_AARCH64_MINOR 9
-#		elifdef __ARM_ARCH_8_8A__
+#		elif defined(__ARM_ARCH_8_8A__)
 #			define XTE_ARCH_AARCH64_MAJOR 8
 #			define XTE_ARCH_AARCH64_MINOR 8
-#		elifdef __ARM_ARCH_8_7A__
+#		elif defined(__ARM_ARCH_8_7A__)
 #			define XTE_ARCH_AARCH64_MAJOR 8
 #			define XTE_ARCH_AARCH64_MINOR 7
-#		elifdef __ARM_ARCH_8_6A__
+#		elif defined(__ARM_ARCH_8_6A__)
 #			define XTE_ARCH_AARCH64_MAJOR 8
 #			define XTE_ARCH_AARCH64_MINOR 6
-#		elifdef __ARM_ARCH_8_5A__
+#		elif defined(__ARM_ARCH_8_5A__)
 #			define XTE_ARCH_AARCH64_MAJOR 8
 #			define XTE_ARCH_AARCH64_MINOR 5
-#		elifdef __ARM_ARCH_8_4A__
+#		elif defined(__ARM_ARCH_8_4A__)
 #			define XTE_ARCH_AARCH64_MAJOR 8
 #			define XTE_ARCH_AARCH64_MINOR 4
-#		elifdef __ARM_ARCH_8_3A__
+#		elif defined(__ARM_ARCH_8_3A__)
 #			define XTE_ARCH_AARCH64_MAJOR 8
 #			define XTE_ARCH_AARCH64_MINOR 3
-#		elifdef __ARM_ARCH_8_2A__
+#		elif defined(__ARM_ARCH_8_2A__)
 #			define XTE_ARCH_AARCH64_MAJOR 8
 #			define XTE_ARCH_AARCH64_MINOR 2
-#		elifdef __ARM_ARCH_8_1A__
+#		elif defined(__ARM_ARCH_8_1A__)
 #			define XTE_ARCH_AARCH64_MAJOR 8
 #			define XTE_ARCH_AARCH64_MINOR 1
 #		else
@@ -423,16 +341,15 @@
 #
 #	if defined(_M_ALPHA) || defined(__ALPHA) || defined(__alpha) || defined(__alpha__)
 #		undef XTE_ARCH_ALPHA
-#		define XTE_ARCH_ALPHA 1
-#
 #		undef XTE_ARCH_ALPHA_MAJOR
+#		define XTE_ARCH_ALPHA 1
 #		ifdef __alpha_ev7__
 #			define XTE_ARCH_ALPHA_MAJOR 7
-#		elifdef __alpha_ev6__
+#		elif defined(__alpha_ev6__)
 #			define XTE_ARCH_ALPHA_MAJOR 6
-#		elifdef __alpha_ev5__
+#		elif defined(__alpha_ev5__)
 #			define XTE_ARCH_ALPHA_MAJOR 5
-#		elifdef __alpha_ev4__
+#		elif defined(__alpha_ev4__)
 #			define XTE_ARCH_ALPHA_MAJOR 4
 #		else
 #			define XTE_ARCH_ALPHA_MAJOR 0
@@ -446,10 +363,9 @@
 #
 #	if defined(__AVR__) || defined(__avr__)
 #		undef XTE_ARCH_ATMEL_AVR
-#		define XTE_ARCH_ATMEL_AVR 1
-#
-#		undef XTE_ACRH_MAJOR_ATMEL_AVR
+#		undef XTE_ACRH_ATMEL_AVR_MAJOR
 #		undef XTE_ARCH_ATMEL_AVR_MINOR
+#		define XTE_ARCH_ATMEL_AVR 1
 #		if AVR_ARCH == 6
 #			define XTE_ARCH_ATMEL_AVR_MAJOR 6
 #			define XTE_ARCH_ATMEL_AVR_MINOR 0
@@ -488,60 +404,59 @@
 #
 #	if defined(BFIN) || defined(__ADSPBLACKFIN__) || defined(__BFIN) || defined(__BFIN__) || defined(__bfin) || defined(__bfin__) || defined(bfin)
 #		undef XTE_ARCH_BLACKFIN
-#		define XTE_ARCH_BLACKFIN 1
-#
 #		undef XTE_ARCH_BLACKFIN_MAJOR
+#		define XTE_ARCH_BLACKFIN 1
 #		ifdef __ADSPBF707__
 #			define XTE_ARCH_BLACKFIN_MAJOR 707
-#		elifdef __ADSPBF706__
+#		elif defined(__ADSPBF706__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 706
-#		elifdef __ADSPBF705__
+#		elif defined(__ADSPBF705__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 705
-#		elifdef __ADSPBF704__
+#		elif defined(__ADSPBF704__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 704
-#		elifdef __ADSPBF703__
+#		elif defined(__ADSPBF703__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 703
-#		elifdef __ADSPBF702__
+#		elif defined(__ADSPBF702__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 702
-#		elifdef __ADSPBF701__
+#		elif defined(__ADSPBF701__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 701
-#		elifdef __ADSPBF700__
+#		elif defined(__ADSPBF700__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 700
-#		elifdef __ADSPBF609__
+#		elif defined(__ADSPBF609__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 609
-#		elifdef __ADSPBF608__
+#		elif defined(__ADSPBF608__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 608
-#		elifdef __ADSPBF607__
+#		elif defined(__ADSPBF607__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 607
-#		elifdef __ADSPBF606__
+#		elif defined(__ADSPBF606__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 606
-#		elifdef __ADSPBF561__
+#		elif defined(__ADSPBF561__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 561
-#		elifdef __ADSPBF549__
+#		elif defined(__ADSPBF549__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 549
-#		elifdef __ADSPBF548__
+#		elif defined(__ADSPBF548__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 548
-#		elifdef __ADSPBF547__
+#		elif defined(__ADSPBF547__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 547
-#		elifdef __ADSPBF544__
+#		elif defined(__ADSPBF544__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 544
-#		elifdef __ADSPBF542__
+#		elif defined(__ADSPBF542__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 542
 #		elif defined(__ADSPBF539__) || defined(__ADSPBF539F__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 539
 #		elif defined(__ADSPBF538__) || defined(__ADSPBF538F__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 538
-#		elifdef __ADSPBF537__
+#		elif defined(__ADSPBF537__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 537
-#		elifdef __ADSPBF536__
+#		elif defined(__ADSPBF536__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 536
-#		elifdef __ADSPBF534__
+#		elif defined(__ADSPBF534__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 534
-#		elifdef __ADSPBF533__
+#		elif defined(__ADSPBF533__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 533
-#		elifdef __ADSPBF532__
+#		elif defined(__ADSPBF532__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 532
-#		elifdef __ADSPBF531__
+#		elif defined(__ADSPBF531__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 531
 #		elif defined(__ADSPBF527__) || defined(__ADSPBF527C__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 527
@@ -555,15 +470,15 @@
 #			define XTE_ARCH_BLACKFIN_MAJOR 523
 #		elif defined(__ADSPBF522__) || defined(__ADSPBF522C__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 522
-#		elifdef __ADSPBF518__
+#		elif defined(__ADSPBF518__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 518
-#		elifdef __ADSPBF516__
+#		elif defined(__ADSPBF516__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 516
-#		elifdef __ADSPBF514__
+#		elif defined(__ADSPBF514__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 514
-#		elifdef __ADSPBF512__
+#		elif defined(__ADSPBF512__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 512
-#		elifdef __ADSPBF504__
+#		elif defined(__ADSPBF504__)
 #			define XTE_ARCH_BLACKFIN_MAJOR 504
 #		else
 #			define XTE_ARCH_BLACKFIN_MAJOR 0
@@ -577,16 +492,15 @@
 #
 #	ifdef __convex__
 #		undef XTE_ARCH_CONVEX
-#		define XTE_ARCH_CONVEX 1
-#
 #		undef XTE_ARCH_CONVEX_MAJOR
+#		define XTE_ARCH_CONVEX 1
 #		ifdef __convex_c38__
 #			define XTE_ARCH_CONVEX_MAJOR 38
-#		elifdef __convex_c32__
+#		elif defined(__convex_c32__)
 #			define XTE_ARCH_CONVEX_MAJOR 32
-#		elifdef __convex_c2__
+#		elif defined(__convex_c2__)
 #			define XTE_ARCH_CONVEX_MAJOR 2
-#		elifdef __convex_c1__
+#		elif defined(__convex_c1__)
 #			define XTE_ARCH_CONVEX_MAJOR 1
 #		else
 #			define XTE_ARCH_CONVEX_MAJOR 0
@@ -630,22 +544,21 @@
 #
 #	if defined(__e2k__) || defined(__elbrus__)
 #		undef XTE_ARCH_ELBRUS_2000
-#		define XTE_ARCH_ELBRUS_2000 1
-#
 #		undef XTE_ARCH_ELBRUS_2000_MAJOR
-#		if defined(__elbrus_32c__) || (__iset__ >= 7)
+#		define XTE_ARCH_ELBRUS_2000 1
+#		if defined(__elbrus_32c__) || ((__iset__) >= 7)
 #			define XTE_ARCH_ELBRUS_2000_MAJOR 7
-#		elif defined(__elbrus_12c__) || defined(__elbrus_2c3__) || (__iset__ >= 6)
+#		elif defined(__elbrus_12c__) || defined(__elbrus_2c3__) || ((__iset__) >= 6)
 #			define XTE_ARCH_ELBRUS_2000_MAJOR 6
-#		elif defined(__elbrus_8cb__) || (__iset__ >= 5)
+#		elif defined(__elbrus_8cb__) || ((__iset__) >= 5)
 #			define XTE_ARCH_ELBRUS_2000_MAJOR 5
-#		elif defined(__elbrus_1ck__) || defined(__elbrus_1cplus__) || defined(__elbrus_8c__) || defined(__elbrus_8c1__) || (__iset__ >= 4)
+#		elif defined(__elbrus_1ck__) || defined(__elbrus_1cplus__) || defined(__elbrus_8c__) || defined(__elbrus_8c1__) || ((__iset__) >= 4)
 #			define XTE_ARCH_ELBRUS_2000_MAJOR 4
-#		elif defined(__elbrus_4c__) || (__iset__ >= 3)
+#		elif defined(__elbrus_4c__) || ((__iset__) >= 3)
 #			define XTE_ARCH_ELBRUS_2000_MAJOR 3
-#		elif defined(__elbrus_2cplus__) || defined(__elbrus_s__) || (__iset__ >= 2)
+#		elif defined(__elbrus_2cplus__) || defined(__elbrus_s__) || ((__iset__) >= 2)
 #			define XTE_ARCH_ELBRUS_2000_MAJOR 2
-#		elif defined(__elbrus__) || (__iset__ >= 1)
+#		elif defined(__elbrus__) || ((__iset__) >= 1)
 #			define XTE_ARCH_ELBRUS_2000_MAJOR 1
 #		else
 #			define XTE_ARCH_ELBRUS_2000_MAJOR 0
@@ -675,7 +588,6 @@
 #	ifdef __hexagon__
 #		undef XTE_ARCH_HEXAGON
 #		define XTE_ARCH_HEXAGON 1
-#
 #		ifdef __HVX_ARCH__
 #			undef XTE_ARCH_HEXAGON_MAJOR
 #			define XTE_ARCH_HEXAGON_MAJOR __HVX_ARCH__
@@ -689,20 +601,19 @@
 #
 #	ifdef __hp9000
 #		undef XTE_ARCH_HP_9000
-#		define XTE_ARCH_HP_9000 1
-#
 #		undef XTE_ARCH_HP_9000_MAJOR
-#		if defined(__hp9000s800) || defined(__hp9000s800__) || defined(__hp9k8) || defined(__hp9k8__) || defined(hp9000s800) || defined(hp9k8)
+#		define XTE_ARCH_HP_9000 1
+#		if defined(__hp9000s800__) || defined(__hp9000s800) || defined(__hp9k8__) || defined(__hp9k8) || defined(hp9000s800) || defined(hp9k8)
 #			define XTE_ARCH_HP_9000_MAJOR 800
-#		elif defined(__hp9000s700) || defined(__hp9000s700__) || defined(hp9000s700)
+#		elif defined(__hp9000s700__) || defined(__hp9000s700) || defined(hp9000s700)
 #			define XTE_ARCH_HP_9000_MAJOR 700
-#		elif defined(__hp9000s500) || defined(__hp9000s400__) || defined(hp9000s500)
+#		elif defined(__hp9000s500__) || defined(__hp9000s400) || defined(hp9000s500)
 #			define XTE_ARCH_HP_9000_MAJOR 500
-#		elif defined(__hp9000s400) || defined(__hp9000s400__) || defined(hp9000s400)
+#		elif defined(__hp9000s400__) || defined(__hp9000s400) || defined(hp9000s400)
 #			define XTE_ARCH_HP_9000_MAJOR 400
-#		elif defined(__hp9000s300) || defined(__hp9000s300__) || defined(hp9000s300)
+#		elif defined(__hp9000s300__) || defined(__hp9000s300) || defined(hp9000s300)
 #			define XTE_ARCH_HP_9000_MAJOR 300
-#		elif defined(__hp9000s200) || defined(__hp9000s200__) || defined(hp9000s200)
+#		elif defined(__hp9000s200__) || defined(__hp9000s200) || defined(hp9000s200)
 #			define XTE_ARCH_HP_9000_MAJOR 200
 #		else
 #			define XTE_ARCH_HP_9000_MAJOR 0
@@ -714,15 +625,13 @@
 #		define XTE_ARCH_I960 1
 #	endif
 #
-#	if defined(_IA64) || defined(_M_IA64) || defined(__IA64__) || defined(__ia64) || defined(__ia64__) || defined(__itanium__) || defined(ia64)
+#	if defined(__IA64__) || defined(__ia64) || defined(__ia64__) || defined(__itanium__) || defined(_IA64) || defined(_M_IA64) || defined(ia64)
 #		undef XTE_ARCH_IA64
-#		define XTE_ARCH_IA64 1
-#
 #		undef XTE_ARCH_IA64_MAJOR
-#		define XTE_ARCH_IA64_MAJOR (_M_IA64 % 64000 / 100)
-#
 #		undef XTE_ARCH_IA64_MINOR
-#		define XTE_ARCH_IA64_MINOR (_M_IA64 % 100)
+#		define XTE_ARCH_IA64 1
+#		define XTE_ARCH_IA64_MAJOR ((_M_IA64) / 100)
+#		define XTE_ARCH_IA64_MINOR ((_M_IA64) % 100)
 #	endif
 #
 #	ifdef ibm032
@@ -762,10 +671,9 @@
 #
 #	ifdef __loongarch__
 #		undef XTE_ARCH_LOONGARCH
-#		define XTE_ARCH_LOONGARCH 1
-#
 #		undef XTE_ARCH_LOONGARCH_MAJOR
-#		if defined(__loongarch_grlen) || (__loongarchgrlen == 64)
+#		define XTE_ARCH_LOONGARCH 1
+#		if defined(__loongarch_grlen) || ((__loongarchgrlen) == 64)
 #			define XTE_ARCH_LOONGARCH_MAJOR 64
 #		else
 #			define XTE_ARCH_LOONGARCH_MAJOR 32
@@ -789,24 +697,23 @@
 #
 #	if defined(MIPS) || defined(_M_MRX000) || defined(__MIPS) || defined(__MIPS__) || defined(__mips) || defined(__mips__) || defined(mips)
 #		undef XTE_ARCH_MIPS
-#		define XTE_ARCH_MIPS 1
-#
 #		undef XTE_ARCH_MIPS_MAJOR
+#		define XTE_ARCH_MIPS 1
 #		ifdef __mips
-#			define XTE_ARCH_MIPS_MAJOR __mips
-#		elif defined(_MIPS_ARCH_MIPS64) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS64)) || defined(__mips64)
+#			define XTE_ARCH_MIPS_MAJOR (__mips)
+#		elif defined(_MIPS_ARCH_MIPS64) || (defined(_MIPS_ISA) && ((_MIPS_ISA) == (_MIPS_ISA_MIPS64))) || defined(__mips64)
 #			define XTE_ARCH_MIPS_MAJOR 64
-#		elif defined(_MIPS_ARCH_MIPS32) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS32)) || defined(__mips32)
+#		elif defined(_MIPS_ARCH_MIPS32) || (defined(_MIPS_ISA) && ((_MIPS_ISA) == (_MIPS_ISA_MIPS32))) || defined(__mips32)
 #			define XTE_ARCH_MIPS_MAJOR 32
-#		elif defined(_MIPS_ARCH_MIPS5) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS5)) || defined(__MIPS_ISA5__)
+#		elif defined(_MIPS_ARCH_MIPS5) || (defined(_MIPS_ISA) && ((_MIPS_ISA) == (_MIPS_ISA_MIPS5))) || defined(__MIPS_ISA5__)
 #			define XTE_ARCH_MIPS_MAJOR 5
-#		elif defined(_MIPS_ARCH_MIPS4) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS4)) || (_M_MRX000 >= 10000) || defined(__MIPS_ISA4__)
+#		elif defined(_MIPS_ARCH_MIPS4) || (defined(_MIPS_ISA) && ((_MIPS_ISA) == (_MIPS_ISA_MIPS4))) || ((_M_MRX000) >= 10000) || defined(__MIPS_ISA4__)
 #			define XTE_ARCH_MIPS_MAJOR 4
-#		elif defined(_MIPS_ARCH_MIPS3) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS3)) || (defined(_M_MRX000) && (_M_MRX000 < 10000)) || defined(_R4000) || defined(__MIPS_ISA3__)
+#		elif defined(_MIPS_ARCH_MIPS3) || (defined(_MIPS_ISA) && ((_MIPS_ISA) == (_MIPS_ISA_MIPS3))) || (defined(_M_MRX000) && ((_M_MRX000) < 10000)) || defined(_R4000) || defined(__MIPS_ISA3__)
 #			define XTE_ARCH_MIPS_MAJOR 3
-#		elif defined(_MIPS_ARCH_MIPS2) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS2)) || defined(_R3000) || defined(__MIPS_ISA2__)
+#		elif defined(_MIPS_ARCH_MIPS2) || (defined(_MIPS_ISA) && ((_MIPS_ISA) == (_MIPS_ISA_MIPS2))) || defined(_R3000) || defined(__MIPS_ISA2__)
 #			define XTE_ARCH_MIPS_MAJOR 2
-#		elif defined(_MIPS_ARCH_MIPS1) || (defined(_MIPS_ISA) && (_MIPS_ISA == _MIPS_ISA_MIPS1))
+#		elif defined(_MIPS_ARCH_MIPS1) || (defined(_MIPS_ISA) && ((_MIPS_ISA) == (_MIPS_ISA_MIPS1)))
 #			define XTE_ARCH_MIPS_MAJOR 1
 #		else
 #			define XTE_ARCH_MIPS_MAJOR 0
@@ -830,9 +737,8 @@
 #
 #	if defined(M68000) || defined(_M_M68K) || defined(__MC68K__) || defined(__m68k__) || defined(__mc68000) || defined(__mc68000__) || defined(is68k) || defined(mc68000)
 #		undef XTE_ARCH_MOTOROLA_68000
-#		define XTE_ARCH_MOTOROLA_68000 1
-#
 #		undef XTE_ARCH_MOTOROLA_68000_MAJOR
+#		define XTE_ARCH_MOTOROLA_68000 1
 #		if defined(__MC68060__) || defined(__mc68060) || defined(__mc68060__) || defined(mc68060)
 #			define XTE_ARCH_MOTOROLA_68000_MAJOR 4
 #		elif defined(__MC68040__) || defined(__mc68040) || defined(__mc68040__) || defined(mc68040)
@@ -893,17 +799,16 @@
 #
 #	if defined(__HPPA__) || defined(__hppa) || defined(__hppa__)
 #		undef XTE_ARCH_PA_RISC
-#		define XTE_ARCH_PA_RISC 1
-#
 #		undef XTE_ARCH_PA_RISC_MAJOR
 #		undef XTE_ARCH_PA_RISC_MINOR
+#		define XTE_ARCH_PA_RISC 1
 #		if defined(_PA_RISC2_0) || defined(__HPPA20__) || defined(__PA8000__) || defined(__RISC2_0__)
 #			define XTE_ARCH_PA_RISC_MAJOR 2
 #			define XTE_ARCH_PA_RISC_MAJOR 0
 #		elif defined(_PA_RISC1_1) || defined(__HPPA11__) || defined(__PA7100__)
 #			define XTE_ARCH_PA_RISC_MAJOR 1
 #			define XTE_ARCH_PA_RISC_MINOR 1
-#		elifdef _PA_RISC1_0
+#		elif defined(_PA_RISC1_0)
 #			define XTE_ARCH_PA_RISC_MAJOR 1
 #			define XTE_ARCH_PA_RISC_MAJOR 0
 #		else
@@ -919,14 +824,13 @@
 #
 #	if defined(PPC) || defined(_ARCH_COM) || defined(_ARCH_PPC) || defined(_ARCH_PPC64) || defined(_ARCH_PRW) || defined(_LP64) || defined(_M_MPPC) || defined(_M_PPC) || defined(_M_PPC) || defined(__64BIT__) || defined(__LP64__) || defined(__POWERPC__) || defined(__PPC) || defined(__PPC64__) || defined(__PPC__) || defined(__powerpc) || defined(__powerpc__) || defined(__powerpc64__) || defined(__ppc) || defined(__ppc64) || defined(__ppc64__) || defined(__ppc__) || defined(powerpc)
 #		undef XTE_ARCH_POWERPC
-#		define XTE_ARCH_POWERPC 1
-#
 #		undef XTE_ARCH_POWERPC_MAJOR
+#		define XTE_ARCH_POWERPC 1
 #		ifdef _ARCH_PWR9
 #			define XTE_ARCH_POWERPC_MAJOR 900
-#		elifdef _ARCH_PWR8
+#		elif defined(_ARCH_PWR8)
 #			define XTE_ARCH_POWERPC_MAJOR 800
-#		elifdef _ARCH_PWR7
+#		elif defined(_ARCH_PWR7)
 #			define XTE_ARCH_POWERPC_MAJOR 700
 #		elif defined(_ARCH_620) || defined(__ppc620__)
 #			define XTE_ARCH_POWERPC_MAJOR 620
@@ -940,15 +844,15 @@
 #			define XTE_ARCH_POWERPC_MAJOR 602
 #		elif defined(_ARCH_601) || defined(__ppc601__)
 #			define XTE_ARCH_POWERPC_MAJOR 601
-#		elifdef _ARCH_PWR6
+#		elif defined(_ARCH_PWR6)
 #			define XTE_ARCH_POWERPC_MAJOR 600
-#		elifdef _ARCH_PWR5
+#		elif defined(_ARCH_PWR5)
 #			define XTE_ARCH_POWERPC_MAJOR 500
 #		elif defined(_ARCH_450) || defined(__ppc450__)
 #			define XTE_ARCH_POWERPC_MAJOR 450
 #		elif defined(_ARCH_440) || defined(__ppc440__)
 #			define XTE_ARCH_POWERPC_MAJOR 440
-#		elifdef _ARCH_PWR4
+#		elif defined(_ARCH_PWR4)
 #			define XTE_ARCH_POWERPC_MAJOR 400
 #		else
 #			define XTE_ARCH_POWERPC_MAJOR 0
@@ -987,9 +891,8 @@
 #
 #	if defined(__arch64) || defined(__sparc) || defined(__sparc__) || defined(sparc)
 #		undef XTE_ARCH_SPARC
-#		define XTE_ARCH_SPARC 1
-#
 #		undef XTE_ARCH_SPARC_MAJOR
+#		define XTE_ARCH_SPARC 1
 #		if defined(__sparc_v9__) || defined(__sparcv9)
 #			define XTE_ARCH_SPARC_MAJOR 9
 #		elif defined(__sparc_v8__) || defined(__sparcv8)
@@ -1015,9 +918,8 @@
 #
 #	ifdef __sh__
 #		undef XTE_ARCH_SUPERH
-#		define XTE_ARCH_SUPERH 1
-#
 #		undef XTE_ARCH_SUPERH_MAJOR
+#		define XTE_ARCH_SUPERH 1
 #		if defined(__SH5__) || defined(__sh5__)
 #			define XTE_ARCH_SUPERH_MAJOR 5
 #		elif defined(__SH4__) || defined(__sh4__)
@@ -1060,37 +962,42 @@
 #
 #	if defined(_TMS320C2XX) || defined(_TMS320C5X) || defined(_TMS320C6X) || defined(__TMS320C2000__) || defined(__TMS320C55X__) || defined(__TMS320C6X__)
 #		undef XTE_ARCH_TMS320
-#		define XTE_ARCH_TMS320 1
-#
 #		undef XTE_ARCH_TMS320_MAJOR
+#		undef XTE_ARCH_TMS320_MINOR
+#		define XTE_ARCH_TMS320 1
 #		ifdef _TMS320C6740
 #			define XTE_ARCH_TMS320_MAJOR 6740
-#		elifdef _TMS320C6700_PLUS
+#			define XTE_ARCH_TMS320_MINOR 0
+#		elif defined(_TMS320C6700_PLUS)
 #			define XTE_ARCH_TMS320_MAJOR 6700
-#
-#			undef XTE_ARCH_TMS320_MINOR
 #			define XTE_ARCH_TMS320_MINOR 1
-#		elifdef _TMS320C6700
+#		elif defined(_TMS320C6700)
 #			define XTE_ARCH_TMS320_MAJOR 6700
-#		elifdef _TMS320C6600
+#			define XTE_ARCH_TMS320_MINOR 0
+#		elif defined(_TMS320C6600)
 #			define XTE_ARCH_TMS320_MAJOR 6600
-#		elifdef _TMS320C6400_PLUS
+#			define XTE_ARCH_TMS320_MINOR 0
+#		elif defined(_TMS320C6400_PLUS)
 #			define XTE_ARCH_TMS320_MAJOR 6400
-#
-#			undef XTE_ARCH_TMS320_MINOR
 #			define XTE_ARCH_TMS320_MINOR 1
-#		elifdef _TMS320C6400
+#		elif defined(_TMS320C6400)
 #			define XTE_ARCH_TMS320_MAJOR 6400
-#		elifdef _TMS320C6200
+#			define XTE_ARCH_TMS320_MINOR 0
+#		elif defined(_TMS320C6200)
 #			define XTE_ARCH_TMS320_MAJOR 6200
-#		elifdef __TMS320C55X__
+#			define XTE_ARCH_TMS320_MINOR 0
+#		elif defined(__TMS320C55X__)
 #			define XTE_ARCH_TMS320_MAJOR 5500
-#		elifdef _TMS320C5XX
+#			define XTE_ARCH_TMS320_MINOR 0
+#		elif defined(_TMS320C5XX)
 #			define XTE_ARCH_TMS320_MAJOR 5400
-#		elifdef _TMS320C28X
+#			define XTE_ARCH_TMS320_MINOR 0
+#		elif defined(_TMS320C28X)
 #			define XTE_ARCH_TMS320_MAJOR 2800
+#			define XTE_ARCH_TMS320_MINOR 0
 #		else
 #			define XTE_ARCH_TMS320_MAJOR 0
+#			define XTE_ARCH_TMS320_MINOR 0
 #		endif
 #	endif
 #
@@ -1126,20 +1033,19 @@
 #
 #	if defined(_M_I86) || defined(_M_IX86) || defined(_X86_) || defined(__386) || defined(__80486__) || defined(__I86__) || defined(__IA32__) || defined(__INTEL__) || defined(__SSE__) || defined(__THW_INTEL__) || defined(__X86__) || defined(__athlon__) || defined(__i386) || defined(__i386__) || defined(__k6__) || defined(__pentium__) || defined(i386)
 #		undef XTE_ARCH_X86_32
-#		define XTE_ARCH_X86_32 1
-#
 #		undef XTE_ARCH_X86_32_MAJOR
+#		define XTE_ARCH_X86_32 1
 #		ifdef _M_IX86
-#			define XTE_ARCH_X86_32_MAJOR (_M_IX86 / 100)
-#		elifdef __I86__
-#			define XTE_ARCH_X86_32_MAJOR __I86__
+#			define XTE_ARCH_X86_32_MAJOR ((_M_IX86) / 100)
+#		elif defined(__I86__)
+#			define XTE_ARCH_X86_32_MAJOR (__I86__)
 #		elif defined(__SSE__) || defined(__athlon__) || defined(__i686__) || defined(__pentiumpro__)
 #			define XTE_ARCH_X86_32_MAJOR 6
 #		elif defined(__i586__) || defined(__k6__) || defined(__pentium__)
 #			define XTE_ARCH_X86_32_MAJOR 5
 #		elif defined(__80486__) || defined(__i486__)
 #			define XTE_ARCH_X86_32_MAJOR 4
-#		elifdef __i386__
+#		elif defined(__i386__)
 #			define XTE_ARCH_X86_32_MAJOR 3
 #		else
 #			define XTE_ARCH_X86_32_MAJOR 0
@@ -1168,27 +1074,24 @@
 #
 #	if defined(__Z8001__) || defined(__Z8002__)
 #		undef XTE_ARCH_ZILOG_Z8000
-#		define XTE_ARCH_ZILOG_Z8000 1
-#
 #		undef XTE_ARCH_ZILOG_Z8000_MAJOR
+#		define XTE_ARCH_ZILOG_Z8000 1
 #		ifdef __Z8002__
 #			define XTE_ARCH_ZILOG_Z8000_MAJOR 2
-#		elifdef __Z8001__
+#		elif defined(__Z8001__)
 #			define XTE_ARCH_ZILOG_Z8000_MAJOR 1
 #		else
 #			define XTE_ARCH_ZILOG_Z8000_MAJOR 0
 #		endif
 #	endif
 #
-#	define DETAIL_XTE_ARCH(OP, LHS_MAJOR, LHS_MINOR, LHS_PATCH, RHS_MAJOR, RHS_MINOR, RHS_PATCH, ...) \
+#	define DETAIL_XTE_ARCH(OP, LHS_MAJOR, LHS_MINOR, RHS_MAJOR, RHS_MINOR, ...) \
 		(((((0 OP 0) && !(0 OP 1) && !(1 OP 0)) \
 			|| (!(0 OP 0) && (0 OP 1) && (1 OP 0))) \
 		&& (((LHS_MAJOR) OP (RHS_MAJOR)) \
-			&& ((LHS_MINOR) OP (RHS_MINOR)) \
-			&& ((LHS_PATCH) OP (RHS_PATCH)))) \
+			&& ((LHS_MINOR) OP (RHS_MINOR)))) \
 		|| ((LHS_MAJOR) OP (RHS_MAJOR)) \
-			|| (((LHS_MAJOR) == (RHS_MAJOR)) && ((LHS_MINOR) OP (RHS_MINOR))) \
-			|| (((LHS_MINOR) == (RHS_MINOR)) && ((LHS_PATCH) OP (RHS_PATCH))))
+			|| (((LHS_MAJOR) == (RHS_MAJOR)) && ((LHS_MINOR) OP (RHS_MINOR))))
 #endif
 
 // https://github.com/cpredef/predef/blob/master/Architectures.md
