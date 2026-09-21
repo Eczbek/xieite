@@ -1,18 +1,18 @@
 #ifndef DETAIL_XTE_HEADER_META_META
 #	define DETAIL_XTE_HEADER_META_META
 #
+#	include "../abs.hpp"
+#	include "../aliases.hpp"
 #	include "../data/escape.hpp"
-#	include "../data/string.hpp"
-#	include "../data/string_view.hpp"
-#	include "../preproc/feature.hpp"
-#	include "../math/abs.hpp"
-#	include "../math/stringify_number.hpp"
+#	include "../detect/feature.hpp"
+#	include "../math/serialize.hpp"
 #	include "../meta/type.hpp"
+#	include "../string.hpp"
+#	include "../string_view.hpp"
 #	include "../trait/add_array.hpp"
 #	include "../trait/add_unbounded_array.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_char.hpp"
-#	include "../util/number_types.hpp"
 #	include <algorithm>
 #	include <meta>
 #	include <ranges>

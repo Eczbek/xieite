@@ -1,14 +1,15 @@
 #ifndef DETAIL_XTE_HEADER_IO_FILE
 #	define DETAIL_XTE_HEADER_IO_FILE
 #
-#	include "../data/ptr.hpp"
-#	include "../data/string_view.hpp"
+#	include "../aliases.hpp"
+#	include "../detect/platform.hpp"
 #	include "../io/eof.hpp"
 #	include "../io/file_mode.hpp"
 #	include "../preproc/lift.hpp"
-#	include "../preproc/platform.hpp"
+#	include "../ptr.hpp"
+#	include "../string.hpp"
+#	include "../string_view.hpp"
 #	include "../sys/is_tty.hpp"
-#	include "../util/number_types.hpp"
 #	include <cstdio>
 #	include <stdio.h>
 #	include <utility>

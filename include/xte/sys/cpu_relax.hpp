@@ -1,11 +1,10 @@
 #ifndef DETAIL_XTE_HEADER_SYS_CPU_RELAX
 #	define DETAIL_XTE_HEADER_SYS_CPU_RELAX
 #
-#	include "../preproc/arch.hpp"
+#	include "../detect/arch.hpp"
+#	include "../detect/compiler.hpp"
 #	include "../preproc/attr.hpp"
-#	include "../preproc/compiler.hpp"
 #	include <thread>
-#
 #	if XTE_COMPILER_TYPE_MSVC
 #		include <intrin.h>
 #	endif

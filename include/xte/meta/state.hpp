@@ -1,9 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_META_STATE
 #	define DETAIL_XTE_HEADER_META_STATE
 #
+#	include "../aliases.hpp"
 #	include "../meta/wrap_value.hpp"
 #	include "../preproc/diagnostic.hpp"
-#	include "../util/number_types.hpp"
 
 XTE_DIAGNOSTIC_PUSH_GCC()
 XTE_DIAGNOSTIC_OFF_GCC("-Wnon-template-friend")
@@ -16,14 +16,14 @@ namespace DETAIL_XTE::state {
 	private:
 		template<xte::uz index>
 		struct reader {
-			friend auto flag(impl::reader<index>);
+			friend auto flag(DETAIL_XTE::state::impl<id>::reader<index>);
 		};
 
 		template<xte::uz index, decltype(auto) x>
 		struct setter {
-			static constexpr auto self = impl();
+			static constexpr auto self = DETAIL_XTE::state::impl<id>();
 
-			friend auto flag(impl::reader<index>) {
+			friend auto flag(DETAIL_XTE::state::impl<id>::reader<index>) {
 				return xte::wrap_value<x>();
 			}
 		};
@@ -31,10 +31,10 @@ namespace DETAIL_XTE::state {
 	public:
 		template<auto = []{}>
 		static constexpr decltype(auto) get = ([]<xte::uz i = 0>(this auto self) -> decltype(auto) {
-			if constexpr (requires { flag(impl::reader<i>()); }) {
+			if constexpr (requires { flag(DETAIL_XTE::state::impl<id>::reader<i>()); }) {
 				return self.template operator()<(i + 1)>();
 			} else if constexpr (i) {
-				return decltype(flag(impl::reader<(i - 1)>()))::value;
+				return decltype(flag(DETAIL_XTE::state::impl<id>::reader<(i - 1)>()))::value;
 			} else {
 				static_assert(false, "must assign state before access");
 			}
@@ -42,10 +42,10 @@ namespace DETAIL_XTE::state {
 
 		template<decltype(auto) x, auto = []{}>
 		static constexpr auto set = ([]<xte::uz i = 0>(this auto self) -> decltype(auto) {
-			if constexpr (requires { flag(impl::reader<i>()); }) {
+			if constexpr (requires { flag(DETAIL_XTE::state::impl<id>::reader<i>()); }) {
 				return self.template operator()<(i + 1)>();
 			} else {
-				return impl::setter<i, x>::self;
+				return DETAIL_XTE::state::impl<id>::setter<i, x>::self;
 			}
 		})();
 	};

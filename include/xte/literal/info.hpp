@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_LITERAL_INFO
 #	define DETAIL_XTE_HEADER_LITERAL_INFO
 #
-#	include "../util/number_types.hpp"
+#	include "../aliases.hpp"
 #	include <meta>
 #	include <ranges>
 

@@ -1,15 +1,14 @@
 #ifndef DETAIL_XTE_HEADER_IO_FILE_PIPE
 #	define DETAIL_XTE_HEADER_IO_FILE_PIPE
 #
-#	include "../data/string_view.hpp"
+#	include "../detect/platform.hpp"
 #	include "../io/eof.hpp"
 #	include "../io/file.hpp"
 #	include "../io/file_mode.hpp"
 #	include "../preproc/lift.hpp"
-#	include "../preproc/platform.hpp"
+#	include "../string_view.hpp"
 #	include <cstdio>
 #	include <stdio.h>
-
 #	if XTE_PLATFORM_UNIX
 #		include <sys/wait.h>
 #	endif

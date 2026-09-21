@@ -1,6 +1,5 @@
-#include <xte/math/approx_equal.hpp>
-#include <xte/math/highest.hpp>
-#include <xte/math/lowest.hpp>
+#include <xte/approx_equal.hpp>
+#include <xte/limits.hpp>
 #include <xte/math/wrap.hpp>
 
 static_assert(xte::wrap(0, 1, 3) == 3);

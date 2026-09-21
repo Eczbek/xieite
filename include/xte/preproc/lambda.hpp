@@ -1,10 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_LAMBDA
 #	define DETAIL_XTE_HEADER_PREPROC_LAMBDA
 #
-#	include "../preproc/any.hpp"
 #	include "../preproc/diagnostic.hpp"
 #	include "../preproc/fwd.hpp"
-#	include "../preproc/if.hpp"
+#	include "../preproc/util.hpp"
 #
 #	define XTE_LAMBDA(...) ([]DETAIL_XTE_LAMBDA_DECL(0, 0, __VA_ARGS__))
 #	define XTE_LAMBDA_THIS(...) ([]DETAIL_XTE_LAMBDA_DECL(0, 1, __VA_ARGS__))

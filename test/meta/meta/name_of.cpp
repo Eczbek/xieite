@@ -1,5 +1,5 @@
-#include <xte/math/approx_equal.hpp>
-#include <xte/math/parse_number.hpp>
+#include <xte/approx_equal.hpp>
+#include <xte/math/serialize.hpp>
 #include <xte/meta/meta.hpp>
 #include <meta>
 

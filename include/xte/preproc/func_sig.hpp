@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_FUNC_SIG
 #	define DETAIL_XTE_HEADER_PREPROC_FUNC_SIG
 #
-#	include "../preproc/compiler.hpp"
+#	include "../detect/compiler.hpp"
 #
 #	if XTE_COMPILER_GCC || XTE_COMPILER_CLANG
 #		define XTE_FUNC_SIG __PRETTY_FUNCTION__

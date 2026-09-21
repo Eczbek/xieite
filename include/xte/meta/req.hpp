@@ -13,9 +13,18 @@ namespace xte {
 			return requires { predicates.template operator()<T>(); };
 		}
 	})());
+
+	template<typename T, auto... predicates>
+	concept req_any = (... || xte::req<T, predicates>);
+
+	template<typename T, auto... predicates>
+	concept req_not = !xte::req_any<T, predicates...>;
+
+	template<typename T, auto... predicates>
+	concept req_some = !xte::req<T, predicates...>;
 }
 
 #endif
 
-// TODO: Change parameter type back to `decltype(auto)`
+// TODO: Change parameters back to `decltype(auto)`
 // https://gcc.gnu.org/bugzilla/show_bug.cgi?id=124893

@@ -1,5 +1,5 @@
-#include <xte/meta/member_type.hpp>
 #include <xte/meta/meta.hpp>
+#include <xte/meta/type.hpp>
 
 struct A {};
 

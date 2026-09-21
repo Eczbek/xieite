@@ -1,6 +1,6 @@
 #include <xte/data/non_copyable.hpp>
 #include <xte/data/non_movable.hpp>
-#include <xte/util/as_xvalue.hpp>
+#include <xte/qual_cast.hpp>
 
 struct S : xte::non_copyable, xte::non_movable {};
 

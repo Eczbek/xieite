@@ -1,9 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_IS_PTR
 #	define DETAIL_XTE_HEADER_TRAIT_IS_PTR
 #
+#	include "../aliases.hpp"
 #	include "../trait/drop_cvref.hpp"
 #	include "../trait/drop_ptr.hpp"
-#	include "../util/number_types.hpp"
 
 namespace DETAIL_XTE::is_ptr {
 	template<typename>

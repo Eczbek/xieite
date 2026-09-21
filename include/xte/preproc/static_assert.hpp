@@ -1,8 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_STATIC_ASSERT
 #	define DETAIL_XTE_HEADER_PREPROC_STATIC_ASSERT
 #
-#	include "../preproc/compiler.hpp"
-#	include "../preproc/lang.hpp"
+#	include "../detect/compiler.hpp"
+#	include "../detect/lang.hpp"
 #
 #	if XTE_LANG(CPP, >=, 2011) || XTE_LANG(C, >=, 2023)
 #		define XTE_STATIC_ASSERT(...) static_assert(__VA_ARGS__)

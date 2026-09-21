@@ -1,4 +1,4 @@
-#include <xte/math/approx_equal.hpp>
+#include <xte/approx_equal.hpp>
 #include <xte/math/exp_search.hpp>
 
 static_assert(xte::exp_search<int>([](int x) { return x < 42; }) == 42);

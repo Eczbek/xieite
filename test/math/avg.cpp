@@ -1,7 +1,6 @@
-#include <xte/math/approx_equal.hpp>
+#include <xte/approx_equal.hpp>
+#include <xte/limits.hpp>
 #include <xte/math/avg.hpp>
-#include <xte/math/highest.hpp>
-#include <xte/math/lowest.hpp>
 
 static_assert(xte::avg(2, 4) == 3);
 static_assert(xte::avg(1, 2, 3, 4, 5) == 3);

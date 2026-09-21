@@ -1,8 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_DATA_PTR_DIFF
 #	define DETAIL_XTE_HEADER_DATA_PTR_DIFF
 #
-#	include "../math/highest.hpp"
-#	include "../util/number_types.hpp"
+#	include "../aliases.hpp"
+#	include "../limits.hpp"
 
 namespace xte {
 	[[nodiscard]] constexpr xte::uz ptr_diff(auto* begin, decltype(begin) end, xte::uz size) noexcept {

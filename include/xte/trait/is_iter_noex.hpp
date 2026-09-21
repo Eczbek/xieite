@@ -1,6 +1,7 @@
 #ifndef DETAIL_XIEITE_HEADER_TRAIT_IS_ITER_NOEX
 #	define DETAIL_XIEITE_HEADER_TRAIT_IS_ITER_NOEX
 #
+#	include "../qual_cast.hpp"
 #	include "../trait/is_constructible_noex.hpp"
 #	include "../trait/is_copy_assignable_noex.hpp"
 #	include "../trait/is_copy_constructible_noex.hpp"
@@ -9,7 +10,6 @@
 #	include "../trait/is_move_constructible_noex.hpp"
 #	include "../trait/is_bool_testable_noex.hpp"
 #	include "../trait/is_swappable_noex.hpp"
-#	include "../util/as_xvalue.hpp"
 #	include <iterator>
 
 namespace xte {

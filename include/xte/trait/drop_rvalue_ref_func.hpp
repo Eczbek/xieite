@@ -1,9 +1,9 @@
-#ifndef DETAIL_XTE_HEADER_TRAIT_DROP_LVALUE_REF_FUNC
-#	define DETAIL_XTE_HEADER_TRAIT_DROP_LVALUE_REF_FUNC
+#ifndef DETAIL_XTE_HEADER_TRAIT_DROP_RVALUE_REF_FUNC
+#	define DETAIL_XTE_HEADER_TRAIT_DROP_RVALUE_REF_FUNC
 #
-#	include "../meta/member_type.hpp"
+#	include "../meta/type.hpp"
 
-namespace DETAIL_XTE::drop_lvalue_ref_func {
+namespace DETAIL_XTE::drop_rvalue_ref_func {
 	template<typename func_type>
 	constexpr auto impl = ^^func_type;
 
@@ -58,7 +58,7 @@ namespace DETAIL_XTE::drop_lvalue_ref_func {
 
 namespace xte {
 	template<typename func_type>
-	using drop_lvalue_ref_func = [:DETAIL_XTE::drop_lvalue_ref_func::impl<func_type>:];
+	using drop_rvalue_ref_func = [:DETAIL_XTE::drop_rvalue_ref_func::impl<func_type>:];
 }
 
 #endif

@@ -1,8 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_RESTRICT
 #	define DETAIL_XTE_HEADER_PREPROC_RESTRICT
 #
-#	include "../preproc/compiler.hpp"
-#	include "../preproc/lang.hpp"
+#	include "../detect/compiler.hpp"
+#	include "../detect/lang.hpp"
 #
 #	if XTE_LANG(C, >=, 1999) && !XTE_LANG_CPP
 #		define XTE_RESTRICT restrict

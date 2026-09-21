@@ -1,7 +1,6 @@
-#include <xte/preproc/compiler.hpp>
 #include <xte/preproc/revive.hpp>
 
-#if XTE_COMPILER_GCC
+#ifdef XTE_REVIVE
 #	define SUM(X, ...) XTE_REVIVE(SUM) (X) __VA_OPT__(+ SUM(__VA_ARGS__))
 
 static_assert(SUM(1, 2, 3) == 6);

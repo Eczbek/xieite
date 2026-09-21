@@ -1,11 +1,10 @@
 #ifndef DETAIL_XTE_HEADER_FUNC_UNFOLD
 #	define DETAIL_XTE_HEADER_FUNC_UNFOLD
 #
-#	include "../meta/make_seq.hpp"
+#	include "../aliases.hpp"
 #	include "../meta/seq.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/returns.hpp"
-#	include "../util/number_types.hpp"
 
 namespace xte {
 	template<xte::uz count>

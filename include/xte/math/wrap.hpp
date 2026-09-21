@@ -1,16 +1,16 @@
 #ifndef DETAIL_XTE_HEADER_MATH_WRAP
 #	define DETAIL_XTE_HEADER_MATH_WRAP
 #
-#	include "../math/min_max.hpp"
-#	include "../math/mod.hpp"
+#	include "../arithmetic.hpp"
+#	include "../make.hpp"
+#	include "../math/clamp.hpp"
 #	include "../trait/is_arithmetic.hpp"
-#	include "../util/make.hpp"
 #	include <type_traits>
 
 namespace xte {
 	[[nodiscard]] constexpr auto wrap(xte::is_arithmetic auto x, xte::is_arithmetic auto limit0, xte::is_arithmetic auto limit1) noexcept {
 		using common_type = std::common_type_t<decltype(x), decltype(limit0), decltype(limit1)>;
-		auto [min, max] = xte::min_max(xte::make<common_type>(limit0), xte::make<common_type>(limit1));
+		auto [min, max] = xte::minmax(xte::make<common_type>(limit0), xte::make<common_type>(limit1));
 		if constexpr (xte::is_float<common_type>) {
 			return xte::mod(xte::make<common_type>(x) - min, max - min + 1) + min;
 		} else {

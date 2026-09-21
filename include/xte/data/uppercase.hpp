@@ -1,13 +1,13 @@
-#ifndef DETAIL_XTE_HEADER_MATH_UPPERCASE
-#	define DETAIL_XTE_HEADER_MATH_UPPERCASE
+#ifndef DETAIL_XTE_HEADER_DATA_UPPERCASE
+#	define DETAIL_XTE_HEADER_DATA_UPPERCASE
 #
-#	include "../data/string.hpp"
-#	include "../data/string_view.hpp"
+#	include "../assign.hpp"
+#	include "../make.hpp"
+#	include "../qual_cast.hpp"
+#	include "../string.hpp"
+#	include "../string_view.hpp"
 #	include "../trait/is_range_noex.hpp"
 #	include "../trait/is_same.hpp"
-#	include "../util/assign.hpp"
-#	include "../util/like.hpp"
-#	include "../util/make.hpp"
 #	include <ranges>
 
 namespace xte {

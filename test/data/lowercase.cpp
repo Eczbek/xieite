@@ -1,5 +1,5 @@
 #include <xte/data/lowercase.hpp>
-#include <xte/data/string.hpp>
+#include <xte/string.hpp>
 
 static_assert(xte::lowercase('A') == 'a');
 static_assert(xte::lowercase('B') == 'b');

@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_IO_FILE_MODE
 #	define DETAIL_XTE_HEADER_IO_FILE_MODE
 #
-#	include "../util/number_types.hpp"
+#	include "../aliases.hpp"
 #	include <utility>
 
 namespace xte {

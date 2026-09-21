@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_DROP_PTR
 #	define DETAIL_XTE_HEADER_TRAIT_DROP_PTR
 #
-#	include "../util/number_types.hpp"
+#	include "../aliases.hpp"
 
 namespace DETAIL_XTE::drop_ptr {
 	template<typename T, xte::uz depth>

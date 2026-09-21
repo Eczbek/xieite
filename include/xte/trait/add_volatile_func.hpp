@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_ADD_VOLATILE_FUNC
 #	define DETAIL_XTE_HEADER_TRAIT_ADD_VOLATILE_FUNC
 #
-#	include "../meta/member_type.hpp"
+#	include "../meta/type.hpp"
 
 namespace DETAIL_XTE::add_volatile_func {
 	template<typename func_type>

@@ -1,4 +1,4 @@
-#include <xte/meta/member_type.hpp>
+#include <xte/meta/type.hpp>
 #include <xte/trait/add_cv_rvalue_ref_func.hpp>
 #include <xte/trait/is_same.hpp>
 

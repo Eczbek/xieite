@@ -1,7 +1,7 @@
-#ifndef DETAIL_XTE_HEADER_TRAIT_DROP_VARARGS
-#	define DETAIL_XTE_HEADER_TRAIT_DROP_VARARGS
+#ifndef DETAIL_XTE_HEADER_TRAIT_IS_VARARGS
+#	define DETAIL_XTE_HEADER_TRAIT_IS_VARARGS
 #
-#	include "../meta/member_type.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_func.hpp"
 
 namespace DETAIL_XTE::is_varargs {

@@ -1,11 +1,11 @@
 #ifndef DETAIL_XTE_HEADER_LITERAL_DEDENT
 #	define DETAIL_XTE_HEADER_LITERAL_DEDENT
 #
-#	include "../data/static_string_view.hpp"
-#	include "../data/string_view.hpp"
-#	include "../math/min.hpp"
-#	include "../util/make.hpp"
-#	include "../util/number_types.hpp"
+#	include "../aliases.hpp"
+#	include "../compare.hpp"
+#	include "../make.hpp"
+#	include "../static_string_view.hpp"
+#	include "../string_view.hpp"
 #	include <meta>
 #	include <ranges>
 

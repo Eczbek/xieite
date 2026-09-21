@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_IS_RVALUE_REF_FUNC
 #	define DETAIL_XTE_HEADER_TRAIT_IS_RVALUE_REF_FUNC
 #
-#	include "../meta/member_type.hpp"
+#	include "../meta/type.hpp"
 #	include "../trait/is_func.hpp"
 
 namespace DETAIL_XTE::is_rvalue_ref_func {

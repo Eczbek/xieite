@@ -4,3 +4,7 @@ static_assert(xte::between(5, 0, 10));
 static_assert(!xte::between(0, 5, 10));
 static_assert(xte::between(0, 0, 10));
 static_assert(xte::between(10, 0, 10));
+
+static_assert(xte::between_exclusive(5, 0, 10));
+static_assert(!xte::between_exclusive(0, 0, 10));
+static_assert(!xte::between_exclusive(10, 0, 10));

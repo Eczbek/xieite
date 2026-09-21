@@ -1,10 +1,10 @@
 #ifndef DETAIL_XTE_HEADER_SYS_AVAILABLE_MEMORY
 #	define DETAIL_XTE_HEADER_SYS_AVAILABLE_MEMORY
 #
-#	include "../data/ptr.hpp"
+#	include "../aliases.hpp"
 #	include "../math/exp_search.hpp"
 #	include "../preproc/diagnostic.hpp"
-#	include "../util/number_types.hpp"
+#	include "../ptr.hpp"
 
 namespace xte {
 	[[nodiscard]] constexpr xte::uz available_memory() noexcept {

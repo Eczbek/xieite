@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_DROP_VARARGS
 #	define DETAIL_XTE_HEADER_TRAIT_DROP_VARARGS
 #
-#	include "../meta/member_type.hpp"
+#	include "../meta/type.hpp"
 
 namespace DETAIL_XTE::drop_varargs {
 	template<typename func_type>

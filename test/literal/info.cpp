@@ -1,6 +1,6 @@
-#include <xte/data/string_view.hpp>
+#include <xte/approx_equal.hpp>
 #include <xte/literal/info.hpp>
-#include <xte/math/approx_equal.hpp>
+#include <xte/string_view.hpp>
 
 using namespace xte::literal::info;
 static_assert([:123_info:] == 123);

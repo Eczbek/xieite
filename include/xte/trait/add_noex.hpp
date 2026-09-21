@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_ADD_NOEX
 #	define DETAIL_XTE_HEADER_TRAIT_ADD_NOEX
 #
-#	include "../meta/member_type.hpp"
+#	include "../meta/type.hpp"
 
 namespace DETAIL_XTE::add_noex {
 	template<typename func_type>

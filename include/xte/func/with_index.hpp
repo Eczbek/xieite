@@ -1,10 +1,10 @@
 #ifndef DETAIL_XTE_HEADER_FUNC_WITH_INDEX
 #	define DETAIL_XTE_HEADER_FUNC_WITH_INDEX
 #
+#	include "../aliases.hpp"
 #	include "../func/unfold.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/returns.hpp"
-#	include "../util/number_types.hpp"
 
 namespace xte {
 	template<xte::uz size>

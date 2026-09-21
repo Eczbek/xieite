@@ -1,19 +1,272 @@
-#include <xte/literal/number_types.hpp>
+#include <xte/approx_equal.hpp>
+#include <xte/limits.hpp>
 #include <xte/math/div.hpp>
-#include <xte/math/highest.hpp>
-#include <xte/math/lowest.hpp>
-#include <xte/preproc/feature.hpp>
 
-using namespace xte::literal::numbers;
+static_assert(xte::div_floor(7, 2) == 3);
+static_assert(xte::div_floor(-7, 2) == -4);
+static_assert(xte::div_floor(7, -2) == -4);
+static_assert(xte::div_floor(-7, -2) == 3);
 
-static_assert(xte::div(0) == 0);
-static_assert(xte::div(1) == 1);
-static_assert(xte::div(2) == 2);
-static_assert(xte::div(3) == 3);
-static_assert(xte::div(1, 2) == 0);
-static_assert(xte::div(64, 4, 2) == 8);
-static_assert(xte::div(xte::highest<int>, -1) == (xte::lowest<int> + 1));
-static_assert(xte::div(xte::lowest<int>, -1, -1) == xte::lowest<int>);
-#if XTE_FEATURE_INT_8
-static_assert(xte::div(255_u8, 2_u8) == 127_u8);
-#endif
+static_assert(xte::div_floor(7, 3) == 2);
+static_assert(xte::div_floor(-7, 3) == -3);
+static_assert(xte::div_floor(7, -3) == -3);
+static_assert(xte::div_floor(-7, -3) == 2);
+
+static_assert(xte::div_floor(7, 4) == 1);
+static_assert(xte::div_floor(-7, 4) == -2);
+static_assert(xte::div_floor(7, -4) == -2);
+static_assert(xte::div_floor(-7, -4) == 1);
+
+static_assert(xte::approx_equal(xte::div_floor(7.0, 2), 3));
+static_assert(xte::approx_equal(xte::div_floor(-7.0, 2), -4));
+static_assert(xte::approx_equal(xte::div_floor(7.0, -2), -4));
+static_assert(xte::approx_equal(xte::div_floor(-7.0, -2), 3));
+
+static_assert(xte::approx_equal(xte::div_floor(7.0, 3), 2));
+static_assert(xte::approx_equal(xte::div_floor(-7.0, 3), -3));
+static_assert(xte::approx_equal(xte::div_floor(7.0, -3), -3));
+static_assert(xte::approx_equal(xte::div_floor(-7.0, -3), 2));
+
+static_assert(xte::approx_equal(xte::div_floor(7.0, 4), 1));
+static_assert(xte::approx_equal(xte::div_floor(-7.0, 4), -2));
+static_assert(xte::approx_equal(xte::div_floor(7.0, -4), -2));
+static_assert(xte::approx_equal(xte::div_floor(-7.0, -4), 1));
+
+static_assert(xte::div_floor(xte::lowest<int>, -1, -1) == xte::lowest<int>);
+
+
+
+static_assert(xte::div_ceil(7, 2) == 4);
+static_assert(xte::div_ceil(-7, 2) == -3);
+static_assert(xte::div_ceil(7, -2) == -3);
+static_assert(xte::div_ceil(-7, -2) == 4);
+
+static_assert(xte::div_ceil(7, 3) == 3);
+static_assert(xte::div_ceil(-7, 3) == -2);
+static_assert(xte::div_ceil(7, -3) == -2);
+static_assert(xte::div_ceil(-7, -3) == 3);
+
+static_assert(xte::div_ceil(7, 4) == 2);
+static_assert(xte::div_ceil(-7, 4) == -1);
+static_assert(xte::div_ceil(7, -4) == -1);
+static_assert(xte::div_ceil(-7, -4) == 2);
+
+static_assert(xte::approx_equal(xte::div_ceil(7.0, 2), 4));
+static_assert(xte::approx_equal(xte::div_ceil(-7.0, 2), -3));
+static_assert(xte::approx_equal(xte::div_ceil(7.0, -2), -3));
+static_assert(xte::approx_equal(xte::div_ceil(-7.0, -2), 4));
+
+static_assert(xte::approx_equal(xte::div_ceil(7.0, 3), 3));
+static_assert(xte::approx_equal(xte::div_ceil(-7.0, 3), -2));
+static_assert(xte::approx_equal(xte::div_ceil(7.0, -3), -2));
+static_assert(xte::approx_equal(xte::div_ceil(-7.0, -3), 3));
+
+static_assert(xte::approx_equal(xte::div_ceil(7.0, 4), 2));
+static_assert(xte::approx_equal(xte::div_ceil(-7.0, 4), -1));
+static_assert(xte::approx_equal(xte::div_ceil(7.0, -4), -1));
+static_assert(xte::approx_equal(xte::div_ceil(-7.0, -4), 2));
+
+static_assert(xte::div_ceil(xte::lowest<int>, -1, -1) == xte::lowest<int>);
+
+
+
+static_assert(xte::div_trunc(7, 2) == 3);
+static_assert(xte::div_trunc(-7, 2) == -3);
+static_assert(xte::div_trunc(7, -2) == -3);
+static_assert(xte::div_trunc(-7, -2) == 3);
+
+static_assert(xte::div_trunc(7, 3) == 2);
+static_assert(xte::div_trunc(-7, 3) == -2);
+static_assert(xte::div_trunc(7, -3) == -2);
+static_assert(xte::div_trunc(-7, -3) == 2);
+
+static_assert(xte::div_trunc(7, 4) == 1);
+static_assert(xte::div_trunc(-7, 4) == -1);
+static_assert(xte::div_trunc(7, -4) == -1);
+static_assert(xte::div_trunc(-7, -4) == 1);
+
+static_assert(xte::approx_equal(xte::div_trunc(7.0, 2), 3));
+static_assert(xte::approx_equal(xte::div_trunc(-7.0, 2), -3));
+static_assert(xte::approx_equal(xte::div_trunc(7.0, -2), -3));
+static_assert(xte::approx_equal(xte::div_trunc(-7.0, -2), 3));
+
+static_assert(xte::approx_equal(xte::div_trunc(7.0, 3), 2));
+static_assert(xte::approx_equal(xte::div_trunc(-7.0, 3), -2));
+static_assert(xte::approx_equal(xte::div_trunc(7.0, -3), -2));
+static_assert(xte::approx_equal(xte::div_trunc(-7.0, -3), 2));
+
+static_assert(xte::approx_equal(xte::div_trunc(7.0, 4), 1));
+static_assert(xte::approx_equal(xte::div_trunc(-7.0, 4), -1));
+static_assert(xte::approx_equal(xte::div_trunc(7.0, -4), -1));
+static_assert(xte::approx_equal(xte::div_trunc(-7.0, -4), 1));
+
+static_assert(xte::div_trunc(xte::lowest<int>, -1, -1) == xte::lowest<int>);
+
+
+
+static_assert(xte::div_magnify(7, 2) == 4);
+static_assert(xte::div_magnify(-7, 2) == -4);
+static_assert(xte::div_magnify(7, -2) == -4);
+static_assert(xte::div_magnify(-7, -2) == 4);
+
+static_assert(xte::div_magnify(7, 3) == 3);
+static_assert(xte::div_magnify(-7, 3) == -3);
+static_assert(xte::div_magnify(7, -3) == -3);
+static_assert(xte::div_magnify(-7, -3) == 3);
+
+static_assert(xte::div_magnify(7, 4) == 2);
+static_assert(xte::div_magnify(-7, 4) == -2);
+static_assert(xte::div_magnify(7, -4) == -2);
+static_assert(xte::div_magnify(-7, -4) == 2);
+
+static_assert(xte::approx_equal(xte::div_magnify(7.0, 2), 4));
+static_assert(xte::approx_equal(xte::div_magnify(-7.0, 2), -4));
+static_assert(xte::approx_equal(xte::div_magnify(7.0, -2), -4));
+static_assert(xte::approx_equal(xte::div_magnify(-7.0, -2), 4));
+
+static_assert(xte::approx_equal(xte::div_magnify(7.0, 3), 3));
+static_assert(xte::approx_equal(xte::div_magnify(-7.0, 3), -3));
+static_assert(xte::approx_equal(xte::div_magnify(7.0, -3), -3));
+static_assert(xte::approx_equal(xte::div_magnify(-7.0, -3), 3));
+
+static_assert(xte::approx_equal(xte::div_magnify(7.0, 4), 2));
+static_assert(xte::approx_equal(xte::div_magnify(-7.0, 4), -2));
+static_assert(xte::approx_equal(xte::div_magnify(7.0, -4), -2));
+static_assert(xte::approx_equal(xte::div_magnify(-7.0, -4), 2));
+
+static_assert(xte::div_magnify(xte::lowest<int>, -1, -1) == xte::lowest<int>);
+
+
+
+static_assert(xte::div_floor_half(7, 2) == 3);
+static_assert(xte::div_floor_half(-7, 2) == -4);
+static_assert(xte::div_floor_half(7, -2) == -4);
+static_assert(xte::div_floor_half(-7, -2) == 3);
+
+static_assert(xte::div_floor_half(7, 3) == 2);
+static_assert(xte::div_floor_half(-7, 3) == -2);
+static_assert(xte::div_floor_half(7, -3) == -2);
+static_assert(xte::div_floor_half(-7, -3) == 2);
+
+static_assert(xte::div_floor_half(7, 4) == 2);
+static_assert(xte::div_floor_half(-7, 4) == -2);
+static_assert(xte::div_floor_half(7, -4) == -2);
+static_assert(xte::div_floor_half(-7, -4) == 2);
+
+static_assert(xte::approx_equal(xte::div_floor_half(7.0, 2), 3));
+static_assert(xte::approx_equal(xte::div_floor_half(-7.0, 2), -4));
+static_assert(xte::approx_equal(xte::div_floor_half(7.0, -2), -4));
+static_assert(xte::approx_equal(xte::div_floor_half(-7.0, -2), 3));
+
+static_assert(xte::approx_equal(xte::div_floor_half(7.0, 3), 2));
+static_assert(xte::approx_equal(xte::div_floor_half(-7.0, 3), -2));
+static_assert(xte::approx_equal(xte::div_floor_half(7.0, -3), -2));
+static_assert(xte::approx_equal(xte::div_floor_half(-7.0, -3), 2));
+
+static_assert(xte::approx_equal(xte::div_floor_half(7.0, 4), 2));
+static_assert(xte::approx_equal(xte::div_floor_half(-7.0, 4), -2));
+static_assert(xte::approx_equal(xte::div_floor_half(7.0, -4), -2));
+static_assert(xte::approx_equal(xte::div_floor_half(-7.0, -4), 2));
+
+static_assert(xte::div_floor_half(xte::lowest<int>, -1, -1) == xte::lowest<int>);
+
+
+
+static_assert(xte::div_ceil_half(7, 2) == 4);
+static_assert(xte::div_ceil_half(-7, 2) == -3);
+static_assert(xte::div_ceil_half(7, -2) == -3);
+static_assert(xte::div_ceil_half(-7, -2) == 4);
+
+static_assert(xte::div_ceil_half(7, 3) == 2);
+static_assert(xte::div_ceil_half(-7, 3) == -2);
+static_assert(xte::div_ceil_half(7, -3) == -2);
+static_assert(xte::div_ceil_half(-7, -3) == 2);
+
+static_assert(xte::div_ceil_half(7, 4) == 2);
+static_assert(xte::div_ceil_half(-7, 4) == -2);
+static_assert(xte::div_ceil_half(7, -4) == -2);
+static_assert(xte::div_ceil_half(-7, -4) == 2);
+
+static_assert(xte::approx_equal(xte::div_ceil_half(7.0, 2), 4));
+static_assert(xte::approx_equal(xte::div_ceil_half(-7.0, 2), -3));
+static_assert(xte::approx_equal(xte::div_ceil_half(7.0, -2), -3));
+static_assert(xte::approx_equal(xte::div_ceil_half(-7.0, -2), 4));
+
+static_assert(xte::approx_equal(xte::div_ceil_half(7.0, 3), 2));
+static_assert(xte::approx_equal(xte::div_ceil_half(-7.0, 3), -2));
+static_assert(xte::approx_equal(xte::div_ceil_half(7.0, -3), -2));
+static_assert(xte::approx_equal(xte::div_ceil_half(-7.0, -3), 2));
+
+static_assert(xte::approx_equal(xte::div_ceil_half(7.0, 4), 2));
+static_assert(xte::approx_equal(xte::div_ceil_half(-7.0, 4), -2));
+static_assert(xte::approx_equal(xte::div_ceil_half(7.0, -4), -2));
+static_assert(xte::approx_equal(xte::div_ceil_half(-7.0, -4), 2));
+
+static_assert(xte::div_ceil_half(xte::lowest<int>, -1, -1) == xte::lowest<int>);
+
+
+
+static_assert(xte::div_trunc_half(7, 2) == 3);
+static_assert(xte::div_trunc_half(-7, 2) == -3);
+static_assert(xte::div_trunc_half(7, -2) == -3);
+static_assert(xte::div_trunc_half(-7, -2) == 3);
+
+static_assert(xte::div_trunc_half(7, 3) == 2);
+static_assert(xte::div_trunc_half(-7, 3) == -2);
+static_assert(xte::div_trunc_half(7, -3) == -2);
+static_assert(xte::div_trunc_half(-7, -3) == 2);
+
+static_assert(xte::div_trunc_half(7, 4) == 2);
+static_assert(xte::div_trunc_half(-7, 4) == -2);
+static_assert(xte::div_trunc_half(7, -4) == -2);
+static_assert(xte::div_trunc_half(-7, -4) == 2);
+
+static_assert(xte::approx_equal(xte::div_trunc_half(7.0, 2), 3));
+static_assert(xte::approx_equal(xte::div_trunc_half(-7.0, 2), -3));
+static_assert(xte::approx_equal(xte::div_trunc_half(7.0, -2), -3));
+static_assert(xte::approx_equal(xte::div_trunc_half(-7.0, -2), 3));
+
+static_assert(xte::approx_equal(xte::div_trunc_half(7.0, 3), 2));
+static_assert(xte::approx_equal(xte::div_trunc_half(-7.0, 3), -2));
+static_assert(xte::approx_equal(xte::div_trunc_half(7.0, -3), -2));
+static_assert(xte::approx_equal(xte::div_trunc_half(-7.0, -3), 2));
+
+static_assert(xte::approx_equal(xte::div_trunc_half(7.0, 4), 2));
+static_assert(xte::approx_equal(xte::div_trunc_half(-7.0, 4), -2));
+static_assert(xte::approx_equal(xte::div_trunc_half(7.0, -4), -2));
+static_assert(xte::approx_equal(xte::div_trunc_half(-7.0, -4), 2));
+
+static_assert(xte::div_trunc_half(xte::lowest<int>, -1, -1) == xte::lowest<int>);
+
+
+static_assert(xte::div_magnify_half(7, 2) == 4);
+static_assert(xte::div_magnify_half(-7, 2) == -4);
+static_assert(xte::div_magnify_half(7, -2) == -4);
+static_assert(xte::div_magnify_half(-7, -2) == 4);
+
+static_assert(xte::div_magnify_half(7, 3) == 2);
+static_assert(xte::div_magnify_half(-7, 3) == -2);
+static_assert(xte::div_magnify_half(7, -3) == -2);
+static_assert(xte::div_magnify_half(-7, -3) == 2);
+
+static_assert(xte::div_magnify_half(7, 4) == 2);
+static_assert(xte::div_magnify_half(-7, 4) == -2);
+static_assert(xte::div_magnify_half(7, -4) == -2);
+static_assert(xte::div_magnify_half(-7, -4) == 2);
+
+static_assert(xte::approx_equal(xte::div_magnify_half(7.0, 2), 4));
+static_assert(xte::approx_equal(xte::div_magnify_half(-7.0, 2), -4));
+static_assert(xte::approx_equal(xte::div_magnify_half(7.0, -2), -4));
+static_assert(xte::approx_equal(xte::div_magnify_half(-7.0, -2), 4));
+
+static_assert(xte::approx_equal(xte::div_magnify_half(7.0, 3), 2));
+static_assert(xte::approx_equal(xte::div_magnify_half(-7.0, 3), -2));
+static_assert(xte::approx_equal(xte::div_magnify_half(7.0, -3), -2));
+static_assert(xte::approx_equal(xte::div_magnify_half(-7.0, -3), 2));
+
+static_assert(xte::approx_equal(xte::div_magnify_half(7.0, 4), 2));
+static_assert(xte::approx_equal(xte::div_magnify_half(-7.0, 4), -2));
+static_assert(xte::approx_equal(xte::div_magnify_half(7.0, -4), -2));
+static_assert(xte::approx_equal(xte::div_magnify_half(-7.0, -4), 2));
+
+static_assert(xte::div_magnify_half(xte::lowest<int>, -1, -1) == xte::lowest<int>);

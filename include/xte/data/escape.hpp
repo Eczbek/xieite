@@ -1,8 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_DATA_ESCAPE
 #	define DETAIL_XTE_HEADER_DATA_ESCAPE
 #
-#	include "../data/string.hpp"
-#	include "../data/string_view.hpp"
+#	include "../string.hpp"
+#	include "../string_view.hpp"
 #	include "../trait/is_char.hpp"
 #	include <algorithm>
 #	include <type_traits>

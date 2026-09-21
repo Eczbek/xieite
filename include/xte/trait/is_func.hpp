@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_IS_FUNC
 #	define DETAIL_XTE_HEADER_TRAIT_IS_FUNC
 #
-#	include "../meta/member_type.hpp"
+#	include "../meta/type.hpp"
 
 namespace DETAIL_XTE::is_func {
 	template<typename>

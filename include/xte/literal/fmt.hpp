@@ -1,9 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_LITERAL_FMT
 #	define DETAIL_XTE_HEADER_LITERAL_FMT
 #
-#	include "../data/static_string_view.hpp"
 #	include "../preproc/fwd.hpp"
 #	include "../preproc/returns.hpp"
+#	include "../static_string_view.hpp"
 #	include <format>
 #	include <meta>
 

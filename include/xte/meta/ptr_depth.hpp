@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_TRAIT_PTR_DEPTH
 #	define DETAIL_XTE_HEADER_TRAIT_PTR_DEPTH
 #
-#	include "../util/number_types.hpp"
+#	include "../aliases.hpp"
 #	include <meta>
 
 namespace xte {

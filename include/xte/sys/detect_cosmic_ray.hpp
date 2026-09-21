@@ -1,9 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_SYS_DETECT_COSMIC_RAY
 #	define DETAIL_XTE_HEADER_SYS_DETECT_COSMIC_RAY
 #
-#	include "../data/ptr.hpp"
+#	include "../aliases.hpp"
+#	include "../ptr.hpp"
 #	include "../sys/available_memory.hpp"
-#	include "../util/number_types.hpp"
 
 namespace xte {
 	inline void detect_cosmic_ray() noexcept(false) {

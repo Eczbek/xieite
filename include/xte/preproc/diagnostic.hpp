@@ -1,10 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_DIAGNOSTIC
 #	define DETAIL_XTE_HEADER_PREPROC_DIAGNOSTIC
 #
-#	include "../preproc/any.hpp"
-#	include "../preproc/compiler.hpp"
-#	include "../preproc/if.hpp"
+#	include "../detect/compiler.hpp"
 #	include "../preproc/pragma.hpp"
+#	include "../preproc/util.hpp"
 #
 #	define XTE_DIAGNOSTIC_INFO(MESSAGE)
 #	define XTE_DIAGNOSTIC_INFO_GCC(MESSAGE)

@@ -1,8 +1,6 @@
+#include <xte/aliases.hpp>
 #include <xte/func/unfold.hpp>
-#include <xte/util/number_types.hpp>
 
-static_assert(xte::unfold<5>([]<xte::uz... i> {
-	return (... + i);
-}) == 10);
+static_assert(10 == xte::unfold<5>([]<xte::uz... i> { return (... + i); }));
 
 static_assert(noexcept(xte::unfold<0>([]<xte::uz...> noexcept {})));

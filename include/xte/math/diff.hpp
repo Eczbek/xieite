@@ -1,9 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_MATH_DIFF
 #	define DETAIL_XTE_HEADER_MATH_DIFF
 #
-#	include "../math/abs.hpp"
-#	include "../math/highest.hpp"
-#	include "../math/sub_checked.hpp"
+#	include "../abs.hpp"
+#	include "../arithmetic.hpp"
+#	include "../limits.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/is_float.hpp"
 #	include <limits>

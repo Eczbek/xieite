@@ -1,9 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_PRAGMA
 #	define DETAIL_XTE_HEADER_PREPROC_PRAGMA
 #
-#	include "../preproc/compiler.hpp"
-#	include "../preproc/lang.hpp"
-#	include "../preproc/quote.hpp"
+#	include "../detect/compiler.hpp"
+#	include "../detect/lang.hpp"
+#	include "../preproc/util.hpp"
 #
 #	if XTE_COMPILER_MSVC && XTE_LANG(CPP, <, 2011) && XTE_LANG(C, <, 1999)
 #		define XTE_PRAGMA(...) __pragma(__VA_ARGS__)

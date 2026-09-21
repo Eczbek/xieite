@@ -1,8 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_META_SEQ
 #	define DETAIL_XTE_HEADER_META_SEQ
 #
-#	include "../util/number_types.hpp"
+#	include "../aliases.hpp"
 #	include <tuple>
+#	include <utility>
 
 namespace xte {
 	template<decltype(auto)... values>
@@ -12,6 +13,11 @@ namespace xte {
 			return values...[index];
 		}
 	};
+
+	template<xte::uz size>
+	constexpr auto make_seq = ([]<xte::uz... i>(std::index_sequence<i...>) {
+		return xte::seq<i...>();
+	})(std::make_index_sequence<size>());
 }
 
 template<xte::uz... values>

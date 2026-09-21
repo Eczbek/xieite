@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_MATH_SIGN
 #	define DETAIL_XTE_HEADER_MATH_SIGN
 #
-#	include "../math/is_neg.hpp"
+#	include "../math/float.hpp"
 #	include "../trait/is_arithmetic.hpp"
 #	include "../trait/try_signed.hpp"
 #	include <type_traits>

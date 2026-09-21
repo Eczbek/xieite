@@ -1,10 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_SYS_IS_TTY
 #	define DETAIL_XTE_HEADER_SYS_IS_TTY
 #
+#	include "../detect/platform.hpp"
 #	include <cstdio>
 #	include <stdio.h>
-#	include "../preproc/platform.hpp"
-#
 #	if XTE_PLATFORM_UNIX
 #		include <unistd.h>
 #	elif XTE_PLATFORM_WINDOWS

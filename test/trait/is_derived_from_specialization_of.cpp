@@ -1,4 +1,4 @@
-#include <xte/data/fixed_array.hpp>
+#include <xte/fixed_array.hpp>
 #include <xte/trait/is_derived_from_specialization_of.hpp>
 
 template<int>

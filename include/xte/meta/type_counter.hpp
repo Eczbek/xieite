@@ -1,8 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_META_TYPE_COUNTER
 #	define DETAIL_XTE_HEADER_META_TYPE_COUNTER
 #
+#	include "../aliases.hpp"
 #	include "../meta/state.hpp"
-#	include "../util/number_types.hpp"
 
 namespace DETAIL_XTE::type_counter {
 	inline constexpr auto impl = xte::state<>.set<0uz>;

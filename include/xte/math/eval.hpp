@@ -1,55 +1,41 @@
 #ifndef DETAIL_XTE_HEADER_MATH_EVAL
 #	define DETAIL_XTE_HEADER_MATH_EVAL
 #
-#	include "../data/array.hpp"
-#	include "../data/fixed_array.hpp"
-#	include "../data/string.hpp"
-#	include "../data/string_view.hpp"
+#	include "../aliases.hpp"
+#	include "../abs.hpp"
+#	include "../address.hpp"
+#	include "../approx_equal.hpp"
+#	include "../arithmetic.hpp"
+#	include "../array.hpp"
+#	include "../big_int.hpp"
+#	include "../compare.hpp"
 #	include "../data/uppercase.hpp"
-#	include "../math/abs.hpp"
-#	include "../math/add.hpp"
-#	include "../math/add_checked.hpp"
-#	include "../math/approx_equal.hpp"
-#	include "../math/approx_greater_equal.hpp"
-#	include "../math/approx_less_equal.hpp"
-#	include "../math/big_int.hpp"
-#	include "../math/ceil.hpp"
-#	include "../math/floor.hpp"
-#	include "../math/less.hpp"
-#	include "../math/mod.hpp"
-#	include "../math/mul_checked.hpp"
-#	include "../math/number_format_config.hpp"
-#	include "../math/parse_number.hpp"
-#	include "../math/pow.hpp"
-#	include "../math/rem.hpp"
-#	include "../math/stringify_number.hpp"
-#	include "../math/sub.hpp"
-#	include "../math/sub_checked.hpp"
-#	include "../preproc/feature.hpp"
+#	include "../detect/feature.hpp"
+#	include "../fixed_array.hpp"
+#	include "../in_place.hpp"
+#	include "../make.hpp"
+#	include "../math/float.hpp"
+#	include "../math/serialize.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../qual_cast.hpp"
+#	include "../string.hpp"
+#	include "../string_view.hpp"
 #	include "../trait/is_arithmetic_or_bool.hpp"
 #	include "../trait/is_specialization_of.hpp"
-#	include "../util/address.hpp"
-#	include "../util/as_xvalue.hpp"
-#	include "../util/construct.hpp"
-#	include "../util/destroy.hpp"
-#	include "../util/make.hpp"
-#	include "../util/number_types.hpp"
-#	include "../util/reconstruct.hpp"
 #	include <exception>
 #	include <limits>
 #	include <ranges>
 #	include <utility>
 
 namespace DETAIL_XTE::eval {
-#	if XTE_FEATURE_INT_128
+#	if XTE_HAS_INT_128
 	using unsigned_type = xte::u128;
 	using signed_type = xte::i128;
 #	else
 	using unsigned_type = unsigned long long;
 	using signed_type = long long;
 #	endif
-#	if XTE_FEATURE_FLOAT_128
+#	if XTE_HAS_FLOAT_128
 	using float_type = xte::f128;
 #	else
 	using float_type = long double;
@@ -71,56 +57,56 @@ namespace DETAIL_XTE::eval {
 			bool_tag
 		} tag;
 
-		[[nodiscard]] explicit(false) constexpr data_type(unsigned_type value) noexcept
-		: unsigned_value(value), tag(data_type::unsigned_tag) {}
+		[[nodiscard]] explicit(false) constexpr data_type(DETAIL_XTE::eval::unsigned_type value) noexcept
+		: unsigned_value(value), tag(DETAIL_XTE::eval::data_type::unsigned_tag) {}
 
-		[[nodiscard]] explicit(false) constexpr data_type(signed_type value) noexcept
-		: signed_value(value), tag(data_type::signed_tag) {}
+		[[nodiscard]] explicit(false) constexpr data_type(DETAIL_XTE::eval::signed_type value) noexcept
+		: signed_value(value), tag(DETAIL_XTE::eval::data_type::signed_tag) {}
 
 		[[nodiscard]] explicit(false) constexpr data_type(xte::big_int value) noexcept
-		: big_value(xte::as_xvalue(value)), tag(data_type::big_tag) {}
+		: big_value(xte::as_xvalue(value)), tag(DETAIL_XTE::eval::data_type::big_tag) {}
 
-		[[nodiscard]] explicit(false) constexpr data_type(float_type value) noexcept
-		: float_value(value), tag(data_type::float_tag) {}
+		[[nodiscard]] explicit(false) constexpr data_type(DETAIL_XTE::eval::float_type value) noexcept
+		: float_value(value), tag(DETAIL_XTE::eval::data_type::float_tag) {}
 
 		[[nodiscard]] explicit(false) constexpr data_type(bool value) noexcept
-		: bool_value(value), tag(data_type::bool_tag) {}
+		: bool_value(value), tag(DETAIL_XTE::eval::data_type::bool_tag) {}
 
-		[[nodiscard]] constexpr data_type(const data_type& other) noexcept(false) {
+		[[nodiscard]] constexpr data_type(const DETAIL_XTE::eval::data_type& other) noexcept(false) {
 			switch (this->tag = other.tag) {
-				case data_type::unsigned_tag:
+				case DETAIL_XTE::eval::data_type::unsigned_tag:
 					xte::construct(this->unsigned_value, other.unsigned_value);
 					break;
-				case data_type::signed_tag:
+				case DETAIL_XTE::eval::data_type::signed_tag:
 					xte::construct(this->signed_value, other.signed_value);
 					break;
-				case data_type::big_tag:
+				case DETAIL_XTE::eval::data_type::big_tag:
 					xte::construct(this->big_value, other.big_value);
 					break;
-				case data_type::float_tag:
+				case DETAIL_XTE::eval::data_type::float_tag:
 					xte::construct(this->float_value, other.float_value);
 					break;
-				case data_type::bool_tag:
+				case DETAIL_XTE::eval::data_type::bool_tag:
 					xte::construct(this->bool_value, other.bool_value);
 					break;
 			}
 		}
 
-		[[nodiscard]] constexpr data_type(data_type&& other) noexcept {
+		[[nodiscard]] constexpr data_type(DETAIL_XTE::eval::data_type&& other) noexcept {
 			switch (this->tag = other.tag) {
-				case data_type::unsigned_tag:
+				case DETAIL_XTE::eval::data_type::unsigned_tag:
 					xte::construct(this->unsigned_value, other.unsigned_value);
 					break;
-				case data_type::signed_tag:
+				case DETAIL_XTE::eval::data_type::signed_tag:
 					xte::construct(this->signed_value, other.signed_value);
 					break;
-				case data_type::big_tag:
+				case DETAIL_XTE::eval::data_type::big_tag:
 					xte::construct(this->big_value, xte::as_xvalue(other).big_value);
 					break;
-				case data_type::float_tag:
+				case DETAIL_XTE::eval::data_type::float_tag:
 					xte::construct(this->float_value, other.float_value);
 					break;
-				case data_type::bool_tag:
+				case DETAIL_XTE::eval::data_type::bool_tag:
 					xte::construct(this->bool_value, other.bool_value);
 					break;
 			}
@@ -128,45 +114,45 @@ namespace DETAIL_XTE::eval {
 
 		constexpr ~data_type() {
 			switch (this->tag) {
-				case data_type::unsigned_tag:
+				case DETAIL_XTE::eval::data_type::unsigned_tag:
 					xte::destroy(this->unsigned_value);
 					break;
-				case data_type::signed_tag:
+				case DETAIL_XTE::eval::data_type::signed_tag:
 					xte::destroy(this->signed_value);
 					break;
-				case data_type::big_tag:
+				case DETAIL_XTE::eval::data_type::big_tag:
 					xte::destroy(this->big_value);
 					break;
-				case data_type::float_tag:
+				case DETAIL_XTE::eval::data_type::float_tag:
 					xte::destroy(this->float_value);
 					break;
-				case data_type::bool_tag:
+				case DETAIL_XTE::eval::data_type::bool_tag:
 					xte::destroy(this->bool_value);
 					break;
 			}
 		}
 
-		constexpr data_type& operator=(data_type&& other) noexcept {
+		constexpr DETAIL_XTE::eval::data_type& operator=(DETAIL_XTE::eval::data_type&& other) noexcept {
 			return (this == xte::address(other)) ? *this : xte::reconstruct(*this, xte::as_xvalue(other));
 		}
 
-		constexpr data_type& operator=(unsigned_type value) noexcept {
+		constexpr DETAIL_XTE::eval::data_type& operator=(DETAIL_XTE::eval::unsigned_type value) noexcept {
 			return xte::reconstruct(*this, value);
 		}
 
-		constexpr data_type& operator=(signed_type value) noexcept {
+		constexpr DETAIL_XTE::eval::data_type& operator=(DETAIL_XTE::eval::signed_type value) noexcept {
 			return xte::reconstruct(*this, value);
 		}
 
-		constexpr data_type& operator=(xte::big_int value) noexcept {
+		constexpr DETAIL_XTE::eval::data_type& operator=(xte::big_int value) noexcept {
 			return xte::reconstruct(*this, xte::as_xvalue(value));
 		}
 
-		constexpr data_type& operator=(float_type value) noexcept {
+		constexpr DETAIL_XTE::eval::data_type& operator=(DETAIL_XTE::eval::float_type value) noexcept {
 			return xte::reconstruct(*this, value);
 		}
 
-		constexpr data_type& operator=(bool value) noexcept {
+		constexpr DETAIL_XTE::eval::data_type& operator=(bool value) noexcept {
 			return xte::reconstruct(*this, value);
 		}
 
@@ -247,7 +233,7 @@ namespace xte {
 					pos = start + index;
 				}
 				if (input[pos] != '.') {
-					if (!xte::number_format_config().exp.contains(input[pos])) {
+					if (!xte::serialize_config().exp.contains(input[pos])) {
 						return result;
 					}
 					auto [fraction, index] = xte::parse_number<DETAIL_XTE::eval::float_type>.with_index(input.subview(start));

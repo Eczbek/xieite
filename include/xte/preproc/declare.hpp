@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_DECLARE
 #	define DETAIL_XTE_HEADER_PREPROC_DECLARE
 #
-#	include "../preproc/unwrap.hpp"
+#	include "../preproc/util.hpp"
 #
 #	define XTE_DECLARE(DECL, ...) \
 		requires(requires { __VA_ARGS__; }) \

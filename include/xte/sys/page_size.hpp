@@ -1,9 +1,8 @@
 #ifndef DETAIL_XTE_HEADER_SYS_PAGE_SIZE
 #	define DETAIL_XTE_HEADER_SYS_PAGE_SIZE
 #
-#	include "../preproc/platform.hpp"
-#	include "../util/number_types.hpp"
-#
+#	include "../aliases.hpp"
+#	include "../detect/platform.hpp"
 #	if XTE_PLATFORM_UNIX
 #		include <unistd.h>
 #	elif XTE_PLATFORM_WINDOWS

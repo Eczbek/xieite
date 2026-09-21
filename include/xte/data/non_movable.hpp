@@ -5,11 +5,11 @@ namespace xte {
 	struct non_movable {
 		non_movable() = default;
 
-		non_movable(const xte::non_movable&) = default;
+		non_movable(const xte::non_movable&) = delete;
 
 		non_movable(xte::non_movable&&) = delete;
 
-		xte::non_movable& operator=(const xte::non_movable&) = default;
+		xte::non_movable& operator=(const xte::non_movable&) = delete;
 
 		xte::non_movable& operator=(xte::non_movable&&) = delete;
 	};

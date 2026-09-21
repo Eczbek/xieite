@@ -1,4 +1,4 @@
-#include <xte/math/approx_equal.hpp>
+#include <xte/approx_equal.hpp>
 #include <xte/math/eval.hpp>
 
 static_assert(xte::eval<bool>("0 == false"));

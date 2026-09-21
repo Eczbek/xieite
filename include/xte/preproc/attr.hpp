@@ -1,9 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_PREPROC_ATTR
 #	define DETAIL_XTE_HEADER_PREPROC_ATTR
 #
-#	include "../preproc/compiler.hpp"
-#	include "../preproc/has_attr.hpp"
-#	include "../preproc/lang.hpp"
+#	include "../detect/compiler.hpp"
+#	include "../detect/feature.hpp"
+#	include "../detect/lang.hpp"
 #
 #	if XTE_LANG(CPP, >=, 2011)
 #		define XTE_ATTR_ALIGN(...) alignas(__VA_ARGS__)

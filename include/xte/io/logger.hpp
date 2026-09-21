@@ -1,11 +1,11 @@
 #ifndef DETAIL_XTE_HEADER_IO_LOGGER
 #	define DETAIL_XTE_HEADER_IO_LOGGER
 #
-#	include "../data/static_string_view.hpp"
-#	include "../meta/sloc.hpp"
+#	include "../aliases.hpp"
 #	include "../preproc/fwd.hpp"
+#	include "../sloc.hpp"
+#	include "../static_string_view.hpp"
 #	include "../sys/is_tty.hpp"
-#	include "../util/number_types.hpp"
 #	include <chrono>
 #	include <cstdio>
 #	include <format>
