@@ -8,20 +8,18 @@
 #	include "../arithmetic.hpp"
 #	include "../array.hpp"
 #	include "../big_int.hpp"
-#	include "../compare.hpp"
-#	include "../data/uppercase.hpp"
 #	include "../detect/feature.hpp"
 #	include "../fixed_array.hpp"
+#	include "../fundamental_traits.hpp"
 #	include "../in_place.hpp"
+#	include "../lettercase.hpp"
+#	include "../macros.hpp"
 #	include "../make.hpp"
 #	include "../math/float.hpp"
 #	include "../math/serialize.hpp"
-#	include "../preproc/fwd.hpp"
-#	include "../qual_cast.hpp"
+#	include "../qual_traits.hpp"
 #	include "../string.hpp"
 #	include "../string_view.hpp"
-#	include "../trait/is_arithmetic_or_bool.hpp"
-#	include "../trait/is_specialization_of.hpp"
 #	include <exception>
 #	include <limits>
 #	include <ranges>
@@ -57,22 +55,22 @@ namespace DETAIL_XTE::eval {
 			bool_tag
 		} tag;
 
-		[[nodiscard]] explicit(false) constexpr data_type(DETAIL_XTE::eval::unsigned_type value) noexcept
+		[[nodiscard]] constexpr explicit(false) data_type(DETAIL_XTE::eval::unsigned_type value) noexcept
 		: unsigned_value(value), tag(DETAIL_XTE::eval::data_type::unsigned_tag) {}
 
-		[[nodiscard]] explicit(false) constexpr data_type(DETAIL_XTE::eval::signed_type value) noexcept
+		[[nodiscard]] constexpr explicit(false) data_type(DETAIL_XTE::eval::signed_type value) noexcept
 		: signed_value(value), tag(DETAIL_XTE::eval::data_type::signed_tag) {}
 
-		[[nodiscard]] explicit(false) constexpr data_type(xte::big_int value) noexcept
+		[[nodiscard]] constexpr explicit(false) data_type(xte::big_int value) noexcept
 		: big_value(xte::as_xvalue(value)), tag(DETAIL_XTE::eval::data_type::big_tag) {}
 
-		[[nodiscard]] explicit(false) constexpr data_type(DETAIL_XTE::eval::float_type value) noexcept
+		[[nodiscard]] constexpr explicit(false) data_type(DETAIL_XTE::eval::float_type value) noexcept
 		: float_value(value), tag(DETAIL_XTE::eval::data_type::float_tag) {}
 
-		[[nodiscard]] explicit(false) constexpr data_type(bool value) noexcept
+		[[nodiscard]] constexpr explicit(false) data_type(bool value) noexcept
 		: bool_value(value), tag(DETAIL_XTE::eval::data_type::bool_tag) {}
 
-		[[nodiscard]] constexpr data_type(const DETAIL_XTE::eval::data_type& other) noexcept(false) {
+		[[nodiscard]] constexpr data_type(DETAIL_XTE::eval::data_type const& other) noexcept(false) {
 			switch (this->tag = other.tag) {
 				case DETAIL_XTE::eval::data_type::unsigned_tag:
 					xte::construct(this->unsigned_value, other.unsigned_value);
@@ -156,19 +154,19 @@ namespace DETAIL_XTE::eval {
 			return xte::reconstruct(*this, value);
 		}
 
-		template<typename T>
-		[[nodiscard]] explicit constexpr operator T(this auto&& self) noexcept(false) {
+		template<typename type>
+		[[nodiscard]] constexpr explicit operator type(this auto&& self) noexcept(false) {
 			switch (self.tag) {
 				case data_type::unsigned_tag:
-					return xte::make<T>(self.unsigned_value);
+					return xte::make<type>(self.unsigned_value);
 				case data_type::signed_tag:
-					return xte::make<T>(self.signed_value);
+					return xte::make<type>(self.signed_value);
 				case data_type::big_tag:
-					return static_cast<T>(XTE_FWD(self).big_value);
+					return static_cast<type>(XTE_FWD(self).big_value);
 				case data_type::float_tag:
-					return xte::make<T>(self.float_value);
+					return xte::make<type>(self.float_value);
 				case data_type::bool_tag:
-					return static_cast<T>(+self.bool_value);
+					return static_cast<type>(+self.bool_value);
 			}
 			std::unreachable();
 		}
@@ -176,9 +174,9 @@ namespace DETAIL_XTE::eval {
 };
 
 namespace xte {
-	template<typename T>
-	requires(xte::is_arithmetic_or_bool<T> || xte::is_specialization_of<T, ^^xte::big_int>)
-	constexpr auto eval = [][[nodiscard]](xte::string_view input) static noexcept(false) -> T {
+	template<typename eval_type>
+	requires(xte::is_arithmetic_or_bool<eval_type> || xte::is_same<eval_type, xte::big_int>)
+	constexpr auto eval = [][[nodiscard]](xte::string_view input) static noexcept(false) -> eval_type {
 		struct [[nodiscard]] error : std::exception {
 			xte::string message;
 
@@ -188,7 +186,7 @@ namespace xte {
 			constexpr error(xte::uz pos, xte::string_view input, xte::string_view expected) noexcept(false)
 			: message("at " + xte::stringify_number(pos) + ": expected " + expected + ((pos < input.size()) ? (xte::string(", found: ") + input[pos]) : "")) {}
 
-			[[nodiscard]] virtual constexpr const char* what() const noexcept override {
+			[[nodiscard]] virtual constexpr char const* what() const noexcept override {
 				return this->message.c_str();
 			}
 		};
@@ -265,24 +263,24 @@ namespace xte {
 					return primary();
 				}
 				whitespace();
-				struct var {
+				struct var_type {
 					xte::string_view id;
 					[:^^DETAIL_XTE::eval::data_type():]* get;
 				};
 				static constexpr bool has_inf = std::numeric_limits<DETAIL_XTE::eval::float_type>::has_infinity;
-				for (const var& var : xte::fixed_array {
-					var("true", [] static -> DETAIL_XTE::eval::data_type { return true; }),
-					var("false", [] static -> DETAIL_XTE::eval::data_type { return false; }),
-					var("e", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::e_v<DETAIL_XTE::eval::float_type>; }),
-					var("pi", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::pi_v<DETAIL_XTE::eval::float_type>; }),
-					var("tau", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::pi_v<DETAIL_XTE::eval::float_type> * 2; }),
-					var("phi", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::phi_v<DETAIL_XTE::eval::float_type>; }),
-					has_inf ? var("inf", [] static -> DETAIL_XTE::eval::data_type {
+				for (var_type const& var : xte::fixed_array {
+					var_type("true", [] static -> DETAIL_XTE::eval::data_type { return true; }),
+					var_type("false", [] static -> DETAIL_XTE::eval::data_type { return false; }),
+					var_type("e", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::e_v<DETAIL_XTE::eval::float_type>; }),
+					var_type("pi", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::pi_v<DETAIL_XTE::eval::float_type>; }),
+					var_type("tau", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::pi_v<DETAIL_XTE::eval::float_type> * 2; }),
+					var_type("phi", [] static -> DETAIL_XTE::eval::data_type { return std::numbers::phi_v<DETAIL_XTE::eval::float_type>; }),
+					has_inf ? var_type("inf", [] static -> DETAIL_XTE::eval::data_type {
 						if constexpr (has_inf) {
 							return std::numeric_limits<DETAIL_XTE::eval::float_type>::infinity();
 						}
 						std::unreachable();
-					}) : var("", nullptr)
+					}) : var_type("", nullptr)
 				}) {
 					if (id == var.id) {
 						return var.get();
@@ -303,23 +301,23 @@ namespace xte {
 					}
 					throw error(pos, input, "end of argument list");
 				}
-				struct func {
+				struct func_type {
 					xte::string_view id;
 					xte::uz args;
 					[:^^DETAIL_XTE::eval::data_type(xte::array<DETAIL_XTE::eval::data_type>):]* ptr;
 				};
-				for (const func& func : xte::fixed_array {
-					func("floor", 1, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
+				for (func_type const& func : xte::fixed_array {
+					func_type("floor", 1, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
 						return (args[0].tag == DETAIL_XTE::eval::data_type::float_tag)
 							? xte::floor(args[0].float_value)
 							: args[0];
 					}),
-					func("ceil", 1, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
+					func_type("ceil", 1, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
 						return (args[0].tag == DETAIL_XTE::eval::data_type::float_tag)
 							? xte::ceil(args[0].float_value)
 							: args[0];
 					}),
-					func("abs", 1, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
+					func_type("abs", 1, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
 						switch (args[0].tag) {
 							case DETAIL_XTE::eval::data_type::unsigned_tag:
 							case DETAIL_XTE::eval::data_type::bool_tag:
@@ -333,7 +331,7 @@ namespace xte {
 						}
 						std::unreachable();
 					}),
-					func("pow", 2, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
+					func_type("pow", 2, [](xte::array<DETAIL_XTE::eval::data_type> args) static -> DETAIL_XTE::eval::data_type {
 						if ((args[0].tag == DETAIL_XTE::eval::data_type::float_tag) || (args[1].tag == DETAIL_XTE::eval::data_type::float_tag)) {
 							return xte::pow(static_cast<DETAIL_XTE::eval::float_type>(args[0]), static_cast<DETAIL_XTE::eval::float_type>(args[1]));
 						}
@@ -422,7 +420,7 @@ namespace xte {
 								break;
 							}
 							if (((result.tag == DETAIL_XTE::eval::data_type::unsigned_tag) || (result.tag == DETAIL_XTE::eval::data_type::bool_tag)) && ((multiplicand.tag == DETAIL_XTE::eval::data_type::unsigned_tag) || (multiplicand.tag == DETAIL_XTE::eval::data_type::bool_tag))) {
-								if (auto prod = xte::mul_checked(static_cast<DETAIL_XTE::eval::unsigned_type>(result), static_cast<DETAIL_XTE::eval::unsigned_type>(multiplicand))) {
+								if (auto prod = xte::checked_mul(static_cast<DETAIL_XTE::eval::unsigned_type>(result), static_cast<DETAIL_XTE::eval::unsigned_type>(multiplicand))) {
 									result = *prod;
 									break;
 								}
@@ -431,7 +429,7 @@ namespace xte {
 									result = xte::abs(static_cast<DETAIL_XTE::eval::signed_type>(result));
 									break;
 								}
-								if (auto prod = xte::mul_checked(static_cast<DETAIL_XTE::eval::signed_type>(result), static_cast<DETAIL_XTE::eval::signed_type>(multiplicand))) {
+								if (auto prod = xte::checked_mul(static_cast<DETAIL_XTE::eval::signed_type>(result), static_cast<DETAIL_XTE::eval::signed_type>(multiplicand))) {
 									result = *prod;
 									break;
 								}
@@ -501,7 +499,7 @@ namespace xte {
 								break;
 							}
 							if (((result.tag == DETAIL_XTE::eval::data_type::unsigned_tag) || (result.tag == DETAIL_XTE::eval::data_type::bool_tag)) && ((addend.tag == DETAIL_XTE::eval::data_type::unsigned_tag) || (addend.tag == DETAIL_XTE::eval::data_type::bool_tag))) {
-								if (auto sum = xte::add_checked(static_cast<DETAIL_XTE::eval::unsigned_type>(result), static_cast<DETAIL_XTE::eval::unsigned_type>(addend))) {
+								if (auto sum = xte::checked_add(static_cast<DETAIL_XTE::eval::unsigned_type>(result), static_cast<DETAIL_XTE::eval::unsigned_type>(addend))) {
 									result = *sum;
 									break;
 								}
@@ -510,7 +508,7 @@ namespace xte {
 									result = static_cast<DETAIL_XTE::eval::unsigned_type>(xte::add(static_cast<DETAIL_XTE::eval::signed_type>(result), static_cast<DETAIL_XTE::eval::signed_type>(addend)));
 									break;
 								}
-								if (auto sum = xte::add_checked(static_cast<DETAIL_XTE::eval::signed_type>(result), static_cast<DETAIL_XTE::eval::signed_type>(addend))) {
+								if (auto sum = xte::checked_add(static_cast<DETAIL_XTE::eval::signed_type>(result), static_cast<DETAIL_XTE::eval::signed_type>(addend))) {
 									result = *sum;
 									break;
 								}
@@ -526,7 +524,7 @@ namespace xte {
 								break;
 							}
 							if (((result.tag == DETAIL_XTE::eval::data_type::unsigned_tag) || (result.tag == DETAIL_XTE::eval::data_type::bool_tag)) && ((subtrahend.tag == DETAIL_XTE::eval::data_type::unsigned_tag) || (subtrahend.tag == DETAIL_XTE::eval::data_type::bool_tag))) {
-								if (auto sum = xte::sub_checked(static_cast<DETAIL_XTE::eval::unsigned_type>(result), static_cast<DETAIL_XTE::eval::unsigned_type>(subtrahend))) {
+								if (auto sum = xte::checked_sub(static_cast<DETAIL_XTE::eval::unsigned_type>(result), static_cast<DETAIL_XTE::eval::unsigned_type>(subtrahend))) {
 									result = *sum;
 									break;
 								}
@@ -535,7 +533,7 @@ namespace xte {
 									result = static_cast<DETAIL_XTE::eval::unsigned_type>(xte::sub(static_cast<DETAIL_XTE::eval::signed_type>(result), static_cast<DETAIL_XTE::eval::signed_type>(subtrahend)));
 									break;
 								}
-								if (auto sum = xte::sub_checked(static_cast<DETAIL_XTE::eval::signed_type>(result), static_cast<DETAIL_XTE::eval::signed_type>(subtrahend))) {
+								if (auto sum = xte::checked_sub(static_cast<DETAIL_XTE::eval::signed_type>(result), static_cast<DETAIL_XTE::eval::signed_type>(subtrahend))) {
 									result = *sum;
 									break;
 								}
@@ -672,7 +670,7 @@ namespace xte {
 		if (pos < input.size()) {
 			throw error(pos, input, "end of expression");
 		}
-		return static_cast<T>(result);
+		return static_cast<eval_type>(result);
 	};
 }
 

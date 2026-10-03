@@ -3,8 +3,7 @@
 #
 #	include "../abs.hpp"
 #	include "../aliases.hpp"
-#	include "../trait/is_int.hpp"
-#	include "../trait/is_signed_int.hpp"
+#	include "../fundamental_traits.hpp"
 
 namespace xte {
 	[[nodiscard]] constexpr xte::uz digits(xte::is_int auto value, decltype(value) radix = 10) noexcept {

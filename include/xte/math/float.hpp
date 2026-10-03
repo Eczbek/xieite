@@ -1,8 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_MATH_FLOAT
 #	define DETAIL_XTE_HEADER_MATH_FLOAT
 #
-#	include "../trait/is_arithmetic.hpp"
-#	include "../trait/is_float.hpp"
+#	include "../fundamental_traits.hpp"
 #	include <cmath>
 
 namespace xte {

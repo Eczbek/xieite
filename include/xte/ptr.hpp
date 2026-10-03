@@ -2,40 +2,39 @@
 #	define DETAIL_XTE_HEADER_PTR
 #
 #	include "./aliases.hpp"
-#	include "./data/non_copyable.hpp"
+#	include "./class_traits.hpp"
 #	include "./exchange.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/lift.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./qual_cast.hpp"
-#	include "./trait/is_member_function.hpp"
-#	include "./trait/is_member_of.hpp"
+#	include "./macros.hpp"
+#	include "./qual_traits.hpp"
 #	include <iterator>
 #	include <new>
+#	include <type_traits>
 
 namespace xte {
-	template<typename T>
+	template<typename item_type>
 	struct ptr : xte::non_copyable {
 	private:
-		T* _data;
+		item_type* _data;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr ptr(T* data = nullptr) noexcept
+		using value_type = item_type;
+
+		[[nodiscard]] constexpr explicit(false) ptr(item_type* data = nullptr) noexcept
 		: _data(data) {}
 
-		[[nodiscard]] explicit(false) constexpr ptr(xte::ptr<T>&& other) noexcept
+		[[nodiscard]] constexpr explicit(false) ptr(xte::ptr<item_type>&& other) noexcept
 		: _data(other.release()) {}
 
 		constexpr ~ptr() {
 			this->reset();
 		}
 
-		constexpr xte::ptr<T>& operator=(xte::ptr<T>&& other) noexcept {
+		constexpr xte::ptr<item_type>& operator=(xte::ptr<item_type>&& other) noexcept {
 			this->reset(other.release());
 			return *this;
 		}
 
-		constexpr xte::ptr<T>& operator=(T* data) noexcept {
+		constexpr xte::ptr<item_type>& operator=(item_type* data) noexcept {
 			this->reset(data);
 			return *this;
 		}
@@ -45,15 +44,15 @@ namespace xte {
 			*this
 		)
 
-		[[nodiscard]] explicit constexpr operator bool() const noexcept {
+		[[nodiscard]] constexpr explicit operator bool() const noexcept {
 			return this->_data;
 		}
 
-		[[nodiscard]] explicit constexpr operator T*() const noexcept {
+		[[nodiscard]] constexpr explicit operator item_type*() const noexcept {
 			return this->_data;
 		}
 
-		[[nodiscard]] constexpr T& operator*() const noexcept {
+		[[nodiscard]] constexpr item_type& operator*() const noexcept {
 			return *this->_data;
 		}
 
@@ -61,15 +60,15 @@ namespace xte {
 			return self._data;
 		}
 
-		[[nodiscard]] constexpr decltype(auto) operator->*(this auto&& self, xte::is_member_of<T> auto&& member) noexcept {
-			if constexpr (xte::is_member_function<decltype(member)>) {
+		[[nodiscard]] constexpr decltype(auto) operator->*(this auto&& self, xte::is_member_ptr_of<item_type> auto&& member) noexcept {
+			if constexpr (std::is_member_function_pointer_v<xte::drop_ref<decltype(member)>>) {
 				return XTE_LIFT_LOCAL((XTE_FWD(self)._data->*member));
 			} else {
 				return xte::like<decltype(self)>(self._data->*member);
 			}
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xte::ptr<T>& lhs, const T* rhs) noexcept {
+		[[nodiscard]] friend constexpr bool operator==(xte::ptr<item_type> const& lhs, item_type const* rhs) noexcept {
 			return lhs._data == rhs;
 		}
 
@@ -77,12 +76,12 @@ namespace xte {
 			return self._data;
 		}
 
-		constexpr void reset(T* data = nullptr) noexcept {
+		constexpr void reset(item_type* data = nullptr) noexcept {
 			::delete this->_data;
 			this->_data = data;
 		}
 
-		[[nodiscard]] constexpr T* release() noexcept {
+		[[nodiscard]] constexpr item_type* release() noexcept {
 			return xte::exchange(this->_data, nullptr);
 		}
 
@@ -90,7 +89,7 @@ namespace xte {
 			return self._data;
 		}
 
-		[[nodiscard]] constexpr const T* cbegin() const noexcept {
+		[[nodiscard]] constexpr item_type const* cbegin() const noexcept {
 			return this->begin();
 		}
 
@@ -98,7 +97,7 @@ namespace xte {
 			return self._data + !!self._data;
 		}
 
-		[[nodiscard]] constexpr const T* cend() const noexcept {
+		[[nodiscard]] constexpr item_type const* cend() const noexcept {
 			return this->end();
 		}
 
@@ -118,54 +117,54 @@ namespace xte {
 			return this->rend();
 		}
 
-		[[nodiscard]] static constexpr xte::ptr<T> make(auto&&... args) noexcept(false) {
-			return ::new T(XTE_FWD(args)...);
+		[[nodiscard]] static constexpr xte::ptr<item_type> make(auto&&... args) noexcept(false) {
+			return ::new item_type(XTE_FWD(args)...);
 		}
 
 		[[nodiscard]] static constexpr auto make_noex(auto&&... args) XTE_RETURNS(
-			xte::ptr<T>(::new(std::nothrow) T(XTE_FWD(args)...))
+			xte::ptr<item_type>(::new(std::nothrow) item_type(XTE_FWD(args)...))
 		)
 
-		[[nodiscard]] static constexpr xte::ptr<T> make_default() noexcept(false) {
-			return ::new T;
+		[[nodiscard]] static constexpr xte::ptr<item_type> make_default() noexcept(false) {
+			return ::new item_type;
 		}
 
-		[[nodiscard]] static constexpr xte::ptr<T> make_default_noex() noexcept {
-			return ::new(std::nothrow) T;
+		[[nodiscard]] static constexpr xte::ptr<item_type> make_default_noex() noexcept {
+			return ::new(std::nothrow) item_type;
 		}
 	};
 
-	template<typename T>
-	struct ptr<T[]> : xte::non_copyable {
+	template<typename item_type>
+	struct ptr<item_type[]> : xte::non_copyable {
 	private:
-		T* _data;
+		item_type* _data;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr ptr(T* data = nullptr) noexcept
+		[[nodiscard]] constexpr explicit(false) ptr(item_type* data = nullptr) noexcept
 		: _data(data) {}
 
-		[[nodiscard]] explicit(false) constexpr ptr(xte::ptr<T[]>&& other) noexcept
+		[[nodiscard]] constexpr explicit(false) ptr(xte::ptr<item_type[]>&& other) noexcept
 		: _data(other.release()) {}
 
 		constexpr ~ptr() {
 			this->reset();
 		}
 
-		constexpr xte::ptr<T[]>& operator=(xte::ptr<T[]>&& other) noexcept {
+		constexpr xte::ptr<item_type[]>& operator=(xte::ptr<item_type[]>&& other) noexcept {
 			this->reset(other.release());
 			return *this;
 		}
 
-		constexpr xte::ptr<T[]>& operator=(T* data) noexcept {
+		constexpr xte::ptr<item_type[]>& operator=(item_type* data) noexcept {
 			this->reset(data);
 			return *this;
 		}
 
-		[[nodiscard]] explicit constexpr operator bool() const noexcept {
+		[[nodiscard]] constexpr explicit operator bool() const noexcept {
 			return this->_data;
 		}
 
-		[[nodiscard]] explicit constexpr operator T*() const noexcept {
+		[[nodiscard]] constexpr explicit operator item_type*() const noexcept {
 			return this->_data;
 		}
 
@@ -173,7 +172,7 @@ namespace xte {
 			return XTE_FWD(self)._data[index];
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xte::ptr<T[]>& lhs, const T* rhs) noexcept {
+		[[nodiscard]] friend constexpr bool operator==(xte::ptr<item_type[]> const& lhs, item_type const* rhs) noexcept {
 			return lhs._data == rhs;
 		}
 
@@ -181,12 +180,12 @@ namespace xte {
 			return self._data;
 		}
 
-		constexpr void reset(T* data = nullptr) noexcept {
+		constexpr void reset(item_type* data = nullptr) noexcept {
 			::delete[] this->_data;
 			this->_data = data;
 		}
 
-		[[nodiscard]] constexpr T* release() noexcept {
+		[[nodiscard]] constexpr item_type* release() noexcept {
 			return xte::exchange(this->_data, nullptr);
 		}
 
@@ -194,24 +193,24 @@ namespace xte {
 			return self._data;
 		}
 
-		[[nodiscard]] constexpr const T* end() const noexcept {
+		[[nodiscard]] constexpr item_type const* end() const noexcept {
 			return this->_data + !!this->_data;
 		}
 
-		[[nodiscard]] static constexpr xte::ptr<T[]> make(xte::uz size, auto&&... args) noexcept(false) {
-			return ::new T[size] { XTE_FWD(args)... };
+		[[nodiscard]] static constexpr xte::ptr<item_type[]> make(xte::uz size, auto&&... args) noexcept(false) {
+			return ::new item_type[size] { XTE_FWD(args)... };
 		}
 
 		[[nodiscard]] static constexpr auto make_noex(xte::uz size, auto&&... args) XTE_RETURNS(
-			xte::ptr<T[]>(::new(std::nothrow) T[size] { XTE_FWD(args)... })
+			xte::ptr<item_type[]>(::new(std::nothrow) item_type[size] { XTE_FWD(args)... })
 		)
 
-		[[nodiscard]] static constexpr xte::ptr<T[]> make_default(xte::uz size) noexcept(false) {
-			return ::new T[size];
+		[[nodiscard]] static constexpr xte::ptr<item_type[]> make_default(xte::uz size) noexcept(false) {
+			return ::new item_type[size];
 		}
 
-		[[nodiscard]] static constexpr xte::ptr<T[]> make_default_noex(xte::uz size) noexcept {
-			return ::new(std::nothrow) T[size];
+		[[nodiscard]] static constexpr xte::ptr<item_type[]> make_default_noex(xte::uz size) noexcept {
+			return ::new(std::nothrow) item_type[size];
 		}
 	};
 }

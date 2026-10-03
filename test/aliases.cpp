@@ -1,6 +1,6 @@
 #include <xte/aliases.hpp>
 #include <xte/detect/feature.hpp>
-#include <xte/trait/is_same.hpp>
+#include <xte/qual_traits.hpp>
 #include <cstddef>
 #include <cstdint>
 #include <stdfloat>

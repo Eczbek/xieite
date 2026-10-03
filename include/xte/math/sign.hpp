@@ -2,8 +2,7 @@
 #	define DETAIL_XTE_HEADER_MATH_SIGN
 #
 #	include "../math/float.hpp"
-#	include "../trait/is_arithmetic.hpp"
-#	include "../trait/try_signed.hpp"
+#	include "../fundamental_traits.hpp"
 #	include <type_traits>
 
 namespace xte {

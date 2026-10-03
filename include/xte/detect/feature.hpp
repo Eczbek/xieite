@@ -3,7 +3,7 @@
 #
 #	include "../detect/compiler.hpp"
 #	include "../detect/lang.hpp"
-#	include "../preproc/util.hpp"
+#	include "../preproc.hpp"
 #
 #	ifdef __has_include
 #		define XTE_HAS_INCLUDE(INCLUDE) __has_include(INCLUDE)

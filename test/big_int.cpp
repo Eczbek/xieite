@@ -3,7 +3,7 @@
 #include <xte/array.hpp>
 #include <xte/big_int.hpp>
 #include <xte/limits.hpp>
-#include <xte/qual_cast.hpp>
+#include <xte/qual_traits.hpp>
 #include <ranges>
 
 static_assert(xte::big_int() == 0);

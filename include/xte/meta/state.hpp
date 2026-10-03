@@ -2,13 +2,10 @@
 #	define DETAIL_XTE_HEADER_META_STATE
 #
 #	include "../aliases.hpp"
-#	include "../meta/wrap_value.hpp"
-#	include "../preproc/diagnostic.hpp"
+#	include "../diagnostic.hpp"
+#	include "../meta/wrap.hpp"
 
-XTE_DIAGNOSTIC_PUSH_GCC()
-XTE_DIAGNOSTIC_OFF_GCC("-Wnon-template-friend")
-XTE_DIAGNOSTIC_OFF_GCC("-Wsfinae-incomplete")
-XTE_DIAGNOSTIC_OFF_GCC("-Wunused-function")
+XTE_DIAGNOSTIC_PUSH((NO_NON_TEMPLATE_FRIEND)(NO_SFINAE_INCOMPLETE)(NO_UNUSED))
 
 namespace DETAIL_XTE::state {
 	template<auto id>
@@ -51,7 +48,7 @@ namespace DETAIL_XTE::state {
 	};
 }
 
-XTE_DIAGNOSTIC_POP_GCC()
+XTE_DIAGNOSTIC_POP()
 
 namespace xte {
 	template<auto id = []{}>

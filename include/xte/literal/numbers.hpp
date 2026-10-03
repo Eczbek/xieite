@@ -2,9 +2,9 @@
 #	define DETAIL_XTE_HEADER_LITERAL_NUMBERS
 #
 #	include "../aliases.hpp"
-#	include "../data/uppercase.hpp"
 #	include "../detect/feature.hpp"
 #	include "../fixed_array.hpp"
+#	include "../lettercase.hpp"
 #	include "../literal/radix.hpp"
 #	include "../string_view.hpp"
 #	include <ranges>

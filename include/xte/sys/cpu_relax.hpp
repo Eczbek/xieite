@@ -3,14 +3,14 @@
 #
 #	include "../detect/arch.hpp"
 #	include "../detect/compiler.hpp"
-#	include "../preproc/attr.hpp"
+#	include "../compat/attr.hpp"
 #	include <thread>
 #	if XTE_COMPILER_TYPE_MSVC
 #		include <intrin.h>
 #	endif
 
 namespace xte {
-	XTE_ATTR_INLINE void cpu_relax() noexcept {
+	XTE_ATTR_FORCE_INLINE void cpu_relax() noexcept {
 #	if XTE_ARCH_TYPE_X86_64
 #		if XTE_COMPILER_TYPE_MSVC
 		_mm_pause();

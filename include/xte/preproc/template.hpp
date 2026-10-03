@@ -1,5 +1,0 @@
-#ifndef DETAIL_XTE_HEADER_PREPROC_TEMPLATE
-#	define DETAIL_XTE_HEADER_PREPROC_TEMPLATE
-#
-#	define XTE_TEMPLATE template for ([[maybe_unused]] char XTE_TEMPLATE : "")
-#endif

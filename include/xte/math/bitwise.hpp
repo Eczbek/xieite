@@ -3,9 +3,8 @@
 #
 #	include "../abs.hpp"
 #	include "../aliases.hpp"
+#	include "../fundamental_traits.hpp"
 #	include "../limits.hpp"
-#	include "../math/sign_cast.hpp"
-#	include "../trait/is_int.hpp"
 
 namespace xte {
 	template<xte::is_int value_type, xte::is_int count_type = xte::uz>

@@ -2,25 +2,25 @@
 #	define DETAIL_XTE_HEADER_AGGREGATE
 #
 #	include "./aliases.hpp"
+#	include "./diagnostic.hpp"
 #	include "./func/unfold.hpp"
 #	include "./meta/type.hpp"
-#	include "./preproc/diagnostic.hpp"
 #	include "./string_view.hpp"
 #	include <meta>
 #	include <string_view>
 
-XTE_DIAGNOSTIC_PUSH_GCC(OFF, "-Wmissing-field-initializers")
+XTE_DIAGNOSTIC_PUSH((NO_MISSING_FIELD_INITIALIZERS))
 
 namespace DETAIL_XTE::aggregate {
 	struct arg_type {
 		std::meta::info type = ^^::;
 		xte::string_view name = {};
 
-		explicit(false) consteval arg_type(std::meta::info type) noexcept
+		consteval explicit(false) arg_type(std::meta::info type) noexcept
 		: type(type) {}
 
 		template<xte::uz size>
-		explicit(false) consteval arg_type(xte::type<const char[size]>& name) noexcept
+		consteval explicit(false) arg_type(xte::type<char[size]> const& name) noexcept
 		: name(std::define_static_string(name)) {}
 	};
 
@@ -38,7 +38,7 @@ namespace DETAIL_XTE::aggregate {
 	};
 }
 
-XTE_DIAGNOSTIC_POP_GCC()
+XTE_DIAGNOSTIC_POP()
 
 namespace xte {
 	template<DETAIL_XTE::aggregate::arg_type... args>

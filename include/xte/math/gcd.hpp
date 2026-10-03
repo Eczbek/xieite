@@ -2,8 +2,7 @@
 #	define DETAIL_XTE_HEADER_MATH_GCD
 #
 #	include "../exchange.hpp"
-#	include "../trait/is_int.hpp"
-#	include "../trait/is_unsigned_int.hpp"
+#	include "../fundamental_traits.hpp"
 #	include <type_traits>
 
 namespace xte {

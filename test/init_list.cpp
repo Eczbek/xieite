@@ -1,13 +1,13 @@
 #include <xte/array.hpp>
 #include <xte/init_list.hpp>
 #include <xte/ptr.hpp>
-#include <xte/qual_cast.hpp>
+#include <xte/qual_traits.hpp>
 
-template<typename T>
+template<typename type>
 struct test_array {
-	xte::array<T> data;
+	xte::array<type> data;
 
-	constexpr test_array(xte::init_list<T> list) {
+	constexpr test_array(xte::init_list<type> list) {
 		for (auto&& item : list) {
 			this->data.append(xte::as_xvalue(item));
 		}

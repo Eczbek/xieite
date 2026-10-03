@@ -1,11 +1,9 @@
 #ifndef DETAIL_XTE_HEADER_DEFER
 #	define DETAIL_XTE_HEADER_DEFER
 #
-#	include "./data/non_movable.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./trait/drop_cvref.hpp"
-#	include "./trait/is_callable.hpp"
-#	include "./trait/is_move_constructible_noex.hpp"
+#	include "./class_traits.hpp"
+#	include "./macros.hpp"
+#	include "./qual_traits.hpp"
 
 namespace xte {
 	template<xte::is_callable<void()> func_type>
@@ -14,7 +12,7 @@ namespace xte {
 		func_type _func;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr defer(func_type&& func)
+		[[nodiscard]] constexpr explicit(false) defer(func_type&& func)
 		noexcept(xte::is_move_constructible_noex<func_type>)
 		: _func(XTE_FWD(func)) {}
 

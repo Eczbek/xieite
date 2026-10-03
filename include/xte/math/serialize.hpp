@@ -3,20 +3,15 @@
 #
 #	include "../abs.hpp"
 #	include "../aliases.hpp"
+#	include "../approx_equal.hpp"
 #	include "../arithmetic.hpp"
 #	include "../array.hpp"
-#	include "../approx_equal.hpp"
-#	include "../compare.hpp"
+#	include "../fundamental_traits.hpp"
 #	include "../make.hpp"
-#	include "../math/sign_cast.hpp"
 #	include "../math/float.hpp"
 #	include "../math/sign.hpp"
 #	include "../string.hpp"
 #	include "../string_view.hpp"
-#	include "../trait/is_arithmetic.hpp"
-#	include "../trait/is_float.hpp"
-#	include "../trait/is_int.hpp"
-#	include "../trait/is_signed_int.hpp"
 #	include <algorithm>
 #	include <ranges>
 
@@ -33,11 +28,11 @@ namespace xte {
 namespace DETAIL_XTE::serialize {
 	template<xte::is_arithmetic arithmetic_type>
 	struct parse {
-		[[nodiscard]] static constexpr arithmetic_type operator()(xte::string_view string, arithmetic_type radix = 10, const xte::serialize_config& config = {}, bool allow_overflow = true) noexcept {
+		[[nodiscard]] static constexpr arithmetic_type operator()(xte::string_view string, arithmetic_type radix = 10, xte::serialize_config const& config = {}, bool allow_overflow = true) noexcept {
 			return DETAIL_XTE::serialize::parse<arithmetic_type>::with_index(string, radix, config, allow_overflow).value;
 		}
 
-		[[nodiscard]] static constexpr auto with_index(xte::string_view string, arithmetic_type radix = 10, const xte::serialize_config& config = {}, bool allow_overflow = true) noexcept {
+		[[nodiscard]] static constexpr auto with_index(xte::string_view string, arithmetic_type radix = 10, xte::serialize_config const& config = {}, bool allow_overflow = true) noexcept {
 			struct { arithmetic_type value = 0; xte::uz index = 0; } result;
 			if (!string.size() || xte::approx_equal(radix, 0) || !xte::is_finite(radix)) {
 				return result;
@@ -54,8 +49,8 @@ namespace DETAIL_XTE::serialize {
 							value = xte::as_unsigned(xte::add(xte::mul(static_cast<arithmetic_type>(value), radix), xte::make<arithmetic_type>(digit)));
 							continue;
 						}
-						if (auto prod = xte::mul_checked(static_cast<arithmetic_type>(value), radix)) {
-							if (auto sum = xte::add_checked(*prod, xte::make<arithmetic_type>(digit + !neg))) {
+						if (auto prod = xte::checked_mul(static_cast<arithmetic_type>(value), radix)) {
+							if (auto sum = xte::checked_add(*prod, xte::make<arithmetic_type>(digit + !neg))) {
 								value = xte::as_unsigned(*sum) - !neg;
 								continue;
 							}
@@ -89,7 +84,7 @@ namespace DETAIL_XTE::serialize {
 }
 
 namespace xte {
-	constexpr auto stringify_number = []<xte::is_arithmetic arithmetic_type>[[nodiscard]](arithmetic_type x, arithmetic_type radix = 10, const xte::serialize_config& config = {}, xte::uz max_float_precision = 50) noexcept(false) -> xte::string {
+	constexpr auto stringify_number = []<xte::is_arithmetic arithmetic_type>[[nodiscard]](arithmetic_type x, arithmetic_type radix = 10, xte::serialize_config const& config = {}, xte::uz max_float_precision = 50) noexcept(false) -> xte::string {
 		xte::string result;
 		if (xte::is_nan(x)) {
 			return "NaN";

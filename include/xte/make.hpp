@@ -2,15 +2,11 @@
 #	define DETAIL_XTE_HEADER_MAKE
 #
 #	include "./compare.hpp"
+#	include "./fundamental_traits.hpp"
 #	include "./limits.hpp"
+#	include "./macros.hpp"
 #	include "./math/float.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/lift.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./qual_cast.hpp"
-#	include "./trait/is_arithmetic.hpp"
-#	include "./trait/is_float.hpp"
-#	include "./trait/is_int.hpp"
+#	include "./qual_traits.hpp"
 #	include <cmath>
 #	include <limits>
 

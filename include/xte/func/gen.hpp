@@ -3,14 +3,11 @@
 #
 #	include "../address.hpp"
 #	include "../aliases.hpp"
+#	include "../class_traits.hpp"
 #	include "../opt.hpp"
+#	include "../macros.hpp"
 #	include "../meta/fake.hpp"
-#	include "../preproc/fwd.hpp"
-#	include "../preproc/returns.hpp"
-#	include "../qual_cast.hpp"
-#	include "../trait/drop_cvref.hpp"
-#	include "../trait/drop_ref.hpp"
-#	include "../trait/is_specialization_of.hpp"
+#	include "../qual_traits.hpp"
 
 namespace DETAIL_XTE::gen {
 	template<typename func_type>
@@ -23,7 +20,7 @@ namespace DETAIL_XTE::gen {
 			func_type* _func;
 			decltype(xte::fake<func_type&>()()) _value;
 
-			[[nodiscard]] explicit(false) constexpr iter() noexcept
+			[[nodiscard]] constexpr explicit(false) iter() noexcept
 			: _func(nullptr), _value(xte::null) {}
 
 			[[nodiscard]] constexpr iter(func_type* func, decltype(xte::fake<func_type&>()()) value) XTE_CONSTRUCTS(
@@ -31,17 +28,17 @@ namespace DETAIL_XTE::gen {
 				(_value,(xte::as_xvalue(value)))
 			)
 
-			[[nodiscard]] explicit(false) constexpr iter(const DETAIL_XTE::gen::impl<func_type>::iter& other) XTE_CONSTRUCTS(
+			[[nodiscard]] constexpr explicit(false) iter(DETAIL_XTE::gen::impl<func_type>::iter const& other) XTE_CONSTRUCTS(
 				(_func,(other._func))
 				(_value,(other._value))
 			)
 
-			[[nodiscard]] explicit(false) constexpr iter(DETAIL_XTE::gen::impl<func_type>::iter&& other) XTE_CONSTRUCTS(
+			[[nodiscard]] constexpr explicit(false) iter(DETAIL_XTE::gen::impl<func_type>::iter&& other) XTE_CONSTRUCTS(
 				(_func,(other._func))
 				(_value,(xte::as_xvalue(other)._value))
 			)
 
-			[[nodiscard]] constexpr auto operator=(const DETAIL_XTE::gen::impl<func_type>::iter& other) XTE_RETURNS(
+			[[nodiscard]] constexpr auto operator=(DETAIL_XTE::gen::impl<func_type>::iter const& other) XTE_RETURNS(
 				void(this->_func = other._func),
 				void(this->_value = other._value),
 				*this
@@ -53,7 +50,7 @@ namespace DETAIL_XTE::gen {
 				*this
 			)
 
-			[[nodiscard]] friend constexpr bool operator==(const DETAIL_XTE::gen::impl<func_type>::iter& lhs, const DETAIL_XTE::gen::impl<func_type>::iter& rhs) noexcept {
+			[[nodiscard]] friend constexpr bool operator==(DETAIL_XTE::gen::impl<func_type>::iter const& lhs, DETAIL_XTE::gen::impl<func_type>::iter const& rhs) noexcept {
 				return !lhs._value == !rhs._value;
 			}
 

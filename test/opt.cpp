@@ -1,5 +1,5 @@
 #include <xte/opt.hpp>
-#include <xte/qual_cast.hpp>
+#include <xte/qual_traits.hpp>
 
 struct A {
 	A(int) {}

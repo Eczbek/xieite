@@ -1,12 +1,10 @@
 #ifndef DETAIL_XTE_HEADER_APPROX_EQUAL
 #	define DETAIL_XTE_HEADER_APPROX_EQUAL
 #
-#	include "./abs.hpp"
 #	include "./compare.hpp"
+#	include "./fundamental_traits.hpp"
 #	include "./math/diff.hpp"
 #	include "./math/float.hpp"
-#	include "./trait/is_arithmetic.hpp"
-#	include "./trait/is_float.hpp"
 #	include <limits>
 #	include <type_traits>
 
@@ -46,6 +44,22 @@ namespace xte {
 
 	[[nodiscard]] constexpr bool approx_equal_slope(xte::is_arithmetic auto lhs, xte::is_arithmetic auto rhs, xte::is_arithmetic auto epsilon) noexcept {
 		return (xte::is_infinite(lhs) && xte::is_infinite(rhs)) || xte::approx_equal(lhs, rhs, epsilon);
+	}
+
+	[[nodiscard]] constexpr bool approx_less_equal_slope(xte::is_arithmetic auto lhs, xte::is_arithmetic auto rhs) noexcept {
+		return xte::approx_equal_slope(lhs, rhs) || xte::less_equal(lhs, rhs);
+	}
+
+	[[nodiscard]] constexpr bool approx_less_equal_slope(xte::is_arithmetic auto lhs, xte::is_arithmetic auto rhs, xte::is_arithmetic auto epsilon) noexcept {
+		return xte::approx_equal_slope(lhs, rhs, epsilon) || xte::less_equal(lhs, rhs);
+	}
+
+	[[nodiscard]] constexpr bool approx_greater_equal_slope(xte::is_arithmetic auto lhs, xte::is_arithmetic auto rhs) noexcept {
+		return xte::approx_equal_slope(lhs, rhs) || xte::greater_equal(lhs, rhs);
+	}
+
+	[[nodiscard]] constexpr bool approx_greater_equal_slope(xte::is_arithmetic auto lhs, xte::is_arithmetic auto rhs, xte::is_arithmetic auto epsilon) noexcept {
+		return xte::approx_equal_slope(lhs, rhs, epsilon) || xte::greater_equal(lhs, rhs);
 	}
 }
 

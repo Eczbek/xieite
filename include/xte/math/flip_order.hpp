@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_MATH_FLIP_ORDER
 #	define DETAIL_XTE_HEADER_MATH_FLIP_ORDER
 #
-#	include "../trait/is_order.hpp"
+#	include "../fundamental_traits.hpp"
 #	include <compare>
 
 namespace xte {

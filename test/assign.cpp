@@ -1,5 +1,5 @@
 #include <xte/assign.hpp>
-#include <xte/qual_cast.hpp>
+#include <xte/qual_traits.hpp>
 
 static_assert(xte::assign(xte::as_lvalue(false), true));
 static_assert(xte::assign(xte::as_lvalue(0), xte::as_const(xte::as_lvalue(1))) == 1);
@@ -12,9 +12,9 @@ static_assert(([] {
 
 struct A {
 	constexpr A() = default;
-	constexpr A(const A&) = delete;
+	constexpr A(A const&) = delete;
 	constexpr A(A&&) = default;
-	A& operator=(const A&) = delete;
+	A& operator=(A const&) = delete;
 	A& operator=(A&&) = delete;
 };
 

@@ -1,27 +1,34 @@
 #ifndef DETAIL_XTE_HEADER_META_REQ
 #	define DETAIL_XTE_HEADER_META_REQ
 #
-#	include <algorithm>
 #	include <meta>
 
 namespace xte {
-	template<typename T, auto... predicates>
+	template<typename type, auto... predicates>
 	concept req = (... && ([] {
 		if constexpr (std::meta::is_reflection_type(^^decltype(predicates))) {
-			return (std::meta::is_template(predicates) && std::meta::can_substitute(predicates, { ^^T }));
+			static_assert(std::meta::is_template(predicates));
+			if constexpr (!std::meta::can_substitute(predicates, { ^^type })) {
+				return false;
+			}
+			if constexpr (requires { [:std::meta::substitute(predicates, { ^^type }):]::value; }) {
+				return [:std::meta::substitute(predicates, { ^^type }):]::value;
+			}
+			return true;
 		} else {
-			return requires { predicates.template operator()<T>(); };
+			// static_assert(requires { &decltype(predicates)::operator(); });
+			return requires { predicates.template operator()<type>(); };
 		}
 	})());
 
-	template<typename T, auto... predicates>
-	concept req_any = (... || xte::req<T, predicates>);
+	template<typename type, auto... predicates>
+	concept req_any = (... || xte::req<type, predicates>);
 
-	template<typename T, auto... predicates>
-	concept req_not = !xte::req_any<T, predicates...>;
+	template<typename type, auto... predicates>
+	concept req_not = !xte::req_any<type, predicates...>;
 
-	template<typename T, auto... predicates>
-	concept req_some = !xte::req<T, predicates...>;
+	template<typename type, auto... predicates>
+	concept req_some = !xte::req<type, predicates...>;
 }
 
 #endif

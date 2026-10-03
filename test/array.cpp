@@ -1,10 +1,8 @@
 #include <xte/aliases.hpp>
 #include <xte/array.hpp>
+#include <xte/class_traits.hpp>
 #include <xte/in_place.hpp>
-#include <xte/qual_cast.hpp>
-#include <xte/trait/is_copy_constructible.hpp>
-#include <xte/trait/is_move_constructible_noex.hpp>
-#include <xte/trait/is_same.hpp>
+#include <xte/qual_traits.hpp>
 #include <meta>
 #include <ranges>
 #include <vector>
@@ -38,7 +36,7 @@ static_assert(([] {
 
 static_assert(xte::is_same<int&&, decltype(xte::array<int>()[0])>);
 static_assert(xte::is_same<int&, decltype(xte::as_lvalue(xte::array<int>())[0])>);
-static_assert(xte::is_same<const int&, decltype(xte::as_const(xte::as_lvalue(xte::array<int>())[0]))>);
+static_assert(xte::is_same<int const&, decltype(xte::as_const(xte::as_lvalue(xte::array<int>())[0]))>);
 static_assert((xte::array<int> { 0, 1, 2 })[0] == 0);
 static_assert((xte::array<int> { 0, 1, 2 })[1] == 1);
 static_assert((xte::array<int> { 0, 1, 2 })[2] == 2);
@@ -68,7 +66,7 @@ static_assert(([] {
 
 static_assert(xte::is_same<int&&, decltype(xte::array<int>().front())>);
 static_assert(xte::is_same<int&, decltype(xte::as_lvalue(xte::array<int>()).front())>);
-static_assert(xte::is_same<const int&, decltype(xte::as_const(xte::as_lvalue(xte::array<int>()).front()))>);
+static_assert(xte::is_same<int const&, decltype(xte::as_const(xte::as_lvalue(xte::array<int>()).front()))>);
 static_assert((xte::array<int> { 0, 1, 2 }).front() == 0);
 static_assert((xte::array<int> { 0, 1, 2 }).front(0) == 0);
 static_assert((xte::array<int> { 0, 1, 2 }).front(1) == 1);
@@ -76,7 +74,7 @@ static_assert((xte::array<int> { 0, 1, 2 }).front(2) == 2);
 
 static_assert(xte::is_same<int&&, decltype(xte::array<int>().back())>);
 static_assert(xte::is_same<int&, decltype(xte::as_lvalue(xte::array<int>()).back())>);
-static_assert(xte::is_same<const int&, decltype(xte::as_const(xte::as_lvalue(xte::array<int>()).back()))>);
+static_assert(xte::is_same<int const&, decltype(xte::as_const(xte::as_lvalue(xte::array<int>()).back()))>);
 static_assert((xte::array<int> { 0, 1, 2 }).back() == 2);
 static_assert((xte::array<int> { 0, 1, 2 }).back(0) == 2);
 static_assert((xte::array<int> { 0, 1, 2 }).back(1) == 1);

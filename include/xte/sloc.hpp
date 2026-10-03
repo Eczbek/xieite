@@ -19,7 +19,7 @@ namespace xte {
 		, line(sloc.line())
 		, col(sloc.column()) {}
 
-		[[nodiscard]] explicit constexpr sloc(xte::string_view file, xte::string_view func, xte::uz line, xte::uz col = 0) noexcept
+		[[nodiscard]] constexpr explicit sloc(xte::string_view file, xte::string_view func, xte::uz line, xte::uz col = 0) noexcept
 		: file(file), func(func), line(line), col(col) {}
 	};
 }

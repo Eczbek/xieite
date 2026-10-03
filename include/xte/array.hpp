@@ -4,24 +4,18 @@
 #	include "./address.hpp"
 #	include "./aliases.hpp"
 #	include "./assign.hpp"
+#	include "./class_traits.hpp"
+#	include "./diagnostic.hpp"
 #	include "./exchange.hpp"
 #	include "./in_place.hpp"
 #	include "./init_list.hpp"
+#	include "./macros.hpp"
 #	include "./make.hpp"
 #	include "./math/clamp.hpp"
 #	include "./meta/req.hpp"
-#	include "./preproc/diagnostic.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./qual_cast.hpp"
+#	include "./qual_traits.hpp"
 #	include "./range_compare.hpp"
-#	include "./trait/is_constructible.hpp"
-#	include "./trait/is_copy_constructible.hpp"
-#	include "./trait/is_derived_from.hpp"
-#	include "./trait/is_destructible_noex.hpp"
-#	include "./trait/is_invocable.hpp"
-#	include "./trait/is_range_noex.hpp"
-#	include "./trait/is_same_drop_cvref.hpp"
+#	include "./range_traits.hpp"
 #	include <compare>
 #	include <iterator>
 #	include <memory>
@@ -55,29 +49,29 @@ namespace xte {
 	public:
 		using value_type = item_type;
 		using reference = item_type&;
-		using const_reference = const item_type&;
+		using const_reference = item_type const&;
 		using pointer = item_type*;
-		using const_pointer = const item_type*;
+		using const_pointer = item_type const*;
 		using iterator = item_type*;
-		using const_iterator = const item_type*;
+		using const_iterator = item_type const*;
 		using reverse_iterator = std::reverse_iterator<item_type*>;
-		using const_reverse_iterator = std::reverse_iterator<const item_type*>;
+		using const_reverse_iterator = std::reverse_iterator<item_type const*>;
 		using allocator_type = std::allocator<item_type>;
 		using size_type = xte::uz;
 		using difference_type = xte::iptrdiff;
 
-		[[nodiscard]] explicit(false) constexpr array() noexcept = default;
+		[[nodiscard]] array() = default;
 
-		[[nodiscard]] explicit(false) constexpr array(const xte::array<item_type>& other) noexcept(false)
+		[[nodiscard]] constexpr explicit(false) array(xte::array<item_type> const& other) noexcept(false)
 		requires(xte::is_copy_constructible<item_type>)
 		: xte::array<item_type>(std::from_range, other) {}
 
-		[[nodiscard]] explicit(false) constexpr array(xte::array<item_type>&& other) noexcept
+		[[nodiscard]] constexpr explicit(false) array(xte::array<item_type>&& other) noexcept
 		: _data(xte::exchange(other._data, nullptr))
 		, _size(xte::exchange(other._size, 0))
 		, _capacity(xte::exchange(other._capacity, 0)) {}
 
-		[[nodiscard]] explicit(false) constexpr array(xte::init_list<item_type> init_list) noexcept(false)
+		[[nodiscard]] constexpr explicit(false) array(xte::init_list<item_type> init_list) noexcept(false)
 		requires(requires (item_type x) { xte::make<item_type>(xte::as_xvalue(x)); })
 		: xte::array<item_type>(std::from_range, xte::as_xvalue(init_list)) {}
 
@@ -109,7 +103,7 @@ namespace xte {
 			((xte::array<item_type>),(std::from_range, xte::as_lvalue(xte::as_const(std::ranges::subrange(begin, end)))))
 		)
 
-		[[nodiscard]] explicit constexpr array(xte::uz size, auto&&... args) noexcept(false)
+		[[nodiscard]] constexpr explicit array(xte::uz size, auto&&... args) noexcept(false)
 		requires(requires { item_type(args...); })
 		try {
 			this->reserve_total(size);
@@ -121,7 +115,7 @@ namespace xte {
 			this->reset();
 		}
 
-		[[nodiscard]] constexpr array(xte::uz size, const item_type& fill) noexcept(false)
+		[[nodiscard]] constexpr array(xte::uz size, item_type const& fill) noexcept(false)
 		requires(xte::is_copy_constructible<item_type>)
 		try {
 			this->reserve_total(size);
@@ -137,7 +131,7 @@ namespace xte {
 			this->reset();
 		}
 
-		constexpr xte::array<item_type>& operator=(const xte::array<item_type>& other) & noexcept(false)
+		constexpr xte::array<item_type>& operator=(xte::array<item_type> const& other) & noexcept(false)
 		requires(requires (item_type x) { xte::construct(x, x); }) {
 			if (this != xte::address(other)) {
 				*this = std::ranges::subrange(other);
@@ -187,11 +181,11 @@ namespace xte {
 			return this->_capacity;
 		}
 
-		[[nodiscard]] friend constexpr auto operator<=>(const xte::array<item_type>& lhs, const xte::array<item_type>& rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator<=>(xte::array<item_type> const& lhs, xte::array<item_type> const& rhs) XTE_RETURNS(
 			xte::range_compare(lhs, rhs)
 		)
 
-		[[nodiscard]] friend constexpr auto operator==(const xte::array<item_type>& lhs, const xte::array<item_type>& rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator==(xte::array<item_type> const& lhs, xte::array<item_type> const& rhs) XTE_RETURNS(
 			(lhs._size == rhs._size) && xte::range_equal(lhs, rhs)
 		)
 
@@ -199,7 +193,7 @@ namespace xte {
 			return self._data;
 		}
 
-		[[nodiscard]] constexpr const item_type* cbegin() const noexcept {
+		[[nodiscard]] constexpr item_type const* cbegin() const noexcept {
 			return this->begin();
 		}
 
@@ -207,7 +201,7 @@ namespace xte {
 			return self._data + self._size;
 		}
 
-		[[nodiscard]] constexpr const item_type* cend() const noexcept {
+		[[nodiscard]] constexpr item_type const* cend() const noexcept {
 			return this->end();
 		}
 
@@ -266,7 +260,7 @@ namespace xte {
 			this->truncate(size);
 		}
 
-		constexpr void resize(xte::uz size, const item_type& fill) & noexcept(false)
+		constexpr void resize(xte::uz size, item_type const& fill) & noexcept(false)
 		requires(xte::is_copy_constructible<item_type>
 			&& requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); })
 		{
@@ -285,9 +279,9 @@ namespace xte {
 		constexpr void reserve_total(xte::uz total) & noexcept(false)
 		requires(requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); }) {
 			if (total > this->_capacity) {
-				XTE_DIAGNOSTIC_PUSH_GCC(OFF, "-Winterference-size")
+				XTE_DIAGNOSTIC_PUSH((NO_INTERFERENCE_SIZE))
 				xte::uz capacity = xte::max(this->_capacity, std::hardware_destructive_interference_size / sizeof(item_type));
-				XTE_DIAGNOSTIC_POP_GCC()
+				XTE_DIAGNOSTIC_POP()
 				while (capacity < total) {
 					capacity += xte::max(1, capacity / 2);
 				}
@@ -350,12 +344,13 @@ namespace xte {
 
 		template<std::ranges::input_range range_type = xte::array<item_type>>
 		constexpr void insert_range(xte::uz index, range_type&& range) & noexcept(false)
-		requires(xte::is_range_noex<range_type>
-			&& requires (item_type x, decltype(std::ranges::begin(range)) iter) {
-				{ item_type(xte::as_xvalue_if_noex(x)) } noexcept;
-				{ xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept;
-				{ item_type(xte::as_xvalue_if_noex(*iter)) } noexcept;
-				{ xte::assign(x, xte::as_xvalue_if_noex(*iter)) } noexcept; })
+		// requires(xte::is_range_noex<range_type>
+			// && requires (item_type x, decltype(std::ranges::begin(range)) iter) {
+				// { item_type(xte::as_xvalue_if_noex(x)) } noexcept;
+				// { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept;
+				// { item_type(xte::as_xvalue_if_noex(*iter)) } noexcept;
+				// { xte::assign(x, xte::as_xvalue_if_noex(*iter)) } noexcept; }
+			// )
 		{
 			index = xte::min(index, this->_size);
 			auto range_copy = xte::array<item_type>(std::from_range, XTE_FWD(range));
@@ -432,12 +427,12 @@ namespace xte {
 		constexpr void insert_fill(xte::uz index, xte::uz count, arg_type&& arg, auto&&... args) & noexcept(false)
 		requires(requires { item_type(XTE_FWD(arg), XTE_FWD(args)...); }
 			&& xte::is_copy_constructible_noex<item_type>
-			&& requires (item_type x, const item_type fill) { { xte::assign(x, fill) } noexcept; }
+			&& requires (item_type x, item_type const fill) { { xte::assign(x, fill) } noexcept; }
 			&& requires (item_type x) { { item_type(xte::as_xvalue_if_noex(x)) } noexcept; }
 			&& requires (item_type x) { { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; })
 		{
 			index = xte::min(index, this->_size);
-			const auto fill = xte::make<item_type>(XTE_FWD(arg), XTE_FWD(args)...);
+			auto const fill = xte::make<item_type>(XTE_FWD(arg), XTE_FWD(args)...);
 			if ((this->_size + count) <= this->_capacity) {
 				for (xte::uz i = count; i-- && ((count - i) <= (this->_size - index));) {
 					xte::construct(this->_data[this->_size + i], xte::as_xvalue_if_noex(this->_data[this->_size - count + i]));
@@ -529,7 +524,7 @@ namespace xte {
 			}
 		}
 
-		constexpr void append_fill(xte::uz count, const item_type& fill) & noexcept(false)
+		constexpr void append_fill(xte::uz count, item_type const& fill) & noexcept(false)
 		requires(xte::is_copy_constructible<item_type>
 			&& requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); })
 		{

@@ -3,16 +3,15 @@
 #
 #	include "../abs.hpp"
 #	include "../arithmetic.hpp"
+#	include "../fundamental_traits.hpp"
 #	include "../limits.hpp"
-#	include "../trait/is_arithmetic.hpp"
-#	include "../trait/is_float.hpp"
 #	include <limits>
 #	include <type_traits>
 
 namespace xte {
 	[[nodiscard]] constexpr auto diff(xte::is_arithmetic auto x, xte::is_arithmetic auto y) noexcept {
 		if constexpr (using common_type = std::common_type_t<decltype(x), decltype(y)>; xte::is_float<common_type>) {
-			if (auto diff = xte::sub_checked(x, y)) {
+			if (auto diff = xte::checked_sub(x, y)) {
 				return xte::abs(*diff);
 			} else if constexpr (std::numeric_limits<common_type>::has_infinity) {
 				return std::numeric_limits<common_type>::infinity();

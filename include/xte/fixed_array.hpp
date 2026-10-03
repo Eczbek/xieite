@@ -2,17 +2,12 @@
 #	define DETAIL_XTE_HEADER_FIXED_ARRAY
 #
 #	include "./aliases.hpp"
+#	include "./class_traits.hpp"
 #	include "./func/unfold.hpp"
-#	include "./meta/wrap_value.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./qual_cast.hpp"
+#	include "./macros.hpp"
+#	include "./meta/wrap.hpp"
+#	include "./qual_traits.hpp"
 #	include "./range_compare.hpp"
-#	include "./trait/drop_cvref.hpp"
-#	include "./trait/is_castable.hpp"
-#	include "./trait/is_derived_from_specialization_of.hpp"
-#	include "./trait/is_same.hpp"
-#	include "./trait/is_specialization_of.hpp"
 #	include <compare>
 #	include <concepts>
 #	include <iterator>
@@ -21,21 +16,21 @@
 #	include <type_traits>
 
 namespace xte {
-	template<typename T, xte::uz n>
+	template<typename item_type, xte::uz n>
 	struct fixed_array {
-		using value_type = T;
-		using reference = T&;
-		using const_reference = const T&;
-		using pointer = T*;
-		using const_pointer = const T*;
-		using iterator = T*;
-		using const_iterator = const T*;
-		using reverse_iterator = std::reverse_iterator<T*>;
-		using const_reverse_iterator = std::reverse_iterator<const T*>;
+		using value_type = item_type;
+		using reference = item_type&;
+		using const_reference = const item_type&;
+		using pointer = item_type*;
+		using const_pointer = const item_type*;
+		using iterator = item_type*;
+		using const_iterator = const item_type*;
+		using reverse_iterator = std::reverse_iterator<item_type*>;
+		using const_reverse_iterator = std::reverse_iterator<const item_type*>;
 		using size_type = xte::uz;
 		using difference_type = xte::iptrdiff;
 
-		[:^^T[n]:] _data;
+		[:^^item_type[n]:] _data;
 
 		[[nodiscard]] constexpr auto* data(this auto&& self) noexcept {
 			return self._data;
@@ -44,12 +39,12 @@ namespace xte {
 		static constexpr auto size = xte::wrap_value<n>();
 
 		template<xte::uz m>
-		[[nodiscard]] friend constexpr auto operator<=>(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator<=>(xte::fixed_array<item_type, n> const& lhs, xte::fixed_array<item_type, m> const& rhs) XTE_RETURNS(
 			xte::range_compare(lhs, rhs)
 		)
 
 		template<xte::uz m>
-		[[nodiscard]] friend constexpr auto operator==(const xte::fixed_array<T, n>& lhs, const xte::fixed_array<T, m>& rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator==(xte::fixed_array<item_type, n> const& lhs, xte::fixed_array<item_type, m> const& rhs) XTE_RETURNS(
 			(n == m) && std::is_eq(lhs <=> rhs)
 		)
 
@@ -57,7 +52,7 @@ namespace xte {
 			return self.data();
 		}
 
-		[[nodiscard]] constexpr const T* cbegin() const noexcept {
+		[[nodiscard]] constexpr item_type const* cbegin() const noexcept {
 			return this->begin();
 		}
 
@@ -65,7 +60,7 @@ namespace xte {
 			return self.data() + n;
 		}
 
-		[[nodiscard]] constexpr const T* cend() const noexcept {
+		[[nodiscard]] constexpr item_type const* cend() const noexcept {
 			return this->end();
 		}
 
@@ -103,61 +98,61 @@ namespace xte {
 		}
 	};
 
-	template<typename T>
-	struct fixed_array<T, 0> {
-		using value_type = T;
-		using reference = T&;
-		using const_reference = const T&;
-		using pointer = T*;
-		using const_pointer = const T*;
-		using iterator = T*;
-		using const_iterator = const T*;
-		using reverse_iterator = const T*;
-		using const_reverse_iterator = const T*;
+	template<typename item_type>
+	struct fixed_array<item_type, 0> {
+		using value_type = item_type;
+		using reference = item_type&;
+		using const_reference = const item_type&;
+		using pointer = item_type*;
+		using const_pointer = const item_type*;
+		using iterator = item_type*;
+		using const_iterator = const item_type*;
+		using reverse_iterator = std::reverse_iterator<item_type*>;
+		using const_reverse_iterator = std::reverse_iterator<const item_type*>;
 		using size_type = xte::uz;
 		using difference_type = xte::iptrdiff;
 
-		[[nodiscard]] constexpr const T* data() const noexcept {
+		[[nodiscard]] constexpr item_type const* data() const noexcept {
 			return nullptr;
 		}
 
 		static constexpr auto size = xte::wrap_value<0uz>();
 
-		[[nodiscard]] constexpr const T* begin() const noexcept {
+		[[nodiscard]] constexpr item_type const* begin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* cbegin() const noexcept {
+		[[nodiscard]] constexpr item_type const* cbegin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* rbegin() const noexcept {
+		[[nodiscard]] constexpr item_type const* rbegin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* crbegin() const noexcept {
+		[[nodiscard]] constexpr item_type const* crbegin() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* end() const noexcept {
+		[[nodiscard]] constexpr item_type const* end() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* cend() const noexcept {
+		[[nodiscard]] constexpr item_type const* cend() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* rend() const noexcept {
+		[[nodiscard]] constexpr item_type const* rend() const noexcept {
 			return nullptr;
 		}
 
-		[[nodiscard]] constexpr const T* crend() const noexcept {
+		[[nodiscard]] constexpr item_type const* crend() const noexcept {
 			return nullptr;
 		}
 	};
 
-	template<typename T, typename... Ts>
-	fixed_array(T, Ts...) -> fixed_array<std::common_type_t<T, Ts...>, (sizeof...(Ts) + 1)>;
+	template<typename item_type, typename... item_types>
+	fixed_array(item_type, item_types...) -> fixed_array<std::common_type_t<item_type, item_types...>, (sizeof...(item_types) + 1)>;
 
 	template<typename lhs_type, typename rhs_type>
 	requires(xte::is_derived_from_specialization_of<xte::drop_cvref<lhs_type>, ^^xte::fixed_array>
@@ -172,14 +167,14 @@ namespace xte {
 	)
 }
 
-template<typename T, xte::uz n>
-struct std::tuple_size<xte::fixed_array<T, n>> {
+template<typename item_type, xte::uz n>
+struct std::tuple_size<xte::fixed_array<item_type, n>> {
 	static constexpr xte::uz value = n;
 };
 
-template<xte::uz index, typename T, xte::uz n>
-struct std::tuple_element<index, xte::fixed_array<T, n>> {
-	using type = T;
+template<xte::uz index, typename item_type, xte::uz n>
+struct std::tuple_element<index, xte::fixed_array<item_type, n>> {
+	using type = item_type;
 };
 
 #endif

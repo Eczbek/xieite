@@ -93,40 +93,40 @@ static_assert(xte::pow(0, 2) == 0);
 static_assert(xte::pow(10, 3) == 1000);
 static_assert(xte::pow(2, 4) == 16);
 
-static_assert(xte::add_checked(0));
-static_assert(*xte::add_checked(0) == 0);
-static_assert(xte::add_checked(1, 2));
-static_assert(*xte::add_checked(1, 2) == 3);
-static_assert(xte::add_checked(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
-static_assert(*xte::add_checked(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) == 55);
-static_assert(!xte::add_checked(-1u, 1u));
+static_assert(xte::checked_add(0));
+static_assert(*xte::checked_add(0) == 0);
+static_assert(xte::checked_add(1, 2));
+static_assert(*xte::checked_add(1, 2) == 3);
+static_assert(xte::checked_add(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+static_assert(*xte::checked_add(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) == 55);
+static_assert(!xte::checked_add(-1u, 1u));
 
-static_assert(xte::sub_checked(0));
-static_assert(*xte::sub_checked(0) == 0);
-static_assert(xte::sub_checked(2, 1));
-static_assert(*xte::sub_checked(2, 1) == 1);
-static_assert(xte::sub_checked(10, 9, 8, 7, 6, 5, 4, 3, 2, 1));
-static_assert(*xte::sub_checked(10, 9, 8, 7, 6, 5, 4, 3, 2, 1) == -35);
-static_assert(!xte::sub_checked(0u, 1u));
+static_assert(xte::checked_sub(0));
+static_assert(*xte::checked_sub(0) == 0);
+static_assert(xte::checked_sub(2, 1));
+static_assert(*xte::checked_sub(2, 1) == 1);
+static_assert(xte::checked_sub(10, 9, 8, 7, 6, 5, 4, 3, 2, 1));
+static_assert(*xte::checked_sub(10, 9, 8, 7, 6, 5, 4, 3, 2, 1) == -35);
+static_assert(!xte::checked_sub(0u, 1u));
 
-static_assert(xte::mul_checked(0));
-static_assert(*xte::mul_checked(0) == 0);
-static_assert(xte::mul_checked(2, 2));
-static_assert(*xte::mul_checked(2, 2) == 4);
-static_assert(xte::mul_checked(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
-static_assert(*xte::mul_checked(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) == 3628800);
-static_assert(!xte::mul_checked(-1u, 2u));
+static_assert(xte::checked_mul(0));
+static_assert(*xte::checked_mul(0) == 0);
+static_assert(xte::checked_mul(2, 2));
+static_assert(*xte::checked_mul(2, 2) == 4);
+static_assert(xte::checked_mul(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+static_assert(*xte::checked_mul(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) == 3628800);
+static_assert(!xte::checked_mul(-1u, 2u));
 
-static_assert(xte::div_checked(0));
-static_assert(*xte::div_checked(0) == 0);
-static_assert(xte::div_checked(1, 2));
-static_assert(*xte::div_checked(1, 2) == 0);
-static_assert(xte::div_checked(64, 4, 2));
-static_assert(*xte::div_checked(64, 4, 2) == 8);
-static_assert(!xte::div_checked(3, 0));
-static_assert(!xte::div_checked(xte::lowest<int>, -1));
-static_assert(*xte::div_checked(xte::lowest<int>, -1, -1) == xte::lowest<int>);
+static_assert(xte::checked_div(0));
+static_assert(*xte::checked_div(0) == 0);
+static_assert(xte::checked_div(1, 2));
+static_assert(*xte::checked_div(1, 2) == 0);
+static_assert(xte::checked_div(64, 4, 2));
+static_assert(*xte::checked_div(64, 4, 2) == 8);
+static_assert(!xte::checked_div(3, 0));
+static_assert(!xte::checked_div(xte::lowest<int>, -1));
+static_assert(*xte::checked_div(xte::lowest<int>, -1, -1) == xte::lowest<int>);
 
-// TODO: rem_checked, mod_checked
+// TODO: checked_rem, checked_mod
 
-static_assert(!xte::pow_checked(50000, 2));
+static_assert(!xte::checked_pow(50000, 2));

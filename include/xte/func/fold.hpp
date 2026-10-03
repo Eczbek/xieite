@@ -2,8 +2,7 @@
 #	define DETAIL_XTE_HEADER_FUNC_FOLD
 #
 #	include "../aliases.hpp"
-#	include "../preproc/fwd.hpp"
-#	include "../preproc/returns.hpp"
+#	include "../macros.hpp"
 
 namespace DETAIL_XTE::fold {
 	template<xte::uz count, typename func_type, typename value_type>

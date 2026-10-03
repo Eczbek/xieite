@@ -2,15 +2,11 @@
 #	define DETAIL_XTE_HEADER_ASSIGN
 #
 #	include "./address.hpp"
+#	include "./fundamental_traits.hpp"
 #	include "./in_place.hpp"
+#	include "./macros.hpp"
 #	include "./make.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./qual_cast.hpp"
-#	include "./trait/drop_cvref.hpp"
-#	include "./trait/drop_ref.hpp"
-#	include "./trait/is_arithmetic.hpp"
-#	include "./trait/is_same_drop_cvref.hpp"
+#	include "./qual_traits.hpp"
 
 namespace DETAIL_XTE::assign {
 	template<xte::is_arithmetic lhs_type>
@@ -24,7 +20,6 @@ namespace DETAIL_XTE::assign {
 		(static_cast<lhs_type&>(lhs = XTE_FWD(rhs)))
 		(static_cast<lhs_type&>(lhs = xte::make<lhs_type>(XTE_FWD(rhs))))
 		(xte::reconstruct(lhs, XTE_FWD(rhs)))
-		(xte::reconstruct(lhs, xte::make<lhs_type>(XTE_FWD(rhs))))
 	)
 }
 

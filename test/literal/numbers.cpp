@@ -1,7 +1,7 @@
 #include <xte/aliases.hpp>
 #include <xte/detect/feature.hpp>
 #include <xte/literal/numbers.hpp>
-#include <xte/trait/is_same.hpp>
+#include <xte/qual_traits.hpp>
 
 using namespace xte::literal::numbers;
 

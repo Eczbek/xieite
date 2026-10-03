@@ -1,7 +1,6 @@
+#include <xte/class_traits.hpp>
 #include <xte/fixed_array.hpp>
-#include <xte/trait/drop_cvref.hpp>
-#include <xte/trait/is_derived_from_specialization_of.hpp>
-#include <xte/trait/is_same.hpp>
+#include <xte/qual_traits.hpp>
 
 static_assert(xte::is_same<int, xte::fixed_array<int, 3>::value_type>);
 

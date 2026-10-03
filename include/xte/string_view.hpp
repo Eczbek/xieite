@@ -2,14 +2,13 @@
 #	define DETAIL_XTE_HEADER_STRING_VIEW
 #
 #	include "./aliases.hpp"
+#	include "./class_traits.hpp"
 #	include "./limits.hpp"
+#	include "./macros.hpp"
 #	include "./math/clamp.hpp"
 #	include "./meta/type.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/returns.hpp"
 #	include "./ptr.hpp"
 #	include "./range_compare.hpp"
-#	include "./trait/is_castable_implicit_noex.hpp"
 #	include <compare>
 #	include <format>
 #	include <iterator>
@@ -20,28 +19,40 @@
 
 namespace xte {
 	struct string_view : std::ranges::view_base {
-		const char* _data = nullptr;
+		using value_type = char const;
+		using reference = char const&;
+		using const_reference = char const&;
+		using pointer = char const*;
+		using const_pointer = char const*;
+		using iterator = char const*;
+		using const_iterator = char const*;
+		using reverse_iterator = std::reverse_iterator<char const*>;
+		using const_reverse_iterator = std::reverse_iterator<char const*>;
+		using size_type = xte::uz;
+		using difference_type = xte::iptrdiff;
+
+		char const* _data = nullptr;
 		xte::uz _size = 0;
 
-		[[nodiscard]] explicit(false) constexpr string_view() noexcept = default;
+		[[nodiscard]] constexpr explicit(false) string_view() noexcept = default;
 
 		template<xte::uz size>
-		[[nodiscard]] explicit(false) constexpr string_view(xte::type<const char[size]>& data) noexcept
+		[[nodiscard]] constexpr explicit(false) string_view(xte::type<char[size]> const& data) noexcept
 		: xte::string_view(data, size) {}
 
-		[[nodiscard]] explicit(false) constexpr string_view(const char& c) noexcept
+		[[nodiscard]] constexpr explicit(false) string_view(char const& c) noexcept
 		: xte::string_view(&c, 1) {}
 
-		[[nodiscard]] explicit constexpr string_view(const xte::is_castable_implicit_noex<const char*> auto& range) noexcept
+		[[nodiscard]] constexpr explicit string_view(const xte::is_implicitly_convertible_noex<char const*> auto& range) noexcept
 		: _data(range) {
-			if (const char* copy = this->_data) {
+			if (char const* copy = this->_data) {
 				while (*copy++) {
 					++this->_size;
 				}
 			}
 		}
 
-		[[nodiscard]] constexpr string_view(const char* data, xte::uz size) noexcept
+		[[nodiscard]] constexpr string_view(char const* data, xte::uz size) noexcept
 		: _data(data), _size(size) {
 			if (this->_size && !this->back()) {
 				--this->_size;
@@ -50,11 +61,11 @@ namespace xte {
 
 		template<std::ranges::contiguous_range range_type>
 		requires(xte::is_same<std::ranges::range_value_t<range_type>, char>)
-		[[nodiscard]] constexpr string_view(std::from_range_t, const range_type& range) XTE_CONSTRUCTS(
+		[[nodiscard]] constexpr string_view(std::from_range_t, range_type const& range) XTE_CONSTRUCTS(
 			((xte::string_view),(std::ranges::data(range), std::ranges::size(range)))
 		)
 
-		[[nodiscard]] explicit(false) constexpr string_view(const auto& range) XTE_CONSTRUCTS(
+		[[nodiscard]] constexpr explicit(false) string_view(auto const& range) XTE_CONSTRUCTS(
 			((xte::string_view),(std::from_range, range))
 		)
 
@@ -63,7 +74,7 @@ namespace xte {
 			((xte::string_view),(std::ranges::subrange(begin, end)))
 		)
 
-		[[nodiscard]] constexpr const char* data() const noexcept {
+		[[nodiscard]] constexpr char const* data() const noexcept {
 			return this->_data;
 		}
 
@@ -72,32 +83,32 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr decltype(auto) make_c_str_for(auto&& func, auto&&... args) const noexcept(false)
-		requires(requires (const char* data) { XTE_FWD(func)(data, XTE_FWD(args)...); }) {
+		requires(requires (char const* data) { XTE_FWD(func)(data, XTE_FWD(args)...); }) {
 			static constexpr xte::uz buffer_size = 256;
 			auto f = [&](auto&& data) -> decltype(auto) {
 				for (xte::uz i = 0; i < this->size(); ++i) {
 					data[i] = (*this)[i];
 				}
-				return XTE_FWD(func)(static_cast<const char*>(data), XTE_FWD(args)...);
+				return XTE_FWD(func)(static_cast<char const*>(data), XTE_FWD(args)...);
 			};
 			return ((this->size() + 1) < buffer_size)
 				? f(typename[:^^char[buffer_size]:] {})
 				: f(xte::ptr<char[]>::make(this->size() + 1));
 		}
 
-		[[nodiscard]] constexpr const char* begin() const noexcept {
+		[[nodiscard]] constexpr char const* begin() const noexcept {
 			return this->_data;
 		}
 
-		[[nodiscard]] constexpr const char* cbegin() const noexcept {
+		[[nodiscard]] constexpr char const* cbegin() const noexcept {
 			return this->begin();
 		}
 
-		[[nodiscard]] constexpr const char* end() const noexcept {
+		[[nodiscard]] constexpr char const* end() const noexcept {
 			return this->_data + this->_size;
 		}
 
-		[[nodiscard]] constexpr const char* cend() const noexcept {
+		[[nodiscard]] constexpr char const* cend() const noexcept {
 			return this->end();
 		}
 
@@ -125,7 +136,7 @@ namespace xte {
 			return this->_data[this->_size - index - 1];
 		}
 
-		[[nodiscard]] constexpr const char& operator[](xte::uz index) const noexcept {
+		[[nodiscard]] constexpr char const& operator[](xte::uz index) const noexcept {
 			return this->_data[index];
 		}
 
@@ -453,7 +464,7 @@ namespace xte {
 }
 
 namespace xte::literal::string_view {
-	[[nodiscard]] constexpr xte::string_view operator""_view(const char* data, xte::uz size) noexcept {
+	[[nodiscard]] constexpr xte::string_view operator""_view(char const* data, xte::uz size) noexcept {
 		return xte::string_view(data, size);
 	}
 }

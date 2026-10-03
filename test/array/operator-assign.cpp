@@ -1,30 +1,27 @@
 #include <xte/array.hpp>
-#include <xte/data/non_copyable.hpp>
-#include <xte/data/non_movable.hpp>
-#include <xte/qual_cast.hpp>
-#include <xte/trait/is_assignable.hpp>
-#include <xte/trait/is_assignable_noex.hpp>
+#include <xte/class_traits.hpp>
+#include <xte/qual_traits.hpp>
 #include <vector>
 
 struct non_constructible {
 	non_constructible() = delete;
-	non_constructible(const non_constructible&) = delete;
+	non_constructible(non_constructible const&) = delete;
 	non_constructible(non_constructible&&) = delete;
 };
 
 struct non_copyable {
 	non_copyable() = default;
-	non_copyable(const non_copyable&) = delete;
+	non_copyable(non_copyable const&) = delete;
 	non_copyable(non_copyable&&) = default;
-	non_copyable& operator=(const non_copyable&) = delete;
+	non_copyable& operator=(non_copyable const&) = delete;
 	non_copyable& operator=(non_copyable&&) = default;
 };
 
 struct non_movable {
 	non_movable() = default;
-	non_movable(const non_movable&) = default;
+	non_movable(non_movable const&) = default;
 	non_movable(non_movable&&) = delete;
-	non_movable& operator=(const non_movable&) = default;
+	non_movable& operator=(non_movable const&) = default;
 	non_movable& operator=(non_movable&&) = delete;
 };
 
@@ -38,19 +35,19 @@ struct throwing_default_constructor {
 
 struct throwing_copy_constructor {
 	throwing_copy_constructor() = default;
-	constexpr throwing_copy_constructor(const throwing_copy_constructor&) noexcept(false) {}
+	constexpr throwing_copy_constructor(throwing_copy_constructor const&) noexcept(false) {}
 	throwing_copy_constructor(throwing_copy_constructor&&) = default;
 };
 
 struct throwing_move_constructor {
 	throwing_move_constructor() = default;
-	throwing_move_constructor(const throwing_move_constructor&) = default;
+	throwing_move_constructor(throwing_move_constructor const&) = default;
 	constexpr throwing_move_constructor(throwing_move_constructor&&) noexcept(false) {}
 };
 
 struct throwing_copy_and_move_constructor {
 	throwing_copy_and_move_constructor() = default;
-	constexpr throwing_copy_and_move_constructor(const throwing_copy_and_move_constructor&) noexcept(false) {}
+	constexpr throwing_copy_and_move_constructor(throwing_copy_and_move_constructor const&) noexcept(false) {}
 	constexpr throwing_copy_and_move_constructor(throwing_copy_and_move_constructor&&) noexcept(false) {}
 };
 

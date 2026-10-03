@@ -7,12 +7,13 @@
 #	include "./approx_equal.hpp"
 #	include "./arithmetic.hpp"
 #	include "./array.hpp"
-#	include "./compare.hpp"
-#	include "./data/uppercase.hpp"
 #	include "./exchange.hpp"
 #	include "./fixed_array.hpp"
+#	include "./fundamental_traits.hpp"
+#	include "./lettercase.hpp"
 #	include "./limits.hpp"
 #	include "./literal/radix.hpp"
+#	include "./macros.hpp"
 #	include "./math/digits.hpp"
 #	include "./math/float.hpp"
 #	include "./math/bitwise.hpp"
@@ -20,19 +21,11 @@
 #	include "./math/serialize.hpp"
 #	include "./math/wide_int.hpp"
 #	include "./opt.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/lift.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./qual_cast.hpp"
+#	include "./qual_traits.hpp"
 #	include "./range_compare.hpp"
 #	include "./static_error.hpp"
 #	include "./string.hpp"
 #	include "./string_view.hpp"
-#	include "./trait/is_arithmetic.hpp"
-#	include "./trait/is_int.hpp"
-#	include "./trait/is_same.hpp"
-#	include "./trait/is_unsigned_int.hpp"
-#	include "./trait/is_signed_int.hpp"
 #	include <compare>
 #	include <ranges>
 #	include <type_traits>
@@ -65,7 +58,7 @@ namespace xte {
 			return true;
 		}
 
-		[[nodiscard]] constexpr std::strong_ordering _compare(const xte::big_int& rhs) const {
+		[[nodiscard]] constexpr std::strong_ordering _compare(xte::big_int const& rhs) const {
 			std::strong_ordering order = this->_data.size() <=> rhs._data.size();
 			return std::is_eq(order) ? xte::range_compare(std::views::reverse(this->_data), std::views::reverse(rhs._data)) : order;
 		}
@@ -90,7 +83,7 @@ namespace xte {
 					} else if (!carry) {
 						break;
 					}
-					this->_data[i] += rhs_digit + xte::exchange(carry, !xte::add_checked(this->_data[i], rhs_digit, carry));
+					this->_data[i] += rhs_digit + xte::exchange(carry, !xte::checked_add(this->_data[i], rhs_digit, carry));
 				}
 				this->_normalize();
 			}
@@ -119,7 +112,7 @@ namespace xte {
 					} else if (!borrow) {
 						break;
 					}
-					this->_data[i] -= rhs_digit + xte::exchange(borrow, !xte::sub_checked(this->_data[i], rhs_digit, borrow));
+					this->_data[i] -= rhs_digit + xte::exchange(borrow, !xte::checked_sub(this->_data[i], rhs_digit, borrow));
 				}
 				this->_normalize();
 			}
@@ -169,7 +162,7 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int _div(const xte::big_int& rhs) {
+		[[nodiscard]] constexpr xte::big_int _div(xte::big_int const& rhs) {
 			xte::big_int quot;
 			quot._data.resize(this->_data.size());
 			quot._neg = xte::exchange(this->_neg, false);
@@ -200,7 +193,7 @@ namespace xte {
 			return quot;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _bitwise(const xte::big_int& rhs, auto func) {
+		[[nodiscard]] constexpr xte::big_int& _bitwise(xte::big_int const& rhs, auto func) {
 			xte::umax lhs_neg = this->_neg;
 			xte::umax rhs_neg = rhs._neg;
 			xte::umax lhs_borrow = lhs_neg;
@@ -215,7 +208,7 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _lshift(const xte::big_int& rhs) {
+		[[nodiscard]] constexpr xte::big_int& _lshift(xte::big_int const& rhs) {
 			if (*this && rhs) {
 				xte::uz shift_digits = 0;
 				for (xte::uz i = 0; (i < rhs._data.size()) && (i <= (xte::width<xte::uz> / xte::width<xte::umax>)); ++i) {
@@ -238,7 +231,7 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _rshift(const xte::big_int& rhs) {
+		[[nodiscard]] constexpr xte::big_int& _rshift(xte::big_int const& rhs) {
 			if (*this && rhs) {
 				xte::uz shift_digits = 0;
 				for (xte::uz i = 0; (i < rhs._data.size()) && (i <= (xte::width<xte::uz> / xte::width<xte::umax>)); ++i) {
@@ -294,9 +287,8 @@ namespace xte {
 		}
 
 	public:
-		template<xte::is_arithmetic T = xte::umax>
-		[[nodiscard]] explicit(!xte::is_int<T>)
-		constexpr big_int(T x = 0) noexcept(false)
+		template<xte::is_arithmetic arithmetic_type = xte::umax>
+		[[nodiscard]] constexpr explicit(!xte::is_int<arithmetic_type>) big_int(arithmetic_type x = 0) noexcept(false)
 		: _neg(x < 0) {
 			if (!xte::is_finite(x)) {
 				throw xte::static_error<"value is not finite">();
@@ -307,9 +299,9 @@ namespace xte {
 			} while (abs >>= xte::width<xte::umax>);
 		}
 
-		[[nodiscard]] explicit(false) constexpr big_int(const xte::big_int&) noexcept(false) = default;
+		[[nodiscard]] constexpr explicit(false) big_int(xte::big_int const&) noexcept(false) = default;
 
-		[[nodiscard]] explicit(false) constexpr big_int(xte::big_int&&) noexcept = default;
+		[[nodiscard]] constexpr explicit(false) big_int(xte::big_int&&) noexcept = default;
 
 		template<typename range_type = xte::array<xte::umax>>
 		[[nodiscard]] constexpr big_int(std::from_range_t, range_type&& range, bool neg = false) XTE_CONSTRUCTS(
@@ -319,22 +311,22 @@ namespace xte {
 		)
 
 		template<xte::is_int radix_type = xte::uz>
-		[[nodiscard]] explicit constexpr big_int(xte::string_view string, radix_type radix = 10, const xte::serialize_config& config = {}) noexcept(false)
+		[[nodiscard]] constexpr explicit big_int(xte::string_view string, radix_type radix = 10, xte::serialize_config const& config = {}) noexcept(false)
 		: xte::big_int(xte::big_int::parse(string, radix, config)) {}
 
-		constexpr xte::big_int& operator=(const xte::big_int&) & noexcept(false) = default;
+		constexpr xte::big_int& operator=(xte::big_int const&) & noexcept(false) = default;
 
 		constexpr xte::big_int& operator=(xte::big_int&&) & noexcept = default;
 
-		template<xte::is_arithmetic T>
-		[[nodiscard]] explicit constexpr operator T() const noexcept {
-			xte::number<T> result;
+		template<xte::is_arithmetic arithmetic_type>
+		[[nodiscard]] constexpr explicit operator arithmetic_type() const noexcept {
+			xte::number<arithmetic_type> result;
 			xte::uz shift = 0;
 			for (xte::umax digit : this->_data) {
-				result += xte::number<T>(digit) << shift;
+				result += xte::number<arithmetic_type>(digit) << shift;
 				shift += xte::width<xte::umax>;
-				if constexpr (xte::is_int<T>) {
-					if (shift >= xte::width<T>) {
+				if constexpr (xte::is_int<arithmetic_type>) {
+					if (shift >= xte::width<arithmetic_type>) {
 						break;
 					}
 				}
@@ -342,16 +334,16 @@ namespace xte {
 			return this->_neg ? -result : result;
 		}
 
-		[[nodiscard]] explicit constexpr operator bool() const noexcept {
+		[[nodiscard]] constexpr explicit operator bool() const noexcept {
 			return (this->_data.size() > 1) || this->_data[0];
 		}
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xte::big_int& lhs, const xte::big_int& rhs) noexcept {
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xte::big_int const& lhs, xte::big_int const& rhs) noexcept {
 			std::strong_ordering order = rhs._neg <=> lhs._neg;
 			return std::is_eq(order) ? (lhs._neg ? rhs._compare(lhs) : lhs._compare(rhs)) : order;
 		}
 
-		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(const xte::big_int& lhs, xte::is_int auto rhs) noexcept {
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xte::big_int const& lhs, xte::is_int auto rhs) noexcept {
 			std::strong_ordering order = (rhs < 0) <=> lhs._neg;
 			if (!std::is_eq(order)) {
 				return order;
@@ -365,17 +357,17 @@ namespace xte {
 			return lhs._neg ? (rhs_abs <=> lhs_abs) : (lhs_abs <=> rhs_abs);
 		}
 
-		[[nodiscard]] friend constexpr std::partial_ordering operator<=>(const xte::big_int& lhs, xte::is_float auto rhs) noexcept {
+		[[nodiscard]] friend constexpr std::partial_ordering operator<=>(xte::big_int const& lhs, xte::is_float auto rhs) noexcept {
 			return static_cast<decltype(rhs)>(lhs) <=> rhs;
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xte::big_int&, const xte::big_int&) noexcept = default;
+		[[nodiscard]] friend constexpr bool operator==(xte::big_int const&, xte::big_int const&) noexcept = default;
 
-		[[nodiscard]] friend constexpr bool operator==(const xte::big_int& lhs, xte::is_int auto rhs) noexcept {
+		[[nodiscard]] friend constexpr bool operator==(xte::big_int const& lhs, xte::is_int auto rhs) noexcept {
 			return std::is_eq(lhs <=> rhs);
 		}
 
-		[[nodiscard]] friend constexpr bool operator==(const xte::big_int& lhs, xte::is_float auto rhs) noexcept {
+		[[nodiscard]] friend constexpr bool operator==(xte::big_int const& lhs, xte::is_float auto rhs) noexcept {
 			return xte::approx_equal(static_cast<decltype(rhs)>(lhs), rhs);
 		}
 
@@ -383,7 +375,7 @@ namespace xte {
 			return XTE_FWD(self);
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator+(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator+(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return xte::as_xvalue(lhs += rhs);
 		}
 
@@ -391,7 +383,7 @@ namespace xte {
 			return xte::as_xvalue(lhs += xte::as_xvalue(rhs));
 		}
 
-		constexpr xte::big_int& operator+=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator+=(xte::big_int const& rhs) & noexcept(false) {
 			return this->_add(rhs);
 		}
 
@@ -416,7 +408,7 @@ namespace xte {
 			return xte::as_xvalue(*this);
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator-(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator-(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return lhs -= rhs;
 		}
 
@@ -424,7 +416,7 @@ namespace xte {
 			return lhs -= xte::as_xvalue(rhs);
 		}
 
-		constexpr xte::big_int& operator-=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator-=(xte::big_int const& rhs) & noexcept(false) {
 			return this->_sub(rhs);
 		}
 
@@ -440,7 +432,7 @@ namespace xte {
 			return xte::exchange(*this, *this - 1);
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator*(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator*(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return xte::as_xvalue(lhs *= rhs);
 		}
 
@@ -448,7 +440,7 @@ namespace xte {
 			return xte::as_xvalue(lhs *= xte::as_xvalue(rhs));
 		}
 
-		constexpr xte::big_int& operator*=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator*=(xte::big_int const& rhs) & noexcept(false) {
 			return this->_mul(rhs);
 		}
 
@@ -456,11 +448,11 @@ namespace xte {
 			return this->_mul(xte::as_xvalue(rhs));
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator/(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator/(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return xte::as_xvalue(lhs /= rhs);
 		}
 
-		constexpr xte::big_int& operator/=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator/=(xte::big_int const& rhs) & noexcept(false) {
 			if (!rhs) {
 				throw xte::static_error<"division by zero">();
 			}
@@ -483,11 +475,11 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator%(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator%(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return xte::as_xvalue(lhs %= rhs);
 		}
 
-		constexpr xte::big_int& operator%=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator%=(xte::big_int const& rhs) & noexcept(false) {
 			if (!rhs) {
 				throw xte::static_error<"remainder of division by zero">();
 			}
@@ -508,43 +500,43 @@ namespace xte {
 			return -XTE_FWD(self) - 1;
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator&(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator&(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return xte::as_xvalue(lhs &= xte::as_xvalue(rhs));
 		}
 
-		constexpr xte::big_int& operator&=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator&=(xte::big_int const& rhs) & noexcept(false) {
 			return this->_bitwise(xte::as_xvalue(rhs), XTE_LIFT_INFIX(&));
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator|(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator|(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return xte::as_xvalue(lhs |= xte::as_xvalue(rhs));
 		}
 
-		constexpr xte::big_int& operator|=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator|=(xte::big_int const& rhs) & noexcept(false) {
 			return this->_bitwise(xte::as_xvalue(rhs), XTE_LIFT_INFIX(|));
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator^(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator^(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return xte::as_xvalue(lhs ^= xte::as_xvalue(rhs));
 		}
 
-		constexpr xte::big_int& operator^=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator^=(xte::big_int const& rhs) & noexcept(false) {
 			return this->_bitwise(xte::as_xvalue(rhs), XTE_LIFT_INFIX(^));
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator<<(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator<<(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return xte::as_xvalue(lhs <<= rhs);
 		}
 
-		constexpr xte::big_int& operator<<=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator<<=(xte::big_int const& rhs) & noexcept(false) {
 			return rhs._neg ? this->_rshift(rhs) : this->_lshift(rhs);
 		}
 
-		[[nodiscard]] friend constexpr xte::big_int operator>>(xte::big_int lhs, const xte::big_int& rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::big_int operator>>(xte::big_int lhs, xte::big_int const& rhs) noexcept(false) {
 			return xte::as_xvalue(lhs >>= rhs);
 		}
 
-		constexpr xte::big_int& operator>>=(const xte::big_int& rhs) & noexcept(false) {
+		constexpr xte::big_int& operator>>=(xte::big_int const& rhs) & noexcept(false) {
 			return rhs._neg ? this->_lshift(rhs) : this->_rshift(rhs);
 		}
 
@@ -557,7 +549,7 @@ namespace xte {
 			return xte::as_xvalue(*this);
 		}
 
-		[[nodiscard]] constexpr xte::big_int pow(this auto&& base, const xte::big_int& exp) noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int pow(this auto&& base, xte::big_int const& exp) noexcept(false) {
 			return XTE_FWD(base)._pow(exp);
 		}
 
@@ -565,7 +557,7 @@ namespace xte {
 			return XTE_FWD(base)._pow(xte::as_xvalue(exp));
 		}
 
-		[[nodiscard]] constexpr xte::big_int root(const xte::big_int& degree) const noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int root(xte::big_int const& degree) const noexcept(false) {
 			if (this->_neg) {
 				throw xte::static_error<"root of negative radicand">();
 			}
@@ -589,7 +581,7 @@ namespace xte {
 			return root;
 		}
 
-		[[nodiscard]] constexpr xte::big_int log(const xte::big_int& base) const noexcept(false) {
+		[[nodiscard]] constexpr xte::big_int log(xte::big_int const& base) const noexcept(false) {
 			if (!base) {
 				return 0;
 			}
@@ -611,12 +603,12 @@ namespace xte {
 
 		static constexpr struct parse {
 			template<xte::is_int radix_type = xte::uz>
-			[[nodiscard]] static constexpr xte::big_int operator()(xte::string_view string, radix_type radix = 10, const xte::serialize_config& config = {}) noexcept(false) {
+			[[nodiscard]] static constexpr xte::big_int operator()(xte::string_view string, radix_type radix = 10, xte::serialize_config const& config = {}) noexcept(false) {
 				return xte::big_int::parse::with_index(string, radix, config).value;
 			}
 
 			template<xte::is_int radix_type = xte::uz>
-			[[nodiscard]] static constexpr auto with_index(xte::string_view string, radix_type radix = 10, const xte::serialize_config& config = {}) noexcept(false) {
+			[[nodiscard]] static constexpr auto with_index(xte::string_view string, radix_type radix = 10, xte::serialize_config const& config = {}) noexcept(false) {
 				struct { xte::big_int value = 0; xte::uz index = 0; } result;
 				if (!string.size() || !radix) {
 					return result;
@@ -636,7 +628,7 @@ namespace xte {
 		} parse {};
 
 		template<xte::is_int radix_type = xte::uz>
-		[[nodiscard]] constexpr xte::string str(this auto&& self, radix_type radix = 10, const xte::serialize_config& config = {}) noexcept(false) {
+		[[nodiscard]] constexpr xte::string str(this auto&& self, radix_type radix = 10, xte::serialize_config const& config = {}) noexcept(false) {
 			if (!self || !radix) {
 				return { config.digits[0] };
 			}
@@ -702,7 +694,7 @@ struct std::formatter<xte::big_int> {
 		return ctx.begin();
 	}
 
-	auto format(const xte::big_int& x, std::format_context& ctx) const noexcept(false) {
+	auto format(xte::big_int const& x, std::format_context& ctx) const noexcept(false) {
 		return std::format_to(ctx.out(), "{}", x.str());
 	}
 };

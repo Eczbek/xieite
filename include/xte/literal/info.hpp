@@ -14,7 +14,7 @@ namespace xte::literal::info {
 		return std::meta::reflect_constant(x);
 	}
 
-	[[nodiscard]] consteval std::meta::info operator""_info(const char* string, xte::uz size) noexcept {
+	[[nodiscard]] consteval std::meta::info operator""_info(char const* string, xte::uz size) noexcept {
 		return std::meta::reflect_constant_string(std::ranges::subrange(string, string + size));
 	}
 }

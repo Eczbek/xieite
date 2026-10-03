@@ -3,45 +3,43 @@
 #
 #	include "./address.hpp"
 #	include "./assign.hpp"
+#	include "./class_traits.hpp"
 #	include "./exchange.hpp"
 #	include "./in_place.hpp"
+#	include "./macros.hpp"
 #	include "./make.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/lift.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./qual_cast.hpp"
-#	include "./trait/drop_cvref.hpp"
-#	include "./trait/is_callable.hpp"
-#	include "./trait/is_member_function.hpp"
-#	include "./trait/is_member_of.hpp"
+#	include "./qual_traits.hpp"
+#	include <type_traits>
 
 namespace xte {
 	inline constexpr struct {} null;
 
-	template<typename T>
+	template<typename item_type>
 	struct opt {
 	private:
 		union {
-			T _value;
+			item_type _value;
 		};
 		bool _has_value = false;
 
 	public:
-		[[nodiscard]] explicit(false) constexpr opt() noexcept = default;
+		using value_type = item_type;
 
-		[[nodiscard]] explicit(false) constexpr opt(decltype(xte::null)) noexcept {}
+		[[nodiscard]] constexpr explicit(false) opt() noexcept = default;
 
-		[[nodiscard]] explicit(false) constexpr opt(auto&&... args) XTE_CONSTRUCTS(
-			(_value,(xte::make<T>(XTE_FWD(args)...)))
+		[[nodiscard]] constexpr explicit(false) opt(decltype(xte::null)) noexcept {}
+
+		[[nodiscard]] constexpr explicit(false) opt(auto&&... args) XTE_CONSTRUCTS(
+			(_value,(xte::make<item_type>(XTE_FWD(args)...)))
 			(_has_value,(true))
 		)
 
-		[[nodiscard]] explicit(false) constexpr opt(const xte::opt<T>& other) XTE_CONSTRUCTS(,
+		[[nodiscard]] constexpr explicit(false) opt(xte::opt<item_type> const& other) XTE_CONSTRUCTS(,
 			other._has_value ? void(xte::construct(this->_value, other._value)) : void(),
 			this->_has_value = other._has_value
 		)
 
-		[[nodiscard]] explicit(false) constexpr opt(xte::opt<T>&& other) XTE_CONSTRUCTS(,
+		[[nodiscard]] constexpr explicit(false) opt(xte::opt<item_type>&& other) XTE_CONSTRUCTS(,
 			other._has_value ? (
 				xte::construct(this->_value, xte::as_xvalue(other)._value),
 				xte::destroy(other._value)
@@ -53,9 +51,9 @@ namespace xte {
 			this->reset();
 		}
 
-		constexpr xte::opt<T>& operator=(const xte::opt<T>&) & noexcept = default;
+		constexpr xte::opt<item_type>& operator=(xte::opt<item_type> const&) & noexcept = default;
 
-		constexpr xte::opt<T>& operator=(xte::opt<T>&&) & noexcept = default;
+		constexpr xte::opt<item_type>& operator=(xte::opt<item_type>&&) & noexcept = default;
 
 		constexpr auto operator=(auto&& arg) & XTE_RETURNS(
 			this->_has_value ? void(xte::assign(this->_value, XTE_FWD(arg))) : void(xte::construct(this->_value, XTE_FWD(arg))),
@@ -63,7 +61,7 @@ namespace xte {
 			*this
 		)
 
-		[[nodiscard]] explicit constexpr operator bool() const noexcept {
+		[[nodiscard]] constexpr explicit operator bool() const noexcept {
 			return this->_has_value;
 		}
 
@@ -75,8 +73,8 @@ namespace xte {
 			return xte::address(self._value);
 		}
 
-		[[nodiscard]] constexpr decltype(auto) operator->*(this auto&& self, xte::is_member_of<T> auto&& member) noexcept {
-			if constexpr (xte::is_member_function<decltype(member)>) {
+		[[nodiscard]] constexpr decltype(auto) operator->*(this auto&& self, xte::is_member_ptr_of<item_type> auto&& member) noexcept {
+			if constexpr (std::is_member_function_pointer_v<xte::drop_ref<decltype(member)>>) {
 				return XTE_LIFT_LOCAL((XTE_FWD(self)._value.*member));
 			} else {
 				return xte::like<decltype(self)>(self._value.*member);
@@ -99,13 +97,13 @@ namespace xte {
 			self ? XTE_FWD(func)(XTE_FWD(self)._value) : decltype(XTE_FWD(func)(XTE_FWD(self)._value))()
 		)
 
-		[[nodiscard]] constexpr auto or_else(this auto&& self, xte::is_callable<T()> auto&& func) XTE_RETURNS(
+		[[nodiscard]] constexpr auto or_else(this auto&& self, xte::is_callable<item_type()> auto&& func) XTE_RETURNS(
 			self._has_value ? XTE_FWD(self)._value : XTE_FWD(func)()
 		)
 	};
 
-	template<typename T>
-	opt(T&&) -> opt<xte::drop_cvref<T>>;
+	template<typename item_type>
+	opt(item_type&&) -> opt<xte::drop_cvref<item_type>>;
 }
 
 #endif

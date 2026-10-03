@@ -6,8 +6,7 @@
 #	include "../make.hpp"
 #	include "../math/float.hpp"
 #	include "../math/sign.hpp"
-#	include "../trait/is_arithmetic.hpp"
-#	include "../trait/is_float.hpp"
+#	include "../fundamental_traits.hpp"
 #	include <type_traits>
 
 namespace xte {

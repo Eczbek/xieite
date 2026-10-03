@@ -9,10 +9,10 @@ namespace xte {
 	template<xte::static_string_view message>
 	struct [[nodiscard]] static_error : std::exception {
 	private:
-		static constexpr const char* _data = std::define_static_string(message);
+		static constexpr char const* _data = std::define_static_string(message);
 
 	public:
-		virtual constexpr const char* what() const noexcept override {
+		virtual constexpr char const* what() const noexcept override {
 			return xte::static_error<message>::_data;
 		}
 	};

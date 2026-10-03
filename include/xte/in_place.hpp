@@ -2,10 +2,9 @@
 #	define DETAIL_XTE_HEADER_IN_PLACE
 #
 #	include "./address.hpp"
+#	include "./class_traits.hpp"
+#	include "./macros.hpp"
 #	include "./make.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./trait/is_constructible_noex.hpp"
 #	include <new>
 
 namespace xte {

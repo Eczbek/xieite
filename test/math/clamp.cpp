@@ -1,6 +1,6 @@
 #include <xte/limits.hpp>
 #include <xte/math/clamp.hpp>
-#include <xte/qual_cast.hpp>
+#include <xte/qual_traits.hpp>
 
 static_assert(xte::max(0, 0) == 0);
 static_assert(xte::max(0, 5) == 5);

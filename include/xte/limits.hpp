@@ -2,8 +2,7 @@
 #	define DETAIL_XTE_HEADER_LIMITS
 #
 #	include "./aliases.hpp"
-#	include "./trait/is_arithmetic.hpp"
-#	include "./trait/is_signed_int.hpp"
+#	include "./fundamental_traits.hpp"
 #	include <limits>
 
 namespace xte {

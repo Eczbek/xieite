@@ -7,8 +7,8 @@ namespace DETAIL_XTE::end {
 }
 
 namespace xte {
-	template<typename T>
-	concept end = DETAIL_XTE::end::always_false<T>;
+	template<typename type>
+	concept end = DETAIL_XTE::end::always_false<type>;
 }
 
 #endif

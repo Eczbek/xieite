@@ -4,19 +4,13 @@
 #	include "../abs.hpp"
 #	include "../approx_equal.hpp"
 #	include "../arithmetic.hpp"
+#	include "../compare.hpp"
 #	include "../exchange.hpp"
+#	include "../fundamental_traits.hpp"
+#	include "../macros.hpp"
 #	include "../make.hpp"
-#	include "../math/sign_cast.hpp"
 #	include "../math/bitwise.hpp"
-#	include "../preproc/fwd.hpp"
-#	include "../preproc/lift.hpp"
-#	include "../preproc/returns.hpp"
-#	include "../trait/is_arithmetic.hpp"
-#	include "../trait/is_float.hpp"
-#	include "../trait/is_same_any.hpp"
-#	include "../trait/is_same_any_drop_cvref.hpp"
-#	include "../trait/try_signed.hpp"
-#	include "../trait/try_unsigned.hpp"
+#	include "../qual_traits.hpp"
 #	include <compare>
 #	include <limits>
 

@@ -5,11 +5,11 @@ struct A {
 
 	constexpr A() : implicit(true) {}
 
-	explicit constexpr A(auto&&) : implicit(false) {}
+	constexpr explicit A(auto&&) : implicit(false) {}
 };
 
 struct B {
-	explicit(false) constexpr operator A() const {
+	constexpr explicit(false) operator A() const {
 		return {};
 	}
 };

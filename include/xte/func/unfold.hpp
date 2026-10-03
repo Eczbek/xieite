@@ -2,9 +2,8 @@
 #	define DETAIL_XTE_HEADER_FUNC_UNFOLD
 #
 #	include "../aliases.hpp"
+#	include "../macros.hpp"
 #	include "../meta/seq.hpp"
-#	include "../preproc/fwd.hpp"
-#	include "../preproc/returns.hpp"
 
 namespace xte {
 	template<xte::uz count>

@@ -7,13 +7,13 @@ namespace xte {
 			static_assert(false, "must not be evaluated");
 		}
 
-		template<typename T>
-		explicit(false) operator T() const&& noexcept {
+		template<typename target_type>
+		explicit(false) operator target_type() const&& noexcept {
 			static_assert(false, "must not be evaluated");
 		}
 
-		template<typename T>
-		explicit(false) operator T&() const& noexcept {
+		template<typename target_type>
+		explicit(false) operator target_type&() const& noexcept {
 			static_assert(false, "must not be evaluated");
 		}
 	};

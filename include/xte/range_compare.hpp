@@ -1,18 +1,15 @@
 #ifndef DETAIL_XTE_HEADER_RANGE_COMPARE
 #	define DETAIL_XTE_HEADER_RANGE_COMPARE
 #
+#	include "./class_traits.hpp"
 #	include "./compare.hpp"
+#	include "./fundamental_traits.hpp"
 #	include "./identity.hpp"
+#	include "./macros.hpp"
 #	include "./meta/end.hpp"
 #	include "./meta/fake.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/lift.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./qual_cast.hpp"
-#	include "./trait/is_callable_lvalue.hpp"
-#	include "./trait/is_iter_noex.hpp"
-#	include "./trait/is_order.hpp"
-#	include "./trait/is_sentinel_noex.hpp"
+#	include "./qual_traits.hpp"
+#	include "./range_traits.hpp"
 #	include <compare>
 #	include <functional>
 #	include <iterator>

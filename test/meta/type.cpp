@@ -1,8 +1,8 @@
 #include <xte/meta/type.hpp>
-#include <xte/trait/is_same.hpp>
+#include <xte/qual_traits.hpp>
 
-template<typename T>
-constexpr bool test_same = xte::is_same<T, xte::type<T>>;
+template<typename type>
+constexpr bool test_same = xte::is_same<type, xte::type<type>>;
 
 static_assert(test_same<int>);
 static_assert(test_same<void>);

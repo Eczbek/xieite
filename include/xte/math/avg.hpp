@@ -4,12 +4,11 @@
 #	include "../abs.hpp"
 #	include "../aliases.hpp"
 #	include "../arithmetic.hpp"
+#	include "../fundamental_traits.hpp"
 #	include "../make.hpp"
 #	include "../math/diff.hpp"
 #	include "../math/div.hpp"
 #	include "../math/sign.hpp"
-#	include "../trait/is_arithmetic.hpp"
-#	include "../trait/is_float.hpp"
 #	include <type_traits>
 
 namespace xte {

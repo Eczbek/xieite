@@ -1,33 +1,32 @@
 #ifndef DETAIL_XTE_HEADER_STATIC_STRING_VIEW
 #	define DETAIL_XTE_HEADER_STATIC_STRING_VIEW
 #
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/returns.hpp"
+#	include "./class_traits.hpp"
+#	include "./macros.hpp"
 #	include "./string_view.hpp"
-#	include "./trait/is_castable_implicit_noex.hpp"
-#	include "./trait/is_same.hpp"
+#	include "./qual_traits.hpp"
 #	include <meta>
 #	include <ranges>
 #	include <string_view>
 
 namespace xte {
 	struct static_string_view : xte::string_view {
-		[[nodiscard]] explicit(false) constexpr static_string_view() noexcept = default;
+		[[nodiscard]] constexpr explicit(false) static_string_view() noexcept = default;
 
 		template<std::ranges::contiguous_range range_type>
 		requires(xte::is_same<std::ranges::range_value_t<range_type>, char>)
-		[[nodiscard]] explicit(false) consteval static_string_view(std::from_range_t, const range_type& range) XTE_CONSTRUCTS(
+		[[nodiscard]] explicit(false) consteval static_string_view(std::from_range_t, range_type const& range) XTE_CONSTRUCTS(
 			((xte::string_view),(std::define_static_string(range), std::ranges::size(range)))
 		)
 
-		[[nodiscard]] explicit(false) constexpr static_string_view(const auto& range) XTE_CONSTRUCTS(
+		[[nodiscard]] constexpr explicit(false) static_string_view(auto const& range) XTE_CONSTRUCTS(
 			((xte::static_string_view),(std::from_range, range))
 		)
 
-		[[nodiscard]] explicit consteval static_string_view(const xte::is_castable_implicit_noex<const char*> auto& range) noexcept
+		[[nodiscard]] explicit consteval static_string_view(xte::is_implicitly_convertible_noex<char const*> auto const& range) noexcept
 		: xte::static_string_view(xte::string_view(range)) {}
 
-		[[nodiscard]] consteval static_string_view(const char* data, xte::uz size) noexcept
+		[[nodiscard]] consteval static_string_view(char const* data, xte::uz size) noexcept
 		: xte::static_string_view(xte::string_view(data, size)) {}
 	};
 }

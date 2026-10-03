@@ -2,17 +2,13 @@
 #	define DETAIL_XTE_HEADER_MATH_COMPARE
 #
 #	include "./abs.hpp"
+#	include "./fundamental_traits.hpp"
+#	include "./macros.hpp"
 #	include "./math/bitwise.hpp"
 #	include "./math/flip_order.hpp"
 #	include "./math/float.hpp"
 #	include "./meta/end.hpp"
-#	include "./meta/wrap_type.hpp"
-#	include "./preproc/fwd.hpp"
-#	include "./preproc/returns.hpp"
-#	include "./trait/is_arithmetic.hpp"
-#	include "./trait/is_float.hpp"
-#	include "./trait/is_int.hpp"
-#	include "./trait/is_order.hpp"
+#	include "./meta/wrap.hpp"
 #	include <algorithm>
 #	include <cmath>
 #	include <concepts>
@@ -22,7 +18,7 @@
 namespace DETAIL_XTE::compare {
 	template<typename lhs_type, typename rhs_type, xte::end...,
 		typename common_type = [:std::common_with<lhs_type, rhs_type> ? ^^std::common_type<lhs_type, rhs_type> : ^^xte::wrap_type<void>:]::type>
-	[[nodiscard]] constexpr auto less(const lhs_type& lhs, const rhs_type& rhs) XTE_RETURNS_FIRST(
+	[[nodiscard]] constexpr auto less(lhs_type const& lhs, rhs_type const& rhs) XTE_RETURNS_FIRST(
 		(std::is_lt(lhs <=> rhs))
 		(std::is_gt(rhs <=> lhs))
 		(static_cast<bool>(lhs < rhs))
@@ -38,7 +34,7 @@ namespace DETAIL_XTE::compare {
 
 namespace xte {
 	template<typename lhs_type, typename rhs_type>
-	[[nodiscard]] constexpr xte::is_order auto compare(const lhs_type& lhs, const rhs_type& rhs)
+	[[nodiscard]] constexpr xte::is_order auto compare(lhs_type const& lhs, rhs_type const& rhs)
 	noexcept(([] {
 		if constexpr (xte::is_arithmetic<lhs_type> && xte::is_arithmetic<rhs_type>) {
 			return true;

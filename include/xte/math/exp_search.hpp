@@ -3,17 +3,15 @@
 #
 #	include "../approx_equal.hpp"
 #	include "../arithmetic.hpp"
+#	include "../class_traits.hpp"
 #	include "../detect/feature.hpp"
+#	include "../fundamental_traits.hpp"
 #	include "../limits.hpp"
 #	include "../make.hpp"
 #	include "../math/avg.hpp"
 #	include "../math/clamp.hpp"
 #	include "../math/diff.hpp"
 #	include "../meta/end.hpp"
-#	include "../trait/is_arithmetic.hpp"
-#	include "../trait/is_callable_lvalue.hpp"
-#	include "../trait/is_int.hpp"
-#	include "../trait/is_unsigned_int.hpp"
 #	include <type_traits>
 
 namespace xte {
@@ -46,7 +44,7 @@ namespace xte {
 				arithmetic_type min = -1;
 				while (!static_cast<bool>(predicate(min))) {
 					mid = min;
-					if (auto next = xte::mul_checked(min, static_cast<arithmetic_type>(2))) {
+					if (auto next = xte::checked_mul(min, static_cast<arithmetic_type>(2))) {
 						min = *next;
 						continue;
 					}
@@ -57,7 +55,7 @@ namespace xte {
 			arithmetic_type max = 1;
 			while (predicate(max)) {
 				mid = max;
-				if (auto next = xte::mul_checked(max, static_cast<arithmetic_type>(2))) {
+				if (auto next = xte::checked_mul(max, static_cast<arithmetic_type>(2))) {
 					max = *next;
 					continue;
 				}

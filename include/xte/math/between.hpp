@@ -2,7 +2,7 @@
 #	define DETAIL_XTE_HEADER_MATH_BETWEEN
 #
 #	include "../compare.hpp"
-#	include "../trait/is_arithmetic.hpp"
+#	include "../fundamental_traits.hpp"
 
 namespace xte {
 	[[nodiscard]] constexpr bool between(xte::is_arithmetic auto x, xte::is_arithmetic auto limit0, xte::is_arithmetic auto limit1) noexcept {

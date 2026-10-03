@@ -3,47 +3,19 @@
 #
 #	include "../abs.hpp"
 #	include "../aliases.hpp"
-#	include "../data/escape.hpp"
+#	include "../class_traits.hpp"
 #	include "../detect/feature.hpp"
+#	include "../escape.hpp"
+#	include "../fundamental_traits.hpp"
 #	include "../math/serialize.hpp"
 #	include "../meta/type.hpp"
 #	include "../string.hpp"
 #	include "../string_view.hpp"
-#	include "../trait/add_array.hpp"
-#	include "../trait/add_unbounded_array.hpp"
-#	include "../trait/is_arithmetic.hpp"
-#	include "../trait/is_char.hpp"
 #	include <algorithm>
 #	include <meta>
 #	include <ranges>
 #	include <utility>
 #	include <vector>
-
-namespace DETAIL_XTE::meta {
-	template<typename>
-	inline constexpr std::meta::info class_type_of;
-
-	template<typename class_type, typename T>
-	inline constexpr std::meta::info class_type_of<T class_type::*> = ^^class_type;
-
-	template<typename class_type, typename T>
-	inline constexpr std::meta::info class_type_of<T class_type::*&> = ^^class_type;
-
-	template<typename class_type, typename T>
-	inline constexpr std::meta::info class_type_of<T class_type::*&&> = ^^class_type;
-
-	template<typename>
-	inline constexpr std::meta::info member_type_of;
-
-	template<typename class_type, typename T>
-	inline constexpr std::meta::info member_type_of<T class_type::*> = ^^T;
-
-	template<typename class_type, typename T>
-	inline constexpr std::meta::info member_type_of<T class_type::*&> = ^^T&;
-
-	template<typename class_type, typename T>
-	inline constexpr std::meta::info member_type_of<T class_type::*&&> = ^^T&&;
-}
 
 namespace xte::meta {
 	[[nodiscard]] consteval std::meta::info type_of(std::meta::info info) noexcept(false) {
@@ -55,20 +27,20 @@ namespace xte::meta {
 		if (!std::meta::is_type(info)) {
 			info = std::meta::type_of(info);
 		}
-		if (auto type = std::meta::extract<std::meta::info>(std::meta::substitute(^^DETAIL_XTE::meta::class_type_of, { info })); type != ^^::) {
-			return type;
+		if (!std::meta::can_substitute(^^xte::class_type_of, { info })) {
+			throw std::meta::exception("reflection does not represent member pointer or member pointer type", info);
 		}
-		throw std::meta::exception("reflection does not represent member pointer or member pointer type", info);
+		return std::meta::substitute(^^xte::class_type_of, { info });
 	};
 
 	[[nodiscard]] consteval std::meta::info member_type_of(std::meta::info info) noexcept(false) {
 		if (!std::meta::is_type(info)) {
 			info = std::meta::type_of(info);
 		}
-		if (auto type = std::meta::extract<std::meta::info>(std::meta::substitute(^^DETAIL_XTE::meta::member_type_of, { info })); type != ^^::) {
-			return type;
+		if (!std::meta::can_substitute(^^xte::member_type_of, { info })) {
+			throw std::meta::exception("reflection does not represent member pointer or member pointer type", info);
 		}
-		throw std::meta::exception("reflection does not represent member pointer or member pointer type", info);
+		return std::meta::substitute(^^xte::member_type_of, { info });
 	};
 
 	[[nodiscard]] consteval bool is_complete_class_type(std::meta::info info) noexcept {
@@ -101,8 +73,8 @@ namespace xte::meta {
 		return std::meta::dealias(std::meta::substitute(^^xte::add_array, { type, std::meta::reflect_constant(size) }));
 	};
 
-	[[nodiscard]] consteval std::meta::info add_unbounded_array(std::meta::info type) noexcept(false) {
-		return std::meta::dealias(std::meta::substitute(^^xte::add_unbounded_array, { type }));
+	[[nodiscard]] consteval std::meta::info add_unsized_array(std::meta::info type) noexcept(false) {
+		return std::meta::dealias(std::meta::substitute(^^xte::add_unsized_array, { type }));
 	};
 
 	[[nodiscard]] consteval std::meta::info return_type_of(std::meta::info info) noexcept(false) {
@@ -153,11 +125,11 @@ namespace xte::meta {
 						name = "<...>";
 					}
 				} else {
-					for (auto param : std::meta::parameters_of(info)) {
+					for (auto parm : std::meta::parameters_of(info)) {
 						if (name.size()) {
 							name += ", ";
 						}
-						name += name_of(xte::meta::type_of(param), ctx_none);
+						name += name_of(xte::meta::type_of(parm), ctx_none);
 					}
 					if (std::meta::is_vararg_function(info)) {
 						if (name.size()) {
@@ -261,11 +233,11 @@ namespace xte::meta {
 						xte::string name = name_of(std::meta::remove_extent(info), ctx | ctx_prefix) + "[" + name_of(std::meta::reflect_constant(std::meta::extent(info)), ctx_none) + "]";
 						return (ctx & ctx_prefix) ? ("(" + name + ")") : name;
 					}
-					if (std::meta::is_const_type(info)) {
-						return "const " + name_of(std::meta::remove_const(info), ctx | ctx_postfix);
-					}
 					if (std::meta::is_volatile_type(info)) {
-						return "volatile " + name_of(std::meta::remove_volatile(info), ctx | ctx_postfix);
+						return name_of(std::meta::remove_volatile(info), ctx) + " volatile";
+					}
+					if (std::meta::is_const_type(info)) {
+						return name_of(std::meta::remove_const(info), ctx) + " const";
 					}
 					if (std::meta::is_pointer_type(info)) {
 						xte::string name = name_of(std::meta::remove_pointer(info), ctx | ctx_prefix) + "*";
@@ -414,13 +386,13 @@ namespace xte::meta {
 										member_names += ", ";
 									}
 									if constexpr (using member_type = [:std::meta::type_of(member):]; std::is_array_v<member_type>) {
-										member_names += ([]<typename T, xte::uz size>(this auto name_of_array, xte::type<const T[size]>& array) -> xte::string {
+										member_names += ([]<typename type, xte::uz size>(this auto name_of_array, xte::type<type[size]> const& array) -> xte::string {
 											xte::string item_names;
 											for (auto&& item : array) {
 												if (item_names.size()) {
 													item_names += ", ";
 												}
-												if constexpr (std::is_array_v<T>) {
+												if constexpr (std::is_array_v<type>) {
 													item_names += name_of_array(item);
 												} else {
 													item_names += name_of(std::meta::reflect_constant(item), ctx_none);

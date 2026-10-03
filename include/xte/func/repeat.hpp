@@ -3,8 +3,7 @@
 #
 #	include "../aliases.hpp"
 #	include "../func/unfold.hpp"
-#	include "../preproc/fwd.hpp"
-#	include "../preproc/returns.hpp"
+#	include "../macros.hpp"
 
 namespace xte {
 	template<xte::uz count>

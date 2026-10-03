@@ -2,9 +2,9 @@
 #	define DETAIL_XTE_HEADER_MATH_WRAP
 #
 #	include "../arithmetic.hpp"
+#	include "../fundamental_traits.hpp"
 #	include "../make.hpp"
 #	include "../math/clamp.hpp"
-#	include "../trait/is_arithmetic.hpp"
 #	include <type_traits>
 
 namespace xte {
