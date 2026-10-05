@@ -38,11 +38,11 @@
 		requires(([] { if constexpr (COND) return requires { THEN; }; else return true __VA_OPT__(&& requires { __VA_ARGS__; }); })()) \
 		{ if constexpr (COND) return (THEN); __VA_OPT__(else return (__VA_ARGS__);) }
 #
-#	define XTE_RETURNS_FIRST(LIST) \
-		noexcept(([] { DETAIL_XTE_RETURNS_FIRST_NOEX_0 LIST() return true; })()) \
+#	define XTE_RETURNS_FIRST(SEQ) \
+		noexcept(([] { DETAIL_XTE_RETURNS_FIRST_NOEX_0 SEQ() return true; })()) \
 		-> decltype(auto) \
-		requires(DETAIL_XTE_RETURNS_FIRST_REQ_0 LIST() false) \
-		{ DETAIL_XTE_RETURNS_FIRST_BODY_0 LIST() {} }
+		requires(DETAIL_XTE_RETURNS_FIRST_REQ_0 SEQ() false) \
+		{ DETAIL_XTE_RETURNS_FIRST_BODY_0 SEQ() {} }
 #
 #	define XTE_CONSTRUCTS(INIT_SEQ, ...) \
 		noexcept(DETAIL_XTE_CONSTRUCTS_NOEX_0 INIT_SEQ() true __VA_OPT__(&& noexcept(__VA_ARGS__))) \
