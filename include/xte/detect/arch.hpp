@@ -1086,12 +1086,11 @@
 #	endif
 #
 #	define DETAIL_XTE_ARCH(OP, LHS_MAJOR, LHS_MINOR, RHS_MAJOR, RHS_MINOR, ...) \
-		(((((0 OP 0) && !(0 OP 1) && !(1 OP 0)) \
-			|| (!(0 OP 0) && (0 OP 1) && (1 OP 0))) \
-		&& (((LHS_MAJOR) OP (RHS_MAJOR)) \
-			&& ((LHS_MINOR) OP (RHS_MINOR)))) \
-		|| ((LHS_MAJOR) OP (RHS_MAJOR)) \
-			|| (((LHS_MAJOR) == (RHS_MAJOR)) && ((LHS_MINOR) OP (RHS_MINOR))))
+		(((0 OP 1) == (1 OP 0)) \
+			? (LHS_MAJOR OP (RHS_MAJOR)) \
+				&& (LHS_MINOR OP (RHS_MINOR)) \
+			: (LHS_MAJOR OP (RHS_MAJOR)) \
+				|| ((LHS_MAJOR == (RHS_MAJOR)) && (LHS_MAJOR OP (RHS_MAJOR))))
 #endif
 
 // https://github.com/cpredef/predef/blob/master/Architectures.md

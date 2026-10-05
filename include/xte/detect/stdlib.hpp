@@ -466,14 +466,13 @@
 #	endif
 #
 #	define DETAIL_XTE_STDLIB(OP, LHS_MAJOR, LHS_MINOR, LHS_PATCH, RHS_MAJOR, RHS_MINOR, RHS_PATCH, ...) \
-		(((((0 OP 0) && !(0 OP 1) && !(1 OP 0)) \
-			|| (!(0 OP 0) && (0 OP 1) && (1 OP 0))) \
-		&& (((LHS_MAJOR) OP (RHS_MAJOR)) \
-			&& ((LHS_MINOR) OP (RHS_MINOR)) \
-			&& ((LHS_PATCH) OP (RHS_PATCH)))) \
-		|| ((LHS_MAJOR) OP (RHS_MAJOR)) \
-			|| (((LHS_MAJOR) == (RHS_MAJOR)) && ((LHS_MINOR) OP (RHS_MINOR))) \
-			|| (((LHS_MINOR) == (RHS_MINOR)) && ((LHS_PATCH) OP (RHS_PATCH))))
+		(((0 OP 1) == (1 OP 0)) \
+			? (LHS_MAJOR OP (RHS_MAJOR)) \
+				&& (LHS_MINOR OP (RHS_MINOR)) \
+				&& (LHS_PATCH OP (RHS_PATCH)) \
+			: (LHS_MAJOR OP (RHS_MAJOR)) \
+				|| ((LHS_MAJOR == (RHS_MAJOR)) && (LHS_MINOR OP (RHS_MINOR))) \
+				|| ((LHS_MINOR == (RHS_MINOR)) && (LHS_PATCH OP (RHS_PATCH))))
 #endif
 
 // https://github.com/cpredef/predef/blob/master/Libraries.md
