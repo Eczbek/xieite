@@ -47,9 +47,8 @@ namespace DETAIL_XTE::class_traits {
 	constexpr auto member_type_of<member_type class_type::*> = ^^member_type;
 }
 
-XTE_DIAGNOSTIC_PUSH((NO_CONVERSION))
-
 namespace xte {
+	XTE_DIAGNOSTIC_PUSH((NO_CONVERSION))
 	template<typename target_type, typename... arg_types>
 	concept is_constructible =
 		((sizeof...(arg_types) == 1)
@@ -57,6 +56,7 @@ namespace xte {
 				? requires { target_type(); }
 				: requires { static_cast<target_type>(xte::fake<arg_types...[0]>()); })
 			: requires { target_type(xte::fake<arg_types>()...); });
+	XTE_DIAGNOSTIC_POP()
 
 	template<typename target_type, typename... arg_types>
 	concept is_constructible_noex =
@@ -270,8 +270,6 @@ namespace xte {
 		xte::non_movable& operator=(xte::non_movable&&) = delete;
 	};
 }
-
-XTE_DIAGNOSTIC_POP()
 
 #endif
 

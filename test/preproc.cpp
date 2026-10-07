@@ -28,6 +28,8 @@ static_assert(XTE_COUNT() == 0);
 static_assert(XTE_COUNT(a) == 1);
 static_assert(XTE_COUNT(,,) == 3);
 
+static_assert(XTE_EACH(, +, (1)(2)(3)) == 6);
+
 #ifdef XTE_REVIVE
 #	define SUM(X, ...) XTE_REVIVE(SUM) (X) __VA_OPT__(+ SUM(__VA_ARGS__))
 static_assert(SUM(1, 2, 3) == 6);

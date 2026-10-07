@@ -5,7 +5,7 @@
 #	include "./detect/feature.hpp"
 #
 #	if !XTE_HAS_SEQ_ITER
-#		warning unsupported preprocessor
+#		warning preprocessor does not support sequence iteration
 #	endif
 #
 #	if XTE_COMPILER_MSVC
