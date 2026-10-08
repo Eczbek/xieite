@@ -19,6 +19,7 @@
 #
 #	define XTE_PREFIX(PREFIX, ...) __VA_OPT__(PREFIX) __VA_ARGS__
 #	define XTE_SUFFIX(SUFFIX, ...) __VA_ARGS__ __VA_OPT__(SUFFIX)
+#
 #	define XTE_WRAP_BLOCK(...) { __VA_ARGS__ __VA_OPT__(;) }
 #
 #	define XTE_APPLY(F, ...) F(__VA_ARGS__)
