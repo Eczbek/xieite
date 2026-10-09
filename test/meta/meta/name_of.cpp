@@ -133,3 +133,21 @@ int main() {
 	static_assert(xte::meta::name_of(^^decltype(([] { return []{}; })())) == "main()::<lambda>::operator()() const::<lambda>");
 	struct add {}; add() + add();
 }
+
+namespace n {
+	int a;
+	template<int> int b;
+	int f();
+	template<int> int g();
+	constexpr auto x = [] {};
+}
+static_assert(xte::meta::name_of(^^n::a) == "n::a");
+static_assert(xte::meta::name_of(^^decltype(n::a)) == "int");
+static_assert(xte::meta::name_of(^^n::b) == "n::b<...>");
+static_assert(xte::meta::name_of(^^n::b<0>) == "n::b<0>");
+static_assert(xte::meta::name_of(^^n::f) == "int n::f()");
+static_assert(xte::meta::name_of(^^decltype(n::f)) == "int()");
+static_assert(xte::meta::name_of(^^n::g) == "n::g<...>");
+static_assert(xte::meta::name_of(^^n::g<0>) == "int n::g<0>()");
+static_assert(xte::meta::name_of(^^n::x) == "n::x");
+static_assert(xte::meta::name_of(^^decltype(n::x)) == "n::<lambda> const");
