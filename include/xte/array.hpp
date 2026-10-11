@@ -344,13 +344,13 @@ namespace xte {
 
 		template<std::ranges::input_range range_type = xte::array<item_type>>
 		constexpr void insert_range(xte::uz index, range_type&& range) & noexcept(false)
-		// requires(xte::is_range_noex<range_type>
-			// && requires (item_type x, decltype(std::ranges::begin(range)) iter) {
-				// { item_type(xte::as_xvalue_if_noex(x)) } noexcept;
-				// { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept;
-				// { item_type(xte::as_xvalue_if_noex(*iter)) } noexcept;
-				// { xte::assign(x, xte::as_xvalue_if_noex(*iter)) } noexcept; }
-			// )
+		requires(xte::is_range_noex<range_type>
+			&& requires (item_type x, decltype(std::ranges::begin(range)) iter) {
+				{ item_type(xte::as_xvalue_if_noex(x)) } noexcept;
+				{ xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept;
+				{ item_type(xte::as_xvalue_if_noex(*iter)) } noexcept;
+				{ xte::assign(x, xte::as_xvalue_if_noex(*iter)) } noexcept; }
+			)
 		{
 			index = xte::min(index, this->_size);
 			auto range_copy = xte::array<item_type>(std::from_range, XTE_FWD(range));

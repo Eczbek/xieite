@@ -28,7 +28,7 @@ namespace xte {
 		std::input_or_output_iterator<iter_type>
 		&& xte::is_move_constructible_noex<iter_type>
 		&& xte::is_destructible_noex<iter_type>
-		&& xte::is_move_assignable_noex<iter_type>
+		&& xte::is_move_assignable_noex<iter_type&>
 		&& xte::is_swappable_noex<iter_type>
 		&& requires(iter_type iter) {
 			{ ++iter } noexcept;
@@ -46,7 +46,7 @@ namespace xte {
 		&& (!std::forward_iterator<iter_type>
 			|| (xte::is_constructible_noex<iter_type>
 				&& xte::is_copy_constructible_noex<iter_type>
-				&& xte::is_copy_assignable_noex<iter_type>
+				&& xte::is_copy_assignable_noex<iter_type&>
 				&& requires(iter_type iter, iter_type const const_iter) {
 					{ iter == iter } noexcept -> xte::is_bool_testable_noex;
 					{ iter == const_iter } noexcept -> xte::is_bool_testable_noex;
@@ -246,8 +246,8 @@ namespace xte {
 		&& xte::is_copy_constructible_noex<sentinel_type>
 		&& xte::is_move_constructible_noex<sentinel_type>
 		&& xte::is_destructible_noex<sentinel_type>
-		&& xte::is_copy_assignable_noex<sentinel_type>
-		&& xte::is_move_assignable_noex<sentinel_type>
+		&& xte::is_copy_assignable_noex<sentinel_type&>
+		&& xte::is_move_assignable_noex<sentinel_type&>
 		&& xte::is_swappable_noex<sentinel_type>
 		&& requires(sentinel_type s0, sentinel_type const s1, iter_type i0, iter_type const i1) {
 			{ s0 == i0 } noexcept -> xte::is_bool_testable_noex;
