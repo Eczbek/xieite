@@ -5,7 +5,7 @@
 #
 #	define XTE_FWD(PARM) static_cast<decltype(PARM)&&>(PARM)
 #
-#	define XTE_TEMPLATE template for ([[maybe_unused]] char XTE_TEMPLATE : "")
+#	define XTE_TEMPLATE template for ([[maybe_unused]] int XTE_TEMPLATE : "")
 #
 #	define XTE_DECLARE(DECL, ...) \
 		requires(requires { __VA_ARGS__; }) \
