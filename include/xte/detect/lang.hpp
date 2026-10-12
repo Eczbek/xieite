@@ -53,6 +53,10 @@
 #	define XTE_LANG_PSSL_MAJOR 0
 #	define XTE_LANG_PSSL_MINOR 0
 #	define XTE_LANG_PSSL_PATCH 0
+#	define XTE_LANG_SLANG 0
+#	define XTE_LANG_SLANG_MAJOR 0
+#	define XTE_LANG_SLANG_MINOR 0
+#	define XTE_LANG_SLANG_PATCH 0
 #
 #	define XTE_LANG(NAME, OP, MAJOR, ...) \
 		DETAIL_XTE_LANG(OP, \
@@ -132,9 +136,9 @@
 #			undef XTE_LANG_CUDA_MAJOR
 #			undef XTE_LANG_CUDA_MINOR
 #			undef XTE_LANG_CUDA_PATCH
-#			define XTE_LANG_CUDA_MAJOR (CUDA_VERSION / 1000)
-#			define XTE_LANG_CUDA_MINOR (CUDA_VERSION / 10 % 100)
-#			define XTE_LANG_CUDA_PATCH (CUDA_VERSION % 10)
+#			define XTE_LANG_CUDA_MAJOR ((CUDA_VERSION) / 1000)
+#			define XTE_LANG_CUDA_MINOR ((CUDA_VERSION) / 10 % 100)
+#			define XTE_LANG_CUDA_PATCH ((CUDA_VERSION) % 10)
 #		endif
 #	endif
 #
@@ -144,23 +148,29 @@
 #		ifdef GLSL_VERSION
 #			undef XTE_LANG_GLSL_MAJOR
 #			undef XTE_LANG_GLSL_MINOR
-#			define XTE_LANG_GLSL_MAJOR (GLSL_VERSION / 100)
-#			define XTE_LANG_GLSL_MINOR (GLSL_VERSION % 100)
+#			define XTE_LANG_GLSL_MAJOR ((GLSL_VERSION) / 100)
+#			define XTE_LANG_GLSL_MINOR ((GLSL_VERSION) % 100)
 #		endif
 #	endif
 #
 #	ifdef __HLSL__
 #		undef XTE_LANG_HLSL
+#		undef XTE_LANG_HLSL_MAJOR
+#		undef XTE_LANG_HLSL_MINOR
 #		define XTE_LANG_HLSL 1
-#		ifdef __HLSL_VERSION
-#			undef XTE_LANG_HLSL_MAJOR
-#			define XTE_LANG_HLSL_MAJOR __HLSL_VERSION
-#		endif
+#		define XTE_LANG_HLSL_MAJOR (__SHADER_TARGET_MAJOR)
+#		define XTE_LANG_HLSL_MAJOR (__SHADER_TARGET_MINOR)
 #	endif
 #
 #	ifdef __METAL__
 #		undef XTE_LANG_METAL
+#		undef XTE_LANG_METAL_MAJOR
+#		undef XTE_LANG_METAL_MINOR
+#		undef XTE_LANG_META_PATCH
 #		define XTE_LANG_METAL 1
+#		define XTE_LANG_METAL_MAJOR ((__METAL_VERSION__) / 100)
+#		define XTE_LANG_METAL_MINOR ((__METAL_VERSION__) / 10 % 10)
+#		define XTE_LANG_METAL_PATCH ((__METAL_VERSION__) % 10)
 #	endif
 #
 #	if defined(__OBJC__) || defined(__OBJC2__)
@@ -188,6 +198,11 @@
 #	ifdef __PSSL__
 #		undef XTE_LANG_PSSL
 #		define XTE_LANG_PSSL 1
+#	endif
+#
+#	ifdef __SLANG__
+#		undef XTE_LANG_SLANG
+#		define XTE_LANG_SLANG 1
 #	endif
 #
 #	define DETAIL_XTE_LANG(OP, LHS_MAJOR, LHS_MINOR, LHS_PATCH, RHS_MAJOR, RHS_MINOR, RHS_PATCH, ...) \
