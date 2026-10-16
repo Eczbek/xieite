@@ -1,6 +1,7 @@
 #include <xte/aliases.hpp>
 #include <xte/approx_equal.hpp>
 #include <xte/detect/feature.hpp>
+#include <xte/math/float.hpp>
 #include <xte/math/serialize.hpp>
 #include <numbers>
 #include <limits>
@@ -108,8 +109,8 @@ static_assert(xte::approx_equal(xte::parse_number<double>(xte::stringify_number(
 static_assert(xte::approx_equal(xte::parse_number<double>(xte::stringify_number(42.0, std::numbers::phi), std::numbers::phi), 42.0));
 static_assert(xte::stringify_number(std::numeric_limits<double>::infinity()) == "inf");
 static_assert(xte::stringify_number(-std::numeric_limits<double>::infinity()) == "-inf");
-static_assert(xte::stringify_number(std::numeric_limits<double>::quiet_NaN()) == "NaN");
-static_assert(xte::stringify_number(-std::numeric_limits<double>::quiet_NaN()) == "NaN");
+static_assert(xte::stringify_number(std::numeric_limits<double>::quiet_NaN()) == "nan");
+static_assert(xte::stringify_number(-std::numeric_limits<double>::quiet_NaN()) == "nan");
 
 
 
@@ -154,6 +155,7 @@ static_assert(xte::approx_equal(xte::parse_number<double>("FF.FF", 16), 255.0 + 
 static_assert(xte::approx_equal(xte::parse_number<double>("10", 2.5), 2.5));
 static_assert(xte::approx_equal(xte::parse_number<double>("11", 2.5), 3.5));
 static_assert(xte::approx_equal(xte::parse_number<double>("123.456.789"), 123.456));
+static_assert(xte::approx_equal(xte::parse_number<double>("123.-456"), 123.0));
 static_assert(xte::approx_equal(xte::parse_number<double>("1e2e3"), 1e2));
 static_assert(xte::approx_equal(xte::parse_number<double>("1e"), 1));
 static_assert(xte::approx_equal(xte::parse_number<double>("1e+"), 1));
@@ -190,3 +192,7 @@ static_assert(xte::approx_equal(xte::parse_number<double>("-20", -2.5), -5.0));
 static_assert(xte::parse_number<int>.with_index("123").index == 3);
 static_assert(xte::parse_number<int>.with_index("-").index == 0);
 static_assert(xte::parse_number<double>.with_index("+123.456e-78").index == 12);
+static_assert(xte::is_nan(xte::parse_number<double>("nan")));
+static_assert(xte::is_infinite(xte::parse_number<double>("inf")));
+static_assert(xte::is_infinite(xte::parse_number<double>("-inf")));
+static_assert(xte::is_infinite(xte::parse_number<double>("inf.inf")));

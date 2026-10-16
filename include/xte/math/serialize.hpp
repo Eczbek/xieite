@@ -14,6 +14,7 @@
 #	include "../string_view.hpp"
 #	include <algorithm>
 #	include <ranges>
+#	include <limits>
 
 namespace xte {
 	struct serialize_config {
@@ -22,6 +23,8 @@ namespace xte {
 		xte::string_view plus = "+";
 		xte::string_view point = ".";
 		xte::string_view exp = "EePp";
+		xte::string_view nan = "nan";
+		xte::string_view inf = "inf";
 	};
 }
 
@@ -34,8 +37,22 @@ namespace DETAIL_XTE::serialize {
 
 		[[nodiscard]] static constexpr auto with_index(xte::string_view string, arithmetic_type radix = 10, xte::serialize_config const& config = {}, bool allow_overflow = true) noexcept {
 			struct { arithmetic_type value = 0; xte::uz index = 0; } result;
-			if (!string.size() || xte::approx_equal(radix, 0) || !xte::is_finite(radix)) {
+			if (!string.size() || xte::approx_equal(radix, 0)) {
 				return result;
+			}
+			if constexpr (std::numeric_limits<arithmetic_type>::has_quiet_NaN) {
+				if (xte::is_nan(radix) || (string.subview(0, config.nan.size()) == config.nan)) {
+					result.value = std::numeric_limits<arithmetic_type>::quiet_NaN();
+					result.index = config.nan.size();
+					return result;
+				}
+			}
+			if constexpr (std::numeric_limits<arithmetic_type>::has_infinity) {
+				if (bool neg = config.minus.contains(string[result.index]); string.subview(neg, config.inf.size()) == config.inf) {
+					result.value = (neg * 2 - 1) * std::numeric_limits<arithmetic_type>::infinity();
+					result.index = neg + config.inf.size();
+					return result;
+				}
 			}
 			auto abs_radix = xte::abs(radix);
 			bool radix_is_whole = xte::approx_equal(abs_radix, xte::make<xte::uz>(abs_radix));
@@ -73,7 +90,14 @@ namespace DETAIL_XTE::serialize {
 						result.value += xte::make<arithmetic_type>(digit) * (pow /= radix);
 					}
 				}
-				if (((result.index + 1) < string.size()) && config.exp.contains(string[result.index]) && (digits.contains(string[result.index + 1]) || ((result.index + 2 < string.size()) && (config.minus.contains(string[result.index + 1]) || config.plus.contains(string[result.index + 1])) && digits.contains(string[result.index + 2])))) {
+				if (((result.index + 1) < string.size())
+					&& config.exp.contains(string[result.index])
+					&& (digits.contains(string[result.index + 1])
+						|| ((result.index + 2 < string.size())
+							&& (config.minus.contains(string[result.index + 1])
+								|| config.plus.contains(string[result.index + 1]))
+							&& digits.contains(string[result.index + 2]))))
+				{
 					++result.index;
 					result.value *= xte::pow(radix, parse_int());
 				}
@@ -85,13 +109,13 @@ namespace DETAIL_XTE::serialize {
 
 namespace xte {
 	constexpr auto stringify_number = []<xte::is_arithmetic arithmetic_type>[[nodiscard]](arithmetic_type x, arithmetic_type radix = 10, xte::serialize_config const& config = {}, xte::uz max_float_precision = 50) noexcept(false) -> xte::string {
-		xte::string result;
 		if (xte::is_nan(x)) {
-			return "NaN";
+			return config.nan;
 		}
 		if (xte::is_infinite(x)) {
-			return (x < 0) ? "-inf" : "inf";
+			return (x < 0) ? (xte::string(config.minus) + config.inf) : xte::string(config.inf);
 		}
+		xte::string result;
 		if (xte::approx_equal(x, 0) || !xte::is_finite(radix) || xte::approx_equal(radix, 0)) {
 			result.append(config.digits[0]);
 			if constexpr (xte::is_float<arithmetic_type>) {
