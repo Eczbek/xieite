@@ -99,19 +99,7 @@ namespace xte {
 	};
 
 	template<typename item_type>
-	struct fixed_array<item_type, 0> {
-		using value_type = item_type;
-		using reference = item_type&;
-		using const_reference = const item_type&;
-		using pointer = item_type*;
-		using const_pointer = const item_type*;
-		using iterator = item_type*;
-		using const_iterator = const item_type*;
-		using reverse_iterator = std::reverse_iterator<item_type*>;
-		using const_reverse_iterator = std::reverse_iterator<const item_type*>;
-		using size_type = xte::uz;
-		using difference_type = xte::iptrdiff;
-
+	struct fixed_array<item_type, 0> : xte::contiguous_container_aliases<item_type> {
 		[[nodiscard]] constexpr item_type const* data() const noexcept {
 			return nullptr;
 		}
@@ -155,9 +143,9 @@ namespace xte {
 	fixed_array(item_type, item_types...) -> fixed_array<std::common_type_t<item_type, item_types...>, (sizeof...(item_types) + 1)>;
 
 	template<typename lhs_type, typename rhs_type>
-	requires(xte::is_derived_from_specialization_of<xte::drop_cvref<lhs_type>, ^^xte::fixed_array>
-		&& xte::is_derived_from_specialization_of<xte::drop_cvref<rhs_type>, ^^xte::fixed_array>
-		&& xte::is_same<typename lhs_type::value_type, typename rhs_type::value_type>)
+		requires xte::is_derived_from_specialization_of<xte::drop_cvref<lhs_type>, ^^xte::fixed_array>
+			&& xte::is_derived_from_specialization_of<xte::drop_cvref<rhs_type>, ^^xte::fixed_array>
+			&& xte::is_same<typename lhs_type::value_type, typename rhs_type::value_type>
 	[[nodiscard]] constexpr auto operator+(lhs_type&& lhs, rhs_type&& rhs) XTE_RETURNS(
 		xte::unfold<lhs_type::size>([]<xte::uz... i>(auto&& lhs, auto&& rhs) XTE_RETURNS(
 			xte::unfold<rhs_type::size>([]<xte::uz... j>(auto&& lhs, auto&& rhs) XTE_RETURNS(

@@ -56,19 +56,29 @@ namespace DETAIL_XTE::eval {
 		} tag;
 
 		[[nodiscard]] constexpr explicit(false) data_type(DETAIL_XTE::eval::unsigned_type value) noexcept
-		: unsigned_value(value), tag(DETAIL_XTE::eval::data_type::unsigned_tag) {}
+			: unsigned_value(value)
+			, tag(DETAIL_XTE::eval::data_type::unsigned_tag)
+		{}
 
 		[[nodiscard]] constexpr explicit(false) data_type(DETAIL_XTE::eval::signed_type value) noexcept
-		: signed_value(value), tag(DETAIL_XTE::eval::data_type::signed_tag) {}
+			: signed_value(value)
+			, tag(DETAIL_XTE::eval::data_type::signed_tag)
+		{}
 
 		[[nodiscard]] constexpr explicit(false) data_type(xte::big_int value) noexcept
-		: big_value(xte::as_xvalue(value)), tag(DETAIL_XTE::eval::data_type::big_tag) {}
+			: big_value(xte::as_xvalue(value))
+			, tag(DETAIL_XTE::eval::data_type::big_tag)
+		{}
 
 		[[nodiscard]] constexpr explicit(false) data_type(DETAIL_XTE::eval::float_type value) noexcept
-		: float_value(value), tag(DETAIL_XTE::eval::data_type::float_tag) {}
+			: float_value(value)
+			, tag(DETAIL_XTE::eval::data_type::float_tag)
+		{}
 
 		[[nodiscard]] constexpr explicit(false) data_type(bool value) noexcept
-		: bool_value(value), tag(DETAIL_XTE::eval::data_type::bool_tag) {}
+			: bool_value(value)
+			, tag(DETAIL_XTE::eval::data_type::bool_tag)
+		{}
 
 		[[nodiscard]] constexpr data_type(DETAIL_XTE::eval::data_type const& other) noexcept(false) {
 			switch (this->tag = other.tag) {
@@ -175,16 +185,18 @@ namespace DETAIL_XTE::eval {
 
 namespace xte {
 	template<typename eval_type>
-	requires(xte::is_arithmetic_or_bool<eval_type> || xte::is_same<eval_type, xte::big_int>)
+		requires xte::is_arithmetic_or_bool<eval_type> || xte::is_same<eval_type, xte::big_int>
 	constexpr auto eval = [][[nodiscard]](xte::string_view input) static noexcept(false) -> eval_type {
 		struct [[nodiscard]] error : std::exception {
 			xte::string message;
 
 			constexpr error(xte::uz pos, xte::string_view message) noexcept(false)
-			: message("at " + xte::stringify_number(pos) + ": " + message) {}
+				: message("at " + xte::stringify_number(pos) + ": " + message)
+			{}
 
 			constexpr error(xte::uz pos, xte::string_view input, xte::string_view expected) noexcept(false)
-			: message("at " + xte::stringify_number(pos) + ": expected " + expected + ((pos < input.size()) ? (xte::string(", found: ") + input[pos]) : "")) {}
+				: message("at " + xte::stringify_number(pos) + ": expected " + expected + ((pos < input.size()) ? (xte::string(", found: ") + input[pos]) : ""))
+			{}
 
 			[[nodiscard]] virtual constexpr char const* what() const noexcept override {
 				return this->message.c_str();

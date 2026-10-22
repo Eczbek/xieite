@@ -35,19 +35,20 @@ namespace DETAIL_XTE::compare {
 namespace xte {
 	template<typename lhs_type, typename rhs_type>
 	[[nodiscard]] constexpr xte::is_order auto compare(lhs_type const& lhs, rhs_type const& rhs)
-	noexcept(([] {
-		if constexpr (xte::is_arithmetic<lhs_type> && xte::is_arithmetic<rhs_type>) {
-			return true;
-		} else if constexpr (requires { { lhs <=> rhs } -> xte::is_order; }) {
-			return noexcept(lhs <=> rhs);
-		} else if constexpr (requires { { rhs <=> lhs } -> xte::is_order; }) {
-			return noexcept(rhs <=> lhs);
-		} else if constexpr (requires { DETAIL_XTE::compare::less(lhs, rhs); DETAIL_XTE::compare::less(rhs, lhs); }) {
-			return noexcept(DETAIL_XTE::compare::less(lhs, rhs)) && noexcept(DETAIL_XTE::compare::less(rhs, lhs));
-		} else {
-			return true;
-		}
-	})()) {
+		noexcept(([] {
+			if constexpr (xte::is_arithmetic<lhs_type> && xte::is_arithmetic<rhs_type>) {
+				return true;
+			} else if constexpr (requires { { lhs <=> rhs } -> xte::is_order; }) {
+				return noexcept(lhs <=> rhs);
+			} else if constexpr (requires { { rhs <=> lhs } -> xte::is_order; }) {
+				return noexcept(rhs <=> lhs);
+			} else if constexpr (requires { DETAIL_XTE::compare::less(lhs, rhs); DETAIL_XTE::compare::less(rhs, lhs); }) {
+				return noexcept(DETAIL_XTE::compare::less(lhs, rhs)) && noexcept(DETAIL_XTE::compare::less(rhs, lhs));
+			} else {
+				return true;
+			}
+		})())
+	{
 		if constexpr (xte::is_arithmetic<lhs_type> && xte::is_arithmetic<rhs_type>) {
 			using order_type = [:(xte::is_float<lhs_type> || xte::is_float<rhs_type>) ? ^^std::partial_ordering : ^^std::strong_ordering:];
 			if constexpr (xte::is_float<lhs_type> || xte::is_float<rhs_type>) {

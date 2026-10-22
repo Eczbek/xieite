@@ -1,10 +1,12 @@
 #ifndef DETAIL_XTE_HEADER_CLASS_TRAITS
 #	define DETAIL_XTE_HEADER_CLASS_TRAITS
 #
+#	include "./aliases.hpp"
 #	include "./diagnostic.hpp"
 #	include "./meta/fake.hpp"
 #	include "./qual_traits.hpp"
 #	include <concepts>
+#	include <iterator>
 #	include <meta>
 #	include <type_traits>
 
@@ -18,13 +20,13 @@ namespace DETAIL_XTE::class_traits {
 	constexpr bool is_callable<func_type, return_type(arg_types...)> =
 		(std::is_void_v<return_type>
 				? requires { xte::fake<func_type>()(xte::fake<arg_types>()...); }
-				: requires ([:^^int(return_type):]& f) { f(xte::fake<func_type>()(xte::fake<arg_types>()...)); });
+				: requires([:^^int(return_type):]& f) { f(xte::fake<func_type>()(xte::fake<arg_types>()...)); });
 
 	template<typename func_type, typename return_type, typename... arg_types>
 	constexpr bool is_callable<func_type, return_type(arg_types...) noexcept> =
 		(std::is_void_v<return_type>
 			? requires { { xte::fake<func_type>()(xte::fake<arg_types>()...) } noexcept; }
-			: requires ([:^^int(return_type) noexcept:]& f) { { f(xte::fake<func_type>()(xte::fake<arg_types>()...)) } noexcept; });
+			: requires([:^^int(return_type) noexcept:]& f) { { f(xte::fake<func_type>()(xte::fake<arg_types>()...)) } noexcept; });
 
 	template<typename type, typename>
 	constexpr bool is_invocable = (([] {
@@ -52,7 +54,7 @@ namespace xte {
 	template<typename target_type, typename... arg_types>
 	concept is_constructible =
 		((sizeof...(arg_types) == 1)
-			? (requires { requires(std::is_void_v<arg_types...[0]>); }
+			? (requires { requires std::is_void_v<arg_types...[0]>; }
 				? requires { target_type(); }
 				: requires { static_cast<target_type>(xte::fake<arg_types...[0]>()); })
 			: requires { target_type(xte::fake<arg_types>()...); });
@@ -62,7 +64,7 @@ namespace xte {
 	concept is_constructible_noex =
 		xte::is_constructible<target_type, arg_types...>
 		&& ((sizeof...(arg_types) == 1)
-			? (requires { requires(std::is_void_v<arg_types...[0]>); }
+			? (requires { requires std::is_void_v<arg_types...[0]>; }
 				? requires { { target_type() } noexcept; }
 				: requires { { static_cast<target_type>(xte::fake<arg_types...[0]>()) } noexcept; })
 			: requires { { target_type(xte::fake<arg_types>()...) } noexcept; });
@@ -71,15 +73,15 @@ namespace xte {
 	concept is_implicitly_constructible =
 		xte::is_constructible<target_type, source_type>
 		&& (std::is_void_v<source_type>
-			? requires ([:^^int(target_type):]& f) { f({}); }
-			: requires ([:^^int(target_type):]& f) { f(xte::fake<source_type>()); });
+			? requires([:^^int(target_type):]& f) { f({}); }
+			: requires([:^^int(target_type):]& f) { f(xte::fake<source_type>()); });
 
 	template<typename target_type, typename source_type = void>
 	concept is_implicitly_constructible_noex =
 		xte::is_implicitly_constructible<target_type, source_type>
 		&& (std::is_void_v<source_type>
-			? requires ([:^^int(target_type) noexcept:]& f) { { f({}) } noexcept; }
-			: requires ([:^^int(target_type) noexcept:]& f) { { f(xte::fake<source_type>()) } noexcept; });
+			? requires([:^^int(target_type) noexcept:]& f) { { f({}) } noexcept; }
+			: requires([:^^int(target_type) noexcept:]& f) { { f(xte::fake<source_type>()) } noexcept; });
 
 	template<typename target_type, typename... arg_types>
 	concept is_brace_constructible = requires { target_type { xte::fake<arg_types>()... }; };
@@ -162,7 +164,7 @@ namespace xte {
 	concept is_destructible_noex = xte::is_destructible<type> && std::is_nothrow_destructible_v<type>;
 
 	template<typename type>
-	concept is_bool_testable = requires (type&& x, [:^^int(bool):]& f) {
+	concept is_bool_testable = requires(type&& x, [:^^int(bool):]& f) {
 		static_cast<bool>(XTE_FWD(x));
 		static_cast<bool>(!XTE_FWD(x));
 		f(XTE_FWD(x));
@@ -171,7 +173,7 @@ namespace xte {
 	};
 
 	template<typename type>
-	concept is_bool_testable_noex = requires (type&& x, [:^^int(bool) noexcept:]& f) {
+	concept is_bool_testable_noex = requires(type&& x, [:^^int(bool) noexcept:]& f) {
 		{ static_cast<bool>(XTE_FWD(x)) } noexcept;
 		{ static_cast<bool>(!XTE_FWD(x)) } noexcept;
 		{ f(XTE_FWD(x)) } noexcept;
@@ -195,11 +197,11 @@ namespace xte {
 	concept is_invocable_lvalue = xte::is_invocable<func_type&, signature_type>;
 
 	template<typename type>
-	requires(std::is_member_pointer_v<type>)
+		requires std::is_member_pointer_v<type>
 	using member_type_of = [:DETAIL_XTE::class_traits::member_type_of<xte::drop_cv<type>>:];
 
 	template<typename type>
-	requires(std::is_member_pointer_v<type>)
+		requires std::is_member_pointer_v<type>
 	using class_type_of = [:DETAIL_XTE::class_traits::class_type_of<xte::drop_cv<type>>:];
 
 	template<typename type, typename class_type>
@@ -268,6 +270,26 @@ namespace xte {
 		xte::non_movable& operator=(xte::non_movable const&) = delete;
 
 		xte::non_movable& operator=(xte::non_movable&&) = delete;
+	};
+
+	template<typename item_type>
+	struct contiguous_container_aliases {
+		using value_type = item_type;
+		using reference = item_type&;
+		using const_reference = item_type const&;
+		using pointer = item_type*;
+		using const_pointer = item_type const*;
+		using iterator = item_type*;
+		using const_iterator = item_type const*;
+		using reverse_iterator = std::reverse_iterator<item_type*>;
+		using const_reverse_iterator = std::reverse_iterator<item_type const*>;
+		using size_type = xte::uz;
+		using difference_type = xte::iptrdiff;
+	};
+
+	template<typename allocator_type_>
+	struct dynamic_container_aliases {
+		using allocator_type = allocator_type_;
 	};
 }
 

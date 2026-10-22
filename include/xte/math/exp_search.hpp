@@ -18,7 +18,8 @@ namespace xte {
 	template<xte::is_arithmetic arithmetic_type0, xte::is_arithmetic arithmetic_type1, xte::end...,
 		typename common_type = std::common_type_t<arithmetic_type0, arithmetic_type1>>
 	[[nodiscard]] constexpr common_type exp_search(xte::is_callable_lvalue<bool(common_type)> auto&& predicate, arithmetic_type0 limit0, arithmetic_type1 limit1)
-	noexcept(xte::is_callable_lvalue<decltype(predicate), bool(common_type) noexcept>) {
+		noexcept(xte::is_callable_lvalue<decltype(predicate), bool(common_type) noexcept>)
+	{
 		auto [min, max] = xte::minmax(xte::make<common_type>(limit0), xte::make<common_type>(limit1));
 		while (true) {
 			common_type mid = xte::avg(min, max);
@@ -35,7 +36,8 @@ namespace xte {
 
 	template<xte::is_arithmetic arithmetic_type>
 	[[nodiscard]] constexpr arithmetic_type exp_search(xte::is_callable_lvalue<bool(arithmetic_type)> auto&& predicate)
-	noexcept(xte::is_callable_lvalue<decltype(predicate), bool(arithmetic_type) noexcept>) {
+		noexcept(xte::is_callable_lvalue<decltype(predicate), bool(arithmetic_type) noexcept>)
+	{
 		if constexpr (xte::is_int<arithmetic_type>) {
 			return xte::exp_search(predicate, xte::lowest<arithmetic_type>, xte::highest<arithmetic_type>);
 		} else {

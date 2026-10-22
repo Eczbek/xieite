@@ -5,7 +5,7 @@
 
 namespace xte::literal::radix {
 	template<char... digits>
-	requires(!!sizeof...(digits))
+		requires (sizeof...(digits) > 0)
 	[[nodiscard]] consteval xte::uz operator""_radix() noexcept {
 		if constexpr (digits...[0] == '0') {
 			if constexpr (sizeof...(digits) > 1) {

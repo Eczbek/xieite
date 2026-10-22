@@ -2,7 +2,6 @@
 #	define DETAIL_XTE_HEADER_OPT
 #
 #	include "./address.hpp"
-#	include "./assign.hpp"
 #	include "./class_traits.hpp"
 #	include "./exchange.hpp"
 #	include "./in_place.hpp"
@@ -30,8 +29,8 @@ namespace xte {
 		[[nodiscard]] constexpr explicit(false) opt(decltype(xte::null)) noexcept {}
 
 		[[nodiscard]] constexpr explicit(false) opt(auto&&... args) XTE_CONSTRUCTS(
-			(_value,(xte::make<item_type>(XTE_FWD(args)...)))
-			(_has_value,(true))
+			(_value, (xte::make<item_type>(XTE_FWD(args)...)))
+			(_has_value, (true))
 		)
 
 		[[nodiscard]] constexpr explicit(false) opt(xte::opt<item_type> const& other) XTE_CONSTRUCTS(,

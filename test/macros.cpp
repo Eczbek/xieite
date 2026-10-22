@@ -13,7 +13,7 @@ static_assert(xte::is_same<int&, decltype(f(x))>);
 
 
 template<int x>
-requires(x > 0)
+	requires (x > 0)
 int a;
 
 template<int x>
@@ -25,7 +25,7 @@ static_assert(requires { b<1>; });
 
 
 template<int x>
-requires(x > 0)
+	requires (x > 0)
 struct A {};
 
 template<int x>
@@ -48,9 +48,9 @@ struct derived : base_type, base_types... {
 	int x;
 
 	derived(int x) XTE_CONSTRUCTS(
-		(x,(x))
-		((base_type),(x))
-		(((base_types)),(x))
+		(x, (x))
+		((base_type), (x))
+		(((base_types)), (x))
 	)
 };
 

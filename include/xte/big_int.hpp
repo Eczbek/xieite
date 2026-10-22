@@ -36,7 +36,7 @@ namespace xte {
 		xte::array<xte::umax> _data;
 		bool _neg = false;
 
-		constexpr void _normalize() {
+		constexpr void _normalize() noexcept(false) {
 			if (!this->_data.size()) {
 				this->_data.append();
 			}
@@ -46,7 +46,7 @@ namespace xte {
 			this->_neg &= !!*this;
 		}
 
-		[[nodiscard]] constexpr bool _is_single_bit() const {
+		[[nodiscard]] constexpr bool _is_single_bit() const noexcept {
 			if (!xte::is_single_bit(this->_data.back())) {
 				return false;
 			}
@@ -58,12 +58,12 @@ namespace xte {
 			return true;
 		}
 
-		[[nodiscard]] constexpr std::strong_ordering _compare(xte::big_int const& rhs) const {
+		[[nodiscard]] constexpr std::strong_ordering _compare(xte::big_int const& rhs) const noexcept {
 			std::strong_ordering order = this->_data.size() <=> rhs._data.size();
 			return std::is_eq(order) ? xte::range_compare(std::views::reverse(this->_data), std::views::reverse(rhs._data)) : order;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _add(auto&& rhs) {
+		[[nodiscard]] constexpr xte::big_int& _add(auto&& rhs) noexcept(false) {
 			if (!*this) {
 				return *this = XTE_FWD(rhs);
 			}
@@ -90,7 +90,7 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _sub(auto&& rhs) {
+		[[nodiscard]] constexpr xte::big_int& _sub(auto&& rhs) noexcept(false) {
 			if (!*this) {
 				return *this = -XTE_FWD(rhs);
 			}
@@ -119,7 +119,7 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _mul(auto&& rhs) {
+		[[nodiscard]] constexpr xte::big_int& _mul(auto&& rhs) noexcept(false) {
 			if (!*this || !rhs) {
 				return *this = 0;
 			}
@@ -162,7 +162,7 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int _div(xte::big_int const& rhs) {
+		[[nodiscard]] constexpr xte::big_int _div(xte::big_int const& rhs) noexcept(false) {
 			xte::big_int quot;
 			quot._data.resize(this->_data.size());
 			quot._neg = xte::exchange(this->_neg, false);
@@ -193,7 +193,7 @@ namespace xte {
 			return quot;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _bitwise(xte::big_int const& rhs, auto func) {
+		[[nodiscard]] constexpr xte::big_int& _bitwise(xte::big_int const& rhs, auto func) noexcept(false) {
 			xte::umax lhs_neg = this->_neg;
 			xte::umax rhs_neg = rhs._neg;
 			xte::umax lhs_borrow = lhs_neg;
@@ -208,7 +208,7 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _lshift(xte::big_int const& rhs) {
+		[[nodiscard]] constexpr xte::big_int& _lshift(xte::big_int const& rhs) noexcept(false) {
 			if (*this && rhs) {
 				xte::uz shift_digits = 0;
 				for (xte::uz i = 0; (i < rhs._data.size()) && (i <= (xte::width<xte::uz> / xte::width<xte::umax>)); ++i) {
@@ -231,7 +231,7 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int& _rshift(xte::big_int const& rhs) {
+		[[nodiscard]] constexpr xte::big_int& _rshift(xte::big_int const& rhs) noexcept {
 			if (*this && rhs) {
 				xte::uz shift_digits = 0;
 				for (xte::uz i = 0; (i < rhs._data.size()) && (i <= (xte::width<xte::uz> / xte::width<xte::umax>)); ++i) {
@@ -255,7 +255,7 @@ namespace xte {
 			return *this;
 		}
 
-		[[nodiscard]] constexpr xte::big_int _pow(this auto&& base, auto&& exp) {
+		[[nodiscard]] constexpr xte::big_int _pow(this auto&& base, auto&& exp) noexcept(false) {
 			if ((base == 1) || (base == -1) || (exp == 1)) {
 				return (base._neg && !(exp._data[0] & 1)) ? -XTE_FWD(base) : XTE_FWD(base);
 			}
@@ -289,7 +289,8 @@ namespace xte {
 	public:
 		template<xte::is_arithmetic arithmetic_type = xte::umax>
 		[[nodiscard]] constexpr explicit(!xte::is_int<arithmetic_type>) big_int(arithmetic_type x = 0) noexcept(false)
-		: _neg(x < 0) {
+			: _neg(x < 0)
+		{
 			if (!xte::is_finite(x)) {
 				throw xte::static_error<"value is not finite">();
 			}
@@ -305,14 +306,15 @@ namespace xte {
 
 		template<typename range_type = xte::array<xte::umax>>
 		[[nodiscard]] constexpr big_int(std::from_range_t, range_type&& range, bool neg = false) XTE_CONSTRUCTS(
-			(_data,(std::from_range, XTE_FWD(range)))
-			(_neg,(neg)),
+			(_data, (std::from_range, XTE_FWD(range)))
+			(_neg, (neg)),
 			this->_normalize()
 		)
 
 		template<xte::is_int radix_type = xte::uz>
 		[[nodiscard]] constexpr explicit big_int(xte::string_view string, radix_type radix = 10, xte::serialize_config const& config = {}) noexcept(false)
-		: xte::big_int(xte::big_int::parse(string, radix, config)) {}
+			: xte::big_int(xte::big_int::parse(string, radix, config))
+		{}
 
 		constexpr xte::big_int& operator=(xte::big_int const&) & noexcept(false) = default;
 

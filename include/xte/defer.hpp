@@ -13,8 +13,9 @@ namespace xte {
 
 	public:
 		[[nodiscard]] constexpr explicit(false) defer(func_type&& func)
-		noexcept(xte::is_move_constructible_noex<func_type>)
-		: _func(XTE_FWD(func)) {}
+			noexcept(xte::is_move_constructible_noex<func_type>)
+			: _func(XTE_FWD(func))
+		{}
 
 		constexpr ~defer() {
 			XTE_FWD(this->_func)();

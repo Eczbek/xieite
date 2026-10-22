@@ -17,11 +17,13 @@ namespace DETAIL_XTE::aggregate {
 		xte::string_view name = {};
 
 		consteval explicit(false) arg_type(std::meta::info type) noexcept
-		: type(type) {}
+			: type(type)
+		{}
 
 		template<xte::uz size>
 		consteval explicit(false) arg_type(xte::type<char[size]> const& name) noexcept
-		: name(std::define_static_string(name)) {}
+			: name(std::define_static_string(name))
+		{}
 	};
 
 	template<DETAIL_XTE::aggregate::arg_type... args>

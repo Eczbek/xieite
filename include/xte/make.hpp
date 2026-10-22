@@ -12,7 +12,7 @@
 
 namespace DETAIL_XTE::make {
 	template<typename target_type, typename... arg_types>
-	requires(sizeof...(arg_types) == 1)
+		requires (sizeof...(arg_types) == 1)
 	[[nodiscard]] constexpr auto cast_one(arg_types&&... args) XTE_RETURNS(
 		static_cast<target_type>(XTE_FWD(args...[0]))
 	)

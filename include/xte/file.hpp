@@ -23,11 +23,13 @@ namespace xte {
 		xte::uz _mask;
 	
 		[[nodiscard]] constexpr explicit file_mode(xte::uz mask) noexcept
-		: _mask(mask) {}
+			: _mask(mask)
+		{}
 
 	public:
 		[[nodiscard]] constexpr explicit(false) file_mode() noexcept
-		: _mask(xte::file_mode::none) {}
+			: _mask(xte::file_mode::none)
+		{}
 
 		static xte::file_mode const none;
 		static xte::file_mode const read;
@@ -80,7 +82,9 @@ namespace xte {
 		[[nodiscard]] explicit(false) file() noexcept = default;
 
 		[[nodiscard]] file(std::FILE* stream, xte::file_mode mode) noexcept
-		: _stream(stream), _mode(mode) {}
+			: _stream(stream)
+			, _mode(mode)
+		{}
 
 		[[nodiscard]] file(xte::string_view path, xte::file_mode mode) noexcept(false) {
 			this->open(path, mode);
@@ -178,7 +182,8 @@ namespace xte {
 		[[nodiscard]] explicit(false) file_pipe() noexcept = default;
 
 		[[nodiscard]] explicit file_pipe(std::FILE* stream) noexcept
-		: _file(stream, xte::file_mode::read) {}
+			: _file(stream, xte::file_mode::read)
+		{}
 
 		[[nodiscard]] explicit file_pipe(xte::string_view path) noexcept(false) {
 			this->open(path);

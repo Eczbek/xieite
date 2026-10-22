@@ -32,15 +32,15 @@ namespace DETAIL_XTE::fundamental_traits {
 	constexpr auto drop_ptr = ^^type;
 
 	template<typename type, xte::uz depth>
-	requires(depth > 0)
+		requires (depth > 0)
 	constexpr auto drop_ptr<type*, depth> = DETAIL_XTE::fundamental_traits::drop_ptr<type, (depth - 1)>;
 
 	template<typename type, xte::uz depth>
-	requires(depth > 0)
+		requires (depth > 0)
 	constexpr auto drop_ptr<type*&, depth> = DETAIL_XTE::fundamental_traits::drop_ptr<type&, (depth - 1)>;
 
 	template<typename type, xte::uz depth>
-	requires(depth > 0)
+		requires (depth > 0)
 	constexpr auto drop_ptr<type*&&, depth> = DETAIL_XTE::fundamental_traits::drop_ptr<type&&, (depth - 1)>;
 }
 
@@ -79,7 +79,7 @@ namespace xte {
 	using add_ptr = [:DETAIL_XTE::fundamental_traits::add_ptr<type, depth>:];
 
 	template<typename type, xte::uz size>
-	requires(size > 0)
+		requires (size > 0)
 	using add_array = type[size];
 
 	template<typename type>

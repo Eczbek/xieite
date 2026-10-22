@@ -42,7 +42,7 @@ namespace xte {
 		template<typename other_type = arithmetic_type>
 		[[nodiscard]] explicit(!xte::is_same_any_drop_cvref<other_type, xte::try_unsigned<arithmetic_type>, xte::try_signed<arithmetic_type>>)
 		constexpr number(other_type&& x = 0) XTE_CONSTRUCTS(
-			(value,(xte::make<arithmetic_type>(XTE_FWD(x))))
+			(value, (xte::make<arithmetic_type>(XTE_FWD(x))))
 		)
 
 		template<typename other_type>

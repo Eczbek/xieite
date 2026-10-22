@@ -252,15 +252,15 @@ static_assert(xte::is_derived_from_specialization_of<xte::fixed_array<int, 3>, ^
 struct S98 : xte::non_copyable {};
 
 static_assert(requires { S98(); });
-static_assert(!requires (S98 s) { requires(requires { S98(s); }); });
-static_assert(requires (S98 s) { S98(xte::as_xvalue(s)); });
-static_assert(!requires (S98 lhs, S98 rhs) { requires(requires { lhs = rhs; }); });
-static_assert(requires (S98 lhs, S98 rhs) { lhs = xte::as_xvalue(rhs); });
+static_assert(!requires(S98 s) { requires requires { S98(s); }; });
+static_assert(requires(S98 s) { S98(xte::as_xvalue(s)); });
+static_assert(!requires(S98 lhs, S98 rhs) { requires requires { lhs = rhs; }; });
+static_assert(requires(S98 lhs, S98 rhs) { lhs = xte::as_xvalue(rhs); });
 
 struct S99 : xte::non_copyable, xte::non_movable {};
 
 static_assert(requires { S99(); });
-static_assert(!([]<typename S = S99> { return requires (S s) { S(s); }; })());
-static_assert(!([]<typename S = S99> { return requires (S s) { S(xte::as_xvalue(s)); }; })());
-static_assert(!([]<typename S = S99> { return requires (S lhs, S rhs) { lhs = rhs; }; })());
-static_assert(!([]<typename S = S99> { return requires (S lhs, S rhs) { lhs = xte::as_xvalue(rhs); }; })());
+static_assert(!([]<typename S = S99> { return requires(S s) { S(s); }; })());
+static_assert(!([]<typename S = S99> { return requires(S s) { S(xte::as_xvalue(s)); }; })());
+static_assert(!([]<typename S = S99> { return requires(S lhs, S rhs) { lhs = rhs; }; })());
+static_assert(!([]<typename S = S99> { return requires(S lhs, S rhs) { lhs = xte::as_xvalue(rhs); }; })());

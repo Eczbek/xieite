@@ -138,7 +138,7 @@ namespace xte::literal::numbers {
 #	endif
 #	if XTE_HAS_INT_128
 	template<char... digits>
-	requires(!!sizeof...(digits))
+		requires (sizeof...(digits) > 0)
 	[[nodiscard]] consteval xte::u128 operator""_u128() noexcept {
 		static constexpr xte::uz radix = xte::literal::radix::operator""_radix<digits...>();
 		xte::u128 result = 0;
@@ -156,7 +156,7 @@ namespace xte::literal::numbers {
 	}
 
 	template<char... digits>
-	requires(!!sizeof...(digits))
+		requires (sizeof...(digits) > 0)
 	[[nodiscard]] consteval xte::i128 operator""_i128() noexcept {
 		return static_cast<xte::i128>(xte::literal::numbers::operator""_u128<digits...>());
 	}

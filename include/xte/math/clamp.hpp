@@ -1,7 +1,6 @@
 #ifndef DETAIL_XTE_HEADER_MATH_CLAMP
 #	define DETAIL_XTE_HEADER_MATH_CLAMP
 #
-#	include "../assign.hpp"
 #	include "../compare.hpp"
 #	include "../exchange.hpp"
 #	include "../in_place.hpp"
@@ -14,16 +13,16 @@ namespace xte {
 	template<typename first_type, typename... rest_types,
 		typename common_type = std::common_type_t<first_type, rest_types...>>
 	[[nodiscard]] constexpr common_type min(first_type&& first, rest_types&&... rest)
-	noexcept(noexcept(static_cast<common_type>(XTE_FWD(first)))
-		&& (... && requires (common_type min) {
-			{ xte::less(rest, min) } noexcept;
-			{ xte::assign(min, XTE_FWD(rest)) } noexcept;
-		}))
-	requires(requires { static_cast<common_type>(XTE_FWD(first)); }
-		&& (... && requires (common_type min) {
-			xte::less(rest, min);
-			xte::assign(min, XTE_FWD(rest));
-		}))
+		noexcept(noexcept(static_cast<common_type>(XTE_FWD(first)))
+			&& (... && requires(common_type min) {
+				{ xte::less(rest, min) } noexcept;
+				{ xte::assign(min, XTE_FWD(rest)) } noexcept;
+			}))
+		requires requires { static_cast<common_type>(XTE_FWD(first)); }
+			&& (... && requires(common_type min) {
+				xte::less(rest, min);
+				xte::assign(min, XTE_FWD(rest));
+			})
 	{
 		auto min = xte::make<common_type>(XTE_FWD(first));
 		(..., (xte::less(rest, min) ? void(xte::assign(min, XTE_FWD(rest))) : void()));
@@ -33,16 +32,16 @@ namespace xte {
 	template<typename first_type, typename... rest_types,
 		typename common_type = std::common_type_t<first_type, rest_types...>>
 	[[nodiscard]] constexpr common_type max(first_type&& first, rest_types&&... rest)
-	noexcept(noexcept(static_cast<common_type>(XTE_FWD(first)))
-		&& (... && requires (common_type max) {
-			{ xte::less(max, rest) } noexcept;
-			{ xte::assign(max, XTE_FWD(rest)) } noexcept;
-		}))
-	requires(requires { static_cast<common_type>(XTE_FWD(first)); }
-		&& (... && requires (common_type max) {
-			xte::less(max, rest);
-			xte::assign(max, XTE_FWD(rest));
-		}))
+		noexcept(noexcept(static_cast<common_type>(XTE_FWD(first)))
+			&& (... && requires(common_type max) {
+				{ xte::less(max, rest) } noexcept;
+				{ xte::assign(max, XTE_FWD(rest)) } noexcept;
+			}))
+		requires requires { static_cast<common_type>(XTE_FWD(first)); }
+			&& (... && requires(common_type max) {
+				xte::less(max, rest);
+				xte::assign(max, XTE_FWD(rest));
+			})
 	{
 		auto max = xte::make<common_type>(XTE_FWD(first));
 		(..., (xte::less(max, rest) ? void(xte::assign(max, XTE_FWD(rest))) : void()));
@@ -52,22 +51,22 @@ namespace xte {
 	template<typename first_type, typename... rest_types,
 		typename common_type = std::common_type_t<first_type, rest_types...>>
 	[[nodiscard]] constexpr auto minmax(first_type&& first, rest_types&&... rest)
-	noexcept(noexcept(static_cast<common_type>(XTE_FWD(first)))
-		&& (sizeof...(rest)
-			? (... && requires (common_type minmax) {
-				{ xte::less(minmax, rest) } noexcept;
-				{ xte::construct(minmax, XTE_FWD(rest)) } noexcept;
-				{ xte::assign(minmax, XTE_FWD(rest)) } noexcept;
-			})
-			: noexcept(static_cast<common_type>(first))))
-	requires(requires { static_cast<common_type>(XTE_FWD(first)); }
-		&& (sizeof...(rest)
-			? (... && requires (common_type minmax) {
-				xte::less(minmax, rest);
-				xte::construct(minmax, XTE_FWD(rest));
-				xte::assign(minmax, XTE_FWD(rest));
-			})
-			: requires { static_cast<common_type>(first); }))
+		noexcept(noexcept(static_cast<common_type>(XTE_FWD(first)))
+			&& (sizeof...(rest)
+				? (... && requires(common_type minmax) {
+					{ xte::less(minmax, rest) } noexcept;
+					{ xte::construct(minmax, XTE_FWD(rest)) } noexcept;
+					{ xte::assign(minmax, XTE_FWD(rest)) } noexcept;
+				})
+				: noexcept(static_cast<common_type>(first))))
+		requires requires { static_cast<common_type>(XTE_FWD(first)); }
+			&& (sizeof...(rest)
+				? (... && requires(common_type minmax) {
+					xte::less(minmax, rest);
+					xte::construct(minmax, XTE_FWD(rest));
+					xte::assign(minmax, XTE_FWD(rest));
+				})
+				: requires { static_cast<common_type>(first); })
 	{
 		struct return_type {
 			common_type min;

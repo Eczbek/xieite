@@ -10,7 +10,7 @@ namespace DETAIL_XTE::cast_result {
 		func_type&& func;
 
 		[[nodiscard]] constexpr explicit impl(func_type&& func) XTE_CONSTRUCTS(
-			(func,(XTE_FWD(func)))
+			(func, (XTE_FWD(func)))
 		)
 
 		XTE_DEFINE_CAST([[nodiscard]] constexpr explicit(false), auto&& self,

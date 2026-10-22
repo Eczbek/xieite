@@ -2,10 +2,10 @@
 #	define DETAIL_XTE_HEADER_ARITHMETIC
 #
 #	include "./abs.hpp"
-#	include "./assign.hpp"
 #	include "./detect/feature.hpp"
 #	include "./func/unfold.hpp"
 #	include "./fundamental_traits.hpp"
+#	include "./in_place.hpp"
 #	include "./limits.hpp"
 #	include "./make.hpp"
 #	include "./math/float.hpp"

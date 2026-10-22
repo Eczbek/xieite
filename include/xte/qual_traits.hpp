@@ -371,8 +371,8 @@ namespace xte {
 
 	inline constexpr auto as_xvalue_if_noex =
 		[][[nodiscard]](auto&& x) noexcept -> auto&&
-		requires(requires { { auto(xte::as_xvalue(x)) } noexcept; }
-			|| requires { auto(x); })
+			requires requires { { auto(xte::as_xvalue(x)) } noexcept; }
+				|| requires { auto(x); }
 		{
 			if constexpr (requires { { auto(xte::as_xvalue(x)) } noexcept; }) {
 				return xte::as_xvalue(x);

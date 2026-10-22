@@ -17,10 +17,12 @@ namespace DETAIL_XTE::log {
 	struct impl {
 	public:
 		explicit impl(std::format_string<arg_types...> fmt, arg_types&&... args, xte::sloc sloc = {}) noexcept(false)
-		: impl(sloc, stdout, fmt, XTE_FWD(args)...) {}
+			: impl(sloc, stdout, fmt, XTE_FWD(args)...)
+		{}
 
 		explicit impl(std::FILE* stream, std::format_string<arg_types...> fmt, arg_types&&... args, xte::sloc sloc = {}) noexcept(false)
-		: impl(sloc, stream, fmt, XTE_FWD(args)...) {}
+			: impl(sloc, stream, fmt, XTE_FWD(args)...)
+		{}
 
 	private:
 		explicit impl(xte::sloc const& sloc, std::FILE* stream, std::format_string<arg_types...> fmt, arg_types&&... args) noexcept(false) {

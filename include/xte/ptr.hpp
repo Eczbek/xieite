@@ -20,10 +20,12 @@ namespace xte {
 		using value_type = item_type;
 
 		[[nodiscard]] constexpr explicit(false) ptr(item_type* data = nullptr) noexcept
-		: _data(data) {}
+			: _data(data)
+		{}
 
 		[[nodiscard]] constexpr explicit(false) ptr(xte::ptr<item_type>&& other) noexcept
-		: _data(other.release()) {}
+			: _data(other.release())
+		{}
 
 		constexpr ~ptr() {
 			this->reset();
@@ -141,10 +143,12 @@ namespace xte {
 
 	public:
 		[[nodiscard]] constexpr explicit(false) ptr(item_type* data = nullptr) noexcept
-		: _data(data) {}
+			: _data(data)
+		{}
 
 		[[nodiscard]] constexpr explicit(false) ptr(xte::ptr<item_type[]>&& other) noexcept
-		: _data(other.release()) {}
+			: _data(other.release())
+		{}
 
 		constexpr ~ptr() {
 			this->reset();

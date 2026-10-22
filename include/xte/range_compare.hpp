@@ -19,11 +19,11 @@ namespace xte {
 	template<std::input_iterator lhs_iter_type, std::sentinel_for<lhs_iter_type> lhs_sentinel_type, std::input_iterator rhs_iter_type, std::sentinel_for<rhs_iter_type> rhs_sentinel_type, typename compare_type = decltype(XTE_LIFT(xte::compare)), typename proj_type = decltype(xte::identity), xte::end...,
 		xte::is_order return_type = decltype(xte::fake<compare_type&>()(std::invoke(xte::fake<proj_type&>(), *xte::fake<lhs_iter_type&>()), std::invoke(xte::fake<proj_type&>(), *xte::fake<rhs_iter_type&>())))>
 	[[nodiscard]] constexpr return_type range_compare(lhs_iter_type lhs_begin, lhs_sentinel_type lhs_end, rhs_iter_type rhs_begin, rhs_sentinel_type rhs_end, compare_type&& compare = {}, proj_type&& proj = {})
-	noexcept(xte::is_iter_noex<lhs_iter_type>
-		&& xte::is_sentinel_noex<lhs_sentinel_type, lhs_iter_type>
-		&& xte::is_iter_noex<rhs_iter_type>
-		&& xte::is_sentinel_noex<rhs_sentinel_type, rhs_iter_type>
-		&& noexcept(compare(std::invoke(proj, *lhs_begin), std::invoke(proj, *rhs_begin))))
+		noexcept(xte::is_iter_noex<lhs_iter_type>
+			&& xte::is_sentinel_noex<lhs_sentinel_type, lhs_iter_type>
+			&& xte::is_iter_noex<rhs_iter_type>
+			&& xte::is_sentinel_noex<rhs_sentinel_type, rhs_iter_type>
+			&& noexcept(compare(std::invoke(proj, *lhs_begin), std::invoke(proj, *rhs_begin))))
 	{
 		bool exhaust0 = (lhs_begin == lhs_end);
 		bool exhaust1 = (rhs_begin == rhs_end);
@@ -54,11 +54,11 @@ namespace xte {
 
 	template<std::input_iterator lhs_iter_type, std::sentinel_for<lhs_iter_type> lhs_sentinel_type, std::input_iterator rhs_iter_type, std::sentinel_for<rhs_iter_type> rhs_sentinel_type, xte::is_callable_lvalue<bool(decltype(*xte::fake<lhs_iter_type&>()), decltype(*xte::fake<rhs_iter_type&>()))> compare_type = decltype(XTE_LIFT_INFIX(==)), typename proj_type = decltype(xte::identity)>
 	[[nodiscard]] constexpr bool range_equal(lhs_iter_type lhs_begin, lhs_sentinel_type lhs_end, rhs_iter_type rhs_begin, rhs_sentinel_type rhs_end, compare_type&& compare = {}, proj_type&& proj = {})
-	noexcept(xte::is_iter_noex<lhs_iter_type>
-		&& xte::is_sentinel_noex<lhs_sentinel_type, lhs_iter_type>
-		&& xte::is_iter_noex<rhs_iter_type>
-		&& xte::is_sentinel_noex<rhs_sentinel_type, rhs_iter_type>
-		&& noexcept(static_cast<bool>(compare(std::invoke(proj, *lhs_begin), std::invoke(proj, *rhs_begin)))))
+		noexcept(xte::is_iter_noex<lhs_iter_type>
+			&& xte::is_sentinel_noex<lhs_sentinel_type, lhs_iter_type>
+			&& xte::is_iter_noex<rhs_iter_type>
+			&& xte::is_sentinel_noex<rhs_sentinel_type, rhs_iter_type>
+			&& noexcept(static_cast<bool>(compare(std::invoke(proj, *lhs_begin), std::invoke(proj, *rhs_begin)))))
 	{
 		bool exhaust0 = (lhs_begin == lhs_end);
 		bool exhaust1 = (rhs_begin == rhs_end);

@@ -3,7 +3,6 @@
 #
 #	include "./address.hpp"
 #	include "./aliases.hpp"
-#	include "./assign.hpp"
 #	include "./class_traits.hpp"
 #	include "./diagnostic.hpp"
 #	include "./exchange.hpp"
@@ -24,16 +23,17 @@
 #	include <type_traits>
 
 namespace xte {
-	template<xte::is_destructible_noex item_type>
-	struct array {
+	template<xte::is_destructible_noex item_type, typename allocator_type = std::allocator<item_type>> // TODO: constrain allocator_type
+	struct array : xte::contiguous_container_aliases<item_type>, xte::dynamic_container_aliases<allocator_type> {
 	private:
 		item_type* _data = nullptr;
 		xte::uz _size = 0;
 		xte::uz _capacity = 0;
+		allocator_type _allocator;
 
 		constexpr void _reallocate(xte::uz capacity) & noexcept(false) {
-			if (xte::array<item_type> old = xte::as_xvalue(*this); capacity) {
-				this->_data = std::allocator<item_type>().allocate(capacity);
+			if (auto old = xte::as_xvalue(*this); capacity) {
+				this->_data = this->_allocator.allocate(capacity);
 				this->_capacity = capacity;
 				try {
 					for (xte::uz i = 0; i < old._size; this->_size = ++i) {
@@ -47,39 +47,41 @@ namespace xte {
 		}
 
 	public:
-		using value_type = item_type;
-		using reference = item_type&;
-		using const_reference = item_type const&;
-		using pointer = item_type*;
-		using const_pointer = item_type const*;
-		using iterator = item_type*;
-		using const_iterator = item_type const*;
-		using reverse_iterator = std::reverse_iterator<item_type*>;
-		using const_reverse_iterator = std::reverse_iterator<item_type const*>;
-		using allocator_type = std::allocator<item_type>;
-		using size_type = xte::uz;
-		using difference_type = xte::iptrdiff;
-
 		[[nodiscard]] array() = default;
 
-		[[nodiscard]] constexpr explicit(false) array(xte::array<item_type> const& other) noexcept(false)
-		requires(xte::is_copy_constructible<item_type>)
-		: xte::array<item_type>(std::from_range, other) {}
+		[[nodiscard]] constexpr explicit(false) array(xte::array<item_type, allocator_type> const& other) noexcept(false)
+			requires xte::is_copy_constructible<item_type>
+			: _allocator(other._allocator)
+		{
+			try {
+				this->reserve_total(other._size);
+				for (item_type const& item : other) {
+					xte::construct(this->_data[this->_size], item);
+					++this->_size;
+				}
+			} catch (...) {
+				this->reset();
+				throw;
+			}
+		}
 
-		[[nodiscard]] constexpr explicit(false) array(xte::array<item_type>&& other) noexcept
-		: _data(xte::exchange(other._data, nullptr))
-		, _size(xte::exchange(other._size, 0))
-		, _capacity(xte::exchange(other._capacity, 0)) {}
+		[[nodiscard]] constexpr explicit(false) array(xte::array<item_type, allocator_type>&& other) noexcept
+			: _data(xte::exchange(other._data, nullptr))
+			, _size(xte::exchange(other._size, 0))
+			, _capacity(xte::exchange(other._capacity, 0))
+			, _allocator(other._allocator)
+		{}
 
 		[[nodiscard]] constexpr explicit(false) array(xte::init_list<item_type> init_list) noexcept(false)
-		requires(requires (item_type x) { xte::make<item_type>(xte::as_xvalue(x)); })
-		: xte::array<item_type>(std::from_range, xte::as_xvalue(init_list)) {}
+			requires requires(item_type x) { xte::make<item_type>(xte::as_xvalue(x)); }
+			: xte::array<item_type, allocator_type>(std::from_range, xte::as_xvalue(init_list))
+		{}
 
 		template<std::ranges::input_range range_type>
 		[[nodiscard]] constexpr array(std::from_range_t, range_type&& range) noexcept(false)
-		requires(requires { item_type(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }
-			&& (std::ranges::sized_range<range_type>
-				|| requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); }))
+			requires requires { item_type(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }
+				&& (std::ranges::sized_range<range_type>
+					|| requires(item_type x) { xte::make<item_type>(xte::as_xvalue_if_noex(x)); })
 		try {
 			if constexpr (std::ranges::sized_range<range_type>) {
 				this->reserve_total(std::ranges::size(range));
@@ -95,16 +97,20 @@ namespace xte {
 			this->reset();
 		}
 
-		[[nodiscard]] constexpr array(std::from_range_t, xte::array<item_type>&& other) noexcept
-		: xte::array<item_type>(xte::as_xvalue(other)) {}
+		template<typename other_allocator_type>
+		[[nodiscard]] constexpr array(std::from_range_t, xte::array<item_type, other_allocator_type>&& other) noexcept
+			: _data(xte::exchange(other._data, nullptr))
+			, _size(xte::exchange(other._size, 0))
+			, _capacity(xte::exchange(other._capacity, 0))
+		{}
 
 		template<std::input_iterator iter_type>
 		[[nodiscard]] constexpr array(iter_type begin, std::sentinel_for<iter_type> auto end) XTE_CONSTRUCTS(
-			((xte::array<item_type>),(std::from_range, xte::as_lvalue(xte::as_const(std::ranges::subrange(begin, end)))))
+			((xte::array<item_type, allocator_type>), (std::from_range, xte::as_lvalue(xte::as_const(std::ranges::subrange(begin, end)))))
 		)
 
 		[[nodiscard]] constexpr explicit array(xte::uz size, auto&&... args) noexcept(false)
-		requires(requires { item_type(args...); })
+			requires requires { xte::make<item_type>(args...); }
 		try {
 			this->reserve_total(size);
 			while (this->_size < size) {
@@ -116,7 +122,7 @@ namespace xte {
 		}
 
 		[[nodiscard]] constexpr array(xte::uz size, item_type const& fill) noexcept(false)
-		requires(xte::is_copy_constructible<item_type>)
+			requires xte::is_copy_constructible<item_type>
 		try {
 			this->reserve_total(size);
 			while (this->_size < size) {
@@ -131,22 +137,24 @@ namespace xte {
 			this->reset();
 		}
 
-		constexpr xte::array<item_type>& operator=(xte::array<item_type> const& other) & noexcept(false)
-		requires(requires (item_type x) { xte::construct(x, x); }) {
+		constexpr xte::array<item_type, allocator_type>& operator=(xte::array<item_type, allocator_type> const& other) & noexcept(false)
+			requires xte::is_copy_constructible<item_type>
+		{
 			if (this != xte::address(other)) {
 				*this = std::ranges::subrange(other);
+				this->_allocator = other._allocator;
 			}
 			return *this;
 		}
 
-		constexpr xte::array<item_type>& operator=(xte::array<item_type>&& other) & noexcept {
+		constexpr xte::array<item_type, allocator_type>& operator=(xte::array<item_type, allocator_type>&& other) & noexcept {
 			return (this == xte::address(other)) ? *this : xte::reconstruct(*this, xte::as_xvalue(other));
 		}
 
 		template<std::ranges::input_range range_type>
-		constexpr xte::array<item_type>& operator=(range_type&& range) & noexcept(false)
-		requires(!xte::is_derived_from<range_type, xte::array<item_type>>
-			&& requires { item_type(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); })
+		constexpr xte::array<item_type, allocator_type>& operator=(range_type&& range) & noexcept(false)
+			requires (!xte::is_derived_from<range_type, xte::array<item_type, allocator_type>>
+				&& requires { item_type(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); })
 		{
 			if constexpr (std::ranges::sized_range<range_type>) {
 				if (xte::uz range_size = std::ranges::size(range); range_size <= this->_capacity) {
@@ -181,11 +189,11 @@ namespace xte {
 			return this->_capacity;
 		}
 
-		[[nodiscard]] friend constexpr auto operator<=>(xte::array<item_type> const& lhs, xte::array<item_type> const& rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator<=>(xte::array<item_type, allocator_type> const& lhs, xte::array<item_type, allocator_type> const& rhs) XTE_RETURNS(
 			xte::range_compare(lhs, rhs)
 		)
 
-		[[nodiscard]] friend constexpr auto operator==(xte::array<item_type> const& lhs, xte::array<item_type> const& rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator==(xte::array<item_type, allocator_type> const& lhs, xte::array<item_type, allocator_type> const& rhs) XTE_RETURNS(
 			(lhs._size == rhs._size) && xte::range_equal(lhs, rhs)
 		)
 
@@ -233,8 +241,8 @@ namespace xte {
 			return xte::like<decltype(self)>(self._data[index]);
 		}
 
-		[[nodiscard]] constexpr xte::array<item_type> subrange(this auto&& self, xte::uz index, xte::uz size = -1uz) noexcept(false) {
-			return (index < self._size) ? xte::array<item_type>(std::from_range, xte::like<decltype(self)>(std::ranges::subrange(self.begin() + index, self.begin() + index + xte::min(self.size() - index, size)))) : xte::array<item_type>();
+		[[nodiscard]] constexpr xte::array<item_type, allocator_type> subrange(this auto&& self, xte::uz index, xte::uz size = -1uz) noexcept(false) {
+			return (index < self._size) ? xte::array<item_type, allocator_type>(std::from_range, xte::like<decltype(self)>(std::ranges::subrange(self.begin() + index, self.begin() + index + xte::min(self.size() - index, size)))) : xte::array<item_type, allocator_type>();
 		}
 
 		constexpr void reset() & noexcept {
@@ -242,7 +250,7 @@ namespace xte {
 				for (item_type& item : *this) {
 					xte::destroy(item);
 				}
-				std::allocator<item_type>().deallocate(this->_data, this->_capacity);
+				this->_allocator.deallocate(this->_data, this->_capacity);
 			}
 			this->_data = nullptr;
 			this->_size = 0;
@@ -250,8 +258,8 @@ namespace xte {
 		}
 
 		constexpr void resize(xte::uz size) & noexcept(false)
-		requires(xte::is_constructible<item_type>
-			&& requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); })
+			requires xte::is_constructible<item_type>
+				&& requires(item_type x) { xte::make<item_type>(xte::as_xvalue_if_noex(x)); }
 		{
 			this->reserve_total(size);
 			while (this->_size < size) {
@@ -261,8 +269,8 @@ namespace xte {
 		}
 
 		constexpr void resize(xte::uz size, item_type const& fill) & noexcept(false)
-		requires(xte::is_copy_constructible<item_type>
-			&& requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); })
+			requires xte::is_copy_constructible<item_type>
+				&& requires(item_type x) { xte::make<item_type>(xte::as_xvalue_if_noex(x)); }
 		{
 			this->reserve_total(size);
 			while (this->_size < size) {
@@ -272,12 +280,14 @@ namespace xte {
 		}
 
 		constexpr void reserve(xte::uz additional = 1) & noexcept(false)
-		requires(requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); }) {
+			requires requires(item_type x) { item_type(xte::as_xvalue_if_noex(x)); }
+		{
 			this->reserve_total(this->_capacity + additional);
 		}
 
 		constexpr void reserve_total(xte::uz total) & noexcept(false)
-		requires(requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); }) {
+			requires requires(item_type x) { item_type(xte::as_xvalue_if_noex(x)); }
+		{
 			if (total > this->_capacity) {
 				XTE_DIAGNOSTIC_PUSH((NO_INTERFERENCE_SIZE))
 				xte::uz capacity = xte::max(this->_capacity, std::hardware_destructive_interference_size / sizeof(item_type));
@@ -301,9 +311,10 @@ namespace xte {
 		}
 
 		constexpr void insert(xte::uz index) & noexcept(false)
-		requires(xte::is_constructible<item_type>
-			&& requires (item_type x) { { item_type(xte::as_xvalue_if_noex(x)) } noexcept; }
-			&& requires (item_type x) { { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; })
+			requires xte::is_constructible<item_type>
+				&& requires(item_type x) {
+					{ item_type(xte::as_xvalue_if_noex(x)) } noexcept;
+					{ xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; }
 		{
 			this->reserve(this->_size == this->_capacity);
 			if (index >= this->_size) {
@@ -319,9 +330,10 @@ namespace xte {
 
 		template<typename arg_type = item_type>
 		constexpr void insert(xte::uz index, arg_type&& arg, auto&&... args) & noexcept(false)
-		requires(requires { item_type(XTE_FWD(arg), XTE_FWD(args)...); }
-			&& requires (item_type x) { { item_type(xte::as_xvalue_if_noex(x)) } noexcept; }
-			&& requires (item_type x) { { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; })
+			requires requires(item_type x) {
+				xte::make<item_type>(XTE_FWD(arg), XTE_FWD(args)...);
+				{ xte::make<item_type>(xte::as_xvalue_if_noex(x)) } noexcept;
+				{ xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; }
 		{
 			if (this->_size < this->_capacity) {
 				if (index >= this->_size) {
@@ -342,18 +354,17 @@ namespace xte {
 			xte::assign(this->_data[index], xte::as_xvalue_if_noex(tmp));
 		}
 
-		template<std::ranges::input_range range_type = xte::array<item_type>>
+		template<std::ranges::input_range range_type = xte::array<item_type, allocator_type>>
 		constexpr void insert_range(xte::uz index, range_type&& range) & noexcept(false)
-		requires(xte::is_range_noex<range_type>
-			&& requires (item_type x, decltype(std::ranges::begin(range)) iter) {
-				{ item_type(xte::as_xvalue_if_noex(x)) } noexcept;
-				{ xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept;
-				{ item_type(xte::as_xvalue_if_noex(*iter)) } noexcept;
-				{ xte::assign(x, xte::as_xvalue_if_noex(*iter)) } noexcept; }
-			)
+			requires xte::is_range_noex<range_type>
+				&& requires(item_type x, decltype(std::ranges::begin(range)) iter) {
+					{ item_type(xte::as_xvalue_if_noex(x)) } noexcept;
+					{ xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept;
+					{ item_type(xte::as_xvalue_if_noex(*iter)) } noexcept;
+					{ xte::assign(x, xte::as_xvalue_if_noex(*iter)) } noexcept; }
 		{
 			index = xte::min(index, this->_size);
-			auto range_copy = xte::array<item_type>(std::from_range, XTE_FWD(range));
+			auto range_copy = xte::array<item_type, allocator_type>(std::from_range, XTE_FWD(range));
 			xte::uz range_size = 0;
 			if constexpr (std::ranges::sized_range<range_type>) {
 				range_size = std::ranges::size(range_copy);
@@ -375,7 +386,7 @@ namespace xte {
 					return;
 				}
 			}
-			xte::array<item_type> old = xte::as_xvalue(*this);
+			auto old = xte::as_xvalue(*this);
 			this->reserve_total(old._size + range_size);
 			for (auto&& item : old | std::views::take(index)) {
 				this->append(xte::as_xvalue_if_noex(item));
@@ -389,9 +400,10 @@ namespace xte {
 		}
 
 		constexpr void insert_fill(xte::uz index, xte::uz count) & noexcept(false)
-		requires(xte::is_constructible_noex<item_type>
-			&& requires (item_type x) { { item_type(xte::as_xvalue_if_noex(x)) } noexcept; }
-			&& requires (item_type x) { { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; })
+			requires xte::is_constructible_noex<item_type>
+				&& requires(item_type x) {
+					{ xte::make<item_type>(xte::as_xvalue_if_noex(x)) } noexcept;
+					{ xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; }
 		{
 			index = xte::min(index, this->_size);
 			if ((this->_size + count) <= this->_capacity) {
@@ -410,7 +422,7 @@ namespace xte {
 				this->_size += count;
 				return;
 			}
-			xte::array<item_type> old = xte::as_xvalue(*this);
+			auto old = xte::as_xvalue(*this);
 			this->reserve_total(old._size + count);
 			for (auto&& item : old | std::views::take(index)) {
 				this->append(xte::as_xvalue_if_noex(item));
@@ -425,11 +437,12 @@ namespace xte {
 
 		template<typename arg_type = item_type>
 		constexpr void insert_fill(xte::uz index, xte::uz count, arg_type&& arg, auto&&... args) & noexcept(false)
-		requires(requires { item_type(XTE_FWD(arg), XTE_FWD(args)...); }
-			&& xte::is_copy_constructible_noex<item_type>
-			&& requires (item_type x, item_type const fill) { { xte::assign(x, fill) } noexcept; }
-			&& requires (item_type x) { { item_type(xte::as_xvalue_if_noex(x)) } noexcept; }
-			&& requires (item_type x) { { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; })
+			requires xte::is_copy_constructible_noex<item_type>
+				&& requires(item_type x, item_type const fill) {
+					xte::make<item_type>(XTE_FWD(arg), XTE_FWD(args)...);
+					{ xte::assign(x, fill) } noexcept;
+					{ xte::make<item_type>(xte::as_xvalue_if_noex(x)) } noexcept;
+					{ xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; }
 		{
 			index = xte::min(index, this->_size);
 			auto const fill = xte::make<item_type>(XTE_FWD(arg), XTE_FWD(args)...);
@@ -449,7 +462,7 @@ namespace xte {
 				this->_size += count;
 				return;
 			}
-			xte::array<item_type> old = xte::as_xvalue(*this);
+			auto old = xte::as_xvalue(*this);
 			this->reserve_total(old._size + count);
 			for (auto&& item : old | std::views::take(index)) {
 				this->append(xte::as_xvalue_if_noex(item));
@@ -463,7 +476,8 @@ namespace xte {
 		}
 
 		constexpr void erase(xte::uz index, xte::uz count = 1) & noexcept(false)
-		requires(requires (item_type x) { { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; }) {
+			requires requires(item_type x) { { xte::assign(x, xte::as_xvalue_if_noex(x)) } noexcept; }
+		{
 			if (index < this->_size) {
 				count = xte::min(count, this->_size - index);
 				this->_size -= count;
@@ -477,8 +491,8 @@ namespace xte {
 		}
 
 		constexpr void append() & noexcept(false)
-		requires(xte::is_constructible<item_type>
-			&& requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); })
+			requires xte::is_constructible<item_type>
+				&& requires(item_type x) { xte::make<item_type>(xte::as_xvalue_if_noex(x)); }
 		{
 			this->reserve(this->_size == this->_capacity);
 			xte::construct(this->_data[this->_size]);
@@ -487,8 +501,9 @@ namespace xte {
 
 		template<typename arg_type = item_type>
 		constexpr void append(arg_type&& arg, auto&&... args) & noexcept(false)
-		requires(requires { item_type(XTE_FWD(arg), XTE_FWD(args)...); }
-			&& requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); })
+			requires requires(item_type x) {
+				xte::make<item_type>(XTE_FWD(arg), XTE_FWD(args)...);
+				xte::make<item_type>(xte::as_xvalue_if_noex(x)); }
 		{
 			if (this->_size == this->_capacity) {
 				auto tmp = xte::make<item_type>(XTE_FWD(arg), XTE_FWD(args)...);
@@ -500,12 +515,13 @@ namespace xte {
 			++this->_size;
 		}
 
-		template<std::ranges::input_range range_type = xte::array<item_type>>
+		template<std::ranges::input_range range_type = xte::array<item_type, allocator_type>>
 		constexpr void append_range(range_type&& range) & noexcept(false)
-		requires(requires { item_type(xte::as_xvalue_if_noex(*xte::as_lvalue(std::ranges::begin(range)))); }
-			&& requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); })
+			requires requires(item_type x) {
+				xte::make<item_type>(xte::as_xvalue_if_noex(*xte::as_lvalue(std::ranges::begin(range))));
+				xte::make<item_type>(xte::as_xvalue_if_noex(x)); }
 		{
-			auto range_copy = xte::array<item_type>(std::from_range, XTE_FWD(range));
+			auto range_copy = xte::array<item_type, allocator_type>(std::from_range, XTE_FWD(range));
 			this->reserve_total(this->_size + range_copy.size());
 			for (auto&& item : range_copy) {
 				xte::construct(this->_data[this->_size], xte::as_xvalue_if_noex(item));
@@ -514,8 +530,8 @@ namespace xte {
 		}
 
 		constexpr void append_fill(xte::uz count) & noexcept(false)
-		requires(xte::is_constructible<item_type>
-			&& requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); })
+			requires xte::is_constructible<item_type>
+				&& requires(item_type x) { xte::make<item_type>(xte::as_xvalue_if_noex(x)); }
 		{
 			this->reserve_total(this->_size + count);
 			while (count--) {
@@ -525,8 +541,8 @@ namespace xte {
 		}
 
 		constexpr void append_fill(xte::uz count, item_type const& fill) & noexcept(false)
-		requires(xte::is_copy_constructible<item_type>
-			&& requires (item_type x) { item_type(xte::as_xvalue_if_noex(x)); })
+			requires xte::is_copy_constructible<item_type>
+				&& requires(item_type x) { item_type(xte::as_xvalue_if_noex(x)); }
 		{
 			this->reserve_total(this->_size + count);
 			while (count--) {
@@ -536,7 +552,8 @@ namespace xte {
 		}
 
 		constexpr item_type pop_back() &
-		noexcept(requires (item_type x) { { item_type(xte::as_xvalue_if_noex(x)) } noexcept; }) {
+			noexcept(requires(item_type x) { { item_type(xte::as_xvalue_if_noex(x)) } noexcept; })
+		{
 			auto last = item_type(xte::as_xvalue_if_noex(this->back()));
 			xte::destroy(this->_data[--this->_size]);
 			return last;
@@ -548,11 +565,11 @@ namespace xte {
 			}
 		}
 
-		[[nodiscard]] friend constexpr auto operator+(xte::array<item_type> lhs, auto&& rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator+(xte::array<item_type, allocator_type> lhs, auto&& rhs) XTE_RETURNS(
 			auto(xte::as_xvalue(lhs += XTE_FWD(rhs)))
 		)
 
-		[[nodiscard]] friend constexpr auto operator+(xte::req_not<[]<xte::is_derived_from<xte::array<item_type>>>{}> auto&& lhs, xte::array<item_type> rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator+(xte::req_not<[]<xte::is_derived_from<xte::array<item_type, allocator_type>>>{}> auto&& lhs, xte::array<item_type, allocator_type> rhs) XTE_RETURNS(
 			rhs.insert_range(0, XTE_FWD(lhs)),
 			auto(xte::as_xvalue(rhs))
 		)

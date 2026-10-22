@@ -11,7 +11,7 @@
 
 namespace DETAIL_XTE::gen {
 	template<typename func_type>
-	requires(requires { { xte::fake<func_type&>()() } -> xte::is_specialization_of<^^xte::opt>; })
+		requires requires { { xte::fake<func_type&>()() } -> xte::is_specialization_of<^^xte::opt>; }
 	struct impl {
 		struct iter {
 			using difference_type = xte::iz;
@@ -21,21 +21,23 @@ namespace DETAIL_XTE::gen {
 			decltype(xte::fake<func_type&>()()) _value;
 
 			[[nodiscard]] constexpr explicit(false) iter() noexcept
-			: _func(nullptr), _value(xte::null) {}
+				: _func(nullptr)
+				, _value(xte::null)
+			{}
 
 			[[nodiscard]] constexpr iter(func_type* func, decltype(xte::fake<func_type&>()()) value) XTE_CONSTRUCTS(
-				(_func,(func))
-				(_value,(xte::as_xvalue(value)))
+				(_func, (func))
+				(_value, (xte::as_xvalue(value)))
 			)
 
 			[[nodiscard]] constexpr explicit(false) iter(DETAIL_XTE::gen::impl<func_type>::iter const& other) XTE_CONSTRUCTS(
-				(_func,(other._func))
-				(_value,(other._value))
+				(_func, (other._func))
+				(_value, (other._value))
 			)
 
 			[[nodiscard]] constexpr explicit(false) iter(DETAIL_XTE::gen::impl<func_type>::iter&& other) XTE_CONSTRUCTS(
-				(_func,(other._func))
-				(_value,(xte::as_xvalue(other)._value))
+				(_func, (other._func))
+				(_value, (xte::as_xvalue(other)._value))
 			)
 
 			[[nodiscard]] constexpr auto operator=(DETAIL_XTE::gen::impl<func_type>::iter const& other) XTE_RETURNS(
@@ -69,7 +71,7 @@ namespace DETAIL_XTE::gen {
 		func_type _func;
 
 		[[nodiscard]] constexpr impl(auto&& func) XTE_CONSTRUCTS(
-			(_func,(XTE_FWD(func)))
+			(_func, (XTE_FWD(func)))
 		)
 
 		[[nodiscard]] constexpr auto begin() XTE_RETURNS(

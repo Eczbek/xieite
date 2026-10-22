@@ -1,7 +1,7 @@
 #ifndef DETAIL_XTE_HEADER_LOWERCASE
 #	define DETAIL_XTE_HEADER_LOWERCASE
 #
-#	include "./assign.hpp"
+#	include "./in_place.hpp"
 #	include "./make.hpp"
 #	include "./qual_traits.hpp"
 #	include "./range_traits.hpp"
@@ -144,9 +144,10 @@ namespace xte {
 
 	template<std::ranges::input_range range_type>
 	[[nodiscard]] constexpr range_type uppercase(range_type range)
-	noexcept(xte::is_range_noex<range_type>
-		&& requires (std::ranges::range_value_t<range_type> x) { { xte::assign(x, xte::uppercase(xte::make<char>(xte::like<range_type>(x)))) } noexcept; })
-	requires(requires (std::ranges::range_value_t<range_type> x) { xte::assign(x, xte::uppercase(xte::make<char>(xte::like<range_type>(x)))); }) {
+		noexcept(xte::is_range_noex<range_type>
+			&& requires(std::ranges::range_value_t<range_type> x) { { xte::assign(x, xte::uppercase(xte::make<char>(xte::like<range_type>(x)))) } noexcept; })
+		requires requires(std::ranges::range_value_t<range_type> x) { xte::assign(x, xte::uppercase(xte::make<char>(xte::like<range_type>(x)))); }
+	{
 		for (auto& c : range) {
 			xte::assign(c, xte::uppercase(xte::make<char>(xte::like<range_type>(c))));
 		}
@@ -155,9 +156,10 @@ namespace xte {
 
 	template<std::ranges::input_range range_type>
 	[[nodiscard]] constexpr range_type lowercase(range_type range)
-	noexcept(xte::is_range_noex<range_type>
-		&& requires (std::ranges::range_value_t<range_type> x) { { xte::assign(x, xte::lowercase(xte::make<char>(xte::like<range_type>(x)))) } noexcept; })
-	requires(requires (std::ranges::range_value_t<range_type> x) { xte::assign(x, xte::lowercase(xte::make<char>(xte::like<range_type>(x)))); }) {
+		noexcept(xte::is_range_noex<range_type>
+			&& requires(std::ranges::range_value_t<range_type> x) { { xte::assign(x, xte::lowercase(xte::make<char>(xte::like<range_type>(x)))) } noexcept; })
+		requires requires(std::ranges::range_value_t<range_type> x) { xte::assign(x, xte::lowercase(xte::make<char>(xte::like<range_type>(x)))); }
+	{
 		for (auto& c : range) {
 			xte::assign(c, xte::lowercase(xte::make<char>(xte::like<range_type>(c))));
 		}

@@ -11,8 +11,8 @@ namespace DETAIL_XTE::fold {
 		value_type value;
 
 		[[nodiscard]] constexpr impl(func_type&& func, value_type&& value) XTE_CONSTRUCTS(
-			(func,(XTE_FWD(func)))
-			(value,(XTE_FWD(value)))
+			(func, (XTE_FWD(func)))
+			(value, (XTE_FWD(value)))
 		)
 
 		[[nodiscard]] constexpr auto operator->*(this auto&& self, auto&& next) XTE_RETURNS_CHOOSE(

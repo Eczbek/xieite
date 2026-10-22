@@ -87,7 +87,7 @@ namespace DETAIL_XTE::wide_int {
 
 namespace xte {
 	template<typename half_type>
-	requires(xte::is_unsigned_int<half_type> || xte::is_privately_derived_from<half_type, DETAIL_XTE::wide_int::base>)
+		requires xte::is_unsigned_int<half_type> || xte::is_privately_derived_from<half_type, DETAIL_XTE::wide_int::base>
 	struct wide_int : private DETAIL_XTE::wide_int::base {
 	private:
 		[[nodiscard]] constexpr xte::wide_int<half_type> _div(xte::wide_int<half_type> const& rhs) & noexcept {
@@ -116,16 +116,19 @@ namespace xte {
 		half_type hi;
 
 		[[nodiscard]] constexpr wide_int(half_type lo, half_type hi) noexcept
-		: lo(xte::as_xvalue(lo)), hi(xte::as_xvalue(hi)) {}
+			: lo(xte::as_xvalue(lo))
+			, hi(xte::as_xvalue(hi))
+		{}
 
 		template<typename int_type = half_type>
-		requires(xte::is_int<int_type> || xte::is_privately_derived_from<int_type, DETAIL_XTE::wide_int::base>)
+			requires xte::is_int<int_type> || xte::is_privately_derived_from<int_type, DETAIL_XTE::wide_int::base>
 		[[nodiscard]] constexpr explicit(false) wide_int(int_type x = 0) noexcept
-		: lo(static_cast<half_type>(x))
-		, hi(static_cast<half_type>(DETAIL_XTE::wide_int::rshift(xte::as_xvalue(x), DETAIL_XTE::wide_int::width<half_type>))) {}
+			: lo(static_cast<half_type>(x))
+			, hi(static_cast<half_type>(DETAIL_XTE::wide_int::rshift(xte::as_xvalue(x), DETAIL_XTE::wide_int::width<half_type>)))
+		{}
 
 		template<typename int_type>
-		requires(xte::is_int<int_type> || xte::is_privately_derived_from<int_type, DETAIL_XTE::wide_int::base>)
+			requires xte::is_int<int_type> || xte::is_privately_derived_from<int_type, DETAIL_XTE::wide_int::base>
 		[[nodiscard]] constexpr explicit operator int_type() const noexcept {
 			return static_cast<int_type>(this->lo) | DETAIL_XTE::wide_int::lshift(static_cast<int_type>(this->hi), DETAIL_XTE::wide_int::width<half_type>);
 		}

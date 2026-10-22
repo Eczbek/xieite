@@ -3,9 +3,10 @@
 #
 #	include "./aliases.hpp"
 #	include "./array.hpp"
-#	include "./assign.hpp"
 #	include "./class_traits.hpp"
 #	include "./compare.hpp"
+#	include "./fundamental_traits.hpp"
+#	include "./in_place.hpp"
 #	include "./init_list.hpp"
 #	include "./macros.hpp"
 #	include "./meta/req.hpp"
@@ -20,55 +21,47 @@
 #	include <string_view>
 
 namespace xte {
-	struct string {
+	template<xte::is_char char_type, typename allocator_type = std::allocator<char_type>> // TODO: constrain allocator_type
+	struct string_base : xte::contiguous_container_aliases<char_type>, xte::dynamic_container_aliases<allocator_type> {
 	private:
-		xte::array<char> _data;
+		xte::array<char_type, allocator_type> _data;
 
 	public:
-		using value_type = char;
-		using reference = char&;
-		using const_reference = char const&;
-		using pointer = char*;
-		using const_pointer = char const*;
-		using iterator = char*;
-		using const_iterator = char const*;
-		using reverse_iterator = std::reverse_iterator<char*>;
-		using const_reverse_iterator = std::reverse_iterator<char const*>;
-		using allocator_type = xte::array<char>::allocator_type;
-		using size_type = xte::uz;
-		using difference_type = xte::iptrdiff;
+		[[nodiscard]] constexpr explicit(false) string_base() noexcept = default;
 
-		[[nodiscard]] constexpr explicit(false) string() noexcept = default;
+		[[nodiscard]] constexpr explicit(false) string_base(xte::string_base<char_type, allocator_type> const& other) noexcept(false)
+			: _data(other._data)
+		{}
 
-		[[nodiscard]] constexpr explicit(false) string(xte::string const& other) noexcept(false)
-		: _data(other._data) {}
+		[[nodiscard]] constexpr explicit(false) string_base(xte::string_base<char_type, allocator_type>&& other) noexcept
+			: _data(xte::as_xvalue(other._data))
+		{}
 
-		[[nodiscard]] constexpr explicit(false) string(xte::string&& other) noexcept
-		: _data(xte::as_xvalue(other._data)) {}
+		[[nodiscard]] constexpr string_base(xte::string_view_base<char_type> view) noexcept(false)
+			: xte::string_base<char_type, allocator_type>(std::from_range, view)
+		{}
 
-		[[nodiscard]] constexpr string(xte::string_view view) noexcept(false)
-		: xte::string(std::from_range, view) {}
+		[[nodiscard]] constexpr explicit(false) string_base(xte::init_list<char_type> init_list) noexcept(false)
+			: xte::string_base<char_type, allocator_type>(std::from_range, xte::as_xvalue(init_list))
+		{}
 
-		[[nodiscard]] constexpr explicit(false) string(xte::init_list<char> init_list) noexcept(false)
-		: xte::string(std::from_range, xte::as_xvalue(init_list)) {}
-
-		[[nodiscard]] constexpr string(std::from_range_t, auto&& range) XTE_CONSTRUCTS(
-			(_data,(std::from_range, XTE_FWD(range))),
+		[[nodiscard]] constexpr string_base(std::from_range_t, auto&& range) XTE_CONSTRUCTS(
+			(_data, (std::from_range, XTE_FWD(range))),
 			(this->_data.size() && this->_data.back()) ? this->_data.append() : void()
 		)
 
 		template<std::input_iterator iter_type>
-		[[nodiscard]] constexpr string(iter_type begin, std::sentinel_for<iter_type> auto end) XTE_CONSTRUCTS(
-			((xte::string),(std::from_range, xte::as_lvalue(std::ranges::subrange(begin, end))))
+		[[nodiscard]] constexpr string_base(iter_type begin, std::sentinel_for<iter_type> auto end) XTE_CONSTRUCTS(
+			((xte::string_base<char_type, allocator_type>), (std::from_range, xte::as_lvalue(std::ranges::subrange(begin, end))))
 		)
 
-		[[nodiscard]] constexpr explicit(false) string(xte::is_implicitly_convertible_noex<char const*> auto&& range) noexcept(false) {
-			if (char const* data = range) do {
+		[[nodiscard]] constexpr explicit(false) string_base(xte::is_implicitly_convertible_noex<char_type const*> auto&& range) noexcept(false) {
+			if (char_type const* data = range) do {
 				this->_data.append(*data);
 			} while (*data++);
 		}
 
-		[[nodiscard]] constexpr string(char const* data, xte::uz size) noexcept(false) {
+		[[nodiscard]] constexpr string_base(char_type const* data, xte::uz size) noexcept(false) {
 			this->_data.reserve_total(size);
 			while (size--) {
 				this->_data.append(*data++);
@@ -83,27 +76,31 @@ namespace xte {
 		}
 
 		template<xte::uz size>
-		[[nodiscard]] constexpr explicit(false) string(xte::type<char[size]> const& data) noexcept(false)
-		: xte::string(data, size) {}
+		[[nodiscard]] constexpr explicit(false) string_base(xte::type<char_type[size]> const& data) noexcept(false)
+			: xte::string_base<char_type, allocator_type>(data, size)
+		{}
 
-		[[nodiscard]] constexpr explicit(false) string(xte::uz size, char c = '\0') noexcept(false)
-		: _data(size, c) {
+		[[nodiscard]] constexpr explicit(false) string_base(xte::uz size, char_type fill = '\0') noexcept(false)
+			: _data(size, fill)
+		{
 			this->_data.append();
 		}
 
-		constexpr xte::string& operator=(xte::string const& other) & noexcept(false) {
+		constexpr xte::string_base<char_type, allocator_type>& operator=(xte::string_base<char_type, allocator_type> const& other) & noexcept(false) {
 			this->_data = other._data;
 			return *this;
 		}
 
-		constexpr xte::string& operator=(xte::string&& other) & noexcept {
+		constexpr xte::string_base<char_type, allocator_type>& operator=(xte::string_base<char_type, allocator_type>&& other) & noexcept {
 			this->_data = xte::as_xvalue(other._data);
 			return *this;
 		}
 
 		template<std::ranges::input_range range_type>
 		constexpr auto operator=(range_type&& range) & noexcept(false)
-		requires(!xte::is_derived_from<range_type, xte::string> && requires (char x) { xte::assign(x, xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); }) {
+			requires (!xte::is_derived_from<range_type, xte::string_base<char_type, allocator_type>>
+				&& requires { static_cast<char_type>(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range)))); })
+		{
 			this->_data = XTE_FWD(range);
 			if (!this->_data.size() || this->_data.back()) {
 				this->_data.append();
@@ -123,7 +120,17 @@ namespace xte {
 			return this->_data.capacity() - !!this->_data.capacity();
 		}
 
-		[[nodiscard]] constexpr char const* c_str() const noexcept {
+		template<xte::uz rhs_size>
+		[[nodiscard]] friend constexpr std::strong_ordering operator<=>(xte::string_base<char_type, allocator_type> lhs, xte::type<char_type[rhs_size]> const& rhs) noexcept {
+			return lhs <=> xte::string_view_base<char_type>(rhs);
+		}
+
+		template<xte::uz rhs_size>
+		[[nodiscard]] friend constexpr bool operator==(xte::string_base<char_type, allocator_type> lhs, xte::type<char_type[rhs_size]> const& rhs) noexcept {
+			return lhs == xte::string_view_base<char_type>(rhs);
+		}
+
+		[[nodiscard]] constexpr char_type const* c_str() const noexcept {
 			return this->_data.data();
 		}
 
@@ -131,7 +138,7 @@ namespace xte {
 			return self.data();
 		}
 
-		[[nodiscard]] constexpr char const* cbegin() const noexcept {
+		[[nodiscard]] constexpr char_type const* cbegin() const noexcept {
 			return this->begin();
 		}
 
@@ -139,7 +146,7 @@ namespace xte {
 			return self.begin() + self.size();
 		}
 
-		[[nodiscard]] constexpr char const* cend() const noexcept {
+		[[nodiscard]] constexpr char_type const* cend() const noexcept {
 			return this->end();
 		}
 
@@ -171,299 +178,299 @@ namespace xte {
 			return XTE_FWD(self)._data[index];
 		}
 
-		[[nodiscard]] constexpr xte::string_view subview(xte::uz index, xte::uz size = -1uz) const noexcept {
-			return xte::string_view(*this).subview(index, size);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> subview(xte::uz index, xte::uz size = -1uz) const noexcept {
+			return xte::string_view_base<char_type>(*this).subview(index, size);
 		}
 
-		[[nodiscard]] constexpr xte::string substr(xte::uz index, xte::uz size = -1uz) const noexcept(false) {
-			return (index < this->size()) ? xte::string(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : "";
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> substr(xte::uz index, xte::uz size = -1uz) const noexcept(false) {
+			return (index < this->size()) ? xte::string_base<char_type, allocator_type>(this->begin() + index, this->begin() + index + xte::min(this->size() - index, size)) : "";
 		}
 
-		[[nodiscard]] constexpr bool contains(xte::string_view pattern) const noexcept {
-			return xte::string_view(*this).contains(pattern);
+		[[nodiscard]] constexpr bool contains(xte::string_view_base<char_type> pattern) const noexcept {
+			return xte::string_view_base<char_type>(*this).contains(pattern);
 		}
 
-		[[nodiscard]] constexpr bool contains(char c) const noexcept {
-			return xte::string_view(*this).contains(c);
+		[[nodiscard]] constexpr bool contains(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).contains(c);
 		}
 
-		[[nodiscard]] constexpr xte::uz find(xte::string_view pattern) const noexcept {
-			return xte::string_view(*this).find(pattern);
+		[[nodiscard]] constexpr xte::uz find(xte::string_view_base<char_type> pattern) const noexcept {
+			return xte::string_view_base<char_type>(*this).find(pattern);
 		}
 
-		[[nodiscard]] constexpr xte::uz find(char c) const noexcept {
-			return xte::string_view(*this).find(c);
+		[[nodiscard]] constexpr xte::uz find(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).find(c);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_last(xte::string_view pattern) const noexcept {
-			return xte::string_view(*this).find_last(pattern);
+		[[nodiscard]] constexpr xte::uz find_last(xte::string_view_base<char_type> pattern) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_last(pattern);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_last(char c) const noexcept {
-			return xte::string_view(*this).find_last(c);
+		[[nodiscard]] constexpr xte::uz find_last(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_last(c);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_any_of(xte::string_view chars) const noexcept {
-			return xte::string_view(*this).find_any_of(chars);
+		[[nodiscard]] constexpr xte::uz find_any_of(xte::string_view_base<char_type> chars) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_any_of(chars);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_any_of(char c) const noexcept {
-			return xte::string_view(*this).find_any_of(c);
+		[[nodiscard]] constexpr xte::uz find_any_of(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_any_of(c);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_last_of(xte::string_view chars) const noexcept {
-			return xte::string_view(*this).find_last_of(chars);
+		[[nodiscard]] constexpr xte::uz find_last_of(xte::string_view_base<char_type> chars) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_last_of(chars);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_last_of(char c) const noexcept {
-			return xte::string_view(*this).find_last_of(c);
+		[[nodiscard]] constexpr xte::uz find_last_of(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_last_of(c);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_not_of(xte::string_view chars) const noexcept {
-			return xte::string_view(*this).find_not_of(chars);
+		[[nodiscard]] constexpr xte::uz find_not_of(xte::string_view_base<char_type> chars) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_not_of(chars);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_not_of(char c) const noexcept {
-			return xte::string_view(*this).find_not_of(c);
+		[[nodiscard]] constexpr xte::uz find_not_of(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_not_of(c);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_last_not_of(xte::string_view chars) const noexcept {
-			return xte::string_view(*this).find_last_not_of(chars);
+		[[nodiscard]] constexpr xte::uz find_last_not_of(xte::string_view_base<char_type> chars) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_last_not_of(chars);
 		}
 
-		[[nodiscard]] constexpr xte::uz find_last_not_of(char c) const noexcept {
-			return xte::string_view(*this).find_last_not_of(c);
+		[[nodiscard]] constexpr xte::uz find_last_not_of(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).find_last_not_of(c);
 		}
 
-		[[nodiscard]] constexpr xte::string_view after(xte::string_view pattern) const noexcept {
-			return xte::string_view(*this).after(pattern);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> after(xte::string_view_base<char_type> pattern) const noexcept {
+			return xte::string_view_base<char_type>(*this).after(pattern);
 		}
 
-		[[nodiscard]] constexpr xte::string_view after(char c) const noexcept {
-			return xte::string_view(*this).after(c);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> after(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).after(c);
 		}
 
-		[[nodiscard]] constexpr xte::string str_after(xte::string_view pattern) const noexcept(false) {
-			return xte::string(this->after(pattern));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_after(xte::string_view_base<char_type> pattern) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->after(pattern));
 		}
 
-		[[nodiscard]] constexpr xte::string str_after(char c) const noexcept(false) {
-			return xte::string(this->after(c));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_after(char_type c) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->after(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view after_last(xte::string_view pattern) const noexcept {
-			return xte::string_view(*this).after_last(pattern);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> after_last(xte::string_view_base<char_type> pattern) const noexcept {
+			return xte::string_view_base<char_type>(*this).after_last(pattern);
 		}
 
-		[[nodiscard]] constexpr xte::string_view after_last(char c) const noexcept {
-			return xte::string_view(*this).after_last(c);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> after_last(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).after_last(c);
 		}
 
-		[[nodiscard]] constexpr xte::string str_after_last(xte::string_view pattern) const noexcept(false) {
-			return xte::string(this->after_last(pattern));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_after_last(xte::string_view_base<char_type> pattern) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->after_last(pattern));
 		}
 
-		[[nodiscard]] constexpr xte::string str_after_last(char c) const noexcept(false) {
-			return xte::string(this->after_last(c));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_after_last(char_type c) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->after_last(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view after_any_of(xte::string_view chars) const noexcept {
-			return xte::string_view(*this).after_any_of(chars);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> after_any_of(xte::string_view_base<char_type> chars) const noexcept {
+			return xte::string_view_base<char_type>(*this).after_any_of(chars);
 		}
 
-		[[nodiscard]] constexpr xte::string_view after_any_of(char c) const noexcept {
-			return xte::string_view(*this).after_any_of(c);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> after_any_of(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).after_any_of(c);
 		}
 
-		[[nodiscard]] constexpr xte::string str_after_any_of(xte::string_view chars) const noexcept(false) {
-			return xte::string(this->after_any_of(chars));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_after_any_of(xte::string_view_base<char_type> chars) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->after_any_of(chars));
 		}
 
-		[[nodiscard]] constexpr xte::string str_after_any_of(char c) const noexcept(false) {
-			return xte::string(this->after_any_of(c));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_after_any_of(char_type c) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->after_any_of(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view before(xte::string_view pattern) const noexcept {
-			return xte::string_view(*this).before(pattern);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> before(xte::string_view_base<char_type> pattern) const noexcept {
+			return xte::string_view_base<char_type>(*this).before(pattern);
 		}
 
-		[[nodiscard]] constexpr xte::string_view before(char c) const noexcept {
-			return xte::string_view(*this).before(c);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> before(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).before(c);
 		}
 
-		[[nodiscard]] constexpr xte::string str_before(xte::string_view pattern) const noexcept(false) {
-			return xte::string(this->before(pattern));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_before(xte::string_view_base<char_type> pattern) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->before(pattern));
 		}
 
-		[[nodiscard]] constexpr xte::string str_before(char c) const noexcept(false) {
-			return xte::string(this->before(c));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_before(char_type c) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->before(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view before_last(xte::string_view pattern) const noexcept {
-			return xte::string_view(*this).before_last(pattern);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> before_last(xte::string_view_base<char_type> pattern) const noexcept {
+			return xte::string_view_base<char_type>(*this).before_last(pattern);
 		}
 
-		[[nodiscard]] constexpr xte::string_view before_last(char c) const noexcept {
-			return xte::string_view(*this).before_last(c);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> before_last(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).before_last(c);
 		}
 
-		[[nodiscard]] constexpr xte::string str_before_last(xte::string_view pattern) const noexcept(false) {
-			return xte::string(this->before_last(pattern));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_before_last(xte::string_view_base<char_type> pattern) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->before_last(pattern));
 		}
 
-		[[nodiscard]] constexpr xte::string str_before_last(char c) const noexcept(false) {
-			return xte::string(this->before_last(c));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_before_last(char_type c) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->before_last(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view before_any_of(xte::string_view chars) const noexcept {
-			return xte::string_view(*this).before_any_of(chars);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> before_any_of(xte::string_view_base<char_type> chars) const noexcept {
+			return xte::string_view_base<char_type>(*this).before_any_of(chars);
 		}
 
-		[[nodiscard]] constexpr xte::string_view before_any_of(char c) const noexcept {
-			return xte::string_view(*this).before_any_of(c);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> before_any_of(char_type c) const noexcept {
+			return xte::string_view_base<char_type>(*this).before_any_of(c);
 		}
 
-		[[nodiscard]] constexpr xte::string str_before_any_of(xte::string_view chars) const noexcept(false) {
-			return xte::string(this->before_any_of(chars));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_before_any_of(xte::string_view_base<char_type> chars) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->before_any_of(chars));
 		}
 
-		[[nodiscard]] constexpr xte::string str_before_any_of(char c) const noexcept(false) {
-			return xte::string(this->before_any_of(c));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_before_any_of(char_type c) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->before_any_of(c));
 		}
 
-		[[nodiscard]] constexpr xte::string_view between(xte::string_view start, xte::string_view end) const noexcept {
-			return xte::string_view(*this).between(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between(xte::string_view_base<char_type> start, xte::string_view_base<char_type> end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between(char start, xte::string_view end) const noexcept {
-			return xte::string_view(*this).between(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between(char_type start, xte::string_view_base<char_type> end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between(xte::string_view start, char end) const noexcept {
-			return xte::string_view(*this).between(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between(xte::string_view_base<char_type> start, char_type end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between(char start, char end) const noexcept {
-			return xte::string_view(*this).between(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between(char_type start, char_type end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string str_between(xte::string_view start, xte::string_view end) const noexcept(false) {
-			return xte::string(this->between(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between(xte::string_view_base<char_type> start, xte::string_view_base<char_type> end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between(char start, xte::string_view end) const noexcept(false) {
-			return xte::string(this->between(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between(char_type start, xte::string_view_base<char_type> end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between(xte::string_view start, char end) const noexcept(false) {
-			return xte::string(this->between(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between(xte::string_view_base<char_type> start, char_type end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between(char start, char end) const noexcept(false) {
-			return xte::string(this->between(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between(char_type start, char_type end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_first(xte::string_view start, xte::string_view end) const noexcept {
-			return xte::string_view(*this).between_first(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_first(xte::string_view_base<char_type> start, xte::string_view_base<char_type> end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_first(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_first(char start, xte::string_view end) const noexcept {
-			return xte::string_view(*this).between_first(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_first(char_type start, xte::string_view_base<char_type> end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_first(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_first(xte::string_view start, char end) const noexcept {
-			return xte::string_view(*this).between_first(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_first(xte::string_view_base<char_type> start, char_type end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_first(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_first(char start, char end) const noexcept {
-			return xte::string_view(*this).between_first(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_first(char_type start, char_type end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_first(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_first(xte::string_view start, xte::string_view end) const noexcept(false) {
-			return xte::string(this->between_first(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_first(xte::string_view_base<char_type> start, xte::string_view_base<char_type> end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_first(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_first(char start, xte::string_view end) const noexcept(false) {
-			return xte::string(this->between_first(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_first(char_type start, xte::string_view_base<char_type> end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_first(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_first(xte::string_view start, char end) const noexcept(false) {
-			return xte::string(this->between_first(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_first(xte::string_view_base<char_type> start, char_type end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_first(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_first(char start, char end) const noexcept(false) {
-			return xte::string(this->between_first(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_first(char_type start, char_type end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_first(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_last(xte::string_view start, xte::string_view end) const noexcept {
-			return xte::string_view(*this).between_last(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_last(xte::string_view_base<char_type> start, xte::string_view_base<char_type> end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_last(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_last(char start, xte::string_view end) const noexcept {
-			return xte::string_view(*this).between_last(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_last(char_type start, xte::string_view_base<char_type> end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_last(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_last(xte::string_view start, char end) const noexcept {
-			return xte::string_view(*this).between_last(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_last(xte::string_view_base<char_type> start, char_type end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_last(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_last(char start, char end) const noexcept {
-			return xte::string_view(*this).between_last(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_last(char_type start, char_type end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_last(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_last(xte::string_view start, xte::string_view end) const noexcept(false) {
-			return xte::string(this->between_last(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_last(xte::string_view_base<char_type> start, xte::string_view_base<char_type> end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_last(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_last(char start, xte::string_view end) const noexcept(false) {
-			return xte::string(this->between_last(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_last(char_type start, xte::string_view_base<char_type> end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_last(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_last(xte::string_view start, char end) const noexcept(false) {
-			return xte::string(this->between_last(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_last(xte::string_view_base<char_type> start, char_type end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_last(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_last(char start, char end) const noexcept(false) {
-			return xte::string(this->between_last(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_last(char_type start, char_type end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_last(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_any_of(xte::string_view start, xte::string_view end) const noexcept {
-			return xte::string_view(*this).between_any_of(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_any_of(xte::string_view_base<char_type> start, xte::string_view_base<char_type> end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_any_of(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_any_of(char start, xte::string_view end) const noexcept {
-			return xte::string_view(*this).between_any_of(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_any_of(char_type start, xte::string_view_base<char_type> end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_any_of(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_any_of(xte::string_view start, char end) const noexcept {
-			return xte::string_view(*this).between_any_of(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_any_of(xte::string_view_base<char_type> start, char_type end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_any_of(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string_view between_any_of(char start, char end) const noexcept {
-			return xte::string_view(*this).between_any_of(start, end);
+		[[nodiscard]] constexpr xte::string_view_base<char_type> between_any_of(char_type start, char_type end) const noexcept {
+			return xte::string_view_base<char_type>(*this).between_any_of(start, end);
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_any_of(xte::string_view start, xte::string_view end) const noexcept(false) {
-			return xte::string(this->between_any_of(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_any_of(xte::string_view_base<char_type> start, xte::string_view_base<char_type> end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_any_of(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_any_of(char start, xte::string_view end) const noexcept(false) {
-			return xte::string(this->between_any_of(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_any_of(char_type start, xte::string_view_base<char_type> end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_any_of(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_any_of(xte::string_view start, char end) const noexcept(false) {
-			return xte::string(this->between_any_of(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_any_of(xte::string_view_base<char_type> start, char_type end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_any_of(start, end));
 		}
 
-		[[nodiscard]] constexpr xte::string str_between_any_of(char start, char end) const noexcept(false) {
-			return xte::string(this->between_any_of(start, end));
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> str_between_any_of(char_type start, char_type end) const noexcept(false) {
+			return xte::string_base<char_type, allocator_type>(this->between_any_of(start, end));
 		}
 
 		constexpr void reset() noexcept {
 			this->_data.reset();
 		}
 
-		constexpr void resize(xte::uz size, char fill = '\0') & noexcept(false) {
+		constexpr void resize(xte::uz size, char_type fill = '\0') & noexcept(false) {
 			this->reserve_total(size + 1);
 			while (this->size() < size) {
 				this->append(fill);
@@ -479,7 +486,7 @@ namespace xte {
 			this->_data.reserve_total(total + !!total);
 		}
 
-		constexpr void reserve_and_init(xte::uz additional, xte::is_invocable<xte::uz(char*, xte::uz)> auto&& op) & noexcept(false) {
+		constexpr void reserve_and_init(xte::uz additional, xte::is_invocable<xte::uz(char_type*, xte::uz)> auto&& op) & noexcept(false) {
 			this->_data.reserve_and_init(additional, XTE_FWD(op));
 			if (this->_data.size() && this->_data.back()) {
 				this->_data.append();
@@ -490,25 +497,27 @@ namespace xte {
 			this->_data.shrink_to_fit();
 		}
 
-		constexpr void insert(xte::uz index, char c = '\0') & noexcept(false) {
+		constexpr void insert(xte::uz index, char_type c = '\0') & noexcept(false) {
 			this->_data.insert(xte::min(index, this->size()), c);
 			if (this->_data.back()) {
 				this->_data.append();
 			}
 		}
 
-		template<std::ranges::input_range range_type = xte::string>
+		template<std::ranges::input_range range_type = xte::string_view_base<char_type>>
 		constexpr void insert_range(xte::uz index, range_type&& range) noexcept(false)
-		requires(xte::is_constructible<char, decltype(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>) {
+			requires xte::is_constructible<char_type, decltype(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>
+		{
 			this->_data.insert_range(xte::min(index, this->size()), XTE_FWD(range));
 			if (!this->_data.size() || this->_data.back()) {
 				this->_data.append();
 			}
 		}
 
-		template<std::ranges::input_range range_type = xte::string>
+		template<std::ranges::input_range range_type = xte::string_view_base<char_type>>
 		constexpr void insert_string(xte::uz index, range_type&& range) & noexcept(false)
-		requires(xte::is_constructible<char, decltype(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>) {
+			requires xte::is_constructible<char_type, decltype(xte::like<range_type>(*xte::as_lvalue(std::ranges::begin(range))))>
+		{
 			index = xte::min(index, this->size());
 			xte::uz old_size = this->size();
 			this->insert_range(index, XTE_FWD(range));
@@ -518,8 +527,8 @@ namespace xte {
 			}
 		}
 
-		constexpr void insert_fill(xte::uz index, xte::uz count, char c) & noexcept(false) {
-			this->_data.insert_fill(xte::min(index, this->size()), count, c);
+		constexpr void insert_fill(xte::uz index, xte::uz count, char_type fill) & noexcept(false) {
+			this->_data.insert_fill(xte::min(index, this->size()), count, fill);
 		}
 
 		constexpr void erase(xte::uz index, xte::uz count = 1) & noexcept {
@@ -528,41 +537,41 @@ namespace xte {
 			}
 		}
 
-		constexpr void append(char c = '\0') & noexcept(false) {
+		constexpr void append(char_type c = '\0') & noexcept(false) {
 			this->insert(-1uz, c);
 		}
 
-		template<typename range_type = xte::string>
+		template<typename range_type = xte::string_view_base<char_type>>
 		constexpr auto append_range(range_type&& range) & XTE_RETURNS(
 			this->insert_range(-1uz, XTE_FWD(range))
 		)
 
-		template<typename range_type = xte::string>
+		template<typename range_type = xte::string_view_base<char_type>>
 		constexpr auto append_string(range_type&& range) & XTE_RETURNS(
 			this->insert_string(-1uz, XTE_FWD(range))
 		)
 
-		constexpr char pop_back() noexcept {
-			char last = this->back();
+		constexpr char_type pop_back() noexcept {
+			char_type last = this->back();
 			this->erase(this->size() - 1);
 			return last;
 		}
 
-		[[nodiscard]] friend constexpr auto operator+(xte::string lhs, auto&& rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator+(xte::string_base<char_type, allocator_type> lhs, auto&& rhs) XTE_RETURNS(
 			auto(xte::as_xvalue(lhs += XTE_FWD(rhs)))
 		)
 
-		[[nodiscard]] friend constexpr xte::string operator+(char lhs, xte::string rhs) noexcept(false) {
+		[[nodiscard]] friend constexpr xte::string_base<char_type, allocator_type> operator+(char_type lhs, xte::string_base<char_type, allocator_type> rhs) noexcept(false) {
 			rhs.insert(0, lhs);
 			return xte::as_xvalue(rhs);
 		}
 
-		[[nodiscard]] friend constexpr auto operator+(xte::req_not<[]<xte::is_derived_from<xte::string>>{}> auto&& lhs, xte::string rhs) XTE_RETURNS(
+		[[nodiscard]] friend constexpr auto operator+(xte::req_not<[]<xte::is_derived_from<xte::string_base<char_type, allocator_type>>>{}> auto&& lhs, xte::string_base<char_type, allocator_type> rhs) XTE_RETURNS(
 			rhs.insert_string(0, XTE_FWD(lhs)),
 			auto(xte::as_xvalue(rhs))
 		)
 
-		constexpr xte::string& operator+=(char rhs) noexcept(false) {
+		constexpr xte::string_base<char_type, allocator_type>& operator+=(char_type rhs) noexcept(false) {
 			this->append(rhs);
 			return *this;
 		}
@@ -572,8 +581,8 @@ namespace xte {
 			*this
 		)
 
-		constexpr void replace(xte::string_view current, xte::string_view with) noexcept(false) {
-			xte::string result;
+		constexpr void replace(xte::string_view_base<char_type> current, xte::string_view_base<char_type> with) noexcept(false) {
+			xte::string_base<char_type, allocator_type> result;
 			xte::uz start = 0;
 			while (true) {
 				auto rest = this->subview(start);
@@ -588,25 +597,27 @@ namespace xte {
 			*this = xte::as_xvalue(result);
 		}
 
-		[[nodiscard]] constexpr xte::string quoted(this auto quoted, char delim = '"', char escape = '\\') noexcept(false) {
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> quoted(this auto quoted, char_type delim = '"', char_type escape = '\\') noexcept(false) {
 			if (delim != escape) {
-				quoted.replace(escape, xte::string { escape, escape });
+				quoted.replace(escape, typename[:^^char_type[]:] { escape, escape });
 			}
-			quoted.replace(delim, xte::string { escape, delim });
+			quoted.replace(delim, typename[:^^char_type[]:] { escape, delim });
 			return delim + xte::as_xvalue(quoted) + delim;
 		}
 
-		[[nodiscard]] constexpr xte::string unquoted(this auto unquoted, char delim = '"', char escape = '\\') noexcept(false) {
+		[[nodiscard]] constexpr xte::string_base<char_type, allocator_type> unquoted(this auto unquoted, char_type delim = '"', char_type escape = '\\') noexcept(false) {
 			if ((unquoted.size() > 1) && (unquoted.front() == delim) && (unquoted.back() == delim)) {
 				unquoted = unquoted.subview(1, unquoted.size() - 2);
 			}
 			if (delim != escape) {
-				unquoted.replace(xte::string { escape, escape }, escape);
+				unquoted.replace(typename[:^^char_type[]:] { escape, escape }, escape);
 			}
-			unquoted.replace(xte::string { escape, delim }, delim);
+			unquoted.replace(typename[:^^char_type[]:] { escape, delim }, delim);
 			return unquoted;
 		}
 	};
+
+	using string = xte::string_base<char>;
 }
 
 namespace xte::literal::string {
@@ -615,13 +626,13 @@ namespace xte::literal::string {
 	}
 }
 
-template<>
-struct std::formatter<xte::string> : std::formatter<std::string_view> {
+template<typename allocator_type>
+struct std::formatter<xte::string_base<char, allocator_type>> : std::formatter<std::string_view> {
 	[[nodiscard]] constexpr auto parse(std::format_parse_context& ctx) noexcept {
 		return std::formatter<std::string_view>::parse(ctx);
 	}
 
-	[[nodiscard]] auto format(xte::string const& string, std::format_context& ctx) const noexcept(false) {
+	[[nodiscard]] auto format(xte::string_base<char, allocator_type> const& string, std::format_context& ctx) const noexcept(false) {
 		return std::formatter<std::string_view>::format(std::string_view(string), ctx);
 	}
 };
