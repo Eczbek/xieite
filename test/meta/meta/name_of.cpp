@@ -151,3 +151,10 @@ static_assert(xte::meta::name_of(^^n::g) == "n::g<...>");
 static_assert(xte::meta::name_of(^^n::g<0>) == "int n::g<0>()");
 static_assert(xte::meta::name_of(^^n::x) == "n::x");
 static_assert(xte::meta::name_of(^^decltype(n::x)) == "n::<lambda> const");
+
+
+using func_type = int();
+struct func_ptr_cast {
+	operator func_type*();
+};
+static_assert(xte::meta::name_of(^^func_ptr_cast::operator func_type*) == "func_ptr_cast::operator (int())*()");

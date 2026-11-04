@@ -152,7 +152,7 @@ namespace xte::meta {
 					} else if (std::meta::is_destructor(info)) {
 						name = "~" + xte::string(std::meta::identifier_of(parent)) + name;
 					} else if (std::meta::is_conversion_function(info)) {
-						name = "operator " + name_of(std::meta::return_type_of(info), ctx_postfix) + name;
+						name = "operator " + name_of(std::meta::return_type_of(info), ctx_none) + name;
 					} else if (std::meta::is_conversion_function_template(info)) {
 						name = "operator " + name;
 					} else if (std::meta::is_operator_function(info) || std::meta::is_operator_function_template(info)) {
