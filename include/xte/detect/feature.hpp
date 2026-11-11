@@ -109,4 +109,10 @@
 #		undef XTE_HAS_SEQ_ITER
 #		define XTE_HAS_SEQ_ITER 1
 #	endif
+#
+#	if XTE_LANG_CPP ? (XTE_COMPILER(GCC, >=, 3) || XTE_COMPILER_CLANG || XTE_COMPILER_MSVC) : XTE_LANG(C, >=, 1999)
+#		define XTE_HAS_RESTRICT 1
+#	else
+#		define XTE_HAS_RESTRICT 0
+#	endif
 #endif

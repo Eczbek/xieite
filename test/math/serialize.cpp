@@ -112,8 +112,6 @@ static_assert(xte::stringify_number(-std::numeric_limits<double>::infinity()) ==
 static_assert(xte::stringify_number(std::numeric_limits<double>::quiet_NaN()) == "nan");
 static_assert(xte::stringify_number(-std::numeric_limits<double>::quiet_NaN()) == "nan");
 
-
-
 static_assert(xte::parse_number<int>("123") == 123);
 static_assert(xte::parse_number<int>("+123") == 123);
 static_assert(xte::parse_number<int>("-123") == -123);

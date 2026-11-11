@@ -11,23 +11,17 @@ struct S0 { S0(int, char, float); };
 static_assert(xte::is_constructible<S0, int, char, float>);
 static_assert(!xte::is_constructible<S0>);
 
-
-
 struct S1 { S1() noexcept; };
 struct S2 { S2(); };
 
 static_assert(xte::is_constructible_noex<S1>);
 static_assert(!xte::is_constructible_noex<S2>);
 
-
-
 struct S3 { explicit(false) S3(int); };
 struct S4 { explicit S4(int); };
 
 static_assert(xte::is_implicitly_constructible<S3, int>);
 static_assert(!xte::is_implicitly_constructible<S4, int>);
-
-
 
 struct S5 { explicit(false) S5() noexcept; };
 struct S6 { explicit(false) S6(); };
@@ -39,11 +33,7 @@ static_assert(!xte::is_implicitly_constructible_noex<S6>);
 static_assert(!xte::is_implicitly_constructible_noex<S7>);
 static_assert(!xte::is_implicitly_constructible_noex<S8>);
 
-
-
 // TODO: is_brace_constructible, is_brace_constructible_noex, is_copy_constructible, is_copy_constructible_noex, is_implicitly_copy_constructible, is_implicitly_copy_constructible_noex, is_move_constructible
-
-
 
 struct S9 {
 	S9() = delete;
@@ -72,8 +62,6 @@ static_assert(!xte::is_move_constructible_noex<S16>);
 static_assert(!xte::is_move_constructible_noex<S17>);
 
 
-
-
 static_assert(xte::is_implicitly_move_constructible<S10>);
 static_assert(xte::is_implicitly_move_constructible<S11>);
 static_assert(!xte::is_implicitly_move_constructible<S12>);
@@ -83,8 +71,6 @@ static_assert(!xte::is_implicitly_move_constructible<S15>);
 static_assert(!xte::is_implicitly_move_constructible<S16>);
 static_assert(!xte::is_implicitly_move_constructible<S17>);
 
-
-
 static_assert(xte::is_implicitly_move_constructible_noex<S10>);
 static_assert(!xte::is_implicitly_move_constructible_noex<S11>);
 static_assert(!xte::is_implicitly_move_constructible_noex<S12>);
@@ -93,8 +79,6 @@ static_assert(!xte::is_implicitly_move_constructible_noex<S14>);
 static_assert(!xte::is_implicitly_move_constructible_noex<S15>);
 static_assert(!xte::is_implicitly_move_constructible_noex<S16>);
 static_assert(!xte::is_implicitly_move_constructible_noex<S17>);
-
-
 
 struct S20 { explicit(false) S20(int) noexcept; };
 struct S21 { explicit(false) S21(int); };
@@ -106,28 +90,20 @@ static_assert(xte::is_convertible<int, S21>);
 static_assert(xte::is_convertible<int, S22>);
 static_assert(xte::is_convertible<int, S23>);
 
-
-
 static_assert(xte::is_convertible_noex<int, S20>);
 static_assert(!xte::is_convertible_noex<int, S21>);
 static_assert(xte::is_convertible_noex<int, S22>);
 static_assert(!xte::is_convertible_noex<int, S23>);
-
-
 
 static_assert(xte::is_implicitly_convertible<int, S20>);
 static_assert(xte::is_implicitly_convertible<int, S21>);
 static_assert(!xte::is_implicitly_convertible<int, S22>);
 static_assert(!xte::is_implicitly_convertible<int, S23>);
 
-
-
 static_assert(xte::is_implicitly_convertible_noex<int, S20>);
 static_assert(!xte::is_implicitly_convertible_noex<int, S21>);
 static_assert(!xte::is_implicitly_convertible_noex<int, S22>);
 static_assert(!xte::is_implicitly_convertible_noex<int, S23>);
-
-
 
 static_assert(xte::is_assignable<int&, int>);
 static_assert(!xte::is_assignable<int, int>);
@@ -138,8 +114,6 @@ struct S25 { int operator=(int) &&; };
 static_assert(!xte::is_assignable<S24&, int>);
 static_assert(xte::is_assignable<S24, int>);
 
-
-
 static_assert(xte::is_assignable_noex<int&, int>);
 static_assert(!xte::is_assignable_noex<int, int>);
 
@@ -148,19 +122,13 @@ static_assert(!xte::is_assignable_noex<S24&, int>);
 static_assert(!xte::is_assignable_noex<S25, int>);
 static_assert(!xte::is_assignable_noex<S25&, int>);
 
-
-
 // TODO: is_assignable_lvalue, is_assignable_lvalue_noex
-
-
 
 static_assert(xte::is_assignable_to<int, int&>);
 static_assert(!xte::is_assignable_to<int, int>);
 
 static_assert(!xte::is_assignable_to<int, S24&>);
 static_assert(xte::is_assignable_to<int, S24>);
-
-
 
 static_assert(xte::is_assignable_to_noex<int, int&>);
 static_assert(!xte::is_assignable_to_noex<int, int>);
@@ -170,11 +138,7 @@ static_assert(!xte::is_assignable_to_noex<int, S24&>);
 static_assert(!xte::is_assignable_to_noex<int, S25>);
 static_assert(!xte::is_assignable_to_noex<int, S25&>);
 
-
-
 // TODO: is_copy_assignable, is_copy_assignable_noex, is_move_assignable, is_move_assignable_noex, is_destructible, is_destructible_noex, is_bool_testable, is_bool_testable_noex, is_swappable_noex
-
-
 
 static_assert(xte::is_callable<int(), void()>);
 static_assert(xte::is_callable<typename[:^^int():]*, void()>);
@@ -186,8 +150,6 @@ static_assert(!xte::is_callable<int, void()>);
 static_assert(!xte::is_callable<int decltype([]{})::*, void()>);
 static_assert(!xte::is_callable<void(int), void(int) noexcept>);
 
-
-
 static_assert(xte::is_callable_lvalue<void(int), void(int)>);
 
 struct S26 {
@@ -195,11 +157,7 @@ struct S26 {
 };
 static_assert(!xte::is_callable_lvalue<S26, void(int)>);
 
-
-
 // TODO: is_invocable, is_invocable_lvalue, member_type_of, class_type_of
-
-
 
 struct S27 {
 	int x;
@@ -212,11 +170,7 @@ static_assert(xte::is_member_ptr_of<decltype(&S27::f), S27>);
 static_assert(!xte::is_member_ptr_of<int, S27>);
 static_assert(!xte::is_member_ptr_of<void(), S27>);
 
-
-
 // TODO: is_derived_from
-
-
 
 struct S28 {};
 struct S29 : private S28 {};
@@ -225,8 +179,6 @@ struct S30 : public S28 {};
 static_assert(xte::is_privately_derived_from<S29, S28>);
 static_assert(!xte::is_privately_derived_from<S30, S28>);
 
-
-
 template<typename, auto>
 struct S31 {};
 
@@ -234,8 +186,6 @@ static_assert(xte::is_specialization_of<S31<int, 0>, ^^S31>);
 static_assert(!xte::is_specialization_of<S31<int, 0>, ^^int>);
 static_assert(!xte::is_specialization_of<int, ^^S31>);
 static_assert(!xte::is_specialization_of<int, ^^int>);
-
-
 
 template<int>
 struct S32 {};
@@ -246,8 +196,6 @@ static_assert(xte::is_derived_from_specialization_of<S33, ^^S32>);
 static_assert(!xte::is_derived_from_specialization_of<int, ^^S32>);
 
 static_assert(xte::is_derived_from_specialization_of<xte::fixed_array<int, 3>, ^^xte::fixed_array>);
-
-
 
 struct S98 : xte::non_copyable {};
 

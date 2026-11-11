@@ -6,8 +6,6 @@
 
 // TODO: compare
 
-
-
 static_assert(xte::equal(65536, 65536.0));
 static_assert(xte::equal(65536.0, 65536));
 static_assert(!xte::equal(65536, 65535.0));
@@ -20,8 +18,6 @@ static_assert(!xte::equal(ULLONG_MAX, static_cast<double>(ULLONG_MAX)));
 
 static_assert(!xte::equal(9007199254740995LL, 9007199254740996.0)); // 2^53+4 (exactly representable)
 static_assert(xte::equal(9007199254740996LL, 9007199254740996.0));
-
-
 
 static_assert(!xte::less(0, NAN));
 static_assert(!xte::less(NAN, 0));
@@ -93,7 +89,5 @@ struct B {
 	}
 };
 static_assert(xte::less(B(0), B(5)));
-
-
 
 // TODO: less_equal, greater, greater_equal

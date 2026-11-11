@@ -28,8 +28,6 @@ static_assert(xte::max(B(-5), B(5)).x == 5);
 static_assert(xte::max(1, 2, 3) == 3);
 static_assert(xte::max(5, 812, 75, 18, 96, 873, 555, 0, -132657, -74, 72866, 999999, 4) == 999999);
 
-
-
 static_assert(xte::min(xte::as_lvalue(0), xte::as_const(xte::as_lvalue(0))) == 0);
 
 static_assert(xte::min(0, 0) == 0);
@@ -54,8 +52,6 @@ struct D {
 	}
 };
 static_assert(xte::min(D(-5), D(5)).x == -5);
-
-
 
 consteval {
 	constexpr auto [min, max] = xte::minmax(5, -5);
@@ -88,8 +84,6 @@ consteval {
 	static_assert(min.x == -5);
 	static_assert(max.x == 5);
 }
-
-
 
 static_assert(xte::clamp(1, 0, 2) == 1);
 static_assert(xte::clamp(-1, 0, 2) == 0);
